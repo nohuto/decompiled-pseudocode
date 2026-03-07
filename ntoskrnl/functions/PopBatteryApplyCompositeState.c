@@ -142,7 +142,7 @@ __int64 __fastcall PopBatteryApplyCompositeState(int *a1, int a2)
     BYTE1(xmmword_140C3CD28) = 1;
     BYTE2(xmmword_140C3CD28) = (unk_140C3CB80 & 4) != 0;
     DWORD2(xmmword_140C3CD28) = HIDWORD(qword_140C3CBA0);
-    HIDWORD(xmmword_140C3CD28) = unk_140C3CB84;
+    HIDWORD(xmmword_140C3CD28) = dword_140C3CB84;
     *(_QWORD *)&xmmword_140C3CD38 = qword_140C3CB8C;
     *((_QWORD *)&xmmword_140C3CD38 + 1) = unk_140C3CBA8;
     BYTE3(xmmword_140C3CD28) = byte_140C3CCE8 != 0 || (unk_140C3CB80 & 2) != 0;

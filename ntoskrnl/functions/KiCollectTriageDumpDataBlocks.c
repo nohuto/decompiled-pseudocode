@@ -59,11 +59,11 @@ LABEL_27:
     }
     else
     {
-      KiMarkBugCheckRegions(qword_140C42448, qword_140C42450, qword_140C42458, qword_140C42460);
+      KiMarkBugCheckRegions(qword_140C42448, xmmword_140C42450, MEMORY[0x140C42458], qword_140C42460);
       if ( qword_140C42460 == 47 )
       {
-        v10 = qword_140C42458;
-        if ( MmIsAddressValidEx(qword_140C42458 + 1928) )
+        v10 = MEMORY[0x140C42458];
+        if ( MmIsAddressValidEx(MEMORY[0x140C42458] + 1928) )
         {
           v8 = *(_QWORD *)(v10 + 1928);
           v9 = 4096LL;

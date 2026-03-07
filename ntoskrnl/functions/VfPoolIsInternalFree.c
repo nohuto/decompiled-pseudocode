@@ -8,7 +8,7 @@ __int64 VfPoolIsInternalFree()
   while ( CurrentThread != *v1 )
   {
     v1 += 8;
-    if ( (__int64)v1 >= (__int64)&unk_140CF7E28 )
+    if ( (__int64)v1 >= (__int64)&byte_140CF7E28 )
       return 0LL;
   }
   return 1LL;

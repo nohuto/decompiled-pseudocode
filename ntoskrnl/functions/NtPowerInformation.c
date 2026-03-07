@@ -514,7 +514,7 @@ LABEL_122:
                 {
                   goto LABEL_307;
                 }
-                v92 = (HANDLE *)&unk_140C3D3A4;
+                v92 = (HANDLE *)&dword_140C3D3A4;
               }
 LABEL_351:
               Src = v92;

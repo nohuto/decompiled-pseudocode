@@ -75,14 +75,14 @@ __int64 __fastcall PopCalculateCsSummary(__int64 a1, int a2)
     v55 = 0;
   }
   v7 = PopMeasureEnergyChange(&v49, &CsSessionEnergyCounter);
-  v8 = HIDWORD(xmmword_140C3CB94);
-  if ( HIDWORD(xmmword_140C3CB94) )
-    LODWORD(v7) = (unsigned int)(100 * xmmword_140C3CBA4) / HIDWORD(xmmword_140C3CB94);
+  v8 = HIDWORD(unk_140C3CB94);
+  if ( HIDWORD(unk_140C3CB94) )
+    LODWORD(v7) = (unsigned int)(100 * MEMORY[0x140C3CBA4]) / HIDWORD(unk_140C3CB94);
   else
     LOBYTE(v7) = 0;
   v9 = 0;
-  if ( (xmmword_140C3CB94 & 0x40000000) == 0 )
-    v9 = xmmword_140C3CBA4;
+  if ( (unk_140C3CB94 & 0x40000000) == 0 )
+    v9 = MEMORY[0x140C3CBA4];
   v56 = v7;
   v43 = *((_QWORD *)&v50 + 1) - qword_140CF7890;
   v36 = v9;
