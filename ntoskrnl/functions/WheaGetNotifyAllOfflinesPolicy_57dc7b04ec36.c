@@ -1,0 +1,4 @@
+char WheaGetNotifyAllOfflinesPolicy()
+{
+  return WheapPolicyNotifyAllOfflines;
+}

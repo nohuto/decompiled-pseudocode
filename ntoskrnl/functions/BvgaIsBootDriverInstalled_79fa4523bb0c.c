@@ -1,0 +1,4 @@
+char BvgaIsBootDriverInstalled()
+{
+  return BvgaBootDriverInstalled;
+}

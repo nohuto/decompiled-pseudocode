@@ -1,0 +1,4 @@
+char VslIsSecureKernelRunning()
+{
+  return VslVsmEnabled;
+}

@@ -1,0 +1,4 @@
+void DbgUserBreakPoint()
+{
+  __debugbreak();
+}

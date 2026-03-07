@@ -1,0 +1,4 @@
+NTSTATUS PopSpoilEstimatesOnPowerStateTransitionWorker()
+{
+  return PopSpoilBatteryEstimate(1, 0);
+}

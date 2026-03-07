@@ -1,0 +1,33 @@
+LONG __fastcall MiFinishPlaceholderVadReplacement(unsigned int *P, __int64 a2, int a3)
+{
+  struct _KTHREAD *CurrentThread; // rcx
+  __int64 Process; // rsi
+  __int16 *ProcessPartition; // rax
+
+  CurrentThread = KeGetCurrentThread();
+  Process = (__int64)CurrentThread->ApcState.Process;
+  if ( a3 )
+  {
+    MiLockVadShared((__int64)CurrentThread, (__int64)P);
+    if ( !(unsigned int)MiVadDeleted((__int64)P) && (WORD2(PerfGlobalGroupMask[0]) & 0x8000) != 0 )
+    {
+      ProcessPartition = (__int16 *)MiGetProcessPartition(Process);
+      PerfInfoLogVirtualAlloc(
+        (P[6] | ((unsigned __int64)*((unsigned __int8 *)P + 32) << 32)) << 12,
+        ((P[7] | ((unsigned __int64)*((unsigned __int8 *)P + 33) << 32))
+       - (P[6] | ((unsigned __int64)*((unsigned __int8 *)P + 32) << 32))
+       + 1) << 12,
+        Process,
+        0x2000,
+        *ProcessPartition,
+        *ProcessPartition);
+    }
+    MiUnlockAndDereferenceVadShared(P);
+  }
+  else
+  {
+    MiSetVadDeleted((__int64)P);
+    MiDeleteVad(P, 0LL, 0);
+  }
+  return MiDecrementVadsBeingDeleted(a2);
+}

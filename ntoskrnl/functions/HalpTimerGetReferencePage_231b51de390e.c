@@ -1,0 +1,4 @@
+PVOID HalpTimerGetReferencePage()
+{
+  return HalpTimerReferencePage;
+}

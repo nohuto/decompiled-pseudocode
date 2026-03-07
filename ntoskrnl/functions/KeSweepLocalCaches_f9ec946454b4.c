@@ -1,0 +1,4 @@
+void KeSweepLocalCaches()
+{
+  __wbinvd();
+}

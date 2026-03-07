@@ -1,0 +1,7 @@
+_BOOL8 __fastcall MiLargePageMovesInProgress(__int64 a1)
+{
+  return *(_DWORD *)(*(_QWORD *)(*(_QWORD *)(qword_140C67048 + 8 * ((*(_QWORD *)(a1 + 40) >> 43) & 0x3FFLL)) + 16LL)
+                   + 25408LL
+                   * *((unsigned int *)MiSearchNumaNodeTable(0xAAAAAAAAAAAAAAABuLL * ((a1 + 0x220000000000LL) >> 4)) + 2)
+                   + 23004) != 0;
+}

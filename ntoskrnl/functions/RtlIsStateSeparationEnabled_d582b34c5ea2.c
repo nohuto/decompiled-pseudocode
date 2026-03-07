@@ -1,0 +1,4 @@
+bool RtlIsStateSeparationEnabled()
+{
+  return CmIsStateSeparationEnabled();
+}

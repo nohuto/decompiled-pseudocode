@@ -1,0 +1,4 @@
+char KeIntSteerIsSteeringEnabled()
+{
+  return KiIntSteerEnabled;
+}

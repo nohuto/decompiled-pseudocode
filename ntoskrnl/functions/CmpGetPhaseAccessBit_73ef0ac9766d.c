@@ -1,0 +1,4 @@
+char CmpGetPhaseAccessBit()
+{
+  return CmpAccessBitForPhase;
+}
