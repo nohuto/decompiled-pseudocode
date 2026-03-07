@@ -79,7 +79,7 @@ LABEL_7:
   if ( v4 && KiNextTimer2DueTime == *(_QWORD *)(a1 + 72) )
   {
     v12 = -1LL;
-    v13 = (__int64 *)&unk_140C41F50;
+    v13 = (__int64 *)&qword_140C41F50;
     v14 = 5LL;
     do
     {

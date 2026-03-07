@@ -264,10 +264,10 @@ LABEL_26:
     HalReturnToFirmware(3);
   }
   qword_140C42448 = a2;
-  qword_140C42450 = a3;
+  xmmword_140C42450 = a3;
   if ( v75 == -1073741103 )
     v31 = 195;
-  qword_140C42458 = (__int64)a4;
+  MEMORY[0x140C42458] = (__int64)a4;
   KiBugCheckData = v31;
   v75 = v31;
   qword_140C42460 = a5;
@@ -399,7 +399,7 @@ LABEL_86:
         }
         v76 = *(_QWORD *)(v32 + 360);
         v37 = v76;
-        qword_140C42458 = v76;
+        MEMORY[0x140C42458] = v76;
         v36 = KiPcToFileHeader(v76, &v78, 0LL, &v67);
         if ( KeGetCurrentThread()->ApcStateIndex == 1 )
         {
@@ -556,7 +556,13 @@ LABEL_94:
   KiFilterBugCheckInfo(&v75, (__int64)&KiBugCheckData);
   if ( CrashdmpDumpBlock )
     v47 = !v35;
-  HvlLogGuestCrashInformation(KiBugCheckData, qword_140C42448, qword_140C42450, qword_140C42458, qword_140C42460, v47);
+  HvlLogGuestCrashInformation(
+    KiBugCheckData,
+    qword_140C42448,
+    xmmword_140C42450,
+    MEMORY[0x140C42458],
+    qword_140C42460,
+    v47);
   if ( !KdPitchDebugger )
     qword_140C021C8 = (__int64)v88;
   if ( (unsigned __int8)KiBugCheckShouldEnterPostBugCheckDebugger(v75, 0LL) )
@@ -569,8 +575,8 @@ LABEL_94:
         "\n*** Fatal System Error: 0x%08lx\n                       (0x%p,0x%p,0x%p,0x%p)\n\n",
         KiBugCheckData,
         (const void *)qword_140C42448,
-        (const void *)qword_140C42450,
-        (const void *)qword_140C42458,
+        (const void *)xmmword_140C42450,
+        (const void *)MEMORY[0x140C42458],
         (const void *)qword_140C42460);
       if ( KiBugCheckDriver )
         DbgPrintEx(0x65u, 0, "Driver at fault: %s.\n", pszDest);

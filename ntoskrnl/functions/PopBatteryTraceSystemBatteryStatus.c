@@ -26,7 +26,7 @@ char __fastcall PopBatteryTraceSystemBatteryStatus(char a1)
     {
       if ( BYTE1(xmmword_140C3CD28) )
       {
-        v6 = xmmword_140C3CB80;
+        v6 = unk_140C3CB80;
         v4 = 1;
       }
       else

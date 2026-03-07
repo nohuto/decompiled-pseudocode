@@ -17,7 +17,7 @@ __int64 __fastcall BcpGetCharacterMaxResourceProfile(unsigned __int16 a1, int a2
   v4 = *a3;
   v15 = 0LL;
   v7 = 0LL;
-  v8 = (int *)((char *)&unk_140C0B590 + 4 * a2);
+  v8 = (int *)((char *)&dword_140C0B590 + 4 * a2);
   v16 = *((_QWORD *)a3 + 2);
   v15 = v4;
   do

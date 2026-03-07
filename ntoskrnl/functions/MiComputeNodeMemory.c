@@ -147,7 +147,7 @@ void __fastcall MiComputeNodeMemory(__int16 *a1, int a2)
         v15 = (unsigned int)MmNumberOfChannels;
         do
         {
-          *v14 -= *(_QWORD *)((char *)v14 + (_QWORD)&unk_140C67250 + 32LL * v9 - (_QWORD)v39);
+          *v14 -= *(_QWORD *)((char *)v14 + (_QWORD)&qword_140C67250 + 32LL * v9 - (_QWORD)v39);
           ++v14;
           --v15;
         }

@@ -80,8 +80,8 @@ LABEL_4:
   }
   memset(&PopHibernateSystemContext, 0, 0x50uLL);
   dword_140D182D0 = KeNumberProcessors_0;
-  dword_140D182DC = KeNumberProcessors_0;
-  dword_140D182D8 = 1;
+  MEMORY[0x140D182DC] = KeNumberProcessors_0;
+  qword_140D182D8 = 1;
   if ( ((unsigned __int8)&stru_140D182E0 & 0xF) != 0 )
     RtlRaiseStatus(-2147483646);
   stru_140D182E0 = 0LL;

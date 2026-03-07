@@ -9,7 +9,7 @@ __int64 __fastcall HalpPrepareForBugcheck(char a1)
     qword_140C62120 = 0LL;
     xmmword_140C62108 = 0uLL;
     qword_140C621C8 = 0LL;
-    dword_140C62104 = 0;
+    MEMORY[0x140C62104] = 0;
     HalpEnlightenment = 0;
     result = HalpTimerUpdateApiConsumers();
   }

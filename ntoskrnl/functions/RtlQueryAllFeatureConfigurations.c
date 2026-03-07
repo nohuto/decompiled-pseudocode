@@ -13,7 +13,7 @@ __int64 __fastcall RtlQueryAllFeatureConfigurations(int a1, _QWORD *a2, _QWORD *
   v16 = 0LL;
   v15 = 0LL;
   v6 = a1;
-  RtlpFcBufferManagerReferenceBuffers((__int64)&unk_140C13F70, (__int64)&v16, &v15);
+  RtlpFcBufferManagerReferenceBuffers((__int64)&qword_140C13F70, (__int64)&v16, &v15);
   v8 = RtlpFcValidateFeatureConfigurationType(v6);
   v9 = v15;
   v10 = v8;
@@ -46,6 +46,6 @@ LABEL_8:
       *a2 = v16;
     v10 = 0;
   }
-  RtlpFcBufferManagerDereferenceBuffers((__int64)&unk_140C13F70, v9);
+  RtlpFcBufferManagerDereferenceBuffers((__int64)&qword_140C13F70, v9);
   return (unsigned int)v10;
 }

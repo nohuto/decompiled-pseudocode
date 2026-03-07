@@ -36,7 +36,7 @@ void PopTracePowerReconfig()
       v2 = dword_140C3CB54;
       v11 = 8LL;
       v12 = &v2;
-      v3 = xmmword_140C3CBA4;
+      v3 = MEMORY[0x140C3CBA4];
       v14 = &v3;
       v16 = &v4;
       v18 = &v5;
