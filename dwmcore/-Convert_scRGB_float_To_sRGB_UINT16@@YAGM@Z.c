@@ -1,0 +1,41 @@
+__int64 __fastcall Convert_scRGB_float_To_sRGB_UINT16(float a1)
+{
+  double v1; // xmm6_8
+  __int64 v3; // rbx
+  __int64 v4; // rcx
+
+  v1 = a1 * 255.0;
+  if ( v1 <= 0.0 )
+    return 0LL;
+  if ( v1 >= 255.0 )
+    return 0xFFFFLL;
+  v3 = Convert_scRGB_Channel_To_sRGB_Byte(a1);
+  if ( (unsigned int)v3 >= 0xFE )
+    v3 = 254LL;
+  do
+  {
+    if ( GammaLUT_sRGB_to_scRGB[v3] <= v1 )
+      break;
+    v3 = (unsigned int)(v3 - 1);
+  }
+  while ( (unsigned int)v3 <= 0xFE );
+  if ( (unsigned int)v3 >= 0xFE )
+    v3 = 254LL;
+  do
+  {
+    v4 = (unsigned int)(v3 + 1);
+    if ( v1 < GammaLUT_sRGB_to_scRGB[v4] )
+      break;
+    v3 = (unsigned int)v4;
+  }
+  while ( (unsigned int)v4 <= 0xFE );
+  if ( (unsigned int)v3 >= 0xFE )
+    v3 = 254LL;
+  return (unsigned int)(65793
+                      * (((_DWORD)v3 << 8)
+                       + (int)floor_0(
+                                (v1 - GammaLUT_sRGB_to_scRGB[v3])
+                              / (float)(GammaLUT_sRGB_to_scRGB[(unsigned int)(v3 + 1)] - GammaLUT_sRGB_to_scRGB[v3])
+                              * 256.0
+                              + 0.5))) >> 16;
+}

@@ -1,0 +1,128 @@
+__int64 __fastcall AllocateWindowManagerSid(__int64 *a1)
+{
+  ULONG v2; // eax
+  NSInstrumentation::CLeakTrackingAllocator *v3; // rbx
+  unsigned __int64 v4; // rdi
+  int v5; // eax
+  __int64 Pool2; // rdi
+  NTSTATUS v7; // esi
+  __int64 v8; // rdx
+  __int64 v9; // rcx
+  __int64 v10; // r8
+  __int64 v11; // r9
+  ULONG v12; // ebx
+  _QWORD *v14; // rax
+  char v15; // si
+  __int64 v16; // [rsp+28h] [rbp-99h] BYREF
+  __int64 v17; // [rsp+30h] [rbp-91h] BYREF
+  unsigned __int64 v18; // [rsp+38h] [rbp-89h] BYREF
+  PVOID BackTrace[20]; // [rsp+48h] [rbp-79h] BYREF
+  unsigned __int64 IdentifierAuthority[2]; // [rsp+E8h] [rbp+27h] BYREF
+
+  *a1 = 0LL;
+  v2 = RtlLengthRequiredSid(3u);
+  v3 = gpLeakTrackingAllocator;
+  v4 = v2;
+  LODWORD(v16) = 1702064981;
+  v17 = 260LL;
+  v5 = *(_DWORD *)gpLeakTrackingAllocator;
+  v18 = v4;
+  if ( !v5 )
+  {
+    Pool2 = ExAllocatePool2(261LL, (unsigned int)v4, 1702064981LL);
+    if ( Pool2 )
+      _InterlockedIncrement64((volatile signed __int64 *)v3 + 14);
+LABEL_4:
+    if ( Pool2 )
+      goto LABEL_5;
+    return (unsigned int)-1073741801;
+  }
+  if ( v5 == 1 )
+  {
+    if ( !NSInstrumentation::CLeakTrackingAllocator::EnsurePoolTagIncrement(gpLeakTrackingAllocator, 0x65737355u)
+      || v4 + 16 < v4 )
+    {
+      return (unsigned int)-1073741801;
+    }
+    v14 = (_QWORD *)ExAllocatePool2(v17 & 0xFFFFFFFFFFFFFFFCuLL | 1, v4 + 16, (unsigned int)v16);
+    Pool2 = (__int64)v14;
+    if ( !v14
+      || (_InterlockedIncrement64((volatile signed __int64 *)v3 + 14),
+          *v14 = 1702064981LL,
+          Pool2 = (__int64)(v14 + 2),
+          v14 == (_QWORD *)-16LL) )
+    {
+      NSInstrumentation::CPointerHashTable::LookupInterlockedDecrement(
+        *((NSInstrumentation::CPointerHashTable **)v3 + 1),
+        (const void *)0x65737355);
+    }
+    goto LABEL_4;
+  }
+  if ( v5 != 2 )
+    return (unsigned int)-1073741801;
+  IdentifierAuthority[0] = 0LL;
+  if ( !NSInstrumentation::CLeakTrackingAllocator::IsTagTracked(
+          gpLeakTrackingAllocator,
+          0x65737355u,
+          IdentifierAuthority) )
+  {
+    IdentifierAuthority[0] = (unsigned __int64)&v17;
+    IdentifierAuthority[1] = (unsigned __int64)&v16;
+    Pool2 = NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_a6c9ad8a3ccccec93018e691c2ba1200__unsigned___int64___(
+              (__int64)v3,
+              (__int64)IdentifierAuthority,
+              &v18);
+    goto LABEL_4;
+  }
+  v15 = 0;
+  if ( v4 < 0x1000 || (v4 & 0xFFF) != 0 )
+  {
+    v4 += 16LL;
+    v15 = 1;
+    v18 = v4;
+  }
+  Pool2 = ExAllocatePool2(261LL, v4, 1702064981LL);
+  if ( !Pool2 )
+    return (unsigned int)-1073741801;
+  _InterlockedIncrement64((volatile signed __int64 *)v3 + 16);
+  NSInstrumentation::CBackTrace::CBackTrace(BackTrace);
+  if ( v15 && (unsigned __int64)(Pool2 & 0xFFF) + 16 < 0x1000 )
+  {
+    if ( (unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<1>(
+                            v3,
+                            Pool2,
+                            IdentifierAuthority[0],
+                            BackTrace) )
+    {
+      Pool2 += 16LL;
+      goto LABEL_4;
+    }
+LABEL_26:
+    _InterlockedIncrement64((volatile signed __int64 *)v3 + 17);
+    _lambda_fbf80a8de0504b0922e6810f5f982d9a_::_lambda_invoker_cdecl_<void *>((PVOID)Pool2);
+    return (unsigned int)-1073741801;
+  }
+  if ( !(unsigned __int8)NSInstrumentation::CLeakTrackingAllocator::AssociateAllocationWithBacktrace<0>(
+                           v3,
+                           Pool2,
+                           IdentifierAuthority[0],
+                           BackTrace) )
+    goto LABEL_26;
+LABEL_5:
+  LODWORD(IdentifierAuthority[0]) = 0;
+  WORD2(IdentifierAuthority[0]) = 1280;
+  v7 = RtlInitializeSid((PSID)Pool2, (PSID_IDENTIFIER_AUTHORITY)IdentifierAuthority, 3u);
+  if ( v7 < 0 )
+  {
+    NSInstrumentation::CLeakTrackingAllocator::Free(gpLeakTrackingAllocator, (void *)Pool2);
+  }
+  else
+  {
+    *RtlSubAuthoritySid((PSID)Pool2, 0) = 90;
+    *RtlSubAuthoritySid((PSID)Pool2, 1u) = 0;
+    v12 = *(_DWORD *)SGDGetUserSessionState(v9, v8, v10, v11);
+    *RtlSubAuthoritySid((PSID)Pool2, 2u) = v12;
+    *a1 = Pool2;
+  }
+  return (unsigned int)v7;
+}

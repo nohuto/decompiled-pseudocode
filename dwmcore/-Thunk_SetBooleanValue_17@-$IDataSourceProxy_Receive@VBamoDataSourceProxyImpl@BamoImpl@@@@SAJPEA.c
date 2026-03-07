@@ -1,0 +1,34 @@
+__int64 __fastcall IDataSourceProxy_Receive<BamoImpl::BamoDataSourceProxyImpl>::Thunk_SetBooleanValue_17(
+        Microsoft::BamoImpl::BamoProxyImpl *this,
+        unsigned int **a2,
+        __int64 a3,
+        const char *a4)
+{
+  char v5; // di
+  unsigned int v6; // ebx
+  __int64 v7; // r8
+  unsigned int v8; // ebx
+  __int64 v9; // rdx
+  __int64 v10; // r8
+  const char *v11; // r9
+  __int64 v12; // rdx
+  __int64 v13; // r8
+  _BYTE v15[40]; // [rsp+20h] [rbp-28h] BYREF
+
+  v5 = *(_BYTE *)a2[1];
+  v6 = **a2;
+  Microsoft::BamoImpl::CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>::CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>(
+    (__int64)v15,
+    *(Microsoft::BamoImpl::BaseBamoConnectionImpl **)(*(_QWORD *)(*((_QWORD *)this + 2) + 24LL) + 32LL),
+    a3,
+    a4);
+  LOBYTE(v7) = v5;
+  v8 = (*(__int64 (__fastcall **)(char *, _QWORD, __int64))(*((_QWORD *)this - 2) + 120LL))((char *)this - 16, v6, v7);
+  Microsoft::BamoImpl::CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>::~CalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>(
+    (__int64)v15,
+    v9,
+    v10,
+    v11);
+  Microsoft::BamoImpl::BamoProxyImpl::AckReference(this, v12, v13);
+  return v8;
+}

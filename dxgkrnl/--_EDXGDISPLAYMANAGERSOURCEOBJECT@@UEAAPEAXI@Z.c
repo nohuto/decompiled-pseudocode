@@ -1,0 +1,9 @@
+DXGDISPLAYMANAGERSOURCEOBJECT *__fastcall DXGDISPLAYMANAGERSOURCEOBJECT::`vector deleting destructor'(
+        DXGDISPLAYMANAGERSOURCEOBJECT *P,
+        char a2)
+{
+  DXGDISPLAYMANAGERSOURCEOBJECT::~DXGDISPLAYMANAGERSOURCEOBJECT(P);
+  if ( (a2 & 1) != 0 && P )
+    ExFreePoolWithTag(P, 0);
+  return P;
+}

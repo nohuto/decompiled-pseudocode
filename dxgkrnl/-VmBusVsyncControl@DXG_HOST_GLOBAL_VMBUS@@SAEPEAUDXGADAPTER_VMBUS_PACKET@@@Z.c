@@ -1,0 +1,21 @@
+unsigned __int8 __fastcall DXG_HOST_GLOBAL_VMBUS::VmBusVsyncControl(struct DXGADAPTER_VMBUS_PACKET *a1)
+{
+  __int64 v1; // rax
+  __int64 *v3[3]; // [rsp+20h] [rbp-18h] BYREF
+  struct DXGADAPTER_VMBUS_PACKET *v4; // [rsp+40h] [rbp+8h] BYREF
+  int v5; // [rsp+48h] [rbp+10h] BYREF
+  __int64 v6; // [rsp+50h] [rbp+18h] BYREF
+
+  v4 = a1;
+  v1 = CastToVmBusCommand<DXGKVMB_COMMAND_VSYNCREMOTINGCTRL>((__int64)a1);
+  v6 = v1;
+  if ( v1 )
+  {
+    v3[0] = &v6;
+    v3[1] = (__int64 *)&v4;
+    v5 = lambda_42ee479a8e982a1e9231e91789050ae8_::operator()(v3);
+    VmBusCompletePacket(*((struct VMBPACKETCOMPLETION__ **)v4 + 16), &v5, 4u);
+    LOBYTE(v1) = 1;
+  }
+  return v1;
+}

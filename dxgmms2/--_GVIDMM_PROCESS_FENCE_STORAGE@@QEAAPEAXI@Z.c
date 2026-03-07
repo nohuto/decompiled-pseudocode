@@ -1,0 +1,8 @@
+VIDMM_PROCESS_FENCE_STORAGE *__fastcall VIDMM_PROCESS_FENCE_STORAGE::`scalar deleting destructor'(
+        VIDMM_PROCESS_FENCE_STORAGE *P)
+{
+  VIDMM_PROCESS_FENCE_STORAGE::~VIDMM_PROCESS_FENCE_STORAGE(P);
+  if ( P )
+    ExFreePoolWithTag(P, 0);
+  return P;
+}

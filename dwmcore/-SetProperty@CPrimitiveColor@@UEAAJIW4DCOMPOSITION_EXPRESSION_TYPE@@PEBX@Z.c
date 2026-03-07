@@ -1,0 +1,57 @@
+__int64 __fastcall CPrimitiveColor::SetProperty(__int64 *a1, int a2, int a3, float *a4)
+{
+  float v4; // xmm1_4
+  int v5; // edx
+  int v6; // edx
+  int v7; // edx
+  __int64 v8; // rax
+  float *v9; // rbx
+  __int64 v10; // rax
+  unsigned int v11; // ebx
+
+  if ( a3 != 18 )
+    goto LABEL_14;
+  v4 = *a4;
+  v5 = a2 - 1;
+  if ( v5 )
+  {
+    v6 = v5 - 1;
+    if ( v6 )
+    {
+      v7 = v6 - 1;
+      if ( v7 )
+      {
+        if ( v7 != 1 )
+        {
+LABEL_14:
+          v11 = -2147024809;
+          MilInstrumentationCheckHR_MaybeFailFast((__int64)a1, 0LL, 0, -2147024809, 0x46u, 0LL);
+          return v11;
+        }
+        v8 = 76LL;
+      }
+      else
+      {
+        v8 = 72LL;
+      }
+    }
+    else
+    {
+      v8 = 68LL;
+    }
+  }
+  else
+  {
+    v8 = 64LL;
+  }
+  v9 = (float *)((char *)a1 + v8);
+  if ( !(__int64 *)((char *)a1 + v8) )
+    goto LABEL_14;
+  if ( *v9 != v4 )
+  {
+    v10 = *a1;
+    *v9 = v4;
+    (*(void (__fastcall **)(__int64 *, _QWORD, _QWORD))(v10 + 72))(a1, 0LL, 0LL);
+  }
+  return v9 == 0LL ? 0x80070057 : 0;
+}

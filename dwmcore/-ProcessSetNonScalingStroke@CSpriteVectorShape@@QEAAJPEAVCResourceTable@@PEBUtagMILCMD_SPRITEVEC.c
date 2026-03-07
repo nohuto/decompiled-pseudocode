@@ -1,0 +1,29 @@
+__int64 __fastcall CSpriteVectorShape::ProcessSetNonScalingStroke(
+        CSpriteVectorShape *this,
+        struct CResourceTable *a2,
+        const struct tagMILCMD_SPRITEVECTORSHAPE_SETNONSCALINGSTROKE *a3)
+{
+  char v4; // al
+  __int64 v5; // rcx
+  __int64 v6; // rcx
+
+  v4 = *((_BYTE *)a3 + 8) != 0;
+  if ( v4 != *((_BYTE *)this + 212) )
+  {
+    *((_BYTE *)this + 212) = v4;
+    v5 = *((_QWORD *)this + 16);
+    if ( v5 )
+    {
+      *((_QWORD *)this + 16) = 0LL;
+      (*(void (__fastcall **)(__int64, struct CResourceTable *))(*(_QWORD *)v5 + 16LL))(v5, a2);
+    }
+    v6 = *((_QWORD *)this + 17);
+    if ( v6 )
+    {
+      *((_QWORD *)this + 17) = 0LL;
+      (*(void (__fastcall **)(__int64, struct CResourceTable *))(*(_QWORD *)v6 + 16LL))(v6, a2);
+    }
+    CResource::NotifyOnChanged((__int64)this, 0, 0LL);
+  }
+  return 0LL;
+}

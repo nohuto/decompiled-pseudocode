@@ -1,0 +1,10 @@
+DXGDEVICEACCESSLOCKSHARED *__fastcall DXGDEVICEACCESSLOCKSHARED::DXGDEVICEACCESSLOCKSHARED(
+        DXGDEVICEACCESSLOCKSHARED *this,
+        struct DXGDEVICE *a2)
+{
+  *(_QWORD *)this = a2;
+  *((_BYTE *)this + 8) = 0;
+  if ( a2 )
+    DXGDEVICEACCESSLOCKSHARED::Acquire(this);
+  return this;
+}

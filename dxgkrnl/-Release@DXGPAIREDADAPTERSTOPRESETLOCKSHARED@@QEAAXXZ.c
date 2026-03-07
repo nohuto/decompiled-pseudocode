@@ -1,0 +1,10 @@
+void __fastcall DXGPAIREDADAPTERSTOPRESETLOCKSHARED::Release(DXGPAIREDADAPTERSTOPRESETLOCKSHARED *this)
+{
+  if ( *((_BYTE *)this + 49) )
+  {
+    *((_BYTE *)this + 49) = 0;
+    DXGADAPTERSTOPRESETLOCKSHARED::Release(this);
+    if ( !*((_BYTE *)this + 48) )
+      DXGADAPTERSTOPRESETLOCKSHARED::Release((DXGPAIREDADAPTERSTOPRESETLOCKSHARED *)((char *)this + 24));
+  }
+}

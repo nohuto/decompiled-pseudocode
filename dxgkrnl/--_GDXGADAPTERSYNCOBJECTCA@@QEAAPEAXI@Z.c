@@ -1,0 +1,7 @@
+DXGADAPTERSYNCOBJECT *__fastcall DXGADAPTERSYNCOBJECTCA::`scalar deleting destructor'(DXGADAPTERSYNCOBJECT *P)
+{
+  DXGADAPTERSYNCOBJECT::~DXGADAPTERSYNCOBJECT(P);
+  if ( P )
+    ExFreePoolWithTag(P, 0);
+  return P;
+}

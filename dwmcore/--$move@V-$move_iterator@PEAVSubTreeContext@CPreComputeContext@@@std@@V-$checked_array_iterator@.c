@@ -1,0 +1,40 @@
+__int64 __fastcall std::move<std::move_iterator<CPreComputeContext::SubTreeContext *>,stdext::checked_array_iterator<CPreComputeContext::SubTreeContext *>>(
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        _QWORD *a4)
+{
+  _QWORD *v5; // rdi
+  signed __int64 v7; // r8
+  __int64 v9; // rcx
+  __int64 v10; // rcx
+  __int64 v11; // rdx
+  __int64 result; // rax
+  __int64 v13; // xmm1_8
+
+  v5 = a4 + 2;
+  v7 = 0x823EE08FB823EE09uLL * ((a3 - a2) >> 3);
+  if ( v7 < 0 )
+  {
+    if ( *v5 >= (unsigned __int64)-v7 )
+      goto LABEL_3;
+LABEL_8:
+    _invalid_parameter_noinfo_noreturn();
+  }
+  if ( v7 > 0 && a4[1] - *v5 < (unsigned __int64)v7 )
+    goto LABEL_8;
+LABEL_3:
+  v9 = *a4 + 456LL * *v5;
+  while ( a2 != a3 )
+  {
+    CPreComputeContext::SubTreeContext::operator=(v9);
+    v9 = v10 + 456;
+    a2 = v11 + 456;
+  }
+  result = a1;
+  *v5 = 0x823EE08FB823EE09uLL * ((v9 - *a4) >> 3);
+  v13 = a4[2];
+  *(_OWORD *)a1 = *(_OWORD *)a4;
+  *(_QWORD *)(a1 + 16) = v13;
+  return result;
+}

@@ -1,0 +1,23 @@
+void __fastcall DirectComposition::CCompositionMipmapSurfaceMarshaler::ReleaseAllReferences(
+        DirectComposition::CCompositionMipmapSurfaceMarshaler *this,
+        struct DirectComposition::CApplicationChannel *a2)
+{
+  __int64 v4; // rcx
+  __int64 i; // rdi
+  struct DirectComposition::CResourceMarshaler *v6; // rdx
+
+  v4 = *((_QWORD *)this + 7);
+  if ( v4 )
+  {
+    for ( i = 0LL; (unsigned int)i < *((_DWORD *)this + 19); i = (unsigned int)(i + 1) )
+    {
+      v6 = *(struct DirectComposition::CResourceMarshaler **)(v4 + 24 * i);
+      if ( v6 )
+      {
+        DirectComposition::CApplicationChannel::ReleaseResource(a2, v6);
+        *(_QWORD *)(*((_QWORD *)this + 7) + 24 * i) = 0LL;
+        v4 = *((_QWORD *)this + 7);
+      }
+    }
+  }
+}

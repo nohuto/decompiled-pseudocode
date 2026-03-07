@@ -1,0 +1,115 @@
+__int64 __fastcall RedirStretchBlt(
+        struct _SURFOBJ *a1,
+        struct _SURFOBJ *a2,
+        struct _SURFOBJ *a3,
+        CLIPOBJ *pco,
+        XLATEOBJ *pxlo,
+        COLORADJUSTMENT *pca,
+        POINTL *pptlHTOrg,
+        RECTL *prclDest,
+        RECTL *prclSrc,
+        POINTL *pptlMask,
+        ULONG iMode)
+{
+  __int64 v15; // rcx
+  struct _DISPSURF *i; // rdi
+  __int64 HDEV; // rax
+  Gre::Base *v18; // rcx
+  __int64 v19; // rbx
+  int v20; // eax
+  __int64 v21; // rsi
+  struct _SURFOBJ *DevBitmap; // rbx
+  struct _SURFOBJ *v23; // rax
+  __int64 v24; // r11
+  unsigned int v25; // ebx
+  __int64 v27; // [rsp+68h] [rbp-69h] BYREF
+  struct SURFACE *v28; // [rsp+70h] [rbp-61h] BYREF
+  struct SURFACE *v29; // [rsp+78h] [rbp-59h] BYREF
+  struct SURFACE *v30; // [rsp+80h] [rbp-51h] BYREF
+  __int128 v31; // [rsp+88h] [rbp-49h] BYREF
+  __int64 v32; // [rsp+98h] [rbp-39h]
+  int v33; // [rsp+A0h] [rbp-31h]
+  _QWORD v34[2]; // [rsp+A8h] [rbp-29h] BYREF
+  __int16 v35; // [rsp+B8h] [rbp-19h]
+  __int64 v36; // [rsp+C0h] [rbp-11h]
+  __int64 v37; // [rsp+C8h] [rbp-9h]
+  __int64 v38; // [rsp+108h] [rbp+37h] BYREF
+
+  REDIROPEN::REDIROPEN((REDIROPEN *)&v30, a1);
+  REDIROPEN::REDIROPEN((REDIROPEN *)&v29, a2);
+  REDIROPEN::REDIROPEN((REDIROPEN *)&v28, a3);
+  i = 0LL;
+  if ( a1 )
+  {
+    if ( ((__int64)a1[1].hsurf & 0x800) != 0 )
+    {
+      HDEV = UserGetHDEV(v15);
+      v19 = HDEV;
+      if ( HDEV )
+      {
+        v20 = *(_DWORD *)(HDEV + 40);
+        v31 = 0LL;
+        v34[1] = 0LL;
+        v35 = 256;
+        v37 = 0LL;
+        v36 = 0LL;
+        v34[0] = 0LL;
+        v33 = 1;
+        if ( (v20 & 1) != 0 )
+        {
+          Gre::Base::Globals(v18);
+          *(_QWORD *)&v31 = *(_QWORD *)(v19 + 48);
+          v32 = v19;
+          GreAcquireSemaphore(v31);
+          EtwTraceGreLockAcquireSemaphoreExclusive(L"hsemTrg", v31, 11LL);
+        }
+        if ( (*(_DWORD *)(v19 + 40) & 0x20000) != 0 )
+        {
+          for ( i = **(struct _DISPSURF ***)(v19 + 1768); i; i = *(struct _DISPSURF **)i )
+          {
+            v21 = *((_QWORD *)i + 6);
+            v38 = v21;
+            if ( v21
+              && (*(_DWORD *)(v21 + 1792) & 0x8000000) != 0
+              && (*(_DWORD *)(v21 + 2096) & 0x8000) != 0
+              && *(_QWORD *)(*(_QWORD *)(v21 + 1760) + 224LL) )
+            {
+              MARK_ACCDRV_NOTIFICATION::MARK_ACCDRV_NOTIFICATION(
+                (MARK_ACCDRV_NOTIFICATION *)&v27,
+                (struct PDEVOBJ *)&v38,
+                a1);
+              DevBitmap = GetDevBitmap(i, a3);
+              GetDevBitmap(i, a2);
+              v23 = GetDevBitmap(i, a1);
+              (*(void (__fastcall **)(struct _SURFOBJ *, __int64, struct _SURFOBJ *, CLIPOBJ *, XLATEOBJ *, COLORADJUSTMENT *, POINTL *, RECTL *, RECTL *, POINTL *, ULONG))(*(_QWORD *)(v21 + 1760) + 224LL))(
+                v23,
+                v24,
+                DevBitmap,
+                pco,
+                pxlo,
+                pca,
+                pptlHTOrg,
+                prclDest,
+                prclSrc,
+                pptlMask,
+                iMode);
+              if ( v27 )
+                *(_WORD *)(v27 + 78) &= ~0x8000u;
+            }
+          }
+        }
+        DEVLOCKOBJ::vDestructor((DEVLOCKOBJ *)&v31);
+        if ( (struct _DISPSURF *)v34[0] != i )
+          DLODCOBJ::vUnlock((DLODCOBJ *)v34);
+      }
+    }
+  }
+  v25 = EngStretchBlt(a1, a2, a3, pco, pxlo, pca, pptlHTOrg, prclDest, prclSrc, pptlMask, iMode);
+  if ( v28 )
+    bMakeOpaque(v28);
+  if ( v29 )
+    bMakeOpaque(v29);
+  if ( v30 )
+    bMakeOpaque(v30);
+  return v25;
+}

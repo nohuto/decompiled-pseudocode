@@ -1,0 +1,12 @@
+bool __fastcall Matrix3x3::operator==(float *a1, float *a2)
+{
+  return COERCE_FLOAT(COERCE_UNSIGNED_INT(*a1 - *a2) & _xmm) < 0.000081380211
+      && COERCE_FLOAT(COERCE_UNSIGNED_INT(a1[1] - a2[1]) & _xmm) < 0.000081380211
+      && COERCE_FLOAT(COERCE_UNSIGNED_INT(a1[2] - a2[2]) & _xmm) < 0.000081380211
+      && COERCE_FLOAT(COERCE_UNSIGNED_INT(a1[3] - a2[3]) & _xmm) < 0.000081380211
+      && COERCE_FLOAT(COERCE_UNSIGNED_INT(a1[4] - a2[4]) & _xmm) < 0.000081380211
+      && COERCE_FLOAT(COERCE_UNSIGNED_INT(a1[5] - a2[5]) & _xmm) < 0.000081380211
+      && COERCE_FLOAT(COERCE_UNSIGNED_INT(a1[6] - a2[6]) & _xmm) < 0.000081380211
+      && COERCE_FLOAT(COERCE_UNSIGNED_INT(a1[7] - a2[7]) & _xmm) < 0.000081380211
+      && COERCE_FLOAT(COERCE_UNSIGNED_INT(a1[8] - a2[8]) & _xmm) < 0.000081380211;
+}

@@ -1,0 +1,4 @@
+void HUBFDO_GetPortStatusForDebuggingComplete()
+{
+  ;
+}

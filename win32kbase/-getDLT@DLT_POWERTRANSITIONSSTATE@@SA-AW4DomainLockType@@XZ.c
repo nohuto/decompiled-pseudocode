@@ -1,0 +1,4 @@
+__int64 DLT_POWERTRANSITIONSSTATE::getDLT()
+{
+  return 13LL;
+}

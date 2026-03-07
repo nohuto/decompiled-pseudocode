@@ -1,0 +1,54 @@
+__int64 __fastcall CExpressionValueStack::Asin(CExpressionValueStack *this)
+{
+  int v1; // eax
+  __int64 v2; // rax
+  CExpressionValue *v3; // rax
+  _DWORD *v4; // rbx
+  float v5; // xmm0_4
+  unsigned int v6; // ebx
+  unsigned int v8; // [rsp+20h] [rbp-68h]
+  _BYTE v9[88]; // [rsp+30h] [rbp-58h] BYREF
+
+  v1 = *((_DWORD *)this + 4);
+  if ( !v1 )
+  {
+    v8 = 4117;
+LABEL_12:
+    v6 = -2147467259;
+    MilInstrumentationCheckHR_MaybeFailFast(
+      (__int64)this,
+      &CExpressionValueStack::MILINSTRUMENTATIONHRESULTLIST,
+      1u,
+      -2147467259,
+      v8,
+      0LL);
+    return v6;
+  }
+  v2 = (unsigned int)(v1 - 1);
+  if ( (unsigned int)v2 < *((_DWORD *)this + 12) )
+  {
+    v4 = (_DWORD *)(*((_QWORD *)this + 3) + 80 * v2);
+  }
+  else
+  {
+    v3 = CExpressionValue::CExpressionValue((CExpressionValue *)v9);
+    v4 = &CExpressionValueStack::s_emptyValue;
+    CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v3);
+    CExpressionValue::~CExpressionValue((CExpressionValue *)v9);
+  }
+  if ( v4[18] != 18 )
+  {
+    v8 = 4159;
+    goto LABEL_12;
+  }
+  v5 = *(float *)v4;
+  if ( *(float *)v4 < -1.0 || v5 > 1.0 )
+  {
+    v8 = 4144;
+    goto LABEL_12;
+  }
+  v4[18] = 18;
+  *(float *)v4 = asinf_0(v5);
+  *((_BYTE *)v4 + 76) = 1;
+  return 0;
+}

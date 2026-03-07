@@ -1,0 +1,14 @@
+CProjectedShadowReceiver *__fastcall CProjectedShadowReceiver::`vector deleting destructor'(
+        CProjectedShadowReceiver *this,
+        char a2)
+{
+  CProjectedShadowReceiver::~CProjectedShadowReceiver(this);
+  if ( (a2 & 1) != 0 )
+  {
+    if ( (a2 & 4) != 0 )
+      __global_delete(this, 0x78uLL);
+    else
+      operator delete(this);
+  }
+  return this;
+}

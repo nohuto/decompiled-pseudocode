@@ -1,0 +1,4 @@
+void CLegacyStereoSwapChain::SetLatencyHint()
+{
+  ;
+}

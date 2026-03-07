@@ -1,0 +1,12 @@
+LPVOID __fastcall operator new(SIZE_T dwBytes)
+{
+  HANDLE ProcessHeap; // rax
+  LPVOID result; // rax
+  void *retaddr; // [rsp+28h] [rbp+0h]
+
+  ProcessHeap = GetProcessHeap();
+  result = HeapAlloc(ProcessHeap, 0, dwBytes);
+  if ( !result )
+    ModuleFailFastForHRESULT(2147942414LL, retaddr);
+  return result;
+}

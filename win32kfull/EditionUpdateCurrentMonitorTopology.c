@@ -1,0 +1,4 @@
+void EditionUpdateCurrentMonitorTopology()
+{
+  CTopologyManager::UpdateCurrent();
+}

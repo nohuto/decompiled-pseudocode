@@ -1,0 +1,45 @@
+void __fastcall CHolographicClient::ProcessAddDisplay(CHolographicClient *this, struct IUnknown *a2)
+{
+  __int64 v3; // rcx
+  unsigned int v4; // eax
+  unsigned int v5; // r8d
+  __int64 v6; // rcx
+  int v7; // eax
+  __int64 v8; // rcx
+  __int64 v9; // [rsp+48h] [rbp+10h] BYREF
+
+  v9 = 0LL;
+  if ( ((__int64 (__fastcall *)(struct IUnknown *, GUID *, __int64 *))a2->lpVtbl->QueryInterface)(
+         a2,
+         &GUID_5e01b98c_b7d8_4f41_8bf2_9dc251835cd5,
+         &v9) >= 0 )
+  {
+    v4 = *((_DWORD *)this + 38);
+    v5 = v4 + 1;
+    if ( v4 + 1 < v4 )
+    {
+      MilInstrumentationCheckHR_MaybeFailFast(v3, 0LL, 0, -2147024362, 0xB5u, 0LL);
+    }
+    else
+    {
+      if ( v5 <= *((_DWORD *)this + 37) )
+      {
+        *(_QWORD *)(*((_QWORD *)this + 16) + 8LL * v4) = v9;
+        *((_DWORD *)this + 38) = v5;
+LABEL_5:
+        (*(void (__fastcall **)(_QWORD, __int64))(**((_QWORD **)this + 3) + 88LL))(*((_QWORD *)this + 3), v9);
+        v6 = 0LL;
+        v9 = 0LL;
+        goto LABEL_10;
+      }
+      v7 = DynArrayImpl<0>::AddMultipleAndSet((__int64)this + 128, 8, 1, &v9);
+      if ( v7 >= 0 )
+        goto LABEL_5;
+      MilInstrumentationCheckHR_MaybeFailFast(v8, 0LL, 0, v7, 0xC0u, 0LL);
+    }
+    v6 = v9;
+LABEL_10:
+    if ( v6 )
+      (*(void (__fastcall **)(__int64))(*(_QWORD *)v6 + 16LL))(v6);
+  }
+}

@@ -1,0 +1,99 @@
+unsigned __int64 __fastcall VidSchiGetCurrentVSyncPeriodQpc(struct _VIDSCH_GLOBAL *a1, unsigned int a2, char a3)
+{
+  __int64 v5; // rbx
+  int v6; // eax
+  unsigned __int64 v7; // rdi
+  unsigned __int64 v9; // r9
+  unsigned __int64 v10; // r8
+  unsigned __int64 v11; // rcx
+  unsigned __int64 v12; // rdx
+  unsigned __int64 v13; // r9
+  unsigned __int64 v14; // r9
+  unsigned int v15; // [rsp+78h] [rbp+38h] BYREF
+
+  v5 = *((_QWORD *)a1 + a2 + 400);
+  v6 = *(_DWORD *)(v5 + 3032);
+  if ( v6 != -1 )
+  {
+    if ( !v6 || v6 == *(_DWORD *)(v5 + 82936) )
+    {
+      if ( *(_DWORD *)(v5 + 82936) )
+      {
+        v13 = *((_QWORD *)a1 + 328);
+        if ( is_mul_ok(*(unsigned int *)(v5 + 82936), v13) )
+          LODWORD(v7) = *(unsigned int *)(v5 + 82936) * v13 / 0x989680;
+        else
+          LODWORD(v7) = v13 * (*(_DWORD *)(v5 + 82936) / 0x989680u)
+                      + v13 * (*(unsigned int *)(v5 + 82936) % 0x989680uLL) / 0x989680;
+      }
+      else
+      {
+        LODWORD(v7) = *(_DWORD *)(v5 + 82952);
+      }
+      v15 = 0;
+      if ( !a3
+        || !*((_BYTE *)a1 + 6634)
+        || VIDSCH_VSYNC_SMOOTHER::GetSmoothenedDurationQpc(*(VIDSCH_VSYNC_SMOOTHER **)(v5 + 44248), v7, &v15) < 0 )
+      {
+        return (unsigned int)v7;
+      }
+      if ( (byte_1C00769C4 & 1) != 0 )
+      {
+        v14 = *((_QWORD *)a1 + 328);
+        v10 = *(unsigned int *)(v5 + 3032);
+        v11 = v10 * v14;
+        if ( !is_mul_ok(v10, v14) )
+        {
+          v11 = v14 * (v10 / 0x989680);
+          v10 = v14 * (v10 % 0x989680);
+          v12 = v11 + v10 / 0x989680;
+          goto LABEL_27;
+        }
+LABEL_26:
+        v12 = v11 / 0x989680;
+        goto LABEL_27;
+      }
+    }
+    else
+    {
+      v9 = *((_QWORD *)a1 + 328);
+      if ( is_mul_ok(*(unsigned int *)(v5 + 3032), v9) )
+        v7 = *(unsigned int *)(v5 + 3032) * v9 / 0x989680;
+      else
+        v7 = v9 * (*(unsigned int *)(v5 + 3032) % 0x989680uLL) / 0x989680
+           + v9 * (*(unsigned int *)(v5 + 3032) / 0x989680uLL);
+      v15 = 0;
+      if ( !a3
+        || !*((_BYTE *)a1 + 6634)
+        || VIDSCH_VSYNC_SMOOTHER::GetSmoothenedDurationQpc(*(VIDSCH_VSYNC_SMOOTHER **)(v5 + 44248), v7, &v15) < 0 )
+      {
+        return (unsigned int)v7;
+      }
+      if ( (byte_1C00769C4 & 1) != 0 )
+      {
+        v11 = *(unsigned int *)(v5 + 3032) * *((_QWORD *)a1 + 328);
+        if ( !is_mul_ok(*(unsigned int *)(v5 + 3032), *((_QWORD *)a1 + 328)) )
+        {
+          v11 = 10000000 * (*(unsigned int *)(v5 + 3032) / 0x989680uLL);
+          v10 = *((_QWORD *)a1 + 328) * (*(unsigned int *)(v5 + 3032) / 0x989680uLL);
+          LOBYTE(v12) = v10 + *((_QWORD *)a1 + 328) * (*(unsigned int *)(v5 + 3032) % 0x989680uLL) / 0x989680;
+LABEL_27:
+          LODWORD(v7) = v15;
+          McTemplateK0qxxx_EtwWriteTransfer(
+            v11,
+            (unsigned int)&EventVSyncSmoothenedPeriod,
+            v10,
+            a2,
+            v15,
+            *(_QWORD *)(v5 + 82952),
+            v12);
+          return (unsigned int)v7;
+        }
+        goto LABEL_26;
+      }
+    }
+    LODWORD(v7) = v15;
+    return (unsigned int)v7;
+  }
+  return *(_QWORD *)(v5 + 82952);
+}

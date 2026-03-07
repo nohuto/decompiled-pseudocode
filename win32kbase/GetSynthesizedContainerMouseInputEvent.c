@@ -1,0 +1,4 @@
+PVOID GetSynthesizedContainerMouseInputEvent()
+{
+  return gpevtSynthesizedContainerMouseInput;
+}

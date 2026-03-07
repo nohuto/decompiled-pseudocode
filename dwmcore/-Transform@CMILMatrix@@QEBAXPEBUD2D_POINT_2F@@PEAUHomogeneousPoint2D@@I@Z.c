@@ -1,0 +1,19 @@
+void __fastcall CMILMatrix::Transform(CMILMatrix *this, const struct D2D_POINT_2F *a2, struct HomogeneousPoint2D *a3)
+{
+  float x; // xmm6_4
+  float y; // xmm2_4
+  float *v6; // r11
+  float v7; // xmm5_4
+  float v8; // xmm5_4
+
+  x = a2->x;
+  y = a2->y;
+  *(float *)a3 = (float)((float)(y * *((float *)this + 4)) + (float)(a2->x * *(float *)this)) + *((float *)this + 12);
+  *((float *)a3 + 1) = (float)((float)(y * *((float *)this + 5)) + (float)(x * *((float *)this + 1)))
+                     + *((float *)this + 13);
+  if ( CMILMatrix::IsAffine<1>((__int64)this, 1) )
+    v8 = *(float *)&FLOAT_1_0;
+  else
+    v8 = (float)((float)(v7 * v6[7]) + (float)(x * v6[3])) + v6[15];
+  *((float *)a3 + 2) = v8;
+}

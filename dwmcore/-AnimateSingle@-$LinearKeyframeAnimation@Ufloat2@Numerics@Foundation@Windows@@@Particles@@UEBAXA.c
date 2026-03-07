@@ -1,0 +1,21 @@
+__int64 __fastcall Particles::LinearKeyframeAnimation<Windows::Foundation::Numerics::float2>::AnimateSingle(
+        int a1,
+        gsl::details *a2,
+        int a3,
+        __int64 a4)
+{
+  int v7; // r8d
+  __int64 result; // rax
+  __int64 v9; // [rsp+58h] [rbp+20h] BYREF
+
+  gsl::span<float,-1>::operator[](a2);
+  Particles::LinearKeyframeAnimation<Windows::Foundation::Numerics::float2>::GetValueAt(
+    a1,
+    (unsigned int)&v9,
+    v7,
+    a3,
+    a4);
+  result = v9;
+  **(_QWORD **)(a4 + 8) = v9;
+  return result;
+}

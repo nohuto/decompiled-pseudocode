@@ -1,0 +1,45 @@
+void __fastcall FxInterrupt::FxInterrupt(FxInterrupt *this, _FX_DRIVER_GLOBALS *Globals)
+{
+  FxNonPagedObject::FxNonPagedObject(this, 0x1027u, 0x1C8u, Globals);
+  this->__vftable = (FxInterrupt_vtbl *)FxInterrupt::`vftable';
+  this->m_BuiltInSpinLock.m_Lock = 0LL;
+  this->m_BuiltInSpinLock.m_DbgFlagIsInitialized = 1;
+  this->m_Interrupt = 0LL;
+  this->m_OldIrql = 0;
+  this->m_EvtInterruptEnable = 0LL;
+  this->m_EvtInterruptDisable = 0LL;
+  *(_WORD *)&this->m_UseSoftDisconnect = 0;
+  this->m_EvtInterruptIsr = 0LL;
+  this->m_EvtInterruptDpc = 0LL;
+  this->m_EvtInterruptWorkItem = 0LL;
+  this->m_CallbackLock = 0LL;
+  this->m_WaitLock = 0LL;
+  this->m_SystemWorkItem = 0LL;
+  this->m_DisposeWaitLock = 0;
+  KeInitializeDpc(&this->m_Dpc, (PKDEFERRED_ROUTINE)FxInterrupt::_InterruptDpcThunk, this);
+  this->m_Active = 0;
+  this->m_InterruptCaptured = 0LL;
+  *(_WORD *)&this->m_Disconnecting = 0;
+  this->m_ShareVector = WdfUseDefault;
+  *(_DWORD *)&this->m_AddedToList = 0;
+  *(_WORD *)&this->m_FloatingSave = 0;
+  this->m_WakeInterruptMachine = 0LL;
+  memset(&this->m_InterruptInfo, 0, sizeof(this->m_InterruptInfo));
+  this->m_InterruptInfo.Size = 64;
+  this->m_CmTranslatedResource = 0LL;
+  this->m_InterruptInfo.TargetProcessorSet = 0LL;
+  this->m_InterruptInfo.Group = 0;
+  this->m_InterruptInfo.Irql = 0;
+  this->m_InterruptInfo.ShareDisposition = 0;
+  this->m_InterruptInfo.Mode = LevelSensitive;
+  this->m_InterruptInfo.Vector = 0;
+  this->m_SynchronizeIrql = 0;
+  this->m_SpinLock = 0LL;
+  this->m_InterruptInfo.MessageNumber = 0;
+  *(_QWORD *)&this->m_Policy = 2LL;
+  this->m_Processors = 0LL;
+  this->m_PnpList.Blink = &this->m_PnpList;
+  this->m_PnpList.Flink = &this->m_PnpList;
+  this->m_ObjectFlags |= 0x812u;
+  this->m_SetPolicy = 0;
+}

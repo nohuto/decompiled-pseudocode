@@ -1,0 +1,64 @@
+__int64 __fastcall ADAPTER_DISPLAY::RequestAsyncDisplaySwitchCallout(
+        DXGADAPTER **this,
+        struct _DXGK_WIN32K_PARAM_DATA *a2,
+        struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a3)
+{
+  DISPLAY_CALLOUT_ENTRY *v6; // rax
+  DISPLAY_CALLOUT_ENTRY *v7; // rbx
+  ADAPTER_DISPLAY **v8; // rcx
+  unsigned int v9; // ebx
+  DXGADAPTER *v10; // rcx
+  struct _LUID *v11; // rdx
+  __int64 v12; // r11
+  _BYTE v14[16]; // [rsp+50h] [rbp-18h] BYREF
+  unsigned __int64 v15; // [rsp+70h] [rbp+8h] BYREF
+
+  if ( !DXGADAPTER::IsCoreResourceSharedOwner(this[2]) )
+  {
+    WdLogSingleEntry1(1LL, 8785LL);
+    DxgkLogInternalTriageEvent(0LL, 262146, -1, (__int64)L"IsCoreResourceSharedOwner()", 8785LL, 0LL, 0LL, 0LL, 0LL);
+  }
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v14, (struct DXGFASTMUTEX *const)(this + 67), 0);
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v14);
+  v6 = (DISPLAY_CALLOUT_ENTRY *)operator new[](0x88uLL, 0x4B677844u, 256LL);
+  if ( v6 && (v7 = DISPLAY_CALLOUT_ENTRY::DISPLAY_CALLOUT_ENTRY(v6, a2, a3)) != 0LL )
+  {
+    if ( *((_BYTE *)this + 584) )
+    {
+      v8 = (ADAPTER_DISPLAY **)this[75];
+      if ( *v8 != (ADAPTER_DISPLAY *)(this + 74) )
+        __fastfail(3u);
+      *(_QWORD *)v7 = this + 74;
+      *((_QWORD *)v7 + 1) = v8;
+      *v8 = v7;
+      this[75] = v7;
+      v9 = 0;
+    }
+    else
+    {
+      DXGGLOBAL::GetGlobal();
+      v10 = this[2];
+      v15 = 0LL;
+      DXGADAPTER::IsAdapterSessionized(v10, v11, 0LL, &v15);
+      v9 = DXGDISPLAYCALLOUTQUEUE::SubmitSingleEntry((DXGDISPLAYCALLOUTQUEUE ***)(v12 + 1840), v7, v15);
+    }
+  }
+  else
+  {
+    WdLogSingleEntry1(6LL, 8798LL);
+    DxgkLogInternalTriageEvent(
+      0LL,
+      262145,
+      -1,
+      (__int64)L"Failed to allocate memory for dispaly switch callout.",
+      8798LL,
+      0LL,
+      0LL,
+      0LL,
+      0LL);
+    v9 = -1073741801;
+  }
+  if ( v14[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v14);
+  return v9;
+}

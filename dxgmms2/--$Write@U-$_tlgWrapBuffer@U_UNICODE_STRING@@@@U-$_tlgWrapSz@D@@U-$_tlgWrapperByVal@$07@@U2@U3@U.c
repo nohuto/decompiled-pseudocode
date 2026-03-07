@@ -1,0 +1,125 @@
+NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteTransfer_EtwWriteTransfer(_tlgProvider_t const *,void const *,_GUID const *,_GUID const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),_GUID const *,_GUID const *>::Write<_tlgWrapBuffer<_UNICODE_STRING>,_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapSz<char>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>,_tlgWrapperByVal<8>>(
+        __int64 a1,
+        unsigned __int8 *a2,
+        const GUID *a3,
+        __int64 a4,
+        unsigned __int16 **a5,
+        void **a6,
+        __int64 a7,
+        void **a8,
+        __int64 a9,
+        __int64 a10,
+        __int64 a11,
+        __int64 a12,
+        __int64 a13,
+        __int64 a14,
+        __int64 a15,
+        __int64 a16,
+        __int64 a17,
+        __int64 a18)
+{
+  __int64 v19; // rcx
+  _BYTE *v20; // rdx
+  __int64 v21; // rax
+  int v22; // eax
+  _BYTE *v23; // rdx
+  int v24; // ecx
+  int v25; // ecx
+  struct _EVENT_DATA_DESCRIPTOR v27; // [rsp+30h] [rbp-D0h] BYREF
+  _DWORD *v28; // [rsp+50h] [rbp-B0h]
+  __int64 v29; // [rsp+58h] [rbp-A8h]
+  __int64 v30; // [rsp+60h] [rbp-A0h]
+  _DWORD v31[2]; // [rsp+68h] [rbp-98h] BYREF
+  _BYTE *v32; // [rsp+70h] [rbp-90h]
+  int v33; // [rsp+78h] [rbp-88h]
+  int v34; // [rsp+7Ch] [rbp-84h]
+  __int64 v35; // [rsp+80h] [rbp-80h]
+  __int64 v36; // [rsp+88h] [rbp-78h]
+  _BYTE *v37; // [rsp+90h] [rbp-70h]
+  int v38; // [rsp+98h] [rbp-68h]
+  int v39; // [rsp+9Ch] [rbp-64h]
+  __int64 v40; // [rsp+A0h] [rbp-60h]
+  __int64 v41; // [rsp+A8h] [rbp-58h]
+  __int64 v42; // [rsp+B0h] [rbp-50h]
+  __int64 v43; // [rsp+B8h] [rbp-48h]
+  __int64 v44; // [rsp+C0h] [rbp-40h]
+  __int64 v45; // [rsp+C8h] [rbp-38h]
+  __int64 v46; // [rsp+D0h] [rbp-30h]
+  __int64 v47; // [rsp+D8h] [rbp-28h]
+  __int64 v48; // [rsp+E0h] [rbp-20h]
+  __int64 v49; // [rsp+E8h] [rbp-18h]
+  __int64 v50; // [rsp+F0h] [rbp-10h]
+  __int64 v51; // [rsp+F8h] [rbp-8h]
+  __int64 v52; // [rsp+100h] [rbp+0h]
+  __int64 v53; // [rsp+108h] [rbp+8h]
+  __int64 v54; // [rsp+110h] [rbp+10h]
+  __int64 v55; // [rsp+118h] [rbp+18h]
+  __int64 v56; // [rsp+120h] [rbp+20h]
+  __int64 v57; // [rsp+128h] [rbp+28h]
+  __int64 v58; // [rsp+130h] [rbp+30h]
+  __int64 v59; // [rsp+138h] [rbp+38h]
+
+  v58 = a18;
+  v19 = -1LL;
+  v56 = a17;
+  v54 = a16;
+  v52 = a15;
+  v50 = a14;
+  v48 = a13;
+  v46 = a12;
+  v44 = a11;
+  v42 = a10;
+  v40 = a9;
+  v59 = 8LL;
+  v57 = 8LL;
+  v55 = 8LL;
+  v20 = *a8;
+  v53 = 8LL;
+  v51 = 4LL;
+  v49 = 8LL;
+  v47 = 8LL;
+  v45 = 8LL;
+  v43 = 8LL;
+  v41 = 8LL;
+  if ( v20 )
+  {
+    v21 = -1LL;
+    do
+      ++v21;
+    while ( v20[v21] );
+    v22 = v21 + 1;
+  }
+  else
+  {
+    v20 = &unk_1C00627B9;
+    v22 = 1;
+  }
+  v38 = v22;
+  v35 = a7;
+  v37 = v20;
+  v39 = 0;
+  v36 = 8LL;
+  v23 = *a6;
+  if ( *a6 )
+  {
+    do
+      ++v19;
+    while ( v23[v19] );
+    v24 = v19 + 1;
+  }
+  else
+  {
+    v23 = &unk_1C00627B9;
+    v24 = 1;
+  }
+  v32 = v23;
+  v28 = v31;
+  v33 = v24;
+  v34 = 0;
+  v29 = 2LL;
+  v25 = **a5;
+  v30 = *((_QWORD *)*a5 + 1);
+  v31[0] = v25;
+  v31[1] = 0;
+  return tlgWriteTransfer_EtwWriteTransfer((__int64)&dword_1C0076048, a2, a3, 0LL, 0x11u, &v27);
+}

@@ -1,0 +1,4 @@
+void __fastcall VIDMM_PAGING_QUEUE::~VIDMM_PAGING_QUEUE(VIDMM_PAGING_QUEUE *this)
+{
+  VIDMM_PAGING_QUEUE::Destroy(this);
+}

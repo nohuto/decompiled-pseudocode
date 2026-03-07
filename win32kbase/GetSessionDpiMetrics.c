@@ -1,0 +1,4 @@
+HFONT *GetSessionDpiMetrics()
+{
+  return &gSessionDpiMetrics;
+}

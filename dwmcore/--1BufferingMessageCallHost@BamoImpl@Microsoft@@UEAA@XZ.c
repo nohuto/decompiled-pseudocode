@@ -1,0 +1,12 @@
+void __fastcall Microsoft::BamoImpl::BufferingMessageCallHost::~BufferingMessageCallHost(
+        Microsoft::BamoImpl::BufferingMessageCallHost *this)
+{
+  std::vector<wil::com_ptr_t<Microsoft::Bamo::BamoPrincipal,wil::err_returncode_policy>>::_Tidy((char *)this + 80);
+  std::vector<Microsoft::BamoImpl::ItemIdParameterIndex>::_Tidy((char *)this + 48);
+  std::_Tree_val<std::_Tree_simple_types<std::pair<unsigned __int64 const,Microsoft::BamoImpl::BufferStream *>>>::_Erase_tree<std::allocator<std::_Tree_node<std::pair<unsigned __int64 const,Microsoft::BamoImpl::BufferStream *>,void *>>>(
+    (__int64)this + 32,
+    (__int64)this + 32,
+    *(_QWORD *)(*((_QWORD *)this + 4) + 8LL));
+  std::_Deallocate<16,0>(*((void **)this + 4), 0x30uLL);
+  wil::com_ptr_t<ID3D11Resource,wil::err_returncode_policy>::~com_ptr_t<ID3D11Resource,wil::err_returncode_policy>((__int64 *)this + 3);
+}

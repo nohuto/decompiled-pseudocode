@@ -1,0 +1,174 @@
+__int64 __fastcall CExpressionValueStack::Matrix4x4FromPerspectiveOffCenter(__int64 this)
+{
+  unsigned int v1; // eax
+  __int64 v2; // rbx
+  unsigned int v3; // ebx
+  __int64 v4; // rax
+  float *v5; // rdi
+  CExpressionValue *v6; // rax
+  _DWORD *v7; // r14
+  __int64 v8; // rax
+  CExpressionValue *v9; // rax
+  float *v10; // r15
+  __int64 v11; // rax
+  CExpressionValue *v12; // rax
+  float *v13; // r12
+  __int64 v14; // rax
+  CExpressionValue *v15; // rax
+  float *v16; // r13
+  __int64 v17; // rax
+  CExpressionValue *v18; // rax
+  __int64 v19; // rax
+  CExpressionValue *v20; // rax
+  __int128 v21; // xmm0
+  unsigned int v23; // [rsp+28h] [rbp-39h]
+  _OWORD v24[5]; // [rsp+48h] [rbp-19h] BYREF
+  float *v25; // [rsp+C8h] [rbp+67h]
+
+  v1 = *(_DWORD *)(this + 16);
+  v2 = this;
+  if ( v1 >= 6 )
+  {
+    v4 = v1 - 6;
+    v5 = (float *)&CExpressionValueStack::s_emptyValue;
+    if ( (unsigned int)v4 < *(_DWORD *)(this + 48) )
+    {
+      v7 = (_DWORD *)(*(_QWORD *)(this + 24) + 80 * v4);
+    }
+    else
+    {
+      v6 = CExpressionValue::CExpressionValue((CExpressionValue *)v24);
+      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v6);
+      CExpressionValue::~CExpressionValue((CExpressionValue *)v24);
+      v7 = &CExpressionValueStack::s_emptyValue;
+    }
+    v8 = (unsigned int)(*(_DWORD *)(v2 + 16) - 5);
+    if ( (unsigned int)v8 < *(_DWORD *)(v2 + 48) )
+    {
+      v10 = (float *)(*(_QWORD *)(v2 + 24) + 80 * v8);
+    }
+    else
+    {
+      v9 = CExpressionValue::CExpressionValue((CExpressionValue *)v24);
+      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v9);
+      CExpressionValue::~CExpressionValue((CExpressionValue *)v24);
+      v10 = (float *)&CExpressionValueStack::s_emptyValue;
+    }
+    v11 = (unsigned int)(*(_DWORD *)(v2 + 16) - 4);
+    if ( (unsigned int)v11 < *(_DWORD *)(v2 + 48) )
+    {
+      v13 = (float *)(*(_QWORD *)(v2 + 24) + 80 * v11);
+    }
+    else
+    {
+      v12 = CExpressionValue::CExpressionValue((CExpressionValue *)v24);
+      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v12);
+      CExpressionValue::~CExpressionValue((CExpressionValue *)v24);
+      v13 = (float *)&CExpressionValueStack::s_emptyValue;
+    }
+    v14 = (unsigned int)(*(_DWORD *)(v2 + 16) - 3);
+    if ( (unsigned int)v14 < *(_DWORD *)(v2 + 48) )
+    {
+      v16 = (float *)(*(_QWORD *)(v2 + 24) + 80 * v14);
+    }
+    else
+    {
+      v15 = CExpressionValue::CExpressionValue((CExpressionValue *)v24);
+      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v15);
+      CExpressionValue::~CExpressionValue((CExpressionValue *)v24);
+      v16 = (float *)&CExpressionValueStack::s_emptyValue;
+    }
+    v17 = (unsigned int)(*(_DWORD *)(v2 + 16) - 2);
+    if ( (unsigned int)v17 < *(_DWORD *)(v2 + 48) )
+    {
+      v25 = (float *)(*(_QWORD *)(v2 + 24) + 80 * v17);
+    }
+    else
+    {
+      v18 = CExpressionValue::CExpressionValue((CExpressionValue *)v24);
+      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v18);
+      CExpressionValue::~CExpressionValue((CExpressionValue *)v24);
+      v25 = (float *)&CExpressionValueStack::s_emptyValue;
+    }
+    v19 = (unsigned int)(*(_DWORD *)(v2 + 16) - 1);
+    if ( (unsigned int)v19 < *(_DWORD *)(v2 + 48) )
+    {
+      v5 = (float *)(*(_QWORD *)(v2 + 24) + 80 * v19);
+    }
+    else
+    {
+      v20 = CExpressionValue::CExpressionValue((CExpressionValue *)v24);
+      CExpressionValue::operator=((__int64)&CExpressionValueStack::s_emptyValue, (__int64)v20);
+      CExpressionValue::~CExpressionValue((CExpressionValue *)v24);
+    }
+    this = 18LL;
+    if ( v7[18] == 18 )
+    {
+      if ( *((_DWORD *)v10 + 18) == 18 )
+      {
+        if ( *((_DWORD *)v13 + 18) == 18 )
+        {
+          if ( *((_DWORD *)v16 + 18) == 18 )
+          {
+            if ( *((_DWORD *)v25 + 18) == 18 )
+            {
+              if ( *((_DWORD *)v5 + 18) == 18 )
+              {
+                if ( D2DMatrixPerspectiveOffCenter((struct D2DMatrix *)v24, *(float *)v7, *v10, *v13, *v16, *v25, *v5) )
+                {
+                  v21 = v24[0];
+                  v7[18] = 265;
+                  *(_OWORD *)v7 = v21;
+                  *((_OWORD *)v7 + 1) = v24[1];
+                  *((_OWORD *)v7 + 2) = v24[2];
+                  *((_OWORD *)v7 + 3) = v24[3];
+                  *((_BYTE *)v7 + 76) = 1;
+                  *(_DWORD *)(v2 + 16) -= 5;
+                  return 0;
+                }
+                v23 = 6799;
+              }
+              else
+              {
+                v23 = 6771;
+              }
+            }
+            else
+            {
+              v23 = 6770;
+            }
+          }
+          else
+          {
+            v23 = 6769;
+          }
+        }
+        else
+        {
+          v23 = 6768;
+        }
+      }
+      else
+      {
+        v23 = 6767;
+      }
+    }
+    else
+    {
+      v23 = 6766;
+    }
+  }
+  else
+  {
+    v23 = 6756;
+  }
+  v3 = -2147467259;
+  MilInstrumentationCheckHR_MaybeFailFast(
+    this,
+    &CExpressionValueStack::MILINSTRUMENTATIONHRESULTLIST,
+    1u,
+    -2147467259,
+    v23,
+    0LL);
+  return v3;
+}

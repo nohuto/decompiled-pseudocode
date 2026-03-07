@@ -1,0 +1,8 @@
+__int64 __fastcall DirectComposition::CSceneSurfaceMaterialInputMarshaler::Initialize(
+        DirectComposition::CSceneSurfaceMaterialInputMarshaler *this)
+{
+  *((_DWORD *)this + 20) = 0;
+  *((_DWORD *)this + 21) = 2;
+  *((_DWORD *)this + 22) = 2;
+  return 0LL;
+}

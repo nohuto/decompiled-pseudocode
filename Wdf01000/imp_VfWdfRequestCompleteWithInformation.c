@@ -1,0 +1,46 @@
+void __fastcall imp_VfWdfRequestCompleteWithInformation(
+        _WDF_DRIVER_GLOBALS *DriverGlobals,
+        WDFREQUEST__ *Request,
+        int Status,
+        unsigned __int64 Information)
+{
+  __int64 v5; // rbx
+  _FX_DRIVER_GLOBALS *m_Globals; // rcx
+  int (__fastcall *_Arg2)(WDFDRIVER__ *, WDFDEVICE_INIT *); // rsi
+  const void *Context; // rax
+  __int64 v12; // r10
+  _MCGEN_TRACE_CONTEXT *v13; // rcx
+  unsigned __int16 ObjectOffset; // [rsp+30h] [rbp-30h] BYREF
+  void *PPObject; // [rsp+38h] [rbp-28h] BYREF
+  _GUID ActivityId; // [rsp+40h] [rbp-20h] BYREF
+
+  v5 = 0LL;
+  PPObject = 0LL;
+  ObjectOffset = 0;
+  ActivityId = 0LL;
+  m_Globals = FxObject::_GetObjectFromHandle((unsigned __int64)Request, &ObjectOffset)->m_Globals;
+  if ( (m_Globals->FxEnhancedVerifierOptions & 0xF00000) != 0 )
+  {
+    _Arg2 = m_Globals->Driver->m_DriverDeviceAdd.Method;
+    FxObjectHandleGetPtr(m_Globals, (unsigned __int64)Request, 0x1008u, &PPObject);
+    if ( (unsigned int)IoGetActivityIdIrp(*((_QWORD *)PPObject + 19), &ActivityId) == -1073741275 )
+    {
+      EtwActivityIdControl(3u, &ActivityId);
+      IoSetActivityIdIrp(*((_QWORD *)PPObject + 19), &ActivityId);
+    }
+    if ( (Microsoft_Windows_DriverFrameworks_KernelMode_PerformanceEnableBits[0] & 1) != 0 )
+    {
+      if ( !*((_BYTE *)PPObject + 214) )
+        v5 = *((_QWORD *)PPObject + 31);
+      Context = (const void *)FxObject::GetObjectHandleUnchecked(*(FxObject **)(v5 + 96));
+      McTemplateK0upp_EtwWriteTransfer(
+        v13,
+        &FX_REQUEST_COMPLETE,
+        &ActivityId,
+        **(_BYTE **)(*(_QWORD *)(v12 + 152) + 184LL),
+        _Arg2,
+        Context);
+    }
+  }
+  WdfVersion.Functions.pfnWdfRequestCompleteWithInformation(DriverGlobals, Request, Status, Information);
+}

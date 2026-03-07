@@ -1,0 +1,4 @@
+void __fastcall EXCLUSIVEACCESS<VIDPN_MGR>::~EXCLUSIVEACCESS<VIDPN_MGR>(__int64 a1)
+{
+  DXGFASTMUTEX::Release((struct _KTHREAD **)(*(_QWORD *)a1 + 40LL));
+}

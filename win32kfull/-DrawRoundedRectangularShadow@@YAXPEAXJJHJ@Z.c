@@ -1,0 +1,8 @@
+void __fastcall DrawRoundedRectangularShadow(_DWORD *a1, int a2, int a3, int a4, int a5)
+{
+  DrawTopLogicallyRightCorner(a1, a2, a3, a4, a5);
+  DrawLogicallyRightSide((char *)a1, a2, a3, a4, a5);
+  DrawBottomLogicallyRightCorner(a1, a2, a4, a5);
+  DrawBottomSide((char *)a1, a2, a4, a5);
+  DrawBottomLogicallyLeftCorner(a1, a2, a4, a5);
+}

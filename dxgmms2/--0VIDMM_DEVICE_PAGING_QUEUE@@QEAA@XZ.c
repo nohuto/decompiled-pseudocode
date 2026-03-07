@@ -1,0 +1,13 @@
+VIDMM_DEVICE_PAGING_QUEUE *__fastcall VIDMM_DEVICE_PAGING_QUEUE::VIDMM_DEVICE_PAGING_QUEUE(
+        VIDMM_DEVICE_PAGING_QUEUE *this)
+{
+  __int64 v1; // rcx
+  VIDMM_DEVICE_PAGING_QUEUE *result; // rax
+
+  VIDMM_PAGING_QUEUE::VIDMM_PAGING_QUEUE(this);
+  result = (VIDMM_DEVICE_PAGING_QUEUE *)v1;
+  *(_QWORD *)(v1 + 152) = 0LL;
+  *(_DWORD *)(v1 + 160) = 0;
+  *(_QWORD *)(v1 + 168) = 0LL;
+  return result;
+}
