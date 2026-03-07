@@ -1,0 +1,14 @@
+CLegacyAnimationTrigger *__fastcall CLegacyAnimationTrigger::`scalar deleting destructor'(
+        CLegacyAnimationTrigger *this,
+        char a2)
+{
+  CLegacyAnimationTrigger::~CLegacyAnimationTrigger(this);
+  if ( (a2 & 1) != 0 )
+  {
+    if ( (a2 & 4) != 0 )
+      __global_delete(this);
+    else
+      operator delete(this);
+  }
+  return this;
+}

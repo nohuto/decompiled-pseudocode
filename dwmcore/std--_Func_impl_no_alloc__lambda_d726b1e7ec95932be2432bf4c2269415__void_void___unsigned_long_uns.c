@@ -1,0 +1,4 @@
+void *std::_Func_impl_no_alloc__lambda_d726b1e7ec95932be2432bf4c2269415__void_void___unsigned_long_unsigned___int64_unsigned_short_const___enum_ProcessAttributionFlags_ProcessAttributionResourceCounters_const___::_Target_type()
+{
+  return &_lambda_d726b1e7ec95932be2432bf4c2269415_ `RTTI Type Descriptor';
+}

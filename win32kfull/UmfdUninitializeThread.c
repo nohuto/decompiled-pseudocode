@@ -1,0 +1,4 @@
+void UmfdUninitializeThread()
+{
+  UmfdHostLifeTimeManager::UninitializeThread();
+}

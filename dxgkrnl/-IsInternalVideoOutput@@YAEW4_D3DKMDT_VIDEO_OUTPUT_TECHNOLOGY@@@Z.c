@@ -1,0 +1,4 @@
+bool __fastcall IsInternalVideoOutput(enum _D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY a1)
+{
+  return a1 == 0x80000000 || a1 == D3DKMDT_VOT_DISPLAYPORT_EMBEDDED || a1 == D3DKMDT_VOT_UDI_EMBEDDED;
+}

@@ -1,0 +1,8 @@
+void __fastcall DXG_GUEST_REMOTEOBJECTCHANNEL::Delete(DXG_GUEST_REMOTEOBJECTCHANNEL *this)
+{
+  if ( this )
+  {
+    DXG_GUEST_REMOTEOBJECTCHANNEL::~DXG_GUEST_REMOTEOBJECTCHANNEL(this);
+    operator delete(this);
+  }
+}

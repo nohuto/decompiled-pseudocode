@@ -1,0 +1,4 @@
+void CMILRefCountBaseT<ILegacyRemotingSwapChain>::FinalRelease()
+{
+  ;
+}

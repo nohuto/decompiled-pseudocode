@@ -1,0 +1,12 @@
+DXGAUTOPUSHLOCKEXCLUSIVE *__fastcall DXGAUTOPUSHLOCKEXCLUSIVE::DXGAUTOPUSHLOCKEXCLUSIVE(
+        DXGAUTOPUSHLOCKEXCLUSIVE *this,
+        struct _KTHREAD **a2)
+{
+  DXGAUTOPUSHLOCKEXCLUSIVE *result; // rax
+
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK(this, a2, 0);
+  DXGPUSHLOCK::AcquireExclusive(*((DXGPUSHLOCK **)this + 1));
+  result = this;
+  *((_DWORD *)this + 4) = 2;
+  return result;
+}

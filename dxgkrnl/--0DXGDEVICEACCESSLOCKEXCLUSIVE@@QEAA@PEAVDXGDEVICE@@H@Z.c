@@ -1,0 +1,11 @@
+DXGDEVICEACCESSLOCKEXCLUSIVE *__fastcall DXGDEVICEACCESSLOCKEXCLUSIVE::DXGDEVICEACCESSLOCKEXCLUSIVE(
+        DXGDEVICEACCESSLOCKEXCLUSIVE *this,
+        struct DXGDEVICE *a2,
+        int a3)
+{
+  *((_DWORD *)this + 2) = 0;
+  *(_QWORD *)this = a2;
+  if ( a2 && a3 )
+    DXGDEVICEACCESSLOCKEXCLUSIVE::Acquire(this);
+  return this;
+}

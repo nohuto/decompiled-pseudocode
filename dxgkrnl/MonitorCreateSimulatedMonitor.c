@@ -1,0 +1,58 @@
+__int64 __fastcall MonitorCreateSimulatedMonitor(
+        PERESOURCE *this,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        int a5,
+        char a6,
+        int a7,
+        __int64 a8)
+{
+  __int64 v8; // rbp
+  __int64 v10; // rdi
+  _QWORD *v11; // rax
+  PERESOURCE v12; // rax
+  __int64 Blink; // r14
+  int IsTargetForceable; // eax
+  unsigned int v16; // ebx
+  bool v17; // [rsp+58h] [rbp+10h] BYREF
+  __int64 v18; // [rsp+68h] [rbp+20h] BYREF
+
+  v18 = a4;
+  v8 = (int)a3;
+  v10 = (unsigned int)a2;
+  v11 = (_QWORD *)WdLogNewEntry5_WdTrace(this, a2, a3, a4);
+  v11[3] = v8;
+  v11[4] = v10;
+  v11[5] = this;
+  if ( !this || (_DWORD)v10 == -1 || (_DWORD)v8 == 1 )
+    return 3221225485LL;
+  if ( !DXGADAPTER::IsCoreResourceExclusiveOwner(this) )
+    WdLogSingleEntry0(1LL);
+  v12 = this[365];
+  if ( !v12 || (Blink = (__int64)v12[1].SystemResourcesList.Blink) == 0 )
+  {
+    WdLogSingleEntry1(2LL, this);
+    return 3221225485LL;
+  }
+  if ( a6 )
+    goto LABEL_16;
+  v17 = 0;
+  IsTargetForceable = DmmIsTargetForceable((DXGADAPTER *)this, v10, &v17, v8);
+  v16 = IsTargetForceable;
+  if ( IsTargetForceable < 0 )
+  {
+    WdLogSingleEntry2(2LL, v10, IsTargetForceable);
+    return v16;
+  }
+  if ( v17 )
+  {
+LABEL_16:
+    v18 = 0LL;
+    v16 = MONITOR_MGR::_HandleCreateSimulatedMonitor(Blink, (unsigned int)v10, (unsigned int)v8, 0LL, &v18, a8);
+    MONITOR_MGR::_LogMonitorPresentEvent(Blink, 1073741825, v10, v16, 0LL);
+    return v16;
+  }
+  WdLogSingleEntry1(3LL, v10);
+  return 3221225659LL;
+}

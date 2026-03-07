@@ -1,0 +1,26 @@
+__int64 __fastcall std::string::_Reallocate_for<_lambda_66f57f934f28d61049862f64df852ff0_,char const *>(
+        __int64 a1,
+        size_t a2,
+        __int64 a3,
+        const void *a4)
+{
+  unsigned __int64 v7; // rbp
+  unsigned __int64 v8; // rbx
+  _BYTE *v9; // rax
+  _BYTE *v10; // r14
+
+  if ( a2 > 0x7FFFFFFFFFFFFFFFLL )
+    std::_Xlen_string();
+  v7 = *(_QWORD *)(a1 + 24);
+  v8 = std::string::_Calculate_growth(a1, a2);
+  v9 = (_BYTE *)std::_Allocate<16,std::_Default_allocate_traits,0>(v8 + 1);
+  *(_QWORD *)(a1 + 16) = a2;
+  *(_QWORD *)(a1 + 24) = v8;
+  v10 = v9;
+  memcpy_0(v9, a4, a2);
+  v10[a2] = 0;
+  if ( v7 >= 0x10 )
+    std::_Deallocate<16,0>(*(void **)a1, v7 + 1);
+  *(_QWORD *)a1 = v10;
+  return a1;
+}

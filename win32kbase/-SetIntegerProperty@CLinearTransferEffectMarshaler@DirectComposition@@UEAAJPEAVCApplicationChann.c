@@ -1,0 +1,51 @@
+__int64 __fastcall DirectComposition::CLinearTransferEffectMarshaler::SetIntegerProperty(
+        DirectComposition::CLinearTransferEffectMarshaler *this,
+        struct DirectComposition::CApplicationChannel *a2,
+        int a3,
+        __int64 a4,
+        bool *a5)
+{
+  char v6; // r10
+  char v8; // cl
+  char v9; // al
+  char v10; // cl
+  char v11; // cl
+  char v12; // cl
+
+  v6 = a4 != 0;
+  switch ( a3 )
+  {
+    case 2:
+      *a5 = v6 ^ *((_BYTE *)this + 144) & 1;
+      v9 = *((_BYTE *)this + 144) & 0xFE;
+      break;
+    case 5:
+      v12 = v6 ^ ((*((_BYTE *)this + 144) & 2) != 0);
+      v6 *= 2;
+      *a5 = v12;
+      v9 = *((_BYTE *)this + 144) & 0xFD;
+      break;
+    case 8:
+      v11 = v6 ^ ((*((_BYTE *)this + 144) & 8) != 0);
+      v6 *= 8;
+      *a5 = v11;
+      v9 = *((_BYTE *)this + 144) & 0xF7;
+      break;
+    case 11:
+      v10 = v6 ^ ((*((_BYTE *)this + 144) & 4) != 0);
+      v6 *= 4;
+      *a5 = v10;
+      v9 = *((_BYTE *)this + 144) & 0xFB;
+      break;
+    case 12:
+      v8 = v6 ^ ((*((_BYTE *)this + 144) & 0x10) != 0);
+      v6 *= 16;
+      *a5 = v8;
+      v9 = *((_BYTE *)this + 144) & 0xEF;
+      break;
+    default:
+      return DirectComposition::CFilterEffectMarshaler::SetIntegerProperty(this, a2, a3, a4, a5);
+  }
+  *((_BYTE *)this + 144) = v9 | v6;
+  return 0LL;
+}

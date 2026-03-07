@@ -1,0 +1,7 @@
+DXGDEVICESYNCOBJECT *__fastcall DXGDEVICESYNCOBJECT::`scalar deleting destructor'(DXGDEVICESYNCOBJECT *P)
+{
+  DXGDEVICESYNCOBJECT::~DXGDEVICESYNCOBJECT(P);
+  if ( P )
+    ExFreePoolWithTag(P, 0);
+  return P;
+}

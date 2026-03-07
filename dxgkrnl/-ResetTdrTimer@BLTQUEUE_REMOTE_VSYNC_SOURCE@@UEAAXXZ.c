@@ -1,0 +1,4 @@
+void __fastcall BLTQUEUE_REMOTE_VSYNC_SOURCE::ResetTdrTimer(BLTQUEUE_REMOTE_VSYNC_SOURCE *this)
+{
+  KeSetTimerEx((PKTIMER)((char *)this + 8), (LARGE_INTEGER)-300000000LL, 0, 0LL);
+}

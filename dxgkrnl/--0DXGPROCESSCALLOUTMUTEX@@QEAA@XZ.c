@@ -1,0 +1,8 @@
+DXGPROCESSCALLOUTMUTEX *__fastcall DXGPROCESSCALLOUTMUTEX::DXGPROCESSCALLOUTMUTEX(DXGPROCESSCALLOUTMUTEX *this)
+{
+  struct DXGGLOBAL *Global; // rax
+
+  Global = DXGGLOBAL::GetGlobal();
+  DXGAUTOMUTEX::DXGAUTOMUTEX(this, (struct DXGGLOBAL *)((char *)Global + 368), 0);
+  return this;
+}

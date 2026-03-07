@@ -1,0 +1,37 @@
+void __fastcall CPrimitiveGroupDrawListGenerator::~CPrimitiveGroupDrawListGenerator(
+        CPrimitiveGroupDrawListGenerator *this,
+        unsigned int a2)
+{
+  CPrimitiveBuffer *v3; // rcx
+  CPrimitiveBuffer *v4; // rcx
+  CRegion *v5; // rcx
+  char *v6; // rcx
+  char *v7; // rcx
+  char *v8; // rbx
+  char *v9; // rbx
+
+  *(_QWORD *)this = &CPrimitiveGroupDrawListGenerator::`vftable';
+  v3 = (CPrimitiveBuffer *)*((_QWORD *)this + 2);
+  if ( v3 )
+    CPrimitiveBuffer::`scalar deleting destructor'(v3, a2);
+  v4 = (CPrimitiveBuffer *)*((_QWORD *)this + 3);
+  if ( v4 )
+    CPrimitiveBuffer::`scalar deleting destructor'(v4, a2);
+  v5 = (CRegion *)*((_QWORD *)this + 12);
+  if ( v5 )
+    CRegion::`scalar deleting destructor'(v5, 1u);
+  v6 = (char *)*((_QWORD *)this + 11);
+  if ( v6 )
+  {
+    v9 = v6 - 8;
+    `vector destructor iterator'(v6, 0x18uLL, *((_QWORD *)v6 - 1), (void (*)(void *))CDrawListBitmap::~CDrawListBitmap);
+    operator delete[](v9);
+  }
+  v7 = (char *)*((_QWORD *)this + 10);
+  if ( v7 )
+  {
+    v8 = v7 - 8;
+    `vector destructor iterator'(v7, 0x18uLL, *((_QWORD *)v7 - 1), (void (*)(void *))CDrawListBitmap::~CDrawListBitmap);
+    operator delete[](v8);
+  }
+}

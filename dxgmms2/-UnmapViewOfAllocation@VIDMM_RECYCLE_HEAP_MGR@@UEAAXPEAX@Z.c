@@ -1,0 +1,12 @@
+void __fastcall VIDMM_RECYCLE_HEAP_MGR::UnmapViewOfAllocation(
+        VIDMM_RECYCLE_HEAP_MGR *this,
+        VIDMM_RECYCLE_MULTIRANGE *a2)
+{
+  _BYTE v3[24]; // [rsp+20h] [rbp-18h] BYREF
+
+  DXGAUTOMUTEX::DXGAUTOMUTEX((DXGAUTOMUTEX *)v3, (VIDMM_RECYCLE_HEAP_MGR *)((char *)this + 1328));
+  DXGAUTOMUTEX::Acquire((DXGAUTOMUTEX *)v3);
+  VIDMM_RECYCLE_MULTIRANGE::Unmap(a2);
+  if ( v3[8] )
+    DXGAUTOMUTEX::Release((DXGAUTOMUTEX *)v3);
+}

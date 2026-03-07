@@ -1,0 +1,5 @@
+__int64 __fastcall sub_140066240(__int64 a1, __int64 a2)
+{
+  sub_1400A5180(a2, a1 + 16);
+  return a2;
+}

@@ -1,0 +1,11 @@
+void __fastcall DXGSYNCOBJECTLOCK::Release(DXGSYNCOBJECTLOCK *this)
+{
+  __int64 v2; // rcx
+
+  if ( !*((_BYTE *)this + 8) )
+    WdLogSingleEntry5(0LL, 275LL, 4LL, this, 0LL, 0LL);
+  v2 = *(_QWORD *)this;
+  *((_BYTE *)this + 8) = 0;
+  ExReleaseResourceLite(*(PERESOURCE *)(v2 + 600));
+  KeLeaveCriticalRegion();
+}

@@ -1,0 +1,7 @@
+AUTOEXPANDALLOCATION *__fastcall AUTOEXPANDALLOCATION::`scalar deleting destructor'(AUTOEXPANDALLOCATION *P)
+{
+  AUTOEXPANDALLOCATION::~AUTOEXPANDALLOCATION(P);
+  if ( P )
+    ExFreePoolWithTag(P, 0);
+  return P;
+}

@@ -1,0 +1,14 @@
+void __fastcall DMMVIDPNTARGETMODE::Serialize(
+        DMMVIDPNTARGETMODE *this,
+        struct _D3DKMDT_VIDPN_TARGET_MODE *const a2,
+        union _D3DKMDT_WIRE_FORMAT_AND_PREFERENCE *a3,
+        enum _D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE *a4)
+{
+  a2->Id = *((_DWORD *)this + 6);
+  a2->VideoSignalInfo = *(D3DKMDT_VIDEO_SIGNAL_INFO *)((char *)this + 72);
+  a2->WireFormatAndPreference.Value = *((_DWORD *)this + 32);
+  if ( a3 )
+    a3->0 = *(struct _D3DKMDT_WIRE_FORMAT_AND_PREFERENCE::$BC67B894A1A9CCB3D1B7060E96581CDD *)((char *)this + 132);
+  if ( a4 )
+    *a4 = *((enum _D3DDDI_OUTPUT_WIRE_COLOR_SPACE_TYPE *)this + 34);
+}

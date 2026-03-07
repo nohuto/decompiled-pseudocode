@@ -1,0 +1,26 @@
+void __fastcall Microsoft::BamoImpl::BaseBamoPeerImpl::OnZeroReferenceCount(
+        Microsoft::BamoImpl::BaseBamoPeerImpl *this,
+        __int64 a2,
+        __int64 a3,
+        const char *a4)
+{
+  __int64 v5; // rdx
+  __int64 v6; // r8
+  const char *v7; // r9
+  void (__fastcall ***v8)(_QWORD, __int64); // rcx
+  Microsoft::BamoImpl::BaseBamoConnectionImpl *v9[3]; // [rsp+20h] [rbp-18h] BYREF
+
+  Microsoft::BamoImpl::ConditionalCalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>::ConditionalCalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>(
+    v9,
+    *(Microsoft::BamoImpl::BaseBamoConnectionImpl **)(*((_QWORD *)this + 3) + 32LL),
+    a3,
+    a4);
+  v8 = (void (__fastcall ***)(_QWORD, __int64))*((_QWORD *)this + 2);
+  if ( v8 )
+    (**v8)(v8, 1LL);
+  Microsoft::BamoImpl::ConditionalCalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>::~ConditionalCalloutWrapper<Microsoft::BamoImpl::CalloutWrapperObject>(
+    (__int64)v9,
+    v5,
+    v6,
+    v7);
+}

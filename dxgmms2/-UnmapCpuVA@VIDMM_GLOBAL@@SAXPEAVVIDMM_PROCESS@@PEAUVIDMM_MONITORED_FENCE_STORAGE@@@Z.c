@@ -1,0 +1,4 @@
+void __fastcall VIDMM_GLOBAL::UnmapCpuVA(struct VIDMM_PROCESS *a1, VIDMM_FENCE_STORAGE_PAGE **a2)
+{
+  VIDMM_FENCE_STORAGE_PAGE::UnmapCpuVA(*a2, a1);
+}

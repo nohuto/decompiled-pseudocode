@@ -1,0 +1,4 @@
+void Control_Cleanup()
+{
+  ;
+}

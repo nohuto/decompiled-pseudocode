@@ -1,0 +1,4 @@
+void __fastcall DXGPRESENTMUTEX::~DXGPRESENTMUTEX(DXGPRESENTMUTEX *this)
+{
+  DXGPRESENTMUTEX::Release(this);
+}

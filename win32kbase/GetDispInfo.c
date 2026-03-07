@@ -1,0 +1,4 @@
+PVOID GetDispInfo()
+{
+  return gpDispInfo;
+}

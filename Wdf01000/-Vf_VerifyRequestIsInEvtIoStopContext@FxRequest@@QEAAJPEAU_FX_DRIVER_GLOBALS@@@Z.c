@@ -1,0 +1,20 @@
+__int64 __fastcall FxRequest::Vf_VerifyRequestIsInEvtIoStopContext(
+        FxRequest *this,
+        _FX_DRIVER_GLOBALS *FxDriverGlobals)
+{
+  unsigned int v3; // ebx
+  const void *_a1; // rax
+
+  if ( _bittest16(&this->m_VerifierFlags, 9u) )
+  {
+    return 0;
+  }
+  else
+  {
+    v3 = -1073741808;
+    _a1 = (const void *)FxObject::GetObjectHandleUnchecked(this);
+    WPP_IFR_SF_qd(FxDriverGlobals, 2u, 0xDu, 0x38u, WPP_FxRequest_cpp_Traceguids, _a1, -1073741808);
+    FxVerifierDbgBreakPoint(FxDriverGlobals);
+  }
+  return v3;
+}

@@ -1,0 +1,15 @@
+void __fastcall vFreeKernelSection(char *a1)
+{
+  char *v1; // rcx
+  void *v2; // rbx
+
+  if ( a1 )
+  {
+    v1 = a1 - 16;
+    v2 = *(void **)v1;
+    if ( !*(_QWORD *)v1 )
+      KeBugCheckEx(0x50u, 0LL, 0LL, *((int *)v1 + 2), 0LL);
+    if ( MmUnmapViewInSessionSpace(v1) >= 0 )
+      ObfDereferenceObject(v2);
+  }
+}

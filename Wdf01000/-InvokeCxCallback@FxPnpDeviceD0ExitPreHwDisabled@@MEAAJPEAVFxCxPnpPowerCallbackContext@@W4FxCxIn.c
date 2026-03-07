@@ -1,0 +1,38 @@
+__int64 __fastcall FxPnpDeviceD0ExitPreHwDisabled::InvokeCxCallback(
+        FxPnpDeviceD0ExitPreHwDisabled *this,
+        FxCxPnpPowerCallbackContext *Context,
+        FxCxInvokeCallbackSubType PrePost)
+{
+  int flags; // eax
+  unsigned int v6; // edi
+  const char *_a4; // r8
+  const _GUID *v9; // [rsp+20h] [rbp-38h]
+
+  if ( PrePost )
+    flags = ((__int64 (__fastcall *)(WDFDEVICE__ *, _QWORD))Context->u.Generic.PostCallback)(
+              this->m_Device,
+              (unsigned int)this->m_TargetState);
+  else
+    flags = ((__int64 (__fastcall *)(WDFDEVICE__ *, _QWORD))Context->u.Generic.PreCallback)(
+              this->m_Device,
+              (unsigned int)this->m_TargetState);
+  v6 = flags;
+  if ( flags < 0 )
+  {
+    _a4 = "Pre";
+    if ( PrePost )
+      _a4 = "Post";
+    WPP_IFR_SF_sqqLd(
+      this->m_PkgPnp->m_Globals,
+      this->m_TargetState,
+      (unsigned int)_a4,
+      0xFu,
+      v9,
+      _a4,
+      this->m_Device,
+      this->m_PkgPnp->m_DeviceBase->m_DeviceObject.m_DeviceObject,
+      this->m_TargetState,
+      flags);
+  }
+  return v6;
+}

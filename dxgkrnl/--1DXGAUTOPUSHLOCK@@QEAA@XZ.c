@@ -1,0 +1,4 @@
+void __fastcall DXGAUTOPUSHLOCK::~DXGAUTOPUSHLOCK(DXGAUTOPUSHLOCK *this)
+{
+  DXGAUTOPUSHLOCK::Release(this);
+}

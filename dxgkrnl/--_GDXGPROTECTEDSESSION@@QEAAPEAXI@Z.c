@@ -1,0 +1,7 @@
+DXGPROTECTEDSESSION *__fastcall DXGPROTECTEDSESSION::`scalar deleting destructor'(DXGPROTECTEDSESSION *P)
+{
+  DXGPROTECTEDSESSION::~DXGPROTECTEDSESSION(P);
+  if ( P )
+    ExFreePoolWithTag(P, 0);
+  return P;
+}

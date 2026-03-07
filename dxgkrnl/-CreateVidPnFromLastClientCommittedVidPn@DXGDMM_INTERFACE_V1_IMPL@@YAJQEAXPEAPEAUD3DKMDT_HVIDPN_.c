@@ -1,0 +1,100 @@
+__int64 __fastcall DXGDMM_INTERFACE_V1_IMPL::CreateVidPnFromLastClientCommittedVidPn(
+        DXGDMM_INTERFACE_V1_IMPL *this,
+        __int64 *a2,
+        struct D3DKMDT_HVIDPN__ **a3,
+        const struct _DXGDMM_VIDPN_INTERFACE **a4)
+{
+  __int64 v7; // rax
+  VIDPN_MGR *v8; // rbx
+  struct D3DKMDT_HVIDPN__ *v9; // r14
+  int v10; // eax
+  unsigned int v11; // ebx
+  __int64 v12; // rdx
+  __int64 v13; // rcx
+  __int64 v14; // r8
+  int v16; // [rsp+50h] [rbp-20h] BYREF
+  __int64 v17; // [rsp+58h] [rbp-18h]
+  char v18; // [rsp+60h] [rbp-10h]
+  __int64 v19; // [rsp+98h] [rbp+28h] BYREF
+  __int64 v20; // [rsp+A8h] [rbp+38h] BYREF
+
+  v16 = -1;
+  v17 = 0LL;
+  if ( (qword_1C013A870 & 2) != 0 )
+  {
+    v18 = 1;
+    v16 = 6053;
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+      McTemplateK0q_EtwWriteTransfer((__int64)this, &EventProfilerEnter, (__int64)a3, 6053);
+  }
+  else
+  {
+    v18 = 0;
+  }
+  DXGETWPROFILER_BASE::PushProfilerEntry((__int64)&v16, 6053);
+  if ( a2 && a3 )
+  {
+    *a2 = 0LL;
+    *a3 = 0LL;
+    if ( this )
+    {
+      if ( !DXGADAPTER::IsCoreResourceSharedOwner(this) )
+        WdLogSingleEntry0(1LL);
+      v7 = *((_QWORD *)this + 365);
+      if ( v7 )
+      {
+        v8 = *(VIDPN_MGR **)(v7 + 104);
+        EXCLUSIVEACCESS<VIDPN_MGR>::EXCLUSIVEACCESS<VIDPN_MGR>((__int64)&v20, (__int64)v8);
+        v9 = (struct D3DKMDT_HVIDPN__ *)*((_QWORD *)v8 + 60);
+        v19 = 0LL;
+        v10 = VIDPN_MGR::CreateClientVidPnFromLastClientCommitedVidPn(v8, &v19);
+        v11 = v10;
+        if ( v10 < 0 )
+        {
+          WdLogSingleEntry1(7LL, v10);
+        }
+        else
+        {
+          v12 = v19;
+          v19 = 0LL;
+          *a2 = v12 & -(__int64)(v12 != -88);
+          v11 = 0;
+          *a3 = v9;
+        }
+        auto_rc<DMMVIDPN>::reset(&v19, 0LL);
+        DXGFASTMUTEX::Release((struct _KTHREAD **)(v20 + 40));
+        goto LABEL_12;
+      }
+      WdLogSingleEntry1(2LL, this);
+      DxgkLogInternalTriageEvent(
+        0LL,
+        0x40000,
+        -1,
+        (__int64)L"Caller specified adapter handle 0x%I64x is a render only adapter.",
+        (__int64)this,
+        0LL,
+        0LL,
+        0LL,
+        0LL);
+    }
+    else
+    {
+      WdLogSingleEntry1(2LL, 0LL);
+    }
+    v11 = -1071775742;
+  }
+  else
+  {
+    WdLogSingleEntry2(2LL, 0LL, this);
+    v11 = -1073741811;
+  }
+LABEL_12:
+  DXGETWPROFILER_BASE::PopProfilerEntry((DXGETWPROFILER_BASE *)&v16);
+  if ( v18 )
+  {
+    LOBYTE(v13) = BYTE1(Microsoft_Windows_DxgKrnlEnableBits);
+    if ( (Microsoft_Windows_DxgKrnlEnableBits & 0x8000) != 0 )
+      McTemplateK0q_EtwWriteTransfer(v13, &EventProfilerExit, v14, v16);
+  }
+  return v11;
+}

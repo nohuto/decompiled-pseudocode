@@ -1,0 +1,6 @@
+DXGPROCESSSHAREDACCESS *__fastcall DXGPROCESSSHAREDACCESS::`scalar deleting destructor'(DXGPROCESSSHAREDACCESS *this)
+{
+  DXGPROCESSSHAREDACCESS::~DXGPROCESSSHAREDACCESS(this);
+  operator delete(this);
+  return this;
+}

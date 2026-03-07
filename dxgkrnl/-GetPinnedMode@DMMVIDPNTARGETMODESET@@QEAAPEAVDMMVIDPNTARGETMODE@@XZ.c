@@ -1,0 +1,4 @@
+struct DMMVIDPNTARGETMODE *__fastcall DMMVIDPNTARGETMODESET::GetPinnedMode(DMMVIDPNTARGETMODESET *this)
+{
+  return (struct DMMVIDPNTARGETMODE *)*((_QWORD *)this + 18);
+}

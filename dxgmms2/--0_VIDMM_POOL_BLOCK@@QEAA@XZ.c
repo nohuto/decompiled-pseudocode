@@ -1,0 +1,4 @@
+_VIDMM_POOL_BLOCK *__fastcall _VIDMM_POOL_BLOCK::_VIDMM_POOL_BLOCK(_VIDMM_POOL_BLOCK *this)
+{
+  return this;
+}

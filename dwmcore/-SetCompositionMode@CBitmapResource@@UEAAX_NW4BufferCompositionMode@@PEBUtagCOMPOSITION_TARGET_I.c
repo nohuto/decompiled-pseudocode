@@ -1,0 +1,4 @@
+void CBitmapResource::SetCompositionMode()
+{
+  ;
+}

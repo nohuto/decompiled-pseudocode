@@ -1,0 +1,4 @@
+void UmfdUninitializeProcess()
+{
+  UmfdHostLifeTimeManager::UninitializeProcess();
+}

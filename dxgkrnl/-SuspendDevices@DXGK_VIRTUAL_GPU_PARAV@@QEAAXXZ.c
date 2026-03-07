@@ -1,0 +1,29 @@
+void __fastcall DXGK_VIRTUAL_GPU_PARAV::SuspendDevices(DXGK_VIRTUAL_GPU_PARAV *this)
+{
+  volatile signed __int32 *v1; // rdi
+  __int64 **v2; // rsi
+  __int64 *i; // rbx
+  __int64 v4; // rdx
+  __int64 v5; // rax
+
+  v1 = (volatile signed __int32 *)((char *)this + 288);
+  v2 = (__int64 **)((char *)this + 320);
+  DXGPUSHLOCK::AcquireShared((DXGK_VIRTUAL_GPU_PARAV *)((char *)this + 288));
+  for ( i = *v2; i != (__int64 *)v2; i = (__int64 *)*i )
+  {
+    DXGPUSHLOCK::AcquireExclusive((DXGPUSHLOCK *)(i + 39));
+    if ( *((_DWORD *)i + 122) == 1 && !*((_BYTE *)i - 48) )
+    {
+      v4 = *(_QWORD *)(*(i - 13) + 760);
+      v5 = *(_QWORD *)(v4 + 8);
+      LOBYTE(v4) = 1;
+      (*(void (__fastcall **)(__int64, __int64))(v5 + 1112))(i[84], v4);
+    }
+    i[40] = 0LL;
+    ExReleasePushLockExclusiveEx(i + 39, 0LL);
+    KeLeaveCriticalRegion();
+  }
+  _InterlockedDecrement(v1 + 4);
+  ExReleasePushLockSharedEx(v1, 0LL);
+  KeLeaveCriticalRegion();
+}

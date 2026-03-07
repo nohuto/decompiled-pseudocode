@@ -1,0 +1,58 @@
+char __fastcall DXG_HOST_VIRTUALGPU_VMBUS::VmBusQueryVideoMemoryInfo(struct DXGADAPTER_VMBUS_PACKET *a1)
+{
+  __int64 v2; // rax
+  char v3; // bl
+  __int64 v4; // rax
+  struct VMBPACKETCOMPLETION__ *v5; // rcx
+  __int128 v7; // [rsp+50h] [rbp-29h] BYREF
+  __int128 v8; // [rsp+60h] [rbp-19h]
+  __int128 v9; // [rsp+70h] [rbp-9h]
+  __int64 v10; // [rsp+80h] [rbp+7h]
+  _BYTE v11[8]; // [rsp+88h] [rbp+Fh] BYREF
+  DXGPUSHLOCK *v12; // [rsp+90h] [rbp+17h]
+  int v13; // [rsp+98h] [rbp+1Fh]
+  _OWORD v14[2]; // [rsp+A0h] [rbp+27h] BYREF
+
+  DXGAUTOPUSHLOCK::DXGAUTOPUSHLOCK((DXGAUTOPUSHLOCK *)v11, (struct _KTHREAD **)(*((_QWORD *)a1 + 10) + 248LL), 0);
+  DXGPUSHLOCK::AcquireShared(v12);
+  v2 = *((_QWORD *)a1 + 10);
+  v3 = 0;
+  v13 = 1;
+  if ( *(_BYTE *)(v2 + 173) )
+  {
+    v4 = CastToVmBusCommand<DXGKVMB_COMMAND_CREATEDEVICE>((__int64)a1);
+    if ( v4 )
+    {
+      v7 = 0LL;
+      v10 = 0LL;
+      v8 = 0LL;
+      v9 = 0LL;
+      *((_QWORD *)&v7 + 1) = *(_QWORD *)(v4 + 24);
+      LODWORD(v10) = *(_DWORD *)(v4 + 32);
+      if ( (int)DxgkQueryVideoMemoryInfo(&v7) >= 0 )
+      {
+        v5 = (struct VMBPACKETCOMPLETION__ *)*((_QWORD *)a1 + 16);
+        v14[0] = v8;
+        v14[1] = v9;
+        VmBusCompletePacket(v5, v14, 0x20u);
+        v3 = 1;
+      }
+    }
+  }
+  else
+  {
+    WdLogSingleEntry1(2LL, 5274LL);
+    DxgkLogInternalTriageEvent(
+      0LL,
+      0x40000,
+      -1,
+      (__int64)L"The adapter is already closed by the guest",
+      5274LL,
+      0LL,
+      0LL,
+      0LL,
+      0LL);
+  }
+  DXGAUTOPUSHLOCK::Release((DXGAUTOPUSHLOCK *)v11);
+  return v3;
+}

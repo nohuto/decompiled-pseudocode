@@ -1,0 +1,4 @@
+void CVisualTree::GetIntersectingRedrawRects()
+{
+  ;
+}

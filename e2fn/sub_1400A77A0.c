@@ -1,0 +1,4 @@
+__int64 __fastcall sub_1400A77A0(__int64 a1)
+{
+  return sub_1400A7800((PVOID)(a1 - 56));
+}

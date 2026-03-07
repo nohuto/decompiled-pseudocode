@@ -1,0 +1,15 @@
+DXGADAPTERALLOCATION_VGPU *__fastcall DXGADAPTERALLOCATION_VGPU::DXGADAPTERALLOCATION_VGPU(
+        DXGADAPTERALLOCATION_VGPU *this)
+{
+  __int64 v1; // rcx
+  DXGADAPTERALLOCATION_VGPU *result; // rax
+
+  DXGADAPTERALLOCATION::DXGADAPTERALLOCATION(this);
+  *(_DWORD *)(v1 + 4) |= 0x20000u;
+  *(_QWORD *)(v1 + 112) = 0LL;
+  result = (DXGADAPTERALLOCATION_VGPU *)v1;
+  *(_OWORD *)(v1 + 64) = 0LL;
+  *(_OWORD *)(v1 + 80) = 0LL;
+  *(_OWORD *)(v1 + 96) = 0LL;
+  return result;
+}

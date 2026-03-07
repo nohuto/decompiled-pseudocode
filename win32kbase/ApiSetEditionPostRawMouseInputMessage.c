@@ -1,0 +1,64 @@
+__int64 __fastcall ApiSetEditionPostRawMouseInputMessage(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
+{
+  unsigned int v6; // ebp
+  __int64 v7; // r14
+  PDEVICE_OBJECT v9; // rcx
+  char v10; // bl
+  void *v11; // r9
+  unsigned int v12; // edi
+  int v13; // edx
+  void *v14; // r8
+
+  v6 = a3;
+  v7 = a2;
+  v9 = WPP_GLOBAL_Control;
+  v10 = 1;
+  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
+    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
+    || (LOBYTE(a2) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  {
+    LOBYTE(a2) = 0;
+  }
+  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED
+    || (LOBYTE(a3) = 1, !LOWORD(WPP_GLOBAL_Control->DeviceType)) )
+  {
+    LOBYTE(a3) = 0;
+  }
+  v11 = &WPP_27299bb4fcd83cf9f08da90e79a2f70f_Traceguids;
+  if ( (_BYTE)a2 || (_BYTE)a3 )
+    WPP_RECORDER_AND_TRACE_SF_(
+      WPP_GLOBAL_Control->AttachedDevice,
+      a2,
+      a3,
+      WPP_GLOBAL_Control->DeviceExtension,
+      5,
+      10,
+      316,
+      (__int64)&WPP_27299bb4fcd83cf9f08da90e79a2f70f_Traceguids);
+  v12 = 0;
+  if ( (int)IsEditionPostRawMouseInputMessageSupported(v9, a2, a3, v11) >= 0 && qword_1C02D7D90 )
+    v12 = qword_1C02D7D90(a1, v7, v6, a4, a5);
+  if ( WPP_GLOBAL_Control == (PDEVICE_OBJECT)&WPP_GLOBAL_Control
+    || (HIDWORD(WPP_GLOBAL_Control->Timer) & 0x200) == 0
+    || (LOBYTE(v13) = 1, BYTE1(WPP_GLOBAL_Control->Timer) < 5u) )
+  {
+    LOBYTE(v13) = 0;
+  }
+  if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED || !LOWORD(WPP_GLOBAL_Control->DeviceType) )
+    v10 = 0;
+  if ( (_BYTE)v13 || v10 )
+  {
+    v14 = &WPP_27299bb4fcd83cf9f08da90e79a2f70f_Traceguids;
+    LOBYTE(v14) = v10;
+    WPP_RECORDER_AND_TRACE_SF_(
+      WPP_GLOBAL_Control->AttachedDevice,
+      v13,
+      (_DWORD)v14,
+      WPP_GLOBAL_Control->DeviceExtension,
+      5,
+      10,
+      317,
+      (__int64)&WPP_27299bb4fcd83cf9f08da90e79a2f70f_Traceguids);
+  }
+  return v12;
+}

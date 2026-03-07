@@ -1,0 +1,7 @@
+DXGSYNCOBJECTMUTEX *__fastcall DXGSYNCOBJECTMUTEX::DXGSYNCOBJECTMUTEX(
+        DXGSYNCOBJECTMUTEX *this,
+        struct DXGSYNCOBJECT *a2)
+{
+  DXGAUTOMUTEX::DXGAUTOMUTEX(this, (struct DXGSYNCOBJECT *)((char *)a2 + 32), 0);
+  return this;
+}
