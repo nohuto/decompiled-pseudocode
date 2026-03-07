@@ -1,0 +1,4 @@
+char BgReleaseSpinLock()
+{
+  return BgpFwReleaseLock();
+}

@@ -1,0 +1,14 @@
+__int64 __fastcall WheaFlushETWEventsWorkerRoutine(__int64 a1)
+{
+  __int64 result; // rax
+
+  while ( 1 )
+  {
+    result = *(unsigned int *)(a1 + 96);
+    if ( (int)result <= 0 )
+      break;
+    (*(void (**)(void))(a1 + 104))();
+    _InterlockedDecrement((volatile signed __int32 *)(a1 + 96));
+  }
+  return result;
+}

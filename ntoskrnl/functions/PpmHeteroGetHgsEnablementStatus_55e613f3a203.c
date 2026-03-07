@@ -1,0 +1,4 @@
+char PpmHeteroGetHgsEnablementStatus()
+{
+  return PpmHeteroHgsEnabled;
+}

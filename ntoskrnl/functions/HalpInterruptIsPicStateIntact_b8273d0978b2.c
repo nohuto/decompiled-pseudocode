@@ -1,0 +1,4 @@
+char HalpInterruptIsPicStateIntact()
+{
+  return HalpInterruptPicStateIntact;
+}

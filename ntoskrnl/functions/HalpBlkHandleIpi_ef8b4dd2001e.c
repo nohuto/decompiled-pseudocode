@@ -1,0 +1,4 @@
+char HalpBlkHandleIpi()
+{
+  return HalpBlkPoPerformPpmOperation();
+}

@@ -1,0 +1,4 @@
+char KeForceEnableNx()
+{
+  return KiNxForceEnable;
+}

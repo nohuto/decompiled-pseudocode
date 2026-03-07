@@ -1,0 +1,4 @@
+void TtmpDeleteTerminal()
+{
+  TtmiLogTerminalDestroyed();
+}

@@ -1,0 +1,4 @@
+void KeClockTimerPowerChange()
+{
+  ++KiClockStats;
+}

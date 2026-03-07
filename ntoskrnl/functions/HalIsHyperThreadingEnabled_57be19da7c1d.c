@@ -1,0 +1,4 @@
+char HalIsHyperThreadingEnabled()
+{
+  return HalpInterruptHyperThreading;
+}

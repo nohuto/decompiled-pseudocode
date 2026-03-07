@@ -1,0 +1,4 @@
+PCONFIGURATION_INFORMATION IoGetConfigurationInformation(void)
+{
+  return (PCONFIGURATION_INFORMATION)&dword_140D53888;
+}

@@ -1,0 +1,20 @@
+unsigned __int8 __fastcall HalpAcquireHighLevelLock(PKSPIN_LOCK SpinLock)
+{
+  unsigned __int8 CurrentIrql; // bl
+  _DWORD *SchedulerAssist; // r8
+  __int64 v4; // rax
+
+  CurrentIrql = KeGetCurrentIrql();
+  __writecr8(0xFuLL);
+  if ( KiIrqlFlags && (KiIrqlFlags & 1) != 0 && CurrentIrql <= 0xFu )
+  {
+    SchedulerAssist = KeGetCurrentPrcb()->SchedulerAssist;
+    if ( CurrentIrql == 15 )
+      LODWORD(v4) = 0x8000;
+    else
+      v4 = (-1LL << (CurrentIrql + 1)) & 0xFFFC;
+    SchedulerAssist[5] |= v4;
+  }
+  KxAcquireSpinLock(SpinLock);
+  return CurrentIrql;
+}

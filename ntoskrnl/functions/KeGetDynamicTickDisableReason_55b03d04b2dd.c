@@ -1,0 +1,4 @@
+char KeGetDynamicTickDisableReason()
+{
+  return KiDynamicTickDisableReason;
+}

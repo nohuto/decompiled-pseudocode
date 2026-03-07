@@ -1,0 +1,20 @@
+void __fastcall KiDynamicProcessorInitialization(__int64 a1)
+{
+  __int64 v1; // rax
+  unsigned int v3; // ecx
+  struct _GROUP_AFFINITY Affinity; // [rsp+20h] [rbp-38h] BYREF
+  struct _GROUP_AFFINITY PreviousAffinity; // [rsp+30h] [rbp-28h] BYREF
+
+  v1 = *(unsigned int *)(a1 + 36);
+  Affinity = 0LL;
+  v3 = KiProcessorIndexToNumberMappingTable[v1];
+  Affinity.Reserved[1] = 0;
+  Affinity.Reserved[2] = 0;
+  *(_DWORD *)&Affinity.Group = (unsigned __int16)(v3 >> 6);
+  Affinity.Mask = 1LL << (v3 & 0x3F);
+  PreviousAffinity = 0LL;
+  KeSetSystemGroupAffinityThread(&Affinity, &PreviousAffinity);
+  KeWriteProtectProcessorState(a1 - 384);
+  KeOptimizeSpecCtrlSettings();
+  KeRevertToUserGroupAffinityThread(&PreviousAffinity);
+}

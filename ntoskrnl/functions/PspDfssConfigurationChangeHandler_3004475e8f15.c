@@ -1,0 +1,4 @@
+void PspDfssConfigurationChangeHandler()
+{
+  PspReadDfssConfigurationValues();
+}

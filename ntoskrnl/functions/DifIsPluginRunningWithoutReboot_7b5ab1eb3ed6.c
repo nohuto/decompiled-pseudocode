@@ -1,0 +1,4 @@
+char DifIsPluginRunningWithoutReboot()
+{
+  return DifIsVolatileMode;
+}

@@ -1,0 +1,85 @@
+__int64 __fastcall DifKeReleaseInStackQueuedSpinLockWrapper(__int64 a1)
+{
+  __int64 *APIThunkContextById; // rax
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  __int64 v5; // r8
+  __int64 v6; // r9
+  __int64 *v7; // rdi
+  int v8; // eax
+  __int64 ReturnAddressForWrappers; // rax
+  __int64 *i; // rbx
+  __int64 result; // rax
+  unsigned __int64 v12; // rbx
+  struct _KPRCB *CurrentPrcb; // r10
+  _DWORD *SchedulerAssist; // r9
+  bool v15; // zf
+  _QWORD **v16; // rdi
+  _QWORD *j; // rbx
+  __int128 v18; // [rsp+20h] [rbp-18h] BYREF
+  __int64 retaddr; // [rsp+38h] [rbp+0h]
+
+  v18 = 0LL;
+  APIThunkContextById = DifGetAPIThunkContextById(288);
+  v7 = APIThunkContextById;
+  if ( !APIThunkContextById )
+    goto LABEL_17;
+  if ( ViVerifierEnabled && (VfRuleClasses & 0xFF217644) != 0
+    || (v4 = HIDWORD(VfRuleClasses), (VfRuleClasses & 0x800000000LL) == 0) )
+  {
+    if ( (*((_DWORD *)APIThunkContextById + 3) & 0x20) != 0 )
+      goto LABEL_12;
+    goto LABEL_10;
+  }
+  v8 = *((_DWORD *)APIThunkContextById + 3);
+  if ( (v8 & 0x18) == 0 )
+  {
+    if ( (v8 & 4) == 0 )
+      goto LABEL_12;
+LABEL_10:
+    ReturnAddressForWrappers = DifGetReturnAddressForWrappers(v4, v3, v5, v6);
+    goto LABEL_11;
+  }
+  ReturnAddressForWrappers = retaddr;
+LABEL_11:
+  *(_QWORD *)&v18 = ReturnAddressForWrappers;
+LABEL_12:
+  *((_QWORD *)&v18 + 1) = a1;
+  for ( i = (__int64 *)v7[4]; i != v7 + 4; i = (__int64 *)*i )
+  {
+    if ( i != (__int64 *)16 )
+      ((void (__fastcall *)(__int128 *))*(i - 1))(&v18);
+  }
+LABEL_17:
+  result = KxReleaseQueuedSpinLock((volatile signed __int64 **)a1);
+  v12 = *(unsigned __int8 *)(a1 + 16);
+  if ( KiIrqlFlags )
+  {
+    result = KeGetCurrentIrql();
+    if ( (KiIrqlFlags & 1) != 0
+      && (unsigned __int8)result <= 0xFu
+      && (unsigned __int8)v12 <= 0xFu
+      && (unsigned __int8)result >= 2u )
+    {
+      CurrentPrcb = KeGetCurrentPrcb();
+      SchedulerAssist = CurrentPrcb->SchedulerAssist;
+      result = ~(unsigned __int16)(-1LL << ((unsigned __int8)v12 + 1));
+      v15 = ((unsigned int)result & SchedulerAssist[5]) == 0;
+      SchedulerAssist[5] &= result;
+      if ( v15 )
+        result = KiRemoveSystemWorkPriorityKick((__int64)CurrentPrcb);
+    }
+  }
+  __writecr8(v12);
+  if ( v7 )
+  {
+    v16 = (_QWORD **)(v7 + 6);
+    for ( j = *v16; j != v16; j = (_QWORD *)*j )
+    {
+      result = (__int64)(j - 2);
+      if ( j != (_QWORD *)16 )
+        result = (*(__int64 (__fastcall **)(__int128 *))(result + 8))(&v18);
+    }
+  }
+  return result;
+}

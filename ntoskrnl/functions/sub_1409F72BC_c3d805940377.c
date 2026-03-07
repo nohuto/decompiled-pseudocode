@@ -1,0 +1,40 @@
+__int64 __fastcall sub_1409F72BC(__int64 a1)
+{
+  signed __int64 *v2; // rbx
+  __int64 v3; // rdx
+  __int64 v4; // rcx
+  struct _KTHREAD *CurrentThread; // [rsp+30h] [rbp-28h]
+  char v7; // [rsp+68h] [rbp+10h]
+  int v8; // [rsp+70h] [rbp+18h]
+  HANDLE KeyHandle; // [rsp+78h] [rbp+20h] BYREF
+
+  v8 = 0;
+  KeyHandle = 0LL;
+  v7 = 0;
+  CurrentThread = KeGetCurrentThread();
+  --CurrentThread->KernelApcDisable;
+  v2 = (signed __int64 *)(a1 + 46840);
+  ExAcquirePushLockSharedEx(a1 + 46840, 0LL);
+  if ( *(_QWORD *)(a1 + 46832) )
+  {
+    v8 = SpRegOpenRedirectedKey(v4, v3, &KeyHandle);
+    if ( v8 >= 0 )
+    {
+      v7 = 1;
+      v8 = ZwSetValueKey(
+             KeyHandle,
+             (PUNICODE_STRING)&stru_140A75C20,
+             0,
+             3u,
+             *(PVOID *)(a1 + 46832),
+             **(_DWORD **)(a1 + 46832));
+    }
+  }
+  if ( _InterlockedCompareExchange64(v2, 0LL, 17LL) != 17 )
+    ExfReleasePushLockShared(v2);
+  KeAbPostRelease((ULONG_PTR)v2);
+  KeLeaveCriticalRegionThread((__int64)KeGetCurrentThread());
+  if ( v7 == 1 )
+    ZwClose(KeyHandle);
+  return (unsigned int)v8;
+}
