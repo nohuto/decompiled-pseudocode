@@ -1,3 +1,21 @@
+/*
+ * XREFs of UsbhHubStart @ 0x1C0043560
+ * Callers:
+ *     Usbh_FDO_WaitPnpRestart @ 0x1C0044500 (Usbh_FDO_WaitPnpRestart.c)
+ *     Usbh_FDO_WaitPnpStart @ 0x1C00446A0 (Usbh_FDO_WaitPnpStart.c)
+ * Callees:
+ *     UsbhDisableTimerObject @ 0x1C00084D0 (UsbhDisableTimerObject.c)
+ *     UsbhEnableTimerObject @ 0x1C0008770 (UsbhEnableTimerObject.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhFdoSetD0Cold @ 0x1C000FBD0 (UsbhFdoSetD0Cold.c)
+ *     UsbhDispatch_BusEvent @ 0x1C001CF30 (UsbhDispatch_BusEvent.c)
+ *     UsbhReinitialize @ 0x1C002D73C (UsbhReinitialize.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhFinishStart @ 0x1C00378F4 (UsbhFinishStart.c)
+ *     Usbh_HubRootHubInitNotification @ 0x1C003C958 (Usbh_HubRootHubInitNotification.c)
+ */
+
 __int64 __fastcall UsbhHubStart(__int64 a1, int a2)
 {
   _DWORD *v4; // rsi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpSampledProfileRunDown @ 0x1409ECE34
+ * Callers:
+ *     EtwpKernelTraceRundown @ 0x14080D9F8 (EtwpKernelTraceRundown.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __fastcall EtwpSampledProfileRunDown(__int64 a1, char a2, char a3)
 {
   unsigned __int16 v3; // si

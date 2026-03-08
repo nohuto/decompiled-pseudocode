@@ -1,3 +1,19 @@
+/*
+ * XREFs of PspIumFreePhysicalPages @ 0x1405A3C30
+ * Callers:
+ *     PsDispatchIumService @ 0x1405A2A44 (PsDispatchIumService.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1403A1EB0 (MmMapLockedPagesWithReservedMapping.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PspIumFreePartitionPages @ 0x1405A3A2C (PspIumFreePartitionPages.c)
+ *     MmUnmapReservedMapping @ 0x14061C4D0 (MmUnmapReservedMapping.c)
+ *     MmFreeSecureKernelPages @ 0x1406558DC (MmFreeSecureKernelPages.c)
+ */
+
 __int64 __fastcall PspIumFreePhysicalPages(__int64 a1, unsigned int a2, __int64 a3)
 {
   KIRQL v5; // si

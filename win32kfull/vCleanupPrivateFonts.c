@@ -1,3 +1,11 @@
+/*
+ * XREFs of vCleanupPrivateFonts @ 0x1C0118D80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?bCleanupPFT@PUBLIC_PFTOBJ@@QEAAXW4eCleanupMode@1@PEAK@Z @ 0x1C00D0D34 (-bCleanupPFT@PUBLIC_PFTOBJ@@QEAAXW4eCleanupMode@1@PEAK@Z.c)
+ */
+
 struct Gre::Base::SESSION_GLOBALS *__fastcall vCleanupPrivateFonts(Gre::Base *a1)
 {
   struct Gre::Base::SESSION_GLOBALS *result; // rax

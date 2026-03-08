@@ -1,3 +1,21 @@
+/*
+ * XREFs of UsbhPdoSetD0_Finish @ 0x1C001AA00
+ * Callers:
+ *     UsbhPdoSetD0 @ 0x1C0003200 (UsbhPdoSetD0.c)
+ *     UsbhPdoUnblockPendedD0IrpWI @ 0x1C001A910 (UsbhPdoUnblockPendedD0IrpWI.c)
+ * Callees:
+ *     UsbhSetPdoPowerState @ 0x1C0003960 (UsbhSetPdoPowerState.c)
+ *     UsbhSet_Pdo_Dx @ 0x1C0009CFC (UsbhSet_Pdo_Dx.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhAcquireFdoPwrLock @ 0x1C001AB8C (UsbhAcquireFdoPwrLock.c)
+ *     UsbhDisableDeviceForWake @ 0x1C001AC18 (UsbhDisableDeviceForWake.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 __int64 __fastcall UsbhPdoSetD0_Finish(__int64 a1, struct _DEVICE_OBJECT *a2, __int64 a3)
 {
   _DWORD *v6; // rbp

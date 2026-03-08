@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpGetMcaExtendedLogStatusBlock @ 0x140500E34
+ * Callers:
+ *     HalpAddMcaExtendedLogToMemoryErrorSection @ 0x1404FFE04 (HalpAddMcaExtendedLogToMemoryErrorSection.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpVerifyGenericError @ 0x140501F00 (HalpVerifyGenericError.c)
+ */
+
 _DWORD *__fastcall HalpGetMcaExtendedLogStatusBlock(__int64 a1)
 {
   _DWORD *v1; // rbx

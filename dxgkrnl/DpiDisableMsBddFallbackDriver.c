@@ -1,3 +1,20 @@
+/*
+ * XREFs of DpiDisableMsBddFallbackDriver @ 0x1C0395D30
+ * Callers:
+ *     DpiFdoStartAdapterThreadImpl @ 0x1C0209A10 (DpiFdoStartAdapterThreadImpl.c)
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?InvalidateCache@QDC_CACHE@@QEAAX_N@Z @ 0x1C017586C (-InvalidateCache@QDC_CACHE@@QEAAX_N@Z.c)
+ *     DxgkAcquireAdapterCoreSync @ 0x1C01801F4 (DxgkAcquireAdapterCoreSync.c)
+ *     DxgkReleaseAdapterCoreSync @ 0x1C0180708 (DxgkReleaseAdapterCoreSync.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ *     ?EnableMsBddFallback@DXGADAPTER@@QEAAXE@Z @ 0x1C02B26A4 (-EnableMsBddFallback@DXGADAPTER@@QEAAXE@Z.c)
+ *     DxgkAcquireAdapterStopResetSync @ 0x1C02BD71C (DxgkAcquireAdapterStopResetSync.c)
+ *     DxgkReleaseAdapterStopResetSync @ 0x1C02BE3A8 (DxgkReleaseAdapterStopResetSync.c)
+ */
+
 __int64 __fastcall DpiDisableMsBddFallbackDriver(__int64 a1)
 {
   __int64 v3; // rbx

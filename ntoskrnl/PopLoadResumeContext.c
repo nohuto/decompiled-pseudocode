@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopLoadResumeContext @ 0x14097DC78
+ * Callers:
+ *     PopAllocateHiberContext @ 0x140984D38 (PopAllocateHiberContext.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     PopOpenKey @ 0x1403900E4 (PopOpenKey.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopLoadResumeContext(__int64 a1)
 {
   _DWORD *Pool2; // rdi

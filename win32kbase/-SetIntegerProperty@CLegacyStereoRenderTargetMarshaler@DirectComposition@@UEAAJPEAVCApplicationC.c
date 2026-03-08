@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetIntegerProperty@CLegacyStereoRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C024B210
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetIntegerProperty@CLegacyRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00CD2D0 (-SetIntegerProperty@CLegacyRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel.c)
+ */
+
 __int64 __fastcall DirectComposition::CLegacyStereoRenderTargetMarshaler::SetIntegerProperty(
         DirectComposition::CLegacyStereoRenderTargetMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

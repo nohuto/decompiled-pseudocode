@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmGetPolicyAction @ 0x1408264A4
+ * Callers:
+ *     PpmSetProfilePolicySetting @ 0x140825A60 (PpmSetProfilePolicySetting.c)
+ *     PpmCompareAndApplyPolicySettings @ 0x14098FE4C (PpmCompareAndApplyPolicySettings.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PpmGetPolicyAction(__int64 *a1, int *a2)
 {
   __int64 result; // rax

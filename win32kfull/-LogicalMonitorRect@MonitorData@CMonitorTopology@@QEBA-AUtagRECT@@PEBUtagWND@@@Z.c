@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?LogicalMonitorRect@MonitorData@CMonitorTopology@@QEBA?AUtagRECT@@PEBUtagWND@@@Z @ 0x1C00FEAF0
+ * Callers:
+ *     _anonymous_namespace_::xxxNormalizeRect @ 0x1C00FB938 (_anonymous_namespace_--xxxNormalizeRect.c)
+ *     ?MonitorDataFromRect@CMonitorTopology@@QEBAPEBUMonitorData@1@PEBUtagWND@@UtagRECT@@@Z @ 0x1C00FE8D0 (-MonitorDataFromRect@CMonitorTopology@@QEBAPEBUMonitorData@1@PEBUtagWND@@UtagRECT@@@Z.c)
+ * Callees:
+ *     CalculateLogicalMonitorRect @ 0x1C00A3510 (CalculateLogicalMonitorRect.c)
+ */
+
 struct tagRECT *__fastcall CMonitorTopology::MonitorData::LogicalMonitorRect(
         CMonitorTopology::MonitorData *this,
         struct tagRECT *__return_ptr retstr,

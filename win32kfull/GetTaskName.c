@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetTaskName @ 0x1C01B43CC
+ * Callers:
+ *     xxxQueryInformationThread @ 0x1C0093274 (xxxQueryInformationThread.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall GetTaskName(__int64 a1, _WORD *a2, unsigned int a3)
 {
   unsigned __int64 v3; // rsi

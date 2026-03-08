@@ -1,3 +1,11 @@
+/*
+ * XREFs of Interrupter_DetermineSegmentSizeAndCount @ 0x1C0073748
+ * Callers:
+ *     Interrupter_PrepareInterrupter @ 0x1C007275C (Interrupter_PrepareInterrupter.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Interrupter_DetermineSegmentSizeAndCount(__int64 a1)
 {
   __int64 v1; // r8

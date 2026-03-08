@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??_GCProcessAttribution@@UEAAPEAXI@Z @ 0x1800AC160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ??$lower_bound@V?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAURecord@CProcessAttributionManager@@@std@@@std@@@std@@_KP6A_NPEBUProcessAttributionRecord@CProcessAttributionManager@@_J@Z@std@@YA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@PEAURecord@CProcessAttributionManager@@@std@@@std@@@0@V10@V10@AEB_KP6A_NPEBUProcessAttributionRecord@CProcessAttributionManager@@_J@Z@Z @ 0x1800AAE64 (--$lower_bound@V-$_Vector_iterator@V-$_Vector_val@U-$_Simple_types@PEAURecord@CProcessAttributio.c)
+ *     ??_GRecord@CProcessAttributionManager@@QEAAPEAXI@Z @ 0x1800FF310 (--_GRecord@CProcessAttributionManager@@QEAAPEAXI@Z.c)
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801046B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ */
+
 CProcessAttribution *__fastcall CProcessAttribution::`scalar deleting destructor'(CProcessAttribution *this, char a2)
 {
   CProcessAttributionManager *v2; // rsi

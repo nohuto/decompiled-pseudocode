@@ -1,3 +1,13 @@
+/*
+ * XREFs of FsRtlAllocateExtraCreateParameter @ 0x1406A8D50
+ * Callers:
+ *     PspCreateUserProcessEcp @ 0x14070D8D0 (PspCreateUserProcessEcp.c)
+ *     FsRtlAllocateExtraCreateParameterFromLookasideList @ 0x1407CBC80 (FsRtlAllocateExtraCreateParameterFromLookasideList.c)
+ *     IopSymlinkEnforceEnabledTypes @ 0x140945E94 (IopSymlinkEnforceEnabledTypes.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 NTSTATUS __stdcall FsRtlAllocateExtraCreateParameter(
         LPCGUID EcpType,
         ULONG SizeOfContext,

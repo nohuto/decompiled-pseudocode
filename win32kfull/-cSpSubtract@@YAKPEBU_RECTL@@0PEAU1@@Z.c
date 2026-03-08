@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?cSpSubtract@@YAKPEBU_RECTL@@0PEAU1@@Z @ 0x1C028186C
+ * Callers:
+ *     ?vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z @ 0x1C0284A48 (-vSpRedrawUncoveredArea@@YAXPEAVSPRITE@@PEAU_RECTL@@@Z.c)
+ *     ?vSpSmallUnderlayCopy@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@12JJPEAU_RECTL@@3@Z @ 0x1C0284E20 (-vSpSmallUnderlayCopy@@YAXPEAVSPRITE@@PEAU_POINTL@@PEAU_SURFOBJ@@12JJPEAU_RECTL@@3@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall cSpSubtract(const struct _RECTL *a1, const struct _RECTL *a2, struct _RECTL *a3)
 {
   LONG top; // eax

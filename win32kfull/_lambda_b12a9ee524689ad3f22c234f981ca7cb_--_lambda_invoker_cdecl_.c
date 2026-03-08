@@ -1,3 +1,11 @@
+/*
+ * XREFs of _lambda_b12a9ee524689ad3f22c234f981ca7cb_::_lambda_invoker_cdecl_ @ 0x1C00C89C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsWindowActivateable@@YA_NPEBUtagWND@@@Z @ 0x1C00C8EF8 (-IsWindowActivateable@@YA_NPEBUtagWND@@@Z.c)
+ */
+
 bool __fastcall lambda_b12a9ee524689ad3f22c234f981ca7cb_::_lambda_invoker_cdecl_(_QWORD *a1, _OWORD *a2)
 {
   int v4; // edx

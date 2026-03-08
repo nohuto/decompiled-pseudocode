@@ -1,3 +1,12 @@
+/*
+ * XREFs of CiThreadSetRelativePriority @ 0x1C000AA20
+ * Callers:
+ *     CiDispatchFastIoDeviceControl @ 0x1C000A760 (CiDispatchFastIoDeviceControl.c)
+ * Callees:
+ *     CiSchedulerCommitPriority @ 0x1C0002720 (CiSchedulerCommitPriority.c)
+ *     CiThreadUpdatePriorities @ 0x1C000B1D0 (CiThreadUpdatePriorities.c)
+ */
+
 __int64 __fastcall CiThreadSetRelativePriority(__int64 a1, unsigned __int8 a2)
 {
   unsigned int v4; // r14d

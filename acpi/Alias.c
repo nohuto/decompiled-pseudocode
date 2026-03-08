@@ -1,3 +1,13 @@
+/*
+ * XREFs of Alias @ 0x1C0055300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CreateNameSpaceObject @ 0x1C004F10C (CreateNameSpaceObject.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ *     GetNameSpaceObject @ 0x1C004F728 (GetNameSpaceObject.c)
+ */
+
 __int64 __fastcall Alias(__int64 a1, __int64 a2)
 {
   unsigned int NameSpaceObject; // edi

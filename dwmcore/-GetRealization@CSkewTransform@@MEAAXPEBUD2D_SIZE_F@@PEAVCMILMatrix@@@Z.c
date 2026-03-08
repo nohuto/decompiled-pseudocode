@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?GetRealization@CSkewTransform@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x18024E550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Translate@CMILMatrix@@QEAAXMM@Z @ 0x180090CB0 (-Translate@CMILMatrix@@QEAAXMM@Z.c)
+ *     fmod_0 @ 0x180117734 (fmod_0.c)
+ *     tan_0 @ 0x1801177B8 (tan_0.c)
+ *     ?PrependTranslate@CMILMatrix@@QEAAXMM@Z @ 0x18026CF08 (-PrependTranslate@CMILMatrix@@QEAAXMM@Z.c)
+ */
+
 void __fastcall CSkewTransform::GetRealization(
         CSkewTransform *this,
         const struct D2D_SIZE_F *a2,

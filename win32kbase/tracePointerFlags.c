@@ -1,3 +1,11 @@
+/*
+ * XREFs of tracePointerFlags @ 0x1C01CCBEC
+ * Callers:
+ *     tracePointerInfo @ 0x1C00F03A6 (tracePointerInfo.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_s @ 0x1C00EF582 (WPP_RECORDER_AND_TRACE_SF_s.c)
+ */
+
 __int64 __fastcall tracePointerFlags(int a1)
 {
   __int64 result; // rax

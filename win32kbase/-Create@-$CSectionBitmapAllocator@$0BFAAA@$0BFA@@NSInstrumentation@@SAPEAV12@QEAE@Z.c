@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Create@?$CSectionBitmapAllocator@$0BFAAA@$0BFA@@NSInstrumentation@@SAPEAV12@QEAE@Z @ 0x1C002ACA8
+ * Callers:
+ *     ?Initialize@?$CSectionEntry@$0BFAAA@$0BFA@@NSInstrumentation@@AEAA_NXZ @ 0x1C002996C (-Initialize@-$CSectionEntry@$0BFAAA@$0BFA@@NSInstrumentation@@AEAA_NXZ.c)
+ * Callees:
+ *     ?Initialize@?$CSectionBitmapAllocator@$0BFAAA@$0BFA@@NSInstrumentation@@AEAA_NPEAE@Z @ 0x1C002B1C8 (-Initialize@-$CSectionBitmapAllocator@$0BFAAA@$0BFA@@NSInstrumentation@@AEAA_NPEAE@Z.c)
+ */
+
 __int64 __fastcall NSInstrumentation::CSectionBitmapAllocator<86016,336>::Create(__int64 a1)
 {
   __int64 Pool2; // rax

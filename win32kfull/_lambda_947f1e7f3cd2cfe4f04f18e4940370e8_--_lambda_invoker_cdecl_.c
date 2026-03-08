@@ -1,3 +1,12 @@
+/*
+ * XREFs of _lambda_947f1e7f3cd2cfe4f04f18e4940370e8_::_lambda_invoker_cdecl_ @ 0x1C02479F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C007A05C (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     ?OnTimerNotification@InteractiveControlDevice@@QEAAJXZ @ 0x1C02488E4 (-OnTimerNotification@InteractiveControlDevice@@QEAAJXZ.c)
+ */
+
 struct InteractiveControlManager *__fastcall lambda_947f1e7f3cd2cfe4f04f18e4940370e8_::_lambda_invoker_cdecl_(
         __int64 a1,
         __int64 a2,

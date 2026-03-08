@@ -1,3 +1,11 @@
+/*
+ * XREFs of USBD_ValidateExtendedPropertyDescriptor @ 0x1C003286C
+ * Callers:
+ *     UsbhInstallMsOsExtendedProperties @ 0x1C003383C (UsbhInstallMsOsExtendedProperties.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall USBD_ValidateExtendedPropertyDescriptor(unsigned int *a1, unsigned int a2)
 {
   unsigned int v2; // r8d

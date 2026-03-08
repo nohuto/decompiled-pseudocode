@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoGetFileMemoryPartitionInformation @ 0x140343A74
+ * Callers:
+ *     MiCreateImageOrDataSection @ 0x1407D12B0 (MiCreateImageOrDataSection.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IoGetFileMemoryPartitionInformation(__int64 a1)
 {
   _QWORD *v1; // rdx

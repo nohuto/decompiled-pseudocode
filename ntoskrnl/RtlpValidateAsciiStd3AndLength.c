@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpValidateAsciiStd3AndLength @ 0x1409BC598
+ * Callers:
+ *     RtlpNameprepAsciiRealWorker @ 0x1405ADAEC (RtlpNameprepAsciiRealWorker.c)
+ * Callees:
+ *     FindEmailAt @ 0x1405AD764 (FindEmailAt.c)
+ *     ValidateStd3Range @ 0x1405ADE48 (ValidateStd3Range.c)
+ */
+
 bool __fastcall RtlpValidateAsciiStd3AndLength(unsigned __int64 a1, int a2, char a3, char a4)
 {
   unsigned __int16 *v4; // rbx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiCheckPageFileMapping @ 0x140392580
+ * Callers:
+ *     MiCreatePagingFile @ 0x140834F7C (MiCreatePagingFile.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiCheckPageFileMapping(__int64 a1)
 {
   unsigned int v2; // ebx

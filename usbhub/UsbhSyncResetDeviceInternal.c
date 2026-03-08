@@ -1,3 +1,42 @@
+/*
+ * XREFs of UsbhSyncResetDeviceInternal @ 0x1C0019820
+ * Callers:
+ *     UsbhFdoSetD0Cold @ 0x1C000FBD0 (UsbhFdoSetD0Cold.c)
+ *     UsbhFdoResetPdoPort @ 0x1C0030944 (UsbhFdoResetPdoPort.c)
+ *     UsbhPortResumeTimeout @ 0x1C0038ED0 (UsbhPortResumeTimeout.c)
+ *     UsbhFdoSetD0Warm @ 0x1C003C220 (UsbhFdoSetD0Warm.c)
+ *     UsbhPdoWaitForD3Reconnect @ 0x1C003CB44 (UsbhPdoWaitForD3Reconnect.c)
+ *     UsbhPdoPnp_EnablePdo @ 0x1C00551AC (UsbhPdoPnp_EnablePdo.c)
+ *     UsbhPdoPnp_QueryInterface @ 0x1C0055B70 (UsbhPdoPnp_QueryInterface.c)
+ * Callees:
+ *     UsbhLinkPdoDeviceHandle @ 0x1C0002540 (UsbhLinkPdoDeviceHandle.c)
+ *     UsbhReleaseEnumBusLockEx @ 0x1C0003BCC (UsbhReleaseEnumBusLockEx.c)
+ *     UsbhAcquireEnumBusLock @ 0x1C0004C60 (UsbhAcquireEnumBusLock.c)
+ *     UsbhWaitEventWithTimeoutEx @ 0x1C00068E0 (UsbhWaitEventWithTimeoutEx.c)
+ *     Usbh_SSH_Event @ 0x1C0007220 (Usbh_SSH_Event.c)
+ *     UsbhEtwLogDeviceIrpEvent @ 0x1C0007830 (UsbhEtwLogDeviceIrpEvent.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     UsbhPCE_QueueDriverReset @ 0x1C0019754 (UsbhPCE_QueueDriverReset.c)
+ *     UsbhRefPdoDeviceHandle @ 0x1C0019C20 (UsbhRefPdoDeviceHandle.c)
+ *     UsbhDerefPdoDeviceHandle @ 0x1C0019ED0 (UsbhDerefPdoDeviceHandle.c)
+ *     Usbh_HubRestoreDevice @ 0x1C001A81C (Usbh_HubRestoreDevice.c)
+ *     UsbhUnlinkPdoDeviceHandle @ 0x1C001BEDC (UsbhUnlinkPdoDeviceHandle.c)
+ *     UsbhQueueWorkItemEx @ 0x1C001E320 (UsbhQueueWorkItemEx.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002E98C (WPP_RECORDER_SF_dq.c)
+ *     WPP_RECORDER_SF_q @ 0x1C002EA5C (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C002ED20 (WPP_RECORDER_SF_qd.c)
+ *     UsbhWaitForBootDevice @ 0x1C003A608 (UsbhWaitForBootDevice.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhFreeID @ 0x1C00503BC (UsbhFreeID.c)
+ *     UsbhGetSerialNumber @ 0x1C00509A4 (UsbhGetSerialNumber.c)
+ */
+
 __int64 __fastcall UsbhSyncResetDeviceInternal(PDEVICE_OBJECT DeviceObject, __int64 a2, __int64 a3)
 {
   bool v4; // r14

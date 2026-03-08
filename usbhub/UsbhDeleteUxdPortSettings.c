@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhDeleteUxdPortSettings @ 0x1C0059B28
+ * Callers:
+ *     UsbhDeleteUxdSettings @ 0x1C0059BF8 (UsbhDeleteUxdSettings.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_S @ 0x1C003B830 (WPP_RECORDER_SF_S.c)
+ *     RtlStringCbPrintfW @ 0x1C0044C1C (RtlStringCbPrintfW.c)
+ */
+
 NTSTATUS __fastcall UsbhDeleteUxdPortSettings(__int64 a1, const WCHAR *a2, unsigned int a3)
 {
   int v4; // edx

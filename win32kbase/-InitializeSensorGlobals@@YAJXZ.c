@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?InitializeSensorGlobals@@YAJXZ @ 0x1C0097460
+ * Callers:
+ *     ?InitializeInputGlobals@@YAJXZ @ 0x1C0096E3C (-InitializeInputGlobals@@YAJXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 __int64 __fastcall InitializeSensorGlobals(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rax

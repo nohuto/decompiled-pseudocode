@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspLazyInitializeStorageExpansion @ 0x1409B4D98
+ * Callers:
+ *     PspGetStorageArray @ 0x140738754 (PspGetStorageArray.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PspLazyInitializeStorageExpansion(__int64 a1)
 {
   _QWORD *Pool2; // rax

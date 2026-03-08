@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1DXG_HOST_REMOTEOBJECTCHANNEL@@IEAA@XZ @ 0x1C035BF90
+ * Callers:
+ *     ?Delete@DXG_HOST_REMOTEOBJECTCHANNEL@@UEAAXXZ @ 0x1C035CEE0 (-Delete@DXG_HOST_REMOTEOBJECTCHANNEL@@UEAAXXZ.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall DXG_HOST_REMOTEOBJECTCHANNEL::~DXG_HOST_REMOTEOBJECTCHANNEL(DXG_HOST_REMOTEOBJECTCHANNEL *this)
 {
   __int64 v2; // rcx

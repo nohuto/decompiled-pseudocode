@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBPDO_EvtDeviceSurpriseRemoval @ 0x1C007E890
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBUCX_CheckIfHubIsDisconnected @ 0x1C00293D4 (HUBUCX_CheckIfHubIsDisconnected.c)
+ *     HUBMISC_RemoveDeviceInfoFromGlobalChildList @ 0x1C0030714 (HUBMISC_RemoveDeviceInfoFromGlobalChildList.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBPDO_BillboardCleanup @ 0x1C007E300 (HUBPDO_BillboardCleanup.c)
+ */
+
 void __fastcall HUBPDO_EvtDeviceSurpriseRemoval(__int64 a1)
 {
   __int64 v1; // rcx

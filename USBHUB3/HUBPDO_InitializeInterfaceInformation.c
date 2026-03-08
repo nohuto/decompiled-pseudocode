@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBPDO_InitializeInterfaceInformation @ 0x1C0016D14
+ * Callers:
+ *     HUBPDO_ValidateSelectInterfaceUrb @ 0x1C0016F68 (HUBPDO_ValidateSelectInterfaceUrb.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ */
+
 __int64 __fastcall HUBPDO_InitializeInterfaceInformation(__int64 a1, unsigned __int16 *a2, __int64 a3)
 {
   char v3; // bp

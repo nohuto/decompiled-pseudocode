@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiUnlinkZeroThreadFromActiveDomain @ 0x140652FA8
+ * Callers:
+ *     MiSelectBestZeroingProcessor @ 0x140274D20 (MiSelectBestZeroingProcessor.c)
+ *     MiMoveBackgroundZeroThreads @ 0x1406529D0 (MiMoveBackgroundZeroThreads.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiUnlinkZeroThreadFromActiveDomain(__int64 a1, __int64 a2)
 {
   _QWORD *v3; // rax

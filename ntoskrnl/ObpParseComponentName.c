@@ -1,3 +1,11 @@
+/*
+ * XREFs of ObpParseComponentName @ 0x140870108
+ * Callers:
+ *     ObpCreateSymbolicLinkName @ 0x1407612D4 (ObpCreateSymbolicLinkName.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall ObpParseComponentName(__int16 *a1, _OWORD *a2)
 {
   __int16 v3; // dx

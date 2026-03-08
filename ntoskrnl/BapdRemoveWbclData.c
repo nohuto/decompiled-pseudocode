@@ -1,3 +1,14 @@
+/*
+ * XREFs of BapdRemoveWbclData @ 0x140AA7954
+ * Callers:
+ *     PopBootLoaderSiData @ 0x140A9E9C8 (PopBootLoaderSiData.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x140413EB0 (ZwDeleteValueKey.c)
+ *     BapdGetISRegistryKey @ 0x140A8C170 (BapdGetISRegistryKey.c)
+ */
+
 int BapdRemoveWbclData()
 {
   int result; // eax

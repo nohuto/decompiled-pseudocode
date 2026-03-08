@@ -1,3 +1,28 @@
+/*
+ * XREFs of MmEnumerateSystemImages @ 0x14080E4B0
+ * Callers:
+ *     EtwpSysModuleRunDown @ 0x14080E368 (EtwpSysModuleRunDown.c)
+ *     VslVerifySessionSpace @ 0x1409405E0 (VslVerifySessionSpace.c)
+ *     PopIdleWakeGenerateInterruptDescriptionString @ 0x1409975B8 (PopIdleWakeGenerateInterruptDescriptionString.c)
+ *     EtwpCoverageSamplerStart @ 0x1409F05F8 (EtwpCoverageSamplerStart.c)
+ *     ExpCovQueryInformation @ 0x140A03B6C (ExpCovQueryInformation.c)
+ *     ExpCovResetInformation @ 0x140A04414 (ExpCovResetInformation.c)
+ * Callees:
+ *     MmIsSessionAddress @ 0x140239ED0 (MmIsSessionAddress.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     MmDetachSession @ 0x1402EA460 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1402EA500 (MmAttachSession.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MmGetNextSession @ 0x14035C2F0 (MmGetNextSession.c)
+ *     MiSessionLookupImage @ 0x14036C7B8 (MiSessionLookupImage.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     MmAcquireLoadLock @ 0x1407D2360 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x1407D2400 (MmReleaseLoadLock.c)
+ */
+
 __int64 __fastcall MmEnumerateSystemImages(__int64 (__fastcall *a1)(PVOID *, __int64), __int64 a2)
 {
   int v2; // r14d

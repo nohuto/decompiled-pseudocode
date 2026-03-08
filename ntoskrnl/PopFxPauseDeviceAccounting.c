@@ -1,3 +1,22 @@
+/*
+ * XREFs of PopFxPauseDeviceAccounting @ 0x140588B84
+ * Callers:
+ *     PopFxStopDeviceAccounting @ 0x14058975C (PopFxStopDeviceAccounting.c)
+ *     PdcPoCurrentPdcPhase @ 0x140597320 (PdcPoCurrentPdcPhase.c)
+ *     PopPdcIdleResiliencyCallback @ 0x14099507C (PopPdcIdleResiliencyCallback.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PopFxUpdateAccountingActiveTime @ 0x140306C00 (PopFxUpdateAccountingActiveTime.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxMergeActiveTimeAccounting @ 0x140588AE0 (PopFxMergeActiveTimeAccounting.c)
+ *     PopFxSetGlobalDeviceAccountingEnabled @ 0x140589680 (PopFxSetGlobalDeviceAccountingEnabled.c)
+ */
+
 char PopFxPauseDeviceAccounting()
 {
   struct _KTHREAD *CurrentThread; // rax

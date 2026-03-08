@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?LoadModuleWorkHorse@@YAPEAXPEAGH@Z @ 0x1C028D170
+ * Callers:
+ *     EngLoadModule @ 0x1C028DDD0 (EngLoadModule.c)
+ *     EngLoadModuleForWrite @ 0x1C028DDF0 (EngLoadModuleForWrite.c)
+ * Callees:
+ *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C01165A4 (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     ?GetModuleHandleAndIncrementRefcount@@YAPEAXPEBG@Z @ 0x1C028D094 (-GetModuleHandleAndIncrementRefcount@@YAPEAXPEBG@Z.c)
+ *     bMapFile @ 0x1C028E338 (bMapFile.c)
+ *     MakeSystemRelativePath @ 0x1C0307BDC (MakeSystemRelativePath.c)
+ */
+
 __int64 __fastcall LoadModuleWorkHorse(char *Source, int a2)
 {
   __int64 v2; // rbx

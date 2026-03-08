@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?VidSchFlushQueuePacketsInternal@@YAXPEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_PACKET_TYPE@@IE_N@Z @ 0x1C0012A7C
+ * Callers:
+ *     VidSchFlushQueuePackets @ 0x1C00188E0 (VidSchFlushQueuePackets.c)
+ *     VidSchFlushPresentReferencesAndDisableOverlays @ 0x1C00B4190 (VidSchFlushPresentReferencesAndDisableOverlays.c)
+ * Callees:
+ *     ?VidSchiAbortMmIoFlipPacket@@YAXPEAU_VIDSCH_QUEUE_PACKET@@PEAU_VIDSCH_DEVICE@@I@Z @ 0x1C0001280 (-VidSchiAbortMmIoFlipPacket@@YAXPEAU_VIDSCH_QUEUE_PACKET@@PEAU_VIDSCH_DEVICE@@I@Z.c)
+ *     VidSchiSetFlipDevice @ 0x1C0002730 (VidSchiSetFlipDevice.c)
+ *     ?ProcessHwQueues@HwQueueStagingList@@QEAAXXZ @ 0x1C0006790 (-ProcessHwQueues@HwQueueStagingList@@QEAAXXZ.c)
+ *     VidSchiAcceptsIncomingWork @ 0x1C0006830 (VidSchiAcceptsIncomingWork.c)
+ *     VidSchiClearFlipDevice @ 0x1C0012708 (VidSchiClearFlipDevice.c)
+ *     VidSchiDecrementDeviceReference @ 0x1C0012D90 (VidSchiDecrementDeviceReference.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0013414 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00134D8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     VidSchiFlushQueuePacket @ 0x1C003AAB8 (VidSchiFlushQueuePacket.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall VidSchFlushQueuePacketsInternal(__int64 a1, unsigned int a2, unsigned int a3, __int64 a4, char a5)
 {

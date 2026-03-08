@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpNewThreadNecessary @ 0x14033F670
+ * Callers:
+ *     ExpPartitionCreateThreadIfNecessary @ 0x1402F6A24 (ExpPartitionCreateThreadIfNecessary.c)
+ *     ExpQueueWorkItem @ 0x14033EE40 (ExpQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     ExpWorkQueueManagerThread @ 0x140839860 (ExpWorkQueueManagerThread.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall ExpNewThreadNecessary(__int64 a1, int a2)
 {
   int v2; // r8d

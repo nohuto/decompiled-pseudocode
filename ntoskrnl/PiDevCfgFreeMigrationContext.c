@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiDevCfgFreeMigrationContext @ 0x140877348
+ * Callers:
+ *     PiDevCfgMigrateDevice @ 0x1408758B8 (PiDevCfgMigrateDevice.c)
+ *     PiDevCfgInitMigrationContext @ 0x140875994 (PiDevCfgInitMigrationContext.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ */
+
 NTSTATUS __fastcall PiDevCfgFreeMigrationContext(__int64 a1)
 {
   void *v2; // rcx

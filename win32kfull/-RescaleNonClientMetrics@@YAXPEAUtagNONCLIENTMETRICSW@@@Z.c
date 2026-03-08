@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RescaleNonClientMetrics@@YAXPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C01C874C
+ * Callers:
+ *     ?xxxSPISetNCMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagNONCLIENTMETRICSW@@H@Z @ 0x1C01C92D0 (-xxxSPISetNCMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagNONCLIENTMETRICSW@@H@Z.c)
+ * Callees:
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ */
+
 void __fastcall RescaleNonClientMetrics(struct tagNONCLIENTMETRICSW *a1)
 {
   INT DpiForSystem; // eax

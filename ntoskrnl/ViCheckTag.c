@@ -1,3 +1,16 @@
+/*
+ * XREFs of ViCheckTag @ 0x140AC5514
+ * Callers:
+ *     ViCheckAdapterBuffers @ 0x140AC51E4 (ViCheckAdapterBuffers.c)
+ *     ViCheckPadding @ 0x140AC5364 (ViCheckPadding.c)
+ *     ViFreeMapRegistersToFile @ 0x140AC5C60 (ViFreeMapRegistersToFile.c)
+ * Callees:
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140AC62F4 (ViHalPreprocessOptions.c)
+ */
+
 void __fastcall ViCheckTag(ULONG_PTR a1, unsigned int a2, int a3, char a4)
 {
   ULONG_PTR v4; // rsi

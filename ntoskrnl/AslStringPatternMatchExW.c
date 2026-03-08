@@ -1,3 +1,22 @@
+/*
+ * XREFs of AslStringPatternMatchExW @ 0x14077790C
+ * Callers:
+ *     AslStringPatternMatchExW @ 0x14077790C (AslStringPatternMatchExW.c)
+ *     SdbpCheckAttribute @ 0x1407A0F7C (SdbpCheckAttribute.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x1407A1870 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x1407A1E68 (SdbpFindNextIndexedWildCardTag.c)
+ *     AslStringPatternMatchW @ 0x1408A7856 (AslStringPatternMatchW.c)
+ *     KseLookupHardwareId @ 0x140974398 (KseLookupHardwareId.c)
+ *     SdbpCheckMatchingRegistryValue @ 0x140A4CE9C (SdbpCheckMatchingRegistryValue.c)
+ *     SdbpFindFirstNamedTagHelper @ 0x140A4EEE0 (SdbpFindFirstNamedTagHelper.c)
+ *     SdbpFindNextNamedTagHelper @ 0x140A4EFC0 (SdbpFindNextNamedTagHelper.c)
+ *     AslpProcessMatchRegNode @ 0x140A53E9C (AslpProcessMatchRegNode.c)
+ * Callees:
+ *     NLS_UPCASE @ 0x140267AD0 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     AslStringPatternMatchExW @ 0x14077790C (AslStringPatternMatchExW.c)
+ */
+
 __int64 __fastcall AslStringPatternMatchExW(__int16 *a1, _WORD *a2)
 {
   __int16 *v3; // rdi

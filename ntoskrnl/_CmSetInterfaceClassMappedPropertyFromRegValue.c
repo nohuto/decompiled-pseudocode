@@ -1,3 +1,14 @@
+/*
+ * XREFs of _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x140A674EC
+ * Callers:
+ *     _CmSetInterfaceClassMappedProperty @ 0x140A673A8 (_CmSetInterfaceClassMappedProperty.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _CmOpenInterfaceClassRegKey @ 0x1406C4F44 (_CmOpenInterfaceClassRegKey.c)
+ *     _PnpOpenPropertiesKey @ 0x1406D1610 (_PnpOpenPropertiesKey.c)
+ *     _RegRtlSetValue @ 0x140784FE4 (_RegRtlSetValue.c)
+ */
+
 __int64 __fastcall CmSetInterfaceClassMappedPropertyFromRegValue(
         __int64 a1,
         int a2,

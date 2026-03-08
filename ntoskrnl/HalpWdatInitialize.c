@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpWdatInitialize @ 0x14051CAB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalSocGetAcpiTable @ 0x14037601C (HalSocGetAcpiTable.c)
+ *     HalpWdatInitializeWdat @ 0x14051CB28 (HalpWdatInitializeWdat.c)
+ *     HalpWdatInitializeWdrt @ 0x14051CBC0 (HalpWdatInitializeWdrt.c)
+ */
+
 __int64 __fastcall HalpWdatInitialize(__int64 a1)
 {
   bool v1; // zf

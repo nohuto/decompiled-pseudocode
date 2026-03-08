@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?IsInputSuppressRequested@CBaseInput@@IEBA_NXZ @ 0x1C0008588
+ * Callers:
+ *     ?OnReadNotification@CBaseInput@@AEAAJXZ @ 0x1C0008450 (-OnReadNotification@CBaseInput@@AEAAJXZ.c)
+ * Callees:
+ *     ?LockExclusive@tagDomLock@@QEBAXXZ @ 0x1C003A300 (-LockExclusive@tagDomLock@@QEBAXXZ.c)
+ *     ?GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z @ 0x1C003B380 (-GetDomainLockRef@@YAAEAUtagDomLock@@W4DomainLockType@@@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 bool __fastcall CBaseInput::IsInputSuppressRequested(CBaseInput *this)
 {
   __int64 v1; // rdx

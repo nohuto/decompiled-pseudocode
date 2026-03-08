@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?xxxWrapSendMessageCallback@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C00D36C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxSendMessageCallback @ 0x1C004C51C (xxxSendMessageCallback.c)
+ */
+
 __int64 __fastcall xxxWrapSendMessageCallback(
         struct tagTHREADINFO **a1,
         unsigned int a2,

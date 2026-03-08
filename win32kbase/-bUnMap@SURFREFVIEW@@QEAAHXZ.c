@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bUnMap@SURFREFVIEW@@QEAAHXZ @ 0x1C00ABF60
+ * Callers:
+ *     bMigrateSurfaceForConversion @ 0x1C0186E60 (bMigrateSurfaceForConversion.c)
+ * Callees:
+ *     ?vUnlockSimple@W32PIDLOCK@@QEAAXXZ @ 0x1C00ABFFC (-vUnlockSimple@W32PIDLOCK@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall SURFREFVIEW::bUnMap(SURFREFVIEW *this)
 {
   unsigned int v1; // esi

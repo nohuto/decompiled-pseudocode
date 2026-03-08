@@ -1,3 +1,23 @@
+/*
+ * XREFs of DriverEntry @ 0x1C0074360
+ * Callers:
+ *     FxDriverEntryWorker @ 0x1C001CDB4 (FxDriverEntryWorker.c)
+ * Callees:
+ *     McGenEventRegister_EtwRegister @ 0x1C001D020 (McGenEventRegister_EtwRegister.c)
+ *     InitializeTelemetryAssertsKMByDriverObject @ 0x1C001D054 (InitializeTelemetryAssertsKMByDriverObject.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     wil_UninitializeFeatureStaging @ 0x1C006D008 (wil_UninitializeFeatureStaging.c)
+ *     SleepstudyHelper_Initialize @ 0x1C0074750 (SleepstudyHelper_Initialize.c)
+ *     WppInitKm @ 0x1C00747C4 (WppInitKm.c)
+ *     Counter_Register @ 0x1C0074878 (Counter_Register.c)
+ *     WppLoadTracingSupport @ 0x1C0074988 (WppLoadTracingSupport.c)
+ *     TraceLoggingRegister_EtwRegister_EtwSetInformation @ 0x1C0079958 (TraceLoggingRegister_EtwRegister_EtwSetInformation.c)
+ *     WppCleanupKm @ 0x1C007999C (WppCleanupKm.c)
+ *     wil_InitializeFeatureStaging @ 0x1C007E03C (wil_InitializeFeatureStaging.c)
+ */
+
 NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING RegistryPath)
 {
   int v4; // ebx

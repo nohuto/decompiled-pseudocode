@@ -1,3 +1,17 @@
+/*
+ * XREFs of InitCreateUserSubsystem @ 0x1C032009C
+ * Callers:
+ *     Win32UserInitialize @ 0x1C031E444 (Win32UserInitialize.c)
+ * Callees:
+ *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0068568 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0070E78 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     OpenCacheKeyEx @ 0x1C00760E0 (OpenCacheKeyEx.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     wcsstr @ 0x1C00DA8B8 (wcsstr.c)
+ *     wcschr @ 0x1C00DA918 (wcschr.c)
+ */
+
 __int64 __fastcall InitCreateUserSubsystem(__int64 a1, unsigned __int64 a2)
 {
   NSInstrumentation::CLeakTrackingAllocator *v2; // rcx

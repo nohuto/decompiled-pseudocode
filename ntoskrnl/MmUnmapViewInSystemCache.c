@@ -1,3 +1,44 @@
+/*
+ * XREFs of MmUnmapViewInSystemCache @ 0x140285250
+ * Callers:
+ *     CcUnmapVacb @ 0x1406A7150 (CcUnmapVacb.c)
+ * Callees:
+ *     MiInitializeTbFlushStamps @ 0x14020E538 (MiInitializeTbFlushStamps.c)
+ *     MiReleaseWriteInProgressCharges @ 0x140212C98 (MiReleaseWriteInProgressCharges.c)
+ *     MiGetSystemCacheReverseMap @ 0x140222030 (MiGetSystemCacheReverseMap.c)
+ *     MiGetWsleContents @ 0x140229790 (MiGetWsleContents.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x14026A0D0 (MiLockPageTableInternal.c)
+ *     MiRemoveWsleList @ 0x1402824E0 (MiRemoveWsleList.c)
+ *     MiCanBatchHardFaultPages @ 0x140284A30 (MiCanBatchHardFaultPages.c)
+ *     MiEnqueuePageList @ 0x140285CB0 (MiEnqueuePageList.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402879C0 (MiPfnReferenceCountIsZero.c)
+ *     MiHardFaultPageRelease @ 0x140287C78 (MiHardFaultPageRelease.c)
+ *     MiInsertPagesInList @ 0x140287DB0 (MiInsertPagesInList.c)
+ *     MiGetContainingPageTable @ 0x140289FE0 (MiGetContainingPageTable.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiCompressTbFlushList @ 0x1402D6680 (MiCompressTbFlushList.c)
+ *     MiRebuildPageTableLeafAges @ 0x14032AD30 (MiRebuildPageTableLeafAges.c)
+ *     MiDecrementShareCount @ 0x14032AE40 (MiDecrementShareCount.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14032D790 (MiCaptureDirtyBitToPfn.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     MiRemoveViewsFromSection @ 0x140334A28 (MiRemoveViewsFromSection.c)
+ *     MiCheckControlArea @ 0x140334D00 (MiCheckControlArea.c)
+ *     MiReleaseSystemCacheView @ 0x1403354D0 (MiReleaseSystemCacheView.c)
+ *     MiManageSubsectionView @ 0x140335DC0 (MiManageSubsectionView.c)
+ *     MiUnlockWsle @ 0x1403443C0 (MiUnlockWsle.c)
+ *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x140346F70 (MI_INTERLOCKED_EXCHANGE_PTE.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x140349598 (MI_WSLE_LOG_ACCESS.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x140668DD4 (MiReturnCrossPartitionSectionCharges.c)
+ */
+
 unsigned __int64 __fastcall MmUnmapViewInSystemCache(
         ULONG_PTR BugCheckParameter3,
         ULONG_PTR BugCheckParameter4,

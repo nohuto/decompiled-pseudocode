@@ -1,3 +1,28 @@
+/*
+ * XREFs of RtlCheckTokenCapability @ 0x1402BE920
+ * Callers:
+ *     RtlCapabilityCheck @ 0x140741730 (RtlCapabilityCheck.c)
+ * Callees:
+ *     SeAccessCheckWithHint @ 0x1402653A0 (SeAccessCheckWithHint.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryInformationToken @ 0x140412730 (ZwQueryInformationToken.c)
+ *     ZwDuplicateToken @ 0x140412B50 (ZwDuplicateToken.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x14068E3D0 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D26A0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406DB5A0 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406DB640 (RtlCreateAcl.c)
+ *     RtlIsCapabilitySid @ 0x140740828 (RtlIsCapabilitySid.c)
+ *     RtlAddAccessAllowedAce @ 0x140744250 (RtlAddAccessAllowedAce.c)
+ *     RtlSetGroupSecurityDescriptor @ 0x140744590 (RtlSetGroupSecurityDescriptor.c)
+ *     SeQueryInformationToken @ 0x1407B9760 (SeQueryInformationToken.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ */
+
 __int64 __fastcall RtlCheckTokenCapability(HANDLE ExistingTokenHandle, PSID Sid, _BYTE *a3)
 {
   char v6; // si

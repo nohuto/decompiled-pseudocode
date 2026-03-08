@@ -1,3 +1,30 @@
+/*
+ * XREFs of MiLockPagableImageSection @ 0x1402252E0
+ * Callers:
+ *     MmUnlockPagableImageSection @ 0x140225D90 (MmUnlockPagableImageSection.c)
+ *     PoRunDownDeviceObject @ 0x140368158 (PoRunDownDeviceObject.c)
+ *     HalpPowerStateCallback @ 0x1403AB2F0 (HalpPowerStateCallback.c)
+ *     IopLiveDumpUnLockPages @ 0x140559540 (IopLiveDumpUnLockPages.c)
+ *     DifMmUnlockPagableImageSectionWrapper @ 0x1405E56C0 (DifMmUnlockPagableImageSectionWrapper.c)
+ *     MmLockPagableSectionByHandle @ 0x1406A7BD0 (MmLockPagableSectionByHandle.c)
+ *     MmLockPagableDataSection @ 0x1407EBF70 (MmLockPagableDataSection.c)
+ *     IopLiveDumpLockPages @ 0x14094BAE0 (IopLiveDumpLockPages.c)
+ *     PnprLockPagesForReplace @ 0x140963770 (PnprLockPagesForReplace.c)
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ *     PopDirectedDripsNotifyAppsAndServices @ 0x1409809F4 (PopDirectedDripsNotifyAppsAndServices.c)
+ *     MiApplyImageHotPatch @ 0x140A326C8 (MiApplyImageHotPatch.c)
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ *     MiLockPagableSections @ 0x140B5F628 (MiLockPagableSections.c)
+ *     KiInitializeMTRR @ 0x140B5FED0 (KiInitializeMTRR.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiUnlockImageSection @ 0x140225A90 (MiUnlockImageSection.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140608D0C (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiLockImageSection @ 0x1406A7B00 (MiLockImageSection.c)
+ */
+
 void __fastcall MiLockPagableImageSection(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
 {
   int v3; // r10d

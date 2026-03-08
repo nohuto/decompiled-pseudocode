@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeAllocateCalloutStack @ 0x14084DF30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeAllocateCalloutStackEx @ 0x14086F550 (KeAllocateCalloutStackEx.c)
+ */
+
 __int64 __fastcall KeAllocateCalloutStack(char a1, __int64 a2)
 {
   int v2; // eax

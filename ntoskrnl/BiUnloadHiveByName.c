@@ -1,3 +1,19 @@
+/*
+ * XREFs of BiUnloadHiveByName @ 0x140A5A134
+ * Callers:
+ *     BiAddStoreFromFile @ 0x14082BDE4 (BiAddStoreFromFile.c)
+ *     BiUnloadHiveByHandle @ 0x140A5A09C (BiUnloadHiveByHandle.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     ZwUnloadKey @ 0x140415DF0 (ZwUnloadKey.c)
+ *     ZwUnloadKey2 @ 0x140415E10 (ZwUnloadKey2.c)
+ *     BiAcquirePrivilege @ 0x14082F784 (BiAcquirePrivilege.c)
+ *     BiReleasePrivilege @ 0x14082F810 (BiReleasePrivilege.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiUnloadHiveByName(__int64 a1, int a2, char a3)
 {
   unsigned __int64 v5; // rbx

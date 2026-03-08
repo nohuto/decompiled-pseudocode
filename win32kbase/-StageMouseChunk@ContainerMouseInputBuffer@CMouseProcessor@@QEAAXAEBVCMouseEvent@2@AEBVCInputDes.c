@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?StageMouseChunk@ContainerMouseInputBuffer@CMouseProcessor@@QEAAXAEBVCMouseEvent@2@AEBVCInputDest@@@Z @ 0x1C0231448
+ * Callers:
+ *     ?BufferInputDestinedForContainer@CMouseProcessor@@AEAA_NAEBVCMouseEvent@1@AEBVCInputDest@@@Z @ 0x1C007CFCC (-BufferInputDestinedForContainer@CMouseProcessor@@AEAA_NAEBVCMouseEvent@1@AEBVCInputDest@@@Z.c)
+ * Callees:
+ *     ?GetWindowHandle@CInputDest@@QEBAPEAUHWND__@@XZ @ 0x1C007CE44 (-GetWindowHandle@CInputDest@@QEBAPEAUHWND__@@XZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     ?InverseTransformPoint@@YA?AUTransformedPoint@@AEBU1@AEBUtagINPUT_TRANSFORM@@@Z @ 0x1C0158220 (-InverseTransformPoint@@YA-AUTransformedPoint@@AEBU1@AEBUtagINPUT_TRANSFORM@@@Z.c)
+ *     ?GetContainerHwndDest@CInputDest@@QEBAPEAUHWND__@@XZ @ 0x1C01E3794 (-GetContainerHwndDest@CInputDest@@QEBAPEAUHWND__@@XZ.c)
+ *     ?GetContainerId@CInputDest@@QEBA?AUCONTAINER_ID@@XZ @ 0x1C01E37B8 (-GetContainerId@CInputDest@@QEBA-AUCONTAINER_ID@@XZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dddd @ 0x1C0209E10 (WPP_RECORDER_AND_TRACE_SF_dddd.c)
+ *     ApiSetGetLatestInputTransform @ 0x1C0244570 (ApiSetGetLatestInputTransform.c)
+ */
+
 void __fastcall CMouseProcessor::ContainerMouseInputBuffer::StageMouseChunk(
         CMouseProcessor::ContainerMouseInputBuffer *this,
         const struct CMouseProcessor::CMouseEvent *a2,

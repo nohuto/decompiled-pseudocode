@@ -1,3 +1,13 @@
+/*
+ * XREFs of AcpiSdevIdentifierInterface @ 0x1C0094D70
+ * Callers:
+ *     ACPIBusIrpQueryInterface @ 0x1C00165F0 (ACPIBusIrpQueryInterface.c)
+ *     ACPIFilterIrpQueryInterface @ 0x1C0086160 (ACPIFilterIrpQueryInterface.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     AcpiCheckSecureDevice @ 0x1C0094C08 (AcpiCheckSecureDevice.c)
+ */
+
 __int64 __fastcall AcpiSdevIdentifierInterface(ULONG_PTR a1, __int64 a2)
 {
   __int64 v2; // rbx

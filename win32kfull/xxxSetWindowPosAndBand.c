@@ -1,3 +1,21 @@
+/*
+ * XREFs of xxxSetWindowPosAndBand @ 0x1C0028FFC
+ * Callers:
+ *     xxxResetTooltip @ 0x1C00164F0 (xxxResetTooltip.c)
+ *     xxxSetWindowPos @ 0x1C0028F4C (xxxSetWindowPos.c)
+ *     NtUserSetWindowPos @ 0x1C0067A30 (NtUserSetWindowPos.c)
+ *     ?xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z @ 0x1C02287C0 (-xxxShowTooltip@@YAHPEAUtagTOOLTIPWND@@@Z.c)
+ * Callees:
+ *     ?IsWindowGhosted@@YA_NPEBUtagWND@@@Z @ 0x1C00254FC (-IsWindowGhosted@@YA_NPEBUtagWND@@@Z.c)
+ *     InternalBeginDeferWindowPos @ 0x1C0029148 (InternalBeginDeferWindowPos.c)
+ *     xxxRedrawWindow @ 0x1C0050700 (xxxRedrawWindow.c)
+ *     ?_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z @ 0x1C0067EB8 (-_DeferWindowPos@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@@Z.c)
+ *     xxxEndDeferWindowPosEx @ 0x1C00698F0 (xxxEndDeferWindowPosEx.c)
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00E42C8 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ *     ?FixBogusSWP@@YAXPEAUtagWND@@PEAH1HHI@Z @ 0x1C01A6F6C (-FixBogusSWP@@YAXPEAUtagWND@@PEAH1HHI@Z.c)
+ *     ?xxxHandleHealthyWindow@@YA_NPEAUtagWND@@@Z @ 0x1C01F5B3C (-xxxHandleHealthyWindow@@YA_NPEAUtagWND@@@Z.c)
+ */
+
 __int64 __fastcall xxxSetWindowPosAndBand(
         struct tagWND *a1,
         __int64 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?xxxICO_00@@YAHPEAUtagKE@@@Z @ 0x1C00C76F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxKeyEventEx @ 0x1C007F2E0 (xxxKeyEventEx.c)
+ */
+
 __int64 __fastcall xxxICO_00(struct tagKE *a1)
 {
   __int16 v2; // cx

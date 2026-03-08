@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpReleaseWriteQueue @ 0x1406C0054
+ * Callers:
+ *     CmpFlushHive @ 0x1406BEA70 (CmpFlushHive.c)
+ *     CmpFinishBeingActiveFlusherAndReconciler @ 0x140820D0C (CmpFinishBeingActiveFlusherAndReconciler.c)
+ * Callees:
+ *     CmpMarkLockReleased @ 0x140AF21D4 (CmpMarkLockReleased.c)
+ */
+
 __int64 __fastcall CmpReleaseWriteQueue(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rbx

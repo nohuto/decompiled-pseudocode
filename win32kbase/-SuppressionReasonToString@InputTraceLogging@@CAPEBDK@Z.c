@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SuppressionReasonToString@InputTraceLogging@@CAPEBDK@Z @ 0x1C00DF3A0
+ * Callers:
+ *     ?SuppressAllActiveContacts@RIM@InputTraceLogging@@SAXPEBURIMDEV@@K@Z @ 0x1C00DF330 (-SuppressAllActiveContacts@RIM@InputTraceLogging@@SAXPEBURIMDEV@@K@Z.c)
+ *     ?UnsuppressContact@RIM@InputTraceLogging@@SAXPEBURIMDEV@@KKK_N@Z @ 0x1C00DF55C (-UnsuppressContact@RIM@InputTraceLogging@@SAXPEBURIMDEV@@KKK_N@Z.c)
+ *     ?SuppressContact@RIM@InputTraceLogging@@SAXPEBURIMDEV@@KKK_N@Z @ 0x1C01DDCC4 (-SuppressContact@RIM@InputTraceLogging@@SAXPEBURIMDEV@@KKK_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 const char *__fastcall InputTraceLogging::SuppressionReasonToString(unsigned int a1)
 {
   unsigned int v1; // ecx

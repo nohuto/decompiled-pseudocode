@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?StringCchCatExW@@YAJPEAG_KPEBGPEAPEAGPEA_KK@Z @ 0x18027D210
+ * Callers:
+ *     ?WriteSubchannelString@MatrixSubchannelMaskInfo@@QEBAXW4DCOMPOSITION_EXPRESSION_TYPE@@_KPEAG@Z @ 0x18027D3B4 (-WriteSubchannelString@MatrixSubchannelMaskInfo@@QEBAXW4DCOMPOSITION_EXPRESSION_TYPE@@_KPEAG@Z.c)
+ *     ?WriteSubchannelString@VectorSubchannelMaskInfo@@QEBAX_KPEAG@Z @ 0x18027D4C8 (-WriteSubchannelString@VectorSubchannelMaskInfo@@QEBAX_KPEAG@Z.c)
+ * Callees:
+ *     StringCopyWorkerW_0 @ 0x18027D2F0 (StringCopyWorkerW_0.c)
+ *     StringLengthWorkerW @ 0x18027D36C (StringLengthWorkerW.c)
+ */
+
 HRESULT __fastcall StringCchCatExW(
         unsigned __int16 *a1,
         size_t a2,

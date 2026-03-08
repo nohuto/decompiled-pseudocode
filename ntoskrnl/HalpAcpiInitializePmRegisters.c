@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpAcpiInitializePmRegisters @ 0x140B62E74
+ * Callers:
+ *     HalpSetupAcpiPhase0 @ 0x140B62CA8 (HalpSetupAcpiPhase0.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HalpAcpiSetupPmRegisterLegacy @ 0x140B6301C (HalpAcpiSetupPmRegisterLegacy.c)
+ *     HalpAcpiSetupPmRegister @ 0x140B63078 (HalpAcpiSetupPmRegister.c)
+ */
+
 __int64 __fastcall HalpAcpiInitializePmRegisters(__int64 a1)
 {
   if ( *(_BYTE *)(a1 + 8) >= 5u && (*(_DWORD *)(a1 + 112) & 0x100000) != 0 )

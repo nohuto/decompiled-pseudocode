@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalAllocateAdapterChannel @ 0x140452D00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpDmaExtractFromVerifierShadowAdapter @ 0x1403A9C20 (HalpDmaExtractFromVerifierShadowAdapter.c)
+ *     HalpDmaGetAdapterVersion @ 0x1403B4514 (HalpDmaGetAdapterVersion.c)
+ *     HalAllocateAdapterChannelV2 @ 0x140454AE8 (HalAllocateAdapterChannelV2.c)
+ *     HalpAllocateAdapterChannel @ 0x140512850 (HalpAllocateAdapterChannel.c)
+ */
+
 __int64 __fastcall HalAllocateAdapterChannel(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rax

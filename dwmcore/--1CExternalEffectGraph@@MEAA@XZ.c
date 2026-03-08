@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??1CExternalEffectGraph@@MEAA@XZ @ 0x1800D12A4
+ * Callers:
+ *     ??1CBlurRenderingGraph@@EEAA@XZ @ 0x1800D135C (--1CBlurRenderingGraph@@EEAA@XZ.c)
+ *     ??_GCExternalEffectGraph@@MEAAPEAXI@Z @ 0x18027F960 (--_GCExternalEffectGraph@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ??1CBlurredBackdropCache@@QEAA@XZ @ 0x1800D11C8 (--1CBlurredBackdropCache@@QEAA@XZ.c)
+ *     ?clear_region@?$vector_facade@V?$function@$$A6AJPEAVCGraphRenderingContext@CExternalEffectGraph@@@Z@std@@V?$buffer_impl@V?$function@$$A6AJPEAVCGraphRenderingContext@CExternalEffectGraph@@@Z@std@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1800D139C (-clear_region@-$vector_facade@V-$function@$$A6AJPEAVCGraphRenderingContext@CExternalEffectGraph@.c)
+ */
+
 void __fastcall CExternalEffectGraph::~CExternalEffectGraph(CExternalEffectGraph *this)
 {
   void **v1; // rbx

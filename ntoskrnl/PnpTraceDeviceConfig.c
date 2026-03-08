@@ -1,3 +1,14 @@
+/*
+ * XREFs of PnpTraceDeviceConfig @ 0x1408773C8
+ * Callers:
+ *     PiDevCfgLogDeviceConfigured @ 0x140875198 (PiDevCfgLogDeviceConfigured.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x140244050 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PnpTraceDeviceConfig(
         __int64 a1,
         __int64 a2,

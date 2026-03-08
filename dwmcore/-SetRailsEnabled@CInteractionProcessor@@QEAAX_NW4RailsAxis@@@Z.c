@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRailsEnabled@CInteractionProcessor@@QEAAX_NW4RailsAxis@@@Z @ 0x1800F0A94
+ * Callers:
+ *     ?OnInteractionUpdate@CManipulationManager@@IEAAXXZ @ 0x18003263C (-OnInteractionUpdate@CManipulationManager@@IEAAXXZ.c)
+ * Callees:
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ */
+
 char __fastcall CInteractionProcessor::SetRailsEnabled(_BYTE *a1, char a2, int a3)
 {
   char v3; // r10

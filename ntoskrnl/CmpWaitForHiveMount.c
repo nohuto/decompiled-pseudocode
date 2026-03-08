@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpWaitForHiveMount @ 0x14084B55C
+ * Callers:
+ *     CmpPerformCompleteKcbCacheLookup @ 0x1406E1630 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpDoParseKey @ 0x1406E1D90 (CmpDoParseKey.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     CmpHashUnicodeComponent @ 0x1407A480C (CmpHashUnicodeComponent.c)
+ */
+
 char __fastcall CmpWaitForHiveMount(__m128i *a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   __m128i v4; // xmm0

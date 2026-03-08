@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?CalculatePresentAndGlitchDeadlines@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18004ED40
+ * Callers:
+ *     ?ComputeFrameTime@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18004EB20 (-ComputeFrameTime@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ * Callees:
+ *     ?GetPrimaryMonitorTarget@CRenderTargetManager@@QEBAPEAVIMonitorTarget@@XZ @ 0x1800525D0 (-GetPrimaryMonitorTarget@CRenderTargetManager@@QEBAPEAVIMonitorTarget@@XZ.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0qNR0_EventWriteTransfer @ 0x18012D228 (McTemplateU0qNR0_EventWriteTransfer.c)
+ */
+
 void __fastcall CPartitionVerticalBlankScheduler::CalculatePresentAndGlitchDeadlines(
         CPartitionVerticalBlankScheduler *this)
 {

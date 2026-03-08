@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpHpVaMgrRangeCoalesce @ 0x1402F136C
+ * Callers:
+ *     RtlpHpVaMgrFree @ 0x1402F12D4 (RtlpHpVaMgrFree.c)
+ * Callees:
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ */
+
 __int64 __fastcall RtlpHpVaMgrRangeCoalesce(__int64 a1, unsigned __int64 a2)
 {
   __int64 v2; // rax

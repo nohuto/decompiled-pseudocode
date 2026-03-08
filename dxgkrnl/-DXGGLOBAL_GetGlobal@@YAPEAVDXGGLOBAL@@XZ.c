@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DXGGLOBAL_GetGlobal@@YAPEAVDXGGLOBAL@@XZ @ 0x1C0011DF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 struct DXGGLOBAL *DXGGLOBAL_GetGlobal(void)
 {
   struct DXGGLOBAL *result; // rax

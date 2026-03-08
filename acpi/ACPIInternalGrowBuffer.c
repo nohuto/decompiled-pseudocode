@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIInternalGrowBuffer @ 0x1C0087FDC
+ * Callers:
+ *     PnpiGrowResourceDescriptor @ 0x1C0091DB0 (PnpiGrowResourceDescriptor.c)
+ *     PnpiGrowResourceList @ 0x1C0091EBC (PnpiGrowResourceList.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ */
+
 __int64 __fastcall ACPIInternalGrowBuffer(const void **a1, unsigned int a2, unsigned int a3)
 {
   size_t v3; // rsi

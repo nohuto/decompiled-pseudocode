@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhApplyHubFix @ 0x1C0051430
+ * Callers:
+ *     UsbhCheckHubErrata @ 0x1C005182C (UsbhCheckHubErrata.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall UsbhApplyHubFix(_DWORD *a1, int a2)
 {
   int v2; // edx

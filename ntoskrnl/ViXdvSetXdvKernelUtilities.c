@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViXdvSetXdvKernelUtilities @ 0x1405CCDB0
+ * Callers:
+ *     ViXdvDriverLoadImage @ 0x140AC7A1C (ViXdvDriverLoadImage.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char __fastcall ViXdvSetXdvKernelUtilities(
         void (__fastcall *a1)(__int64 (__fastcall **)(PCONTEXT ContextRecord), __int64 *, __int64),
         __int64 a2,

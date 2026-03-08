@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpMceInitProcessor @ 0x140A87C98
+ * Callers:
+ *     HalpMceInit @ 0x140A87B68 (HalpMceInit.c)
+ *     HalpInitializeMce @ 0x140A87FF0 (HalpInitializeMce.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpMceInitializeErrorPacket @ 0x140A87D2C (HalpMceInitializeErrorPacket.c)
+ *     HalpMcaSetProcessorConfig @ 0x140A87E04 (HalpMcaSetProcessorConfig.c)
+ */
+
 __int64 __fastcall HalpMceInitProcessor(__int64 a1, __int64 a2)
 {
   unsigned __int8 CurrentIrql; // di

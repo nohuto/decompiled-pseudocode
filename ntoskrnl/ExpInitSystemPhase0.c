@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExpInitSystemPhase0 @ 0x140B49BD0
+ * Callers:
+ *     ExInitSystem @ 0x140B49A20 (ExInitSystem.c)
+ * Callees:
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     RtlHpGlobalsInitialize @ 0x1403AE028 (RtlHpGlobalsInitialize.c)
+ *     Feature_FastResource2__private_IsEnabledDeviceUsage @ 0x14040D4DC (Feature_FastResource2__private_IsEnabledDeviceUsage.c)
+ *     ExGetSuiteMask @ 0x140810AB8 (ExGetSuiteMask.c)
+ */
+
 char ExpInitSystemPhase0()
 {
   int IsEnabledDeviceUsage; // eax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of KeIntSteerAssignCpuSet @ 0x1405777AC
+ * Callers:
+ *     IoSteerInterrupt @ 0x140950F00 (IoSteerInterrupt.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiIntSteerAssignCpuSet @ 0x140577A00 (KiIntSteerAssignCpuSet.c)
+ *     KiIntSteerClearCpuSetAssignment @ 0x140577C00 (KiIntSteerClearCpuSetAssignment.c)
+ */
+
 __int64 __fastcall KeIntSteerAssignCpuSet(__int64 a1, unsigned __int16 a2, __int64 a3)
 {
   __int64 v3; // rbx

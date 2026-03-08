@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpSpbResourceIoControl @ 0x1C03A32A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiValidateSpbResource @ 0x1C03A3748 (DpiValidateSpbResource.c)
+ */
+
 __int64 __fastcall DpSpbResourceIoControl(
         int a1,
         int a2,

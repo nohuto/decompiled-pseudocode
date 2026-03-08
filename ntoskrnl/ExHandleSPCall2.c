@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExHandleSPCall2 @ 0x140769A60
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     sub_140769C84 @ 0x140769C84 (sub_140769C84.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExHandleSPCall2(__int64 a1, unsigned __int64 a2)
 {
   int v3; // edi

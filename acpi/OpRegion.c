@@ -1,3 +1,18 @@
+/*
+ * XREFs of OpRegion @ 0x1C0050D00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     MapUnmapPhysMem @ 0x1C004BF40 (MapUnmapPhysMem.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ *     CreateNameSpaceObject @ 0x1C004F10C (CreateNameSpaceObject.c)
+ */
+
 __int64 __fastcall OpRegion(__int64 a1, __int64 a2)
 {
   __int64 v2; // rsi

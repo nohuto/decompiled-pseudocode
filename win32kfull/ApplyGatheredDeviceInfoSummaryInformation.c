@@ -1,3 +1,11 @@
+/*
+ * XREFs of ApplyGatheredDeviceInfoSummaryInformation @ 0x1C00F08A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MovePointer@CursorApiRouter@@QEAAXPEAUHDEV__@@HHK@Z @ 0x1C0020334 (-MovePointer@CursorApiRouter@@QEAAXPEAUHDEV__@@HHK@Z.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall ApplyGatheredDeviceInfoSummaryInformation(int a1, int a2, int a3, int a4, int a5, unsigned int a6)
 {

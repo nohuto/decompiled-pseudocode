@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBMISC_StoreDeviceMSOSVendorCodeInRegsitry @ 0x1C00830C8
+ * Callers:
+ *     HUBDSM_MarkDeviceAsSupportingMSOSDescriptor @ 0x1C0021CB0 (HUBDSM_MarkDeviceAsSupportingMSOSDescriptor.c)
+ * Callees:
+ *     HUBREG_AssignUsbflagsValueForDevice @ 0x1C00842FC (HUBREG_AssignUsbflagsValueForDevice.c)
+ */
+
 __int64 __fastcall HUBMISC_StoreDeviceMSOSVendorCodeInRegsitry(__int64 a1)
 {
   char v2; // [rsp+30h] [rbp+8h] BYREF

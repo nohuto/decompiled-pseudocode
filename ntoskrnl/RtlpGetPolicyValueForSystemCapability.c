@@ -1,3 +1,18 @@
+/*
+ * XREFs of RtlpGetPolicyValueForSystemCapability @ 0x140744670
+ * Callers:
+ *     RtlpCapabilityCheckSystemCapability @ 0x1407445E8 (RtlpCapabilityCheckSystemCapability.c)
+ * Callees:
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     ZwQueryLicenseValue @ 0x140414ED0 (ZwQueryLicenseValue.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExpAllocateStringRoutine @ 0x140777DB0 (ExpAllocateStringRoutine.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlpGetPolicyValueForSystemCapability(PCUNICODE_STRING Source, PUNICODE_STRING UnicodeString)
 {
   void *Pool2; // r14

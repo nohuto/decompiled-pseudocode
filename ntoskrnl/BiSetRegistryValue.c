@@ -1,3 +1,22 @@
+/*
+ * XREFs of BiSetRegistryValue @ 0x14082D198
+ * Callers:
+ *     BiSetFirmwareModified @ 0x140390340 (BiSetFirmwareModified.c)
+ *     BiMarkTreatAsSystemStore @ 0x14082B918 (BiMarkTreatAsSystemStore.c)
+ *     BiSetObjectDescription @ 0x14082BB8C (BiSetObjectDescription.c)
+ *     BiAddStoreFromFile @ 0x14082BDE4 (BiAddStoreFromFile.c)
+ *     BcdSetElementDataWithFlags @ 0x14082D894 (BcdSetElementDataWithFlags.c)
+ *     BiUpdateBcdObject @ 0x14082DA80 (BiUpdateBcdObject.c)
+ *     BcdSetSystemStore @ 0x140A5972C (BcdSetSystemStore.c)
+ *     BiCreateEfiEntry @ 0x140A5B13C (BiCreateEfiEntry.c)
+ * Callees:
+ *     BiSanitizeHandle @ 0x1402FDDE8 (BiSanitizeHandle.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     BiZwSetValueKey @ 0x14039038C (BiZwSetValueKey.c)
+ *     BiOpenKey @ 0x14082E7AC (BiOpenKey.c)
+ *     BiCloseKey @ 0x14082E938 (BiCloseKey.c)
+ */
+
 __int64 __fastcall BiSetRegistryValue(__int64 a1, const WCHAR *a2, __int64 a3, ULONG a4, PVOID a5, ULONG a6)
 {
   unsigned int i; // esi

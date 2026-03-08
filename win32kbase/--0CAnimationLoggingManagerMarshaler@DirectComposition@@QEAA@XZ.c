@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CAnimationLoggingManagerMarshaler@DirectComposition@@QEAA@XZ @ 0x1C00BDE80
+ * Callers:
+ *     ?CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C00673F4 (-CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2.c)
+ * Callees:
+ *     <none>
+ */
+
 DirectComposition::CAnimationLoggingManagerMarshaler *__fastcall DirectComposition::CAnimationLoggingManagerMarshaler::CAnimationLoggingManagerMarshaler(
         DirectComposition::CAnimationLoggingManagerMarshaler *this)
 {

@@ -1,3 +1,14 @@
+/*
+ * XREFs of EditionInitializeWppLogging @ 0x1C00ECAC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlStringCopyWorkerA @ 0x1C00ECC0C (RtlStringCopyWorkerA.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     WppInitKm @ 0x1C039CA7C (WppInitKm.c)
+ *     WppLoadTracingSupport @ 0x1C039CB30 (WppLoadTracingSupport.c)
+ */
+
 __int64 __fastcall EditionInitializeWppLogging(__int64 a1, __int64 a2)
 {
   size_t v4; // rdx

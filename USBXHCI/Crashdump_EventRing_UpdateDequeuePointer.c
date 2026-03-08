@@ -1,3 +1,13 @@
+/*
+ * XREFs of Crashdump_EventRing_UpdateDequeuePointer @ 0x1C004E9FC
+ * Callers:
+ *     Crashdump_EventRing_AsyncPoll @ 0x1C004E190 (Crashdump_EventRing_AsyncPoll.c)
+ *     Crashdump_EventRing_Poll @ 0x1C004E500 (Crashdump_EventRing_Poll.c)
+ *     Crashdump_EventRing_PrepareForDump @ 0x1C004E7F0 (Crashdump_EventRing_PrepareForDump.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Crashdump_EventRing_UpdateDequeuePointer(__int64 a1)
 {
   __int64 v1; // r8

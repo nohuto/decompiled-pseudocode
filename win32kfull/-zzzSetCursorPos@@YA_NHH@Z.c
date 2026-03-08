@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?zzzSetCursorPos@@YA_NHH@Z @ 0x1C01A9CBC
+ * Callers:
+ *     NtUserSetCursorPos @ 0x1C01DC530 (NtUserSetCursorPos.c)
+ * Callees:
+ *     ?zzzInternalSetCursorPos@@YAXHHKW4_SetCursorPosReason@@@Z @ 0x1C001DD64 (-zzzInternalSetCursorPos@@YAXHHKW4_SetCursorPosReason@@@Z.c)
+ *     ?_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0022318 (-_GetCurrentLogicalCursorThread@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     CheckWinstaAttributeAccess @ 0x1C003B230 (CheckWinstaAttributeAccess.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ?IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z @ 0x1C00DCF88 (-IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z.c)
+ */
+
 char __fastcall zzzSetCursorPos(unsigned int a1, unsigned int a2)
 {
   struct tagTHREADINFO *CurrentLogicalCursorThread; // rdi

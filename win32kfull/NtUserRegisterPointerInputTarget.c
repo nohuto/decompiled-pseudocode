@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserRegisterPointerInputTarget @ 0x1C01DA7A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _RegisterPointerInputTarget @ 0x1C01C8158 (_RegisterPointerInputTarget.c)
+ */
+
 __int64 __fastcall NtUserRegisterPointerInputTarget(__int64 a1, __int64 a2, int a3, int a4)
 {
   __int64 v7; // rax

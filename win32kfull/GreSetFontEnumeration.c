@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreSetFontEnumeration @ 0x1C010C224
+ * Callers:
+ *     xxxSystemParametersInfoWorker @ 0x1C01032D0 (xxxSystemParametersInfoWorker.c)
+ *     xxxUpdatePerUserSystemParameters @ 0x1C010AFDC (xxxUpdatePerUserSystemParameters.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GreSetFontEnumeration(Gre::Base *a1)
 {
   char v1; // bl

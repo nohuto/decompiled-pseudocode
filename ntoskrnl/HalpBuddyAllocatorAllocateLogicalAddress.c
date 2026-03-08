@@ -1,3 +1,21 @@
+/*
+ * XREFs of HalpBuddyAllocatorAllocateLogicalAddress @ 0x14052F760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpBuddyAllocatorBltAdd @ 0x14052FBC0 (HalpBuddyAllocatorBltAdd.c)
+ *     HalpBuddyAllocatorBltFindAndPop @ 0x14052FC98 (HalpBuddyAllocatorBltFindAndPop.c)
+ *     HalpBuddyAllocatorDeleteSubtree @ 0x1405301B8 (HalpBuddyAllocatorDeleteSubtree.c)
+ *     HalpBuddyAllocatorSplitNode @ 0x1405304E8 (HalpBuddyAllocatorSplitNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpBuddyAllocatorAllocateLogicalAddress(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,26 @@
+/*
+ * XREFs of MmDeleteShadowMapping @ 0x140A39B58
+ * Callers:
+ *     KeAllocateProcessorProfileStructures @ 0x1403A4C70 (KeAllocateProcessorProfileStructures.c)
+ *     KiShadowProcessorAllocation @ 0x140A8666C (KiShadowProcessorAllocation.c)
+ *     KiUnshadowProcessorAllocation @ 0x140A9CC9C (KiUnshadowProcessorAllocation.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x14036C25C (MiInitializeTbFlushList.c)
+ *     MiReadWriteAnyLevelShadowPte @ 0x1403BA720 (MiReadWriteAnyLevelShadowPte.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 char __fastcall MmDeleteShadowMapping(unsigned __int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 PteAddress; // rsi

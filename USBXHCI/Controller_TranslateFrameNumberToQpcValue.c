@@ -1,3 +1,15 @@
+/*
+ * XREFs of Controller_TranslateFrameNumberToQpcValue @ 0x1C003539C
+ * Callers:
+ *     Controller_UcxEvtGetFrameNumberAndQpcForTimeSync @ 0x1C0035620 (Controller_UcxEvtGetFrameNumberAndQpcForTimeSync.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dddd @ 0x1C001A740 (WPP_RECORDER_SF_dddd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_GetFrameNumber @ 0x1C0033490 (Controller_GetFrameNumber.c)
+ *     Controller_GetQpcValueForFrameMicroFrameBoundary @ 0x1C00335E8 (Controller_GetQpcValueForFrameMicroFrameBoundary.c)
+ *     Interrupter_QueryBusEdgeInformation @ 0x1C003E184 (Interrupter_QueryBusEdgeInformation.c)
+ */
+
 __int64 __fastcall Controller_TranslateFrameNumberToQpcValue(__int64 a1, LARGE_INTEGER *a2)
 {
   unsigned int v2; // edi

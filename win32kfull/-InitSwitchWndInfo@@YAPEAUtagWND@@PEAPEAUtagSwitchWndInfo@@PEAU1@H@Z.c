@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?InitSwitchWndInfo@@YAPEAUtagWND@@PEAPEAUtagSwitchWndInfo@@PEAU1@H@Z @ 0x1C01CA160
+ * Callers:
+ *     xxxNextWindow @ 0x1C01CB604 (xxxNextWindow.c)
+ *     xxxOldNextWindow @ 0x1C01CBDC8 (xxxOldNextWindow.c)
+ * Callees:
+ *     BuildHwndList @ 0x1C0041A10 (BuildHwndList.c)
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ *     FreeHwndList @ 0x1C00680B0 (FreeHwndList.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     GetMonitorRect @ 0x1C0101788 (GetMonitorRect.c)
+ *     GetDPIServerInfo @ 0x1C010C460 (GetDPIServerInfo.c)
+ *     ?NextPrevTaskIndex@@YAHPEAUtagSwitchWndInfo@@HHH@Z @ 0x1C01CA4F8 (-NextPrevTaskIndex@@YAHPEAUtagSwitchWndInfo@@HHH@Z.c)
+ *     ?_RemoveNonTaskWindows@@YAHPEAUtagBWL@@PEAUtagWND@@PEAHPEAPEAPEAUHWND__@@@Z @ 0x1C01CA5F0 (-_RemoveNonTaskWindows@@YAHPEAUtagBWL@@PEAUtagWND@@PEAHPEAPEAPEAUHWND__@@@Z.c)
+ *     _GetNextQueueWindow @ 0x1C01CB3B8 (_GetNextQueueWindow.c)
+ */
+
 struct tagWND *__fastcall InitSwitchWndInfo(struct tagSwitchWndInfo **a1, struct tagWND *a2, int a3)
 {
   unsigned int v3; // ebx

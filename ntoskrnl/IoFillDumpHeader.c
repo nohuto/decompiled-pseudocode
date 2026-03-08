@@ -1,3 +1,21 @@
+/*
+ * XREFs of IoFillDumpHeader @ 0x14054D7C8
+ * Callers:
+ *     IoCapturePristineTriageDump @ 0x14054D368 (IoCapturePristineTriageDump.c)
+ *     IopConstructInMemoryDumpHeader @ 0x14055003C (IopConstructInMemoryDumpHeader.c)
+ *     IopWriteCapsuleTriageDumpToFirmware @ 0x140551A98 (IopWriteCapsuleTriageDumpToFirmware.c)
+ *     KeInitializeCrashDumpHeader @ 0x1405524C0 (KeInitializeCrashDumpHeader.c)
+ *     DbgkpTriageDumpFillHeaders @ 0x140939100 (DbgkpTriageDumpFillHeaders.c)
+ *     IopLiveDumpCollectPages @ 0x140A97A84 (IopLiveDumpCollectPages.c)
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     RtlGetNtProductType @ 0x140303E90 (RtlGetNtProductType.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MmGetPhysicalMemoryRanges @ 0x140836290 (MmGetPhysicalMemoryRanges.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IoFillDumpHeader(
         char *a1,
         int a2,

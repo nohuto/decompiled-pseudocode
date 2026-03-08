@@ -1,3 +1,11 @@
+/*
+ * XREFs of ValidateGestureCaller @ 0x1C0207674
+ * Callers:
+ *     NtUserInjectGesture @ 0x1C01D62D0 (NtUserInjectGesture.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall ValidateGestureCaller(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdx

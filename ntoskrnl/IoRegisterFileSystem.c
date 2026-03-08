@@ -1,3 +1,17 @@
+/*
+ * XREFs of IoRegisterFileSystem @ 0x14086F860
+ * Callers:
+ *     RawInitialize @ 0x140B53CA0 (RawInitialize.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     IopIncrementDeviceObjectRefCount @ 0x14030F910 (IopIncrementDeviceObjectRefCount.c)
+ *     IopSetFsRegistrationInProgress @ 0x1403BEA84 (IopSetFsRegistrationInProgress.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     FsRtlSetDriverBacking @ 0x14086FA20 (FsRtlSetDriverBacking.c)
+ */
+
 void __stdcall IoRegisterFileSystem(PDEVICE_OBJECT DeviceObject)
 {
   struct _KTHREAD *CurrentThread; // rax

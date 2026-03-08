@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpFlushUnsupportedOperationTelemetry @ 0x1407333FC
+ * Callers:
+ *     CmpDoReconcileNextHive @ 0x140732AC0 (CmpDoReconcileNextHive.c)
+ *     CmpFlushTraceLoggingProvider @ 0x140A0FAB0 (CmpFlushTraceLoggingProvider.c)
+ * Callees:
+ *     CmpSendUnsupportedOperationTelemetryEvent @ 0x140A1D518 (CmpSendUnsupportedOperationTelemetryEvent.c)
+ */
+
 __int64 CmpFlushUnsupportedOperationTelemetry()
 {
   int v0; // ebx

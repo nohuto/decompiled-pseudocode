@@ -1,3 +1,12 @@
+/*
+ * XREFs of Control_Initialize @ 0x1C0074DE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_DDd @ 0x1C001BCB0 (WPP_RECORDER_SF_DDd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Control_Initialize(__int64 a1)
 {
   __int64 *v1; // rbx

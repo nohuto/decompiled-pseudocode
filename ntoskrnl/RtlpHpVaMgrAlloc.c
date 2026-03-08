@@ -1,3 +1,25 @@
+/*
+ * XREFs of RtlpHpVaMgrAlloc @ 0x14030424C
+ * Callers:
+ *     RtlpHpVaMgrCtxAlloc @ 0x1403041DC (RtlpHpVaMgrCtxAlloc.c)
+ * Callees:
+ *     RtlpHpEnvFreeVA @ 0x14020DD14 (RtlpHpEnvFreeVA.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpVaMgrFree @ 0x1402F12D4 (RtlpHpVaMgrFree.c)
+ *     RtlpHpVaMgrRangeFind @ 0x1402F4D60 (RtlpHpVaMgrRangeFind.c)
+ *     RtlpHpVaMgrRangeSplit @ 0x1402F95FC (RtlpHpVaMgrRangeSplit.c)
+ *     RtlpHpVaMgrRegionAllocate @ 0x1402F97BC (RtlpHpVaMgrRegionAllocate.c)
+ *     RtlpHpVaMgrAllocAligned @ 0x140304644 (RtlpHpVaMgrAllocAligned.c)
+ *     RtlpHpVaMgrRangeCreate @ 0x140304A64 (RtlpHpVaMgrRangeCreate.c)
+ *     RtlpHpAcquireLockExclusive @ 0x14030ABA4 (RtlpHpAcquireLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall RtlpHpVaMgrAlloc(ULONG_PTR BugCheckParameter2, unsigned __int64 *a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // r12

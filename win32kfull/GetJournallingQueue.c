@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetJournallingQueue @ 0x1C00378D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?LockRefactorStagingAssertAny@@YAXAEBUtagDomLock@@@Z @ 0x1C003794C (-LockRefactorStagingAssertAny@@YAXAEBUtagDomLock@@@Z.c)
+ *     PhkNextValid @ 0x1C0039A4C (PhkNextValid.c)
+ */
+
 __int64 __fastcall GetJournallingQueue(__int64 a1)
 {
   __int64 v2; // rbx

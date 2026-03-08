@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?SetCommitCompletionEvent@CApplicationChannel@DirectComposition@@QEAAJPEAX_N@Z @ 0x1C00BF308
+ * Callers:
+ *     NtDCompositionSetChannelCommitCompletionEvent @ 0x1C00BF290 (NtDCompositionSetChannelCommitCompletionEvent.c)
+ * Callees:
+ *     ?Create@CEvent@DirectComposition@@SAJPEAXHPEAPEAV12@@Z @ 0x1C005CF5C (-Create@CEvent@DirectComposition@@SAJPEAXHPEAPEAV12@@Z.c)
+ *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0062994 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ??_GCEvent@DirectComposition@@QEAAPEAXI@Z @ 0x1C0099740 (--_GCEvent@DirectComposition@@QEAAPEAXI@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 __fastcall DirectComposition::CApplicationChannel::SetCommitCompletionEvent(
         DirectComposition::CApplicationChannel *this,
         NSInstrumentation::CLeakTrackingAllocator *a2,

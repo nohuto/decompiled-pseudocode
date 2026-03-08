@@ -1,3 +1,11 @@
+/*
+ * XREFs of KdpRestoreAllBreakpoints @ 0x140AB2B38
+ * Callers:
+ *     KdEnableDebuggerWithLock @ 0x14056537C (KdEnableDebuggerWithLock.c)
+ * Callees:
+ *     KdpLowRestoreBreakpoint @ 0x140AB2934 (KdpLowRestoreBreakpoint.c)
+ */
+
 char KdpRestoreAllBreakpoints()
 {
   unsigned int v0; // ebx

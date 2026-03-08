@@ -1,3 +1,14 @@
+/*
+ * XREFs of BiIsWinPEBoot @ 0x14082C790
+ * Callers:
+ *     BcdCloseStore @ 0x14082C570 (BcdCloseStore.c)
+ *     BiCleanupLoadedStores @ 0x1408311C8 (BiCleanupLoadedStores.c)
+ * Callees:
+ *     wcsstr @ 0x1403D6020 (wcsstr.c)
+ *     BiGetRegistryValue @ 0x14082EB20 (BiGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 bool BiIsWinPEBoot()
 {
   bool v0; // bl

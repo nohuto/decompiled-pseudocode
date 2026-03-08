@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiRemoveQueueApc @ 0x1402F742C
+ * Callers:
+ *     KeRemoveQueueApc @ 0x1402F7360 (KeRemoveQueueApc.c)
+ *     KiSchedulerApc @ 0x140353560 (KiSchedulerApc.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall KiRemoveQueueApc(__int64 a1)
 {
   char v1; // r8

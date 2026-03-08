@@ -1,3 +1,12 @@
+/*
+ * XREFs of HviGetHypervisorFeatures @ 0x1C005ED10
+ * Callers:
+ *     ACPIRootInitialize @ 0x1C0093768 (ACPIRootInitialize.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     HviIsAnyHypervisorPresent @ 0x1C005ED90 (HviIsAnyHypervisorPresent.c)
+ */
+
 __int64 HviGetHypervisorFeatures()
 {
   _DWORD *v0; // r10

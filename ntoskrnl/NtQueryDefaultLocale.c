@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtQueryDefaultLocale @ 0x14077BC50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmGetSessionLocaleId @ 0x1407ED514 (MmGetSessionLocaleId.c)
+ */
+
 __int64 __fastcall NtQueryDefaultLocale(__int64 a1, int *a2)
 {
   char v2; // r9

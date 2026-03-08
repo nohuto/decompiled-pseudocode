@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIPepPlatformEntryExitNotify @ 0x1C008ACCC
+ * Callers:
+ *     ACPIPepWorker @ 0x1C008B020 (ACPIPepWorker.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     AMLIFreeDataBuffs @ 0x1C00482C4 (AMLIFreeDataBuffs.c)
+ *     ACPIAmliEvaluateDsm @ 0x1C007C65C (ACPIAmliEvaluateDsm.c)
+ */
+
 __int64 __fastcall ACPIPepPlatformEntryExitNotify(__int64 a1, int a2, char a3)
 {
   int v3; // ebx

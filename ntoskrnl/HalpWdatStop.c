@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpWdatStop @ 0x14051CDE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WdInstrExecuteAction @ 0x14052805C (WdInstrExecuteAction.c)
+ */
+
 __int64 __fastcall HalpWdatStop(__int64 a1)
 {
   __int64 result; // rax

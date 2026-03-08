@@ -1,3 +1,20 @@
+/*
+ * XREFs of ACPIDispatchForwardIrp @ 0x1C0001770
+ * Callers:
+ *     ACPIIrpDispatchDeviceControl @ 0x1C0001290 (ACPIIrpDispatchDeviceControl.c)
+ *     ACPIDispatchForwardIrpWithExceptions @ 0x1C00244D0 (ACPIDispatchForwardIrpWithExceptions.c)
+ *     ACPIDispatchWmiLog @ 0x1C0046FE0 (ACPIDispatchWmiLog.c)
+ *     ACPIBusIrpDeviceEnumerated @ 0x1C007E480 (ACPIBusIrpDeviceEnumerated.c)
+ *     ACPIEcOtherIrpDispatch @ 0x1C00832C0 (ACPIEcOtherIrpDispatch.c)
+ *     ACPIFilterIrpQueryId @ 0x1C0085F00 (ACPIFilterIrpQueryId.c)
+ *     ACPIFilterIrpQueryInterface @ 0x1C0086160 (ACPIFilterIrpQueryInterface.c)
+ *     ACPIFilterIrpQueryResourceRequirements @ 0x1C0086660 (ACPIFilterIrpQueryResourceRequirements.c)
+ *     ACPIRootIrpQueryInterface @ 0x1C00944D0 (ACPIRootIrpQueryInterface.c)
+ *     ACPIThermalWmi @ 0x1C0096250 (ACPIThermalWmi.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPIDispatchForwardIrp(ULONG_PTR BugCheckParameter3, PIRP Irp)
 {
   KIRQL v4; // al

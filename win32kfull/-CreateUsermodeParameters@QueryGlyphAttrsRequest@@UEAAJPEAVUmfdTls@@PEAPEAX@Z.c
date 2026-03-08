@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CreateUsermodeParameters@QueryGlyphAttrsRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C0308CB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C011EA58 (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
+ *     ?PrepareUsermodeFontObj@FontDriverDdiRequest@@KAXPEAVUmfdTls@@PEAU_FONTOBJ@@1@Z @ 0x1C011FED4 (-PrepareUsermodeFontObj@FontDriverDdiRequest@@KAXPEAVUmfdTls@@PEAU_FONTOBJ@@1@Z.c)
+ */
+
 __int64 __fastcall QueryGlyphAttrsRequest::CreateUsermodeParameters(
         QueryGlyphAttrsRequest *this,
         UmfdUMBuffer **a2,

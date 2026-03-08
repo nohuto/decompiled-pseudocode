@@ -1,3 +1,14 @@
+/*
+ * XREFs of KIsSideloadingEnabled @ 0x140A077B0
+ * Callers:
+ *     SepIsLockedDown @ 0x1409C5D5C (SepIsLockedDown.c)
+ * Callees:
+ *     CmIsStateSeparationEnabled @ 0x1402FBD38 (CmIsStateSeparationEnabled.c)
+ *     AppModelFreeUnicodeString @ 0x1402FBD4C (AppModelFreeUnicodeString.c)
+ *     KGetUnlockSetting @ 0x140792DC4 (KGetUnlockSetting.c)
+ *     KGetAppModelStateSeparatedRegKeyPath @ 0x140797AB4 (KGetAppModelStateSeparatedRegKeyPath.c)
+ */
+
 __int64 __fastcall KIsSideloadingEnabled(_BYTE *a1)
 {
   int v2; // ebx

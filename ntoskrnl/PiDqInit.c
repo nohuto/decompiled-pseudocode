@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiDqInit @ 0x140B5AB90
+ * Callers:
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     PiDqObjectManagerInit @ 0x14081D390 (PiDqObjectManagerInit.c)
+ */
+
 __int64 PiDqInit()
 {
   __int64 result; // rax

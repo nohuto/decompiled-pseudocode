@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViThunkFindAllExportAddresses @ 0x140B4F010
+ * Callers:
+ *     VfInitBootDriversLoaded @ 0x140B4EE44 (VfInitBootDriversLoaded.c)
+ * Callees:
+ *     ViThunkFindExportAddress @ 0x140B4F0CC (ViThunkFindExportAddress.c)
+ */
+
 __int64 *__fastcall ViThunkFindAllExportAddresses(__int64 a1, __int64 **a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // edi

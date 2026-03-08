@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhPCE_ResumeTimeout @ 0x1C0034B04
+ * Callers:
+ *     UsbhSshResumeDownstream @ 0x1C000E1B0 (UsbhSshResumeDownstream.c)
+ *     UsbhWaitForPortResume @ 0x1C003A71C (UsbhWaitForPortResume.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0014330 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ */
+
 int *__fastcall UsbhPCE_ResumeTimeout(__int64 a1, __int64 a2, unsigned __int16 a3)
 {
   __int64 v3; // rsi

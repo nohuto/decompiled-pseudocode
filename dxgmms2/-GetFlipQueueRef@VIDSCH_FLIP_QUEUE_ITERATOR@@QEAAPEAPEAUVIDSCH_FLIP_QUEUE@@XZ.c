@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetFlipQueueRef@VIDSCH_FLIP_QUEUE_ITERATOR@@QEAAPEAPEAUVIDSCH_FLIP_QUEUE@@XZ @ 0x1C0018860
+ * Callers:
+ *     VidSchiSetFlipDevice @ 0x1C0002730 (VidSchiSetFlipDevice.c)
+ * Callees:
+ *     <none>
+ */
+
 struct VIDSCH_FLIP_QUEUE **__fastcall VIDSCH_FLIP_QUEUE_ITERATOR::GetFlipQueueRef(VIDSCH_FLIP_QUEUE_ITERATOR *this)
 {
   __int64 v1; // r8

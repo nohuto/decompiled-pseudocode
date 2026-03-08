@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserGetMouseMovePointsEx @ 0x1C01D3940
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     _GetMouseMovePointsEx @ 0x1C01ADAFC (_GetMouseMovePointsEx.c)
+ */
+
 __int64 __fastcall NtUserGetMouseMovePointsEx(__int64 a1, ULONG64 a2, volatile void *a3, unsigned int a4, int a5)
 {
   __int64 v5; // rsi

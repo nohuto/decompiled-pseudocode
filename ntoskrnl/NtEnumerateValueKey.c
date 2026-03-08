@@ -1,3 +1,33 @@
+/*
+ * XREFs of NtEnumerateValueKey @ 0x1407AB260
+ * Callers:
+ *     AdtpObjsInitialize @ 0x140841808 (AdtpObjsInitialize.c)
+ * Callees:
+ *     EtwGetKernelTraceTimestamp @ 0x140250530 (EtwGetKernelTraceTimestamp.c)
+ *     CmpIsRegistryLockAcquired @ 0x1402630C0 (CmpIsRegistryLockAcquired.c)
+ *     CmCleanupThreadInfo @ 0x140263740 (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x140263760 (CmpInitializeThreadInfo.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpCallCallBacksEx @ 0x1406E0B20 (CmpCallCallBacksEx.c)
+ *     CmpBounceContextCopyDataToCallerBuffer @ 0x1407AA678 (CmpBounceContextCopyDataToCallerBuffer.c)
+ *     CmEnumerateValueKey @ 0x1407AB770 (CmEnumerateValueKey.c)
+ *     CmpBounceContextStart @ 0x1407AC9C0 (CmpBounceContextStart.c)
+ *     CmpBounceContextCleanup @ 0x1407ACEB8 (CmpBounceContextCleanup.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x1407B8FB0 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     CmEnumerateValueKeyFromMergedView @ 0x140A14D34 (CmEnumerateValueKeyFromMergedView.c)
+ *     CmObReferenceObjectByHandle @ 0x140AF2300 (CmObReferenceObjectByHandle.c)
+ *     CmpAcquireShutdownRundown @ 0x140AF23A0 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140AF23F0 (CmpReleaseShutdownRundown.c)
+ *     CmpAttachToRegistryProcess @ 0x140AF26E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140AF2710 (CmpDetachFromRegistryProcess.c)
+ */
+
 __int64 __fastcall NtEnumerateValueKey(
         HANDLE Handle,
         unsigned int a2,

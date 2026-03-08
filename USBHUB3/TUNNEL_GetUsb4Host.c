@@ -1,3 +1,14 @@
+/*
+ * XREFs of TUNNEL_GetUsb4Host @ 0x1C008D2F4
+ * Callers:
+ *     TUNNEL_RegisterUsb4HostForPort @ 0x1C008D404 (TUNNEL_RegisterUsb4HostForPort.c)
+ *     TUNNEL_EvtInterfaceChange @ 0x1C008DCF0 (TUNNEL_EvtInterfaceChange.c)
+ *     TUNNEL_AcquireUsb4HostPowerReferenceForPort @ 0x1C008F214 (TUNNEL_AcquireUsb4HostPowerReferenceForPort.c)
+ *     TUNNEL_ReleaseUsb4HostPowerReferenceForPort @ 0x1C008F2DC (TUNNEL_ReleaseUsb4HostPowerReferenceForPort.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 _QWORD *__fastcall TUNNEL_GetUsb4Host(__int64 a1, const UNICODE_STRING *a2)
 {
   __int64 v3; // rdx

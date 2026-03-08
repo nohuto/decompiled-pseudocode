@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionHandleMoveSizeDataOnDestroyMonitor @ 0x1C00F5980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EditionHandleMoveSizeDataOnDestroyMonitor(__int64 a1)
 {
   __int64 *v1; // r8

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalFixInterruptLine @ 0x14051F320
+ * Callers:
+ *     HalpApicInitializeIoUnit @ 0x14039F3E0 (HalpApicInitializeIoUnit.c)
+ * Callees:
+ *     HalpInterruptFindLines @ 0x14028EE80 (HalpInterruptFindLines.c)
+ */
+
 __int64 __fastcall HalFixInterruptLine(unsigned int *a1, __int128 *a2)
 {
   unsigned int v3; // ebx

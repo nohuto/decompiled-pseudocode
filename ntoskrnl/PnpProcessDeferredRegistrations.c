@@ -1,3 +1,17 @@
+/*
+ * XREFs of PnpProcessDeferredRegistrations @ 0x1406895A4
+ * Callers:
+ *     PnpDeviceEventWorker @ 0x1406892C0 (PnpDeviceEventWorker.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PnpDereferenceNotify @ 0x1406F59C0 (PnpDereferenceNotify.c)
+ *     PnpNotifyTargetDeviceChangeNotifyEntry @ 0x140953980 (PnpNotifyTargetDeviceChangeNotifyEntry.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 **PnpProcessDeferredRegistrations()
 {
   _QWORD *v0; // rbx

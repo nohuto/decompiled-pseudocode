@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlBackoff @ 0x140241660
+ * Callers:
+ *     KiCheckForTimerExpiration @ 0x14022F940 (KiCheckForTimerExpiration.c)
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KiRetireDpcList @ 0x1402521E0 (KiRetireDpcList.c)
+ *     KiSetDpcRequestFlag @ 0x1402B791C (KiSetDpcRequestFlag.c)
+ *     RtlReleaseSwapReference @ 0x1402F03F8 (RtlReleaseSwapReference.c)
+ *     RtlAcquireSwapReference @ 0x1402F04A0 (RtlAcquireSwapReference.c)
+ *     RtlpFcAddDelayedUsageReportToBuffer @ 0x1405B25C4 (RtlpFcAddDelayedUsageReportToBuffer.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlBackoff(unsigned int *a1)
 {
   unsigned int v1; // r8d

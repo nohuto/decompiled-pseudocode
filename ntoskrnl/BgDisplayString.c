@@ -1,3 +1,13 @@
+/*
+ * XREFs of BgDisplayString @ 0x140AEE1B8
+ * Callers:
+ *     BgkDrawText @ 0x140AEE00C (BgkDrawText.c)
+ * Callees:
+ *     BgpFwReleaseLock @ 0x140381C10 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140381C60 (BgpFwAcquireLock.c)
+ *     BgpTxtDisplayString @ 0x140AEF7A0 (BgpTxtDisplayString.c)
+ */
+
 __int64 __fastcall BgDisplayString(int a1)
 {
   int v3; // r8d

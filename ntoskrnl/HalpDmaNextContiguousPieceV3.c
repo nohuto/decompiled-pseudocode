@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpDmaNextContiguousPieceV3 @ 0x1404FE2D0
+ * Callers:
+ *     HalpDmaNextContiguousPiece @ 0x140452E28 (HalpDmaNextContiguousPiece.c)
+ * Callees:
+ *     HalpDmaGetAdapterCacheAlignment @ 0x1403B44EC (HalpDmaGetAdapterCacheAlignment.c)
+ */
+
 __int64 __fastcall HalpDmaNextContiguousPieceV3(
         __int64 a1,
         __int64 a2,

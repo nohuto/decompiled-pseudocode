@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopDiagSnapActiveActivity @ 0x14058F46C
+ * Callers:
+ *     PopTraceThermalRequestActiveActivity @ 0x14059334C (PopTraceThermalRequestActiveActivity.c)
+ *     PopTraceThermalZoneActiveActivity @ 0x1405938C0 (PopTraceThermalZoneActiveActivity.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PopDiagSnapActiveActivity(__int64 a1, _DWORD *a2, _BYTE *a3, __int64 a4)
 {
   unsigned int v4; // r11d

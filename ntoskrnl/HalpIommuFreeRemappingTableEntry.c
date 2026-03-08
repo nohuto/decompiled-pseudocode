@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpIommuFreeRemappingTableEntry @ 0x14050BAF4
+ * Callers:
+ *     HalpIrtFreeIndex @ 0x1409319B4 (HalpIrtFreeIndex.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpIommuFreeRemappingTableEntry(unsigned int a1, unsigned int a2)
 {
   ULONG_PTR *v2; // rbx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of ACPIBusAndFilterIrpQueryEjectRelations @ 0x1C007DD9C
+ * Callers:
+ *     ACPIFilterIrpQueryDeviceRelations @ 0x1C007A330 (ACPIFilterIrpQueryDeviceRelations.c)
+ *     ACPIBusIrpQueryDeviceRelations @ 0x1C007F9F0 (ACPIBusIrpQueryDeviceRelations.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDockFindCorrespondingDock @ 0x1C0009314 (ACPIDockFindCorrespondingDock.c)
+ *     ACPIDockIsDockDevice @ 0x1C0009A34 (ACPIDockIsDockDevice.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     WPP_RECORDER_SF_qqqss @ 0x1C000A12C (WPP_RECORDER_SF_qqqss.c)
+ *     ACPIDetectEjectDevices @ 0x1C001A6C0 (ACPIDetectEjectDevices.c)
+ */
+
 __int64 __fastcall ACPIBusAndFilterIrpQueryEjectRelations(ULONG_PTR a1, char a2, PVOID *a3)
 {
   __int64 DeviceExtension; // rax

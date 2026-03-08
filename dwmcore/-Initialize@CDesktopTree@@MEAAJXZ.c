@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?Initialize@CDesktopTree@@MEAAJXZ @ 0x1800C6D90
+ * Callers:
+ *     ?Create@CDesktopTree@@KAJPEAVCComposition@@PEAVCVisual@@U_LUID@@PEAPEAV1@@Z @ 0x18020C988 (-Create@CDesktopTree@@KAJPEAVCComposition@@PEAVCVisual@@U_LUID@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     ??2CContent@@KAPEAX_K@Z @ 0x1800387D8 (--2CContent@@KAPEAX_K@Z.c)
+ *     ??0CVisual@@IEAA@PEAVCComposition@@@Z @ 0x18009B504 (--0CVisual@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??4?$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCVisual@@@Z @ 0x1800C6FF4 (--4-$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCVisual@@@Z.c)
+ *     ?Initialize@CVisualTree@@MEAAJXZ @ 0x1800C7540 (-Initialize@CVisualTree@@MEAAJXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
 __int64 __fastcall CDesktopTree::Initialize(struct CComposition **this)
 {
   CVisual *v2; // rax

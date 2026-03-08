@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIGetConvertToStringWideWithPrepend @ 0x1C002AA64
+ * Callers:
+ *     ACPIGetConvertToCompatibleIDWide @ 0x1C00298A4 (ACPIGetConvertToCompatibleIDWide.c)
+ * Callees:
+ *     RtlStringCchPrintfA @ 0x1C000B5D8 (RtlStringCchPrintfA.c)
+ *     ACPIAnsiStringToWideHelper @ 0x1C00438EC (ACPIAnsiStringToWideHelper.c)
+ */
+
 __int64 __fastcall ACPIGetConvertToStringWideWithPrepend(__int64 a1, int a2, __int64 a3, int a4, char **a5, _DWORD *a6)
 {
   unsigned int v9; // r9d

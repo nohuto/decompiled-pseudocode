@@ -1,3 +1,15 @@
+/*
+ * XREFs of NVMeReservedSubmissionQueueCreate @ 0x1C0023104
+ * Callers:
+ *     IoctlCreateReservedQueuePair @ 0x1C0012DF0 (IoctlCreateReservedQueuePair.c)
+ * Callees:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C000C1C0 (NVMeAllocateDmaBuffer.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 __int64 __fastcall NVMeReservedSubmissionQueueCreate(
         __int64 a1,
         __int64 a2,

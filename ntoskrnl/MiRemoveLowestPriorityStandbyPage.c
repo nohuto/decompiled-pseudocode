@@ -1,3 +1,31 @@
+/*
+ * XREFs of MiRemoveLowestPriorityStandbyPage @ 0x14064F264
+ * Callers:
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ *     MiPruneStandbyPages @ 0x140464A50 (MiPruneStandbyPages.c)
+ *     MiPurgePartitionStandby @ 0x14064EF50 (MiPurgePartitionStandby.c)
+ *     MiDeletePartitionResources @ 0x140656EBC (MiDeletePartitionResources.c)
+ * Callees:
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiReleasePageListLock @ 0x140288360 (MiReleasePageListLock.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ *     MiUpdatePageFileHighInPte @ 0x14032F49C (MiUpdatePageFileHighInPte.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x14032F834 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiReleaseFreshPage @ 0x14034E570 (MiReleaseFreshPage.c)
+ *     MiReturnFreeZeroPage @ 0x14034E5C4 (MiReturnFreeZeroPage.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiLockStandbyLookasidePage @ 0x140464910 (MiLockStandbyLookasidePage.c)
+ *     MiUnlinkStandbyPage @ 0x140464E9A (MiUnlinkStandbyPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDiscardTransitionPteEx @ 0x14064E040 (MiDiscardTransitionPteEx.c)
+ *     MiGetExtendedStandbyPage @ 0x14064E0CC (MiGetExtendedStandbyPage.c)
+ *     MiLockStandbyOldestPage @ 0x14064E72C (MiLockStandbyOldestPage.c)
+ *     MiRepointPteAtExtendedStandby @ 0x14064F5DC (MiRepointPteAtExtendedStandby.c)
+ *     MiShouldUseExtendedStandby @ 0x14064F750 (MiShouldUseExtendedStandby.c)
+ */
+
 __int64 __fastcall MiRemoveLowestPriorityStandbyPage(__int64 a1, unsigned int a2, __int16 a3)
 {
   unsigned int v3; // edi

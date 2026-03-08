@@ -1,3 +1,25 @@
+/*
+ * XREFs of EtwpClearSessionAndUnreferenceEntry @ 0x140695580
+ * Callers:
+ *     EtwpDisableTraceProviders @ 0x140693E28 (EtwpDisableTraceProviders.c)
+ * Callees:
+ *     EtwpGetEnableInfoIndex @ 0x1402068FC (EtwpGetEnableInfoIndex.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpAllocDataBlock @ 0x14068ED78 (EtwpAllocDataBlock.c)
+ *     EtwpUpdateGuidFilterData @ 0x14068FCB8 (EtwpUpdateGuidFilterData.c)
+ *     EtwpSendDataBlock @ 0x1406901A8 (EtwpSendDataBlock.c)
+ *     EtwpUnreferenceDataBlock @ 0x1406909A0 (EtwpUnreferenceDataBlock.c)
+ *     EtwpComputeRegEntryEnableInfo @ 0x1406934E8 (EtwpComputeRegEntryEnableInfo.c)
+ *     EtwpGetSchematizedFilterSize @ 0x140694C98 (EtwpGetSchematizedFilterSize.c)
+ *     EtwpUnreferenceGuidEntry @ 0x140695094 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpCopySchematizedFilters @ 0x1409F23CC (EtwpCopySchematizedFilters.c)
+ */
+
 __int64 __fastcall EtwpClearSessionAndUnreferenceEntry(int a1, __int64 a2, char a3)
 {
   char v3; // r14

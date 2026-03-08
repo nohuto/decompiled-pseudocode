@@ -1,3 +1,18 @@
+/*
+ * XREFs of VidSchiRedirectedFlipWaitOnSyncObject @ 0x1C003B608
+ * Callers:
+ *     VidSchSubmitCommandContextless @ 0x1C0040AC0 (VidSchSubmitCommandContextless.c)
+ * Callees:
+ *     ?VidSchiAcquirePrivateDataReference@@YAXPEAU_VIDSCH_GLOBAL@@PEAUVIDSCH_FLIP_MULTIPLANE_OVERLAY2@@@Z @ 0x1C0003238 (-VidSchiAcquirePrivateDataReference@@YAXPEAU_VIDSCH_GLOBAL@@PEAUVIDSCH_FLIP_MULTIPLANE_OVERLAY2@.c)
+ *     ?ProcessHwQueues@HwQueueStagingList@@QEAAXXZ @ 0x1C0006790 (-ProcessHwQueues@HwQueueStagingList@@QEAAXXZ.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0013414 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00134D8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     VidSchiSubmitPresentHistoryToken @ 0x1C00167E0 (VidSchiSubmitPresentHistoryToken.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C001A980 (memmove.c)
+ *     VidSchIsVSyncEnabled @ 0x1C00A5F00 (VidSchIsVSyncEnabled.c)
+ */
+
 __int64 __fastcall VidSchiRedirectedFlipWaitOnSyncObject(struct _VIDSCH_GLOBAL *a1, char *Src, __int64 a3, _DWORD *a4)
 {
   __int64 v8; // rax

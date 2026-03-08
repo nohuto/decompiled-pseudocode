@@ -1,3 +1,23 @@
+/*
+ * XREFs of SmProcessStatsRequest @ 0x1409D4588
+ * Callers:
+ *     SmQueryStoreInformation @ 0x140840788 (SmQueryStoreInformation.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     MmProbeAndLockPages @ 0x140267B90 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x14027C0C0 (MmUnlockPages.c)
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     SmpGetProcessPartition @ 0x14029622C (SmpGetProcessPartition.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402A4AEC (SSHSupportAllocateNonPaged.c)
+ *     MmSizeOfMdl @ 0x1402CFFB0 (MmSizeOfMdl.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     ?SmStoreRequest@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_IO_STATUS_BLOCK@@@Z @ 0x1405C07D4 (-SmStoreRequest@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_I.c)
+ *     PsReferencePartitionByHandle @ 0x14070591C (PsReferencePartitionByHandle.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall SmProcessStatsRequest(__int64 a1, int a2, _DWORD *a3, KPROCESSOR_MODE a4)
 {
   struct _MDL *NonPaged; // r14

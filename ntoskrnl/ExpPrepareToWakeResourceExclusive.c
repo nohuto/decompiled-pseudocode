@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpPrepareToWakeResourceExclusive @ 0x1403C611C
+ * Callers:
+ *     ExpReleaseFastResourceExclusive @ 0x1403C5EA4 (ExpReleaseFastResourceExclusive.c)
+ *     ExpReleaseDisownedFastResourceExclusive @ 0x1406082E4 (ExpReleaseDisownedFastResourceExclusive.c)
+ * Callees:
+ *     KeCaptureWaitChainHeadEx @ 0x1402D3E54 (KeCaptureWaitChainHeadEx.c)
+ */
+
 __int64 __fastcall ExpPrepareToWakeResourceExclusive(__int64 a1, __int64 *a2, _QWORD *a3, int *a4)
 {
   __int64 v6; // rcx

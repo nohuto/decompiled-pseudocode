@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?CapturePresentMultiPlaneOverlayArgs2@@YAJPEBU_D3DKMT_PRESENT_MULTIPLANE_OVERLAY2@@PEAU1@PEAPEAU_D3DKMT_MULTIPLANE_OVERLAY2@@PEAPEAUtagRECT@@@Z @ 0x1C031EDC4
+ * Callers:
+ *     DxgkPresentMultiPlaneOverlay2 @ 0x1C0320FA0 (DxgkPresentMultiPlaneOverlay2.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ */
+
 __int64 __fastcall CapturePresentMultiPlaneOverlayArgs2(
         const struct _D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 *a1,
         struct _D3DKMT_PRESENT_MULTIPLANE_OVERLAY2 *a2,

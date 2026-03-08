@@ -1,3 +1,20 @@
+/*
+ * XREFs of RegisterOperationRegionHandler @ 0x1C008BB24
+ * Callers:
+ *     ACPIEcInitOpRegionHandler @ 0x1C00251B0 (ACPIEcInitOpRegionHandler.c)
+ *     ACPIIoctlRegisterOpRegionHandler @ 0x1C003133C (ACPIIoctlRegisterOpRegionHandler.c)
+ *     ACPIEcInstallOpRegionHandler @ 0x1C00836FC (ACPIEcInstallOpRegionHandler.c)
+ *     RegisterOpRegionHandler @ 0x1C008BAC0 (RegisterOpRegionHandler.c)
+ *     OSInitializeCallbacks @ 0x1C00A8160 (OSInitializeCallbacks.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     EnableDisableDeviceTreeRegionSpace @ 0x1C00399A0 (EnableDisableDeviceTreeRegionSpace.c)
+ *     AMLIAsyncEvalObject @ 0x1C00478E8 (AMLIAsyncEvalObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNameSpaceObject @ 0x1C00483B8 (AMLIGetNameSpaceObject.c)
+ *     AMLIRegEventHandler @ 0x1C0048A7C (AMLIRegEventHandler.c)
+ */
+
 __int64 __fastcall RegisterOperationRegionHandler(
         __int64 a1,
         int a2,

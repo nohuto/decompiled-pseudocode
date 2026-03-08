@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?PurgeInputDispatcherObjects@LegacyInputDispatcher@@QEAAXXZ @ 0x1C00D3190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?HasInputDispatcherObjects@LegacyInputDispatcher@@AEBA_NXZ @ 0x1C0033684 (-HasInputDispatcherObjects@LegacyInputDispatcher@@AEBA_NXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 void __fastcall LegacyInputDispatcher::PurgeInputDispatcherObjects(LegacyInputDispatcher *this)
 {
   unsigned int v2; // edi

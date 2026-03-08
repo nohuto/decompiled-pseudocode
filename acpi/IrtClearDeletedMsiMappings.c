@@ -1,3 +1,13 @@
+/*
+ * XREFs of IrtClearDeletedMsiMappings @ 0x1C00A03EC
+ * Callers:
+ *     IrqArbCommitAllocation @ 0x1C009D040 (IrqArbCommitAllocation.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     PcisuppGetBusSlotNumber @ 0x1C0099948 (PcisuppGetBusSlotNumber.c)
+ */
+
 NTSTATUS __fastcall IrtClearDeletedMsiMappings(__int64 a1)
 {
   struct _RTL_RANGE_LIST *v1; // rcx

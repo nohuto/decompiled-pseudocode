@@ -1,3 +1,21 @@
+/*
+ * XREFs of SepMandatorySubProcessToken @ 0x140297F20
+ * Callers:
+ *     SeSubProcessToken @ 0x14070B29C (SeSubProcessToken.c)
+ * Callees:
+ *     SepLocateTokenIntegrity @ 0x14030FEA8 (SepLocateTokenIntegrity.c)
+ *     RtlSidDominates @ 0x14030FF10 (RtlSidDominates.c)
+ *     RtlFindAceByType @ 0x1403100D0 (RtlFindAceByType.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406DB5A0 (RtlCreateSecurityDescriptor.c)
+ *     PsReferenceProcessFilePointer @ 0x14074C940 (PsReferenceProcessFilePointer.c)
+ *     ObQuerySecurityObject @ 0x14074F0EC (ObQuerySecurityObject.c)
+ *     SeTokenIsAdmin @ 0x1407819E0 (SeTokenIsAdmin.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepMandatorySubProcessToken(_DWORD *Token, __int64 a2, __int64 a3, _QWORD *a4)
 {
   unsigned int v4; // r14d

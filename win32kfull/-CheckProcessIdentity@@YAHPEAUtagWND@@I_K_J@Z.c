@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?CheckProcessIdentity@@YAHPEAUtagWND@@I_K_J@Z @ 0x1C00F9A30
+ * Callers:
+ *     ?xxxWrapDesktopWndProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C00F9AC0 (-xxxWrapDesktopWndProc@@YA_JPEAUtagWND@@I_K_J1@Z.c)
+ *     ?xxxWrapMenuWindowProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C0144690 (-xxxWrapMenuWindowProc@@YA_JPEAUtagWND@@I_K_J1@Z.c)
+ *     ?xxxWrapCallWindowProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C01B9940 (-xxxWrapCallWindowProc@@YA_JPEAUtagWND@@I_K_J1@Z.c)
+ *     ?xxxWrapSBWndProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C01B9B00 (-xxxWrapSBWndProc@@YA_JPEAUtagWND@@I_K_J1@Z.c)
+ *     ?xxxWrapSwitchWndProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C01B9B60 (-xxxWrapSwitchWndProc@@YA_JPEAUtagWND@@I_K_J1@Z.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?IsMessageAlwaysAllowedAcrossIL@@YAHI@Z @ 0x1C004C87C (-IsMessageAlwaysAllowedAcrossIL@@YAHI@Z.c)
+ *     ?GetWindowMessageFilter@@YAPEAPEAXPEAUtagWND@@@Z @ 0x1C00CBBC4 (-GetWindowMessageFilter@@YAPEAPEAXPEAUtagWND@@@Z.c)
+ *     ?IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z @ 0x1C00CBE58 (-IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z.c)
+ */
+
 __int64 __fastcall CheckProcessIdentity(struct tagWND *a1, unsigned int a2, __int64 a3, __int64 a4)
 {
   __int64 CurrentProcessWin32Process; // rax

@@ -1,3 +1,19 @@
+/*
+ * XREFs of CmpHandlePageFileOpenNotification @ 0x140851670
+ * Callers:
+ *     NtInitializeRegistry @ 0x140799FB0 (NtInitializeRegistry.c)
+ * Callees:
+ *     CmpRecheckHiveVolumePolicy @ 0x1402B2B14 (CmpRecheckHiveVolumePolicy.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     CmpGetNextActiveHive @ 0x1406BD940 (CmpGetNextActiveHive.c)
+ *     CmpVolumeManagerGetContextForFilePath @ 0x140851780 (CmpVolumeManagerGetContextForFilePath.c)
+ *     CmpVolumeContextSendDeviceUsageNotification @ 0x14085184C (CmpVolumeContextSendDeviceUsageNotification.c)
+ *     CmpAcquireShutdownRundown @ 0x140AF23A0 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140AF23F0 (CmpReleaseShutdownRundown.c)
+ *     CmpAttachToRegistryProcess @ 0x140AF26E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140AF2710 (CmpDetachFromRegistryProcess.c)
+ */
+
 __int64 __fastcall CmpHandlePageFileOpenNotification(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

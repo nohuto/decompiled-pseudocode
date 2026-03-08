@@ -1,3 +1,14 @@
+/*
+ * XREFs of RootHub_Create @ 0x1C006F738
+ * Callers:
+ *     Controller_WdfEvtDeviceAdd @ 0x1C006FA60 (Controller_WdfEvtDeviceAdd.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C001A2FC (WPP_RECORDER_SF_qq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 __int64 __fastcall RootHub_Create(__int64 a1, __int64 a2, _QWORD *a3)
 {
   __int64 v5; // rdx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserSetActiveProcessForMonitor @ 0x1C0098C70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     LockProcessByClientId @ 0x1C0099860 (LockProcessByClientId.c)
+ *     IAMThreadAccessGranted @ 0x1C009A2DC (IAMThreadAccessGranted.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     ?IsMonitorConnectedToInternalPanel@@YAHPEAUtagMONITOR@@@Z @ 0x1C01A8164 (-IsMonitorConnectedToInternalPanel@@YAHPEAUtagMONITOR@@@Z.c)
+ */
+
 __int64 __fastcall NtUserSetActiveProcessForMonitor(int a1, __int64 a2)
 {
   __int64 v2; // rbx

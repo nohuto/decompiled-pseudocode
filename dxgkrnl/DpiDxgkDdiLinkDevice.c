@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiDxgkDdiLinkDevice @ 0x1C006593C
+ * Callers:
+ *     DpiAddDevice @ 0x1C01F38A0 (DpiAddDevice.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0ppqqtq_EtwWriteTransfer @ 0x1C0065BF0 (McTemplateK0ppqqtq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DpiDxgkDdiLinkDevice(__int64 a1, __int64 a2, __int64 a3, int *a4)
 {
   int v4; // ebx

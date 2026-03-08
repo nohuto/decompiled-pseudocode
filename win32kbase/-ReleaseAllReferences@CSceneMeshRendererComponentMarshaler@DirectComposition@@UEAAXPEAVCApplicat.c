@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReleaseAllReferences@CSceneMeshRendererComponentMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C026E880
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z @ 0x1C0068750 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z.c)
+ */
+
 void __fastcall DirectComposition::CSceneMeshRendererComponentMarshaler::ReleaseAllReferences(
         DirectComposition::CSceneMeshRendererComponentMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2)

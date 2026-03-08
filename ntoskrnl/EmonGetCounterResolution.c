@@ -1,3 +1,11 @@
+/*
+ * XREFs of EmonGetCounterResolution @ 0x14051AF70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EmonGetCounterResolution(unsigned int a1, int *a2)
 {
   unsigned int v2; // r8d

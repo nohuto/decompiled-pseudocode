@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefRawMulAsm @ 0x1404002C0
+ * Callers:
+ *     SymCryptFdefRawMul @ 0x1403FE01C (SymCryptFdefRawMul.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall SymCryptFdefRawMulAsm(
         unsigned __int64 *a1,
         __int64 a2,

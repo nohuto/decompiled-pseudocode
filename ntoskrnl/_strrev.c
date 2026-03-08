@@ -1,3 +1,11 @@
+/*
+ * XREFs of _strrev @ 0x1403D3CC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char *__cdecl strrev(char *Str)
 {
   char *v1; // r8

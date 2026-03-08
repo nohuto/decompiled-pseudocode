@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiCaptureRetpolineRelocationTables @ 0x1407F5944
+ * Callers:
+ *     MiParseImageLoadConfig @ 0x1407F4AEC (MiParseImageLoadConfig.c)
+ *     MiCaptureBootDriverRetpolineInfo @ 0x140828D60 (MiCaptureBootDriverRetpolineInfo.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     MiIsRetpolineEnabled @ 0x14036905C (MiIsRetpolineEnabled.c)
+ *     RtlValidateRetpolineRelocation @ 0x14036B93C (RtlValidateRetpolineRelocation.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     MiFreeImageRetpolineContext @ 0x1407F5140 (MiFreeImageRetpolineContext.c)
+ */
+
 __int64 __fastcall MiCaptureRetpolineRelocationTables(
         __int64 a1,
         int a2,

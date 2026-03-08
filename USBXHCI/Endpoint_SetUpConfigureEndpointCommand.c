@@ -1,3 +1,15 @@
+/*
+ * XREFs of Endpoint_SetUpConfigureEndpointCommand @ 0x1C003C168
+ * Callers:
+ *     Endpoint_OnCancelEndpointConfigure @ 0x1C003A7B4 (Endpoint_OnCancelEndpointConfigure.c)
+ *     Endpoint_OnCancelEndpointConfigureCompletion_EpDropped @ 0x1C003AB40 (Endpoint_OnCancelEndpointConfigureCompletion_EpDropped.c)
+ *     Endpoint_OnResetEndpointConfigure @ 0x1C003AD30 (Endpoint_OnResetEndpointConfigure.c)
+ *     Endpoint_OnResetEndpointConfigureCompletion_EpDropped @ 0x1C003B190 (Endpoint_OnResetEndpointConfigureCompletion_EpDropped.c)
+ * Callees:
+ *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C0007FC0 (XilUsbDevice_GetDeviceContextBufferVA.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 __int64 __fastcall Endpoint_SetUpConfigureEndpointCommand(
         __int64 a1,
         int a2,

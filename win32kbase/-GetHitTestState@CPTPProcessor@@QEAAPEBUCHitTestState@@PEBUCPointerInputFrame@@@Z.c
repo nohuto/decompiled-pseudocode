@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?GetHitTestState@CPTPProcessor@@QEAAPEBUCHitTestState@@PEBUCPointerInputFrame@@@Z @ 0x1C020DD78
+ * Callers:
+ *     ?UpdateInputCaptureAndGetTarget@CTouchProcessor@@QEAA?AVCInputDest@@PEBUCPointerInputFrame@@PEBUtagPOINTEREVENTINT@@PEAUCInputPointerNode@@IPEAGPEAIK@Z @ 0x1C02083AC (-UpdateInputCaptureAndGetTarget@CTouchProcessor@@QEAA-AVCInputDest@@PEBUCPointerInputFrame@@PEBU.c)
+ * Callees:
+ *     ??0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z @ 0x1C0079840 (--0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z.c)
+ *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C007D0A0 (-SetEmpty@CInputDest@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     ?Set@CHitTestState@@QEAAXAEBVCInputDest@@IHH@Z @ 0x1C020F130 (-Set@CHitTestState@@QEAAXAEBVCInputDest@@IHH@Z.c)
+ *     ApiSetGetPTPShellTarget @ 0x1C0244748 (ApiSetGetPTPShellTarget.c)
+ *     IsGetPTPShellTargetSupported @ 0x1C0271F1C (IsGetPTPShellTargetSupported.c)
+ */
+
 const struct CHitTestState *__fastcall CPTPProcessor::GetHitTestState(
         CPTPProcessor *this,
         const struct CPointerInputFrame *a2)

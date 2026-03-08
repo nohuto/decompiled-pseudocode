@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@DelayZoneTelemetry@@QEAAXKK@Z @ 0x1C0098174
+ * Callers:
+ *     ?Initialize@DelayZonePalmRejection@@AEAAXXZ @ 0x1C00971FC (-Initialize@DelayZonePalmRejection@@AEAAXXZ.c)
+ * Callees:
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 void __fastcall DelayZoneTelemetry::Initialize(DelayZoneTelemetry *this, int a2, int a3)
 {
   __int64 v4; // rax

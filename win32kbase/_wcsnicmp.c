@@ -1,3 +1,15 @@
+/*
+ * XREFs of _wcsnicmp @ 0x1C00DACB8
+ * Callers:
+ *     ?DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@PEBKPEAGKPEAJ@Z @ 0x1C0075884 (-DrvGetRegistryHandleFromDeviceMap@@YAPEAXPEAUtagGRAPHICS_DEVICE@@W4_DISP_DRIVER_REGISTRY_TYPE@@.c)
+ *     ?ConvertHandleAndVerifyLoc@@YAPEAXPEAX@Z @ 0x1C0085038 (-ConvertHandleAndVerifyLoc@@YAPEAXPEAX@Z.c)
+ *     MakeSystemRelativePath @ 0x1C00B1F80 (MakeSystemRelativePath.c)
+ *     MakeSystemDriversRelativePath @ 0x1C0199F54 (MakeSystemDriversRelativePath.c)
+ *     rimFindMonitorForDigitizerWithQDCData @ 0x1C01BE49C (rimFindMonitorForDigitizerWithQDCData.c)
+ * Callees:
+ *     <none>
+ */
+
 int __cdecl wcsnicmp(const wchar_t *Str1, const wchar_t *Str2, size_t MaxCount)
 {
   int v3; // r9d

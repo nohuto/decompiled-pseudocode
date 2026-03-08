@@ -1,3 +1,37 @@
+/*
+ * XREFs of CmpLoadKeyCommon @ 0x1402B2DEC
+ * Callers:
+ *     CmLoadAppKey @ 0x1406BDA5C (CmLoadAppKey.c)
+ *     CmLoadKey @ 0x140732FF8 (CmLoadKey.c)
+ * Callees:
+ *     SetFailureLocation @ 0x140243E5C (SetFailureLocation.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x1402B2B14 (CmpRecheckHiveVolumePolicy.c)
+ *     CmpJoinClassOfTrust @ 0x1402B38BC (CmpJoinClassOfTrust.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     TmEnableCallbacks @ 0x1403D2930 (TmEnableCallbacks.c)
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x1406B6158 (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     CmpFlushHive @ 0x1406BEA70 (CmpFlushHive.c)
+ *     CmpLockRegistryFreezeAware @ 0x1406BF3D0 (CmpLockRegistryFreezeAware.c)
+ *     LOCK_HIVE_LOAD @ 0x1406C00DC (LOCK_HIVE_LOAD.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1406C0154 (UNLOCK_HIVE_LOAD.c)
+ *     CmpLinkHiveToMaster @ 0x140731250 (CmpLinkHiveToMaster.c)
+ *     CmpLockHiveListExclusive @ 0x140731734 (CmpLockHiveListExclusive.c)
+ *     CmpUnlockHiveList @ 0x140731774 (CmpUnlockHiveList.c)
+ *     CmpTrimHive @ 0x1407317CC (CmpTrimHive.c)
+ *     CmpAddToHiveFileList @ 0x140732E68 (CmpAddToHiveFileList.c)
+ *     CmRmFinalizeRecovery @ 0x140733440 (CmRmFinalizeRecovery.c)
+ *     CmpInitCmRM @ 0x1407334D4 (CmpInitCmRM.c)
+ *     CmpVEAddHiveToSIDMappingTable @ 0x1407340A0 (CmpVEAddHiveToSIDMappingTable.c)
+ *     CmpSetGlobalQuotaAllowed @ 0x14079C7E0 (CmpSetGlobalQuotaAllowed.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x1407B05D8 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     CmpDestroyHive @ 0x140A19FFC (CmpDestroyHive.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140AF21E0 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140AF24F0 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpAttachToRegistryProcess @ 0x140AF26E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140AF2710 (CmpDetachFromRegistryProcess.c)
+ */
+
 __int64 __fastcall CmpLoadKeyCommon(
         char *P,
         _QWORD *a2,

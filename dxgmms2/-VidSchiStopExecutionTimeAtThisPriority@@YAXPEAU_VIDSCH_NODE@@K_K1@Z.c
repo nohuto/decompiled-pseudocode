@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?VidSchiStopExecutionTimeAtThisPriority@@YAXPEAU_VIDSCH_NODE@@K_K1@Z @ 0x1C0010564
+ * Callers:
+ *     VidSchiProcessDpcPreemptedPacket @ 0x1C000FCEC (VidSchiProcessDpcPreemptedPacket.c)
+ *     VidSchiProcessDpcSystemRequest @ 0x1C00100E4 (VidSchiProcessDpcSystemRequest.c)
+ *     VidSchiSetPriorityContext @ 0x1C0014574 (VidSchiSetPriorityContext.c)
+ * Callees:
+ *     McTemplateK0pqxq_EtwWriteTransfer @ 0x1C0039394 (McTemplateK0pqxq_EtwWriteTransfer.c)
+ */
+
 void __fastcall VidSchiStopExecutionTimeAtThisPriority(
         struct _VIDSCH_NODE *a1,
         int a2,

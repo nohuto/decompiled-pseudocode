@@ -1,3 +1,17 @@
+/*
+ * XREFs of AdtpWriteToEtw @ 0x14083D7F0
+ * Callers:
+ *     SepRmCallLsa @ 0x1402E8690 (SepRmCallLsa.c)
+ * Callees:
+ *     EtwWriteKMSecurityEvent @ 0x140395834 (EtwWriteKMSecurityEvent.c)
+ *     AdtpPackageParameters @ 0x1403958B4 (AdtpPackageParameters.c)
+ *     AdtpCleanupParameterAllocations @ 0x140395DFC (AdtpCleanupParameterAllocations.c)
+ *     AdtpNormalizeAuditInfoHelper @ 0x14039F254 (AdtpNormalizeAuditInfoHelper.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AdtpGetCategoryAndSubCategoryId @ 0x14083DB64 (AdtpGetCategoryAndSubCategoryId.c)
+ */
+
 __int64 __fastcall AdtpWriteToEtw(__int64 a1, _BYTE *a2)
 {
   unsigned int v4; // ebx

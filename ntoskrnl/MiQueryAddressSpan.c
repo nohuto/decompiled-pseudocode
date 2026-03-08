@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiQueryAddressSpan @ 0x14031E2D0
+ * Callers:
+ *     MmQueryVirtualMemory @ 0x1407C6390 (MmQueryVirtualMemory.c)
+ * Callees:
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiCheckProcessShadow @ 0x14025F210 (MiCheckProcessShadow.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MiPreUnlockWorkingSetShared @ 0x1402F0758 (MiPreUnlockWorkingSetShared.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14030AD60 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiQueryAddressState @ 0x14031B4F0 (MiQueryAddressState.c)
+ *     ExpTryAcquireSpinLockShared @ 0x140321970 (ExpTryAcquireSpinLockShared.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiWorkingSetIsContended @ 0x1403478E0 (MiWorkingSetIsContended.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140462F92 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140608D0C (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ */
+
 unsigned __int64 __fastcall MiQueryAddressSpan(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, ULONG_PTR a4)
 {
   __int64 v4; // rax

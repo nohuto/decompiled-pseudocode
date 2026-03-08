@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDiagTraceSystemIdleContextUpdate @ 0x14082A9FC
+ * Callers:
+ *     PopUpdateSystemIdleContext @ 0x14082A808 (PopUpdateSystemIdleContext.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PopDiagTraceSystemIdleContextUpdate(int a1, int a2, int a3, int a4, char a5)
 {
   _UNKNOWN **v5; // rax

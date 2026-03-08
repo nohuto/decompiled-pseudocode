@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiZeroThreadContending @ 0x1402A84A8
+ * Callers:
+ *     MiReduceZeroingThreads @ 0x1402A81E4 (MiReduceZeroingThreads.c)
+ *     MiMoveZeroThreadsToOtherCores @ 0x1402A8404 (MiMoveZeroThreadsToOtherCores.c)
+ * Callees:
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402A9460 (KeFindFirstSetRightGroupAffinity.c)
+ */
+
 __int64 __fastcall MiZeroThreadContending(__int64 a1)
 {
   __int64 v3; // rsi

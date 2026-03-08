@@ -1,3 +1,14 @@
+/*
+ * XREFs of HviEnterKernelAperture @ 0x1405B3844
+ * Callers:
+ *     HviCopyMemory @ 0x1405B3744 (HviCopyMemory.c)
+ *     HviCopyMemoryNonTemporal @ 0x1405B37C0 (HviCopyMemoryNonTemporal.c)
+ * Callees:
+ *     HvipApertureVmfuncSwitchEptp @ 0x140422350 (HvipApertureVmfuncSwitchEptp.c)
+ *     HvipApertureDetectParameters @ 0x1405B38F0 (HvipApertureDetectParameters.c)
+ *     HvipApertureDirectHypercall @ 0x1405B39F8 (HvipApertureDirectHypercall.c)
+ */
+
 char HviEnterKernelAperture()
 {
   char result; // al

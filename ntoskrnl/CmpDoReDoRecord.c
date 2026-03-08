@@ -1,3 +1,21 @@
+/*
+ * XREFs of CmpDoReDoRecord @ 0x140A27C2C
+ * Callers:
+ *     CmpRmReDoPhase @ 0x140A1C1E0 (CmpRmReDoPhase.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwDeleteKey @ 0x140413E50 (ZwDeleteKey.c)
+ *     CmpDoReDoSetEntireSecurityDescriptor @ 0x14067DC08 (CmpDoReDoSetEntireSecurityDescriptor.c)
+ *     CmpDoReDoCreateKey @ 0x140A27AE0 (CmpDoReDoCreateKey.c)
+ *     CmpDoReDoDeleteValue @ 0x140A27BD0 (CmpDoReDoDeleteValue.c)
+ *     CmpDoReDoRenameKey @ 0x140A27D14 (CmpDoReDoRenameKey.c)
+ *     CmpDoReDoSetKeyUserFlags @ 0x140A27D70 (CmpDoReDoSetKeyUserFlags.c)
+ *     CmpDoReDoSetLastWriteTime @ 0x140A27DE0 (CmpDoReDoSetLastWriteTime.c)
+ *     CmpDoReDoSetSecurityDescriptor @ 0x140A27E50 (CmpDoReDoSetSecurityDescriptor.c)
+ *     CmpDoReDoSetValueExisting @ 0x140A27EB0 (CmpDoReDoSetValueExisting.c)
+ *     CmpDoReOpenTransKey @ 0x140A27F24 (CmpDoReOpenTransKey.c)
+ */
+
 __int64 __fastcall CmpDoReDoRecord(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

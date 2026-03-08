@@ -1,3 +1,24 @@
+/*
+ * XREFs of NVMeRequestComplete @ 0x1C000318C
+ * Callers:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     NVMeCompleteSubmissionQueueRequests @ 0x1C000C644 (NVMeCompleteSubmissionQueueRequests.c)
+ *     NVMeFirmwareActivateCompletionAfterReset @ 0x1C00152C0 (NVMeFirmwareActivateCompletionAfterReset.c)
+ *     NVMeGetSanitizeLogWorkItem @ 0x1C0016690 (NVMeGetSanitizeLogWorkItem.c)
+ *     NVMeWriteBufferFirmwareActivateCompletionAfterReset @ 0x1C0018380 (NVMeWriteBufferFirmwareActivateCompletionAfterReset.c)
+ *     NVMeSanitizeRecoverWorkItem @ 0x1C0023470 (NVMeSanitizeRecoverWorkItem.c)
+ *     ProcessMultipleCommands @ 0x1C0024780 (ProcessMultipleCommands.c)
+ *     ProcessNvmeSanitizeStatus @ 0x1C0024F88 (ProcessNvmeSanitizeStatus.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ * Callees:
+ *     NVMeControllerReclaimLocalCommand @ 0x1C0003594 (NVMeControllerReclaimLocalCommand.c)
+ *     Feature_Servicing_Huawei22H2BluescreenAfterSleep__private_IsEnabledDeviceUsage @ 0x1C000361C (Feature_Servicing_Huawei22H2BluescreenAfterSleep__private_IsEnabledDeviceUsage.c)
+ *     IsInternalSrb @ 0x1C0007BB8 (IsInternalSrb.c)
+ *     GetLocalCommand @ 0x1C0009C80 (GetLocalCommand.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ *     NVMeFreePool @ 0x1C000EF54 (NVMeFreePool.c)
+ */
+
 _BYTE *__fastcall NVMeRequestComplete(__int64 a1, __int64 a2)
 {
   __int64 v4; // rdx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of HeadlessInit @ 0x140B484E0
+ * Callers:
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MmLockPagableDataSection @ 0x1407EBF70 (MmLockPagableDataSection.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     HdlspEnableTerminal @ 0x140AE75C4 (HdlspEnableTerminal.c)
+ */
+
 void __fastcall HeadlessInit(__int64 a1)
 {
   char *v2; // rdi

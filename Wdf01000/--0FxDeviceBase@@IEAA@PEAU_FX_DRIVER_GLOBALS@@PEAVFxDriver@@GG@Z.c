@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0FxDeviceBase@@IEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDriver@@GG@Z @ 0x1C0038AF0
+ * Callers:
+ *     ??0FxMpDevice@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDriver@@PEAU_DEVICE_OBJECT@@22@Z @ 0x1C00384BC (--0FxMpDevice@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDriver@@PEAU_DEVICE_OBJECT@@22@Z.c)
+ *     ??0FxDevice@@QEAA@PEAVFxDriver@@@Z @ 0x1C003D444 (--0FxDevice@@QEAA@PEAVFxDriver@@@Z.c)
+ * Callees:
+ *     ??0FxNonPagedObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C001AA5C (--0FxNonPagedObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ */
+
 void __fastcall FxDeviceBase::FxDeviceBase(
         FxDeviceBase *this,
         _FX_DRIVER_GLOBALS *FxDriverGlobals,

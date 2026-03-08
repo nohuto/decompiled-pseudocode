@@ -1,3 +1,11 @@
+/*
+ * XREFs of zzzWakeInputIdle @ 0x1C00944D0
+ * Callers:
+ *     xxxDesktopThreadWaiter @ 0x1C0094300 (xxxDesktopThreadWaiter.c)
+ * Callees:
+ *     zzzCalcStartCursorHide @ 0x1C00612C0 (zzzCalcStartCursorHide.c)
+ */
+
 __int64 __fastcall zzzWakeInputIdle(__int64 a1)
 {
   __int64 CurrentProcessWin32Process; // rax

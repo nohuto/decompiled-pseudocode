@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiKsrSetBootGraphicsInformation @ 0x1C03A1D20
+ * Callers:
+ *     DpiFdoHandleSystemPower @ 0x1C01E2484 (DpiFdoHandleSystemPower.c)
+ *     DxgkStopAdapters @ 0x1C0311630 (DxgkStopAdapters.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 NTSTATUS DpiKsrSetBootGraphicsInformation()
 {
   __int64 SystemInformation; // [rsp+20h] [rbp-30h] BYREF

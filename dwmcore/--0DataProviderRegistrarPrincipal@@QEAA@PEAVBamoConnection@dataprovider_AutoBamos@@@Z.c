@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0DataProviderRegistrarPrincipal@@QEAA@PEAVBamoConnection@dataprovider_AutoBamos@@@Z @ 0x1800FC580
+ * Callers:
+ *     ?Create@DataProviderManager@@SAJPEAUIMessageSession@@PEAPEAV1@@Z @ 0x1800FC400 (-Create@DataProviderManager@@SAJPEAUIMessageSession@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 DataProviderRegistrarPrincipal *__fastcall DataProviderRegistrarPrincipal::DataProviderRegistrarPrincipal(
         DataProviderRegistrarPrincipal *this,
         struct dataprovider_AutoBamos::BamoConnection *a2)

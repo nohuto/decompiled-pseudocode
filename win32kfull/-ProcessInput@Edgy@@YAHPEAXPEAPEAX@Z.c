@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ProcessInput@Edgy@@YAHPEAXPEAPEAX@Z @ 0x1C0148E68
+ * Callers:
+ *     EditionEdgyProcessInput @ 0x1C0149050 (EditionEdgyProcessInput.c)
+ * Callees:
+ *     ?_OnInput@Edgy@@YA?AUtagSTATE_TRANSITION_DATA@1@AEAUtagEDGY_DATA@@PEAX@Z @ 0x1C01E9804 (-_OnInput@Edgy@@YA-AUtagSTATE_TRANSITION_DATA@1@AEAUtagEDGY_DATA@@PEAX@Z.c)
+ */
+
 __int64 __fastcall Edgy::ProcessInput(Edgy *this, _QWORD *a2, void **a3)
 {
   unsigned int v3; // edi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0xf_EventWriteTransfer @ 0x1802012DC
+ * Callers:
+ *     ?CreateWakeupFence@CComputeScribbleScheduler@@AEAAJAEBUScribbleFrame@1@PEAPEAUID3D12Fence@@@Z @ 0x1801FFAD4 (-CreateWakeupFence@CComputeScribbleScheduler@@AEAAJAEBUScribbleFrame@1@PEAPEAUID3D12Fence@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 ULONG __fastcall McTemplateU0xf_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3, float a4)
 {
   struct _EVENT_DATA_DESCRIPTOR v5; // [rsp+30h] [rbp-48h] BYREF

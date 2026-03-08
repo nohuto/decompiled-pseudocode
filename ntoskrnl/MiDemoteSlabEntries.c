@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiDemoteSlabEntries @ 0x1406541E4
+ * Callers:
+ *     MiWaitForFreePage @ 0x140651458 (MiWaitForFreePage.c)
+ * Callees:
+ *     KiClearSystemPriority @ 0x1402DAA90 (KiClearSystemPriority.c)
+ *     KiSetSystemPriorityThread @ 0x1402E9F30 (KiSetSystemPriorityThread.c)
+ *     KeGenericCallDpcEx @ 0x1403C07D0 (KeGenericCallDpcEx.c)
+ *     MiLogSlabEntriesDemote @ 0x1403D0FE0 (MiLogSlabEntriesDemote.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 unsigned __int64 __fastcall MiDemoteSlabEntries(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rsi

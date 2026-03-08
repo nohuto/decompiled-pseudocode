@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopFreeReqAlternative @ 0x140806160
+ * Callers:
+ *     IopResourceRequirementsListToReqList @ 0x140805448 (IopResourceRequirementsListToReqList.c)
+ *     IopFreeReqList @ 0x140806108 (IopFreeReqList.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall IopFreeReqAlternative(__int64 a1)
 {
   __int64 i; // rsi

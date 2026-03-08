@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpSvmDereferenceAsid @ 0x14060C120
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExpSvmDereferenceAsid(unsigned int a1)
 {
   char *v2; // rax

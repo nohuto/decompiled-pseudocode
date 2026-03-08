@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetD2DBitmap@CRenderTargetBitmap@@$4PPPPPPPM@BI@EAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x18011F770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 int __fastcall CRenderTargetBitmap::GetD2DBitmap(
         __int64 a1,
         const struct RenderTargetInfo *a2,

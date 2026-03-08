@@ -1,3 +1,16 @@
+/*
+ * XREFs of DpiFdoGetVirtualGpuType @ 0x1C0396F0C
+ * Callers:
+ *     ?DpiSetPartitionVmbus@@YAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAXK@Z @ 0x1C005E698 (-DpiSetPartitionVmbus@@YAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAXK@Z.c)
+ *     DpiFdoDispatchCleanupAndClose @ 0x1C01D09D0 (DpiFdoDispatchCleanupAndClose.c)
+ *     DpiFdoDispatchIoctl @ 0x1C01D7C80 (DpiFdoDispatchIoctl.c)
+ *     DpiFlexIovMitigationUpdate @ 0x1C039951C (DpiFlexIovMitigationUpdate.c)
+ *     DpiSriovAttach @ 0x1C0399958 (DpiSriovAttach.c)
+ *     DpiSriovNotification @ 0x1C0399DB8 (DpiSriovNotification.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiFdoGetVirtualGpuType(__int64 a1)
 {
   __int64 v1; // rbx

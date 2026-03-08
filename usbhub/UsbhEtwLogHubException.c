@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhEtwLogHubException @ 0x1C005B93C
+ * Callers:
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ * Callees:
+ *     UsbhEtwWrite @ 0x1C0009AC0 (UsbhEtwWrite.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhEtwGetHubInfo @ 0x1C0021B60 (UsbhEtwGetHubInfo.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall UsbhEtwLogHubException(__int64 a1, int a2, int a3, int a4, char a5, __int64 a6, int a7)
 {
   __int64 v7; // rbx

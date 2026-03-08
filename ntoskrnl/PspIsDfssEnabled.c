@@ -1,3 +1,19 @@
+/*
+ * XREFs of PspIsDfssEnabled @ 0x140812B34
+ * Callers:
+ *     PsBootPhaseComplete @ 0x140812760 (PsBootPhaseComplete.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     PspReadDfssConfigurationValues @ 0x1405A12D4 (PspReadDfssConfigurationValues.c)
+ *     RtlUnicodeStringToInteger @ 0x140751D60 (RtlUnicodeStringToInteger.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char PspIsDfssEnabled()
 {
   ULONG v0; // r15d

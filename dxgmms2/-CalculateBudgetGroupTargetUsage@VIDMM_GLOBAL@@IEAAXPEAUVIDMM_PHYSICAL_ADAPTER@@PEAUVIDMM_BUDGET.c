@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CalculateBudgetGroupTargetUsage@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_PHYSICAL_ADAPTER@@PEAUVIDMM_BUDGET_STATE@@PEAUVIDMM_SEGMENT_GROUP_STATE@@@Z @ 0x1C0101244
+ * Callers:
+ *     ?SetupBudgetState@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@K@Z @ 0x1C0101448 (-SetupBudgetState@VIDMM_GLOBAL@@IEAAXPEAUVIDMM_BUDGET_STATE@@K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall VIDMM_GLOBAL::CalculateBudgetGroupTargetUsage(
         VIDMM_GLOBAL *this,

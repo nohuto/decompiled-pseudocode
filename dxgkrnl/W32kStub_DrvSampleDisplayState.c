@@ -1,3 +1,11 @@
+/*
+ * XREFs of W32kStub_DrvSampleDisplayState @ 0x1C03924B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall W32kStub_DrvSampleDisplayState(_DWORD *a1)
 {
   if ( !a1 )

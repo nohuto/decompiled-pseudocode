@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_EFxUsbUrb@@MEAAPEAXI@Z @ 0x1C003F840
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1FxObject@@UEAA@XZ @ 0x1C0004920 (--1FxObject@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ */
+
 FxUsbUrb *__fastcall FxUsbUrb::`vector deleting destructor'(FxUsbUrb *this, unsigned int a2, unsigned int a3)
 {
   char v3; // bl

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetRenderingRealizationInfo@CCompositionSurface@@QEBAJPEAUCSM_SURFACE_UPDATE_@@@Z @ 0x1C000BE58
+ * Callers:
+ *     NtQueryCompositionSurfaceRenderingRealization @ 0x1C000BBC0 (NtQueryCompositionSurfaceRenderingRealization.c)
+ * Callees:
+ *     ?OpenLifetimeDirtyRegion@CBufferRealization@@QEBAJPEAPEAUHRGN__@@@Z @ 0x1C000D8B4 (-OpenLifetimeDirtyRegion@CBufferRealization@@QEBAJPEAPEAUHRGN__@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CCompositionSurface::GetRenderingRealizationInfo(
         CCompositionSurface *this,
         struct CSM_SURFACE_UPDATE_ *a2)

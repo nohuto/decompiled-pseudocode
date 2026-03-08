@@ -1,3 +1,11 @@
+/*
+ * XREFs of AstAddBloomFilter @ 0x14075A680
+ * Callers:
+ *     IopXxxControlFile @ 0x1407C1720 (IopXxxControlFile.c)
+ * Callees:
+ *     AstGetHashedBitNumbers @ 0x14075A7A0 (AstGetHashedBitNumbers.c)
+ */
+
 int __fastcall AstAddBloomFilter(__int64 a1, __int64 a2, unsigned int a3)
 {
   unsigned int v3; // ecx

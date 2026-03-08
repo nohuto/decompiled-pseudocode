@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RenderLayer@COffScreenRenderingLayer@@EEAAJPEAVCDrawingContext@@@Z @ 0x1800F1580
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall COffScreenRenderingLayer::RenderLayer(COffScreenRenderingLayer *this, struct CDrawingContext *a2)
 {
   __int64 v4; // rax

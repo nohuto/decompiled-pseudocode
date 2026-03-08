@@ -1,3 +1,15 @@
+/*
+ * XREFs of std::_Sort_unchecked_unsigned_int____lambda_0efddb4682a0a9979159d382dc3b8512___ @ 0x18023F708
+ * Callers:
+ *     std::_Sort_unchecked_unsigned_int____lambda_0efddb4682a0a9979159d382dc3b8512___ @ 0x18023F708 (std--_Sort_unchecked_unsigned_int____lambda_0efddb4682a0a9979159d382dc3b8512___.c)
+ *     ?CreateParticlesPrimitive@CParticleEmitterVisual@@IEAAJPEAVCDrawListPrimitive@@PEAPEAV2@@Z @ 0x1802415C4 (-CreateParticlesPrimitive@CParticleEmitterVisual@@IEAAJPEAVCDrawListPrimitive@@PEAPEAV2@@Z.c)
+ * Callees:
+ *     std::_Insertion_sort_unchecked_unsigned_int____lambda_0efddb4682a0a9979159d382dc3b8512___ @ 0x18023EE24 (std--_Insertion_sort_unchecked_unsigned_int____lambda_0efddb4682a0a9979159d382dc3b8512___.c)
+ *     std::_Partition_by_median_guess_unchecked_unsigned_int____lambda_0efddb4682a0a9979159d382dc3b8512___ @ 0x18023F09C (std--_Partition_by_median_guess_unchecked_unsigned_int____lambda_0efddb4682a0a9979159d382dc3b851.c)
+ *     std::_Pop_heap_hole_by_index_unsigned_int___unsigned_int__lambda_0efddb4682a0a9979159d382dc3b8512___ @ 0x18023F424 (std--_Pop_heap_hole_by_index_unsigned_int___unsigned_int__lambda_0efddb4682a0a9979159d382dc3b851.c)
+ *     std::_Sort_unchecked_unsigned_int____lambda_0efddb4682a0a9979159d382dc3b8512___ @ 0x18023F708 (std--_Sort_unchecked_unsigned_int____lambda_0efddb4682a0a9979159d382dc3b8512___.c)
+ */
+
 __int64 __fastcall std::_Sort_unchecked_unsigned_int____lambda_0efddb4682a0a9979159d382dc3b8512___(
         char *a1,
         char *a2,

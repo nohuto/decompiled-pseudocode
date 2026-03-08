@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RtlStringCbCopyUnicodeString@@YAJPEAG_KPEBU_UNICODE_STRING@@@Z @ 0x1C0145F3A
+ * Callers:
+ *     _GetPointerDeviceInfoProperties @ 0x1C0146180 (_GetPointerDeviceInfoProperties.c)
+ *     UserGetHipDeviceInfo @ 0x1C01C4660 (UserGetHipDeviceInfo.c)
+ * Callees:
+ *     RtlUnicodeStringValidateSrcWorker @ 0x1C0145FE8 (RtlUnicodeStringValidateSrcWorker.c)
+ */
+
 NTSTATUS __fastcall RtlStringCbCopyUnicodeString(char *a1, unsigned __int64 a2, const struct _UNICODE_STRING *a3)
 {
   unsigned __int64 v3; // rbx

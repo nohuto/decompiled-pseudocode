@@ -1,3 +1,31 @@
+/*
+ * XREFs of ExpSystemErrorHandler2 @ 0x140AA7FE0
+ * Callers:
+ *     ExpSystemErrorHandler @ 0x140422390 (ExpSystemErrorHandler.c)
+ * Callees:
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlStringCbPrintfA @ 0x140380B18 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     strcat_s @ 0x1403D9C80 (strcat_s.c)
+ *     strcpy_s @ 0x1403D9D10 (strcpy_s.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     MmLockPagableSectionByHandle @ 0x1406A7BD0 (MmLockPagableSectionByHandle.c)
+ *     PsQuerySystemDllInfo @ 0x14076D124 (PsQuerySystemDllInfo.c)
+ *     RtlxUnicodeStringToOemSize @ 0x1407A0310 (RtlxUnicodeStringToOemSize.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1407A34D0 (RtlUnicodeStringToAnsiString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFindMessage @ 0x1407E97C0 (RtlFindMessage.c)
+ *     RtlUnicodeStringToOemString @ 0x14085D450 (RtlUnicodeStringToOemString.c)
+ *     PoShutdownBugCheck @ 0x1409865B0 (PoShutdownBugCheck.c)
+ *     PsTerminateServerSilo @ 0x1409A98D0 (PsTerminateServerSilo.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall ExpSystemErrorHandler2(unsigned int a1, __int64 a2, int a3, __int64 a4, char a5)
 {
   unsigned int v8; // edx

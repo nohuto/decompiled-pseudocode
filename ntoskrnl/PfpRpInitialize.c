@@ -1,3 +1,14 @@
+/*
+ * XREFs of PfpRpInitialize @ 0x140B61E0C
+ * Callers:
+ *     PfInitializeSuperfetch @ 0x140B619EC (PfInitializeSuperfetch.c)
+ * Callees:
+ *     ExInitializePushLock @ 0x140238200 (ExInitializePushLock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PfpRpStart @ 0x140845B44 (PfpRpStart.c)
+ */
+
 __int64 __fastcall PfpRpInitialize(__int64 a1)
 {
   int v2; // ecx

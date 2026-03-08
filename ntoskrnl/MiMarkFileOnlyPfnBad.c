@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiMarkFileOnlyPfnBad @ 0x14063BC40
+ * Callers:
+ *     MmMarkPhysicalMemoryAsBad @ 0x1406291A0 (MmMarkPhysicalMemoryAsBad.c)
+ * Callees:
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ *     MiTrimSharedPage @ 0x1403A0EBC (MiTrimSharedPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiPersistPage @ 0x14063C604 (MiPersistPage.c)
+ *     MiSetPfnRemovalRequested @ 0x14064B908 (MiSetPfnRemovalRequested.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiMarkFileOnlyPfnBad(ULONG_PTR BugCheckParameter2, unsigned int a2)
 {
   PVOID Pool; // rbp

@@ -1,3 +1,13 @@
+/*
+ * XREFs of rimExtractData @ 0x1C00F1486
+ * Callers:
+ *     rimExtractTouchInfo @ 0x1C00F160A (rimExtractTouchInfo.c)
+ *     rimExtractPenInfo @ 0x1C01D778C (rimExtractPenInfo.c)
+ *     rimExtractPointerDeviceUsages @ 0x1C01D78A0 (rimExtractPointerDeviceUsages.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall rimExtractData(__int64 a1, __int16 a2, __int16 a3, int a4, _DWORD *a5)
 {
   unsigned int v5; // r10d

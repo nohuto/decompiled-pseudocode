@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiDeleteLargeUserPde @ 0x14064DD80
+ * Callers:
+ *     MiDeleteVa @ 0x140324900 (MiDeleteVa.c)
+ * Callees:
+ *     MiInsertLargeTbFlushEntry @ 0x140210194 (MiInsertLargeTbFlushEntry.c)
+ *     MiDecreaseUsedPtesCount @ 0x1402D0E90 (MiDecreaseUsedPtesCount.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiGetUsedPtesHandle @ 0x140346CA0 (MiGetUsedPtesHandle.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiRewritePteWithLockBit @ 0x140371830 (MiRewritePteWithLockBit.c)
+ *     MiDeleteVadAwePtes @ 0x1406473BC (MiDeleteVadAwePtes.c)
+ */
+
 void __fastcall MiDeleteLargeUserPde(__int64 a1, unsigned __int64 a2, int a3)
 {
   __int64 v3; // r14

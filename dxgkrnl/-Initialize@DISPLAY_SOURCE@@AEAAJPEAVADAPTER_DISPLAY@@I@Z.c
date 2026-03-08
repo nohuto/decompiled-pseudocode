@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@DISPLAY_SOURCE@@AEAAJPEAVADAPTER_DISPLAY@@I@Z @ 0x1C01F0D88
+ * Callers:
+ *     ?Initialize@ADAPTER_DISPLAY@@QEAAJXZ @ 0x1C01F05EC (-Initialize@ADAPTER_DISPLAY@@QEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall DISPLAY_SOURCE::Initialize(DISPLAY_SOURCE *this, struct ADAPTER_DISPLAY *a2, int a3)
 {
   NTSTATUS result; // eax

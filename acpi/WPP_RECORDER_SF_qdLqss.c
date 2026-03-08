@@ -1,3 +1,14 @@
+/*
+ * XREFs of WPP_RECORDER_SF_qdLqss @ 0x1C0017F78
+ * Callers:
+ *     ACPIBusIrpQueryCompatibleId @ 0x1C007EE84 (ACPIBusIrpQueryCompatibleId.c)
+ *     ACPIBusIrpQueryDeviceId @ 0x1C007F574 (ACPIBusIrpQueryDeviceId.c)
+ *     ACPIBusIrpQueryHardwareId @ 0x1C007FC3C (ACPIBusIrpQueryHardwareId.c)
+ *     ACPIBusIrpQueryInstanceId @ 0x1C008060C (ACPIBusIrpQueryInstanceId.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WPP_RECORDER_SF_qdLqss(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbDevice_SetResourceAssignment @ 0x1C0049ABC
+ * Callers:
+ *     UsbDevice_HandleAssignPinsForEndpointsToOffloadState @ 0x1C004908C (UsbDevice_HandleAssignPinsForEndpointsToOffloadState.c)
+ *     UsbDevice_HandleUnassignPinsForOffloadedEndpointsState @ 0x1C0049384 (UsbDevice_HandleUnassignPinsForOffloadedEndpointsState.c)
+ * Callees:
+ *     Command_SendCommand @ 0x1C000A820 (Command_SendCommand.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 char __fastcall UsbDevice_SetResourceAssignment(__int64 a1, __int64 a2, char a3)
 {
   __int64 v3; // rbp

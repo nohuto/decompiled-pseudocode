@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DxgkEtwEnableCallback@@YAXKK_K@Z @ 0x1C00C32AC
+ * Callers:
+ *     McGenControlCallbackV2 @ 0x1C0019760 (McGenControlCallbackV2.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DxgkEtwEnableCallback()
 {
   bool v0; // al

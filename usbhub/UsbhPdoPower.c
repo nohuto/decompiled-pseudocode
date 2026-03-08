@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhPdoPower @ 0x1C0020BA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     Usbh_HubDeferIrpProcessing @ 0x1C003C8F4 (Usbh_HubDeferIrpProcessing.c)
+ */
+
 __int64 __fastcall UsbhPdoPower(ULONG_PTR a1, IRP *a2)
 {
   __int64 v4; // r8

@@ -1,3 +1,14 @@
+/*
+ * XREFs of NVMeGetNVMSetAttributeList @ 0x1C001E5F8
+ * Callers:
+ *     NVMeControllerInitPart1 @ 0x1C000D7A8 (NVMeControllerInitPart1.c)
+ * Callees:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     memmove @ 0x1C0004280 (memmove.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 __int64 __fastcall NVMeGetNVMSetAttributeList(__int64 a1)
 {
   __int64 v1; // rsi

@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopProcessWakeSourceWork @ 0x140A9E248
+ * Callers:
+ *     PopProcessDeviceWakeSource @ 0x140A9E094 (PopProcessDeviceWakeSource.c)
+ * Callees:
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ *     PopFreeWakeSource @ 0x1409842D8 (PopFreeWakeSource.c)
+ *     PopNewWakeSource @ 0x140984544 (PopNewWakeSource.c)
+ *     PopWakeSourceGetDeviceProperty @ 0x140984AA0 (PopWakeSourceGetDeviceProperty.c)
+ *     PopWakeSourceIsChild @ 0x140984B68 (PopWakeSourceIsChild.c)
+ *     PopWakeSourceIsParent @ 0x140984BE4 (PopWakeSourceIsParent.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopProcessWakeSourceWork(struct _DEVICE_OBJECT *a1, __int64 *a2, _QWORD *a3)
 {
   _QWORD *v3; // rbp

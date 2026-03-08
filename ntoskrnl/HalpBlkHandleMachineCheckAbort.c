@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpBlkHandleMachineCheckAbort @ 0x140B131B0
+ * Callers:
+ *     HalpBlkMachineCheckAbort @ 0x140B12280 (HalpBlkMachineCheckAbort.c)
+ * Callees:
+ *     HalpBlkFatalErrorHalt @ 0x140B110B0 (HalpBlkFatalErrorHalt.c)
+ */
+
 char __fastcall HalpBlkHandleMachineCheckAbort(unsigned __int64 a1)
 {
   unsigned __int64 v1; // rax

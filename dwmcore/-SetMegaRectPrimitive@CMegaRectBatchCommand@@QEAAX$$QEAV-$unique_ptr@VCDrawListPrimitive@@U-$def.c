@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetMegaRectPrimitive@CMegaRectBatchCommand@@QEAAX$$QEAV?$unique_ptr@VCDrawListPrimitive@@U?$default_delete@VCDrawListPrimitive@@@std@@@std@@AEBVCMILMatrix@@@Z @ 0x1800420A0
+ * Callers:
+ *     ?UpdatePrimitive@CMegaRect@@QEAAJAEAUUpdatePrimitiveWorkingBuffers@1@@Z @ 0x180041868 (-UpdatePrimitive@CMegaRect@@QEAAJAEAUUpdatePrimitiveWorkingBuffers@1@@Z.c)
+ * Callees:
+ *     ??$?4U?$default_delete@VCDrawListPrimitive@@@std@@$0A@@?$unique_ptr@VCDrawListPrimitive@@U?$default_delete@VCDrawListPrimitive@@@std@@@std@@QEAAAEAV01@$$QEAV01@@Z @ 0x1800420F4 (--$-4U-$default_delete@VCDrawListPrimitive@@@std@@$0A@@-$unique_ptr@VCDrawListPrimitive@@U-$defa.c)
+ */
+
 __int64 __fastcall CMegaRectBatchCommand::SetMegaRectPrimitive(__int64 a1)
 {
   __int64 result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetCurrentBackBuffer@CLegacySwapChain@@UEBAPEAVIDeviceTarget@@XZ @ 0x1800E8B80
+ * Callers:
+ *     ?GetCurrentBackBuffer@CLegacySwapChain@@$4PPPPPPPM@BLA@EBAPEAVIDeviceTarget@@XZ @ 0x18011B670 (-GetCurrentBackBuffer@CLegacySwapChain@@$4PPPPPPPM@BLA@EBAPEAVIDeviceTarget@@XZ.c)
+ *     ?GetCurrentBackBuffer@CLegacySwapChain@@$4PPPPPPPM@BLI@EBAPEAVIDeviceTarget@@XZ @ 0x18011C6F0 (-GetCurrentBackBuffer@CLegacySwapChain@@$4PPPPPPPM@BLI@EBAPEAVIDeviceTarget@@XZ.c)
+ *     ?Render@CDDisplayRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801E5694 (-Render@CDDisplayRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct IDeviceTarget *__fastcall CLegacySwapChain::GetCurrentBackBuffer(CLegacySwapChain *this)
 {
   __int64 v1; // rdx

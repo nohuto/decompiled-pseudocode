@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpiValidateSidebandResources @ 0x1C0092548
+ * Callers:
+ *     PnpiAddSidebandResources @ 0x1C008FF78 (PnpiAddSidebandResources.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PnpiValidateSidebandResources(__int64 a1, __int64 a2)
 {
   unsigned int v2; // r12d

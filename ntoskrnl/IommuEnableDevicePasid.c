@@ -1,3 +1,19 @@
+/*
+ * XREFs of IommuEnableDevicePasid @ 0x14051FFF0
+ * Callers:
+ *     IommupDomainAttachPasidDevice @ 0x14050BD20 (IommupDomainAttachPasidDevice.c)
+ *     IommupDeviceEnableSvm @ 0x140930DD4 (IommupDeviceEnableSvm.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IommuEnableDevicePasid(__int64 *a1, __int64 a2)
 {
   __int64 v2; // r15

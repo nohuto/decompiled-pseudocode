@@ -1,3 +1,15 @@
+/*
+ * XREFs of AlpcpDestroyBlob @ 0x140715544
+ * Callers:
+ *     AlpcpDereferenceBlobEx @ 0x14071550C (AlpcpDereferenceBlobEx.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall AlpcpDestroyBlob(__int64 a1, int a2)
 {
   _BYTE *v2; // rsi

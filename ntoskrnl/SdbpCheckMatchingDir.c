@@ -1,3 +1,17 @@
+/*
+ * XREFs of SdbpCheckMatchingDir @ 0x140A4C9D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbGetStringTagPtr @ 0x1407A20E8 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ *     SdbpInitializeSearchDBContext @ 0x140A4E760 (SdbpInitializeSearchDBContext.c)
+ *     SdbpResolveMatchingFile @ 0x140A4EB00 (SdbpResolveMatchingFile.c)
+ *     AslDoesDirectoryExistNtPath @ 0x140A51428 (AslDoesDirectoryExistNtPath.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SdbpCheckMatchingDir(
         _DWORD *a1,
         __int64 a2,

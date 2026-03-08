@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bDisableHalftone@PDEVOBJ@@QEAAHXZ @ 0x1C001826C
+ * Callers:
+ *     PDEVOBJ_bDisableHalftoneWrap @ 0x1C0018170 (PDEVOBJ_bDisableHalftoneWrap.c)
+ * Callees:
+ *     HT_DestroyDeviceHalftoneInfo @ 0x1C0018188 (HT_DestroyDeviceHalftoneInfo.c)
+ *     ?pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ @ 0x1C001A4A0 (-pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ */
+
 __int64 __fastcall PDEVOBJ::bDisableHalftone(PDEVOBJ *this)
 {
   _DWORD *v2; // r14

@@ -1,3 +1,29 @@
+/*
+ * XREFs of IopAttachDeviceToDeviceStackSafe @ 0x1402F3E44
+ * Callers:
+ *     IoAttachDeviceToDeviceStack @ 0x1402F3E00 (IoAttachDeviceToDeviceStack.c)
+ *     IoAttachDeviceToDeviceStackSafe @ 0x1402F3E20 (IoAttachDeviceToDeviceStackSafe.c)
+ *     IoAttachDeviceByPointer @ 0x1405543C0 (IoAttachDeviceByPointer.c)
+ * Callees:
+ *     IoGetActivityIdThread @ 0x140203AD0 (IoGetActivityIdThread.c)
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     IopGetDeviceAttachmentBase @ 0x140240028 (IopGetDeviceAttachmentBase.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     PnpRequestDeviceAction @ 0x1402F5074 (PnpRequestDeviceAction.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ *     IoGetDiskDeviceObject @ 0x1403C0DE0 (IoGetDiskDeviceObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IopIsKnownGoodLegacyFsFilter @ 0x1405555D4 (IopIsKnownGoodLegacyFsFilter.c)
+ *     McTemplateK0hzr0_EtwWriteTransfer @ 0x1405558A4 (McTemplateK0hzr0_EtwWriteTransfer.c)
+ *     McTemplateK0hzr0hzr2_EtwWriteTransfer @ 0x14055592C (McTemplateK0hzr0hzr2_EtwWriteTransfer.c)
+ *     ObQueryNameString @ 0x14071EA00 (ObQueryNameString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     IovAttachDeviceToDeviceStack @ 0x140ABDFA4 (IovAttachDeviceToDeviceStack.c)
+ */
+
 __int64 __fastcall IopAttachDeviceToDeviceStackSafe(__int64 a1, __int64 a2, __int64 *a3)
 {
   bool v4; // r13

@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopEnumerateEnvironmentVariablesTrEE @ 0x14094D8E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IopIssueTrEERequest @ 0x140559560 (IopIssueTrEERequest.c)
+ *     IopEfiStatusToNTSTATUS @ 0x14094D674 (IopEfiStatusToNTSTATUS.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopEnumerateEnvironmentVariablesTrEE(
         __int64 a1,
         __int64 a2,

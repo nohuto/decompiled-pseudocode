@@ -1,3 +1,16 @@
+/*
+ * XREFs of DpiGetDevicePropertyString @ 0x1C02163CC
+ * Callers:
+ *     DpiMiracastInterfaceChange @ 0x1C005F540 (DpiMiracastInterfaceChange.c)
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ *     DpiAddDevice @ 0x1C01F38A0 (DpiAddDevice.c)
+ *     DpiFdoInitializeFdo @ 0x1C01F5A64 (DpiFdoInitializeFdo.c)
+ *     DpiFdoInitializeAdapterUniqueString @ 0x1C01F8548 (DpiFdoInitializeAdapterUniqueString.c)
+ *     DpiSetDriverVersion @ 0x1C0395104 (DpiSetDriverVersion.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 __int64 __fastcall DpiGetDevicePropertyString(
         PDEVICE_OBJECT DeviceObject,
         DEVICE_REGISTRY_PROPERTY DeviceProperty,

@@ -1,3 +1,22 @@
+/*
+ * XREFs of ?_SetCursorIconDataEx@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@KI@Z @ 0x1C0064DB8
+ * Callers:
+ *     NtUserSetCursorIconDataEx @ 0x1C0064850 (NtUserSetCursorIconDataEx.c)
+ *     ?_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z @ 0x1C01C1D64 (-_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     GreDereferenceObject @ 0x1C00447CC (GreDereferenceObject.c)
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ *     GreExtGetObjectW @ 0x1C0065580 (GreExtGetObjectW.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ *     ?ProcessAlphaBitmap@@YAPEAUHBITMAP__@@PEAU1@@Z @ 0x1C00ADAA0 (-ProcessAlphaBitmap@@YAPEAUHBITMAP__@@PEAU1@@Z.c)
+ *     GreReferenceObject @ 0x1C00D7C78 (GreReferenceObject.c)
+ *     AllocateUnicodeString @ 0x1C00E9BB0 (AllocateUnicodeString.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 char __fastcall _SetCursorIconDataEx(
         struct tagCURSOR *a1,
         struct _UNICODE_STRING *a2,

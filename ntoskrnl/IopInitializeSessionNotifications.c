@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopInitializeSessionNotifications @ 0x140B71BF8
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ExCreateCallback @ 0x14078D4A0 (ExCreateCallback.c)
+ */
+
 NTSTATUS IopInitializeSessionNotifications()
 {
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF

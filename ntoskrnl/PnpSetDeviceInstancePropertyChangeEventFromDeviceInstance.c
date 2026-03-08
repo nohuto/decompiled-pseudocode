@@ -1,3 +1,16 @@
+/*
+ * XREFs of PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance @ 0x1403B1B9C
+ * Callers:
+ *     PnpSetDeviceInstancePropertyChangeEvent @ 0x1403B1B80 (PnpSetDeviceInstancePropertyChangeEvent.c)
+ *     PiCMSetObjectProperty @ 0x14078B060 (PiCMSetObjectProperty.c)
+ *     PiCMDeleteDevice @ 0x140965ED8 (PiCMDeleteDevice.c)
+ *     PiCMSetRegistryProperty @ 0x140967BA4 (PiCMSetRegistryProperty.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PnpCreateDeviceEventEntry @ 0x140688A98 (PnpCreateDeviceEventEntry.c)
+ *     PnpInsertEventInQueue @ 0x140688D90 (PnpInsertEventInQueue.c)
+ */
+
 __int64 __fastcall PnpSetDeviceInstancePropertyChangeEventFromDeviceInstance(unsigned __int16 *a1)
 {
   int v2; // esi

@@ -1,3 +1,34 @@
+/*
+ * XREFs of EtwQueryPerformanceTraceInformation @ 0x14085C154
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     PsGetProcessId @ 0x140236D10 (PsGetProcessId.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1402459D0 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     ExUnlockUserBuffer @ 0x1402CFFD4 (ExUnlockUserBuffer.c)
+ *     RtlFindSetBits @ 0x14030D990 (RtlFindSetBits.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     RtlNumberOfSetBits @ 0x14035C520 (RtlNumberOfSetBits.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     EtwpDereferenceLoggerSecurityDescriptor @ 0x140692DB8 (EtwpDereferenceLoggerSecurityDescriptor.c)
+ *     EtwpCheckLoggerControlAccess @ 0x140692E00 (EtwpCheckLoggerControlAccess.c)
+ *     EtwpReferenceLoggerSecurityDescriptor @ 0x140692E54 (EtwpReferenceLoggerSecurityDescriptor.c)
+ *     EtwpReleaseLoggerContext @ 0x14069349C (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140693AFC (EtwpAcquireLoggerContextByLoggerId.c)
+ *     PsGetNextProcess @ 0x1406AA530 (PsGetNextProcess.c)
+ *     EtwpMapEnableFlags @ 0x1407487E8 (EtwpMapEnableFlags.c)
+ *     ExLockUserBuffer @ 0x14075D5A4 (ExLockUserBuffer.c)
+ *     SeQuerySecurityDescriptorInfo @ 0x1407AD8A0 (SeQuerySecurityDescriptorInfo.c)
+ *     EtwpCheckSystemTraceAccess @ 0x1408606D8 (EtwpCheckSystemTraceAccess.c)
+ *     EtwpGetPmcProfileSource @ 0x1409E31B0 (EtwpGetPmcProfileSource.c)
+ *     EtwpUMGLEnabled @ 0x1409E4A14 (EtwpUMGLEnabled.c)
+ *     EtwpGetSoftRestartInformation @ 0x1409EA544 (EtwpGetSoftRestartInformation.c)
+ *     EtwpQueryCoverageSamplerInformation @ 0x1409F0CA4 (EtwpQueryCoverageSamplerInformation.c)
+ */
+
 __int64 __fastcall EtwQueryPerformanceTraceInformation(
         struct _LIST_ENTRY *a1,
         unsigned int a2,

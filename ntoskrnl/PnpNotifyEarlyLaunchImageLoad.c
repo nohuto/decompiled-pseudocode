@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpNotifyEarlyLaunchImageLoad @ 0x140B5916C
+ * Callers:
+ *     PipInitializeDriverDependentDLLs @ 0x140B579BC (PipInitializeDriverDependentDLLs.c)
+ *     PnpInitializeBootStartDriver @ 0x140B58AC4 (PnpInitializeBootStartDriver.c)
+ * Callees:
+ *     ExNotifyWithProcessing @ 0x1402D2F20 (ExNotifyWithProcessing.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void __fastcall PnpNotifyEarlyLaunchImageLoad(__int64 a1, __int64 a2)
 {
   _QWORD v4[4]; // [rsp+20h] [rbp-98h] BYREF

@@ -1,3 +1,31 @@
+/*
+ * XREFs of MiCreatePrototypePtes @ 0x14036862C
+ * Callers:
+ *     MiAddViewsForSection @ 0x140331DC0 (MiAddViewsForSection.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiIncrementSubsectionViewCount @ 0x140332840 (MiIncrementSubsectionViewCount.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDecrementSubsectionViewCount @ 0x140334C10 (MiDecrementSubsectionViewCount.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     MiGetCommittedPages @ 0x14034C3F0 (MiGetCommittedPages.c)
+ *     MiControlAreaRequiresCharge @ 0x14034C4DC (MiControlAreaRequiresCharge.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140368AE0 (MiUpdateSystemProtoPtesTree.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGetSubsectionCharges @ 0x140668BC8 (MiGetSubsectionCharges.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x140668DD4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiInitializePrototypePtes @ 0x1407F3F04 (MiInitializePrototypePtes.c)
+ *     MiAllocateFileExtents @ 0x140A303A8 (MiAllocateFileExtents.c)
+ *     MiChargeLargeProtoSubsection @ 0x140A30984 (MiChargeLargeProtoSubsection.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiCreatePrototypePtes(
         ULONG_PTR BugCheckParameter2,
         unsigned int a2,

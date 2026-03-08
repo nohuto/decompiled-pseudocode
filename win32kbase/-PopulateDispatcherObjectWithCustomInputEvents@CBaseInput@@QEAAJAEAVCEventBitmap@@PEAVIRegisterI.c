@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?PopulateDispatcherObjectWithCustomInputEvents@CBaseInput@@QEAAJAEAVCEventBitmap@@PEAVIRegisterInputDispatcherObjects@@@Z @ 0x1C020C020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsDispatcherObjectValid@CRIMBase@@IEBA_NI@Z @ 0x1C009A754 (-IsDispatcherObjectValid@CRIMBase@@IEBA_NI@Z.c)
+ *     ?GetDispatcherObjectByIndex@CRIMBase@@IEBAPEAXI@Z @ 0x1C009A794 (-GetDispatcherObjectByIndex@CRIMBase@@IEBAPEAXI@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 __fastcall CBaseInput::PopulateDispatcherObjectWithCustomInputEvents(
         CBaseInput *this,
         struct CEventBitmap *a2,

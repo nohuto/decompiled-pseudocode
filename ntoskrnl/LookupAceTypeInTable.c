@@ -1,3 +1,12 @@
+/*
+ * XREFs of LookupAceTypeInTable @ 0x1407506A4
+ * Callers:
+ *     LocalGetAclForString @ 0x14074F18C (LocalGetAclForString.c)
+ *     LocalConvertAclToString @ 0x14074FD70 (LocalConvertAclToString.c)
+ * Callees:
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ */
+
 wchar_t **__fastcall LookupAceTypeInTable(wchar_t *Str1, int a2, int a3)
 {
   __int64 v3; // rdi

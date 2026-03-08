@@ -1,3 +1,20 @@
+/*
+ * XREFs of MmPrefetchForCacheManager @ 0x1406A3DCC
+ * Callers:
+ *     CcPerformReadAhead @ 0x14020B9E0 (CcPerformReadAhead.c)
+ *     CcAsyncReadPrefetch @ 0x14020CCA4 (CcAsyncReadPrefetch.c)
+ *     CcFetchDataForRead @ 0x140221EE0 (CcFetchDataForRead.c)
+ * Callees:
+ *     MiPfPutPagesInTransition @ 0x140288890 (MiPfPutPagesInTransition.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiReturnCcAccessLog @ 0x1402DC41C (MiReturnCcAccessLog.c)
+ *     MiPfExecuteReadList @ 0x1406A3F98 (MiPfExecuteReadList.c)
+ *     MiReleaseReadListResources @ 0x1406A4E80 (MiReleaseReadListResources.c)
+ *     MiPfPrepareSequentialReadList @ 0x1406EBE40 (MiPfPrepareSequentialReadList.c)
+ *     MiGetCcAccessLog @ 0x14077A724 (MiGetCcAccessLog.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MmPrefetchForCacheManager(
         __int64 a1,
         int a2,

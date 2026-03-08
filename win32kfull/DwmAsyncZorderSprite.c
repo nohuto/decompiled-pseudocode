@@ -1,3 +1,12 @@
+/*
+ * XREFs of DwmAsyncZorderSprite @ 0x1C002D414
+ * Callers:
+ *     ?GreCreateSpriteInternal@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@PEAUtagMINIWINDOWINFO@@KHHHHHPEBG@Z @ 0x1C002A9BC (-GreCreateSpriteInternal@@YAPEAXPEAUHDEV__@@PEAUHWND__@@PEAUtagRECT@@PEAUtagMINIWINDOWINFO@@KHHH.c)
+ *     ?vSpDwmZorderSprite@@YAXPEAUHSPRITE__@@0@Z @ 0x1C002D2F0 (-vSpDwmZorderSprite@@YAXPEAUHSPRITE__@@0@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DwmAsyncZorderSprite(PVOID Object, __int64 a2, __int64 a3)
 {
   unsigned int v6; // ebx

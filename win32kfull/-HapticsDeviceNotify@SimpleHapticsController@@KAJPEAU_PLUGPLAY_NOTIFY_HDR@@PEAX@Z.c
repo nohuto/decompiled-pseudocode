@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?HapticsDeviceNotify@SimpleHapticsController@@KAJPEAU_PLUGPLAY_NOTIFY_HDR@@PEAX@Z @ 0x1C024B170
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C007A05C (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     LeaveEditionCrit @ 0x1C00F5EA0 (LeaveEditionCrit.c)
+ *     _tlgKeywordOn @ 0x1C0102BC4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?IsValidSimpleHapticsController@InteractiveControlManager@@QEBA_NPEBVSimpleHapticsController@@@Z @ 0x1C012F5D8 (-IsValidSimpleHapticsController@InteractiveControlManager@@QEBA_NPEBVSimpleHapticsController@@@Z.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@@Z @ 0x1C01AA558 (--$Write@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_E.c)
+ *     ??0CTempW32ThreadNonPaged@@QEAA@XZ @ 0x1C01B2DB4 (--0CTempW32ThreadNonPaged@@QEAA@XZ.c)
+ *     ??1CTempW32ThreadNonPaged@@QEAA@XZ @ 0x1C01B2F14 (--1CTempW32ThreadNonPaged@@QEAA@XZ.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C0242D44 (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     ?CloseHapticsWriteDevice@SimpleHapticsController@@IEAAJH@Z @ 0x1C024AEEC (-CloseHapticsWriteDevice@SimpleHapticsController@@IEAAJH@Z.c)
+ *     ?OpenHapticsDevice@SimpleHapticsController@@IEAAJXZ @ 0x1C024BF0C (-OpenHapticsDevice@SimpleHapticsController@@IEAAJXZ.c)
+ */
+
 __int64 __fastcall SimpleHapticsController::HapticsDeviceNotify(
         char *NotificationStructure,
         SimpleHapticsController *Context)

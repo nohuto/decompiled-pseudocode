@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserMagControl @ 0x1C01D7860
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     MagControl @ 0x1C01A42B4 (MagControl.c)
+ */
+
 __int64 __fastcall NtUserMagControl(int a1, __int64 a2)
 {
   __int64 v4; // rbx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopAccumulateNonActivatedCpuTime @ 0x1405973F0
+ * Callers:
+ *     PopUpdateNonAttributedCpuTimeReference @ 0x140597458 (PopUpdateNonAttributedCpuTimeReference.c)
+ *     PopPdcIdleResiliencyCallback @ 0x14099507C (PopPdcIdleResiliencyCallback.c)
+ *     PopDripsWatchdogUpdateMetrics @ 0x140999904 (PopDripsWatchdogUpdateMetrics.c)
+ * Callees:
+ *     PpmParkSnapNodeIdleTime @ 0x14059AF68 (PpmParkSnapNodeIdleTime.c)
+ */
+
 __int64 __fastcall PopAccumulateNonActivatedCpuTime(__int64 a1, _QWORD *a2, _QWORD *a3)
 {
   char v5; // bl

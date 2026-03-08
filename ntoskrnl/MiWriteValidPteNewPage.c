@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiWriteValidPteNewPage @ 0x140211DE8
+ * Callers:
+ *     MiTradeActivePage @ 0x140211BC0 (MiTradeActivePage.c)
+ *     MiCombineInitialInstance @ 0x14029CD58 (MiCombineInitialInstance.c)
+ *     MiStealPage @ 0x1403B70BC (MiStealPage.c)
+ *     MiCopyKstack @ 0x14062A6D0 (MiCopyKstack.c)
+ *     MiWriteAweClusterPte @ 0x140649F5C (MiWriteAweClusterPte.c)
+ *     MiTradeBootImagePage @ 0x140B3BE4C (MiTradeBootImagePage.c)
+ *     MxSwapPages @ 0x140B50198 (MxSwapPages.c)
+ * Callees:
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ */
+
 __int64 __fastcall MiWriteValidPteNewPage(__int64 *a1, __int64 a2, int a3)
 {
   int v3; // esi

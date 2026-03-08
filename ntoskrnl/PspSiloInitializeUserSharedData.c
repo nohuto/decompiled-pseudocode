@@ -1,3 +1,19 @@
+/*
+ * XREFs of PspSiloInitializeUserSharedData @ 0x1409AA8E8
+ * Callers:
+ *     PspInitializeServerSiloDeferred @ 0x1409AA0D0 (PspInitializeServerSiloDeferred.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     PsAttachSiloToCurrentThread @ 0x1402993A0 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x1402993C0 (PsDetachSiloFromCurrentThread.c)
+ *     MiMapViewInSystemSpace @ 0x1406A55B8 (MiMapViewInSystemSpace.c)
+ *     MmCreateSection @ 0x140711DC0 (MmCreateSection.c)
+ *     RtlpGetNtProductTypeFromRegistry @ 0x14087B034 (RtlpGetNtProductTypeFromRegistry.c)
+ *     PspSiloInitializeSuiteMask @ 0x1409AA6D8 (PspSiloInitializeSuiteMask.c)
+ *     PspSiloInitializeSystemRootBuffer @ 0x1409AA748 (PspSiloInitializeSystemRootBuffer.c)
+ */
+
 __int64 __fastcall PspSiloInitializeUserSharedData(struct _LIST_ENTRY *a1)
 {
   __int64 result; // rax

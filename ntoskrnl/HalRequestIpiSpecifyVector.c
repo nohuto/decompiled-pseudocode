@@ -1,3 +1,20 @@
+/*
+ * XREFs of HalRequestIpiSpecifyVector @ 0x140230C90
+ * Callers:
+ *     KiReadyDeferredReadyList @ 0x140226FA0 (KiReadyDeferredReadyList.c)
+ *     KiIpiSendRequest @ 0x140233230 (KiIpiSendRequest.c)
+ *     KiProcessThreadWaitList @ 0x1402508F0 (KiProcessThreadWaitList.c)
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x1402B7960 (KiFlushSoftwareInterruptBatch.c)
+ *     HalRequestIpi @ 0x1402EF7C0 (HalRequestIpi.c)
+ *     HalRequestClockInterrupt @ 0x1402F98D0 (HalRequestClockInterrupt.c)
+ *     HalpInterruptResetAllProcessors @ 0x140502DCC (HalpInterruptResetAllProcessors.c)
+ *     KiIntRedirectQueueRequestOnProcessor @ 0x14057E460 (KiIntRedirectQueueRequestOnProcessor.c)
+ * Callees:
+ *     HalpInterruptSendIpi @ 0x140230870 (HalpInterruptSendIpi.c)
+ *     KeIsEmptyAffinityEx @ 0x140237C30 (KeIsEmptyAffinityEx.c)
+ */
+
 __int64 __fastcall HalRequestIpiSpecifyVector(int a1, __int64 a2, unsigned int a3)
 {
   int v7; // ebx

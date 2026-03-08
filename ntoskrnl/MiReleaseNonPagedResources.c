@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiReleaseNonPagedResources @ 0x14065EA8C
+ * Callers:
+ *     MiAllocateProcessShadow @ 0x140728E84 (MiAllocateProcessShadow.c)
+ *     MiChargeSystemImageCommitment @ 0x1407F5F44 (MiChargeSystemImageCommitment.c)
+ *     MiAllocateFastAwePages @ 0x140A3D534 (MiAllocateFastAwePages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140A416B8 (MiAllocatePartitionPhysicalPages.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ */
+
 unsigned __int64 __fastcall MiReleaseNonPagedResources(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 v3; // rbx

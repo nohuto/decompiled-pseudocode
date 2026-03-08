@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiCompressRelocations @ 0x1407F41B0
+ * Callers:
+ *     MiRelocateImage @ 0x1407F2760 (MiRelocateImage.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char *__fastcall MiCompressRelocations(__int64 a1, int a2)
 {
   __int64 v2; // r14

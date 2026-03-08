@@ -1,3 +1,24 @@
+/*
+ * XREFs of AlpcpDispatchReplyToPort @ 0x140715F0C
+ * Callers:
+ *     AlpcpDispatchMessage @ 0x1407141B8 (AlpcpDispatchMessage.c)
+ *     AlpcpSendMessage @ 0x1407CAFB0 (AlpcpSendMessage.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     AlpcpCancelMessage @ 0x1407141F0 (AlpcpCancelMessage.c)
+ *     AlpcpReferenceReplyTargetPorts @ 0x140716180 (AlpcpReferenceReplyTargetPorts.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     AlpcpSetOwnerPortMessage @ 0x140716D14 (AlpcpSetOwnerPortMessage.c)
+ *     AlpcpClearOwnerPortMessage @ 0x140716D48 (AlpcpClearOwnerPortMessage.c)
+ *     AlpcpRemoveMessageFromPendingQueue @ 0x140716D7C (AlpcpRemoveMessageFromPendingQueue.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1407CBD90 (AlpcpCompleteDispatchMessage.c)
+ */
+
 __int64 __fastcall AlpcpDispatchReplyToPort(__int64 a1)
 {
   ULONG_PTR v1; // rbx

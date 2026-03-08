@@ -1,3 +1,12 @@
+/*
+ * XREFs of EditionHandleAltTabCancel @ 0x1C00EC610
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z @ 0x1C00DCF88 (-IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z.c)
+ *     xxxCancelCoolSwitch @ 0x1C0146A72 (xxxCancelCoolSwitch.c)
+ */
+
 _BOOL8 __fastcall EditionHandleAltTabCancel(
         __int64 a1,
         int a2,

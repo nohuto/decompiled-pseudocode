@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopPolicyWorkerActionPromote @ 0x140987320
+ * Callers:
+ *     PopPolicyWorkerThread @ 0x1402F6DE0 (PopPolicyWorkerThread.c)
+ * Callees:
+ *     PopGetPolicyWorker @ 0x1402BCB34 (PopGetPolicyWorker.c)
+ *     PopSetPowerActionState @ 0x14058D024 (PopSetPowerActionState.c)
+ *     PopIssueActionRequest @ 0x140986CA4 (PopIssueActionRequest.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopPolicyWorkerActionPromote(int a1)
 {
   __int64 v1; // rdx

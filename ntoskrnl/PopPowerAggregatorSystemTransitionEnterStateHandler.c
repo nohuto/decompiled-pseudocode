@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopPowerAggregatorSystemTransitionEnterStateHandler @ 0x140990FE0
+ * Callers:
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140872018 (PopPowerAggregatorInvokeStateMachine.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopGetMonitorReasonFromPowerEventId @ 0x1403C2490 (PopGetMonitorReasonFromPowerEventId.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140879638 (PopPowerAggregatorSetCurrentState.c)
+ *     PopSleepstudyStartNextSession @ 0x1408797E4 (PopSleepstudyStartNextSession.c)
+ *     PopPowerRequestRevokeRequestsForSleep @ 0x14097E8D0 (PopPowerRequestRevokeRequestsForSleep.c)
+ */
+
 __int64 __fastcall PopPowerAggregatorSystemTransitionEnterStateHandler(__int64 a1)
 {
   __int64 MonitorReasonFromPowerEventId; // rax

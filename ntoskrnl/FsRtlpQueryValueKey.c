@@ -1,3 +1,15 @@
+/*
+ * XREFs of FsRtlpQueryValueKey @ 0x14093CDE4
+ * Callers:
+ *     FsRtlHeatInit @ 0x14093C910 (FsRtlHeatInit.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall FsRtlpQueryValueKey(UNICODE_STRING *a1, UNICODE_STRING *a2, ULONG *a3, PVOID *a4, _BYTE *a5)
 {
   NTSTATUS result; // eax

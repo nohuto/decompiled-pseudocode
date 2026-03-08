@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bAddPreComputedFastStrokeRects@PRECOMPUTE@@QEAAHAEAVEPATHOBJ@@PEAU_RECTL@@K@Z @ 0x1C02F69E0
+ * Callers:
+ *     ?bPreComputeFast@PRECOMPUTE@@QEAAHAEAVEPATHOBJ@@0PEAU_RECTL@@K@Z @ 0x1C02F8380 (-bPreComputeFast@PRECOMPUTE@@QEAAHAEAVEPATHOBJ@@0PEAU_RECTL@@K@Z.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall PRECOMPUTE::bAddPreComputedFastStrokeRects(
         PRECOMPUTE *this,
         struct EPATHOBJ *a2,

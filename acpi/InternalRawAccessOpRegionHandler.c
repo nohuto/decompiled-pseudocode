@@ -1,3 +1,19 @@
+/*
+ * XREFs of InternalRawAccessOpRegionHandler @ 0x1C0039CC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     ACPIInternalGetDeviceFromNSOBJ @ 0x1C00035BC (ACPIInternalGetDeviceFromNSOBJ.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C0024980 (WPP_RECORDER_SF_qq.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetParent @ 0x1C0048724 (AMLIGetParent.c)
+ *     GetFieldUnitRegionObj @ 0x1C004B944 (GetFieldUnitRegionObj.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ */
+
 __int64 __fastcall InternalRawAccessOpRegionHandler(
         char a1,
         __int64 a2,

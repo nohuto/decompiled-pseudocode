@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?D2DMatrixPerspectiveOffCenter@@YAPEAUD2DMatrix@@PEAU1@MMMMMM@Z @ 0x18027A268
+ * Callers:
+ *     ?Matrix4x4FromPerspectiveOffCenter@CExpressionValueStack@@QEAAJXZ @ 0x18025BA1C (-Matrix4x4FromPerspectiveOffCenter@CExpressionValueStack@@QEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 struct D2DMatrix *__fastcall D2DMatrixPerspectiveOffCenter(
         struct D2DMatrix *a1,
         float a2,

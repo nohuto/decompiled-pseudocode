@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpWnfValidatePubSubPreconditions @ 0x14071A954
+ * Callers:
+ *     ExpNtUpdateWnfStateData @ 0x14071943C (ExpNtUpdateWnfStateData.c)
+ *     NtQueryWnfStateData @ 0x140719DF0 (NtQueryWnfStateData.c)
+ * Callees:
+ *     ExpWnfCheckCallerAccess @ 0x14071A9D4 (ExpWnfCheckCallerAccess.c)
+ */
+
 __int64 __fastcall ExpWnfValidatePubSubPreconditions(
         ACCESS_MASK DesiredAccess,
         __int64 a2,

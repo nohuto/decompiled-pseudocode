@@ -1,3 +1,15 @@
+/*
+ * XREFs of _lambda_cbfcde231c2a8d1b9d404329183532d4_::operator() @ 0x1C02EF778
+ * Callers:
+ *     _lambda_cbfcde231c2a8d1b9d404329183532d4_::_lambda_invoker_cdecl_ @ 0x1C02EECA0 (_lambda_cbfcde231c2a8d1b9d404329183532d4_--_lambda_invoker_cdecl_.c)
+ * Callees:
+ *     ?IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z @ 0x1C0001D60 (-IsAdapterSessionized@DXGADAPTER@@QEBA_NPEAU_LUID@@PEAIPEA_K@Z.c)
+ *     ?DxgkLogCodePointPacketForSession@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@_KIIIU_LUID@@@Z @ 0x1C0002D10 (-DxgkLogCodePointPacketForSession@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@_KIIIU_LUID@@@Z.c)
+ *     ?Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C00096F0 (-Acquire@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     ?Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ @ 0x1C0009754 (-Release@DXGADAPTERSTOPRESETLOCKSHARED@@QEAAXXZ.c)
+ *     DxgkInvalidateDeviceState @ 0x1C005E3A0 (DxgkInvalidateDeviceState.c)
+ */
+
 __int64 __fastcall lambda_cbfcde231c2a8d1b9d404329183532d4_::operator()(__int64 a1, __int64 a2, unsigned int *a3)
 {
   struct _LUID *v5; // rdx

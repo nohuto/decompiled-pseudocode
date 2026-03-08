@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?bCloseFigure@EPATHOBJ@@QEAAHXZ @ 0x1C0180EF0
+ * Callers:
+ *     PATHOBJ_bCloseFigure @ 0x1C01819B0 (PATHOBJ_bCloseFigure.c)
+ *     ?bOutline@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z @ 0x1C0183B20 (-bOutline@RGNOBJ@@QEAAHAEAVEPATHOBJ@@PEAVEXFORMOBJ@@@Z.c)
+ *     ?iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z @ 0x1C0189A30 (-iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z.c)
+ *     bPolyPolygon @ 0x1C019A250 (bPolyPolygon.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EPATHOBJ::bCloseFigure(EPATHOBJ *this)
 {
   __int64 v1; // rdx

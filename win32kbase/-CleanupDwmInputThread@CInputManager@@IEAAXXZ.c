@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CleanupDwmInputThread@CInputManager@@IEAAXXZ @ 0x1C026F750
+ * Callers:
+ *     ?DwmInputThread@CInputManager@@IEAAJPEAX0H@Z @ 0x1C026F804 (-DwmInputThread@CInputManager@@IEAAJPEAX0H@Z.c)
+ *     ?NotifyDwmInputThreadShutdown@CInputManager@@SAXPEAU_ETHREAD@@@Z @ 0x1C026FFC0 (-NotifyDwmInputThreadShutdown@CInputManager@@SAXPEAU_ETHREAD@@@Z.c)
+ * Callees:
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CInputManager::CleanupDwmInputThread(CInputManager *this)
 {
   HANDLE *v1; // rdi

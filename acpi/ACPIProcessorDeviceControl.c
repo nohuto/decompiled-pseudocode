@@ -1,3 +1,19 @@
+/*
+ * XREFs of ACPIProcessorDeviceControl @ 0x1C008C570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIIoctlEvalControlMethod @ 0x1C0004232 (ACPIIoctlEvalControlMethod.c)
+ *     ACPIDispatchPowerIrpInvalid @ 0x1C00245C0 (ACPIDispatchPowerIrpInvalid.c)
+ *     ACPIIoctlAsyncEvalControlMethod @ 0x1C002F468 (ACPIIoctlAsyncEvalControlMethod.c)
+ *     ACPIIoctlEnumChildren @ 0x1C002FA10 (ACPIIoctlEnumChildren.c)
+ *     ACPIProcessorContainerGetLpiStatesIoctl @ 0x1C003A968 (ACPIProcessorContainerGetLpiStatesIoctl.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C0047B9C (AMLIEvalNameSpaceObject.c)
+ *     AMLIFreeDataBuffs @ 0x1C00482C4 (AMLIFreeDataBuffs.c)
+ *     AMLIGetNSObjectType @ 0x1C00483A8 (AMLIGetNSObjectType.c)
+ */
+
 __int64 __fastcall ACPIProcessorDeviceControl(ULONG_PTR a1, __int64 a2)
 {
   __int64 DeviceExtension; // rax

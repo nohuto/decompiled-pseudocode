@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopUpdateLastUserInputTime @ 0x14073BC30
+ * Callers:
+ *     PopSystemIdleWorker @ 0x14073B6A0 (PopSystemIdleWorker.c)
+ *     PopUpdateConsoleDisplayState @ 0x140870EA4 (PopUpdateConsoleDisplayState.c)
+ * Callees:
+ *     PopPulseSystemIdleEvent @ 0x14073ADD8 (PopPulseSystemIdleEvent.c)
+ */
+
 __int64 PopUpdateLastUserInputTime()
 {
   unsigned int v0; // ecx

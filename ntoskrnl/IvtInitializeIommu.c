@@ -1,3 +1,34 @@
+/*
+ * XREFs of IvtInitializeIommu @ 0x140A87060
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeStallExecutionProcessor @ 0x14022B710 (KeStallExecutionProcessor.c)
+ *     IvtInvalidateRemappingTableEntries @ 0x1402F4800 (IvtInvalidateRemappingTableEntries.c)
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     HalSocRequestApi @ 0x1403737EC (HalSocRequestApi.c)
+ *     IvtUpdateGlobalCommand @ 0x14037AD08 (IvtUpdateGlobalCommand.c)
+ *     HalMapIoSpace @ 0x14037AD90 (HalMapIoSpace.c)
+ *     IvtInitializeMTRR @ 0x1403A64E8 (IvtInitializeMTRR.c)
+ *     IvtFlushTbInternal @ 0x1403ABA60 (IvtFlushTbInternal.c)
+ *     IvtBuildContextEntry @ 0x1403B084C (IvtBuildContextEntry.c)
+ *     IvtInvalidateAllContextEntries @ 0x1403B0A30 (IvtInvalidateAllContextEntries.c)
+ *     IvtGetContextEntryType @ 0x1403B1654 (IvtGetContextEntryType.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IvtBuildScalableModeContextEntry @ 0x14052980C (IvtBuildScalableModeContextEntry.c)
+ *     IvtGetBlockedDomain @ 0x14052A538 (IvtGetBlockedDomain.c)
+ *     IvtGetIdentityMappedDomain @ 0x14052A60C (IvtGetIdentityMappedDomain.c)
+ *     IvtGetPasidGranularTranslationType @ 0x14052A814 (IvtGetPasidGranularTranslationType.c)
+ *     IvtInitializeIdentityMappings @ 0x14052ABF4 (IvtInitializeIdentityMappings.c)
+ *     IvtInvalidateScalableModePasidCache @ 0x14052AFF4 (IvtInvalidateScalableModePasidCache.c)
+ *     IvtSetScalableModeContextEntry @ 0x14052B470 (IvtSetScalableModeContextEntry.c)
+ *     IvtProcessDeviceExceptions @ 0x140A95E14 (IvtProcessDeviceExceptions.c)
+ *     IvtSetupScalableModeDefaultPasidTables @ 0x140A95F30 (IvtSetupScalableModeDefaultPasidTables.c)
+ */
+
 __int64 __fastcall IvtInitializeIommu(__int64 a1, int a2, char a3)
 {
   int v3; // r13d

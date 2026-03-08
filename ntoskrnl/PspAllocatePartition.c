@@ -1,3 +1,26 @@
+/*
+ * XREFs of PspAllocatePartition @ 0x140855B00
+ * Callers:
+ *     PsCreatePartition @ 0x140855A0C (PsCreatePartition.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     MmCreatePartition @ 0x1403A6A3C (MmCreatePartition.c)
+ *     PspAddPartitionToGlobalList @ 0x1403A6AA0 (PspAddPartitionToGlobalList.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IoDiskIoAttributionReference @ 0x14045B478 (IoDiskIoAttributionReference.c)
+ *     PspClosePartitionHandle @ 0x14067FFE0 (PspClosePartitionHandle.c)
+ *     ObCreateObject @ 0x140709D30 (ObCreateObject.c)
+ *     ObInsertObject @ 0x1407F0A20 (ObInsertObject.c)
+ *     ExpPartitionStart @ 0x140847FB8 (ExpPartitionStart.c)
+ *     ExpPartitionInitialize @ 0x1408481F8 (ExpPartitionInitialize.c)
+ *     PspCreatePartitionSystemProcess @ 0x1409B35F8 (PspCreatePartitionSystemProcess.c)
+ */
+
 __int64 __fastcall PspAllocatePartition(int a1, ACCESS_MASK a2, char a3, __int64 a4, char a5, _QWORD *a6, __int64 a7)
 {
   __int64 v8; // r14

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspUnlockJobListExclusive @ 0x1406F8070
+ * Callers:
+ *     PspJobDelete @ 0x140291AD0 (PspJobDelete.c)
+ *     NtCreateJobObject @ 0x1406F7BA0 (NtCreateJobObject.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ */
+
 char __fastcall PspUnlockJobListExclusive(__int64 a1)
 {
   char v2; // al

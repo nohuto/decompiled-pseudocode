@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReportState@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ @ 0x1C00EC5B0
+ * Callers:
+ *     ?ReportState@VIDMM_DEVICE@@QEAAXXZ @ 0x1C00C4312 (-ReportState@VIDMM_DEVICE@@QEAAXXZ.c)
+ * Callees:
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     McTemplateK0ppqqpx_EtwWriteTransfer @ 0x1C002EC20 (McTemplateK0ppqqpx_EtwWriteTransfer.c)
+ */
+
 void __fastcall VIDMM_DEVICE_PAGING_QUEUE::ReportState(VIDMM_DEVICE_PAGING_QUEUE *this)
 {
   __int64 v1; // rdi

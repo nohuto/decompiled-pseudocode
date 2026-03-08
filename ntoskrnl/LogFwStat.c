@@ -1,3 +1,16 @@
+/*
+ * XREFs of LogFwStat @ 0x140AEA85C
+ * Callers:
+ *     AnFwDisplayFade @ 0x140AE99E8 (AnFwDisplayFade.c)
+ *     AnFwFadeCompletion @ 0x140AE9FB8 (AnFwFadeCompletion.c)
+ *     AnFwpFadeAnimationTimer @ 0x140AEA110 (AnFwpFadeAnimationTimer.c)
+ *     AnFwDisplayProgressIndicator @ 0x140AEA598 (AnFwDisplayProgressIndicator.c)
+ *     AnFwpProgressIndicatorTimer @ 0x140AEA710 (AnFwpProgressIndicatorTimer.c)
+ *     AnFwpProgressAnimationManual @ 0x140AEF2AC (AnFwpProgressAnimationManual.c)
+ * Callees:
+ *     BgpFwQueryPerformanceCounter @ 0x140381520 (BgpFwQueryPerformanceCounter.c)
+ */
+
 LARGE_INTEGER __fastcall LogFwStat(int a1, int a2, LARGE_INTEGER *a3)
 {
   __int64 v4; // rdi

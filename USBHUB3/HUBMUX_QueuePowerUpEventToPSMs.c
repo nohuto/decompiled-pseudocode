@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBMUX_QueuePowerUpEventToPSMs @ 0x1C00109DC
+ * Callers:
+ *     HUBHSM_WaitingForPortsToAcquireReferenceOnResume @ 0x1C0009380 (HUBHSM_WaitingForPortsToAcquireReferenceOnResume.c)
+ *     HUBHSM_WaitingForPortsToAcquireReferenceOnResumeInS0 @ 0x1C00093B0 (HUBHSM_WaitingForPortsToAcquireReferenceOnResumeInS0.c)
+ *     HUBHSM_WaitingForPortsToAcquireReferenceOnResumeWithReset @ 0x1C00093E0 (HUBHSM_WaitingForPortsToAcquireReferenceOnResumeWithReset.c)
+ *     HUBHSM_WaitingForPortsToAcquireReferenceOnStart @ 0x1C0009440 (HUBHSM_WaitingForPortsToAcquireReferenceOnStart.c)
+ * Callees:
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBMUX_QueuePowerUpEventToPSMs(__int64 a1, unsigned int a2)
 {
   KSPIN_LOCK *v2; // rbx

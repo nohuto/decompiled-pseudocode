@@ -1,3 +1,11 @@
+/*
+ * XREFs of IpmiOpRegionHandler @ 0x1C0031A50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ */
+
 __int64 __fastcall IpmiOpRegionHandler(__int64 a1, UCHAR *a2, _BYTE *a3)
 {
   UCHAR *v5; // rsi

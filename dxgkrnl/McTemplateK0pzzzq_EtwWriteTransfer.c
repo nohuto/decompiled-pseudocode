@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0pzzzq_EtwWriteTransfer @ 0x1C0046734
+ * Callers:
+ *     ?DxgCreateLiveDumpWithDriverBlob@@YAJPEAU_DEVICE_OBJECT@@K_K111PEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@@Z @ 0x1C02C911C (-DxgCreateLiveDumpWithDriverBlob@@YAJPEAU_DEVICE_OBJECT@@K_K111PEAU_DXGKARG_COLLECTDIAGNOSTICINF.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002BBC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 NTSTATUS McTemplateK0pzzzq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)
 {
   const wchar_t *v3; // r8

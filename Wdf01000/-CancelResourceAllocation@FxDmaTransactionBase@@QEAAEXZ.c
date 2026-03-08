@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?CancelResourceAllocation@FxDmaTransactionBase@@QEAAEXZ @ 0x1C001F46C
+ * Callers:
+ *     imp_WdfDmaTransactionCancel @ 0x1C00198B0 (imp_WdfDmaTransactionCancel.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_ql @ 0x1C00190DC (WPP_IFR_SF_ql.c)
+ *     ?ReleaseIrpReference@FxRequest@@QEAAXXZ @ 0x1C003ACFC (-ReleaseIrpReference@FxRequest@@QEAAXXZ.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0045B6C (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ */
+
 unsigned __int8 __fastcall FxDmaTransactionBase::CancelResourceAllocation(FxDmaTransactionBase *this)
 {
   FxDmaTransactionState m_State; // edx

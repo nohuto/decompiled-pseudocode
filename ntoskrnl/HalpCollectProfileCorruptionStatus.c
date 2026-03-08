@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpCollectProfileCorruptionStatus @ 0x14050532C
+ * Callers:
+ *     HalpQueryProfileInformation @ 0x140861248 (HalpQueryProfileInformation.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     HalpCollectSamplingProfileCorruptionStatus @ 0x140505588 (HalpCollectSamplingProfileCorruptionStatus.c)
+ */
+
 __int64 __fastcall HalpCollectProfileCorruptionStatus(unsigned int **a1, __int64 a2, unsigned int *a3)
 {
   unsigned int v4; // r10d

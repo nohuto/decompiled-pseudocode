@@ -1,3 +1,16 @@
+/*
+ * XREFs of xxxDDETrackWindowDying @ 0x1C01FE184
+ * Callers:
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003E858 (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ *     ?UnlinkConv@@YAPEAUtagDDECONV@@PEAU1@@Z @ 0x1C01FB15C (-UnlinkConv@@YAPEAUtagDDECONV@@PEAU1@@Z.c)
+ *     ?xxxFreeListFree@@YAXPEAUtagFREELIST@@@Z @ 0x1C01FC75C (-xxxFreeListFree@@YAXPEAUtagFREELIST@@@Z.c)
+ *     xxxFreeDdeConv @ 0x1C01FE3AC (xxxFreeDdeConv.c)
+ */
+
 _UNKNOWN **__fastcall xxxDDETrackWindowDying(__int64 *a1, _UNKNOWN **a2)
 {
   char v3; // dl

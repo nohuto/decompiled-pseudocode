@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetRealization@CRotateTransform@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x18024AFE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CRotateTransform::GetRealization(
         CRotateTransform *this,
         const struct D2D_SIZE_F *a2,

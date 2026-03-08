@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpAllocateLayerInfoForKcb @ 0x14074BB70
+ * Callers:
+ *     CmpCreateLayerLink @ 0x14074BAE4 (CmpCreateLayerLink.c)
+ *     CmRenameKey @ 0x140A1170C (CmRenameKey.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall CmpAllocateLayerInfoForKcb(__int64 a1)
 {
   unsigned int v1; // ebx

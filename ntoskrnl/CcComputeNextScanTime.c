@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcComputeNextScanTime @ 0x1403A4028
+ * Callers:
+ *     CcLazyWriteScanVolume @ 0x140218810 (CcLazyWriteScanVolume.c)
+ *     CcLazyWriteScan @ 0x140533B4C (CcLazyWriteScan.c)
+ * Callees:
+ *     CcIsWriteBehindThreadpoolAtLowPriority @ 0x140219E24 (CcIsWriteBehindThreadpoolAtLowPriority.c)
+ */
+
 char __fastcall CcComputeNextScanTime(__int64 a1, __int64 a2, __int64 *a3, _QWORD *a4)
 {
   char result; // al

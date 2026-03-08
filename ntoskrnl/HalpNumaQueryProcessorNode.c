@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpNumaQueryProcessorNode @ 0x140377F90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpInterruptGetIdentifiers @ 0x140379900 (HalpInterruptGetIdentifiers.c)
+ */
+
 __int64 __fastcall HalpNumaQueryProcessorNode(__int64 a1, int *a2, _WORD *a3)
 {
   int v3; // eax

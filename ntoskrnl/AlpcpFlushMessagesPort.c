@@ -1,3 +1,18 @@
+/*
+ * XREFs of AlpcpFlushMessagesPort @ 0x140717700
+ * Callers:
+ *     AlpcpDoPortCleanup @ 0x140716E08 (AlpcpDoPortCleanup.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectSafe @ 0x1402CBCB0 (ObReferenceObjectSafe.c)
+ *     AlpcpFlushQueue @ 0x1407178BC (AlpcpFlushQueue.c)
+ *     AlpcpFlushCancelQueue @ 0x140717A60 (AlpcpFlushCancelQueue.c)
+ *     AlpcpFlushMessagesByRequestor @ 0x140781C5C (AlpcpFlushMessagesByRequestor.c)
+ */
+
 int __fastcall AlpcpFlushMessagesPort(__int64 a1)
 {
   int result; // eax

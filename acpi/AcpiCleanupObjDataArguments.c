@@ -1,3 +1,13 @@
+/*
+ * XREFs of AcpiCleanupObjDataArguments @ 0x1C0036C18
+ * Callers:
+ *     AcpiCleanupObjDataArguments @ 0x1C0036C18 (AcpiCleanupObjDataArguments.c)
+ *     AcpiConvertMethodArgumentsToObjData @ 0x1C0036CA4 (AcpiConvertMethodArgumentsToObjData.c)
+ *     AcpiNativeMethodEvalRequestHandler @ 0x1C00375E0 (AcpiNativeMethodEvalRequestHandler.c)
+ * Callees:
+ *     AcpiCleanupObjDataArguments @ 0x1C0036C18 (AcpiCleanupObjDataArguments.c)
+ */
+
 void __fastcall AcpiCleanupObjDataArguments(__int64 a1, unsigned int a2)
 {
   void **v2; // rbx

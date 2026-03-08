@@ -1,3 +1,14 @@
+/*
+ * XREFs of SeObjectReferenceAuditAlarm @ 0x140699510
+ * Callers:
+ *     ObpCheckObjectReference @ 0x1406992AC (ObpCheckObjectReference.c)
+ * Callees:
+ *     SepAdtAuditThisEventWithContext @ 0x140699810 (SepAdtAuditThisEventWithContext.c)
+ *     SeExamineSacl @ 0x1408A18B0 (SeExamineSacl.c)
+ *     SeExamineGlobalSacl @ 0x1408A1D6A (SeExamineGlobalSacl.c)
+ *     SepAdtObjectReferenceAuditAlarm @ 0x1409C8F9C (SepAdtObjectReferenceAuditAlarm.c)
+ */
+
 void __fastcall SeObjectReferenceAuditAlarm(
         __int64 a1,
         __int64 a2,

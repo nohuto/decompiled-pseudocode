@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0VIDMM_PROCESS@@QEAA@XZ @ 0x1C0093FEC
+ * Callers:
+ *     VidMmCreateProcess @ 0x1C0001A60 (VidMmCreateProcess.c)
+ * Callees:
+ *     memset @ 0x1C001AC80 (memset.c)
+ */
+
 VIDMM_PROCESS *__fastcall VIDMM_PROCESS::VIDMM_PROCESS(VIDMM_PROCESS *this)
 {
   *(_QWORD *)this = 0LL;

@@ -1,3 +1,16 @@
+/*
+ * XREFs of VfUtilCaptureViolationKernelStack @ 0x140ABF490
+ * Callers:
+ *     CarWriteLivedump @ 0x1405D3880 (CarWriteLivedump.c)
+ * Callees:
+ *     KeQueryCurrentStackInformation @ 0x1402E1E00 (KeQueryCurrentStackInformation.c)
+ *     KeGetCurrentStackPointer @ 0x1404166E0 (KeGetCurrentStackPointer.c)
+ *     RtlCaptureContext @ 0x140420580 (RtlCaptureContext.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall VfUtilCaptureViolationKernelStack(PCONTEXT ContextRecord, _QWORD *a2)
 {
   char v5; // r14

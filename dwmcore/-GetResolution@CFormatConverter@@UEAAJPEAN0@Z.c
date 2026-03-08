@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetResolution@CFormatConverter@@UEAAJPEAN0@Z @ 0x1802B89A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034BB4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CFormatConverter::GetResolution(CFormatConverter *this, double *a2, double *a3)
 {
   unsigned int v6; // edi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of KsepStringAnsiToUnicode @ 0x1407FFFD0
+ * Callers:
+ *     KsepMatchInitCpuInfo @ 0x140B35128 (KsepMatchInitCpuInfo.c)
+ *     KsepMatchInitAcpiOemInfo @ 0x140B351B8 (KsepMatchInitAcpiOemInfo.c)
+ * Callees:
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ */
+
 NTSTATUS __fastcall KsepStringAnsiToUnicode(wchar_t *a1, unsigned __int16 a2, char *a3, unsigned __int16 a4)
 {
   STRING v5; // [rsp+20h] [rbp-28h] BYREF

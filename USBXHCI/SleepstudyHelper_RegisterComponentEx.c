@@ -1,3 +1,11 @@
+/*
+ * XREFs of SleepstudyHelper_RegisterComponentEx @ 0x1C007B96C
+ * Callers:
+ *     Controller_WdfEvtDevicePrepareHardware @ 0x1C0072A30 (Controller_WdfEvtDevicePrepareHardware.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall SleepstudyHelper_RegisterComponentEx(__int64 a1, __int128 *a2, __int128 *a3, __int64 a4, _QWORD *a5)
 {
   __int128 v5; // xmm1

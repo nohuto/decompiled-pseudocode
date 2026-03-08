@@ -1,3 +1,12 @@
+/*
+ * XREFs of strncmp @ 0x1C00DADE0
+ * Callers:
+ *     rimFindImageProcAddress @ 0x1C008BD70 (rimFindImageProcAddress.c)
+ *     ivrFindImageProcAddress @ 0x1C022209C (ivrFindImageProcAddress.c)
+ * Callees:
+ *     <none>
+ */
+
 int __cdecl strncmp(const char *Str1, const char *Str2, size_t MaxCount)
 {
   signed __int64 v3; // r9

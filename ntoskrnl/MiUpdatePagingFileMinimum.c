@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiUpdatePagingFileMinimum @ 0x14063977C
+ * Callers:
+ *     MiExtendPagingFiles @ 0x140A2FD7C (MiExtendPagingFiles.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiUpdatePagingFileMinimum(__int64 a1, __int64 a2)
 {
   volatile LONG *v2; // rbx

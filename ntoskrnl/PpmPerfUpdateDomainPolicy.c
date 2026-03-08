@@ -1,3 +1,20 @@
+/*
+ * XREFs of PpmPerfUpdateDomainPolicy @ 0x14075DE18
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ *     PopPowerRequestCallbackPerfBoostRequired @ 0x14075DD70 (PopPowerRequestCallbackPerfBoostRequired.c)
+ *     PpmReapplyPerfPolicy @ 0x1408261A0 (PpmReapplyPerfPolicy.c)
+ *     PpmRegisterPerfStates @ 0x14082802C (PpmRegisterPerfStates.c)
+ *     PpmUpdatePerfStates @ 0x140983CC0 (PpmUpdatePerfStates.c)
+ * Callees:
+ *     PpmPerfUpdateQosDisableReasons @ 0x1402D1A88 (PpmPerfUpdateQosDisableReasons.c)
+ *     PpmPerfSetAllDomainsToUpdate @ 0x1402D1B24 (PpmPerfSetAllDomainsToUpdate.c)
+ *     PpmCheckCustomRun @ 0x1402D1B4C (PpmCheckCustomRun.c)
+ *     PpmReleaseLock @ 0x1402D1F40 (PpmReleaseLock.c)
+ *     PpmPerfCalculateQosClassPolicies @ 0x1402D2278 (PpmPerfCalculateQosClassPolicies.c)
+ *     PpmEventQosSupport @ 0x14075DF8C (PpmEventQosSupport.c)
+ */
+
 void __fastcall PpmPerfUpdateDomainPolicy(char a1)
 {
   __int64 v1; // rbx

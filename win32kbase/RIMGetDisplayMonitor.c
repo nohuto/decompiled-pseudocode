@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMGetDisplayMonitor @ 0x1C01BD4AC
+ * Callers:
+ *     rimFindMonitorForDigitizerWithQDCData @ 0x1C01BE49C (rimFindMonitorForDigitizerWithQDCData.c)
+ * Callees:
+ *     DrvGetWDDMAdapterInfo @ 0x1C001F730 (DrvGetWDDMAdapterInfo.c)
+ */
+
 __int64 __fastcall RIMGetDisplayMonitor(__int64 a1, unsigned int *a2, _QWORD *a3)
 {
   __int64 v3; // rbx

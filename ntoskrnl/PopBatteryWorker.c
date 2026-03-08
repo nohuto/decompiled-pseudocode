@@ -1,3 +1,42 @@
+/*
+ * XREFs of PopBatteryWorker @ 0x14086DD10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x140250B60 (KeCancelTimer.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     IoCancelIrp @ 0x1402E4F50 (IoCancelIrp.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x1403BE3FC (_tlgCreate1Sz_char.c)
+ *     PopBatteryQueueWork @ 0x1403C0538 (PopBatteryQueueWork.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExfUnblockPushLock @ 0x14040CCE0 (ExfUnblockPushLock.c)
+ *     ZwQueryWnfStateData @ 0x1404150D0 (ZwQueryWnfStateData.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     PopSetPowerSettingValueAcDc @ 0x14073BE70 (PopSetPowerSettingValueAcDc.c)
+ *     PopResetCBTriggers @ 0x14082AA6C (PopResetCBTriggers.c)
+ *     PopBatteryApplyCompositeState @ 0x14086E430 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryEstimatesSpoiled @ 0x14086E98C (PopBatteryEstimatesSpoiled.c)
+ *     PopAccountBatteryEnergyChange @ 0x140991AC0 (PopAccountBatteryEnergyChange.c)
+ *     PopBatteryInitialize @ 0x140992318 (PopBatteryInitialize.c)
+ *     PopBatteryQueryEstimatedTime @ 0x1409924A8 (PopBatteryQueryEstimatedTime.c)
+ *     PopBatteryQueryStatus @ 0x140992530 (PopBatteryQueryStatus.c)
+ *     PopBatteryReadTag @ 0x1409926B4 (PopBatteryReadTag.c)
+ *     PopBatteryUpdateCompositeInformation @ 0x1409929B8 (PopBatteryUpdateCompositeInformation.c)
+ *     PopBatteryWaitTag @ 0x140992B14 (PopBatteryWaitTag.c)
+ *     PopEstimateChargeTime @ 0x140992B84 (PopEstimateChargeTime.c)
+ *     PopEvaluateWeakChargerState @ 0x140992D90 (PopEvaluateWeakChargerState.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 void PopBatteryWorker()
 {
   unsigned int v0; // esi
@@ -549,7 +588,7 @@ void PopBatteryWorker()
     if ( v4 == 2 && !v23 || v4 == 3 && v23 )
       v4 = 1;
     v24 = v22 & 0x10;
-    if ( (unk_140C3CB80 & 0x10) == v24
+    if ( (xmmword_140C3CB80 & 0x10) == v24
       || (LODWORD(v113) = 0,
           LODWORD(v112) = 0,
           Timeout = 0LL,
@@ -660,7 +699,7 @@ void PopBatteryWorker()
     v154 = 4LL;
     v153 = &v126;
     v33 = "AC Power";
-    if ( (unk_140C3CB80 & 1) == 0 )
+    if ( (xmmword_140C3CB80 & 1) == 0 )
       v33 = "DC Power";
     tlgCreate1Sz_char((__int64)v155, v33);
     v35 = "Battery Discharging";
@@ -691,24 +730,24 @@ void PopBatteryWorker()
     if ( (byte_140C3CD58 & 1) == 0 )
       v48 = v47;
     tlgCreate1Sz_char((__int64)v162, v48);
-    if ( (_DWORD)MEMORY[0x140C3CBA4] )
-      v52 = (((unsigned int)MEMORY[0x140C3CBA4] >> 1) + 100 * DWORD1(unk_140C3CB80)) / (unsigned int)MEMORY[0x140C3CBA4];
+    if ( (_DWORD)xmmword_140C3CBA4 )
+      v52 = (((unsigned int)xmmword_140C3CBA4 >> 1) + 100 * DWORD1(xmmword_140C3CB80)) / (unsigned int)xmmword_140C3CBA4;
     else
       v52 = v50;
     v127 = v52;
     v163 = &v127;
     v164 = v51;
-    if ( (_DWORD)MEMORY[0x140C3CBA4] )
-      v53 = 100000 * (unsigned __int64)DWORD1(unk_140C3CB80) / (unsigned int)MEMORY[0x140C3CBA4];
+    if ( (_DWORD)xmmword_140C3CBA4 )
+      v53 = 100000 * (unsigned __int64)DWORD1(xmmword_140C3CB80) / (unsigned int)xmmword_140C3CBA4;
     else
       LODWORD(v53) = v50;
     v128 = v53;
-    v121 = MEMORY[0x140C3CBA4];
+    v121 = xmmword_140C3CBA4;
     v165 = &v128;
-    v129 = DWORD1(unk_140C3CB80);
+    v129 = DWORD1(xmmword_140C3CB80);
     v167 = &v129;
     v169 = &v121;
-    v122 = *((_QWORD *)&unk_140C3CB80 + 1);
+    v122 = *((_QWORD *)&xmmword_140C3CB80 + 1);
     v171 = &v122;
     v173 = (char *)&v122 + 4;
     v123 = PopDisableBatteryDischargeEstimator;
@@ -744,20 +783,20 @@ void PopBatteryWorker()
   if ( (_BYTE)v119 )
   {
     *(_DWORD *)v150 = dword_140C3CBB4;
-    v148 = unk_140C3CB94;
+    v148 = xmmword_140C3CB94;
     v151 = dword_140C3CB50;
     LODWORD(v113) = 0;
     LODWORD(v112) = 0;
-    *(_OWORD *)&v150[4] = unk_140C3CB80;
+    *(_OWORD *)&v150[4] = xmmword_140C3CB80;
     *(_DWORD *)&v150[20] = dword_140C3CB54;
-    v149 = MEMORY[0x140C3CBA4];
+    v149 = xmmword_140C3CBA4;
     Timeout = 0LL;
     ZwUpdateWnfStateData((__int64)&WNF_PO_COMPOSITE_BATTERY, (__int64)&v148);
     if ( (unsigned int)dword_140C03928 > 5 && tlgKeywordOn((__int64)&dword_140C03928, 0x400000000000LL) )
     {
       v186 = &v125;
       v125 = dword_140C3CB54;
-      if ( (unk_140C3CB80 & 1) == 0 )
+      if ( (xmmword_140C3CB80 & 1) == 0 )
         v30 = "DC Power";
       v187 = 4LL;
       tlgCreate1Sz_char((__int64)v188, v30);
@@ -787,36 +826,36 @@ void PopBatteryWorker()
       if ( (byte_140C3CD58 & 1) == 0 )
         v101 = "-";
       tlgCreate1Sz_char((__int64)v195, v101);
-      if ( (_DWORD)MEMORY[0x140C3CBA4] )
-        v104 = (((unsigned int)MEMORY[0x140C3CBA4] >> 1) + 100 * DWORD1(unk_140C3CB80))
-             / (unsigned int)MEMORY[0x140C3CBA4];
+      if ( (_DWORD)xmmword_140C3CBA4 )
+        v104 = (((unsigned int)xmmword_140C3CBA4 >> 1) + 100 * DWORD1(xmmword_140C3CB80))
+             / (unsigned int)xmmword_140C3CBA4;
       else
         v104 = 0;
       v124 = v104;
       v196 = &v124;
       v197 = v103;
-      if ( (_DWORD)MEMORY[0x140C3CBA4] )
-        v105 = 100000 * (unsigned __int64)DWORD1(unk_140C3CB80) / (unsigned int)MEMORY[0x140C3CBA4];
+      if ( (_DWORD)xmmword_140C3CBA4 )
+        v105 = 100000 * (unsigned __int64)DWORD1(xmmword_140C3CB80) / (unsigned int)xmmword_140C3CBA4;
       else
         LODWORD(v105) = 0;
       v106 = "Relative Capacity Unit";
       v123 = v105;
       v199 = v103;
       v198 = &v123;
-      HIDWORD(v122) = DWORD1(unk_140C3CB80);
+      HIDWORD(v122) = DWORD1(xmmword_140C3CB80);
       v200 = (char *)&v122 + 4;
       v202 = &v122;
-      v121 = DWORD2(unk_140C3CB80);
+      v121 = DWORD2(xmmword_140C3CB80);
       v204 = &v121;
-      v129 = HIDWORD(unk_140C3CB80);
+      v129 = HIDWORD(xmmword_140C3CB80);
       v206 = &v129;
       v128 = dword_140C3CB50;
       v208 = &v128;
       v210 = &v127;
-      if ( (unk_140C3CB94 & 0x40000000) == 0 )
+      if ( (xmmword_140C3CB94 & 0x40000000) == 0 )
         v106 = "mWh Unit";
       v201 = v103;
-      LODWORD(v122) = MEMORY[0x140C3CBA4];
+      LODWORD(v122) = xmmword_140C3CBA4;
       v203 = v103;
       v205 = v103;
       v207 = v103;
@@ -825,7 +864,7 @@ void PopBatteryWorker()
       v211 = v103;
       tlgCreate1Sz_char((__int64)v212, v106);
       v213 = &v126;
-      v126 = HIDWORD(unk_140C3CB94);
+      v126 = HIDWORD(xmmword_140C3CB94);
       v215 = &v135;
       LODWORD(v135) = v107;
       v214 = v108;

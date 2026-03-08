@@ -1,3 +1,12 @@
+/*
+ * XREFs of Command_NvidiaGetFirmwareVersionCommandCompletion @ 0x1C0030050
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_DD @ 0x1C0007C90 (WPP_RECORDER_SF_DD.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ */
+
 LONG __fastcall Command_NvidiaGetFirmwareVersionCommandCompletion(__int64 a1)
 {
   __int64 *v1; // rbx

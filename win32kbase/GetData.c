@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetData @ 0x1C0159760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 GetData()
 {
   __int64 v0; // rdx

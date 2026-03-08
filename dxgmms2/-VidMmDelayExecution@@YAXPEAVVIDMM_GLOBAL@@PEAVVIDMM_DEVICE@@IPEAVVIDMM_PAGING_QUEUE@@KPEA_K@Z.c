@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidMmDelayExecution@@YAXPEAVVIDMM_GLOBAL@@PEAVVIDMM_DEVICE@@IPEAVVIDMM_PAGING_QUEUE@@KPEA_K@Z @ 0x1C002CAD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DelayExecution@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@IPEAVVIDMM_PAGING_QUEUE@@KPEA_K@Z @ 0x1C00E1930 (-DelayExecution@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@IPEAVVIDMM_PAGING_QUEUE@@KPEA_K@Z.c)
+ */
+
 void __fastcall VidMmDelayExecution(
         struct VIDMM_GLOBAL *a1,
         struct VIDMM_DEVICE *a2,

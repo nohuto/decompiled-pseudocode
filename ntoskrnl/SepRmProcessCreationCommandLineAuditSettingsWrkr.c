@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepRmProcessCreationCommandLineAuditSettingsWrkr @ 0x14036E280
+ * Callers:
+ *     SepRmCommandServerThread @ 0x140825260 (SepRmCommandServerThread.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall SepRmProcessCreationCommandLineAuditSettingsWrkr(__int64 a1, __int64 a2)
 {
   char result; // al

@@ -1,3 +1,15 @@
+/*
+ * XREFs of _ALIGN_MEM @ 0x1C014B81A
+ * Callers:
+ *     BuildBltAAInfo @ 0x1C025C640 (BuildBltAAInfo.c)
+ *     BuildExpandAAInfo @ 0x1C025C820 (BuildExpandAAInfo.c)
+ *     BuildShrinkAAInfo @ 0x1C025D3C0 (BuildShrinkAAInfo.c)
+ *     BuildTileAAInfo @ 0x1C025DAE0 (BuildTileAAInfo.c)
+ *     SetupAAHeader @ 0x1C025E588 (SetupAAHeader.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ALIGN_MEM(_DWORD *a1, unsigned int a2)
 {
   unsigned int v2; // r8d

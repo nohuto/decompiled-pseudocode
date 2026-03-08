@@ -1,3 +1,14 @@
+/*
+ * XREFs of VmpFaultEntryInsert @ 0x14045E1E8
+ * Callers:
+ *     VmpAccessFaultBatch @ 0x14045DEF6 (VmpAccessFaultBatch.c)
+ * Callees:
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall VmpFaultEntryInsert(__int64 a1, unsigned __int64 a2, unsigned int a3)
 {
   unsigned __int64 v3; // rsi

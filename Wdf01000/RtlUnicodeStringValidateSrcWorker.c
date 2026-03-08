@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlUnicodeStringValidateSrcWorker @ 0x1C0017A48
+ * Callers:
+ *     RtlStringCbCopyUnicodeString @ 0x1C002DAB0 (RtlStringCbCopyUnicodeString.c)
+ *     RtlUnicodeStringCopy @ 0x1C004DF40 (RtlUnicodeStringCopy.c)
+ * Callees:
+ *     RtlUnicodeStringValidateWorker @ 0x1C0017A84 (RtlUnicodeStringValidateWorker.c)
+ */
+
 int __fastcall RtlUnicodeStringValidateSrcWorker(
         const _UNICODE_STRING *SourceString,
         wchar_t **ppszSrc,

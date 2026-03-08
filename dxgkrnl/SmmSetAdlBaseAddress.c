@@ -1,3 +1,12 @@
+/*
+ * XREFs of SmmSetAdlBaseAddress @ 0x1C006F730
+ * Callers:
+ *     ?SysMmCreateAdl@@YAJPEAUSYSMM_ADAPTER_OBJECT@@_K1IPEAPEAU_DXGK_ADL@@@Z @ 0x1C006F9F0 (-SysMmCreateAdl@@YAJPEAUSYSMM_ADAPTER_OBJECT@@_K1IPEAPEAU_DXGK_ADL@@@Z.c)
+ * Callees:
+ *     ?SmmGetLogicalAddress@@YA_KPEBUSYSMM_LOGICAL_BLOCK@@@Z @ 0x1C0013C28 (-SmmGetLogicalAddress@@YA_KPEBUSYSMM_LOGICAL_BLOCK@@@Z.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 char __fastcall SmmSetAdlBaseAddress(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   const struct SYSMM_LOGICAL_BLOCK *v4; // rcx

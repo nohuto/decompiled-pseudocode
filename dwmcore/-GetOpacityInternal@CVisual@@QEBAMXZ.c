@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?GetOpacityInternal@CVisual@@QEBAMXZ @ 0x180038938
+ * Callers:
+ *     ?GetVisualAlpha@CVisual@@QEBAMPEBVCVisualTree@@@Z @ 0x1800095EC (-GetVisualAlpha@CVisual@@QEBAMPEBVCVisualTree@@@Z.c)
+ *     ?NotifyCurrentPropertyValues@CVisual@@MEBAJI@Z @ 0x180023860 (-NotifyCurrentPropertyValues@CVisual@@MEBAJI@Z.c)
+ *     ?SetOpacity@CVisual@@QEAAXM@Z @ 0x1800388A0 (-SetOpacity@CVisual@@QEAAXM@Z.c)
+ *     ?PopStacksForBspChildVisual@CBspPreComputeHelper@@AEAAXPEBVCVisual@@@Z @ 0x1801D4FFC (-PopStacksForBspChildVisual@CBspPreComputeHelper@@AEAAXPEBVCVisual@@@Z.c)
+ *     ?PushStacksForBspChildVisual@CBspPreComputeHelper@@AEAAJPEBVCVisualTree@@PEAVCVisual@@@Z @ 0x1801D5798 (-PushStacksForBspChildVisual@CBspPreComputeHelper@@AEAAJPEBVCVisualTree@@PEAVCVisual@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 float __fastcall CVisual::GetOpacityInternal(CVisual *this)
 {
   __int64 v1; // rcx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of IoQueryFullDriverPath @ 0x1403A19C0
+ * Callers:
+ *     PiGetDriverImageDirectory @ 0x140952F88 (PiGetDriverImageDirectory.c)
+ * Callees:
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall IoQueryFullDriverPath(__int64 a1, UNICODE_STRING *a2)
 {
   __int64 v2; // rbx

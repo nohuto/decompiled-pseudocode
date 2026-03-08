@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhWaitForResetTimeout @ 0x1C000179C
+ * Callers:
+ *     UsbhCancelResetTimeout @ 0x1C00015A0 (UsbhCancelResetTimeout.c)
+ * Callees:
+ *     UsbhWaitEventWithTimeoutEx @ 0x1C00068E0 (UsbhWaitEventWithTimeoutEx.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 __int64 __fastcall UsbhWaitForResetTimeout(__int64 a1, __int64 a2)
 {
   __int64 v4; // r9

@@ -1,3 +1,12 @@
+/*
+ * XREFs of mbstowcs @ 0x1403D4670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _mbstrlen @ 0x1403D7BF4 (_mbstrlen.c)
+ *     RtlMultiByteToUnicodeN @ 0x1407A3B40 (RtlMultiByteToUnicodeN.c)
+ */
+
 size_t __cdecl mbstowcs(wchar_t *Dest, const char *Source, size_t MaxCount)
 {
   int v3; // edi

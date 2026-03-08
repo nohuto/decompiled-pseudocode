@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpLockIXLockExclusive @ 0x1406B70A0
+ * Callers:
+ *     CmpUndoDeleteKeyForTransEx @ 0x14067D5F4 (CmpUndoDeleteKeyForTransEx.c)
+ *     CmDeleteKey @ 0x1406B762C (CmDeleteKey.c)
+ *     CmpSetKeySecurity @ 0x1406B7E3C (CmpSetKeySecurity.c)
+ *     CmDeleteValueKey @ 0x1406B9764 (CmDeleteValueKey.c)
+ *     CmpCreateChild @ 0x1407A7590 (CmpCreateChild.c)
+ *     CmSetValueKey @ 0x1407A9870 (CmSetValueKey.c)
+ *     CmSetKeyFlags @ 0x140A12D14 (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x140A13248 (CmSetLastWriteTimeKey.c)
+ * Callees:
+ *     CmEqualTrans @ 0x1406B6428 (CmEqualTrans.c)
+ */
+
 char __fastcall CmpLockIXLockExclusive(__int64 a1, _QWORD *a2, int a3)
 {
   int v3; // eax

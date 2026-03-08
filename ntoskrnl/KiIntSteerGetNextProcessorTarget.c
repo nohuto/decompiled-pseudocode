@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiIntSteerGetNextProcessorTarget @ 0x1402A92E4
+ * Callers:
+ *     KiIntSteerCalculatePriorityDistribution @ 0x1402A90C0 (KiIntSteerCalculatePriorityDistribution.c)
+ *     KiIntSteerCalculateUniformDistribution @ 0x140577AE0 (KiIntSteerCalculateUniformDistribution.c)
+ * Callees:
+ *     KiIntPartGetLowestClassProcessorInMask @ 0x1402A9324 (KiIntPartGetLowestClassProcessorInMask.c)
+ */
+
 __int64 __fastcall KiIntSteerGetNextProcessorTarget(__int64 a1, __int64 a2)
 {
   unsigned __int16 v2; // ax

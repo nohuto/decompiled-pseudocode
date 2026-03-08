@@ -1,3 +1,25 @@
+/*
+ * XREFs of EtwpCoverageSamplerStart @ 0x1409F05F8
+ * Callers:
+ *     EtwpSetCoverageSamplerInformation @ 0x1409F0DFC (EtwpSetCoverageSamplerInformation.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KeStartProfile @ 0x140571A6C (KeStartProfile.c)
+ *     PsEnumProcesses @ 0x1407809CC (PsEnumProcesses.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x140785F3C (EtwpUpdateGlobalGroupMasks.c)
+ *     MmEnumerateSystemImages @ 0x14080E4B0 (MmEnumerateSystemImages.c)
+ *     PsSetLoadImageNotifyRoutineEx @ 0x140819370 (PsSetLoadImageNotifyRoutineEx.c)
+ *     KeInitializeProfileCallback @ 0x140971F68 (KeInitializeProfileCallback.c)
+ *     KeSetIntervalProfile @ 0x140972128 (KeSetIntervalProfile.c)
+ *     EtwpCovSampCaptureContextStart @ 0x1409EDC1C (EtwpCovSampCaptureContextStart.c)
+ *     EtwpCoverageSamplerAllocateTable @ 0x1409F00DC (EtwpCoverageSamplerAllocateTable.c)
+ */
+
 __int64 __fastcall EtwpCoverageSamplerStart(_DWORD *Object)
 {
   int v2; // ecx

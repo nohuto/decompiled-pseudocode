@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiEvaluatePreemptionSwapTarget @ 0x140574C20
+ * Callers:
+ *     KiHeteroAttemptPreemptionSwap @ 0x1404591A8 (KiHeteroAttemptPreemptionSwap.c)
+ * Callees:
+ *     KiGenerateHeteroSets @ 0x1404590A0 (KiGenerateHeteroSets.c)
+ *     KiHeteroComputeThreadImportance @ 0x140459632 (KiHeteroComputeThreadImportance.c)
+ *     KiHeteroIsSwapBeneficialForPerformance @ 0x140574E70 (KiHeteroIsSwapBeneficialForPerformance.c)
+ */
+
 bool __fastcall KiEvaluatePreemptionSwapTarget(__int64 a1, __int64 a2, char *a3)
 {
   bool v4; // zf

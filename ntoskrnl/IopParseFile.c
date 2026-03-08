@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopParseFile @ 0x14076A460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     IopParseDevice @ 0x1407B6A30 (IopParseDevice.c)
+ */
+
 __int64 __fastcall IopParseFile(
         struct _FILE_OBJECT *a1,
         POBJECT_TYPE *a2,

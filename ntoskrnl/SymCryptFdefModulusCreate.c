@@ -1,3 +1,12 @@
+/*
+ * XREFs of SymCryptFdefModulusCreate @ 0x1403FF71C
+ * Callers:
+ *     SymCryptModulusCreate @ 0x1403F3EC0 (SymCryptModulusCreate.c)
+ * Callees:
+ *     SymCryptFdefSizeofModulusFromDigits @ 0x1403FF91C (SymCryptFdefSizeofModulusFromDigits.c)
+ *     SymCryptFdefDivisorCreate @ 0x1403FFAD0 (SymCryptFdefDivisorCreate.c)
+ */
+
 _DWORD *__fastcall SymCryptFdefModulusCreate(_DWORD *a1, unsigned __int64 a2, unsigned int a3)
 {
   _DWORD *v6; // rsi

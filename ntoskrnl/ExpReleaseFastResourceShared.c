@@ -1,3 +1,20 @@
+/*
+ * XREFs of ExpReleaseFastResourceShared @ 0x1403C5A70
+ * Callers:
+ *     ExReleaseFastResource @ 0x1403C5940 (ExReleaseFastResource.c)
+ *     ExReleaseFastResourceShared @ 0x140607D40 (ExReleaseFastResourceShared.c)
+ * Callees:
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     ExpPrepareToWakeResourceShared @ 0x14033A9D0 (ExpPrepareToWakeResourceShared.c)
+ *     ExpCommitWakeResourceShared @ 0x14033B220 (ExpCommitWakeResourceShared.c)
+ *     KxWaitForLockOwnerShip @ 0x14033B510 (KxWaitForLockOwnerShip.c)
+ *     ExpReplaceListEntry @ 0x1403C5D60 (ExpReplaceListEntry.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140457B8E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExpReleaseFastResourceShared(ULONG_PTR BugCheckParameter2, __int64 *a2)
 {
   char v3; // si

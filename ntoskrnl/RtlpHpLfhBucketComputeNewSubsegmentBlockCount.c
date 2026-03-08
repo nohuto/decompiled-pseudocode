@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpHpLfhBucketComputeNewSubsegmentBlockCount @ 0x14030AF34
+ * Callers:
+ *     RtlpHpLfhSubsegmentCreate @ 0x14030AFE0 (RtlpHpLfhSubsegmentCreate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpHpLfhBucketComputeNewSubsegmentBlockCount(__int64 a1, int a2)
 {
   __int16 v3; // r8

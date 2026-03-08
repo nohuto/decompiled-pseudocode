@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z @ 0x1C0223DF4
+ * Callers:
+ *     ?zzzApplyShadow@@YAHPEAUtagWND@@0@Z @ 0x1C0224188 (-zzzApplyShadow@@YAHPEAUtagWND@@0@Z.c)
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     FillRect @ 0x1C00881F8 (FillRect.c)
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00E42C8 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?DrawRegionalShadow@@YAXPEAXJJ@Z @ 0x1C014A5B2 (-DrawRegionalShadow@@YAXPEAXJJ@Z.c)
+ *     ?CreateScaledWindowShadowFromDIB@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@J@Z @ 0x1C0223520 (-CreateScaledWindowShadowFromDIB@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@J@Z.c)
+ *     ?DrawRoundedRectangularShadow@@YAXPEAXJJHJ@Z @ 0x1C0223998 (-DrawRoundedRectangularShadow@@YAXPEAXJJHJ@Z.c)
+ *     ?DrawWindowShadow@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAH@Z @ 0x1C0223AF4 (-DrawWindowShadow@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAH@Z.c)
+ *     GreCreateDIBitmapReal @ 0x1C02E02CC (GreCreateDIBitmapReal.c)
+ *     GreDecBitmapExclusiveRefCnt @ 0x1C02E0370 (GreDecBitmapExclusiveRefCnt.c)
+ */
+
 __int64 __fastcall GenerateWindowShadow(struct tagWND *a1, HDC a2)
 {
   __int64 v2; // rax

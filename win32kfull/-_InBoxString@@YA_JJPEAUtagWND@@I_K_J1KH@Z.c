@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?_InBoxString@@YA_JJPEAUtagWND@@I_K_J1KH@Z @ 0x1C01CDA48
+ * Callers:
+ *     NtUserfnINCBOXSTRING @ 0x1C01E1DB0 (NtUserfnINCBOXSTRING.c)
+ *     NtUserfnINLBOXSTRING @ 0x1C01E2110 (NtUserfnINLBOXSTRING.c)
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     NtUserfnINSTRINGNULL @ 0x1C00A0C10 (NtUserfnINSTRINGNULL.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     NtUserfnINSTRING @ 0x1C01E35A0 (NtUserfnINSTRING.c)
+ */
+
 __int64 __fastcall _InBoxString(
         __int64 a1,
         struct tagWND *a2,

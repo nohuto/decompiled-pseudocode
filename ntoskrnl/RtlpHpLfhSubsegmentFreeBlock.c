@@ -1,3 +1,22 @@
+/*
+ * XREFs of RtlpHpLfhSubsegmentFreeBlock @ 0x140309BA0
+ * Callers:
+ *     ExFreeHeapPool @ 0x1402B61C0 (ExFreeHeapPool.c)
+ *     RtlpHpSegFree @ 0x140308DBC (RtlpHpSegFree.c)
+ *     RtlpHpLfhSlotAllocate @ 0x140310BA0 (RtlpHpLfhSlotAllocate.c)
+ *     RtlpHpFreeHeap @ 0x140313CC0 (RtlpHpFreeHeap.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x14030A210 (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     RtlpHpLfhBucketAddSubsegment @ 0x14030A880 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpAcquireLockExclusive @ 0x14030ABA4 (RtlpHpAcquireLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpLogHeapFailure @ 0x1405B2884 (RtlpLogHeapFailure.c)
+ */
+
 __int64 __fastcall RtlpHpLfhSubsegmentFreeBlock(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   unsigned int v4; // r12d

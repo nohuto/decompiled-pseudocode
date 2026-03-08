@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheapGetPreallocatedErrorRecord @ 0x14060EBCC
+ * Callers:
+ *     WheapAllocErrorRecord @ 0x14060E78C (WheapAllocErrorRecord.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WheapGetPreallocatedErrorRecord(__int64 a1)
 {
   __int64 v1; // rdx

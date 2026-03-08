@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopGetMaxValidMemorySizeDown @ 0x140550EF8
+ * Callers:
+ *     IopAddRunTimeTriageDataBlocks @ 0x14054FDC8 (IopAddRunTimeTriageDataBlocks.c)
+ *     IopMarkPagesForRunTimeTriageDataBlocks @ 0x14055B39C (IopMarkPagesForRunTimeTriageDataBlocks.c)
+ * Callees:
+ *     MmIsAddressValidEx @ 0x1403471E0 (MmIsAddressValidEx.c)
+ */
+
 __int64 __fastcall IopGetMaxValidMemorySizeDown(__int64 a1)
 {
   unsigned int v1; // ebx

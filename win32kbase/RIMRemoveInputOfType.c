@@ -1,3 +1,17 @@
+/*
+ * XREFs of RIMRemoveInputOfType @ 0x1C00C9690
+ * Callers:
+ *     ?PreUninitialize@CHidInput@@EEAAXXZ @ 0x1C00C9650 (-PreUninitialize@CHidInput@@EEAAXXZ.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     RIMUnRegisterForInputDeviceTypeClassNotifications @ 0x1C0039A94 (RIMUnRegisterForInputDeviceTypeClassNotifications.c)
+ *     RimInputTypeToDeviceType @ 0x1C0039D00 (RimInputTypeToDeviceType.c)
+ *     RawInputManagerObjectResolveHandle @ 0x1C0039E60 (RawInputManagerObjectResolveHandle.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     RIMRemoveDevOfInputType @ 0x1C00C986C (RIMRemoveDevOfInputType.c)
+ */
+
 __int64 __fastcall RIMRemoveInputOfType(char *a1, unsigned int a2)
 {
   unsigned int v2; // ebx

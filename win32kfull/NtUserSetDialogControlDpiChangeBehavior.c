@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetDialogControlDpiChangeBehavior @ 0x1C01DC7A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserSetDialogControlDpiChangeBehavior(__int64 a1, char a2, unsigned __int8 a3)
 {
   __int64 v6; // rax

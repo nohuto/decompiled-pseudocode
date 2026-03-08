@@ -1,3 +1,12 @@
+/*
+ * XREFs of AlpcpInitializeMessageLog @ 0x140857130
+ * Callers:
+ *     AlpcpInitSystem @ 0x140856E38 (AlpcpInitSystem.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AlpcpInitializeMessageLog(unsigned __int64 a1, unsigned __int64 a2)
 {
   unsigned int v2; // ebx

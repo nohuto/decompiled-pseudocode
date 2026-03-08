@@ -1,3 +1,15 @@
+/*
+ * XREFs of Usbh_FDO_WaitPnpAdd @ 0x1C00443E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhReleaseFdoPnpLock @ 0x1C0031D14 (UsbhReleaseFdoPnpLock.c)
+ *     GET_FDO_PNPSTATE @ 0x1C003BF34 (GET_FDO_PNPSTATE.c)
+ *     UsbhModuleDispatch @ 0x1C0043D00 (UsbhModuleDispatch.c)
+ *     UsbhSetFdoPnpState @ 0x1C0044248 (UsbhSetFdoPnpState.c)
+ *     Usbh_PnpRemove @ 0x1C0044B44 (Usbh_PnpRemove.c)
+ */
+
 __int64 __fastcall Usbh_FDO_WaitPnpAdd(__int64 a1, __int64 a2)
 {
   _LIST_ENTRY *v2; // r8

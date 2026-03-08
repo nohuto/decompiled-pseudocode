@@ -1,3 +1,14 @@
+/*
+ * XREFs of WheapReportDeferredLiveDumps @ 0x140A06534
+ * Callers:
+ *     WheaCrashDumpInitializationComplete @ 0x14086086C (WheaCrashDumpInitializationComplete.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     WheapReportLiveDump @ 0x140A0663C (WheapReportLiveDump.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 WheapReportDeferredLiveDumps()
 {
   struct _LIST_ENTRY *Blink; // rbx

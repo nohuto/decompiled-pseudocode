@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiCheckWaitNext @ 0x14022AE00
+ * Callers:
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     KeWaitForAlertByThreadId @ 0x140293354 (KeWaitForAlertByThreadId.c)
+ *     KiWaitForAllObjects @ 0x1402936D0 (KiWaitForAllObjects.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ */
+
 __int64 __fastcall KiCheckWaitNext(__int64 a1, __int64 a2, char a3, _QWORD *a4, _DWORD *a5)
 {
   unsigned __int8 v6; // cf

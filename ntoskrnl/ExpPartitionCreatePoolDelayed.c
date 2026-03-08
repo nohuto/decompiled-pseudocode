@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpPartitionCreatePoolDelayed @ 0x1409FDA04
+ * Callers:
+ *     ExpWorkQueueManagerThread @ 0x140839860 (ExpWorkQueueManagerThread.c)
+ * Callees:
+ *     ExpPartitionCreatePoolInternal @ 0x1408483B0 (ExpPartitionCreatePoolInternal.c)
+ */
+
 __int64 __fastcall ExpPartitionCreatePoolDelayed(__int64 a1, unsigned __int16 *a2, int a3)
 {
   __int64 v5; // rax

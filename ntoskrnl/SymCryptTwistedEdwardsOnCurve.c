@@ -1,3 +1,17 @@
+/*
+ * XREFs of SymCryptTwistedEdwardsOnCurve @ 0x1403FAA70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SymCryptModAdd @ 0x1403F3A54 (SymCryptModAdd.c)
+ *     SymCryptModElementCreate @ 0x1403F3AEC (SymCryptModElementCreate.c)
+ *     SymCryptModElementIsEqual @ 0x1403F3B38 (SymCryptModElementIsEqual.c)
+ *     SymCryptModMul @ 0x1403F3D74 (SymCryptModMul.c)
+ *     SymCryptModSquare @ 0x1403F3E50 (SymCryptModSquare.c)
+ *     SymCryptSizeofModElementFromModulus @ 0x1403F3F08 (SymCryptSizeofModElementFromModulus.c)
+ */
+
 __int64 __fastcall SymCryptTwistedEdwardsOnCurve(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _DWORD *v4; // r12

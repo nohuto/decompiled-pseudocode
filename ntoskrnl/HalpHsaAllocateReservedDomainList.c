@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpHsaAllocateReservedDomainList @ 0x14052BD08
+ * Callers:
+ *     HalpIommuProcessIvhdEntry @ 0x14052C244 (HalpIommuProcessIvhdEntry.c)
+ * Callees:
+ *     ExtEnvAllocateMemory @ 0x14037C828 (ExtEnvAllocateMemory.c)
+ */
+
 __int64 __fastcall HalpHsaAllocateReservedDomainList(__int64 a1, int a2, unsigned int a3)
 {
   unsigned int **v4; // rdi

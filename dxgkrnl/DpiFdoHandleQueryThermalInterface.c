@@ -1,3 +1,15 @@
+/*
+ * XREFs of DpiFdoHandleQueryThermalInterface @ 0x1C039E600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ *     DpiQueryMiniportInterface @ 0x1C01F65F4 (DpiQueryMiniportInterface.c)
+ */
+
 __int64 __fastcall DpiFdoHandleQueryThermalInterface(_QWORD *Object, __int16 a2, __int16 a3, _QWORD *a4)
 {
   __int64 v4; // rbx

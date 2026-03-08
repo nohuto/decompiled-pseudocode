@@ -1,3 +1,19 @@
+/*
+ * XREFs of DxgkOutputDuplPresent @ 0x1C033CCD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01A3640 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     OutputDuplPresent @ 0x1C032C14C (OutputDuplPresent.c)
+ *     ?TranslateAndCopyDWMMoveRegionToDDAMoveRegions@@YAXKPEBU_D3DKMT_MOVE_RECT@@PEAU1@@Z @ 0x1C033C3CC (-TranslateAndCopyDWMMoveRegionToDDAMoveRegions@@YAXKPEBU_D3DKMT_MOVE_RECT@@PEAU1@@Z.c)
+ */
+
 __int64 __fastcall DxgkOutputDuplPresent(_OWORD *a1)
 {
   __int64 v2; // rcx

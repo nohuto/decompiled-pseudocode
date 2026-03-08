@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?TrackedWindowTrackingInfo@NotifyShell@@YAXPEAUtagWND@@QEBUtagMINMAXINFO@@@Z @ 0x1C00EB814
+ * Callers:
+ *     ?xxxEndGetWidnowTrackInfoAsync@@YAXPEAUtagWND@@@Z @ 0x1C00EB7B0 (-xxxEndGetWidnowTrackInfoAsync@@YAXPEAUtagWND@@@Z.c)
+ * Callees:
+ *     _anonymous_namespace_::NotifyIAMWindowManagementEvent @ 0x1C009B94C (_anonymous_namespace_--NotifyIAMWindowManagementEvent.c)
+ *     ?TransformWindowTrackInfo@ShellWindowManagement@@YAXPEAUtagWND@@PEAUtagSIZE@@1W4TransformWindowTrackInfoDirection@1@@Z @ 0x1C00EB8DC (-TransformWindowTrackInfo@ShellWindowManagement@@YAXPEAUtagWND@@PEAUtagSIZE@@1W4TransformWindowT.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 void __fastcall NotifyShell::TrackedWindowTrackingInfo(
         NotifyShell *this,
         struct tagWND *a2,

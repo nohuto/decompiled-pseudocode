@@ -1,3 +1,11 @@
+/*
+ * XREFs of BmlCompareWireFormat @ 0x1C03B8AA0
+ * Callers:
+ *     BmlCompareTargetModes @ 0x1C016E704 (BmlCompareTargetModes.c)
+ * Callees:
+ *     BmlCompareSingleWireFormatType @ 0x1C03B86BC (BmlCompareSingleWireFormatType.c)
+ */
+
 __int64 __fastcall BmlCompareWireFormat(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

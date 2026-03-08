@@ -1,3 +1,15 @@
+/*
+ * XREFs of HvpProtectBinPartial @ 0x1407A4030
+ * Callers:
+ *     HvpAddBin @ 0x14072F9F0 (HvpAddBin.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x1407A488C (HvpRemapAndEnlistHiveBins.c)
+ *     HvpSetRangeProtection @ 0x1407A5934 (HvpSetRangeProtection.c)
+ *     HvpMapHiveImage @ 0x140A1B050 (HvpMapHiveImage.c)
+ * Callees:
+ *     CmpProtectPoolEx @ 0x14030BC68 (CmpProtectPoolEx.c)
+ *     MmSetPageProtection @ 0x1403BCCE0 (MmSetPageProtection.c)
+ */
+
 __int64 __fastcall HvpProtectBinPartial(
         __int64 a1,
         unsigned __int64 a2,

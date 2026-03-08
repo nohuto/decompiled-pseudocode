@@ -1,3 +1,12 @@
+/*
+ * XREFs of BuildRepData @ 0x1C025D17C
+ * Callers:
+ *     BuildExpandAAInfo @ 0x1C025C820 (BuildExpandAAInfo.c)
+ *     BuildShrinkAAInfo @ 0x1C025D3C0 (BuildShrinkAAInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall BuildRepData(__int64 a1, int a2, int a3)
 {
   int v3; // r10d

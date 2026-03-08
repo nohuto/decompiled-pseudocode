@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?xxxSendBSMtoDesktop@@YAHPEAUtagWND@@I_K_JPEAUtagBROADCASTSYSTEMMSGPARAMS@@H@Z @ 0x1C00A560C
+ * Callers:
+ *     xxxSendMessageBSM @ 0x1C00A48F0 (xxxSendMessageBSM.c)
+ * Callees:
+ *     ?CanForceForeground@@YA_NPEBUtagPROCESSINFO@@@Z @ 0x1C003D388 (-CanForceForeground@@YA_NPEBUtagPROCESSINFO@@@Z.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     BuildHwndList @ 0x1C0041A10 (BuildHwndList.c)
+ *     FreeHwndList @ 0x1C00680B0 (FreeHwndList.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C006E550 (xxxSendTransformableMessageTimeout.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     _PostTransformableMessageIL @ 0x1C00CB574 (_PostTransformableMessageIL.c)
+ *     xxxSendNotifyMessage @ 0x1C00D8320 (xxxSendNotifyMessage.c)
+ *     ?QueueNotifyTransformableMessage@@YAXPEAUtagWND@@I_K_JHH@Z @ 0x1C00FEC48 (-QueueNotifyTransformableMessage@@YAXPEAUtagWND@@I_K_JHH@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall xxxSendBSMtoDesktop(
         ShellWindowManagement **a1,
         unsigned int a2,

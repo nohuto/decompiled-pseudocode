@@ -1,3 +1,17 @@
+/*
+ * XREFs of HUBFDO_EvtDeviceReleaseHardware @ 0x1C0079370
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001CA0 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBSM_AddHsmEvent @ 0x1C000A6FC (HUBSM_AddHsmEvent.c)
+ *     HUBMISC_WaitForSignal @ 0x1C0032DEC (HUBMISC_WaitForSignal.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBFDO_UnregisterSleepstudyBlockerReasons @ 0x1C007CE30 (HUBFDO_UnregisterSleepstudyBlockerReasons.c)
+ *     HUBCONNECTOR_UnMapHubPorts @ 0x1C0082B58 (HUBCONNECTOR_UnMapHubPorts.c)
+ */
+
 __int64 __fastcall HUBFDO_EvtDeviceReleaseHardware(__int64 a1)
 {
   __int64 v1; // rcx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of SmBinaryArrayGrow @ 0x1405C7B8C
+ * Callers:
+ *     SmHpBufferAlloc @ 0x1405C7CF4 (SmHpBufferAlloc.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 char *__fastcall SmBinaryArrayGrow(__int64 a1, unsigned int a2)
 {
   __int64 v2; // rbx

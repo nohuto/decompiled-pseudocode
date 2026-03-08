@@ -1,3 +1,15 @@
+/*
+ * XREFs of rimCountContactsToDeliverWithFrame @ 0x1C00F065E
+ * Callers:
+ *     RIMCompletePointerDeviceFrame @ 0x1C01CD424 (RIMCompletePointerDeviceFrame.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMCmActiveContactsEnd @ 0x1C00F1A04 (RIMCmActiveContactsEnd.c)
+ *     RIMCmGetButtonContact @ 0x1C00F1A60 (RIMCmGetButtonContact.c)
+ *     RIMCmActiveContactsBeginNoButton @ 0x1C01DE028 (RIMCmActiveContactsBeginNoButton.c)
+ *     RIMCmActiveContactsNext @ 0x1C01DE0AC (RIMCmActiveContactsNext.c)
+ */
+
 void __fastcall rimCountContactsToDeliverWithFrame(__int64 a1, _DWORD *a2, _DWORD *a3)
 {
   __int64 active; // rax

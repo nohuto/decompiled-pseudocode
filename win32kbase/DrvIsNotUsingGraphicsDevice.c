@@ -1,3 +1,11 @@
+/*
+ * XREFs of DrvIsNotUsingGraphicsDevice @ 0x1C00D20D0
+ * Callers:
+ *     ?Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C015B374 (-Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ * Callees:
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C004E3E0 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ */
+
 __int64 __fastcall DrvIsNotUsingGraphicsDevice(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v5; // ebx

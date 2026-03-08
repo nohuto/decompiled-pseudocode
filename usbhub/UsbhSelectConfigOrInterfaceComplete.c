@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhSelectConfigOrInterfaceComplete @ 0x1C002D820
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     UsbhDecPdoIoCount @ 0x1C001BC4C (UsbhDecPdoIoCount.c)
+ *     UsbhCalculateInterfaceBandwidth @ 0x1C0029CB8 (UsbhCalculateInterfaceBandwidth.c)
+ *     UsbhCancelOutOfBandwidthTimer @ 0x1C0029D6C (UsbhCancelOutOfBandwidthTimer.c)
+ *     UsbhSetOutOfBandwidthTimer @ 0x1C002DA9C (UsbhSetOutOfBandwidthTimer.c)
+ */
+
 __int64 __fastcall UsbhSelectConfigOrInterfaceComplete(PDEVICE_OBJECT DeviceObject, ULONG_PTR Irp, __int64 Context)
 {
   _DWORD *v5; // rbx

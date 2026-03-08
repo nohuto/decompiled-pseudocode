@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0USB4_HOSTROUTER_MGR@@QEAA@XZ @ 0x1C01FBCF0
+ * Callers:
+ *     MonitorInitializeGlobal @ 0x1C01FAE24 (MonitorInitializeGlobal.c)
+ * Callees:
+ *     <none>
+ */
+
 USB4_HOSTROUTER_MGR *__fastcall USB4_HOSTROUTER_MGR::USB4_HOSTROUTER_MGR(USB4_HOSTROUTER_MGR *this)
 {
   *(_QWORD *)this = 0LL;

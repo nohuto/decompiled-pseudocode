@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMRegQueryDWordFromKey @ 0x1C002EE40
+ * Callers:
+ *     ?ReadDevicePropertyFromRegistry@@YA_NPEBGPEAX1JPEAJ@Z @ 0x1C002EDC4 (-ReadDevicePropertyFromRegistry@@YA_NPEBGPEAX1JPEAJ@Z.c)
+ *     RIMRegQueryDWord @ 0x1C00DA0B8 (RIMRegQueryDWord.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall RIMRegQueryDWordFromKey(HANDLE KeyHandle, const WCHAR *a2, int a3, _DWORD *a4)
 {
   unsigned int v4; // ebx

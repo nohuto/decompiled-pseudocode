@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbDevice_DeviceNotificationEventHandler @ 0x1C004857C
+ * Callers:
+ *     Interrupter_DeferredWorkProcessor @ 0x1C0008BE0 (Interrupter_DeferredWorkProcessor.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dqd @ 0x1C001E3F8 (WPP_RECORDER_SF_dqd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 char __fastcall UsbDevice_DeviceNotificationEventHandler(__int64 a1, _DWORD *a2)
 {
   char result; // al

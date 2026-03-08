@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??1CExpression@@MEAA@XZ @ 0x1800BC92C
+ * Callers:
+ *     ??_ECExpression@@MEAAPEAXI@Z @ 0x1800BC520 (--_ECExpression@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ??$ReleaseInterface@V?$CWeakReference@VCResource@@@@@@YAXAEAPEAV?$CWeakReference@VCResource@@@@@Z @ 0x1800BC4E4 (--$ReleaseInterface@V-$CWeakReference@VCResource@@@@@@YAXAEAPEAV-$CWeakReference@VCResource@@@@@.c)
+ *     ?UnregisterSources@CExpression@@IEAAXXZ @ 0x1800BC564 (-UnregisterSources@CExpression@@IEAAXXZ.c)
+ *     ??$ReleaseInterface@VCSharedSection@@@@YAXAEAPEAVCSharedSection@@@Z @ 0x1800BC9C4 (--$ReleaseInterface@VCSharedSection@@@@YAXAEAPEAVCSharedSection@@@Z.c)
+ *     ??1?$DynArrayImpl@$00@@IEAA@XZ @ 0x1800BC9EC (--1-$DynArrayImpl@$00@@IEAA@XZ.c)
+ */
+
 void __fastcall CExpression::~CExpression(CExpression *this)
 {
   __int64 i; // rdi

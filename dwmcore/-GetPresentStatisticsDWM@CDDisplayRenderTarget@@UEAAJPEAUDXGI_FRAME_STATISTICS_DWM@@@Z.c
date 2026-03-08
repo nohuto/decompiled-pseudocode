@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetPresentStatisticsDWM@CDDisplayRenderTarget@@UEAAJPEAUDXGI_FRAME_STATISTICS_DWM@@@Z @ 0x1801C1500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?GetPresentStatisticsDWM@CDDisplaySwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS_DWM@@@Z @ 0x1802870E0 (-GetPresentStatisticsDWM@CDDisplaySwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS_DWM@@@Z.c)
+ */
+
 __int64 __fastcall CDDisplayRenderTarget::GetPresentStatisticsDWM(
         CDDisplayRenderTarget *this,
         struct DXGI_FRAME_STATISTICS_DWM *a2)

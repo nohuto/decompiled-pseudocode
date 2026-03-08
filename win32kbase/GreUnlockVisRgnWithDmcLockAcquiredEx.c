@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreUnlockVisRgnWithDmcLockAcquiredEx @ 0x1C0197600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0049E20 (EtwTraceGreLockReleaseSemaphore.c)
+ */
+
 __int64 __fastcall GreUnlockVisRgnWithDmcLockAcquiredEx(__int64 a1)
 {
   __int64 v1; // rbx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ??1CRenderTargetBitmap@@MEAA@XZ @ 0x18003C0DC
+ * Callers:
+ *     ??_GCDecodeBitmap@@UEAAPEAXI@Z @ 0x18001F9E0 (--_GCDecodeBitmap@@UEAAPEAXI@Z.c)
+ *     ??_GCScratchRenderTargetBitmap@@UEAAPEAXI@Z @ 0x18003BFC0 (--_GCScratchRenderTargetBitmap@@UEAAPEAXI@Z.c)
+ *     ??_ECRenderTargetBitmap@@MEAAPEAXI@Z @ 0x1800FC1C0 (--_ECRenderTargetBitmap@@MEAAPEAXI@Z.c)
+ *     ??_ECStereoRenderTargetBitmap@@UEAAPEAXI@Z @ 0x1802B2500 (--_ECStereoRenderTargetBitmap@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1?$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180034214 (--1-$com_ptr_t@VID2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??1CDeviceResource@@MEAA@XZ @ 0x18003C394 (--1CDeviceResource@@MEAA@XZ.c)
+ *     ?ReleaseDeviceTarget@CRenderTargetBitmap@@IEAAXXZ @ 0x18003C8F4 (-ReleaseDeviceTarget@CRenderTargetBitmap@@IEAAXXZ.c)
+ */
+
 void __fastcall CRenderTargetBitmap::~CRenderTargetBitmap(CRenderTargetBitmap *this)
 {
   __int64 v2; // rcx

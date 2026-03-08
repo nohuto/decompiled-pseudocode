@@ -1,3 +1,21 @@
+/*
+ * XREFs of UsbhConfigureUsbHub @ 0x1C0029DB0
+ * Callers:
+ *     UsbhInitialize @ 0x1C002CE20 (UsbhInitialize.c)
+ *     UsbhReinitialize @ 0x1C002D73C (UsbhReinitialize.c)
+ * Callees:
+ *     UsbhSyncSendInternalIoctl @ 0x1C0004A70 (UsbhSyncSendInternalIoctl.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhGetHubConfigurationDescriptor @ 0x1C002C234 (UsbhGetHubConfigurationDescriptor.c)
+ *     UsbhGetMaxPowerPerPort @ 0x1C002C9B4 (UsbhGetMaxPowerPerPort.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     UsbhCreateConfigurationRequestEx @ 0x1C0031E3C (UsbhCreateConfigurationRequestEx.c)
+ *     UsbhParseConfigurationDescriptorEx @ 0x1C0031F38 (UsbhParseConfigurationDescriptorEx.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhValidateConfigurationDescriptor @ 0x1C00525F0 (UsbhValidateConfigurationDescriptor.c)
+ */
+
 __int64 __fastcall UsbhConfigureUsbHub(__int64 a1)
 {
   _DWORD *v2; // rsi

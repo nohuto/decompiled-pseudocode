@@ -1,3 +1,11 @@
+/*
+ * XREFs of AuthzBasepComputeBitwise @ 0x14066D1E0
+ * Callers:
+ *     AuthzBasepComputeExpression @ 0x14066D244 (AuthzBasepComputeExpression.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AuthzBasepComputeBitwise(char a1, __int64 a2)
 {
   __int64 v2; // rax

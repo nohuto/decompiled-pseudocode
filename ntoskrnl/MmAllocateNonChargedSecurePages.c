@@ -1,3 +1,23 @@
+/*
+ * XREFs of MmAllocateNonChargedSecurePages @ 0x140654ECC
+ * Callers:
+ *     PspIumAllocatePartitionState @ 0x1405A34F0 (PspIumAllocatePartitionState.c)
+ *     PspIumReplenishPartitionPages @ 0x1405A3DE0 (PspIumReplenishPartitionPages.c)
+ * Callees:
+ *     MiPartitionObjectToPartition @ 0x140236884 (MiPartitionObjectToPartition.c)
+ *     MiGetSlabPage @ 0x14025BA50 (MiGetSlabPage.c)
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     MiUpdatePageFileHighInPte @ 0x14032F49C (MiUpdatePageFileHighInPte.c)
+ *     MiAcquireNonPagedResources @ 0x140348D54 (MiAcquireNonPagedResources.c)
+ *     MiInitializeMdlPfn @ 0x1403870D0 (MiInitializeMdlPfn.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MmAllocateNonChargedSecurePages(void **a1, int a2, unsigned int *a3, __int64 *a4)
 {
   void ***v6; // rax

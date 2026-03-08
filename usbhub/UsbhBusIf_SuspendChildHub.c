@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhBusIf_SuspendChildHub @ 0x1C001A0F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhUnlatchPdo @ 0x1C0001380 (UsbhUnlatchPdo.c)
+ *     UsbhSyncSuspendPdoPort @ 0x1C0009B88 (UsbhSyncSuspendPdoPort.c)
+ *     UsbhSet_Pdo_Dx @ 0x1C0009CFC (UsbhSet_Pdo_Dx.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     UsbhSetPdoIdleReady @ 0x1C000A364 (UsbhSetPdoIdleReady.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhLatchPdo @ 0x1C0019420 (UsbhLatchPdo.c)
+ */
+
 __int64 __fastcall UsbhBusIf_SuspendChildHub(struct _DEVICE_OBJECT *a1)
 {
   _DWORD *v2; // rdi

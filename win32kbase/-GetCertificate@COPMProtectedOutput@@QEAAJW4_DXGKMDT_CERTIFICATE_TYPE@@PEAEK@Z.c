@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetCertificate@COPMProtectedOutput@@QEAAJW4_DXGKMDT_CERTIFICATE_TYPE@@PEAEK@Z @ 0x1C018869C
+ * Callers:
+ *     ?GetCertificate@COPM@@QEAAJPEAXW4_DXGKMDT_CERTIFICATE_TYPE@@PEAEK@Z @ 0x1C0188604 (-GetCertificate@COPM@@QEAAJPEAXW4_DXGKMDT_CERTIFICATE_TYPE@@PEAEK@Z.c)
+ * Callees:
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00B0000 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     CallMonitor @ 0x1C017EE60 (CallMonitor.c)
+ */
+
 __int64 __fastcall COPMProtectedOutput::GetCertificate(
         COPMProtectedOutput *this,
         enum _DXGKMDT_CERTIFICATE_TYPE a2,

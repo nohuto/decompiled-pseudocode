@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?xxxHandleVolumeUpDownCombo@@YAXXZ @ 0x1C01C1438
+ * Callers:
+ *     ?xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0097FCC (-xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
+ * Callees:
+ *     ?xxxVolumeUpDownComboSupported@@YA_NXZ @ 0x1C01C14D4 (-xxxVolumeUpDownComboSupported@@YA_NXZ.c)
+ *     ?xxxUserBeep@@YAHKK_N@Z @ 0x1C01FA214 (-xxxUserBeep@@YAHKK_N@Z.c)
+ */
+
 void xxxHandleVolumeUpDownCombo(void)
 {
   LARGE_INTEGER PerformanceCounter; // rax

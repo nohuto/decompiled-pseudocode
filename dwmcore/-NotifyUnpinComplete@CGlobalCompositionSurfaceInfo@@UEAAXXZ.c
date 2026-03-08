@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NotifyUnpinComplete@CGlobalCompositionSurfaceInfo@@UEAAXXZ @ 0x180257FA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateU0xq_EventWriteTransfer @ 0x18012A09C (McTemplateU0xq_EventWriteTransfer.c)
+ */
+
 void __fastcall CGlobalCompositionSurfaceInfo::NotifyUnpinComplete(CGlobalCompositionSurfaceInfo *this)
 {
   int v1; // r9d

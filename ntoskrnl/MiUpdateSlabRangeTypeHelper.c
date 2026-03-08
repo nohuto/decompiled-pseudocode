@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiUpdateSlabRangeTypeHelper @ 0x140B972A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiUpdateSlabRangeTypeHelper(__int64 a1, unsigned __int64 *a2, unsigned __int64 *a3)
 {
   unsigned __int64 v4; // rax

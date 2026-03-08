@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpIsUefiFirmwareResourceTablePresent @ 0x14080204C
+ * Callers:
+ *     HalpAddDevice @ 0x140802640 (HalpAddDevice.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ */
+
 char HalpIsUefiFirmwareResourceTablePresent()
 {
   char v0; // bl

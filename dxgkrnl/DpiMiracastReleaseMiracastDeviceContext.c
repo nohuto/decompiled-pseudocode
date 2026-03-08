@@ -1,3 +1,26 @@
+/*
+ * XREFs of DpiMiracastReleaseMiracastDeviceContext @ 0x1C005FF40
+ * Callers:
+ *     DxgkMiracastEnforceInactiveMonitorPolicy @ 0x1C000B1E0 (DxgkMiracastEnforceInactiveMonitorPolicy.c)
+ *     DpiMiracastStopMiracastSessionAsync @ 0x1C0060040 (DpiMiracastStopMiracastSessionAsync.c)
+ *     DpiMiracastStopMiracastSessionSync @ 0x1C0060170 (DpiMiracastStopMiracastSessionSync.c)
+ *     DpiMiracastTargetDeviceChange @ 0x1C0060710 (DpiMiracastTargetDeviceChange.c)
+ *     DpiMiracastTearDownAssociation @ 0x1C0060BE0 (DpiMiracastTearDownAssociation.c)
+ *     DxgkMiracastGetNextChunkInfo @ 0x1C0061380 (DxgkMiracastGetNextChunkInfo.c)
+ *     DxgkMiracastStartMiracastSession @ 0x1C00615C4 (DxgkMiracastStartMiracastSession.c)
+ *     DxgkMiracastStopMiracastSession @ 0x1C00624C4 (DxgkMiracastStopMiracastSession.c)
+ *     DxgkMiracastStopAllMiracastSessions @ 0x1C01C5790 (DxgkMiracastStopAllMiracastSessions.c)
+ *     DpiFdoStopMiracastSession @ 0x1C01E2B40 (DpiFdoStopMiracastSession.c)
+ *     DpiMiracastCbSendUserModeMessage @ 0x1C039A080 (DpiMiracastCbSendUserModeMessage.c)
+ *     DpiMiracastStartSessionRequestCallback @ 0x1C039B630 (DpiMiracastStartSessionRequestCallback.c)
+ *     DpiMiracastStopMiracastSessionWork @ 0x1C039B710 (DpiMiracastStopMiracastSessionWork.c)
+ *     DpiMiracastStopSessionRequestCallback @ 0x1C039B770 (DpiMiracastStopSessionRequestCallback.c)
+ *     DxgkHandleMiracastEscape @ 0x1C039B7B8 (DxgkHandleMiracastEscape.c)
+ *     DxgkMiracastQueryMiracastStatus @ 0x1C039BE64 (DxgkMiracastQueryMiracastStatus.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DpiMiracastReleaseMiracastDeviceContext(int *P, unsigned int a2)
 {
   __int64 v3; // rax

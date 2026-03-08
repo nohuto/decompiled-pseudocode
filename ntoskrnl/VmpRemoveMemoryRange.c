@@ -1,3 +1,20 @@
+/*
+ * XREFs of VmpRemoveMemoryRange @ 0x1405F88E4
+ * Callers:
+ *     VmDeleteMemoryRange @ 0x1409D9890 (VmDeleteMemoryRange.c)
+ * Callees:
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     VmpProcessContextLockExclusive @ 0x14045E6CE (VmpProcessContextLockExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpInvalidateSlatBatched @ 0x1405F73F8 (VmpInvalidateSlatBatched.c)
+ *     VmpVaRangeCheckPinnedGpaRanges @ 0x1405F9384 (VmpVaRangeCheckPinnedGpaRanges.c)
+ *     VmpVaRangeNumberOfGpaRanges @ 0x1405F93B8 (VmpVaRangeNumberOfGpaRanges.c)
+ *     VmpFreeMemoryRanges @ 0x1409DA3BC (VmpFreeMemoryRanges.c)
+ *     VmpUnlockMemoryForPin @ 0x1409DA9F0 (VmpUnlockMemoryForPin.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall VmpRemoveMemoryRange(
         PEX_SPIN_LOCK SpinLock,
         unsigned __int64 a2,

@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpTransMgrRollback @ 0x140781FE8
+ * Callers:
+ *     CmRmFinalizeRecovery @ 0x140733440 (CmRmFinalizeRecovery.c)
+ *     CmKtmNotification @ 0x140734290 (CmKtmNotification.c)
+ *     CmpAbortLightWeightTransaction @ 0x140781F48 (CmpAbortLightWeightTransaction.c)
+ *     CmpRmUnDoPhase @ 0x140A1C3B4 (CmpRmUnDoPhase.c)
+ * Callees:
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     CmListGetNextElement @ 0x140AF2008 (CmListGetNextElement.c)
+ */
+
 __int64 __fastcall CmpTransMgrRollback(__int64 a1, _DWORD *a2)
 {
   struct _KTHREAD *CurrentThread; // rax

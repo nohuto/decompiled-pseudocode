@@ -1,3 +1,12 @@
+/*
+ * XREFs of xxxGetWindowText @ 0x1C01F3F74
+ * Callers:
+ *     xxxDrawCaptionTemp @ 0x1C022EDB4 (xxxDrawCaptionTemp.c)
+ * Callees:
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     xxxDefWindowProc @ 0x1C00A66F0 (xxxDefWindowProc.c)
+ */
+
 __int64 __fastcall xxxGetWindowText(struct tagWND *a1, _WORD *a2)
 {
   __int64 v2; // r8

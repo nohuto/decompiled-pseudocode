@@ -1,3 +1,13 @@
+/*
+ * XREFs of TransformPointBetweenCoordinateSpaces @ 0x1C000ACB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PhysicalToLogicalDPIPoint @ 0x1C000AD50 (PhysicalToLogicalDPIPoint.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C0041AF0 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     LogicalToPhysicalDPIPoint @ 0x1C00C1BB0 (LogicalToPhysicalDPIPoint.c)
+ */
+
 __int64 __fastcall TransformPointBetweenCoordinateSpaces(_QWORD *a1, _QWORD *a2, __int64 a3, __int64 a4)
 {
   unsigned int CurrentThreadDpiAwarenessContext; // edi

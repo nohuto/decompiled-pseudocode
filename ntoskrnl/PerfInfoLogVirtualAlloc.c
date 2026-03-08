@@ -1,3 +1,14 @@
+/*
+ * XREFs of PerfInfoLogVirtualAlloc @ 0x1409E41C8
+ * Callers:
+ *     MiAllocateVirtualMemory @ 0x1407C5270 (MiAllocateVirtualMemory.c)
+ *     MiFinishPlaceholderVadReplacement @ 0x140A45098 (MiFinishPlaceholderVadReplacement.c)
+ * Callees:
+ *     PsGetProcessServerSilo @ 0x1402637E0 (PsGetProcessServerSilo.c)
+ *     EtwTraceSiloKernelEvent @ 0x14035EC20 (EtwTraceSiloKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PerfInfoLogVirtualAlloc(__int64 a1, __int64 a2, __int64 a3, int a4, __int16 a5, __int16 a6)
 {
   int v6; // eax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpUpdateProcessTracingCallback @ 0x1409E4CA0
+ * Callers:
+ *     EtwpEnableDisableUMGL @ 0x1409E4568 (EtwpEnableDisableUMGL.c)
+ *     EtwpUpdatePerProcessTracing @ 0x1409E4B6C (EtwpUpdatePerProcessTracing.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall EtwpUpdateProcessTracingCallback(PRKPROCESS PROCESS, __int64 a2)
 {
   unsigned __int64 v4; // rsi

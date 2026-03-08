@@ -1,3 +1,16 @@
+/*
+ * XREFs of ParkIcon @ 0x1C0101D68
+ * Callers:
+ *     NtUserGetWindowMinimizeRect @ 0x1C000D3A0 (NtUserGetWindowMinimizeRect.c)
+ *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00FFAF8 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
+ * Callees:
+ *     ?IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z @ 0x1C002E354 (-IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z.c)
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     GetRect @ 0x1C0067778 (GetRect.c)
+ *     InternalGetRealClientRect @ 0x1C00A2710 (InternalGetRealClientRect.c)
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ */
+
 __int64 __fastcall ParkIcon(struct tagWND *a1, unsigned int *a2)
 {
   int v4; // r14d

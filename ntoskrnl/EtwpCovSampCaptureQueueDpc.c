@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpCovSampCaptureQueueDpc @ 0x140461BD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ *     EtwpCovSampPushListSList @ 0x140461D1E (EtwpCovSampPushListSList.c)
+ */
+
 void __fastcall EtwpCovSampCaptureQueueDpc(
         struct _KDPC *Dpc,
         char *DeferredContext,

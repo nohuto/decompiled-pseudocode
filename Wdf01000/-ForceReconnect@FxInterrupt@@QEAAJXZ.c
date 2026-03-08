@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ForceReconnect@FxInterrupt@@QEAAJXZ @ 0x1C007F0E8
+ * Callers:
+ *     imp_WdfInterruptEnable @ 0x1C0068130 (imp_WdfInterruptEnable.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qqq @ 0x1C001C308 (WPP_IFR_SF_qqq.c)
+ *     ?Connect@FxInterrupt@@QEAAJK@Z @ 0x1C007E91C (-Connect@FxInterrupt@@QEAAJK@Z.c)
+ */
+
 int __fastcall FxInterrupt::ForceReconnect(FxInterrupt *this)
 {
   unsigned int Flags; // ebx

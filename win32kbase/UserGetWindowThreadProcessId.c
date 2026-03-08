@@ -1,3 +1,14 @@
+/*
+ * XREFs of UserGetWindowThreadProcessId @ 0x1C017CBD4
+ * Callers:
+ *     ?Initialize@CInputQueue@@IEAAJPEAUHWND__@@UtagMsgRoutingInfo@@@Z @ 0x1C00ABAD0 (-Initialize@CInputQueue@@IEAAJPEAUHWND__@@UtagMsgRoutingInfo@@@Z.c)
+ *     NtUserGetWindowThreadProcessId @ 0x1C0171800 (NtUserGetWindowThreadProcessId.c)
+ * Callees:
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C005040C (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
+ *     HMValidateCatHandleNoRip @ 0x1C0246EEC (HMValidateCatHandleNoRip.c)
+ */
+
 __int64 __fastcall UserGetWindowThreadProcessId(__int64 a1, _DWORD *a2, __int64 a3, __int64 a4)
 {
   unsigned int ThreadId; // edi

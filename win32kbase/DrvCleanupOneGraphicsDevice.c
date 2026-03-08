@@ -1,3 +1,16 @@
+/*
+ * XREFs of DrvCleanupOneGraphicsDevice @ 0x1C00A0200
+ * Callers:
+ *     DrvUpdateGraphicsDeviceList @ 0x1C001FAC0 (DrvUpdateGraphicsDeviceList.c)
+ *     ?DrvSetDisconnectedGraphicsDevice@@YAHH@Z @ 0x1C00227EC (-DrvSetDisconnectedGraphicsDevice@@YAHH@Z.c)
+ *     ?DrvCleanupGraphicsDeviceList@@YAXPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00A01A4 (-DrvCleanupGraphicsDeviceList@@YAXPEAUtagGRAPHICS_DEVICE@@@Z.c)
+ *     DrvAddMirrorDriversToRemoteList @ 0x1C00D7164 (DrvAddMirrorDriversToRemoteList.c)
+ *     DrvCleanupGraphicsDevices @ 0x1C0192A24 (DrvCleanupGraphicsDevices.c)
+ * Callees:
+ *     bSetDeviceSessionUsage @ 0x1C001F9F0 (bSetDeviceSessionUsage.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 void __fastcall DrvCleanupOneGraphicsDevice(__int64 a1)
 {
   char *v1; // rdx

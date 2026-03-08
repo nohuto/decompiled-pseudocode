@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?D2DMatrixRotationQuaternion@@YAPEAUD2DMatrix@@PEAU1@PEBUD2DQuaternion@@@Z @ 0x18027A59C
+ * Callers:
+ *     ?GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ @ 0x1802391F0 (-GenerateVector3Basis@CNaturalAnimation@@AEAA_NXZ.c)
+ *     ?Matrix4x4FromQuaternion@CExpressionValueStack@@QEAAJXZ @ 0x18025BD1C (-Matrix4x4FromQuaternion@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?Matrix4x4FromYawPitchRoll@CExpressionValueStack@@QEAAJXZ @ 0x18025C95C (-Matrix4x4FromYawPitchRoll@CExpressionValueStack@@QEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 struct D2DMatrix *__fastcall D2DMatrixRotationQuaternion(struct D2DMatrix *a1, const struct D2DQuaternion *a2)
 {
   float v2; // xmm7_4

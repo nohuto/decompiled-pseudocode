@@ -1,3 +1,18 @@
+/*
+ * XREFs of NVMeDirectiveStreamsGetStatus @ 0x1C001CEE4
+ * Callers:
+ *     IoctlStorageStreamsGetOpenStreams @ 0x1C0014194 (IoctlStorageStreamsGetOpenStreams.c)
+ * Callees:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C000C1C0 (NVMeAllocateDmaBuffer.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ *     SetPrpFromBuffer @ 0x1C001B45C (SetPrpFromBuffer.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 __int64 __fastcall NVMeDirectiveStreamsGetStatus(__int64 a1, int a2, unsigned int a3, unsigned int *a4, __int64 a5)
 {
   __int64 v9; // r15

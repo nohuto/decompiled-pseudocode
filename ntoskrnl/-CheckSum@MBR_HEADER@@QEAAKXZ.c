@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CheckSum@MBR_HEADER@@QEAAKXZ @ 0x140673920
+ * Callers:
+ *     ?ReadPartitionTable@SC_MBR@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x140673B58 (-ReadPartitionTable@SC_MBR@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x140673F9C (-WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?ReadPartitionTable@SC_RAW@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z @ 0x14067476C (-ReadPartitionTable@SC_RAW@@QEAAJPEAPEAVSC_DISK_LAYOUT@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MBR_HEADER::CheckSum(const __m128i *this)
 {
   __m128i v1; // xmm1

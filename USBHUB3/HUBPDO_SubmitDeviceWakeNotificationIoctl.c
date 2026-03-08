@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBPDO_SubmitDeviceWakeNotificationIoctl @ 0x1C001C570
+ * Callers:
+ *     HUBPDO_EvtDeviceEnableWakeAtBus @ 0x1C001C7C0 (HUBPDO_EvtDeviceEnableWakeAtBus.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 __int64 __fastcall HUBPDO_SubmitDeviceWakeNotificationIoctl(_QWORD *a1)
 {
   unsigned int v1; // edi

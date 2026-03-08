@@ -1,3 +1,17 @@
+/*
+ * XREFs of LdrpAccessResourceDataNoMultipleLanguage @ 0x1407EA480
+ * Callers:
+ *     LdrpFindMessageInAlternateModule @ 0x14035C884 (LdrpFindMessageInAlternateModule.c)
+ *     LdrpGetRcConfig @ 0x14035CDC4 (LdrpGetRcConfig.c)
+ *     LdrpAccessResourceData @ 0x1407E987C (LdrpAccessResourceData.c)
+ * Callees:
+ *     RtlAddressInSectionTable @ 0x14035D764 (RtlAddressInSectionTable.c)
+ *     RtlSectionTableFromVirtualAddress @ 0x14035D7C0 (RtlSectionTableFromVirtualAddress.c)
+ *     LdrpGetImageSize @ 0x14035D8E8 (LdrpGetImageSize.c)
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ */
+
 __int64 __fastcall LdrpAccessResourceDataNoMultipleLanguage(
         unsigned __int64 a1,
         unsigned int *a2,

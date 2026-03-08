@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_GetIntendedUsageFromDescriptor@MonitorUsageState@DxgMonitor@@AEAAJPEBUIMonitorDescriptor@2@PEAW4_DXGK_DISPLAY_USAGE@@PEA_N2@Z @ 0x1C021450C
+ * Callers:
+ *     ?_EvaluateUsageState@MonitorUsageState@DxgMonitor@@AEAA_NPEBUIMonitorDescriptor@2@@Z @ 0x1C0214408 (-_EvaluateUsageState@MonitorUsageState@DxgMonitor@@AEAA_NPEBUIMonitorDescriptor@2@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DxgMonitor::MonitorUsageState::_GetIntendedUsageFromDescriptor(
         DxgMonitor::MonitorUsageState *this,
         const struct DxgMonitor::IMonitorDescriptor *a2,

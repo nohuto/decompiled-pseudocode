@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoGetRequestorSessionId @ 0x140300CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ */
+
 NTSTATUS __stdcall IoGetRequestorSessionId(PIRP Irp, PULONG pSessionId)
 {
   PETHREAD Thread; // rcx

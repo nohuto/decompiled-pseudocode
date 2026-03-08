@@ -1,3 +1,20 @@
+/*
+ * XREFs of IoCreateDeviceSecure @ 0x14083BAD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x1402C0CD0 (SeConvertStringSecurityDescriptorToSecurityDescriptor.c)
+ *     IoDeleteDevice @ 0x140368010 (IoDeleteDevice.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ObSetSecurityObjectByPointer @ 0x1406DB6C0 (ObSetSecurityObjectByPointer.c)
+ *     IoCreateDevice @ 0x1407F0460 (IoCreateDevice.c)
+ *     IopUpdateSecureDeviceClassState @ 0x14083B398 (IopUpdateSecureDeviceClassState.c)
+ *     IopCreateSecureDeviceClassSettings @ 0x14083B634 (IopCreateSecureDeviceClassSettings.c)
+ *     IopGetSecurityDescriptorInformation @ 0x14083BD24 (IopGetSecurityDescriptorInformation.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IoCreateDeviceSecure(
         struct _DRIVER_OBJECT *a1,
         ULONG a2,

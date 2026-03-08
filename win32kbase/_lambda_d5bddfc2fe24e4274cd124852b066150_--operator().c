@@ -1,3 +1,11 @@
+/*
+ * XREFs of _lambda_d5bddfc2fe24e4274cd124852b066150_::operator() @ 0x1C0223D88
+ * Callers:
+ *     ?FindTouchpadAndContact@VirtualTouchpadProcessor@@AEAA_NQEAUtagHID_POINTER_DEVICE_INFO@@PEBUCPointerInfoNode@@PEAPEAVVPTPTouchpad@@PEAPEAVVPTPContact@@@Z @ 0x1C022463C (-FindTouchpadAndContact@VirtualTouchpadProcessor@@AEAA_NQEAUtagHID_POINTER_DEVICE_INFO@@PEBUCPoi.c)
+ * Callees:
+ *     ?InverseTransformPoint@@YA?AUTransformedPoint@@AEBU1@AEBUtagINPUT_TRANSFORM@@@Z @ 0x1C0158220 (-InverseTransformPoint@@YA-AUTransformedPoint@@AEBU1@AEBUtagINPUT_TRANSFORM@@@Z.c)
+ */
+
 __int64 __fastcall lambda_d5bddfc2fe24e4274cd124852b066150_::operator()(
         __int64 a1,
         __int64 a2,

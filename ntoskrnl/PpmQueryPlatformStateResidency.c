@@ -1,3 +1,17 @@
+/*
+ * XREFs of PpmQueryPlatformStateResidency @ 0x1403D1420
+ * Callers:
+ *     PopCalculateIdleInformation @ 0x1403C2C3C (PopCalculateIdleInformation.c)
+ *     PpmQueryDripsResidency @ 0x140583550 (PpmQueryDripsResidency.c)
+ *     PopQueryBootSessionStandbyActivationInfo @ 0x140584D84 (PopQueryBootSessionStandbyActivationInfo.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PpmQueryPlatformStateResidency(unsigned int a1)
 {
   __int64 v1; // rsi

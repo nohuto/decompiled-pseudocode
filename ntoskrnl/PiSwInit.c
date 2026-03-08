@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiSwInit @ 0x140B56DF0
+ * Callers:
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     RtlInitializeGenericTableAvl @ 0x140245560 (RtlInitializeGenericTableAvl.c)
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     IoCreateDriver @ 0x14081AF70 (IoCreateDriver.c)
+ */
+
 NTSTATUS PiSwInit()
 {
   NTSTATUS result; // eax

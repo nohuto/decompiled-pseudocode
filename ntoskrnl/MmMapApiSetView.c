@@ -1,3 +1,15 @@
+/*
+ * XREFs of MmMapApiSetView @ 0x140707874
+ * Callers:
+ *     PspSetupUserProcessAddressSpace @ 0x14070733C (PspSetupUserProcessAddressSpace.c)
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ * Callees:
+ *     PsGetProcessServerSilo @ 0x1402637E0 (PsGetProcessServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     PsIsHostSilo @ 0x14030F2E0 (PsIsHostSilo.c)
+ *     MmMapViewOfSection @ 0x14069EC70 (MmMapViewOfSection.c)
+ */
+
 __int64 __fastcall MmMapApiSetView(__int64 a1)
 {
   __int64 ProcessServerSilo; // rdi

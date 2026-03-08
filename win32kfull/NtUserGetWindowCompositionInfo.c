@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserGetWindowCompositionInfo @ 0x1C00E9E40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?_GetWindowCompositionInfo@@YAHPEBUtagWND@@PEAUWINDOWCOMPOSITIONINFO@@@Z @ 0x1C0043348 (-_GetWindowCompositionInfo@@YAHPEBUtagWND@@PEAUWINDOWCOMPOSITIONINFO@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall NtUserGetWindowCompositionInfo(__int64 a1, ULONG64 a2)
 {
   __int64 v4; // rbx

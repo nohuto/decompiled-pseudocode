@@ -1,3 +1,14 @@
+/*
+ * XREFs of BiIssueGetDriveLayoutIoctl @ 0x1408302C0
+ * Callers:
+ *     BiGetDriveLayoutInformation @ 0x1408301F8 (BiGetDriveLayoutInformation.c)
+ * Callees:
+ *     ZwDeviceIoControlFile @ 0x1404123F0 (ZwDeviceIoControlFile.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiIssueGetDriveLayoutIoctl(HANDLE FileHandle, _QWORD *a2)
 {
   ULONG OutputBufferLength; // ebp

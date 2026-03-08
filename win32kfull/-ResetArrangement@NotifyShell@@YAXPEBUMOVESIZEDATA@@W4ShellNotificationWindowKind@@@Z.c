@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ResetArrangement@NotifyShell@@YAXPEBUMOVESIZEDATA@@W4ShellNotificationWindowKind@@@Z @ 0x1C02205FC
+ * Callers:
+ *     ?xxxUpdateArrangeDataForMove@@YAXPEAUMOVESIZEDATA@@PEAUtagMONITOR@@W4THRESHOLD_MARGIN_DIRECTION@@2@Z @ 0x1C01F3238 (-xxxUpdateArrangeDataForMove@@YAXPEAUMOVESIZEDATA@@PEAUtagMONITOR@@W4THRESHOLD_MARGIN_DIRECTION@.c)
+ * Callees:
+ *     _anonymous_namespace_::NotifyShellSimplePayload @ 0x1C0220058 (_anonymous_namespace_--NotifyShellSimplePayload.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dds @ 0x1C02220B4 (WPP_RECORDER_AND_TRACE_SF_dds.c)
+ */
+
 bool __fastcall NotifyShell::ResetArrangement(__int64 a1, unsigned int a2)
 {
   unsigned int v2; // edi

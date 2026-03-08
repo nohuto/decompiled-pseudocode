@@ -1,3 +1,15 @@
+/*
+ * XREFs of VfEvtDeviceSelfManagedIoFlush @ 0x1C00B8E20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     VerifyCriticalRegionEntry @ 0x1C002E830 (VerifyCriticalRegionEntry.c)
+ *     VerifyCriticalRegionExit @ 0x1C002E864 (VerifyCriticalRegionExit.c)
+ *     VerifyIrqlExit @ 0x1C002E8CC (VerifyIrqlExit.c)
+ *     VfWdfObjectGetTypedContext @ 0x1C00B84EC (VfWdfObjectGetTypedContext.c)
+ */
+
 void __fastcall VfEvtDeviceSelfManagedIoFlush(WDFDEVICE__ *Device)
 {
   char *TypedContext; // rdi

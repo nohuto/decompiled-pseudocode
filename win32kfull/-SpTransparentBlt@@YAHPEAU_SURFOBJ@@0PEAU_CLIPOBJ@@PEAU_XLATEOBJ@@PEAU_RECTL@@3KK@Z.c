@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?SpTransparentBlt@@YAHPEAU_SURFOBJ@@0PEAU_CLIPOBJ@@PEAU_XLATEOBJ@@PEAU_RECTL@@3KK@Z @ 0x1C0019240
+ * Callers:
+ *     <none>
+ * Callees:
+ *     OffTransparentBlt @ 0x1C0018944 (OffTransparentBlt.c)
+ *     ?bEnum@ENUMUNDERLAYS@@QEAAHPEAPEAU_SURFOBJ@@PEAU_POINTL@@PEAPEAU_CLIPOBJ@@@Z @ 0x1C001C4E4 (-bEnum@ENUMUNDERLAYS@@QEAAHPEAPEAU_SURFOBJ@@PEAU_POINTL@@PEAPEAU_CLIPOBJ@@@Z.c)
+ *     ??0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z @ 0x1C001C7C4 (--0ENUMUNDERLAYS@@QEAA@PEAU_SURFOBJ@@PEAU_CLIPOBJ@@PEAU_RECTL@@@Z.c)
+ *     ?bRender@NEEDDDILOCK@@QEAAHPEAPEAU_CLIPOBJ@@@Z @ 0x1C001CEBC (-bRender@NEEDDDILOCK@@QEAAHPEAPEAU_CLIPOBJ@@@Z.c)
+ *     ?bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z @ 0x1C001CEF4 (-bAllowShareAccess@@YAHPEAU_SURFOBJ@@@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     EngTransparentBlt @ 0x1C00F1E60 (EngTransparentBlt.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 BOOL __fastcall SpTransparentBlt(
         struct _SURFOBJ *a1,
         struct _SURFOBJ *a2,

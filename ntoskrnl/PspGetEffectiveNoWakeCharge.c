@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspGetEffectiveNoWakeCharge @ 0x1406FC1C4
+ * Callers:
+ *     PspEnforceLimitsJobPostCallback @ 0x1406FBA00 (PspEnforceLimitsJobPostCallback.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspGetEffectiveNoWakeCharge(__int64 a1, _QWORD *a2, _QWORD *a3)
 {
   __int64 result; // rax

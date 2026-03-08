@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiRestoreIptState @ 0x140570600
+ * Callers:
+ *     KeRestoreSupervisorState @ 0x14036A0E0 (KeRestoreSupervisorState.c)
+ *     KeRestoreIptStateAfterProcessorComesOnline @ 0x14057007C (KeRestoreIptStateAfterProcessorComesOnline.c)
+ *     KiRestoreThreadIptState @ 0x140570700 (KiRestoreThreadIptState.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall KiRestoreIptState(unsigned __int64 *a1)
 {
   char v1; // r10

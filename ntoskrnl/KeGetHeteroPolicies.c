@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeGetHeteroPolicies @ 0x14038E448
+ * Callers:
+ *     PpmEventTraceHeteroSets @ 0x140826F54 (PpmEventTraceHeteroSets.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall KeGetHeteroPolicies(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v7; // edx

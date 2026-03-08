@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetLinkedRfontOnIndex@ESTROBJ@@QEAAPEAVRFONT@@JAEAVRFONTOBJ@@@Z @ 0x1C02DB5F8
+ * Callers:
+ *     ?bExtraRectsToPath@ESTROBJ@@QEAAHAEAVEPATHOBJ@@@Z @ 0x1C02DBA10 (-bExtraRectsToPath@ESTROBJ@@QEAAHAEAVEPATHOBJ@@@Z.c)
+ *     ?vInitSimple@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@JJPEAX@Z @ 0x1C02DD80C (-vInitSimple@ESTROBJ@@QEAAXPEAGJAEAVXDCOBJ@@AEAVRFONTOBJ@@JJPEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct RFONT *__fastcall ESTROBJ::GetLinkedRfontOnIndex(ESTROBJ *this, int a2, struct RFONTOBJ *a3)
 {
   int v3; // r9d

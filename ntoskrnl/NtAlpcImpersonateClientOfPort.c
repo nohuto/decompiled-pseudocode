@@ -1,3 +1,20 @@
+/*
+ * XREFs of NtAlpcImpersonateClientOfPort @ 0x1406D4A10
+ * Callers:
+ *     NtImpersonateClientOfPort @ 0x1409755F0 (NtImpersonateClientOfPort.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     AlpcpImpersonateMessage @ 0x1406D4C70 (AlpcpImpersonateMessage.c)
+ *     AlpcpCaptureIdMessage @ 0x1406D4EB0 (AlpcpCaptureIdMessage.c)
+ *     AlpcpReferenceConnectedPort @ 0x1406D4F38 (AlpcpReferenceConnectedPort.c)
+ *     SeImpersonateClientEx @ 0x140773900 (SeImpersonateClientEx.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     AlpcpLookupMessage @ 0x1407CA7C0 (AlpcpLookupMessage.c)
+ *     AlpcpUnlockBlob @ 0x1407CDB50 (AlpcpUnlockBlob.c)
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x140977A1C (AlpcpEnterStateChangeEventMessageLog.c)
+ */
+
 __int64 __fastcall NtAlpcImpersonateClientOfPort(void *a1, __int64 a2, unsigned __int64 a3)
 {
   void *v5; // r10

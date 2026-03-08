@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IgnoreAlpha_32bppARGB@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802BAF40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall IgnoreAlpha_32bppARGB(const struct PipelineParams *a1, const struct ScanOpParams *a2)
 {
   int *v2; // r8

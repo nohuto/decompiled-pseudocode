@@ -1,3 +1,20 @@
+/*
+ * XREFs of EtwpApplyEventNameFilter @ 0x140462256
+ * Callers:
+ *     EtwpEventWriteFull @ 0x1402319C0 (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x1406AA640 (EtwpWriteUserEvent.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1404210C0 (_alloca_probe.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     EtwpEventNameFilterSearch @ 0x1404627CE (EtwpEventNameFilterSearch.c)
+ *     EtwpGetEventNameFromEventMetadata @ 0x140462A96 (EtwpGetEventNameFromEventMetadata.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall EtwpApplyEventNameFilter(
         __int64 a1,
         unsigned int a2,

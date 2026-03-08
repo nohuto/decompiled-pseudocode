@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ReadPhysicalAdapterConfiguration@VIDMM_GLOBAL@@IEAAXI@Z @ 0x1C00BD6E8
+ * Callers:
+ *     ?Init@VIDMM_GLOBAL@@QEAAJPEAVADAPTER_RENDER@@PEAU_DXGK_QUERYSEGMENTOUT4@@KI@Z @ 0x1C00BB7F0 (-Init@VIDMM_GLOBAL@@QEAAJPEAVADAPTER_RENDER@@PEAU_DXGK_QUERYSEGMENTOUT4@@KI@Z.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C00023B8 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     DpiGetPnpRegistryKeyName @ 0x1C001958C (DpiGetPnpRegistryKeyName.c)
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     ??1?$PagedPoolArray@G$0IA@@@QEAA@XZ @ 0x1C00BD998 (--1-$PagedPoolArray@G$0IA@@@QEAA@XZ.c)
+ */
+
 void __fastcall VIDMM_GLOBAL::ReadPhysicalAdapterConfiguration(VIDMM_GLOBAL *this, unsigned int a2)
 {
   unsigned int v2; // ebx

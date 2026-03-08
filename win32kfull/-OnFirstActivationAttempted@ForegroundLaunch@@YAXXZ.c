@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?OnFirstActivationAttempted@ForegroundLaunch@@YAXXZ @ 0x1C0022078
+ * Callers:
+ *     _anonymous_namespace_::RemoveForegroundActivate @ 0x1C0022C5C (_anonymous_namespace_--RemoveForegroundActivate.c)
+ * Callees:
+ *     ??0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C0022210 (--0CAutoPushLockEx@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     _anonymous_namespace_::AppStarting_Clear @ 0x1C003CBD0 (_anonymous_namespace_--AppStarting_Clear.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C003F908 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void __fastcall ForegroundLaunch::OnFirstActivationAttempted(ForegroundLaunch *this)
 {
   __int64 CurrentProcessWin32Process; // rax

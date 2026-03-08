@@ -1,3 +1,15 @@
+/*
+ * XREFs of MmGetImageFileSignatureInformation @ 0x140361CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDereferenceControlAreaBySection @ 0x1403349EC (MiDereferenceControlAreaBySection.c)
+ *     MiRemoveUnusedSegment @ 0x14034C47C (MiRemoveUnusedSegment.c)
+ *     MiLockSectionControlArea @ 0x1403638A8 (MiLockSectionControlArea.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall MmGetImageFileSignatureInformation(__int64 a1)
 {
   __int64 v1; // rcx

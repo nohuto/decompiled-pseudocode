@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ScaleValueWithSubpixel@@YAXPEAJPEAMM@Z @ 0x1C0144C12
+ * Callers:
+ *     PhysicalToLogicalInPlaceRectWithSubpixel @ 0x1C00A35E4 (PhysicalToLogicalInPlaceRectWithSubpixel.c)
+ *     LogicalToPhysicalInPlaceRectWithSubpixel @ 0x1C00A3628 (LogicalToPhysicalInPlaceRectWithSubpixel.c)
+ *     ScaleDpiOffsetWithSubpixel @ 0x1C01BB208 (ScaleDpiOffsetWithSubpixel.c)
+ *     ScaleDpiValueWithSubpixel @ 0x1C01BB288 (ScaleDpiValueWithSubpixel.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ScaleValueWithSubpixel(int *a1, float *a2, float a3)
 {
   float v3; // xmm0_4

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmUpdateArchitecturalEfficiencyClass @ 0x140B68574
+ * Callers:
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     KeIsMultiCoreClassesEnabled @ 0x14038E410 (KeIsMultiCoreClassesEnabled.c)
+ */
+
 __int64 PpmUpdateArchitecturalEfficiencyClass()
 {
   unsigned int v0; // esi

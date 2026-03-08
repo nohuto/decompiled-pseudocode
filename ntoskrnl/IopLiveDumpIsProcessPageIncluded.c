@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopLiveDumpIsProcessPageIncluded @ 0x140A98844
+ * Callers:
+ *     IopLiveDumpMirrorPhysicalMemoryCallback @ 0x140A98F10 (IopLiveDumpMirrorPhysicalMemoryCallback.c)
+ * Callees:
+ *     IopLiveDumpLookupProcessFilter @ 0x140A988E4 (IopLiveDumpLookupProcessFilter.c)
+ */
+
 __int64 __fastcall IopLiveDumpIsProcessPageIncluded(__int64 a1, _QWORD *a2)
 {
   int v2; // ebx

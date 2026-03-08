@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FreeMoveSizeData@MOVESIZEDATA@@SAXPEAPEAU1@@Z @ 0x1C023CFF0
+ * Callers:
+ *     ?xxxMoveSize@@YAXPEAUtagWND@@IK@Z @ 0x1C01F0DC4 (-xxxMoveSize@@YAXPEAUtagWND@@IK@Z.c)
+ *     EditionFreeMoveSizeDataOnThreadDestroy @ 0x1C01F3390 (EditionFreeMoveSizeDataOnThreadDestroy.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall MOVESIZEDATA::FreeMoveSizeData(struct MOVESIZEDATA **a1)
 {
   _QWORD *v2; // rax

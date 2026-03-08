@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiLockPageTableRange @ 0x14064AAA8
+ * Callers:
+ *     MmStoreAllocateVirtualMemory @ 0x140A42EFC (MmStoreAllocateVirtualMemory.c)
+ * Callees:
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiLockPageTablePage @ 0x14026A4D0 (MiLockPageTablePage.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeSystemAddressValid @ 0x140321770 (MiMakeSystemAddressValid.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiUnlockPageTableRange @ 0x14064AC34 (MiUnlockPageTableRange.c)
+ */
+
 __int64 __fastcall MiLockPageTableRange(unsigned __int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 *v3; // r14

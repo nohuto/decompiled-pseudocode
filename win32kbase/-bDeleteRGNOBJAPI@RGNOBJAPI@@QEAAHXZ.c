@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?bDeleteRGNOBJAPI@RGNOBJAPI@@QEAAHXZ @ 0x1C0019970
+ * Callers:
+ *     EngDeleteRgn @ 0x1C0019A50 (EngDeleteRgn.c)
+ * Callees:
+ *     ?bLockHobj@HANDLELOCK@@QEAAHPEAUHOBJ__@@E@Z @ 0x1C00438B0 (-bLockHobj@HANDLELOCK@@QEAAHPEAUHOBJ__@@E@Z.c)
+ *     ?bDeleteHandle@RGNOBJAPI@@QEAAHXZ @ 0x1C0045C0C (-bDeleteHandle@RGNOBJAPI@@QEAAHXZ.c)
+ *     ?GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z @ 0x1C004A2C0 (-GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C004A440 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BASEOBJECT@@@Z @ 0x1C00542B0 (-bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BA.c)
+ *     ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C00558E0 (-vDeleteREGION@REGION@@QEAAXXZ.c)
+ *     HmgFreeObjectAttr @ 0x1C00D43C0 (HmgFreeObjectAttr.c)
+ */
+
 __int64 __fastcall RGNOBJAPI::bDeleteRGNOBJAPI(RGNOBJAPI *this)
 {
   unsigned int v1; // edi

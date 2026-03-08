@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ConvertToMatrix_V2@@YAJPEBU_D3DKMDT_GAMMA_RAMP@@PEAU1@@Z @ 0x1C0074104
+ * Callers:
+ *     ColorSpaceTransformConvert @ 0x1C0004808 (ColorSpaceTransformConvert.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     ?InitializeIdentityLut@@YAJPEAUD3DDDI_DXGI_RGB@@IMM@Z @ 0x1C0074204 (-InitializeIdentityLut@@YAJPEAUD3DDDI_DXGI_RGB@@IMM@Z.c)
+ *     ColorSpaceTransformCombine @ 0x1C00742E4 (ColorSpaceTransformCombine.c)
+ *     ColorSpaceTransformInitIdentityTransform @ 0x1C0074718 (ColorSpaceTransformInitIdentityTransform.c)
+ */
+
 __int64 __fastcall ConvertToMatrix_V2(
         const struct _D3DKMDT_GAMMA_RAMP *a1,
         struct _D3DKMDT_GAMMA_RAMP *a2,

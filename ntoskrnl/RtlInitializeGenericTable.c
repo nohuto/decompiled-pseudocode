@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlInitializeGenericTable @ 0x1402FA420
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __stdcall RtlInitializeGenericTable(
         PRTL_GENERIC_TABLE Table,
         PRTL_GENERIC_COMPARE_ROUTINE CompareRoutine,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of EditionIsPointerInputRedirected @ 0x1C01468A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     INPUTDEST_FROM_PWND @ 0x1C00E6A40 (INPUTDEST_FROM_PWND.c)
+ *     IsPointerInputRedirected @ 0x1C014695A (IsPointerInputRedirected.c)
+ */
+
 __int64 __fastcall EditionIsPointerInputRedirected(__int64 a1, unsigned int a2, _OWORD *a3)
 {
   unsigned int v4; // ebx

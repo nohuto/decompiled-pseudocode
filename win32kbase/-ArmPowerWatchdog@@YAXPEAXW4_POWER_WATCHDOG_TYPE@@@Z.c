@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?ArmPowerWatchdog@@YAXPEAXW4_POWER_WATCHDOG_TYPE@@@Z @ 0x1C00D229C
+ * Callers:
+ *     ?xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z @ 0x1C00B4A78 (-xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z.c)
+ *     QueuePowerRequest @ 0x1C00B7EA0 (QueuePowerRequest.c)
+ *     PowerOnMonitor @ 0x1C015BD90 (PowerOnMonitor.c)
+ * Callees:
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C00EE6B4 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     ?GetPowerWatchdogTimeoutMsec@@YAKW4_POWER_WATCHDOG_TYPE@@@Z @ 0x1C0159D18 (-GetPowerWatchdogTimeoutMsec@@YAKW4_POWER_WATCHDOG_TYPE@@@Z.c)
+ */
+
 void __fastcall ArmPowerWatchdog(__int64 a1, int a2)
 {
   __int64 v2; // rdi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ppfeNext@ENUMFHOBJ@@QEAAPEAVPFE@@XZ @ 0x1C014DD40
+ * Callers:
+ *     ?vEmergency@MAPPER@@QEAAXXZ @ 0x1C014DD80 (-vEmergency@MAPPER@@QEAAXXZ.c)
+ *     ?bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z @ 0x1C029D344 (-bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z.c)
+ *     ?vAttemptDeviceMatch@MAPPER@@QEAAXXZ @ 0x1C029D774 (-vAttemptDeviceMatch@MAPPER@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 struct PFE *__fastcall ENUMFHOBJ::ppfeNext(ENUMFHOBJ *this)
 {
   __int64 *v1; // rax

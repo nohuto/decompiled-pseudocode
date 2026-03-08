@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CFlipPresentUpdate@@UEAA@XZ @ 0x1C0087C38
+ * Callers:
+ *     ??_GCFlipPresentUpdate@@UEAAPEAXI@Z @ 0x1C00819C0 (--_GCFlipPresentUpdate@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?Release@CFlipPropertySetBase@@QEAAKXZ @ 0x1C007F6D4 (-Release@CFlipPropertySetBase@@QEAAKXZ.c)
+ *     ??1CFlipTokenOperation@@MEAA@XZ @ 0x1C0084814 (--1CFlipTokenOperation@@MEAA@XZ.c)
+ */
+
 void __fastcall CFlipPresentUpdate::~CFlipPresentUpdate(CFlipPresentUpdate *this)
 {
   __int64 v2; // rdi

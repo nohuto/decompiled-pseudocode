@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIIsPowerNodeMissingDependencies @ 0x1C0022140
+ * Callers:
+ *     ACPIDevicePowerProcessPhase3 @ 0x1C001FEA4 (ACPIDevicePowerProcessPhase3.c)
+ * Callees:
+ *     ACPIInternalGetDeviceFromNSOBJ @ 0x1C00035BC (ACPIInternalGetDeviceFromNSOBJ.c)
+ *     WPP_RECORDER_SF_sL @ 0x1C0015638 (WPP_RECORDER_SF_sL.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNameSpaceObject @ 0x1C00483B8 (AMLIGetNameSpaceObject.c)
+ */
+
 char __fastcall ACPIIsPowerNodeMissingDependencies(__int64 a1)
 {
   char v1; // bl

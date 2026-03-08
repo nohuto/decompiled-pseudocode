@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CalcDirectionVector@@YA?AUD2D_VECTOR_2F@@AEBUD2D_POINT_2F@@0@Z @ 0x1801FDBA0
+ * Callers:
+ *     ?TryAddEdgeFromEndPoints@?$CConvexPolygonEdgeMap@I@@QEAA_NAEBUD2D_POINT_2F@@0AEBIM@Z @ 0x1801FDF84 (-TryAddEdgeFromEndPoints@-$CConvexPolygonEdgeMap@I@@QEAA_NAEBUD2D_POINT_2F@@0AEBIM@Z.c)
+ * Callees:
+ *     sqrtf_0 @ 0x1801177AC (sqrtf_0.c)
+ */
+
 struct D2D_VECTOR_2F __fastcall CalcDirectionVector(const struct D2D_POINT_2F *a1, const struct D2D_POINT_2F *a2)
 {
   float v2; // xmm6_4

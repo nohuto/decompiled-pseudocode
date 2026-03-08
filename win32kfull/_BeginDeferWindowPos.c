@@ -1,3 +1,12 @@
+/*
+ * XREFs of _BeginDeferWindowPos @ 0x1C0027918
+ * Callers:
+ *     NtUserBeginDeferWindowPos @ 0x1C00278D0 (NtUserBeginDeferWindowPos.c)
+ *     ?xxxSetWindowBand@@YAHPEAUtagWND@@0W4ZBID@@W4WindowBandOptions@@@Z @ 0x1C009BB98 (-xxxSetWindowBand@@YAHPEAUtagWND@@0W4ZBID@@W4WindowBandOptions@@@Z.c)
+ * Callees:
+ *     AllocateCvr @ 0x1C0027990 (AllocateCvr.c)
+ */
+
 __int64 __fastcall BeginDeferWindowPos(unsigned int a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rax

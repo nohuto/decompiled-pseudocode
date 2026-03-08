@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?CreateOverlay@DXGDEVICE@@QEAAJPEAU_D3DKMT_CREATEOVERLAY@@@Z @ 0x1C02E407C
+ * Callers:
+ *     DxgkCreateOverlay @ 0x1C0330DB0 (DxgkCreateOverlay.c)
+ * Callees:
+ *     ??2?$DXGQUOTAALLOCATOR@$0BAA@$0ELGHHIEE@@@SAPEAX_K@Z @ 0x1C000E280 (--2-$DXGQUOTAALLOCATOR@$0BAA@$0ELGHHIEE@@@SAPEAX_K@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ??_GDXGOVERLAY@@QEAAPEAXI@Z @ 0x1C00487F0 (--_GDXGOVERLAY@@QEAAPEAXI@Z.c)
+ *     ?Initialize@DXGOVERLAY@@QEAAJPEAU_D3DKMT_CREATEOVERLAY@@@Z @ 0x1C0330418 (-Initialize@DXGOVERLAY@@QEAAJPEAU_D3DKMT_CREATEOVERLAY@@@Z.c)
+ */
+
 __int64 __fastcall DXGDEVICE::CreateOverlay(DXGDEVICE *this, struct _D3DKMT_CREATEOVERLAY *a2)
 {
   __int64 v4; // rax

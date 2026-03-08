@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?cKernPairs@PFEOBJ@@QEAAKPEAPEBU_FD_KERNINGPAIR@@@Z @ 0x1C02E3380
+ * Callers:
+ *     ?GreGetKerningPairs@@YAKPEAUHDC__@@KPEAUtagKERNINGPAIR@@W4EntryPoint@RFONTOBJ@@@Z @ 0x1C02906A8 (-GreGetKerningPairs@@YAKPEAUHDC__@@KPEAUtagKERNINGPAIR@@W4EntryPoint@RFONTOBJ@@@Z.c)
+ * Callees:
+ *     ?QueryFontTree@PFFOBJ@@QEAAPEAXPEAUDHPDEV__@@_KKKPEA_K@Z @ 0x1C01223D8 (-QueryFontTree@PFFOBJ@@QEAAPEAXPEAUDHPDEV__@@_KKKPEA_K@Z.c)
+ */
+
 unsigned __int64 __fastcall PFEOBJ::cKernPairs(PFEOBJ *this, const struct _FD_KERNINGPAIR **a2)
 {
   const struct _FD_KERNINGPAIR *v4; // r8

@@ -1,3 +1,16 @@
+/*
+ * XREFs of GreAddFontMemResourceEx @ 0x1C028E05C
+ * Callers:
+ *     NtGdiAddFontMemResourceEx @ 0x1C02C4500 (NtGdiAddFontMemResourceEx.c)
+ * Callees:
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?bInitPrivatePFT@@YAHXZ @ 0x1C026D728 (-bInitPrivatePFT@@YAHXZ.c)
+ *     ?hLoadMemFonts@PUBLIC_PFTOBJ@@QEAAPEAXPEAPEAU_FONTFILEVIEW@@PEAUtagDESIGNVECTOR@@KPEAKPEAH@Z @ 0x1C026DF1C (-hLoadMemFonts@PUBLIC_PFTOBJ@@QEAAPEAXPEAPEAU_FONTFILEVIEW@@PEAUtagDESIGNVECTOR@@KPEAKPEAH@Z.c)
+ *     ?bCreateFontFileView@@YAHPEBU_FONTFILEVIEW@@PEBUtagDOWNLOADFONTHEADER@@KPEAPEAPEAU1@K@Z @ 0x1C028D95C (-bCreateFontFileView@@YAHPEBU_FONTFILEVIEW@@PEBUtagDOWNLOADFONTHEADER@@KPEAPEAPEAU1@K@Z.c)
+ *     cMapRemoteFonts @ 0x1C028E420 (cMapRemoteFonts.c)
+ *     vUnmapRemoteFonts @ 0x1C028E900 (vUnmapRemoteFonts.c)
+ */
+
 __int64 __fastcall GreAddFontMemResourceEx(
         struct tagDOWNLOADFONTHEADER *a1,
         int a2,

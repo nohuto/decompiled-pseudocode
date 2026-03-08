@@ -1,3 +1,11 @@
+/*
+ * XREFs of wil_details_MapReportingKind @ 0x1C001A4B8
+ * Callers:
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C0019FFC (wil_details_FeatureReporting_ReportUsageToService.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall wil_details_MapReportingKind(int a1, int a2)
 {
   unsigned __int8 v2; // cl

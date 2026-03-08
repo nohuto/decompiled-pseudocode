@@ -1,3 +1,13 @@
+/*
+ * XREFs of BiGetPartitionInformation @ 0x140830398
+ * Callers:
+ *     BiCreatePartitionDevice @ 0x14082FDBC (BiCreatePartitionDevice.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwDeviceIoControlFile @ 0x1404123F0 (ZwDeviceIoControlFile.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall BiGetPartitionInformation(HANDLE FileHandle, int a2, _OWORD *a3)
 {
   NTSTATUS v6; // edx

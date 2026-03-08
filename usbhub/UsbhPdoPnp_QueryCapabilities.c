@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhPdoPnp_QueryCapabilities @ 0x1C00553A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     memset @ 0x1C0023880 (memset.c)
+ */
+
 __int64 __fastcall UsbhPdoPnp_QueryCapabilities(__int64 a1, IRP *a2)
 {
   _DWORD *v3; // rbp

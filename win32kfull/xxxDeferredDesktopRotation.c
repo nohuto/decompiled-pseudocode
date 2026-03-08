@@ -1,3 +1,15 @@
+/*
+ * XREFs of xxxDeferredDesktopRotation @ 0x1C01F7030
+ * Callers:
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ *     NtUserDeferredDesktopRotation @ 0x1C01CF5D0 (NtUserDeferredDesktopRotation.c)
+ * Callees:
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ *     xxxDesktopsRecalcAndBroadcastDisplayChange @ 0x1C00F7660 (xxxDesktopsRecalcAndBroadcastDisplayChange.c)
+ *     ?UnlockAndRelease@CMonitorTopology@@SAXPEAPEAV1@PEAU_TL@@@Z @ 0x1C01EC02C (-UnlockAndRelease@CMonitorTopology@@SAXPEAPEAV1@PEAU_TL@@@Z.c)
+ */
+
 __int64 xxxDeferredDesktopRotation()
 {
   _QWORD *v0; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledNoReporting @ 0x14040C7F0
+ * Callers:
+ *     Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledWithReporting @ 0x14040C880 (Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledWithReporting.c)
+ *     EtwTraceAutoBoostClearFloor @ 0x14045EA22 (EtwTraceAutoBoostClearFloor.c)
+ * Callees:
+ *     Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledFallback @ 0x14040C7D4 (Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledFallback.c)
+ */
+
 __int64 Feature_Servicing_AutoBoostEtwEventingFixes__private_IsEnabledNoReporting()
 {
   if ( (Feature_Servicing_AutoBoostEtwEventingFixes__private_featureState & 2) != 0 )

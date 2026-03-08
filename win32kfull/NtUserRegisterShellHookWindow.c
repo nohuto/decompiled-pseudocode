@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserRegisterShellHookWindow @ 0x1C00ED740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _RegisterShellHookWindow @ 0x1C00ED7F4 (_RegisterShellHookWindow.c)
+ */
+
 __int64 __fastcall NtUserRegisterShellHookWindow(__int64 a1)
 {
   __int64 v2; // rax

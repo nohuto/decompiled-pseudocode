@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Initialize@CCompositionSwapchainBuffer@@AEAAJ_N0PEAUFlipManagerObject@@_K@Z @ 0x1C00895E0
+ * Callers:
+ *     ?Create@CCompositionSwapchainBuffer@@SAJ_N0PEAUFlipManagerObject@@_KPEAPEAV1@@Z @ 0x1C0089440 (-Create@CCompositionSwapchainBuffer@@SAJ_N0PEAUFlipManagerObject@@_KPEAPEAV1@@Z.c)
+ * Callees:
+ *     ?InitializeAttributes@CFlipExBuffer@@IEAAJAEBUCSM_BUFFER_ATTRIBUTES@@@Z @ 0x1C000C974 (-InitializeAttributes@CFlipExBuffer@@IEAAJAEBUCSM_BUFFER_ATTRIBUTES@@@Z.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 __int64 __fastcall CCompositionSwapchainBuffer::Initialize(
         CCompositionSwapchainBuffer *this,
         unsigned __int8 a2,

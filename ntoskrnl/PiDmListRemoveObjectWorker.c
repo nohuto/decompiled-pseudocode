@@ -1,3 +1,17 @@
+/*
+ * XREFs of PiDmListRemoveObjectWorker @ 0x140958008
+ * Callers:
+ *     PiDmListRemoveList @ 0x140957DFC (PiDmListRemoveList.c)
+ *     PiDmListRemoveObject @ 0x140957F4C (PiDmListRemoveObject.c)
+ * Callees:
+ *     RtlDeleteElementGenericTableAvl @ 0x140244F40 (RtlDeleteElementGenericTableAvl.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     PiDmObjectRelease @ 0x1406D0328 (PiDmObjectRelease.c)
+ *     PiDmListUpdateAggregationCountWorker @ 0x140869528 (PiDmListUpdateAggregationCountWorker.c)
+ */
+
 char *__fastcall PiDmListRemoveObjectWorker(int a1, __int64 a2, unsigned int *a3, __int64 a4, char *a5)
 {
   __int64 v7; // rcx

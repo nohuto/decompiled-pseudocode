@@ -1,3 +1,17 @@
+/*
+ * XREFs of RIMGetPointerDevicePDO @ 0x1C0031414
+ * Callers:
+ *     RIMGetMouseDeviceHardwareId @ 0x1C002FBE8 (RIMGetMouseDeviceHardwareId.c)
+ *     RIMGetDeviceParent @ 0x1C002FF2C (RIMGetDeviceParent.c)
+ *     RIMGetContainerId @ 0x1C0030264 (RIMGetContainerId.c)
+ *     RIMGetPanelId @ 0x1C0030420 (RIMGetPanelId.c)
+ *     RIMRegOpenDeviceInstanceKey @ 0x1C0030CF0 (RIMRegOpenDeviceInstanceKey.c)
+ *     RIMIsHIDMouse @ 0x1C0031360 (RIMIsHIDMouse.c)
+ *     rimIsCrossSessionDevice @ 0x1C019EDB8 (rimIsCrossSessionDevice.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall RIMGetPointerDevicePDO(PDEVICE_OBJECT DeviceObject, _QWORD *a2)
 {
   PIRP v4; // rax

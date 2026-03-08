@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FreeWindowGCList@@YAXPEAPEAUtagGESTURECONFIGLIST@@@Z @ 0x1C00F40AC
+ * Callers:
+ *     SetGestureConfigSettings @ 0x1C00CB3F8 (SetGestureConfigSettings.c)
+ *     FreeWindowGCData @ 0x1C012EFE8 (FreeWindowGCData.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FreeWindowGCList(struct tagGESTURECONFIGLIST **a1)
 {
   __int64 v2; // rsi

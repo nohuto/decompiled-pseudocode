@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheapSetDefaultErrorSourceConfiguration @ 0x140B496CC
+ * Callers:
+ *     WheaInitializeServices @ 0x140B495D4 (WheaInitializeServices.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 WheapSetDefaultErrorSourceConfiguration()
 {
   __int64 result; // rax

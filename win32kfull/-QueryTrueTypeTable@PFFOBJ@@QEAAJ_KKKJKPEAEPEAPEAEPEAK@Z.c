@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?QueryTrueTypeTable@PFFOBJ@@QEAAJ_KKKJKPEAEPEAPEAEPEAK@Z @ 0x1C01205AC
+ * Callers:
+ *     ?ulGetFontData2@@YAKAEAVDCOBJ@@KKPEAXKAEBUTag@RFONTOBJ@@@Z @ 0x1C01206D4 (-ulGetFontData2@@YAKAEAVDCOBJ@@KKPEAXKAEBUTag@RFONTOBJ@@@Z.c)
+ *     ?pjTable@RFONTOBJ@@QEAAPEAEKPEAK@Z @ 0x1C02B96E0 (-pjTable@RFONTOBJ@@QEAAPEAEKPEAK@Z.c)
+ * Callees:
+ *     ??0ATTACHOBJ@@QEAA@PEAVPFFOBJ@@@Z @ 0x1C011E5E4 (--0ATTACHOBJ@@QEAA@PEAVPFFOBJ@@@Z.c)
+ *     ??1ATTACHOBJ@@QEAA@XZ @ 0x1C011FE34 (--1ATTACHOBJ@@QEAA@XZ.c)
+ *     ?bCheckFntFileInfo@PFFOBJ@@QEAAHXZ @ 0x1C012068C (-bCheckFntFileInfo@PFFOBJ@@QEAAHXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall PFFOBJ::QueryTrueTypeTable(
         PFFOBJ *this,
         __int64 a2,

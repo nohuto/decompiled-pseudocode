@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Register@TraceLoggingProvider@wil@@IEAAXQEBU_tlgProvider_t@@P6AXPEBU_GUID@@KE_K2PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z@Z @ 0x1800FDD70
+ * Callers:
+ *     ??1Completer@?$static_lazy@VCompositorTracing@@@details@wil@@QEAA@XZ @ 0x1800FAD84 (--1Completer@-$static_lazy@VCompositorTracing@@@details@wil@@QEAA@XZ.c)
+ * Callees:
+ *     TraceLoggingRegisterEx_EventRegister_EventSetInformation @ 0x1800FDDB8 (TraceLoggingRegisterEx_EventRegister_EventSetInformation.c)
+ */
+
 void __fastcall wil::TraceLoggingProvider::Register(
         wil::TraceLoggingProvider *this,
         const struct _tlgProvider_t *const a2,

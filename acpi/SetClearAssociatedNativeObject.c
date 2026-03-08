@@ -1,3 +1,11 @@
+/*
+ * XREFs of SetClearAssociatedNativeObject @ 0x1C004A22C
+ * Callers:
+ *     CreateNativeNameSpaceObject @ 0x1C0049D38 (CreateNativeNameSpaceObject.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall SetClearAssociatedNativeObject(__int64 a1, __int64 a2)
 {
   KIRQL v4; // al

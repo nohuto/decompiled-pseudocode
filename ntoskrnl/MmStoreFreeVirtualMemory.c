@@ -1,3 +1,13 @@
+/*
+ * XREFs of MmStoreFreeVirtualMemory @ 0x140A430C0
+ * Callers:
+ *     SmKmStoreHelperCommandProcess @ 0x1405C93E8 (SmKmStoreHelperCommandProcess.c)
+ * Callees:
+ *     MiFreeVadRange @ 0x1402D5634 (MiFreeVadRange.c)
+ *     MiObtainReferencedVadEx @ 0x14031EFE0 (MiObtainReferencedVadEx.c)
+ *     MiUnlockPageTableRange @ 0x14064AC34 (MiUnlockPageTableRange.c)
+ */
+
 __int64 __fastcall MmStoreFreeVirtualMemory(unsigned __int64 a1)
 {
   __int64 v2; // rbp

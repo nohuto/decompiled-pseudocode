@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RemovePagingQueueList@VIDMM_DEVICE@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C00125A8
+ * Callers:
+ *     ?Destroy@VIDMM_PAGING_QUEUE@@QEAAXXZ @ 0x1C00AB650 (-Destroy@VIDMM_PAGING_QUEUE@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VIDMM_DEVICE::RemovePagingQueueList(VIDMM_DEVICE *this, struct _LIST_ENTRY *a2)
 {
   char *v3; // rdi

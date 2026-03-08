@@ -1,3 +1,11 @@
+/*
+ * XREFs of _DxgDbgBugcheckCallback @ 0x1C0059C70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N1@Z @ 0x1C004EC88 (-TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N1@Z.c)
+ */
+
 void __fastcall DxgDbgBugcheckCallback(
         KBUGCHECK_CALLBACK_REASON Reason,
         struct _KBUGCHECK_REASON_CALLBACK_RECORD *Record,

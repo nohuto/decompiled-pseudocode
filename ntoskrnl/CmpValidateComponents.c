@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpValidateComponents @ 0x1407798BC
+ * Callers:
+ *     CmpGetSymbolicLinkTarget @ 0x1407B0EF0 (CmpGetSymbolicLinkTarget.c)
+ * Callees:
+ *     CmpGetComponentNameAtIndex @ 0x140779900 (CmpGetComponentNameAtIndex.c)
+ */
+
 __int64 __fastcall CmpValidateComponents(int a1, __int64 a2)
 {
   unsigned int v2; // r8d

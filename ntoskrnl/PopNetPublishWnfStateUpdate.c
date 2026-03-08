@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopNetPublishWnfStateUpdate @ 0x140857858
+ * Callers:
+ *     PopNetEvaluationWorkerCallback @ 0x1403A7BD0 (PopNetEvaluationWorkerCallback.c)
+ *     PopNetInitialize @ 0x140B46E8C (PopNetInitialize.c)
+ * Callees:
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ */
+
 __int64 __fastcall PopNetPublishWnfStateUpdate(char a1)
 {
   int v1; // eax

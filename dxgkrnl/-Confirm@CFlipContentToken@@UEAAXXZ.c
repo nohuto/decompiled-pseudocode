@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Confirm@CFlipContentToken@@UEAAXXZ @ 0x1C0089150
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ConfirmIndependentFlipEntry@CompositionSurfaceObject@@QEAAJ_K00II0@Z @ 0x1C00789DC (-ConfirmIndependentFlipEntry@CompositionSurfaceObject@@QEAAJ_K00II0@Z.c)
+ */
+
 void __fastcall CFlipContentToken::Confirm(CFlipContentToken *this)
 {
   if ( *((_BYTE *)this + 289) )

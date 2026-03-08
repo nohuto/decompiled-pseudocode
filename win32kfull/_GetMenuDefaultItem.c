@@ -1,3 +1,16 @@
+/*
+ * XREFs of _GetMenuDefaultItem @ 0x1C024F428
+ * Callers:
+ *     xxxMNDoubleClick @ 0x1C021A56C (xxxMNDoubleClick.c)
+ *     ?SetupFakeMDIAppStuff@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0224A84 (-SetupFakeMDIAppStuff@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
+ *     _GetMenuDefaultItem @ 0x1C024F428 (_GetMenuDefaultItem.c)
+ * Callees:
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C00A6450 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C00D3DA0 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00D5030 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     _GetMenuDefaultItem @ 0x1C024F428 (_GetMenuDefaultItem.c)
+ */
+
 __int64 __fastcall GetMenuDefaultItem(__int64 a1, unsigned int a2, unsigned int a3)
 {
   __int64 v6; // rax

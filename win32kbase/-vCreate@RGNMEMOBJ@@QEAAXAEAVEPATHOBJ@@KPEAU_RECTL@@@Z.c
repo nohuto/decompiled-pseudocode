@@ -1,3 +1,27 @@
+/*
+ * XREFs of ?vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z @ 0x1C0184190
+ * Callers:
+ *     GreExtCreateRegion @ 0x1C0019830 (GreExtCreateRegion.c)
+ *     ?iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z @ 0x1C0189A30 (-iCombine@DC@@QEAAJPEAVEXFORMOBJ@@PEAU_RECTL@@J@Z.c)
+ *     GreCreatePolyPolygonRgnInternal @ 0x1C0197C30 (GreCreatePolyPolygonRgnInternal.c)
+ * Callees:
+ *     ?vTighten@RGNOBJ@@QEAAXXZ @ 0x1C0019490 (-vTighten@RGNOBJ@@QEAAXXZ.c)
+ *     ?AllocateRegion@RGNMEMOBJ@@SAPEAVREGION@@K@Z @ 0x1C0053290 (-AllocateRegion@RGNMEMOBJ@@SAPEAVREGION@@K@Z.c)
+ *     ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C00558E0 (-vDeleteREGION@REGION@@QEAAXXZ.c)
+ *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0062994 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     ?vCloseAllFigures@EPATHOBJ@@QEAAXXZ @ 0x1C0181680 (-vCloseAllFigures@EPATHOBJ@@QEAAXXZ.c)
+ *     ?bAddNullScan@RGNMEMOBJ@@AEAAHJJ@Z @ 0x1C0183158 (-bAddNullScan@RGNMEMOBJ@@AEAAHJJ@Z.c)
+ *     ?bAddScans@RGNMEMOBJ@@AEAAHJPEAVEDGE@@K@Z @ 0x1C01831E4 (-bAddScans@RGNMEMOBJ@@AEAAHJPEAVEDGE@@K@Z.c)
+ *     ?bFastFillWrapper@RGNMEMOBJ@@AEAAHAEAVEPATHOBJ@@@Z @ 0x1C01839C4 (-bFastFillWrapper@RGNMEMOBJ@@AEAAHAEAVEPATHOBJ@@@Z.c)
+ *     bConstructGET @ 0x1C01847D0 (bConstructGET.c)
+ *     vAdvanceAETEdges @ 0x1C01848F0 (vAdvanceAETEdges.c)
+ *     vMoveNewEdges @ 0x1C0184950 (vMoveNewEdges.c)
+ *     vXSortAETEdges @ 0x1C01849C0 (vXSortAETEdges.c)
+ *     ?bFlatten@EPATHOBJ@@QEAAHXZ @ 0x1C0189E50 (-bFlatten@EPATHOBJ@@QEAAHXZ.c)
+ */
+
 void __fastcall RGNMEMOBJ::vCreate(RGNMEMOBJ *this, struct EPATHOBJ *a2, char a3, struct _RECTL *a4)
 {
   int v7; // eax

@@ -1,3 +1,26 @@
+/*
+ * XREFs of GetNewMonitor @ 0x1C00AB0FC
+ * Callers:
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C00669E0 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C006A610 (-xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z.c)
+ *     zzzUpdateWindowsAfterModeChange @ 0x1C0097D18 (zzzUpdateWindowsAfterModeChange.c)
+ *     xxxInheritWindowMonitor @ 0x1C00ADDA0 (xxxInheritWindowMonitor.c)
+ *     NtUserUpdateLayeredWindow @ 0x1C01E0780 (NtUserUpdateLayeredWindow.c)
+ * Callees:
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ *     GetMonitorTransform @ 0x1C00645EC (GetMonitorTransform.c)
+ *     GetInheritedMonitor @ 0x1C00ACC90 (GetInheritedMonitor.c)
+ *     _MonitorFromRect @ 0x1C00AEE80 (_MonitorFromRect.c)
+ *     ?_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z @ 0x1C00D2B90 (-_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z.c)
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00E42C8 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?IsNewMonitorRectMostOccupied@@YAHPEBUtagRECT@@00@Z @ 0x1C01BA484 (-IsNewMonitorRectMostOccupied@@YAHPEBUtagRECT@@00@Z.c)
+ *     ?TransformRectAroundCursor@@YAXPEAUMOVESIZEDATA@@PEBUtagRECT@@GPEAU2@2G@Z @ 0x1C01BA574 (-TransformRectAroundCursor@@YAXPEAUMOVESIZEDATA@@PEBUtagRECT@@GPEAU2@2G@Z.c)
+ *     TransformRectAroundPoint @ 0x1C01BB2C0 (TransformRectAroundPoint.c)
+ *     TransformVector @ 0x1C01E7DD8 (TransformVector.c)
+ */
+
 __int64 __fastcall GetNewMonitor(struct tagWND *a1, struct tagRECT *a2, _OWORD *a3)
 {
   __int64 v3; // rax

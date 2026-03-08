@@ -1,3 +1,40 @@
+/*
+ * XREFs of IoCreateDevice @ 0x1407F0460
+ * Callers:
+ *     DifIoCreateDeviceWrapper @ 0x1405DBBC0 (DifIoCreateDeviceWrapper.c)
+ *     RawMountVolume @ 0x1406F37D0 (RawMountVolume.c)
+ *     HalpAddDevice @ 0x140802640 (HalpAddDevice.c)
+ *     IopCreateRootEnumeratedDeviceObject @ 0x14081D1C8 (IopCreateRootEnumeratedDeviceObject.c)
+ *     IoCreateDeviceSecure @ 0x14083BAD0 (IoCreateDeviceSecure.c)
+ *     PiSwGetChildPdo @ 0x140846F50 (PiSwGetChildPdo.c)
+ *     VRegSetup @ 0x1408543D0 (VRegSetup.c)
+ *     ViDdiDriverEntry @ 0x140AC0E40 (ViDdiDriverEntry.c)
+ *     VfFilterAttach @ 0x140ADC20C (VfFilterAttach.c)
+ *     RawInitialize @ 0x140B53CA0 (RawInitialize.c)
+ *     WmipDriverEntry @ 0x140B53F10 (WmipDriverEntry.c)
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ *     PiDaDriverEntry @ 0x140B71190 (PiDaDriverEntry.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     IopInsertRemoveDevice @ 0x140241748 (IopInsertRemoveDevice.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     KeInitializeDeviceQueue @ 0x1402F96C0 (KeInitializeDeviceQueue.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ *     IopCreateDefaultDeviceSecurityDescriptor @ 0x1407F092C (IopCreateDefaultDeviceSecurityDescriptor.c)
+ *     ObInsertObject @ 0x1407F0A20 (ObInsertObject.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     AstLogDeviceCreated @ 0x1407F0D60 (AstLogDeviceCreated.c)
+ *     EtwTiLogDeviceObjectLoadUnload @ 0x1407F0EC4 (EtwTiLogDeviceObjectLoadUnload.c)
+ *     PoVolumeDevice @ 0x14087017C (PoVolumeDevice.c)
+ *     IopCreateVpb @ 0x140871EB0 (IopCreateVpb.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall IoCreateDevice(
         PDRIVER_OBJECT DriverObject,
         ULONG DeviceExtensionSize,

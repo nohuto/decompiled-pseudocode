@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalEnableInterrupt @ 0x14028F730
+ * Callers:
+ *     KeConnectInterrupt @ 0x14028FA54 (KeConnectInterrupt.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     HalpInterruptGsiToLine @ 0x14028EF10 (HalpInterruptGsiToLine.c)
+ *     HalpInterruptSetLineState @ 0x1403793AC (HalpInterruptSetLineState.c)
+ *     HalpAcquireHighLevelLock @ 0x140379818 (HalpAcquireHighLevelLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpEnableSecondaryInterrupt @ 0x14085E574 (HalpEnableSecondaryInterrupt.c)
+ */
+
 __int64 __fastcall HalEnableInterrupt(__int64 a1)
 {
   int v2; // edi

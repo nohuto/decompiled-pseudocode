@@ -1,3 +1,14 @@
+/*
+ * XREFs of ApiSetEditionGetLogicalPointForMouseCaptureButtonEvent @ 0x1C023E7B4
+ * Callers:
+ *     ?ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z @ 0x1C022F50C (-ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C007795C (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00ABD88 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 PDEVICE_OBJECT *__fastcall ApiSetEditionGetLogicalPointForMouseCaptureButtonEvent(
         __int64 a1,
         __int64 a2,

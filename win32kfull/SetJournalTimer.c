@@ -1,3 +1,11 @@
+/*
+ * XREFs of SetJournalTimer @ 0x1C01C19C8
+ * Callers:
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00725D0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ * Callees:
+ *     InternalSetTimer @ 0x1C0061830 (InternalSetTimer.c)
+ */
+
 __int64 __fastcall SetJournalTimer(unsigned int a1, int a2)
 {
   __int64 result; // rax

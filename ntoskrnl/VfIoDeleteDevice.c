@@ -1,3 +1,24 @@
+/*
+ * XREFs of VfIoDeleteDevice @ 0x140ACF214
+ * Callers:
+ *     IovDeleteDevice @ 0x140ABE694 (IovDeleteDevice.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     RtlStringCbPrintfA @ 0x140380B18 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     VfUtilDbgPrint @ 0x1405CBEB4 (VfUtilDbgPrint.c)
+ *     IovUtilMarkDeviceObject @ 0x1405CD8C0 (IovUtilMarkDeviceObject.c)
+ *     VF_FIND_DEVICE_INFORMATION_AND_REMOVE @ 0x140AC18EC (VF_FIND_DEVICE_INFORMATION_AND_REMOVE.c)
+ *     VF_MARK_FOR_DEFERRED_REMOVE @ 0x140AC1AD8 (VF_MARK_FOR_DEFERRED_REMOVE.c)
+ *     ViReleaseDmaAdapter @ 0x140AC6C1C (ViReleaseDmaAdapter.c)
+ *     ViDevObjRemove @ 0x140ACF4C0 (ViDevObjRemove.c)
+ *     IovUtilGetLowerDeviceObjectWithTag @ 0x140ACFA64 (IovUtilGetLowerDeviceObjectWithTag.c)
+ *     IovUtilIsDeviceObjectMarked @ 0x140ACFB14 (IovUtilIsDeviceObjectMarked.c)
+ *     ViErrorDisplayDescription @ 0x140AD06D0 (ViErrorDisplayDescription.c)
+ *     ViErrorFinishReport @ 0x140AD0724 (ViErrorFinishReport.c)
+ *     VfIrpLogDeleteDeviceLogs @ 0x140AD9750 (VfIrpLogDeleteDeviceLogs.c)
+ */
+
 LONG_PTR __fastcall VfIoDeleteDevice(struct _LIST_ENTRY *BugCheckParameter2, const void *a2)
 {
   struct _LIST_ENTRY *v3; // rbx

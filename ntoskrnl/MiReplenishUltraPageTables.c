@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiReplenishUltraPageTables @ 0x14065F59C
+ * Callers:
+ *     MiCreateUltraThreadContextHelper @ 0x1402445C4 (MiCreateUltraThreadContextHelper.c)
+ *     MiReassessZeroThreads @ 0x1402E477C (MiReassessZeroThreads.c)
+ * Callees:
+ *     MiGetUltraPage @ 0x1402446C8 (MiGetUltraPage.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiAcquireNonPagedResources @ 0x140348D54 (MiAcquireNonPagedResources.c)
+ *     MiReleaseFreshPage @ 0x14034E570 (MiReleaseFreshPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiReplenishUltraPageTables(unsigned int a1)
 {
   __int64 v1; // rbx

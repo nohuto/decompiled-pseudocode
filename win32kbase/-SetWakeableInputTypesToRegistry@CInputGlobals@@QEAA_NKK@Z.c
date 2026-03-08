@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetWakeableInputTypesToRegistry@CInputGlobals@@QEAA_NKK@Z @ 0x1C020B7DC
+ * Callers:
+ *     xxxSystemParametersInfo @ 0x1C009C980 (xxxSystemParametersInfo.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     ApiSetEditionGetPointerDeviceConfigurationKey @ 0x1C009D4F4 (ApiSetEditionGetPointerDeviceConfigurationKey.c)
+ */
+
 bool __fastcall CInputGlobals::SetWakeableInputTypesToRegistry(CInputGlobals *this, int a2, int a3)
 {
   CInputGlobals *v3; // rdi

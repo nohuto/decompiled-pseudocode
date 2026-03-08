@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpFindSecondaryIcEntryFromObjectAndRange @ 0x1405179A4
+ * Callers:
+ *     HalpUnregisterSecondaryIcInterface @ 0x1405180D0 (HalpUnregisterSecondaryIcInterface.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140379818 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpFindSecondaryIcEntryFromObjectAndRange(__int64 a1, int a2, int a3)
 {
   unsigned __int8 v6; // al

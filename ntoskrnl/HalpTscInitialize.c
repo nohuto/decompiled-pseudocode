@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpTscInitialize @ 0x1403735A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalUpdateTimerCapabilities @ 0x140373620 (HalUpdateTimerCapabilities.c)
+ *     HalpTscGetAttributes @ 0x1403736C4 (HalpTscGetAttributes.c)
+ */
+
 __int64 __fastcall HalpTscInitialize(__int64 a1)
 {
   unsigned int v2; // ebx

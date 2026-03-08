@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?MBC_RightJustifyMenu@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C023A5CC
+ * Callers:
+ *     xxxMenuBarCompute @ 0x1C023BEA8 (xxxMenuBarCompute.c)
+ * Callees:
+ *     MNIsOwnerDrawItem @ 0x1C0237734 (MNIsOwnerDrawItem.c)
+ *     IsMDIItem @ 0x1C023B184 (IsMDIItem.c)
+ */
+
 __int64 __fastcall MBC_RightJustifyMenu(__int64 **a1)
 {
   unsigned int v1; // r9d

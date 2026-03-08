@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhCloseDeviceConfiguration @ 0x1C00533AC
+ * Callers:
+ *     UsbhPdoPnp_StopDevice @ 0x1C00569B0 (UsbhPdoPnp_StopDevice.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ */
+
 __int64 __fastcall UsbhCloseDeviceConfiguration(__int64 a1, __int64 a2, _DWORD *a3)
 {
   PDEVICE_OBJECT *v5; // rbp

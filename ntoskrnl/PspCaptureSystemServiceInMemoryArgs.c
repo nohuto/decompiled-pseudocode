@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspCaptureSystemServiceInMemoryArgs @ 0x1409B19D0
+ * Callers:
+ *     PspSyscallProviderServiceDispatch @ 0x140420350 (PspSyscallProviderServiceDispatch.c)
+ *     PspSyscallProviderServiceDispatchGeneric @ 0x1409B20D8 (PspSyscallProviderServiceDispatchGeneric.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall PspCaptureSystemServiceInMemoryArgs(char *Src, void *a2, unsigned __int8 a3)
 {
   size_t v3; // r8

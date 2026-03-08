@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FindQMsgForCoalesce@@YAPEAUtagQMSG@@PEAUtagMLIST@@IPEAUHWND__@@PEAU1@@Z @ 0x1C0009E88
+ * Callers:
+ *     ProcessSuspendedEventMessage @ 0x1C00E0344 (ProcessSuspendedEventMessage.c)
+ *     ProcessSuspendedPostMessage @ 0x1C014322E (ProcessSuspendedPostMessage.c)
+ * Callees:
+ *     <none>
+ */
+
 struct tagQMSG *__fastcall FindQMsgForCoalesce(struct tagMLIST *a1, int a2, HWND a3, struct tagQMSG *a4)
 {
   struct tagQMSG *result; // rax

@@ -1,3 +1,40 @@
+/*
+ * XREFs of NVMeSetSenseData @ 0x1C0024238
+ * Callers:
+ *     NVMeHwBuildIo @ 0x1C0001010 (NVMeHwBuildIo.c)
+ *     ScsiToNVMe @ 0x1C00010C0 (ScsiToNVMe.c)
+ *     NVMeHwStartIo @ 0x1C0001DD0 (NVMeHwStartIo.c)
+ *     FormInquiryBlockLimitsData @ 0x1C0011F6C (FormInquiryBlockLimitsData.c)
+ *     FormInquiryBlockProvisioningData @ 0x1C0012194 (FormInquiryBlockProvisioningData.c)
+ *     FormInquiryDeviceCharacteristicsData @ 0x1C0012284 (FormInquiryDeviceCharacteristicsData.c)
+ *     FormInquiryDeviceIdentifiersData @ 0x1C00122F8 (FormInquiryDeviceIdentifiersData.c)
+ *     FormInquirySerialNumberData @ 0x1C0012548 (FormInquirySerialNumberData.c)
+ *     FormInquiryStandardData @ 0x1C0012754 (FormInquiryStandardData.c)
+ *     FormInquiryVpdSupportedPagesData @ 0x1C0012974 (FormInquiryVpdSupportedPagesData.c)
+ *     LogSenseInformationalExceptions @ 0x1C0014B14 (LogSenseInformationalExceptions.c)
+ *     LogSenseSupportedLogPages @ 0x1C0014C80 (LogSenseSupportedLogPages.c)
+ *     LogSenseTemperature @ 0x1C0014D00 (LogSenseTemperature.c)
+ *     NVMeWriteBufferFirmwareActivate @ 0x1C00180C8 (NVMeWriteBufferFirmwareActivate.c)
+ *     NVMeWriteBufferFirmwareDownload @ 0x1C00183BC (NVMeWriteBufferFirmwareDownload.c)
+ *     ScsiInquiryRequest @ 0x1C0019C74 (ScsiInquiryRequest.c)
+ *     ScsiLogSenseRequest @ 0x1C0019D6C (ScsiLogSenseRequest.c)
+ *     ScsiModeSelectRequest @ 0x1C0019DF8 (ScsiModeSelectRequest.c)
+ *     ScsiModeSenseRequest @ 0x1C0019F94 (ScsiModeSenseRequest.c)
+ *     ScsiPersistentReserveIn @ 0x1C001A12C (ScsiPersistentReserveIn.c)
+ *     ScsiPersistentReserveOut @ 0x1C001A220 (ScsiPersistentReserveOut.c)
+ *     ScsiReadCapacityRequest @ 0x1C001A438 (ScsiReadCapacityRequest.c)
+ *     ScsiSanitizeRequest @ 0x1C001A7F4 (ScsiSanitizeRequest.c)
+ *     ScsiSecurityProtocolInRequest @ 0x1C001AA38 (ScsiSecurityProtocolInRequest.c)
+ *     ScsiSecurityProtocolOutRequest @ 0x1C001AB5C (ScsiSecurityProtocolOutRequest.c)
+ *     ScsiStartStopUnitRequest @ 0x1C001AC80 (ScsiStartStopUnitRequest.c)
+ *     ScsiUnmapRequest @ 0x1C001ADEC (ScsiUnmapRequest.c)
+ *     ProcessCommandNvmePacket @ 0x1C00244D0 (ProcessCommandNvmePacket.c)
+ * Callees:
+ *     memmove @ 0x1C0004280 (memmove.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     GetSrbScsiData @ 0x1C0012B7C (GetSrbScsiData.c)
+ */
+
 void *__fastcall NVMeSetSenseData(__int64 a1, char a2, char a3, unsigned __int8 a4)
 {
   void *result; // rax

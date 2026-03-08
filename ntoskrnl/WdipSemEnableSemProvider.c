@@ -1,3 +1,12 @@
+/*
+ * XREFs of WdipSemEnableSemProvider @ 0x1408320C4
+ * Callers:
+ *     WdipSemCleanStart @ 0x1408318F0 (WdipSemCleanStart.c)
+ * Callees:
+ *     EtwRegister @ 0x140690D20 (EtwRegister.c)
+ *     WdipSemEnableDisableTrace @ 0x140833B40 (WdipSemEnableDisableTrace.c)
+ */
+
 __int64 WdipSemEnableSemProvider()
 {
   NTSTATUS v0; // ecx

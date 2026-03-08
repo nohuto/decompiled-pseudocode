@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsValidAxisAlignedRect @ 0x180049BD0
+ * Callers:
+ *     ?PrepareData@CMegaRect@@QEAAJAEAV?$vector@EV?$allocator@E@std@@@std@@@Z @ 0x18004A01C (-PrepareData@CMegaRect@@QEAAJAEAV-$vector@EV-$allocator@E@std@@@std@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall IsValidAxisAlignedRect(__int64 a1)
 {
   float *v1; // rdx

@@ -1,3 +1,23 @@
+/*
+ * XREFs of CmpQueryKeySecurity @ 0x1407AC310
+ * Callers:
+ *     CmpSecurityMethod @ 0x1407AC040 (CmpSecurityMethod.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x1406B5A64 (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmpUnlockKcbStack @ 0x1407ABFF8 (CmpUnlockKcbStack.c)
+ *     SeQuerySecurityDescriptorInfo @ 0x1407AD8A0 (SeQuerySecurityDescriptorInfo.c)
+ *     CmpPopulateKcbStack @ 0x1407AF248 (CmpPopulateKcbStack.c)
+ *     CmpStartKcbStack @ 0x1407AF450 (CmpStartKcbStack.c)
+ *     CmpLockKcbStackShared @ 0x1407AF490 (CmpLockKcbStackShared.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x1407AF4E0 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     CmpLockRegistry @ 0x140AF2270 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ *     CmpAcquireShutdownRundown @ 0x140AF23A0 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140AF23F0 (CmpReleaseShutdownRundown.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140AF24F0 (CmpPerformKeyBodyDeletionCheck.c)
+ */
+
 __int64 __fastcall CmpQueryKeySecurity(
         _QWORD *a1,
         ULONG *a2,

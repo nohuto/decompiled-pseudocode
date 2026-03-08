@@ -1,3 +1,19 @@
+/*
+ * XREFs of ExpSnapShotHandleTables @ 0x1408A6B82
+ * Callers:
+ *     ObGetHandleInformation @ 0x1409785F8 (ObGetHandleInformation.c)
+ *     ObGetHandleInformationEx @ 0x14097864C (ObGetHandleInformationEx.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExLockHandleTableEntry @ 0x140352148 (ExLockHandleTableEntry.c)
+ *     ExfUnblockPushLock @ 0x14040CCE0 (ExfUnblockPushLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExpLookupHandleTableEntry @ 0x1407C3370 (ExpLookupHandleTableEntry.c)
+ */
+
 __int64 __fastcall ExpSnapShotHandleTables(
         __int64 (__fastcall *a1)(char **, _QWORD, volatile signed __int64 *, __int64, int, _DWORD *),
         _DWORD *a2,

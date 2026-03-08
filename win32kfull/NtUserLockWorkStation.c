@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserLockWorkStation @ 0x1C0016DB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CheckWinstaAttributeAccess @ 0x1C003B230 (CheckWinstaAttributeAccess.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 NtUserLockWorkStation()
 {
   __int64 v0; // rbx

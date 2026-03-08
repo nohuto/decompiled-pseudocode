@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UnlockPopupMenuWindow@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@@Z @ 0x1C02185DC
+ * Callers:
+ *     LockPopupMenu @ 0x1C0219378 (LockPopupMenu.c)
+ *     UnlockPopupMenu @ 0x1C0219608 (UnlockPopupMenu.c)
+ * Callees:
+ *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C00A4F34 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
+ */
+
 char __fastcall UnlockPopupMenuWindow(__int64 a1)
 {
   __int64 v1; // rax

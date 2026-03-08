@@ -1,3 +1,21 @@
+/*
+ * XREFs of RunContext @ 0x1C0053F34
+ * Callers:
+ *     InsertReadyQueue @ 0x1C00057E4 (InsertReadyQueue.c)
+ *     DispatchCtxtQueue @ 0x1C0051220 (DispatchCtxtQueue.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     DupObjData @ 0x1C004AF04 (DupObjData.c)
+ *     AMLIDebugger @ 0x1C004D630 (AMLIDebugger.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     LogSchedEvent @ 0x1C004E3AC (LogSchedEvent.c)
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ *     FreeContext @ 0x1C0053624 (FreeContext.c)
+ *     InvokePauseCallbacks @ 0x1C0053994 (InvokePauseCallbacks.c)
+ *     AsyncCallBack @ 0x1C00543D8 (AsyncCallBack.c)
+ *     ReleaseASLMutex @ 0x1C0054DD0 (ReleaseASLMutex.c)
+ */
+
 __int64 __fastcall RunContext(_QWORD *Entry)
 {
   char v1; // bp

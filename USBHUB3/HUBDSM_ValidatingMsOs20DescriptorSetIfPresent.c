@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBDSM_ValidatingMsOs20DescriptorSetIfPresent @ 0x1C0022E40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBDESC_ValidateMsOs20DescriptorSet @ 0x1C003E79C (HUBDESC_ValidateMsOs20DescriptorSet.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBDSM_ValidatingMsOs20DescriptorSetIfPresent(__int64 a1)
 {
   __int64 v1; // rbx

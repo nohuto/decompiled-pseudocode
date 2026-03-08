@@ -1,3 +1,16 @@
+/*
+ * XREFs of KeSetThreadChargeOnlySchedulingGroup @ 0x140369DE4
+ * Callers:
+ *     PsImpersonateContainerOfThread @ 0x140225F60 (PsImpersonateContainerOfThread.c)
+ *     PspRevertContainerImpersonation @ 0x140248164 (PspRevertContainerImpersonation.c)
+ *     NtSetInformationThread @ 0x1406D8E90 (NtSetInformationThread.c)
+ *     PspExitThread @ 0x1407D9464 (PspExitThread.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x14036A030 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall KeSetThreadChargeOnlySchedulingGroup(__int64 a1, __int64 a2)
 {
   bool v5; // zf

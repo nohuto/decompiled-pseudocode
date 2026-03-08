@@ -1,3 +1,12 @@
+/*
+ * XREFs of XilCommand_Create @ 0x1C001A6B4
+ * Callers:
+ *     Command_Create @ 0x1C006FF64 (Command_Create.c)
+ * Callees:
+ *     XilCommand_CreateSecureObject @ 0x1C0031548 (XilCommand_CreateSecureObject.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ */
+
 __int64 __fastcall XilCommand_Create(__int64 a1)
 {
   __int64 v2; // rcx

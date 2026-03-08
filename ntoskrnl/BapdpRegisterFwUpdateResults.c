@@ -1,3 +1,17 @@
+/*
+ * XREFs of BapdpRegisterFwUpdateResults @ 0x140B94804
+ * Callers:
+ *     BapdpProcessFwUpdateResults @ 0x140B42AC4 (BapdpProcessFwUpdateResults.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     RtlStringFromGUID @ 0x140733E70 (RtlStringFromGUID.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ */
+
 void __fastcall BapdpRegisterFwUpdateResults(_QWORD *a1, unsigned int a2)
 {
   unsigned int v3; // r14d

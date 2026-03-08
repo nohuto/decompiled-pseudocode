@@ -1,3 +1,14 @@
+/*
+ * XREFs of VerifierExAllocatePoolWithTagPriority @ 0x140ACDE80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     ExAllocatePoolWithTagPriority @ 0x1402E1F00 (ExAllocatePoolWithTagPriority.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     VfCheckPoolType @ 0x140AC08F0 (VfCheckPoolType.c)
+ */
+
 PVOID __fastcall VerifierExAllocatePoolWithTagPriority(int PoolType, SIZE_T NumberOfBytes, ULONG Tag, __int32 Priority)
 {
   __int32 v5; // ebx

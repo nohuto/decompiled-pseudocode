@@ -1,3 +1,13 @@
+/*
+ * XREFs of VfThunkAddDriverThunks @ 0x140AD7F7C
+ * Callers:
+ *     MmAddVerifierThunks @ 0x140A2A850 (MmAddVerifierThunks.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     VfDriverLock @ 0x140AC773C (VfDriverLock.c)
+ *     ViThunkCreateThunkTable @ 0x140AD8784 (ViThunkCreateThunkTable.c)
+ */
+
 __int64 __fastcall VfThunkAddDriverThunks(void *a1)
 {
   _QWORD *ThunkTable; // rbx

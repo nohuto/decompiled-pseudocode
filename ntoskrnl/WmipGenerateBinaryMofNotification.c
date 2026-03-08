@@ -1,3 +1,18 @@
+/*
+ * XREFs of WmipGenerateBinaryMofNotification @ 0x14084FEDC
+ * Callers:
+ *     WmipUpdateDataSource @ 0x1407FB4E8 (WmipUpdateDataSource.c)
+ *     WmipAddDataSource @ 0x140867978 (WmipAddDataSource.c)
+ *     WmipDSCleanup @ 0x14087DEB0 (WmipDSCleanup.c)
+ * Callees:
+ *     RtlStringCbCopyW @ 0x140244EC0 (RtlStringCbCopyW.c)
+ *     RtlStringCbPrintfExW @ 0x1402986C0 (RtlStringCbPrintfExW.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WmipProcessEvent @ 0x1408686A8 (WmipProcessEvent.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall WmipGenerateBinaryMofNotification(__int64 a1, _OWORD *a2)
 {
   unsigned int v4; // esi

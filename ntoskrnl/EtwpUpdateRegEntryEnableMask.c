@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpUpdateRegEntryEnableMask @ 0x14069059C
+ * Callers:
+ *     EtwpEnableGuid @ 0x14068EEBC (EtwpEnableGuid.c)
+ *     EtwpNotifyDisallowedGuidChange @ 0x1409E46E0 (EtwpNotifyDisallowedGuidChange.c)
+ * Callees:
+ *     EtwpApplyScopeFilters @ 0x140695404 (EtwpApplyScopeFilters.c)
+ *     EtwpTrackDecodeGuidForSession @ 0x1409F26D8 (EtwpTrackDecodeGuidForSession.c)
+ */
+
 char __fastcall EtwpUpdateRegEntryEnableMask(__int64 a1, __int64 a2, char a3, char a4, char a5, int a6)
 {
   __int64 v7; // rbp

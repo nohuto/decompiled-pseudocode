@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopQueryDockRemovalInterface @ 0x140969FF4
+ * Callers:
+ *     PnpProcessQueryRemoveAndEject @ 0x1408625F0 (PnpProcessQueryRemoveAndEject.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopSynchronousCall @ 0x14069DD78 (IopSynchronousCall.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopQueryDockRemovalInterface(_QWORD *a1, _QWORD *a2)
 {
   _WORD *Pool2; // rax

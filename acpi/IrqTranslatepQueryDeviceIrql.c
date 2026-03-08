@@ -1,3 +1,14 @@
+/*
+ * XREFs of IrqTranslatepQueryDeviceIrql @ 0x1C009A6BC
+ * Callers:
+ *     IrqTransGetInterruptVector @ 0x1C009A410 (IrqTransGetInterruptVector.c)
+ *     IrqTranslateResources @ 0x1C009A520 (IrqTranslateResources.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     IrqArbGetDeviceIrql @ 0x1C009D304 (IrqArbGetDeviceIrql.c)
+ */
+
 char __fastcall IrqTranslatepQueryDeviceIrql(unsigned int a1, int a2)
 {
   _BYTE v5[16]; // [rsp+20h] [rbp-88h] BYREF

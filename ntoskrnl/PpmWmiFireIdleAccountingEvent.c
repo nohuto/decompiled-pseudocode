@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmWmiFireIdleAccountingEvent @ 0x140596990
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoWMIWriteEvent @ 0x1403A2D60 (IoWMIWriteEvent.c)
+ *     PpmTranslateIdleAccounting @ 0x140595AC0 (PpmTranslateIdleAccounting.c)
+ *     PpmAllocWmiEvent @ 0x14059686C (PpmAllocWmiEvent.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PpmWmiFireIdleAccountingEvent(__int64 a1)
 {
   _QWORD *v1; // rbx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of WPP_IFR_SF_qqqqd @ 0x1C0037F70
+ * Callers:
+ *     imp_WdfLookasideListCreate @ 0x1C0038110 (imp_WdfLookasideListCreate.c)
+ *     FxIoTargetValidateOpenParams @ 0x1C00508A4 (FxIoTargetValidateOpenParams.c)
+ *     imp_WdfIoTargetSelfAssignDefaultIoQueue @ 0x1C00518B0 (imp_WdfIoTargetSelfAssignDefaultIoQueue.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_qqqqd(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 flags,

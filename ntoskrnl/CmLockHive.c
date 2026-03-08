@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmLockHive @ 0x14074A650
+ * Callers:
+ *     CmpWaitForLateUnloadWorker @ 0x1402BF844 (CmpWaitForLateUnloadWorker.c)
+ * Callees:
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ */
+
 __int64 __fastcall CmLockHive(__int64 a1)
 {
   unsigned __int64 *v1; // rdi

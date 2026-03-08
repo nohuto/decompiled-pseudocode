@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Reset@CInputSpace@@QEAAXPEAU1@@Z @ 0x1C0015A6C
+ * Callers:
+ *     ?_ConfigureInputSpace@CInputConfig@@AEAAJPEAUCInputSpace@@@Z @ 0x1C0013CC0 (-_ConfigureInputSpace@CInputConfig@@AEAAJPEAUCInputSpace@@@Z.c)
+ * Callees:
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 void __fastcall CInputSpace::Reset(CInputSpace *this, struct CInputSpace ***a2)
 {
   struct CInputSpace *v4; // rbx

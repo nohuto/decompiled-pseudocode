@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiOp_Illegal @ 0x14036E0E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiOp_Illegal(__int64 a1)
 {
   _DWORD *v1; // rax

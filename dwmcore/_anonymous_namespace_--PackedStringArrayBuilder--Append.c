@@ -1,3 +1,11 @@
+/*
+ * XREFs of _anonymous_namespace_::PackedStringArrayBuilder::Append @ 0x18010BCB4
+ * Callers:
+ *     _anonymous_namespace_::SendFramesReport @ 0x18010B170 (_anonymous_namespace_--SendFramesReport.c)
+ * Callees:
+ *     ??$_Emplace_reallocate@E@?$vector@EV?$allocator@E@std@@@std@@QEAAPEAEQEAE$$QEAE@Z @ 0x18010CCDC (--$_Emplace_reallocate@E@-$vector@EV-$allocator@E@std@@@std@@QEAAPEAEQEAE$$QEAE@Z.c)
+ */
+
 void __fastcall anonymous_namespace_::PackedStringArrayBuilder::Append(_DWORD *a1, char *a2)
 {
   _DWORD *v2; // rsi

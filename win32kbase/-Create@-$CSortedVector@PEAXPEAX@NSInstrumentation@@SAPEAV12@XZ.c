@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Create@?$CSortedVector@PEAXPEAX@NSInstrumentation@@SAPEAV12@XZ @ 0x1C019AF24
+ * Callers:
+ *     ?InitializeSortedVector@CLeakTrackingAllocator@NSInstrumentation@@AEAAXPEAPEAV?$CSortedVector@PEAXPEAX@2@@Z @ 0x1C019B3AC (-InitializeSortedVector@CLeakTrackingAllocator@NSInstrumentation@@AEAAXPEAPEAV-$CSortedVector@PE.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *NSInstrumentation::CSortedVector<void *,void *>::Create()
 {
   _QWORD *Pool2; // rbx

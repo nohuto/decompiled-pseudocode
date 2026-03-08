@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DestroyTable@MULTIBRUSH@@QEAAXXZ @ 0x1C02B09B0
+ * Callers:
+ *     MulDestroyBrushInternal @ 0x1C02B5790 (MulDestroyBrushInternal.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall MULTIBRUSH::DestroyTable(MULTIBRUSH *this)
 {
   unsigned int *v2; // rax

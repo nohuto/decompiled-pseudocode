@@ -1,3 +1,12 @@
+/*
+ * XREFs of RealInternalRemoveProp @ 0x1C008EB00
+ * Callers:
+ *     ?SetProp@CWindowProp@@QEAAHPEAUtagWND@@@Z @ 0x1C008EA50 (-SetProp@CWindowProp@@QEAAHPEAUtagWND@@@Z.c)
+ * Callees:
+ *     UserGlobalAtomTableCallout @ 0x1C0072268 (UserGlobalAtomTableCallout.c)
+ *     UserDeleteAtomFromAtomTable @ 0x1C008ECA0 (UserDeleteAtomFromAtomTable.c)
+ */
+
 __int64 __fastcall RealInternalRemoveProp(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // r14d

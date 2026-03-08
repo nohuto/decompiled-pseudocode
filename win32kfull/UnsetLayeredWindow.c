@@ -1,3 +1,25 @@
+/*
+ * XREFs of UnsetLayeredWindow @ 0x1C00240E0
+ * Callers:
+ *     ComposeWindow @ 0x1C002297C (ComposeWindow.c)
+ *     xxxSetWindowStyle @ 0x1C002DD90 (xxxSetWindowStyle.c)
+ *     CleanupWindowRedirection @ 0x1C00340EC (CleanupWindowRedirection.c)
+ *     DeleteFadeSprite @ 0x1C01BDE40 (DeleteFadeSprite.c)
+ * Callees:
+ *     UnsetRedirectedWindow @ 0x1C0022ADC (UnsetRedirectedWindow.c)
+ *     GreDeleteSprite @ 0x1C0024368 (GreDeleteSprite.c)
+ *     RemoveVisRgnTracker @ 0x1C0025C7C (RemoveVisRgnTracker.c)
+ *     RedirectDCEs @ 0x1C002B7EC (RedirectDCEs.c)
+ *     _SetLayeredWindowAttributes @ 0x1C002BBFC (_SetLayeredWindowAttributes.c)
+ *     DwmAsyncChildStyleChange @ 0x1C002E648 (DwmAsyncChildStyleChange.c)
+ *     UpdateSprite @ 0x1C002E7A8 (UpdateSprite.c)
+ *     GetStyleWindow @ 0x1C0039020 (GetStyleWindow.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C00519F0 (zzzLockDisplayAreaAndInvalidateDCCache.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall UnsetLayeredWindow(__int64 a1, char a2)
 {
   int v4; // ebp

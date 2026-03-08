@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvHiveInitialize @ 0x14072CCCC
+ * Callers:
+ *     CmpHiveInitialize @ 0x14072CBCC (CmpHiveInitialize.c)
+ *     CmpGetSystemControlValues @ 0x140B33800 (CmpGetSystemControlValues.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 _QWORD *__fastcall HvHiveInitialize(_DWORD *a1)
 {
   _QWORD *result; // rax

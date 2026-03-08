@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopDirectedDripsMarkCandidateDevice @ 0x1409809AC
+ * Callers:
+ *     PopDripsWatchdogCallbackHandler @ 0x140999010 (PopDripsWatchdogCallbackHandler.c)
+ *     PopDirectedDripsUmMarkTestDevices @ 0x14099C874 (PopDirectedDripsUmMarkTestDevices.c)
+ * Callees:
+ *     PopDirectedDripsDiagTraceMarkDevice @ 0x14099C358 (PopDirectedDripsDiagTraceMarkDevice.c)
+ */
+
 __int64 __fastcall PopDirectedDripsMarkCandidateDevice(__int64 a1)
 {
   __int64 result; // rax

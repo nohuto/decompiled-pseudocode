@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchInitializeAdapterPowerManagement @ 0x1C00B4C90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VidSchInitializeAdapterPowerManagement(__int64 a1, __int64 a2)
 {
   __int128 v2; // xmm0

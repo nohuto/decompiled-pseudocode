@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpDmaAllocateScatterMemory @ 0x140931508
+ * Callers:
+ *     HalpDmaAllocateLocalScatterPool @ 0x1409312D8 (HalpDmaAllocateLocalScatterPool.c)
+ *     HalpDmaGrowScatterMapBuffers @ 0x1409316C4 (HalpDmaGrowScatterMapBuffers.c)
+ * Callees:
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmAllocatePagesForMdl @ 0x1403A54F0 (MmAllocatePagesForMdl.c)
+ */
+
 PMDL __fastcall HalpDmaAllocateScatterMemory(PHYSICAL_ADDRESS *a1, unsigned int a2, _QWORD *a3)
 {
   PHYSICAL_ADDRESS v3; // rdi

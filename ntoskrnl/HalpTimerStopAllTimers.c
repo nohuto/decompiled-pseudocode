@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpTimerStopAllTimers @ 0x1404FCB78
+ * Callers:
+ *     HalReturnToFirmware @ 0x140504990 (HalReturnToFirmware.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void HalpTimerStopAllTimers()
 {
   ULONG_PTR i; // rbx

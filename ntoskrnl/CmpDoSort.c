@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpDoSort @ 0x140B34CB0
+ * Callers:
+ *     CmpSortDriverList @ 0x140B330B4 (CmpSortDriverList.c)
+ * Callees:
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     CmpSortByTag @ 0x140B34DE8 (CmpSortByTag.c)
+ */
+
 char __fastcall CmpDoSort(__int64 **a1, unsigned __int16 *a2)
 {
   __int16 v4; // r15

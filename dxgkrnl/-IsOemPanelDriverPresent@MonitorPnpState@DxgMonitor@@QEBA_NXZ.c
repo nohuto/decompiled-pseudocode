@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsOemPanelDriverPresent@MonitorPnpState@DxgMonitor@@QEBA_NXZ @ 0x1C01FFB74
+ * Callers:
+ *     ?_OnMonitorFunctionDriverArrival@DXGMONITOR@@QEAAJPEAU_UNICODE_STRING@@AEAVIMonitorDeferredEventSource@DxgMonitor@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01FC328 (-_OnMonitorFunctionDriverArrival@DXGMONITOR@@QEAAJPEAU_UNICODE_STRING@@AEAVIMonitorDeferredEvent.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     ?OpenMonitorPnpKey@MonitorPnpState@DxgMonitor@@QEBAJ_NW4MonitorPnpKeyType@2@PEAPEAX@Z @ 0x1C01D4D7C (-OpenMonitorPnpKey@MonitorPnpState@DxgMonitor@@QEBAJ_NW4MonitorPnpKeyType@2@PEAPEAX@Z.c)
+ */
+
 char __fastcall DxgMonitor::MonitorPnpState::IsOemPanelDriverPresent(DxgMonitor::MonitorPnpState *this)
 {
   char v1; // bl

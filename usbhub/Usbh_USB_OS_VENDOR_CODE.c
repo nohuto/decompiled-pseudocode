@@ -1,3 +1,13 @@
+/*
+ * XREFs of Usbh_USB_OS_VENDOR_CODE @ 0x1C00480C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_S @ 0x1C003B830 (WPP_RECORDER_SF_S.c)
+ */
+
 _UNKNOWN **__fastcall Usbh_USB_OS_VENDOR_CODE(__int64 a1, __int64 a2, _BYTE *a3, unsigned int a4)
 {
   _UNKNOWN **result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of FxUnregisterBugCheckCallback @ 0x1C0088DE8
+ * Callers:
+ *     FxDestroy @ 0x1C0043AD0 (FxDestroy.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxUnregisterBugCheckCallback(_FX_DRIVER_GLOBALS *FxDriverGlobals)
 {
   _KBUGCHECK_REASON_CALLBACK_RECORD *p_BugCheckCallbackRecord; // rbx

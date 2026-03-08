@@ -1,3 +1,45 @@
+/*
+ * XREFs of ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C015C290
+ * Callers:
+ *     Win32kBaseDriverEntry @ 0x1C0320F10 (Win32kBaseDriverEntry.c)
+ * Callees:
+ *     ??0CTempW32ThreadNonPaged@@QEAA@XZ @ 0x1C0036710 (--0CTempW32ThreadNonPaged@@QEAA@XZ.c)
+ *     ??1CTempW32ThreadNonPaged@@QEAA@XZ @ 0x1C007012C (--1CTempW32ThreadNonPaged@@QEAA@XZ.c)
+ *     Win32FreePool @ 0x1C0070430 (Win32FreePool.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     UninitializeTelemetryAssertsKM @ 0x1C008D538 (UninitializeTelemetryAssertsKM.c)
+ *     ?Win32kNtUserCleanup@@YAHXZ @ 0x1C008D904 (-Win32kNtUserCleanup@@YAHXZ.c)
+ *     InputUnInitialize @ 0x1C0094FA8 (InputUnInitialize.c)
+ *     DCompositionSessionUninitialize @ 0x1C0099C08 (DCompositionSessionUninitialize.c)
+ *     ?FreePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B774 (-FreePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     MultiUserNtGreCleanup @ 0x1C009EFD4 (MultiUserNtGreCleanup.c)
+ *     ?IsSessionGlobalsAreaAllocated@Base@Gre@@YA_NXZ @ 0x1C009FBB0 (-IsSessionGlobalsAreaAllocated@Base@Gre@@YA_NXZ.c)
+ *     ??1COPM@@QEAA@XZ @ 0x1C009FC8C (--1COPM@@QEAA@XZ.c)
+ *     ?OPMFreeMemory@OPM@@YAXPEAX@Z @ 0x1C009FE10 (-OPMFreeMemory@OPM@@YAXPEAX@Z.c)
+ *     ?Destroy@?$TypeIsolationFactory@V?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@V?$CTypeIsolation@$0KAAA@$0KA@@2@V?$CTypeIsolation@$0BFAAA@$0BFA@@2@V?$CTypeIsolation@$0BEAAA@$0KA@@2@V?$CTypeIsolation@$0GAAA@$0GA@@2@V?$CTypeIsolation@$0HAAA@$0HA@@2@@@SAXPEAPEAE@Z @ 0x1C00A04C0 (-Destroy@-$TypeIsolationFactory@V-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@V-$CTypeIsolat.c)
+ *     UnloadWin32kCall @ 0x1C00B1C18 (UnloadWin32kCall.c)
+ *     ?CleanupDomainLocks@@YAXXZ @ 0x1C00CB204 (-CleanupDomainLocks@@YAXXZ.c)
+ *     CoreMsgUninitialize @ 0x1C00D0AC4 (CoreMsgUninitialize.c)
+ *     ?FreeWin32KSyscallFilter@@YAXXZ @ 0x1C00D0FA0 (-FreeWin32KSyscallFilter@@YAXXZ.c)
+ *     RIMUnInitialize @ 0x1C00D19B0 (RIMUnInitialize.c)
+ *     ?UninitializeBaseWppLog@@YAXXZ @ 0x1C00D21D0 (-UninitializeBaseWppLog@@YAXXZ.c)
+ *     ??_GCAsyncKeyEventMonitor@@QEAAPEAXI@Z @ 0x1C00D39A0 (--_GCAsyncKeyEventMonitor@@QEAAPEAXI@Z.c)
+ *     IsUserkTraceLoggingSupported @ 0x1C00D3D7C (IsUserkTraceLoggingSupported.c)
+ *     IsTelemetryAssertsSupported @ 0x1C00D3DA8 (IsTelemetryAssertsSupported.c)
+ *     ?UnInitialize@EnterLeaveCritMitRitHandOffHazard@@SAXXZ @ 0x1C00D46DC (-UnInitialize@EnterLeaveCritMitRitHandOffHazard@@SAXXZ.c)
+ *     McGenEventUnregister_EtwUnregister @ 0x1C00D4774 (McGenEventUnregister_EtwUnregister.c)
+ *     ?GetOutstandingPoolTags@CLeakTrackingAllocator@NSInstrumentation@@QEBA_KPEAI_KPEA_K@Z @ 0x1C00D4B20 (-GetOutstandingPoolTags@CLeakTrackingAllocator@NSInstrumentation@@QEBA_KPEAI_KPEA_K@Z.c)
+ *     ?Destroy@CLeakTrackingAllocator@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C00D4B54 (-Destroy@CLeakTrackingAllocator@NSInstrumentation@@SAXPEAV12@@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     FreeIndex @ 0x1C01596E4 (FreeIndex.c)
+ *     ?PoolLeakCaptureLiveDump@@YAX_KPEAK0@Z @ 0x1C017D548 (-PoolLeakCaptureLiveDump@@YAX_KPEAK0@Z.c)
+ *     ?Enumerate@?$CSortedVector@PEAXPEAX@NSInstrumentation@@QEAAXP6AXPEAX00@Z0@Z @ 0x1C019B248 (-Enumerate@-$CSortedVector@PEAXPEAX@NSInstrumentation@@QEAAXP6AXPEAX00@Z0@Z.c)
+ *     ?Enumerate@CPointerHashTable@NSInstrumentation@@QEAAXP6AXPEAX00@Z0@Z @ 0x1C019BFEC (-Enumerate@CPointerHashTable@NSInstrumentation@@QEAAXP6AXPEAX00@Z0@Z.c)
+ *     TlgUnregisterAggregateProvider @ 0x1C0301934 (TlgUnregisterAggregateProvider.c)
+ *     WppCleanupKm @ 0x1C0301D4C (WppCleanupKm.c)
+ */
+
 void __fastcall Win32KDriverUnload(struct _DRIVER_OBJECT *a1)
 {
   __int64 v1; // rdx

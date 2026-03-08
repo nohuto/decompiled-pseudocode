@@ -1,3 +1,19 @@
+/*
+ * XREFs of KiRestoreClockTickRate @ 0x1402D9574
+ * Callers:
+ *     KeClockInterruptNotify @ 0x14022CD80 (KeClockInterruptNotify.c)
+ *     KeResumeClockTimerFromIdle @ 0x14022E860 (KeResumeClockTimerFromIdle.c)
+ *     KiResumeClockTimer @ 0x14056D878 (KiResumeClockTimer.c)
+ * Callees:
+ *     KiSetPendingTick @ 0x14022AF40 (KiSetPendingTick.c)
+ *     KiSetNextClockTickDueTime @ 0x14022FD10 (KiSetNextClockTickDueTime.c)
+ *     KiGetClockIntervalOneShot @ 0x1402D9434 (KiGetClockIntervalOneShot.c)
+ *     KiShouldRearmClockTimer @ 0x1402D96B0 (KiShouldRearmClockTimer.c)
+ *     KiLogClockIncrementUpdate @ 0x1403CA5C8 (KiLogClockIncrementUpdate.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int8 __fastcall KiRestoreClockTickRate(unsigned __int64 a1, __int64 a2, unsigned int *a3)
 {
   struct _KPRCB *CurrentPrcb; // rdi

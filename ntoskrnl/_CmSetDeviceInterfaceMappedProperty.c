@@ -1,3 +1,14 @@
+/*
+ * XREFs of _CmSetDeviceInterfaceMappedProperty @ 0x14086B538
+ * Callers:
+ *     _PnpDispatchDeviceInterface @ 0x1406C8CF0 (_PnpDispatchDeviceInterface.c)
+ *     _CmDeleteDeviceInterfaceWorker @ 0x140A5EEA4 (_CmDeleteDeviceInterfaceWorker.c)
+ * Callees:
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x140687404 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x14087C668 (_CmSetDeviceInterfaceMappedPropertyFromRegValue.c)
+ *     _CmDeleteDeviceInterfaceMappedPropertyFromRegValue @ 0x140A64554 (_CmDeleteDeviceInterfaceMappedPropertyFromRegValue.c)
+ */
+
 __int64 __fastcall CmSetDeviceInterfaceMappedProperty(
         __int64 a1,
         __int64 a2,

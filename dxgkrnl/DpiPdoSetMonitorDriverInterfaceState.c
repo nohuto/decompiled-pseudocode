@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiPdoSetMonitorDriverInterfaceState @ 0x1C03A577C
+ * Callers:
+ *     DxgkPowerOnOffMonitor @ 0x1C01E1214 (DxgkPowerOnOffMonitor.c)
+ *     DpiPdoHandleChildConnectionChange @ 0x1C02009DC (DpiPdoHandleChildConnectionChange.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiPdoSetMonitorDriverInterfaceState(PVOID Object, char a2)
 {
   unsigned int v4; // ebx

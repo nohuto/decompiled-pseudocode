@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiLockImageSection @ 0x1406A7B00
+ * Callers:
+ *     MiLockPagableImageSection @ 0x1402252E0 (MiLockPagableImageSection.c)
+ * Callees:
+ *     ExBlockOnAddressPushLock @ 0x1402BF8C0 (ExBlockOnAddressPushLock.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MiLockCode @ 0x14032C9C0 (MiLockCode.c)
+ *     ExfUnblockPushLock @ 0x14040CCE0 (ExfUnblockPushLock.c)
+ */
+
 char __fastcall MiLockImageSection(__int64 a1, volatile signed __int32 *a2, unsigned __int64 a3, unsigned __int64 a4)
 {
   struct _KTHREAD *CurrentThread; // rdi

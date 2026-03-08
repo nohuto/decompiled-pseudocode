@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EnsureKMDpiMetricsCacheNode@@YAPEAUtagDpiKMMetricsCacheNode@@H@Z @ 0x1C01C021C
+ * Callers:
+ *     GetDPIMETRICSForDpiUnsafe @ 0x1C00A47B4 (GetDPIMETRICSForDpiUnsafe.c)
+ * Callees:
+ *     <none>
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 struct tagDpiKMMetricsCacheNode *__fastcall EnsureKMDpiMetricsCacheNode(int a1)
 {

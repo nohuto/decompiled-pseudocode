@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?OpenEdidRegistryForTarget@EDIDCACHE@DxgMonitor@@CAJIKAEAPEAXPEAK@Z @ 0x1C03C1044
+ * Callers:
+ *     ?ReadEdidFromRegistry@EDIDCACHE@DxgMonitor@@CAJIPEAEPEAW4_D3DKMDT_MONITOR_CAPABILITIES_ORIGIN@@@Z @ 0x1C03C11C4 (-ReadEdidFromRegistry@EDIDCACHE@DxgMonitor@@CAJIPEAEPEAW4_D3DKMDT_MONITOR_CAPABILITIES_ORIGIN@@@.c)
+ *     ?WriteEdidToRegistry@EDIDCACHE@DxgMonitor@@CAXIPEBEW4_D3DKMDT_MONITOR_CAPABILITIES_ORIGIN@@@Z @ 0x1C03C13A0 (-WriteEdidToRegistry@EDIDCACHE@DxgMonitor@@CAXIPEBEW4_D3DKMDT_MONITOR_CAPABILITIES_ORIGIN@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     ?RtlUnicodeStringPrintf@@YAJPEAU_UNICODE_STRING@@PEBGZZ @ 0x1C006B044 (-RtlUnicodeStringPrintf@@YAJPEAU_UNICODE_STRING@@PEBGZZ.c)
+ *     ?OpenRegistrySubkey@@YAJPEAPEAXKPEAXAEBU_UNICODE_STRING@@PEAK@Z @ 0x1C01C2134 (-OpenRegistrySubkey@@YAJPEAPEAXKPEAXAEBU_UNICODE_STRING@@PEAK@Z.c)
+ */
+
 __int64 __fastcall DxgMonitor::EDIDCACHE::OpenEdidRegistryForTarget(
         unsigned int a1,
         ACCESS_MASK a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlStdInitializeStackDatabase @ 0x1409B76AC
+ * Callers:
+ *     RtlpInitializeStackTraceDatabase @ 0x1409B77E8 (RtlpInitializeStackTraceDatabase.c)
+ * Callees:
+ *     InitializeSListHead @ 0x1402A8B90 (InitializeSListHead.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall RtlStdInitializeStackDatabase(__int64 a1, __int64 a2, unsigned __int64 a3, _QWORD *a4)
 {
   unsigned __int64 v6; // rdi

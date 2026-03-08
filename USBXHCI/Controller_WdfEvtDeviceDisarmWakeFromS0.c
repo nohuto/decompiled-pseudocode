@@ -1,3 +1,17 @@
+/*
+ * XREFs of Controller_WdfEvtDeviceDisarmWakeFromS0 @ 0x1C0036890
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     RootHub_ReleaseReadModifyWriteLock @ 0x1C00182B0 (RootHub_ReleaseReadModifyWriteLock.c)
+ *     RootHub_AcquireReadModifyWriteLock @ 0x1C00182F4 (RootHub_AcquireReadModifyWriteLock.c)
+ *     XilRegister_WriteUlong @ 0x1C0018428 (XilRegister_WriteUlong.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ */
+
 char __fastcall Controller_WdfEvtDeviceDisarmWakeFromS0(__int64 a1)
 {
   char v1; // bl

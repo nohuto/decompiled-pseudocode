@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExpandDIB_CY_ExpCX @ 0x1C0262870
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     GetFixupScan @ 0x1C014BF50 (GetFixupScan.c)
+ *     AlphaBlendBGRF @ 0x1C0260824 (AlphaBlendBGRF.c)
+ *     ExpYDIB_ExpCX @ 0x1C0261904 (ExpYDIB_ExpCX.c)
+ *     MappingBGRF @ 0x1C0265A54 (MappingBGRF.c)
+ *     SharpenInput @ 0x1C0265E60 (SharpenInput.c)
+ */
+
 __int64 __fastcall ExpandDIB_CY_ExpCX(__int64 a1)
 {
   __int64 v1; // r8

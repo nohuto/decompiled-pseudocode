@@ -1,3 +1,35 @@
+/*
+ * XREFs of IoAcquireRemoveLockEx @ 0x140305F80
+ * Callers:
+ *     PopFxLockDevice @ 0x1402B91F4 (PopFxLockDevice.c)
+ *     PopFxAllocatePowerIrp @ 0x1402BAC6C (PopFxAllocatePowerIrp.c)
+ *     PoFxPowerControl @ 0x1402D91A0 (PoFxPowerControl.c)
+ *     PopFxAddRefDevice @ 0x140305F38 (PopFxAddRefDevice.c)
+ *     PopFxProcessWork @ 0x1403060C4 (PopFxProcessWork.c)
+ *     PopFxFindAcpiDeviceByUniqueId @ 0x140393420 (PopFxFindAcpiDeviceByUniqueId.c)
+ *     PopFxAllocatePowerIrpLegacy @ 0x14040B520 (PopFxAllocatePowerIrpLegacy.c)
+ *     PopFxFindAndReferenceAcpiDevice @ 0x140587F40 (PopFxFindAndReferenceAcpiDevice.c)
+ *     PopFxPlatformIdleVeto @ 0x140588DC0 (PopFxPlatformIdleVeto.c)
+ *     PopFxProcessorIdleVeto @ 0x140588FC0 (PopFxProcessorIdleVeto.c)
+ *     PopFxUpdatePlatformIdleState @ 0x140589F60 (PopFxUpdatePlatformIdleState.c)
+ *     PopFxUpdateProcessorIdleState @ 0x14058A070 (PopFxUpdateProcessorIdleState.c)
+ *     PopPepPlatformStateRegistered @ 0x14059D504 (PopPepPlatformStateRegistered.c)
+ *     PopFxAcpiForwardNotification @ 0x14059E718 (PopFxAcpiForwardNotification.c)
+ *     PopFxAcpiForwardPepWorkRequest @ 0x14059E858 (PopFxAcpiForwardPepWorkRequest.c)
+ *     PopFxAcpiUnregisterDevice @ 0x14059EB40 (PopFxAcpiUnregisterDevice.c)
+ *     DifIoAcquireRemoveLockExWrapper @ 0x1405DA910 (DifIoAcquireRemoveLockExWrapper.c)
+ *     PoFxSetTargetDripsDevicePowerState @ 0x1409818B0 (PoFxSetTargetDripsDevicePowerState.c)
+ *     ViFilterDispatchGeneric @ 0x140ADC520 (ViFilterDispatchGeneric.c)
+ *     ViFilterDispatchPnp @ 0x140ADC600 (ViFilterDispatchPnp.c)
+ *     ViFilterDispatchPower @ 0x140ADC7D0 (ViFilterDispatchPower.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 NTSTATUS __stdcall IoAcquireRemoveLockEx(
         PIO_REMOVE_LOCK RemoveLock,
         PVOID Tag,

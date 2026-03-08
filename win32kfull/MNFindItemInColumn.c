@@ -1,3 +1,11 @@
+/*
+ * XREFs of MNFindItemInColumn @ 0x1C0241B78
+ * Callers:
+ *     xxxMNKeyDown @ 0x1C021ABF8 (xxxMNKeyDown.c)
+ * Callees:
+ *     MNFindNextValidItem @ 0x1C0241C80 (MNFindNextValidItem.c)
+ */
+
 __int64 __fastcall MNFindItemInColumn(__int64 a1, int a2, __int64 a3, int a4)
 {
   __int64 v4; // rbx

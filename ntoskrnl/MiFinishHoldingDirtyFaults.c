@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiFinishHoldingDirtyFaults @ 0x1406401D8
+ * Callers:
+ *     MiReleaseHotPatchResources @ 0x140A39030 (MiReleaseHotPatchResources.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ */
+
 void __fastcall MiFinishHoldingDirtyFaults(_QWORD *a1)
 {
   struct _KTHREAD *CurrentThread; // rdi

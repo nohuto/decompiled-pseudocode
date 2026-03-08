@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhCompletePdoWakeIrps @ 0x1C0001010
+ * Callers:
+ *     UsbhFdoD0Worker_Action @ 0x1C000CE60 (UsbhFdoD0Worker_Action.c)
+ * Callees:
+ *     UsbhRefPdo @ 0x1C00012A0 (UsbhRefPdo.c)
+ *     UsbhUnlatchPdo @ 0x1C0001380 (UsbhUnlatchPdo.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhCompletePdoWakeIrp @ 0x1C001BB3C (UsbhCompletePdoWakeIrp.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 __int64 __fastcall UsbhCompletePdoWakeIrps(__int64 a1)
 {
   unsigned __int16 v2; // di

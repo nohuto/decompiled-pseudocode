@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifZwSetVolumeInformationFileWrapper @ 0x1405F5910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwSetVolumeInformationFile @ 0x140415B30 (ZwSetVolumeInformationFile.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifZwSetVolumeInformationFileWrapper(
         HANDLE FileHandle,
         PIO_STATUS_BLOCK IoStatusBlock,

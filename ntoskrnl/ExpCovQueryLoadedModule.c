@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExpCovQueryLoadedModule @ 0x140A04090
+ * Callers:
+ *     ExpCovQueryInfoCallBack @ 0x140A03AE0 (ExpCovQueryInfoCallBack.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     ExpCovReadFriendlyName @ 0x140A0420C (ExpCovReadFriendlyName.c)
+ */
+
 __int64 __fastcall ExpCovQueryLoadedModule(
         __int64 a1,
         char a2,

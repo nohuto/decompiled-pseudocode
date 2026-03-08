@@ -1,3 +1,15 @@
+/*
+ * XREFs of PnpIrpQueryID @ 0x1406883A8
+ * Callers:
+ *     PiProcessNewDeviceNode @ 0x140685858 (PiProcessNewDeviceNode.c)
+ *     PnpQueryID @ 0x1406882B4 (PnpQueryID.c)
+ *     PpProfileCommitTransitioningDock @ 0x140960C54 (PpProfileCommitTransitioningDock.c)
+ *     PpProfileIncludeInHardwareProfileTransition @ 0x140960DA4 (PpProfileIncludeInHardwareProfileTransition.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopSynchronousCall @ 0x14069DD78 (IopSynchronousCall.c)
+ */
+
 __int64 __fastcall PnpIrpQueryID(int a1, int a2, _QWORD *a3)
 {
   __int64 result; // rax

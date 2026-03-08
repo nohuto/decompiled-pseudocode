@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiCheckRelevantKernelShadows @ 0x1403CA158
+ * Callers:
+ *     MiCheckProcessShadow @ 0x14025F210 (MiCheckProcessShadow.c)
+ * Callees:
+ *     KeQueryKvaShadowRegion @ 0x1403CA1C8 (KeQueryKvaShadowRegion.c)
+ *     MiCheckKernelShadow @ 0x1403CA298 (MiCheckKernelShadow.c)
+ */
+
 __int64 __fastcall MiCheckRelevantKernelShadows(unsigned int a1)
 {
   __int64 v1; // rdi

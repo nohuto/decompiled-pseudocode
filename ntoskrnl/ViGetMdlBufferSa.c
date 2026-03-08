@@ -1,3 +1,15 @@
+/*
+ * XREFs of ViGetMdlBufferSa @ 0x140AC6044
+ * Callers:
+ *     ViCopyBackModifiedBuffer @ 0x140AC5664 (ViCopyBackModifiedBuffer.c)
+ *     ViFlushDoubleBuffer @ 0x140AC58D4 (ViFlushDoubleBuffer.c)
+ *     ViSwap @ 0x140AC7104 (ViSwap.c)
+ * Callees:
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140AC62F4 (ViHalPreprocessOptions.c)
+ */
+
 __int64 __fastcall ViGetMdlBufferSa(ULONG_PTR a1, const void *a2)
 {
   __int64 v4; // rcx

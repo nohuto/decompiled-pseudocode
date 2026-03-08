@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpAllocatePayloadFilterData @ 0x1409F1BEC
+ * Callers:
+ *     EtwpAllocateFilter @ 0x14077F2A4 (EtwpAllocateFilter.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     EtwpValidatePayloadFilter @ 0x1409F29F0 (EtwpValidatePayloadFilter.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall EtwpAllocatePayloadFilterData(__int64 a1, __int64 a2, _QWORD *a3)
 {
   __int64 result; // rax

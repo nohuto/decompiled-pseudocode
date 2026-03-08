@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExtEnvInitializeSpinLock @ 0x1403AF45C
+ * Callers:
+ *     IvtAllocateDomain @ 0x1403AF430 (IvtAllocateDomain.c)
+ *     HalpVpptTimerRegister @ 0x140507BF4 (HalpVpptTimerRegister.c)
+ *     HsaInitializeInterruptRemapping @ 0x140A96048 (HsaInitializeInterruptRemapping.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExtEnvInitializeSpinLock(_QWORD *a1)
 {
   unsigned __int64 v2; // rdi

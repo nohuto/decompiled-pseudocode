@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserUpdateInstance @ 0x1C01E0670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxChangeMonitorFlags @ 0x1C00E49D0 (xxxChangeMonitorFlags.c)
+ *     HMValidateHandleNoRip @ 0x1C01083AC (HMValidateHandleNoRip.c)
+ */
+
 __int64 __fastcall NtUserUpdateInstance(__int64 a1, unsigned int *a2, int a3)
 {
   unsigned int v6; // ebx

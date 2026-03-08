@@ -1,3 +1,33 @@
+/*
+ * XREFs of IoRegisterPlugPlayNotification @ 0x1406F4F30
+ * Callers:
+ *     HalpPostPnpInitialize @ 0x1408020CC (HalpPostPnpInitialize.c)
+ *     PopConnectToPolicyDevice @ 0x14084A820 (PopConnectToPolicyDevice.c)
+ *     PopRegisterCoolingExtensionProtection @ 0x140980294 (PopRegisterCoolingExtensionProtection.c)
+ *     SmKmStoreFileCreate @ 0x1409D68D4 (SmKmStoreFileCreate.c)
+ *     PoInitDriverServices @ 0x140B6ED88 (PoInitDriverServices.c)
+ *     SbpWaitForVmbus @ 0x140B98D18 (SbpWaitForVmbus.c)
+ * Callees:
+ *     PnpGetRelatedTargetDevice @ 0x140202D04 (PnpGetRelatedTargetDevice.c)
+ *     PsGetServerSiloServiceSessionId @ 0x1402456C0 (PsGetServerSiloServiceSessionId.c)
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectByPointerWithTag @ 0x14033E060 (ObReferenceObjectByPointerWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IopGetDeviceInterfaces @ 0x1406C4A94 (IopGetDeviceInterfaces.c)
+ *     PnpDeferNotification @ 0x1406F5340 (PnpDeferNotification.c)
+ *     PnpInitializeNotifyEntry @ 0x1406F543C (PnpInitializeNotifyEntry.c)
+ *     PnpNotifyDriverCallback @ 0x1406F55F4 (PnpNotifyDriverCallback.c)
+ *     IopGetSessionIdFromSymbolicName @ 0x1406F6EFC (IopGetSessionIdFromSymbolicName.c)
+ *     PiRegisterKernelSoftRestartNotification @ 0x14085FB0C (PiRegisterKernelSoftRestartNotification.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall IoRegisterPlugPlayNotification(
         IO_NOTIFICATION_EVENT_CATEGORY EventCategory,
         ULONG EventCategoryFlags,

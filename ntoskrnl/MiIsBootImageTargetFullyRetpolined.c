@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiIsBootImageTargetFullyRetpolined @ 0x140B96790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlIsImageFullyRetpolined @ 0x1402F4538 (RtlIsImageFullyRetpolined.c)
+ */
+
 __int64 __fastcall MiIsBootImageTargetFullyRetpolined(unsigned __int64 a1)
 {
   __int64 *v2; // rcx

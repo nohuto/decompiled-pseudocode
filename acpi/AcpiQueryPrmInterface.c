@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiQueryPrmInterface @ 0x1C008CE38
+ * Callers:
+ *     AcpiAcquirePrmInterface @ 0x1C008CAB8 (AcpiAcquirePrmInterface.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ */
+
 __int64 __fastcall AcpiQueryPrmInterface(PDEVICE_OBJECT DeviceObject, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5)
 {
   struct _DEVICE_OBJECT *AttachedDeviceReference; // rdi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopRecordPhysicalPowerButton @ 0x14097E2A0
+ * Callers:
+ *     PopPowerButtonWorkCallback @ 0x140596C60 (PopPowerButtonWorkCallback.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopBsdHandleRequest @ 0x1402B8B24 (PopBsdHandleRequest.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ */
+
 void __fastcall PopRecordPhysicalPowerButton(char a1)
 {
   __int64 v2; // r8

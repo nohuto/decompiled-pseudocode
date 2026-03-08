@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DxgkpGetFileLastWriteTime@@YAJPEAGPEAT_LARGE_INTEGER@@@Z @ 0x1C0306CFC
+ * Callers:
+ *     ?DxgkpPopulateFile@@YAJPEAG0W4DXGKP_HARDLINKOVERWRITETYPE@@@Z @ 0x1C0306E54 (-DxgkpPopulateFile@@YAJPEAG0W4DXGKP_HARDLINKOVERWRITETYPE@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall DxgkpGetFileLastWriteTime(PCWSTR SourceString, union _LARGE_INTEGER *a2)
 {
   NTSTATUS v3; // eax

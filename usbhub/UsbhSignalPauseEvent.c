@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhSignalPauseEvent @ 0x1C003530C
+ * Callers:
+ *     Usbh_PCE_psPAUSED_Action @ 0x1C001C090 (Usbh_PCE_psPAUSED_Action.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 void __fastcall UsbhSignalPauseEvent(__int64 a1, __int64 a2)
 {
   __int64 v4; // r10

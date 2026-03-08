@@ -1,3 +1,19 @@
+/*
+ * XREFs of EtwpCompressPendingBuffers @ 0x1406000F4
+ * Callers:
+ *     EtwpBufferingModeCompressionFlush @ 0x1405FFD08 (EtwpBufferingModeCompressionFlush.c)
+ *     EtwpCompressionProc @ 0x140600270 (EtwpCompressionProc.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     EtwpCompressBuffer @ 0x1405FFD70 (EtwpCompressBuffer.c)
+ *     EtwpDequeueBufferPendingCompression @ 0x140600328 (EtwpDequeueBufferPendingCompression.c)
+ *     EtwpRotateCompressionTargetIfNeeded @ 0x140600744 (EtwpRotateCompressionTargetIfNeeded.c)
+ *     EtwpCompleteBuffer @ 0x140692D8C (EtwpCompleteBuffer.c)
+ */
+
 signed __int32 __fastcall EtwpCompressPendingBuffers(__int64 a1)
 {
   volatile signed __int64 *v1; // rbp

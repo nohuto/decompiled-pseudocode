@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiGetHighestPteConsumer @ 0x14065EC5C
+ * Callers:
+ *     MiIssueNoPtesBugcheck @ 0x14062CC28 (MiIssueNoPtesBugcheck.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiGetHighestPteConsumer(unsigned __int64 *a1)
 {
   unsigned int v2; // eax

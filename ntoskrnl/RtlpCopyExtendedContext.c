@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlpCopyExtendedContext @ 0x140364B00
+ * Callers:
+ *     KiDispatchException @ 0x140362740 (KiDispatchException.c)
+ *     RtlCopyExtendedContext @ 0x1405A89A0 (RtlCopyExtendedContext.c)
+ *     RtlpWriteExtendedContext @ 0x14077CA08 (RtlpWriteExtendedContext.c)
+ *     RtlpReadExtendedContext @ 0x1407EDC30 (RtlpReadExtendedContext.c)
+ * Callees:
+ *     RtlpValidateContextFlags @ 0x1403650A0 (RtlpValidateContextFlags.c)
+ *     RtlpCopyLegacyContext @ 0x14036519C (RtlpCopyLegacyContext.c)
+ *     RtlpCopyXStateChunk @ 0x1403D1A88 (RtlpCopyXStateChunk.c)
+ *     RtlpCopyKernelCetChunk @ 0x1405A89CC (RtlpCopyKernelCetChunk.c)
+ */
+
 __int64 __fastcall RtlpCopyExtendedContext(char a1, __int64 a2, __int64 a3, unsigned int a4, __int64 a5, __int64 a6)
 {
   unsigned int v8; // ebx

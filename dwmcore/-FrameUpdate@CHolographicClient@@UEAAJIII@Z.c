@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?FrameUpdate@CHolographicClient@@UEAAJIII@Z @ 0x1802A96C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C8D4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?ActivateView@CHolographicExclusiveView@@QEAA_NPEAVCHolographicClient@@@Z @ 0x1802A4DB4 (-ActivateView@CHolographicExclusiveView@@QEAA_NPEAVCHolographicClient@@@Z.c)
+ *     ?DeactivateView@CHolographicExclusiveView@@QEAAXPEAVCHolographicClient@@@Z @ 0x1802A4FCC (-DeactivateView@CHolographicExclusiveView@@QEAAXPEAVCHolographicClient@@@Z.c)
+ *     ?ProcessExclusiveSurfaceUpdate@CHolographicExclusiveView@@AEAA_NIPEAUEXCLUSIVE_SURFACE_UPDATE@@@Z @ 0x1802A5328 (-ProcessExclusiveSurfaceUpdate@CHolographicExclusiveView@@AEAA_NIPEAUEXCLUSIVE_SURFACE_UPDATE@@@.c)
+ *     CHolographicInteropTaskQueue::ProcessPendingMessages__lambda_28c328954791820f868badd95a7a324d___ @ 0x1802A8E2C (CHolographicInteropTaskQueue--ProcessPendingMessages__lambda_28c328954791820f868badd95a7a324d___.c)
+ *     ??4?$ComPtr@VCHolographicExclusiveView@@@WRL@Microsoft@@QEAAAEAV012@PEAVCHolographicExclusiveView@@@Z @ 0x1802A9204 (--4-$ComPtr@VCHolographicExclusiveView@@@WRL@Microsoft@@QEAAAEAV012@PEAVCHolographicExclusiveVie.c)
+ *     ?DoTextureUpdates@CHolographicClient@@AEAAXXZ @ 0x1802A93D0 (-DoTextureUpdates@CHolographicClient@@AEAAXXZ.c)
+ */
+
 __int64 __fastcall CHolographicClient::FrameUpdate(CHolographicClient *this, unsigned int a2, DWORD a3, int a4)
 {
   struct CHolographicClient *v4; // r14

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bAddColorTransform@XDCOBJ@@QEAAHPEAX@Z @ 0x1C029CDF0
+ * Callers:
+ *     ?hCreate@COLORTRANSFORMOBJ@@QEAAPEAXAEAVXDCOBJ@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z @ 0x1C029D0EC (-hCreate@COLORTRANSFORMOBJ@@QEAAPEAXAEAVXDCOBJ@@PEAUtagLOGCOLORSPACEW@@PEAXK2K2K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall XDCOBJ::bAddColorTransform(XDCOBJ *this, void *a2)
 {
   __int64 result; // rax

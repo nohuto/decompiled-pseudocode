@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBPSM30_CheckingIfResetCompletionRequiresPolling @ 0x1C0013C90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBPSM30_CheckingIfResetCompletionRequiresPolling(__int64 a1)
 {
   _BYTE *v1; // rdx

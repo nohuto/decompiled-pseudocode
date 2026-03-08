@@ -1,3 +1,14 @@
+/*
+ * XREFs of SePrivilegePolicyCheck @ 0x14033DD14
+ * Callers:
+ *     SeAccessCheckByType @ 0x14033BB40 (SeAccessCheckByType.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1406973E0 (SepAccessCheckAndAuditAlarm.c)
+ * Callees:
+ *     SepPrivilegeCheck @ 0x14030F080 (SepPrivilegeCheck.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall SePrivilegePolicyCheck(_DWORD *a1, _DWORD *a2, __int64 *a3, __int64 a4, __int64 a5, char a6)
 {
   char v6; // r13

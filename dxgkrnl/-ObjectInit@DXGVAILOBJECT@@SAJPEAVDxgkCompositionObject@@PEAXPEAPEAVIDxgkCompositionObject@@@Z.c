@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ObjectInit@DXGVAILOBJECT@@SAJPEAVDxgkCompositionObject@@PEAXPEAPEAVIDxgkCompositionObject@@@Z @ 0x1C035D780
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0DXGVAILOBJECT@@QEAA@XZ @ 0x1C035BD14 (--0DXGVAILOBJECT@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall DXGVAILOBJECT::ObjectInit(
         struct DxgkCompositionObject *a1,
         void *a2,

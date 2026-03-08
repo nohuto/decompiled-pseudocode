@@ -1,3 +1,11 @@
+/*
+ * XREFs of NeedGlobalLock @ 0x1C00524B8
+ * Callers:
+ *     AccFieldUnit @ 0x1C0051630 (AccFieldUnit.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall NeedGlobalLock(_DWORD *a1)
 {
   int v1; // r8d

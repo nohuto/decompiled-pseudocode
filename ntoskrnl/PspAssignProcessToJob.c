@@ -1,3 +1,45 @@
+/*
+ * XREFs of PspAssignProcessToJob @ 0x1406FFA20
+ * Callers:
+ *     PsAssignProcessToJobObject @ 0x1406FF9A0 (PsAssignProcessToJobObject.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     PsQueryProcessAttributes @ 0x1406D3448 (PsQueryProcessAttributes.c)
+ *     PspChangeProcessExecutionState @ 0x1406F8AC0 (PspChangeProcessExecutionState.c)
+ *     PspGetNextJobProcess @ 0x1406F90E0 (PspGetNextJobProcess.c)
+ *     PspRemoveProcessFromJobChain @ 0x1406FB110 (PspRemoveProcessFromJobChain.c)
+ *     PspChargeJobWakeCounter @ 0x1406FBDC4 (PspChargeJobWakeCounter.c)
+ *     PspUnlockJob @ 0x1406FBF7C (PspUnlockJob.c)
+ *     PspLockJobExclusive @ 0x1406FC178 (PspLockJobExclusive.c)
+ *     PspApplyWorkingSetLimitsToProcess @ 0x1406FEF9C (PspApplyWorkingSetLimitsToProcess.c)
+ *     PspApplyJobChainLimitsToProcess @ 0x1406FF27C (PspApplyJobChainLimitsToProcess.c)
+ *     PspValidateJobChainLimits @ 0x1406FFEBC (PspValidateJobChainLimits.c)
+ *     PspGetJobAssignmentDisposition @ 0x1406FFFD0 (PspGetJobAssignmentDisposition.c)
+ *     MmAssignProcessToJob @ 0x1407000C4 (MmAssignProcessToJob.c)
+ *     PspEstablishJobHierarchy @ 0x1407001E0 (PspEstablishJobHierarchy.c)
+ *     PspLockJobAssignment @ 0x140700924 (PspLockJobAssignment.c)
+ *     PspUnlockJobAssignment @ 0x140700950 (PspUnlockJobAssignment.c)
+ *     PspGetJobLockHierarchyForAssignment @ 0x1407009B8 (PspGetJobLockHierarchyForAssignment.c)
+ *     PspValidateJobAssignmentSiloPolicy @ 0x140700C58 (PspValidateJobAssignmentSiloPolicy.c)
+ *     PspLockJobsAndProcessExclusive @ 0x140700CC4 (PspLockJobsAndProcessExclusive.c)
+ *     PspValidateJobAssignmentMemoryPartition @ 0x140700D44 (PspValidateJobAssignmentMemoryPartition.c)
+ *     PspUnlockJobsAndProcessExclusive @ 0x140700DD0 (PspUnlockJobsAndProcessExclusive.c)
+ *     PspIncrementJobChainProcessCounts @ 0x140700E68 (PspIncrementJobChainProcessCounts.c)
+ *     PspIsSetJobIoAttribution @ 0x140753294 (PspIsSetJobIoAttribution.c)
+ *     PsInvokeWin32Callout @ 0x1407D2D10 (PsInvokeWin32Callout.c)
+ *     PspDoesJobHierarchyPermitUILimits @ 0x1409AF218 (PspDoesJobHierarchyPermitUILimits.c)
+ *     PspIsJobMovable @ 0x1409AF5C4 (PspIsJobMovable.c)
+ *     PspQuitNextJobProcess @ 0x1409AF83C (PspQuitNextJobProcess.c)
+ */
+
 __int64 __fastcall PspAssignProcessToJob(ULONG_PTR BugCheckParameter3, PEPROCESS Process, __int64 a3, int a4)
 {
   unsigned int v4; // r14d

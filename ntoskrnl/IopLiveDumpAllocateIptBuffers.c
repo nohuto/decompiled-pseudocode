@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopLiveDumpAllocateIptBuffers @ 0x14094AC38
+ * Callers:
+ *     IopLiveDumpAllocAndInitResources @ 0x1409495FC (IopLiveDumpAllocAndInitResources.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopLiveDumpIsUnderMemoryPressure @ 0x1405579B4 (IopLiveDumpIsUnderMemoryPressure.c)
+ *     MmAllocateIndependentPagesEx @ 0x140869ADC (MmAllocateIndependentPagesEx.c)
+ *     IopLiveDumpDiscardVirtualAddressRange @ 0x14094AFA4 (IopLiveDumpDiscardVirtualAddressRange.c)
+ */
+
 __int64 __fastcall IopLiveDumpAllocateIptBuffers(__int64 a1)
 {
   unsigned int v1; // ebx

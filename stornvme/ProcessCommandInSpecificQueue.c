@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProcessCommandInSpecificQueue @ 0x1C0001F20
+ * Callers:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ * Callees:
+ *     ProcessCommandTrace @ 0x1C00022D0 (ProcessCommandTrace.c)
+ */
+
 __int64 __fastcall ProcessCommandInSpecificQueue(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 a4)
 {
   __int64 v7; // rsi

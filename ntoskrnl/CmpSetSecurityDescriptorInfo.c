@@ -1,3 +1,37 @@
+/*
+ * XREFs of CmpSetSecurityDescriptorInfo @ 0x1406B845C
+ * Callers:
+ *     CmpSetKeySecurity @ 0x1406B7E3C (CmpSetKeySecurity.c)
+ * Callees:
+ *     CmpAllocatePool @ 0x140243878 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     CmpFreeTransientPoolWithTag @ 0x1402A4B0C (CmpFreeTransientPoolWithTag.c)
+ *     CmpRemoveSecurityCellList @ 0x1402F6F3C (CmpRemoveSecurityCellList.c)
+ *     RtlLengthSecurityDescriptorStrict @ 0x14030D2D0 (RtlLengthSecurityDescriptorStrict.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x14030DD50 (CmpFindSecurityCellCacheIndex.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     CmpTraceSecurityChanging @ 0x1406B8AF8 (CmpTraceSecurityChanging.c)
+ *     SeCheckForCriticalAceRemoval @ 0x1406BA400 (SeCheckForCriticalAceRemoval.c)
+ *     CmpAddSecurityCellToCache @ 0x14071CF00 (CmpAddSecurityCellToCache.c)
+ *     CmAddLogForAction @ 0x14073485C (CmAddLogForAction.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpFindMatchingDescriptorCell @ 0x1407A5244 (CmpFindMatchingDescriptorCell.c)
+ *     CmpAssignSecurityToKcb @ 0x1407A560C (CmpAssignSecurityToKcb.c)
+ *     HvAllocateCell @ 0x1407A63A8 (HvAllocateCell.c)
+ *     HvFreeCell @ 0x1407A6A90 (HvFreeCell.c)
+ *     CmpUpdateKeyNodeAccessBits @ 0x1407A893C (CmpUpdateKeyNodeAccessBits.c)
+ *     CmpConstructNameWithStatus @ 0x1407AF2E0 (CmpConstructNameWithStatus.c)
+ *     CmGetKCBCacheSecurity @ 0x1407AF620 (CmGetKCBCacheSecurity.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     RtlpSetSecurityObject @ 0x1407BF100 (RtlpSetSecurityObject.c)
+ *     HvpMarkCellDirty @ 0x1407D2460 (HvpMarkCellDirty.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 CmpSetSecurityDescriptorInfo(ULONG_PTR a1, _DWORD *a2, ...)
 {
   __int64 v3; // r15

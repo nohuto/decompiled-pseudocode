@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionMessageBeep @ 0x1C0240834
+ * Callers:
+ *     xxxInternalToUnicode @ 0x1C0081AB0 (xxxInternalToUnicode.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 ApiSetEditionMessageBeep()
 {
   unsigned int v0; // edi

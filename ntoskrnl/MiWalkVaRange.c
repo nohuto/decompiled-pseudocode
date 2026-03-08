@@ -1,3 +1,33 @@
+/*
+ * XREFs of MiWalkVaRange @ 0x1402CECEC
+ * Callers:
+ *     MiResetVirtualMemory @ 0x1402CEC2C (MiResetVirtualMemory.c)
+ *     MiProcessVaRangesInfoClass @ 0x14075C744 (MiProcessVaRangesInfoClass.c)
+ * Callees:
+ *     MiReleasePageFileInfo @ 0x14020B300 (MiReleasePageFileInfo.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MmAccessFault @ 0x140267D40 (MmAccessFault.c)
+ *     MiLockProtoPoolPage @ 0x140283CA0 (MiLockProtoPoolPage.c)
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x1402B0EB0 (MI_PROTO_FORMAT_COMBINED.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MiActOnPte @ 0x1402CF06C (MiActOnPte.c)
+ *     MiMakeProtoLeafValid @ 0x1402F70B0 (MiMakeProtoLeafValid.c)
+ *     MiCopyOnWrite @ 0x140319F00 (MiCopyOnWrite.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetProtoPteAddress @ 0x14031C780 (MiGetProtoPteAddress.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiIsPrototypePteVadLookup @ 0x140327240 (MiIsPrototypePteVadLookup.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiGetNextPageTable @ 0x1403468E0 (MiGetNextPageTable.c)
+ *     MiWorkingSetIsContended @ 0x1403478E0 (MiWorkingSetIsContended.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiCopyOnWriteCheckConditions @ 0x140664840 (MiCopyOnWriteCheckConditions.c)
+ */
+
 __int64 __fastcall MiWalkVaRange(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, int a4, __int64 a5)
 {
   __int64 v5; // r13

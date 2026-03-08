@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiArbitraryCodeBlocked @ 0x1407F1204
+ * Callers:
+ *     MiAllowProtectionChange @ 0x140367C88 (MiAllowProtectionChange.c)
+ *     MiMapViewOfImageSection @ 0x1407D3750 (MiMapViewOfImageSection.c)
+ *     MiReserveUserMemory @ 0x1407D4340 (MiReserveUserMemory.c)
+ *     MiMapViewOfSection @ 0x1407D51F0 (MiMapViewOfSection.c)
+ * Callees:
+ *     EtwTraceMemoryAcg @ 0x140367DD8 (EtwTraceMemoryAcg.c)
+ *     EtwTimLogProhibitDynamicCode @ 0x1409E7154 (EtwTimLogProhibitDynamicCode.c)
+ */
+
 __int64 __fastcall MiArbitraryCodeBlocked(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rcx

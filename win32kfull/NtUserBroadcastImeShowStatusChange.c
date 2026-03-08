@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserBroadcastImeShowStatusChange @ 0x1C01CDFD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?xxxBroadcastImeShowStatusChange@@YAHPEAUtagWND@@H@Z @ 0x1C01B8C94 (-xxxBroadcastImeShowStatusChange@@YAHPEAUtagWND@@H@Z.c)
+ */
+
 __int64 __fastcall NtUserBroadcastImeShowStatusChange(__int64 a1, int a2)
 {
   __int64 v4; // rax

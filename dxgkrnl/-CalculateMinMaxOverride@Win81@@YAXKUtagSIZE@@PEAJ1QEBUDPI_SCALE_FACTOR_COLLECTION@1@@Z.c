@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CalculateMinMaxOverride@Win81@@YAXKUtagSIZE@@PEAJ1QEBUDPI_SCALE_FACTOR_COLLECTION@1@@Z @ 0x1C031C3E8
+ * Callers:
+ *     ?FillOverridesAndAdjustedScaleFactor@Win81@@YAXIHPEAU_DPI_INFORMATION@@@Z @ 0x1C031C844 (-FillOverridesAndAdjustedScaleFactor@Win81@@YAXIHPEAU_DPI_INFORMATION@@@Z.c)
+ * Callees:
+ *     ??PWin81@@YA_NAEBUtagSIZE@@0@Z @ 0x1C031C220 (--PWin81@@YA_NAEBUtagSIZE@@0@Z.c)
+ */
+
 void __fastcall Win81::CalculateMinMaxOverride(Win81 *this, __int64 a2, struct tagSIZE a3, int *a4)
 {
   __int64 v4; // r10

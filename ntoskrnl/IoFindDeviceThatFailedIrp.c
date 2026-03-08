@@ -1,3 +1,15 @@
+/*
+ * XREFs of IoFindDeviceThatFailedIrp @ 0x1402FC254
+ * Callers:
+ *     PnpDeviceCompletionRoutine @ 0x140202690 (PnpDeviceCompletionRoutine.c)
+ *     PopDiagTraceIrpFinish @ 0x1402BB864 (PopDiagTraceIrpFinish.c)
+ *     PopDiagTraceIrpFinishTelemetry @ 0x1402BB8E4 (PopDiagTraceIrpFinishTelemetry.c)
+ *     PnpDiagnosticCompletionRoutine @ 0x140562810 (PnpDiagnosticCompletionRoutine.c)
+ *     PopSystemIrpCompletion @ 0x140AA4450 (PopSystemIrpCompletion.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IoFindDeviceThatFailedIrp(__int64 a1)
 {
   unsigned int v1; // r9d

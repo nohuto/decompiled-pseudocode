@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExShutdownSystem @ 0x140AA79E8
+ * Callers:
+ *     PopGracefulShutdown @ 0x140A9D970 (PopGracefulShutdown.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ExpRecordShutdownTime @ 0x140603D68 (ExpRecordShutdownTime.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     ExSwapinWorkerThreads @ 0x1409FD778 (ExSwapinWorkerThreads.c)
+ */
+
 void ExShutdownSystem()
 {
   int v0; // edx

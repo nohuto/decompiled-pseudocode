@@ -1,3 +1,27 @@
+/*
+ * XREFs of MiFillSystemPtes @ 0x140328C00
+ * Callers:
+ *     MiMapContiguousMemory @ 0x14029AF58 (MiMapContiguousMemory.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmMapMdl @ 0x14062CC90 (MmMapMdl.c)
+ *     MiLockAndMapEntireDriver @ 0x140A31608 (MiLockAndMapEntireDriver.c)
+ *     MiMapHotPatchImageInSystemSpace @ 0x140A37488 (MiMapHotPatchImageInSystemSpace.c)
+ * Callees:
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiZeroAndFlushPtes @ 0x14029B3BC (MiZeroAndFlushPtes.c)
+ *     MiReferenceIoPages @ 0x14029BA60 (MiReferenceIoPages.c)
+ *     MiIoSpaceGetBounds @ 0x14029C250 (MiIoSpaceGetBounds.c)
+ *     MiUserPdeOrAbove @ 0x1402D39A0 (MiUserPdeOrAbove.c)
+ *     MiIoPagesInRun @ 0x1402F4788 (MiIoPagesInRun.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14034A974 (MiMakeProtectionPfnCompatible.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x14035094C (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiAssignInitialPageAttribute @ 0x14039DE84 (MiAssignInitialPageAttribute.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiShowBadMapper @ 0x14062EC9C (MiShowBadMapper.c)
+ */
+
 __int64 __fastcall MiFillSystemPtes(
         unsigned __int64 a1,
         unsigned __int64 a2,

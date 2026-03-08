@@ -1,3 +1,18 @@
+/*
+ * XREFs of IopLiveDumpUncorralProcessors @ 0x140A99588
+ * Callers:
+ *     IopLiveDumpCaptureMemoryPages @ 0x140A97838 (IopLiveDumpCaptureMemoryPages.c)
+ *     IopLiveDumpCollectPages @ 0x140A97A84 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x140A9811C (IopLiveDumpEstimateMemoryPages.c)
+ * Callees:
+ *     KeRevertToUserGroupAffinityThread @ 0x1402AA110 (KeRevertToUserGroupAffinityThread.c)
+ *     IopLiveDumpTraceSystemQuiesceEnd @ 0x1405592AC (IopLiveDumpTraceSystemQuiesceEnd.c)
+ *     IopLiveDumpTraceUncorralProcessorsDuration @ 0x14055935C (IopLiveDumpTraceUncorralProcessorsDuration.c)
+ *     IopLiveDumpUnLockPages @ 0x140559540 (IopLiveDumpUnLockPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopLiveDumpInitiateCorralStateChange @ 0x140A987A4 (IopLiveDumpInitiateCorralStateChange.c)
+ */
+
 char __fastcall IopLiveDumpUncorralProcessors(__int64 *a1, char a2)
 {
   __int64 v4; // rsi

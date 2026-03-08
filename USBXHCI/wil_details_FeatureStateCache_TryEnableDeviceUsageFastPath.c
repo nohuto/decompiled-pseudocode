@@ -1,3 +1,13 @@
+/*
+ * XREFs of wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C001F488
+ * Callers:
+ *     Feature_SplitTransactionHSIIWorkaround__private_ReportDeviceUsage @ 0x1C001EE54 (Feature_SplitTransactionHSIIWorkaround__private_ReportDeviceUsage.c)
+ *     wil_details_IsEnabledFallback @ 0x1C001F638 (wil_details_IsEnabledFallback.c)
+ *     Feature_SecureUSBDeviceFirmwareHashCheck__private_ReportDeviceUsage @ 0x1C001F91C (Feature_SecureUSBDeviceFirmwareHashCheck__private_ReportDeviceUsage.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath(unsigned __int8 a1, int a2, __int64 a3)
 {
   volatile signed __int32 *v3; // r9

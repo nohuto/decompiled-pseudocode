@@ -1,3 +1,15 @@
+/*
+ * XREFs of DbgpInsertDebugPrintCallback @ 0x1405A5444
+ * Callers:
+ *     DbgSetDebugPrintCallback @ 0x1405A53E0 (DbgSetDebugPrintCallback.c)
+ * Callees:
+ *     ExInitializePushLock @ 0x140238200 (ExInitializePushLock.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall DbgpInsertDebugPrintCallback(unsigned __int64 a1)
 {
   struct _EX_RUNDOWN_REF *Pool2; // rax

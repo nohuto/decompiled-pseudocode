@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpWnfFindScopeInstance @ 0x14071B968
+ * Callers:
+ *     ExpWnfDeleteScopeById @ 0x140704810 (ExpWnfDeleteScopeById.c)
+ *     ExpWnfResolveScopeInstance @ 0x14071A508 (ExpWnfResolveScopeInstance.c)
+ * Callees:
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ */
+
 _QWORD *__fastcall ExpWnfFindScopeInstance(_QWORD **a1, const void *a2, unsigned int a3)
 {
   _QWORD *v3; // rbx

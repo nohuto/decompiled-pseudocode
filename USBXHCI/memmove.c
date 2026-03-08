@@ -1,3 +1,31 @@
+/*
+ * XREFs of memmove @ 0x1C0020400
+ * Callers:
+ *     Control_Transfer_MapIntoRing @ 0x1C00062A0 (Control_Transfer_MapIntoRing.c)
+ *     Control_ProcessTransferEventWithED1 @ 0x1C0006840 (Control_ProcessTransferEventWithED1.c)
+ *     Bulk_ProcessTransferEventWithStoppedCompletion @ 0x1C000DFBC (Bulk_ProcessTransferEventWithStoppedCompletion.c)
+ *     Bulk_ProcessTransferEventWithED1 @ 0x1C0011324 (Bulk_ProcessTransferEventWithED1.c)
+ *     Bulk_Stage_MapIntoRing @ 0x1C0012A00 (Bulk_Stage_MapIntoRing.c)
+ *     InitializeTelemetryAssertsKMWorkerInternal @ 0x1C001D15C (InitializeTelemetryAssertsKMWorkerInternal.c)
+ *     memcpy_s @ 0x1C001E860 (memcpy_s.c)
+ *     XilCommand_SendAddCommandCRBToRingRequest @ 0x1C0031B20 (XilCommand_SendAddCommandCRBToRingRequest.c)
+ *     XilEndpoint_SendRequestToGetSecureStreamContextArray @ 0x1C003946C (XilEndpoint_SendRequestToGetSecureStreamContextArray.c)
+ *     XilEndpoint_SendRequestToSetSecureStreamContextArray @ 0x1C0039674 (XilEndpoint_SendRequestToSetSecureStreamContextArray.c)
+ *     Register_ReadSecureMmio @ 0x1C003EE08 (Register_ReadSecureMmio.c)
+ *     Register_WriteSecureMmio @ 0x1C003F1E8 (Register_WriteSecureMmio.c)
+ *     Control_ProcessTransferEventWithED0 @ 0x1C0042974 (Control_ProcessTransferEventWithED0.c)
+ *     Bulk_ProcessStreamOnEndpointStopOrHalt @ 0x1C0046E58 (Bulk_ProcessStreamOnEndpointStopOrHalt.c)
+ *     Bulk_ProcessTransferEventWithHaltedCompletion @ 0x1C0046FFC (Bulk_ProcessTransferEventWithHaltedCompletion.c)
+ *     Crashdump_UcxEvtGetDumpData @ 0x1C004D200 (Crashdump_UcxEvtGetDumpData.c)
+ *     TelemetryData_InsertTriageDataBlock @ 0x1C00531E8 (TelemetryData_InsertTriageDataBlock.c)
+ *     Controller_PopulateAcpiDeviceInformation @ 0x1C00782EC (Controller_PopulateAcpiDeviceInformation.c)
+ *     WppTraceCallback @ 0x1C0079A50 (WppTraceCallback.c)
+ *     Wmi_WdfEvtWmi_GetControllerCapabilities @ 0x1C007A4B0 (Wmi_WdfEvtWmi_GetControllerCapabilities.c)
+ *     TelemetryData_pInitWerContext @ 0x1C007B300 (TelemetryData_pInitWerContext.c)
+ * Callees:
+ *     <none>
+ */
+
 void *__cdecl memmove(void *a1, const void *Src, size_t Size)
 {
   void *result; // rax

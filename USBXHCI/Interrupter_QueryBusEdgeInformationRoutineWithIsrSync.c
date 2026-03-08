@@ -1,3 +1,11 @@
+/*
+ * XREFs of Interrupter_QueryBusEdgeInformationRoutineWithIsrSync @ 0x1C003E200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall Interrupter_QueryBusEdgeInformationRoutineWithIsrSync(__int64 a1, __int64 *a2)
 {
   _BYTE *v2; // r8

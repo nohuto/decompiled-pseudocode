@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiReadyQueueEnumeratorStartScbQueuesPhase @ 0x140261910
+ * Callers:
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x140227C10 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KeYieldExecution @ 0x140256BE0 (KeYieldExecution.c)
+ *     KiSearchForNewThread @ 0x140260460 (KiSearchForNewThread.c)
+ *     KiAdvanceReadyQueueEnumeratorToNextPhase @ 0x1402EECB8 (KiAdvanceReadyQueueEnumeratorToNextPhase.c)
+ * Callees:
+ *     KiAdvanceReadyQueueEnumeratorToNextScb @ 0x1402EEAE4 (KiAdvanceReadyQueueEnumeratorToNextScb.c)
+ */
+
 __int64 __fastcall KiReadyQueueEnumeratorStartScbQueuesPhase(__int64 a1)
 {
   unsigned __int8 v2; // cl

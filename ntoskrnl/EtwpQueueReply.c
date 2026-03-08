@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpQueueReply @ 0x140783E98
+ * Callers:
+ *     EtwpDeleteRegistrationObject @ 0x140693BC0 (EtwpDeleteRegistrationObject.c)
+ *     EtwpSendReplyDataBlock @ 0x140783DB4 (EtwpSendReplyDataBlock.c)
+ * Callees:
+ *     KeInsertQueue @ 0x1402F3300 (KeInsertQueue.c)
+ *     EtwpAllocDataBlock @ 0x14068ED78 (EtwpAllocDataBlock.c)
+ *     EtwpUnreferenceDataBlock @ 0x1406909A0 (EtwpUnreferenceDataBlock.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall EtwpQueueReply(PRKQUEUE Queue, unsigned int *a2)
 {
   int v3; // edi

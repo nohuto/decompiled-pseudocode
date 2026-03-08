@@ -1,3 +1,12 @@
+/*
+ * XREFs of Lanczos::Lanczos @ 0x1801FC1C0
+ * Callers:
+ *     ?ComputeDecimationFilterKernel@Lanczos@@YAXIIQEAY05M@Z @ 0x1801FBFC8 (-ComputeDecimationFilterKernel@Lanczos@@YAXIIQEAY05M@Z.c)
+ *     ?ComputeInterpolationFilterKernel@Lanczos@@YAXQEAY05M@Z @ 0x1801FC0E0 (-ComputeInterpolationFilterKernel@Lanczos@@YAXQEAY05M@Z.c)
+ * Callees:
+ *     Lanczos::Sinc @ 0x1801FC228 (Lanczos--Sinc.c)
+ */
+
 double __fastcall Lanczos::Lanczos(double a1)
 {
   double v1; // xmm0_8

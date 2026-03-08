@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpInitializePrivateSessionDemuxObject @ 0x14085FA1C
+ * Callers:
+ *     EtwpInitialize @ 0x140B3CA40 (EtwpInitialize.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObCreateObjectTypeEx @ 0x14080CB20 (ObCreateObjectTypeEx.c)
+ */
+
 __int64 EtwpInitializePrivateSessionDemuxObject()
 {
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-39h] BYREF

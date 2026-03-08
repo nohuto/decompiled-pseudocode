@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?xxxFocusSetInputContext@@YAXPEAUtagWND@@HH@Z @ 0x1C009AC64
+ * Callers:
+ *     xxxDestroyWindow @ 0x1C004B7F0 (xxxDestroyWindow.c)
+ *     _anonymous_namespace_::xxxSendFocusMessages @ 0x1C009A850 (_anonymous_namespace_--xxxSendFocusMessages.c)
+ *     ?xxxDeactivate@@YAXPEAUtagTHREADINFO@@KW4DeactivateOption@@@Z @ 0x1C009BD38 (-xxxDeactivate@@YAXPEAUtagTHREADINFO@@KW4DeactivateOption@@@Z.c)
+ *     ?CancelInputState@@YAXPEAUtagTHREADINFO@@K@Z @ 0x1C01B633C (-CancelInputState@@YAXPEAUtagTHREADINFO@@K@Z.c)
+ * Callees:
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     QueueNotifyMessage @ 0x1C01FE820 (QueueNotifyMessage.c)
+ */
+
 void __fastcall xxxFocusSetInputContext(struct tagWND *a1, int a2, int a3)
 {
   __int64 v6; // rcx

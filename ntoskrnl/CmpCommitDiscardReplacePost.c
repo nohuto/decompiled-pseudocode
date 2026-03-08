@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpCommitDiscardReplacePost @ 0x140A1CC50
+ * Callers:
+ *     CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers @ 0x140A1CBE4 (CmpCommitDiscardAndReplaceKcbAndUnbackedHigherLayers.c)
+ * Callees:
+ *     CmpDereferenceKeyControlBlockUnsafe @ 0x1406B6158 (CmpDereferenceKeyControlBlockUnsafe.c)
+ *     CmpRebuildKcbCache @ 0x1406B6498 (CmpRebuildKcbCache.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x1406B7100 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpMarkKeyUnbacked @ 0x14074AD64 (CmpMarkKeyUnbacked.c)
+ *     CmpDiscardKcb @ 0x14074B098 (CmpDiscardKcb.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x1407B05D8 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x140A14AA4 (CmpSearchKeyControlBlockTreeEx.c)
+ */
+
 __int64 __fastcall CmpCommitDiscardReplacePost(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)
 {
   __int64 v3; // r8

@@ -1,3 +1,15 @@
+/*
+ * XREFs of SepRmDbInitialization @ 0x140B69A18
+ * Callers:
+ *     SepInitializationPhase0 @ 0x140B48678 (SepInitializationPhase0.c)
+ * Callees:
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SepCreateLogonSessionTrack @ 0x14076B35C (SepCreateLogonSessionTrack.c)
+ *     SepBuildDefaultCap @ 0x1408567F4 (SepBuildDefaultCap.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 char SepRmDbInitialization()
 {
   struct _ERESOURCE *v0; // rbx

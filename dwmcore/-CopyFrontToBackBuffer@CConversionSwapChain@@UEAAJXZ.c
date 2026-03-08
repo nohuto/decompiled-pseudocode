@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?CopyFrontToBackBuffer@CConversionSwapChain@@UEAAJXZ @ 0x18029E580
+ * Callers:
+ *     ?CopyFrontToBackBuffer@CConversionSwapChain@@$4PPPPPPPM@DFI@EAAJXZ @ 0x18011CD50 (-CopyFrontToBackBuffer@CConversionSwapChain@@$4PPPPPPPM@DFI@EAAJXZ.c)
+ * Callees:
+ *     ?CopyFrontToBackBuffer@CLegacySwapChain@@UEAAJXZ @ 0x180042130 (-CopyFrontToBackBuffer@CLegacySwapChain@@UEAAJXZ.c)
+ *     ?BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x180042574 (-BeginIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     ?NotifyRenderedRect@CLegacySwapChain@@UEAAXPEBV?$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DRectL@@U_CMilRectL_@RectUniqueness@@@@@Z @ 0x180046470 (-NotifyRenderedRect@CLegacySwapChain@@UEAAXPEBV-$TMilRect_@HUtagRECT@@UMilPointAndSizeL@@UMil3DR.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z @ 0x1800DBF94 (-StepIterator@CRgnData@Internal@FastRegion@@QEBAXPEAVIterator@CRegion@3@@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall CConversionSwapChain::CopyFrontToBackBuffer(CConversionSwapChain *this, __int64 a2, __int64 a3)
 {
   int v3; // eax

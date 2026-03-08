@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiDevCfgPopCopyKeyEntry @ 0x1403C2124
+ * Callers:
+ *     PiDevCfgCopyDeviceKeys @ 0x140877924 (PiDevCfgCopyDeviceKeys.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 bool __fastcall PiDevCfgPopCopyKeyEntry(_QWORD *a1, _QWORD *a2, _QWORD *a3, _DWORD *a4)
 {
   _QWORD *v4; // rbx

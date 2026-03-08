@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiAcpiHandleAcpiEventWork @ 0x1C03A2450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiAcpiHandleAcpiEvent @ 0x1C03A1FD4 (DpiAcpiHandleAcpiEvent.c)
+ */
+
 void __fastcall DpiAcpiHandleAcpiEventWork(PVOID IoObject, PVOID Context, PIO_WORKITEM IoWorkItem)
 {
   char v4; // si

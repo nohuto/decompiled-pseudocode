@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpGetCallerSessionId @ 0x140955A70
+ * Callers:
+ *     PiCMQueryRemove @ 0x140967304 (PiCMQueryRemove.c)
+ * Callees:
+ *     SeQuerySessionIdToken @ 0x140770F90 (SeQuerySessionIdToken.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ */
+
 __int64 __fastcall PnpGetCallerSessionId(PULONG SessionId)
 {
   PACCESS_TOKEN PrimaryToken; // rcx

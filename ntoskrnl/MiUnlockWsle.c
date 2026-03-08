@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiUnlockWsle @ 0x1403443C0
+ * Callers:
+ *     MmUnmapViewInSystemCache @ 0x140285250 (MmUnmapViewInSystemCache.c)
+ *     MiTerminateWsleCluster @ 0x1403234E0 (MiTerminateWsleCluster.c)
+ *     MiDeleteVa @ 0x140324900 (MiDeleteVa.c)
+ *     MiTerminateWsle @ 0x14032AAF0 (MiTerminateWsle.c)
+ *     MiUnlockVa @ 0x14034A190 (MiUnlockVa.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiGetEffectivePagePriorityThread @ 0x14028A260 (MiGetEffectivePagePriorityThread.c)
+ *     MiSetVaAgeList @ 0x14031AB40 (MiSetVaAgeList.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUnlockPageTableCharges @ 0x140345720 (MiUnlockPageTableCharges.c)
+ */
+
 __int64 __fastcall MiUnlockWsle(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   __int64 v3; // rbx

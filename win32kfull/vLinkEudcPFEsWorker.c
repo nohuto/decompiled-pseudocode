@@ -1,3 +1,12 @@
+/*
+ * XREFs of vLinkEudcPFEsWorker @ 0x1C0114EE8
+ * Callers:
+ *     vLinkEudcPFEs @ 0x1C011177C (vLinkEudcPFEs.c)
+ * Callees:
+ *     ?bCheckFamilyName@PFEOBJ@@QEAAHPEBGHPEAH@Z @ 0x1C00E3648 (-bCheckFamilyName@PFEOBJ@@QEAAHPEBGHPEAH@Z.c)
+ *     ?FindBaseFontEntry@@YAPEAU_FLENTRY@@PEBG@Z @ 0x1C0115FA0 (-FindBaseFontEntry@@YAPEAU_FLENTRY@@PEBG@Z.c)
+ */
+
 void __fastcall vLinkEudcPFEsWorker(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiFlushDeferredRetpolineImageLoadEvents @ 0x1408612A4
+ * Callers:
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     MmAcquireLoadLock @ 0x1407D2360 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x1407D2400 (MmReleaseLoadLock.c)
+ *     MiLogNonRetpolineImageLoadEvent @ 0x140850640 (MiLogNonRetpolineImageLoadEvent.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char MiFlushDeferredRetpolineImageLoadEvents()
 {
   struct _KTHREAD *Lock; // rdi

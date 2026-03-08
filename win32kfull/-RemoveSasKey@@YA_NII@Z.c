@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RemoveSasKey@@YA_NII@Z @ 0x1C00F4CD8
+ * Callers:
+ *     ?HKRemoveHotkeyOrMakePlaceholder@@YA_NPEAPEAUtagHOTKEY@@@Z @ 0x1C0039F6C (-HKRemoveHotkeyOrMakePlaceholder@@YA_NPEAPEAUtagHOTKEY@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RemoveSasKey(__int64 a1, int a2)
 {
   unsigned int v2; // edi

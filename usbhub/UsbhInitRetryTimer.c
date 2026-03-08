@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhInitRetryTimer @ 0x1C0043B10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhQueueWorkItemWithRetry @ 0x1C000B390 (UsbhQueueWorkItemWithRetry.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ */
+
 __int64 __fastcall UsbhInitRetryTimer(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   FdoExt(a2);

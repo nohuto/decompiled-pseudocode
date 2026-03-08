@@ -1,3 +1,19 @@
+/*
+ * XREFs of NtGdiOpenDCW @ 0x1C003D110
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AllocFreeTmpBuffer @ 0x1C003C6A0 (AllocFreeTmpBuffer.c)
+ *     FreeTmpBuffer @ 0x1C003C850 (FreeTmpBuffer.c)
+ *     hdcOpenDCW @ 0x1C003C8E0 (hdcOpenDCW.c)
+ *     UserGetDesktopDC @ 0x1C003D300 (UserGetDesktopDC.c)
+ *     PopThreadGuardedObject @ 0x1C00453C0 (PopThreadGuardedObject.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ *     ?CaptureDEVMODEW@@YAPEAU_devicemodeW@@REAU1@@Z @ 0x1C0185410 (-CaptureDEVMODEW@@YAPEAU_devicemodeW@@REAU1@@Z.c)
+ *     ?CaptureDriverInfo2W@@YAPEAU_DRIVER_INFO_2W@@PEAU1@@Z @ 0x1C0185500 (-CaptureDriverInfo2W@@YAPEAU_DRIVER_INFO_2W@@PEAU1@@Z.c)
+ */
+
 __int64 __fastcall NtGdiOpenDCW(
         unsigned __int16 *a1,
         struct _devicemodeW *a2,

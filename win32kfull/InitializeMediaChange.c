@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitializeMediaChange @ 0x1C00F1770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall InitializeMediaChange(HANDLE Handle)
 {
   __int64 v2; // rcx

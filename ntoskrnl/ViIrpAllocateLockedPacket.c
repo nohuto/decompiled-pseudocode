@@ -1,3 +1,18 @@
+/*
+ * XREFs of ViIrpAllocateLockedPacket @ 0x140ACAC64
+ * Callers:
+ *     VfIoAllocateIrp1 @ 0x140ACA6E8 (VfIoAllocateIrp1.c)
+ * Callees:
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1402955D0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     IoInitializeIrp @ 0x1402CABC0 (IoInitializeIrp.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     PsChargeProcessNonPagedPoolQuota @ 0x14034CCC0 (PsChargeProcessNonPagedPoolQuota.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     VfHandlePoolAlloc @ 0x140ACDFB0 (VfHandlePoolAlloc.c)
+ *     VfPacketCreateAndLock @ 0x140ADA00C (VfPacketCreateAndLock.c)
+ */
+
 __int64 __fastcall ViIrpAllocateLockedPacket(CCHAR a1, int a2, __int64 a3)
 {
   __int64 v4; // rbx

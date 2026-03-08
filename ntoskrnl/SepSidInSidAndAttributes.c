@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepSidInSidAndAttributes @ 0x1407439F8
+ * Callers:
+ *     SepFilterToken @ 0x14073FED0 (SepFilterToken.c)
+ *     SepRemoveDisabledGroupsAndPrivileges @ 0x14074380C (SepRemoveDisabledGroupsAndPrivileges.c)
+ * Callees:
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ */
+
 char __fastcall SepSidInSidAndAttributes(unsigned __int8 **a1, unsigned int a2, __int64 a3, char *a4)
 {
   unsigned __int8 **v6; // rbx

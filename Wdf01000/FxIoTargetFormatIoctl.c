@@ -1,3 +1,18 @@
+/*
+ * XREFs of FxIoTargetFormatIoctl @ 0x1C0005C48
+ * Callers:
+ *     imp_WdfIoTargetFormatRequestForInternalIoctl @ 0x1C0006A00 (imp_WdfIoTargetFormatRequestForInternalIoctl.c)
+ *     imp_WdfIoTargetFormatRequestForIoctl @ 0x1C0051500 (imp_WdfIoTargetFormatRequestForIoctl.c)
+ * Callees:
+ *     ?FormatIoctlRequest@FxIoTarget@@QEAAJPEAVFxRequestBase@@KEPEAUFxRequestBuffer@@1PEAVFxFileObject@@@Z @ 0x1C00022E8 (-FormatIoctlRequest@FxIoTarget@@QEAAJPEAVFxRequestBase@@KEPEAUFxRequestBuffer@@1PEAVFxFileObject.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?SetMemory@FxRequestBuffer@@QEAAXPEAVIFxMemory@@PEAU_WDFMEMORY_OFFSET@@@Z @ 0x1C00075C4 (-SetMemory@FxRequestBuffer@@QEAAXPEAVIFxMemory@@PEAU_WDFMEMORY_OFFSET@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_D @ 0x1C0017F78 (WPP_IFR_SF_D.c)
+ *     WPP_IFR_SF_qid @ 0x1C00195EC (WPP_IFR_SF_qid.c)
+ *     WPP_IFR_SF_qqDdqq @ 0x1C0050B54 (WPP_IFR_SF_qqDdqq.c)
+ */
+
 __int64 __fastcall FxIoTargetFormatIoctl(
         _FX_DRIVER_GLOBALS *FxDriverGlobals,
         WDFIOTARGET__ *IoTarget,

@@ -1,3 +1,22 @@
+/*
+ * XREFs of DbgkSendSystemDllMessages @ 0x140933E74
+ * Callers:
+ *     DbgkCreateThread @ 0x1407ED96C (DbgkCreateThread.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140934820 (DbgkpPostFakeThreadMessages.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     RtlStringCbCopyW @ 0x140244EC0 (RtlStringCbCopyW.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     PsWow64GetProcessNtdllType @ 0x140707820 (PsWow64GetProcessNtdllType.c)
+ *     PsQuerySystemDllInfo @ 0x14076D124 (PsQuerySystemDllInfo.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     DbgkpQueueMessage @ 0x140934EE8 (DbgkpQueueMessage.c)
+ *     DbgkpSendApiMessage @ 0x1409370E0 (DbgkpSendApiMessage.c)
+ */
+
 int __fastcall DbgkSendSystemDllMessages(_QWORD *a1, struct _KEVENT *a2, _DWORD *a3)
 {
   struct _KTHREAD *CurrentThread; // rax

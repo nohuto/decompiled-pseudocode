@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DpiFinishSuspendAdapter@@YAXPEAU_FDO_CONTEXT@@@Z @ 0x1C001AAEC
+ * Callers:
+ *     DpiPowerArbiterThread @ 0x1C0210150 (DpiPowerArbiterThread.c)
+ * Callees:
+ *     DpiSetDevicePowerTransitionState @ 0x1C001AFB8 (DpiSetDevicePowerTransitionState.c)
+ *     DpiCancelSuspendAdapterTimer @ 0x1C001B010 (DpiCancelSuspendAdapterTimer.c)
+ *     DpiRequestDevicePowerIrp @ 0x1C001B144 (DpiRequestDevicePowerIrp.c)
+ */
+
 void __fastcall DpiFinishSuspendAdapter(struct _FDO_CONTEXT *a1)
 {
   struct _KLOCK_QUEUE_HANDLE LockHandle; // [rsp+20h] [rbp-28h] BYREF

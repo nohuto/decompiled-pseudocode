@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsKnownMismatchedVersionedDriver @ 0x1C0396498
+ * Callers:
+ *     DpiFdoValidateKmdAndPnpVersionMatch @ 0x1C020F290 (DpiFdoValidateKmdAndPnpVersionMatch.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall IsKnownMismatchedVersionedDriver(int a1, __int64 a2, __int64 a3)
 {
   if ( (*(_DWORD *)(a2 + 4) & 0xFFFF0000) < 0x150000 && (*(_DWORD *)(a3 + 4) & 0xFFFF0000) < 0x150000 )

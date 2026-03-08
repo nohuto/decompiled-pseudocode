@@ -1,3 +1,13 @@
+/*
+ * XREFs of UpdateDCEInUseCount @ 0x1C003D02C
+ * Callers:
+ *     GetMonitorDC @ 0x1C003D41C (GetMonitorDC.c)
+ *     _GetDCEx @ 0x1C003F6E0 (_GetDCEx.c)
+ * Callees:
+ *     ?TraceLoggingGlobalDCsInUse@@YAXK@Z @ 0x1C017D92C (-TraceLoggingGlobalDCsInUse@@YAXK@Z.c)
+ *     ?TraceLoggingProcessDCsInUse@@YAXKK@Z @ 0x1C017D99C (-TraceLoggingProcessDCsInUse@@YAXKK@Z.c)
+ */
+
 void __fastcall UpdateDCEInUseCount(int a1, unsigned int *a2)
 {
   unsigned int v3; // eax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpCloseSystemDriverHiveContext @ 0x140B71FE8
+ * Callers:
+ *     CmGetSystemDriverList @ 0x140B59568 (CmGetSystemDriverList.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ */
+
 void __fastcall CmpCloseSystemDriverHiveContext(__int64 a1)
 {
   void *v2; // rcx

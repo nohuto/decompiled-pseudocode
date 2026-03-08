@@ -1,3 +1,13 @@
+/*
+ * XREFs of KeCopyXfdMaskToPeb @ 0x14029618C
+ * Callers:
+ *     PspSetupUserProcessAddressSpace @ 0x14070733C (PspSetupUserProcessAddressSpace.c)
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ *     PspEnableProcessOptionalXStateFeatures @ 0x1409AB970 (PspEnableProcessOptionalXStateFeatures.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall KeCopyXfdMaskToPeb(_QWORD *a1)
 {
   __int64 v1; // r8

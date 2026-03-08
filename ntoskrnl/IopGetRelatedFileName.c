@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopGetRelatedFileName @ 0x140941AE0
+ * Callers:
+ *     IopSymlinkRememberJunction @ 0x14087A7D0 (IopSymlinkRememberJunction.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ObQueryNameStringMode @ 0x14071EE84 (ObQueryNameStringMode.c)
+ *     IopGetFileInformation @ 0x14072054C (IopGetFileInformation.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopGetRelatedFileName(__int64 a1, __int64 a2, unsigned __int16 a3, _WORD *a4)
 {
   struct _IRP *v4; // rsi

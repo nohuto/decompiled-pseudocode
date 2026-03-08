@@ -1,3 +1,13 @@
+/*
+ * XREFs of strtoxq @ 0x1403D33CC
+ * Callers:
+ *     _strtoi64 @ 0x1403D35EC (_strtoi64.c)
+ *     _strtoui64 @ 0x1403D3620 (_strtoui64.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     __pctype_func @ 0x1403D7BE4 (__pctype_func.c)
+ */
+
 unsigned __int64 __fastcall strtoxq(__int64 a1, unsigned __int8 *a2, unsigned __int8 **a3, signed int a4, int a5)
 {
   signed int v5; // r14d

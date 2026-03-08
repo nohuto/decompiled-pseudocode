@@ -1,3 +1,18 @@
+/*
+ * XREFs of AlpcpFormatConnectionRequest @ 0x140712838
+ * Callers:
+ *     AlpcpProcessConnectionRequest @ 0x140717E20 (AlpcpProcessConnectionRequest.c)
+ *     NtSecureConnectPort @ 0x140774850 (NtSecureConnectPort.c)
+ * Callees:
+ *     AlpcpAllocateMessage @ 0x140712E84 (AlpcpAllocateMessage.c)
+ *     AlpcpValidateConnectionMessage @ 0x140714744 (AlpcpValidateConnectionMessage.c)
+ *     AlpcpSetupMessageDataForDeferredCopy @ 0x14071478C (AlpcpSetupMessageDataForDeferredCopy.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     AlpcpMapLegacyPortView @ 0x1407829D0 (AlpcpMapLegacyPortView.c)
+ *     AlpcpReferenceBlob @ 0x1407CAA30 (AlpcpReferenceBlob.c)
+ *     AlpcpCaptureAttributes @ 0x1407CAAD0 (AlpcpCaptureAttributes.c)
+ */
+
 __int64 __fastcall AlpcpFormatConnectionRequest(
         ULONG_PTR *a1,
         unsigned int a2,

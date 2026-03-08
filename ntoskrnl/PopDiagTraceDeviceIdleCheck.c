@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopDiagTraceDeviceIdleCheck @ 0x1405904E0
+ * Callers:
+ *     PopScanIdleList @ 0x1402BC8E0 (PopScanIdleList.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140240954 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PopDiagTraceDeviceIdleCheck(__int64 a1, int a2, int a3)
 {
   _UNKNOWN **DeviceAttachmentBaseRefWithTag; // rax

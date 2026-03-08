@@ -1,3 +1,17 @@
+/*
+ * XREFs of IopIoRingDispatchWrite @ 0x140946CF4
+ * Callers:
+ *     IopProcessIoRingEntry @ 0x140947008 (IopProcessIoRingEntry.c)
+ * Callees:
+ *     IopFileObjectRevoked @ 0x14023EC30 (IopFileObjectRevoked.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IopCompleteIoRingEntry @ 0x140556F5C (IopCompleteIoRingEntry.c)
+ *     IopMcReleaseMdl @ 0x14055CD74 (IopMcReleaseMdl.c)
+ *     IopWriteFile @ 0x1406B3E10 (IopWriteFile.c)
+ *     IopIoRingGetBuffer @ 0x140946E9C (IopIoRingGetBuffer.c)
+ *     IopIoRingReferenceFileObject @ 0x140946F94 (IopIoRingReferenceFileObject.c)
+ */
+
 __int64 __fastcall IopIoRingDispatchWrite(__int64 a1, __int64 a2, __int64 a3)
 {
   char PreviousMode; // r14

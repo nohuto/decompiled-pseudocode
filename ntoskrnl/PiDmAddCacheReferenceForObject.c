@@ -1,3 +1,26 @@
+/*
+ * XREFs of PiDmAddCacheReferenceForObject @ 0x1406CBBDC
+ * Callers:
+ *     IopProcessSetInterfaceState @ 0x140683354 (IopProcessSetInterfaceState.c)
+ *     PiPnpRtlCmActionCallback @ 0x1406CE2F0 (PiPnpRtlCmActionCallback.c)
+ *     PiDmListInitEnumCallback @ 0x1407FE3D0 (PiDmListInitEnumCallback.c)
+ *     IopRegisterDeviceInterface @ 0x14086A664 (IopRegisterDeviceInterface.c)
+ *     PiPnpRtlGatherInstallerClassChangeInfo @ 0x1408731D4 (PiPnpRtlGatherInstallerClassChangeInfo.c)
+ *     PiPnpRtlEnsureObjectCached @ 0x140957214 (PiPnpRtlEnsureObjectCached.c)
+ * Callees:
+ *     RtlInsertElementGenericTableFullAvl @ 0x140245260 (RtlInsertElementGenericTableFullAvl.c)
+ *     RtlLookupElementGenericTableFullAvl @ 0x140245840 (RtlLookupElementGenericTableFullAvl.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PiDmObjectRelease @ 0x1406D0328 (PiDmObjectRelease.c)
+ *     PiDmGetObjectManagerForObjectType @ 0x1406D045C (PiDmGetObjectManagerForObjectType.c)
+ *     PiDmInitializeComparisonObject @ 0x1406D04C0 (PiDmInitializeComparisonObject.c)
+ *     PiDmObjectCreate @ 0x140868FFC (PiDmObjectCreate.c)
+ */
+
 __int64 __fastcall PiDmAddCacheReferenceForObject(unsigned int a1, __int64 a2, volatile signed __int32 **a3)
 {
   struct _ERESOURCE *ObjectManagerForObjectType; // rax

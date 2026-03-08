@@ -1,3 +1,26 @@
+/*
+ * XREFs of ?xxxRedrawHungWindow@@YAXPEAUtagWND@@PEAUHRGN__@@@Z @ 0x1C0149E06
+ * Callers:
+ *     ?xxxUpdateOtherThreadsWindows@@YAXPEAUtagWND@@PEAUHRGN__@@@Z @ 0x1C014A3C4 (-xxxUpdateOtherThreadsWindows@@YAXPEAUtagWND@@PEAUHRGN__@@@Z.c)
+ * Callees:
+ *     GetStyleWindow @ 0x1C0039020 (GetStyleWindow.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     PhysicalToLogicalInPlaceRgn @ 0x1C0052AEC (PhysicalToLogicalInPlaceRgn.c)
+ *     xxxInternalInvalidate @ 0x1C0053270 (xxxInternalInvalidate.c)
+ *     FillRect @ 0x1C00881F8 (FillRect.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     xxxDrawWindowFrame @ 0x1C00A64E4 (xxxDrawWindowFrame.c)
+ *     xxxCalcClientRect @ 0x1C00AAA20 (xxxCalcClientRect.c)
+ *     xxxInternalPaintDesktop @ 0x1C00F9338 (xxxInternalPaintDesktop.c)
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     GreWatchVisRgnChange @ 0x1C02AB190 (GreWatchVisRgnChange.c)
+ */
+
 void __fastcall xxxRedrawHungWindow(struct tagWND *a1, HRGN a2)
 {
   __int64 v4; // rdx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpQueryReferenceTime @ 0x1409E522C
+ * Callers:
+ *     NtTraceControl @ 0x140694040 (NtTraceControl.c)
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     EtwpReleaseLoggerContext @ 0x14069349C (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140693AFC (EtwpAcquireLoggerContextByLoggerId.c)
+ */
+
 __int64 __fastcall EtwpQueryReferenceTime(__int64 a1, unsigned int a2, _OWORD *a3)
 {
   struct _KTHREAD *CurrentThread; // rax

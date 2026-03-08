@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?PoolBufferAdded@CHolographicFrameProcessor@@UEAAJAEBU_LUID@@PEAXPEAUIFlipPropertySet@@PEAPEAUIUnknown@@@Z @ 0x1802AB930
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C8D4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CHolographicFrameProcessor::PoolBufferAdded(
         CHolographicFrameProcessor *this,
         const struct _LUID *a2,

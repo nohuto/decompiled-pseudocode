@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiUpdateNodeRunningTime @ 0x1C00187EC
+ * Callers:
+ *     VidSchiCheckPreemptionPolicy @ 0x1C00095E0 (VidSchiCheckPreemptionPolicy.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall VidSchiUpdateNodeRunningTime(__int64 a1, _OWORD *a2)
 {
   __int64 v2; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreDxgkSetProcessStatus @ 0x1C00C1200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall GreDxgkSetProcessStatus(__int64 *a1, __int64 a2, unsigned __int8 a3)
 {
   __int64 DxgkWin32kInterface; // rax

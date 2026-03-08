@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?OpenDevicemapKeyWorker@FxDevice@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@KPEAVFxRegKey@@@Z @ 0x1C003C9B8
+ * Callers:
+ *     imp_WdfDeviceOpenDevicemapKey @ 0x1C0032C40 (imp_WdfDeviceOpenDevicemapKey.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ *     memset @ 0x1C000AC00 (memset.c)
+ *     WPP_IFR_SF_D @ 0x1C0017F78 (WPP_IFR_SF_D.c)
+ *     WPP_IFR_SF_Sd @ 0x1C003D2D4 (WPP_IFR_SF_Sd.c)
+ */
+
 __int64 __fastcall FxDevice::OpenDevicemapKeyWorker(
         FxDevice *this,
         _FX_DRIVER_GLOBALS *pFxDriverGlobals,

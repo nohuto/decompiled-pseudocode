@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DrvIsPermanentSettingChangesDisabled@@YAHXZ @ 0x1C018E3F0
+ * Callers:
+ *     DrvSetDisplayConfigValidateParams @ 0x1C00E2170 (DrvSetDisplayConfigValidateParams.c)
+ *     DrvChangeDisplaySettingsPreValidate @ 0x1C019288C (DrvChangeDisplaySettingsPreValidate.c)
+ *     DrvSetPruneFlag @ 0x1C01949DC (DrvSetPruneFlag.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 DrvIsPermanentSettingChangesDisabled(void)
 {
   struct _RTL_QUERY_REGISTRY_TABLE QueryTable; // [rsp+30h] [rbp-19h] BYREF

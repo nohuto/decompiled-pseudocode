@@ -1,3 +1,33 @@
+/*
+ * XREFs of CmpCreateHiveRootCell @ 0x140871A9C
+ * Callers:
+ *     CmpDoParseKey @ 0x1406E1D90 (CmpDoParseKey.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpGetSecurityDescriptorNodeEx @ 0x14067D1C8 (CmpGetSecurityDescriptorNodeEx.c)
+ *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x14072CD4C (HvCheckAndUpdateHiveBackupTimeStamp.c)
+ *     CmpNameSize @ 0x1407612A0 (CmpNameSize.c)
+ *     SeDeassignSecurity @ 0x14076D780 (SeDeassignSecurity.c)
+ *     CmpRecordParseFailure @ 0x140774724 (CmpRecordParseFailure.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvAllocateCell @ 0x1407A63A8 (HvAllocateCell.c)
+ *     CmpCopyName @ 0x1407A6A30 (CmpCopyName.c)
+ *     HvFreeCell @ 0x1407A6A90 (HvFreeCell.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     RtlpNewSecurityObject @ 0x1407BD790 (RtlpNewSecurityObject.c)
+ *     HvMarkBaseBlockDirty @ 0x140871E3C (HvMarkBaseBlockDirty.c)
+ *     CmpGenerateAppHiveSecurityDescriptor @ 0x1408808A8 (CmpGenerateAppHiveSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     CmUnlockHiveSecurity @ 0x140AF25F0 (CmUnlockHiveSecurity.c)
+ */
+
 __int64 __fastcall CmpCreateHiveRootCell(
         ULONG_PTR BugCheckParameter2,
         __int64 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?WaitForVBlank@CHolographicManager@@QEAAJXZ @ 0x1802A2EC8
+ * Callers:
+ *     ?WaitForVBlank@CHolographicInteropTarget@@UEBAJPEAX@Z @ 0x1802A6830 (-WaitForVBlank@CHolographicInteropTarget@@UEBAJPEAX@Z.c)
+ * Callees:
+ *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x1802A8D0C (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
+ */
+
 __int64 __fastcall CHolographicManager::WaitForVBlank(CHolographicManager *this)
 {
   unsigned int v2; // ebx

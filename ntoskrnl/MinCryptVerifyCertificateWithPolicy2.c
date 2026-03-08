@@ -1,3 +1,30 @@
+/*
+ * XREFs of MinCryptVerifyCertificateWithPolicy2 @ 0x140A6CBC8
+ * Callers:
+ *     MincrypK_ParseCertificateChainWithPolicy2 @ 0x14067DCCC (MincrypK_ParseCertificateChainWithPolicy2.c)
+ * Callees:
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     MinCryptHashMemory @ 0x140674E0C (MinCryptHashMemory.c)
+ *     I_MinCryptIsCertificateHashRevokedV2 @ 0x140674E30 (I_MinCryptIsCertificateHashRevokedV2.c)
+ *     MinCryptCheckCertsAndKeys @ 0x140674F10 (MinCryptCheckCertsAndKeys.c)
+ *     MinCryptIsCertPresent @ 0x14067503C (MinCryptIsCertPresent.c)
+ *     MinCryptIsKeyPresent @ 0x1406750BC (MinCryptIsKeyPresent.c)
+ *     MincryptValidateBasicConstraints @ 0x14067DECC (MincryptValidateBasicConstraints.c)
+ *     MinCryptDecodeHashAlgorithmIdentifier @ 0x140A6C4E8 (MinCryptDecodeHashAlgorithmIdentifier.c)
+ *     MinCryptVerifySignedHash2 @ 0x140A6C6A0 (MinCryptVerifySignedHash2.c)
+ *     I_MinCryptCheckEKU @ 0x140A6C868 (I_MinCryptCheckEKU.c)
+ *     I_MinCryptFindIssuerCertificateByName @ 0x140A6C8E0 (I_MinCryptFindIssuerCertificateByName.c)
+ *     I_MinCryptFindRootByName @ 0x140A6C9F8 (I_MinCryptFindRootByName.c)
+ *     I_MinCryptGetCertificateEKUs @ 0x140A6CAE0 (I_MinCryptGetCertificateEKUs.c)
+ *     I_MinCryptGetCommonName @ 0x140A6CB7C (I_MinCryptGetCommonName.c)
+ *     I_MinCryptCheckEKURequirements @ 0x140A6DC80 (I_MinCryptCheckEKURequirements.c)
+ *     I_MincryptAddChainInfo @ 0x140A6DD90 (I_MincryptAddChainInfo.c)
+ *     MinAsn1DecodeTime @ 0x140A6E75C (MinAsn1DecodeTime.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MinCryptVerifyCertificateWithPolicy2(
         __int64 a1,
         unsigned int a2,

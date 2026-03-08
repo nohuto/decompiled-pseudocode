@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopPdcUpdateDeviceCompliance @ 0x140995184
+ * Callers:
+ *     PopPdcCsDeviceNotification @ 0x140994E6C (PopPdcCsDeviceNotification.c)
+ * Callees:
+ *     PopDiagTraceDeviceComplianceUpdate @ 0x14059043C (PopDiagTraceDeviceComplianceUpdate.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopPdcUpdateDeviceCompliance(int a1)
 {
   _DWORD *v1; // r9

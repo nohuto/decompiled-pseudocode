@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiAbCrossThreadRelease @ 0x1403C582C
+ * Callers:
+ *     KeAbCrossThreadRelease @ 0x1403C57F8 (KeAbCrossThreadRelease.c)
+ *     KeAbCrossThreadDelete @ 0x1405770F0 (KeAbCrossThreadDelete.c)
+ * Callees:
+ *     KiAbEntryRemoveFromTree @ 0x14024BC30 (KiAbEntryRemoveFromTree.c)
+ *     KiAbThreadRemoveBoostsSlow @ 0x1402D99E0 (KiAbThreadRemoveBoostsSlow.c)
+ */
+
 unsigned __int8 __fastcall KiAbCrossThreadRelease(__int64 a1, __int64 a2, ULONG_PTR a3)
 {
   int v6; // r8d

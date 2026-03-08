@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ExpandedMonitorRect@@YA?AUtagRECT@@PEAUtagMONITOR@@K@Z @ 0x1C000C860
+ * Callers:
+ *     TransformRectBetweenCoordinateSpaces @ 0x1C00152E0 (TransformRectBetweenCoordinateSpaces.c)
+ *     FindAdjacentMonitor @ 0x1C0168370 (FindAdjacentMonitor.c)
+ * Callees:
+ *     ExpandMonitorSpaceVertex @ 0x1C000C8E8 (ExpandMonitorSpaceVertex.c)
+ */
+
 struct tagRECT *__fastcall ExpandedMonitorRect(
         struct tagRECT *__return_ptr retstr,
         struct tagMONITOR *a2,

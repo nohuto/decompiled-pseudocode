@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CSurfaceBrush@@MEAA@XZ @ 0x1800B8D84
+ * Callers:
+ *     ??_GCSurfaceBrush@@MEAAPEAXI@Z @ 0x1800B8D40 (--_GCSurfaceBrush@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800234BC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ */
+
 void __fastcall CSurfaceBrush::~CSurfaceBrush(CSurfaceBrush *this)
 {
   __int64 v2; // rcx

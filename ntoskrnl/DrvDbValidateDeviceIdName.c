@@ -1,3 +1,12 @@
+/*
+ * XREFs of DrvDbValidateDeviceIdName @ 0x140A6AB2C
+ * Callers:
+ *     DrvDbDispatchDeviceId @ 0x140864D40 (DrvDbDispatchDeviceId.c)
+ * Callees:
+ *     RtlUnalignedStringCchLengthW @ 0x140246434 (RtlUnalignedStringCchLengthW.c)
+ *     wcschr @ 0x1403D5D90 (wcschr.c)
+ */
+
 __int64 __fastcall DrvDbValidateDeviceIdName(__int64 a1, const wchar_t *a2)
 {
   NTSTATUS v3; // ebx

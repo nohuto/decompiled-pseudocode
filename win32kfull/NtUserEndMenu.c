@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserEndMenu @ 0x1C00F5C70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ *     GetMenuStateWindow @ 0x1C02192C4 (GetMenuStateWindow.c)
+ */
+
 __int64 NtUserEndMenu()
 {
   __int64 v0; // rcx

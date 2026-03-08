@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UnreferencePrimaryAllocationInternal@VIDMM_GLOBAL@@QEAAXPEAVHwQueueStagingList@@PEAUVIDMM_ALLOC@@_N2_K3@Z @ 0x1C002E330
+ * Callers:
+ *     ?VidSchiUnreferencePrimaryAllocations@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@IPEAUVIDSCH_FLIP_MULTIPLANE_OVERLAY2@@II_N3@Z @ 0x1C003754C (-VidSchiUnreferencePrimaryAllocations@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@IPEAUVIDSC.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     ?VidSchiSignalSyncObjectsFromCpu@@YAJPEAVHwQueueStagingList@@IPEAPEAU_VIDSCH_SYNC_OBJECT@@U_D3DDDICB_SIGNALFLAGS@@PEB_KPEAPEAUVIDSCH_HW_QUEUE@@@Z @ 0x1C001C346 (-VidSchiSignalSyncObjectsFromCpu@@YAJPEAVHwQueueStagingList@@IPEAPEAU_VIDSCH_SYNC_OBJECT@@U_D3DD.c)
+ */
+
 void __fastcall VIDMM_GLOBAL::UnreferencePrimaryAllocationInternal(
         VIDMM_GLOBAL *this,
         struct HwQueueStagingList *a2,

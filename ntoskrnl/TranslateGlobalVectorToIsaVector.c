@@ -1,3 +1,11 @@
+/*
+ * XREFs of TranslateGlobalVectorToIsaVector @ 0x1408424F4
+ * Callers:
+ *     HalacpiIrqTranslateResourcesIsa @ 0x1408421E0 (HalacpiIrqTranslateResourcesIsa.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall TranslateGlobalVectorToIsaVector(int a1, _DWORD *a2)
 {
   unsigned __int8 v2; // r8

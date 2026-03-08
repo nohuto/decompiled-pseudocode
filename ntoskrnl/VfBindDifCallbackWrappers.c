@@ -1,3 +1,11 @@
+/*
+ * XREFs of VfBindDifCallbackWrappers @ 0x140AC71E0
+ * Callers:
+ *     DifRegisterPlugin @ 0x1405D2C50 (DifRegisterPlugin.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall VfBindDifCallbackWrappers(int a1, __int64 a2, __int64 a3)
 {
   char **v3; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of IommupHvUnmapDeviceIdentityRange @ 0x140523064
+ * Callers:
+ *     HalpIommuDomainUnmapIdentityRange @ 0x140515964 (HalpIommuDomainUnmapIdentityRange.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall IommupHvUnmapDeviceIdentityRange(ULONG_PTR BugCheckParameter3)
 {
   __int64 result; // rax

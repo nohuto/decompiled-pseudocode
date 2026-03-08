@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiFreeLargePageChain @ 0x14064CB6C
+ * Callers:
+ *     MiGetLargePageChain @ 0x1402E98A8 (MiGetLargePageChain.c)
+ *     MiReturnExcessPoolCommit @ 0x1403303F8 (MiReturnExcessPoolCommit.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiInsertLargePageInNodeList @ 0x14031C970 (MiInsertLargePageInNodeList.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall MiFreeLargePageChain(__int64 a1)
 {
   __int64 v1; // rdi

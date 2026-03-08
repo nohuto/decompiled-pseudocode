@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiInitializeThreadCycleTable @ 0x140A89F10
+ * Callers:
+ *     KiCompleteKernelInit @ 0x140A89D30 (KiCompleteKernelInit.c)
+ * Callees:
+ *     KeGetProcessorNodeNumber @ 0x1402FC5A0 (KeGetProcessorNodeNumber.c)
+ *     KeGetThreadWorkloadClassCount @ 0x1403030B4 (KeGetThreadWorkloadClassCount.c)
+ *     ExAllocatePool3 @ 0x140AAB320 (ExAllocatePool3.c)
+ */
+
 __int64 __fastcall KiInitializeThreadCycleTable(__int64 a1)
 {
   __int64 v2; // rcx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?Set@ThreadLocalFailureInfo@details_abi@wil@@QEAAXAEBUFailureInfo@3@I@Z @ 0x14000A11C
+ * Callers:
+ *     ?SetLastError@ThreadLocalData@details_abi@wil@@QEAAXAEBUFailureInfo@3@@Z @ 0x14000A274 (-SetLastError@ThreadLocalData@details_abi@wil@@QEAAXAEBUFailureInfo@3@@Z.c)
+ * Callees:
+ *     ?ProcessHeapAlloc@details@wil@@YAPEAXK_K@Z @ 0x140002A24 (-ProcessHeapAlloc@details@wil@@YAPEAXK_K@Z.c)
+ *     memset_0 @ 0x1400063A8 (memset_0.c)
+ *     ??$WriteResultString@PEBD@details@wil@@YAPEAEPEAE0PEBDPEAPEBD@Z @ 0x140008870 (--$WriteResultString@PEBD@details@wil@@YAPEAEPEAE0PEBDPEAPEBD@Z.c)
+ *     ??$WriteResultString@PEBG@details@wil@@YAPEAEPEAE0PEBGPEAPEBG@Z @ 0x1400088E4 (--$WriteResultString@PEBG@details@wil@@YAPEAEPEAE0PEBGPEAPEBG@Z.c)
+ *     ?ResultStringSize@details@wil@@YA_KPEBD@Z @ 0x14000A00C (-ResultStringSize@details@wil@@YA_KPEBD@Z.c)
+ *     ?ResultStringSize@details@wil@@YA_KPEBG@Z @ 0x14000A038 (-ResultStringSize@details@wil@@YA_KPEBG@Z.c)
+ */
+
 void __fastcall wil::details_abi::ThreadLocalFailureInfo::Set(
         wil::details_abi::ThreadLocalFailureInfo *this,
         const struct wil::FailureInfo *a2,

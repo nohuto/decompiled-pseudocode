@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CTransformedGeometryHelper@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801B0030
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall CTransformedGeometryHelper::HrFindInterface(
         CTransformedGeometryHelper *this,
         const struct _GUID *a2,

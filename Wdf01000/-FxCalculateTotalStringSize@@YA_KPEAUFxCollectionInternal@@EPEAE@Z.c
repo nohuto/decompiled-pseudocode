@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FxCalculateTotalStringSize@@YA_KPEAUFxCollectionInternal@@EPEAE@Z @ 0x1C004F3AC
+ * Callers:
+ *     imp_WdfRegistryAssignMultiString @ 0x1C004A530 (imp_WdfRegistryAssignMultiString.c)
+ *     ?Initialize@FxPkgPdo@@UEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C0068EA0 (-Initialize@FxPkgPdo@@UEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall FxCalculateTotalStringSize(
         FxCollectionInternal *StringCollection,
         unsigned __int8 Verify,

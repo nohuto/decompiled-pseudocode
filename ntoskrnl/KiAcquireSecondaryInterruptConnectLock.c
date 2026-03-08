@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiAcquireSecondaryInterruptConnectLock @ 0x14039E508
+ * Callers:
+ *     KiDisconnectInterruptCommon @ 0x14028E714 (KiDisconnectInterruptCommon.c)
+ *     KiConnectSecondaryInterrupt @ 0x14039DF6C (KiConnectSecondaryInterrupt.c)
+ *     KiInterruptDispatchCommon @ 0x14039E224 (KiInterruptDispatchCommon.c)
+ *     KiDisconnectSecondaryInterrupt @ 0x14056F468 (KiDisconnectSecondaryInterrupt.c)
+ *     KiMaskSecondaryInterruptInternal @ 0x14056F638 (KiMaskSecondaryInterruptInternal.c)
+ *     KiUnmaskSecondaryInterruptInternal @ 0x14056F948 (KiUnmaskSecondaryInterruptInternal.c)
+ * Callees:
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ */
+
 void __fastcall KiAcquireSecondaryInterruptConnectLock(PKSPIN_LOCK SpinLock, unsigned __int8 *a2)
 {
   unsigned __int8 CurrentIrql; // r8

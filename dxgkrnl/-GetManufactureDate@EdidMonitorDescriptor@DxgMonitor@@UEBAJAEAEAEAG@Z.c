@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetManufactureDate@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAEAEAG@Z @ 0x1C01FCA00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EDIDV1_IsEDIDBaseBlock@@YAJPEBE@Z @ 0x1C001ED38 (-EDIDV1_IsEDIDBaseBlock@@YAJPEBE@Z.c)
+ *     ?EDIDV1_ObtainMonitorManufactureDate@@YAJPEBEPEAEPEAG@Z @ 0x1C001EEE8 (-EDIDV1_ObtainMonitorManufactureDate@@YAJPEBEPEAEPEAG@Z.c)
+ *     MonitorLogBadEDID @ 0x1C03BFCE4 (MonitorLogBadEDID.c)
+ */
+
 __int64 __fastcall DxgMonitor::EdidMonitorDescriptor::GetManufactureDate(
         DxgMonitor::EdidMonitorDescriptor *this,
         unsigned __int8 *a2,

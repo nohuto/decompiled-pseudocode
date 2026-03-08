@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiCreateMdl @ 0x1407F223C
+ * Callers:
+ *     MiCreateImageFileMap @ 0x1407F1C28 (MiCreateImageFileMap.c)
+ * Callees:
+ *     IoAllocateMdl @ 0x14020CAD0 (IoAllocateMdl.c)
+ *     MiGetPageForHeader @ 0x1402140A4 (MiGetPageForHeader.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MmBuildMdlForNonPagedPool @ 0x1402B5DB0 (MmBuildMdlForNonPagedPool.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     MiDeleteImageCreationMdls @ 0x14077E610 (MiDeleteImageCreationMdls.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 struct _MDL *__fastcall MiCreateMdl(__int64 a1, unsigned int a2, SIZE_T a3, int a4)
 {
   ULONG v4; // edi

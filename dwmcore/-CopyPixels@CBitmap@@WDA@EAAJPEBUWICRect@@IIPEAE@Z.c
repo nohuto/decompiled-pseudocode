@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CopyPixels@CBitmap@@WDA@EAAJPEBUWICRect@@IIPEAE@Z @ 0x180119110
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CBitmap::CopyPixels(
         __int64 a1,
         const struct WICRect *a2,

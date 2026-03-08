@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopAddBugcheckPowerTriageData @ 0x140559780
+ * Callers:
+ *     IopAddBugcheckTriageDataFromParameters @ 0x14054F674 (IopAddBugcheckTriageDataFromParameters.c)
+ * Callees:
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KiIsAddressRangeValid @ 0x1403849BC (KiIsAddressRangeValid.c)
+ *     IopAddBugcheckTriageDevice @ 0x1405599D8 (IopAddBugcheckTriageDevice.c)
+ *     IopAddBugcheckTriageIrp @ 0x140559BD0 (IopAddBugcheckTriageIrp.c)
+ *     IopAddBugcheckTriageThread @ 0x140559D4C (IopAddBugcheckTriageThread.c)
+ *     IopAddBugcheckTriageWorkQueue @ 0x140559EE0 (IopAddBugcheckTriageWorkQueue.c)
+ */
+
 __int64 __fastcall IopAddBugcheckPowerTriageData(ULONG a1, __int64 a2, ULONG a3)
 {
   int v5; // r15d

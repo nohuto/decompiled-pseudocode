@@ -1,3 +1,19 @@
+/*
+ * XREFs of xxxLW_LoadFonts @ 0x1C00B8670
+ * Callers:
+ *     UserOnGreTextReady @ 0x1C00B8554 (UserOnGreTextReady.c)
+ *     NtUserLW_LoadFonts @ 0x1C00B8630 (NtUserLW_LoadFonts.c)
+ * Callees:
+ *     ClientLoadLocalT1Fonts @ 0x1C00B81FC (ClientLoadLocalT1Fonts.c)
+ *     ?GetCount@AtomicExecutionCheck@@SAIXZ @ 0x1C00B8314 (-GetCount@AtomicExecutionCheck@@SAIXZ.c)
+ *     EngCloseFNTCache @ 0x1C00B83B8 (EngCloseFNTCache.c)
+ *     xxxAddFontResourceW @ 0x1C00B8754 (xxxAddFontResourceW.c)
+ *     ?xxxLoadUserAndNetworkFonts@@YAXXZ @ 0x1C00B87A0 (-xxxLoadUserAndNetworkFonts@@YAXXZ.c)
+ *     ?xxxLoadPermanentFonts@@YAHXZ @ 0x1C00B88F8 (-xxxLoadPermanentFonts@@YAHXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C011C60C (-WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ.c)
+ */
+
 __int64 __fastcall xxxLW_LoadFonts(__int64 a1)
 {
   int v1; // edi

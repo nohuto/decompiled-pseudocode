@@ -1,3 +1,19 @@
+/*
+ * XREFs of HalSocRequestConfigurationData @ 0x1403731C8
+ * Callers:
+ *     HalpHpetDiscover @ 0x140372BE0 (HalpHpetDiscover.c)
+ *     HalpApicSetupRegisterAccess @ 0x14037301C (HalpApicSetupRegisterAccess.c)
+ *     HalpTscGetAttributes @ 0x1403736C4 (HalpTscGetAttributes.c)
+ *     HalpTimerRegisterBuiltinPlugins @ 0x1403A08F8 (HalpTimerRegisterBuiltinPlugins.c)
+ *     HalpHvDiscover @ 0x1403A09D8 (HalpHvDiscover.c)
+ * Callees:
+ *     HalpIsPartitionCpuManager @ 0x1403732F8 (HalpIsPartitionCpuManager.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x14037333C (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpIsHvPresent @ 0x14037337C (HalpIsHvPresent.c)
+ *     HalpInterruptGetX2ApicPolicy @ 0x1403739AC (HalpInterruptGetX2ApicPolicy.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall HalSocRequestConfigurationData(int a1, __int64 a2, char *a3)
 {
   unsigned int v3; // edi

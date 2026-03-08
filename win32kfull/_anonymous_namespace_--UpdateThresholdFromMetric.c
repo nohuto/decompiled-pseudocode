@@ -1,3 +1,11 @@
+/*
+ * XREFs of _anonymous_namespace_::UpdateThresholdFromMetric @ 0x1C01027F0
+ * Callers:
+ *     ?ArrangementParameterInfo@WindowArrangementSPI@@YA?AW4ParamInfoResult@1@IKPEAX_N1@Z @ 0x1C0102EC8 (-ArrangementParameterInfo@WindowArrangementSPI@@YA-AW4ParamInfoResult@1@IKPEAX_N1@Z.c)
+ * Callees:
+ *     UpdateWinIniInt @ 0x1C01C9800 (UpdateWinIniInt.c)
+ */
+
 bool __fastcall anonymous_namespace_::UpdateThresholdFromMetric(
         char a1,
         bool *a2,

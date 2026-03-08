@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiGdoDispatchCreate @ 0x1C01D44D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiGdoDispatchCreate(__int64 a1, IRP *a2)
 {
   __int64 v3; // rbx

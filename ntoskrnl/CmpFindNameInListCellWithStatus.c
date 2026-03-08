@@ -1,3 +1,21 @@
+/*
+ * XREFs of CmpFindNameInListCellWithStatus @ 0x1407B3CA0
+ * Callers:
+ *     CmpFindNameInListWithStatus @ 0x1407A8DA0 (CmpFindNameInListWithStatus.c)
+ *     CmpValueEnumStackMatchingValueInUpperLayer @ 0x140A22AD4 (CmpValueEnumStackMatchingValueInUpperLayer.c)
+ * Callees:
+ *     NLS_UPCASE @ 0x140267AD0 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlCompareUnicodeString @ 0x1406EA3B0 (RtlCompareUnicodeString.c)
+ *     CmpCompareTwoCompressedNames @ 0x14076D7AC (CmpCompareTwoCompressedNames.c)
+ *     CmpCompareCompressedName @ 0x140775138 (CmpCompareCompressedName.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall CmpFindNameInListCellWithStatus(
         ULONG_PTR BugCheckParameter3,
         unsigned int *a2,

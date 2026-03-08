@@ -1,3 +1,44 @@
+/*
+ * XREFs of CcInitializeCacheMapInternal @ 0x140338F10
+ * Callers:
+ *     CcInitializeCacheMapEx2 @ 0x1402E6340 (CcInitializeCacheMapEx2.c)
+ *     CcInitializeCacheMap @ 0x1402FF250 (CcInitializeCacheMap.c)
+ *     CcInitializeCacheMapEx @ 0x140533550 (CcInitializeCacheMapEx.c)
+ * Callees:
+ *     CcDeleteSharedCacheMap @ 0x140217A10 (CcDeleteSharedCacheMap.c)
+ *     IopGetFileObjectExtension @ 0x14023EB8C (IopGetFileObjectExtension.c)
+ *     CcScheduleLazyWriteScan @ 0x140242B0C (CcScheduleLazyWriteScan.c)
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140283390 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     PsGetPagePriorityThread @ 0x14028A290 (PsGetPagePriorityThread.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     DbgPrint @ 0x1402BDD20 (DbgPrint.c)
+ *     CcCreatePrivateVolumeCacheMap @ 0x1402DA2F4 (CcCreatePrivateVolumeCacheMap.c)
+ *     CcInsertIntoCleanSharedCacheMapList @ 0x1402DC58C (CcInsertIntoCleanSharedCacheMapList.c)
+ *     CcGetPartitionWithCreate @ 0x1402E20D0 (CcGetPartitionWithCreate.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402ECFB0 (FsRtlIsNtstatusExpected.c)
+ *     MmDisableModifiedWriteOfSection @ 0x1402EE070 (MmDisableModifiedWriteOfSection.c)
+ *     CcGetPrivateVolumeCacheMap @ 0x1402EF79C (CcGetPrivateVolumeCacheMap.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     CcInitializeVolumeCacheMap @ 0x14036D0F0 (CcInitializeVolumeCacheMap.c)
+ *     CcAllocateAndZeroSharedCacheMapRaiseOnError @ 0x140409D5C (CcAllocateAndZeroSharedCacheMapRaiseOnError.c)
+ *     CcAllocatePrivateCacheMap @ 0x140409D94 (CcAllocatePrivateCacheMap.c)
+ *     CcFreePrivateCacheMapIgnoreNull @ 0x140409DB0 (CcFreePrivateCacheMapIgnoreNull.c)
+ *     CcFreeSharedCacheMapIgnoreNull @ 0x140409DD4 (CcFreeSharedCacheMapIgnoreNull.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObDeleteCapturedInsertInfo @ 0x140768AD0 (ObDeleteCapturedInsertInfo.c)
+ *     CcCreateVacbArray @ 0x1407698CC (CcCreateVacbArray.c)
+ *     MmCreateCacheManagerSection @ 0x14076BEBC (MmCreateCacheManagerSection.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall CcInitializeCacheMapInternal(
         __int64 a1,
         __m128i *a2,

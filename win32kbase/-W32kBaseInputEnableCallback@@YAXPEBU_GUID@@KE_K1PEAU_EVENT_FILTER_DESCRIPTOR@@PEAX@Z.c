@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?W32kBaseInputEnableCallback@@YAXPEBU_GUID@@KE_K1PEAU_EVENT_FILTER_DESCRIPTOR@@PEAX@Z @ 0x1C00D3750
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??9?$SGDHIDgpHidInput@PEAVCHidInput@@@@QEBA_NAEBQEAVCHidInput@@@Z @ 0x1C0031EDC (--9-$SGDHIDgpHidInput@PEAVCHidInput@@@@QEBA_NAEBQEAVCHidInput@@@Z.c)
+ *     ?EnumDevices@CBaseInput@@QEBAXPEAXP6A_NQEAUDEVICEINFO@@0@Z@Z @ 0x1C0031F10 (-EnumDevices@CBaseInput@@QEBAXPEAXP6A_NQEAUDEVICEINFO@@0@Z@Z.c)
+ *     ??0CTempW32ThreadNonPaged@@QEAA@XZ @ 0x1C0036710 (--0CTempW32ThreadNonPaged@@QEAA@XZ.c)
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     ??1CTempW32ThreadNonPaged@@QEAA@XZ @ 0x1C007012C (--1CTempW32ThreadNonPaged@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 void __fastcall W32kBaseInputEnableCallback(const struct _GUID *a1, int a2)
 {
   __int64 v2; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$FindProperty@UFlipContentHCompSurf@@@CFlipPropertySetBase@@QEAAXPEAPEAUFlipContentHCompSurf@@@Z @ 0x1C0087458
+ * Callers:
+ *     ?Initialize@CContentResource@@IEAAJXZ @ 0x1C008771C (-Initialize@CContentResource@@IEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CFlipPropertySetBase::FindProperty<FlipContentHCompSurf>(__int64 a1, _QWORD *a2)
 {
   unsigned int v2; // r9d

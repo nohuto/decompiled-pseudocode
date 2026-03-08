@@ -1,3 +1,16 @@
+/*
+ * XREFs of IommuBeginDeviceReset @ 0x14051F660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IommuBeginDeviceReset(__int64 a1, _DWORD *a2)
 {
   __int64 v2; // rbp

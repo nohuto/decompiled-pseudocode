@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InsertDependenciesInOrder@CConditionalExpression@@UEAAXAEBUExpressionWalkContext@@@Z @ 0x180224A90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InsertInOrder@CBaseExpression@@QEAAXAEBUExpressionWalkContext@@@Z @ 0x1800DA970 (-InsertInOrder@CBaseExpression@@QEAAXAEBUExpressionWalkContext@@@Z.c)
+ */
+
 void __fastcall CConditionalExpression::InsertDependenciesInOrder(
         CConditionalExpression *this,
         const struct ExpressionWalkContext *a2)

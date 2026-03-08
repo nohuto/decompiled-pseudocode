@@ -1,3 +1,17 @@
+/*
+ * XREFs of WmipFindSMBiosStructure @ 0x1409DC91C
+ * Callers:
+ *     WmipReadSMBiosSysInfo @ 0x1405F9660 (WmipReadSMBiosSysInfo.c)
+ *     WmipGetSMBiosEventlog @ 0x1409DCB58 (WmipGetSMBiosEventlog.c)
+ *     WmipGetSysIds @ 0x1409DCDD8 (WmipGetSysIds.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x14029B230 (MmUnmapIoSpace.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 __int64 __fastcall WmipFindSMBiosStructure(char a1, _QWORD *a2, PVOID *a3, _DWORD *a4)
 {
   struct _KTHREAD *CurrentThread; // rax

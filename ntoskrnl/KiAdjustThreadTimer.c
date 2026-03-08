@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiAdjustThreadTimer @ 0x1405749E4
+ * Callers:
+ *     KeAdjustTimerDelayProcess @ 0x14056CEF8 (KeAdjustTimerDelayProcess.c)
+ * Callees:
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiResumeThread @ 0x1403538F8 (KiResumeThread.c)
+ *     KiSuspendThread @ 0x140354348 (KiSuspendThread.c)
+ */
+
 char __fastcall KiAdjustThreadTimer(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   volatile signed __int32 *v4; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtQueryTimerResolution @ 0x140794470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtQueryTimerResolution(_DWORD *a1, _DWORD *a2, _DWORD *a3)
 {
   __int64 v5; // r9

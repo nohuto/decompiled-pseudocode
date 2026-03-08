@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcIncrementVacbActiveCount @ 0x140335D80
+ * Callers:
+ *     CcGetVirtualAddressIfMapped @ 0x14021B360 (CcGetVirtualAddressIfMapped.c)
+ *     CcGetVacbMiss @ 0x140335850 (CcGetVacbMiss.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall CcIncrementVacbActiveCount(__int64 a1)
 {
   __int64 v1; // rdx

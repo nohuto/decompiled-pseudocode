@@ -1,3 +1,17 @@
+/*
+ * XREFs of PiPnpRtlGatherInstallerClassChangeInfo @ 0x1408731D4
+ * Callers:
+ *     PiPnpRtlCmActionCallback @ 0x1406CE2F0 (PiPnpRtlCmActionCallback.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _PnpStringFromGuid @ 0x1406881E8 (_PnpStringFromGuid.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1406CBBDC (PiDmAddCacheReferenceForObject.c)
+ *     PiDmGetObject @ 0x1406D0370 (PiDmGetObject.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     PiPnpRtlFreeInstallerClassChangeInfo @ 0x14087FABC (PiPnpRtlFreeInstallerClassChangeInfo.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PiPnpRtlGatherInstallerClassChangeInfo(__int64 a1, __int64 a2, PVOID *a3)
 {
   __int64 Pool2; // rax

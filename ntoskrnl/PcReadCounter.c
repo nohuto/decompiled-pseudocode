@@ -1,3 +1,11 @@
+/*
+ * XREFs of PcReadCounter @ 0x140519CC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PcReadCounter(__int64 *a1)
 {
   unsigned __int8 v1; // al

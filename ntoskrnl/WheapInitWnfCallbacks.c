@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheapInitWnfCallbacks @ 0x1408602D0
+ * Callers:
+ *     WheaInitialize @ 0x140B3E1A0 (WheaInitialize.c)
+ * Callees:
+ *     ExSubscribeWnfStateChange @ 0x14078C4C0 (ExSubscribeWnfStateChange.c)
+ */
+
 __int64 WheapInitWnfCallbacks()
 {
   __int64 result; // rax

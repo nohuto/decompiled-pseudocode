@@ -1,3 +1,22 @@
+/*
+ * XREFs of ?DmaCompleted@FxDmaTransactionBase@@QEAAE_KPEAJW4FxDmaCompletionType@@@Z @ 0x1C001F684
+ * Callers:
+ *     imp_WdfDmaTransactionDmaCompleted @ 0x1C000BE80 (imp_WdfDmaTransactionDmaCompleted.c)
+ *     imp_WdfDmaTransactionDmaCompletedFinal @ 0x1C000BEE0 (imp_WdfDmaTransactionDmaCompletedFinal.c)
+ *     imp_WdfDmaTransactionDmaCompletedWithLength @ 0x1C000BF50 (imp_WdfDmaTransactionDmaCompletedWithLength.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qd @ 0x1C0007FCC (WPP_IFR_SF_qd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0017BA8 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_qqqd @ 0x1C00183B0 (WPP_IFR_SF_qqqd.c)
+ *     WPP_IFR_SF_ql @ 0x1C00190DC (WPP_IFR_SF_ql.c)
+ *     WPP_IFR_SF_qPPd @ 0x1C002009C (WPP_IFR_SF_qPPd.c)
+ *     WPP_IFR_SF_qc @ 0x1C00201B4 (WPP_IFR_SF_qc.c)
+ *     ?ReleaseIrpReference@FxRequest@@QEAAXXZ @ 0x1C003ACFC (-ReleaseIrpReference@FxRequest@@QEAAXXZ.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0045B6C (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ */
+
 char __fastcall FxDmaTransactionBase::DmaCompleted(
         FxDmaTransactionBase *this,
         unsigned __int64 TransferredLength,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmEventTraceExpectedUtility @ 0x1402ED9CC
+ * Callers:
+ *     PpmPerfApplyProcessorState @ 0x1402ED59C (PpmPerfApplyProcessorState.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     PpmEventGetEventDescriptorAndProcessorId @ 0x140233B18 (PpmEventGetEventDescriptorAndProcessorId.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PpmEventTraceExpectedUtility(__int64 a1)
 {
   const EVENT_DESCRIPTOR *EventDescriptorAndProcessorId; // rax

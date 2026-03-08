@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIBuildProcessDevicePhaseEjd @ 0x1C000F290
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIDockIsDockDevice @ 0x1C0009A34 (ACPIDockIsDockDevice.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIBuildCompleteCommon @ 0x1C000BC30 (ACPIBuildCompleteCommon.c)
+ *     ACPIBuildDockExtension @ 0x1C000CEDC (ACPIBuildDockExtension.c)
+ *     WPP_RECORDER_SF_qss @ 0x1C0015444 (WPP_RECORDER_SF_qss.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessDevicePhaseEjd(__int64 a1)
 {
   ULONG_PTR v1; // rbx

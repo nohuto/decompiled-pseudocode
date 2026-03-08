@@ -1,3 +1,11 @@
+/*
+ * XREFs of CleanupDwmInputProcessing @ 0x1C00F4F40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void CleanupDwmInputProcessing()
 {

@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopIoRingDispatchRegisterFiles @ 0x140946A40
+ * Callers:
+ *     IopProcessIoRingEntry @ 0x140947008 (IopProcessIoRingEntry.c)
+ * Callees:
+ *     IopExceptionFilter @ 0x1405530E8 (IopExceptionFilter.c)
+ *     IopCompleteIoRingEntry @ 0x140556F5C (IopCompleteIoRingEntry.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 LONG_PTR __fastcall IopIoRingDispatchRegisterFiles(__int64 a1, __int64 a2)
 {
   char PreviousMode; // r8

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopThermalEventTransitionEnableDeepSleep @ 0x14058D598
+ * Callers:
+ *     NtInitiatePowerAction @ 0x140988360 (NtInitiatePowerAction.c)
+ * Callees:
+ *     KeCancelTimer2 @ 0x140204390 (KeCancelTimer2.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopDeepSleepClearDisengageReason @ 0x1402BBAAC (PopDeepSleepClearDisengageReason.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PopThermalEventTransitionEnableDeepSleep(int a1)
 {
   __int64 result; // rax

@@ -1,3 +1,21 @@
+/*
+ * XREFs of EtwpQueueStackWalkApc @ 0x140460526
+ * Callers:
+ *     EtwpEventWriteFull @ 0x1402319C0 (EtwpEventWriteFull.c)
+ *     EtwpStackTraceDispatcher @ 0x140460750 (EtwpStackTraceDispatcher.c)
+ *     EtwpStackWalkDpc @ 0x1405FD990 (EtwpStackWalkDpc.c)
+ * Callees:
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402331B0 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KeInitializeApc @ 0x140237E20 (KeInitializeApc.c)
+ *     KeInsertQueueApc @ 0x14027DBF0 (KeInsertQueueApc.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x14028DD10 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     KeRemoveQueueApc @ 0x1402F7360 (KeRemoveQueueApc.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     EtwpPopFreeApcEntry @ 0x140460490 (EtwpPopFreeApcEntry.c)
+ *     KeTryToInsertQueueApc @ 0x140570BD0 (KeTryToInsertQueueApc.c)
+ *     EtwpQueueStackWalkDpc @ 0x1405FD87C (EtwpQueueStackWalkDpc.c)
+ */
+
 char __fastcall EtwpQueueStackWalkApc(__int64 a1, unsigned __int8 a2, unsigned int *a3, char a4, _SLIST_ENTRY **a5)
 {
   char v5; // r13

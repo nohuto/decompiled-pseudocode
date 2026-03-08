@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiGetTrapFrameRegister @ 0x14057B330
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiGetTrapFrameRegister(__int64 a1, int a2)
 {
   int v2; // edx

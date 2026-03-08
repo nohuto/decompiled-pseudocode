@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetPointerFlagsFromMouse @ 0x1C0155800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetMouseKeyFlags @ 0x1C00B96D0 (GetMouseKeyFlags.c)
+ */
+
 __int64 __fastcall GetPointerFlagsFromMouse(_DWORD *a1, unsigned int a2, unsigned __int64 a3, int *a4, _DWORD *a5)
 {
   struct tagTHREADINFO *v5; // rbp

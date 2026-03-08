@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiGdoCreateGdiObjects @ 0x1C0202D20
+ * Callers:
+ *     DpiFdoCreateRelatedObjects @ 0x1C0202548 (DpiFdoCreateRelatedObjects.c)
+ * Callees:
+ *     DpiAppendNumberToString @ 0x1C020301C (DpiAppendNumberToString.c)
+ *     WdmlibIoCreateDeviceSecure @ 0x1C0203154 (WdmlibIoCreateDeviceSecure.c)
+ *     DpiGdoSetupGdiParameters @ 0x1C0204950 (DpiGdoSetupGdiParameters.c)
+ */
+
 __int64 __fastcall DpiGdoCreateGdiObjects(__int64 a1, unsigned int a2, __int64 a3)
 {
   __int64 v3; // rsi

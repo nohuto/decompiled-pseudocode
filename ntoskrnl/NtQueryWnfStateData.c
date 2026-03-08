@@ -1,3 +1,25 @@
+/*
+ * XREFs of NtQueryWnfStateData @ 0x140719DF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExpWnfCreateNameInstance @ 0x140718994 (ExpWnfCreateNameInstance.c)
+ *     ExpCaptureWnfStateName @ 0x14071A22C (ExpCaptureWnfStateName.c)
+ *     ExpWnfReleaseCapturedScopeInstanceId @ 0x14071A2DC (ExpWnfReleaseCapturedScopeInstanceId.c)
+ *     ExpWnfLookupNameInstance @ 0x14071A330 (ExpWnfLookupNameInstance.c)
+ *     ExpWnfCaptureScopeInstanceId @ 0x14071A42C (ExpWnfCaptureScopeInstanceId.c)
+ *     ExpWnfResolveScopeInstance @ 0x14071A508 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfValidatePubSubPreconditions @ 0x14071A954 (ExpWnfValidatePubSubPreconditions.c)
+ *     ExpWnfReadStateData @ 0x14071AA78 (ExpWnfReadStateData.c)
+ *     ExpWnfLookupPermanentName @ 0x14071C320 (ExpWnfLookupPermanentName.c)
+ *     ExpWnfCheckCrossScopeAccess @ 0x1407947E0 (ExpWnfCheckCrossScopeAccess.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall NtQueryWnfStateData(
         __int64 a1,
         __int128 *a2,

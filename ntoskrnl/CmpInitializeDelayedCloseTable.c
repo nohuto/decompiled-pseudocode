@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpInitializeDelayedCloseTable @ 0x140812D20
+ * Callers:
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ * Callees:
+ *     KeInitializeGuardedMutex @ 0x140204750 (KeInitializeGuardedMutex.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ */
+
 __int64 *CmpInitializeDelayedCloseTable()
 {
   __int64 *result; // rax

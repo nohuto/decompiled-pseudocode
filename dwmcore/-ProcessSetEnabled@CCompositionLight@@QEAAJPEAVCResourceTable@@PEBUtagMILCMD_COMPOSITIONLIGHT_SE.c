@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ProcessSetEnabled@CCompositionLight@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_COMPOSITIONLIGHT_SETENABLED@@@Z @ 0x18021626C
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F0A8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     ?UpdateRegistrationWithCompositor@CCompositionLight@@IEAAXXZ @ 0x1800C718C (-UpdateRegistrationWithCompositor@CCompositionLight@@IEAAXXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CCompositionLight::ProcessSetEnabled(
         CCompositionLight *this,
         struct CResourceTable *a2,

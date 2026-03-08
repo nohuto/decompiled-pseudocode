@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIIsPowerNodeInTransition @ 0x1C0022070
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qqqss @ 0x1C000A12C (WPP_RECORDER_SF_qqqss.c)
+ */
+
 __int64 __fastcall ACPIIsPowerNodeInTransition(__int64 a1, int a2, __int64 a3)
 {
   char v3; // r10

@@ -1,3 +1,12 @@
+/*
+ * XREFs of IoPropagateActivityIdToThread @ 0x1402B1D20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IopIrpHasExtensionType @ 0x1402B1D58 (IopIrpHasExtensionType.c)
+ *     IoGetActivityIdIrp @ 0x1402C1630 (IoGetActivityIdIrp.c)
+ */
+
 __int64 __fastcall IoPropagateActivityIdToThread(__int64 a1, struct _LIST_ENTRY *a2, struct _LIST_ENTRY **a3)
 {
   __int64 v5; // rcx

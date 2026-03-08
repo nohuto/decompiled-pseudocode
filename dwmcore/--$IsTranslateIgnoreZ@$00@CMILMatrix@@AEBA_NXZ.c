@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$IsTranslateIgnoreZ@$00@CMILMatrix@@AEBA_NXZ @ 0x180059F20
+ * Callers:
+ *     ?Multiply@CMILMatrix@@SAXAEBV1@0PEAV1@@Z @ 0x180058478 (-Multiply@CMILMatrix@@SAXAEBV1@0PEAV1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CMILMatrix::IsTranslateIgnoreZ<1>(__int64 a1)
 {
   char v1; // r10

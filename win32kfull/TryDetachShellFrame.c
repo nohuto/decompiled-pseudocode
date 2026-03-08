@@ -1,3 +1,19 @@
+/*
+ * XREFs of TryDetachShellFrame @ 0x1C01B7EFC
+ * Callers:
+ *     xxxRealInternalGetMessage @ 0x1C006F2F0 (xxxRealInternalGetMessage.c)
+ *     ?xxxMoveSize@@YAXPEAUtagWND@@IK@Z @ 0x1C01F0DC4 (-xxxMoveSize@@YAXPEAUtagWND@@IK@Z.c)
+ *     xxxMNLoop @ 0x1C021726C (xxxMNLoop.c)
+ * Callees:
+ *     IsDebuggerAttached @ 0x1C0024014 (IsDebuggerAttached.c)
+ *     LockW32Thread @ 0x1C00A1BCC (LockW32Thread.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ *     zzzAttachThreadInput @ 0x1C00CCFE8 (zzzAttachThreadInput.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ *     AssociateShellFrameAppThreads @ 0x1C01B41E8 (AssociateShellFrameAppThreads.c)
+ *     FindShellFrameThreadFromAssociation @ 0x1C01B43A4 (FindShellFrameThreadFromAssociation.c)
+ */
+
 __int64 __fastcall TryDetachShellFrame(__int64 a1, __int64 a2, int a3, int a4)
 {
   signed int v8; // ebx

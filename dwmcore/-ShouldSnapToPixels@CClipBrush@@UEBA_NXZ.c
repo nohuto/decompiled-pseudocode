@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ShouldSnapToPixels@CClipBrush@@UEBA_NXZ @ 0x18021E2E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CClipBrush::ShouldSnapToPixels(CClipBrush *this)
 {
   __int64 v1; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetAppcommandQueue@@YAPEAUtagQ@@XZ @ 0x1C01E8700
+ * Callers:
+ *     EditionHandleAndPostKeyEvent @ 0x1C009F110 (EditionHandleAndPostKeyEvent.c)
+ * Callees:
+ *     <none>
+ */
+
 struct tagQ *GetAppcommandQueue(void)
 {
   __int64 v0; // rax

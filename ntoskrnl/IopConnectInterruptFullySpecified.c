@@ -1,3 +1,17 @@
+/*
+ * XREFs of IopConnectInterruptFullySpecified @ 0x140857BF0
+ * Callers:
+ *     IoConnectInterruptEx @ 0x1406F4AE0 (IoConnectInterruptEx.c)
+ *     IoConnectInterrupt @ 0x140857B70 (IoConnectInterrupt.c)
+ * Callees:
+ *     KeVerifyGroupAffinity @ 0x140290374 (KeVerifyGroupAffinity.c)
+ *     HalGetVectorInput @ 0x1403A7D10 (HalGetVectorInput.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopConnectInterrupt @ 0x1406F43D8 (IopConnectInterrupt.c)
+ */
+
 __int64 __fastcall IopConnectInterruptFullySpecified(
         _QWORD *a1,
         ULONG_PTR a2,

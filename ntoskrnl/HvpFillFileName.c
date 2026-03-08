@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvpFillFileName @ 0x14072F4B8
+ * Callers:
+ *     HvHiveStartFileBacked @ 0x14072F1D4 (HvHiveStartFileBacked.c)
+ *     HvHiveStartMemoryBacked @ 0x1407FF060 (HvHiveStartMemoryBacked.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void *__fastcall HvpFillFileName(__int64 a1, unsigned __int16 *a2)
 {
   void *v2; // rdi

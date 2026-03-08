@@ -1,3 +1,13 @@
+/*
+ * XREFs of Crashdump_Register_StopController @ 0x1C004E020
+ * Callers:
+ *     Crashdump_Cleanup @ 0x1C004BE10 (Crashdump_Cleanup.c)
+ *     Crashdump_Register_BiosHandoff @ 0x1C004D6FC (Crashdump_Register_BiosHandoff.c)
+ *     Crashdump_Register_ResetController @ 0x1C004DAA0 (Crashdump_Register_ResetController.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Crashdump_Register_StopController(__int64 a1)
 {
   _DWORD *v1; // rsi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DrvFunctionalizeBaseVidMode@@YAJAEBU_RETRY_MODE@@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C018E088
+ * Callers:
+ *     DrvSetDisplayConfig @ 0x1C0025C00 (DrvSetDisplayConfig.c)
+ * Callees:
+ *     ?GetCcdRawmodeFlag@@YAIXZ @ 0x1C00D4310 (-GetCcdRawmodeFlag@@YAIXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DrvFunctionalizeBaseVidMode(const struct _RETRY_MODE *a1, struct D3DKMT_GETPATHSMODALITY *a2)
 {
   unsigned int v2; // ebx

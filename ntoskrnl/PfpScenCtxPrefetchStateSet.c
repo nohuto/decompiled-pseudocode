@@ -1,3 +1,16 @@
+/*
+ * XREFs of PfpScenCtxPrefetchStateSet @ 0x140A9D178
+ * Callers:
+ *     PfSetSuperfetchInformation @ 0x1407E2A94 (PfSetSuperfetchInformation.c)
+ *     PfpScenCtxScenarioSet @ 0x140A84910 (PfpScenCtxScenarioSet.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ */
+
 __int64 __fastcall PfpScenCtxPrefetchStateSet(ULONG_PTR BugCheckParameter2, int a2, int a3, int a4)
 {
   struct _KTHREAD *CurrentThread; // rax

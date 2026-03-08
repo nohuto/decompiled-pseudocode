@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiCapturePfnVm @ 0x14022A10C
+ * Callers:
+ *     MiProcessCrcList @ 0x1406A8670 (MiProcessCrcList.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiProcessSuitableForCombining @ 0x140229534 (MiProcessSuitableForCombining.c)
+ *     MiHashIsCommon @ 0x14022A360 (MiHashIsCommon.c)
+ *     MiGetTopLevelPfn @ 0x14022A3D0 (MiGetTopLevelPfn.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14022BD30 (ObReferenceObjectSafeWithTag.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiReferenceOwningSession @ 0x1402DE780 (MiReferenceOwningSession.c)
+ *     MiCheckProcessCombineSequence @ 0x1402E0F04 (MiCheckProcessCombineSequence.c)
+ *     MiGetCombineDomain @ 0x1402E8D88 (MiGetCombineDomain.c)
+ *     MiCombineCandidate @ 0x14032C640 (MiCombineCandidate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmCheckPageCombine @ 0x1408A20A0 (VmCheckPageCombine.c)
+ */
+
 __int64 __fastcall MiCapturePfnVm(
         __int64 *a1,
         ULONG_PTR a2,

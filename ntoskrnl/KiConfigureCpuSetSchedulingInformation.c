@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiConfigureCpuSetSchedulingInformation @ 0x14037F6F0
+ * Callers:
+ *     KeConfigureHeteroProcessors @ 0x14096F978 (KeConfigureHeteroProcessors.c)
+ *     KiConfigureSchedulingInformation @ 0x140A8B1B4 (KiConfigureSchedulingInformation.c)
+ * Callees:
+ *     KeIsEmptyAffinityEx @ 0x140237C30 (KeIsEmptyAffinityEx.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KiGetProcessorEfficiencyClass @ 0x14036A2D4 (KiGetProcessorEfficiencyClass.c)
+ *     RtlWriteAcquireTickLock @ 0x1403BB750 (RtlWriteAcquireTickLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KiConfigureCpuSetSchedulingInformation(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // bl

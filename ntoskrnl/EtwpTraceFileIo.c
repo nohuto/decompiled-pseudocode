@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpTraceFileIo @ 0x140316AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsGetEffectiveServerSilo @ 0x140294DF0 (PsGetEffectiveServerSilo.c)
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     EtwpFileProvTrace @ 0x14045F22C (EtwpFileProvTrace.c)
+ */
+
 void __fastcall EtwpTraceFileIo(
         __int64 a1,
         struct _EVENT_DATA_DESCRIPTOR *a2,

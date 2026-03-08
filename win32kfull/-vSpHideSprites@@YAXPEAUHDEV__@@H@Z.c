@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?vSpHideSprites@@YAXPEAUHDEV__@@H@Z @ 0x1C00F0FE4
+ * Callers:
+ *     GreHideSprites @ 0x1C00F0F90 (GreHideSprites.c)
+ * Callees:
+ *     ?vSpHook@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C0018714 (-vSpHook@@YAXPEAU_SPRITESTATE@@@Z.c)
+ *     ??0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C0065AF0 (--0SPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z.c)
+ *     ??1SPRITEDDIACCESS@@QEAA@XZ @ 0x1C0065E34 (--1SPRITEDDIACCESS@@QEAA@XZ.c)
+ *     ?vSpUnhook@@YAXPEAU_SPRITESTATE@@@Z @ 0x1C00F1068 (-vSpUnhook@@YAXPEAU_SPRITESTATE@@@Z.c)
+ *     ?bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z @ 0x1C0110C1C (-bSpUpdatePosition@@YAHPEAVSPRITE@@PEAU_POINTL@@HH@Z.c)
+ */
+
 void __fastcall vSpHideSprites(HDEV a1, int a2)
 {
   HDEV v3; // rdi

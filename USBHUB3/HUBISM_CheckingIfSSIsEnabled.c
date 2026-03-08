@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBISM_CheckingIfSSIsEnabled @ 0x1C003F000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBISM_CheckingIfSSIsEnabled(__int64 a1)
 {
   __int64 v1; // rdx

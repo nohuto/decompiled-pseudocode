@@ -1,3 +1,15 @@
+/*
+ * XREFs of KeSetSystemServiceCallback @ 0x140972890
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     KiGetSystemServiceTraceTable @ 0x140972A44 (KiGetSystemServiceTraceTable.c)
+ */
+
 __int64 __fastcall KeSetSystemServiceCallback(_BYTE *a1, char a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // edi

@@ -1,3 +1,18 @@
+/*
+ * XREFs of PiDqIrpQueryGetResult @ 0x1407480E0
+ * Callers:
+ *     PiDqDispatch @ 0x140745C20 (PiDqDispatch.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PiDqQuerySerializeActionQueue @ 0x140746290 (PiDqQuerySerializeActionQueue.c)
+ *     PiDqIrpComplete @ 0x140746C78 (PiDqIrpComplete.c)
+ *     PiDqQueryGetNextIoctlInfo @ 0x14074715C (PiDqQueryGetNextIoctlInfo.c)
+ *     PiDqQueryFreeActiveData @ 0x1407910F8 (PiDqQueryFreeActiveData.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ */
+
 __int64 __fastcall PiDqIrpQueryGetResult(__int64 a1)
 {
   int v2; // ebx

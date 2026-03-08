@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExBurnMemory @ 0x140B8D7B8
+ * Callers:
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall ExBurnMemory(__int64 a1, unsigned __int64 a2)
 {
   __int64 v2; // r10

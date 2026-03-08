@@ -1,3 +1,29 @@
+/*
+ * XREFs of PoInitHiberServices @ 0x14082B1B0
+ * Callers:
+ *     CmCompleteRegistryInitialization @ 0x1408174BC (CmCompleteRegistryInitialization.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ExIsSoftBoot @ 0x140380700 (ExIsSoftBoot.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExSubscribeWnfStateChange @ 0x14078C4C0 (ExSubscribeWnfStateChange.c)
+ *     PopTraceHibernatePolicyUpdate @ 0x14082AADC (PopTraceHibernatePolicyUpdate.c)
+ *     PopInitializeHibernateGlobals @ 0x14082ABAC (PopInitializeHibernateGlobals.c)
+ *     PopAcquireTransitionLock @ 0x14082AD04 (PopAcquireTransitionLock.c)
+ *     PopReleaseTransitionLock @ 0x14082AD60 (PopReleaseTransitionLock.c)
+ *     PopBcdClearPendingResume @ 0x14082B2FC (PopBcdClearPendingResume.c)
+ *     PopHibernateEvaluation @ 0x14082B35C (PopHibernateEvaluation.c)
+ *     PopBcdEstablishResumeObject @ 0x14082B658 (PopBcdEstablishResumeObject.c)
+ *     BcdCloseStore @ 0x14082C570 (BcdCloseStore.c)
+ *     BcdOpenStore @ 0x14082C814 (BcdOpenStore.c)
+ *     BiDeleteElement @ 0x14082CDF8 (BiDeleteElement.c)
+ *     BcdCloseObject @ 0x14082E5DC (BcdCloseObject.c)
+ *     BcdOpenObject @ 0x14082E620 (BcdOpenObject.c)
+ *     BcdFlushStore @ 0x140A595E4 (BcdFlushStore.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 (*PoInitHiberServices())(void)
 {
   int v0; // eax

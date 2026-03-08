@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIBusIrpUnhandled @ 0x1C00176B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ */
+
 __int64 __fastcall ACPIBusIrpUnhandled(ULONG_PTR a1, IRP *a2)
 {
   unsigned int MinorFunction; // ebp

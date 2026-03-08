@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiInitializeDummyPages @ 0x140B39C40
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiFillPhysicalPages @ 0x1402CE820 (MiFillPhysicalPages.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiAllocateDummyPage @ 0x140B39E68 (MiAllocateDummyPage.c)
+ */
+
 unsigned __int64 MiInitializeDummyPages()
 {
   __int64 v0; // rbx

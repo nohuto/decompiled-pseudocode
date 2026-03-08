@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiBugCheckRecoveryPrepareForCrashDump @ 0x1405786C8
+ * Callers:
+ *     KiCaptureDumpPostRecovery @ 0x140578810 (KiCaptureDumpPostRecovery.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HvlPrepareForRootCrashdump @ 0x140542CB4 (HvlPrepareForRootCrashdump.c)
+ *     IoRevertFromDemotedDumpType @ 0x14054E5B4 (IoRevertFromDemotedDumpType.c)
+ *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x14057833C (KiBugCheckRecoveryFreezeOtherProcessors.c)
+ *     KiUpdateBugcheckRecoveryProgress @ 0x1405793F8 (KiUpdateBugcheckRecoveryProgress.c)
+ */
+
 char __fastcall KiBugCheckRecoveryPrepareForCrashDump(unsigned __int8 *a1, bool *a2)
 {
   unsigned int v4; // eax

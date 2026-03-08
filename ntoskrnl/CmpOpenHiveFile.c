@@ -1,3 +1,37 @@
+/*
+ * XREFs of CmpOpenHiveFile @ 0x1406C05C4
+ * Callers:
+ *     CmLoadAppKey @ 0x1406BDA5C (CmLoadAppKey.c)
+ *     CmpOpenHiveFiles @ 0x1406C02C8 (CmpOpenHiveFiles.c)
+ *     CmLoadKey @ 0x140732FF8 (CmLoadKey.c)
+ *     CmpMountPreloadedHives @ 0x140812EF4 (CmpMountPreloadedHives.c)
+ *     CmpLoadHiveThread @ 0x140820360 (CmpLoadHiveThread.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     SetFailureLocation @ 0x140243E5C (SetFailureLocation.c)
+ *     CmSiCreateEvent @ 0x1402440C8 (CmSiCreateEvent.c)
+ *     CmSiEventTupleInitialize @ 0x14024419C (CmSiEventTupleInitialize.c)
+ *     CmSiEventTupleCleanup @ 0x1402441AC (CmSiEventTupleCleanup.c)
+ *     CmSiWaitForSingleEvent @ 0x1402FCC9C (CmSiWaitForSingleEvent.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x140412530 (ZwQueryInformationFile.c)
+ *     ZwSetInformationFile @ 0x1404127F0 (ZwSetInformationFile.c)
+ *     ZwFsControlFile @ 0x140412A30 (ZwFsControlFile.c)
+ *     ZwCreateFile @ 0x140412DB0 (ZwCreateFile.c)
+ *     CmSiBugCheck @ 0x140615314 (CmSiBugCheck.c)
+ *     CmpGetCompleteFileName @ 0x1406C0B40 (CmpGetCompleteFileName.c)
+ *     CmpQueryFileSecurityDescriptor @ 0x1406C1120 (CmpQueryFileSecurityDescriptor.c)
+ *     PsReferenceImpersonationTokenEx @ 0x1406D6630 (PsReferenceImpersonationTokenEx.c)
+ *     PsImpersonateClient @ 0x1406DA310 (PsImpersonateClient.c)
+ *     CmpGetVolumeClusterSize @ 0x14072EFBC (CmpGetVolumeClusterSize.c)
+ *     CmpLogHiveFileInaccessible @ 0x14078B330 (CmpLogHiveFileInaccessible.c)
+ *     CmpGetVolumeLogFileSizeCap @ 0x14079227C (CmpGetVolumeLogFileSizeCap.c)
+ *     CmpOpenFileWithExtremePrejudice @ 0x140A1A060 (CmpOpenFileWithExtremePrejudice.c)
+ */
+
 __int64 __fastcall CmpOpenHiveFile(
         PCUNICODE_STRING Source,
         int a2,

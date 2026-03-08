@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?DestroySession@DXGSESSIONMGR@@QEAAXXZ @ 0x1C01D9338
+ * Callers:
+ *     DxgkNotifySessionStateChange @ 0x1C01DDA00 (DxgkNotifySessionStateChange.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008CE0 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008F20 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008FA8 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ??_GDXGSESSIONDATA@@QEAAPEAXI@Z @ 0x1C001619C (--_GDXGSESSIONDATA@@QEAAPEAXI@Z.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C01A9568 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS@@@Z @ 0x1C01BCB60 (-IterateAdaptersWithCallback@DXGGLOBAL@@QEAAJP6AJPEAVDXGADAPTER@@PEAX@Z1W4_ITERATE_ADAPTER_FLAGS.c)
+ *     ?SetConsoleSession@DXGSESSIONMGR@@QEAAXE@Z @ 0x1C01C5F60 (-SetConsoleSession@DXGSESSIONMGR@@QEAAXE@Z.c)
+ */
+
 void __fastcall DXGSESSIONMGR::DestroySession(DXGSESSIONMGR *this, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int CurrentProcessSessionId; // eax

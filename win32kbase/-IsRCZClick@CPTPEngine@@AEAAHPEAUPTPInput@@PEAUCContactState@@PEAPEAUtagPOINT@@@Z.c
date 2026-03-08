@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsRCZClick@CPTPEngine@@AEAAHPEAUPTPInput@@PEAUCContactState@@PEAPEAUtagPOINT@@@Z @ 0x1C0237C10
+ * Callers:
+ *     ?DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z @ 0x1C0235884 (-DoTPButtonProcessing@CPTPEngine@@AEAAHPEAUPTPInput@@HKPEAH@Z.c)
+ * Callees:
+ *     PtInRect @ 0x1C00157B4 (PtInRect.c)
+ */
+
 __int64 __fastcall CPTPEngine::IsRCZClick(
         CPTPEngine *this,
         struct PTPInput *a2,

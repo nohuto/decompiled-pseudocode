@@ -1,3 +1,14 @@
+/*
+ * XREFs of _CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140A64974
+ * Callers:
+ *     _CmSetDeviceMappedProperty @ 0x14076C5D4 (_CmSetDeviceMappedProperty.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x140413EB0 (ZwDeleteValueKey.c)
+ *     _CmOpenDeviceRegKey @ 0x1406D3B3C (_CmOpenDeviceRegKey.c)
+ */
+
 __int64 __fastcall CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue(__int64 a1, __int64 a2, void *a3, __int64 a4)
 {
   HANDLE v4; // rdi

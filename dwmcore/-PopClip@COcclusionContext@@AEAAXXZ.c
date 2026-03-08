@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PopClip@COcclusionContext@@AEAAXXZ @ 0x1801E4174
+ * Callers:
+ *     ?Pop@COcclusionContext@@UEAAJXZ @ 0x1800E8420 (-Pop@COcclusionContext@@UEAAJXZ.c)
+ * Callees:
+ *     ?Pop@?$CWatermarkStack@W4StackStateType@COcclusionContext@@$0EA@$01$09@@QEAA_NPEAW4StackStateType@COcclusionContext@@@Z @ 0x1800E84A8 (-Pop@-$CWatermarkStack@W4StackStateType@COcclusionContext@@$0EA@$01$09@@QEAA_NPEAW4StackStateTyp.c)
+ */
+
 void __fastcall COcclusionContext::PopClip(COcclusionContext *this)
 {
   __int64 v1; // r8

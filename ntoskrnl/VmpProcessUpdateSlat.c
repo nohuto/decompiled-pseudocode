@@ -1,3 +1,12 @@
+/*
+ * XREFs of VmpProcessUpdateSlat @ 0x1405F874C
+ * Callers:
+ *     VmpAccessFaultBatch @ 0x14045DEF6 (VmpAccessFaultBatch.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     VmpFillSlat @ 0x1405F6C78 (VmpFillSlat.c)
+ */
+
 __int64 __fastcall VmpProcessUpdateSlat(__int64 a1, unsigned __int64 a2, unsigned int a3, __int64 a4, int a5)
 {
   __int64 v6; // rax

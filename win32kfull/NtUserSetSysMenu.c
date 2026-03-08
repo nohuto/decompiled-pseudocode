@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetSysMenu @ 0x1C01DDA20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxSetSysMenu @ 0x1C0224F64 (xxxSetSysMenu.c)
+ */
+
 __int64 __fastcall NtUserSetSysMenu(__int64 a1)
 {
   __int64 v2; // rax

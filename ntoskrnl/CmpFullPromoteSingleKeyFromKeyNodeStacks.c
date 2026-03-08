@@ -1,3 +1,34 @@
+/*
+ * XREFs of CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140A23124
+ * Callers:
+ *     CmSaveKey @ 0x140A08D50 (CmSaveKey.c)
+ *     CmpFullPromoteHiveRootFromKcbStack @ 0x140A23050 (CmpFullPromoteHiveRootFromKcbStack.c)
+ *     CmpPromoteSingleKeyFromKcbStacks @ 0x140A23C40 (CmpPromoteSingleKeyFromKcbStacks.c)
+ *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x140A23DDC (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
+ *     CmpPromoteSubtree @ 0x140A23F00 (CmpPromoteSubtree.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpValueEnumStackGetCurrentValueHive @ 0x1404632F4 (CmpValueEnumStackGetCurrentValueHive.c)
+ *     CmpValueEnumStackStartFromKeyNodeStack @ 0x140614374 (CmpValueEnumStackStartFromKeyNodeStack.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140783798 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpCopyCell @ 0x14078F10C (CmpCopyCell.c)
+ *     CmpAddValueToListEx @ 0x1407A5A94 (CmpAddValueToListEx.c)
+ *     HvFreeCell @ 0x1407A6A90 (HvFreeCell.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpMarkCellDirty @ 0x1407D2460 (HvpMarkCellDirty.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpCopyValue @ 0x1408A6FF4 (CmpCopyValue.c)
+ *     CmpConcatenateValueLists @ 0x140A1E25C (CmpConcatenateValueLists.c)
+ *     CmpFreeKeyValueList @ 0x140A1F10C (CmpFreeKeyValueList.c)
+ *     CmpValueEnumStackAdvance @ 0x140A228A4 (CmpValueEnumStackAdvance.c)
+ *     CmpValueEnumStackCleanup @ 0x140A22A28 (CmpValueEnumStackCleanup.c)
+ *     CmpValueEnumStackInitialize @ 0x140A22A88 (CmpValueEnumStackInitialize.c)
+ */
+
 __int64 __fastcall CmpFullPromoteSingleKeyFromKeyNodeStacks(__int64 a1, __int16 *a2)
 {
   __int64 v2; // r15

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpMergeVersionDescriptors @ 0x14081323C
+ * Callers:
+ *     CmpLoadSystemVersionData @ 0x14081469C (CmpLoadSystemVersionData.c)
+ * Callees:
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ */
+
 void __fastcall CmpMergeVersionDescriptors(__int64 a1, __int64 a2)
 {
   int v4; // ecx

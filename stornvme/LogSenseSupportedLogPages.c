@@ -1,3 +1,13 @@
+/*
+ * XREFs of LogSenseSupportedLogPages @ 0x1C0014C80
+ * Callers:
+ *     ScsiLogSenseRequest @ 0x1C0019D6C (ScsiLogSenseRequest.c)
+ * Callees:
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     NVMeSetSenseData @ 0x1C0024238 (NVMeSetSenseData.c)
+ */
+
 __int64 __fastcall LogSenseSupportedLogPages(__int64 a1, __int64 a2)
 {
   _WORD *SrbDataBuffer; // rax

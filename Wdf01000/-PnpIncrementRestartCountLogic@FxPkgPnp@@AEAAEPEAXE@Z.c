@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?PnpIncrementRestartCountLogic@FxPkgPnp@@AEAAEPEAXE@Z @ 0x1C006B714
+ * Callers:
+ *     ?PnpCheckAndIncrementRestartCount@FxPkgPnp@@AEAAEXZ @ 0x1C0081778 (-PnpCheckAndIncrementRestartCount@FxPkgPnp@@AEAAEXZ.c)
+ * Callees:
+ *     ?_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z @ 0x1C00014A8 (-_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z.c)
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ *     ?_QueryValue@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEBU_UNICODE_STRING@@K1PEAK3@Z @ 0x1C004CBC4 (-_QueryValue@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEBU_UNICODE_STRING@@K1PEAK3@Z.c)
+ */
+
 bool __fastcall FxPkgPnp::PnpIncrementRestartCountLogic(
         FxPkgPnp *this,
         void *RestartKey,

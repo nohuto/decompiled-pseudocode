@@ -1,3 +1,12 @@
+/*
+ * XREFs of IvtUpdateRemappingDestination @ 0x14052B780
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IvtInvalidateRemappingTableEntries @ 0x1402F4800 (IvtInvalidateRemappingTableEntries.c)
+ *     IvtUpdateExtendedDestination @ 0x14052B6EC (IvtUpdateExtendedDestination.c)
+ */
+
 __int64 __fastcall IvtUpdateRemappingDestination(__int64 a1, char a2, int a3, int a4, int a5)
 {
   unsigned int i; // esi

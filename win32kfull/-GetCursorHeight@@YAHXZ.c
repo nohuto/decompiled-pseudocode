@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?GetCursorHeight@@YAHXZ @ 0x1C0228128
+ * Callers:
+ *     ?xxxTooltipGetSizeAndPosition@@YAHPEAUtagTOOLTIPWND@@PEAUtagSIZE@@PEAUtagPOINT@@@Z @ 0x1C02288F0 (-xxxTooltipGetSizeAndPosition@@YAHPEAUtagTOOLTIPWND@@PEAUtagSIZE@@PEAUtagPOINT@@@Z.c)
+ * Callees:
+ *     ?_InternalGetIconInfo@@YA_NPEAUtagCURSOR@@PEAU_ICONINFO@@PEAU_UNICODE_STRING@@2PEAK_N@Z @ 0x1C0060888 (-_InternalGetIconInfo@@YA_NPEAUtagCURSOR@@PEAU_ICONINFO@@PEAU_UNICODE_STRING@@2PEAK_N@Z.c)
+ *     GreExtGetObjectW @ 0x1C0065580 (GreExtGetObjectW.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     GreGetBitmapBits @ 0x1C02B07CC (GreGetBitmapBits.c)
+ */
+
 __int64 GetCursorHeight(void)
 {
   unsigned int v0; // ebx

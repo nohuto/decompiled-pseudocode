@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??4?$com_ptr_t@UIDCompositionDirectInkCommunicationPartner@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAUIDCompositionDirectInkCommunicationPartner@@@Z @ 0x1801FF704
+ * Callers:
+ *     ?Initialize@CComputeScribbleScheduler@@AEAAJPEAUIDXGIOutputDWM@@PEAUIDCompositionDirectInkCommunicationPartner@@@Z @ 0x1802000E0 (-Initialize@CComputeScribbleScheduler@@AEAAJPEAUIDXGIOutputDWM@@PEAUIDCompositionDirectInkCommun.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 *__fastcall wil::com_ptr_t<IDCompositionDirectInkCommunicationPartner,wil::err_returncode_policy>::operator=(
         __int64 *a1,
         __int64 a2)

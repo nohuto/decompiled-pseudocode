@@ -1,3 +1,19 @@
+/*
+ * XREFs of RIMCmDeactivateContact @ 0x1C01DE86C
+ * Callers:
+ *     rimEndAllActiveContactsWorker @ 0x1C01BC12C (rimEndAllActiveContactsWorker.c)
+ *     RIMUpdatePointerDeviceStateAfterFrameCompleted @ 0x1C01D5678 (RIMUpdatePointerDeviceStateAfterFrameCompleted.c)
+ *     rimEndPointerDeviceStaleContacts @ 0x1C01D6A24 (rimEndPointerDeviceStaleContacts.c)
+ *     rimProcessMissingPointerDeviceContacts @ 0x1C01D9470 (rimProcessMissingPointerDeviceContacts.c)
+ *     rimProcessPointerDeviceContact @ 0x1C01D9C8C (rimProcessPointerDeviceContact.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     RIMCmIsContactSuppressed @ 0x1C00F1A7A (RIMCmIsContactSuppressed.c)
+ *     rimFindLastDeviceFrame @ 0x1C01D256C (rimFindLastDeviceFrame.c)
+ *     rimReleaseCursor @ 0x1C01DEE8C (rimReleaseCursor.c)
+ */
+
 _QWORD *__fastcall RIMCmDeactivateContact(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdx

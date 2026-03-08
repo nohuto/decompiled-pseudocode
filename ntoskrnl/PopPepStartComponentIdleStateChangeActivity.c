@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopPepStartComponentIdleStateChangeActivity @ 0x1402EFB90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopPlNotifyDeviceFState @ 0x1402EFC60 (PopPlNotifyDeviceFState.c)
+ *     PopFxUpdateComponentAccountingEnhanced @ 0x1402F28E0 (PopFxUpdateComponentAccountingEnhanced.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x1402F295C (PopPepUpdateIdleStateRefCount.c)
+ *     PopPluginNotifyIdleState @ 0x14045A7CE (PopPluginNotifyIdleState.c)
+ */
+
 char __fastcall PopPepStartComponentIdleStateChangeActivity(__int64 a1, __int64 a2, __int64 a3)
 {
   char v3; // bp

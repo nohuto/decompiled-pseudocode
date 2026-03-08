@@ -1,3 +1,17 @@
+/*
+ * XREFs of WbInPlaceEncryptionUnloadModule @ 0x140770B14
+ * Callers:
+ *     WbProcessModuleUnload @ 0x140770A30 (WbProcessModuleUnload.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     sub_140755994 @ 0x140755994 (sub_140755994.c)
+ *     sub_140770F08 @ 0x140770F08 (sub_140770F08.c)
+ */
+
 __int64 __fastcall WbInPlaceEncryptionUnloadModule(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of xxxRemoteShadowStop @ 0x1C0206F28
+ * Callers:
+ *     NtUserRemoteShadowStop @ 0x1C01DADB0 (NtUserRemoteShadowStop.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     xxxRemoteStopScreenUpdates @ 0x1C00F6E08 (xxxRemoteStopScreenUpdates.c)
+ */
+
 __int64 __fastcall xxxRemoteShadowStop(__int64 a1, __int64 a2, __int64 a3)
 {
   PDEVICE_OBJECT v3; // rcx

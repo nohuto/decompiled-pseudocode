@@ -1,3 +1,16 @@
+/*
+ * XREFs of CcCoalescingCallBackHelper @ 0x1405330B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcScheduleLazyWriteScan @ 0x140242B0C (CcScheduleLazyWriteScan.c)
+ *     CcRescheduleLazyWriteScanOnVolume @ 0x1402EB4A8 (CcRescheduleLazyWriteScanOnVolume.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcRescheduleLazyWriteScan @ 0x140534F08 (CcRescheduleLazyWriteScan.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall CcCoalescingCallBackHelper(__int64 a1, __int64 a2, int *a3)
 {
   _BYTE *v3; // rsi

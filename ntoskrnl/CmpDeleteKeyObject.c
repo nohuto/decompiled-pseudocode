@@ -1,3 +1,46 @@
+/*
+ * XREFs of CmpDeleteKeyObject @ 0x1406E5C50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     ExpReleaseFastMutexContended @ 0x140239650 (ExpReleaseFastMutexContended.c)
+ *     ExpAcquireFastMutexContended @ 0x1402410FC (ExpAcquireFastMutexContended.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     CmpArmDelayedCloseTimer @ 0x140243848 (CmpArmDelayedCloseTimer.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     CmpInitializeDelayDerefContext @ 0x140262F00 (CmpInitializeDelayDerefContext.c)
+ *     CmpDrainDelayDerefContext @ 0x140262F30 (CmpDrainDelayDerefContext.c)
+ *     CmpIsRegistryLockAcquired @ 0x1402630C0 (CmpIsRegistryLockAcquired.c)
+ *     CmCleanupThreadInfo @ 0x140263740 (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x140263760 (CmpInitializeThreadInfo.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     CmpWaitForLateUnloadWorker @ 0x1402BF844 (CmpWaitForLateUnloadWorker.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     CmpFreePostBlock @ 0x1406B5600 (CmpFreePostBlock.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1406B6660 (CmpDereferenceKeyControlBlock.c)
+ *     CmpDoQueueLateUnloadWorker @ 0x1406C01CC (CmpDoQueueLateUnloadWorker.c)
+ *     CmpCallCallBacksEx @ 0x1406E0B20 (CmpCallCallBacksEx.c)
+ *     CmpFreeCallbackObjectContexts @ 0x140738AB4 (CmpFreeCallbackObjectContexts.c)
+ *     CmpFlushNotify @ 0x14074B6C4 (CmpFlushNotify.c)
+ *     CmpFreeKeyControlBlock @ 0x14074C060 (CmpFreeKeyControlBlock.c)
+ *     CmpDeleteHive @ 0x14074C680 (CmpDeleteHive.c)
+ *     CmpFireCleanupNotifications @ 0x14078CDC4 (CmpFireCleanupNotifications.c)
+ *     CmpReferenceHive @ 0x1407AB230 (CmpReferenceHive.c)
+ *     CmpLockKcbExclusive @ 0x1407AF778 (CmpLockKcbExclusive.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1407AF820 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpUnlockKeyBodyFromMemory @ 0x140A14C9C (CmpUnlockKeyBodyFromMemory.c)
+ *     CmpKeyEnumStackFreeResumeContext @ 0x140A21354 (CmpKeyEnumStackFreeResumeContext.c)
+ *     CmpUnlockKcb @ 0x140AF2140 (CmpUnlockKcb.c)
+ *     CmpLockRegistry @ 0x140AF2270 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ */
+
 __int64 __fastcall CmpDeleteKeyObject(__int64 a1)
 {
   __int64 v1; // rsi

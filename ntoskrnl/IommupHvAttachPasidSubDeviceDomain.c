@@ -1,3 +1,11 @@
+/*
+ * XREFs of IommupHvAttachPasidSubDeviceDomain @ 0x14052223C
+ * Callers:
+ *     IommupDomainAttachPasidDevice @ 0x14050BD20 (IommupDomainAttachPasidDevice.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall IommupHvAttachPasidSubDeviceDomain(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbp

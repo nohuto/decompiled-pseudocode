@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpAllocDataBlock @ 0x14068ED78
+ * Callers:
+ *     EtwpNotifyGuid @ 0x14068EA84 (EtwpNotifyGuid.c)
+ *     EtwpBuildNotificationPacket @ 0x14068ECF4 (EtwpBuildNotificationPacket.c)
+ *     EtwpEnableGuid @ 0x14068EEBC (EtwpEnableGuid.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x140695580 (EtwpClearSessionAndUnreferenceEntry.c)
+ *     EtwpQueueReply @ 0x140783E98 (EtwpQueueReply.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall EtwpAllocDataBlock(size_t Size, void *Src, _QWORD *a3)
 {
   unsigned int v3; // ebx

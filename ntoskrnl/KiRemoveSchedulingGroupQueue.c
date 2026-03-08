@@ -1,3 +1,18 @@
+/*
+ * XREFs of KiRemoveSchedulingGroupQueue @ 0x1402AEF44
+ * Callers:
+ *     KiQueueReadyThread @ 0x140257C00 (KiQueueReadyThread.c)
+ *     KiSwapThread @ 0x14025F500 (KiSwapThread.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x1402AB8A8 (KiGroupSchedulingQuantumEnd.c)
+ *     KiRemoveThreadFromScbQueue @ 0x1402AE79C (KiRemoveThreadFromScbQueue.c)
+ *     KiComputeGroupSchedulingRank @ 0x1402AEC84 (KiComputeGroupSchedulingRank.c)
+ *     KiResortScbQueue @ 0x1402AEDFC (KiResortScbQueue.c)
+ *     KeSetSchedulingGroupRankBias @ 0x1402F2018 (KeSetSchedulingGroupRankBias.c)
+ *     KiResetScb @ 0x1402F24DC (KiResetScb.c)
+ * Callees:
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ */
+
 char __fastcall KiRemoveSchedulingGroupQueue(__int64 a1, __int64 a2, char a3)
 {
   unsigned __int64 *v4; // rsi

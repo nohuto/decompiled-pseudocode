@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopPlPublishSystemPowerChange @ 0x14059F158
+ * Callers:
+ *     PopPlNotifyDeviceDState @ 0x1402B9D3C (PopPlNotifyDeviceDState.c)
+ *     PopPlNotifyDeviceFState @ 0x1402EFC60 (PopPlNotifyDeviceFState.c)
+ *     PopPlPublishInitialPowerDraw @ 0x14059EF80 (PopPlPublishInitialPowerDraw.c)
+ *     PopPlUnregisterDevice @ 0x14059F9D0 (PopPlUnregisterDevice.c)
+ * Callees:
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall PopPlPublishSystemPowerChange(unsigned __int16 *a1, int a2)
 {
   int v4; // eax

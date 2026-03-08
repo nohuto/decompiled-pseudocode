@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiRecordBlackboxInformationWorker @ 0x1C0046AD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ */
+
 void AcpiRecordBlackboxInformationWorker()
 {
   KIRQL v0; // r12

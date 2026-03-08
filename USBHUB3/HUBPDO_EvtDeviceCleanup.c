@@ -1,3 +1,19 @@
+/*
+ * XREFs of HUBPDO_EvtDeviceCleanup @ 0x1C001A4C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C000C97C (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C000CD94 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     HUBMISC_WaitForSignal @ 0x1C0032DEC (HUBMISC_WaitForSignal.c)
+ *     HUBIDLE_AddEvent @ 0x1C003EAB4 (HUBIDLE_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBPDO_BillboardCleanup @ 0x1C007E300 (HUBPDO_BillboardCleanup.c)
+ */
+
 void __fastcall HUBPDO_EvtDeviceCleanup(__int64 a1)
 {
   __int64 v1; // rcx

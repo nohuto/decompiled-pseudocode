@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiComplementAffinityEx @ 0x1402AF184
+ * Callers:
+ *     PpmParkSteerInterrupts @ 0x1402341D0 (PpmParkSteerInterrupts.c)
+ *     KiGetDeepIdleProcessors @ 0x1402AF0A0 (KiGetDeepIdleProcessors.c)
+ *     KeComplementAffinityEx @ 0x14056CDB0 (KeComplementAffinityEx.c)
+ *     KeComplementAffinityEx2 @ 0x14056CDD0 (KeComplementAffinityEx2.c)
+ * Callees:
+ *     <none>
+ */
+
 __int16 __fastcall KiComplementAffinityEx(__int64 a1, unsigned __int16 a2, unsigned __int16 *a3)
 {
   __int64 v3; // rax

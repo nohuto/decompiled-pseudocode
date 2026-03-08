@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?xxxRegisterGhostWindow@@YAHPEAUHWND__@@0@Z @ 0x1C01F62F4
+ * Callers:
+ *     NtUserRegisterGhostWindow @ 0x1C01DA750 (NtUserRegisterGhostWindow.c)
+ * Callees:
+ *     InternalRemoveProp @ 0x1C002484C (InternalRemoveProp.c)
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     IsWindowBeingDestroyed @ 0x1C0039B60 (IsWindowBeingDestroyed.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?IsHungWindow@@YA_NPEBUtagWND@@@Z @ 0x1C009FF14 (-IsHungWindow@@YA_NPEBUtagWND@@@Z.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     ?SetGhostFNID@@YAHPEAUtagWND@@H@Z @ 0x1C01F4F78 (-SetGhostFNID@@YAHPEAUtagWND@@H@Z.c)
+ *     ?SetGhostProp@@YAHPEAUtagWND@@PEAUHWND__@@@Z @ 0x1C01F4FB8 (-SetGhostProp@@YAHPEAUtagWND@@PEAUHWND__@@@Z.c)
+ *     ?_ShouldGhostWindow@@YA_NPEBUtagWND@@@Z @ 0x1C01F55FC (-_ShouldGhostWindow@@YA_NPEBUtagWND@@@Z.c)
+ *     ?xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C01F5BBC (-xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z.c)
+ *     ?xxxShowGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C01F687C (-xxxShowGhostWindow@@YAXPEAUtagWND@@0@Z.c)
+ */
+
 __int64 __fastcall xxxRegisterGhostWindow(HWND a1, HWND a2, __int64 a3)
 {
   unsigned int v5; // esi

@@ -1,3 +1,21 @@
+/*
+ * XREFs of IopDestroyDeviceNode @ 0x140782FD0
+ * Callers:
+ *     IopDeleteDevice @ 0x140782EF0 (IopDeleteDevice.c)
+ *     IopLegacyResourceAllocation @ 0x140801DA4 (IopLegacyResourceAllocation.c)
+ *     IopRemoveLegacyDeviceNode @ 0x140801EC8 (IopRemoveLegacyDeviceNode.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     IopUncacheInterfaceInformation @ 0x1406F75C8 (IopUncacheInterfaceInformation.c)
+ *     PnpFreeDeviceInstancePath @ 0x140783208 (PnpFreeDeviceInstancePath.c)
+ *     IopLegacyResourceAllocation @ 0x140801DA4 (IopLegacyResourceAllocation.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall IopDestroyDeviceNode(char *P)
 {
   __int64 v2; // r8

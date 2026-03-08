@@ -1,3 +1,13 @@
+/*
+ * XREFs of CarCreateRuleViolationDetails @ 0x1405D15B0
+ * Callers:
+ *     CarReportRuleViolationForTriage @ 0x1405D1FA0 (CarReportRuleViolationForTriage.c)
+ * Callees:
+ *     CarInitializeRuleViolationDetails @ 0x1405D1940 (CarInitializeRuleViolationDetails.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CarCreateRuleViolationDetails(PVOID *a1)
 {
   int v2; // ebx

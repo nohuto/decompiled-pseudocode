@@ -1,3 +1,11 @@
+/*
+ * XREFs of IovpValidateStatusInformation @ 0x140ACA15C
+ * Callers:
+ *     IovpCompleteRequest2 @ 0x140AC9AFC (IovpCompleteRequest2.c)
+ * Callees:
+ *     ViErrorReport1 @ 0x1405CDA04 (ViErrorReport1.c)
+ */
+
 unsigned __int64 __fastcall IovpValidateStatusInformation(__int64 a1, __int64 a2, __int64 a3, const void *a4)
 {
   unsigned __int64 result; // rax

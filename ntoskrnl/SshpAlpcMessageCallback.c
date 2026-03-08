@@ -1,3 +1,17 @@
+/*
+ * XREFs of SshpAlpcMessageCallback @ 0x140849F10
+ * Callers:
+ *     SshpAlpcInitialize @ 0x140B6437C (SshpAlpcInitialize.c)
+ * Callees:
+ *     CmpFreeTransientPoolWithTag @ 0x1402A4B0C (CmpFreeTransientPoolWithTag.c)
+ *     AlpcGetMessageAttribute @ 0x1402BBFE0 (AlpcGetMessageAttribute.c)
+ *     AlpcInitializeMessageAttribute @ 0x1402BC020 (AlpcInitializeMessageAttribute.c)
+ *     ZwAlpcSendWaitReceivePort @ 0x140413490 (ZwAlpcSendWaitReceivePort.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SshpAlpcProcessAlpcMessage @ 0x14084A04C (SshpAlpcProcessAlpcMessage.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void __fastcall SshpAlpcMessageCallback(PVOID CallbackContext, PVOID Argument1, PVOID Argument2)
 {
   _DWORD *Pool2; // rbx

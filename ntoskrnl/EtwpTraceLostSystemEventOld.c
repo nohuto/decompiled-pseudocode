@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpTraceLostSystemEventOld @ 0x14040C628
+ * Callers:
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x14036F9F8 (EtwpLogSystemEventUnsafe.c)
+ *     EtwpLogContextSwapEvent @ 0x140384C90 (EtwpLogContextSwapEvent.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall EtwpTraceLostSystemEventOld(__int16 a1, unsigned __int16 *a2, int a3)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+48h] [rbp+7h] BYREF

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIProcessorBuildBootApicIds @ 0x1C008C380
+ * Callers:
+ *     ACPIProcessorStartDeviceWorker @ 0x1C003A1C0 (ACPIProcessorStartDeviceWorker.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ */
+
 __int64 ACPIProcessorBuildBootApicIds()
 {
   int v0; // edx

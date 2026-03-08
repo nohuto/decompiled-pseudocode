@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoWMIQueryAllData @ 0x140859C90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WmipQueryAllData @ 0x14069DF2C (WmipQueryAllData.c)
+ */
+
 NTSTATUS __stdcall IoWMIQueryAllData(PVOID DataBlockObject, PULONG InOutBufferSize, PVOID OutBuffer)
 {
   ULONG v6; // eax

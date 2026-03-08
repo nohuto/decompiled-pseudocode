@@ -1,3 +1,13 @@
+/*
+ * XREFs of Bulk_ValidateED0TrbPointerOnMismatch @ 0x1C00471E8
+ * Callers:
+ *     Bulk_ProcessTransferEventWithED0 @ 0x1C000DAC4 (Bulk_ProcessTransferEventWithED0.c)
+ * Callees:
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     Bulk_IsTransferEventLikelyDuplicate_Internal @ 0x1C0046D58 (Bulk_IsTransferEventLikelyDuplicate_Internal.c)
+ *     WPP_RECORDER_SF_DDDi @ 0x1C0047998 (WPP_RECORDER_SF_DDDi.c)
+ */
+
 _UNKNOWN **__fastcall Bulk_ValidateED0TrbPointerOnMismatch(_QWORD *a1, __int64 a2)
 {
   int v4; // r8d

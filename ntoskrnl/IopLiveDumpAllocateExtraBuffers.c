@@ -1,3 +1,20 @@
+/*
+ * XREFs of IopLiveDumpAllocateExtraBuffers @ 0x14094A230
+ * Callers:
+ *     IopLiveDumpAllocAndInitResources @ 0x1409495FC (IopLiveDumpAllocAndInitResources.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvlPrepareLivedumpDescriptor @ 0x1405456B4 (HvlPrepareLivedumpDescriptor.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x14055793C (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpIsUnderMemoryPressure @ 0x1405579B4 (IopLiveDumpIsUnderMemoryPressure.c)
+ *     IopLiveDumpTraceHvlPrepareLivedumpDescriptorFailure @ 0x14055882C (IopLiveDumpTraceHvlPrepareLivedumpDescriptorFailure.c)
+ *     MmAllocateIndependentPagesEx @ 0x140869ADC (MmAllocateIndependentPagesEx.c)
+ *     IopLiveDumpDiscardVirtualAddressRange @ 0x14094AFA4 (IopLiveDumpDiscardVirtualAddressRange.c)
+ */
+
 __int64 __fastcall IopLiveDumpAllocateExtraBuffers(__int64 a1)
 {
   __int64 MillisecondCounter; // rax

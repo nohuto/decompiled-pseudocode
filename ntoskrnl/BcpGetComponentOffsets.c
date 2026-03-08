@@ -1,3 +1,11 @@
+/*
+ * XREFs of BcpGetComponentOffsets @ 0x140670530
+ * Callers:
+ *     BgpFwDisplayBugCheckScreen @ 0x140670AE4 (BgpFwDisplayBugCheckScreen.c)
+ * Callees:
+ *     BcpDisplayProgress @ 0x140670320 (BcpDisplayProgress.c)
+ */
+
 __int64 __fastcall BcpGetComponentOffsets(__int64 *a1, _DWORD *a2, int *a3, int a4, int a5, char a6)
 {
   int *v6; // r13

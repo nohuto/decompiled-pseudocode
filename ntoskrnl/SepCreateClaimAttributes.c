@@ -1,3 +1,19 @@
+/*
+ * XREFs of SepCreateClaimAttributes @ 0x140780934
+ * Callers:
+ *     SepSetTokenClaims @ 0x1407808B8 (SepSetTokenClaims.c)
+ * Callees:
+ *     AuthzBasepSetSecurityAttributesToken @ 0x14029705C (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402B8730 (AuthzBasepFreeSecurityAttributesList.c)
+ *     AuthzBasepAllocateSecurityAttributesList @ 0x1402FF8B0 (AuthzBasepAllocateSecurityAttributesList.c)
+ *     RtlSidHashInitialize @ 0x140310020 (RtlSidHashInitialize.c)
+ *     SepLengthSidAndAttributesArray @ 0x1407103B8 (SepLengthSidAndAttributesArray.c)
+ *     SeCaptureSidAndAttributesArray @ 0x140710470 (SeCaptureSidAndAttributesArray.c)
+ *     AuthzBasepAllocateClaimCollectionNoLists @ 0x140A57120 (AuthzBasepAllocateClaimCollectionNoLists.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepCreateClaimAttributes(_QWORD *a1, __int64 a2, __int64 a3, unsigned int a4, void *Src)
 {
   __int64 result; // rax

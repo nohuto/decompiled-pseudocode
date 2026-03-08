@@ -1,3 +1,14 @@
+/*
+ * XREFs of ProcessNvmeSanitizeStatus @ 0x1C0024F88
+ * Callers:
+ *     NVMeGetLogPageCompletion @ 0x1C001E210 (NVMeGetLogPageCompletion.c)
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     NVMeRequestComplete @ 0x1C000318C (NVMeRequestComplete.c)
+ *     NVMeQueueWorkItem @ 0x1C0016B88 (NVMeQueueWorkItem.c)
+ *     GetLunExtension @ 0x1C001B754 (GetLunExtension.c)
+ */
+
 char __fastcall ProcessNvmeSanitizeStatus(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 SrbExtension; // rax

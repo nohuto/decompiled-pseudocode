@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiGetPartitionNodeInformation @ 0x140657AE0
+ * Callers:
+ *     MmFillEtwNodeInformation @ 0x140463310 (MmFillEtwNodeInformation.c)
+ *     MmManagePartitionNodeInformation @ 0x140A42D74 (MmManagePartitionNodeInformation.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiGetPartitionNodeInformation(__int64 a1, unsigned int a2, _QWORD *a3)
 {
   __int64 v5; // rsi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiExtendProcessAffinity @ 0x14057C4E4
+ * Callers:
+ *     KeStartThread @ 0x1402385C4 (KeStartThread.c)
+ *     KeSetUserAffinityThread @ 0x1402B0FA0 (KeSetUserAffinityThread.c)
+ * Callees:
+ *     KiComputeGroupMask @ 0x1402967CC (KiComputeGroupMask.c)
+ *     KiSetIdealNodeProcessByGroup @ 0x140296818 (KiSetIdealNodeProcessByGroup.c)
+ */
+
 __int64 __fastcall KiExtendProcessAffinity(__int64 a1, unsigned __int16 *a2)
 {
   __int64 result; // rax

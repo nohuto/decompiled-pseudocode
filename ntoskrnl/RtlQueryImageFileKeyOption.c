@@ -1,3 +1,24 @@
+/*
+ * XREFs of RtlQueryImageFileKeyOption @ 0x140709A50
+ * Callers:
+ *     KiInitializeNormalPriorityAntiStarvationPolicies @ 0x1403AD9DC (KiInitializeNormalPriorityAntiStarvationPolicies.c)
+ *     PspReadDfssConfigurationValues @ 0x1405A12D4 (PspReadDfssConfigurationValues.c)
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ *     PspReadOptionsMapFromIFEO @ 0x14070A4D8 (PspReadOptionsMapFromIFEO.c)
+ *     SepIsImageInMinTcbList @ 0x14070E2F8 (SepIsImageInMinTcbList.c)
+ *     RtlQueryImageFileExecutionOptions @ 0x140812A34 (RtlQueryImageFileExecutionOptions.c)
+ *     PspQueryComPlusRunUnderWoW @ 0x1409AE358 (PspQueryComPlusRunUnderWoW.c)
+ *     PspReadIFEOPerfOptions @ 0x1409AE40C (PspReadIFEOPerfOptions.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlUnicodeStringToInteger @ 0x140751D60 (RtlUnicodeStringToInteger.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall RtlQueryImageFileKeyOption(
         HANDLE KeyHandle,
         const WCHAR *a2,

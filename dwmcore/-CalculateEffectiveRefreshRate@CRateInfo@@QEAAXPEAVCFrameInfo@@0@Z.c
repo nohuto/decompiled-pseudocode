@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CalculateEffectiveRefreshRate@CRateInfo@@QEAAXPEAVCFrameInfo@@0@Z @ 0x18004D9D8
+ * Callers:
+ *     ?GetPresentStatisticsAndAdjustRates@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18004E430 (-GetPresentStatisticsAndAdjustRates@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ * Callees:
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_Scheduler_VSync_Smoothing@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1800AF148 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_Scheduler_VSync_Smoothing@@@details@wil@@.c)
+ *     McTemplateU0qff_EventWriteTransfer @ 0x18012D1A8 (McTemplateU0qff_EventWriteTransfer.c)
+ *     McTemplateU0qxxff_EventWriteTransfer @ 0x18012D336 (McTemplateU0qxxff_EventWriteTransfer.c)
+ */
+
 void __fastcall CRateInfo::CalculateEffectiveRefreshRate(CRateInfo *this, struct CFrameInfo *a2, struct CFrameInfo *a3)
 {
   unsigned __int64 v3; // rbp

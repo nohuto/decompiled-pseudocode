@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiInitializePageFaultPacket @ 0x1402A346C
+ * Callers:
+ *     MmAccessFault @ 0x140267D40 (MmAccessFault.c)
+ *     MiWalkEntireImage @ 0x1402862C0 (MiWalkEntireImage.c)
+ *     MiTranslatePageForCopy @ 0x1402A1FD4 (MiTranslatePageForCopy.c)
+ *     MiFlushWaitForReadInProgress @ 0x140633B18 (MiFlushWaitForReadInProgress.c)
+ * Callees:
+ *     MiFillPteHierarchy @ 0x140333AE0 (MiFillPteHierarchy.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiInitializePageFaultPacket(__int64 a1, __int64 a2, char a3, __int64 a4, _QWORD *a5)
 {
   int v6; // r14d

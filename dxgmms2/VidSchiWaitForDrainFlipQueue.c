@@ -1,3 +1,17 @@
+/*
+ * XREFs of VidSchiWaitForDrainFlipQueue @ 0x1C00B5A88
+ * Callers:
+ *     VidSchiDrainFlipQueue @ 0x1C00B5A60 (VidSchiDrainFlipQueue.c)
+ * Callees:
+ *     VidSchiProfilePerformanceTick @ 0x1C0006E50 (VidSchiProfilePerformanceTick.c)
+ *     VidSchiIsMmIoFlipPending @ 0x1C0017B4C (VidSchiIsMmIoFlipPending.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     ?DecrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z @ 0x1C0034668 (-DecrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z.c)
+ *     ?IncrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z @ 0x1C0034C70 (-IncrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z.c)
+ *     ?VidSchiSetInterruptTargetPresentId@@YAJPEAU_VIDSCH_GLOBAL@@II_K_NI@Z @ 0x1C004A448 (-VidSchiSetInterruptTargetPresentId@@YAJPEAU_VIDSCH_GLOBAL@@II_K_NI@Z.c)
+ *     VidSchWaitForCompletionEvent @ 0x1C00ADD4C (VidSchWaitForCompletionEvent.c)
+ */
+
 char __fastcall VidSchiWaitForDrainFlipQueue(struct _VIDSCH_GLOBAL *a1)
 {
   char result; // al

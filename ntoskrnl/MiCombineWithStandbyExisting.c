@@ -1,3 +1,26 @@
+/*
+ * XREFs of MiCombineWithStandbyExisting @ 0x14029F020
+ * Callers:
+ *     MiConvertStandbyToProto @ 0x14029ED24 (MiConvertStandbyToProto.c)
+ * Callees:
+ *     MiLockAndDecrementShareCount @ 0x140210114 (MiLockAndDecrementShareCount.c)
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiLockProtoPoolPage @ 0x140283CA0 (MiLockProtoPoolPage.c)
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402879C0 (MiPfnReferenceCountIsZero.c)
+ *     MiGetPfnPriority @ 0x14028A3F8 (MiGetPfnPriority.c)
+ *     MiUpdatePfnPriority @ 0x14028D35C (MiUpdatePfnPriority.c)
+ *     MiWriteRepurposedTransitionPte @ 0x14029EC64 (MiWriteRepurposedTransitionPte.c)
+ *     MiUnlockNestedProtoPoolPage @ 0x14029ECE8 (MiUnlockNestedProtoPoolPage.c)
+ *     MiStandbyPageStillCombineCandidate @ 0x14029F354 (MiStandbyPageStillCombineCandidate.c)
+ *     MiRecheckCombineVm @ 0x14029F408 (MiRecheckCombineVm.c)
+ *     MiTryLockLeafPage @ 0x1402A29B8 (MiTryLockLeafPage.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiMapSinglePage @ 0x14034A868 (MiMapSinglePage.c)
+ *     MiConfirmCombinePageContents @ 0x14034B140 (MiConfirmCombinePageContents.c)
+ *     MiDiscardTransitionPteEx @ 0x14064E040 (MiDiscardTransitionPteEx.c)
+ */
+
 __int64 __fastcall MiCombineWithStandbyExisting(__int64 *a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // r13

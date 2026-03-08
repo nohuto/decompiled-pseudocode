@@ -1,3 +1,11 @@
+/*
+ * XREFs of MmGetCfgBitMapInformation @ 0x1407077D8
+ * Callers:
+ *     PspPrepareSystemDllInitBlock @ 0x1407075A8 (PspPrepareSystemDllInitBlock.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MmGetCfgBitMapInformation(int a1, _QWORD *a2)
 {
   _QWORD *v2; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfIoCompletionCheckState @ 0x140AC832C
+ * Callers:
+ *     IovpLocalCompletionRoutine @ 0x140ABEB60 (IovpLocalCompletionRoutine.c)
+ * Callees:
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ */
+
 void __fastcall VfIoCompletionCheckState(_DWORD *Entry, ULONG_PTR a2)
 {
   unsigned int v4; // ecx

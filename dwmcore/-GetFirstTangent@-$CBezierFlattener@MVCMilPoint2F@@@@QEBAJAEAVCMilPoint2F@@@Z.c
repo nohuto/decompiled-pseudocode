@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetFirstTangent@?$CBezierFlattener@MVCMilPoint2F@@@@QEBAJAEAVCMilPoint2F@@@Z @ 0x1800164E4
+ * Callers:
+ *     ?GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z @ 0x180016234 (-GetLength@CPathLengthOperation@@QEAAMPEBVCPathData@@@Z.c)
+ *     ?InterpolateBezier@CTrimPathOperation@@AEAA_NMM_N@Z @ 0x1802AC128 (-InterpolateBezier@CTrimPathOperation@@AEAA_NMM_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CBezierFlattener<float,CMilPoint2F>::GetFirstTangent(__int64 a1, __int64 a2)
 {
   __m128 v2; // xmm0

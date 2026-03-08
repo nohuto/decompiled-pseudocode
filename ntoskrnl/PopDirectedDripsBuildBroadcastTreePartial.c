@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDirectedDripsBuildBroadcastTreePartial @ 0x14099CDB8
+ * Callers:
+ *     PopDirectedDripsInitializeBroadcast @ 0x1409806E8 (PopDirectedDripsInitializeBroadcast.c)
+ * Callees:
+ *     PopDirectedDripsDiagBroadcastTreeBegin @ 0x14099ACE0 (PopDirectedDripsDiagBroadcastTreeBegin.c)
+ *     PopDirectedDripsDiagBroadcastTreeEnd @ 0x14099AE4C (PopDirectedDripsDiagBroadcastTreeEnd.c)
+ *     PopDirectedDripsBuildBroadcastTreeFull @ 0x14099CB70 (PopDirectedDripsBuildBroadcastTreeFull.c)
+ */
+
 __int64 __fastcall PopDirectedDripsBuildBroadcastTreePartial(__int64 a1, char a2, _DWORD *a3)
 {
   char v3; // r15

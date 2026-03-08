@@ -1,3 +1,21 @@
+/*
+ * XREFs of ObSetHandleAttributes @ 0x1407D8910
+ * Callers:
+ *     NtSetInformationObject @ 0x1407DA9A0 (NtSetInformationObject.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExGetHandlePointer @ 0x1403120A0 (ExGetHandlePointer.c)
+ *     ObpIsKernelHandle @ 0x1403521C8 (ObpIsKernelHandle.c)
+ *     ExSetHandleAttributes @ 0x140352D5C (ExSetHandleAttributes.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExfUnblockPushLock @ 0x14040CCE0 (ExfUnblockPushLock.c)
+ *     ObReferenceProcessHandleTable @ 0x140711794 (ObReferenceProcessHandleTable.c)
+ *     ExMapHandleToPointer @ 0x1407D80C0 (ExMapHandleToPointer.c)
+ */
+
 __int64 __fastcall ObSetHandleAttributes(__int64 a1, _BYTE *a2, char a3)
 {
   __int64 v4; // rbx

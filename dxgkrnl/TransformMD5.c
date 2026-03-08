@@ -1,3 +1,12 @@
+/*
+ * XREFs of TransformMD5 @ 0x1C01BD9A4
+ * Callers:
+ *     ?DX_MD5Final@@YAXPEAUMD5_CTX@@@Z @ 0x1C01BD804 (-DX_MD5Final@@YAXPEAUMD5_CTX@@@Z.c)
+ *     ?DX_MD5Update@@YAXPEAUMD5_CTX@@PEBEI@Z @ 0x1C01BD918 (-DX_MD5Update@@YAXPEAUMD5_CTX@@PEBEI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall TransformMD5(int *a1, int *a2)
 {
   int v3; // r9d

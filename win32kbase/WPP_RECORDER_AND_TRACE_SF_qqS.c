@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_AND_TRACE_SF_qqS @ 0x1C01C8018
+ * Callers:
+ *     rimOnPnpArrived @ 0x1C00889C0 (rimOnPnpArrived.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall WPP_RECORDER_AND_TRACE_SF_qqS(
         __int64 a1,
         char a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of MxReleaseFreeDescriptor @ 0x140B371A0
+ * Callers:
+ *     MiCreateFreePfns @ 0x140B37598 (MiCreateFreePfns.c)
+ * Callees:
+ *     MxCreateFreePfns @ 0x140B37690 (MxCreateFreePfns.c)
+ */
+
 __int64 __fastcall MxReleaseFreeDescriptor(unsigned __int64 *a1, int a2)
 {
   int v3; // esi

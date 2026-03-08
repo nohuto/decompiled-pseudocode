@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopGenerateMdl @ 0x14058C638
+ * Callers:
+ *     PopAllocatePages @ 0x140A9E958 (PopAllocatePages.c)
+ * Callees:
+ *     MmAllocatePagesForMdlEx @ 0x1402B3960 (MmAllocatePagesForMdlEx.c)
+ */
+
 PMDL __fastcall PopGenerateMdl(__int64 a1)
 {
   unsigned __int64 v2; // rdi

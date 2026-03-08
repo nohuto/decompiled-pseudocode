@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??_GCCompiledEffectTemplate@@MEAAPEAXI@Z @ 0x1800EA920
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ??1CCompiledEffectTemplate@@MEAA@XZ @ 0x1800EA964 (--1CCompiledEffectTemplate@@MEAA@XZ.c)
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801046B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ */
+
 CCompiledEffectTemplate *__fastcall CCompiledEffectTemplate::`scalar deleting destructor'(
         CCompiledEffectTemplate *this,
         char a2)

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CCompositionCubeMapMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C026BB30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_0d1723b41587c3d40875eb2502b1a7b6___ @ 0x1C026B92C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_0d1723b41587c3d40875eb2502b1a7b.c)
+ *     ?EmitSurfaces@CCompositionCubeMapMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C026B9F0 (-EmitSurfaces@CCompositionCubeMapMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ */
+
 char __fastcall DirectComposition::CCompositionCubeMapMarshaler::EmitUpdateCommands(
         DirectComposition::CCompositionCubeMapMarshaler *this,
         struct DirectComposition::CBatch ***a2)

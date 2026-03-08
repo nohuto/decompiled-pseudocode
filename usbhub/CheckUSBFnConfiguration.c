@@ -1,3 +1,15 @@
+/*
+ * XREFs of CheckUSBFnConfiguration @ 0x1C005C27C
+ * Callers:
+ *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C005CACC (ReadUSBFnFeaturesFromCurrentConfiguration.c)
+ *     UsbDualRoleFeaturesQueryLocalMachine @ 0x1C005CE14 (UsbDualRoleFeaturesQueryLocalMachine.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_Sd @ 0x1C005109C (WPP_RECORDER_SF_Sd.c)
+ *     MyRegOpenKeyForRead @ 0x1C005D0D4 (MyRegOpenKeyForRead.c)
+ *     MyRegQueryString @ 0x1C005D154 (MyRegQueryString.c)
+ */
+
 __int64 __fastcall CheckUSBFnConfiguration(_DWORD *a1, const wchar_t *a2)
 {
   __int64 v4; // rax

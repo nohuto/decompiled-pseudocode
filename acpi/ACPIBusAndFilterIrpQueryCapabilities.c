@@ -1,3 +1,25 @@
+/*
+ * XREFs of ACPIBusAndFilterIrpQueryCapabilities @ 0x1C007D7A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     ACPIDockIsDockDevice @ 0x1C0009A34 (ACPIDockIsDockDevice.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     ACPIGetD3Policy @ 0x1C0043A50 (ACPIGetD3Policy.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNSObjectType @ 0x1C00483A8 (AMLIGetNSObjectType.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ *     AMLIIsNamedChildPresent @ 0x1C00487BC (AMLIIsNamedChildPresent.c)
+ *     AcpiCheckSecureDevice @ 0x1C0094C08 (AcpiCheckSecureDevice.c)
+ *     ACPISystemPowerQueryDeviceCapabilities @ 0x1C00952EC (ACPISystemPowerQueryDeviceCapabilities.c)
+ *     ACPIProcessPhysicalDeviceLocation @ 0x1C0098134 (ACPIProcessPhysicalDeviceLocation.c)
+ */
+
 __int64 __fastcall ACPIBusAndFilterIrpQueryCapabilities(ULONG_PTR a1, __int64 a2, __int64 a3, char a4)
 {
   __int64 v4; // rdi

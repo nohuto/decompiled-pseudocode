@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiCreatePageChains @ 0x1402B4A2C
+ * Callers:
+ *     MiZeroAndReleasePages @ 0x1402776A0 (MiZeroAndReleasePages.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x1402B4650 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14034DCB0 (MiAllocateLargeZeroPages.c)
+ *     MiFindLargePageMemory @ 0x140A46B08 (MiFindLargePageMemory.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiSelectEngine @ 0x1402B4AF8 (MiSelectEngine.c)
+ */
+
 char *__fastcall MiCreatePageChains(__int64 a1, unsigned int a2, int a3)
 {
   int v6; // ebp

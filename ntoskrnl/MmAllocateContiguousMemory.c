@@ -1,3 +1,11 @@
+/*
+ * XREFs of MmAllocateContiguousMemory @ 0x14061BCB0
+ * Callers:
+ *     DifMmAllocateContiguousMemoryWrapper @ 0x1405E45F0 (DifMmAllocateContiguousMemoryWrapper.c)
+ * Callees:
+ *     MiAllocateContiguousMemory @ 0x1403B49B4 (MiAllocateContiguousMemory.c)
+ */
+
 PVOID __stdcall MmAllocateContiguousMemory(SIZE_T NumberOfBytes, PHYSICAL_ADDRESS HighestAcceptableAddress)
 {
   unsigned __int64 v2; // rdx

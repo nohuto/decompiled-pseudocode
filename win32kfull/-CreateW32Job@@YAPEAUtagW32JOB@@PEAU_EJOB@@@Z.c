@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CreateW32Job@@YAPEAUtagW32JOB@@PEAU_EJOB@@@Z @ 0x1C003BC90
+ * Callers:
+ *     UserJobCallout @ 0x1C003C000 (UserJobCallout.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003E858 (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C003E900 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 struct tagW32JOB *__fastcall CreateW32Job(struct _EJOB *a1, __int64 a2, __int64 a3, int a4)
 {

@@ -1,3 +1,11 @@
+/*
+ * XREFs of IpmiLibpTimeAfter @ 0x1406761D8
+ * Callers:
+ *     IpmiLibpKcsSpinRegister @ 0x1406760E0 (IpmiLibpKcsSpinRegister.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ */
+
 bool __fastcall IpmiLibpTimeAfter(__int64 a1, __int64 a2)
 {
   ULONG v2; // ebx

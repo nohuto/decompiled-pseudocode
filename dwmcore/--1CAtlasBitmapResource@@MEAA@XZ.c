@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CAtlasBitmapResource@@MEAA@XZ @ 0x1800B608C
+ * Callers:
+ *     ??_GCAtlasBitmapResource@@MEAAPEAXI@Z @ 0x1800B6050 (--_GCAtlasBitmapResource@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CAtlasBitmapResource::~CAtlasBitmapResource(CAtlasBitmapResource *this)
 {
   __int64 v2; // rcx

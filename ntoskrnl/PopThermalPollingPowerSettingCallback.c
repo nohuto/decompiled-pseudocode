@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopThermalPollingPowerSettingCallback @ 0x1403B0C70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     IoCancelIrp @ 0x1402E4F50 (IoCancelIrp.c)
+ */
+
 __int64 PopThermalPollingPowerSettingCallback()
 {
   char v0; // al

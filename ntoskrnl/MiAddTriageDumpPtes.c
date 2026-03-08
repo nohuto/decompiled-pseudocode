@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiAddTriageDumpPtes @ 0x14062D454
+ * Callers:
+ *     MmSnapTriageDumpInformation @ 0x14062E39C (MmSnapTriageDumpInformation.c)
+ * Callees:
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14032E710 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ */
+
 char __fastcall MiAddTriageDumpPtes(unsigned __int64 a1)
 {
   unsigned __int64 v2; // rbx

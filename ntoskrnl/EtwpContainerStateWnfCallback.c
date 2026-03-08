@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpContainerStateWnfCallback @ 0x1405F9B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     EtwpQueryPartitionRegistryInformation @ 0x140395114 (EtwpQueryPartitionRegistryInformation.c)
+ */
+
 __int64 EtwpContainerStateWnfCallback()
 {
   __int64 v0; // rbx

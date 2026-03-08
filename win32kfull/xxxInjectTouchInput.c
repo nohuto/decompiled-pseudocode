@@ -1,3 +1,31 @@
+/*
+ * XREFs of xxxInjectTouchInput @ 0x1C01B19B4
+ * Callers:
+ *     NtUserInjectTouchInput @ 0x1C01D65E0 (NtUserInjectTouchInput.c)
+ * Callees:
+ *     ?IsGpqForegroundAccessibleCurrent@@YAHH@Z @ 0x1C00174F8 (-IsGpqForegroundAccessibleCurrent@@YAHH@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C00200C4 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C003F908 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ *     CheckGrantedAccess @ 0x1C00D7810 (CheckGrantedAccess.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C00E3308 (WPP_RECORDER_AND_TRACE_SF_dd.c)
+ *     GetScreenRect @ 0x1C00E4C8C (GetScreenRect.c)
+ *     ?MSGLUA_GPQFOREGROUND@@YAXXZ @ 0x1C00F02AC (-MSGLUA_GPQFOREGROUND@@YAXXZ.c)
+ *     ?CheckCurrentInjectionConfiguration@@YAXXZ @ 0x1C01AFF24 (-CheckCurrentInjectionConfiguration@@YAXXZ.c)
+ *     ?InjectInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4InputTracing_RimInjectionSource@@K@Z @ 0x1C01B0314 (-InjectInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4InputTracing_RimInjectionSource@@K@Z.c)
+ *     ?SortTouchContacts@@YAHPEAUtagPOINTER_TOUCH_INFO@@I@Z @ 0x1C01B0670 (-SortTouchContacts@@YAHPEAUtagPOINTER_TOUCH_INFO@@I@Z.c)
+ *     ?ValidateInjectedTouchFrame@@YAHIPEAUtagPOINTER_TOUCH_INFO@@PEAUtagINJECTED_CONTACT@@PEAUtagRECT@@I@Z @ 0x1C01B09C0 (-ValidateInjectedTouchFrame@@YAHIPEAUtagPOINTER_TOUCH_INFO@@PEAUtagINJECTED_CONTACT@@PEAUtagRECT.c)
+ *     ?_GetQpcBasedTouchStackTime@@YAKXZ @ 0x1C01B0EB0 (-_GetQpcBasedTouchStackTime@@YAKXZ.c)
+ *     ?_ValidateInjectionQpcCount@@YAH_K00HH@Z @ 0x1C01B0F3C (-_ValidateInjectionQpcCount@@YAH_K00HH@Z.c)
+ *     ?_ValidateInjectionTime@@YAHKKKHH@Z @ 0x1C01B0FBC (-_ValidateInjectionTime@@YAHKKKHH@Z.c)
+ *     ?xxxSendLastFrameTouchUp@@YAXPEAUtagINJECTED_CONTACT@@PEAUDEVICEINFO@@IK@Z @ 0x1C01B102C (-xxxSendLastFrameTouchUp@@YAXPEAUtagINJECTED_CONTACT@@PEAUDEVICEINFO@@IK@Z.c)
+ *     ?xxxSendToTouchStack@@YAXPEAUDEVICEINFO@@IPEAUtagPOINTER_TOUCH_INFO@@K@Z @ 0x1C01B1194 (-xxxSendToTouchStack@@YAXPEAUDEVICEINFO@@IPEAUtagPOINTER_TOUCH_INFO@@K@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_didi @ 0x1C01B1544 (WPP_RECORDER_AND_TRACE_SF_didi.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ii @ 0x1C01B1660 (WPP_RECORDER_AND_TRACE_SF_ii.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall xxxInjectTouchInput(unsigned int a1, struct tagPOINTER_TOUCH_INFO *a2)
 {

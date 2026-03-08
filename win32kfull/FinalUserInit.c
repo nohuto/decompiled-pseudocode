@@ -1,3 +1,17 @@
+/*
+ * XREFs of FinalUserInit @ 0x1C00C1B24
+ * Callers:
+ *     xxxInitWindowStation @ 0x1C00C1348 (xxxInitWindowStation.c)
+ * Callees:
+ *     DestroyClass @ 0x1C0033D18 (DestroyClass.c)
+ *     MNSetupAnimationDC @ 0x1C00C1D98 (MNSetupAnimationDC.c)
+ *     GetCharDimensions @ 0x1C010F9F4 (GetCharDimensions.c)
+ *     GreSetBkColor @ 0x1C0113964 (GreSetBkColor.c)
+ *     GreSetTextColor @ 0x1C0113D94 (GreSetTextColor.c)
+ *     GreSelectFontInternal @ 0x1C0116F84 (GreSelectFontInternal.c)
+ *     GreSetBkMode @ 0x1C0118028 (GreSetBkMode.c)
+ */
+
 __int64 FinalUserInit()
 {
   __int64 SessionDpiServerInfo; // rsi

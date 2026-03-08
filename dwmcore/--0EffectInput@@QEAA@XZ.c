@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0EffectInput@@QEAA@XZ @ 0x1800E3EE8
+ * Callers:
+ *     ??0EffectStage@@QEAA@XZ @ 0x18002FCE4 (--0EffectStage@@QEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 EffectInput *__fastcall EffectInput::EffectInput(EffectInput *this)
 {
   EffectInput *result; // rax

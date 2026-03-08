@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExPreInitializeNls @ 0x140810280
+ * Callers:
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 ExPreInitializeNls()
 {
   if ( InitNlsTableBase )

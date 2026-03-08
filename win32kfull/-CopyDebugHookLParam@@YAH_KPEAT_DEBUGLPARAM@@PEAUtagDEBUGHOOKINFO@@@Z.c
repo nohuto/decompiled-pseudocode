@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CopyDebugHookLParam@@YAH_KPEAT_DEBUGLPARAM@@PEAUtagDEBUGHOOKINFO@@@Z @ 0x1C0207D78
+ * Callers:
+ *     fnHkINLPDEBUGHOOKSTRUCT @ 0x1C0213884 (fnHkINLPDEBUGHOOKSTRUCT.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CopyDebugHookLParam(unsigned __int64 a1, union _DEBUGLPARAM *a2, struct tagDEBUGHOOKINFO *a3)
 {
   __int128 *v3; // r9

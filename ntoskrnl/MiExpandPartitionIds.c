@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiExpandPartitionIds @ 0x140A41CBC
+ * Callers:
+ *     MiAllocatePartitionId @ 0x140A2CBB0 (MiAllocatePartitionId.c)
+ * Callees:
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     RtlClearAllBits @ 0x1402B24A0 (RtlClearAllBits.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MiMakeZeroedPageTables @ 0x14036C240 (MiMakeZeroedPageTables.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 MiExpandPartitionIds()
 {
   unsigned int v0; // ebx

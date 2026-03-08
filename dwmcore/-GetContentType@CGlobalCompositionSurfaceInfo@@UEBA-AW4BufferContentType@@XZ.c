@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetContentType@CGlobalCompositionSurfaceInfo@@UEBA?AW4BufferContentType@@XZ @ 0x180130240
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CGlobalCompositionSurfaceInfo::GetContentType(__int64 a1)
 {
   __int64 v1; // rcx

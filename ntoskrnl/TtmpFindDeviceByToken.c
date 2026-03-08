@@ -1,3 +1,13 @@
+/*
+ * XREFs of TtmpFindDeviceByToken @ 0x1409A06D8
+ * Callers:
+ *     TtmNotifyDeviceArrival @ 0x14099F580 (TtmNotifyDeviceArrival.c)
+ *     TtmNotifyDeviceDeparture @ 0x14099F880 (TtmNotifyDeviceDeparture.c)
+ *     TtmNotifyDeviceInput @ 0x14099F940 (TtmNotifyDeviceInput.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall TtmpFindDeviceByToken(__int64 a1, int a2, __int64 a3, _QWORD *a4)
 {
   __int64 *v4; // r10

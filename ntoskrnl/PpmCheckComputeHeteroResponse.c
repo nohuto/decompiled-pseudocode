@@ -1,3 +1,19 @@
+/*
+ * XREFs of PpmCheckComputeHeteroResponse @ 0x140593FE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PpmParkCalculateUnparkCount @ 0x1402EBC70 (PpmParkCalculateUnparkCount.c)
+ *     PpmHeteroIsMultiClassParkingEnabled @ 0x14038E12C (PpmHeteroIsMultiClassParkingEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     PpmCheckComputeMultiClassHeteroResponse @ 0x140594418 (PpmCheckComputeMultiClassHeteroResponse.c)
+ *     PpmHeteroUtilityGreaterThanOrEqualThreshold @ 0x14059553C (PpmHeteroUtilityGreaterThanOrEqualThreshold.c)
+ *     PpmEventTraceHeteroResponse @ 0x14059945C (PpmEventTraceHeteroResponse.c)
+ */
+
 char PpmCheckComputeHeteroResponse()
 {
   __int64 v0; // rcx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of AddDecodeGuidToSessions @ 0x14079AF30
+ * Callers:
+ *     EtwpSetProviderTraitsCommon @ 0x140695C68 (EtwpSetProviderTraitsCommon.c)
+ * Callees:
+ *     EtwpReleaseLoggerContext @ 0x14069349C (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140693AFC (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpTrackDecodeGuidForSession @ 0x1409F26D8 (EtwpTrackDecodeGuidForSession.c)
+ */
+
 char __fastcall AddDecodeGuidToSessions(__int64 a1)
 {
   unsigned __int8 v1; // si

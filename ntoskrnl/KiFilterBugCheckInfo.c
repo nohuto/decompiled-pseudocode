@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiFilterBugCheckInfo @ 0x1403DDC6C
+ * Callers:
+ *     KeBugCheck2 @ 0x140565E90 (KeBugCheck2.c)
+ * Callees:
+ *     <none>
+ */
+
 __int128 *__fastcall KiFilterBugCheckInfo(_DWORD *a1, __int64 a2)
 {
   __int128 *result; // rax

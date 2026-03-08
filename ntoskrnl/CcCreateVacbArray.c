@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcCreateVacbArray @ 0x1407698CC
+ * Callers:
+ *     CcInitializeCacheMapInternal @ 0x140338F10 (CcInitializeCacheMapInternal.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ */
+
 __int64 __fastcall CcCreateVacbArray(__int64 a1, __int64 a2)
 {
   int v2; // r12d

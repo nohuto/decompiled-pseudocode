@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z @ 0x1C00D902C
+ * Callers:
+ *     xxxCalcClientRect @ 0x1C00AAA20 (xxxCalcClientRect.c)
+ *     GetResizeBorderWidthForDpi @ 0x1C00D8FEC (GetResizeBorderWidthForDpi.c)
+ * Callees:
+ *     GetDpiCacheSlot @ 0x1C0045E2C (GetDpiCacheSlot.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ *     _ScaleSystemMetricForDPIWithoutCache @ 0x1C01C07C0 (_ScaleSystemMetricForDPIWithoutCache.c)
+ */
+
 __int64 __fastcall GetResizeBorderWidthForDpiWithAppCompat2(unsigned int a1, int a2)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?LoadCPUserPreferences@@YAHPEAU_UNICODE_STRING@@K@Z @ 0x1C010AD6C
+ * Callers:
+ *     xxxUpdatePerUserSystemParameters @ 0x1C010AFDC (xxxUpdatePerUserSystemParameters.c)
+ * Callees:
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C012CB40 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C012CDB8 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall LoadCPUserPreferences(struct _UNICODE_STRING *a1, int a2)
 {
   unsigned int ProfileValue; // eax

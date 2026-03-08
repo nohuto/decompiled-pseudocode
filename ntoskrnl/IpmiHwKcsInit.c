@@ -1,3 +1,11 @@
+/*
+ * XREFs of IpmiHwKcsInit @ 0x1406752BC
+ * Callers:
+ *     IpmiHwInitializeContext @ 0x1406751C8 (IpmiHwInitializeContext.c)
+ * Callees:
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ */
+
 __int64 IpmiHwKcsInit()
 {
   unsigned int v0; // ebx

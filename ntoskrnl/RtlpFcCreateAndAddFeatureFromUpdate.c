@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpFcCreateAndAddFeatureFromUpdate @ 0x1409C023C
+ * Callers:
+ *     RtlpFcUpdateFeatureConfiguration @ 0x1409C0408 (RtlpFcUpdateFeatureConfiguration.c)
+ * Callees:
+ *     RtlpFcDoesFeatureHaveUniqueState @ 0x1409C02A4 (RtlpFcDoesFeatureHaveUniqueState.c)
+ *     RtlpFcIsUpdateModifyingOrAddingFeature @ 0x1409C02DC (RtlpFcIsUpdateModifyingOrAddingFeature.c)
+ *     RtlpFcUpdateFeature @ 0x1409C037C (RtlpFcUpdateFeature.c)
+ */
+
 __int64 __fastcall RtlpFcCreateAndAddFeatureFromUpdate(__int64 a1, _QWORD *a2)
 {
   __int64 result; // rax

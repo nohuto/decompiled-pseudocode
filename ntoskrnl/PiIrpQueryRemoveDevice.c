@@ -1,3 +1,22 @@
+/*
+ * XREFs of PiIrpQueryRemoveDevice @ 0x14096A1AC
+ * Callers:
+ *     PnpDisableDevice @ 0x1409559A8 (PnpDisableDevice.c)
+ *     PnpQueryRemoveLockedDeviceNode @ 0x1409561C8 (PnpQueryRemoveLockedDeviceNode.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     PnpFindMountableDevice @ 0x1403B20FC (PnpFindMountableDevice.c)
+ *     PnpMarkDeviceForRemove @ 0x1403CF1B8 (PnpMarkDeviceForRemove.c)
+ *     PnpLockMountableDevice @ 0x1403CF5C0 (PnpLockMountableDevice.c)
+ *     PnpUnlockMountableDevice @ 0x1403CFA9C (PnpUnlockMountableDevice.c)
+ *     IopDecrementDeviceObjectHandleCount @ 0x1403D162C (IopDecrementDeviceObjectHandleCount.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PnpAsynchronousCall @ 0x1406885F8 (PnpAsynchronousCall.c)
+ *     IopInvalidateVolumesForDevice @ 0x14087D588 (IopInvalidateVolumesForDevice.c)
+ */
+
 __int64 __fastcall PiIrpQueryRemoveDevice(PDEVICE_OBJECT DeviceObject, _QWORD *a2)
 {
   int v4; // r14d

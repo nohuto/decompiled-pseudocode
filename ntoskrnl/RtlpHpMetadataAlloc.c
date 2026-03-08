@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlpHpMetadataAlloc @ 0x1402B71FC
+ * Callers:
+ *     RtlpHpLargeAlloc @ 0x1402B6D70 (RtlpHpLargeAlloc.c)
+ *     RtlpHpHeapAllocate @ 0x140375668 (RtlpHpHeapAllocate.c)
+ *     RtlpHpCustomVaCallbacksRegistrarRegister @ 0x1405B3B00 (RtlpHpCustomVaCallbacksRegistrarRegister.c)
+ * Callees:
+ *     RtlpHpSegAlloc @ 0x1402491F0 (RtlpHpSegAlloc.c)
+ *     RtlpHpAllocateHeap @ 0x14024A2B0 (RtlpHpAllocateHeap.c)
+ *     RtlpHpMetadataHeapCtxGet @ 0x1402B72FC (RtlpHpMetadataHeapCtxGet.c)
+ *     RtlpHpMetadataHeapStart @ 0x1402B7328 (RtlpHpMetadataHeapStart.c)
+ */
+
 __int64 __fastcall RtlpHpMetadataAlloc(unsigned __int64 a1, unsigned __int64 a2, int a3, __int128 *a4)
 {
   __int64 v4; // xmm0_8

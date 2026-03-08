@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopLiveDumpGetNtMergePages @ 0x14094B7E0
+ * Callers:
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14094C9E8 (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ * Callees:
+ *     IopLiveDumpGetCapturePagesNoLock @ 0x140A986DC (IopLiveDumpGetCapturePagesNoLock.c)
+ */
+
 __int64 __fastcall IopLiveDumpGetNtMergePages(__int64 a1, int a2, _QWORD *a3, _DWORD *a4, _QWORD *a5)
 {
   __int64 result; // rax

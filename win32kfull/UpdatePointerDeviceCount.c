@@ -1,3 +1,11 @@
+/*
+ * XREFs of UpdatePointerDeviceCount @ 0x1C01C460C
+ * Callers:
+ *     Win32kRIMDevChangeCallback @ 0x1C01A7C60 (Win32kRIMDevChangeCallback.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall UpdatePointerDeviceCount(int a1)
 {
   __int64 v1; // rcx

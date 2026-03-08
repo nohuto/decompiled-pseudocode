@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetSurfaceStats@CCompositionSurface@@QEAAJ_KAEBUDXGI_FRAME_STATISTICS@@@Z @ 0x1C007C558
+ * Callers:
+ *     NtSetCompositionSurfaceStatistics @ 0x1C007B370 (NtSetCompositionSurfaceStatistics.c)
+ * Callees:
+ *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C000D670 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
+ */
+
 __int64 __fastcall CCompositionSurface::SetSurfaceStats(
         CCompositionSurface *this,
         __int64 a2,

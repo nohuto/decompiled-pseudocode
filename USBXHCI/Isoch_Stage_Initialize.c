@@ -1,3 +1,11 @@
+/*
+ * XREFs of Isoch_Stage_Initialize @ 0x1C0045300
+ * Callers:
+ *     Isoch_Stage_Acquire @ 0x1C0045208 (Isoch_Stage_Acquire.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Isoch_Stage_Initialize(__int64 a1, __int64 a2)
 {
   __int64 v2; // r8

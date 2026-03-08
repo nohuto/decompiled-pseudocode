@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?GetRedirectionInfo@SFMLOGICALSURFACE@@QEAAXPEAW4_HLSURF_REDIRECTIONSTYLE@@PEAK1PEAPEAXPEAU_LUID@@@Z @ 0x1C00E8FC0
+ * Callers:
+ *     GreHintSpriteShape @ 0x1C002C80C (GreHintSpriteShape.c)
+ *     GreTransferSpriteStateToDwmState @ 0x1C007DD9C (GreTransferSpriteStateToDwmState.c)
+ *     ?CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z @ 0x1C026821C (-CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z.c)
+ *     ?vSpDwmMigrateSpriteLSurfReference@@YAXPEAUHDEV__@@PEAVSFMLOGICALSURFACE@@PEAVSURFACE@@1@Z @ 0x1C0269B54 (-vSpDwmMigrateSpriteLSurfReference@@YAXPEAUHDEV__@@PEAVSFMLOGICALSURFACE@@PEAVSURFACE@@1@Z.c)
+ *     GreDwmGetRedirectionStyle @ 0x1C026A184 (GreDwmGetRedirectionStyle.c)
+ *     GreProtectSpriteContent @ 0x1C026A7F8 (GreProtectSpriteContent.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall SFMLOGICALSURFACE::GetRedirectionInfo(
         SFMLOGICALSURFACE *this,
         enum _HLSURF_REDIRECTIONSTYLE *a2,

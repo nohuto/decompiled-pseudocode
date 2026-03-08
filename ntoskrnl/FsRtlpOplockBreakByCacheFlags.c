@@ -1,3 +1,31 @@
+/*
+ * XREFs of FsRtlpOplockBreakByCacheFlags @ 0x14023BD20
+ * Callers:
+ *     FsRtlCheckOplockEx2 @ 0x14023AE40 (FsRtlCheckOplockEx2.c)
+ *     FsRtlOplockBreakToNoneEx @ 0x14053B920 (FsRtlOplockBreakToNoneEx.c)
+ *     FsRtlCheckOplockForFsFilterCallback @ 0x14067C390 (FsRtlCheckOplockForFsFilterCallback.c)
+ *     FsRtlOplockBreakH2 @ 0x1407932D0 (FsRtlOplockBreakH2.c)
+ *     FsRtlCheckUpperOplock @ 0x14093AC60 (FsRtlCheckUpperOplock.c)
+ * Callees:
+ *     FsRtlpWaitOnIrp @ 0x140201018 (FsRtlpWaitOnIrp.c)
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x140201B90 (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     FsRtlpClearOwner @ 0x14023AB1C (FsRtlpClearOwner.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x14023AB60 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpOplockKeysEqual @ 0x14023E170 (FsRtlpOplockKeysEqual.c)
+ *     FsRtlpComputeShareableOplockState @ 0x14023F940 (FsRtlpComputeShareableOplockState.c)
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     FsRtlpModifyThreadPriorities @ 0x1402ECCB4 (FsRtlpModifyThreadPriorities.c)
+ *     FsRtlpOplockSendModernAppTermination @ 0x1402EF888 (FsRtlpOplockSendModernAppTermination.c)
+ *     FsRtlpReleaseIrpsWaitingForRH @ 0x1402F5A44 (FsRtlpReleaseIrpsWaitingForRH.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x14053C86C (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
+ *     FsRtlpCheckSharingAgainstOplockOwner @ 0x14093B324 (FsRtlpCheckSharingAgainstOplockOwner.c)
+ */
+
 __int64 __fastcall FsRtlpOplockBreakByCacheFlags(
         __int64 a1,
         __int64 a2,

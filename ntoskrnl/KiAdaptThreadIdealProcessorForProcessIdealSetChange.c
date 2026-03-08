@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiAdaptThreadIdealProcessorForProcessIdealSetChange @ 0x140574290
+ * Callers:
+ *     KiUpdateProcessConcurrencyCount @ 0x14022B7A0 (KiUpdateProcessConcurrencyCount.c)
+ * Callees:
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeSelectIdealProcessor @ 0x140359930 (KeSelectIdealProcessor.c)
+ *     KiSetIdealProcessorThread @ 0x1403C93BC (KiSetIdealProcessorThread.c)
+ *     EtwTraceIdealProcessor @ 0x1405FA980 (EtwTraceIdealProcessor.c)
+ */
+
 char __fastcall KiAdaptThreadIdealProcessorForProcessIdealSetChange(
         __int64 a1,
         __int64 a2,

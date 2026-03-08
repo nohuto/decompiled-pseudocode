@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpRmAnalysisPhase @ 0x140A1BFB0
+ * Callers:
+ *     CmpStartRMLog @ 0x140863C7C (CmpStartRMLog.c)
+ * Callees:
+ *     CmpTransSearchAddTransFromRm @ 0x140735958 (CmpTransSearchAddTransFromRm.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     CmListGetNextElement @ 0x140AF2008 (CmListGetNextElement.c)
+ */
+
 __int64 __fastcall CmpRmAnalysisPhase(__int64 a1, CLFS_LSN a2)
 {
   _QWORD *v2; // rdi

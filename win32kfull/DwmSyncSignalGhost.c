@@ -1,3 +1,12 @@
+/*
+ * XREFs of DwmSyncSignalGhost @ 0x1C0270E20
+ * Callers:
+ *     ?xxxSendSyncGHOSTINFO@@YAHPEAU_GHOSTINFO@@@Z @ 0x1C01F681C (-xxxSendSyncGHOSTINFO@@YAHPEAU_GHOSTINFO@@@Z.c)
+ * Callees:
+ *     ?DwmSyncLPCAllowed@@YAJXZ @ 0x1C001D800 (-DwmSyncLPCAllowed@@YAJXZ.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall DwmSyncSignalGhost(PVOID Object, __int128 *a2)
 {
   int v4; // ebx

@@ -1,3 +1,40 @@
+/*
+ * XREFs of xxxRemoteConnect @ 0x1C000F480
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C000F0BC (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     PopulateUMKMHandlePair @ 0x1C000FBD0 (PopulateUMKMHandlePair.c)
+ *     SetConsoleSwitchInProgress @ 0x1C000FC10 (SetConsoleSwitchInProgress.c)
+ *     GreMultiUserInitSession @ 0x1C000FCA0 (GreMultiUserInitSession.c)
+ *     DxgkEngNotifyDisplayChange @ 0x1C000FDC0 (DxgkEngNotifyDisplayChange.c)
+ *     SetProtocolType @ 0x1C000FE10 (SetProtocolType.c)
+ *     DispBroker::DispBrokerClient::AsyncMessageNoAlloc_1__lambda_a27ee16dd2d74bc8613ac0553628de9a___ @ 0x1C001064C (DispBroker--DispBrokerClient--AsyncMessageNoAlloc_1__lambda_a27ee16dd2d74bc8613ac0553628de9a___.c)
+ *     ?DispBrokerUpdateKernelDisplayPolicies@@YAXXZ @ 0x1C001077C (-DispBrokerUpdateKernelDisplayPolicies@@YAXXZ.c)
+ *     InitVideo @ 0x1C0010AAC (InitVideo.c)
+ *     InitLoadResources @ 0x1C0015CF0 (InitLoadResources.c)
+ *     SetConnectCompletedState @ 0x1C0016780 (SetConnectCompletedState.c)
+ *     PowerConnectionEvent @ 0x1C0016838 (PowerConnectionEvent.c)
+ *     FastGetProfileIntW @ 0x1C0018FA0 (FastGetProfileIntW.c)
+ *     ?GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z @ 0x1C0021280 (-GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_S @ 0x1C0037E30 (WPP_RECORDER_AND_TRACE_SF_S.c)
+ *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C0077CF4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C008D2C0 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00A07E0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
+ *     CleanupRemoteHandles @ 0x1C00CFCE0 (CleanupRemoteHandles.c)
+ *     DrvEscapeRemoteDrivers @ 0x1C00D8D30 (DrvEscapeRemoteDrivers.c)
+ *     wcschr @ 0x1C00DA918 (wcschr.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     GreDrvConnect @ 0x1C01998F0 (GreDrvConnect.c)
+ *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C019AB48 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
+ *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C019ABFC (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
+ *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C019B14C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
+ *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C019B518 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
+ *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C019C49C (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
+ *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C019C93C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall xxxRemoteConnect(__int64 a1, int a2, unsigned __int16 *a3, __int64 a4)
 {
   __int64 v8; // rdx

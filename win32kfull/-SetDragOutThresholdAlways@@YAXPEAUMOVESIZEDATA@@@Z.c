@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetDragOutThresholdAlways@@YAXPEAUMOVESIZEDATA@@@Z @ 0x1C01EB9B8
+ * Callers:
+ *     ?xxxSizeOrMoveRect@@YA_NPEAUMOVESIZEDATA@@UtagPOINT@@PEAUtagRECT@@PEAI@Z @ 0x1C01F230C (-xxxSizeOrMoveRect@@YA_NPEAUMOVESIZEDATA@@UtagPOINT@@PEAUtagRECT@@PEAI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall SetDragOutThresholdAlways(struct MOVESIZEDATA *a1)
 {
   unsigned int v1; // edx

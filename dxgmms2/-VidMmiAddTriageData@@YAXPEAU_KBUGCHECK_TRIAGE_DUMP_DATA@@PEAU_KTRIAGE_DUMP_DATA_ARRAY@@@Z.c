@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidMmiAddTriageData@@YAXPEAU_KBUGCHECK_TRIAGE_DUMP_DATA@@PEAU_KTRIAGE_DUMP_DATA_ARRAY@@@Z @ 0x1C002FCE0
+ * Callers:
+ *     DxgMmsDbgTriageDumpCallback @ 0x1C002D6B0 (DxgMmsDbgTriageDumpCallback.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VidMmiAddTriageData(struct _KBUGCHECK_TRIAGE_DUMP_DATA *a1, struct _KTRIAGE_DUMP_DATA_ARRAY *a2)
 {
   int v4; // r14d

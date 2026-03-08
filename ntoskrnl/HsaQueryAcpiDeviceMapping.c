@@ -1,3 +1,11 @@
+/*
+ * XREFs of HsaQueryAcpiDeviceMapping @ 0x14052E6E0
+ * Callers:
+ *     HsaCreateDevice @ 0x14052D070 (HsaCreateDevice.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HsaQueryAcpiDeviceMapping(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 *v3; // r11

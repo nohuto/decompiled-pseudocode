@@ -1,3 +1,13 @@
+/*
+ * XREFs of WheapAttemptErrorRecovery @ 0x14060E8B4
+ * Callers:
+ *     WheaReportHwError @ 0x14060E280 (WheaReportHwError.c)
+ * Callees:
+ *     WheaGetErrPacketFromErrRecord @ 0x140517070 (WheaGetErrPacketFromErrRecord.c)
+ *     WheapGetErrorSource @ 0x14060EAE8 (WheapGetErrorSource.c)
+ *     WheapCallErrorSourceRecover @ 0x1406103F8 (WheapCallErrorSourceRecover.c)
+ */
+
 __int64 __fastcall WheapAttemptErrorRecovery(__int64 a1)
 {
   int v2; // ebx

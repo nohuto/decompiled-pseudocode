@@ -1,3 +1,15 @@
+/*
+ * XREFs of KdpSetCommonState @ 0x14036B850
+ * Callers:
+ *     KdpReportLoadSymbolsStateChange @ 0x140AAD6F0 (KdpReportLoadSymbolsStateChange.c)
+ *     KdpReportExceptionStateChange @ 0x140AAE63C (KdpReportExceptionStateChange.c)
+ *     KdpReportCommandStringStateChange @ 0x140AB1398 (KdpReportCommandStringStateChange.c)
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     KdpCopyMemoryChunks @ 0x140AAD0F4 (KdpCopyMemoryChunks.c)
+ *     KdpDeleteBreakpointRange @ 0x140AADCBC (KdpDeleteBreakpointRange.c)
+ */
+
 __int64 __fastcall KdpSetCommonState(int a1, __int64 a2, __int64 a3)
 {
   __int16 v4; // ax

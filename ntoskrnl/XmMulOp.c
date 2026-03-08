@@ -1,3 +1,11 @@
+/*
+ * XREFs of XmMulOp @ 0x14039A370
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmStoreResult @ 0x1403B42E8 (XmStoreResult.c)
+ */
+
 __int64 __fastcall XmMulOp(_DWORD *a1)
 {
   unsigned int v1; // r9d

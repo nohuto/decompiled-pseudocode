@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SetVector4Value@DataSourceProxy@@MEAAJIMMMM@Z @ 0x1801E07C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$SetProperty@UD2DVector4@@@DataSourcePropertySet@@QEAAJIPEBUD2DVector4@@W4DCOMPOSITION_EXPRESSION_TYPE@@@Z @ 0x1801DEB84 (--$SetProperty@UD2DVector4@@@DataSourcePropertySet@@QEAAJIPEBUD2DVector4@@W4DCOMPOSITION_EXPRESS.c)
+ *     ?CheckAndReportError@DataSourceProxy@@AEAAJJ@Z @ 0x1801DF6BC (-CheckAndReportError@DataSourceProxy@@AEAAJJ@Z.c)
+ *     ?InvalidateReadersAnimationSources@DataSourceProxy@@AEAAXI@Z @ 0x1801DFD5C (-InvalidateReadersAnimationSources@DataSourceProxy@@AEAAXI@Z.c)
+ */
+
 __int64 __fastcall DataSourceProxy::SetVector4Value(
         DataSourceProxy *this,
         int a2,

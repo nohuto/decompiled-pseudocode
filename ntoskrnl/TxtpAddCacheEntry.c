@@ -1,3 +1,13 @@
+/*
+ * XREFs of TxtpAddCacheEntry @ 0x140AEA9C8
+ * Callers:
+ *     BgpTxtDisplayCharacter @ 0x140381538 (BgpTxtDisplayCharacter.c)
+ * Callees:
+ *     BgpFwFreeMemory @ 0x140382650 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x140383BDC (BgpFwAllocateMemory.c)
+ *     BgpGxRectangleDestroy @ 0x140AEAA70 (BgpGxRectangleDestroy.c)
+ */
+
 __int64 __fastcall TxtpAddCacheEntry(__int64 *a1, __int16 a2, __int64 a3, __int64 a4)
 {
   __int64 Memory; // rax

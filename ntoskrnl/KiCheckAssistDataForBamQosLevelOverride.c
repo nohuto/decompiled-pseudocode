@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiCheckAssistDataForBamQosLevelOverride @ 0x14056B928
+ * Callers:
+ *     KeYieldExecution @ 0x140256BE0 (KeYieldExecution.c)
+ *     KiDeferredReadySingleThread @ 0x140259FB0 (KiDeferredReadySingleThread.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x1402E1338 (KiUpdateVPBackingThreadPriority.c)
+ *     KiDirectSwitchThread @ 0x1403414A0 (KiDirectSwitchThread.c)
+ *     KeSetThreadSchedulerAssist @ 0x14056AE2C (KeSetThreadSchedulerAssist.c)
+ *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x14056C0C8 (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiCheckAssistDataForBamQosLevelOverride(__int64 a1, _DWORD *a2)
 {
   __int64 v2; // rcx

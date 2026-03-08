@@ -1,3 +1,17 @@
+/*
+ * XREFs of ScsiModeSenseRequest @ 0x1C0019F94
+ * Callers:
+ *     ScsiToNVMe @ 0x1C00010C0 (ScsiToNVMe.c)
+ * Callees:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C000C1C0 (NVMeAllocateDmaBuffer.c)
+ *     BuildGetLogPageCommand @ 0x1C0010E14 (BuildGetLogPageCommand.c)
+ *     NVMeSetSenseData @ 0x1C0024238 (NVMeSetSenseData.c)
+ */
+
 __int64 __fastcall ScsiModeSenseRequest(__int64 a1, __int64 a2)
 {
   __int64 SrbDataBuffer; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhPowerCallback @ 0x1C00590C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     UsbhSshEnableDisable @ 0x1C005939C (UsbhSshEnableDisable.c)
+ */
+
 __int64 __fastcall UsbhPowerCallback(LPCGUID SettingGuid, _DWORD *Value, ULONG ValueLength, _QWORD *Context)
 {
   unsigned int v8; // ebx

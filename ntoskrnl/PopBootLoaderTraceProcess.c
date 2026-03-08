@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopBootLoaderTraceProcess @ 0x1409853E0
+ * Callers:
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     BapdWriteEtwEvents @ 0x140380290 (BapdWriteEtwEvents.c)
+ *     EtwUnregister @ 0x14076F9E0 (EtwUnregister.c)
+ *     BapdRecordFirmwareBootStats @ 0x140A8BD14 (BapdRecordFirmwareBootStats.c)
+ */
+
 void PopBootLoaderTraceProcess()
 {
   ULONG_PTR v0; // rbx

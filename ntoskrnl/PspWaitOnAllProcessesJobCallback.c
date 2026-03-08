@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspWaitOnAllProcessesJobCallback @ 0x1409B04F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PspGetNextJobProcess @ 0x1406F90E0 (PspGetNextJobProcess.c)
+ *     PspWaitForUsermodeExit @ 0x1409B0E8C (PspWaitForUsermodeExit.c)
+ */
+
 __int64 __fastcall PspWaitOnAllProcessesJobCallback(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rbp

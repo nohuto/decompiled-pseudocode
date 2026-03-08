@@ -1,3 +1,23 @@
+/*
+ * XREFs of RIMUpdatePointerDeviceStateAfterFrameCompleted @ 0x1C01D5678
+ * Callers:
+ *     rimEndAllActiveContactsWorker @ 0x1C01BC12C (rimEndAllActiveContactsWorker.c)
+ *     RIMAbandonPointerDeviceFrame @ 0x1C01CD2D0 (RIMAbandonPointerDeviceFrame.c)
+ *     RIMCompletePointerDeviceFrame @ 0x1C01CD424 (RIMCompletePointerDeviceFrame.c)
+ *     rimEndPointerDeviceStaleContacts @ 0x1C01D6A24 (rimEndPointerDeviceStaleContacts.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMCmActiveContactsBegin @ 0x1C00F19A8 (RIMCmActiveContactsBegin.c)
+ *     RIMCmActiveContactsEnd @ 0x1C00F1A04 (RIMCmActiveContactsEnd.c)
+ *     RIMCmResetContactFrameState @ 0x1C00F1AEA (RIMCmResetContactFrameState.c)
+ *     RIMRemoveFromActiveDevices @ 0x1C01B9190 (RIMRemoveFromActiveDevices.c)
+ *     RIMUpdatePrimaryDevice @ 0x1C01BA144 (RIMUpdatePrimaryDevice.c)
+ *     RIMResetPointerDevicePrimaryContact @ 0x1C01D546C (RIMResetPointerDevicePrimaryContact.c)
+ *     RIMCmActiveContactsNext @ 0x1C01DE0AC (RIMCmActiveContactsNext.c)
+ *     RIMCmDeactivateContact @ 0x1C01DE86C (RIMCmDeactivateContact.c)
+ *     RIMCmIsContactDeliveringPointerData @ 0x1C01DEB84 (RIMCmIsContactDeliveringPointerData.c)
+ */
+
 __int64 __fastcall RIMUpdatePointerDeviceStateAfterFrameCompleted(__int64 a1, __int64 a2, int a3, int a4)
 {
   __int64 v4; // rbx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of HvlpFlushRangeListTb @ 0x1403C68E4
+ * Callers:
+ *     HvlFlushRangeListTb @ 0x1403C689C (HvlFlushRangeListTb.c)
+ * Callees:
+ *     HvlpCountFlushVaList @ 0x1403C697C (HvlpCountFlushVaList.c)
+ *     HvlpFastFlushListTb @ 0x1403C6998 (HvlpFastFlushListTb.c)
+ *     HvlpPrepareFlushHeader @ 0x1403C6D38 (HvlpPrepareFlushHeader.c)
+ *     HvlpSlowFlushListTb @ 0x140547974 (HvlpSlowFlushListTb.c)
+ */
+
 __int64 __fastcall HvlpFlushRangeListTb(
         __int64 a1,
         __int64 a2,

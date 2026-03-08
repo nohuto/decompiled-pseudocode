@@ -1,3 +1,37 @@
+/*
+ * XREFs of IoBoostThreadIoPriority @ 0x140356FD0
+ * Callers:
+ *     KiAbProcessThreadLocks @ 0x140239A40 (KiAbProcessThreadLocks.c)
+ *     FsRtlpWaitForIoAtEof @ 0x140240CC0 (FsRtlpWaitForIoAtEof.c)
+ *     KiDispatchInterrupt @ 0x140255DA0 (KiDispatchInterrupt.c)
+ *     KiSwapThread @ 0x14025F500 (KiSwapThread.c)
+ *     ExpApplyPriorityBoost @ 0x140282C50 (ExpApplyPriorityBoost.c)
+ *     FsRtlpDoBoost @ 0x1402ECD68 (FsRtlpDoBoost.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x140300D74 (CcBoostLowPriorityWorkerThread.c)
+ *     ExpBoostIoAfterAcquire @ 0x140356B60 (ExpBoostIoAfterAcquire.c)
+ *     PspNotifyProcessEffectiveIoLimitChanged @ 0x140356E2C (PspNotifyProcessEffectiveIoLimitChanged.c)
+ *     IoBoostThreadIo @ 0x14036F310 (IoBoostThreadIo.c)
+ *     MiModifiedPageWriter @ 0x1403AD2B0 (MiModifiedPageWriter.c)
+ *     NtSetInformationThread @ 0x1406D8E90 (NtSetInformationThread.c)
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ * Callees:
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ *     KxAcquireQueuedSpinLock @ 0x140336C10 (KxAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     ExReferenceCallBackBlock @ 0x14034C060 (ExReferenceCallBackBlock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall IoBoostThreadIoPriority(volatile signed __int64 *a1, int a2, int a3)
 {
   char v5; // r15

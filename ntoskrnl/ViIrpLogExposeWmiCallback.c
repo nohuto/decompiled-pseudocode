@@ -1,3 +1,13 @@
+/*
+ * XREFs of ViIrpLogExposeWmiCallback @ 0x140AD9F90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     IoCreateDriver @ 0x14081AF70 (IoCreateDriver.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall ViIrpLogExposeWmiCallback(PVOID P)
 {
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF

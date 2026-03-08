@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiEnqueuePageList @ 0x140285CB0
+ * Callers:
+ *     MiAddPageToInsertList @ 0x1402848D0 (MiAddPageToInsertList.c)
+ *     MiUnlockMdlWritePages @ 0x140284DD0 (MiUnlockMdlWritePages.c)
+ *     MmUnmapViewInSystemCache @ 0x140285250 (MmUnmapViewInSystemCache.c)
+ * Callees:
+ *     MiSetNextStandbyPageSameNodeNoLockAsserts @ 0x140287AE0 (MiSetNextStandbyPageSameNodeNoLockAsserts.c)
+ *     MiInsertPagesInList @ 0x140287DB0 (MiInsertPagesInList.c)
+ *     MiPageToChannel @ 0x140370C10 (MiPageToChannel.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall MiEnqueuePageList(__int64 a1, unsigned __int64 a2)
 {
   __int64 v2; // r8

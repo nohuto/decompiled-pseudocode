@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiFloatingErrorFault @ 0x140427700
+ * Callers:
+ *     KiFloatingErrorFaultShadow @ 0x140AF38C0 (KiFloatingErrorFaultShadow.c)
+ * Callees:
+ *     KiSaveDebugRegisterState @ 0x140416550 (KiSaveDebugRegisterState.c)
+ *     KiFloatingErrorFault @ 0x140427700 (KiFloatingErrorFault.c)
+ *     KiBugCheckDispatch @ 0x14042BEC0 (KiBugCheckDispatch.c)
+ *     KiExceptionDispatch @ 0x14042BF40 (KiExceptionDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x14042C900 (KiFlushBhbDuringTrapEntryOrExit.c)
+ */
+
 void __fastcall __noreturn KiFloatingErrorFault()
 {
   char v0; // fps

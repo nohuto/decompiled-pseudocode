@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ProcessSetDefaultSDRBoost@CCaptureController@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_CAPTURECONTROLLER_SETDEFAULTSDRBOOST@@@Z @ 0x18021D2E4
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F0A8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     ?UpdateRenderTargetBitmapSDRBoosts@CCaptureRenderTarget@@QEAAXXZ @ 0x1801EAE8C (-UpdateRenderTargetBitmapSDRBoosts@CCaptureRenderTarget@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall CCaptureController::ProcessSetDefaultSDRBoost(
         CCaptureController *this,
         struct CResourceTable *a2,

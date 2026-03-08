@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiFreezeDataTableEntry @ 0x14056A880
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int16 __fastcall KiFreezeDataTableEntry(__int64 a1, unsigned __int16 a2)
 {
   unsigned __int16 v2; // r8

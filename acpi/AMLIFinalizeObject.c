@@ -1,3 +1,13 @@
+/*
+ * XREFs of AMLIFinalizeObject @ 0x1C0048034
+ * Callers:
+ *     ACPIInitDeleteDeviceExtension @ 0x1C002CD08 (ACPIInitDeleteDeviceExtension.c)
+ *     ACPITableNotifyFreeObject @ 0x1C003F540 (ACPITableNotifyFreeObject.c)
+ * Callees:
+ *     AMLIRestartContext @ 0x1C0048D0C (AMLIRestartContext.c)
+ *     SetObjectsFlag @ 0x1C004FE60 (SetObjectsFlag.c)
+ */
+
 void __fastcall AMLIFinalizeObject(_QWORD *a1, char a2)
 {
   KIRQL v3; // al

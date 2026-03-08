@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CreateSharedObject@@YAJPEBG_NU_GENERIC_MAPPING@@P6AJW4_OB_OPEN_REASON@@DPEAU_EPROCESS@@PEAXPEAKK@ZP6AX45_K8@ZP6AX5@ZP6AE455D@ZPEAPEAU_OBJECT_TYPE@@KW4_POOL_TYPE@@@Z @ 0x1C021319C
+ * Callers:
+ *     CreateDxgkSharedObjectTypes @ 0x1C0212E8C (CreateDxgkSharedObjectTypes.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall CreateSharedObject(
         PCWSTR SourceString,
         char a2,

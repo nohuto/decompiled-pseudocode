@@ -1,3 +1,12 @@
+/*
+ * XREFs of HsaBuildDeviceTableEntry @ 0x14052CE78
+ * Callers:
+ *     HsaUpdateDeviceTableEntry @ 0x14052E900 (HsaUpdateDeviceTableEntry.c)
+ *     HsaInitializeIommu @ 0x140A961E0 (HsaInitializeIommu.c)
+ * Callees:
+ *     HsaBuildInterruptRemappingEntry @ 0x14052D004 (HsaBuildInterruptRemappingEntry.c)
+ */
+
 unsigned __int64 __fastcall HsaBuildDeviceTableEntry(
         __int64 a1,
         unsigned __int64 a2,

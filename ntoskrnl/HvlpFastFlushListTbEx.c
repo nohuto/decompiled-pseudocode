@@ -1,3 +1,15 @@
+/*
+ * XREFs of HvlpFastFlushListTbEx @ 0x140547580
+ * Callers:
+ *     HvlpFlushRangeListTbEx @ 0x1405476CC (HvlpFlushRangeListTbEx.c)
+ * Callees:
+ *     HvcallFastExtended @ 0x1403C6CA0 (HvcallFastExtended.c)
+ *     HvlpCopyFlushVaList @ 0x1403C6E98 (HvlpCopyFlushVaList.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     VslFastFlushSecureRangeList @ 0x140456FD8 (VslFastFlushSecureRangeList.c)
+ *     HvlpAffinityToHvProcessorSet @ 0x1405472B0 (HvlpAffinityToHvProcessorSet.c)
+ */
+
 void __fastcall HvlpFastFlushListTbEx(__int64 *a1, __int64 a2, char a3, char a4, unsigned int a5, __int64 *a6, int a7)
 {
   __int64 v9; // rdx

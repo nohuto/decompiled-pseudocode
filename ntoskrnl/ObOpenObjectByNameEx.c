@@ -1,3 +1,49 @@
+/*
+ * XREFs of ObOpenObjectByNameEx @ 0x1406E7F70
+ * Callers:
+ *     IoRevokeHandlesForProcess @ 0x140555EE0 (IoRevokeHandlesForProcess.c)
+ *     CmCreateKey @ 0x1406BBA60 (CmCreateKey.c)
+ *     ObOpenObjectByName @ 0x1406C39E0 (ObOpenObjectByName.c)
+ *     CmOpenKey @ 0x1406E7B60 (CmOpenKey.c)
+ *     NtQueryFullAttributesFile @ 0x14070BD80 (NtQueryFullAttributesFile.c)
+ *     NtQueryAttributesFile @ 0x14070C010 (NtQueryAttributesFile.c)
+ *     NtOpenSymbolicLinkObject @ 0x1407563E0 (NtOpenSymbolicLinkObject.c)
+ *     IoQueryInformationByName @ 0x14076D210 (IoQueryInformationByName.c)
+ *     IopCreateFile @ 0x1407CE5A0 (IopCreateFile.c)
+ *     NtDeleteFile @ 0x140871940 (NtDeleteFile.c)
+ *     IopFastQueryNetworkAttributes @ 0x1409449B8 (IopFastQueryNetworkAttributes.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     SeClearLearningModeObjectInformation @ 0x140265EF0 (SeClearLearningModeObjectInformation.c)
+ *     SepDeleteAccessState @ 0x140265F50 (SepDeleteAccessState.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     SepCreateAccessStateFromSubjectContext @ 0x140266820 (SepCreateAccessStateFromSubjectContext.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140283390 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     PsDereferenceSiloContext @ 0x1402FEB00 (PsDereferenceSiloContext.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ *     SeSetLearningModeObjectInformation @ 0x1405B5FAC (SeSetLearningModeObjectInformation.c)
+ *     ObpLookupObjectName @ 0x1406E86B0 (ObpLookupObjectName.c)
+ *     ObpCaptureObjectCreateInformation @ 0x1406E9E60 (ObpCaptureObjectCreateInformation.c)
+ *     RtlValidSecurityDescriptor @ 0x14075F860 (RtlValidSecurityDescriptor.c)
+ *     SeObjectCreateSaclAccessBits @ 0x140785CA4 (SeObjectCreateSaclAccessBits.c)
+ *     ObpCreateHandle @ 0x1407C0130 (ObpCreateHandle.c)
+ *     SeReleaseSecurityDescriptor @ 0x1407C92D0 (SeReleaseSecurityDescriptor.c)
+ *     ObpDeleteNameCheck @ 0x1407D85E0 (ObpDeleteNameCheck.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ObOpenObjectByNameEx(
         __int64 a1,
         __int64 a2,

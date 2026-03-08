@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?DxLddmPrimaryLockCleanUpSinglePDev@@YAXPEAVPDEVOBJ@@@Z @ 0x1C001F834
+ * Callers:
+ *     GreSuspendDirectDraw @ 0x1C001F220 (GreSuspendDirectDraw.c)
+ * Callees:
+ *     GreUnlockDisplayDevice @ 0x1C001F8B0 (GreUnlockDisplayDevice.c)
+ *     GreLockDisplayDevice @ 0x1C001F900 (GreLockDisplayDevice.c)
+ *     GreUnlockSprite @ 0x1C001F940 (GreUnlockSprite.c)
+ *     GreLockSprite @ 0x1C001F9A0 (GreLockSprite.c)
+ *     GreLockVisRgn @ 0x1C00794E0 (GreLockVisRgn.c)
+ *     GreUnlockVisRgn @ 0x1C00795D0 (GreUnlockVisRgn.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall DxLddmPrimaryLockCleanUpSinglePDev(struct PDEVOBJ *a1)
 {
   _QWORD **v2; // rsi

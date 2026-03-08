@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$ApplyRangeColorKey@U_D3DCOLORVALUE@@@@YAXAEBUWICRect@@IIPEAEAEAU_D3DCOLORVALUE@@2PEBU1@@Z @ 0x1802B2EDC
+ * Callers:
+ *     ?ApplyColorKeyToBuffer@CColorKeyBitmap@@IEBAJAEBUWICRect@@IIPEAE@Z @ 0x1802B317C (-ApplyColorKeyToBuffer@CColorKeyBitmap@@IEBAJAEBUWICRect@@IIPEAE@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ApplyRangeColorKey<_D3DCOLORVALUE>(
         __int64 a1,
         unsigned int a2,

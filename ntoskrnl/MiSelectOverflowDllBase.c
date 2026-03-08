@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiSelectOverflowDllBase @ 0x140A4555C
+ * Callers:
+ *     MiSelectImageBase @ 0x1406A1934 (MiSelectImageBase.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiImageCanUseHighOverflowArea @ 0x140A45530 (MiImageCanUseHighOverflowArea.c)
+ */
+
 __int64 __fastcall MiSelectOverflowDllBase(__int64 a1, unsigned __int64 a2)
 {
   __int64 v3; // rdi

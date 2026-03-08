@@ -1,3 +1,45 @@
+/*
+ * XREFs of IoCaptureLiveDump @ 0x140948A78
+ * Callers:
+ *     DbgkCaptureLiveKernelDump @ 0x140539CE8 (DbgkCaptureLiveKernelDump.c)
+ *     DbgkpWerCaptureLiveFullDump @ 0x1409386E8 (DbgkpWerCaptureLiveFullDump.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     EtwActivityIdControl @ 0x140244870 (EtwActivityIdControl.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ExGetExtensionTable @ 0x1402C57F0 (ExGetExtensionTable.c)
+ *     ExReleaseExtensionTable @ 0x1402C5820 (ExReleaseExtensionTable.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     SecureDump_GetSecureDumpSettings @ 0x140392344 (SecureDump_GetSecureDumpSettings.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     Feature_LivedumpProcessFiltering__private_IsEnabledDeviceUsage @ 0x140409F20 (Feature_LivedumpProcessFiltering__private_IsEnabledDeviceUsage.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x14055793C (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x140557990 (IopLiveDumpIsTracingEnabled.c)
+ *     IopLiveDumpOpenVMMemoryPartition @ 0x140557AD8 (IopLiveDumpOpenVMMemoryPartition.c)
+ *     IopLiveDumpTrace @ 0x140557C8C (IopLiveDumpTrace.c)
+ *     IopLiveDumpTraceDumpFileWriteEnd @ 0x14055859C (IopLiveDumpTraceDumpFileWriteEnd.c)
+ *     IopLiveDumpTraceInterfaceEnd @ 0x1405588B0 (IopLiveDumpTraceInterfaceEnd.c)
+ *     IopLiveDumpTraceInterfaceStart @ 0x140558AB4 (IopLiveDumpTraceInterfaceStart.c)
+ *     KeGetSupervisorStateExtensionHost @ 0x14057006C (KeGetSupervisorStateExtensionHost.c)
+ *     IoCreateNotificationEvent @ 0x14079A640 (IoCreateNotificationEvent.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x1409495FC (IopLiveDumpAllocAndInitResources.c)
+ *     IopLiveDumpInitRegistrySettings @ 0x14094B85C (IopLiveDumpInitRegistrySettings.c)
+ *     IopLiveDumpReleaseResources @ 0x14094BEA8 (IopLiveDumpReleaseResources.c)
+ *     IopLiveDumpValidateParameters @ 0x14094C310 (IopLiveDumpValidateParameters.c)
+ *     IopLiveDumpWriteDumpFile @ 0x14094C514 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14094C9E8 (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     IopLiveDumpCaptureMemoryPages @ 0x140A97838 (IopLiveDumpCaptureMemoryPages.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IoCaptureLiveDump(int a1, __int64 a2, __int64 a3, __int64 a4, void *a5, __int64 a6, __int64 *a7)
 {
   PKEVENT v8; // rdi

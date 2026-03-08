@@ -1,3 +1,21 @@
+/*
+ * XREFs of McTemplateK0zzd_EtwWriteTransfer @ 0x1405614A4
+ * Callers:
+ *     PiCMGetDeviceIdList @ 0x14077813C (PiCMGetDeviceIdList.c)
+ *     PiSwIrpPropertySet @ 0x1407857F8 (PiSwIrpPropertySet.c)
+ *     PiSwIrpStartCreateWorker @ 0x140806A2C (PiSwIrpStartCreateWorker.c)
+ *     PiSwCompleteCreate @ 0x1408071C4 (PiSwCompleteCreate.c)
+ *     PiSwIrpCleanup @ 0x140807E94 (PiSwIrpCleanup.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x140807FD0 (PiCreateDriverSwDeviceCallback.c)
+ *     PiSwIrpInterfaceRegister @ 0x1408086D4 (PiSwIrpInterfaceRegister.c)
+ *     PiSwIrpInterfacePropertySet @ 0x140808A64 (PiSwIrpInterfacePropertySet.c)
+ *     PiSwIrpInterfaceSetState @ 0x140808FD8 (PiSwIrpInterfaceSetState.c)
+ *     PiSwIrpSetLifetime @ 0x140858894 (PiSwIrpSetLifetime.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1403BE3A0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0zzd_EtwWriteTransfer(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,

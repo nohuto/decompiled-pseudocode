@@ -1,3 +1,17 @@
+/*
+ * XREFs of SepVariableInitialization @ 0x140B4A3A0
+ * Callers:
+ *     SepInitializationPhase0 @ 0x140B48678 (SepInitializationPhase0.c)
+ * Callees:
+ *     RtlDeriveCapabilitySidsFromName @ 0x140204A10 (RtlDeriveCapabilitySidsFromName.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlInitializeSid @ 0x14068E3A0 (RtlInitializeSid.c)
+ *     RtlLengthRequiredSid @ 0x140782B90 (RtlLengthRequiredSid.c)
+ *     SepInitializeSharedSidMap @ 0x140810CFC (SepInitializeSharedSidMap.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     SepInitSystemDacls @ 0x140B4C2CC (SepInitSystemDacls.c)
+ */
+
 bool SepVariableInitialization()
 {
   int v0; // eax

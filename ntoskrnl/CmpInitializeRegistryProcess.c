@@ -1,3 +1,22 @@
+/*
+ * XREFs of CmpInitializeRegistryProcess @ 0x140817300
+ * Callers:
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ExInitializeLookasideListEx @ 0x1402A7FB0 (ExInitializeLookasideListEx.c)
+ *     CmSiProcessTupleInitialize @ 0x140303124 (CmSiProcessTupleInitialize.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     CmSiSetProcessWorkingSetMaximum @ 0x1403889B4 (CmSiSetProcessWorkingSetMaximum.c)
+ *     CmSiProcessTupleStartFromHandle @ 0x140388A6C (CmSiProcessTupleStartFromHandle.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwSetInformationProcess @ 0x140412690 (ZwSetInformationProcess.c)
+ *     ObOpenObjectByPointer @ 0x1407C93D0 (ObOpenObjectByPointer.c)
+ *     CmpCreateRegistryThread @ 0x140817904 (CmpCreateRegistryThread.c)
+ *     CmpCreateRegistryProcessToken @ 0x14081796C (CmpCreateRegistryProcessToken.c)
+ *     PsCreateMinimalProcess @ 0x140817C28 (PsCreateMinimalProcess.c)
+ */
+
 __int64 CmpInitializeRegistryProcess()
 {
   void *v0; // rdi

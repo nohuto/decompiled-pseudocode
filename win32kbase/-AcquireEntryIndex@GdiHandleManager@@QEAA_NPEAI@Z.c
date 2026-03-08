@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?AcquireEntryIndex@GdiHandleManager@@QEAA_NPEAI@Z @ 0x1C0051F60
+ * Callers:
+ *     ?HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z @ 0x1C001C690 (-HmgInsertObjectInternal@@YAPEAUHOBJ__@@PEAXKE@Z.c)
+ *     HmgCreate @ 0x1C002CDD0 (HmgCreate.c)
+ *     GreCreateRectRgnIndirect @ 0x1C0050B70 (GreCreateRectRgnIndirect.c)
+ *     HmgAlloc @ 0x1C0052E60 (HmgAlloc.c)
+ * Callees:
+ *     ?GetEntryObject@GdiHandleEntryTable@@QEAAPEAVOBJECT@@I@Z @ 0x1C004B580 (-GetEntryObject@GdiHandleEntryTable@@QEAAPEAVOBJECT@@I@Z.c)
+ *     ?AcquireEntryIndex@GdiHandleEntryTable@@QEAA_NPEAI@Z @ 0x1C0053698 (-AcquireEntryIndex@GdiHandleEntryTable@@QEAA_NPEAI@Z.c)
+ *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0062994 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ?_Create@GdiHandleEntryTable@@CAPEAV1@I_N@Z @ 0x1C00CB5B0 (-_Create@GdiHandleEntryTable@@CAPEAV1@I_N@Z.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 char __fastcall GdiHandleManager::AcquireEntryIndex(GdiHandleManager *this, unsigned int *a2)
 {
   __int64 v4; // rsi

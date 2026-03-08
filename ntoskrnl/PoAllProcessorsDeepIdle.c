@@ -1,3 +1,13 @@
+/*
+ * XREFs of PoAllProcessorsDeepIdle @ 0x1402AAF54
+ * Callers:
+ *     PpmIdleEvaluateConstraints @ 0x14022AB68 (PpmIdleEvaluateConstraints.c)
+ *     KePrepareClockTimerForIdle @ 0x1402A9B1C (KePrepareClockTimerForIdle.c)
+ * Callees:
+ *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402AB030 (KeEnumerateNextSchedulerSubNodeInNode.c)
+ *     MmGetNextNode @ 0x1402AB0A0 (MmGetNextNode.c)
+ */
+
 char PoAllProcessorsDeepIdle()
 {
   struct _KPRCB *CurrentPrcb; // rbx

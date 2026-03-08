@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpDmaIsThinDmaCapable @ 0x14038D350
+ * Callers:
+ *     HalpDmaAllocateChildAdapterV3 @ 0x140822570 (HalpDmaAllocateChildAdapterV3.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall HalpDmaIsThinDmaCapable(__int64 a1)
 {
   unsigned int v2; // ecx

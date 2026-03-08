@@ -1,3 +1,22 @@
+/*
+ * XREFs of IopGetRootDevices @ 0x14081CBA8
+ * Callers:
+ *     IopPnPDispatch @ 0x1407F7890 (IopPnPDispatch.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     _CmOpenDeviceRegKey @ 0x1406D3B3C (_CmOpenDeviceRegKey.c)
+ *     _CmGetMatchingFilteredDeviceList @ 0x140778448 (_CmGetMatchingFilteredDeviceList.c)
+ *     IopInitializeDeviceInstanceKey @ 0x14081CE14 (IopInitializeDeviceInstanceKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopGetRootDevices(_QWORD *a1)
 {
   void *Pool2; // rsi

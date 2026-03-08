@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmPerfApplyCapsAndFloors @ 0x1402E5DE0
+ * Callers:
+ *     PpmPerfApplyDomainState @ 0x1402E56F8 (PpmPerfApplyDomainState.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PpmPerfApplyCapsAndFloors(unsigned int *a1, unsigned int *a2, unsigned int *a3, __int64 a4)
 {
   unsigned int v4; // eax

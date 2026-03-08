@@ -1,3 +1,22 @@
+/*
+ * XREFs of PfpVolumeOpenAndVerify @ 0x140766A44
+ * Callers:
+ *     PfpPrefetchRequestPerform @ 0x1407662E0 (PfpPrefetchRequestPerform.c)
+ * Callees:
+ *     PfVolumeSupportedForPrefetch @ 0x1402DC294 (PfVolumeSupportedForPrefetch.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PfpOpenHandleCreate @ 0x1406A5020 (PfpOpenHandleCreate.c)
+ *     PfpOpenHandleClose @ 0x1406A5824 (PfpOpenHandleClose.c)
+ *     NtQueryVolumeInformationFile @ 0x1406B2A90 (NtQueryVolumeInformationFile.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     NtCreateFile @ 0x1407CE510 (NtCreateFile.c)
+ *     NtGetDevicePowerState @ 0x140988280 (NtGetDevicePowerState.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfpVolumeOpenAndVerify(__int64 a1, _OWORD *a2, __int64 a3)
 {
   __int64 v6; // rdi

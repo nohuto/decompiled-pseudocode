@@ -1,3 +1,13 @@
+/*
+ * XREFs of RawInputManagerInputObserverObjectCreate @ 0x1C01BF834
+ * Callers:
+ *     rimObsAddInputObserver @ 0x1C01DADB0 (rimObsAddInputObserver.c)
+ * Callees:
+ *     rimAddToObTrackList @ 0x1C0038300 (rimAddToObTrackList.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     rimObsReadMaxQueueSize @ 0x1C01DD3E8 (rimObsReadMaxQueueSize.c)
+ */
+
 __int64 __fastcall RawInputManagerInputObserverObjectCreate(
         __int64 a1,
         __int64 a2,

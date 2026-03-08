@@ -1,3 +1,18 @@
+/*
+ * XREFs of PspUnlockQuotaExpansion @ 0x140295534
+ * Callers:
+ *     PspReturnResourceQuota @ 0x1402953A0 (PspReturnResourceQuota.c)
+ *     PspExpandQuota @ 0x140295420 (PspExpandQuota.c)
+ *     PspInsertExpansionEntry @ 0x1403A94F4 (PspInsertExpansionEntry.c)
+ *     PspExpandLimit @ 0x1405A1758 (PspExpandLimit.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 int __fastcall PspUnlockQuotaExpansion(__int64 a1, unsigned __int8 a2)
 {
   volatile signed __int64 *v2; // rbx

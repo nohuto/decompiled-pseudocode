@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?pRenderAdapterLuid@PDEVOBJ@@QEAAPEAU_LUID@@XZ @ 0x1C0182BE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 struct _LUID *__fastcall PDEVOBJ::pRenderAdapterLuid(PDEVOBJ *this)
 {
   __int64 v1; // rdx

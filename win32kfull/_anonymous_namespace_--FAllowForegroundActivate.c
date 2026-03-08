@@ -1,3 +1,22 @@
+/*
+ * XREFs of _anonymous_namespace_::FAllowForegroundActivate @ 0x1C0022378
+ * Callers:
+ *     ?xxxActivateWindowWithOptions@@YA_NPEAUtagWND@@W4ActivateWindowKind@@W4ComputeWindowToActivateStrategy@@W4WindowActivateReason@@@Z @ 0x1C003A028 (-xxxActivateWindowWithOptions@@YA_NPEAUtagWND@@W4ActivateWindowKind@@W4ComputeWindowToActivateSt.c)
+ *     ?xxxSetFocus@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C009A3E0 (-xxxSetFocus@@YAPEAUtagWND@@PEAU1@@Z.c)
+ * Callees:
+ *     IsImmersiveBandOrShellManaged @ 0x1C00216FC (IsImmersiveBandOrShellManaged.c)
+ *     _anonymous_namespace_::RemoveForegroundActivate @ 0x1C0022C5C (_anonymous_namespace_--RemoveForegroundActivate.c)
+ *     _anonymous_namespace_::CheckImmersiveForegroundAccess @ 0x1C0022FA8 (_anonymous_namespace_--CheckImmersiveForegroundAccess.c)
+ *     IsForegroundLocked @ 0x1C00236B0 (IsForegroundLocked.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C003E900 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C003F908 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     IAMThreadAccessGranted @ 0x1C009A2DC (IAMThreadAccessGranted.c)
+ *     Feature_StrictIAMForegroundCheck__private_ReportDeviceUsage @ 0x1C012D160 (Feature_StrictIAMForegroundCheck__private_ReportDeviceUsage.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     WPP_RECORDER_AND_TRACE_SF_Dq @ 0x1C01AF928 (WPP_RECORDER_AND_TRACE_SF_Dq.c)
+ */
+
 char __fastcall anonymous_namespace_::FAllowForegroundActivate(__int64 a1)
 {
   __int64 v2; // rbp

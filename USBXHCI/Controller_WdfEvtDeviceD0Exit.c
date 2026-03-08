@@ -1,3 +1,30 @@
+/*
+ * XREFs of Controller_WdfEvtDeviceD0Exit @ 0x1C000E9C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     CommonBuffer_FlushWorkItems @ 0x1C000ED94 (CommonBuffer_FlushWorkItems.c)
+ *     Controller_D0Exit @ 0x1C000EE10 (Controller_D0Exit.c)
+ *     Interrupter_D0ExitStopped @ 0x1C000EFB0 (Interrupter_D0ExitStopped.c)
+ *     RootHub_D0Exit @ 0x1C0010338 (RootHub_D0Exit.c)
+ *     Register_SetClearSSICPortUnused @ 0x1C0013BD0 (Register_SetClearSSICPortUnused.c)
+ *     WPP_RECORDER_SF_qLL @ 0x1C0013DC4 (WPP_RECORDER_SF_qLL.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     Register_ControllerReset @ 0x1C0018518 (Register_ControllerReset.c)
+ *     Controller_InUseByDebugger @ 0x1C001C410 (Controller_InUseByDebugger.c)
+ *     Etw_ReportControllerHealthWithPortInfo @ 0x1C001F980 (Etw_ReportControllerHealthWithPortInfo.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_D0ExitSaveState @ 0x1C0032A8C (Controller_D0ExitSaveState.c)
+ *     Controller_ExecuteDSMToSendPORTSCValues @ 0x1C0033374 (Controller_ExecuteDSMToSendPORTSCValues.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ *     McTemplateK0pqqh_EtwWriteTransfer @ 0x1C0036EF4 (McTemplateK0pqqh_EtwWriteTransfer.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0036F88 (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     Register_SaveRestoreCHTNonArchitecturalRegisters @ 0x1C003F048 (Register_SaveRestoreCHTNonArchitecturalRegisters.c)
+ *     Controller_ExecuteHSICDisconnectInU3Workaround @ 0x1C006E400 (Controller_ExecuteHSICDisconnectInU3Workaround.c)
+ *     Controller_ExecuteKBLPowerTransitionWorkaround @ 0x1C0078248 (Controller_ExecuteKBLPowerTransitionWorkaround.c)
+ */
+
 __int64 __fastcall Controller_WdfEvtDeviceD0Exit(__int64 a1, unsigned __int32 a2)
 {
   __m128i *v4; // rdi

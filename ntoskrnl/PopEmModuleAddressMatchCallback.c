@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopEmModuleAddressMatchCallback @ 0x140597600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ */
+
 __int64 __fastcall PopEmModuleAddressMatchCallback(__int64 *a1, int a2, PCSZ *a3, int a4, int a5, int a6)
 {
   unsigned int v6; // ebx

@@ -1,3 +1,23 @@
+/*
+ * XREFs of PiDevCfgFindDeviceDriver @ 0x14087867C
+ * Callers:
+ *     PiDevCfgProcessDevice @ 0x140873308 (PiDevCfgProcessDevice.c)
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x140959960 (PiDevCfgCheckDeviceNeedsUpdate.c)
+ *     PpDevCfgProcessDeviceExtensions @ 0x14095FD04 (PpDevCfgProcessDeviceExtensions.c)
+ * Callees:
+ *     PnpMultiSzContainsString @ 0x1403C22EC (PnpMultiSzContainsString.c)
+ *     wcschr @ 0x1403D5D90 (wcschr.c)
+ *     PiDevCfgCompareDrivers @ 0x14055F8CC (PiDevCfgCompareDrivers.c)
+ *     PiDevCfgMatchDriverConfigurationId @ 0x14055FBEC (PiDevCfgMatchDriverConfigurationId.c)
+ *     PnpIsNullGuid @ 0x140689294 (PnpIsNullGuid.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     DrvDbSplitDeviceIdDriverInfMatch @ 0x140878AAC (DrvDbSplitDeviceIdDriverInfMatch.c)
+ *     PiDevCfgQueryDriverNode @ 0x140878BA8 (PiDevCfgQueryDriverNode.c)
+ *     PiDevCfgFreeDriverNode @ 0x14087DAA0 (PiDevCfgFreeDriverNode.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDevCfgFindDeviceDriver(__int64 a1, const WCHAR *a2, _QWORD *a3)
 {
   __int64 v3; // r14

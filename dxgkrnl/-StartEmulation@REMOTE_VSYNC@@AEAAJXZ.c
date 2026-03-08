@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?StartEmulation@REMOTE_VSYNC@@AEAAJXZ @ 0x1C01C6A40
+ * Callers:
+ *     ?EnsureEmulationRunning@REMOTE_VSYNC@@AEAAJXZ @ 0x1C01C6940 (-EnsureEmulationRunning@REMOTE_VSYNC@@AEAAJXZ.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ??_GBLTQUEUE@@QEAAPEAXI@Z @ 0x1C0056428 (--_GBLTQUEUE@@QEAAPEAXI@Z.c)
+ *     ??0BLTQUEUE@@QEAA@PEAVDXGDODPRESENT@@IPEAU_KEVENT@@E@Z @ 0x1C01C6B18 (--0BLTQUEUE@@QEAA@PEAVDXGDODPRESENT@@IPEAU_KEVENT@@E@Z.c)
+ *     ?Startup@BLTQUEUE@@QEAAJXZ @ 0x1C01C6F04 (-Startup@BLTQUEUE@@QEAAJXZ.c)
+ *     ?UpdateDisplayModeInfo@BLTQUEUE@@QEAAXU_D3DDDI_RATIONAL@@I@Z @ 0x1C01C71B8 (-UpdateDisplayModeInfo@BLTQUEUE@@QEAAXU_D3DDDI_RATIONAL@@I@Z.c)
+ *     ?EnableVSync@BLTQUEUE@@QEAAXXZ @ 0x1C01C73A4 (-EnableVSync@BLTQUEUE@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall REMOTE_VSYNC::StartEmulation(REMOTE_VSYNC *this)
 {
   unsigned int v2; // ebx

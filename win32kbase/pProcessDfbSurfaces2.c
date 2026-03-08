@@ -1,3 +1,16 @@
+/*
+ * XREFs of pProcessDfbSurfaces2 @ 0x1C0187750
+ * Callers:
+ *     bDynamicProcessAllDriverRealizations @ 0x1C009D990 (bDynamicProcessAllDriverRealizations.c)
+ *     pProcessDfbSurfaces @ 0x1C0187720 (pProcessDfbSurfaces.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00219D4 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     EngAcquireSemaphore @ 0x1C004B690 (EngAcquireSemaphore.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     bDfbSurfacesMigrated @ 0x1C0186C20 (bDfbSurfacesMigrated.c)
+ *     pProcessDfbSurfacesInternal @ 0x1C01878E0 (pProcessDfbSurfacesInternal.c)
+ */
+
 __int64 __fastcall pProcessDfbSurfaces2(struct OBJECT *a1, __int64 a2, int a3, int a4, __int64 a5)
 {
   __int64 v8; // rdi

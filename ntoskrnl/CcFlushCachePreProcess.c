@@ -1,3 +1,27 @@
+/*
+ * XREFs of CcFlushCachePreProcess @ 0x1403373A0
+ * Callers:
+ *     CcFlushCachePriv @ 0x140219F20 (CcFlushCachePriv.c)
+ *     CcWriteBehindAsync @ 0x140538060 (CcWriteBehindAsync.c)
+ *     CcAsyncLazywriteWorkerMulti @ 0x1405387F4 (CcAsyncLazywriteWorkerMulti.c)
+ * Callees:
+ *     CcFreeWorkQueueEntry @ 0x140219E50 (CcFreeWorkQueueEntry.c)
+ *     CcUnmapVacbArray @ 0x14021B910 (CcUnmapVacbArray.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402916B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x140300D74 (CcBoostLowPriorityWorkerThread.c)
+ *     MmFlushSection @ 0x140333F20 (MmFlushSection.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x14033B510 (KxWaitForLockOwnerShip.c)
+ *     CcPerfLogFlushSection @ 0x140390B04 (CcPerfLogFlushSection.c)
+ *     CcPerfLogFlushCache @ 0x140390BEC (CcPerfLogFlushCache.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140457B8E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     CcSetTelemetryPeriodicTimer @ 0x140872D84 (CcSetTelemetryPeriodicTimer.c)
+ */
+
 char __fastcall CcFlushCachePreProcess(__int64 a1)
 {
   struct _IO_STATUS_BLOCK *v1; // r15

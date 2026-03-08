@@ -1,3 +1,14 @@
+/*
+ * XREFs of AuthzBasepQueryClaimAttributesToken @ 0x14077BBD4
+ * Callers:
+ *     NtQueryInformationToken @ 0x1406D6780 (NtQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x1407B9760 (SeQueryInformationToken.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AuthzBasepCopyoutClaimAttributes @ 0x140A57408 (AuthzBasepCopyoutClaimAttributes.c)
+ *     AuthzBasepGetClaimAttributesCopyoutBufferSize @ 0x140A57774 (AuthzBasepGetClaimAttributesCopyoutBufferSize.c)
+ */
+
 __int64 __fastcall AuthzBasepQueryClaimAttributesToken(_DWORD *a1, _OWORD *a2, unsigned int a3, _DWORD *a4)
 {
   size_t v7; // rsi

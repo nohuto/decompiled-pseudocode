@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpSecConvKey @ 0x1407A5440
+ * Callers:
+ *     CmpAddSecurityCellToCache @ 0x14071CF00 (CmpAddSecurityCellToCache.c)
+ *     CmpFindMatchingDescriptorCell @ 0x1407A5244 (CmpFindMatchingDescriptorCell.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmpSecConvKey(unsigned int a1, _DWORD *a2)
 {
   __int64 result; // rax

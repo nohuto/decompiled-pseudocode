@@ -1,3 +1,11 @@
+/*
+ * XREFs of XmShlOp @ 0x1403B1970
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmStoreResult @ 0x1403B42E8 (XmStoreResult.c)
+ */
+
 __int64 __fastcall XmShlOp(_DWORD *a1)
 {
   int v1; // eax

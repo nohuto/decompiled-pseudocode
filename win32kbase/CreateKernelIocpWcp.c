@@ -1,3 +1,11 @@
+/*
+ * XREFs of CreateKernelIocpWcp @ 0x1C00C67B0
+ * Callers:
+ *     ?SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z @ 0x1C007D9E0 (-SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C000F0BC (WPP_RECORDER_AND_TRACE_SF_D.c)
+ */
+
 __int64 CreateKernelIocpWcp()
 {
   char v0; // bl

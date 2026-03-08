@@ -1,3 +1,11 @@
+/*
+ * XREFs of MmManagePartitionUpdateAttributes @ 0x140A42E88
+ * Callers:
+ *     NtManagePartition @ 0x140705650 (NtManagePartition.c)
+ * Callees:
+ *     MiUpdateSpecialPurposeMemoryCacheEligibility @ 0x140A44D34 (MiUpdateSpecialPurposeMemoryCacheEligibility.c)
+ */
+
 __int64 __fastcall MmManagePartitionUpdateAttributes(__int64 *a1, __int64 *a2, char a3, unsigned int a4)
 {
   __int64 result; // rax

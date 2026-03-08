@@ -1,3 +1,16 @@
+/*
+ * XREFs of CcPostWorkQueueSpecial @ 0x140534894
+ * Callers:
+ *     CcQueueLazyWriteScanThreadForVolume @ 0x1403BA4E0 (CcQueueLazyWriteScanThreadForVolume.c)
+ * Callees:
+ *     CcReferencePartitionAndPrivateVolumeCacheMap @ 0x14021511C (CcReferencePartitionAndPrivateVolumeCacheMap.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExQueueWorkItemToPartition @ 0x1403439E0 (ExQueueWorkItemToPartition.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x140391D54 (CcPerfLogWorkItemEnqueue.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall CcPostWorkQueueSpecial(__int64 a1, __int64 a2)
 {
   __int64 v2; // r14

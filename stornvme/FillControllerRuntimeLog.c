@@ -1,3 +1,16 @@
+/*
+ * XREFs of FillControllerRuntimeLog @ 0x1C0007908
+ * Callers:
+ *     NVMeHwFindAdapter @ 0x1C0007CD0 (NVMeHwFindAdapter.c)
+ *     ControllerReset @ 0x1C0009668 (ControllerReset.c)
+ *     NVMeControllerInitPart1 @ 0x1C000D7A8 (NVMeControllerInitPart1.c)
+ *     NVMeControllerInitPart2 @ 0x1C000D9F0 (NVMeControllerInitPart2.c)
+ *     NVMeControllerReset @ 0x1C000E4D8 (NVMeControllerReset.c)
+ *     NVMeControllerPanicResetActionWorkItem @ 0x1C001C690 (NVMeControllerPanicResetActionWorkItem.c)
+ * Callees:
+ *     memset @ 0x1C0004580 (memset.c)
+ */
+
 __int64 __fastcall FillControllerRuntimeLog(__int64 a1, _DWORD *a2)
 {
   __int64 v4; // r8

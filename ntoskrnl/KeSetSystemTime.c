@@ -1,3 +1,14 @@
+/*
+ * XREFs of KeSetSystemTime @ 0x1403B0A8C
+ * Callers:
+ *     ExpRefreshSystemTime @ 0x1408132EC (ExpRefreshSystemTime.c)
+ *     NtSetSystemTime @ 0x1409F54B0 (NtSetSystemTime.c)
+ *     ExpSetSystemTime @ 0x140AA7AF4 (ExpSetSystemTime.c)
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     KeGenericCallDpcEx @ 0x1403C07D0 (KeGenericCallDpcEx.c)
+ */
+
 __int64 __fastcall KeSetSystemTime(__int64 a1, __int64 a2, int a3)
 {
   char v4; // [rsp+20h] [rbp-30h] BYREF

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?D2DMatrixPerspectiveRH@@YAPEAUD2DMatrix@@PEAU1@MMMM@Z @ 0x18027A370
+ * Callers:
+ *     ?Matrix4x4FromPerspective@CExpressionValueStack@@QEAAJXZ @ 0x18025B5BC (-Matrix4x4FromPerspective@CExpressionValueStack@@QEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 struct D2DMatrix *__fastcall D2DMatrixPerspectiveRH(struct D2DMatrix *a1, float a2, float a3, float a4, float a5)
 {
   float v6; // xmm3_4

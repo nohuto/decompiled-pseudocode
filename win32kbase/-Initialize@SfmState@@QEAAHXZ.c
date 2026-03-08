@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@SfmState@@QEAAHXZ @ 0x1C00D17E0
+ * Callers:
+ *     InitializeGre @ 0x1C031D988 (InitializeGre.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SfmState::Initialize(SfmState *this)
 {
   _QWORD *v1; // rbx

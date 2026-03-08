@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpFcSendFeatureUsageNotifications @ 0x1409C0AC8
+ * Callers:
+ *     CmFcpManagerDrainUsageNotifications @ 0x140818490 (CmFcpManagerDrainUsageNotifications.c)
+ * Callees:
+ *     RtlpFcNotifyFeatureUsageTarget @ 0x1409C0968 (RtlpFcNotifyFeatureUsageTarget.c)
+ */
+
 __int64 __fastcall RtlpFcSendFeatureUsageNotifications(__int64 a1, unsigned int *a2, __int64 a3)
 {
   unsigned int v5; // ebx

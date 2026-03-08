@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiCompleteBootProcessorContextInitialization @ 0x14037226C
+ * Callers:
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ * Callees:
+ *     KiAllocateDpcDelegateThread @ 0x140371F1C (KiAllocateDpcDelegateThread.c)
+ *     KiStartPrcbThread @ 0x14037F580 (KiStartPrcbThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiResetBootProcessorApicMask @ 0x14079C768 (KiResetBootProcessorApicMask.c)
+ *     MmAllocateIsrStack @ 0x14080AFF0 (MmAllocateIsrStack.c)
+ *     KiInitializePrcbContext @ 0x140A86364 (KiInitializePrcbContext.c)
+ */
+
 __int64 KiCompleteBootProcessorContextInitialization()
 {
   KPCR *Pcr; // rdi

@@ -1,3 +1,23 @@
+/*
+ * XREFs of NtGdiResizePalette @ 0x1C02D4500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0MDCOBJA@@QEAA@PEAUHDC__@@H@Z @ 0x1C0007358 (--0MDCOBJA@@QEAA@PEAUHDC__@@H@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ *     ?RestoreAttributes@XDCOBJ@@AEAAXXZ @ 0x1C0050CF0 (-RestoreAttributes@XDCOBJ@@AEAAXXZ.c)
+ *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C007CA7C (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vUpdateTime@XEPALOBJ@@QEAAXXZ @ 0x1C00D922C (-vUpdateTime@XEPALOBJ@@QEAAXXZ.c)
+ *     ?vAltUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C00DC828 (-vAltUnlockFast@XDCOBJ@@QEAAXXZ.c)
+ *     ?bIsPalDefault@XEPALOBJ@@QEBAHXZ @ 0x1C00E3CD4 (-bIsPalDefault@XEPALOBJ@@QEBAHXZ.c)
+ *     ??1EPALOBJ@@QEAA@XZ @ 0x1C0124F2C (--1EPALOBJ@@QEAA@XZ.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ?TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z @ 0x1C02910AC (-TraceLoggingWriteUnsupportedGdiUsage@@YAXW4UnsupportedReason@@_K111@Z.c)
+ *     ??0MDCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C02C4318 (--0MDCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?bSwap@XEPALOBJ@@QEAAHPEAPEAVPALETTE@@KK@Z @ 0x1C02DA678 (-bSwap@XEPALOBJ@@QEAAHPEAPEAVPALETTE@@KK@Z.c)
+ */
+
 __int64 __fastcall NtGdiResizePalette(HPALETTE a1, unsigned int a2)
 {
   unsigned int v3; // esi

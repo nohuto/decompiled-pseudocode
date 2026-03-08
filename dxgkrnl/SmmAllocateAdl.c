@@ -1,3 +1,11 @@
+/*
+ * XREFs of SmmAllocateAdl @ 0x1C006F3B8
+ * Callers:
+ *     ?SysMmCreateAdl@@YAJPEAUSYSMM_ADAPTER_OBJECT@@_K1IPEAPEAU_DXGK_ADL@@@Z @ 0x1C006F9F0 (-SysMmCreateAdl@@YAJPEAUSYSMM_ADAPTER_OBJECT@@_K1IPEAPEAU_DXGK_ADL@@@Z.c)
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 _QWORD *__fastcall SmmAllocateAdl(unsigned int a1, int a2)
 {
   _QWORD *v4; // rdi

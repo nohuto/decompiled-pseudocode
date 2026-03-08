@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopEtInternerLock @ 0x14078C780
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ */
+
 struct _KTHREAD *__fastcall PopEtInternerLock(__int64 a1, char a2)
 {
   ULONG_PTR v2; // rcx

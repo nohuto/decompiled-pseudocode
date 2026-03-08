@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_FindWindowEx@@YAPEAUtagWND@@PEAU1@0GPEBG@Z @ 0x1C010A86C
+ * Callers:
+ *     NtUserFindWindowEx @ 0x1C010A500 (NtUserFindWindowEx.c)
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ */
+
 struct tagWND *__fastcall _FindWindowEx(struct tagWND *a1, struct tagWND *a2, __int16 a3, const unsigned __int16 *a4)
 {
   struct tagWND *v7; // rdi

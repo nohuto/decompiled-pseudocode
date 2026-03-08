@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FillCaptionGradient@@YAXPEAUHDC__@@PEBUtagRECT@@H@Z @ 0x1C022E9B4
+ * Callers:
+ *     xxxDrawCaptionTemp @ 0x1C022EDB4 (xxxDrawCaptionTemp.c)
+ * Callees:
+ *     FillRect @ 0x1C00881F8 (FillRect.c)
+ *     ?FillGradient@@YAXPEAUHDC__@@PEBUtagRECT@@KK@Z @ 0x1C022EA20 (-FillGradient@@YAXPEAUHDC__@@PEBUtagRECT@@KK@Z.c)
+ */
+
 void __fastcall FillCaptionGradient(HDC a1, const struct tagRECT *a2, int a3)
 {
   unsigned int v4; // r8d

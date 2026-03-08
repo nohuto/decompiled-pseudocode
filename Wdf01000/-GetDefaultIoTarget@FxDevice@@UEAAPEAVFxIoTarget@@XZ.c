@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDefaultIoTarget@FxDevice@@UEAAPEAVFxIoTarget@@XZ @ 0x1C0009410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _FX_DRIVER_GLOBALS *__fastcall FxDevice::GetDefaultIoTarget(FxDevice *this)
 {
   FxPkgPnp *m_PkgPnp; // rax

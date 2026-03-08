@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopNotifyTelemetryOsState @ 0x14098F604
+ * Callers:
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     PopTransitionTelemetryOsState @ 0x140855C64 (PopTransitionTelemetryOsState.c)
+ */
+
 __int64 __fastcall PopNotifyTelemetryOsState(__int64 a1, int a2, int a3, __int64 a4, char a5)
 {
   unsigned int v5; // r10d

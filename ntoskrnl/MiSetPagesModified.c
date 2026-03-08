@@ -1,3 +1,39 @@
+/*
+ * XREFs of MiSetPagesModified @ 0x1406264CC
+ * Callers:
+ *     MiCreateNewSection @ 0x1406A6414 (MiCreateNewSection.c)
+ * Callees:
+ *     MiReleasePageFileInfo @ 0x14020B300 (MiReleasePageFileInfo.c)
+ *     MiLockLowestValidPageTable @ 0x140225DB0 (MiLockLowestValidPageTable.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiGetEffectivePagePriorityThread @ 0x14028A260 (MiGetEffectivePagePriorityThread.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KiAbThreadRemoveBoostsSlow @ 0x1402D99E0 (KiAbThreadRemoveBoostsSlow.c)
+ *     MiCapturePageFileInfoInline @ 0x1402DE2D4 (MiCapturePageFileInfoInline.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x1403440B0 (MiReferenceControlAreaFileWithTag.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1403441C0 (ObFastDereferenceObjectDeferDelete.c)
+ *     MiGetCommittedPages @ 0x14034C3F0 (MiGetCommittedPages.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     MiUpdateControlAreaCommitCount @ 0x140368568 (MiUpdateControlAreaCommitCount.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiMapImageInSystemSpace @ 0x1406A53F8 (MiMapImageInSystemSpace.c)
+ *     MiUnmapImageInSystemSpace @ 0x1406A556C (MiUnmapImageInSystemSpace.c)
+ *     MiDeleteFileExtents @ 0x1406A7130 (MiDeleteFileExtents.c)
+ *     MiPrefetchControlArea @ 0x14078DBC4 (MiPrefetchControlArea.c)
+ */
+
 __int64 __fastcall MiSetPagesModified(__int64 a1, int a2)
 {
   __int64 v4; // rbx

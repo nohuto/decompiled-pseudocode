@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SetInputRateLimitingTime@CMouseSensor@@QEAAJK@Z @ 0x1C002D7C4
+ * Callers:
+ *     ?PostInitialize@CMouseSensor@@EEAAJXZ @ 0x1C002E140 (-PostInitialize@CMouseSensor@@EEAAJXZ.c)
+ *     SetMouseInputRateLimitingTime @ 0x1C0218990 (SetMouseInputRateLimitingTime.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0088924 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall CMouseSensor::SetInputRateLimitingTime(CMouseSensor *this, unsigned int a2)
 {
   __int64 v3; // r8

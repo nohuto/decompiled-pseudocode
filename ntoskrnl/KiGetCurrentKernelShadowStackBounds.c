@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiGetCurrentKernelShadowStackBounds @ 0x1405798B4
+ * Callers:
+ *     KiProcessControlProtectionFromKernelMode @ 0x140579EC8 (KiProcessControlProtectionFromKernelMode.c)
+ * Callees:
+ *     MmIsAddressValidEx @ 0x1403471E0 (MmIsAddressValidEx.c)
+ */
+
 unsigned __int64 __fastcall KiGetCurrentKernelShadowStackBounds(_QWORD *a1)
 {
   struct _KTHREAD *CurrentThread; // rax

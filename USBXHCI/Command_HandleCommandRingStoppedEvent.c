@@ -1,3 +1,24 @@
+/*
+ * XREFs of Command_HandleCommandRingStoppedEvent @ 0x1C002FD74
+ * Callers:
+ *     Command_HandleCommandCompletionEvent @ 0x1C000A2B4 (Command_HandleCommandCompletionEvent.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     Controller_LowerAndTrackIrql @ 0x1C00074BC (Controller_LowerAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0007558 (Controller_RaiseAndTrackIrql.c)
+ *     XilCommand_GetCommandRingBufferLogicalAddress @ 0x1C000A7F8 (XilCommand_GetCommandRingBufferLogicalAddress.c)
+ *     DynamicLock_Acquire @ 0x1C000A918 (DynamicLock_Acquire.c)
+ *     DynamicLock_Release @ 0x1C000A958 (DynamicLock_Release.c)
+ *     Command_InternalSendCommand @ 0x1C000A998 (Command_InternalSendCommand.c)
+ *     XilCommand_WriteDoorbell @ 0x1C000ABF8 (XilCommand_WriteDoorbell.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ii @ 0x1C0030D30 (WPP_RECORDER_SF_ii.c)
+ *     XilCommand_AdvanceCommandRingControlDequeuePointer @ 0x1C0031388 (XilCommand_AdvanceCommandRingControlDequeuePointer.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Etw_CommandCompleteError @ 0x1C004A868 (Etw_CommandCompleteError.c)
+ */
+
 char __fastcall Command_HandleCommandRingStoppedEvent(__int64 a1, __int64 *a2)
 {
   __int64 *v4; // rdi

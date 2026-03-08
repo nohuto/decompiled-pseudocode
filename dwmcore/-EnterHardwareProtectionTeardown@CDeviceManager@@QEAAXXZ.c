@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EnterHardwareProtectionTeardown@CDeviceManager@@QEAAXXZ @ 0x180282718
+ * Callers:
+ *     ?Partition_ForceRender@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_FORCERENDER@@@Z @ 0x1800F87E0 (-Partition_ForceRender@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD.c)
+ * Callees:
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034BB4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     McTemplateU0q_EventWriteTransfer @ 0x180129D14 (McTemplateU0q_EventWriteTransfer.c)
+ */
+
 void __fastcall CDeviceManager::EnterHardwareProtectionTeardown(CDeviceManager *this)
 {
   struct _RTL_CRITICAL_SECTION *v1; // [rsp+30h] [rbp+8h] BYREF

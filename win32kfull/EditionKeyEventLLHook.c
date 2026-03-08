@@ -1,3 +1,20 @@
+/*
+ * XREFs of EditionKeyEventLLHook @ 0x1C00E83C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PhkFirstValid @ 0x1C00368A8 (PhkFirstValid.c)
+ *     HasHidTable @ 0x1C0038CB0 (HasHidTable.c)
+ *     ?xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z @ 0x1C006C010 (-xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z.c)
+ *     ?IsSAS@@YA_NEPEAI@Z @ 0x1C0098AB0 (-IsSAS@@YA_NEPEAI@Z.c)
+ *     ?IsUninterceptable@@YAPEAUtagHOTKEY@@PEAIE@Z @ 0x1C0098C20 (-IsUninterceptable@@YAPEAUtagHOTKEY@@PEAIE@Z.c)
+ *     PtiKbdFromQ @ 0x1C009FA48 (PtiKbdFromQ.c)
+ *     ?IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z @ 0x1C00DCF88 (-IsGpqForegroundAccessibleExplicit@@YAHHPEAUtagTHREADINFO@@UtagUIPI_INFO@@H@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?CallLowLevelHooks@Keyboard@InputTraceLogging@@SAXK@Z @ 0x1C01E866C (-CallLowLevelHooks@Keyboard@InputTraceLogging@@SAXK@Z.c)
+ *     ?HandleLowLevelHooks@Keyboard@InputTraceLogging@@SAXK_K@Z @ 0x1C01E873C (-HandleLowLevelHooks@Keyboard@InputTraceLogging@@SAXK_K@Z.c)
+ */
+
 __int64 __fastcall EditionKeyEventLLHook(
         __int64 a1,
         unsigned __int16 a2,

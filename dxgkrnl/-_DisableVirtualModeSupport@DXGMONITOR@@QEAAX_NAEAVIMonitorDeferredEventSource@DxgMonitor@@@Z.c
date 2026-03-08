@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_DisableVirtualModeSupport@DXGMONITOR@@QEAAX_NAEAVIMonitorDeferredEventSource@DxgMonitor@@@Z @ 0x1C03C4C70
+ * Callers:
+ *     MonitorDisableMonitorVirtualModeSupport @ 0x1C03BF560 (MonitorDisableMonitorVirtualModeSupport.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ??$WriteData@K@MonitorDataStore@DxgMonitor@@AEAAXPEAXPEBGK@Z @ 0x1C03CA404 (--$WriteData@K@MonitorDataStore@DxgMonitor@@AEAAXPEAXPEBGK@Z.c)
+ */
+
 void __fastcall DXGMONITOR::_DisableVirtualModeSupport(
         DXGMONITOR *this,
         unsigned __int8 a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?InvokeClient@FxPnpDeviceReleaseHardware@@MEAAJXZ @ 0x1C006CD70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_qid @ 0x1C00195EC (WPP_IFR_SF_qid.c)
+ */
+
 int (__fastcall *__fastcall FxPnpDeviceReleaseHardware::InvokeClient(
         FxPnpDeviceReleaseHardware *this))(WDFDEVICE__ *, WDFCMRESLIST__ *)
 {

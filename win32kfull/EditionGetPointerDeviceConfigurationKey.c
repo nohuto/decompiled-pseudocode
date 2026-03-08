@@ -1,3 +1,13 @@
+/*
+ * XREFs of EditionGetPointerDeviceConfigurationKey @ 0x1C01071F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlUnicodeStringValidateWorker @ 0x1C0107584 (RtlUnicodeStringValidateWorker.c)
+ *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C0107950 (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void *__fastcall EditionGetPointerDeviceConfigurationKey(int a1, ACCESS_MASK a2)
 {
   const wchar_t *v3; // rbx

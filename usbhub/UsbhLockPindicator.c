@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhLockPindicator @ 0x1C002F35C
+ * Callers:
+ *     Usbh_PIND_Disable_Action @ 0x1C002F6AC (Usbh_PIND_Disable_Action.c)
+ *     Usbh_PIND_Enable_Action @ 0x1C002F77C (Usbh_PIND_Enable_Action.c)
+ *     Usbh_PIND_SetAuto_Action @ 0x1C002F814 (Usbh_PIND_SetAuto_Action.c)
+ *     Usbh_PIND_SetBlink_Action @ 0x1C002F8E0 (Usbh_PIND_SetBlink_Action.c)
+ *     Usbh_PIND_Timeout_Action @ 0x1C002F9D0 (Usbh_PIND_Timeout_Action.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ */
+
 __int64 __fastcall UsbhLockPindicator(__int64 a1, __int64 a2, int a3)
 {
   _DWORD *v6; // rax

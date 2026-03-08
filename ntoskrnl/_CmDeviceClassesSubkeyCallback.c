@@ -1,3 +1,23 @@
+/*
+ * XREFs of _CmDeviceClassesSubkeyCallback @ 0x140824A50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlStringCchCopyExW @ 0x140244A08 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     RtlStringCchCopyW @ 0x1402470F0 (RtlStringCchCopyW.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     _RegRtlQueryValue @ 0x1406D3E98 (_RegRtlQueryValue.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1406D3FF0 (_CmValidateDeviceInterfaceName.c)
+ *     _CmIsDeviceInterfaceEnabled @ 0x1406D42F0 (_CmIsDeviceInterfaceEnabled.c)
+ *     _SysCtxRegOpenKey @ 0x1406D4350 (_SysCtxRegOpenKey.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x140824EA0 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmDeviceClassesSubkeyCallback(__int64 a1, __int64 a2, const wchar_t *a3, unsigned int *a4)
 {
   __int64 v7; // rcx

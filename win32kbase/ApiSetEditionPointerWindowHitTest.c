@@ -1,3 +1,15 @@
+/*
+ * XREFs of ApiSetEditionPointerWindowHitTest @ 0x1C0241320
+ * Callers:
+ *     ?DeterminePointerTargetWindow@CTouchProcessor@@AEAAXPEAUtagTHREADINFO@@PEAUCPointerInfoNode@@PEAUtagQ@@HPEAHPEAUtagPOINT@@PEAVCInputDest@@@Z @ 0x1C01F03F8 (-DeterminePointerTargetWindow@CTouchProcessor@@AEAAXPEAUtagTHREADINFO@@PEAUCPointerInfoNode@@PEA.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     EditionPointerWindowHitTest @ 0x1C0271B70 (EditionPointerWindowHitTest.c)
+ */
+
 _OWORD *__fastcall ApiSetEditionPointerWindowHitTest(
         _OWORD *a1,
         int a2,

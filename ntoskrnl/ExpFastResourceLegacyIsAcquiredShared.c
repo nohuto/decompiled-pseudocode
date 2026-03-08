@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpFastResourceLegacyIsAcquiredShared @ 0x1406081A8
+ * Callers:
+ *     ExIsResourceAcquiredSharedLite @ 0x140336990 (ExIsResourceAcquiredSharedLite.c)
+ * Callees:
+ *     ExpFindFastOwnerEntryForThread @ 0x1403C53E4 (ExpFindFastOwnerEntryForThread.c)
+ *     ExpFastResourceLegacyIsAcquiredShared2 @ 0x140410288 (ExpFastResourceLegacyIsAcquiredShared2.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExpFastResourceLegacyIsAcquiredShared(__int64 a1, __int64 a2)
 {
   unsigned int v3; // ebx

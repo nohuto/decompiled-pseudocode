@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiGetComparisonRanks @ 0x1402FDA84
+ * Callers:
+ *     KiDirectSwitchThread @ 0x1403414A0 (KiDirectSwitchThread.c)
+ *     KiEvaluateGroupSchedulingPreemption @ 0x1403426B0 (KiEvaluateGroupSchedulingPreemption.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiGetComparisonRanks(__int64 a1, __int64 a2, _DWORD *a3, unsigned int *a4)
 {
   __int64 v5; // r10

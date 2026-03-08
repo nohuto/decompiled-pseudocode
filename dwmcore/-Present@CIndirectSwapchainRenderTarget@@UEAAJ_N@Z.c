@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Present@CIndirectSwapchainRenderTarget@@UEAAJ_N@Z @ 0x1801EC018
+ * Callers:
+ *     ?Present@CIndirectSwapchainRenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z @ 0x180118930 (-Present@CIndirectSwapchainRenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x1801EC52C (-ReleaseCurrentBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ.c)
+ *     ?TryTargetNextBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ @ 0x1801EC794 (-TryTargetNextBuffer@CIndirectSwapchainRenderTarget@@AEAAJXZ.c)
+ */
+
 __int64 __fastcall CIndirectSwapchainRenderTarget::Present(CIndirectSwapchainRenderTarget *this)
 {
   CIndirectSwapchainRenderTarget *v1; // rsi

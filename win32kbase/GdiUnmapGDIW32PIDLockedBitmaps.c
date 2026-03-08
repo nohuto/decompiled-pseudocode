@@ -1,3 +1,14 @@
+/*
+ * XREFs of GdiUnmapGDIW32PIDLockedBitmaps @ 0x1C006BFB0
+ * Callers:
+ *     GdiProcessCallout @ 0x1C006FD60 (GdiProcessCallout.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00219D4 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     EngAcquireSemaphore @ 0x1C004B690 (EngAcquireSemaphore.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C004E7E8 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C004E850 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ */
+
 void __fastcall GdiUnmapGDIW32PIDLockedBitmaps(__int64 a1)
 {
   __int64 v2; // rcx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SmmBuildAdl@@YAXPEAUSYSMM_ADAPTER_OBJECT@@PEAUSYSMM_PHYSICAL_OBJECT@@PEAUSYSMM_ADL@@II@Z @ 0x1C006F584
+ * Callers:
+ *     ?SysMmCreateAdl@@YAJPEAUSYSMM_ADAPTER_OBJECT@@_K1IPEAPEAU_DXGK_ADL@@@Z @ 0x1C006F9F0 (-SysMmCreateAdl@@YAJPEAUSYSMM_ADAPTER_OBJECT@@_K1IPEAPEAU_DXGK_ADL@@@Z.c)
+ * Callees:
+ *     ?SmmGetLogicalAddress@@YA_KPEBUSYSMM_LOGICAL_BLOCK@@@Z @ 0x1C0013C28 (-SmmGetLogicalAddress@@YA_KPEBUSYSMM_LOGICAL_BLOCK@@@Z.c)
+ *     SmmBuildAdlFromAddress @ 0x1C006F61C (SmmBuildAdlFromAddress.c)
+ *     SmmBuildAdlFromMdl @ 0x1C006F654 (SmmBuildAdlFromMdl.c)
+ */
+
 void __fastcall SmmBuildAdl(
         struct SYSMM_ADAPTER_OBJECT *a1,
         PHYSICAL_ADDRESS *a2,

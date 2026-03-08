@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserInitializeTouchInjection @ 0x1C01D61A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?CheckCurrentInjectionConfiguration@@YAXXZ @ 0x1C01AFF24 (-CheckCurrentInjectionConfiguration@@YAXXZ.c)
+ *     _InitializeTouchInjectionWorker @ 0x1C01B1800 (_InitializeTouchInjectionWorker.c)
+ */
+
 __int64 __fastcall NtUserInitializeTouchInjection(unsigned int a1, unsigned int a2)
 {
   int v3; // ebx

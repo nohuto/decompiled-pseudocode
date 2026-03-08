@@ -1,3 +1,19 @@
+/*
+ * XREFs of IvtFlushTbInternal @ 0x1403ABA60
+ * Callers:
+ *     IvtFlushDomainTb @ 0x140456980 (IvtFlushDomainTb.c)
+ *     IvtAttachDeviceDomainInternal @ 0x140529388 (IvtAttachDeviceDomainInternal.c)
+ *     IvtFlushTb @ 0x14052A210 (IvtFlushTb.c)
+ *     IvtInitializeIommu @ 0x140A87060 (IvtInitializeIommu.c)
+ * Callees:
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     IvtIommuWaitCommand @ 0x1402F4874 (IvtIommuWaitCommand.c)
+ *     IvtIommuSendCommand @ 0x1402F49A4 (IvtIommuSendCommand.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HalpIommuGetNextFlushDevice @ 0x140513058 (HalpIommuGetNextFlushDevice.c)
+ */
+
 void __fastcall IvtFlushTbInternal(
         __int64 a1,
         int a2,

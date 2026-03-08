@@ -1,3 +1,33 @@
+/*
+ * XREFs of VfHandlePoolAlloc @ 0x140ACDFB0
+ * Callers:
+ *     ExAllocateHeapPool @ 0x1403101C0 (ExAllocateHeapPool.c)
+ *     IovAllocateMdl @ 0x140ABDDE0 (IovAllocateMdl.c)
+ *     IovAllocateWorkItem @ 0x140ABDF20 (IovAllocateWorkItem.c)
+ *     ViIrpAllocateLockedPacket @ 0x140ACAC64 (ViIrpAllocateLockedPacket.c)
+ *     VfSpIoSetCompletionRoutineEx_Exit @ 0x140AE5670 (VfSpIoSetCompletionRoutineEx_Exit.c)
+ *     ViSpRtlReplaceStringBuffer @ 0x140AE5774 (ViSpRtlReplaceStringBuffer.c)
+ * Callees:
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     ExAllocatePoolWithTagPriority @ 0x1402E1F00 (ExAllocatePoolWithTagPriority.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     ViGrowPoolAllocation @ 0x1405CD7B0 (ViGrowPoolAllocation.c)
+ *     ExIsSpecialPoolAddress @ 0x14060CCD8 (ExIsSpecialPoolAddress.c)
+ *     ExpPoolFlagsToPoolType @ 0x140AAB010 (ExpPoolFlagsToPoolType.c)
+ *     ExAllocatePool3 @ 0x140AAB320 (ExAllocatePool3.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     VfTargetDriversGetVerifierData @ 0x140AC8528 (VfTargetDriversGetVerifierData.c)
+ *     ViTargetIncrementCounter @ 0x140AC8BDC (ViTargetIncrementCounter.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ *     ViPostPoolAllocation @ 0x140ACE608 (ViPostPoolAllocation.c)
+ *     VfFaultsInjectPoolAllocationFailure @ 0x140AD2EC8 (VfFaultsInjectPoolAllocationFailure.c)
+ *     VfFaultsIsSystemSufficientlyBooted @ 0x140AD30E8 (VfFaultsIsSystemSufficientlyBooted.c)
+ *     VfFillAllocatedMemory @ 0x140AD700C (VfFillAllocatedMemory.c)
+ *     ViPtLogStackTrace @ 0x140ADC05C (ViPtLogStackTrace.c)
+ *     ExAllocatePoolSanityChecks @ 0x140AE4C7C (ExAllocatePoolSanityChecks.c)
+ */
+
 PVOID __fastcall VfHandlePoolAlloc(
         POOL_TYPE PoolType,
         __int64 a2,

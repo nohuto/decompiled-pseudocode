@@ -1,3 +1,22 @@
+/*
+ * XREFs of PiSwStopDestroy @ 0x140867198
+ * Callers:
+ *     IopRemoveDevice @ 0x140866E38 (IopRemoveDevice.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     McTemplateK0zzz_EtwWriteTransfer @ 0x140561860 (McTemplateK0zzz_EtwWriteTransfer.c)
+ *     McTemplateK0zzzd_EtwWriteTransfer @ 0x140561988 (McTemplateK0zzzd_EtwWriteTransfer.c)
+ *     PiSwFindChildren @ 0x140688518 (PiSwFindChildren.c)
+ *     PnpConcatPWSTR @ 0x14069EE54 (PnpConcatPWSTR.c)
+ *     PiSwFindPdoAssociation @ 0x140847170 (PiSwFindPdoAssociation.c)
+ *     PiSwCloseDevice @ 0x140964150 (PiSwCloseDevice.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiSwStopDestroy(__int64 a1, const WCHAR *a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rax

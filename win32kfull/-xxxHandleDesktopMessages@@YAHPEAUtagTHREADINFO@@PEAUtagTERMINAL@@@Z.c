@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C0094570
+ * Callers:
+ *     xxxDesktopThread @ 0x1C0093DC0 (xxxDesktopThread.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C00200C4 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     xxxDispatchMessage @ 0x1C0038064 (xxxDispatchMessage.c)
+ *     xxxCleanupMotherDesktopWindow @ 0x1C00929C4 (xxxCleanupMotherDesktopWindow.c)
+ *     xxxInternalGetMessage @ 0x1C00946B0 (xxxInternalGetMessage.c)
+ *     ?DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C0094CDC (-DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
+ */
+
 __int64 __fastcall xxxHandleDesktopMessages(struct tagTHREADINFO *a1, struct tagTERMINAL *a2)
 {
   char v4; // bl

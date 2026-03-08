@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepFreeCapturedTokenSecurityAttributesInformation @ 0x14074339C
+ * Callers:
+ *     NtCreateTokenEx @ 0x14070F880 (NtCreateTokenEx.c)
+ *     SepReleaseTokenSecurityAttributesAndOperationsInformation @ 0x140742BAC (SepReleaseTokenSecurityAttributesAndOperationsInformation.c)
+ *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x140742BEC (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall SepFreeCapturedTokenSecurityAttributesInformation(_QWORD *P)
 {
   PVOID *v1; // rbx

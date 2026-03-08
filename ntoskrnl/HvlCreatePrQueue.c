@@ -1,3 +1,15 @@
+/*
+ * XREFs of HvlCreatePrQueue @ 0x140540790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HvcallFastExtended @ 0x1403C6CA0 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HvlpHvStatusIsInsufficientMemory @ 0x140456EEE (HvlpHvStatusIsInsufficientMemory.c)
+ *     HvlpHvToNtStatus @ 0x140456F16 (HvlpHvToNtStatus.c)
+ *     HvlpHandleInsufficientMemory @ 0x14053DA58 (HvlpHandleInsufficientMemory.c)
+ */
+
 __int64 __fastcall HvlCreatePrQueue(int a1, int a2, unsigned __int64 a3, int a4, int a5)
 {
   int v5; // ecx

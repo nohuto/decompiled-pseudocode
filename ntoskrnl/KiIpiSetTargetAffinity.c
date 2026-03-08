@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiIpiSetTargetAffinity @ 0x140233704
+ * Callers:
+ *     KiIpiSendRequest @ 0x140233230 (KiIpiSendRequest.c)
+ * Callees:
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140237640 (KeRemoveProcessorAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x140237C30 (KeIsEmptyAffinityEx.c)
+ *     KiSubtractAffinityEx @ 0x1402D4CBC (KiSubtractAffinityEx.c)
+ */
+
 __int64 __fastcall KiIpiSetTargetAffinity(__int64 a1, _DWORD *a2, __int64 *a3, __int64 a4, __int64 a5)
 {
   unsigned __int16 v6; // di

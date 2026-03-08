@@ -1,3 +1,13 @@
+/*
+ * XREFs of WheapFreeErrorRecord @ 0x14060EAB0
+ * Callers:
+ *     WheaReportHwError @ 0x14060E280 (WheaReportHwError.c)
+ *     WheapProcessWorkQueueItem @ 0x14060EC70 (WheapProcessWorkQueueItem.c)
+ *     WheapProcessWaitingETWEvents @ 0x14085D1A0 (WheapProcessWaitingETWEvents.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall WheapFreeErrorRecord(__int64 a1)
 {
   int v1; // eax

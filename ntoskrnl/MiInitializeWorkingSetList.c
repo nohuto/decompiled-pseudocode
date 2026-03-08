@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiInitializeWorkingSetList @ 0x1402A6260
+ * Callers:
+ *     MiInitializeSystemWorkingSetList @ 0x140726074 (MiInitializeSystemWorkingSetList.c)
+ *     MmInitializeProcessAddressSpace @ 0x1407291A8 (MmInitializeProcessAddressSpace.c)
+ * Callees:
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x14026A0D0 (MiLockPageTableInternal.c)
+ *     MiAllocateWsle @ 0x14026D1B0 (MiAllocateWsle.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ */
+
 char __fastcall MiInitializeWorkingSetList(__int64 a1, __int64 a2, int a3, __int64 a4)
 {
   __int64 v5; // rax

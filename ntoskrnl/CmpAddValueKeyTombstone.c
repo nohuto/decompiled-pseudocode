@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpAddValueKeyTombstone @ 0x140A13664
+ * Callers:
+ *     CmpSetValueKeyTombstone @ 0x140A14050 (CmpSetValueKeyTombstone.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpNameSize @ 0x1407612A0 (CmpNameSize.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvAllocateCell @ 0x1407A63A8 (HvAllocateCell.c)
+ *     CmpCopyName @ 0x1407A6A30 (CmpCopyName.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ */
+
 __int64 __fastcall CmpAddValueKeyTombstone(ULONG_PTR a1, unsigned __int16 *a2, unsigned int a3, int *a4)
 {
   unsigned int v8; // r14d

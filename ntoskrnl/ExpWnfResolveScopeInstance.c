@@ -1,3 +1,36 @@
+/*
+ * XREFs of ExpWnfResolveScopeInstance @ 0x14071A508
+ * Callers:
+ *     ExpWnfCompleteThreadSubscriptions @ 0x140719114 (ExpWnfCompleteThreadSubscriptions.c)
+ *     ExpNtUpdateWnfStateData @ 0x14071943C (ExpNtUpdateWnfStateData.c)
+ *     ExpWnfSubscribeWnfStateChange @ 0x140719A64 (ExpWnfSubscribeWnfStateChange.c)
+ *     NtQueryWnfStateData @ 0x140719DF0 (NtQueryWnfStateData.c)
+ *     NtCreateWnfStateName @ 0x14071BBD0 (NtCreateWnfStateName.c)
+ *     NtDeleteWnfStateName @ 0x140778FE0 (NtDeleteWnfStateName.c)
+ *     NtQueryWnfStateNameInformation @ 0x14077DEB0 (NtQueryWnfStateNameInformation.c)
+ *     ExpNtDeleteWnfStateData @ 0x14085860C (ExpNtDeleteWnfStateData.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     RtlLengthSid @ 0x140245EC0 (RtlLengthSid.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402992F0 (PdcCreateWatchdogAroundClientCall.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     ExpWnfGetCurrentScopeInstance @ 0x14071B8A0 (ExpWnfGetCurrentScopeInstance.c)
+ *     ExpWnfFindScopeInstance @ 0x14071B968 (ExpWnfFindScopeInstance.c)
+ *     ExpWnfCreateProcessContext @ 0x140781634 (ExpWnfCreateProcessContext.c)
+ *     ExpWnfFreeScopeInstance @ 0x14079450C (ExpWnfFreeScopeInstance.c)
+ *     ExpWnfAllocateScopeInstance @ 0x140797360 (ExpWnfAllocateScopeInstance.c)
+ *     ExpWnfAllocateScopeMap @ 0x14085AC2C (ExpWnfAllocateScopeMap.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpWnfResolveScopeInstance(
         struct _EX_RUNDOWN_REF **a1,
         __int64 a2,

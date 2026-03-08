@@ -1,3 +1,18 @@
+/*
+ * XREFs of UpdateRawMouseMode @ 0x1C00CE364
+ * Callers:
+ *     LockCaptureWindow @ 0x1C0010C8C (LockCaptureWindow.c)
+ *     TransferWakeBit @ 0x1C00CCF54 (TransferWakeBit.c)
+ *     ?zzzAttachToQueue@tagQ@@QEAAXPEAUtagTHREADINFO@@PEAU1@_N@Z @ 0x1C00CD940 (-zzzAttachToQueue@tagQ@@QEAAXPEAUtagTHREADINFO@@PEAU1@_N@Z.c)
+ *     SetNewForegroundQueue @ 0x1C00CE270 (SetNewForegroundQueue.c)
+ *     ?AdjustLegacyDeviceFlags@@YAXPEAUtagPROCESSINFO@@@Z @ 0x1C00D5560 (-AdjustLegacyDeviceFlags@@YAXPEAUtagPROCESSINFO@@@Z.c)
+ *     DestroyThreadHidObjects @ 0x1C00D5730 (DestroyThreadHidObjects.c)
+ *     UnlockCaptureWindow @ 0x1C00DC4A0 (UnlockCaptureWindow.c)
+ * Callees:
+ *     PtiMouseFromQ @ 0x1C0037050 (PtiMouseFromQ.c)
+ *     HasHidTable @ 0x1C0038CB0 (HasHidTable.c)
+ */
+
 __int64 __fastcall UpdateRawMouseMode(__int64 a1)
 {
   __int64 result; // rax

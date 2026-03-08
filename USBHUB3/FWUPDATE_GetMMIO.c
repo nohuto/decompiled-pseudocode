@@ -1,3 +1,13 @@
+/*
+ * XREFs of FWUPDATE_GetMMIO @ 0x1C0040C24
+ * Callers:
+ *     HUBHSM_ReadingUsb4DromStatus @ 0x1C0009FD0 (HUBHSM_ReadingUsb4DromStatus.c)
+ *     HUBHSM_ReadingUsb4DromDwordOffset @ 0x1C000A320 (HUBHSM_ReadingUsb4DromDwordOffset.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBMISC_ControlTransfer @ 0x1C0032664 (HUBMISC_ControlTransfer.c)
+ */
+
 __int64 __fastcall FWUPDATE_GetMMIO(__int64 a1, __int16 a2, __int64 a3)
 {
   char v4; // al

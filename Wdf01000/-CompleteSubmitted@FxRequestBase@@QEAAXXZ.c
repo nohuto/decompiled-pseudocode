@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?CompleteSubmitted@FxRequestBase@@QEAAXXZ @ 0x1C0006D6C
+ * Callers:
+ *     ?RequestCompletionRoutine@FxIoTarget@@IEAAXPEAVFxRequestBase@@@Z @ 0x1C0006AA0 (-RequestCompletionRoutine@FxIoTarget@@IEAAXPEAVFxRequestBase@@@Z.c)
+ *     ?CompleteCanceledRequest@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z @ 0x1C00527B8 (-CompleteCanceledRequest@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z.c)
+ *     ?HandleFailedResubmit@FxIoTarget@@IEAAXPEAVFxRequestBase@@@Z @ 0x1C00534D8 (-HandleFailedResubmit@FxIoTarget@@IEAAXPEAVFxRequestBase@@@Z.c)
+ *     ?TimerCallback@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z @ 0x1C0054098 (-TimerCallback@FxIoTarget@@QEAAXPEAVFxRequestBase@@@Z.c)
+ * Callees:
+ *     FX_TRACK_DRIVER @ 0x1C0006D3C (FX_TRACK_DRIVER.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ?CompleteSubmittedNoContext@FxRequestBase@@IEAAXXZ @ 0x1C003FA70 (-CompleteSubmittedNoContext@FxRequestBase@@IEAAXXZ.c)
+ *     ?VerifierClearFormatted@FxRequestBase@@QEAAXXZ @ 0x1C003FBA8 (-VerifierClearFormatted@FxRequestBase@@QEAAXXZ.c)
+ */
+
 void __fastcall FxRequestBase::CompleteSubmitted(FxRequestBase *this)
 {
   FxIoTarget *m_Target; // rsi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopAddBootDiskInformation @ 0x140386334
+ * Callers:
+ *     IopGetBootDiskInformationLite @ 0x140B4CFA8 (IopGetBootDiskInformationLite.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IopAddBootDiskInformation(unsigned int *a1, __int64 a2)
 {
   unsigned int i; // r8d

@@ -1,3 +1,21 @@
+/*
+ * XREFs of Usbh_HRS_Queued @ 0x1C003D9BC
+ * Callers:
+ *     UsbhDispatch_HardResetEvent @ 0x1C001EC80 (UsbhDispatch_HardResetEvent.c)
+ * Callees:
+ *     UsbhEtwLogHubIrpEvent @ 0x1C00098E0 (UsbhEtwLogHubIrpEvent.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhQueueWorkItemEx @ 0x1C001E320 (UsbhQueueWorkItemEx.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhSyncBusDisconnect @ 0x1C00317FC (UsbhSyncBusDisconnect.c)
+ *     UsbhSyncBusPause @ 0x1C0031870 (UsbhSyncBusPause.c)
+ *     UsbhReleaseResetLock @ 0x1C0031DCC (UsbhReleaseResetLock.c)
+ *     UsbhHardReset_Action @ 0x1C003D0C8 (UsbhHardReset_Action.c)
+ *     UsbhIncrementConcurrentResetCounter @ 0x1C003D358 (UsbhIncrementConcurrentResetCounter.c)
+ *     UsbhResetNotifyDownstreamHub @ 0x1C0044104 (UsbhResetNotifyDownstreamHub.c)
+ */
+
 __int64 __fastcall Usbh_HRS_Queued(__int64 a1, int a2)
 {
   __int64 v3; // rbx

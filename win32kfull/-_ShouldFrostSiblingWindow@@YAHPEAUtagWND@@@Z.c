@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?_ShouldFrostSiblingWindow@@YAHPEAUtagWND@@@Z @ 0x1C01F54A0
+ * Callers:
+ *     ?xxxRegisterSiblingFrostWindow@@YAHPEAUHWND__@@0@Z @ 0x1C01F65C4 (-xxxRegisterSiblingFrostWindow@@YAHPEAUHWND__@@0@Z.c)
+ * Callees:
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     IsWindowBeingDestroyed @ 0x1C0039B60 (IsWindowBeingDestroyed.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ */
+
 __int64 __fastcall _ShouldFrostSiblingWindow(struct tagWND *a1)
 {
   unsigned int v1; // ebx

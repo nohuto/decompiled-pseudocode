@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SetSDRBoost@CLegacyRenderTarget@@IEAAXM@Z @ 0x180102A30
+ * Callers:
+ *     ?ProcessCreate@CLegacyRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_LEGACYRENDERTARGET_CREATE@@@Z @ 0x1801029C4 (-ProcessCreate@CLegacyRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_LEGACYRENDERTARGET_CR.c)
+ *     ?ProcessUpdateSDRToHDRMultiplier@CLegacyRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_LEGACYRENDERTARGET_UPDATESDRTOHDRMULTIPLIER@@@Z @ 0x1801C2DB4 (-ProcessUpdateSDRToHDRMultiplier@CLegacyRenderTarget@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_LEG.c)
+ * Callees:
+ *     ?ValidateSDRBoost@@YAMMAEBUPixelFormatInfo@@@Z @ 0x180102A78 (-ValidateSDRBoost@@YAMMAEBUPixelFormatInfo@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?SetSDRBoost@CDDARenderTarget@@QEAAXM@Z @ 0x1801E4B48 (-SetSDRBoost@CDDARenderTarget@@QEAAXM@Z.c)
+ */
+
 void __fastcall CLegacyRenderTarget::SetSDRBoost(CLegacyRenderTarget *this, float a2)
 {
   float v3; // xmm0_4

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwCreateKeyTransacted @ 0x140413990
+ * Callers:
+ *     DifZwCreateKeyTransactedWrapper @ 0x1405EC4D0 (DifZwCreateKeyTransactedWrapper.c)
+ * Callees:
+ *     <none>
+ */
+
 // local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateKeyTransacted(
         PHANDLE KeyHandle,

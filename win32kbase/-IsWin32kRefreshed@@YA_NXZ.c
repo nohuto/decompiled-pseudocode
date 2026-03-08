@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsWin32kRefreshed@@YA_NXZ @ 0x1C00D9DD8
+ * Callers:
+ *     ?InitializeWin32PoolTracking@@YAHXZ @ 0x1C00D4E04 (-InitializeWin32PoolTracking@@YAHXZ.c)
+ * Callees:
+ *     Win32FileInfo @ 0x1C00B32B0 (Win32FileInfo.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 char IsWin32kRefreshed(void)
 {
   char v0; // di

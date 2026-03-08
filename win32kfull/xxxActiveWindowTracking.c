@@ -1,3 +1,15 @@
+/*
+ * XREFs of xxxActiveWindowTracking @ 0x1C01B83D0
+ * Callers:
+ *     ?xxxMouseActivate@@YAHPEAUtagTHREADINFO@@PEAUtagWND@@PEBUtagQMSG@@H@Z @ 0x1C0096318 (-xxxMouseActivate@@YAHPEAUtagTHREADINFO@@PEAUtagWND@@PEBUtagQMSG@@H@Z.c)
+ *     ?xxxDWP_SetCursor@@YAHPEAUtagWND@@PEAUHWND__@@HI@Z @ 0x1C00A5C50 (-xxxDWP_SetCursor@@YAHPEAUtagWND@@PEAUHWND__@@HI@Z.c)
+ * Callees:
+ *     IsForegroundLocked @ 0x1C00236B0 (IsForegroundLocked.c)
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     ?xxxTrackingActivateWindow@@YA_NPEAUtagWND@@@Z @ 0x1C01AF5F8 (-xxxTrackingActivateWindow@@YA_NPEAUtagWND@@@Z.c)
+ *     GetActiveTrackPwnd @ 0x1C01B7A4C (GetActiveTrackPwnd.c)
+ */
+
 __int64 __fastcall xxxActiveWindowTracking(struct tagWND *a1)
 {
   __int64 v2; // rcx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ObpCreateTypeArray @ 0x140978F7C
+ * Callers:
+ *     ObEnumerateObjectsByType @ 0x140978854 (ObEnumerateObjectsByType.c)
+ *     ObGetObjectInformation @ 0x140978914 (ObGetObjectInformation.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     ObReferenceObjectSafe @ 0x1402CBCB0 (ObReferenceObjectSafe.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 unsigned int *__fastcall ObpCreateTypeArray(_QWORD **a1)
 {
   struct _KTHREAD *CurrentThread; // rax

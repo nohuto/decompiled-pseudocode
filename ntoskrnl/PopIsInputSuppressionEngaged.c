@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopIsInputSuppressionEngaged @ 0x140757D60
+ * Callers:
+ *     PopMonitorInvocation @ 0x140756DE8 (PopMonitorInvocation.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall PopIsInputSuppressionEngaged(int a1)
 {
   char v1; // dl

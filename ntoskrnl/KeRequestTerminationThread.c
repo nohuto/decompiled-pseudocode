@@ -1,3 +1,21 @@
+/*
+ * XREFs of KeRequestTerminationThread @ 0x140354D78
+ * Callers:
+ *     PspInsertThread @ 0x1406B0F50 (PspInsertThread.c)
+ *     PspTerminateThreadByPointer @ 0x1407DA8F0 (PspTerminateThreadByPointer.c)
+ *     KeRequestTerminationProcess @ 0x140971344 (KeRequestTerminationProcess.c)
+ * Callees:
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeForceResumeThread @ 0x1403537DC (KeForceResumeThread.c)
+ *     KiSignalThreadForApc @ 0x140353F08 (KiSignalThreadForApc.c)
+ *     KiInsertQueueApc @ 0x140354598 (KiInsertQueueApc.c)
+ *     KeAlertThread @ 0x140354F40 (KeAlertThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 char __fastcall KeRequestTerminationThread(__int64 a1)
 {
   __int64 v1; // rax

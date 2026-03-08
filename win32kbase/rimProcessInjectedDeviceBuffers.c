@@ -1,3 +1,14 @@
+/*
+ * XREFs of rimProcessInjectedDeviceBuffers @ 0x1C0004228
+ * Callers:
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0003AE4 (rimProcessDeviceBufferAndStartRead.c)
+ * Callees:
+ *     RIMTransferInjectionDeviceDataFifoToDataBuffer @ 0x1C00043BC (RIMTransferInjectionDeviceDataFifoToDataBuffer.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z @ 0x1C01C0BD4 (-DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z.c)
+ *     ?PauseDevice@RIM@InputTraceLogging@@SAXPEBURIMDEV@@@Z @ 0x1C01D209C (-PauseDevice@RIM@InputTraceLogging@@SAXPEBURIMDEV@@@Z.c)
+ */
+
 char __fastcall rimProcessInjectedDeviceBuffers(__int64 a1, __int64 a2)
 {
   int v2; // eax

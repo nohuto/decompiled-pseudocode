@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserCompositionInputSinkViewInstanceIdFromPoint @ 0x1C01CED50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     RequestInputSinkInfoFromPoint @ 0x1C01E795C (RequestInputSinkInfoFromPoint.c)
+ */
+
 __int64 __fastcall NtUserCompositionInputSinkViewInstanceIdFromPoint(__int64 *a1, _DWORD *a2)
 {
   __int64 v4; // rdx

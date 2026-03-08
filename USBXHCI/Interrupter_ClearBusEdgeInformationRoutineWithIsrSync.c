@@ -1,3 +1,11 @@
+/*
+ * XREFs of Interrupter_ClearBusEdgeInformationRoutineWithIsrSync @ 0x1C000D870
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Interrupter_ClearBusEdgeInformationRoutineWithIsrSync(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

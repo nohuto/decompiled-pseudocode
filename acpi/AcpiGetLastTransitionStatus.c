@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiGetLastTransitionStatus @ 0x1C0022760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AcpiGetLastTransitionStatus(__int64 a1, _DWORD *a2)
 {
   __int64 result; // rax

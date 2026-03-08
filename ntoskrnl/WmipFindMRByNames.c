@@ -1,3 +1,13 @@
+/*
+ * XREFs of WmipFindMRByNames @ 0x140819B9C
+ * Callers:
+ *     WmipAddMofResource @ 0x1408199DC (WmipAddMofResource.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     WmipReferenceEntry @ 0x14069C27C (WmipReferenceEntry.c)
+ */
+
 _QWORD *__fastcall WmipFindMRByNames(__int64 a1, __int64 a2)
 {
   _QWORD *v4; // rbx

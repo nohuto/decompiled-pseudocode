@@ -1,3 +1,26 @@
+/*
+ * XREFs of PiNormalizeDeviceText @ 0x14086EE68
+ * Callers:
+ *     PnpQueryDeviceText @ 0x1406850F0 (PnpQueryDeviceText.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     RtlStringCbPrintfExW @ 0x1402986C0 (RtlStringCbPrintfExW.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     wcschr @ 0x1403D5D90 (wcschr.c)
+ *     _wcstoi64 @ 0x1403D650C (_wcstoi64.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x1404125D0 (ZwQueryKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IopBuildFullDriverPath @ 0x1406C25D8 (IopBuildFullDriverPath.c)
+ *     RtlPrefixUnicodeString @ 0x1406D5A70 (RtlPrefixUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     PiGetDefaultMessageString @ 0x140847760 (PiGetDefaultMessageString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiNormalizeDeviceText(const WCHAR *Src, wchar_t **a2)
 {
   void *v3; // r14

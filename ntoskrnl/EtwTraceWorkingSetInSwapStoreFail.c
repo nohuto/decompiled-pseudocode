@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwTraceWorkingSetInSwapStoreFail @ 0x14067E52C
+ * Callers:
+ *     MiInSwapStoreWorker @ 0x14067E3D0 (MiInSwapStoreWorker.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     PsGetProcessId @ 0x140236D10 (PsGetProcessId.c)
+ *     EtwProviderEnabled @ 0x140367E30 (EtwProviderEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 BOOLEAN __fastcall EtwTraceWorkingSetInSwapStoreFail(PEPROCESS Process, int a2)
 {
   REGHANDLE v2; // rbx

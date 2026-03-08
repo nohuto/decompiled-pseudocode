@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreGetLockCount @ 0x1C00A3020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 GreGetLockCount()
 {
   __int64 *ThreadWin32Thread; // rax

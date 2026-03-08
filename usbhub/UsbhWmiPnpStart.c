@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhWmiPnpStart @ 0x1C004A4D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ */
+
 __int64 __fastcall UsbhWmiPnpStart(PDEVICE_OBJECT DeviceObject)
 {
   _DWORD *v2; // rbx

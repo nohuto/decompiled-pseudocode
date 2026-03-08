@@ -1,3 +1,14 @@
+/*
+ * XREFs of vUnmapFontCacheFile @ 0x1C00B812C
+ * Callers:
+ *     ?vCleanUpFntCacheInternal@@YAXXZ @ 0x1C00B8080 (-vCleanUpFntCacheInternal@@YAXXZ.c)
+ *     bInitCacheTable @ 0x1C028C900 (bInitCacheTable.c)
+ *     bReAllocCacheFile @ 0x1C028CAF0 (bReAllocCacheFile.c)
+ * Callees:
+ *     vUnmapFile @ 0x1C00B81B4 (vUnmapFile.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 _QWORD *__fastcall vUnmapFontCacheFile(__int64 a1)
 {
   __int64 v1; // rdi

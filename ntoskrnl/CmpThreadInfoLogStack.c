@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpThreadInfoLogStack @ 0x140613BCC
+ * Callers:
+ *     CmpRecordRegistryLockRelease @ 0x140263040 (CmpRecordRegistryLockRelease.c)
+ *     CmpRecordRegistryLockAcquire @ 0x140263080 (CmpRecordRegistryLockAcquire.c)
+ *     CmpIsRegistryLockAcquired @ 0x1402630C0 (CmpIsRegistryLockAcquired.c)
+ * Callees:
+ *     RtlWalkFrameChain @ 0x140205CA0 (RtlWalkFrameChain.c)
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     InsertEventEntryInLookUpTable @ 0x14035EE9C (InsertEventEntryInLookUpTable.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 char CmpThreadInfoLogStack()
 {
   __int64 v0; // rbx

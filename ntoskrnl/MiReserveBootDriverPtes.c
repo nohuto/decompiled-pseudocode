@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiReserveBootDriverPtes @ 0x140B5EC04
+ * Callers:
+ *     MiInitializeDriverPtes @ 0x140B5E7C8 (MiInitializeDriverPtes.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     RtlSetBits @ 0x14028BC50 (RtlSetBits.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiReserveBootDriverPtes(unsigned __int64 a1, int a2)
 {
   __int64 v3; // rbp

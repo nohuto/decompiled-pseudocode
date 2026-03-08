@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiFinishLastForkPageTable @ 0x140661F1C
+ * Callers:
+ *     MiDoneWithThisPageGetAnother @ 0x1406619A4 (MiDoneWithThisPageGetAnother.c)
+ *     MiFreeForkMaps @ 0x1406621B0 (MiFreeForkMaps.c)
+ * Callees:
+ *     MiMapPageInHyperSpaceWorker @ 0x140214870 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140214A54 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x140286264 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiDecrementShareCount @ 0x14032AE40 (MiDecrementShareCount.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiFinishLastForkPageTable(__int64 a1, __int64 a2)
 {
   BOOL v3; // ebx

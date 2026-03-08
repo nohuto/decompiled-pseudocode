@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhValidateMsOs20DescriptorSetHeader @ 0x1C0052BC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 char __fastcall UsbhValidateMsOs20DescriptorSetHeader(__int64 a1, _DWORD *a2, _WORD *a3)
 {
   if ( (*a2 & 2) != 0 )

@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpCheckAndReportGhes @ 0x14029AA2C
+ * Callers:
+ *     HalpGenericPolledWorkerRoutine @ 0x14029A9C0 (HalpGenericPolledWorkerRoutine.c)
+ *     HalHandleNMI @ 0x140504300 (HalHandleNMI.c)
+ *     HalpPeiInterruptHandler @ 0x140516750 (HalpPeiInterruptHandler.c)
+ *     HalpGenInitialRead @ 0x140A88528 (HalpGenInitialRead.c)
+ * Callees:
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     HalpExtractGenericErrorData @ 0x1405166F4 (HalpExtractGenericErrorData.c)
+ *     HalpSignalRAS @ 0x14051681C (HalpSignalRAS.c)
+ *     WheaReportHwError @ 0x14060E280 (WheaReportHwError.c)
+ */
+
 char __fastcall HalpCheckAndReportGhes(__int64 a1)
 {
   char v2; // si

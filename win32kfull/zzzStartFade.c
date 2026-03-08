@@ -1,3 +1,15 @@
+/*
+ * XREFs of zzzStartFade @ 0x1C01BE6C0
+ * Callers:
+ *     xxxTooltipWndProc @ 0x1C00FA000 (xxxTooltipWndProc.c)
+ *     zzzStartSonar @ 0x1C01BE79C (zzzStartSonar.c)
+ *     ?xxxMNDismissWithNotify@@YAXPEAUtagMENUSTATE@@AEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@I_J@Z @ 0x1C0218A2C (-xxxMNDismissWithNotify@@YAXPEAUtagMENUSTATE@@AEBV-$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITE.c)
+ *     xxxMenuWindowProc @ 0x1C021D3D0 (xxxMenuWindowProc.c)
+ * Callees:
+ *     _SetSystemTimer @ 0x1C0006384 (_SetSystemTimer.c)
+ *     zzzShowFade @ 0x1C01BE658 (zzzShowFade.c)
+ */
+
 __int64 zzzStartFade()
 {
   GreSetDCOwnerEx(*(_QWORD *)&gfade[2], 0LL, 0LL, 1LL);

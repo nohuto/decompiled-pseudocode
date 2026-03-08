@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TryAcquireDeviceLockForAllDevices@ADAPTER_RENDER@@QEAAEW4DXGADAPTER_DEVICELISTTYPE@@@Z @ 0x1C01E0C74
+ * Callers:
+ *     ?AcquireLocksForPowerStateD3transition@DXGADAPTER@@QEAAXXZ @ 0x1C01E09A8 (-AcquireLocksForPowerStateD3transition@DXGADAPTER@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall ADAPTER_RENDER::TryAcquireDeviceLockForAllDevices(__int64 a1, int a2)
 {
   __int64 v2; // rbx

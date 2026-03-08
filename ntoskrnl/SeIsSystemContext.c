@@ -1,3 +1,11 @@
+/*
+ * XREFs of SeIsSystemContext @ 0x1405B6D4C
+ * Callers:
+ *     SepFilterToken @ 0x14073FED0 (SepFilterToken.c)
+ * Callees:
+ *     SeAccessCheck @ 0x140265330 (SeAccessCheck.c)
+ */
+
 __int64 __fastcall SeIsSystemContext(void *a1, _BYTE *a2)
 {
   struct _SECURITY_SUBJECT_CONTEXT v4; // [rsp+50h] [rbp-28h] BYREF

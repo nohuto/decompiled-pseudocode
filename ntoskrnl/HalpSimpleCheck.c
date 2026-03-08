@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpSimpleCheck @ 0x140A94110
+ * Callers:
+ *     HalpCheckLowMemoryPostSleep @ 0x140A93B8C (HalpCheckLowMemoryPostSleep.c)
+ *     HalpCheckLowMemoryPreSleep @ 0x140A93CC8 (HalpCheckLowMemoryPreSleep.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpSimpleCheck(const __m128i *a1)
 {
   __m128i v1; // xmm1

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspQueryJobHierarchyProcessIdList @ 0x1406F91EC
+ * Callers:
+ *     NtQueryInformationJobObject @ 0x1406F9480 (NtQueryInformationJobObject.c)
+ * Callees:
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406FB7C8 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspUnlockJob @ 0x1406FBF7C (PspUnlockJob.c)
+ *     PspLockJobShared @ 0x1406FBFC0 (PspLockJobShared.c)
+ */
+
 __int64 __fastcall PspQueryJobHierarchyProcessIdList(_DWORD *Object, _DWORD *a2, int a3, _DWORD *a4)
 {
   struct _KTHREAD *CurrentThread; // rsi

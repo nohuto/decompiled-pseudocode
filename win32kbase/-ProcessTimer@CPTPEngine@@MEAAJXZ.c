@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ProcessTimer@CPTPEngine@@MEAAJXZ @ 0x1C02389D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsTouchpadActive@CPTPEngine@@AEAAHXZ @ 0x1C00F5884 (-IsTouchpadActive@CPTPEngine@@AEAAHXZ.c)
+ *     ?CancelMouseUpTimer@CPTPEngine@@AEAAXH@Z @ 0x1C0235328 (-CancelMouseUpTimer@CPTPEngine@@AEAAXH@Z.c)
+ *     ?SendTelemetryOutput@CBasePTPEngine@@IEAAXW4Action@Telemetry@Payload@PTPTelemetryOutput@@TParameters@345@@Z @ 0x1C023A204 (-SendTelemetryOutput@CBasePTPEngine@@IEAAXW4Action@Telemetry@Payload@PTPTelemetryOutput@@TParame.c)
+ */
+
 __int64 __fastcall CPTPEngine::ProcessTimer(CPTPEngine *this)
 {
   __int128 v3; // [rsp+20h] [rbp-48h] BYREF

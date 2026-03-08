@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiWriteCompletePfn @ 0x140212B10
+ * Callers:
+ *     MiWriteComplete @ 0x1402126E0 (MiWriteComplete.c)
+ *     MiBuildMappedCluster @ 0x140213100 (MiBuildMappedCluster.c)
+ *     MiGatherPagefilePages @ 0x140637D34 (MiGatherPagefilePages.c)
+ *     MiUnlockStoreLockedPages @ 0x14065A830 (MiUnlockStoreLockedPages.c)
+ * Callees:
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiIsPfnCommitNotCharged @ 0x140286190 (MiIsPfnCommitNotCharged.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402879C0 (MiPfnReferenceCountIsZero.c)
+ *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14029DAB8 (MI_IS_PTE_IN_WS_SWAP_SET.c)
+ *     MiCapturePageFileInfoInline @ 0x1402DE2D4 (MiCapturePageFileInfoInline.c)
+ *     MiRestoreTransitionPte @ 0x14036A9C4 (MiRestoreTransitionPte.c)
+ */
+
 __int64 __fastcall MiWriteCompletePfn(ULONG_PTR BugCheckParameter2, char a2)
 {
   __int64 v2; // rdi

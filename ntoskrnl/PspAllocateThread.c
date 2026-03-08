@@ -1,3 +1,47 @@
+/*
+ * XREFs of PspAllocateThread @ 0x1406B00F4
+ * Callers:
+ *     PspCreateThread @ 0x1406B1908 (PspCreateThread.c)
+ *     NtCreateUserProcess @ 0x14070C850 (NtCreateUserProcess.c)
+ *     PspCreatePicoThread @ 0x1409B27F0 (PspCreatePicoThread.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KeQuerySystemTimeUnsafe @ 0x140237D60 (KeQuerySystemTimeUnsafe.c)
+ *     KeQueryMaximumGroupCount @ 0x1402381F0 (KeQueryMaximumGroupCount.c)
+ *     ExInitializePushLock @ 0x140238200 (ExInitializePushLock.c)
+ *     PoEnergyEstimationEnabled @ 0x1402384C0 (PoEnergyEstimationEnabled.c)
+ *     KeQuerySystemTimePrecise @ 0x1402384E0 (KeQuerySystemTimePrecise.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeGetProcessorNodeNumber @ 0x1402FC5A0 (KeGetProcessorNodeNumber.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KeInitializeSemaphore @ 0x140343A50 (KeInitializeSemaphore.c)
+ *     PsAssignThreadId @ 0x140352ED4 (PsAssignThreadId.c)
+ *     KeGetProcessorNodeNumberByIndex @ 0x140353BBC (KeGetProcessorNodeNumberByIndex.c)
+ *     KeSelectInitialIdealProcessorForThread @ 0x1403598E0 (KeSelectInitialIdealProcessorForThread.c)
+ *     RtlGetExtendedContextLength @ 0x140364A90 (RtlGetExtendedContextLength.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlLocateExtendedFeature @ 0x14045BC10 (RtlLocateExtendedFeature.c)
+ *     PsQueryThreadStartAddress @ 0x1405A1A94 (PsQueryThreadStartAddress.c)
+ *     PspSetupUserStack @ 0x1406A2EF8 (PspSetupUserStack.c)
+ *     MmCreateTeb @ 0x1406A32D8 (MmCreateTeb.c)
+ *     MmDeleteTeb @ 0x1406A51C0 (MmDeleteTeb.c)
+ *     MmSecureVirtualMemoryEx @ 0x140769030 (MmSecureVirtualMemoryEx.c)
+ *     PspWow64InitThread @ 0x14077BCB4 (PspWow64InitThread.c)
+ *     PspWow64SetupUserStack @ 0x14078F944 (PspWow64SetupUserStack.c)
+ *     PspDeleteUserStack @ 0x140799590 (PspDeleteUserStack.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ *     PspSetupUserShadowStack @ 0x1409AEB6C (PspSetupUserShadowStack.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     KeInitThread @ 0x140A845D0 (KeInitThread.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PspAllocateThread(
         PRKPROCESS PROCESS,
         ULONG_PTR a2,

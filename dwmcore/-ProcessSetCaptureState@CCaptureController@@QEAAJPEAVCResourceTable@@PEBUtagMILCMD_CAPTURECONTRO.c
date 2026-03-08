@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ProcessSetCaptureState@CCaptureController@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_CAPTURECONTROLLER_SETCAPTURESTATE@@@Z @ 0x18021D26C
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F0A8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CCaptureController::ProcessSetCaptureState(
         CCaptureController *this,
         struct CResourceTable *a2,

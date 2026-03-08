@@ -1,3 +1,21 @@
+/*
+ * XREFs of VfTargetDriversRemove @ 0x140303260
+ * Callers:
+ *     VfDriverUnloadImage @ 0x140ABA284 (VfDriverUnloadImage.c)
+ * Callees:
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     VfUtilFreePoolCheckIRQL @ 0x140303240 (VfUtilFreePoolCheckIRQL.c)
+ *     VfAvlDeleteTreeNode @ 0x140303394 (VfAvlDeleteTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x140303680 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403039F0 (VfAvlCleanupLockContext.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     VfThunkRemoveTargetNotify @ 0x140AB9E74 (VfThunkRemoveTargetNotify.c)
+ *     ViTargetRemovingCheckContiguousMemory @ 0x140AC8C50 (ViTargetRemovingCheckContiguousMemory.c)
+ *     ViTargetRemovingCheckEtwWmi @ 0x140AC8CCC (ViTargetRemovingCheckEtwWmi.c)
+ *     VfPoolCheckForLeaks @ 0x140AD708C (VfPoolCheckForLeaks.c)
+ */
+
 void __fastcall VfTargetDriversRemove(__int64 a1)
 {
   __int64 v2; // r14

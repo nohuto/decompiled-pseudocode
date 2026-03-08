@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetPairedSurfaceInfo@CompositionSurfaceObject@@UEBAJAEAIAEA_K@Z @ 0x1C007B580
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000E098 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C0051E98 (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
+ */
+
 __int64 __fastcall CompositionSurfaceObject::GetPairedSurfaceInfo(
         CompositionSurfaceObject *this,
         unsigned int *a2,

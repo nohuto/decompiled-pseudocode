@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiInvalidTssFault @ 0x140426080
+ * Callers:
+ *     KiInvalidTssFaultShadow @ 0x140AF3640 (KiInvalidTssFaultShadow.c)
+ * Callees:
+ *     KiSaveDebugRegisterState @ 0x140416550 (KiSaveDebugRegisterState.c)
+ *     KiInvalidTssFault @ 0x140426080 (KiInvalidTssFault.c)
+ *     KiBugCheckDispatch @ 0x14042BEC0 (KiBugCheckDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x14042C900 (KiFlushBhbDuringTrapEntryOrExit.c)
+ */
+
 void __noreturn KiInvalidTssFault()
 {
   struct _KTHREAD *CurrentThread; // r10

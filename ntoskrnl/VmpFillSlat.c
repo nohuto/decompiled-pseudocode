@@ -1,3 +1,15 @@
+/*
+ * XREFs of VmpFillSlat @ 0x1405F6C78
+ * Callers:
+ *     VmpProcessUpdateSlat @ 0x1405F874C (VmpProcessUpdateSlat.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     VmpLogLargeSlatFill @ 0x1405F78B4 (VmpLogLargeSlatFill.c)
+ *     VmpLogSparseSlatFill @ 0x1405F79AC (VmpLogSparseSlatFill.c)
+ *     HvlMapGpaPages @ 0x140676A60 (HvlMapGpaPages.c)
+ *     HvlMapSparseGpaPages @ 0x140676BD4 (HvlMapSparseGpaPages.c)
+ */
+
 __int64 __fastcall VmpFillSlat(__int64 a1, unsigned int a2, __int64 a3, _QWORD *a4, _QWORD *a5)
 {
   unsigned int v6; // esi

@@ -1,3 +1,25 @@
+/*
+ * XREFs of PspGetSetContextInternal @ 0x1406EA840
+ * Callers:
+ *     PspGetSetContextSpecialApc @ 0x140420250 (PspGetSetContextSpecialApc.c)
+ * Callees:
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x140281490 (RtlpLookupFunctionEntryForStackWalks.c)
+ *     RtlVirtualUnwind2 @ 0x140281680 (RtlVirtualUnwind2.c)
+ *     RtlpIsFrameInBoundsEx @ 0x140282250 (RtlpIsFrameInBoundsEx.c)
+ *     RtlpGetStackLimits @ 0x1403129F0 (RtlpGetStackLimits.c)
+ *     RtlpValidateContextXStateDisabledFeatures @ 0x1403649B4 (RtlpValidateContextXStateDisabledFeatures.c)
+ *     KeVerifyContextXStateCetU @ 0x1403649C8 (KeVerifyContextXStateCetU.c)
+ *     RtlGetExtendedContextLength @ 0x140364A90 (RtlGetExtendedContextLength.c)
+ *     KeVerifyContextIpForUserCet @ 0x14036551C (KeVerifyContextIpForUserCet.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlpCaptureContext @ 0x140420560 (RtlpCaptureContext.c)
+ *     PspSetContext @ 0x1407603A0 (PspSetContext.c)
+ *     PspGetContext @ 0x1407ED060 (PspGetContext.c)
+ *     RtlCopyContext @ 0x1407EE220 (RtlCopyContext.c)
+ *     VslGetSetSecureContext @ 0x14093F65C (VslGetSetSecureContext.c)
+ *     PspSetContextState @ 0x1409B51B8 (PspSetContextState.c)
+ */
+
 __int64 __fastcall PspGetSetContextInternal(__int64 a1, __int64 a2, _QWORD *a3)
 {
   unsigned __int8 v3; // di

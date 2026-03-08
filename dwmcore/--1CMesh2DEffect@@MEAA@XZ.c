@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CMesh2DEffect@@MEAA@XZ @ 0x1802BB38C
+ * Callers:
+ *     ??_GCMesh2DEffect@@MEAAPEAXI@Z @ 0x1802BB438 (--_GCMesh2DEffect@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CMesh2DEffect::~CMesh2DEffect(CMesh2DEffect *this)
 {
   __int64 v2; // rcx

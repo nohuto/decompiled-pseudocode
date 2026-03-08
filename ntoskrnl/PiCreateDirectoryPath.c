@@ -1,3 +1,15 @@
+/*
+ * XREFs of PiCreateDirectoryPath @ 0x14095272C
+ * Callers:
+ *     PiOpenDirectoryWithRoot @ 0x140953234 (PiOpenDirectoryWithRoot.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateFile @ 0x140412DB0 (ZwCreateFile.c)
+ *     PnpConcatenateUnicodeStrings @ 0x140683298 (PnpConcatenateUnicodeStrings.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ */
+
 __int64 __fastcall PiCreateDirectoryPath(UNICODE_STRING *SourceString, void *a2, HANDLE *a3)
 {
   wchar_t *v6; // rax

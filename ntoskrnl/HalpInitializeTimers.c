@@ -1,3 +1,20 @@
+/*
+ * XREFs of HalpInitializeTimers @ 0x1403A06E0
+ * Callers:
+ *     HalpTimerInitSystem @ 0x1403776D0 (HalpTimerInitSystem.c)
+ * Callees:
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     HalpTimerBuildKnownResourceIdString @ 0x1403741C4 (HalpTimerBuildKnownResourceIdString.c)
+ *     HalpTimerSelectRoles @ 0x140376F4C (HalpTimerSelectRoles.c)
+ *     HalpFindTimer @ 0x140377CA8 (HalpFindTimer.c)
+ *     HalpTimerCalculateMaximumAllowableDrift @ 0x1403A087C (HalpTimerCalculateMaximumAllowableDrift.c)
+ *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1403A08C4 (HalpTimerRegisterBuiltinPluginsCommon.c)
+ *     HalpTimerCreateReferencePage @ 0x1403A0A54 (HalpTimerCreateReferencePage.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall HalpInitializeTimers(__int64 a1)
 {
   __int64 v2; // rbx

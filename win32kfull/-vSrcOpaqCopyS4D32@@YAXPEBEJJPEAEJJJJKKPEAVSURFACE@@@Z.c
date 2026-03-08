@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vSrcOpaqCopyS4D32@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z @ 0x1C0274C00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vSrcOpaqCopyS4D32Unsave@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z @ 0x1C0274CD0 (-vSrcOpaqCopyS4D32Unsave@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z.c)
+ */
+
 void __fastcall vSrcOpaqCopyS4D32(
         const unsigned __int8 *a1,
         int a2,

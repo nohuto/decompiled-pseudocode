@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwpAdjustSiloTraceBuffers @ 0x1402067AC
+ * Callers:
+ *     EtwpAdjustTraceBuffers @ 0x1402948E0 (EtwpAdjustTraceBuffers.c)
+ * Callees:
+ *     EtwpDequeueBuffer @ 0x140206388 (EtwpDequeueBuffer.c)
+ *     EtwpUnlockBufferList @ 0x140206498 (EtwpUnlockBufferList.c)
+ *     EtwpLockBufferList @ 0x1402064E4 (EtwpLockBufferList.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140206540 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpFreeTraceBuffer @ 0x14028DAD0 (EtwpFreeTraceBuffer.c)
+ *     EtwpReleaseLoggerContext @ 0x14069349C (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140693AFC (EtwpAcquireLoggerContextByLoggerId.c)
+ */
+
 _UNKNOWN **__fastcall EtwpAdjustSiloTraceBuffers(__int64 a1)
 {
   _UNKNOWN **result; // rax

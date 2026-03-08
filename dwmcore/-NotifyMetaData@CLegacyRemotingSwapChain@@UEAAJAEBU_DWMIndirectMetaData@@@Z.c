@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?NotifyMetaData@CLegacyRemotingSwapChain@@UEAAJAEBU_DWMIndirectMetaData@@@Z @ 0x1802A0460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0xxx_EventWriteTransfer @ 0x180253640 (McTemplateU0xxx_EventWriteTransfer.c)
+ */
+
 __int64 __fastcall CLegacyRemotingSwapChain::NotifyMetaData(
         CLegacyRemotingSwapChain *this,
         const struct _DWMIndirectMetaData *a2)

@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?TryMergeOneLayer@CBatchOptimizer@@AEAA_NXZ @ 0x18008E300
+ * Callers:
+ *     ?Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z @ 0x180084A90 (-Render@CHWDrawListEntry@@UEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@MW4Enum@BlendMode@@@Z.c)
+ *     ?Flush@CBatchOptimizer@@QEAAXXZ @ 0x18008DF10 (-Flush@CBatchOptimizer@@QEAAXXZ.c)
+ *     ?AddRenderingCommand@CBatchOptimizer@@QEAAX$$QEAV?$unique_ptr@VCBatchCommand@@U?$default_delete@VCBatchCommand@@@std@@@std@@@Z @ 0x18008F1F0 (-AddRenderingCommand@CBatchOptimizer@@QEAAX$$QEAV-$unique_ptr@VCBatchCommand@@U-$default_delete@.c)
+ *     ?AppendLayer@CBatchOptimizer@@AEAAXXZ @ 0x180090EB8 (-AppendLayer@CBatchOptimizer@@AEAAXXZ.c)
+ * Callees:
+ *     ?TryRemoveEmptyStateSettingLayer@CBatchOptimizer@@AEAA_NH@Z @ 0x18000D610 (-TryRemoveEmptyStateSettingLayer@CBatchOptimizer@@AEAA_NH@Z.c)
+ *     ?ContinueLayer@CBatchOptimizer@@AEAAXH@Z @ 0x18000DAAC (-ContinueLayer@CBatchOptimizer@@AEAAXH@Z.c)
+ *     ?SkipContinuations@CBatchOptimizer@@AEBAHH@Z @ 0x180013454 (-SkipContinuations@CBatchOptimizer@@AEBAHH@Z.c)
+ *     ?ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z @ 0x18008E6C0 (-ConsolidateAdjacentHomogeneousLayers@CBatchOptimizer@@AEAAXH@Z.c)
+ */
+
 char __fastcall CBatchOptimizer::TryMergeOneLayer(CBatchOptimizer *this)
 {
   char *v1; // r9

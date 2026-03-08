@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmTmCreateEnlistment @ 0x140735534
+ * Callers:
+ *     CmpTransInitializeTransaction @ 0x1407353BC (CmpTransInitializeTransaction.c)
+ * Callees:
+ *     TmCreateEnlistment @ 0x1403D28D0 (TmCreateEnlistment.c)
+ */
+
 NTSTATUS __fastcall CmTmCreateEnlistment(HANDLE *a1, struct _KRESOURCEMANAGER *a2, struct _KTRANSACTION *a3, void *a4)
 {
   OBJECT_ATTRIBUTES v5; // [rsp+50h] [rbp-38h] BYREF

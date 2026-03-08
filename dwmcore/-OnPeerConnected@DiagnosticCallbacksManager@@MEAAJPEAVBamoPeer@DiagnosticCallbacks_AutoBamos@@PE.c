@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnPeerConnected@DiagnosticCallbacksManager@@MEAAJPEAVBamoPeer@DiagnosticCallbacks_AutoBamos@@PEA_NPEAPEAVBamoPrincipal@Bamo@Microsoft@@@Z @ 0x180104DB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DiagnosticCallbacksManager::OnPeerConnected(
         DiagnosticCallbacksManager *this,
         struct DiagnosticCallbacks_AutoBamos::BamoPeer *a2,

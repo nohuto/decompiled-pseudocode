@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiCaptureSecureImageBaseAddress @ 0x140A45314
+ * Callers:
+ *     MiValidateSectionCreate @ 0x14069F890 (MiValidateSectionCreate.c)
+ * Callees:
+ *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x14020AFAC (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x14020B028 (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall MiCaptureSecureImageBaseAddress(_QWORD *a1)
 {
   __int64 v1; // rbx

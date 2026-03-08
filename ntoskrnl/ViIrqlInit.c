@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViIrqlInit @ 0x140AE5484
+ * Callers:
+ *     VfIrqlPluginEntry @ 0x140679A04 (VfIrqlPluginEntry.c)
+ * Callees:
+ *     ExAllocatePool3 @ 0x140AAB320 (ExAllocatePool3.c)
+ */
+
 __int64 ViIrqlInit()
 {
   _InterlockedExchange(&ViIrqlTrimAndLog, 1);

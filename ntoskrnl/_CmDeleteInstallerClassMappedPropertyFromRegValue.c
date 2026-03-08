@@ -1,3 +1,15 @@
+/*
+ * XREFs of _CmDeleteInstallerClassMappedPropertyFromRegValue @ 0x140A64B18
+ * Callers:
+ *     _CmSetInstallerClassMappedProperty @ 0x140A66C94 (_CmSetInstallerClassMappedProperty.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x140413EB0 (ZwDeleteValueKey.c)
+ *     _CmOpenInstallerClassRegKey @ 0x1406C4ED8 (_CmOpenInstallerClassRegKey.c)
+ *     _PnpOpenPropertiesKey @ 0x1406D1610 (_PnpOpenPropertiesKey.c)
+ */
+
 __int64 __fastcall CmDeleteInstallerClassMappedPropertyFromRegValue(__int64 a1, int a2, void *a3, __int64 a4)
 {
   int v4; // r10d

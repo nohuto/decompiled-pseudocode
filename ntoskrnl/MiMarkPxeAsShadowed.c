@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiMarkPxeAsShadowed @ 0x140371944
+ * Callers:
+ *     MiInitializeShadowPageTable @ 0x14080B974 (MiInitializeShadowPageTable.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiMarkPxeAsShadowed(unsigned int a1)
 {
   unsigned int v1; // ebx

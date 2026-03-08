@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmFcpManagerRetryUsageNotificationsWorker @ 0x140A25190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     CmFcpManagerDrainUsageNotifications @ 0x140818490 (CmFcpManagerDrainUsageNotifications.c)
+ */
+
 char __fastcall CmFcpManagerRetryUsageNotificationsWorker(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax

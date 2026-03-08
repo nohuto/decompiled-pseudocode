@@ -1,3 +1,15 @@
+/*
+ * XREFs of RemoteDisableScreen @ 0x1C00F7460
+ * Callers:
+ *     ?DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C0094CDC (-DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
+ *     xxxRemoteStopScreenUpdates @ 0x1C00F6E08 (xxxRemoteStopScreenUpdates.c)
+ * Callees:
+ *     xxxSwitchDesktop @ 0x1C00205D4 (xxxSwitchDesktop.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ */
+
 __int64 __fastcall RemoteDisableScreen(_QWORD *a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   _QWORD *v4; // rsi

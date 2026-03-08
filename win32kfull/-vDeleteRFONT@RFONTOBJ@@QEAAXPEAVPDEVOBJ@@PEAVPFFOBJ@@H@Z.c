@@ -1,3 +1,29 @@
+/*
+ * XREFs of ?vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z @ 0x1C0123828
+ * Callers:
+ *     ?bMakeInactiveHelper@RFONTOBJ@@QEAAHPEAPEAVRFONT@@@Z @ 0x1C01147B0 (-bMakeInactiveHelper@RFONTOBJ@@QEAAHPEAPEAVRFONT@@@Z.c)
+ *     bUnloadEudcFont @ 0x1C01162DC (bUnloadEudcFont.c)
+ *     RFONTOBJ_vDeleteRFONTWrap @ 0x1C0123E00 (RFONTOBJ_vDeleteRFONTWrap.c)
+ *     vKillRFONTList @ 0x1C026E230 (vKillRFONTList.c)
+ *     ?vRestartKillEudcRFONTs@@YAXPEAVRFONT@@@Z @ 0x1C026E3D0 (-vRestartKillEudcRFONTs@@YAXPEAVRFONT@@@Z.c)
+ *     ?RestartInactiveHelper@@YAXPEAVRFONT@@@Z @ 0x1C02B89F0 (-RestartInactiveHelper@@YAXPEAVRFONT@@@Z.c)
+ *     ?vRestartRemoveAllInactiveRFONTs@@YAXPEAPEAVRFONT@@@Z @ 0x1C02B9C40 (-vRestartRemoveAllInactiveRFONTs@@YAXPEAPEAVRFONT@@@Z.c)
+ *     vRemoveAllInactiveRFONTs @ 0x1C02B9D14 (vRemoveAllInactiveRFONTs.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vFreepfdg@PFEOBJ@@QEAAXXZ @ 0x1C0122194 (-vFreepfdg@PFEOBJ@@QEAAXXZ.c)
+ *     ?vRemove@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z @ 0x1C0123A3C (-vRemove@RFONTOBJ@@QEAAXPEAPEAVRFONT@@W4_RFL_TYPE@@@Z.c)
+ *     ?prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ @ 0x1C0123AD4 (-prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@XZ.c)
+ *     ?prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z @ 0x1C0123AF4 (-prfntInactive@PDEVOBJ@@QEAAPEAVRFONT@@PEAV2@@Z.c)
+ *     ??0NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@_N@Z @ 0x1C0123B1C (--0NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@_N@Z.c)
+ *     ?cInactive@PDEVOBJ@@QEAAIXZ @ 0x1C0123B7C (-cInactive@PDEVOBJ@@QEAAIXZ.c)
+ *     ??$FreeIsolatedType@V?$CTypeIsolation@$0DJAAA@$0DJA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C0123B9C (--$FreeIsolatedType@V-$CTypeIsolation@$0DJAAA@$0DJA@@NSInstrumentation@@@@YAXPEAX@Z.c)
+ *     ??1NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C0123BD8 (--1NEEDDYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ?vDeleteRFONTRef@PFFOBJ@@QEAAXXZ @ 0x1C0123C28 (-vDeleteRFONTRef@PFFOBJ@@QEAAXXZ.c)
+ *     ?DestroyFont@PDEVOBJ@@QEAAXPEAU_FONTOBJ@@@Z @ 0x1C0123CA0 (-DestroyFont@PDEVOBJ@@QEAAXPEAU_FONTOBJ@@@Z.c)
+ *     ?vDeleteCache@RFONTOBJ@@QEAAXXZ @ 0x1C0123D3C (-vDeleteCache@RFONTOBJ@@QEAAXXZ.c)
+ */
+
 void __fastcall RFONTOBJ::vDeleteRFONT(struct _FONTOBJ **this, struct PDEVOBJ *a2, struct PFFOBJ *a3, int a4)
 {
   struct _FONTOBJ *v4; // r10

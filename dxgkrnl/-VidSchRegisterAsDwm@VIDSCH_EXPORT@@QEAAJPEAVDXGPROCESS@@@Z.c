@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?VidSchRegisterAsDwm@VIDSCH_EXPORT@@QEAAJPEAVDXGPROCESS@@@Z @ 0x1C0014D18
+ * Callers:
+ *     ?DeferredInitialize@DXGPROCESS@@QEAAJI@Z @ 0x1C01A8184 (-DeferredInitialize@DXGPROCESS@@QEAAJI@Z.c)
+ *     DxgkRegisterDwmProcess @ 0x1C01D3F70 (DxgkRegisterDwmProcess.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall VIDSCH_EXPORT::VidSchRegisterAsDwm(VIDSCH_EXPORT *this, struct DXGPROCESS *a2)
 {
   __int64 v3; // rcx

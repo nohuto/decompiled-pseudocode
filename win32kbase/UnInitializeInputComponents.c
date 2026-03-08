@@ -1,3 +1,22 @@
+/*
+ * XREFs of UnInitializeInputComponents @ 0x1C0094C50
+ * Callers:
+ *     InputUnInitialize @ 0x1C0094FA8 (InputUnInitialize.c)
+ * Callees:
+ *     isChildPartition @ 0x1C0078FF0 (isChildPartition.c)
+ *     ?UnInitialize@InputExtensibilityCallout@@SAXXZ @ 0x1C0094980 (-UnInitialize@InputExtensibilityCallout@@SAXXZ.c)
+ *     ??1CInputConfig@@AEAA@XZ @ 0x1C0094AE8 (--1CInputConfig@@AEAA@XZ.c)
+ *     ?Uninitialize@CInpLockGuard@@QEAAXXZ @ 0x1C0094C10 (-Uninitialize@CInpLockGuard@@QEAAXXZ.c)
+ *     ?UnInitialize@CTouchProcessor@@SAJXZ @ 0x1C0094E4C (-UnInitialize@CTouchProcessor@@SAJXZ.c)
+ *     ?SetDesktopInputSink@CDesktopInputSink@@SA_NPEAXAEBU_LUID@@@Z @ 0x1C0094ED0 (-SetDesktopInputSink@CDesktopInputSink@@SA_NPEAXAEBU_LUID@@@Z.c)
+ *     ?GetInstance@CDesktopInputSink@@CAAEAV1@XZ @ 0x1C0094F6C (-GetInstance@CDesktopInputSink@@CAAEAV1@XZ.c)
+ *     ??1CCursorClip@@AEAA@XZ @ 0x1C00950B4 (--1CCursorClip@@AEAA@XZ.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     ?GetInstance@RootSynthesizedMouseList@InputVirtualization@@SAAEAV12@XZ @ 0x1C02174C8 (-GetInstance@RootSynthesizedMouseList@InputVirtualization@@SAAEAV12@XZ.c)
+ */
+
 bool __fastcall UnInitializeInputComponents(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   void *v4; // rbx

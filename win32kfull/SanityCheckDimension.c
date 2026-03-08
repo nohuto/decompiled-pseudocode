@@ -1,3 +1,11 @@
+/*
+ * XREFs of SanityCheckDimension @ 0x1C014AEB8
+ * Callers:
+ *     HT_HalftoneBitmap @ 0x1C025325C (HT_HalftoneBitmap.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall SanityCheckDimension(__int64 a1, int a2)
 {
   int v3; // edi

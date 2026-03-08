@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIBuildProcessDevicePhasePrs @ 0x1C000FC90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIBuildCompleteCommon @ 0x1C000BC30 (ACPIBuildCompleteCommon.c)
+ *     PnpBiosSetFlagsForNotableInterrupts @ 0x1C003C200 (PnpBiosSetFlagsForNotableInterrupts.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessDevicePhasePrs(__int64 a1)
 {
   bool v1; // zf

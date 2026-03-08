@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopFindLegacyBusDeviceNode @ 0x140805E30
+ * Callers:
+ *     IoTranslateBusAddress @ 0x14055DF60 (IoTranslateBusAddress.c)
+ *     IopDuplicateDetection @ 0x140803524 (IopDuplicateDetection.c)
+ *     PnpReleaseResourcesInternal @ 0x140803D74 (PnpReleaseResourcesInternal.c)
+ *     IopChildToRootTranslation @ 0x140805284 (IopChildToRootTranslation.c)
+ *     IopSetupArbiterAndTranslators @ 0x1408059BC (IopSetupArbiterAndTranslators.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall IopFindLegacyBusDeviceNode(unsigned int a1, unsigned int a2)
 {
   PVOID v2; // r8

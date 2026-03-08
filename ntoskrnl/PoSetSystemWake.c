@@ -1,3 +1,11 @@
+/*
+ * XREFs of PoSetSystemWake @ 0x140581660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __stdcall PoSetSystemWake(PIRP Irp)
 {
   __int64 v1; // rax

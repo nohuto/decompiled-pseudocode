@@ -1,3 +1,12 @@
+/*
+ * XREFs of _wchartodigit @ 0x1403D8124
+ * Callers:
+ *     wcstoxlX @ 0x1403D60F0 (wcstoxlX.c)
+ *     wcstoxq @ 0x1403D653C (wcstoxq.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall wchartodigit(unsigned __int16 a1)
 {
   int v1; // edx

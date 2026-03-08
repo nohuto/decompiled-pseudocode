@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwTraceQueueMessage @ 0x1C00A3AD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C004E3B0 (W32GetThreadWin32Thread.c)
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C004E3E0 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?GetCallbackCount@@YACXZ @ 0x1C00EDBA8 (-GetCallbackCount@@YACXZ.c)
+ *     McTemplateK0cppppqq_EtwWriteTransfer @ 0x1C00EE0AA (McTemplateK0cppppqq_EtwWriteTransfer.c)
+ *     McTemplateK0cppqp_EtwWriteTransfer @ 0x1C00EE320 (McTemplateK0cppqp_EtwWriteTransfer.c)
+ *     McTemplateK0cpttttttpppqq_EtwWriteTransfer @ 0x1C0164F7C (McTemplateK0cpttttttpppqq_EtwWriteTransfer.c)
+ *     McTemplateK0qqsp_EtwWriteTransfer @ 0x1C0167244 (McTemplateK0qqsp_EtwWriteTransfer.c)
+ */
+
 void __fastcall EtwTraceQueueMessage(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdi

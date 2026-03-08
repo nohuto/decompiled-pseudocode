@@ -1,3 +1,11 @@
+/*
+ * XREFs of VfPtComparePoolStackInfoCallback @ 0x140ADB710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VfPtComparePoolStackInfoCallback(
         struct _RTL_AVL_TABLE *Table,
         _DWORD *FirstStruct,

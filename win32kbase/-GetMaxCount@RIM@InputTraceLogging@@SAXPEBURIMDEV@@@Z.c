@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetMaxCount@RIM@InputTraceLogging@@SAXPEBURIMDEV@@@Z @ 0x1C01B25B8
+ * Callers:
+ *     RIMGetMaxCountFeatureDetails @ 0x1C01B69A4 (RIMGetMaxCountFeatureDetails.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0088924 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 void __fastcall InputTraceLogging::RIM::GetMaxCount(const struct RIMDEV *a1)
 {
   __int64 v1; // r8

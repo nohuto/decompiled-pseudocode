@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExInterlockedAddLargeInteger @ 0x14060A630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExpAcquireSpinLockDisabled @ 0x1402E50A8 (ExpAcquireSpinLockDisabled.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 LARGE_INTEGER __stdcall ExInterlockedAddLargeInteger(PLARGE_INTEGER Addend, LARGE_INTEGER Increment, PKSPIN_LOCK Lock)
 {
   bool v6; // al

@@ -1,3 +1,26 @@
+/*
+ * XREFs of KeWakeWaitChain @ 0x14033AF30
+ * Callers:
+ *     ExpConvertExclusiveToSharedLite @ 0x1402DCFAC (ExpConvertExclusiveToSharedLite.c)
+ *     ExpReleaseResourceForThreadLite @ 0x14033ABF0 (ExpReleaseResourceForThreadLite.c)
+ *     ExpConvertFastResourceExclusiveToShared @ 0x1403C5DA8 (ExpConvertFastResourceExclusiveToShared.c)
+ *     ExpCommitWakeResourceExclusive @ 0x1403C60E0 (ExpCommitWakeResourceExclusive.c)
+ *     ExpCommitWakeFastResource @ 0x14040FE18 (ExpCommitWakeFastResource.c)
+ *     ExpConvertFastResourceExclusiveToShared2 @ 0x14040FE4C (ExpConvertFastResourceExclusiveToShared2.c)
+ *     VrpRelinquishDiffHiveEntryTransitionOwner @ 0x140738090 (VrpRelinquishDiffHiveEntryTransitionOwner.c)
+ * Callees:
+ *     KiRemoveBoostThread @ 0x140229890 (KiRemoveBoostThread.c)
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KeAbPreWakeupHandle @ 0x1402390DC (KeAbPreWakeupHandle.c)
+ *     KiTryUnwaitThread @ 0x140258880 (KiTryUnwaitThread.c)
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     KiWakeOtherQueueWaiters @ 0x140293BF4 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x140340700 (KiWakeQueueWaiter.c)
+ *     KeIsThreadRunning @ 0x14056C7FC (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405FA8FC (EtwTraceEnqueueWork.c)
+ */
+
 __int64 __fastcall KeWakeWaitChain(volatile signed __int32 **a1, unsigned int a2, char a3)
 {
   volatile signed __int32 *v3; // rdi

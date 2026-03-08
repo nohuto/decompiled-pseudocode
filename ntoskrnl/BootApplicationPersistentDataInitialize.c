@@ -1,3 +1,13 @@
+/*
+ * XREFs of BootApplicationPersistentDataInitialize @ 0x140B4979C
+ * Callers:
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall BootApplicationPersistentDataInitialize(__int64 a1)
 {
   _QWORD **v1; // rdi

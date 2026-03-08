@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SmmUnmapContiguousRangeFromIommu@@YAXPEAUSYSMM_IOMMU@@_K11_N@Z @ 0x1C006EBA0
+ * Callers:
+ *     SmmMapExistingMemoryToDomain @ 0x1C006E778 (SmmMapExistingMemoryToDomain.c)
+ *     SmmUnmapNonPagedObjectFromIommu @ 0x1C006ECF0 (SmmUnmapNonPagedObjectFromIommu.c)
+ *     ?SysMmUnmapIommuContiguousRange@@YAXPEAUSYSMM_ADAPTER@@_KT_LARGE_INTEGER@@1_N@Z @ 0x1C006EF90 (-SysMmUnmapIommuContiguousRange@@YAXPEAUSYSMM_ADAPTER@@_KT_LARGE_INTEGER@@1_N@Z.c)
+ * Callees:
+ *     ?SmmUnmapMdlFromIommu@@YAXPEAUSYSMM_IOMMU@@_KPEAU_MDL@@_N@Z @ 0x1C006ECC4 (-SmmUnmapMdlFromIommu@@YAXPEAUSYSMM_IOMMU@@_KPEAU_MDL@@_N@Z.c)
+ */
+
 void __fastcall SmmUnmapContiguousRangeFromIommu(
         struct SYSMM_IOMMU *a1,
         unsigned __int64 a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiPollSingleDisplayChild @ 0x1C0394E68
+ * Callers:
+ *     ?LinkTrainingTimeoutWorkItem@DMMVIDEOPRESENTTARGET@@SAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C03AE9E0 (-LinkTrainingTimeoutWorkItem@DMMVIDEOPRESENTTARGET@@SAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@.c)
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ *     DpiFdoInvalidateChildStatus @ 0x1C0397E60 (DpiFdoInvalidateChildStatus.c)
+ */
+
 __int64 __fastcall DpiPollSingleDisplayChild(__int64 a1, int a2, __int64 a3)
 {
   __int64 v3; // rbx

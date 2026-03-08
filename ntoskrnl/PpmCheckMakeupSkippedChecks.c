@@ -1,3 +1,16 @@
+/*
+ * XREFs of PpmCheckMakeupSkippedChecks @ 0x1402EB350
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PpmEventTraceMakeupPerfCheck @ 0x14045AE3C (PpmEventTraceMakeupPerfCheck.c)
+ *     PpmPerfCompleteMakeup @ 0x14058AC04 (PpmPerfCompleteMakeup.c)
+ *     PpmPerfMinimumPerfReached @ 0x14058AEFC (PpmPerfMinimumPerfReached.c)
+ *     PpmParkMaximumCoresParked @ 0x14059ABE4 (PpmParkMaximumCoresParked.c)
+ */
+
 char PpmCheckMakeupSkippedChecks()
 {
   __int64 Prcb; // rax

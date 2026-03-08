@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RtlUnicodeStringCchCatStringN@@YAJPEAU_UNICODE_STRING@@PEBG_K@Z @ 0x1C005B5E0
+ * Callers:
+ *     ?VmBusSendGetRegistryKeys@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAG@Z @ 0x1C03856B8 (-VmBusSendGetRegistryKeys@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAG@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlUnicodeStringCchCatStringN(struct _UNICODE_STRING *a1, wchar_t *a2)
 {
   unsigned __int64 Length; // r9

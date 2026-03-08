@@ -1,3 +1,14 @@
+/*
+ * XREFs of InitializeNativeNamespace @ 0x1C0049FD4
+ * Callers:
+ *     AMLIInitialize @ 0x1C00AAAB0 (AMLIInitialize.c)
+ * Callees:
+ *     CreateNativeNameSpaceObject @ 0x1C0049D38 (CreateNativeNameSpaceObject.c)
+ *     InsertOwnerObjList @ 0x1C004BDF0 (InsertOwnerObjList.c)
+ *     NewObjOwner @ 0x1C004C324 (NewObjOwner.c)
+ *     NewNameSpaceObject @ 0x1C004FDF0 (NewNameSpaceObject.c)
+ */
+
 __int64 InitializeNativeNamespace()
 {
   __int64 v0; // rcx

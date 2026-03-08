@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcOkToAddWriteBehindThread @ 0x140534778
+ * Callers:
+ *     CcWorkerThread @ 0x140215D70 (CcWorkerThread.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CcOkToAddWriteBehindThread(__int64 a1, __int64 a2)
 {
   unsigned int v2; // r8d

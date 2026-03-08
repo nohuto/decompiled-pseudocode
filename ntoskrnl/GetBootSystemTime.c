@@ -1,3 +1,18 @@
+/*
+ * XREFs of GetBootSystemTime @ 0x140B70018
+ * Callers:
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     HalQueryRealTimeClock @ 0x1402D0F30 (HalQueryRealTimeClock.c)
+ *     ExLocalTimeToSystemTime @ 0x1402D10A0 (ExLocalTimeToSystemTime.c)
+ *     ExSystemTimeToLocalTime @ 0x1402D10F0 (ExSystemTimeToLocalTime.c)
+ *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x1402D11E0 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
+ *     RtlpTimeToTimeFields @ 0x1402D14C8 (RtlpTimeToTimeFields.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalSetRealTimeClock @ 0x1404FCC40 (HalSetRealTimeClock.c)
+ */
+
 LARGE_INTEGER __fastcall GetBootSystemTime(__int64 a1, LARGE_INTEGER *a2)
 {
   bool v4; // zf

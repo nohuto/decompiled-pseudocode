@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiPccInterruptSupported @ 0x1C0089C9C
+ * Callers:
+ *     ACPIPccInitialize @ 0x1C00894D8 (ACPIPccInitialize.c)
+ *     AcpiPccInitializeSubspace @ 0x1C0089A94 (AcpiPccInitializeSubspace.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall AcpiPccInterruptSupported(__int64 a1)
 {
   char v1; // dl

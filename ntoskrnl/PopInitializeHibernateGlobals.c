@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopInitializeHibernateGlobals @ 0x14082ABAC
+ * Callers:
+ *     PoInitHiberServices @ 0x14082B1B0 (PoInitHiberServices.c)
+ * Callees:
+ *     ZwQuerySystemInformation @ 0x1404129D0 (ZwQuerySystemInformation.c)
+ *     PopInitHiberPersistedRegValues @ 0x14080FC80 (PopInitHiberPersistedRegValues.c)
+ *     PoDisableSleepStates @ 0x140980FB0 (PoDisableSleepStates.c)
+ *     PoShutdownBugCheck @ 0x1409865B0 (PoShutdownBugCheck.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void PopInitializeHibernateGlobals()
 {
   _DWORD *v0; // rbx

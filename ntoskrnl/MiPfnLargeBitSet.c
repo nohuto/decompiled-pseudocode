@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiPfnLargeBitSet @ 0x1403B6D48
+ * Callers:
+ *     MiTradePage @ 0x1403B5640 (MiTradePage.c)
+ *     MiPfnsWorthTrying @ 0x1403B6374 (MiPfnsWorthTrying.c)
+ *     MiActivePageClaimCandidate @ 0x1403B68D8 (MiActivePageClaimCandidate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiPfnLargeBitSet(__int64 a1, unsigned __int64 a2)
 {
   unsigned int v2; // r8d

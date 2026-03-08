@@ -1,3 +1,19 @@
+/*
+ * XREFs of Usbh_BusPause_PdoEvent @ 0x1C003A81C
+ * Callers:
+ *     UsbhCancelEnumeration @ 0x1C0022424 (UsbhCancelEnumeration.c)
+ * Callees:
+ *     UsbhSignalSyncDeviceResetPdo @ 0x1C0001CD0 (UsbhSignalSyncDeviceResetPdo.c)
+ *     UsbhSignalDriverResetEvent @ 0x1C0001DA8 (UsbhSignalDriverResetEvent.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_q @ 0x1C002EA5C (WPP_RECORDER_SF_q.c)
+ *     UsbhAcquirePdoStateLock @ 0x1C0031CB0 (UsbhAcquirePdoStateLock.c)
+ *     SET_PDO_HWPNPSTATE @ 0x1C0036750 (SET_PDO_HWPNPSTATE.c)
+ *     UsbhFlushQueuedDriverReset @ 0x1C0037BCC (UsbhFlushQueuedDriverReset.c)
+ *     UsbhDeletePdo @ 0x1C005409C (UsbhDeletePdo.c)
+ */
+
 void __fastcall Usbh_BusPause_PdoEvent(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v8; // rcx

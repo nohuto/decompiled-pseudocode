@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SmStInitialize@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140358FB0
+ * Callers:
+ *     SmProcessCreateRequest @ 0x1407DD648 (SmProcessCreateRequest.c)
+ * Callees:
+ *     ?StInitialize@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1403589B4 (-StInitialize@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStInitialize(void *a1)
 {
   __int64 v1; // rbx

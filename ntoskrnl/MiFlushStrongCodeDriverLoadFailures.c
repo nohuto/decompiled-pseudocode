@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiFlushStrongCodeDriverLoadFailures @ 0x140B72430
+ * Callers:
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x1403BE3FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MmAcquireLoadLock @ 0x1407D2360 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x1407D2400 (MmReleaseLoadLock.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char MiFlushStrongCodeDriverLoadFailures()
 {
   struct _KTHREAD *Lock; // rdi

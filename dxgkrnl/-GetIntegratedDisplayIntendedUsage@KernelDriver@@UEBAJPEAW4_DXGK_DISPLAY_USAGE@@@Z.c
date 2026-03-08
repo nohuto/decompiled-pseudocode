@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetIntegratedDisplayIntendedUsage@KernelDriver@@UEBAJPEAW4_DXGK_DISPLAY_USAGE@@@Z @ 0x1C0218A00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiFdoGetChildDescriptor @ 0x1C0015614 (DpiFdoGetChildDescriptor.c)
+ */
+
 __int64 __fastcall KernelDriver::GetIntegratedDisplayIntendedUsage(KernelDriver *this, enum _DXGK_DISPLAY_USAGE *a2)
 {
   __int64 v2; // rax

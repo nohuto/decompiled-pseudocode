@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiDecrementProtoShareCounts @ 0x14063A580
+ * Callers:
+ *     MiCreateFileOnlyPfns @ 0x140A30F88 (MiCreateFileOnlyPfns.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiDecrementShareCount @ 0x14032AE40 (MiDecrementShareCount.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiDecrementProtoShareCounts(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdi

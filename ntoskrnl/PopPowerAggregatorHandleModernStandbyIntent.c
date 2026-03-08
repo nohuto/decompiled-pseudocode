@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopPowerAggregatorHandleModernStandbyIntent @ 0x140990960
+ * Callers:
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x140757290 (PopPowerAggregatorHandleIntentUnsafe.c)
+ * Callees:
+ *     PopPowerAggregatorAllowModernStandbyPromotion @ 0x14099049C (PopPowerAggregatorAllowModernStandbyPromotion.c)
+ */
+
 __int64 __fastcall PopPowerAggregatorHandleModernStandbyIntent(__int64 a1, __int64 a2, int a3)
 {
   unsigned int v3; // r9d

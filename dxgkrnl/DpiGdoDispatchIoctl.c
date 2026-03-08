@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiGdoDispatchIoctl @ 0x1C03A5E20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiGdoHandleVideoParameters @ 0x1C03A5E88 (DpiGdoHandleVideoParameters.c)
+ */
+
 __int64 __fastcall DpiGdoDispatchIoctl(__int64 a1, IRP *a2)
 {
   unsigned int v3; // esi

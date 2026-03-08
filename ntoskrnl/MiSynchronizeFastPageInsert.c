@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiSynchronizeFastPageInsert @ 0x140319210
+ * Callers:
+ *     MiInsertPagesInList @ 0x140287DB0 (MiInsertPagesInList.c)
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ * Callees:
+ *     MiReleasePageListLock @ 0x140288360 (MiReleasePageListLock.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140305AB0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14030AD60 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MiGetStandbyLookaside @ 0x140319E70 (MiGetStandbyLookaside.c)
+ *     MiIsDecayPfn @ 0x140319ED0 (MiIsDecayPfn.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiPageToChannel @ 0x140370C10 (MiPageToChannel.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140462F92 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ */
+
 void __fastcall MiSynchronizeFastPageInsert(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   int v5; // r13d

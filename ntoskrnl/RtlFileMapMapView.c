@@ -1,3 +1,20 @@
+/*
+ * XREFs of RtlFileMapMapView @ 0x1403ABF40
+ * Callers:
+ *     AslpFileGetVersionBlock @ 0x1407A0528 (AslpFileGetVersionBlock.c)
+ *     AslFileMappingEnsure @ 0x1407A12F0 (AslFileMappingEnsure.c)
+ *     AslFileMappingEnsureMappedAs @ 0x140A51A4C (AslFileMappingEnsureMappedAs.c)
+ *     AslpFileGetChecksumAttributes @ 0x140A55198 (AslpFileGetChecksumAttributes.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x140412530 (ZwQueryInformationFile.c)
+ *     ZwMapViewOfSection @ 0x140412810 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x140412850 (ZwUnmapViewOfSection.c)
+ *     ZwCreateSection @ 0x140412C50 (ZwCreateSection.c)
+ *     MmSecureVirtualMemory @ 0x140769000 (MmSecureVirtualMemory.c)
+ */
+
 __int64 __fastcall RtlFileMapMapView(__int64 a1, char a2)
 {
   NTSTATUS v4; // ebx

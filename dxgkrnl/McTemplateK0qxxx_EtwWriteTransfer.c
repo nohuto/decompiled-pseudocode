@@ -1,3 +1,13 @@
+/*
+ * XREFs of McTemplateK0qxxx_EtwWriteTransfer @ 0x1C0044FB8
+ * Callers:
+ *     ?DdiControlInterrupt2@DXGADAPTER@@QEAAJU_DXGKARG_CONTROLINTERRUPT2@@EI@Z @ 0x1C0003F70 (-DdiControlInterrupt2@DXGADAPTER@@QEAAJU_DXGKARG_CONTROLINTERRUPT2@@EI@Z.c)
+ *     ?VSyncStateChange@VSYNC_TIME_STATS@@QEAAXW4_DXGK_CRTC_VSYNC_STATE@@0@Z @ 0x1C0044CDC (-VSyncStateChange@VSYNC_TIME_STATS@@QEAAXW4_DXGK_CRTC_VSYNC_STATE@@0@Z.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002BBC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0qxxx_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,

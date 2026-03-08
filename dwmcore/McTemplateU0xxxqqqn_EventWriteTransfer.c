@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0xxxqqqn_EventWriteTransfer @ 0x1802536CC
+ * Callers:
+ *     ?RenderContent@CWindowNode@@UEAAJPEAVCDrawingContext@@PEA_N@Z @ 0x18007A040 (-RenderContent@CWindowNode@@UEAAJPEAVCDrawingContext@@PEA_N@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 ULONG McTemplateU0xxxqqqn_EventWriteTransfer(
         _DWORD a1,
         _DWORD a2,

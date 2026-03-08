@@ -1,3 +1,17 @@
+/*
+ * XREFs of KeSuspendThread @ 0x140354244
+ * Callers:
+ *     PspInsertThread @ 0x1406B0F50 (PspInsertThread.c)
+ *     PsSuspendThread @ 0x1407DC9C0 (PsSuspendThread.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiSuspendThread @ 0x140354348 (KiSuspendThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeSuspendThread(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // bl

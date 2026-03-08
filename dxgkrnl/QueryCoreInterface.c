@@ -1,3 +1,11 @@
+/*
+ * XREFs of QueryCoreInterface @ 0x1C0358E94
+ * Callers:
+ *     ?DxgkpQueryTestInterface@@YAJPEAXIIW4_DXGKTEST_INTERFACE_TYPE@@@Z @ 0x1C0358E24 (-DxgkpQueryTestInterface@@YAJPEAXIIW4_DXGKTEST_INTERFACE_TYPE@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall QueryCoreInterface(_QWORD *a1, unsigned int a2, int a3)
 {
   if ( a3 || a2 < 0x30 )

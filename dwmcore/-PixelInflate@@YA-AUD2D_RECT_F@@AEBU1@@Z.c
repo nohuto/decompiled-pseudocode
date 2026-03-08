@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?PixelInflate@@YA?AUD2D_RECT_F@@AEBU1@@Z @ 0x180035CFC
+ * Callers:
+ *     ?MakeTargetFromSource@CGraphRenderingContext@CExternalEffectGraph@@QEAAIIAEBVMatrix3x2F@D2D1@@@Z @ 0x18003584C (-MakeTargetFromSource@CGraphRenderingContext@CExternalEffectGraph@@QEAAIIAEBVMatrix3x2F@D2D1@@@Z.c)
+ *     ?ConfigureIntermediateFromBackdropInput@CBrushRenderingGraph@@KAXAEBUIntermediateConfigurationInputs@1@PEAUIntermediateConfigurationOutputs@1@@Z @ 0x1800378C4 (-ConfigureIntermediateFromBackdropInput@CBrushRenderingGraph@@KAXAEBUIntermediateConfigurationIn.c)
+ *     ?ConfigureIntermediateFromInput@CBrushRenderingGraph@@IEBAXAEBUIntermediateConfigurationInputs@1@PEAUIntermediateConfigurationOutputs@1@@Z @ 0x1800FB7A8 (-ConfigureIntermediateFromInput@CBrushRenderingGraph@@IEBAXAEBUIntermediateConfigurationInputs@1.c)
+ * Callees:
+ *     ceilf_0 @ 0x1801176EC (ceilf_0.c)
+ *     floorf_0 @ 0x180117728 (floorf_0.c)
+ */
+
 struct D2D_RECT_F *__fastcall PixelInflate(struct D2D_RECT_F *__return_ptr retstr, const struct D2D_RECT_F *a2)
 {
   float left; // xmm7_4

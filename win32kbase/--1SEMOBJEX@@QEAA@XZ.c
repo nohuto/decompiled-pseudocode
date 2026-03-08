@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1SEMOBJEX@@QEAA@XZ @ 0x1C00D90AC
+ * Callers:
+ *     HDXDrvEscape @ 0x1C00D8F50 (HDXDrvEscape.c)
+ *     GreDrvConnect @ 0x1C01998F0 (GreDrvConnect.c)
+ * Callees:
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0049E20 (EtwTraceGreLockReleaseSemaphore.c)
+ */
+
 void __fastcall SEMOBJEX::~SEMOBJEX(SEMOBJEX *this)
 {
   __int64 v1; // rdx

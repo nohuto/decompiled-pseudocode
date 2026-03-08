@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?PassedHoldTime@CTouchProcessor@@AEAAHK_K0@Z @ 0x1C01FC9AC
+ * Callers:
+ *     ?UpdateStateIndicator@CTouchProcessor@@QEAAXPEAUCInputPointerNode@@I_KUtagPOINT@@@Z @ 0x1C0209074 (-UpdateStateIndicator@CTouchProcessor@@QEAAXPEAUCInputPointerNode@@I_KUtagPOINT@@@Z.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ApiSetGetPenHoldTime @ 0x1C02448CC (ApiSetGetPenHoldTime.c)
+ *     ApiSetGetTouchHoldTime @ 0x1C0244A1C (ApiSetGetTouchHoldTime.c)
+ */
+
 union _LARGE_INTEGER __fastcall CTouchProcessor::PassedHoldTime(struct _KTHREAD **this, int a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FinalValueSetOrChanged@CNaturalAnimationMarshaler@DirectComposition@@AEAAXPEA_N@Z @ 0x1C026B610
+ * Callers:
+ *     ?SetFloatProperty@CNaturalAnimationMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C026B690 (-SetFloatProperty@CNaturalAnimationMarshaler@DirectComposition@@UEAAJIMPEA_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DirectComposition::CNaturalAnimationMarshaler::FinalValueSetOrChanged(
         DirectComposition::CNaturalAnimationMarshaler *this,
         bool *a2)

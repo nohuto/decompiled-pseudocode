@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsPointerInputTypeRedirected @ 0x1C01469F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IsPointerInputRedirected @ 0x1C014695A (IsPointerInputRedirected.c)
+ */
+
 __int64 __fastcall IsPointerInputTypeRedirected(__int64 a1)
 {
   int v1; // ebx

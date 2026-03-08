@@ -1,3 +1,11 @@
+/*
+ * XREFs of WdmlibInit @ 0x1C0200958
+ * Callers:
+ *     WdmlibIoCreateDeviceSecure @ 0x1C0203154 (WdmlibIoCreateDeviceSecure.c)
+ * Callees:
+ *     <none>
+ */
+
 PVOID WdmlibInit()
 {
   PVOID result; // rax

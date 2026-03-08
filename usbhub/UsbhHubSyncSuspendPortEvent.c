@@ -1,3 +1,19 @@
+/*
+ * XREFs of UsbhHubSyncSuspendPortEvent @ 0x1C0033EBC
+ * Callers:
+ *     Usbh_PCE_Suspend_Action @ 0x1C000F290 (Usbh_PCE_Suspend_Action.c)
+ * Callees:
+ *     UsbhUnlatchPdo @ 0x1C0001380 (UsbhUnlatchPdo.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhQueryPortState @ 0x1C0016540 (UsbhQueryPortState.c)
+ *     UsbhSuspendPort @ 0x1C0018E8C (UsbhSuspendPort.c)
+ *     UsbhLatchPdo @ 0x1C0019420 (UsbhLatchPdo.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002E98C (WPP_RECORDER_SF_dq.c)
+ *     Usbh_PcLogEntry @ 0x1C0036580 (Usbh_PcLogEntry.c)
+ *     UsbhGetPortStatusBits @ 0x1C00386E0 (UsbhGetPortStatusBits.c)
+ */
+
 __int64 __fastcall UsbhHubSyncSuspendPortEvent(__int64 a1, __int64 a2, __int64 a3)
 {
   char PortStatusBits; // r15

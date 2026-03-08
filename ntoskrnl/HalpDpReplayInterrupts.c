@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpDpReplayInterrupts @ 0x140A94A90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ */
+
 __int64 __fastcall HalpDpReplayInterrupts(__int64 a1)
 {
   __int64 (__fastcall *v1)(_QWORD, __int64); // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of xxxWaitForDITMouseInjectionFlush @ 0x1C01AE114
+ * Callers:
+ *     xxxSendInput @ 0x1C00171A4 (xxxSendInput.c)
+ *     ?xxxProcessMousePromotionQueue@@YAXXZ @ 0x1C01F99E8 (-xxxProcessMousePromotionQueue@@YAXXZ.c)
+ * Callees:
+ *     xxxReceiveMessage @ 0x1C006DB60 (xxxReceiveMessage.c)
+ *     xxxRemoveQueueCompletion @ 0x1C00946F4 (xxxRemoveQueueCompletion.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 xxxWaitForDITMouseInjectionFlush()
 {

@@ -1,3 +1,14 @@
+/*
+ * XREFs of _anonymous_namespace_::SetMonitorDockThresholds @ 0x1C010284C
+ * Callers:
+ *     ?ArrangementParameterInfo@WindowArrangementSPI@@YA?AW4ParamInfoResult@1@IKPEAX_N1@Z @ 0x1C0102EC8 (-ArrangementParameterInfo@WindowArrangementSPI@@YA-AW4ParamInfoResult@1@IKPEAX_N1@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dD @ 0x1C003F98C (WPP_RECORDER_AND_TRACE_SF_dD.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C00E3308 (WPP_RECORDER_AND_TRACE_SF_dd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall anonymous_namespace_::SetMonitorDockThresholds(unsigned int a1, int a2, const wchar_t *a3)
 {
   __int64 v3; // r14

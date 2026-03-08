@@ -1,3 +1,24 @@
+/*
+ * XREFs of FsRtlCancelNotify @ 0x1402F2B70
+ * Callers:
+ *     FsRtlNotifySetCancelRoutine @ 0x1402417BC (FsRtlNotifySetCancelRoutine.c)
+ * Callees:
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     PsChargeProcessPoolQuota @ 0x1402951F0 (PsChargeProcessPoolQuota.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x140295600 (PsReturnProcessPagedPoolQuota.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402ECFB0 (FsRtlIsNtstatusExpected.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall FsRtlCancelNotify(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax

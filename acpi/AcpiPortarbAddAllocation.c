@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiPortarbAddAllocation @ 0x1C008C0C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcpiArblibGetNextAlias @ 0x1C007D0A4 (AcpiArblibGetNextAlias.c)
+ */
+
 char __fastcall AcpiPortarbAddAllocation(__int64 a1, __int64 a2)
 {
   ULONG Flags; // r14d

@@ -1,3 +1,17 @@
+/*
+ * XREFs of MxZeroBootMappings @ 0x140B50568
+ * Callers:
+ *     MiZeroBootMappings @ 0x140B4F414 (MiZeroBootMappings.c)
+ *     MxZeroBootMappings @ 0x140B50568 (MxZeroBootMappings.c)
+ * Callees:
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MxZeroBootMappings @ 0x140B50568 (MxZeroBootMappings.c)
+ *     MiFreeBootPageTable @ 0x140B50684 (MiFreeBootPageTable.c)
+ */
+
 void __fastcall MxZeroBootMappings(unsigned __int64 a1, unsigned __int64 a2, int a3)
 {
   unsigned __int64 v5; // rdi

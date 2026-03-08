@@ -1,3 +1,19 @@
+/*
+ * XREFs of DpiIndirectCbOpmSetSrmList @ 0x1C0064390
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000B270 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ *     DxgkReleaseAdapterDdiSync @ 0x1C01E7088 (DxgkReleaseAdapterDdiSync.c)
+ *     DxgkAcquireAdapterDdiSync @ 0x1C01E70A8 (DxgkAcquireAdapterDdiSync.c)
+ *     DpiMiracastFindRenderAdapterForSession @ 0x1C01F7F00 (DpiMiracastFindRenderAdapterForSession.c)
+ *     DxgkAcquireAdapterOpmI2CSync @ 0x1C02205EE (DxgkAcquireAdapterOpmI2CSync.c)
+ *     DxgkReleaseAdapterOpmI2CSync @ 0x1C02206C8 (DxgkReleaseAdapterOpmI2CSync.c)
+ */
+
 __int64 __fastcall DpiIndirectCbOpmSetSrmList(__int64 a1, unsigned int a2, __int64 a3)
 {
   __int64 RenderAdapterForSession; // rbx

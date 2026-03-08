@@ -1,3 +1,11 @@
+/*
+ * XREFs of PoInitDriverServices @ 0x140B6ED88
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     IoRegisterPlugPlayNotification @ 0x1406F4F30 (IoRegisterPlugPlayNotification.c)
+ */
+
 NTSTATUS (*PoInitDriverServices())()
 {
   NTSTATUS (*result)(); // rax

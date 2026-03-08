@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpCreateNtFileName @ 0x14077271C
+ * Callers:
+ *     EtwpDelayCreate @ 0x1407725F4 (EtwpDelayCreate.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall EtwpCreateNtFileName(_WORD *a1, wchar_t **a2, _BYTE *a3)
 {
   __int64 v4; // rax

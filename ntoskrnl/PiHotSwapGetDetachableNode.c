@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiHotSwapGetDetachableNode @ 0x14078F53C
+ * Callers:
+ *     PpHotSwapGetDevnodeRemovalPolicy @ 0x1406C3DF4 (PpHotSwapGetDevnodeRemovalPolicy.c)
+ *     PpHotSwapUpdateRemovalPolicy @ 0x14078F428 (PpHotSwapUpdateRemovalPolicy.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PiHotSwapGetDetachableNode(__int64 a1, _QWORD *a2)
 {
   __int64 result; // rax

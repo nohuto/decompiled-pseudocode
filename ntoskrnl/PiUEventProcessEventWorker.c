@@ -1,3 +1,19 @@
+/*
+ * XREFs of PiUEventProcessEventWorker @ 0x14068D8E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     PiUEventNotifyDeviceInstanceChange @ 0x140680140 (PiUEventNotifyDeviceInstanceChange.c)
+ *     PiUEventNotifyDeviceInterfaceChange @ 0x140681F08 (PiUEventNotifyDeviceInterfaceChange.c)
+ *     PiUEventNotifyTargetDeviceChange @ 0x14068CA08 (PiUEventNotifyTargetDeviceChange.c)
+ *     PiUEventDereferenceEventEntry @ 0x14068DA18 (PiUEventDereferenceEventEntry.c)
+ *     PiUEventProcessBroadcastNotifications @ 0x14068DA78 (PiUEventProcessBroadcastNotifications.c)
+ *     PiUEventNotifyDeviceInstancePropertyChange @ 0x140870310 (PiUEventNotifyDeviceInstancePropertyChange.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PiUEventProcessEventWorker(PVOID P)
 {
   int v2; // edi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlIsValidProcessTrustLabelSid @ 0x1402480E0
+ * Callers:
+ *     RtlSidDominatesForTrust @ 0x140247D00 (RtlSidDominatesForTrust.c)
+ *     RtlAddProcessTrustLabelAce @ 0x1406DB8A0 (RtlAddProcessTrustLabelAce.c)
+ *     RtlAddAccessFilterAce @ 0x1409B8030 (RtlAddAccessFilterAce.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 bool __fastcall RtlIsValidProcessTrustLabelSid(__int64 a1)
 {
   int v1; // edx

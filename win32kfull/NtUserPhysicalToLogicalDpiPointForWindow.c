@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserPhysicalToLogicalDpiPointForWindow @ 0x1C01D9530
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     PhysicalToLogicalInPlaceRectWithSubpixel @ 0x1C00A35E4 (PhysicalToLogicalInPlaceRectWithSubpixel.c)
+ */
+
 __int64 __fastcall NtUserPhysicalToLogicalDpiPointForWindow(__int64 a1, _QWORD *a2, __int64 a3)
 {
   __int64 v5; // rcx

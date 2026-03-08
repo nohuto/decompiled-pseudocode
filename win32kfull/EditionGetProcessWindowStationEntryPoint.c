@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionGetProcessWindowStationEntryPoint @ 0x1C00DA870
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EditionGetProcessWindowStationEntryPoint(_QWORD *a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rcx

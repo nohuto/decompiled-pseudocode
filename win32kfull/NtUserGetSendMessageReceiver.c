@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetSendMessageReceiver @ 0x1C01D4E10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _GetSendMessageReceiver @ 0x1C01FE844 (_GetSendMessageReceiver.c)
+ */
+
 __int64 __fastcall NtUserGetSendMessageReceiver(unsigned int a1)
 {
   __int64 *SendMessageReceiver; // rax

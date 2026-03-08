@@ -1,3 +1,15 @@
+/*
+ * XREFs of DxgkDdiQueryVirtualFunctionIndexByLuid @ 0x1C0366054
+ * Callers:
+ *     ?DpiQueryVirtualFunctionIndexByLuid@@YAJPEAXU_LUID@@PEAG@Z @ 0x1C0065140 (-DpiQueryVirtualFunctionIndexByLuid@@YAJPEAXU_LUID@@PEAG@Z.c)
+ *     DpiIovGetBackingResource @ 0x1C039EC00 (DpiIovGetBackingResource.c)
+ *     DpiIovGetMmioRangeCount @ 0x1C039ED70 (DpiIovGetMmioRangeCount.c)
+ *     DpiIovGetMmioRanges @ 0x1C039EE90 (DpiIovGetMmioRanges.c)
+ * Callees:
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005A55C (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?FindVirtualGpuByLuid@ADAPTER_RENDER@@QEAAPEAUDXGK_VIRTUAL_GPU@@W4DXG_VIRTUAL_GPU_TYPE@@PEAU_LUID@@@Z @ 0x1C0363568 (-FindVirtualGpuByLuid@ADAPTER_RENDER@@QEAAPEAUDXGK_VIRTUAL_GPU@@W4DXG_VIRTUAL_GPU_TYPE@@PEAU_LUI.c)
+ */
+
 __int64 __fastcall DxgkDdiQueryVirtualFunctionIndexByLuid(_QWORD *a1, int a2, struct _LUID *a3, _WORD *a4)
 {
   struct DXGK_VIRTUAL_GPU *VirtualGpuByLuid; // rax

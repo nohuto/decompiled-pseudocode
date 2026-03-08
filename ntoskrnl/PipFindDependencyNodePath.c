@@ -1,3 +1,14 @@
+/*
+ * XREFs of PipFindDependencyNodePath @ 0x1403ADF2C
+ * Callers:
+ *     IoTestDependency @ 0x1403ADED0 (IoTestDependency.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PipDependencyGraphDepthFirstSearch @ 0x1403ADFC4 (PipDependencyGraphDepthFirstSearch.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PipFindDependencyNodePath(__int64 a1, __int64 a2, _DWORD *a3, __int64 a4)
 {
   int v5; // ebp

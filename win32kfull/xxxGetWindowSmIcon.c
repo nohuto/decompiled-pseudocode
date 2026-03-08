@@ -1,3 +1,17 @@
+/*
+ * XREFs of xxxGetWindowSmIcon @ 0x1C009FCA8
+ * Callers:
+ *     SendDwmIconChange @ 0x1C00A1060 (SendDwmIconChange.c)
+ *     xxxDrawCaptionTemp @ 0x1C022EDB4 (xxxDrawCaptionTemp.c)
+ *     xxxRealDrawMenuItem @ 0x1C0239598 (xxxRealDrawMenuItem.c)
+ * Callees:
+ *     ??1?$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ @ 0x1C0031BF4 (--1-$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C006E550 (xxxSendTransformableMessageTimeout.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z @ 0x1C00E02D4 (-Init@-$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z.c)
+ *     xxxCreateWindowSmIcon @ 0x1C010A268 (xxxCreateWindowSmIcon.c)
+ */
+
 __int64 __fastcall xxxGetWindowSmIcon(struct tagWND *a1, int a2)
 {
   __int64 v4; // rdx

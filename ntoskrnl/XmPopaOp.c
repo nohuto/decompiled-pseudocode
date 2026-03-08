@@ -1,3 +1,13 @@
+/*
+ * XREFs of XmPopaOp @ 0x14039A450
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmPopStack @ 0x1403B4154 (XmPopStack.c)
+ *     XmSetDestinationValue @ 0x1403B4248 (XmSetDestinationValue.c)
+ *     XmStoreResult @ 0x1403B42E8 (XmStoreResult.c)
+ */
+
 __int64 __fastcall XmPopaOp(__int64 a1)
 {
   unsigned int v2; // edi

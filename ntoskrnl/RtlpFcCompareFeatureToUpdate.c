@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpFcCompareFeatureToUpdate @ 0x1409C0180
+ * Callers:
+ *     RtlpFcCalculateRequiredSizeForNewFeatureTable @ 0x1409BFEF0 (RtlpFcCalculateRequiredSizeForNewFeatureTable.c)
+ *     RtlpFcUpdateFeatureConfiguration @ 0x1409C0408 (RtlpFcUpdateFeatureConfiguration.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpFcCompareFeatureToUpdate(_DWORD *a1, _DWORD *a2)
 {
   int v2; // eax

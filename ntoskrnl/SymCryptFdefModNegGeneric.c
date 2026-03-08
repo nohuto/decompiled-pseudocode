@@ -1,3 +1,13 @@
+/*
+ * XREFs of SymCryptFdefModNegGeneric @ 0x1403FF0D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     SymCryptFdefRawSub @ 0x1403FE1BC (SymCryptFdefRawSub.c)
+ *     SymCryptFdefRawIsEqualUint32 @ 0x1403FFF04 (SymCryptFdefRawIsEqualUint32.c)
+ */
+
 __int64 __fastcall SymCryptFdefModNegGeneric(__int64 a1, __int64 a2, _DWORD *a3)
 {
   unsigned int v3; // r14d

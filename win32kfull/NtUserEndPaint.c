@@ -1,3 +1,18 @@
+/*
+ * XREFs of NtUserEndPaint @ 0x1C00CC490
+ * Callers:
+ *     <none>
+ * Callees:
+ *     zzzInternalShowCaret @ 0x1C00061E4 (zzzInternalShowCaret.c)
+ *     DwmAsyncChildStyleChange @ 0x1C002E648 (DwmAsyncChildStyleChange.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     InternalInvalidate3 @ 0x1C0054B50 (InternalInvalidate3.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     ?CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z @ 0x1C00AD734 (-CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z.c)
+ *     DirtyVisRgnTrackers @ 0x1C00AEA8C (DirtyVisRgnTrackers.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall NtUserEndPaint(__int64 a1, ULONG64 a2)
 {
   __int64 v4; // rcx

@@ -1,3 +1,25 @@
+/*
+ * XREFs of sub_140753BB4 @ 0x140753BB4
+ * Callers:
+ *     WbGetHeapExecutedBlock @ 0x1406AFAAC (WbGetHeapExecutedBlock.c)
+ * Callees:
+ *     IoAllocateMdl @ 0x14020CAD0 (IoAllocateMdl.c)
+ *     MmProbeAndLockPagesPrivate @ 0x140242D40 (MmProbeAndLockPagesPrivate.c)
+ *     MmUnlockPages @ 0x14027C0C0 (MmUnlockPages.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ *     ZwFlushInstructionCache @ 0x1404140F0 (ZwFlushInstructionCache.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WbAlloc @ 0x1406AF510 (WbAlloc.c)
+ *     sub_1406AFC38 @ 0x1406AFC38 (sub_1406AFC38.c)
+ *     sub_14075424C @ 0x14075424C (sub_14075424C.c)
+ *     sub_14075435C @ 0x14075435C (sub_14075435C.c)
+ *     sub_140754450 @ 0x140754450 (sub_140754450.c)
+ *     WbAllocateUserMemory @ 0x140754868 (WbAllocateUserMemory.c)
+ *     ExSystemExceptionFilter @ 0x140861790 (ExSystemExceptionFilter.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall sub_140753BB4(__int64 a1, __int64 a2, void **a3)
 {
   int v4; // ebx

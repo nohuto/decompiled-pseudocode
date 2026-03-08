@@ -1,3 +1,17 @@
+/*
+ * XREFs of MmUnlockLoadedModuleListShared @ 0x1402824A4
+ * Callers:
+ *     MiAddWorkingSetEntries @ 0x14026D700 (MiAddWorkingSetEntries.c)
+ *     RtlpxLookupFunctionTable @ 0x1402CB3A0 (RtlpxLookupFunctionTable.c)
+ *     MiIsDriverPage @ 0x1402D38C0 (MiIsDriverPage.c)
+ *     MiLookupDataTableEntry @ 0x14035ECF0 (MiLookupDataTableEntry.c)
+ *     RtlPcToFileName @ 0x1403A4E70 (RtlPcToFileName.c)
+ *     MiIsAddressInDriverView @ 0x140631A9C (MiIsAddressInDriverView.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MmUnlockLoadedModuleListShared(unsigned __int8 a1)
 {
   unsigned __int64 v1; // rbx

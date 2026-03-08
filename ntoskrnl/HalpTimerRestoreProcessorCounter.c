@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpTimerRestoreProcessorCounter @ 0x140508DAC
+ * Callers:
+ *     HalpPostSleepMP @ 0x140A93F28 (HalpPostSleepMP.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 (__fastcall *__fastcall HalpTimerRestoreProcessorCounter(__int64 a1, __int64 a2))(_QWORD, _QWORD, _QWORD)
 {
   __int64 (__fastcall *result)(_QWORD, _QWORD, _QWORD); // rax

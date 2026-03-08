@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhReleasePdoWakeIrpLock @ 0x1C0021170
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall UsbhReleasePdoWakeIrpLock(PIO_CSQ Csq, KIRQL Irql)
 {
   _QWORD *ReservePointer; // rax

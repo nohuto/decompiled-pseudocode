@@ -1,3 +1,12 @@
+/*
+ * XREFs of WmipFindISInDSByGuid @ 0x1407FB72C
+ * Callers:
+ *     WmipUpdateDataSource @ 0x1407FB4E8 (WmipUpdateDataSource.c)
+ *     WmipUpdateModifyGuid @ 0x1407FB638 (WmipUpdateModifyGuid.c)
+ * Callees:
+ *     WmipReferenceEntry @ 0x14069C27C (WmipReferenceEntry.c)
+ */
+
 _QWORD *__fastcall WmipFindISInDSByGuid(__int64 a1, _QWORD *a2)
 {
   _QWORD *v2; // r8

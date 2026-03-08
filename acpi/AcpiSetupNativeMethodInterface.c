@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiSetupNativeMethodInterface @ 0x1C008B2CC
+ * Callers:
+ *     ACPIDispatchAddDevice @ 0x1C0023F30 (ACPIDispatchAddDevice.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ */
+
 __int64 AcpiSetupNativeMethodInterface()
 {
   struct _DEVICE_OBJECT *AttachedDeviceReference; // rdi

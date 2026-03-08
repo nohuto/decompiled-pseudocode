@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbDevice_GetXhciEndpointDequeuePointer @ 0x1C001114C
+ * Callers:
+ *     Endpoint_OnCancelStopCompletion @ 0x1C0010D70 (Endpoint_OnCancelStopCompletion.c)
+ * Callees:
+ *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C0007FC0 (XilUsbDevice_GetDeviceContextBufferVA.c)
+ *     XilDeviceSlot_SendQueryEndpointContextInfoRequest @ 0x1C00386A8 (XilDeviceSlot_SendQueryEndpointContextInfoRequest.c)
+ */
+
 __int64 __fastcall UsbDevice_GetXhciEndpointDequeuePointer(__int64 a1, int a2)
 {
   __int64 v2; // r9

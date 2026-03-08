@@ -1,3 +1,12 @@
+/*
+ * XREFs of EditionxxxBroadcastSPIChange @ 0x1C01C9760
+ * Callers:
+ *     xxxSystemParametersInfoWorker @ 0x1C01032D0 (xxxSystemParametersInfoWorker.c)
+ * Callees:
+ *     xxxBroadcastMessageEx @ 0x1C0045EF0 (xxxBroadcastMessageEx.c)
+ *     RtlInitLargeUnicodeString @ 0x1C00A0F84 (RtlInitLargeUnicodeString.c)
+ */
+
 __int64 __fastcall EditionxxxBroadcastSPIChange(unsigned int a1, __int64 a2, int a3)
 {
   __int128 v6; // [rsp+40h] [rbp-38h] BYREF

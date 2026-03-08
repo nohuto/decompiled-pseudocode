@@ -1,3 +1,15 @@
+/*
+ * XREFs of Controller_TelemetryReportWorker @ 0x1C0034EB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_InitiateRecovery @ 0x1C0033990 (Controller_InitiateRecovery.c)
+ *     Controller_TelemetryReport @ 0x1C0034B08 (Controller_TelemetryReport.c)
+ */
+
 LONG __fastcall Controller_TelemetryReportWorker(__int64 a1)
 {
   ULONG v1; // edi

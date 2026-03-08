@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiSessionUnlinkProcess @ 0x14020086C
+ * Callers:
+ *     MiDereferenceSessionFinal @ 0x14067E7A0 (MiDereferenceSessionFinal.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiSessionUnlinkProcess(__int64 a1, __int64 a2)
 {
   _QWORD *v3; // rbx

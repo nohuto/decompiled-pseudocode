@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CColorKeyBitmapRealization@@QEAA@XZ @ 0x1802ACBD0
+ * Callers:
+ *     ?Create@CColorKeyBitmapRealization@@SAJPEAVIBitmapRealization@@AEBVCColorKey@@PEAPEAV2@@Z @ 0x1802ACCF8 (-Create@CColorKeyBitmapRealization@@SAJPEAVIBitmapRealization@@AEBVCColorKey@@PEAPEAV2@@Z.c)
+ * Callees:
+ *     ??0CD2DBitmapCache@@IEAA@XZ @ 0x180032C6C (--0CD2DBitmapCache@@IEAA@XZ.c)
+ */
+
 CColorKeyBitmapRealization *__fastcall CColorKeyBitmapRealization::CColorKeyBitmapRealization(
         CColorKeyBitmapRealization *this)
 {

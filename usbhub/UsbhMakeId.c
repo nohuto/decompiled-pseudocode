@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhMakeId @ 0x1C0050D48
+ * Callers:
+ *     UsbhBuildClassCompatibleID @ 0x1C004EE18 (UsbhBuildClassCompatibleID.c)
+ *     UsbhBuildCompatibleID @ 0x1C004F2B4 (UsbhBuildCompatibleID.c)
+ *     UsbhBuildContainerID @ 0x1C004F3E8 (UsbhBuildContainerID.c)
+ *     UsbhBuildDeviceID @ 0x1C004F9EC (UsbhBuildDeviceID.c)
+ *     UsbhBuildHardwareID @ 0x1C004FCFC (UsbhBuildHardwareID.c)
+ *     UsbhBuildUnknownIds @ 0x1C0050144 (UsbhBuildUnknownIds.c)
+ *     UsbhGetLocationIdString @ 0x1C0050690 (UsbhGetLocationIdString.c)
+ * Callees:
+ *     memmove @ 0x1C0023580 (memmove.c)
+ */
+
 char *__fastcall UsbhMakeId(
         int a1,
         _WORD *a2,

@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?_GhostWindowFromHungWindow@@YAPEAUtagWND@@PEBU1@@Z @ 0x1C00255DC
+ * Callers:
+ *     ?xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegroundBehaviors@@W4SetForegroundffects@@@Z @ 0x1C002498C (-xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegrou.c)
+ *     ?GetVisRgn@@YA_NPEAUtagWND@@KPEAUHRGN__@@@Z @ 0x1C0025360 (-GetVisRgn@@YA_NPEAUtagWND@@KPEAUHRGN__@@@Z.c)
+ *     NtUserGhostWindowFromHungWindow @ 0x1C0025580 (NtUserGhostWindowFromHungWindow.c)
+ *     ?GetLayeredRegion@@YA_NPEAUtagWND@@PEAUHRGN__@@PEA_N@Z @ 0x1C0044458 (-GetLayeredRegion@@YA_NPEAUtagWND@@PEAUHRGN__@@PEA_N@Z.c)
+ *     _VisrgnFromWindow @ 0x1C007EFB0 (_VisrgnFromWindow.c)
+ *     DWP_GetEnabledPopup @ 0x1C014A64C (DWP_GetEnabledPopup.c)
+ * Callees:
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     IsWindowBeingDestroyed @ 0x1C0039B60 (IsWindowBeingDestroyed.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ */
+
 struct tagWND *__fastcall _GhostWindowFromHungWindow(const struct tagWND *a1)
 {
   __int64 v2; // rbx

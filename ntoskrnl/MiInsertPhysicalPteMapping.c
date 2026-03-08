@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiInsertPhysicalPteMapping @ 0x14029F690
+ * Callers:
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x14029F4D8 (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiInsertViewOfPhysicalSection @ 0x14062E820 (MiInsertViewOfPhysicalSection.c)
+ * Callees:
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiProtectionToCacheAttribute @ 0x14028A2D0 (MiProtectionToCacheAttribute.c)
+ *     MiIncreaseUsedPtesCount @ 0x14029F850 (MiIncreaseUsedPtesCount.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiGetUsedPtesHandle @ 0x140346CA0 (MiGetUsedPtesHandle.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14034A974 (MiMakeProtectionPfnCompatible.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiAssignInitialPageAttribute @ 0x14039DE84 (MiAssignInitialPageAttribute.c)
+ *     MiLookupIoPageNode @ 0x1403AB558 (MiLookupIoPageNode.c)
+ *     MiShowBadMapper @ 0x14062EC9C (MiShowBadMapper.c)
+ */
+
 __int64 __fastcall MiInsertPhysicalPteMapping(unsigned __int64 a1, ULONG_PTR a2, unsigned int a3)
 {
   unsigned int ProtectionPfnCompatible; // ebx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifZwLoadDriverWrapper @ 0x1405EE940
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwLoadDriver @ 0x140414490 (ZwLoadDriver.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifZwLoadDriverWrapper(PUNICODE_STRING DriverServiceName)
 {
   __int64 *APIThunkContextById; // rax

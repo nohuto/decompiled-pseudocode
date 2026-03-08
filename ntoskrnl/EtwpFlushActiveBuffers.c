@@ -1,3 +1,22 @@
+/*
+ * XREFs of EtwpFlushActiveBuffers @ 0x14069310C
+ * Callers:
+ *     EtwpLogger @ 0x1406926A0 (EtwpLogger.c)
+ * Callees:
+ *     EtwpLockUnlockBufferList @ 0x140205E34 (EtwpLockUnlockBufferList.c)
+ *     EtwpRequestFlushTimer @ 0x140205EDC (EtwpRequestFlushTimer.c)
+ *     EtwpPrepareDirtyBuffer @ 0x140205FA4 (EtwpPrepareDirtyBuffer.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140206540 (EtwpQueryUsedProcessorCount.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpWaitForBufferReferenceCount @ 0x140692BE4 (EtwpWaitForBufferReferenceCount.c)
+ *     EtwpFlushBuffer @ 0x140692C18 (EtwpFlushBuffer.c)
+ *     EtwpCompleteBuffer @ 0x140692D8C (EtwpCompleteBuffer.c)
+ *     EtwpAdjustFreeBuffers @ 0x1406930A0 (EtwpAdjustFreeBuffers.c)
+ *     EtwpRealtimeSendEmptyMarker @ 0x1407933A8 (EtwpRealtimeSendEmptyMarker.c)
+ */
+
 __int64 __fastcall EtwpFlushActiveBuffers(unsigned int *a1, int a2)
 {
   __int64 v4; // rdx

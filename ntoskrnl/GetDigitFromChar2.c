@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetDigitFromChar2 @ 0x1409D0690
+ * Callers:
+ *     DecodeAttributeName @ 0x1409CFF1C (DecodeAttributeName.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall GetDigitFromChar2(__int16 a1, _BYTE *a2)
 {
   char v2; // cl

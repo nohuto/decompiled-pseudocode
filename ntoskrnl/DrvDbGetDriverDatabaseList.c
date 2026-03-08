@@ -1,3 +1,12 @@
+/*
+ * XREFs of DrvDbGetDriverDatabaseList @ 0x14086607C
+ * Callers:
+ *     DrvDbDispatchDriverDatabase @ 0x140864BE0 (DrvDbDispatchDriverDatabase.c)
+ * Callees:
+ *     RtlStringCchCopyExW @ 0x140244A08 (RtlStringCchCopyExW.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall DrvDbGetDriverDatabaseList(
         _QWORD *a1,
         unsigned __int8 (__fastcall *a2)(_QWORD, __int64, __int64, __int64),

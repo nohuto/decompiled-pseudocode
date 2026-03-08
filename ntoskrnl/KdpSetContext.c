@@ -1,3 +1,12 @@
+/*
+ * XREFs of KdpSetContext @ 0x140AB1BA8
+ * Callers:
+ *     KdpSendWaitContinue @ 0x140AAD824 (KdpSendWaitContinue.c)
+ * Callees:
+ *     KdpCopyContext @ 0x140AAD658 (KdpCopyContext.c)
+ *     KdpSanitizeContextFlags @ 0x140AAE938 (KdpSanitizeContextFlags.c)
+ */
+
 __int64 __fastcall KdpSetContext(__int64 a1, unsigned __int16 *a2, char *a3)
 {
   __int64 v4; // r8

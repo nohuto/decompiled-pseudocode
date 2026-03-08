@@ -1,3 +1,20 @@
+/*
+ * XREFs of WdipSemLoadNextEndEvent @ 0x140832620
+ * Callers:
+ *     WdipSemLoadNextScenario @ 0x140832FB0 (WdipSemLoadNextScenario.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwEnumerateKey @ 0x140412950 (ZwEnumerateKey.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     __report_rangecheckfailure @ 0x1404FBCCC (__report_rangecheckfailure.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ *     RtlUnicodeStringToInteger @ 0x140751D60 (RtlUnicodeStringToInteger.c)
+ *     WdipSemQueryValueFromRegistry @ 0x140833488 (WdipSemQueryValueFromRegistry.c)
+ *     WdipSemOpenRegistryKey @ 0x140833598 (WdipSemOpenRegistryKey.c)
+ */
+
 __int64 __fastcall WdipSemLoadNextEndEvent(HANDLE KeyHandle, ULONG Index, GUID *Guid)
 {
   NTSTATUS v6; // ebx

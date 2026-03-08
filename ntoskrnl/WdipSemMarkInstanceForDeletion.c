@@ -1,3 +1,14 @@
+/*
+ * XREFs of WdipSemMarkInstanceForDeletion @ 0x140831F8C
+ * Callers:
+ *     WdipSemDisableScenario @ 0x140831E48 (WdipSemDisableScenario.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     WdipSemQueryEnabledInstanceTable @ 0x140832008 (WdipSemQueryEnabledInstanceTable.c)
+ */
+
 __int64 __fastcall WdipSemMarkInstanceForDeletion(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax

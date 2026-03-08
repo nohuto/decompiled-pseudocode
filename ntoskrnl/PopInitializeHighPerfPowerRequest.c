@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopInitializeHighPerfPowerRequest @ 0x140B6EC5C
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     PopPowerRequestCreateCommon @ 0x1402BC348 (PopPowerRequestCreateCommon.c)
+ *     PoCaptureReasonContext @ 0x1402BD2FC (PoCaptureReasonContext.c)
+ *     PoDestroyReasonContext @ 0x1402BDBE4 (PoDestroyReasonContext.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ */
+
 __int64 PopInitializeHighPerfPowerRequest()
 {
   int *v0; // rdx

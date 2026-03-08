@@ -1,3 +1,18 @@
+/*
+ * XREFs of HvlGetCoverageData @ 0x14053D1C8
+ * Callers:
+ *     ExpCovQueryHypervisorInformation @ 0x140A03908 (ExpCovQueryHypervisorInformation.c)
+ * Callees:
+ *     IopAllocateMdl @ 0x140241F90 (IopAllocateMdl.c)
+ *     MmBuildMdlForNonPagedPool @ 0x1402B5DB0 (MmBuildMdlForNonPagedPool.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ */
+
 bool __fastcall HvlGetCoverageData(char a1, unsigned int a2, __int64 a3, __int64 a4)
 {
   __int16 v4; // bx

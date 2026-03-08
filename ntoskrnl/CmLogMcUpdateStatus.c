@@ -1,3 +1,22 @@
+/*
+ * XREFs of CmLogMcUpdateStatus @ 0x1406133DC
+ * Callers:
+ *     HvlpLogMicrocodeUpdateStatus @ 0x14093E204 (HvlpLogMicrocodeUpdateStatus.c)
+ * Callees:
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlIntegerToChar @ 0x140780650 (RtlIntegerToChar.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ *     CmpInitializeRegistryNode @ 0x140816FB8 (CmpInitializeRegistryNode.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmLogMcUpdateStatus(unsigned int a1, __int64 a2)
 {
   NTSTATUS v4; // ebx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of WPP_IFR_SF_Lqd @ 0x1C0062F0C
+ * Callers:
+ *     ?DispatchRequestToDriver@FxIoQueue@@QEAAXPEAVFxRequest@@@Z @ 0x1C00050F0 (-DispatchRequestToDriver@FxIoQueue@@QEAAXPEAVFxRequest@@@Z.c)
+ *     ?ConfigureForwarding@FxPkgIo@@QEAAJPEAVFxIoQueue@@W4_WDF_REQUEST_TYPE@@@Z @ 0x1C0062400 (-ConfigureForwarding@FxPkgIo@@QEAAJPEAVFxIoQueue@@W4_WDF_REQUEST_TYPE@@@Z.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_Lqd(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 id,

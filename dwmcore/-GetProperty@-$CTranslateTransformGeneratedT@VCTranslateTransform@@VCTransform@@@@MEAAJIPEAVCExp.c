@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetProperty@?$CTranslateTransformGeneratedT@VCTranslateTransform@@VCTransform@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x1801C1A50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CTranslateTransformGeneratedT<CTranslateTransform,CTransform>::GetProperty(
         __int64 a1,
         int a2,

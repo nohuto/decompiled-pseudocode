@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlStringLengthWorkerW @ 0x140391604
+ * Callers:
+ *     RtlStringCchCatExW @ 0x140391578 (RtlStringCchCatExW.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlStringLengthWorkerW(STRSAFE_PCNZWCH psz, size_t cchMax, size_t *pcchLength)
 {
   size_t i; // r9

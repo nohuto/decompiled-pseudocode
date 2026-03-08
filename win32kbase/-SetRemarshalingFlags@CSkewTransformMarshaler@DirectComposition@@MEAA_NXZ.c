@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CSkewTransformMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025EC00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C024D91C (-SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ.c)
+ */
+
 char __fastcall DirectComposition::CSkewTransformMarshaler::SetRemarshalingFlags(
         DirectComposition::CSkewTransformMarshaler *this)
 {

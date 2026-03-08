@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiIsSectionActive @ 0x1403CFE60
+ * Callers:
+ *     MmIsFileSectionActive @ 0x1403BFA30 (MmIsFileSectionActive.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall MiIsSectionActive(__int64 a1)
 {
   return (*(_DWORD *)(a1 + 56) & 3) != 0

@@ -1,3 +1,27 @@
+/*
+ * XREFs of VrpTranslatePath @ 0x1406C1EF8
+ * Callers:
+ *     VrpPreOpenOrCreate @ 0x1406C1A34 (VrpPreOpenOrCreate.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     VrpFindNamespaceNode @ 0x1406C231C (VrpFindNamespaceNode.c)
+ *     VrpGetNextToken @ 0x1406C24E8 (VrpGetNextToken.c)
+ *     VrpBuildKeyPath @ 0x1406C286C (VrpBuildKeyPath.c)
+ *     VrpStripTrailingCharacters @ 0x1406C30B0 (VrpStripTrailingCharacters.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall VrpTranslatePath(
         signed __int64 *Object,
         void *a2,

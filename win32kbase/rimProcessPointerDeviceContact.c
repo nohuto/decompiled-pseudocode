@@ -1,3 +1,26 @@
+/*
+ * XREFs of rimProcessPointerDeviceContact @ 0x1C01D9C8C
+ * Callers:
+ *     rimDoProcessAnyPointerDeviceInput @ 0x1C01D6420 (rimDoProcessAnyPointerDeviceInput.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMAbIsDeviceArbitrationEnabled @ 0x1C00EF900 (RIMAbIsDeviceArbitrationEnabled.c)
+ *     rimApplyPointerDevicePolicies @ 0x1C00F1204 (rimApplyPointerDevicePolicies.c)
+ *     RIMCmIsContactSuppressed @ 0x1C00F1A7A (RIMCmIsContactSuppressed.c)
+ *     RIMCmIsContactSuppressedByArbitrationOnly @ 0x1C00F1ACC (RIMCmIsContactSuppressedByArbitrationOnly.c)
+ *     RIMCmResetContactFrameState @ 0x1C00F1AEA (RIMCmResetContactFrameState.c)
+ *     ?Update@PalmTelemetry@@QEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@H@Z @ 0x1C00F1B46 (-Update@PalmTelemetry@@QEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@H@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dDD @ 0x1C01AB010 (WPP_RECORDER_AND_TRACE_SF_dDD.c)
+ *     RIMAddToActiveDevices @ 0x1C01B31F4 (RIMAddToActiveDevices.c)
+ *     rimFindOrCreateActiveContact @ 0x1C01D8680 (rimFindOrCreateActiveContact.c)
+ *     rimPopulateContactFrameData @ 0x1C01D906C (rimPopulateContactFrameData.c)
+ *     RIMCmDeactivateContact @ 0x1C01DE86C (RIMCmDeactivateContact.c)
+ *     RIMCmIsContactDeliveringPointerData @ 0x1C01DEB84 (RIMCmIsContactDeliveringPointerData.c)
+ *     RIMCmMarkSuppressedContactForDelivery @ 0x1C01DEC1C (RIMCmMarkSuppressedContactForDelivery.c)
+ */
+
 __int64 __fastcall rimProcessPointerDeviceContact(
         __int64 a1,
         __int64 a2,

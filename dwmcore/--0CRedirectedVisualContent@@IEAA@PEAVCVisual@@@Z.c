@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0CRedirectedVisualContent@@IEAA@PEAVCVisual@@@Z @ 0x180019170
+ * Callers:
+ *     ?Create@CRedirectedVisualContent@@SAJPEAVCVisual@@PEAPEAV1@@Z @ 0x180019018 (-Create@CRedirectedVisualContent@@SAJPEAVCVisual@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     ??0CContent@@IEAA@PEAVCComposition@@@Z @ 0x1800B8F68 (--0CContent@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0?$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCVisual@@@Z @ 0x1800B98B0 (--0-$com_ptr_t@VCVisual@@Uerr_returncode_policy@wil@@@wil@@QEAA@PEAVCVisual@@@Z.c)
+ */
+
 CRedirectedVisualContent *__fastcall CRedirectedVisualContent::CRedirectedVisualContent(
         CRedirectedVisualContent *this,
         struct CComposition **a2)

@@ -1,3 +1,11 @@
+/*
+ * XREFs of SupportedPixelRate @ 0x1C03C821C
+ * Callers:
+ *     ?_IsModeInPixelRateRange@MonitorModes@DxgMonitor@@AEBAJAEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@W4_DMM_MODE_PRUNING_ALGORITHM@@PEAEQEAW4_D3DKMDT_MODE_PRUNING_REASON@@@Z @ 0x1C03C8CBC (-_IsModeInPixelRateRange@MonitorModes@DxgMonitor@@AEBAJAEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@W4_DMM_MO.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall SupportedPixelRate(__int64 a1, __int64 a2, int a3)
 {
   __int64 v6; // rdx

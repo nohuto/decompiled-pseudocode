@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiMiracastDdiMiracastIoControl @ 0x1C039A41C
+ * Callers:
+ *     DxgkHandleMiracastEscape @ 0x1C039B7B8 (DxgkHandleMiracastEscape.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0ppqqq_EtwWriteTransfer @ 0x1C00625C4 (McTemplateK0ppqqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DpiMiracastDdiMiracastIoControl(
         __int64 a1,
         __int64 a2,

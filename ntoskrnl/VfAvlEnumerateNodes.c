@@ -1,3 +1,17 @@
+/*
+ * XREFs of VfAvlEnumerateNodes @ 0x140AD92A4
+ * Callers:
+ *     ViTargetFreeContiguousMemory @ 0x140AC8AC0 (ViTargetFreeContiguousMemory.c)
+ *     ViTargetWMIDeregister @ 0x140AC8EB8 (ViTargetWMIDeregister.c)
+ *     VfSuspectDriversGetVerifierInformation @ 0x140AD744C (VfSuspectDriversGetVerifierInformation.c)
+ * Callees:
+ *     RtlEnumerateGenericTableAvl @ 0x1402EF150 (RtlEnumerateGenericTableAvl.c)
+ *     ViAvlReleaseTableLockFromDpcLevel @ 0x140303B00 (ViAvlReleaseTableLockFromDpcLevel.c)
+ *     ViAvlRaiseIrqlSafe @ 0x140303B34 (ViAvlRaiseIrqlSafe.c)
+ *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x140303B6C (ViAvlAcquireTableLockAtDpcLevelSafe.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __fastcall VfAvlEnumerateNodes(__int64 a1, __int64 a2, unsigned int (__fastcall *a3)(PVOID, __int64), __int64 a4)
 {
   unsigned int v7; // ebp

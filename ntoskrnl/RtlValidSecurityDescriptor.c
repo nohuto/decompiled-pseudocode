@@ -1,3 +1,29 @@
+/*
+ * XREFs of RtlValidSecurityDescriptor @ 0x14075F860
+ * Callers:
+ *     AdtpIsSDValidSelfRelative @ 0x14066EB8C (AdtpIsSDValidSelfRelative.c)
+ *     _PnpOpenPropertiesKey @ 0x1406D1610 (_PnpOpenPropertiesKey.c)
+ *     ObOpenObjectByNameEx @ 0x1406E7F70 (ObOpenObjectByNameEx.c)
+ *     ObpAdjustAccessMask @ 0x140710DC4 (ObpAdjustAccessMask.c)
+ *     PnpInitializeInheritedRestrictedSd @ 0x14078E748 (PnpInitializeInheritedRestrictedSd.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     _PnpGetEnumSecurityDescriptor @ 0x140856888 (_PnpGetEnumSecurityDescriptor.c)
+ *     _CmGetRegKeySecurityDescriptor @ 0x14086D238 (_CmGetRegKeySecurityDescriptor.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x140878110 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     _PnpGetPropertiesSecurityDescriptor @ 0x14087C494 (_PnpGetPropertiesSecurityDescriptor.c)
+ *     ObpSetObjectAuditInfo @ 0x1408A0C62 (ObpSetObjectAuditInfo.c)
+ *     PiAuGetServiceStateSecurityObject @ 0x1409589E4 (PiAuGetServiceStateSecurityObject.c)
+ *     PiAuGetStateDirectorySecurityObject @ 0x140958C2C (PiAuGetStateDirectorySecurityObject.c)
+ *     CMFCreateSecurityDescriptor @ 0x1409FEF0C (CMFCreateSecurityDescriptor.c)
+ *     DrvDbGetSecurityDescriptor @ 0x140A6AD74 (DrvDbGetSecurityDescriptor.c)
+ *     PiAuCreateLocalSystemSecurityObject @ 0x140B5B3D8 (PiAuCreateLocalSystemSecurityObject.c)
+ *     PiAuCreateStandardSecurityObject @ 0x140B5B788 (PiAuCreateStandardSecurityObject.c)
+ *     PiAuGetDriverDataDirectorySecurityObject @ 0x140B69148 (PiAuGetDriverDataDirectorySecurityObject.c)
+ * Callees:
+ *     RtlValidAcl @ 0x1407BB670 (RtlValidAcl.c)
+ *     RtlValidSid @ 0x1407C92A0 (RtlValidSid.c)
+ */
+
 BOOLEAN __stdcall RtlValidSecurityDescriptor(PSECURITY_DESCRIPTOR SecurityDescriptor)
 {
   __int16 v2; // di

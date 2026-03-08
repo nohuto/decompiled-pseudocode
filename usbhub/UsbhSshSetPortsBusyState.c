@@ -1,3 +1,24 @@
+/*
+ * XREFs of UsbhSshSetPortsBusyState @ 0x1C000ABD0
+ * Callers:
+ *     UsbhBusIf_ResumeChildHub @ 0x1C0004460 (UsbhBusIf_ResumeChildHub.c)
+ *     UsbhSet_Pdo_Dx @ 0x1C0009CFC (UsbhSet_Pdo_Dx.c)
+ *     UsbhDeregisterPdo @ 0x1C0037578 (UsbhDeregisterPdo.c)
+ *     Usbh_PdoRemove_PdoEvent @ 0x1C003B22C (Usbh_PdoRemove_PdoEvent.c)
+ *     UsbhDriverNotFoundWorker @ 0x1C00428B0 (UsbhDriverNotFoundWorker.c)
+ *     UsbhCreatePdo @ 0x1C0053530 (UsbhCreatePdo.c)
+ *     UsbhDeletePdo @ 0x1C005409C (UsbhDeletePdo.c)
+ *     UsbhPdoPnp_EnablePdo @ 0x1C00551AC (UsbhPdoPnp_EnablePdo.c)
+ * Callees:
+ *     UsbhDecHubBusy @ 0x1C0003DB0 (UsbhDecHubBusy.c)
+ *     UsbhSshPortsBusy @ 0x1C0004EA4 (UsbhSshPortsBusy.c)
+ *     UsbhDisableTimerObject @ 0x1C00084D0 (UsbhDisableTimerObject.c)
+ *     UsbhEnableTimerObject @ 0x1C0008770 (UsbhEnableTimerObject.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ */
+
 LONG __fastcall UsbhSshSetPortsBusyState(__int64 a1, unsigned __int16 a2, int a3, int a4)
 {
   __int64 v4; // rsi

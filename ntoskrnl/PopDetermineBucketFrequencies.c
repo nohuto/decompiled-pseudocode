@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDetermineBucketFrequencies @ 0x140581250
+ * Callers:
+ *     PopRegisterEnergyEstimation @ 0x1403B03A0 (PopRegisterEnergyEstimation.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     __report_rangecheckfailure @ 0x1404FBCCC (__report_rangecheckfailure.c)
+ */
+
 __int64 PopDetermineBucketFrequencies()
 {
   unsigned int v0; // ecx

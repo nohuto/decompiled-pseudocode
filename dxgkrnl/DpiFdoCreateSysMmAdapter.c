@@ -1,3 +1,18 @@
+/*
+ * XREFs of DpiFdoCreateSysMmAdapter @ 0x1C020A044
+ * Callers:
+ *     DpiLdaPreStartChain @ 0x1C00658F4 (DpiLdaPreStartChain.c)
+ *     DpiFdoStartNonLdaAdapter @ 0x1C0209FAC (DpiFdoStartNonLdaAdapter.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ?AllocateElements@?$PagedPoolZeroedArray@U_DXGK_PHYSICAL_MEMORY_RANGE@@$01@@QEAAPEAU_DXGK_PHYSICAL_MEMORY_RANGE@@I@Z @ 0x1C020542C (-AllocateElements@-$PagedPoolZeroedArray@U_DXGK_PHYSICAL_MEMORY_RANGE@@$01@@QEAAPEAU_DXGK_PHYSIC.c)
+ *     ?SysMmCreateAdapter@@YAJPEAU_DEVICE_OBJECT@@PEBQEAU1@IPEBU_DXGK_PHYSICAL_MEMORY_RANGE@@IIPEBUSYSMM_ADAPTER_CREATE_PARAMS@@PEAPEAUSYSMM_ADAPTER@@@Z @ 0x1C020A220 (-SysMmCreateAdapter@@YAJPEAU_DEVICE_OBJECT@@PEBQEAU1@IPEBU_DXGK_PHYSICAL_MEMORY_RANGE@@IIPEBUSYS.c)
+ *     DpiFdoQuerySysMmAdapterCaps @ 0x1C020CB8C (DpiFdoQuerySysMmAdapterCaps.c)
+ */
+
 __int64 __fastcall DpiFdoCreateSysMmAdapter(struct _DEVICE_OBJECT *a1, __int64 a2)
 {
   __int64 v2; // rsi

@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpCreateRegistryProcessToken @ 0x14081796C
+ * Callers:
+ *     CmpInitializeRegistryProcess @ 0x140817300 (CmpInitializeRegistryProcess.c)
+ * Callees:
+ *     CmpAllocatePool @ 0x140243878 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SeQueryInformationToken @ 0x1407B9760 (SeQueryInformationToken.c)
+ *     SeFilterToken @ 0x140817AD0 (SeFilterToken.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmpCreateRegistryProcessToken(PACCESS_TOKEN *a1)
 {
   PACCESS_TOKEN v2; // rdi

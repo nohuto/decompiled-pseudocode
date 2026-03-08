@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiDevCfgQueryPolicyEnabled @ 0x14095C708
+ * Callers:
+ *     PiDevCfgEnforceDevicePolicy @ 0x140875F3C (PiDevCfgEnforceDevicePolicy.c)
+ * Callees:
+ *     PnpValidateRegistryDword @ 0x1403C0C9C (PnpValidateRegistryDword.c)
+ *     IopGetRegistryValue @ 0x1406C18D4 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDevCfgQueryPolicyEnabled(void *a1, const WCHAR *a2, bool *a3)
 {
   int v4; // ebx

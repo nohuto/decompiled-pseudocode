@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Partition_Synchronize@CGlobalComposition@@UEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_PARTITION_SYNCHRONIZE@@@Z @ 0x1801EF7E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??2@YAPEAX_K@Z @ 0x180034790 (--2@YAPEAX_K@Z.c)
+ *     ??0CResponseItem@@QEAA@PEAVCGlobalSurfaceManager@@@Z @ 0x1800ABF98 (--0CResponseItem@@QEAA@PEAVCGlobalSurfaceManager@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CGlobalComposition::Partition_Synchronize(
         struct CGlobalSurfaceManager **this,
         struct CChannelContext *a2,

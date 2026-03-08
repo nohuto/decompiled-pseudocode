@@ -1,3 +1,11 @@
+/*
+ * XREFs of NVMeGetAutoPowerStateTransitionCompletion @ 0x1C001D5A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ */
+
 __int64 __fastcall NVMeGetAutoPowerStateTransitionCompletion(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

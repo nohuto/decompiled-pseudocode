@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserCreateEmptyCursorObject @ 0x1C00D1120
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall NtUserCreateEmptyCursorObject(int a1)
 {
   __int64 v2; // r8

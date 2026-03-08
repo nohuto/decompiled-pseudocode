@@ -1,3 +1,16 @@
+/*
+ * XREFs of GetNameSpaceObjectNoLock @ 0x1C004F840
+ * Callers:
+ *     AMLIGetNameSpaceObjectNoLock @ 0x1C00484D0 (AMLIGetNameSpaceObjectNoLock.c)
+ *     CreateNameSpaceObject @ 0x1C004F10C (CreateNameSpaceObject.c)
+ *     GetNameSpaceObject @ 0x1C004F728 (GetNameSpaceObject.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ */
+
 __int64 __fastcall GetNameSpaceObjectNoLock(const char *a1, __int64 a2, __int64 *a3, int a4)
 {
   bool v4; // zf

@@ -1,3 +1,22 @@
+/*
+ * XREFs of CmpFindNameInListWithStatus @ 0x1407A8DA0
+ * Callers:
+ *     CmDeleteValueKey @ 0x1406B9764 (CmDeleteValueKey.c)
+ *     CmpFindNameInList @ 0x1407A74D8 (CmpFindNameInList.c)
+ *     CmpCompareNewValueDataAgainstKCBCache @ 0x1407A8E68 (CmpCompareNewValueDataAgainstKCBCache.c)
+ *     CmSetValueKey @ 0x1407A9870 (CmSetValueKey.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1407B0EF0 (CmpGetSymbolicLinkTarget.c)
+ *     CmQueryMultipleValueForLayeredKey @ 0x140A11200 (CmQueryMultipleValueForLayeredKey.c)
+ *     CmpMergeKeyValues @ 0x140A1F628 (CmpMergeKeyValues.c)
+ * Callees:
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpFindNameInListCellWithStatus @ 0x1407B3CA0 (CmpFindNameInListCellWithStatus.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall CmpFindNameInListWithStatus(
         ULONG_PTR BugCheckParameter3,
         _DWORD *a2,

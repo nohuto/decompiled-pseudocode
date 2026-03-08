@@ -1,3 +1,12 @@
+/*
+ * XREFs of KsepResolveShimHooks @ 0x14080018C
+ * Callers:
+ *     KsepResolveApplicableShimsForDriver @ 0x140800708 (KsepResolveApplicableShimsForDriver.c)
+ * Callees:
+ *     RtlFindExportedRoutineByName @ 0x1407EBE40 (RtlFindExportedRoutineByName.c)
+ *     KsepGetModuleInfoByName @ 0x1409745B4 (KsepGetModuleInfoByName.c)
+ */
+
 __int64 __fastcall KsepResolveShimHooks(__int64 a1, int *a2)
 {
   __int64 v4; // r15

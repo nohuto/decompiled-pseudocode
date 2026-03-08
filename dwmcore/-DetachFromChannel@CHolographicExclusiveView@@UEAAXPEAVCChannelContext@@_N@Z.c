@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DetachFromChannel@CHolographicExclusiveView@@UEAAXPEAVCChannelContext@@_N@Z @ 0x1802A5010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReleaseExclusivePresentData@CHolographicManager@@QEAAXI@Z @ 0x1802A25EC (-ReleaseExclusivePresentData@CHolographicManager@@QEAAXI@Z.c)
+ *     ?RemoveExclusiveView@CHolographicManager@@QEAAXPEAVCHolographicExclusiveView@@@Z @ 0x1802A27CC (-RemoveExclusiveView@CHolographicManager@@QEAAXPEAVCHolographicExclusiveView@@@Z.c)
+ *     ?ReleaseSwapChain@CHolographicExclusiveView@@AEAAXXZ @ 0x1802A5688 (-ReleaseSwapChain@CHolographicExclusiveView@@AEAAXXZ.c)
+ */
+
 void __fastcall CHolographicExclusiveView::DetachFromChannel(
         CHolographicExclusiveView *this,
         CAnimationLoggingManager **a2)

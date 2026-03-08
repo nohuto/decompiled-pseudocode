@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CheckOverlayCandidateCollectionEnabled@COcclusionContext@@AEAAXXZ @ 0x1800868A4
+ * Callers:
+ *     ?Compute@COcclusionContext@@IEAAJPEBVCVisualTree@@AEBV?$span@$$CBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@$0?0@gsl@@MAEBV?$span@PEAVCOverlayContext@@$0?0@4@@Z @ 0x180086CF0 (-Compute@COcclusionContext@@IEAAJPEBVCVisualTree@@AEBV-$span@$$CBV-$TMilRect_@MUMilRectF@@UMil3D.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall COcclusionContext::CheckOverlayCandidateCollectionEnabled(COcclusionContext *this)
 {
   __int64 *v2; // r9

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CEffectGroupMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025E030
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C024D91C (-SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ.c)
+ */
+
 char __fastcall DirectComposition::CEffectGroupMarshaler::SetRemarshalingFlags(
         DirectComposition::CEffectGroupMarshaler *this)
 {

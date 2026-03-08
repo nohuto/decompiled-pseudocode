@@ -1,3 +1,17 @@
+/*
+ * XREFs of NVMeGetLogPageTelemetryHeaderCompletion @ 0x1C0016120
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ *     BuildGetLogPageCommandForTelemetryLog @ 0x1C0010F38 (BuildGetLogPageCommandForTelemetryLog.c)
+ */
+
 char __fastcall NVMeGetLogPageTelemetryHeaderCompletion(__int64 a1, __int64 a2)
 {
   __int64 SrbExtension; // rax

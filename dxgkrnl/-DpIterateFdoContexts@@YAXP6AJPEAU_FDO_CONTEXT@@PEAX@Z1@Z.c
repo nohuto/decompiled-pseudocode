@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?DpIterateFdoContexts@@YAXP6AJPEAU_FDO_CONTEXT@@PEAX@Z1@Z @ 0x1C03A0834
+ * Callers:
+ *     ?DpiKsrCancel@@YAXPEAX@Z @ 0x1C03A0EC8 (-DpiKsrCancel@@YAXPEAX@Z.c)
+ *     ?DpiKsrComplete@@YAXPEAX@Z @ 0x1C03A0F70 (-DpiKsrComplete@@YAXPEAX@Z.c)
+ *     DpiKsrDoKsrSave @ 0x1C03A16E4 (DpiKsrDoKsrSave.c)
+ * Callees:
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000B270 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall DpIterateFdoContexts(__int64 (__fastcall *a1)(__int64 *, void *), void *a2)
 {
   __int64 v4; // rbx

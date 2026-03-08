@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnprFreeMappingReserve @ 0x140962E7C
+ * Callers:
+ *     PnpReplacePartitionUnit @ 0x140961B80 (PnpReplacePartitionUnit.c)
+ *     PnprAllocateMappingReserves @ 0x140962974 (PnprAllocateMappingReserves.c)
+ * Callees:
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ *     MmFreeMappingAddress @ 0x14086B720 (MmFreeMappingAddress.c)
+ */
+
 void __fastcall PnprFreeMappingReserve(__int64 a1)
 {
   struct _MDL *v2; // rcx

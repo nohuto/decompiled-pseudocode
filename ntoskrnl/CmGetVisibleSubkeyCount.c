@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmGetVisibleSubkeyCount @ 0x1406B7D28
+ * Callers:
+ *     CmDeleteKey @ 0x1406B762C (CmDeleteKey.c)
+ *     CmpQueryKeyDataFromCache @ 0x1407ABC40 (CmpQueryKeyDataFromCache.c)
+ *     CmpQueryKeyDataFromNode @ 0x1407AD510 (CmpQueryKeyDataFromNode.c)
+ * Callees:
+ *     CmEqualTrans @ 0x1406B6428 (CmEqualTrans.c)
+ *     CmListGetNextElement @ 0x140AF2008 (CmListGetNextElement.c)
+ */
+
 __int64 __fastcall CmGetVisibleSubkeyCount(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v4; // ebx

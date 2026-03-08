@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x140843BA8
+ * Callers:
+ *     RtlpMuiRegCreateKernelRegistryInfo @ 0x14039C764 (RtlpMuiRegCreateKernelRegistryInfo.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x140843870 (_RtlpMuiRegValidateInstalled.c)
+ *     RtlpMuiRegGetInstalledLanguageIndex @ 0x140A71DC4 (RtlpMuiRegGetInstalledLanguageIndex.c)
+ * Callees:
+ *     _MuiRegAllocArray @ 0x14039C31C (_MuiRegAllocArray.c)
+ *     RtlLCIDToCultureName @ 0x1409BBD70 (RtlLCIDToCultureName.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x140A71F24 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndexByLangId(__int64 a1, unsigned __int16 a2, char a3, _WORD *a4)
 {
   unsigned int v4; // ebp

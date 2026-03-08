@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbDevice_NumberOfOffloadedEndpointsInDropEndpointsList @ 0x1C0049558
+ * Callers:
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0008958 (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     UsbDevice_HandleSendStopEndpointToOffloadedEndpointsState @ 0x1C0049284 (UsbDevice_HandleSendStopEndpointToOffloadedEndpointsState.c)
+ *     UsbDevice_HandleUnassignPinsForOffloadedEndpointsState @ 0x1C0049384 (UsbDevice_HandleUnassignPinsForOffloadedEndpointsState.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall UsbDevice_NumberOfOffloadedEndpointsInDropEndpointsList(__int64 a1)
 {
   __int64 result; // rax

@@ -1,3 +1,40 @@
+/*
+ * XREFs of MmMarkPhysicalMemoryAsBad @ 0x1406291A0
+ * Callers:
+ *     MiScrubLargePage @ 0x14065C38C (MiScrubLargePage.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x140A0555C (WheapAttemptPhysicalPageOffline.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiReturnResavailToPrcb @ 0x1402872B0 (MiReturnResavailToPrcb.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiSetPfnPteFrame @ 0x14028A310 (MiSetPfnPteFrame.c)
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     MiIsPageInHugePfn @ 0x14029C30C (MiIsPageInHugePfn.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     MiAcquireNonPagedResources @ 0x140348D54 (MiAcquireNonPagedResources.c)
+ *     MiIsPageOnBadList @ 0x14034B1D0 (MiIsPageOnBadList.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     MiFindContiguousPagesEx @ 0x1403B5CF8 (MiFindContiguousPagesEx.c)
+ *     MiFreeContiguousPages @ 0x1403BDABC (MiFreeContiguousPages.c)
+ *     KeGenericCallDpcEx @ 0x1403C07D0 (KeGenericCallDpcEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiMarkHugePfnBad @ 0x14061F1D0 (MiMarkHugePfnBad.c)
+ *     MiReferencePagePartition @ 0x1406271E4 (MiReferencePagePartition.c)
+ *     MiMarkFileOnlyPfnBad @ 0x14063BC40 (MiMarkFileOnlyPfnBad.c)
+ *     MiSetPfnRemovalRequested @ 0x14064B908 (MiSetPfnRemovalRequested.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MmMarkPhysicalMemoryAsBad(int *a1, _DWORD *a2)
 {
   int v2; // esi

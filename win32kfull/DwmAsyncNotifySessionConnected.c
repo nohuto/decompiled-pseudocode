@@ -1,3 +1,11 @@
+/*
+ * XREFs of DwmAsyncNotifySessionConnected @ 0x1C00F4A80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DwmAsyncNotifySessionConnected(PVOID Object)
 {
   unsigned int v2; // edi

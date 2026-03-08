@@ -1,3 +1,24 @@
+/*
+ * XREFs of IopUpdateSecureDeviceClassState @ 0x14083B398
+ * Callers:
+ *     IoCreateDeviceSecure @ 0x14083BAD0 (IoCreateDeviceSecure.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     SeConvertStringSecurityDescriptorToSecurityDescriptor @ 0x1402C0CD0 (SeConvertStringSecurityDescriptorToSecurityDescriptor.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     RtlGetPersistedStateLocation @ 0x14069ADC0 (RtlGetPersistedStateLocation.c)
+ *     RtlLengthSecurityDescriptor @ 0x14071C8F0 (RtlLengthSecurityDescriptor.c)
+ *     RtlStringFromGUIDEx @ 0x140733E90 (RtlStringFromGUIDEx.c)
+ *     IopCreateRegistryKeyEx @ 0x14078BB90 (IopCreateRegistryKeyEx.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopUpdateSecureDeviceClassState(unsigned int *a1, __int64 a2)
 {
   unsigned int v4; // r14d

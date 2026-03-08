@@ -1,3 +1,12 @@
+/*
+ * XREFs of USBD_QueryUsbCapability @ 0x1C00428D0
+ * Callers:
+ *     HUBFDO_SetupHubPostErrataQuery @ 0x1C000F068 (HUBFDO_SetupHubPostErrataQuery.c)
+ * Callees:
+ *     USBDInternal_BuildandSendIoctlSynchronously @ 0x1C0041E34 (USBDInternal_BuildandSendIoctlSynchronously.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ */
+
 NTSTATUS __stdcall USBD_QueryUsbCapability(
         USBD_HANDLE USBDHandle,
         const GUID *CapabilityType,

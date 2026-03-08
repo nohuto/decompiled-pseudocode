@@ -1,3 +1,12 @@
+/*
+ * XREFs of Register_D0Entry @ 0x1C0014A04
+ * Callers:
+ *     Controller_WdfEvtDeviceD0Entry @ 0x1C00144B0 (Controller_WdfEvtDeviceD0Entry.c)
+ * Callees:
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0018428 (XilRegister_WriteUlong.c)
+ */
+
 __int64 __fastcall Register_D0Entry(__int64 a1)
 {
   __int64 *v1; // rsi

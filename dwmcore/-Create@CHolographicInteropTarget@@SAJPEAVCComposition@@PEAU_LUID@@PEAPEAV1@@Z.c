@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?Create@CHolographicInteropTarget@@SAJPEAVCComposition@@PEAU_LUID@@PEAPEAV1@@Z @ 0x1802A5B70
+ * Callers:
+ *     ?EnsureInteropRenderTarget@CHolographicManager@@AEAAJXZ @ 0x1802A1E8C (-EnsureInteropRenderTarget@CHolographicManager@@AEAAJXZ.c)
+ * Callees:
+ *     ?InternalRelease@CResource@@IEAAKXZ @ 0x180078858 (-InternalRelease@CResource@@IEAAKXZ.c)
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??2CHolographicInteropTarget@@KAPEAX_K@Z @ 0x1801BF1AC (--2CHolographicInteropTarget@@KAPEAX_K@Z.c)
+ *     ??0CHolographicInteropTarget@@IEAA@PEAVCComposition@@@Z @ 0x1802A5804 (--0CHolographicInteropTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ?Initialize@CHolographicInteropTarget@@QEAAJU_LUID@@@Z @ 0x1802A5EA0 (-Initialize@CHolographicInteropTarget@@QEAAJU_LUID@@@Z.c)
+ */
+
 __int64 __fastcall CHolographicInteropTarget::Create(
         struct CComposition *a1,
         struct _LUID *a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspMapThreadCreationFlags @ 0x1406B1C88
+ * Callers:
+ *     PspCreateThread @ 0x1406B1908 (PspCreateThread.c)
+ *     NtCreateUserProcess @ 0x14070C850 (NtCreateUserProcess.c)
+ * Callees:
+ *     <none>
+ */
+
 int __fastcall PspMapThreadCreationFlags(char a1, int *a2)
 {
   int result; // eax

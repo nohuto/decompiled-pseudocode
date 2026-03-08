@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?UserSessionSwitchBlock_Start@@YAJXZ @ 0x1C00B809C
+ * Callers:
+ *     ?xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z @ 0x1C00B4A78 (-xxxUserPowerEventCalloutWorker@@YAJPEAU_WIN32_POWEREVENT_PARAMETERS@@@Z.c)
+ *     UserPowerInfoCallout @ 0x1C00B657C (UserPowerInfoCallout.c)
+ *     UserPowerStateCallout @ 0x1C00B7A1C (UserPowerStateCallout.c)
+ *     PowerOffMonitor @ 0x1C015BA60 (PowerOffMonitor.c)
+ *     PowerOnMonitor @ 0x1C015BD90 (PowerOnMonitor.c)
+ * Callees:
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C0070484 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall UserSessionSwitchBlock_Start(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdx

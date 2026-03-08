@@ -1,3 +1,18 @@
+/*
+ * XREFs of WdipSemSqmLogInflightLimitExceededDataPoints @ 0x14078C108
+ * Callers:
+ *     WdipTimeoutCheckRoutine @ 0x14078BFD0 (WdipTimeoutCheckRoutine.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     WdipSemFastFree @ 0x140833700 (WdipSemFastFree.c)
+ *     WdipSemGetGuidKey @ 0x1409DB894 (WdipSemGetGuidKey.c)
+ *     WdipSemSqmAddToStream @ 0x1409DBA48 (WdipSemSqmAddToStream.c)
+ *     WdipSemSqmIncrementDword @ 0x1409DBBFC (WdipSemSqmIncrementDword.c)
+ */
+
 __int64 WdipSemSqmLogInflightLimitExceededDataPoints()
 {
   struct _KTHREAD *CurrentThread; // rax

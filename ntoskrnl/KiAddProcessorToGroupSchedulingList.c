@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiAddProcessorToGroupSchedulingList @ 0x14057AFB0
+ * Callers:
+ *     KiAddProcessorToGroupSchedulingList @ 0x14057AFB0 (KiAddProcessorToGroupSchedulingList.c)
+ *     KiAddProcessorToGroupSchedulingDatabase @ 0x140A9CCE4 (KiAddProcessorToGroupSchedulingDatabase.c)
+ * Callees:
+ *     KiAddProcessorToGroupSchedulingList @ 0x14057AFB0 (KiAddProcessorToGroupSchedulingList.c)
+ */
+
 void __fastcall KiAddProcessorToGroupSchedulingList(__int64 a1, _QWORD **a2, unsigned int a3)
 {
   _QWORD *v3; // rbx

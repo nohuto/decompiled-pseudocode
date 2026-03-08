@@ -1,3 +1,17 @@
+/*
+ * XREFs of MmChangeSectionBackingFile @ 0x1402F34E4
+ * Callers:
+ *     FsRtlChangeBackingFileObject @ 0x1403D0BE0 (FsRtlChangeBackingFileObject.c)
+ *     MiShareExistingControlArea @ 0x1407D1CAC (MiShareExistingControlArea.c)
+ * Callees:
+ *     ObFastReplaceObject @ 0x140217FC8 (ObFastReplaceObject.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140283390 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     MiLockSectionControlArea @ 0x1403638A8 (MiLockSectionControlArea.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MmChangeSectionBackingFile(_QWORD *a1, _QWORD *a2, int a3)
 {
   void *v4; // rdi

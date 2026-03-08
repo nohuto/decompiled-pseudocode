@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopWriteDriverList @ 0x140551C74
+ * Callers:
+ *     IoFillTriageDumpBuffer @ 0x14054DAD0 (IoFillTriageDumpBuffer.c)
+ *     KeCapturePersistentThreadState @ 0x140551EC0 (KeCapturePersistentThreadState.c)
+ * Callees:
+ *     KiIsAddressRangeValid @ 0x1403849BC (KiIsAddressRangeValid.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall IopWriteDriverList(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
 {
   PVOID *v4; // rbx

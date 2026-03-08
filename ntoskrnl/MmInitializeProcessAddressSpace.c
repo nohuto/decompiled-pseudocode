@@ -1,3 +1,35 @@
+/*
+ * XREFs of MmInitializeProcessAddressSpace @ 0x1407291A8
+ * Callers:
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ *     MiInitializeBootProcess @ 0x140B38C84 (MiInitializeBootProcess.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiAllowWorkingSetExpansion @ 0x1402A5F58 (MiAllowWorkingSetExpansion.c)
+ *     MiInitializeWorkingSetList @ 0x1402A6260 (MiInitializeWorkingSetList.c)
+ *     MiInitializeProcessPageTableCommitmentBitMaps @ 0x1402A63C4 (MiInitializeProcessPageTableCommitmentBitMaps.c)
+ *     InitializeSListHead @ 0x1402A8B90 (InitializeSListHead.c)
+ *     ExInitializeAutoExpandPushLock @ 0x1402CCEF0 (ExInitializeAutoExpandPushLock.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiReferenceCfgVad @ 0x140727250 (MiReferenceCfgVad.c)
+ *     MiMapProcessExecutable @ 0x14072787C (MiMapProcessExecutable.c)
+ *     PsMapSystemDlls @ 0x1407279B4 (PsMapSystemDlls.c)
+ *     MiAllocateProcessVads @ 0x1407286B0 (MiAllocateProcessVads.c)
+ *     MiInitializeProcessBottomUpEntropy @ 0x140728C14 (MiInitializeProcessBottomUpEntropy.c)
+ *     MiInitializeProcessTopDownEntropy @ 0x140728DC4 (MiInitializeProcessTopDownEntropy.c)
+ *     MiInitializeVadBitMap @ 0x1407293F0 (MiInitializeVadBitMap.c)
+ *     MiInsertProcessVads @ 0x140729774 (MiInsertProcessVads.c)
+ *     MiComputeProcessUserVa @ 0x140729824 (MiComputeProcessUserVa.c)
+ *     MiSessionCreate @ 0x140756EC8 (MiSessionCreate.c)
+ *     MiInitializeLockedPagesTracking @ 0x140A28654 (MiInitializeLockedPagesTracking.c)
+ *     MiReturnProcessVads @ 0x140A286A0 (MiReturnProcessVads.c)
+ *     MiCloneProcessAddressSpace @ 0x140A45CF4 (MiCloneProcessAddressSpace.c)
+ */
+
 __int64 __fastcall MmInitializeProcessAddressSpace(
         ULONG_PTR BugCheckParameter1,
         ULONG_PTR a2,

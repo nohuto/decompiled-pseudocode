@@ -1,3 +1,23 @@
+/*
+ * XREFs of PfTAccessTracingCleanup @ 0x140A844E0
+ * Callers:
+ *     PfTTraceListAdd @ 0x1407E797C (PfTTraceListAdd.c)
+ *     PfTCleanup @ 0x14097C168 (PfTCleanup.c)
+ *     PfpPowerActionStartScenarioTracing @ 0x140A9CFDC (PfpPowerActionStartScenarioTracing.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     MmSetAccessLogging @ 0x1402FF710 (MmSetAccessLogging.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     MmGetDefaultPagePriority @ 0x14035B470 (MmGetDefaultPagePriority.c)
+ *     MmFreeAccessPfnBuffer @ 0x14035B5FC (MmFreeAccessPfnBuffer.c)
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ *     MmEnablePeriodicAccessClearing @ 0x140A85978 (MmEnablePeriodicAccessClearing.c)
+ *     PfTAccessTracingInitialize @ 0x140A85A48 (PfTAccessTracingInitialize.c)
+ */
+
 void __fastcall PfTAccessTracingCleanup(__int64 a1, __int64 a2, int a3)
 {
   struct _KTHREAD *CurrentThread; // rax

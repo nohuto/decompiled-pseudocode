@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopSleepstudyRegisterSessionCallback @ 0x1408475F4
+ * Callers:
+ *     PopPowerRequestStatsInitialize @ 0x140B62918 (PopPowerRequestStatsInitialize.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __fastcall PopSleepstudyRegisterSessionCallback(__int64 a1)
 {
   __int64 *v2; // rax

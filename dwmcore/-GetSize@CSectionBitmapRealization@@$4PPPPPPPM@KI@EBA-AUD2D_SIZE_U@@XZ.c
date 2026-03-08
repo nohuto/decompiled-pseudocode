@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetSize@CSectionBitmapRealization@@$4PPPPPPPM@KI@EBA?AUD2D_SIZE_U@@XZ @ 0x18011DAD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 struct D2D_SIZE_U __fastcall CSectionBitmapRealization::GetSize(__int64 a1, _DWORD *a2)
 {
   return CSectionBitmapRealization::GetSize((CSectionBitmapRealization *)(a1 - *(int *)(a1 - 4) - 168), a2);

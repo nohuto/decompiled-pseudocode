@@ -1,3 +1,22 @@
+/*
+ * XREFs of BapdpProcessBCDCache @ 0x140B44668
+ * Callers:
+ *     BootApplicationPersistentDataProcess @ 0x140B44538 (BootApplicationPersistentDataProcess.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x140412410 (ZwWriteFile.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateFile @ 0x140412DB0 (ZwCreateFile.c)
+ *     RtlIsStateSeparationEnabled @ 0x140792EC0 (RtlIsStateSeparationEnabled.c)
+ *     BcdCloseStore @ 0x14082C570 (BcdCloseStore.c)
+ *     BcdOpenStoreFromFile @ 0x140A59704 (BcdOpenStoreFromFile.c)
+ *     BcdSetSystemStore @ 0x140A5972C (BcdSetSystemStore.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     BapdpQueryData @ 0x140B44D10 (BapdpQueryData.c)
+ */
+
 void __fastcall BapdpProcessBCDCache(__int64 a1)
 {
   __int64 v1; // rdi

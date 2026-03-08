@@ -1,3 +1,11 @@
+/*
+ * XREFs of SrkYDIB_SrkCX @ 0x1C014C952
+ * Callers:
+ *     ShrinkDIB_CY_SrkCX @ 0x1C0266AA0 (ShrinkDIB_CY_SrkCX.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall SrkYDIB_SrkCX(__int64 a1, unsigned __int8 *a2, __int64 a3)
 {
   unsigned __int64 result; // rax

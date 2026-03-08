@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DiscardPreviousFrames@CCompositionFrameCollection@@UEAAX_K@Z @ 0x1C0011EA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CCompositionFrameCollection::DiscardPreviousFrames(
         CCompositionFrameCollection *this,
         unsigned __int64 a2)

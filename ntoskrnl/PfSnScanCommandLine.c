@@ -1,3 +1,14 @@
+/*
+ * XREFs of PfSnScanCommandLine @ 0x1407E4F40
+ * Callers:
+ *     PfSnCalculateScenarioNameAndHash @ 0x1407E4DC0 (PfSnCalculateScenarioNameAndHash.c)
+ * Callees:
+ *     PfSnHashUnsafeUnicodeString @ 0x1407895F0 (PfSnHashUnsafeUnicodeString.c)
+ *     PfSnParsePrefetchParam @ 0x1407E4C2C (PfSnParsePrefetchParam.c)
+ *     PfSnGetUnsafeProcessParameters @ 0x1407E4FFC (PfSnGetUnsafeProcessParameters.c)
+ *     PfSnCaptureParamBlockString @ 0x1407E5060 (PfSnCaptureParamBlockString.c)
+ */
+
 __int64 __fastcall PfSnScanCommandLine(_DWORD *a1, unsigned int *a2, int a3)
 {
   int v3; // ebx

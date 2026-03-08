@@ -1,3 +1,13 @@
+/*
+ * XREFs of MonitorGetEdidFromMonitor @ 0x1C01D9C9C
+ * Callers:
+ *     ?DxgkGetMonitorDescriptor@@YAJU_LUID@@IEIPEAIPEAE@Z @ 0x1C01D9AB0 (-DxgkGetMonitorDescriptor@@YAJU_LUID@@IEIPEAIPEAE@Z.c)
+ * Callees:
+ *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONITOR__@@@Z @ 0x1C000935C (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAUHDXGMONI.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ?GetEdidDescriptorRaw@MonitorDescriptorState@DxgMonitor@@QEBAJIPEAIPEAE@Z @ 0x1C01D9D4C (-GetEdidDescriptorRaw@MonitorDescriptorState@DxgMonitor@@QEBAJIPEAIPEAE@Z.c)
+ */
+
 __int64 __fastcall MonitorGetEdidFromMonitor(__int64 a1, unsigned int a2, unsigned int *a3, void *a4)
 {
   __int64 v8; // rbx

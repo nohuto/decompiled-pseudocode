@@ -1,3 +1,11 @@
+/*
+ * XREFs of InbvSetVirtualFrameBuffer @ 0x1403B1510
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 InbvSetVirtualFrameBuffer()
 {
   __int64 (*v0)(void); // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??_GCCompositionSurfaceManager@@MEAAPEAXI@Z @ 0x1801B41A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ */
+
 CCompositionSurfaceManager *__fastcall CCompositionSurfaceManager::`scalar deleting destructor'(
         CCompositionSurfaceManager *this,
         char a2)

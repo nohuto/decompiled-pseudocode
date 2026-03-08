@@ -1,3 +1,21 @@
+/*
+ * XREFs of DpiFdoHandleSystemPower @ 0x1C01E2484
+ * Callers:
+ *     DpiFdoDispatchPower @ 0x1C01E1A40 (DpiFdoDispatchPower.c)
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     Feature_KsrDisplay__private_ReportDeviceUsage @ 0x1C002673C (Feature_KsrDisplay__private_ReportDeviceUsage.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ *     DpiDxgkDdiSetPowerState @ 0x1C01E22D4 (DpiDxgkDdiSetPowerState.c)
+ *     DpiFdoStopMiracastSession @ 0x1C01E2B40 (DpiFdoStopMiracastSession.c)
+ *     DpiFdoInvalidateChildRelations @ 0x1C01E67E0 (DpiFdoInvalidateChildRelations.c)
+ *     DpiAcquirePostDisplayInfoFromBgfx @ 0x1C01E7D80 (DpiAcquirePostDisplayInfoFromBgfx.c)
+ *     DpiKsrSetBootGraphicsInformation @ 0x1C03A1D20 (DpiKsrSetBootGraphicsInformation.c)
+ *     DpiKsrStopAdapter @ 0x1C03A1DF4 (DpiKsrStopAdapter.c)
+ */
+
 NTSTATUS __fastcall DpiFdoHandleSystemPower(PDEVICE_OBJECT DeviceObject, IRP *Context)
 {
   char *DeviceExtension; // rsi

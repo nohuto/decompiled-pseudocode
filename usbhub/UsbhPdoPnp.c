@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhPdoPnp @ 0x1C0022210
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_c @ 0x1C003B954 (WPP_RECORDER_SF_c.c)
+ */
+
 __int64 __fastcall UsbhPdoPnp(struct _DEVICE_OBJECT *a1, IRP *a2)
 {
   _DWORD *v4; // rax

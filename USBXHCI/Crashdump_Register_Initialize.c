@@ -1,3 +1,11 @@
+/*
+ * XREFs of Crashdump_Register_Initialize @ 0x1C004D858
+ * Callers:
+ *     Crashdump_UcxEvtGetDumpData @ 0x1C004D200 (Crashdump_UcxEvtGetDumpData.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Crashdump_Register_Initialize(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // r10

@@ -1,3 +1,33 @@
+/*
+ * XREFs of _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA2A4
+ * Callers:
+ *     _CmGetDeviceMappedProperty @ 0x1406C9070 (_CmGetDeviceMappedProperty.c)
+ *     _CmGetDeviceMappedPropertyKeys @ 0x1407FCE14 (_CmGetDeviceMappedPropertyKeys.c)
+ * Callees:
+ *     RtlUnalignedStringCchLengthW @ 0x140246434 (RtlUnalignedStringCchLengthW.c)
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     RtlStringCbCopyExW @ 0x1402E1820 (RtlStringCbCopyExW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     wcscmp @ 0x1403D5DD0 (wcscmp.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _CmGetDeviceContainerIdFromBase @ 0x1406C3AD8 (_CmGetDeviceContainerIdFromBase.c)
+ *     _CmGetDeviceParent @ 0x1406C7D1C (_CmGetDeviceParent.c)
+ *     _PnpMultiSzGetLen @ 0x1406C8258 (_PnpMultiSzGetLen.c)
+ *     _CmGetDeviceStatus @ 0x1406C8624 (_CmGetDeviceStatus.c)
+ *     _NtPlugPlayGetDeviceStatus @ 0x1406C8898 (_NtPlugPlayGetDeviceStatus.c)
+ *     _CmGetDeviceRegProp @ 0x1406C9884 (_CmGetDeviceRegProp.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ *     _CmOpenDeviceRegKey @ 0x1406D3B3C (_CmOpenDeviceRegKey.c)
+ *     _CmGetDeviceCompoundFilters @ 0x140751AEC (_CmGetDeviceCompoundFilters.c)
+ *     _NtPlugPlayGetDeviceProperty @ 0x140786A08 (_NtPlugPlayGetDeviceProperty.c)
+ *     _CmIsDeviceSafeRemovalRequired @ 0x14078A594 (_CmIsDeviceSafeRemovalRequired.c)
+ *     _CmGetDeviceSiblings @ 0x140839C1C (_CmGetDeviceSiblings.c)
+ *     _CmGetDeviceChildren @ 0x140839DE0 (_CmGetDeviceChildren.c)
+ *     _CmGetDeviceRelationsList @ 0x14084ECA4 (_CmGetDeviceRelationsList.c)
+ */
+
 __int64 __fastcall CmGetDeviceMappedPropertyFromComposite(
         __int64 a1,
         const wchar_t *a2,

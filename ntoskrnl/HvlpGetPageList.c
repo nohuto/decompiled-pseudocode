@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvlpGetPageList @ 0x140547DF4
+ * Callers:
+ *     HvlpMarkHypervisorPagesForHibernation @ 0x140544D14 (HvlpMarkHypervisorPagesForHibernation.c)
+ *     HvlAddPagesCallbackRoutine @ 0x140544F20 (HvlAddPagesCallbackRoutine.c)
+ *     HvlpGetEncryptedDataFromHypervisor @ 0x1405458B8 (HvlpGetEncryptedDataFromHypervisor.c)
+ * Callees:
+ *     HvlpInvokeGetPageListHypercall @ 0x140547EC8 (HvlpInvokeGetPageListHypercall.c)
+ */
+
 __int64 __fastcall HvlpGetPageList(int a1, __int64 *a2, _DWORD *a3)
 {
   unsigned __int16 v5; // ax

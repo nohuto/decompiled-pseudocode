@@ -1,3 +1,11 @@
+/*
+ * XREFs of SrbAssignCommandId @ 0x1C00253D4
+ * Callers:
+ *     ProcessMultipleCommandsInSpecificQueue @ 0x1C0024840 (ProcessMultipleCommandsInSpecificQueue.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall SrbAssignCommandId(__int64 a1, __int64 a2, unsigned __int16 a3)
 {
   unsigned __int16 v5; // r8

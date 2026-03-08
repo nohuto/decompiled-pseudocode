@@ -1,3 +1,11 @@
+/*
+ * XREFs of MultiUserGreDeleteScripts @ 0x1C00F60F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall MultiUserGreDeleteScripts(__int64 a1)
 {
   __int64 v1; // rdx

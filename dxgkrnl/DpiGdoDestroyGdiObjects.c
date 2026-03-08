@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiGdoDestroyGdiObjects @ 0x1C03A5B8C
+ * Callers:
+ *     DpiFdoCreateRelatedObjects @ 0x1C0202548 (DpiFdoCreateRelatedObjects.c)
+ *     DpiFdoDestroyRelatedObjects @ 0x1C0396844 (DpiFdoDestroyRelatedObjects.c)
+ * Callees:
+ *     DpiAppendNumberToString @ 0x1C020301C (DpiAppendNumberToString.c)
+ *     DxgkReleaseGdiViewId @ 0x1C03521F8 (DxgkReleaseGdiViewId.c)
+ */
+
 __int64 __fastcall DpiGdoDestroyGdiObjects(__int64 a1)
 {
   __int64 v1; // rsi

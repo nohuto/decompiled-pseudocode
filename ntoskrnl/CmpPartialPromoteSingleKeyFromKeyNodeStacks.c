@@ -1,3 +1,19 @@
+/*
+ * XREFs of CmpPartialPromoteSingleKeyFromKeyNodeStacks @ 0x140A23568
+ * Callers:
+ *     CmpPromoteSingleKeyFromKcbStacks @ 0x140A23C40 (CmpPromoteSingleKeyFromKcbStacks.c)
+ *     CmpPromoteSingleKeyFromParentKcbAndChildKeyNode @ 0x140A23DDC (CmpPromoteSingleKeyFromParentKcbAndChildKeyNode.c)
+ *     CmpPromoteSubtree @ 0x140A23F00 (CmpPromoteSubtree.c)
+ * Callees:
+ *     CmpFreeKeyByCell @ 0x1406BA854 (CmpFreeKeyByCell.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140783798 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpAddSubKeyEx @ 0x1407A4094 (CmpAddSubKeyEx.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpMarkCellDirty @ 0x1407D2460 (HvpMarkCellDirty.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpCopyMergeOfLayeredKeyNode @ 0x140A1E428 (CmpCopyMergeOfLayeredKeyNode.c)
+ */
+
 __int64 __fastcall CmpPartialPromoteSingleKeyFromKeyNodeStacks(__int16 *a1, __int64 a2)
 {
   __int16 v3; // dx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopSetNewPolicyValue @ 0x140825FDC
+ * Callers:
+ *     PopUmpoProcessPowerMessage @ 0x14073B5A4 (PopUmpoProcessPowerMessage.c)
+ * Callees:
+ *     PopSetPowerSettingValue @ 0x14068CFA0 (PopSetPowerSettingValue.c)
+ *     PopStateIsSessionSpecific @ 0x14068D530 (PopStateIsSessionSpecific.c)
+ *     RtlStringFromGUIDEx @ 0x140733E90 (RtlStringFromGUIDEx.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     PpmSetProfilePolicySetting @ 0x140825A60 (PpmSetProfilePolicySetting.c)
+ */
+
 __int64 __fastcall PopSetNewPolicyValue(__int64 a1)
 {
   GUID *v1; // rsi

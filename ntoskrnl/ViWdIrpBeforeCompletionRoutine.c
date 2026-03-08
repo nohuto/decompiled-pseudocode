@@ -1,3 +1,13 @@
+/*
+ * XREFs of ViWdIrpBeforeCompletionRoutine @ 0x140ADB358
+ * Callers:
+ *     IovpCompleteRequest2 @ 0x140AC9AFC (IovpCompleteRequest2.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ */
+
 void __fastcall ViWdIrpBeforeCompletionRoutine(__int64 a1)
 {
   _QWORD *v1; // rbx

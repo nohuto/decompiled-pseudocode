@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlpGetSetBootStatusData @ 0x14073D77C
+ * Callers:
+ *     RtlGetSetBootStatusData @ 0x14073D600 (RtlGetSetBootStatusData.c)
+ * Callees:
+ *     ZwReadFile @ 0x1404123D0 (ZwReadFile.c)
+ *     ZwWriteFile @ 0x140412410 (ZwWriteFile.c)
+ *     ZwFlushBuffersFile @ 0x140412C70 (ZwFlushBuffersFile.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlBootStatusItemInfo @ 0x14073D958 (RtlBootStatusItemInfo.c)
+ *     RtlpRecordBootStatusData @ 0x14073D990 (RtlpRecordBootStatusData.c)
+ */
+
 NTSTATUS __fastcall RtlpGetSetBootStatusData(
         HANDLE FileHandle,
         char a2,

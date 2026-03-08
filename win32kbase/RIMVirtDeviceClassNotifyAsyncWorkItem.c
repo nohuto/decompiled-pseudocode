@@ -1,3 +1,22 @@
+/*
+ * XREFs of RIMVirtDeviceClassNotifyAsyncWorkItem @ 0x1C01D032C
+ * Callers:
+ *     RIMOnAsyncPnpWorkNotification @ 0x1C0038B90 (RIMOnAsyncPnpWorkNotification.c)
+ * Callees:
+ *     ?RimDeviceClassNotification@RIM@InputTraceLogging@@SAXAEBU_GUID@@PEBU_UNICODE_STRING@@@Z @ 0x1C0037CCC (-RimDeviceClassNotification@RIM@InputTraceLogging@@SAXAEBU_GUID@@PEBU_UNICODE_STRING@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_S @ 0x1C0037E30 (WPP_RECORDER_AND_TRACE_SF_S.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     RIMDoOnPnpNotification @ 0x1C00872A8 (RIMDoOnPnpNotification.c)
+ *     rimDoRimDevChange @ 0x1C00BC1AC (rimDoRimDevChange.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMFreeDev @ 0x1C019DE20 (RIMFreeDev.c)
+ *     RIMVirtCreateDev @ 0x1C019DFF8 (RIMVirtCreateDev.c)
+ *     WPP_RECORDER_AND_TRACE_SF_Sdq @ 0x1C01D1498 (WPP_RECORDER_AND_TRACE_SF_Sdq.c)
+ */
+
 __int64 __fastcall RIMVirtDeviceClassNotifyAsyncWorkItem(__int64 a1)
 {
   __int64 v1; // rsi

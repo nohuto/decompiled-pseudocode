@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPhysicalSize@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAI0@Z @ 0x1C01CFC70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EDID_V1_GetPhysicalSize@@YAJKPEBEPEAI1@Z @ 0x1C0011090 (-EDID_V1_GetPhysicalSize@@YAJKPEBEPEAI1@Z.c)
+ */
+
 __int64 __fastcall DxgMonitor::EdidMonitorDescriptor::GetPhysicalSize(
         DxgMonitor::EdidMonitorDescriptor *this,
         unsigned int *a2,

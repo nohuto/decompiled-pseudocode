@@ -1,3 +1,25 @@
+/*
+ * XREFs of ?UpdateInputGlobals@CInputGlobals@@QEAA_N_KW4_LINP_SOURCE@@GKK@Z @ 0x1C0080790
+ * Callers:
+ *     ?ProcessMouseEvent@CMouseProcessor@@QEAAXXZ @ 0x1C007AB10 (-ProcessMouseEvent@CMouseProcessor@@QEAAXXZ.c)
+ *     xxxProcessKeyEvent @ 0x1C007EE00 (xxxProcessKeyEvent.c)
+ *     NtMITUpdateInputGlobals @ 0x1C00CF240 (NtMITUpdateInputGlobals.c)
+ *     rimDoUpdateInputGlobalsWorkItem @ 0x1C01CDFBC (rimDoUpdateInputGlobalsWorkItem.c)
+ *     ?ProcessInput@CHidInput@@EEAAJPEAXKK0@Z @ 0x1C02120C0 (-ProcessInput@CHidInput@@EEAAJPEAXKK0@Z.c)
+ * Callees:
+ *     ?_UpdateLastInputTime@CInputGlobals@@AEAAX_KW4_LINP_SOURCE@@@Z @ 0x1C0016C74 (-_UpdateLastInputTime@CInputGlobals@@AEAAX_KW4_LINP_SOURCE@@@Z.c)
+ *     ?UnLockExclusive@CInpPushLock@@QEAAXXZ @ 0x1C00397E0 (-UnLockExclusive@CInpPushLock@@QEAAXXZ.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     CitLastInputUpdate @ 0x1C00B82C0 (CitLastInputUpdate.c)
+ *     ApiSetEditionKeepMachineUp @ 0x1C00BAE68 (ApiSetEditionKeepMachineUp.c)
+ *     EtwTraceUserIsActive @ 0x1C00C14F0 (EtwTraceUserIsActive.c)
+ *     ?KnownInputTypeFromLinpSource@@YA?AW4InputType@@W4_LINP_SOURCE@@@Z @ 0x1C00C262C (-KnownInputTypeFromLinpSource@@YA-AW4InputType@@W4_LINP_SOURCE@@@Z.c)
+ *     ApiSetTraceLoggingUserIsActive @ 0x1C00C954C (ApiSetTraceLoggingUserIsActive.c)
+ *     Feature_Servicing_SpuriousWakesFixPartOne__private_IsEnabledDeviceUsage @ 0x1C00DD67C (Feature_Servicing_SpuriousWakesFixPartOne__private_IsEnabledDeviceUsage.c)
+ *     ?UpdateInputGlobals@Power@InputTraceLogging@@SAXW4_LINP_SOURCE@@GK@Z @ 0x1C00E009C (-UpdateInputGlobals@Power@InputTraceLogging@@SAXW4_LINP_SOURCE@@GK@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 char __fastcall CInputGlobals::UpdateInputGlobals(
         __int64 a1,
         __int64 a2,

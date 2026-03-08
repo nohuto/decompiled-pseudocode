@@ -1,3 +1,12 @@
+/*
+ * XREFs of FsRtlMdlRead @ 0x14079AAB0
+ * Callers:
+ *     FsRtlMdlReadEx @ 0x14079AA30 (FsRtlMdlReadEx.c)
+ * Callees:
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char __fastcall FsRtlMdlRead(
         struct _FILE_OBJECT *a1,
         __int64 a2,

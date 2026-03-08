@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CManipulationManager@@IEAA@PEAVCComposition@@@Z @ 0x1800CBFC0
+ * Callers:
+ *     ??0CGlobalManipulationManager@@AEAA@PEAVCComposition@@@Z @ 0x1800CBC08 (--0CGlobalManipulationManager@@AEAA@PEAVCComposition@@@Z.c)
+ * Callees:
+ *     ??0QpcTimeConverter@@QEAA@XZ @ 0x180039B88 (--0QpcTimeConverter@@QEAA@XZ.c)
+ */
+
 CManipulationManager *__fastcall CManipulationManager::CManipulationManager(
         CManipulationManager *this,
         struct CComposition *a2)

@@ -1,3 +1,17 @@
+/*
+ * XREFs of HUBDTX_ValidateAndCacheSerialNumberStringDescriptor @ 0x1C002CCF0
+ * Callers:
+ *     HUBDSM_ValidatingSerialNumberStringDescriptorFor1xDevice @ 0x1C0022170 (HUBDSM_ValidatingSerialNumberStringDescriptorFor1xDevice.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBMISC_LogDescriptorValidationErrorForDevice @ 0x1C0033F70 (HUBMISC_LogDescriptorValidationErrorForDevice.c)
+ *     HUBDESC_InternalValidateStringDescriptor @ 0x1C003C360 (HUBDESC_InternalValidateStringDescriptor.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ */
+
 __int64 __fastcall HUBDTX_ValidateAndCacheSerialNumberStringDescriptor(__int64 a1)
 {
   __int64 v2; // rax

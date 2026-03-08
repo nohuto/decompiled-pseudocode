@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIAssociateWakeInterrupt @ 0x1C004431C
+ * Callers:
+ *     ACPIWakeEmulationEnable @ 0x1C00452A4 (ACPIWakeEmulationEnable.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     ACPIDelayedFreeWakeInterrupt @ 0x1C0044668 (ACPIDelayedFreeWakeInterrupt.c)
+ *     ACPIDereferenceWakeInterrupt @ 0x1C004485C (ACPIDereferenceWakeInterrupt.c)
+ *     ACPIFindWakeInterruptForVector @ 0x1C00449AC (ACPIFindWakeInterruptForVector.c)
+ *     OSPowerTryAcquireWakeInterruptChangeStateLock @ 0x1C0046320 (OSPowerTryAcquireWakeInterruptChangeStateLock.c)
+ *     ACPIConnectWakeInterrupt @ 0x1C0098AB4 (ACPIConnectWakeInterrupt.c)
+ */
+
 __int64 __fastcall ACPIAssociateWakeInterrupt(__int64 a1)
 {
   __int64 v1; // rbx

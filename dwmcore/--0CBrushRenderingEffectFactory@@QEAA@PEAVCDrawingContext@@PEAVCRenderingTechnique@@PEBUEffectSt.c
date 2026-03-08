@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CBrushRenderingEffectFactory@@QEAA@PEAVCDrawingContext@@PEAVCRenderingTechnique@@PEBUEffectStage@@@Z @ 0x180030050
+ * Callers:
+ *     ?UpdateDrawListCache@CBrushRenderingGraph@@IEAAJPEAVCDrawingContext@@PEBVCDrawListBrush@@PEAUEffectStage@@IPEAVCDrawListCache@@@Z @ 0x18002FD34 (-UpdateDrawListCache@CBrushRenderingGraph@@IEAAJPEAVCDrawingContext@@PEBVCDrawListBrush@@PEAUEff.c)
+ * Callees:
+ *     <none>
+ */
+
 CBrushRenderingEffectFactory *__fastcall CBrushRenderingEffectFactory::CBrushRenderingEffectFactory(
         CBrushRenderingEffectFactory *this,
         struct CDrawingContext *a2,

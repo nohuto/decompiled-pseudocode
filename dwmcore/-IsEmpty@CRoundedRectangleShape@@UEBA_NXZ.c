@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsEmpty@CRoundedRectangleShape@@UEBA_NXZ @ 0x1800DB030
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CRoundedRectangleShape::IsEmpty(CRoundedRectangleShape *this)
 {
   __int64 v1; // rax

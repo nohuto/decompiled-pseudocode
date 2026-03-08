@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bCheckMetricsCache@RFONTOBJ@@QEAAHXZ @ 0x1C011E1B0
+ * Callers:
+ *     xInsertMetricsPlusRFONTOBJ @ 0x1C011DA70 (xInsertMetricsPlusRFONTOBJ.c)
+ *     ?bEnsureGlyphCacheBuffer@RFONTOBJ@@QEAAHKPEAPEAU_GLYPHDATA@@PEA_KPEAPEAU_GLYPHBITS@@@Z @ 0x1C011DE48 (-bEnsureGlyphCacheBuffer@RFONTOBJ@@QEAAHKPEAPEAU_GLYPHDATA@@PEA_KPEAPEAU_GLYPHBITS@@@Z.c)
+ *     xInsertMetricsRFONTOBJ @ 0x1C0151CF0 (xInsertMetricsRFONTOBJ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RFONTOBJ::bCheckMetricsCache(RFONTOBJ *this, __int64 a2, __int64 a3, __int64 a4)
 {
   _QWORD *v4; // rbx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of Win32UAFMAllocPoolWithPriority @ 0x1C017D1B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AdjustSize@?$UAFMitigationAllocator@VWin32UAFMAllocatorCollection@@@NSInstrumentation@@CA_K_K@Z @ 0x1C017D460 (-AdjustSize@-$UAFMitigationAllocator@VWin32UAFMAllocatorCollection@@@NSInstrumentation@@CA_K_K@Z.c)
+ *     ?GenerateCookie@?$UAFMitigationAllocator@VWin32UAFMAllocatorCollection@@@NSInstrumentation@@CAIXZ @ 0x1C017D510 (-GenerateCookie@-$UAFMitigationAllocator@VWin32UAFMAllocatorCollection@@@NSInstrumentation@@CAIX.c)
+ *     ?AllocatePriority@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0IW4_EX_POOL_PRIORITY@@@Z @ 0x1C019AEA0 (-AllocatePriority@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0IW4_EX_POOL_PRIORITY@@@Z.c)
+ */
+
 char *__fastcall Win32UAFMAllocPoolWithPriority(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _DWORD *a5)
 {
   unsigned __int64 v5; // rax

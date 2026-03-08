@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPlUnregisterComponent @ 0x14059F924
+ * Callers:
+ *     PopPlUnregisterDevice @ 0x14059F9D0 (PopPlUnregisterDevice.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall PopPlUnregisterComponent(__int64 a1)
 {
   NTSTATUS result; // eax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of _dynamic_initializer_for__CEllipseGeometry::sc_Radius__ @ 0x180002620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 dynamic_initializer_for__CEllipseGeometry::sc_Radius__()
 {
   __int64 result; // rax

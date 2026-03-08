@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bCleanupFontHash@@YAHPEAPEAU_FONTHASH@@@Z @ 0x1C00B6F7C
+ * Callers:
+ *     ?bCleanupFontTable@@YAHPEAPEAVPFT@@@Z @ 0x1C00B6EE0 (-bCleanupFontTable@@YAHPEAPEAVPFT@@@Z.c)
+ * Callees:
+ *     ?vFree@FHOBJ@@QEAAXXZ @ 0x1C00B6FC0 (-vFree@FHOBJ@@QEAAXXZ.c)
+ *     ?bValid@FHOBJ@@QEBAHXZ @ 0x1C0117D28 (-bValid@FHOBJ@@QEBAHXZ.c)
+ */
+
 __int64 __fastcall bCleanupFontHash(struct _FONTHASH **a1)
 {
   __int64 v1; // rax

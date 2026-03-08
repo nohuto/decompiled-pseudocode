@@ -1,3 +1,22 @@
+/*
+ * XREFs of KsepSdbMapToMemory @ 0x14079D24C
+ * Callers:
+ *     KseShimDatabaseOpen @ 0x14079EFB4 (KseShimDatabaseOpen.c)
+ * Callees:
+ *     MiRemoveFromSystemSpace @ 0x14020E5C8 (MiRemoveFromSystemSpace.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KsepLogError @ 0x140303450 (KsepLogError.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     ZwCreateSection @ 0x140412C50 (ZwCreateSection.c)
+ *     KsepDebugPrint @ 0x14057E834 (KsepDebugPrint.c)
+ *     MiMapViewInSystemSpace @ 0x1406A55B8 (MiMapViewInSystemSpace.c)
+ *     SdbGetDatabaseEdition @ 0x14079CA70 (SdbGetDatabaseEdition.c)
+ *     SdbInitDatabaseInMemory @ 0x14079CFC8 (SdbInitDatabaseInMemory.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall KsepSdbMapToMemory(PCWSTR SourceString, __int64 a2)
 {
   PVOID v3; // rsi

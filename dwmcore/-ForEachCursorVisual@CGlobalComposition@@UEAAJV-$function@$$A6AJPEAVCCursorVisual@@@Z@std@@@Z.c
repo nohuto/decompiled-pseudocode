@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ForEachCursorVisual@CGlobalComposition@@UEAAJV?$function@$$A6AJPEAVCCursorVisual@@@Z@std@@@Z @ 0x1801EF6D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CGlobalComposition::ForEachCursorVisual(__int64 a1, __int64 a2)
 {
   __int64 *v2; // rbx

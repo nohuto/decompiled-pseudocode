@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExpConvertArcName @ 0x1409F8CB8
+ * Callers:
+ *     ExpTranslateArcPath @ 0x1409FB1E4 (ExpTranslateArcPath.c)
+ * Callees:
+ *     wcscpy_s @ 0x1403DA210 (wcscpy_s.c)
+ *     wcsncat_s @ 0x1403DA2A0 (wcsncat_s.c)
+ *     ExpCreateOutputNT @ 0x14083F22C (ExpCreateOutputNT.c)
+ *     ExpTranslateSymbolicLink @ 0x14083F2E8 (ExpTranslateSymbolicLink.c)
+ *     ExpTranslateNtPath @ 0x1409FB67C (ExpTranslateNtPath.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpConvertArcName(
         unsigned int a1,
         __int64 a2,

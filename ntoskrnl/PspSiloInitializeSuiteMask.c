@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspSiloInitializeSuiteMask @ 0x1409AA6D8
+ * Callers:
+ *     PspSiloInitializeUserSharedData @ 0x1409AA8E8 (PspSiloInitializeUserSharedData.c)
+ * Callees:
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     ExGetSuiteMask @ 0x140810AB8 (ExGetSuiteMask.c)
+ *     PspSiloGetMultiUserTsFromRegistry @ 0x1409AA4F0 (PspSiloGetMultiUserTsFromRegistry.c)
+ *     PspSiloGetSuiteMaskStringFromRegistry @ 0x1409AA58C (PspSiloGetSuiteMaskStringFromRegistry.c)
+ */
+
 __int64 __fastcall PspSiloInitializeSuiteMask(__int64 a1)
 {
   int SuiteMaskStringFromRegistry; // ebx

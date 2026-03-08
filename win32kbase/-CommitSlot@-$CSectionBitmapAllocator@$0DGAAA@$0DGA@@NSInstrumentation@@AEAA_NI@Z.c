@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CommitSlot@?$CSectionBitmapAllocator@$0DGAAA@$0DGA@@NSInstrumentation@@AEAA_NI@Z @ 0x1C002AAB0
+ * Callers:
+ *     ?Allocate@?$CSectionBitmapAllocator@$0DGAAA@$0DGA@@NSInstrumentation@@QEAAPEAXXZ @ 0x1C002A9A4 (-Allocate@-$CSectionBitmapAllocator@$0DGAAA@$0DGA@@NSInstrumentation@@QEAAPEAXXZ.c)
+ * Callees:
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 char __fastcall NSInstrumentation::CSectionBitmapAllocator<221184,864>::CommitSlot(__int64 a1, unsigned int a2)
 {
   unsigned int v2; // eax

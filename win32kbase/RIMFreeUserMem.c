@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMFreeUserMem @ 0x1C01AB5D0
+ * Callers:
+ *     rimProcessInput @ 0x1C00045B0 (rimProcessInput.c)
+ *     RIMFreeInputBuffer @ 0x1C01A4D80 (RIMFreeInputBuffer.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall RIMFreeUserMem(struct _RTL_AVL_TABLE *a1, void *a2)
 {
   struct _RTL_AVL_TABLE *v2; // rbx

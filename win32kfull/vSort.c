@@ -1,3 +1,11 @@
+/*
+ * XREFs of vSort @ 0x1C00BD064
+ * Callers:
+ *     cUnicodeRangesSupported @ 0x1C00BCCE0 (cUnicodeRangesSupported.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall vSort(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // rax

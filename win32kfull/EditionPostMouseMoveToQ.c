@@ -1,3 +1,14 @@
+/*
+ * XREFs of EditionPostMouseMoveToQ @ 0x1C0037070
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetInputDelegate@@YAPEAUtagTHREADINFO@@PEAUtagWND@@I@Z @ 0x1C0037160 (-GetInputDelegate@@YAPEAUtagTHREADINFO@@PEAUtagWND@@I@Z.c)
+ *     PostInputMessage @ 0x1C0037A48 (PostInputMessage.c)
+ *     ?vAdjustDelegatePriority@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C0047028 (-vAdjustDelegatePriority@@YAXPEAUtagTHREADINFO@@@Z.c)
+ *     CalcWakeMask @ 0x1C0071660 (CalcWakeMask.c)
+ */
+
 __int64 __fastcall EditionPostMouseMoveToQ(
         struct tagQ *a1,
         __int64 a2,

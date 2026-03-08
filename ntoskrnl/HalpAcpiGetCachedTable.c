@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpAcpiGetCachedTable @ 0x14029C6E4
+ * Callers:
+ *     HalpAcpiGetRsdt @ 0x14029C328 (HalpAcpiGetRsdt.c)
+ *     HalpAcpiGetTableWork @ 0x14029C5D0 (HalpAcpiGetTableWork.c)
+ *     HalpAcpiTableCacheInit @ 0x140B3DDE0 (HalpAcpiTableCacheInit.c)
+ * Callees:
+ *     strncmp @ 0x1403D3310 (strncmp.c)
+ */
+
 __int64 __fastcall HalpAcpiGetCachedTable(int a1, const char *a2, const char *a3)
 {
   __int64 v3; // rdi

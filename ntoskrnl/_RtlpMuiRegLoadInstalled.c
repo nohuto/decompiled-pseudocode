@@ -1,3 +1,17 @@
+/*
+ * XREFs of _RtlpMuiRegLoadInstalled @ 0x140844000
+ * Callers:
+ *     RtlpMuiRegLoadRegistryInfo @ 0x140843F90 (RtlpMuiRegLoadRegistryInfo.c)
+ * Callees:
+ *     _RtlpMuiRegLoadInstalledFromKey @ 0x14039C4A0 (_RtlpMuiRegLoadInstalledFromKey.c)
+ *     ZwQueryInstallUILanguage @ 0x140414E50 (ZwQueryInstallUILanguage.c)
+ *     RtlpLoadInstallLanguageFallback @ 0x140843474 (RtlpLoadInstallLanguageFallback.c)
+ *     _RtlpMuiRegValidateInstalled @ 0x140843870 (_RtlpMuiRegValidateInstalled.c)
+ *     RtlpMuiRegCreateLanguages @ 0x1408440DC (RtlpMuiRegCreateLanguages.c)
+ *     RtlpMuiRegCreateStringPool @ 0x1408442EC (RtlpMuiRegCreateStringPool.c)
+ *     RtlpMuiRegFreeRegistryInfo @ 0x1408447E8 (RtlpMuiRegFreeRegistryInfo.c)
+ */
+
 __int64 __fastcall RtlpMuiRegLoadInstalled(__int64 a1, __int64 a2)
 {
   int InstallUILanguage; // edi

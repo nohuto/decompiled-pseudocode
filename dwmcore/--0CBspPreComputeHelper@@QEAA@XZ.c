@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0CBspPreComputeHelper@@QEAA@XZ @ 0x1800DAC80
+ * Callers:
+ *     ?PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18006B3A0 (-PreSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ??0SubTreeContext@CPreComputeContext@@QEAA@$$QEAV01@@Z @ 0x1801B2C20 (--0SubTreeContext@CPreComputeContext@@QEAA@$$QEAV01@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 CBspPreComputeHelper *__fastcall CBspPreComputeHelper::CBspPreComputeHelper(CBspPreComputeHelper *this)
 {
   *(_QWORD *)this = 0LL;

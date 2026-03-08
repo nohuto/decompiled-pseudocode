@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UserProcessImmersiveType@@YAJPEAU_WIN32_PROCESS_CALLOUT_PARAMETERS@@PEAXPEAW4_PROCESS_IMMERSIVE_TYPE@@PEAKPEAH@Z @ 0x1C007077C
+ * Callers:
+ *     xxxUserProcessCallout @ 0x1C0074450 (xxxUserProcessCallout.c)
+ * Callees:
+ *     ?AppModelPolicy_GetPolicy_Internal@@YAJPEAXW4AppModelPolicy_Type@@PEAW4AppModelPolicy_PolicyValue@@PEAU_PS_PKG_CLAIM@@PEA_K@Z @ 0x1C0070A60 (-AppModelPolicy_GetPolicy_Internal@@YAJPEAXW4AppModelPolicy_Type@@PEAW4AppModelPolicy_PolicyValu.c)
+ */
+
 int __fastcall UserProcessImmersiveType(
         struct _WIN32_PROCESS_CALLOUT_PARAMETERS *a1,
         void *a2,

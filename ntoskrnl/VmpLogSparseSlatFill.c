@@ -1,3 +1,13 @@
+/*
+ * XREFs of VmpLogSparseSlatFill @ 0x1405F79AC
+ * Callers:
+ *     VmpFillSlat @ 0x1405F6C78 (VmpFillSlat.c)
+ * Callees:
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall VmpLogSparseSlatFill(__int64 a1, __int64 a2, unsigned int a3)
 {
   int v3; // r9d

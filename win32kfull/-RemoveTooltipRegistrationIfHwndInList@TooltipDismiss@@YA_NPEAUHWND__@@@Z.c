@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RemoveTooltipRegistrationIfHwndInList@TooltipDismiss@@YA_NPEAUHWND__@@@Z @ 0x1C023030C
+ * Callers:
+ *     NtUserRegisterForTooltipDismissNotification @ 0x1C01DA670 (NtUserRegisterForTooltipDismissNotification.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall TooltipDismiss::RemoveTooltipRegistrationIfHwndInList(TooltipDismiss *this, HWND a2)
 {
   struct tagTOOLTIPENTRY *v3; // rdx

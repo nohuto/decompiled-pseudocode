@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CTurbulenceEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C024E980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CTurbulenceEffectMarshaler::SetRemarshalingFlags(
         DirectComposition::CTurbulenceEffectMarshaler *this)
 {

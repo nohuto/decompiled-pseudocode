@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpReplaceListEntry @ 0x1403C5D60
+ * Callers:
+ *     ExpRotateFastOwnerEntrySublistHead @ 0x1403C589C (ExpRotateFastOwnerEntrySublistHead.c)
+ *     ExpReleaseFastResourceShared @ 0x1403C5A70 (ExpReleaseFastResourceShared.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ExpReplaceListEntry(_QWORD *a1, _QWORD *a2)
 {
   _QWORD *v2; // r8

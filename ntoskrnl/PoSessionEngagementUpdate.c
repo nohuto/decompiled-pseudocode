@@ -1,3 +1,12 @@
+/*
+ * XREFs of PoSessionEngagementUpdate @ 0x14059BB7C
+ * Callers:
+ *     TtmNotifySessionDisplayRequiredChange @ 0x1409A13E0 (TtmNotifySessionDisplayRequiredChange.c)
+ * Callees:
+ *     PopInvokeWin32Callout @ 0x14073A52C (PopInvokeWin32Callout.c)
+ *     PopBlockSessionSwitch @ 0x140994CF0 (PopBlockSessionSwitch.c)
+ */
+
 __int64 __fastcall PoSessionEngagementUpdate(__int64 a1)
 {
   char v1; // bl

@@ -1,3 +1,29 @@
+/*
+ * XREFs of SepRmCallLsa @ 0x1402E8690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     SepRmDispatchDataToLsa @ 0x1402E88D8 (SepRmDispatchDataToLsa.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     NtWaitForSingleObject @ 0x1407CFE90 (NtWaitForSingleObject.c)
+ *     AdtpWriteToEtw @ 0x14083D7F0 (AdtpWriteToEtw.c)
+ *     SepAdtOpenEtwReadyEvent @ 0x1408414C0 (SepAdtOpenEtwReadyEvent.c)
+ *     SepAuditFailed @ 0x1409CEE50 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepRmCallLsa(__int64 **a1)
 {
   char v1; // r15

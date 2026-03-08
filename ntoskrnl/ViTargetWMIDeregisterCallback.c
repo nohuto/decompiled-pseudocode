@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViTargetWMIDeregisterCallback @ 0x140AC8F50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ViTargetWMIDeregisterCallback(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax

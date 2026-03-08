@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?NotifyPendingFlipManagerPresent@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C0079B08
+ * Callers:
+ *     ?DxgkQuerySwapChainBindingStatus@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C000DC0C (-DxgkQuerySwapChainBindingStatus@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z.c)
+ * Callees:
+ *     DxgkGetWin32kImportTable @ 0x1C0007808 (DxgkGetWin32kImportTable.c)
+ *     ?IsTokenManagerReady@@YAHXZ @ 0x1C000DE1C (-IsTokenManagerReady@@YAHXZ.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000E098 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?Release@DxgkCompositionObject@@QEBA_JXZ @ 0x1C0016980 (-Release@DxgkCompositionObject@@QEBA_JXZ.c)
+ *     Feature_Servicing_DCompBatchedPresentCompositionBuffers__private_IsEnabledDeviceUsage @ 0x1C0026DD8 (Feature_Servicing_DCompBatchedPresentCompositionBuffers__private_IsEnabledDeviceUsage.c)
+ *     Feature_CompositionTextures__private_IsEnabledDeviceUsage @ 0x1C0026E2C (Feature_CompositionTextures__private_IsEnabledDeviceUsage.c)
+ *     ?GetAndClearSyncId@FlipManagerTokenObject@@QEAAJPEA_K@Z @ 0x1C0026E80 (-GetAndClearSyncId@FlipManagerTokenObject@@QEAAJPEA_K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C0051E98 (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
+ *     ?MarkPending@FlipManagerTokenObject@@QEAAJXZ @ 0x1C0079AA4 (-MarkPending@FlipManagerTokenObject@@QEAAJXZ.c)
+ *     ?ResolveHandleForWrite@FlipManagerTokenObject@@SAJPEAXPEAPEAU1@@Z @ 0x1C007A124 (-ResolveHandleForWrite@FlipManagerTokenObject@@SAJPEAXPEAPEAU1@@Z.c)
+ */
+
 __int64 __fastcall NotifyPendingFlipManagerPresent(int a1, struct _D3DKMT_PRESENTHISTORYTOKEN *a2)
 {
   void *FenceValue; // r14

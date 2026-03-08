@@ -1,3 +1,13 @@
+/*
+ * XREFs of VidSchiRequestSchedulerStatus @ 0x1C00B7E60
+ * Callers:
+ *     VidSchInitializeAdapter @ 0x1C00B5B90 (VidSchInitializeAdapter.c)
+ *     VidSchFlushAdapter @ 0x1C0107550 (VidSchFlushAdapter.c)
+ *     VidSchTerminateAdapter @ 0x1C0108B80 (VidSchTerminateAdapter.c)
+ * Callees:
+ *     VidSchiGetSchedulerStatus @ 0x1C00189A8 (VidSchiGetSchedulerStatus.c)
+ */
+
 __int64 __fastcall VidSchiRequestSchedulerStatus(__int64 a1, int a2, int a3)
 {
   unsigned int v3; // esi

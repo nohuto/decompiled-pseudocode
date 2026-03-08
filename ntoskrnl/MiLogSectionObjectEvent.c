@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiLogSectionObjectEvent @ 0x140A2CAAC
+ * Callers:
+ *     MiSectionDelete @ 0x1407C8780 (MiSectionDelete.c)
+ *     MiCreateSection @ 0x1407D05D0 (MiCreateSection.c)
+ * Callees:
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     MiLogPerfMemoryEvent @ 0x140463406 (MiLogPerfMemoryEvent.c)
+ */
+
 void __fastcall MiLogSectionObjectEvent(__int64 a1)
 {
   unsigned __int64 v1; // rax

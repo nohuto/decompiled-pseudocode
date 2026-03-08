@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpDispatchPower @ 0x140A92B60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     HalpPassIrpFromFdoToPdo @ 0x14038CC24 (HalpPassIrpFromFdoToPdo.c)
+ *     HalpDispatchSystemStateTransition @ 0x14050B1D4 (HalpDispatchSystemStateTransition.c)
+ */
+
 __int64 __fastcall HalpDispatchPower(__int64 a1, IRP *a2)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r8

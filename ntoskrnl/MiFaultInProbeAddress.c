@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiFaultInProbeAddress @ 0x1402E021C
+ * Callers:
+ *     MiProbeAndLockPacket @ 0x140268C30 (MiProbeAndLockPacket.c)
+ *     MiLockPageLeafPageTable @ 0x140269310 (MiLockPageLeafPageTable.c)
+ *     MiProbeLeafFrame @ 0x1403CFA14 (MiProbeLeafFrame.c)
+ * Callees:
+ *     MmAccessFault @ 0x140267D40 (MmAccessFault.c)
+ *     MiLockProbePacketWorkingSet @ 0x1402E0344 (MiLockProbePacketWorkingSet.c)
+ *     MiUnlockProbePacketWorkingSet @ 0x1402E038C (MiUnlockProbePacketWorkingSet.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiDeliverPicoExceptionForProbedPage @ 0x14061A338 (MiDeliverPicoExceptionForProbedPage.c)
+ */
+
 __int64 __fastcall MiFaultInProbeAddress(__int64 a1)
 {
   signed __int64 v2; // rsi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoPropagateIrpExtensionEx @ 0x1402B2100
+ * Callers:
+ *     IoPropagateIrpExtension @ 0x1402B20E0 (IoPropagateIrpExtension.c)
+ * Callees:
+ *     IopSetDiskIoAttributionExtension @ 0x1402B1E30 (IopSetDiskIoAttributionExtension.c)
+ *     IopAllocateIrpExtension @ 0x1402B22EC (IopAllocateIrpExtension.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall IoPropagateIrpExtensionEx(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
   __int64 v4; // rsi

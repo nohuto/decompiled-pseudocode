@@ -1,3 +1,31 @@
+/*
+ * XREFs of VhdiMountVhdFile @ 0x140A7058C
+ * Callers:
+ *     VhdiAutoAttachOneVhd @ 0x14067E088 (VhdiAutoAttachOneVhd.c)
+ *     VhdInitialize @ 0x140B56EA0 (VhdInitialize.c)
+ * Callees:
+ *     IoBuildDeviceIoControlRequest @ 0x14024FE00 (IoBuildDeviceIoControlRequest.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcscat_s @ 0x1403DA170 (wcscat_s.c)
+ *     Feature_VHDAutoAttachOnBoot__private_IsEnabledDeviceUsage @ 0x14040A260 (Feature_VHDAutoAttachOnBoot__private_IsEnabledDeviceUsage.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateFile @ 0x140412DB0 (ZwCreateFile.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IoGetDeviceInterfaces @ 0x1406C3A60 (IoGetDeviceInterfaces.c)
+ *     IoGetDeviceObjectPointer @ 0x140720950 (IoGetDeviceObjectPointer.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall VhdiMountVhdFile(wchar_t *Src, int a2, char a3, _OWORD *a4)
 {
   PZZWSTR v5; // r15

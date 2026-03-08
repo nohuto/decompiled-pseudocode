@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmIdleUpdateHvStates @ 0x14099AC10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HvlGetLpIndexFromApicId @ 0x14053DBA0 (HvlGetLpIndexFromApicId.c)
+ *     HvlConfigureIdleStates @ 0x1405441F8 (HvlConfigureIdleStates.c)
+ */
+
 __int64 __fastcall PpmIdleUpdateHvStates(__int64 a1)
 {
   int LpIndexFromApicId; // eax

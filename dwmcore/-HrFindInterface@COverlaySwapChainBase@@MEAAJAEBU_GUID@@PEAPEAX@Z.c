@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@COverlaySwapChainBase@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801024E0
+ * Callers:
+ *     ?HrFindInterface@CLegacySwapChain@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180102490 (-HrFindInterface@CLegacySwapChain@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall COverlaySwapChainBase::HrFindInterface(
         COverlaySwapChainBase *this,
         const struct _GUID *a2,

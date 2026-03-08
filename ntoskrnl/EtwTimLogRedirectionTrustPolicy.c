@@ -1,3 +1,23 @@
+/*
+ * XREFs of EtwTimLogRedirectionTrustPolicy @ 0x1409E7898
+ * Callers:
+ *     IoCheckRedirectionTrustLevel @ 0x1403CB430 (IoCheckRedirectionTrustLevel.c)
+ * Callees:
+ *     RtlWalkFrameChain @ 0x140205CA0 (RtlWalkFrameChain.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlStringCbCopyW @ 0x140244EC0 (RtlStringCbCopyW.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     EtwpTiFillProcessIdentity @ 0x140367BF4 (EtwpTiFillProcessIdentity.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x140412770 (ZwQueryVirtualMemory.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpQueryProcessCommandLine @ 0x14071DB40 (EtwpQueryProcessCommandLine.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EtwTimLogRedirectionTrustPolicy(
         int a1,
         const EVENT_DESCRIPTOR *a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Enable@MouseInterceptState@CMouseProcessor@@QEAA_NW4_MOUSE_PREINTERCEPT_BEHAVIOR@@@Z @ 0x1C022C75C
+ * Callers:
+ *     NtMITEnableMouseIntercept @ 0x1C016ABD0 (NtMITEnableMouseIntercept.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     ?IsInputThread@CInputThreadBase@@QEBA_NXZ @ 0x1C007CCB8 (-IsInputThread@CInputThreadBase@@QEBA_NXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ApiSetEdtionGetInputDesktopId @ 0x1C02438C0 (ApiSetEdtionGetInputDesktopId.c)
+ */
+
 char __fastcall CMouseProcessor::MouseInterceptState::Enable(__int64 a1, int a2)
 {
   char v4; // bl

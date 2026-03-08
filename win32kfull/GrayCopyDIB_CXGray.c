@@ -1,3 +1,11 @@
+/*
+ * XREFs of GrayCopyDIB_CXGray @ 0x1C014C790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GrayCopyDIB_CXGray(__int64 a1, unsigned __int8 *a2, _WORD *a3, _WORD *a4, int a5)
 {
   __int64 v5; // rax

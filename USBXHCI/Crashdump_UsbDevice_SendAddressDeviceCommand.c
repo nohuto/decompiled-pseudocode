@@ -1,3 +1,12 @@
+/*
+ * XREFs of Crashdump_UsbDevice_SendAddressDeviceCommand @ 0x1C0050C40
+ * Callers:
+ *     Crashdump_UsbDevice_Configure @ 0x1C004FC34 (Crashdump_UsbDevice_Configure.c)
+ * Callees:
+ *     memset @ 0x1C0020700 (memset.c)
+ *     Crashdump_Command_SendCommand @ 0x1C004EB8C (Crashdump_Command_SendCommand.c)
+ */
+
 __int64 __fastcall Crashdump_UsbDevice_SendAddressDeviceCommand(__int64 *a1)
 {
   __int64 v2; // rbx

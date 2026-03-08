@@ -1,3 +1,22 @@
+/*
+ * XREFs of Amd64AddProfileSource @ 0x1405263A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiOrAffinityEx @ 0x14022B190 (KiOrAffinityEx.c)
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140379818 (HalpAcquireHighLevelLock.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     wcsnlen @ 0x1403D5F60 (wcsnlen.c)
+ *     wcsncpy_s @ 0x1403DA3B0 (wcsncpy_s.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpInsertProfileSource @ 0x14050584C (HalpInsertProfileSource.c)
+ *     Amd64GetEventSelectDef @ 0x140526F90 (Amd64GetEventSelectDef.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall Amd64AddProfileSource(__int64 a1, _DWORD *a2)
 {
   int v3; // edx

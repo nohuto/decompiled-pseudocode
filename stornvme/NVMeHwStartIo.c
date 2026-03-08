@@ -1,3 +1,15 @@
+/*
+ * XREFs of NVMeHwStartIo @ 0x1C0001DD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     GetSrbScsiAddress @ 0x1C0007B00 (GetSrbScsiAddress.c)
+ *     NVMeControllerPowerDown @ 0x1C000DF70 (NVMeControllerPowerDown.c)
+ *     NVMeSetSenseData @ 0x1C0024238 (NVMeSetSenseData.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 char __fastcall NVMeHwStartIo(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
 {
   __int64 v6; // rdx

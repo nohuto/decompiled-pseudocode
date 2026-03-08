@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpPrmInitialization @ 0x140B7157C
+ * Callers:
+ *     ExpInitSystemPhase1 @ 0x140B3F0B8 (ExpInitSystemPhase1.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ */
+
 char __fastcall ExpPrmInitialization(_QWORD *a1)
 {
   struct _KTHREAD *CurrentThread; // rax

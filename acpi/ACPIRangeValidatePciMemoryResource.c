@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIRangeValidatePciMemoryResource @ 0x1C003B0EC
+ * Callers:
+ *     ACPIRangeValidatePciResources @ 0x1C003B3A4 (ACPIRangeValidatePciResources.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ddi @ 0x1C003B844 (WPP_RECORDER_SF_ddi.c)
+ *     WPP_RECORDER_SF_ddiiii @ 0x1C003B93C (WPP_RECORDER_SF_ddiiii.c)
+ *     WPP_RECORDER_SF_diiidiiii @ 0x1C003BA94 (WPP_RECORDER_SF_diiidiiii.c)
+ */
+
 int __fastcall ACPIRangeValidatePciMemoryResource(__int64 a1, unsigned int a2, __int64 a3, _DWORD *a4)
 {
   _UNKNOWN **v4; // rax

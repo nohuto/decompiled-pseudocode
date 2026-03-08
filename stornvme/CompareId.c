@@ -1,3 +1,13 @@
+/*
+ * XREFs of CompareId @ 0x1C0025AD8
+ * Callers:
+ *     IoctlToNVMe @ 0x1C0014800 (IoctlToNVMe.c)
+ *     ReadMultiSzRegistryValueAndCompareId @ 0x1C0027934 (ReadMultiSzRegistryValueAndCompareId.c)
+ * Callees:
+ *     GetStringLength @ 0x1C0007B60 (GetStringLength.c)
+ *     StringToULONG @ 0x1C0027A9C (StringToULONG.c)
+ */
+
 bool __fastcall CompareId(__int64 a1, unsigned int a2, char *a3, unsigned int a4, __int64 a5)
 {
   char *v8; // r10

@@ -1,3 +1,13 @@
+/*
+ * XREFs of BgkDisplayString @ 0x14054C8F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     BgkDisplayStringEx @ 0x14054C9A4 (BgkDisplayStringEx.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall BgkDisplayString(char *a1)
 {
   char *v1; // rbx

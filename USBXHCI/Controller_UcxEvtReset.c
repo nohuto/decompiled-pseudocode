@@ -1,3 +1,15 @@
+/*
+ * XREFs of Controller_UcxEvtReset @ 0x1C0035A70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     Controller_IsControllerAccessible @ 0x1C000A8E4 (Controller_IsControllerAccessible.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_InternalReset @ 0x1C0033D04 (Controller_InternalReset.c)
+ */
+
 __int64 __fastcall Controller_UcxEvtReset(__int64 a1)
 {
   __int64 v2; // rbx

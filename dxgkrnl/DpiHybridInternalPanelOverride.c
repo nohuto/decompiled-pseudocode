@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiHybridInternalPanelOverride @ 0x1C005E144
+ * Callers:
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ * Callees:
+ *     <none>
+ */
+
 bool DpiHybridInternalPanelOverride()
 {
   __int64 v1; // [rsp+30h] [rbp-19h] BYREF

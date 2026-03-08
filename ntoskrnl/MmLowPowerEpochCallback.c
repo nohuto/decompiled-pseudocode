@@ -1,3 +1,11 @@
+/*
+ * XREFs of MmLowPowerEpochCallback @ 0x1403AADE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MmLowPowerEpochCallback(_QWORD *a1, _DWORD *a2, int a3)
 {
   __int64 v3; // r9

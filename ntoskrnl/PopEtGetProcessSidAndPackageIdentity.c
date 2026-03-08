@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopEtGetProcessSidAndPackageIdentity @ 0x14070364C
+ * Callers:
+ *     PopEtGetProcessAppId @ 0x14070116C (PopEtGetProcessAppId.c)
+ * Callees:
+ *     ObFastDereferenceObject @ 0x140245F50 (ObFastDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     RtlQueryPackageIdentity @ 0x140298300 (RtlQueryPackageIdentity.c)
+ *     PsQueryProcessAttributesByToken @ 0x1406D44E0 (PsQueryProcessAttributesByToken.c)
+ *     SeQueryUserSidToken @ 0x1407187E4 (SeQueryUserSidToken.c)
+ */
+
 signed __int64 __fastcall PopEtGetProcessSidAndPackageIdentity(__int64 a1, __int64 a2, __int64 a3)
 {
   ULONG_PTR v6; // rsi

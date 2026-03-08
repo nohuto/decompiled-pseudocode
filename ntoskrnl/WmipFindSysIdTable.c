@@ -1,3 +1,12 @@
+/*
+ * XREFs of WmipFindSysIdTable @ 0x1409DCA60
+ * Callers:
+ *     WmipGetSysIds @ 0x1409DCDD8 (WmipGetSysIds.c)
+ * Callees:
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x14029B230 (MmUnmapIoSpace.c)
+ */
+
 __int64 __fastcall WmipFindSysIdTable(_DWORD *a1, _BYTE *a2, _DWORD *a3)
 {
   char *v6; // rax

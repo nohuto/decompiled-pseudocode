@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeIsTraceCallbackAllowed @ 0x14057B2E0
+ * Callers:
+ *     EtwpInvokeEventCallback @ 0x1405FEBA4 (EtwpInvokeEventCallback.c)
+ *     KiTrackSystemCallEntry @ 0x140972BA0 (KiTrackSystemCallEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KeIsTraceCallbackAllowed(char a1)
 {
   unsigned int v1; // r8d

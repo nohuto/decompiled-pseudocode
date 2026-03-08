@@ -1,3 +1,20 @@
+/*
+ * XREFs of KiComputeDispatchInterruptCost @ 0x140B41CC8
+ * Callers:
+ *     KeInitSystem @ 0x140B42FB8 (KeInitSystem.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     HviGetEnlightenmentInformation @ 0x14037E1E0 (HviGetEnlightenmentInformation.c)
+ *     HviIsAnyHypervisorPresent @ 0x14037F1D0 (HviIsAnyHypervisorPresent.c)
+ *     HviGetHypervisorFeatures @ 0x14037F8A0 (HviGetHypervisorFeatures.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 KiComputeDispatchInterruptCost()
 {
   struct _KWAIT_BLOCK *WaitBlockArray; // r15

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Present@CDummyRemotingSwapChain@@UEAAJPEBVCRegion@@@Z @ 0x180296410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?EnqueueSetEvent@CD3DDevice@@QEAAJPEAX@Z @ 0x180289FD8 (-EnqueueSetEvent@CD3DDevice@@QEAAJPEAX@Z.c)
+ */
+
 __int64 __fastcall CDummyRemotingSwapChain::Present(CDummyRemotingSwapChain *this, const struct CRegion *a2)
 {
   CD3DDevice *v2; // rsi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ExecuteTimer@CAccessibilityTimer@@SAXW4_ACCESSIBILITY_TIMERS@@@Z @ 0x1C020FDD0
+ * Callers:
+ *     NtMITAccessibilityTimerNotification @ 0x1C0169B30 (NtMITAccessibilityTimerNotification.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int16 __fastcall CAccessibilityTimer::ExecuteTimer(int a1)
 {
   __int64 v1; // rdi

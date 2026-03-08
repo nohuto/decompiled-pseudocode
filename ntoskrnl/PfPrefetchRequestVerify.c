@@ -1,3 +1,14 @@
+/*
+ * XREFs of PfPrefetchRequestVerify @ 0x140765CC0
+ * Callers:
+ *     PfpPrefetchRequest @ 0x140765AC0 (PfpPrefetchRequest.c)
+ * Callees:
+ *     PfPrefetchRequestVerifyPath @ 0x140765F14 (PfPrefetchRequestVerifyPath.c)
+ *     PfRequestRangeCheck @ 0x140765FA0 (PfRequestRangeCheck.c)
+ *     PfPrefetchRequestVerifyRanges @ 0x140765FE0 (PfPrefetchRequestVerifyRanges.c)
+ *     PfPrefetchRequestPrepareForVerify @ 0x1407660C4 (PfPrefetchRequestPrepareForVerify.c)
+ */
+
 __int64 __fastcall PfPrefetchRequestVerify(unsigned __int64 a1, __int64 a2)
 {
   __int64 v3; // rax

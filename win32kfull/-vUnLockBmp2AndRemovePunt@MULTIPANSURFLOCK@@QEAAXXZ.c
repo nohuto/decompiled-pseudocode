@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vUnLockBmp2AndRemovePunt@MULTIPANSURFLOCK@@QEAAXXZ @ 0x1C02A083C
+ * Callers:
+ *     ??1MULTIPANSURFLOCK@@QEAA@XZ @ 0x1C029DCF4 (--1MULTIPANSURFLOCK@@QEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall MULTIPANSURFLOCK::vUnLockBmp2AndRemovePunt(MULTIPANSURFLOCK *this)
 {
   DHSURF dhsurf; // rax

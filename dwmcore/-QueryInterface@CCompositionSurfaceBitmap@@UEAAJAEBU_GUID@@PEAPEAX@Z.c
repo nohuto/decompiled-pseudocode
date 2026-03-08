@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?QueryInterface@CCompositionSurfaceBitmap@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1800526C0
+ * Callers:
+ *     ?QueryInterface@CCompositionSurfaceBitmap@@$4PPPPPPPM@NA@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x180118A30 (-QueryInterface@CCompositionSurfaceBitmap@@$4PPPPPPPM@NA@EAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?QueryInterface@CCompositionSurfaceBitmap@@WFI@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x180118A50 (-QueryInterface@CCompositionSurfaceBitmap@@WFI@EAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?QueryInterface@CCompositionSurfaceBitmap@@WGA@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x180118A70 (-QueryInterface@CCompositionSurfaceBitmap@@WGA@EAAJAEBU_GUID@@PEAPEAX@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x180279008 (-IsKernelDebuggerPresent@@YAHXZ.c)
+ */
+
 __int64 __fastcall CCompositionSurfaceBitmap::QueryInterface(
         CCompositionSurfaceBitmap *this,
         const struct _GUID *a2,

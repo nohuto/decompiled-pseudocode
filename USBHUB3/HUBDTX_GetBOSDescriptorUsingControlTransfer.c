@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBDTX_GetBOSDescriptorUsingControlTransfer @ 0x1C002AD6C
+ * Callers:
+ *     HUBDSM_GettingAlternateBOSDescriptor @ 0x1C0022630 (HUBDSM_GettingAlternateBOSDescriptor.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBDTX_GetDescriptor @ 0x1C002A598 (HUBDTX_GetDescriptor.c)
+ */
+
 __int64 __fastcall HUBDTX_GetBOSDescriptorUsingControlTransfer(__int64 a1)
 {
   __int64 Pool2; // rax

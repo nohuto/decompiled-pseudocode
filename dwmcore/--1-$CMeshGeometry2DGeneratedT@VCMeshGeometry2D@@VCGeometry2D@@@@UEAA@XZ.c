@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1?$CMeshGeometry2DGeneratedT@VCMeshGeometry2D@@VCGeometry2D@@@@UEAA@XZ @ 0x1801BE7B4
+ * Callers:
+ *     ??_ECMeshGeometry2D@@UEAAPEAXI@Z @ 0x1801C00B0 (--_ECMeshGeometry2D@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ */
+
 void __fastcall CMeshGeometry2DGeneratedT<CMeshGeometry2D,CGeometry2D>::~CMeshGeometry2DGeneratedT<CMeshGeometry2D,CGeometry2D>(
         CGeometry2D *this)
 {

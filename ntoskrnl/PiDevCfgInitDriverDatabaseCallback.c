@@ -1,3 +1,21 @@
+/*
+ * XREFs of PiDevCfgInitDriverDatabaseCallback @ 0x14095B6D8
+ * Callers:
+ *     PiDrvDbEnumNodes @ 0x14096CF60 (PiDrvDbEnumNodes.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _CmOpenDeviceRegKey @ 0x1406D3B3C (_CmOpenDeviceRegKey.c)
+ *     _SysCtxRegOpenKey @ 0x1406D4350 (_SysCtxRegOpenKey.c)
+ *     _CmGetMatchingFilteredDeviceList @ 0x140778448 (_CmGetMatchingFilteredDeviceList.c)
+ *     _CmCreateDevice @ 0x140789278 (_CmCreateDevice.c)
+ *     _PnpCtxOpenMachine @ 0x140851D74 (_PnpCtxOpenMachine.c)
+ *     PiDevCfgCopyObjectProperties @ 0x140875D30 (PiDevCfgCopyObjectProperties.c)
+ *     _PnpCtxCloseMachine @ 0x140A5DAE0 (_PnpCtxCloseMachine.c)
+ *     _CmDeleteDevice @ 0x140A5E810 (_CmDeleteDevice.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall PiDevCfgInitDriverDatabaseCallback(__int64 a1)
 {
   void *Pool2; // rbx

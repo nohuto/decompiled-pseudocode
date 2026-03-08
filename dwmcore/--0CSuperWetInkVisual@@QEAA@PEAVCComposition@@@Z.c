@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CSuperWetInkVisual@@QEAA@PEAVCComposition@@@Z @ 0x180111518
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     ??0CVisual@@IEAA@PEAVCComposition@@@Z @ 0x18009B504 (--0CVisual@@IEAA@PEAVCComposition@@@Z.c)
+ */
+
 CSuperWetInkVisual *__fastcall CSuperWetInkVisual::CSuperWetInkVisual(
         CSuperWetInkVisual *this,
         struct CComposition *a2)

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?IsCompatibleTransform@CRectangleMapStrategy@CEdgeFlagsMap@@SA_NPEBVMatrix3x3@@@Z @ 0x1801FC680
+ * Callers:
+ *     ?AddEdgeFlags@CEdgeFlagsMap@@QEAAXAEBUD2D_RECT_F@@W4D2D1_EDGE_FLAGS@@PEBVMatrix3x3@@M@Z @ 0x1800D9444 (-AddEdgeFlags@CEdgeFlagsMap@@QEAAXAEBUD2D_RECT_F@@W4D2D1_EDGE_FLAGS@@PEBVMatrix3x3@@M@Z.c)
+ * Callees:
+ *     ?Is2DAxisAlignedPreserving@D2DMatrixHelper@@YA_NAEBUD2D_MATRIX_3X2_F@@@Z @ 0x18007F7E4 (-Is2DAxisAlignedPreserving@D2DMatrixHelper@@YA_NAEBUD2D_MATRIX_3X2_F@@@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     ?Is2DAffine@Matrix3x3@@QEBA_NXZ @ 0x18026FF00 (-Is2DAffine@Matrix3x3@@QEBA_NXZ.c)
+ */
+
 bool __fastcall CEdgeFlagsMap::CRectangleMapStrategy::IsCompatibleTransform(const struct Matrix3x3 *a1)
 {
   const struct D2D_MATRIX_3X2_F *v1; // rdx

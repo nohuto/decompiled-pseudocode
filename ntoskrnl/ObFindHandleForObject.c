@@ -1,3 +1,13 @@
+/*
+ * XREFs of ObFindHandleForObject @ 0x14070F7D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     ExEnumHandleTable @ 0x14070F670 (ExEnumHandleTable.c)
+ *     ObReferenceProcessHandleTable @ 0x140711794 (ObReferenceProcessHandleTable.c)
+ */
+
 bool __fastcall ObFindHandleForObject(struct _EX_RUNDOWN_REF *a1, __int64 a2, __int64 a3, __int64 a4, _QWORD *a5)
 {
   bool v9; // bl

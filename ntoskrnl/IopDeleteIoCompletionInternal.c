@@ -1,3 +1,17 @@
+/*
+ * XREFs of IopDeleteIoCompletionInternal @ 0x140292B28
+ * Callers:
+ *     IopDeleteIoCompletion @ 0x1406F7A80 (IopDeleteIoCompletion.c)
+ *     IopCloseIoCompletion @ 0x1406F7AA0 (IopCloseIoCompletion.c)
+ * Callees:
+ *     IopFreeWaitCompletionPacket @ 0x14024F500 (IopFreeWaitCompletionPacket.c)
+ *     KeRundownQueueEx @ 0x140292C14 (KeRundownQueueEx.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopFreeCompletionListPackets @ 0x1406F7B38 (IopFreeCompletionListPackets.c)
+ */
+
 __int64 __fastcall IopDeleteIoCompletionInternal(KSPIN_LOCK *a1, __int64 a2)
 {
   char v2; // bp

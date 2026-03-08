@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_RECORDER_SF__HEX_ @ 0x1C0041698
+ * Callers:
+ *     UsbhIoctlTraceOutput @ 0x1C0040FD4 (UsbhIoctlTraceOutput.c)
+ *     UsbhExceptionTrace @ 0x1C004AC64 (UsbhExceptionTrace.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WPP_RECORDER_SF__HEX_(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?RestoreState@CD2DLayer@@UEAAJPEAVCDrawingContext@@@Z @ 0x180015000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PopLayer@CD2DContext@@UEAAXPEBVID2DContextOwner@@@Z @ 0x180015070 (-PopLayer@CD2DContext@@UEAAXPEBVID2DContextOwner@@@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 __int64 __fastcall CD2DLayer::RestoreState(CD2DLayer *this, struct CDrawingContext *a2, __int64 a3)
 {
   __int64 v4; // r8

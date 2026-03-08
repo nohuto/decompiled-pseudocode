@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetImageTuple @ 0x1C0086B8C
+ * Callers:
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C0086CD4 (MicrosoftTelemetryAssertTriggeredWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetImageTuple(_IMAGE_DOS_HEADER *Timestamp, unsigned int *SizeOfImage, unsigned int *ImageBase)
 {
   __int16 v3; // cx

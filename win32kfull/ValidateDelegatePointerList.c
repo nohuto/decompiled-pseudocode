@@ -1,3 +1,13 @@
+/*
+ * XREFs of ValidateDelegatePointerList @ 0x1C01C5618
+ * Callers:
+ *     ?DelegateCapturePointersMitOn@@YAHIPEAI0@Z @ 0x1C01CCF38 (-DelegateCapturePointersMitOn@@YAHIPEAI0@Z.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     WPP_RECORDER_AND_TRACE_SF_LLL @ 0x1C01C5A7C (WPP_RECORDER_AND_TRACE_SF_LLL.c)
+ *     ?PointerDelegateGetClient@@YAHGKPEAUtagDELEGATEPOINTERMAP@@@Z @ 0x1C01C710C (-PointerDelegateGetClient@@YAHGKPEAUtagDELEGATEPOINTERMAP@@@Z.c)
+ */
+
 __int64 __fastcall ValidateDelegatePointerList(unsigned int a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rax

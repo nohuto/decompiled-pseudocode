@@ -1,3 +1,26 @@
+/*
+ * XREFs of NtUserEnableTouchPad @ 0x1C016ECE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CheckAccessEx @ 0x1C0016FB0 (CheckAccessEx.c)
+ *     EtwTraceUIPISystemError @ 0x1C003A8B0 (EtwTraceUIPISystemError.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     IsEtwUserCritEnabled @ 0x1C004DF60 (IsEtwUserCritEnabled.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     ?UpdateUserCritInfo@UserCritTelemetry@@QEAAX_KW4BucketType@1@@Z @ 0x1C004E1A8 (-UpdateUserCritInfo@UserCritTelemetry@@QEAAX_KW4BucketType@1@@Z.c)
+ *     ?SendUserCritSummary@UserCritTelemetry@@QEAAXXZ @ 0x1C004E418 (-SendUserCritSummary@UserCritTelemetry@@QEAAXXZ.c)
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     EtwTraceAcquiredExclusiveUserCrit @ 0x1C004F99C (EtwTraceAcquiredExclusiveUserCrit.c)
+ *     HMUnlockObject @ 0x1C0072980 (HMUnlockObject.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C007795C (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00ABD88 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     EnablePTPDevices @ 0x1C015CA90 (EnablePTPDevices.c)
+ *     McTemplateK0xqx_EtwWriteTransfer @ 0x1C0167CA4 (McTemplateK0xqx_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall NtUserEnableTouchPad(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // ebx

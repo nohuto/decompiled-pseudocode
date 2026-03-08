@@ -1,3 +1,11 @@
+/*
+ * XREFs of Interrupter_IoResList_GetMessageCountAndType @ 0x1C006E888
+ * Callers:
+ *     Controller_WdfEvtDeviceFilterRemoveResourceRequirements @ 0x1C006EAF0 (Controller_WdfEvtDeviceFilterRemoveResourceRequirements.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 char *__fastcall Interrupter_IoResList_GetMessageCountAndType(__int64 a1, unsigned int *a2, unsigned int *a3, char *a4)
 {
   char v4; // bp

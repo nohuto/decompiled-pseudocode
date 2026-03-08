@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiEnumerateCallback @ 0x1403D0130
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     ExReferenceCallBackBlock @ 0x14034C060 (ExReferenceCallBackBlock.c)
+ *     KiEnumerateNmiSxCallback @ 0x1403D0194 (KiEnumerateNmiSxCallback.c)
+ */
+
 __int64 __fastcall KiEnumerateCallback(int a1, struct _EX_RUNDOWN_REF **a2, __int64 a3, unsigned __int64 *a4)
 {
   struct _EX_RUNDOWN_REF *v6; // r8

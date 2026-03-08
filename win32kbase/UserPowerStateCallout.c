@@ -1,3 +1,15 @@
+/*
+ * XREFs of UserPowerStateCallout @ 0x1C00B7A1C
+ * Callers:
+ *     W32CalloutDispatch @ 0x1C00ED390 (W32CalloutDispatch.c)
+ * Callees:
+ *     ?AddPowerStateLogEntry@@YAXW4_POWER_STATE_LOG_ENTRY_TYPE@@K@Z @ 0x1C00B7E1C (-AddPowerStateLogEntry@@YAXW4_POWER_STATE_LOG_ENTRY_TYPE@@K@Z.c)
+ *     QueuePowerRequest @ 0x1C00B7EA0 (QueuePowerRequest.c)
+ *     ?UserSessionSwitchBlock_Start@@YAJXZ @ 0x1C00B809C (-UserSessionSwitchBlock_Start@@YAJXZ.c)
+ *     ?UserSessionSwitchBlock_End@@YAXXZ @ 0x1C00B817C (-UserSessionSwitchBlock_End@@YAXXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall UserPowerStateCallout(char *a1)
 {
   unsigned int v1; // esi

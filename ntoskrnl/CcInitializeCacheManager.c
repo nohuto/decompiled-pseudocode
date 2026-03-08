@@ -1,3 +1,30 @@
+/*
+ * XREFs of CcInitializeCacheManager @ 0x140B3EB44
+ * Callers:
+ *     Phase1InitializationIoReady @ 0x140B42D0C (Phase1InitializationIoReady.c)
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     ExInitializeLookasideListEx @ 0x1402A7FB0 (ExInitializeLookasideListEx.c)
+ *     CcCreatePartition @ 0x14039B540 (CcCreatePartition.c)
+ *     CcInitPerVolumeParameters @ 0x1403B02F4 (CcInitPerVolumeParameters.c)
+ *     ExInitializeNPagedLookasideListInternal @ 0x1403BD3B0 (ExInitializeNPagedLookasideListInternal.c)
+ *     Feature_Servicing_CcTelemetryCrashOnHPEFix__private_IsEnabledDeviceUsage @ 0x140409A2C (Feature_Servicing_CcTelemetryCrashOnHPEFix__private_IsEnabledDeviceUsage.c)
+ *     Feature_CcImprovementsForReFS__private_IsEnabledDeviceUsage @ 0x140409DF8 (Feature_CcImprovementsForReFS__private_IsEnabledDeviceUsage.c)
+ *     Feature_Servicing_Cc_InsufVA__private_IsEnabledDeviceUsage @ 0x140409E4C (Feature_Servicing_Cc_InsufVA__private_IsEnabledDeviceUsage.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     FsRtlIsMobileOS @ 0x14080C250 (FsRtlIsMobileOS.c)
+ *     CcInitializeProcessor @ 0x14080C96C (CcInitializeProcessor.c)
+ *     PoRegisterCoalescingCallback @ 0x140819500 (PoRegisterCoalescingCallback.c)
+ *     MmGetNumberOfPhysicalPagesForPartitionObject @ 0x140868AE0 (MmGetNumberOfPhysicalPagesForPartitionObject.c)
+ *     ExInitializeSystemLookasideList @ 0x140A886F8 (ExInitializeSystemLookasideList.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     CcInitializeBcbProfiler @ 0x140B14354 (CcInitializeBcbProfiler.c)
+ *     CcInitializeTelemetry @ 0x140B31E14 (CcInitializeTelemetry.c)
+ *     CcInitializeVacbs @ 0x140B725CC (CcInitializeVacbs.c)
+ */
+
 char __fastcall CcInitializeCacheManager(int a1)
 {
   char result; // al

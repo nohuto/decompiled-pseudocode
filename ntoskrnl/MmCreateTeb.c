@@ -1,3 +1,14 @@
+/*
+ * XREFs of MmCreateTeb @ 0x1406A32D8
+ * Callers:
+ *     PspAllocateThread @ 0x1406B00F4 (PspAllocateThread.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiCreatePebOrTeb @ 0x1406A35BC (MiCreatePebOrTeb.c)
+ */
+
 __int64 __fastcall MmCreateTeb(PRKPROCESS PROCESS, __int64 a2, _QWORD *a3, __int64 a4, _QWORD *a5)
 {
   unsigned int v7; // esi

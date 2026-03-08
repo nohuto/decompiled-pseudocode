@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsChildSameThread@@YAHPEAUtagWND@@0@Z @ 0x1C01B89FC
+ * Callers:
+ *     ?ImeCanDestroyDefIMEforChild@@YAHPEAUtagWND@@0@Z @ 0x1C00EAAC4 (-ImeCanDestroyDefIMEforChild@@YAHPEAUtagWND@@0@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IsChildSameThread(struct tagWND *a1, struct tagWND *a2)
 {
   __int64 v2; // r11

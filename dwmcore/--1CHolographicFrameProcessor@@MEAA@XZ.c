@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1CHolographicFrameProcessor@@MEAA@XZ @ 0x1802AB038
+ * Callers:
+ *     ??_ECHolographicFrameProcessor@@MEAAPEAXI@Z @ 0x1802AB170 (--_ECHolographicFrameProcessor@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C8D4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?InternalRelease@?$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ @ 0x1800DB0E4 (-InternalRelease@-$CMILRefCountBaseT@UIMILRefCount@@@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CHolographicFrameProcessor::~CHolographicFrameProcessor(CHolographicFrameProcessor *this)
 {
   char *v2; // rcx

@@ -1,3 +1,20 @@
+/*
+ * XREFs of VfMapTransferEx @ 0x140AC40B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     INCREASE_MAPPED_TRANSFER_BYTE_COUNT @ 0x140AC1454 (INCREASE_MAPPED_TRANSFER_BYTE_COUNT.c)
+ *     VERIFY_BUFFER_LOCKED @ 0x140AC1620 (VERIFY_BUFFER_LOCKED.c)
+ *     VF_ASSERT_MAX_IRQL @ 0x140AC172C (VF_ASSERT_MAX_IRQL.c)
+ *     ViCheckAdapterBuffers @ 0x140AC51E4 (ViCheckAdapterBuffers.c)
+ *     ViCheckMdlLength @ 0x140AC531C (ViCheckMdlLength.c)
+ *     ViGetAdapterInformationInternal @ 0x140AC5E44 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaAdapter @ 0x140AC6158 (ViGetRealDmaAdapter.c)
+ *     ViHalPreprocessOptions @ 0x140AC62F4 (ViHalPreprocessOptions.c)
+ */
+
 __int64 __fastcall VfMapTransferEx(
         int a1,
         ULONG_PTR a2,

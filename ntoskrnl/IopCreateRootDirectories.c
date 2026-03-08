@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopCreateRootDirectories @ 0x140B69B38
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     NtCreateDirectoryObject @ 0x14073DEB0 (NtCreateDirectoryObject.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     IopCreateUmdfDirectory @ 0x140B69C28 (IopCreateUmdfDirectory.c)
+ */
+
 bool IopCreateRootDirectories()
 {
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF

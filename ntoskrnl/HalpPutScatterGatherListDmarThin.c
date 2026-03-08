@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpPutScatterGatherListDmarThin @ 0x140511D50
+ * Callers:
+ *     HalPutScatterGatherListDmarThin @ 0x1404549F0 (HalPutScatterGatherListDmarThin.c)
+ *     HalpConstructScatterGatherListDmarThin @ 0x140511AA4 (HalpConstructScatterGatherListDmarThin.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char __fastcall HalpPutScatterGatherListDmarThin(__int64 a1, _DWORD *a2)
 {
   char v2; // di

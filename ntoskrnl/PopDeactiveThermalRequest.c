@@ -1,3 +1,24 @@
+/*
+ * XREFs of PopDeactiveThermalRequest @ 0x14097FEC8
+ * Callers:
+ *     PoDeleteThermalRequest @ 0x14097FC00 (PoDeleteThermalRequest.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     PopThermalUpdateTelemetryClientCount @ 0x1403901F8 (PopThermalUpdateTelemetryClientCount.c)
+ *     PopGetDope @ 0x1403BF328 (PopGetDope.c)
+ *     PopPropogateCoolingChange @ 0x140584860 (PopPropogateCoolingChange.c)
+ *     PopTraceThermalRequestActiveActivity @ 0x14059334C (PopTraceThermalRequestActiveActivity.c)
+ *     PopTraceThermalRequestPassiveHistogram @ 0x14059356C (PopTraceThermalRequestPassiveHistogram.c)
+ *     PopThermalUpdateActiveTimeTracking @ 0x140846CC0 (PopThermalUpdateActiveTimeTracking.c)
+ *     PopDiagTraceThermalRequest @ 0x14085CD54 (PopDiagTraceThermalRequest.c)
+ *     PopDiagTraceCoolingExtension @ 0x14085D84C (PopDiagTraceCoolingExtension.c)
+ *     PopCleanCoolingExtension @ 0x14097FD9C (PopCleanCoolingExtension.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x140987FC0 (PopThermalUpdatePassiveTimeTracking.c)
+ */
+
 void __fastcall PopDeactiveThermalRequest(__int64 a1)
 {
   _QWORD *v1; // rbx

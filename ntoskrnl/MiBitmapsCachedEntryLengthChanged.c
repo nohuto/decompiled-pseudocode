@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiBitmapsCachedEntryLengthChanged @ 0x14020B884
+ * Callers:
+ *     MiInvalidatePageFileBitmapsCache @ 0x14020A3E4 (MiInvalidatePageFileBitmapsCache.c)
+ *     MiCoalescePageFileBitmapsCache @ 0x14020B47C (MiCoalescePageFileBitmapsCache.c)
+ * Callees:
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ */
+
 void __fastcall MiBitmapsCachedEntryLengthChanged(__int64 a1, unsigned __int64 *a2, int a3)
 {
   char v3; // bl

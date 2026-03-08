@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiEnumSystemFirmwareTables @ 0x1C0396100
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiQuerySystemFirmwareTables @ 0x1C02153B0 (DpiQuerySystemFirmwareTables.c)
+ */
+
 __int64 __fastcall DpiEnumSystemFirmwareTables(__int64 a1, int a2, unsigned int a3, void *a4, unsigned int *a5)
 {
   __int64 v5; // r10

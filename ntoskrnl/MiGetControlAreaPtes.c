@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiGetControlAreaPtes @ 0x140331C60
+ * Callers:
+ *     MiOffsetToProtos @ 0x140331B90 (MiOffsetToProtos.c)
+ *     MiPfPrepareSequentialReadList @ 0x1406EBE40 (MiPfPrepareSequentialReadList.c)
+ *     MiMapViewOfDataSection @ 0x1407D57C0 (MiMapViewOfDataSection.c)
+ * Callees:
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14030AD60 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     ExpTryAcquireSpinLockShared @ 0x140321970 (ExpTryAcquireSpinLockShared.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140462F92 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140608D0C (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ */
+
 unsigned __int64 __fastcall MiGetControlAreaPtes(__int64 a1)
 {
   int v1; // eax

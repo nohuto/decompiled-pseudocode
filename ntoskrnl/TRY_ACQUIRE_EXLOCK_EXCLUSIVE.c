@@ -1,3 +1,12 @@
+/*
+ * XREFs of TRY_ACQUIRE_EXLOCK_EXCLUSIVE @ 0x140305AD8
+ * Callers:
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140305AB0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140463056 (ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall TRY_ACQUIRE_EXLOCK_EXCLUSIVE(volatile signed __int32 *a1)
 {
   signed __int32 v2; // eax

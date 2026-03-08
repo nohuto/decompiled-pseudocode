@@ -1,3 +1,25 @@
+/*
+ * XREFs of PsReferencePartitionByHandle @ 0x14070591C
+ * Callers:
+ *     EtwpSetPartitionContext @ 0x1405FF3A0 (EtwpSetPartitionContext.c)
+ *     NtManagePartition @ 0x140705650 (NtManagePartition.c)
+ *     MiAllocateVirtualMemoryCommon @ 0x1407C4A70 (MiAllocateVirtualMemoryCommon.c)
+ *     MiInitializeCreateSectionPacket @ 0x1407D0AE0 (MiInitializeCreateSectionPacket.c)
+ *     SmProcessCompressionInfoRequest @ 0x140840C00 (SmProcessCompressionInfoRequest.c)
+ *     PsCreatePartition @ 0x140855A0C (PsCreatePartition.c)
+ *     SmProcessConfigRequest @ 0x1408582AC (SmProcessConfigRequest.c)
+ *     IopSetFileMemoryPartitionInformation @ 0x140944B5C (IopSetFileMemoryPartitionInformation.c)
+ *     PspSetJobMemoryPartition @ 0x1409AFC84 (PspSetJobMemoryPartition.c)
+ *     SmProcessListRequest @ 0x1409D3FBC (SmProcessListRequest.c)
+ *     SmProcessStatsRequest @ 0x1409D4588 (SmProcessStatsRequest.c)
+ *     SmProcessSystemStoreTrimRequest @ 0x1409D489C (SmProcessSystemStoreTrimRequest.c)
+ *     MiInitializePartitionSpecialPurposeMemory @ 0x140A4470C (MiInitializePartitionSpecialPurposeMemory.c)
+ * Callees:
+ *     PsReferencePartitionSafe @ 0x140295BC8 (PsReferencePartitionSafe.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406D8E50 (ObReferenceObjectByHandleWithTag.c)
+ */
+
 NTSTATUS __fastcall PsReferencePartitionByHandle(
         void *a1,
         ACCESS_MASK a2,

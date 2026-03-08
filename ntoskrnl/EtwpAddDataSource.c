@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpAddDataSource @ 0x140690534
+ * Callers:
+ *     EtwpAddNotificationEvent @ 0x14068EE14 (EtwpAddNotificationEvent.c)
+ *     EtwpQueueNotification @ 0x14069039C (EtwpQueueNotification.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpAddDataSource(__int64 a1)
 {
   __int64 result; // rax

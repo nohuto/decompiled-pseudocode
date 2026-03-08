@@ -1,3 +1,13 @@
+/*
+ * XREFs of FxDriverGlobalsInitializeDebugExtension @ 0x1C0043BD8
+ * Callers:
+ *     FxRegistrySettingsInitialize @ 0x1C00443BC (FxRegistrySettingsInitialize.c)
+ * Callees:
+ *     FxVerifierGetObjectDebugInfo @ 0x1C00449C4 (FxVerifierGetObjectDebugInfo.c)
+ *     FxVerifierQueryStateSeparationDetection @ 0x1C0044BB4 (FxVerifierQueryStateSeparationDetection.c)
+ *     FxVerifierQueryTrackPower @ 0x1C0044C5C (FxVerifierQueryTrackPower.c)
+ */
+
 void __fastcall FxDriverGlobalsInitializeDebugExtension(_FX_DRIVER_GLOBALS *FxDriverGlobals, void *Key)
 {
   __int64 Pool2; // rax

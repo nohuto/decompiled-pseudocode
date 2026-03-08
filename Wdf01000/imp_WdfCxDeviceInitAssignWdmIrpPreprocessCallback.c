@@ -1,3 +1,17 @@
+/*
+ * XREFs of imp_WdfCxDeviceInitAssignWdmIrpPreprocessCallback @ 0x1C0036270
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0002834 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
+ *     memmove @ 0x1C000B140 (memmove.c)
+ *     WPP_IFR_SF_dd @ 0x1C0017D64 (WPP_IFR_SF_dd.c)
+ *     WPP_IFR_SF_D @ 0x1C0017F78 (WPP_IFR_SF_D.c)
+ *     ??0FxIrpPreprocessInfo@@QEAA@XZ @ 0x1C002E918 (--0FxIrpPreprocessInfo@@QEAA@XZ.c)
+ *     FxValiateCx @ 0x1C00360F4 (FxValiateCx.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C0045BD8 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ */
+
 __int64 __fastcall imp_WdfCxDeviceInitAssignWdmIrpPreprocessCallback(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFCXDEVICE_INIT *CxDeviceInit,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of _MapCmClassPropertyToRegValue @ 0x1402C0C58
+ * Callers:
+ *     _CmGetInstallerClassRegPropWorker @ 0x14074E0A8 (_CmGetInstallerClassRegPropWorker.c)
+ *     _CmSetInstallerClassRegPropWorker @ 0x140A60700 (_CmSetInstallerClassRegPropWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 const wchar_t *__fastcall MapCmClassPropertyToRegValue(__int64 a1, int a2)
 {
   int v2; // edx

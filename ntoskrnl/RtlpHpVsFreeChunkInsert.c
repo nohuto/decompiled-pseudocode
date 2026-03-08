@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpHpVsFreeChunkInsert @ 0x14024A580
+ * Callers:
+ *     RtlpHpVsChunkFree @ 0x140249D70 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsContextAddSubsegment @ 0x1402E2240 (RtlpHpVsContextAddSubsegment.c)
+ *     RtlpHpFreeHeap @ 0x140313CC0 (RtlpHpFreeHeap.c)
+ * Callees:
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ */
+
 __int64 __fastcall RtlpHpVsFreeChunkInsert(_QWORD *a1, __int64 a2, _DWORD *a3)
 {
   __int16 v3; // r14

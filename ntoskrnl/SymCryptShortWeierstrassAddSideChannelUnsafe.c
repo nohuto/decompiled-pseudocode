@@ -1,3 +1,20 @@
+/*
+ * XREFs of SymCryptShortWeierstrassAddSideChannelUnsafe @ 0x1403FBD54
+ * Callers:
+ *     SymCryptShortWeierstrassAdd @ 0x1403FB6D0 (SymCryptShortWeierstrassAdd.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SymCryptModAdd @ 0x1403F3A54 (SymCryptModAdd.c)
+ *     SymCryptModElementCopy @ 0x1403F3AD4 (SymCryptModElementCopy.c)
+ *     SymCryptModElementCreate @ 0x1403F3AEC (SymCryptModElementCreate.c)
+ *     SymCryptModElementIsZero @ 0x1403F3B50 (SymCryptModElementIsZero.c)
+ *     SymCryptModMul @ 0x1403F3D74 (SymCryptModMul.c)
+ *     SymCryptModSquare @ 0x1403F3E50 (SymCryptModSquare.c)
+ *     SymCryptModSub @ 0x1403F3E84 (SymCryptModSub.c)
+ *     SymCryptEcpointCopy @ 0x1403F9464 (SymCryptEcpointCopy.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void *__fastcall SymCryptShortWeierstrassAddSideChannelUnsafe(__int64 a1, _BYTE *a2, _BYTE *a3, _BYTE *a4, __int64 a5)
 {
   _DWORD *v5; // rsi

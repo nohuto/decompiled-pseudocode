@@ -1,3 +1,14 @@
+/*
+ * XREFs of SeShouldCheckForAccessRightsFromParent @ 0x1407C9300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlSidDominatesForTrust @ 0x140247D00 (RtlSidDominatesForTrust.c)
+ *     SepFilterCheck @ 0x140263850 (SepFilterCheck.c)
+ *     SepLocateTokenTrustLevel @ 0x14030FE50 (SepLocateTokenTrustLevel.c)
+ *     SeGetTrustLabelAce @ 0x14033DCA0 (SeGetTrustLabelAce.c)
+ */
+
 bool __fastcall SeShouldCheckForAccessRightsFromParent(__int64 a1, __int64 a2, __int64 a3)
 {
   char v4; // si

@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlEnumerateHotPatchPatches @ 0x140A73774
+ * Callers:
+ *     MiApplyImageHotPatchRequest @ 0x140A32920 (MiApplyImageHotPatchRequest.c)
+ *     MiCheckPatchesInSupportedSections @ 0x140A336F0 (MiCheckPatchesInSupportedSections.c)
+ *     MiPrepareToHotPatchImage @ 0x140A37C98 (MiPrepareToHotPatchImage.c)
+ *     MiProcessPatchImageCfg @ 0x140A383A8 (MiProcessPatchImageCfg.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     RtlGetHotPatchSize @ 0x1406786D8 (RtlGetHotPatchSize.c)
+ */
+
 __int64 __fastcall RtlEnumerateHotPatchPatches(
         _DWORD *a1,
         unsigned int *a2,

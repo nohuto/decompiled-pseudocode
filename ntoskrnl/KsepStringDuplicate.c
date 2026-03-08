@@ -1,3 +1,21 @@
+/*
+ * XREFs of KsepStringDuplicate @ 0x14079E668
+ * Callers:
+ *     KseAddHardwareId @ 0x14079CB80 (KseAddHardwareId.c)
+ *     KsepRegistryOpenKey @ 0x14079E858 (KsepRegistryOpenKey.c)
+ *     KsepEngineGetShimsFromRegistry @ 0x14079E958 (KsepEngineGetShimsFromRegistry.c)
+ *     KsepDbGetSdbString @ 0x140800688 (KsepDbGetSdbString.c)
+ *     KsepCacheDeviceInsertData @ 0x140800C10 (KsepCacheDeviceInsertData.c)
+ *     KsepDbCacheReadDevice @ 0x1408013F0 (KsepDbCacheReadDevice.c)
+ *     KsepStringTransform @ 0x140801918 (KsepStringTransform.c)
+ *     KsepStringSplitMultiString @ 0x1408571CC (KsepStringSplitMultiString.c)
+ *     KsepRegistryCreateKey @ 0x1409747F8 (KsepRegistryCreateKey.c)
+ * Callees:
+ *     KsepPoolAllocatePaged @ 0x140303CA4 (KsepPoolAllocatePaged.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlAssert @ 0x1405A7CA0 (RtlAssert.c)
+ */
+
 __int64 __fastcall KsepStringDuplicate(__int64 a1, _WORD *a2)
 {
   __int64 v4; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C01CD6EC
+ * Callers:
+ *     NtUserOpenWindowStation @ 0x1C00C2180 (NtUserOpenWindowStation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 RtlStringCbPrintfW(unsigned __int16 *a1, unsigned __int64 a2, const unsigned __int16 *a3, ...)
 {
   unsigned __int64 v3; // rdx

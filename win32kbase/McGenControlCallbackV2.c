@@ -1,3 +1,12 @@
+/*
+ * XREFs of McGenControlCallbackV2 @ 0x1C00BE5A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     W32kEtwEnableCallback @ 0x1C00BE69C (W32kEtwEnableCallback.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 void __stdcall McGenControlCallbackV2(
         LPCGUID SourceId,
         ULONG ControlCode,

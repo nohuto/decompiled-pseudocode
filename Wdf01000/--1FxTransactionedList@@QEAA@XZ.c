@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??1FxTransactionedList@@QEAA@XZ @ 0x1C004F69C
+ * Callers:
+ *     ??1FxDevice@@UEAA@XZ @ 0x1C003D530 (--1FxDevice@@UEAA@XZ.c)
+ *     ??_GFxRelatedDeviceList@@QEAAPEAXI@Z @ 0x1C00687C0 (--_GFxRelatedDeviceList@@QEAAPEAXI@Z.c)
+ *     ??1FxPkgPnp@@MEAA@XZ @ 0x1C0070ED0 (--1FxPkgPnp@@MEAA@XZ.c)
+ *     ??_GFxEnumerationInfo@@QEAAPEAXI@Z @ 0x1C007111C (--_GFxEnumerationInfo@@QEAAPEAXI@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall FxTransactionedList::~FxTransactionedList(FxTransactionedList *this)
 {
   bool v1; // zf

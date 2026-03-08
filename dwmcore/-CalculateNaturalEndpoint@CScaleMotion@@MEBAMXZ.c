@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CalculateNaturalEndpoint@CScaleMotion@@MEBAMXZ @ 0x18026C440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?UnboundedValueAtTime@CScaleMotion@@AEBAMM@Z @ 0x18026C640 (-UnboundedValueAtTime@CScaleMotion@@AEBAMM@Z.c)
+ */
+
 float __fastcall CScaleMotion::CalculateNaturalEndpoint(CScaleMotion *this)
 {
   float v2; // xmm0_4

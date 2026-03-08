@@ -1,3 +1,14 @@
+/*
+ * XREFs of RequestPendingCompletion @ 0x1C0002EA0
+ * Callers:
+ *     NVMeHwMSIInterrupt @ 0x1C0002E30 (NVMeHwMSIInterrupt.c)
+ *     NVMeHwInterrupt @ 0x1C0008420 (NVMeHwInterrupt.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     IsInternalSrb @ 0x1C0007BB8 (IsInternalSrb.c)
+ */
+
 char __fastcall RequestPendingCompletion(__int64 a1, unsigned __int16 a2)
 {
   unsigned int v2; // r8d

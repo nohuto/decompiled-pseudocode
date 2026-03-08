@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bIsFileInSystemFontsDir@@YAHPEAX@Z @ 0x1C00BC504
+ * Callers:
+ *     ?bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z @ 0x1C00BC0F8 (-bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z.c)
+ * Callees:
+ *     ?QueryNameStringFromHandle@@YAJPEAXPEAU_OBJECT_NAME_INFORMATION@@KD@Z @ 0x1C00BC5BC (-QueryNameStringFromHandle@@YAJPEAXPEAU_OBJECT_NAME_INFORMATION@@KD@Z.c)
+ */
+
 __int64 __fastcall bIsFileInSystemFontsDir(void *a1)
 {
   unsigned int v1; // esi

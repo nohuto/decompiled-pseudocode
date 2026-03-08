@@ -1,3 +1,18 @@
+/*
+ * XREFs of HUBREG_UpdateSqmHubOvercurrentDetected @ 0x1C0034B00
+ * Callers:
+ *     HUBHTX_Get20PortChangeEvent @ 0x1C0004C30 (HUBHTX_Get20PortChangeEvent.c)
+ *     HUBHTX_GetPortLostChangeEvent @ 0x1C00052EC (HUBHTX_GetPortLostChangeEvent.c)
+ *     HUBHTX_Get30PortChangeEvent @ 0x1C000569C (HUBHTX_Get30PortChangeEvent.c)
+ *     HUBHTX_GetErrorResponseEventForInvalidPortStatusInPendingReset @ 0x1C00061A8 (HUBHTX_GetErrorResponseEventForInvalidPortStatusInPendingReset.c)
+ *     HUBHSM_CheckIfThereIsAValidHubChange @ 0x1C00084D0 (HUBHSM_CheckIfThereIsAValidHubChange.c)
+ *     HUBPSM20_CheckingIfOvercurrentBitOne @ 0x1C0011B70 (HUBPSM20_CheckingIfOvercurrentBitOne.c)
+ *     HUBPSM20_CheckingForOverCurrentOnResume @ 0x1C0012AC0 (HUBPSM20_CheckingForOverCurrentOnResume.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBREG_UpdateSqmHubOvercurrentDetected(__int64 a1)
 {
   __int64 result; // rax

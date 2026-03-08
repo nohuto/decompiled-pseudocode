@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpIsDevicePresent @ 0x1C0394530
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DpIsDevicePresent(__int64 a1, __int64 a2, _BYTE *a3)
 {
   unsigned int v3; // ebx

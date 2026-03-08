@@ -1,3 +1,16 @@
+/*
+ * XREFs of ViHookDmaAdapter @ 0x140AC6520
+ * Callers:
+ *     VfGetDmaAdapter @ 0x140AC3560 (VfGetDmaAdapter.c)
+ * Callees:
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     ExInterlockedInsertHeadList @ 0x1402E5000 (ExInterlockedInsertHeadList.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ViAllocateContiguousMemory @ 0x140AC4A6C (ViAllocateContiguousMemory.c)
+ *     ViCopyDeviceDescription @ 0x140AC57A0 (ViCopyDeviceDescription.c)
+ *     ViGetAdapterSignature @ 0x140AC6010 (ViGetAdapterSignature.c)
+ */
+
 __int64 __fastcall ViHookDmaAdapter(_WORD *Object, __int64 a2, int a3, __int64 a4, __int64 a5, char a6)
 {
   __int64 v10; // rcx

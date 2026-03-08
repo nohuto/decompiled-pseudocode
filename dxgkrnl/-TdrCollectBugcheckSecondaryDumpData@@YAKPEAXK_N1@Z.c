@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N1@Z @ 0x1C004EC88
+ * Callers:
+ *     _DxgDbgBugcheckCallback @ 0x1C0059C70 (_DxgDbgBugcheckCallback.c)
+ *     ?DxgCreateLiveDumpWithWdLogs2@@YAJK_K000UDXGK_LIVEREPORT_FLAGS@@@Z @ 0x1C02C935C (-DxgCreateLiveDumpWithWdLogs2@@YAJK_K000UDXGK_LIVEREPORT_FLAGS@@@Z.c)
+ *     ?DxgkAddDiagnosticInfoIntoReport@@YAJPEAU_WD_DEBUG_REPORT@@PEAU_DEVICE_OBJECT@@PEAU_DXGKARG_COLLECTDIAGNOSTICINFO@@@Z @ 0x1C03088F8 (-DxgkAddDiagnosticInfoIntoReport@@YAJPEAU_WD_DEBUG_REPORT@@PEAU_DEVICE_OBJECT@@PEAU_DXGKARG_COLL.c)
+ *     ?DxgDbgTakeSnapshot@@YAJPEAXKPEAK@Z @ 0x1C035BBB8 (-DxgDbgTakeSnapshot@@YAJPEAXKPEAK@Z.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ?TdrGatherPowerTriage@@YA?AU_DPI_DBG_POWER_ACTIVITY@@XZ @ 0x1C004EFE4 (-TdrGatherPowerTriage@@YA-AU_DPI_DBG_POWER_ACTIVITY@@XZ.c)
+ *     ?ReadDiagnostics@DXGDIAGNOSTICS@@QEBAJPEAEPEAII@Z @ 0x1C004FF30 (-ReadDiagnostics@DXGDIAGNOSTICS@@QEBAJPEAEPEAII@Z.c)
+ *     DpiGetDbgInfoAdapters @ 0x1C005DA4C (DpiGetDbgInfoAdapters.c)
+ */
+
 __int64 __fastcall TdrCollectBugcheckSecondaryDumpData(char *a1, unsigned int a2, char a3, unsigned __int8 a4)
 {
   char v4; // r15

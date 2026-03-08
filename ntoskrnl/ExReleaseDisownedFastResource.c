@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExReleaseDisownedFastResource @ 0x1403C5440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExpReleaseDisownedFastResourceShared @ 0x1403C5540 (ExpReleaseDisownedFastResourceShared.c)
+ *     ExReleaseDisownedFastResource2 @ 0x14040E8BC (ExReleaseDisownedFastResource2.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExpReleaseDisownedFastResourceExclusive @ 0x1406082E4 (ExpReleaseDisownedFastResourceExclusive.c)
+ */
+
 __int64 __fastcall ExReleaseDisownedFastResource(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)
 {
   __int16 v3; // r9

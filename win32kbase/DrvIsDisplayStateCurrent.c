@@ -1,3 +1,12 @@
+/*
+ * XREFs of DrvIsDisplayStateCurrent @ 0x1C0194350
+ * Callers:
+ *     NtUserFunctionalizeDisplayConfig @ 0x1C016F1A0 (NtUserFunctionalizeDisplayConfig.c)
+ *     NtUserSetDisplayConfig @ 0x1C0176190 (NtUserSetDisplayConfig.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DrvIsDisplayStateCurrent(__int64 a1, _DWORD *a2)
 {
   int v3; // ebx

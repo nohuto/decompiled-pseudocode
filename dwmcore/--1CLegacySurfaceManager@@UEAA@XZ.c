@@ -1,3 +1,16 @@
+/*
+ * XREFs of ??1CLegacySurfaceManager@@UEAA@XZ @ 0x1801B40A4
+ * Callers:
+ *     ??1CGlobalSurfaceManager@@MEAA@XZ @ 0x1801B3FD8 (--1CGlobalSurfaceManager@@MEAA@XZ.c)
+ *     ??_ECLegacySurfaceManager@@UEAAPEAXI@Z @ 0x1801B4290 (--_ECLegacySurfaceManager@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097680 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D4A28 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     ?ProcessPostPresentResponseItems@CLegacySurfaceManager@@QEAAJXZ @ 0x1801DC85C (-ProcessPostPresentResponseItems@CLegacySurfaceManager@@QEAAJXZ.c)
+ *     ?ReleaseCaptureBitsResponse@CLegacySurfaceManager@@QEAA_NXZ @ 0x1801DC928 (-ReleaseCaptureBitsResponse@CLegacySurfaceManager@@QEAA_NXZ.c)
+ */
+
 void __fastcall CLegacySurfaceManager::~CLegacySurfaceManager(CLegacySurfaceManager *this)
 {
   int i; // edi

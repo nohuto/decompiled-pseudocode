@@ -1,3 +1,18 @@
+/*
+ * XREFs of KiSignalThread @ 0x14033FD70
+ * Callers:
+ *     KeAlertThreadByThreadId @ 0x1402D52B8 (KeAlertThreadByThreadId.c)
+ *     KeReleaseSemaphoreEx @ 0x14033E940 (KeReleaseSemaphoreEx.c)
+ *     ExpQueueWorkItem @ 0x14033EE40 (ExpQueueWorkItem.c)
+ *     KiResumeThread @ 0x1403538F8 (KiResumeThread.c)
+ *     KiSignalThreadForApc @ 0x140353F08 (KiSignalThreadForApc.c)
+ *     KiSuspendThread @ 0x140354348 (KiSuspendThread.c)
+ *     KeAlertThread @ 0x140354F40 (KeAlertThread.c)
+ *     KiTryUnwaitThreadWithPriority @ 0x14035538C (KiTryUnwaitThreadWithPriority.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 char __fastcall KiSignalThread(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v6; // dl

@@ -1,3 +1,12 @@
+/*
+ * XREFs of AslHashFree @ 0x140A5400C
+ * Callers:
+ *     SdbCloseDatabaseRead @ 0x14079CA28 (SdbCloseDatabaseRead.c)
+ *     SdbpReleaseSearchDBContext @ 0x1407A1D98 (SdbpReleaseSearchDBContext.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall AslHashFree(int *P)
 {
   char *v2; // rcx

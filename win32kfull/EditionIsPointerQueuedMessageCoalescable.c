@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionIsPointerQueuedMessageCoalescable @ 0x1C0149100
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsPointerQueuedMessageCoalescable@@YAHPEAUtagQ@@PEAUtagQMSG@@KK_KK@Z @ 0x1C01E9C6C (-IsPointerQueuedMessageCoalescable@@YAHPEAUtagQ@@PEAUtagQMSG@@KK_KK@Z.c)
+ */
+
 __int64 __fastcall EditionIsPointerQueuedMessageCoalescable(
         __int64 a1,
         struct tagQMSG *a2,

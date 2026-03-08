@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIDevicePowerProcessPhase2SystemSubPhase1 @ 0x1C001F780
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qD @ 0x1C001B508 (WPP_RECORDER_SF_qD.c)
+ *     ACPIDeviceCompleteGenericPhase @ 0x1C001C540 (ACPIDeviceCompleteGenericPhase.c)
+ *     AMLIAsyncEvalObject @ 0x1C00478E8 (AMLIAsyncEvalObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ *     AMLIGetParent @ 0x1C0048724 (AMLIGetParent.c)
+ */
+
 __int64 __fastcall ACPIDevicePowerProcessPhase2SystemSubPhase1(__int64 a1)
 {
   __int64 v1; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of StringCopyWorkerW @ 0x140006ACC
+ * Callers:
+ *     ?TryGetValueInternal@SemaphoreValue@details_abi@wil@@CAJPEBG_NPEA_KPEA_N@Z @ 0x1400047B8 (-TryGetValueInternal@SemaphoreValue@details_abi@wil@@CAJPEBG_NPEA_KPEA_N@Z.c)
+ *     ?CreateFromValueInternal@SemaphoreValue@details_abi@wil@@AEAAJPEBG_N_K@Z @ 0x140008D10 (-CreateFromValueInternal@SemaphoreValue@details_abi@wil@@AEAAJPEBG_N_K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 HRESULT __stdcall StringCopyWorkerW(
         STRSAFE_LPWSTR pszDest,
         size_t cchDest,

@@ -1,3 +1,27 @@
+/*
+ * XREFs of DbgkRegisterErrorPort @ 0x1409369A4
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsGetProcessServerSilo @ 0x1402637E0 (PsGetProcessServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PsIsHostSilo @ 0x14030F2E0 (PsIsHostSilo.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwAlpcConnectPort @ 0x140413230 (ZwAlpcConnectPort.c)
+ *     ZwAlpcDisconnectPort @ 0x140413390 (ZwAlpcDisconnectPort.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     DbgkpDeleteErrorPort @ 0x140936FD4 (DbgkpDeleteErrorPort.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall DbgkRegisterErrorPort(void *Src, size_t Size)
 {
   unsigned int v2; // edi

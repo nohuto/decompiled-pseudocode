@@ -1,3 +1,21 @@
+/*
+ * XREFs of CmpDoCompareKeyName @ 0x1407AE420
+ * Callers:
+ *     CmpCompareInIndex @ 0x1407AE250 (CmpCompareInIndex.c)
+ *     CmpFindSubKeyByHashWithStatus @ 0x1407FE888 (CmpFindSubKeyByHashWithStatus.c)
+ *     CmpSelectLeaf @ 0x140872120 (CmpSelectLeaf.c)
+ * Callees:
+ *     NLS_UPCASE @ 0x140267AD0 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlCompareUnicodeString @ 0x1406EA3B0 (RtlCompareUnicodeString.c)
+ *     CmpCompareTwoCompressedNames @ 0x14076D7AC (CmpCompareTwoCompressedNames.c)
+ *     CmpCompareCompressedName @ 0x140775138 (CmpCompareCompressedName.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall CmpDoCompareKeyName(ULONG_PTR a1, const UNICODE_STRING *a2, __int64 a3, unsigned int a4)
 {
   bool v4; // zf

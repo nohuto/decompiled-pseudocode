@@ -1,3 +1,24 @@
+/*
+ * XREFs of NtGetMUIRegistryInfo @ 0x140779C90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MUIBugCheck @ 0x14060D174 (MUIBugCheck.c)
+ *     MigrateOOBELanguageToInstallationLanguage @ 0x14060D19C (MigrateOOBELanguageToInstallationLanguage.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     PsCreateSystemThreadEx @ 0x1407DE330 (PsCreateSystemThreadEx.c)
+ *     MUIInitializeResourceLock @ 0x14085B81C (MUIInitializeResourceLock.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall NtGetMUIRegistryInfo(int a1, _DWORD *a2, volatile void *a3)
 {
   __int64 v5; // r14

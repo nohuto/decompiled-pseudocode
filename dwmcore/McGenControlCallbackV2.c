@@ -1,3 +1,12 @@
+/*
+ * XREFs of McGenControlCallbackV2 @ 0x18001A340
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ *     DispatchDwmDiagnosticsControlMessage @ 0x180270044 (DispatchDwmDiagnosticsControlMessage.c)
+ */
+
 void __fastcall McGenControlCallbackV2(
         LPCGUID SourceId,
         ULONG IsEnabled,

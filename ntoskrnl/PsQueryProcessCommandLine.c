@@ -1,3 +1,19 @@
+/*
+ * XREFs of PsQueryProcessCommandLine @ 0x1402E8A40
+ * Callers:
+ *     NtQueryInformationProcess @ 0x1407215F0 (NtQueryInformationProcess.c)
+ *     SeAuditProcessCreation @ 0x140840400 (SeAuditProcessCreation.c)
+ *     PnpGetProcessCommandLine @ 0x1409613D8 (PnpGetProcessCommandLine.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MmCopyVirtualMemory @ 0x1407C5910 (MmCopyVirtualMemory.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall PsQueryProcessCommandLine(
         struct _EX_RUNDOWN_REF *BugCheckParameter1,
         __int64 a2,

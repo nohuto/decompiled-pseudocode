@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RegisterPowerPolicyCallbacks@FxPkgPnp@@QEAAXPEAU_WDF_POWER_POLICY_EVENT_CALLBACKS@@@Z @ 0x1C00754E0
+ * Callers:
+ *     ?Initialize@FxPkgPnp@@UEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C0073160 (-Initialize@FxPkgPnp@@UEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxPkgPnp::RegisterPowerPolicyCallbacks(FxPkgPnp *this, _WDF_POWER_POLICY_EVENT_CALLBACKS *Callbacks)
 {
   FxPowerPolicyOwnerSettings *m_Owner; // r9

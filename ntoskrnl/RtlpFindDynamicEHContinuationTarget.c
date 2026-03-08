@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlpFindDynamicEHContinuationTarget @ 0x1409BFAD8
+ * Callers:
+ *     RtlVerifyUserUnwindTarget @ 0x1409BF8B0 (RtlVerifyUserUnwindTarget.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PspFindVsmEnclaveThread @ 0x1408A13DC (PspFindVsmEnclaveThread.c)
+ */
+
 bool __fastcall RtlpFindDynamicEHContinuationTarget(unsigned __int64 a1)
 {
   _KPROCESS *Process; // rbx

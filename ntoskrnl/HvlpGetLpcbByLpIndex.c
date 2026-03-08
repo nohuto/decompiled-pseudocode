@@ -1,3 +1,18 @@
+/*
+ * XREFs of HvlpGetLpcbByLpIndex @ 0x1403C8E08
+ * Callers:
+ *     HvlEnlightenProcessor @ 0x14037F430 (HvlEnlightenProcessor.c)
+ *     HvlReadPerformanceStateCounters @ 0x1403C8DB0 (HvlReadPerformanceStateCounters.c)
+ *     HvlSharedIsr @ 0x140456D60 (HvlSharedIsr.c)
+ *     HvlGetApicIdFromLpIndex @ 0x14053DB70 (HvlGetApicIdFromLpIndex.c)
+ *     HvlQueryHypervisorProcessorNodeNumber @ 0x14053DC90 (HvlQueryHypervisorProcessorNodeNumber.c)
+ *     HvlQueryProcessorTopologyEx @ 0x14053DFB0 (HvlQueryProcessorTopologyEx.c)
+ *     HvlGetStatsUpdateCounter @ 0x1405443E4 (HvlGetStatsUpdateCounter.c)
+ *     PpmHvSnapPerformanceAccumulation @ 0x14059DC74 (PpmHvSnapPerformanceAccumulation.c)
+ * Callees:
+ *     <none>
+ */
+
 int *__fastcall HvlpGetLpcbByLpIndex(unsigned int a1)
 {
   int *v1; // rdx

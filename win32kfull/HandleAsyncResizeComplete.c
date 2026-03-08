@@ -1,3 +1,11 @@
+/*
+ * XREFs of HandleAsyncResizeComplete @ 0x1C01F3408
+ * Callers:
+ *     NtUserLayoutCompleted @ 0x1C0098EE0 (NtUserLayoutCompleted.c)
+ * Callees:
+ *     FindTimer @ 0x1C00DEEDC (FindTimer.c)
+ */
+
 __int64 __fastcall HandleAsyncResizeComplete(_QWORD *a1)
 {
   __int64 result; // rax

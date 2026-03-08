@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtReadFile @ 0x1407E0B30
+ * Callers:
+ *     ?SmKmIssueFileIo@@YAJPEAU_SMKM_FILE_INFO@@PEAU_SMKM_ISSUE_IO_PARAMS@@PEAT_LARGE_INTEGER@@P6AXPEAXPEAU_IO_STATUS_BLOCK@@K@Z3@Z @ 0x1405C8984 (-SmKmIssueFileIo@@YAJPEAU_SMKM_FILE_INFO@@PEAU_SMKM_ISSUE_IO_PARAMS@@PEAT_LARGE_INTEGER@@P6AXPEA.c)
+ *     PfSnGetPrefetchInstructions @ 0x1407E1BA4 (PfSnGetPrefetchInstructions.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PsIsProcessAppContainer @ 0x140781158 (PsIsProcessAppContainer.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     IopReadFile @ 0x1407E0C40 (IopReadFile.c)
+ */
+
 NTSTATUS __stdcall NtReadFile(
         HANDLE FileHandle,
         HANDLE Event,

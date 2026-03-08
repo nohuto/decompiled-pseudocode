@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?Remove@CPtrArrayBase@@IEAA_N_K@Z @ 0x1800D5814
+ * Callers:
+ *     ?AddLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@_N@Z @ 0x180011C84 (-AddLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@_N@Z.c)
+ *     ?RemoveLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@@Z @ 0x180012804 (-RemoveLight@CVisual@@QEAAJPEAVCCompositionLight@@W4LightBehavior@@@Z.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800234BC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?RemoveChild@CVisual@@IEAAXPEAV1@@Z @ 0x1800984FC (-RemoveChild@CVisual@@IEAAXPEAV1@@Z.c)
+ *     ?RemoveAllLights@CVisual@@AEAAXXZ @ 0x18009A15C (-RemoveAllLights@CVisual@@AEAAXXZ.c)
+ *     ??1CVisual@@MEAA@XZ @ 0x18009A61C (--1CVisual@@MEAA@XZ.c)
+ *     ?RemoveAllSharedLights@CVisual@@AEAAJW4LightBehavior@@@Z @ 0x18020E408 (-RemoveAllSharedLights@CVisual@@AEAAJW4LightBehavior@@@Z.c)
+ *     ??1CLinearGradientLegacyMilBrush@@MEAA@XZ @ 0x18021AEF4 (--1CLinearGradientLegacyMilBrush@@MEAA@XZ.c)
+ *     ?Draw@CLinearGradientLegacyMilBrush@@QEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@AEBUMilRectF@@@Z @ 0x18021B06C (-Draw@CLinearGradientLegacyMilBrush@@QEAAJPEAVCDrawingContext@@PEAVCDrawListEntryBuilder@@AEBUMi.c)
+ *     ??1CProjectedShadow@@MEAA@XZ @ 0x180245540 (--1CProjectedShadow@@MEAA@XZ.c)
+ * Callees:
+ *     ?RemoveAt@CPtrArrayBase@@IEAAX_K0@Z @ 0x1800D588C (-RemoveAt@CPtrArrayBase@@IEAAX_K0@Z.c)
+ */
+
 char __fastcall CPtrArrayBase::Remove(CPtrArrayBase *this, unsigned __int64 *a2)
 {
   __int64 v2; // rax

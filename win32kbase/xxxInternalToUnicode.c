@@ -1,3 +1,23 @@
+/*
+ * XREFs of xxxInternalToUnicode @ 0x1C0081AB0
+ * Callers:
+ *     xxxToUnicodeEx @ 0x1C0001F10 (xxxToUnicodeEx.c)
+ * Callees:
+ *     GetModifierBits @ 0x1C0002C40 (GetModifierBits.c)
+ *     InternalVkKeyScanEx @ 0x1C0006EC0 (InternalVkKeyScanEx.c)
+ *     WPP_RECORDER_AND_TRACE_SF_hD @ 0x1C0008D30 (WPP_RECORDER_AND_TRACE_SF_hD.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C000F0BC (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C004E3E0 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     HKLtoPKL @ 0x1C0081F10 (HKLtoPKL.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     ?ComposeDeadKeys@@YAHPEAUtagKL@@PEAUDEADKEY@@GPEAGHIH@Z @ 0x1C021B7F0 (-ComposeDeadKeys@@YAHPEAUtagKL@@PEAUDEADKEY@@GPEAGHIH@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_hDhD @ 0x1C021BC20 (WPP_RECORDER_AND_TRACE_SF_hDhD.c)
+ *     ApiSetEditionClientCharToWchar @ 0x1C023C9B4 (ApiSetEditionClientCharToWchar.c)
+ *     ApiSetEditionMessageBeep @ 0x1C0240834 (ApiSetEditionMessageBeep.c)
+ */
+
 __int64 __fastcall xxxInternalToUnicode(
         __int64 a1,
         __int64 a2,

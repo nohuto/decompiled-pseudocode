@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z @ 0x1C01C1D64
+ * Callers:
+ *     _GetWindowIcon @ 0x1C01E48BC (_GetWindowIcon.c)
+ * Callees:
+ *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C0041464 (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ *     ?_InternalGetIconInfo@@YA_NPEAUtagCURSOR@@PEAU_ICONINFO@@PEAU_UNICODE_STRING@@2PEAK_N@Z @ 0x1C0060888 (-_InternalGetIconInfo@@YA_NPEAUtagCURSOR@@PEAU_ICONINFO@@PEAU_UNICODE_STRING@@2PEAK_N@Z.c)
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ *     ?_SetCursorIconDataEx@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@KI@Z @ 0x1C0064DB8 (-_SetCursorIconDataEx@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@KI@Z.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?_CreateEmptyCursorObject@@YAPEAUHICON__@@_N@Z @ 0x1C01C1CD0 (-_CreateEmptyCursorObject@@YAPEAUHICON__@@_N@Z.c)
+ */
+
 struct tagCURSOR *__fastcall _DuplicateCursor(struct tagCURSOR *a1)
 {
   struct tagCURSOR *v1; // rbx

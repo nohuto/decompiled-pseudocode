@@ -1,3 +1,32 @@
+/*
+ * XREFs of ExpNtUpdateWnfStateData @ 0x14071943C
+ * Callers:
+ *     NtUpdateWnfStateData @ 0x140719400 (NtUpdateWnfStateData.c)
+ *     PfSnPowerBoostUpdate @ 0x140797E78 (PfSnPowerBoostUpdate.c)
+ *     ExWnfCrossVmCallback @ 0x1409FD720 (ExWnfCrossVmCallback.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExpWnfCreateNameInstance @ 0x140718994 (ExpWnfCreateNameInstance.c)
+ *     ExpCaptureWnfStateName @ 0x14071A22C (ExpCaptureWnfStateName.c)
+ *     ExpWnfReleaseCapturedScopeInstanceId @ 0x14071A2DC (ExpWnfReleaseCapturedScopeInstanceId.c)
+ *     ExpWnfLookupNameInstance @ 0x14071A330 (ExpWnfLookupNameInstance.c)
+ *     ExpWnfCaptureScopeInstanceId @ 0x14071A42C (ExpWnfCaptureScopeInstanceId.c)
+ *     ExpWnfResolveScopeInstance @ 0x14071A508 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfValidatePubSubPreconditions @ 0x14071A954 (ExpWnfValidatePubSubPreconditions.c)
+ *     ExpWnfWriteStateData @ 0x14071B1B0 (ExpWnfWriteStateData.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x14071B5C8 (ExpWnfNotifyNameSubscribers.c)
+ *     ExpWnfLookupPermanentName @ 0x14071C320 (ExpWnfLookupPermanentName.c)
+ *     ExpCrossVmWnfPush @ 0x140753680 (ExpCrossVmWnfPush.c)
+ *     ExpWnfCheckCrossScopeAccess @ 0x1407947E0 (ExpWnfCheckCrossScopeAccess.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpNtUpdateWnfStateData(
         __int64 a1,
         __int64 a2,

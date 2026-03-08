@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?DoStackCapture@@YAXJIPEAX@Z @ 0x14000E02C
+ * Callers:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x14000309C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?MilInstrumentationHandleFailure_MaybeFailFast@@YAXJKIPEAX@Z @ 0x14000E1AC (-MilInstrumentationHandleFailure_MaybeFailFast@@YAXJKIPEAX@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x140005510 (__security_check_cookie.c)
+ *     memcpy_0 @ 0x1400071BC (memcpy_0.c)
+ *     ?MilWerRegisterMemoryBlock@@YAXPEBXI@Z @ 0x14000E264 (-MilWerRegisterMemoryBlock@@YAXPEBXI@Z.c)
+ */
+
 void __fastcall DoStackCapture(int a1, int a2, PVOID a3)
 {
   volatile int v6; // ecx

@@ -1,3 +1,40 @@
+/*
+ * XREFs of SeAccessCheckWithHint @ 0x1402653A0
+ * Callers:
+ *     RtlCheckTokenMembershipEx @ 0x140204B90 (RtlCheckTokenMembershipEx.c)
+ *     SeAccessCheckFromStateEx @ 0x140206A40 (SeAccessCheckFromStateEx.c)
+ *     SeAccessCheck @ 0x140265330 (SeAccessCheck.c)
+ *     RtlCheckTokenCapability @ 0x1402BE920 (RtlCheckTokenCapability.c)
+ *     RtlpAllowsLowBoxAccess @ 0x1403A70B0 (RtlpAllowsLowBoxAccess.c)
+ *     ExCpuSetResourceManagerAccessCheck @ 0x1403AB15C (ExCpuSetResourceManagerAccessCheck.c)
+ *     ObpVerifyAccessToBoundaryEntry @ 0x140740870 (ObpVerifyAccessToBoundaryEntry.c)
+ *     ExCheckFullProcessInformationAccess @ 0x140791A18 (ExCheckFullProcessInformationAccess.c)
+ *     ExpCheckWakeTimerAccess @ 0x1407F8F28 (ExpCheckWakeTimerAccess.c)
+ * Callees:
+ *     SepFreeResourceInfo @ 0x1402078B8 (SepFreeResourceInfo.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x140246980 (AuthzBasepEvaluateAceCondition.c)
+ *     RtlSidDominatesForTrust @ 0x140247D00 (RtlSidDominatesForTrust.c)
+ *     SepFilterCheck @ 0x140263850 (SepFilterCheck.c)
+ *     SepMandatoryIntegrityCheck @ 0x140263A50 (SepMandatoryIntegrityCheck.c)
+ *     SepAccessCheck @ 0x140266980 (SepAccessCheck.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1402975A8 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402B8730 (AuthzBasepFreeSecurityAttributesList.c)
+ *     SeLogAccessFailure @ 0x1402EE66C (SeLogAccessFailure.c)
+ *     SepLpacCausedAccessFailure @ 0x1402F8D5C (SepLpacCausedAccessFailure.c)
+ *     SepLocateTokenTrustLevel @ 0x14030FE50 (SepLocateTokenTrustLevel.c)
+ *     SepSidInTokenSidHash @ 0x14033DEA0 (SepSidInTokenSidHash.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     SepBuildCapeSecurityDescriptor @ 0x1405B5678 (SepBuildCapeSecurityDescriptor.c)
+ *     SepGetScopedPolicySid @ 0x1405B57D4 (SepGetScopedPolicySid.c)
+ *     SepLogLpacAccessFailure @ 0x1405B5948 (SepLogLpacAccessFailure.c)
+ *     SepRmDereferenceCapTable @ 0x1405B5A90 (SepRmDereferenceCapTable.c)
+ *     SepRmReferenceFindCap @ 0x1405B7498 (SepRmReferenceFindCap.c)
+ *     SeUnlockSubjectContext @ 0x140699470 (SeUnlockSubjectContext.c)
+ *     SeLockSubjectContext @ 0x1406994B0 (SeLockSubjectContext.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 bool __fastcall SeAccessCheckWithHint(
         __int64 a1,
         char a2,

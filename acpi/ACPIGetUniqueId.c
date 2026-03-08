@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIGetUniqueId @ 0x1C0089190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C0047B9C (AMLIEvalNameSpaceObject.c)
+ *     AMLIFreeDataBuffs @ 0x1C00482C4 (AMLIFreeDataBuffs.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ */
+
 __int64 __fastcall ACPIGetUniqueId(__int64 a1, _QWORD *a2)
 {
   _QWORD *v3; // rcx

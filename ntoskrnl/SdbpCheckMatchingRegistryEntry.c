@@ -1,3 +1,18 @@
+/*
+ * XREFs of SdbpCheckMatchingRegistryEntry @ 0x140A4CCBC
+ * Callers:
+ *     SdbpCheckMatchingRegistry @ 0x140A4CB90 (SdbpCheckMatchingRegistry.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQuerySystemInformation @ 0x1404129D0 (ZwQuerySystemInformation.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbpCheckMatchingRegistryValue @ 0x140A4CE9C (SdbpCheckMatchingRegistryValue.c)
+ */
+
 __int64 __fastcall SdbpCheckMatchingRegistryEntry(
         __int64 a1,
         wchar_t *a2,

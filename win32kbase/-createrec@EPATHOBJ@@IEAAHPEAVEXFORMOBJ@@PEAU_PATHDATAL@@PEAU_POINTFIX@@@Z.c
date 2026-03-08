@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?createrec@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@PEAU_POINTFIX@@@Z @ 0x1C01811A8
+ * Callers:
+ *     ?addpoints@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@@Z @ 0x1C0180B48 (-addpoints@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@@Z.c)
+ *     ?bAppend@EPATHOBJ@@QEAAHPEAV1@PEAU_POINTFIX@@@Z @ 0x1C0180C10 (-bAppend@EPATHOBJ@@QEAAHPEAV1@PEAU_POINTFIX@@@Z.c)
+ * Callees:
+ *     EngSetLastError @ 0x1C00BAB10 (EngSetLastError.c)
+ *     Feature_1391280440__private_IsEnabledDeviceUsage @ 0x1C00DE19C (Feature_1391280440__private_IsEnabledDeviceUsage.c)
+ *     ?bXformRound@EXFORMOBJ@@QEAAHAEAV?$umptr_r@U_POINTL@@@@PEAU_POINTFIX@@_K@Z @ 0x1C017FF8C (-bXformRound@EXFORMOBJ@@QEAAHAEAV-$umptr_r@U_POINTL@@@@PEAU_POINTFIX@@_K@Z.c)
+ *     ?ssizet_add_to_sizet@?$umptr@U_POINTL@@@@SA_N_K_JPEA_K@Z @ 0x1C0180144 (-ssizet_add_to_sizet@-$umptr@U_POINTL@@@@SA_N_K_JPEA_K@Z.c)
+ *     ??$read@U_POINTFIX@@@?$umptr_r@U_POINTL@@@@QEBA_NPEAU_POINTFIX@@_K_J@Z @ 0x1C0180398 (--$read@U_POINTFIX@@@-$umptr_r@U_POINTL@@@@QEBA_NPEAU_POINTFIX@@_K_J@Z.c)
+ *     ?reinit@EPATHOBJ@@IEAAXXZ @ 0x1C01815E8 (-reinit@EPATHOBJ@@IEAAXXZ.c)
+ *     ?vInclude@ERECTFX@@QEAAXAEAU_POINTFIX@@@Z @ 0x1C0181710 (-vInclude@ERECTFX@@QEAAXAEAU_POINTFIX@@@Z.c)
+ *     ?vOffsetPoints@@YAXPEAU_POINTFIX@@AEAV?$umptr_r@U_POINTL@@@@IJJ@Z @ 0x1C01818C8 (-vOffsetPoints@@YAXPEAU_POINTFIX@@AEAV-$umptr_r@U_POINTL@@@@IJJ@Z.c)
+ *     freepathalloc @ 0x1C0181AB0 (freepathalloc.c)
+ *     newpathalloc @ 0x1C0181B40 (newpathalloc.c)
+ */
+
 __int64 __fastcall EPATHOBJ::createrec(EPATHOBJ *this, struct EXFORMOBJ *a2, __int64 a3, struct _POINTFIX *a4)
 {
   __int64 v4; // r10

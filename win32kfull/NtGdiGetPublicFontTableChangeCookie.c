@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiGetPublicFontTableChangeCookie @ 0x1C00DCEF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall NtGdiGetPublicFontTableChangeCookie(Gre::Base *a1)
 {
   struct Gre::Base::SESSION_GLOBALS *v1; // rbx

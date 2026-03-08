@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpHpSegLfhVsDecommit @ 0x14030A650
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlpHpSegPageRangeCommit @ 0x1402499A0 (RtlpHpSegPageRangeCommit.c)
+ *     RtlpHpSegDescriptorValidate @ 0x14030A740 (RtlpHpSegDescriptorValidate.c)
+ *     RtlpHpScheduleCompaction @ 0x14030A7E4 (RtlpHpScheduleCompaction.c)
+ */
+
 __int64 __fastcall RtlpHpSegLfhVsDecommit(__int64 a1, int a2, unsigned int a3)
 {
   __int64 result; // rax

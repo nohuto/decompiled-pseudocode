@@ -1,3 +1,18 @@
+/*
+ * XREFs of _RegRtlQueryKeyPathName @ 0x14085E3CC
+ * Callers:
+ *     _PnpCtxRegQueryKeyPathName @ 0x1408563D8 (_PnpCtxRegQueryKeyPathName.c)
+ * Callees:
+ *     RtlULongSub @ 0x1402FD448 (RtlULongSub.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryObject @ 0x140412510 (ZwQueryObject.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     _RegRtlIsPredefinedKey @ 0x1406D44BC (_RegRtlIsPredefinedKey.c)
+ *     _RegRtlOpenPredefinedKey @ 0x140858A9C (_RegRtlOpenPredefinedKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RegRtlQueryKeyPathName(__int64 a1, const void **a2, unsigned int *a3)
 {
   HANDLE v5; // r14

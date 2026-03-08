@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopConnectedStandbySettingCallback @ 0x140864610
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopFanUpdateCsState @ 0x14099463C (PopFanUpdateCsState.c)
+ */
+
 __int64 __fastcall PopConnectedStandbySettingCallback(_QWORD *a1, int *a2, int a3)
 {
   __int64 v3; // r9

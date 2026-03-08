@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiBugCheckRecoveryFreezeProcessorDpc @ 0x140578570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 KiBugCheckRecoveryFreezeProcessorDpc()
 {
   volatile signed __int32 *SchedulerAssist; // rcx

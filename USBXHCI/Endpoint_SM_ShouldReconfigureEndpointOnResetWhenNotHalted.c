@@ -1,3 +1,15 @@
+/*
+ * XREFs of Endpoint_SM_ShouldReconfigureEndpointOnResetWhenNotHalted @ 0x1C003BCF0
+ * Callers:
+ *     ESM_CheckingIfEndpointShouldBeReconfiguredOnResetWhenNotHalted @ 0x1C0051600 (ESM_CheckingIfEndpointShouldBeReconfiguredOnResetWhenNotHalted.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ddq @ 0x1C000C300 (WPP_RECORDER_SF_ddq.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Endpoint_AreTransfersPending @ 0x1C0039840 (Endpoint_AreTransfersPending.c)
+ *     WPP_RECORDER_SF_ddqqD @ 0x1C003DA04 (WPP_RECORDER_SF_ddqqD.c)
+ */
+
 __int64 __fastcall Endpoint_SM_ShouldReconfigureEndpointOnResetWhenNotHalted(__int64 a1)
 {
   __int64 v1; // rsi

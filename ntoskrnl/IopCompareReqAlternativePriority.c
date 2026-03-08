@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopCompareReqAlternativePriority @ 0x140859AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IopCompareReqAlternativePriority(_DWORD **a1, _DWORD **a2)
 {
   _DWORD *v2; // rax

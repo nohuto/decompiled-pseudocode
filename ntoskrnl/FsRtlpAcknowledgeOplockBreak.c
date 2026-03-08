@@ -1,3 +1,21 @@
+/*
+ * XREFs of FsRtlpAcknowledgeOplockBreak @ 0x14053BB78
+ * Callers:
+ *     FsRtlpOplockFsctrlInternal @ 0x1406B3240 (FsRtlpOplockFsctrlInternal.c)
+ * Callees:
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x140201B90 (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     FsRtlpClearOwner @ 0x14023AB1C (FsRtlpClearOwner.c)
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     FsRtlpModifyThreadPriorities @ 0x1402ECCB4 (FsRtlpModifyThreadPriorities.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ *     FsRtlpCancelReadOnlyOplockIrp @ 0x14053BDB0 (FsRtlpCancelReadOnlyOplockIrp.c)
+ *     FsRtlpOplockUpperLowerCompatible @ 0x1406B36C8 (FsRtlpOplockUpperLowerCompatible.c)
+ */
+
 __int64 __fastcall FsRtlpAcknowledgeOplockBreak(__int64 a1, __int64 a2, __int64 a3, char a4, unsigned int a5)
 {
   char v10; // r12

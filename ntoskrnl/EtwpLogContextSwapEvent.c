@@ -1,3 +1,26 @@
+/*
+ * XREFs of EtwpLogContextSwapEvent @ 0x140384C90
+ * Callers:
+ *     EtwTraceContextSwap @ 0x140384B80 (EtwTraceContextSwap.c)
+ * Callees:
+ *     RtlGetSystemTimePrecise @ 0x140205310 (RtlGetSystemTimePrecise.c)
+ *     EtwpReleaseTraceBuffer @ 0x140205BD8 (EtwpReleaseTraceBuffer.c)
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwpReserveTraceBuffer @ 0x1403151E0 (EtwpReserveTraceBuffer.c)
+ *     EtwpCCSwapTrace @ 0x140385530 (EtwpCCSwapTrace.c)
+ *     HalpTimerScaleCounter @ 0x1403BE604 (HalpTimerScaleCounter.c)
+ *     EtwpTraceLostSystemEventOld @ 0x14040C628 (EtwpTraceLostSystemEventOld.c)
+ *     Feature_Servicing_PropagateFlagsThroughLostSystemEvent__private_IsEnabledDeviceUsage @ 0x14040C8BC (Feature_Servicing_PropagateFlagsThroughLostSystemEvent__private_IsEnabledDeviceUsage.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     EtwpReserveWithPmcCounters @ 0x14045F958 (EtwpReserveWithPmcCounters.c)
+ *     EtwpStackTraceDispatcher @ 0x140460750 (EtwpStackTraceDispatcher.c)
+ *     EtwpTraceLastBranchRecord @ 0x140461546 (EtwpTraceLastBranchRecord.c)
+ *     EtwpTraceLostSystemEvent @ 0x1405FA2E0 (EtwpTraceLostSystemEvent.c)
+ *     EtwpReserveWithPebsIndex @ 0x1405FBE50 (EtwpReserveWithPebsIndex.c)
+ *     EtwpTraceProcessorTrace @ 0x140600834 (EtwpTraceProcessorTrace.c)
+ */
+
 char __fastcall EtwpLogContextSwapEvent(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // edi

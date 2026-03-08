@@ -1,3 +1,12 @@
+/*
+ * XREFs of EngQuerySystemAttribute @ 0x1C0197150
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 BOOL __stdcall EngQuerySystemAttribute(ENG_SYSTEM_ATTRIBUTE CapNum, PDWORD pCapability)
 {
   __int32 v3; // ecx

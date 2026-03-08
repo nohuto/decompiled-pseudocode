@@ -1,3 +1,13 @@
+/*
+ * XREFs of Controller_AllocateIrqlTrackingArray @ 0x1C001E644
+ * Callers:
+ *     Controller_Create @ 0x1C00712C4 (Controller_Create.c)
+ *     Controller_WdfEvtDevicePrepareHardware @ 0x1C0072A30 (Controller_WdfEvtDevicePrepareHardware.c)
+ * Callees:
+ *     WPP_RECORDER_SF_P @ 0x1C0037340 (WPP_RECORDER_SF_P.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ */
+
 __int64 __fastcall Controller_AllocateIrqlTrackingArray(__int64 a1, int a2, int a3, int a4)
 {
   unsigned int v4; // ebx

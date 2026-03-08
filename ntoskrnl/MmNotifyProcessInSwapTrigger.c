@@ -1,3 +1,14 @@
+/*
+ * XREFs of MmNotifyProcessInSwapTrigger @ 0x1402C0A08
+ * Callers:
+ *     KiRequestProcessInSwap @ 0x1402C0908 (KiRequestProcessInSwap.c)
+ * Callees:
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x1403BE3FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall MmNotifyProcessInSwapTrigger(__int64 a1)
 {
   char result; // al

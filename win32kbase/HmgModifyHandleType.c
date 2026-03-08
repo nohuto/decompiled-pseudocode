@@ -1,3 +1,17 @@
+/*
+ * XREFs of HmgModifyHandleType @ 0x1C001D300
+ * Callers:
+ *     ?bSetStockObject@@YAHPEAXHH@Z @ 0x1C001D100 (-bSetStockObject@@YAHPEAXHH@Z.c)
+ *     HmgLockAndModifyHandleType @ 0x1C001D290 (HmgLockAndModifyHandleType.c)
+ *     ??0DCMEMOBJ@@QEAA@PEAUHDEV__@@KHH@Z @ 0x1C017F048 (--0DCMEMOBJ@@QEAA@PEAUHDEV__@@KHH@Z.c)
+ *     bInitBRUSHOBJ @ 0x1C031D4F4 (bInitBRUSHOBJ.c)
+ * Callees:
+ *     EtwTraceGdiTransformHandle @ 0x1C001D41C (EtwTraceGdiTransformHandle.c)
+ *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C004AE10 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C004B5B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?GetEtwGdiHandleType@@YA?AW4EtwGdiHandleType@@E@Z @ 0x1C005168C (-GetEtwGdiHandleType@@YA-AW4EtwGdiHandleType@@E@Z.c)
+ */
+
 __int64 __fastcall HmgModifyHandleType(__int64 a1)
 {
   unsigned int v2; // edi

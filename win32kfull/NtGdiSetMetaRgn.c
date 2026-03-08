@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtGdiSetMetaRgn @ 0x1C0009AD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?iSetMetaRgn@DC@@QEAAHXZ @ 0x1C0009B28 (-iSetMetaRgn@DC@@QEAAHXZ.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C0050C40 (--1DCOBJ@@QEAA@XZ.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ */
+
 __int64 __fastcall NtGdiSetMetaRgn(HDC a1)
 {
   unsigned int v1; // ebx

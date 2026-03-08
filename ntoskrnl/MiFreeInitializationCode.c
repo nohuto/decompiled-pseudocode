@@ -1,3 +1,30 @@
+/*
+ * XREFs of MiFreeInitializationCode @ 0x14072A51C
+ * Callers:
+ *     MiFreeDriverInitialization @ 0x140729EFC (MiFreeDriverInitialization.c)
+ *     MiFreeKernelPadSections @ 0x140B65494 (MiFreeKernelPadSections.c)
+ *     MmDiscardDriverSection @ 0x140B71424 (MmDiscardDriverSection.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MiReturnResident @ 0x1402A52C8 (MiReturnResident.c)
+ *     MiUnlockLoaderEntry @ 0x1402A6ACC (MiUnlockLoaderEntry.c)
+ *     MiLockLoaderEntry @ 0x1402A6B58 (MiLockLoaderEntry.c)
+ *     MiDeleteSystemPagableVm @ 0x1402B04B0 (MiDeleteSystemPagableVm.c)
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ *     MiGetControlAreaPartition @ 0x14031F9F0 (MiGetControlAreaPartition.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14032E710 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     RtlSetBitsEx @ 0x14034CE90 (RtlSetBitsEx.c)
+ *     MiVaToPfnEx @ 0x140384AD0 (MiVaToPfnEx.c)
+ *     MiFreeLargeInitializationCodePages @ 0x140391BEC (MiFreeLargeInitializationCodePages.c)
+ *     KeReservePrivilegedPages @ 0x1403D1570 (KeReservePrivilegedPages.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiBadRefCount @ 0x14064B094 (MiBadRefCount.c)
+ *     MiFreeBootDriverPages @ 0x140B3C044 (MiFreeBootDriverPages.c)
+ */
+
 __int64 __fastcall MiFreeInitializationCode(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, int a4)
 {
   unsigned __int64 v6; // rdi

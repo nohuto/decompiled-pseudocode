@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpNumaSwapP0NodeToFront @ 0x14039F678
+ * Callers:
+ *     HalpAcpiInitSystem @ 0x140A8D770 (HalpAcpiInitSystem.c)
+ * Callees:
+ *     HalpInterruptGetIdentifiers @ 0x140379900 (HalpInterruptGetIdentifiers.c)
+ *     HalpGetNumaProcMemoryCount @ 0x140B8DF8C (HalpGetNumaProcMemoryCount.c)
+ */
+
 void HalpNumaSwapP0NodeToFront()
 {
   __int64 v0; // rbx

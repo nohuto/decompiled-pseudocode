@@ -1,3 +1,20 @@
+/*
+ * XREFs of WmipDereferenceEvent @ 0x1409DD790
+ * Callers:
+ *     WmipProcessEvent @ 0x1408686A8 (WmipProcessEvent.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     WmipAlign @ 0x1402092D8 (WmipAlign.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WmipReferenceEntry @ 0x14069C27C (WmipReferenceEntry.c)
+ *     WmipUnreferenceEntry @ 0x14069C9D0 (WmipUnreferenceEntry.c)
+ *     WmipSendWmiIrp @ 0x14069CD88 (WmipSendWmiIrp.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char *__fastcall WmipDereferenceEvent(__int64 a1)
 {
   int v1; // ebp

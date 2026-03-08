@@ -1,3 +1,37 @@
+/*
+ * XREFs of MiRestoreTransitionPte @ 0x14036A9C4
+ * Callers:
+ *     MiWriteCompletePfn @ 0x140212B10 (MiWriteCompletePfn.c)
+ *     MiRelinkStandbyPage @ 0x140225A14 (MiRelinkStandbyPage.c)
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ *     MiHandleInPageError @ 0x14036A984 (MiHandleInPageError.c)
+ *     MiUnlinkStandbyPage @ 0x140464E9A (MiUnlinkStandbyPage.c)
+ *     MiDiscardTransitionPteEx @ 0x14064E040 (MiDiscardTransitionPteEx.c)
+ *     MiRepointPteAtExtendedStandby @ 0x14064F5DC (MiRepointPteAtExtendedStandby.c)
+ *     MiReuseStandbyPage @ 0x14064F6CC (MiReuseStandbyPage.c)
+ * Callees:
+ *     MiMapPageInHyperSpaceWorker @ 0x140214870 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140214A54 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiGetTopLevelPfn @ 0x14022A3D0 (MiGetTopLevelPfn.c)
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     MiGetPfnPriority @ 0x14028A3F8 (MiGetPfnPriority.c)
+ *     MiGetPagingFileOffset @ 0x14029EA80 (MiGetPagingFileOffset.c)
+ *     MiDereferenceControlAreaPfnList @ 0x1402CFBF0 (MiDereferenceControlAreaPfnList.c)
+ *     MiLockNestedPageAtDpcInline @ 0x1402DDE90 (MiLockNestedPageAtDpcInline.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiDecrementShareCount @ 0x14032AE40 (MiDecrementShareCount.c)
+ *     MI_IS_RESET_PTE @ 0x14032F190 (MI_IS_RESET_PTE.c)
+ *     MiUpdatePageFileHighInPte @ 0x14032F49C (MiUpdatePageFileHighInPte.c)
+ *     MiTransferSoftwarePte @ 0x14032F630 (MiTransferSoftwarePte.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     MiSetPfnIdentity @ 0x14034BE78 (MiSetPfnIdentity.c)
+ *     MiClearPfnImageVerified @ 0x14036ABC0 (MiClearPfnImageVerified.c)
+ */
+
 void __fastcall MiRestoreTransitionPte(ULONG_PTR BugCheckParameter2, char a2)
 {
   __int64 v2; // r13

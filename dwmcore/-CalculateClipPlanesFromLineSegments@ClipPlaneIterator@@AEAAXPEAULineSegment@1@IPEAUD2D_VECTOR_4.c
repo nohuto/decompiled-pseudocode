@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CalculateClipPlanesFromLineSegments@ClipPlaneIterator@@AEAAXPEAULineSegment@1@IPEAUD2D_VECTOR_4F@@@Z @ 0x1801D6698
+ * Callers:
+ *     ?GetMorePlaceholderClipPlanes@ClipPlaneIterator@@AEAAXPEAUD2D_VECTOR_4F@@PEAI@Z @ 0x1801D6ACC (-GetMorePlaceholderClipPlanes@ClipPlaneIterator@@AEAAXPEAUD2D_VECTOR_4F@@PEAI@Z.c)
+ *     ?GetMoreStandardClipPlanes@ClipPlaneIterator@@AEAAXPEAUD2D_VECTOR_4F@@PEAI@Z @ 0x1801D6BA0 (-GetMoreStandardClipPlanes@ClipPlaneIterator@@AEAAXPEAUD2D_VECTOR_4F@@PEAI@Z.c)
+ * Callees:
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ *     _hypot_0 @ 0x1801176A4 (_hypot_0.c)
+ */
+
 void __fastcall ClipPlaneIterator::CalculateClipPlanesFromLineSegments(
         ClipPlaneIterator *this,
         struct ClipPlaneIterator::LineSegment *a2,

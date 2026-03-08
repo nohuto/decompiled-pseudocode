@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhCheckDeviceErrata @ 0x1C00514D4
+ * Callers:
+ *     UsbhGetUsbDeviceFlags @ 0x1C00388EC (UsbhGetUsbDeviceFlags.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhApplyDeviceFix @ 0x1C005137C (UsbhApplyDeviceFix.c)
+ *     UsbhGetDeviceFlags @ 0x1C00519E8 (UsbhGetDeviceFlags.c)
+ */
+
 _DWORD *__fastcall UsbhCheckDeviceErrata(__int64 a1, __int64 a2)
 {
   _DWORD *v4; // rdi

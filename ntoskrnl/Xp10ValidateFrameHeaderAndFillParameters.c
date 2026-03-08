@@ -1,3 +1,11 @@
+/*
+ * XREFs of Xp10ValidateFrameHeaderAndFillParameters @ 0x1409C566C
+ * Callers:
+ *     RtlDecompressBuffer2Xp10 @ 0x1409C0EF0 (RtlDecompressBuffer2Xp10.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Xp10ValidateFrameHeaderAndFillParameters(__int64 a1, _QWORD *a2)
 {
   __int16 v4; // cx

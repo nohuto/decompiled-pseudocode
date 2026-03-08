@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpProcessorPrepareForIdle @ 0x1402CB740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 HalpProcessorPrepareForIdle()
 {
   void (*v1)(void); // rax

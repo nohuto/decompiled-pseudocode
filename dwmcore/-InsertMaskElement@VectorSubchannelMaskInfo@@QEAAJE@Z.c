@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InsertMaskElement@VectorSubchannelMaskInfo@@QEAAJE@Z @ 0x18027D0D8
+ * Callers:
+ *     ?Initialize@CScrollAnimation@@IEAAJPEAVCInteractionTracker@@W4ScrollAxis@@@Z @ 0x1802619B0 (-Initialize@CScrollAnimation@@IEAAJPEAVCInteractionTracker@@W4ScrollAxis@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VectorSubchannelMaskInfo::InsertMaskElement(VectorSubchannelMaskInfo *this, char a2)
 {
   unsigned __int8 v2; // r8

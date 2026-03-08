@@ -1,3 +1,14 @@
+/*
+ * XREFs of IommupDeviceDisablePasidTaggedDma @ 0x140930C20
+ * Callers:
+ *     HalpIommuCreateDevice @ 0x140822B28 (HalpIommuCreateDevice.c)
+ *     HalpIommuDeleteDevice @ 0x140930ACC (HalpIommuDeleteDevice.c)
+ * Callees:
+ *     Feature_Servicing_IommuApiPasid__private_IsEnabledDeviceUsage @ 0x140409C64 (Feature_Servicing_IommuApiPasid__private_IsEnabledDeviceUsage.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IommupDeviceDisableSvm @ 0x140930CBC (IommupDeviceDisableSvm.c)
+ */
+
 __int64 __fastcall IommupDeviceDisablePasidTaggedDma(__int64 a1)
 {
   unsigned int v1; // edi

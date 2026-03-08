@@ -1,3 +1,13 @@
+/*
+ * XREFs of UserGetClientRgn @ 0x1C01BEF48
+ * Callers:
+ *     ?vSpComputeNoPresentRegion@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C010D9A8 (-vSpComputeNoPresentRegion@@YAXPEAU_SPRITESTATE@@H@Z.c)
+ *     ?vForceClientRgnUpdate@@YAXXZ @ 0x1C0289C70 (-vForceClientRgnUpdate@@YAXXZ.c)
+ * Callees:
+ *     CalcVisRgn @ 0x1C00535C0 (CalcVisRgn.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ */
+
 HRGN __fastcall UserGetClientRgn(int a1, _OWORD *a2, int a3)
 {
   const struct tagWND *v5; // rax

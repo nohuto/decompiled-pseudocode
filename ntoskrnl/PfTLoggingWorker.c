@@ -1,3 +1,19 @@
+/*
+ * XREFs of PfTLoggingWorker @ 0x140839670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     KeSetBasePriorityThread @ 0x140369500 (KeSetBasePriorityThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PfTGenerateTrace @ 0x1407E5150 (PfTGenerateTrace.c)
+ *     PfpFlushBuffers @ 0x1407E5E50 (PfpFlushBuffers.c)
+ */
+
 LONG __fastcall PfTLoggingWorker(__int64 a1)
 {
   NTSTATUS v2; // eax

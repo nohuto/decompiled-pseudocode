@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreReinitializeStockFonts @ 0x1C00D2060
+ * Callers:
+ *     ?SetDPIinSetup@@YAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00DA244 (-SetDPIinSetup@@YAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall GreReinitializeStockFonts(__int64 a1, int a2)
 {
   unsigned int v3; // edi

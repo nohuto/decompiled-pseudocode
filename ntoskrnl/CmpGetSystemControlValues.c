@@ -1,3 +1,29 @@
+/*
+ * XREFs of CmpGetSystemControlValues @ 0x140B33800
+ * Callers:
+ *     CmInitSystem0 @ 0x140B485E0 (CmInitSystem0.c)
+ * Callees:
+ *     CmpInitializeThreadInfo @ 0x140263760 (CmpInitializeThreadInfo.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpInitSecurityCache @ 0x14072CC90 (CmpInitSecurityCache.c)
+ *     HvHiveInitialize @ 0x14072CCCC (HvHiveInitialize.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpFindValueByName @ 0x1407A74A0 (CmpFindValueByName.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpFindSubKeyByName @ 0x1407FE71C (CmpFindSubKeyByName.c)
+ *     CmpWalkPath @ 0x1407FE938 (CmpWalkPath.c)
+ *     CmpFindControlSet @ 0x1407FEB10 (CmpFindControlSet.c)
+ *     HvHiveStartMemoryBacked @ 0x1407FF060 (HvHiveStartMemoryBacked.c)
+ *     CmSelectQualifiedInstallLanguage @ 0x140B333A8 (CmSelectQualifiedInstallLanguage.c)
+ *     CmpGetBootValueData @ 0x140B33C20 (CmpGetBootValueData.c)
+ *     CmpConvertLangId @ 0x140B33E74 (CmpConvertLangId.c)
+ */
+
 __int64 __fastcall CmpGetSystemControlValues(_DWORD *a1, __int64 a2, char a3)
 {
   wchar_t **v3; // rbx

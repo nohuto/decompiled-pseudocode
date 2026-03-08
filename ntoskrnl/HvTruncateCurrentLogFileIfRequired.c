@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvTruncateCurrentLogFileIfRequired @ 0x140730604
+ * Callers:
+ *     CmpFlushHive @ 0x1406BEA70 (CmpFlushHive.c)
+ * Callees:
+ *     HvpLogTypeToLogArrayIndex @ 0x1407307FC (HvpLogTypeToLogArrayIndex.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x140730814 (HvGetEffectiveLogSizeCapForHive.c)
+ *     CmpDoFileSetSizeEx @ 0x140731FA4 (CmpDoFileSetSizeEx.c)
+ */
+
 __int64 __fastcall HvTruncateCurrentLogFileIfRequired(__int64 a1)
 {
   __int64 result; // rax

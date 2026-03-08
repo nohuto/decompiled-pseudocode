@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CleanupPowerWatchdog@@YAXPEAPEAX@Z @ 0x1C00B3A74
+ * Callers:
+ *     CleanupPowerRequestList @ 0x1C00B39B0 (CleanupPowerRequestList.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 void __fastcall CleanupPowerWatchdog(void **a1)
 {
   __int64 v1; // rdi

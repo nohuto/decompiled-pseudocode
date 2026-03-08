@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vSqrt@EFLOAT@@QEAAXXZ @ 0x1C00AF150
+ * Callers:
+ *     ?eqLength@EFLOAT@@QEAA?AV1@AEBVPOINTFL@@@Z @ 0x1C00C1390 (-eqLength@EFLOAT@@QEAA-AV1@AEBVPOINTFL@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall EFLOAT::vSqrt(EFLOAT *this)
 {
   unsigned int v1; // ebx

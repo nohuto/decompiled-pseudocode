@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopGetIdleTimesCallback @ 0x140236080
+ * Callers:
+ *     PoGetIdleTimes @ 0x140236ABC (PoGetIdleTimes.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     PpmConvertTime @ 0x140235D70 (PpmConvertTime.c)
+ *     PpmContinueActiveTimeAccumulation @ 0x140236CD0 (PpmContinueActiveTimeAccumulation.c)
+ */
+
 __int64 __fastcall PopGetIdleTimesCallback(struct _KPRCB *a1, __int64 a2, __int64 a3)
 {
   struct _KPRCB *CurrentPrcb; // rax

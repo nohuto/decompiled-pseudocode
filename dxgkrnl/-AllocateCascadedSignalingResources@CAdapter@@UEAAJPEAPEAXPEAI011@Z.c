@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?AllocateCascadedSignalingResources@CAdapter@@UEAAJPEAPEAXPEAI011@Z @ 0x1C00781F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?CreateSyncObject@CAdapter@@AEAAJU_VIDSCH_SYNC_OBJECT_CLIENTHINT@@PEAI@Z @ 0x1C0078480 (-CreateSyncObject@CAdapter@@AEAAJU_VIDSCH_SYNC_OBJECT_CLIENTHINT@@PEAI@Z.c)
+ *     DxgkShareObjectsInternal @ 0x1C0186240 (DxgkShareObjectsInternal.c)
+ *     DxgkGetSharedSyncObjectType @ 0x1C01DEFE0 (DxgkGetSharedSyncObjectType.c)
+ *     DxgkCreateContextVirtualInternal @ 0x1C01DF030 (DxgkCreateContextVirtualInternal.c)
+ */
+
 __int64 __fastcall CAdapter::AllocateCascadedSignalingResources(
         CAdapter *this,
         void **a2,

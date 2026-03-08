@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpFcUpdateFeature @ 0x1409C037C
+ * Callers:
+ *     RtlpFcApplyUpdateAndAddFeature @ 0x1409BFDE4 (RtlpFcApplyUpdateAndAddFeature.c)
+ *     RtlpFcCalculateRequiredSizeForNewFeatureTable @ 0x1409BFEF0 (RtlpFcCalculateRequiredSizeForNewFeatureTable.c)
+ *     RtlpFcCreateAndAddFeatureFromUpdate @ 0x1409C023C (RtlpFcCreateAndAddFeatureFromUpdate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpFcUpdateFeature(_DWORD *a1, __int64 a2)
 {
   int *v2; // r8

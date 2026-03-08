@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MarkRecentlyTrackedContactsAsNonResting@CPTPEngine@@AEAAXPEAUPTPInput@@PEBUCContactState@@@Z @ 0x1C0237D28
+ * Callers:
+ *     ?RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z @ 0x1C0238AD8 (-RunStateMachine@CPTPEngine@@AEAAXPEAUPTPInput@@@Z.c)
+ * Callees:
+ *     ?SetContactRestingState@CPTPEngine@@AEAAXPEAUCContactState@@H@Z @ 0x1C023A428 (-SetContactRestingState@CPTPEngine@@AEAAXPEAUCContactState@@H@Z.c)
+ */
+
 void __fastcall CPTPEngine::MarkRecentlyTrackedContactsAsNonResting(
         CPTPEngine *this,
         struct PTPInput *a2,

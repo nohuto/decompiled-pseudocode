@@ -1,3 +1,16 @@
+/*
+ * XREFs of ??1CPartitionVerticalBlankScheduler@@UEAA@XZ @ 0x1801CE680
+ * Callers:
+ *     ??_GCPartitionVerticalBlankScheduler@@UEAAPEAXI@Z @ 0x1801CE9E0 (--_GCPartitionVerticalBlankScheduler@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1800EE108 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?OnShutdown@CComposition@@QEAAXXZ @ 0x1801B1A44 (-OnShutdown@CComposition@@QEAAXXZ.c)
+ *     ??1CTelemetryFrameStatistics@@QEAA@XZ @ 0x1801EE9EC (--1CTelemetryFrameStatistics@@QEAA@XZ.c)
+ *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x180279008 (-IsKernelDebuggerPresent@@YAHXZ.c)
+ */
+
 void __fastcall CPartitionVerticalBlankScheduler::~CPartitionVerticalBlankScheduler(
         CPartitionVerticalBlankScheduler *this)
 {

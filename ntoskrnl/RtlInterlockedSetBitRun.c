@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlInterlockedSetBitRun @ 0x1405A6470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall RtlInterlockedSetBitRun(__int64 a1, unsigned int a2, unsigned int a3)
 {
   unsigned int v3; // r9d

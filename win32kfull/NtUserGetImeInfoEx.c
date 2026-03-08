@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserGetImeInfoEx @ 0x1C00D42B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?GetImeInfoEx@@YAHPEAUtagWINDOWSTATION@@PEAUtagIMEINFOEX@@W4_IMEINFOEXCLASS@@@Z @ 0x1C00D44C8 (-GetImeInfoEx@@YAHPEAUtagWINDOWSTATION@@PEAUtagIMEINFOEX@@W4_IMEINFOEXCLASS@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall NtUserGetImeInfoEx(_OWORD *a1, unsigned int a2)
 {
   __int64 v4; // rdx

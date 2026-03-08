@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiLdaValidateChainStatus @ 0x1C03A4550
+ * Callers:
+ *     DpiLdaValidateSystemChainStatus @ 0x1C0217240 (DpiLdaValidateSystemChainStatus.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiLdaValidateChainStatus(__int64 a1)
 {
   __int64 v1; // rax

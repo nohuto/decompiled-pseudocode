@@ -1,3 +1,43 @@
+/*
+ * XREFs of PopGracefulShutdown @ 0x140A9D970
+ * Callers:
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     KeAttachProcess @ 0x1402F8D80 (KeAttachProcess.c)
+ *     PopDiagTraceEventNoPayload @ 0x1402FBBF8 (PopDiagTraceEventNoPayload.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     CcWaitForCurrentLazyWriterActivity @ 0x1403D14B0 (CcWaitForCurrentLazyWriterActivity.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopAdaptivePersistSystemInitatedRebootState @ 0x14059B9D8 (PopAdaptivePersistSystemInitatedRebootState.c)
+ *     VfShutdownScheduleWatchdog @ 0x1405CF398 (VfShutdownScheduleWatchdog.c)
+ *     PopTransitionCheckpoint @ 0x14067F1CC (PopTransitionCheckpoint.c)
+ *     PopCurrentPowerState @ 0x14078F3D0 (PopCurrentPowerState.c)
+ *     PnpWaitForEmptyDeviceActionQueue @ 0x14081BD34 (PnpWaitForEmptyDeviceActionQueue.c)
+ *     EtwWriteEndScenario @ 0x140842920 (EtwWriteEndScenario.c)
+ *     ObShutdownSystem @ 0x140977E00 (ObShutdownSystem.c)
+ *     PopSetCleanShutdownMarker @ 0x14097E450 (PopSetCleanShutdownMarker.c)
+ *     SshSessionManagerFlushBuffers @ 0x14099E7B8 (SshSessionManagerFlushBuffers.c)
+ *     SshSessionManagerTraceSystemStop @ 0x14099EC30 (SshSessionManagerTraceSystemStop.c)
+ *     PsShutdownSystem @ 0x1409B05A4 (PsShutdownSystem.c)
+ *     PsWaitForAllProcesses @ 0x1409B099C (PsWaitForAllProcesses.c)
+ *     EtwShutdown @ 0x1409DFD2C (EtwShutdown.c)
+ *     CmShutdownSystem @ 0x140A0E674 (CmShutdownSystem.c)
+ *     MmZeroPageFileAtShutdown @ 0x140A28834 (MmZeroPageFileAtShutdown.c)
+ *     IoShutdownSystem @ 0x140A96AB4 (IoShutdownSystem.c)
+ *     PopBuildDeviceNotifyList @ 0x140AA3FCC (PopBuildDeviceNotifyList.c)
+ *     PopSetDevicesSystemState @ 0x140AA42D0 (PopSetDevicesSystemState.c)
+ *     PopShutdownSystem @ 0x140AA5DA4 (PopShutdownSystem.c)
+ *     ExShutdownSystem @ 0x140AA79E8 (ExShutdownSystem.c)
+ *     MmShutdownSystem @ 0x140AA8E60 (MmShutdownSystem.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __noreturn PopGracefulShutdown()
 {
   __int64 v0; // rdx

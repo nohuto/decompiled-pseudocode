@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiSwValidateCreateData @ 0x14080780C
+ * Callers:
+ *     PiSwIrpStartCreateWorker @ 0x140806A2C (PiSwIrpStartCreateWorker.c)
+ * Callees:
+ *     SeValidSecurityDescriptor @ 0x14075EA40 (SeValidSecurityDescriptor.c)
+ *     PiSwValidatePropertyArray @ 0x1407859F8 (PiSwValidatePropertyArray.c)
+ *     PnpValidateMultiSz @ 0x14079F300 (PnpValidateMultiSz.c)
+ *     PiSwIsValidPnpId @ 0x140807A90 (PiSwIsValidPnpId.c)
+ */
+
 __int64 __fastcall PiSwValidateCreateData(__int64 a1)
 {
   unsigned int v2; // esi

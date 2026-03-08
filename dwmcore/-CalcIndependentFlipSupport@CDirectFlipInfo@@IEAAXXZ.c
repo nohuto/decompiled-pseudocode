@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CalcIndependentFlipSupport@CDirectFlipInfo@@IEAAXXZ @ 0x1801F3AF0
+ * Callers:
+ *     ?Activate@CDirectFlipInfo@@QEAAJXZ @ 0x1801F373C (-Activate@CDirectFlipInfo@@QEAAJXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CDirectFlipInfo::CalcIndependentFlipSupport(CDirectFlipInfo *this)
 {
   char v2; // bl

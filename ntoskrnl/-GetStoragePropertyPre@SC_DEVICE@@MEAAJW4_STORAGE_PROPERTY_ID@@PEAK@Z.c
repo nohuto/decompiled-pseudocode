@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetStoragePropertyPre@SC_DEVICE@@MEAAJW4_STORAGE_PROPERTY_ID@@PEAK@Z @ 0x140674480
+ * Callers:
+ *     ?GetStoragePropertyPre@SC_DISK@@MEAAJW4_STORAGE_PROPERTY_ID@@PEAK@Z @ 0x140673200 (-GetStoragePropertyPre@SC_DISK@@MEAAJW4_STORAGE_PROPERTY_ID@@PEAK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SC_DEVICE::GetStoragePropertyPre(SC_DEVICE *this, enum _STORAGE_PROPERTY_ID a2, unsigned int *a3)
 {
   unsigned int v3; // ecx

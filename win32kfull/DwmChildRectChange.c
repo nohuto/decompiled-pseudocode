@@ -1,3 +1,20 @@
+/*
+ * XREFs of DwmChildRectChange @ 0x1C00AD03C
+ * Callers:
+ *     OffsetWindow @ 0x1C004C918 (OffsetWindow.c)
+ *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C0068640 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
+ *     ?DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z @ 0x1C007E644 (-DwmNotifyChildrenCreateDestroy@@YAXPEBUtagDESKTOP@@H@Z.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ *     zzzUpdateLayeredWindow @ 0x1C01BE8C0 (zzzUpdateLayeredWindow.c)
+ * Callees:
+ *     ScaleDPIRect @ 0x1C00A3890 (ScaleDPIRect.c)
+ *     ?CalculateContentRect@@YA?AUtagRECT@@PEBUtagWND@@PEAH@Z @ 0x1C00AD290 (-CalculateContentRect@@YA-AUtagRECT@@PEBUtagWND@@PEAH@Z.c)
+ *     ?CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z @ 0x1C00AD734 (-CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 LONG_PTR __fastcall DwmChildRectChange(struct tagWND *a1)
 {
   __int64 v1; // rax

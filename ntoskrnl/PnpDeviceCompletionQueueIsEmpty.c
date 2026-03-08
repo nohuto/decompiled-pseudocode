@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpDeviceCompletionQueueIsEmpty @ 0x1402454DC
+ * Callers:
+ *     PnpDeviceCompletionProcessCompletedRequests @ 0x1406CD318 (PnpDeviceCompletionProcessCompletedRequests.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 _BOOL8 PnpDeviceCompletionQueueIsEmpty()
 {
   BOOL v0; // ebx

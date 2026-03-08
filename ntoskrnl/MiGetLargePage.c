@@ -1,3 +1,35 @@
+/*
+ * XREFs of MiGetLargePage @ 0x14034EF30
+ * Callers:
+ *     MiResolvePrivateZeroFault @ 0x14026BD60 (MiResolvePrivateZeroFault.c)
+ *     MiGetPageChain @ 0x14026E0E0 (MiGetPageChain.c)
+ *     MiGetLargePagesDemoteAsNeeded @ 0x14034DF94 (MiGetLargePagesDemoteAsNeeded.c)
+ *     MiPrefetchPreallocatePages @ 0x14062FD08 (MiPrefetchPreallocatePages.c)
+ *     MiProcessVaContiguityInformation @ 0x14065B3D4 (MiProcessVaContiguityInformation.c)
+ *     MiGetClusterPage @ 0x140667A14 (MiGetClusterPage.c)
+ *     MiIdealClusterPage @ 0x140667EB0 (MiIdealClusterPage.c)
+ * Callees:
+ *     MiZeroLargePage @ 0x1402441E4 (MiZeroLargePage.c)
+ *     MiInsertDemotedPages @ 0x1402CACC8 (MiInsertDemotedPages.c)
+ *     MiZeroPhysicalPage @ 0x1402CE78C (MiZeroPhysicalPage.c)
+ *     MiUpdatePageFileHighInPte @ 0x14032F49C (MiUpdatePageFileHighInPte.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x14032F834 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiInitializeLargePageAllocationPacket @ 0x14034F2E0 (MiInitializeLargePageAllocationPacket.c)
+ *     MiLockFreeLargePageLists @ 0x14034F4A0 (MiLockFreeLargePageLists.c)
+ *     MiReleaseLargePageAllocationLocks @ 0x14034F6B0 (MiReleaseLargePageAllocationLocks.c)
+ *     MiGetFreeLargePagesSearchTypes @ 0x14034F8C0 (MiGetFreeLargePagesSearchTypes.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140350400 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140462ED8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140608CDC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiWakeLargePageWaiters @ 0x14064DA54 (MiWakeLargePageWaiters.c)
+ *     MiAddPageToHeatRanges @ 0x140651704 (MiAddPageToHeatRanges.c)
+ *     MiNotifyPageHeat @ 0x140652018 (MiNotifyPageHeat.c)
+ */
+
 __int64 __fastcall MiGetLargePage(
         __int64 a1,
         unsigned __int64 a2,

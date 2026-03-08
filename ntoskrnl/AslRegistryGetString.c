@@ -1,3 +1,16 @@
+/*
+ * XREFs of AslRegistryGetString @ 0x140A51674
+ * Callers:
+ *     SdbGetMergeRedirectPath @ 0x140A4B4A0 (SdbGetMergeRedirectPath.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     AslStringDuplicate @ 0x1406D51D8 (AslStringDuplicate.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AslRegistryGetString(wchar_t **a1, void *a2, const WCHAR *a3)
 {
   NTSTATUS v5; // eax

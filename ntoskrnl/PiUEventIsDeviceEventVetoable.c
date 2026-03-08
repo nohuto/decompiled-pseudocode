@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiUEventIsDeviceEventVetoable @ 0x14068CC7C
+ * Callers:
+ *     PiUEventNotifyUserMode @ 0x14068C2D0 (PiUEventNotifyUserMode.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall PiUEventIsDeviceEventVetoable(__int64 a1)
 {
   __int64 v1; // rax

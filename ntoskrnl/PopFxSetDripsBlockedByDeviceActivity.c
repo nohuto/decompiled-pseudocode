@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopFxSetDripsBlockedByDeviceActivity @ 0x1405895A4
+ * Callers:
+ *     PopFxPlatformStateAvailable @ 0x140588EBC (PopFxPlatformStateAvailable.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxUpdateDeviceIRPhaseAccounting @ 0x140589E34 (PopFxUpdateDeviceIRPhaseAccounting.c)
+ *     PopFxUpdateGlobalDeviceAccountingInfo @ 0x140589EEC (PopFxUpdateGlobalDeviceAccountingInfo.c)
+ */
+
 __int64 __fastcall PopFxSetDripsBlockedByDeviceActivity(char a1)
 {
   __int64 v2; // rcx

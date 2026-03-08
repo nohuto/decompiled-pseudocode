@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiPurgeZeroList @ 0x14064B790
+ * Callers:
+ *     MiMirrorPurgePartitionPages @ 0x1406259E0 (MiMirrorPurgePartitionPages.c)
+ * Callees:
+ *     MiUnlinkFreeOrZeroedPage @ 0x140276500 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiPurgeLargeZeroNodePages @ 0x14064D6A8 (MiPurgeLargeZeroNodePages.c)
+ */
+
 void __fastcall MiPurgeZeroList(__int64 a1)
 {
   unsigned int v2; // ebp

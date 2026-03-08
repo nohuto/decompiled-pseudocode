@@ -1,3 +1,16 @@
+/*
+ * XREFs of IommuDomainDetachDeviceEx @ 0x1405238E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     Feature_Servicing_IommuApiPasid__private_IsEnabledDeviceUsage @ 0x140409C64 (Feature_Servicing_IommuApiPasid__private_IsEnabledDeviceUsage.c)
+ *     IommupDeviceGetPasidDevice @ 0x14050BC5C (IommupDeviceGetPasidDevice.c)
+ *     IommupDomainDetachPasidDevice @ 0x14050C048 (IommupDomainDetachPasidDevice.c)
+ *     HalpIommuLeaveDmaDomain @ 0x140516044 (HalpIommuLeaveDmaDomain.c)
+ *     IommupFindAndPopCachedDevice @ 0x140524604 (IommupFindAndPopCachedDevice.c)
+ */
+
 __int64 __fastcall IommuDomainDetachDeviceEx(__int64 a1)
 {
   int v2; // ebx

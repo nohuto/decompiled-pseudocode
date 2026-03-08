@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UpdateGammaRampOnVidPnTarget@KernelDriver@@UEAAJPEBUDXGK_GAMMA_RAMP@@@Z @ 0x1C017AA20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DmmUpdateGammaRampOnVidPnTarget@@YAJQEAXIPEBUDXGK_GAMMA_RAMP@@@Z @ 0x1C017AA4C (-DmmUpdateGammaRampOnVidPnTarget@@YAJQEAXIPEBUDXGK_GAMMA_RAMP@@@Z.c)
+ */
+
 int __fastcall KernelDriver::UpdateGammaRampOnVidPnTarget(KernelDriver *this, const struct DXGK_GAMMA_RAMP *a2)
 {
   __int64 v2; // rax

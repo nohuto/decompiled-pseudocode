@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_WdfIoTargetFormatRequestForWrite @ 0x1C000EA30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FxIoTargetFormatIo @ 0x1C00503FC (FxIoTargetFormatIo.c)
+ */
+
 int __fastcall imp_WdfIoTargetFormatRequestForWrite(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFIOTARGET__ *IoTarget,

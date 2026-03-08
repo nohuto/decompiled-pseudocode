@@ -1,3 +1,11 @@
+/*
+ * XREFs of KzLowerIrql @ 0x14025E5A0
+ * Callers:
+ *     KiVirtualizationException @ 0x140429040 (KiVirtualizationException.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __stdcall KzLowerIrql(KIRQL NewIrql)
 {
   unsigned __int64 v1; // rbx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhWaitForPortResume @ 0x1C003A71C
+ * Callers:
+ *     UsbhSyncResumePort @ 0x1C003A460 (UsbhSyncResumePort.c)
+ *     UsbhFdoSetD0Warm @ 0x1C003C220 (UsbhFdoSetD0Warm.c)
+ * Callees:
+ *     UsbhWaitEventWithTimeoutEx @ 0x1C00068E0 (UsbhWaitEventWithTimeoutEx.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhPCE_ResumeTimeout @ 0x1C0034B04 (UsbhPCE_ResumeTimeout.c)
+ *     UsbhPortResumeTimeout @ 0x1C0038ED0 (UsbhPortResumeTimeout.c)
+ */
+
 __int64 __fastcall UsbhWaitForPortResume(PDEVICE_OBJECT DeviceObject, __int64 a2, __int64 a3)
 {
   _DWORD *v6; // rsi

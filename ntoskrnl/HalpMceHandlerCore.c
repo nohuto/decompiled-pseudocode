@@ -1,3 +1,19 @@
+/*
+ * XREFs of HalpMceHandlerCore @ 0x140501B48
+ * Callers:
+ *     HalpMceHandler @ 0x140501A34 (HalpMceHandler.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxTryToAcquireSpinLock @ 0x14036B144 (KxTryToAcquireSpinLock.c)
+ *     HalpGetMcaPcrContext @ 0x14037CEF4 (HalpGetMcaPcrContext.c)
+ *     HalpMcaReadErrorPresence @ 0x14037D0E4 (HalpMcaReadErrorPresence.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpMcaClearError @ 0x140500FC0 (HalpMcaClearError.c)
+ *     HalpMcaReadError @ 0x1405014E0 (HalpMcaReadError.c)
+ *     HalpMcaReportError @ 0x140501778 (HalpMcaReportError.c)
+ *     WheaIsAltContextAllocPossible @ 0x14060F930 (WheaIsAltContextAllocPossible.c)
+ */
+
 char __fastcall HalpMceHandlerCore(__int64 a1, char a2, __int64 a3)
 {
   _BYTE *v6; // r15

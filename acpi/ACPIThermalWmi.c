@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIThermalWmi @ 0x1C0096250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDispatchForwardIrp @ 0x1C0001770 (ACPIDispatchForwardIrp.c)
+ */
+
 __int64 __fastcall ACPIThermalWmi(struct _DEVICE_OBJECT *BugCheckParameter3, PIRP Irp)
 {
   __int64 DeviceExtension; // rax

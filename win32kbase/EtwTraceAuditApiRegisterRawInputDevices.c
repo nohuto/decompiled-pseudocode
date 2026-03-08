@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwTraceAuditApiRegisterRawInputDevices @ 0x1C0033990
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EtwpTraceAuditApiQueryAddressVADInformation@@YAJPEAXPEAU_MEMORY_BASIC_INFORMATION@@PEAPEAU_OBJECT_NAME_INFORMATION@@@Z @ 0x1C0033B98 (-EtwpTraceAuditApiQueryAddressVADInformation@@YAJPEAXPEAU_MEMORY_BASIC_INFORMATION@@PEAPEAU_OBJE.c)
+ *     ?EtwpGetThreadInfoFlags@@YAKQEAUtagTHREADINFO@@@Z @ 0x1C003422C (-EtwpGetThreadInfoFlags@@YAKQEAUtagTHREADINFO@@@Z.c)
+ *     McTemplateK0qhhqppmqqqxqmxzqpqqpq_EtwWriteTransfer @ 0x1C0034394 (McTemplateK0qhhqppmqqqxqmxzqpqqpq_EtwWriteTransfer.c)
+ */
+
 void __fastcall EtwTraceAuditApiRegisterRawInputDevices(
         int a1,
         char a2,

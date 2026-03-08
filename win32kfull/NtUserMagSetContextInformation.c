@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserMagSetContextInformation @ 0x1C01D7E20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     MagSetLensContextInformation @ 0x1C01A4A80 (MagSetLensContextInformation.c)
+ */
+
 __int64 __fastcall NtUserMagSetContextInformation(__int64 a1, int a2, ULONG64 a3, unsigned int a4)
 {
   NTSTATUS v8; // ebx

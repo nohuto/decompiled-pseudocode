@@ -1,3 +1,16 @@
+/*
+ * XREFs of PiProcessDeviceResetAction @ 0x14055DCD8
+ * Callers:
+ *     PnpDeviceActionWorker @ 0x140203020 (PnpDeviceActionWorker.c)
+ * Callees:
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     McTemplateK0zq_EtwWriteTransfer @ 0x1403D07E8 (McTemplateK0zq_EtwWriteTransfer.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     IopLogDeviceResetComplete @ 0x140954464 (IopLogDeviceResetComplete.c)
+ *     IopQueueDeviceResetEvent @ 0x14095467C (IopQueueDeviceResetEvent.c)
+ *     PnpTraceRequestDeviceRemovalForReset @ 0x140969384 (PnpTraceRequestDeviceRemovalForReset.c)
+ */
+
 __int64 __fastcall PiProcessDeviceResetAction(__int64 a1)
 {
   __int64 v1; // rdi

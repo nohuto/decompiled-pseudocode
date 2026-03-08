@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RegisterInputDispatcherObjects@IOCPDispatcher@@UEAAJPEAXIPEAUInputDispatcherObject@@@Z @ 0x1C00C66D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z @ 0x1C007D9E0 (-SetupIOCPForDispatcherHandle@IOCPDispatcher@@AEAAPEAXPEAX0W4WaitCompletionPacketPurpose@@I@Z.c)
+ */
+
 __int64 __fastcall IOCPDispatcher::RegisterInputDispatcherObjects(
         IOCPDispatcher *this,
         void *a2,

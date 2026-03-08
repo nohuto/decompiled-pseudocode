@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MarkInvalid@CInputQueue@@UEAAXXZ @ 0x1C00BC800
+ * Callers:
+ *     ??_GCInputQueue@@UEAAPEAXI@Z @ 0x1C00AB820 (--_GCInputQueue@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CInputQueue::MarkInvalid(CInputQueue *this)
 {
   __int64 v2; // rcx

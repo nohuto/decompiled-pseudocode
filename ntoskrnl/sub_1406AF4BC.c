@@ -1,3 +1,13 @@
+/*
+ * XREFs of sub_1406AF4BC @ 0x1406AF4BC
+ * Callers:
+ *     WbGetHeapExecutedBlock @ 0x1406AFAAC (WbGetHeapExecutedBlock.c)
+ *     WbAddHeapExecutedBlockToCache @ 0x140754E94 (WbAddHeapExecutedBlockToCache.c)
+ * Callees:
+ *     sub_1406AF180 @ 0x1406AF180 (sub_1406AF180.c)
+ *     sub_1406AF984 @ 0x1406AF984 (sub_1406AF984.c)
+ */
+
 __int64 __fastcall sub_1406AF4BC(__int64 a1, __int64 a2, _QWORD *a3, int *a4)
 {
   __int64 result; // rax

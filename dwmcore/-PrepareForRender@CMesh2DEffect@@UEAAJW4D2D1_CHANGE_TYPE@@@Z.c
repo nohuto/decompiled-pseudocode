@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PrepareForRender@CMesh2DEffect@@UEAAJW4D2D1_CHANGE_TYPE@@@Z @ 0x1802BBBC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CMesh2DEffect::PrepareForRender(CMesh2DEffect *this, enum D2D1_CHANGE_TYPE a2)
 {
   return (*(__int64 (__fastcall **)(_QWORD, char *, __int64))(**((_QWORD **)this + 16) + 72LL))(

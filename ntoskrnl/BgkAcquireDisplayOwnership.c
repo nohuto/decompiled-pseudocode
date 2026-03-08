@@ -1,3 +1,13 @@
+/*
+ * XREFs of BgkAcquireDisplayOwnership @ 0x14054C830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     BgLibraryEnable @ 0x14066F498 (BgLibraryEnable.c)
+ */
+
 __int64 (__fastcall *__fastcall BgkAcquireDisplayOwnership(__int64 a1))(_QWORD, _QWORD, _QWORD)
 {
   __int64 (__fastcall *result)(_QWORD, _QWORD, _QWORD); // rax

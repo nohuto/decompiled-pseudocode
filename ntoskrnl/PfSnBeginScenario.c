@@ -1,3 +1,21 @@
+/*
+ * XREFs of PfSnBeginScenario @ 0x1407E4764
+ * Callers:
+ *     PfSnBeginAppLaunch @ 0x1407E6D34 (PfSnBeginAppLaunch.c)
+ *     PfSnOperationProcess @ 0x14097C840 (PfSnOperationProcess.c)
+ * Callees:
+ *     PsGetIoPriorityThread @ 0x1402832C0 (PsGetIoPriorityThread.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     PfSnStartTraceTimer @ 0x14035B168 (PfSnStartTraceTimer.c)
+ *     PfSnLogScenarioDecision @ 0x1406BE5DC (PfSnLogScenarioDecision.c)
+ *     PfSnPrefetchScenario @ 0x1407E1578 (PfSnPrefetchScenario.c)
+ *     PfSnGetPrefetchInstructions @ 0x1407E1BA4 (PfSnGetPrefetchInstructions.c)
+ *     PfSnBeginTrace @ 0x1407E31A8 (PfSnBeginTrace.c)
+ *     PfSnLogIdentifier @ 0x1407E3410 (PfSnLogIdentifier.c)
+ *     PfSnCheckActionsNeeded @ 0x1407E3F78 (PfSnCheckActionsNeeded.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfSnBeginScenario(void *a1, unsigned __int8 *a2, int a3, unsigned int a4, const void **a5)
 {
   __int64 CurrentThread; // r13

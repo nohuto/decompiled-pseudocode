@@ -1,3 +1,17 @@
+/*
+ * XREFs of HUBREG_WriteValueToDeviceHardwareKey @ 0x1C00867FC
+ * Callers:
+ *     HUBMISC_InstallMsOs20RegistryProperties @ 0x1C0032C14 (HUBMISC_InstallMsOs20RegistryProperties.c)
+ *     HUBPDO_EvtDevicePrepareHardware @ 0x1C007CF20 (HUBPDO_EvtDevicePrepareHardware.c)
+ *     HUBMISC_SetExtPropDescSemaphoreInRegistry @ 0x1C00831FC (HUBMISC_SetExtPropDescSemaphoreInRegistry.c)
+ *     HUBMISC_ParseAndWriteCustomPropertiesInRegistry @ 0x1C008334C (HUBMISC_ParseAndWriteCustomPropertiesInRegistry.c)
+ *     HUBREG_EvtWorkItemUpdateSqmDeviceSelectiveSuspended @ 0x1C00886C0 (HUBREG_EvtWorkItemUpdateSqmDeviceSelectiveSuspended.c)
+ *     HUBREG_UpdateSqmEnumerationFailureCode @ 0x1C0088774 (HUBREG_UpdateSqmEnumerationFailureCode.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBREG_WriteValueToDeviceHardwareKey(__int64 a1, __int64 a2, unsigned int a3, int a4, __int64 a5)
 {
   __int64 v9; // rax

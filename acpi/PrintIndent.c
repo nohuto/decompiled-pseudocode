@@ -1,3 +1,15 @@
+/*
+ * XREFs of PrintIndent @ 0x1C004E484
+ * Callers:
+ *     ParsePackage @ 0x1C0058160 (ParsePackage.c)
+ *     ParseField @ 0x1C005AB30 (ParseField.c)
+ *     ParseFieldList @ 0x1C005B230 (ParseFieldList.c)
+ *     ParseScope @ 0x1C005C220 (ParseScope.c)
+ *     ParseTerm @ 0x1C005C790 (ParseTerm.c)
+ * Callees:
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ */
+
 ULONG __fastcall PrintIndent(__int64 a1)
 {
   ULONG result; // eax

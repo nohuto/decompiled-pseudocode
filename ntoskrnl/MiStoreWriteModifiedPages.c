@@ -1,3 +1,42 @@
+/*
+ * XREFs of MiStoreWriteModifiedPages @ 0x14046554A
+ * Callers:
+ *     MiGatherPagefilePages @ 0x140637D34 (MiGatherPagefilePages.c)
+ * Callees:
+ *     MiReleasePageFileInfo @ 0x14020B300 (MiReleasePageFileInfo.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14022BD30 (ObReferenceObjectSafeWithTag.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140283390 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiCapturePageFileInfoInline @ 0x1402DE2D4 (MiCapturePageFileInfoInline.c)
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MiUpdatePageFileHighInPte @ 0x14032F49C (MiUpdatePageFileHighInPte.c)
+ *     MiTransferSoftwarePte @ 0x14032F630 (MiTransferSoftwarePte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     MiSufficientAvailablePages @ 0x1403643E4 (MiSufficientAvailablePages.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     MiStoreCheckCandidatePage @ 0x1404650E0 (MiStoreCheckCandidatePage.c)
+ *     MiStoreLogNotCandidate @ 0x140465332 (MiStoreLogNotCandidate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDerefPageFileSpaceBitmaps @ 0x140636AEC (MiDerefPageFileSpaceBitmaps.c)
+ *     MiRefPageFileSpaceBitmaps @ 0x140639084 (MiRefPageFileSpaceBitmaps.c)
+ *     MiUpdatePagefilePeakUsage @ 0x140639760 (MiUpdatePagefilePeakUsage.c)
+ *     MiStoreDecrementOutstandingWrites @ 0x140659A2C (MiStoreDecrementOutstandingWrites.c)
+ *     MiStoreFreeWriteSupport @ 0x140659CD0 (MiStoreFreeWriteSupport.c)
+ *     MiStoreLogFullPagefile @ 0x140659D30 (MiStoreLogFullPagefile.c)
+ *     MiStoreLogWriteDisabled @ 0x140659E3C (MiStoreLogWriteDisabled.c)
+ *     MiStoreLogWriteIssueFailure @ 0x140659EFC (MiStoreLogWriteIssueFailure.c)
+ *     MiStoreLogWriteIssueRetry @ 0x14065A04C (MiStoreLogWriteIssueRetry.c)
+ *     MiStoreModifiedWriteDereference @ 0x14065A280 (MiStoreModifiedWriteDereference.c)
+ *     MiStoreUpdatePagefileHash @ 0x14065A508 (MiStoreUpdatePagefileHash.c)
+ *     MiStoreWriteIssue @ 0x14065A714 (MiStoreWriteIssue.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiStoreWriteModifiedPages(__int64 a1)
 {
   __int64 v1; // rax

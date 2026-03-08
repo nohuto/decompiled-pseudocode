@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptSha256AppendBlocks_ul1 @ 0x1403EDE78
+ * Callers:
+ *     SymCryptSha256AppendBlocks @ 0x1403EDA50 (SymCryptSha256AppendBlocks.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptSha256AppendBlocks_ul1(int *a1, __int64 a2, unsigned __int64 a3, unsigned __int64 *a4)
 {
   int v4; // ebx

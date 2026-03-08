@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Delete@CoreWindowProp@@UEAAXXZ @ 0x1C0222EB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?RemoveComponentInternal@CoreWindowProp@@KAJPEAUtagWND@@0@Z @ 0x1C022315C (-RemoveComponentInternal@CoreWindowProp@@KAJPEAUtagWND@@0@Z.c)
+ *     ?UnlinkAndDestroyComponent@CoreWindowProp@@IEAAXPEAUComponent@1@0@Z @ 0x1C02231E8 (-UnlinkAndDestroyComponent@CoreWindowProp@@IEAAXPEAUComponent@1@0@Z.c)
+ */
+
 void __fastcall CoreWindowProp::Delete(CoreWindowProp *this)
 {
   struct tagWND *v2; // rcx

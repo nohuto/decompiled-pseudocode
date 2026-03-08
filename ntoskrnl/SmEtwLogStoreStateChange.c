@@ -1,3 +1,12 @@
+/*
+ * XREFs of SmEtwLogStoreStateChange @ 0x1405C8D6C
+ * Callers:
+ *     ?StEmptyStore@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@K@Z @ 0x1405C6224 (-StEmptyStore@-$ST_STORE@USM_TRAITS@@@@SAXPEAU1@K@Z.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS SmEtwLogStoreStateChange(REGHANDLE *a1, __int64 a2, ...)
 {
   REGHANDLE v2; // rcx

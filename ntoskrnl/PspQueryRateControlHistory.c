@@ -1,3 +1,21 @@
+/*
+ * XREFs of PspQueryRateControlHistory @ 0x1407E8B5C
+ * Callers:
+ *     NtQueryInformationJobObject @ 0x1406F9480 (NtQueryInformationJobObject.c)
+ *     PspEnforceLimitsJobPreCallback @ 0x1407E8A50 (PspEnforceLimitsJobPreCallback.c)
+ * Callees:
+ *     RtlCopyBitMap @ 0x1402B3480 (RtlCopyBitMap.c)
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ *     PspJobIoRateQueryHistory @ 0x14035C418 (PspJobIoRateQueryHistory.c)
+ *     RtlNumberOfSetBits @ 0x14035C520 (RtlNumberOfSetBits.c)
+ *     KeQuerySchedulingGroupHistory @ 0x14035C6F8 (KeQuerySchedulingGroupHistory.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PspNetRateControlDispatch @ 0x1409AF644 (PspNetRateControlDispatch.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PspQueryRateControlHistory(__int64 a1, int a2, char a3, _DWORD *a4, int a5)
 {
   __int64 result; // rax

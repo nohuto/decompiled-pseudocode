@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpDmaControllerDpcRoutine @ 0x140525220
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __fastcall HalpDmaControllerDpcRoutine(__int64 a1, __int64 a2)
 {
   __int64 v2; // r10

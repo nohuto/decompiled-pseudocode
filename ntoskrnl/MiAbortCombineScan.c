@@ -1,3 +1,27 @@
+/*
+ * XREFs of MiAbortCombineScan @ 0x14021467C
+ * Callers:
+ *     MiChangePageAttributeBatch @ 0x140211998 (MiChangePageAttributeBatch.c)
+ *     MiChangePageAttributeContiguous @ 0x140214270 (MiChangePageAttributeContiguous.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiInitializeMdlBatchPages @ 0x1402B4150 (MiInitializeMdlBatchPages.c)
+ *     MiCopyPage @ 0x14032DC70 (MiCopyPage.c)
+ *     MiAllocateSlabEntry @ 0x140349850 (MiAllocateSlabEntry.c)
+ *     MiUpdateSlabPagePlaceholderState @ 0x14034A0A8 (MiUpdateSlabPagePlaceholderState.c)
+ *     MiChangePageAttribute @ 0x14036CE40 (MiChangePageAttribute.c)
+ *     MiInitializeMdlPfn @ 0x1403870D0 (MiInitializeMdlPfn.c)
+ *     MiInitializeDynamicPfns @ 0x140618AB8 (MiInitializeDynamicPfns.c)
+ *     MiCompleteSecureProcessFault @ 0x1406435E4 (MiCompleteSecureProcessFault.c)
+ * Callees:
+ *     KeFlushSingleTb @ 0x140211E60 (KeFlushSingleTb.c)
+ *     MiPageCombiningActive @ 0x14021472C (MiPageCombiningActive.c)
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ */
+
 void __fastcall MiAbortCombineScan(__int64 a1)
 {
   __int64 v2; // r14

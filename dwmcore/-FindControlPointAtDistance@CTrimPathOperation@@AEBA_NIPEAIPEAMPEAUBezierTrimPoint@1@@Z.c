@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FindControlPointAtDistance@CTrimPathOperation@@AEBA_NIPEAIPEAMPEAUBezierTrimPoint@1@@Z @ 0x1802ABCF0
+ * Callers:
+ *     ?InterpolateBezier@CTrimPathOperation@@AEAA_NMM_N@Z @ 0x1802AC128 (-InterpolateBezier@CTrimPathOperation@@AEAA_NMM_N@Z.c)
+ * Callees:
+ *     sqrtf_0 @ 0x1801177AC (sqrtf_0.c)
+ */
+
 bool __fastcall CTrimPathOperation::FindControlPointAtDistance(
         CTrimPathOperation *this,
         unsigned int a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhFdoWakePoComplete_Action @ 0x1C000C3C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhQueueWorkItemEx @ 0x1C001E320 (UsbhQueueWorkItemEx.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ */
+
 void __fastcall UsbhFdoWakePoComplete_Action(
         PDEVICE_OBJECT DeviceObject,
         UCHAR MinorFunction,

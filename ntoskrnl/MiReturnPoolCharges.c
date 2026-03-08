@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiReturnPoolCharges @ 0x1402D89F8
+ * Callers:
+ *     MiReturnPhysicalPoolPages @ 0x1402D878C (MiReturnPhysicalPoolPages.c)
+ *     MiReturnExcessPoolCommit @ 0x1403303F8 (MiReturnExcessPoolCommit.c)
+ *     MiInitializePoolCommitPacket @ 0x140330760 (MiInitializePoolCommitPacket.c)
+ *     MiGetPoolPages @ 0x14036413C (MiGetPoolPages.c)
+ *     MmAllocateIndependentPagesEx @ 0x140869ADC (MmAllocateIndependentPagesEx.c)
+ *     MmFreeIndependentPages @ 0x14087B250 (MmFreeIndependentPages.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiReturnSystemCharges @ 0x1402D8C88 (MiReturnSystemCharges.c)
+ */
+
 void __fastcall MiReturnPoolCharges(unsigned __int64 *a1, int a2, __int64 a3)
 {
   char v3; // bl

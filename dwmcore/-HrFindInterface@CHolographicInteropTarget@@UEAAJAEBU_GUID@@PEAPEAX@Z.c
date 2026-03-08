@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CHolographicInteropTarget@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801C1B10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801003B0 (-HrFindInterface@CRenderTarget@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ */
+
 __int64 __fastcall CHolographicInteropTarget::HrFindInterface(
         CHolographicInteropTarget *this,
         const struct _GUID *a2,

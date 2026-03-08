@@ -1,3 +1,30 @@
+/*
+ * XREFs of PfFileInfoNotify @ 0x14028C770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     PfLogFileDataAccess @ 0x14028C67C (PfLogFileDataAccess.c)
+ *     PfLogEvent @ 0x14028D0D0 (PfLogEvent.c)
+ *     PfFbLogEntryReserve @ 0x14028D1C0 (PfFbLogEntryReserve.c)
+ *     PfFbLogEntryComplete @ 0x14028D2D0 (PfFbLogEntryComplete.c)
+ *     PfSnLogFileDataAccess @ 0x14028D408 (PfSnLogFileDataAccess.c)
+ *     ExRundownCompleted @ 0x140294280 (ExRundownCompleted.c)
+ *     PfLogDeleteHelper @ 0x1402F5B50 (PfLogDeleteHelper.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     _wcsupr @ 0x1403D41F0 (_wcsupr.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PfpRpFileKeyUpdate @ 0x140702E20 (PfpRpFileKeyUpdate.c)
+ *     PfSnNameRemoveAll @ 0x140773CE0 (PfSnNameRemoveAll.c)
+ *     PfSnLogVolumeCreate @ 0x14078C1D0 (PfSnLogVolumeCreate.c)
+ *     PfSnLogStreamCreate @ 0x1407A3E7C (PfSnLogStreamCreate.c)
+ */
+
 __int64 __fastcall PfFileInfoNotify(_DWORD *a1)
 {
   int v2; // eax

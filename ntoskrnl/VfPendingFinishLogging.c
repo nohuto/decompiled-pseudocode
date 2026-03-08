@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfPendingFinishLogging @ 0x140ACE828
+ * Callers:
+ *     IovpCallDriver1 @ 0x140AC9170 (IovpCallDriver1.c)
+ *     IovpCompleteRequest1 @ 0x140AC99CC (IovpCompleteRequest1.c)
+ * Callees:
+ *     RtlCaptureStackBackTrace @ 0x140205C20 (RtlCaptureStackBackTrace.c)
+ */
+
 __int64 __fastcall VfPendingFinishLogging(__int64 a1)
 {
   __int64 result; // rax

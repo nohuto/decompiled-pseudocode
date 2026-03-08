@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopDirectedDripsIsLikelySpecialDevice @ 0x14099D0BC
+ * Callers:
+ *     PopDirectedDripsBuildBroadcastTreeFull @ 0x14099CB70 (PopDirectedDripsBuildBroadcastTreeFull.c)
+ *     PopDirectedDripsVisitPs4Device @ 0x14099D284 (PopDirectedDripsVisitPs4Device.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PopDirectedDripsIsLikelySpecialDevice(__int64 a1, _DWORD *a2)
 {
   char result; // al

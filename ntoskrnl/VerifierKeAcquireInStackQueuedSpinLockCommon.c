@@ -1,3 +1,13 @@
+/*
+ * XREFs of VerifierKeAcquireInStackQueuedSpinLockCommon @ 0x140AD21E0
+ * Callers:
+ *     VerifierKeAcquireInStackQueuedSpinLock @ 0x140ABD260 (VerifierKeAcquireInStackQueuedSpinLock.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ViTargetIncrementCounter @ 0x140AC8BDC (ViTargetIncrementCounter.c)
+ *     ViKeIrqlLogAndTrimMemory @ 0x140AD2DA8 (ViKeIrqlLogAndTrimMemory.c)
+ */
+
 unsigned int __fastcall VerifierKeAcquireInStackQueuedSpinLockCommon(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rbx

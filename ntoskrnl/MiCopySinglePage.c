@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiCopySinglePage @ 0x1402A2358
+ * Callers:
+ *     MmCopyMemory @ 0x1402A1CE0 (MmCopyMemory.c)
+ * Callees:
+ *     MiMapPageInHyperSpaceWorker @ 0x140214870 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140214A54 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiIsPageSecured @ 0x1402A27F0 (MiIsPageSecured.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14034A974 (MiMakeProtectionPfnCompatible.c)
+ *     MiChangePageAttribute @ 0x14036CE40 (MiChangePageAttribute.c)
+ *     Feature_Servicing_AllowSecureQcPagesCopy__private_IsEnabledNoReporting @ 0x14040A5A0 (Feature_Servicing_AllowSecureQcPagesCopy__private_IsEnabledNoReporting.c)
+ *     MiCopySinglePageExceptionHandler @ 0x140411660 (MiCopySinglePageExceptionHandler.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiCopySinglePage(void *a1, unsigned __int64 a2, __int64 a3, size_t a4, unsigned __int64 a5, char a6)
 {
   __int64 v7; // r15

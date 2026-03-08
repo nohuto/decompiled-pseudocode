@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiRebalanceSystemCacheFreedViews @ 0x1403356A0
+ * Callers:
+ *     MiConsumeSystemCacheTbFlushNeededView @ 0x1402F5E60 (MiConsumeSystemCacheTbFlushNeededView.c)
+ *     MiObtainSystemCacheView @ 0x140335220 (MiObtainSystemCacheView.c)
+ *     MiReleaseSystemCacheView @ 0x1403354D0 (MiReleaseSystemCacheView.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 **__fastcall MiRebalanceSystemCacheFreedViews(__int64 a1, int a2, int a3)
 {
   __int64 **result; // rax

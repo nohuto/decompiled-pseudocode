@@ -1,3 +1,11 @@
+/*
+ * XREFs of InsertDeviceFirmwareLockHandlerEntry @ 0x1C001BD38
+ * Callers:
+ *     AcpiRegisterDeviceFirmwareLockHandler @ 0x1C0082744 (AcpiRegisterDeviceFirmwareLockHandler.c)
+ * Callees:
+ *     FindDeviceFirmwareLockHandlerEntryLocked @ 0x1C001BCA0 (FindDeviceFirmwareLockHandlerEntryLocked.c)
+ */
+
 __int64 __fastcall InsertDeviceFirmwareLockHandlerEntry(__int64 a1)
 {
   KIRQL v2; // r10

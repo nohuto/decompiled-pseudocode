@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?D2DMatrixPerspectiveFieldOfView@@YAPEAUD2DMatrix@@PEAU1@MMMM@Z @ 0x18027A184
+ * Callers:
+ *     ?Matrix4x4FromPerspectiveFieldOfView@CExpressionValueStack@@QEAAJXZ @ 0x18025B7EC (-Matrix4x4FromPerspectiveFieldOfView@CExpressionValueStack@@QEAAJXZ.c)
+ * Callees:
+ *     tanf_0 @ 0x1801177C4 (tanf_0.c)
+ */
+
 struct D2DMatrix *__fastcall D2DMatrixPerspectiveFieldOfView(
         struct D2DMatrix *a1,
         float a2,

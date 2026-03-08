@@ -1,3 +1,18 @@
+/*
+ * XREFs of UsbDevice_UcxEvtDeviceAdd @ 0x1C0070FD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     Controller_AddDeviceToControllerDeviceList @ 0x1C001A5D0 (Controller_AddDeviceToControllerDeviceList.c)
+ *     XilUsbDevice_Create @ 0x1C001BB24 (XilUsbDevice_Create.c)
+ *     WPP_RECORDER_SF_dqd @ 0x1C001E3F8 (WPP_RECORDER_SF_dqd.c)
+ *     Etw_DeviceCreate @ 0x1C001E5C8 (Etw_DeviceCreate.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall UsbDevice_UcxEvtDeviceAdd(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v5; // r15

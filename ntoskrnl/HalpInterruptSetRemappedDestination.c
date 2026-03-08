@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpInterruptSetRemappedDestination @ 0x14028EB08
+ * Callers:
+ *     HalpInterruptSetDestination @ 0x14028E950 (HalpInterruptSetDestination.c)
+ * Callees:
+ *     HalpInterruptGetRemappedLineState @ 0x14028EBCC (HalpInterruptGetRemappedLineState.c)
+ *     HalpInterruptDestinationToTarget @ 0x14028EC7C (HalpInterruptDestinationToTarget.c)
+ *     HalpInterruptRemapUpdateDeliveryMode @ 0x14028EDAC (HalpInterruptRemapUpdateDeliveryMode.c)
+ *     HalpIommuUpdateRemappingTableEntry @ 0x1402FC29C (HalpIommuUpdateRemappingTableEntry.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ */
+
 __int64 __fastcall HalpInterruptSetRemappedDestination(__int64 a1, _DWORD *a2, __int64 a3)
 {
   unsigned int v3; // ebx

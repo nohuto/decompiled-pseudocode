@@ -1,3 +1,14 @@
+/*
+ * XREFs of CcFlushCacheAcquireRange @ 0x14021A0CC
+ * Callers:
+ *     CcFlushCachePriv @ 0x140219F20 (CcFlushCachePriv.c)
+ *     CcWriteBehindAsync @ 0x140538060 (CcWriteBehindAsync.c)
+ *     CcWriteBehindAsyncFlushOneRange @ 0x140539380 (CcWriteBehindAsyncFlushOneRange.c)
+ * Callees:
+ *     CcAcquireByteRangeForWrite @ 0x14021A220 (CcAcquireByteRangeForWrite.c)
+ *     CcAmILowPriorityWriter @ 0x14021B7DC (CcAmILowPriorityWriter.c)
+ */
+
 bool __fastcall CcFlushCacheAcquireRange(__int64 a1)
 {
   __int64 v1; // rsi

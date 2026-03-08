@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vDelete@EWNDOBJ@@QEAAXXZ @ 0x1C0289C10
+ * Callers:
+ *     GreDeleteWnd @ 0x1C028A9D0 (GreDeleteWnd.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall EWNDOBJ::vDelete(EWNDOBJ *this)
 {
   REGION *v2; // rcx

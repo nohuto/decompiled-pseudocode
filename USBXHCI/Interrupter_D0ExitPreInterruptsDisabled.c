@@ -1,3 +1,13 @@
+/*
+ * XREFs of Interrupter_D0ExitPreInterruptsDisabled @ 0x1C000F410
+ * Callers:
+ *     Controller_WdfEvtDeviceD0ExitPreInterruptsDisabled @ 0x1C000F310 (Controller_WdfEvtDeviceD0ExitPreInterruptsDisabled.c)
+ * Callees:
+ *     Interrupter_ReleaseEventRingLock @ 0x1C000F4C4 (Interrupter_ReleaseEventRingLock.c)
+ *     Interrupter_AcquireEventRingLock @ 0x1C000F4FC (Interrupter_AcquireEventRingLock.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ */
+
 __int64 __fastcall Interrupter_D0ExitPreInterruptsDisabled(__int64 a1)
 {
   __int64 i; // rbx

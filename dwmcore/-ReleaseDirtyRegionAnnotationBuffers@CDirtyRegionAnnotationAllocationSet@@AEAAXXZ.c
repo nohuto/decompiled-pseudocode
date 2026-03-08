@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReleaseDirtyRegionAnnotationBuffers@CDirtyRegionAnnotationAllocationSet@@AEAAXXZ @ 0x1800DC2F0
+ * Callers:
+ *     ??1CVisualTree@@UEAA@XZ @ 0x18003B404 (--1CVisualTree@@UEAA@XZ.c)
+ *     ?ClearDirtyRegionAnnotationLists@CDirtyRegion@@AEAAXXZ @ 0x1800DC298 (-ClearDirtyRegionAnnotationLists@CDirtyRegion@@AEAAXXZ.c)
+ * Callees:
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ */
+
 void __fastcall CDirtyRegionAnnotationAllocationSet::ReleaseDirtyRegionAnnotationBuffers(
         CDirtyRegionAnnotationAllocationSet *this)
 {

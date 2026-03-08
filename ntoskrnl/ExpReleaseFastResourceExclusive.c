@@ -1,3 +1,19 @@
+/*
+ * XREFs of ExpReleaseFastResourceExclusive @ 0x1403C5EA4
+ * Callers:
+ *     ExReleaseFastResource @ 0x1403C5940 (ExReleaseFastResource.c)
+ *     ExReleaseFastResourceExclusive @ 0x140607BF0 (ExReleaseFastResourceExclusive.c)
+ *     ExReleaseFastResourceShared @ 0x140607D40 (ExReleaseFastResourceShared.c)
+ * Callees:
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     ExpRotateFastOwnerEntrySublistHead @ 0x1403C589C (ExpRotateFastOwnerEntrySublistHead.c)
+ *     ExpCommitWakeResourceExclusive @ 0x1403C60E0 (ExpCommitWakeResourceExclusive.c)
+ *     ExpPrepareToWakeResourceExclusive @ 0x1403C611C (ExpPrepareToWakeResourceExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExpReleaseFastResourceExclusive(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   unsigned __int8 CurrentIrql; // di

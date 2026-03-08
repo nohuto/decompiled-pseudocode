@@ -1,3 +1,18 @@
+/*
+ * XREFs of PhysicalToLogicalDPIPoint @ 0x1C000AD50
+ * Callers:
+ *     TransformPointBetweenCoordinateSpaces @ 0x1C000ACB0 (TransformPointBetweenCoordinateSpaces.c)
+ *     ?LogicalCursorPosFromDpiAwarenessContext@CMouseProcessor@@QEAA?AUtagPOINT@@K@Z @ 0x1C000BCC8 (-LogicalCursorPosFromDpiAwarenessContext@CMouseProcessor@@QEAA-AUtagPOINT@@K@Z.c)
+ *     ?ProcessMouseMove@CMouseProcessor@@AEAAXAEBVCMoveEvent@1@@Z @ 0x1C007C068 (-ProcessMouseMove@CMouseProcessor@@AEAAXAEBVCMoveEvent@1@@Z.c)
+ *     ?HandleCapture_MakeNoMouseOwner@CMouseProcessor@@AEAA_NAEBVCInputDest@@AEBVCButtonEvent@1@_JUtagPOINT@@I@Z @ 0x1C022DC78 (-HandleCapture_MakeNoMouseOwner@CMouseProcessor@@AEAA_NAEBVCInputDest@@AEBVCButtonEvent@1@_JUtag.c)
+ * Callees:
+ *     Is_MonitorFromPointSupported @ 0x1C003B86C (Is_MonitorFromPointSupported.c)
+ *     ScaleDPIPt @ 0x1C003B898 (ScaleDPIPt.c)
+ *     GetMonitorRectForDpi @ 0x1C003BDD8 (GetMonitorRectForDpi.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C0041AF0 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall PhysicalToLogicalDPIPoint(_QWORD *a1, _QWORD *a2, unsigned int a3, __int64 *a4)
 {
   unsigned int CurrentThreadDpiAwarenessContext; // edi

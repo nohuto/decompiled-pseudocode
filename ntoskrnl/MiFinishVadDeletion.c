@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiFinishVadDeletion @ 0x140248200
+ * Callers:
+ *     MiDeleteVad @ 0x1407C82E0 (MiDeleteVad.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiGetVadWakeList @ 0x140289A20 (MiGetVadWakeList.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiDereferenceVad @ 0x1402DC3A4 (MiDereferenceVad.c)
+ *     KeSignalGate @ 0x1402F0524 (KeSignalGate.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MiRemoveVadCharges @ 0x1406ECCF0 (MiRemoveVadCharges.c)
+ *     MiReturnVadQuota @ 0x140704558 (MiReturnVadQuota.c)
+ *     MiDeleteVadHotPatchState @ 0x140A33D1C (MiDeleteVadHotPatchState.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiFinishVadDeletion(unsigned int *P, __int64 a2, unsigned __int64 a3, char a4)
 {
   struct _KTHREAD *CurrentThread; // r13

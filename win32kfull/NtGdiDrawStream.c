@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtGdiDrawStream @ 0x1C00829B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreDrawStream @ 0x1C0082A90 (GreDrawStream.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall NtGdiDrawStream(__int64 a1, __int64 a2, char *a3)
 {
   size_t v4; // rsi

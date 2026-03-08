@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiGetSlabAllocatorStandbyList @ 0x140654688
+ * Callers:
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ *     MiUpdatePageAttributeStamp @ 0x14036A854 (MiUpdatePageAttributeStamp.c)
+ * Callees:
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MiEnumerateSlabAllocators @ 0x140360F88 (MiEnumerateSlabAllocators.c)
+ */
+
 __int64 __fastcall MiGetSlabAllocatorStandbyList(__int64 a1, char a2)
 {
   unsigned __int64 v2; // r8

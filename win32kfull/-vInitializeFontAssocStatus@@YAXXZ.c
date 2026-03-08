@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?vInitializeFontAssocStatus@@YAXXZ @ 0x1C00B7C2C
+ * Callers:
+ *     ?bInitializeEUDCInternal@@YAHXZ @ 0x1C00B8C30 (-bInitializeEUDCInternal@@YAHXZ.c)
+ * Callees:
+ *     ?bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEBGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z @ 0x1C00BA638 (-bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEBGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z.c)
+ *     ?bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z @ 0x1C01183E8 (-bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z.c)
+ *     EngUnmapFontFileFD @ 0x1C011CB40 (EngUnmapFontFileFD.c)
+ *     ??0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z @ 0x1C02A0ACC (--0UmfdClientSideFileViewMapper@@QEAA@AEAVPFFOBJ@@@Z.c)
+ *     ?bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z @ 0x1C02A1C30 (-bComputeQuickLookup@@YAHPEAU_QUICKLOOKUP@@PEAVPFE@@H@Z.c)
+ */
+
 void __fastcall vInitializeFontAssocStatus(__int64 a1)
 {
   __int64 v1; // rbx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiGetDanglingExtent @ 0x14063B2F8
+ * Callers:
+ *     MiRemovePhysicalMemory @ 0x140A29F5C (MiRemovePhysicalMemory.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 __fastcall MiGetDanglingExtent(_QWORD *a1)
 {
   __int64 v2; // r15

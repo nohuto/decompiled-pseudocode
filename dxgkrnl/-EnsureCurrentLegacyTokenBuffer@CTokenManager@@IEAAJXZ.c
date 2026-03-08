@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EnsureCurrentLegacyTokenBuffer@CTokenManager@@IEAAJXZ @ 0x1C001BB08
+ * Callers:
+ *     ?ProcessGdiSysmemTokens@CTokenManager@@IEAAJXZ @ 0x1C001B9FC (-ProcessGdiSysmemTokens@CTokenManager@@IEAAJXZ.c)
+ * Callees:
+ *     ?Create@CLegacyTokenBuffer@@KAJPEAPEAV1@@Z @ 0x1C0017684 (-Create@CLegacyTokenBuffer@@KAJPEAPEAV1@@Z.c)
+ */
+
 __int64 __fastcall CTokenManager::EnsureCurrentLegacyTokenBuffer(CTokenManager *this)
 {
   __int64 result; // rax

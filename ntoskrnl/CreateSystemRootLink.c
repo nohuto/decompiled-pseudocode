@@ -1,3 +1,17 @@
+/*
+ * XREFs of CreateSystemRootLink @ 0x140B6B5C8
+ * Callers:
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     NtCreateDirectoryObject @ 0x14073DEB0 (NtCreateDirectoryObject.c)
+ *     NtCreateSymbolicLinkObject @ 0x140740CD0 (NtCreateSymbolicLinkObject.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ */
+
 __int64 __fastcall CreateSystemRootLink(_QWORD *a1)
 {
   int DirectoryObject; // eax

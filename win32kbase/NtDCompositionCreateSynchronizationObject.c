@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtDCompositionCreateSynchronizationObject @ 0x1C02480B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Release@CConnection@DirectComposition@@QEAAKXZ @ 0x1C005E51C (-Release@CConnection@DirectComposition@@QEAAKXZ.c)
+ *     ?GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ @ 0x1C006AA58 (-GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ.c)
+ *     ?OpenDwmHandle@CompositionObject@@QEBAJPEAPEAX@Z @ 0x1C0091610 (-OpenDwmHandle@CompositionObject@@QEBAJPEAPEAX@Z.c)
+ *     DCompositionCreateSynchronizationObject @ 0x1C0247B90 (DCompositionCreateSynchronizationObject.c)
+ */
+
 __int64 __fastcall NtDCompositionCreateSynchronizationObject(_QWORD *a1)
 {
   int SynchronizationObject; // ebx

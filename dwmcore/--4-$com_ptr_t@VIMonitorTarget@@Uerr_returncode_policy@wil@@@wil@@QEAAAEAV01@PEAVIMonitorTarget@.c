@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??4?$com_ptr_t@VIMonitorTarget@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVIMonitorTarget@@@Z @ 0x1801C8604
+ * Callers:
+ *     ?TryRegisterSuperWetForDrawLocal@CSuperWetInkManager@@AEAAJPEAVCSuperWetSource@@PEAVCDrawingContext@@_NPEA_N@Z @ 0x1801C9D58 (-TryRegisterSuperWetForDrawLocal@CSuperWetInkManager@@AEAAJPEAVCSuperWetSource@@PEAVCDrawingCont.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 *__fastcall wil::com_ptr_t<IMonitorTarget,wil::err_returncode_policy>::operator=(__int64 *a1, __int64 a2)
 {
   __int64 v2; // rdi

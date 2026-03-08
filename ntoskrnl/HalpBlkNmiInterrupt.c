@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpBlkNmiInterrupt @ 0x140B12400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpBlkFatalErrorHalt @ 0x140B110B0 (HalpBlkFatalErrorHalt.c)
+ *     HalpBlkMceFastForward @ 0x140B132B0 (HalpBlkMceFastForward.c)
+ */
+
 void __fastcall HalpBlkNmiInterrupt(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rax

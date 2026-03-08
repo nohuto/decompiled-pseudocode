@@ -1,3 +1,36 @@
+/*
+ * XREFs of NtQueryVolumeInformationFile @ 0x1406B2A90
+ * Callers:
+ *     PfpVolumeOpenAndVerify @ 0x140766A44 (PfpVolumeOpenAndVerify.c)
+ *     PfSnIsVolumeMounted @ 0x14077AECC (PfSnIsVolumeMounted.c)
+ *     PfSnQueryVolumeInfo @ 0x14077AFF0 (PfSnQueryVolumeInfo.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     IopReleaseFileObjectLock @ 0x140267920 (IopReleaseFileObjectLock.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     IopGetMountFlag @ 0x1402F6CEC (IopGetMountFlag.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     IopAllocateIrpExReturn @ 0x140312290 (IopAllocateIrpExReturn.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IopGetDriverPathInformation @ 0x140553224 (IopGetDriverPathInformation.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406B5654 (IopWaitAndAcquireFileObjectLock.c)
+ *     IopSynchronousApiServiceTail @ 0x14076E298 (IopSynchronousApiServiceTail.c)
+ *     PsIsProcessAppContainer @ 0x140781158 (PsIsProcessAppContainer.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     IopSynchronousServiceTail @ 0x1407C33C0 (IopSynchronousServiceTail.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     ExRaiseAccessViolation @ 0x1408713F0 (ExRaiseAccessViolation.c)
+ *     IopAllocateIrpCleanup @ 0x1409411D4 (IopAllocateIrpCleanup.c)
+ *     IopExceptionCleanupEx @ 0x140941A08 (IopExceptionCleanupEx.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall NtQueryVolumeInformationFile(
         HANDLE FileHandle,
         PIO_STATUS_BLOCK IoStatusBlock,

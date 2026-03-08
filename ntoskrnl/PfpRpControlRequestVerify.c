@@ -1,3 +1,11 @@
+/*
+ * XREFs of PfpRpControlRequestVerify @ 0x14035ABD0
+ * Callers:
+ *     PfpRpControlRequest @ 0x1407DFB68 (PfpRpControlRequest.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PfpRpControlRequestVerify(_DWORD *a1)
 {
   int v1; // r9d

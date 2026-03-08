@@ -1,3 +1,12 @@
+/*
+ * XREFs of _anonymous_namespace_::WindowSizingUpdate @ 0x1C0220B74
+ * Callers:
+ *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C0068640 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C003E900 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     _anonymous_namespace_::NotifyShellWindowPosChangedCommon @ 0x1C02200D8 (_anonymous_namespace_--NotifyShellWindowPosChangedCommon.c)
+ */
+
 __int64 __fastcall anonymous_namespace_::WindowSizingUpdate(const struct tagWND *a1)
 {
   __int64 result; // rax

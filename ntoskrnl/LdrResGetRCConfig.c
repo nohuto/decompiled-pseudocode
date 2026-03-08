@@ -1,3 +1,17 @@
+/*
+ * XREFs of LdrResGetRCConfig @ 0x1407928C4
+ * Callers:
+ *     LdrpResSearchResourceMappedFile @ 0x14035DC3C (LdrpResSearchResourceMappedFile.c)
+ *     LdrpVerifyAlternateResourceModuleEx @ 0x1403A7A78 (LdrpVerifyAlternateResourceModuleEx.c)
+ * Callees:
+ *     LdrpGetFromMUIMemCache @ 0x14035D974 (LdrpGetFromMUIMemCache.c)
+ *     LdrpResSearchResourceMappedFile @ 0x14035DC3C (LdrpResSearchResourceMappedFile.c)
+ *     LdrpSetAlternateResourceModuleHandle @ 0x14039D7D4 (LdrpSetAlternateResourceModuleHandle.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     CheckOneBitValidFlag @ 0x1405A7914 (CheckOneBitValidFlag.c)
+ *     LdrpResGetMappingSize @ 0x1407EB0A8 (LdrpResGetMappingSize.c)
+ */
+
 __int64 __fastcall LdrResGetRCConfig(__int64 a1, __int64 a2, unsigned int **a3, unsigned int a4, char a5)
 {
   int v8; // edi

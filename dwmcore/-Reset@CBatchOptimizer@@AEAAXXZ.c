@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Reset@CBatchOptimizer@@AEAAXXZ @ 0x1800E2470
+ * Callers:
+ *     ??0CBatchOptimizer@@QEAA@PEAVCDrawListBatchManager@@@Z @ 0x1800E241C (--0CBatchOptimizer@@QEAA@PEAVCDrawListBatchManager@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CBatchOptimizer::Reset(CBatchOptimizer *this)
 {
   int v1; // eax

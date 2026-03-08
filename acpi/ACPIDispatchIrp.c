@@ -1,3 +1,19 @@
+/*
+ * XREFs of ACPIDispatchIrp @ 0x1C0001010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ACPIBuildProcessDelayedDependencyExternalTriggerFilterPowerCheck @ 0x1C000E254 (ACPIBuildProcessDelayedDependencyExternalTriggerFilterPowerCheck.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C0024980 (WPP_RECORDER_SF_qq.c)
+ *     ACPIInternalDecrementIrpReferenceCount @ 0x1C002E528 (ACPIInternalDecrementIrpReferenceCount.c)
+ *     EnableDisableRegionSpacesForDevice @ 0x1C0039ADC (EnableDisableRegionSpacesForDevice.c)
+ *     ACPIThermalReleaseCoolingInterfaces @ 0x1C0041C30 (ACPIThermalReleaseCoolingInterfaces.c)
+ *     ACPIWakeDeferredRestoreEnables @ 0x1C0044C38 (ACPIWakeDeferredRestoreEnables.c)
+ *     ACPIWakeEmptyRequestQueue @ 0x1C00451C0 (ACPIWakeEmptyRequestQueue.c)
+ *     ACPIInternalNotifyAvailableDeviceObject @ 0x1C008310C (ACPIInternalNotifyAvailableDeviceObject.c)
+ */
+
 __int64 __fastcall ACPIDispatchIrp(ULONG_PTR BugCheckParameter3, PIRP Irp)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // rsi

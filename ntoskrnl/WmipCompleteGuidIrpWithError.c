@@ -1,3 +1,16 @@
+/*
+ * XREFs of WmipCompleteGuidIrpWithError @ 0x1402FE9B0
+ * Callers:
+ *     WmipReceiveNotifications @ 0x1402F642C (WmipReceiveNotifications.c)
+ *     WmipDeleteMethod @ 0x14069C630 (WmipDeleteMethod.c)
+ * Callees:
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     WmipClearIrpObjectList @ 0x1402FEABC (WmipClearIrpObjectList.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall WmipCompleteGuidIrpWithError(__int64 a1)
 {
   __int64 v2; // rbx

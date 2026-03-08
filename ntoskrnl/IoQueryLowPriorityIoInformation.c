@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoQueryLowPriorityIoInformation @ 0x14079A0D0
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IoQueryLowPriorityIoInformation(__int64 a1, _DWORD *a2, unsigned int a3, _DWORD *a4)
 {
   unsigned int v4; // ecx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiFreePlaceholderVadEvent @ 0x140A45180
+ * Callers:
+ *     MiFreePlaceholderStorage @ 0x1406800F8 (MiFreePlaceholderStorage.c)
+ *     MiReleaseVadEventBlocks @ 0x1406ECE8C (MiReleaseVadEventBlocks.c)
+ * Callees:
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1402955D0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiFreePlaceholderVadEvent(__int64 a1)
 {
   void *v1; // rcx

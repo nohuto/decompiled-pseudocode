@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_sDqss @ 0x1C0029130
+ * Callers:
+ *     ACPIFilterIrpSurpriseRemoval @ 0x1C0086E40 (ACPIFilterIrpSurpriseRemoval.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WPP_RECORDER_SF_sDqss(
         __int64 a1,
         __int64 a2,

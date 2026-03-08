@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhPostInterrupt @ 0x1C001F320
+ * Callers:
+ *     UsbhHubProcessIsr @ 0x1C000B860 (UsbhHubProcessIsr.c)
+ *     UsbhBusResume_Action @ 0x1C0012650 (UsbhBusResume_Action.c)
+ *     UsbhBusPause_Action @ 0x1C0012DC0 (UsbhBusPause_Action.c)
+ *     UsbhHubResetIrqPipeWorker @ 0x1C0038B00 (UsbhHubResetIrqPipeWorker.c)
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     memset @ 0x1C0023880 (memset.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ */
+
 NTSTATUS __fastcall UsbhPostInterrupt(PDEVICE_OBJECT DeviceObject)
 {
   void *DeviceExtension; // rdx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiGetHardFaultPages @ 0x14028CE24
+ * Callers:
+ *     MiBuildMdlForMappedFileFault @ 0x14028B490 (MiBuildMdlForMappedFileFault.c)
+ * Callees:
+ *     MiGetAvailablePagesBelowPriority @ 0x140224C00 (MiGetAvailablePagesBelowPriority.c)
+ *     MiGetSlabPage @ 0x14025BA50 (MiGetSlabPage.c)
+ *     MiGetPageChain @ 0x14026E0E0 (MiGetPageChain.c)
+ *     MiUseSlabAllocator @ 0x140289310 (MiUseSlabAllocator.c)
+ *     MiSetPfnBlink @ 0x140289900 (MiSetPfnBlink.c)
+ *     MiProtectionToCacheAttribute @ 0x14028A2D0 (MiProtectionToCacheAttribute.c)
+ *     MiRetainSubsection @ 0x1402F9278 (MiRetainSubsection.c)
+ */
+
 unsigned __int64 __fastcall MiGetHardFaultPages(
         __int64 *a1,
         unsigned __int64 a2,

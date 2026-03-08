@@ -1,3 +1,27 @@
+/*
+ * XREFs of PopFreeHiberContext @ 0x1409855F0
+ * Callers:
+ *     PopAllocateHiberContext @ 0x140984D38 (PopAllocateHiberContext.c)
+ *     PopUnlockAfterSleepWorker @ 0x140AA37E0 (PopUnlockAfterSleepWorker.c)
+ * Callees:
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     MmFreePagesFromMdl @ 0x1402C0DB0 (MmFreePagesFromMdl.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopDumpTraceFreeDumpStackFailure @ 0x140550768 (IopDumpTraceFreeDumpStackFailure.c)
+ *     PopInternalAddToDumpFile @ 0x140580CC0 (PopInternalAddToDumpFile.c)
+ *     PopBcdClearPendingResume @ 0x14082B2FC (PopBcdClearPendingResume.c)
+ *     BcdCloseStore @ 0x14082C570 (BcdCloseStore.c)
+ *     BcdOpenStore @ 0x14082C814 (BcdOpenStore.c)
+ *     VslFreeSecureHibernateResources @ 0x14093F3B0 (VslFreeSecureHibernateResources.c)
+ *     PopClearHiberFileSignature @ 0x14098544C (PopClearHiberFileSignature.c)
+ *     MmUnlockPreChargedPagedPool @ 0x140A2DD70 (MmUnlockPreChargedPagedPool.c)
+ *     MmReleaseDumpHibernateResources @ 0x140A2DDF8 (MmReleaseDumpHibernateResources.c)
+ *     BgkResumeFinished @ 0x140A969B8 (BgkResumeFinished.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 _UNKNOWN **PopFreeHiberContext()
 {
   _UNKNOWN **result; // rax

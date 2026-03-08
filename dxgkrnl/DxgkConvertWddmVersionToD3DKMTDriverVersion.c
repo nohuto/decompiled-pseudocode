@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkConvertWddmVersionToD3DKMTDriverVersion @ 0x1C002096C
+ * Callers:
+ *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01EDF54 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
+ *     DxgkInitializeBlockList @ 0x1C020DD10 (DxgkInitializeBlockList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DxgkConvertWddmVersionToD3DKMTDriverVersion(int a1)
 {
   __int64 result; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of CoalesceInputSourceMouseMoves @ 0x1C007D560
+ * Callers:
+ *     ?DetectAndApplyMouseMovePostStrategy@CMouseProcessor@@AEAAXAEBVCInputDest@@AEBUtagLOGICALPOINT@@AEBVCMoveEvent@1@PEAU_mouseCursorEvent@@@Z @ 0x1C007D1C4 (-DetectAndApplyMouseMovePostStrategy@CMouseProcessor@@AEAAXAEBVCInputDest@@AEBUtagLOGICALPOINT@@.c)
+ *     ?UpdateGlobalCursorOwner@CMouseProcessor@@QEAAXAEBVCInputDest@@AEBUtagPOINT@@PEBUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C007D6BC (-UpdateGlobalCursorOwner@CMouseProcessor@@QEAAXAEBVCInputDest@@AEBUtagPOINT@@PEBUtagINPUT_MESSAG.c)
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C004FE50 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     PostPendingMouseMove @ 0x1C0071380 (PostPendingMouseMove.c)
+ *     IsEqualInputSource @ 0x1C007EDD0 (IsEqualInputSource.c)
+ */
+
 void __fastcall CoalesceInputSourceMouseMoves(struct tagQ *a1, _DWORD *a2)
 {
   __int64 v4; // rdx

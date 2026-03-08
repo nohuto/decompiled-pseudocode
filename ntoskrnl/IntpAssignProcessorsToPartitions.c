@@ -1,3 +1,12 @@
+/*
+ * XREFs of IntpAssignProcessorsToPartitions @ 0x140B43C54
+ * Callers:
+ *     IntPartCreate @ 0x140B43808 (IntPartCreate.c)
+ * Callees:
+ *     IntPartCriticalFailure @ 0x140572584 (IntPartCriticalFailure.c)
+ *     IntpAddNextProcessorToPartition @ 0x140B43CE8 (IntpAddNextProcessorToPartition.c)
+ */
+
 __int64 __fastcall IntpAssignProcessorsToPartitions(__int64 a1, ULONG_PTR a2, unsigned __int8 a3)
 {
   unsigned int v3; // r9d

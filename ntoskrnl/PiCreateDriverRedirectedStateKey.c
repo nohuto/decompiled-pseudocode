@@ -1,3 +1,16 @@
+/*
+ * XREFs of PiCreateDriverRedirectedStateKey @ 0x14086F37C
+ * Callers:
+ *     PiCreateServiceStateKey @ 0x14086F264 (PiCreateServiceStateKey.c)
+ *     IopInitializeBootDrivers @ 0x140B57F78 (IopInitializeBootDrivers.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     PiGetStateRootPath @ 0x14086F420 (PiGetStateRootPath.c)
+ *     PiCreateServiceKeyUnderPath @ 0x140952CC8 (PiCreateServiceKeyUnderPath.c)
+ */
+
 __int64 __fastcall PiCreateDriverRedirectedStateKey(__int64 CreateOptions, __int64 a2, _QWORD *a3)
 {
   int StateRootPath; // edi

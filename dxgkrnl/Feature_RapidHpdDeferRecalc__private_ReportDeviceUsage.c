@@ -1,3 +1,13 @@
+/*
+ * XREFs of Feature_RapidHpdDeferRecalc__private_ReportDeviceUsage @ 0x1C0026458
+ * Callers:
+ *     ?ReportTriggerEvent@RAPID_HPD_MANAGER@@QEAAXW4RAPID_HPD_TRIGGER@@U_LUID@@@Z @ 0x1C001A510 (-ReportTriggerEvent@RAPID_HPD_MANAGER@@QEAAXW4RAPID_HPD_TRIGGER@@U_LUID@@@Z.c)
+ *     ??0RAPID_HPD_MANAGER@@QEAA@XZ @ 0x1C001FD60 (--0RAPID_HPD_MANAGER@@QEAA@XZ.c)
+ * Callees:
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C0024B30 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0024DA8 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ */
+
 void Feature_RapidHpdDeferRecalc__private_ReportDeviceUsage()
 {
   __int64 v0; // [rsp+30h] [rbp+8h]

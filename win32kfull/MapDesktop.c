@@ -1,3 +1,20 @@
+/*
+ * XREFs of MapDesktop @ 0x1C003E450
+ * Callers:
+ *     xxxSetThreadDesktop @ 0x1C00361B8 (xxxSetThreadDesktop.c)
+ *     NtUserBuildHwndList @ 0x1C003FD60 (NtUserBuildHwndList.c)
+ *     zzzComposeDesktop @ 0x1C007D394 (zzzComposeDesktop.c)
+ *     xxxResolveDesktop @ 0x1C00BF660 (xxxResolveDesktop.c)
+ *     xxxCreateDesktopEx @ 0x1C00C03D4 (xxxCreateDesktopEx.c)
+ *     UserCommitDesktopMemory @ 0x1C00DDB90 (UserCommitDesktopMemory.c)
+ * Callees:
+ *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C00394B4 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003E858 (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C0044080 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall MapDesktop(__int64 a1)
 {
   __int64 v1; // r13

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBHSM_NotifyingHubResumeWithResetToDevicesOnFailure @ 0x1C0008B60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBMUX_QueuePowerUpEventToDSMs @ 0x1C001152C (HUBMUX_QueuePowerUpEventToDSMs.c)
+ */
+
 __int64 __fastcall HUBHSM_NotifyingHubResumeWithResetToDevicesOnFailure(__int64 a1)
 {
   __int64 v1; // rbx

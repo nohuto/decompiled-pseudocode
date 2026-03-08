@@ -1,3 +1,21 @@
+/*
+ * XREFs of RtlCaptureContext @ 0x140420580
+ * Callers:
+ *     KiFreezeTargetExecution @ 0x140369240 (KiFreezeTargetExecution.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KeSaveStateForHibernate @ 0x1404170A0 (KeSaveStateForHibernate.c)
+ *     ExpSystemErrorHandler @ 0x140422390 (ExpSystemErrorHandler.c)
+ *     RtlAssert @ 0x1405A7CA0 (RtlAssert.c)
+ *     DbgkpLkmdSnapThreadInContext @ 0x1409381FC (DbgkpLkmdSnapThreadInContext.c)
+ *     DbgkpWerCaptureLiveTriageDump @ 0x1409388FC (DbgkpWerCaptureLiveTriageDump.c)
+ *     LkmdTelCreateReport @ 0x140A73E94 (LkmdTelCreateReport.c)
+ *     IopLiveDumpCollectPages @ 0x140A97A84 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpCorralDpc @ 0x140A97DC0 (IopLiveDumpCorralDpc.c)
+ *     VfUtilCaptureViolationKernelStack @ 0x140ABF490 (VfUtilCaptureViolationKernelStack.c)
+ * Callees:
+ *     <none>
+ */
+
 void __stdcall RtlCaptureContext(PCONTEXT ContextRecord)
 {
   unsigned __int64 v1; // rax

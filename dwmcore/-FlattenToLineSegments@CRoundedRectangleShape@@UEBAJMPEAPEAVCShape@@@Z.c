@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?FlattenToLineSegments@CRoundedRectangleShape@@UEBAJMPEAPEAVCShape@@@Z @ 0x1800D2B40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z @ 0x1800627D0 (-CopyShape@CShape@@QEBAJPEBVCMILMatrix@@PEAPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??0CRoundedRectangleShape@@QEAA@AEBUCRoundedRectangleGeometryData@@@Z @ 0x1800D2BE4 (--0CRoundedRectangleShape@@QEAA@AEBUCRoundedRectangleGeometryData@@@Z.c)
+ *     ??2CRoundedRectangleShape@@SAPEAX_K@Z @ 0x1800D2C2C (--2CRoundedRectangleShape@@SAPEAX_K@Z.c)
+ */
+
 __int64 __fastcall CRoundedRectangleShape::FlattenToLineSegments(
         CRoundedRectangleShape *this,
         float a2,

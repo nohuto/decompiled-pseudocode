@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InitializeMaxActiveOutputDuplApps@OUTPUTDUPL_SESSION_MGR@@AEAAXXZ @ 0x1C01DE394
+ * Callers:
+ *     ??0OUTPUTDUPL_SESSION_MGR@@QEAA@XZ @ 0x1C01DE294 (--0OUTPUTDUPL_SESSION_MGR@@QEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall OUTPUTDUPL_SESSION_MGR::InitializeMaxActiveOutputDuplApps(OUTPUTDUPL_SESSION_MGR *this)
 {
   __int64 v2; // [rsp+30h] [rbp-19h] BYREF

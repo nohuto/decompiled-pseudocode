@@ -1,3 +1,17 @@
+/*
+ * XREFs of SymCryptEckeyPerformPublicKeyValidation @ 0x1403F2DFC
+ * Callers:
+ *     SymCryptEckeySetValue @ 0x1403F2F18 (SymCryptEckeySetValue.c)
+ * Callees:
+ *     SymCryptIntFromModulus @ 0x1403F383C (SymCryptIntFromModulus.c)
+ *     SymCryptIntIsEqualUint32 @ 0x1403F389C (SymCryptIntIsEqualUint32.c)
+ *     SymCryptEcpointCreate @ 0x1403F94A0 (SymCryptEcpointCreate.c)
+ *     SymCryptSizeofEcpointFromCurve @ 0x1403F9E14 (SymCryptSizeofEcpointFromCurve.c)
+ *     SymCryptEcpointIsZero @ 0x1403FD1BC (SymCryptEcpointIsZero.c)
+ *     SymCryptEcpointOnCurve @ 0x1403FD290 (SymCryptEcpointOnCurve.c)
+ *     SymCryptEcpointScalarMul @ 0x1403FD2C0 (SymCryptEcpointScalarMul.c)
+ */
+
 __int64 __fastcall SymCryptEckeyPerformPublicKeyValidation(__int64 a1, char a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdi

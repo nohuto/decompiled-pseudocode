@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheapPfaRetireExpiredMemoryEntries @ 0x140A0630C
+ * Callers:
+ *     WheapPfaMemoryCheck @ 0x140A06078 (WheapPfaMemoryCheck.c)
+ * Callees:
+ *     WheapPfaLogPageMonitorRemoval @ 0x140A05FE0 (WheapPfaLogPageMonitorRemoval.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall WheapPfaRetireExpiredMemoryEntries(unsigned __int64 a1)
 {
   PVOID *v2; // rbx

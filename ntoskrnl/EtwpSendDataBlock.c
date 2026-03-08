@@ -1,3 +1,25 @@
+/*
+ * XREFs of EtwpSendDataBlock @ 0x1406901A8
+ * Callers:
+ *     EtwpNotifyGuid @ 0x14068EA84 (EtwpNotifyGuid.c)
+ *     EtwpEnableGuid @ 0x14068EEBC (EtwpEnableGuid.c)
+ *     EtwpClearSessionAndUnreferenceEntry @ 0x140695580 (EtwpClearSessionAndUnreferenceEntry.c)
+ *     EtwpBufferingModeFlush @ 0x1408A3088 (EtwpBufferingModeFlush.c)
+ *     EtwpNotifyDisallowedGuidChange @ 0x1409E46E0 (EtwpNotifyDisallowedGuidChange.c)
+ *     SendCaptureStateNotificationsWorker @ 0x1409E9FE0 (SendCaptureStateNotificationsWorker.c)
+ * Callees:
+ *     MmGetSessionById @ 0x14022A4F0 (MmGetSessionById.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     MmDetachSession @ 0x1402EA460 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1402EA500 (MmAttachSession.c)
+ *     KeQueryTimeIncrement @ 0x140351FF0 (KeQueryTimeIncrement.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     EtwpQueueNotification @ 0x14069039C (EtwpQueueNotification.c)
+ */
+
 __int64 __fastcall EtwpSendDataBlock(__int64 a1, __int64 a2)
 {
   __int16 v2; // ax

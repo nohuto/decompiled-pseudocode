@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CRotateTransform3DMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025E730
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C024D91C (-SetRemarshalingFlags@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NXZ.c)
+ */
+
 char __fastcall DirectComposition::CRotateTransform3DMarshaler::SetRemarshalingFlags(
         DirectComposition::CRotateTransform3DMarshaler *this)
 {

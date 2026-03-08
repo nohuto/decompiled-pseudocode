@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceTouchPadConfidenceUpped @ 0x1C0164270
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0d_EtwWriteTransfer @ 0x1C016524C (McTemplateK0d_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall EtwTraceTouchPadConfidenceUpped(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

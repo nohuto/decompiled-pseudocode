@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpAllocDeallocQueryBuffer @ 0x14069B844
+ * Callers:
+ *     RtlpQueryRegistryValues @ 0x14069B3C0 (RtlpQueryRegistryValues.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlpAllocDeallocQueryBuffer(_QWORD *a1, void *a2, __int64 a3, int *a4)
 {
   __int64 Pool2; // rsi

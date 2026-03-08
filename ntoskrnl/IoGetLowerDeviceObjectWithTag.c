@@ -1,3 +1,17 @@
+/*
+ * XREFs of IoGetLowerDeviceObjectWithTag @ 0x1402FAAFC
+ * Callers:
+ *     IoGetLowerDeviceObject @ 0x1402FAAE0 (IoGetLowerDeviceObject.c)
+ *     IopSynchronousCall @ 0x14069DD78 (IopSynchronousCall.c)
+ *     PiControlGetDeviceStack @ 0x140852740 (PiControlGetDeviceStack.c)
+ *     IoBuildPoDeviceNotifyList @ 0x140A9B078 (IoBuildPoDeviceNotifyList.c)
+ *     IopCheckDeviceFlags @ 0x140A9B7F0 (IopCheckDeviceFlags.c)
+ * Callees:
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ */
+
 void *__fastcall IoGetLowerDeviceObjectWithTag(__int64 a1, ULONG a2)
 {
   KIRQL v4; // di

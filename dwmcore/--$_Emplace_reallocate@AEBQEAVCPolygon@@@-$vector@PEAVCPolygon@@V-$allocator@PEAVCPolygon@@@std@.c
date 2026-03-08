@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??$_Emplace_reallocate@AEBQEAVCPolygon@@@?$vector@PEAVCPolygon@@V?$allocator@PEAVCPolygon@@@std@@@std@@QEAAPEAPEAVCPolygon@@QEAPEAV2@AEBQEAV2@@Z @ 0x180255974
+ * Callers:
+ *     ?AddPolygon@CBspNode@@AEAAXPEAVCPolygon@@@Z @ 0x18025615C (-AddPolygon@CBspNode@@AEAAXPEAVCPolygon@@@Z.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$07@std@@YA_K_K@Z @ 0x1800B9880 (--$_Get_size_of_n@$07@std@@YA_K_K@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     ?_Change_array@?$vector@PEAVCPolygon@@V?$allocator@PEAVCPolygon@@@std@@@std@@AEAAXQEAPEAVCPolygon@@_K1@Z @ 0x18025645C (-_Change_array@-$vector@PEAVCPolygon@@V-$allocator@PEAVCPolygon@@@std@@@std@@AEAAXQEAPEAVCPolygo.c)
+ */
+
 char *__fastcall std::vector<CPolygon *>::_Emplace_reallocate<CPolygon * const &>(
         const void **a1,
         _BYTE *a2,

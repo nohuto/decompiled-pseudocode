@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CalcInversedWorldInputBoundsFromVisibleWorldOutputBounds@CRadialGradientEffect@@UEBAJAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@0PEBV2@IPEAV2@2@Z @ 0x1801083C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CRadialGradientEffect::CalcInversedWorldInputBoundsFromVisibleWorldOutputBounds(
         __int64 a1,
         __int64 a2,

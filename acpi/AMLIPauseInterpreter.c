@@ -1,3 +1,14 @@
+/*
+ * XREFs of AMLIPauseInterpreter @ 0x1C0048968
+ * Callers:
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase1 @ 0x1C00210F0 (ACPIDevicePowerProcessPhase5SystemSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase5 @ 0x1C0021620 (ACPIDevicePowerProcessPhase5SystemSubPhase5.c)
+ *     AcpiPauseInterpreterForNamespaceUpdates @ 0x1C0037CDC (AcpiPauseInterpreterForNamespaceUpdates.c)
+ *     Simulator_PauseInterpreter @ 0x1C004950C (Simulator_PauseInterpreter.c)
+ * Callees:
+ *     LogSchedEvent @ 0x1C004E3AC (LogSchedEvent.c)
+ */
+
 __int64 __fastcall AMLIPauseInterpreter(_QWORD *a1)
 {
   unsigned int v1; // ebx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of xxxCalcCaptionButton @ 0x1C022EAF0
+ * Callers:
+ *     xxxGetTitleBarInfoEx @ 0x1C000B72C (xxxGetTitleBarInfoEx.c)
+ *     xxxTrackCaptionButton @ 0x1C022F438 (xxxTrackCaptionButton.c)
+ * Callees:
+ *     GetWindowBordersForDpi @ 0x1C0021944 (GetWindowBordersForDpi.c)
+ *     GetWindowDpiLastNotify @ 0x1C00A3A34 (GetWindowDpiLastNotify.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ *     xxxMNCanClose @ 0x1C00A4C44 (xxxMNCanClose.c)
+ */
+
 __int64 __fastcall xxxCalcCaptionButton(__int64 a1, int a2, __int16 *a3, _DWORD *a4, int *a5, int a6)
 {
   __int64 v10; // r8

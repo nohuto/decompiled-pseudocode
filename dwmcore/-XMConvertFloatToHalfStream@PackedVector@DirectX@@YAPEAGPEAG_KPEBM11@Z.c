@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?XMConvertFloatToHalfStream@PackedVector@DirectX@@YAPEAGPEAG_KPEBM11@Z @ 0x180205B94
+ * Callers:
+ *     VertexTransfer::TransformDeviceSpacePositionAndNormal @ 0x180205A78 (VertexTransfer--TransformDeviceSpacePositionAndNormal.c)
+ * Callees:
+ *     ?XMConvertFloatToHalf@PackedVector@DirectX@@YAGM@Z @ 0x1800068D8 (-XMConvertFloatToHalf@PackedVector@DirectX@@YAGM@Z.c)
+ */
+
 DirectX::PackedVector *__fastcall DirectX::PackedVector::XMConvertFloatToHalfStream(
         DirectX::PackedVector *this,
         unsigned __int16 *a2,

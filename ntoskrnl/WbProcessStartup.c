@@ -1,3 +1,12 @@
+/*
+ * XREFs of WbProcessStartup @ 0x140798900
+ * Callers:
+ *     WbDispatchOperation @ 0x1406AECD0 (WbDispatchOperation.c)
+ * Callees:
+ *     WbAlloc @ 0x1406AF510 (WbAlloc.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WbProcessStartup(__int64 a1, _QWORD *a2, unsigned int a3)
 {
   int v5; // ebx

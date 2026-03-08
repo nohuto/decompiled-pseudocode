@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifExAcquireResourceSharedLiteWrapper @ 0x1405D4DB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 BOOLEAN __fastcall DifExAcquireResourceSharedLiteWrapper(PERESOURCE Resource, BOOLEAN a2)
 {
   __int64 *APIThunkContextById; // rax

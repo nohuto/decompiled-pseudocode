@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DxgkpRegistryQueryRoutine@@YAJPEAGKPEAXK11@Z @ 0x1C02CAA70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ */
+
 __int64 __fastcall DxgkpRegistryQueryRoutine(
         unsigned __int16 *a1,
         unsigned int a2,

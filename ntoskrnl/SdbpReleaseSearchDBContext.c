@@ -1,3 +1,14 @@
+/*
+ * XREFs of SdbpReleaseSearchDBContext @ 0x1407A1D98
+ * Callers:
+ *     SdbGetDatabaseMatch @ 0x14079E090 (SdbGetDatabaseMatch.c)
+ *     SdbpCheckKObject @ 0x1407A1BD8 (SdbpCheckKObject.c)
+ * Callees:
+ *     SdbpFreeAppAttributes @ 0x140A4E0CC (SdbpFreeAppAttributes.c)
+ *     AslHashFree @ 0x140A5400C (AslHashFree.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall SdbpReleaseSearchDBContext(_QWORD *a1)
 {
   void *v2; // rcx

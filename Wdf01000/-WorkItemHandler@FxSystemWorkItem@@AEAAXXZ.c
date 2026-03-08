@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?WorkItemHandler@FxSystemWorkItem@@AEAAXXZ @ 0x1C0006BE0
+ * Callers:
+ *     ?_WorkItemThunk@FxSystemWorkItem@@CAXPEAU_DEVICE_OBJECT@@PEAX@Z @ 0x1C00078E0 (-_WorkItemThunk@FxSystemWorkItem@@CAXPEAU_DEVICE_OBJECT@@PEAX@Z.c)
+ * Callees:
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0006060 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0006094 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     FX_TRACK_DRIVER @ 0x1C0006D3C (FX_TRACK_DRIVER.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall FxSystemWorkItem::WorkItemHandler(FxSystemWorkItem *this)
 {
   unsigned __int8 v2; // r8

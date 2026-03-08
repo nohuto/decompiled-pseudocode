@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CancelForegroundActivate@@YAXXZ @ 0x1C0017A88
+ * Callers:
+ *     ?WakeSomeone@@YAXPEAUtagQ@@PEAUtagTHREADINFO@@IPEAUtagQMSG@@@Z @ 0x1C00388C0 (-WakeSomeone@@YAXPEAUtagQ@@PEAUtagTHREADINFO@@IPEAUtagQMSG@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C003F908 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall CancelForegroundActivate(__int64 a1, __int64 a2, __int64 a3, int a4)
 {

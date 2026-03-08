@@ -1,3 +1,12 @@
+/*
+ * XREFs of wil_details_BuildFeatureStateCacheFromQueryResults @ 0x1C016225C
+ * Callers:
+ *     wil_details_UpdateFeatureConfiguredStates @ 0x1C016249C (wil_details_UpdateFeatureConfiguredStates.c)
+ *     wil_details_PopulateInitialConfiguredFeatureStates @ 0x1C03D9104 (wil_details_PopulateInitialConfiguredFeatureStates.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall wil_details_BuildFeatureStateCacheFromQueryResults(int a1, __int64 a2, _QWORD *a3)
 {
   __int64 result; // rax

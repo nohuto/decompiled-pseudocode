@@ -1,3 +1,12 @@
+/*
+ * XREFs of TtmiPublishDeviceEnumerationEvents @ 0x14099FC9C
+ * Callers:
+ *     TtmiWriteEnumerationEventsToQueue @ 0x1409A1E3C (TtmiWriteEnumerationEventsToQueue.c)
+ * Callees:
+ *     TtmpPublishDeviceEvent @ 0x1409A0904 (TtmpPublishDeviceEvent.c)
+ *     TtmiLogError @ 0x1409A536C (TtmiLogError.c)
+ */
+
 __int64 __fastcall TtmiPublishDeviceEnumerationEvents(__int64 a1, __int64 a2)
 {
   __int64 *v2; // rsi

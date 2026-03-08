@@ -1,3 +1,14 @@
+/*
+ * XREFs of SendBDDDiagTelemetry @ 0x1C002320C
+ * Callers:
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C000AA90 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$00@@U_tlgWrapperBinary@@U?$_tlgWrapperByVal@$03@@U3@U3@U3@U1@U1@U1@U1@U3@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$00@@AEBU_tlgWrapperBinary@@AEBU?$_tlgWrapperByVal@$03@@55533335@Z @ 0x1C0023400 (--$Write@U-$_tlgWrapperByVal@$00@@U_tlgWrapperBinary@@U-$_tlgWrapperByVal@$03@@U3@U3@U3@U1@U1@U1.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall SendBDDDiagTelemetry(__int64 a1)
 {
   __int64 Pool2; // rax

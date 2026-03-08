@@ -1,3 +1,15 @@
+/*
+ * XREFs of strcmp @ 0x1403D5570
+ * Callers:
+ *     NtEnumerateBootEntries @ 0x14083E4F0 (NtEnumerateBootEntries.c)
+ *     ExpSetBootEntry @ 0x1409FA390 (ExpSetBootEntry.c)
+ *     ViXdvDriverLoadImage @ 0x140AC7A1C (ViXdvDriverLoadImage.c)
+ *     HdlspDispatch @ 0x140AE6EB0 (HdlspDispatch.c)
+ *     HalpAcpiFindRsdp @ 0x140B6C7C8 (HalpAcpiFindRsdp.c)
+ * Callees:
+ *     <none>
+ */
+
 int __cdecl strcmp(const char *Str1, const char *Str2)
 {
   signed __int64 v2; // r9

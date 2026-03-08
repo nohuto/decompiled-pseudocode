@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?PreDrawScene@CSceneMaterial@@UEAAXXZ @ 0x18024CA70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??E?$_Tree_unchecked_const_iterator@V?$_Tree_val@U?$_Tree_simple_types@U?$pair@QEAVCProjectedShadowCaster@@V?$com_ptr_t@VCProjectedShadow@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@@std@@U_Iterator_base0@2@@std@@QEAAAEAV01@XZ @ 0x1801A3B98 (--E-$_Tree_unchecked_const_iterator@V-$_Tree_val@U-$_Tree_simple_types@U-$pair@QEAVCProjectedSha.c)
+ */
+
 void __fastcall CSceneMaterial::PreDrawScene(CSceneMaterial *this)
 {
   __int64 v2; // rax

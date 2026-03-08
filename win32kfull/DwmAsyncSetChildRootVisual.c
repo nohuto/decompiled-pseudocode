@@ -1,3 +1,11 @@
+/*
+ * XREFs of DwmAsyncSetChildRootVisual @ 0x1C0270350
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DwmAsyncSetChildRootVisual(PVOID Object, __int64 a2, __int64 a3)
 {
   unsigned int v4; // ebx

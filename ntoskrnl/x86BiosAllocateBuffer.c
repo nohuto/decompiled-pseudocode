@@ -1,3 +1,11 @@
+/*
+ * XREFs of x86BiosAllocateBuffer @ 0x1403A7B80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall x86BiosAllocateBuffer(int *a1, _WORD *a2, _WORD *a3)
 {
   int v3; // eax

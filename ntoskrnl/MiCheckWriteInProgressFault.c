@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiCheckWriteInProgressFault @ 0x140201D38
+ * Callers:
+ *     MiResolveTransitionFault @ 0x140271760 (MiResolveTransitionFault.c)
+ *     MiStandbyPageContentsIntact @ 0x14034B200 (MiStandbyPageContentsIntact.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiCheckWriteInProgressFault(__int64 a1)
 {
   if ( (MiFlags & 0x20000) != 0 )

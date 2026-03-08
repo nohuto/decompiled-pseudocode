@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlUnicodeStringCopy @ 0x1C004DF40
+ * Callers:
+ *     GetImageName @ 0x1C004D584 (GetImageName.c)
+ *     SleepstudyHelper_GetPdoFriendlyName @ 0x1C00B20BC (SleepstudyHelper_GetPdoFriendlyName.c)
+ * Callees:
+ *     RtlUnicodeStringValidateDestWorker @ 0x1C0017A08 (RtlUnicodeStringValidateDestWorker.c)
+ *     RtlUnicodeStringValidateSrcWorker @ 0x1C0017A48 (RtlUnicodeStringValidateSrcWorker.c)
+ *     RtlWideCharArrayCopyWorker @ 0x1C0017ACC (RtlWideCharArrayCopyWorker.c)
+ */
+
 int __fastcall RtlUnicodeStringCopy(
         _UNICODE_STRING *DestinationString,
         const _UNICODE_STRING *SourceString,

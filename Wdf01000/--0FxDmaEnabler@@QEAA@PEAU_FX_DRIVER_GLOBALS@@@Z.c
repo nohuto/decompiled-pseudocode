@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0FxDmaEnabler@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C001A93C
+ * Callers:
+ *     imp_WdfDmaEnablerCreate @ 0x1C0018680 (imp_WdfDmaEnablerCreate.c)
+ * Callees:
+ *     memset @ 0x1C000AC00 (memset.c)
+ *     ??0FxNonPagedObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C001AA5C (--0FxNonPagedObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ */
+
 void __fastcall FxDmaEnabler::FxDmaEnabler(FxDmaEnabler *this, _FX_DRIVER_GLOBALS *FxDriverGlobals)
 {
   FxNonPagedObject::FxNonPagedObject(this, 0x1400u, 0x2C0u, FxDriverGlobals);

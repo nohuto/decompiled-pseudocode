@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiInitializeRelocations @ 0x140B6D9F8
+ * Callers:
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ */
+
 __int64 MiInitializeRelocations()
 {
   PVOID Pool; // rax

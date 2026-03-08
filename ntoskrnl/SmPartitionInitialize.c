@@ -1,3 +1,17 @@
+/*
+ * XREFs of SmPartitionInitialize @ 0x14084CDAC
+ * Callers:
+ *     SmCreatePartition @ 0x140728884 (SmCreatePartition.c)
+ * Callees:
+ *     ExInitializePushLock @ 0x140238200 (ExInitializePushLock.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     SmFpInitialize @ 0x1403A33A8 (SmFpInitialize.c)
+ *     SmKmVirtualLockCtxInitialize @ 0x1403A33F4 (SmKmVirtualLockCtxInitialize.c)
+ *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x1403A340C (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SmcCacheManagerInitialize @ 0x14084CEB0 (SmcCacheManagerInitialize.c)
+ */
+
 __int64 __fastcall SmPartitionInitialize(__int64 a1)
 {
   __int128 v3; // [rsp+20h] [rbp-18h] BYREF

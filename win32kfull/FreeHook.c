@@ -1,3 +1,23 @@
+/*
+ * XREFs of FreeHook @ 0x1C0039160
+ * Callers:
+ *     ?xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z @ 0x1C006C010 (-xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z.c)
+ *     zzzUnhookWindowsHookEx @ 0x1C009C50C (zzzUnhookWindowsHookEx.c)
+ *     FreeThreadsWindowHooks @ 0x1C00C92A0 (FreeThreadsWindowHooks.c)
+ * Callees:
+ *     ?CheckWHFBits@@YAXPEAUtagTHREADINFO@@H@Z @ 0x1C001D504 (-CheckWHFBits@@YAXPEAUtagTHREADINFO@@H@Z.c)
+ *     ??0?$ObjectLockRecursive@$$V@?$DomainExclusiveRecursive@VDLT_HOOK@@@?$DomainSharedRecursive@$$V@@QEAA@XZ @ 0x1C0039408 (--0-$ObjectLockRecursive@$$V@-$DomainExclusiveRecursive@VDLT_HOOK@@@-$DomainSharedRecursive@$$V@.c)
+ *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C00394B4 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
+ *     ??0?$ObjectLockBase@$$V@?$DomainExclusiveBase@VDLT_HANDLEMANAGER@@@?$DomainSharedBase@$$V@@IEAA@XZ @ 0x1C00394D8 (--0-$ObjectLockBase@$$V@-$DomainExclusiveBase@VDLT_HANDLEMANAGER@@@-$DomainSharedBase@$$V@@IEAA@.c)
+ *     ??0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z @ 0x1C003AA08 (--0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z.c)
+ *     RemoveHmodDependency @ 0x1C009D71C (RemoveHmodDependency.c)
+ *     ?UnlinkHook@@YAXPEAUtagHOOK@@@Z @ 0x1C00C9380 (-UnlinkHook@@YAXPEAUtagHOOK@@@Z.c)
+ *     ?IsLockedShared@tagDomLock@@QEBA_NXZ @ 0x1C00E77B4 (-IsLockedShared@tagDomLock@@QEBA_NXZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ??1?$ObjectLock@$$V@?$DomainExclusive@VDLT_HANDLEMANAGER@@@?$DomainShared@$$V@@QEAA@XZ @ 0x1C012D328 (--1-$ObjectLock@$$V@-$DomainExclusive@VDLT_HANDLEMANAGER@@@-$DomainShared@$$V@@QEAA@XZ.c)
+ *     ?DelayHookFree@@YAXPEAUtagHOOK@@@Z @ 0x1C01BC5D0 (-DelayHookFree@@YAXPEAUtagHOOK@@@Z.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall FreeHook(struct tagHOOK *a1)
 {

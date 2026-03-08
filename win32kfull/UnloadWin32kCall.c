@@ -1,3 +1,11 @@
+/*
+ * XREFs of UnloadWin32kCall @ 0x1C00E2430
+ * Callers:
+ *     EditionBaseDriverUnloadUninitialize @ 0x1C00E23C0 (EditionBaseDriverUnloadUninitialize.c)
+ * Callees:
+ *     ?SetWin32kSilo@@YAPEAU_EJOB@@AEAPEAX@Z @ 0x1C00E260C (-SetWin32kSilo@@YAPEAU_EJOB@@AEAPEAX@Z.c)
+ */
+
 __int64 UnloadWin32kCall()
 {
   __int64 result; // rax

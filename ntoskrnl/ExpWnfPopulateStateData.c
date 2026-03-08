@@ -1,3 +1,21 @@
+/*
+ * XREFs of ExpWnfPopulateStateData @ 0x14071B9DC
+ * Callers:
+ *     ExpWnfCreateNameInstance @ 0x140718994 (ExpWnfCreateNameInstance.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExGetExtensionTable @ 0x1402C57F0 (ExGetExtensionTable.c)
+ *     ExReleaseExtensionTable @ 0x1402C5820 (ExReleaseExtensionTable.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExpWnfComposeValueName @ 0x14071C674 (ExpWnfComposeValueName.c)
+ *     ExpWnfAcquirePermanentDataStoreHandle @ 0x140793770 (ExpWnfAcquirePermanentDataStoreHandle.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpWnfPopulateStateData(__int64 a1)
 {
   unsigned __int64 v2; // rcx

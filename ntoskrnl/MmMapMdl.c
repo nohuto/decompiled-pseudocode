@@ -1,3 +1,23 @@
+/*
+ * XREFs of MmMapMdl @ 0x14062CC90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiGetUltraMapping @ 0x140276080 (MiGetUltraMapping.c)
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiMappingHasIoReferences @ 0x14029B1A0 (MiMappingHasIoReferences.c)
+ *     MiZeroAndFlushPtes @ 0x14029B3BC (MiZeroAndFlushPtes.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiMakeProtectionMask @ 0x140320CC0 (MiMakeProtectionMask.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MiFillSystemPtes @ 0x140328C00 (MiFillSystemPtes.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     MiFreeUltraMdlContext @ 0x14065F358 (MiFreeUltraMdlContext.c)
+ *     MiGetUltraMdlContext @ 0x14065F3EC (MiGetUltraMdlContext.c)
+ */
+
 __int64 __fastcall MmMapMdl(__int64 a1, unsigned int a2, void (__fastcall *a3)(__int64, unsigned __int64), __int64 a4)
 {
   struct _SLIST_ENTRY *v5; // r15

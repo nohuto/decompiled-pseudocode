@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpInterruptSetDestinationInternal @ 0x1405023EC
+ * Callers:
+ *     HalpInterruptSetDestination @ 0x14028E950 (HalpInterruptSetDestination.c)
+ * Callees:
+ *     HalpInterruptDestinationToTarget @ 0x14028EC7C (HalpInterruptDestinationToTarget.c)
+ *     HalpInterruptFindLines @ 0x14028EE80 (HalpInterruptFindLines.c)
+ *     HalpInterruptLookupController @ 0x14028EEE0 (HalpInterruptLookupController.c)
+ *     HalpInterruptFindBestRouting @ 0x1403791C4 (HalpInterruptFindBestRouting.c)
+ *     HalpInterruptSetLineStateInternal @ 0x1403796D0 (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptApplyOverrides @ 0x140379748 (HalpInterruptApplyOverrides.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ */
+
 __int64 __fastcall HalpInterruptSetDestinationInternal(__int64 *a1, __int64 a2, __int64 a3)
 {
   __int64 v5; // rax

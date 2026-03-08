@@ -1,3 +1,18 @@
+/*
+ * XREFs of SeCopyClientToken @ 0x1406D1D40
+ * Callers:
+ *     SepCreateClientSecurityEx @ 0x1406D5F10 (SepCreateClientSecurityEx.c)
+ *     PsImpersonateClient @ 0x1406DA310 (PsImpersonateClient.c)
+ *     SepCopyClientTokenAndSetSilo @ 0x1409C6570 (SepCopyClientTokenAndSetSilo.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     SepFinalizeTokenAcls @ 0x1406D1E60 (SepFinalizeTokenAcls.c)
+ *     SepAppendAceToTokenObjectAcl @ 0x1406D22B0 (SepAppendAceToTokenObjectAcl.c)
+ *     SepSetTokenTrust @ 0x1406D33D8 (SepSetTokenTrust.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     SepDuplicateToken @ 0x1407BCF00 (SepDuplicateToken.c)
+ */
+
 __int64 __fastcall SeCopyClientToken(int a1, int a2, __int64 a3, char a4, __int64 a5, PVOID *a6)
 {
   int inserted; // ebx

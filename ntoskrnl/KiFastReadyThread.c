@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiFastReadyThread @ 0x140239100
+ * Callers:
+ *     KeReadyThread @ 0x140238CF8 (KeReadyThread.c)
+ *     KiInSwapKernelStacks @ 0x1402A72E0 (KiInSwapKernelStacks.c)
+ * Callees:
+ *     KiDeferredReadyThread @ 0x140226178 (KiDeferredReadyThread.c)
+ *     KiCheckForThreadDispatch @ 0x14023A168 (KiCheckForThreadDispatch.c)
+ *     KiEnterDeferredReadyState @ 0x140341110 (KiEnterDeferredReadyState.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     EtwTraceReadyThread @ 0x14045EEF6 (EtwTraceReadyThread.c)
+ */
+
 __int64 __fastcall KiFastReadyThread(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int8 CurrentIrql; // di

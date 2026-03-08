@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeReleaseSpinLockForDpc @ 0x14056F160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __stdcall KeReleaseSpinLockForDpc(PKSPIN_LOCK SpinLock, KIRQL OldIrql)
 {
   unsigned __int64 v2; // rbx

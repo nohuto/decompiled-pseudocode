@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0pqqxxxxqbr7_EtwWriteTransfer @ 0x1C0043DB8
+ * Callers:
+ *     VidSchiSerializeSchedulingLog @ 0x1C010977C (VidSchiSerializeSchedulingLog.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BDEC (McGenEventWrite_EtwWriteTransfer.c)
+ */
+
 NTSTATUS McTemplateK0pqqxxxxqbr7_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-99h] BYREF

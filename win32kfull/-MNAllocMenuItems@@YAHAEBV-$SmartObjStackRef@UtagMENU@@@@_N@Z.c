@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?MNAllocMenuItems@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@_N@Z @ 0x1C00A07D4
+ * Callers:
+ *     ?xxxRemoveDeleteMenuHelper@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@IKH@Z @ 0x1C00A4FB4 (-xxxRemoveDeleteMenuHelper@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@IKH@Z.c)
+ *     xxxInsertMenuItem @ 0x1C00A7ADC (xxxInsertMenuItem.c)
+ * Callees:
+ *     ??4?$SharedMixedObjectPointerFieldrgItems@UtagITEM@@@tagMENU@@QEAAPEAUtagITEM@@PEAU2@@Z @ 0x1C00A09B4 (--4-$SharedMixedObjectPointerFieldrgItems@UtagITEM@@@tagMENU@@QEAAPEAUtagITEM@@PEAU2@@Z.c)
+ *     DesktopAlloc @ 0x1C00A09E0 (DesktopAlloc.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall MNAllocMenuItems(__int64 a1, unsigned __int8 a2)
 {
   int v3; // r14d

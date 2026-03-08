@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TdrDbgCtrl@@YAJW4_TDR_DBG_CTRL@@@Z @ 0x1C030A184
+ * Callers:
+ *     DxgkEscape @ 0x1C01A3EE0 (DxgkEscape.c)
+ * Callees:
+ *     ?_TdrIsTestMode@@YA_NXZ @ 0x1C030ACDC (-_TdrIsTestMode@@YA_NXZ.c)
+ */
+
 __int64 __fastcall TdrDbgCtrl(int a1)
 {
   int v2; // ebx

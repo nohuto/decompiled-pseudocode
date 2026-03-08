@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CClipBrush@@MEAA@XZ @ 0x18021D9B8
+ * Callers:
+ *     ??_ECClipBrush@@MEAAPEAXI@Z @ 0x18021DA40 (--_ECClipBrush@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800234BC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ */
+
 void __fastcall CClipBrush::~CClipBrush(CClipBrush *this)
 {
   __int64 v2; // rcx

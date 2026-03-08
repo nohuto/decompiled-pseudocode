@@ -1,3 +1,22 @@
+/*
+ * XREFs of TR_Create @ 0x1C006DDF8
+ * Callers:
+ *     Endpoint_UcxEvtEndpointStaticStreamsAdd @ 0x1C003CA10 (Endpoint_UcxEvtEndpointStaticStreamsAdd.c)
+ *     Endpoint_Create @ 0x1C006D624 (Endpoint_Create.c)
+ * Callees:
+ *     Controller_IsSecureDevice @ 0x1C000B0F8 (Controller_IsSecureDevice.c)
+ *     Endpoint_IsProxyEndpoint @ 0x1C000B198 (Endpoint_IsProxyEndpoint.c)
+ *     TR_AcquireSegment @ 0x1C000B1A8 (TR_AcquireSegment.c)
+ *     TR_EnsureSegments @ 0x1C000B240 (TR_EnsureSegments.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     TR_CreateSecureObject @ 0x1C004139C (TR_CreateSecureObject.c)
+ *     WPP_RECORDER_SF_DDDd @ 0x1C0041F60 (WPP_RECORDER_SF_DDDd.c)
+ *     XilUsbDevice_IsSecureUsbDevice @ 0x1C00481B4 (XilUsbDevice_IsSecureUsbDevice.c)
+ *     Counter_CreateTransferRingInstance @ 0x1C006E274 (Counter_CreateTransferRingInstance.c)
+ *     Bulk_GetConfiguration @ 0x1C00752B0 (Bulk_GetConfiguration.c)
+ */
+
 __int64 __fastcall TR_Create(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 *a5)
 {
   char IsProxyEndpoint; // al

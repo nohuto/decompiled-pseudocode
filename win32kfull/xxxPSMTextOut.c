@@ -1,3 +1,25 @@
+/*
+ * XREFs of xxxPSMTextOut @ 0x1C0244494
+ * Callers:
+ *     xxxDrawMenuBarUnderlines @ 0x1C00F268C (xxxDrawMenuBarUnderlines.c)
+ *     ?xxxDrawMenuItemText@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUHDC__@@HHPEAGHH@Z @ 0x1C0236C78 (-xxxDrawMenuItemText@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUHDC__@@HHPEAGHH@Z.c)
+ *     xxxRealDrawMenuItem @ 0x1C0239598 (xxxRealDrawMenuItem.c)
+ * Callees:
+ *     GreGetTextColor @ 0x1C0013F70 (GreGetTextColor.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     GreGetTextExtentW @ 0x1C010FBEC (GreGetTextExtentW.c)
+ *     ?GrepGetTextMetricsW@@YAHPEAUHDC__@@PEAU_TMW_INTERNAL@@W4EntryPoint@RFONTOBJ@@@Z @ 0x1C0112400 (-GrepGetTextMetricsW@@YAHPEAUHDC__@@PEAU_TMW_INTERNAL@@W4EntryPoint@RFONTOBJ@@@Z.c)
+ *     GreExtTextOutW @ 0x1C0113604 (GreExtTextOutW.c)
+ *     GreSetBkColor @ 0x1C0113964 (GreSetBkColor.c)
+ *     ??1EUDCCountRegion@@QEAA@XZ @ 0x1C0114AF8 (--1EUDCCountRegion@@QEAA@XZ.c)
+ *     ??0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z @ 0x1C0114B84 (--0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     xxxClientPSMTextOut @ 0x1C0215E88 (xxxClientPSMTextOut.c)
+ *     CALL_LPK @ 0x1C0228CCC (CALL_LPK.c)
+ *     GetPrefixCount @ 0x1C0250138 (GetPrefixCount.c)
+ */
+
 void __fastcall xxxPSMTextOut(
         Gre::Base *a1,
         unsigned int a2,

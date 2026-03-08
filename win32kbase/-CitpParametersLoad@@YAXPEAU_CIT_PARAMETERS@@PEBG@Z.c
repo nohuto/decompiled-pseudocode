@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z @ 0x1C00C5978
+ * Callers:
+ *     ?CitpInitialize@@YAJPEBG@Z @ 0x1C00C57B0 (-CitpInitialize@@YAJPEBG@Z.c)
+ *     ?CitpResetTracking@@YAJXZ @ 0x1C02734F8 (-CitpResetTracking@@YAJXZ.c)
+ * Callees:
+ *     ?CitpParameterGetInt32@@YAXPEAXPEBGPEAI@Z @ 0x1C00C5B04 (-CitpParameterGetInt32@@YAXPEAXPEBGPEAI@Z.c)
+ *     ?CitpIsInteractiveSession@@YAEXZ @ 0x1C00C5BA4 (-CitpIsInteractiveSession@@YAEXZ.c)
+ *     ?CitpParametersCompute@@YAXPEAU_CIT_PARAMETERS@@@Z @ 0x1C00C5BF0 (-CitpParametersCompute@@YAXPEAU_CIT_PARAMETERS@@@Z.c)
+ *     ?CitpLogFailureWorker@@YAXJPEBDI@Z @ 0x1C0272BF0 (-CitpLogFailureWorker@@YAXJPEBDI@Z.c)
+ */
+
 void __fastcall CitpParametersLoad(struct _CIT_PARAMETERS *a1, PCWSTR SourceString)
 {
   NTSTATUS v4; // eax

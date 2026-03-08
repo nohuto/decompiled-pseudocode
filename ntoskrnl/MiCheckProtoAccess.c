@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiCheckProtoAccess @ 0x1402DF228
+ * Callers:
+ *     MiDispatchFault @ 0x14026A900 (MiDispatchFault.c)
+ * Callees:
+ *     MiCheckVirtualAddress @ 0x140225600 (MiCheckVirtualAddress.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIsPrototypePteVadLookup @ 0x140327240 (MiIsPrototypePteVadLookup.c)
+ */
+
 __int64 __fastcall MiCheckProtoAccess(__int64 a1, _DWORD *a2)
 {
   unsigned __int64 v4; // rax

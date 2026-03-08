@@ -1,3 +1,14 @@
+/*
+ * XREFs of ConvertDevpropcompkeyToString @ 0x140A6B464
+ * Callers:
+ *     PnpConvertDevpropcompkeyArrayToString @ 0x1409558BC (PnpConvertDevpropcompkeyArrayToString.c)
+ *     ConvertDevpropertyToString @ 0x140A6B5A0 (ConvertDevpropertyToString.c)
+ * Callees:
+ *     RtlStringCbPrintfExW @ 0x1402986C0 (RtlStringCbPrintfExW.c)
+ *     RtlStringFromGUIDEx @ 0x140733E90 (RtlStringFromGUIDEx.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ */
+
 __int64 __fastcall ConvertDevpropcompkeyToString(__int64 a1, wchar_t *a2, unsigned int a3, unsigned int *a4)
 {
   size_t v4; // rsi

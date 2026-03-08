@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?InitializeResources@FxDmaPacketTransaction@@UEAAJXZ @ 0x1C001C810
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0006060 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0006094 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ */
+
 __int64 __fastcall FxDmaPacketTransaction::InitializeResources(
         FxDmaPacketTransaction *this,
         __int64 a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of WbReAlloc @ 0x14075521C
+ * Callers:
+ *     sub_1406AF8A4 @ 0x1406AF8A4 (sub_1406AF8A4.c)
+ *     sub_140755020 @ 0x140755020 (sub_140755020.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     WbAlloc @ 0x1406AF510 (WbAlloc.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WbReAlloc(PVOID P, size_t Size, unsigned int a3, _QWORD *a4)
 {
   unsigned int v4; // r14d

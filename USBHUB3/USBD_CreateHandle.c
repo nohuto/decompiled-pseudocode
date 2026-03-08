@@ -1,3 +1,16 @@
+/*
+ * XREFs of USBD_CreateHandle @ 0x1C004247C
+ * Callers:
+ *     HUBFDO_SetupHubPostErrataQuery @ 0x1C000F068 (HUBFDO_SetupHubPostErrataQuery.c)
+ * Callees:
+ *     USBDInternal_BuildAndSendQueryInterfaceSynchronously @ 0x1C0041CB8 (USBDInternal_BuildAndSendQueryInterfaceSynchronously.c)
+ *     USBDInternal_QueryUsbVerifierSettings @ 0x1C0041FD4 (USBDInternal_QueryUsbVerifierSettings.c)
+ *     USBDInternal_BuildServicePath @ 0x1C0042258 (USBDInternal_BuildServicePath.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 NTSTATUS __stdcall USBD_CreateHandle(
         PDEVICE_OBJECT DeviceObject,
         PDEVICE_OBJECT TargetDeviceObject,

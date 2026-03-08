@@ -1,3 +1,14 @@
+/*
+ * XREFs of FsRtlOplockBreakH2 @ 0x1407932D0
+ * Callers:
+ *     FsRtlOplockBreakH @ 0x14093B170 (FsRtlOplockBreakH.c)
+ * Callees:
+ *     FsRtlpOplockBreakByCacheFlags @ 0x14023BD20 (FsRtlpOplockBreakByCacheFlags.c)
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     FsRtlpAttachOplockKey @ 0x14023FE88 (FsRtlpAttachOplockKey.c)
+ */
+
 __int64 __fastcall FsRtlOplockBreakH2(
         __int64 *a1,
         IRP *a2,

@@ -1,3 +1,24 @@
+/*
+ * XREFs of InternalRegisterClassEx @ 0x1C0030830
+ * Callers:
+ *     RegisterDefaultClass @ 0x1C003124C (RegisterDefaultClass.c)
+ *     RegisterIconTitleClass @ 0x1C00DBAB8 (RegisterIconTitleClass.c)
+ *     _RegisterClassEx @ 0x1C012DD34 (_RegisterClassEx.c)
+ * Callees:
+ *     MapClientToServerPfn @ 0x1C0031460 (MapClientToServerPfn.c)
+ *     ?ValidateClassAtomForRegisterClass@@YAGPEAUtagPROCESSINFO@@G@Z @ 0x1C0031AA8 (-ValidateClassAtomForRegisterClass@@YAGPEAUtagPROCESSINFO@@G@Z.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     ?Allocate@?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C00DC9D0 (-Allocate@-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@IEAAPEAXXZ.c)
+ *     AllocateUnicodeString @ 0x1C00E9BB0 (AllocateUnicodeString.c)
+ *     ??$UserAllocateIsolatedType@V?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAPEAXXZ @ 0x1C0109744 (--$UserAllocateIsolatedType@V-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAPEAXXZ.c)
+ *     ??0?$SmartObjStackRef@UtagCLS@@@@QEAA@XZ @ 0x1C012DC6C (--0-$SmartObjStackRef@UtagCLS@@@@QEAA@XZ.c)
+ *     ??1?$SmartObjStackRef@UtagCLS@@@@QEAA@XZ @ 0x1C012DC8C (--1-$SmartObjStackRef@UtagCLS@@@@QEAA@XZ.c)
+ *     ??$UserFreeIsolatedType@V?$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C01BF140 (--$UserFreeIsolatedType@V-$CTypeIsolation@$0JAAA@$0JA@@NSInstrumentation@@@@YAXPEAX@Z.c)
+ *     ?ClassFree@@YAXPEAUtagDESKTOP@@PEAD@Z @ 0x1C01BF268 (-ClassFree@@YAXPEAUtagDESKTOP@@PEAD@Z.c)
+ *     ?ClassFree@@YAXPEAUtagDESKTOP@@PEAUtagCLS@@@Z @ 0x1C01BF2A8 (-ClassFree@@YAXPEAUtagDESKTOP@@PEAUtagCLS@@@Z.c)
+ */
+
 __int64 __fastcall InternalRegisterClassEx(__int64 a1, unsigned __int16 a2, __int16 a3, _DWORD *a4)
 {
   __int64 v7; // r12

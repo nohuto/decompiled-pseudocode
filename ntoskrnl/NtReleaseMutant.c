@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtReleaseMutant @ 0x14075CCF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeReleaseMutantEx @ 0x14040A86C (KeReleaseMutantEx.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExpReleaseCrossVmMutant @ 0x140A0331C (ExpReleaseCrossVmMutant.c)
+ */
+
 __int64 __fastcall NtReleaseMutant(HANDLE Handle, _DWORD *a2)
 {
   KPROCESSOR_MODE PreviousMode; // r14

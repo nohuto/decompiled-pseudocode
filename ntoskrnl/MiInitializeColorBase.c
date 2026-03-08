@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiInitializeColorBase @ 0x14020FE2C
+ * Callers:
+ *     MiMakeZeroedPageTablesEx @ 0x14020F130 (MiMakeZeroedPageTablesEx.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x14038B664 (MiDemoteValidLargePageOneLevel.c)
+ *     MmCreateShadowMapping @ 0x14080B624 (MmCreateShadowMapping.c)
+ * Callees:
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiGetSessionVm @ 0x14036C17C (MiGetSessionVm.c)
+ */
+
 __int64 __fastcall MiInitializeColorBase(unsigned __int64 a1, unsigned int a2, __int64 a3)
 {
   unsigned __int64 *SessionVm; // rcx

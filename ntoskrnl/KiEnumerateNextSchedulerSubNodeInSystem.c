@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiEnumerateNextSchedulerSubNodeInSystem @ 0x14056E2D8
+ * Callers:
+ *     KiChooseTargetProcessor @ 0x140258FC0 (KiChooseTargetProcessor.c)
+ *     KiTraceLogHeteroRundown @ 0x1403AB22C (KiTraceLogHeteroRundown.c)
+ * Callees:
+ *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402AB030 (KeEnumerateNextSchedulerSubNodeInNode.c)
+ *     MmGetNextNode @ 0x1402AB0A0 (MmGetNextNode.c)
+ */
+
 __int64 __fastcall KiEnumerateNextSchedulerSubNodeInSystem(__int64 a1, _QWORD *a2)
 {
   unsigned int v2; // ebx

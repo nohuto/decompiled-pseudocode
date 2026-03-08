@@ -1,3 +1,11 @@
+/*
+ * XREFs of x86BiosReadCmosPortByte @ 0x1405061D4
+ * Callers:
+ *     x86BiosReadCmosPort @ 0x140506154 (x86BiosReadCmosPort.c)
+ * Callees:
+ *     HalpAcquireCmosSpinLock @ 0x1402D1A0C (HalpAcquireCmosSpinLock.c)
+ */
+
 char __fastcall x86BiosReadCmosPortByte(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int8 v3; // al

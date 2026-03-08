@@ -1,3 +1,17 @@
+/*
+ * XREFs of MmManagePartitionCharges @ 0x140A42714
+ * Callers:
+ *     NtManagePartition @ 0x140705650 (NtManagePartition.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     MiManagePartitionCharges @ 0x14065882C (MiManagePartitionCharges.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MmManagePartitionCharges(__int64 *a1, int *a2, __int64 a3, KPROCESSOR_MODE a4)
 {
   __int64 v7; // rdi

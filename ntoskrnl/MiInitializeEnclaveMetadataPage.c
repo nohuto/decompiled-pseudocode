@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiInitializeEnclaveMetadataPage @ 0x140B96A34
+ * Callers:
+ *     MiCreateEnclaveRegions @ 0x140B3A434 (MiCreateEnclaveRegions.c)
+ * Callees:
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiSetPfnBlink @ 0x140289900 (MiSetPfnBlink.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     KeCreateEnclaveMetadataPage @ 0x14056DFD0 (KeCreateEnclaveMetadataPage.c)
+ *     MiAllocateEnclavePages @ 0x1406447E4 (MiAllocateEnclavePages.c)
+ *     MiReturnEnclavePage @ 0x140646460 (MiReturnEnclavePage.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 MiInitializeEnclaveMetadataPage()
 {
   ULONG_PTR v0; // rdi

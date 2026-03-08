@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiValidateDeviceName @ 0x1C01D0F28
+ * Callers:
+ *     DxgkOpenAdapterFromDeviceName @ 0x1C01A6740 (DxgkOpenAdapterFromDeviceName.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiValidateDeviceName(PCUNICODE_STRING String1)
 {
   int v2; // ebp

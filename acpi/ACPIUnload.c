@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIUnload @ 0x1C00247F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     wil_UninitializeFeatureStaging @ 0x1C007A300 (wil_UninitializeFeatureStaging.c)
+ *     WppCleanupKm @ 0x1C007C0F0 (WppCleanupKm.c)
+ */
+
 __int64 __fastcall ACPIUnload(__int64 a1)
 {
   int v2; // edx

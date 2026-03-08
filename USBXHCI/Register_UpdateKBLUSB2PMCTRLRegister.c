@@ -1,3 +1,12 @@
+/*
+ * XREFs of Register_UpdateKBLUSB2PMCTRLRegister @ 0x1C003F190
+ * Callers:
+ *     Controller_ExecuteKBLPowerTransitionWorkaround @ 0x1C0078248 (Controller_ExecuteKBLPowerTransitionWorkaround.c)
+ * Callees:
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0018428 (XilRegister_WriteUlong.c)
+ */
+
 __int64 __fastcall Register_UpdateKBLUSB2PMCTRLRegister(__int64 a1, unsigned __int8 a2)
 {
   __int64 v2; // rdi

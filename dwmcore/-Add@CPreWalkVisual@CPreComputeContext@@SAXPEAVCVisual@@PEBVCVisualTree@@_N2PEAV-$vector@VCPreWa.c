@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Add@CPreWalkVisual@CPreComputeContext@@SAXPEAVCVisual@@PEBVCVisualTree@@_N2PEAV?$vector@VCPreWalkVisual@CPreComputeContext@@V?$allocator@VCPreWalkVisual@CPreComputeContext@@@std@@@std@@@Z @ 0x18000BABC
+ * Callers:
+ *     ?CleanTrees@CComposition@@IEAAJXZ @ 0x1800664C0 (-CleanTrees@CComposition@@IEAAJXZ.c)
+ * Callees:
+ *     ??$emplace_back@AEAPEAVCVisual@@AEA_NAEA_N@?$vector@VCPreWalkVisual@CPreComputeContext@@V?$allocator@VCPreWalkVisual@CPreComputeContext@@@std@@@std@@QEAA?A_TAEAPEAVCVisual@@AEA_N1@Z @ 0x18000BB4C (--$emplace_back@AEAPEAVCVisual@@AEA_NAEA_N@-$vector@VCPreWalkVisual@CPreComputeContext@@V-$alloc.c)
+ */
+
 void __fastcall CPreComputeContext::CPreWalkVisual::Add(__int64 a1, __int64 a2, char a3, char a4, __int64 *a5)
 {
   __int64 v5; // r10

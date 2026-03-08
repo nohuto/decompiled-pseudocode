@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepAdtInitializeCrashOnFail @ 0x1408413D4
+ * Callers:
+ *     SepAdtRegNotificationCallback @ 0x1407FCD30 (SepAdtRegNotificationCallback.c)
+ *     SepAdtInitializeAuditingOptions @ 0x140B615C0 (SepAdtInitializeAuditingOptions.c)
+ * Callees:
+ *     SepRegQueryValue @ 0x1407394A4 (SepRegQueryValue.c)
+ */
+
 __int64 SepAdtInitializeCrashOnFail()
 {
   unsigned int v0; // edx

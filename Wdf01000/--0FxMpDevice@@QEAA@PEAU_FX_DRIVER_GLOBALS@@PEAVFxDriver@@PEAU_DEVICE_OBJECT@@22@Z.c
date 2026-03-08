@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0FxMpDevice@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDriver@@PEAU_DEVICE_OBJECT@@22@Z @ 0x1C00384BC
+ * Callers:
+ *     imp_WdfDeviceMiniportCreate @ 0x1C0038600 (imp_WdfDeviceMiniportCreate.c)
+ * Callees:
+ *     ??0FxDeviceBase@@IEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDriver@@GG@Z @ 0x1C0038AF0 (--0FxDeviceBase@@IEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDriver@@GG@Z.c)
+ */
+
 void __fastcall FxMpDevice::FxMpDevice(
         FxMpDevice *this,
         _FX_DRIVER_GLOBALS *FxDriverGlobals,

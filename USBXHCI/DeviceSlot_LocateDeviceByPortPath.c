@@ -1,3 +1,11 @@
+/*
+ * XREFs of DeviceSlot_LocateDeviceByPortPath @ 0x1C0037CFC
+ * Callers:
+ *     Crashdump_InitializeDeviceContext @ 0x1C004C684 (Crashdump_InitializeDeviceContext.c)
+ * Callees:
+ *     XilDeviceSlot_GetUsbDeviceHandleArray @ 0x1C0038210 (XilDeviceSlot_GetUsbDeviceHandleArray.c)
+ */
+
 __int64 __fastcall DeviceSlot_LocateDeviceByPortPath(__int64 a1, __int64 a2, _QWORD *a3)
 {
   unsigned int v3; // edi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?xxxCloseApplication@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C02251D8
+ * Callers:
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ * Callees:
+ *     GetNonChildAncestor @ 0x1C0027014 (GetNonChildAncestor.c)
+ *     ?xxxSetFocus@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C009A3E0 (-xxxSetFocus@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ */
+
 void __fastcall xxxCloseApplication(struct tagTHREADINFO *a1)
 {
   __int64 v1; // r8

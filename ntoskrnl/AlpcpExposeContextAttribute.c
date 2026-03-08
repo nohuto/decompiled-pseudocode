@@ -1,3 +1,11 @@
+/*
+ * XREFs of AlpcpExposeContextAttribute @ 0x14077ED40
+ * Callers:
+ *     AlpcpReturnMessageOnInsufficientBuffer @ 0x14077EC7C (AlpcpReturnMessageOnInsufficientBuffer.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AlpcpExposeContextAttribute(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   _QWORD *v4; // rax

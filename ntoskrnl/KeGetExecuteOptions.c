@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeGetExecuteOptions @ 0x140872398
+ * Callers:
+ *     NtQueryInformationProcess @ 0x1407215F0 (NtQueryInformationProcess.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KeGetExecuteOptions(__int64 a1, int *a2)
 {
   char v4; // al

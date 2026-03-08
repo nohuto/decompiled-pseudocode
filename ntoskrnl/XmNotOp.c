@@ -1,3 +1,11 @@
+/*
+ * XREFs of XmNotOp @ 0x14039D4A0
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmStoreResult @ 0x1403B42E8 (XmStoreResult.c)
+ */
+
 __int64 __fastcall XmNotOp(__int64 a1)
 {
   char v2; // cl

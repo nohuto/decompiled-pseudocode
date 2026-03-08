@@ -1,3 +1,17 @@
+/*
+ * XREFs of KsepShimDatabaseTime @ 0x1408019BC
+ * Callers:
+ *     KsepShimDbChanged @ 0x14036F924 (KsepShimDbChanged.c)
+ * Callees:
+ *     KsepLogError @ 0x140303450 (KsepLogError.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x140412530 (ZwQueryInformationFile.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     KsepDebugPrint @ 0x14057E834 (KsepDebugPrint.c)
+ */
+
 __int64 __fastcall KsepShimDatabaseTime(PCWSTR SourceString, _QWORD *a2)
 {
   NTSTATUS v3; // eax

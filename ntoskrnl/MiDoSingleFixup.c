@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiDoSingleFixup @ 0x140A45404
+ * Callers:
+ *     MiApplyRawFixups @ 0x140A45280 (MiApplyRawFixups.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiDoSingleFixup(_DWORD *a1, __int16 a2, __int64 a3)
 {
   if ( a2 )

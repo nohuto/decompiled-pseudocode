@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpSelectLeaf @ 0x140872120
+ * Callers:
+ *     CmpAddSubKeyToList @ 0x1407A4300 (CmpAddSubKeyToList.c)
+ * Callees:
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpFindSubKeyInRoot @ 0x1407ADE40 (CmpFindSubKeyInRoot.c)
+ *     CmpDoCompareKeyName @ 0x1407AE420 (CmpDoCompareKeyName.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpMarkCellDirty @ 0x1407D2460 (HvpMarkCellDirty.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpSplitLeaf @ 0x140A21D7C (CmpSplitLeaf.c)
+ */
+
 __int64 __fastcall CmpSelectLeaf(
         ULONG_PTR BugCheckParameter3,
         _DWORD *a2,

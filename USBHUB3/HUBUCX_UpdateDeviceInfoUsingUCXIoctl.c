@@ -1,3 +1,17 @@
+/*
+ * XREFs of HUBUCX_UpdateDeviceInfoUsingUCXIoctl @ 0x1C0026F1C
+ * Callers:
+ *     HUBDSM_UpdatingDeviceInformationInEnum @ 0x1C0020A50 (HUBDSM_UpdatingDeviceInformationInEnum.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     Feature_USB4PowerImprovements__private_IsEnabledDeviceUsage @ 0x1C000CE04 (Feature_USB4PowerImprovements__private_IsEnabledDeviceUsage.c)
+ *     HUBUCX_SubmitUcxIoctl @ 0x1C00263DC (HUBUCX_SubmitUcxIoctl.c)
+ *     HUBUCX_ComputeUsb20HardwareLpmParameters @ 0x1C0026D6C (HUBUCX_ComputeUsb20HardwareLpmParameters.c)
+ *     HUBMISC_CheckIfU2ShouldBeSetForEnumeratedDevice @ 0x1C003075C (HUBMISC_CheckIfU2ShouldBeSetForEnumeratedDevice.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 __int64 __fastcall HUBUCX_UpdateDeviceInfoUsingUCXIoctl(__int64 *a1)
 {
   __int64 v2; // rbx

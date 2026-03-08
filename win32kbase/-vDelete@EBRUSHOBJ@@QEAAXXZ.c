@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vDelete@EBRUSHOBJ@@QEAAXXZ @ 0x1C005A050
+ * Callers:
+ *     ?vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z @ 0x1C00292E0 (-vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z.c)
+ * Callees:
+ *     ?vFreeOrCacheRBrush@RBRUSH@@QEAAXW4RBTYPE@@@Z @ 0x1C0028810 (-vFreeOrCacheRBrush@RBRUSH@@QEAAXW4RBTYPE@@@Z.c)
+ */
+
 void __fastcall EBRUSHOBJ::vDelete(EBRUSHOBJ *this)
 {
   volatile signed __int32 *v2; // rcx

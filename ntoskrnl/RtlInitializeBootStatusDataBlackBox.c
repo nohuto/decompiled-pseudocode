@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlInitializeBootStatusDataBlackBox @ 0x14085A8FC
+ * Callers:
+ *     PoClearTransitionMarker @ 0x14085A768 (PoClearTransitionMarker.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1404123D0 (ZwReadFile.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpRecordBootStatusData @ 0x14073D990 (RtlpRecordBootStatusData.c)
+ */
+
 NTSTATUS __fastcall RtlInitializeBootStatusDataBlackBox(HANDLE FileHandle)
 {
   NTSTATUS result; // eax

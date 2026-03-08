@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiPnpRtlGetCurrentOperation @ 0x1406D0D80
+ * Callers:
+ *     PiPnpRtlBeginOperation @ 0x1406CDF98 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlCacheObjectBaseKey @ 0x1406D0C78 (PiPnpRtlCacheObjectBaseKey.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ */
+
 __int64 __fastcall PiPnpRtlGetCurrentOperation(__int64 **a1)
 {
   struct _KTHREAD *CurrentThread; // rbp

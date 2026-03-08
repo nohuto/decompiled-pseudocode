@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CWICBitmapRealization@@QEAA@XZ @ 0x1800A644C
+ * Callers:
+ *     ?Create@CWICBitmapRealization@@SAJPEAUIWICBitmapSource@@PEAPEAVIBitmapRealization@@@Z @ 0x1800A635C (-Create@CWICBitmapRealization@@SAJPEAUIWICBitmapSource@@PEAPEAVIBitmapRealization@@@Z.c)
+ * Callees:
+ *     ??0CD2DBitmapCache@@IEAA@XZ @ 0x180032C6C (--0CD2DBitmapCache@@IEAA@XZ.c)
+ */
+
 CWICBitmapRealization *__fastcall CWICBitmapRealization::CWICBitmapRealization(CWICBitmapRealization *this)
 {
   CWICBitmapRealization *v1; // r11

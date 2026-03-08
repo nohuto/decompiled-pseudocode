@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vFreePql@PFEOBJ@@QEAAXXZ @ 0x1C01163D0
+ * Callers:
+ *     bUnloadEudcFont @ 0x1C01162DC (bUnloadEudcFont.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall PFEOBJ::vFreePql(PFEOBJ *this)
 {
   void *v2; // rcx

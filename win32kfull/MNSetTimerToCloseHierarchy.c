@@ -1,3 +1,15 @@
+/*
+ * XREFs of MNSetTimerToCloseHierarchy @ 0x1C0219500
+ * Callers:
+ *     xxxMNSelectItem @ 0x1C021C660 (xxxMNSelectItem.c)
+ * Callees:
+ *     InternalSetTimer @ 0x1C0061830 (InternalSetTimer.c)
+ *     ??1?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ @ 0x1C00A11DC (--1-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ.c)
+ *     ??4?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z @ 0x1C00E0FE0 (--4-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z @ 0x1C00E67A8 (-Init@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z.c)
+ *     safe_cast_fnid_to_PMENUWND @ 0x1C012D8B8 (safe_cast_fnid_to_PMENUWND.c)
+ */
+
 __int64 __fastcall MNSetTimerToCloseHierarchy(__int64 a1)
 {
   unsigned int v2; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopBootAllocation @ 0x140804CB0
+ * Callers:
+ *     IopAllocateBootResourcesInternal @ 0x1408046F8 (IopAllocateBootResourcesInternal.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IopAddRemoveReqDescs @ 0x1408061D8 (IopAddRemoveReqDescs.c)
+ */
+
 __int64 __fastcall IopBootAllocation(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // r14d

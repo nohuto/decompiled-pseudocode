@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoTryReleasePage @ 0x14055C684
+ * Callers:
+ *     MiRequestIoPageMdlCacheRelease @ 0x1403D146C (MiRequestIoPageMdlCacheRelease.c)
+ * Callees:
+ *     IopMcDereferenceBufferEntry @ 0x14055CAC0 (IopMcDereferenceBufferEntry.c)
+ *     IopMcFindNextTableEntryForUnlock @ 0x14055CBA4 (IopMcFindNextTableEntryForUnlock.c)
+ *     IopMcTryUnlockMdl @ 0x14055D00C (IopMcTryUnlockMdl.c)
+ */
+
 __int64 __fastcall IoTryReleasePage(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

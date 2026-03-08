@@ -1,3 +1,12 @@
+/*
+ * XREFs of ObpEnumFindHandleProcedure @ 0x14075FAD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExGetHandlePointer @ 0x1403120A0 (ExGetHandlePointer.c)
+ *     ExfUnblockPushLock @ 0x14040CCE0 (ExfUnblockPushLock.c)
+ */
+
 bool __fastcall ObpEnumFindHandleProcedure(__int64 a1, __int64 *a2, __int64 a3, _QWORD *a4)
 {
   unsigned __int64 HandlePointer; // rdx

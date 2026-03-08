@@ -1,3 +1,16 @@
+/*
+ * XREFs of TouchTargetChildTree @ 0x1C01E7B88
+ * Callers:
+ *     EditionPostDwmSpeedHitTest @ 0x1C00A2AE0 (EditionPostDwmSpeedHitTest.c)
+ *     EditionNonDwmTouchHitTest @ 0x1C01E7610 (EditionNonDwmTouchHitTest.c)
+ * Callees:
+ *     ?ClassicChildTreeSpeedHitTest@@YAPEAUtagWND@@PEAU1@UtagPOINT@@@Z @ 0x1C001664C (-ClassicChildTreeSpeedHitTest@@YAPEAUtagWND@@PEAU1@UtagPOINT@@@Z.c)
+ *     PtInRect @ 0x1C00A34E8 (PtInRect.c)
+ *     _TTPixelsToHm @ 0x1C014AE60 (_TTPixelsToHm.c)
+ *     ?DoesPointSnapToTopLevelWindow@@YAHPEAUtagWND@@0PEAUtagTOUCHTARGETINGCONTACT@@UtagPOINT@@@Z @ 0x1C01E51C4 (-DoesPointSnapToTopLevelWindow@@YAHPEAUtagWND@@0PEAUtagTOUCHTARGETINGCONTACT@@UtagPOINT@@@Z.c)
+ *     ?TraceLoggingHitTestWindowTargeting@@YAXHHHHHHH@Z @ 0x1C020471C (-TraceLoggingHitTestWindowTargeting@@YAXHHHHHHH@Z.c)
+ */
+
 struct tagWND *__fastcall TouchTargetChildTree(
         struct tagWND *a1,
         struct tagTOUCHTARGETINGCONTACT *a2,

@@ -1,3 +1,34 @@
+/*
+ * XREFs of ObpIncrementHandleCountEx @ 0x1407C1090
+ * Callers:
+ *     ObpInsertOrLocateNamedObject @ 0x140696BDC (ObpInsertOrLocateNamedObject.c)
+ *     ObDuplicateObject @ 0x1406ED5C0 (ObDuplicateObject.c)
+ *     ObInheritObjectHandle @ 0x140706174 (ObInheritObjectHandle.c)
+ *     ObCaptureObjectStateForDuplication @ 0x1407111A4 (ObCaptureObjectStateForDuplication.c)
+ *     ObCompleteObjectDuplication @ 0x14071134C (ObCompleteObjectDuplication.c)
+ *     ObpCreateHandle @ 0x1407C0130 (ObpCreateHandle.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     PsGetProcessServerSilo @ 0x1402637E0 (PsGetProcessServerSilo.c)
+ *     PsAttachSiloToCurrentThread @ 0x1402993A0 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x1402993C0 (PsDetachSiloFromCurrentThread.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     OBJECT_HEADER_TO_PROCESS_INFO @ 0x140300B7C (OBJECT_HEADER_TO_PROCESS_INFO.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     PspChargeQuota @ 0x140312850 (PspChargeQuota.c)
+ *     PspReturnQuota @ 0x1403148A0 (PspReturnQuota.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     SeComputeQuotaInformationSize @ 0x1406968A0 (SeComputeQuotaInformationSize.c)
+ *     PsReturnSharedPoolQuota @ 0x140696A48 (PsReturnSharedPoolQuota.c)
+ *     ObpDeleteNameCheck @ 0x1407D85E0 (ObpDeleteNameCheck.c)
+ *     ObpLockHandleDataBaseEntry @ 0x1407D90B0 (ObpLockHandleDataBaseEntry.c)
+ *     ObpUnlockHandleDatabaseEntry @ 0x1409786A0 (ObpUnlockHandleDatabaseEntry.c)
+ */
+
 __int64 __fastcall ObpIncrementHandleCountEx(
         unsigned int a1,
         __int64 a2,

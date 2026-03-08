@@ -1,3 +1,12 @@
+/*
+ * XREFs of IvtDismissPageFault @ 0x140529D10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IvtIommuSendCommand @ 0x1402F49A4 (IvtIommuSendCommand.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall IvtDismissPageFault(__int64 a1, unsigned int a2, __int16 a3, __int16 a4, int a5)
 {
   unsigned __int64 v6; // rcx

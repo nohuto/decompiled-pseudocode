@@ -1,3 +1,17 @@
+/*
+ * XREFs of RIMApiSetSetUserPTPEnabledPreference @ 0x1C01C0898
+ * Callers:
+ *     RIMCreateDev @ 0x1C0036CBC (RIMCreateDev.c)
+ *     RIMUpdateDeviceForInputMode @ 0x1C00BC380 (RIMUpdateDeviceForInputMode.c)
+ *     RIMAllocateHidDesc @ 0x1C01AC4D4 (RIMAllocateHidDesc.c)
+ *     RIMApplyPTPConfigRemedyWorker @ 0x1C01E1F68 (RIMApplyPTPConfigRemedyWorker.c)
+ * Callees:
+ *     RIMIsRunningOnDesktop @ 0x1C007B004 (RIMIsRunningOnDesktop.c)
+ *     AccessPTPEnabledStatus @ 0x1C009D120 (AccessPTPEnabledStatus.c)
+ *     RIMDeliverConfigRequest @ 0x1C01AD678 (RIMDeliverConfigRequest.c)
+ *     RIMFindConfigDeviceForInput @ 0x1C01ADC20 (RIMFindConfigDeviceForInput.c)
+ */
+
 __int64 __fastcall RIMApiSetSetUserPTPEnabledPreference(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v5; // esi

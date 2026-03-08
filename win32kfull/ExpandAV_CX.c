@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpandAV_CX @ 0x1C025F610
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ExpandAV_CX(__int64 a1)
 {
   __int64 result; // rax

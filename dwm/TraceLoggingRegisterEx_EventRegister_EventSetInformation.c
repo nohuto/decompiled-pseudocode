@@ -1,3 +1,11 @@
+/*
+ * XREFs of TraceLoggingRegisterEx_EventRegister_EventSetInformation @ 0x14000DA0C
+ * Callers:
+ *     ?RunDiagnostics@CBlackScreenDiagnosticReport@BlackScreenDiagnostics@@SAXW4CallingSource@2@W4DiagnosticFlags@2@AEBU_GUID@@@Z @ 0x14000D484 (-RunDiagnostics@CBlackScreenDiagnosticReport@BlackScreenDiagnostics@@SAXW4CallingSource@2@W4Diag.c)
+ * Callees:
+ *     __security_check_cookie @ 0x140005510 (__security_check_cookie.c)
+ */
+
 __int64 TraceLoggingRegisterEx_EventRegister_EventSetInformation()
 {
   signed int v0; // eax

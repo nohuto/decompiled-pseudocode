@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1VPTPTouchpad@@QEAA@XZ @ 0x1C0223CDC
+ * Callers:
+ *     ?RemoveTouchpad@VirtualTouchpadProcessor@@AEAAXPEAVVPTPTouchpad@@@Z @ 0x1C0225574 (-RemoveTouchpad@VirtualTouchpadProcessor@@AEAAXPEAVVPTPTouchpad@@@Z.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?IsActive@VPTPTouchpad@@QEBA_NXZ @ 0x1C0224D94 (-IsActive@VPTPTouchpad@@QEBA_NXZ.c)
+ */
+
 void __fastcall VPTPTouchpad::~VPTPTouchpad(VPTPTouchpad ***this)
 {
   VPTPTouchpad **v1; // rdx

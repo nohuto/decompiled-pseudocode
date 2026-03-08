@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiCreatePagefileMemoryExtents @ 0x140A44298
+ * Callers:
+ *     MiCreateSpecialPurposeMemoryPageFile @ 0x140A444FC (MiCreateSpecialPurposeMemoryPageFile.c)
+ * Callees:
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     MiFindContiguousPagesEx @ 0x1403B5CF8 (MiFindContiguousPagesEx.c)
+ *     MiFreeContiguousPages @ 0x1403BDABC (MiFreeContiguousPages.c)
+ *     MiComparePageFileMemoryExtents @ 0x14065D52C (MiComparePageFileMemoryExtents.c)
+ *     MiGetSpecialPurposeMemoryPartitionForCaching @ 0x14065DC44 (MiGetSpecialPurposeMemoryPartitionForCaching.c)
+ *     MiInsertPageFileMemoryExtents @ 0x14065E138 (MiInsertPageFileMemoryExtents.c)
+ *     MiDeletePageFileMemoryExtents @ 0x140A445B4 (MiDeletePageFileMemoryExtents.c)
+ */
+
 __int64 __fastcall MiCreatePagefileMemoryExtents(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v3; // rcx

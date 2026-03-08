@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??$_Emplace_reallocate@AEBQEAVCCursorVisual@@@?$vector@PEAVCCursorVisual@@V?$allocator@PEAVCCursorVisual@@@std@@@std@@QEAAPEAPEAVCCursorVisual@@QEAPEAV2@AEBQEAV2@@Z @ 0x1801EF26C
+ * Callers:
+ *     ?RegisterCursorVisual@CGlobalComposition@@UEAAXPEAVCCursorVisual@@@Z @ 0x1801EF8E0 (-RegisterCursorVisual@CGlobalComposition@@UEAAXPEAVCCursorVisual@@@Z.c)
+ * Callees:
+ *     ?_Calculate_growth@?$vector@VCMilPoint2F@@V?$allocator@VCMilPoint2F@@@std@@@std@@AEBA_K_K@Z @ 0x18001E160 (-_Calculate_growth@-$vector@VCMilPoint2F@@V-$allocator@VCMilPoint2F@@@std@@@std@@AEBA_K_K@Z.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$07@std@@YA_K_K@Z @ 0x1800B9880 (--$_Get_size_of_n@$07@std@@YA_K_K@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     ?_Change_array@?$vector@PEAVCCursorVisual@@V?$allocator@PEAVCCursorVisual@@@std@@@std@@AEAAXQEAPEAVCCursorVisual@@_K1@Z @ 0x1801EFA38 (-_Change_array@-$vector@PEAVCCursorVisual@@V-$allocator@PEAVCCursorVisual@@@std@@@std@@AEAAXQEAP.c)
+ */
+
 char *__fastcall std::vector<CCursorVisual *>::_Emplace_reallocate<CCursorVisual * const &>(
         _QWORD *a1,
         _BYTE *a2,

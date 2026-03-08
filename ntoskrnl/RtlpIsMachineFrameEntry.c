@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpIsMachineFrameEntry @ 0x1402D8764
+ * Callers:
+ *     RtlpUnwindPrologue @ 0x140281BF0 (RtlpUnwindPrologue.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RtlpIsMachineFrameEntry(__int64 a1, _QWORD *a2, unsigned int a3)
 {
   unsigned int v3; // eax

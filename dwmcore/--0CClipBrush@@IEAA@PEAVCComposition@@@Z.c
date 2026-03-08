@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0CClipBrush@@IEAA@PEAVCComposition@@@Z @ 0x18021D8F0
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ?Create@CClipBrush@@SAJPEAVCComposition@@PEAPEAV1@@Z @ 0x18021DA8C (-Create@CClipBrush@@SAJPEAVCComposition@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     ??0CContent@@IEAA@PEAVCComposition@@@Z @ 0x1800B8F68 (--0CContent@@IEAA@PEAVCComposition@@@Z.c)
+ */
+
 CClipBrush *__fastcall CClipBrush::CClipBrush(CClipBrush *this, struct CComposition *a2)
 {
   __int64 v2; // r9

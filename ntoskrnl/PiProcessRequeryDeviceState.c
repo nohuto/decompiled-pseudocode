@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiProcessRequeryDeviceState @ 0x140851994
+ * Callers:
+ *     PnpDeviceActionWorker @ 0x140203020 (PnpDeviceActionWorker.c)
+ * Callees:
+ *     PiProcessQueryDeviceState @ 0x140683054 (PiProcessQueryDeviceState.c)
+ */
+
 __int64 __fastcall PiProcessRequeryDeviceState(__int64 a1)
 {
   _QWORD *v1; // rcx

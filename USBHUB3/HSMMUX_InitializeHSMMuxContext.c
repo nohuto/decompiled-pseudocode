@@ -1,3 +1,11 @@
+/*
+ * XREFs of HSMMUX_InitializeHSMMuxContext @ 0x1C000FE88
+ * Callers:
+ *     HUBFDO_EvtDeviceAdd @ 0x1C0077680 (HUBFDO_EvtDeviceAdd.c)
+ * Callees:
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 void __fastcall HSMMUX_InitializeHSMMuxContext(__int64 a1)
 {
   KSPIN_LOCK *v1; // rbx

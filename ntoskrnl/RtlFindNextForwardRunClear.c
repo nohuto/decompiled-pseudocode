@@ -1,3 +1,18 @@
+/*
+ * XREFs of RtlFindNextForwardRunClear @ 0x14035D2F0
+ * Callers:
+ *     MiFindDriverNonPagedSections @ 0x14072715C (MiFindDriverNonPagedSections.c)
+ *     HvpGenerateLogMetadata @ 0x1407EA6F0 (HvpGenerateLogMetadata.c)
+ *     HvpCountSetRangesInVector @ 0x1407EA7B4 (HvpCountSetRangesInVector.c)
+ *     HalpIrtAllocateIndex @ 0x14080BD48 (HalpIrtAllocateIndex.c)
+ *     MiPrepareToHotPatchImage @ 0x140A37C98 (MiPrepareToHotPatchImage.c)
+ *     PnprMirrorMarkedPages @ 0x140A9A0AC (PnprMirrorMarkedPages.c)
+ *     PopGetRemainingHibernateRangeDataSize @ 0x140A9FC4C (PopGetRemainingHibernateRangeDataSize.c)
+ *     ViThunkSnapSharedExports @ 0x140ABA0B4 (ViThunkSnapSharedExports.c)
+ * Callees:
+ *     <none>
+ */
+
 ULONG __stdcall RtlFindNextForwardRunClear(PRTL_BITMAP BitMapHeader, ULONG FromIndex, PULONG StartingRunIndex)
 {
   unsigned int SizeOfBitMap; // edi

@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?Dispatch@FxPkgPnp@@MEAAJPEAU_IRP@@@Z @ 0x1C00079C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FX_TRACK_DRIVER @ 0x1C0006D3C (FX_TRACK_DRIVER.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qqcLq @ 0x1C0007D00 (WPP_IFR_SF_qqcLq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_qqcq @ 0x1C002B500 (WPP_IFR_SF_qqcq.c)
+ *     WPP_IFR_SF_qqcqL @ 0x1C0076E78 (WPP_IFR_SF_qqcqL.c)
+ *     WPP_IFR_SF_qqcqLd @ 0x1C0076FB4 (WPP_IFR_SF_qqcqLd.c)
+ */
+
 __int64 __fastcall FxPkgPnp::Dispatch(FxPkgPnp *this, _IRP *Irp)
 {
   _IRP *v3; // r8

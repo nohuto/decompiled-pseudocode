@@ -1,3 +1,11 @@
+/*
+ * XREFs of _CmGetContainerBooleanPropertyCallback @ 0x140A61490
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ */
+
 __int64 __fastcall CmGetContainerBooleanPropertyCallback(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

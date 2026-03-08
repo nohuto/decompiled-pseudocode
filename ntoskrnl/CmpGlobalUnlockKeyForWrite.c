@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpGlobalUnlockKeyForWrite @ 0x140A19124
+ * Callers:
+ *     CmpFreeSiloKeyLockEntry @ 0x140A190DC (CmpFreeSiloKeyLockEntry.c)
+ * Callees:
+ *     CmpFreeTransientPoolWithTag @ 0x1402A4B0C (CmpFreeTransientPoolWithTag.c)
+ *     CmpDereferenceKeyControlBlock @ 0x1406B6660 (CmpDereferenceKeyControlBlock.c)
+ *     CmpLockKcbExclusive @ 0x1407AF778 (CmpLockKcbExclusive.c)
+ *     CmpUnlockGlobalKeyLockTracker @ 0x140846294 (CmpUnlockGlobalKeyLockTracker.c)
+ *     CmpLockGlobalKeyLockTrackerExclusive @ 0x140846350 (CmpLockGlobalKeyLockTrackerExclusive.c)
+ *     CmpUnlockKcb @ 0x140AF2140 (CmpUnlockKcb.c)
+ */
+
 void __fastcall CmpGlobalUnlockKeyForWrite(__int64 a1, _QWORD *a2)
 {
   signed __int64 v4; // rax

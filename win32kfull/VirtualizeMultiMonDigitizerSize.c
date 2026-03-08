@@ -1,3 +1,14 @@
+/*
+ * XREFs of VirtualizeMultiMonDigitizerSize @ 0x1C0145242
+ * Callers:
+ *     _GetPointerDeviceRects @ 0x1C00E4B94 (_GetPointerDeviceRects.c)
+ *     MiPGetPhysicalRect @ 0x1C00E4C44 (MiPGetPhysicalRect.c)
+ *     RemapHimetricPointsForMultiMonDigitizers @ 0x1C01BAF78 (RemapHimetricPointsForMultiMonDigitizers.c)
+ * Callees:
+ *     GetScreenRect @ 0x1C00E4C8C (GetScreenRect.c)
+ *     ExpandedMonitorSpace @ 0x1C01BA230 (ExpandedMonitorSpace.c)
+ */
+
 char __fastcall VirtualizeMultiMonDigitizerSize(__int64 a1)
 {
   INT v2; // eax

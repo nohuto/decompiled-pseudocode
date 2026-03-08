@@ -1,3 +1,20 @@
+/*
+ * XREFs of NtAlpcQueryInformationMessage @ 0x140715730
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     AlpcpCaptureIdMessage @ 0x1406D4EB0 (AlpcpCaptureIdMessage.c)
+ *     AlpcpQueryHandleInformationMessage @ 0x1407119D8 (AlpcpQueryHandleInformationMessage.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     AlpcpQuerySidMessage @ 0x1407185C0 (AlpcpQuerySidMessage.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     AlpcpLookupMessage @ 0x1407CA7C0 (AlpcpLookupMessage.c)
+ *     AlpcpQueryTokenModifiedIdMessage @ 0x1409759C4 (AlpcpQueryTokenModifiedIdMessage.c)
+ */
+
 __int64 __fastcall NtAlpcQueryInformationMessage(
         HANDLE Handle,
         __int64 a2,

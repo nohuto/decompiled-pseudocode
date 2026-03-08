@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetMinVelocity@ForceThreshold@@QEBAMXZ @ 0x1802743B0
+ * Callers:
+ *     ?Reset@CScalarForceEvaluator@@QEAAXMMPEAUIAccelerator@@AEBVForceThreshold@@@Z @ 0x180273700 (-Reset@CScalarForceEvaluator@@QEAAXMMPEAUIAccelerator@@AEBVForceThreshold@@@Z.c)
+ * Callees:
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ */
+
 float __fastcall ForceThreshold::GetMinVelocity(ForceThreshold *this)
 {
   float result; // xmm0_4

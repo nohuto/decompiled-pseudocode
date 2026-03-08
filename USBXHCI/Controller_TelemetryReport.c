@@ -1,3 +1,21 @@
+/*
+ * XREFs of Controller_TelemetryReport @ 0x1C0034B08
+ * Callers:
+ *     Controller_TelemetryReportWorker @ 0x1C0034EB0 (Controller_TelemetryReportWorker.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     RtlStringCchPrintfA @ 0x1C000C294 (RtlStringCchPrintfA.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     TelemetryData_CloseHandle @ 0x1C0053020 (TelemetryData_CloseHandle.c)
+ *     TelemetryData_CreateReport @ 0x1C005306C (TelemetryData_CreateReport.c)
+ *     TelemetryData_InsertTriageDataBlock @ 0x1C00531E8 (TelemetryData_InsertTriageDataBlock.c)
+ *     Controller_TelemetryAddControllerData @ 0x1C0078AF0 (Controller_TelemetryAddControllerData.c)
+ *     Controller_TelemetryOkToGenerateReport @ 0x1C0078CD4 (Controller_TelemetryOkToGenerateReport.c)
+ *     Controller_TelemetryUpdateSubmitReportSuccess @ 0x1C0078FBC (Controller_TelemetryUpdateSubmitReportSuccess.c)
+ *     TelemetryData_SubmitReport @ 0x1C007AF58 (TelemetryData_SubmitReport.c)
+ */
+
 _UNKNOWN **__fastcall Controller_TelemetryReport(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4, unsigned int a5)
 {
   __int64 v6; // r8

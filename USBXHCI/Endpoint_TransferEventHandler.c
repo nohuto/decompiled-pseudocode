@@ -1,3 +1,25 @@
+/*
+ * XREFs of Endpoint_TransferEventHandler @ 0x1C0009BA0
+ * Callers:
+ *     Interrupter_DeferredWorkProcessor @ 0x1C0008BE0 (Interrupter_DeferredWorkProcessor.c)
+ * Callees:
+ *     Control_ProcessTransferEventWithED1 @ 0x1C0006840 (Control_ProcessTransferEventWithED1.c)
+ *     Endpoint_HaltedCompletionCode @ 0x1C0006D98 (Endpoint_HaltedCompletionCode.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     Bulk_ProcessTransferEventWithED0 @ 0x1C000DAC4 (Bulk_ProcessTransferEventWithED0.c)
+ *     Bulk_ProcessTransferEventWithED1 @ 0x1C0011324 (Bulk_ProcessTransferEventWithED1.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0017FB0 (WPP_RECORDER_SF_ddd.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Endpoint_Stream_IsTransferEventLikelyDuplicate @ 0x1C003C390 (Endpoint_Stream_IsTransferEventLikelyDuplicate.c)
+ *     WPP_RECORDER_SF_ddi @ 0x1C003D6C4 (WPP_RECORDER_SF_ddi.c)
+ *     WPP_RECORDER_SF_ddqL @ 0x1C003D7C8 (WPP_RECORDER_SF_ddqL.c)
+ *     TR_TransferEventHandler @ 0x1C0041CD4 (TR_TransferEventHandler.c)
+ *     Control_ProcessTransferEventWithED0 @ 0x1C0042974 (Control_ProcessTransferEventWithED0.c)
+ */
+
 char __fastcall Endpoint_TransferEventHandler(__int64 a1, __m128i **a2, int a3)
 {
   __m128i *v4; // rcx

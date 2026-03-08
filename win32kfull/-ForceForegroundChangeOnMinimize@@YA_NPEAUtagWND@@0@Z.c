@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ForceForegroundChangeOnMinimize@@YA_NPEAUtagWND@@0@Z @ 0x1C0008C3C
+ * Callers:
+ *     ?xxxActivateOnMinimize@@YAHPEAUtagWND@@@Z @ 0x1C0008920 (-xxxActivateOnMinimize@@YAHPEAUtagWND@@@Z.c)
+ * Callees:
+ *     ?CanForceForeground@@YA_NPEBUtagPROCESSINFO@@@Z @ 0x1C003D388 (-CanForceForeground@@YA_NPEBUtagPROCESSINFO@@@Z.c)
+ */
+
 bool __fastcall ForceForegroundChangeOnMinimize(struct tagWND *a1, struct tagWND *a2)
 {
   __int64 v3; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of DxgkIncrementGlobalConnectionChangeId @ 0x1C005DBA4
+ * Callers:
+ *     ?CommitVidPnOnAdapter@VIDPN_MGR@@AEAAJKW4_DMM_CLIENT_TYPE@@QEBVDMMVIDPN@@KPEAU_DXGK_SET_TIMING_PATH_INFO@@PEAIPEAUD3DKMT_VIDPN_SOURCE_MASKS@@AEAK3PEAU_DXGK_SET_TIMING_RESULTS@@PEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@E@Z @ 0x1C03ABFB8 (-CommitVidPnOnAdapter@VIDPN_MGR@@AEAAJKW4_DMM_CLIENT_TYPE@@QEBVDMMVIDPN@@KPEAU_DXGK_SET_TIMING_P.c)
+ * Callees:
+ *     <none>
+ */
+
 signed __int64 DxgkIncrementGlobalConnectionChangeId()
 {
   return _InterlockedIncrement64(&qword_1C013B988);

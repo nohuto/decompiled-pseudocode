@@ -1,3 +1,45 @@
+/*
+ * XREFs of CmpRefreshHive @ 0x140A09C50
+ * Callers:
+ *     CmRestoreKey @ 0x140A08004 (CmRestoreKey.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     CmpAllocatePool @ 0x140243878 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     CmpInitializeDelayDerefContext @ 0x140262F00 (CmpInitializeDelayDerefContext.c)
+ *     CmpDrainDelayDerefContext @ 0x140262F30 (CmpDrainDelayDerefContext.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     CmpLockRegistryExclusive @ 0x1406B6454 (CmpLockRegistryExclusive.c)
+ *     CmpRebuildKcbCache @ 0x1406B6498 (CmpRebuildKcbCache.c)
+ *     CmpCreateHive @ 0x14072C06C (CmpCreateHive.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x14074AF50 (CmpFlushNotifiesOnKeyBodyList.c)
+ *     CmpCleanUpKCBCacheTable @ 0x14074B9E4 (CmpCleanUpKCBCacheTable.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpMarkCellDirty @ 0x1407D2460 (HvpMarkCellDirty.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x140820C84 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     CmpFinishBeingActiveFlusherAndReconciler @ 0x140820D0C (CmpFinishBeingActiveFlusherAndReconciler.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x140A14AA4 (CmpSearchKeyControlBlockTreeEx.c)
+ *     CmpDestroyHive @ 0x140A19FFC (CmpDestroyHive.c)
+ *     CmpSwapHiveStorage @ 0x140A1A31C (CmpSwapHiveStorage.c)
+ *     CmpReleaseHiveLoadUnloadRundown @ 0x140AF2034 (CmpReleaseHiveLoadUnloadRundown.c)
+ *     CmpAcquireHiveLoadUnloadRundown @ 0x140AF2058 (CmpAcquireHiveLoadUnloadRundown.c)
+ *     CmpLockKcbShared @ 0x140AF20D0 (CmpLockKcbShared.c)
+ *     CmpUnlockKcb @ 0x140AF2140 (CmpUnlockKcb.c)
+ *     CmpLockRegistry @ 0x140AF2270 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140AF24F0 (CmpPerformKeyBodyDeletionCheck.c)
+ */
+
 __int64 __fastcall CmpRefreshHive(__int64 a1)
 {
   char v2; // si

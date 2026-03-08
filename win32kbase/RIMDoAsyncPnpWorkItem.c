@@ -1,3 +1,16 @@
+/*
+ * XREFs of RIMDoAsyncPnpWorkItem @ 0x1C0036418
+ * Callers:
+ *     RIMOnAsyncPnpWorkNotification @ 0x1C0038B90 (RIMOnAsyncPnpWorkNotification.c)
+ * Callees:
+ *     RIMApiSetIsRemoteConnection @ 0x1C00364A8 (RIMApiSetIsRemoteConnection.c)
+ *     RIMDeviceClassNotifyAsyncWorkItem @ 0x1C0037820 (RIMDeviceClassNotifyAsyncWorkItem.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     RIMDeviceNotifyAsyncWorkItem @ 0x1C01CFE1C (RIMDeviceNotifyAsyncWorkItem.c)
+ */
+
 __int64 __fastcall RIMDoAsyncPnpWorkItem(__int64 a1, __int64 a2)
 {
   int v4; // edx

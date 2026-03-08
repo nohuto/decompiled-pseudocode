@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vGradientFill1@@YAXPEAVSURFACE@@PEAU_TRIANGLEDATA@@@Z @ 0x1C02FB180
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?XLATEOBJ_pGetXlate555@@YAPEAEPEAU_XLATEOBJ@@@Z @ 0x1C02DE1EC (-XLATEOBJ_pGetXlate555@@YAPEAEPEAU_XLATEOBJ@@@Z.c)
+ */
+
 void __fastcall vGradientFill1(struct SURFACE *a1, struct _TRIANGLEDATA *a2)
 {
   int v2; // esi

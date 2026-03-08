@@ -1,3 +1,14 @@
+/*
+ * XREFs of VidSchTerminateHwContext @ 0x1C0045190
+ * Callers:
+ *     ?VidSchiCreateHwContextInternal@@YAPEAUVIDSCH_HW_CONTEXT@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_CONTEXT_DATA@@PEAVDXGCONTEXT@@@Z @ 0x1C0042114 (-VidSchiCreateHwContextInternal@@YAPEAUVIDSCH_HW_CONTEXT@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_CONTEX.c)
+ *     VidSchTerminateAdapter @ 0x1C0108B80 (VidSchTerminateAdapter.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqqqqqqqqppp_EtwWriteTransfer @ 0x1C003DE9C (McTemplateK0pqqqqqqqqppp_EtwWriteTransfer.c)
+ *     ?VidSchiDecrementHwContextReference@@YAXPEAUVIDSCH_HW_CONTEXT@@H@Z @ 0x1C0042604 (-VidSchiDecrementHwContextReference@@YAXPEAUVIDSCH_HW_CONTEXT@@H@Z.c)
+ */
+
 void __fastcall VidSchTerminateHwContext(PVOID P)
 {
   __int64 v2; // rbp

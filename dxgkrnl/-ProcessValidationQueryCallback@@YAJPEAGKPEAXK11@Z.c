@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ProcessValidationQueryCallback@@YAJPEAGKPEAXK11@Z @ 0x1C005A240
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ProcessValidationQueryCallback(
         unsigned __int16 *a1,
         int a2,

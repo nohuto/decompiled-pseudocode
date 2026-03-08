@@ -1,3 +1,13 @@
+/*
+ * XREFs of _ClientToScreen @ 0x1C024E7D0
+ * Callers:
+ *     ?xxxTrackInitSize@@YAHPEAUtagWND@@I_K_JPEAUMOVESIZEDATA@@@Z @ 0x1C01F2BD0 (-xxxTrackInitSize@@YAHPEAUtagWND@@I_K_JPEAUMOVESIZEDATA@@@Z.c)
+ *     xxxSBWndProc @ 0x1C022D770 (xxxSBWndProc.c)
+ *     ?xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z @ 0x1C02323EC (-xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ClientToScreen(__int64 a1, _DWORD *a2)
 {
   __int64 v2; // r8

@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwpLogMemNodeInfo @ 0x14045F526
+ * Callers:
+ *     EtwpLogMemInfoTimerCallback @ 0x14045F4B0 (EtwpLogMemInfoTimerCallback.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     PsGetNextPartition @ 0x1402FF5F0 (PsGetNextPartition.c)
+ *     EtwProviderEnabled @ 0x140367E30 (EtwProviderEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MmFillEtwNodeInformation @ 0x140463310 (MmFillEtwNodeInformation.c)
+ *     MmFillEtwHugeIoSpaceInformation @ 0x1406153F0 (MmFillEtwHugeIoSpaceInformation.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void EtwpLogMemNodeInfo()
 {
   _BYTE *Pool2; // rbx

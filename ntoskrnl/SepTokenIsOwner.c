@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepTokenIsOwner @ 0x1402077E0
+ * Callers:
+ *     SepCommonAccessCheckEx @ 0x140206FC0 (SepCommonAccessCheckEx.c)
+ *     SeComputeCreatorDeniedRights @ 0x140311EB0 (SeComputeCreatorDeniedRights.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1406973E0 (SepAccessCheckAndAuditAlarm.c)
+ * Callees:
+ *     SepSidInTokenSidHash @ 0x14033DEA0 (SepSidInTokenSidHash.c)
+ */
+
 __int64 __fastcall SepTokenIsOwner(__int64 a1, __int64 a2)
 {
   __int64 v3; // rax

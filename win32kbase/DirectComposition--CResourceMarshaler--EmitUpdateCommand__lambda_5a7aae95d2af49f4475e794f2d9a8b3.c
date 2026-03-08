@@ -1,3 +1,11 @@
+/*
+ * XREFs of DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_5a7aae95d2af49f4475e794f2d9a8b36___ @ 0x1C00B2D20
+ * Callers:
+ *     ?EmitUpdateCommands@CCompositionSpotLightMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00B27F0 (-EmitUpdateCommands@CCompositionSpotLightMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ * Callees:
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0064740 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ */
+
 char __fastcall DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_5a7aae95d2af49f4475e794f2d9a8b36___(
         __int64 a1,
         struct DirectComposition::CBatch ***a2,

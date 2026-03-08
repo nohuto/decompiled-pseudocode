@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?SetBoundBuffer@CContentResourceState@@QEAAXPEAVCPoolBufferResource@@@Z @ 0x1C0087B98
+ * Callers:
+ *     ?SetContent@CFlipManager@@QEAAJ_K0PEAVCFlipPropertySet@@@Z @ 0x1C0084648 (-SetContent@CFlipManager@@QEAAJ_K0PEAVCFlipPropertySet@@@Z.c)
+ *     ?ApplyIncrementalUpdate@CEndpointResourceStateManager@@QEAAJPEBVCFlipPresentUpdate@@@Z @ 0x1C00851B4 (-ApplyIncrementalUpdate@CEndpointResourceStateManager@@QEAAJPEBVCFlipPresentUpdate@@@Z.c)
+ *     ?ClearAllContentBindings@CEndpointResourceStateManager@@QEAAXXZ @ 0x1C00854B4 (-ClearAllContentBindings@CEndpointResourceStateManager@@QEAAXXZ.c)
+ *     ?Remove@CContentResourceState@@UEAAXXZ @ 0x1C0086F70 (-Remove@CContentResourceState@@UEAAXXZ.c)
+ *     ?RemovePoolBufferState@CEndpointResourceStateManager@@QEAAXPEAVCPoolBufferResourceState@@@Z @ 0x1C0087028 (-RemovePoolBufferState@CEndpointResourceStateManager@@QEAAXPEAVCPoolBufferResourceState@@@Z.c)
+ *     ??1CContentResourceState@@UEAA@XZ @ 0x1C00878E8 (--1CContentResourceState@@UEAA@XZ.c)
+ * Callees:
+ *     ?Release@CFlipResource@@QEAAKXZ @ 0x1C00815F8 (-Release@CFlipResource@@QEAAKXZ.c)
+ *     ?AddUsageReference@CPoolBufferResource@@QEAAXXZ @ 0x1C0084B2C (-AddUsageReference@CPoolBufferResource@@QEAAXXZ.c)
+ *     ?RemoveUsageReference@CPoolBufferResource@@QEAAXXZ @ 0x1C0084EE0 (-RemoveUsageReference@CPoolBufferResource@@QEAAXXZ.c)
+ */
+
 void __fastcall CContentResourceState::SetBoundBuffer(CContentResourceState *this, PRKEVENT *a2)
 {
   CPoolBufferResource *v4; // rcx

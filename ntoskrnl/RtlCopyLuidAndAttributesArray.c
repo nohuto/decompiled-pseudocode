@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlCopyLuidAndAttributesArray @ 0x1409B91B0
+ * Callers:
+ *     CmpBuildAdminInformation @ 0x140A15CBC (CmpBuildAdminInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlCopyLuidAndAttributesArray(unsigned int a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rdx

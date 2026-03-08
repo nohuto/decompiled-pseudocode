@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_IFR_SF_iqdd @ 0x1C00296D8
+ * Callers:
+ *     ?_Create@FxWmiInstanceExternal@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxWmiProvider@@PEAU_WDF_WMI_INSTANCE_CONFIG@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAPEAUWDFWMIINSTANCE__@@PEAPEAV1@@Z @ 0x1C0029294 (-_Create@FxWmiInstanceExternal@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxWmiProvider@@PEAU_WDF_WMI_INSTA.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_iqdd(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 _a1,

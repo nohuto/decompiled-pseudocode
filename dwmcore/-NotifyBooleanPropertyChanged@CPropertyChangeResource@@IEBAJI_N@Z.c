@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?NotifyBooleanPropertyChanged@CPropertyChangeResource@@IEBAJI_N@Z @ 0x180217BF4
+ * Callers:
+ *     ?NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x180097B98 (-NotifyPropertyChanged@CPropertyChangeResource@@IEBAJPEBUAnimatedProperty@AnimationHelper@@PEBX@.c)
+ * Callees:
+ *     ?ShouldNotify@CPropertyChangeResource@@AEBA_NI@Z @ 0x180098408 (-ShouldNotify@CPropertyChangeResource@@AEBA_NI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall CPropertyChangeResource::NotifyBooleanPropertyChanged(CPropertyChangeResource *this)
 {
   unsigned int v1; // ebx

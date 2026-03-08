@@ -1,3 +1,30 @@
+/*
+ * XREFs of AslPathWildcardFindFirst @ 0x140A52910
+ * Callers:
+ *     SdbpCheckMatchingWildcardFiles @ 0x140A4D6E0 (SdbpCheckMatchingWildcardFiles.c)
+ * Callees:
+ *     RtlUShortAdd @ 0x140202574 (RtlUShortAdd.c)
+ *     RtlStringCchCopyW @ 0x1402470F0 (RtlStringCchCopyW.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlStringCbCopyNW @ 0x14039301C (RtlStringCbCopyNW.c)
+ *     wcsncmp @ 0x1403D5ED0 (wcsncmp.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlCreateUnicodeString @ 0x140747D00 (RtlCreateUnicodeString.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     AslDoesFileExistNtPath @ 0x140A514E0 (AslDoesFileExistNtPath.c)
+ *     AslPathCleanUstr @ 0x140A521B8 (AslPathCleanUstr.c)
+ *     AslPathWildcardFindNext @ 0x140A52E68 (AslPathWildcardFindNext.c)
+ *     AslpPathWildcardAllocMatchNode @ 0x140A539A4 (AslpPathWildcardAllocMatchNode.c)
+ *     AslpPathWildcardFreeFindContext @ 0x140A53BC8 (AslpPathWildcardFreeFindContext.c)
+ *     AslpPathWildcardFreeMatchNode @ 0x140A53C98 (AslpPathWildcardFreeMatchNode.c)
+ *     AslpPathWildcardMakeLeaves @ 0x140A53CE4 (AslpPathWildcardMakeLeaves.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AslPathWildcardFindFirst(
         NTSTRSAFE_PWSTR pszDest,
         unsigned __int64 a2,

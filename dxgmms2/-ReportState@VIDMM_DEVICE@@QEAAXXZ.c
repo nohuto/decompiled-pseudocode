@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?ReportState@VIDMM_DEVICE@@QEAAXXZ @ 0x1C00C4312
+ * Callers:
+ *     VidMmReportVidMmDeviceState @ 0x1C002D3E0 (VidMmReportVidMmDeviceState.c)
+ *     ?ReportPagingProcessState@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00E72C4 (-ReportPagingProcessState@VIDMM_GLOBAL@@QEAAXXZ.c)
+ * Callees:
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C00012D0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C00017E8 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0001938 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C002EF24 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     ?ReportState@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ @ 0x1C00EC5B0 (-ReportState@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ.c)
+ */
+
 void __fastcall VIDMM_DEVICE::ReportState(VIDMM_DEVICE *this)
 {
   __int64 v1; // rdx

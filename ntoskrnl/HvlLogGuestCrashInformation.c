@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvlLogGuestCrashInformation @ 0x14053D560
+ * Callers:
+ *     KeBugCheck2 @ 0x140565E90 (KeBugCheck2.c)
+ * Callees:
+ *     HvlpGetRegister64 @ 0x1405468E0 (HvlpGetRegister64.c)
+ *     HvlpSetRegister64 @ 0x140546A30 (HvlpSetRegister64.c)
+ */
+
 _UNKNOWN **__fastcall HvlLogGuestCrashInformation(
         unsigned int a1,
         unsigned __int64 a2,

@@ -1,3 +1,24 @@
+/*
+ * XREFs of VidSchiCheckHwProgress @ 0x1C00A5940
+ * Callers:
+ *     VidSchiScheduleCommandToRun @ 0x1C0006850 (VidSchiScheduleCommandToRun.c)
+ *     VidSchWaitForEvents @ 0x1C0014E64 (VidSchWaitForEvents.c)
+ *     VidSchiWaitForSchedulerEvents @ 0x1C00A5590 (VidSchiWaitForSchedulerEvents.c)
+ * Callees:
+ *     VidSchIsTDRPending @ 0x1C0007920 (VidSchIsTDRPending.c)
+ *     VidSchiCheckFlipQueueTimeout @ 0x1C0007940 (VidSchiCheckFlipQueueTimeout.c)
+ *     VidSchiCheckTimeoutForced @ 0x1C0007A30 (VidSchiCheckTimeoutForced.c)
+ *     VidSchiNeedToForcePreemptNode @ 0x1C0017AA4 (VidSchiNeedToForcePreemptNode.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     VidSchiReportHwHang @ 0x1C00475B8 (VidSchiReportHwHang.c)
+ *     VidSchiCheckNodeTimeout @ 0x1C00A5B80 (VidSchiCheckNodeTimeout.c)
+ *     VidSchiSubmitPreemptionCommand @ 0x1C00ADB04 (VidSchiSubmitPreemptionCommand.c)
+ *     VidSchResetFlipQueueTimeout @ 0x1C0105E14 (VidSchResetFlipQueueTimeout.c)
+ *     VidSchResetGPUTimeout @ 0x1C0105E7C (VidSchResetGPUTimeout.c)
+ *     VidSchiPrepareToResetEngine @ 0x1C010667C (VidSchiPrepareToResetEngine.c)
+ *     VidSchiResetEngines @ 0x1C01067A8 (VidSchiResetEngines.c)
+ */
+
 __int64 __fastcall VidSchiCheckHwProgress(__int64 a1, _BYTE *a2)
 {
   bool v2; // zf

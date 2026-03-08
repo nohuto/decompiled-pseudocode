@@ -1,3 +1,11 @@
+/*
+ * XREFs of TouchTargetingEnabledForInput @ 0x1C0218B90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _IsPseudoDevice @ 0x1C0218F10 (_IsPseudoDevice.c)
+ */
+
 __int64 __fastcall TouchTargetingEnabledForInput(__int64 a1, _DWORD *a2)
 {
   int v3; // ebx

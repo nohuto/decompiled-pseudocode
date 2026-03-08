@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtFreeVirtualMemory @ 0x1406EC750
+ * Callers:
+ *     RtlpInitializeStackTraceDatabase @ 0x1409B77E8 (RtlpInitializeStackTraceDatabase.c)
+ * Callees:
+ *     MmFreeVirtualMemory @ 0x1406EC820 (MmFreeVirtualMemory.c)
+ */
+
 NTSTATUS __stdcall NtFreeVirtualMemory(HANDLE ProcessHandle, PVOID *BaseAddress, PSIZE_T RegionSize, ULONG FreeType)
 {
   char PreviousMode; // dl

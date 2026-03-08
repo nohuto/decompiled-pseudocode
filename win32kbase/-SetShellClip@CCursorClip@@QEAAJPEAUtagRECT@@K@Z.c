@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?SetShellClip@CCursorClip@@QEAAJPEAUtagRECT@@K@Z @ 0x1C020B0A4
+ * Callers:
+ *     NtSetShellCursorState @ 0x1C016D020 (NtSetShellCursorState.c)
+ * Callees:
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C006AE58 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C00AB5F0 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ApiSetEditionInternalSetCursorPos @ 0x1C00CBBC4 (ApiSetEditionInternalSetCursorPos.c)
+ *     ?SetShellClip@Mouse@InputTraceLogging@@SAXPEAUtagRECT@@K@Z @ 0x1C020B158 (-SetShellClip@Mouse@InputTraceLogging@@SAXPEAUtagRECT@@K@Z.c)
+ *     SendShellClipChanged @ 0x1C0218490 (SendShellClipChanged.c)
+ */
+
 __int64 __fastcall CCursorClip::SetShellClip(CCursorClip *this, struct tagRECT *a2, unsigned int a3)
 {
   __int64 v3; // rdi

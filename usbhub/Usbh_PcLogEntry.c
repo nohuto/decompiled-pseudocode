@@ -1,3 +1,11 @@
+/*
+ * XREFs of Usbh_PcLogEntry @ 0x1C0036580
+ * Callers:
+ *     UsbhHubSyncSuspendPortEvent @ 0x1C0033EBC (UsbhHubSyncSuspendPortEvent.c)
+ * Callees:
+ *     Usbh_UsbdReadFrameCounter @ 0x1C00031B0 (Usbh_UsbdReadFrameCounter.c)
+ */
+
 __int64 __fastcall Usbh_PcLogEntry(__int64 a1, __int64 a2, __int64 a3, int a4, int a5, __int16 a6, char a7, char a8)
 {
   int v8; // eax

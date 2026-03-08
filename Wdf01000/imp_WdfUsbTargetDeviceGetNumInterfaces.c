@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_WdfUsbTargetDeviceGetNumInterfaces @ 0x1C0058CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ */
+
 unsigned __int8 __fastcall imp_WdfUsbTargetDeviceGetNumInterfaces(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFUSBDEVICE__ *UsbDevice)

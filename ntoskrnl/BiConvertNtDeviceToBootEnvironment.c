@@ -1,3 +1,24 @@
+/*
+ * XREFs of BiConvertNtDeviceToBootEnvironment @ 0x14082FCE4
+ * Callers:
+ *     BiConvertElementToRegistryData @ 0x14082F9BC (BiConvertElementToRegistryData.c)
+ *     BiConvertNtDeviceToBootEnvironment @ 0x14082FCE4 (BiConvertNtDeviceToBootEnvironment.c)
+ *     BiCreatePartitionDevice @ 0x14082FDBC (BiCreatePartitionDevice.c)
+ *     BiConvertNtFilePathToBootEnvironment @ 0x140A5A474 (BiConvertNtFilePathToBootEnvironment.c)
+ * Callees:
+ *     strcpy_s @ 0x1403D9D10 (strcpy_s.c)
+ *     wcscpy_s @ 0x1403DA210 (wcscpy_s.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     BiConvertNtDeviceToBootEnvironment @ 0x14082FCE4 (BiConvertNtDeviceToBootEnvironment.c)
+ *     BiCreatePartitionDevice @ 0x14082FDBC (BiCreatePartitionDevice.c)
+ *     BiGetPartitionVhdFilePath @ 0x140830098 (BiGetPartitionVhdFilePath.c)
+ *     BiIsVolumePartitionInformationRetained @ 0x1408304AC (BiIsVolumePartitionInformationRetained.c)
+ *     BiConvertNtFilePathToBootEnvironment @ 0x140A5A474 (BiConvertNtFilePathToBootEnvironment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 BiConvertNtDeviceToBootEnvironment(__int64 a1, unsigned int a2, unsigned int a3, ...)
 {
   unsigned int v3; // eax

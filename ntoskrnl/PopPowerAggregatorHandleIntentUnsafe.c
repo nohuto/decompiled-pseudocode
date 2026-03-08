@@ -1,3 +1,23 @@
+/*
+ * XREFs of PopPowerAggregatorHandleIntentUnsafe @ 0x140757290
+ * Callers:
+ *     PopPowerAggregatorHandleIntent @ 0x140757228 (PopPowerAggregatorHandleIntent.c)
+ *     PopPowerAggregatorForceSessionSwitch @ 0x140990844 (PopPowerAggregatorForceSessionSwitch.c)
+ *     PopPowerAggregatorNotifySuspendResume @ 0x140990D0C (PopPowerAggregatorNotifySuspendResume.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopPowerAggregatorHandleResumeIntent @ 0x140595E80 (PopPowerAggregatorHandleResumeIntent.c)
+ *     PopPowerAggregatorHandleSuspendIntent @ 0x140595F10 (PopPowerAggregatorHandleSuspendIntent.c)
+ *     PopPowerAggregatorRecordIntent @ 0x140757470 (PopPowerAggregatorRecordIntent.c)
+ *     PopPowerAggregatorHandleActiveIntent @ 0x14079C5D0 (PopPowerAggregatorHandleActiveIntent.c)
+ *     PopPowerAggregatorHandleSystemTransitionStartIntent @ 0x1407F92C0 (PopPowerAggregatorHandleSystemTransitionStartIntent.c)
+ *     PopPowerAggregatorScheduleWorker @ 0x140873100 (PopPowerAggregatorScheduleWorker.c)
+ *     PopPowerAggregatorHandleSystemTransitionIntent @ 0x140880210 (PopPowerAggregatorHandleSystemTransitionIntent.c)
+ *     PopPowerAggregatorHandleDirectedDripsIntent @ 0x140990930 (PopPowerAggregatorHandleDirectedDripsIntent.c)
+ *     PopPowerAggregatorHandleModernStandbyIntent @ 0x140990960 (PopPowerAggregatorHandleModernStandbyIntent.c)
+ *     PopPowerAggregatorHandleSystemTransitionEndIntent @ 0x1409909E0 (PopPowerAggregatorHandleSystemTransitionEndIntent.c)
+ */
+
 __int64 __fastcall PopPowerAggregatorHandleIntentUnsafe(_QWORD *a1, __int64 a2, unsigned int a3, unsigned int a4)
 {
   __int64 v6; // rdi

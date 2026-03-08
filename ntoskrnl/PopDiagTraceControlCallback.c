@@ -1,3 +1,38 @@
+/*
+ * XREFs of PopDiagTraceControlCallback @ 0x14085EC40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopDiagTraceSystemLatencyUpdate @ 0x1402D2140 (PopDiagTraceSystemLatencyUpdate.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopDiagTraceFxRundown @ 0x140586438 (PopDiagTraceFxRundown.c)
+ *     PopThermalTraceRundownEvents @ 0x14058DBD4 (PopThermalTraceRundownEvents.c)
+ *     PopDiagTraceDeepSleepConstraintRundown @ 0x140590238 (PopDiagTraceDeepSleepConstraintRundown.c)
+ *     PopPlTraceLogPowerPlane @ 0x14059F5B8 (PopPlTraceLogPowerPlane.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14073B7D4 (PopAcquirePowerRequestPushLock.c)
+ *     PopDiagTracePowerRequestCreate @ 0x14073C0DC (PopDiagTracePowerRequestCreate.c)
+ *     PopDiagTracePowerSetting @ 0x14078F8A0 (PopDiagTracePowerSetting.c)
+ *     PopTransitionTelemetryOsState @ 0x140855C64 (PopTransitionTelemetryOsState.c)
+ *     PopLoggingInformation @ 0x14097DDE4 (PopLoggingInformation.c)
+ *     PopRundownThermalRequests @ 0x1409803F0 (PopRundownThermalRequests.c)
+ *     PopDiagTraceDeviceComplianceRundown @ 0x14098B328 (PopDiagTraceDeviceComplianceRundown.c)
+ *     PopDiagTraceDynamicTickStatusRundown @ 0x14098BB88 (PopDiagTraceDynamicTickStatusRundown.c)
+ *     PopDiagTracePlatformRoleRundown @ 0x14098D78C (PopDiagTracePlatformRoleRundown.c)
+ *     PopDiagTracePowerStateEventRundown @ 0x14098DE4C (PopDiagTracePowerStateEventRundown.c)
+ *     PopDiagTraceSystemIdleRundown @ 0x14098ECD0 (PopDiagTraceSystemIdleRundown.c)
+ *     PopTraceStandbyConnectivityRundown @ 0x14098FB84 (PopTraceStandbyConnectivityRundown.c)
+ *     ExTraceTimerResolution @ 0x1409F4DC8 (ExTraceTimerResolution.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PopDiagTraceControlCallback(
         LPCGUID SourceId,
         __int64 ControlCode,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspSetEffectiveRateControlJob @ 0x1409AFA38
+ * Callers:
+ *     PspEstablishJobHierarchy @ 0x1407001E0 (PspEstablishJobHierarchy.c)
+ *     PspSetRateControlJobPreCallback @ 0x1409B0390 (PspSetRateControlJobPreCallback.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall PspSetEffectiveRateControlJob(__int64 a1, __int64 a2)
 {
   if ( a2 )

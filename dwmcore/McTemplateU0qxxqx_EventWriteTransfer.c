@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0qxxqx_EventWriteTransfer @ 0x1801B2484
+ * Callers:
+ *     ?BeginCompositionFrame@CComposition@@IEAAJXZ @ 0x18004FD5C (-BeginCompositionFrame@CComposition@@IEAAJXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 ULONG McTemplateU0qxxqx_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-31h] BYREF

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?TrackedWindowMoveSizeIntercept@NotifyShell@@YAXPEAUtagWND@@IK@Z @ 0x1C0220918
+ * Callers:
+ *     ?DelegateMoveSizeToShell@@YAXPEAUtagWND@@I@Z @ 0x1C020311C (-DelegateMoveSizeToShell@@YAXPEAUtagWND@@I@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_qd @ 0x1C00FAFB4 (WPP_RECORDER_AND_TRACE_SF_qd.c)
+ *     _anonymous_namespace_::NotifyShellSimplePayload @ 0x1C0220058 (_anonymous_namespace_--NotifyShellSimplePayload.c)
+ */
+
 void __fastcall NotifyShell::TrackedWindowMoveSizeIntercept(NotifyShell *this, struct tagWND *a2, unsigned int a3)
 {
   __int64 v3; // rsi

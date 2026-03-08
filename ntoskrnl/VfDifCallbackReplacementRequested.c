@@ -1,3 +1,11 @@
+/*
+ * XREFs of VfDifCallbackReplacementRequested @ 0x1405CF7B4
+ * Callers:
+ *     VfSuspectApplyDifVolatileVerification @ 0x140AD7288 (VfSuspectApplyDifVolatileVerification.c)
+ * Callees:
+ *     <none>
+ */
+
 char VfDifCallbackReplacementRequested()
 {
   int v0; // ecx

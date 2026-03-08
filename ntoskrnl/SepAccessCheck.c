@@ -1,3 +1,18 @@
+/*
+ * XREFs of SepAccessCheck @ 0x140266980
+ * Callers:
+ *     SeAccessCheckWithHint @ 0x1402653A0 (SeAccessCheckWithHint.c)
+ *     SeAccessCheckByType @ 0x14033BB40 (SeAccessCheckByType.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1406973E0 (SepAccessCheckAndAuditAlarm.c)
+ * Callees:
+ *     SepMaximumAccessCheck @ 0x140208450 (SepMaximumAccessCheck.c)
+ *     SepNormalAccessCheck @ 0x140267220 (SepNormalAccessCheck.c)
+ *     SepPrivilegeCheck @ 0x14030F080 (SepPrivilegeCheck.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SepAssemblePrivileges @ 0x14077B564 (SepAssemblePrivileges.c)
+ */
+
 __int64 __fastcall SepAccessCheck(
         __int64 a1,
         __int64 a2,

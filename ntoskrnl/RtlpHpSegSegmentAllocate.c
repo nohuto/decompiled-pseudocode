@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlpHpSegSegmentAllocate @ 0x140305B38
+ * Callers:
+ *     RtlpHpSegPageRangeAllocate @ 0x1402493A0 (RtlpHpSegPageRangeAllocate.c)
+ *     RtlpHpSegContextReserve @ 0x14037596C (RtlpHpSegContextReserve.c)
+ * Callees:
+ *     RtlCSparseBitmapBitmaskWrite @ 0x140305C10 (RtlCSparseBitmapBitmaskWrite.c)
+ *     RtlpHpSegMgrAllocate @ 0x14030853C (RtlpHpSegMgrAllocate.c)
+ *     RtlpHpSegSegmentFree @ 0x140308E54 (RtlpHpSegSegmentFree.c)
+ */
+
 __int64 __fastcall RtlpHpSegSegmentAllocate(__int64 a1, int a2)
 {
   unsigned int v2; // esi

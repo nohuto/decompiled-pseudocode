@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_Dequeue@CMouseQueue@CMouseProcessor@@AEAAXPEAURawMouseEvent@2@@Z @ 0x1C007CD54
+ * Callers:
+ *     ?DequeueMouseEvents@CMouseProcessor@@AEAA_KPEAURawMouseEvent@1@@Z @ 0x1C007C3C4 (-DequeueMouseEvents@CMouseProcessor@@AEAA_KPEAURawMouseEvent@1@@Z.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 void __fastcall CMouseProcessor::CMouseQueue::_Dequeue(
         CMouseProcessor::CMouseQueue *this,
         struct CMouseProcessor::RawMouseEvent *a2)

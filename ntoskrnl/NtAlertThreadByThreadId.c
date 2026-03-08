@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtAlertThreadByThreadId @ 0x14075F5B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeAlertThreadByThreadId @ 0x1402D52B8 (KeAlertThreadByThreadId.c)
+ *     PsLookupThreadByThreadId @ 0x1406DBE00 (PsLookupThreadByThreadId.c)
+ */
+
 NTSTATUS __fastcall NtAlertThreadByThreadId(void *a1)
 {
   struct _KTHREAD *CurrentThread; // rbx

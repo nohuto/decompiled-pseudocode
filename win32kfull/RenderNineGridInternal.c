@@ -1,3 +1,16 @@
+/*
+ * XREFs of RenderNineGridInternal @ 0x1C0080D30
+ * Callers:
+ *     RenderNineGrid @ 0x1C0080A1C (RenderNineGrid.c)
+ * Callees:
+ *     DNG_StretchCol @ 0x1C00034CC (DNG_StretchCol.c)
+ *     DNG_DrawRow @ 0x1C0081850 (DNG_DrawRow.c)
+ *     DNG_InitStretch @ 0x1C0081ACC (DNG_InitStretch.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?DNG_CopyMemory@@YAHPEAU_DNGINTERNALDATA@@PEAX1J@Z @ 0x1C014D9F6 (-DNG_CopyMemory@@YAHPEAU_DNGINTERNALDATA@@PEAX1J@Z.c)
+ */
+
 int __fastcall RenderNineGridInternal(
         __int64 a1,
         __int64 a2,

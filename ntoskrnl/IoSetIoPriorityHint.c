@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoSetIoPriorityHint @ 0x1402CCC60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall IoSetIoPriorityHint(PIRP Irp, IO_PRIORITY_HINT PriorityHint)
 {
   if ( (unsigned int)PriorityHint >= MaxIoPriorityTypes )

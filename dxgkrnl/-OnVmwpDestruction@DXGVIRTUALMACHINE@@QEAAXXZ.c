@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnVmwpDestruction@DXGVIRTUALMACHINE@@QEAAXXZ @ 0x1C00559F8
+ * Callers:
+ *     ?DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z @ 0x1C01A6B80 (-DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z.c)
+ * Callees:
+ *     ?DestroyVirtualMachine@DXGVIRTUALMACHINE@@QEAAXXZ @ 0x1C033EE68 (-DestroyVirtualMachine@DXGVIRTUALMACHINE@@QEAAXXZ.c)
+ */
+
 void __fastcall DXGVIRTUALMACHINE::OnVmwpDestruction(DXGVIRTUALMACHINE *this)
 {
   void *v2; // rcx

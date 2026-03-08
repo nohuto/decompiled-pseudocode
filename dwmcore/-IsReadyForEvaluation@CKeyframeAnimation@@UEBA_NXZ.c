@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsReadyForEvaluation@CKeyframeAnimation@@UEBA_NXZ @ 0x1800DFFC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CKeyframeAnimation::IsReadyForEvaluation(CKeyframeAnimation *this)
 {
   bool result; // al

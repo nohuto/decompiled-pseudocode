@@ -1,3 +1,16 @@
+/*
+ * XREFs of AlpcpReleaseAttributes @ 0x1407CA744
+ * Callers:
+ *     AlpcpAcceptConnectPort @ 0x140713844 (AlpcpAcceptConnectPort.c)
+ *     AlpcMessageCleanupProcedure @ 0x1407CA690 (AlpcMessageCleanupProcedure.c)
+ *     AlpcpCaptureAttributes @ 0x1407CAAD0 (AlpcpCaptureAttributes.c)
+ *     AlpcpSendMessage @ 0x1407CAFB0 (AlpcpSendMessage.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     AlpcpDereferenceBlobEx @ 0x14071550C (AlpcpDereferenceBlobEx.c)
+ *     AlpcpReleaseViewAttribute @ 0x14078CD78 (AlpcpReleaseViewAttribute.c)
+ */
+
 unsigned __int64 __fastcall AlpcpReleaseAttributes(_QWORD *a1)
 {
   ULONG_PTR v2; // rcx

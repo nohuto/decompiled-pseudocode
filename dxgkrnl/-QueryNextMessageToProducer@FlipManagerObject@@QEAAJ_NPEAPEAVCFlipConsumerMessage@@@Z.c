@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?QueryNextMessageToProducer@FlipManagerObject@@QEAAJ_NPEAPEAVCFlipConsumerMessage@@@Z @ 0x1C007F61C
+ * Callers:
+ *     NtFlipObjectQueryNextMessageToProducer @ 0x1C0080970 (NtFlipObjectQueryNextMessageToProducer.c)
+ *     NtFlipObjectReadNextMessageToProducer @ 0x1C0080A70 (NtFlipObjectReadNextMessageToProducer.c)
+ * Callees:
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000E098 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C000E344 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?Dequeue@?$CFlipObjectQueue@VCFlipConsumerMessage@@@@QEAAPEAVCFlipConsumerMessage@@XZ @ 0x1C0087378 (-Dequeue@-$CFlipObjectQueue@VCFlipConsumerMessage@@@@QEAAPEAVCFlipConsumerMessage@@XZ.c)
+ */
+
 __int64 __fastcall FlipManagerObject::QueryNextMessageToProducer(
         FlipManagerObject *this,
         char a2,

@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtUserUnhookWinEvent @ 0x1C00D23D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0EnterLeaveCritByVelocity@@QEAA@W4CritOptType@@W4HandleToObjILCheck@@@Z @ 0x1C00399AC (--0EnterLeaveCritByVelocity@@QEAA@W4CritOptType@@W4HandleToObjILCheck@@@Z.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     _UnhookWinEvent @ 0x1C00D24FC (_UnhookWinEvent.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall NtUserUnhookWinEvent(__int64 a1)
 {
   int v2; // esi

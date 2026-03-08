@@ -1,3 +1,11 @@
+/*
+ * XREFs of PipDependencyCopyEdge @ 0x1409516D0
+ * Callers:
+ *     IoDuplicateDependency @ 0x140951200 (IoDuplicateDependency.c)
+ * Callees:
+ *     PipAddDependencyEdgeBetweenNodes @ 0x140394528 (PipAddDependencyEdgeBetweenNodes.c)
+ */
+
 __int64 __fastcall PipDependencyCopyEdge(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // rdi

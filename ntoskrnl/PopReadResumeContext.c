@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopReadResumeContext @ 0x140985D88
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ * Callees:
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopReadPagesFromHiberFile @ 0x140985B2C (PopReadPagesFromHiberFile.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopReadResumeContext(_DWORD *a1, _QWORD *a2)
 {
   _DWORD *v2; // rdi

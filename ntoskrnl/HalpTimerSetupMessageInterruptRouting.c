@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpTimerSetupMessageInterruptRouting @ 0x140507398
+ * Callers:
+ *     HalpTimerConfigureInterrupt @ 0x140379C34 (HalpTimerConfigureInterrupt.c)
+ * Callees:
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpTimerSetupMessageInterruptRouting(__int64 a1)
 {
   __int64 InternalData; // rax

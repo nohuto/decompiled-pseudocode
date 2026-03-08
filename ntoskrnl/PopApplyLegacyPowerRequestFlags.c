@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopApplyLegacyPowerRequestFlags @ 0x1402B8C40
+ * Callers:
+ *     PoRegisterSystemState @ 0x14058B800 (PoRegisterSystemState.c)
+ *     NtSetThreadExecutionState @ 0x14073A9D0 (NtSetThreadExecutionState.c)
+ * Callees:
+ *     PoClearPowerRequest @ 0x1402B9010 (PoClearPowerRequest.c)
+ *     PoSetPowerRequest @ 0x1402BBD20 (PoSetPowerRequest.c)
+ *     PopQueueWorkItem @ 0x1402BCCB4 (PopQueueWorkItem.c)
+ *     PopPowerRequestEvaluatePendingRequestStatus @ 0x1402BCCE4 (PopPowerRequestEvaluatePendingRequestStatus.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 int __fastcall PopApplyLegacyPowerRequestFlags(PVOID Object, char a2, char a3)
 {
   int v3; // ebx

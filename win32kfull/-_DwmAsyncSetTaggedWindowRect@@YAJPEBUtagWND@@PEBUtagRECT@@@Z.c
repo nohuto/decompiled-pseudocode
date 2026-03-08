@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_DwmAsyncSetTaggedWindowRect@@YAJPEBUtagWND@@PEBUtagRECT@@@Z @ 0x1C01F8898
+ * Callers:
+ *     NtUserSetWindowCompositionAttribute @ 0x1C0041D90 (NtUserSetWindowCompositionAttribute.c)
+ * Callees:
+ *     DwmAsyncSetTaggedWindowRect @ 0x1C02704D0 (DwmAsyncSetTaggedWindowRect.c)
+ */
+
 __int64 __fastcall _DwmAsyncSetTaggedWindowRect(const struct tagWND *a1, const struct tagRECT *a2)
 {
   unsigned int v2; // ebx

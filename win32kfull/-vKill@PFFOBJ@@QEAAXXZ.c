@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vKill@PFFOBJ@@QEAAXXZ @ 0x1C00B75D8
+ * Callers:
+ *     ?bUnloadAllButPermanentFonts@PFTOBJ@@QEAAHH@Z @ 0x1C00B7040 (-bUnloadAllButPermanentFonts@PFTOBJ@@QEAAHH@Z.c)
+ *     ?bDeleteLoadRef@PFFOBJ@@QEAAHKPEAUtagPvtData@@PEAH@Z @ 0x1C0116608 (-bDeleteLoadRef@PFFOBJ@@QEAAHKPEAUtagPvtData@@PEAH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall PFFOBJ::vKill(PFFOBJ *this)
 {
   __int64 v2; // rcx

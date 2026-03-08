@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CD3DDevice@@EEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18028AE20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CD3DDevice::HrFindInterface(CD3DDevice *this, const struct _GUID *a2, void **a3)
 {
   __int64 result; // rax

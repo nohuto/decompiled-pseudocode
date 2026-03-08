@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CRapidHpdInfo@@AEAA@PEAVCMonitorTopology@@AEBU_GUID@@@Z @ 0x1C023061C
+ * Callers:
+ *     ?ProcessModeChange@RapidHPD@@YA_NW4_DXGK_RAPID_HPD_TYPE@@PEAU_GUID@@PEAVCMonitorTopology@@@Z @ 0x1C00F7960 (-ProcessModeChange@RapidHPD@@YA_NW4_DXGK_RAPID_HPD_TYPE@@PEAU_GUID@@PEAVCMonitorTopology@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C00200C4 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ */
+
 CRapidHpdInfo *__fastcall CRapidHpdInfo::CRapidHpdInfo(
         CRapidHpdInfo *this,
         struct CMonitorTopology *a2,

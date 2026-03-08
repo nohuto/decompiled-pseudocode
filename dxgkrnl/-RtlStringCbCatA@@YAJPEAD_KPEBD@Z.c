@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RtlStringCbCatA@@YAJPEAD_KPEBD@Z @ 0x1C004C0F8
+ * Callers:
+ *     ?PrepareDripsBlockerProcessName@DripsBlockerTrackingHelper@@QEAAJPEBDPEAU_EPROCESS@@PEADIPEA_K@Z @ 0x1C0302814 (-PrepareDripsBlockerProcessName@DripsBlockerTrackingHelper@@QEAAJPEBDPEAU_EPROCESS@@PEADIPEA_K@Z.c)
+ * Callees:
+ *     RtlStringLengthWorkerA @ 0x1C00295D6 (RtlStringLengthWorkerA.c)
+ *     RtlStringCopyWorkerA @ 0x1C004C23C (RtlStringCopyWorkerA.c)
+ */
+
 int __fastcall RtlStringCbCatA(char *a1, size_t a2, const char *a3)
 {
   int result; // eax

@@ -1,3 +1,27 @@
+/*
+ * XREFs of UsbhQueueWorkItemWithRetry @ 0x1C000B390
+ * Callers:
+ *     UsbhSS_SignalPdoWake @ 0x1C001A04C (UsbhSS_SignalPdoWake.c)
+ *     UsbhHubIsr @ 0x1C001D8F0 (UsbhHubIsr.c)
+ *     UsbhIsrRetryTimer @ 0x1C0038DD0 (UsbhIsrRetryTimer.c)
+ *     UsbhResetIrqPipeRetryTimer @ 0x1C0039480 (UsbhResetIrqPipeRetryTimer.c)
+ *     UsbHubhInitTimeoutTimer @ 0x1C0041D10 (UsbHubhInitTimeoutTimer.c)
+ *     UsbhInitCallback @ 0x1C00437F0 (UsbhInitCallback.c)
+ *     UsbhInitRetryTimer @ 0x1C0043B10 (UsbhInitRetryTimer.c)
+ *     UsbhIdleIrpRetryTimer @ 0x1C0057BC0 (UsbhIdleIrpRetryTimer.c)
+ *     UsbhIdleIrp_NoIrp @ 0x1C00580F0 (UsbhIdleIrp_NoIrp.c)
+ *     UsbhSS_WakeIrpRetryTimer @ 0x1C0058A00 (UsbhSS_WakeIrpRetryTimer.c)
+ * Callees:
+ *     UsbhEnableTimerObject @ 0x1C0008770 (UsbhEnableTimerObject.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhAllocWorkItem @ 0x1C001E570 (UsbhAllocWorkItem.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C002E788 (WPP_RECORDER_SF_dd.c)
+ */
+
 __int64 __fastcall UsbhQueueWorkItemWithRetry(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExReleaseFastResourceExclusive @ 0x140607BF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExpReleaseFastResourceExclusive @ 0x1403C5EA4 (ExpReleaseFastResourceExclusive.c)
+ *     ExReleaseFastResourceExclusive2 @ 0x14040EDFC (ExReleaseFastResourceExclusive2.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall ExReleaseFastResourceExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)
 {
   unsigned __int8 CurrentIrql; // al

@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkEngWatchVisRgnChange @ 0x1C014D7E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ */
+
 void __fastcall DxgkEngWatchVisRgnChange(HDC a1, int a2)
 {
   _QWORD v3[3]; // [rsp+20h] [rbp-18h] BYREF

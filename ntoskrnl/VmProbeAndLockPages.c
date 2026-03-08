@@ -1,3 +1,13 @@
+/*
+ * XREFs of VmProbeAndLockPages @ 0x1405F67A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiProbeAndLockPages @ 0x140242114 (MiProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x14027C0C0 (MmUnlockPages.c)
+ *     MmUpdateMdlTrackerForMdlSwitch @ 0x14061AFA8 (MmUpdateMdlTrackerForMdlSwitch.c)
+ */
+
 __int64 __fastcall VmProbeAndLockPages(PMDL MemoryDescriptorList, char a2, unsigned int a3)
 {
   unsigned int v5; // ebx

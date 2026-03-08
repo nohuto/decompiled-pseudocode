@@ -1,3 +1,15 @@
+/*
+ * XREFs of _lambda_ac7822d55a092b4fdea37af52b75bf92_::operator() @ 0x1C0162008
+ * Callers:
+ *     _DXGKCALLONEXIT__lambda_ac7822d55a092b4fdea37af52b75bf92____::_2_::DXGKCALLONEXIT::_DXGKCALLONEXIT @ 0x1C002445C (_DXGKCALLONEXIT__lambda_ac7822d55a092b4fdea37af52b75bf92____--_2_--DXGKCALLONEXIT--_DXGKCALLONEX.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C000AA90 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@U2@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@4444@Z @ 0x1C003E624 (--$Write@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@U2@U2@U2@U2@@-$_tlgWriteTemplate@$$A6.c)
+ *     McTemplateK0qtqqq_EtwWriteTransfer @ 0x1C0040758 (McTemplateK0qtqqq_EtwWriteTransfer.c)
+ *     DxgkWriteDiagEntry @ 0x1C01BA750 (DxgkWriteDiagEntry.c)
+ */
+
 char __fastcall lambda_ac7822d55a092b4fdea37af52b75bf92_::operator()(int **a1)
 {
   int *v1; // rsi

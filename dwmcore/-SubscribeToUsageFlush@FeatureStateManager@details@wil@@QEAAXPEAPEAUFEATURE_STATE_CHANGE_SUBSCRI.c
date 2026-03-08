@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SubscribeToUsageFlush@FeatureStateManager@details@wil@@QEAAXPEAPEAUFEATURE_STATE_CHANGE_SUBSCRIPTION__@@P6AXPEAX@Z@Z @ 0x1800AF4CC
+ * Callers:
+ *     ?WilApiImpl_SubscribeFeatureStateChangeNotification@details@wil@@YAXPEAPEAUFEATURE_STATE_CHANGE_SUBSCRIPTION__@@P6AXPEAX@Z1@Z @ 0x1800AFAE0 (-WilApiImpl_SubscribeFeatureStateChangeNotification@details@wil@@YAXPEAPEAUFEATURE_STATE_CHANGE_.c)
+ * Callees:
+ *     ?EnsureStateData@FeatureStateManager@details@wil@@AEAA_NXZ @ 0x1800AF57C (-EnsureStateData@FeatureStateManager@details@wil@@AEAA_NXZ.c)
+ *     ?ProcessShutdownInProgress@wil@@YA_NXZ @ 0x1800AF9E0 (-ProcessShutdownInProgress@wil@@YA_NXZ.c)
+ *     ?SubscribeUnderLock@SubscriptionList@details_abi@wil@@QEAAXPEAPEAUFEATURE_STATE_CHANGE_SUBSCRIPTION__@@P6AXPEAX@Z1@Z @ 0x1800AFE8C (-SubscribeUnderLock@SubscriptionList@details_abi@wil@@QEAAXPEAPEAUFEATURE_STATE_CHANGE_SUBSCRIPT.c)
+ *     ?EnsureSubscribedToProcessWideUsageFlushUnderLock@FeatureStateManager@details@wil@@AEAAXXZ @ 0x180103354 (-EnsureSubscribedToProcessWideUsageFlushUnderLock@FeatureStateManager@details@wil@@AEAAXXZ.c)
+ */
+
 void __fastcall wil::details::FeatureStateManager::SubscribeToUsageFlush(
         RTL_SRWLOCK *this,
         struct FEATURE_STATE_CHANGE_SUBSCRIPTION__ **a2,

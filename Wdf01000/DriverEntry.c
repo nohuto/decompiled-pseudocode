@@ -1,3 +1,16 @@
+/*
+ * XREFs of DriverEntry @ 0x1C00172E0
+ * Callers:
+ *     GsDriverEntry @ 0x1C00BD010 (GsDriverEntry.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ *     memset @ 0x1C000AC00 (memset.c)
+ *     ?FxLibraryCleanup@@YAXXZ @ 0x1C0016C00 (-FxLibraryCleanup@@YAXXZ.c)
+ *     ?FxLibraryCreateDevice@@YAJPEAU_UNICODE_STRING@@@Z @ 0x1C0016C4C (-FxLibraryCreateDevice@@YAJPEAU_UNICODE_STRING@@@Z.c)
+ *     ?WdfWriteKmdfVersionToRegistry@@YAXPEAU_DRIVER_OBJECT@@PEAU_UNICODE_STRING@@@Z @ 0x1C0016F18 (-WdfWriteKmdfVersionToRegistry@@YAXPEAU_DRIVER_OBJECT@@PEAU_UNICODE_STRING@@@Z.c)
+ *     wil_InitializeFeatureStaging @ 0x1C00BD0AC (wil_InitializeFeatureStaging.c)
+ */
+
 __int64 __fastcall DriverEntry(_DRIVER_OBJECT *DriverObject, _UNICODE_STRING *RegistryPath)
 {
   int v4; // ebx

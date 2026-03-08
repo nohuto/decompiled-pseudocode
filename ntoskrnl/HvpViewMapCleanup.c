@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvpViewMapCleanup @ 0x14078C304
+ * Callers:
+ *     HvHiveCleanup @ 0x1407A56B8 (HvHiveCleanup.c)
+ * Callees:
+ *     CmSiCloseSection @ 0x1402F8438 (CmSiCloseSection.c)
+ *     HvpViewMapDeleteViewTreeNode @ 0x14074C624 (HvpViewMapDeleteViewTreeNode.c)
+ */
+
 NTSTATUS __fastcall HvpViewMapCleanup(__int64 a1)
 {
   __int64 v1; // rbx

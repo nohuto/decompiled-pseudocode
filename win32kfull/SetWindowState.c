@@ -1,3 +1,12 @@
+/*
+ * XREFs of SetWindowState @ 0x1C0226960
+ * Callers:
+ *     NtUserSetWindowState @ 0x1C01DE7D0 (NtUserSetWindowState.c)
+ * Callees:
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     ?ValidateState@@YAHK@Z @ 0x1C02268D8 (-ValidateState@@YAHK@Z.c)
+ */
+
 __int64 __fastcall SetWindowState(__int64 a1, __int16 a2)
 {
   unsigned __int16 v2; // r10

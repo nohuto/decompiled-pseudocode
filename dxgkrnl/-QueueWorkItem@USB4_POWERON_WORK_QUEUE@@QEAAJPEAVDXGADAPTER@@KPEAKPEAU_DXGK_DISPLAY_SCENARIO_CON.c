@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?QueueWorkItem@USB4_POWERON_WORK_QUEUE@@QEAAJPEAVDXGADAPTER@@KPEAKPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C03C5F48
+ * Callers:
+ *     MonitorEnableDisableMonitor @ 0x1C01E18AC (MonitorEnableDisableMonitor.c)
+ * Callees:
+ *     ??1MUTEX_LOCK@@QEAA@XZ @ 0x1C0004750 (--1MUTEX_LOCK@@QEAA@XZ.c)
+ *     ??0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z @ 0x1C00048E4 (--0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00070C4 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     DXGKCALLONEXIT__lambda_fc7202455dba02ed8d6fa3d1dee33716___ @ 0x1C0024404 (DXGKCALLONEXIT__lambda_fc7202455dba02ed8d6fa3d1dee33716___.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     ??_GUSB4_POWERON_WORK_CONTEXT@@QEAAPEAXI@Z @ 0x1C006BE2C (--_GUSB4_POWERON_WORK_CONTEXT@@QEAAPEAXI@Z.c)
+ *     _lambda_fc7202455dba02ed8d6fa3d1dee33716_::operator() @ 0x1C03C5858 (_lambda_fc7202455dba02ed8d6fa3d1dee33716_--operator().c)
+ */
+
 __int64 __fastcall USB4_POWERON_WORK_QUEUE::QueueWorkItem(
         USB4_POWERON_WORK_QUEUE *this,
         struct DXGADAPTER *a2,

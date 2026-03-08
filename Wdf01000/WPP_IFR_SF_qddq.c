@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_IFR_SF_qddq @ 0x1C00297F0
+ * Callers:
+ *     ?QueryInstance@FxWmiInstanceExternal@@MEAAJKPEAXPEAK@Z @ 0x1C0028EC0 (-QueryInstance@FxWmiInstanceExternal@@MEAAJKPEAXPEAK@Z.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_qddq(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 _a1,

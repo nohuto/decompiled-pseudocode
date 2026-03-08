@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DpiStartSuspendingAdapter@@YAEPEAU_FDO_CONTEXT@@@Z @ 0x1C001AA78
+ * Callers:
+ *     DpiPowerArbiterThread @ 0x1C0210150 (DpiPowerArbiterThread.c)
+ * Callees:
+ *     DpiSetDevicePowerTransitionState @ 0x1C001AFB8 (DpiSetDevicePowerTransitionState.c)
+ */
+
 char __fastcall DpiStartSuspendingAdapter(KSPIN_LOCK *a1)
 {
   char v2; // bl

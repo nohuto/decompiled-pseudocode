@@ -1,3 +1,26 @@
+/*
+ * XREFs of ExpQuerySystemPerformanceInformation @ 0x14071F960
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     ExQueryPoolUsage @ 0x14029971C (ExQueryPoolUsage.c)
+ *     MmGetSystemPageCounts @ 0x140299844 (MmGetSystemPageCounts.c)
+ *     MmGetProcessPartitionId @ 0x140299858 (MmGetProcessPartitionId.c)
+ *     MmGetWorkingSetLeafSize @ 0x140299868 (MmGetWorkingSetLeafSize.c)
+ *     MmGetSharedCommit @ 0x140299934 (MmGetSharedCommit.c)
+ *     MmGetResidentAvailablePages @ 0x140299944 (MmGetResidentAvailablePages.c)
+ *     MmGetTotalCommittedPages @ 0x140299964 (MmGetTotalCommittedPages.c)
+ *     MmGetTotalCommitLimit @ 0x140299984 (MmGetTotalCommitLimit.c)
+ *     MmGetPeakCommitment @ 0x1402999A4 (MmGetPeakCommitment.c)
+ *     MmGetAvailablePages @ 0x1402999C4 (MmGetAvailablePages.c)
+ *     MiMaximumCommitmentAvailable @ 0x1402999E4 (MiMaximumCommitmentAvailable.c)
+ *     MiFreePoolPagesLeft @ 0x140299A08 (MiFreePoolPagesLeft.c)
+ *     MmGetNumberOfFreeSystemPtes @ 0x140299A38 (MmGetNumberOfFreeSystemPtes.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsQueryRuntimeProcess @ 0x140720A5C (PsQueryRuntimeProcess.c)
+ */
+
 void *__fastcall ExpQuerySystemPerformanceInformation(unsigned int a1, void *a2, unsigned int a3)
 {
   __int64 v3; // r14

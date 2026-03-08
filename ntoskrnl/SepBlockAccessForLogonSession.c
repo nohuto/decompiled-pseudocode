@@ -1,3 +1,14 @@
+/*
+ * XREFs of SepBlockAccessForLogonSession @ 0x14067F8BC
+ * Callers:
+ *     SepRmInteractiveLogoffLogonSessionCompletedWrkr @ 0x14067F890 (SepRmInteractiveLogoffLogonSessionCompletedWrkr.c)
+ * Callees:
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 __int64 __fastcall SepBlockAccessForLogonSession(_DWORD *a1)
 {
   unsigned __int64 v2; // rdx

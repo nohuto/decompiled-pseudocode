@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Initialize@?$CTypeIsolation@$0MAAA@$0MA@@NSInstrumentation@@IEAA_NXZ @ 0x1C00C4E50
+ * Callers:
+ *     ?Create@?$TypeIsolationFactory@V?$CTypeIsolation@$0MAAA@$0MA@@NSInstrumentation@@V?$CLookAsideTypeIsolation@$0JAAA@$0JA@@2@V?$CTypeIsolation@$0BEAAA@$0BEA@@2@V?$CTypeIsolation@$0NPAAA@$0NPA@@2@V?$CTypeIsolation@$0IAAA@$0IA@@2@V?$CTypeIsolation@$0DJAAA@$0DJA@@2@@@SA_NPEAPEAE@Z @ 0x1C00C4DD4 (-Create@-$TypeIsolationFactory@V-$CTypeIsolation@$0MAAA@$0MA@@NSInstrumentation@@V-$CLookAsideTy.c)
+ * Callees:
+ *     ?PlatformDebugModeEnabled@NSInstrumentation@@YA_NXZ @ 0x1C002B480 (-PlatformDebugModeEnabled@NSInstrumentation@@YA_NXZ.c)
+ *     ?Create@?$CSectionEntry@$0MAAA@$0MA@@NSInstrumentation@@SAPEAV12@XZ @ 0x1C00C4ED0 (-Create@-$CSectionEntry@$0MAAA@$0MA@@NSInstrumentation@@SAPEAV12@XZ.c)
+ */
+
 char __fastcall NSInstrumentation::CTypeIsolation<49152,192>::Initialize(__int64 a1)
 {
   _QWORD *v2; // rax

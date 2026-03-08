@@ -1,3 +1,16 @@
+/*
+ * XREFs of MmGrowKernelStackEx @ 0x1402F61F0
+ * Callers:
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x140315700 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     KxSwitchKernelStackCallout @ 0x14041AD00 (KxSwitchKernelStackCallout.c)
+ *     MmGrowKernelStack @ 0x14062B2A0 (MmGrowKernelStack.c)
+ * Callees:
+ *     MI_GET_NODE_FROM_VALID_PTE @ 0x1402F63E4 (MI_GET_NODE_FROM_VALID_PTE.c)
+ *     MiAllocateKernelStackPages @ 0x14031D830 (MiAllocateKernelStackPages.c)
+ *     MiChargeResident @ 0x140348DE8 (MiChargeResident.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MmGrowKernelStackEx(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rsi

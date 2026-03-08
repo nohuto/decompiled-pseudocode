@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserPaintMenuBar @ 0x1C01D9050
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxPaintMenuBar @ 0x1C02392F4 (xxxPaintMenuBar.c)
+ */
+
 __int64 __fastcall NtUserPaintMenuBar(__int64 a1, __int64 a2, int a3, int a4, int a5, int a6)
 {
   __int64 v10; // rax

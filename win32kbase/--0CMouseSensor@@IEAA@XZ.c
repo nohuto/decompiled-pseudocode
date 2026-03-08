@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CMouseSensor@@IEAA@XZ @ 0x1C0096430
+ * Callers:
+ *     ?CreateInstance@CMouseSensor@@SAJPEAPEAV1@@Z @ 0x1C009622C (-CreateInstance@CMouseSensor@@SAJPEAPEAV1@@Z.c)
+ * Callees:
+ *     ??0CBaseInput@@IEAA@KKW4_InputSensorName@@@Z @ 0x1C0096768 (--0CBaseInput@@IEAA@KKW4_InputSensorName@@@Z.c)
+ */
+
 CMouseSensor *__fastcall CMouseSensor::CMouseSensor(CMouseSensor *this)
 {
   CMouseSensor *result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HmgReferenceCheckLock @ 0x1C00BEDF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C004AE10 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C004B5B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ */
+
 __int64 __fastcall HmgReferenceCheckLock(__int64 a1, char a2)
 {
   __int16 v3; // edi^2

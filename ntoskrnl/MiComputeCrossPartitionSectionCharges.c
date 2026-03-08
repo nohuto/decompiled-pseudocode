@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiComputeCrossPartitionSectionCharges @ 0x140668AE8
+ * Callers:
+ *     MiReferenceActiveSubsection @ 0x1403323F0 (MiReferenceActiveSubsection.c)
+ *     MiDecrementSubsectionViewCount @ 0x140334C10 (MiDecrementSubsectionViewCount.c)
+ *     MiReleaseControlAreaCharges @ 0x14034C8D8 (MiReleaseControlAreaCharges.c)
+ * Callees:
+ *     MiGetCommittedPages @ 0x14034C3F0 (MiGetCommittedPages.c)
+ */
+
 __int64 __fastcall MiComputeCrossPartitionSectionCharges(__int64 *a1)
 {
   __int64 v2; // rcx

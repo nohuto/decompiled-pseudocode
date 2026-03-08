@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpVpptInitializePhysicalTimer @ 0x1405079F4
+ * Callers:
+ *     HalpTimerInitializeVpptClockTimer @ 0x140506B84 (HalpTimerInitializeVpptClockTimer.c)
+ * Callees:
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140379818 (HalpAcquireHighLevelLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExtEnvCriticalFailure @ 0x14051D068 (ExtEnvCriticalFailure.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 HalpVpptInitializePhysicalTimer()
 {
   int v0; // ecx

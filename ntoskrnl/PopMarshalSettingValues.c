@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopMarshalSettingValues @ 0x14073D054
+ * Callers:
+ *     PopDispatchNotificationsToList @ 0x14073CE68 (PopDispatchNotificationsToList.c)
+ *     PopGetSettingValue @ 0x14073CFC0 (PopGetSettingValue.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopMarshalSettingValues(__int64 a1, _DWORD *a2, unsigned int a3, unsigned int *a4)
 {
   unsigned int v7; // edi

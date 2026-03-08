@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Copy_32@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802BB010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall Copy_32(const struct PipelineParams *a1, const struct ScanOpParams *a2)
 {
   int *v2; // r8

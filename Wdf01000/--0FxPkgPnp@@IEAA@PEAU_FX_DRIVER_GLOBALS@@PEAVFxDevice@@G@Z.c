@@ -1,3 +1,16 @@
+/*
+ * XREFs of ??0FxPkgPnp@@IEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@G@Z @ 0x1C0070A6C
+ * Callers:
+ *     ??0FxPkgPdo@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@@Z @ 0x1C0068618 (--0FxPkgPdo@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@@Z.c)
+ *     ??0FxPkgFdo@@AEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@@Z @ 0x1C0077908 (--0FxPkgFdo@@AEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@@Z.c)
+ * Callees:
+ *     memset @ 0x1C000AC00 (memset.c)
+ *     ??0FxWaitLockInternal@@QEAA@XZ @ 0x1C004FF48 (--0FxWaitLockInternal@@QEAA@XZ.c)
+ *     ??0FxPackage@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@G@Z @ 0x1C0067CD0 (--0FxPackage@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@G@Z.c)
+ *     ??0FxEventQueue@@QEAA@E@Z @ 0x1C00811C4 (--0FxEventQueue@@QEAA@E@Z.c)
+ *     ??0FxThreadedEventQueue@@QEAA@E@Z @ 0x1C008120C (--0FxThreadedEventQueue@@QEAA@E@Z.c)
+ */
+
 void __fastcall FxPkgPnp::FxPkgPnp(
         FxPkgPnp *this,
         _FX_DRIVER_GLOBALS *FxDriverGlobals,

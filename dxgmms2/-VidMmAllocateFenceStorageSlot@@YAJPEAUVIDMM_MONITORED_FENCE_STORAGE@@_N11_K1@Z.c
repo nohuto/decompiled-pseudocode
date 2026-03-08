@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidMmAllocateFenceStorageSlot@@YAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N11_K1@Z @ 0x1C00120F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AllocateFenceStorageSlot@VIDMM_GLOBAL@@SAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N11_K1@Z @ 0x1C00AACC8 (-AllocateFenceStorageSlot@VIDMM_GLOBAL@@SAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N11_K1@Z.c)
+ */
+
 __int64 __fastcall VidMmAllocateFenceStorageSlot(
         struct VIDMM_MONITORED_FENCE_STORAGE *a1,
         bool a2,

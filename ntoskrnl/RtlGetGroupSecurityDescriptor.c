@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlGetGroupSecurityDescriptor @ 0x140750C20
+ * Callers:
+ *     PipChangeDeviceObjectFromRegistryProperties @ 0x14074D328 (PipChangeDeviceObjectFromRegistryProperties.c)
+ *     LocalConvertSDToStringSD_Rev1 @ 0x14074F708 (LocalConvertSDToStringSD_Rev1.c)
+ *     IopGetSecurityDescriptorInformation @ 0x14083BD24 (IopGetSecurityDescriptorInformation.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x140878110 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     RtlReplaceSidInSd @ 0x1409B94C0 (RtlReplaceSidInSd.c)
+ *     CmpCopySaclToVirtualKey @ 0x140A186EC (CmpCopySaclToVirtualKey.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlGetGroupSecurityDescriptor(
         PSECURITY_DESCRIPTOR SecurityDescriptor,
         PSID *Group,

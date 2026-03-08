@@ -1,3 +1,23 @@
+/*
+ * XREFs of ACPIBuildSurpriseRemovedExtension @ 0x1C0013960
+ * Callers:
+ *     ACPIBuildSurpriseRemovedExtension @ 0x1C0013960 (ACPIBuildSurpriseRemovedExtension.c)
+ *     ACPIBusIrpRemoveDevice @ 0x1C0016C30 (ACPIBusIrpRemoveDevice.c)
+ *     ACPIBusIrpSurpriseRemoval @ 0x1C0017400 (ACPIBusIrpSurpriseRemoval.c)
+ *     ACPIFilterRemoveNonPresentDevices @ 0x1C0028FE8 (ACPIFilterRemoveNonPresentDevices.c)
+ * Callees:
+ *     ACPIDockFindCorrespondingDock @ 0x1C0009314 (ACPIDockFindCorrespondingDock.c)
+ *     ACPIDockIsDockDevice @ 0x1C0009A34 (ACPIDockIsDockDevice.c)
+ *     ACPIBuildProcessNotifyPepDeleteDevice @ 0x1C0010E04 (ACPIBuildProcessNotifyPepDeleteDevice.c)
+ *     ACPIBuildSurpriseRemovedExtension @ 0x1C0013960 (ACPIBuildSurpriseRemovedExtension.c)
+ *     ACPIDevicePowerFlushQueue @ 0x1C001EABC (ACPIDevicePowerFlushQueue.c)
+ *     ACPIExtListEnumNext @ 0x1C00263F4 (ACPIExtListEnumNext.c)
+ *     ACPIExtListStartEnum @ 0x1C00264F8 (ACPIExtListStartEnum.c)
+ *     ACPIExtListTestElement @ 0x1C0026554 (ACPIExtListTestElement.c)
+ *     ACPIInitDereferenceDeviceExtensionLocked @ 0x1C002D060 (ACPIInitDereferenceDeviceExtensionLocked.c)
+ *     ACPIInitRemoveDeviceExtension @ 0x1C002D5B4 (ACPIInitRemoveDeviceExtension.c)
+ */
+
 __int64 __fastcall ACPIBuildSurpriseRemovedExtension(ULONG_PTR a1)
 {
   __int64 CorrespondingDock; // rax

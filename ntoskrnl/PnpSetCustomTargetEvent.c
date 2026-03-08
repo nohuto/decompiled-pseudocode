@@ -1,3 +1,16 @@
+/*
+ * XREFs of PnpSetCustomTargetEvent @ 0x140688958
+ * Callers:
+ *     IoReportTargetDeviceChangeAsynchronous @ 0x140204780 (IoReportTargetDeviceChangeAsynchronous.c)
+ *     IoReportTargetDeviceChange @ 0x14087D430 (IoReportTargetDeviceChange.c)
+ *     PnpReportTargetDeviceChangeAsyncWorker @ 0x140953A50 (PnpReportTargetDeviceChangeAsyncWorker.c)
+ * Callees:
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PnpCreateDeviceEventEntry @ 0x140688A98 (PnpCreateDeviceEventEntry.c)
+ *     PnpInsertEventInQueue @ 0x140688D90 (PnpInsertEventInQueue.c)
+ */
+
 __int64 __fastcall PnpSetCustomTargetEvent(
         _QWORD *Object,
         __int64 a2,

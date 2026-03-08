@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspValidateJobAssignmentMemoryPartition @ 0x140700D44
+ * Callers:
+ *     PspAssignProcessToJob @ 0x1406FFA20 (PspAssignProcessToJob.c)
+ *     PspImplicitAssignProcessToJob @ 0x140797010 (PspImplicitAssignProcessToJob.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall PspValidateJobAssignmentMemoryPartition(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   __int64 v5; // rcx

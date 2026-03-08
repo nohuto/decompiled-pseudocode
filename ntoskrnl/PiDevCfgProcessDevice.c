@@ -1,3 +1,37 @@
+/*
+ * XREFs of PiDevCfgProcessDevice @ 0x140873308
+ * Callers:
+ *     PipProcessStartPhase3 @ 0x14068203C (PipProcessStartPhase3.c)
+ *     PiProcessNewDeviceNode @ 0x140685858 (PiProcessNewDeviceNode.c)
+ *     IopInitializeDeviceInstanceKey @ 0x14081CE14 (IopInitializeDeviceInstanceKey.c)
+ *     PiConfigureDevice @ 0x140956344 (PiConfigureDevice.c)
+ * Callees:
+ *     PnpDiagnosticTraceObject @ 0x140202BAC (PnpDiagnosticTraceObject.c)
+ *     PnpDiagnosticTraceObjectWithStatus @ 0x1402B146C (PnpDiagnosticTraceObjectWithStatus.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PipSetDevNodeUserFlags @ 0x140680EF0 (PipSetDevNodeUserFlags.c)
+ *     PipClearDevNodeUserFlags @ 0x1406831A8 (PipClearDevNodeUserFlags.c)
+ *     _CmGetDeviceRegProp @ 0x1406C9884 (_CmGetDeviceRegProp.c)
+ *     _CmIsRootEnumeratedDevice @ 0x1406CD550 (_CmIsRootEnumeratedDevice.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     PiDevCfgFreeDeviceContext @ 0x14078AD4C (PiDevCfgFreeDeviceContext.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     PipClearDevNodeProblem @ 0x14086666C (PipClearDevNodeProblem.c)
+ *     PipSetDevNodeProblem @ 0x1408667BC (PipSetDevNodeProblem.c)
+ *     PiDevCfgQueryObjectProperties @ 0x14086AC20 (PiDevCfgQueryObjectProperties.c)
+ *     PiDevCfgConfigureDevice @ 0x14087384C (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgSetObjectProperty @ 0x140874858 (PiDevCfgSetObjectProperty.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x140875198 (PiDevCfgLogDeviceConfigured.c)
+ *     PiDevCfgSetDeviceRegProp @ 0x140875718 (PiDevCfgSetDeviceRegProp.c)
+ *     PiDevCfgInitDeviceContext @ 0x140876144 (PiDevCfgInitDeviceContext.c)
+ *     PiDevCfgFindDeviceDriver @ 0x14087867C (PiDevCfgFindDeviceDriver.c)
+ *     PiDevCfgFreeDriverNode @ 0x14087DAA0 (PiDevCfgFreeDriverNode.c)
+ *     PnpUpdateRebootRequiredReason @ 0x140955E50 (PnpUpdateRebootRequiredReason.c)
+ *     PiDevCfgMigrateRootDevice @ 0x14095BC74 (PiDevCfgMigrateRootDevice.c)
+ *     PiDevCfgRequestDriverConfigurations @ 0x14095CA98 (PiDevCfgRequestDriverConfigurations.c)
+ */
+
 __int64 __fastcall PiDevCfgProcessDevice(__int64 a1, void *a2, char a3)
 {
   int v3; // r12d

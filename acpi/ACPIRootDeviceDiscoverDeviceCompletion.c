@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIRootDeviceDiscoverDeviceCompletion @ 0x1C003CE00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qD @ 0x1C001B508 (WPP_RECORDER_SF_qD.c)
+ */
+
 LONG __fastcall ACPIRootDeviceDiscoverDeviceCompletion(__int64 a1, int a2, __int64 a3)
 {
   char v5; // [rsp+30h] [rbp-18h]

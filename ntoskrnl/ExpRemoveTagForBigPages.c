@@ -1,3 +1,19 @@
+/*
+ * XREFs of ExpRemoveTagForBigPages @ 0x1402B6920
+ * Callers:
+ *     ExFreeHeapPool @ 0x1402B61C0 (ExFreeHeapPool.c)
+ *     ExQueryPoolBlockSize @ 0x1406055A0 (ExQueryPoolBlockSize.c)
+ *     ExpCleanupBigTag @ 0x1406056C8 (ExpCleanupBigTag.c)
+ *     ExpSizeHeapPool @ 0x14060D0F0 (ExpSizeHeapPool.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ * Callees:
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14030AD60 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140462F92 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140608D0C (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ */
+
 __int64 __fastcall ExpRemoveTagForBigPages(
         ULONG_PTR BugCheckParameter2,
         int a2,

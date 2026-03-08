@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspQueryJobHierarchyInterferenceCount @ 0x1409AF690
+ * Callers:
+ *     NtQueryInformationJobObject @ 0x1406F9480 (NtQueryInformationJobObject.c)
+ * Callees:
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406FB7C8 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspUnlockJob @ 0x1406FBF7C (PspUnlockJob.c)
+ *     PspLockJobShared @ 0x1406FBFC0 (PspLockJobShared.c)
+ */
+
 __int64 __fastcall PspQueryJobHierarchyInterferenceCount(_QWORD *Object, _QWORD *a2)
 {
   struct _KTHREAD *CurrentThread; // rbx

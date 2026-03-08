@@ -1,3 +1,13 @@
+/*
+ * XREFs of Endpoint_UcxEvtEndpointEnableForwardProgress @ 0x1C003C720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ddd @ 0x1C0017FB0 (WPP_RECORDER_SF_ddd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     TR_EnableForwardProgress_Internal @ 0x1C0041604 (TR_EnableForwardProgress_Internal.c)
+ */
+
 __int64 __fastcall Endpoint_UcxEvtEndpointEnableForwardProgress(__int64 a1, unsigned int a2)
 {
   __int64 v3; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?PowerStartSelfManagedIo@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C006FD40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ?ResumeProcessingForPower@FxPkgIo@@QEAAJXZ @ 0x1C0062B40 (-ResumeProcessingForPower@FxPkgIo@@QEAAJXZ.c)
+ *     ?PowerSendPowerUpEvents@FxPkgPnp@@IEAAXXZ @ 0x1C006FC30 (-PowerSendPowerUpEvents@FxPkgPnp@@IEAAXXZ.c)
+ *     ?PowerSetDevicePowerState@FxPkgPnp@@IEAAXW4_WDF_POWER_DEVICE_STATE@@@Z @ 0x1C006FCDC (-PowerSetDevicePowerState@FxPkgPnp@@IEAAXW4_WDF_POWER_DEVICE_STATE@@@Z.c)
+ *     ?ProcessEvent@FxSelfManagedIoMachine@@IEAAJW4FxSelfManagedIoEvents@@PEAW4FxCxCallbackProgress@@@Z @ 0x1C0081AA0 (-ProcessEvent@FxSelfManagedIoMachine@@IEAAJW4FxSelfManagedIoEvents@@PEAW4FxCxCallbackProgress@@@.c)
+ */
+
 __int64 __fastcall FxPkgPnp::PowerStartSelfManagedIo(FxPkgPnp *This)
 {
   FxSelfManagedIoMachine *m_SelfManagedIoMachine; // rcx

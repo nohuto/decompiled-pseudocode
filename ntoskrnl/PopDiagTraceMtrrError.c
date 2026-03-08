@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDiagTraceMtrrError @ 0x140AA4D84
+ * Callers:
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void PopDiagTraceMtrrError()
 {
   REGHANDLE v0; // rbx

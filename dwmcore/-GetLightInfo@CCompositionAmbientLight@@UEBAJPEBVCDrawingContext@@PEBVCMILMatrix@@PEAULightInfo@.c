@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetLightInfo@CCompositionAmbientLight@@UEBAJPEBVCDrawingContext@@PEBVCMILMatrix@@PEAULightInfo@@@Z @ 0x180106700
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CCompositionAmbientLight::GetLightInfo(
         CCompositionAmbientLight *this,
         const struct CDrawingContext *a2,

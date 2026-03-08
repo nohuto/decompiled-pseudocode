@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetCachedDpiScaleValue@DC@@QEAAXJ@Z @ 0x1C017F5B0
+ * Callers:
+ *     ?vUpdateCachedDPIScaleValue@DC@@QEAAXXZ @ 0x1C017F9D4 (-vUpdateCachedDPIScaleValue@DC@@QEAAXXZ.c)
+ * Callees:
+ *     ?GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z @ 0x1C004A2C0 (-GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z.c)
+ */
+
 void __fastcall DC::SetCachedDpiScaleValue(DC *this, int a2)
 {
   char *v4; // r12

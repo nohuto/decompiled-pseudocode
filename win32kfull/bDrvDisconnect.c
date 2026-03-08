@@ -1,3 +1,15 @@
+/*
+ * XREFs of bDrvDisconnect @ 0x1C02DF008
+ * Callers:
+ *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C0078068 (-InitiateWin32kCleanup@@YAHXZ.c)
+ *     xxxRemoteConsoleShadowStop @ 0x1C0206924 (xxxRemoteConsoleShadowStop.c)
+ *     xxxRemotePassthruEnable @ 0x1C0206C6C (xxxRemotePassthruEnable.c)
+ * Callees:
+ *     ??1SEMOBJEX@@QEAA@XZ @ 0x1C0129084 (--1SEMOBJEX@@QEAA@XZ.c)
+ *     ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C0129160 (--0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall bDrvDisconnect(Gre::Base *a1)
 {
   PVOID v1; // rdi

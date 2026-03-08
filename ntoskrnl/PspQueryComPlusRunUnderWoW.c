@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspQueryComPlusRunUnderWoW @ 0x1409AE358
+ * Callers:
+ *     PspSelectMachineForProcess @ 0x14070797C (PspSelectMachineForProcess.c)
+ * Callees:
+ *     ZwQuerySystemInformation @ 0x1404129D0 (ZwQuerySystemInformation.c)
+ *     RtlQueryImageFileKeyOption @ 0x140709A50 (RtlQueryImageFileKeyOption.c)
+ */
+
 int __fastcall PspQueryComPlusRunUnderWoW(__int64 a1, _BYTE *a2)
 {
   char v2; // al

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvpReadHiveDataFromFile @ 0x140A1B288
+ * Callers:
+ *     HvpMapHiveImage @ 0x140A1B050 (HvpMapHiveImage.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HvpReadHiveDataFromFile(_QWORD *a1, _QWORD *a2, unsigned int *a3)
 {
   unsigned int v3; // edi

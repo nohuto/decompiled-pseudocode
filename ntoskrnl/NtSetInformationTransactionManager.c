@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtSetInformationTransactionManager @ 0x1403D2CB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // attributes: thunk
 NTSTATUS __stdcall NtSetInformationTransactionManager(
         HANDLE TmHandle,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RestartInactiveHelper@@YAXPEAVRFONT@@@Z @ 0x1C02B89F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C011DDB0 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z @ 0x1C0123828 (-vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z.c)
+ */
+
 void __fastcall RestartInactiveHelper(struct RFONT *a1)
 {
   __int64 v1; // rax

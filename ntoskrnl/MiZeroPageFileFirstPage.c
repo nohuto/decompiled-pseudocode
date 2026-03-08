@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiZeroPageFileFirstPage @ 0x140835D20
+ * Callers:
+ *     MiCreatePagingFile @ 0x140834F7C (MiCreatePagingFile.c)
+ * Callees:
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     MiSynchronousPageWrite @ 0x1403BBAD8 (MiSynchronousPageWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall MiZeroPageFileFirstPage(struct _FILE_OBJECT *a1)
 {
   NTSTATUS Status; // ebx

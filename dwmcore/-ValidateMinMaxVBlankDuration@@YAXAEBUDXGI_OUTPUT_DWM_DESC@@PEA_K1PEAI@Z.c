@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ValidateMinMaxVBlankDuration@@YAXAEBUDXGI_OUTPUT_DWM_DESC@@PEA_K1PEAI@Z @ 0x1800C8210
+ * Callers:
+ *     ?Create@CLegacySwapChain@@KAJPEAVCD3DDevice@@AEBUDXGI_OUTPUT_DWM_DESC@@PEAUIDXGISwapChainDWM1@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@FrontBufferRender@@PEAPEAVILegacySwapChain@@@Z @ 0x1800CA340 (-Create@CLegacySwapChain@@KAJPEAVCD3DDevice@@AEBUDXGI_OUTPUT_DWM_DESC@@PEAUIDXGISwapChainDWM1@@A.c)
+ *     ?UpdateRefreshRate@CLegacySwapChain@@UEAAJXZ @ 0x1802984E0 (-UpdateRefreshRate@CLegacySwapChain@@UEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ValidateMinMaxVBlankDuration(
         const struct DXGI_OUTPUT_DWM_DESC *a1,
         LONGLONG *a2,

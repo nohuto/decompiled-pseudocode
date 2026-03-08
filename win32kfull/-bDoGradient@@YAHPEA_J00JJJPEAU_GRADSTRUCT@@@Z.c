@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bDoGradient@@YAHPEA_J00JJJPEAU_GRADSTRUCT@@@Z @ 0x1C028EFD4
+ * Callers:
+ *     ?bCalulateColorGradient@@YAHPEAU_TRIVERTEX@@00PEAU_TRIANGLEDATA@@@Z @ 0x1C028EE1C (-bCalulateColorGradient@@YAHPEAU_TRIVERTEX@@00PEAU_TRIANGLEDATA@@@Z.c)
+ * Callees:
+ *     ?MDiv64@@YA_J_J00@Z @ 0x1C0017A70 (-MDiv64@@YA_J_J00@Z.c)
+ */
+
 __int64 __fastcall bDoGradient(__int64 *a1, __int64 *a2, __int64 *a3, int a4, int a5, int a6, struct _GRADSTRUCT *a7)
 {
   __int64 v10; // r14

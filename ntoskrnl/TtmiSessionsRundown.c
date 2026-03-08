@@ -1,3 +1,17 @@
+/*
+ * XREFs of TtmiSessionsRundown @ 0x1409A1AFC
+ * Callers:
+ *     TtmpTraceLoggingCallback @ 0x1409A7DB0 (TtmpTraceLoggingCallback.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     TtmiDevicesRundown @ 0x14099FB8C (TtmiDevicesRundown.c)
+ *     TtmiAcquireCurrentSession @ 0x1409A1950 (TtmiAcquireCurrentSession.c)
+ *     TtmiLogError @ 0x1409A536C (TtmiLogError.c)
+ *     TtmiLogSessionRundown @ 0x1409A6CDC (TtmiLogSessionRundown.c)
+ *     TtmiTerminalsRundown @ 0x1409A8684 (TtmiTerminalsRundown.c)
+ */
+
 void TtmiSessionsRundown()
 {
   int v0; // eax

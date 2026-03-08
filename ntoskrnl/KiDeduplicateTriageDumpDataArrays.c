@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiDeduplicateTriageDumpDataArrays @ 0x140567B38
+ * Callers:
+ *     KiGlobalDeduplicateTriageDumpData @ 0x140568244 (KiGlobalDeduplicateTriageDumpData.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     RtlULongSub @ 0x1402FD448 (RtlULongSub.c)
+ *     KiCheckRangeOverlap @ 0x140567794 (KiCheckRangeOverlap.c)
+ */
+
 void __fastcall KiDeduplicateTriageDumpDataArrays(_DWORD *a1, __int64 a2)
 {
   unsigned int v4; // r14d

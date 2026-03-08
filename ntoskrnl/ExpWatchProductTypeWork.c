@@ -1,3 +1,33 @@
+/*
+ * XREFs of ExpWatchProductTypeWork @ 0x1407586E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     CmCleanupThreadInfo @ 0x140263740 (CmCleanupThreadInfo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     CmSizeOfThreadInfo @ 0x1402CCA20 (CmSizeOfThreadInfo.c)
+ *     CmInitializeThreadInfo @ 0x1402CCA30 (CmInitializeThreadInfo.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _alloca_probe @ 0x1404210C0 (_alloca_probe.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     NtNotifyChangeKey @ 0x1406B4D70 (NtNotifyChangeKey.c)
+ *     NtDeleteValueKey @ 0x1406B9280 (NtDeleteValueKey.c)
+ *     CmpLockRegistryFreezeAware @ 0x1406BF3D0 (CmpLockRegistryFreezeAware.c)
+ *     NtQueryValueKey @ 0x1406E6C50 (NtQueryValueKey.c)
+ *     NtOpenKey @ 0x140758B00 (NtOpenKey.c)
+ *     NtFlushKey @ 0x140758B70 (NtFlushKey.c)
+ *     NtSetValueKey @ 0x1407A9030 (NtSetValueKey.c)
+ *     PsCreateSystemThreadEx @ 0x1407DE330 (PsCreateSystemThreadEx.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ */
+
 NTSTATUS ExpWatchProductTypeWork()
 {
   char v0; // di

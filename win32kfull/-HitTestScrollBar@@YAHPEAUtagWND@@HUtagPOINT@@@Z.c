@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?HitTestScrollBar@@YAHPEAUtagWND@@HUtagPOINT@@@Z @ 0x1C022BCB4
+ * Callers:
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00725D0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ * Callees:
+ *     GetWndSBDisableFlags @ 0x1C00D9F98 (GetWndSBDisableFlags.c)
+ *     CalcSBStuff @ 0x1C00D9FC8 (CalcSBStuff.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     safe_cast_fnid_to_PSBWND @ 0x1C01BC260 (safe_cast_fnid_to_PSBWND.c)
+ */
+
 __int64 __fastcall HitTestScrollBar(struct tagWND *a1, unsigned int a2, struct tagPOINT a3)
 {
   __int64 v5; // rax

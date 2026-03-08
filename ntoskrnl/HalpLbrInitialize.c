@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpLbrInitialize @ 0x140A8E07C
+ * Callers:
+ *     HalpInitializeProfiling @ 0x140A8DF54 (HalpInitializeProfiling.c)
+ * Callees:
+ *     HalpIsHvPresent @ 0x14037337C (HalpIsHvPresent.c)
+ *     HalpGetCpuInfo @ 0x14037D1F0 (HalpGetCpuInfo.c)
+ *     HviGetHypervisorFeatures @ 0x14037F8A0 (HviGetHypervisorFeatures.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char HalpLbrInitialize()
 {
   unsigned int v9; // ecx

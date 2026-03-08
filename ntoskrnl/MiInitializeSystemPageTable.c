@@ -1,3 +1,34 @@
+/*
+ * XREFs of MiInitializeSystemPageTable @ 0x1403483AC
+ * Callers:
+ *     MiCreateSystemPageTable @ 0x140348960 (MiCreateSystemPageTable.c)
+ * Callees:
+ *     MiMapPageInHyperSpaceWorker @ 0x140214870 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140214A54 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiGetContainingPageTable @ 0x140289FE0 (MiGetContainingPageTable.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiReplicatePteChange @ 0x1402A4528 (MiReplicatePteChange.c)
+ *     MiSetPageTablePfnBuddy @ 0x1402A6F18 (MiSetPageTablePfnBuddy.c)
+ *     MiFillPhysicalPages @ 0x1402CE820 (MiFillPhysicalPages.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiInsertRecursiveTbFlushEntries @ 0x1402FCB78 (MiInsertRecursiveTbFlushEntries.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     MiInitializePfnForOtherProcess @ 0x140348804 (MiInitializePfnForOtherProcess.c)
+ *     MiTransformValidPteInPlace @ 0x1403BD25C (MiTransformValidPteInPlace.c)
+ *     MiClearPteAccessedBitRange @ 0x1403BFD84 (MiClearPteAccessedBitRange.c)
+ *     KeCopyPage @ 0x14041BC90 (KeCopyPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiArePageContentsZero @ 0x14064AE74 (MiArePageContentsZero.c)
+ *     MxCopyPage @ 0x140B96330 (MxCopyPage.c)
+ */
+
 char __fastcall MiInitializeSystemPageTable(__int64 a1, unsigned int a2, unsigned __int64 a3, _QWORD *a4, __int64 a5)
 {
   unsigned int v8; // esi

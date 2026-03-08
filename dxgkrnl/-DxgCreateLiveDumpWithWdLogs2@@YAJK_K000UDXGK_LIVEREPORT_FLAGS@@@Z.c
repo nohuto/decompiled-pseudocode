@@ -1,3 +1,34 @@
+/*
+ * XREFs of ?DxgCreateLiveDumpWithWdLogs2@@YAJK_K000UDXGK_LIVEREPORT_FLAGS@@@Z @ 0x1C02C935C
+ * Callers:
+ *     DxgkSetDisplayMode @ 0x1C0175A20 (DxgkSetDisplayMode.c)
+ *     DxgkWaitForVerticalBlankEventInternal @ 0x1C018F830 (DxgkWaitForVerticalBlankEventInternal.c)
+ *     ?SubmitPresentHistoryToken@@YAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAVCOREDEVICEACCESS@@PEAVDXGADAPTERSTOPRESETLOCKSHARED@@PEAVCWin32kLocks@@HPEAT_LARGE_INTEGER@@PEAUDXGK_PRESENT_PARAMS@@PEAUVIDSCH_SUBMIT_DATA_BASE@@PEAVDXGCONTEXT@@PEAU_PRESENT_REDIRECTED_PARAMS@@PEAD@Z @ 0x1C01C9880 (-SubmitPresentHistoryToken@@YAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAVCOREDEVICEACCESS@@PEAVDXGADA.c)
+ *     DpiFdoHandleDevicePower @ 0x1C01E1A70 (DpiFdoHandleDevicePower.c)
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ *     DpiAddDevice @ 0x1C01F38A0 (DpiAddDevice.c)
+ *     DpiFdoHandleStartDevice @ 0x1C01F6860 (DpiFdoHandleStartDevice.c)
+ *     ?RecommendFunctionalVidPn@VIDPN_MGR@@QEAAJW4_DXGK_RECOMMENDFUNCTIONALVIDPN_REASON@@QEAXIQEAPEAVDMMVIDPN@@@Z @ 0x1C02027E0 (-RecommendFunctionalVidPn@VIDPN_MGR@@QEAAJW4_DXGK_RECOMMENDFUNCTIONALVIDPN_REASON@@QEAXIQEAPEAVD.c)
+ *     DpiFdoValidateKmdAndPnpVersionMatch @ 0x1C020F290 (DpiFdoValidateKmdAndPnpVersionMatch.c)
+ *     DpiInitializeEx @ 0x1C020F728 (DpiInitializeEx.c)
+ *     ?ProcessDeadlockThread@@YAXPEAX@Z @ 0x1C02B4350 (-ProcessDeadlockThread@@YAXPEAX@Z.c)
+ *     ?DxgCreateLiveDumpWithWdLogs@@YAJK_K000T_WD_LIVEREPORT_FLAGS@@@Z @ 0x1C02C9590 (-DxgCreateLiveDumpWithWdLogs@@YAJK_K000T_WD_LIVEREPORT_FLAGS@@@Z.c)
+ *     ?PresentCddShadowBuffer@@YAJPEAVDXGCONTEXT@@PEAVDXGHWQUEUE@@I@Z @ 0x1C02DB250 (-PresentCddShadowBuffer@@YAJPEAVDXGCONTEXT@@PEAVDXGHWQUEUE@@I@Z.c)
+ *     NtDxgkPinResources @ 0x1C02EE610 (NtDxgkPinResources.c)
+ *     _lambda_b19eb8e30f7421e25a3eba0801a1f707_::operator() @ 0x1C02EF090 (_lambda_b19eb8e30f7421e25a3eba0801a1f707_--operator().c)
+ *     ?AddWakeUpToProcessEntry@DripsBlockerTrackingHelper@@QEAAJ_KPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C02FEC54 (-AddWakeUpToProcessEntry@DripsBlockerTrackingHelper@@QEAAJ_KPEAU_EPROCESS@@W4_DXGKETW_PROFILER_T.c)
+ *     ?CreatePlaneLiveDumpAtPassive@@YAXIIPEAU_MOCKDRIVERSTATE_VALIDATE_PLANE@@PEAVDXGADAPTER@@PEAU_MOCKDRIVERSTATE_PLANE@@@Z @ 0x1C031E220 (-CreatePlaneLiveDumpAtPassive@@YAXIIPEAU_MOCKDRIVERSTATE_VALIDATE_PLANE@@PEAVDXGADAPTER@@PEAU_MO.c)
+ *     ?MockDriverStateCreateDurationLiveDump@@YAXPEAX@Z @ 0x1C031E4C0 (-MockDriverStateCreateDurationLiveDump@@YAXPEAX@Z.c)
+ *     ?MockDriverStateCreateFbrLiveDump@@YAXPEAX@Z @ 0x1C031E6D0 (-MockDriverStateCreateFbrLiveDump@@YAXPEAX@Z.c)
+ *     ?MockDriverStateCreatePlaneLiveDump@@YAXPEAX@Z @ 0x1C031E8E0 (-MockDriverStateCreatePlaneLiveDump@@YAXPEAX@Z.c)
+ *     ?VmBusLogEventGlobal@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C037C2C0 (-VmBusLogEventGlobal@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N1@Z @ 0x1C004EC88 (-TdrCollectBugcheckSecondaryDumpData@@YAKPEAXK_N1@Z.c)
+ */
+
 __int64 __fastcall DxgCreateLiveDumpWithWdLogs2(
         unsigned int a1,
         __int64 a2,

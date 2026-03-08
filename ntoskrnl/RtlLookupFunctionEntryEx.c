@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlLookupFunctionEntryEx @ 0x140B104B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlLookupFunctionEntryEx(_QWORD *a1, __int64 a2)
 {
   __int64 v2; // rax

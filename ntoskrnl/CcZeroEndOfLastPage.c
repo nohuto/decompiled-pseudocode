@@ -1,3 +1,20 @@
+/*
+ * XREFs of CcZeroEndOfLastPage @ 0x140343FA8
+ * Callers:
+ *     FsRtlCreateSectionForDataScan @ 0x140368300 (FsRtlCreateSectionForDataScan.c)
+ *     MiCreateSystemSection @ 0x14036BD9C (MiCreateSystemSection.c)
+ *     MmCreateSpecialImageSection @ 0x14070DBD4 (MmCreateSpecialImageSection.c)
+ *     MiCreateSectionCommon @ 0x1407D01E0 (MiCreateSectionCommon.c)
+ *     MiCreateImageFileMap @ 0x1407F1C28 (MiCreateImageFileMap.c)
+ * Callees:
+ *     CcFlushCachePriv @ 0x140219F20 (CcFlushCachePriv.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     CcPurgeCacheSection @ 0x1402A0EA0 (CcPurgeCacheSection.c)
+ *     FsRtlAcquireFileExclusive @ 0x1407D18B0 (FsRtlAcquireFileExclusive.c)
+ *     FsRtlReleaseFile @ 0x1407D18E0 (FsRtlReleaseFile.c)
+ */
+
 void __fastcall CcZeroEndOfLastPage(PFILE_OBJECT FileObject)
 {
   char v1; // di

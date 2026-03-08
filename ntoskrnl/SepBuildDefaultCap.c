@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepBuildDefaultCap @ 0x1408567F4
+ * Callers:
+ *     SepRmDbInitialization @ 0x140B69A18 (SepRmDbInitialization.c)
+ * Callees:
+ *     SepBuildDefaultCape @ 0x1403A74D4 (SepBuildDefaultCape.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 SepBuildDefaultCap()
 {
   int v0; // ebx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of Endpoint_SM_RequestControllerResetDueToRepeatedStopEndpointFailure @ 0x1C003BA34
+ * Callers:
+ *     ESM_ResettingControllerDueToRepeatedStopEndpointFailure @ 0x1C0051B70 (ESM_ResettingControllerDueToRepeatedStopEndpointFailure.c)
+ * Callees:
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ */
+
 __int64 __fastcall Endpoint_SM_RequestControllerResetDueToRepeatedStopEndpointFailure(__int64 *a1)
 {
   if ( WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )

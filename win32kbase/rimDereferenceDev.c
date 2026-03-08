@@ -1,3 +1,14 @@
+/*
+ * XREFs of rimDereferenceDev @ 0x1C00354BC
+ * Callers:
+ *     RIMCreateDev @ 0x1C0036CBC (RIMCreateDev.c)
+ *     rimFreeSpecificDevFinal @ 0x1C00BC028 (rimFreeSpecificDevFinal.c)
+ *     RIMVirtCreateDev @ 0x1C019DFF8 (RIMVirtCreateDev.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003A4AC (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 LONG_PTR __fastcall rimDereferenceDev(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _QWORD *v4; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitializeFontSignatures @ 0x1C03B61E8
+ * Callers:
+ *     vInitMapper @ 0x1C03B6370 (vInitMapper.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall InitializeFontSignatures(__int64 a1)
 {
   __int64 v1; // rbx

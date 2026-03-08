@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bCleanupFontTable@@YAHPEAPEAVPFT@@@Z @ 0x1C00B6EE0
+ * Callers:
+ *     GdiMultiUserFontCleanup @ 0x1C00B6E30 (GdiMultiUserFontCleanup.c)
+ * Callees:
+ *     ?bCleanupFontHash@@YAHPEAPEAU_FONTHASH@@@Z @ 0x1C00B6F7C (-bCleanupFontHash@@YAHPEAPEAU_FONTHASH@@@Z.c)
+ *     ?bUnloadAllButPermanentFonts@PFTOBJ@@QEAAHH@Z @ 0x1C00B7040 (-bUnloadAllButPermanentFonts@PFTOBJ@@QEAAHH@Z.c)
+ */
+
 __int64 __fastcall bCleanupFontTable(struct PFT **a1, int a2)
 {
   __int64 v2; // rbx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of bInitOneStockFontInternal @ 0x1C03B6790
+ * Callers:
+ *     ?FinishStockFontInitInternal@@YAXPEBGH@Z @ 0x1C00BA144 (-FinishStockFontInitInternal@@YAXPEBGH@Z.c)
+ *     bInitOneStockFont @ 0x1C03B6A80 (bInitOneStockFont.c)
+ * Callees:
+ *     hfontCreate @ 0x1C0027050 (hfontCreate.c)
+ *     ?bSetStockFont@@YAHPEAXHH@Z @ 0x1C00BA5D0 (-bSetStockFont@@YAHPEAXHH@Z.c)
+ *     ?bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEBGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z @ 0x1C00BA638 (-bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEBGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z.c)
+ *     vIFIMetricsToEnumLogFontExDvW @ 0x1C00BA744 (vIFIMetricsToEnumLogFontExDvW.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall bInitOneStockFontInternal(unsigned __int16 *a1, int a2, int a3, int a4)
 {
   unsigned int v4; // edi

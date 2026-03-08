@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifKeReleaseMutantWrapper @ 0x1405E27E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeReleaseMutant @ 0x14030E920 (KeReleaseMutant.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 LONG __fastcall DifKeReleaseMutantWrapper(PRKMUTANT Mutant, KPRIORITY Increment, BOOLEAN Abandoned, BOOLEAN Wait)
 {
   __int64 *APIThunkContextById; // rax

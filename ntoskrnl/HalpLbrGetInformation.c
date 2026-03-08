@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpLbrGetInformation @ 0x1403B0D60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HalpLbrGetInformation(_DWORD *a1, int *a2)
 {
   int v2; // eax

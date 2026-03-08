@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopSendSuspendResumeNotifications @ 0x140987648
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopSendSuspendResumeApplicationNotification @ 0x140987528 (PopSendSuspendResumeApplicationNotification.c)
+ *     PopSendSuspendResumeServiceNotification @ 0x140987724 (PopSendSuspendResumeServiceNotification.c)
+ */
+
 __int64 __fastcall PopSendSuspendResumeNotifications(char a1)
 {
   unsigned int v2; // ebx

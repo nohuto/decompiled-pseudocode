@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?OnDwmRenderThreadExit@CConnection@DirectComposition@@SAXXZ @ 0x1C009AF18
+ * Callers:
+ *     DCompositionThreadCallout @ 0x1C009AEF0 (DCompositionThreadCallout.c)
+ * Callees:
+ *     ?Release@CConnection@DirectComposition@@QEAAKXZ @ 0x1C005E51C (-Release@CConnection@DirectComposition@@QEAAKXZ.c)
+ *     ?Disconnect@CConnection@DirectComposition@@QEAAXXZ @ 0x1C0098744 (-Disconnect@CConnection@DirectComposition@@QEAAXXZ.c)
+ */
+
 void DirectComposition::CConnection::OnDwmRenderThreadExit(void)
 {
   struct _ERESOURCE *v0; // rbx

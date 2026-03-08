@@ -1,3 +1,17 @@
+/*
+ * XREFs of hfontInitDefaultGuiFont @ 0x1C03B6C5C
+ * Callers:
+ *     FinishStockFontReinit @ 0x1C00B9210 (FinishStockFontReinit.c)
+ *     GreEnsureDpiDepDefaultGuiFontForPlateau @ 0x1C029B210 (GreEnsureDpiDepDefaultGuiFontForPlateau.c)
+ *     bInitStockFontsInternal @ 0x1C03B63A8 (bInitStockFontsInternal.c)
+ * Callees:
+ *     hfontCreate @ 0x1C0027050 (hfontCreate.c)
+ *     ?bOpenKey@@YAHPEBGPEAPEAX@Z @ 0x1C00BA544 (-bOpenKey@@YAHPEBGPEAPEAX@Z.c)
+ *     ?bQueryValueKey@@YAHPEBGPEAXPEAU_KEY_VALUE_PARTIAL_INFORMATION@@K@Z @ 0x1C00BAA08 (-bQueryValueKey@@YAHPEBGPEAXPEAU_KEY_VALUE_PARTIAL_INFORMATION@@K@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 struct HOBJ__ *__fastcall hfontInitDefaultGuiFont(int a1)
 {
   Gre::Base *v2; // rcx

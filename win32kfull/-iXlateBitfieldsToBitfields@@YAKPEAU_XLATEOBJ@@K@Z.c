@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?iXlateBitfieldsToBitfields@@YAKPEAU_XLATEOBJ@@K@Z @ 0x1C02DE7C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall iXlateBitfieldsToBitfields(struct _XLATEOBJ *a1, unsigned int a2)
 {
   unsigned int v3; // eax

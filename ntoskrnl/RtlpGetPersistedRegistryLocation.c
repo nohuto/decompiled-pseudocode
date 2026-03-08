@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpGetPersistedRegistryLocation @ 0x14040BFA8
+ * Callers:
+ *     RtlpEtcGetDwordFromPersistedState @ 0x14040BD88 (RtlpEtcGetDwordFromPersistedState.c)
+ * Callees:
+ *     RtlGetPersistedStateLocation @ 0x14069ADC0 (RtlGetPersistedStateLocation.c)
+ *     ExpAllocateStringRoutine @ 0x140777DB0 (ExpAllocateStringRoutine.c)
+ *     ExFreePool @ 0x140AAB270 (ExFreePool.c)
+ */
+
 __int64 __fastcall RtlpGetPersistedRegistryLocation(PCWSTR SourceString, __int64 a2, _QWORD *a3, _DWORD *a4)
 {
   int PersistedStateLocation; // eax

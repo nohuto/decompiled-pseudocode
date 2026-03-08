@@ -1,3 +1,14 @@
+/*
+ * XREFs of VslReportBugCheckProgress @ 0x140549EE0
+ * Callers:
+ *     PopCheckpointSystemSleepUnsafe @ 0x140AA7484 (PopCheckpointSystemSleepUnsafe.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall VslReportBugCheckProgress(char *a1, __int128 *a2, const void *a3, unsigned int a4, int a5)
 {
   size_t v6; // rbx

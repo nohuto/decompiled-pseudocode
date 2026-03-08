@@ -1,3 +1,11 @@
+/*
+ * XREFs of _InitThreadCoreMessagingIocp @ 0x1C00E2054
+ * Callers:
+ *     NtUserInitThreadCoreMessagingIocp @ 0x1C00E1FA0 (NtUserInitThreadCoreMessagingIocp.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall InitThreadCoreMessagingIocp(__int64 a1)
 {
   __int64 v1; // rdi

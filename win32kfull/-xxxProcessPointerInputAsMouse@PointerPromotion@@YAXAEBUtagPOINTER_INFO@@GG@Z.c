@@ -1,3 +1,22 @@
+/*
+ * XREFs of ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C01F9BE8
+ * Callers:
+ *     EditionProcessPointerInputAsMouse @ 0x1C0149630 (EditionProcessPointerInputAsMouse.c)
+ * Callees:
+ *     ?CoalesceMousePromotionEntry@@YAHAEBUtagPOINTER_INFO@@G@Z @ 0x1C014929E (-CoalesceMousePromotionEntry@@YAHAEBUtagPOINTER_INFO@@G@Z.c)
+ *     ?PromoteToMouse@Pointer@InputTraceLogging@@SAXKGKG@Z @ 0x1C01494D2 (-PromoteToMouse@Pointer@InputTraceLogging@@SAXKGKG@Z.c)
+ *     ?WantDirectPromotion@@YAHAEBUtagPOINTER_INFO@@PEAK@Z @ 0x1C01495BE (-WantDirectPromotion@@YAHAEBUtagPOINTER_INFO@@PEAK@Z.c)
+ *     ?CancelAutoPromotion@@YAXXZ @ 0x1C01F8C08 (-CancelAutoPromotion@@YAXXZ.c)
+ *     ?ClearAutoPromotion@@YAXXZ @ 0x1C01F8CA4 (-ClearAutoPromotion@@YAXXZ.c)
+ *     ?CreateMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEBUtagPOINTER_INFO@@GG@Z @ 0x1C01F8D70 (-CreateMousePromotionEntry@@YAPEAUtagMOUSE_PROMOTION_ENTRY@@AEBUtagPOINTER_INFO@@GG@Z.c)
+ *     ?DetectPromotionType@@YAKPEBUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C01F8DFC (-DetectPromotionType@@YAKPEBUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
+ *     ?HandleLossOfPrimary@@YAHAEAUtagPOINTER_INFO@@@Z @ 0x1C01F900C (-HandleLossOfPrimary@@YAHAEAUtagPOINTER_INFO@@@Z.c)
+ *     ?QueueMousePromotionEntry@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@Z @ 0x1C01F9644 (-QueueMousePromotionEntry@@YAXAEAUtagMOUSE_PROMOTION_QUEUE@@PEAUtagMOUSE_PROMOTION_ENTRY@@@Z.c)
+ *     ?ResetMousePromotionInfo@@YAXGG@Z @ 0x1C01F9678 (-ResetMousePromotionInfo@@YAXGG@Z.c)
+ *     ?xxxProcessMousePromotionQueue@@YAXXZ @ 0x1C01F99E8 (-xxxProcessMousePromotionQueue@@YAXXZ.c)
+ *     ?xxxPromotePointer@PointerPromotion@@YAHGKK@Z @ 0x1C01F9E6C (-xxxPromotePointer@PointerPromotion@@YAHGKK@Z.c)
+ */
+
 void __fastcall PointerPromotion::xxxProcessPointerInputAsMouse(
         PointerPromotion *this,
         const struct tagPOINTER_INFO *a2,

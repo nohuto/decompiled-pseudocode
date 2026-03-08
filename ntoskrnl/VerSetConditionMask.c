@@ -1,3 +1,12 @@
+/*
+ * XREFs of VerSetConditionMask @ 0x1403911C0
+ * Callers:
+ *     AslpFileGetVersionBlock @ 0x1407A0528 (AslpFileGetVersionBlock.c)
+ *     WdipSemLoadScenarioTable @ 0x140832BA4 (WdipSemLoadScenarioTable.c)
+ * Callees:
+ *     <none>
+ */
+
 ULONGLONG __stdcall VerSetConditionMask(ULONGLONG ConditionMask, ULONG TypeMask, UCHAR Condition)
 {
   unsigned __int8 v3; // r8

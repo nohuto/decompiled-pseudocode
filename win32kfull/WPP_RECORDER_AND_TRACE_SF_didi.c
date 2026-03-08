@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_AND_TRACE_SF_didi @ 0x1C01B1544
+ * Callers:
+ *     xxxInjectTouchInput @ 0x1C01B19B4 (xxxInjectTouchInput.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_AND_TRACE_SF_didi(__int64 a1, char a2, char a3, __int64 a4, int a5, int a6, int a7, int a8, ...)
 {
   struct RECORDER_LOG__ *v8; // rdi

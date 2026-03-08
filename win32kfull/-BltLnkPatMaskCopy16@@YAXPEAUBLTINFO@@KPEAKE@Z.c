@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?BltLnkPatMaskCopy16@@YAXPEAUBLTINFO@@KPEAKE@Z @ 0x1C03062F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall BltLnkPatMaskCopy16(struct BLTINFO *a1, __int16 a2, unsigned int *a3, unsigned __int8 a4)
 {
   int v4; // ebx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBHTX_GetPortStatusForBootDevice @ 0x1C0006744
+ * Callers:
+ *     HUBMISC_IsBootDeviceReady @ 0x1C00338AC (HUBMISC_IsBootDeviceReady.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBMISC_ControlTransfer @ 0x1C0032664 (HUBMISC_ControlTransfer.c)
+ *     HUBMISC_WaitForSignal @ 0x1C0032DEC (HUBMISC_WaitForSignal.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBHTX_GetPortStatusForBootDevice(__int64 a1, _DWORD *a2)
 {
   _QWORD *v2; // rsi

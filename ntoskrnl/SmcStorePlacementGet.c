@@ -1,3 +1,13 @@
+/*
+ * XREFs of SmcStorePlacementGet @ 0x1409D8878
+ * Callers:
+ *     SmcStoreResize @ 0x1409D8984 (SmcStoreResize.c)
+ *     SmcStoreSlotReserve @ 0x1409D8D54 (SmcStoreSlotReserve.c)
+ * Callees:
+ *     RtlFindSetBits @ 0x14030D990 (RtlFindSetBits.c)
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ */
+
 __int64 __fastcall SmcStorePlacementGet(__int64 a1, ULONG a2, __int64 a3)
 {
   unsigned int v3; // edi

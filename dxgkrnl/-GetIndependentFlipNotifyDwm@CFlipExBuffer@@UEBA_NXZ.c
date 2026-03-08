@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetIndependentFlipNotifyDwm@CFlipExBuffer@@UEBA_NXZ @ 0x1C007D760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CFlipExBuffer::GetIndependentFlipNotifyDwm(CFlipExBuffer *this)
 {
   char v1; // dl

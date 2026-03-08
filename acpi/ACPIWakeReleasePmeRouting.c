@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIWakeReleasePmeRouting @ 0x1C0045FA0
+ * Callers:
+ *     PcisuppReleasePciInterfaces @ 0x1C009A0AC (PcisuppReleasePciInterfaces.c)
+ * Callees:
+ *     <none>
+ */
+
 void ACPIWakeReleasePmeRouting()
 {
   KIRQL v0; // al

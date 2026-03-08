@@ -1,3 +1,16 @@
+/*
+ * XREFs of PfLockSharedTryAcquire @ 0x14035B800
+ * Callers:
+ *     PfCheckDeprioritizeFile @ 0x1407E6FF0 (PfCheckDeprioritizeFile.c)
+ * Callees:
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     ExfTryAcquirePushLockSharedEx @ 0x1403586D0 (ExfTryAcquirePushLockSharedEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PfLockSharedTryAcquire(ULONG_PTR BugCheckParameter2)
 {
   struct _KTHREAD *CurrentThread; // rax

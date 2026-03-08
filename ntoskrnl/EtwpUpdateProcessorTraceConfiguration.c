@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpUpdateProcessorTraceConfiguration @ 0x1409ED8F8
+ * Callers:
+ *     EtwSetPerformanceTraceInformation @ 0x1409DF094 (EtwSetPerformanceTraceInformation.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     EtwpConstructIptData @ 0x1409ED864 (EtwpConstructIptData.c)
+ */
+
 __int64 __fastcall EtwpUpdateProcessorTraceConfiguration(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdi

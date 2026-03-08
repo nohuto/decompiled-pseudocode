@@ -1,3 +1,23 @@
+/*
+ * XREFs of NtDeleteWnfStateName @ 0x140778FE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExpCaptureWnfStateName @ 0x14071A22C (ExpCaptureWnfStateName.c)
+ *     ExpWnfLookupNameInstance @ 0x14071A330 (ExpWnfLookupNameInstance.c)
+ *     ExpWnfResolveScopeInstance @ 0x14071A508 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfCheckCallerAccess @ 0x14071A9D4 (ExpWnfCheckCallerAccess.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x14071B5C8 (ExpWnfNotifyNameSubscribers.c)
+ *     ExpWnfLookupPermanentName @ 0x14071C320 (ExpWnfLookupPermanentName.c)
+ *     ExpWnfDeleteNameInstance @ 0x1407792F0 (ExpWnfDeleteNameInstance.c)
+ *     ExpWnfEnumerateScopeInstances @ 0x14077972C (ExpWnfEnumerateScopeInstances.c)
+ *     ExpWnfDeletePermanentName @ 0x140779838 (ExpWnfDeletePermanentName.c)
+ *     ExpWnfDeletePermanentStateData @ 0x140A046AC (ExpWnfDeletePermanentStateData.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall NtDeleteWnfStateName(__int64 *a1)
 {
   struct _KTHREAD *CurrentThread; // rax

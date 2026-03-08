@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopDirectedDripsDiagQueryAndResetPnpAccounting @ 0x14059E120
+ * Callers:
+ *     PopDirectedDripsDiagNotifySessionStop @ 0x14099B298 (PopDirectedDripsDiagNotifySessionStop.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe @ 0x14059E05C (PopDirectedDripsDiagPnpActionQueueAccountingUpdateUnsafe.c)
+ */
+
 __int64 __fastcall PopDirectedDripsDiagQueryAndResetPnpAccounting(__int64 a1, _QWORD *a2, __int128 *a3, _OWORD *a4)
 {
   KIRQL v7; // al

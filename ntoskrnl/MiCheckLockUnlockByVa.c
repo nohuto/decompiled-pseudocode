@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiCheckLockUnlockByVa @ 0x14061A2D0
+ * Callers:
+ *     MmLockPhysicalPagesByVa @ 0x140A2AA04 (MmLockPhysicalPagesByVa.c)
+ * Callees:
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedSecureVad @ 0x14034C5AC (MiObtainReferencedSecureVad.c)
+ *     MiTransformVadSecure @ 0x140A2F294 (MiTransformVadSecure.c)
+ */
+
 _BOOL8 __fastcall MiCheckLockUnlockByVa(__int64 a1, __int64 a2, __int64 a3)
 {
   BOOL v3; // ebx

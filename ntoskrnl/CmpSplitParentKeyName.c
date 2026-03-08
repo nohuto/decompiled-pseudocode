@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpSplitParentKeyName @ 0x140AF2CC8
+ * Callers:
+ *     CmpDoReDoCreateKey @ 0x140A27AE0 (CmpDoReDoCreateKey.c)
+ *     CmpDoReOpenTransKey @ 0x140A27F24 (CmpDoReOpenTransKey.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmpSplitParentKeyName(__m128i *a1, __m128i *a2, __m128i *a3)
 {
   __int64 result; // rax

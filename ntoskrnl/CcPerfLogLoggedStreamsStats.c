@@ -1,3 +1,15 @@
+/*
+ * XREFs of CcPerfLogLoggedStreamsStats @ 0x140397704
+ * Callers:
+ *     CcLazyWriteScanVolume @ 0x140218810 (CcLazyWriteScanVolume.c)
+ *     CcLazyWriteScan @ 0x140533B4C (CcLazyWriteScan.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcPerfLogVolumeLogHandleInfo @ 0x1403977D0 (CcPerfLogVolumeLogHandleInfo.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall CcPerfLogLoggedStreamsStats(int a1, int a2)
 {
   __int64 *i; // rbx

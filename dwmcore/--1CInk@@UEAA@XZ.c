@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CInk@@UEAA@XZ @ 0x1801BEC94
+ * Callers:
+ *     ??_ECInk@@UEAAPEAXI@Z @ 0x1801BFEC0 (--_ECInk@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097680 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ??1?$CDeviceResourceTable@VCD2DInk@@VCInk@@@@QEAA@XZ @ 0x1801BE62C (--1-$CDeviceResourceTable@VCD2DInk@@VCInk@@@@QEAA@XZ.c)
+ */
+
 void __fastcall CInk::~CInk(CInk *this)
 {
   __int64 v2; // rcx

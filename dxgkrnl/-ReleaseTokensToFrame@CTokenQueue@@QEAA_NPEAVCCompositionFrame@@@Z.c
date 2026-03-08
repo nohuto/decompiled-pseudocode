@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReleaseTokensToFrame@CTokenQueue@@QEAA_NPEAVCCompositionFrame@@@Z @ 0x1C0077A30
+ * Callers:
+ *     ?ReleaseToFrame@CTokenManager@@UEAAXPEAUICompositionFrame@@@Z @ 0x1C000F010 (-ReleaseToFrame@CTokenManager@@UEAAXPEAUICompositionFrame@@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?SetSyncRefreshCount@CompositionSurfaceObject@@QEAAXI@Z @ 0x1C0077288 (-SetSyncRefreshCount@CompositionSurfaceObject@@QEAAXI@Z.c)
+ */
+
 bool __fastcall CTokenQueue::ReleaseTokensToFrame(CTokenQueue *this, struct CCompositionFrame *a2)
 {
   bool v2; // si

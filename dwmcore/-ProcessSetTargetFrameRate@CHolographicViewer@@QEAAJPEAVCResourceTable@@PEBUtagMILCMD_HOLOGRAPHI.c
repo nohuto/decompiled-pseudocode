@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ProcessSetTargetFrameRate@CHolographicViewer@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICVIEWER_SETTARGETFRAMERATE@@@Z @ 0x1802A8980
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F0A8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     ?OnChanged@CHolographicViewer@@AEAAXXZ @ 0x1802A86E0 (-OnChanged@CHolographicViewer@@AEAAXXZ.c)
+ */
+
 __int64 __fastcall CHolographicViewer::ProcessSetTargetFrameRate(
         CHolographicViewer *this,
         struct CResourceTable *a2,

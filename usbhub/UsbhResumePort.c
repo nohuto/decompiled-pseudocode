@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhResumePort @ 0x1C001A780
+ * Callers:
+ *     UsbhResumeSuspendedPort @ 0x1C001A698 (UsbhResumeSuspendedPort.c)
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhSyncSendCommand @ 0x1C0016EE0 (UsbhSyncSendCommand.c)
+ */
+
 __int64 __fastcall UsbhResumePort(__int64 a1, __int64 a2)
 {
   __int16 v4; // r11

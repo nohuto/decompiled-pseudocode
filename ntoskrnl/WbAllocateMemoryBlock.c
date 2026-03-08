@@ -1,3 +1,15 @@
+/*
+ * XREFs of WbAllocateMemoryBlock @ 0x140753534
+ * Callers:
+ *     WbAllocateUserMemory @ 0x140754868 (WbAllocateUserMemory.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WbAlloc @ 0x1406AF510 (WbAlloc.c)
+ *     WbMakeUserExecutablePagesKernelWritable @ 0x1406B69F0 (WbMakeUserExecutablePagesKernelWritable.c)
+ *     MmAllocateVirtualMemory @ 0x140728160 (MmAllocateVirtualMemory.c)
+ *     WbFreeMemoryBlock @ 0x140754DEC (WbFreeMemoryBlock.c)
+ */
+
 __int64 __fastcall WbAllocateMemoryBlock(__int64 a1, __int64 **a2)
 {
   int VirtualMemory; // edi

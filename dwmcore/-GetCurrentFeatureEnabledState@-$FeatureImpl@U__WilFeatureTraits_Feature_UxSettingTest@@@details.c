@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetCurrentFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_UxSettingTest@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@PEAH@Z @ 0x1801153F8
+ * Callers:
+ *     ?GetCachedFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_UxSettingTest@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@XZ @ 0x180113D50 (-GetCachedFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_UxSettingTest@@@details@.c)
+ * Callees:
+ *     ?WilApi_GetFeatureEnabledState@details@wil@@YA?AW4FEATURE_ENABLED_STATE@@IW4FEATURE_CHANGE_TIME@@PEAH@Z @ 0x1800AFE30 (-WilApi_GetFeatureEnabledState@details@wil@@YA-AW4FEATURE_ENABLED_STATE@@IW4FEATURE_CHANGE_TIME@.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_Servicing_Dcr_24_06_NonSec@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x18011614C (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_Servicing_Dcr_24_06_NonSec@@@details@wil@.c)
+ *     ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_PerfTestCen2@@@details@wil@@QEAA_NW4ReportingKind@3@@Z @ 0x1801165EC (-__private_IsEnabled@-$FeatureImpl@U__WilFeatureTraits_Feature_PerfTestCen2@@@details@wil@@QEAA_.c)
+ */
+
 _QWORD *__fastcall wil::details::FeatureImpl<__WilFeatureTraits_Feature_UxSettingTest>::GetCurrentFeatureEnabledState(
         __int64 a1,
         _QWORD *a2,

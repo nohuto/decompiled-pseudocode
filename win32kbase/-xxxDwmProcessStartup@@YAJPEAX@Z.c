@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?xxxDwmProcessStartup@@YAJPEAX@Z @ 0x1C00909F4
+ * Callers:
+ *     NtUserRegisterSessionPort @ 0x1C00907E0 (NtUserRegisterSessionPort.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     ??1LeaveEnterCrit@@QEAA@XZ @ 0x1C0085FBC (--1LeaveEnterCrit@@QEAA@XZ.c)
+ *     ??0LeaveEnterCrit@@QEAA@XZ @ 0x1C0089B08 (--0LeaveEnterCrit@@QEAA@XZ.c)
+ *     IsUserEnableConsoleModeSupported @ 0x1C0090C30 (IsUserEnableConsoleModeSupported.c)
+ *     CheckDwmProcessSecurityIdentifier @ 0x1C0090C60 (CheckDwmProcessSecurityIdentifier.c)
+ *     xxxDwmControl @ 0x1C0090CE0 (xxxDwmControl.c)
+ *     ?SetDwmApiPort@@YAXPEAX@Z @ 0x1C0090E3C (-SetDwmApiPort@@YAXPEAX@Z.c)
+ *     GreLockDwmState @ 0x1C0091A70 (GreLockDwmState.c)
+ *     GreUnlockDwmState @ 0x1C0091AF0 (GreUnlockDwmState.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     UserEnableConsoleMode @ 0x1C02720EC (UserEnableConsoleMode.c)
+ */
+
 __int64 __fastcall xxxDwmProcessStartup(HANDLE Handle)
 {
   bool v2; // r15

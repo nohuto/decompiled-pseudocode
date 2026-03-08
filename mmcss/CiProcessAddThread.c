@@ -1,3 +1,11 @@
+/*
+ * XREFs of CiProcessAddThread @ 0x1C000B100
+ * Callers:
+ *     CiThreadCreate @ 0x1C000AD80 (CiThreadCreate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CiProcessAddThread(__int64 a1)
 {
   __int64 v1; // r9

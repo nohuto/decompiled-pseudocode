@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopQueryEnvironmentVariableInfoSysEnv @ 0x14094E210
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IopIssueSystemEnvironmentRequest @ 0x14094E098 (IopIssueSystemEnvironmentRequest.c)
+ */
+
 __int64 __fastcall IopQueryEnvironmentVariableInfoSysEnv(
         struct _FILE_OBJECT *a1,
         struct _DEVICE_OBJECT *a2,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalGetBusDataByOffset @ 0x140370350
+ * Callers:
+ *     HalGetBusData @ 0x140370320 (HalGetBusData.c)
+ *     HalpWhackICHUsbSmi @ 0x14051EBA4 (HalpWhackICHUsbSmi.c)
+ *     HalpPiix4Detect @ 0x140A85B70 (HalpPiix4Detect.c)
+ *     KdpSysReadBusData @ 0x140AB1CC4 (KdpSysReadBusData.c)
+ * Callees:
+ *     HalpGetPCIData @ 0x1403703A4 (HalpGetPCIData.c)
+ *     HalpGetSetCmosData @ 0x14039F6CC (HalpGetSetCmosData.c)
+ */
+
 ULONG __stdcall HalGetBusDataByOffset(
         BUS_DATA_TYPE BusDataType,
         ULONG BusNumber,

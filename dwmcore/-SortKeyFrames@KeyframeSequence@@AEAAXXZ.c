@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SortKeyFrames@KeyframeSequence@@AEAAXXZ @ 0x1800BCF6C
+ * Callers:
+ *     ?CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1800561C0 (-CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?Play@KeyframeSequence@@QEAAXXZ @ 0x1800BCE40 (-Play@KeyframeSequence@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall KeyframeSequence::SortKeyFrames(void **this)
 {
   unsigned int v2; // eax

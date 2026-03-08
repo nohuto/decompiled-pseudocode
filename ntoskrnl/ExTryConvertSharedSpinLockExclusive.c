@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExTryConvertSharedSpinLockExclusive @ 0x1403C1810
+ * Callers:
+ *     ExpAddTagForBigPages @ 0x1402C7A20 (ExpAddTagForBigPages.c)
+ *     ViDeadlockDetectionTryConvertSharedToExclusive @ 0x1405CF3B8 (ViDeadlockDetectionTryConvertSharedToExclusive.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     ExpTryConvertSharedSpinLockExclusiveInstrumented @ 0x1404630E8 (ExpTryConvertSharedSpinLockExclusiveInstrumented.c)
+ */
+
 LOGICAL __stdcall ExTryConvertSharedSpinLockExclusive(PEX_SPIN_LOCK SpinLock)
 {
   volatile LONG i; // ecx

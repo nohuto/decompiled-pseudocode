@@ -1,3 +1,17 @@
+/*
+ * XREFs of WheaHwErrorReportSubmitDeviceDriver @ 0x14060F030
+ * Callers:
+ *     WheaReportFatalHwErrorDeviceDriverEx @ 0x14060F150 (WheaReportFatalHwErrorDeviceDriverEx.c)
+ *     WheaReportHwErrorDeviceDriverEx @ 0x14060F270 (WheaReportHwErrorDeviceDriverEx.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     WheaReportHwError @ 0x14060E280 (WheaReportHwError.c)
+ *     WheapGetErrorSource @ 0x14060EAE8 (WheapGetErrorSource.c)
+ *     WheapErrDescIsDeviceDriver @ 0x14060F410 (WheapErrDescIsDeviceDriver.c)
+ *     WheapErrorHandleIsValid @ 0x14060F428 (WheapErrorHandleIsValid.c)
+ *     WheapFreeDriverPacketBuffer @ 0x14060F444 (WheapFreeDriverPacketBuffer.c)
+ */
+
 __int64 __fastcall WheaHwErrorReportSubmitDeviceDriver(char *P)
 {
   __int64 v2; // rcx

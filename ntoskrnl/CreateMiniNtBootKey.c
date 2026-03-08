@@ -1,3 +1,20 @@
+/*
+ * XREFs of CreateMiniNtBootKey @ 0x140B8D580
+ * Callers:
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     ExTryToAcquireFastMutex @ 0x1402D5440 (ExTryToAcquireFastMutex.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char CreateMiniNtBootKey()
 {
   NTSTATUS v0; // ebx

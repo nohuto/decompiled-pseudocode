@@ -1,3 +1,14 @@
+/*
+ * XREFs of HaliSetSystemInformation @ 0x14085AF78
+ * Callers:
+ *     HalpSetSystemInformation @ 0x14085AF10 (HalpSetSystemInformation.c)
+ * Callees:
+ *     HalpRegisterSecondaryIcInterface @ 0x1403AA98C (HalpRegisterSecondaryIcInterface.c)
+ *     HalpTimerSetClockTimerMinimumInterval @ 0x140506584 (HalpTimerSetClockTimerMinimumInterval.c)
+ *     HalpCheckTestSigningEnabled @ 0x140932170 (HalpCheckTestSigningEnabled.c)
+ *     HalpChannelPowerRequest @ 0x1409329FC (HalpChannelPowerRequest.c)
+ */
+
 __int64 __fastcall HaliSetSystemInformation(int a1, __int64 a2, int *a3)
 {
   int v4; // ebx

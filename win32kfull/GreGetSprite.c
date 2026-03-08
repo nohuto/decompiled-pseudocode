@@ -1,3 +1,14 @@
+/*
+ * XREFs of GreGetSprite @ 0x1C00130A0
+ * Callers:
+ *     xxxSetLayeredWindow @ 0x1C0028C1C (xxxSetLayeredWindow.c)
+ * Callees:
+ *     ??0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z @ 0x1C0028198 (--0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z.c)
+ *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C00296D4 (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
+ *     IsDwmActive @ 0x1C002CF30 (IsDwmActive.c)
+ *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C002D7C8 (--1DWMSPRITELOCK@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall GreGetSprite(Gre::Base *a1, HWND a2)
 {
   __int64 v3; // rdi

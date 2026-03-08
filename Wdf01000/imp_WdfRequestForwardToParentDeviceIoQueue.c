@@ -1,3 +1,17 @@
+/*
+ * XREFs of imp_WdfRequestForwardToParentDeviceIoQueue @ 0x1C000D440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?QueueDriverCreatedRequest@FxIoQueue@@QEAAJPEAVFxRequest@@E@Z @ 0x1C000FB4E (-QueueDriverCreatedRequest@FxIoQueue@@QEAAJPEAVFxRequest@@E@Z.c)
+ *     WPP_IFR_SF_qddd @ 0x1C0019200 (WPP_IFR_SF_qddd.c)
+ *     WPP_IFR_SF_qDDd @ 0x1C0034CC8 (WPP_IFR_SF_qDDd.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C0045BD8 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ *     ?ForwardRequestToParent@FxIoQueue@@QEAAJPEAV1@PEAVFxRequest@@PEAU_WDF_REQUEST_FORWARD_OPTIONS@@@Z @ 0x1C0063EF8 (-ForwardRequestToParent@FxIoQueue@@QEAAJPEAV1@PEAVFxRequest@@PEAU_WDF_REQUEST_FORWARD_OPTIONS@@@.c)
+ *     Vf_VerifyWdfRequestForwardToParentDeviceIoQueue @ 0x1C00BA110 (Vf_VerifyWdfRequestForwardToParentDeviceIoQueue.c)
+ */
+
 __int64 __fastcall imp_WdfRequestForwardToParentDeviceIoQueue(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFREQUEST__ *Request,

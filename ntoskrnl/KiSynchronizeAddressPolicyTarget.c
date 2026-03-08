@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiSynchronizeAddressPolicyTarget @ 0x1402F56B0
+ * Callers:
+ *     KeSynchronizeAddressPolicy @ 0x1402F550C (KeSynchronizeAddressPolicy.c)
+ * Callees:
+ *     KiSetAddressPolicy @ 0x14030E890 (KiSetAddressPolicy.c)
+ */
+
 int KiSynchronizeAddressPolicyTarget()
 {
   struct _KTHREAD *CurrentThread; // rax

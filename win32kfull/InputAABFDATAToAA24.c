@@ -1,3 +1,11 @@
+/*
+ * XREFs of InputAABFDATAToAA24 @ 0x1C014C430
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 char *__fastcall InputAABFDATAToAA24(char *a1, char *a2)
 {
   __int64 v2; // xmm0_8

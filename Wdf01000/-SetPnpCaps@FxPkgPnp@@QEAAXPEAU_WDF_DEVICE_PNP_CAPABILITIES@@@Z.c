@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetPnpCaps@FxPkgPnp@@QEAAXPEAU_WDF_DEVICE_PNP_CAPABILITIES@@@Z @ 0x1C0075C08
+ * Callers:
+ *     imp_WdfDeviceSetPnpCapabilities @ 0x1C00335B0 (imp_WdfDeviceSetPnpCapabilities.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxPkgPnp::SetPnpCaps(FxPkgPnp *this, _WDF_DEVICE_PNP_CAPABILITIES *PnpCapabilities)
 {
   _WDF_TRI_STATE LockSupported; // r9d

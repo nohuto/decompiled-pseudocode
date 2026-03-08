@@ -1,3 +1,25 @@
+/*
+ * XREFs of KiInitializeDynamicProcessorDpc @ 0x140A9C260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     KiIpiStallOnPacketTargetsPrcb @ 0x140237680 (KiIpiStallOnPacketTargetsPrcb.c)
+ *     KiIpiSendPacket @ 0x1402376C0 (KiIpiSendPacket.c)
+ *     KeSetAffinityProcess @ 0x1403A9688 (KeSetAffinityProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiReconfigureSubNodeSchedulingInformation @ 0x140569ACC (KiReconfigureSubNodeSchedulingInformation.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeSignalCallDpcSynchronize @ 0x14056FE60 (KeSignalCallDpcSynchronize.c)
+ *     KiConfigureProcessorBlock @ 0x140A85FE4 (KiConfigureProcessorBlock.c)
+ *     KiConfigureSchedulingInformation @ 0x140A8B1B4 (KiConfigureSchedulingInformation.c)
+ *     KiInitializeProcessor @ 0x140A8BBD4 (KiInitializeProcessor.c)
+ *     KeRestoreMtrrBroadcast @ 0x140A8C444 (KeRestoreMtrrBroadcast.c)
+ *     KiUpdateNumberProcessors @ 0x140A9C484 (KiUpdateNumberProcessors.c)
+ */
+
 __int64 __fastcall KiInitializeDynamicProcessorDpc(__int64 a1, _QWORD **a2, volatile signed __int32 *a3, __int64 a4)
 {
   unsigned __int8 CurrentIrql; // bl

@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhInitCallback @ 0x1C00437F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhQueueWorkItemWithRetry @ 0x1C000B390 (UsbhQueueWorkItemWithRetry.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ */
+
 __int64 __fastcall UsbhInitCallback(__int64 a1)
 {
   __int64 v1; // rbx

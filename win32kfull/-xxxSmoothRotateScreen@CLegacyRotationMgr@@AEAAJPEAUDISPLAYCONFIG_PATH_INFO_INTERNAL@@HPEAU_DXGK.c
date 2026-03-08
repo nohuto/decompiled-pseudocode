@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?xxxSmoothRotateScreen@CLegacyRotationMgr@@AEAAJPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@HPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01A8DC4
+ * Callers:
+ *     ?xxxRotateScreen@CLegacyRotationMgr@@AEAAJKHPEAH@Z @ 0x1C01A88B0 (-xxxRotateScreen@CLegacyRotationMgr@@AEAAJKHPEAH@Z.c)
+ * Callees:
+ *     IsCurrentDesktopComposed @ 0x1C001FD80 (IsCurrentDesktopComposed.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C0029DD0 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ?ConvertDisplayConfigRotationToDMDO@@YAKW4DISPLAYCONFIG_ROTATION@@@Z @ 0x1C00F8848 (-ConvertDisplayConfigRotationToDMDO@@YAKW4DISPLAYCONFIG_ROTATION@@@Z.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00F8FF0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1C0102BC4 (_tlgKeywordOn.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C011CC38 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?IsExtendTopology@@YAHXZ @ 0x1C01A80A0 (-IsExtendTopology@@YAHXZ.c)
+ *     DwmAsyncNotifyRotationModeChange @ 0x1C026FD28 (DwmAsyncNotifyRotationModeChange.c)
+ */
+
 __int64 __fastcall CLegacyRotationMgr::xxxSmoothRotateScreen(
         CLegacyRotationMgr *this,
         struct DISPLAYCONFIG_PATH_INFO_INTERNAL *a2,

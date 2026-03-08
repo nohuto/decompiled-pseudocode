@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBDSM_CheckingIfDeviceShouldBeDisarmedForWakeOnResume @ 0x1C0023EB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBDSM_CheckingIfDeviceShouldBeDisarmedForWakeOnResume(__int64 a1)
 {
   __int64 v1; // rdx

@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiMapNewPfns @ 0x140A29C20
+ * Callers:
+ *     MiAddPhysicalMemory @ 0x140A289D8 (MiAddPhysicalMemory.c)
+ * Callees:
+ *     MiMakeZeroedPageTablesEx @ 0x14020F130 (MiMakeZeroedPageTablesEx.c)
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x14029B230 (MmUnmapIoSpace.c)
+ *     MiLockDynamicMemoryShared @ 0x1402DAC90 (MiLockDynamicMemoryShared.c)
+ *     MiUnlockDynamicMemoryShared @ 0x1402DC340 (MiUnlockDynamicMemoryShared.c)
+ *     MiGetClosestImplicitNode @ 0x140346FCC (MiGetClosestImplicitNode.c)
+ *     MiIncreaseCommitLimits @ 0x140392864 (MiIncreaseCommitLimits.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KeConfigureDynamicMemory @ 0x14056C5A8 (KeConfigureDynamicMemory.c)
+ *     MiPageToNode @ 0x1406153B0 (MiPageToNode.c)
+ *     MiInitializeDynamicPfns @ 0x140618AB8 (MiInitializeDynamicPfns.c)
+ *     MiPhysicalMemoryEverRemoved @ 0x140619824 (MiPhysicalMemoryEverRemoved.c)
+ *     MiReduceCommitLimits @ 0x140653F84 (MiReduceCommitLimits.c)
+ */
+
 __int64 __fastcall MiMapNewPfns(
         ULONG_PTR BugCheckParameter2,
         ULONG_PTR BugCheckParameter3,

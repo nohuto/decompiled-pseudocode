@@ -1,3 +1,21 @@
+/*
+ * XREFs of DbgkpSetProcessDebugObject @ 0x1409351E4
+ * Callers:
+ *     NtDebugActiveProcess @ 0x140935750 (NtDebugActiveProcess.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     PsGetNextProcessThread @ 0x1406A8E30 (PsGetNextProcessThread.c)
+ *     DbgkpMarkProcessPeb @ 0x1409344AC (DbgkpMarkProcessPeb.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140934820 (DbgkpPostFakeThreadMessages.c)
+ *     DbgkpWakeTarget @ 0x1409354D4 (DbgkpWakeTarget.c)
+ */
+
 __int64 DbgkpSetProcessDebugObject(PRKPROCESS PROCESS, PRKEVENT Event, int a3, ...)
 {
   struct _KTHREAD *CurrentThread; // r13

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CreateRegion@@YAJPEAPEAUIRegion@@@Z @ 0x1C00AABE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CreateRegion(struct IRegion **a1)
 {
   __int64 Pool2; // rax

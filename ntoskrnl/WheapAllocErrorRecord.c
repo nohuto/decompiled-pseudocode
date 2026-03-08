@@ -1,3 +1,14 @@
+/*
+ * XREFs of WheapAllocErrorRecord @ 0x14060E78C
+ * Callers:
+ *     WheapReportBootError @ 0x14060E01C (WheapReportBootError.c)
+ *     WheaReportHwError @ 0x14060E280 (WheaReportHwError.c)
+ * Callees:
+ *     WheapInitializeErrorRecordWrapper @ 0x14037D79C (WheapInitializeErrorRecordWrapper.c)
+ *     WheapGetPreallocatedErrorRecord @ 0x14060EBCC (WheapGetPreallocatedErrorRecord.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall WheapAllocErrorRecord(__int64 a1, int *a2)
 {
   unsigned int v4; // ecx

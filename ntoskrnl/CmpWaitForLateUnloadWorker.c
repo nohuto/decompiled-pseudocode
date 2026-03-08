@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpWaitForLateUnloadWorker @ 0x1402BF844
+ * Callers:
+ *     CmpDeleteKeyObject @ 0x1406E5C50 (CmpDeleteKeyObject.c)
+ * Callees:
+ *     ExBlockOnAddressPushLock @ 0x1402BF8C0 (ExBlockOnAddressPushLock.c)
+ *     CmUnlockHive @ 0x14074A614 (CmUnlockHive.c)
+ *     CmLockHive @ 0x14074A650 (CmLockHive.c)
+ */
+
 __int64 __fastcall CmpWaitForLateUnloadWorker(__int64 a1)
 {
   int v2; // ebx

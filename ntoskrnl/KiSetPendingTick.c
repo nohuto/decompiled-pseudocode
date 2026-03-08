@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiSetPendingTick @ 0x14022AF40
+ * Callers:
+ *     KiSetClockTickRate @ 0x14022AF70 (KiSetClockTickRate.c)
+ *     KeResumeClockTimerFromIdle @ 0x14022E860 (KeResumeClockTimerFromIdle.c)
+ *     KePrepareClockTimerForIdle @ 0x1402A9B1C (KePrepareClockTimerForIdle.c)
+ *     KiRestoreClockTickRate @ 0x1402D9574 (KiRestoreClockTickRate.c)
+ *     KeInitializeClockOtherProcessors @ 0x140A8B0E4 (KeInitializeClockOtherProcessors.c)
+ *     KeInitializeClock @ 0x140B67BE8 (KeInitializeClock.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 __fastcall KiSetPendingTick(char a1)
 {
   char v1; // r8

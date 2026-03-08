@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SlotAllocate@?$RTL_BINARY_ARRAY@URTLP_FLS_CALLBACK_ENTRY@@$03$03@@SAKPEAU1@@Z @ 0x1403A0434
+ * Callers:
+ *     RtlpFlsAlloc @ 0x140849B60 (RtlpFlsAlloc.c)
+ * Callees:
+ *     RtlpFlsHeapAlloc @ 0x14076B76C (RtlpFlsHeapAlloc.c)
+ *     CmSiRWLockInitialize @ 0x14080BCF0 (CmSiRWLockInitialize.c)
+ */
+
 __int64 __fastcall RTL_BINARY_ARRAY<RTLP_FLS_CALLBACK_ENTRY,4,4>::SlotAllocate(unsigned int **a1)
 {
   int v2; // edi

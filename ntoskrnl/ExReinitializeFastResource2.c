@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExReinitializeFastResource2 @ 0x14040E808
+ * Callers:
+ *     ExReinitializeFastResource @ 0x1403D0890 (ExReinitializeFastResource.c)
+ * Callees:
+ *     ExpIsFastResourceOwned @ 0x14041057C (ExpIsFastResourceOwned.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 char __fastcall ExReinitializeFastResource2(ULONG_PTR BugCheckParameter2)
 {
   unsigned __int8 CurrentIrql; // al

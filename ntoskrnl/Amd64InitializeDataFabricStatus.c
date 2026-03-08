@@ -1,3 +1,13 @@
+/*
+ * XREFs of Amd64InitializeDataFabricStatus @ 0x140527308
+ * Callers:
+ *     Amd64InitializeUncoreProfiling @ 0x140527450 (Amd64InitializeUncoreProfiling.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     Amd64FreeCounter @ 0x140526ED0 (Amd64FreeCounter.c)
+ *     Amd64InitializeUncoreStatus @ 0x140527558 (Amd64InitializeUncoreStatus.c)
+ */
+
 __int64 Amd64InitializeDataFabricStatus()
 {
   __int64 result; // rax

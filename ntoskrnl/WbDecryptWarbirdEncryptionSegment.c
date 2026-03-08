@@ -1,3 +1,12 @@
+/*
+ * XREFs of WbDecryptWarbirdEncryptionSegment @ 0x1407537B0
+ * Callers:
+ *     WbDecryptEncryptionSegment @ 0x1407553D8 (WbDecryptEncryptionSegment.c)
+ * Callees:
+ *     sub_1407538E4 @ 0x1407538E4 (sub_1407538E4.c)
+ *     sub_140A4B164 @ 0x140A4B164 (sub_140A4B164.c)
+ */
+
 __int64 __fastcall WbDecryptWarbirdEncryptionSegment(__int64 a1)
 {
   unsigned int v2; // ecx

@@ -1,3 +1,24 @@
+/*
+ * XREFs of PopFxIdleWorkerTail @ 0x140306748
+ * Callers:
+ *     PoFxCompleteIdleCondition @ 0x1402EB270 (PoFxCompleteIdleCondition.c)
+ *     PopFxIdleWorker @ 0x14030662C (PopFxIdleWorker.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxActivateComponentWorker @ 0x140305EB4 (PopFxActivateComponentWorker.c)
+ *     PopFxAddRefDevice @ 0x140305F38 (PopFxAddRefDevice.c)
+ *     PopFxProcessWork @ 0x1403060C4 (PopFxProcessWork.c)
+ *     PopDiagTraceFxComponentLogicalCondition @ 0x14030690C (PopDiagTraceFxComponentLogicalCondition.c)
+ *     PopFxCompleteComponentActivation @ 0x14030698C (PopFxCompleteComponentActivation.c)
+ *     PpmInterlockedUpdateTimeNoFence @ 0x140306BCC (PpmInterlockedUpdateTimeNoFence.c)
+ *     PopFxUpdateAccountingActiveTime @ 0x140306C00 (PopFxUpdateAccountingActiveTime.c)
+ *     PopFxDeactivateComponentDependencies @ 0x140306C70 (PopFxDeactivateComponentDependencies.c)
+ *     PopPluginComponentActive @ 0x14030721C (PopPluginComponentActive.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PopFxIdleWorkerTail(_QWORD *BugCheckParameter2, unsigned int a2, ULONG_PTR *a3)
 {
   __int64 v6; // rbx

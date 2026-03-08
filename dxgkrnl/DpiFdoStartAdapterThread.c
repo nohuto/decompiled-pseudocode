@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiFdoStartAdapterThread @ 0x1C02099A0
+ * Callers:
+ *     DpiSessionCreateCallback @ 0x1C01DDB08 (DpiSessionCreateCallback.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiFdoStartAdapterThreadImpl @ 0x1C0209A10 (DpiFdoStartAdapterThreadImpl.c)
+ *     DxgkEnsureVmBusInterface @ 0x1C031108C (DxgkEnsureVmBusInterface.c)
+ */
+
 void __fastcall DpiFdoStartAdapterThread(_BYTE *StartContext, __int64 a2)
 {
   char v3; // di

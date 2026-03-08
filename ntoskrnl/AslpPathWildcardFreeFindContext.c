@@ -1,3 +1,13 @@
+/*
+ * XREFs of AslpPathWildcardFreeFindContext @ 0x140A53BC8
+ * Callers:
+ *     AslPathWildcardFindClose @ 0x140A528CC (AslPathWildcardFindClose.c)
+ *     AslPathWildcardFindFirst @ 0x140A52910 (AslPathWildcardFindFirst.c)
+ * Callees:
+ *     AslpPathWildcardFreeMatchNode @ 0x140A53C98 (AslpPathWildcardFreeMatchNode.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall AslpPathWildcardFreeFindContext(__int64 *a1)
 {
   __int64 v1; // rbx

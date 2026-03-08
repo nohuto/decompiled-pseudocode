@@ -1,3 +1,11 @@
+/*
+ * XREFs of __GSHandlerCheckCommon @ 0x1801175DC
+ * Callers:
+ *     __GSHandlerCheck @ 0x1801175B8 (__GSHandlerCheck.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall _GSHandlerCheckCommon(__int64 a1, __int64 a2)
 {
   __int64 v2; // rcx

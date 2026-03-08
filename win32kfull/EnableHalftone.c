@@ -1,3 +1,13 @@
+/*
+ * XREFs of EnableHalftone @ 0x1C00EFD70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HT_InitSaneLimits @ 0x1C00EFE68 (HT_InitSaneLimits.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     HT_UninitializeSessionGlobals @ 0x1C02535C8 (HT_UninitializeSessionGlobals.c)
+ */
+
 __int64 __fastcall EnableHalftone(__int64 a1)
 {
   __int64 v1; // rbx

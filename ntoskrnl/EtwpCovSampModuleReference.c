@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpCovSampModuleReference @ 0x1408A4F92
+ * Callers:
+ *     ProcessForExeModule @ 0x14046221A (ProcessForExeModule.c)
+ *     EtwpCovSampProcessAddModule @ 0x1409EFA84 (EtwpCovSampProcessAddModule.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EtwpCovSampModuleReference(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?PrepareIncrementalUpdateForUser@CEndpointResourceStateManager@@QEAAJPEAVCFlipPresentUpdate@@@Z @ 0x1C0086730
+ * Callers:
+ *     ?ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z @ 0x1C0081E44 (-ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     ?Release@CFlipResource@@QEAAKXZ @ 0x1C00815F8 (-Release@CFlipResource@@QEAAKXZ.c)
+ *     ?CommitPendingUpdates@CEndpointResourceStateManager@@QEAAXXZ @ 0x1C0085534 (-CommitPendingUpdates@CEndpointResourceStateManager@@QEAAXXZ.c)
+ *     ?GetSerializedUpdate@CResourceStateUpdateSerializer@@QEAAXPEAVCFlipPresentUpdate@@@Z @ 0x1C00856C0 (-GetSerializedUpdate@CResourceStateUpdateSerializer@@QEAAXPEAVCFlipPresentUpdate@@@Z.c)
+ *     ?IncreaseAddedBufferSize@CResourceStateUpdateSerializer@@QEAAJII@Z @ 0x1C0085750 (-IncreaseAddedBufferSize@CResourceStateUpdateSerializer@@QEAAJII@Z.c)
+ *     ?IncreaseAddedContentSize@CResourceStateUpdateSerializer@@QEAAJII@Z @ 0x1C0085784 (-IncreaseAddedContentSize@CResourceStateUpdateSerializer@@QEAAJII@Z.c)
+ *     ?IncreaseUpdatedContentSize@CResourceStateUpdateSerializer@@QEAAJII@Z @ 0x1C00857B8 (-IncreaseUpdatedContentSize@CResourceStateUpdateSerializer@@QEAAJII@Z.c)
+ *     ?Allocate@CResourceStateUpdateSerializer@@QEAAJK@Z @ 0x1C0087E8C (-Allocate@CResourceStateUpdateSerializer@@QEAAJK@Z.c)
+ */
+
 __int64 __fastcall CEndpointResourceStateManager::PrepareIncrementalUpdateForUser(
         CEndpointResourceStateManager **this,
         struct CFlipPresentUpdate *a2)

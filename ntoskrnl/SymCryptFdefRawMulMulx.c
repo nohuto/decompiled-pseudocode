@@ -1,3 +1,12 @@
+/*
+ * XREFs of SymCryptFdefRawMulMulx @ 0x140404140
+ * Callers:
+ *     SymCryptFdefRawMul @ 0x1403FE01C (SymCryptFdefRawMul.c)
+ *     SymCryptFdefModMulMontgomeryMulx @ 0x1403FF020 (SymCryptFdefModMulMontgomeryMulx.c)
+ * Callees:
+ *     <none>
+ */
+
 // local variable allocation has failed, the output may be wrong!
 unsigned __int64 __fastcall SymCryptFdefRawMulMulx(_QWORD *a1, int a2, unsigned __int64 *a3, __int64 a4, _QWORD *a5)
 {

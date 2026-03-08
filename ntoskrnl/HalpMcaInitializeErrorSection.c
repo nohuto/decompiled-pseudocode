@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpMcaInitializeErrorSection @ 0x140501288
+ * Callers:
+ *     HalpMcaPopulateErrorData @ 0x14050135C (HalpMcaPopulateErrorData.c)
+ * Callees:
+ *     HalpGetCpuVendor @ 0x14037D1B4 (HalpGetCpuVendor.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall HalpMcaInitializeErrorSection(__int64 a1, __int64 a2)
 {
   char CpuVendor; // cl

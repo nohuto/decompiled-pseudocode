@@ -1,3 +1,34 @@
+/*
+ * XREFs of IoCreateDriver @ 0x14081AF70
+ * Callers:
+ *     HaliInitPnpDriver @ 0x14081AF30 (HaliInitPnpDriver.c)
+ *     ViIrpLogExposeWmiCallback @ 0x140AD9F90 (ViIrpLogExposeWmiCallback.c)
+ *     VfFilterAttach @ 0x140ADC20C (VfFilterAttach.c)
+ *     CmInitSystem2 @ 0x140B54728 (CmInitSystem2.c)
+ *     WMIInitialize @ 0x140B54790 (WMIInitialize.c)
+ *     PiSwInit @ 0x140B56DF0 (PiSwInit.c)
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     RtlStringCchLengthW @ 0x140247080 (RtlStringCchLengthW.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwMakeTemporaryObject @ 0x1404145F0 (ZwMakeTemporaryObject.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwTiLogDriverObjectLoad @ 0x14078FD38 (EtwTiLogDriverObjectLoad.c)
+ *     ObMakeTemporaryObject @ 0x140791C40 (ObMakeTemporaryObject.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ *     ObInsertObject @ 0x1407F0A20 (ObInsertObject.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 int __fastcall IoCreateDriver(_OWORD *a1, __int64 (__fastcall *a2)(void **, _QWORD))
 {
   int result; // eax

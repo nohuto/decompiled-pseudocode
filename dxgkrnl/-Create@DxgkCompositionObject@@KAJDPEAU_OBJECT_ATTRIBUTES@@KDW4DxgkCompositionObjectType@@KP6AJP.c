@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?Create@DxgkCompositionObject@@KAJDPEAU_OBJECT_ATTRIBUTES@@KDW4DxgkCompositionObjectType@@KP6AJPEAV1@PEAXPEAPEAVIDxgkCompositionObject@@@Z3PEAPEAX@Z @ 0x1C0014210
+ * Callers:
+ *     NtCreateCompositionSurfaceHandle @ 0x1C0014450 (NtCreateCompositionSurfaceHandle.c)
+ *     NtTokenManagerCreateFlipObjectReturnTokenHandle @ 0x1C0075720 (NtTokenManagerCreateFlipObjectReturnTokenHandle.c)
+ *     NtTokenManagerCreateFlipObjectTokenHandle @ 0x1C0075960 (NtTokenManagerCreateFlipObjectTokenHandle.c)
+ *     ?Create@CompositionSurfaceObject@@SAJDPEAU_OBJECT_ATTRIBUTES@@KDPEAPEAX@Z @ 0x1C007B534 (-Create@CompositionSurfaceObject@@SAJDPEAU_OBJECT_ATTRIBUTES@@KDPEAPEAX@Z.c)
+ *     NtFlipObjectCreate @ 0x1C00801E0 (NtFlipObjectCreate.c)
+ *     ?Create@DXGVAILOBJECT@@SAJPEAPEAV1@@Z @ 0x1C035C820 (-Create@DXGVAILOBJECT@@SAJPEAPEAV1@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DxgkCompositionObject::Create(
         __int64 a1,
         __int64 a2,

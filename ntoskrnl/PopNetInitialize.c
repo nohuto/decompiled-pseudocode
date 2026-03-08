@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopNetInitialize @ 0x140B46E8C
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     PopInitializeIRTimer @ 0x140380C04 (PopInitializeIRTimer.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     RtlInitializeSid @ 0x14068E3A0 (RtlInitializeSid.c)
+ *     RtlLengthRequiredSid @ 0x140782B90 (RtlLengthRequiredSid.c)
+ *     ExSubscribeWnfStateChange @ 0x14078C4C0 (ExSubscribeWnfStateChange.c)
+ *     PopNetPublishWnfStateUpdate @ 0x140857858 (PopNetPublishWnfStateUpdate.c)
+ *     PopTraceStandbyConnectivityUpdate @ 0x1408578B8 (PopTraceStandbyConnectivityUpdate.c)
+ *     PopNetSetConnectivityConstraint @ 0x140860708 (PopNetSetConnectivityConstraint.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopNetInitialize(int a1)
 {
   int v1; // ecx

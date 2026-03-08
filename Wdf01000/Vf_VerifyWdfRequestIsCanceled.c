@@ -1,3 +1,14 @@
+/*
+ * XREFs of Vf_VerifyWdfRequestIsCanceled @ 0x1C00BA218
+ * Callers:
+ *     imp_WdfRequestIsCanceled @ 0x1C0035250 (imp_WdfRequestIsCanceled.c)
+ * Callees:
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0006060 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0006094 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?Vf_VerifyRequestIsDriverOwned@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00BA8A0 (-Vf_VerifyRequestIsDriverOwned@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?Vf_VerifyRequestIsNotCancelable@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00BAA2C (-Vf_VerifyRequestIsNotCancelable@FxRequest@@QEAAJPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ */
+
 __int64 __fastcall Vf_VerifyWdfRequestIsCanceled(
         _FX_DRIVER_GLOBALS *FxDriverGlobals,
         FxRequest *pRequest,

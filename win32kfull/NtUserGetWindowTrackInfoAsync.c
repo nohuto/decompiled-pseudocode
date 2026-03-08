@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetWindowTrackInfoAsync @ 0x1C0097BD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_GetWindowTrackInfoAsync@@YA_JPEAUtagWND@@@Z @ 0x1C0097C84 (-_GetWindowTrackInfoAsync@@YA_JPEAUtagWND@@@Z.c)
+ */
+
 __int64 __fastcall NtUserGetWindowTrackInfoAsync(__int64 a1)
 {
   __int64 v2; // rax

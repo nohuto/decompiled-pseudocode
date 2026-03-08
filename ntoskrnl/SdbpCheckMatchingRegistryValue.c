@@ -1,3 +1,21 @@
+/*
+ * XREFs of SdbpCheckMatchingRegistryValue @ 0x140A4CE9C
+ * Callers:
+ *     SdbpCheckMatchingRegistryEntry @ 0x140A4CCBC (SdbpCheckMatchingRegistryEntry.c)
+ *     SdbpCheckMatchingWildcardRegistryEntry @ 0x140A4DAFC (SdbpCheckMatchingWildcardRegistryEntry.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     AslStringDuplicate @ 0x1406D51D8 (AslStringDuplicate.c)
+ *     AslStringPatternMatchExW @ 0x14077790C (AslStringPatternMatchExW.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SdbpCheckMatchingRegistryValue(
         HANDLE KeyHandle,
         wchar_t *Str1,

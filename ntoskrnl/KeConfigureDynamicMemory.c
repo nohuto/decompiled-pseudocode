@@ -1,3 +1,14 @@
+/*
+ * XREFs of KeConfigureDynamicMemory @ 0x14056C5A8
+ * Callers:
+ *     MiAddPhysicalMemory @ 0x140A289D8 (MiAddPhysicalMemory.c)
+ *     MiMapNewPfns @ 0x140A29C20 (MiMapNewPfns.c)
+ *     MiRemovePhysicalMemory @ 0x140A29F5C (MiRemovePhysicalMemory.c)
+ * Callees:
+ *     VslConfigureDynamicMemory @ 0x1405488C4 (VslConfigureDynamicMemory.c)
+ *     HvlConfigureDynamicMemory @ 0x1406764F0 (HvlConfigureDynamicMemory.c)
+ */
+
 __int64 __fastcall KeConfigureDynamicMemory(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // edi

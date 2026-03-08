@@ -1,3 +1,11 @@
+/*
+ * XREFs of DwmAsyncSendSnapPreviewInsertAfter @ 0x1C02701D8
+ * Callers:
+ *     ?SetPreviewInsertAfter@DWM_ARRANGEMENT_DATA@@QEAAXPEAUHWND__@@PEBUMOVESIZEDATA@@@Z @ 0x1C023DC70 (-SetPreviewInsertAfter@DWM_ARRANGEMENT_DATA@@QEAAXPEAUHWND__@@PEBUMOVESIZEDATA@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DwmAsyncSendSnapPreviewInsertAfter(PVOID Object, __int64 a2, __int64 a3)
 {
   unsigned int v4; // ebx

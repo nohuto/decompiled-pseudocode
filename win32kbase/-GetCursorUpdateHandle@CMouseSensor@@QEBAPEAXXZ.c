@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?GetCursorUpdateHandle@CMouseSensor@@QEBAPEAXXZ @ 0x1C00CDD24
+ * Callers:
+ *     GetCursorUpdateHandle @ 0x1C00CDCC8 (GetCursorUpdateHandle.c)
+ * Callees:
+ *     ?GetDispatcherHandleByName@CRIMBase@@IEBAPEAXW4DispatcherHandleName@1@W4HandleAccessMode@1@@Z @ 0x1C0039100 (-GetDispatcherHandleByName@CRIMBase@@IEBAPEAXW4DispatcherHandleName@1@W4HandleAccessMode@1@@Z.c)
+ *     ?IsInputThread@CInputThreadBase@@QEBA_NXZ @ 0x1C007CCB8 (-IsInputThread@CInputThreadBase@@QEBA_NXZ.c)
+ *     ?GetSensorHostingProcessHandle@CBaseInput@@IEBAPEAXXZ @ 0x1C00CDDE8 (-GetSensorHostingProcessHandle@CBaseInput@@IEBAPEAXXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void *__fastcall CMouseSensor::GetCursorUpdateHandle(CMouseSensor *this)
 {
   void *SensorHostingProcessHandle; // rbx

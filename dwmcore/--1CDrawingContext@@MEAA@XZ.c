@@ -1,3 +1,20 @@
+/*
+ * XREFs of ??1CDrawingContext@@MEAA@XZ @ 0x18003C524
+ * Callers:
+ *     ??_ECGlobalDrawingContext@@UEAAPEAXI@Z @ 0x18003C4E0 (--_ECGlobalDrawingContext@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?Release@CD3DDevice@@UEAAKXZ @ 0x180034A40 (-Release@CD3DDevice@@UEAAKXZ.c)
+ *     ??1ClipPlaneIterator@@QEAA@XZ @ 0x18003C628 (--1ClipPlaneIterator@@QEAA@XZ.c)
+ *     ??1CLightStack@@QEAA@XZ @ 0x18003C658 (--1CLightStack@@QEAA@XZ.c)
+ *     ??1CScopedClipStack@@QEAA@XZ @ 0x18003C724 (--1CScopedClipStack@@QEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ?PopAllStacks@CDrawingContext@@AEAAXXZ @ 0x18008C568 (-PopAllStacks@CDrawingContext@@AEAAXXZ.c)
+ *     ??1CDrawListEntryBuilder@@QEAA@XZ @ 0x18009598C (--1CDrawListEntryBuilder@@QEAA@XZ.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097680 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DF2E0 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     ??_GCVisualTreePath@@QEAAPEAXI@Z @ 0x1801B329C (--_GCVisualTreePath@@QEAAPEAXI@Z.c)
+ */
+
 void __fastcall CDrawingContext::~CDrawingContext(void **this)
 {
   unsigned int v2; // edx

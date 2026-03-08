@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopDiagTraceFxDeviceDirectedTransition @ 0x140591134
+ * Callers:
+ *     PopFxHandleDirectedPowerTransition @ 0x140588000 (PopFxHandleDirectedPowerTransition.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     PopFxAddLogEntry @ 0x140306584 (PopFxAddLogEntry.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 BOOLEAN __fastcall PopDiagTraceFxDeviceDirectedTransition(__int64 a1, unsigned __int8 a2)
 {
   int v2; // edi

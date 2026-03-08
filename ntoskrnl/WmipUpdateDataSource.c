@@ -1,3 +1,23 @@
+/*
+ * XREFs of WmipUpdateDataSource @ 0x1407FB4E8
+ * Callers:
+ *     WmipProcessWmiRegInfo @ 0x140867FA4 (WmipProcessWmiRegInfo.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     WmipReferenceEntry @ 0x14069C27C (WmipReferenceEntry.c)
+ *     WmipUnreferenceEntry @ 0x14069C9D0 (WmipUnreferenceEntry.c)
+ *     WmipUpdateModifyGuid @ 0x1407FB638 (WmipUpdateModifyGuid.c)
+ *     WmipFindISInDSByGuid @ 0x1407FB72C (WmipFindISInDSByGuid.c)
+ *     WmipGenerateBinaryMofNotification @ 0x14084FEDC (WmipGenerateBinaryMofNotification.c)
+ *     WmipCachePtrs @ 0x1408683C0 (WmipCachePtrs.c)
+ *     WmipEnableCollectionForNewGuid @ 0x140868484 (WmipEnableCollectionForNewGuid.c)
+ *     WmipSendGuidUpdateNotifications @ 0x140868544 (WmipSendGuidUpdateNotifications.c)
+ *     WmipUnlinkInstanceSetFromGuidEntry @ 0x14087DFC4 (WmipUnlinkInstanceSetFromGuidEntry.c)
+ *     WmipDisableCollectionForRemovedGuid @ 0x14087EB44 (WmipDisableCollectionForRemovedGuid.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WmipUpdateDataSource(__int64 a1, __int64 a2, int a3)
 {
   volatile signed __int64 *v3; // rdi

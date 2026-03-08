@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspSiloInitializeIsMultiSessionSku @ 0x1409AA610
+ * Callers:
+ *     PspInitializeServerSiloDeferred @ 0x1409AA0D0 (PspInitializeServerSiloDeferred.c)
+ * Callees:
+ *     PsAttachSiloToCurrentThread @ 0x1402993A0 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x1402993C0 (PsDetachSiloFromCurrentThread.c)
+ *     ExIsMultiSessionSku @ 0x14085DFB4 (ExIsMultiSessionSku.c)
+ */
+
 __int64 __fastcall PspSiloInitializeIsMultiSessionSku(struct _LIST_ENTRY *a1)
 {
   struct _LIST_ENTRY *Flink; // rsi

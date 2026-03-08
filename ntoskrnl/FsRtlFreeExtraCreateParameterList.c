@@ -1,3 +1,16 @@
+/*
+ * XREFs of FsRtlFreeExtraCreateParameterList @ 0x14070C280
+ * Callers:
+ *     FsRtlpCleanupEcps @ 0x14070C240 (FsRtlpCleanupEcps.c)
+ *     NtCreateUserProcess @ 0x14070C850 (NtCreateUserProcess.c)
+ *     PspCreateUserProcessEcp @ 0x14070D8D0 (PspCreateUserProcessEcp.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x14077E41C (IopSymlinkAllocateAndAddECP.c)
+ * Callees:
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14070C300 (FsRtlFreeExtraCreateParameter.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __stdcall FsRtlFreeExtraCreateParameterList(PECP_LIST EcpList)
 {
   _LIST_ENTRY *p_EcpList; // rdi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpGetChainHead @ 0x1402B84F0
+ * Callers:
+ *     RtlpPopulateContext @ 0x1402B8294 (RtlpPopulateContext.c)
+ *     RtlExpandHashTable @ 0x1402B8330 (RtlExpandHashTable.c)
+ *     RtlContractHashTable @ 0x1402CFA70 (RtlContractHashTable.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpGetChainHead(__int64 a1, unsigned int a2)
 {
   __int64 v2; // r8

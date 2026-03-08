@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FindObject@?$CGenericTable@_KVCBatch@DirectComposition@@$0GFHDEDEE@$0A@@DirectComposition@@QEAAPEAVCBatch@2@_K@Z @ 0x1C00A909C
+ * Callers:
+ *     ?ShouldDeferToken@CSynchronizationManager@DirectComposition@@SA_N_K0@Z @ 0x1C00A8F38 (-ShouldDeferToken@CSynchronizationManager@DirectComposition@@SA_N_K0@Z.c)
+ *     ?NotifyPresent@CSynchronizationManager@DirectComposition@@SAX_K_N@Z @ 0x1C00A8FFC (-NotifyPresent@CSynchronizationManager@DirectComposition@@SAX_K_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CGenericTable<unsigned __int64,DirectComposition::CBatch,1702052676,0>::FindObject(
         __int64 a1,
         __int64 a2)

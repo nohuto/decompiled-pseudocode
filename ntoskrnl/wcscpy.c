@@ -1,3 +1,11 @@
+/*
+ * XREFs of wcscpy @ 0x1403D5D60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 wchar_t *__cdecl wcscpy(wchar_t *Dest, const wchar_t *Source)
 {
   signed __int64 v2; // r8

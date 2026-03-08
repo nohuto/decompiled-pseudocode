@@ -1,3 +1,11 @@
+/*
+ * XREFs of OutputAATo8BPP_K_B332_XLATE @ 0x1C025BBA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall OutputAATo8BPP_K_B332_XLATE(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?xxxGetDummyPalette@@YAPEAXPEAUtagWINDOWSTATION@@PEAUtagGETCLIPBDATA@@@Z @ 0x1C01FFEE0
+ * Callers:
+ *     xxxGetClipboardData @ 0x1C02009E4 (xxxGetClipboardData.c)
+ * Callees:
+ *     ?FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z @ 0x1C0012468 (-FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z.c)
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ *     ?UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z @ 0x1C01FF294 (-UT_FreeCBFormat@@YAXPEAUtagCLIP@@@Z.c)
+ *     CreateDIBPalette @ 0x1C0200398 (CreateDIBPalette.c)
+ *     xxxGetClipboardData @ 0x1C02009E4 (xxxGetClipboardData.c)
+ */
+
 __int64 __fastcall xxxGetDummyPalette(struct tagWINDOWSTATION *a1, struct tagGETCLIPBDATA *a2)
 {
   unsigned int v2; // ebx

@@ -1,3 +1,36 @@
+/*
+ * XREFs of SeSubProcessToken @ 0x14070B29C
+ * Callers:
+ *     PspInitializeProcessSecurity @ 0x140709ED0 (PspInitializeProcessSecurity.c)
+ * Callees:
+ *     ObFastDereferenceObject @ 0x140245F50 (ObFastDereferenceObject.c)
+ *     SepDeleteAccessState @ 0x140265F50 (SepDeleteAccessState.c)
+ *     SepCreateAccessStateFromSubjectContext @ 0x140266820 (SepCreateAccessStateFromSubjectContext.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     SepSetTrustLevelForProcessToken @ 0x140296E90 (SepSetTrustLevelForProcessToken.c)
+ *     SepSetTokenBnoIsolation @ 0x140296F14 (SepSetTokenBnoIsolation.c)
+ *     SepMandatorySubProcessToken @ 0x140297F20 (SepMandatorySubProcessToken.c)
+ *     SepDesktopAppxSubProcessToken @ 0x1402980AC (SepDesktopAppxSubProcessToken.c)
+ *     SeTokenGetNoChildProcessRestricted @ 0x14029894C (SeTokenGetNoChildProcessRestricted.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SeTokenIsNoChildProcessRestrictionEnforced @ 0x1405B6DD8 (SeTokenIsNoChildProcessRestrictionEnforced.c)
+ *     SepSetTokenAllApplicationPackagesPolicy @ 0x1405B6FD0 (SepSetTokenAllApplicationPackagesPolicy.c)
+ *     SeCreateAccessState @ 0x1406991A0 (SeCreateAccessState.c)
+ *     SepFinalizeTokenAcls @ 0x1406D1E60 (SepFinalizeTokenAcls.c)
+ *     PsReferenceEffectiveToken @ 0x1406D657C (PsReferenceEffectiveToken.c)
+ *     SepSetProcessUniqueAttribute @ 0x14070B6C4 (SepSetProcessUniqueAttribute.c)
+ *     SepSetTokenSessionById @ 0x14070BB80 (SepSetTokenSessionById.c)
+ *     SepSetTokenLowboxNumber @ 0x1407398DC (SepSetTokenLowboxNumber.c)
+ *     SepDereferenceLowBoxNumberEntry @ 0x14074438C (SepDereferenceLowBoxNumberEntry.c)
+ *     SepAddTokenOriginClaim @ 0x140794680 (SepAddTokenOriginClaim.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     SepDuplicateToken @ 0x1407BCF00 (SepDuplicateToken.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     EtwTimLogProhibitChildProcessCreation @ 0x1409E6C18 (EtwTimLogProhibitChildProcessCreation.c)
+ */
+
 __int64 __fastcall SeSubProcessToken(
         __int64 a1,
         __int64 a2,

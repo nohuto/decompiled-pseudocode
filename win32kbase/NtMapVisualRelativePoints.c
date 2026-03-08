@@ -1,3 +1,19 @@
+/*
+ * XREFs of NtMapVisualRelativePoints @ 0x1C0158F60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C000F0BC (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterCritInternal @ 0x1C004FB50 (PrivateAPI--_anonymous_namespace_--EnterCritInternal.c)
+ *     HMUnlockObject @ 0x1C0072980 (HMUnlockObject.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?KernelMapVisualRelativePoint@@YAJ_J0PEBUVisualPoint@@PEAU1@@Z @ 0x1C01585A4 (-KernelMapVisualRelativePoint@@YAJ_J0PEBUVisualPoint@@PEAU1@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ii @ 0x1C0159308 (WPP_RECORDER_AND_TRACE_SF_ii.c)
+ *     UserGetLastError @ 0x1C0247AF0 (UserGetLastError.c)
+ */
+
 __int64 __fastcall NtMapVisualRelativePoints(char *a1, char *a2, unsigned int a3, unsigned __int64 a4, char *Address)
 {
   unsigned __int64 v5; // r14

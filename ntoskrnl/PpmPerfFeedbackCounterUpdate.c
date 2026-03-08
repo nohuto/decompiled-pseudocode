@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmPerfFeedbackCounterUpdate @ 0x14058AC24
+ * Callers:
+ *     PpmIdleExecuteTransition @ 0x14022D7D0 (PpmIdleExecuteTransition.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall PpmPerfFeedbackCounterUpdate(__int64 a1)
 {
   __int64 (__fastcall *v1)(__int64, int *); // rax

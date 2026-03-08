@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserCalcMenuBar @ 0x1C00A4A50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxCalcMenuBar @ 0x1C00A4B90 (xxxCalcMenuBar.c)
+ */
+
 __int64 __fastcall NtUserCalcMenuBar(__int64 a1, int a2, int a3, int a4, ULONG64 a5)
 {
   __int64 v9; // rcx

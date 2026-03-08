@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlCompressBufferXpressLzStandard @ 0x140385A30
+ * Callers:
+ *     RtlCompressBufferXpressLz @ 0x1403859C0 (RtlCompressBufferXpressLz.c)
+ *     RtlCompressBufferProgress @ 0x1405B0208 (RtlCompressBufferProgress.c)
+ * Callees:
+ *     RtlpMakeXpressCallback @ 0x1405B2518 (RtlpMakeXpressCallback.c)
+ */
+
 __int64 __fastcall RtlCompressBufferXpressLzStandard(
         _BYTE *a1,
         unsigned int a2,

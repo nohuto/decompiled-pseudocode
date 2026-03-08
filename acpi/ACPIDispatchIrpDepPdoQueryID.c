@@ -1,3 +1,19 @@
+/*
+ * XREFs of ACPIDispatchIrpDepPdoQueryID @ 0x1C0017830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     AcpiArblibFreeArbiterInstance @ 0x1C000B64C (AcpiArblibFreeArbiterInstance.c)
+ *     AcpiArblibInitializeArbiter @ 0x1C000B688 (AcpiArblibInitializeArbiter.c)
+ *     ACPIBuildProcessDelayedDependencyExternalTrigger @ 0x1C000E1CC (ACPIBuildProcessDelayedDependencyExternalTrigger.c)
+ *     ACPIDevicePowerFlushQueue @ 0x1C001EABC (ACPIDevicePowerFlushQueue.c)
+ *     AcpiEvaluateBiosMethodsOnPciRootBus @ 0x1C00345C4 (AcpiEvaluateBiosMethodsOnPciRootBus.c)
+ *     AMLIIsNamedChildPresent @ 0x1C00487BC (AMLIIsNamedChildPresent.c)
+ *     ACPIBuildFlushQueue @ 0x1C007D42C (ACPIBuildFlushQueue.c)
+ */
+
 __int64 __fastcall ACPIDispatchIrpDepPdoQueryID(ULONG_PTR a1, __int64 a2)
 {
   __int64 DeviceExtension; // rdi

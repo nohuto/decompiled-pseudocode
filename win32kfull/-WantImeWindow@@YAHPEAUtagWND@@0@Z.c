@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?WantImeWindow@@YAHPEAUtagWND@@0@Z @ 0x1C00D0F44
+ * Callers:
+ *     ?zzzImeSetFutureOwner@@YAXPEAUtagWND@@0@Z @ 0x1C009EC08 (-zzzImeSetFutureOwner@@YAXPEAUtagWND@@0@Z.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WantImeWindow(struct tagWND *a1, struct tagWND *a2)
 {
   __int64 v3; // r8

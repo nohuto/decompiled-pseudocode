@@ -1,3 +1,25 @@
+/*
+ * XREFs of PopUmpoInitializeChannel @ 0x140B6CC1C
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     ExRegisterCallback @ 0x1402FBE90 (ExRegisterCallback.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwAlpcCreatePort @ 0x140413270 (ZwAlpcCreatePort.c)
+ *     ZwAlpcSetInformation @ 0x1404134B0 (ZwAlpcSetInformation.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D26A0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406DB5A0 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406DB640 (RtlCreateAcl.c)
+ *     PopUmpoProcessMessages @ 0x14073B298 (PopUmpoProcessMessages.c)
+ *     RtlAddAccessAllowedAce @ 0x140744250 (RtlAddAccessAllowedAce.c)
+ *     ExCreateCallback @ 0x14078D4A0 (ExCreateCallback.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 PopUmpoInitializeChannel()
 {
   ULONG v0; // ebx

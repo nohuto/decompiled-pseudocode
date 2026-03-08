@@ -1,3 +1,16 @@
+/*
+ * XREFs of PspIumReplenishPartitionPages @ 0x1405A3DE0
+ * Callers:
+ *     PsDispatchIumService @ 0x1405A2A44 (PsDispatchIumService.c)
+ *     PspIumGetPhysicalPage @ 0x1408A11F0 (PspIumGetPhysicalPage.c)
+ * Callees:
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140305AB0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmAllocateNonChargedSecurePages @ 0x140654ECC (MmAllocateNonChargedSecurePages.c)
+ */
+
 bool __fastcall PspIumReplenishPartitionPages(__int64 a1, unsigned int a2)
 {
   __int64 v2; // r12

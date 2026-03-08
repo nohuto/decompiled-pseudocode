@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopPepCompleteComponentIdleStateChangeActivity @ 0x1402F2810
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PopFxUpdateComponentAccountingEnhanced @ 0x1402F28E0 (PopFxUpdateComponentAccountingEnhanced.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x1402F295C (PopPepUpdateIdleStateRefCount.c)
+ *     PopPepTryPowerDownComponent @ 0x140304D78 (PopPepTryPowerDownComponent.c)
+ *     PopPepUpdateIdleState @ 0x140304DB8 (PopPepUpdateIdleState.c)
+ *     PopFxUpdateComponentPerfStateNominalChange @ 0x140589C50 (PopFxUpdateComponentPerfStateNominalChange.c)
+ */
+
 void __fastcall PopPepCompleteComponentIdleStateChangeActivity(__int64 a1, __int64 a2)
 {
   __int64 v4; // rbx

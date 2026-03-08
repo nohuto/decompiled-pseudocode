@@ -1,3 +1,39 @@
+/*
+ * XREFs of zzzComposeDesktop @ 0x1C007D394
+ * Callers:
+ *     zzzDwmStartRedirection @ 0x1C007CEC8 (zzzDwmStartRedirection.c)
+ *     xxxCreateDesktopEx @ 0x1C00C03D4 (xxxCreateDesktopEx.c)
+ * Callees:
+ *     DwmAsyncCreateDCompositionVisualBitmapForHwnd @ 0x1C0014820 (DwmAsyncCreateDCompositionVisualBitmapForHwnd.c)
+ *     GreRemoveDisplayDriverRealizations @ 0x1C001B31C (GreRemoveDisplayDriverRealizations.c)
+ *     ?FreeTrackedRegions@CVisRgnTrackerProp@@AEAAXXZ @ 0x1C0021EB4 (-FreeTrackedRegions@CVisRgnTrackerProp@@AEAAXXZ.c)
+ *     ComposeWindow @ 0x1C002297C (ComposeWindow.c)
+ *     ??$GetProp@VCVisRgnTrackerProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCVisRgnTrackerProp@@@Z @ 0x1C0028874 (--$GetProp@VCVisRgnTrackerProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCVisRgnTrackerProp@@@Z.c)
+ *     IsDesktopWindow @ 0x1C002C460 (IsDesktopWindow.c)
+ *     ?ReorderChildrenSpriteList@@YAXPEAUtagWND@@0@Z @ 0x1C002C508 (-ReorderChildrenSpriteList@@YAXPEAUtagWND@@0@Z.c)
+ *     ComposeWindowIfNeeded @ 0x1C002D850 (ComposeWindowIfNeeded.c)
+ *     IsWindowContentProtected @ 0x1C002E710 (IsWindowContentProtected.c)
+ *     IsWindowBeingDestroyed @ 0x1C0039B60 (IsWindowBeingDestroyed.c)
+ *     MapDesktop @ 0x1C003E450 (MapDesktop.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0044D58 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     ?MarkDirty@CVisRgnTrackerProp@@QEAAXXZ @ 0x1C007B4F0 (-MarkDirty@CVisRgnTrackerProp@@QEAAXXZ.c)
+ *     ?IsWindowComposedOnDesktop@@YAHQEAUtagWND@@QEAUtagDESKTOP@@@Z @ 0x1C007CD8C (-IsWindowComposedOnDesktop@@YAHQEAUtagWND@@QEAUtagDESKTOP@@@Z.c)
+ *     GreTransferDwmStateToSpriteState @ 0x1C007CDBC (GreTransferDwmStateToSpriteState.c)
+ *     ?ShouldComposeWindow@@YAHQEAUtagWND@@QEAUtagDESKTOP@@@Z @ 0x1C007D680 (-ShouldComposeWindow@@YAHQEAUtagWND@@QEAUtagDESKTOP@@@Z.c)
+ *     ??$GetProp@VCSwapChainProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCSwapChainProp@@@Z @ 0x1C007D6D4 (--$GetProp@VCSwapChainProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCSwapChainProp@@@Z.c)
+ *     ?ReNotifyDwm@CHwndTargetProp@@SAXPEAUtagWND@@@Z @ 0x1C007D70C (-ReNotifyDwm@CHwndTargetProp@@SAXPEAUtagWND@@@Z.c)
+ *     ??$GetProp@VCHwndBitmapProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCHwndBitmapProp@@@Z @ 0x1C007DCD4 (--$GetProp@VCHwndBitmapProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCHwndBitmapProp@@@Z.c)
+ *     DwmAsyncShellWindowChange @ 0x1C007DD0C (DwmAsyncShellWindowChange.c)
+ *     GreTransferSpriteStateToDwmState @ 0x1C007DD9C (GreTransferSpriteStateToDwmState.c)
+ *     MagpComposeDesktop @ 0x1C007EC4C (MagpComposeDesktop.c)
+ *     ?BroadcastCompositionChange@@YAXPEBUtagDESKTOP@@@Z @ 0x1C007ECB0 (-BroadcastCompositionChange@@YAXPEBUtagDESKTOP@@@Z.c)
+ *     GreUpdateSpriteVisRgn @ 0x1C007ED24 (GreUpdateSpriteVisRgn.c)
+ *     zzzEnableDwmPointerSupport @ 0x1C007F1FC (zzzEnableDwmPointerSupport.c)
+ *     ?NotifyDwm@CSwapChainProp@@QEAAHQEAUtagWND@@@Z @ 0x1C021EDEC (-NotifyDwm@CSwapChainProp@@QEAAHQEAUtagWND@@@Z.c)
+ *     ?ChangeWindowTreeProtection@@YAHPEAUtagWND@@K@Z @ 0x1C022F838 (-ChangeWindowTreeProtection@@YAHPEAUtagWND@@K@Z.c)
+ */
+
 __int64 __fastcall zzzComposeDesktop(struct tagDESKTOP *a1)
 {
   __int64 v2; // rcx

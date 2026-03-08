@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiResolvePrivateZeroFault @ 0x14026BD60
+ * Callers:
+ *     MiZeroFault @ 0x140266000 (MiZeroFault.c)
+ *     MiResolveDemandZeroFault @ 0x14026B720 (MiResolveDemandZeroFault.c)
+ * Callees:
+ *     MiGetSlabPage @ 0x14025BA50 (MiGetSlabPage.c)
+ *     MiCompletePrivateZeroFault @ 0x14026C360 (MiCompletePrivateZeroFault.c)
+ *     MiGetPageChain @ 0x14026E0E0 (MiGetPageChain.c)
+ *     MiConvertEntireLargePageToSmall @ 0x140277140 (MiConvertEntireLargePageToSmall.c)
+ *     MiSetPfnBlink @ 0x140289900 (MiSetPfnBlink.c)
+ *     MiProtectionToCacheAttribute @ 0x14028A2D0 (MiProtectionToCacheAttribute.c)
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     MiComputeZeroClusterMaximum @ 0x14029EAD0 (MiComputeZeroClusterMaximum.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1402CF5DC (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiGetLargePage @ 0x14034EF30 (MiGetLargePage.c)
+ *     MiAdvanceFaultList @ 0x140363F9C (MiAdvanceFaultList.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiGetClusterPage @ 0x140667A14 (MiGetClusterPage.c)
+ */
+
 __int64 __fastcall MiResolvePrivateZeroFault(int *a1)
 {
   unsigned __int64 v1; // rbx

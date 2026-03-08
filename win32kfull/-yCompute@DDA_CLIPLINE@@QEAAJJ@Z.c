@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?yCompute@DDA_CLIPLINE@@QEAAJJ@Z @ 0x1C02F65DC
+ * Callers:
+ *     ?vIntersectVertical@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z @ 0x1C02F6218 (-vIntersectVertical@@YAXPEAVDDA_CLIPLINE@@JPEAU_POINTL@@1PEAJ@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DDA_CLIPLINE::yCompute(DDA_CLIPLINE *this, int a2)
 {
   __int64 v3; // rax

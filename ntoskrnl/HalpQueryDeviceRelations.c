@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpQueryDeviceRelations @ 0x140822480
+ * Callers:
+ *     HalpDispatchPnp @ 0x140821D00 (HalpDispatchPnp.c)
+ * Callees:
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall HalpQueryDeviceRelations(_QWORD *Object, int a2, __int64 *a3)
 {
   __int64 v3; // rbx

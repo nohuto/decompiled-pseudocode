@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiUpdatePageAttributeStamp @ 0x14036A854
+ * Callers:
+ *     MiCopyHeaderIfResident @ 0x140368D84 (MiCopyHeaderIfResident.c)
+ * Callees:
+ *     MiAcquirePageListLock @ 0x140264E70 (MiAcquirePageListLock.c)
+ *     MiDetermineModifiedPageListHead @ 0x14027E090 (MiDetermineModifiedPageListHead.c)
+ *     MiReleasePageListLock @ 0x140288360 (MiReleasePageListLock.c)
+ *     MiSetPfnTbFlushStamp @ 0x14028A3A0 (MiSetPfnTbFlushStamp.c)
+ *     MiGetPfnPriority @ 0x14028A3F8 (MiGetPfnPriority.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiGetSlabAllocatorStandbyList @ 0x140654688 (MiGetSlabAllocatorStandbyList.c)
+ */
+
 void __fastcall MiUpdatePageAttributeStamp(__int64 a1)
 {
   unsigned __int64 v2; // r8

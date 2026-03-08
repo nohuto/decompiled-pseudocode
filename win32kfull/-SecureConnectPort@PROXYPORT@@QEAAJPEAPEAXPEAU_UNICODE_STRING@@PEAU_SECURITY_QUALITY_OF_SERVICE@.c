@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SecureConnectPort@PROXYPORT@@QEAAJPEAPEAXPEAU_UNICODE_STRING@@PEAU_SECURITY_QUALITY_OF_SERVICE@@PEAU_PORT_VIEW@@PEAXPEAU_REMOTE_PORT_VIEW@@PEAK46@Z @ 0x1C02C2068
+ * Callers:
+ *     ??0PROXYPORT@@QEAA@_K@Z @ 0x1C02C1A94 (--0PROXYPORT@@QEAA@_K@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall PROXYPORT::SecureConnectPort(
         PROXYPORT *this,
         void **a2,

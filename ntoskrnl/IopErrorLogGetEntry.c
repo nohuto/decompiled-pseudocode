@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopErrorLogGetEntry @ 0x1403BFB04
+ * Callers:
+ *     IopErrorLogThread @ 0x1408704E0 (IopErrorLogThread.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 IopErrorLogGetEntry()
 {
   KIRQL v0; // al

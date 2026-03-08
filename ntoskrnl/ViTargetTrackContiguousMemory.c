@@ -1,3 +1,20 @@
+/*
+ * XREFs of ViTargetTrackContiguousMemory @ 0x140AC8D80
+ * Callers:
+ *     VerifierMmAllocateContiguousMemory @ 0x140ADF440 (VerifierMmAllocateContiguousMemory.c)
+ *     VerifierMmAllocateContiguousMemorySpecifyCache @ 0x140ADF5C0 (VerifierMmAllocateContiguousMemorySpecifyCache.c)
+ *     VerifierMmAllocateContiguousMemorySpecifyCacheNode @ 0x140ADF700 (VerifierMmAllocateContiguousMemorySpecifyCacheNode.c)
+ *     VerifierMmAllocateContiguousNodeMemory @ 0x140ADF820 (VerifierMmAllocateContiguousNodeMemory.c)
+ *     VerifierMmAllocateNonCachedMemory @ 0x140ADFA80 (VerifierMmAllocateNonCachedMemory.c)
+ * Callees:
+ *     VfUtilFreePoolCheckIRQL @ 0x140303240 (VfUtilFreePoolCheckIRQL.c)
+ *     VfAvlLookupTreeNode @ 0x140303680 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403039F0 (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x14045DE58 (VfAvlInitializeLockContext.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ViTargetUpdateTreeAllowed @ 0x140AC8E94 (ViTargetUpdateTreeAllowed.c)
+ */
+
 void __fastcall ViTargetTrackContiguousMemory(unsigned __int64 a1, _SLIST_ENTRY *a2, __int64 a3)
 {
   struct _SLIST_ENTRY *Pool2; // rax

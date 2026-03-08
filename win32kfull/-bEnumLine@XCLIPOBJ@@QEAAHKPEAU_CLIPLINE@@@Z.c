@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z @ 0x1C02F5534
+ * Callers:
+ *     ?bEnumPath@XCLIPOBJ@@QEAAHPEAU_PATHOBJ@@KPEAU_CLIPLINE@@H@Z @ 0x1C02DAFFC (-bEnumPath@XCLIPOBJ@@QEAAHPEAU_PATHOBJ@@KPEAU_CLIPLINE@@H@Z.c)
+ * Callees:
+ *     ?bFindFirstSegment@XCLIPOBJ@@IEAAHXZ @ 0x1C02F58E0 (-bFindFirstSegment@XCLIPOBJ@@IEAAHXZ.c)
+ *     ?bFindNextScan@XCLIPOBJ@@IEAAHXZ @ 0x1C02F5B90 (-bFindNextScan@XCLIPOBJ@@IEAAHXZ.c)
+ *     ?bFindNextSegment@XCLIPOBJ@@IEAAHXZ @ 0x1C02F5C24 (-bFindNextSegment@XCLIPOBJ@@IEAAHXZ.c)
+ *     ?bIntersectWall@XCLIPOBJ@@IEAAHJPEAU_POINTL@@0PEAJ@Z @ 0x1C02F5CA8 (-bIntersectWall@XCLIPOBJ@@IEAAHJPEAU_POINTL@@0PEAJ@Z.c)
+ *     ?bRecordRun@XCLIPOBJ@@IEAAHAEAJ@Z @ 0x1C02F5D10 (-bRecordRun@XCLIPOBJ@@IEAAHAEAJ@Z.c)
+ *     ?bSetup@XCLIPOBJ@@IEAAHXZ @ 0x1C02F5D98 (-bSetup@XCLIPOBJ@@IEAAHXZ.c)
+ */
+
 __int64 __fastcall XCLIPOBJ::bEnumLine(XCLIPOBJ *this, unsigned int a2, struct _CLIPLINE *a3)
 {
   POINTFIX v4; // rax

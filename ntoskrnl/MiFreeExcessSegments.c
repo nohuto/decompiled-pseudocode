@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiFreeExcessSegments @ 0x1406225DC
+ * Callers:
+ *     MiCountSystemPool @ 0x14020DF44 (MiCountSystemPool.c)
+ *     MmResourcesAvailable @ 0x140311DB0 (MmResourcesAvailable.c)
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     MiCommitPoolMemory @ 0x14032FC90 (MiCommitPoolMemory.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PsGetNextPartition @ 0x1402FF5F0 (PsGetNextPartition.c)
+ *     MiShouldTrimUnusedSegments @ 0x1404635C8 (MiShouldTrimUnusedSegments.c)
+ */
+
 unsigned __int64 MiFreeExcessSegments()
 {
   unsigned __int64 result; // rax

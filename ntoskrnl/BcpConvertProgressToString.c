@@ -1,3 +1,12 @@
+/*
+ * XREFs of BcpConvertProgressToString @ 0x14066FB5C
+ * Callers:
+ *     BcpDisplayProgress @ 0x140670320 (BcpDisplayProgress.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x140670928 (BgpFwDisplayBugCheckProgressUpdate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall BcpConvertProgressToString(unsigned int a1, __int64 a2)
 {
   unsigned int v2; // r9d

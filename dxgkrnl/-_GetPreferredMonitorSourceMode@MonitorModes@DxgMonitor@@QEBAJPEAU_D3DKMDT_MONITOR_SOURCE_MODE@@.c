@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_GetPreferredMonitorSourceMode@MonitorModes@DxgMonitor@@QEBAJPEAU_D3DKMDT_MONITOR_SOURCE_MODE@@@Z @ 0x1C016AD20
+ * Callers:
+ *     MonitorGetPreferredMonitorSourceMode @ 0x1C016ACA0 (MonitorGetPreferredMonitorSourceMode.c)
+ *     DxgkGetMonitorInternalInfo @ 0x1C01B25E0 (DxgkGetMonitorInternalInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DxgMonitor::MonitorModes::_GetPreferredMonitorSourceMode(
         DxgMonitor::MonitorModes *this,
         struct _D3DKMDT_MONITOR_SOURCE_MODE *a2)

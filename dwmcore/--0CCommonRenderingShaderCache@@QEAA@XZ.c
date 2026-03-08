@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CCommonRenderingShaderCache@@QEAA@XZ @ 0x18010E288
+ * Callers:
+ *     _dynamic_initializer_for__g_commonRenderingShaderCache__ @ 0x180001440 (_dynamic_initializer_for__g_commonRenderingShaderCache__.c)
+ * Callees:
+ *     <none>
+ */
+
 CCommonRenderingShaderCache *__fastcall CCommonRenderingShaderCache::CCommonRenderingShaderCache(
         CCommonRenderingShaderCache *this)
 {

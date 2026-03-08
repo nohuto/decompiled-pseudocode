@@ -1,3 +1,44 @@
+/*
+ * XREFs of NtLockVirtualMemory @ 0x140344C50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MiLockPageAndSetDirty @ 0x1402110B8 (MiLockPageAndSetDirty.c)
+ *     MiLocateAddress @ 0x140228680 (MiLocateAddress.c)
+ *     MiGetWsleContents @ 0x140229790 (MiGetWsleContents.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x14026A0D0 (MiLockPageTableInternal.c)
+ *     MiLockPageTablePage @ 0x14026A4D0 (MiLockPageTablePage.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiGetEffectivePagePriorityThread @ 0x14028A260 (MiGetEffectivePagePriorityThread.c)
+ *     MiUpdatePfnPriority @ 0x14028D35C (MiUpdatePfnPriority.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiGetPagingFileOffset @ 0x14029EA80 (MiGetPagingFileOffset.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     MiSetVaAgeList @ 0x14031AB40 (MiSetVaAgeList.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     MiMakeSystemAddressValid @ 0x140321770 (MiMakeSystemAddressValid.c)
+ *     MiVadPureReserve @ 0x140321EB0 (MiVadPureReserve.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiUnlockPageTableCharges @ 0x140345720 (MiUnlockPageTableCharges.c)
+ *     MiGetNextPageTable @ 0x1403468E0 (MiGetNextPageTable.c)
+ *     MiWorkingSetIsContended @ 0x1403478E0 (MiWorkingSetIsContended.c)
+ *     MiPageTableLockIsContended @ 0x140347920 (MiPageTableLockIsContended.c)
+ *     MiVadPagesTradable @ 0x1403481F0 (MiVadPagesTradable.c)
+ *     MiUnlockVa @ 0x14034A190 (MiUnlockVa.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiLockUnlockCommon @ 0x1407D27F8 (MiLockUnlockCommon.c)
+ *     MiUnlockVadRange @ 0x1407D73E8 (MiUnlockVadRange.c)
+ *     MiLockVadRange @ 0x1407D74B8 (MiLockVadRange.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall NtLockVirtualMemory(ULONG_PTR BugCheckParameter1, unsigned __int64 *a2, _QWORD *a3)
 {
   int v4; // ebx

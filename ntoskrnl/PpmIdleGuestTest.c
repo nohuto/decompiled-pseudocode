@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmIdleGuestTest @ 0x1403C8850
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall PpmIdleGuestTest(__int64 a1, __int64 a2, int a3)
 {
   unsigned int v3; // edx

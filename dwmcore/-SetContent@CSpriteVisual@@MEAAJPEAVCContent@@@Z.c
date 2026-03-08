@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SetContent@CSpriteVisual@@MEAAJPEAVCContent@@@Z @ 0x18024EEE0
+ * Callers:
+ *     ?SetReferenceProperty@CSpriteVisual@@UEAAJIPEAVCResource@@@Z @ 0x18024F020 (-SetReferenceProperty@CSpriteVisual@@UEAAJIPEAVCResource@@@Z.c)
+ * Callees:
+ *     ?SetContent@CVisual@@MEAAJPEAVCContent@@@Z @ 0x18004A570 (-SetContent@CVisual@@MEAAJPEAVCContent@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CSpriteVisual::SetContent(struct CResource **this, struct CContent *a2)
 {
   __int64 v4; // rcx

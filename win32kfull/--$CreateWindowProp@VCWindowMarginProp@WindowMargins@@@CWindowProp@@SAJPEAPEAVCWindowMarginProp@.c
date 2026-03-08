@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$CreateWindowProp@VCWindowMarginProp@WindowMargins@@@CWindowProp@@SAJPEAPEAVCWindowMarginProp@WindowMargins@@@Z @ 0x1C0101540
+ * Callers:
+ *     ?GetOrCreate@CWindowMarginProp@WindowMargins@@SAPEAV12@PEAUtagWND@@@Z @ 0x1C010141C (-GetOrCreate@CWindowMarginProp@WindowMargins@@SAPEAV12@PEAUtagWND@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CWindowProp::CreateWindowProp<WindowMargins::CWindowMarginProp>(__int64 *a1)
 {
   unsigned int v2; // ebx

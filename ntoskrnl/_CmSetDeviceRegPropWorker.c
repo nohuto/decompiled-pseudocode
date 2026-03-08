@@ -1,3 +1,23 @@
+/*
+ * XREFs of _CmSetDeviceRegPropWorker @ 0x14086A240
+ * Callers:
+ *     _CmSetDeviceRegProp @ 0x140684F2C (_CmSetDeviceRegProp.c)
+ * Callees:
+ *     _CmDevicePropertyRead @ 0x140244C38 (_CmDevicePropertyRead.c)
+ *     _MapCmDevicePropertyToRegValue @ 0x140244D48 (_MapCmDevicePropertyToRegValue.c)
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     _CmDevicePropertyWrite @ 0x1402F43F0 (_CmDevicePropertyWrite.c)
+ *     _MapCmDevicePropertyToRegType @ 0x1402FA1A8 (_MapCmDevicePropertyToRegType.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x140413EB0 (ZwDeleteValueKey.c)
+ *     _CmIsRootDevice @ 0x1406C7E80 (_CmIsRootDevice.c)
+ *     _CmOpenDeviceRegKey @ 0x1406D3B3C (_CmOpenDeviceRegKey.c)
+ *     RtlLengthSecurityDescriptor @ 0x14071C8F0 (RtlLengthSecurityDescriptor.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x14071D120 (RtlValidRelativeSecurityDescriptor.c)
+ *     _RegRtlSetValue @ 0x140784FE4 (_RegRtlSetValue.c)
+ *     _CmRaisePropertyChangeEvent @ 0x14086A444 (_CmRaisePropertyChangeEvent.c)
+ */
+
 __int64 __fastcall CmSetDeviceRegPropWorker(
         __int64 a1,
         const WCHAR *a2,

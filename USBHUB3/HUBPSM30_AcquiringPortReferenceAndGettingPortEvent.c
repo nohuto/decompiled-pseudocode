@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBPSM30_AcquiringPortReferenceAndGettingPortEvent @ 0x1C0013AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     HUBHTX_Get30PortChangeEvent @ 0x1C000569C (HUBHTX_Get30PortChangeEvent.c)
+ *     HUBMUX_AcquirePortPowerReference @ 0x1C0010B48 (HUBMUX_AcquirePortPowerReference.c)
+ */
+
 __int64 __fastcall HUBPSM30_AcquiringPortReferenceAndGettingPortEvent(__int64 a1)
 {
   __int64 v1; // rbx

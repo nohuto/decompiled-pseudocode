@@ -1,3 +1,11 @@
+/*
+ * XREFs of PfpFileBuildReadList @ 0x1407673D4
+ * Callers:
+ *     PfpFileBuildReadSupport @ 0x140767138 (PfpFileBuildReadSupport.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PfpFileBuildReadList(__int64 a1, __int64 a2, char a3, __int64 *a4)
 {
   unsigned int v7; // eax

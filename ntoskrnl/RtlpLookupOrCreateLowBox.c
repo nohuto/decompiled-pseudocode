@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpLookupOrCreateLowBox @ 0x14035400C
+ * Callers:
+ *     RtlpHashStringToAtom @ 0x1407DA630 (RtlpHashStringToAtom.c)
+ * Callees:
+ *     RtlpQueryLowBoxId @ 0x140354AA4 (RtlpQueryLowBoxId.c)
+ *     RtlpAllocateAtom @ 0x1407DBAB0 (RtlpAllocateAtom.c)
+ */
+
 __int64 __fastcall RtlpLookupOrCreateLowBox(__int64 a1, __int64 a2, char a3)
 {
   __int64 *v5; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of DesktopVerifyHeapPointer @ 0x1C00D1738
+ * Callers:
+ *     DesktopVerifyHeapLargeUnicodeString @ 0x1C00D16C4 (DesktopVerifyHeapLargeUnicodeString.c)
+ *     DesktopVerifyHeapRange @ 0x1C01BFA78 (DesktopVerifyHeapRange.c)
+ * Callees:
+ *     <none>
+ */
+
 ULONG_PTR __fastcall DesktopVerifyHeapPointer(__int64 a1, ULONG_PTR a2)
 {
   ULONG_PTR v2; // r9

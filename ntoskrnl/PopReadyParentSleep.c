@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopReadyParentSleep @ 0x14058E4F0
+ * Callers:
+ *     PopCompleteNotifyTransitionCommon @ 0x14058DFFC (PopCompleteNotifyTransitionCommon.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall PopReadyParentSleep(__int64 *a1, __int64 a2, unsigned __int8 a3, char a4)
 {
   char v4; // r11

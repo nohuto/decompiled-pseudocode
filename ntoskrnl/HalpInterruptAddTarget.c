@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpInterruptAddTarget @ 0x14028ED40
+ * Callers:
+ *     HalpInterruptDestinationToTarget @ 0x14028EC7C (HalpInterruptDestinationToTarget.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpInterruptAddTarget(_DWORD *a1, unsigned int a2)
 {
   __int64 v2; // rax

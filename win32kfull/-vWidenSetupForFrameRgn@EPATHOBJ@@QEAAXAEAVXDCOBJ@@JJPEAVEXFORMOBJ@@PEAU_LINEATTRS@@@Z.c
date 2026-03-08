@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vWidenSetupForFrameRgn@EPATHOBJ@@QEAAXAEAVXDCOBJ@@JJPEAVEXFORMOBJ@@PEAU_LINEATTRS@@@Z @ 0x1C02F542C
+ * Callers:
+ *     NtGdiFrameRgn @ 0x1C02ABB30 (NtGdiFrameRgn.c)
+ * Callees:
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0016964 (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ */
+
 void __fastcall EPATHOBJ::vWidenSetupForFrameRgn(
         EPATHOBJ *this,
         struct XDCOBJ *a2,

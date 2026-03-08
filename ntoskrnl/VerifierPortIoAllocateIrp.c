@@ -1,3 +1,13 @@
+/*
+ * XREFs of VerifierPortIoAllocateIrp @ 0x140AC80A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ *     VfFaultsInjectResourceFailure @ 0x140AD2FAC (VfFaultsInjectResourceFailure.c)
+ */
+
 __int64 __fastcall VerifierPortIoAllocateIrp(char a1, char a2, __int64 a3)
 {
   __int64 v6; // rdx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?DrvGetDeviceFromNameAndValidateDevice@@YAJPEAU_UNICODE_STRING@@W4_MODE@@PEAPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00AFAD4
+ * Callers:
+ *     DrvGetSuggestedPhysicalMonitorArraySize @ 0x1C00AF980 (DrvGetSuggestedPhysicalMonitorArraySize.c)
+ *     DrvCreatePhysicalMonitorObjects @ 0x1C0192D10 (DrvCreatePhysicalMonitorObjects.c)
+ *     DrvPVPGetFirstActiveMonitor @ 0x1C0194628 (DrvPVPGetFirstActiveMonitor.c)
+ * Callees:
+ *     DrvGetDeviceFromName @ 0x1C003C370 (DrvGetDeviceFromName.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?DrvProbeAndCaptureString@@YAJPEAU_UNICODE_STRING@@PEAUAUTO_FREE_STRING@@@Z @ 0x1C00AFB64 (-DrvProbeAndCaptureString@@YAJPEAU_UNICODE_STRING@@PEAUAUTO_FREE_STRING@@@Z.c)
+ */
+
 __int64 __fastcall DrvGetDeviceFromNameAndValidateDevice(
         struct _UNICODE_STRING *a1,
         enum _MODE a2,

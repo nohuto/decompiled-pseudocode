@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?Initialize@CPartitionVerticalBlankScheduler@@AEAAJXZ @ 0x1800D5F58
+ * Callers:
+ *     ?MainCompositionThreadLoop@CConnection@@AEAAJXZ @ 0x1800D5CD8 (-MainCompositionThreadLoop@CConnection@@AEAAJXZ.c)
+ * Callees:
+ *     ?Reset@?$LinearFitT@$0BAA@@@QEAAXXZ @ 0x18004C6C8 (-Reset@-$LinearFitT@$0BAA@@@QEAAXXZ.c)
+ *     ?Reinitialize@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x1800AEEF4 (-Reinitialize@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_Scheduler_VSync_Smoothing@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1800AF148 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_Scheduler_VSync_Smoothing@@@details@wil@@.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Create@CGlobalComposition@@SAJPEAVCTransport@@PEAVICompositorScheduler@@PEAVCConnection@@PEAVCDebugFrameCounter@@PEAPEAVCComposition@@@Z @ 0x1800CB540 (-Create@CGlobalComposition@@SAJPEAVCTransport@@PEAVICompositorScheduler@@PEAVCConnection@@PEAVCD.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CPartitionVerticalBlankScheduler::Initialize(CPartitionVerticalBlankScheduler *this)
 {
   HANDLE WaitableTimerW; // rax

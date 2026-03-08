@@ -1,3 +1,26 @@
+/*
+ * XREFs of EtwpCreateLogFile @ 0x140772270
+ * Callers:
+ *     EtwpStartLogger @ 0x140691964 (EtwpStartLogger.c)
+ *     EtwpLogger @ 0x1406926A0 (EtwpLogger.c)
+ *     EtwpBufferingModeFlush @ 0x1408A3088 (EtwpBufferingModeFlush.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwSetInformationFile @ 0x1404127F0 (ZwSetInformationFile.c)
+ *     ZwQueryVolumeInformationFile @ 0x140412C30 (ZwQueryVolumeInformationFile.c)
+ *     EtwpSendSessionNotification @ 0x1407489B8 (EtwpSendSessionNotification.c)
+ *     EtwpFinalizeHeader @ 0x140771D34 (EtwpFinalizeHeader.c)
+ *     EtwpDelayCreate @ 0x1407725F4 (EtwpDelayCreate.c)
+ *     EtwpExpandFileName @ 0x140772920 (EtwpExpandFileName.c)
+ *     EtwpUpdateFileHeader @ 0x140772B94 (EtwpUpdateFileHeader.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ */
+
 __int64 __fastcall EtwpCreateLogFile(__int64 a1, char a2, unsigned int *a3)
 {
   struct _SECURITY_CLIENT_CONTEXT *ClientContext; // r15

@@ -1,3 +1,12 @@
+/*
+ * XREFs of RestartCtxtCallback @ 0x1C0051440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     LogSchedEvent @ 0x1C004E3AC (LogSchedEvent.c)
+ *     RestartContext @ 0x1C00512E8 (RestartContext.c)
+ */
+
 __int64 __fastcall RestartCtxtCallback(__int64 a1)
 {
   __int64 v1; // rbx

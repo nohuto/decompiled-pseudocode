@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiSetCacheInformation @ 0x140A898B0
+ * Callers:
+ *     KiInitializeKernel @ 0x140A89160 (KiInitializeKernel.c)
+ * Callees:
+ *     KeBugCheck @ 0x140415FE0 (KeBugCheck.c)
+ *     KiSetCacheInformationIntel @ 0x140A899A0 (KiSetCacheInformationIntel.c)
+ *     KiSetCacheInformationAmd @ 0x140A9C858 (KiSetCacheInformationAmd.c)
+ */
+
 __int64 KiSetCacheInformation()
 {
   KPCR *Pcr; // rdi

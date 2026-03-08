@@ -1,3 +1,29 @@
+/*
+ * XREFs of ExpSetTimerObject @ 0x1402CDE34
+ * Callers:
+ *     ExpSetTimer @ 0x1402CDD38 (ExpSetTimer.c)
+ * Callees:
+ *     KeInitializeApc @ 0x140237E20 (KeInitializeApc.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KeSetCoalescableTimer @ 0x140250440 (KeSetCoalescableTimer.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PoDestroyReasonContext @ 0x1402BDBE4 (PoDestroyReasonContext.c)
+ *     ExpCancelTimer @ 0x1402CE3BC (ExpCancelTimer.c)
+ *     KiAbThreadRemoveBoostsSlow @ 0x1402D99E0 (KiAbThreadRemoveBoostsSlow.c)
+ *     PsInsertVirtualizedTimer @ 0x1402EA69C (PsInsertVirtualizedTimer.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     ObDereferenceObjectExWithTag @ 0x140344234 (ObDereferenceObjectExWithTag.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpCheckWakeTimerAccess @ 0x1407F8F28 (ExpCheckWakeTimerAccess.c)
+ *     ExpCheckTestsigningEnabled @ 0x1409F8C88 (ExpCheckTestsigningEnabled.c)
+ */
+
 __int64 __fastcall ExpSetTimerObject(
         char *Object,
         char a2,

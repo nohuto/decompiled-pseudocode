@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsWin32KSyscallFiltered @ 0x1C00A6E80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall IsWin32KSyscallFiltered(unsigned int a1)
 {
   unsigned int Win32KFilterSet; // eax

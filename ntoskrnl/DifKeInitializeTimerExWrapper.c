@@ -1,3 +1,13 @@
+/*
+ * XREFs of DifKeInitializeTimerExWrapper @ 0x1405E13A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 __int64 __fastcall DifKeInitializeTimerExWrapper(__int64 a1, int a2)
 {
   __int64 *APIThunkContextById; // rax

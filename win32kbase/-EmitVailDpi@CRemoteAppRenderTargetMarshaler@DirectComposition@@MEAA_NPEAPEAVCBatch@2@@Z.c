@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EmitVailDpi@CRemoteAppRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02647A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_0a566999a41ba9797d34768273e7e540___ @ 0x1C0264304 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_0a566999a41ba9797d34768273e7e54.c)
+ */
+
 char __fastcall DirectComposition::CRemoteAppRenderTargetMarshaler::EmitVailDpi(
         DirectComposition::CRemoteAppRenderTargetMarshaler *this,
         struct DirectComposition::CBatch ***a2)

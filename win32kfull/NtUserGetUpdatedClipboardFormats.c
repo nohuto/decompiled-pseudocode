@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserGetUpdatedClipboardFormats @ 0x1C01D51C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CountNumClipFormatForIL@@YAKUtagUIPI_INFO@@PEBUtagWINDOWSTATION@@@Z @ 0x1C0015634 (-CountNumClipFormatForIL@@YAKUtagUIPI_INFO@@PEBUtagWINDOWSTATION@@@Z.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00BD7B8 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ *     ?CheckClipboardAccessForIntegrityLevel@@YAHUtagUIPI_INFO@@0@Z @ 0x1C014972C (-CheckClipboardAccessForIntegrityLevel@@YAHUtagUIPI_INFO@@0@Z.c)
+ *     ?IsFmtBlocked@@YAHI@Z @ 0x1C01FEEA4 (-IsFmtBlocked@@YAHI@Z.c)
+ */
+
 __int64 __fastcall NtUserGetUpdatedClipboardFormats(__int64 a1, unsigned int a2, unsigned int *a3)
 {
   __int64 CurrentProcessWin32Process; // rax

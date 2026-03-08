@@ -1,3 +1,21 @@
+/*
+ * XREFs of VidSchiUnwaitWaitQueuePacket @ 0x1C0013514
+ * Callers:
+ *     VidSchiCompleteSignalSyncObject @ 0x1C0003670 (VidSchiCompleteSignalSyncObject.c)
+ *     VidSchiUnwaitMonitoredFences @ 0x1C00037C0 (VidSchiUnwaitMonitoredFences.c)
+ *     VidSchiSubmitWaitCommand @ 0x1C00105F4 (VidSchiSubmitWaitCommand.c)
+ *     VidSchiCleanupDeferredWaiterContext @ 0x1C0012910 (VidSchiCleanupDeferredWaiterContext.c)
+ *     ?VidSchiCompleteHwQueueWaitPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C001CB52 (-VidSchiCompleteHwQueueWaitPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     ?VidSchiCompleteAllWaitsPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C00357F0 (-VidSchiCompleteAllWaitsPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     ?VidSchiRundownUnorderedWaiterPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C00366DC (-VidSchiRundownUnorderedWaiterPacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     VidSchiUnblockUnorderedWaitQueuePacket @ 0x1C003C938 (VidSchiUnblockUnorderedWaitQueuePacket.c)
+ * Callees:
+ *     VidSchiReleaseSyncObjectReference @ 0x1C0004050 (VidSchiReleaseSyncObjectReference.c)
+ *     VidSchiUnwaitContext @ 0x1C00136BC (VidSchiUnwaitContext.c)
+ *     VidSchiFreeQueuePacket @ 0x1C0014154 (VidSchiFreeQueuePacket.c)
+ *     McTemplateK0pp_EtwWriteTransfer @ 0x1C0037EC4 (McTemplateK0pp_EtwWriteTransfer.c)
+ */
+
 int __fastcall VidSchiUnwaitWaitQueuePacket(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
   int v5; // r15d

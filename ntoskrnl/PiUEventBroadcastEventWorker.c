@@ -1,3 +1,18 @@
+/*
+ * XREFs of PiUEventBroadcastEventWorker @ 0x1407F80C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmGetSessionById @ 0x14022A4F0 (MmGetSessionById.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     PiUEventBroadcastHardwareProfilesChangedEvent @ 0x140956B40 (PiUEventBroadcastHardwareProfilesChangedEvent.c)
+ *     PiUEventBroadcastPortsChangedEvent @ 0x140956BCC (PiUEventBroadcastPortsChangedEvent.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PiUEventBroadcastEventWorker(PVOID P)
 {
   char v2; // si

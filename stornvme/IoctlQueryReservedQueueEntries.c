@@ -1,3 +1,12 @@
+/*
+ * XREFs of IoctlQueryReservedQueueEntries @ 0x1C0013C14
+ * Callers:
+ *     IoctlToNVMe @ 0x1C0014800 (IoctlToNVMe.c)
+ * Callees:
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ */
+
 __int64 __fastcall IoctlQueryReservedQueueEntries(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // r14

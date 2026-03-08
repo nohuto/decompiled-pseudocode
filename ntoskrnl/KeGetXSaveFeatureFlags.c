@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeGetXSaveFeatureFlags @ 0x14037DDD0
+ * Callers:
+ *     KiInitializeKernel @ 0x140A89160 (KiInitializeKernel.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 KeGetXSaveFeatureFlags()
 {
   unsigned int v0; // r9d

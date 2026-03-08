@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?xxxCopyDdeIn@@YAKPEAXPEAKPEAPEAXPEAPEAUtagINTDDEINFO@@@Z @ 0x1C01FC044
+ * Callers:
+ *     ?xxxAdvise@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FB2BC (-xxxAdvise@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ *     ?xxxAdviseData@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FB620 (-xxxAdviseData@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ *     ?xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z @ 0x1C01FBD3C (-xxxCopyAckIn@@YAKPEAKPEA_JPEAUtagDDECONV@@PEAPEAUtagINTDDEINFO@@@Z.c)
+ *     ?xxxExecute@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FC298 (-xxxExecute@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ *     ?xxxExecuteAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FC530 (-xxxExecuteAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ *     ?xxxPoke@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FC880 (-xxxPoke@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ *     ?xxxRequestAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FCC90 (-xxxRequestAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_qqq @ 0x1C0072510 (WPP_RECORDER_AND_TRACE_SF_qqq.c)
+ *     WPP_RECORDER_AND_TRACE_SF_sqq @ 0x1C01FD548 (WPP_RECORDER_AND_TRACE_SF_sqq.c)
+ *     xxxClientCopyDDEIn1 @ 0x1C0214454 (xxxClientCopyDDEIn1.c)
+ */
+
 __int64 __fastcall xxxCopyDdeIn(void *a1, unsigned int *a2, void **a3, struct tagINTDDEINFO **a4)
 {
   unsigned int v7; // eax

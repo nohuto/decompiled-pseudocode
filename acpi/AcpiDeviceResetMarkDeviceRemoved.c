@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiDeviceResetMarkDeviceRemoved @ 0x1C0023C04
+ * Callers:
+ *     ACPIBusAndFilterIrpQueryPnpDeviceState @ 0x1C007DF10 (ACPIBusAndFilterIrpQueryPnpDeviceState.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall AcpiDeviceResetMarkDeviceRemoved(__int64 a1)
 {
   char v2; // di

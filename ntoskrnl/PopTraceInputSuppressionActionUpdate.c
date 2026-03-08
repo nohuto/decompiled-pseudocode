@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopTraceInputSuppressionActionUpdate @ 0x14098F810
+ * Callers:
+ *     PopEvaluateInputSuppressionAction @ 0x1409912C4 (PopEvaluateInputSuppressionAction.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PopTraceInputSuppressionActionUpdate(
         __int64 a1,
         __int64 a2,

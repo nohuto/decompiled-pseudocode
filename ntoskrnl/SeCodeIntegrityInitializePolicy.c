@@ -1,3 +1,13 @@
+/*
+ * XREFs of SeCodeIntegrityInitializePolicy @ 0x140B43EA0
+ * Callers:
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     SeSecureBootRegisterPolicy @ 0x140B42958 (SeSecureBootRegisterPolicy.c)
+ *     SepInitializeDebugOptions @ 0x140B722E4 (SepInitializeDebugOptions.c)
+ */
+
 __int64 __fastcall SeCodeIntegrityInitializePolicy(__int64 a1)
 {
   int v1; // edi

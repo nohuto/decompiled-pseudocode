@@ -1,3 +1,16 @@
+/*
+ * XREFs of DrvDestroyMDEV @ 0x1C00B6450
+ * Callers:
+ *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C001E2BC (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
+ *     hdcOpenDCW @ 0x1C003C8E0 (hdcOpenDCW.c)
+ *     DrvCleanupAndDestroyMDEV @ 0x1C00B61F4 (DrvCleanupAndDestroyMDEV.c)
+ * Callees:
+ *     ?vUnreferencePdev@PDEVOBJ@@QEAAXXZ @ 0x1C003C110 (-vUnreferencePdev@PDEVOBJ@@QEAAXXZ.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0049800 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0049E20 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EngAcquireSemaphore @ 0x1C004B690 (EngAcquireSemaphore.c)
+ */
+
 void __fastcall DrvDestroyMDEV(__int64 a1)
 {
   __int64 v2; // rdi

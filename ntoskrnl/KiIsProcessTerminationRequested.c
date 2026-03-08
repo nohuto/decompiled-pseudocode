@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiIsProcessTerminationRequested @ 0x140354EE0
+ * Callers:
+ *     KiSchedulerApc @ 0x140353560 (KiSchedulerApc.c)
+ *     KiSchedulerApcTerminate @ 0x1407DBA70 (KiSchedulerApcTerminate.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall KiIsProcessTerminationRequested(__int64 a1, _DWORD *a2)
 {
   int v2; // eax

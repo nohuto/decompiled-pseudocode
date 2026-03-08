@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmInfoRegisterCallbacks @ 0x140B653F0
+ * Callers:
+ *     PopInitializePowerSettingCallbacks @ 0x140B65314 (PopInitializePowerSettingCallbacks.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PoRegisterPowerSettingCallback @ 0x14073B960 (PoRegisterPowerSettingCallback.c)
+ */
+
 __int64 PpmInfoRegisterCallbacks()
 {
   __int64 result; // rax

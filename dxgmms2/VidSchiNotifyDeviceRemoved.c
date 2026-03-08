@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchiNotifyDeviceRemoved @ 0x1C00474C0
+ * Callers:
+ *     VidSchiMarkDeviceAsError @ 0x1C0014B80 (VidSchiMarkDeviceAsError.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     VidSchNotifyDeviceRemoved @ 0x1C0040140 (VidSchNotifyDeviceRemoved.c)
+ */
+
 void __fastcall VidSchiNotifyDeviceRemoved(__int64 a1)
 {
   KIRQL CurrentIrql; // al

@@ -1,3 +1,21 @@
+/*
+ * XREFs of DrvEnableMDEV @ 0x1C001D978
+ * Callers:
+ *     ?DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPATHSMODALITY@@PEAXHHPEAU_MDEV@@PEAPEAU4@KHHHU_CDS_INTERNAL_FLAGS@@@Z @ 0x1C001E2BC (-DrvChangeDisplaySettingsInternal@@YAJPEAUtagGRAPHICS_DEVICE@@PEAU_devicemodeW@@PEAUD3DKMT_GETPA.c)
+ *     SafeEnableMDEV @ 0x1C00D8A70 (SafeEnableMDEV.c)
+ * Callees:
+ *     UserNotifyDisplayChange @ 0x1C0016710 (UserNotifyDisplayChange.c)
+ *     ?bDisabled@PDEVOBJ@@QEAAHH@Z @ 0x1C00273B4 (-bDisabled@PDEVOBJ@@QEAAHH@Z.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0049800 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0049E20 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EngAcquireSemaphore @ 0x1C004B690 (EngAcquireSemaphore.c)
+ *     GreIncrementDisplaySettingsUniqueness @ 0x1C00CCE70 (GreIncrementDisplaySettingsUniqueness.c)
+ *     DrvDxgkDisplayOnOff @ 0x1C00CE2F0 (DrvDxgkDisplayOnOff.c)
+ *     ?DrvEnableDisplay@@YAHPEAUHDEV__@@@Z @ 0x1C00D7E30 (-DrvEnableDisplay@@YAHPEAUHDEV__@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     IsDrvRealizeHalftonePaletteSupported @ 0x1C0271554 (IsDrvRealizeHalftonePaletteSupported.c)
+ */
+
 __int64 __fastcall DrvEnableMDEV(__int64 *a1, int a2, unsigned int a3)
 {
   unsigned int v6; // esi

@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiResizeAweBitMap @ 0x140A3F4A0
+ * Callers:
+ *     MiAllocateUserPhysicalPages @ 0x140A3D6E8 (MiAllocateUserPhysicalPages.c)
+ * Callees:
+ *     RtlCopyBitMapEx @ 0x1402D6890 (RtlCopyBitMapEx.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x14034C380 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14034CA58 (LOCK_ADDRESS_SPACE.c)
+ *     MiLockAwePagesExclusive @ 0x140648A44 (MiLockAwePagesExclusive.c)
+ *     MiUnlockAwePagesExclusive @ 0x14064985C (MiUnlockAwePagesExclusive.c)
+ *     MiCreateAweInfoBitMap @ 0x140A3E8D0 (MiCreateAweInfoBitMap.c)
+ *     MiDeleteAweBitMap @ 0x140A3ED88 (MiDeleteAweBitMap.c)
+ */
+
 __int64 __fastcall MiResizeAweBitMap(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rdi

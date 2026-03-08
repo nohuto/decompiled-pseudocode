@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?GetPointerInfoByPointerId@Pointer@@YAJIPEAPEBUtagPOINTER_INFO@@@Z @ 0x1C022AA30
+ * Callers:
+ *     ?ValidatePointer@HideInkCursorProvider@@AEBAJI@Z @ 0x1C024586C (-ValidatePointer@HideInkCursorProvider@@AEBAJI@Z.c)
+ *     ?GetDisplayScalingInfoAndCheckSupported@InkDevice@@AEBAJIPEAM@Z @ 0x1C0246490 (-GetDisplayScalingInfoAndCheckSupported@InkDevice@@AEBAJIPEAM@Z.c)
+ *     ?ValidatePointer@InkDevice@@AEBAJI@Z @ 0x1C0247670 (-ValidatePointer@InkDevice@@AEBAJI@Z.c)
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     ?GetPointerInfoByPointerMsgId@Pointer@@YAJ_KPEAPEBUtagPOINTER_INFO@@@Z @ 0x1C014A9E6 (-GetPointerInfoByPointerMsgId@Pointer@@YAJ_KPEAPEBUtagPOINTER_INFO@@@Z.c)
+ *     ?GetThreadPointerData@@YA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01C6BCC (-GetThreadPointerData@@YA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND__@@@Z.c)
+ */
+
 __int64 __fastcall Pointer::GetPointerInfoByPointerId(
         Pointer *this,
         const struct tagPOINTER_INFO **a2,

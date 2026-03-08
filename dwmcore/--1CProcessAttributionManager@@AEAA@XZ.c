@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CProcessAttributionManager@@AEAA@XZ @ 0x1801CED80
+ * Callers:
+ *     ?RunCompositionThread@CConnection@@AEAAJXZ @ 0x1800D5BCC (-RunCompositionThread@CConnection@@AEAAJXZ.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??_GRecord@CProcessAttributionManager@@QEAAPEAXI@Z @ 0x1800FF310 (--_GRecord@CProcessAttributionManager@@QEAAPEAXI@Z.c)
+ */
+
 void __fastcall CProcessAttributionManager::~CProcessAttributionManager(CProcessAttributionManager *this)
 {
   CProcessAttributionManager::Record **v1; // rsi

@@ -1,3 +1,16 @@
+/*
+ * XREFs of rimDispatchCompleteFrames @ 0x1C00F0B7C
+ * Callers:
+ *     rimProcessCompleteFrame @ 0x1C00F0D94 (rimProcessCompleteFrame.c)
+ *     rimProcessAnyQueuedCompleteFrames @ 0x1C01D2AB4 (rimProcessAnyQueuedCompleteFrames.c)
+ * Callees:
+ *     rimSignalReadComplete @ 0x1C0003CE8 (rimSignalReadComplete.c)
+ *     rimStackAttachAndProcessInput @ 0x1C00044C4 (rimStackAttachAndProcessInput.c)
+ *     HMAssignmentLock @ 0x1C00788D0 (HMAssignmentLock.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 LARGE_INTEGER __fastcall rimDispatchCompleteFrames(
         struct RawInputManagerObject *a1,
         LARGE_INTEGER *a2,

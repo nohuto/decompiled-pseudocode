@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0ppb16u_EtwWriteTransfer @ 0x1C004AF70
+ * Callers:
+ *     Etw_CommandWaitlisted @ 0x1C004A8B4 (Etw_CommandWaitlisted.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0022498 (McGenEventWrite_EtwWriteTransfer.c)
+ */
+
 NTSTATUS McTemplateK0ppb16u_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-21h] BYREF

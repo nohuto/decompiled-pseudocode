@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetTransform@CBitmapRealization@@UEBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1802ACB3C
+ * Callers:
+ *     ?GetTransform@CBitmapRealization@@$4PPPPPPPM@A@EBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18011DAF0 (-GetTransform@CBitmapRealization@@$4PPPPPPPM@A@EBA_NPEAVCMILMatrix@@PEAV-$TMilRect_@MUMilRectF@@.c)
+ *     ?GetTransform@CBitmapRealization@@$4PPPPPPPM@FA@EBA_NPEAVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18011DB10 (-GetTransform@CBitmapRealization@@$4PPPPPPPM@FA@EBA_NPEAVCMILMatrix@@PEAV-$TMilRect_@MUMilRectF@.c)
+ * Callees:
+ *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DA10 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CBitmapRealization::GetTransform(__int64 a1, CMILMatrix *a2, __int64 a3)
 {
   __int64 v4; // r8

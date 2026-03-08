@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vSrcCopyS32D32@@YAXPEAUBLTINFO@@@Z @ 0x1C01508F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     XLATEOBJ_iXlate @ 0x1C00C3AA0 (XLATEOBJ_iXlate.c)
+ */
+
 void __fastcall vSrcCopyS32D32(struct BLTINFO *a1)
 {
   struct BLTINFO *v1; // rbx

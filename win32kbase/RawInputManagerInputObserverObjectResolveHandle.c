@@ -1,3 +1,13 @@
+/*
+ * XREFs of RawInputManagerInputObserverObjectResolveHandle @ 0x1C01BF998
+ * Callers:
+ *     rimObsAddInputObserver @ 0x1C01DADB0 (rimObsAddInputObserver.c)
+ *     rimObsObserveNextInput @ 0x1C01DC7C8 (rimObsObserveNextInput.c)
+ *     rimObsUpdateInputObserverRegistration @ 0x1C01DD920 (rimObsUpdateInputObserverRegistration.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RawInputManagerInputObserverObjectResolveHandle(char *a1, __int64 a2, KPROCESSOR_MODE a3, PVOID *a4)
 {
   NTSTATUS v5; // ebx

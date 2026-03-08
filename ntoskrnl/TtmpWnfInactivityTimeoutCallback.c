@@ -1,3 +1,15 @@
+/*
+ * XREFs of TtmpWnfInactivityTimeoutCallback @ 0x1409A8E80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExQueryWnfStateData @ 0x140793060 (ExQueryWnfStateData.c)
+ *     TtmiLogInactivityTimoutUpdate @ 0x1409A56A8 (TtmiLogInactivityTimoutUpdate.c)
+ *     TtmiResetInactivityTimer @ 0x1409A8198 (TtmiResetInactivityTimer.c)
+ */
+
 __int64 __fastcall TtmpWnfInactivityTimeoutCallback(__int64 a1)
 {
   int v1; // ebx

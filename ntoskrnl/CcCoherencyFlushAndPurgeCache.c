@@ -1,3 +1,14 @@
+/*
+ * XREFs of CcCoherencyFlushAndPurgeCache @ 0x14029FE90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcFlushCachePriv @ 0x140219F20 (CcFlushCachePriv.c)
+ *     MmTrimSection @ 0x14029FF98 (MmTrimSection.c)
+ *     CcPurgeCacheSection @ 0x1402A0EA0 (CcPurgeCacheSection.c)
+ *     MmOnlySystemCacheViewsPresent @ 0x1402A3534 (MmOnlySystemCacheViewsPresent.c)
+ */
+
 void __stdcall CcCoherencyFlushAndPurgeCache(
         PSECTION_OBJECT_POINTERS SectionObjectPointer,
         PLARGE_INTEGER FileOffset,

@@ -1,3 +1,21 @@
+/*
+ * XREFs of UsbhReset2Timeout @ 0x1C004E6E0
+ * Callers:
+ *     UsbhReset2TimeoutBadEnable @ 0x1C004E8C0 (UsbhReset2TimeoutBadEnable.c)
+ * Callees:
+ *     UsbhResetPort @ 0x1C0002918 (UsbhResetPort.c)
+ *     Usbh_UsbdReadFrameCounter @ 0x1C00031B0 (Usbh_UsbdReadFrameCounter.c)
+ *     UsbhEtwLogHubIrpEvent @ 0x1C00098E0 (UsbhEtwLogHubIrpEvent.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhAllocateTimeoutObject @ 0x1C001B9D8 (UsbhAllocateTimeoutObject.c)
+ *     UsbhUnlinkPdoDeviceHandle @ 0x1C001BEDC (UsbhUnlinkPdoDeviceHandle.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhAssertBusLock @ 0x1C00367A4 (UsbhAssertBusLock.c)
+ *     UsbhSetEnumerationFailed @ 0x1C004E9B8 (UsbhSetEnumerationFailed.c)
+ */
+
 __int64 __fastcall UsbhReset2Timeout(__int64 a1, __int64 a2, __int64 a3)
 {
   int FrameCounter; // eax

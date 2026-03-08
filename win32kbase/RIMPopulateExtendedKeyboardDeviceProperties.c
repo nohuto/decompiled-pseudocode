@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMPopulateExtendedKeyboardDeviceProperties @ 0x1C00D2AB0
+ * Callers:
+ *     RIMCreateDev @ 0x1C0036CBC (RIMCreateDev.c)
+ * Callees:
+ *     ?ReadDevicePropertyFromRegistry@@YA_NPEBGPEAX1JPEAJ@Z @ 0x1C002EDC4 (-ReadDevicePropertyFromRegistry@@YA_NPEBGPEAX1JPEAJ@Z.c)
+ *     RIMRegOpenDeviceInstanceKey @ 0x1C0030CF0 (RIMRegOpenDeviceInstanceKey.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 int __fastcall RIMPopulateExtendedKeyboardDeviceProperties(__int64 a1, int a2, int a3)
 {
   int v3; // ebx

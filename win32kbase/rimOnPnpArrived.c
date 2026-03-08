@@ -1,3 +1,35 @@
+/*
+ * XREFs of rimOnPnpArrived @ 0x1C00889C0
+ * Callers:
+ *     RIMDoOnPnpNotification @ 0x1C00872A8 (RIMDoOnPnpNotification.c)
+ *     RIMDirectStartStopDeviceRead @ 0x1C00C7510 (RIMDirectStartStopDeviceRead.c)
+ *     RIMAddNonPnpDeviceOfType @ 0x1C01A3530 (RIMAddNonPnpDeviceOfType.c)
+ *     RIMAddNonPnpDeviceOfTypeUsingSuppliedFileHandle @ 0x1C01A3C50 (RIMAddNonPnpDeviceOfTypeUsingSuppliedFileHandle.c)
+ * Callees:
+ *     RIMCloseDev @ 0x1C00308E4 (RIMCloseDev.c)
+ *     RIMGetDeviceObjectPointer @ 0x1C0031148 (RIMGetDeviceObjectPointer.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     RIMStartDeviceSpecificRead @ 0x1C0087454 (RIMStartDeviceSpecificRead.c)
+ *     RawInputManagerDeviceObjectReference @ 0x1C0088EF0 (RawInputManagerDeviceObjectReference.c)
+ *     RIMRegisterForDeviceChangeNotifications @ 0x1C0088F68 (RIMRegisterForDeviceChangeNotifications.c)
+ *     RIMOpenDev @ 0x1C0089058 (RIMOpenDev.c)
+ *     RIMQueryDev @ 0x1C0089258 (RIMQueryDev.c)
+ *     RIMDeliverDeviceResetRequest @ 0x1C00893E4 (RIMDeliverDeviceResetRequest.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqd @ 0x1C0089624 (WPP_RECORDER_AND_TRACE_SF_qqd.c)
+ *     RimDeviceTypeToRimInputType @ 0x1C00BC2F4 (RimDeviceTypeToRimInputType.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMFreeDev @ 0x1C019DE20 (RIMFreeDev.c)
+ *     RIMIsRawInputActive @ 0x1C019DFB8 (RIMIsRawInputActive.c)
+ *     ??$Write@U?$_tlgWrapSz@G@@U?$_tlgWrapperByVal@$07@@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@G@@AEBU?$_tlgWrapperByVal@$07@@AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C01C7784 (--$Write@U-$_tlgWrapSz@G@@U-$_tlgWrapperByVal@$07@@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapSz@G@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapSz@G@@@Z @ 0x1C01C7854 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapSz@G@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dqqS @ 0x1C01C7E6C (WPP_RECORDER_AND_TRACE_SF_dqqS.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqS @ 0x1C01C8018 (WPP_RECORDER_AND_TRACE_SF_qqS.c)
+ *     RIMIsTestSigningOn @ 0x1C01D16B8 (RIMIsTestSigningOn.c)
+ */
+
 __int64 __fastcall rimOnPnpArrived(__int64 a1, __int64 a2, __int64 a3)
 {
   void *v3; // rbx

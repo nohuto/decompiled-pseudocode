@@ -1,3 +1,13 @@
+/*
+ * XREFs of UmfdQueryFont @ 0x1C011EB60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C011ED74 (-UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     UmfdDrvFreeInternal @ 0x1C0307E40 (UmfdDrvFreeInternal.c)
+ */
+
 __int64 __fastcall UmfdQueryFont(__int64 a1, __int64 a2, int a3, _QWORD *a4)
 {
   __int64 result; // rax

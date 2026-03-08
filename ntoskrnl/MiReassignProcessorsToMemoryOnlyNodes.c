@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiReassignProcessorsToMemoryOnlyNodes @ 0x140B971D4
+ * Callers:
+ *     MiComputeMemoryNodeProcessorAssignments @ 0x140B5F834 (MiComputeMemoryNodeProcessorAssignments.c)
+ * Callees:
+ *     MiFindProcessorsForMemoryOnlyNode @ 0x140B96EFC (MiFindProcessorsForMemoryOnlyNode.c)
+ */
+
 void MiReassignProcessorsToMemoryOnlyNodes()
 {
   unsigned int i; // ebx

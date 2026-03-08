@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcResetGlobalTelemetry @ 0x14079C6D0
+ * Callers:
+ *     CcPostVolumeTelemetry @ 0x1403CB4D0 (CcPostVolumeTelemetry.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 CcResetGlobalTelemetry()
 {
   __int64 result; // rax

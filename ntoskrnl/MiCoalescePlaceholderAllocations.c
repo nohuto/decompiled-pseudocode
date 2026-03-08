@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiCoalescePlaceholderAllocations @ 0x140A2F378
+ * Callers:
+ *     MmFreeVirtualMemory @ 0x1406EC820 (MmFreeVirtualMemory.c)
+ * Callees:
+ *     MiLocateAddress @ 0x140228680 (MiLocateAddress.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiReferenceVad @ 0x14031F794 (MiReferenceVad.c)
+ *     MiSetVadDeleted @ 0x140332ED8 (MiSetVadDeleted.c)
+ *     MiRemoveVad @ 0x140333090 (MiRemoveVad.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x14034C380 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     MiLockVad @ 0x14034CF60 (MiLockVad.c)
+ *     MiUnlockVad @ 0x14034D51C (MiUnlockVad.c)
+ *     MiGetNextVad @ 0x140350908 (MiGetNextVad.c)
+ *     MiDecrementVadsBeingDeleted @ 0x140615D58 (MiDecrementVadsBeingDeleted.c)
+ *     MiCheckSecuredVad @ 0x1406A0F38 (MiCheckSecuredVad.c)
+ *     MiDeleteVad @ 0x1407C82E0 (MiDeleteVad.c)
+ *     MiUnlockVadRange @ 0x1407D73E8 (MiUnlockVadRange.c)
+ *     MiLockVadRange @ 0x1407D74B8 (MiLockVadRange.c)
+ */
+
 __int64 __fastcall MiCoalescePlaceholderAllocations(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, char a4)
 {
   char v4; // bl

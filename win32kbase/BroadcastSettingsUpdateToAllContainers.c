@@ -1,3 +1,17 @@
+/*
+ * XREFs of BroadcastSettingsUpdateToAllContainers @ 0x1C009D090
+ * Callers:
+ *     xxxSystemParametersInfo @ 0x1C009C980 (xxxSystemParametersInfo.c)
+ *     UpdateMouseSensitivity @ 0x1C009D040 (UpdateMouseSensitivity.c)
+ *     _SetPrecisionTouchPadConfiguration @ 0x1C015CC04 (_SetPrecisionTouchPadConfiguration.c)
+ *     SetSwapMouseButton @ 0x1C0167F80 (SetSwapMouseButton.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     isRootPartition @ 0x1C007B02C (isRootPartition.c)
+ *     ?SendSettingsUpdateToContainer@Settings@IVRootDeliver@@YAXAEBUCONTAINER_ID@@@Z @ 0x1C02192C4 (-SendSettingsUpdateToContainer@Settings@IVRootDeliver@@YAXAEBUCONTAINER_ID@@@Z.c)
+ *     ?ContainerConnected@CIVChannel@@SA_NK@Z @ 0x1C0228560 (-ContainerConnected@CIVChannel@@SA_NK@Z.c)
+ */
+
 void __fastcall BroadcastSettingsUpdateToAllContainers(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   const struct CONTAINER_ID *v4; // rdx

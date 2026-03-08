@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?ivOnPacketReceived@CBaseInput@@KA_NPEBXKKPEAX1@Z @ 0x1C0220AA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C00052A0 (WPP_RECORDER_AND_TRACE_SF_dd.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     IsRimObjectUnregistered @ 0x1C0221F28 (IsRimObjectUnregistered.c)
+ */
+
 char __fastcall CBaseInput::ivOnPacketReceived(const void *a1, char a2, unsigned int a3, void *a4, _QWORD *Object)
 {
   __int64 v5; // r14

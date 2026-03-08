@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlGetIoAtEof @ 0x1402CD7A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FsRtlpWaitForIoAtEof @ 0x140240CC0 (FsRtlpWaitForIoAtEof.c)
+ */
+
 __int64 __fastcall FsRtlGetIoAtEof(__int64 a1, __int64 a2, __int64 a3, __int64 a4, char a5, char *a6)
 {
   struct _KTHREAD *CurrentThread; // rax

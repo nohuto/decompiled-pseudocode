@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?PowerPolSleeping@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C007AE90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_q @ 0x1C0018194 (WPP_IFR_SF_q.c)
+ *     ?PowerPolicyIsWakeEnabled@FxPkgPnp@@QEAAEXZ @ 0x1C007451C (-PowerPolicyIsWakeEnabled@FxPkgPnp@@QEAAEXZ.c)
+ *     ?FxVerifierBreakOnDeviceStateError@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C007A550 (-FxVerifierBreakOnDeviceStateError@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?NotifyDevicePowerDown@FxPoxInterface@@QEAAJXZ @ 0x1C0083E10 (-NotifyDevicePowerDown@FxPoxInterface@@QEAAJXZ.c)
+ *     ?SimulateDevicePowerNotRequired@FxPoxInterface@@QEAAXXZ @ 0x1C0083EE0 (-SimulateDevicePowerNotRequired@FxPoxInterface@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall FxPkgPnp::PowerPolSleeping(FxPkgPnp *This)
 {
   const void *_a1; // rax

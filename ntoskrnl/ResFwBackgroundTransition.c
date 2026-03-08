@@ -1,3 +1,18 @@
+/*
+ * XREFs of ResFwBackgroundTransition @ 0x140AEBAF8
+ * Callers:
+ *     BgpFwLibraryEnable @ 0x1403843F4 (BgpFwLibraryEnable.c)
+ *     BgpFwLibraryDestroy @ 0x140AEBA88 (BgpFwLibraryDestroy.c)
+ * Callees:
+ *     BgpFwReleaseLock @ 0x140381C10 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140381C60 (BgpFwAcquireLock.c)
+ *     BgpFwFreeMemory @ 0x140382650 (BgpFwFreeMemory.c)
+ *     BgpFwAllocateMemory @ 0x140383BDC (BgpFwAllocateMemory.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     ResFwpPageOutBackground @ 0x140AEBBF0 (ResFwpPageOutBackground.c)
+ */
+
 void __fastcall ResFwBackgroundTransition(int a1)
 {
   int v1; // ecx

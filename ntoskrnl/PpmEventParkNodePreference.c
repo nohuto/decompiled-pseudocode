@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmEventParkNodePreference @ 0x14059892C
+ * Callers:
+ *     PpmParkComputeUnparkMask @ 0x14059A174 (PpmParkComputeUnparkMask.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char PpmEventParkNodePreference(__int16 a1, __int64 a2, char a3, ...)
 {
   _UNKNOWN **v3; // rax

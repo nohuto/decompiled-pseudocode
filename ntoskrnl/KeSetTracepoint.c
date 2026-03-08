@@ -1,3 +1,21 @@
+/*
+ * XREFs of KeSetTracepoint @ 0x140972D40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     RtlPcToFileHeader @ 0x1403BE120 (RtlPcToFileHeader.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiTpWriteBreakpoint @ 0x14057CA4C (KiTpWriteBreakpoint.c)
+ *     KiTpIsSupportedKernelTracepointLocation @ 0x140973640 (KiTpIsSupportedKernelTracepointLocation.c)
+ *     KiTpSetupCompletion @ 0x140973808 (KiTpSetupCompletion.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall KeSetTracepoint(
         __int64 a1,
         char a2,

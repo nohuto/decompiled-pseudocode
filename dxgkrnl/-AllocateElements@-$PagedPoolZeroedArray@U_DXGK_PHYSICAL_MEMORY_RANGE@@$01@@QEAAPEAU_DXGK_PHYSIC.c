@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AllocateElements@?$PagedPoolZeroedArray@U_DXGK_PHYSICAL_MEMORY_RANGE@@$01@@QEAAPEAU_DXGK_PHYSICAL_MEMORY_RANGE@@I@Z @ 0x1C020542C
+ * Callers:
+ *     ?ConfigureSysMm@ADAPTER_RENDER@@QEAAJPEATSYSMM_IOMMU_STATE@@@Z @ 0x1C0205154 (-ConfigureSysMm@ADAPTER_RENDER@@QEAAJPEATSYSMM_IOMMU_STATE@@@Z.c)
+ *     DpiFdoCreateSysMmAdapter @ 0x1C020A044 (DpiFdoCreateSysMmAdapter.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 __int64 __fastcall PagedPoolZeroedArray<_DXGK_PHYSICAL_MEMORY_RANGE,2>::AllocateElements(__int64 *a1, unsigned int a2)
 {
   void *v4; // rcx

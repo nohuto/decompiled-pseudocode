@@ -1,3 +1,16 @@
+/*
+ * XREFs of xxxInternalEnumWindow @ 0x1C01A9044
+ * Callers:
+ *     xxxTurnOffCompositing @ 0x1C01BE490 (xxxTurnOffCompositing.c)
+ *     xxxSetClassIcon @ 0x1C0223360 (xxxSetClassIcon.c)
+ *     xxxHelpLoop @ 0x1C023C17C (xxxHelpLoop.c)
+ * Callees:
+ *     BuildHwndList @ 0x1C0041A10 (BuildHwndList.c)
+ *     FreeHwndList @ 0x1C00680B0 (FreeHwndList.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 struct tagBWL *__fastcall xxxInternalEnumWindow(
         ShellWindowManagement *a1,
         __int64 (__fastcall *a2)(__int64, __int64),

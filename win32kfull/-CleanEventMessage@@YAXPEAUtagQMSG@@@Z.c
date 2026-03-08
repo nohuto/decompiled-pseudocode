@@ -1,3 +1,23 @@
+/*
+ * XREFs of ?CleanEventMessage@@YAXPEAUtagQMSG@@@Z @ 0x1C00D34C0
+ * Callers:
+ *     xxxProcessEventMessage @ 0x1C006B460 (xxxProcessEventMessage.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00725D0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     ?RedistributeInput@@YAXPEAUtagQMSG@@PEAUtagQ@@PEAUtagTHREADINFO@@@Z @ 0x1C00CDE04 (-RedistributeInput@@YAXPEAUtagQMSG@@PEAUtagQ@@PEAUtagTHREADINFO@@@Z.c)
+ *     FreeMessageList @ 0x1C00D33C0 (FreeMessageList.c)
+ *     DestroyThreadsMessages @ 0x1C00D3420 (DestroyThreadsMessages.c)
+ *     SuspendThreadQueue @ 0x1C00DE9B0 (SuspendThreadQueue.c)
+ *     ?_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z @ 0x1C0143E38 (-_HandleDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z.c)
+ *     ?_AttemptToCoalesceOrDestroyMessage@@YAXPEAUtagTHREADINFO@@PEAUtagQMSG@@@Z @ 0x1C01B722C (-_AttemptToCoalesceOrDestroyMessage@@YAXPEAUtagTHREADINFO@@PEAUtagQMSG@@@Z.c)
+ * Callees:
+ *     ?RemoveNotify@@YAXPEAUtagNOTIFY@@@Z @ 0x1C000F7B0 (-RemoveNotify@@YAXPEAUtagNOTIFY@@@Z.c)
+ *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C00394B4 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     FreePointerMessageParams @ 0x1C0146536 (FreePointerMessageParams.c)
+ *     ??0?$ObjectLockRecursive@$$V@?$DomainExclusiveRecursive@VDLT_WINEVENT@@@?$DomainSharedRecursive@$$V@@QEAA@XZ @ 0x1C01B3F78 (--0-$ObjectLockRecursive@$$V@-$DomainExclusiveRecursive@VDLT_WINEVENT@@@-$DomainSharedRecursive@.c)
+ *     ?FreePositionEvent@ShellWindowPos@@YAXPEAUtagQMSG@@@Z @ 0x1C021FC98 (-FreePositionEvent@ShellWindowPos@@YAXPEAUtagQMSG@@@Z.c)
+ */
+
 void __fastcall CleanEventMessage(void **a1, __int64 a2, __int64 a3, __int64 a4)
 {
   struct tagNOTIFY ***v5; // rbx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ViCtxCheckAndReleaseIsrState @ 0x140AE1B58
+ * Callers:
+ *     ViCtxIsr @ 0x140AE1DA0 (ViCtxIsr.c)
+ *     ViCtxIsrMessageBased @ 0x140AE1E00 (ViCtxIsrMessageBased.c)
+ * Callees:
+ *     RtlXSave @ 0x14036A800 (RtlXSave.c)
+ *     VfUtilDbgPrint @ 0x1405CBEB4 (VfUtilDbgPrint.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ *     VfErrorStoreTriageInformation @ 0x140AD0684 (VfErrorStoreTriageInformation.c)
+ *     ViCtxEqualExtendedState @ 0x140AE1C78 (ViCtxEqualExtendedState.c)
+ */
+
 __int64 __fastcall ViCtxCheckAndReleaseIsrState(__int64 a1, const void *a2, __int64 a3)
 {
   unsigned __int8 CurrentIrql; // al

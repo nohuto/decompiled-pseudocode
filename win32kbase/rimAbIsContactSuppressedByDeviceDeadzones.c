@@ -1,3 +1,12 @@
+/*
+ * XREFs of rimAbIsContactSuppressedByDeviceDeadzones @ 0x1C01A8668
+ * Callers:
+ *     rimAbSuppressLowerRankActivityInFrame @ 0x1C01A98C0 (rimAbSuppressLowerRankActivityInFrame.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?IsInDeadzone@RIMDeadzone@@QEAAHPEAUtagHPD_CONTACT@@@Z @ 0x1C01C96E4 (-IsInDeadzone@RIMDeadzone@@QEAAHPEAUtagHPD_CONTACT@@@Z.c)
+ */
+
 __int64 __fastcall rimAbIsContactSuppressedByDeviceDeadzones(
         __int64 a1,
         struct tagHPD_CONTACT *a2,

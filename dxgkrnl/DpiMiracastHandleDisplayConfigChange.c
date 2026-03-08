@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiMiracastHandleDisplayConfigChange @ 0x1C005F450
+ * Callers:
+ *     ?CacheLastClientCommittedVidPnRef@VIDPN_MGR@@QEAAJQEAVDMMVIDPN@@@Z @ 0x1C0168194 (-CacheLastClientCommittedVidPnRef@VIDPN_MGR@@QEAAJQEAVDMMVIDPN@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DpiMiracastHandleDisplayConfigChange(__int64 a1, int a2, int a3, int a4, int a5)
 {
   __int64 v5; // rbx

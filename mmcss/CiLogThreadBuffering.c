@@ -1,3 +1,11 @@
+/*
+ * XREFs of CiLogThreadBuffering @ 0x1C00042EC
+ * Callers:
+ *     CiSystemUpdateThreadTag @ 0x1C0002970 (CiSystemUpdateThreadTag.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003050 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall CiLogThreadBuffering(__int64 a1, int a2)
 {
   HANDLE ThreadId; // rax

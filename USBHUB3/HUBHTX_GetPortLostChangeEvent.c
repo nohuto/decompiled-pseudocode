@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBHTX_GetPortLostChangeEvent @ 0x1C00052EC
+ * Callers:
+ *     HUBPSM20_GettingPortLostChangesOnStart @ 0x1C0012A40 (HUBPSM20_GettingPortLostChangesOnStart.c)
+ * Callees:
+ *     McTemplateK0qhhhqhhh_EtwWriteTransfer @ 0x1C00024BC (McTemplateK0qhhhqhhh_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_dDDD @ 0x1C0002FBC (WPP_RECORDER_SF_dDDD.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C0032FCC (HUBMISC_VerifierDbgBreak.c)
+ *     HUBREG_UpdateSqmHubOvercurrentDetected @ 0x1C0034B00 (HUBREG_UpdateSqmHubOvercurrentDetected.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBHTX_GetPortLostChangeEvent(__int64 a1, __int64 a2, __int64 a3)
 {
   _WORD *v3; // rax

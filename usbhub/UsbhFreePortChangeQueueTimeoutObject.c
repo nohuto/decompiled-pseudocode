@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhFreePortChangeQueueTimeoutObject @ 0x1C0033BAC
+ * Callers:
+ *     UsbhFreePortChangeQueueObject @ 0x1C00039F8 (UsbhFreePortChangeQueueObject.c)
+ *     Usbh_PCE_QueueChange_Action @ 0x1C0010600 (Usbh_PCE_QueueChange_Action.c)
+ * Callees:
+ *     UsbhSignalSyncDeviceResetPdo @ 0x1C0001CD0 (UsbhSignalSyncDeviceResetPdo.c)
+ *     UsbhLogSignalDriverResetEvent @ 0x1C0001E74 (UsbhLogSignalDriverResetEvent.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhSetPcqEventStatus @ 0x1C0035294 (UsbhSetPcqEventStatus.c)
+ */
+
 void __fastcall UsbhFreePortChangeQueueTimeoutObject(__int64 a1, __int64 a2, void *a3, char a4)
 {
   KSPIN_LOCK *v8; // rdi

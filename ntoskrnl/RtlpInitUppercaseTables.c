@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpInitUppercaseTables @ 0x14080F214
+ * Callers:
+ *     ExInitializeNls @ 0x14080F164 (ExInitializeNls.c)
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     NtGetNlsSectionPtr @ 0x14069E7D0 (NtGetNlsSectionPtr.c)
+ */
+
 __int64 RtlpInitUppercaseTables()
 {
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax

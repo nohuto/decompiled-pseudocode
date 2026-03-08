@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UMPDInitializeSecurityLevel@@YA?AW4UMPDSecurityLevel@@XZ @ 0x1C008B04C
+ * Callers:
+ *     InitializeGre @ 0x1C031D988 (InitializeGre.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 UMPDInitializeSecurityLevel()
 {
   unsigned int v0; // ebx

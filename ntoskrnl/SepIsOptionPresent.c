@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepIsOptionPresent @ 0x140810688
+ * Callers:
+ *     SepInitializeCodeIntegrity @ 0x1408105C8 (SepInitializeCodeIntegrity.c)
+ * Callees:
+ *     strstr @ 0x1403D3650 (strstr.c)
+ */
+
 __int64 __fastcall SepIsOptionPresent(const char *a1)
 {
   unsigned int v2; // ebx

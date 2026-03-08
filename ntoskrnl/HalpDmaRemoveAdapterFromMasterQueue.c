@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpDmaRemoveAdapterFromMasterQueue @ 0x1404FE580
+ * Callers:
+ *     HalCancelAdapterChannel @ 0x14050CA30 (HalCancelAdapterChannel.c)
+ *     HalCancelAdapterChannelDmaThin @ 0x140510AC0 (HalCancelAdapterChannelDmaThin.c)
+ *     HalCancelAdapterChannelDmarThin @ 0x1405112B0 (HalCancelAdapterChannelDmarThin.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x140512A4C (HalpAllocateDmaResourcesInternal.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall HalpDmaRemoveAdapterFromMasterQueue(__int64 a1)
 {
   __int64 v1; // rbx

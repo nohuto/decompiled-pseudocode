@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMObjectManagerCallout @ 0x1C00360B4
+ * Callers:
+ *     W32CalloutDispatch @ 0x1C00ED390 (W32CalloutDispatch.c)
+ * Callees:
+ *     RawInputManagerObjectOpen @ 0x1C0036140 (RawInputManagerObjectOpen.c)
+ *     RawInputManagerObjectDelete @ 0x1C00361E4 (RawInputManagerObjectDelete.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall RIMObjectManagerCallout(int a1, __int64 a2)
 {
   int v2; // ecx

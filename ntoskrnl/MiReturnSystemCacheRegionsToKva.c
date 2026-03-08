@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiReturnSystemCacheRegionsToKva @ 0x1403CE458
+ * Callers:
+ *     MiObtainSystemCacheView @ 0x140335220 (MiObtainSystemCacheView.c)
+ *     MiReleaseSystemCacheView @ 0x1403354D0 (MiReleaseSystemCacheView.c)
+ * Callees:
+ *     MiReturnSystemVa @ 0x14020E9A0 (MiReturnSystemVa.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiLockWorkingSetOptimal @ 0x14032F7CC (MiLockWorkingSetOptimal.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiReturnSystemCacheRegionsToKva(__int64 a1, _QWORD **a2)
 {
   __int64 v3; // rbp

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CFlipExSwapchainStatistics@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180269C80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CFlipExSwapchainStatistics::HrFindInterface(
         unsigned __int64 this,
         const struct _GUID *a2,

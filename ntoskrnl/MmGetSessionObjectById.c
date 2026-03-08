@@ -1,3 +1,22 @@
+/*
+ * XREFs of MmGetSessionObjectById @ 0x1402BE684
+ * Callers:
+ *     SepSetTokenSessionById @ 0x14070BB80 (SepSetTokenSessionById.c)
+ *     SeSetSessionIdToken @ 0x140743440 (SeSetSessionIdToken.c)
+ *     SepDuplicateToken @ 0x1407BCF00 (SepDuplicateToken.c)
+ *     NtSetInformationObject @ 0x1407DA9A0 (NtSetInformationObject.c)
+ *     SeExchangePrimaryToken @ 0x14083FA34 (SeExchangePrimaryToken.c)
+ *     IoGetContainerInformation @ 0x1409451E0 (IoGetContainerInformation.c)
+ *     IoRegisterContainerNotification @ 0x140945260 (IoRegisterContainerNotification.c)
+ * Callees:
+ *     MmGetSessionById @ 0x14022A4F0 (MmGetSessionById.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void *__fastcall MmGetSessionObjectById(__int64 a1, __int64 a2)
 {
   void *v2; // rdi

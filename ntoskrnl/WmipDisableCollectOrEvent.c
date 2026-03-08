@@ -1,3 +1,13 @@
+/*
+ * XREFs of WmipDisableCollectOrEvent @ 0x140786E44
+ * Callers:
+ *     WmipDeleteMethod @ 0x14069C630 (WmipDeleteMethod.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     WmipSendDisableRequest @ 0x140786EB4 (WmipSendDisableRequest.c)
+ */
+
 __int64 __fastcall WmipDisableCollectOrEvent(__int64 a1, int a2)
 {
   int v3; // edx

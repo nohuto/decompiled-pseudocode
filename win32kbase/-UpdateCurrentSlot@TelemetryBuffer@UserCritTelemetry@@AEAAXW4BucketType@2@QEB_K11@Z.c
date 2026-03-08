@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UpdateCurrentSlot@TelemetryBuffer@UserCritTelemetry@@AEAAXW4BucketType@2@QEB_K11@Z @ 0x1C00DDD38
+ * Callers:
+ *     ?Update@TelemetryBuffer@UserCritTelemetry@@QEAAXQEB_K00@Z @ 0x1C00DD904 (-Update@TelemetryBuffer@UserCritTelemetry@@QEAAXQEB_K00@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall UserCritTelemetry::TelemetryBuffer::UpdateCurrentSlot(
         __int64 a1,
         int a2,

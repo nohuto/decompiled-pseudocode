@@ -1,3 +1,25 @@
+/*
+ * XREFs of rimAbUpdateDeadzonesAndResurrectContacts @ 0x1C01A9D04
+ * Callers:
+ *     RIMAbArbitratePointerDeviceFrame @ 0x1C01AA284 (RIMAbArbitratePointerDeviceFrame.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMCmActiveContactsBegin @ 0x1C00F19A8 (RIMCmActiveContactsBegin.c)
+ *     RIMCmActiveContactsEnd @ 0x1C00F1A04 (RIMCmActiveContactsEnd.c)
+ *     RIMCmIsContactSuppressed @ 0x1C00F1A7A (RIMCmIsContactSuppressed.c)
+ *     RIMCmIsContactSuppressedByArbitrationOnly @ 0x1C00F1ACC (RIMCmIsContactSuppressedByArbitrationOnly.c)
+ *     rimAbCreateGlobalPenDeadzone @ 0x1C01A84AC (rimAbCreateGlobalPenDeadzone.c)
+ *     rimAbIsPointInGlobalPenDeadzone @ 0x1C01A8710 (rimAbIsPointInGlobalPenDeadzone.c)
+ *     rimAbIsPointerSuppressedByOtherActiveDevicesContacts @ 0x1C01A8AF4 (rimAbIsPointerSuppressedByOtherActiveDevicesContacts.c)
+ *     rimAbRemoveGlobalPenDeadzone @ 0x1C01A9100 (rimAbRemoveGlobalPenDeadzone.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dDD @ 0x1C01AB010 (WPP_RECORDER_AND_TRACE_SF_dDD.c)
+ *     RIMCmActiveContactsNext @ 0x1C01DE0AC (RIMCmActiveContactsNext.c)
+ *     RIMCmIsContactDeliveringPointerData @ 0x1C01DEB84 (RIMCmIsContactDeliveringPointerData.c)
+ *     RIMCmIsSuppressedContactMarkedForDelivery @ 0x1C01DEBD0 (RIMCmIsSuppressedContactMarkedForDelivery.c)
+ *     RIMCmRemoveContactSuppressionReasons @ 0x1C01DECA4 (RIMCmRemoveContactSuppressionReasons.c)
+ */
+
 __int64 __fastcall rimAbUpdateDeadzonesAndResurrectContacts(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // r14

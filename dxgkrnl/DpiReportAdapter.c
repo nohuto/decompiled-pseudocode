@@ -1,3 +1,17 @@
+/*
+ * XREFs of DpiReportAdapter @ 0x1C020B4D4
+ * Callers:
+ *     ?CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C020A930 (-CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS.c)
+ *     ?Destroy@DXGADAPTER@@QEAAXXZ @ 0x1C02B1790 (-Destroy@DXGADAPTER@@QEAAXXZ.c)
+ *     ?ReportState@DXGADAPTER@@QEAAXXZ @ 0x1C02B4808 (-ReportState@DXGADAPTER@@QEAAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     __chkstk_0 @ 0x1C00270C0 (__chkstk_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     McTemplateK0pqUR1qqtqqqqqqx_EtwWriteTransfer @ 0x1C005DBC0 (McTemplateK0pqUR1qqtqqqqqqx_EtwWriteTransfer.c)
+ */
+
 void __fastcall DpiReportAdapter(__int64 a1, __int64 a2)
 {
   __int64 v3; // rbx

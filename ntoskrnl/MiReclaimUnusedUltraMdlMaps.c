@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiReclaimUnusedUltraMdlMaps @ 0x1403615B4
+ * Callers:
+ *     MiWorkingSetManager @ 0x1403616C0 (MiWorkingSetManager.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiDeleteUltraMapContext @ 0x1403513B4 (MiDeleteUltraMapContext.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 MiReclaimUnusedUltraMdlMaps()
 {
   __int64 result; // rax

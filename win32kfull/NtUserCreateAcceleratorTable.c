@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserCreateAcceleratorTable @ 0x1C00E3ED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _CreateAcceleratorTable @ 0x1C00E3F94 (_CreateAcceleratorTable.c)
+ */
+
 __int64 __fastcall NtUserCreateAcceleratorTable(void *Src, int a2)
 {
   unsigned __int64 v2; // rbx

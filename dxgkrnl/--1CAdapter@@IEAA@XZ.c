@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??1CAdapter@@IEAA@XZ @ 0x1C0018F30
+ * Callers:
+ *     ??_GCAdapter@@IEAAPEAXI@Z @ 0x1C0018EFC (--_GCAdapter@@IEAAPEAXI@Z.c)
+ * Callees:
+ *     ?DxgkCddDestroySynchronizationObject@@YAJPEBU_D3DKMT_DESTROYSYNCHRONIZATIONOBJECT@@@Z @ 0x1C01DD210 (-DxgkCddDestroySynchronizationObject@@YAJPEBU_D3DKMT_DESTROYSYNCHRONIZATIONOBJECT@@@Z.c)
+ *     DxgkCloseAdapterInternal @ 0x1C01DFFC0 (DxgkCloseAdapterInternal.c)
+ *     DxgkDestroyDeviceInternal @ 0x1C01DFFD8 (DxgkDestroyDeviceInternal.c)
+ *     DxgkDestroyContextInternal @ 0x1C01DFFF0 (DxgkDestroyContextInternal.c)
+ */
+
 void __fastcall CAdapter::~CAdapter(CAdapter *this)
 {
   void *v2; // rcx

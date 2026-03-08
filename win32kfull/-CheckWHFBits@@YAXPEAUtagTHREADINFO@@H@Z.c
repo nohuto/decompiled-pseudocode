@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CheckWHFBits@@YAXPEAUtagTHREADINFO@@H@Z @ 0x1C001D504
+ * Callers:
+ *     FreeHook @ 0x1C0039160 (FreeHook.c)
+ * Callees:
+ *     PhkFirstGlobalValid @ 0x1C001D640 (PhkFirstGlobalValid.c)
+ *     PhkFirstValid @ 0x1C00368A8 (PhkFirstValid.c)
+ *     ?LockRefactorStagingAssertAny@@YAXAEBUtagDomLock@@@Z @ 0x1C003794C (-LockRefactorStagingAssertAny@@YAXAEBUtagDomLock@@@Z.c)
+ */
+
 void __fastcall CheckWHFBits(PRKPROCESS **a1, unsigned int a2)
 {
   int v4; // r15d

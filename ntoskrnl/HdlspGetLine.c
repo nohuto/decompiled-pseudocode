@@ -1,3 +1,21 @@
+/*
+ * XREFs of HdlspGetLine @ 0x140AE7690
+ * Callers:
+ *     HdlspBugCheckProcessing @ 0x140AE6D84 (HdlspBugCheckProcessing.c)
+ *     HdlspDispatch @ 0x140AE6EB0 (HdlspDispatch.c)
+ *     HdlspPutMore @ 0x140AE80B8 (HdlspPutMore.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     sprintf_s @ 0x1403D9BA0 (sprintf_s.c)
+ *     strcpy_s @ 0x1403D9D10 (strcpy_s.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     InbvPortGetByte @ 0x140676FBC (InbvPortGetByte.c)
+ *     InbvPortPollOnly @ 0x140677170 (InbvPortPollOnly.c)
+ *     HdlspSendStringAtBaud @ 0x140AE8474 (HdlspSendStringAtBaud.c)
+ */
+
 char __fastcall HdlspGetLine(void *a1, size_t Size)
 {
   KIRQL v4; // bl

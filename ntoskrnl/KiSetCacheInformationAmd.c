@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiSetCacheInformationAmd @ 0x140A9C858
+ * Callers:
+ *     KiSetCacheInformation @ 0x140A898B0 (KiSetCacheInformation.c)
+ * Callees:
+ *     KeCheckProcessorAffinityEx @ 0x140234B10 (KeCheckProcessorAffinityEx.c)
+ *     KeGetProcessorNode @ 0x140302AD0 (KeGetProcessorNode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiSetStandardizedCacheInformation @ 0x140A8A138 (KiSetStandardizedCacheInformation.c)
+ *     KiGetL2L3AssociativityAmd @ 0x140A9C814 (KiGetL2L3AssociativityAmd.c)
+ */
+
 char KiSetCacheInformationAmd()
 {
   struct _KPRCB *CurrentPrcb; // rsi

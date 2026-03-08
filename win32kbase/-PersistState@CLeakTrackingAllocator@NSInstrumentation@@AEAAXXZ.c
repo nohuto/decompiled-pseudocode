@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?PersistState@CLeakTrackingAllocator@NSInstrumentation@@AEAAXXZ @ 0x1C00D4D04
+ * Callers:
+ *     ?Destroy@CLeakTrackingAllocator@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C00D4B54 (-Destroy@CLeakTrackingAllocator@NSInstrumentation@@SAXPEAV12@@Z.c)
+ *     ?Create@CLeakTrackingAllocator@NSInstrumentation@@SAPEAV12@PEAX_N@Z @ 0x1C00D4E64 (-Create@CLeakTrackingAllocator@NSInstrumentation@@SAPEAV12@PEAX_N@Z.c)
+ * Callees:
+ *     ?GetOutstandingPoolTags@CLeakTrackingAllocator@NSInstrumentation@@QEBA_KPEAI_KPEA_K@Z @ 0x1C00D4B20 (-GetOutstandingPoolTags@CLeakTrackingAllocator@NSInstrumentation@@QEBA_KPEAI_KPEA_K@Z.c)
+ *     ?PlatformPersistConfig32@NSInstrumentation@@YAXPEAGQEAPEBGPEBIPEA_N_K@Z @ 0x1C00D4BE0 (-PlatformPersistConfig32@NSInstrumentation@@YAXPEAGQEAPEBGPEBIPEA_N_K@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 void __fastcall NSInstrumentation::CLeakTrackingAllocator::PersistState(
         NSInstrumentation::CLeakTrackingAllocator *this)
 {

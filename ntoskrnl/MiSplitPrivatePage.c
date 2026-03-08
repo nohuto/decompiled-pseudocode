@@ -1,3 +1,38 @@
+/*
+ * XREFs of MiSplitPrivatePage @ 0x14021114C
+ * Callers:
+ *     MiCopyToCfgBitMap @ 0x1406A5890 (MiCopyToCfgBitMap.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiIncreaseUsedPtesCount @ 0x14029F850 (MiIncreaseUsedPtesCount.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiMakeProtoLeafValid @ 0x1402F70B0 (MiMakeProtoLeafValid.c)
+ *     MiCopyOnWrite @ 0x140319F00 (MiCopyOnWrite.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiGetProtoPteAddress @ 0x14031C780 (MiGetProtoPteAddress.c)
+ *     MiMakeSystemAddressValid @ 0x140321770 (MiMakeSystemAddressValid.c)
+ *     MiVadPureReserve @ 0x140321EB0 (MiVadPureReserve.c)
+ *     MiIsPrototypePteVadLookup @ 0x140327240 (MiIsPrototypePteVadLookup.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     MiGetNextPageTable @ 0x1403468E0 (MiGetNextPageTable.c)
+ *     MiGetUsedPtesHandle @ 0x140346CA0 (MiGetUsedPtesHandle.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCopyOnWriteCheckConditions @ 0x140664840 (MiCopyOnWriteCheckConditions.c)
+ *     MiReturnFullProcessCommitment @ 0x1406B6FB4 (MiReturnFullProcessCommitment.c)
+ *     MiChargeFullProcessCommitment @ 0x1407C5840 (MiChargeFullProcessCommitment.c)
+ *     MiCommitPageTablesForVad @ 0x1407C74B0 (MiCommitPageTablesForVad.c)
+ */
+
 __int64 __fastcall MiSplitPrivatePage(ULONG_PTR a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rbx

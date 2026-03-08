@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Discard@CCompositionToken@@UEAAXXZ @ 0x1C0012A00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?UpdateDirtyRegions@CCompositionToken@@QEAAJXZ @ 0x1C00015B4 (-UpdateDirtyRegions@CCompositionToken@@QEAAJXZ.c)
+ *     DxgkGetWin32kImportTable @ 0x1C0007808 (DxgkGetWin32kImportTable.c)
+ *     Feature_Servicing_DCompBatchedPresentCompositionBuffers__private_IsEnabledDeviceUsage @ 0x1C0026DD8 (Feature_Servicing_DCompBatchedPresentCompositionBuffers__private_IsEnabledDeviceUsage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CCompositionToken::Discard(CCompositionToken *this, __int64 a2, __int64 a3)
 {
   __int64 Win32kImportTable; // rax

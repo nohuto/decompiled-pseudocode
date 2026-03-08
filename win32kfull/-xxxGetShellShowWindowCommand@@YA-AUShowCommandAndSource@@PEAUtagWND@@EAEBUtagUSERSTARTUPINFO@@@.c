@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?xxxGetShellShowWindowCommand@@YA?AUShowCommandAndSource@@PEAUtagWND@@EAEBUtagUSERSTARTUPINFO@@@Z @ 0x1C002B660
+ * Callers:
+ *     ?xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z @ 0x1C002AE4C (-xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C00200C4 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C003E900 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C003F908 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     _anonymous_namespace_::EligibleWindow @ 0x1C0097B28 (_anonymous_namespace_--EligibleWindow.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qd @ 0x1C00FAFB4 (WPP_RECORDER_AND_TRACE_SF_qd.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     _anonymous_namespace_::xxxCallIAMWindowManagementHandler @ 0x1C0220E14 (_anonymous_namespace_--xxxCallIAMWindowManagementHandler.c)
+ *     ?ComputeShowCommandSource@@YA?AW4ShowCommandSource@@H@Z @ 0x1C0227A08 (-ComputeShowCommandSource@@YA-AW4ShowCommandSource@@H@Z.c)
+ */
+
 __int64 __fastcall xxxGetShellShowWindowCommand(__int64 a1, struct tagWND *a2, unsigned __int8 a3, __int64 a4)
 {
   __int64 v4; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReduceFraction@@YAXPEAK0@Z @ 0x1C01BA51C
+ * Callers:
+ *     GetHimetricScaleForMonitor @ 0x1C01BAE08 (GetHimetricScaleForMonitor.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ReduceFraction(unsigned int *a1, unsigned int *a2)
 {
   unsigned int v2; // edi

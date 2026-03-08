@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeGetNextClockTickDuration @ 0x14056D340
+ * Callers:
+ *     HalpTimerClockPowerChange @ 0x140506414 (HalpTimerClockPowerChange.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ */
+
 unsigned __int64 KeGetNextClockTickDuration()
 {
   struct _KPRCB *CurrentPrcb; // rdi

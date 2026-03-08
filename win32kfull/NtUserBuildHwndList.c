@@ -1,3 +1,19 @@
+/*
+ * XREFs of NtUserBuildHwndList @ 0x1C003FD60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetThreadDesktopWindow @ 0x1C003BE08 (GetThreadDesktopWindow.c)
+ *     MapDesktop @ 0x1C003E450 (MapDesktop.c)
+ *     CallerCanSeeImmersiveWindows @ 0x1C003FA30 (CallerCanSeeImmersiveWindows.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     BuildHwndList @ 0x1C0041A10 (BuildHwndList.c)
+ *     FreeHwndList @ 0x1C00680B0 (FreeHwndList.c)
+ *     Feature_UserCritOpt__private_ReportDeviceUsage @ 0x1C012EAE0 (Feature_UserCritOpt__private_ReportDeviceUsage.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall NtUserBuildHwndList(
         __int64 a1,
         __int64 a2,

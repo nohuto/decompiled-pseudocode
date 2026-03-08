@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?PreMapTransfer@FxDmaSystemTransaction@@MEAAEXZ @ 0x1C001ED90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_qqq @ 0x1C001C308 (WPP_IFR_SF_qqq.c)
+ */
+
 char __fastcall FxDmaSystemTransaction::PreMapTransfer(FxDmaSystemTransaction *this)
 {
   char v2; // di

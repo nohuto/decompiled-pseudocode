@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopPowerRequestHandleRequestOverrideQueryResponse @ 0x1402BC0D8
+ * Callers:
+ *     PopUmpoProcessPowerMessage @ 0x14073B5A4 (PopUmpoProcessPowerMessage.c)
+ * Callees:
+ *     PopQueueWorkItem @ 0x1402BCCB4 (PopQueueWorkItem.c)
+ *     PopPowerRequestEvaluatePendingRequestStatus @ 0x1402BCCE4 (PopPowerRequestEvaluatePendingRequestStatus.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopPowerRequestTableLookupEntry @ 0x14073B640 (PopPowerRequestTableLookupEntry.c)
+ *     PopReleasePowerRequestPushLock @ 0x14073B67C (PopReleasePowerRequestPushLock.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14073B7D4 (PopAcquirePowerRequestPushLock.c)
+ */
+
 __int64 __fastcall PopPowerRequestHandleRequestOverrideQueryResponse(unsigned int *a1)
 {
   unsigned int *v1; // rbx

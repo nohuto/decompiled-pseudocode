@@ -1,3 +1,11 @@
+/*
+ * XREFs of WdfBindClientHelper @ 0x1C0050178
+ * Callers:
+ *     LibraryRegisterClient @ 0x1C00176A0 (LibraryRegisterClient.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WdfBindClientHelper(_WDF_BIND_INFO *BindInfo, unsigned int FxMajorVersion, __int64 FxMinorVersion)
 {
   unsigned int Major; // eax

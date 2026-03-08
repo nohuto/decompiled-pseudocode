@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpAdjustFreeBuffers @ 0x1406930A0
+ * Callers:
+ *     EtwpLogger @ 0x1406926A0 (EtwpLogger.c)
+ *     EtwpFlushActiveBuffers @ 0x14069310C (EtwpFlushActiveBuffers.c)
+ * Callees:
+ *     EtwpAllocateFreeBuffers @ 0x140205030 (EtwpAllocateFreeBuffers.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140206540 (EtwpQueryUsedProcessorCount.c)
+ */
+
 __int64 __fastcall EtwpAdjustFreeBuffers(__int64 a1)
 {
   unsigned int v1; // edi

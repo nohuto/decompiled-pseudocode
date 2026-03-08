@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetArgs@CInputQueue@@UEBAJPEAUCOMPOSITION_INPUT_QUEUE@@@Z @ 0x1C00BB540
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CInputQueue::GetArgs(CInputQueue *this, struct COMPOSITION_INPUT_QUEUE *a2)
 {
   __int64 result; // rax

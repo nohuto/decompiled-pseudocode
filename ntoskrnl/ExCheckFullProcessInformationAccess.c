@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExCheckFullProcessInformationAccess @ 0x140791A18
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ *     ExpGetProcessInformation @ 0x1406A9140 (ExpGetProcessInformation.c)
+ *     NtSetDefaultLocale @ 0x1407497C0 (NtSetDefaultLocale.c)
+ *     EtwpQueryCoverageSamplerInformation @ 0x1409F0CA4 (EtwpQueryCoverageSamplerInformation.c)
+ *     EtwpSetCoverageSamplerInformation @ 0x1409F0DFC (EtwpSetCoverageSamplerInformation.c)
+ * Callees:
+ *     SeAccessCheckWithHint @ 0x1402653A0 (SeAccessCheckWithHint.c)
+ *     RtlRunOnceExecuteOnce @ 0x1407A2BE0 (RtlRunOnceExecuteOnce.c)
+ *     SeCaptureSubjectContextEx @ 0x1407C9AF0 (SeCaptureSubjectContextEx.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ */
+
 NTSTATUS __fastcall ExCheckFullProcessInformationAccess(char a1)
 {
   NTSTATUS result; // eax

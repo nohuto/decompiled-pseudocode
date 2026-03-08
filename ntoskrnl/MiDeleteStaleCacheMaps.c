@@ -1,3 +1,26 @@
+/*
+ * XREFs of MiDeleteStaleCacheMaps @ 0x14062B5C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiTbFlushTimeStampMayNeedFlush @ 0x14029A144 (MiTbFlushTimeStampMayNeedFlush.c)
+ *     MiUnlockIoPfnTree @ 0x14029B9B4 (MiUnlockIoPfnTree.c)
+ *     MiIsPageInIoHugeRangeTransition @ 0x14029BA30 (MiIsPageInIoHugeRangeTransition.c)
+ *     MiLockIoPfnTree @ 0x14029C1B0 (MiLockIoPfnTree.c)
+ *     MiIsPageInHugePfn @ 0x14029C30C (MiIsPageInHugePfn.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14036D020 (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiConvertIoPfnTreeLockExclusiveToShared @ 0x14039B498 (MiConvertIoPfnTreeLockExclusiveToShared.c)
+ *     MiIoPfnTreeLockContended @ 0x1403BFB90 (MiIoPfnTreeLockContended.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDereferenceIoHugeRange @ 0x14061D540 (MiDereferenceIoHugeRange.c)
+ *     MiFlushStaleCacheMap @ 0x14062BB84 (MiFlushStaleCacheMap.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiDeleteStaleCacheMaps(__int64 a1)
 {
   int v1; // ebp

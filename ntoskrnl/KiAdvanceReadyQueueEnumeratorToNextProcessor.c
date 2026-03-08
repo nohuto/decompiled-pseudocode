@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiAdvanceReadyQueueEnumeratorToNextProcessor @ 0x1402EED30
+ * Callers:
+ *     KiAdvanceReadyQueueEnumeratorToNextList @ 0x1402EE9E4 (KiAdvanceReadyQueueEnumeratorToNextList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiAdvanceReadyQueueEnumeratorToNextProcessor(unsigned int *a1)
 {
   unsigned int v1; // r11d

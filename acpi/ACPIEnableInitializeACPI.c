@@ -1,3 +1,18 @@
+/*
+ * XREFs of ACPIEnableInitializeACPI @ 0x1C00368F0
+ * Callers:
+ *     ACPIInitialize @ 0x1C00A8F78 (ACPIInitialize.c)
+ * Callees:
+ *     ACPIGpeClearRegisters @ 0x1C002C240 (ACPIGpeClearRegisters.c)
+ *     ACPIGpeEnableDisableEvents @ 0x1C002C29C (ACPIGpeEnableDisableEvents.c)
+ *     ACPIEnableEnterACPIMode @ 0x1C0036798 (ACPIEnableEnterACPIMode.c)
+ *     CLEAR_PM1_STATUS_REGISTER @ 0x1C0038C14 (CLEAR_PM1_STATUS_REGISTER.c)
+ *     READ_PM1_CONTROL @ 0x1C0038D00 (READ_PM1_CONTROL.c)
+ *     READ_PM1_STATUS @ 0x1C0038E70 (READ_PM1_STATUS.c)
+ *     WRITE_PM1_CONTROL @ 0x1C0038F24 (WRITE_PM1_CONTROL.c)
+ *     WRITE_PM1_ENABLE @ 0x1C0039094 (WRITE_PM1_ENABLE.c)
+ */
+
 void *__fastcall ACPIEnableInitializeACPI(__int64 a1, __int64 a2)
 {
   void *result; // rax

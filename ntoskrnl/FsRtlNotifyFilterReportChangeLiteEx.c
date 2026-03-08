@@ -1,3 +1,24 @@
+/*
+ * XREFs of FsRtlNotifyFilterReportChangeLiteEx @ 0x140703B40
+ * Callers:
+ *     FsRtlNotifyFilterReportChangeLite @ 0x14093D100 (FsRtlNotifyFilterReportChangeLite.c)
+ * Callees:
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     PsChargePoolQuota @ 0x140294F20 (PsChargePoolQuota.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x140295600 (PsReturnProcessPagedPoolQuota.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402ECFB0 (FsRtlIsNtstatusExpected.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     FsRtlNotifyCompleteIrpList @ 0x1407041D4 (FsRtlNotifyCompleteIrpList.c)
+ *     FsRtlNotifyInitializeSync @ 0x1407760A0 (FsRtlNotifyInitializeSync.c)
+ *     FsRtlNotifyUninitializeSync @ 0x140870BA0 (FsRtlNotifyUninitializeSync.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall FsRtlNotifyFilterReportChangeLiteEx(
         volatile signed __int64 *a1,
         _QWORD *a2,

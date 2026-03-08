@@ -1,3 +1,23 @@
+/*
+ * XREFs of LdrpSearchResourceSection_U @ 0x1407E9958
+ * Callers:
+ *     LdrpGetRcConfig @ 0x14035CDC4 (LdrpGetRcConfig.c)
+ *     LdrpLoadResourceFromAlternativeModule @ 0x14035CFA0 (LdrpLoadResourceFromAlternativeModule.c)
+ *     RtlFindMessage @ 0x1407E97C0 (RtlFindMessage.c)
+ *     LdrFindResource_U @ 0x140810260 (LdrFindResource_U.c)
+ *     LdrFindResourceDirectory_U @ 0x1409B6980 (LdrFindResourceDirectory_U.c)
+ *     LdrFindResourceEx_U @ 0x1409B69A0 (LdrFindResourceEx_U.c)
+ *     RtlLoadString @ 0x1409B7450 (RtlLoadString.c)
+ * Callees:
+ *     LdrpCompareResourceNamesWithValidation @ 0x1402ECE20 (LdrpCompareResourceNamesWithValidation.c)
+ *     LdrIsResItemExist @ 0x14035CD44 (LdrIsResItemExist.c)
+ *     LdrpLoadResourceFromAlternativeModule @ 0x14035CFA0 (LdrpLoadResourceFromAlternativeModule.c)
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     LdrpGetParentLangId @ 0x1403C1878 (LdrpGetParentLangId.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ */
+
 __int64 __fastcall LdrpSearchResourceSection_U(__int64 a1, __int64 *a2, unsigned int a3, int a4, unsigned int **a5)
 {
   int v5; // r14d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetSubgraphShaderLinkingBody@CCustomKernelEffect@@UEBA?AUShaderLinkingBody@@I@Z @ 0x180108630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CCustomKernelEffect::GetSubgraphShaderLinkingBody(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

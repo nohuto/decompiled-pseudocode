@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetEnhancedVerifierOptions @ 0x1C002C77C
+ * Callers:
+ *     FxLibraryCommonRegisterClient @ 0x1C002C2B8 (FxLibraryCommonRegisterClient.c)
+ * Callees:
+ *     ?_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z @ 0x1C00014A8 (-_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z.c)
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ */
+
 void __fastcall GetEnhancedVerifierOptions(_FX_DRIVER_GLOBALS *FxDriverGlobals)
 {
   _DRIVER_OBJECT *m_DriverObject; // rcx

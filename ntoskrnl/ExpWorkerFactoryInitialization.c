@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExpWorkerFactoryInitialization @ 0x140B6F290
+ * Callers:
+ *     ExpInitSystemPhase1 @ 0x140B3F0B8 (ExpInitSystemPhase1.c)
+ * Callees:
+ *     KeRegisterObjectNotification @ 0x14024F260 (KeRegisterObjectNotification.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     KeInitializeQueue @ 0x1402A8580 (KeInitializeQueue.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsCreateSystemThread @ 0x1407DE2E0 (PsCreateSystemThread.c)
+ *     ObCreateObjectType @ 0x14080CB00 (ObCreateObjectType.c)
+ */
+
 __int64 ExpWorkerFactoryInitialization()
 {
   int v0; // eax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlUnicodeStringValidateDestWorker @ 0x1C0017A08
+ * Callers:
+ *     RtlUnicodeStringPrintf @ 0x1C00178B4 (RtlUnicodeStringPrintf.c)
+ *     RtlUnicodeStringCopy @ 0x1C004DF40 (RtlUnicodeStringCopy.c)
+ * Callees:
+ *     RtlUnicodeStringValidateWorker @ 0x1C0017A84 (RtlUnicodeStringValidateWorker.c)
+ */
+
 int __fastcall RtlUnicodeStringValidateDestWorker(
         const _UNICODE_STRING *DestinationString,
         wchar_t **ppszDest,

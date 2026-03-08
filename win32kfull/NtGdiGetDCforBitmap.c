@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiGetDCforBitmap @ 0x1C00D3CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtGdiGetDCforBitmap(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBUCX_CancelUCXIoctl @ 0x1C00265E0
+ * Callers:
+ *     HUBDSM_CancellingAcquiringAddress0OnDetachInEnum @ 0x1C0020880 (HUBDSM_CancellingAcquiringAddress0OnDetachInEnum.c)
+ *     HUBDSM_WaitingForUCXIoctlOnStopSuspend @ 0x1C0020A80 (HUBDSM_WaitingForUCXIoctlOnStopSuspend.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 _UNKNOWN **__fastcall HUBUCX_CancelUCXIoctl(__int64 a1)
 {
   _UNKNOWN **result; // rax

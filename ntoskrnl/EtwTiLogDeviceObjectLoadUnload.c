@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwTiLogDeviceObjectLoadUnload @ 0x1407F0EC4
+ * Callers:
+ *     IoDeleteDevice @ 0x140368010 (IoDeleteDevice.c)
+ *     IoCreateDevice @ 0x1407F0460 (IoCreateDevice.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     EtwProviderEnabled @ 0x140367E30 (EtwProviderEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 BOOLEAN __fastcall EtwTiLogDeviceObjectLoadUnload(char a1, unsigned __int16 *a2, unsigned __int16 *a3)
 {
   REGHANDLE v3; // rsi

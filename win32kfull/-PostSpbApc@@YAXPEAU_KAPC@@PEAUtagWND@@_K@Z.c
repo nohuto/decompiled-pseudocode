@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PostSpbApc@@YAXPEAU_KAPC@@PEAUtagWND@@_K@Z @ 0x1C01FA448
+ * Callers:
+ *     FreeSpb @ 0x1C000B520 (FreeSpb.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall PostSpbApc(struct _KAPC *a1, struct tagWND *a2, __int64 a3)
 {
   char v6; // [rsp+30h] [rbp-18h]

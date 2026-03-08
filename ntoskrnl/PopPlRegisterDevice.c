@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopPlRegisterDevice @ 0x1403937A4
+ * Callers:
+ *     PopPlRegisterDeviceIterator @ 0x14059F270 (PopPlRegisterDeviceIterator.c)
+ *     PopFxRegisterDeviceWorker @ 0x14083714C (PopFxRegisterDeviceWorker.c)
+ * Callees:
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopPlLookupDevicePowerProfile @ 0x14059EEB4 (PopPlLookupDevicePowerProfile.c)
+ */
+
 bool __fastcall PopPlRegisterDevice(__int64 a1, __int64 a2, __int64 a3)
 {
   bool v4; // zf

@@ -1,3 +1,11 @@
+/*
+ * XREFs of MonitorGetPreferredScaleFactor @ 0x1C01673EC
+ * Callers:
+ *     ?GetPreferredScaleFactorForMonitor@DpiInternal@@YA_NQEAXIHPEAI@Z @ 0x1C0167338 (-GetPreferredScaleFactorForMonitor@DpiInternal@@YA_NQEAXIHPEAI@Z.c)
+ * Callees:
+ *     ?AcquireMonitorShared@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAXI_N@Z @ 0x1C0009184 (-AcquireMonitorShared@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@$$CBVDXGMONITOR@@@@PEAXI_N@Z.c)
+ */
+
 __int64 __fastcall MonitorGetPreferredScaleFactor(__int64 a1, unsigned int a2, _DWORD *a3)
 {
   struct DXGMONITOR *v4; // rbx

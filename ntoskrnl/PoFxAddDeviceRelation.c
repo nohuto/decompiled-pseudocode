@@ -1,3 +1,21 @@
+/*
+ * XREFs of PoFxAddDeviceRelation @ 0x1405855F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopFxActivateDevice @ 0x140202154 (PopFxActivateDevice.c)
+ *     PoFxIdleDevice @ 0x14020259C (PoFxIdleDevice.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PopFxActivateComponent @ 0x140305D50 (PopFxActivateComponent.c)
+ *     PopFxAddRefDevice @ 0x140305F38 (PopFxAddRefDevice.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PoFxAddDeviceRelation(__int64 a1, __int64 a2, _QWORD *a3, int a4)
 {
   unsigned int v4; // ebx

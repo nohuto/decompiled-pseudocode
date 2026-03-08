@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsCorrectVersionRegistered@_FX_DRIVER_GLOBALS@@QEAAEPEBU_UNICODE_STRING@@@Z @ 0x1C00484D0
+ * Callers:
+ *     FxInitialize @ 0x1C0043DE4 (FxInitialize.c)
+ * Callees:
+ *     ?_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z @ 0x1C00014A8 (-_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z.c)
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ */
+
 bool __fastcall _FX_DRIVER_GLOBALS::IsCorrectVersionRegistered(
         _FX_DRIVER_GLOBALS *this,
         const _UNICODE_STRING *ServiceKeyName)

@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiRelocateImageAgain @ 0x1406A160C
+ * Callers:
+ *     MiValidateExistingImage @ 0x1406A1230 (MiValidateExistingImage.c)
+ * Callees:
+ *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x14020AFAC (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x14020B028 (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiImageUnused @ 0x1402E9DE8 (MiImageUnused.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     MiGetControlAreaLoadConfig @ 0x14034C364 (MiGetControlAreaLoadConfig.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     MiSwitchBaseAddress @ 0x14069F7C4 (MiSwitchBaseAddress.c)
+ *     MiUpdateImageSystemWideBitmaps @ 0x1406A190C (MiUpdateImageSystemWideBitmaps.c)
+ *     MiSelectImageBase @ 0x1406A1934 (MiSelectImageBase.c)
+ *     MiReturnImageBase @ 0x1407C8860 (MiReturnImageBase.c)
+ */
+
 __int64 __fastcall MiRelocateImageAgain(__int64 a1, int a2)
 {
   __int64 v2; // r15

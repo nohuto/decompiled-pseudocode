@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlParseLeapSecondData @ 0x140A714E4
+ * Callers:
+ *     ExpParseAndUpdateLeapSecondData @ 0x1408510E0 (ExpParseAndUpdateLeapSecondData.c)
+ * Callees:
+ *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x1402D11E0 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
+ *     RtlLongLongAdd @ 0x14058CC30 (RtlLongLongAdd.c)
+ */
+
 __int64 __fastcall RtlParseLeapSecondData(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // edi

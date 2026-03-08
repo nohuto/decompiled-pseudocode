@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiIpiProcessRequests @ 0x1402CB4E0
+ * Callers:
+ *     KiIpiInterruptSubDispatch @ 0x14041F760 (KiIpiInterruptSubDispatch.c)
+ * Callees:
+ *     EtwGetKernelTraceTimestampSilo @ 0x140250570 (EtwGetKernelTraceTimestampSilo.c)
+ *     KiFlushRangeTb @ 0x140387C18 (KiFlushRangeTb.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiSetUserTbFlushPending @ 0x140417710 (KiSetUserTbFlushPending.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PerfInfoLogIpiReceive @ 0x1405FC640 (PerfInfoLogIpiReceive.c)
+ */
+
 char KiIpiProcessRequests()
 {
   struct _KPRCB *CurrentPrcb; // rdi

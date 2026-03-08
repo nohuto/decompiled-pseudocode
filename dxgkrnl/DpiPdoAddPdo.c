@@ -1,3 +1,19 @@
+/*
+ * XREFs of DpiPdoAddPdo @ 0x1C0201FA0
+ * Callers:
+ *     DpiPdoHandleChildConnectionChange @ 0x1C02009DC (DpiPdoHandleChildConnectionChange.c)
+ * Callees:
+ *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C000A240 (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
+ *     MonitorCreatePhysicalMonitor @ 0x1C01FA828 (MonitorCreatePhysicalMonitor.c)
+ *     DpiPdoGetDeviceContainerIdFromDescriptor @ 0x1C0200E78 (DpiPdoGetDeviceContainerIdFromDescriptor.c)
+ *     DpiPdoGetDeviceDescriptor @ 0x1C02014BC (DpiPdoGetDeviceDescriptor.c)
+ *     DpiPdoGetDeviceIdFromDescriptor @ 0x1C0201AEC (DpiPdoGetDeviceIdFromDescriptor.c)
+ *     ?DmmSetTemporaryVideoOutputTechnology@@YAJQEAXIW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@1@Z @ 0x1C0201ED4 (-DmmSetTemporaryVideoOutputTechnology@@YAJQEAXIW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@1@Z.c)
+ *     WdmlibIoCreateDeviceSecure @ 0x1C0203154 (WdmlibIoCreateDeviceSecure.c)
+ *     DpiFdoPendingCreatePdoCompletion @ 0x1C03961EC (DpiFdoPendingCreatePdoCompletion.c)
+ *     DpiPdoRemovePdo @ 0x1C03A53EC (DpiPdoRemovePdo.c)
+ */
+
 __int64 __fastcall DpiPdoAddPdo(
         __int64 a1,
         __int64 a2,

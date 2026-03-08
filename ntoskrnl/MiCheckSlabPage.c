@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiCheckSlabPage @ 0x1402A6DE4
+ * Callers:
+ *     MiWalkEntireImage @ 0x1402862C0 (MiWalkEntireImage.c)
+ *     MiMakeDriverPagesPrivate @ 0x1402A6440 (MiMakeDriverPagesPrivate.c)
+ *     MiFinalizeImageHeaderPage @ 0x1402C6548 (MiFinalizeImageHeaderPage.c)
+ *     MiProtectDriverSectionPte @ 0x140618060 (MiProtectDriverSectionPte.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiCheckSlabPage(__int64 a1, int a2)
 {
   __int64 v2; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of Crashdump_ProcessSystemPowerAction @ 0x1C004CCC4
+ * Callers:
+ *     Controller_WdfEvtPreprocessSetPowerIrp @ 0x1C000F080 (Controller_WdfEvtPreprocessSetPowerIrp.c)
+ * Callees:
+ *     <none>
+ */
+
 ULONG __fastcall Crashdump_ProcessSystemPowerAction(__int64 a1, int a2)
 {
   int v3; // edx

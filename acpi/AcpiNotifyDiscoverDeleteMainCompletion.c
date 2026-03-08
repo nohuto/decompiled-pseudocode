@@ -1,3 +1,13 @@
+/*
+ * XREFs of AcpiNotifyDiscoverDeleteMainCompletion @ 0x1C0037710
+ * Callers:
+ *     AcpiNotifyPlExtDeleteDeviceAsync @ 0x1C00377F0 (AcpiNotifyPlExtDeleteDeviceAsync.c)
+ *     AcpiNotifyPlExtDiscoverDeviceAsync @ 0x1C0037A5C (AcpiNotifyPlExtDiscoverDeviceAsync.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ */
+
 void __fastcall AcpiNotifyDiscoverDeleteMainCompletion(_BYTE *P)
 {
   unsigned int *v2; // rbx

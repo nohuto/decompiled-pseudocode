@@ -1,3 +1,22 @@
+/*
+ * XREFs of SepAppendAceToTokenDefaultDacl @ 0x1402BE754
+ * Callers:
+ *     NtCreateLowBoxToken @ 0x14069D520 (NtCreateLowBoxToken.c)
+ * Callees:
+ *     RtlFindAceBySid @ 0x140245DF0 (RtlFindAceBySid.c)
+ *     RtlGetAce @ 0x140245EE0 (RtlGetAce.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlQueryInformationAcl @ 0x1406DB160 (RtlQueryInformationAcl.c)
+ *     RtlCreateAcl @ 0x1406DB640 (RtlCreateAcl.c)
+ *     RtlAddAce @ 0x1406DB760 (RtlAddAce.c)
+ *     SepExpandDynamic @ 0x140743D78 (SepExpandDynamic.c)
+ *     SepFreeDefaultDacl @ 0x140743E60 (SepFreeDefaultDacl.c)
+ *     SepAppendDefaultDacl @ 0x140743EAC (SepAppendDefaultDacl.c)
+ *     RtlAddAccessAllowedAce @ 0x140744250 (RtlAddAccessAllowedAce.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepAppendAceToTokenDefaultDacl(__int64 a1, unsigned __int8 *a2)
 {
   ACL *v3; // rsi

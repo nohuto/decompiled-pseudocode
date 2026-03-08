@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBDSM_CheckingIfItIsIsochronousEndpoint @ 0x1C001F280
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBDSM_CheckingIfItIsIsochronousEndpoint(__int64 a1)
 {
   __int64 result; // rax

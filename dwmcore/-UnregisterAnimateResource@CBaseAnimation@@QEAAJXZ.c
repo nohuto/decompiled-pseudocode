@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UnregisterAnimateResource@CBaseAnimation@@QEAAJXZ @ 0x1800C5B04
+ * Callers:
+ *     ?EndAnimation@CAnimation@@AEAAXXZ @ 0x1800C5A6C (-EndAnimation@CAnimation@@AEAAXXZ.c)
+ *     ?UpdateAnimateValues@CScalar@@UEAA_NXZ @ 0x18024B250 (-UpdateAnimateValues@CScalar@@UEAA_NXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall CBaseAnimation::UnregisterAnimateResource(CBaseAnimation *this)
 {
   unsigned int v1; // ebx

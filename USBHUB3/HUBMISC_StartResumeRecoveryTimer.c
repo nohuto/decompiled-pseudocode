@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBMISC_StartResumeRecoveryTimer @ 0x1C0032540
+ * Callers:
+ *     HUBPSM20_StartingResumeRecoveryTimer @ 0x1C00126F0 (HUBPSM20_StartingResumeRecoveryTimer.c)
+ *     HUBPSM20_WaitingForResumeRecoveryTimerOnResumeInSuspended @ 0x1C0012E70 (HUBPSM20_WaitingForResumeRecoveryTimerOnResumeInSuspended.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBMISC_StartResumeRecoveryTimer(__int64 a1)
 {
   __int64 v1; // rdx

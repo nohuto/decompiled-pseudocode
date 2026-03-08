@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PreRestoreState@COffScreenRenderingLayer@@EEAAJPEAVCDrawingContext@@@Z @ 0x1800E8A60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall COffScreenRenderingLayer::PreRestoreState(
         COffScreenRenderingLayer *this,
         struct CDrawingContext *a2)

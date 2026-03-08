@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReleaseResource@?$CDeviceResourceTable@VCD2DEffect@@VCFilterEffect@@@@AEAAXPEBVIDeviceResource@@@Z @ 0x1801C2DEC
+ * Callers:
+ *     ?NotifyInvalidResource@?$CDeviceResourceTable@VCD2DInk@@VCInk@@@@EEAAXPEBVIDeviceResource@@@Z @ 0x1801C2810 (-NotifyInvalidResource@-$CDeviceResourceTable@VCD2DInk@@VCInk@@@@EEAAXPEBVIDeviceResource@@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?clear_region@?$vector_facade@V?$com_ptr_t@VCD2DInk@@Uerr_returncode_policy@wil@@@wil@@V?$buffer_impl@V?$com_ptr_t@VCD2DInk@@Uerr_returncode_policy@wil@@@wil@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1801C7E04 (-clear_region@-$vector_facade@V-$com_ptr_t@VCD2DInk@@Uerr_returncode_policy@wil@@@wil@@V-$buffer.c)
+ */
+
 void __fastcall CDeviceResourceTable<CD2DEffect,CFilterEffect>::ReleaseResource(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // rsi

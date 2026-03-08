@@ -1,3 +1,21 @@
+/*
+ * XREFs of HalpDmaFreeMapRegisters @ 0x140453EF6
+ * Callers:
+ *     HalDmaAllocateCrashDumpRegistersEx @ 0x1403A9AD0 (HalDmaAllocateCrashDumpRegistersEx.c)
+ *     HalpDmaProcessMapRegisterQueueV2 @ 0x1404551EE (HalpDmaProcessMapRegisterQueueV2.c)
+ *     IoFreeMapRegistersV2 @ 0x1404554C0 (IoFreeMapRegistersV2.c)
+ *     HalDmaFreeCrashDumpRegistersEx @ 0x1404FF270 (HalDmaFreeCrashDumpRegistersEx.c)
+ *     HalpDmaFreeCrashDumpRegisters @ 0x1404FF530 (HalpDmaFreeCrashDumpRegisters.c)
+ *     IoFreeMapRegistersV3 @ 0x14050DE60 (IoFreeMapRegistersV3.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpDmaAcquireBufferMappings @ 0x140453764 (HalpDmaAcquireBufferMappings.c)
+ *     HalpDmaReleaseBufferMappings @ 0x1404541D8 (HalpDmaReleaseBufferMappings.c)
+ *     HalpDmaReturnPageToOwner @ 0x140454296 (HalpDmaReturnPageToOwner.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpDmaFreeMapRegisters(__int64 a1, _QWORD *a2, unsigned int a3)
 {
   __int64 result; // rax

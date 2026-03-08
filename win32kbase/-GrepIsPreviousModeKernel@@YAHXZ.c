@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GrepIsPreviousModeKernel@@YAHXZ @ 0x1C001D054
+ * Callers:
+ *     GreCreateRectRgn @ 0x1C0019F70 (GreCreateRectRgn.c)
+ *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00DE3A0 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
+ * Callees:
+ *     IsThreadCrossSessionAttached @ 0x1C004B600 (IsThreadCrossSessionAttached.c)
+ */
+
 __int64 GrepIsPreviousModeKernel(void)
 {
   struct _KTHREAD *CurrentThread; // rdi

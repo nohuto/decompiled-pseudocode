@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetCachedStereoStates@ADAPTER_DISPLAY@@QEBAJIPEAE0@Z @ 0x1C02B8214
+ * Callers:
+ *     ?DxgkpAdapterCheckStereoMode@@YAJU_LUID@@IPEAE1@Z @ 0x1C02F5694 (-DxgkpAdapterCheckStereoMode@@YAJU_LUID@@IPEAE1@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall ADAPTER_DISPLAY::GetCachedStereoStates(ADAPTER_DISPLAY *this, unsigned int a2, bool *a3, bool *a4)
 {
   __int64 v4; // rbx

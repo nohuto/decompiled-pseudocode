@@ -1,3 +1,20 @@
+/*
+ * XREFs of PiPnpRtlSetDeviceRegProperty @ 0x140876040
+ * Callers:
+ *     PiDevCfgSetDeviceRegProp @ 0x140875718 (PiDevCfgSetDeviceRegProp.c)
+ *     PiCMSetRegistryProperty @ 0x140967BA4 (PiCMSetRegistryProperty.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     _CmSetDeviceRegProp @ 0x140684F2C (_CmSetDeviceRegProp.c)
+ *     _CmGetDeviceRegProp @ 0x1406C9884 (_CmGetDeviceRegProp.c)
+ *     _CmIsRootEnumeratedDevice @ 0x1406CD550 (_CmIsRootEnumeratedDevice.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x14070F610 (SeAuditingWithTokenForSubcategory.c)
+ *     PiAuditDeviceEnableDisableRequest @ 0x14096C764 (PiAuditDeviceEnableDisableRequest.c)
+ */
+
 __int64 __fastcall PiPnpRtlSetDeviceRegProperty(
         __int64 a1,
         const WCHAR *a2,

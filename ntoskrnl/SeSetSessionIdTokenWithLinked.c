@@ -1,3 +1,18 @@
+/*
+ * XREFs of SeSetSessionIdTokenWithLinked @ 0x1409C66C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SepReferenceTokenByHandle @ 0x140247A20 (SepReferenceTokenByHandle.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     SepDeReferenceLogonSessionDirect @ 0x1402BE52C (SepDeReferenceLogonSessionDirect.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     SeSetSessionIdToken @ 0x140743440 (SeSetSessionIdToken.c)
+ *     SepReferenceLogonSessionSilo @ 0x140773DF8 (SepReferenceLogonSessionSilo.c)
+ */
+
 __int64 __fastcall SeSetSessionIdTokenWithLinked(void *a1, ULONG a2, __int64 a3, __int64 a4)
 {
   void *v5; // rsi

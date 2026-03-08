@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FilterResourceRequirements@FxInterrupt@@QEAAXPEAU_IO_RESOURCE_DESCRIPTOR@@@Z @ 0x1C0080088
+ * Callers:
+ *     ?FilterResourceRequirements@FxPkgPnp@@IEAAJPEAPEAU_IO_RESOURCE_REQUIREMENTS_LIST@@@Z @ 0x1C0078D68 (-FilterResourceRequirements@FxPkgPnp@@IEAAJPEAPEAU_IO_RESOURCE_REQUIREMENTS_LIST@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxInterrupt::FilterResourceRequirements(
         FxInterrupt *this,
         _IO_RESOURCE_DESCRIPTOR *IoResourceDescriptor)

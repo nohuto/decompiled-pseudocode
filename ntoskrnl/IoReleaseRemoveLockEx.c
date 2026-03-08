@@ -1,3 +1,19 @@
+/*
+ * XREFs of IoReleaseRemoveLockEx @ 0x1402D9240
+ * Callers:
+ *     DifIoReleaseRemoveLockExWrapper @ 0x1405DEA70 (DifIoReleaseRemoveLockExWrapper.c)
+ *     ViFilterDeviceUsageNotificationCompletion @ 0x140ADC3E0 (ViFilterDeviceUsageNotificationCompletion.c)
+ *     ViFilterGenericCompletionRoutine @ 0x140ADC9B0 (ViFilterGenericCompletionRoutine.c)
+ *     ViFilterStartCompletionRoutine @ 0x140ADCA20 (ViFilterStartCompletionRoutine.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     VfRemLockReportBadReleaseTag @ 0x140ACF89C (VfRemLockReportBadReleaseTag.c)
+ */
+
 void __stdcall IoReleaseRemoveLockEx(PIO_REMOVE_LOCK RemoveLock, PVOID Tag, ULONG RemlockSize)
 {
   char v5; // r15

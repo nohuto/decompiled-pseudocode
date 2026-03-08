@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiComputeNewSystemTime @ 0x1403BB6DC
+ * Callers:
+ *     KiUpdateSystemTime @ 0x1403BB568 (KiUpdateSystemTime.c)
+ *     KiUpdateTimeAssist @ 0x1403C9BA8 (KiUpdateTimeAssist.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiComputeNewSystemTime(unsigned __int64 a1)
 {
   unsigned __int128 v1; // rax

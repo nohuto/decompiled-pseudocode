@@ -1,3 +1,12 @@
+/*
+ * XREFs of Controller_UpdateSqmDatapoints @ 0x1C0079270
+ * Callers:
+ *     Controller_WdfEvtDeviceSelfManagedIoCleanup @ 0x1C00796C0 (Controller_WdfEvtDeviceSelfManagedIoCleanup.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Controller_UpdateSqmDatapoints(__int64 *a1)
 {
   __int64 v1; // rdx

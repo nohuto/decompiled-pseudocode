@@ -1,3 +1,14 @@
+/*
+ * XREFs of AdjustSrcDevGamma @ 0x1C0256104
+ * Callers:
+ *     pDCIAdjClr @ 0x1C02583A8 (pDCIAdjClr.c)
+ * Callees:
+ *     DivFD6 @ 0x1C014AF0C (DivFD6.c)
+ *     Log @ 0x1C014B004 (Log.c)
+ *     MulFD6 @ 0x1C014B146 (MulFD6.c)
+ *     RaisePower @ 0x1C014B26A (RaisePower.c)
+ */
+
 __int64 __fastcall AdjustSrcDevGamma(__int64 a1, __int64 a2, unsigned __int16 *a3, unsigned __int8 a4, char a5)
 {
   int v7; // r14d

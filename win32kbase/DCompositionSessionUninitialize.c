@@ -1,3 +1,14 @@
+/*
+ * XREFs of DCompositionSessionUninitialize @ 0x1C0099C08
+ * Callers:
+ *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C015C290 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
+ * Callees:
+ *     ??_GCConnection@DirectComposition@@AEAAPEAXI@Z @ 0x1C0099D20 (--_GCConnection@DirectComposition@@AEAAPEAXI@Z.c)
+ *     ?RemoveAnyObject@?$CGenericTable@UMaterialPropertyId@MaterialProperty@@U2@$0HEHCEDEE@$0A@@DirectComposition@@QEAAPEAUMaterialProperty@@XZ @ 0x1C0099D44 (-RemoveAnyObject@-$CGenericTable@UMaterialPropertyId@MaterialProperty@@U2@$0HEHCEDEE@$0A@@Direct.c)
+ *     ??_GMaterialProperty@@QEAAPEAXI@Z @ 0x1C0099DA4 (--_GMaterialProperty@@QEAAPEAXI@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 void __fastcall DCompositionSessionUninitialize(__int64 a1, unsigned int a2)
 {
   MaterialProperty *v2; // rax

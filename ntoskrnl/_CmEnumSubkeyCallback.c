@@ -1,3 +1,21 @@
+/*
+ * XREFs of _CmEnumSubkeyCallback @ 0x1408247A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlStringCchCopyExW @ 0x140244A08 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     RtlStringCchCopyW @ 0x1402470F0 (RtlStringCchCopyW.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     _CmIsDevicePresent @ 0x1406C8810 (_CmIsDevicePresent.c)
+ *     _CmValidateDeviceName @ 0x1406D3DF0 (_CmValidateDeviceName.c)
+ *     _SysCtxRegOpenKey @ 0x1406D4350 (_SysCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x140824EA0 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmEnumSubkeyCallback(__int64 a1, __int64 a2, const wchar_t *a3, __int64 a4)
 {
   wchar_t *Pool2; // rax

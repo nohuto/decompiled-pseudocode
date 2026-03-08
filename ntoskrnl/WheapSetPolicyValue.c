@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheapSetPolicyValue @ 0x140A06DB8
+ * Callers:
+ *     WheapWmiExecutePolicyManagementMethod @ 0x140611EEC (WheapWmiExecutePolicyManagementMethod.c)
+ *     WheapResetPolicyDefaults @ 0x140A06D70 (WheapResetPolicyDefaults.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WheapSetPolicyValue(unsigned int a1, unsigned int *a2)
 {
   unsigned int v2; // r8d

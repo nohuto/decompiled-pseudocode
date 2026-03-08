@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@CMatrixTransform3DMarshaler@DirectComposition@@UEAAJXZ @ 0x1C000CE40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CMatrixTransform3DMarshaler::Initialize(
         DirectComposition::CMatrixTransform3DMarshaler *this)
 {

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?TryFindBufferStream@BufferingMessageCallHost@BamoImpl@Microsoft@@AEAA_N_KPEAPEAUBufferStream@23@@Z @ 0x1801B8BAC
+ * Callers:
+ *     ?CancelBuffer@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAJPEA_KIPEAXI@Z @ 0x1801B6160 (-CancelBuffer@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAJPEA_KIPEAXI@Z.c)
+ *     ?SubmitBuffer@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAJPEA_KIPEAXI@Z @ 0x1801B82F0 (-SubmitBuffer@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAJPEA_KIPEAXI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall Microsoft::BamoImpl::BufferingMessageCallHost::TryFindBufferStream(
         Microsoft::BamoImpl::BufferingMessageCallHost *this,
         unsigned __int64 a2,

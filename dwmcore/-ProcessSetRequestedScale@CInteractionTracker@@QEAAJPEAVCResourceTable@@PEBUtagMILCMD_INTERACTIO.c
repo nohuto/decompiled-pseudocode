@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ProcessSetRequestedScale@CInteractionTracker@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTIONTRACKER_SETREQUESTEDSCALE@@@Z @ 0x1802308AC
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F0A8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     ?NotifyRequestIgnored@CInteractionTracker@@AEAAXH@Z @ 0x18022FC78 (-NotifyRequestIgnored@CInteractionTracker@@AEAAXH@Z.c)
+ *     ?SetRequestedScale@CInteractionTracker@@AEAA_NM@Z @ 0x180231C8C (-SetRequestedScale@CInteractionTracker@@AEAA_NM@Z.c)
+ */
+
 __int64 __fastcall CInteractionTracker::ProcessSetRequestedScale(
         CInteractionTracker *this,
         struct CResourceTable *a2,

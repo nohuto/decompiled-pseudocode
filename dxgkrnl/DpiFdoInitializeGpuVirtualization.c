@@ -1,3 +1,18 @@
+/*
+ * XREFs of DpiFdoInitializeGpuVirtualization @ 0x1C01F3380
+ * Callers:
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C0180684 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C0180B30 (DpiAcquireCoreSyncAccessSafe.c)
+ *     ?DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z @ 0x1C01B473C (-DdiQueryAdapterInfo@DXGADAPTER@@QEAAJPEAU_DXGKARG_QUERYADAPTERINFO@@@Z.c)
+ *     DxgkIsGpuParavirtualizationSupported @ 0x1C01F37E8 (DxgkIsGpuParavirtualizationSupported.c)
+ *     DpiQueryMiniportInterface @ 0x1C01F65F4 (DpiQueryMiniportInterface.c)
+ *     DpiCreateSecurityDescriptorForGpuVirtualization @ 0x1C0216B20 (DpiCreateSecurityDescriptorForGpuVirtualization.c)
+ *     DpiFdoCleanupGpuVirtualization @ 0x1C0396550 (DpiFdoCleanupGpuVirtualization.c)
+ */
+
 __int64 __fastcall DpiFdoInitializeGpuVirtualization(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rdi

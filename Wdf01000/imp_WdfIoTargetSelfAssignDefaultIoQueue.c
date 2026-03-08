@@ -1,3 +1,14 @@
+/*
+ * XREFs of imp_WdfIoTargetSelfAssignDefaultIoQueue @ 0x1C00518B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qd @ 0x1C0007FCC (WPP_IFR_SF_qd.c)
+ *     WPP_IFR_SF_qqqqd @ 0x1C0037F70 (WPP_IFR_SF_qqqqd.c)
+ */
+
 __int64 __fastcall imp_WdfIoTargetSelfAssignDefaultIoQueue(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFIOTARGET__ *IoTarget,

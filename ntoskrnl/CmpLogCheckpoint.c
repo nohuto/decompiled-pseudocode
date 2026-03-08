@@ -1,3 +1,22 @@
+/*
+ * XREFs of CmpLogCheckpoint @ 0x140735720
+ * Callers:
+ *     CmpTransWriteLog @ 0x140734F84 (CmpTransWriteLog.c)
+ *     CmpCleanupTransactionState @ 0x14073526C (CmpCleanupTransactionState.c)
+ *     CmpStopRMLog @ 0x14074C3C4 (CmpStopRMLog.c)
+ * Callees:
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     CmListGetNextElement @ 0x140AF2008 (CmListGetNextElement.c)
+ */
+
 __int64 __fastcall CmpLogCheckpoint(__int64 a1, __int64 a2, char a3)
 {
   int v3; // edi

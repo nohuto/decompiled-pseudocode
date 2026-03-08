@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExpWnfCreateProcessContext @ 0x140781634
+ * Callers:
+ *     ExpWnfResolveScopeInstance @ 0x14071A508 (ExpWnfResolveScopeInstance.c)
+ *     NtSetWnfProcessNotificationEvent @ 0x140781560 (NtSetWnfProcessNotificationEvent.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExpWnfDeleteProcessContext @ 0x140704AB8 (ExpWnfDeleteProcessContext.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall ExpWnfCreateProcessContext(__int64 a1, _QWORD *a2)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiFdoDispatchCleanupAndClose @ 0x1C01D09D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiScheduleDelayedDevicePowerRequiredAtPassiveLevel @ 0x1C0007720 (DpiScheduleDelayedDevicePowerRequiredAtPassiveLevel.c)
+ *     DxgkDdiDestroyVirtualGpu @ 0x1C0365474 (DxgkDdiDestroyVirtualGpu.c)
+ *     DpiFdoGetVirtualGpuType @ 0x1C0396F0C (DpiFdoGetVirtualGpuType.c)
+ */
+
 NTSTATUS __fastcall DpiFdoDispatchCleanupAndClose(__int64 a1, IRP *a2)
 {
   __int64 v2; // rbx

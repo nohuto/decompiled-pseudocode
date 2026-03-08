@@ -1,3 +1,34 @@
+/*
+ * XREFs of KiSetLegacyAffinityThread @ 0x1402FDE2C
+ * Callers:
+ *     KeSetAffinityThread @ 0x14056CA20 (KeSetAffinityThread.c)
+ *     NtSetInformationThread @ 0x1406D8E90 (NtSetInformationThread.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KiReadyDeferredReadyList @ 0x140226FA0 (KiReadyDeferredReadyList.c)
+ *     KeAndGroupAffinityEx @ 0x140233690 (KeAndGroupAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140236BF0 (KeGetProcessorIndexFromNumber.c)
+ *     KeInitializeEnumerationContext @ 0x140236DE0 (KeInitializeEnumerationContext.c)
+ *     KiAndAffinityEx @ 0x140237720 (KiAndAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x140237C30 (KeIsEmptyAffinityEx.c)
+ *     KiAbPropagateBoosts @ 0x1402395C0 (KiAbPropagateBoosts.c)
+ *     KiAbProcessThreadLocks @ 0x140239A40 (KiAbProcessThreadLocks.c)
+ *     KiEndThreadAccountingPeriodEx @ 0x140256710 (KiEndThreadAccountingPeriodEx.c)
+ *     KiQueueReadyThread @ 0x140257C00 (KiQueueReadyThread.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiSetAffinityThread @ 0x1402AFA28 (KiSetAffinityThread.c)
+ *     KeIsSubsetAffinityEx @ 0x1402B13D0 (KeIsSubsetAffinityEx.c)
+ *     KiDeliverApc @ 0x140350B60 (KiDeliverApc.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiSwapContext @ 0x14041F890 (KiSwapContext.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KiSetLegacyAffinityThread(__int64 a1, __int64 a2)
 {
   __int64 v4; // rbp

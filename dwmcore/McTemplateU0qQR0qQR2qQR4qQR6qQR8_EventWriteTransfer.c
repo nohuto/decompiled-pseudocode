@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0qQR0qQR2qQR4qQR6qQR8_EventWriteTransfer @ 0x18012ABD6
+ * Callers:
+ *     ?Report@CProcessAttributionReporter@@QEAAXXZ @ 0x1800507E0 (-Report@CProcessAttributionReporter@@QEAAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 __int64 __fastcall McTemplateU0qQR0qQR2qQR4qQR6qQR8_EventWriteTransfer(
         __int64 a1,
         __int64 a2,

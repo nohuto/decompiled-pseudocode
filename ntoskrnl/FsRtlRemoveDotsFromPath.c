@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlRemoveDotsFromPath @ 0x14087A320
+ * Callers:
+ *     IopReplaceSymlinkPath @ 0x1409459F8 (IopReplaceSymlinkPath.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall FsRtlRemoveDotsFromPath(PWSTR OriginalString, USHORT PathLength, USHORT *NewLength)
 {
   unsigned __int16 v3; // bx

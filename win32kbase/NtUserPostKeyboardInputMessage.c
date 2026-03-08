@@ -1,3 +1,17 @@
+/*
+ * XREFs of NtUserPostKeyboardInputMessage @ 0x1C0175720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterCritInternal @ 0x1C004FB50 (PrivateAPI--_anonymous_namespace_--EnterCritInternal.c)
+ *     HMUnlockObject @ 0x1C0072980 (HMUnlockObject.c)
+ *     ?HandleLeftRightVKs@CKeyboardProcessor@@SAEE@Z @ 0x1C0080360 (-HandleLeftRightVKs@CKeyboardProcessor@@SAEE@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ApiSetEditionPostKeyboardInputMessage @ 0x1C02419A0 (ApiSetEditionPostKeyboardInputMessage.c)
+ */
+
 __int64 __fastcall NtUserPostKeyboardInputMessage(int a1, ULONG64 a2, __int64 a3)
 {
   struct tagTHREADINFO *v6; // rax

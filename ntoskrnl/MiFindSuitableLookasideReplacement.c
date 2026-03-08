@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiFindSuitableLookasideReplacement @ 0x1402C7240
+ * Callers:
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiReplaceStandbyLookaside @ 0x1402C6D1C (MiReplaceStandbyLookaside.c)
+ * Callees:
+ *     MiPageStandbyLookasideStatus @ 0x1402C7560 (MiPageStandbyLookasideStatus.c)
+ *     MiPurgingPageFromLookaside @ 0x1402C75C0 (MiPurgingPageFromLookaside.c)
+ *     MiSetStandbyLookasideState @ 0x1402C7730 (MiSetStandbyLookasideState.c)
+ *     MiIsDecayPfn @ 0x140319ED0 (MiIsDecayPfn.c)
+ *     MiGetStandbyPageType @ 0x14064E190 (MiGetStandbyPageType.c)
+ */
+
 __int64 __fastcall MiFindSuitableLookasideReplacement(int a1, _QWORD *a2, int a3, __int64 a4, unsigned int a5)
 {
   unsigned int v5; // edi

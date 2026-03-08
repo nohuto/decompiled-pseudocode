@@ -1,3 +1,24 @@
+/*
+ * XREFs of AlpcpExposeViewAttributeInSenderContext @ 0x1406A07CC
+ * Callers:
+ *     AlpcpDispatchReplyToWaitingThread @ 0x1407C9EE0 (AlpcpDispatchReplyToWaitingThread.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1407CBD90 (AlpcpCompleteDispatchMessage.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     AlpcpLocateView @ 0x1406A0954 (AlpcpLocateView.c)
+ *     AlpcpCreateView @ 0x1406A0978 (AlpcpCreateView.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x1406A0D38 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     AlpcpRestoreWriteAccess @ 0x1406A29BC (AlpcpRestoreWriteAccess.c)
+ *     AlpcpDereferenceBlobEx @ 0x14071550C (AlpcpDereferenceBlobEx.c)
+ *     AlpcpDeleteView @ 0x1407155FC (AlpcpDeleteView.c)
+ *     AlpcpReferenceBlob @ 0x1407CAA30 (AlpcpReferenceBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1407CBD44 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x1407CDB50 (AlpcpUnlockBlob.c)
+ *     MmUnsecureVirtualMemory @ 0x1407D48C0 (MmUnsecureVirtualMemory.c)
+ */
+
 __int64 __fastcall AlpcpExposeViewAttributeInSenderContext(PVOID Object, __int64 a2)
 {
   ULONG_PTR v2; // rdi

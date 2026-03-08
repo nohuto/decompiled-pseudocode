@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vFilterDriverHooks@PDEVOBJ@@QEAAXXZ @ 0x1C0027B84
+ * Callers:
+ *     ?bMakeSurface@PDEVOBJ@@QEAAHPEAUHSURF__@@@Z @ 0x1C00274B0 (-bMakeSurface@PDEVOBJ@@QEAAHPEAUHSURF__@@@Z.c)
+ * Callees:
+ *     wcsrchr @ 0x1C00DAB4C (wcsrchr.c)
+ *     _wcsicmp @ 0x1C00DAB80 (_wcsicmp.c)
+ */
+
 void __fastcall PDEVOBJ::vFilterDriverHooks(PDEVOBJ *this)
 {
   __int64 v2; // rbp

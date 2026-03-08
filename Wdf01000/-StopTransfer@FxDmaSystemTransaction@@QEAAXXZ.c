@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?StopTransfer@FxDmaSystemTransaction@@QEAAXXZ @ 0x1C001EEE8
+ * Callers:
+ *     imp_WdfDmaTransactionStopSystemTransfer @ 0x1C001A360 (imp_WdfDmaTransactionStopSystemTransfer.c)
+ * Callees:
+ *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C0001F2C (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qd @ 0x1C0007FCC (WPP_IFR_SF_qd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_q @ 0x1C0018194 (WPP_IFR_SF_q.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0045B6C (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ */
+
 void __fastcall FxDmaSystemTransaction::StopTransfer(FxDmaSystemTransaction *this)
 {
   _FxDmaDescription *m_AdapterInfo; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of Feature_PTPInputVirtualization__private_ReportDeviceUsage @ 0x1C00E125C
+ * Callers:
+ *     IsPTPIVEnabled @ 0x1C008B994 (IsPTPIVEnabled.c)
+ * Callees:
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C00DC94C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C0155054 (wil_details_FeatureReporting_ReportUsageToService.c)
+ */
+
 void Feature_PTPInputVirtualization__private_ReportDeviceUsage()
 {
   __int64 v0; // [rsp+30h] [rbp+8h]

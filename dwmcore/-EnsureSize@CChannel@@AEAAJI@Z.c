@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?EnsureSize@CChannel@@AEAAJI@Z @ 0x180043C0C
+ * Callers:
+ *     ?BeginCommand@CChannel@@AEAAJPEAXII@Z @ 0x180043B74 (-BeginCommand@CChannel@@AEAAJPEAXII@Z.c)
+ * Callees:
+ *     ?EnsureItem@CDataStreamWriter@@QEAAJI@Z @ 0x180044590 (-EnsureItem@CDataStreamWriter@@QEAAJI@Z.c)
+ *     ?Recycle@CDataStreamWriter@@QEAAXXZ @ 0x1800446C0 (-Recycle@CDataStreamWriter@@QEAAXXZ.c)
+ *     ?Create@CCommandBatch@@SAJIPEAPEAV1@@Z @ 0x180044740 (-Create@CCommandBatch@@SAJIPEAPEAV1@@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
 __int64 __fastcall CChannel::EnsureSize(CChannel *this, unsigned int a2)
 {
   struct CCommandBatch **v2; // rbx

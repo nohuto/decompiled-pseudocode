@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMHandleTTMDeviceRemoval @ 0x1C01E2A9C
+ * Callers:
+ *     rimDoRimDevChange @ 0x1C00BC1AC (rimDoRimDevChange.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall RIMHandleTTMDeviceRemoval(__int64 a1)
 {
   int v2; // edx

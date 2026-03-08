@@ -1,3 +1,20 @@
+/*
+ * XREFs of PsRestoreImpersonation @ 0x1406D2D60
+ * Callers:
+ *     NtOpenThreadTokenEx @ 0x1406D2730 (NtOpenThreadTokenEx.c)
+ *     CmpStartCLFSLog @ 0x14086411C (CmpStartCLFSLog.c)
+ *     CmpAddRemoveContainerToCLFSLog @ 0x140864428 (CmpAddRemoveContainerToCLFSLog.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     SeQueryTokenTrustLink @ 0x140245F40 (SeQueryTokenTrustLink.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PspWriteTebImpersonationInfo @ 0x1406DA6D0 (PspWriteTebImpersonationInfo.c)
+ */
+
 void __stdcall PsRestoreImpersonation(PETHREAD Thread, PSE_IMPERSONATION_STATE ImpersonationState)
 {
   struct _KTHREAD *CurrentThread; // r15

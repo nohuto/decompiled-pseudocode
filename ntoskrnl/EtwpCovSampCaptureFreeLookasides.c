@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpCovSampCaptureFreeLookasides @ 0x1409EE1B0
+ * Callers:
+ *     EtwpCovSampCaptureContextStop @ 0x140600CB8 (EtwpCovSampCaptureContextStop.c)
+ *     EtwpCovSampCaptureContextStart @ 0x1409EDC1C (EtwpCovSampCaptureContextStart.c)
+ * Callees:
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ *     EtwpCovSampLookasideFlushFreeListToCleanupList @ 0x1406014D8 (EtwpCovSampLookasideFlushFreeListToCleanupList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EtwpCovSampCaptureFreeLookasides(union _SLIST_HEADER *a1)
 {
   union _SLIST_HEADER *v1; // rdi

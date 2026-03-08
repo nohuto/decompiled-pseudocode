@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBDSM_CheckingIf20LPMShouldBeEnabled @ 0x1C00257E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBUCX_SubmitUcxIoctl @ 0x1C00263DC (HUBUCX_SubmitUcxIoctl.c)
+ *     HUBUCX_ComputeUsb20HardwareLpmParameters @ 0x1C0026D6C (HUBUCX_ComputeUsb20HardwareLpmParameters.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 __int64 __fastcall HUBDSM_CheckingIf20LPMShouldBeEnabled(__int64 a1)
 {
   _QWORD *v1; // rbx

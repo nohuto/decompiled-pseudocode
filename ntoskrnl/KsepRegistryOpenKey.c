@@ -1,3 +1,19 @@
+/*
+ * XREFs of KsepRegistryOpenKey @ 0x14079E858
+ * Callers:
+ *     KsepRegistryQueryDriverShims @ 0x14079ED30 (KsepRegistryQueryDriverShims.c)
+ *     KsepDbQueryRegistryDeviceData @ 0x14080187C (KsepDbQueryRegistryDeviceData.c)
+ *     KsepDbQueryRegistryDeviceDataList @ 0x140973D58 (KsepDbQueryRegistryDeviceDataList.c)
+ *     KsepEngineReadFlags @ 0x140B34F48 (KsepEngineReadFlags.c)
+ *     KsepMatchInitBiosInfo @ 0x140B35308 (KsepMatchInitBiosInfo.c)
+ * Callees:
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     RtlAssert @ 0x1405A7CA0 (RtlAssert.c)
+ *     KsepStringDuplicate @ 0x14079E668 (KsepStringDuplicate.c)
+ *     KsepStringConcatenate @ 0x14079E718 (KsepStringConcatenate.c)
+ *     KsepStringFree @ 0x14079EC60 (KsepStringFree.c)
+ */
+
 __int64 __fastcall KsepRegistryOpenKey(_WORD *a1, _WORD *a2, HANDLE *a3)
 {
   int v6; // eax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of KdUpdateTimeSlipEvent @ 0x1405655C8
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall KdUpdateTimeSlipEvent(void *a1)
 {
   unsigned __int64 v2; // rbx

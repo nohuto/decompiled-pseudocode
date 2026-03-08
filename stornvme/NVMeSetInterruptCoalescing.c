@@ -1,3 +1,13 @@
+/*
+ * XREFs of NVMeSetInterruptCoalescing @ 0x1C0023968
+ * Callers:
+ *     NVMeControllerInitPart2 @ 0x1C000D9F0 (NVMeControllerInitPart2.c)
+ * Callees:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 _UNKNOWN **__fastcall NVMeSetInterruptCoalescing(__int64 a1)
 {
   _UNKNOWN **result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlCurrentOplockH @ 0x140880840
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __stdcall FsRtlCurrentOplockH(POPLOCK Oplock)
 {
   BOOLEAN v1; // dl

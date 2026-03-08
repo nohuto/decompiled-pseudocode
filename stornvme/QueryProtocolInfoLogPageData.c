@@ -1,3 +1,20 @@
+/*
+ * XREFs of QueryProtocolInfoLogPageData @ 0x1C001944C
+ * Callers:
+ *     IoctlQueryProtocolInfoProcess @ 0x1C0013B68 (IoctlQueryProtocolInfoProcess.c)
+ * Callees:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     memmove @ 0x1C0004280 (memmove.c)
+ *     GetControllerMaxTransferSize @ 0x1C0007A5C (GetControllerMaxTransferSize.c)
+ *     GetNamespaceId @ 0x1C0007A8C (GetNamespaceId.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C000C1C0 (NVMeAllocateDmaBuffer.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ *     BuildGetLogPageCommand @ 0x1C0010E14 (BuildGetLogPageCommand.c)
+ */
+
 __int64 __fastcall QueryProtocolInfoLogPageData(__int64 a1, __int64 a2)
 {
   unsigned int v2; // edi

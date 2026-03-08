@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpWorkerFactoryWantsToCreate @ 0x1402EE788
+ * Callers:
+ *     NtWaitForWorkViaWorkerFactory @ 0x140316BE0 (NtWaitForWorkViaWorkerFactory.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall ExpWorkerFactoryWantsToCreate(__int64 a1, int a2)
 {
   BOOL v2; // r8d

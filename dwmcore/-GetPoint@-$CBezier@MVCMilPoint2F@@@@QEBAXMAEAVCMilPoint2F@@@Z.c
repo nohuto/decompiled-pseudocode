@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPoint@?$CBezier@MVCMilPoint2F@@@@QEBAXMAEAVCMilPoint2F@@@Z @ 0x1802AC478
+ * Callers:
+ *     ?TrimBetween@?$CBezier@MVCMilPoint2F@@@@QEAA_NMM@Z @ 0x1802AC524 (-TrimBetween@-$CBezier@MVCMilPoint2F@@@@QEAA_NMM@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CBezier<float,CMilPoint2F>::GetPoint(float *a1, float a2, _QWORD *a3)
 {
   __m128 v3; // xmm5

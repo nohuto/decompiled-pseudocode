@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiUpdateTimer2Collections @ 0x1403C1A38
+ * Callers:
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ *     KiExpireTimer2 @ 0x14024FED0 (KiExpireTimer2.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall KiUpdateTimer2Collections(_BYTE *a1)
 {
   char *v1; // rdx

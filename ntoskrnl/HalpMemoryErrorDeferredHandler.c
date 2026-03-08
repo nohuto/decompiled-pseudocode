@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpMemoryErrorDeferredHandler @ 0x1405173D0
+ * Callers:
+ *     HalpErrorDeferredHandler @ 0x1405171B0 (HalpErrorDeferredHandler.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpHvSetMachineCheckRecoveryState @ 0x140509C70 (HalpHvSetMachineCheckRecoveryState.c)
+ *     WheaAttemptClearPoison @ 0x140A05070 (WheaAttemptClearPoison.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x140A05140 (WheaAttemptPhysicalPageOffline.c)
+ *     WheaExecuteRowFailureCheck @ 0x140A05CDC (WheaExecuteRowFailureCheck.c)
+ */
+
 __int64 (*__fastcall HalpMemoryErrorDeferredHandler(_QWORD *a1, __int64 a2, __int64 a3))(void)
 {
   __int64 (*result)(void); // rax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ??1MonitorUsb4State@DxgMonitor@@QEAA@XZ @ 0x1C03C54BC
+ * Callers:
+ *     ?_InitializeMonitorNoDriver@DXGMONITOR@@QEAAJ$$QEAV?$unique_ptr@VIMonitorDriverInterface@DxgMonitor@@U?$default_delete@VIMonitorDriverInterface@DxgMonitor@@@wistd@@@wistd@@IPEAU_DEVICE_OBJECT@@EEW4_DMM_VIDPN_MONITOR_TYPE@@PEAUDXGKMON_USB4_HOSTROUTER_INFO@@@Z @ 0x1C01F90BC (-_InitializeMonitorNoDriver@DXGMONITOR@@QEAAJ$$QEAV-$unique_ptr@VIMonitorDriverInterface@DxgMoni.c)
+ *     ??1DXGMONITOR@@UEAA@XZ @ 0x1C03C45DC (--1DXGMONITOR@@UEAA@XZ.c)
+ * Callees:
+ *     ??$invoke@P6AXPEAU_UNICODE_STRING@@@ZAEAPEAU1@@wistd@@YAX$$QEAP6AXPEAU_UNICODE_STRING@@@ZAEAPEAU1@@Z @ 0x1C0024184 (--$invoke@P6AXPEAU_UNICODE_STRING@@@ZAEAPEAU1@@wistd@@YAX$$QEAP6AXPEAU_UNICODE_STRING@@@ZAEAPEAU.c)
+ *     ??1?$unique_storage@U?$resource_policy@PEAU_DEVICE_OBJECT@@$$A6AXPEAX@Z$1?DereferenceObject@details@widxg@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x1C0049A48 (--1-$unique_storage@U-$resource_policy@PEAU_DEVICE_OBJECT@@$$A6AXPEAX@Z$1-DereferenceObject@deta.c)
+ *     ??1?$unique_storage@U?$resource_policy@PEAX$$A6AJPEAX@Z$1?IoUnregisterPlugPlayNotification@@YAJ0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x1C006BDB4 (--1-$unique_storage@U-$resource_policy@PEAX$$A6AJPEAX@Z$1-IoUnregisterPlugPlayNotification@@YAJ0.c)
+ *     ??1Usb4HostRouterPoFxRef@DxgMonitor@@QEAA@XZ @ 0x1C03C5550 (--1Usb4HostRouterPoFxRef@DxgMonitor@@QEAA@XZ.c)
+ *     ?DestroyPowerConnectionWithUsb4Stack@MonitorUsb4State@DxgMonitor@@AEAAX_N@Z @ 0x1C03C5DE0 (-DestroyPowerConnectionWithUsb4Stack@MonitorUsb4State@DxgMonitor@@AEAAX_N@Z.c)
+ */
+
 void __fastcall DxgMonitor::MonitorUsb4State::~MonitorUsb4State(DxgMonitor::MonitorUsb4State *this)
 {
   char *v2; // [rsp+30h] [rbp+8h] BYREF

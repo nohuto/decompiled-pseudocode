@@ -1,3 +1,19 @@
+/*
+ * XREFs of xxxSetWindowNCMetrics @ 0x1C010CBC8
+ * Callers:
+ *     UserOnGreTextReady @ 0x1C00B8554 (UserOnGreTextReady.c)
+ *     xxxInitWindowStation @ 0x1C00C1348 (xxxInitWindowStation.c)
+ *     xxxUpdatePerUserSystemParameters @ 0x1C010AFDC (xxxUpdatePerUserSystemParameters.c)
+ *     ?xxxSetAndDrawNCMetrics@@YAHPEAU_UNICODE_STRING@@HPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C01C954C (-xxxSetAndDrawNCMetrics@@YAHPEAU_UNICODE_STRING@@HPEAUtagNONCLIENTMETRICSW@@@Z.c)
+ * Callees:
+ *     ?SetNCMetrics@@YAXPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C00E14E8 (-SetNCMetrics@@YAXPEAUtagNONCLIENTMETRICSW@@@Z.c)
+ *     ?GetTWIPSMetricById@@YAHPEAU_UNICODE_STRING@@IH@Z @ 0x1C010CE38 (-GetTWIPSMetricById@@YAHPEAU_UNICODE_STRING@@IH@Z.c)
+ *     CreateBitmapStrip @ 0x1C010E370 (CreateBitmapStrip.c)
+ *     xxxSetNCFonts @ 0x1C010E91C (xxxSetNCFonts.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall xxxSetWindowNCMetrics(struct _UNICODE_STRING *a1, struct tagNONCLIENTMETRICSW *a2, int a3)
 {
   unsigned int v6; // edi

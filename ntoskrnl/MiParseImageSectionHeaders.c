@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiParseImageSectionHeaders @ 0x1407F3AF0
+ * Callers:
+ *     MiBuildImageControlArea @ 0x1407F3030 (MiBuildImageControlArea.c)
+ * Callees:
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiMakeDemandZeroPte @ 0x14032E7D8 (MiMakeDemandZeroPte.c)
+ *     MiMakeSubsectionPte @ 0x140368AAC (MiMakeSubsectionPte.c)
+ */
+
 __int64 __fastcall MiParseImageSectionHeaders(int a1, __int64 *a2, __int64 a3, int a4, __int64 a5, unsigned int a6)
 {
   __int64 v6; // r11

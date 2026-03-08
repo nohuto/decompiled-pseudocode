@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserValidateTimerCallback @ 0x1C00D1AA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     ValidateTimerCallback @ 0x1C00D1AE4 (ValidateTimerCallback.c)
+ */
+
 __int64 __fastcall NtUserValidateTimerCallback(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rcx

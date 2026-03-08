@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopEtProcessEnumSnapshotCallback @ 0x140701C20
+ * Callers:
+ *     PopEtProcessEnumSnapshotCallback @ 0x140701C20 (PopEtProcessEnumSnapshotCallback.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsQueryProcessEnergyValues @ 0x1406B0B60 (PsQueryProcessEnergyValues.c)
+ *     PopEtProcessEnumSnapshotCallback @ 0x140701C20 (PopEtProcessEnumSnapshotCallback.c)
+ *     PopEtProcessSnapshotUpdate @ 0x140701D28 (PopEtProcessSnapshotUpdate.c)
+ *     PopEtIsrDpcQuery @ 0x1407824C0 (PopEtIsrDpcQuery.c)
+ */
+
 __int64 __fastcall PopEtProcessEnumSnapshotCallback(_QWORD *a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax

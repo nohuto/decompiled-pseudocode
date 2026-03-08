@@ -1,3 +1,18 @@
+/*
+ * XREFs of ??1CDxHandleBitmapRealization@@MEAA@XZ @ 0x18003DA64
+ * Callers:
+ *     ??_ECDxHandleBitmapRealization@@MEAAPEAXI@Z @ 0x1800F9E00 (--_ECDxHandleBitmapRealization@@MEAAPEAXI@Z.c)
+ *     ??_ECGDIBitmapRealization@@UEAAPEAXI@Z @ 0x1800FF090 (--_ECGDIBitmapRealization@@UEAAPEAXI@Z.c)
+ *     ??1CDxHandleAdvancedDirectFlipBitmapRealization@@UEAA@XZ @ 0x1802AE66C (--1CDxHandleAdvancedDirectFlipBitmapRealization@@UEAA@XZ.c)
+ *     ??1CDxHandleStereoBitmapRealization@@MEAA@XZ @ 0x1802AF8F8 (--1CDxHandleStereoBitmapRealization@@MEAA@XZ.c)
+ * Callees:
+ *     ??1CDeviceResource@@MEAA@XZ @ 0x18003C394 (--1CDeviceResource@@MEAA@XZ.c)
+ *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18003CE64 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?InternalRelease@?$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ @ 0x18008F164 (-InternalRelease@-$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?NotifyRealizationBitmapReleased@CDDisplayManager@@QEAAXPEAUIDisplaySurface@Core@Display@Devices@Windows@@@Z @ 0x1802940EC (-NotifyRealizationBitmapReleased@CDDisplayManager@@QEAAXPEAUIDisplaySurface@Core@Display@Devices.c)
+ */
+
 void __fastcall CDxHandleBitmapRealization::~CDxHandleBitmapRealization(CDxHandleBitmapRealization *this)
 {
   CDeviceResource *v2; // rsi

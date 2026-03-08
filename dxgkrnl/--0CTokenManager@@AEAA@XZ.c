@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CTokenManager@@AEAA@XZ @ 0x1C0017034
+ * Callers:
+ *     CreateTokenManagerSessionGlobal @ 0x1C0016FC4 (CreateTokenManagerSessionGlobal.c)
+ * Callees:
+ *     <none>
+ */
+
 CTokenManager *__fastcall CTokenManager::CTokenManager(CTokenManager *this)
 {
   *(_QWORD *)this = &CTokenManager::`vftable';

@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpCmcStartPolling @ 0x1403AF5E8
+ * Callers:
+ *     HalpCmciDeferredRoutine @ 0x140503740 (HalpCmciDeferredRoutine.c)
+ *     HalpInitializeCmc @ 0x140A87F7C (HalpInitializeCmc.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ *     HalpIsPartitionCpuManager @ 0x1403732F8 (HalpIsPartitionCpuManager.c)
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x14037333C (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall HalpCmcStartPolling(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdx

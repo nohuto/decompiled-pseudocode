@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UpdateWaveformInfoList@SimpleHapticsController@@IEAAJGG@Z @ 0x1C024CC10
+ * Callers:
+ *     ?InitializeSupportedWaveformList@SimpleHapticsController@@IEAAJXZ @ 0x1C024B908 (-InitializeSupportedWaveformList@SimpleHapticsController@@IEAAJXZ.c)
+ * Callees:
+ *     ??$Write@U?$_tlgWrapSz@D@@U?$_tlgWrapperByVal@$01@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@AEBU?$_tlgWrapperByVal@$01@@4@Z @ 0x1C024AD1C (--$Write@U-$_tlgWrapSz@D@@U-$_tlgWrapperByVal@$01@@U2@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvide.c)
+ */
+
 __int64 __fastcall SimpleHapticsController::UpdateWaveformInfoList(
         SimpleHapticsController *this,
         __int16 a2,

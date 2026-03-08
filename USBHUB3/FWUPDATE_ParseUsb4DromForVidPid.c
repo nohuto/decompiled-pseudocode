@@ -1,3 +1,12 @@
+/*
+ * XREFs of FWUPDATE_ParseUsb4DromForVidPid @ 0x1C0040868
+ * Callers:
+ *     HUBHSM_CheckingIfAllUsb4DromDataRead @ 0x1C0009E60 (HUBHSM_CheckingIfAllUsb4DromDataRead.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DDDD @ 0x1C0029788 (WPP_RECORDER_SF_DDDD.c)
+ */
+
 void __fastcall FWUPDATE_ParseUsb4DromForVidPid(__int64 a1)
 {
   __int64 v1; // r9

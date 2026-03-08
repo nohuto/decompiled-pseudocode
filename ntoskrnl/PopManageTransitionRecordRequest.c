@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopManageTransitionRecordRequest @ 0x140981498
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ * Callees:
+ *     PoDelistPowerStateTransitionBlocker @ 0x140AA2FFC (PoDelistPowerStateTransitionBlocker.c)
+ *     PopPushPowerStateTransitionRecord @ 0x140AA309C (PopPushPowerStateTransitionRecord.c)
+ */
+
 __int64 __fastcall PopManageTransitionRecordRequest(char a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rcx

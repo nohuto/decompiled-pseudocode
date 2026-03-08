@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?InternalRelease@?$CMILRefCountBaseT@UIAccelerator@@@@IEAAKXZ @ 0x18022FAC0
+ * Callers:
+ *     ?Release@?$CMILRefCountBaseT@UIAccelerator@@@@UEAAKXZ @ 0x180230A90 (-Release@-$CMILRefCountBaseT@UIAccelerator@@@@UEAAKXZ.c)
+ * Callees:
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CMILRefCountBaseT<IAccelerator>::InternalRelease(volatile signed __int32 *a1)
 {
   volatile signed __int32 *v2; // rdi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ESM_ExecuteEntryFunctionsAndPushPopStateMachinesForCurrentState @ 0x1C000C99C
+ * Callers:
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     ESM_RunStateMachine @ 0x1C000C510 (ESM_RunStateMachine.c)
+ *     ESM_SmWorker @ 0x1C00513B0 (ESM_SmWorker.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qLLL @ 0x1C000CAE4 (WPP_RECORDER_SF_qLLL.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     ESM_ShouldQueueWorkItem @ 0x1C0051340 (ESM_ShouldQueueWorkItem.c)
+ */
+
 __int64 __fastcall ESM_ExecuteEntryFunctionsAndPushPopStateMachinesForCurrentState(unsigned int *Context)
 {
   unsigned int v1; // r15d

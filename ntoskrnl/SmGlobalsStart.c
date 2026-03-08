@@ -1,3 +1,11 @@
+/*
+ * XREFs of SmGlobalsStart @ 0x140B428A8
+ * Callers:
+ *     SmInitSystem @ 0x140B427B4 (SmInitSystem.c)
+ * Callees:
+ *     RtlQueryRegistryValuesEx @ 0x14069DF10 (RtlQueryRegistryValuesEx.c)
+ */
+
 __int64 __fastcall SmGlobalsStart(__int64 a1)
 {
   _QWORD *v1; // r8

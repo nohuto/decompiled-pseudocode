@@ -1,3 +1,14 @@
+/*
+ * XREFs of VslDebugProtectSecureProcessMemory @ 0x14093EE68
+ * Callers:
+ *     MiProtectEnclavePages @ 0x140645C9C (MiProtectEnclavePages.c)
+ *     NtProtectVirtualMemory @ 0x1407C7210 (NtProtectVirtualMemory.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall VslDebugProtectSecureProcessMemory(
         __int64 a1,
         __int64 a2,

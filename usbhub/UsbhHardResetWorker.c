@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhHardResetWorker @ 0x1C003D050
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhDispatch_HardResetEvent @ 0x1C001EC80 (UsbhDispatch_HardResetEvent.c)
+ */
+
 void __fastcall UsbhHardResetWorker(__int64 DeviceObject, PVOID Context)
 {
   _DWORD *v3; // rbx

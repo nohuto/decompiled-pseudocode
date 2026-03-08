@@ -1,3 +1,15 @@
+/*
+ * XREFs of IrqPolicyGetDevicePolicy @ 0x1C009F8A4
+ * Callers:
+ *     ProcessorpFindIdtEntriesApic @ 0x1C009B5F0 (ProcessorpFindIdtEntriesApic.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     OSGetRegistryValue @ 0x1C008DCAC (OSGetRegistryValue.c)
+ *     IrqPolicyGetSubKey @ 0x1C009FC24 (IrqPolicyGetSubKey.c)
+ *     IrqTraceAffinityPolicy @ 0x1C009FFC0 (IrqTraceAffinityPolicy.c)
+ */
+
 __int64 __fastcall IrqPolicyGetDevicePolicy(
         PDEVICE_OBJECT Pdo,
         __int64 a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMIsTestSigningOn @ 0x1C01D16B8
+ * Callers:
+ *     rimOnPnpArrived @ 0x1C00889C0 (rimOnPnpArrived.c)
+ *     rimObsIsRegisteredObserverAllowed @ 0x1C01DA9E0 (rimObsIsRegisteredObserverAllowed.c)
+ *     rimObsCheckForObservationPermissions @ 0x1C01DB780 (rimObsCheckForObservationPermissions.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 RIMIsTestSigningOn()
 {
   unsigned int v0; // ebx

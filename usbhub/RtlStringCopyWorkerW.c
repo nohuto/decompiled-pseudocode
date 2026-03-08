@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlStringCopyWorkerW @ 0x1C004ECF0
+ * Callers:
+ *     RtlStringCbCatW @ 0x1C004EC84 (RtlStringCbCatW.c)
+ *     UsbhBuildContainerID @ 0x1C004F3E8 (UsbhBuildContainerID.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlStringCopyWorkerW(
         NTSTRSAFE_PWSTR pszDest,
         size_t cchDest,

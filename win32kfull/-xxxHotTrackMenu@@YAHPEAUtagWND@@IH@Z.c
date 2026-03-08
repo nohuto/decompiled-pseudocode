@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?xxxHotTrackMenu@@YAHPEAUtagWND@@IH@Z @ 0x1C02284EC
+ * Callers:
+ *     xxxHotTrack @ 0x1C0016E10 (xxxHotTrack.c)
+ * Callees:
+ *     GetDPIMETRICSForDpi @ 0x1C00A11BC (GetDPIMETRICSForDpi.c)
+ *     MNGetpItemFromIndex @ 0x1C00A266C (MNGetpItemFromIndex.c)
+ *     GetWindowDpiLastNotify @ 0x1C00A3A34 (GetWindowDpiLastNotify.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C00A6450 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     MNGetpItemIndex @ 0x1C00A6FD0 (MNGetpItemIndex.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00D5030 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     GreSelectFontInternal @ 0x1C0116F84 (GreSelectFontInternal.c)
+ *     xxxDrawMenuItem @ 0x1C0237914 (xxxDrawMenuItem.c)
+ *     xxxMNRecomputeBarIfNeeded @ 0x1C023BD88 (xxxMNRecomputeBarIfNeeded.c)
+ *     GreGetTextAlign @ 0x1C02D9A84 (GreGetTextAlign.c)
+ *     GreSetTextAlign @ 0x1C02D9B10 (GreSetTextAlign.c)
+ */
+
 __int64 __fastcall xxxHotTrackMenu(struct tagWND *a1, unsigned int a2, int a3)
 {
   __int64 v4; // rax

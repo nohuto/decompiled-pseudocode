@@ -1,3 +1,12 @@
+/*
+ * XREFs of AmliDisableWatchdog @ 0x1C0046D30
+ * Callers:
+ *     FreeContext @ 0x1C0053624 (FreeContext.c)
+ * Callees:
+ *     AcpiQueueRecordBlackboxInformation @ 0x1C0046A90 (AcpiQueueRecordBlackboxInformation.c)
+ *     AmliWatchdogTimeoutAction @ 0x1C0046F84 (AmliWatchdogTimeoutAction.c)
+ */
+
 void __fastcall AmliDisableWatchdog(__int64 *a1)
 {
   KIRQL v2; // si

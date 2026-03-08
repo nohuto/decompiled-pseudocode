@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Dispose@FxUsbPipeTransferContext@@UEAAXXZ @ 0x1C0059D20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     USBD_UrbFree @ 0x1C008876C (USBD_UrbFree.c)
+ */
+
 void __fastcall FxUsbPipeTransferContext::Dispose(FxUsbPipeTransferContext *this)
 {
   _URB *m_Urb; // rdx

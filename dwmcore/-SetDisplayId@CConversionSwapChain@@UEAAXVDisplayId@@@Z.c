@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetDisplayId@CConversionSwapChain@@UEAAXVDisplayId@@@Z @ 0x18029F5F4
+ * Callers:
+ *     ?SetDisplayId@CConversionSwapChain@@$4PPPPPPPM@A@EAAXVDisplayId@@@Z @ 0x18011D190 (-SetDisplayId@CConversionSwapChain@@$4PPPPPPPM@A@EAAXVDisplayId@@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?SetDisplayId@CLegacySwapChain@@UEAAXVDisplayId@@@Z @ 0x1802981C0 (-SetDisplayId@CLegacySwapChain@@UEAAXVDisplayId@@@Z.c)
+ */
+
 __int64 __fastcall CConversionSwapChain::SetDisplayId(__int64 a1, unsigned int a2)
 {
   __int64 result; // rax

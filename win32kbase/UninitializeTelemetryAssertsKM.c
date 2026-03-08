@@ -1,3 +1,12 @@
+/*
+ * XREFs of UninitializeTelemetryAssertsKM @ 0x1C008D538
+ * Callers:
+ *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C015C290 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
+ * Callees:
+ *     TakeTelemetryAssertsLock @ 0x1C008C6C8 (TakeTelemetryAssertsLock.c)
+ *     UninitializeTelemetryAssertsLocks @ 0x1C008D720 (UninitializeTelemetryAssertsLocks.c)
+ */
+
 NTSTATUS UninitializeTelemetryAssertsKM()
 {
   NTSTATUS result; // eax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vMakeItWide@WIDENER@@QEAAXAEAVEPATHOBJ@@@Z @ 0x1C02F47C8
+ * Callers:
+ *     ?bWiden@EPATHOBJ@@QEAAHAEAV1@PEAU_XFORMOBJ@@PEBU_LINEATTRS@@@Z @ 0x1C0150DA6 (-bWiden@EPATHOBJ@@QEAAHAEAV1@PEAU_XFORMOBJ@@PEBU_LINEATTRS@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall WIDENER::vMakeItWide(WIDENER *this, struct EPATHOBJ *a2)
 {
   char *v2; // rbx

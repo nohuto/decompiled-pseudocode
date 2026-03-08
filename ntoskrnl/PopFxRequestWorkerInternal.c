@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopFxRequestWorkerInternal @ 0x1403089B4
+ * Callers:
+ *     PopPepRequestWork @ 0x1403075C4 (PopPepRequestWork.c)
+ *     PopFxRequestWorker @ 0x140589350 (PopFxRequestWorker.c)
+ * Callees:
+ *     ExTryQueueWorkItem @ 0x140308A80 (ExTryQueueWorkItem.c)
+ *     KeReleaseSemaphoreEx @ 0x14033E940 (KeReleaseSemaphoreEx.c)
+ */
+
 __int64 __fastcall PopFxRequestWorkerInternal(__int64 a1, char a2, __int64 a3, int a4)
 {
   volatile signed __int32 *v5; // rbx

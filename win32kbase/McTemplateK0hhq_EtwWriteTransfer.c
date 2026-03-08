@@ -1,3 +1,13 @@
+/*
+ * XREFs of McTemplateK0hhq_EtwWriteTransfer @ 0x1C0165640
+ * Callers:
+ *     EtwTracePointerCoalesce @ 0x1C0163BD0 (EtwTracePointerCoalesce.c)
+ *     EtwTracePointerNoCoalesce @ 0x1C0163E50 (EtwTracePointerNoCoalesce.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0hhq_EtwWriteTransfer(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpFilterSacl @ 0x1407AA4DC
+ * Callers:
+ *     SeQuerySecurityDescriptorInfo @ 0x1407AD8A0 (SeQuerySecurityDescriptorInfo.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall RtlpFilterSacl(__int64 *a1, __int64 a2, unsigned int *a3, unsigned int a4)
 {
   __int64 result; // rax

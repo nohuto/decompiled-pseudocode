@@ -1,3 +1,28 @@
+/*
+ * XREFs of rimFindMonitorForDigitizerWithQDCData @ 0x1C01BE49C
+ * Callers:
+ *     RIMOnDisplayStateChange @ 0x1C0036980 (RIMOnDisplayStateChange.c)
+ *     RIMEnableMonitorMappingForDevice @ 0x1C01A46A0 (RIMEnableMonitorMappingForDevice.c)
+ *     RIMVirtCreatePointerDeviceInfo @ 0x1C01BA8B0 (RIMVirtCreatePointerDeviceInfo.c)
+ *     rimInUserCritCreatePointerDeviceInfo @ 0x1C01BC3D8 (rimInUserCritCreatePointerDeviceInfo.c)
+ *     RIMFindMonitorForDigitizer @ 0x1C01BD310 (RIMFindMonitorForDigitizer.c)
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C01C21B8 (RIMIDECreatePointerDeviceInfo.c)
+ * Callees:
+ *     ?DrvDisplayConfigGetDeviceInfoInternal@@YAJPEAUDISPLAYCONFIG_DEVICE_INFO_HEADER@@_N@Z @ 0x1C002834C (-DrvDisplayConfigGetDeviceInfoInternal@@YAJPEAUDISPLAYCONFIG_DEVICE_INFO_HEADER@@_N@Z.c)
+ *     RIMGetContainerId @ 0x1C0030264 (RIMGetContainerId.c)
+ *     DrvDxgkGetMonitorDeviceObject @ 0x1C00303C0 (DrvDxgkGetMonitorDeviceObject.c)
+ *     RIMGetPanelId @ 0x1C0030420 (RIMGetPanelId.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     isChildPartition @ 0x1C0078FF0 (isChildPartition.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x1C00DACB8 (_wcsnicmp.c)
+ *     wcsnlen @ 0x1C00DAE9C (wcsnlen.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     UserLogError @ 0x1C017CC90 (UserLogError.c)
+ *     RIMGetDisplayMonitor @ 0x1C01BD4AC (RIMGetDisplayMonitor.c)
+ */
+
 void __fastcall rimFindMonitorForDigitizerWithQDCData(__int64 a1, unsigned int *a2, _DWORD *a3)
 {
   unsigned int v3; // r15d

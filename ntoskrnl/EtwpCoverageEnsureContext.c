@@ -1,3 +1,28 @@
+/*
+ * XREFs of EtwpCoverageEnsureContext @ 0x1408537B4
+ * Callers:
+ *     EtwTelemetryCoverageReport @ 0x1402F9DD0 (EtwTelemetryCoverageReport.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x140871478 (EtwSetProcessTelemetryCoverage.c)
+ * Callees:
+ *     KeInitializeTimer2 @ 0x140203D80 (KeInitializeTimer2.c)
+ *     MiRemoveFromSystemSpace @ 0x14020E5C8 (MiRemoveFromSystemSpace.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     EtwTelemetryCoverageReport @ 0x1402F9DD0 (EtwTelemetryCoverageReport.c)
+ *     TelemetryCoverageStringHashInternal @ 0x1402F9F5C (TelemetryCoverageStringHashInternal.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiMapViewInSystemSpace @ 0x1406A55B8 (MiMapViewInSystemSpace.c)
+ *     MmCreateSection @ 0x140711DC0 (MmCreateSection.c)
+ *     EtwpCoverageEnsureStringBuffer @ 0x140853BB8 (EtwpCoverageEnsureStringBuffer.c)
+ *     EtwpCoverageFreeStringBuffers @ 0x1409E55C0 (EtwpCoverageFreeStringBuffers.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 EtwpCoverageEnsureContext()
 {
   unsigned int v0; // edx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of Scope @ 0x1C0055440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetNameSpaceObject @ 0x1C004F728 (GetNameSpaceObject.c)
+ *     PushScope @ 0x1C0053D40 (PushScope.c)
+ */
+
 __int64 __fastcall Scope(_QWORD *a1, __int64 *a2)
 {
   __int64 result; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?D3DXQuaternionRotationMatrix@@YAPEAUD2DQuaternion@@PEAU1@PEBUD2DMatrix@@@Z @ 0x180006F20
+ * Callers:
+ *     EncodeTBNFrameToQuaternion @ 0x180006D24 (EncodeTBNFrameToQuaternion.c)
+ *     _anonymous_namespace_::DecomposeMatrix @ 0x1801AAFC0 (_anonymous_namespace_--DecomposeMatrix.c)
+ *     ?QuaternionFromRotationMatrix@CExpressionValueStack@@QEAAJXZ @ 0x18025DFB0 (-QuaternionFromRotationMatrix@CExpressionValueStack@@QEAAJXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     sqrtf_0 @ 0x1801177AC (sqrtf_0.c)
+ */
+
 struct D2DQuaternion *__fastcall D3DXQuaternionRotationMatrix(struct D2DQuaternion *a1, const struct D2DMatrix *a2)
 {
   float v2; // xmm2_4

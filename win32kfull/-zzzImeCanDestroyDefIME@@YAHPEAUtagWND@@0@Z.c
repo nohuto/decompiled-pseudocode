@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?zzzImeCanDestroyDefIME@@YAHPEAUtagWND@@0@Z @ 0x1C00A0A28
+ * Callers:
+ *     xxxDestroyWindow @ 0x1C004B7F0 (xxxDestroyWindow.c)
+ * Callees:
+ *     ?ImeCheckTopmost@@YAXPEAUtagWND@@@Z @ 0x1C0026C08 (-ImeCheckTopmost@@YAXPEAUtagWND@@@Z.c)
+ *     DwmAsyncOwnerChange @ 0x1C00280A4 (DwmAsyncOwnerChange.c)
+ *     ?zzzImeSetFutureOwner@@YAXPEAUtagWND@@0@Z @ 0x1C009EC08 (-zzzImeSetFutureOwner@@YAXPEAUtagWND@@0@Z.c)
+ *     unsafe_cast_fnid_or_class_to_PIMEWND @ 0x1C00A0B80 (unsafe_cast_fnid_or_class_to_PIMEWND.c)
+ */
+
 __int64 __fastcall zzzImeCanDestroyDefIME(struct tagWND *a1, struct tagWND *a2)
 {
   ULONG64 *v4; // rax

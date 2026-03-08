@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ivOnChildPartitionConnected@CBaseInput@@KAXPEBXUCONTAINER_ID@@@Z @ 0x1C0220130
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     ?ivInitialSendPnpForChildPartition@CBaseInput@@IEAAXUCONTAINER_ID@@@Z @ 0x1C021FD04 (-ivInitialSendPnpForChildPartition@CBaseInput@@IEAAXUCONTAINER_ID@@@Z.c)
+ */
+
 void __fastcall CBaseInput::ivOnChildPartitionConnected(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CanComposeHangul @ 0x1405ADF4C
+ * Callers:
+ *     Normalization__IsNormalized @ 0x1409BDB3C (Normalization__IsNormalized.c)
+ * Callees:
+ *     IsHangulLV @ 0x1405ADFF4 (IsHangulLV.c)
+ */
+
 char __fastcall CanComposeHangul(__int64 a1, __int64 a2)
 {
   char v2; // al

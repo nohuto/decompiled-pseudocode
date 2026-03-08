@@ -1,3 +1,13 @@
+/*
+ * XREFs of PdcPortSendMessageSynchronously @ 0x140200B80
+ * Callers:
+ *     PdcTaskClientRequest @ 0x14067F048 (PdcTaskClientRequest.c)
+ * Callees:
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall PdcPortSendMessageSynchronously(__int64 a1, __int64 a2)
 {
   struct _EX_RUNDOWN_REF *v2; // rdi

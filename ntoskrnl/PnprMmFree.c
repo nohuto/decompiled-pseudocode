@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnprMmFree @ 0x140963EA4
+ * Callers:
+ *     PnpReplacePartitionUnit @ 0x140961B80 (PnpReplacePartitionUnit.c)
+ *     PnprMmConstruct @ 0x140963D98 (PnprMmConstruct.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PnprMmFree(_QWORD **a1)
 {
   _QWORD *v2; // rcx

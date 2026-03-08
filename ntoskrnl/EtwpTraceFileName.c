@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpTraceFileName @ 0x14035E5C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     EtwTraceSiloKernelEvent @ 0x14035EC20 (EtwTraceSiloKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall EtwpTraceFileName(
         __int64 a1,
         __int64 a2,

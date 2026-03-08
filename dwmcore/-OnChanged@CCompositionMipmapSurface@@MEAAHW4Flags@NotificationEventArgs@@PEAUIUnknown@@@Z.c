@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnChanged@CCompositionMipmapSurface@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x180220C00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CCompositionMipmapSurface::OnChanged(__int64 a1, unsigned int a2, __int64 a3)
 {
   __int64 v3; // rdx

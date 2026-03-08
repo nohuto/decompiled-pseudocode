@@ -1,3 +1,13 @@
+/*
+ * XREFs of PsRegisterSyscallProviderServiceTableMetadata @ 0x14083A484
+ * Callers:
+ *     KeAddSystemServiceTable @ 0x14083A320 (KeAddSystemServiceTable.c)
+ *     PsInitializeSyscallProviders @ 0x140B72884 (PsInitializeSyscallProviders.c)
+ * Callees:
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     VslRegisterSyscallProviderServiceTableMetadata @ 0x14093FDB8 (VslRegisterSyscallProviderServiceTableMetadata.c)
+ */
+
 __int64 __fastcall PsRegisterSyscallProviderServiceTableMetadata(unsigned int a1)
 {
   __int64 v3; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceKillTimer @ 0x1C00BAB40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C00EE6B4 (McTemplateK0pq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall EtwTraceKillTimer(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

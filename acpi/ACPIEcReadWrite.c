@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIEcReadWrite @ 0x1C0083300
+ * Callers:
+ *     ACPIEcOtherIrpDispatch @ 0x1C00832C0 (ACPIEcOtherIrpDispatch.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIEcQueueEcIrp @ 0x1C0024F24 (ACPIEcQueueEcIrp.c)
+ */
+
 __int64 __fastcall ACPIEcReadWrite(ULONG_PTR a1, __int64 a2)
 {
   __int64 DeviceExtension; // rax

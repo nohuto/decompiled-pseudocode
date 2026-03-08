@@ -1,3 +1,19 @@
+/*
+ * XREFs of CiSchedulerProcessDeadlines @ 0x1C0001250
+ * Callers:
+ *     CiSchedulerDeepSleep @ 0x1C00011C0 (CiSchedulerDeepSleep.c)
+ *     CiSchedulerSleep @ 0x1C00014A0 (CiSchedulerSleep.c)
+ * Callees:
+ *     CiSchedulerQueryCurrentTime @ 0x1C0001630 (CiSchedulerQueryCurrentTime.c)
+ *     CiSchedulerUpdateTimer @ 0x1C0002050 (CiSchedulerUpdateTimer.c)
+ *     CiSchedulerUpdateTaskIndexPriorities @ 0x1C00020F0 (CiSchedulerUpdateTaskIndexPriorities.c)
+ *     CiSystemUpdateMediaBufferingState @ 0x1C0002E10 (CiSystemUpdateMediaBufferingState.c)
+ *     CiSchedulerRefreshTaskIndexQosProperties @ 0x1C00030B0 (CiSchedulerRefreshTaskIndexQosProperties.c)
+ *     CiLogTaskIndexDeadlineExpired @ 0x1C0004174 (CiLogTaskIndexDeadlineExpired.c)
+ *     CiLogTaskIndexPreDeadlineExpired @ 0x1C00041E4 (CiLogTaskIndexPreDeadlineExpired.c)
+ *     CiLogTurboEngaged @ 0x1C0004570 (CiLogTurboEngaged.c)
+ */
+
 char __fastcall CiSchedulerProcessDeadlines(_DWORD *a1)
 {
   char result; // al

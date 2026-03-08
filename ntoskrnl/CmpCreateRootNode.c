@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpCreateRootNode @ 0x140B52778
+ * Callers:
+ *     CmpCreateRegistryRoot @ 0x140B5131C (CmpCreateRegistryRoot.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     CmpNameSize @ 0x1407612A0 (CmpNameSize.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvAllocateCell @ 0x1407A63A8 (HvAllocateCell.c)
+ *     CmpCopyName @ 0x1407A6A30 (CmpCopyName.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ */
+
 __int64 __fastcall CmpCreateRootNode(__int64 a1, __int64 a2, int *a3)
 {
   ULONG_PTR v3; // rdi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??_ECLegacyStereoRenderTarget@@UEAAPEAXI@Z @ 0x1801BFF60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800342C8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ??1CLegacyRenderTarget@@MEAA@XZ @ 0x1800C76E4 (--1CLegacyRenderTarget@@MEAA@XZ.c)
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801046B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ */
+
 CLegacyStereoRenderTarget *__fastcall CLegacyStereoRenderTarget::`vector deleting destructor'(
         CLegacyStereoRenderTarget *this,
         char a2)

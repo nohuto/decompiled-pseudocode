@@ -1,3 +1,17 @@
+/*
+ * XREFs of NtCreateKeyTransacted @ 0x1406BB890
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CmCleanupThreadInfo @ 0x140263740 (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x140263760 (CmpInitializeThreadInfo.c)
+ *     CmpTransDereferenceTransaction @ 0x1406B5C90 (CmpTransDereferenceTransaction.c)
+ *     CmCreateKey @ 0x1406BBA60 (CmCreateKey.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     CmpAcquireShutdownRundown @ 0x140AF23A0 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140AF23F0 (CmpReleaseShutdownRundown.c)
+ */
+
 __int64 __fastcall NtCreateKeyTransacted(
         __int64 a1,
         unsigned int a2,

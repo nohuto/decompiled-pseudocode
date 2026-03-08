@@ -1,3 +1,11 @@
+/*
+ * XREFs of ImpRpcSendString @ 0x1C027474C
+ * Callers:
+ *     ImpProcessSequence @ 0x1C027489C (ImpProcessSequence.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C008D2C0 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ */
+
 CLIENT_CALL_RETURN __fastcall ImpRpcSendString(
         __int64 a1,
         __int64 a2,

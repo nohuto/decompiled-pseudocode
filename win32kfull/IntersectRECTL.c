@@ -1,3 +1,12 @@
+/*
+ * XREFs of IntersectRECTL @ 0x1C0254010
+ * Callers:
+ *     CheckBMPNeedFixup @ 0x1C014B848 (CheckBMPNeedFixup.c)
+ *     ComputeAABBP @ 0x1C025DCB8 (ComputeAABBP.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall IntersectRECTL(int *a1, int *a2)
 {
   int v2; // r8d

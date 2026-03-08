@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepCopyObjectTypeList @ 0x1405B571C
+ * Callers:
+ *     SeAccessCheckByType @ 0x14033BB40 (SeAccessCheckByType.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1406973E0 (SepAccessCheckAndAuditAlarm.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall SepCopyObjectTypeList(__int64 a1, unsigned int a2, __int64 *a3)
 {
   __int64 v6; // r14

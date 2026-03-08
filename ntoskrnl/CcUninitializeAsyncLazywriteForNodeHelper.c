@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcUninitializeAsyncLazywriteForNodeHelper @ 0x1403BEAC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall CcUninitializeAsyncLazywriteForNodeHelper(__int64 a1, __int64 a2, __int64 a3)
 {
   _QWORD **v4; // rbx

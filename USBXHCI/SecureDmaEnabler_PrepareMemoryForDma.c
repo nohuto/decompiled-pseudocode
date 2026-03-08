@@ -1,3 +1,16 @@
+/*
+ * XREFs of SecureDmaEnabler_PrepareMemoryForDma @ 0x1C0052050
+ * Callers:
+ *     Isoch_MapStage @ 0x1C0004810 (Isoch_MapStage.c)
+ *     Control_Transfer_Map @ 0x1C0007318 (Control_Transfer_Map.c)
+ *     Bulk_MapStage @ 0x1C00122C0 (Bulk_MapStage.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     Controller_LowerAndTrackIrql @ 0x1C00074BC (Controller_LowerAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0007558 (Controller_RaiseAndTrackIrql.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ */
+
 __int64 __fastcall SecureDmaEnabler_PrepareMemoryForDma(
         __int64 a1,
         _QWORD *a2,

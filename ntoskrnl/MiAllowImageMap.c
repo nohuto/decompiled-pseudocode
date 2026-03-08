@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiAllowImageMap @ 0x1407D35A0
+ * Callers:
+ *     MiMapViewOfImageSection @ 0x1407D3750 (MiMapViewOfImageSection.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     SeGetTrustLabelAce @ 0x14033DCA0 (SeGetTrustLabelAce.c)
+ *     MiReferenceControlAreaFile @ 0x140344094 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1403441A0 (MiDereferenceControlAreaFile.c)
+ *     MiGetControlAreaLoadConfig @ 0x14034C364 (MiGetControlAreaLoadConfig.c)
+ *     ObReleaseObjectSecurityEx @ 0x1406993F0 (ObReleaseObjectSecurityEx.c)
+ *     ObpGetObjectSecurity @ 0x1406DB240 (ObpGetObjectSecurity.c)
+ *     SeQueryMandatoryLabel @ 0x140743AE8 (SeQueryMandatoryLabel.c)
+ *     MiReferenceFileObjectForMap @ 0x1407D6358 (MiReferenceFileObjectForMap.c)
+ *     PsBlockNonCetBinaries @ 0x1409AB194 (PsBlockNonCetBinaries.c)
+ *     EtwTimLogProhibitLowILImageMap @ 0x1409E71A4 (EtwTimLogProhibitLowILImageMap.c)
+ *     EtwpTimLogMitigationForProcess @ 0x1409E897C (EtwpTimLogMitigationForProcess.c)
+ */
+
 __int64 __fastcall MiAllowImageMap(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // esi

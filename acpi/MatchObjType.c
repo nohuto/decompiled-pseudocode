@@ -1,3 +1,12 @@
+/*
+ * XREFs of MatchObjType @ 0x1C004C064
+ * Callers:
+ *     ValidateTarget @ 0x1C004D4F0 (ValidateTarget.c)
+ *     CopyObject @ 0x1C0056550 (CopyObject.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall MatchObjType(int a1, int a2)
 {
   char v2; // r8

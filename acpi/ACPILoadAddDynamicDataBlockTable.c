@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPILoadAddDynamicDataBlockTable @ 0x1C00A95C0
+ * Callers:
+ *     ACPILoadProcessDSDT @ 0x1C00A9700 (ACPILoadProcessDSDT.c)
+ *     ACPILoadProcessRSDT @ 0x1C00A9AC4 (ACPILoadProcessRSDT.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPILoadAddDynamicDataBlockTable(__int64 a1, char a2)
 {
   unsigned int v2; // ebx

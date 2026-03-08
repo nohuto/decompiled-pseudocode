@@ -1,3 +1,34 @@
+/*
+ * XREFs of MiRemoveMappedPtes @ 0x1403474D0
+ * Callers:
+ *     MiRemoveFromSystemSpace @ 0x14020E5C8 (MiRemoveFromSystemSpace.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x14026A0D0 (MiLockPageTableInternal.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiTryDeleteTransitionPte @ 0x14029CB54 (MiTryDeleteTransitionPte.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiAppendWsleCluster @ 0x14031D6E0 (MiAppendWsleCluster.c)
+ *     MiTerminateWsleCluster @ 0x1403234E0 (MiTerminateWsleCluster.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiOffsetToProtos @ 0x140331B90 (MiOffsetToProtos.c)
+ *     MiLocateSubsectionNode @ 0x140332910 (MiLocateSubsectionNode.c)
+ *     MiRemoveViewsFromSection @ 0x140334A28 (MiRemoveViewsFromSection.c)
+ *     MiCheckControlArea @ 0x140334D00 (MiCheckControlArea.c)
+ *     MiWorkingSetIsContended @ 0x1403478E0 (MiWorkingSetIsContended.c)
+ *     MiPageTableLockIsContended @ 0x140347920 (MiPageTableLockIsContended.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x140349598 (MI_WSLE_LOG_ACCESS.c)
+ *     MiReleasePageFileSpace @ 0x14034BE0C (MiReleasePageFileSpace.c)
+ *     MiReturnCrossPartitionControlAreaCharges @ 0x1406238BC (MiReturnCrossPartitionControlAreaCharges.c)
+ *     MiDecrementLargeSubsections @ 0x14063A2E8 (MiDecrementLargeSubsections.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x140668DD4 (MiReturnCrossPartitionSectionCharges.c)
+ */
+
 void __fastcall MiRemoveMappedPtes(__int64 a1, __int64 a2)
 {
   int v2; // ebp

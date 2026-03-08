@@ -1,3 +1,13 @@
+/*
+ * XREFs of Endpoint_StreamsOnResetSetDequeuePointerComplete @ 0x1C003C4D0
+ * Callers:
+ *     Endpoint_OnResetSetDequeuePointer @ 0x1C003B64C (Endpoint_OnResetSetDequeuePointer.c)
+ *     Endpoint_OnResetSetDequeuePointerCompletion @ 0x1C003B760 (Endpoint_OnResetSetDequeuePointerCompletion.c)
+ * Callees:
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     WPP_RECORDER_SF_dddd @ 0x1C001A740 (WPP_RECORDER_SF_dddd.c)
+ */
+
 void __fastcall Endpoint_StreamsOnResetSetDequeuePointerComplete(__int64 *a1, int a2)
 {
   __int64 v2; // rbx

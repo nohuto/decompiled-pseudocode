@@ -1,3 +1,12 @@
+/*
+ * XREFs of InternalVkKeyScanEx @ 0x1C0006EC0
+ * Callers:
+ *     NtUserVkKeyScanEx @ 0x1C0006E40 (NtUserVkKeyScanEx.c)
+ *     xxxInternalToUnicode @ 0x1C0081AB0 (xxxInternalToUnicode.c)
+ * Callees:
+ *     <none>
+ */
+
 __int16 __fastcall InternalVkKeyScanEx(unsigned __int16 a1, _QWORD *a2)
 {
   unsigned __int16 v2; // r8

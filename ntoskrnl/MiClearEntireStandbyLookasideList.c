@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiClearEntireStandbyLookasideList @ 0x1402C6E08
+ * Callers:
+ *     MiRebuildStandbyLookasideList @ 0x1402C6EB0 (MiRebuildStandbyLookasideList.c)
+ * Callees:
+ *     MiWriteStandbyLookasideEntry @ 0x1402C71E0 (MiWriteStandbyLookasideEntry.c)
+ */
+
 __int64 __fastcall MiClearEntireStandbyLookasideList(__int64 a1, __int64 *a2, unsigned int a3)
 {
   unsigned int v5; // esi

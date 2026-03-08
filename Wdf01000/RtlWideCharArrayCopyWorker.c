@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlWideCharArrayCopyWorker @ 0x1C0017ACC
+ * Callers:
+ *     RtlUnicodeStringCopy @ 0x1C004DF40 (RtlUnicodeStringCopy.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlWideCharArrayCopyWorker(
         wchar_t *pszDest,
         unsigned __int64 cchDest,

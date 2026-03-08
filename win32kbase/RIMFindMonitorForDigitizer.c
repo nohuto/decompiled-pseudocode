@@ -1,3 +1,14 @@
+/*
+ * XREFs of RIMFindMonitorForDigitizer @ 0x1C01BD310
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RIMGetQDCActivePathsData @ 0x1C0013468 (RIMGetQDCActivePathsData.c)
+ *     RIMFreeQDCActivePathsData @ 0x1C00136C8 (RIMFreeQDCActivePathsData.c)
+ *     RIMSetDeviceOutputConfig @ 0x1C01BDB78 (RIMSetDeviceOutputConfig.c)
+ *     rimFindMonitorForDigitizerWithQDCData @ 0x1C01BE49C (rimFindMonitorForDigitizerWithQDCData.c)
+ */
+
 void __fastcall RIMFindMonitorForDigitizer(
         struct RIMDEV *a1,
         struct tagHID_POINTER_DEVICE_INFO *a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopDripsWatchdogUpdateMetrics @ 0x140999904
+ * Callers:
+ *     PopDripsWatchdogDiagnosticWorker @ 0x140999490 (PopDripsWatchdogDiagnosticWorker.c)
+ * Callees:
+ *     PopDeepSleepEnabled @ 0x1402BBA98 (PopDeepSleepEnabled.c)
+ *     PpmConvertTimeTo @ 0x1403A1D04 (PpmConvertTimeTo.c)
+ *     PopBatteryCapacityToRate @ 0x14059674C (PopBatteryCapacityToRate.c)
+ *     PopAccumulateNonActivatedCpuTime @ 0x1405973F0 (PopAccumulateNonActivatedCpuTime.c)
+ */
+
 __int64 __fastcall PopDripsWatchdogUpdateMetrics(
         __int64 a1,
         __int64 a2,

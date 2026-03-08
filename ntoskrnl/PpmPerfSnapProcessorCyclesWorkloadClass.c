@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmPerfSnapProcessorCyclesWorkloadClass @ 0x140235748
+ * Callers:
+ *     PpmPerfSnapDeliveredPerformance @ 0x140234BB0 (PpmPerfSnapDeliveredPerformance.c)
+ * Callees:
+ *     <none>
+ */
+
 _UNKNOWN **__fastcall PpmPerfSnapProcessorCyclesWorkloadClass(__int64 a1, __int64 a2, __int64 a3)
 {
   _UNKNOWN **result; // rax

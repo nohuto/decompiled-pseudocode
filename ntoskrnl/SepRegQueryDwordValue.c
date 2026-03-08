@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepRegQueryDwordValue @ 0x1407393AC
+ * Callers:
+ *     NtImpersonateAnonymousToken @ 0x1407390D0 (NtImpersonateAnonymousToken.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     SepRegOpenKey @ 0x140739428 (SepRegOpenKey.c)
+ *     SepRegQueryValue @ 0x1407394A4 (SepRegQueryValue.c)
+ */
+
 __int64 __fastcall SepRegQueryDwordValue(__int64 a1, __int64 a2, void *a3)
 {
   int Value; // ebx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpRegisterProfileSourceInterruptHandler @ 0x14051F118
+ * Callers:
+ *     HalpSetSystemInformation @ 0x14085AF10 (HalpSetSystemInformation.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpRegisterProfileSourceInterruptHandler(__int64 (__fastcall *a1)(_QWORD))
 {
   unsigned int v2; // esi

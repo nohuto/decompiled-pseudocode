@@ -1,3 +1,28 @@
+/*
+ * XREFs of ExpSaPageGroupDescriptorAllocate @ 0x1403BFEBC
+ * Callers:
+ *     ExpSaAllocatorAllocate @ 0x140296390 (ExpSaAllocatorAllocate.c)
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1402A7240 (KeQueryMaximumProcessorCountEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402AA110 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402ABED0 (KeSetSystemGroupAffinityThread.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402AE860 (KeQueryNodeActiveAffinity.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     ExpSaBinaryArrayInsert @ 0x1403C0224 (ExpSaBinaryArrayInsert.c)
+ *     ExpSaBinaryArrayRemove @ 0x1403D00EC (ExpSaBinaryArrayRemove.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool3 @ 0x140AAB320 (ExAllocatePool3.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char *__fastcall ExpSaPageGroupDescriptorAllocate(__int64 a1, char a2)
 {
   char v4; // r12

@@ -1,3 +1,18 @@
+/*
+ * XREFs of MmUpdateSlabRangeType @ 0x140B9732C
+ * Callers:
+ *     PsDispatchIumService @ 0x1405A2A44 (PsDispatchIumService.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiInsertSlabEntry @ 0x140349C90 (MiInsertSlabEntry.c)
+ *     MiEnumerateSlabAllocators @ 0x140360F88 (MiEnumerateSlabAllocators.c)
+ *     MiRemoveSlabEntry @ 0x1403BC4FC (MiRemoveSlabEntry.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MmUpdateSlabRangeType(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, int a3)
 {
   __int64 result; // rax

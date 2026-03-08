@@ -1,3 +1,44 @@
+/*
+ * XREFs of MiWriteComplete @ 0x1402126E0
+ * Callers:
+ *     MiGatherMappedPages @ 0x140215150 (MiGatherMappedPages.c)
+ *     MiGatherPagefilePages @ 0x140637D34 (MiGatherPagefilePages.c)
+ *     MiStoreWriteModifiedCompleteApc @ 0x14065A810 (MiStoreWriteModifiedCompleteApc.c)
+ * Callees:
+ *     MiReleasePageFileInfo @ 0x14020B300 (MiReleasePageFileInfo.c)
+ *     FsRtlReleaseFileForModWrite @ 0x140212510 (FsRtlReleaseFileForModWrite.c)
+ *     MiWriteCompletePfn @ 0x140212B10 (MiWriteCompletePfn.c)
+ *     MiDecrementModifiedWriteCount @ 0x140212BE4 (MiDecrementModifiedWriteCount.c)
+ *     MiFreeModWriterEntry @ 0x140212C5C (MiFreeModWriterEntry.c)
+ *     MiReleaseWriteInProgressCharges @ 0x140212C98 (MiReleaseWriteInProgressCharges.c)
+ *     MiIsRetryIoStatus @ 0x140212D58 (MiIsRetryIoStatus.c)
+ *     MmIsWriteErrorFatal @ 0x140212D9C (MmIsWriteErrorFatal.c)
+ *     MiReleaseControlAreaWaiters @ 0x140214DCC (MiReleaseControlAreaWaiters.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     CcNotifyOfMappedWriteComplete @ 0x1402A42CC (CcNotifyOfMappedWriteComplete.c)
+ *     KeSignalGate @ 0x1402F0524 (KeSignalGate.c)
+ *     MiUpdatePageFileHighInPte @ 0x14032F49C (MiUpdatePageFileHighInPte.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiTransferSoftwarePte @ 0x14032F630 (MiTransferSoftwarePte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x1403440B0 (MiReferenceControlAreaFileWithTag.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1403441C0 (ObFastDereferenceObjectDeferDelete.c)
+ *     MiStoreCheckCompleteWriteBatch @ 0x1403AD3F4 (MiStoreCheckCompleteWriteBatch.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiRetardMdl @ 0x14061A580 (MiRetardMdl.c)
+ *     MiSetDeleteOnClose @ 0x1406239AC (MiSetDeleteOnClose.c)
+ *     MiMakePagefileWriterEntryAvailable @ 0x140638C18 (MiMakePagefileWriterEntryAvailable.c)
+ *     MiStoreDecrementOutstandingWrites @ 0x140659A2C (MiStoreDecrementOutstandingWrites.c)
+ *     MI_PAGEFILE_WRITE @ 0x14065EB48 (MI_PAGEFILE_WRITE.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 LONG __fastcall MiWriteComplete(__int64 a1, int *a2, int a3)
 {
   struct _MDL *v3; // rsi

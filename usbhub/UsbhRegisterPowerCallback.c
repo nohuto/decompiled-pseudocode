@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhRegisterPowerCallback @ 0x1C00591B0
+ * Callers:
+ *     UsbhInitialize @ 0x1C002CE20 (UsbhInitialize.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ */
+
 NTSTATUS __fastcall UsbhRegisterPowerCallback(PDEVICE_OBJECT DeviceObject)
 {
   PVOID *v2; // rbx

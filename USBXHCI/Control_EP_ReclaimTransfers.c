@@ -1,3 +1,12 @@
+/*
+ * XREFs of Control_EP_ReclaimTransfers @ 0x1C0042450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     TR_TransfersReclaimed @ 0x1C000E578 (TR_TransfersReclaimed.c)
+ *     TR_QueueDpcForTransferCompletion @ 0x1C000F284 (TR_QueueDpcForTransferCompletion.c)
+ */
+
 __int64 __fastcall Control_EP_ReclaimTransfers(__int64 a1)
 {
   char v2; // di

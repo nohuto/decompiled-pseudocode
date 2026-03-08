@@ -1,3 +1,19 @@
+/*
+ * XREFs of VfAvlInsertReservedTreeNode @ 0x140303A48
+ * Callers:
+ *     VfTargetDriversAdd @ 0x140303834 (VfTargetDriversAdd.c)
+ *     ViDevObjAdd @ 0x140ACF440 (ViDevObjAdd.c)
+ *     VerifierIoInitializeRemoveLockEx @ 0x140ACF620 (VerifierIoInitializeRemoveLockEx.c)
+ *     VfLookasideAdd @ 0x140ADF240 (VfLookasideAdd.c)
+ *     VfTrackResource @ 0x140AE15E4 (VfTrackResource.c)
+ * Callees:
+ *     RtlInsertElementGenericTableAvl @ 0x1402451A0 (RtlInsertElementGenericTableAvl.c)
+ *     ViAvlTableIndex @ 0x140303AE4 (ViAvlTableIndex.c)
+ *     ViAvlReleaseTableLockFromDpcLevel @ 0x140303B00 (ViAvlReleaseTableLockFromDpcLevel.c)
+ *     ViAvlRaiseIrqlSafe @ 0x140303B34 (ViAvlRaiseIrqlSafe.c)
+ *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x140303B6C (ViAvlAcquireTableLockAtDpcLevelSafe.c)
+ */
+
 __int64 __fastcall VfAvlInsertReservedTreeNode(__int64 a1, __int64 a2, _QWORD *a3)
 {
   __int64 v6; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PrepareLPCWSTR@SendProcessor@Calling@CoreMessaging@@AEAAJPEBGIHPEAI@Z @ 0x1C00AE800
+ * Callers:
+ *     ?ReadParameterSize@SendProcessor@Calling@CoreMessaging@@AEAAJPEAPEADHIIIPEAI@Z @ 0x1C00AE620 (-ReadParameterSize@SendProcessor@Calling@CoreMessaging@@AEAAJPEAPEADHIIIPEAI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CoreMessaging::Calling::SendProcessor::PrepareLPCWSTR(
         CoreMessaging::Calling::SendProcessor *this,
         const unsigned __int16 *a2,

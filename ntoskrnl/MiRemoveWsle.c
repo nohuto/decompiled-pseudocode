@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiRemoveWsle @ 0x140325790
+ * Callers:
+ *     MiTerminateWsleCluster @ 0x1403234E0 (MiTerminateWsleCluster.c)
+ *     MiDeleteVa @ 0x140324900 (MiDeleteVa.c)
+ *     MiTerminateWsle @ 0x14032AAF0 (MiTerminateWsle.c)
+ *     MiCombineWithExisting @ 0x14034A4C4 (MiCombineWithExisting.c)
+ * Callees:
+ *     MiWriteValidPteVolatile @ 0x140229800 (MiWriteValidPteVolatile.c)
+ *     MiIsDriverPage @ 0x1402D38C0 (MiIsDriverPage.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14030AD60 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140462F92 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpReleaseSpinLockSharedFromDpcLevelInstrumented @ 0x140608D0C (ExpReleaseSpinLockSharedFromDpcLevelInstrumented.c)
+ *     MiLogRemoveWsleEvent @ 0x140619EE0 (MiLogRemoveWsleEvent.c)
+ */
+
 char __fastcall MiRemoveWsle(__int64 a1, unsigned __int64 a2, __int64 a3, char a4, int a5, int a6)
 {
   volatile signed __int32 *v6; // rsi

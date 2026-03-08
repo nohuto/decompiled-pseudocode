@@ -1,3 +1,13 @@
+/*
+ * XREFs of cUnicodeRangesSupported @ 0x1C00BCCE0
+ * Callers:
+ *     EngComputeGlyphSet @ 0x1C00BCC00 (EngComputeGlyphSet.c)
+ * Callees:
+ *     ?ConvertToAndFromWideChar@@YAHIPEAGHPEADHH@Z @ 0x1C00BCE20 (-ConvertToAndFromWideChar@@YAHIPEAGHPEADHH@Z.c)
+ *     cComputeGlyphSet @ 0x1C00BCF1C (cComputeGlyphSet.c)
+ *     vSort @ 0x1C00BD064 (vSort.c)
+ */
+
 __int64 __fastcall cUnicodeRangesSupported(unsigned int a1, int a2, unsigned int a3, unsigned __int16 *a4, char *a5)
 {
   char *v5; // rsi

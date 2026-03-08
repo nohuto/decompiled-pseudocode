@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhGetHubPdoName @ 0x1C002C6F0
+ * Callers:
+ *     UsbhFdoReturnHubName @ 0x1C0031120 (UsbhFdoReturnHubName.c)
+ *     UsbhIoctlGetNodeConnectionName @ 0x1C00404A8 (UsbhIoctlGetNodeConnectionName.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     memmove @ 0x1C0023580 (memmove.c)
+ *     memset @ 0x1C0023880 (memset.c)
+ */
+
 __int64 __fastcall UsbhGetHubPdoName(__int64 a1, __int64 a2, _WORD *a3, unsigned int a4, unsigned int *a5)
 {
   __int64 v5; // rdi

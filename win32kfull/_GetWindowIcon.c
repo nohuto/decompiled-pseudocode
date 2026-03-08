@@ -1,3 +1,13 @@
+/*
+ * XREFs of _GetWindowIcon @ 0x1C01E48BC
+ * Callers:
+ *     NtUserInternalGetWindowIcon @ 0x1C01D6BF0 (NtUserInternalGetWindowIcon.c)
+ *     xxxSendShutdownData @ 0x1C02163C0 (xxxSendShutdownData.c)
+ * Callees:
+ *     HMValidateHandleNoRip @ 0x1C01083AC (HMValidateHandleNoRip.c)
+ *     ?_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z @ 0x1C01C1D64 (-_DuplicateCursor@@YAPEAUtagCURSOR@@PEAU1@_N@Z.c)
+ */
+
 __int64 __fastcall GetWindowIcon(__int64 a1, int a2)
 {
   __int64 v2; // rax

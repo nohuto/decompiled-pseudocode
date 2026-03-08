@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiAllocateFastLargePagesForMdl @ 0x1403863B4
+ * Callers:
+ *     MiFindPagesForMdl @ 0x1402B3FE8 (MiFindPagesForMdl.c)
+ * Callees:
+ *     MiFreeLargeZeroPages @ 0x14020FD6C (MiFreeLargeZeroPages.c)
+ *     MiTimeToWriteMemory @ 0x1402E5238 (MiTimeToWriteMemory.c)
+ *     MiAllocateLargeZeroPages @ 0x14034DCB0 (MiAllocateLargeZeroPages.c)
+ *     MiInitializeLargePfnList @ 0x14035059C (MiInitializeLargePfnList.c)
+ *     MiInsertDpcGang @ 0x140386660 (MiInsertDpcGang.c)
+ *     MiEndDpcGang @ 0x1403866F0 (MiEndDpcGang.c)
+ *     MiInitializeDpcGang @ 0x140386740 (MiInitializeDpcGang.c)
+ *     MiStartDpcGang @ 0x140386B74 (MiStartDpcGang.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiAllocateFastLargePagesForMdl(__int64 a1, unsigned int a2, char a3)
 {
   int v6; // eax

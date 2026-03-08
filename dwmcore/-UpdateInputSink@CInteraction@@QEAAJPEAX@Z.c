@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?UpdateInputSink@CInteraction@@QEAAJPEAX@Z @ 0x1800E53C4
+ * Callers:
+ *     ?ProcessSetInputSink@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_SETINPUTSINK@@@Z @ 0x1800E5348 (-ProcessSetInputSink@CInteraction@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_INTERACTION_SETINPUTSI.c)
+ * Callees:
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038C50 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ??$SAFE_DELETE@VCInputSinkStruct@@@@YAXAEAPEAVCInputSinkStruct@@@Z @ 0x1800E5448 (--$SAFE_DELETE@VCInputSinkStruct@@@@YAXAEAPEAVCInputSinkStruct@@@Z.c)
+ *     ?ReplaceInputHandle@CInputSinkStruct@@QEAAJPEAX@Z @ 0x1800E5568 (-ReplaceInputHandle@CInputSinkStruct@@QEAAJPEAX@Z.c)
+ *     ??0CInputSinkStruct@@QEAA@XZ @ 0x1800E57C0 (--0CInputSinkStruct@@QEAA@XZ.c)
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ */
+
 __int64 __fastcall CInteraction::UpdateInputSink(CInteraction *this, void *a2)
 {
   unsigned int v2; // ebx

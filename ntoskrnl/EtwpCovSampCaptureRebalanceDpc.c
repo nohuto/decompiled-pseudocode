@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpCovSampCaptureRebalanceDpc @ 0x140601310
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ */
+
 void __fastcall EtwpCovSampCaptureRebalanceDpc(
         struct _KDPC *Dpc,
         char *DeferredContext,

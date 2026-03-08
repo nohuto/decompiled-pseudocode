@@ -1,3 +1,18 @@
+/*
+ * XREFs of HsaUpdateDeviceTableEntry @ 0x14052E900
+ * Callers:
+ *     HalpHsapInitializeReservedDomain @ 0x14052BEA8 (HalpHsapInitializeReservedDomain.c)
+ *     HsaAttachDeviceDomainInternal @ 0x14052CC78 (HsaAttachDeviceDomainInternal.c)
+ *     HsaProcessDeviceExceptions @ 0x14052E418 (HsaProcessDeviceExceptions.c)
+ *     HsaSetDevicePasidTable @ 0x14052E770 (HsaSetDevicePasidTable.c)
+ * Callees:
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HsaBuildDeviceTableEntry @ 0x14052CE78 (HsaBuildDeviceTableEntry.c)
+ *     HsaGetBlockedDomain @ 0x14052DB9C (HsaGetBlockedDomain.c)
+ *     HsaIommuSendCommand @ 0x14052E1A8 (HsaIommuSendCommand.c)
+ */
+
 __int64 *__fastcall HsaUpdateDeviceTableEntry(
         KSPIN_LOCK a1,
         int *a2,

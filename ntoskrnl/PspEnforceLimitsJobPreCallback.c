@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspEnforceLimitsJobPreCallback @ 0x1407E8A50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PspQueryRateControlHistory @ 0x1407E8B5C (PspQueryRateControlHistory.c)
+ */
+
 __int64 __fastcall PspEnforceLimitsJobPreCallback(__int64 a1, _QWORD *a2)
 {
   unsigned int v2; // edi

@@ -1,3 +1,17 @@
+/*
+ * XREFs of xxxCancelMouseMoveTracking @ 0x1C00EF010
+ * Callers:
+ *     xxxCapture @ 0x1C0010A5C (xxxCapture.c)
+ *     xxxProcessEventMessage @ 0x1C006B460 (xxxProcessEventMessage.c)
+ *     xxxTrackMouseMove @ 0x1C00BD950 (xxxTrackMouseMove.c)
+ * Callees:
+ *     xxxResetTooltip @ 0x1C00164F0 (xxxResetTooltip.c)
+ *     xxxHotTrack @ 0x1C0016E10 (xxxHotTrack.c)
+ *     FindTimer @ 0x1C00DEEDC (FindTimer.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ *     safe_cast_fnid_to_PTOOLTIPWND @ 0x1C00F9CD8 (safe_cast_fnid_to_PTOOLTIPWND.c)
+ */
+
 __int64 __fastcall xxxCancelMouseMoveTracking(unsigned int a1, struct tagWND *a2, int a3, int a4)
 {
   __int64 result; // rax

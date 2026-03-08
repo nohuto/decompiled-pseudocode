@@ -1,3 +1,11 @@
+/*
+ * XREFs of memmove_s @ 0x1801978F8
+ * Callers:
+ *     ?RecordUsageInternal@RawUsageIndex@details_abi@wil@@AEAA_NPEAX_K01I@Z @ 0x1801965A0 (-RecordUsageInternal@RawUsageIndex@details_abi@wil@@AEAA_NPEAX_K01I@Z.c)
+ * Callees:
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ */
+
 errno_t __cdecl memmove_s(
         void *const Destination,
         const rsize_t DestinationSize,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpTimerNoteHpetMaskingBehavior @ 0x14037764C
+ * Callers:
+ *     HalpTimerInitialize @ 0x140377220 (HalpTimerInitialize.c)
+ * Callees:
+ *     HalpFindTimer @ 0x140377CA8 (HalpFindTimer.c)
+ */
+
 __int64 HalpTimerNoteHpetMaskingBehavior()
 {
   __int64 result; // rax

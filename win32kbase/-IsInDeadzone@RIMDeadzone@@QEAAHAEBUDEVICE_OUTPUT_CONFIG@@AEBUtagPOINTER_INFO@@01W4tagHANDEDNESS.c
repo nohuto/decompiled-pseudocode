@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?IsInDeadzone@RIMDeadzone@@QEAAHAEBUDEVICE_OUTPUT_CONFIG@@AEBUtagPOINTER_INFO@@01W4tagHANDEDNESS@@@Z @ 0x1C01C9370
+ * Callers:
+ *     rimAbIsPointInGlobalPenDeadzone @ 0x1C01A8710 (rimAbIsPointInGlobalPenDeadzone.c)
+ *     rimAbIsPointInPenDeadzone @ 0x1C01A888C (rimAbIsPointInPenDeadzone.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _lambda_0204d79c2644d1b9cd88bde7d32e7162_::operator() @ 0x1C01C8BF8 (_lambda_0204d79c2644d1b9cd88bde7d32e7162_--operator().c)
+ *     ?_ClearDeadzoneAreas@RIMDeadzone@@AEAAXXZ @ 0x1C01C9B3C (-_ClearDeadzoneAreas@RIMDeadzone@@AEAAXXZ.c)
+ *     ?_GetAngle@RIMDeadzone@@CAKUtagPOINT@@0@Z @ 0x1C01C9BC8 (-_GetAngle@RIMDeadzone@@CAKUtagPOINT@@0@Z.c)
+ *     ?_InitializeLeftHandedDeadzone@RIMDeadzone@@AEAAJXZ @ 0x1C01C9CAC (-_InitializeLeftHandedDeadzone@RIMDeadzone@@AEAAJXZ.c)
+ *     ?_InitializeRightHandedDeadzone@RIMDeadzone@@AEAAJXZ @ 0x1C01CA0B8 (-_InitializeRightHandedDeadzone@RIMDeadzone@@AEAAJXZ.c)
+ *     ?_IsAngleWithinRange@RIMDeadzone@@CAHKKUtagRIMDEADZONE_RANGE@@@Z @ 0x1C01CA4C8 (-_IsAngleWithinRange@RIMDeadzone@@CAHKKUtagRIMDEADZONE_RANGE@@@Z.c)
+ *     ConvertPointCoordinates @ 0x1C0223374 (ConvertPointCoordinates.c)
+ */
+
 __int64 __fastcall RIMDeadzone::IsInDeadzone(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int a6)
 {
   int v9; // ebx

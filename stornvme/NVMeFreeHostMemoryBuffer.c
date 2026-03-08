@@ -1,3 +1,13 @@
+/*
+ * XREFs of NVMeFreeHostMemoryBuffer @ 0x1C000EE60
+ * Callers:
+ *     NVMeControllerRemove @ 0x1C000E18C (NVMeControllerRemove.c)
+ *     NVMeControllerStop @ 0x1C000EBA8 (NVMeControllerStop.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003260 (__security_check_cookie.c)
+ *     NVMeSetHostMemoryBuffer @ 0x1C00237E0 (NVMeSetHostMemoryBuffer.c)
+ */
+
 __int64 __fastcall NVMeFreeHostMemoryBuffer(__int64 a1)
 {
   int *v1; // rdx

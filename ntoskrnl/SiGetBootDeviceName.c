@@ -1,3 +1,21 @@
+/*
+ * XREFs of SiGetBootDeviceName @ 0x14076E464
+ * Callers:
+ *     SiGetSystemPartition @ 0x14076E330 (SiGetSystemPartition.c)
+ *     SiGetFirmwareSystemPartition @ 0x14076E380 (SiGetFirmwareSystemPartition.c)
+ *     SiGetSystemDisk @ 0x14087C0C0 (SiGetSystemDisk.c)
+ * Callees:
+ *     SiValidateSystemPartition @ 0x1402E231C (SiValidateSystemPartition.c)
+ *     wcsstr @ 0x1403D6020 (wcsstr.c)
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     _snwscanf_s @ 0x1403D9280 (_snwscanf_s.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SiGetBootDeviceNameFromRegistry @ 0x14076E690 (SiGetBootDeviceNameFromRegistry.c)
+ *     SiTranslateSymbolicLink @ 0x14076E918 (SiTranslateSymbolicLink.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SiGetBootDeviceName(int a1, __int64 a2, char a3, _DWORD *a4, char a5, _QWORD *a6)
 {
   WCHAR *v6; // r14

@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiUserPdeOrAbove @ 0x1402D39A0
+ * Callers:
+ *     MmCheckCachedPageStates @ 0x1402200B0 (MmCheckCachedPageStates.c)
+ *     MiCompletePrivateZeroFault @ 0x14026C360 (MiCompletePrivateZeroFault.c)
+ *     MiGetPageChain @ 0x14026E0E0 (MiGetPageChain.c)
+ *     MiCompleteProtoPteFault @ 0x14026F5F0 (MiCompleteProtoPteFault.c)
+ *     MiResolveTransitionFault @ 0x140271760 (MiResolveTransitionFault.c)
+ *     MiMakePageAvoidRead @ 0x140272670 (MiMakePageAvoidRead.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiZeroLocalPages @ 0x140273BB0 (MiZeroLocalPages.c)
+ *     MiZeroInParallelWorker @ 0x140275970 (MiZeroInParallelWorker.c)
+ *     MiRevertValidPte @ 0x140322DC0 (MiRevertValidPte.c)
+ *     MiFillSystemPtes @ 0x140328C00 (MiFillSystemPtes.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiUserPdeOrAbove(unsigned __int64 a1)
 {
   unsigned __int64 v1; // rdx

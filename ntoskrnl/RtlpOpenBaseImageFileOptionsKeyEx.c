@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpOpenBaseImageFileOptionsKeyEx @ 0x14085C4B4
+ * Callers:
+ *     RtlpOpenBaseImageFileOptionsKey @ 0x14077EF8C (RtlpOpenBaseImageFileOptionsKey.c)
+ * Callees:
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ */
+
 NTSTATUS __fastcall RtlpOpenBaseImageFileOptionsKeyEx(HANDLE *a1)
 {
   char PreviousMode; // dl

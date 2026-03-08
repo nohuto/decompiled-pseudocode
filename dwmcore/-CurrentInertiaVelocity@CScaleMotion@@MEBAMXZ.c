@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CurrentInertiaVelocity@CScaleMotion@@MEBAMXZ @ 0x18026C4F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     powf_0 @ 0x18011777C (powf_0.c)
+ */
+
 float __fastcall CScaleMotion::CurrentInertiaVelocity(CScaleMotion *this)
 {
   float v1; // xmm1_4

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpDmaInitializeDomainEarly @ 0x140B60D78
+ * Callers:
+ *     HalpDmaInitEarly @ 0x140B60D2C (HalpDmaInitEarly.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 HalpDmaInitializeDomainEarly()
 {
   __int64 result; // rax

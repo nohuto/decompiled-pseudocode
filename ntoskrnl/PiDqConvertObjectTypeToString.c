@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiDqConvertObjectTypeToString @ 0x14095907C
+ * Callers:
+ *     PiDqIrpQueryCreate @ 0x140745F08 (PiDqIrpQueryCreate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PiDqConvertObjectTypeToString(int a1, const wchar_t **a2)
 {
   unsigned int v2; // r8d

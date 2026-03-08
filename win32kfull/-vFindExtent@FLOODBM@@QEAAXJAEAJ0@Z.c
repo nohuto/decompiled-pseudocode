@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vFindExtent@FLOODBM@@QEAAXJAEAJ0@Z @ 0x1C02D60B0
+ * Callers:
+ *     ?bSearchAllSpans@FLOODBM@@QEAAHJJAEAJ0PEAEAEAVSTACKOBJ@@PEAVSCANLINE@@@Z @ 0x1C02D5DB4 (-bSearchAllSpans@FLOODBM@@QEAAHJJAEAJ0PEAEAEAVSTACKOBJ@@PEAVSCANLINE@@@Z.c)
+ *     NtGdiExtFloodFill @ 0x1C02D6200 (NtGdiExtFloodFill.c)
+ * Callees:
+ *     ?iColorGet@FLOODBM@@QEAAKJ@Z @ 0x1C02D5FE4 (-iColorGet@FLOODBM@@QEAAKJ@Z.c)
+ */
+
 void __fastcall FLOODBM::vFindExtent(FLOODBM *this, int a2, int *a3, int *a4)
 {
   int v4; // r11d

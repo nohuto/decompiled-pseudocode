@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ProcessSurfaceUpdate@CGlobalCompositionSurfaceInfo@@UEAAJAEBUCSM_SURFACE_UPDATE_@@@Z @ 0x180040960
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateU0nxxxqqxqqqqqqqqtx_EventWriteTransfer @ 0x180130468 (McTemplateU0nxxxqqxqqqqqqqqtx_EventWriteTransfer.c)
+ */
+
 __int64 __fastcall CGlobalCompositionSurfaceInfo::ProcessSurfaceUpdate(
         CGlobalCompositionSurfaceInfo *this,
         const struct CSM_SURFACE_UPDATE_ *a2)

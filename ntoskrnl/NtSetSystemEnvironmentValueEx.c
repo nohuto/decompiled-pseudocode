@@ -1,3 +1,21 @@
+/*
+ * XREFs of NtSetSystemEnvironmentValueEx @ 0x1409FD460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PsIsProcessAppContainer @ 0x140781158 (PsIsProcessAppContainer.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     ExSetFirmwareEnvironmentVariable @ 0x1409F8BC0 (ExSetFirmwareEnvironmentVariable.c)
+ *     ExpFirmwareAccessAppContainerCheck @ 0x1409F9A04 (ExpFirmwareAccessAppContainerCheck.c)
+ *     ExpSetFirmwareEnvironmentVariable @ 0x1409FB114 (ExpSetFirmwareEnvironmentVariable.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall NtSetSystemEnvironmentValueEx(const void **a1, __int128 *a2, unsigned __int64 a3, int a4, int a5)
 {
   unsigned __int16 v8; // ax

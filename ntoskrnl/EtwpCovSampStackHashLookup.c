@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpCovSampStackHashLookup @ 0x1409EFF34
+ * Callers:
+ *     EtwpCovSampStackHashCheck @ 0x1408A537C (EtwpCovSampStackHashCheck.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EtwpCovSampStackHashLookup(__int64 a1, int a2, _QWORD *a3)
 {
   int v3; // r11d

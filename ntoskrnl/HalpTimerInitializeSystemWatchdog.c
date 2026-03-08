@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpTimerInitializeSystemWatchdog @ 0x14050956C
+ * Callers:
+ *     HalpTimerInitSystem @ 0x1403776D0 (HalpTimerInitSystem.c)
+ * Callees:
+ *     HalpTimerGetClockRates @ 0x1403AE2D0 (HalpTimerGetClockRates.c)
+ *     HalpInterruptConnect @ 0x1405021F0 (HalpInterruptConnect.c)
+ *     HalpTimerWatchdogStart @ 0x1405096C0 (HalpTimerWatchdogStart.c)
+ */
+
 int HalpTimerInitializeSystemWatchdog()
 {
   _DWORD *v0; // rbx

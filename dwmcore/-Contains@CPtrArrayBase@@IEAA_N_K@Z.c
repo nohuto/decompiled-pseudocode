@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Contains@CPtrArrayBase@@IEAA_N_K@Z @ 0x1800AA138
+ * Callers:
+ *     ?SetSpriteBitmap@CWindowNode@@AEAAJPEAVCGdiSpriteBitmap@@@Z @ 0x1800A9ED0 (-SetSpriteBitmap@CWindowNode@@AEAAJPEAVCGdiSpriteBitmap@@@Z.c)
+ *     ?SetFlipExSurface@CWindowNode@@AEAAJPEAVCCompositionSurfaceBitmap@@@Z @ 0x1802534C0 (-SetFlipExSurface@CWindowNode@@AEAAJPEAVCCompositionSurfaceBitmap@@@Z.c)
+ * Callees:
+ *     ?GetCount@CPtrArrayBase@@IEBA_KXZ @ 0x1800AA170 (-GetCount@CPtrArrayBase@@IEBA_KXZ.c)
+ */
+
 bool __fastcall CPtrArrayBase::Contains(CPtrArrayBase *this)
 {
   unsigned __int64 Count; // rax

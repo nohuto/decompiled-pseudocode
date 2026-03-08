@@ -1,3 +1,13 @@
+/*
+ * XREFs of CiSchedulerSetMultimediaMode @ 0x1C0003178
+ * Callers:
+ *     CiDispatchFastIoDeviceControl @ 0x1C000A760 (CiDispatchFastIoDeviceControl.c)
+ * Callees:
+ *     CiSystemAcquireSpinLock @ 0x1C0001010 (CiSystemAcquireSpinLock.c)
+ *     CiSchedulerRefreshTaskIndexQosProperties @ 0x1C00030B0 (CiSchedulerRefreshTaskIndexQosProperties.c)
+ *     CiLogSetBufferingMode @ 0x1C0004080 (CiLogSetBufferingMode.c)
+ */
+
 __int64 __fastcall CiSchedulerSetMultimediaMode(__int64 a1, int a2)
 {
   unsigned int v2; // ebx

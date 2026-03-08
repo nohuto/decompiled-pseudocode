@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmParkUpdateConcurrencyTracking @ 0x14082681C
+ * Callers:
+ *     PpmCheckReInit @ 0x1408265CC (PpmCheckReInit.c)
+ * Callees:
+ *     PopExecuteOnTargetProcessors @ 0x140236D20 (PopExecuteOnTargetProcessors.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 unsigned __int64 __fastcall PpmParkUpdateConcurrencyTracking(char a1)
 {
   char v1; // r15

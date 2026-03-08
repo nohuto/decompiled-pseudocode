@@ -1,3 +1,13 @@
+/*
+ * XREFs of _DwmLockScreenUpdates @ 0x1C00F3540
+ * Callers:
+ *     NtUserDwmLockScreenUpdates @ 0x1C00F3500 (NtUserDwmLockScreenUpdates.c)
+ * Callees:
+ *     IsCurrentDesktopComposed @ 0x1C001FD80 (IsCurrentDesktopComposed.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxRedrawWindow @ 0x1C0050700 (xxxRedrawWindow.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall DwmLockScreenUpdates(int a1)
 {

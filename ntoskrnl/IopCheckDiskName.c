@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopCheckDiskName @ 0x140386144
+ * Callers:
+ *     IopGetBootDiskInformationLite @ 0x140B4CFA8 (IopGetBootDiskInformationLite.c)
+ * Callees:
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     RtlPrefixString @ 0x14075DBF0 (RtlPrefixString.c)
+ *     RtlCharToInteger @ 0x140811070 (RtlCharToInteger.c)
+ */
+
 char __fastcall IopCheckDiskName(const STRING *a1, const STRING *a2, ULONG *a3)
 {
   char v6; // bl

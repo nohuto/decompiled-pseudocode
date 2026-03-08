@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiAbCpuBoostOwners @ 0x140357DB4
+ * Callers:
+ *     KiAbProcessThreadLocks @ 0x140239A40 (KiAbProcessThreadLocks.c)
+ *     KiDispatchInterrupt @ 0x140255DA0 (KiDispatchInterrupt.c)
+ *     KiSwapThread @ 0x14025F500 (KiSwapThread.c)
+ *     KiAbForceProcessLockEntry @ 0x1403C7578 (KiAbForceProcessLockEntry.c)
+ * Callees:
+ *     KiAbSetMinimumThreadPriority @ 0x140357EB4 (KiAbSetMinimumThreadPriority.c)
+ */
+
 _QWORD **__fastcall KiAbCpuBoostOwners(__int64 a1, char a2, int a3, int a4, __int64 a5)
 {
   _QWORD **result; // rax

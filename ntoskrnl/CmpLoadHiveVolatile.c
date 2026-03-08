@@ -1,3 +1,42 @@
+/*
+ * XREFs of CmpLoadHiveVolatile @ 0x140A096F0
+ * Callers:
+ *     CmRestoreKey @ 0x140A08004 (CmRestoreKey.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     CmpAllocatePool @ 0x140243878 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     CmpFreeTransientPoolWithTag @ 0x1402A4B0C (CmpFreeTransientPoolWithTag.c)
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpLockRegistryExclusive @ 0x1406B6454 (CmpLockRegistryExclusive.c)
+ *     CmpCreateHive @ 0x14072C06C (CmpCreateHive.c)
+ *     CmpLinkHiveToMaster @ 0x140731250 (CmpLinkHiveToMaster.c)
+ *     CmpAddToHiveFileList @ 0x140732E68 (CmpAddToHiveFileList.c)
+ *     CmpUuidCreate @ 0x140733C60 (CmpUuidCreate.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpCopyKeyPartial @ 0x14078ECB4 (CmpCopyKeyPartial.c)
+ *     CmpCopyCompressedName @ 0x1407A47DC (CmpCopyCompressedName.c)
+ *     CmpConstructNameWithStatus @ 0x1407AF2E0 (CmpConstructNameWithStatus.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpDestroyHive @ 0x140A19FFC (CmpDestroyHive.c)
+ *     CmpCopySyncTree @ 0x140A1E748 (CmpCopySyncTree.c)
+ *     CmpReleaseHiveLoadUnloadRundown @ 0x140AF2034 (CmpReleaseHiveLoadUnloadRundown.c)
+ *     CmpAcquireHiveLoadUnloadRundown @ 0x140AF2058 (CmpAcquireHiveLoadUnloadRundown.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140AF24F0 (CmpPerformKeyBodyDeletionCheck.c)
+ */
+
 __int64 __fastcall CmpLoadHiveVolatile(__int64 a1, __int64 a2)
 {
   __int64 v2; // r14

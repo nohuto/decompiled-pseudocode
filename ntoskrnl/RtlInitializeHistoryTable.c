@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlInitializeHistoryTable @ 0x140B687EC
+ * Callers:
+ *     MiInitializeDriverImages @ 0x140B3B090 (MiInitializeDriverImages.c)
+ * Callees:
+ *     RtlLookupFunctionEntry @ 0x140281130 (RtlLookupFunctionEntry.c)
+ *     RtlpFunctionAddressTableEntry @ 0x140B688BC (RtlpFunctionAddressTableEntry.c)
+ *     RtlpInitMachineFrameEntries @ 0x140B704B8 (RtlpInitMachineFrameEntries.c)
+ */
+
 __int64 RtlInitializeHistoryTable()
 {
   unsigned int i; // ebx

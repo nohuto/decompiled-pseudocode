@@ -1,3 +1,16 @@
+/*
+ * XREFs of PfpLogApplicationEvent @ 0x14035B9B8
+ * Callers:
+ *     PfProcessExitNotification @ 0x1407E6B80 (PfProcessExitNotification.c)
+ *     PfCalculateProcessHash @ 0x1407E7450 (PfCalculateProcessHash.c)
+ * Callees:
+ *     PfLogEvent @ 0x14028D0D0 (PfLogEvent.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     MmGetDirectoryFrameFromProcess @ 0x1407E5140 (MmGetDirectoryFrameFromProcess.c)
+ */
+
 __int64 __fastcall PfpLogApplicationEvent(__int64 a1, _QWORD *a2, char a3)
 {
   __int64 v5; // rax

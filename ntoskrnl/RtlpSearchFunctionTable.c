@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpSearchFunctionTable @ 0x1402D3DB0
+ * Callers:
+ *     RtlMarkExceptionHandlingPages @ 0x1406ECFC0 (RtlMarkExceptionHandlingPages.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned int *__fastcall RtlpSearchFunctionTable(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
   unsigned __int64 v4; // rbx

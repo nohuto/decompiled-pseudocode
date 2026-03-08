@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DpcHandler@FxInterrupt@@QEAAXPEAX0@Z @ 0x1C0006CE4
+ * Callers:
+ *     ?_InterruptDpcThunk@FxInterrupt@@CAXPEAU_KDPC@@PEAX11@Z @ 0x1C0006CA0 (-_InterruptDpcThunk@FxInterrupt@@CAXPEAU_KDPC@@PEAX11@Z.c)
+ * Callees:
+ *     FX_TRACK_DRIVER @ 0x1C0006D3C (FX_TRACK_DRIVER.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall FxInterrupt::DpcHandler(FxInterrupt *this, void *SystemArgument1, void *SystemArgument2)
 {
   FxCallbackLock *m_CallbackLock; // rcx

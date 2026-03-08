@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?VidSchiDestroyNodeSchedulingLog@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C004298C
+ * Callers:
+ *     ??1VIDMM_GLOBAL@@QEAA@XZ @ 0x1C00E0158 (--1VIDMM_GLOBAL@@QEAA@XZ.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     ??_GVIDMM_SCH_LOG@@AEAAPEAXI@Z @ 0x1C004CE98 (--_GVIDMM_SCH_LOG@@AEAAPEAXI@Z.c)
+ */
+
 void __fastcall VidSchiDestroyNodeSchedulingLog(struct _VIDSCH_NODE *a1)
 {
   __int64 v1; // rsi

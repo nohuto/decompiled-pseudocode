@@ -1,3 +1,20 @@
+/*
+ * XREFs of PerformSample @ 0x180028DE0
+ * Callers:
+ *     AppendShaderBody @ 0x180028340 (AppendShaderBody.c)
+ *     PrepareSamplers @ 0x180028AEC (PrepareSamplers.c)
+ * Callees:
+ *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x1800254CC (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
+ *     AppendColorModifications @ 0x180027BE4 (AppendColorModifications.c)
+ *     ApplyTexcoordTransformations @ 0x180027D08 (ApplyTexcoordTransformations.c)
+ *     ?CopyNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@0@Z @ 0x18002906C (-CopyNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@0@Z.c)
+ *     ?AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V?$span@$$CBW4ShaderLinkingArgument@@$0?0@gsl@@@Z @ 0x18002A318 (-AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V-$.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     GetExtendModeDecoration @ 0x1800FE3D8 (GetExtendModeDecoration.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     ?terminate@details@gsl@@YAXXZ @ 0x1801AEDB0 (-terminate@details@gsl@@YAXXZ.c)
+ */
+
 __int64 __fastcall PerformSample(
         __int64 a1,
         __int64 a2,

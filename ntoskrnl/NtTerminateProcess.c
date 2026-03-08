@@ -1,3 +1,22 @@
+/*
+ * XREFs of NtTerminateProcess @ 0x1407DC2F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KeForceResumeThread @ 0x1403537DC (KeForceResumeThread.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspExitThread @ 0x1407D9464 (PspExitThread.c)
+ *     PspTerminateThreadByPointer @ 0x1407DA8F0 (PspTerminateThreadByPointer.c)
+ *     PspTerminateAllThreads @ 0x1407DB73C (PspTerminateAllThreads.c)
+ *     PspTerminateProcess @ 0x1407DC198 (PspTerminateProcess.c)
+ *     PspLogAuditTerminateRemoteProcessEvent @ 0x1407DCAFC (PspLogAuditTerminateRemoteProcessEvent.c)
+ */
+
 __int64 __fastcall NtTerminateProcess(ULONG_PTR a1, unsigned int a2)
 {
   struct _KTHREAD *CurrentThread; // rsi

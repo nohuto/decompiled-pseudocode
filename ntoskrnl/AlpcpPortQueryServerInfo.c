@@ -1,3 +1,25 @@
+/*
+ * XREFs of AlpcpPortQueryServerInfo @ 0x1409760D8
+ * Callers:
+ *     NtAlpcQueryInformation @ 0x140756660 (NtAlpcQueryInformation.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectSafe @ 0x1402CBCB0 (ObReferenceObjectSafe.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1407CBD44 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpGetPortNameInformation @ 0x140976020 (AlpcpGetPortNameInformation.c)
+ *     AlpcpReferenceMessageByWaitingThread @ 0x140976C1C (AlpcpReferenceMessageByWaitingThread.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall AlpcpPortQueryServerInfo(
         __int64 a1,
         __int64 a2,

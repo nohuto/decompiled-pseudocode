@@ -1,3 +1,46 @@
+/*
+ * XREFs of CmpPerformUnloadKey @ 0x14074A194
+ * Callers:
+ *     CmUnloadKey @ 0x140749BD8 (CmUnloadKey.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     CmpInitializeDelayDerefContext @ 0x140262F00 (CmpInitializeDelayDerefContext.c)
+ *     CmpDrainDelayDerefContext @ 0x140262F30 (CmpDrainDelayDerefContext.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExfUnblockPushLock @ 0x14040CCE0 (ExfUnblockPushLock.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     CmpSignalDeferredPosts @ 0x1406B5564 (CmpSignalDeferredPosts.c)
+ *     CmpLockRegistryFreezeAware @ 0x1406BF3D0 (CmpLockRegistryFreezeAware.c)
+ *     LOCK_HIVE_LOAD @ 0x1406C00DC (LOCK_HIVE_LOAD.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1406C0154 (UNLOCK_HIVE_LOAD.c)
+ *     CmpCleanupRollbackPacket @ 0x14074A888 (CmpCleanupRollbackPacket.c)
+ *     CmpCompleteUnloadKey @ 0x14074A958 (CmpCompleteUnloadKey.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x14074AF50 (CmpFlushNotifiesOnKeyBodyList.c)
+ *     CmpFlushNotify @ 0x14074B6C4 (CmpFlushNotify.c)
+ *     CmpDoesKeyHaveOpenSubkeys @ 0x14074B804 (CmpDoesKeyHaveOpenSubkeys.c)
+ *     CmpPrepareForSubtreeInvalidation @ 0x14074C0F0 (CmpPrepareForSubtreeInvalidation.c)
+ *     CmpTryAcquireKcbIXLocks @ 0x14074C150 (CmpTryAcquireKcbIXLocks.c)
+ *     CmpInvalidateSubtree @ 0x14074C208 (CmpInvalidateSubtree.c)
+ *     CmCloseRmHandle @ 0x14074C258 (CmCloseRmHandle.c)
+ *     CmCloseTmHandle @ 0x14074C280 (CmCloseTmHandle.c)
+ *     CmSnapshotRMTxArray @ 0x14074C2A8 (CmSnapshotRMTxArray.c)
+ *     CmpStopRMLog @ 0x14074C3C4 (CmpStopRMLog.c)
+ *     CmpRunDownCmRM @ 0x14074C420 (CmpRunDownCmRM.c)
+ *     CmpAbortRollbackPacket @ 0x14074C8DC (CmpAbortRollbackPacket.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x14079B2C8 (CmpLogTransactionAbortedWithChildName.c)
+ *     CmpReportNotifyForKcbStack @ 0x1407AEF5C (CmpReportNotifyForKcbStack.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1407AF294 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpFreezeHive @ 0x1408726EC (CmpFreezeHive.c)
+ *     CmpUnfreezeHive @ 0x140A14108 (CmpUnfreezeHive.c)
+ *     CmObliterateRMTxArray @ 0x140A19310 (CmObliterateRMTxArray.c)
+ *     CmpLogUnsupportedOperation @ 0x140A1D140 (CmpLogUnsupportedOperation.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140AF24F0 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpAttachToRegistryProcess @ 0x140AF26E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140AF2710 (CmpDetachFromRegistryProcess.c)
+ */
+
 __int64 __fastcall CmpPerformUnloadKey(__int64 a1, char a2, char a3, __int64 a4)
 {
   __int64 v7; // rdx

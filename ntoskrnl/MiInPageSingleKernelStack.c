@@ -1,3 +1,27 @@
+/*
+ * XREFs of MiInPageSingleKernelStack @ 0x1402A7A08
+ * Callers:
+ *     KiInSwapKernelStacks @ 0x1402A72E0 (KiInSwapKernelStacks.c)
+ * Callees:
+ *     MiReleasePageFileInfo @ 0x14020B300 (MiReleasePageFileInfo.c)
+ *     MmAccessFault @ 0x140267D40 (MmAccessFault.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiReleaseWsSwapReservationPfn @ 0x1402A7DBC (MiReleaseWsSwapReservationPfn.c)
+ *     MiSetPfnKernelStack @ 0x1402A7DF0 (MiSetPfnKernelStack.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiSetPfnIdentity @ 0x14034BE78 (MiSetPfnIdentity.c)
+ *     MiPrefetchVirtualMemory @ 0x140363970 (MiPrefetchVirtualMemory.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFlushAllFilesystemPages @ 0x140626E68 (MiFlushAllFilesystemPages.c)
+ *     MiDeleteKernelStackNode @ 0x14062A8DC (MiDeleteKernelStackNode.c)
+ *     MiKernelStackVaToStackNode @ 0x14062AE2C (MiKernelStackVaToStackNode.c)
+ *     MiLogKernelStackEvent @ 0x140642970 (MiLogKernelStackEvent.c)
+ */
+
 void *__fastcall MiInPageSingleKernelStack(ULONG_PTR a1, _QWORD *a2)
 {
   int v4; // r15d

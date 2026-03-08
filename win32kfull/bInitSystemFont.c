@@ -1,3 +1,16 @@
+/*
+ * XREFs of bInitSystemFont @ 0x1C03B85AC
+ * Callers:
+ *     bInitStockFontsInternal @ 0x1C03B63A8 (bInitStockFontsInternal.c)
+ * Callees:
+ *     hfontCreate @ 0x1C0027050 (hfontCreate.c)
+ *     ?bSetStockFont@@YAHPEAXHH@Z @ 0x1C00BA5D0 (-bSetStockFont@@YAHPEAXHH@Z.c)
+ *     ?bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEBGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z @ 0x1C00BA638 (-bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEBGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z.c)
+ *     vIFIMetricsToEnumLogFontExDvW @ 0x1C00BA744 (vIFIMetricsToEnumLogFontExDvW.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall bInitSystemFont(unsigned __int16 *a1, int a2)
 {
   unsigned int v4; // ebx

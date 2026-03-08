@@ -1,3 +1,14 @@
+/*
+ * XREFs of RegRSAccess @ 0x1C004CD24
+ * Callers:
+ *     AMLIRegEventHandler @ 0x1C0048A7C (AMLIRegEventHandler.c)
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     FindRSAccess @ 0x1C004B438 (FindRSAccess.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ */
+
 __int64 __fastcall RegRSAccess(unsigned int a1, __int64 a2, __int64 a3, char a4)
 {
   unsigned int v4; // ebx

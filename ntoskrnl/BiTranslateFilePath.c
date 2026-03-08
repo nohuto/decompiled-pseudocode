@@ -1,3 +1,17 @@
+/*
+ * XREFs of BiTranslateFilePath @ 0x14082F6B4
+ * Callers:
+ *     BiGetDeviceFromEfiPath @ 0x14082F530 (BiGetDeviceFromEfiPath.c)
+ *     BiCreateBootEntry @ 0x140A5AD88 (BiCreateBootEntry.c)
+ *     BiCreateMergedBootEntry @ 0x140A5B328 (BiCreateMergedBootEntry.c)
+ * Callees:
+ *     ZwTranslateFilePath @ 0x140415D90 (ZwTranslateFilePath.c)
+ *     BiAcquirePrivilege @ 0x14082F784 (BiAcquirePrivilege.c)
+ *     BiReleasePrivilege @ 0x14082F810 (BiReleasePrivilege.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiTranslateFilePath(__int64 a1, unsigned int a2, _QWORD *a3)
 {
   void *Pool2; // rdi

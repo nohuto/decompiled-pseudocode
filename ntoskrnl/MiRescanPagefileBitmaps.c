@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiRescanPagefileBitmaps @ 0x140392140
+ * Callers:
+ *     MiFindFreePageFileSpace @ 0x140209F7C (MiFindFreePageFileSpace.c)
+ * Callees:
+ *     MiRescanPageFileBitmapPortion @ 0x1402DF480 (MiRescanPageFileBitmapPortion.c)
+ *     RtlFindNextClearRunUlong @ 0x1402DF69C (RtlFindNextClearRunUlong.c)
+ *     MiInitializePagefileBitmapsCache @ 0x1403926D0 (MiInitializePagefileBitmapsCache.c)
+ */
+
 __int64 __fastcall MiRescanPagefileBitmaps(__int64 a1)
 {
   int v1; // ebx

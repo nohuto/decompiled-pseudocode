@@ -1,3 +1,29 @@
+/*
+ * XREFs of KeTerminateThread @ 0x140353168
+ * Callers:
+ *     PspExitThread @ 0x1407D9464 (PspExitThread.c)
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KiProcessThreadWaitList @ 0x1402508F0 (KiProcessThreadWaitList.c)
+ *     KiTryUnwaitThread @ 0x140258880 (KiTryUnwaitThread.c)
+ *     KiSwapThread @ 0x14025F500 (KiSwapThread.c)
+ *     KiWakeOtherQueueWaiters @ 0x140293BF4 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiRemoveThreadFromSchedulingGroup @ 0x1402AF3E4 (KiRemoveThreadFromSchedulingGroup.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KiWakeQueueWaiter @ 0x140340700 (KiWakeQueueWaiter.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     ExQueueWorkItemEx @ 0x140353EB0 (ExQueueWorkItemEx.c)
+ *     KiActivateWaiterQueueWithNoLocks @ 0x1403548F8 (KiActivateWaiterQueueWithNoLocks.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KeIsThreadRunning @ 0x14056C7FC (KeIsThreadRunning.c)
+ *     KeDisableProfiling @ 0x1405719BC (KeDisableProfiling.c)
+ *     EtwTraceEnqueueWork @ 0x1405FA8FC (EtwTraceEnqueueWork.c)
+ */
+
 struct _KPRCB *__fastcall KeTerminateThread(ULONG_PTR BugCheckParameter1)
 {
   bool v1; // zf

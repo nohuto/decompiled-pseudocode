@@ -1,3 +1,25 @@
+/*
+ * XREFs of ?bLock@DEVLOCKBLTOBJ@@QEAAHAEAVXDCOBJ@@0H@Z @ 0x1C005C780
+ * Callers:
+ *     GreStretchBltInternal @ 0x1C0059930 (GreStretchBltInternal.c)
+ *     NtGdiBitBltInternal @ 0x1C005E110 (NtGdiBitBltInternal.c)
+ *     GreMaskBlt @ 0x1C007F6E8 (GreMaskBlt.c)
+ *     NtGdiAlphaBlend @ 0x1C0083DC0 (NtGdiAlphaBlend.c)
+ *     GrePlgBlt @ 0x1C0293740 (GrePlgBlt.c)
+ *     NtGdiTransparentBlt @ 0x1C029A1B0 (NtGdiTransparentBlt.c)
+ * Callees:
+ *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C000FF70 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
+ *     ?bPrepareSrcDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@HH@Z @ 0x1C00149D0 (-bPrepareSrcDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@HH@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     ?TrapAppContainerRenderingWorker@@YA_NAEAVXDCOBJ@@AEAPEAUHSURF__@@1PEAK@Z @ 0x1C005DF10 (-TrapAppContainerRenderingWorker@@YA_NAEAVXDCOBJ@@AEAPEAUHSURF__@@1PEAK@Z.c)
+ *     ?bHookRedir@@YAHAEAVXDCOBJ@@@Z @ 0x1C00D2120 (-bHookRedir@@YAHAEAVXDCOBJ@@@Z.c)
+ *     ?bPrepareTrgDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@H@Z @ 0x1C00DEA84 (-bPrepareTrgDco@DEVLOCKBLTOBJ@@QEAAHPEAVXDCOBJ@@H@Z.c)
+ *     ?SaveAttributesHelper@XDCOBJ@@AEAAHXZ @ 0x1C00F5BEC (-SaveAttributesHelper@XDCOBJ@@AEAAHXZ.c)
+ *     ?vMarkTransformDirty@DC@@QEAAXXZ @ 0x1C0269660 (-vMarkTransformDirty@DC@@QEAAXXZ.c)
+ *     ?bCopySurface@@YAHPEAVSURFMEM@@PEAU_SURFOBJ@@@Z @ 0x1C026E61C (-bCopySurface@@YAHPEAVSURFMEM@@PEAU_SURFOBJ@@@Z.c)
+ *     ?bHookBmpDrv@@YAHAEAVXDCOBJ@@@Z @ 0x1C02A5774 (-bHookBmpDrv@@YAHAEAVXDCOBJ@@@Z.c)
+ */
+
 __int64 __fastcall DEVLOCKBLTOBJ::bLock(DEVLOCKBLTOBJ *this, struct XDCOBJ *a2, struct XDCOBJ *a3)
 {
   int v3; // r12d

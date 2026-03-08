@@ -1,3 +1,17 @@
+/*
+ * XREFs of PsGetProcessEnclaveModuleInfo @ 0x1405A440C
+ * Callers:
+ *     DbgkpPostModuleMessages @ 0x140934C44 (DbgkpPostModuleMessages.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PsFreeEnclaveModuleInfo @ 0x1405A43B0 (PsFreeEnclaveModuleInfo.c)
+ *     MmGetEnclaveModuleList @ 0x140646774 (MmGetEnclaveModuleList.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PsGetProcessEnclaveModuleInfo(__int64 a1, char **a2, unsigned int *a3)
 {
   volatile signed __int64 *v3; // r12

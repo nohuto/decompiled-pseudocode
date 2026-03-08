@@ -1,3 +1,13 @@
+/*
+ * XREFs of KeTraceHgsPlusRundown @ 0x140574738
+ * Callers:
+ *     EtwpKernelTraceRundown @ 0x14080D9F8 (EtwpKernelTraceRundown.c)
+ * Callees:
+ *     EtwTraceWorkloadClassUpdate @ 0x1405FB364 (EtwTraceWorkloadClassUpdate.c)
+ *     PsGetNextProcessThread @ 0x1406A8E30 (PsGetNextProcessThread.c)
+ *     PsGetNextProcess @ 0x1406AA530 (PsGetNextProcess.c)
+ */
+
 void __fastcall KeTraceHgsPlusRundown(char a1)
 {
   void *i; // rcx

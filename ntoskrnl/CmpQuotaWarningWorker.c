@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpQuotaWarningWorker @ 0x140A0D0E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExRaiseHardError @ 0x1409FDD30 (ExRaiseHardError.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall CmpQuotaWarningWorker(void *a1)
 {
   int v2; // [rsp+48h] [rbp+10h] BYREF

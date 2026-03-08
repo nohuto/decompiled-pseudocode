@@ -1,3 +1,23 @@
+/*
+ * XREFs of SmSetStoreInformation @ 0x1407990D4
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     SmpGetProcessPartition @ 0x14029622C (SmpGetProcessPartition.c)
+ *     SmProcessStoreMemoryPriorityRequest @ 0x140799184 (SmProcessStoreMemoryPriorityRequest.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     SmProcessCreateRequest @ 0x1407DD648 (SmProcessCreateRequest.c)
+ *     SmProcessConfigRequest @ 0x1408582AC (SmProcessConfigRequest.c)
+ *     SmProcessDeleteRequest @ 0x1409D3F3C (SmProcessDeleteRequest.c)
+ *     SmProcessResizeRequest @ 0x1409D4470 (SmProcessResizeRequest.c)
+ *     SmProcessSystemStoreTrimRequest @ 0x1409D489C (SmProcessSystemStoreTrimRequest.c)
+ *     SmcProcessCreateRequest @ 0x1409D50AC (SmcProcessCreateRequest.c)
+ *     SmcProcessDeleteRequest @ 0x1409D532C (SmcProcessDeleteRequest.c)
+ *     SmcProcessResizeRequest @ 0x1409D53B4 (SmcProcessResizeRequest.c)
+ *     SmcProcessStoreCreateRequest @ 0x1409D56AC (SmcProcessStoreCreateRequest.c)
+ *     SmcProcessStoreDeleteRequest @ 0x1409D5818 (SmcProcessStoreDeleteRequest.c)
+ */
+
 __int64 __fastcall SmSetStoreInformation(__int64 a1, __int64 a2, int a3, KPROCESSOR_MODE a4)
 {
   __int64 v5; // r8

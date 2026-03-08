@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ResumeSchedulerForVidPnSource@ADAPTER_RENDER@@QEAAXI@Z @ 0x1C0175904
+ * Callers:
+ *     ?Resume@CVidSchSuspendResume@@QEAAXXZ @ 0x1C0002E00 (-Resume@CVidSchSuspendResume@@QEAAXXZ.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pt_EtwWriteTransfer @ 0x1C003FF7C (McTemplateK0pt_EtwWriteTransfer.c)
+ */
+
 void __fastcall ADAPTER_RENDER::ResumeSchedulerForVidPnSource(ADAPTER_RENDER *this, unsigned int a2)
 {
   __int64 v4; // r8

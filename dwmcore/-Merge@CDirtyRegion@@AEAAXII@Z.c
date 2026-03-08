@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?Merge@CDirtyRegion@@AEAAXII@Z @ 0x180077D00
+ * Callers:
+ *     ?CleanTrees@CComposition@@IEAAJXZ @ 0x1800664C0 (-CleanTrees@CComposition@@IEAAJXZ.c)
+ *     ?_Add@CDirtyRegion@@AEAAJPEAVCVisual@@_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18006A480 (-_Add@CDirtyRegion@@AEAAJPEAVCVisual@@_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSiz.c)
+ * Callees:
+ *     ?UnionUnsafe@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z @ 0x180040360 (-UnionUnsafe@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z.c)
+ *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x18004AF54 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ *     ?AppendDirtyRegionLists@CDirtyRegion@@AEAAXII@Z @ 0x1800772F0 (-AppendDirtyRegionLists@CDirtyRegion@@AEAAXII@Z.c)
+ *     ?UpdateAcceleration@CDirtyRegion@@AEAAXI@Z @ 0x1800D4D28 (-UpdateAcceleration@CDirtyRegion@@AEAAXI@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ */
+
 void __fastcall CDirtyRegion::Merge(__m128 *this, unsigned int a2, unsigned int a3)
 {
   __int64 v3; // r14

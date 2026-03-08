@@ -1,3 +1,25 @@
+/*
+ * XREFs of WmipQueryAllData @ 0x14069DF2C
+ * Callers:
+ *     WmipIoControl @ 0x140787290 (WmipIoControl.c)
+ *     IoWMIQueryAllData @ 0x140859C90 (IoWMIQueryAllData.c)
+ *     WmipQueryAllDataMultiple @ 0x1409DDE84 (WmipQueryAllDataMultiple.c)
+ * Callees:
+ *     ObReferenceObjectByPointer @ 0x140208C70 (ObReferenceObjectByPointer.c)
+ *     WmipAlign @ 0x1402092D8 (WmipAlign.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WmipUnreferenceEntry @ 0x14069C9D0 (WmipUnreferenceEntry.c)
+ *     WmipSendWmiIrp @ 0x14069CD88 (WmipSendWmiIrp.c)
+ *     WmipForwardWmiIrp @ 0x14069CE70 (WmipForwardWmiIrp.c)
+ *     WmipPrepareForWnodeAD @ 0x14069E360 (WmipPrepareForWnodeAD.c)
+ *     WmipInsertStaticNames @ 0x14069E478 (WmipInsertStaticNames.c)
+ *     WmipStaticInstanceNameSize @ 0x14069E658 (WmipStaticInstanceNameSize.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WmipQueryAllData(PVOID Object, IRP *a2, KPROCESSOR_MODE a3, __int64 a4, unsigned int a5, _DWORD *a6)
 {
   PVOID v7; // rdi

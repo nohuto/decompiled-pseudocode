@@ -1,3 +1,23 @@
+/*
+ * XREFs of KiSoftParkElectionDpcRoutine @ 0x14057BEC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiReadyDeferredReadyList @ 0x140226FA0 (KiReadyDeferredReadyList.c)
+ *     KiShouldSoftParkElectionBePerformed @ 0x140258430 (KiShouldSoftParkElectionBePerformed.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x1402B7960 (KiFlushSoftwareInterruptBatch.c)
+ *     KiRequestSoftwareInterrupt @ 0x1402B7A24 (KiRequestSoftwareInterrupt.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiAcquireSoftParkElectionLock @ 0x14040A5D8 (KiAcquireSoftParkElectionLock.c)
+ *     Feature_Servicing_SoftParkFixes__private_IsEnabledDeviceUsage @ 0x14040AEB0 (Feature_Servicing_SoftParkFixes__private_IsEnabledDeviceUsage.c)
+ *     KiPerformMultiRoundSoftParkElection @ 0x14040B0E8 (KiPerformMultiRoundSoftParkElection.c)
+ *     KiReleaseParkSummaryLockExclusive @ 0x14040B264 (KiReleaseParkSummaryLockExclusive.c)
+ *     KiSoftParkElectionUnparkProcessor @ 0x14040B280 (KiSoftParkElectionUnparkProcessor.c)
+ *     KiAdvanceSoftParkElectionGeneration @ 0x14057B638 (KiAdvanceSoftParkElectionGeneration.c)
+ *     KiPerformSoftParkElection @ 0x14057BE58 (KiPerformSoftParkElection.c)
+ */
+
 void __fastcall KiSoftParkElectionDpcRoutine(__int64 a1, __int64 a2)
 {
   char v3; // r12

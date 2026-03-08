@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AssignQueue@tagTHREADINFO@@QEAAPEAUtagQ@@PEAU2@@Z @ 0x1C0078970
+ * Callers:
+ *     xxxCreateThreadInfo @ 0x1C0076490 (xxxCreateThreadInfo.c)
+ * Callees:
+ *     ?AssignQueueWorker@tagTHREADINFO@@AEAAPEAUtagQ@@PEAU2@PEQ2@PEAU1@PEQ1@PEAU1@PEQ1@PEAU2@@Z @ 0x1C00C474C (-AssignQueueWorker@tagTHREADINFO@@AEAAPEAUtagQ@@PEAU2@PEQ2@PEAU1@PEQ1@PEAU1@PEQ1@PEAU2@@Z.c)
+ *     Feature_BackportGetActiveWindowInUserMode__private_IsEnabledDeviceUsage @ 0x1C00DC8A4 (Feature_BackportGetActiveWindowInUserMode__private_IsEnabledDeviceUsage.c)
+ */
+
 struct tagQ *__fastcall tagTHREADINFO::AssignQueue(tagTHREADINFO *this, struct tagQ *a2)
 {
   __int64 v4; // rsi

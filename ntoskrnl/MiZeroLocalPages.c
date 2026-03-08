@@ -1,3 +1,34 @@
+/*
+ * XREFs of MiZeroLocalPages @ 0x140273BB0
+ * Callers:
+ *     MiZeroNodePages @ 0x14038FAA0 (MiZeroNodePages.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiReadyToZeroNextLargePage @ 0x140274AB0 (MiReadyToZeroNextLargePage.c)
+ *     MiZeroPage @ 0x140275060 (MiZeroPage.c)
+ *     MiGetUltraMapping @ 0x140276080 (MiGetUltraMapping.c)
+ *     MiFinalizePageAttribute @ 0x14028A354 (MiFinalizePageAttribute.c)
+ *     MiUserPdeOrAbove @ 0x1402D39A0 (MiUserPdeOrAbove.c)
+ *     MiGetHugePageToZero @ 0x1402E41D8 (MiGetHugePageToZero.c)
+ *     MiReassessZeroThreads @ 0x1402E477C (MiReassessZeroThreads.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiReferencePageRuns @ 0x1402EB520 (MiReferencePageRuns.c)
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     MiUnlinkNodeLargePages @ 0x14034EB80 (MiUnlinkNodeLargePages.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiSetZeroPageThreadPriority @ 0x140357538 (MiSetZeroPageThreadPriority.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403C8140 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403C8170 (HvlNotifyLongSpinWait.c)
+ *     MiRemoveFaultNode @ 0x1403D0F48 (MiRemoveFaultNode.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiZeroLocalPages(unsigned __int64 a1)
 {
   __int64 v1; // rdi

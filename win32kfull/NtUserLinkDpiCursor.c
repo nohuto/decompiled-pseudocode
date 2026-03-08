@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserLinkDpiCursor @ 0x1C01D7000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z @ 0x1C003AB4C (-FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ *     ?LinkDpiCursor@@YAXPEAUtagCURSOR@@0I@Z @ 0x1C01A9B34 (-LinkDpiCursor@@YAXPEAUtagCURSOR@@0I@Z.c)
+ */
+
 __int64 __fastcall NtUserLinkDpiCursor(__int64 a1, __int64 a2, int a3)
 {
   __int64 v6; // rbx

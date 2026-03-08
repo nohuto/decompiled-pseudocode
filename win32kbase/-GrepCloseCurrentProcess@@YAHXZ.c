@@ -1,3 +1,29 @@
+/*
+ * XREFs of ?GrepCloseCurrentProcess@@YAHXZ @ 0x1C006D158
+ * Callers:
+ *     GdiProcessCallout @ 0x1C006FD60 (GdiProcessCallout.c)
+ *     MultiUserNtGreCleanup @ 0x1C009EFD4 (MultiUserNtGreCleanup.c)
+ * Callees:
+ *     HmgSetLock @ 0x1C0019CE0 (HmgSetLock.c)
+ *     ?vRemoveRefPalettes@@YAXK@Z @ 0x1C006C084 (-vRemoveRefPalettes@@YAXK@Z.c)
+ *     ?DxLddmCleanupAtProcessDestroy@@YAXK@Z @ 0x1C006D050 (-DxLddmCleanupAtProcessDestroy@@YAXK@Z.c)
+ *     ?MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z @ 0x1C006D528 (-MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z.c)
+ *     ??$hdevEnumerate@$0A@@@YAPEAUHDEV__@@PEAU0@@Z @ 0x1C006D874 (--$hdevEnumerate@$0A@@@YAPEAUHDEV__@@PEAU0@@Z.c)
+ *     ?vCleanupRegions@@YAXK@Z @ 0x1C006DC30 (-vCleanupRegions@@YAXK@Z.c)
+ *     ?vCleanupSurfaces@@YAXK@Z @ 0x1C006DCE4 (-vCleanupSurfaces@@YAXK@Z.c)
+ *     HmgNextOwned @ 0x1C006DD80 (HmgNextOwned.c)
+ *     ?vGarbageCollectObjects@@YAXXZ @ 0x1C006F238 (-vGarbageCollectObjects@@YAXXZ.c)
+ *     ?vCleanupDCs@@YAXK@Z @ 0x1C006F338 (-vCleanupDCs@@YAXK@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     bDeletePalette @ 0x1C00CB0A0 (bDeletePalette.c)
+ *     ?vReleaseCurrentpMapProcForSurfaces@@YAXXZ @ 0x1C00CE504 (-vReleaseCurrentpMapProcForSurfaces@@YAXXZ.c)
+ *     bDeleteBrush @ 0x1C00D59D0 (bDeleteBrush.c)
+ *     ?bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z @ 0x1C00DEF60 (-bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     EngDeleteDriverObj @ 0x1C0197F40 (EngDeleteDriverObj.c)
+ *     EngLockDriverObj @ 0x1C0198060 (EngLockDriverObj.c)
+ */
+
 __int64 GrepCloseCurrentProcess(void)
 {
   unsigned int v0; // r15d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of XilUsbDevice_QueryAttributes @ 0x1C00481C4
+ * Callers:
+ *     Etw_DeviceRundown @ 0x1C000FFA0 (Etw_DeviceRundown.c)
+ *     Etw_DeviceUpdate @ 0x1C001D724 (Etw_DeviceUpdate.c)
+ * Callees:
+ *     <none>
+ */
+
 _OWORD *__fastcall XilUsbDevice_QueryAttributes(
         __int64 a1,
         _BYTE *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ColorMatch@@YAKVXEPALOBJ@@T_PAL_ULONG@@PEAK@Z @ 0x1C02DA444
+ * Callers:
+ *     ?ptransMatchAPal@@YAPEAU_TRANSLATE@@PEAVDC@@VXEPALOBJ@@1HPEAK2@Z @ 0x1C02DA728 (-ptransMatchAPal@@YAPEAU_TRANSLATE@@PEAVDC@@VXEPALOBJ@@1HPEAK2@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ColorMatch(__int64 a1, int a2, unsigned int *a3)
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of InternalRtlGetLicenseData @ 0x1C001D58C
+ * Callers:
+ *     WindowsQueryLicenseDWORD @ 0x1C001D44C (WindowsQueryLicenseDWORD.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall InternalRtlGetLicenseData(__int64 a1, __int64 a2, unsigned int *a3, __int64 *a4)
 {
   __int64 result; // rax

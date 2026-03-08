@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExpQueryBootLoaderMetadata @ 0x1406033C8
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExSystemExceptionFilter @ 0x140861790 (ExSystemExceptionFilter.c)
+ */
+
 __int64 __fastcall ExpQueryBootLoaderMetadata(void *a1, unsigned int a2, _DWORD *a3)
 {
   struct _KTHREAD *CurrentThread; // rax

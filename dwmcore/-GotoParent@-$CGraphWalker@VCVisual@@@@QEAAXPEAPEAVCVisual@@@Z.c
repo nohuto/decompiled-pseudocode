@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GotoParent@?$CGraphWalker@VCVisual@@@@QEAAXPEAPEAVCVisual@@@Z @ 0x180098348
+ * Callers:
+ *     ??$WalkSubtree@VCInputSinkContext@@@CVisualTreeIterator@@QEAAJPEBVCVisual@@0PEAVCInputSinkContext@@W4WalkReason@@@Z @ 0x18009A318 (--$WalkSubtree@VCInputSinkContext@@@CVisualTreeIterator@@QEAAJPEBVCVisual@@0PEAVCInputSinkContex.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CGraphWalker<CVisual>::GotoParent(__int64 a1, _QWORD *a2)
 {
   int v2; // r10d

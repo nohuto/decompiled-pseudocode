@@ -1,3 +1,16 @@
+/*
+ * XREFs of HvlAddSecurePagesCallbackRoutine @ 0x140545098
+ * Callers:
+ *     HvlAddSecureHvPagesCallbackRoutine @ 0x140545040 (HvlAddSecureHvPagesCallbackRoutine.c)
+ *     HvlAddSecureSkPagesCallbackRoutine @ 0x1405452C0 (HvlAddSecureSkPagesCallbackRoutine.c)
+ * Callees:
+ *     HvlpAddCrashdumpAreaPages @ 0x140545848 (HvlpAddCrashdumpAreaPages.c)
+ *     HvlpEndSecurePageListIteration @ 0x140547D58 (HvlpEndSecurePageListIteration.c)
+ *     HvlpStartSecurePageListIteration @ 0x14054800C (HvlpStartSecurePageListIteration.c)
+ *     VslGetSecurePageList @ 0x140548E28 (VslGetSecurePageList.c)
+ *     IoIsPartialDumpRetry @ 0x14054E3E0 (IoIsPartialDumpRetry.c)
+ */
+
 __int64 __fastcall HvlAddSecurePagesCallbackRoutine(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned __int8 v4; // si

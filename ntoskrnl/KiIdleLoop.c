@@ -1,3 +1,18 @@
+/*
+ * XREFs of KiIdleLoop @ 0x14041AF70
+ * Callers:
+ *     KiSystemStartup @ 0x140A84010 (KiSystemStartup.c)
+ * Callees:
+ *     KiIdleSchedule @ 0x140228140 (KiIdleSchedule.c)
+ *     PoIdle @ 0x14022D240 (PoIdle.c)
+ *     KiRetireDpcList @ 0x1402521E0 (KiRetireDpcList.c)
+ *     KiQuantumEnd @ 0x140254F30 (KiQuantumEnd.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403C8140 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403C8170 (HvlNotifyLongSpinWait.c)
+ *     SwapContext @ 0x14041F970 (SwapContext.c)
+ *     KzSetIrqlUnsafe @ 0x140569C60 (KzSetIrqlUnsafe.c)
+ */
+
 void __noreturn KiIdleLoop()
 {
   struct _KPRCB *CurrentPrcb; // rbx

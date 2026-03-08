@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiGetNumberOfCachedPtes @ 0x14029A1BC
+ * Callers:
+ *     MmGetNumberOfFreeSystemPtes @ 0x140299A38 (MmGetNumberOfFreeSystemPtes.c)
+ *     MiPteBinsNeedTrimming @ 0x14029A168 (MiPteBinsNeedTrimming.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiGetNumberOfCachedPtes(__int64 a1)
 {
   __int64 v1; // r10

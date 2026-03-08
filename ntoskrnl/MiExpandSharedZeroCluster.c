@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiExpandSharedZeroCluster @ 0x14029E7B4
+ * Callers:
+ *     MiResolveDemandZeroFault @ 0x14026B720 (MiResolveDemandZeroFault.c)
+ * Callees:
+ *     MiIsPteEvaluated @ 0x14029EA24 (MiIsPteEvaluated.c)
+ *     MiGetPagingFileOffset @ 0x14029EA80 (MiGetPagingFileOffset.c)
+ *     MiComputeZeroClusterMaximum @ 0x14029EAD0 (MiComputeZeroClusterMaximum.c)
+ *     MiUpdatePageTableUseCount @ 0x14029EC20 (MiUpdatePageTableUseCount.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetProtoPteAddress @ 0x14031C780 (MiGetProtoPteAddress.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiExpandSharedZeroCluster(__int64 a1)
 {
   __int64 v2; // rdi

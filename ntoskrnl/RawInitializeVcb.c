@@ -1,3 +1,14 @@
+/*
+ * XREFs of RawInitializeVcb @ 0x1406F3B48
+ * Callers:
+ *     RawMountVolume @ 0x1406F37D0 (RawMountVolume.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocateCacheAwareRundownProtection @ 0x1406F3D20 (ExAllocateCacheAwareRundownProtection.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ */
+
 __int64 __fastcall RawInitializeVcb(_DWORD *a1, __int64 a2, __int64 a3)
 {
   PVOID PoolWithTag; // rax

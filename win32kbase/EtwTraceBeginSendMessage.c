@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceBeginSendMessage @ 0x1C00AC9A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetCallbackCount@@YACXZ @ 0x1C00EDBA8 (-GetCallbackCount@@YACXZ.c)
+ *     McTemplateK0cppppqqqqq_EtwWriteTransfer @ 0x1C0164DE0 (McTemplateK0cppppqqqqq_EtwWriteTransfer.c)
+ */
+
 void __fastcall EtwTraceBeginSendMessage(__int64 a1)
 {
   __int64 v2; // rdi

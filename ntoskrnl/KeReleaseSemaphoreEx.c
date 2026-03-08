@@ -1,3 +1,44 @@
+/*
+ * XREFs of KeReleaseSemaphoreEx @ 0x14033E940
+ * Callers:
+ *     PnpDeviceCompletionQueueDispatchedEntryCompleted @ 0x140202804 (PnpDeviceCompletionQueueDispatchedEntryCompleted.c)
+ *     PopFxQueueWorkItem @ 0x1402B8D54 (PopFxQueueWorkItem.c)
+ *     PopIrpWorker @ 0x1402B9440 (PopIrpWorker.c)
+ *     PopDispatchQuerySetIrp @ 0x1402B9B64 (PopDispatchQuerySetIrp.c)
+ *     MiCheckForControlAreaDeletion @ 0x1402CFCF8 (MiCheckForControlAreaDeletion.c)
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     PopFxRequestWorkerInternal @ 0x1403089B4 (PopFxRequestWorkerInternal.c)
+ *     AlpcpSignal @ 0x14033E410 (AlpcpSignal.c)
+ *     IoRaiseInformationalHardError @ 0x140554960 (IoRaiseInformationalHardError.c)
+ *     PnpProcessRebalance @ 0x140562AF4 (PnpProcessRebalance.c)
+ *     NtSignalAndWaitForSingleObject @ 0x140580330 (NtSignalAndWaitForSingleObject.c)
+ *     PopCompleteDirectedPowerTransitionCallback @ 0x14058DF74 (PopCompleteDirectedPowerTransitionCallback.c)
+ *     PopCompleteNotifyTransitionCommon @ 0x14058DFFC (PopCompleteNotifyTransitionCommon.c)
+ *     MiQueuePageFileExtension @ 0x140638ECC (MiQueuePageFileExtension.c)
+ *     NtReleaseSemaphore @ 0x1406F76C0 (NtReleaseSemaphore.c)
+ *     AlpcpSignalPortAndUnlock @ 0x1406F77CC (AlpcpSignalPortAndUnlock.c)
+ *     AlpcpCancelMessage @ 0x1407141F0 (AlpcpCancelMessage.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x140716318 (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpDoPortCleanup @ 0x140716E08 (AlpcpDoPortCleanup.c)
+ *     AlpcpCancelMessagesByRequestor @ 0x1407172DC (AlpcpCancelMessagesByRequestor.c)
+ *     AlpcpDispatchReplyToWaitingThread @ 0x1407C9EE0 (AlpcpDispatchReplyToWaitingThread.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1407CBD90 (AlpcpCompleteDispatchMessage.c)
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KiTryUnwaitThread @ 0x140258880 (KiTryUnwaitThread.c)
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     KiWakeOtherQueueWaiters @ 0x140293BF4 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiSignalThread @ 0x14033FD70 (KiSignalThread.c)
+ *     KiWakeQueueWaiter @ 0x140340700 (KiWakeQueueWaiter.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiCompleteDirectSwitchThread @ 0x140369F84 (KiCompleteDirectSwitchThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeIsThreadRunning @ 0x14056C7FC (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405FA8FC (EtwTraceEnqueueWork.c)
+ */
+
 __int64 KeReleaseSemaphoreEx(__int64 a1, unsigned int a2, int a3, ...)
 {
   unsigned int v4; // ebp

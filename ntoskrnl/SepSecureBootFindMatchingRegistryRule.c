@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepSecureBootFindMatchingRegistryRule @ 0x1409CDDA0
+ * Callers:
+ *     SeQuerySecureBootPolicyValue @ 0x140861880 (SeQuerySecureBootPolicyValue.c)
+ * Callees:
+ *     SepEqualAsciiWideStringCaseInSensitive @ 0x1409CDAF0 (SepEqualAsciiWideStringCaseInSensitive.c)
+ */
+
 _DWORD *__fastcall SepSecureBootFindMatchingRegistryRule(__int64 a1, unsigned __int16 *a2, unsigned __int16 *a3)
 {
   _DWORD *v3; // r11

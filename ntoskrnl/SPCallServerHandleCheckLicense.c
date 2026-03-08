@@ -1,3 +1,12 @@
+/*
+ * XREFs of SPCallServerHandleCheckLicense @ 0x1407FAE5C
+ * Callers:
+ *     sub_1406DC290 @ 0x1406DC290 (sub_1406DC290.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall SPCallServerHandleCheckLicense(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 *v7; // rsi

@@ -1,3 +1,18 @@
+/*
+ * XREFs of SepInternalSetSecurityAttributesToken @ 0x1402BE3C0
+ * Callers:
+ *     SeSetSecurityAttributesTokenEx @ 0x14039D0A0 (SeSetSecurityAttributesTokenEx.c)
+ *     SeSetSecurityAttributesToken @ 0x140741540 (SeSetSecurityAttributesToken.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x14029705C (AuthzBasepSetSecurityAttributesToken.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     SepShouldSetDelinkFlags @ 0x14074333C (SepShouldSetDelinkFlags.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall SepInternalSetSecurityAttributesToken(void *a1, KPROCESSOR_MODE a2, char a3, int *a4, __int64 a5)
 {
   char v7; // si

@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceTouchPadAAP @ 0x1C00EDEA0
+ * Callers:
+ *     ?OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z @ 0x1C020E7E0 (-OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z.c)
+ * Callees:
+ *     McTemplateK0qqqtq_EtwWriteTransfer @ 0x1C0166E80 (McTemplateK0qqqtq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall EtwTraceTouchPadAAP(int a1, int a2, int a3, char a4, char a5)
 {
   __int64 result; // rax

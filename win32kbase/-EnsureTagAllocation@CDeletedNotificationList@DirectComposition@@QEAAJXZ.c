@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EnsureTagAllocation@CDeletedNotificationList@DirectComposition@@QEAAJXZ @ 0x1C00B8AFC
+ * Callers:
+ *     ?SetResourceDeletedNotificationTag@CApplicationChannel@DirectComposition@@QEAAJI_K@Z @ 0x1C00B8A3C (-SetResourceDeletedNotificationTag@CApplicationChannel@DirectComposition@@QEAAJI_K@Z.c)
+ * Callees:
+ *     ?Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z @ 0x1C0069F28 (-Grow@CDCompDynamicArrayBase@DirectComposition@@QEAAJ_KK@Z.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 __int64 __fastcall DirectComposition::CDeletedNotificationList::EnsureTagAllocation(
         DirectComposition::CDeletedNotificationList *this)
 {

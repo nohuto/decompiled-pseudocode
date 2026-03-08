@@ -1,3 +1,18 @@
+/*
+ * XREFs of FsFilterCtrlInit @ 0x140343B50
+ * Callers:
+ *     FsRtlReleaseFileForModWrite @ 0x140212510 (FsRtlReleaseFileForModWrite.c)
+ *     FsRtlAcquireFileForModWriteEx @ 0x140212E3C (FsRtlAcquireFileForModWriteEx.c)
+ *     FsRtlQueryOpen @ 0x140758084 (FsRtlQueryOpen.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x14075EFA8 (FsRtlAcquireFileForCcFlushEx.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x14075F248 (FsRtlReleaseFileForCcFlush.c)
+ *     FsRtlReleaseFile @ 0x1407D18E0 (FsRtlReleaseFile.c)
+ *     FsRtlAcquireFileExclusiveCommon @ 0x1407D1AF0 (FsRtlAcquireFileExclusiveCommon.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     FsFilterAllocateCompletionStack @ 0x140456BDC (FsFilterAllocateCompletionStack.c)
+ */
+
 __int64 __fastcall FsFilterCtrlInit(__int64 a1, char a2, __int64 a3, __int64 a4, __int64 a5, unsigned __int8 a6)
 {
   unsigned int v6; // edi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of MmWaitMultipleForCacheManagerPrefetch @ 0x14020D7C0
+ * Callers:
+ *     CcAsyncReadWorker @ 0x1403B8B70 (CcAsyncReadWorker.c)
+ * Callees:
+ *     MmWaitForCacheManagerPrefetch @ 0x14020D9A0 (MmWaitForCacheManagerPrefetch.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MmWaitMultipleForCacheManagerPrefetch(__int64 a1, unsigned int a2, void *a3)
 {
   __int64 v3; // r15

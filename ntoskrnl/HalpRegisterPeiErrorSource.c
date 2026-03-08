@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpRegisterPeiErrorSource @ 0x140516778
+ * Callers:
+ *     HalpInitializeGenericErrorSource @ 0x140A880EC (HalpInitializeGenericErrorSource.c)
+ * Callees:
+ *     HalpInterruptConnect @ 0x1405021F0 (HalpInterruptConnect.c)
+ */
+
 int __fastcall HalpRegisterPeiErrorSource(unsigned __int64 a1)
 {
   __int64 v3; // rcx

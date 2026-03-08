@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheapGenerateETWErrorRecordLarge @ 0x140610E00
+ * Callers:
+ *     WheapGenerateETWEvents @ 0x140610F18 (WheapGenerateETWEvents.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 unsigned __int64 __fastcall WheapGenerateETWErrorRecordLarge(__int64 a1)
 {
   unsigned __int64 result; // rax

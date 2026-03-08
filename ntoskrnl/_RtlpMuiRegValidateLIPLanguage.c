@@ -1,3 +1,11 @@
+/*
+ * XREFs of _RtlpMuiRegValidateLIPLanguage @ 0x140A73198
+ * Callers:
+ *     _RtlpMuiRegValidateInstalled @ 0x140843870 (_RtlpMuiRegValidateInstalled.c)
+ * Callees:
+ *     RtlpMuiRegGetInstalledLangInfoIndex @ 0x140A71C80 (RtlpMuiRegGetInstalledLangInfoIndex.c)
+ */
+
 __int64 __fastcall RtlpMuiRegValidateLIPLanguage(__int64 a1, int a2)
 {
   __int64 v3; // r9

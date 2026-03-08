@@ -1,3 +1,29 @@
+/*
+ * XREFs of EtwQueryProcessTelemetryInfo @ 0x14071D7DC
+ * Callers:
+ *     PfSnLogScenarioDecision @ 0x1406BE5DC (PfSnLogScenarioDecision.c)
+ *     NtQueryInformationProcess @ 0x1407215F0 (NtQueryInformationProcess.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ObFastDereferenceObject @ 0x140245F50 (ObFastDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     PsGetProcessSessionId @ 0x140299380 (PsGetProcessSessionId.c)
+ *     PsGetProcessStartKey @ 0x1402993E0 (PsGetProcessStartKey.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsAcquireProcessExitSynchronization @ 0x1406EDFA0 (PsAcquireProcessExitSynchronization.c)
+ *     SeQueryUserSidToken @ 0x1407187E4 (SeQueryUserSidToken.c)
+ *     MmGetSessionCreateTime @ 0x14071D7B0 (MmGetSessionCreateTime.c)
+ *     EtwpQueryProcessCommandLine @ 0x14071DB40 (EtwpQueryProcessCommandLine.c)
+ *     EtwpQueryProcessOtherInfo @ 0x14071DD1C (EtwpQueryProcessOtherInfo.c)
+ *     EtwpQueryTokenPackageInfo @ 0x14071DD5C (EtwpQueryTokenPackageInfo.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwQueryProcessTelemetryInfo(
         __int64 BugCheckParameter1,
         char *Address,

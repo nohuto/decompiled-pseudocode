@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlpAddKnownObjectAce @ 0x1409B8680
+ * Callers:
+ *     RtlAddAccessAllowedObjectAce @ 0x1409B7F70 (RtlAddAccessAllowedObjectAce.c)
+ *     RtlAddAccessDeniedObjectAce @ 0x1409B7FD0 (RtlAddAccessDeniedObjectAce.c)
+ *     RtlAddAuditAccessObjectAce @ 0x1409B82C0 (RtlAddAuditAccessObjectAce.c)
+ * Callees:
+ *     RtlCopySid @ 0x1406D4890 (RtlCopySid.c)
+ *     RtlFirstFreeAce @ 0x140740C70 (RtlFirstFreeAce.c)
+ *     RtlValidAcl @ 0x1407BB670 (RtlValidAcl.c)
+ *     RtlValidSid @ 0x1407C92A0 (RtlValidSid.c)
+ */
+
 __int64 __fastcall RtlpAddKnownObjectAce(
         __int64 a1,
         int a2,

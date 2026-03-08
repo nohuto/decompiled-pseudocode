@@ -1,3 +1,17 @@
+/*
+ * XREFs of ACPIBuildDeviceDpc @ 0x1C000BE30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ACPIBuildProcessGenericList @ 0x1C0010D2C (ACPIBuildProcessGenericList.c)
+ *     ACPIBuildProcessSpecialSynchronizationList @ 0x1C0012100 (ACPIBuildProcessSpecialSynchronizationList.c)
+ *     ACPIBuildProcessSynchronizationList @ 0x1C00123A0 (ACPIBuildProcessSynchronizationList.c)
+ *     ACPIBuildSynchronizationRequestInternal @ 0x1C0013BE0 (ACPIBuildSynchronizationRequestInternal.c)
+ *     ACPIPowerScheduleDpc @ 0x1C0022714 (ACPIPowerScheduleDpc.c)
+ *     ACPIInternalMoveList @ 0x1C002EC04 (ACPIInternalMoveList.c)
+ */
+
 void __fastcall ACPIBuildDeviceDpc(
         struct _KDPC *Dpc,
         PVOID DeferredContext,

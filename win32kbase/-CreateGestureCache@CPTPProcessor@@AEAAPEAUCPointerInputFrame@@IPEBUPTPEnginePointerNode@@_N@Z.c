@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?CreateGestureCache@CPTPProcessor@@AEAAPEAUCPointerInputFrame@@IPEBUPTPEnginePointerNode@@_N@Z @ 0x1C020D558
+ * Callers:
+ *     ?OnEngineOutput@CPTPProcessor@@UEAAXPEBUPTPEngineOutput@@@Z @ 0x1C020E0C0 (-OnEngineOutput@CPTPProcessor@@UEAAXPEBUPTPEngineOutput@@@Z.c)
+ * Callees:
+ *     EtwTraceCopyPointerInputFrameStart @ 0x1C0161D50 (EtwTraceCopyPointerInputFrameStart.c)
+ *     EtwTraceCopyPointerInputFrameStop @ 0x1C0161D80 (EtwTraceCopyPointerInputFrameStop.c)
+ *     ?CopyPTPPointerInputFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAU2@PEAX@Z @ 0x1C01EE280 (-CopyPTPPointerInputFrame@CTouchProcessor@@IEAAPEAUCPointerInputFrame@@PEAU2@PEAX@Z.c)
+ *     ?CopyPointersIntoFrame@CPTPProcessor@@AEAAXPEAUCPointerInputFrame@@IPEBUPTPEnginePointerNode@@_N@Z @ 0x1C020D450 (-CopyPointersIntoFrame@CPTPProcessor@@AEAAXPEAUCPointerInputFrame@@IPEBUPTPEnginePointerNode@@_N.c)
+ */
+
 struct CPointerInputFrame *__fastcall CPTPProcessor::CreateGestureCache(
         CPTPProcessor *this,
         __int64 a2,

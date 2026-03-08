@@ -1,3 +1,12 @@
+/*
+ * XREFs of MarkNativeObjectsDefunct @ 0x1C004A094
+ * Callers:
+ *     AMLIRemoveNativeObjectsFromNamespace @ 0x1C0049C4C (AMLIRemoveNativeObjectsFromNamespace.c)
+ *     NotifyObjectDestruction @ 0x1C004C42C (NotifyObjectDestruction.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MarkNativeObjectsDefunct(__int64 a1, __int64 a2)
 {
   __int16 v3; // ax

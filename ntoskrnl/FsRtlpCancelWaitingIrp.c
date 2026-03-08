@@ -1,3 +1,17 @@
+/*
+ * XREFs of FsRtlpCancelWaitingIrp @ 0x14053BE94
+ * Callers:
+ *     FsRtlpWaitOnIrp @ 0x140201018 (FsRtlpWaitOnIrp.c)
+ *     FsRtlpWaitingIrpCancelRoutine @ 0x14053CAC0 (FsRtlpWaitingIrpCancelRoutine.c)
+ * Callees:
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x140201B90 (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall FsRtlpCancelWaitingIrp(__int64 a1, char a2)
 {
   __int64 v3; // rdi

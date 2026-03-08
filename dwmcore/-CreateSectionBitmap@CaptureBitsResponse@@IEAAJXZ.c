@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CreateSectionBitmap@CaptureBitsResponse@@IEAAJXZ @ 0x1801DCC64
+ * Callers:
+ *     ?OnPresentComplete@CaptureBitsResponse@@UEAAJXZ @ 0x1801DCD50 (-OnPresentComplete@CaptureBitsResponse@@UEAAJXZ.c)
+ * Callees:
+ *     ?CalcSectionBitmapSize@CaptureBitsResponse@@IEAAJXZ @ 0x180020740 (-CalcSectionBitmapSize@CaptureBitsResponse@@IEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall CaptureBitsResponse::CreateSectionBitmap(CaptureBitsResponse *this)
 {
   int v2; // eax

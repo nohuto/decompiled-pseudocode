@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?CalculateValueWorker@CInjectionAnimation@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x18022BAE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?NotifyAnimationCompleted@CBaseExpression@@QEAAJXZ @ 0x1800BC454 (-NotifyAnimationCompleted@CBaseExpression@@QEAAJXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?InjectManipulation@CManipulation@@QEAAJAEBUInjectManipulationArgs@@@Z @ 0x18020A87C (-InjectManipulation@CManipulation@@QEAAJAEBUInjectManipulationArgs@@@Z.c)
+ */
+
 __int64 __fastcall CInjectionAnimation::CalculateValueWorker(
         CInjectionAnimation *this,
         struct CExpressionValueStack *a2,

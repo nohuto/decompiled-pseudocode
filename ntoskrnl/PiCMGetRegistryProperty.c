@@ -1,3 +1,18 @@
+/*
+ * XREFs of PiCMGetRegistryProperty @ 0x1406C74A4
+ * Callers:
+ *     PiCMHandleIoctl @ 0x1406CF040 (PiCMHandleIoctl.c)
+ * Callees:
+ *     PiCMCaptureRegistryPropertyInputData @ 0x1406C72B0 (PiCMCaptureRegistryPropertyInputData.c)
+ *     PiCMReleaseRegistryPropertyInputData @ 0x1406C764C (PiCMReleaseRegistryPropertyInputData.c)
+ *     PiCMConvertRegistryProperty @ 0x1406C76A0 (PiCMConvertRegistryProperty.c)
+ *     _CmGetDeviceRegProp @ 0x1406C9884 (_CmGetDeviceRegProp.c)
+ *     PiCMReturnBufferResultData @ 0x1406D0ED4 (PiCMReturnBufferResultData.c)
+ *     _CmGetInstallerClassRegProp @ 0x14074DF34 (_CmGetInstallerClassRegProp.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiCMGetRegistryProperty(
         unsigned __int64 a1,
         unsigned int a2,

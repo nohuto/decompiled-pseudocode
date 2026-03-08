@@ -1,3 +1,27 @@
+/*
+ * XREFs of KiExitThreadWait @ 0x140239380
+ * Callers:
+ *     KiFastExitThreadWait @ 0x140239300 (KiFastExitThreadWait.c)
+ *     KiCommitThreadWait @ 0x140261290 (KiCommitThreadWait.c)
+ *     KiSatisfyThreadWait @ 0x140577E2C (KiSatisfyThreadWait.c)
+ * Callees:
+ *     KiProcessDeferredReadyList @ 0x140226BD0 (KiProcessDeferredReadyList.c)
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x140227C10 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KiCheckForThreadDispatch @ 0x14023A168 (KiCheckForThreadDispatch.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140255D00 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiStartRescheduleContext @ 0x140258AD0 (KiStartRescheduleContext.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402ADF80 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiFindRescheduleContextEntryForPrcb @ 0x1402ADFD8 (KiFindRescheduleContextEntryForPrcb.c)
+ *     KiAdjustRescheduleContextEntryForThreadRemoval @ 0x1402AE004 (KiAdjustRescheduleContextEntryForThreadRemoval.c)
+ *     KiCommitRescheduleContext @ 0x1402AE04C (KiCommitRescheduleContext.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x1402B7960 (KiFlushSoftwareInterruptBatch.c)
+ *     KiCompleteRescheduleContext @ 0x140302484 (KiCompleteRescheduleContext.c)
+ *     KiDeliverApc @ 0x140350B60 (KiDeliverApc.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall KiExitThreadWait(__int64 a1, __int64 a2, char a3)
 {
   unsigned __int64 v3; // rdi

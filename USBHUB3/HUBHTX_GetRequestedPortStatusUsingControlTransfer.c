@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBHTX_GetRequestedPortStatusUsingControlTransfer @ 0x1C00062BC
+ * Callers:
+ *     HUBHSM_GettingPortStatusOnPDORequestFromConfigWithIntTransfer @ 0x1C00088C0 (HUBHSM_GettingPortStatusOnPDORequestFromConfigWithIntTransfer.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBMISC_ControlTransfer @ 0x1C0032664 (HUBMISC_ControlTransfer.c)
+ */
+
 __int64 __fastcall HUBHTX_GetRequestedPortStatusUsingControlTransfer(__int64 a1)
 {
   __int64 v1; // rbp

@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiFinishMdlForMappedFileFault @ 0x14028BD60
+ * Callers:
+ *     MiResolveMappedFileFault @ 0x14028A780 (MiResolveMappedFileFault.c)
+ * Callees:
+ *     MiReferenceControlAreaPfn @ 0x140224DA0 (MiReferenceControlAreaPfn.c)
+ *     PsGetIoPriorityThread @ 0x1402832C0 (PsGetIoPriorityThread.c)
+ *     MiAreChargesNeededToLockPage @ 0x140284D60 (MiAreChargesNeededToLockPage.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x140286264 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiChargeForLockedPage @ 0x140287410 (MiChargeForLockedPage.c)
+ *     MiStartingOffset @ 0x14028C530 (MiStartingOffset.c)
+ *     MiFlowThroughInsertNode @ 0x1402FE598 (MiFlowThroughInsertNode.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiEndingOffsetWithLock @ 0x140324190 (MiEndingOffsetWithLock.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 __int16 __fastcall MiFinishMdlForMappedFileFault(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
 {
   __int64 *v5; // r15

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiDeleteCloneDescriptor @ 0x140661860
+ * Callers:
+ *     MiDecrementCloneBlockReference @ 0x14066176C (MiDecrementCloneBlockReference.c)
+ *     MiDeleteInsertedCloneVads @ 0x140A46058 (MiDeleteInsertedCloneVads.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1402955D0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     MiDecrementCloneHeaderCount @ 0x14066182C (MiDecrementCloneHeaderCount.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 PSLIST_ENTRY __fastcall MiDeleteCloneDescriptor(struct _KPROCESS *a1, __int64 a2)
 {
   __int64 v2; // rsi

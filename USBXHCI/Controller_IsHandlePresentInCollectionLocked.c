@@ -1,3 +1,12 @@
+/*
+ * XREFs of Controller_IsHandlePresentInCollectionLocked @ 0x1C0034180
+ * Callers:
+ *     Controller_IsHandlePresentInCollection @ 0x1C0034130 (Controller_IsHandlePresentInCollection.c)
+ *     Controller_StopTimeTrackingForHandle @ 0x1C0034904 (Controller_StopTimeTrackingForHandle.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 char __fastcall Controller_IsHandlePresentInCollectionLocked(__int64 a1, __int64 a2)
 {
   unsigned int i; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SerializeToBuffer@EdidMonitorDescriptor@DxgMonitor@@UEBAXPEAU_DMM_MONITORDESCRIPTORSET_SERIALIZATION@@I@Z @ 0x1C03CB6C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ConvertMonitorCapablitiesOrigin@@YAJW4__WMI_MONITOR_CAPABILITY_ORIGIN_TYPE@@PEAW4_D3DKMDT_MONITOR_CAPABILITIES_ORIGIN@@@Z @ 0x1C001F4B8 (-ConvertMonitorCapablitiesOrigin@@YAJW4__WMI_MONITOR_CAPABILITY_ORIGIN_TYPE@@PEAW4_D3DKMDT_MONIT.c)
+ *     ?GetSerializationSizeInBytes@EdidMonitorDescriptor@DxgMonitor@@UEBAIXZ @ 0x1C03CB6A0 (-GetSerializationSizeInBytes@EdidMonitorDescriptor@DxgMonitor@@UEBAIXZ.c)
+ */
+
 void __fastcall DxgMonitor::EdidMonitorDescriptor::SerializeToBuffer(
         DxgMonitor::EdidMonitorDescriptor *this,
         struct _DMM_MONITORDESCRIPTORSET_SERIALIZATION *a2,

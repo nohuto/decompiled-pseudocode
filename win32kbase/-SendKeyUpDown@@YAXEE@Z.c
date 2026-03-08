@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SendKeyUpDown@@YAXEE@Z @ 0x1C021A6EC
+ * Callers:
+ *     ?MapFlexibleKeys@@YAHPEAUtagKE@@EPEAUDEVICEINFO@@@Z @ 0x1C0219E4C (-MapFlexibleKeys@@YAHPEAUtagKE@@EPEAUDEVICEINFO@@@Z.c)
+ * Callees:
+ *     xxxProcessKeyEvent @ 0x1C007EE00 (xxxProcessKeyEvent.c)
+ *     InternalMapVirtualKeyEx @ 0x1C0081970 (InternalMapVirtualKeyEx.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     GetCurrentKbdTables @ 0x1C021A790 (GetCurrentKbdTables.c)
+ */
+
 void __fastcall SendKeyUpDown(unsigned __int8 a1, char a2)
 {
   unsigned int v2; // ebx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?InternalCreateMenu@@YAPEAUtagMENU@@H@Z @ 0x1C00D76B8
+ * Callers:
+ *     ?SetLPITEMInfoNoRedraw@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagMENUITEMINFOW@@PEAU_UNICODE_STRING@@PEAH@Z @ 0x1C00A6ADC (-SetLPITEMInfoNoRedraw@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUtagMENUITEMINFOW@.c)
+ *     NtUserCreateMenu @ 0x1C00E4DE0 (NtUserCreateMenu.c)
+ *     NtUserCreatePopupMenu @ 0x1C00ED870 (NtUserCreatePopupMenu.c)
+ * Callees:
+ *     CheckGrantedAccess @ 0x1C00D7810 (CheckGrantedAccess.c)
+ *     ??$InitLookAsideRef@UtagMENU@@@@YAEPEAUtagMENU@@@Z @ 0x1C00D783C (--$InitLookAsideRef@UtagMENU@@@@YAEPEAUtagMENU@@@Z.c)
+ */
+
 struct tagMENU *__fastcall InternalCreateMenu(int a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rdi

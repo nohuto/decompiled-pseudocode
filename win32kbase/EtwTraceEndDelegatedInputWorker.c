@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceEndDelegatedInputWorker @ 0x1C00EDCE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetCallbackCount@@YACXZ @ 0x1C00EDBA8 (-GetCallbackCount@@YACXZ.c)
+ *     McTemplateK0cpttttttpppqqq_EtwWriteTransfer @ 0x1C01650D4 (McTemplateK0cpttttttpppqqq_EtwWriteTransfer.c)
+ */
+
 void __fastcall EtwTraceEndDelegatedInputWorker(char a1)
 {
   int v2; // r9d

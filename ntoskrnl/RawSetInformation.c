@@ -1,3 +1,14 @@
+/*
+ * XREFs of RawSetInformation @ 0x1409B57F8
+ * Callers:
+ *     RawDispatch @ 0x1406F2E80 (RawDispatch.c)
+ * Callees:
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     RawBeginOperation @ 0x14028DCD8 (RawBeginOperation.c)
+ *     RawEndOperation @ 0x14028E08C (RawEndOperation.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ */
+
 __int64 __fastcall RawSetInformation(__int64 a1, IRP *a2, __int64 a3)
 {
   unsigned int v6; // ebx

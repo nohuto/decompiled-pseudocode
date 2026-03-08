@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsRawMouseSubscriber@CInputDest@@QEBA_NXZ @ 0x1C01E39F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 bool __fastcall CInputDest::IsRawMouseSubscriber(CInputDest *this)
 {
   int v1; // eax

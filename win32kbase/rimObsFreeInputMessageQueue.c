@@ -1,3 +1,11 @@
+/*
+ * XREFs of rimObsFreeInputMessageQueue @ 0x1C01DC754
+ * Callers:
+ *     RawInputManagerObjectDelete @ 0x1C00361E4 (RawInputManagerObjectDelete.c)
+ * Callees:
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 void __fastcall rimObsFreeInputMessageQueue(__int64 a1)
 {
   char *v1; // rdi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBSM_LogUnhandledEvent @ 0x1C000A75C
+ * Callers:
+ *     HUBSM_FindAndSetTargetState @ 0x1C000A96C (HUBSM_FindAndSetTargetState.c)
+ * Callees:
+ *     McTemplateK0ppqqqq_EtwWriteTransfer @ 0x1C000A448 (McTemplateK0ppqqqq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_qLL @ 0x1C000A4F8 (WPP_RECORDER_SF_qLL.c)
+ *     HUBMISC_DbgBreak @ 0x1C0032F4C (HUBMISC_DbgBreak.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsMsgKM @ 0x1C0041C84 (MicrosoftTelemetryAssertTriggeredArgsMsgKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 NTSTATUS __fastcall HUBSM_LogUnhandledEvent(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rax

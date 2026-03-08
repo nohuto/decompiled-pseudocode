@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhBuildCompatibleID @ 0x1C004F2B4
+ * Callers:
+ *     UsbhSetupDevice @ 0x1C0039728 (UsbhSetupDevice.c)
+ *     UsbhCreatePdo @ 0x1C0053530 (UsbhCreatePdo.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhBuildClassCompatibleID @ 0x1C004EE18 (UsbhBuildClassCompatibleID.c)
+ *     UsbhBuildDeviceCompatibleID @ 0x1C004F8A8 (UsbhBuildDeviceCompatibleID.c)
+ *     UsbhMakeId @ 0x1C0050D48 (UsbhMakeId.c)
+ */
+
 __int64 __fastcall UsbhBuildCompatibleID(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v6; // r9

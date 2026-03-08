@@ -1,3 +1,19 @@
+/*
+ * XREFs of _PnpValidatePropertyData @ 0x140686FC8
+ * Callers:
+ *     ValidFilterExpression @ 0x1402BED30 (ValidFilterExpression.c)
+ *     _PnpSetObjectPropertyWorker @ 0x140686E0C (_PnpSetObjectPropertyWorker.c)
+ *     _PnpGetObjectPropertyWorker @ 0x1406D1148 (_PnpGetObjectPropertyWorker.c)
+ *     PiDqQueryValidateQueryData @ 0x140746B18 (PiDqQueryValidateQueryData.c)
+ *     PiSwValidatePropertyArray @ 0x1407859F8 (PiSwValidatePropertyArray.c)
+ * Callees:
+ *     _GetBaseTypeSize @ 0x140202A50 (_GetBaseTypeSize.c)
+ *     _IsFixedSizeType @ 0x140202B10 (_IsFixedSizeType.c)
+ *     RtlUnalignedStringCbLengthW @ 0x140202B38 (RtlUnalignedStringCbLengthW.c)
+ *     RtlLengthSecurityDescriptor @ 0x14071C8F0 (RtlLengthSecurityDescriptor.c)
+ *     RtlValidRelativeSecurityDescriptor @ 0x14071D120 (RtlValidRelativeSecurityDescriptor.c)
+ */
+
 __int64 __fastcall PnpValidatePropertyData(__int64 *SecurityDescriptor, ULONG SecurityDescriptorLength, int a3)
 {
   unsigned int v3; // ebx

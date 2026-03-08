@@ -1,3 +1,13 @@
+/*
+ * XREFs of WPP_IFR_SF_qPPd @ 0x1C002009C
+ * Callers:
+ *     ?DmaCompleted@FxDmaTransactionBase@@QEAAE_KPEAJW4FxDmaCompletionType@@@Z @ 0x1C001F684 (-DmaCompleted@FxDmaTransactionBase@@QEAAE_KPEAJW4FxDmaCompletionType@@@Z.c)
+ *     ?PrepareForSingleTransfer@FxDmaTransactionBase@@AEAAJXZ @ 0x1C001FAE0 (-PrepareForSingleTransfer@FxDmaTransactionBase@@AEAAJXZ.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_qPPd(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 id,

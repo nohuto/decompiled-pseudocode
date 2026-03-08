@@ -1,3 +1,15 @@
+/*
+ * XREFs of HMCreateHandleForObject @ 0x1C0088D60
+ * Callers:
+ *     ?RIMDeviceCallback_Created@CBaseInput@@AEAAKPEAURawInputManagerDeviceObject@@@Z @ 0x1C0088CB0 (-RIMDeviceCallback_Created@CBaseInput@@AEAAKPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?OnRIMDeviceCreated@CHidInput@@EEAA_NPEAURawInputManagerDeviceObject@@PEAUDEVICEINFO@@@Z @ 0x1C0211E80 (-OnRIMDeviceCreated@CHidInput@@EEAA_NPEAURawInputManagerDeviceObject@@PEAUDEVICEINFO@@@Z.c)
+ * Callees:
+ *     ?GetEtwUserHandleType@@YA?AW4EtwUserHandleType@@E@Z @ 0x1C00785AC (-GetEtwUserHandleType@@YA-AW4EtwUserHandleType@@E@Z.c)
+ *     RawInputManagerDeviceObjectReference @ 0x1C0088EF0 (RawInputManagerDeviceObjectReference.c)
+ *     EtwTraceUserCreateHandle @ 0x1C0088F2C (EtwTraceUserCreateHandle.c)
+ *     ?HMGrowHandleTable@@YAHXZ @ 0x1C00ADCB4 (-HMGrowHandleTable@@YAHXZ.c)
+ */
+
 __int64 __fastcall HMCreateHandleForObject(_QWORD *a1, unsigned __int8 a2)
 {
   __int64 v4; // rcx

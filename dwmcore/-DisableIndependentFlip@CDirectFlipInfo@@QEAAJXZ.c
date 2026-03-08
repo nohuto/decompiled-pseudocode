@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DisableIndependentFlip@CDirectFlipInfo@@QEAAJXZ @ 0x1801F3CD0
+ * Callers:
+ *     ?UpdateMPOCaps@COverlayContext@@QEAAJXZ @ 0x1800C8D58 (-UpdateMPOCaps@COverlayContext@@QEAAJXZ.c)
+ *     ?Activate@CDirectFlipInfo@@QEAAJXZ @ 0x1801F373C (-Activate@CDirectFlipInfo@@QEAAJXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CDirectFlipInfo::DisableIndependentFlip(CDirectFlipInfo *this)
 {
   unsigned int v2; // edi

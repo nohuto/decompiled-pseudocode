@@ -1,3 +1,11 @@
+/*
+ * XREFs of DNG_InitStretch @ 0x1C0081ACC
+ * Callers:
+ *     RenderNineGridInternal @ 0x1C0080D30 (RenderNineGridInternal.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall DNG_InitStretch(__int64 a1, unsigned int a2, unsigned int a3, int a4, int a5)
 {
   __int64 v6; // r11

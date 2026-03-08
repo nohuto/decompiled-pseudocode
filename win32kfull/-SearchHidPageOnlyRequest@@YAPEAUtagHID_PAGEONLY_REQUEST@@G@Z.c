@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SearchHidPageOnlyRequest@@YAPEAUtagHID_PAGEONLY_REQUEST@@G@Z @ 0x1C01AACAC
+ * Callers:
+ *     ?InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KHPEAUtagWND@@H@Z @ 0x1C00D604C (-InsertProcRequest@@YAHPEAUtagPROCESSINFO@@PEBUtagRAWINPUTDEVICE@@PEAUtagPROCESS_HID_REQUEST@@KH.c)
+ * Callees:
+ *     <none>
+ */
+
 struct tagHID_PAGEONLY_REQUEST *__fastcall SearchHidPageOnlyRequest(__int64 a1)
 {
   __int16 v1; // di

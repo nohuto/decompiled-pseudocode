@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiRemovePendingBadPageNode @ 0x1406284EC
+ * Callers:
+ *     MiSetPfnRemovalRequested @ 0x14064B908 (MiSetPfnRemovalRequested.c)
+ * Callees:
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ */
+
 void __fastcall MiRemovePendingBadPageNode(unsigned __int64 a1)
 {
   unsigned __int64 *v2; // rbx

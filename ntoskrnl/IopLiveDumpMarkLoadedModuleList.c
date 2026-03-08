@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopLiveDumpMarkLoadedModuleList @ 0x140A98AFC
+ * Callers:
+ *     IopLiveDumpMarkRequiredDumpData @ 0x140A98D24 (IopLiveDumpMarkRequiredDumpData.c)
+ * Callees:
+ *     MmIsSessionAddress @ 0x140239ED0 (MmIsSessionAddress.c)
+ *     MmAddRangeToCrashDump @ 0x14062DD30 (MmAddRangeToCrashDump.c)
+ */
+
 __int64 __fastcall IopLiveDumpMarkLoadedModuleList(__int64 a1)
 {
   int v2; // ebp

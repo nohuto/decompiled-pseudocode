@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtCompareObjects @ 0x140799440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 NTSTATUS __fastcall NtCompareObjects(void *a1, void *a2)
 {
   KPROCESSOR_MODE PreviousMode; // bl

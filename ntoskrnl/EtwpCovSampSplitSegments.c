@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpCovSampSplitSegments @ 0x1409EFE98
+ * Callers:
+ *     EtwpSetCoverageSamplerInformation @ 0x1409F0DFC (EtwpSetCoverageSamplerInformation.c)
+ * Callees:
+ *     _wcslwr @ 0x1403D3F30 (_wcslwr.c)
+ *     wcschr @ 0x1403D5D90 (wcschr.c)
+ */
+
 __int64 __fastcall EtwpCovSampSplitSegments(wchar_t *Str, __int64 a2)
 {
   const wchar_t *v3; // rbx

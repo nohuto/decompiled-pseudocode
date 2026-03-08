@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIWakeEmulationPrepare @ 0x1C0098BFC
+ * Callers:
+ *     ACPIDeviceInitializePowerRequest @ 0x1C001CF98 (ACPIDeviceInitializePowerRequest.c)
+ * Callees:
+ *     ACPICreateWakeInterruptRegistrationEntries @ 0x1C0098B50 (ACPICreateWakeInterruptRegistrationEntries.c)
+ */
+
 __int64 __fastcall ACPIWakeEmulationPrepare(__int64 a1)
 {
   __int64 v1; // rax

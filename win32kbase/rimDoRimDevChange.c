@@ -1,3 +1,27 @@
+/*
+ * XREFs of rimDoRimDevChange @ 0x1C00BC1AC
+ * Callers:
+ *     RIMCreateDev @ 0x1C0036CBC (RIMCreateDev.c)
+ *     RIMOnPnpNotification @ 0x1C00383E0 (RIMOnPnpNotification.c)
+ *     rimHandleAnyPnpRemovePendingDevices @ 0x1C003A13C (rimHandleAnyPnpRemovePendingDevices.c)
+ *     RIMDoOnPnpNotification @ 0x1C00872A8 (RIMDoOnPnpNotification.c)
+ *     RIMFreeSpecificDev @ 0x1C00BBF88 (RIMFreeSpecificDev.c)
+ *     rimDoRimDevChangeAsyncWorkItem @ 0x1C00BC0DC (rimDoRimDevChangeAsyncWorkItem.c)
+ *     RIMRemoveDevOfInputType @ 0x1C00C986C (RIMRemoveDevOfInputType.c)
+ *     RIMVirtCreateDev @ 0x1C019DFF8 (RIMVirtCreateDev.c)
+ *     RIMAddNonPnpDeviceOfTypeUsingSuppliedFileHandle @ 0x1C01A3C50 (RIMAddNonPnpDeviceOfTypeUsingSuppliedFileHandle.c)
+ *     RIMIDERemoveInjectionDevice @ 0x1C01A64F8 (RIMIDERemoveInjectionDevice.c)
+ *     RIMVirtDeviceClassNotifyAsyncWorkItem @ 0x1C01D032C (RIMVirtDeviceClassNotifyAsyncWorkItem.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     isChildPartition @ 0x1C0078FF0 (isChildPartition.c)
+ *     ?RimDevice@RIM@InputTraceLogging@@SAXPEBURIMDEV@@K@Z @ 0x1C00BC24C (-RimDevice@RIM@InputTraceLogging@@SAXPEBURIMDEV@@K@Z.c)
+ *     rimDoRimDevChangeCallback @ 0x1C00BC28C (rimDoRimDevChangeCallback.c)
+ *     RIMHandlePowerDeviceArrival @ 0x1C00BC314 (RIMHandlePowerDeviceArrival.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMHandleTTMDeviceRemoval @ 0x1C01E2A9C (RIMHandleTTMDeviceRemoval.c)
+ */
+
 void __fastcall rimDoRimDevChange(__int64 a1, __int64 a2, unsigned int a3)
 {
   unsigned int v6; // ebx

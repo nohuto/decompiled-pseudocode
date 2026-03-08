@@ -1,3 +1,25 @@
+/*
+ * XREFs of HvReallocateCell @ 0x1407A5D90
+ * Callers:
+ *     CmpSetValueKeyExisting @ 0x1406BAE08 (CmpSetValueKeyExisting.c)
+ *     CmpRemoveValueFromList @ 0x1406BB75C (CmpRemoveValueFromList.c)
+ *     CmpSetValueDataExisting @ 0x140796AA4 (CmpSetValueDataExisting.c)
+ *     CmpAddToLeaf @ 0x1407A4520 (CmpAddToLeaf.c)
+ *     CmpAddValueToListEx @ 0x1407A5A94 (CmpAddValueToListEx.c)
+ *     CmRestoreKey @ 0x140A08004 (CmRestoreKey.c)
+ *     CmpSplitLeaf @ 0x140A21D7C (CmpSplitLeaf.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpDoAllocateCell @ 0x1407A6420 (HvpDoAllocateCell.c)
+ *     HvpGetCellContextMove @ 0x1407A69E8 (HvpGetCellContextMove.c)
+ *     HvFreeCell @ 0x1407A6A90 (HvFreeCell.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall HvReallocateCell(
         ULONG_PTR BugCheckParameter3,
         ULONG_PTR BugCheckParameter4,

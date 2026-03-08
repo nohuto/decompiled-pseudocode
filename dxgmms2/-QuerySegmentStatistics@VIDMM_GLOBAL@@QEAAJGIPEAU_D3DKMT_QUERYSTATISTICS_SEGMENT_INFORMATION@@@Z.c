@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?QuerySegmentStatistics@VIDMM_GLOBAL@@QEAAJGIPEAU_D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION@@@Z @ 0x1C00EEB9C
+ * Callers:
+ *     ?VidMmQuerySegmentStatistics@@YAJPEAVVIDMM_GLOBAL@@GIPEAU_D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMATION@@@Z @ 0x1C002CDE0 (-VidMmQuerySegmentStatistics@@YAJPEAVVIDMM_GLOBAL@@GIPEAU_D3DKMT_QUERYSTATISTICS_SEGMENT_INFORMA.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VIDMM_GLOBAL::QuerySegmentStatistics(
         VIDMM_GLOBAL *this,
         unsigned __int16 a2,

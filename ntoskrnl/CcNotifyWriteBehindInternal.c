@@ -1,3 +1,17 @@
+/*
+ * XREFs of CcNotifyWriteBehindInternal @ 0x14053467C
+ * Callers:
+ *     CcScheduleLazyWriteScan @ 0x140242B0C (CcScheduleLazyWriteScan.c)
+ *     CcNotifyWriteBehindEx @ 0x140534620 (CcNotifyWriteBehindEx.c)
+ *     CcNotifyWriteBehindHelper @ 0x140534650 (CcNotifyWriteBehindHelper.c)
+ *     CcExitPartition @ 0x140536FC8 (CcExitPartition.c)
+ * Callees:
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     CcForEachPrivateVolumeCacheMap @ 0x1403CB270 (CcForEachPrivateVolumeCacheMap.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 char __fastcall CcNotifyWriteBehindInternal(__int64 a1, int a2)
 {
   char result; // al

@@ -1,3 +1,12 @@
+/*
+ * XREFs of EditionUpdateRawMouseMode @ 0x1C0036FE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PtiMouseFromQ @ 0x1C0037050 (PtiMouseFromQ.c)
+ *     HasHidTable @ 0x1C0038CB0 (HasHidTable.c)
+ */
+
 __int64 __fastcall EditionUpdateRawMouseMode(__int64 a1)
 {
   __int64 result; // rax

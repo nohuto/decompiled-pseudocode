@@ -1,3 +1,12 @@
+/*
+ * XREFs of _CmSetDevicePanelMappedProperty @ 0x140A64260
+ * Callers:
+ *     _PnpDispatchDevicePanel @ 0x140823890 (_PnpDispatchDevicePanel.c)
+ *     _CmDeleteDevicePanelWorker @ 0x140A63660 (_CmDeleteDevicePanelWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmSetDevicePanelMappedProperty(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   unsigned int v5; // r10d

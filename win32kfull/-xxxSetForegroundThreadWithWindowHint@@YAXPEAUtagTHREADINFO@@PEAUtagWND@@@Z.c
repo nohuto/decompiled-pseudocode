@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?xxxSetForegroundThreadWithWindowHint@@YAXPEAUtagTHREADINFO@@PEAUtagWND@@@Z @ 0x1C009AEB4
+ * Callers:
+ *     xxxSetModernAppWindow @ 0x1C000E204 (xxxSetModernAppWindow.c)
+ *     xxxSetForegroundThread @ 0x1C0016E60 (xxxSetForegroundThread.c)
+ *     _anonymous_namespace_::xxxSendFocusMessages @ 0x1C009A850 (_anonymous_namespace_--xxxSendFocusMessages.c)
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C00A126C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ * Callees:
+ *     SetNewForegroundPti @ 0x1C009B3E0 (SetNewForegroundPti.c)
+ *     _anonymous_namespace_::NotifyIAMWindowManagementEvent @ 0x1C009B94C (_anonymous_namespace_--NotifyIAMWindowManagementEvent.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     Feature_KIDV2__private_IsEnabledDeviceUsage @ 0x1C012C6EC (Feature_KIDV2__private_IsEnabledDeviceUsage.c)
+ *     zzzDelegateInputFocusLostWindowEvent @ 0x1C012E030 (zzzDelegateInputFocusLostWindowEvent.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 void __fastcall xxxSetForegroundThreadWithWindowHint(struct tagTHREADINFO *a1, struct tagWND *a2)
 {
   __int64 v2; // r8

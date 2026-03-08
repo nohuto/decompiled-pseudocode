@@ -1,3 +1,11 @@
+/*
+ * XREFs of IntpInitClassContext @ 0x140B43B54
+ * Callers:
+ *     IntPartCreate @ 0x140B43808 (IntPartCreate.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall IntpInitClassContext(_BYTE *a1, unsigned __int8 a2, unsigned int *a3)
 {
   unsigned int v3; // edi

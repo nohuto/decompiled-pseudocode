@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?VidSchiGpuPerfTracing@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C0035B2C
+ * Callers:
+ *     ?VidSchiNodePerfTracingThread@@YAXPEAX@Z @ 0x1C0035E60 (-VidSchiNodePerfTracingThread@@YAXPEAX@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0xqxxxxqxqxx_EtwWriteTransfer @ 0x1C0039F40 (McTemplateK0xqxxxxqxqxx_EtwWriteTransfer.c)
+ */
+
 void __fastcall VidSchiGpuPerfTracing(struct _VIDSCH_NODE *a1)
 {
   __int64 v1; // rdi

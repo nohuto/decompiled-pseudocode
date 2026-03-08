@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z @ 0x1C00975C4
+ * Callers:
+ *     NtUserRegisterWindowArrangementCallout @ 0x1C0097500 (NtUserRegisterWindowArrangementCallout.c)
+ * Callees:
+ *     ?_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z @ 0x1C003AB6C (-_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     IsMessageOnlyWindow @ 0x1C00967C0 (IsMessageOnlyWindow.c)
+ *     IsIAMThread @ 0x1C00967E0 (IsIAMThread.c)
+ *     ?SetWindow@ShellWindowManagement@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAU2@@Z @ 0x1C0096800 (-SetWindow@ShellWindowManagement@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAU2@@Z.c)
+ *     IAMThreadAccessGranted @ 0x1C009A2DC (IAMThreadAccessGranted.c)
+ *     IsShellProcess @ 0x1C009C278 (IsShellProcess.c)
+ *     ?_UnregisterHotKey@@YAHPEAUtagWND@@H@Z @ 0x1C00B632C (-_UnregisterHotKey@@YAHPEAUtagWND@@H@Z.c)
+ *     Feature_ReportShellHotKey__private_IsEnabledDeviceUsage @ 0x1C012C740 (Feature_ReportShellHotKey__private_IsEnabledDeviceUsage.c)
+ */
+
 __int64 __fastcall _RegisterWindowArrangementCallout(struct tagWND *a1, int a2)
 {
   struct tagWND **v4; // rsi

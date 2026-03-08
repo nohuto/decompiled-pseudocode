@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_AND_TRACE_SF_ddddddddddS @ 0x1C00F79F0
+ * Callers:
+ *     ?xxxGetWorkAreasFromShell@@YA_NXZ @ 0x1C00F7B94 (-xxxGetWorkAreasFromShell@@YA_NXZ.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 _UNKNOWN **__fastcall WPP_RECORDER_AND_TRACE_SF_ddddddddddS(
         __int64 a1,
         char a2,

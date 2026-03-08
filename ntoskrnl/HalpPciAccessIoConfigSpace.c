@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpPciAccessIoConfigSpace @ 0x14039127C
+ * Callers:
+ *     HalpPCIConfig @ 0x1402D7810 (HalpPCIConfig.c)
+ * Callees:
+ *     HalpPCIPerformConfigAccess @ 0x1402D7B78 (HalpPCIPerformConfigAccess.c)
+ */
+
 char __fastcall HalpPciAccessIoConfigSpace(
         __int16 a1,
         unsigned __int8 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnDriverUnload@CTopologyManager@@SAXXZ @ 0x1C00E2B54
+ * Callers:
+ *     EditionBaseDriverUnloadUninitialize @ 0x1C00E23C0 (EditionBaseDriverUnloadUninitialize.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ */
+
 void CTopologyManager::OnDriverUnload(void)
 {
   CMonitorTopology *v0; // rcx

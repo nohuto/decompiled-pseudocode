@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetInputSink@CInteraction@@UEBAPEAXXZ @ 0x180208C00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void *__fastcall CInteraction::GetInputSink(CInteraction *this)
 {
   __int64 v1; // rdx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtClearEvent @ 0x14075E010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExpResetCrossVmEvent @ 0x140A03378 (ExpResetCrossVmEvent.c)
+ */
+
 __int64 __fastcall NtClearEvent(HANDLE Handle)
 {
   KPROCESSOR_MODE PreviousMode; // bp

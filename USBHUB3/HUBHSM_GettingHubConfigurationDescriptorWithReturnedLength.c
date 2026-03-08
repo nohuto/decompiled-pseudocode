@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBHSM_GettingHubConfigurationDescriptorWithReturnedLength @ 0x1C00096E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     HUBHTX_GetDescriptor @ 0x1C00034C0 (HUBHTX_GetDescriptor.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ */
+
 __int64 __fastcall HUBHSM_GettingHubConfigurationDescriptorWithReturnedLength(__int64 a1)
 {
   __int64 v1; // rbx

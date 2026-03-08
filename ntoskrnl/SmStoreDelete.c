@@ -1,3 +1,13 @@
+/*
+ * XREFs of SmStoreDelete @ 0x1409D4D34
+ * Callers:
+ *     SmcCacheCleanup @ 0x1409D7CF4 (SmcCacheCleanup.c)
+ *     SmcStoreDelete @ 0x1409D86C8 (SmcStoreDelete.c)
+ * Callees:
+ *     ZwSetSystemInformation @ 0x140415A30 (ZwSetSystemInformation.c)
+ *     SmStorePhysicalRequestIssue @ 0x1409D4DC0 (SmStorePhysicalRequestIssue.c)
+ */
+
 int *__fastcall SmStoreDelete(__int64 a1, int a2, int a3)
 {
   int *result; // rax

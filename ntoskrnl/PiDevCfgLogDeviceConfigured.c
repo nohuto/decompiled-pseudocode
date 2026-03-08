@@ -1,3 +1,29 @@
+/*
+ * XREFs of PiDevCfgLogDeviceConfigured @ 0x140875198
+ * Callers:
+ *     PiDevCfgProcessDevice @ 0x140873308 (PiDevCfgProcessDevice.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x140875198 (PiDevCfgLogDeviceConfigured.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     RtlTimeToTimeFields @ 0x1402D14B0 (RtlTimeToTimeFields.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintfEx @ 0x1403C1A7C (RtlUnicodeStringPrintfEx.c)
+ *     PnpGetLogString @ 0x1403C1C48 (PnpGetLogString.c)
+ *     McTemplateK0zzjzzztzdzztdz_EtwWriteTransfer @ 0x1403C1E28 (McTemplateK0zzjzzztzdzztdz_EtwWriteTransfer.c)
+ *     PnpDuplicateUnicodeString @ 0x1403C2368 (PnpDuplicateUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlUnicodeStringExHandleOtherFlags @ 0x14055D498 (RtlUnicodeStringExHandleOtherFlags.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     RtlStringFromGUIDEx @ 0x140733E90 (RtlStringFromGUIDEx.c)
+ *     RtlCreateUnicodeString @ 0x140747D00 (RtlCreateUnicodeString.c)
+ *     ExpAllocateStringRoutine @ 0x140777DB0 (ExpAllocateStringRoutine.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     PiDevCfgQueryObjectProperties @ 0x14086AC20 (PiDevCfgQueryObjectProperties.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x140875198 (PiDevCfgLogDeviceConfigured.c)
+ *     PnpTraceDeviceConfig @ 0x1408773C8 (PnpTraceDeviceConfig.c)
+ */
+
 void __fastcall PiDevCfgLogDeviceConfigured(__int64 a1, __int64 a2, __int64 a3, int a4, int a5, __int64 a6, __int64 a7)
 {
   __int64 v7; // rdi

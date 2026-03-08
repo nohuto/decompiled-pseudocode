@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidSchiIsExpectedVSyncCookie@@YAHPEAU_VIDSCH_GLOBAL@@PEAU_VIDSCH_PRESENT_INFO@@PEAU_VIDSCH_FLIP_QUEUE_ENTRY@@PEAU_VIDSCH_VSYNC_COOKIE@@@Z @ 0x1C000BD30
+ * Callers:
+ *     VidSchiProcessDpcVSyncCookie @ 0x1C0009880 (VidSchiProcessDpcVSyncCookie.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VidSchiIsExpectedVSyncCookie(
         struct _VIDSCH_GLOBAL *a1,
         struct _VIDSCH_PRESENT_INFO *a2,

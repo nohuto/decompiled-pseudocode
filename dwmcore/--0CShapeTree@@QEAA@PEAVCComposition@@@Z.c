@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CShapeTree@@QEAA@PEAVCComposition@@@Z @ 0x1800B8124
+ * Callers:
+ *     ?EnsureShapeTree@CShapeVisual@@AEAAJPEAPEAVCShapeTree@@@Z @ 0x1800B8080 (-EnsureShapeTree@CShapeVisual@@AEAAJPEAPEAVCShapeTree@@@Z.c)
+ * Callees:
+ *     ??0CContainerVectorShape@@QEAA@PEAVCComposition@@@Z @ 0x1800B8A24 (--0CContainerVectorShape@@QEAA@PEAVCComposition@@@Z.c)
+ */
+
 CShapeTree *__fastcall CShapeTree::CShapeTree(CShapeTree *this, struct CComposition *a2)
 {
   __int64 v3; // rcx

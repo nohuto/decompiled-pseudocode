@@ -1,3 +1,12 @@
+/*
+ * XREFs of _CmGetDevicePanelMappedPropertyKeys @ 0x140A63950
+ * Callers:
+ *     _PnpDispatchDevicePanel @ 0x140823890 (_PnpDispatchDevicePanel.c)
+ *     _CmDeleteDevicePanelWorker @ 0x140A63660 (_CmDeleteDevicePanelWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmGetDevicePanelMappedPropertyKeys(
         __int64 a1,
         __int64 a2,

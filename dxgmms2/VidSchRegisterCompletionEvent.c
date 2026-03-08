@@ -1,3 +1,19 @@
+/*
+ * XREFs of VidSchRegisterCompletionEvent @ 0x1C00AE0A4
+ * Callers:
+ *     ?VidSchiSuspendResumeHwContexts@@YAXPEAU_VIDSCH_DEVICE@@_N@Z @ 0x1C00131F8 (-VidSchiSuspendResumeHwContexts@@YAXPEAU_VIDSCH_DEVICE@@_N@Z.c)
+ *     VidSchBlockUntilNoUnorderedWaitsInDevice @ 0x1C0086720 (VidSchBlockUntilNoUnorderedWaitsInDevice.c)
+ *     VidSchSubmitCommand @ 0x1C00A4B80 (VidSchSubmitCommand.c)
+ *     VidSchiAllocateQueuePacket @ 0x1C00A5470 (VidSchiAllocateQueuePacket.c)
+ *     VidSchiWaitFlushCompletion @ 0x1C00ADCEC (VidSchiWaitFlushCompletion.c)
+ *     VidSchWaitForQueuedPresentLimit @ 0x1C00B21F0 (VidSchWaitForQueuedPresentLimit.c)
+ *     VidSchiAllocateHwQueuePacket @ 0x1C00C4C32 (VidSchiAllocateHwQueuePacket.c)
+ *     ?WaitOnAllocationPresentQueue@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@I@Z @ 0x1C00EBBC4 (-WaitOnAllocationPresentQueue@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@I@Z.c)
+ *     ?WaitDmaBufferNotBusy@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@EPEAE@Z @ 0x1C00F05A8 (-WaitDmaBufferNotBusy@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@EPEAE@Z.c)
+ * Callees:
+ *     VidSchiInterlockedInsertTailList @ 0x1C00035E0 (VidSchiInterlockedInsertTailList.c)
+ */
+
 void __fastcall VidSchRegisterCompletionEvent(__int64 a1, __int64 a2)
 {
   int v4; // edx

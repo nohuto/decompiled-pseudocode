@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetSupportedMonitorFrequencyRanges@EdidMonitorDescriptor@DxgMonitor@@UEBAJPEAGPEAU_FrequencyRangeDescriptor@@@Z @ 0x1C01FC9C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EDID_V1_GetSupportedMonitorFrequencyRanges@@YAJW4__WMI_MONITOR_CAPABILITY_ORIGIN_TYPE@@KPEBEPEAGPEAU_FrequencyRangeDescriptor@@@Z @ 0x1C001DB1C (-EDID_V1_GetSupportedMonitorFrequencyRanges@@YAJW4__WMI_MONITOR_CAPABILITY_ORIGIN_TYPE@@KPEBEPEA.c)
+ */
+
 __int64 __fastcall DxgMonitor::EdidMonitorDescriptor::GetSupportedMonitorFrequencyRanges(
         DxgMonitor::EdidMonitorDescriptor *this,
         unsigned __int16 *a2,

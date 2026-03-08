@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpFlsSetValue @ 0x14076B564
+ * Callers:
+ *     PsTlsSetValue @ 0x14076B4A0 (PsTlsSetValue.c)
+ * Callees:
+ *     RtlpFlsSetValueSlot @ 0x14076B5F4 (RtlpFlsSetValueSlot.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall RtlpFlsSetValue(__int64 a1, __int64 *a2, int a3, __int64 a4, int a5)
 {
   __int64 Pool2; // rax

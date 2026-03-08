@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpMapTransferV3 @ 0x140512CCC
+ * Callers:
+ *     IoMapTransferInternal @ 0x140452EBE (IoMapTransferInternal.c)
+ * Callees:
+ *     HalpDmaMapContiguousTransferV3 @ 0x1404FDFEC (HalpDmaMapContiguousTransferV3.c)
+ *     HalpDmaMapScatterTransferV3 @ 0x1404FE110 (HalpDmaMapScatterTransferV3.c)
+ *     HalpDmaZeroMapBuffers @ 0x14050F420 (HalpDmaZeroMapBuffers.c)
+ */
+
 __int64 __fastcall HalpMapTransferV3(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int *a5, char a6, char a7)
 {
   __int16 v7; // bp

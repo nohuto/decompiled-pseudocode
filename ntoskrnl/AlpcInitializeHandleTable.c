@@ -1,3 +1,13 @@
+/*
+ * XREFs of AlpcInitializeHandleTable @ 0x14071378C
+ * Callers:
+ *     AlpcpCreateClientPort @ 0x140713330 (AlpcpCreateClientPort.c)
+ *     AlpcpCreateConnectionPort @ 0x14077D738 (AlpcpCreateConnectionPort.c)
+ * Callees:
+ *     ExAllocateFromNPagedLookasideList @ 0x14023FE20 (ExAllocateFromNPagedLookasideList.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall AlpcInitializeHandleTable(__int64 a1)
 {
   PVOID v2; // rax

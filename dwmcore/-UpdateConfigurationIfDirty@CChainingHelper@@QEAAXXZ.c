@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?UpdateConfigurationIfDirty@CChainingHelper@@QEAAXXZ @ 0x180272FD0
+ * Callers:
+ *     ?NotifyExpressionProcessingComplete@CInteractionTracker@@QEAAXXZ @ 0x18012E9A8 (-NotifyExpressionProcessingComplete@CInteractionTracker@@QEAAXXZ.c)
+ *     ?ReconfigureAllManipulations@InteractionSourceManager@@QEAAXXZ @ 0x180271C7C (-ReconfigureAllManipulations@InteractionSourceManager@@QEAAXXZ.c)
+ *     ?ClearAllConfigurations@CChainingHelper@@QEAAXXZ @ 0x180272F40 (-ClearAllConfigurations@CChainingHelper@@QEAAXXZ.c)
+ * Callees:
+ *     CChainingHelper::RunForAllAxes__lambda_40b2a6404f1a20f79c4b9feef5831a62___ @ 0x180272BB0 (CChainingHelper--RunForAllAxes__lambda_40b2a6404f1a20f79c4b9feef5831a62___.c)
+ *     CChainingHelper::RunForAllAxes__lambda_f3ac08a02e4a7ab098607de630a59e6d___ @ 0x180272C20 (CChainingHelper--RunForAllAxes__lambda_f3ac08a02e4a7ab098607de630a59e6d___.c)
+ *     CChainingHelper::RunForAllAxes__lambda_ff7ff6922ce62528cf9facebf3a4fb75___ @ 0x180272CB0 (CChainingHelper--RunForAllAxes__lambda_ff7ff6922ce62528cf9facebf3a4fb75___.c)
+ */
+
 void __fastcall CChainingHelper::UpdateConfigurationIfDirty(CChainingHelper *this)
 {
   char v1; // al

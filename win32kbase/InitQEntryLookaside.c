@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitQEntryLookaside @ 0x1C031FF8C
+ * Callers:
+ *     Win32UserInitialize @ 0x1C031E444 (Win32UserInitialize.c)
+ * Callees:
+ *     ?AllocatePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_KIII@Z @ 0x1C00C6824 (-AllocatePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_KIII@Z.c)
+ */
+
 __int64 __fastcall InitQEntryLookaside(NSInstrumentation::CLeakTrackingAllocator *a1)
 {
   __int64 PagedLookasideList; // rbx

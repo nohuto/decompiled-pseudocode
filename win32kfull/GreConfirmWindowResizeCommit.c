@@ -1,3 +1,13 @@
+/*
+ * XREFs of GreConfirmWindowResizeCommit @ 0x1C0269ED4
+ * Callers:
+ *     NtUserConfirmResizeCommit @ 0x1C01CEEF0 (NtUserConfirmResizeCommit.c)
+ * Callees:
+ *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C00296D4 (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
+ *     IsDwmActive @ 0x1C002CF30 (IsDwmActive.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall GreConfirmWindowResizeCommit(Gre::Base *a1)
 {
   unsigned int v2; // edi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserDeregisterShellHookWindow @ 0x1C00EFB50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _DeregisterShellHookWindow @ 0x1C00EFC04 (_DeregisterShellHookWindow.c)
+ */
+
 __int64 __fastcall NtUserDeregisterShellHookWindow(__int64 a1)
 {
   __int64 v2; // rax

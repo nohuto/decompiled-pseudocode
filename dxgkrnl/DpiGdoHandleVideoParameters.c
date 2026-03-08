@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiGdoHandleVideoParameters @ 0x1C03A5E88
+ * Callers:
+ *     DpiGdoDispatchIoctl @ 0x1C03A5E20 (DpiGdoDispatchIoctl.c)
+ * Callees:
+ *     DxgkHandleVideoParameters @ 0x1C0391C6C (DxgkHandleVideoParameters.c)
+ */
+
 __int64 __fastcall DpiGdoHandleVideoParameters(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax

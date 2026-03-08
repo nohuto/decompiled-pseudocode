@@ -1,3 +1,11 @@
+/*
+ * XREFs of NeedsWindowEdge @ 0x1C002E60C
+ * Callers:
+ *     xxxSetWindowStyle @ 0x1C002DD90 (xxxSetWindowStyle.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NeedsWindowEdge(int a1, int a2, unsigned int a3)
 {
   __int64 result; // rax

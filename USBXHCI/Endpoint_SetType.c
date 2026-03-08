@@ -1,3 +1,11 @@
+/*
+ * XREFs of Endpoint_SetType @ 0x1C006E21C
+ * Callers:
+ *     Endpoint_Create @ 0x1C006D624 (Endpoint_Create.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Endpoint_SetType(__int64 a1)
 {
   int v1; // r8d

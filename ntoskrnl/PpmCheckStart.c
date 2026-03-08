@@ -1,3 +1,17 @@
+/*
+ * XREFs of PpmCheckStart @ 0x1402D1D84
+ * Callers:
+ *     PpmCheckCustomRun @ 0x1402D1B4C (PpmCheckCustomRun.c)
+ *     PpmCheckPeriodicStart @ 0x1402D1CE0 (PpmCheckPeriodicStart.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     PpmPerfSetAllDomainsToUpdate @ 0x1402D1B24 (PpmPerfSetAllDomainsToUpdate.c)
+ *     PpmCheckRun @ 0x1402D1EB0 (PpmCheckRun.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall PpmCheckStart(int a1)
 {
   __int64 v1; // rdi

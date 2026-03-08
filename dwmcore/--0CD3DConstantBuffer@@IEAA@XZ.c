@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CD3DConstantBuffer@@IEAA@XZ @ 0x1800D0384
+ * Callers:
+ *     ?Create@CD3DConstantBuffer@@SAJPEAVCD3DDevice@@IW4D3D11_USAGE@@PEBXPEAPEAV1@@Z @ 0x1800D0218 (-Create@CD3DConstantBuffer@@SAJPEAVCD3DDevice@@IW4D3D11_USAGE@@PEBXPEAPEAV1@@Z.c)
+ * Callees:
+ *     ??0CD3DResource@@IEAA@_N@Z @ 0x1800D0454 (--0CD3DResource@@IEAA@_N@Z.c)
+ */
+
 CD3DConstantBuffer *__fastcall CD3DConstantBuffer::CD3DConstantBuffer(CD3DConstantBuffer *this)
 {
   __int64 v1; // r11

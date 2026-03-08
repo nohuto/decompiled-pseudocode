@@ -1,3 +1,16 @@
+/*
+ * XREFs of ??$vGarbageCollectObject@VCOLORSPACEGC@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00DEC7C
+ * Callers:
+ *     ?vGarbageCollectObjects@@YAXXZ @ 0x1C006F238 (-vGarbageCollectObjects@@YAXXZ.c)
+ * Callees:
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C004A440 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C004A680 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     ??1HANDLELOCK@@QEAA@XZ @ 0x1C004B670 (--1HANDLELOCK@@QEAA@XZ.c)
+ *     HmgShareLock @ 0x1C00A3060 (HmgShareLock.c)
+ *     ??1COLORSPACEREF@@QEAA@XZ @ 0x1C00DEE88 (--1COLORSPACEREF@@QEAA@XZ.c)
+ *     ?bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z @ 0x1C00DEF60 (-bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z.c)
+ */
+
 void __fastcall vGarbageCollectObject<COLORSPACEGC>(unsigned int a1)
 {
   __int64 v2; // rax

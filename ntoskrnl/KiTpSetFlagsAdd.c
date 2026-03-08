@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiTpSetFlagsAdd @ 0x140AF15F8
+ * Callers:
+ *     KiTpEmulateGroup0Instruction @ 0x140AF043C (KiTpEmulateGroup0Instruction.c)
+ *     KiTpEmulateGroup1Instruction @ 0x140AF0754 (KiTpEmulateGroup1Instruction.c)
+ * Callees:
+ *     KiTpSetFlagsZeroSignParity @ 0x140AF17E8 (KiTpSetFlagsZeroSignParity.c)
+ */
+
 __int64 __fastcall KiTpSetFlagsAdd(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   char v5; // r10

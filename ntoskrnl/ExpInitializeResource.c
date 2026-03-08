@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpInitializeResource @ 0x1403BF090
+ * Callers:
+ *     ExInitializeFastResource @ 0x1403BEFD0 (ExInitializeFastResource.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlStdLogStackTrace @ 0x1405A70F4 (RtlStdLogStackTrace.c)
+ *     RtlStdReleaseStackTrace @ 0x1405A7180 (RtlStdReleaseStackTrace.c)
+ *     RtlpStdGetRecordedStackTraceIndex @ 0x1405A7574 (RtlpStdGetRecordedStackTraceIndex.c)
+ */
+
 void *__fastcall ExpInitializeResource(_QWORD *a1)
 {
   void *result; // rax

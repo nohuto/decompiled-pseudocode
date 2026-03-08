@@ -1,3 +1,13 @@
+/*
+ * XREFs of _anonymous_namespace_::SequenceEncoder::AppendIndexSet @ 0x18010C108
+ * Callers:
+ *     _anonymous_namespace_::SequenceEncoder::Serialize @ 0x18010C1B8 (_anonymous_namespace_--SequenceEncoder--Serialize.c)
+ * Callees:
+ *     ?AppendVarInt@Base853Encoder@@QEAAXI@Z @ 0x18010CA14 (-AppendVarInt@Base853Encoder@@QEAAXI@Z.c)
+ *     ??$_Find_lower_bound@_K@?$_Tree@V?$_Tmap_traits@_KIU?$less@_K@std@@V?$allocator@U?$pair@$$CB_KI@std@@@2@$0A@@std@@@std@@IEBA?AU?$_Tree_find_result@PEAU?$_Tree_node@U?$pair@$$CB_KI@std@@PEAX@std@@@1@AEB_K@Z @ 0x18010CC64 (--$_Find_lower_bound@_K@-$_Tree@V-$_Tmap_traits@_KIU-$less@_K@std@@V-$allocator@U-$pair@$$CB_KI@.c)
+ *     ?_Min@?$_Tree_val@U?$_Tree_simple_types@_K@std@@@std@@SAPEAU?$_Tree_node@_KPEAX@2@PEAU32@@Z @ 0x18010CCB4 (-_Min@-$_Tree_val@U-$_Tree_simple_types@_K@std@@@std@@SAPEAU-$_Tree_node@_KPEAX@2@PEAU32@@Z.c)
+ */
+
 void __fastcall anonymous_namespace_::SequenceEncoder::AppendIndexSet(Base853Encoder *this, __int64 a2)
 {
   __int64 i; // rbx

@@ -1,3 +1,22 @@
+/*
+ * XREFs of $$ba @ 0x140B0E898
+ * Callers:
+ *     KiSwInterruptDispatch @ 0x1403DEA50 (KiSwInterruptDispatch.c)
+ *     sub_1403DFCC0 @ 0x1403DFCC0 (sub_1403DFCC0.c)
+ *     sub_1403EC0EC @ 0x1403EC0EC (sub_1403EC0EC.c)
+ *     sub_1403ED020 @ 0x1403ED020 (sub_1403ED020.c)
+ *     FsRtlMdlReadCompleteDevEx @ 0x140AF7010 (FsRtlMdlReadCompleteDevEx.c)
+ *     sub_140B0A7A8 @ 0x140B0A7A8 (sub_140B0A7A8.c)
+ *     sub_140B0C838 @ 0x140B0C838 (sub_140B0C838.c)
+ *     sub_140B0F1A0 @ 0x140B0F1A0 (sub_140B0F1A0.c)
+ *     sub_140B0FCB0 @ 0x140B0FCB0 (sub_140B0FCB0.c)
+ *     sub_140B10360 @ 0x140B10360 (sub_140B10360.c)
+ *     sub_140B15070 @ 0x140B15070 (sub_140B15070.c)
+ *     sub_140B16730 @ 0x140B16730 (sub_140B16730.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall __ba(__int64 a1, __int64 a2)
 {
   unsigned __int128 v2; // rax

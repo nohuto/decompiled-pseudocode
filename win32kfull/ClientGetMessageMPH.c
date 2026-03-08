@@ -1,3 +1,14 @@
+/*
+ * XREFs of ClientGetMessageMPH @ 0x1C0003090
+ * Callers:
+ *     NtUserGetMessage @ 0x1C006DA50 (NtUserGetMessage.c)
+ *     NtUserPeekMessage @ 0x1C006F140 (NtUserPeekMessage.c)
+ *     xxxInternalGetMessage @ 0x1C00946B0 (xxxInternalGetMessage.c)
+ * Callees:
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C0044080 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall ClientGetMessageMPH(_OWORD *a1, __int64 a2, int a3, int a4, int a5, int a6)
 {
   __int64 v7; // rax

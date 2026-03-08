@@ -1,3 +1,26 @@
+/*
+ * XREFs of PiDrvDbQuerySystemPathWin32 @ 0x14081DD70
+ * Callers:
+ *     PiDrvDbResolveFilePathKeyValues @ 0x14081DBF0 (PiDrvDbResolveFilePathKeyValues.c)
+ * Callees:
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PiDrvDbFindNode @ 0x140562C40 (PiDrvDbFindNode.c)
+ *     RtlpQueryRegistryValues @ 0x14069B3C0 (RtlpQueryRegistryValues.c)
+ *     RtlPrefixUnicodeString @ 0x1406D5A70 (RtlPrefixUnicodeString.c)
+ *     IoQueryFileDosDeviceName @ 0x14071FFB0 (IoQueryFileDosDeviceName.c)
+ *     RtlDuplicateUnicodeString @ 0x140761970 (RtlDuplicateUnicodeString.c)
+ *     ExpAllocateStringRoutine @ 0x140777DB0 (ExpAllocateStringRoutine.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     PiDrvDbGetNodeSystemRoot @ 0x14081D958 (PiDrvDbGetNodeSystemRoot.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDrvDbQuerySystemPathWin32(UNICODE_STRING *String2, PUNICODE_STRING StringOut)
 {
   PVOID v4; // r15

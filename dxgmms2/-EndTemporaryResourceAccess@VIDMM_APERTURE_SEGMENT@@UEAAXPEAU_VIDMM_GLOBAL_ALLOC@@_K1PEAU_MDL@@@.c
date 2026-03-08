@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EndTemporaryResourceAccess@VIDMM_APERTURE_SEGMENT@@UEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAU_MDL@@@Z @ 0x1C00F8060
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SysMmGetLogicalAddress@@YA_KQEAX@Z @ 0x1C0001754 (-SysMmGetLogicalAddress@@YA_KQEAX@Z.c)
+ *     ?UnmapTemporaryResource@VIDMM_APERTURE_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAU_MDL@@@Z @ 0x1C00F8E28 (-UnmapTemporaryResource@VIDMM_APERTURE_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAU_MDL@@@Z.c)
+ */
+
 void __fastcall VIDMM_APERTURE_SEGMENT::EndTemporaryResourceAccess(
         VIDMM_APERTURE_SEGMENT *this,
         void **a2,

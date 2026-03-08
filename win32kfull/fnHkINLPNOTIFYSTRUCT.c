@@ -1,3 +1,13 @@
+/*
+ * XREFs of fnHkINLPNOTIFYSTRUCT @ 0x1C0213A24
+ * Callers:
+ *     ?xxxCallTSFNotifyHook@@YAXPEAUtagNOTIFY@@@Z @ 0x1C01C0EB4 (-xxxCallTSFNotifyHook@@YAXPEAUtagNOTIFY@@@Z.c)
+ * Callees:
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00344F8 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0034558 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall fnHkINLPNOTIFYSTRUCT(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int *a6)
 {
   int v8; // ebx

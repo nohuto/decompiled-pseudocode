@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIInitShutdownInProgress @ 0x1C003CC08
+ * Callers:
+ *     ACPINotifyOsShutdownWorker @ 0x1C003CD40 (ACPINotifyOsShutdownWorker.c)
+ *     AcpiShutdownNotificationTimerWorkItem @ 0x1C003D9E0 (AcpiShutdownNotificationTimerWorkItem.c)
+ * Callees:
+ *     ACPIInternalEvaluateOST @ 0x1C002E560 (ACPIInternalEvaluateOST.c)
+ */
+
 BOOLEAN __fastcall ACPIInitShutdownInProgress(char *DeferredContext)
 {
   KeInitializeDpc((PRKDPC)(DeferredContext + 72), AcpiShutdownNotificationTimerCallback, DeferredContext);

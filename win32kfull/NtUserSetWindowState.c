@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetWindowState @ 0x1C01DE7D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SetWindowState @ 0x1C0226960 (SetWindowState.c)
+ */
+
 __int64 __fastcall NtUserSetWindowState(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rax

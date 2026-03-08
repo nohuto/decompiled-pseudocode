@@ -1,3 +1,17 @@
+/*
+ * XREFs of xxxSetInternalWindowPos @ 0x1C01F416C
+ * Callers:
+ *     NtUserSetInternalWindowPos @ 0x1C01DCDD0 (NtUserSetInternalWindowPos.c)
+ * Callees:
+ *     xxxSetWindowPos @ 0x1C0028F4C (xxxSetWindowPos.c)
+ *     ?xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z @ 0x1C002AE4C (-xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     _MonitorFromRect @ 0x1C00AEE80 (_MonitorFromRect.c)
+ *     UpdateCheckpoint @ 0x1C01009F4 (UpdateCheckpoint.c)
+ *     GetMonitorWorkRect @ 0x1C0101744 (GetMonitorWorkRect.c)
+ *     GetMonitorRect @ 0x1C0101788 (GetMonitorRect.c)
+ */
+
 __int64 __fastcall xxxSetInternalWindowPos(struct tagWND *a1, unsigned __int8 a2, unsigned int *a3, _QWORD *a4)
 {
   __int64 result; // rax

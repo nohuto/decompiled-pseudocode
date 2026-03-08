@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_PerfTestCen2@@@details@wil@@QEAA_NW4ReportingKind@3@@Z @ 0x1801165EC
+ * Callers:
+ *     ?GetCurrentFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_UxSettingTest@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@PEAH@Z @ 0x1801153F8 (-GetCurrentFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_UxSettingTest@@@details.c)
+ * Callees:
+ *     ?GetCachedFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_PerfTestCen2@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@XZ @ 0x18011225C (-GetCachedFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_PerfTestCen2@@@details@w.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_PerfTestCen2@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180115814 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_PerfTestCen2@@@details@wil@@QEAAX_NW4Repo.c)
+ */
+
 char __fastcall wil::details::FeatureImpl<__WilFeatureTraits_Feature_PerfTestCen2>::__private_IsEnabled(
         volatile signed __int32 *a1)
 {

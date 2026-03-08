@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?EDIDV1_ObtainMonitorBasicDisplayParams@@YAJPEBEPEAU_WmiMonitorBasicDisplayParams@@@Z @ 0x1C0071BA0
+ * Callers:
+ *     ?GetBasicDisplayParams@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAU_WmiMonitorBasicDisplayParams@@@Z @ 0x1C03CB650 (-GetBasicDisplayParams@EdidMonitorDescriptor@DxgMonitor@@UEBAJAEAU_WmiMonitorBasicDisplayParams@.c)
+ * Callees:
+ *     ?Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z @ 0x1C0011258 (-Initialize@EDID_PARSER@MonDescParser@@QEAAJPEAEI@Z.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     ?GetWmiBasicDisplayParams@EDID_PARSER@MonDescParser@@QEBA?AU_WmiMonitorBasicDisplayParams@@XZ @ 0x1C0073CCC (-GetWmiBasicDisplayParams@EDID_PARSER@MonDescParser@@QEBA-AU_WmiMonitorBasicDisplayParams@@XZ.c)
+ */
+
 __int64 __fastcall EDIDV1_ObtainMonitorBasicDisplayParams(
         unsigned __int8 *a1,
         struct _WmiMonitorBasicDisplayParams *a2)

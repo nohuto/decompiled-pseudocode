@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??$?0V?$span_iterator@PEAVCCompositionLight@@@details@gsl@@$0A@@?$vector@PEAVCCompositionLight@@V?$allocator@PEAVCCompositionLight@@@std@@@std@@QEAA@V?$span_iterator@PEAVCCompositionLight@@@details@gsl@@0AEBV?$allocator@PEAVCCompositionLight@@@1@@Z @ 0x1801FA5C8
+ * Callers:
+ *     ??0CSpectreCallbackRenderer@@AEAA@PEAUISpectreWorld@@AEBUD2D_MATRIX_4X4_F@@AEBUD2D_VECTOR_3F@@MMV?$span@PEAVCCompositionLight@@$0?0@gsl@@@Z @ 0x1801FA6A8 (--0CSpectreCallbackRenderer@@AEAA@PEAUISpectreWorld@@AEBUD2D_MATRIX_4X4_F@@AEBUD2D_VECTOR_3F@@MM.c)
+ * Callees:
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     ?terminate@details@gsl@@YAXXZ @ 0x1801AEDB0 (-terminate@details@gsl@@YAXXZ.c)
+ *     ?_Buy_nonzero@?$vector@PEAVCCompositionLight@@V?$allocator@PEAVCCompositionLight@@@std@@@std@@AEAAX_K@Z @ 0x1801FAE54 (-_Buy_nonzero@-$vector@PEAVCCompositionLight@@V-$allocator@PEAVCCompositionLight@@@std@@@std@@AE.c)
+ */
+
 __int64 *__fastcall std::vector<CCompositionLight *>::vector<CCompositionLight *>(
         __int64 *a1,
         __int128 *a2,

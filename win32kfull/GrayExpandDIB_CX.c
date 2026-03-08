@@ -1,3 +1,11 @@
+/*
+ * XREFs of GrayExpandDIB_CX @ 0x1C0263E30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 _OWORD *__fastcall GrayExpandDIB_CX(__int128 *a1, char *a2, _BYTE *a3, __int64 a4, int a5)
 {
   __int128 v6; // xmm0

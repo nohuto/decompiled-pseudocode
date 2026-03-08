@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetDriverInfo @ 0x1C004D2D8
+ * Callers:
+ *     LogDriverInfoStream @ 0x1C004D7C4 (LogDriverInfoStream.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall GetDriverInfo(_FX_DRIVER_GLOBALS *Globals, FxDevice *Fdo, FxTelemetryDriverInfo *DriverInfo)
 {
   unsigned __int8 v5; // dl

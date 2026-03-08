@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiDxgkDdiNotifyAcpiEvent @ 0x1C03A461C
+ * Callers:
+ *     DpiAcpiHandleAcpiEvent @ 0x1C03A1FD4 (DpiAcpiHandleAcpiEvent.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqtqq_EtwWriteTransfer @ 0x1C0040104 (McTemplateK0pqtqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DpiDxgkDdiNotifyAcpiEvent(
         __int64 a1,
         __int64 a2,

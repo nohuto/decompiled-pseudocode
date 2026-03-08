@@ -1,3 +1,24 @@
+/*
+ * XREFs of PiSwIrpCleanup @ 0x140807E94
+ * Callers:
+ *     PiSwDispatch @ 0x140785720 (PiSwDispatch.c)
+ *     PiSwIrpStartCreateWorker @ 0x140806A2C (PiSwIrpStartCreateWorker.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ *     McTemplateK0zz_EtwWriteTransfer @ 0x1405613D4 (McTemplateK0zz_EtwWriteTransfer.c)
+ *     McTemplateK0zzd_EtwWriteTransfer @ 0x1405614A4 (McTemplateK0zzd_EtwWriteTransfer.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CDF08 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PiSwCloseDescendants @ 0x1408672DC (PiSwCloseDescendants.c)
+ *     PiSwFindSwDevice @ 0x14086740C (PiSwFindSwDevice.c)
+ *     PiSwCloseDevice @ 0x140964150 (PiSwCloseDevice.c)
+ */
+
 void __fastcall PiSwIrpCleanup(__int64 a1, __int64 a2, __int64 a3)
 {
   IRP *v3; // rdi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Clear@?$DoublyLinkedList@VDXGTARGETENTRY@@U?$DoubleLinkedListElementDeleter@VDXGTARGETENTRY@@@@@@QEAAXXZ @ 0x1C001504C
+ * Callers:
+ *     ??1?$Set@VDXGTARGETENTRY@@@@UEAA@XZ @ 0x1C0004E84 (--1-$Set@VDXGTARGETENTRY@@@@UEAA@XZ.c)
+ *     ?Clear@?$Set@VDXGTARGETENTRY@@@@UEAAXXZ @ 0x1C0015030 (-Clear@-$Set@VDXGTARGETENTRY@@@@UEAAXXZ.c)
+ *     ??_E?$DoublyLinkedList@VDXGTARGETENTRY@@U?$DoubleLinkedListElementDeleter@VDXGTARGETENTRY@@@@@@UEAAPEAXI@Z @ 0x1C004B420 (--_E-$DoublyLinkedList@VDXGTARGETENTRY@@U-$DoubleLinkedListElementDeleter@VDXGTARGETENTRY@@@@@@U.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 char __fastcall DoublyLinkedList<DXGTARGETENTRY,DoubleLinkedListElementDeleter<DXGTARGETENTRY>>::Clear(__int64 a1)
 {
   _QWORD **v2; // rbx

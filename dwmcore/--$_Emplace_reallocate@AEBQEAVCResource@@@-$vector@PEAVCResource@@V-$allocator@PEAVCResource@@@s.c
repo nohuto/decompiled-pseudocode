@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??$_Emplace_reallocate@AEBQEAVCResource@@@?$vector@PEAVCResource@@V?$allocator@PEAVCResource@@@std@@@std@@QEAAPEAPEAVCResource@@QEAPEAV2@AEBQEAV2@@Z @ 0x1800F4934
+ * Callers:
+ *     ?RegisterNotifiers@CVisualReferenceController@@QEAAJPEAVCResourceTable@@@Z @ 0x1800E7C1C (-RegisterNotifiers@CVisualReferenceController@@QEAAJPEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$07@std@@YA_K_K@Z @ 0x1800B9880 (--$_Get_size_of_n@$07@std@@YA_K_K@Z.c)
+ *     ?_Change_array@?$vector@PEAVCResource@@V?$allocator@PEAVCResource@@@std@@@std@@AEAAXQEAPEAVCResource@@_K1@Z @ 0x1800F4A20 (-_Change_array@-$vector@PEAVCResource@@V-$allocator@PEAVCResource@@@std@@@std@@AEAAXQEAPEAVCReso.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ */
+
 char *__fastcall std::vector<CResource *>::_Emplace_reallocate<CResource * const &>(
         const void **a1,
         _BYTE *a2,

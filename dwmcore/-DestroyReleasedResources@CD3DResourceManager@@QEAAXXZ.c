@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DestroyReleasedResources@CD3DResourceManager@@QEAAXXZ @ 0x1800EE404
+ * Callers:
+ *     ?Trim@CD3DDevice@@QEAAXXZ @ 0x1800D106C (-Trim@CD3DDevice@@QEAAXXZ.c)
+ *     ?DestroyDeviceResources@CD3DResourceManager@@QEAAXXZ @ 0x1800EE378 (-DestroyDeviceResources@CD3DResourceManager@@QEAAXXZ.c)
+ * Callees:
+ *     ?DestroyResource@CD3DResourceManager@@AEAAXPEAVCD3DResource@@@Z @ 0x1800F0480 (-DestroyResource@CD3DResourceManager@@AEAAXPEAVCD3DResource@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CD3DResourceManager::DestroyReleasedResources(CD3DResourceManager *this)
 {
   union _SLIST_HEADER *i; // rcx

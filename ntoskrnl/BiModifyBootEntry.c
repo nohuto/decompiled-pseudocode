@@ -1,3 +1,14 @@
+/*
+ * XREFs of BiModifyBootEntry @ 0x140A5BF28
+ * Callers:
+ *     BiUpdateEfiEntry @ 0x140A5C248 (BiUpdateEfiEntry.c)
+ * Callees:
+ *     ZwModifyBootEntry @ 0x1404146B0 (ZwModifyBootEntry.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiAcquirePrivilege @ 0x14082F784 (BiAcquirePrivilege.c)
+ *     BiReleasePrivilege @ 0x14082F810 (BiReleasePrivilege.c)
+ */
+
 __int64 __fastcall BiModifyBootEntry(__int64 a1)
 {
   __int64 v2; // rdx

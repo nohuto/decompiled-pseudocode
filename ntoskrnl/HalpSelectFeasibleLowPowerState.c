@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpSelectFeasibleLowPowerState @ 0x140B8F7F8
+ * Callers:
+ *     HalpChannelInitializeStaticConfiguration @ 0x140B63680 (HalpChannelInitializeStaticConfiguration.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpSelectFeasibleLowPowerState(__int64 a1, char *a2, unsigned __int16 a3, __int64 a4)
 {
   char v4; // bl

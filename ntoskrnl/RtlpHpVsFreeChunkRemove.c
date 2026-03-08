@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpHpVsFreeChunkRemove @ 0x14024E660
+ * Callers:
+ *     RtlpHpVsChunkSplit @ 0x14024AB60 (RtlpHpVsChunkSplit.c)
+ * Callees:
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ *     RtlpHpVsChunkComputeCost @ 0x14024E230 (RtlpHpVsChunkComputeCost.c)
+ */
+
 __int64 __fastcall RtlpHpVsFreeChunkRemove(__int64 a1, __int64 a2, _DWORD *a3)
 {
   int v6; // eax

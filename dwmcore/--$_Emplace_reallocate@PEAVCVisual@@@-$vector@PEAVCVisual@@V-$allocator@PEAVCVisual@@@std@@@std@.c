@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??$_Emplace_reallocate@PEAVCVisual@@@?$vector@PEAVCVisual@@V?$allocator@PEAVCVisual@@@std@@@std@@QEAAPEAPEAVCVisual@@QEAPEAV2@$$QEAPEAV2@@Z @ 0x1802694A0
+ * Callers:
+ *     ?SortVisuals@CDepthSortingLayer@@QEAA_NPEAV?$vector@PEAVCVisual@@V?$allocator@PEAVCVisual@@@std@@@std@@AEBV?$vector@VCVisualDepthGeometry@@V?$allocator@VCVisualDepthGeometry@@@std@@@3@@Z @ 0x180269718 (-SortVisuals@CDepthSortingLayer@@QEAA_NPEAV-$vector@PEAVCVisual@@V-$allocator@PEAVCVisual@@@std@.c)
+ * Callees:
+ *     ?_Calculate_growth@?$vector@VCMilPoint2F@@V?$allocator@VCMilPoint2F@@@std@@@std@@AEBA_K_K@Z @ 0x18001E160 (-_Calculate_growth@-$vector@VCMilPoint2F@@V-$allocator@VCMilPoint2F@@@std@@@std@@AEBA_K_K@Z.c)
+ *     ?_Change_array@?$vector@PEAVCVisual@@V?$allocator@PEAVCVisual@@@std@@@std@@AEAAXQEAPEAVCVisual@@_K1@Z @ 0x18001E19C (-_Change_array@-$vector@PEAVCVisual@@V-$allocator@PEAVCVisual@@@std@@@std@@AEAAXQEAPEAVCVisual@@.c)
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$07@std@@YA_K_K@Z @ 0x1800B9880 (--$_Get_size_of_n@$07@std@@YA_K_K@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ */
+
 char *__fastcall std::vector<CVisual *>::_Emplace_reallocate<CVisual *>(__int64 *a1, _BYTE *a2, _QWORD *a3)
 {
   _BYTE *v3; // rbp

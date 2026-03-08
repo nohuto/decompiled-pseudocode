@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiLdaPowerUpAdapterInChain @ 0x1C03A3ED8
+ * Callers:
+ *     DpiFdoHandleDevicePower @ 0x1C01E1A70 (DpiFdoHandleDevicePower.c)
+ * Callees:
+ *     DpiSetDevicePowerTransitionStateAtPassiveLevel @ 0x1C001A42C (DpiSetDevicePowerTransitionStateAtPassiveLevel.c)
+ *     DpiFdoSetAdapterPowerState @ 0x1C01E1E80 (DpiFdoSetAdapterPowerState.c)
+ */
+
 __int64 __fastcall DpiLdaPowerUpAdapterInChain(__int64 a1, __int64 a2)
 {
   _DWORD *v2; // rax

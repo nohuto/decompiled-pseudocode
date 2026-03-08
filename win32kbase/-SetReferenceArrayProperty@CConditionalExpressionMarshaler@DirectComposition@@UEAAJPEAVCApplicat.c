@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetReferenceArrayProperty@CConditionalExpressionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C0263590
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ @ 0x1C0061AAC (-AddRef@CResourceMarshaler@DirectComposition@@QEAA_KXZ.c)
+ *     ?IsDerivedResourceType@CResourceMarshaler@DirectComposition@@SA_NW4MIL_RESOURCE_TYPE@@0@Z @ 0x1C00A17F4 (-IsDerivedResourceType@CResourceMarshaler@DirectComposition@@SA_NW4MIL_RESOURCE_TYPE@@0@Z.c)
+ */
+
 __int64 __fastcall DirectComposition::CConditionalExpressionMarshaler::SetReferenceArrayProperty(
         DirectComposition::CConditionalExpressionMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

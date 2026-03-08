@@ -1,3 +1,11 @@
+/*
+ * XREFs of CarDeleteRuleViolationDetails @ 0x1405D1700
+ * Callers:
+ *     CarReportRuleViolationForTriage @ 0x1405D1FA0 (CarReportRuleViolationForTriage.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall CarDeleteRuleViolationDetails(PVOID *a1)
 {
   void *v2; // rcx

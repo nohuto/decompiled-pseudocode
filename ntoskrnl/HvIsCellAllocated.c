@@ -1,3 +1,21 @@
+/*
+ * XREFs of HvIsCellAllocated @ 0x1407B0B10
+ * Callers:
+ *     CmpValidateHiveSecurityDescriptors @ 0x14071C9C4 (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpCheckValueList @ 0x1407B2930 (CmpCheckValueList.c)
+ *     CmpCheckKey @ 0x1407B4B80 (CmpCheckKey.c)
+ * Callees:
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     HvpGetBinContextInitialize @ 0x140AF2644 (HvpGetBinContextInitialize.c)
+ *     HvpMapEntryGetBinAddress @ 0x140AF2654 (HvpMapEntryGetBinAddress.c)
+ *     HvpGetCellMap @ 0x140AF2670 (HvpGetCellMap.c)
+ */
+
 char __fastcall HvIsCellAllocated(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4, PRTL_BITMAP BitMapHeader)
 {
   unsigned int v5; // edi

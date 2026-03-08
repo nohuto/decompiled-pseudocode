@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIProcessorContainerLinkChildProcessor @ 0x1C003AAF0
+ * Callers:
+ *     ACPIProcessorStartDeviceWorker @ 0x1C003A1C0 (ACPIProcessorStartDeviceWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ACPIProcessorContainerLinkChildProcessor(_QWORD *a1)
 {
   KIRQL v2; // r8

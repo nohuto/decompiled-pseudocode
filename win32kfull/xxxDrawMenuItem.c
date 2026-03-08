@@ -1,3 +1,35 @@
+/*
+ * XREFs of xxxDrawMenuItem @ 0x1C0237914
+ * Callers:
+ *     ?xxxHotTrackMenu@@YAHPEAUtagWND@@IH@Z @ 0x1C02284EC (-xxxHotTrackMenu@@YAHPEAUtagWND@@IH@Z.c)
+ *     xxxMNInvertItem @ 0x1C02382C8 (xxxMNInvertItem.c)
+ *     xxxMenuDraw @ 0x1C0238E5C (xxxMenuDraw.c)
+ * Callees:
+ *     PrepareHDCBITSBitmap @ 0x1C00162BC (PrepareHDCBITSBitmap.c)
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ *     GrePolyPatBlt @ 0x1C0088258 (GrePolyPatBlt.c)
+ *     GetDPIMETRICSForDpi @ 0x1C00A11BC (GetDPIMETRICSForDpi.c)
+ *     GetDPIServerInfoForDpi @ 0x1C00A1E90 (GetDPIServerInfoForDpi.c)
+ *     MNGetpItemIndex @ 0x1C00A6FD0 (MNGetpItemIndex.c)
+ *     GetOemBitmapInfoForDpi @ 0x1C00D05EC (GetOemBitmapInfoForDpi.c)
+ *     GreSetBkColor @ 0x1C0113964 (GreSetBkColor.c)
+ *     GreSetTextColor @ 0x1C0113D94 (GreSetTextColor.c)
+ *     GreSelectFontInternal @ 0x1C0116F84 (GreSelectFontInternal.c)
+ *     GreSetBkMode @ 0x1C0118028 (GreSetBkMode.c)
+ *     MNIsUAHMenu @ 0x1C02194D8 (MNIsUAHMenu.c)
+ *     ?DrawOutline@@YAXPEAUHDC__@@HHHHHPEAUHBRUSH__@@@Z @ 0x1C0236338 (-DrawOutline@@YAXPEAUHDC__@@HHHHHPEAUHBRUSH__@@@Z.c)
+ *     ?MNDrawHilite@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0236514 (-MNDrawHilite@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
+ *     ?MNDrawInsertionBar@@YAXPEAUHDC__@@PEAUtagITEM@@@Z @ 0x1C023656C (-MNDrawInsertionBar@@YAXPEAUHDC__@@PEAUtagITEM@@@Z.c)
+ *     ?MNDrawMenu3DHotTracking@@YAXPEAUHDC__@@AEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C02366B4 (-MNDrawMenu3DHotTracking@@YAXPEAUHDC__@@AEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
+ *     ?MNIsCachedBmpOnly@@YAHPEAUtagITEM@@@Z @ 0x1C0236A2C (-MNIsCachedBmpOnly@@YAHPEAUtagITEM@@@Z.c)
+ *     ?xxxSendMenuDrawItemMessage@@YAXPEAUHDC__@@IAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@HHPEAUtagWND@@@Z @ 0x1C0236E94 (-xxxSendMenuDrawItemMessage@@YAXPEAUHDC__@@IAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@HHPE.c)
+ *     MNIsOwnerDrawItem @ 0x1C0237734 (MNIsOwnerDrawItem.c)
+ *     BltColor @ 0x1C0242064 (BltColor.c)
+ *     xxxDrawState @ 0x1C02423C0 (xxxDrawState.c)
+ *     GreGetTextCharacterExtra @ 0x1C02D9AC8 (GreGetTextCharacterExtra.c)
+ *     GreSetTextCharacterExtra @ 0x1C02D9BA4 (GreSetTextCharacterExtra.c)
+ */
+
 _DWORD *__fastcall xxxDrawMenuItem(HDC a1, int a2, __int64 **a3, __int64 a4, char a5, struct tagWND *a6)
 {
   __int64 v9; // rcx

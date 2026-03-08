@@ -1,3 +1,40 @@
+/*
+ * XREFs of MiSystemFault @ 0x1402220A0
+ * Callers:
+ *     MmAccessFault @ 0x140267D40 (MmAccessFault.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiCheckSystemPageTables @ 0x140222830 (MiCheckSystemPageTables.c)
+ *     MiSynchronizeSystemVa @ 0x1402228B0 (MiSynchronizeSystemVa.c)
+ *     MiHyperSpaceSize @ 0x140222C78 (MiHyperSpaceSize.c)
+ *     MiCheckVirtualAddress @ 0x140225600 (MiCheckVirtualAddress.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiResolveDemandZeroFault @ 0x14026B720 (MiResolveDemandZeroFault.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiUnlockSystemVa @ 0x1402A2820 (MiUnlockSystemVa.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x1402CFF20 (MiEmptyDeferredWorkingSetEntries.c)
+ *     MiNoFaultFound @ 0x1402D3500 (MiNoFaultFound.c)
+ *     KeInvalidAccessAllowed @ 0x1402DA5E0 (KeInvalidAccessAllowed.c)
+ *     MiIsWorkingSetTrimThread @ 0x1402E7920 (MiIsWorkingSetTrimThread.c)
+ *     MiCheckSystemNxFault @ 0x1402EB3C8 (MiCheckSystemNxFault.c)
+ *     KiRspInIstStack @ 0x1402EDCB0 (KiRspInIstStack.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     MiCopyOnWrite @ 0x140319F00 (MiCopyOnWrite.c)
+ *     MiUpdatePfnForPrefetchByPte @ 0x14031D5F0 (MiUpdatePfnForPrefetchByPte.c)
+ *     MiIsPrototypePteVadLookup @ 0x140327240 (MiIsPrototypePteVadLookup.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiGetSessionVm @ 0x14036C17C (MiGetSessionVm.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiGenerateAccessViolation @ 0x1406439D8 (MiGenerateAccessViolation.c)
+ *     MiTransientPageListWriter @ 0x14064D958 (MiTransientPageListWriter.c)
+ *     MiCopyOnWriteCheckConditions @ 0x140664840 (MiCopyOnWriteCheckConditions.c)
+ */
+
 __int64 __fastcall MiSystemFault(_QWORD *a1)
 {
   __int64 v2; // rsi

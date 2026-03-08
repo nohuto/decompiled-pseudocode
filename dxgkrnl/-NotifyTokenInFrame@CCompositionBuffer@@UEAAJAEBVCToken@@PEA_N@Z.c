@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NotifyTokenInFrame@CCompositionBuffer@@UEAAJAEBVCToken@@PEA_N@Z @ 0x1C007CD80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CCompositionBuffer::NotifyTokenInFrame(CCompositionBuffer *this, const struct CToken *a2, bool *a3)
 {
   unsigned int v3; // ebx

@@ -1,3 +1,21 @@
+/*
+ * XREFs of CcZeroData @ 0x140243410
+ * Callers:
+ *     FsRtlCopyWrite @ 0x14084D5B0 (FsRtlCopyWrite.c)
+ *     FsRtlPrepareMdlWriteDev @ 0x14093A640 (FsRtlPrepareMdlWriteDev.c)
+ * Callees:
+ *     CcDereferencePartition @ 0x140219EF0 (CcDereferencePartition.c)
+ *     CcFlushCachePriv @ 0x140219F20 (CcFlushCachePriv.c)
+ *     CcZeroDataInCache @ 0x140241DBC (CcZeroDataInCache.c)
+ *     CcGetPartitionFromFileObject @ 0x140243818 (CcGetPartitionFromFileObject.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcZeroDataOnDisk @ 0x1403BB780 (CcZeroDataOnDisk.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 BOOLEAN __stdcall CcZeroData(
         PFILE_OBJECT FileObject,
         PLARGE_INTEGER StartOffset,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of VF_FIND_DEVICE_INFORMATION_AND_REMOVE @ 0x140AC18EC
+ * Callers:
+ *     VfIoDeleteDevice @ 0x140ACF214 (VfIoDeleteDevice.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 struct _LIST_ENTRY *__fastcall VF_FIND_DEVICE_INFORMATION_AND_REMOVE(struct _LIST_ENTRY *a1)
 {
   struct _LIST_ENTRY *v2; // rdi

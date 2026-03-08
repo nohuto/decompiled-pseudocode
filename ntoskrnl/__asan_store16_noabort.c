@@ -1,3 +1,11 @@
+/*
+ * XREFs of __asan_store16_noabort @ 0x1405642A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 ULONG_PTR __fastcall _asan_store16_noabort(ULONG_PTR BugCheckParameter1)
 {
   ULONG_PTR v1; // rbx

@@ -1,3 +1,23 @@
+/*
+ * XREFs of IoVolumeDeviceToDosName @ 0x140720680
+ * Callers:
+ *     IopQueryNameInternal @ 0x140720054 (IopQueryNameInternal.c)
+ *     IopMountVolume @ 0x14072B180 (IopMountVolume.c)
+ *     IopValidateJunctionTarget @ 0x140943674 (IopValidateJunctionTarget.c)
+ * Callees:
+ *     IoBuildDeviceIoControlRequest @ 0x14024FE00 (IoBuildDeviceIoControlRequest.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IoGetDeviceObjectPointer @ 0x140720950 (IoGetDeviceObjectPointer.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall IoVolumeDeviceToDosName(PVOID VolumeDeviceObject, PUNICODE_STRING DosName)
 {
   unsigned __int64 v2; // rax

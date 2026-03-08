@@ -1,3 +1,18 @@
+/*
+ * XREFs of NtPrivilegeCheck @ 0x14070F230
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     SepPrivilegeCheck @ 0x14030F080 (SepPrivilegeCheck.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SeCaptureLuidAndAttributesArray @ 0x14070F414 (SeCaptureLuidAndAttributesArray.c)
+ *     SeReleaseLuidAndAttributesArray @ 0x14070F4F8 (SeReleaseLuidAndAttributesArray.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 NTSTATUS __stdcall NtPrivilegeCheck(HANDLE ClientToken, PPRIVILEGE_SET RequiredPrivileges, PBOOLEAN Result)
 {
   KPROCESSOR_MODE PreviousMode; // r14

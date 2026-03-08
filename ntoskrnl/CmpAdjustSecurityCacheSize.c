@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpAdjustSecurityCacheSize @ 0x14079179C
+ * Callers:
+ *     CmpValidateHiveSecurityDescriptors @ 0x14071C9C4 (CmpValidateHiveSecurityDescriptors.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 char __fastcall CmpAdjustSecurityCacheSize(__int64 a1)
 {
   unsigned int v2; // ecx

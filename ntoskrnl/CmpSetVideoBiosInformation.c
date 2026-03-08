@@ -1,3 +1,23 @@
+/*
+ * XREFs of CmpSetVideoBiosInformation @ 0x140B959FC
+ * Callers:
+ *     CmpInitializeMachineDependentConfiguration @ 0x140B520BC (CmpInitializeMachineDependentConfiguration.c)
+ * Callees:
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwMapViewOfSection @ 0x140412810 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x140412850 (ZwUnmapViewOfSection.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     CmpGetBiosDate @ 0x140B9526C (CmpGetBiosDate.c)
+ *     CmpGetBiosVersion @ 0x140B9549C (CmpGetBiosVersion.c)
+ */
+
 void __fastcall CmpSetVideoBiosInformation(HANDLE SectionHandle, HANDLE KeyHandle)
 {
   unsigned int v4; // r14d

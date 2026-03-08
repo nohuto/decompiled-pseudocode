@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiResolvePageTablePage @ 0x1402689F0
+ * Callers:
+ *     MiUserFault @ 0x140268260 (MiUserFault.c)
+ * Callees:
+ *     MiFastLockLeafPageTable @ 0x140269C50 (MiFastLockLeafPageTable.c)
+ *     MiLockPageTableInternal @ 0x14026A0D0 (MiLockPageTableInternal.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiIsPdeOrAboveAccessible @ 0x1402E21F4 (MiIsPdeOrAboveAccessible.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiUnlockFaultPageTable @ 0x140343598 (MiUnlockFaultPageTable.c)
+ *     MiInPagePageTable @ 0x140345FA0 (MiInPagePageTable.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiLargePageFault @ 0x140643EB8 (MiLargePageFault.c)
+ */
+
 __int64 __fastcall MiResolvePageTablePage(__int64 a1)
 {
   __int64 v2; // r14

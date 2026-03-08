@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlpGetTimeZoneInfoHandle @ 0x1407736C4
+ * Callers:
+ *     RtlpQueryTimeZoneInformationWorker @ 0x140773434 (RtlpQueryTimeZoneInformationWorker.c)
+ *     RtlSetActiveTimeBias @ 0x140811B4C (RtlSetActiveTimeBias.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x1409BA84C (RtlpSetTimeZoneInformationWorker.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlGetPersistedStateLocation @ 0x14069ADC0 (RtlGetPersistedStateLocation.c)
+ *     RtlpGetRegistryHandle @ 0x14069BBB0 (RtlpGetRegistryHandle.c)
+ */
+
 __int64 __fastcall RtlpGetTimeZoneInfoHandle(char a1, HANDLE *a2)
 {
   __int64 result; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of AcpiGetFullyQualifiedBiosName @ 0x1C0083FF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     OSConvertDeviceHandleToNSHANDLE @ 0x1C000ABBC (OSConvertDeviceHandleToNSHANDLE.c)
+ *     ACPIAmliBuildObjectPathname @ 0x1C000B0E0 (ACPIAmliBuildObjectPathname.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNameSpaceObject @ 0x1C00483B8 (AMLIGetNameSpaceObject.c)
+ *     ACPIInitUnicodeString @ 0x1C0087DD4 (ACPIInitUnicodeString.c)
+ */
+
 __int64 __fastcall AcpiGetFullyQualifiedBiosName(ULONG_PTR a1, __int64 a2, struct _UNICODE_STRING *a3, _DWORD *a4)
 {
   __int64 v7; // rax

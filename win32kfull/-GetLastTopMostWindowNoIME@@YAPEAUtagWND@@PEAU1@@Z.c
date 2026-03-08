@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetLastTopMostWindowNoIME@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0026DF4
+ * Callers:
+ *     ?ImeSetTopmost@@YAXPEAUtagWND@@H0@Z @ 0x1C0026C68 (-ImeSetTopmost@@YAXPEAUtagWND@@H0@Z.c)
+ * Callees:
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ */
+
 struct tagWND *__fastcall GetLastTopMostWindowNoIME(struct tagWND *a1, __int64 a2)
 {
   __int64 DesktopWindow; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CBitmapLockUnaligned@@UEAA@XZ @ 0x18027ED98
+ * Callers:
+ *     ??_GCBitmapLockUnaligned@@UEAAPEAXI@Z @ 0x18027EE00 (--_GCBitmapLockUnaligned@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?UnlockUnaligned@CBitmapLockUnaligned@@IEAAXXZ @ 0x18027F134 (-UnlockUnaligned@CBitmapLockUnaligned@@IEAAXXZ.c)
+ */
+
 void __fastcall CBitmapLockUnaligned::~CBitmapLockUnaligned(CBitmapLockUnaligned *this)
 {
   __int64 v2; // rdx

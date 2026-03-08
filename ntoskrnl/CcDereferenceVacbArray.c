@@ -1,3 +1,15 @@
+/*
+ * XREFs of CcDereferenceVacbArray @ 0x140535B1C
+ * Callers:
+ *     CcUnmapInactiveViewsInternal @ 0x140535FC0 (CcUnmapInactiveViewsInternal.c)
+ * Callees:
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     CcRemoveVacbArray @ 0x140535D48 (CcRemoveVacbArray.c)
+ *     CcFreeVacbArray @ 0x140933C04 (CcFreeVacbArray.c)
+ */
+
 void __fastcall CcDereferenceVacbArray(__int64 a1, char a2)
 {
   KIRQL v2; // di

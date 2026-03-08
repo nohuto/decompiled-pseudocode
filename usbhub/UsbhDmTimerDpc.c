@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhDmTimerDpc @ 0x1C00079B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhEtwWrite @ 0x1C0009AC0 (UsbhEtwWrite.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ */
+
 void __fastcall UsbhDmTimerDpc(
         struct _KDPC *Dpc,
         _QWORD *DeferredContext,

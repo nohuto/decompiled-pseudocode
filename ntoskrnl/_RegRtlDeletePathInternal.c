@@ -1,3 +1,20 @@
+/*
+ * XREFs of _RegRtlDeletePathInternal @ 0x140A67F0C
+ * Callers:
+ *     PiDevCfgClearDeviceMigrationNode @ 0x14095A044 (PiDevCfgClearDeviceMigrationNode.c)
+ * Callees:
+ *     RtlStringCchCopyExW @ 0x140244A08 (RtlStringCchCopyExW.c)
+ *     RtlUnalignedStringCchLengthW @ 0x140246434 (RtlUnalignedStringCchLengthW.c)
+ *     wcsrchr @ 0x1403D5F90 (wcsrchr.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1406D43A0 (_RegRtlOpenKeyTransacted.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x14085F0A8 (_RegRtlDeleteKeyTransacted.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140868B00 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlQueryInfoKey @ 0x140868C7C (_RegRtlQueryInfoKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RegRtlDeletePathInternal(void *a1, const wchar_t *a2, char a3, __int64 a4, int a5)
 {
   int v9; // ebx

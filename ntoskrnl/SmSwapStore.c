@@ -1,3 +1,15 @@
+/*
+ * XREFs of SmSwapStore @ 0x14067E484
+ * Callers:
+ *     MiInSwapStoreWorker @ 0x14067E3D0 (MiInSwapStoreWorker.c)
+ *     SmStoreCompressionStart @ 0x1409D4A38 (SmStoreCompressionStart.c)
+ *     SmStoreCompressionStop @ 0x1409D4AD8 (SmStoreCompressionStop.c)
+ * Callees:
+ *     ?SmSwapStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@W4_SM_STORE_SWAP_OPERATION@@@Z @ 0x14020031C (-SmSwapStore@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@W4_SM_STORE_.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140356594 (SmKmStoreRefFromStoreIndex.c)
+ *     SmpKeyedStoreEntryGet @ 0x14035BDC0 (SmpKeyedStoreEntryGet.c)
+ */
+
 __int64 __fastcall SmSwapStore(__int64 a1, int a2)
 {
   __int64 v3; // rbx

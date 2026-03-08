@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PowerPolCancelingWakeForSystemSleepWakeCanceled@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C007A8A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PowerPolicySendDevicePowerRequest@FxPkgPnp@@IEAAJW4_DEVICE_POWER_STATE@@W4SendDeviceRequestAction@@W4RequestDIrpReason@@@Z @ 0x1C007DCA0 (-PowerPolicySendDevicePowerRequest@FxPkgPnp@@IEAAJW4_DEVICE_POWER_STATE@@W4SendDeviceRequestActi.c)
+ */
+
 __int64 __fastcall FxPkgPnp::PowerPolCancelingWakeForSystemSleepWakeCanceled(FxPkgPnp *This)
 {
   int v1; // eax

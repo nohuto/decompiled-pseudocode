@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtQueryCompositionInputSink @ 0x1C00B8EF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserIsCurrentProcessDwm @ 0x1C00191C0 (UserIsCurrentProcessDwm.c)
+ *     ?ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C00A7D70 (-ResolveHandle@CompositionInputObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ *     ?QueryInputQueueTypes@CompositionInputObject@@QEBAJPEAUCOMPOSITION_INPUT_SINK_QUERY_V2@@@Z @ 0x1C00B90C0 (-QueryInputQueueTypes@CompositionInputObject@@QEBAJPEAUCOMPOSITION_INPUT_SINK_QUERY_V2@@@Z.c)
+ */
+
 __int64 __fastcall NtQueryCompositionInputSink(void *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   ULONG64 v4; // rdi

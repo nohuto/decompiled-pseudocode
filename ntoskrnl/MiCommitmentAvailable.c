@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiCommitmentAvailable @ 0x140364010
+ * Callers:
+ *     MiPrefetchVirtualMemory @ 0x140363970 (MiPrefetchVirtualMemory.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall MiCommitmentAvailable(__int64 a1)
 {
   unsigned __int64 v1; // rax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiExpandPtes @ 0x140210210
+ * Callers:
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ * Callees:
+ *     MiReturnSystemVa @ 0x14020E9A0 (MiReturnSystemVa.c)
+ *     MiMakeZeroedPageTablesEx @ 0x14020F130 (MiMakeZeroedPageTablesEx.c)
+ *     MiObtainSystemVa @ 0x140210534 (MiObtainSystemVa.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiSplitBitmapPages @ 0x14036C1A8 (MiSplitBitmapPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiExpandPtes(__int64 *a1, unsigned __int64 a2)
 {
   unsigned __int64 v2; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EmitSetOpacityCommand@CMeshGeometry2DMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0257F1C
+ * Callers:
+ *     ?EmitUpdateCommands@CMeshGeometry2DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C025A2E0 (-EmitUpdateCommands@CMeshGeometry2DMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ * Callees:
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0064740 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ */
+
 char __fastcall DirectComposition::CMeshGeometry2DMarshaler::EmitSetOpacityCommand(
         DirectComposition::CMeshGeometry2DMarshaler *this,
         struct DirectComposition::CBatch ***a2)

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0InkDevice@@QEAA@XZ @ 0x1C0245D10
+ * Callers:
+ *     ?OnDeviceAttached@InkProcessor@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0240D1C (-OnDeviceAttached@InkProcessor@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 InkDevice *__fastcall InkDevice::InkDevice(InkDevice *this)
 {
   __int64 v2; // rcx

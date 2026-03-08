@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBREG_DeleteUxdDeviceKey @ 0x1C00871F0
+ * Callers:
+ *     HUBREG_DeleteUxdSettings @ 0x1C00878E8 (HUBREG_DeleteUxdSettings.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     RtlUnicodeStringPrintf @ 0x1C000C4DC (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBREG_DeleteUxdDeviceKey(__int64 a1)
 {
   NTSTATUS v2; // ebx

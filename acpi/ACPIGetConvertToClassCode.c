@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIGetConvertToClassCode @ 0x1C00296FC
+ * Callers:
+ *     ACPIGetWorkerForInteger @ 0x1C002B5C0 (ACPIGetWorkerForInteger.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall ACPIGetConvertToClassCode(
         __int64 a1,
         int a2,

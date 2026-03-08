@@ -1,3 +1,18 @@
+/*
+ * XREFs of CcScanLogHandleList @ 0x1402175F8
+ * Callers:
+ *     CcLazyWriteScanVolume @ 0x140218810 (CcLazyWriteScanVolume.c)
+ *     CcLazyWriteScan @ 0x140533B4C (CcLazyWriteScan.c)
+ * Callees:
+ *     CcCalculatePagesToWrite @ 0x140217524 (CcCalculatePagesToWrite.c)
+ *     CcDecrementVolumeUseCountWithDelete @ 0x14021782C (CcDecrementVolumeUseCountWithDelete.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CcScanLogHandleList(__int64 a1, _DWORD *a2, int a3, __int64 *a4)
 {
   __int64 *v7; // r14

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PspInheritSyscallProvider @ 0x14070E4C0
+ * Callers:
+ *     PspInsertProcess @ 0x14070E514 (PspInsertProcess.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PspAttachProcessToSyscallProvider @ 0x1409B18EC (PspAttachProcessToSyscallProvider.c)
+ */
+
 __int64 __fastcall PspInheritSyscallProvider(__int64 a1, __int64 a2)
 {
   struct _EX_RUNDOWN_REF *v2; // rdi

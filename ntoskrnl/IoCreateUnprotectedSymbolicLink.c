@@ -1,3 +1,12 @@
+/*
+ * XREFs of IoCreateUnprotectedSymbolicLink @ 0x140944330
+ * Callers:
+ *     DifIoCreateUnprotectedSymbolicLinkWrapper @ 0x1405DC6A0 (DifIoCreateUnprotectedSymbolicLinkWrapper.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateSymbolicLinkObject @ 0x140413BD0 (ZwCreateSymbolicLinkObject.c)
+ */
+
 NTSTATUS __stdcall IoCreateUnprotectedSymbolicLink(PUNICODE_STRING SymbolicLinkName, PUNICODE_STRING DeviceName)
 {
   NTSTATUS SymbolicLinkObject; // ebx

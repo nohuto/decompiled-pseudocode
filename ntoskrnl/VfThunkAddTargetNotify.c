@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfThunkAddTargetNotify @ 0x140AB9F4C
+ * Callers:
+ *     VfTargetDriversAdd @ 0x140303834 (VfTargetDriversAdd.c)
+ * Callees:
+ *     ViThunkFreeSharedThunksArray @ 0x140AB9EAC (ViThunkFreeSharedThunksArray.c)
+ *     ViThunkCreateSharedExportInformation @ 0x140AB9FE0 (ViThunkCreateSharedExportInformation.c)
+ */
+
 void __fastcall VfThunkAddTargetNotify(void **a1, __int64 a2, __int64 a3)
 {
   void **v3; // rdi

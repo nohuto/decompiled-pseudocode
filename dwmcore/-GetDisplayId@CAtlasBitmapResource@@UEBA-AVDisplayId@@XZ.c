@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDisplayId@CAtlasBitmapResource@@UEBA?AVDisplayId@@XZ @ 0x1800E49A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 _DWORD *__fastcall CAtlasBitmapResource::GetDisplayId(__int64 a1, _DWORD *a2)
 {
   __int64 v2; // r8

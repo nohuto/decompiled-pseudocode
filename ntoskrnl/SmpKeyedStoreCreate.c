@@ -1,3 +1,17 @@
+/*
+ * XREFs of SmpKeyedStoreCreate @ 0x1407DD424
+ * Callers:
+ *     SmProcessCreateNotification @ 0x140709D7C (SmProcessCreateNotification.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402A4AEC (SSHSupportAllocateNonPaged.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140356594 (SmKmStoreRefFromStoreIndex.c)
+ *     SmKmStoreDeleteWhenEmpty @ 0x140358874 (SmKmStoreDeleteWhenEmpty.c)
+ *     SmpKeyedStoreEntryGet @ 0x14035BDC0 (SmpKeyedStoreEntryGet.c)
+ *     SmpDirtyStoreCreate @ 0x1407DD540 (SmpDirtyStoreCreate.c)
+ */
+
 __int64 __fastcall SmpKeyedStoreCreate(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3)
 {
   int v3; // eax

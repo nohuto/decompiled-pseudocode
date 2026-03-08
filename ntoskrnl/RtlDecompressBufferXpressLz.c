@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlDecompressBufferXpressLz @ 0x1405B1820
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlDecompressBufferXpressLz(
         _BYTE *a1,
         unsigned int a2,

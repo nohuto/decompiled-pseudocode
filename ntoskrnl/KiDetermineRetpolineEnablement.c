@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiDetermineRetpolineEnablement @ 0x1403ACCB4
+ * Callers:
+ *     KiInitializeBootStructures @ 0x140A887E0 (KiInitializeBootStructures.c)
+ * Callees:
+ *     KiDetectHardwareSpecControlFeatures @ 0x14037EC84 (KiDetectHardwareSpecControlFeatures.c)
+ *     KiIsPgiKernel @ 0x1403ACD5C (KiIsPgiKernel.c)
+ *     strstr @ 0x1403D3650 (strstr.c)
+ */
+
 char __fastcall KiDetermineRetpolineEnablement(__int64 a1)
 {
   const char *v2; // rcx

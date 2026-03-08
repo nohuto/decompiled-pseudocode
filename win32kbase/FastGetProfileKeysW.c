@@ -1,3 +1,16 @@
+/*
+ * XREFs of FastGetProfileKeysW @ 0x1C015D0F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0068568 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     OpenCacheKeyEx @ 0x1C00760E0 (OpenCacheKeyEx.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     UserReAllocPoolWithQuota @ 0x1C00C4890 (UserReAllocPoolWithQuota.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 unsigned __int64 __fastcall FastGetProfileKeysW(
         const UNICODE_STRING *a1,
         __int64 a2,

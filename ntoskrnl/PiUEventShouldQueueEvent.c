@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiUEventShouldQueueEvent @ 0x1402046E0
+ * Callers:
+ *     PiUEventNotifyUserMode @ 0x14068C2D0 (PiUEventNotifyUserMode.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall PiUEventShouldQueueEvent(__int64 a1)
 {
   char v1; // dl

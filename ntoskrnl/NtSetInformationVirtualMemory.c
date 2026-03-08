@@ -1,3 +1,32 @@
+/*
+ * XREFs of NtSetInformationVirtualMemory @ 0x14075BCB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PsGetIoPriorityThread @ 0x1402832C0 (PsGetIoPriorityThread.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiGetEffectivePagePriorityThread @ 0x14028A260 (MiGetEffectivePagePriorityThread.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     MiPrefetchVirtualMemory @ 0x140363970 (MiPrefetchVirtualMemory.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     MiProcessVaContiguityInformation @ 0x14065B3D4 (MiProcessVaContiguityInformation.c)
+ *     MiValidateMemoryRangeEntries @ 0x14075C34C (MiValidateMemoryRangeEntries.c)
+ *     MiCfgMarkValidEntries @ 0x14075C3DC (MiCfgMarkValidEntries.c)
+ *     MiProcessVaRangesInfoClass @ 0x14075C744 (MiProcessVaRangesInfoClass.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     VmPrefetchVirtualAddresses @ 0x1409D90F4 (VmPrefetchVirtualAddresses.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     MiProcessRemoveFromWorkingSet @ 0x140A2E490 (MiProcessRemoveFromWorkingSet.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall NtSetInformationVirtualMemory(
         ULONG_PTR a1,
         unsigned int a2,

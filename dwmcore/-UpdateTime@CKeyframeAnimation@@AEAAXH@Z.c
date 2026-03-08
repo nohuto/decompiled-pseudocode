@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UpdateTime@CKeyframeAnimation@@AEAAXH@Z @ 0x180020014
+ * Callers:
+ *     ?ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x180056B00 (-ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
+ * Callees:
+ *     ?GetAnimationTimeLength@CKeyframeAnimation@@QEBAMXZ @ 0x1800BAF68 (-GetAnimationTimeLength@CKeyframeAnimation@@QEBAMXZ.c)
+ *     ?ConfigureTimer@KeyframeSequence@@QEAAXXZ @ 0x1800BCFD0 (-ConfigureTimer@KeyframeSequence@@QEAAXXZ.c)
+ */
+
 void __fastcall CKeyframeAnimation::UpdateTime(CKeyframeAnimation *this, int a2)
 {
   int v3; // eax

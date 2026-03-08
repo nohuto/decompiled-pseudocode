@@ -1,3 +1,22 @@
+/*
+ * XREFs of SeTokenDefaultDaclChangedAuditAlarm @ 0x140743F0C
+ * Callers:
+ *     NtSetInformationToken @ 0x140741E70 (NtSetInformationToken.c)
+ * Callees:
+ *     SepAdtAuditThisEventWithContext @ 0x140699810 (SepAdtAuditThisEventWithContext.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D26A0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406DB5A0 (RtlCreateSecurityDescriptor.c)
+ *     SeCaptureSecurityDescriptor @ 0x1407C8A50 (SeCaptureSecurityDescriptor.c)
+ *     SeReleaseSecurityDescriptor @ 0x1407C92D0 (SeReleaseSecurityDescriptor.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1409C9E48 (SepAdtSecurityDescriptorChangedAuditAlarm.c)
+ *     SepQueryTypeString @ 0x1409CA608 (SepQueryTypeString.c)
+ *     SepIsAclEqual @ 0x1409CE3E8 (SepIsAclEqual.c)
+ *     SepAuditFailed @ 0x1409CEE50 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall SeTokenDefaultDaclChangedAuditAlarm(__int64 a1, __int64 a2, __int64 a3, ACL *a4, PACL Dacl)
 {
   PVOID v5; // rsi

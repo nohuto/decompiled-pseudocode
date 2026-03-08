@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpPCIAcquireConfigSpaceLock @ 0x1402D7958
+ * Callers:
+ *     HalpPCIConfig @ 0x1402D7810 (HalpPCIConfig.c)
+ * Callees:
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ */
+
 void __fastcall HalpPCIAcquireConfigSpaceLock(unsigned __int8 *a1)
 {
   unsigned __int8 CurrentIrql; // r8

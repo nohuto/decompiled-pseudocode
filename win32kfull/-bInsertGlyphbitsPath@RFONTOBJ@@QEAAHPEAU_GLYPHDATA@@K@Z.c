@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?bInsertGlyphbitsPath@RFONTOBJ@@QEAAHPEAU_GLYPHDATA@@K@Z @ 0x1C02FF7F8
+ * Callers:
+ *     xInsertGlyphbitsRFONTOBJ @ 0x1C011E244 (xInsertGlyphbitsRFONTOBJ.c)
+ * Callees:
+ *     ?pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z @ 0x1C011DEFC (-pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z.c)
+ *     ?QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z @ 0x1C0122090 (-QueryFontData@PFFOBJ@@QEAAJPEAUDHPDEV__@@PEAU_FONTOBJ@@KKPEAU_GLYPHDATA@@PEAXK@Z.c)
+ *     ?vInit@EPATHFONTOBJ@@QEAAXK@Z @ 0x1C0288F7C (-vInit@EPATHFONTOBJ@@QEAAXK@Z.c)
+ *     ?vFlushCache@RFONTOBJ@@QEAAXXZ @ 0x1C02FFD48 (-vFlushCache@RFONTOBJ@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall RFONTOBJ::bInsertGlyphbitsPath(RFONTOBJ *this, struct _GLYPHDATA *a2, int a3)
 {
   __int64 v3; // r15

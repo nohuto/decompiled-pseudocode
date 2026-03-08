@@ -1,3 +1,16 @@
+/*
+ * XREFs of DpiMiracastBroadcastDeviceStateChange @ 0x1C0399F0C
+ * Callers:
+ *     DpiMiracastStopMiracastSessionSync @ 0x1C0060170 (DpiMiracastStopMiracastSessionSync.c)
+ *     DpiMiracastTargetDeviceChange @ 0x1C0060710 (DpiMiracastTargetDeviceChange.c)
+ *     DpiMiracastTearDownAssociation @ 0x1C0060BE0 (DpiMiracastTearDownAssociation.c)
+ *     DxgkMiracastStartMiracastSession @ 0x1C00615C4 (DxgkMiracastStartMiracastSession.c)
+ *     DpiMiracastHandleStartSessionDone @ 0x1C039AACC (DpiMiracastHandleStartSessionDone.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ *     McTemplateK0xqq_EtwWriteTransfer @ 0x1C006294C (McTemplateK0xqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DpiMiracastBroadcastDeviceStateChange(__int64 a1, __int64 a2, __int64 a3)
 {
   _DWORD *v3; // rsi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of EmpInfParseGetStringIndexFromName @ 0x140B4E5AC
+ * Callers:
+ *     EmpParseTargetRuleStringIndexList @ 0x140B4E30C (EmpParseTargetRuleStringIndexList.c)
+ * Callees:
+ *     EmpInfParseGetValueFromSectionAndKeyName @ 0x140B4E6B8 (EmpInfParseGetValueFromSectionAndKeyName.c)
+ */
+
 __int64 __fastcall EmpInfParseGetStringIndexFromName(__int64 a1, __int64 a2, unsigned int *a3)
 {
   char v4; // bl

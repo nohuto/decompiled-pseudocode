@@ -1,3 +1,20 @@
+/*
+ * XREFs of ACPIInitDeleteDeviceExtension @ 0x1C002CD08
+ * Callers:
+ *     ACPIInitDereferenceDeviceExtensionLocked @ 0x1C002D060 (ACPIInitDereferenceDeviceExtensionLocked.c)
+ *     ACPIInitRemoveDeviceExtension @ 0x1C002D5B4 (ACPIInitRemoveDeviceExtension.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPICleanDeviceDependenciesWithTreeLock @ 0x1C0014380 (ACPICleanDeviceDependenciesWithTreeLock.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C002D594 (ACPIInitReferenceDeviceExtension.c)
+ *     ACPIInitRemovePowerNodes @ 0x1C002D6CC (ACPIInitRemovePowerNodes.c)
+ *     ACPIInternalInterruptPolarityCacheCleanup @ 0x1C002E874 (ACPIInternalInterruptPolarityCacheCleanup.c)
+ *     ACPIInternalMoveList @ 0x1C002EC04 (ACPIInternalMoveList.c)
+ *     PnpiCleanupForceActiveBothInterrupts @ 0x1C003C580 (PnpiCleanupForceActiveBothInterrupts.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIFinalizeObject @ 0x1C0048034 (AMLIFinalizeObject.c)
+ */
+
 void __fastcall ACPIInitDeleteDeviceExtension(volatile signed __int32 *Entry)
 {
   unsigned int v2; // ecx

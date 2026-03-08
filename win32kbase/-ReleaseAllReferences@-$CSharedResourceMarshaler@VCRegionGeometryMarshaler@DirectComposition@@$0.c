@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReleaseAllReferences@?$CSharedResourceMarshaler@VCRegionGeometryMarshaler@DirectComposition@@$01@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C024CD80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReleaseAllReferences@CRegionGeometryMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C00BD830 (-ReleaseAllReferences@CRegionGeometryMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2.c)
+ */
+
 void __fastcall DirectComposition::CSharedResourceMarshaler<DirectComposition::CRegionGeometryMarshaler,2>::ReleaseAllReferences(
         DirectComposition::CRegionGeometryMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2)

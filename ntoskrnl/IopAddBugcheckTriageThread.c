@@ -1,3 +1,20 @@
+/*
+ * XREFs of IopAddBugcheckTriageThread @ 0x140559D4C
+ * Callers:
+ *     IoAddBugcheckTriageThread @ 0x14054D2D0 (IoAddBugcheckTriageThread.c)
+ *     IopAddBugcheckTriageDataFromParameters @ 0x14054F674 (IopAddBugcheckTriageDataFromParameters.c)
+ *     IopAddBugcheckPnpTriageData @ 0x140559658 (IopAddBugcheckPnpTriageData.c)
+ *     IopAddBugcheckPnpWatchdogTriageData @ 0x1405596C0 (IopAddBugcheckPnpWatchdogTriageData.c)
+ *     IopAddBugcheckPowerTriageData @ 0x140559780 (IopAddBugcheckPowerTriageData.c)
+ *     IopAddBugcheckTriageWorkQueue @ 0x140559EE0 (IopAddBugcheckTriageWorkQueue.c)
+ *     KiCollectTriageDumpDataBlocks @ 0x140567894 (KiCollectTriageDumpDataBlocks.c)
+ * Callees:
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KiIsAddressRangeValid @ 0x1403849BC (KiIsAddressRangeValid.c)
+ *     IopGetMaxValidMemorySize @ 0x140550E80 (IopGetMaxValidMemorySize.c)
+ *     IopAddBugcheckTriageIrp @ 0x140559BD0 (IopAddBugcheckTriageIrp.c)
+ */
+
 __int64 __fastcall IopAddBugcheckTriageThread(__int64 MaxDataSize)
 {
   unsigned int v1; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtRIMSetTestModeStatus @ 0x1C01A2B80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RIMSetTestModeStatus @ 0x1C01A0BE0 (RIMSetTestModeStatus.c)
+ *     ApiSetEditionIsUsermodeRIMAccessAllowed @ 0x1C023FFB0 (ApiSetEditionIsUsermodeRIMAccessAllowed.c)
+ */
+
 __int64 __fastcall NtRIMSetTestModeStatus(unsigned int a1)
 {
   __int64 v2; // rdx

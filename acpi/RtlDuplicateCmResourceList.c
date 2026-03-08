@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlDuplicateCmResourceList @ 0x1C00AA814
+ * Callers:
+ *     ACPIRootIrpStartDevice @ 0x1C00AA580 (ACPIRootIrpStartDevice.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ */
+
 void *__fastcall RtlDuplicateCmResourceList(__int64 a1, unsigned int *a2)
 {
   unsigned int v2; // r9d

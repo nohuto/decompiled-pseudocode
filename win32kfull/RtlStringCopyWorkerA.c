@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlStringCopyWorkerA @ 0x1C00ECC0C
+ * Callers:
+ *     EditionInitializeWppLogging @ 0x1C00ECAC0 (EditionInitializeWppLogging.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlStringCopyWorkerA(
         NTSTRSAFE_PSTR pszDest,
         size_t cchDest,

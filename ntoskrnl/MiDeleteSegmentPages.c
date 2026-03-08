@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiDeleteSegmentPages @ 0x14034BEB8
+ * Callers:
+ *     MiSegmentDelete @ 0x1406A6FD4 (MiSegmentDelete.c)
+ *     MiInitializeImageExtents @ 0x140A311CC (MiInitializeImageExtents.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDeleteSubsectionPages @ 0x14034B8E0 (MiDeleteSubsectionPages.c)
+ *     MiGetCommittedPages @ 0x14034C3F0 (MiGetCommittedPages.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDeleteFileExtentList @ 0x140A31150 (MiDeleteFileExtentList.c)
+ */
+
 __int64 __fastcall MiDeleteSegmentPages(__int64 *a1)
 {
   __int16 v1; // dx

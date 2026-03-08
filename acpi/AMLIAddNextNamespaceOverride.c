@@ -1,3 +1,20 @@
+/*
+ * XREFs of AMLIAddNextNamespaceOverride @ 0x1C004A3CC
+ * Callers:
+ *     AMLIAddNamespaceOverride @ 0x1C004A2A8 (AMLIAddNamespaceOverride.c)
+ *     AMLIAddNextNamespaceOverride @ 0x1C004A3CC (AMLIAddNextNamespaceOverride.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     AMLIAddNextNamespaceOverride @ 0x1C004A3CC (AMLIAddNextNamespaceOverride.c)
+ *     AMLIAddNextNamespaceOverrideObject @ 0x1C004A534 (AMLIAddNextNamespaceOverrideObject.c)
+ *     AMLIGetValidNamespaceName @ 0x1C004ABA8 (AMLIGetValidNamespaceName.c)
+ *     CreateNameSpaceObject @ 0x1C004F10C (CreateNameSpaceObject.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ *     OSCloseHandle @ 0x1C008DB38 (OSCloseHandle.c)
+ *     OSOpenNextSubkey @ 0x1C008E198 (OSOpenNextSubkey.c)
+ *     OSReadNextRegValue @ 0x1C008E47C (OSReadNextRegValue.c)
+ */
+
 __int64 __fastcall AMLIAddNextNamespaceOverride(void *a1, __int64 a2)
 {
   ULONG v4; // edi

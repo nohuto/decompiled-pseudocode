@@ -1,3 +1,11 @@
+/*
+ * XREFs of WritePortWithIndex8 @ 0x14067B310
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall WritePortWithIndex8(__int64 a1, __int64 a2, char a3)
 {
   int v3; // eax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of VmpLogAccessFault @ 0x1405F7518
+ * Callers:
+ *     VmAccessFault @ 0x1409D9200 (VmAccessFault.c)
+ * Callees:
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall VmpLogAccessFault(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6, int a7)
 {
   __int64 v8; // rdx

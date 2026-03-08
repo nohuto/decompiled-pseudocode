@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?xxxSetWindowBand@@YAHPEAUtagWND@@0W4ZBID@@W4WindowBandOptions@@@Z @ 0x1C009BB98
+ * Callers:
+ *     NtUserSetWindowBand @ 0x1C00999F0 (NtUserSetWindowBand.c)
+ *     ?AddComponent@CoreWindowProp@@SAJPEAUtagWND@@0@Z @ 0x1C0222CAC (-AddComponent@CoreWindowProp@@SAJPEAUtagWND@@0@Z.c)
+ * Callees:
+ *     _BeginDeferWindowPos @ 0x1C0027918 (_BeginDeferWindowPos.c)
+ *     xxxEndDeferWindowPosEx @ 0x1C00698F0 (xxxEndDeferWindowPosEx.c)
+ *     _lambda_febfd44819ec4f1448c7d434538d8b97_::operator() @ 0x1C0099B60 (_lambda_febfd44819ec4f1448c7d434538d8b97_--operator().c)
+ *     CoreWindowProp::ForEachDescendantInComponentHierarchy__lambda_bb5024e92f2af5f128f82535936e29d6___ @ 0x1C009BCB0 (CoreWindowProp--ForEachDescendantInComponentHierarchy__lambda_bb5024e92f2af5f128f82535936e29d6__.c)
+ */
+
 __int64 __fastcall xxxSetWindowBand(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   int v5; // eax

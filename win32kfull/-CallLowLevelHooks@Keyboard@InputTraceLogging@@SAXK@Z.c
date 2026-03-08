@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CallLowLevelHooks@Keyboard@InputTraceLogging@@SAXK@Z @ 0x1C01E866C
+ * Callers:
+ *     EditionKeyEventLLHook @ 0x1C00E83C0 (EditionKeyEventLLHook.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00F8FF0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1C0102BC4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void __fastcall InputTraceLogging::Keyboard::CallLowLevelHooks()
 {
   int v0; // r9d

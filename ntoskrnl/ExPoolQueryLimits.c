@@ -1,3 +1,19 @@
+/*
+ * XREFs of ExPoolQueryLimits @ 0x140604FE0
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     ExSystemExceptionFilter @ 0x140861790 (ExSystemExceptionFilter.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExPoolQueryLimits(void *Src, size_t Size, void *a3, size_t a4, KPROCESSOR_MODE PreviousMode)
 {
   _DWORD *v9; // rdi

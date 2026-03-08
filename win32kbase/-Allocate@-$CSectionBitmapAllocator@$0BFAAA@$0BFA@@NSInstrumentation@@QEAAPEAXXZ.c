@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Allocate@?$CSectionBitmapAllocator@$0BFAAA@$0BFA@@NSInstrumentation@@QEAAPEAXXZ @ 0x1C002977C
+ * Callers:
+ *     ?Allocate@?$CTypeIsolation@$0BFAAA@$0BFA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C00296B0 (-Allocate@-$CTypeIsolation@$0BFAAA@$0BFA@@NSInstrumentation@@IEAAPEAXXZ.c)
+ * Callees:
+ *     ?CommitSlot@?$CSectionBitmapAllocator@$0BFAAA@$0BFA@@NSInstrumentation@@AEAA_NI@Z @ 0x1C0029894 (-CommitSlot@-$CSectionBitmapAllocator@$0BFAAA@$0BFA@@NSInstrumentation@@AEAA_NI@Z.c)
+ */
+
 __int64 __fastcall NSInstrumentation::CSectionBitmapAllocator<86016,336>::Allocate(__int64 *a1)
 {
   __int64 v1; // rbx

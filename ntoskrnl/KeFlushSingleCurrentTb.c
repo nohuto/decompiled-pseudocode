@@ -1,3 +1,26 @@
+/*
+ * XREFs of KeFlushSingleCurrentTb @ 0x140387AD4
+ * Callers:
+ *     MiDbgReleaseAddress @ 0x140387814 (MiDbgReleaseAddress.c)
+ *     MiDbgWriteCheck @ 0x1403878D8 (MiDbgWriteCheck.c)
+ *     MiStackTheftIsr @ 0x14062B050 (MiStackTheftIsr.c)
+ *     MiDbgTranslatePhysicalAddress @ 0x140641B08 (MiDbgTranslatePhysicalAddress.c)
+ *     MiDbgUnTranslatePhysicalAddress @ 0x140641E70 (MiDbgUnTranslatePhysicalAddress.c)
+ *     MmReadProcessPageTables @ 0x14064325C (MmReadProcessPageTables.c)
+ *     MmInvalidateDumpAddresses @ 0x140AA9E60 (MmInvalidateDumpAddresses.c)
+ * Callees:
+ *     KiIsSecureProcessFlush @ 0x140211FFC (KiIsSecureProcessFlush.c)
+ *     HvlFlushRangeListTb @ 0x1403C689C (HvlFlushRangeListTb.c)
+ *     KiPrepareFlushParameters @ 0x1403C8E3C (KiPrepareFlushParameters.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiSetUserTbFlushPending @ 0x140417710 (KiSetUserTbFlushPending.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     VmFlushTb @ 0x14045DE9C (VmFlushTb.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiPrepareFlushCurrentAffinity @ 0x14056FB44 (KiPrepareFlushCurrentAffinity.c)
+ *     ExFlushTb @ 0x14060AC48 (ExFlushTb.c)
+ */
+
 __int64 __fastcall KeFlushSingleCurrentTb(unsigned __int64 a1, unsigned int a2)
 {
   bool IsSecureProcessFlush; // al

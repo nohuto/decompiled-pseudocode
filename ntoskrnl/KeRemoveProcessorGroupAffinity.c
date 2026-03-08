@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeRemoveProcessorGroupAffinity @ 0x1402AB070
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KeRemoveProcessorGroupAffinity(__int64 *a1, int a2)
 {
   __int64 result; // rax

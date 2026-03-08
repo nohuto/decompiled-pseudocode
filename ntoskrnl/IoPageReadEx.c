@@ -1,3 +1,29 @@
+/*
+ * XREFs of IoPageReadEx @ 0x14027F4F0
+ * Callers:
+ *     MiPageRead @ 0x14020CED0 (MiPageRead.c)
+ *     MiIssueHardFaultIo @ 0x1403435F0 (MiIssueHardFaultIo.c)
+ *     IoPageRead @ 0x1403CFDE0 (IoPageRead.c)
+ *     MiMakeOutswappedPageResident @ 0x14061612C (MiMakeOutswappedPageResident.c)
+ *     MiPfIssueCoalescedSupport @ 0x14062F98C (MiPfIssueCoalescedSupport.c)
+ * Callees:
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     PsGetBaseIoPriorityThread @ 0x14027F460 (PsGetBaseIoPriorityThread.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x14027F900 (IoSetDiskIoAttributionFromThread.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1402B1E30 (IopSetDiskIoAttributionExtension.c)
+ *     IopSetDriverFlagsExtension @ 0x1402B22A0 (IopSetDriverFlagsExtension.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     IopAllocateIrpExReturn @ 0x140312290 (IopAllocateIrpExReturn.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     IopAllocateBackpocketIrp @ 0x1405525E0 (IopAllocateBackpocketIrp.c)
+ *     IopAllocateReserveIrp @ 0x140552878 (IopAllocateReserveIrp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14056F278 (KiReleaseSpinLockInstrumented.c)
+ *     MmIsFileObjectAPagingFile @ 0x14063990C (MmIsFileObjectAPagingFile.c)
+ */
+
 NTSTATUS __fastcall IoPageReadEx(
         PFILE_OBJECT FileObject,
         struct _MDL *a2,

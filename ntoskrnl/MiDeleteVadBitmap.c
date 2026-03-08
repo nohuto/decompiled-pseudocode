@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiDeleteVadBitmap @ 0x1407266B4
+ * Callers:
+ *     MiDeleteFinalPageTables @ 0x1402A54F4 (MiDeleteFinalPageTables.c)
+ * Callees:
+ *     MiHyperSpaceSize @ 0x140222C78 (MiHyperSpaceSize.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiReturnFullProcessCharges @ 0x140289980 (MiReturnFullProcessCharges.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402992F0 (PdcCreateWatchdogAroundClientCall.c)
+ *     MiGetProcessPartition @ 0x14031F9D4 (MiGetProcessPartition.c)
+ *     MiDeletePagablePteRange @ 0x1403244A0 (MiDeletePagablePteRange.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiUpdateChargedWsles @ 0x14065F8E4 (MiUpdateChargedWsles.c)
+ *     MiReturnFullProcessCommitment @ 0x1406B6FB4 (MiReturnFullProcessCommitment.c)
+ */
+
 __int64 __fastcall MiDeleteVadBitmap(_QWORD *BugCheckParameter2)
 {
   ULONG_PTR v1; // r9

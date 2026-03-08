@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?DwmHolographicCompositionAdd_@CompositorTracing@@QEAAXXZ @ 0x1802A17B8
+ * Callers:
+ *     ?AddHolographicComposition@CHolographicManager@@QEAA_NPEAVCHolographicComposition@@@Z @ 0x1802A1224 (-AddHolographicComposition@CHolographicManager@@QEAA_NPEAVCHolographicComposition@@@Z.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1800BAD18 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x1800BADC0 (_tlgWriteTransfer_EventWriteTransfer.c)
+ *     ?get@?$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z @ 0x1800FACE4 (-get@-$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ */
+
 void __fastcall CompositorTracing::DwmHolographicCompositionAdd_(CompositorTracing *this)
 {
   _DWORD *v1; // rcx

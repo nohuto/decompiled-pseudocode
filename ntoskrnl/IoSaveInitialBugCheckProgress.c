@@ -1,3 +1,14 @@
+/*
+ * XREFs of IoSaveInitialBugCheckProgress @ 0x14054E7F0
+ * Callers:
+ *     KeBugCheck2 @ 0x140565E90 (KeBugCheck2.c)
+ *     KiUpdateBugcheckRecoveryProgress @ 0x1405793F8 (KiUpdateBugcheckRecoveryProgress.c)
+ * Callees:
+ *     HalGetEnvironmentVariableEx @ 0x1402AF770 (HalGetEnvironmentVariableEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IopBugCheckProgressEfiVariableServicesAvailable @ 0x14054FEA4 (IopBugCheckProgressEfiVariableServicesAvailable.c)
+ */
+
 void __fastcall IoSaveInitialBugCheckProgress(int a1, __int64 a2)
 {
   __int64 v3; // r9

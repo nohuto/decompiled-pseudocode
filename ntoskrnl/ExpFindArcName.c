@@ -1,3 +1,21 @@
+/*
+ * XREFs of ExpFindArcName @ 0x1409F9550
+ * Callers:
+ *     ExpCreateOutputARC @ 0x1409F90C0 (ExpCreateOutputARC.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     wcscpy_s @ 0x1403DA210 (wcscpy_s.c)
+ *     wcsncat_s @ 0x1403DA2A0 (wcsncat_s.c)
+ *     wcsncpy_s @ 0x1403DA3B0 (wcsncpy_s.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x140412E10 (ZwOpenDirectoryObject.c)
+ *     ZwQueryDirectoryObject @ 0x140414C90 (ZwQueryDirectoryObject.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     ExpTranslateSymbolicLink @ 0x14083F2E8 (ExpTranslateSymbolicLink.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpFindArcName(const UNICODE_STRING *a1, wchar_t **a2)
 {
   BOOLEAN v2; // r12

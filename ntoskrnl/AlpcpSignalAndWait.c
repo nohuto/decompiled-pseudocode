@@ -1,3 +1,16 @@
+/*
+ * XREFs of AlpcpSignalAndWait @ 0x14033E350
+ * Callers:
+ *     AlpcpCompleteDeferSignalRequestAndWait @ 0x14076BBC4 (AlpcpCompleteDeferSignalRequestAndWait.c)
+ *     AlpcpReceiveSynchronousReply @ 0x1407CFC50 (AlpcpReceiveSynchronousReply.c)
+ * Callees:
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     AlpcpSignal @ 0x14033E410 (AlpcpSignal.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     AlpcpLogUnwait @ 0x14097751C (AlpcpLogUnwait.c)
+ */
+
 __int64 __fastcall AlpcpSignalAndWait(
         __int64 a1,
         void *a2,

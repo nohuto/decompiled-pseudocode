@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserChangeWindowMessageFilter @ 0x1C00CB760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _ChangeWindowMessageFilter @ 0x1C00CB7AC (_ChangeWindowMessageFilter.c)
+ */
+
 __int64 __fastcall NtUserChangeWindowMessageFilter(unsigned int a1)
 {
   __int64 v2; // rbx

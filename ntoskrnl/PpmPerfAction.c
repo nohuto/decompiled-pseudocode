@@ -1,3 +1,16 @@
+/*
+ * XREFs of PpmPerfAction @ 0x140236430
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PpmPerfSnapDeliveredPerformance @ 0x140234BB0 (PpmPerfSnapDeliveredPerformance.c)
+ *     PpmCheckContinueExecution @ 0x140236E60 (PpmCheckContinueExecution.c)
+ *     PpmPerfApplyProcessorState @ 0x1402ED59C (PpmPerfApplyProcessorState.c)
+ *     PpmParkReportUnparkedCore @ 0x14045B1CC (PpmParkReportUnparkedCore.c)
+ *     PpmParkReportParkedCore @ 0x14059AC6C (PpmParkReportParkedCore.c)
+ *     PpmParkReportSoftParkChange @ 0x14059AD7C (PpmParkReportSoftParkChange.c)
+ */
+
 void __fastcall PpmPerfAction(
         struct _KDPC *Dpc,
         volatile __int32 *DeferredContext,

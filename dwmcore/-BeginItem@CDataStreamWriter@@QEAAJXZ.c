@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?BeginItem@CDataStreamWriter@@QEAAJXZ @ 0x1800D6CFC
+ * Callers:
+ *     ?BeginCommand@CChannel@@AEAAJPEAXII@Z @ 0x180043B74 (-BeginCommand@CChannel@@AEAAJPEAXII@Z.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x180044440 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall CDataStreamWriter::BeginItem(CDataStreamWriter *this)
 {
   CDataStreamWriter *v1; // rdx

@@ -1,3 +1,47 @@
+/*
+ * XREFs of PopBatteryApplyCompositeState @ 0x14086E430
+ * Callers:
+ *     PopBatteryWorker @ 0x14086DD10 (PopBatteryWorker.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PopBsdHandleRequest @ 0x1402B8B24 (PopBsdHandleRequest.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopSetNotificationWork @ 0x1402BCB00 (PopSetNotificationWork.c)
+ *     PopGetPolicyWorker @ 0x1402BCB34 (PopGetPolicyWorker.c)
+ *     PopCheckForWork @ 0x1402BCB88 (PopCheckForWork.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     PopInitilizeAcDcSettings @ 0x140380E04 (PopInitilizeAcDcSettings.c)
+ *     _tlgCreate1Sz_char @ 0x1403BE3FC (_tlgCreate1Sz_char.c)
+ *     PopUpdateAcDcState @ 0x1403BE428 (PopUpdateAcDcState.c)
+ *     PopBatteryTraceSystemBatteryStatus @ 0x1403BE46C (PopBatteryTraceSystemBatteryStatus.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     PopTracePowerReconfig @ 0x1405930E4 (PopTracePowerReconfig.c)
+ *     PopSqmAddToStream @ 0x14059FD10 (PopSqmAddToStream.c)
+ *     PopSqmCreateDwordStreamEntry @ 0x14059FEC0 (PopSqmCreateDwordStreamEntry.c)
+ *     PopSetPowerSettingValueAcDc @ 0x14073BE70 (PopSetPowerSettingValueAcDc.c)
+ *     PopBatteryUpdateAlarms @ 0x140829D60 (PopBatteryUpdateAlarms.c)
+ *     PopInitSIdle @ 0x14082A7A4 (PopInitSIdle.c)
+ *     PopBatteryCheckTrigger @ 0x14086E6E0 (PopBatteryCheckTrigger.c)
+ *     PopDiagTraceBatteryTriggerFlags @ 0x14086E710 (PopDiagTraceBatteryTriggerFlags.c)
+ *     PopEsQueueStateEvaluation @ 0x14086E7D0 (PopEsQueueStateEvaluation.c)
+ *     PopBatteryCheckCompositeCapacity @ 0x14086E838 (PopBatteryCheckCompositeCapacity.c)
+ *     PopAccountCbEnergyChange @ 0x14086E8D8 (PopAccountCbEnergyChange.c)
+ *     PopRecordAcDcState @ 0x14097E1CC (PopRecordAcDcState.c)
+ *     PopExecutePowerAction @ 0x1409867F4 (PopExecutePowerAction.c)
+ *     PopDiagTraceBatteryAlarmStatus @ 0x140989974 (PopDiagTraceBatteryAlarmStatus.c)
+ *     PopDiagTraceBatteryCountChange @ 0x140989CC0 (PopDiagTraceBatteryCountChange.c)
+ *     PopDiagTraceBatteryTriggerMet @ 0x140989DF4 (PopDiagTraceBatteryTriggerMet.c)
+ *     PopBatteryCheckTriggerAllBatteries @ 0x140992038 (PopBatteryCheckTriggerAllBatteries.c)
+ *     PopBatteryTracePercentageRemaining @ 0x14099280C (PopBatteryTracePercentageRemaining.c)
+ *     PopRecalculateCBTriggerLevels @ 0x14099300C (PopRecalculateCBTriggerLevels.c)
+ *     PpmProfileAcDcUpdate @ 0x14099A59C (PpmProfileAcDcUpdate.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopBatteryApplyCompositeState(int *a1, int a2)
 {
   int v2; // eax
@@ -142,7 +186,7 @@ __int64 __fastcall PopBatteryApplyCompositeState(int *a1, int a2)
     BYTE1(xmmword_140C3CD28) = 1;
     BYTE2(xmmword_140C3CD28) = (unk_140C3CB80 & 4) != 0;
     DWORD2(xmmword_140C3CD28) = HIDWORD(qword_140C3CBA0);
-    HIDWORD(xmmword_140C3CD28) = dword_140C3CB84;
+    HIDWORD(xmmword_140C3CD28) = unk_140C3CB84;
     *(_QWORD *)&xmmword_140C3CD38 = qword_140C3CB8C;
     *((_QWORD *)&xmmword_140C3CD38 + 1) = unk_140C3CBA8;
     BYTE3(xmmword_140C3CD28) = byte_140C3CCE8 != 0 || (unk_140C3CB80 & 2) != 0;

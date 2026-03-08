@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceGreMovePointerBegin @ 0x1C00EDD50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0qqq_EtwWriteTransfer @ 0x1C00EE3C8 (McTemplateK0qqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall EtwTraceGreMovePointerBegin(int a1, char a2, int a3)
 {
   __int64 result; // rax

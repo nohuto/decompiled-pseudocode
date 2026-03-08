@@ -1,3 +1,17 @@
+/*
+ * XREFs of NVMeReservedCompletionQueueCreate @ 0x1C0022D64
+ * Callers:
+ *     IoctlCreateReservedQueuePair @ 0x1C0012DF0 (IoctlCreateReservedQueuePair.c)
+ * Callees:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C000C1C0 (NVMeAllocateDmaBuffer.c)
+ *     GetFreeReservedQueueIndex @ 0x1C0012A84 (GetFreeReservedQueueIndex.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 __int64 __fastcall NVMeReservedCompletionQueueCreate(__int64 a1, unsigned __int16 a2, __int64 a3)
 {
   unsigned __int16 v3; // bp

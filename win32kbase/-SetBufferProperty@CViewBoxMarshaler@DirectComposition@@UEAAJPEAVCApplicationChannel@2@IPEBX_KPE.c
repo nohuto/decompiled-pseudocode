@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CViewBoxMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0253FF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CViewBoxMarshaler::SetBufferProperty(
         DirectComposition::CViewBoxMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

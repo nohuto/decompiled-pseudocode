@@ -1,3 +1,14 @@
+/*
+ * XREFs of DbgPrompt @ 0x1405A5370
+ * Callers:
+ *     RtlAssert @ 0x1405A7CA0 (RtlAssert.c)
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     PspCatchCriticalBreak @ 0x1409B0A80 (PspCatchCriticalBreak.c)
+ *     ViErrorFinishReport @ 0x140AD0724 (ViErrorFinishReport.c)
+ * Callees:
+ *     DebugPrompt @ 0x140420410 (DebugPrompt.c)
+ */
+
 // local variable allocation has failed, the output may be wrong!
 ULONG __stdcall DbgPrompt(PCCH Prompt, PCH Response, ULONG Length)
 {

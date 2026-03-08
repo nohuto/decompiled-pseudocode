@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Dispose@FxUsbDeviceStringContext@@UEAAXXZ @ 0x1C005D4B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     USBD_UrbFree @ 0x1C008876C (USBD_UrbFree.c)
+ */
+
 void __fastcall FxUsbDeviceStringContext::Dispose(FxUsbDeviceStringContext *this)
 {
   _URB *m_Urb; // rdx

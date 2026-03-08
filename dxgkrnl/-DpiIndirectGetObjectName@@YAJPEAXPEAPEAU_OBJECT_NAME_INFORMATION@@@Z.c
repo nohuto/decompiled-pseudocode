@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DpiIndirectGetObjectName@@YAJPEAXPEAPEAU_OBJECT_NAME_INFORMATION@@@Z @ 0x1C039F91C
+ * Callers:
+ *     DpiIndirectOpenDevice @ 0x1C03A0200 (DpiIndirectOpenDevice.c)
+ * Callees:
+ *     <none>
+ */
+
 int __fastcall DpiIndirectGetObjectName(PVOID Object, struct _OBJECT_NAME_INFORMATION **a2)
 {
   int result; // eax

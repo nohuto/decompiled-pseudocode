@@ -1,3 +1,19 @@
+/*
+ * XREFs of HalpIommuLeaveDmaDomain @ 0x140516044
+ * Callers:
+ *     HalpIommuBlockDevice @ 0x1405153C0 (HalpIommuBlockDevice.c)
+ *     IommuDomainAttachDeviceEx @ 0x1405234A0 (IommuDomainAttachDeviceEx.c)
+ *     IommuDomainDetachDevice @ 0x140523720 (IommuDomainDetachDevice.c)
+ *     IommuDomainDetachDeviceEx @ 0x1405238E0 (IommuDomainDetachDeviceEx.c)
+ * Callees:
+ *     HalpIommuGetHardwareDomain @ 0x1403A414C (HalpIommuGetHardwareDomain.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpIommuAttachDeviceDomain @ 0x140512E8C (HalpIommuAttachDeviceDomain.c)
+ *     HalpIommuDereferenceHardwareDomain @ 0x14051567C (HalpIommuDereferenceHardwareDomain.c)
+ *     HalpIommuIsInPermanentPassthrough @ 0x140515EB0 (HalpIommuIsInPermanentPassthrough.c)
+ */
+
 __int64 __fastcall HalpIommuLeaveDmaDomain(__int64 a1, ULONG_PTR a2)
 {
   int v4; // eax

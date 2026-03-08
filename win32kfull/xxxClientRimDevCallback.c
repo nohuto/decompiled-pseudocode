@@ -1,3 +1,12 @@
+/*
+ * XREFs of xxxClientRimDevCallback @ 0x1C02161B8
+ * Callers:
+ *     RIMDevChangeDoUsermodeCallback @ 0x1C01A7A1C (RIMDevChangeDoUsermodeCallback.c)
+ * Callees:
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00344F8 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0034558 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall xxxClientRimDevCallback(
         int a1,
         int a2,

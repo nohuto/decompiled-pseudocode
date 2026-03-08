@@ -1,3 +1,11 @@
+/*
+ * XREFs of _DwmCheckProcessSession @ 0x1C0083B60
+ * Callers:
+ *     NtUserCheckProcessSession @ 0x1C0083AF0 (NtUserCheckProcessSession.c)
+ * Callees:
+ *     LockProcessByClientIdEx @ 0x1C0084164 (LockProcessByClientIdEx.c)
+ */
+
 __int64 __fastcall DwmCheckProcessSession(int a1)
 {
   __int64 v1; // rdx

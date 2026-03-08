@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiCreateKernelHalSlabRange @ 0x140B3B690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiConvertEntireLargePageToSmall @ 0x140277140 (MiConvertEntireLargePageToSmall.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiPageToNode @ 0x1406153B0 (MiPageToNode.c)
+ *     MiCreateBootSlabEntries @ 0x140B3B858 (MiCreateBootSlabEntries.c)
+ */
+
 __int64 __fastcall MiCreateKernelHalSlabRange(unsigned __int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 v2; // rdi

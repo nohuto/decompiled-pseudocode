@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbDevice_UpdateCompletion @ 0x1C001D310
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dqD @ 0x1C0018C80 (WPP_RECORDER_SF_dqD.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0019330 (WPP_RECORDER_SF_dq.c)
+ *     UsbDevice_UpdateUsbDevice @ 0x1C001D43C (UsbDevice_UpdateUsbDevice.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_dqDL @ 0x1C004A408 (WPP_RECORDER_SF_dqDL.c)
+ */
+
 __int64 __fastcall UsbDevice_UpdateCompletion(__int64 a1, int a2)
 {
   __int64 v2; // rdi

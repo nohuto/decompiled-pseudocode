@@ -1,3 +1,12 @@
+/*
+ * XREFs of DbgkpTriageDumpCheckPresentHashTable @ 0x14053A0EC
+ * Callers:
+ *     DbgkpTriageDumpSnapData @ 0x14053A170 (DbgkpTriageDumpSnapData.c)
+ *     DbgkpTriageDumpIsMemoryBlockPresent @ 0x1409392D0 (DbgkpTriageDumpIsMemoryBlockPresent.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DbgkpTriageDumpCheckPresentHashTable(__int64 a1, unsigned __int64 a2, int a3, __int64 *a4)
 {
   __int64 v4; // rcx

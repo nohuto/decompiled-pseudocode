@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepAppendPrimaryGroup @ 0x1409C68EC
+ * Callers:
+ *     NtSetInformationToken @ 0x140741E70 (NtSetInformationToken.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 void *__fastcall SepAppendPrimaryGroup(__int64 a1, unsigned __int8 *a2)
 {
   __int64 v2; // rax

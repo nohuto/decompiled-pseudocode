@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Release@CBitmapLock@@UEAAKXZ @ 0x1800F5910
+ * Callers:
+ *     ?Release@CBitmapLock@@$4PPPPPPPM@IA@EAAKXZ @ 0x18011A850 (-Release@CBitmapLock@@$4PPPPPPPM@IA@EAAKXZ.c)
+ *     ?Release@CBitmapLock@@$4PPPPPPPM@JI@EAAKXZ @ 0x18011A890 (-Release@CBitmapLock@@$4PPPPPPPM@JI@EAAKXZ.c)
+ * Callees:
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CBitmapLock::Release(CBitmapLock *this)
 {
   char *v1; // rsi

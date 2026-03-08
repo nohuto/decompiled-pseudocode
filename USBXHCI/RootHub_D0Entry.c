@@ -1,3 +1,16 @@
+/*
+ * XREFs of RootHub_D0Entry @ 0x1C0015520
+ * Callers:
+ *     Controller_WdfEvtDeviceD0Entry @ 0x1C00144B0 (Controller_WdfEvtDeviceD0Entry.c)
+ *     Controller_InternalReset @ 0x1C0033D04 (Controller_InternalReset.c)
+ * Callees:
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0018184 (WPP_RECORDER_SF_dD.c)
+ *     RootHub_ReleaseReadModifyWriteLock @ 0x1C00182B0 (RootHub_ReleaseReadModifyWriteLock.c)
+ *     RootHub_AcquireReadModifyWriteLock @ 0x1C00182F4 (RootHub_AcquireReadModifyWriteLock.c)
+ *     XilRegister_WriteUlong @ 0x1C0018428 (XilRegister_WriteUlong.c)
+ */
+
 __int64 __fastcall RootHub_D0Entry(__int64 a1)
 {
   unsigned int v1; // esi

@@ -1,3 +1,24 @@
+/*
+ * XREFs of PiSwPdoPnPDispatch @ 0x1408064B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     _PnpStringFromGuid @ 0x1406881E8 (_PnpStringFromGuid.c)
+ *     PnpAllocatePWSTR @ 0x1406CD7F4 (PnpAllocatePWSTR.c)
+ *     PiSwDeviceMakeCompatibleIds @ 0x1408068A8 (PiSwDeviceMakeCompatibleIds.c)
+ *     PnpAllocateMultiSZ @ 0x14080706C (PnpAllocateMultiSZ.c)
+ *     PiSwCompleteCreate @ 0x1408071C4 (PiSwCompleteCreate.c)
+ *     PiSwDeviceInterfacesUpdateState @ 0x140807AF0 (PiSwDeviceInterfacesUpdateState.c)
+ *     PiSwDestroyDeviceObject @ 0x14096423C (PiSwDestroyDeviceObject.c)
+ *     PiSwProcessRemove @ 0x140964760 (PiSwProcessRemove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PiSwPdoPnPDispatch(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 {
   _QWORD *DeviceExtension; // rdi

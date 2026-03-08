@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpLMStub @ 0x140411C90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpLMStub()
 {
   unsigned __int64 v0; // rax

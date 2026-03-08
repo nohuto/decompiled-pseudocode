@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bSyncBrushObj@@YAHPEAVBRUSH@@@Z @ 0x1C02ADD64
+ * Callers:
+ *     ?cjGetBrushOrPen@@YAJPEAXH0@Z @ 0x1C02AA138 (-cjGetBrushOrPen@@YAJPEAXH0@Z.c)
+ *     NtGdiFillRgn @ 0x1C02AB5A0 (NtGdiFillRgn.c)
+ *     NtGdiFrameRgn @ 0x1C02ABB30 (NtGdiFrameRgn.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall bSyncBrushObj(struct BRUSH *a1)
 {
   unsigned int v1; // edi

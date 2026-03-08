@@ -1,3 +1,14 @@
+/*
+ * XREFs of GreHintDCWnd @ 0x1C0097030
+ * Callers:
+ *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C0068A60 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
+ *     UpdateRedirectedDCE @ 0x1C0096EF0 (UpdateRedirectedDCE.c)
+ * Callees:
+ *     ?vAltUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C00DC828 (-vAltUnlockFast@XDCOBJ@@QEAAXXZ.c)
+ *     ?vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z @ 0x1C014CFA4 (-vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z.c)
+ *     ?vUpdateCachedDPIScaleValue@DC@@QEAAXXZ @ 0x1C014CFF2 (-vUpdateCachedDPIScaleValue@DC@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall GreHintDCWnd(__int64 a1, __int64 a2, __int64 a3, int a4, int a5)
 {
   __int64 v6; // rbp

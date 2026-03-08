@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpUnlockGlobalKeyLockTracker @ 0x140846294
+ * Callers:
+ *     CmpGlobalLockKeyForWrite @ 0x14084617C (CmpGlobalLockKeyForWrite.c)
+ *     CmpGlobalUnlockKeyForWrite @ 0x140A19124 (CmpGlobalUnlockKeyForWrite.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 char CmpUnlockGlobalKeyLockTracker()
 {
   signed __int64 v0; // rdx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpExamineSaclForAuditEvent @ 0x140A18BC8
+ * Callers:
+ *     CmpVEExecuteCreateLogic @ 0x140768C00 (CmpVEExecuteCreateLogic.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x140A15598 (CmKeyBodyReplicateToVirtual.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlGetSaclSecurityDescriptor @ 0x14071C1D0 (RtlGetSaclSecurityDescriptor.c)
+ *     CmpEffectiveTokenForSubject @ 0x140768D98 (CmpEffectiveTokenForSubject.c)
+ *     SeExamineSacl @ 0x1408A18B0 (SeExamineSacl.c)
+ *     SeExamineGlobalSacl @ 0x1408A1D6A (SeExamineGlobalSacl.c)
+ */
+
 __int64 __fastcall CmpExamineSaclForAuditEvent(void *a1, __int64 *a2, _BYTE *a3)
 {
   NTSTATUS SaclSecurityDescriptor; // ebx

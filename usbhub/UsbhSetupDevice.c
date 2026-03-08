@@ -1,3 +1,48 @@
+/*
+ * XREFs of UsbhSetupDevice @ 0x1C0039728
+ * Callers:
+ *     UsbhReset2Complete @ 0x1C0002D00 (UsbhReset2Complete.c)
+ * Callees:
+ *     UsbhEtwLogHubIrpEvent @ 0x1C00098E0 (UsbhEtwLogHubIrpEvent.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhQueryPortState @ 0x1C0016540 (UsbhQueryPortState.c)
+ *     UsbhSyncSendCommandToDevice @ 0x1C001A250 (UsbhSyncSendCommandToDevice.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     memset @ 0x1C0023880 (memset.c)
+ *     Usbh__TestPoint__Ulong @ 0x1C0030310 (Usbh__TestPoint__Ulong.c)
+ *     UsbhGetMSOS_Descriptor @ 0x1C0032C40 (UsbhGetMSOS_Descriptor.c)
+ *     UsbhGetMsOs20DescriptorSet @ 0x1C0032F04 (UsbhGetMsOs20DescriptorSet.c)
+ *     UsbhGetMsOsContainerID @ 0x1C0033048 (UsbhGetMsOsContainerID.c)
+ *     UsbhGetMsOsExtendedConfigDesc @ 0x1C0033348 (UsbhGetMsOsExtendedConfigDesc.c)
+ *     UsbhSendMsOs20AltEnumCommand @ 0x1C0033AEC (UsbhSendMsOs20AltEnumCommand.c)
+ *     UsbhGetAlternateUsbDescriptors @ 0x1C0037CEC (UsbhGetAlternateUsbDescriptors.c)
+ *     UsbhGetBillboardInfo @ 0x1C0037E7C (UsbhGetBillboardInfo.c)
+ *     UsbhGetDeviceInformation @ 0x1C00382CC (UsbhGetDeviceInformation.c)
+ *     Usbh_HubGetUsbDescriptors @ 0x1C003B174 (Usbh_HubGetUsbDescriptors.c)
+ *     WPP_RECORDER_SF_S @ 0x1C003B830 (WPP_RECORDER_SF_S.c)
+ *     UsbhGetInitRegUsbDeviceFlags @ 0x1C0044E20 (UsbhGetInitRegUsbDeviceFlags.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhBusIf_SetClearRootPortResumeTime @ 0x1C004C188 (UsbhBusIf_SetClearRootPortResumeTime.c)
+ *     UsbhBusIf_SetMsOs20Support @ 0x1C004C294 (UsbhBusIf_SetMsOs20Support.c)
+ *     UsbhBuildCompatibleID @ 0x1C004F2B4 (UsbhBuildCompatibleID.c)
+ *     UsbhBuildDeviceID @ 0x1C004F9EC (UsbhBuildDeviceID.c)
+ *     UsbhBuildHardwareID @ 0x1C004FCFC (UsbhBuildHardwareID.c)
+ *     UsbhFreeID @ 0x1C00503BC (UsbhFreeID.c)
+ *     UsbhGetLanguageIdString @ 0x1C00503F4 (UsbhGetLanguageIdString.c)
+ *     UsbhGetProductIdString @ 0x1C00507E0 (UsbhGetProductIdString.c)
+ *     UsbhGetSerialNumber @ 0x1C00509A4 (UsbhGetSerialNumber.c)
+ *     UsbhValidateBOSDescriptorSet @ 0x1C00524CC (UsbhValidateBOSDescriptorSet.c)
+ *     UsbhValidateDeviceDescriptor @ 0x1C0052668 (UsbhValidateDeviceDescriptor.c)
+ *     UsbhValidateMsOs20DescriptorSet @ 0x1C0052A24 (UsbhValidateMsOs20DescriptorSet.c)
+ *     UsbhGetBosDescriptor @ 0x1C005452C (UsbhGetBosDescriptor.c)
+ *     UsbhGetDeviceDescriptor @ 0x1C00546D0 (UsbhGetDeviceDescriptor.c)
+ *     UsbhGetQualifierDescriptorFromDevice @ 0x1C00547AC (UsbhGetQualifierDescriptorFromDevice.c)
+ *     UsbhUpdateUxdSettings @ 0x1C005ACF0 (UsbhUpdateUxdSettings.c)
+ *     UsbDualRoleFeaturesQueryLocalMachine @ 0x1C005CE14 (UsbDualRoleFeaturesQueryLocalMachine.c)
+ */
+
 __int64 __fastcall UsbhSetupDevice(__int64 a1, __int64 a2, _DWORD *a3)
 {
   _DWORD *v6; // rbx

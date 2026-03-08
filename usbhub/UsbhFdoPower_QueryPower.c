@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhFdoPower_QueryPower @ 0x1C0020470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhFdoQuerySystemPowerState @ 0x1C0020640 (UsbhFdoQuerySystemPowerState.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     UsbhPoStartNextPowerIrp_Fdo @ 0x1C003C7C0 (UsbhPoStartNextPowerIrp_Fdo.c)
+ */
+
 NTSTATUS __fastcall UsbhFdoPower_QueryPower(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // r8

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpIommuCheckExceptionList @ 0x14050B910
+ * Callers:
+ *     HalpIommuUnblockDevice @ 0x140516330 (HalpIommuUnblockDevice.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x140822570 (HalpDmaAllocateChildAdapterV3.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HalpIommuCheckExceptionList(__int64 a1)
 {
   __int64 v1; // rdx

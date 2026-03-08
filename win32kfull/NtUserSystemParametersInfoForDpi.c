@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserSystemParametersInfoForDpi @ 0x1C00A2040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _SystemParametersInfoForDpi @ 0x1C00A21BC (_SystemParametersInfoForDpi.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall NtUserSystemParametersInfoForDpi(int a1, int a2, _DWORD *a3, __int64 a4, int a5)
 {
   __int64 v8; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of Isoch_EP_EndpointResetFromClient @ 0x1C00440A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_DD @ 0x1C0007C90 (WPP_RECORDER_SF_DD.c)
+ */
+
 _UNKNOWN **__fastcall Isoch_EP_EndpointResetFromClient(__int64 a1)
 {
   _UNKNOWN **result; // rax

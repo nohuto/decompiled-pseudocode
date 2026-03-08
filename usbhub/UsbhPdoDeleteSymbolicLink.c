@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhPdoDeleteSymbolicLink @ 0x1C0054BC8
+ * Callers:
+ *     UsbhPdoRemoveCleanup @ 0x1C0056C34 (UsbhPdoRemoveCleanup.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 void __fastcall UsbhPdoDeleteSymbolicLink(__int64 a1)
 {
   NTSTATUS v2; // edi

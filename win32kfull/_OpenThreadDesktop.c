@@ -1,3 +1,14 @@
+/*
+ * XREFs of _OpenThreadDesktop @ 0x1C00BEF04
+ * Callers:
+ *     NtUserOpenThreadDesktop @ 0x1C00BEE70 (NtUserOpenThreadDesktop.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     CloseProtectedHandle @ 0x1C0094854 (CloseProtectedHandle.c)
+ *     OpenDesktopCompletion @ 0x1C00C119C (OpenDesktopCompletion.c)
+ *     GetConsoleDesktop @ 0x1C01BFCC8 (GetConsoleDesktop.c)
+ */
+
 __int64 __fastcall OpenThreadDesktop(__int64 a1, unsigned int a2, int a3, int a4, HANDLE *Object)
 {
   unsigned int v8; // ebx

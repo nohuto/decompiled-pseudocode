@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlIs32BitProcess @ 0x14093BD60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall FsRtlIs32BitProcess(__int64 a1)
 {
   char result; // al

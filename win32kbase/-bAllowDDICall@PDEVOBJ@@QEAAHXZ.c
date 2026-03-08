@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bAllowDDICall@PDEVOBJ@@QEAAHXZ @ 0x1C002B304
+ * Callers:
+ *     ?vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z @ 0x1C00292E0 (-vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z.c)
+ *     ?vDisableSurface@PDEVOBJ@@QEAAXE@Z @ 0x1C002B5B0 (-vDisableSurface@PDEVOBJ@@QEAAXE@Z.c)
+ *     ?bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C004B700 (-bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PDEVOBJ::bAllowDDICall(PDEVOBJ *this)
 {
   unsigned int v1; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DetermineViewDistance@@YA_NQEAXAEBUtagSIZE@@H1PEAI@Z @ 0x1C016771C
+ * Callers:
+ *     ?UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHIPEAU_GDIINFO@@PEAU_DPI_INFORMATION@@@Z @ 0x1C0169828 (-UpdateGdiInfoForVidPnSource@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIHIPEAU_GDIINFO@@PEAU_DPI_INFORMATIO.c)
+ * Callees:
+ *     ?HeuristicallyDetermineViewingDistance@@YAIAEBUtagSIZE@@H0@Z @ 0x1C0001D14 (-HeuristicallyDetermineViewingDistance@@YAIAEBUtagSIZE@@H0@Z.c)
+ *     ?OemSpecifiedViewDist@@YAIQEAX@Z @ 0x1C02FDE7C (-OemSpecifiedViewDist@@YAIQEAX@Z.c)
+ */
+
 char __fastcall DetermineViewDistance(
         void *const a1,
         const struct tagSIZE *a2,

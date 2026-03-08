@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwTraceTrappedAppContainerRender @ 0x1C0198560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0MALLOCOBJ@@QEAA@K@Z @ 0x1C01980BC (--0MALLOCOBJ@@QEAA@K@Z.c)
+ *     ??1?$AutoResource@$1?Win32FreePool@@YAXPEAX@Z@@QEAA@XZ @ 0x1C0198280 (--1-$AutoResource@$1-Win32FreePool@@YAXPEAX@Z@@QEAA@XZ.c)
+ *     McTemplateK0szsz_EtwWriteTransfer @ 0x1C0198AC0 (McTemplateK0szsz_EtwWriteTransfer.c)
+ */
+
 void __fastcall EtwTraceTrappedAppContainerRender(PEPROCESS Process, PEPROCESS a2)
 {
   char *v4; // rbx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopEnableSystemSleepCheckpoint @ 0x140993DEC
+ * Callers:
+ *     PopIssueActionRequest @ 0x140986CA4 (PopIssueActionRequest.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     PopTraceSleepCheckpointInitFailure @ 0x14098FAE8 (PopTraceSleepCheckpointInitFailure.c)
+ *     PopIsDetailedSleepReliabilityDiagEnabled @ 0x140993F30 (PopIsDetailedSleepReliabilityDiagEnabled.c)
+ *     NtQueryEnvironmentVariableInfoEx @ 0x1409FC710 (NtQueryEnvironmentVariableInfoEx.c)
+ *     PopCheckpointSystemSleepUnsafe @ 0x140AA7484 (PopCheckpointSystemSleepUnsafe.c)
+ */
+
 __int64 PopEnableSystemSleepCheckpoint()
 {
   char v0; // si

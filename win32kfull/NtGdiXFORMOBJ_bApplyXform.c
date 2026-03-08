@@ -1,3 +1,17 @@
+/*
+ * XREFs of NtGdiXFORMOBJ_bApplyXform @ 0x1C02CFEE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00D1B64 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ??$GetDDIOBJ@U_XFORMOBJ@@@UMPDOBJ@@QEAAPEAU_XFORMOBJ@@PEAU1@@Z @ 0x1C02C94F8 (--$GetDDIOBJ@U_XFORMOBJ@@@UMPDOBJ@@QEAAPEAU_XFORMOBJ@@PEAU1@@Z.c)
+ *     ?bSafeCopyBits@@YAHPEAX0K@Z @ 0x1C02CA494 (-bSafeCopyBits@@YAHPEAX0K@Z.c)
+ *     ?bSafeReadBits@@YAHPEAX0K@Z @ 0x1C02CA4E8 (-bSafeReadBits@@YAHPEAX0K@Z.c)
+ *     XFORMOBJ_bApplyXform @ 0x1C02DDBF0 (XFORMOBJ_bApplyXform.c)
+ */
+
 __int64 __fastcall NtGdiXFORMOBJ_bApplyXform(__int64 a1, ULONG a2, ULONG a3, char *a4, char *a5)
 {
   unsigned int v5; // r15d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiValidateMemoryRangeEntries @ 0x14075C34C
+ * Callers:
+ *     MmOutSwapVirtualAddresses @ 0x14065065C (MmOutSwapVirtualAddresses.c)
+ *     NtSetInformationVirtualMemory @ 0x14075BCB0 (NtSetInformationVirtualMemory.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiValidateMemoryRangeEntries(_QWORD *a1, __int64 a2, unsigned __int64 *a3)
 {
   _QWORD *v3; // r9

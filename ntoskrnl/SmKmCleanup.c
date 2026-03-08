@@ -1,3 +1,13 @@
+/*
+ * XREFs of SmKmCleanup @ 0x1409D58F8
+ * Callers:
+ *     ?SmCleanup@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1405BC26C (-SmCleanup@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     SmStoreGetId @ 0x1405CB750 (SmStoreGetId.c)
+ *     SmKmStoreDelete @ 0x1407DD27C (SmKmStoreDelete.c)
+ */
+
 void __fastcall SmKmCleanup(__int64 a1)
 {
   struct _PRIVILEGE_SET **v2; // rbx

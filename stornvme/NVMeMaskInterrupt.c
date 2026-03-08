@@ -1,3 +1,11 @@
+/*
+ * XREFs of NVMeMaskInterrupt @ 0x1C0021054
+ * Callers:
+ *     ProcessCompletionQueues @ 0x1C0002F50 (ProcessCompletionQueues.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NVMeMaskInterrupt(__int64 a1, char a2)
 {
   __int64 result; // rax

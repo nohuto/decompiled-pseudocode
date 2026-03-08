@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetColorSpace@CBitmap@@UEAAJW4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x1801DCF40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
 __int64 __fastcall CBitmap::SetColorSpace(CBitmap *this, enum DXGI_COLOR_SPACE_TYPE a2)
 {
   wil::details::in1diag3 *retaddr; // [rsp+28h] [rbp+0h]

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?StartPixel@@YAPEAEPEAEKK@Z @ 0x1C029885C
+ * Callers:
+ *     ?ReadScanLine@@YAKPEAEKKKK@Z @ 0x1C029869C (-ReadScanLine@@YAKPEAEKKKK@Z.c)
+ *     ?SkipScanLine@@YAKPEAEKKKK@Z @ 0x1C029877C (-SkipScanLine@@YAKPEAEKKKK@Z.c)
+ *     ?vTransparentCopy@@YAXPEAUBLTINFO@@@Z @ 0x1C02988C0 (-vTransparentCopy@@YAXPEAUBLTINFO@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 *__fastcall StartPixel(unsigned __int8 *a1, unsigned int a2, int a3)
 {
   unsigned __int8 *v3; // r9

@@ -1,3 +1,12 @@
+/*
+ * XREFs of DNG_StretchCol @ 0x1C00034CC
+ * Callers:
+ *     RenderNineGridInternal @ 0x1C0080D30 (RenderNineGridInternal.c)
+ * Callees:
+ *     DNG_DrawRow @ 0x1C0081850 (DNG_DrawRow.c)
+ *     ?DNG_CopyMemory@@YAHPEAU_DNGINTERNALDATA@@PEAX1J@Z @ 0x1C014D9F6 (-DNG_CopyMemory@@YAHPEAU_DNGINTERNALDATA@@PEAX1J@Z.c)
+ */
+
 int __fastcall DNG_StretchCol(struct _DNGINTERNALDATA *a1, _DWORD *a2)
 {
   __int64 v2; // r15

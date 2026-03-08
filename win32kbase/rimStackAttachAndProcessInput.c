@@ -1,3 +1,19 @@
+/*
+ * XREFs of rimStackAttachAndProcessInput @ 0x1C00044C4
+ * Callers:
+ *     rimProcessKeyboardInput @ 0x1C0004290 (rimProcessKeyboardInput.c)
+ *     RIMOnPnpNotification @ 0x1C00383E0 (RIMOnPnpNotification.c)
+ *     rimDispatchCompleteFrames @ 0x1C00F0B7C (rimDispatchCompleteFrames.c)
+ *     rimProcessMouseInput @ 0x1C00F0EA4 (rimProcessMouseInput.c)
+ *     rimProcessHidInput @ 0x1C01D2DF8 (rimProcessHidInput.c)
+ * Callees:
+ *     rimProcessInput @ 0x1C00045B0 (rimProcessInput.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?DbgPrintGDI@@YAXPEADZZ @ 0x1C017D810 (-DbgPrintGDI@@YAXPEADZZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqqD @ 0x1C01A0D88 (WPP_RECORDER_AND_TRACE_SF_qqqD.c)
+ */
+
 void __fastcall rimStackAttachAndProcessInput(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5)
 {
   char v9; // di

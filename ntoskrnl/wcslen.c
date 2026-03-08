@@ -1,3 +1,11 @@
+/*
+ * XREFs of wcslen @ 0x1403D5E60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 size_t __cdecl wcslen(const wchar_t *Str)
 {
   const wchar_t *v1; // rax

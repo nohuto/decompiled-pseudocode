@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DestroyEventHandles@CKernelSensorThread@@QEAAXXZ @ 0x1C0099B84
+ * Callers:
+ *     ??1CKernelSensorThread@@UEAA@XZ @ 0x1C00969F0 (--1CKernelSensorThread@@UEAA@XZ.c)
+ *     ?DeactivateInputProcessing@CKernelSensorThread@@UEAA_NXZ @ 0x1C0099B50 (-DeactivateInputProcessing@CKernelSensorThread@@UEAA_NXZ.c)
+ *     UserKSTInitialize @ 0x1C009A090 (UserKSTInitialize.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ */
+
 void __fastcall CKernelSensorThread::DestroyEventHandles(CKernelSensorThread *this)
 {
   char *v1; // rbx

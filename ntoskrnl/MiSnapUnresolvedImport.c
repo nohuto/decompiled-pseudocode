@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiSnapUnresolvedImport @ 0x140A283DC
+ * Callers:
+ *     MiResolveImageReferences @ 0x1407EC794 (MiResolveImageReferences.c)
+ * Callees:
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ */
+
 __int64 __fastcall MiSnapUnresolvedImport(__int64 a1, __int64 *a2, int a3)
 {
   __int64 *v3; // rbx

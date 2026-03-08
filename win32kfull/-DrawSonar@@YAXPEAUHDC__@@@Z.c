@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?DrawSonar@@YAXPEAUHDC__@@@Z @ 0x1C01BD6A4
+ * Callers:
+ *     zzzAnimateFade @ 0x1C01BE518 (zzzAnimateFade.c)
+ *     zzzStartSonar @ 0x1C01BE79C (zzzStartSonar.c)
+ * Callees:
+ *     FillRect @ 0x1C00881F8 (FillRect.c)
+ *     GreCreatePen @ 0x1C00E8908 (GreCreatePen.c)
+ *     NtGdiEllipse @ 0x1C02AF970 (NtGdiEllipse.c)
+ */
+
 void __fastcall DrawSonar(HDC a1)
 {
   HBRUSH SolidBrush; // rax

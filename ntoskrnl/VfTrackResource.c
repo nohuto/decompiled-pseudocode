@@ -1,3 +1,19 @@
+/*
+ * XREFs of VfTrackResource @ 0x140AE15E4
+ * Callers:
+ *     VfMiscExInitializeResourceLite_Exit @ 0x140ADCBF0 (VfMiscExInitializeResourceLite_Exit.c)
+ * Callees:
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     VfUtilFreePoolCheckIRQL @ 0x140303240 (VfUtilFreePoolCheckIRQL.c)
+ *     VfAvlDeleteTreeNode @ 0x140303394 (VfAvlDeleteTreeNode.c)
+ *     VfAvlLookupTreeNode @ 0x140303680 (VfAvlLookupTreeNode.c)
+ *     VfAvlReserveNode @ 0x140303910 (VfAvlReserveNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403039F0 (VfAvlCleanupLockContext.c)
+ *     VfAvlInsertReservedTreeNode @ 0x140303A48 (VfAvlInsertReservedTreeNode.c)
+ *     VfAvlInitializeLockContext @ 0x14045DE58 (VfAvlInitializeLockContext.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ */
+
 char __fastcall VfTrackResource(__int64 BugCheckParameter2)
 {
   char *v3; // rbp

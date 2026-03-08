@@ -1,3 +1,13 @@
+/*
+ * XREFs of SeQueryMandatoryLabel @ 0x140743AE8
+ * Callers:
+ *     MiAllowImageMap @ 0x1407D35A0 (MiAllowImageMap.c)
+ * Callees:
+ *     RtlSubAuthorityCountSid @ 0x1402BE730 (RtlSubAuthorityCountSid.c)
+ *     RtlSubAuthoritySid @ 0x1402BE740 (RtlSubAuthoritySid.c)
+ *     RtlFindAceByType @ 0x1403100D0 (RtlFindAceByType.c)
+ */
+
 __int64 __fastcall SeQueryMandatoryLabel(__int64 a1)
 {
   __int16 v1; // ax

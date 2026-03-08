@@ -1,3 +1,13 @@
+/*
+ * XREFs of WPP_IFR_SF_qDDd @ 0x1C0034CC8
+ * Callers:
+ *     imp_WdfRequestForwardToParentDeviceIoQueue @ 0x1C000D440 (imp_WdfRequestForwardToParentDeviceIoQueue.c)
+ *     ?ConfigureConstraints@FxIoQueue@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxDriver@@@Z @ 0x1C00638FC (-ConfigureConstraints@FxIoQueue@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAVFxDriver@@@Z.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_qDDd(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 flags,

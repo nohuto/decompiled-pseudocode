@@ -1,3 +1,12 @@
+/*
+ * XREFs of XmMoveXxGeneral @ 0x140397C40
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmEvaluateAddressSpecifier @ 0x1403B3F0C (XmEvaluateAddressSpecifier.c)
+ *     XmSetSourceValue @ 0x1403B41A0 (XmSetSourceValue.c)
+ */
+
 __int64 __fastcall XmMoveXxGeneral(__int64 a1)
 {
   int v1; // eax

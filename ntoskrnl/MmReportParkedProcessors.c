@@ -1,3 +1,15 @@
+/*
+ * XREFs of MmReportParkedProcessors @ 0x140653870
+ * Callers:
+ *     PpmParkReportMask @ 0x1402EDF00 (PpmParkReportMask.c)
+ * Callees:
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     MiMoveBackgroundZeroThreads @ 0x1406529D0 (MiMoveBackgroundZeroThreads.c)
+ */
+
 void MmReportParkedProcessors()
 {
   wchar_t *v0; // rbx

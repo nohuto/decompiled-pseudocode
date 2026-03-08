@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopIdleWakeDelayedWakeSourceReferencer @ 0x14059B1B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ */
+
 LONG __fastcall PopIdleWakeDelayedWakeSourceReferencer(__int64 a1, __int64 a2)
 {
   PVOID *v3; // rbx

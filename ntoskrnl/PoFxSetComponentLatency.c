@@ -1,3 +1,15 @@
+/*
+ * XREFs of PoFxSetComponentLatency @ 0x1402EE7E0
+ * Callers:
+ *     DifPoFxSetComponentLatencyWrapper @ 0x1405E7760 (DifPoFxSetComponentLatencyWrapper.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     PopPepComponentSetLatency @ 0x1402EE890 (PopPepComponentSetLatency.c)
+ *     PopFxAddLogEntry @ 0x140306584 (PopFxAddLogEntry.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall PoFxSetComponentLatency(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v5; // edi

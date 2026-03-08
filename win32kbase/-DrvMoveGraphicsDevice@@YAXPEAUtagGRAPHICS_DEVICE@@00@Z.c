@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DrvMoveGraphicsDevice@@YAXPEAUtagGRAPHICS_DEVICE@@00@Z @ 0x1C00CB4CC
+ * Callers:
+ *     ?DrvSortGraphicsDeviceList@@YAXXZ @ 0x1C00CB3D4 (-DrvSortGraphicsDeviceList@@YAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DrvMoveGraphicsDevice(
         struct tagGRAPHICS_DEVICE *a1,
         struct tagGRAPHICS_DEVICE *a2,

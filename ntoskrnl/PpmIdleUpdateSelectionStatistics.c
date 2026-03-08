@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmIdleUpdateSelectionStatistics @ 0x1405832E8
+ * Callers:
+ *     PpmIdleSelectStates @ 0x1403B2150 (PpmIdleSelectStates.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall PpmIdleUpdateSelectionStatistics(__int64 a1, __int64 a2)
 {
   unsigned int v2; // r8d

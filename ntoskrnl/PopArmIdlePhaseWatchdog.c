@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopArmIdlePhaseWatchdog @ 0x14087EFA4
+ * Callers:
+ *     PopProcessSessionDisplayStateChange @ 0x140757094 (PopProcessSessionDisplayStateChange.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     ZwPowerInformation @ 0x140412EF0 (ZwPowerInformation.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopPdcAreAllPhasesDisengaged @ 0x14087F0C8 (PopPdcAreAllPhasesDisengaged.c)
+ *     PopSnapSystemIdleContext @ 0x14087F0F0 (PopSnapSystemIdleContext.c)
+ */
+
 void __fastcall PopArmIdlePhaseWatchdog(int a1)
 {
   __int64 v1; // rsi

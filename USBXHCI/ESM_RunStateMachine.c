@@ -1,3 +1,16 @@
+/*
+ * XREFs of ESM_RunStateMachine @ 0x1C000C510
+ * Callers:
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     ESM_SmWorker @ 0x1C00513B0 (ESM_SmWorker.c)
+ * Callees:
+ *     ESM_GetNextEvent @ 0x1C000C6FC (ESM_GetNextEvent.c)
+ *     ESM_FindAndSetTargetState @ 0x1C000C7CC (ESM_FindAndSetTargetState.c)
+ *     ESM_ExecuteEntryFunctionsAndPushPopStateMachinesForCurrentState @ 0x1C000C99C (ESM_ExecuteEntryFunctionsAndPushPopStateMachinesForCurrentState.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_IsRunningWithIrqlRaisedAndTracked @ 0x1C0034200 (Controller_IsRunningWithIrqlRaisedAndTracked.c)
+ */
+
 KIRQL __fastcall ESM_RunStateMachine(char *Context, int a2, KIRQL *a3)
 {
   __int64 v3; // r15

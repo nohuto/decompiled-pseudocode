@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0qqxxxq_EtwWriteTransfer @ 0x1C004B678
+ * Callers:
+ *     ?VidSchiReprogramVSyncSuppressionForPresent@@YAXPEAU_VIDSCH_DEVICE@@U_LUID@@_KU_D3DKMT_CANCEL_PRESENTS_FLAGS@@@Z @ 0x1C004A1C4 (-VidSchiReprogramVSyncSuppressionForPresent@@YAXPEAU_VIDSCH_DEVICE@@U_LUID@@_KU_D3DKMT_CANCEL_PR.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BDEC (McGenEventWrite_EtwWriteTransfer.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0qqxxxq_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,

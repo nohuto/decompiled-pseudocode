@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReportUsageForAllVelocityKeys@@YAXXZ @ 0x1C00DD738
+ * Callers:
+ *     Win32kBaseDriverEntry @ 0x1C0320F10 (Win32kBaseDriverEntry.c)
+ * Callees:
+ *     wil_details_FeatureStateCache_GetCachedFeatureEnabledState @ 0x1C00CC088 (wil_details_FeatureStateCache_GetCachedFeatureEnabledState.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C0155054 (wil_details_FeatureReporting_ReportUsageToService.c)
+ */
+
 void ReportUsageForAllVelocityKeys(void)
 {
   __int64 CachedFeatureEnabledState; // rax

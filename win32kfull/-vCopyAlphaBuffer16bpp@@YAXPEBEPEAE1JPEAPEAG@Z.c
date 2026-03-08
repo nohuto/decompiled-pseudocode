@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vCopyAlphaBuffer16bpp@@YAXPEBEPEAE1JPEAPEAG@Z @ 0x1C0273FA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vCopyAlphaBuffer16bpp(
         const unsigned __int8 *a1,
         unsigned __int8 *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmRegUtilUcValueGetDword @ 0x1C0393AE8
+ * Callers:
+ *     CmRegUtilWstrValueGetDword @ 0x1C0393DFC (CmRegUtilWstrValueGetDword.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall CmRegUtilUcValueGetDword(void *a1, struct _UNICODE_STRING *a2, __int64 a3, _DWORD *a4)
 {
   int v4; // ebx

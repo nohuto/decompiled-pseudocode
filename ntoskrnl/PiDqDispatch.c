@@ -1,3 +1,23 @@
+/*
+ * XREFs of PiDqDispatch @ 0x140745C20
+ * Callers:
+ *     PiDaDispatch @ 0x14076AE40 (PiDaDispatch.c)
+ * Callees:
+ *     IoIs32bitProcess @ 0x140245910 (IoIs32bitProcess.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     wcscmp @ 0x1403D5DD0 (wcscmp.c)
+ *     PiDqQueryRelease @ 0x140689C8C (PiDqQueryRelease.c)
+ *     PiDqQueryCreate @ 0x140745E44 (PiDqQueryCreate.c)
+ *     PiDqIrpQueryCreate @ 0x140745F08 (PiDqIrpQueryCreate.c)
+ *     PiDqQueryGetObjectManager @ 0x140746CE4 (PiDqQueryGetObjectManager.c)
+ *     PiDqObjectManagerUnregisterQuery @ 0x140747D8C (PiDqObjectManagerUnregisterQuery.c)
+ *     PiDqIrpQueryGetResult @ 0x1407480E0 (PiDqIrpQueryGetResult.c)
+ *     PiDqIrpPropertySet @ 0x1407FB7F4 (PiDqIrpPropertySet.c)
+ */
+
 __int64 __fastcall PiDqDispatch(__int64 a1, IRP *a2)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r14

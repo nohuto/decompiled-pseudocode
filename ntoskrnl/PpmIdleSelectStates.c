@@ -1,3 +1,29 @@
+/*
+ * XREFs of PpmIdleSelectStates @ 0x1403B2150
+ * Callers:
+ *     PoIdle @ 0x14022D240 (PoIdle.c)
+ * Callees:
+ *     PpmEstimateIdleDuration @ 0x14022A74C (PpmEstimateIdleDuration.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     MmGetNextNode @ 0x1402AB0A0 (MmGetNextNode.c)
+ *     PoCopyDeepIdleMask @ 0x1402AEFF0 (PoCopyDeepIdleMask.c)
+ *     KiSubtractAffinityEx @ 0x1402D4CBC (KiSubtractAffinityEx.c)
+ *     KiGetNextTimerExpirationDueTime @ 0x140328330 (KiGetNextTimerExpirationDueTime.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     PpmCheckPreConditionsForDeepSleep @ 0x1403CA57C (PpmCheckPreConditionsForDeepSleep.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PpmIdleCheckCoordinatedStateEligibility @ 0x140582574 (PpmIdleCheckCoordinatedStateEligibility.c)
+ *     PpmIdleRollbackCoordinatedSelection @ 0x140582F8C (PpmIdleRollbackCoordinatedSelection.c)
+ *     PpmIdleSetSynchronizationState @ 0x14058308C (PpmIdleSetSynchronizationState.c)
+ *     PpmIdleUpdateIdleReevaluationDuration @ 0x140583244 (PpmIdleUpdateIdleReevaluationDuration.c)
+ *     PpmIdleUpdateSelectionStatistics @ 0x1405832E8 (PpmIdleUpdateSelectionStatistics.c)
+ *     PpmUnlockProcessors @ 0x140583CC8 (PpmUnlockProcessors.c)
+ */
+
 unsigned __int64 *__fastcall PpmIdleSelectStates(
         __int64 a1,
         char a2,

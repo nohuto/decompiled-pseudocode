@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetMonitorCapability1 @ 0x1C018FD28
+ * Callers:
+ *     GetMonitorCapability @ 0x1C0190204 (GetMonitorCapability.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     InsertModecapList @ 0x1C0190884 (InsertModecapList.c)
+ */
+
 __int64 __fastcall GetMonitorCapability1(_BYTE *a1, __int64 a2, int *a3, char a4)
 {
   __m128i si128; // xmm1

@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiScanPagefileSpace @ 0x140A2FF20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiReleasePageFileInfo @ 0x14020B300 (MiReleasePageFileInfo.c)
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     MiGetPagingFileOffset @ 0x14029EA80 (MiGetPagingFileOffset.c)
+ *     MiReferencePageRuns @ 0x1402EB520 (MiReferencePageRuns.c)
+ *     MiDereferencePageRuns @ 0x1402EBA0C (MiDereferencePageRuns.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14032D790 (MiCaptureDirtyBitToPfn.c)
+ *     MiLockPage @ 0x1404647C4 (MiLockPage.c)
+ *     MiUnlockPage @ 0x1404647DA (MiUnlockPage.c)
+ */
+
 void __fastcall MiScanPagefileSpace(__int64 a1)
 {
   __int16 v1; // r12

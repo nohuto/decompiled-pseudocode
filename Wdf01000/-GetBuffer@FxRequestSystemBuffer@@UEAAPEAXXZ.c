@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetBuffer@FxRequestSystemBuffer@@UEAAPEAXXZ @ 0x1C000E3E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 PVOID __fastcall FxRequestSystemBuffer::GetBuffer(FxRequestSystemBuffer *this)
 {
   unsigned __int8 *v2; // rcx

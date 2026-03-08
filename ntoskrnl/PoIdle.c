@@ -1,3 +1,28 @@
+/*
+ * XREFs of PoIdle @ 0x14022D240
+ * Callers:
+ *     KiIdleLoop @ 0x14041AF70 (KiIdleLoop.c)
+ * Callees:
+ *     PpmIdlePrepare @ 0x14022AA10 (PpmIdlePrepare.c)
+ *     PpmIdleExecuteTransition @ 0x14022D7D0 (PpmIdleExecuteTransition.c)
+ *     KeCheckProcessorAffinityEx @ 0x140234B10 (KeCheckProcessorAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     MmGetNextNode @ 0x1402AB0A0 (MmGetNextNode.c)
+ *     PpmEventIdleStateChange @ 0x1402E19C8 (PpmEventIdleStateChange.c)
+ *     PpmPerfArbitratorApplyProcessorState @ 0x1402ED6EC (PpmPerfArbitratorApplyProcessorState.c)
+ *     HalRequestIpi @ 0x1402EF7C0 (HalRequestIpi.c)
+ *     PpmResetProcessorIdleAccounting @ 0x14039B074 (PpmResetProcessorIdleAccounting.c)
+ *     PpmIdleSelectStates @ 0x1403B2150 (PpmIdleSelectStates.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HalProcessorIdle @ 0x140411C30 (HalProcessorIdle.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KeUpdatePendingQosRequest @ 0x140458E7C (KeUpdatePendingQosRequest.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmSetPlatformIdleDurationHint @ 0x140583780 (PpmSetPlatformIdleDurationHint.c)
+ */
+
 __int64 __fastcall PoIdle(ULONG_PTR BugCheckParameter4)
 {
   unsigned __int16 v1; // bx

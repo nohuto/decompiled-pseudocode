@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlLengthSidAsUnicodeString @ 0x140747878
+ * Callers:
+ *     RtlFormatCurrentUserKeyPath @ 0x140747770 (RtlFormatCurrentUserKeyPath.c)
+ *     ExpWnfGetPermanentPerUserDataStoreHandle @ 0x140793848 (ExpWnfGetPermanentPerUserDataStoreHandle.c)
+ *     AdtpBuildSidListString @ 0x140A5852C (AdtpBuildSidListString.c)
+ * Callees:
+ *     RtlValidSid @ 0x1407C92A0 (RtlValidSid.c)
+ */
+
 __int64 __fastcall RtlLengthSidAsUnicodeString(unsigned __int8 *a1, _DWORD *a2)
 {
   int v4; // edx

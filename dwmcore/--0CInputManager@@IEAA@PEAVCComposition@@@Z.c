@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CInputManager@@IEAA@PEAVCComposition@@@Z @ 0x1800AEB8C
+ * Callers:
+ *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800AE4F0 (-Initialize@CComposition@@MEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 CInputManager *__fastcall CInputManager::CInputManager(CInputManager *this, struct CComposition *a2)
 {
   CInputManager *result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtGdiCreateSessionMappedDIBSection @ 0x1C008FB00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?bCaptureBitmapInfo@@YAHPEAUtagBITMAPINFO@@KIPEAPEAU1@@Z @ 0x1C008FA28 (-bCaptureBitmapInfo@@YAHPEAUtagBITMAPINFO@@KIPEAPEAU1@@Z.c)
+ *     ?GreCreateDIBitmapReal@@YAPEAUHBITMAP__@@PEAUHDC__@@KAEAV?$umptr_r@E@@PEAUtagBITMAPINFO@@KIPEAXK3K_KPEAPEAX@Z @ 0x1C00906B0 (-GreCreateDIBitmapReal@@YAPEAUHBITMAP__@@PEAUHDC__@@KAEAV-$umptr_r@E@@PEAUtagBITMAPINFO@@KIPEAXK.c)
+ *     GreGetBitmapBitsSize @ 0x1C0091230 (GreGetBitmapBitsSize.c)
+ */
+
 __int64 __fastcall NtGdiCreateSessionMappedDIBSection(
         HDC a1,
         void *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MulAssociateSharedSurface@@YAHPEAU_SURFOBJ@@PEAX1UtagSIZE@@@Z @ 0x1C014E3B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall MulAssociateSharedSurface(struct _SURFOBJ *a1, void *a2, void *a3, struct tagSIZE a4)
 {
   unsigned int v4; // r10d

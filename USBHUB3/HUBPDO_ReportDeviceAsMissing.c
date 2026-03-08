@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBPDO_ReportDeviceAsMissing @ 0x1C001B420
+ * Callers:
+ *     HUBDSM_ReportingDeviceMissing @ 0x1C001FDB0 (HUBDSM_ReportingDeviceMissing.c)
+ *     HUBDSM_ReportingFailedDeviceAsMissing @ 0x1C001FE00 (HUBDSM_ReportingFailedDeviceAsMissing.c)
+ *     HUBDSM_WaitingForReportedMissingOnDetachInConfigured @ 0x1C0020720 (HUBDSM_WaitingForReportedMissingOnDetachInConfigured.c)
+ *     HUBDSM_WaitingForReportedMissingOnDetachInUnConfigured @ 0x1C0020760 (HUBDSM_WaitingForReportedMissingOnDetachInUnConfigured.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall HUBPDO_ReportDeviceAsMissing(__int64 a1)
 {
   KIRQL v2; // bl

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SetWindowTreeBand@@YAXPEAUtagWND@@W4ZBID@@@Z @ 0x1C0027F7C
+ * Callers:
+ *     SetWindowGroupBand @ 0x1C0025CE4 (SetWindowGroupBand.c)
+ *     ?SetWindowTreeBand@@YAXPEAUtagWND@@W4ZBID@@@Z @ 0x1C0027F7C (-SetWindowTreeBand@@YAXPEAUtagWND@@W4ZBID@@@Z.c)
+ * Callees:
+ *     ?SetWindowTreeBand@@YAXPEAUtagWND@@W4ZBID@@@Z @ 0x1C0027F7C (-SetWindowTreeBand@@YAXPEAUtagWND@@W4ZBID@@@Z.c)
+ *     DwmAsyncChildZBandChange @ 0x1C0027FF8 (DwmAsyncChildZBandChange.c)
+ */
+
 __int64 __fastcall SetWindowTreeBand(__int64 a1, unsigned int a2)
 {
   __int64 result; // rax

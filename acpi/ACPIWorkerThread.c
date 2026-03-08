@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIWorkerThread @ 0x1C00475A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_dqqq @ 0x1C00477D0 (WPP_RECORDER_SF_dqqq.c)
+ */
+
 void __fastcall __noreturn ACPIWorkerThread(PVOID StartContext)
 {
   KIRQL v1; // al

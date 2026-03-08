@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CreateCLIPOBJ@UMPDOBJ@@QEAAPEAU_CLIPOBJ@@XZ @ 0x1C029B458
+ * Callers:
+ *     NtGdiEngCreateClip @ 0x1C02CBB20 (NtGdiEngCreateClip.c)
+ * Callees:
+ *     ?ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z @ 0x1C029BC38 (-ThunkDDIOBJ@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAXKPEAX@Z.c)
+ */
+
 struct _CLIPOBJ *__fastcall UMPDOBJ::CreateCLIPOBJ(UMPDOBJ *this)
 {
   CLIPOBJ *v2; // rbx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ProcessComplexCoalescence@@YAHII_K_JPEA_KPEA_J@Z @ 0x1C000F514
+ * Callers:
+ *     ProcessSuspendedSendMessage @ 0x1C0015688 (ProcessSuspendedSendMessage.c)
+ *     ProcessSuspendedEventMessage @ 0x1C00E0344 (ProcessSuspendedEventMessage.c)
+ *     ProcessSuspendedPostMessage @ 0x1C014322E (ProcessSuspendedPostMessage.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall ProcessComplexCoalescence(
         int a1,
         int a2,

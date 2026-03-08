@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBDTX_ValidateFirstDeviceDescriptorFor20 @ 0x1C002C21C
+ * Callers:
+ *     HUBDSM_ValidatingDeviceDescriptorInReEnumAtZero @ 0x1C0020ED0 (HUBDSM_ValidatingDeviceDescriptorInReEnumAtZero.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBDESC_ValidateDeviceDescriptor @ 0x1C003C5E8 (HUBDESC_ValidateDeviceDescriptor.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBDTX_ValidateFirstDeviceDescriptorFor20(__int64 a1)
 {
   unsigned int v1; // edx

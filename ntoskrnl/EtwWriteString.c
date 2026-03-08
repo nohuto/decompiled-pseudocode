@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwWriteString @ 0x1405FCA30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwpLevelKeywordEnabled @ 0x140231970 (EtwpLevelKeywordEnabled.c)
+ *     EtwpEventWriteFull @ 0x1402319C0 (EtwpEventWriteFull.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __stdcall EtwWriteString(
         REGHANDLE RegHandle,
         UCHAR Level,

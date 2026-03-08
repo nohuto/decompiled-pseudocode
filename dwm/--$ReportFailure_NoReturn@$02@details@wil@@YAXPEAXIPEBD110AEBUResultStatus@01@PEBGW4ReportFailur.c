@@ -1,3 +1,16 @@
+/*
+ * XREFs of ??$ReportFailure_NoReturn@$02@details@wil@@YAXPEAXIPEBD110AEBUResultStatus@01@PEBGW4ReportFailureOptions@01@@Z @ 0x140008410
+ * Callers:
+ *     ??$ReportFailure_Base@$02$0A@@details@wil@@YAXPEAXIPEBD110AEBUResultStatus@01@PEBGW4ReportFailureOptions@01@@Z @ 0x140008178 (--$ReportFailure_Base@$02$0A@@details@wil@@YAXPEAXIPEBD110AEBUResultStatus@01@PEBGW4ReportFailur.c)
+ * Callees:
+ *     ?RecordFailFast@details@wil@@YAHJ@Z @ 0x140002FF0 (-RecordFailFast@details@wil@@YAHJ@Z.c)
+ *     _alloca_probe @ 0x140007150 (_alloca_probe.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x140007200 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetFailureLogString@wil@@YAJPEAG_KAEBUFailureInfo@1@@Z @ 0x140009164 (-GetFailureLogString@wil@@YAJPEAG_KAEBUFailureInfo@1@@Z.c)
+ *     ?HrToNtStatus@details@wil@@YAJJ@Z @ 0x140009838 (-HrToNtStatus@details@wil@@YAJJ@Z.c)
+ *     ?WilFailFast@details@wil@@YAXAEBUFailureInfo@2@@Z @ 0x14000A458 (-WilFailFast@details@wil@@YAXAEBUFailureInfo@2@@Z.c)
+ */
+
 void __fastcall __noreturn wil::details::ReportFailure_NoReturn<3>(
         __int64 a1,
         int a2,

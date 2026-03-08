@@ -1,3 +1,21 @@
+/*
+ * XREFs of ArbQueryConflict @ 0x1409333C0
+ * Callers:
+ *     IopMemQueryConflict @ 0x140957040 (IopMemQueryConflict.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IoGetDeviceProperty @ 0x1406C5B00 (IoGetDeviceProperty.c)
+ *     RtlCopyRangeList @ 0x14081FAD0 (RtlCopyRangeList.c)
+ *     ArbpBuildAlternative @ 0x14081FF70 (ArbpBuildAlternative.c)
+ *     RtlDeleteOwnersRanges @ 0x140820170 (RtlDeleteOwnersRanges.c)
+ *     RtlFreeRangeList @ 0x140820250 (RtlFreeRangeList.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ArbQueryConflict(__int64 a1, __int64 a2)
 {
   unsigned int v4; // r14d

@@ -1,3 +1,17 @@
+/*
+ * XREFs of GetHmodTableIndex @ 0x1C009D950
+ * Callers:
+ *     _SetWinEventHook @ 0x1C003952C (_SetWinEventHook.c)
+ *     zzzSetWindowsHookEx @ 0x1C009C8B4 (zzzSetWindowsHookEx.c)
+ *     _RegisterUserApiHook @ 0x1C00DD234 (_RegisterUserApiHook.c)
+ *     _RegisterDManipHook @ 0x1C00DD6D0 (_RegisterDManipHook.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ??1?$ObjectLock@$$V@?$DomainExclusive@VDLT_HANDLEMANAGER@@@?$DomainShared@$$V@@QEAA@XZ @ 0x1C012D328 (--1-$ObjectLock@$$V@-$DomainExclusive@VDLT_HANDLEMANAGER@@@-$DomainShared@$$V@@QEAA@XZ.c)
+ *     ??0?$ObjectLock@$$V@?$DomainExclusive@VDLT_CLIENTLIB@@@?$DomainShared@$$V@@QEAA@XZ @ 0x1C012F39C (--0-$ObjectLock@$$V@-$DomainExclusive@VDLT_CLIENTLIB@@@-$DomainShared@$$V@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall GetHmodTableIndex(__int64 a1)
 {
   unsigned __int16 v2; // ax

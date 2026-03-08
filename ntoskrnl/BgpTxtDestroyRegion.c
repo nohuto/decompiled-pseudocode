@@ -1,3 +1,15 @@
+/*
+ * XREFs of BgpTxtDestroyRegion @ 0x140AE9904
+ * Callers:
+ *     BgpFwLibraryDisable @ 0x140AE91EC (BgpFwLibraryDisable.c)
+ *     BgpDisplayCharacterGetContext @ 0x140AEB4B8 (BgpDisplayCharacterGetContext.c)
+ *     BgpDisplayCharacterDestroyContext @ 0x140AEC564 (BgpDisplayCharacterDestroyContext.c)
+ * Callees:
+ *     BgpFwFreeMemory @ 0x140382650 (BgpFwFreeMemory.c)
+ *     RaspClearCache @ 0x140AEA540 (RaspClearCache.c)
+ *     BgpGxRectangleDestroy @ 0x140AEAA70 (BgpGxRectangleDestroy.c)
+ */
+
 void __fastcall BgpTxtDestroyRegion(__int64 a1)
 {
   __int64 v2; // rcx

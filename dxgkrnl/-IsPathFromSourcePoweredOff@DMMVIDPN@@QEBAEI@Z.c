@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsPathFromSourcePoweredOff@DMMVIDPN@@QEBAEI@Z @ 0x1C0225114
+ * Callers:
+ *     ?DmmIsWaitingForPowerOn@@YAJPEAXIAEAE@Z @ 0x1C0224D4C (-DmmIsWaitingForPowerOn@@YAJPEAXIAEAE@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 __fastcall DMMVIDPN::IsPathFromSourcePoweredOff(DMMVIDPN *this, int a2)
 {
   DMMVIDPN *v2; // r8

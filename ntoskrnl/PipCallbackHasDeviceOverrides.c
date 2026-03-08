@@ -1,3 +1,14 @@
+/*
+ * XREFs of PipCallbackHasDeviceOverrides @ 0x14094EB88
+ * Callers:
+ *     PipFindDeviceOverrideEntry @ 0x14068092C (PipFindDeviceOverrideEntry.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x1404125D0 (ZwQueryKey.c)
+ */
+
 bool __fastcall PipCallbackHasDeviceOverrides(void *a1, __int64 a2)
 {
   NTSTATUS v3; // ebx

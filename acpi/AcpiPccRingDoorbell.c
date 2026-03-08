@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiPccRingDoorbell @ 0x1C0034340
+ * Callers:
+ *     AcpiPccExecuteCommandAsync @ 0x1C0033FB0 (AcpiPccExecuteCommandAsync.c)
+ * Callees:
+ *     ReadIoMemRaw @ 0x1C0004968 (ReadIoMemRaw.c)
+ *     WriteIoMemRaw @ 0x1C00344E8 (WriteIoMemRaw.c)
+ */
+
 void __fastcall AcpiPccRingDoorbell(
         struct _KDPC *Dpc,
         char *DeferredContext,

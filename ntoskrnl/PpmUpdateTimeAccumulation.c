@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmUpdateTimeAccumulation @ 0x140235C64
+ * Callers:
+ *     PpmSnapPerformanceAccumulation @ 0x140234F00 (PpmSnapPerformanceAccumulation.c)
+ *     PpmContinueActiveTimeAccumulation @ 0x140236CD0 (PpmContinueActiveTimeAccumulation.c)
+ * Callees:
+ *     PpmConvertTime @ 0x140235D70 (PpmConvertTime.c)
+ */
+
 __int64 __fastcall PpmUpdateTimeAccumulation(__int64 a1, __int64 a2, char a3)
 {
   __int64 v5; // r11

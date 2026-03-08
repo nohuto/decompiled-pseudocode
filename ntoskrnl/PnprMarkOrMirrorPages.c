@@ -1,3 +1,16 @@
+/*
+ * XREFs of PnprMarkOrMirrorPages @ 0x140A99F48
+ * Callers:
+ *     PnprMirrorPhysicalMemory @ 0x140560C30 (PnprMirrorPhysicalMemory.c)
+ *     PnprRecopyAddress @ 0x140560E30 (PnprRecopyAddress.c)
+ *     PnprRecopyMappingReserve @ 0x140560E88 (PnprRecopyMappingReserve.c)
+ * Callees:
+ *     KeReleaseInStackQueuedSpinLock @ 0x14025C890 (KeReleaseInStackQueuedSpinLock.c)
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall PnprMarkOrMirrorPages(unsigned __int64 a1, unsigned __int64 a2, char a3)
 {
   __int64 v4; // rcx

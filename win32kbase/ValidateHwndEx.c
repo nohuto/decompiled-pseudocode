@@ -1,3 +1,25 @@
+/*
+ * XREFs of ValidateHwndEx @ 0x1C003E310
+ * Callers:
+ *     EtwTraceInputProcessDelay @ 0x1C0033C70 (EtwTraceInputProcessDelay.c)
+ *     UserGetDesktopDC @ 0x1C003D300 (UserGetDesktopDC.c)
+ *     UserIsWindowGdiScaled @ 0x1C003E220 (UserIsWindowGdiScaled.c)
+ *     ValidateHwnd @ 0x1C003E2F0 (ValidateHwnd.c)
+ *     NtUserGetDC @ 0x1C003EFA0 (NtUserGetDC.c)
+ *     EtwTraceMessageCheckDelay @ 0x1C0092210 (EtwTraceMessageCheckDelay.c)
+ *     ??0CInputDest@@QEAA@PEAUHWND__@@W4INPUT_DESTINATION_WINDOW_TYPE@@W4HandleValidationType@0@@Z @ 0x1C01E3284 (--0CInputDest@@QEAA@PEAUHWND__@@W4INPUT_DESTINATION_WINDOW_TYPE@@W4HandleValidationType@0@@Z.c)
+ *     ?IsEqualByWindowHandle@CInputDest@@QEBA_NPEAXW4HandleValidationType@1@@Z @ 0x1C01E388C (-IsEqualByWindowHandle@CInputDest@@QEBA_NPEAXW4HandleValidationType@1@@Z.c)
+ *     ?SetupFromInputDestAndWindow@CInputDest@@QEAA_NAEBV1@PEAUHWND__@@W4HandleValidationType@1@@Z @ 0x1C01E3A44 (-SetupFromInputDestAndWindow@CInputDest@@QEAA_NAEBV1@PEAUHWND__@@W4HandleValidationType@1@@Z.c)
+ *     ?GetPointerTransform@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIPEAUtagINPUT_TRANSFORM@@@Z @ 0x1C01FA4B0 (-GetPointerTransform@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@GIPEAUtagINPUT_TRANSFORM@@@Z.c)
+ * Callees:
+ *     IsGetDesktopViewSupported @ 0x1C003AA34 (IsGetDesktopViewSupported.c)
+ *     EtwTraceUIPIHandleValidationError @ 0x1C003CC40 (EtwTraceUIPIHandleValidationError.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     IsHandleEntrySecure @ 0x1C00D6650 (IsHandleEntrySecure.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ValidateHwndEx(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // esi

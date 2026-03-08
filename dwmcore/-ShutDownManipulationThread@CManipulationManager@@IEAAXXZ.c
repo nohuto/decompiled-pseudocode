@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ShutDownManipulationThread@CManipulationManager@@IEAAXXZ @ 0x18019E1EC
+ * Callers:
+ *     ??1CGlobalManipulationManager@@EEAA@XZ @ 0x18027FD98 (--1CGlobalManipulationManager@@EEAA@XZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?ClearWaitHandles@CManipulationManager@@KAXXZ @ 0x18019AAB8 (-ClearWaitHandles@CManipulationManager@@KAXXZ.c)
+ */
+
 void __fastcall CManipulationManager::ShutDownManipulationThread(CManipulationManager *this)
 {
   __int64 v2; // rax

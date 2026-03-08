@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ReportEventW@CDwmAppHost@@AEAAXGKPEBG0@Z @ 0x140003FF8
+ * Callers:
+ *     ?Initialize@CDwmAppHost@@QEAAJPEAUHINSTANCE__@@@Z @ 0x140003CD4 (-Initialize@CDwmAppHost@@QEAAJPEAUHINSTANCE__@@@Z.c)
+ *     ?OnReportEvent@CDwmAppHost@@AEAAX_K_J_N@Z @ 0x14000AC9C (-OnReportEvent@CDwmAppHost@@AEAAX_K_J_N@Z.c)
+ *     ?ReportEventWithDword@CDwmAppHost@@AEAAXGKK@Z @ 0x14000AF0C (-ReportEventWithDword@CDwmAppHost@@AEAAXGKK@Z.c)
+ * Callees:
+ *     ??1?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?DeregisterEventSource@@YAH0@Z@details@wil@@@details@wil@@IEAA@XZ @ 0x1400040B8 (--1-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-DeregisterEventSource@@YAH0@Z@de.c)
+ */
+
 void __fastcall CDwmAppHost::ReportEventW(CDwmAppHost *this, WORD a2, DWORD a3, const unsigned __int16 *a4)
 {
   const WCHAR *v4; // rax

@@ -1,3 +1,20 @@
+/*
+ * XREFs of PerformMutexDriverCallbacks @ 0x1C004C9F4
+ * Callers:
+ *     FreeObjData @ 0x1C004B544 (FreeObjData.c)
+ *     PerformMutexResourceBindings @ 0x1C004CBB8 (PerformMutexResourceBindings.c)
+ *     Mutex @ 0x1C0050C50 (Mutex.c)
+ *     ParseAcquire @ 0x1C005A0F0 (ParseAcquire.c)
+ *     ParseRelease @ 0x1C005BF70 (ParseRelease.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     ConvertNtStatusToAMLIStatus @ 0x1C004AE84 (ConvertNtStatusToAMLIStatus.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ */
+
 __int64 __fastcall PerformMutexDriverCallbacks(unsigned int a1, __int64 a2, __int64 a3, __int64 a4, __int16 a5)
 {
   __int64 v5; // rdi

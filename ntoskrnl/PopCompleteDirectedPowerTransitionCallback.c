@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopCompleteDirectedPowerTransitionCallback @ 0x14058DF74
+ * Callers:
+ *     PopFxCompleteDirectedPowerTransition @ 0x1405871FC (PopFxCompleteDirectedPowerTransition.c)
+ *     PopIssueDirectedPowerTransition @ 0x140988CE0 (PopIssueDirectedPowerTransition.c)
+ * Callees:
+ *     PoFxIdleDevice @ 0x14020259C (PoFxIdleDevice.c)
+ *     KeReleaseSemaphoreEx @ 0x14033E940 (KeReleaseSemaphoreEx.c)
+ *     PopCompleteNotifyTransitionCommon @ 0x14058DFFC (PopCompleteNotifyTransitionCommon.c)
+ */
+
 __int64 __fastcall PopCompleteDirectedPowerTransitionCallback(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // r9

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ComputeEffectiveAlpha@CProjectedShadowCaster@@AEBAMPEBVCVisualTree@@PEA_N@Z @ 0x18000941C
+ * Callers:
+ *     ?UpdateVisualProperty@CProjectedShadowCaster@@QEAAXPEBVCVisualTree@@@Z @ 0x180008F54 (-UpdateVisualProperty@CProjectedShadowCaster@@QEAAXPEBVCVisualTree@@@Z.c)
+ * Callees:
+ *     ?GetVisualAlpha@CVisual@@QEBAMPEBVCVisualTree@@@Z @ 0x1800095EC (-GetVisualAlpha@CVisual@@QEBAMPEBVCVisualTree@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 float __fastcall CProjectedShadowCaster::ComputeEffectiveAlpha(
         CProjectedShadowCaster *this,
         const struct CVisualTree *a2,

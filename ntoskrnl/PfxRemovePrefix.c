@@ -1,3 +1,11 @@
+/*
+ * XREFs of PfxRemovePrefix @ 0x1409B7D10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlDelete @ 0x1402C2940 (RtlDelete.c)
+ */
+
 void __stdcall PfxRemovePrefix(PPREFIX_TABLE PrefixTable, PPREFIX_TABLE_ENTRY PrefixTableEntry)
 {
   RTL_SPLAY_LINKS *p_Links; // rcx

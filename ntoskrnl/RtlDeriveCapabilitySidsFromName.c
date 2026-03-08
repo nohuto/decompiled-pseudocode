@@ -1,3 +1,22 @@
+/*
+ * XREFs of RtlDeriveCapabilitySidsFromName @ 0x140204A10
+ * Callers:
+ *     PiUEventInitClientRegistrationContext @ 0x14068E428 (PiUEventInitClientRegistrationContext.c)
+ *     RtlCapabilityCheck @ 0x140741730 (RtlCapabilityCheck.c)
+ *     PopCreateNotificationName @ 0x140794270 (PopCreateNotificationName.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x140816360 (CmpHiveRootSecurityDescriptor.c)
+ *     DbgkpCreateNotificationEvent @ 0x140857EAC (DbgkpCreateNotificationEvent.c)
+ *     SepVariableInitialization @ 0x140B4A3A0 (SepVariableInitialization.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SymCryptSha256 @ 0x1403ED8FC (SymCryptSha256.c)
+ *     RtlInitializeSid @ 0x14068E3A0 (RtlInitializeSid.c)
+ *     RtlPrefixUnicodeString @ 0x1406D5A70 (RtlPrefixUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     RtlUpcaseUnicodeString @ 0x1407A3D00 (RtlUpcaseUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ */
+
 NTSTATUS __fastcall RtlDeriveCapabilitySidsFromName(PCUNICODE_STRING String2, _OWORD *Sid, _OWORD *a3)
 {
   NTSTATUS result; // eax

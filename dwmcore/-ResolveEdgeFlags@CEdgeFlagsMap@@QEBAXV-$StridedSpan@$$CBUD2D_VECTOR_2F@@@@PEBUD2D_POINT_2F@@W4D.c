@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ResolveEdgeFlags@CEdgeFlagsMap@@QEBAXV?$StridedSpan@$$CBUD2D_VECTOR_2F@@@@PEBUD2D_POINT_2F@@W4D2D1_EDGE_FLAGS@@PEAUResolveEdgeFlagsResult@1@M@Z @ 0x1800D3FA4
+ * Callers:
+ *     ?AppendHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAttributesDesc@@@Z @ 0x18005F2F0 (-AppendHWPrimitive@CDrawListEntryBuilder@@AEAAJAEBUPrimitiveGeometryDesc@@PEBUPrimitiveVertexAtt.c)
+ * Callees:
+ *     ?terminate@details@gsl@@YAXXZ @ 0x1801AEDB0 (-terminate@details@gsl@@YAXXZ.c)
+ *     ?TryGetValue@?$CConvexPolygonEdgeMap@I@@QEBA_NAEBUD2D_VECTOR_2F@@AEBUD2D_POINT_2F@@PEAIM@Z @ 0x1801FE028 (-TryGetValue@-$CConvexPolygonEdgeMap@I@@QEBA_NAEBUD2D_VECTOR_2F@@AEBUD2D_POINT_2F@@PEAIM@Z.c)
+ */
+
 char __fastcall CEdgeFlagsMap::ResolveEdgeFlags(__int64 a1, _DWORD *a2, float *a3, char a4, __int64 a5, float a6)
 {
   unsigned __int64 v7; // rax

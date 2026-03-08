@@ -1,3 +1,17 @@
+/*
+ * XREFs of GetFieldUnitRegionObj @ 0x1C004B944
+ * Callers:
+ *     InternalRawAccessOpRegionHandler @ 0x1C0039CC0 (InternalRawAccessOpRegionHandler.c)
+ *     GetFieldUnitRegionObj @ 0x1C004B944 (GetFieldUnitRegionObj.c)
+ *     AccessFieldData @ 0x1C0051AD8 (AccessFieldData.c)
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     GetFieldUnitRegionObj @ 0x1C004B944 (GetFieldUnitRegionObj.c)
+ *     GetObjectPath @ 0x1C004BB70 (GetObjectPath.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ */
+
 __int64 __fastcall GetFieldUnitRegionObj(__int64 *a1, _QWORD *a2)
 {
   unsigned int FieldUnitRegionObj; // esi

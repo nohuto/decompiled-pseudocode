@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ReadLinearityData@@YAHPEAUtagHID_POINTER_DEVICE_INFO@@U_UNICODE_STRING@@PEAX@Z @ 0x1C01A5B7C
+ * Callers:
+ *     RetrieveCalibrationData @ 0x1C01A69D0 (RetrieveCalibrationData.c)
+ * Callees:
+ *     ?RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C00BE504 (-RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
+ *     ?GetDeviceId@@YAJU_UNICODE_STRING@@PEAPEAG1@Z @ 0x1C01A57DC (-GetDeviceId@@YAJU_UNICODE_STRING@@PEAPEAG1@Z.c)
+ *     ?ReadLinearityDataImp@@YAHPEAXU_UNICODE_STRING@@W4tagCALIBRATION_TYPE@@PEAKPEAPEAE@Z @ 0x1C01A5F74 (-ReadLinearityDataImp@@YAHPEAXU_UNICODE_STRING@@W4tagCALIBRATION_TYPE@@PEAKPEAPEAE@Z.c)
+ */
+
 __int64 __fastcall ReadLinearityData(struct tagHID_POINTER_DEVICE_INFO *a1, struct _UNICODE_STRING *a2, void *a3)
 {
   PWSTR Buffer; // r12

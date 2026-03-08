@@ -1,3 +1,20 @@
+/*
+ * XREFs of SmPartitionCleanup @ 0x1409D3DC8
+ * Callers:
+ *     SmCreatePartition @ 0x140728884 (SmCreatePartition.c)
+ *     SmDeletePartition @ 0x1409D3CF8 (SmDeletePartition.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140356594 (SmKmStoreRefFromStoreIndex.c)
+ *     SmFpCleanup @ 0x1403590B8 (SmFpCleanup.c)
+ *     ?SmCleanup@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1405BC26C (-SmCleanup@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ *     SmTerminateStoreProcess @ 0x1405C77C8 (SmTerminateStoreProcess.c)
+ *     SmpKeyedStoreCtxCleanup @ 0x1405C78C8 (SmpKeyedStoreCtxCleanup.c)
+ *     MmStoreReleaseResidentAvailableForRead @ 0x14065AE68 (MmStoreReleaseResidentAvailableForRead.c)
+ */
+
 unsigned __int64 __fastcall SmPartitionCleanup(__int64 a1)
 {
   struct _EX_RUNDOWN_REF *v2; // rax

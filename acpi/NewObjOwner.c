@@ -1,3 +1,20 @@
+/*
+ * XREFs of NewObjOwner @ 0x1C004C324
+ * Callers:
+ *     AMLIRemoveNativeObjectsFromNamespace @ 0x1C0049C4C (AMLIRemoveNativeObjectsFromNamespace.c)
+ *     InitializeNativeNamespace @ 0x1C0049FD4 (InitializeNativeNamespace.c)
+ *     AMLIAddNamespaceOverride @ 0x1C004A2A8 (AMLIAddNamespaceOverride.c)
+ *     NotifyObjectDestruction @ 0x1C004C42C (NotifyObjectDestruction.c)
+ *     ParseCall @ 0x1C005A6A0 (ParseCall.c)
+ *     ParseLoad @ 0x1C005B600 (ParseLoad.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ */
+
 __int64 __fastcall NewObjOwner(__int64 a1, struct _EX_RUNDOWN_REF **a2)
 {
   unsigned int v3; // ebx

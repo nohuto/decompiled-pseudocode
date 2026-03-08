@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiTrimAllSystemPagableMemory @ 0x140632E70
+ * Callers:
+ *     MmTrimAllSystemPagableMemory @ 0x140633260 (MmTrimAllSystemPagableMemory.c)
+ *     MmVerifierTrimMemory @ 0x140AE50D0 (MmVerifierTrimMemory.c)
+ * Callees:
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KeAreInterruptsEnabled @ 0x140312C60 (KeAreInterruptsEnabled.c)
+ *     MiGetSessionVm @ 0x14036C17C (MiGetSessionVm.c)
+ *     MiEmptyTargetedWorkingSet @ 0x1406322E8 (MiEmptyTargetedWorkingSet.c)
+ *     MiPurgePartitionStandby @ 0x14064EF50 (MiPurgePartitionStandby.c)
+ */
+
 __int64 __fastcall MiTrimAllSystemPagableMemory(int a1, int a2)
 {
   _DWORD *v2; // r14

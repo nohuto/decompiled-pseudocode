@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMEndAllStaleContacts @ 0x1C00F1142
+ * Callers:
+ *     RIMOnTimerNotification @ 0x1C01A7180 (RIMOnTimerNotification.c)
+ * Callees:
+ *     rimEndPointerDeviceStaleContacts @ 0x1C01D6A24 (rimEndPointerDeviceStaleContacts.c)
+ */
+
 LARGE_INTEGER __fastcall RIMEndAllStaleContacts(struct RawInputManagerObject *a1)
 {
   LARGE_INTEGER result; // rax

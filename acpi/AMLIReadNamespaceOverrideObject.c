@@ -1,3 +1,13 @@
+/*
+ * XREFs of AMLIReadNamespaceOverrideObject @ 0x1C004AC40
+ * Callers:
+ *     AsyncEvalObject @ 0x1C00544D0 (AsyncEvalObject.c)
+ * Callees:
+ *     ReadObject @ 0x1C0005BEE (ReadObject.c)
+ *     AMLIGetNamespaceOverrideObject @ 0x1C004AAB0 (AMLIGetNamespaceOverrideObject.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ */
+
 __int64 __fastcall AMLIReadNamespaceOverrideObject(__int64 a1, __int64 a2, __int64 a3)
 {
   int Object; // edi

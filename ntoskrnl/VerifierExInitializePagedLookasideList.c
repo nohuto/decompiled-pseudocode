@@ -1,3 +1,11 @@
+/*
+ * XREFs of VerifierExInitializePagedLookasideList @ 0x140ADF0B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 PVOID (__stdcall *__fastcall VerifierExInitializePagedLookasideList(
         __int64 a1,
         __int64 a2,

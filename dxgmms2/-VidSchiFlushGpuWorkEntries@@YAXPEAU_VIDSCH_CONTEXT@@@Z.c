@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?VidSchiFlushGpuWorkEntries@@YAXPEAU_VIDSCH_CONTEXT@@@Z @ 0x1C0011A3C
+ * Callers:
+ *     VidSchiProcessDpcCompletedPacket @ 0x1C0004B90 (VidSchiProcessDpcCompletedPacket.c)
+ *     VidSchiProfilePerformanceTick @ 0x1C0006E50 (VidSchiProfilePerformanceTick.c)
+ *     VidSchiSwitchContextWithCheck @ 0x1C0007A60 (VidSchiSwitchContextWithCheck.c)
+ *     ?VidSchiAddGpuWorkEntry@@YAXPEAU_VIDSCH_CONTEXT@@_N@Z @ 0x1C0010B0C (-VidSchiAddGpuWorkEntry@@YAXPEAU_VIDSCH_CONTEXT@@_N@Z.c)
+ *     VidSchiDecrementContextReference @ 0x1C0011CE0 (VidSchiDecrementContextReference.c)
+ * Callees:
+ *     McTemplateK0pqIR1_EtwWriteTransfer @ 0x1C00381C8 (McTemplateK0pqIR1_EtwWriteTransfer.c)
+ */
+
 void __fastcall VidSchiFlushGpuWorkEntries(struct _VIDSCH_CONTEXT *a1, __int64 a2, int a3)
 {
   __int64 v4; // rcx

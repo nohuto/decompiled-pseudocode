@@ -1,3 +1,13 @@
+/*
+ * XREFs of XmGroup7General @ 0x140530980
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmEvaluateAddressSpecifier @ 0x1403B3F0C (XmEvaluateAddressSpecifier.c)
+ *     XmSetDestinationValue @ 0x1403B4248 (XmSetDestinationValue.c)
+ *     longjmp @ 0x1403D2360 (longjmp.c)
+ */
+
 __int64 __fastcall XmGroup7General(__int64 a1)
 {
   __int64 result; // rax

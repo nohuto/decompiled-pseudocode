@@ -1,3 +1,20 @@
+/*
+ * XREFs of AdjustPwndPtiPqForDelegation @ 0x1C009FA68
+ * Callers:
+ *     EditionPostInputMessage @ 0x1C0009890 (EditionPostInputMessage.c)
+ *     EditionHandleAndPostKeyEvent @ 0x1C009F110 (EditionHandleAndPostKeyEvent.c)
+ *     ?PostHidNotification@@YAHPEAUtagPROCESS_HID_REQUEST@@PEAUDEVICEINFO@@I_K@Z @ 0x1C00D6620 (-PostHidNotification@@YAHPEAUtagPROCESS_HID_REQUEST@@PEAUDEVICEINFO@@I_K@Z.c)
+ *     EditionHandleAltTab @ 0x1C00F54C0 (EditionHandleAltTab.c)
+ *     EditionPostMouseWheelToForeground @ 0x1C01B78F0 (EditionPostMouseWheelToForeground.c)
+ *     PostPointerEventMessage @ 0x1C01C4440 (PostPointerEventMessage.c)
+ *     ?xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z @ 0x1C01F5BBC (-xxxHideGhostWindow@@YAXPEAUtagWND@@0@Z.c)
+ *     ?DelegateMoveSizeToShell@@YAXPEAUtagWND@@I@Z @ 0x1C020311C (-DelegateMoveSizeToShell@@YAXPEAUtagWND@@I@Z.c)
+ * Callees:
+ *     ?GetInputDelegate@@YAPEAUtagTHREADINFO@@PEAUtagWND@@I@Z @ 0x1C0037160 (-GetInputDelegate@@YAPEAUtagTHREADINFO@@PEAUtagWND@@I@Z.c)
+ *     ?vAdjustDelegatePriority@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C0047028 (-vAdjustDelegatePriority@@YAXPEAUtagTHREADINFO@@@Z.c)
+ *     CalcWakeMask @ 0x1C0071660 (CalcWakeMask.c)
+ */
+
 __int64 __fastcall AdjustPwndPtiPqForDelegation(
         __int64 *a1,
         __int64 *a2,

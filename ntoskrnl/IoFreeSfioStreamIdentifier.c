@@ -1,3 +1,15 @@
+/*
+ * XREFs of IoFreeSfioStreamIdentifier @ 0x140554500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IopGetFileObjectExtension @ 0x14023EB8C (IopGetFileObjectExtension.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall IoFreeSfioStreamIdentifier(PFILE_OBJECT FileObject, PVOID Signature)
 {
   __int64 v3; // rcx

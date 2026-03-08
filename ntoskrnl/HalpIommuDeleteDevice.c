@@ -1,3 +1,28 @@
+/*
+ * XREFs of HalpIommuDeleteDevice @ 0x140930ACC
+ * Callers:
+ *     HalpIommuBlockDevice @ 0x1405153C0 (HalpIommuBlockDevice.c)
+ *     HalpIommuUnblockDevice @ 0x140516330 (HalpIommuUnblockDevice.c)
+ *     IommuCreateAtsDevice @ 0x14051F820 (IommuCreateAtsDevice.c)
+ *     IommuDeleteAtsDevice @ 0x14051FA30 (IommuDeleteAtsDevice.c)
+ *     IommuMapDevice @ 0x140520BC0 (IommuMapDevice.c)
+ *     IommuUnmapDevice @ 0x140521620 (IommuUnmapDevice.c)
+ *     IommuDomainAttachDevice @ 0x140523210 (IommuDomainAttachDevice.c)
+ *     IommuDomainDetachDevice @ 0x140523720 (IommuDomainDetachDevice.c)
+ *     IommuDeviceCreate @ 0x140820F90 (IommuDeviceCreate.c)
+ *     IommuDeviceDelete @ 0x140932530 (IommuDeviceDelete.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IommupHvUnregisterDeviceId @ 0x14052312C (IommupHvUnregisterDeviceId.c)
+ *     IidAreIdsStrictlyEqual @ 0x14067175C (IidAreIdsStrictlyEqual.c)
+ *     IommupDeviceDisablePasidTaggedDma @ 0x140930C20 (IommupDeviceDisablePasidTaggedDma.c)
+ */
+
 __int64 __fastcall HalpIommuDeleteDevice(__int64 *a1)
 {
   char v2; // si

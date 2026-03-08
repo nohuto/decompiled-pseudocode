@@ -1,3 +1,24 @@
+/*
+ * XREFs of BgpRasPrintGlyph @ 0x140381CD4
+ * Callers:
+ *     BgpTxtDisplayCharacter @ 0x140381538 (BgpTxtDisplayCharacter.c)
+ *     BgpTxtDisplayString @ 0x140AEF7A0 (BgpTxtDisplayString.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     RaspGetCacheEntry @ 0x1403823F4 (RaspGetCacheEntry.c)
+ *     RaspRasterize @ 0x140382470 (RaspRasterize.c)
+ *     RaspFreeMemory @ 0x140382634 (RaspFreeMemory.c)
+ *     BgpFmRoundUp @ 0x14038305C (BgpFmRoundUp.c)
+ *     RaspRectangleCreate @ 0x140383284 (RaspRectangleCreate.c)
+ *     BgpFwAllocateMemory @ 0x140383BDC (BgpFwAllocateMemory.c)
+ *     RaspAntiAlias @ 0x140384090 (RaspAntiAlias.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RaspDestroyCachedBitmap @ 0x140AEAB20 (RaspDestroyCachedBitmap.c)
+ *     RaspAddCacheEntry @ 0x140AEAB60 (RaspAddCacheEntry.c)
+ *     BgpGxCopyRectangle @ 0x140AEF654 (BgpGxCopyRectangle.c)
+ */
+
 __int64 __fastcall BgpRasPrintGlyph(
         __m128i *a1,
         __int64 a2,

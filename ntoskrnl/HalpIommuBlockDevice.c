@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpIommuBlockDevice @ 0x1405153C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     HalpIommuQueryAcpiDeviceMapping @ 0x1403AF2F4 (HalpIommuQueryAcpiDeviceMapping.c)
+ *     HalpIommuDecreaseAliasTrack @ 0x1405155D4 (HalpIommuDecreaseAliasTrack.c)
+ *     HalpIommuLeaveDmaDomain @ 0x140516044 (HalpIommuLeaveDmaDomain.c)
+ *     HalpIommuDeleteDevice @ 0x140930ACC (HalpIommuDeleteDevice.c)
+ */
+
 __int64 __fastcall HalpIommuBlockDevice(__int64 *a1)
 {
   __int64 result; // rax

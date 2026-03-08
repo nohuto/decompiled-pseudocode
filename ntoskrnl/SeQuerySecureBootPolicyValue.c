@@ -1,3 +1,13 @@
+/*
+ * XREFs of SeQuerySecureBootPolicyValue @ 0x140861880
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SepSecureBootFindMatchingRegistryRule @ 0x1409CDDA0 (SepSecureBootFindMatchingRegistryRule.c)
+ *     SepSecureBootGetPolicyValueByRef @ 0x1409CDED0 (SepSecureBootGetPolicyValueByRef.c)
+ */
+
 __int64 __fastcall SeQuerySecureBootPolicyValue(
         __int64 a1,
         __int64 a2,

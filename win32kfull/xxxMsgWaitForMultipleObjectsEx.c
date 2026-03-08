@@ -1,3 +1,12 @@
+/*
+ * XREFs of xxxMsgWaitForMultipleObjectsEx @ 0x1C012D428
+ * Callers:
+ *     NtUserMsgWaitForMultipleObjectsEx @ 0x1C00470E0 (NtUserMsgWaitForMultipleObjectsEx.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxRemoveQueueCompletion @ 0x1C00946F4 (xxxRemoveQueueCompletion.c)
+ */
+
 __int64 __fastcall xxxMsgWaitForMultipleObjectsEx(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4, char a5)
 {
   _BYTE *v5; // rbp

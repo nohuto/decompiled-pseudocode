@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwpPrepareDirtyBuffer @ 0x140205FA4
+ * Callers:
+ *     EtwpSwitchBuffer @ 0x140205FF4 (EtwpSwitchBuffer.c)
+ *     EtwpFlushActiveBuffers @ 0x14069310C (EtwpFlushActiveBuffers.c)
+ *     EtwpBufferingModeFlush @ 0x1408A3088 (EtwpBufferingModeFlush.c)
+ * Callees:
+ *     ObGetCurrentIrql @ 0x140205E10 (ObGetCurrentIrql.c)
+ *     EtwpGetLoggerTimeStamp @ 0x140205F68 (EtwpGetLoggerTimeStamp.c)
+ *     EtwpEnqueueAvailableBuffer @ 0x1402063C4 (EtwpEnqueueAvailableBuffer.c)
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     EtwpCompressionDpc @ 0x140600220 (EtwpCompressionDpc.c)
+ *     EtwpReenableCompression @ 0x1406005D4 (EtwpReenableCompression.c)
+ */
+
 LARGE_INTEGER __fastcall EtwpPrepareDirtyBuffer(__int64 a1, LARGE_INTEGER *a2)
 {
   int v2; // eax

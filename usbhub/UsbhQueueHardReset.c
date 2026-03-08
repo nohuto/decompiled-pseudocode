@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhQueueHardReset @ 0x1C003D3B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhEtwLogHubIrpEvent @ 0x1C00098E0 (UsbhEtwLogHubIrpEvent.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhDispatch_HardResetEvent @ 0x1C001EC80 (UsbhDispatch_HardResetEvent.c)
+ */
+
 __int64 __fastcall UsbhQueueHardReset(__int64 a1, __int64 a2)
 {
   int v4; // ebx

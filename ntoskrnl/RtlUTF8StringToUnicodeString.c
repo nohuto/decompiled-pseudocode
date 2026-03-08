@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlUTF8StringToUnicodeString @ 0x1409BF3B0
+ * Callers:
+ *     PiGetDefaultMessageString @ 0x140847760 (PiGetDefaultMessageString.c)
+ * Callees:
+ *     CountUTF8ToUnicode @ 0x140390FD0 (CountUTF8ToUnicode.c)
+ *     RtlUTF8ToUnicodeN @ 0x14075A870 (RtlUTF8ToUnicodeN.c)
+ *     ExpAllocateStringRoutine @ 0x140777DB0 (ExpAllocateStringRoutine.c)
+ *     ExFreePool @ 0x140AAB270 (ExFreePool.c)
+ */
+
 __int64 __fastcall RtlUTF8StringToUnicodeString(__int64 a1, char **a2, char a3)
 {
   int v5; // edx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiReleaseHotPatchResources @ 0x140A39030
+ * Callers:
+ *     MiApplyImageHotPatchRequest @ 0x140A32920 (MiApplyImageHotPatchRequest.c)
+ *     MmPrepareImagePagesForHotPatch @ 0x140A395A0 (MmPrepareImagePagesForHotPatch.c)
+ * Callees:
+ *     MmUnlockPages @ 0x14027C0C0 (MmUnlockPages.c)
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ *     MiFinishHoldingDirtyFaults @ 0x1406401D8 (MiFinishHoldingDirtyFaults.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiReleaseHotPatchResources(__int64 a1)
 {
   __int64 v2; // rcx

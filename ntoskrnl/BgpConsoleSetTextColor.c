@@ -1,3 +1,12 @@
+/*
+ * XREFs of BgpConsoleSetTextColor @ 0x140AEED80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     BgpFwReleaseLock @ 0x140381C10 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140381C60 (BgpFwAcquireLock.c)
+ */
+
 __int64 __fastcall BgpConsoleSetTextColor(_DWORD *a1, _DWORD *a2)
 {
   __int64 v4; // rax

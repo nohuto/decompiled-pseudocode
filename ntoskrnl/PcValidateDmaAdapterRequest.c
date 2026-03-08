@@ -1,3 +1,11 @@
+/*
+ * XREFs of PcValidateDmaAdapterRequest @ 0x140519D70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PcValidateDmaAdapterRequest(__int64 a1)
 {
   unsigned int v2; // edx

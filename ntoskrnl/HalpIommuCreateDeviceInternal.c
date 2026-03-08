@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpIommuCreateDeviceInternal @ 0x14038D414
+ * Callers:
+ *     HalpIommuCreateDevice @ 0x140822B28 (HalpIommuCreateDevice.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpIommuCreateDeviceInternal(__int64 a1, __int64 a2, _QWORD *a3, ULONG_PTR **a4)
 {
   ULONG_PTR *i; // rbx

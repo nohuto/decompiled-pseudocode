@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheapInitializeInUsePageOfflineNotifications @ 0x140810870
+ * Callers:
+ *     WheaInitializeServices @ 0x140B495D4 (WheaInitializeServices.c)
+ * Callees:
+ *     <none>
+ */
+
 PVOID *WheapInitializeInUsePageOfflineNotifications()
 {
   PVOID *result; // rax

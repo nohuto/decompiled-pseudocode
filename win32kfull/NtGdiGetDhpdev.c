@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiGetDhpdev @ 0x1C02CF0B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ValidUmpdHdev@@YAPEAUHDEV__@@PEAU1@@Z @ 0x1C02C9BFC (-ValidUmpdHdev@@YAPEAUHDEV__@@PEAU1@@Z.c)
+ */
+
 __int64 __fastcall NtGdiGetDhpdev(Gre::Base *a1)
 {
   __int64 v1; // rbx

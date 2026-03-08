@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmPerfApplyDomainStates @ 0x1402E5690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeIsSubsetAffinityEx @ 0x1402B13D0 (KeIsSubsetAffinityEx.c)
+ *     PpmPerfApplyDomainState @ 0x1402E56F8 (PpmPerfApplyDomainState.c)
+ */
+
 char PpmPerfApplyDomainStates()
 {
   __int64 k; // rbx

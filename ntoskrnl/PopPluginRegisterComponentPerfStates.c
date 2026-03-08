@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopPluginRegisterComponentPerfStates @ 0x14058A450
+ * Callers:
+ *     PopFxRegisterComponentPerfStates @ 0x140982948 (PopFxRegisterComponentPerfStates.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char __fastcall PopPluginRegisterComponentPerfStates(__int64 a1, int a2, __int64 a3)
 {
   __int64 v3; // r10

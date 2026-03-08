@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopFreeSessionState @ 0x14067F574
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     PopFreeRegistration @ 0x14067F624 (PopFreeRegistration.c)
+ */
+
 void __fastcall PopFreeSessionState(int a1)
 {
   unsigned int i; // edi

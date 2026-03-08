@@ -1,3 +1,19 @@
+/*
+ * XREFs of IopStoreBootDriveLetter @ 0x140B54800
+ * Callers:
+ *     IopMarkBootPartition @ 0x140B54EB0 (IopMarkBootPartition.c)
+ * Callees:
+ *     IopBuildDeviceIoControlRequest @ 0x14024FAC0 (IopBuildDeviceIoControlRequest.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     RtlUnicodeStringPrintf @ 0x1403BEBCC (RtlUnicodeStringPrintf.c)
+ *     RtlWriteRegistryValue @ 0x14069EDB0 (RtlWriteRegistryValue.c)
+ *     IoGetDeviceObjectPointer @ 0x140720950 (IoGetDeviceObjectPointer.c)
+ *     RtlGetHostNtSystemRoot @ 0x14079C490 (RtlGetHostNtSystemRoot.c)
+ */
+
 __int64 __fastcall IopStoreBootDriveLetter(__int64 a1)
 {
   NTSTATUS DeviceObjectPointer; // ebx

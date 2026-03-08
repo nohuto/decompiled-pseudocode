@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CVisualBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801C1BA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?HrFindInterface@CContent@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180035170 (-HrFindInterface@CContent@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ */
+
 __int64 __fastcall CVisualBitmap::HrFindInterface(CVisualBitmap *this, const struct _GUID *a2, void **a3)
 {
   unsigned int v4; // ecx

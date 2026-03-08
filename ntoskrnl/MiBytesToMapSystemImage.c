@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiBytesToMapSystemImage @ 0x1407F6A64
+ * Callers:
+ *     MiSessionInsertImage @ 0x14036BEC4 (MiSessionInsertImage.c)
+ *     MiSelectImageBase @ 0x1406A1934 (MiSelectImageBase.c)
+ *     MiMapSystemImage @ 0x1407F5DFC (MiMapSystemImage.c)
+ *     MiGetSystemAddressForImage @ 0x1407F6010 (MiGetSystemAddressForImage.c)
+ *     MiUnloadSystemImage @ 0x1407F627C (MiUnloadSystemImage.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall MiBytesToMapSystemImage(unsigned __int64 a1)
 {
   unsigned __int64 v1; // rax

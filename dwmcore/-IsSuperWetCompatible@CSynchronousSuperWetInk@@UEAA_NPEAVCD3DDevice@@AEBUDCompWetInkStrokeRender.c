@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsSuperWetCompatible@CSynchronousSuperWetInk@@UEAA_NPEAVCD3DDevice@@AEBUDCompWetInkStrokeRenderState@@_N@Z @ 0x180250480
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CSynchronousSuperWetInk::IsSuperWetCompatible(
         CSynchronousSuperWetInk *this,
         struct CD3DDevice *a2,

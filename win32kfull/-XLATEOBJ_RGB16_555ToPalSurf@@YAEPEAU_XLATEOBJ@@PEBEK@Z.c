@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?XLATEOBJ_RGB16_555ToPalSurf@@YAEPEAU_XLATEOBJ@@PEBEK@Z @ 0x1C02DE030
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 __fastcall XLATEOBJ_RGB16_555ToPalSurf(struct _XLATEOBJ *a1, const unsigned __int8 *a2, __int16 a3)
 {
   __int64 v4; // rbx

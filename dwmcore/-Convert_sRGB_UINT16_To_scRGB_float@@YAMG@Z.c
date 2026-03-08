@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Convert_sRGB_UINT16_To_scRGB_float@@YAMG@Z @ 0x18027C47C
+ * Callers:
+ *     ?GammaConvert_64bppABGR_128bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802BA270 (-GammaConvert_64bppABGR_128bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 float __fastcall Convert_sRGB_UINT16_To_scRGB_float(unsigned __int16 a1)
 {
   unsigned int v1; // ecx

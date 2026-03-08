@@ -1,3 +1,12 @@
+/*
+ * XREFs of IsKeyStateCached @ 0x1C0078C00
+ * Callers:
+ *     NtMITSynthesizeKeyboardInput @ 0x1C00087B0 (NtMITSynthesizeKeyboardInput.c)
+ *     NtUserGetKeyState @ 0x1C0078A00 (NtUserGetKeyState.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall IsKeyStateCached(unsigned __int8 a1)
 {
   int v1; // edx

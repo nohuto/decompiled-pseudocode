@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpInitializeBootEnvironment @ 0x140B48420
+ * Callers:
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ */
+
 char __fastcall ExpInitializeBootEnvironment(__int64 a1)
 {
   dword_140C316F0 = ((*(_BYTE *)(a1 + 264) & 1) != 0) + 1;

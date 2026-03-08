@@ -1,3 +1,11 @@
+/*
+ * XREFs of lNormAngle @ 0x1C00ACB20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall lNormAngle(int a1)
 {
   if ( a1 >= 3600 )

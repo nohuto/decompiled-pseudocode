@@ -1,3 +1,11 @@
+/*
+ * XREFs of CheckOneBitValidFlag @ 0x1405A7914
+ * Callers:
+ *     LdrResGetRCConfig @ 0x1407928C4 (LdrResGetRCConfig.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CheckOneBitValidFlag(int a1, int a2)
 {
   int v2; // ecx

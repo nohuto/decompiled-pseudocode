@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvlpInitializePowerStatistics @ 0x140544B4C
+ * Callers:
+ *     HvlPhase1Initialize @ 0x140384654 (HvlPhase1Initialize.c)
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ */
+
 __int64 HvlpInitializePowerStatistics()
 {
   __int64 result; // rax

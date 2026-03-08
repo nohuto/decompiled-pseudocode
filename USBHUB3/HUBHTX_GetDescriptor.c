@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBHTX_GetDescriptor @ 0x1C00034C0
+ * Callers:
+ *     HUBHTX_GetHubDescriptorUsingControlTransfer @ 0x1C00035F0 (HUBHTX_GetHubDescriptorUsingControlTransfer.c)
+ *     HUBHSM_GettingHubConfigurationDescriptorWithDefaultLength @ 0x1C00095A0 (HUBHSM_GettingHubConfigurationDescriptorWithDefaultLength.c)
+ *     HUBHSM_GettingHubConfigurationDescriptorWithReturnedLength @ 0x1C00096E0 (HUBHSM_GettingHubConfigurationDescriptorWithReturnedLength.c)
+ * Callees:
+ *     WPP_RECORDER_SF_c @ 0x1C0002790 (WPP_RECORDER_SF_c.c)
+ *     WPP_RECORDER_SF_cd @ 0x1C0002CA4 (WPP_RECORDER_SF_cd.c)
+ *     HUBMISC_ControlTransfer @ 0x1C0032664 (HUBMISC_ControlTransfer.c)
+ */
+
 __int64 __fastcall HUBHTX_GetDescriptor(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, char a6)
 {
   char v7; // al

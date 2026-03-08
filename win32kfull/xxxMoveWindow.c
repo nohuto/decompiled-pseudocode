@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxMoveWindow @ 0x1C0025A90
+ * Callers:
+ *     NtUserMoveWindow @ 0x1C0025910 (NtUserMoveWindow.c)
+ *     xxxSBWndProc @ 0x1C022D770 (xxxSBWndProc.c)
+ * Callees:
+ *     xxxSetWindowPos @ 0x1C0028F4C (xxxSetWindowPos.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     xxxValidateRect @ 0x1C00F3F9C (xxxValidateRect.c)
+ */
+
 __int64 __fastcall xxxMoveWindow(struct tagWND *a1, __int64 a2, __int64 a3, __int64 a4, int a5, int a6)
 {
   __int64 v7; // rdx

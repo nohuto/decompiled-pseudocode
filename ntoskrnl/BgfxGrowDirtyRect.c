@@ -1,3 +1,12 @@
+/*
+ * XREFs of BgfxGrowDirtyRect @ 0x14066F848
+ * Callers:
+ *     GxpWriteFrameBufferPixels @ 0x14038188C (GxpWriteFrameBufferPixels.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ */
+
 __int64 __fastcall BgfxGrowDirtyRect(unsigned int *a1, int *a2, unsigned int a3)
 {
   int v6; // r9d

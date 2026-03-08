@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserRemoteRedrawScreen @ 0x1C01DAC50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RemoteRedrawScreen @ 0x1C0126610 (RemoteRedrawScreen.c)
+ */
+
 __int64 NtUserRemoteRedrawScreen()
 {
   __int64 v0; // rdx

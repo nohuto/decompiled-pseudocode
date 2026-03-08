@@ -1,3 +1,21 @@
+/*
+ * XREFs of PfpOpenHandleCreate @ 0x1406A5020
+ * Callers:
+ *     PfSnGetSectionObject @ 0x1406A48D0 (PfSnGetSectionObject.c)
+ *     PfpPrefetchEntireDirectory @ 0x14071E438 (PfpPrefetchEntireDirectory.c)
+ *     PfpVolumeOpenAndVerify @ 0x140766A44 (PfpVolumeOpenAndVerify.c)
+ *     PfpPrefetchDirectoryStream @ 0x140766EA8 (PfpPrefetchDirectoryStream.c)
+ *     PfpFileBuildReadSupport @ 0x140767138 (PfpFileBuildReadSupport.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x14077A964 (PfSnOpenVolumesForPrefetch.c)
+ *     PfSnQueryVolumeInfo @ 0x14077AFF0 (PfSnQueryVolumeInfo.c)
+ *     PfpQueryFileExtentsRequest @ 0x14097B4F0 (PfpQueryFileExtentsRequest.c)
+ * Callees:
+ *     PfpCheckPrefetchAbort @ 0x14020C198 (PfpCheckPrefetchAbort.c)
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall PfpOpenHandleCreate(
         __int64 a1,
         __int64 a2,

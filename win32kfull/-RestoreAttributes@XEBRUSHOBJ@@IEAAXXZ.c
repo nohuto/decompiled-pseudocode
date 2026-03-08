@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RestoreAttributes@XEBRUSHOBJ@@IEAAXXZ @ 0x1C00E8CD0
+ * Callers:
+ *     ??1BRUSHSELOBJ@@QEAA@XZ @ 0x1C00E8CA0 (--1BRUSHSELOBJ@@QEAA@XZ.c)
+ *     ?vDecShareRefCntLazy0@BRUSHSELOBJ@@QEAAXXZ @ 0x1C02AB040 (-vDecShareRefCntLazy0@BRUSHSELOBJ@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall XEBRUSHOBJ::RestoreAttributes(XEBRUSHOBJ *this)
 {
   _DWORD *v2; // r8

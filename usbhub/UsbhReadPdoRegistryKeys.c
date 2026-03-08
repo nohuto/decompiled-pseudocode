@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhReadPdoRegistryKeys @ 0x1C0046364
+ * Callers:
+ *     UsbhPdoPnp_StartDevice @ 0x1C0056570 (UsbhPdoPnp_StartDevice.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     UsbhGetD3Policy @ 0x1C0044C98 (UsbhGetD3Policy.c)
+ *     UsbhGetPdoRegistryParameter @ 0x1C0045000 (UsbhGetPdoRegistryParameter.c)
+ */
+
 __int64 __fastcall UsbhReadPdoRegistryKeys(__int64 a1, struct _DEVICE_OBJECT *a2)
 {
   wchar_t **v2; // rdi

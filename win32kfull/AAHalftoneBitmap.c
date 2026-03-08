@@ -1,3 +1,19 @@
+/*
+ * XREFs of AAHalftoneBitmap @ 0x1C0253604
+ * Callers:
+ *     HT_HalftoneBitmap @ 0x1C025325C (HT_HalftoneBitmap.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     GetDstBFInfo @ 0x1C0253EF0 (GetDstBFInfo.c)
+ *     ValidateHTSI @ 0x1C025409C (ValidateHTSI.c)
+ *     CreateDyesColorMappingTable @ 0x1C0257C98 (CreateDyesColorMappingTable.c)
+ *     FindBGRMapCache @ 0x1C0257DE8 (FindBGRMapCache.c)
+ *     SetGrayColorTable @ 0x1C025E3B0 (SetGrayColorTable.c)
+ *     SetupAAHeader @ 0x1C025E588 (SetupAAHeader.c)
+ *     InitializeFUDI @ 0x1C025FE74 (InitializeFUDI.c)
+ */
+
 __int64 __fastcall AAHalftoneBitmap(__int64 *a1)
 {
   __int64 v2; // r13

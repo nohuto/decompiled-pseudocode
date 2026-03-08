@@ -1,3 +1,44 @@
+/*
+ * XREFs of SepRmCommandServerThread @ 0x140825260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402992F0 (PdcCreateWatchdogAroundClientCall.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     PsAttachSiloToCurrentThread @ 0x1402993A0 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x1402993C0 (PsDetachSiloFromCurrentThread.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PsIsHostSilo @ 0x14030F2E0 (PsIsHostSilo.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     SepRmProcessCreationCommandLineAuditSettingsWrkr @ 0x14036E280 (SepRmProcessCreationCommandLineAuditSettingsWrkr.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwReplyWaitReceivePort @ 0x140412470 (ZwReplyWaitReceivePort.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SepAdtInitLsaDeadEventForNonPagedList @ 0x1405B5124 (SepAdtInitLsaDeadEventForNonPagedList.c)
+ *     SepRmInteractiveLogoffLogonSessionCompletedWrkr @ 0x14067F890 (SepRmInteractiveLogoffLogonSessionCompletedWrkr.c)
+ *     SepRmInteractiveLogoffLogonSessionWrkr @ 0x140680010 (SepRmInteractiveLogoffLogonSessionWrkr.c)
+ *     SepRmCreateLogonSessionWrkr @ 0x14076B330 (SepRmCreateLogonSessionWrkr.c)
+ *     SepRmAddLogonSessionInfoWrkr @ 0x140777E30 (SepRmAddLogonSessionInfoWrkr.c)
+ *     PoRequestShutdownEvent @ 0x1408253E0 (PoRequestShutdownEvent.c)
+ *     SepRmLsaConnectRequest @ 0x1408254BC (SepRmLsaConnectRequest.c)
+ *     SepRmSetAuditEventWrkr @ 0x14084A570 (SepRmSetAuditEventWrkr.c)
+ *     SepRmGlobalSaclSetWrkr @ 0x14084B320 (SepRmGlobalSaclSetWrkr.c)
+ *     SepRmCapUpdateWrkr @ 0x1408596D0 (SepRmCapUpdateWrkr.c)
+ *     SepRmDeleteLogonSessionWrkr @ 0x14087B5E0 (SepRmDeleteLogonSessionWrkr.c)
+ *     SepRmCleanupRmLsaState @ 0x1409C5E00 (SepRmCleanupRmLsaState.c)
+ *     SepRmMakeLogonSessionsSiblingsWrkr @ 0x1409CD660 (SepRmMakeLogonSessionsSiblingsWrkr.c)
+ *     SepRmSetSharedUserSessionWrkr @ 0x1409CD6A0 (SepRmSetSharedUserSessionWrkr.c)
+ *     SepRmValidateProcUniqueLuidWrkr @ 0x1409CD6D0 (SepRmValidateProcUniqueLuidWrkr.c)
+ *     SepAuditFailed @ 0x1409CEE50 (SepAuditFailed.c)
+ */
+
 void __fastcall SepRmCommandServerThread(PVOID StartContext)
 {
   NTSTATUS v1; // ebx

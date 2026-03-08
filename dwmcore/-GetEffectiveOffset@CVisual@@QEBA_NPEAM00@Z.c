@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetEffectiveOffset@CVisual@@QEBA_NPEAM00@Z @ 0x18020D838
+ * Callers:
+ *     ?AffectsVisual@CCompositionSpotLight@@UEAA_NPEBVCVisualTree@@PEAVCVisual@@@Z @ 0x180222D50 (-AffectsVisual@CCompositionSpotLight@@UEAA_NPEBVCVisualTree@@PEAVCVisual@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CVisual::GetEffectiveOffset(CVisual *this, float *a2, float *a3, float *a4)
 {
   float v4; // xmm0_4

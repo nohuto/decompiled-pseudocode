@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvlRestoreEnlightenment @ 0x14053D924
+ * Callers:
+ *     PopHiberCheckResume @ 0x140A9FD30 (PopHiberCheckResume.c)
+ * Callees:
+ *     HvlpTryConfigureInterface @ 0x14037FC60 (HvlpTryConfigureInterface.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HvlpPhase0Enlightenments @ 0x14054701C (HvlpPhase0Enlightenments.c)
+ */
+
 __int64 __fastcall HvlRestoreEnlightenment(char a1)
 {
   __int64 result; // rax

@@ -1,3 +1,25 @@
+/*
+ * XREFs of MmProbeAndLockSelectedPages @ 0x1403CF7D0
+ * Callers:
+ *     NtReadFileScatter @ 0x140798190 (NtReadFileScatter.c)
+ *     NtWriteFileGather @ 0x140799670 (NtWriteFileGather.c)
+ * Callees:
+ *     MiProbeAndLockComplete @ 0x140267C70 (MiProbeAndLockComplete.c)
+ *     MiProbeLockFrame @ 0x140268ED0 (MiProbeLockFrame.c)
+ *     MiProbeAndLockPrepare @ 0x14026B160 (MiProbeAndLockPrepare.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     MiLockProbePacketWorkingSet @ 0x1402E0344 (MiLockProbePacketWorkingSet.c)
+ *     MiUnlockProbePacketWorkingSet @ 0x1402E038C (MiUnlockProbePacketWorkingSet.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiProbePacketContended @ 0x140347478 (MiProbePacketContended.c)
+ *     MiProbeLeafFrame @ 0x1403CFA14 (MiProbeLeafFrame.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __stdcall MmProbeAndLockSelectedPages(
         PMDL MemoryDescriptorList,
         PFILE_SEGMENT_ELEMENT SegmentArray,

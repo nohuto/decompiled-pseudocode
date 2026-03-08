@@ -1,3 +1,16 @@
+/*
+ * XREFs of PsGetAllocatedFullProcessImageName @ 0x1407E764C
+ * Callers:
+ *     PfCalculateProcessHash @ 0x1407E7450 (PfCalculateProcessHash.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1407E7618 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     PiUEventHandleVetoEvent @ 0x14087E074 (PiUEventHandleVetoEvent.c)
+ *     PnpLogVetoInformation @ 0x140961470 (PnpLogVetoInformation.c)
+ *     ViCreateProcessCallbackInternal @ 0x140AD3224 (ViCreateProcessCallbackInternal.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PsGetAllocatedFullProcessImageName(__int64 a1, __int64 *a2)
 {
   __int64 v2; // rsi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InitializePowerWatchdogTimeoutDefaults@@YAXXZ @ 0x1C00C6528
+ * Callers:
+ *     InitializePowerRequestList @ 0x1C031F97C (InitializePowerRequestList.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 void __fastcall InitializePowerWatchdogTimeoutDefaults(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _QWORD *v4; // rbx

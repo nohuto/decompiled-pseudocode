@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpCrossVmIntHostCallback @ 0x140A02F70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExGetExtensionTable @ 0x1402C57F0 (ExGetExtensionTable.c)
+ *     ExReleaseExtensionTable @ 0x1402C5820 (ExReleaseExtensionTable.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __fastcall ExpCrossVmIntHostCallback(int a1, struct _EX_RUNDOWN_REF **a2)
 {
   struct _EX_RUNDOWN_REF *v2; // rdi

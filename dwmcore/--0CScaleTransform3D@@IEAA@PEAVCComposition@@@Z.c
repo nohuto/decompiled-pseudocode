@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CScaleTransform3D@@IEAA@PEAVCComposition@@@Z @ 0x180111448
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     <none>
+ */
+
 CScaleTransform3D *__fastcall CScaleTransform3D::CScaleTransform3D(CScaleTransform3D *this, struct CComposition *a2)
 {
   CScaleTransform3D *result; // rax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of EnablePTPDevices @ 0x1C015CA90
+ * Callers:
+ *     NtUserEnableTouchPad @ 0x1C016ECE0 (NtUserEnableTouchPad.c)
+ * Callees:
+ *     AccessPTPEnabledStatus @ 0x1C009D120 (AccessPTPEnabledStatus.c)
+ *     EtwTraceTouchPadEnabledStatusChangeStart @ 0x1C0164300 (EtwTraceTouchPadEnabledStatusChangeStart.c)
+ *     EtwTraceTouchPadEnabledStatusChangeStop @ 0x1C0164330 (EtwTraceTouchPadEnabledStatusChangeStop.c)
+ *     UpdateInputSettingWnfState @ 0x1C017BAE0 (UpdateInputSettingWnfState.c)
+ *     RIMDeliverConfigRequest @ 0x1C01AD678 (RIMDeliverConfigRequest.c)
+ *     ?PTPConfigUpdateEx@PTPTelemetry@@CAXQEAUDEVICEINFO@@@Z @ 0x1C020EABC (-PTPConfigUpdateEx@PTPTelemetry@@CAXQEAUDEVICEINFO@@@Z.c)
+ */
+
 __int64 __fastcall EnablePTPDevices(int a1)
 {
   __int64 v2; // rdx

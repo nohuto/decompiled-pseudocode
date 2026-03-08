@@ -1,3 +1,18 @@
+/*
+ * XREFs of RtlpFlsDataCleanup @ 0x1407DAFFC
+ * Callers:
+ *     PspTlsDataCleanup @ 0x1407D9C28 (PspTlsDataCleanup.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     RtlpFlsHeapFree @ 0x1407DBE1C (RtlpFlsHeapFree.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall RtlpFlsDataCleanup(__int64 a1, _DWORD *a2, char a3)
 {
   unsigned int v5; // ebp

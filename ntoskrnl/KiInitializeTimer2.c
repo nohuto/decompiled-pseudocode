@@ -1,3 +1,24 @@
+/*
+ * XREFs of KiInitializeTimer2 @ 0x140203D9C
+ * Callers:
+ *     ExAllocateTimerInternal2 @ 0x140203C10 (ExAllocateTimerInternal2.c)
+ *     KeInitializeTimer2 @ 0x140203D80 (KeInitializeTimer2.c)
+ *     KeInitializeIRTimer @ 0x14036D61C (KeInitializeIRTimer.c)
+ *     MiStoreEvictThread @ 0x1403A3150 (MiStoreEvictThread.c)
+ *     ?SmInitialize@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z @ 0x1403A340C (-SmInitialize@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_STORE_MGR_PARAMS@@@Z.c)
+ *     KiInitializeIdealProcessorRebalancer @ 0x1403AF398 (KiInitializeIdealProcessorRebalancer.c)
+ *     EtwpInitialize @ 0x140B3CA40 (EtwpInitialize.c)
+ *     KiInitializeDpcRuntimeHistoryHashTables @ 0x140B43D24 (KiInitializeDpcRuntimeHistoryHashTables.c)
+ *     PopPowerAggregatorInitialize @ 0x140B46D2C (PopPowerAggregatorInitialize.c)
+ *     PopSleepstudyInitialize @ 0x140B470D0 (PopSleepstudyInitialize.c)
+ *     ExInitializeTimeRefresh @ 0x140B545AC (ExInitializeTimeRefresh.c)
+ *     PopThermalInit @ 0x140B62494 (PopThermalInit.c)
+ *     SshpAlpcInitialize @ 0x140B6437C (SshpAlpcInitialize.c)
+ *     HalpBlkWdInitialize @ 0x140B8FBF8 (HalpBlkWdInitialize.c)
+ * Callees:
+ *     PsTimerResolutionActive @ 0x140250500 (PsTimerResolutionActive.c)
+ */
+
 char __fastcall KiInitializeTimer2(unsigned __int64 a1, __int64 a2, __int64 a3, int a4)
 {
   _BYTE *v4; // r11

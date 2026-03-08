@@ -1,3 +1,13 @@
+/*
+ * XREFs of BCryptDecrypt @ 0x1405B51EC
+ * Callers:
+ *     SmCrAuthDecrypt @ 0x1405CB78C (SmCrAuthDecrypt.c)
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     ExGetExtensionTable @ 0x1402C57F0 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 NTSTATUS __stdcall BCryptDecrypt(
         BCRYPT_KEY_HANDLE hKey,
         PUCHAR pbInput,

@@ -1,3 +1,25 @@
+/*
+ * XREFs of CmpSearchKeyControlBlockTreeEx @ 0x140A14AA4
+ * Callers:
+ *     CmpDoParseKey @ 0x1406E1D90 (CmpDoParseKey.c)
+ *     CmpRefreshHive @ 0x140A09C50 (CmpRefreshHive.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x140A15598 (CmKeyBodyReplicateToVirtual.c)
+ *     CmpCommitDiscardReplacePost @ 0x140A1CC50 (CmpCommitDiscardReplacePost.c)
+ *     CmpLightWeightCommitRenameKeyUoW @ 0x140A25828 (CmpLightWeightCommitRenameKeyUoW.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     CmpRemoveFromDelayedClose @ 0x14074BFBC (CmpRemoveFromDelayedClose.c)
+ *     CmpFreeKeyControlBlock @ 0x14074C060 (CmpFreeKeyControlBlock.c)
+ *     CmpLockKcbExclusive @ 0x1407AF778 (CmpLockKcbExclusive.c)
+ *     CmpCleanUpKcbCacheWithLock @ 0x1407AF820 (CmpCleanUpKcbCacheWithLock.c)
+ *     CmpLockHashEntryByIndexExclusive @ 0x140A1C82C (CmpLockHashEntryByIndexExclusive.c)
+ *     CmpUnlockHashEntryByIndex @ 0x140A1C8D8 (CmpUnlockHashEntryByIndex.c)
+ *     CmpUnlockKcb @ 0x140AF2140 (CmpUnlockKcb.c)
+ *     CmpAttachToRegistryProcess @ 0x140AF26E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140AF2710 (CmpDetachFromRegistryProcess.c)
+ */
+
 char __fastcall CmpSearchKeyControlBlockTreeEx(
         __int64 (__fastcall *a1)(ULONG_PTR, ULONG_PTR, __int64, __int64),
         ULONG_PTR a2,

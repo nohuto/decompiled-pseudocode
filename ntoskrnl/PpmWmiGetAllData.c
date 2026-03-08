@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmWmiGetAllData @ 0x1409931AC
+ * Callers:
+ *     PpmWmiDispatch @ 0x14084C650 (PpmWmiDispatch.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     PpmPerfGetCurrentState @ 0x1402F75F0 (PpmPerfGetCurrentState.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall PpmWmiGetAllData(_QWORD *a1, __int64 *a2, unsigned int a3, __int64 a4, int *a5, char a6)
 {
   __int64 v9; // r9

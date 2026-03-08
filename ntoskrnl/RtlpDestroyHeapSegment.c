@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpDestroyHeapSegment @ 0x1409BB3E0
+ * Callers:
+ *     RtlDestroyHeap @ 0x14079A780 (RtlDestroyHeap.c)
+ * Callees:
+ *     ZwFreeVirtualMemory @ 0x1404126D0 (ZwFreeVirtualMemory.c)
+ *     RtlpLogHeapFailure @ 0x1405B2884 (RtlpLogHeapFailure.c)
+ */
+
 NTSTATUS __fastcall RtlpDestroyHeapSegment(__int64 a1)
 {
   ULONG_PTR v2; // r8

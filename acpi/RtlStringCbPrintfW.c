@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlStringCbPrintfW @ 0x1C0017D20
+ * Callers:
+ *     ACPIBusIrpQueryDeviceId @ 0x1C007F574 (ACPIBusIrpQueryDeviceId.c)
+ *     ACPIBusIrpQueryInstanceId @ 0x1C008060C (ACPIBusIrpQueryInstanceId.c)
+ * Callees:
+ *     RtlStringVPrintfWorkerW @ 0x1C000BA0C (RtlStringVPrintfWorkerW.c)
+ */
+
 NTSTATUS RtlStringCbPrintfW(NTSTRSAFE_PWSTR pszDest, size_t cbDest, NTSTRSAFE_PCWSTR pszFormat, ...)
 {
   size_t v3; // rdx

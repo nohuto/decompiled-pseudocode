@@ -1,3 +1,28 @@
+/*
+ * XREFs of MiInsertHugeRangeInList @ 0x14061EB84
+ * Callers:
+ *     MiGetHugeRangeFromNode @ 0x1403BF1C4 (MiGetHugeRangeFromNode.c)
+ *     MiAddPartitionHugeRange @ 0x14061CDC4 (MiAddPartitionHugeRange.c)
+ *     MiDereferenceIoHugeRange @ 0x14061D540 (MiDereferenceIoHugeRange.c)
+ *     MiHugeRangeFreeToZero @ 0x14061E83C (MiHugeRangeFreeToZero.c)
+ *     MiMarkHugePfnBad @ 0x14061F1D0 (MiMarkHugePfnBad.c)
+ *     MiMarkHugePfnGood @ 0x14061F9B8 (MiMarkHugePfnGood.c)
+ *     MiMoveBadHugeRangeCrossPartition @ 0x14061FC7C (MiMoveBadHugeRangeCrossPartition.c)
+ *     MiReleaseMemoryRuns @ 0x14061FEB0 (MiReleaseMemoryRuns.c)
+ *     MiFreePartitionPageRun @ 0x140657734 (MiFreePartitionPageRun.c)
+ *     MiInsertPartitionPages @ 0x140657EB8 (MiInsertPartitionPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140A416B8 (MiAllocatePartitionPhysicalPages.c)
+ * Callees:
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiWakePageZeroing @ 0x140361388 (MiWakePageZeroing.c)
+ *     MiPageToChannel @ 0x140370C10 (MiPageToChannel.c)
+ *     MiHugePfnPartition @ 0x14061E808 (MiHugePfnPartition.c)
+ *     MiUpdateHugePageCounts @ 0x14062090C (MiUpdateHugePageCounts.c)
+ *     MiMarkHugeRangeTransition @ 0x14062C4CC (MiMarkHugeRangeTransition.c)
+ */
+
 void __fastcall MiInsertHugeRangeInList(__int64 a1, __int64 a2, char a3)
 {
   unsigned __int64 v3; // r14

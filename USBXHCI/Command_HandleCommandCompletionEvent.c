@@ -1,3 +1,27 @@
+/*
+ * XREFs of Command_HandleCommandCompletionEvent @ 0x1C000A2B4
+ * Callers:
+ *     Interrupter_DeferredWorkProcessor @ 0x1C0008BE0 (Interrupter_DeferredWorkProcessor.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     Controller_LowerAndTrackIrql @ 0x1C00074BC (Controller_LowerAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0007558 (Controller_RaiseAndTrackIrql.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     XilCommand_GetCommandRingBufferLogicalAddress @ 0x1C000A7F8 (XilCommand_GetCommandRingBufferLogicalAddress.c)
+ *     DynamicLock_Acquire @ 0x1C000A918 (DynamicLock_Acquire.c)
+ *     DynamicLock_Release @ 0x1C000A958 (DynamicLock_Release.c)
+ *     Command_InternalSendCommand @ 0x1C000A998 (Command_InternalSendCommand.c)
+ *     WPP_RECORDER_SF_qLLdd @ 0x1C000AC9C (WPP_RECORDER_SF_qLLdd.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Command_HandleCommandRingStoppedEvent @ 0x1C002FD74 (Command_HandleCommandRingStoppedEvent.c)
+ *     WPP_RECORDER_SF_qL @ 0x1C0030E00 (WPP_RECORDER_SF_qL.c)
+ *     WPP_RECORDER_SF_qii @ 0x1C0031298 (WPP_RECORDER_SF_qii.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Etw_CommandCompleteError @ 0x1C004A868 (Etw_CommandCompleteError.c)
+ *     McTemplateK0ppb16qu_EtwWriteTransfer @ 0x1C004AECC (McTemplateK0ppb16qu_EtwWriteTransfer.c)
+ */
+
 __int64 **__fastcall Command_HandleCommandCompletionEvent(__int64 a1, __int64 a2)
 {
   unsigned int v2; // esi

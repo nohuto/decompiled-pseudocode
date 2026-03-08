@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsOfType@CLinearTransferEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x180237190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsOfType@CFilterEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x18012A3D0 (-IsOfType@CFilterEffect@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ */
+
 char __fastcall CLinearTransferEffect::IsOfType(__int64 a1, int a2)
 {
   char v2; // al

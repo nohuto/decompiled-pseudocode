@@ -1,3 +1,22 @@
+/*
+ * XREFs of PsStartSiloMonitor @ 0x140848CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402992F0 (PdcCreateWatchdogAroundClientCall.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PspGetServerSiloStatePointer @ 0x1405A14C4 (PspGetServerSiloStatePointer.c)
+ *     PspGetNextSilo @ 0x1406FB574 (PspGetNextSilo.c)
+ *     PspInvokeCreateCallback @ 0x140848EA0 (PspInvokeCreateCallback.c)
+ *     PspInvokeTerminateCallback @ 0x1409B1268 (PspInvokeTerminateCallback.c)
+ */
+
 __int64 __fastcall PsStartSiloMonitor(__int64 a1)
 {
   int v2; // edi

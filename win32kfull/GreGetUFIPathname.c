@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreGetUFIPathname @ 0x1C027A550
+ * Callers:
+ *     NtGdiGetUFIPathname @ 0x1C02C6040 (NtGdiGetUFIPathname.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ?ppfeGetPFEFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z @ 0x1C0279F50 (-ppfeGetPFEFromUFI@@YAPEAVPFE@@PEAU_UNIVERSAL_FONT_ID@@HH@Z.c)
+ */
+
 __int64 __fastcall GreGetUFIPathname(
         struct _UNIVERSAL_FONT_ID *a1,
         _DWORD *a2,

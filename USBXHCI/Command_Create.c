@@ -1,3 +1,17 @@
+/*
+ * XREFs of Command_Create @ 0x1C006FF64
+ * Callers:
+ *     Controller_WdfEvtDeviceAdd @ 0x1C006FA60 (Controller_WdfEvtDeviceAdd.c)
+ * Callees:
+ *     Command_IsProxyCommandRing @ 0x1C0008234 (Command_IsProxyCommandRing.c)
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     XilCommand_Create @ 0x1C001A6B4 (XilCommand_Create.c)
+ *     DynamicLock_Create @ 0x1C001AA74 (DynamicLock_Create.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Command_CreateCommandWatchdogTimer @ 0x1C00700BC (Command_CreateCommandWatchdogTimer.c)
+ */
+
 __int64 __fastcall Command_Create(__int64 a1, __int64 a2, __int64 *a3)
 {
   int v5; // edx

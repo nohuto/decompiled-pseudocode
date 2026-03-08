@@ -1,3 +1,23 @@
+/*
+ * XREFs of CmpAddToLeaf @ 0x1407A4520
+ * Callers:
+ *     CmpAddSubKeyToList @ 0x1407A4300 (CmpAddSubKeyToList.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     CmpGenerateFastLeafHintForUnicodeString @ 0x140786860 (CmpGenerateFastLeafHintForUnicodeString.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpHashUnicodeComponent @ 0x1407A480C (CmpHashUnicodeComponent.c)
+ *     HvReallocateCell @ 0x1407A5D90 (HvReallocateCell.c)
+ *     HvFreeCell @ 0x1407A6A90 (HvFreeCell.c)
+ *     CmpFindSubKeyInLeafWithStatus @ 0x1407AE0D0 (CmpFindSubKeyInLeafWithStatus.c)
+ *     CmpCompareInIndex @ 0x1407AE250 (CmpCompareInIndex.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpMarkCellDirty @ 0x1407D2460 (HvpMarkCellDirty.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall CmpAddToLeaf(
         ULONG_PTR BugCheckParameter3,
         ULONG_PTR BugCheckParameter4,

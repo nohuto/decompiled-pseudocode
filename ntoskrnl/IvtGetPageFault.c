@@ -1,3 +1,11 @@
+/*
+ * XREFs of IvtGetPageFault @ 0x14052A630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IvtGetPageFault(_QWORD *a1, int *a2, _QWORD *a3, _WORD *a4, unsigned __int64 *a5, __int64 *a6)
 {
   unsigned __int64 v6; // r11

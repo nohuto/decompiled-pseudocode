@@ -1,3 +1,21 @@
+/*
+ * XREFs of EtwpSendTraceEvent @ 0x14039D2E8
+ * Callers:
+ *     EtwpTraceMessageVa @ 0x140205450 (EtwpTraceMessageVa.c)
+ *     EtwpEventWriteFull @ 0x1402319C0 (EtwpEventWriteFull.c)
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x14036F9F8 (EtwpLogSystemEventUnsafe.c)
+ *     EtwTraceEvent @ 0x14045FE22 (EtwTraceEvent.c)
+ *     EtwTraceRaw @ 0x1405FCF28 (EtwTraceRaw.c)
+ *     EtwpWriteUserEvent @ 0x1406AA640 (EtwpWriteUserEvent.c)
+ * Callees:
+ *     ObGetCurrentIrql @ 0x140205E10 (ObGetCurrentIrql.c)
+ *     EtwpGetNextEventOffsetType @ 0x14039D3D8 (EtwpGetNextEventOffsetType.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpSendDbgId @ 0x1409E9094 (EtwpSendDbgId.c)
+ *     KdSendTraceData @ 0x140AAE9F8 (KdSendTraceData.c)
+ */
+
 unsigned __int64 __fastcall EtwpSendTraceEvent(__int64 a1, __int64 a2)
 {
   unsigned __int64 result; // rax

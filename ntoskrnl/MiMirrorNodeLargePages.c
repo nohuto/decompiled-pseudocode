@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiMirrorNodeLargePages @ 0x14064CF54
+ * Callers:
+ *     MiMirrorGatherBrownPages @ 0x140624848 (MiMirrorGatherBrownPages.c)
+ *     MiMirrorReduceBlackWrites @ 0x140625C30 (MiMirrorReduceBlackWrites.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiMirrorAddPagesToBrownList @ 0x1406246DC (MiMirrorAddPagesToBrownList.c)
+ *     MiMirrorOmitPagesFromCopy @ 0x140624E58 (MiMirrorOmitPagesFromCopy.c)
+ */
+
 volatile LONG *__fastcall MiMirrorNodeLargePages(__int64 a1, __int64 a2, int a3)
 {
   unsigned __int64 v3; // rbx

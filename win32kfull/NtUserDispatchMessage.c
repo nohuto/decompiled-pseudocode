@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserDispatchMessage @ 0x1C0037F50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxDispatchMessage @ 0x1C0038064 (xxxDispatchMessage.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserDispatchMessage(__int128 *a1)
 {
   __int64 v2; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ulIndexedGetMatchFromPalentry@@YAKPEAVPALETTE@@K@Z @ 0x1C00282F4
+ * Callers:
+ *     ?ulDispatchGFPEFunction@XEPALOBJ@@QEAAKW4GFPE_FUNCTION_ID@@K@Z @ 0x1C0028270 (-ulDispatchGFPEFunction@XEPALOBJ@@QEAAKW4GFPE_FUNCTION_ID@@K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ulIndexedGetMatchFromPalentry(struct PALETTE *a1, int a2)
 {
   _DWORD *v2; // r9

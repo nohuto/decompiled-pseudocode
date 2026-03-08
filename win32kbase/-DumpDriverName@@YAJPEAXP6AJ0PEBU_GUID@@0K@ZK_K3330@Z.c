@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DumpDriverName@@YAJPEAXP6AJ0PEBU_GUID@@0K@ZK_K3330@Z @ 0x1C017F3C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DumpDriverName(
         void *a1,
         int (*a2)(void *, const struct _GUID *, void *, unsigned int),

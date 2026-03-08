@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AlphaDivide_64bppABGRFloat@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802BA410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??BCFloat16@@QEAAMXZ @ 0x1802B30A4 (--BCFloat16@@QEAAMXZ.c)
+ */
+
 void __fastcall AlphaDivide_64bppABGRFloat(const struct PipelineParams *a1, const struct ScanOpParams *a2)
 {
   unsigned __int16 *v2; // rbx

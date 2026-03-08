@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CitpProcessForegroundChange@@YAHPEAUtagPROCESSINFO@@PEAUtagWND@@0PEAUtagSHELL_INPUT_USAGE_DATA_INFO@@@Z @ 0x1C00B0458
+ * Callers:
+ *     CitProcessForegroundChange @ 0x1C00B0410 (CitProcessForegroundChange.c)
+ *     CitModerncoreProcessForegroundChange @ 0x1C0273840 (CitModerncoreProcessForegroundChange.c)
+ * Callees:
+ *     ?CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagSHELL_INPUT_USAGE_DATA_INFO@@@Z @ 0x1C00B0564 (-CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagS.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CitpProcessForegroundChange(
         struct tagPROCESSINFO *a1,
         struct tagWND *a2,

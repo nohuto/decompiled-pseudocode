@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnSceneReady@CSpatialRemarshaler@@EEAAJPEAUISpectreRenderer@@@Z @ 0x18024E780
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ShouldNotify@CNotificationResource@@IEBA_NXZ @ 0x180098AA0 (-ShouldNotify@CNotificationResource@@IEBA_NXZ.c)
+ */
+
 __int64 __fastcall CSpatialRemarshaler::OnSceneReady(CSpatialRemarshaler *this, struct ISpectreRenderer *a2)
 {
   __int64 v2; // r8

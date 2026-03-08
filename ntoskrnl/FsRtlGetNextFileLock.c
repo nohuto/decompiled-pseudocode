@@ -1,3 +1,16 @@
+/*
+ * XREFs of FsRtlGetNextFileLock @ 0x14053B030
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlRealSuccessor @ 0x1402C1970 (RtlRealSuccessor.c)
+ *     FsRtlFindFirstOverlappingSharedNode @ 0x1402C272C (FsRtlFindFirstOverlappingSharedNode.c)
+ *     FsRtlFindFirstOverlappingExclusiveNode @ 0x1402C3018 (FsRtlFindFirstOverlappingExclusiveNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 PFILE_LOCK_INFO __stdcall FsRtlGetNextFileLock(PFILE_LOCK FileLock, BOOLEAN Restart)
 {
   _QWORD *LockInformation; // rsi

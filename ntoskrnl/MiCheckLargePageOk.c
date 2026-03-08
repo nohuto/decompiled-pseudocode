@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiCheckLargePageOk @ 0x140B38B30
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14032E710 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiCheckLargePageSystemImage @ 0x140B616E0 (MiCheckLargePageSystemImage.c)
+ *     MiVerifyLargeSectionLayout @ 0x140B64254 (MiVerifyLargeSectionLayout.c)
+ */
+
 __int64 __fastcall MiCheckLargePageOk(ULONG_PTR BugCheckParameter2)
 {
   __int64 v1; // rdi

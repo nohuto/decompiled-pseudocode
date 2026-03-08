@@ -1,3 +1,16 @@
+/*
+ * XREFs of RIMIDE_InitializePointerDeviceInjection @ 0x1C01C6D10
+ * Callers:
+ *     NtUserInitializePointerDeviceInjectionEx @ 0x1C0172660 (NtUserInitializePointerDeviceInjectionEx.c)
+ *     ?CreateInjectionDevice@@YAHXZ @ 0x1C0223278 (-CreateInjectionDevice@@YAHXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ *     RIMIDECreatePseudoHIDDevice @ 0x1C01C2E38 (RIMIDECreatePseudoHIDDevice.c)
+ *     ?BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z @ 0x1C01C5EBC (-BuildReportDescriptor@@YAHGGPEAUtagUSAGE_PROPERTIES@@KKPEAU_HIDP_DEVICE_DESC@@@Z.c)
+ */
+
 __int64 __fastcall RIMIDE_InitializePointerDeviceInjection(
         int a1,
         int a2,

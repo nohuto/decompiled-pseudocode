@@ -1,3 +1,16 @@
+/*
+ * XREFs of RIMTransformCoordinatesFromDigitizer @ 0x1C01BE1E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C0032C40 (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C0033950 (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMTransformPointerDevicePointToPhysical @ 0x1C00EFE38 (RIMTransformPointerDevicePointToPhysical.c)
+ *     RIMTransformCoordinates @ 0x1C01BDE94 (RIMTransformCoordinates.c)
+ *     RIMTransformPhysicalPointToScreen @ 0x1C01BE428 (RIMTransformPhysicalPointToScreen.c)
+ */
+
 void __fastcall RIMTransformCoordinatesFromDigitizer(__int64 a1, int *a2, _DWORD *a3, __int64 a4)
 {
   int v8; // [rsp+30h] [rbp-28h] BYREF

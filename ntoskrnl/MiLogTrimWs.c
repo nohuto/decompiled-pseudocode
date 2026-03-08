@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiLogTrimWs @ 0x1402F0ADC
+ * Callers:
+ *     MiTrimWorkingSet @ 0x1402F08AC (MiTrimWorkingSet.c)
+ * Callees:
+ *     MiFillLogProcessInfo @ 0x140224D68 (MiFillLogProcessInfo.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x1403BE3FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall MiLogTrimWs(__int64 a1, __int64 a2, __int64 a3, int a4, int a5)
 {
   _DWORD *v8; // r10

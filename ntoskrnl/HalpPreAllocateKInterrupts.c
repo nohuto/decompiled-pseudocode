@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpPreAllocateKInterrupts @ 0x140B7228C
+ * Callers:
+ *     HalpInterruptInitSystem @ 0x140A86CD0 (HalpInterruptInitSystem.c)
+ * Callees:
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x140372460 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 HalpPreAllocateKInterrupts()
 {
   int MaximumRegisteredProcessorCount; // eax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?OnTaskCompleted_AnyThread@CEffectCompilationService@@AEAAXPEAVCEffectCompilationTask@@_N@Z @ 0x1800E2FC4
+ * Callers:
+ *     ?Compile_WorkerThread@CEffectCompilationTask@@AEAAXXZ @ 0x1800F8A04 (-Compile_WorkerThread@CEffectCompilationTask@@AEAAXXZ.c)
+ *     ?Cancel_RenderThread@CEffectCompilationTask@@AEAAXXZ @ 0x1801E30B4 (-Cancel_RenderThread@CEffectCompilationTask@@AEAAXXZ.c)
+ * Callees:
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034BB4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?RemoveAt@?$DynArray@PEAVCScratchRenderTargetBitmap@@$0A@@@QEAAJI@Z @ 0x1800EA8C0 (-RemoveAt@-$DynArray@PEAVCScratchRenderTargetBitmap@@$0A@@@QEAAJI@Z.c)
+ */
+
 void __fastcall CEffectCompilationService::OnTaskCompleted_AnyThread(
         CEffectCompilationService *this,
         struct CEffectCompilationTask *a2,

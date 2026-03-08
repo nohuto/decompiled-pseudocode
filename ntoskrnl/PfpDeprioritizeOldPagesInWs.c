@@ -1,3 +1,15 @@
+/*
+ * XREFs of PfpDeprioritizeOldPagesInWs @ 0x14097AC7C
+ * Callers:
+ *     PfSetSuperfetchInformation @ 0x1407E2A94 (PfSetSuperfetchInformation.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     MmUpdateOldWorkingSetPages @ 0x1406332BC (MmUpdateOldWorkingSetPages.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall PfpDeprioritizeOldPagesInWs(__int64 a1, char a2)
 {
   __int64 v3; // rax

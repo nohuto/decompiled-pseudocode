@@ -1,3 +1,14 @@
+/*
+ * XREFs of MmMapViewOfSectionEx @ 0x1402A5B98
+ * Callers:
+ *     MiMapSecurePureReserveView @ 0x140727644 (MiMapSecurePureReserveView.c)
+ *     MiMapProcessExecutable @ 0x14072787C (MiMapProcessExecutable.c)
+ *     PspMapSystemDll @ 0x140727ACC (PspMapSystemDll.c)
+ *     MiMapImageForEnclaveUse @ 0x140A3BAD0 (MiMapImageForEnclaveUse.c)
+ * Callees:
+ *     MiMapViewOfSectionExCommon @ 0x140727CDC (MiMapViewOfSectionExCommon.c)
+ */
+
 __int64 __fastcall MmMapViewOfSectionEx(
         int a1,
         int a2,

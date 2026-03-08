@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AddCompositionFrame@CCompositionFrameCollection@@UEAAXPEAUICompositionFrame@@@Z @ 0x1C0011930
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CCompositionFrameCollection::AddCompositionFrame(
         CCompositionFrameCollection *this,
         struct ICompositionFrame *a2)

@@ -1,3 +1,11 @@
+/*
+ * XREFs of x86BiosWritePciAddressPort @ 0x1403A9A80
+ * Callers:
+ *     x86BiosWriteIoSpace @ 0x1403BC9E0 (x86BiosWriteIoSpace.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall x86BiosWritePciAddressPort(int a1, unsigned __int16 a2, int a3)
 {
   __int64 result; // rax

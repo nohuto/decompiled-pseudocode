@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiLogControlProtectionKernelModeReturnMismatch @ 0x140579960
+ * Callers:
+ *     KiProcessControlProtectionFromKernelMode @ 0x140579EC8 (KiProcessControlProtectionFromKernelMode.c)
+ * Callees:
+ *     EtwTimLogControlProtectionKernelModeReturnMismatch @ 0x1405FD9EC (EtwTimLogControlProtectionKernelModeReturnMismatch.c)
+ */
+
 void __fastcall KiLogControlProtectionKernelModeReturnMismatch(unsigned int a1, __int64 a2)
 {
   signed __int32 v2; // eax

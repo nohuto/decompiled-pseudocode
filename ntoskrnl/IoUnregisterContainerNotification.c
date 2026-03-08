@@ -1,3 +1,16 @@
+/*
+ * XREFs of IoUnregisterContainerNotification @ 0x1409454A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ExUnregisterCallback @ 0x140302720 (ExUnregisterCallback.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __stdcall IoUnregisterContainerNotification(PVOID CallbackRegistration)
 {
   struct _KTHREAD *CurrentThread; // rax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of PfSnNameRemove @ 0x1402E820C
+ * Callers:
+ *     PfSnNameRemoveAll @ 0x140773CE0 (PfSnNameRemoveAll.c)
+ * Callees:
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfSnNameRemove(__int64 a1, unsigned __int64 a2)
 {
   volatile LONG *v2; // rbp

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiGetAweNode @ 0x1406482F8
+ * Callers:
+ *     MiGetAwePageSizeFromVa @ 0x140648378 (MiGetAwePageSizeFromVa.c)
+ *     MiProtectAweRegion @ 0x140648DF8 (MiProtectAweRegion.c)
+ *     MiWriteAwePtes @ 0x14064A010 (MiWriteAwePtes.c)
+ *     MiReferenceIncomingPhysicalPages @ 0x140A3F148 (MiReferenceIncomingPhysicalPages.c)
+ *     NtMapUserPhysicalPages @ 0x140A3FC10 (NtMapUserPhysicalPages.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x140A3FEC0 (NtMapUserPhysicalPagesScatter.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall MiGetAweNode(unsigned __int64 a1)
 {
   _QWORD *v1; // r8

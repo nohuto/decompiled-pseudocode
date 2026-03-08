@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpDereferenceLoggerSecurityDescriptor @ 0x140692DB8
+ * Callers:
+ *     EtwpCheckLoggerControlAccess @ 0x140692E00 (EtwpCheckLoggerControlAccess.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x14085C154 (EtwQueryPerformanceTraceInformation.c)
+ * Callees:
+ *     ObDereferenceSecurityDescriptor @ 0x140696920 (ObDereferenceSecurityDescriptor.c)
+ */
+
 signed __int64 __fastcall EtwpDereferenceLoggerSecurityDescriptor(__int64 a1, __int64 a2)
 {
   signed __int64 result; // rax

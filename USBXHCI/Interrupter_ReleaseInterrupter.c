@@ -1,3 +1,13 @@
+/*
+ * XREFs of Interrupter_ReleaseInterrupter @ 0x1C007A04C
+ * Callers:
+ *     Controller_WdfEvtDeviceReleaseHardware @ 0x1C0079480 (Controller_WdfEvtDeviceReleaseHardware.c)
+ * Callees:
+ *     XilRegister_WriteUlong64 @ 0x1C0014C68 (XilRegister_WriteUlong64.c)
+ *     XilRegister_WriteUlong @ 0x1C0018428 (XilRegister_WriteUlong.c)
+ *     XilCommonBuffer_ReleaseBuffer @ 0x1C001E9A8 (XilCommonBuffer_ReleaseBuffer.c)
+ */
+
 void __fastcall Interrupter_ReleaseInterrupter(__int64 a1)
 {
   __m128i *v2; // rax

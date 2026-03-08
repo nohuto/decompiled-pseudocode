@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpAddAdapterToSystemList @ 0x140513C8C
+ * Callers:
+ *     HalGetAdapterV3 @ 0x140821010 (HalGetAdapterV3.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpAddAdapterToSystemList(__int64 a1, __int64 a2)
 {
   unsigned __int64 v2; // r8

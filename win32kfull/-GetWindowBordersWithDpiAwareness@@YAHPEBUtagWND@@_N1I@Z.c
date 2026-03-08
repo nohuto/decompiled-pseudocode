@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?GetWindowBordersWithDpiAwareness@@YAHPEBUtagWND@@_N1I@Z @ 0x1C003FCD8
+ * Callers:
+ *     xxxCheckFullScreen @ 0x1C0033340 (xxxCheckFullScreen.c)
+ *     ?CalculateWindowMargins@CWindowMarginProp@WindowMargins@@QEAA?AUFRAME_MARGIN@@PEBUtagWND@@IW4MarginsFor@?A0x67ef0edd@2@@Z @ 0x1C0042CB8 (-CalculateWindowMargins@CWindowMarginProp@WindowMargins@@QEAA-AUFRAME_MARGIN@@PEBUtagWND@@IW4Mar.c)
+ *     _anonymous_namespace_::xxxNormalizeRect @ 0x1C00FB938 (_anonymous_namespace_--xxxNormalizeRect.c)
+ * Callees:
+ *     GetWindowBordersForDpiWithCompatFlags2 @ 0x1C00448E4 (GetWindowBordersForDpiWithCompatFlags2.c)
+ *     GetWindowDpiLastNotify @ 0x1C00A3A34 (GetWindowDpiLastNotify.c)
+ */
+
 __int64 __fastcall GetWindowBordersWithDpiAwareness(const struct tagWND *a1, __int64 a2, int a3, int a4)
 {
   int v4; // r10d

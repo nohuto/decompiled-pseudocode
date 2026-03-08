@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhHubSSH_Timer @ 0x1C0020130
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ */
+
 __int64 __fastcall UsbhHubSSH_Timer(__int64 a1, __int64 a2)
 {
   struct _KEVENT *v3; // rax

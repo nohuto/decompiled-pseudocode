@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpDpGetInterruptReplayState @ 0x140A942C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpInterruptSaveReplayState @ 0x140A94C7C (HalpInterruptSaveReplayState.c)
+ */
+
 __int64 __fastcall HalpDpGetInterruptReplayState(__int64 a1, _QWORD *a2)
 {
   unsigned __int32 v3; // eax

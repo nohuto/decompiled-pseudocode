@@ -1,3 +1,13 @@
+/*
+ * XREFs of DifAddPerDriverDataForPlugins @ 0x1405D253C
+ * Callers:
+ *     VfTargetDriversAdd @ 0x140303834 (VfTargetDriversAdd.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall DifAddPerDriverDataForPlugins(__int64 a1)
 {
   __int64 v2; // rbx

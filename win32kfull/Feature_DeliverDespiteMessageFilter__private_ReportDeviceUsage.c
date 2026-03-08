@@ -1,3 +1,12 @@
+/*
+ * XREFs of Feature_DeliverDespiteMessageFilter__private_ReportDeviceUsage @ 0x1C012D614
+ * Callers:
+ *     xxxRealInternalGetMessage @ 0x1C006F2F0 (xxxRealInternalGetMessage.c)
+ * Callees:
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C012CB40 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C012CDB8 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ */
+
 void Feature_DeliverDespiteMessageFilter__private_ReportDeviceUsage()
 {
   __int64 v0; // [rsp+30h] [rbp+8h]

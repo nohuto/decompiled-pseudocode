@@ -1,3 +1,18 @@
+/*
+ * XREFs of WmipUpdateModifyGuid @ 0x1407FB638
+ * Callers:
+ *     WmipUpdateDataSource @ 0x1407FB4E8 (WmipUpdateDataSource.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WmipUnreferenceEntry @ 0x14069C9D0 (WmipUnreferenceEntry.c)
+ *     WmipFindISInDSByGuid @ 0x1407FB72C (WmipFindISInDSByGuid.c)
+ *     WmipIsEqualInstanceSets @ 0x1407FB788 (WmipIsEqualInstanceSets.c)
+ *     WmipBuildInstanceSet @ 0x140867C6C (WmipBuildInstanceSet.c)
+ *     WmipAllocEntry @ 0x140868798 (WmipAllocEntry.c)
+ *     WmipUpdateAddGuid @ 0x1409DED7C (WmipUpdateAddGuid.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WmipUpdateModifyGuid(__int64 a1, __int64 a2, int a3, int a4, __int64 *a5)
 {
   unsigned int v9; // esi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vSpRemoveShapeHint@@YAXPEAVSPRITE@@H@Z @ 0x1C010C39C
+ * Callers:
+ *     ?pSpHintSpriteShape@@YAHPEAVSPRITE@@PEAUHBITMAP__@@H@Z @ 0x1C010E114 (-pSpHintSpriteShape@@YAHPEAVSPRITE@@PEAUHBITMAP__@@H@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vSpRemoveShapeHint(struct SPRITE *a1, int a2)
 {
   int v4; // eax

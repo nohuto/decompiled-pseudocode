@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpMmReservePageTablePages @ 0x14037B1CC
+ * Callers:
+ *     HalpMmInitSystem @ 0x140A8D600 (HalpMmInitSystem.c)
+ * Callees:
+ *     HalpInterruptModel @ 0x14028EADC (HalpInterruptModel.c)
+ *     HalQueryMaximumProcessorCount @ 0x140375910 (HalQueryMaximumProcessorCount.c)
+ *     HalpMmGetPteAddressSafe @ 0x14037B04C (HalpMmGetPteAddressSafe.c)
+ */
+
 __int64 HalpMmReservePageTablePages()
 {
   __int64 result; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?UpdateCurrent@CTopologyManager@@SAXXZ @ 0x1C00E2C28
+ * Callers:
+ *     EditionUpdateCurrentMonitorTopology @ 0x1C00E2C10 (EditionUpdateCurrentMonitorTopology.c)
+ *     ?xxxGetWorkAreasFromShell@@YA_NXZ @ 0x1C00F7B94 (-xxxGetWorkAreasFromShell@@YA_NXZ.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C01032D0 (xxxSystemParametersInfoWorker.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ?CreateTopologySnapshot@CMonitorTopology@@SAPEAV1@XZ @ 0x1C00E2DF4 (-CreateTopologySnapshot@CMonitorTopology@@SAPEAV1@XZ.c)
+ *     ?CompareToCurrent@CMonitorTopology@@QEBA?AW4CompareResult@1@W4CompareType@1@@Z @ 0x1C00FF304 (-CompareToCurrent@CMonitorTopology@@QEBA-AW4CompareResult@1@W4CompareType@1@@Z.c)
+ */
+
 void CTopologyManager::UpdateCurrent(void)
 {
   struct CMonitorTopology *TopologySnapshot; // rax

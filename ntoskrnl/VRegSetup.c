@@ -1,3 +1,20 @@
+/*
+ * XREFs of VRegSetup @ 0x1408543D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x14069B3C0 (RtlpQueryRegistryValues.c)
+ *     ObSetSecurityObjectByPointer @ 0x1406DB6C0 (ObSetSecurityObjectByPointer.c)
+ *     IoCreateDevice @ 0x1407F0460 (IoCreateDevice.c)
+ *     PspStorageAllocSlot @ 0x14080C8BC (PspStorageAllocSlot.c)
+ *     ObCreateObjectTypeEx @ 0x14080CB20 (ObCreateObjectTypeEx.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14080F6BC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     VrpInitializeLoadedDifferencingHives @ 0x140854594 (VrpInitializeLoadedDifferencingHives.c)
+ */
+
 __int64 __fastcall VRegSetup(PDRIVER_OBJECT DriverObject)
 {
   NTSTATUS v2; // eax

@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiUpdatePfnPriority @ 0x14028D35C
+ * Callers:
+ *     MiResolveTransitionFault @ 0x140271760 (MiResolveTransitionFault.c)
+ *     MiPfPutPagesInTransition @ 0x140288890 (MiPfPutPagesInTransition.c)
+ *     MiCombineWithStandbyExisting @ 0x14029F020 (MiCombineWithStandbyExisting.c)
+ *     MiUpdatePrefetchPriority @ 0x1402C95DC (MiUpdatePrefetchPriority.c)
+ *     MiActOnPte @ 0x1402CF06C (MiActOnPte.c)
+ *     NtLockVirtualMemory @ 0x140344C50 (NtLockVirtualMemory.c)
+ *     MiCombineWithExisting @ 0x14034A4C4 (MiCombineWithExisting.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x14062B2BC (MiDeprioritizeVirtualAddresses.c)
+ * Callees:
+ *     MiRelinkStandbyPage @ 0x140225A14 (MiRelinkStandbyPage.c)
+ *     MiGetPfnPriority @ 0x14028A3F8 (MiGetPfnPriority.c)
+ */
+
 char __fastcall MiUpdatePfnPriority(__int64 a1)
 {
   char v1; // bl

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiUpdateSpecialPurposeMemoryCacheEligibility @ 0x140A44D34
+ * Callers:
+ *     MmManagePartitionUpdateAttributes @ 0x140A42E88 (MmManagePartitionUpdateAttributes.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KeGenericCallDpcEx @ 0x1403C07D0 (KeGenericCallDpcEx.c)
+ *     MiFindSpecialPurposeMemoryTypeByPartition @ 0x140A445E8 (MiFindSpecialPurposeMemoryTypeByPartition.c)
+ */
+
 __int64 __fastcall MiUpdateSpecialPurposeMemoryCacheEligibility(__int64 a1, unsigned int a2)
 {
   _QWORD *SpecialPurposeMemoryTypeByPartition; // rax

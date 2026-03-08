@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtSetEventBoostPriority @ 0x1409F8B40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeSetEventBoostPriority @ 0x14056F2C0 (KeSetEventBoostPriority.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall NtSetEventBoostPriority(void *a1)
 {
   NTSTATUS v1; // edi

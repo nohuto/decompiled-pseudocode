@@ -1,3 +1,24 @@
+/*
+ * XREFs of NtGetNextProcess @ 0x140784C70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     PsIsProcessInSilo @ 0x1402484DC (PsIsProcessInSilo.c)
+ *     SepDeleteAccessState @ 0x140265F50 (SepDeleteAccessState.c)
+ *     PspLockUnlockProcessExclusive @ 0x1402F6A6C (PspLockUnlockProcessExclusive.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SeCreateAccessState @ 0x1406991A0 (SeCreateAccessState.c)
+ *     PsGetNextProcess @ 0x1406AA530 (PsGetNextProcess.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObOpenObjectByPointer @ 0x1407C93D0 (ObOpenObjectByPointer.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     PsGetPreviousProcess @ 0x1409B4C60 (PsGetPreviousProcess.c)
+ */
+
 __int64 __fastcall NtGetNextProcess(ULONG_PTR BugCheckParameter1, int a2, int a3, int a4, HANDLE *a5)
 {
   KPROCESSOR_MODE AccessMode; // r12

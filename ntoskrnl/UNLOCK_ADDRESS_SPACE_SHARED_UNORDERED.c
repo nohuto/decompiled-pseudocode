@@ -1,3 +1,13 @@
+/*
+ * XREFs of UNLOCK_ADDRESS_SPACE_SHARED_UNORDERED @ 0x14065E858
+ * Callers:
+ *     MiLockVadRange @ 0x1407D74B8 (MiLockVadRange.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ */
+
 char __fastcall UNLOCK_ADDRESS_SPACE_SHARED_UNORDERED(__int64 a1, __int64 a2)
 {
   ULONG_PTR v3; // rdi

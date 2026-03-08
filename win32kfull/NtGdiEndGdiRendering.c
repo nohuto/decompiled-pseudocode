@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiEndGdiRendering @ 0x1C0009140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreEndGdiRenderingToDxSurface @ 0x1C0009194 (GreEndGdiRenderingToDxSurface.c)
+ */
+
 __int64 __fastcall NtGdiEndGdiRendering(__int64 a1, __int64 a2, _DWORD *a3, __int64 a4)
 {
   unsigned int v5; // r8d

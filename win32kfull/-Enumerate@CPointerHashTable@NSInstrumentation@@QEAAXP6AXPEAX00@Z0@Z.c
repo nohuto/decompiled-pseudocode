@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Enumerate@CPointerHashTable@NSInstrumentation@@QEAAXP6AXPEAX00@Z0@Z @ 0x1C0125978
+ * Callers:
+ *     ?UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C01255E8 (-UninitializeProcess@UmfdHostLifeTimeManager@@SAXXZ.c)
+ * Callees:
+ *     ?_RemoveAllocationFromLookup@UmfdAllocation@@CAXPEAX00@Z @ 0x1C00D97F0 (-_RemoveAllocationFromLookup@UmfdAllocation@@CAXPEAX00@Z.c)
+ */
+
 void __fastcall NSInstrumentation::CPointerHashTable::Enumerate(
         NSInstrumentation::CPointerHashTable *this,
         void (*a2)(void *, void *, void *),

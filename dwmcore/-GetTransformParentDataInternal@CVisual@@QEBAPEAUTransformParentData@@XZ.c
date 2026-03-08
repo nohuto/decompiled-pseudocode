@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetTransformParentDataInternal@CVisual@@QEBAPEAUTransformParentData@@XZ @ 0x1800F66E8
+ * Callers:
+ *     ?ProcessSetTransformParent@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_SETTRANSFORMPARENT@@@Z @ 0x1800F6550 (-ProcessSetTransformParent@CVisual@@QEAAJPEBVCResourceTable@@PEBUtagMILCMD_VISUAL_SETTRANSFORMPA.c)
+ * Callees:
+ *     <none>
+ */
+
 struct TransformParentData *__fastcall CVisual::GetTransformParentDataInternal(CVisual *this)
 {
   _DWORD *v1; // r8

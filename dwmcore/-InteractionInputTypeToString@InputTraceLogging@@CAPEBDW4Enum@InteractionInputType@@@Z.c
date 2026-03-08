@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InteractionInputTypeToString@InputTraceLogging@@CAPEBDW4Enum@InteractionInputType@@@Z @ 0x18019AEDC
+ * Callers:
+ *     ?InteractionConfigurationUpdate@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CManipulationManager@@@Z @ 0x180035EC0 (-InteractionConfigurationUpdate@GestureTargeting@InputTraceLogging@@SAXPEBUInteractionUpdate@CMa.c)
+ * Callees:
+ *     <none>
+ */
+
 const char *__fastcall InputTraceLogging::InteractionInputTypeToString(int a1)
 {
   int v1; // ecx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopLiveDumpWriteBuffer @ 0x14094C450
+ * Callers:
+ *     IopLiveDumpWriteDumpFile @ 0x14094C514 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14094C9E8 (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     IopLiveDumpWriteSecondaryData @ 0x14094D248 (IopLiveDumpWriteSecondaryData.c)
+ * Callees:
+ *     ZwWriteFile @ 0x140412410 (ZwWriteFile.c)
+ *     SecureDump_Encrypt_DmpData @ 0x14055BA20 (SecureDump_Encrypt_DmpData.c)
+ */
+
 __int64 __fastcall IopLiveDumpWriteBuffer(
         HANDLE FileHandle,
         PVOID Buffer,

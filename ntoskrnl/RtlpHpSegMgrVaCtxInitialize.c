@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpHpSegMgrVaCtxInitialize @ 0x14030C2C4
+ * Callers:
+ *     RtlpHpSegMgrReserve @ 0x1403085F4 (RtlpHpSegMgrReserve.c)
+ *     RtlpHpSegContextInitialize @ 0x140375540 (RtlpHpSegContextInitialize.c)
+ * Callees:
+ *     RtlpHpQueryVA @ 0x140309578 (RtlpHpQueryVA.c)
+ */
+
 __int64 __fastcall RtlpHpSegMgrVaCtxInitialize(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
 {
   __int64 result; // rax

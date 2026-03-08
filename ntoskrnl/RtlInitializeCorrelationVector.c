@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlInitializeCorrelationVector @ 0x1409BBF40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpBase64Encode @ 0x1409BC0B4 (RtlpBase64Encode.c)
+ */
+
 __int64 __fastcall RtlInitializeCorrelationVector(char *a1, char a2, __int64 a3)
 {
   __int64 v6; // rdx

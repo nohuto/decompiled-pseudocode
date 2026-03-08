@@ -1,3 +1,20 @@
+/*
+ * XREFs of ACPISystemPowerQueryDeviceCapabilities @ 0x1C00952EC
+ * Callers:
+ *     ACPIDockIrpQueryCapabilities @ 0x1C007AD60 (ACPIDockIrpQueryCapabilities.c)
+ *     ACPIBusAndFilterIrpQueryCapabilities @ 0x1C007D7A0 (ACPIBusAndFilterIrpQueryCapabilities.c)
+ *     ACPIInternalDeviceQueryCapabilities @ 0x1C0087050 (ACPIInternalDeviceQueryCapabilities.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     _ACPIInternalError @ 0x1C0001B74 (_ACPIInternalError.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIInternalClearFlags @ 0x1C002E508 (ACPIInternalClearFlags.c)
+ *     ACPIInternalSetFlags @ 0x1C002F068 (ACPIInternalSetFlags.c)
+ *     ACPISystemPowerUpdateDeviceCapabilities @ 0x1C003E114 (ACPISystemPowerUpdateDeviceCapabilities.c)
+ *     ACPIInternalGetDeviceCapabilities @ 0x1C0087F60 (ACPIInternalGetDeviceCapabilities.c)
+ */
+
 __int64 __fastcall ACPISystemPowerQueryDeviceCapabilities(_QWORD *BugCheckParameter2, __int64 a2)
 {
   _QWORD *v4; // rsi

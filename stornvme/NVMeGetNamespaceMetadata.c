@@ -1,3 +1,16 @@
+/*
+ * XREFs of NVMeGetNamespaceMetadata @ 0x1C001EAFC
+ * Callers:
+ *     NVMeGetRichDeviceDescription @ 0x1C001651C (NVMeGetRichDeviceDescription.c)
+ * Callees:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C000C1C0 (NVMeAllocateDmaBuffer.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 __int64 __fastcall NVMeGetNamespaceMetadata(__int64 a1, int a2, __int64 a3)
 {
   int i; // ecx

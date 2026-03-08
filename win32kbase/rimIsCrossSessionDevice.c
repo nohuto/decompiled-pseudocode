@@ -1,3 +1,11 @@
+/*
+ * XREFs of rimIsCrossSessionDevice @ 0x1C019EDB8
+ * Callers:
+ *     RIMOpenDev @ 0x1C0089058 (RIMOpenDev.c)
+ * Callees:
+ *     RIMGetPointerDevicePDO @ 0x1C0031414 (RIMGetPointerDevicePDO.c)
+ */
+
 _BOOL8 __fastcall rimIsCrossSessionDevice(__int64 a1)
 {
   struct _FILE_OBJECT *v1; // rcx

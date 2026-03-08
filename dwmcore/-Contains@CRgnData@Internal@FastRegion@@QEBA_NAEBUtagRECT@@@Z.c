@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Contains@CRgnData@Internal@FastRegion@@QEBA_NAEBUtagRECT@@@Z @ 0x18003E648
+ * Callers:
+ *     ?Contains@CRegion@FastRegion@@QEBA_NAEBV12@@Z @ 0x18003FCD4 (-Contains@CRegion@FastRegion@@QEBA_NAEBV12@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall FastRegion::Internal::CRgnData::Contains(
         FastRegion::Internal::CRgnData *this,
         const struct tagRECT *a2)

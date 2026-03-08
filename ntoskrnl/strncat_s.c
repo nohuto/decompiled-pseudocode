@@ -1,3 +1,11 @@
+/*
+ * XREFs of strncat_s @ 0x1403D9DA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ */
+
 errno_t __cdecl strncat_s(char *a1, rsize_t SizeInBytes, const char *Src, rsize_t MaxCount)
 {
   rsize_t v4; // r11

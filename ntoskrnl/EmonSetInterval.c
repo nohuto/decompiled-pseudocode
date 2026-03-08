@@ -1,3 +1,15 @@
+/*
+ * XREFs of EmonSetInterval @ 0x140378050
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     HalpGetProfileDescriptor @ 0x1403781E0 (HalpGetProfileDescriptor.c)
+ *     HalpTimerSetProfilingTarget @ 0x140378214 (HalpTimerSetProfilingTarget.c)
+ *     HalpAcquireHighLevelLock @ 0x140379818 (HalpAcquireHighLevelLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall EmonSetInterval(unsigned int a1, unsigned int *a2)
 {
   unsigned __int64 v4; // rbx

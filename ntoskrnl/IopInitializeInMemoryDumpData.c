@@ -1,3 +1,18 @@
+/*
+ * XREFs of IopInitializeInMemoryDumpData @ 0x140550F70
+ * Callers:
+ *     IopInitializeOfflineCrashDump @ 0x1403AB95C (IopInitializeOfflineCrashDump.c)
+ * Callees:
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     MmAllocateContiguousNodeMemory @ 0x1403B4900 (MmAllocateContiguousNodeMemory.c)
+ *     MmFreeContiguousMemory @ 0x1403BD6E0 (MmFreeContiguousMemory.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwFilterBootOption @ 0x140414050 (ZwFilterBootOption.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KdCopyDataBlock @ 0x140564CD0 (KdCopyDataBlock.c)
+ *     IoSetEnvironmentVariableEx @ 0x14094D504 (IoSetEnvironmentVariableEx.c)
+ */
+
 void IopInitializeInMemoryDumpData()
 {
   __int64 v0; // rsi

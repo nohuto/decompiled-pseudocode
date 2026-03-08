@@ -1,3 +1,16 @@
+/*
+ * XREFs of EmpCacheBiosDate @ 0x140B4EDC8
+ * Callers:
+ *     EmInitSystem @ 0x140B4CBA8 (EmInitSystem.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     strtoul @ 0x1403D32B8 (strtoul.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwUnmapViewOfSection @ 0x140412850 (ZwUnmapViewOfSection.c)
+ *     EmpMapPhysicalAddress @ 0x140B8FC4C (EmpMapPhysicalAddress.c)
+ */
+
 char __fastcall EmpCacheBiosDate(__int64 a1, __int64 a2)
 {
   char v2; // di

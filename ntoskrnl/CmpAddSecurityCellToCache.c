@@ -1,3 +1,20 @@
+/*
+ * XREFs of CmpAddSecurityCellToCache @ 0x14071CF00
+ * Callers:
+ *     CmpSetSecurityDescriptorInfo @ 0x1406B845C (CmpSetSecurityDescriptorInfo.c)
+ *     CmpValidateHiveSecurityDescriptors @ 0x14071C9C4 (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpInsertSecurityCellList @ 0x14078F5D4 (CmpInsertSecurityCellList.c)
+ * Callees:
+ *     CmpFindSecurityCellCacheIndex @ 0x14030DD50 (CmpFindSecurityCellCacheIndex.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpSecConvKey @ 0x1407A5440 (CmpSecConvKey.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall CmpAddSecurityCellToCache(
         ULONG_PTR BugCheckParameter3,
         ULONG_PTR BugCheckParameter4,

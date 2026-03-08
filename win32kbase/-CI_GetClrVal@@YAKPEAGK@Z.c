@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CI_GetClrVal@@YAKPEAGK@Z @ 0x1C0018D04
+ * Callers:
+ *     xxxODI_ColorInit @ 0x1C0018A90 (xxxODI_ColorInit.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CI_GetClrVal(unsigned __int16 *a1, unsigned int a2)
 {
   unsigned __int16 v2; // ax

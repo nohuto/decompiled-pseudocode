@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiSmallVaStillMapsFrame @ 0x1403A3A90
+ * Callers:
+ *     MiLockStealSystemVm @ 0x140394CFC (MiLockStealSystemVm.c)
+ *     MiStealPage @ 0x1403B70BC (MiStealPage.c)
+ *     MiLockStealUserVm @ 0x1403B7F90 (MiLockStealUserVm.c)
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFillPteHierarchy @ 0x140333AE0 (MiFillPteHierarchy.c)
+ *     MiPageTableStillExists @ 0x1403A3B20 (MiPageTableStillExists.c)
+ */
+
 _BOOL8 __fastcall MiSmallVaStillMapsFrame(unsigned __int64 a1, __int64 a2)
 {
   _BOOL8 result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of CcChargeDirtyPagesInternal @ 0x1402429A0
+ * Callers:
+ *     CcSetDirtyPinnedData @ 0x140242420 (CcSetDirtyPinnedData.c)
+ *     CcAddDirtyPagesToExternalCache @ 0x1403C9F50 (CcAddDirtyPagesToExternalCache.c)
+ * Callees:
+ *     CcScheduleLazyWriteScan @ 0x140242B0C (CcScheduleLazyWriteScan.c)
+ *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140533834 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
+ */
+
 _QWORD *__fastcall CcChargeDirtyPagesInternal(
         __int64 a1,
         __int64 a2,

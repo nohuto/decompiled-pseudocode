@@ -1,3 +1,12 @@
+/*
+ * XREFs of BiGetCurrentBootEntryIdentifier @ 0x1408305A4
+ * Callers:
+ *     BcdOpenObject @ 0x14082E620 (BcdOpenObject.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1404129D0 (ZwQuerySystemInformation.c)
+ */
+
 __int64 __fastcall BiGetCurrentBootEntryIdentifier(_OWORD *a1)
 {
   __int64 result; // rax

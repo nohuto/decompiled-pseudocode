@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??1CManipulationContext@@UEAA@XZ @ 0x1801A01B8
+ * Callers:
+ *     ??_GCManipulationContext@@UEAAPEAXI@Z @ 0x1801A03C8 (--_GCManipulationContext@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ @ 0x1800F2FE0 (-InternalRelease@-$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??_GTargetingInfo@@QEAAPEAXI@Z @ 0x180129610 (--_GTargetingInfo@@QEAAPEAXI@Z.c)
+ *     ??_G?$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAPEAXI@Z @ 0x1801A032C (--_G-$ComPtr@VCInteraction@@@WRL@Microsoft@@QEAAPEAXI@Z.c)
+ */
+
 void __fastcall CManipulationContext::~CManipulationContext(CManipulationContext *this)
 {
   __int64 v2; // rcx

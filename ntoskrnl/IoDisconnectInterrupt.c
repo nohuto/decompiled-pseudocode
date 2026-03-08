@@ -1,3 +1,28 @@
+/*
+ * XREFs of IoDisconnectInterrupt @ 0x1406F41C0
+ * Callers:
+ *     DifIoDisconnectInterruptWrapper @ 0x1405DCCD0 (DifIoDisconnectInterruptWrapper.c)
+ *     IoDisconnectInterruptEx @ 0x1406F29B0 (IoDisconnectInterruptEx.c)
+ *     IopConnectMessageBasedInterrupt @ 0x1408502F8 (IopConnectMessageBasedInterrupt.c)
+ *     IopConnectLineBasedInterrupt @ 0x140853C50 (IopConnectLineBasedInterrupt.c)
+ * Callees:
+ *     KeRemoveQueueDpc @ 0x14028DB30 (KeRemoveQueueDpc.c)
+ *     KeFreeInterrupt @ 0x14028E364 (KeFreeInterrupt.c)
+ *     KeDisconnectInterrupt @ 0x14028E38C (KeDisconnectInterrupt.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PnpTraceInterruptConnection @ 0x1406F484C (PnpTraceInterruptConnection.c)
+ *     IopInitializeActiveConnectBlock @ 0x1406F490C (IopInitializeActiveConnectBlock.c)
+ *     IopDestroyActiveConnectBlock @ 0x1406F49E0 (IopDestroyActiveConnectBlock.c)
+ *     IopAcquireReleaseConnectLockInternal @ 0x140847284 (IopAcquireReleaseConnectLockInternal.c)
+ *     IopDestroyPassiveInterruptBlock @ 0x1409552AC (IopDestroyPassiveInterruptBlock.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __stdcall IoDisconnectInterrupt(PKINTERRUPT InterruptObject)
 {
   __int64 v2; // rdx

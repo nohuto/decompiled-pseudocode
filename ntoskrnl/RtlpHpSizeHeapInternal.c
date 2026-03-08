@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlpHpSizeHeapInternal @ 0x1405B4430
+ * Callers:
+ *     RtlpHpExtrasGet @ 0x1405B4100 (RtlpHpExtrasGet.c)
+ *     RtlpHpSizeHeap @ 0x1405B4398 (RtlpHpSizeHeap.c)
+ * Callees:
+ *     RtlCSparseBitmapBitmaskRead @ 0x1402B689C (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpSegDescriptorValidate @ 0x14030A740 (RtlpHpSegDescriptorValidate.c)
+ *     RtlpHpSegSizeInternal @ 0x1405B47A8 (RtlpHpSegSizeInternal.c)
+ *     RtlpHpLargeAllocSize @ 0x1405B4CF4 (RtlpHpLargeAllocSize.c)
+ */
+
 __int64 __fastcall RtlpHpSizeHeapInternal(__int64 a1, unsigned __int64 a2, unsigned int a3, __int64 a4)
 {
   __int64 v8; // rax

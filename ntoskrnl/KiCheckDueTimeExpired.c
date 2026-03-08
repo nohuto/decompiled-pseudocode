@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiCheckDueTimeExpired @ 0x140293640
+ * Callers:
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     KeWaitForAlertByThreadId @ 0x140293354 (KeWaitForAlertByThreadId.c)
+ *     KiWaitForAllObjects @ 0x1402936D0 (KiWaitForAllObjects.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiCheckDueTimeExpired(__int64 a1, int a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // rdx

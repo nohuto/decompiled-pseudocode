@@ -1,3 +1,11 @@
+/*
+ * XREFs of McGenEventUnregister_EtwUnregister @ 0x1C0001718
+ * Callers:
+ *     DriverCleanup @ 0x1C00021B0 (DriverCleanup.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS McGenEventUnregister_EtwUnregister()
 {
   NTSTATUS result; // eax

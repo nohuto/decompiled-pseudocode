@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtUserCalculatePopupWindowPosition @ 0x1C01CE090
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _MonitorFromPoint @ 0x1C00A2920 (_MonitorFromPoint.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ??0?$SmartObjStackRef@UtagPOPUPMENU@@@@QEAA@PEAUtagPOPUPMENU@@@Z @ 0x1C012D858 (--0-$SmartObjStackRef@UtagPOPUPMENU@@@@QEAA@PEAUtagPOPUPMENU@@@Z.c)
+ *     ??1?$SmartObjStackRef@UtagPOPUPMENU@@@@QEAA@XZ @ 0x1C012D878 (--1-$SmartObjStackRef@UtagPOPUPMENU@@@@QEAA@XZ.c)
+ *     FindBestPos @ 0x1C0234EF4 (FindBestPos.c)
+ */
+
 __int64 __fastcall NtUserCalculatePopupWindowPosition(__int64 a1, __int64 a2, int a3, __int128 *a4, _DWORD *a5)
 {
   __int64 *v7; // r14

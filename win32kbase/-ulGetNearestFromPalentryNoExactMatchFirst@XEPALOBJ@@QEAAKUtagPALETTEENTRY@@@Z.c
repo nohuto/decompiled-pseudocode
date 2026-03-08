@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ulGetNearestFromPalentryNoExactMatchFirst@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@@Z @ 0x1C0184B70
+ * Callers:
+ *     ?ulDispatchGFPEFunction@XEPALOBJ@@QEAAKW4GFPE_FUNCTION_ID@@K@Z @ 0x1C0028270 (-ulDispatchGFPEFunction@XEPALOBJ@@QEAAKW4GFPE_FUNCTION_ID@@K@Z.c)
+ *     ulGetNearestIndexFromColorref @ 0x1C00AAA70 (ulGetNearestIndexFromColorref.c)
+ *     ?ulGetNearestFromPalentry@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@K@Z @ 0x1C0199D34 (-ulGetNearestFromPalentry@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@K@Z.c)
+ * Callees:
+ *     ?ulGetMatchFromPalentry@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@@Z @ 0x1C0184B48 (-ulGetMatchFromPalentry@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@@Z.c)
+ */
+
 unsigned int __fastcall XEPALOBJ::ulGetNearestFromPalentryNoExactMatchFirst(ULONG_PTR *this, struct tagPALETTEENTRY a2)
 {
   BYTE peRed; // bl

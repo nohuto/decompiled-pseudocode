@@ -1,3 +1,12 @@
+/*
+ * XREFs of TelemetryData_InsertTriageDataBlock @ 0x1C00531E8
+ * Callers:
+ *     Controller_TelemetryReport @ 0x1C0034B08 (Controller_TelemetryReport.c)
+ *     Controller_TelemetryAddControllerData @ 0x1C0078AF0 (Controller_TelemetryAddControllerData.c)
+ * Callees:
+ *     memmove @ 0x1C0020400 (memmove.c)
+ */
+
 __int64 __fastcall TelemetryData_InsertTriageDataBlock(__int64 *a1, const void *a2, unsigned int a3)
 {
   unsigned int v3; // ebx

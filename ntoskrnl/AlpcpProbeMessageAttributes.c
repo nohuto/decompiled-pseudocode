@@ -1,3 +1,12 @@
+/*
+ * XREFs of AlpcpProbeMessageAttributes @ 0x140718308
+ * Callers:
+ *     AlpcpProcessConnectionRequest @ 0x140717E20 (AlpcpProcessConnectionRequest.c)
+ * Callees:
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall AlpcpProbeMessageAttributes(int a1, volatile void *a2, char a3)
 {
   __int64 v3; // r9

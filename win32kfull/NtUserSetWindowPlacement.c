@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserSetWindowPlacement @ 0x1C00FF670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxSetWindowPlacement @ 0x1C00FF7C8 (xxxSetWindowPlacement.c)
+ */
+
 __int64 __fastcall NtUserSetWindowPlacement(__int64 a1, ULONG64 a2)
 {
   __int64 v4; // rax

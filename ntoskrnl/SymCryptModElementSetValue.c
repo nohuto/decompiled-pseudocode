@@ -1,3 +1,13 @@
+/*
+ * XREFs of SymCryptModElementSetValue @ 0x1403F3B80
+ * Callers:
+ *     SymCryptEcurveAllocate @ 0x1403F252C (SymCryptEcurveAllocate.c)
+ *     SymCryptRsaCoreEnc @ 0x1403F4594 (SymCryptRsaCoreEnc.c)
+ *     SymCryptEcpointSetValue @ 0x1403F96E0 (SymCryptEcpointSetValue.c)
+ * Callees:
+ *     SymCryptFdefModElementSetValueGeneric @ 0x1403FE7A4 (SymCryptFdefModElementSetValueGeneric.c)
+ */
+
 __int64 __fastcall SymCryptModElementSetValue(int a1, int a2, int a3, _DWORD *a4, void *a5, __int64 a6, __int64 a7)
 {
   unsigned int v8; // ebx

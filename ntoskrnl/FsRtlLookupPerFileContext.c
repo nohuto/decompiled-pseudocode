@@ -1,3 +1,13 @@
+/*
+ * XREFs of FsRtlLookupPerFileContext @ 0x1402FD1B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireAutoExpandPushLockShared @ 0x1402621D0 (ExAcquireAutoExpandPushLockShared.c)
+ *     ExReleaseAutoExpandPushLockShared @ 0x1402623C0 (ExReleaseAutoExpandPushLockShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 PFSRTL_PER_FILE_CONTEXT __stdcall FsRtlLookupPerFileContext(
         PVOID *PerFileContextPointer,
         PVOID OwnerId,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalFreeCommonBuffer @ 0x1404FEFC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __stdcall HalFreeCommonBuffer(
         PDMA_ADAPTER DmaAdapter,
         ULONG Length,

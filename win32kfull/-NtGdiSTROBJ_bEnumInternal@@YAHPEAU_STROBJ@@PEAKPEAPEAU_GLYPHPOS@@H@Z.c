@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?NtGdiSTROBJ_bEnumInternal@@YAHPEAU_STROBJ@@PEAKPEAPEAU_GLYPHPOS@@H@Z @ 0x1C02C9A30
+ * Callers:
+ *     NtGdiSTROBJ_bEnum @ 0x1C02CF860 (NtGdiSTROBJ_bEnum.c)
+ *     NtGdiSTROBJ_bEnumPositionsOnly @ 0x1C02CF880 (NtGdiSTROBJ_bEnumPositionsOnly.c)
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00D1B64 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ?_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z @ 0x1C029BE78 (-_AllocUserMem@UMPDOBJ@@AEAAPEAXKH@Z.c)
+ *     ??$GetDDIOBJ@U_STROBJ@@@UMPDOBJ@@QEAAPEAU_STROBJ@@PEAU1@@Z @ 0x1C02C94B8 (--$GetDDIOBJ@U_STROBJ@@@UMPDOBJ@@QEAAPEAU_STROBJ@@PEAU1@@Z.c)
+ *     STROBJ_bEnum @ 0x1C02DD9A0 (STROBJ_bEnum.c)
+ *     STROBJ_bEnumPositionsOnly @ 0x1C02DDAA0 (STROBJ_bEnumPositionsOnly.c)
+ */
+
 __int64 __fastcall NtGdiSTROBJ_bEnumInternal(struct _STROBJ *a1, unsigned int *a2, struct _GLYPHPOS **a3, int a4)
 {
   struct _W32THREAD *ThreadWin32Thread; // rax

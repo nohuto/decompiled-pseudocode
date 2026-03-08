@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmIdleUsingStateSelection @ 0x1402D20E0
+ * Callers:
+ *     PoFxSendSystemLatencyUpdate @ 0x1402D1FF0 (PoFxSendSystemLatencyUpdate.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ */
+
 bool PpmIdleUsingStateSelection()
 {
   struct _KTHREAD *CurrentThread; // rax

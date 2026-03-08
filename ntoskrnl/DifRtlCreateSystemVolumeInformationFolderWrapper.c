@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifRtlCreateSystemVolumeInformationFolderWrapper @ 0x1405E8C50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     RtlCreateSystemVolumeInformationFolder @ 0x1409BB470 (RtlCreateSystemVolumeInformationFolder.c)
+ */
+
 NTSTATUS __fastcall DifRtlCreateSystemVolumeInformationFolderWrapper(PCUNICODE_STRING VolumeRootPath)
 {
   __int64 *APIThunkContextById; // rax

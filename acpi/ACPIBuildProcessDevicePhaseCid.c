@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIBuildProcessDevicePhaseCid @ 0x1C000ED30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIBuildCompleteMustSucceed @ 0x1C000BCB0 (ACPIBuildCompleteMustSucceed.c)
+ *     ACPIConvertStringDelimitation @ 0x1C0043964 (ACPIConvertStringDelimitation.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessDevicePhaseCid(__int64 a1)
 {
   char *v1; // rdi

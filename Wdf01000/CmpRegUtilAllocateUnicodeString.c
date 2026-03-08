@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpRegUtilAllocateUnicodeString @ 0x1C00B1F64
+ * Callers:
+ *     CmRegUtilUcValueSetUcString @ 0x1C00B1D5C (CmRegUtilUcValueSetUcString.c)
+ * Callees:
+ *     memset @ 0x1C000AC00 (memset.c)
+ */
+
 __int64 __fastcall CmpRegUtilAllocateUnicodeString(_UNICODE_STRING *String, unsigned __int16 Length)
 {
   __int64 v2; // rdi

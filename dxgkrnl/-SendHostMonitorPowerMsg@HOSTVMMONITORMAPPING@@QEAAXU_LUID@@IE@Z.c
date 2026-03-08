@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SendHostMonitorPowerMsg@HOSTVMMONITORMAPPING@@QEAAXU_LUID@@IE@Z @ 0x1C001A2D0
+ * Callers:
+ *     MonitorEnableDisableMonitor @ 0x1C01E18AC (MonitorEnableDisableMonitor.c)
+ * Callees:
+ *     McTemplateK0xqpp_EtwWriteTransfer @ 0x1C0057444 (McTemplateK0xqpp_EtwWriteTransfer.c)
+ *     ?VmBusSendHostMonitorPower@DXG_HOST_GLOBAL_VMBUS@@SAJPEAXU_LUID@@IE@Z @ 0x1C005C778 (-VmBusSendHostMonitorPower@DXG_HOST_GLOBAL_VMBUS@@SAJPEAXU_LUID@@IE@Z.c)
+ */
+
 void __fastcall HOSTVMMONITORMAPPING::SendHostMonitorPowerMsg(
         KSPIN_LOCK *this,
         struct _LUID a2,

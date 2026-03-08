@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiSetFontXform @ 0x1C02C75E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreSetFontXform @ 0x1C029102C (GreSetFontXform.c)
+ */
+
 __int64 __fastcall NtGdiSetFontXform(HDC a1, unsigned int a2, unsigned int a3)
 {
   unsigned int v5; // ebx

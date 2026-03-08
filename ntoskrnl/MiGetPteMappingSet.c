@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiGetPteMappingSet @ 0x14032E050
+ * Callers:
+ *     MiCopyPage @ 0x14032DC70 (MiCopyPage.c)
+ *     MiSlowRotateCopy @ 0x140630B44 (MiSlowRotateCopy.c)
+ *     MiFillPageWithImageExtentContents @ 0x14063AC90 (MiFillPageWithImageExtentContents.c)
+ *     MiCopyMemoryPagefileData @ 0x14065D548 (MiCopyMemoryPagefileData.c)
+ * Callees:
+ *     MiGetUltraMapping @ 0x140276080 (MiGetUltraMapping.c)
+ *     MiCreatePteCopyList @ 0x1402F54C0 (MiCreatePteCopyList.c)
+ */
+
 __int64 __fastcall MiGetPteMappingSet(int a1, __int64 a2, __int64 a3)
 {
   unsigned __int8 CurrentIrql; // dl

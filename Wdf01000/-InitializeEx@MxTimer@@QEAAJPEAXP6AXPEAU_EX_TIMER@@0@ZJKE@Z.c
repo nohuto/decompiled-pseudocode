@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InitializeEx@MxTimer@@QEAAJPEAXP6AXPEAU_EX_TIMER@@0@ZJKE@Z @ 0x1C00411F4
+ * Callers:
+ *     ?Initialize@FxTimer@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_TIMER_CONFIG@@PEAVFxObject@@PEAPEAUWDFTIMER__@@@Z @ 0x1C0040FCC (-Initialize@FxTimer@@QEAAJPEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_TIMER_CONFIG@@PEAVFxObject@@PEAPE.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MxTimer::InitializeEx(
         MxTimer *this,
         void *TimerContext,

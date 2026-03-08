@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0CBitmap@@QEAA@XZ @ 0x1800A79F4
+ * Callers:
+ *     ??0CWICBitmapWrapper@@QEAA@XZ @ 0x1800A658C (--0CWICBitmapWrapper@@QEAA@XZ.c)
+ *     ??0CSystemMemoryBitmap@@QEAA@XZ @ 0x1800A7854 (--0CSystemMemoryBitmap@@QEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 CBitmap *__fastcall CBitmap::CBitmap(CBitmap *this)
 {
   __int64 v2; // rax

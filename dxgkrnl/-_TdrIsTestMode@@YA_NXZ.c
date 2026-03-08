@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_TdrIsTestMode@@YA_NXZ @ 0x1C030ACDC
+ * Callers:
+ *     ?TdrDbgCtrl@@YAJW4_TDR_DBG_CTRL@@@Z @ 0x1C030A184 (-TdrDbgCtrl@@YAJW4_TDR_DBG_CTRL@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool _TdrIsTestMode(void)
 {
   int v0; // eax

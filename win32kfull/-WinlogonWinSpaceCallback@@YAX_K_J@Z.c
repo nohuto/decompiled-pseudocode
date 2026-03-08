@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?WinlogonWinSpaceCallback@@YAX_K_J@Z @ 0x1C01AC7C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PostShellHookMessagesEx @ 0x1C0109A90 (PostShellHookMessagesEx.c)
+ */
+
 void __fastcall WinlogonWinSpaceCallback(__int64 a1)
 {
   __int64 v1; // rdx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?RefreshRegions@DeadzoneJumping@CCursorClip@@QEAA_NXZ @ 0x1C0013B64
+ * Callers:
+ *     ?OnDisplayStateChange@CCursorClip@@QEAAXW4CursorDisplayChangeOptions@@@Z @ 0x1C0012D54 (-OnDisplayStateChange@CCursorClip@@QEAAXW4CursorDisplayChangeOptions@@@Z.c)
+ * Callees:
+ *     ??0CLockedInputSpace@@QEAA@XZ @ 0x1C00157DC (--0CLockedInputSpace@@QEAA@XZ.c)
+ *     ?Cleanup@DeadzoneJumping@CCursorClip@@AEAAXXZ @ 0x1C00159A4 (-Cleanup@DeadzoneJumping@CCursorClip@@AEAAXXZ.c)
+ *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0068568 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ?CreatePortal@DeadzoneJumping@CCursorClip@@AEAAJPEAURegionInfo@12@0PEAPEAURegionPortal@12@@Z @ 0x1C020AB04 (-CreatePortal@DeadzoneJumping@CCursorClip@@AEAAJPEAURegionInfo@12@0PEAPEAURegionPortal@12@@Z.c)
+ */
+
 char __fastcall CCursorClip::DeadzoneJumping::RefreshRegions(CCursorClip::DeadzoneJumping *this)
 {
   char v2; // bl

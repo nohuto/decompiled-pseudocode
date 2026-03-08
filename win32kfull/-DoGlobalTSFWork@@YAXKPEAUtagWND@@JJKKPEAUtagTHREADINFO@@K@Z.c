@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DoGlobalTSFWork@@YAXKPEAUtagWND@@JJKKPEAUtagTHREADINFO@@K@Z @ 0x1C00ECE14
+ * Callers:
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ * Callees:
+ *     ?CreateAndPostTSFNotify@@YAXKPEAUtagWND@@JJPEAUtagTHREADINFO@@1K@Z @ 0x1C01C0B80 (-CreateAndPostTSFNotify@@YAXKPEAUtagWND@@JJPEAUtagTHREADINFO@@1K@Z.c)
+ */
+
 void __fastcall DoGlobalTSFWork(
         unsigned int a1,
         struct tagWND *a2,

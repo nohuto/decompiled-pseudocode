@@ -1,3 +1,13 @@
+/*
+ * XREFs of TtmiLogQueueDestroyed @ 0x1409A5EBC
+ * Callers:
+ *     TtmpDeleteQueue @ 0x1409A9490 (TtmpDeleteQueue.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void TtmiLogQueueDestroyed()
 {
   __int64 v0; // r9

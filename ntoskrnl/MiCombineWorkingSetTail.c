@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiCombineWorkingSetTail @ 0x140651030
+ * Callers:
+ *     MiCombinePte @ 0x140650CA0 (MiCombinePte.c)
+ * Callees:
+ *     MiReleaseWalkLocks @ 0x1402D45CC (MiReleaseWalkLocks.c)
+ *     MiProcessCrcList @ 0x1406A8670 (MiProcessCrcList.c)
+ */
+
 __int64 __fastcall MiCombineWorkingSetTail(__int64 a1)
 {
   _QWORD *v1; // rbx

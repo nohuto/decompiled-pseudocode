@@ -1,3 +1,13 @@
+/*
+ * XREFs of SshpSessionManagerInitialize @ 0x140B71F74
+ * Callers:
+ *     SshInitialize @ 0x140B46C1C (SshInitialize.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmSiRWLockInitialize @ 0x14080BCF0 (CmSiRWLockInitialize.c)
+ *     SshpSessionManagerTraceSystemStart @ 0x140860848 (SshpSessionManagerTraceSystemStart.c)
+ */
+
 __int64 SshpSessionManagerInitialize()
 {
   CmSiRWLockInitialize((PRTL_RUN_ONCE)&SshpSessionManagerLock);

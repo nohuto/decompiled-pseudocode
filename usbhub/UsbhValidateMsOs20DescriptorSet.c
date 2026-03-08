@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhValidateMsOs20DescriptorSet @ 0x1C0052A24
+ * Callers:
+ *     UsbhSetupDevice @ 0x1C0039728 (UsbhSetupDevice.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     UsbhGetNextMsOs20Descriptor @ 0x1C00336F0 (UsbhGetNextMsOs20Descriptor.c)
+ */
+
 char __fastcall UsbhValidateMsOs20DescriptorSet(__int64 a1, __int64 a2, unsigned int *a3)
 {
   _DWORD *v5; // rax

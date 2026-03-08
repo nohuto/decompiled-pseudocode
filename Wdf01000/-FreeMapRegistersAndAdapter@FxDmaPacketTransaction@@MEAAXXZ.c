@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?FreeMapRegistersAndAdapter@FxDmaPacketTransaction@@MEAAXXZ @ 0x1C001C680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_dq @ 0x1C0018070 (WPP_IFR_SF_dq.c)
+ *     WPP_IFR_SF_dqq @ 0x1C001DC2C (WPP_IFR_SF_dqq.c)
+ */
+
 void __fastcall FxDmaPacketTransaction::FreeMapRegistersAndAdapter(FxDmaPacketTransaction *this)
 {
   void *id; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1LegacyInputDispatcher@@QEAA@XZ @ 0x1C0093044
+ * Callers:
+ *     ??_GLegacyInputDispatcher@@QEAAPEAXI@Z @ 0x1C0093010 (--_GLegacyInputDispatcher@@QEAAPEAXI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall LegacyInputDispatcher::~LegacyInputDispatcher(LegacyInputDispatcher *this)
 {
   void *v2; // rcx

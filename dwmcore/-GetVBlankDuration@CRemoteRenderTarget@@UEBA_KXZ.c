@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetVBlankDuration@CRemoteRenderTarget@@UEBA_KXZ @ 0x18010A050
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CRemoteRenderTarget::GetVBlankDuration(CRemoteRenderTarget *this)
 {
   __int64 v1; // rcx

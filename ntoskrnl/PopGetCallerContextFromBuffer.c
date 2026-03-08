@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopGetCallerContextFromBuffer @ 0x14097D98C
+ * Callers:
+ *     PopDiagTracePowerRequestCreate @ 0x14073C0DC (PopDiagTracePowerRequestCreate.c)
+ *     PopQueryMostRecentWakeSourceInfo @ 0x140984674 (PopQueryMostRecentWakeSourceInfo.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintf @ 0x1403BEBCC (RtlUnicodeStringPrintf.c)
+ */
+
 void __fastcall PopGetCallerContextFromBuffer(__int64 a1, UNICODE_STRING *a2, __int64 a3, UNICODE_STRING *a4)
 {
   __int64 v6; // rdx

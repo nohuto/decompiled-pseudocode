@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?bDeletePaletteInternal@XEPALOBJ@@AEAAHW4_CLEANUPTYPE@@@Z @ 0x1C0019D64
+ * Callers:
+ *     ?vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z @ 0x1C00292E0 (-vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z.c)
+ *     ?vUnrefPalette@XEPALOBJ@@QEAAXXZ @ 0x1C002D440 (-vUnrefPalette@XEPALOBJ@@QEAAXXZ.c)
+ *     GreDeleteObject @ 0x1C0043CD0 (GreDeleteObject.c)
+ *     NtGdiDeleteObjectApp @ 0x1C0047D20 (NtGdiDeleteObjectApp.c)
+ *     bDeletePalette @ 0x1C00CB0A0 (bDeletePalette.c)
+ *     ?bGarbageCollect@XEPALOBJ@@QEAAHXZ @ 0x1C0184A40 (-bGarbageCollect@XEPALOBJ@@QEAAHXZ.c)
+ * Callees:
+ *     GreGetObjectOwner @ 0x1C0019E80 (GreGetObjectOwner.c)
+ *     ?vMakeNoXlate@XEPALOBJ@@QEAAXXZ @ 0x1C0019F20 (-vMakeNoXlate@XEPALOBJ@@QEAAXXZ.c)
+ *     ?vUnrefPalette@XEPALOBJ@@QEAAXXZ @ 0x1C002D440 (-vUnrefPalette@XEPALOBJ@@QEAAXXZ.c)
+ *     ?FreePaletteMemory@XEPALOBJ@@QEAAXXZ @ 0x1C0042880 (-FreePaletteMemory@XEPALOBJ@@QEAAXXZ.c)
+ *     ?HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z @ 0x1C0045E40 (-HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 __int64 __fastcall XEPALOBJ::bDeletePaletteInternal(XEPALOBJ *a1, int a2)
 {
   __int64 v4; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of bQueryFntCacheReg @ 0x1C00BAC20
+ * Callers:
+ *     vGetLastBootTimeStatus @ 0x1C00B91AC (vGetLastBootTimeStatus.c)
+ *     vGetJpn98FixPitch @ 0x1C00B9810 (vGetJpn98FixPitch.c)
+ *     bServicingStackModifiedFonts @ 0x1C00BAA94 (bServicingStackModifiedFonts.c)
+ *     bFntCacheDisabled @ 0x1C00BAB7C (bFntCacheDisabled.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall bQueryFntCacheReg(HANDLE KeyHandle, const WCHAR *a2, _DWORD *a3)
 {
   unsigned int v6; // ebx

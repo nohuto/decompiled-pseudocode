@@ -1,3 +1,13 @@
+/*
+ * XREFs of FsRtlInsertExtraCreateParameter @ 0x14070D9C0
+ * Callers:
+ *     PspCreateUserProcessEcp @ 0x14070D8D0 (PspCreateUserProcessEcp.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x14077E41C (IopSymlinkAllocateAndAddECP.c)
+ *     IopSymlinkEnforceEnabledTypes @ 0x140945E94 (IopSymlinkEnforceEnabledTypes.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall FsRtlInsertExtraCreateParameter(PECP_LIST EcpList, PVOID EcpContext)
 {
   struct _LIST_ENTRY *Flink; // r8

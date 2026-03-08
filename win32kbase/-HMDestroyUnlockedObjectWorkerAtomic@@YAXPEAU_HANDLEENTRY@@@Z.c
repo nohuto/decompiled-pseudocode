@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?HMDestroyUnlockedObjectWorkerAtomic@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C00779D0
+ * Callers:
+ *     ?HMDestroyUnlockedObjectWorker@@YAXPEAU_HANDLEENTRY@@@Z @ 0x1C0076074 (-HMDestroyUnlockedObjectWorker@@YAXPEAU_HANDLEENTRY@@@Z.c)
+ * Callees:
+ *     ?GetCount@AtomicExecutionCheck@@SAIXZ @ 0x1C004F93C (-GetCount@AtomicExecutionCheck@@SAIXZ.c)
+ *     HMUnlockObject @ 0x1C0072980 (HMUnlockObject.c)
+ *     ?GetEtwUserHandleType@@YA?AW4EtwUserHandleType@@E@Z @ 0x1C00785AC (-GetEtwUserHandleType@@YA-AW4EtwUserHandleType@@E@Z.c)
+ *     ?Identify@IdentifyPrimaryDestroyTarget@@AEAAXPEAU_HANDLEENTRY@@@Z @ 0x1C00868AC (-Identify@IdentifyPrimaryDestroyTarget@@AEAAXPEAU_HANDLEENTRY@@@Z.c)
+ *     HMRemoveHandleForObjectWorker @ 0x1C00897F0 (HMRemoveHandleForObjectWorker.c)
+ *     EtwTraceUserDestroyHandle @ 0x1C00898A4 (EtwTraceUserDestroyHandle.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     HMCleanupGrantedHandle @ 0x1C0153858 (HMCleanupGrantedHandle.c)
+ */
+
 void __fastcall HMDestroyUnlockedObjectWorkerAtomic(struct _HANDLEENTRY *a1)
 {
   int v2; // r15d

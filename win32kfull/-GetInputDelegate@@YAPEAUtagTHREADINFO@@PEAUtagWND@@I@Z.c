@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetInputDelegate@@YAPEAUtagTHREADINFO@@PEAUtagWND@@I@Z @ 0x1C0037160
+ * Callers:
+ *     EditionPostMouseMoveToQ @ 0x1C0037070 (EditionPostMouseMoveToQ.c)
+ *     AdjustPwndPtiPqForDelegation @ 0x1C009FA68 (AdjustPwndPtiPqForDelegation.c)
+ *     EditionGetInputDelegate @ 0x1C01440C0 (EditionGetInputDelegate.c)
+ * Callees:
+ *     <none>
+ */
+
 struct tagTHREADINFO *__fastcall GetInputDelegate(struct tagWND *a1, int a2)
 {
   __int64 v2; // r8

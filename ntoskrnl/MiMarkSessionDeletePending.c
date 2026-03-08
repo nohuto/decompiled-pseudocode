@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiMarkSessionDeletePending @ 0x1402007FC
+ * Callers:
+ *     MiDereferenceSessionFinal @ 0x14067E7A0 (MiDereferenceSessionFinal.c)
+ * Callees:
+ *     KeWaitForGate @ 0x1402931D8 (KeWaitForGate.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiMarkSessionDeletePending(__int64 a1)
 {
   __int64 result; // rax

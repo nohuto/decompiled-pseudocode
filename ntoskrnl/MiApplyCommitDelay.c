@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiApplyCommitDelay @ 0x140653B74
+ * Callers:
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiApplyCommitDelay(__int64 a1, char a2, __int64 a3)
 {
   volatile LONG *v4; // rbp

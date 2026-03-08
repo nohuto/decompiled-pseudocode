@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiCompleteSecureProcessFault @ 0x1406435E4
+ * Callers:
+ *     MiAllocateWsle @ 0x14026D1B0 (MiAllocateWsle.c)
+ *     MiValidVirtualizationFault @ 0x1404643C2 (MiValidVirtualizationFault.c)
+ * Callees:
+ *     MiMarkPfnVerified @ 0x1402093BC (MiMarkPfnVerified.c)
+ *     MiReleasePageFileInfo @ 0x14020B300 (MiReleasePageFileInfo.c)
+ *     MiTradeActivePage @ 0x140211BC0 (MiTradeActivePage.c)
+ *     MiAbortCombineScan @ 0x14021467C (MiAbortCombineScan.c)
+ *     MiGetSlabPage @ 0x14025BA50 (MiGetSlabPage.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14032D790 (MiCaptureDirtyBitToPfn.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x14032F834 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiGetPfnChannel @ 0x140334470 (MiGetPfnChannel.c)
+ *     MiReleaseFreshPage @ 0x14034E570 (MiReleaseFreshPage.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 __int64 __fastcall MiCompleteSecureProcessFault(__int64 *a1, __int64 *a2, __int64 a3)
 {
   ULONG_PTR v3; // rsi

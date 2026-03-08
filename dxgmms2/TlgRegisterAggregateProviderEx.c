@@ -1,3 +1,14 @@
+/*
+ * XREFs of TlgRegisterAggregateProviderEx @ 0x1C00BE1D4
+ * Callers:
+ *     ?InitGlobals@VIDMM_GLOBAL@@SAJXZ @ 0x1C00BDE54 (-InitGlobals@VIDMM_GLOBAL@@SAJXZ.c)
+ * Callees:
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C00BE2C8 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     CreateTlgAggregateSession @ 0x1C00BE374 (CreateTlgAggregateSession.c)
+ *     ComputeFlushPeriod @ 0x1C00BE4C4 (ComputeFlushPeriod.c)
+ *     DestroyAggregateSession @ 0x1C010A6D0 (DestroyAggregateSession.c)
+ */
+
 __int64 __fastcall TlgRegisterAggregateProviderEx(__int64 a1, __int64 a2)
 {
   __int64 TlgAggregateSession; // rax

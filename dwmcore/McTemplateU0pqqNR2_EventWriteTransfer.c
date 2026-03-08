@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0pqqNR2_EventWriteTransfer @ 0x180209BD4
+ * Callers:
+ *     ?TraceUpdatedConfiguration@CInteraction@@QEAAXW4Enum@InteractionConfigurationUpdateType@@W42InteractionInputType@@IPEBX@Z @ 0x180031764 (-TraceUpdatedConfiguration@CInteraction@@QEAAXW4Enum@InteractionConfigurationUpdateType@@W42Inte.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 ULONG __fastcall McTemplateU0pqqNR2_EventWriteTransfer(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,

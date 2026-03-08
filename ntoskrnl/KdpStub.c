@@ -1,3 +1,12 @@
+/*
+ * XREFs of KdpStub @ 0x1403CAB44
+ * Callers:
+ *     KdTrap @ 0x140362700 (KdTrap.c)
+ * Callees:
+ *     KdEnableDebugger @ 0x140565340 (KdEnableDebugger.c)
+ *     KdpTrap @ 0x140AAD1CC (KdpTrap.c)
+ */
+
 char __fastcall KdpStub(int a1, int a2, __int64 a3, __int64 a4, char a5, char a6)
 {
   int v6; // ebx

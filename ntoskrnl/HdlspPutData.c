@@ -1,3 +1,11 @@
+/*
+ * XREFs of HdlspPutData @ 0x140AE8068
+ * Callers:
+ *     HdlspDispatch @ 0x140AE6EB0 (HdlspDispatch.c)
+ * Callees:
+ *     InbvPortPutByte @ 0x1406771D8 (InbvPortPutByte.c)
+ */
+
 void __fastcall HdlspPutData(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

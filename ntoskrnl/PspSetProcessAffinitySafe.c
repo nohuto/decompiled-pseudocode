@@ -1,3 +1,19 @@
+/*
+ * XREFs of PspSetProcessAffinitySafe @ 0x1409AC928
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ *     PspApplyJobLimitsToProcess @ 0x1406FF17C (PspApplyJobLimitsToProcess.c)
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ *     PspUpdateSingleProcessAffinity @ 0x1409ACC60 (PspUpdateSingleProcessAffinity.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeIsSubsetAffinityEx @ 0x1402B13D0 (KeIsSubsetAffinityEx.c)
+ *     KeSetAffinityProcess @ 0x1403A9688 (KeSetAffinityProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall PspSetProcessAffinitySafe(__int64 a1, char a2, unsigned __int16 *a3, __int64 *a4, int *a5)
 {
   int v9; // ebp

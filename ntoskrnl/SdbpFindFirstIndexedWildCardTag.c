@@ -1,3 +1,22 @@
+/*
+ * XREFs of SdbpFindFirstIndexedWildCardTag @ 0x1407A1870
+ * Callers:
+ *     SdbpSearchDB @ 0x14079F878 (SdbpSearchDB.c)
+ *     SdbGetDatabaseMatchEx @ 0x1407A1A40 (SdbGetDatabaseMatchEx.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AslStringPatternMatchExA @ 0x14075B5F0 (AslStringPatternMatchExA.c)
+ *     AslStringPatternMatchExW @ 0x14077790C (AslStringPatternMatchExW.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbGetIndex @ 0x14079FE64 (SdbGetIndex.c)
+ *     SdbpKeyToAnsiString @ 0x1407A1A10 (SdbpKeyToAnsiString.c)
+ *     SdbpGetIndex @ 0x1407A1F98 (SdbpGetIndex.c)
+ *     SdbGetStringTagPtr @ 0x1407A20E8 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ *     AslStringUpcaseToMultiByteN @ 0x1407A2F2C (AslStringUpcaseToMultiByteN.c)
+ */
+
 __int64 __fastcall SdbpFindFirstIndexedWildCardTag(
         union _RTL_RUN_ONCE *Parameter,
         __int16 a2,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiInitializeEnclave @ 0x140A3B220
+ * Callers:
+ *     NtInitializeEnclave @ 0x140A3C320 (NtInitializeEnclave.c)
+ * Callees:
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x14031EFE0 (MiObtainReferencedVadEx.c)
+ *     KeInitializeEnclave @ 0x1409716C0 (KeInitializeEnclave.c)
+ *     MiInitializeVsmEnclave @ 0x140A3B328 (MiInitializeVsmEnclave.c)
+ *     MiReturnReservedEnclavePages @ 0x140AAA540 (MiReturnReservedEnclavePages.c)
+ */
+
 __int64 __fastcall MiInitializeEnclave(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4, _DWORD *a5)
 {
   __int64 v8; // rax

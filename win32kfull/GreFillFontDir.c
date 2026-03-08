@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreFillFontDir @ 0x1C02D7380
+ * Callers:
+ *     GreMakeFontDir @ 0x1C02D77CC (GreMakeFontDir.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GreFillFontDir(__int64 a1, int a2, __int64 a3)
 {
   unsigned int CurrentThreadId; // eax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?xxxGetCursorPos@@YAHPEAUtagPOINT@@K@Z @ 0x1C003A6CC
+ * Callers:
+ *     NtUserGetCursorPos @ 0x1C003A680 (NtUserGetCursorPos.c)
+ * Callees:
+ *     CheckWinstaAttributeAccess @ 0x1C003B230 (CheckWinstaAttributeAccess.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ */
+
 __int64 __fastcall xxxGetCursorPos(unsigned __int64 a1, int a2)
 {
   struct tagTHREADINFO *v4; // r14

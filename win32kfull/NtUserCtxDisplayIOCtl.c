@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserCtxDisplayIOCtl @ 0x1C01CF250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0035F20 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     CtxDisplayIOCtl @ 0x1C0205B4C (CtxDisplayIOCtl.c)
+ */
+
 __int64 __fastcall NtUserCtxDisplayIOCtl(unsigned int a1, volatile void *a2, unsigned int a3)
 {
   SIZE_T v3; // r14

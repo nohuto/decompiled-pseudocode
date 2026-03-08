@@ -1,3 +1,14 @@
+/*
+ * XREFs of RIMTransferInjectionDeviceDataFifoToDataBuffer @ 0x1C00043BC
+ * Callers:
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0003AE4 (rimProcessDeviceBufferAndStartRead.c)
+ *     rimProcessInjectedDeviceBuffers @ 0x1C0004228 (rimProcessInjectedDeviceBuffers.c)
+ *     RIMOnPnpNotification @ 0x1C00383E0 (RIMOnPnpNotification.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall RIMTransferInjectionDeviceDataFifoToDataBuffer(__int64 a1, __int64 a2)
 {
   int v2; // eax

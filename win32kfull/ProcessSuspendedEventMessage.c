@@ -1,3 +1,14 @@
+/*
+ * XREFs of ProcessSuspendedEventMessage @ 0x1C00E0344
+ * Callers:
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0044D58 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     xxxBroadcastMessageEx @ 0x1C0045EF0 (xxxBroadcastMessageEx.c)
+ *     NtUserScheduleDispatchNotification @ 0x1C0046B90 (NtUserScheduleDispatchNotification.c)
+ * Callees:
+ *     ?FindQMsgForCoalesce@@YAPEAUtagQMSG@@PEAUtagMLIST@@IPEAUHWND__@@PEAU1@@Z @ 0x1C0009E88 (-FindQMsgForCoalesce@@YAPEAUtagQMSG@@PEAUtagMLIST@@IPEAUHWND__@@PEAU1@@Z.c)
+ *     ?ProcessComplexCoalescence@@YAHII_K_JPEA_KPEA_J@Z @ 0x1C000F514 (-ProcessComplexCoalescence@@YAHII_K_JPEA_KPEA_J@Z.c)
+ */
+
 __int64 __fastcall ProcessSuspendedEventMessage(
         __int64 a1,
         int a2,

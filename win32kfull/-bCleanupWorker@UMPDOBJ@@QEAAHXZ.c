@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?bCleanupWorker@UMPDOBJ@@QEAAHXZ @ 0x1C029BFDC
+ * Callers:
+ *     UMPDOBJ_bCleanupWrap @ 0x1C014DCD0 (UMPDOBJ_bCleanupWrap.c)
+ *     ??1UMPDREF@@QEAA@XZ @ 0x1C02C96FC (--1UMPDREF@@QEAA@XZ.c)
+ * Callees:
+ *     EngDeletePath @ 0x1C014D9C0 (EngDeletePath.c)
+ *     ?pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z @ 0x1C029C4BC (-pso@UMPDOBJ@@AEAAHPEAU_DDIOBJMAP@@PEAPEAU_SURFOBJ@@H@Z.c)
+ *     ?vClient@UMPDOBJ@@QEAAXPEAX@Z @ 0x1C029C960 (-vClient@UMPDOBJ@@QEAAXPEAX@Z.c)
+ */
+
 __int64 __fastcall UMPDOBJ::bCleanupWorker(UMPDOBJ *this)
 {
   __int64 result; // rax

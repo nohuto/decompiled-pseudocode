@@ -1,3 +1,34 @@
+/*
+ * XREFs of PspAllocateAndQueryNotificationChannel @ 0x1407512E4
+ * Callers:
+ *     NtQueryInformationJobObject @ 0x1406F9480 (NtQueryInformationJobObject.c)
+ * Callees:
+ *     ObFastDereferenceObject @ 0x140245F50 (ObFastDereferenceObject.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExConvertExclusiveToSharedLite @ 0x1402DCE90 (ExConvertExclusiveToSharedLite.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwCreateWnfStateName @ 0x140413D50 (ZwCreateWnfStateName.c)
+ *     ZwDeleteWnfStateName @ 0x140413EF0 (ZwDeleteWnfStateName.c)
+ *     ObReleaseObjectSecurityEx @ 0x1406993F0 (ObReleaseObjectSecurityEx.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D26A0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x1406D3290 (RtlpAddKnownAce.c)
+ *     PsReferenceEffectiveToken @ 0x1406D657C (PsReferenceEffectiveToken.c)
+ *     ObpGetObjectSecurity @ 0x1406DB240 (ObpGetObjectSecurity.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406DB5A0 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406DB640 (RtlCreateAcl.c)
+ *     PspUnlockJobConditionally @ 0x1406FB418 (PspUnlockJobConditionally.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406FB7C8 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspUnlockJob @ 0x1406FBF7C (PspUnlockJob.c)
+ *     RtlGetOwnerSecurityDescriptor @ 0x140750BE0 (RtlGetOwnerSecurityDescriptor.c)
+ *     PspLockRootJobExclusive @ 0x14075168C (PspLockRootJobExclusive.c)
+ *     PspComputeReportWakeFilter @ 0x1407516F4 (PspComputeReportWakeFilter.c)
+ *     PspDispatchWakeNotification @ 0x1407519CC (PspDispatchWakeNotification.c)
+ *     SeQueryInformationToken @ 0x1407B9760 (SeQueryInformationToken.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PspAllocateAndQueryNotificationChannel(__int64 a1, __int64 a2, _OWORD *a3)
 {
   bool v3; // zf

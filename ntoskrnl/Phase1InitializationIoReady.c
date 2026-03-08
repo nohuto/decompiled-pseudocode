@@ -1,3 +1,45 @@
+/*
+ * XREFs of Phase1InitializationIoReady @ 0x140B42D0C
+ * Callers:
+ *     Phase1Initialization @ 0x14080E810 (Phase1Initialization.c)
+ * Callees:
+ *     ExNotifyCallback @ 0x1402D2F00 (ExNotifyCallback.c)
+ *     MmEncodeExportSection @ 0x14035D5C0 (MmEncodeExportSection.c)
+ *     InbvSetProgressBarSubset @ 0x14037FD30 (InbvSetProgressBarSubset.c)
+ *     ExLogTimeZoneInformation @ 0x1403AB740 (ExLogTimeZoneInformation.c)
+ *     RtlpInitializeNonVolatileFlush @ 0x1403B0730 (RtlpInitializeNonVolatileFlush.c)
+ *     Feature_Servicing_CcTelemetryCrashOnHPEFix__private_IsEnabledDeviceUsage @ 0x140409A2C (Feature_Servicing_CcTelemetryCrashOnHPEFix__private_IsEnabledDeviceUsage.c)
+ *     KeBugCheck @ 0x140415FE0 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     FsRtlInitSystem2 @ 0x14053A440 (FsRtlInitSystem2.c)
+ *     VfClearVerifierSettings @ 0x1405CB9FC (VfClearVerifierSettings.c)
+ *     CarInitLogging @ 0x1405D0E40 (CarInitLogging.c)
+ *     CarReportUnusualShutdown @ 0x1405D2190 (CarReportUnusualShutdown.c)
+ *     ExQueryBootEntropyInformation @ 0x14080F120 (ExQueryBootEntropyInformation.c)
+ *     ExInitializeNls @ 0x14080F164 (ExInitializeNls.c)
+ *     ExInitLicenseData @ 0x140819CE8 (ExInitLicenseData.c)
+ *     VfNotifyVerifierOfEvent @ 0x140ABF120 (VfNotifyVerifierOfEvent.c)
+ *     MmInitSystem @ 0x140B393A4 (MmInitSystem.c)
+ *     CcInitializeCacheManager @ 0x140B3EB44 (CcInitializeCacheManager.c)
+ *     ObInitSystem @ 0x140B403CC (ObInitSystem.c)
+ *     SmInitSystem @ 0x140B427B4 (SmInitSystem.c)
+ *     PsInitSystem @ 0x140B42F74 (PsInitSystem.c)
+ *     KeInitSystem @ 0x140B42FB8 (KeInitSystem.c)
+ *     VmInitSystem @ 0x140B43DDC (VmInitSystem.c)
+ *     BootApplicationPersistentDataProcess @ 0x140B44538 (BootApplicationPersistentDataProcess.c)
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ *     EmInitSystem @ 0x140B4CBA8 (EmInitSystem.c)
+ *     CmInitSystem2 @ 0x140B54728 (CmInitSystem2.c)
+ *     SeRmInitPhase1 @ 0x140B614EC (SeRmInitPhase1.c)
+ *     StartFirstUserProcess @ 0x140B662B4 (StartFirstUserProcess.c)
+ *     SaveNodeDistanceInformation @ 0x140B66ACC (SaveNodeDistanceInformation.c)
+ *     KeInitializeClock @ 0x140B67BE8 (KeInitializeClock.c)
+ *     MmInitSystemDll @ 0x140B720A8 (MmInitSystemDll.c)
+ *     InitSafeBoot @ 0x140B8D8D4 (InitSafeBoot.c)
+ *     PfInitializeTraceLogging @ 0x140B93160 (PfInitializeTraceLogging.c)
+ *     ExInitTraceLogging @ 0x140B94C64 (ExInitTraceLogging.c)
+ */
+
 __int64 __fastcall Phase1InitializationIoReady(ULONG_PTR a1, char a2)
 {
   NTSTATUS v4; // eax

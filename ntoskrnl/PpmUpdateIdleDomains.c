@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmUpdateIdleDomains @ 0x140583E60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopExecuteOnTargetProcessors @ 0x140236D20 (PopExecuteOnTargetProcessors.c)
+ *     KeIsSubsetAffinityEx @ 0x1402B13D0 (KeIsSubsetAffinityEx.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ */
+
 __int64 __fastcall PpmUpdateIdleDomains(__int64 a1)
 {
   int v2; // ebx

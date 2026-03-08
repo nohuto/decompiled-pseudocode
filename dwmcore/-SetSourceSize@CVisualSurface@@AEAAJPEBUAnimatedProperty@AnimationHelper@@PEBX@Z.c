@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SetSourceSize@CVisualSurface@@AEAAJPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x1800BA8B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x180098D74 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
+ *     ?ClearAllRenderTargets@CVisualSurface@@AEAAXXZ @ 0x1800BA96C (-ClearAllRenderTargets@CVisualSurface@@AEAAXXZ.c)
+ *     ?ModifyProperty@CResource@@IEAA_NPEBUAnimatedProperty@AnimationHelper@@PEBX@Z @ 0x1800BAAB8 (-ModifyProperty@CResource@@IEAA_NPEBUAnimatedProperty@AnimationHelper@@PEBX@Z.c)
+ *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800BBC80 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ */
+
 __int64 __fastcall CVisualSurface::SetSourceSize(
         CVisualSurface *this,
         const struct AnimationHelper::AnimatedProperty *a2,

@@ -1,3 +1,44 @@
+/*
+ * XREFs of MiSwitchToTransition @ 0x140630D6C
+ * Callers:
+ *     MiReplaceRotateWithDemandZero @ 0x140A2E748 (MiReplaceRotateWithDemandZero.c)
+ * Callees:
+ *     MiChangePageAttributeBatch @ 0x140211998 (MiChangePageAttributeBatch.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x14026A0D0 (MiLockPageTableInternal.c)
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ *     MiSetPfnBlink @ 0x140289900 (MiSetPfnBlink.c)
+ *     MiGetContainingPageTable @ 0x140289FE0 (MiGetContainingPageTable.c)
+ *     MiGetEffectivePagePriorityThread @ 0x14028A260 (MiGetEffectivePagePriorityThread.c)
+ *     MiSetPfnPteFrame @ 0x14028A310 (MiSetPfnPteFrame.c)
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiAddLockedPageCharge @ 0x1402A309C (MiAddLockedPageCharge.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiPageAttributeBatchChangeNeeded @ 0x1402B49B4 (MiPageAttributeBatchChangeNeeded.c)
+ *     ExAcquireRundownProtectionCacheAware @ 0x1402C3B80 (ExAcquireRundownProtectionCacheAware.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiReturnFaultCharges @ 0x1402F4480 (MiReturnFaultCharges.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiObtainFaultCharges @ 0x14031EEE0 (MiObtainFaultCharges.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x14032F834 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiReleaseFreshPage @ 0x14034E570 (MiReleaseFreshPage.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiAddMdlTracker @ 0x14061A0AC (MiAddMdlTracker.c)
+ *     MiIsProbeActive @ 0x14062BDE8 (MiIsProbeActive.c)
+ *     MiWaitForFreePage @ 0x140651458 (MiWaitForFreePage.c)
+ *     MiGetReadyInPageBlock @ 0x140A2E670 (MiGetReadyInPageBlock.c)
+ */
+
 __int64 __fastcall MiSwitchToTransition(ULONG_PTR a1, __int64 a2, unsigned int a3)
 {
   unsigned __int64 v5; // rsi

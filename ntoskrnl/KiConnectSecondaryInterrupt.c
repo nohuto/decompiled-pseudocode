@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiConnectSecondaryInterrupt @ 0x14039DF6C
+ * Callers:
+ *     KeConnectInterrupt @ 0x14028FA54 (KeConnectInterrupt.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     KiAcquireSecondaryInterruptConnectLock @ 0x14039E508 (KiAcquireSecondaryInterruptConnectLock.c)
+ *     KiAcquireSecondaryPassiveConnectLock @ 0x14039EB38 (KiAcquireSecondaryPassiveConnectLock.c)
+ *     KiInsertInterruptObjectOrdered @ 0x1403A1A2C (KiInsertInterruptObjectOrdered.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KiConnectSecondaryInterrupt(__int64 a1)
 {
   char v2; // si

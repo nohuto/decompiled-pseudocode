@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiGetGangAssignment @ 0x140386CC4
+ * Callers:
+ *     MiStartDpcGang @ 0x140386B74 (MiStartDpcGang.c)
+ *     MiDpcGangTarget @ 0x140664900 (MiDpcGangTarget.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiGetGangAssignment(__int64 a1, _QWORD *a2)
 {
   unsigned __int64 v2; // r8

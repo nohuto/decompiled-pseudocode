@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiAttemptSectionDelete @ 0x1402F3B10
+ * Callers:
+ *     MmFlushImageSection @ 0x1402E1460 (MmFlushImageSection.c)
+ *     MiForceSectionClosed @ 0x1402F3AB0 (MiForceSectionClosed.c)
+ * Callees:
+ *     MiCleanSection @ 0x14020165C (MiCleanSection.c)
+ *     KeWaitForGate @ 0x1402931D8 (KeWaitForGate.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiRemoveUnusedSegment @ 0x14034C47C (MiRemoveUnusedSegment.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall MiAttemptSectionDelete(__int64 a1, unsigned __int8 a2, char a3)
 {
   bool v4; // zf

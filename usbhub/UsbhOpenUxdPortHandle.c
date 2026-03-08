@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhOpenUxdPortHandle @ 0x1C005A6D0
+ * Callers:
+ *     UsbhDeleteUxdSettings @ 0x1C0059BF8 (UsbhDeleteUxdSettings.c)
+ *     UsbhGetUxdPortKey @ 0x1C005A540 (UsbhGetUxdPortKey.c)
+ *     UsbhPropagateUxdState @ 0x1C005A7DC (UsbhPropagateUxdState.c)
+ *     UsbhUxdShutdown @ 0x1C005B1D0 (UsbhUxdShutdown.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ */
+
 __int64 __fastcall UsbhOpenUxdPortHandle(__int64 a1, void **a2)
 {
   PDEVICE_OBJECT *v3; // rax

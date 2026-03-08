@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiUnlinkNumaStandbyPage @ 0x1402C77BC
+ * Callers:
+ *     MiReplaceTransitionPage @ 0x1402C6784 (MiReplaceTransitionPage.c)
+ *     MiReplaceNumaStandbyPage @ 0x1403BE8B8 (MiReplaceNumaStandbyPage.c)
+ *     MiUnlinkStandbyPage @ 0x140464E9A (MiUnlinkStandbyPage.c)
+ *     MiSwapNumaStandbyPage @ 0x14064F7E0 (MiSwapNumaStandbyPage.c)
+ * Callees:
+ *     MiSetNextStandbyPageSameNodeNoLockAsserts @ 0x140287AE0 (MiSetNextStandbyPageSameNodeNoLockAsserts.c)
+ *     MiPfnToStandbyLookaside @ 0x140288780 (MiPfnToStandbyLookaside.c)
+ *     MiSetPfnNodeBlinkLow @ 0x1402DF430 (MiSetPfnNodeBlinkLow.c)
+ */
+
 signed __int64 __fastcall MiUnlinkNumaStandbyPage(__int64 a1)
 {
   __int64 v2; // rax

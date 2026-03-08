@@ -1,3 +1,25 @@
+/*
+ * XREFs of PfTStart @ 0x140844B00
+ * Callers:
+ *     PfSetSuperfetchInformation @ 0x1407E2A94 (PfSetSuperfetchInformation.c)
+ *     PfpParametersPropagate @ 0x14097D050 (PfpParametersPropagate.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     PfFbBufferListUpdateMax @ 0x140303144 (PfFbBufferListUpdateMax.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     PfFbBufferListAllocate @ 0x14039C990 (PfFbBufferListAllocate.c)
+ *     PsEnumProcesses @ 0x1407809CC (PsEnumProcesses.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1407DE330 (PsCreateSystemThreadEx.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     PfTAllocateBuffers @ 0x140844D98 (PfTAllocateBuffers.c)
+ *     PfpCreateEvent @ 0x1408458E4 (PfpCreateEvent.c)
+ *     PfTInitialize @ 0x140845B5C (PfTInitialize.c)
+ *     PfTCleanup @ 0x14097C168 (PfTCleanup.c)
+ *     PfTAccessTracingStart @ 0x140A858C4 (PfTAccessTracingStart.c)
+ */
+
 __int64 __fastcall PfTStart(__int64 a1, __int64 a2, unsigned int a3)
 {
   unsigned int v3; // edi

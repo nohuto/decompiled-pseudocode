@@ -1,3 +1,16 @@
+/*
+ * XREFs of HUBDESC_InternalValidatePowerDeliveryCapabilityDescriptor @ 0x1C0039478
+ * Callers:
+ *     HUBDESC_InternalValidateDeviceCapabilityDescriptor @ 0x1C003B5DC (HUBDESC_InternalValidateDeviceCapabilityDescriptor.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C001497C (WPP_RECORDER_SF_DDD.c)
+ *     WPP_RECORDER_SF_DDDD @ 0x1C0029788 (WPP_RECORDER_SF_DDDD.c)
+ *     HUBDESC_ShouldEnforceWin8ValidationMutable @ 0x1C0035964 (HUBDESC_ShouldEnforceWin8ValidationMutable.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 char __fastcall HUBDESC_InternalValidatePowerDeliveryCapabilityDescriptor(
         unsigned __int8 *a1,
         __int64 a2,

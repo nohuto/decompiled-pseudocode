@@ -1,3 +1,17 @@
+/*
+ * XREFs of _lambda_8317567312832b51b45aaef017a7684b_::operator() @ 0x1C01D5A20
+ * Callers:
+ *     ?EnsureConnected@DispBrokerClient@@AEAAJXZ @ 0x1C01D5780 (-EnsureConnected@DispBrokerClient@@AEAAJXZ.c)
+ * Callees:
+ *     ?DxgkLogCodePointPacketForSession@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@_KIIIU_LUID@@@Z @ 0x1C0002D10 (-DxgkLogCodePointPacketForSession@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@_KIIIU_LUID@@@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0006F40 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007104 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C00095A8 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?Assign@DispBrokerClientReference@@QEAAXPEAVDispBrokerClientHandle@@@Z @ 0x1C0016524 (-Assign@DispBrokerClientReference@@QEAAXPEAVDispBrokerClientHandle@@@Z.c)
+ *     ?IsClientHandleValid@DispBrokerClient@@AEAA_NXZ @ 0x1C01D5D70 (-IsClientHandleValid@DispBrokerClient@@AEAA_NXZ.c)
+ */
+
 void __fastcall lambda_8317567312832b51b45aaef017a7684b_::operator()(unsigned int ***a1)
 {
   struct DispBrokerClientHandle **v2; // rdx

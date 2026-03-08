@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetClipboardSequenceNumber @ 0x1C0016D00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00BD7B8 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ */
+
 __int64 NtUserGetClipboardSequenceNumber()
 {
   struct tagWINDOWSTATION *v0; // rax

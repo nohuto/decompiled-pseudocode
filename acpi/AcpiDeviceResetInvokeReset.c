@@ -1,3 +1,13 @@
+/*
+ * XREFs of AcpiDeviceResetInvokeReset @ 0x1C0023ABC
+ * Callers:
+ *     ACPIBusAndFilterIrpQueryPnpDeviceState @ 0x1C007DF10 (ACPIBusAndFilterIrpQueryPnpDeviceState.c)
+ * Callees:
+ *     ACPIDeviceInitializePowerRequest @ 0x1C001CF98 (ACPIDeviceInitializePowerRequest.c)
+ *     ACPIDeviceInternalSynchronizeRequest @ 0x1C001D594 (ACPIDeviceInternalSynchronizeRequest.c)
+ *     AcpiResetDeviceAlreadyProcessed @ 0x1C0023E24 (AcpiResetDeviceAlreadyProcessed.c)
+ */
+
 __int64 __fastcall AcpiDeviceResetInvokeReset(__int64 a1, __int64 a2)
 {
   KIRQL v4; // al

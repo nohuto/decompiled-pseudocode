@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhNotifyPnpOfFailure_Action @ 0x1C0038E08
+ * Callers:
+ *     Usbh_FDO_WaitPnpStop_CB @ 0x1C0044A00 (Usbh_FDO_WaitPnpStop_CB.c)
+ * Callees:
+ *     UsbhWaitEventWithTimeoutEx @ 0x1C00068E0 (UsbhWaitEventWithTimeoutEx.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ */
+
 void __fastcall UsbhNotifyPnpOfFailure_Action(__int64 a1)
 {
   _DWORD *v2; // rdi

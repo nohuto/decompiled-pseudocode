@@ -1,3 +1,12 @@
+/*
+ * XREFs of wil_details_EvaluateFeatureDependencies_ReevaluateCachedFeatureEnabledState @ 0x1C00B01C4
+ * Callers:
+ *     wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState @ 0x1C00B018C (wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState.c)
+ * Callees:
+ *     wil_atomic_uint32_compare_exchange_relaxed @ 0x1C000A968 (wil_atomic_uint32_compare_exchange_relaxed.c)
+ *     wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState @ 0x1C00B018C (wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState.c)
+ */
+
 wil_details_FeatureStateCache __fastcall wil_details_EvaluateFeatureDependencies_ReevaluateCachedFeatureEnabledState(
         wil_details_FeatureStateCache *featureState,
         wil_details_FeatureStateCache observedState,

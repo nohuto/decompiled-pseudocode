@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopPluginRegisterCrashdumpDevice @ 0x1403AD964
+ * Callers:
+ *     PoFxRegisterCrashdumpDevice @ 0x14085E1D0 (PoFxRegisterCrashdumpDevice.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall PopPluginRegisterCrashdumpDevice(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int8 (__fastcall *v3)(__int64, _QWORD *); // rax

@@ -1,3 +1,20 @@
+/*
+ * XREFs of KeExpandKernelStackAndCalloutInternal @ 0x140315620
+ * Callers:
+ *     KeExpandKernelStackAndCalloutEx @ 0x1403155F0 (KeExpandKernelStackAndCalloutEx.c)
+ *     MiSwapStackPage @ 0x14039604C (MiSwapStackPage.c)
+ *     KeExpandKernelStackAndCallout @ 0x1403D0D60 (KeExpandKernelStackAndCallout.c)
+ *     ?SmStDirectRead@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_ST_WORK_ITEM@?$ST_STORE@USM_TRAITS@@@@@Z @ 0x14045CFC8 (-SmStDirectRead@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_ST_WORK_ITEM@-$ST_STORE@USM_TRAITS@@@@@.c)
+ *     MiDoStackCopy @ 0x14062A990 (MiDoStackCopy.c)
+ *     KeInitSystem @ 0x140B42FB8 (KeInitSystem.c)
+ * Callees:
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x140315700 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     KeBugCheck @ 0x140415FE0 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiFatalFilter @ 0x14056A850 (KiFatalFilter.c)
+ */
+
 __int64 __fastcall KeExpandKernelStackAndCalloutInternal(
         void (__fastcall *BugCheckParameter2)(ULONG_PTR),
         ULONG_PTR BugCheckParameter3,

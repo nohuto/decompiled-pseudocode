@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?AddMultipleAndSet@?$DynArray@U_CIT_SI_COMPOSITOR_PROCESS_INFO@@$0A@@@QEAAJPEFBU_CIT_SI_COMPOSITOR_PROCESS_INFO@@I@Z @ 0x1800C37C0
+ * Callers:
+ *     ?SendReportToE3@CEnergyReporter@@AEAAXXZ @ 0x180037650 (-SendReportToE3@CEnergyReporter@@AEAAXXZ.c)
+ *     _lambda_e8a4873f02d019eba969ac862a7eef0f_::operator() @ 0x1800E3BDC (_lambda_e8a4873f02d019eba969ac862a7eef0f_--operator().c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AddMultipleAndSet@?$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z @ 0x1800C3DD8 (-AddMultipleAndSet@-$DynArrayImpl@$0A@@@IEAAJIIPEBX@Z.c)
+ *     memcpy_0 @ 0x1801177E8 (memcpy_0.c)
+ */
+
 __int64 __fastcall DynArray<_CIT_SI_COMPOSITOR_PROCESS_INFO,0>::AddMultipleAndSet(
         __int64 a1,
         const void *a2,

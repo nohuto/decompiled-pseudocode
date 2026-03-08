@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ProcessHandledInteractions@CInteractionRoot@@UEAAJ_K_NW4InertiaFrameType@@UManipulationThreadTelemetryData@@PEAW4PointerResult@@@Z @ 0x1801A1E70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CInteractionRoot::ProcessHandledInteractions(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of SdbpGetNextTagId @ 0x1407A2880
+ * Callers:
+ *     SdbGetFirstChild @ 0x1407A2738 (SdbGetFirstChild.c)
+ *     SdbGetNextChild @ 0x1407A280C (SdbGetNextChild.c)
+ *     SdbpGetNextIndexedRecord @ 0x140848BC4 (SdbpGetNextIndexedRecord.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbGetTagDataSize @ 0x1407A2980 (SdbGetTagDataSize.c)
+ */
+
 __int64 __fastcall SdbpGetNextTagId(__int64 a1, unsigned int a2)
 {
   __int64 v2; // rbx

@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z @ 0x1C026821C
+ * Callers:
+ *     GreHintSpriteShape @ 0x1C002C80C (GreHintSpriteShape.c)
+ *     GreWindowLayoutComplete @ 0x1C0098D74 (GreWindowLayoutComplete.c)
+ *     ?vspDestroyDwmSpriteObjInternal@@YAXPEAUHDEV__@@_NPEAVDWMSPRITE@@@Z @ 0x1C00D790C (-vspDestroyDwmSpriteObjInternal@@YAXPEAUHDEV__@@_NPEAVDWMSPRITE@@@Z.c)
+ *     CheckAndProcessSurfaceComplete @ 0x1C0269D30 (CheckAndProcessSurfaceComplete.c)
+ *     GreCancelSynchronizedWindowResize @ 0x1C0269DDC (GreCancelSynchronizedWindowResize.c)
+ *     GreWindowResizeComplete @ 0x1C026ADA0 (GreWindowResizeComplete.c)
+ *     GreWindowResizeStarted @ 0x1C026AFE4 (GreWindowResizeStarted.c)
+ * Callees:
+ *     DwmAsyncUpdateSprite @ 0x1C00D4090 (DwmAsyncUpdateSprite.c)
+ *     ?GetRedirectionInfo@SFMLOGICALSURFACE@@QEAAXPEAW4_HLSURF_REDIRECTIONSTYLE@@PEAK1PEAPEAXPEAU_LUID@@@Z @ 0x1C00E8FC0 (-GetRedirectionInfo@SFMLOGICALSURFACE@@QEAAXPEAW4_HLSURF_REDIRECTIONSTYLE@@PEAK1PEAPEAXPEAU_LUID.c)
+ *     DwmAsyncProcessSurfaceComplete @ 0x1C026FEB4 (DwmAsyncProcessSurfaceComplete.c)
+ *     DwmCheckForDeferredUpdateSpriteCommands @ 0x1C02708FC (DwmCheckForDeferredUpdateSpriteCommands.c)
+ */
+
 void __fastcall CheckAndProcessWindowResizeComplete(struct DWMSPRITE *a1, int a2, int *a3)
 {
   int v5; // eax

@@ -1,3 +1,35 @@
+/*
+ * XREFs of SymCryptEcDsaVerify @ 0x1403F4010
+ * Callers:
+ *     HashpVerifyEcdsaSignature @ 0x140A74544 (HashpVerifyEcdsaSignature.c)
+ * Callees:
+ *     SymCryptWipe @ 0x1403F0988 (SymCryptWipe.c)
+ *     SymCryptEcurveDigitsofScalarMultiplier @ 0x1403F2C94 (SymCryptEcurveDigitsofScalarMultiplier.c)
+ *     SymCryptEcurveSizeofFieldElement @ 0x1403F2CDC (SymCryptEcurveSizeofFieldElement.c)
+ *     SymCryptDigitsFromBits @ 0x1403F36C0 (SymCryptDigitsFromBits.c)
+ *     SymCryptIntCreate @ 0x1403F37C8 (SymCryptIntCreate.c)
+ *     SymCryptIntFromModulus @ 0x1403F383C (SymCryptIntFromModulus.c)
+ *     SymCryptIntIsLessThan @ 0x1403F38B4 (SymCryptIntIsLessThan.c)
+ *     SymCryptIntSetValue @ 0x1403F391C (SymCryptIntSetValue.c)
+ *     SymCryptIntToModElement @ 0x1403F39F0 (SymCryptIntToModElement.c)
+ *     SymCryptModElementCreate @ 0x1403F3AEC (SymCryptModElementCreate.c)
+ *     SymCryptModElementIsEqual @ 0x1403F3B38 (SymCryptModElementIsEqual.c)
+ *     SymCryptModElementIsZero @ 0x1403F3B50 (SymCryptModElementIsZero.c)
+ *     SymCryptModElementToInt @ 0x1403F3C7C (SymCryptModElementToInt.c)
+ *     SymCryptModInv @ 0x1403F3D38 (SymCryptModInv.c)
+ *     SymCryptModMul @ 0x1403F3D74 (SymCryptModMul.c)
+ *     SymCryptSizeofIntFromDigits @ 0x1403F3EF0 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptSizeofModElementFromModulus @ 0x1403F3F08 (SymCryptSizeofModElementFromModulus.c)
+ *     SymCryptEcDsaTruncateHash @ 0x1403F3F38 (SymCryptEcDsaTruncateHash.c)
+ *     SymCryptEcpointCreate @ 0x1403F94A0 (SymCryptEcpointCreate.c)
+ *     SymCryptEcpointGetValue @ 0x1403F9550 (SymCryptEcpointGetValue.c)
+ *     SymCryptSizeofEcpointFromCurve @ 0x1403F9E14 (SymCryptSizeofEcpointFromCurve.c)
+ *     SymCryptEcpointIsZero @ 0x1403FD1BC (SymCryptEcpointIsZero.c)
+ *     SymCryptEcpointMultiScalarMul @ 0x1403FD1EC (SymCryptEcpointMultiScalarMul.c)
+ *     SymCryptCallbackAlloc @ 0x14067B400 (SymCryptCallbackAlloc.c)
+ *     SymCryptCallbackFree @ 0x14067B438 (SymCryptCallbackFree.c)
+ */
+
 __int64 __fastcall SymCryptEcDsaVerify(
         __int64 a1,
         __int64 a2,

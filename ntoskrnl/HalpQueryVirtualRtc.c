@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpQueryVirtualRtc @ 0x1405094B0
+ * Callers:
+ *     HalQueryRealTimeClock @ 0x1402D0F30 (HalQueryRealTimeClock.c)
+ *     HalCalibratePerformanceCounter @ 0x1404FC150 (HalCalibratePerformanceCounter.c)
+ *     HalpSetResumeTime @ 0x14051A258 (HalpSetResumeTime.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     RtlpTimeToTimeFields @ 0x1402D14C8 (RtlpTimeToTimeFields.c)
+ */
+
 char __fastcall HalpQueryVirtualRtc(_QWORD *a1, bool *a2)
 {
   __int64 v4; // rdi

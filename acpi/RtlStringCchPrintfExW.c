@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlStringCchPrintfExW @ 0x1C000B730
+ * Callers:
+ *     AcpiArblibAllocateArbiterInstance @ 0x1C007CB64 (AcpiArblibAllocateArbiterInstance.c)
+ *     ACPIGetPnpLocationString @ 0x1C0087670 (ACPIGetPnpLocationString.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     RtlStringExHandleOtherFlagsW @ 0x1C000B94C (RtlStringExHandleOtherFlagsW.c)
+ *     RtlStringVPrintfWorkerW @ 0x1C000BA0C (RtlStringVPrintfWorkerW.c)
+ */
+
 NTSTATUS RtlStringCchPrintfExW(
         NTSTRSAFE_PWSTR pszDest,
         size_t cchDest,

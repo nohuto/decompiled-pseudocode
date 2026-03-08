@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CSecondarySysmemBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802B44F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CSecondarySysmemBitmap::HrFindInterface(
         CSecondarySysmemBitmap *this,
         const struct _GUID *a2,

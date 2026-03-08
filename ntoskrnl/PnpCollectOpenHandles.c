@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpCollectOpenHandles @ 0x14096114C
+ * Callers:
+ *     PipRecordOpenHandleVeto @ 0x14096ECA4 (PipRecordOpenHandleVeto.c)
+ *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x14096ED2C (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ * Callees:
+ *     PnpHandleEnumerateHandlesAgainstPdoStack @ 0x14055EB08 (PnpHandleEnumerateHandlesAgainstPdoStack.c)
+ *     IopDebugPrint @ 0x14055EC3C (IopDebugPrint.c)
+ */
+
 __int64 __fastcall PnpCollectOpenHandles(PVOID **a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rsi

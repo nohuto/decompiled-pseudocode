@@ -1,3 +1,21 @@
+/*
+ * XREFs of bSetDevPreviewRect @ 0x1C0286B70
+ * Callers:
+ *     ?xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z @ 0x1C01ED7C0 (-xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z.c)
+ * Callees:
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C0018890 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C001F240 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
+ *     ?bCleanupSpriteStateRects@@YAHPEAUHDEV__@@PEAU_SPRITESTATE@@@Z @ 0x1C001F2B0 (-bCleanupSpriteStateRects@@YAHPEAUHDEV__@@PEAU_SPRITESTATE@@@Z.c)
+ *     GreDeleteSprite @ 0x1C0024368 (GreDeleteSprite.c)
+ *     GreCreateSprite @ 0x1C0028A54 (GreCreateSprite.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     vSpDwmGetMiniWinInfoForNonWindowSprite @ 0x1C012957C (vSpDwmGetMiniWinInfoForNonWindowSprite.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     DwmAsyncSendWindowArrangingData @ 0x1C0270268 (DwmAsyncSendWindowArrangingData.c)
+ *     bMoveDevPreviewRect @ 0x1C028698C (bMoveDevPreviewRect.c)
+ */
+
 __int64 __fastcall bSetDevPreviewRect(HDEV a1, __int64 a2, char a3, __int64 a4, __int64 a5)
 {
   unsigned int v7; // esi

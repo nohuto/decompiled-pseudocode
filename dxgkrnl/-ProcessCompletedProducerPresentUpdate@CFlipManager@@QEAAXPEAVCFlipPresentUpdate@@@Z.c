@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ProcessCompletedProducerPresentUpdate@CFlipManager@@QEAAXPEAVCFlipPresentUpdate@@@Z @ 0x1C0083DDC
+ * Callers:
+ *     ?Complete@CFlipPresentUpdate@@UEAAXXZ @ 0x1C0087CE0 (-Complete@CFlipPresentUpdate@@UEAAXXZ.c)
+ * Callees:
+ *     ?EnqueueConsumerUpdate@CFlipManager@@QEAAXPEAVCFlipPresentUpdate@@@Z @ 0x1C0082FF8 (-EnqueueConsumerUpdate@CFlipManager@@QEAAXPEAVCFlipPresentUpdate@@@Z.c)
+ *     ?GetNextEntry@PresentHistory@CFlipManager@@QEAAAEAUEntry@12@XZ @ 0x1C008332C (-GetNextEntry@PresentHistory@CFlipManager@@QEAAAEAUEntry@12@XZ.c)
+ *     ?MarkAsLost@CFlipManager@@AEAAXJW4Operation@PresentHistory@1@_K@Z @ 0x1C008392C (-MarkAsLost@CFlipManager@@AEAAXJW4Operation@PresentHistory@1@_K@Z.c)
+ *     ?Remove@CFlipQueuedObject@@QEAAXXZ @ 0x1C0084500 (-Remove@CFlipQueuedObject@@QEAAXXZ.c)
+ */
+
 void __fastcall CFlipManager::ProcessCompletedProducerPresentUpdate(PRKEVENT *this, struct CFlipPresentUpdate *a2)
 {
   _QWORD *v2; // rsi

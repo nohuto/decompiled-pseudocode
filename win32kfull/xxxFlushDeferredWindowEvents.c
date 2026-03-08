@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxFlushDeferredWindowEvents @ 0x1C00D8F74
+ * Callers:
+ *     zzzEndDeferWinEventNotify @ 0x1C002EF28 (zzzEndDeferWinEventNotify.c)
+ *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C0068A60 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
+ * Callees:
+ *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C00394B4 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
+ *     xxxProcessNotifyWinEvent @ 0x1C0063218 (xxxProcessNotifyWinEvent.c)
+ *     xxxProcessTSFEvent @ 0x1C01C1198 (xxxProcessTSFEvent.c)
+ */
+
 HANDLE xxxFlushDeferredWindowEvents()
 {
   HANDLE result; // rax

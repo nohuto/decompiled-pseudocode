@@ -1,3 +1,15 @@
+/*
+ * XREFs of PiUEventNotifyDeviceInterfaceChange @ 0x140681F08
+ * Callers:
+ *     PiUEventProcessEventWorker @ 0x14068D8E0 (PiUEventProcessEventWorker.c)
+ * Callees:
+ *     PiUEventHashGuidIntoBucket @ 0x140201EB4 (PiUEventHashGuidIntoBucket.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     PiUEventApplyAdditionalFilters @ 0x140680230 (PiUEventApplyAdditionalFilters.c)
+ *     PiUEventNotifyClient @ 0x14068032C (PiUEventNotifyClient.c)
+ */
+
 __int64 __fastcall PiUEventNotifyDeviceInterfaceChange(__int64 a1)
 {
   unsigned int v1; // r12d

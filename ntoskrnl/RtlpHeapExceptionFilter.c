@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlpHeapExceptionFilter @ 0x1405B276C
+ * Callers:
+ *     RtlpHpAllocWithExceptionProtection @ 0x1405A798C (RtlpHpAllocWithExceptionProtection.c)
+ *     RtlpHpFreeWithExceptionProtection @ 0x1405A7A00 (RtlpHpFreeWithExceptionProtection.c)
+ *     RtlpProbeUserBufferSafe @ 0x1405ABB9C (RtlpProbeUserBufferSafe.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1405B28D8 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpHpHeapHandleError @ 0x1405B2C54 (RtlpHpHeapHandleError.c)
+ *     RtlCreateHeap @ 0x14078AD90 (RtlCreateHeap.c)
+ *     RtlZeroHeap @ 0x1409BAEE0 (RtlZeroHeap.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpHeapExceptionFilter(int a1, __int64 a2)
 {
   _OWORD *v2; // rax

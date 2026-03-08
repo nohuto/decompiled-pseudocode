@@ -1,3 +1,17 @@
+/*
+ * XREFs of MmReturnChargesToLockPagedPool @ 0x140A2DCE0
+ * Callers:
+ *     MiDeleteSubsectionLargePages @ 0x14064C7F8 (MiDeleteSubsectionLargePages.c)
+ *     MiCreatePagingFileMap @ 0x1407F3500 (MiCreatePagingFileMap.c)
+ *     PopEnableHiberFile @ 0x14082ADA4 (PopEnableHiberFile.c)
+ *     HalpUnloadMicrocode @ 0x140931E50 (HalpUnloadMicrocode.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MiReturnResident @ 0x1402A52C8 (MiReturnResident.c)
+ *     MiDeleteSystemPagableVm @ 0x1402B04B0 (MiDeleteSystemPagableVm.c)
+ */
+
 unsigned __int64 __fastcall MmReturnChargesToLockPagedPool(unsigned __int64 a1, __int64 a2)
 {
   unsigned __int64 v2; // rbx

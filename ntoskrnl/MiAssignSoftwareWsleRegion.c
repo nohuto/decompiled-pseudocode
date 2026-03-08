@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiAssignSoftwareWsleRegion @ 0x14039751C
+ * Callers:
+ *     MiInitializeSystemVa @ 0x140B60308 (MiInitializeSystemVa.c)
+ * Callees:
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     RtlFindClearBitsAndSet @ 0x14030CEE0 (RtlFindClearBitsAndSet.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiAssignSoftwareWsleRegion(__int64 a1, unsigned __int64 a2)
 {
   unsigned int v4; // edi

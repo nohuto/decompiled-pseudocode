@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?AcquireForRender@CComputeScribbleFramebuffer@@QEAAX_K@Z @ 0x18020163C
+ * Callers:
+ *     ?PreRender@CComputeScribbleRenderer@@QEAAJXZ @ 0x1801F894C (-PreRender@CComputeScribbleRenderer@@QEAAJXZ.c)
+ * Callees:
+ *     McTemplateU0xq_EventWriteTransfer @ 0x18012A09C (McTemplateU0xq_EventWriteTransfer.c)
+ *     ?SaveDirtyForPreRender@CComputeScribbleFramebuffer@@QEAAXXZ @ 0x18012D90C (-SaveDirtyForPreRender@CComputeScribbleFramebuffer@@QEAAXXZ.c)
+ *     CComputeScribbleSynchronizer::BeginRenderInternal__lambda_a5058a3170b2c94992cd95324fb803e7___ @ 0x180206CE0 (CComputeScribbleSynchronizer--BeginRenderInternal__lambda_a5058a3170b2c94992cd95324fb803e7___.c)
+ */
+
 void __fastcall CComputeScribbleFramebuffer::AcquireForRender(CComputeScribbleFramebuffer *this, __int64 a2)
 {
   __int64 *v2; // rdi

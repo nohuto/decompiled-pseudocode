@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiGetHalNumaConversionFactor @ 0x140B925EC
+ * Callers:
+ *     KiComputeNumaCosts @ 0x140B727C4 (KiComputeNumaCosts.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall KiGetHalNumaConversionFactor(int *a1)
 {
   int v1; // edx

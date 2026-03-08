@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiLogKernelStackEvent @ 0x140642970
+ * Callers:
+ *     MiInPageSingleKernelStack @ 0x1402A7A08 (MiInPageSingleKernelStack.c)
+ *     MmCreateKernelStack @ 0x140317B10 (MmCreateKernelStack.c)
+ *     MmDeleteKernelStackEx @ 0x140318070 (MmDeleteKernelStackEx.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall MiLogKernelStackEvent(__int64 a1, unsigned int a2, int a3)
 {
   _QWORD v3[3]; // [rsp+30h] [rbp-38h] BYREF

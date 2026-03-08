@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiDcHandleObjectEvent @ 0x1407F8244
+ * Callers:
+ *     PiPnpRtlObjectEventDispatch @ 0x1406CCCB0 (PiPnpRtlObjectEventDispatch.c)
+ * Callees:
+ *     PiDcHandleDeviceEvent @ 0x1407F8294 (PiDcHandleDeviceEvent.c)
+ *     PiDcHandleInterfaceEvent @ 0x1407F8364 (PiDcHandleInterfaceEvent.c)
+ *     PiDcHandleContainerEvent @ 0x1407F8458 (PiDcHandleContainerEvent.c)
+ */
+
 __int64 __fastcall PiDcHandleObjectEvent(__int64 a1)
 {
   unsigned int v1; // r9d

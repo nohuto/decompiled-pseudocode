@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpFindCellInIndex @ 0x140A2075C
+ * Callers:
+ *     CmpRemoveSubKeyCellNoCellRef @ 0x140A21A3C (CmpRemoveSubKeyCellNoCellRef.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmpFindCellInIndex(_WORD *a1, int a2)
 {
   unsigned __int16 v2; // r10

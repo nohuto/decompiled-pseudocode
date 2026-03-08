@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtConvertBetweenAuxiliaryCounterAndPerformanceCounter @ 0x140A01620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall NtConvertBetweenAuxiliaryCounterAndPerformanceCounter(
         char a1,
         unsigned __int64 a2,

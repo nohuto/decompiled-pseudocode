@@ -1,3 +1,14 @@
+/*
+ * XREFs of PnpDeviceCompletionRequestDestroy @ 0x140202754
+ * Callers:
+ *     PnpDeviceCompletionRoutine @ 0x140202690 (PnpDeviceCompletionRoutine.c)
+ *     PnpDeviceCompletionProcessCompletedRequest @ 0x140685424 (PnpDeviceCompletionProcessCompletedRequest.c)
+ * Callees:
+ *     IoAllocateWorkItem @ 0x1402027B0 (IoAllocateWorkItem.c)
+ *     ExQueueWorkItemFromIo @ 0x14033EDC0 (ExQueueWorkItemFromIo.c)
+ *     IopQueueWorkItemProlog @ 0x140341380 (IopQueueWorkItemProlog.c)
+ */
+
 PIO_WORKITEM __fastcall PnpDeviceCompletionRequestDestroy(__int64 a1)
 {
   PIO_WORKITEM result; // rax

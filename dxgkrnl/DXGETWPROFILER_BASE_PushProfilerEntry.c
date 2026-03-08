@@ -1,3 +1,12 @@
+/*
+ * XREFs of DXGETWPROFILER_BASE_PushProfilerEntry @ 0x1C0007610
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     ?GetCurrent@DXGTHREAD@@SAPEAV1@XZ @ 0x1C01941D0 (-GetCurrent@DXGTHREAD@@SAPEAV1@XZ.c)
+ */
+
 char __fastcall DXGETWPROFILER_BASE_PushProfilerEntry(__int64 a1, int a2)
 {
   struct DXGTHREAD *Current; // rax

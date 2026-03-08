@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidSchiUpdateFlipTelemetryStats@@YAXPEAU_VIDSCH_PROCESS@@PEAU_VIDSCH_CALL_EXECUTE_FLIP@@PEAU_VIDSCH_PRESENT_INFO@@@Z @ 0x1C00112D4
+ * Callers:
+ *     VidSchiExecuteMmIoFlipAtPassiveLevel @ 0x1C0010D10 (VidSchiExecuteMmIoFlipAtPassiveLevel.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VidSchiUpdateFlipTelemetryStats(
         struct _VIDSCH_PROCESS *a1,
         struct _VIDSCH_CALL_EXECUTE_FLIP *a2,

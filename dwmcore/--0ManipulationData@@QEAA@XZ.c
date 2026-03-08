@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0ManipulationData@@QEAA@XZ @ 0x18020A45C
+ * Callers:
+ *     ??0CManipulation@@IEAA@PEAVCComposition@@@Z @ 0x18020A37C (--0CManipulation@@IEAA@PEAVCComposition@@@Z.c)
+ *     ?InjectManipulation@CManipulation@@QEAAJAEBUInjectManipulationArgs@@@Z @ 0x18020A87C (-InjectManipulation@CManipulation@@QEAAJAEBUInjectManipulationArgs@@@Z.c)
+ * Callees:
+ *     ?Reset@ManipulationData@@QEAAXXZ @ 0x18020AE68 (-Reset@ManipulationData@@QEAAXXZ.c)
+ */
+
 ManipulationData *__fastcall ManipulationData::ManipulationData(ManipulationData *this)
 {
   __int64 v1; // rcx

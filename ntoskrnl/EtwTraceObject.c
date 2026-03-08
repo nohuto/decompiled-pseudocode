@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwTraceObject @ 0x1409E2DE8
+ * Callers:
+ *     ObpDeregisterObject @ 0x140979950 (ObpDeregisterObject.c)
+ *     ObpRegisterObject @ 0x14097A3B4 (ObpRegisterObject.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExCheckSingleFilter @ 0x140462BFE (ExCheckSingleFilter.c)
+ *     EtwpTraceKernelEventWithFilter @ 0x1405FC0F8 (EtwpTraceKernelEventWithFilter.c)
+ */
+
 void __fastcall EtwTraceObject(unsigned __int16 a1, __int64 a2)
 {
   unsigned __int8 v4; // r15

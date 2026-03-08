@@ -1,3 +1,11 @@
+/*
+ * XREFs of ESM_StoppingMappingAfterControllerResetInEnabled @ 0x1C0051DE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     TR_StopMapping @ 0x1C000FC90 (TR_StopMapping.c)
+ */
+
 __int64 __fastcall ESM_StoppingMappingAfterControllerResetInEnabled(__int64 a1)
 {
   __int64 v1; // rbx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of IrqArbpSetDeviceProperties @ 0x1C009E5F4
+ * Callers:
+ *     IrqArbCommitAllocation @ 0x1C009D040 (IrqArbCommitAllocation.c)
+ *     IrqArbUpdateInterruptProperties @ 0x1C009D9B4 (IrqArbUpdateInterruptProperties.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     ProcessorGetDeviceIdtAssignment @ 0x1C009ABF4 (ProcessorGetDeviceIdtAssignment.c)
+ *     IrqArbGsivFromIrq @ 0x1C009D69C (IrqArbGsivFromIrq.c)
+ *     IrqPolicySetDeviceAffinity @ 0x1C009FED4 (IrqPolicySetDeviceAffinity.c)
+ */
+
 __int64 __fastcall IrqArbpSetDeviceProperties(PRTL_RANGE a1, __int128 *a2)
 {
   __int128 v2; // xmm1

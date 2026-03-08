@@ -1,3 +1,12 @@
+/*
+ * XREFs of SymCryptMd5Result @ 0x1403F7F80
+ * Callers:
+ *     HashpHashMemory @ 0x140A7438C (HashpHashMemory.c)
+ * Callees:
+ *     SymCryptWipe @ 0x1403F0988 (SymCryptWipe.c)
+ *     SymCryptHashCommonPaddingMd4Style @ 0x1403FD438 (SymCryptHashCommonPaddingMd4Style.c)
+ */
+
 __int64 __fastcall SymCryptMd5Result(__int64 a1, _OWORD *a2)
 {
   __int64 result; // rax

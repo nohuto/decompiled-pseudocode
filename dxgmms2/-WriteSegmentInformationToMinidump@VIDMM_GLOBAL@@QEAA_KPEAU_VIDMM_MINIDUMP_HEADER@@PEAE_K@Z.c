@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?WriteSegmentInformationToMinidump@VIDMM_GLOBAL@@QEAA_KPEAU_VIDMM_MINIDUMP_HEADER@@PEAE_K@Z @ 0x1C00EBD44
+ * Callers:
+ *     ?LogInformationToMinidump@VIDMM_GLOBAL@@QEAA_KK_KKPEAE0@Z @ 0x1C00E4B54 (-LogInformationToMinidump@VIDMM_GLOBAL@@QEAA_KK_KKPEAE0@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     memmove @ 0x1C001A980 (memmove.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     ?CheckForApertureGuardPageCorruption@VIDMM_SEGMENT@@QEAAJPEAPEAKE@Z @ 0x1C0032984 (-CheckForApertureGuardPageCorruption@VIDMM_SEGMENT@@QEAAJPEAPEAKE@Z.c)
+ */
+
 __int64 __fastcall VIDMM_GLOBAL::WriteSegmentInformationToMinidump(
         VIDMM_GLOBAL *this,
         struct _VIDMM_MINIDUMP_HEADER *a2,

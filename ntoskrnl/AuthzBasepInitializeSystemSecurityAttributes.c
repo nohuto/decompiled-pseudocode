@@ -1,3 +1,14 @@
+/*
+ * XREFs of AuthzBasepInitializeSystemSecurityAttributes @ 0x140841554
+ * Callers:
+ *     SeRmInitPhase1 @ 0x140B614EC (SeRmInitPhase1.c)
+ * Callees:
+ *     AuthzBasepSetSecurityAttributesToken @ 0x14029705C (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402B8730 (AuthzBasepFreeSecurityAttributesList.c)
+ *     AuthzBasepAllocateSecurityAttributesList @ 0x1402FF8B0 (AuthzBasepAllocateSecurityAttributesList.c)
+ *     RtlIsMultiSessionSku @ 0x1407447E0 (RtlIsMultiSessionSku.c)
+ */
+
 __int64 __fastcall AuthzBasepInitializeSystemSecurityAttributes(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

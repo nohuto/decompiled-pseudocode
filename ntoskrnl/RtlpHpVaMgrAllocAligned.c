@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpHpVaMgrAllocAligned @ 0x140304644
+ * Callers:
+ *     RtlpHpVaMgrRegionAllocate @ 0x1402F97BC (RtlpHpVaMgrRegionAllocate.c)
+ *     RtlpHpVaMgrAlloc @ 0x14030424C (RtlpHpVaMgrAlloc.c)
+ * Callees:
+ *     RtlpHpEnvAllocVA @ 0x140330480 (RtlpHpEnvAllocVA.c)
+ */
+
 __int64 __fastcall RtlpHpVaMgrAllocAligned(__int64 a1, int a2, int a3)
 {
   unsigned int v3; // r11d

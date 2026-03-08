@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiIsRangeFullyCommitted @ 0x1407C4160
+ * Callers:
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x1406A0D38 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MmProtectVirtualMemory @ 0x1407C77B0 (MmProtectVirtualMemory.c)
+ * Callees:
+ *     MiReadPteShadow @ 0x140224390 (MiReadPteShadow.c)
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiGetProtoPteAddress @ 0x14031C780 (MiGetProtoPteAddress.c)
+ */
+
 __int64 __fastcall MiIsRangeFullyCommitted(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   __int64 *ProtoPteAddress; // rbx

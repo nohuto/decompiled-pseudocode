@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpQueryProcessOtherInfo @ 0x14071DD1C
+ * Callers:
+ *     EtwQueryProcessTelemetryInfo @ 0x14071D7DC (EtwQueryProcessTelemetryInfo.c)
+ *     EtwpBuildProcessEvent @ 0x14071DE28 (EtwpBuildProcessEvent.c)
+ *     EtwTraceAppStateChange @ 0x1407E8520 (EtwTraceAppStateChange.c)
+ *     EtwpPsProvProcessEnumCallback @ 0x1409ECC80 (EtwpPsProvProcessEnumCallback.c)
+ * Callees:
+ *     PsGetProcessSectionBaseAddress @ 0x140299400 (PsGetProcessSectionBaseAddress.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ */
+
 __int64 __fastcall EtwpQueryProcessOtherInfo(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

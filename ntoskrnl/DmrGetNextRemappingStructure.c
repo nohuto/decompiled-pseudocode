@@ -1,3 +1,16 @@
+/*
+ * XREFs of DmrGetNextRemappingStructure @ 0x14037BFAC
+ * Callers:
+ *     HalpIvtProcessDmarTable @ 0x14037BB68 (HalpIvtProcessDmarTable.c)
+ *     DmrEnumerateSatcDevices @ 0x14037BC00 (DmrEnumerateSatcDevices.c)
+ *     DmrFindDrhdForDeviceScope @ 0x14037BC80 (DmrFindDrhdForDeviceScope.c)
+ *     DmrEnumerateRmrrDomains @ 0x14037BD30 (DmrEnumerateRmrrDomains.c)
+ *     DmrValidateDeviceScope @ 0x14037BE8C (DmrValidateDeviceScope.c)
+ *     IvtCheckForReservedRegion @ 0x14080BF70 (IvtCheckForReservedRegion.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall DmrGetNextRemappingStructure(unsigned __int64 a1, __int64 a2)
 {
   __int64 v2; // r8

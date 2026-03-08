@@ -1,3 +1,15 @@
+/*
+ * XREFs of AslEnvVarQuery @ 0x140A54908
+ * Callers:
+ *     AslEnvExpandStrings @ 0x140A540A8 (AslEnvExpandStrings.c)
+ * Callees:
+ *     NLS_UPCASE @ 0x140267AD0 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlGetNtSystemRoot @ 0x1407F7270 (RtlGetNtSystemRoot.c)
+ */
+
 __int64 __fastcall AslEnvVarQuery(
         char *a1,
         const wchar_t *a2,

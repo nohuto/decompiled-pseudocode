@@ -1,3 +1,11 @@
+/*
+ * XREFs of wcsncat @ 0x1403D5E80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 wchar_t *__cdecl wcsncat(wchar_t *Dest, const wchar_t *Source, size_t Count)
 {
   wchar_t *v3; // r10

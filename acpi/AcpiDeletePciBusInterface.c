@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiDeletePciBusInterface @ 0x1C008A2A4
+ * Callers:
+ *     ACPIFilterIrpRemoveDevice @ 0x1C0028840 (ACPIFilterIrpRemoveDevice.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     IsPciDevice @ 0x1C00358A8 (IsPciDevice.c)
+ */
+
 __int64 __fastcall AcpiDeletePciBusInterface(__int64 a1)
 {
   unsigned __int8 v1; // cf

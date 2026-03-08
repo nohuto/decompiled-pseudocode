@@ -1,3 +1,24 @@
+/*
+ * XREFs of HmgCreate @ 0x1C002CDD0
+ * Callers:
+ *     InitializeGre @ 0x1C031D988 (InitializeGre.c)
+ * Callees:
+ *     GreCreateSemaphoreInternal @ 0x1C002B04C (GreCreateSemaphoreInternal.c)
+ *     ?HmgInitializeLookAsideList@@YAHKKKG@Z @ 0x1C002D210 (-HmgInitializeLookAsideList@@YAHKKKG@Z.c)
+ *     GreCreateFastMutex @ 0x1C002D2A8 (GreCreateFastMutex.c)
+ *     ?Create@GdiHandleManager@@SAPEAV1@IPEAU_ENTRY@@I@Z @ 0x1C002D2F0 (-Create@GdiHandleManager@@SAPEAV1@IPEAU_ENTRY@@I@Z.c)
+ *     Win32CreateSection @ 0x1C002D5F4 (Win32CreateSection.c)
+ *     ?AcquireEntryIndex@GdiHandleManager@@QEAA_NPEAI@Z @ 0x1C0051F60 (-AcquireEntryIndex@GdiHandleManager@@QEAA_NPEAI@Z.c)
+ *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0062994 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ?HmgrStacksInit@@YAXXZ @ 0x1C008AD04 (-HmgrStacksInit@@YAXXZ.c)
+ *     bLoadProcessHandleQuota @ 0x1C008AE98 (bLoadProcessHandleQuota.c)
+ *     ?Destroy@GdiHandleManager@@SAXPEAV1@@Z @ 0x1C009FC10 (-Destroy@GdiHandleManager@@SAXPEAV1@@Z.c)
+ *     ?InitializeTypeIsolation@@YA_NXZ @ 0x1C00C4C8C (-InitializeTypeIsolation@@YA_NXZ.c)
+ *     ?InitializeReferenceTracker@@YA_NXZ @ 0x1C00CF19C (-InitializeReferenceTracker@@YA_NXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 __fastcall HmgCreate(__int64 a1)
 {
   __int64 v1; // rbx

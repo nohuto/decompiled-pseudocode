@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpAssignResourcesToDevices @ 0x140680DD8
+ * Callers:
+ *     PnpProcessAssignResources @ 0x140681528 (PnpProcessAssignResources.c)
+ * Callees:
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     PnpAllocateResources @ 0x1406F5CE0 (PnpAllocateResources.c)
+ */
+
 __int64 __fastcall PnpAssignResourcesToDevices(unsigned int a1, _DWORD *a2, __int64 a3)
 {
   _DWORD *v6; // rbx

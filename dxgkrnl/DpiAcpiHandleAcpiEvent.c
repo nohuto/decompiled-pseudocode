@@ -1,3 +1,22 @@
+/*
+ * XREFs of DpiAcpiHandleAcpiEvent @ 0x1C03A1FD4
+ * Callers:
+ *     DpiAcpiHandleAcpiEventWork @ 0x1C03A2450 (DpiAcpiHandleAcpiEventWork.c)
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000B270 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DxgkAcquireAdapterCoreSync @ 0x1C01801F4 (DxgkAcquireAdapterCoreSync.c)
+ *     DxgkReleaseAdapterCoreSync @ 0x1C0180708 (DxgkReleaseAdapterCoreSync.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01BA77C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     DxgkReleaseAdapterDdiSync @ 0x1C01E7088 (DxgkReleaseAdapterDdiSync.c)
+ *     DxgkAcquireAdapterDdiSync @ 0x1C01E70A8 (DxgkAcquireAdapterDdiSync.c)
+ *     DpiAcpiProcessEventRequests @ 0x1C03A2598 (DpiAcpiProcessEventRequests.c)
+ *     DpiDxgkDdiNotifyAcpiEvent @ 0x1C03A461C (DpiDxgkDdiNotifyAcpiEvent.c)
+ */
+
 void __fastcall DpiAcpiHandleAcpiEvent(char *P)
 {
   int v2; // ebx

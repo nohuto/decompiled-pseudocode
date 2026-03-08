@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopGetPhysicalMemoryBlock @ 0x140392BD0
+ * Callers:
+ *     IopLoadCrashdumpDriver @ 0x140392A70 (IopLoadCrashdumpDriver.c)
+ *     IoUpdateDumpPhysicalRanges @ 0x14054EC60 (IoUpdateDumpPhysicalRanges.c)
+ *     IopLiveDumpAllocAndInitResources @ 0x1409495FC (IopLiveDumpAllocAndInitResources.c)
+ * Callees:
+ *     MmGetPhysicalMemoryRanges @ 0x140836290 (MmGetPhysicalMemoryRanges.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 IopGetPhysicalMemoryBlock()
 {
   __int64 v0; // rdi

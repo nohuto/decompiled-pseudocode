@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopSystemIdleWorker @ 0x14073B6A0
+ * Callers:
+ *     PopPolicyWorkerThread @ 0x1402F6DE0 (PopPolicyWorkerThread.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopScanIdleList @ 0x1402BC8E0 (PopScanIdleList.c)
+ *     Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage @ 0x14040B89C (Feature_PowerEventProcessorSystemIdle__private_ReportDeviceUsage.c)
+ *     PopPulseSystemIdleEvent @ 0x14073ADD8 (PopPulseSystemIdleEvent.c)
+ *     PopExecuteSystemIdleAction @ 0x14073B810 (PopExecuteSystemIdleAction.c)
+ *     PopUpdateLastUserInputTime @ 0x14073BC30 (PopUpdateLastUserInputTime.c)
+ *     PopIsSystemIdle @ 0x14073BC88 (PopIsSystemIdle.c)
+ */
+
 __int64 PopSystemIdleWorker()
 {
   bool v0; // si

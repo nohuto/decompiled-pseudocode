@@ -1,3 +1,27 @@
+/*
+ * XREFs of ObpDecrementHandleCount @ 0x1407D8404
+ * Callers:
+ *     ObpInsertOrLocateNamedObject @ 0x140696BDC (ObpInsertOrLocateNamedObject.c)
+ *     ObDuplicateObject @ 0x1406ED5C0 (ObDuplicateObject.c)
+ *     ObCompleteObjectDuplication @ 0x14071134C (ObCompleteObjectDuplication.c)
+ *     AlpcHandleDataDestroyProcedure @ 0x14077E730 (AlpcHandleDataDestroyProcedure.c)
+ *     ObpCreateHandle @ 0x1407C0130 (ObpCreateHandle.c)
+ *     ObCloseHandleTableEntry @ 0x1407D8274 (ObCloseHandleTableEntry.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     PsGetProcessServerSilo @ 0x1402637E0 (PsGetProcessServerSilo.c)
+ *     PsAttachSiloToCurrentThread @ 0x1402993A0 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x1402993C0 (PsDetachSiloFromCurrentThread.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ObpDeleteNameCheck @ 0x1407D85E0 (ObpDeleteNameCheck.c)
+ *     ObpReleaseHandleInfo @ 0x1407D9010 (ObpReleaseHandleInfo.c)
+ */
+
 void __fastcall ObpDecrementHandleCount(PRKPROCESS PROCESS, __int64 a2)
 {
   unsigned __int64 v4; // rcx

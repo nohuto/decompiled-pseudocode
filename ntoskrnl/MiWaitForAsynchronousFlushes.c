@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiWaitForAsynchronousFlushes @ 0x140633F34
+ * Callers:
+ *     MiFlushSectionInternal @ 0x14031FA90 (MiFlushSectionInternal.c)
+ * Callees:
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiWaitForAsynchronousFlushes(unsigned int *a1)
 {
   unsigned int *v1; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of FsRtlNotifyUpdateBuffer @ 0x14093D1A8
+ * Callers:
+ *     FsRtlNotifyFilterReportChange @ 0x140848F70 (FsRtlNotifyFilterReportChange.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlOemToUnicodeN @ 0x1407A3940 (RtlOemToUnicodeN.c)
+ */
+
 char __fastcall FsRtlNotifyUpdateBuffer(__int64 a1, int a2, PCCH *a3, PCCH *a4, PCCH *a5, char a6, int a7)
 {
   unsigned int v10; // edi

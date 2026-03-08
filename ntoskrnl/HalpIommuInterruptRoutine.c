@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpIommuInterruptRoutine @ 0x1405130F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char HalpIommuInterruptRoutine()
 {
   ULONG_PTR *v0; // rbx

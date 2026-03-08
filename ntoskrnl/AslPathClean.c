@@ -1,3 +1,14 @@
+/*
+ * XREFs of AslPathClean @ 0x140A51F28
+ * Callers:
+ *     SdbpResolveMatchingFile @ 0x140A4EB00 (SdbpResolveMatchingFile.c)
+ * Callees:
+ *     wcschr @ 0x1403D5D90 (wcschr.c)
+ *     wcsncmp @ 0x1403D5ED0 (wcsncmp.c)
+ *     Feature_Mercury_App_Backup_V2__private_IsEnabledDeviceUsage @ 0x140411810 (Feature_Mercury_App_Backup_V2__private_IsEnabledDeviceUsage.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall AslPathClean(const wchar_t *Src, void *a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // rbp

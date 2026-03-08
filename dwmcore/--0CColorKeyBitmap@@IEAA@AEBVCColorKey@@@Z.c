@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CColorKeyBitmap@@IEAA@AEBVCColorKey@@@Z @ 0x1802B2F90
+ * Callers:
+ *     ?Create@CColorKeyBitmap@@SAJPEAVIBitmapRealization@@AEBVCColorKey@@PEAPEAV1@@Z @ 0x1802B34B0 (-Create@CColorKeyBitmap@@SAJPEAVIBitmapRealization@@AEBVCColorKey@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 CColorKeyBitmap *__fastcall CColorKeyBitmap::CColorKeyBitmap(CColorKeyBitmap *this, const struct CColorKey *a2)
 {
   __int64 v3; // rcx

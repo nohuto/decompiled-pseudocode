@@ -1,3 +1,16 @@
+/*
+ * XREFs of PfpCopyEvent @ 0x1407E5C10
+ * Callers:
+ *     PfpFlushEventBuffers @ 0x1407E5B18 (PfpFlushEventBuffers.c)
+ *     PfpFlushBuffers @ 0x1407E5E50 (PfpFlushBuffers.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PsLookupProcessByProcessId @ 0x1406AC100 (PsLookupProcessByProcessId.c)
+ *     PfpLogPageAccess @ 0x1407E6160 (PfpLogPageAccess.c)
+ *     PfTAcquireLogEntry @ 0x1407E67C4 (PfTAcquireLogEntry.c)
+ */
+
 __int64 __fastcall PfpCopyEvent(__int64 *Src)
 {
   unsigned __int64 v1; // rax

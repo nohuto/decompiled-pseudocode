@@ -1,3 +1,11 @@
+/*
+ * XREFs of Controller_EvtDeviceFileCreate @ 0x1C0013780
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Controller_EvtDeviceFileCreate(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v5; // rbx

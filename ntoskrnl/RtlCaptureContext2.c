@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlCaptureContext2 @ 0x1404206E0
+ * Callers:
+ *     RtlUnwindEx @ 0x1402809E0 (RtlUnwindEx.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlCaptureContext2(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rax

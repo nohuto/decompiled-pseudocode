@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??_ECVisualTargetMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C00A1550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 DirectComposition::CVisualTargetMarshaler *__fastcall DirectComposition::CVisualTargetMarshaler::`vector deleting destructor'(
         DirectComposition::CVisualTargetMarshaler *this,
         char a2)

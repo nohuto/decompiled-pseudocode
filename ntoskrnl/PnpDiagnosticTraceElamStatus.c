@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpDiagnosticTraceElamStatus @ 0x14038950C
+ * Callers:
+ *     PnpNotifyEarlyLaunchStatusUpdate @ 0x140B594E8 (PnpNotifyEarlyLaunchStatusUpdate.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall PnpDiagnosticTraceElamStatus(PCEVENT_DESCRIPTOR EventDescriptor, int a2)
 {
   REGHANDLE v2; // rdi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhCompleteCanceledPdoWakeIrp @ 0x1C003C9B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhEtwLogDeviceIrpEvent @ 0x1C0007830 (UsbhEtwLogDeviceIrpEvent.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhDecPdoIoCount @ 0x1C001BC4C (UsbhDecPdoIoCount.c)
+ *     WPP_RECORDER_SF_dqq @ 0x1C003CEB8 (WPP_RECORDER_SF_dqq.c)
+ */
+
 void __fastcall UsbhCompleteCanceledPdoWakeIrp(char *Csq, PIRP Irp)
 {
   char *v2; // rbx

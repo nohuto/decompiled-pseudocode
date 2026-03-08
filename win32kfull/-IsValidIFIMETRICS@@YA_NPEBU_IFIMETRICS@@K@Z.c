@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?IsValidIFIMETRICS@@YA_NPEBU_IFIMETRICS@@K@Z @ 0x1C02BA1FC
+ * Callers:
+ *     ?ProbeAndReadIFIMETRICS@@YAPEAU_IFIMETRICS@@PEAU1@H_K@Z @ 0x1C02BA788 (-ProbeAndReadIFIMETRICS@@YAPEAU_IFIMETRICS@@PEAU1@H_K@Z.c)
+ * Callees:
+ *     ?IsValidAXESLISTW@@YA_NPEBXKJ@Z @ 0x1C02BA0A8 (-IsValidAXESLISTW@@YA_NPEBXKJ@Z.c)
+ *     ?IsValidDESIGNVECTOR@@YA_NPEBXKJ@Z @ 0x1C02BA0FC (-IsValidDESIGNVECTOR@@YA_NPEBXKJ@Z.c)
+ *     ?IsValidFONTSIM@@YA_NPEBXKJ@Z @ 0x1C02BA188 (-IsValidFONTSIM@@YA_NPEBXKJ@Z.c)
+ *     ?IsValidString@@YA_NPEBXKJ@Z @ 0x1C02BA344 (-IsValidString@@YA_NPEBXKJ@Z.c)
+ */
+
 bool __fastcall IsValidIFIMETRICS(struct _IFIMETRICS *a1, unsigned int a2)
 {
   unsigned __int64 v2; // rdi

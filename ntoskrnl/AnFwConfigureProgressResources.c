@@ -1,3 +1,16 @@
+/*
+ * XREFs of AnFwConfigureProgressResources @ 0x140AEB920
+ * Callers:
+ *     BgpFwLibraryInitialize @ 0x140AEAC78 (BgpFwLibraryInitialize.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     BgpGetBitsPerPixel @ 0x140381AB0 (BgpGetBitsPerPixel.c)
+ *     BgpTxtRegionSize @ 0x14038468C (BgpTxtRegionSize.c)
+ *     BgpGxRectangleSize @ 0x1403846EC (BgpGxRectangleSize.c)
+ *     BgpFoGetFontHandle @ 0x140AEABC4 (BgpFoGetFontHandle.c)
+ *     BgpTxtCreateRegion @ 0x140AEB2AC (BgpTxtCreateRegion.c)
+ */
+
 __int64 __fastcall AnFwConfigureProgressResources(__int64 a1)
 {
   int BitsPerPixel; // eax

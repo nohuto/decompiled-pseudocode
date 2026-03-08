@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBREG_DeleteUxdSubKeys @ 0x1C0087990
+ * Callers:
+ *     HUBREG_UxdShutdown @ 0x1C0087BB0 (HUBREG_UxdShutdown.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 __int64 __fastcall HUBREG_DeleteUxdSubKeys(__int64 a1, __int64 a2, __int64 a3)
 {
   void *v6; // r15

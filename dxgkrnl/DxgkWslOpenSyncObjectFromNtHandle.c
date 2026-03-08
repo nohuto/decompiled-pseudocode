@@ -1,3 +1,11 @@
+/*
+ * XREFs of DxgkWslOpenSyncObjectFromNtHandle @ 0x1C0324D40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DxgkOpenSyncObjectFromNtHandle2Impl@@YAJPEAU_D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2@@EEEPEAX@Z @ 0x1C01DF048 (-DxgkOpenSyncObjectFromNtHandle2Impl@@YAJPEAU_D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2@@EEEPEAX@Z.c)
+ */
+
 __int64 __fastcall DxgkWslOpenSyncObjectFromNtHandle(
         struct _D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 *a1,
         void *a2,

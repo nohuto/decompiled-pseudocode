@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??1CSectionBitmapRealization@@MEAA@XZ @ 0x1800F4ACC
+ * Callers:
+ *     ??_GCGDISectionBitmapRealization@@UEAAPEAXI@Z @ 0x1800F4A90 (--_GCGDISectionBitmapRealization@@UEAAPEAXI@Z.c)
+ *     ??_ECSectionBitmapRealization@@MEAAPEAXI@Z @ 0x1802ACB00 (--_ECSectionBitmapRealization@@MEAAPEAXI@Z.c)
+ *     ??_GCGDISubSectionBitmapRealization@@UEAAPEAXI@Z @ 0x1802AD460 (--_GCGDISubSectionBitmapRealization@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800342C8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?InternalRelease@?$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ @ 0x18008F164 (-InternalRelease@-$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ.c)
+ */
+
 void __fastcall CSectionBitmapRealization::~CSectionBitmapRealization(CSectionBitmapRealization *this)
 {
   __int64 v2; // rcx

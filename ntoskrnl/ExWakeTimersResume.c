@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExWakeTimersResume @ 0x1406097F4
+ * Callers:
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     ExpTimerResume @ 0x1402FF9C0 (ExpTimerResume.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 signed __int64 ExWakeTimersResume()
 {
   unsigned __int8 CurrentIrql; // di

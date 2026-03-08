@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProcessorpRangeConflictCallback @ 0x1C009BD50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __fastcall ProcessorpRangeConflictCallback(_DWORD *Context, struct _RTL_RANGE *Range)
 {
   _DWORD *UserData; // r8

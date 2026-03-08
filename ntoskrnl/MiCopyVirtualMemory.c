@@ -1,3 +1,30 @@
+/*
+ * XREFs of MiCopyVirtualMemory @ 0x1407C5950
+ * Callers:
+ *     NtQueryInformationThread @ 0x1406A7BF0 (NtQueryInformationThread.c)
+ *     NtQueryInformationProcess @ 0x1407215F0 (NtQueryInformationProcess.c)
+ *     MiReadWriteVirtualMemory @ 0x14075AD90 (MiReadWriteVirtualMemory.c)
+ *     MmCopyVirtualMemory @ 0x1407C5910 (MmCopyVirtualMemory.c)
+ *     LpcpCopyRequestData @ 0x14097523C (LpcpCopyRequestData.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MmProbeAndLockPages @ 0x140267B90 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x14027C0C0 (MmUnlockPages.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     MiObtainReferencedVadEx @ 0x14031EFE0 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14031F7B0 (MiUnlockAndDereferenceVadShared.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiGetExceptionInfo @ 0x140624468 (MiGetExceptionInfo.c)
+ *     MiVadRangeIsIoSpace @ 0x14062F2D4 (MiVadRangeIsIoSpace.c)
+ *     VslDebugReadWriteSecureProcess @ 0x14093EF40 (VslDebugReadWriteSecureProcess.c)
+ *     MiDbgReadWriteEnclave @ 0x140A3AF6C (MiDbgReadWriteEnclave.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiCopyVirtualMemory(
         ULONG_PTR BugCheckParameter1,
         char *a2,

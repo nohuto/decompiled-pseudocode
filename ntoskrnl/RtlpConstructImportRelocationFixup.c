@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlpConstructImportRelocationFixup @ 0x140209B30
+ * Callers:
+ *     MiUpdateRetpolineImportFixups @ 0x1402097C0 (MiUpdateRetpolineImportFixups.c)
+ *     MiApplyRetpolineFixups @ 0x140209950 (MiApplyRetpolineFixups.c)
+ *     RtlApplyImportRelocationToPage @ 0x1402F6BE4 (RtlApplyImportRelocationToPage.c)
+ *     RtlUpdateImportRelocationsInImage @ 0x140370FC4 (RtlUpdateImportRelocationsInImage.c)
+ *     RtlApplyImportRelocationToImage @ 0x140677E00 (RtlApplyImportRelocationToImage.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall RtlpConstructImportRelocationFixup(
         int a1,
         __int64 a2,

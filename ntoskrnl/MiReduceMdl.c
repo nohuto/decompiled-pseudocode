@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiReduceMdl @ 0x1402D674C
+ * Callers:
+ *     MiPfPutPagesInTransition @ 0x140288890 (MiPfPutPagesInTransition.c)
+ *     MiResolvePageFileFault @ 0x140668EDC (MiResolvePageFileFault.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiReduceMdl(__int64 a1)
 {
   char *v1; // rbx

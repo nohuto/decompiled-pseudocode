@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeControllerReclaimLocalCommand @ 0x1C0003594
+ * Callers:
+ *     NVMeCompletionDpcRoutine @ 0x1C00023F0 (NVMeCompletionDpcRoutine.c)
+ *     NVMeRequestComplete @ 0x1C000318C (NVMeRequestComplete.c)
+ * Callees:
+ *     memset @ 0x1C0004580 (memset.c)
+ */
+
 __int64 __fastcall NVMeControllerReclaimLocalCommand(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MNFindNextValidItem @ 0x1C0241C80
+ * Callers:
+ *     xxxMNKeyDown @ 0x1C021ABF8 (xxxMNKeyDown.c)
+ *     xxxMenuWindowProc @ 0x1C021D3D0 (xxxMenuWindowProc.c)
+ *     MNFindItemInColumn @ 0x1C0241B78 (MNFindItemInColumn.c)
+ *     xxxMNFindChar @ 0x1C0241D40 (xxxMNFindChar.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MNFindNextValidItem(__int64 a1, int a2, int a3, char a4)
 {
   int v5; // r10d

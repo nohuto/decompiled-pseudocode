@@ -1,3 +1,12 @@
+/*
+ * XREFs of AdtpBuildMultiSzStringListString @ 0x140395E50
+ * Callers:
+ *     AdtpPackageParameters @ 0x1403958B4 (AdtpPackageParameters.c)
+ * Callees:
+ *     AdtpEtwBuildDashString @ 0x14079BA9C (AdtpEtwBuildDashString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall AdtpBuildMultiSzStringListString(unsigned __int16 *a1, _QWORD *a2, _BYTE *a3)
 {
   unsigned int v6; // ebp

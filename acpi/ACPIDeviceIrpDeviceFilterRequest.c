@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIDeviceIrpDeviceFilterRequest @ 0x1C001DA90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_qdqss @ 0x1C0009EDC (WPP_RECORDER_SF_qdqss.c)
+ *     ACPIDeviceInitializePowerRequest @ 0x1C001CF98 (ACPIDeviceInitializePowerRequest.c)
+ *     ACPIInternalDecrementIrpReferenceCount @ 0x1C002E528 (ACPIInternalDecrementIrpReferenceCount.c)
+ */
+
 __int64 __fastcall ACPIDeviceIrpDeviceFilterRequest(
         ULONG_PTR a1,
         __int64 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ResolveHandle@DXGVAILOBJECT@@SAJPEAXKDPEAPEAV1@@Z @ 0x1C035D934
+ * Callers:
+ *     ?Create@DXGVAILOBJECT@@SAJPEAPEAV1@@Z @ 0x1C035C820 (-Create@DXGVAILOBJECT@@SAJPEAPEAV1@@Z.c)
+ * Callees:
+ *     ?ResolveHandle@DxgkCompositionObject@@SAJPEAXKDW4DxgkCompositionObjectType@@PEAPEAV1@@Z @ 0x1C000D828 (-ResolveHandle@DxgkCompositionObject@@SAJPEAXKDW4DxgkCompositionObjectType@@PEAPEAV1@@Z.c)
+ */
+
 __int64 __fastcall DXGVAILOBJECT::ResolveHandle(void *a1, __int64 a2, __int64 a3, struct DXGVAILOBJECT **a4)
 {
   int v5; // eax

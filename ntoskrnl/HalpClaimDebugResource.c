@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpClaimDebugResource @ 0x1405060AC
+ * Callers:
+ *     HalpReportResourceUsage @ 0x140B35B2C (HalpReportResourceUsage.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpClaimDebugResource(ULONG_PTR a1, __int64 a2)
 {
   __int64 result; // rax

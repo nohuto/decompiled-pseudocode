@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpLoadMicrocodeSerialized @ 0x140931D78
+ * Callers:
+ *     HalpLoadMicrocode @ 0x140931BD0 (HalpLoadMicrocode.c)
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402AA110 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402ABED0 (KeSetSystemGroupAffinityThread.c)
+ *     HalpMcUpdateMicrocode @ 0x14037CB18 (HalpMcUpdateMicrocode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void HalpLoadMicrocodeSerialized()
 {
   ULONG ActiveProcessorCount; // eax

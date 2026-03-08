@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpApicInitializeLocalUnit @ 0x140372980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpApicSetupRegisterAccess @ 0x14037301C (HalpApicSetupRegisterAccess.c)
+ *     HalpApicSetPriority @ 0x140373A90 (HalpApicSetPriority.c)
+ *     HalpApicDescribeLocalLines @ 0x140374568 (HalpApicDescribeLocalLines.c)
+ *     HalMapIoSpace @ 0x14037AD90 (HalMapIoSpace.c)
+ *     HalpApicIsCmciImplemented @ 0x1403A8404 (HalpApicIsCmciImplemented.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpApicInitializeLocalUnit(
         __int64 a1,
         __int64 a2,

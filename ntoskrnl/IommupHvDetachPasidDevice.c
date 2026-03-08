@@ -1,3 +1,12 @@
+/*
+ * XREFs of IommupHvDetachPasidDevice @ 0x140522410
+ * Callers:
+ *     IommupDeviceDisableSvm @ 0x140930CBC (IommupDeviceDisableSvm.c)
+ *     IommupDeviceEnableSvm @ 0x140930DD4 (IommupDeviceEnableSvm.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall IommupHvDetachPasidDevice(__int64 a1)
 {
   _QWORD *v1; // rbx

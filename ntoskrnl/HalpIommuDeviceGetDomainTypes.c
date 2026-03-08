@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpIommuDeviceGetDomainTypes @ 0x14050BA08
+ * Callers:
+ *     HalpIommuInvokeInterfaceStateChangeCallbacks @ 0x14050BB78 (HalpIommuInvokeInterfaceStateChangeCallbacks.c)
+ *     IommuDeviceQueryDomainTypes @ 0x1405231F0 (IommuDeviceQueryDomainTypes.c)
+ *     IommuDomainAttachDeviceEx @ 0x1405234A0 (IommuDomainAttachDeviceEx.c)
+ *     IommuRegisterInterfaceStateChangeCallback @ 0x140523F30 (IommuRegisterInterfaceStateChangeCallback.c)
+ *     IommuDomainAttachPasidDevice @ 0x140932680 (IommuDomainAttachPasidDevice.c)
+ * Callees:
+ *     IommupHvIsDmarStageCompatible @ 0x140522B60 (IommupHvIsDmarStageCompatible.c)
+ *     IoGetDevicePropertyData @ 0x1406F7380 (IoGetDevicePropertyData.c)
+ */
+
 __int64 __fastcall HalpIommuDeviceGetDomainTypes(__int64 a1, __int64 a2)
 {
   struct _DEVICE_OBJECT *v3; // rcx

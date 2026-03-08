@@ -1,3 +1,24 @@
+/*
+ * XREFs of RIMGetDeviceObjectPointer @ 0x1C0031148
+ * Callers:
+ *     RIMGetMouseDeviceHardwareId @ 0x1C002FBE8 (RIMGetMouseDeviceHardwareId.c)
+ *     RIMGetDeviceParent @ 0x1C002FF2C (RIMGetDeviceParent.c)
+ *     RIMLoadDeviceLegacyInfo @ 0x1C00305E4 (RIMLoadDeviceLegacyInfo.c)
+ *     RIMRegOpenDeviceInstanceKey @ 0x1C0030CF0 (RIMRegOpenDeviceInstanceKey.c)
+ *     IsMouseDeviceOnIgnoreList @ 0x1C0031278 (IsMouseDeviceOnIgnoreList.c)
+ *     rimOnPnpArrived @ 0x1C00889C0 (rimOnPnpArrived.c)
+ *     RIMEnableMonitorMappingForDevice @ 0x1C01A46A0 (RIMEnableMonitorMappingForDevice.c)
+ *     RIMConfigureDeviceFeedback @ 0x1C01ACF00 (RIMConfigureDeviceFeedback.c)
+ *     RIMDeliverConfigRequest @ 0x1C01AD678 (RIMDeliverConfigRequest.c)
+ *     RIMHidGetPreparsedData @ 0x1C01AEB00 (RIMHidGetPreparsedData.c)
+ *     RIMSendLatencyMgtDeviceRequest @ 0x1C01AFB54 (RIMSendLatencyMgtDeviceRequest.c)
+ *     RIMSetDeviceIdleTimeout @ 0x1C01B0170 (RIMSetDeviceIdleTimeout.c)
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C01C21B8 (RIMIDECreatePointerDeviceInfo.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ddd @ 0x1C007E6B0 (WPP_RECORDER_AND_TRACE_SF_ddd.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall RIMGetDeviceObjectPointer(
         struct _UNICODE_STRING *a1,
         __int64 a2,

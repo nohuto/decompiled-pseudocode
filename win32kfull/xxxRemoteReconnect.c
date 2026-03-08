@@ -1,3 +1,35 @@
+/*
+ * XREFs of xxxRemoteReconnect @ 0x1C01267DC
+ * Callers:
+ *     NtUserRemoteReconnect @ 0x1C0126440 (NtUserRemoteReconnect.c)
+ * Callees:
+ *     DrvOcclusionStateChangeNotify @ 0x1C0020148 (DrvOcclusionStateChangeNotify.c)
+ *     SetMouseTrails @ 0x1C0020418 (SetMouseTrails.c)
+ *     SetPointer @ 0x1C00219A0 (SetPointer.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     RegisterCDROMNotify @ 0x1C0077C84 (RegisterCDROMNotify.c)
+ *     InitKeyboard @ 0x1C007B470 (InitKeyboard.c)
+ *     TransitionCursorSuppressionState @ 0x1C007B640 (TransitionCursorSuppressionState.c)
+ *     RemoveInputDevices @ 0x1C00F6800 (RemoveInputDevices.c)
+ *     UnregisterDeviceClassNotifications @ 0x1C00F68FC (UnregisterDeviceClassNotifications.c)
+ *     ?xxxRemoteSetDisconnectDisplayMode@@YAJPEAUtagDESKTOP@@GPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C00F69C0 (-xxxRemoteSetDisconnectDisplayMode@@YAJPEAUtagDESKTOP@@GPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ *     xxxRemoteStopScreenUpdates @ 0x1C00F6E08 (xxxRemoteStopScreenUpdates.c)
+ *     DrvCloseRemoteGraphicsDevices @ 0x1C0126250 (DrvCloseRemoteGraphicsDevices.c)
+ *     AttachInputDevices @ 0x1C0126370 (AttachInputDevices.c)
+ *     ?DrvGetRemoteDeviceCount@@YAIXZ @ 0x1C01263F4 (-DrvGetRemoteDeviceCount@@YAIXZ.c)
+ *     DrvOpenLocalGraphicsDevices @ 0x1C0126480 (DrvOpenLocalGraphicsDevices.c)
+ *     RemoteRedrawScreen @ 0x1C0126610 (RemoteRedrawScreen.c)
+ *     GreMultiUserSetDisplayDriverName @ 0x1C0127298 (GreMultiUserSetDisplayDriverName.c)
+ *     GreDrvDisconnect @ 0x1C0128FB4 (GreDrvDisconnect.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ??0LeaveEnterCrit@@QEAA@XZ @ 0x1C012C5E4 (--0LeaveEnterCrit@@QEAA@XZ.c)
+ *     ??1LeaveEnterCrit@@QEAA@XZ @ 0x1C012C60C (--1LeaveEnterCrit@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     GreDrvReconnect @ 0x1C02DEC3C (GreDrvReconnect.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall xxxRemoteReconnect(unsigned __int64 a1)
 {

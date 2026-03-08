@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?_ProcessPenPacket@PalmTelemetry@@AEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@K@Z @ 0x1C01DF608
+ * Callers:
+ *     ?Update@PalmTelemetry@@QEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@H@Z @ 0x1C00F1B46 (-Update@PalmTelemetry@@QEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@H@Z.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?_BufferPenPacket@PalmTelemetry@@AEAAXPEAUtagHPD_CONTACT@@W4tagHPD_TYPE@@@Z @ 0x1C01DF4DC (-_BufferPenPacket@PalmTelemetry@@AEAAXPEAUtagHPD_CONTACT@@W4tagHPD_TYPE@@@Z.c)
+ *     ?_DiscardOldTouchPackets@PalmTelemetry@@AEAAXK@Z @ 0x1C01DF550 (-_DiscardOldTouchPackets@PalmTelemetry@@AEAAXK@Z.c)
+ */
+
 void __fastcall PalmTelemetry::_ProcessPenPacket(
         PalmTelemetry *this,
         struct tagHID_POINTER_DEVICE_INFO *a2,

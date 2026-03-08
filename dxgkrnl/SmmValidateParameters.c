@@ -1,3 +1,11 @@
+/*
+ * XREFs of SmmValidateParameters @ 0x1C006F8CC
+ * Callers:
+ *     ?SysMmCreateAdl@@YAJPEAUSYSMM_ADAPTER_OBJECT@@_K1IPEAPEAU_DXGK_ADL@@@Z @ 0x1C006F9F0 (-SysMmCreateAdl@@YAJPEAUSYSMM_ADAPTER_OBJECT@@_K1IPEAPEAU_DXGK_ADL@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall SmmValidateParameters(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned int a4)
 {
   char v4; // bl

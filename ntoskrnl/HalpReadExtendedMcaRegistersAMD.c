@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpReadExtendedMcaRegistersAMD @ 0x1405040C4
+ * Callers:
+ *     HalpMcaPopulateErrorData @ 0x14050135C (HalpMcaPopulateErrorData.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __fastcall HalpReadExtendedMcaRegistersAMD(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // edi

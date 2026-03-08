@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CCubeMapRenderingEffect@@QEAA@AEBVCDrawListBitmap@@USamplerMode@@PEAUID3D11ShaderResourceView@@@Z @ 0x1802B4E54
+ * Callers:
+ *     ?BuildDrawList@CCompositionSkyBoxBrush@@AEAAJPEAVCBrushDrawListGenerator@@PEAVCDrawListEntryBuilder@@@Z @ 0x180221EB0 (-BuildDrawList@CCompositionSkyBoxBrush@@AEAAJPEAVCBrushDrawListGenerator@@PEAVCDrawListEntryBuil.c)
+ * Callees:
+ *     ??0CDrawListBitmap@@QEAA@AEBV0@@Z @ 0x1800927A0 (--0CDrawListBitmap@@QEAA@AEBV0@@Z.c)
+ */
+
 __int64 __fastcall CCubeMapRenderingEffect::CCubeMapRenderingEffect(
         __int64 a1,
         const struct CDrawListBitmap *a2,

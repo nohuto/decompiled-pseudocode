@@ -1,3 +1,18 @@
+/*
+ * XREFs of rimInsertSimulatedContactKeepAliveStateInFrame @ 0x1C01D8954
+ * Callers:
+ *     RIMInsertSimulatedKeepAliveStateForActiveContacts @ 0x1C01D5098 (RIMInsertSimulatedKeepAliveStateForActiveContacts.c)
+ *     rimProcessMissingPointerDeviceContacts @ 0x1C01D9470 (rimProcessMissingPointerDeviceContacts.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C000F0BC (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMAddSimulatedPointerDeviceData @ 0x1C01B2DEC (RIMAddSimulatedPointerDeviceData.c)
+ *     RIMStoreRawDataInPointerDeviceFrame @ 0x1C01CDF34 (RIMStoreRawDataInPointerDeviceFrame.c)
+ *     ?PopulateContact@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4tagHPD_TYPE@@GAEBUtagPOINT@@PEBUtagPOINTEREVENTINT@@W4ContactPopulationSource@12@@Z @ 0x1C01D405C (-PopulateContact@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4tagHPD_TYPE@@GAEBUtagPOINT@@PEBUtagPOIN.c)
+ *     rimSetContactKeepAliveState @ 0x1C01DA45C (rimSetContactKeepAliveState.c)
+ */
+
 void __fastcall rimInsertSimulatedContactKeepAliveStateInFrame(
         __int64 a1,
         __int64 a2,

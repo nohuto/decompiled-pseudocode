@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpGetSoftRestartInformation @ 0x1409EA544
+ * Callers:
+ *     EtwQueryPerformanceTraceInformation @ 0x14085C154 (EtwQueryPerformanceTraceInformation.c)
+ * Callees:
+ *     PsIsCurrentThreadInServerSilo @ 0x1402459D0 (PsIsCurrentThreadInServerSilo.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     EtwpCheckLoggerControlAccess @ 0x140692E00 (EtwpCheckLoggerControlAccess.c)
+ *     EtwpReleaseLoggerContext @ 0x14069349C (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140693AFC (EtwpAcquireLoggerContextByLoggerId.c)
+ */
+
 __int64 __fastcall EtwpGetSoftRestartInformation(__int64 a1, __int64 a2, _DWORD *a3)
 {
   unsigned int v4; // edi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiAddPartitionDataToCrashDump @ 0x14062CFF0
+ * Callers:
+ *     MmAddPrivateDataToCrashDump @ 0x14062DBE0 (MmAddPrivateDataToCrashDump.c)
+ * Callees:
+ *     MiAddPartitionToCrashDump @ 0x14062D1FC (MiAddPartitionToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x14062DD30 (MmAddRangeToCrashDump.c)
+ */
+
 __int64 __fastcall MiAddPartitionDataToCrashDump(__int64 a1)
 {
   unsigned int v1; // edi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiComputeNextWalkPte @ 0x1403491CC
+ * Callers:
+ *     MiTrimPte @ 0x140349060 (MiTrimPte.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiComputeNextWalkPte(__int64 a1, int a2)
 {
   __int64 v3; // r8

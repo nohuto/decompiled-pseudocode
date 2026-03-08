@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C01FF92C
+ * Callers:
+ *     xxxCloseClipboard @ 0x1C0010580 (xxxCloseClipboard.c)
+ *     ?xxxDisownClipboard@@YAXPEAUtagWND@@@Z @ 0x1C01FF7D8 (-xxxDisownClipboard@@YAXPEAUtagWND@@@Z.c)
+ *     xxxSetClipboardViewer @ 0x1C0200B44 (xxxSetClipboardViewer.c)
+ * Callees:
+ *     ?CountNumClipFormatForIL@@YAKUtagUIPI_INFO@@PEBUtagWINDOWSTATION@@@Z @ 0x1C0015634 (-CountNumClipFormatForIL@@YAKUtagUIPI_INFO@@PEBUtagWINDOWSTATION@@@Z.c)
+ *     xxxSendNotifyMessage @ 0x1C00D8320 (xxxSendNotifyMessage.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ */
+
 void __fastcall xxxDrawClipboard(struct tagWINDOWSTATION *a1)
 {
   __int64 v2; // rcx

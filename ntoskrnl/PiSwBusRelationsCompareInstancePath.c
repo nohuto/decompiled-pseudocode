@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiSwBusRelationsCompareInstancePath @ 0x140791080
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlCompareUnicodeString @ 0x1406EA3B0 (RtlCompareUnicodeString.c)
+ */
+
 __int64 __fastcall PiSwBusRelationsCompareInstancePath(
         struct _RTL_AVL_TABLE *Table,
         const UNICODE_STRING *FirstStruct,

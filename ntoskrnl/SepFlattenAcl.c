@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepFlattenAcl @ 0x1405B61F4
+ * Callers:
+ *     SeLogAccessFailure @ 0x1402EE66C (SeLogAccessFailure.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall SepFlattenAcl(__int64 a1, __int64 *a2, unsigned int *a3, _WORD *a4)
 {
   unsigned int v4; // eax

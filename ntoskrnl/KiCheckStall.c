@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiCheckStall @ 0x14022AD70
+ * Callers:
+ *     KeStallExecutionProcessor @ 0x14022B710 (KeStallExecutionProcessor.c)
+ *     KeStallWhileFrozen @ 0x1405745F0 (KeStallWhileFrozen.c)
+ *     KeSwitchFrozenProcessor @ 0x140574610 (KeSwitchFrozenProcessor.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ */
+
 __int64 __fastcall KiCheckStall(__int64 a1, char a2)
 {
   __int64 v3; // rdi

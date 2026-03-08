@@ -1,3 +1,14 @@
+/*
+ * XREFs of ObpFastReplenishReference @ 0x1403520A4
+ * Callers:
+ *     MiCompleteProtoPteFault @ 0x14026F5F0 (MiCompleteProtoPteFault.c)
+ *     ObFastReferenceObject @ 0x1403434A0 (ObFastReferenceObject.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x1403440B0 (MiReferenceControlAreaFileWithTag.c)
+ *     ObpLookupObjectName @ 0x1406E86B0 (ObpLookupObjectName.c)
+ * Callees:
+ *     ObpIncrPointerCountEx @ 0x140352120 (ObpIncrPointerCountEx.c)
+ */
+
 signed __int64 __fastcall ObpFastReplenishReference(signed __int64 *a1, __int64 a2)
 {
   signed __int64 result; // rax

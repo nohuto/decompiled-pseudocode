@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsHelpParent@@YAHPEAUtagWND@@@Z @ 0x1C0251AFC
+ * Callers:
+ *     xxxHelpLoop @ 0x1C023C17C (xxxHelpLoop.c)
+ *     ?EnumPwndDlgChildProc@@YAHPEAUtagWND@@_J@Z @ 0x1C0251AB0 (-EnumPwndDlgChildProc@@YAHPEAUtagWND@@_J@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IsHelpParent(struct tagWND *a1)
 {
   unsigned int v1; // r8d

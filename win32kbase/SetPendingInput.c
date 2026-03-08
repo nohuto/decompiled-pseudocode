@@ -1,3 +1,11 @@
+/*
+ * XREFs of SetPendingInput @ 0x1C00D8940
+ * Callers:
+ *     UserPowerInfoCallout @ 0x1C00B657C (UserPowerInfoCallout.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SetPendingInput(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // ebx

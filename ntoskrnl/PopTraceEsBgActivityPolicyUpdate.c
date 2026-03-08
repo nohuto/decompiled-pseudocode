@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopTraceEsBgActivityPolicyUpdate @ 0x14098F6DC
+ * Callers:
+ *     PopEsInStandbyEvaluate @ 0x1409953B0 (PopEsInStandbyEvaluate.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PopTraceEsBgActivityPolicyUpdate(int a1)
 {
   _UNKNOWN **v1; // rax

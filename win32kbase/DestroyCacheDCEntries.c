@@ -1,3 +1,14 @@
+/*
+ * XREFs of DestroyCacheDCEntries @ 0x1C007944C
+ * Callers:
+ *     DestroyThreadsObjects @ 0x1C0078460 (DestroyThreadsObjects.c)
+ *     CleanupGDI @ 0x1C00B57A0 (CleanupGDI.c)
+ * Callees:
+ *     DestroyCacheDC @ 0x1C003DA20 (DestroyCacheDC.c)
+ *     GreLockVisRgn @ 0x1C00794E0 (GreLockVisRgn.c)
+ *     GreUnlockVisRgn @ 0x1C00795D0 (GreUnlockVisRgn.c)
+ */
+
 __int64 __fastcall DestroyCacheDCEntries(__int64 a1)
 {
   char *v2; // rdi

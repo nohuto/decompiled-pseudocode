@@ -1,3 +1,26 @@
+/*
+ * XREFs of MiProcessDereferenceList @ 0x140622C74
+ * Callers:
+ *     MiDereferenceSegmentThread @ 0x1403A2790 (MiDereferenceSegmentThread.c)
+ *     MiRemoveUnusedSegments @ 0x1406236E4 (MiRemoveUnusedSegments.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140305AB0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiProcessingPageExtendComplete @ 0x140623220 (MiProcessingPageExtendComplete.c)
+ *     MiRemoveUnusedSegments @ 0x1406236E4 (MiRemoveUnusedSegments.c)
+ *     MiAttemptPageFileReduction @ 0x140635794 (MiAttemptPageFileReduction.c)
+ *     MiFreeClonePool @ 0x14066213C (MiFreeClonePool.c)
+ *     MiSegmentDelete @ 0x1406A6FD4 (MiSegmentDelete.c)
+ *     MiExtendPagingFiles @ 0x140A2FD7C (MiExtendPagingFiles.c)
+ */
+
 __int64 __fastcall MiProcessDereferenceList(__int64 a1, int a2)
 {
   volatile LONG *v3; // r14

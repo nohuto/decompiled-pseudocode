@@ -1,3 +1,15 @@
+/*
+ * XREFs of UpcaseUnicodeToUTF8NHelper @ 0x14039FDA4
+ * Callers:
+ *     RtlUpcaseUnicodeToOemN @ 0x14079FFE0 (RtlUpcaseUnicodeToOemN.c)
+ *     RtlUpcaseUnicodeToMultiByteN @ 0x1407A00A0 (RtlUpcaseUnicodeToMultiByteN.c)
+ * Callees:
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     NLS_UPCASE @ 0x140267AD0 (NLS_UPCASE.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlUnicodeToUTF8N @ 0x1407A3750 (RtlUnicodeToUTF8N.c)
+ */
+
 __int64 __fastcall UpcaseUnicodeToUTF8NHelper(CHAR *a1, ULONG a2, _DWORD *a3, __int64 a4, unsigned int a5)
 {
   _DWORD *v6; // r13

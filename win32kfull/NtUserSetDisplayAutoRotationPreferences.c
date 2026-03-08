@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserSetDisplayAutoRotationPreferences @ 0x1C0016690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsActivePpi@CRotationMgr@@SA_NPEAUtagPROCESSINFO@@@Z @ 0x1C00166F8 (-IsActivePpi@CRotationMgr@@SA_NPEAUtagPROCESSINFO@@@Z.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall NtUserSetDisplayAutoRotationPreferences(int a1)
 {
   __int64 v2; // rcx

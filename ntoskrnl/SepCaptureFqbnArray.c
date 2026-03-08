@@ -1,3 +1,14 @@
+/*
+ * XREFs of SepCaptureFqbnArray @ 0x1409CA98C
+ * Callers:
+ *     SepCaptureTokenSecurityAttributesInformation @ 0x140742D6C (SepCaptureTokenSecurityAttributesInformation.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepCaptureFqbnArray(char *Src, unsigned int a2, __int64 a3, _QWORD *a4)
 {
   size_t v5; // r12

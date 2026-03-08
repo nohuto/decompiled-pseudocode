@@ -1,3 +1,21 @@
+/*
+ * XREFs of PspIoRateEntryActivate @ 0x140753428
+ * Callers:
+ *     PspSetJobIoRateControl @ 0x140752E58 (PspSetJobIoRateControl.c)
+ *     PspSetJobIoRateControlForVolume @ 0x1409AFB14 (PspSetJobIoRateControlForVolume.c)
+ * Callees:
+ *     IoStartDiskIoAttributionForContext @ 0x1402C4114 (IoStartDiskIoAttributionForContext.c)
+ *     IoStopDiskIoAttributionForContext @ 0x1402C4224 (IoStopDiskIoAttributionForContext.c)
+ *     IoStartIoRateControl @ 0x1402C42F8 (IoStartIoRateControl.c)
+ *     IoStopIoRateControl @ 0x1402C454C (IoStopIoRateControl.c)
+ *     IoDiskIoAttributionDereference @ 0x14030C4DC (IoDiskIoAttributionDereference.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateFile @ 0x140412DB0 (ZwCreateFile.c)
+ *     IoDiskIoAttributionAllocate @ 0x1407532F4 (IoDiskIoAttributionAllocate.c)
+ *     PspIoRateEntryDeactivate @ 0x1407552BC (PspIoRateEntryDeactivate.c)
+ */
+
 __int64 __fastcall PspIoRateEntryActivate(__int64 a1, unsigned __int64 a2, __int64 a3, _BYTE *a4)
 {
   int v4; // eax

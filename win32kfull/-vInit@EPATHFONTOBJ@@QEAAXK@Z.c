@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?vInit@EPATHFONTOBJ@@QEAAXK@Z @ 0x1C0288F7C
+ * Callers:
+ *     ?bInsertGlyphbitsPath@RFONTOBJ@@QEAAHPEAU_GLYPHDATA@@K@Z @ 0x1C02FF7F8 (-bInsertGlyphbitsPath@RFONTOBJ@@QEAAHPEAU_GLYPHDATA@@K@Z.c)
+ *     ?bInsertMetricsPlusPath@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z @ 0x1C02FF940 (-bInsertMetricsPlusPath@RFONTOBJ@@QEAAHPEAPEAU_GLYPHDATA@@G@Z.c)
+ *     ?bInsertPathLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@@Z @ 0x1C02FFB54 (-bInsertPathLookaside@RFONTOBJ@@QEAAHPEAU_GLYPHPOS@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall EPATHFONTOBJ::vInit(EPATHFONTOBJ *this, int a2)
 {
   *((_QWORD *)this + 1) = (char *)this + 80;

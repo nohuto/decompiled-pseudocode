@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CGraphRenderingContext@CExternalEffectGraph@@QEAA@XZ @ 0x180038664
+ * Callers:
+ *     ?Render@CExternalEffectGraph@@QEAAJPEAVCDrawingContext@@AEBUEffectInput@@PEAU3@@Z @ 0x1800384E8 (-Render@CExternalEffectGraph@@QEAAJPEAVCDrawingContext@@AEBUEffectInput@@PEAU3@@Z.c)
+ * Callees:
+ *     ?clear_region@?$vector_facade@UEffectInput@@V?$buffer_impl@UEffectInput@@$03$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180038474 (-clear_region@-$vector_facade@UEffectInput@@V-$buffer_impl@UEffectInput@@$03$00Vliberal_expansio.c)
+ *     ?PopLayer@CDrawingContext@@QEAAJXZ @ 0x18008D00C (-PopLayer@CDrawingContext@@QEAAJXZ.c)
+ */
+
 void __fastcall CExternalEffectGraph::CGraphRenderingContext::~CGraphRenderingContext(
         CExternalEffectGraph::CGraphRenderingContext *this,
         __int64 a2)

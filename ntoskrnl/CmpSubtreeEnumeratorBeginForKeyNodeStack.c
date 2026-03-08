@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpSubtreeEnumeratorBeginForKeyNodeStack @ 0x140A1D8C8
+ * Callers:
+ *     CmpSubtreeEnumeratorStartForKeyNodeStack @ 0x140A1DBC4 (CmpSubtreeEnumeratorStartForKeyNodeStack.c)
+ * Callees:
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140783798 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall CmpSubtreeEnumeratorBeginForKeyNodeStack(__int64 a1, __int16 *a2)
 {
   __int16 v2; // bx

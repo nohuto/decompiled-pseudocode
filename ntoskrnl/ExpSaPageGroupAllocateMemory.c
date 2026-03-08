@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExpSaPageGroupAllocateMemory @ 0x14029661C
+ * Callers:
+ *     ExpSaAllocatorAllocate @ 0x140296390 (ExpSaAllocatorAllocate.c)
+ * Callees:
+ *     RtlFindClearBitsAndSetEx @ 0x14020C1E0 (RtlFindClearBitsAndSetEx.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExpSaPageGroupAllocateMemory(__int64 a1, unsigned int a2)
 {
   unsigned __int64 v3; // r14

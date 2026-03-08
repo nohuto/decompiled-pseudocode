@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsRectangles@CRegionShape@@UEBA_NPEAI@Z @ 0x1800D5180
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CRegionShape::IsRectangles(CRegionShape *this, unsigned int *a2)
 {
   __int64 v2; // r8

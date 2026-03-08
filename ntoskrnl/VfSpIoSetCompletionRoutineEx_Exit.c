@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfSpIoSetCompletionRoutineEx_Exit @ 0x140AE5670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VfUtilFreePoolCheckIRQL @ 0x140303240 (VfUtilFreePoolCheckIRQL.c)
+ *     VfHandlePoolAlloc @ 0x140ACDFB0 (VfHandlePoolAlloc.c)
+ */
+
 void __fastcall VfSpIoSetCompletionRoutineEx_Exit(__int64 a1)
 {
   _OWORD *v2; // rax

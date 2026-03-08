@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$InitLookAsideRef@UtagCLS@@@@YAEPEAUtagCLS@@@Z @ 0x1C0109770
+ * Callers:
+ *     ReferenceClass @ 0x1C0109410 (ReferenceClass.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall InitLookAsideRef<tagCLS>(__int64 a1)
 {
   _QWORD *v2; // rax

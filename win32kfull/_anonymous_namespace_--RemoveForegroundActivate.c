@@ -1,3 +1,17 @@
+/*
+ * XREFs of _anonymous_namespace_::RemoveForegroundActivate @ 0x1C0022C5C
+ * Callers:
+ *     _anonymous_namespace_::FAllowForegroundActivate @ 0x1C0022378 (_anonymous_namespace_--FAllowForegroundActivate.c)
+ *     ?xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegroundBehaviors@@W4SetForegroundffects@@@Z @ 0x1C002498C (-xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegrou.c)
+ *     ?xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z @ 0x1C00E6D24 (-xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z.c)
+ * Callees:
+ *     ?OnFirstActivationAttempted@ForegroundLaunch@@YAXXZ @ 0x1C0022078 (-OnFirstActivationAttempted@ForegroundLaunch@@YAXXZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_DsDs @ 0x1C0022E88 (WPP_RECORDER_AND_TRACE_SF_DsDs.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C003F908 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 char anonymous_namespace_::RemoveForegroundActivate()
 {
   _UNKNOWN **v0; // r8

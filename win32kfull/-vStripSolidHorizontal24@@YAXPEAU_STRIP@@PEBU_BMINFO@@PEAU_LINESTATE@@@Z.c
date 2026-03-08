@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vStripSolidHorizontal24@@YAXPEAU_STRIP@@PEBU_BMINFO@@PEAU_LINESTATE@@@Z @ 0x1C02FC700
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vStripSolidHorizontal24(struct _STRIP *a1, const struct _BMINFO *a2, struct _LINESTATE *a3)
 {
   int *v3; // r9

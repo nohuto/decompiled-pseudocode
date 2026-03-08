@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiDDCCISaveCurrentSettings @ 0x1C026CDD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DdcciSaveCurrentSettings@CPhysicalMonitorHandle@@QEAAJXZ @ 0x1C026C330 (-DdcciSaveCurrentSettings@CPhysicalMonitorHandle@@QEAAJXZ.c)
+ *     ?GetHandleObject@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAXPEAPEAVCPhysicalMonitorHandle@@@Z @ 0x1C026C760 (-GetHandleObject@-$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@QEAAJPEAXPEAPEAVCPhysi.c)
+ */
+
 __int64 __fastcall NtGdiDDCCISaveCurrentSettings(void *a1)
 {
   struct OPM::CMutex *v2; // rbx

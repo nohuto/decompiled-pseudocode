@@ -1,3 +1,13 @@
+/*
+ * XREFs of RunMethodCallBack @ 0x1C004E5F0
+ * Callers:
+ *     DebugRunMethod @ 0x1C004DE10 (DebugRunMethod.c)
+ * Callees:
+ *     GetObjectPath @ 0x1C004BB70 (GetObjectPath.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     DumpObject @ 0x1C0051E98 (DumpObject.c)
+ */
+
 void __fastcall RunMethodCallBack(__int64 *a1, int a2, __int64 a3)
 {
   __int64 v3; // rcx

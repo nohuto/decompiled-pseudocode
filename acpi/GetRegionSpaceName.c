@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetRegionSpaceName @ 0x1C004BD9C
+ * Callers:
+ *     DumpObject @ 0x1C0051E98 (DumpObject.c)
+ * Callees:
+ *     <none>
+ */
+
 const char *__fastcall GetRegionSpaceName(char a1)
 {
   int v1; // edx

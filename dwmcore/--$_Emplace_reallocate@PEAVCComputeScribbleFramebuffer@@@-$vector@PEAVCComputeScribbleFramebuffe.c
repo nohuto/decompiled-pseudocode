@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??$_Emplace_reallocate@PEAVCComputeScribbleFramebuffer@@@?$vector@PEAVCComputeScribbleFramebuffer@@V?$allocator@PEAVCComputeScribbleFramebuffer@@@std@@@std@@QEAAPEAPEAVCComputeScribbleFramebuffer@@QEAPEAV2@$$QEAPEAV2@@Z @ 0x1801FEEEC
+ * Callers:
+ *     ?Initialize@CComputeScribbleScheduler@@AEAAJPEAUIDXGIOutputDWM@@PEAUIDCompositionDirectInkCommunicationPartner@@@Z @ 0x1802000E0 (-Initialize@CComputeScribbleScheduler@@AEAAJPEAUIDXGIOutputDWM@@PEAUIDCompositionDirectInkCommun.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$07@std@@YA_K_K@Z @ 0x1800B9880 (--$_Get_size_of_n@$07@std@@YA_K_K@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     ?_Change_array@?$vector@PEAVCComputeScribbleFramebuffer@@V?$allocator@PEAVCComputeScribbleFramebuffer@@@std@@@std@@AEAAXQEAPEAVCComputeScribbleFramebuffer@@_K1@Z @ 0x180200F7C (-_Change_array@-$vector@PEAVCComputeScribbleFramebuffer@@V-$allocator@PEAVCComputeScribbleFrameb.c)
+ */
+
 char *__fastcall std::vector<CComputeScribbleFramebuffer *>::_Emplace_reallocate<CComputeScribbleFramebuffer *>(
         const void **a1,
         _BYTE *a2,

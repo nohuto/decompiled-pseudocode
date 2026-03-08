@@ -1,3 +1,18 @@
+/*
+ * XREFs of LockPopupMenu @ 0x1C0219378
+ * Callers:
+ *     xxxMNStartMenu @ 0x1C0202834 (xxxMNStartMenu.c)
+ *     xxxMNKeyDown @ 0x1C021ABF8 (xxxMNKeyDown.c)
+ *     xxxMNOpenHierarchy @ 0x1C021B7B0 (xxxMNOpenHierarchy.c)
+ *     xxxMenuWindowProc @ 0x1C021D3D0 (xxxMenuWindowProc.c)
+ *     xxxTrackPopupMenuEx @ 0x1C02353CC (xxxTrackPopupMenuEx.c)
+ * Callees:
+ *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C00A4F34 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C00A6450 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00D5030 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     ?UnlockPopupMenuWindow@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@@Z @ 0x1C02185DC (-UnlockPopupMenuWindow@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagWND@@@Z.c)
+ */
+
 __int64 __fastcall LockPopupMenu(__int64 a1, __int64 *a2, __int64 a3)
 {
   __int64 v6; // rcx

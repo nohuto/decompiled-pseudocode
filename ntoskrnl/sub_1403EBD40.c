@@ -1,3 +1,15 @@
+/*
+ * XREFs of sub_1403EBD40 @ 0x1403EBD40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x1402C5C00 (KeReleaseSpinLockFromDpcLevel.c)
+ *     KeExitRetpoline @ 0x1402E3E6C (KeExitRetpoline.c)
+ *     _guard_check_icall @ 0x140421180 (_guard_check_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall sub_1403EBD40(__int64 a1)
 {
   unsigned int *v2; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspComputeReportWakeFilter @ 0x1407516F4
+ * Callers:
+ *     PspAllocateAndQueryNotificationChannel @ 0x1407512E4 (PspAllocateAndQueryNotificationChannel.c)
+ *     PspFreezeJobTree @ 0x140751738 (PspFreezeJobTree.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspComputeReportWakeFilter(_DWORD *a1, _QWORD *a2, __int64 *a3, char a4)
 {
   __int64 v4; // rax

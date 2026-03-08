@@ -1,3 +1,19 @@
+/*
+ * XREFs of CmpUpdateReorganizeRegistryValues @ 0x14085A0F4
+ * Callers:
+ *     CmpReorganizeHive @ 0x14072C970 (CmpReorganizeHive.c)
+ *     CmpUpdatePhaseAccessBit @ 0x14085A0A4 (CmpUpdatePhaseAccessBit.c)
+ * Callees:
+ *     ExSystemTimeToLocalTime @ 0x1402D10F0 (ExSystemTimeToLocalTime.c)
+ *     RtlTimeToTimeFields @ 0x1402D14B0 (RtlTimeToTimeFields.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ */
+
 void CmpUpdateReorganizeRegistryValues()
 {
   __int64 v0; // rbx

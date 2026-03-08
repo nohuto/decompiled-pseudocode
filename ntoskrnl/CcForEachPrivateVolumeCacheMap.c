@@ -1,3 +1,19 @@
+/*
+ * XREFs of CcForEachPrivateVolumeCacheMap @ 0x1403CB270
+ * Callers:
+ *     CcForEachPartition @ 0x140305240 (CcForEachPartition.c)
+ *     CcNotifyWriteBehindInternal @ 0x14053467C (CcNotifyWriteBehindInternal.c)
+ *     CcExitPartition @ 0x140536FC8 (CcExitPartition.c)
+ *     CcPartitionTelemetryCallback @ 0x14087BDB0 (CcPartitionTelemetryCallback.c)
+ * Callees:
+ *     CcDecrementPrivateVolumeUseCount @ 0x14021802C (CcDecrementPrivateVolumeUseCount.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcPostPVCMForDeleteToPartition @ 0x1403BE4F0 (CcPostPVCMForDeleteToPartition.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall CcForEachPrivateVolumeCacheMap(
         __int64 a1,
         __int64 (__fastcall *a2)(__int64, __int64, __int64),

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?assign@?$vector@EV?$allocator@E@std@@@std@@QEAAX_KAEBE@Z @ 0x180250D6C
+ * Callers:
+ *     ?PullNewPerFrameData@CSynchronousSuperWetInk@@AEAAXIPEA_N@Z @ 0x180250A64 (-PullNewPerFrameData@CSynchronousSuperWetInk@@AEAAXIPEA_N@Z.c)
+ * Callees:
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ *     ?_Clear_and_reserve_geometric@?$vector@EV?$allocator@E@std@@@std@@AEAAX_K@Z @ 0x180250CA4 (-_Clear_and_reserve_geometric@-$vector@EV-$allocator@E@std@@@std@@AEAAX_K@Z.c)
+ */
+
 char *__fastcall std::vector<unsigned char>::assign(void **a1, unsigned __int64 a2, unsigned __int8 *a3)
 {
   char *v3; // rbx

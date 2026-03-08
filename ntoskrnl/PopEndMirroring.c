@@ -1,3 +1,23 @@
+/*
+ * XREFs of PopEndMirroring @ 0x140A9F6B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeInsertQueueDpc @ 0x140230290 (KeInsertQueueDpc.c)
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402ABED0 (KeSetSystemGroupAffinityThread.c)
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwKernelMemoryRundown @ 0x1409E2228 (EtwKernelMemoryRundown.c)
+ *     PopBuildMemoryImageHeader @ 0x140A9EA28 (PopBuildMemoryImageHeader.c)
+ *     PopInvokeSystemStateHandler @ 0x140AA542C (PopInvokeSystemStateHandler.c)
+ */
+
 __int64 __fastcall PopEndMirroring(ULONG_PTR BugCheckParameter3)
 {
   ULONG_PTR v1; // rdi
@@ -80,8 +100,8 @@ LABEL_4:
   }
   memset(&PopHibernateSystemContext, 0, 0x50uLL);
   dword_140D182D0 = KeNumberProcessors_0;
-  MEMORY[0x140D182DC] = KeNumberProcessors_0;
-  qword_140D182D8 = 1;
+  dword_140D182DC = KeNumberProcessors_0;
+  dword_140D182D8 = 1;
   if ( ((unsigned __int8)&stru_140D182E0 & 0xF) != 0 )
     RtlRaiseStatus(-2147483646);
   stru_140D182E0 = 0LL;

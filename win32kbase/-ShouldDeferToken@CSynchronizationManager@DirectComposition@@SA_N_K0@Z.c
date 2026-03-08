@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ShouldDeferToken@CSynchronizationManager@DirectComposition@@SA_N_K0@Z @ 0x1C00A8F38
+ * Callers:
+ *     DCompositionShouldDeferToken @ 0x1C00A8F20 (DCompositionShouldDeferToken.c)
+ * Callees:
+ *     ?FindObject@?$CGenericTable@_KVCBatch@DirectComposition@@$0GFHDEDEE@$0A@@DirectComposition@@QEAAPEAVCBatch@2@_K@Z @ 0x1C00A909C (-FindObject@-$CGenericTable@_KVCBatch@DirectComposition@@$0GFHDEDEE@$0A@@DirectComposition@@QEAA.c)
+ */
+
 char __fastcall DirectComposition::CSynchronizationManager::ShouldDeferToken(__int64 a1, __int64 a2)
 {
   struct _ERESOURCE *v2; // rbx

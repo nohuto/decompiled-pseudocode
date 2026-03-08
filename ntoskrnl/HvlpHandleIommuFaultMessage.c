@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlpHandleIommuFaultMessage @ 0x140545E4C
+ * Callers:
+ *     HvlSharedIsr @ 0x140456D60 (HvlSharedIsr.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HvlpHandleIommuFaultMessage(__int64 a1)
 {
   int v1; // edx

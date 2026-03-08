@@ -1,3 +1,23 @@
+/*
+ * XREFs of PsLookupThreadByThreadId @ 0x1406DBE00
+ * Callers:
+ *     PspThreadFromTicket @ 0x1406DBA1C (PspThreadFromTicket.c)
+ *     NtAlertThreadByThreadId @ 0x14075F5B0 (NtAlertThreadByThreadId.c)
+ *     PsOpenThread @ 0x14076A000 (PsOpenThread.c)
+ *     PsLookupProcessThreadByCid @ 0x14076A3D0 (PsLookupProcessThreadByCid.c)
+ *     PfpServiceMainThreadBoostPrep @ 0x14097BCA8 (PfpServiceMainThreadBoostPrep.c)
+ *     PopInitSystemSleeperThread @ 0x1409887A0 (PopInitSystemSleeperThread.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     ExfAcquireReleasePushLockExclusive @ 0x140201D54 (ExfAcquireReleasePushLockExclusive.c)
+ *     IoThreadToProcess @ 0x140248470 (IoThreadToProcess.c)
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     PsIsProcessInSilo @ 0x1402484DC (PsIsProcessInSilo.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     PspReferenceCidTableEntry @ 0x1406DC0A0 (PspReferenceCidTableEntry.c)
+ */
+
 NTSTATUS __stdcall PsLookupThreadByThreadId(HANDLE ThreadId, PETHREAD *Thread)
 {
   struct _KTHREAD *CurrentThread; // rdi

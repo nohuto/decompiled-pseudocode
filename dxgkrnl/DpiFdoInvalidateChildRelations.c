@@ -1,3 +1,20 @@
+/*
+ * XREFs of DpiFdoInvalidateChildRelations @ 0x1C01E67E0
+ * Callers:
+ *     DxgkPowerOnOffMonitor @ 0x1C01E1214 (DxgkPowerOnOffMonitor.c)
+ *     DpiFdoHandleSystemPower @ 0x1C01E2484 (DpiFdoHandleSystemPower.c)
+ *     DpiFdoInvalidateChildWorkItem @ 0x1C01E4AB0 (DpiFdoInvalidateChildWorkItem.c)
+ *     DpiFdoHandleQueryDeviceRelations @ 0x1C01E64B0 (DpiFdoHandleQueryDeviceRelations.c)
+ *     DpiFdoCreateRelatedObjects @ 0x1C0202548 (DpiFdoCreateRelatedObjects.c)
+ *     DpiPollDisplayChildren @ 0x1C0394D00 (DpiPollDisplayChildren.c)
+ *     DpiAcpiProcessEventRequests @ 0x1C03A2598 (DpiAcpiProcessEventRequests.c)
+ * Callees:
+ *     DxgkDiagCalcDuration1us @ 0x1C001BD88 (DxgkDiagCalcDuration1us.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01BA77C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     DpiDxgkDdiDisplayDetectControl @ 0x1C01E6A28 (DpiDxgkDdiDisplayDetectControl.c)
+ */
+
 __int64 __fastcall DpiFdoInvalidateChildRelations(__int64 a1, unsigned int a2, __int64 a3)
 {
   __int64 v3; // r14

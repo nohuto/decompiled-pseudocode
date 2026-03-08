@@ -1,3 +1,12 @@
+/*
+ * XREFs of KsPropertyHandleDrmSetContentId @ 0x1C008F3A8
+ * Callers:
+ *     HUBPDO_EvtIoDeviceControl @ 0x1C0015CD0 (HUBPDO_EvtIoDeviceControl.c)
+ * Callees:
+ *     HUBPDO_DrmSetContentId @ 0x1C0015CBC (HUBPDO_DrmSetContentId.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ */
+
 __int64 __fastcall KsPropertyHandleDrmSetContentId(__int64 a1)
 {
   __int64 v3; // r13

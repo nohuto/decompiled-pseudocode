@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1?$CTypeIsolation@$0NPAAA@$0NPA@@NSInstrumentation@@IEAA@XZ @ 0x1C00A0A88
+ * Callers:
+ *     ?Destroy@?$TypeIsolationFactory@V?$CTypeIsolation@$0BEAAA@$0BEA@@NSInstrumentation@@V?$CTypeIsolation@$0NPAAA@$0NPA@@2@V?$CTypeIsolation@$0IAAA@$0IA@@2@V?$CTypeIsolation@$0DJAAA@$0DJA@@2@@@SAXPEAPEAE@Z @ 0x1C00A0878 (-Destroy@-$TypeIsolationFactory@V-$CTypeIsolation@$0BEAAA@$0BEA@@NSInstrumentation@@V-$CTypeIsol.c)
+ *     ?Create@?$TypeIsolationFactory@V?$CTypeIsolation@$0NPAAA@$0NPA@@NSInstrumentation@@V?$CTypeIsolation@$0IAAA@$0IA@@2@V?$CTypeIsolation@$0DJAAA@$0DJA@@2@@@SA_NPEAPEAE@Z @ 0x1C00C5184 (-Create@-$TypeIsolationFactory@V-$CTypeIsolation@$0NPAAA@$0NPA@@NSInstrumentation@@V-$CTypeIsola.c)
+ * Callees:
+ *     ??1?$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ @ 0x1C009FFD0 (--1-$CSectionEntry@$0GAAA@$0GA@@NSInstrumentation@@AEAA@XZ.c)
+ */
+
 void __fastcall NSInstrumentation::CTypeIsolation<913408,3568>::~CTypeIsolation<913408,3568>(__int64 a1)
 {
   struct _PAGED_LOOKASIDE_LIST *v2; // rcx

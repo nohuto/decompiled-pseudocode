@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1VIDMM_RECYCLE_HEAP@@QEAA@XZ @ 0x1C0096348
+ * Callers:
+ *     ??1VIDMM_RECYCLE_HEAP_MGR@@UEAA@XZ @ 0x1C0095F98 (--1VIDMM_RECYCLE_HEAP_MGR@@UEAA@XZ.c)
+ * Callees:
+ *     ?Defragment@VIDMM_SEGMENT@@UEAAX_K0@Z @ 0x1C00B0430 (-Defragment@VIDMM_SEGMENT@@UEAAX_K0@Z.c)
+ */
+
 void __fastcall VIDMM_RECYCLE_HEAP::~VIDMM_RECYCLE_HEAP(VIDMM_RECYCLE_HEAP *this, __int64 a2, unsigned __int64 a3)
 {
   _QWORD *v4; // rcx

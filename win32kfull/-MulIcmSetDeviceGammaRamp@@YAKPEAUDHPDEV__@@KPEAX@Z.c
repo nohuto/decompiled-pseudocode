@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?MulIcmSetDeviceGammaRamp@@YAKPEAUDHPDEV__@@KPEAX@Z @ 0x1C02B2650
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C001F5A0 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall MulIcmSetDeviceGammaRamp(struct DHPDEV__ *a1, unsigned int a2, void *a3)
 {
   _QWORD *v3; // rbx

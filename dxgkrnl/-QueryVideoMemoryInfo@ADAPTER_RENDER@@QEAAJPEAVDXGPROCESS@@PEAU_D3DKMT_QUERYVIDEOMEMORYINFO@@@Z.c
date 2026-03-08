@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?QueryVideoMemoryInfo@ADAPTER_RENDER@@QEAAJPEAVDXGPROCESS@@PEAU_D3DKMT_QUERYVIDEOMEMORYINFO@@@Z @ 0x1C02BCA44
+ * Callers:
+ *     DxgkQueryVideoMemoryInfo @ 0x1C02D6310 (DxgkQueryVideoMemoryInfo.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ADAPTER_RENDER::QueryVideoMemoryInfo(
         ADAPTER_RENDER *this,
         struct DXGPROCESS *a2,

@@ -1,3 +1,20 @@
+/*
+ * XREFs of McTemplateK0pqqq_EtwWriteTransfer @ 0x1C004006C
+ * Callers:
+ *     ?DdiSetVidPnSourceAddressWithMultiPlaneOverlay3@ADAPTER_DISPLAY@@QEAAJPEAU_DXGKARG_SETVIDPNSOURCEADDRESSWITHMULTIPLANEOVERLAY3@@@Z @ 0x1C0010350 (-DdiSetVidPnSourceAddressWithMultiPlaneOverlay3@ADAPTER_DISPLAY@@QEAAJPEAU_DXGKARG_SETVIDPNSOURC.c)
+ *     ?CompletePStateTransitionCB@DXGADAPTER@@QEAAXII@Z @ 0x1C003E8DC (-CompletePStateTransitionCB@DXGADAPTER@@QEAAXII@Z.c)
+ *     ?ProcessPStateTransitionRequest@DXGADAPTER@@QEAAXXZ @ 0x1C003F6AC (-ProcessPStateTransitionRequest@DXGADAPTER@@QEAAXXZ.c)
+ *     DpiDxgkDdiStartDevice @ 0x1C01F0FE8 (DpiDxgkDdiStartDevice.c)
+ *     DpiMiracastDdiMiracastQueryCaps @ 0x1C021A734 (DpiMiracastDdiMiracastQueryCaps.c)
+ *     ?ReportState@DXGADAPTER@@QEAAXXZ @ 0x1C02B4808 (-ReportState@DXGADAPTER@@QEAAXXZ.c)
+ *     ?VmBusOpenAdapter@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C037D460 (-VmBusOpenAdapter@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ *     DpiCallDrvSetBacklightOptimizationLevel @ 0x1C039DBB4 (DpiCallDrvSetBacklightOptimizationLevel.c)
+ *     DpiCallDrvSetBrightness @ 0x1C039DC30 (DpiCallDrvSetBrightness.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002BBC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 NTSTATUS McTemplateK0pqqq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-21h] BYREF

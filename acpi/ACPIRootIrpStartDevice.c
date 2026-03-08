@@ -1,3 +1,17 @@
+/*
+ * XREFs of ACPIRootIrpStartDevice @ 0x1C00AA580
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     WPP_RECORDER_SF_qqss @ 0x1C000A374 (WPP_RECORDER_SF_qqss.c)
+ *     ACPIRegisterForDeviceNotifications @ 0x1C00396E0 (ACPIRegisterForDeviceNotifications.c)
+ *     ACPIInitShutdownNotification @ 0x1C00936A0 (ACPIInitShutdownNotification.c)
+ *     ACPIInitStartACPI @ 0x1C00A8DE0 (ACPIInitStartACPI.c)
+ *     RtlDuplicateCmResourceList @ 0x1C00AA814 (RtlDuplicateCmResourceList.c)
+ */
+
 __int64 __fastcall ACPIRootIrpStartDevice(ULONG_PTR a1, IRP *a2)
 {
   __int64 DeviceExtension; // rax

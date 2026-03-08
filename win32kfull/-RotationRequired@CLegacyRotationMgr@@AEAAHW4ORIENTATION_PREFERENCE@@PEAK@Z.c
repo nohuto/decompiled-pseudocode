@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RotationRequired@CLegacyRotationMgr@@AEAAHW4ORIENTATION_PREFERENCE@@PEAK@Z @ 0x1C01A8478
+ * Callers:
+ *     ?xxxApplyOrientationPreference@CLegacyRotationMgr@@AEAAXXZ @ 0x1C0102BF4 (-xxxApplyOrientationPreference@CLegacyRotationMgr@@AEAAXXZ.c)
+ * Callees:
+ *     ?GetCurrentOrientation@@YAJPEAK@Z @ 0x1C00F8684 (-GetCurrentOrientation@@YAJPEAK@Z.c)
+ *     ?QueryAutoRotationState@CLegacyRotationMgr@@UEAA?AW4tagAR_STATE@@XZ @ 0x1C0102C30 (-QueryAutoRotationState@CLegacyRotationMgr@@UEAA-AW4tagAR_STATE@@XZ.c)
+ */
+
 _BOOL8 __fastcall CLegacyRotationMgr::RotationRequired(CLegacyRotationMgr *a1, int a2, unsigned int *a3)
 {
   unsigned int AutoRotationState; // edi

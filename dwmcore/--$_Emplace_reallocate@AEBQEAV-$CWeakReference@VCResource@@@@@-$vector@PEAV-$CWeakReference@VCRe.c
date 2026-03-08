@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??$_Emplace_reallocate@AEBQEAV?$CWeakReference@VCResource@@@@@?$vector@PEAV?$CWeakReference@VCResource@@@@V?$allocator@PEAV?$CWeakReference@VCResource@@@@@std@@@std@@QEAAPEAPEAV?$CWeakReference@VCResource@@@@QEAPEAV2@AEBQEAV2@@Z @ 0x1801DF06C
+ * Callers:
+ *     ?RegisterReader@DataSourceProxy@@QEAAJPEAVCDataSourceReader@@@Z @ 0x1801E03AC (-RegisterReader@DataSourceProxy@@QEAAJPEAVCDataSourceReader@@@Z.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$07@std@@YA_K_K@Z @ 0x1800B9880 (--$_Get_size_of_n@$07@std@@YA_K_K@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     ?_Change_array@?$vector@PEAV?$CWeakReference@VCResource@@@@V?$allocator@PEAV?$CWeakReference@VCResource@@@@@std@@@std@@AEAAXQEAPEAV?$CWeakReference@VCResource@@@@_K1@Z @ 0x1801E09E8 (-_Change_array@-$vector@PEAV-$CWeakReference@VCResource@@@@V-$allocator@PEAV-$CWeakReference@VCR.c)
+ */
+
 char *__fastcall std::vector<CWeakReference<CResource> *,std::allocator<CWeakReference<CResource> *>>::_Emplace_reallocate<CWeakReference<CResource> * const &>(
         const void **a1,
         _BYTE *a2,

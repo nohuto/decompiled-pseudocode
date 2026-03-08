@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?PerformInputActions@InteractiveControlDevice@@QEAAXPEAVInteractiveControlInput@@I@Z @ 0x1C024897C
+ * Callers:
+ *     ?QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z @ 0x1C0248B64 (-QueueAndGenerateInput@InteractiveControlDevice@@QEAAJPEAXK@Z.c)
+ * Callees:
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C007A05C (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     GetUserHandedness @ 0x1C01C4370 (GetUserHandedness.c)
+ *     ?CreateDeadzone@InteractiveControlDevice@@QEAAJXZ @ 0x1C0247C34 (-CreateDeadzone@InteractiveControlDevice@@QEAAJXZ.c)
+ *     ?DestroyDeadzone@InteractiveControlDevice@@QEAAJXZ @ 0x1C0247FEC (-DestroyDeadzone@InteractiveControlDevice@@QEAAJXZ.c)
+ *     ?DetectPressAndHoldGesture@InteractiveControlDevice@@QEAAXPEAVInteractiveControlInput@@I@Z @ 0x1C0248044 (-DetectPressAndHoldGesture@InteractiveControlDevice@@QEAAXPEAVInteractiveControlInput@@I@Z.c)
+ *     ?SendHapticFeedbackOutput@InteractiveControlDevice@@QEAAJAEBU_SIMPLEHAPTICCTRL_FEEDBACK_DATA@@@Z @ 0x1C0248D88 (-SendHapticFeedbackOutput@InteractiveControlDevice@@QEAAJAEBU_SIMPLEHAPTICCTRL_FEEDBACK_DATA@@@Z.c)
+ */
+
 void __fastcall InteractiveControlDevice::PerformInputActions(
         InteractiveControlDevice *this,
         struct InteractiveControlInput *a2,

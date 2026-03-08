@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBPDO_D3ColdSupportInterfaceGetD3ColdCapability @ 0x1C007E9B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBPDO_D3ColdSupportInterfaceGetD3ColdCapability(_QWORD *a1, _BYTE *a2)
 {
   __int64 (__fastcall *v2)(_QWORD); // rax

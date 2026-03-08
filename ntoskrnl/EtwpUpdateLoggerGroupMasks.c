@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpUpdateLoggerGroupMasks @ 0x14080D834
+ * Callers:
+ *     EtwpStartLogger @ 0x140691964 (EtwpStartLogger.c)
+ *     EtwpUpdateTrace @ 0x140744D3C (EtwpUpdateTrace.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     EtwpGetFlagExtension @ 0x14074856C (EtwpGetFlagExtension.c)
+ *     EtwpUpdateGroupMasks @ 0x14080D8D8 (EtwpUpdateGroupMasks.c)
+ */
+
 __int64 __fastcall EtwpUpdateLoggerGroupMasks(__int64 a1, __int64 a2)
 {
   unsigned __int16 *FlagExtension; // rax

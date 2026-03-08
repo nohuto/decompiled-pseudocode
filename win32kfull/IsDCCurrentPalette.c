@@ -1,3 +1,12 @@
+/*
+ * XREFs of IsDCCurrentPalette @ 0x1C02D437C
+ * Callers:
+ *     xxxRealizePalette @ 0x1C0217A18 (xxxRealizePalette.c)
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ */
+
 __int64 __fastcall IsDCCurrentPalette(HDC a1)
 {
   unsigned int v1; // ebx

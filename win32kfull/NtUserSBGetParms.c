@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserSBGetParms @ 0x1C00DB7E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _SBGetParms @ 0x1C00DB920 (_SBGetParms.c)
+ */
+
 __int64 __fastcall NtUserSBGetParms(__int64 a1, __int64 a2, __int128 *a3, ULONG64 a4)
 {
   unsigned int v6; // r14d

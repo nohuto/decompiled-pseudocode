@@ -1,3 +1,17 @@
+/*
+ * XREFs of ObReferenceObjectByPointerWithTag @ 0x14033E060
+ * Callers:
+ *     PoPushPowerStateTransitionRecordWithCallback @ 0x14058CC64 (PoPushPowerStateTransitionRecordWithCallback.c)
+ *     DifObReferenceObjectByPointerWithTagWrapper @ 0x1405E63A0 (DifObReferenceObjectByPointerWithTagWrapper.c)
+ *     DifObReferenceObjectByPointerWrapper @ 0x1405E64F0 (DifObReferenceObjectByPointerWrapper.c)
+ *     IoRegisterPlugPlayNotification @ 0x1406F4F30 (IoRegisterPlugPlayNotification.c)
+ *     ObOpenObjectByPointer @ 0x1407C93D0 (ObOpenObjectByPointer.c)
+ *     NtOpenProcessTokenEx @ 0x1407C95D0 (NtOpenProcessTokenEx.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ */
+
 NTSTATUS __stdcall ObReferenceObjectByPointerWithTag(
         PVOID Object,
         ACCESS_MASK DesiredAccess,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of KsepDsEventPnpStopDevice @ 0x14057FA5C
+ * Callers:
+ *     KseDsCompletionHookForStopDevice @ 0x14057EDC0 (KseDsCompletionHookForStopDevice.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall KsepDsEventPnpStopDevice(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   _UNKNOWN **v4; // rax

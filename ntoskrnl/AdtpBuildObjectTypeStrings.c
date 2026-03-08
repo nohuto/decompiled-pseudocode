@@ -1,3 +1,17 @@
+/*
+ * XREFs of AdtpBuildObjectTypeStrings @ 0x140A59130
+ * Callers:
+ *     AdtpPackageParameters @ 0x1403958B4 (AdtpPackageParameters.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     AdtpBuildGuidString @ 0x140A5782C (AdtpBuildGuidString.c)
+ *     AdtpAppendString @ 0x140A58AA0 (AdtpAppendString.c)
+ *     AdtpAppendZString @ 0x140A58C38 (AdtpAppendZString.c)
+ *     AdtpBuildAccessesString @ 0x140A58C90 (AdtpBuildAccessesString.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AdtpBuildObjectTypeStrings(
         const UNICODE_STRING *a1,
         const UNICODE_STRING *a2,

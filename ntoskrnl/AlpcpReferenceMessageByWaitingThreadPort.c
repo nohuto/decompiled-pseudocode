@@ -1,3 +1,16 @@
+/*
+ * XREFs of AlpcpReferenceMessageByWaitingThreadPort @ 0x140976D30
+ * Callers:
+ *     AlpcpReferenceMessageByWaitingThread @ 0x140976C1C (AlpcpReferenceMessageByWaitingThread.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     AlpcpReferenceMessageByWaitingThreadPortQueue @ 0x140976EA8 (AlpcpReferenceMessageByWaitingThreadPortQueue.c)
+ */
+
 __int64 __fastcall AlpcpReferenceMessageByWaitingThreadPort(__int64 a1, __int64 a2)
 {
   signed __int64 *v2; // r15

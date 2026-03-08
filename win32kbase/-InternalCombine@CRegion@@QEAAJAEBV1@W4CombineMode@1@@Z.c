@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?InternalCombine@CRegion@@QEAAJAEBV1@W4CombineMode@1@@Z @ 0x1C003E878
+ * Callers:
+ *     ?Combine@CRegion@@UEAAJAEBUIRegion@@W4CombineMode@2@@Z @ 0x1C003E860 (-Combine@CRegion@@UEAAJAEBUIRegion@@W4CombineMode@2@@Z.c)
+ * Callees:
+ *     ?vDeleteRGNCOREOBJ@RGNCOREOBJ@@QEAAXXZ @ 0x1C001CA1C (-vDeleteRGNCOREOBJ@RGNCOREOBJ@@QEAAXXZ.c)
+ *     ?InitializeFromRect@CRegion@@IEAAJAEBUtagRECT@@@Z @ 0x1C003E764 (-InitializeFromRect@CRegion@@IEAAJAEBUtagRECT@@@Z.c)
+ *     RGNCOREOBJ::bMerge__lambda_4f08034d680f118a0a3da8ec85dc396d___ @ 0x1C0042368 (RGNCOREOBJ--bMerge__lambda_4f08034d680f118a0a3da8ec85dc396d___.c)
+ *     ??0RGNCOREMEMOBJ@@QEAA@K@Z @ 0x1C00A8764 (--0RGNCOREMEMOBJ@@QEAA@K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     ?bCopy@RGNCOREOBJ@@QEAA_NAEBV1@@Z @ 0x1C019A510 (-bCopy@RGNCOREOBJ@@QEAA_NAEBV1@@Z.c)
+ */
+
 __int64 __fastcall CRegion::InternalCombine(CRegion *a1, __int64 a2, int a3)
 {
   _DWORD *v4; // rdi

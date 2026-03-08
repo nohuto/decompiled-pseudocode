@@ -1,3 +1,16 @@
+/*
+ * XREFs of PsSetPagePriorityThread @ 0x14020AA94
+ * Callers:
+ *     CcCompleteAsyncRead @ 0x14020A77C (CcCompleteAsyncRead.c)
+ *     CcPerformReadAhead @ 0x14020B9E0 (CcPerformReadAhead.c)
+ *     SmSetThreadPagePriority @ 0x140356A74 (SmSetThreadPagePriority.c)
+ *     NtSetInformationThread @ 0x1406D8E90 (NtSetInformationThread.c)
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     EtwTracePriority @ 0x14045EE2A (EtwTracePriority.c)
+ */
+
 __int64 __fastcall PsSetPagePriorityThread(__int64 a1, int a2)
 {
   signed __int32 v2; // eax

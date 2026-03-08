@@ -1,3 +1,34 @@
+/*
+ * XREFs of NtDeleteValueKey @ 0x1406B9280
+ * Callers:
+ *     ExpWatchProductTypeWork @ 0x1407586E0 (ExpWatchProductTypeWork.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     CmpAllocateTransientPoolWithQuota @ 0x140243978 (CmpAllocateTransientPoolWithQuota.c)
+ *     EtwGetKernelTraceTimestamp @ 0x140250530 (EtwGetKernelTraceTimestamp.c)
+ *     CmpIsRegistryLockAcquired @ 0x1402630C0 (CmpIsRegistryLockAcquired.c)
+ *     CmCleanupThreadInfo @ 0x140263740 (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x140263760 (CmpInitializeThreadInfo.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     CmDoVirtualTest @ 0x1402DD11C (CmDoVirtualTest.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     CmDeleteValueKey @ 0x1406B9764 (CmDeleteValueKey.c)
+ *     CmPostCallbackNotificationEx @ 0x1406BD240 (CmPostCallbackNotificationEx.c)
+ *     CmpCallCallBacksEx @ 0x1406E0B20 (CmpCallCallBacksEx.c)
+ *     CmpDoesBufferRequireCapturing @ 0x1407A97FC (CmpDoesBufferRequireCapturing.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     CmKeyBodyNeedsVirtualImage @ 0x140A15240 (CmKeyBodyNeedsVirtualImage.c)
+ *     CmKeyBodyRemapToVirtual @ 0x140A152D4 (CmKeyBodyRemapToVirtual.c)
+ *     CmObReferenceObjectByHandle @ 0x140AF2300 (CmObReferenceObjectByHandle.c)
+ *     CmpAcquireShutdownRundown @ 0x140AF23A0 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140AF23F0 (CmpReleaseShutdownRundown.c)
+ */
+
 __int64 __fastcall NtDeleteValueKey(__int64 a1, _OWORD *a2)
 {
   int v3; // edi

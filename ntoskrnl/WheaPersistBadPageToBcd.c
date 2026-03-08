@@ -1,3 +1,24 @@
+/*
+ * XREFs of WheaPersistBadPageToBcd @ 0x14060F9E0
+ * Callers:
+ *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403AEE1C (WheapCheckForAndReportErrorsFromPreviousSession.c)
+ *     EmpRemoveBadS3PageWorker @ 0x140939D70 (EmpRemoveBadS3PageWorker.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x140A0555C (WheapAttemptPhysicalPageOffline.c)
+ * Callees:
+ *     qsort_s @ 0x1403D4C90 (qsort_s.c)
+ *     BcdGetElementData @ 0x14082B504 (BcdGetElementData.c)
+ *     BcdCreateObject @ 0x14082C4D8 (BcdCreateObject.c)
+ *     BcdCloseStore @ 0x14082C570 (BcdCloseStore.c)
+ *     BcdOpenStore @ 0x14082C814 (BcdOpenStore.c)
+ *     BcdCloseObject @ 0x14082E5DC (BcdCloseObject.c)
+ *     BcdOpenObject @ 0x14082E620 (BcdOpenObject.c)
+ *     WheapCountBadPageExtents @ 0x140A0597C (WheapCountBadPageExtents.c)
+ *     WheapIsPageInList @ 0x140A059C8 (WheapIsPageInList.c)
+ *     BcdSetElementData @ 0x140A59BF0 (BcdSetElementData.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WheaPersistBadPageToBcd(__int64 a1)
 {
   _QWORD *v2; // rdi

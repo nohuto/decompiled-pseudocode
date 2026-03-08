@@ -1,3 +1,13 @@
+/*
+ * XREFs of Command_ControllerResetPostResetSuccess @ 0x1C002FA7C
+ * Callers:
+ *     Controller_InternalReset @ 0x1C0033D04 (Controller_InternalReset.c)
+ * Callees:
+ *     DynamicLock_Acquire @ 0x1C000A918 (DynamicLock_Acquire.c)
+ *     DynamicLock_Release @ 0x1C000A958 (DynamicLock_Release.c)
+ *     Command_InternalSendCommand @ 0x1C000A998 (Command_InternalSendCommand.c)
+ */
+
 __int64 __fastcall Command_ControllerResetPostResetSuccess(__int64 a1)
 {
   __int64 v2; // rcx

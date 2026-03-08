@@ -1,3 +1,13 @@
+/*
+ * XREFs of AstInitialize @ 0x140B716E4
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     RtlGetNtProductType @ 0x140303E90 (RtlGetNtProductType.c)
+ *     AstInitializeBloomFilter @ 0x14085F9F8 (AstInitializeBloomFilter.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall AstInitialize(__int64 a1, __int64 a2)
 {
   __int64 Pool2; // rax

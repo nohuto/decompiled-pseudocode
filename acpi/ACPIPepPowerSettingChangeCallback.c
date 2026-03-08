@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIPepPowerSettingChangeCallback @ 0x1C008ADB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIPepQueueWorker @ 0x1C008AF08 (ACPIPepQueueWorker.c)
+ *     PepPromoteNextNotificationState @ 0x1C008B150 (PepPromoteNextNotificationState.c)
+ */
+
 __int64 __fastcall ACPIPepPowerSettingChangeCallback(
         LPCGUID SettingGuid,
         _DWORD *Value,

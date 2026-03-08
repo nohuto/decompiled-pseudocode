@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vSteadyState@HFDBASIS32@@QEAAXJ@Z @ 0x1C018AFDC
+ * Callers:
+ *     ?bInit@BEZIER32@@QEAAHPEAU_POINTFIX@@PEAU_RECTFX@@@Z @ 0x1C0189EA0 (-bInit@BEZIER32@@QEAAHPEAU_POINTFIX@@PEAU_RECTFX@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall HFDBASIS32::vSteadyState(HFDBASIS32 *this, int a2)
 {
   int v3; // ecx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?AdjustLegacyDeviceFlags@@YAXPEAUtagPROCESSINFO@@@Z @ 0x1C00D5560
+ * Callers:
+ *     _RegisterRawInputDevices @ 0x1C00D5AC8 (_RegisterRawInputDevices.c)
+ * Callees:
+ *     PtiMouseFromQ @ 0x1C0037050 (PtiMouseFromQ.c)
+ *     HasHidTable @ 0x1C0038CB0 (HasHidTable.c)
+ *     UpdateRawMouseMode @ 0x1C00CE364 (UpdateRawMouseMode.c)
+ *     ?InProcessDeviceTypeRequestTable@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@GG@Z @ 0x1C00D5A40 (-InProcessDeviceTypeRequestTable@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@GG@Z.c)
+ *     ??0?$ObjectLockRecursive@UtagObjLock@@@?$DomainExclusiveRecursive@$$V@?$DomainSharedRecursive@$$V@@QEAA@AEAUtagObjLock@@@Z @ 0x1C00D680C (--0-$ObjectLockRecursive@UtagObjLock@@@-$DomainExclusiveRecursive@$$V@-$DomainSharedRecursive@$$.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void __fastcall AdjustLegacyDeviceFlags(struct tagPROCESSINFO *a1)
 {
   __int64 v1; // rbx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of WmipGetGuidObjectInstanceInfo @ 0x1407745C4
+ * Callers:
+ *     IoWMIDeviceObjectToInstanceName @ 0x1407744D0 (IoWMIDeviceObjectToInstanceName.c)
+ *     WmipTranslateFileHandle @ 0x1409DE90C (WmipTranslateFileHandle.c)
+ * Callees:
+ *     IoGetDeviceInstanceName @ 0x1402020C0 (IoGetDeviceInstanceName.c)
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ */
+
 __int64 __fastcall WmipGetGuidObjectInstanceInfo(__int64 a1, ULONG_PTR a2, UNICODE_STRING *a3, _DWORD *a4)
 {
   _DWORD *v5; // rbx

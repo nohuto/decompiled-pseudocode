@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiAttachSingleProcessThreadToSession @ 0x1402D51CC
+ * Callers:
+ *     MiAttachSessionGlobal @ 0x1402D509C (MiAttachSessionGlobal.c)
+ * Callees:
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiAttachSingleProcessThreadToSession(unsigned __int64 a1)
 {
   _KPROCESS *Process; // rdi

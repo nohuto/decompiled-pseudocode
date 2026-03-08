@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CChannelGroup@DirectComposition@@QEAA@XZ @ 0x1C0098658
+ * Callers:
+ *     ??1CConnection@DirectComposition@@AEAA@XZ @ 0x1C009846C (--1CConnection@DirectComposition@@AEAA@XZ.c)
+ * Callees:
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 void __fastcall DirectComposition::CChannelGroup::~CChannelGroup(DirectComposition::CChannelGroup *this)
 {
   struct _ERESOURCE *v2; // rcx

@@ -1,3 +1,21 @@
+/*
+ * XREFs of RIMApiSetCheckForLegacyTouchPad @ 0x1C003017C
+ * Callers:
+ *     RIMLoadDeviceLegacyInfo @ 0x1C00305E4 (RIMLoadDeviceLegacyInfo.c)
+ * Callees:
+ *     EtwTraceLegacyTouchPadDetectionStart @ 0x1C002EF60 (EtwTraceLegacyTouchPadDetectionStart.c)
+ *     EtwTraceLegacyTouchPadDetectionStop @ 0x1C002EF80 (EtwTraceLegacyTouchPadDetectionStop.c)
+ *     RIMGetContainerId @ 0x1C0030264 (RIMGetContainerId.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     RIMIsRunningOnDesktop @ 0x1C007B004 (RIMIsRunningOnDesktop.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     EtwTraceLegacyTouchPadDetected @ 0x1C0163AE0 (EtwTraceLegacyTouchPadDetected.c)
+ *     EtwTraceTouchPadWhiteListDeviceDetected @ 0x1C0164520 (EtwTraceTouchPadWhiteListDeviceDetected.c)
+ *     ?CheckLegacyPadControlledStatus@@YAXPEAUDEVICEINFO@@PEAU_DEVICE_OBJECT@@@Z @ 0x1C01BFCD4 (-CheckLegacyPadControlledStatus@@YAXPEAUDEVICEINFO@@PEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?IsHIDMouseDeviceRelative@@YAHPEAU_FILE_OBJECT@@PEAU_DEVICE_OBJECT@@@Z @ 0x1C01C00C4 (-IsHIDMouseDeviceRelative@@YAHPEAU_FILE_OBJECT@@PEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?IsMouseDeviceOnWhiteList@@YAHPEAUDEVICEINFO@@PEAU_DEVICE_OBJECT@@H@Z @ 0x1C01C0568 (-IsMouseDeviceOnWhiteList@@YAHPEAUDEVICEINFO@@PEAU_DEVICE_OBJECT@@H@Z.c)
+ */
+
 void __fastcall RIMApiSetCheckForLegacyTouchPad(
         struct DEVICEINFO *a1,
         struct _FILE_OBJECT *a2,

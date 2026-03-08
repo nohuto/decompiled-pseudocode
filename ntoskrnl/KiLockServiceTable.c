@@ -1,3 +1,20 @@
+/*
+ * XREFs of KiLockServiceTable @ 0x1402E3C60
+ * Callers:
+ *     KeCompactServiceTable @ 0x1402E3C04 (KeCompactServiceTable.c)
+ * Callees:
+ *     RtlpConvertFunctionEntry @ 0x1402822F0 (RtlpConvertFunctionEntry.c)
+ *     RtlCaptureImageExceptionValues @ 0x1402B274C (RtlCaptureImageExceptionValues.c)
+ *     KeExitRetpoline @ 0x1402E3E6C (KeExitRetpoline.c)
+ *     RtlLookupExceptionHandler @ 0x1403BEEE8 (RtlLookupExceptionHandler.c)
+ *     KiLockExtendedServiceTable @ 0x1403DDCF8 (KiLockExtendedServiceTable.c)
+ *     KeBugCheck @ 0x140415FE0 (KeBugCheck.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiFastGetCallersAddress @ 0x140B31CF0 (KiFastGetCallersAddress.c)
+ *     KiFatalExceptionFilter @ 0x140B7015C (KiFatalExceptionFilter.c)
+ */
+
 __int64 __fastcall KiLockServiceTable(ULONG_PTR BugCheckParameter1, __int64 a2, __int64 a3, int a4)
 {
   __int64 result; // rax

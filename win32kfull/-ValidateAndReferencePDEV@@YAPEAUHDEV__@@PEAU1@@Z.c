@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ValidateAndReferencePDEV@@YAPEAUHDEV__@@PEAU1@@Z @ 0x1C02C9E18
+ * Callers:
+ *     ??0UMPDSURFOBJ@@QEAA@PEAU_SURFOBJ@@PEAVUMPDOBJ@@@Z @ 0x1C02C958C (--0UMPDSURFOBJ@@QEAA@PEAU_SURFOBJ@@PEAVUMPDOBJ@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 HDEV __fastcall ValidateAndReferencePDEV(Gre::Base *a1)
 {
   struct Gre::Base::SESSION_GLOBALS *v2; // rdi

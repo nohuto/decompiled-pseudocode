@@ -1,3 +1,27 @@
+/*
+ * XREFs of ExpWnfCreateNameInstance @ 0x140718994
+ * Callers:
+ *     ExpNtUpdateWnfStateData @ 0x14071943C (ExpNtUpdateWnfStateData.c)
+ *     ExpWnfSubscribeWnfStateChange @ 0x140719A64 (ExpWnfSubscribeWnfStateChange.c)
+ *     NtQueryWnfStateData @ 0x140719DF0 (NtQueryWnfStateData.c)
+ *     NtCreateWnfStateName @ 0x14071BBD0 (NtCreateWnfStateName.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObLogSecurityDescriptor @ 0x1406965B0 (ObLogSecurityDescriptor.c)
+ *     ObDereferenceSecurityDescriptor @ 0x140696920 (ObDereferenceSecurityDescriptor.c)
+ *     ExpWnfFindStateName @ 0x14071A3FC (ExpWnfFindStateName.c)
+ *     ExpWnfPopulateStateData @ 0x14071B9DC (ExpWnfPopulateStateData.c)
+ *     ExpWnfGetPermanentDataStore @ 0x140794E80 (ExpWnfGetPermanentDataStore.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpWnfCreateNameInstance(
         unsigned __int64 a1,
         unsigned __int64 a2,

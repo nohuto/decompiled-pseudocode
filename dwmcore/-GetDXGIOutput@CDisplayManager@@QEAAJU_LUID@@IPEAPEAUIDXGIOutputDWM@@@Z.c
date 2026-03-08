@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?GetDXGIOutput@CDisplayManager@@QEAAJU_LUID@@IPEAPEAUIDXGIOutputDWM@@@Z @ 0x18028BAFC
+ * Callers:
+ *     ?PostPresent@CLegacySwapChain@@MEAAJ_N0@Z @ 0x1800C6AC0 (-PostPresent@CLegacySwapChain@@MEAAJ_N0@Z.c)
+ *     ?EnsureValidVidPnTargetId@CLegacySwapChain@@MEBAXXZ @ 0x1801040A0 (-EnsureValidVidPnTargetId@CLegacySwapChain@@MEBAXXZ.c)
+ *     ?UpdateRefreshRate@CLegacySwapChain@@UEAAJXZ @ 0x1802984E0 (-UpdateRefreshRate@CLegacySwapChain@@UEAAJXZ.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180004700 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z @ 0x1800733C4 (-TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?InternalGetAdapter@CDisplayManager@@AEAAJU_LUID@@PEAPEAUIDXGIAdapter1@@@Z @ 0x1800CD110 (-InternalGetAdapter@CDisplayManager@@AEAAJU_LUID@@PEAPEAUIDXGIAdapter1@@@Z.c)
+ *     ?InternalGetDXGIOutput@CDisplayManager@@AEAAJPEAUIDXGIAdapter1@@IPEAPEAUIDXGIOutputDWM@@@Z @ 0x18028BBB8 (-InternalGetDXGIOutput@CDisplayManager@@AEAAJPEAUIDXGIAdapter1@@IPEAPEAUIDXGIOutputDWM@@@Z.c)
+ */
+
 __int64 __fastcall CDisplayManager::GetDXGIOutput(
         CDisplayManager *this,
         struct _LUID a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0qpxxxqqxpu_EtwWriteTransfer @ 0x1C0032D80
+ * Callers:
+ *     ?ReportSegment@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00BAC78 (-ReportSegment@VIDMM_SEGMENT@@QEAAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BDEC (McGenEventWrite_EtwWriteTransfer.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0qpxxxqqxpu_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,

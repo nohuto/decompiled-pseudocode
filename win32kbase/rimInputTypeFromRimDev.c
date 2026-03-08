@@ -1,3 +1,11 @@
+/*
+ * XREFs of rimInputTypeFromRimDev @ 0x1C01A10C0
+ * Callers:
+ *     RIMIDEIsCompatibleDevice @ 0x1C01C4D48 (RIMIDEIsCompatibleDevice.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall rimInputTypeFromRimDev(__int64 a1)
 {
   char v1; // al

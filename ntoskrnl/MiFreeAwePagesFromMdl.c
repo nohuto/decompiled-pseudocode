@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiFreeAwePagesFromMdl @ 0x140647764
+ * Callers:
+ *     MiAllocateUserPhysicalPages @ 0x140A3D6E8 (MiAllocateUserPhysicalPages.c)
+ * Callees:
+ *     MiFreePagesFromMdl @ 0x1402C0DD0 (MiFreePagesFromMdl.c)
+ *     MiFreeContiguousLargePageRun @ 0x14064780C (MiFreeContiguousLargePageRun.c)
+ *     MiFreePhysicalRange @ 0x140648248 (MiFreePhysicalRange.c)
+ *     MiReadyLargeAwePageForFree @ 0x1406496AC (MiReadyLargeAwePageForFree.c)
+ */
+
 void *__fastcall MiFreeAwePagesFromMdl(__int64 a1, ULONG_PTR a2)
 {
   __int64 v3; // r15

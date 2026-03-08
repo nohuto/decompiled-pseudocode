@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfCtxInit @ 0x140AE19B4
+ * Callers:
+ *     VfMiscPluginEntry @ 0x140ADD684 (VfMiscPluginEntry.c)
+ * Callees:
+ *     KeFreeXStateContext @ 0x14036A544 (KeFreeXStateContext.c)
+ *     KeAllocateXStateContext @ 0x14036A7A0 (KeAllocateXStateContext.c)
+ */
+
 void __fastcall VfCtxInit(__int64 a1, __int64 a2)
 {
   _DWORD *v2; // rbx

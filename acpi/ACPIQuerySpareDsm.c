@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIQuerySpareDsm @ 0x1C0089418
+ * Callers:
+ *     ACPIInternalSetSpare @ 0x1C0088498 (ACPIInternalSetSpare.c)
+ *     ACPIModuleGetSpareProperties @ 0x1C0089260 (ACPIModuleGetSpareProperties.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIFreeDataBuffs @ 0x1C00482C4 (AMLIFreeDataBuffs.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ *     ACPIEvaluateSpareDsm @ 0x1C0089068 (ACPIEvaluateSpareDsm.c)
+ */
+
 __int64 __fastcall ACPIQuerySpareDsm(__int64 a1, void *a2)
 {
   _QWORD *v2; // rcx

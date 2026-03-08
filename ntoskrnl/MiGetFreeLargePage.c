@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiGetFreeLargePage @ 0x14034FBD0
+ * Callers:
+ *     MiGetFreeLargePagesSearchTypes @ 0x14034F8C0 (MiGetFreeLargePagesSearchTypes.c)
+ * Callees:
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MiGetPfnChannel @ 0x140334470 (MiGetPfnChannel.c)
+ *     MiGetPfnPageSizeIndex @ 0x14034D770 (MiGetPfnPageSizeIndex.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x14034FE70 (MiUnlinkNodeLargePageHelper.c)
+ *     MiBeginPageAccessor @ 0x140350290 (MiBeginPageAccessor.c)
+ */
+
 __int64 __fastcall MiGetFreeLargePage(__int64 a1)
 {
   _QWORD *v2; // rcx

@@ -1,3 +1,27 @@
+/*
+ * XREFs of SdbReadDWORDTag @ 0x14079FC18
+ * Callers:
+ *     SdbpCheckApplicationTypeAttributes @ 0x14066B804 (SdbpCheckApplicationTypeAttributes.c)
+ *     SdbGetDatabaseEdition @ 0x14079CA70 (SdbGetDatabaseEdition.c)
+ *     KsepDbGetDriverShimsInternal @ 0x14079EF10 (KsepDbGetDriverShimsInternal.c)
+ *     InitOnceScanIndexes @ 0x1407A16B0 (InitOnceScanIndexes.c)
+ *     SdbpCheckAllAttributes @ 0x1407A24E8 (SdbpCheckAllAttributes.c)
+ *     KsepDbGetShimInfo @ 0x140800448 (KsepDbGetShimInfo.c)
+ *     SdbpGetExeEntryFlags @ 0x14084BD1C (SdbpGetExeEntryFlags.c)
+ *     KsepDbReadKData @ 0x140973EE8 (KsepDbReadKData.c)
+ *     SdbQueryDataExTagID @ 0x140A4C328 (SdbQueryDataExTagID.c)
+ *     SdbpCheckOSKind @ 0x140A4DBF0 (SdbpCheckOSKind.c)
+ *     SdbpCheckRuntimePlatform @ 0x140A4DCC0 (SdbpCheckRuntimePlatform.c)
+ *     SdbpGetDeviceDWORD @ 0x140A4E1B8 (SdbpGetDeviceDWORD.c)
+ *     SdbpGetMatchingTextAttributes @ 0x140A4E208 (SdbpGetMatchingTextAttributes.c)
+ *     SdbpGetRegistryMatchingAttributes @ 0x140A4E434 (SdbpGetRegistryMatchingAttributes.c)
+ *     SdbMergeIsEntryUpdated @ 0x140A50A7C (SdbMergeIsEntryUpdated.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbpReadTagData @ 0x1407A21B8 (SdbpReadTagData.c)
+ *     SdbGetTagFromTagID @ 0x1407A2A70 (SdbGetTagFromTagID.c)
+ */
+
 __int64 __fastcall SdbReadDWORDTag(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // edi

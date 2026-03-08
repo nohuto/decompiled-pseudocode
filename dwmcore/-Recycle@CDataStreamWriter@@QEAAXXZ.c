@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Recycle@CDataStreamWriter@@QEAAXXZ @ 0x1800446C0
+ * Callers:
+ *     ?EnsureSize@CChannel@@AEAAJI@Z @ 0x180043C0C (-EnsureSize@CChannel@@AEAAJI@Z.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x180044440 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ *     ?ReleaseCommandBatch@CChannel@@UEAAXXZ @ 0x1801CD440 (-ReleaseCommandBatch@CChannel@@UEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CDataStreamWriter::Recycle(CDataStreamWriter *this)
 {
   CDataStreamWriter **v1; // rdx

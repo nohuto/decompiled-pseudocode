@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0ppp_EtwWriteTransfer @ 0x1C0040CF8
+ * Callers:
+ *     TUNNEL_EvtWorkitemPnpInterfaceNotification @ 0x1C008D8F0 (TUNNEL_EvtWorkitemPnpInterfaceNotification.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001680 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ */
+
 NTSTATUS McTemplateK0ppp_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-50h] BYREF

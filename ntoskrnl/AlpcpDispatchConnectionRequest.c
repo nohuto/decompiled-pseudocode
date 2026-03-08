@@ -1,3 +1,20 @@
+/*
+ * XREFs of AlpcpDispatchConnectionRequest @ 0x140717CC0
+ * Callers:
+ *     AlpcpProcessConnectionRequest @ 0x140717E20 (AlpcpProcessConnectionRequest.c)
+ *     NtSecureConnectPort @ 0x140774850 (NtSecureConnectPort.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectSafe @ 0x1402CBCB0 (ObReferenceObjectSafe.c)
+ *     PsGetProcessJob @ 0x1402F5B40 (PsGetProcessJob.c)
+ *     PsGetJobEffectiveFreezeCount @ 0x1405A1878 (PsGetJobEffectiveFreezeCount.c)
+ *     AlpcpSetOwnerPortMessage @ 0x140716D14 (AlpcpSetOwnerPortMessage.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1407CBD90 (AlpcpCompleteDispatchMessage.c)
+ */
+
 __int64 __fastcall AlpcpDispatchConnectionRequest(__int64 a1)
 {
   _QWORD *v1; // r13

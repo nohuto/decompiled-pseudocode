@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiUseLargeDriverPage @ 0x140793D44
+ * Callers:
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ *     MiHandleBootImage @ 0x140B3BA98 (MiHandleBootImage.c)
+ * Callees:
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ */
+
 __int64 __fastcall MiUseLargeDriverPage(PCUNICODE_STRING String1)
 {
   __int64 i; // rbx

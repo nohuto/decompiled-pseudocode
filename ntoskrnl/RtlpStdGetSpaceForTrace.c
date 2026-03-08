@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpStdGetSpaceForTrace @ 0x1405A76A4
+ * Callers:
+ *     RtlpStdLogCapturedStackTrace @ 0x1405A7764 (RtlpStdLogCapturedStackTrace.c)
+ * Callees:
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpStdExtendLowerWatermark @ 0x1405A7300 (RtlpStdExtendLowerWatermark.c)
+ */
+
 PSLIST_ENTRY __fastcall RtlpStdGetSpaceForTrace(__int64 a1, unsigned __int16 a2)
 {
   __int64 v2; // rsi

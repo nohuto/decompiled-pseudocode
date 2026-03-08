@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DestroyRegion@@YAXPEAPEAUHRGN__@@@Z @ 0x1C00B5B3C
+ * Callers:
+ *     CleanupGDI @ 0x1C00B57A0 (CleanupGDI.c)
+ * Callees:
+ *     GreDeleteObject @ 0x1C0043CD0 (GreDeleteObject.c)
+ *     GreSetRegionOwner @ 0x1C0052260 (GreSetRegionOwner.c)
+ */
+
 void __fastcall DestroyRegion(HRGN *a1)
 {
   struct HOBJ__ *v2; // rcx

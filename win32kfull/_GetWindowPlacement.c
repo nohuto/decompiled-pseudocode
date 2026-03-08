@@ -1,3 +1,20 @@
+/*
+ * XREFs of _GetWindowPlacement @ 0x1C0006898
+ * Callers:
+ *     NtUserGetWindowPlacement @ 0x1C0006790 (NtUserGetWindowPlacement.c)
+ *     NtUserGetInternalWindowPos @ 0x1C01D3200 (NtUserGetInternalWindowPos.c)
+ * Callees:
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     GetRect @ 0x1C0067778 (GetRect.c)
+ *     _MonitorFromRect @ 0x1C00AEE80 (_MonitorFromRect.c)
+ *     UpdateCheckpoint @ 0x1C01009F4 (UpdateCheckpoint.c)
+ *     CkptUpdate @ 0x1C0100B24 (CkptUpdate.c)
+ *     GetMonitorWorkRect @ 0x1C0101744 (GetMonitorWorkRect.c)
+ *     GetMonitorRect @ 0x1C0101788 (GetMonitorRect.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall GetWindowPlacement(struct tagWND *a1, __int64 a2, int a3)
 {
   int v6; // edi

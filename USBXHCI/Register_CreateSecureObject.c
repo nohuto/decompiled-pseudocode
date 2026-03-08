@@ -1,3 +1,13 @@
+/*
+ * XREFs of Register_CreateSecureObject @ 0x1C007A1F8
+ * Callers:
+ *     Register_Create @ 0x1C006FE40 (Register_Create.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C0052470 (SecureChannel_SendRequestSynchronously.c)
+ */
+
 __int64 __fastcall Register_CreateSecureObject(__int64 a1)
 {
   __m128i *v1; // rdx

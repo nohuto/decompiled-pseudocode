@@ -1,3 +1,16 @@
+/*
+ * XREFs of ProcessCommandNvmePacket @ 0x1C00244D0
+ * Callers:
+ *     NVMeHwBuildIo @ 0x1C0001010 (NVMeHwBuildIo.c)
+ * Callees:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     NVMeSplitIoCommand @ 0x1C0001CA0 (NVMeSplitIoCommand.c)
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     SetPrpFromSrb @ 0x1C001B51C (SetPrpFromSrb.c)
+ *     NVMeSetSenseData @ 0x1C0024238 (NVMeSetSenseData.c)
+ */
+
 __int64 __fastcall ProcessCommandNvmePacket(__int64 a1, __int64 a2)
 {
   unsigned int v3; // r15d

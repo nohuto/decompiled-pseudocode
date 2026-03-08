@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnprSwapFinalize @ 0x140561300
+ * Callers:
+ *     PnprSwap @ 0x1405610DC (PnprSwap.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PnprRecopyMirrorPages @ 0x140560F5C (PnprRecopyMirrorPages.c)
+ *     PnprGetMillisecondCounter @ 0x140A99834 (PnprGetMillisecondCounter.c)
+ */
+
 __int64 PnprSwapFinalize()
 {
   int v0; // ebx

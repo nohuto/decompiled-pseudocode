@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopDirectedDripsQueryRegistryValues @ 0x140856628
+ * Callers:
+ *     PopDirectedDripsQueryEnabledMitigations @ 0x1408563FC (PopDirectedDripsQueryEnabledMitigations.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ */
+
 int __fastcall PopDirectedDripsQueryRegistryValues(__int64 a1, _DWORD *a2)
 {
   HANDLE *v2; // rdi

@@ -1,3 +1,21 @@
+/*
+ * XREFs of VidSchDestroySyncObject @ 0x1C00AA4A0
+ * Callers:
+ *     ?DestroyOneAllocation@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@_N@Z @ 0x1C0094640 (-DestroyOneAllocation@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_DEVICE@@PEAU_VIDMM_GLOBAL_ALLOC@@_N@Z.c)
+ *     ?CreateOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@K_K1KKKU_D3DDDI_SEGMENTPREFERENCE@@U_DXGK_ALLOCATIONINFOFLAGS@@U_DXGK_ALLOCATIONINFOFLAGS2@@PEAVDXGADAPTERALLOCATION@@PEAX6KE6PEAVVIDMM_PAGE_TABLE_BASE@@PEAPEAU_VIDMM_CROSSADAPTER_ALLOC@@PEAPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C009F370 (-CreateOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@K_K1KKKU_D3DDDI_SEGMENTPREFERENCE@@U_D.c)
+ *     ?DestroyState@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ @ 0x1C00A9DAC (-DestroyState@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ.c)
+ *     ?DestroyPagingFenceObjects@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00E1A38 (-DestroyPagingFenceObjects@VIDMM_GLOBAL@@QEAAXXZ.c)
+ * Callees:
+ *     VidSchiReleaseSyncObjectReference @ 0x1C0004050 (VidSchiReleaseSyncObjectReference.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     McTemplateK0ppqqpx_EtwWriteTransfer @ 0x1C002EC20 (McTemplateK0ppqqpx_EtwWriteTransfer.c)
+ *     McTemplateK0ppqqppqi_EtwWriteTransfer @ 0x1C002ECD8 (McTemplateK0ppqqppqi_EtwWriteTransfer.c)
+ *     McTemplateK0ppqqpqq_EtwWriteTransfer @ 0x1C002EDB0 (McTemplateK0ppqqpqq_EtwWriteTransfer.c)
+ *     McTemplateK0ppqqpt_EtwWriteTransfer @ 0x1C002EE6C (McTemplateK0ppqqpt_EtwWriteTransfer.c)
+ *     VidSchTimeoutSyncObject @ 0x1C0040B90 (VidSchTimeoutSyncObject.c)
+ */
+
 __int64 __fastcall VidSchDestroySyncObject(_VIDSCH_SYNC_OBJECT *P, __int64 a2)
 {
   __int64 v3; // r8

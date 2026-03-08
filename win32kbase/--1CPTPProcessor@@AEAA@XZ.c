@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1CPTPProcessor@@AEAA@XZ @ 0x1C020CC9C
+ * Callers:
+ *     ?RemoveProcessor@CPTPProcessorFactory@@SAXPEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C020F07C (-RemoveProcessor@CPTPProcessorFactory@@SAXPEAUtagHID_POINTER_DEVICE_INFO@@@Z.c)
+ * Callees:
+ *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C007D0A0 (-SetEmpty@CInputDest@@QEAAXXZ.c)
+ *     ??1CTouchProcessor@@QEAA@XZ @ 0x1C00954DC (--1CTouchProcessor@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CPTPProcessor::~CPTPProcessor(CPTPProcessor *this)
 {
   __int64 v2; // rcx

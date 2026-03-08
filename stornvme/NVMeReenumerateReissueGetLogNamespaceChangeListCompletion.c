@@ -1,3 +1,15 @@
+/*
+ * XREFs of NVMeReenumerateReissueGetLogNamespaceChangeListCompletion @ 0x1C0022A80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     GetLocalCommand @ 0x1C0009C80 (GetLocalCommand.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ *     NVMeReenumerateMergeNamespaceChangeList @ 0x1C0021848 (NVMeReenumerateMergeNamespaceChangeList.c)
+ *     NVMeReenumerateNameSpaceStart @ 0x1C002263C (NVMeReenumerateNameSpaceStart.c)
+ */
+
 __int16 __fastcall NVMeReenumerateReissueGetLogNamespaceChangeListCompletion(__int64 a1, __int64 a2)
 {
   unsigned __int64 LocalCommand; // r14

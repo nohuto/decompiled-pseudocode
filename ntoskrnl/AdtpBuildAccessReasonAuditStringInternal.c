@@ -1,3 +1,30 @@
+/*
+ * XREFs of AdtpBuildAccessReasonAuditStringInternal @ 0x14066DCEC
+ * Callers:
+ *     AdtpBuildAccessReasonAuditString @ 0x14066D780 (AdtpBuildAccessReasonAuditString.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     RtlGetAce @ 0x140245EE0 (RtlGetAce.c)
+ *     RtlGetDaclSecurityDescriptor @ 0x140299320 (RtlGetDaclSecurityDescriptor.c)
+ *     SeConvertSecurityDescriptorToStringSecurityDescriptor @ 0x1402C0D20 (SeConvertSecurityDescriptorToStringSecurityDescriptor.c)
+ *     StringCchPrintfW @ 0x1402FAA78 (StringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     AdtpFormatPrefix @ 0x14066EAE4 (AdtpFormatPrefix.c)
+ *     StringCchPrintfExW @ 0x14066EC40 (StringCchPrintfExW.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D26A0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406DB5A0 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406DB640 (RtlCreateAcl.c)
+ *     RtlAddAce @ 0x1406DB760 (RtlAddAce.c)
+ *     RtlIntegerToUnicodeString @ 0x1407805C0 (RtlIntegerToUnicodeString.c)
+ *     AdtpBuildPrivilegeAuditString @ 0x140A57DA0 (AdtpBuildPrivilegeAuditString.c)
+ *     AdtpBuildAccessesString @ 0x140A58C90 (AdtpBuildAccessesString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AdtpBuildAccessReasonAuditStringInternal(
         int a1,
         int a2,

@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwpSetProviderTraitsUm @ 0x140695AC4
+ * Callers:
+ *     NtTraceControl @ 0x140694040 (NtTraceControl.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     EtwpSetProviderTraitsCommon @ 0x140695C68 (EtwpSetProviderTraitsCommon.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     EtwpEventWriteRegistrationStatus @ 0x1409E0B4C (EtwpEventWriteRegistrationStatus.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpSetProviderTraitsUm(__int64 a1, int a2, int a3)
 {
   PVOID v6; // rsi

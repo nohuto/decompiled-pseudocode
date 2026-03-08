@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopRemovePagesRunsSort @ 0x14055B4F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IopRemovePagesRunsSort(unsigned __int64 *a1, unsigned __int64 *a2)
 {
   unsigned __int64 v2; // rcx

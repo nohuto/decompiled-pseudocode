@@ -1,3 +1,20 @@
+/*
+ * XREFs of _PnpDispatchDevice @ 0x1406C8E70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _PnpMapCmStatusToDispatchStatus @ 0x140244BE4 (_PnpMapCmStatusToDispatchStatus.c)
+ *     _CmGetDeviceMappedProperty @ 0x1406C9070 (_CmGetDeviceMappedProperty.c)
+ *     _CmOpenDeviceRegKey @ 0x1406D3B3C (_CmOpenDeviceRegKey.c)
+ *     _CmValidateDeviceName @ 0x1406D3DF0 (_CmValidateDeviceName.c)
+ *     _CmSetDeviceMappedProperty @ 0x14076C5D4 (_CmSetDeviceMappedProperty.c)
+ *     _CmCreateDevice @ 0x140789278 (_CmCreateDevice.c)
+ *     _CmGetDeviceMappedPropertyKeys @ 0x1407FCE14 (_CmGetDeviceMappedPropertyKeys.c)
+ *     _CmGetMatchingDeviceList @ 0x140823774 (_CmGetMatchingDeviceList.c)
+ *     _CmGetDeviceMappedPropertyLocales @ 0x140839270 (_CmGetDeviceMappedPropertyLocales.c)
+ *     _CmDeleteDevice @ 0x140A5E810 (_CmDeleteDevice.c)
+ */
+
 __int64 __fastcall PnpDispatchDevice(__int64 a1, __int64 (__fastcall *a2)(), __int64 a3, int a4, __int64 a5)
 {
   __int64 (__fastcall *v5)(); // r10

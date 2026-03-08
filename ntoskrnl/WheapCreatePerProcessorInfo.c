@@ -1,3 +1,13 @@
+/*
+ * XREFs of WheapCreatePerProcessorInfo @ 0x140B70AF4
+ * Callers:
+ *     WheaInitialize @ 0x140B3E1A0 (WheaInitialize.c)
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 WheapCreatePerProcessorInfo()
 {
   ULONG_PTR v0; // rsi

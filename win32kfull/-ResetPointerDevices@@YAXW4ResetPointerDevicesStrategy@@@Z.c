@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ResetPointerDevices@@YAXW4ResetPointerDevicesStrategy@@@Z @ 0x1C012E290
+ * Callers:
+ *     EndPointerDeviceContacts @ 0x1C012E2F8 (EndPointerDeviceContacts.c)
+ *     SuppressPointerDeviceContacts @ 0x1C012E424 (SuppressPointerDeviceContacts.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall ResetPointerDevices(__int64 a1)
 {
   unsigned int v1; // ebx

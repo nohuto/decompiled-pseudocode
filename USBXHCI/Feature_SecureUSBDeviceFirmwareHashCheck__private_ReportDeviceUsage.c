@@ -1,3 +1,13 @@
+/*
+ * XREFs of Feature_SecureUSBDeviceFirmwareHashCheck__private_ReportDeviceUsage @ 0x1C001F91C
+ * Callers:
+ *     Isoch_RetrieveNextStage @ 0x1C0003800 (Isoch_RetrieveNextStage.c)
+ *     TR_ValidateSecureTransferType @ 0x1C0012478 (TR_ValidateSecureTransferType.c)
+ * Callees:
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C001F210 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C001F488 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ */
+
 void Feature_SecureUSBDeviceFirmwareHashCheck__private_ReportDeviceUsage()
 {
   __int64 v0; // [rsp+30h] [rbp+8h]

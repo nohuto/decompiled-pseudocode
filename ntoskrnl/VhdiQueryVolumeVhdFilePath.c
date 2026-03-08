@@ -1,3 +1,13 @@
+/*
+ * XREFs of VhdiQueryVolumeVhdFilePath @ 0x140B97E10
+ * Callers:
+ *     VhdiInitializeBootDisk @ 0x140B97B20 (VhdiInitializeBootDisk.c)
+ * Callees:
+ *     ZwDeviceIoControlFile @ 0x1404123F0 (ZwDeviceIoControlFile.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void *__fastcall VhdiQueryVolumeVhdFilePath(HANDLE FileHandle)
 {
   ULONG OutputBufferLength; // edi

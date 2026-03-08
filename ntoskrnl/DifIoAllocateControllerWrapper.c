@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifIoAllocateControllerWrapper @ 0x1405DAA60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     IoAllocateController @ 0x1405542D0 (IoAllocateController.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 void __fastcall DifIoAllocateControllerWrapper(
         PCONTROLLER_OBJECT ControllerObject,
         PDEVICE_OBJECT DeviceObject,

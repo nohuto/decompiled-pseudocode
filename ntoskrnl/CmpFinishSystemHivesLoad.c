@@ -1,3 +1,50 @@
+/*
+ * XREFs of CmpFinishSystemHivesLoad @ 0x140815160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     CmpAllocatePool @ 0x140243878 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     CmCleanupThreadInfo @ 0x140263740 (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x140263760 (CmpInitializeThreadInfo.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x1402B2B14 (CmpRecheckHiveVolumePolicy.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     CmpNotifyMachineHiveLoaded @ 0x1403887C0 (CmpNotifyMachineHiveLoaded.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     TmEnableCallbacks @ 0x1403D2930 (TmEnableCallbacks.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpLockRegistryExclusive @ 0x1406B6454 (CmpLockRegistryExclusive.c)
+ *     CmpFlushHive @ 0x1406BEA70 (CmpFlushHive.c)
+ *     CmpLinkHiveToMaster @ 0x140731250 (CmpLinkHiveToMaster.c)
+ *     CmpAddToHiveFileList @ 0x140732E68 (CmpAddToHiveFileList.c)
+ *     CmRmFinalizeRecovery @ 0x140733440 (CmRmFinalizeRecovery.c)
+ *     CmpInitCmRM @ 0x1407334D4 (CmpInitCmRM.c)
+ *     PsBootPhaseComplete @ 0x140812760 (PsBootPhaseComplete.c)
+ *     CmpMountPreloadedHives @ 0x140812EF4 (CmpMountPreloadedHives.c)
+ *     CmpCreatePerfKeys @ 0x14081300C (CmpCreatePerfKeys.c)
+ *     ExpRefreshSystemTime @ 0x1408132EC (ExpRefreshSystemTime.c)
+ *     CmpLoadSystemVersionData @ 0x14081469C (CmpLoadSystemVersionData.c)
+ *     CmpLinkKeyToHive @ 0x1408159D8 (CmpLinkKeyToHive.c)
+ *     CmpSetVersionData @ 0x140815CD8 (CmpSetVersionData.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x140816360 (CmpHiveRootSecurityDescriptor.c)
+ *     CmpInterlockedFunction @ 0x140816A24 (CmpInterlockedFunction.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ *     CmpIsHiveLoadUnloadRundownActive @ 0x140AF2444 (CmpIsHiveLoadUnloadRundownActive.c)
+ */
+
 __int64 __fastcall CmpFinishSystemHivesLoad(PRKEVENT Event)
 {
   char v2; // r12

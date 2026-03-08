@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?Initialize@InkDevice@@UEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0246650
+ * Callers:
+ *     ?OnDeviceAttached@InkProcessor@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0240D1C (-OnDeviceAttached@InkProcessor@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00F8FF0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?GetHidDesc@RimBackedDeviceBase@Rim@@QEBAPEBUtagHIDDESC@@XZ @ 0x1C022A9B0 (-GetHidDesc@RimBackedDeviceBase@Rim@@QEBAPEBUtagHIDDESC@@XZ.c)
+ *     ?Initialize@RimBackedDeviceBase@Rim@@UEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C022AA90 (-Initialize@RimBackedDeviceBase@Rim@@UEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?SendSynchronousIoControl@RimBackedDeviceBase@Rim@@QEBAJKPEAXK0KPEAK@Z @ 0x1C022AB60 (-SendSynchronousIoControl@RimBackedDeviceBase@Rim@@QEBAJKPEAXK0KPEAK@Z.c)
+ *     ?GetDeviceCaps@InkDeviceParser@@SAJPEAU_HIDP_PREPARSED_DATA@@PEAUUsageValueInfo@@1PEAVCapabilities@InkDevice@@@Z @ 0x1C02416E8 (-GetDeviceCaps@InkDeviceParser@@SAJPEAU_HIDP_PREPARSED_DATA@@PEAUUsageValueInfo@@1PEAVCapabiliti.c)
+ *     ?GetDeviceFeatures@InkDeviceParser@@SAJPEAU_HIDP_PREPARSED_DATA@@PEBXKPEBUUsageValueInfo@@PEAVFeatures@InkDevice@@@Z @ 0x1C0241940 (-GetDeviceFeatures@InkDeviceParser@@SAJPEAU_HIDP_PREPARSED_DATA@@PEBXKPEBUUsageValueInfo@@PEAVFe.c)
+ *     ?IsInkDevice@InkDeviceParser@@SA_NGGPEBG0@Z @ 0x1C0241A50 (-IsInkDevice@InkDeviceParser@@SA_NGGPEBG0@Z.c)
+ *     ?UnInitialize@InkDevice@@UEAAXXZ @ 0x1C02474E0 (-UnInitialize@InkDevice@@UEAAXXZ.c)
+ *     ?ValidateDeviceFeatures@InkDevice@@AEBAJXZ @ 0x1C024756C (-ValidateDeviceFeatures@InkDevice@@AEBAJXZ.c)
+ */
+
 __int64 __fastcall InkDevice::Initialize(InkDevice *this, struct RawInputManagerDeviceObject *a2)
 {
   int v3; // eax

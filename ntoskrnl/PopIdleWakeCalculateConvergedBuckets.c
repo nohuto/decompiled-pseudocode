@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopIdleWakeCalculateConvergedBuckets @ 0x140997000
+ * Callers:
+ *     PopIdleWakeTraceWakeSourceDiagnostic @ 0x140998420 (PopIdleWakeTraceWakeSourceDiagnostic.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopIdleWakeCalculateConvergedBuckets(__int64 a1, __int64 a2)
 {
   _OWORD *v2; // r8

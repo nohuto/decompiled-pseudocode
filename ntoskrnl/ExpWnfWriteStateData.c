@@ -1,3 +1,24 @@
+/*
+ * XREFs of ExpWnfWriteStateData @ 0x14071B1B0
+ * Callers:
+ *     ExpNtUpdateWnfStateData @ 0x14071943C (ExpNtUpdateWnfStateData.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExpWnfComposeValueName @ 0x14071C674 (ExpWnfComposeValueName.c)
+ *     ExpWnfAcquirePermanentDataStoreHandle @ 0x140793770 (ExpWnfAcquirePermanentDataStoreHandle.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpWnfWriteStateData(__int64 a1, const void *a2, unsigned int a3, int a4, int a5)
 {
   size_t v6; // r13

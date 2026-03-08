@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpProcessBusRelations @ 0x140862020
+ * Callers:
+ *     PnpProcessRelation @ 0x140861E18 (PnpProcessRelation.c)
+ * Callees:
+ *     PnpProcessRelation @ 0x140861E18 (PnpProcessRelation.c)
+ */
+
 __int64 __fastcall PnpProcessBusRelations(
         __int64 a1,
         unsigned int a2,

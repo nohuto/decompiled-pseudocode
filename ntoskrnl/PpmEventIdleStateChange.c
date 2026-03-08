@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmEventIdleStateChange @ 0x1402E19C8
+ * Callers:
+ *     PoIdle @ 0x14022D240 (PoIdle.c)
+ *     PpmTracePerfIdleRundown @ 0x1405959F0 (PpmTracePerfIdleRundown.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall PpmEventIdleStateChange(int a1, int a2)
 {
   __int64 result; // rax

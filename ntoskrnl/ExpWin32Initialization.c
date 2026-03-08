@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpWin32Initialization @ 0x140B3F718
+ * Callers:
+ *     ExpInitSystemPhase1 @ 0x140B3F0B8 (ExpInitSystemPhase1.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObCreateObjectType @ 0x14080CB00 (ObCreateObjectType.c)
+ */
+
 bool ExpWin32Initialization()
 {
   int v0; // eax

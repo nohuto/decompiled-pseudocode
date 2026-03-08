@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DNG_CopyMemory@@YAHPEAU_DNGINTERNALDATA@@PEAX1J@Z @ 0x1C014D9F6
+ * Callers:
+ *     DNG_StretchCol @ 0x1C00034CC (DNG_StretchCol.c)
+ *     RenderNineGridInternal @ 0x1C0080D30 (RenderNineGridInternal.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall DNG_CopyMemory(struct _DNGINTERNALDATA *a1, char *a2, char *a3, int a4)
 {
   size_t v6; // r8

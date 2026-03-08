@@ -1,3 +1,19 @@
+/*
+ * XREFs of ACPIBusIrpDeviceEnumerated @ 0x1C007E480
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIDispatchForwardIrp @ 0x1C0001770 (ACPIDispatchForwardIrp.c)
+ *     ACPIQueryDeviceBiosNameEx @ 0x1C0043BC4 (ACPIQueryDeviceBiosNameEx.c)
+ *     ACPIIrpSetPagableCompletionRoutineAndForward @ 0x1C007BF98 (ACPIIrpSetPagableCompletionRoutineAndForward.c)
+ *     ACPIQueryCacheCoherencyAttribute @ 0x1C0081C08 (ACPIQueryCacheCoherencyAttribute.c)
+ *     ACPIQueryPhysicalDeviceLocation @ 0x1C0081D08 (ACPIQueryPhysicalDeviceLocation.c)
+ *     AcpiQueryPciDeviceChassisLabel @ 0x1C0089EB4 (AcpiQueryPciDeviceChassisLabel.c)
+ */
+
 __int64 __fastcall ACPIBusIrpDeviceEnumerated(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 {
   unsigned __int8 MinorFunction; // r13

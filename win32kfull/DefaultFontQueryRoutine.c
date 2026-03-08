@@ -1,3 +1,11 @@
+/*
+ * XREFs of DefaultFontQueryRoutine @ 0x1C03B7770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C01165A4 (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ */
+
 __int64 __fastcall DefaultFontQueryRoutine(unsigned __int16 *a1, int a2, _BYTE *a3, __int64 a4, __int64 a5)
 {
   __int64 v8; // r11

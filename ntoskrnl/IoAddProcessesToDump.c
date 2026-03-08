@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoAddProcessesToDump @ 0x14055A1A4
+ * Callers:
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14055A46C (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IopLiveDumpAddProcesses @ 0x140A970D0 (IopLiveDumpAddProcesses.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     MmAddRangeToCrashDump @ 0x14062DD30 (MmAddRangeToCrashDump.c)
+ */
+
 __int64 __fastcall IoAddProcessesToDump(__int64 a1, __int64 (__fastcall *a2)(__int64, __int64 *, __int64), __int64 a3)
 {
   __int64 *v3; // rbx

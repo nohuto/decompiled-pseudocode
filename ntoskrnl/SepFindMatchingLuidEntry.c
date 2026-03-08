@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepFindMatchingLuidEntry @ 0x1409CE298
+ * Callers:
+ *     SepIsValidProcUniqueLuid @ 0x1409CE334 (SepIsValidProcUniqueLuid.c)
+ * Callees:
+ *     RtlLookupEntryHashTable @ 0x1402B7DA0 (RtlLookupEntryHashTable.c)
+ *     RtlGetNextEntryHashTable @ 0x1402CC980 (RtlGetNextEntryHashTable.c)
+ */
+
 unsigned __int64 __fastcall SepFindMatchingLuidEntry(
         PRTL_DYNAMIC_HASH_TABLE HashTable,
         struct _LIST_ENTRY **a2,

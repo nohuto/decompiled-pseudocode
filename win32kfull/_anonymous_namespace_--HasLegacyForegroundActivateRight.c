@@ -1,3 +1,12 @@
+/*
+ * XREFs of _anonymous_namespace_::HasLegacyForegroundActivateRight @ 0x1C00E446C
+ * Callers:
+ *     _anonymous_namespace_::CheckAllowForeground @ 0x1C003D0C4 (_anonymous_namespace_--CheckAllowForeground.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C003F908 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     ??0CAutoPushLockSh@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00E45E8 (--0CAutoPushLockSh@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ */
+
 char __fastcall anonymous_namespace_::HasLegacyForegroundActivateRight(__int64 a1)
 {
   __int64 ProcessInheritedFromUniqueProcessId; // rax

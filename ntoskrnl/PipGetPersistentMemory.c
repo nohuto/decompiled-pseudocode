@@ -1,3 +1,24 @@
+/*
+ * XREFs of PipGetPersistentMemory @ 0x1409503F8
+ * Callers:
+ *     IoAcquireKsrPersistentMemoryEx @ 0x14094F530 (IoAcquireKsrPersistentMemoryEx.c)
+ *     IoQueryKsrPersistentMemorySizeEx @ 0x14094F800 (IoQueryKsrPersistentMemorySizeEx.c)
+ *     IoReserveKsrPersistentMemoryEx @ 0x14094FA50 (IoReserveKsrPersistentMemoryEx.c)
+ * Callees:
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PipUnpackMetadata @ 0x14055D7BC (PipUnpackMetadata.c)
+ *     PipGetDriverKsrGuid @ 0x140950230 (PipGetDriverKsrGuid.c)
+ *     PipMatchPersistentMemory @ 0x140950A98 (PipMatchPersistentMemory.c)
+ *     PipMatchPersistentMemoryV1 @ 0x140950B7C (PipMatchPersistentMemoryV1.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PipGetPersistentMemory(
         __int64 a1,
         ULONG_PTR a2,

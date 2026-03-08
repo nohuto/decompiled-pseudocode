@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vEdgeDDA@@YAXPEAU_TRIANGLEDATA@@PEAU_TRIDDA@@@Z @ 0x1C028FBF8
+ * Callers:
+ *     ?vCalculateLine@@YAXPEAU_TRIVERTEX@@0PEAU_TRIANGLEDATA@@@Z @ 0x1C028F930 (-vCalculateLine@@YAXPEAU_TRIVERTEX@@0PEAU_TRIANGLEDATA@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vEdgeDDA(struct _TRIANGLEDATA *a1, struct _TRIDDA *a2)
 {
   int v2; // edi

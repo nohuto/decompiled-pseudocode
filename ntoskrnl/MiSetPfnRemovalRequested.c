@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiSetPfnRemovalRequested @ 0x14064B908
+ * Callers:
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ *     MiInitializeDynamicPfns @ 0x140618AB8 (MiInitializeDynamicPfns.c)
+ *     MiHotRemoveHugeRange @ 0x14061DC8C (MiHotRemoveHugeRange.c)
+ *     MiRemoveBadPages @ 0x140628020 (MiRemoveBadPages.c)
+ *     MiUnlinkBadPages @ 0x1406288F4 (MiUnlinkBadPages.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x1406291A0 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiMarkFileOnlyPfnBad @ 0x14063BC40 (MiMarkFileOnlyPfnBad.c)
+ *     MiMakePageBad @ 0x14065BCD0 (MiMakePageBad.c)
+ * Callees:
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiAddPendingBadPageNode @ 0x1406272C8 (MiAddPendingBadPageNode.c)
+ *     MiRemovePendingBadPageNode @ 0x1406284EC (MiRemovePendingBadPageNode.c)
+ */
+
 void __fastcall MiSetPfnRemovalRequested(unsigned __int64 a1, int a2, int a3, unsigned __int64 a4)
 {
   unsigned __int8 v4; // bl

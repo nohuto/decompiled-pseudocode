@@ -1,3 +1,19 @@
+/*
+ * XREFs of ViFlushDoubleBuffer @ 0x140AC58D4
+ * Callers:
+ *     VfFlushAdapterBuffers @ 0x140AC2DD0 (VfFlushAdapterBuffers.c)
+ *     VfPutScatterGatherList @ 0x140AC45C0 (VfPutScatterGatherList.c)
+ * Callees:
+ *     VfUtilDbgPrint @ 0x1405CBEB4 (VfUtilDbgPrint.c)
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     MmMapLockedPages @ 0x14061C4A0 (MmMapLockedPages.c)
+ *     ViCopyBackModifiedBuffer @ 0x140AC5664 (ViCopyBackModifiedBuffer.c)
+ *     ViFindMappedRegisterInFile @ 0x140AC589C (ViFindMappedRegisterInFile.c)
+ *     ViFreeMapRegistersToFile @ 0x140AC5C60 (ViFreeMapRegistersToFile.c)
+ *     ViGetMdlBufferSa @ 0x140AC6044 (ViGetMdlBufferSa.c)
+ *     ViHalPreprocessOptions @ 0x140AC62F4 (ViHalPreprocessOptions.c)
+ */
+
 __int64 __fastcall ViFlushDoubleBuffer(_QWORD *a1, __int64 a2, int a3, unsigned int a4, char a5)
 {
   ULONG_PTR v6; // rbx

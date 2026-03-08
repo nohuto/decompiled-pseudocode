@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiRemoveUnusedSubsection @ 0x140214CC0
+ * Callers:
+ *     MiPrepareSegmentForDeletion @ 0x140214F04 (MiPrepareSegmentForDeletion.c)
+ *     MmPurgeSection @ 0x1402836F0 (MmPurgeSection.c)
+ *     MiDereferenceControlAreaPfnList @ 0x1402CFBF0 (MiDereferenceControlAreaPfnList.c)
+ *     MiFlushSectionInternal @ 0x14031FA90 (MiFlushSectionInternal.c)
+ *     MiReferenceActiveSubsection @ 0x1403323F0 (MiReferenceActiveSubsection.c)
+ *     MiReferenceSubsection @ 0x1403327C0 (MiReferenceSubsection.c)
+ * Callees:
+ *     MiReduceUnusedSubsectionCount @ 0x140214D4C (MiReduceUnusedSubsectionCount.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ */
+
 void __fastcall MiRemoveUnusedSubsection(__int64 a1)
 {
   __int64 v2; // rdi

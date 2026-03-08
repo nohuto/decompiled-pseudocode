@@ -1,3 +1,23 @@
+/*
+ * XREFs of NVMeCompletionDpcRoutine @ 0x1C00023F0
+ * Callers:
+ *     ProcessCompletionQueues @ 0x1C0002F50 (ProcessCompletionQueues.c)
+ *     NVMeIoPollingDpcRoutine @ 0x1C001F450 (NVMeIoPollingDpcRoutine.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003260 (__security_check_cookie.c)
+ *     NVMeControllerReclaimLocalCommand @ 0x1C0003594 (NVMeControllerReclaimLocalCommand.c)
+ *     Feature_Servicing_Huawei22H2BluescreenAfterSleep__private_IsEnabledDeviceUsage @ 0x1C000361C (Feature_Servicing_Huawei22H2BluescreenAfterSleep__private_IsEnabledDeviceUsage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0004200 (_guard_dispatch_icall_nop.c)
+ *     GetLocalCommand @ 0x1C0009C80 (GetLocalCommand.c)
+ *     IsNVMeControllerOnFatalError @ 0x1C000C03C (IsNVMeControllerOnFatalError.c)
+ *     NVMeControllerAsyncReset @ 0x1C000CAB0 (NVMeControllerAsyncReset.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ *     NVMeFreePool @ 0x1C000EF54 (NVMeFreePool.c)
+ *     NVMeQueueWorkItem @ 0x1C0016B88 (NVMeQueueWorkItem.c)
+ *     NVMeMapError @ 0x1C00200A8 (NVMeMapError.c)
+ *     RecordCommandTimingHistory @ 0x1C00251C0 (RecordCommandTimingHistory.c)
+ */
+
 __int64 __fastcall NVMeCompletionDpcRoutine(int a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int *v5; // r12

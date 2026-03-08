@@ -1,3 +1,21 @@
+/*
+ * XREFs of KseQueryDeviceData @ 0x1408016F0
+ * Callers:
+ *     KseQueryDeviceFlags @ 0x1408014E0 (KseQueryDeviceFlags.c)
+ *     ExpGetDeviceDataInformation @ 0x1409F34C8 (ExpGetDeviceDataInformation.c)
+ * Callees:
+ *     KsepLogInfo @ 0x14036F8F4 (KsepLogInfo.c)
+ *     KsepShimDbChanged @ 0x14036F924 (KsepShimDbChanged.c)
+ *     KsepDebugPrint @ 0x14057E834 (KsepDebugPrint.c)
+ *     KsepDbCacheInsertDevice @ 0x140800AA4 (KsepDbCacheInsertDevice.c)
+ *     KsepDbCacheQueryDeviceData @ 0x140800DE4 (KsepDbCacheQueryDeviceData.c)
+ *     KsepDbCacheReadDevice @ 0x1408013F0 (KsepDbCacheReadDevice.c)
+ *     KsepDbCacheQueryDevice @ 0x1408015F4 (KsepDbCacheQueryDevice.c)
+ *     KsepDbQueryRegistryDeviceData @ 0x14080187C (KsepDbQueryRegistryDeviceData.c)
+ *     KseResetDeviceCache @ 0x140973ABC (KseResetDeviceCache.c)
+ *     KsepCacheDeviceFree @ 0x1409746B0 (KsepCacheDeviceFree.c)
+ */
+
 __int64 __fastcall KseQueryDeviceData(WCHAR *SourceString, __int64 a2, _DWORD *a3, unsigned int *a4, void *a5)
 {
   int RegistryDeviceData; // ebx

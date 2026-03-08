@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiCfgInitializeProcess @ 0x140727724
+ * Callers:
+ *     MiMapProcessExecutable @ 0x14072787C (MiMapProcessExecutable.c)
+ * Callees:
+ *     MiReferenceCfgVad @ 0x140727250 (MiReferenceCfgVad.c)
+ *     MiMapSecurePureReserveView @ 0x140727644 (MiMapSecurePureReserveView.c)
+ */
+
 __int64 __fastcall MiCfgInitializeProcess(__int64 a1)
 {
   _QWORD *v2; // rsi

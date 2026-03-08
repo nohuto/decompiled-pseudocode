@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlpSameFunction @ 0x1405AF5A0
+ * Callers:
+ *     RtlpxVirtualUnwind @ 0x140281720 (RtlpxVirtualUnwind.c)
+ *     sub_140B16730 @ 0x140B16730 (sub_140B16730.c)
+ * Callees:
+ *     RtlLookupFunctionEntry @ 0x140281130 (RtlLookupFunctionEntry.c)
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x140281490 (RtlpLookupFunctionEntryForStackWalks.c)
+ *     RtlpLookupPrimaryFunctionEntry @ 0x1403BEF80 (RtlpLookupPrimaryFunctionEntry.c)
+ */
+
 _BYTE *__fastcall RtlpSameFunction(_BYTE *a1, __int64 a2, unsigned __int64 a3)
 {
   __int64 v3; // rbx

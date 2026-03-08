@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopStoreArcInformation @ 0x140B6F0F0
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     RtlStringCbCopyA @ 0x14035BCD8 (RtlStringCbCopyA.c)
+ *     _strnicmp @ 0x1403D3C80 (_strnicmp.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopStoreArcInformation(__int64 a1)
 {
   __int64 **v1; // r14

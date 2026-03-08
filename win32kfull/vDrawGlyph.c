@@ -1,3 +1,11 @@
+/*
+ * XREFs of vDrawGlyph @ 0x1C02A2B58
+ * Callers:
+ *     vStringBitmapTextOut @ 0x1C02A2F94 (vStringBitmapTextOut.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall vDrawGlyph(unsigned int *a1, unsigned int a2, __int64 a3)
 {
   __int64 v3; // rax

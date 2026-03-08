@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIEcCreateEcData @ 0x1C00250B4
+ * Callers:
+ *     ACPIEcInitOpRegionHandler @ 0x1C00251B0 (ACPIEcInitOpRegionHandler.c)
+ *     ACPIEcStartDevice @ 0x1C0025450 (ACPIEcStartDevice.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 ACPIEcCreateEcData()
 {
   __int64 result; // rax

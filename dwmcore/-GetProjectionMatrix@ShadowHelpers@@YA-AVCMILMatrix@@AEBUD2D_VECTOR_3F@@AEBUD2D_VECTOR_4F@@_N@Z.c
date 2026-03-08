@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetProjectionMatrix@ShadowHelpers@@YA?AVCMILMatrix@@AEBUD2D_VECTOR_3F@@AEBUD2D_VECTOR_4F@@_N@Z @ 0x1802B4BCC
+ * Callers:
+ *     ?GetProjectionOntoVisualMatrix@ShadowHelpers@@YAJPEBVCVisualTree@@PEAVCCompositionLight@@PEAVCVisual@@PEAVCMILMatrix@@@Z @ 0x1802B4D70 (-GetProjectionOntoVisualMatrix@ShadowHelpers@@YAJPEBVCVisualTree@@PEAVCCompositionLight@@PEAVCVi.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ShadowHelpers::GetProjectionMatrix(__int64 a1, float *a2, _OWORD *a3, char a4)
 {
   float v4; // xmm11_4

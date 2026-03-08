@@ -1,3 +1,14 @@
+/*
+ * XREFs of DpiDxgkDdiSetPowerState @ 0x1C01E22D4
+ * Callers:
+ *     DpiPdoSetDevicePower @ 0x1C01E1140 (DpiPdoSetDevicePower.c)
+ *     DpiFdoSetAdapterPowerState @ 0x1C01E1E80 (DpiFdoSetAdapterPowerState.c)
+ *     DpiFdoHandleSystemPower @ 0x1C01E2484 (DpiFdoHandleSystemPower.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqtqq_EtwWriteTransfer @ 0x1C0040104 (McTemplateK0pqtqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DpiDxgkDdiSetPowerState(__int64 a1, __int64 a2, __int64 a3, int a4, unsigned int a5)
 {
   __int64 v7; // rbx

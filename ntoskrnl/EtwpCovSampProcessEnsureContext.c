@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpCovSampProcessEnsureContext @ 0x1408A4FD0
+ * Callers:
+ *     EtwpCovSampImageNotify @ 0x1408A4E40 (EtwpCovSampImageNotify.c)
+ * Callees:
+ *     EtwpCovSampProcessCleanup @ 0x1409EFCC8 (EtwpCovSampProcessCleanup.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpCovSampProcessEnsureContext(__int64 a1)
 {
   unsigned int v1; // ebx

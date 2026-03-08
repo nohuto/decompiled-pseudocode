@@ -1,3 +1,17 @@
+/*
+ * XREFs of VidSchiOpenProcessAdapterInfo @ 0x1C00ACA8C
+ * Callers:
+ *     VidSchiCreateDeviceInternal @ 0x1C00AC5B0 (VidSchiCreateDeviceInternal.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C0001A30 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C00023B8 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     RtlStringCbPrintfW @ 0x1C00144CC (RtlStringCbPrintfW.c)
+ *     ??0VIDSCH_PROCESS_ADAPTER_INFO@@QEAA@XZ @ 0x1C0014730 (--0VIDSCH_PROCESS_ADAPTER_INFO@@QEAA@XZ.c)
+ *     ?AllocateElements@?$NonPagedPoolZeroedArray@PEAU_VIDSCH_NODE_STATISTICS@@$07$0DCGBGJFG@@@QEAAPEAPEAU_VIDSCH_NODE_STATISTICS@@I@Z @ 0x1C0014768 (-AllocateElements@-$NonPagedPoolZeroedArray@PEAU_VIDSCH_NODE_STATISTICS@@$07$0DCGBGJFG@@@QEAAPEA.c)
+ *     ??_GVIDSCH_PROCESS_ADAPTER_INFO@@QEAAPEAXI@Z @ 0x1C0014854 (--_GVIDSCH_PROCESS_ADAPTER_INFO@@QEAAPEAXI@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall VidSchiOpenProcessAdapterInfo(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

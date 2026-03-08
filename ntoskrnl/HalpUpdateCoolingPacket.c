@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpUpdateCoolingPacket @ 0x140525350
+ * Callers:
+ *     HalpStartPccCommand @ 0x140932CDC (HalpStartPccCommand.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall HalpUpdateCoolingPacket(__int64 a1)
 {
   KIRQL v2; // al

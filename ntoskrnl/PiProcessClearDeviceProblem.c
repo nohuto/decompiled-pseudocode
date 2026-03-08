@@ -1,3 +1,16 @@
+/*
+ * XREFs of PiProcessClearDeviceProblem @ 0x140956400
+ * Callers:
+ *     PnpDeviceActionWorker @ 0x140203020 (PnpDeviceActionWorker.c)
+ * Callees:
+ *     PipClearDevNodeFlags @ 0x14068816C (PipClearDevNodeFlags.c)
+ *     PiPnpRtlEndOperation @ 0x1406CCB7C (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1406CDF98 (PiPnpRtlBeginOperation.c)
+ *     PipClearDevNodeProblem @ 0x14086666C (PipClearDevNodeProblem.c)
+ *     PnpRestartDeviceNode @ 0x140955D4C (PnpRestartDeviceNode.c)
+ *     PipIsProblemReadonly @ 0x140956954 (PipIsProblemReadonly.c)
+ */
+
 __int64 __fastcall PiProcessClearDeviceProblem(__int64 a1)
 {
   __int64 v1; // rax

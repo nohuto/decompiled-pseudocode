@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlGetExpWinVer @ 0x1C007529C
+ * Callers:
+ *     UserThreadCallout @ 0x1C0074BD0 (UserThreadCallout.c)
+ *     xxxCreateThreadInfo @ 0x1C0076490 (xxxCreateThreadInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlGetExpWinVer(__int64 a1)
 {
   int MajorSubsystemVersion; // ebx

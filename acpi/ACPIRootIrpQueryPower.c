@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIRootIrpQueryPower @ 0x1C003D0E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDispatchForwardPowerIrp @ 0x1C0002AF0 (ACPIDispatchForwardPowerIrp.c)
+ *     WPP_RECORDER_SF_qLqss @ 0x1C0009C8C (WPP_RECORDER_SF_qLqss.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetParent @ 0x1C0048724 (AMLIGetParent.c)
+ *     AMLIIsNamedChildPresent @ 0x1C00487BC (AMLIIsNamedChildPresent.c)
+ */
+
 __int64 __fastcall ACPIRootIrpQueryPower(ULONG_PTR a1, IRP *a2)
 {
   int Status; // ebx

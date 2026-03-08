@@ -1,3 +1,12 @@
+/*
+ * XREFs of IntPartIsInterruptSteerable @ 0x1C005EDEC
+ * Callers:
+ *     ProcessorpValidateTargetSet @ 0x1C009C3D4 (ProcessorpValidateTargetSet.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     KeQueryGroupAffinity_0 @ 0x1C0001B09 (KeQueryGroupAffinity_0.c)
+ */
+
 __int64 __fastcall IntPartIsInterruptSteerable(__int64 a1, bool *a2)
 {
   int v4; // eax

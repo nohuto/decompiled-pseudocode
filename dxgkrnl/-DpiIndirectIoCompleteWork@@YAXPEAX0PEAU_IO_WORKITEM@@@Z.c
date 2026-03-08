@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DpiIndirectIoCompleteWork@@YAXPEAX0PEAU_IO_WORKITEM@@@Z @ 0x1C039F9C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ */
+
 void __fastcall DpiIndirectIoCompleteWork(PVOID IoObject, PVOID *Context, PIO_WORKITEM IoWorkItem)
 {
   PVOID v3; // rcx

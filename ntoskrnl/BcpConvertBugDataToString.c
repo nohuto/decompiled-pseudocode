@@ -1,3 +1,11 @@
+/*
+ * XREFs of BcpConvertBugDataToString @ 0x14066FAC4
+ * Callers:
+ *     BcpDisplayErrorInformation @ 0x140670094 (BcpDisplayErrorInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall BcpConvertBugDataToString(unsigned __int64 a1, __int64 a2)
 {
   unsigned int v2; // r9d

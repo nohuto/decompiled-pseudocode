@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiReassessZeroThreads @ 0x1402E477C
+ * Callers:
+ *     MiZeroLocalPages @ 0x140273BB0 (MiZeroLocalPages.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiAddZeroingThreads @ 0x1402A7F38 (MiAddZeroingThreads.c)
+ *     MiReduceZeroingThreads @ 0x1402A81E4 (MiReduceZeroingThreads.c)
+ *     MiGetDesiredZeroTime @ 0x1402E4A88 (MiGetDesiredZeroTime.c)
+ *     MiLogZeroPageDecision @ 0x1402E4AD4 (MiLogZeroPageDecision.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReplenishUltraPageTables @ 0x14065F59C (MiReplenishUltraPageTables.c)
+ */
+
 void __fastcall MiReassessZeroThreads(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdi

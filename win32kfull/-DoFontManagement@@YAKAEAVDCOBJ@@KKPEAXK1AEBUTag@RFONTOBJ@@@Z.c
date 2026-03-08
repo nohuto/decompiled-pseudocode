@@ -1,3 +1,24 @@
+/*
+ * XREFs of ?DoFontManagement@@YAKAEAVDCOBJ@@KKPEAXK1AEBUTag@RFONTOBJ@@@Z @ 0x1C027798C
+ * Callers:
+ *     ?GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1AEBUTag@RFONTOBJ@@@Z @ 0x1C02782F8 (-GreExtEscapeInternal@@YAHAEAVDCOBJ@@HHPEADH1AEBUTag@RFONTOBJ@@@Z.c)
+ * Callees:
+ *     ?pSurfobj@SURFACE@@QEAAPEAU_SURFOBJ@@XZ @ 0x1C001B2B0 (-pSurfobj@SURFACE@@QEAAPEAU_SURFOBJ@@XZ.c)
+ *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HKAEBUTag@1@@Z @ 0x1C0057C50 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HKAEBUTag@1@@Z.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C011DDB0 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z @ 0x1C0121768 (-vXlatGlyphArray@RFONTOBJ@@QEAAXPEBGIPEAKKH@Z.c)
+ *     ?bValid@SURFREF@@QEBAHXZ @ 0x1C012F648 (-bValid@SURFREF@@QEBAHXZ.c)
+ *     ?vGuard@CAutoTGO@@QEAAXPEAXP6AX0@Z@Z @ 0x1C012FAEC (-vGuard@CAutoTGO@@QEAAXPEAXP6AX0@Z@Z.c)
+ *     ??1CAutoTGO@@QEAA@XZ @ 0x1C012FBD0 (--1CAutoTGO@@QEAA@XZ.c)
+ *     wil::scope_exit__lambda_3c37ad0d9e9c71fe69a6ff6ac7bd17c8___ @ 0x1C012FC1C (wil--scope_exit__lambda_3c37ad0d9e9c71fe69a6ff6ac7bd17c8___.c)
+ *     ??0SURFFAKEOBJ@@QEAA@PEAUHDEV__@@PEAUDHPDEV__@@@Z @ 0x1C012FC34 (--0SURFFAKEOBJ@@QEAA@PEAUHDEV__@@PEAUDHPDEV__@@@Z.c)
+ *     wil::details::lambda_call__lambda_3c37ad0d9e9c71fe69a6ff6ac7bd17c8___::_lambda_call__lambda_3c37ad0d9e9c71fe69a6ff6ac7bd17c8___ @ 0x1C012FCF0 (wil--details--lambda_call__lambda_3c37ad0d9e9c71fe69a6ff6ac7bd17c8___--_lambda_call__lambda_3c37.c)
+ *     ??1SURFFAKEOBJ@@QEAA@XZ @ 0x1C012FD24 (--1SURFFAKEOBJ@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ?pSurfobj@SURFREF@@QEAAPEAU_SURFOBJ@@XZ @ 0x1C0267C4C (-pSurfobj@SURFREF@@QEAAPEAU_SURFOBJ@@XZ.c)
+ */
+
 __int64 __fastcall DoFontManagement(
         struct DCOBJ *a1,
         unsigned int a2,

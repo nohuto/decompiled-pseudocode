@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FindMajorityScreenContent@COverlayContext@@QEBAPEAVCCompositionSurfaceInfo@@W4BufferContentType@@@Z @ 0x1801DA42C
+ * Callers:
+ *     ?CheckForFullscreenVideoNotifications@CFSVPProvider@@QEAAXXZ @ 0x1801E41C0 (-CheckForFullscreenVideoNotifications@CFSVPProvider@@QEAAXXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?IsFullscreen@COverlayContext@@AEBA_NAEBVOverlayPlaneInfo@1@@Z @ 0x18012B918 (-IsFullscreen@COverlayContext@@AEBA_NAEBVOverlayPlaneInfo@1@@Z.c)
+ */
+
 __int64 __fastcall COverlayContext::FindMajorityScreenContent(__int64 a1)
 {
   __int64 v2; // rcx

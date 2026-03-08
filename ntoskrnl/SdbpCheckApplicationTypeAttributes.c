@@ -1,3 +1,24 @@
+/*
+ * XREFs of SdbpCheckApplicationTypeAttributes @ 0x14066B804
+ * Callers:
+ *     SdbpCheckBackupApplicationAttributes @ 0x140A4C8B0 (SdbpCheckBackupApplicationAttributes.c)
+ *     SdbpCheckPackageAttributes @ 0x140A4DC40 (SdbpCheckPackageAttributes.c)
+ * Callees:
+ *     Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage @ 0x1404117B8 (Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbReadDWORDTag @ 0x14079FC18 (SdbReadDWORDTag.c)
+ *     SdbGetStringTagPtr @ 0x1407A20E8 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ *     SdbGetTagFromTagID @ 0x1407A2A70 (SdbGetTagFromTagID.c)
+ *     SdbReadQWORDTag @ 0x140800D70 (SdbReadQWORDTag.c)
+ *     SdbpCheckUptoVersion @ 0x140860A14 (SdbpCheckUptoVersion.c)
+ *     AslStringPatternMatchW @ 0x1408A7856 (AslStringPatternMatchW.c)
+ *     SdbpCheckFromStringVersion @ 0x140A50788 (SdbpCheckFromStringVersion.c)
+ *     SdbpCheckFromVersion @ 0x140A508BC (SdbpCheckFromVersion.c)
+ *     SdbpCheckUptoStringVersion @ 0x140A50900 (SdbpCheckUptoStringVersion.c)
+ *     SdbpCheckVersion @ 0x140A50A40 (SdbpCheckVersion.c)
+ */
+
 __int64 __fastcall SdbpCheckApplicationTypeAttributes(int *a1, __int64 a2, unsigned int a3, unsigned __int64 *a4)
 {
   _WORD *v4; // r15

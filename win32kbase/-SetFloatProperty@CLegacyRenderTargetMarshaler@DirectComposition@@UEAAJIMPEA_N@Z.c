@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetFloatProperty@CLegacyRenderTargetMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C00D3430
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CLegacyRenderTargetMarshaler::SetFloatProperty(
         DirectComposition::CLegacyRenderTargetMarshaler *this,
         int a2,

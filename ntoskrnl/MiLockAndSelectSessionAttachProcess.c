@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiLockAndSelectSessionAttachProcess @ 0x14062F6C4
+ * Callers:
+ *     MmPrefetchVirtualMemory @ 0x14067E690 (MmPrefetchVirtualMemory.c)
+ * Callees:
+ *     MiSelectSessionAttachProcess @ 0x14022A5A8 (MiSelectSessionAttachProcess.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 _QWORD *__fastcall MiLockAndSelectSessionAttachProcess(__int64 a1)
 {
   _QWORD *v2; // rdi

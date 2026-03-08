@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlCreateRetpolineStubsFunctionTable @ 0x1405AFD28
+ * Callers:
+ *     MiInitializeRetpoline @ 0x140B39F78 (MiInitializeRetpoline.c)
+ * Callees:
+ *     RtlCalculateUnwindInfoSizeForRetpoline @ 0x1405AFB94 (RtlCalculateUnwindInfoSizeForRetpoline.c)
+ *     RtlpGetRetpolineStubsFunctionTable @ 0x1405AFE24 (RtlpGetRetpolineStubsFunctionTable.c)
+ */
+
 __int64 __fastcall RtlCreateRetpolineStubsFunctionTable(__int64 a1, _DWORD *a2, int a3)
 {
   __int64 v3; // rbp

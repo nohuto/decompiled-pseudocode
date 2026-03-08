@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Create@CTokenQueue@@SAJPEAPEAV1@@Z @ 0x1C0077758
+ * Callers:
+ *     ?EnsureTokenQueue@CTokenManager@@IEAAJPEAVCompositionSurfaceObject@@PEAPEAUTokenQueueTableEntry@1@@Z @ 0x1C0076CB0 (-EnsureTokenQueue@CTokenManager@@IEAAJPEAVCompositionSurfaceObject@@PEAPEAUTokenQueueTableEntry@.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ */
+
 __int64 __fastcall CTokenQueue::Create(struct CTokenQueue **a1)
 {
   __int64 v2; // rax

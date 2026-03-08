@@ -1,3 +1,24 @@
+/*
+ * XREFs of WPP_RECORDER_SF_qdqss @ 0x1C0009EDC
+ * Callers:
+ *     ACPIDockIrpSetSystemPower @ 0x1C00097F4 (ACPIDockIrpSetSystemPower.c)
+ *     ACPIBuildRegRequest @ 0x1C00133EC (ACPIBuildRegRequest.c)
+ *     ACPIBusIrpSetSystemPower @ 0x1C0016FF4 (ACPIBusIrpSetSystemPower.c)
+ *     ACPIDeviceInternalDelayedDeviceRequest @ 0x1C001D2C8 (ACPIDeviceInternalDelayedDeviceRequest.c)
+ *     ACPIDeviceInternalDeviceRequest @ 0x1C001D3A8 (ACPIDeviceInternalDeviceRequest.c)
+ *     ACPIDeviceIrpDeviceFilterRequest @ 0x1C001DA90 (ACPIDeviceIrpDeviceFilterRequest.c)
+ *     ACPIDeviceIrpDeviceRequest @ 0x1C001DBF8 (ACPIDeviceIrpDeviceRequest.c)
+ *     ACPIDeviceIrpSystemRequest @ 0x1C001DE48 (ACPIDeviceIrpSystemRequest.c)
+ *     ACPIDeviceIrpWaitWakeRequest @ 0x1C001DFB8 (ACPIDeviceIrpWaitWakeRequest.c)
+ *     ACPIDeviceIrpWarmEjectRequest @ 0x1C001E474 (ACPIDeviceIrpWarmEjectRequest.c)
+ *     ACPIDevicePowerProcessPhase1DeviceSubPhase1 @ 0x1C001F100 (ACPIDevicePowerProcessPhase1DeviceSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase5DeviceSubPhase1 @ 0x1C0020650 (ACPIDevicePowerProcessPhase5DeviceSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase5DeviceSubPhase2 @ 0x1C0020880 (ACPIDevicePowerProcessPhase5DeviceSubPhase2.c)
+ *     ACPIRootIrpSetPower @ 0x1C003D4C0 (ACPIRootIrpSetPower.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WPP_RECORDER_SF_qdqss(
         __int64 a1,
         __int64 a2,

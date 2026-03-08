@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SortTouchContacts@@YAHPEAUtagPOINTER_TOUCH_INFO@@I@Z @ 0x1C01B0670
+ * Callers:
+ *     xxxInjectTouchInput @ 0x1C01B19B4 (xxxInjectTouchInput.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C00200C4 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ */
+
 __int64 __fastcall SortTouchContacts(struct tagPOINTER_TOUCH_INFO *a1, unsigned int a2)
 {
   char v4; // r10

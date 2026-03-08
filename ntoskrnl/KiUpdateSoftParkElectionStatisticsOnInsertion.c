@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiUpdateSoftParkElectionStatisticsOnInsertion @ 0x14036DF98
+ * Callers:
+ *     KiUpdateLocalReadyQueueStatisticsOnInsertion @ 0x14040AFD4 (KiUpdateLocalReadyQueueStatisticsOnInsertion.c)
+ * Callees:
+ *     KiScheduleSoftParkElectionIfNecessary @ 0x140258400 (KiScheduleSoftParkElectionIfNecessary.c)
+ *     KeQueryGroupAffinityEx @ 0x1403B16A0 (KeQueryGroupAffinityEx.c)
+ *     KiAcquireSoftParkElectionLock @ 0x14040A5D8 (KiAcquireSoftParkElectionLock.c)
+ *     Feature_Servicing_SoftParkFixes__private_IsEnabledNoReporting @ 0x14040AF08 (Feature_Servicing_SoftParkFixes__private_IsEnabledNoReporting.c)
+ */
+
 __int64 __fastcall KiUpdateSoftParkElectionStatisticsOnInsertion(__int64 a1, __int64 a2)
 {
   int IsEnabledNoReporting; // eax

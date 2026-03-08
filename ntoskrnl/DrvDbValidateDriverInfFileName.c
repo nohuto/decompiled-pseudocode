@@ -1,3 +1,13 @@
+/*
+ * XREFs of DrvDbValidateDriverInfFileName @ 0x140A6AC08
+ * Callers:
+ *     DrvDbDispatchDriverInfFile @ 0x140864AC0 (DrvDbDispatchDriverInfFile.c)
+ *     DrvDbDispatchDriverPackage @ 0x140864E40 (DrvDbDispatchDriverPackage.c)
+ *     DrvDbDispatchDriverFile @ 0x140A6B1D0 (DrvDbDispatchDriverFile.c)
+ * Callees:
+ *     wcschr @ 0x1403D5D90 (wcschr.c)
+ */
+
 __int64 __fastcall DrvDbValidateDriverInfFileName(__int64 a1, const wchar_t *a2)
 {
   unsigned int v2; // edi

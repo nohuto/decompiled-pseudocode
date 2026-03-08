@@ -1,3 +1,32 @@
+/*
+ * XREFs of MiTerminateWsleCluster @ 0x1403234E0
+ * Callers:
+ *     MiDeleteSystemPagableVm @ 0x1402B04B0 (MiDeleteSystemPagableVm.c)
+ *     MiAppendWsleCluster @ 0x14031D6E0 (MiAppendWsleCluster.c)
+ *     MiDeleteVaTail @ 0x140323460 (MiDeleteVaTail.c)
+ *     MiDeleteVa @ 0x140324900 (MiDeleteVa.c)
+ *     MiDecommitPages @ 0x140329B10 (MiDecommitPages.c)
+ *     MiDeletePteWsleCluster @ 0x14032A9F0 (MiDeletePteWsleCluster.c)
+ *     MiRemoveMappedPtes @ 0x1403474D0 (MiRemoveMappedPtes.c)
+ * Callees:
+ *     MiCountWslesInPageTable @ 0x1402B4D30 (MiCountWslesInPageTable.c)
+ *     MiCompressTbFlushList @ 0x1402D6680 (MiCompressTbFlushList.c)
+ *     MiCanMergeTbFlushEntryBackwards @ 0x1402DD894 (MiCanMergeTbFlushEntryBackwards.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiRemoveWsle @ 0x140325790 (MiRemoveWsle.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiDeleteValidSystemPage @ 0x14032AEA0 (MiDeleteValidSystemPage.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiUnlockWsle @ 0x1403443C0 (MiUnlockWsle.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiTerminateWsleCluster(__int64 *a1)
 {
   unsigned __int64 v2; // r15

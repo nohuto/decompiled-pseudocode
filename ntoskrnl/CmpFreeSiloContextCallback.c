@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpFreeSiloContextCallback @ 0x140A0EF70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CmCleanupThreadInfo @ 0x140263740 (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x140263760 (CmpInitializeThreadInfo.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     CmpStopSiloKeyLockTracker @ 0x140A191F8 (CmpStopSiloKeyLockTracker.c)
+ */
+
 __int64 __fastcall CmpFreeSiloContextCallback(ULONG_PTR BugCheckParameter2)
 {
   void *v2; // rcx

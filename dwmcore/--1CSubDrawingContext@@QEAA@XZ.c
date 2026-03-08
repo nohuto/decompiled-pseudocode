@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??1CSubDrawingContext@@QEAA@XZ @ 0x180021298
+ * Callers:
+ *     ?DrawSubVisualTree@CDrawingContext@@QEAAJPEBVCVisualTree@@AEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@PEBVCMILMatrix@@@Z @ 0x180021010 (-DrawSubVisualTree@CDrawingContext@@QEAAJPEBVCVisualTree@@AEBV-$TMil3DRect@MV-$TMilRect_@MUMilRe.c)
+ * Callees:
+ *     ?UpdateContextOwner@CD2DContext@@QEAAJPEBVID2DContextOwner@@@Z @ 0x1800213C8 (-UpdateContextOwner@CD2DContext@@QEAAJPEBVID2DContextOwner@@@Z.c)
+ *     ??1CpuClipRealization@CCpuClippingData@@QEAA@XZ @ 0x1800F1FB0 (--1CpuClipRealization@CCpuClippingData@@QEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ */
+
 void __fastcall CSubDrawingContext::~CSubDrawingContext(CSubDrawingContext *this)
 {
   int updated; // eax

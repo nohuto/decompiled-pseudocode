@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopLiveDumpTraceRemovePagesCallbackFailure @ 0x140559218
+ * Callers:
+ *     IopLiveDumpCallRemovePagesCallbacks @ 0x140A97494 (IopLiveDumpCallRemovePagesCallbacks.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x140557990 (IopLiveDumpIsTracingEnabled.c)
+ */
+
 char __fastcall IopLiveDumpTraceRemovePagesCallbackFailure(__int64 a1, __int64 a2, int a3)
 {
   char result; // al

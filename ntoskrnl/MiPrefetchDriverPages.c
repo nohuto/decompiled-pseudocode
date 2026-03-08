@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiPrefetchDriverPages @ 0x1407C81C0
+ * Callers:
+ *     MiLockCode @ 0x14032C9C0 (MiLockCode.c)
+ * Callees:
+ *     MiReadPteShadow @ 0x140224390 (MiReadPteShadow.c)
+ *     MiMakeDemandZeroPte @ 0x14032E7D8 (MiMakeDemandZeroPte.c)
+ *     MiPrefetchVirtualMemory @ 0x140363970 (MiPrefetchVirtualMemory.c)
+ */
+
 __int64 MiPrefetchDriverPages()
 {
   unsigned __int64 v0; // rbx

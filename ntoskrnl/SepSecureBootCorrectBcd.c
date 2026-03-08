@@ -1,3 +1,21 @@
+/*
+ * XREFs of SepSecureBootCorrectBcd @ 0x1409CDB74
+ * Callers:
+ *     NtFilterBootOption @ 0x1409CD700 (NtFilterBootOption.c)
+ * Callees:
+ *     BcdCloseStore @ 0x14082C570 (BcdCloseStore.c)
+ *     BiOpenSystemStore @ 0x14082CC40 (BiOpenSystemStore.c)
+ *     BcdCloseObject @ 0x14082E5DC (BcdCloseObject.c)
+ *     BcdOpenObject @ 0x14082E620 (BcdOpenObject.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiAcquireBcdSyncMutant @ 0x14082ED10 (BiAcquireBcdSyncMutant.c)
+ *     BiReleaseBcdSyncMutant @ 0x14082EDB8 (BiReleaseBcdSyncMutant.c)
+ *     SepSecureBootUpdateBcdDataForRule @ 0x1409CE004 (SepSecureBootUpdateBcdDataForRule.c)
+ *     BcdEnumerateObjects @ 0x140A597EC (BcdEnumerateObjects.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepSecureBootCorrectBcd(_BYTE *a1)
 {
   __int64 v1; // rdi

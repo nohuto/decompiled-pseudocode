@@ -1,3 +1,24 @@
+/*
+ * XREFs of SepCopyAnonymousTokenAndSetSilo @ 0x1409C63C0
+ * Callers:
+ *     NtImpersonateAnonymousToken @ 0x1407390D0 (NtImpersonateAnonymousToken.c)
+ * Callees:
+ *     PsGetServerSiloServiceSessionId @ 0x1402456C0 (PsGetServerSiloServiceSessionId.c)
+ *     ObFastDereferenceObject @ 0x140245F50 (ObFastDereferenceObject.c)
+ *     SepDeleteAccessState @ 0x140265F50 (SepDeleteAccessState.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     SepGetAnonymousToken @ 0x1402B7BE0 (SepGetAnonymousToken.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SeCreateAccessState @ 0x1406991A0 (SeCreateAccessState.c)
+ *     SepFinalizeTokenAcls @ 0x1406D1E60 (SepFinalizeTokenAcls.c)
+ *     SeSetSessionIdToken @ 0x140743440 (SeSetSessionIdToken.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     SepSetServerSiloToken @ 0x1409C6A80 (SepSetServerSiloToken.c)
+ */
+
 __int64 __fastcall SepCopyAnonymousTokenAndSetSilo(__int64 a1, PVOID *a2)
 {
   int AnonymousToken; // edi

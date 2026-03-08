@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsSupportedForCpuClipping@CRectangleGeometry@@UEBA_NPEA_N@Z @ 0x1800D9370
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CRectangleGeometry::IsSupportedForCpuClipping(CRectangleGeometry *this, bool *a2)
 {
   bool result; // al

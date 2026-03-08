@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiProbeAndLockComplete @ 0x140267C70
+ * Callers:
+ *     MiProbeAndLockPages @ 0x140242114 (MiProbeAndLockPages.c)
+ *     MmProbeAndLockPages @ 0x140267B90 (MmProbeAndLockPages.c)
+ *     MmProbeAndLockSelectedPages @ 0x1403CF7D0 (MmProbeAndLockSelectedPages.c)
+ *     MmLockPhysicalPagesByVa @ 0x140A2AA04 (MmLockPhysicalPagesByVa.c)
+ * Callees:
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MmUnlockPages @ 0x14027C0C0 (MmUnlockPages.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiAddMdlTracker @ 0x14061A0AC (MiAddMdlTracker.c)
+ *     MmUnlockPhysicalPagesByVa @ 0x140A2AB10 (MmUnlockPhysicalPagesByVa.c)
+ */
+
 __int64 __fastcall MiProbeAndLockComplete(__int64 a1, int a2)
 {
   __int64 v3; // rdx

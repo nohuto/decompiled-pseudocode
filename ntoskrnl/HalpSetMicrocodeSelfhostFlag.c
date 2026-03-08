@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpSetMicrocodeSelfhostFlag @ 0x1405198A0
+ * Callers:
+ *     HalpLoadMicrocode @ 0x140931BD0 (HalpLoadMicrocode.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpSetMicrocodeSelfhostFlag(char a1)
 {
   __int64 result; // rax

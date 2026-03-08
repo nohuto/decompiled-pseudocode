@@ -1,3 +1,11 @@
+/*
+ * XREFs of _dynamic_initializer_for__CViewBox::sc_Size__ @ 0x180003140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 dynamic_initializer_for__CViewBox::sc_Size__()
 {
   __int64 result; // rax

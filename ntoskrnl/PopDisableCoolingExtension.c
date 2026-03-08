@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopDisableCoolingExtension @ 0x1409800A8
+ * Callers:
+ *     PopCoolingExtensionPnpNotification @ 0x14097FDF0 (PopCoolingExtensionPnpNotification.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopPropogateCoolingChange @ 0x140584860 (PopPropogateCoolingChange.c)
+ *     PopDiagTraceCoolingExtension @ 0x14085D84C (PopDiagTraceCoolingExtension.c)
+ */
+
 void __fastcall PopDisableCoolingExtension(__int64 a1)
 {
   ULONG_PTR v1; // rsi

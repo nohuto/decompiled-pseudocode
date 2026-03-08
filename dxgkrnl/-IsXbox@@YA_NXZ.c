@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsXbox@@YA_NXZ @ 0x1C0049E6C
+ * Callers:
+ *     ?GetMultiScreenDefaultShellTopology@@YAJPEAW4MultiScreenDefaultShellTopology@@@Z @ 0x1C0049BEC (-GetMultiScreenDefaultShellTopology@@YAJPEAW4MultiScreenDefaultShellTopology@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char IsXbox(void)
 {
   char v0; // bl

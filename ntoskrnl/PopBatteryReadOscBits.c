@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopBatteryReadOscBits @ 0x140B7219C
+ * Callers:
+ *     PopBatteryInitPhaseTwo @ 0x140B4735C (PopBatteryInitPhaseTwo.c)
+ * Callees:
+ *     PopReadRegKeyValue @ 0x140380F18 (PopReadRegKeyValue.c)
+ */
+
 char PopBatteryReadOscBits()
 {
   int v0; // eax

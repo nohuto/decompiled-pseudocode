@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0qqxqx_EventWriteTransfer @ 0x180129EC6
+ * Callers:
+ *     ?Channel_CreateResource@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_CHANNEL_CREATERESOURCE@@@Z @ 0x18009C3AC (-Channel_CreateResource@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCM.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 __int64 __fastcall McTemplateU0qqxqx_EventWriteTransfer(
         __int64 a1,
         __int64 a2,

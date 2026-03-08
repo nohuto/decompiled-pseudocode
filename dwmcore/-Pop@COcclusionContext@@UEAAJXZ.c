@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Pop@COcclusionContext@@UEAAJXZ @ 0x1800E8420
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Pop@?$CWatermarkStack@W4StackStateType@COcclusionContext@@$0EA@$01$09@@QEAA_NPEAW4StackStateType@COcclusionContext@@@Z @ 0x1800E84A8 (-Pop@-$CWatermarkStack@W4StackStateType@COcclusionContext@@$0EA@$01$09@@QEAA_NPEAW4StackStateTyp.c)
+ *     ?PopClip@COcclusionContext@@AEAAXXZ @ 0x1801E4174 (-PopClip@COcclusionContext@@AEAAXXZ.c)
+ */
+
 __int64 __fastcall COcclusionContext::Pop(COcclusionContext *this)
 {
   int v1; // eax

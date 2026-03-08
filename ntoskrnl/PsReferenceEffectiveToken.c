@@ -1,3 +1,23 @@
+/*
+ * XREFs of PsReferenceEffectiveToken @ 0x1406D657C
+ * Callers:
+ *     SepReferenceTokenUsingPseudoHandle @ 0x140247AA0 (SepReferenceTokenUsingPseudoHandle.c)
+ *     SepDesktopAppxSubProcessToken @ 0x1402980AC (SepDesktopAppxSubProcessToken.c)
+ *     SeCaptureAtomTableCallout @ 0x1402EA5D0 (SeCaptureAtomTableCallout.c)
+ *     SeLogAccessFailure @ 0x1402EE66C (SeLogAccessFailure.c)
+ *     SepVerifyDesktopAppPolicyOverrideCaller @ 0x140302D18 (SepVerifyDesktopAppPolicyOverrideCaller.c)
+ *     RtlpQueryLowBoxId @ 0x140354AA4 (RtlpQueryLowBoxId.c)
+ *     RtlpAllowsLowBoxAccess @ 0x1403A70B0 (RtlpAllowsLowBoxAccess.c)
+ *     SeSetLearningModeObjectInformation @ 0x1405B5FAC (SeSetLearningModeObjectInformation.c)
+ *     SeSubProcessToken @ 0x14070B29C (SeSubProcessToken.c)
+ *     ExpWnfQueryCurrentUserSID @ 0x140718888 (ExpWnfQueryCurrentUserSID.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x1407512E4 (PspAllocateAndQueryNotificationChannel.c)
+ *     MiIsUserQueryVmCallerTrusted @ 0x14078194C (MiIsUserQueryVmCallerTrusted.c)
+ * Callees:
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     PsReferenceImpersonationTokenEx @ 0x1406D6630 (PsReferenceImpersonationTokenEx.c)
+ */
+
 __int64 __fastcall PsReferenceEffectiveToken(__int64 a1, ULONG a2, _DWORD *a3, _BYTE *a4, __int64 a5, _BYTE *a6)
 {
   struct _KTHREAD *CurrentThread; // rbx

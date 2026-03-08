@@ -1,3 +1,16 @@
+/*
+ * XREFs of DpiFdoDestroyRelatedObjects @ 0x1C0396844
+ * Callers:
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ *     DpiFdoStopAdapter @ 0x1C0398994 (DpiFdoStopAdapter.c)
+ * Callees:
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C0180684 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C0180B30 (DpiAcquireCoreSyncAccessSafe.c)
+ *     ?DmmResetModeState@@YAJQEAXK@Z @ 0x1C01E47B0 (-DmmResetModeState@@YAJQEAXK@Z.c)
+ *     DpiPdoRemovePdoObjects @ 0x1C03A5670 (DpiPdoRemovePdoObjects.c)
+ *     DpiGdoDestroyGdiObjects @ 0x1C03A5B8C (DpiGdoDestroyGdiObjects.c)
+ */
+
 __int64 __fastcall DpiFdoDestroyRelatedObjects(__int64 a1, __int64 a2)
 {
   __int64 v2; // rsi

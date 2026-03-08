@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifPoFxSetComponentWakeWrapper @ 0x1405E79A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     PoFxSetComponentWake @ 0x1405863F0 (PoFxSetComponentWake.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 __int64 __fastcall DifPoFxSetComponentWakeWrapper(__int64 a1, unsigned int a2, char a3)
 {
   __int64 *APIThunkContextById; // rax

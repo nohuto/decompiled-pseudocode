@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwpUpdatePerProcessTracing @ 0x1409E4B6C
+ * Callers:
+ *     EtwpStartLogger @ 0x140691964 (EtwpStartLogger.c)
+ *     EtwpUpdateTrace @ 0x140744D3C (EtwpUpdateTrace.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     PsLookupProcessByProcessId @ 0x1406AC100 (PsLookupProcessByProcessId.c)
+ *     EtwpGetFlagExtension @ 0x14074856C (EtwpGetFlagExtension.c)
+ *     EtwpUpdateProcessTracingCallback @ 0x1409E4CA0 (EtwpUpdateProcessTracingCallback.c)
+ */
+
 LONG __fastcall EtwpUpdatePerProcessTracing(__int64 a1, __int64 a2, char a3, unsigned int a4)
 {
   __int64 v4; // rbp

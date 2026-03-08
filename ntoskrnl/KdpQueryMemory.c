@@ -1,3 +1,11 @@
+/*
+ * XREFs of KdpQueryMemory @ 0x140AB10F0
+ * Callers:
+ *     KdpSendWaitContinue @ 0x140AAD824 (KdpSendWaitContinue.c)
+ * Callees:
+ *     MmIsSessionAddress @ 0x140239ED0 (MmIsSessionAddress.c)
+ */
+
 __int64 __fastcall KdpQueryMemory(__int64 a1)
 {
   int v1; // edi

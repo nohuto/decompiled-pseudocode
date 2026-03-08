@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionFindNodeQueuedMessage @ 0x1C01490D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FindNodeQueuedMessageWorker@@YAPEAUtagQMSG@@PEAUtagQ@@_KHPEAPEAU2@@Z @ 0x1C014906C (-FindNodeQueuedMessageWorker@@YAPEAUtagQMSG@@PEAUtagQ@@_KHPEAPEAU2@@Z.c)
+ */
+
 struct tagQMSG *__fastcall EditionFindNodeQueuedMessage(__int64 a1, __int64 a2, __int64 a3, struct tagQ **a4)
 {
   struct tagQ *v4; // rcx

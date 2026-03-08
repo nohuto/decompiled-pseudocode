@@ -1,3 +1,29 @@
+/*
+ * XREFs of PopPowerRequestCreateCommon @ 0x1402BC348
+ * Callers:
+ *     PopPowerRequestCreateUserModeRequest @ 0x1402B8EEC (PopPowerRequestCreateUserModeRequest.c)
+ *     PoCreatePowerRequest @ 0x1403C09C0 (PoCreatePowerRequest.c)
+ *     PoRegisterSystemState @ 0x14058B800 (PoRegisterSystemState.c)
+ *     NtSetThreadExecutionState @ 0x14073A9D0 (NtSetThreadExecutionState.c)
+ *     PopPowerAggregatorInitialize @ 0x140B46D2C (PopPowerAggregatorInitialize.c)
+ *     PopInitializeHighPerfPowerRequest @ 0x140B6EC5C (PopInitializeHighPerfPowerRequest.c)
+ * Callees:
+ *     SessionIsInteractive @ 0x1402B92A4 (SessionIsInteractive.c)
+ *     PopUmpoSendPowerRequestOverrideQuery @ 0x1402BCE58 (PopUmpoSendPowerRequestOverrideQuery.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsQueryProcessAttributes @ 0x1406D3448 (PsQueryProcessAttributes.c)
+ *     ObCreateObject @ 0x140709D30 (ObCreateObject.c)
+ *     PopReleasePowerRequestPushLock @ 0x14073B67C (PopReleasePowerRequestPushLock.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14073B7D4 (PopAcquirePowerRequestPushLock.c)
+ *     PopPowerRequestTableInsertEntry @ 0x14073C0A4 (PopPowerRequestTableInsertEntry.c)
+ *     PopDiagTracePowerRequestCreate @ 0x14073C0DC (PopDiagTracePowerRequestCreate.c)
+ *     PopPowerRequestStatsCreate @ 0x14073C194 (PopPowerRequestStatsCreate.c)
+ *     PopUmpoSendPowerRequestCreate @ 0x14073C318 (PopUmpoSendPowerRequestCreate.c)
+ *     PopPowerRequestTableDeleteEntry @ 0x14097EAFC (PopPowerRequestTableDeleteEntry.c)
+ */
+
 __int64 __fastcall PopPowerRequestCreateCommon(_DWORD *a1, char a2, _QWORD *a3)
 {
   _DWORD *v4; // r14

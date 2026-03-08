@@ -1,3 +1,14 @@
+/*
+ * XREFs of _GetPrecisionTouchPadConfiguration @ 0x1C009C550
+ * Callers:
+ *     xxxSystemParametersInfo @ 0x1C009C980 (xxxSystemParametersInfo.c)
+ *     NtUserGetPrecisionTouchPadConfiguration @ 0x1C0170EE0 (NtUserGetPrecisionTouchPadConfiguration.c)
+ * Callees:
+ *     UpdateTPCurrentActiveState @ 0x1C0031AA0 (UpdateTPCurrentActiveState.c)
+ *     IsLegacyTouchPad @ 0x1C009C6AC (IsLegacyTouchPad.c)
+ *     TryUpdatePTPConfigFromRegistry @ 0x1C009C6C8 (TryUpdatePTPConfigFromRegistry.c)
+ */
+
 __int64 __fastcall GetPrecisionTouchPadConfiguration(__int64 a1)
 {
   __int64 v2; // rdx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of IaLpssSetPowerD3 @ 0x14067A540
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IaLpssPciSetPower @ 0x14067A238 (IaLpssPciSetPower.c)
+ */
+
 __int64 __fastcall IaLpssSetPowerD3(__int64 *a1)
 {
   __int64 v2; // rcx

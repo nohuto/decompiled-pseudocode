@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspExecuteJobFreezeThawCallback @ 0x1402FF830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PspChangeProcessExecutionState @ 0x1406F8AC0 (PspChangeProcessExecutionState.c)
+ *     PspGetNextJobProcess @ 0x1406F90E0 (PspGetNextJobProcess.c)
+ */
+
 __int64 __fastcall PspExecuteJobFreezeThawCallback(__int64 a1, int *a2)
 {
   struct _KTHREAD *CurrentThread; // rbp

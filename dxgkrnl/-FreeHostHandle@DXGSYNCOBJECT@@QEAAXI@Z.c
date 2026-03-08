@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?FreeHostHandle@DXGSYNCOBJECT@@QEAAXI@Z @ 0x1C034B2D8
+ * Callers:
+ *     ?Close@DXGSYNCOBJECT@@QEAAEI@Z @ 0x1C01A6AC4 (-Close@DXGSYNCOBJECT@@QEAAEI@Z.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0007840 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C00078B0 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ */
+
 void __fastcall DXGSYNCOBJECT::FreeHostHandle(DXGSYNCOBJECT *this, int a2)
 {
   struct _KTHREAD **v4; // rdi

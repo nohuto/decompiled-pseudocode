@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DispatchPreprocessedIrp@FxDevice@@QEAAJPEAU_IRP@@PEAX@Z @ 0x1C003DED4
+ * Callers:
+ *     imp_WdfDeviceWdmDispatchIrp @ 0x1C00343A0 (imp_WdfDeviceWdmDispatchIrp.c)
+ *     imp_WdfDeviceWdmDispatchPreprocessedIrp @ 0x1C0034470 (imp_WdfDeviceWdmDispatchPreprocessedIrp.c)
+ * Callees:
+ *     ?DispatchWorker@@YAJPEAVFxDevice@@PEAU_IRP@@PEAX@Z @ 0x1C003DF94 (-DispatchWorker@@YAJPEAVFxDevice@@PEAU_IRP@@PEAX@Z.c)
+ *     ?_RequiresRemLock@FxDevice@@SA?AW4FxDeviceRemLockAction@@EE@Z @ 0x1C003F1E0 (-_RequiresRemLock@FxDevice@@SA-AW4FxDeviceRemLockAction@@EE@Z.c)
+ */
+
 NTSTATUS __fastcall FxDevice::DispatchPreprocessedIrp(FxDevice *this, _IRP *Irp, void *DispatchContext)
 {
   _IO_STACK_LOCATION *v4; // rax

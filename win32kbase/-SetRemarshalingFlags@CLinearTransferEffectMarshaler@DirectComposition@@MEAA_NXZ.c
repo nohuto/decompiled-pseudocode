@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CLinearTransferEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C024F090
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall DirectComposition::CLinearTransferEffectMarshaler::SetRemarshalingFlags(
         DirectComposition::CLinearTransferEffectMarshaler *this)
 {

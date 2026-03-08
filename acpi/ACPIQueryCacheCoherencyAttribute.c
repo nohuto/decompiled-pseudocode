@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIQueryCacheCoherencyAttribute @ 0x1C0081C08
+ * Callers:
+ *     ACPIBusIrpDeviceEnumerated @ 0x1C007E480 (ACPIBusIrpDeviceEnumerated.c)
+ * Callees:
+ *     ACPIInternalSetFlags @ 0x1C002F068 (ACPIInternalSetFlags.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C0047B9C (AMLIEvalNameSpaceObject.c)
+ *     AMLIFreeDataBuffs @ 0x1C00482C4 (AMLIFreeDataBuffs.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ */
+
 __int64 __fastcall ACPIQueryCacheCoherencyAttribute(ULONG_PTR BugCheckParameter2)
 {
   int v2; // edi

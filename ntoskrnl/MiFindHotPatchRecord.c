@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiFindHotPatchRecord @ 0x140A33EBC
+ * Callers:
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ *     MiFindProcessImageHotPatchRecord @ 0x140A3404C (MiFindProcessImageHotPatchRecord.c)
+ *     MmRegisterHotPatches @ 0x140B7092C (MmRegisterHotPatches.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlDuplicateUnicodeString @ 0x140761970 (RtlDuplicateUnicodeString.c)
+ *     MiCompareHotPatchNodes @ 0x140A33944 (MiCompareHotPatchNodes.c)
+ */
+
 __int64 __fastcall MiFindHotPatchRecord(__int64 *a1, int a2, int a3, int a4, PUNICODE_STRING StringOut)
 {
   struct _KTHREAD *CurrentThread; // rdi

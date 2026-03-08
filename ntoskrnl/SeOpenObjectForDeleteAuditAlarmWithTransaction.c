@@ -1,3 +1,22 @@
+/*
+ * XREFs of SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1409CB370
+ * Callers:
+ *     SeOpenObjectForDeleteAuditAlarm @ 0x1409CB310 (SeOpenObjectForDeleteAuditAlarm.c)
+ * Callees:
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     SepAdtAuditObjectAccessWithContext @ 0x1406995C8 (SepAdtAuditObjectAccessWithContext.c)
+ *     SepAdtAuditPrivilegeUseWithContext @ 0x14069976C (SepAdtAuditPrivilegeUseWithContext.c)
+ *     SepQueryNameString @ 0x140744C84 (SepQueryNameString.c)
+ *     SeExamineSacl @ 0x1408A18B0 (SeExamineSacl.c)
+ *     SeExamineGlobalSacl @ 0x1408A1D6A (SeExamineGlobalSacl.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x1409C930C (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtOpenObjectForDeleteAuditAlarm @ 0x1409C9C0C (SepAdtOpenObjectForDeleteAuditAlarm.c)
+ *     SepQueryTypeString @ 0x1409CA608 (SepQueryTypeString.c)
+ *     SepAuditFailed @ 0x1409CEE50 (SepAuditFailed.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __stdcall SeOpenObjectForDeleteAuditAlarmWithTransaction(
         PUNICODE_STRING ObjectTypeName,
         PVOID Object,

@@ -1,3 +1,33 @@
+/*
+ * XREFs of xxxInterSendMsgEx @ 0x1C004A280
+ * Callers:
+ *     NtUserReplyMessage @ 0x1C000B690 (NtUserReplyMessage.c)
+ *     ClearSendMessages @ 0x1C003421C (ClearSendMessages.c)
+ *     xxxSendMessageCallback @ 0x1C004C51C (xxxSendMessageCallback.c)
+ *     ?xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z @ 0x1C006C010 (-xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z.c)
+ *     xxxReceiveMessage @ 0x1C006DB60 (xxxReceiveMessage.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C006E550 (xxxSendTransformableMessageTimeout.c)
+ *     xxxReceiverDied @ 0x1C00949E0 (xxxReceiverDied.c)
+ * Callees:
+ *     ProcessSuspendedSendMessage @ 0x1C0015688 (ProcessSuspendedSendMessage.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     TransformMessageBetweenCoordinateSpaces @ 0x1C0048E70 (TransformMessageBetweenCoordinateSpaces.c)
+ *     ?IsMessageAlwaysAllowedAcrossIL@@YAHI@Z @ 0x1C004C87C (-IsMessageAlwaysAllowedAcrossIL@@YAHI@Z.c)
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ *     ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x1C006D360 (-xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z.c)
+ *     ?GetWindowMessageFilter@@YAPEAPEAXPEAUtagWND@@@Z @ 0x1C00CBBC4 (-GetWindowMessageFilter@@YAPEAPEAXPEAUtagWND@@@Z.c)
+ *     ?IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z @ 0x1C00CBE58 (-IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z.c)
+ *     MergeDeferredMessagesOfThreadOnQueue @ 0x1C00DBC20 (MergeDeferredMessagesOfThreadOnQueue.c)
+ *     ?IsThreadHungTimeCheck@@YA_NPEBUtagTHREADINFO@@K@Z @ 0x1C00E2134 (-IsThreadHungTimeCheck@@YA_NPEBUtagTHREADINFO@@K@Z.c)
+ *     wcsncpycch @ 0x1C01093D4 (wcsncpycch.c)
+ *     ??0CKernelStackSwapAuto@@QEAA@XZ @ 0x1C012EC98 (--0CKernelStackSwapAuto@@QEAA@XZ.c)
+ *     ??1CKernelStackSwapAuto@@QEAA@XZ @ 0x1C012ED28 (--1CKernelStackSwapAuto@@QEAA@XZ.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     strncpycch @ 0x1C014AD88 (strncpycch.c)
+ *     _FreeTouchInputInfo @ 0x1C01B1740 (_FreeTouchInputInfo.c)
+ *     _FreeGestureInfo @ 0x1C0207760 (_FreeGestureInfo.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall xxxInterSendMsgEx(
         struct tagWND *a1,

@@ -1,3 +1,21 @@
+/*
+ * XREFs of GetCharDimensions @ 0x1C010F9F4
+ * Callers:
+ *     ?UserReinitializeStockFonts@@YAXKH@Z @ 0x1C00B7E08 (-UserReinitializeStockFonts@@YAXKH@Z.c)
+ *     FinalUserInit @ 0x1C00C1B24 (FinalUserInit.c)
+ *     xxxSetNCFonts @ 0x1C010E91C (xxxSetNCFonts.c)
+ *     ValidateExternalLogFont @ 0x1C010EFFC (ValidateExternalLogFont.c)
+ *     CreateScaledFont @ 0x1C01C05F8 (CreateScaledFont.c)
+ * Callees:
+ *     GetDPIServerInfo @ 0x1C010C460 (GetDPIServerInfo.c)
+ *     GreTextInitialized @ 0x1C010FB94 (GreTextInitialized.c)
+ *     GreGetTextExtentW @ 0x1C010FBEC (GreGetTextExtentW.c)
+ *     ?GrepGetTextMetricsW@@YAHPEAUHDC__@@PEAU_TMW_INTERNAL@@W4EntryPoint@RFONTOBJ@@@Z @ 0x1C0112400 (-GrepGetTextMetricsW@@YAHPEAUHDC__@@PEAU_TMW_INTERNAL@@W4EntryPoint@RFONTOBJ@@@Z.c)
+ *     ??1EUDCCountRegion@@QEAA@XZ @ 0x1C0114AF8 (--1EUDCCountRegion@@QEAA@XZ.c)
+ *     ??0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z @ 0x1C0114B84 (--0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall GetCharDimensions(__int64 a1, __int64 a2, _DWORD *a3)
 {
   __int64 v6; // rcx

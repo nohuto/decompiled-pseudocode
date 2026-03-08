@@ -1,3 +1,22 @@
+/*
+ * XREFs of RawInitiateDeleteVolume @ 0x14028DD58
+ * Callers:
+ *     RawCompletionRoutine @ 0x14028DFF0 (RawCompletionRoutine.c)
+ *     RawVerifyVolume @ 0x1405A483C (RawVerifyVolume.c)
+ *     RawReadWriteDeviceControl @ 0x1406F30A4 (RawReadWriteDeviceControl.c)
+ *     RawCreate @ 0x1406F3164 (RawCreate.c)
+ *     RawClose @ 0x1406F32E8 (RawClose.c)
+ *     RawCleanup @ 0x1406F3368 (RawCleanup.c)
+ * Callees:
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RawDeleteVcb @ 0x1406F3E2C (RawDeleteVcb.c)
+ *     RawCleanupVcb @ 0x1406F3EA0 (RawCleanupVcb.c)
+ */
+
 char __fastcall RawInitiateDeleteVolume(PFSRTL_ADVANCED_FCB_HEADER AdvancedHeader, int a2, int a3)
 {
   char v3; // si

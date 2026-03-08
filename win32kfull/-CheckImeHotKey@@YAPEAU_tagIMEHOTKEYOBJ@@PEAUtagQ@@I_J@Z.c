@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CheckImeHotKey@@YAPEAU_tagIMEHOTKEYOBJ@@PEAUtagQ@@I_J@Z @ 0x1C00DAA80
+ * Callers:
+ *     ?xxxImmProcessKey@@YAKPEAUtagQ@@PEAUtagWND@@I_K_J@Z @ 0x1C00DA8CC (-xxxImmProcessKey@@YAKPEAUtagQ@@PEAUtagWND@@I_K_J@Z.c)
+ * Callees:
+ *     ?FindImeHotKeyByKey@@YAPEAU_tagIMEHOTKEYOBJ@@PEAU1@III@Z @ 0x1C0009EC4 (-FindImeHotKeyByKey@@YAPEAU_tagIMEHOTKEYOBJ@@PEAU1@III@Z.c)
+ */
+
 struct _tagIMEHOTKEYOBJ *__fastcall CheckImeHotKey(struct tagQ *a1, int a2, int a3)
 {
   __int64 v6; // rcx

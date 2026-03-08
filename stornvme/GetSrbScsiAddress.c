@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetSrbScsiAddress @ 0x1C0007B00
+ * Callers:
+ *     NVMeHwStartIo @ 0x1C0001DD0 (NVMeHwStartIo.c)
+ *     FormInquiryStandardData @ 0x1C0012754 (FormInquiryStandardData.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall GetSrbScsiAddress(__int64 a1, _DWORD *a2, _DWORD *a3, _DWORD *a4)
 {
   __int64 v4; // r10

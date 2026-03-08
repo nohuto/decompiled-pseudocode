@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z @ 0x1C0271484
+ * Callers:
+ *     NtGdiDdDDISharedPrimaryUnLockNotification @ 0x1C0272B90 (NtGdiDdDDISharedPrimaryUnLockNotification.c)
+ * Callees:
+ *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C001F5A0 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002A694 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002A6E0 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     UserRedrawDesktop @ 0x1C0225B78 (UserRedrawDesktop.c)
+ *     vSpUnTearDownSprites @ 0x1C0286E00 (vSpUnTearDownSprites.c)
+ */
+
 __int64 __fastcall DxLddmSharedPrimaryUnLockNotification(struct _LUID a1, int a2)
 {
   DWORD LowPart; // ebx

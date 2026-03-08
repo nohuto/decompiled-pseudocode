@@ -1,3 +1,16 @@
+/*
+ * XREFs of HvlpSelectVpSet @ 0x14053F57C
+ * Callers:
+ *     HvlStartBootLogicalProcessors @ 0x1403714E0 (HvlStartBootLogicalProcessors.c)
+ * Callees:
+ *     HvlIsSingleGroupRequired @ 0x1403A4F6C (HvlIsSingleGroupRequired.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvlpComputeLpComparisonMetrics @ 0x14053E614 (HvlpComputeLpComparisonMetrics.c)
+ *     HvlpLpComparison @ 0x14053EDD0 (HvlpLpComparison.c)
+ *     HviGetImplementationLimits @ 0x140613064 (HviGetImplementationLimits.c)
+ */
+
 __int64 __fastcall HvlpSelectVpSet(unsigned int a1, __int64 a2)
 {
   __int64 v2; // rbx

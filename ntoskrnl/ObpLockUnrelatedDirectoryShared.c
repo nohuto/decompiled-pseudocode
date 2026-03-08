@@ -1,3 +1,18 @@
+/*
+ * XREFs of ObpLockUnrelatedDirectoryShared @ 0x1407DD1A8
+ * Callers:
+ *     ObpLookupObjectName @ 0x1406E86B0 (ObpLookupObjectName.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140283390 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     ExfTryAcquirePushLockSharedEx @ 0x1403586D0 (ExfTryAcquirePushLockSharedEx.c)
+ */
+
 void __fastcall ObpLockUnrelatedDirectoryShared(PVOID *a1, volatile signed __int64 *a2)
 {
   char v2; // r15

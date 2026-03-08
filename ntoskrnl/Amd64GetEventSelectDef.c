@@ -1,3 +1,11 @@
+/*
+ * XREFs of Amd64GetEventSelectDef @ 0x140526F90
+ * Callers:
+ *     Amd64AddProfileSource @ 0x1405263A0 (Amd64AddProfileSource.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Amd64GetEventSelectDef(__int16 *a1)
 {
   __int64 v1; // r8

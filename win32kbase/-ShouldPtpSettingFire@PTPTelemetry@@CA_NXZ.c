@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ShouldPtpSettingFire@PTPTelemetry@@CA_NXZ @ 0x1C020F4DC
+ * Callers:
+ *     ?OnPTPDeviceArrived@PTPTelemetry@@SAXQEAUDEVICEINFO@@@Z @ 0x1C020E754 (-OnPTPDeviceArrived@PTPTelemetry@@SAXQEAUDEVICEINFO@@@Z.c)
+ *     ?OnUserLogin@PTPTelemetry@@SAXXZ @ 0x1C020EA60 (-OnUserLogin@PTPTelemetry@@SAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PTPTelemetry::ShouldPtpSettingFire(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdx

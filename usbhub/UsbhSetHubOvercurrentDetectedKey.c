@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhSetHubOvercurrentDetectedKey @ 0x1C0046CC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhSetPdoRegistryParameter @ 0x1C0046D44 (UsbhSetPdoRegistryParameter.c)
+ */
+
 __int64 __fastcall UsbhSetHubOvercurrentDetectedKey(__int64 a1)
 {
   struct _DEVICE_OBJECT *v1; // rcx

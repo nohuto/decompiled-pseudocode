@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpIommuConstructReservedPageTables @ 0x140A8786C
+ * Callers:
+ *     HalpIommuInitializeAll @ 0x140A8DA7C (HalpIommuInitializeAll.c)
+ * Callees:
+ *     HalpIommuConstructReservedPageTable @ 0x140A8775C (HalpIommuConstructReservedPageTable.c)
+ */
+
 __int64 __fastcall HalpIommuConstructReservedPageTables(__int64 a1, _DWORD *a2, unsigned int a3)
 {
   __int64 result; // rax

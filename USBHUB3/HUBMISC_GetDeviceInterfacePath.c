@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBMISC_GetDeviceInterfacePath @ 0x1C0033628
+ * Callers:
+ *     HUBFDO_CreateDeviceInterfaceForBillboard @ 0x1C000F5E0 (HUBFDO_CreateDeviceInterfaceForBillboard.c)
+ *     HUBDRIVER_EtwRundownUsbDevice @ 0x1C0076D58 (HUBDRIVER_EtwRundownUsbDevice.c)
+ *     HUBFDO_IoctlGetNodeConnectionName @ 0x1C007A52C (HUBFDO_IoctlGetNodeConnectionName.c)
+ *     HUBPDO_EvtDevicePrepareHardware @ 0x1C007CF20 (HUBPDO_EvtDevicePrepareHardware.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBMISC_GetDeviceInterfacePath(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4, __int64 a5)
 {
   int v9; // ebx

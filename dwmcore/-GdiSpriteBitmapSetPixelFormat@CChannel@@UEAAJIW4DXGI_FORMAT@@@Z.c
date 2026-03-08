@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?GdiSpriteBitmapSetPixelFormat@CChannel@@UEAAJIW4DXGI_FORMAT@@@Z @ 0x1800F9920
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z @ 0x180043E68 (-CheckHandle@CChannel@@AEAAXIW4MIL_RESOURCE_TYPE@@@Z.c)
+ *     ??0CChannelLock@CChannel@@QEAA@PEAV1@@Z @ 0x18004407C (--0CChannelLock@CChannel@@QEAA@PEAV1@@Z.c)
+ *     ??1CChannelLock@CChannel@@QEAA@XZ @ 0x1800441FC (--1CChannelLock@CChannel@@QEAA@XZ.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x180044440 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ */
+
 __int64 __fastcall CChannel::GdiSpriteBitmapSetPixelFormat(CChannel *this, unsigned int a2, enum DXGI_FORMAT a3)
 {
   unsigned int v6; // ebx

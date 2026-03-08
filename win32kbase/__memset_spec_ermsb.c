@@ -1,3 +1,11 @@
+/*
+ * XREFs of __memset_spec_ermsb @ 0x1C00E1BC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall _memset_spec_ermsb(char *a1, unsigned __int8 a2, unsigned __int64 a3)
 {
   __int64 result; // rax

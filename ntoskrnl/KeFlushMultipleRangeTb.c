@@ -1,3 +1,22 @@
+/*
+ * XREFs of KeFlushMultipleRangeTb @ 0x14038C374
+ * Callers:
+ *     MiAgeWorkingSetTail @ 0x1402C9E50 (MiAgeWorkingSetTail.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ * Callees:
+ *     KiIsSecureProcessFlush @ 0x140211FFC (KiIsSecureProcessFlush.c)
+ *     KiPreprocessFlushTb @ 0x140212038 (KiPreprocessFlushTb.c)
+ *     KeFlushProcessWriteBuffers @ 0x1402373CC (KeFlushProcessWriteBuffers.c)
+ *     KiFlushRangeTb @ 0x140387C18 (KiFlushRangeTb.c)
+ *     KxFlushMultipleTb @ 0x14038C454 (KxFlushMultipleTb.c)
+ *     HvlFlushRangeListTb @ 0x1403C689C (HvlFlushRangeListTb.c)
+ *     KiPrepareFlushParameters @ 0x1403C8E3C (KiPrepareFlushParameters.c)
+ *     KiFlushAffinity @ 0x1403C9158 (KiFlushAffinity.c)
+ *     VmFlushTb @ 0x14045DE9C (VmFlushTb.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFlushTb @ 0x14060AC48 (ExFlushTb.c)
+ */
+
 char __fastcall KeFlushMultipleRangeTb(unsigned int a1, unsigned __int64 *a2, unsigned int a3, unsigned int a4)
 {
   __int64 v4; // r15

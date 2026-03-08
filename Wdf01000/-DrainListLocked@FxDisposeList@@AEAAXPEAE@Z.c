@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?DrainListLocked@FxDisposeList@@AEAAXPEAE@Z @ 0x1C0041DDC
+ * Callers:
+ *     ?WaitForEmpty@FxDisposeList@@QEAAXXZ @ 0x1C0041EE4 (-WaitForEmpty@FxDisposeList@@QEAAXXZ.c)
+ *     ?_WorkItemThunk@FxDisposeList@@CAXPEAX@Z @ 0x1C0042050 (-_WorkItemThunk@FxDisposeList@@CAXPEAX@Z.c)
+ * Callees:
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0006060 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0006094 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     ?DeferredDisposeWorkItem@FxObject@@AEAAXXZ @ 0x1C0047694 (-DeferredDisposeWorkItem@FxObject@@AEAAXXZ.c)
+ */
+
 void __fastcall FxDisposeList::DrainListLocked(FxDisposeList *this, unsigned __int8 *PreviousIrql)
 {
   _SINGLE_LIST_ENTRY *p_m_List; // rbx

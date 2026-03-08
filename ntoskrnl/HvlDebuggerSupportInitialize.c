@@ -1,3 +1,18 @@
+/*
+ * XREFs of HvlDebuggerSupportInitialize @ 0x1403B0FD4
+ * Callers:
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     strncmp @ 0x1403D3310 (strncmp.c)
+ *     strstr @ 0x1403D3650 (strstr.c)
+ *     atol @ 0x1403D3700 (atol.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ */
+
 void __fastcall HvlDebuggerSupportInitialize(__int64 a1)
 {
   const char *v2; // rcx

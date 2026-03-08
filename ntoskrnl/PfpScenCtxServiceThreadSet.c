@@ -1,3 +1,15 @@
+/*
+ * XREFs of PfpScenCtxServiceThreadSet @ 0x140A8EA80
+ * Callers:
+ *     PfSetSuperfetchInformation @ 0x1407E2A94 (PfSetSuperfetchInformation.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsGetThreadId @ 0x1402DC330 (PsGetThreadId.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 char __fastcall PfpScenCtxServiceThreadSet(ULONG_PTR BugCheckParameter2, int a2)
 {
   HANDLE v2; // rsi

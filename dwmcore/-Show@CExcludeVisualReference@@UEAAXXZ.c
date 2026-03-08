@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Show@CExcludeVisualReference@@UEAAXXZ @ 0x1801CA390
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ @ 0x18012A454 (-GetVisual@CExcludeVisualReference@@QEBAPEAVCVisual@@XZ.c)
+ */
+
 void __fastcall CExcludeVisualReference::Show(CExcludeVisualReference *this)
 {
   struct CVisual *Visual; // rax

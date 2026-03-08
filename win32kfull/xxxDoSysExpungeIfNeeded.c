@@ -1,3 +1,13 @@
+/*
+ * XREFs of xxxDoSysExpungeIfNeeded @ 0x1C012F440
+ * Callers:
+ *     ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x1C006D360 (-xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z.c)
+ *     xxxRealInternalGetMessage @ 0x1C006F2F0 (xxxRealInternalGetMessage.c)
+ * Callees:
+ *     xxxDoSysExpunge @ 0x1C00C9400 (xxxDoSysExpunge.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void __fastcall xxxDoSysExpungeIfNeeded(__int64 a1)
 {
   unsigned int DLT; // eax

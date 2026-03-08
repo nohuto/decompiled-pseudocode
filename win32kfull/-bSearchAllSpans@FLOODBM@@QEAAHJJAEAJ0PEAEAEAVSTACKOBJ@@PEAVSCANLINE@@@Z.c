@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bSearchAllSpans@FLOODBM@@QEAAHJJAEAJ0PEAEAEAVSTACKOBJ@@PEAVSCANLINE@@@Z @ 0x1C02D5DB4
+ * Callers:
+ *     ?bExtendScanline@FLOODBM@@QEAAHAEAVSTACKOBJ@@0JPEAE1@Z @ 0x1C02D569C (-bExtendScanline@FLOODBM@@QEAAHAEAVSTACKOBJ@@0JPEAE1@Z.c)
+ * Callees:
+ *     ?bExpandScanline@STACKOBJ@@QEAAHKK@Z @ 0x1C02D55E8 (-bExpandScanline@STACKOBJ@@QEAAHKK@Z.c)
+ *     ?iColorGet@FLOODBM@@QEAAKJ@Z @ 0x1C02D5FE4 (-iColorGet@FLOODBM@@QEAAKJ@Z.c)
+ *     ?vFindExtent@FLOODBM@@QEAAXJAEAJ0@Z @ 0x1C02D60B0 (-vFindExtent@FLOODBM@@QEAAXJAEAJ0@Z.c)
+ */
+
 __int64 __fastcall FLOODBM::bSearchAllSpans(
         FLOODBM *this,
         int a2,

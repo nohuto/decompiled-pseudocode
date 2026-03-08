@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiAgpFreePool @ 0x1C03A2AD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DpiAgpFreePool(__int64 a1, void *a2)
 {
   unsigned int v2; // ebx

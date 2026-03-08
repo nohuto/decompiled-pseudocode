@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiFreeReadListPageList @ 0x1406A4FAC
+ * Callers:
+ *     MiFreeReadListPages @ 0x1406A4F10 (MiFreeReadListPages.c)
+ * Callees:
+ *     MiGetPfnLink @ 0x1402FCBFC (MiGetPfnLink.c)
+ *     MiReleaseFreshPage @ 0x14034E570 (MiReleaseFreshPage.c)
+ *     MiPartitionIdToPointer @ 0x14036CC64 (MiPartitionIdToPointer.c)
+ */
+
 __int64 __fastcall MiFreeReadListPageList(__int64 *a1, __int64 *a2)
 {
   __int64 v2; // r8

@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpInitializeHardwareConfiguration @ 0x140B51F64
+ * Callers:
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     CmpSetupConfigurationTree @ 0x140B52640 (CmpSetupConfigurationTree.c)
+ */
+
 NTSTATUS __fastcall CmpInitializeHardwareConfiguration(__int64 a1)
 {
   __int64 v1; // rbx

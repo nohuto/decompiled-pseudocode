@@ -1,3 +1,26 @@
+/*
+ * XREFs of ?vCleanupDCs@@YAXK@Z @ 0x1C006F338
+ * Callers:
+ *     ?GrepCloseCurrentProcess@@YAHXZ @ 0x1C006D158 (-GrepCloseCurrentProcess@@YAHXZ.c)
+ *     MultiUserCleanupDCs @ 0x1C00B637C (MultiUserCleanupDCs.c)
+ * Callees:
+ *     HmgSetLock @ 0x1C0019CE0 (HmgSetLock.c)
+ *     ?bCleanDC@XDCOBJ@@QEAAHH@Z @ 0x1C0046C90 (-bCleanDC@XDCOBJ@@QEAAHH@Z.c)
+ *     GreReleaseHmgrSemaphore @ 0x1C0049700 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C0049780 (GreAcquireHmgrSemaphore.c)
+ *     ?GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z @ 0x1C004A2C0 (-GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z.c)
+ *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C004AE10 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
+ *     ?GetEntryObject@GdiHandleManager@@QEAAPEAVOBJECT@@I@Z @ 0x1C004B490 (-GetEntryObject@GdiHandleManager@@QEAAPEAVOBJECT@@I@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C004B5B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C0053708 (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     GrepDeleteDC @ 0x1C00549D0 (GrepDeleteDC.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C0054DA0 (--1DCOBJ@@QEAA@XZ.c)
+ *     HmgSafeNextObjt @ 0x1C006EFB0 (HmgSafeNextObjt.c)
+ *     ?bOwnedBy@ENTRYOBJ@@QEBAHK@Z @ 0x1C00A72DC (-bOwnedBy@ENTRYOBJ@@QEBAHK@Z.c)
+ *     HmgIsProcessCleanupRequiredByW32Pid @ 0x1C00B1B60 (HmgIsProcessCleanupRequiredByW32Pid.c)
+ *     HmgCheckDCForPrivateReferences @ 0x1C0185D28 (HmgCheckDCForPrivateReferences.c)
+ */
+
 void __fastcall vCleanupDCs(__int64 a1)
 {
   __int64 v1; // r14

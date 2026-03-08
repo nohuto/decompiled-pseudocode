@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlUnicodeStringValidateWorker @ 0x1C0017A84
+ * Callers:
+ *     RtlUnicodeStringValidateDestWorker @ 0x1C0017A08 (RtlUnicodeStringValidateDestWorker.c)
+ *     RtlUnicodeStringValidateSrcWorker @ 0x1C0017A48 (RtlUnicodeStringValidateSrcWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlUnicodeStringValidateWorker(
         const _UNICODE_STRING *SourceString,
         const unsigned __int64 a2,

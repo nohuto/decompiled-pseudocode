@@ -1,3 +1,12 @@
+/*
+ * XREFs of UserIsProcessImmersiveAppContainer @ 0x1C00841C0
+ * Callers:
+ *     ?MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z @ 0x1C006D528 (-MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z.c)
+ *     ?vAppContainerOwner@SURFACE@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C00D27E8 (-vAppContainerOwner@SURFACE@@QEAAXPEAU_EPROCESS@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall UserIsProcessImmersiveAppContainer(__int64 a1)
 {
   __int64 ProcessWin32Process; // rax

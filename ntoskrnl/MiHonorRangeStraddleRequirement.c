@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiHonorRangeStraddleRequirement @ 0x1402DE750
+ * Callers:
+ *     MiFindEmptyAddressRangeDownTree @ 0x140760F18 (MiFindEmptyAddressRangeDownTree.c)
+ *     MiFindEmptyAddressRangeInTree @ 0x140769234 (MiFindEmptyAddressRangeInTree.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiHonorRangeStraddleRequirement(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   __int64 v4; // r8

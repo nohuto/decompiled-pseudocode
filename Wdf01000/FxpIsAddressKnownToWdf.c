@@ -1,3 +1,11 @@
+/*
+ * XREFs of FxpIsAddressKnownToWdf @ 0x1C00890E4
+ * Callers:
+ *     FxpBugCheckCallbackFilter @ 0x1C0088F20 (FxpBugCheckCallbackFilter.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall FxpIsAddressKnownToWdf(unsigned __int64 Address, _FX_DRIVER_GLOBALS *FxDriverGlobals)
 {
   void *ImageAddress; // r8

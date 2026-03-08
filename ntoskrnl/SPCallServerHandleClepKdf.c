@@ -1,3 +1,13 @@
+/*
+ * XREFs of SPCallServerHandleClepKdf @ 0x1407923C4
+ * Callers:
+ *     sub_1406DC290 @ 0x1406DC290 (sub_1406DC290.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall SPCallServerHandleClepKdf(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int *v7; // rcx

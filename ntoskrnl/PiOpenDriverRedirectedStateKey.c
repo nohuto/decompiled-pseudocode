@@ -1,3 +1,17 @@
+/*
+ * XREFs of PiOpenDriverRedirectedStateKey @ 0x140875B5C
+ * Callers:
+ *     PipHardwareConfigActivateService @ 0x140875A78 (PipHardwareConfigActivateService.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintfEx @ 0x1403C1A7C (RtlUnicodeStringPrintfEx.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     IopAllocateUnicodeString @ 0x140683958 (IopAllocateUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     PiGetStateRootPath @ 0x14086F420 (PiGetStateRootPath.c)
+ */
+
 __int64 __fastcall PiOpenDriverRedirectedStateKey(unsigned __int16 *a1, __int64 a2, _QWORD *a3)
 {
   int StateRootPath; // ebx

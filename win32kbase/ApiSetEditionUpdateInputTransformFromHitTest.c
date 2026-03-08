@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionUpdateInputTransformFromHitTest @ 0x1C0008F00
+ * Callers:
+ *     ?ResolveDcompHitTestResultToInputDest@CSpatialProcessor@@CA?AVCInputDest@@AEBU_InputHitTestResult@@K_K@Z @ 0x1C007E1A4 (-ResolveDcompHitTestResultToInputDest@CSpatialProcessor@@CA-AVCInputDest@@AEBU_InputHitTestResul.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 PDEVICE_OBJECT *__fastcall ApiSetEditionUpdateInputTransformFromHitTest(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?NotifyOnChangeCompleted@CVisualCapture@@MEAAXXZ @ 0x180252A70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AddRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z @ 0x1800C6314 (-AddRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z.c)
+ *     ?SetRootVisual@CRenderTarget@@QEAAJPEAVCVisual@@@Z @ 0x1801E3CBC (-SetRootVisual@CRenderTarget@@QEAAJPEAVCVisual@@@Z.c)
+ */
+
 void __fastcall CVisualCapture::NotifyOnChangeCompleted(CVisualCapture *this)
 {
   struct CVisual *v2; // rdx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpResetKeyNodeStack @ 0x140A1D48C
+ * Callers:
+ *     CmpSubtreeEnumeratorReset @ 0x140A1DA20 (CmpSubtreeEnumeratorReset.c)
+ *     CmpKeyEnumStackReset @ 0x140A2152C (CmpKeyEnumStackReset.c)
+ * Callees:
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140783798 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ */
+
 void __fastcall CmpResetKeyNodeStack(__int16 *a1)
 {
   __int16 i; // di

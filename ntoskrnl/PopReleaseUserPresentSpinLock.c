@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopReleaseUserPresentSpinLock @ 0x14058BA00
+ * Callers:
+ *     PopSetSystemAwayMode @ 0x140987890 (PopSetSystemAwayMode.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PopReleaseUserPresentSpinLock(unsigned __int8 a1)
 {
   unsigned __int64 v1; // rbx

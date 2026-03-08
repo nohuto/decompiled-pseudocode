@@ -1,3 +1,12 @@
+/*
+ * XREFs of _FChildVisible @ 0x1C002B72C
+ * Callers:
+ *     ?xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z @ 0x1C002AE4C (-xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z.c)
+ *     xxxSBWndProc @ 0x1C022D770 (xxxSBWndProc.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FChildVisible(__int64 a1)
 {
   char v1; // dl

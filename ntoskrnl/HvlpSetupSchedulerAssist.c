@@ -1,3 +1,14 @@
+/*
+ * XREFs of HvlpSetupSchedulerAssist @ 0x14053FDA0
+ * Callers:
+ *     HvlEnlightenProcessor @ 0x14037F430 (HvlEnlightenProcessor.c)
+ * Callees:
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ */
+
 char __fastcall HvlpSetupSchedulerAssist(__int64 a1)
 {
   _DWORD *v1; // rdi

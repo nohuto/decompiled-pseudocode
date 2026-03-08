@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??4?$SharedPointerFieldBuffer@G@ProtectedLargeUnicodeStringWNDstrName@tagWND@@QEAAPEAGPEAG@Z @ 0x1C012EF08
+ * Callers:
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall tagWND::ProtectedLargeUnicodeStringWNDstrName::SharedPointerFieldBuffer<unsigned short>::operator=(
         _QWORD *a1,
         __int64 a2)

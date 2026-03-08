@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ToggleTopologyTransition@DXGGLOBAL@@QEAAEE@Z @ 0x1C000B150
+ * Callers:
+ *     DxgkCompleteTopologyTransition @ 0x1C01C3FC0 (DxgkCompleteTopologyTransition.c)
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 bool __fastcall DXGGLOBAL::ToggleTopologyTransition(DXGGLOBAL *this, char a2)
 {
   int v2; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PenHotkeyCallback@@YAX_K_J@Z @ 0x1C01AC210
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall PenHotkeyCallback(unsigned __int64 a1)
 {
   int v1; // ecx

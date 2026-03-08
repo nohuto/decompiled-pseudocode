@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpLockContextListShared @ 0x140738ED8
+ * Callers:
+ *     CmpCallbackFillObjectContext @ 0x1406E1220 (CmpCallbackFillObjectContext.c)
+ *     CmpGetCallbackObjectContext @ 0x140738A30 (CmpGetCallbackObjectContext.c)
+ *     CmSetCallbackObjectContext @ 0x140738C30 (CmSetCallbackObjectContext.c)
+ * Callees:
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ */
+
 signed __int64 CmpLockContextListShared()
 {
   struct _KTHREAD *CurrentThread; // rax

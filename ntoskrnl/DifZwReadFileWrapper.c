@@ -1,3 +1,15 @@
+/*
+ * XREFs of DifZwReadFileWrapper @ 0x1405F3900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwReadFile @ 0x1404123D0 (ZwReadFile.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifZwReadFileWrapper(
         HANDLE FileHandle,
         HANDLE Event,

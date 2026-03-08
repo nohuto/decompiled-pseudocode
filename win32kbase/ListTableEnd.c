@@ -1,3 +1,13 @@
+/*
+ * XREFs of ListTableEnd @ 0x1C00F1C32
+ * Callers:
+ *     RIMCmActiveContactsEnd @ 0x1C00F1A04 (RIMCmActiveContactsEnd.c)
+ *     ListTableIteratorNext @ 0x1C00F1CCE (ListTableIteratorNext.c)
+ *     RIMCmActiveContactsNext @ 0x1C01DE0AC (RIMCmActiveContactsNext.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall ListTableEnd(__int64 a1, __int64 a2)
 {
   if ( !*(_QWORD *)a2 )

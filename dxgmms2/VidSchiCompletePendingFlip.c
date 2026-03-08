@@ -1,3 +1,13 @@
+/*
+ * XREFs of VidSchiCompletePendingFlip @ 0x1C001833C
+ * Callers:
+ *     VidSchiSetFlipDevice @ 0x1C0002730 (VidSchiSetFlipDevice.c)
+ *     VidSchiCompleteAllPendingCommand @ 0x1C0046F70 (VidSchiCompleteAllPendingCommand.c)
+ * Callees:
+ *     ?GetFlipQueue@VIDSCH_FLIP_QUEUE_ITERATOR@@QEAAPEAUVIDSCH_FLIP_QUEUE@@XZ @ 0x1C00183C8 (-GetFlipQueue@VIDSCH_FLIP_QUEUE_ITERATOR@@QEAAPEAUVIDSCH_FLIP_QUEUE@@XZ.c)
+ *     VidSchiCompletePendingFlipOnPlane @ 0x1C00183F4 (VidSchiCompletePendingFlipOnPlane.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall VidSchiCompletePendingFlip(int a1, __int64 a2, unsigned int a3, int a4)
 {

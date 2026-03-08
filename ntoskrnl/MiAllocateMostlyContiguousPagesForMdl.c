@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiAllocateMostlyContiguousPagesForMdl @ 0x1403A796C
+ * Callers:
+ *     MiFindPagesForMdl @ 0x1402B3FE8 (MiFindPagesForMdl.c)
+ * Callees:
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     MiReleaseFreshPage @ 0x14034E570 (MiReleaseFreshPage.c)
+ *     MiFindContiguousPagesEx @ 0x1403B5CF8 (MiFindContiguousPagesEx.c)
+ *     MiAllocateSlabPageForMdl @ 0x140620D1C (MiAllocateSlabPageForMdl.c)
+ */
+
 __int64 __fastcall MiAllocateMostlyContiguousPagesForMdl(__int64 *a1, int a2, unsigned int a3)
 {
   ULONG_PTR v3; // r15

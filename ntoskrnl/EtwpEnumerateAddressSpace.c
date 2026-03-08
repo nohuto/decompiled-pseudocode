@@ -1,3 +1,24 @@
+/*
+ * XREFs of EtwpEnumerateAddressSpace @ 0x1407EC24C
+ * Callers:
+ *     EtwTraceProcess @ 0x1407E93B4 (EtwTraceProcess.c)
+ *     EtwpProcessEnumCallback @ 0x14080DD60 (EtwpProcessEnumCallback.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     KeAreAllApcsDisabled @ 0x14034C170 (KeAreAllApcsDisabled.c)
+ *     EtwpTraceImageUnload @ 0x14035E3D0 (EtwpTraceImageUnload.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ObQueryNameStringMode @ 0x14071EE84 (ObQueryNameStringMode.c)
+ *     MmEnumerateAddressSpaceAndReferenceImages @ 0x140727330 (MmEnumerateAddressSpaceAndReferenceImages.c)
+ *     EtwpTraceImageRundown @ 0x140801B68 (EtwpTraceImageRundown.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EtwpEnumerateAddressSpace(PRKPROCESS PROCESS, __int64 a2, int *a3)
 {
   int v3; // eax

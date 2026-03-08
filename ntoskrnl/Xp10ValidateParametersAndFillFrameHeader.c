@@ -1,3 +1,11 @@
+/*
+ * XREFs of Xp10ValidateParametersAndFillFrameHeader @ 0x1409C57AC
+ * Callers:
+ *     Xp10CompressBuffer @ 0x1409C2808 (Xp10CompressBuffer.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Xp10ValidateParametersAndFillFrameHeader(__int16 *a1, __int64 a2)
 {
   __int16 v3; // r9

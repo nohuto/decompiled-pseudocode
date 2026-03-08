@@ -1,3 +1,15 @@
+/*
+ * XREFs of VfTargetReplaceIoCallbacks @ 0x1405CCE38
+ * Callers:
+ *     VfSuspectApplyDifVolatileVerification @ 0x140AD7288 (VfSuspectApplyDifVolatileVerification.c)
+ * Callees:
+ *     VfDifCaptureIoCallbacks @ 0x1403035C4 (VfDifCaptureIoCallbacks.c)
+ *     VfAvlLookupTreeNode @ 0x140303680 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403039F0 (VfAvlCleanupLockContext.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall VfTargetReplaceIoCallbacks(unsigned __int64 a1)
 {
   unsigned int v1; // ebx

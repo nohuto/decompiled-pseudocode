@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIEvaluateDsmEmcaMethodOnRootBus @ 0x1C003CA48
+ * Callers:
+ *     ACPIRootInitialize @ 0x1C0093768 (ACPIRootInitialize.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ *     ACPIAmliEvaluateDsm @ 0x1C007C65C (ACPIAmliEvaluateDsm.c)
+ */
+
 __int64 __fastcall ACPIEvaluateDsmEmcaMethodOnRootBus(__int64 a1, __int64 a2)
 {
   ULONG_PTR v2; // rsi

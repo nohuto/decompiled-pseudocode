@@ -1,3 +1,13 @@
+/*
+ * XREFs of _tlgKeywordOn @ 0x1C004BCD4
+ * Callers:
+ *     Etw_DeviceUpdate @ 0x1C001D724 (Etw_DeviceUpdate.c)
+ *     Etw_ReportControllerHealthWithPortInfo @ 0x1C001F980 (Etw_ReportControllerHealthWithPortInfo.c)
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C00533E4 (MicrosoftTelemetryAssertTriggeredWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall tlgKeywordOn(__int64 a1, __int64 a2)
 {
   char v2; // r8

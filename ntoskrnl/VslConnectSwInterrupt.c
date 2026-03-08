@@ -1,3 +1,23 @@
+/*
+ * XREFs of VslConnectSwInterrupt @ 0x140B6F5B0
+ * Callers:
+ *     PipInitializeCoreDriversAndElam @ 0x140B57734 (PipInitializeCoreDriversAndElam.c)
+ *     KiConnectSwInterrupt @ 0x140B926B4 (KiConnectSwInterrupt.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x1402D8618 (HvlQueryVsmConnection.c)
+ *     VslpLockPagesForTransfer @ 0x1403C8E74 (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x1403C90EC (VslpUnlockPagesForTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvlIsCoreSharingPossible @ 0x14053D490 (HvlIsCoreSharingPossible.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     KiAreCodePatchesAllowed @ 0x140B926E0 (KiAreCodePatchesAllowed.c)
+ */
+
 __int64 __fastcall VslConnectSwInterrupt(struct _MDL *BugCheckParameter2, ULONG_PTR BugCheckParameter3)
 {
   int v5; // eax

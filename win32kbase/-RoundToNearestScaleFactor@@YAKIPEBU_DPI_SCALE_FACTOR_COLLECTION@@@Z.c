@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RoundToNearestScaleFactor@@YAKIPEBU_DPI_SCALE_FACTOR_COLLECTION@@@Z @ 0x1C0191550
+ * Callers:
+ *     ?FillDpiInfo@@YAXAEBUtagSIZE@@0PEBU_DPI_SCALE_FACTOR_COLLECTION@@IIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C00D7854 (-FillDpiInfo@@YAXAEBUtagSIZE@@0PEBU_DPI_SCALE_FACTOR_COLLECTION@@IIIHPEAU_DPI_INFORMATION@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RoundToNearestScaleFactor(unsigned int a1, const struct _DPI_SCALE_FACTOR_COLLECTION *a2)
 {
   unsigned int v2; // ebx

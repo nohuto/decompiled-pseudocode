@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DrvUpdateRemoteDriverFlags@@YAXPEAUtagREMOTE_CONTEXT@@@Z @ 0x1C00D386C
+ * Callers:
+ *     DrvUpdateGraphicsDeviceList @ 0x1C001FAC0 (DrvUpdateGraphicsDeviceList.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DrvUpdateRemoteDriverFlags(struct tagREMOTE_CONTEXT *a1)
 {
   unsigned int v1; // ebx

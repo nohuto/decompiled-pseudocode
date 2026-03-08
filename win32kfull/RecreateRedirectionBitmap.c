@@ -1,3 +1,31 @@
+/*
+ * XREFs of RecreateRedirectionBitmap @ 0x1C0096A48
+ * Callers:
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C00669E0 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     zzzUpdateWindowsAfterModeChange @ 0x1C0097D18 (zzzUpdateWindowsAfterModeChange.c)
+ *     UpdateWindowMonitor @ 0x1C00AE6B0 (UpdateWindowMonitor.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ *     NtUserHwndQueryRedirectionInfo @ 0x1C0147D40 (NtUserHwndQueryRedirectionInfo.c)
+ *     UserRecreateRedirectionBitmap @ 0x1C01BE090 (UserRecreateRedirectionBitmap.c)
+ *     zzzUpdateLayeredWindow @ 0x1C01BE8C0 (zzzUpdateLayeredWindow.c)
+ *     ?xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAUMOVESIZEDATA@@@Z @ 0x1C01EFBFC (-xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAUMOVESIZEDATA@@@Z.c)
+ * Callees:
+ *     GreAdjustSpriteDirtyAccum @ 0x1C0009F60 (GreAdjustSpriteDirtyAccum.c)
+ *     GreNotifyDirtySprite @ 0x1C000A550 (GreNotifyDirtySprite.c)
+ *     ?BltOldRedirectionBitsToNewBitmap@@YAHPEAUtagWND@@PEAUHBITMAP__@@1PEBUtagBITMAP@@2HH@Z @ 0x1C000FA18 (-BltOldRedirectionBitsToNewBitmap@@YAHPEAUtagWND@@PEAUHBITMAP__@@1PEBUtagBITMAP@@2HH@Z.c)
+ *     DeleteOrSetRedirectionBitmap @ 0x1C0021D34 (DeleteOrSetRedirectionBitmap.c)
+ *     CreateOrGetRedirectionBitmap @ 0x1C002B8C8 (CreateOrGetRedirectionBitmap.c)
+ *     HintSpriteShape @ 0x1C002C1B0 (HintSpriteShape.c)
+ *     IsDesktopWindow @ 0x1C002C460 (IsDesktopWindow.c)
+ *     ?SetRedirectionBitmap@@YAHPEAUtagWND@@QEAUHBITMAP__@@H@Z @ 0x1C002D938 (-SetRedirectionBitmap@@YAHPEAUtagWND@@QEAUHBITMAP__@@H@Z.c)
+ *     GetRedirectionBitmap @ 0x1C0043F00 (GetRedirectionBitmap.c)
+ *     GreExtGetObjectW @ 0x1C0065580 (GreExtGetObjectW.c)
+ *     GetRedirectionFlags @ 0x1C0096CD0 (GetRedirectionFlags.c)
+ *     ChangeRedirectionParentInDCEs @ 0x1C0096D00 (ChangeRedirectionParentInDCEs.c)
+ *     ??1EPALOBJ@@QEAA@XZ @ 0x1C0124F2C (--1EPALOBJ@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall RecreateRedirectionBitmap(void **a1, LONG a2, int a3, int a4, int a5, HBRUSH *a6)
 {
   int v8; // eax

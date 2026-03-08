@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?DestroyRenderData@CRenderData@@AEAAXXZ @ 0x1800BBDC4
+ * Callers:
+ *     ??1CRenderData@@MEAA@XZ @ 0x1800BBA08 (--1CRenderData@@MEAA@XZ.c)
+ *     ?ProcessUpdate@CRenderData@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_RENDERDATA@@PEBXI@Z @ 0x1800BBB00 (-ProcessUpdate@CRenderData@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_RENDERDATA@@PEBXI@Z.c)
+ * Callees:
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800234BC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ??$_Destroy_range@V?$allocator@V?$com_ptr_t@VCVisualTree@@Uerr_returncode_policy@wil@@@wil@@@std@@@std@@YAXPEAV?$com_ptr_t@VCVisualTree@@Uerr_returncode_policy@wil@@@wil@@QEAV12@AEAV?$allocator@V?$com_ptr_t@VCVisualTree@@Uerr_returncode_policy@wil@@@wil@@@0@@Z @ 0x1800BBE64 (--$_Destroy_range@V-$allocator@V-$com_ptr_t@VCVisualTree@@Uerr_returncode_policy@wil@@@wil@@@std.c)
+ *     ?Reset@CDataStreamWriter@@QEAAXXZ @ 0x1800BBEA0 (-Reset@CDataStreamWriter@@QEAAXXZ.c)
+ */
+
 void __fastcall CRenderData::DestroyRenderData(CRenderData *this)
 {
   __int64 v2; // rsi

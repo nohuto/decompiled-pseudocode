@@ -1,3 +1,13 @@
+/*
+ * XREFs of rimCheckForExplicitRimConflictInProcess @ 0x1C0034FF8
+ * Callers:
+ *     RIMCreateHidDesc @ 0x1C0035100 (RIMCreateHidDesc.c)
+ *     RIMIDECreateHIDDesc @ 0x1C01C16CC (RIMIDECreateHIDDesc.c)
+ * Callees:
+ *     rimIsExplicitRimUsagesMatchingUsages @ 0x1C00350D4 (rimIsExplicitRimUsagesMatchingUsages.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ */
+
 __int64 __fastcall rimCheckForExplicitRimConflictInProcess(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned __int16 v4; // bp

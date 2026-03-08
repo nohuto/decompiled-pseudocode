@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiPrefetchJumpVad @ 0x14062FBB8
+ * Callers:
+ *     MiZeroFault @ 0x140266000 (MiZeroFault.c)
+ * Callees:
+ *     MiUpdatePrefetchPriority @ 0x1402C95DC (MiUpdatePrefetchPriority.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1402CF5DC (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIsVadLargePrivate @ 0x1403316C0 (MiIsVadLargePrivate.c)
+ *     MiLeapPrefetch @ 0x14062F4D4 (MiLeapPrefetch.c)
+ */
+
 __int64 __fastcall MiPrefetchJumpVad(__int64 a1, __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 v6; // rbx

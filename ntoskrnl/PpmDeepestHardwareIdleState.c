@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmDeepestHardwareIdleState @ 0x14039AF88
+ * Callers:
+ *     PpmInstallNewIdleStates @ 0x14039AA50 (PpmInstallNewIdleStates.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 __fastcall PpmDeepestHardwareIdleState(__int64 a1)
 {
   unsigned __int8 v1; // dl

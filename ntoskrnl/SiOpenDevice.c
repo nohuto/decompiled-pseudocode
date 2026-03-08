@@ -1,3 +1,16 @@
+/*
+ * XREFs of SiOpenDevice @ 0x14076EB34
+ * Callers:
+ *     SiGetDiskPartitionInformation @ 0x14076EAA0 (SiGetDiskPartitionInformation.c)
+ *     SiGetDeviceNumberInformation @ 0x140A5C84C (SiGetDeviceNumberInformation.c)
+ *     SiGetDriveLayoutInformation @ 0x140A5C928 (SiGetDriveLayoutInformation.c)
+ *     SiIssueSynchronousIoctl @ 0x140A5CA28 (SiIssueSynchronousIoctl.c)
+ *     SiQueryProperty @ 0x140A5CAC4 (SiQueryProperty.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ */
+
 NTSTATUS __fastcall SiOpenDevice(PCWSTR SourceString, PHANDLE FileHandle)
 {
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-50h] BYREF

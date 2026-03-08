@@ -1,3 +1,13 @@
+/*
+ * XREFs of MmPrefetchVirtualAddresses @ 0x14067E600
+ * Callers:
+ *     VmpPrefetchForVirtualFault @ 0x1409DA7AC (VmpPrefetchForVirtualFault.c)
+ * Callees:
+ *     PsGetIoPriorityThread @ 0x1402832C0 (PsGetIoPriorityThread.c)
+ *     MiGetEffectivePagePriorityThread @ 0x14028A260 (MiGetEffectivePagePriorityThread.c)
+ *     MmPrefetchVirtualMemory @ 0x14067E690 (MmPrefetchVirtualMemory.c)
+ */
+
 __int64 __fastcall MmPrefetchVirtualAddresses(_DWORD *a1)
 {
   unsigned int v1; // ecx

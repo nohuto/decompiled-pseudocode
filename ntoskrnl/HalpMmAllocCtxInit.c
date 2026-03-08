@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpMmAllocCtxInit @ 0x14039F22C
+ * Callers:
+ *     HalpMmInitSystem @ 0x140A8D600 (HalpMmInitSystem.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *HalpMmAllocCtxInit()
 {
   __int64 *result; // rax

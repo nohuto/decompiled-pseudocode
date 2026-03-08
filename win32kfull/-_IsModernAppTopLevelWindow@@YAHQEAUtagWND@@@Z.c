@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_IsModernAppTopLevelWindow@@YAHQEAUtagWND@@@Z @ 0x1C01F3E24
+ * Callers:
+ *     InitializeMonitorInfo @ 0x1C002D4E8 (InitializeMonitorInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall _IsModernAppTopLevelWindow(struct tagWND *const a1)
 {
   __int64 v1; // rax

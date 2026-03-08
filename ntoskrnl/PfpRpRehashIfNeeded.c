@@ -1,3 +1,11 @@
+/*
+ * XREFs of PfpRpRehashIfNeeded @ 0x140702C74
+ * Callers:
+ *     PfpRpFileKeyUpdate @ 0x140702E20 (PfpRpFileKeyUpdate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PfpRpRehashIfNeeded(__int64 a1, void **a2, __int64 a3)
 {
   unsigned int v3; // edi

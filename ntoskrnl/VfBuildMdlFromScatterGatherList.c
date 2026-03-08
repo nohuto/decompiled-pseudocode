@@ -1,3 +1,18 @@
+/*
+ * XREFs of VfBuildMdlFromScatterGatherList @ 0x140AC2460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoAllocateMdl @ 0x14020CAD0 (IoAllocateMdl.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ViGetAdapterInformationInternal @ 0x140AC5E44 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaAdapter @ 0x140AC6158 (ViGetRealDmaAdapter.c)
+ */
+
 __int64 __fastcall VfBuildMdlFromScatterGatherList(int a1, __int64 a2, struct _MDL *a3, PMDL *a4)
 {
   _QWORD *v8; // rdi

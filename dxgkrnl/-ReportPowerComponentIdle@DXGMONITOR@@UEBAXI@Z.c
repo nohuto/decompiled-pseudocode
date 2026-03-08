@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReportPowerComponentIdle@DXGMONITOR@@UEBAXI@Z @ 0x1C03C48C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C003FFEC (McTemplateK0pqq_EtwWriteTransfer.c)
+ */
+
 void __fastcall DXGMONITOR::ReportPowerComponentIdle(DXGMONITOR *this, unsigned int a2, __int64 a3)
 {
   __int64 v4; // rcx

@@ -1,3 +1,35 @@
+/*
+ * XREFs of MiCompletePrivateZeroFault @ 0x14026C360
+ * Callers:
+ *     MiResolvePrivateZeroFault @ 0x14026BD60 (MiResolvePrivateZeroFault.c)
+ * Callees:
+ *     MiLockAndDecrementShareCount @ 0x140210114 (MiLockAndDecrementShareCount.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140214870 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140214A54 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiLocateAddress @ 0x140228680 (MiLocateAddress.c)
+ *     MiAllocateWsle @ 0x14026D1B0 (MiAllocateWsle.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x1402CFF20 (MiEmptyDeferredWorkingSetEntries.c)
+ *     MiUserPdeOrAbove @ 0x1402D39A0 (MiUserPdeOrAbove.c)
+ *     MiCapturePageFileInfoInline @ 0x1402DE2D4 (MiCapturePageFileInfoInline.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiDecrementShareCount @ 0x14032AE40 (MiDecrementShareCount.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiUnlockVadTree @ 0x140330EC8 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x1403334B4 (MiLockVadTree.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     MiSetPfnIdentity @ 0x14034BE78 (MiSetPfnIdentity.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiAdvanceFaultList @ 0x140363F9C (MiAdvanceFaultList.c)
+ *     MiChangePageAttribute @ 0x14036CE40 (MiChangePageAttribute.c)
+ *     MiFreePageChain @ 0x1404646F2 (MiFreePageChain.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiCompletePrivateZeroFault(_QWORD *a1, __int64 a2, unsigned __int64 a3)
 {
   __int64 v3; // rdi

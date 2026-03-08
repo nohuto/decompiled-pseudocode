@@ -1,3 +1,13 @@
+/*
+ * XREFs of BgpDisplaySafeToPowerOffScreen @ 0x140670864
+ * Callers:
+ *     BgDisplaySafeToPowerOffScreen @ 0x14066F460 (BgDisplaySafeToPowerOffScreen.c)
+ * Callees:
+ *     BgpClearScreen @ 0x14066F510 (BgpClearScreen.c)
+ *     BcpDisplayCriticalString @ 0x14066FD2C (BcpDisplayCriticalString.c)
+ *     BcpGetDisplayType @ 0x1406706C0 (BcpGetDisplayType.c)
+ */
+
 __int64 BgpDisplaySafeToPowerOffScreen()
 {
   unsigned int v0; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CFormatConverter@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802B8C90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CFormatConverter::HrFindInterface(CFormatConverter *this, const struct _GUID *a2, void **a3)
 {
   __int64 result; // rax

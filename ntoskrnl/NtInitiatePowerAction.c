@@ -1,3 +1,25 @@
+/*
+ * XREFs of NtInitiatePowerAction @ 0x140988360
+ * Callers:
+ *     IopWarmEjectDevice @ 0x14096C1CC (IopWarmEjectDevice.c)
+ *     PopCheckPowerSourceAfterRtcWakeTimerWorker @ 0x140AA3750 (PopCheckPowerSourceAfterRtcWakeTimerWorker.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1402459D0 (PsIsCurrentThreadInServerSilo.c)
+ *     PopBsdHandleRequest @ 0x1402B8B24 (PopBsdHandleRequest.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     PopThermalEventTransitionEnableDeepSleep @ 0x14058D598 (PopThermalEventTransitionEnableDeepSleep.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     PopExecutePowerAction @ 0x1409867F4 (PopExecutePowerAction.c)
+ *     PopDiagTracePolicyInitiatePowerActionApiCall @ 0x14098D81C (PopDiagTracePolicyInitiatePowerActionApiCall.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall NtInitiatePowerAction(__int64 a1, __int64 a2, int a3, char a4)
 {
   struct _KTHREAD *CurrentThread; // rax

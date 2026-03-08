@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopFreeCompletionListPackets @ 0x1406F7B38
+ * Callers:
+ *     IopDeleteIoCompletionInternal @ 0x140292B28 (IopDeleteIoCompletionInternal.c)
+ * Callees:
+ *     IopDropIrp @ 0x140293E48 (IopDropIrp.c)
+ *     IoFreeIrp @ 0x14030EC00 (IoFreeIrp.c)
+ *     IopFreeMiniCompletionPacket @ 0x1407C40A0 (IopFreeMiniCompletionPacket.c)
+ */
+
 void __fastcall IopFreeCompletionListPackets(__int64 a1)
 {
   ULONG_PTR v1; // rbx

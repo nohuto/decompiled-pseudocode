@@ -1,3 +1,16 @@
+/*
+ * XREFs of ConvertToBuffer @ 0x1C0059884
+ * Callers:
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ *     Concat @ 0x1C0055F60 (Concat.c)
+ *     ToBuffer @ 0x1C0058C40 (ToBuffer.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ *     IsCompatableDSDTRevision @ 0x1C004BE28 (IsCompatableDSDTRevision.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ */
+
 __int64 __fastcall ConvertToBuffer(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

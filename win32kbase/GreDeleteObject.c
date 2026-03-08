@@ -1,3 +1,37 @@
+/*
+ * XREFs of GreDeleteObject @ 0x1C0043CD0
+ * Callers:
+ *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C0014608 (-zzzUpdateUserScreen@@YAJXZ.c)
+ *     ?SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z @ 0x1C003B638 (-SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z.c)
+ *     GetMonitorDC @ 0x1C003D41C (GetMonitorDC.c)
+ *     DestroyCacheDC @ 0x1C003DA20 (DestroyCacheDC.c)
+ *     DeleteMaybeSpecialRgn @ 0x1C0042860 (DeleteMaybeSpecialRgn.c)
+ *     UserSetDCVisRgn @ 0x1C0044E20 (UserSetDCVisRgn.c)
+ *     UserValidateCopyRgn @ 0x1C00A9370 (UserValidateCopyRgn.c)
+ *     CleanupGDI @ 0x1C00B57A0 (CleanupGDI.c)
+ *     ?DestroyFont@@YAXPEAPEAUHFONT__@@@Z @ 0x1C00B5B14 (-DestroyFont@@YAXPEAPEAUHFONT__@@@Z.c)
+ *     ?DestroyRegion@@YAXPEAPEAUHRGN__@@@Z @ 0x1C00B5B3C (-DestroyRegion@@YAXPEAPEAUHRGN__@@@Z.c)
+ *     bInitBRUSHOBJ @ 0x1C031D4F4 (bInitBRUSHOBJ.c)
+ * Callees:
+ *     ?bDeletePaletteInternal@XEPALOBJ@@AEAAHW4_CLEANUPTYPE@@@Z @ 0x1C0019D64 (-bDeletePaletteInternal@XEPALOBJ@@AEAAHW4_CLEANUPTYPE@@@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00219D4 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     bDeleteSurface @ 0x1C0029640 (bDeleteSurface.c)
+ *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C002D3CC (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
+ *     ?HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z @ 0x1C0045E40 (-HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z.c)
+ *     HmgDecrementShareReferenceCountEx @ 0x1C00483B0 (HmgDecrementShareReferenceCountEx.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C004A440 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?ReleaseEntryLock@GdiHandleEntryTable@@QEAAXI@Z @ 0x1C004A620 (-ReleaseEntryLock@GdiHandleEntryTable@@QEAAXI@Z.c)
+ *     ?pObj@HANDLELOCK@@QEAAPEAVOBJECT@@XZ @ 0x1C004B3B0 (-pObj@HANDLELOCK@@QEAAPEAVOBJECT@@XZ.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C004B5B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     ?UpdateUserRgn@RGNOBJ@@QEAAXXZ @ 0x1C0051CB0 (-UpdateUserRgn@RGNOBJ@@QEAAXXZ.c)
+ *     ?bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BASEOBJECT@@@Z @ 0x1C00542B0 (-bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BA.c)
+ *     ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C00558E0 (-vDeleteREGION@REGION@@QEAAXXZ.c)
+ *     HmgFreeObjectAttr @ 0x1C00D43C0 (HmgFreeObjectAttr.c)
+ *     bDeleteBrush @ 0x1C00D59D0 (bDeleteBrush.c)
+ *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00DE3A0 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall GreDeleteObject(struct HOBJ__ *a1, __int64 a2)
 {
   unsigned int v3; // eax

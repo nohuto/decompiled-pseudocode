@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopWarmEjectDevice @ 0x14096C1CC
+ * Callers:
+ *     PnpProcessCompletedEject @ 0x140956080 (PnpProcessCompletedEject.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     PpDevNodeUnlockTree @ 0x1406CB8B0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406CB944 (PpDevNodeLockTree.c)
+ *     PnpSetPowerVetoEvent @ 0x140961990 (PnpSetPowerVetoEvent.c)
+ *     NtInitiatePowerAction @ 0x140988360 (NtInitiatePowerAction.c)
+ */
+
 __int64 __fastcall IopWarmEjectDevice(_QWORD *a1, unsigned int a2)
 {
   __int64 v4; // rdx

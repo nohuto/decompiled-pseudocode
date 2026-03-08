@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhDeviceOvercurrentPopup @ 0x1C002FBA4
+ * Callers:
+ *     UsbhDriverOvercurrentResetWorker @ 0x1C002FC70 (UsbhDriverOvercurrentResetWorker.c)
+ *     UsbhDeviceOvercurrent @ 0x1C004A750 (UsbhDeviceOvercurrent.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     UsbhDispatch_PindicatorEvent @ 0x1C002F098 (UsbhDispatch_PindicatorEvent.c)
+ *     Usbh_OvercurrentDerefHubBusy @ 0x1C0030260 (Usbh_OvercurrentDerefHubBusy.c)
+ *     UsbhBuildWmiConnectionNotification @ 0x1C0048DC4 (UsbhBuildWmiConnectionNotification.c)
+ */
+
 NTSTATUS __fastcall UsbhDeviceOvercurrentPopup(PDEVICE_OBJECT DeviceObject, unsigned __int16 a2)
 {
   _DWORD *v4; // rsi

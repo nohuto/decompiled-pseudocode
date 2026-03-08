@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@CRadialGradientBrushMarshaler@DirectComposition@@UEAAJXZ @ 0x1C0253AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CRadialGradientBrushMarshaler::Initialize(
         DirectComposition::CRadialGradientBrushMarshaler *this)
 {

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CSectionBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180104360
+ * Callers:
+ *     ?HrFindInterface@CGDISectionBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801042C0 (-HrFindInterface@CGDISectionBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ * Callees:
+ *     ?HrFindInterface@CBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180104640 (-HrFindInterface@CBitmapRealization@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ */
+
 __int64 __fastcall CSectionBitmapRealization::HrFindInterface(
         CSectionBitmapRealization *this,
         const struct _GUID *a2,

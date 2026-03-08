@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ArmRawMouseThrottlingTimer@CMouseSensor@@QEAAX_NK@Z @ 0x1C0214AE4
+ * Callers:
+ *     ArmRawMouseThrottlingTimer @ 0x1C02175A0 (ArmRawMouseThrottlingTimer.c)
+ * Callees:
+ *     ?GetDispatcherHandleByName@CRIMBase@@IEBAPEAXW4DispatcherHandleName@1@W4HandleAccessMode@1@@Z @ 0x1C0039100 (-GetDispatcherHandleByName@CRIMBase@@IEBAPEAXW4DispatcherHandleName@1@W4HandleAccessMode@1@@Z.c)
+ */
+
 void __fastcall CMouseSensor::ArmRawMouseThrottlingTimer(CMouseSensor *this, char a2, int a3)
 {
   __int64 v4; // rsi

@@ -1,3 +1,19 @@
+/*
+ * XREFs of SepInitProcessAuditSd @ 0x140384A3C
+ * Callers:
+ *     SepInitializationPhase1 @ 0x140810320 (SepInitializationPhase1.c)
+ * Callees:
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D26A0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406DB5A0 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x1406DB5D0 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406DB640 (RtlCreateAcl.c)
+ *     RtlAddAccessAllowedAce @ 0x140744250 (RtlAddAccessAllowedAce.c)
+ *     RtlAddAuditAccessAce @ 0x1409B8230 (RtlAddAuditAccessAce.c)
+ *     SepAuditFailed @ 0x1409CEE50 (SepAuditFailed.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void SepInitProcessAuditSd()
 {
   ACL *v0; // rbx

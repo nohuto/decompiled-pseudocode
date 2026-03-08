@@ -1,3 +1,23 @@
+/*
+ * XREFs of KseInitialize @ 0x140B3E688
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     KsepLogError @ 0x140303450 (KsepLogError.c)
+ *     KsepLogInfo @ 0x14036F8F4 (KsepLogInfo.c)
+ *     KsepDebugPrint @ 0x14057E834 (KsepDebugPrint.c)
+ *     EtwRegister @ 0x140690D20 (EtwRegister.c)
+ *     KseShimDatabaseClose @ 0x14079E25C (KseShimDatabaseClose.c)
+ *     KseShimDatabaseOpen @ 0x14079EFB4 (KseShimDatabaseOpen.c)
+ *     KseRegisterShim @ 0x140800EC0 (KseRegisterShim.c)
+ *     KsepCacheUninitialize @ 0x1409747A0 (KsepCacheUninitialize.c)
+ *     KsepEngineInitialize @ 0x140B34E84 (KsepEngineInitialize.c)
+ *     KsepMatchInitMachineInfo @ 0x140B35058 (KsepMatchInitMachineInfo.c)
+ *     KseDriverScopeInitialize @ 0x140B35418 (KseDriverScopeInitialize.c)
+ *     KseVersionLieInitialize @ 0x140B35488 (KseVersionLieInitialize.c)
+ *     KseShimDatabaseBootInitialize @ 0x140B6FF30 (KseShimDatabaseBootInitialize.c)
+ */
+
 __int64 __fastcall KseInitialize(__int64 a1, int a2)
 {
   int matched; // edi

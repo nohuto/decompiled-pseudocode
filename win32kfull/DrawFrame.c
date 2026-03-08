@@ -1,3 +1,14 @@
+/*
+ * XREFs of DrawFrame @ 0x1C024F2F8
+ * Callers:
+ *     xxxDrawCaptionBar @ 0x1C0021730 (xxxDrawCaptionBar.c)
+ *     ?xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z @ 0x1C012E4C8 (-xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z.c)
+ *     xxxMNDrawFullNC @ 0x1C0237FB4 (xxxMNDrawFullNC.c)
+ * Callees:
+ *     GrePolyPatBlt @ 0x1C0088258 (GrePolyPatBlt.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall DrawFrame(HDC a1, int *a2, int a3, int a4)
 {
   int v4; // r14d

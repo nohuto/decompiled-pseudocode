@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpSaBinaryArrayInsert @ 0x1403C0224
+ * Callers:
+ *     ExpSaPageGroupDescriptorAllocate @ 0x1403BFEBC (ExpSaPageGroupDescriptorAllocate.c)
+ * Callees:
+ *     ExAllocatePool3 @ 0x140AAB320 (ExAllocatePool3.c)
+ */
+
 __int64 __fastcall ExpSaBinaryArrayInsert(__int64 *a1, __int64 a2, unsigned __int16 a3)
 {
   int v3; // r14d

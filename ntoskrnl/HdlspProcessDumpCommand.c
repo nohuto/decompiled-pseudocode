@@ -1,3 +1,20 @@
+/*
+ * XREFs of HdlspProcessDumpCommand @ 0x140AE7CAC
+ * Callers:
+ *     HdlspBugCheckProcessing @ 0x140AE6D84 (HdlspBugCheckProcessing.c)
+ *     HdlspDispatch @ 0x140AE6EB0 (HdlspDispatch.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlTimeToTimeFields @ 0x1402D14B0 (RtlTimeToTimeFields.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     sprintf_s @ 0x1403D9BA0 (sprintf_s.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1407A34D0 (RtlUnicodeStringToAnsiString.c)
+ *     HdlspPutMore @ 0x140AE80B8 (HdlspPutMore.c)
+ *     HdlspPutString @ 0x140AE8194 (HdlspPutString.c)
+ */
+
 __int64 __fastcall HdlspProcessDumpCommand(char a1)
 {
   int v1; // eax

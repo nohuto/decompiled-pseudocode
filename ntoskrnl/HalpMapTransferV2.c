@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpMapTransferV2 @ 0x140454DA4
+ * Callers:
+ *     IoMapTransferInternal @ 0x140452EBE (IoMapTransferInternal.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpDmaMapContiguousTransferV2 @ 0x140455BE8 (HalpDmaMapContiguousTransferV2.c)
+ *     HalpDmaMapScatterTransferV2 @ 0x140455D28 (HalpDmaMapScatterTransferV2.c)
+ *     HalpDmaZeroMapBuffers @ 0x14050F420 (HalpDmaZeroMapBuffers.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpMapTransferV2(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int *a5, char a6)
 {
   __int64 result; // rax

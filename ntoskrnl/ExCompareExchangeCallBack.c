@@ -1,3 +1,28 @@
+/*
+ * XREFs of ExCompareExchangeCallBack @ 0x140388EF8
+ * Callers:
+ *     IoRegisterPriorityCallback @ 0x140388E50 (IoRegisterPriorityCallback.c)
+ *     IoUnregisterPriorityCallback @ 0x1405550E0 (IoUnregisterPriorityCallback.c)
+ *     KeDeregisterBoundCallback @ 0x140569F00 (KeDeregisterBoundCallback.c)
+ *     KeRegisterBoundCallback @ 0x14056A5F0 (KeRegisterBoundCallback.c)
+ *     DbgkLkmdRegisterCallback @ 0x140819220 (DbgkLkmdRegisterCallback.c)
+ *     PsEstablishWin32Callouts @ 0x1408192E0 (PsEstablishWin32Callouts.c)
+ *     PsSetLoadImageNotifyRoutineEx @ 0x140819370 (PsSetLoadImageNotifyRoutineEx.c)
+ *     PoRegisterCoalescingCallback @ 0x140819500 (PoRegisterCoalescingCallback.c)
+ *     PspSetCreateThreadNotifyRoutine @ 0x1408195F4 (PspSetCreateThreadNotifyRoutine.c)
+ *     PspSetCreateProcessNotifyRoutine @ 0x140819698 (PspSetCreateProcessNotifyRoutine.c)
+ *     DbgkLkmdUnregisterCallback @ 0x140937D20 (DbgkLkmdUnregisterCallback.c)
+ *     PoUnregisterCoalescingCallback @ 0x140983E40 (PoUnregisterCoalescingCallback.c)
+ *     PsRemoveCreateThreadNotifyRoutine @ 0x1409B2C70 (PsRemoveCreateThreadNotifyRoutine.c)
+ *     PsRemoveLoadImageNotifyRoutine @ 0x1409B2D60 (PsRemoveLoadImageNotifyRoutine.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireRundownProtectionEx @ 0x14035AFC0 (ExAcquireRundownProtectionEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall ExCompareExchangeCallBack(signed __int64 *a1, struct _EX_RUNDOWN_REF *a2, __int64 a3)
 {
   signed __int64 i; // rbx

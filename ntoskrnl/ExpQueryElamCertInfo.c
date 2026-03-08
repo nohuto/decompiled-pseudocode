@@ -1,3 +1,23 @@
+/*
+ * XREFs of ExpQueryElamCertInfo @ 0x1409F3CC0
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x140412810 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x140412850 (ZwUnmapViewOfSection.c)
+ *     ZwCreateSection @ 0x140412C50 (ZwCreateSection.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     FsRtlGetFileSize @ 0x1407F4020 (FsRtlGetFileSize.c)
+ *     SeRegisterElamCertResources @ 0x14081B8D0 (SeRegisterElamCertResources.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x140944030 (IoConvertFileHandleToKernelHandle.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpQueryElamCertInfo(void *a1)
 {
   PVOID v1; // r14

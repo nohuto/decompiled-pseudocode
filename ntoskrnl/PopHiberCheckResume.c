@@ -1,3 +1,21 @@
+/*
+ * XREFs of PopHiberCheckResume @ 0x140A9FD30
+ * Callers:
+ *     PopSaveHiberContextWrapper @ 0x140420200 (PopSaveHiberContextWrapper.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalInitializeOnResume @ 0x140504610 (HalInitializeOnResume.c)
+ *     HvlConfigureMemoryZeroingOnReset @ 0x14053D15C (HvlConfigureMemoryZeroingOnReset.c)
+ *     HvlRestoreEnlightenment @ 0x14053D924 (HvlRestoreEnlightenment.c)
+ *     HvlNotifyDebugDeviceAvailable @ 0x140542AC0 (HvlNotifyDebugDeviceAvailable.c)
+ *     HvlNotifyAcpiReenabled @ 0x14054453C (HvlNotifyAcpiReenabled.c)
+ *     MmMapMemoryDumpMdlEx2 @ 0x14062E298 (MmMapMemoryDumpMdlEx2.c)
+ *     PopCheckpointSystemSleep @ 0x140AA7378 (PopCheckpointSystemSleep.c)
+ *     KdInitSystem @ 0x140AAE040 (KdInitSystem.c)
+ */
+
 char PopHiberCheckResume()
 {
   ULONG_PTR v0; // rbp

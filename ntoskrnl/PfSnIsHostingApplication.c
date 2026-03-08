@@ -1,3 +1,15 @@
+/*
+ * XREFs of PfSnIsHostingApplication @ 0x1407E4654
+ * Callers:
+ *     PfSnCalculateScenarioNameAndHash @ 0x1407E4DC0 (PfSnCalculateScenarioNameAndHash.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     wcsstr @ 0x1403D6020 (wcsstr.c)
+ */
+
 char __fastcall PfSnIsHostingApplication(wchar_t *SubStr)
 {
   __int64 v1; // rbx

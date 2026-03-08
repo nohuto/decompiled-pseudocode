@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ActivateSwapChain@CHolographicExclusiveView@@AEAAJXZ @ 0x1802A4CCC
+ * Callers:
+ *     ?ActivateView@CHolographicExclusiveView@@QEAA_NPEAVCHolographicClient@@@Z @ 0x1802A4DB4 (-ActivateView@CHolographicExclusiveView@@QEAA_NPEAVCHolographicClient@@@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?OpenSurfaceHandles@CHolographicExclusiveView@@AEAAJXZ @ 0x1802A51CC (-OpenSurfaceHandles@CHolographicExclusiveView@@AEAAJXZ.c)
+ */
+
 __int64 __fastcall CHolographicExclusiveView::ActivateSwapChain(CHolographicExclusiveView *this, __int64 a2)
 {
   unsigned int v2; // edi

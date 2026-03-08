@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiCallDrvSetBrightness @ 0x1C039DC30
+ * Callers:
+ *     ?DpiBrightnessEscape@@YAJPEAU_DEVICE_OBJECT@@PEAU_D3DKMT_BRIGHTNESS_INFO@@@Z @ 0x1C039C3C0 (-DpiBrightnessEscape@@YAJPEAU_DEVICE_OBJECT@@PEAU_D3DKMT_BRIGHTNESS_INFO@@@Z.c)
+ *     ?DpiBrightnessIfSet@@YAJPEAXE@Z @ 0x1C039D330 (-DpiBrightnessIfSet@@YAJPEAXE@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C004006C (McTemplateK0pqqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DpiCallDrvSetBrightness(__int64 a1, unsigned __int8 a2)
 {
   int v2; // edi

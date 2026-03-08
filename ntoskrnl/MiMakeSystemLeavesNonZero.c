@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiMakeSystemLeavesNonZero @ 0x1403B9838
+ * Callers:
+ *     MiComputePxeWalkAction @ 0x140223D30 (MiComputePxeWalkAction.c)
+ *     MiCreateSystemPageTable @ 0x140348960 (MiCreateSystemPageTable.c)
+ * Callees:
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ */
+
 char __fastcall MiMakeSystemLeavesNonZero(__int64 a1, __int64 a2, int a3)
 {
   unsigned __int64 v4; // r8

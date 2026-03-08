@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExInitializeProcessor @ 0x14037DB20
+ * Callers:
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ *     ExpInitSystemPhase1 @ 0x140B3F0B8 (ExpInitSystemPhase1.c)
+ * Callees:
+ *     ExpHotAddProcessorToWorkers @ 0x14060AA78 (ExpHotAddProcessorToWorkers.c)
+ *     ExInitializeSystemLookasideList @ 0x140A886F8 (ExInitializeSystemLookasideList.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall ExInitializeProcessor(__int64 a1, char a2)
 {
   __int64 Pool2; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetGlobalCursorLevel@@YAXH@Z @ 0x1C00C8FB0
+ * Callers:
+ *     ?MKHideMouseCursor@@YAXXZ @ 0x1C0017850 (-MKHideMouseCursor@@YAXXZ.c)
+ *     ?MKShowMouseCursor@@YAXXZ @ 0x1C01E4400 (-MKShowMouseCursor@@YAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall SetGlobalCursorLevel(int a1)
 {
   __int64 i; // rdx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiReleaseArbitraryPage @ 0x14029EF7C
+ * Callers:
+ *     MiConvertStandbyToProto @ 0x14029ED24 (MiConvertStandbyToProto.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiReleaseArbitraryPage(__int64 a1)
 {
   __int64 v1; // rbp

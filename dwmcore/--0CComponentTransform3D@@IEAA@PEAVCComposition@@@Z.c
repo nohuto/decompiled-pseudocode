@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CComponentTransform3D@@IEAA@PEAVCComposition@@@Z @ 0x1800E2538
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     <none>
+ */
+
 CComponentTransform3D *__fastcall CComponentTransform3D::CComponentTransform3D(
         CComponentTransform3D *this,
         struct CComposition *a2)

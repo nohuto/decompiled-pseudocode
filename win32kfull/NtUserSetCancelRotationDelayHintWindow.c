@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetCancelRotationDelayHintWindow @ 0x1C01DBA10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _SetCancelRotationDelayHintWindow @ 0x1C01AFA08 (_SetCancelRotationDelayHintWindow.c)
+ */
+
 __int64 __fastcall NtUserSetCancelRotationDelayHintWindow(__int64 a1)
 {
   __int64 v2; // rax

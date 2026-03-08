@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?NotifyInvalidResource@CGradientSource@@MEAAXPEBVIDeviceResource@@@Z @ 0x18024A270
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?clear_region@?$vector_facade@V?$com_ptr_t@VCD2DBrush@@Uerr_returncode_policy@wil@@@wil@@V?$buffer_impl@V?$com_ptr_t@VCD2DBrush@@Uerr_returncode_policy@wil@@@wil@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1800F064C (-clear_region@-$vector_facade@V-$com_ptr_t@VCD2DBrush@@Uerr_returncode_policy@wil@@@wil@@V-$buff.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CGradientSource::NotifyInvalidResource(unsigned __int64 this, const struct IDeviceResource *a2)
 {
   __int64 *v2; // rdi

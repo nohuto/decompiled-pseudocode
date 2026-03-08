@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopLogDisabledSleepReason @ 0x140760A60
+ * Callers:
+ *     PopFilterCapabilities @ 0x140760774 (PopFilterCapabilities.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     PopRemoveReasonRecordByReasonCode @ 0x14076091C (PopRemoveReasonRecordByReasonCode.c)
+ *     PopLogSleepDisabled @ 0x14087118C (PopLogSleepDisabled.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 PopLogDisabledSleepReason()
 {
   unsigned int v0; // ebx

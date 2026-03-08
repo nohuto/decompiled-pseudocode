@@ -1,3 +1,16 @@
+/*
+ * XREFs of HvlpWithdrawPages @ 0x140540080
+ * Callers:
+ *     HvlpAddRemovePhysicalMemory @ 0x140676630 (HvlpAddRemovePhysicalMemory.c)
+ * Callees:
+ *     MiFreePagesFromMdl @ 0x1402C0DD0 (MiFreePagesFromMdl.c)
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ */
+
 char HvlpWithdrawPages()
 {
   PHYSICAL_ADDRESS *v0; // rbx

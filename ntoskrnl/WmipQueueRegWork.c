@@ -1,3 +1,15 @@
+/*
+ * XREFs of WmipQueueRegWork @ 0x140869990
+ * Callers:
+ *     WmipUpdateRegistration @ 0x14085F310 (WmipUpdateRegistration.c)
+ *     WmipRegisterDevice @ 0x140869828 (WmipRegisterDevice.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall WmipQueueRegWork(int a1, __int64 a2)
 {
   __int64 Pool2; // rax

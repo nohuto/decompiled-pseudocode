@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpQueueDpc @ 0x1C0010FF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __fastcall DpQueueDpc(__int64 a1)
 {
   __int64 v1; // rcx

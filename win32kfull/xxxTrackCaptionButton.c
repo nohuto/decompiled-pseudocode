@@ -1,3 +1,22 @@
+/*
+ * XREFs of xxxTrackCaptionButton @ 0x1C022F438
+ * Callers:
+ *     xxxDCETrackCaptionButton @ 0x1C01BBA1C (xxxDCETrackCaptionButton.c)
+ *     ?xxxDWP_NCMouse@@YAXPEAUtagWND@@II_J@Z @ 0x1C02257E8 (-xxxDWP_NCMouse@@YAXPEAUtagWND@@II_J@Z.c)
+ * Callees:
+ *     xxxReleaseCapture @ 0x1C00108E8 (xxxReleaseCapture.c)
+ *     xxxSetCapture @ 0x1C00109E4 (xxxSetCapture.c)
+ *     xxxDispatchMessage @ 0x1C0038064 (xxxDispatchMessage.c)
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ *     xxxSleepThread2 @ 0x1C006D200 (xxxSleepThread2.c)
+ *     xxxInternalGetMessage @ 0x1C00946B0 (xxxInternalGetMessage.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     PtInRect @ 0x1C00A34E8 (PtInRect.c)
+ *     BitBltSysBmp @ 0x1C00D04B0 (BitBltSysBmp.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     xxxCalcCaptionButton @ 0x1C022EAF0 (xxxCalcCaptionButton.c)
+ */
+
 __int64 __fastcall xxxTrackCaptionButton(__int64 *a1, int a2)
 {
   unsigned __int16 v2; // di

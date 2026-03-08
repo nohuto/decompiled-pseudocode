@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?xxxLoadPermanentFonts@@YAHXZ @ 0x1C00B88F8
+ * Callers:
+ *     xxxLW_LoadFonts @ 0x1C00B8670 (xxxLW_LoadFonts.c)
+ * Callees:
+ *     ?xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z @ 0x1C00356C8 (-xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0035F20 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     ?xxxbEnumerateRegistryFonts@@YAHKIPEBG0@Z @ 0x1C00B8A98 (-xxxbEnumerateRegistryFonts@@YAHKIPEBG0@Z.c)
+ *     ThreadLockExchange @ 0x1C010A0D0 (ThreadLockExchange.c)
+ */
+
 __int64 __fastcall xxxLoadPermanentFonts(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

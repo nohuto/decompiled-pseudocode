@@ -1,3 +1,11 @@
+/*
+ * XREFs of s_TransformPointByMatrix @ 0x1802B8068
+ * Callers:
+ *     ?TransformInput@CInteractionContextTransformHelper@@QEAAJAEBUtagPOINTER_INFO@@_NPEAU2@@Z @ 0x1802B76B0 (-TransformInput@CInteractionContextTransformHelper@@QEAAJAEBUtagPOINTER_INFO@@_NPEAU2@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall s_TransformPointByMatrix(float *a1, int *a2)
 {
   float v2; // xmm6_4

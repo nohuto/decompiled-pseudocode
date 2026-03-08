@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopDiagTracePowerRequestCreate @ 0x14073C0DC
+ * Callers:
+ *     PopPowerRequestCreateCommon @ 0x1402BC348 (PopPowerRequestCreateCommon.c)
+ *     PopDiagTraceControlCallback @ 0x14085EC40 (PopDiagTraceControlCallback.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     PoStoreRequester @ 0x1402BCF14 (PoStoreRequester.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopGetCallerContextFromBuffer @ 0x14097D98C (PopGetCallerContextFromBuffer.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PopDiagTracePowerRequestCreate(char a1, __int64 a2)
 {
   const EVENT_DESCRIPTOR *v4; // rdx

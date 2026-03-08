@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpCovSampCaptureApcRelease @ 0x1406009D4
+ * Callers:
+ *     EtwpCovSampCaptureApcRundown @ 0x1409EDB90 (EtwpCovSampCaptureApcRundown.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpCovSampCaptureReleaseToLookaside @ 0x140461C2A (EtwpCovSampCaptureReleaseToLookaside.c)
+ */
+
 __int64 __fastcall EtwpCovSampCaptureApcRelease(__int64 a1)
 {
   __int64 v1; // rbx

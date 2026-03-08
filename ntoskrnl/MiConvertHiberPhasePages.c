@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiConvertHiberPhasePages @ 0x140AA8EFC
+ * Callers:
+ *     PopMarkComponentsBootPhase @ 0x140AA049C (PopMarkComponentsBootPhase.c)
+ *     PopInvokeSystemStateHandler @ 0x140AA542C (PopInvokeSystemStateHandler.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiWalkPageTables @ 0x140222CF0 (MiWalkPageTables.c)
+ *     KeFlushCurrentTbOnly @ 0x1403876F4 (KeFlushCurrentTbOnly.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiConvertHiberPhasePages(__int64 a1)
 {
   char *AnyMultiplexedVm; // rax

@@ -1,3 +1,18 @@
+/*
+ * XREFs of ACPIBuildProcessDevicePhasePr3 @ 0x1C000F930
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIBuildCompleteMustSucceed @ 0x1C000BCB0 (ACPIBuildCompleteMustSucceed.c)
+ *     ACPIBuildDelayedDependencyRequest @ 0x1C000BD28 (ACPIBuildDelayedDependencyRequest.c)
+ *     ACPIBuildDevicePowerNodes @ 0x1C000C5A4 (ACPIBuildDevicePowerNodes.c)
+ *     ACPIWriteEventLogEntry @ 0x1C0025F5C (ACPIWriteEventLogEntry.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessDevicePhasePr3(__int64 a1)
 {
   ULONG_PTR v1; // rbx

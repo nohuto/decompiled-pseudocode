@@ -1,3 +1,13 @@
+/*
+ * XREFs of ViGetContextPointer @ 0x140AC104C
+ * Callers:
+ *     VfInsertContext @ 0x1405CC020 (VfInsertContext.c)
+ *     VfRemoveContext @ 0x1405CC1B0 (VfRemoveContext.c)
+ *     ViQueryObjectContext @ 0x140AC1104 (ViQueryObjectContext.c)
+ * Callees:
+ *     IopAllocateIrpExtension @ 0x1402B22EC (IopAllocateIrpExtension.c)
+ */
+
 __int64 __fastcall ViGetContextPointer(__int64 a1, int a2)
 {
   __int64 v2; // rbx

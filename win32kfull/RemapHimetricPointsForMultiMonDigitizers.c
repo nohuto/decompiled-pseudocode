@@ -1,3 +1,13 @@
+/*
+ * XREFs of RemapHimetricPointsForMultiMonDigitizers @ 0x1C01BAF78
+ * Callers:
+ *     PointerInfoCopyOutHelperInternal @ 0x1C01C7CD0 (PointerInfoCopyOutHelperInternal.c)
+ * Callees:
+ *     GetScreenRect @ 0x1C00E4C8C (GetScreenRect.c)
+ *     GetMonitorRect @ 0x1C0101788 (GetMonitorRect.c)
+ *     VirtualizeMultiMonDigitizerSize @ 0x1C0145242 (VirtualizeMultiMonDigitizerSize.c)
+ */
+
 __int64 __fastcall RemapHimetricPointsForMultiMonDigitizers(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4)
 {
   __int64 v4; // rax

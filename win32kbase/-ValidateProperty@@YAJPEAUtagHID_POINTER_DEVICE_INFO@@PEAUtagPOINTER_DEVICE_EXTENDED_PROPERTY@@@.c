@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ValidateProperty@@YAJPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagPOINTER_DEVICE_EXTENDED_PROPERTY@@@Z @ 0x1C01C72DC
+ * Callers:
+ *     RIMGetExtendedPointerDeviceProperty @ 0x1C01C7328 (RIMGetExtendedPointerDeviceProperty.c)
+ *     RIMSetExtendedPointerDeviceProperty @ 0x1C01C7680 (RIMSetExtendedPointerDeviceProperty.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ValidateProperty(
         struct tagHID_POINTER_DEVICE_INFO *a1,
         struct tagPOINTER_DEVICE_EXTENDED_PROPERTY *a2)

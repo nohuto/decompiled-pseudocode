@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiDecrementSubsection @ 0x1403A118C
+ * Callers:
+ *     MiTrimSection @ 0x1402A0034 (MiTrimSection.c)
+ *     MiTrimSharedPage @ 0x1403A0EBC (MiTrimSharedPage.c)
+ *     MiLocateSharedPageViews @ 0x1406340C0 (MiLocateSharedPageViews.c)
+ *     MiPurgeBadFileOnlyPages @ 0x14063C678 (MiPurgeBadFileOnlyPages.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDecrementSubsections @ 0x140334B70 (MiDecrementSubsections.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x140668DD4 (MiReturnCrossPartitionSectionCharges.c)
+ */
+
 __int64 __fastcall MiDecrementSubsection(__int64 *BugCheckParameter2)
 {
   __int64 v1; // r14

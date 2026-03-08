@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1DXGPRESENT@@QEAA@XZ @ 0x1C01E53EC
+ * Callers:
+ *     ??1DXGCONTEXT@@QEAA@XZ @ 0x1C01B5D54 (--1DXGCONTEXT@@QEAA@XZ.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ */
+
 void __fastcall DXGPRESENT::~DXGPRESENT(void **this)
 {
   void *v2; // rcx

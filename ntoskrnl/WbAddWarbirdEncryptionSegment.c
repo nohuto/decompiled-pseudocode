@@ -1,3 +1,20 @@
+/*
+ * XREFs of WbAddWarbirdEncryptionSegment @ 0x14075554C
+ * Callers:
+ *     WbGetWarbirdEncryptionSegment @ 0x140755824 (WbGetWarbirdEncryptionSegment.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     sub_140754FC0 @ 0x140754FC0 (sub_140754FC0.c)
+ *     sub_140755994 @ 0x140755994 (sub_140755994.c)
+ *     sub_1407559C8 @ 0x1407559C8 (sub_1407559C8.c)
+ *     sub_140755BBC @ 0x140755BBC (sub_140755BBC.c)
+ */
+
 __int64 __fastcall WbAddWarbirdEncryptionSegment(__int64 a1, __int64 a2, _QWORD *a3)
 {
   int v3; // eax

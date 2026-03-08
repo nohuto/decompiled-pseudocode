@@ -1,3 +1,13 @@
+/*
+ * XREFs of NVMeGetFeaturesCurrentCacheValueCompletion @ 0x1C0015980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     GetSrbScsiData @ 0x1C0012B7C (GetSrbScsiData.c)
+ */
+
 unsigned __int64 __fastcall NVMeGetFeaturesCurrentCacheValueCompletion(__int64 a1, __int64 a2, _BYTE *a3)
 {
   __int64 SrbExtension; // rbx

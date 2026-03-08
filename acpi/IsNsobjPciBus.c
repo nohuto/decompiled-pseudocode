@@ -1,3 +1,19 @@
+/*
+ * XREFs of IsNsobjPciBus @ 0x1C008A678
+ * Callers:
+ *     ACPIBusIrpStartDeviceWorker @ 0x1C0081770 (ACPIBusIrpStartDeviceWorker.c)
+ *     ACPIBusIrpStopDevice @ 0x1C0081900 (ACPIBusIrpStopDevice.c)
+ *     ACPIFilterIrpStopDevice @ 0x1C0086CA0 (ACPIFilterIrpStopDevice.c)
+ *     ACPIInitStopDevice @ 0x1C0087AE4 (ACPIInitStopDevice.c)
+ *     ACPIInternalIsPci @ 0x1C0088074 (ACPIInternalIsPci.c)
+ *     EnableDisableRegions @ 0x1C008A57C (EnableDisableRegions.c)
+ *     IsPciBus @ 0x1C008A744 (IsPciBus.c)
+ *     IsPciBusExtension @ 0x1C008A768 (IsPciBusExtension.c)
+ * Callees:
+ *     IsPciBusAsync @ 0x1C0035270 (IsPciBusAsync.c)
+ *     AMLIGetNSObjectContext @ 0x1C0048364 (AMLIGetNSObjectContext.c)
+ */
+
 char __fastcall IsNsobjPciBus(volatile signed __int32 *a1)
 {
   __int64 v2; // rax

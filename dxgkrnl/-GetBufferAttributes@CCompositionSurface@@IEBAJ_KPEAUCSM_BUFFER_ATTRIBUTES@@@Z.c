@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetBufferAttributes@CCompositionSurface@@IEBAJ_KPEAUCSM_BUFFER_ATTRIBUTES@@@Z @ 0x1C007BA08
+ * Callers:
+ *     ?GetEarlyTokenSync@CompositionSurfaceObject@@QEBA_N_K@Z @ 0x1C0078C48 (-GetEarlyTokenSync@CompositionSurfaceObject@@QEBA_N_K@Z.c)
+ * Callees:
+ *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C000D670 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 __int64 __fastcall CCompositionSurface::GetBufferAttributes(
         CCompositionSurface *this,
         __int64 a2,

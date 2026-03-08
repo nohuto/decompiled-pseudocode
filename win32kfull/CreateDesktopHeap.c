@@ -1,3 +1,12 @@
+/*
+ * XREFs of CreateDesktopHeap @ 0x1C00D4A60
+ * Callers:
+ *     ?xxxCreateDesktopEx2@@YAJPEAUtagWINDOWSTATION@@PEAU_ACCESS_STATE@@DPEAU_UNICODE_STRING@@KPEAPEAX@Z @ 0x1C00D4724 (-xxxCreateDesktopEx2@@YAJPEAUtagWINDOWSTATION@@PEAU_ACCESS_STATE@@DPEAU_UNICODE_STRING@@KPEAPEAX.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     Win32CreateSection @ 0x1C00D4B5C (Win32CreateSection.c)
+ */
+
 PVOID __fastcall CreateDesktopHeap(__int64 *a1, unsigned int a2, int a3)
 {
   ULONG_PTR v4; // rdi

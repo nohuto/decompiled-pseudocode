@@ -1,3 +1,14 @@
+/*
+ * XREFs of ViSetIoBuildRequestFlag @ 0x1405CFB10
+ * Callers:
+ *     ViIovIoBuildDeviceIoControlRequest_Exit @ 0x1405CFA80 (ViIovIoBuildDeviceIoControlRequest_Exit.c)
+ *     ViIovIoBuildSynchronousFsdRequest_Exit @ 0x1405CFAA0 (ViIovIoBuildSynchronousFsdRequest_Exit.c)
+ *     ViIovIoBuildAsynchronousFsdRequest_Exit @ 0x140AD9730 (ViIovIoBuildAsynchronousFsdRequest_Exit.c)
+ * Callees:
+ *     VfPacketFindAndLock @ 0x140ADA0EC (VfPacketFindAndLock.c)
+ *     VfPacketReleaseLock @ 0x140ADA158 (VfPacketReleaseLock.c)
+ */
+
 __int64 __fastcall ViSetIoBuildRequestFlag(__int64 a1)
 {
   __int64 result; // rax

@@ -1,3 +1,22 @@
+/*
+ * XREFs of ?DrawMenuItemCheckMark@@YAHPEAUHDC__@@PEAUtagITEM@@H@Z @ 0x1C0236044
+ * Callers:
+ *     xxxRealDrawMenuItem @ 0x1C0239598 (xxxRealDrawMenuItem.c)
+ * Callees:
+ *     PrepareHDCBITSBitmap @ 0x1C00162BC (PrepareHDCBITSBitmap.c)
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ *     NtGdiBitBltInternal @ 0x1C005E110 (NtGdiBitBltInternal.c)
+ *     GreExtGetObjectW @ 0x1C0065580 (GreExtGetObjectW.c)
+ *     NtGdiAlphaBlend @ 0x1C0083DC0 (NtGdiAlphaBlend.c)
+ *     GetOemBitmapInfoForDpi @ 0x1C00D05EC (GetOemBitmapInfoForDpi.c)
+ *     GreGetLayout @ 0x1C0111738 (GreGetLayout.c)
+ *     GreSetBkColor @ 0x1C0113964 (GreSetBkColor.c)
+ *     GreSetTextColor @ 0x1C0113D94 (GreSetTextColor.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     BltColor @ 0x1C0242064 (BltColor.c)
+ */
+
 __int64 __fastcall DrawMenuItemCheckMark(HDC a1, struct tagITEM *a2)
 {
   int v2; // esi

@@ -1,3 +1,16 @@
+/*
+ * XREFs of VfAfterCallDriver @ 0x140ACA3D8
+ * Callers:
+ *     IovCallDriver @ 0x140ABE1D0 (IovCallDriver.c)
+ *     IovpCallDriverWithStackBuffer @ 0x140ABE9B4 (IovpCallDriverWithStackBuffer.c)
+ * Callees:
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeAreInterruptsEnabled @ 0x140312C60 (KeAreInterruptsEnabled.c)
+ *     VfBugCheckNoStackUsage @ 0x1405CD460 (VfBugCheckNoStackUsage.c)
+ *     ViErrorReport1 @ 0x1405CDA04 (ViErrorReport1.c)
+ *     IovpCallDriver2 @ 0x140AC96CC (IovpCallDriver2.c)
+ */
+
 void __fastcall VfAfterCallDriver(__int64 a1, int *a2)
 {
   __int64 v4; // rdi

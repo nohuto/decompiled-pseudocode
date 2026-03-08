@@ -1,3 +1,24 @@
+/*
+ * XREFs of UsbDevice_EnableCompletion @ 0x1C0019560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     Command_SendCommand @ 0x1C000A820 (Command_SendCommand.c)
+ *     Endpoint_Disable @ 0x1C000B0AC (Endpoint_Disable.c)
+ *     WPP_RECORDER_SF_L @ 0x1C00136C0 (WPP_RECORDER_SF_L.c)
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     UsbDevice_SetAddress @ 0x1C0018EE0 (UsbDevice_SetAddress.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0019330 (WPP_RECORDER_SF_dq.c)
+ *     Endpoint_SetLogIdentifier @ 0x1C0019968 (Endpoint_SetLogIdentifier.c)
+ *     XilDeviceSlot_SetDeviceContext @ 0x1C0019D94 (XilDeviceSlot_SetDeviceContext.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ */
+
 char __fastcall UsbDevice_EnableCompletion(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rbx

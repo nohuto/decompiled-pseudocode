@@ -1,3 +1,15 @@
+/*
+ * XREFs of DpiKsrRestoreAdapterDriverState @ 0x1C03A1B4C
+ * Callers:
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiKsrIsSoftBoot @ 0x1C021A914 (DpiKsrIsSoftBoot.c)
+ *     ??1DXGK_ENUMERATE_KSR_MEMORY_CONTEXT@@QEAA@XZ @ 0x1C03A0800 (--1DXGK_ENUMERATE_KSR_MEMORY_CONTEXT@@QEAA@XZ.c)
+ *     ?DpiClaimPersistedMemoryBlock@@YAJPEAU_FDO_CONTEXT@@_KPEBU_GUID@@@Z @ 0x1C03A0934 (-DpiClaimPersistedMemoryBlock@@YAJPEAU_FDO_CONTEXT@@_KPEBU_GUID@@@Z.c)
+ */
+
 __int64 __fastcall DpiKsrRestoreAdapterDriverState(struct _FDO_CONTEXT *a1)
 {
   int v3; // r14d

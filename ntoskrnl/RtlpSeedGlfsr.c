@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpSeedGlfsr @ 0x140679480
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 RtlpSeedGlfsr()
 {
   unsigned __int64 v0; // rax

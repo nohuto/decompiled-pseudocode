@@ -1,3 +1,14 @@
+/*
+ * XREFs of PnpHandleProcessWalkWorker @ 0x1409551D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExGetHandlePointer @ 0x1403120A0 (ExGetHandlePointer.c)
+ *     IoGetBaseFileSystemDeviceObject @ 0x140343B10 (IoGetBaseFileSystemDeviceObject.c)
+ *     ExfUnblockPushLock @ 0x14040CCE0 (ExfUnblockPushLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char __fastcall PnpHandleProcessWalkWorker(__int64 a1, __int64 *a2, __int64 a3, __int64 a4)
 {
   unsigned __int64 HandlePointer; // rax

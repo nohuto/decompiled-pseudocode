@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpTimerWatchdogWakeSetDueTime @ 0x1403CE8CC
+ * Callers:
+ *     HalpTimerWatchdogResetCountdown @ 0x1403CE870 (HalpTimerWatchdogResetCountdown.c)
+ *     HalpTimerWatchdogStart @ 0x1405096C0 (HalpTimerWatchdogStart.c)
+ * Callees:
+ *     <none>
+ */
+
 void HalpTimerWatchdogWakeSetDueTime()
 {
   unsigned __int64 v0; // rax

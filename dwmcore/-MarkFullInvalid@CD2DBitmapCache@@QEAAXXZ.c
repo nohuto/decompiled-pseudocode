@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?MarkFullInvalid@CD2DBitmapCache@@QEAAXXZ @ 0x1800E716C
+ * Callers:
+ *     ?GetCachedTargetBitmap@CRenderTargetBitmapCache@@IEAAJAEBVCResourceTag@@UD2D_SIZE_U@@AEBUPixelFormatInfo@@AEBVRenderTargetInfo@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x180034D74 (-GetCachedTargetBitmap@CRenderTargetBitmapCache@@IEAAJAEBVCResourceTag@@UD2D_SIZE_U@@AEBUPixelFo.c)
+ *     ?MarkFullDirty@CBitmapRealization@@UEAAXXZ @ 0x1800E711C (-MarkFullDirty@CBitmapRealization@@UEAAXXZ.c)
+ *     ?MarkFullDirty@CRenderTargetBitmap@@UEAAXXZ @ 0x18029A510 (-MarkFullDirty@CRenderTargetBitmap@@UEAAXXZ.c)
+ *     ?MarkFullDirty@CColorKeyBitmapRealization@@UEAAXXZ @ 0x1802AD1D0 (-MarkFullDirty@CColorKeyBitmapRealization@@UEAAXXZ.c)
+ *     ?MarkFullDirty@CWICBitmapRealization@@UEAAXXZ @ 0x1802ADCF0 (-MarkFullDirty@CWICBitmapRealization@@UEAAXXZ.c)
+ *     ?MarkFullDirty@CDxHandleStereoBitmapRealization@@UEAAXXZ @ 0x1802AFDE4 (-MarkFullDirty@CDxHandleStereoBitmapRealization@@UEAAXXZ.c)
+ *     ?VideoProcessorBlt@CDecodeBitmap@@UEAAJPEAUID3D11Texture2D@@IW4DXGI_COLOR_SPACE_TYPE@@AEBUtagRECT@@W4_D3DDDI_ROTATION@@PEAUDXGI_HDR_METADATA_HDR10@@2@Z @ 0x1802B18B0 (-VideoProcessorBlt@CDecodeBitmap@@UEAAJPEAUID3D11Texture2D@@IW4DXGI_COLOR_SPACE_TYPE@@AEBUtagREC.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CD2DBitmapCache::MarkFullInvalid(CD2DBitmapCache *this)
 {
   __int64 v1; // rax

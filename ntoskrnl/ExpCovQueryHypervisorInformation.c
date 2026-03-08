@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExpCovQueryHypervisorInformation @ 0x140A03908
+ * Callers:
+ *     ExpCovQueryInformation @ 0x140A03B6C (ExpCovQueryInformation.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     HvlGetCoverageData @ 0x14053D1C8 (HvlGetCoverageData.c)
+ *     HvlGetCoverageInfo @ 0x14053D328 (HvlGetCoverageInfo.c)
+ *     HvlResetCoverageVector @ 0x14053D84C (HvlResetCoverageVector.c)
+ *     RtlCompareUnicodeString @ 0x1406EA3B0 (RtlCompareUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall ExpCovQueryHypervisorInformation(__int64 *a1)
 {
   void *v2; // rsi

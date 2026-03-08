@@ -1,3 +1,23 @@
+/*
+ * XREFs of TtmInitCurrentSession @ 0x1409A0FC0
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     PsGetProcessSessionIdEx @ 0x1402BDFA0 (PsGetProcessSessionIdEx.c)
+ *     PoRegisterPowerSettingCallback @ 0x14073B960 (PoRegisterPowerSettingCallback.c)
+ *     TtmiUpdateActiveTerminalCount @ 0x1409A1DF0 (TtmiUpdateActiveTerminalCount.c)
+ *     TtmiLogError @ 0x1409A536C (TtmiLogError.c)
+ *     TtmiLogInitCurrentSessionStart @ 0x1409A5778 (TtmiLogInitCurrentSessionStart.c)
+ *     TtmiLogInitCurrentSessionStop @ 0x1409A5820 (TtmiLogInitCurrentSessionStop.c)
+ *     TtmiLogSessionDeviceAssignmentPolicySet @ 0x1409A6388 (TtmiLogSessionDeviceAssignmentPolicySet.c)
+ *     TtmiCreateTerminal @ 0x1409A7DD8 (TtmiCreateTerminal.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 TtmInitCurrentSession()
 {
   int ProcessSessionId; // eax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MNEraseBackground @ 0x1C023756C
+ * Callers:
+ *     xxxMenuWindowProc @ 0x1C021D3D0 (xxxMenuWindowProc.c)
+ *     xxxMNInvertItem @ 0x1C02382C8 (xxxMNInvertItem.c)
+ * Callees:
+ *     GreSetBrushOrg @ 0x1C0007754 (GreSetBrushOrg.c)
+ *     NtGdiPatBlt @ 0x1C008B370 (NtGdiPatBlt.c)
+ *     GetDPIMetrics @ 0x1C009FD5C (GetDPIMetrics.c)
+ *     MNGetpItemFromIndex @ 0x1C00A266C (MNGetpItemFromIndex.c)
+ *     GreGetBrushOrg @ 0x1C02AA4C8 (GreGetBrushOrg.c)
+ */
+
 __int64 __fastcall MNEraseBackground(HDC a1, __int64 a2, int a3, int a4, int a5, int a6)
 {
   int v10; // r14d

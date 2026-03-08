@@ -1,3 +1,16 @@
+/*
+ * XREFs of CHolographicInteropTaskQueue::ProcessPendingMessages__lambda_db6293ec4389496e05a5db7898b72386___ @ 0x1802A0B2C
+ * Callers:
+ *     ?PreRender@CHolographicManager@@UEAAXXZ @ 0x1800EE9F0 (-PreRender@CHolographicManager@@UEAAXXZ.c)
+ * Callees:
+ *     ?ResetEvent@details@wil@@YAXPEAX@Z @ 0x1801028E4 (-ResetEvent@details@wil@@YAXPEAX@Z.c)
+ *     ?EnsureInteropRenderTarget@CHolographicManager@@AEAAJXZ @ 0x1802A1E8C (-EnsureInteropRenderTarget@CHolographicManager@@AEAAJXZ.c)
+ *     ?ReleaseInteropRenderTarget@CHolographicManager@@AEAAXXZ @ 0x1802A2630 (-ReleaseInteropRenderTarget@CHolographicManager@@AEAAXXZ.c)
+ *     ?ReleaseInteropTextures@CHolographicManager@@QEAAXXZ @ 0x1802A269C (-ReleaseInteropTextures@CHolographicManager@@QEAAXXZ.c)
+ *     ?ClearMessage@CHolographicInteropTaskQueue@@AEAAXPEAUMESSAGE@1@@Z @ 0x1802A8B70 (-ClearMessage@CHolographicInteropTaskQueue@@AEAAXPEAUMESSAGE@1@@Z.c)
+ *     ?ReverseList@CHolographicInteropTaskQueue@@AEAAPEAU_SLIST_ENTRY@@PEAU2@@Z @ 0x1802A8E0C (-ReverseList@CHolographicInteropTaskQueue@@AEAAPEAU_SLIST_ENTRY@@PEAU2@@Z.c)
+ */
+
 PSLIST_ENTRY __fastcall CHolographicInteropTaskQueue::ProcessPendingMessages__lambda_db6293ec4389496e05a5db7898b72386___(
         __int64 a1,
         __int64 *a2)

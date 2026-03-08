@@ -1,3 +1,12 @@
+/*
+ * XREFs of BRUSHOBJ_pvAllocRbrush @ 0x1C0267D00
+ * Callers:
+ *     VerifierBRUSHOBJ_pvAllocRbrush @ 0x1C02A92E0 (VerifierBRUSHOBJ_pvAllocRbrush.c)
+ *     ?MulRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z @ 0x1C02B28D0 (-MulRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 PVOID __stdcall BRUSHOBJ_pvAllocRbrush(BRUSHOBJ *pbo, ULONG cj)
 {
   __int64 v2; // rbx

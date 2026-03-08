@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcIsThereDirtyData @ 0x1403A6CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcForEachPartition @ 0x140305240 (CcForEachPartition.c)
+ */
+
 BOOLEAN __stdcall CcIsThereDirtyData(PVPB Vpb)
 {
   __int128 v2; // [rsp+20h] [rbp-18h] BYREF

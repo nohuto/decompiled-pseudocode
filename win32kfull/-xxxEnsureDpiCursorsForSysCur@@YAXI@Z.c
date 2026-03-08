@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?xxxEnsureDpiCursorsForSysCur@@YAXI@Z @ 0x1C01086B4
+ * Callers:
+ *     ?zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C01084CC (-zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCur.c)
+ *     ?xxxEnsureAllDpiCursors@@YAXXZ @ 0x1C0109FBC (-xxxEnsureAllDpiCursors@@YAXXZ.c)
+ * Callees:
+ *     ?xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z @ 0x1C0108704 (-xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z.c)
+ */
+
 void __fastcall xxxEnsureDpiCursorsForSysCur(unsigned int a1)
 {
   struct _UNICODE_STRING *v1; // rdx

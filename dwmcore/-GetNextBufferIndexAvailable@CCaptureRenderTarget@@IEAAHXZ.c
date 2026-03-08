@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetNextBufferIndexAvailable@CCaptureRenderTarget@@IEAAHXZ @ 0x1801EA180
+ * Callers:
+ *     ?CheckOcclusionState@CCaptureRenderTarget@@UEAAJXZ @ 0x1801E9638 (-CheckOcclusionState@CCaptureRenderTarget@@UEAAJXZ.c)
+ *     ?TryTargetNextBuffer@CCaptureRenderTarget@@IEAAJXZ @ 0x1801EAE30 (-TryTargetNextBuffer@CCaptureRenderTarget@@IEAAJXZ.c)
+ * Callees:
+ *     ?ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z @ 0x1800F1BF8 (-ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ */
+
 __int64 __fastcall CCaptureRenderTarget::GetNextBufferIndexAvailable(CCaptureRenderTarget *this)
 {
   const HANDLE *v1; // rdx

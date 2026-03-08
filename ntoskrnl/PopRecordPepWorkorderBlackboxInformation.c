@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopRecordPepWorkorderBlackboxInformation @ 0x14059FED4
+ * Callers:
+ *     PopRecordPoBlackboxInformation @ 0x14099E024 (PopRecordPoBlackboxInformation.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void PopRecordPepWorkorderBlackboxInformation()
 {
   unsigned int v0; // edi

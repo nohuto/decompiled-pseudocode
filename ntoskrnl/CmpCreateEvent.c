@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpCreateEvent @ 0x1406BC374
+ * Callers:
+ *     CmpDoFileRead @ 0x1402F6880 (CmpDoFileRead.c)
+ *     CmpDoFileWrite @ 0x1406BC078 (CmpDoFileWrite.c)
+ *     CmpGetVolumeClusterSize @ 0x14072EFBC (CmpGetVolumeClusterSize.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateEvent @ 0x140412C10 (ZwCreateEvent.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall CmpCreateEvent(EVENT_TYPE EventType, HANDLE *a2, PVOID *a3)
 {
   NTSTATUS v5; // ebx

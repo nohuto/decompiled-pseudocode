@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?FindDeviceInfo@CBaseInput@@QEBAPEAUDEVICEINFO@@PEAXH@Z @ 0x1C000E950
+ * Callers:
+ *     ?ProcessInput@CKeyboardSensor@@EEAAJPEAXKK0@Z @ 0x1C000E8C0 (-ProcessInput@CKeyboardSensor@@EEAAJPEAXKK0@Z.c)
+ *     ?ProcessInput@CMouseSensor@@EEAAJPEAXKK0@Z @ 0x1C00F3CE0 (-ProcessInput@CMouseSensor@@EEAAJPEAXKK0@Z.c)
+ *     ?OnInputSuppressed@CBaseInput@@AEBAXXZ @ 0x1C020BB8C (-OnInputSuppressed@CBaseInput@@AEBAXXZ.c)
+ *     ?ProcessInput@CHidInput@@EEAAJPEAXKK0@Z @ 0x1C02120C0 (-ProcessInput@CHidInput@@EEAAJPEAXKK0@Z.c)
+ * Callees:
+ *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0037330 (RawInputManagerDeviceObjectResolveHandle.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 struct DEVICEINFO *__fastcall CBaseInput::FindDeviceInfo(CBaseInput *this, void *a2, int a3)
 {
   __int64 v3; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of SeTokenIsElevated @ 0x140782960
+ * Callers:
+ *     SeTokenCanImpersonate @ 0x1406DA880 (SeTokenCanImpersonate.c)
+ * Callees:
+ *     SeQueryInformationToken @ 0x1407B9760 (SeQueryInformationToken.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SeTokenIsElevated(_DWORD *a1, _BYTE *a2)
 {
   bool v3; // zf

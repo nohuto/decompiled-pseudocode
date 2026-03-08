@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReleaseAllReferences@CFilterEffectMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C024D420
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z @ 0x1C0068750 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 void __fastcall DirectComposition::CFilterEffectMarshaler::ReleaseAllReferences(
         DirectComposition::CFilterEffectMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2)

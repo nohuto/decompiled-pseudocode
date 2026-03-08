@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpDmaReturnPageToOwner @ 0x140454296
+ * Callers:
+ *     HalpDmaAllocateMapRegisters @ 0x14045399E (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaFreeMapRegisters @ 0x140453EF6 (HalpDmaFreeMapRegisters.c)
+ *     HalpDmaAllocateNewTranslationBuffer @ 0x14050E378 (HalpDmaAllocateNewTranslationBuffer.c)
+ * Callees:
+ *     HalpDmaReturnToContiguousPool @ 0x14045430C (HalpDmaReturnToContiguousPool.c)
+ *     HalpDmaReturnToScatterPool @ 0x140454408 (HalpDmaReturnToScatterPool.c)
+ */
+
 __int64 __fastcall HalpDmaReturnPageToOwner(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rdx

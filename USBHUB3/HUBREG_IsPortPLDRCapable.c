@@ -1,3 +1,16 @@
+/*
+ * XREFs of HUBREG_IsPortPLDRCapable @ 0x1C00895D4
+ * Callers:
+ *     HUBPDO_HandlePLDRRecovery @ 0x1C001A06C (HUBPDO_HandlePLDRRecovery.c)
+ *     HUBFDO_IoctlTestPortPLDRRecovery @ 0x1C007BFE4 (HUBFDO_IoctlTestPortPLDRRecovery.c)
+ *     HUBPDO_UnregisterPortPLDRCapability @ 0x1C0081350 (HUBPDO_UnregisterPortPLDRCapability.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_OpenPortSubkey @ 0x1C00892DC (HUBREG_OpenPortSubkey.c)
+ */
+
 bool __fastcall HUBREG_IsPortPLDRCapable(__int64 a1, unsigned __int16 a2)
 {
   int v2; // esi

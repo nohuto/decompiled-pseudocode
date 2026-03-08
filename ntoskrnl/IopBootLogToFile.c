@@ -1,3 +1,18 @@
+/*
+ * XREFs of IopBootLogToFile @ 0x140941244
+ * Callers:
+ *     IopBootLog @ 0x14072A928 (IopBootLog.c)
+ *     IopCopyBootLogRegistryToFile @ 0x140818E28 (IopCopyBootLogRegistryToFile.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ZwWriteFile @ 0x140412410 (ZwWriteFile.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateFile @ 0x140412DB0 (ZwCreateFile.c)
+ */
+
 __int64 __fastcall IopBootLogToFile(PVOID *a1)
 {
   struct _KTHREAD *CurrentThread; // rdi

@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiGetAllRegisteredPatches @ 0x140A342EC
+ * Callers:
+ *     MiApplyImageHotPatchRequest @ 0x140A32920 (MiApplyImageHotPatchRequest.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlDuplicateUnicodeString @ 0x140761970 (RtlDuplicateUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     MiCompareHotPatchNodes @ 0x140A33944 (MiCompareHotPatchNodes.c)
+ *     MiFindProcessImageHotPatchRecord @ 0x140A3404C (MiFindProcessImageHotPatchRecord.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiGetAllRegisteredPatches(__int64 a1, int a2, int a3, UNICODE_STRING **a4)
 {
   UNICODE_STRING *v5; // r15

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpHvTimerSetInterruptVector @ 0x14051C7B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpHvTimerSetInterruptVector(__int64 a1, unsigned __int8 a2, __int64 a3)
 {
   unsigned __int64 v3; // rax

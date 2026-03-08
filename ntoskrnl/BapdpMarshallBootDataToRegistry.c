@@ -1,3 +1,20 @@
+/*
+ * XREFs of BapdpMarshallBootDataToRegistry @ 0x1403A5FC4
+ * Callers:
+ *     BootApplicationPersistentDataProcess @ 0x140B44538 (BootApplicationPersistentDataProcess.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     RtlStringFromGUIDEx @ 0x140733E90 (RtlStringFromGUIDEx.c)
+ *     RtlIntegerToUnicodeString @ 0x1407805C0 (RtlIntegerToUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void BapdpMarshallBootDataToRegistry()
 {
   __int64 *v0; // rbx

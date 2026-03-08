@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ResolveTargetNoRef@CBaseExpression@@IEAAPEAVCResource@@XZ @ 0x1800C1854
+ * Callers:
+ *     ?SampleStartingValue@CKeyframeAnimation@@AEAAJXZ @ 0x1800C1704 (-SampleStartingValue@CKeyframeAnimation@@AEAAJXZ.c)
+ *     ?SampleInitialValueAndFinalValueIfNecessary@CNaturalAnimation@@AEAAJXZ @ 0x18023A498 (-SampleInitialValueAndFinalValueIfNecessary@CNaturalAnimation@@AEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 struct CResource *__fastcall CBaseExpression::ResolveTargetNoRef(CBaseExpression *this)
 {
   __int64 v1; // rdx

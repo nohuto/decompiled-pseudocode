@@ -1,3 +1,14 @@
+/*
+ * XREFs of PcisuppReleasePciInterfaces @ 0x1C009A0AC
+ * Callers:
+ *     ACPIBusIrpRemoveDevice @ 0x1C0016C30 (ACPIBusIrpRemoveDevice.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qss @ 0x1C0015444 (WPP_RECORDER_SF_qss.c)
+ *     ACPIInternalClearFlags @ 0x1C002E508 (ACPIInternalClearFlags.c)
+ *     ACPIWakeReleasePmeRouting @ 0x1C0045FA0 (ACPIWakeReleasePmeRouting.c)
+ *     PcisuppReleasePciRouting @ 0x1C009A1B4 (PcisuppReleasePciRouting.c)
+ */
+
 void __fastcall PcisuppReleasePciInterfaces(_QWORD *a1)
 {
   char v2; // al

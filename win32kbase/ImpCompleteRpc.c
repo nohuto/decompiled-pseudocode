@@ -1,3 +1,14 @@
+/*
+ * XREFs of ImpCompleteRpc @ 0x1C0086EB8
+ * Callers:
+ *     ImpRpcAsyncResponseHandler @ 0x1C0089B28 (ImpRpcAsyncResponseHandler.c)
+ *     ImpRpcDisconnect @ 0x1C008D3D4 (ImpRpcDisconnect.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0088924 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C008D2C0 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 ImpCompleteRpc()
 {
   unsigned int v0; // edi

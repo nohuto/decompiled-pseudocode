@@ -1,3 +1,41 @@
+/*
+ * XREFs of ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C0068A60
+ * Callers:
+ *     xxxEndDeferWindowPosEx @ 0x1C00698F0 (xxxEndDeferWindowPosEx.c)
+ * Callees:
+ *     SpbCheckRect @ 0x1C000B2CC (SpbCheckRect.c)
+ *     FreeSpb @ 0x1C000B520 (FreeSpb.c)
+ *     SpbCheck @ 0x1C0014BB8 (SpbCheck.c)
+ *     ??0SEMOBJEXORSHARED@@QEAA@PEAUHSEMAPHORE__@@H@Z @ 0x1C0019198 (--0SEMOBJEXORSHARED@@QEAA@PEAUHSEMAPHORE__@@H@Z.c)
+ *     DeleteOldRedirectionBitmap @ 0x1C002E738 (DeleteOldRedirectionBitmap.c)
+ *     GetStyleWindow @ 0x1C0039020 (GetStyleWindow.c)
+ *     GetRedirectionBitmap @ 0x1C0043F00 (GetRedirectionBitmap.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C00519F0 (zzzLockDisplayAreaAndInvalidateDCCache.c)
+ *     PhysicalToLogicalInPlaceRgn @ 0x1C0052AEC (PhysicalToLogicalInPlaceRgn.c)
+ *     xxxInternalInvalidate @ 0x1C0053270 (xxxInternalInvalidate.c)
+ *     NtGdiBitBltInternal @ 0x1C005E110 (NtGdiBitBltInternal.c)
+ *     ?SwpCalcVisRgn@@YAHPEAUtagWND@@PEAUHRGN__@@@Z @ 0x1C0065824 (-SwpCalcVisRgn@@YAHPEAUtagWND@@PEAUHRGN__@@@Z.c)
+ *     ?vSpRedrawSpriteOverlapPresent@@YAXPEAUHDEV__@@@Z @ 0x1C00659EC (-vSpRedrawSpriteOverlapPresent@@YAXPEAUHDEV__@@@Z.c)
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C00669E0 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     GreHintDCWnd @ 0x1C0097030 (GreHintDCWnd.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     xxxFlushDeferredWindowEvents @ 0x1C00D8F74 (xxxFlushDeferredWindowEvents.c)
+ *     LogicalToPhysicalInPlaceRgnWorker @ 0x1C00DB9C4 (LogicalToPhysicalInPlaceRgnWorker.c)
+ *     ?CombineOldNewVis@@YAHPEAUHRGN__@@00II@Z @ 0x1C00DBF78 (-CombineOldNewVis@@YAHPEAUHRGN__@@00II@Z.c)
+ *     UpdateSpriteArea @ 0x1C00DC4C4 (UpdateSpriteArea.c)
+ *     UnionRect @ 0x1C00DD06C (UnionRect.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?PreventInterMonitorBlts@@YAXPEAUtagCVR@@@Z @ 0x1C01A71B0 (-PreventInterMonitorBlts@@YAXPEAUtagCVR@@@Z.c)
+ *     GetOldRedirectionBitmap @ 0x1C01BDEB8 (GetOldRedirectionBitmap.c)
+ *     FindSpb @ 0x1C01FA54C (FindSpb.c)
+ *     RestoreSpb @ 0x1C01FA57C (RestoreSpb.c)
+ *     GreUnlockDisplayArea @ 0x1C02864D8 (GreUnlockDisplayArea.c)
+ *     GreClientRgnDone @ 0x1C028A874 (GreClientRgnDone.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall zzzBltValidBits(__int64 a1)
 {

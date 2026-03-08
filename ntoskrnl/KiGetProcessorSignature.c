@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiGetProcessorSignature @ 0x140A88C44
+ * Callers:
+ *     KiInitializeBootStructures @ 0x140A887E0 (KiInitializeBootStructures.c)
+ *     KiSetFeatureBits @ 0x140A8A714 (KiSetFeatureBits.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiGetCpuVendor @ 0x140A85800 (KiGetCpuVendor.c)
+ */
+
 __int64 __fastcall KiGetProcessorSignature(_BYTE *a1, int *a2, int *a3, _DWORD *a4)
 {
   char CpuVendor; // r10

@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitializePerfOptions @ 0x1C000A498
+ * Callers:
+ *     NVMeControllerInitPart2 @ 0x1C000D9F0 (NVMeControllerInitPart2.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall InitializePerfOptions(__int64 a1)
 {
   bool v1; // zf

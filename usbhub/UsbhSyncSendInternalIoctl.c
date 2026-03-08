@@ -1,3 +1,21 @@
+/*
+ * XREFs of UsbhSyncSendInternalIoctl @ 0x1C0004A70
+ * Callers:
+ *     UsbhCheckHubPowerStatus @ 0x1C00047D4 (UsbhCheckHubPowerStatus.c)
+ *     UsbhFdoCheckUpstreamConnectionState @ 0x1C0004A1C (UsbhFdoCheckUpstreamConnectionState.c)
+ *     UsbhSshResumeUpstream @ 0x1C0004F34 (UsbhSshResumeUpstream.c)
+ *     UsbhSshSuspendHub @ 0x1C000DEF0 (UsbhSshSuspendHub.c)
+ *     UsbhConfigureUsbHub @ 0x1C0029DB0 (UsbhConfigureUsbHub.c)
+ *     UsbhGetHubCount @ 0x1C002C420 (UsbhGetHubCount.c)
+ *     UsbhGetTopOfBusStack @ 0x1C002CD18 (UsbhGetTopOfBusStack.c)
+ *     UsbhInitialize @ 0x1C002CE20 (UsbhInitialize.c)
+ *     UsbhLogStartFailure @ 0x1C002D464 (UsbhLogStartFailure.c)
+ *     UsbhResetIrqPipe @ 0x1C00393AC (UsbhResetIrqPipe.c)
+ *     UsbhResetHubUpstreamPort @ 0x1C003D440 (UsbhResetHubUpstreamPort.c)
+ * Callees:
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ */
+
 NTSTATUS __fastcall UsbhSyncSendInternalIoctl(__int64 a1, ULONG a2, unsigned __int64 a3, _UNICODE_STRING *a4)
 {
   __int64 v7; // rbx

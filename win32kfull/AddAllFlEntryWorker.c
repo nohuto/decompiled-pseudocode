@@ -1,3 +1,11 @@
+/*
+ * XREFs of AddAllFlEntryWorker @ 0x1C00B90F0
+ * Callers:
+ *     bAddAllFlEntry @ 0x1C00B8F0C (bAddAllFlEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall AddAllFlEntryWorker(PCWSTR Path, int a2)
 {
   __int64 v2; // rbx

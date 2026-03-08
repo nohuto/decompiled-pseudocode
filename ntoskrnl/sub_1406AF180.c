@@ -1,3 +1,17 @@
+/*
+ * XREFs of sub_1406AF180 @ 0x1406AF180
+ * Callers:
+ *     sub_1406AF110 @ 0x1406AF110 (sub_1406AF110.c)
+ *     WbGetWarbirdThread @ 0x1406AF248 (WbGetWarbirdThread.c)
+ *     sub_1406AF4BC @ 0x1406AF4BC (sub_1406AF4BC.c)
+ *     sub_140754FC0 @ 0x140754FC0 (sub_140754FC0.c)
+ *     sub_1407559C8 @ 0x1407559C8 (sub_1407559C8.c)
+ *     sub_140770F08 @ 0x140770F08 (sub_140770F08.c)
+ *     sub_140773AA8 @ 0x140773AA8 (sub_140773AA8.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall sub_1406AF180(__int64 a1, __int64 a2, unsigned int a3, _QWORD *a4, int *a5)
 {
   int v5; // ebp

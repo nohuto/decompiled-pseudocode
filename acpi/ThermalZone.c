@@ -1,3 +1,13 @@
+/*
+ * XREFs of ThermalZone @ 0x1C0051160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     CreateNameSpaceObject @ 0x1C004F10C (CreateNameSpaceObject.c)
+ *     PushScope @ 0x1C0053D40 (PushScope.c)
+ */
+
 __int64 __fastcall ThermalZone(__int64 a1, _QWORD *a2)
 {
   __int64 *v2; // rdi

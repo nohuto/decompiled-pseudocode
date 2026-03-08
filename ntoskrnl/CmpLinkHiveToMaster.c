@@ -1,3 +1,40 @@
+/*
+ * XREFs of CmpLinkHiveToMaster @ 0x140731250
+ * Callers:
+ *     CmpLoadKeyCommon @ 0x1402B2DEC (CmpLoadKeyCommon.c)
+ *     CmpFinishSystemHivesLoad @ 0x140815160 (CmpFinishSystemHivesLoad.c)
+ *     CmpLoadHiveVolatile @ 0x140A096F0 (CmpLoadHiveVolatile.c)
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ *     CmpInitializeSystemHive @ 0x140B528D4 (CmpInitializeSystemHive.c)
+ *     CmpInitializePreloadedHive @ 0x140B52F50 (CmpInitializePreloadedHive.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     SetFailureLocation @ 0x140243E5C (SetFailureLocation.c)
+ *     CmpInitializeDelayDerefContext @ 0x140262F00 (CmpInitializeDelayDerefContext.c)
+ *     CmpDrainDelayDerefContext @ 0x140262F30 (CmpDrainDelayDerefContext.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     CmpFreeTransientPoolWithTag @ 0x1402A4B0C (CmpFreeTransientPoolWithTag.c)
+ *     RtlUnicodeStringCopy @ 0x1402B3164 (RtlUnicodeStringCopy.c)
+ *     CmpRemoveHiveFromNamespace @ 0x1402BFC14 (CmpRemoveHiveFromNamespace.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpCleanupParseContext @ 0x1406BD6A8 (CmpCleanupParseContext.c)
+ *     ObOpenObjectByName @ 0x1406C39E0 (ObOpenObjectByName.c)
+ *     CmpInitializeKcbCache @ 0x14073163C (CmpInitializeKcbCache.c)
+ *     CmpConstructNameWithStatus @ 0x1407AF2E0 (CmpConstructNameWithStatus.c)
+ *     CmpReferenceKeyControlBlockUnsafe @ 0x1407B05D8 (CmpReferenceKeyControlBlockUnsafe.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     CmpRecordUnloadEventForHive @ 0x1408727D8 (CmpRecordUnloadEventForHive.c)
+ *     CmpEtwDumpKcb @ 0x1408A6EE6 (CmpEtwDumpKcb.c)
+ *     CmpLogHiveLinkEvent @ 0x140A0FCB0 (CmpLogHiveLinkEvent.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     CmpLockRegistry @ 0x140AF2270 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ *     CmpAttachToRegistryProcess @ 0x140AF26E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140AF2710 (CmpDetachFromRegistryProcess.c)
+ */
+
 __int64 __fastcall CmpLinkHiveToMaster(
         __int64 a1,
         void *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of _GetMagnificationInputTransform @ 0x1C01F7EE8
+ * Callers:
+ *     MagGetLensContextInformation @ 0x1C01A43C0 (MagGetLensContextInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetMagnificationInputTransform(__int64 a1)
 {
   __int64 v1; // rax

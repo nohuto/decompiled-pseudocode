@@ -1,3 +1,24 @@
+/*
+ * XREFs of ExpKeyedEventInitialization @ 0x140B6A590
+ * Callers:
+ *     ExpInitSystemPhase1 @ 0x140B3F0B8 (ExpInitSystemPhase1.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateKeyedEvent @ 0x1404139B0 (ZwCreateKeyedEvent.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D26A0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406DB5A0 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x1406DB5D0 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406DB640 (RtlCreateAcl.c)
+ *     RtlAddMandatoryAce @ 0x140740AF0 (RtlAddMandatoryAce.c)
+ *     RtlAddAccessAllowedAce @ 0x140744250 (RtlAddAccessAllowedAce.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ObCreateObjectType @ 0x14080CB00 (ObCreateObjectType.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 int ExpKeyedEventInitialization()
 {
   int result; // eax

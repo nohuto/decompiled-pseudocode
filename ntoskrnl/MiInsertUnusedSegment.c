@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiInsertUnusedSegment @ 0x14034C75C
+ * Callers:
+ *     MiCleanSection @ 0x14020165C (MiCleanSection.c)
+ *     MiCheckControlArea @ 0x140334D00 (MiCheckControlArea.c)
+ *     MiDeleteCachedSegment @ 0x140621514 (MiDeleteCachedSegment.c)
+ *     MiDeleteCachedSubsection @ 0x140621708 (MiDeleteCachedSubsection.c)
+ *     MiFlushControlArea @ 0x1406220F4 (MiFlushControlArea.c)
+ *     MiMakeUnusedSegmentDeleteOnClose @ 0x140622788 (MiMakeUnusedSegmentDeleteOnClose.c)
+ *     MiProcessDeleteOnClose @ 0x1406229CC (MiProcessDeleteOnClose.c)
+ *     MiSetDeleteOnClose @ 0x1406239AC (MiSetDeleteOnClose.c)
+ * Callees:
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiComputePagedPoolSegmentBytes @ 0x14034C858 (MiComputePagedPoolSegmentBytes.c)
+ *     MiReleaseControlAreaCharges @ 0x14034C8D8 (MiReleaseControlAreaCharges.c)
+ *     MiConvertStaticSubsections @ 0x14034C9D8 (MiConvertStaticSubsections.c)
+ */
+
 __int64 __fastcall MiInsertUnusedSegment(__int64 a1)
 {
   int v1; // eax

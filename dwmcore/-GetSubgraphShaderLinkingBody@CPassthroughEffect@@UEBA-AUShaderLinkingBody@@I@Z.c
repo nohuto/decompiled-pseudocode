@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetSubgraphShaderLinkingBody@CPassthroughEffect@@UEBA?AUShaderLinkingBody@@I@Z @ 0x1800FF5F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CPassthroughEffect::GetSubgraphShaderLinkingBody(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

@@ -1,3 +1,45 @@
+/*
+ * XREFs of PnpReplacePartitionUnit @ 0x140961B80
+ * Callers:
+ *     IoReplacePartitionUnit @ 0x140951CD0 (IoReplacePartitionUnit.c)
+ * Callees:
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KeCheckProcessorAffinityEx @ 0x140234B10 (KeCheckProcessorAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x140237C30 (KeIsEmptyAffinityEx.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402AA110 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402ABED0 (KeSetSystemGroupAffinityThread.c)
+ *     KeFindFirstSetLeftAffinityEx @ 0x1402CCC00 (KeFindFirstSetLeftAffinityEx.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PnprQueryReplaceFeatures @ 0x140560CA8 (PnprQueryReplaceFeatures.c)
+ *     MmUnloadSystemImage @ 0x1407F5FA0 (MmUnloadSystemImage.c)
+ *     PnprAllocateMappingReserves @ 0x140962974 (PnprAllocateMappingReserves.c)
+ *     PnprCollectResources @ 0x140962AFC (PnprCollectResources.c)
+ *     PnprFreeMappingReserve @ 0x140962E7C (PnprFreeMappingReserve.c)
+ *     PnprIdentifyUnits @ 0x1409630EC (PnprIdentifyUnits.c)
+ *     PnprLegacyDeviceDriversPresent @ 0x1409635A4 (PnprLegacyDeviceDriversPresent.c)
+ *     PnprLoadPluginDriver @ 0x1409635F8 (PnprLoadPluginDriver.c)
+ *     PnprLockPagesForReplace @ 0x140963770 (PnprLockPagesForReplace.c)
+ *     PnprLogFailureEvent @ 0x1409637A4 (PnprLogFailureEvent.c)
+ *     PnprLogStartEvent @ 0x1409638D0 (PnprLogStartEvent.c)
+ *     PnprLogSuccessEvent @ 0x1409639A4 (PnprLogSuccessEvent.c)
+ *     PnprMmConstruct @ 0x140963D98 (PnprMmConstruct.c)
+ *     PnprMmFree @ 0x140963EA4 (PnprMmFree.c)
+ *     PnprUnlockPagesForReplace @ 0x140964064 (PnprUnlockPagesForReplace.c)
+ *     PnprGetMillisecondCounter @ 0x140A99834 (PnprGetMillisecondCounter.c)
+ *     PnprInitiateReplaceOperation @ 0x140A99894 (PnprInitiateReplaceOperation.c)
+ *     PnprQuiesceDevices @ 0x140A9A284 (PnprQuiesceDevices.c)
+ *     PnprWakeDevices @ 0x140A9AF1C (PnprWakeDevices.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 LONG __fastcall PnpReplacePartitionUnit(ULONG_PTR *a1)
 {
   ULONG_PTR *v1; // r14

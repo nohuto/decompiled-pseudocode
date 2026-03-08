@@ -1,3 +1,12 @@
+/*
+ * XREFs of AdtpBuildLogonIdStrings @ 0x14083DE80
+ * Callers:
+ *     AdtpPackageParameters @ 0x1403958B4 (AdtpPackageParameters.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     SepGetLogonSessionAccountInfo @ 0x14083DF34 (SepGetLogonSessionAccountInfo.c)
+ */
+
 __int64 __fastcall AdtpBuildLogonIdStrings(
         _DWORD *a1,
         _QWORD *a2,

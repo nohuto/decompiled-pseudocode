@@ -1,3 +1,18 @@
+/*
+ * XREFs of _SetLayeredWindowAttributes @ 0x1C002BBFC
+ * Callers:
+ *     ComposeWindow @ 0x1C002297C (ComposeWindow.c)
+ *     UnsetLayeredWindow @ 0x1C00240E0 (UnsetLayeredWindow.c)
+ *     NtUserSetLayeredWindowAttributes @ 0x1C002A290 (NtUserSetLayeredWindowAttributes.c)
+ * Callees:
+ *     SetRedirectedWindow @ 0x1C002BE1C (SetRedirectedWindow.c)
+ *     UpdateSprite @ 0x1C002E7A8 (UpdateSprite.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     GetRedirectionBitmap @ 0x1C0043F00 (GetRedirectionBitmap.c)
+ *     GetRedirectionFlags @ 0x1C0096CD0 (GetRedirectionFlags.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall SetLayeredWindowAttributes(__int64 a1, int a2, char a3, int a4)
 {
   bool v8; // r14

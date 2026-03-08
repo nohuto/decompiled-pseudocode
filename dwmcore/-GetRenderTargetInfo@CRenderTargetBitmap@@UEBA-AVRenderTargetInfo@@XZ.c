@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetRenderTargetInfo@CRenderTargetBitmap@@UEBA?AVRenderTargetInfo@@XZ @ 0x1800F3120
+ * Callers:
+ *     ?GetRenderTargetInfo@CStereoRenderTargetBitmap@@UEBA?AVRenderTargetInfo@@XZ @ 0x1802B2740 (-GetRenderTargetInfo@CStereoRenderTargetBitmap@@UEBA-AVRenderTargetInfo@@XZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CRenderTargetBitmap::GetRenderTargetInfo(__int64 a1, __int64 a2)
 {
   void (__fastcall ***v2)(_QWORD, __int64); // rcx

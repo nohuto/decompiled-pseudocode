@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?PublishPresentData@CHolographicExclusiveView@@QEAAXXZ @ 0x1802A5614
+ * Callers:
+ *     ?InitializeClient@CHolographicManager@@AEAAXXZ @ 0x1802A22B8 (-InitializeClient@CHolographicManager@@AEAAXXZ.c)
+ *     ?ProcessSetViewData@CHolographicExclusiveView@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICEXCLUSIVEVIEW_SETVIEWDATA@@@Z @ 0x1802A5540 (-ProcessSetViewData@CHolographicExclusiveView@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHI.c)
+ * Callees:
+ *     ?AttachExclusiveSwapChain@CHolographicManager@@QEAA_NPEAVCHolographicExclusiveView@@@Z @ 0x1802A1774 (-AttachExclusiveSwapChain@CHolographicManager@@QEAA_NPEAVCHolographicExclusiveView@@@Z.c)
+ *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x1802A8D0C (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
+ */
+
 void __fastcall CHolographicExclusiveView::PublishPresentData(CHolographicExclusiveView *this)
 {
   struct IUnknown *v1; // r8

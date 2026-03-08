@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlAllocateResource @ 0x140939D90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 PERESOURCE FsRtlAllocateResource(void)
 {
   __int64 v0; // rax

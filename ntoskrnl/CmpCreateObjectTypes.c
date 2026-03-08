@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpCreateObjectTypes @ 0x140B51E7C
+ * Callers:
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObCreateObjectType @ 0x14080CB00 (ObCreateObjectType.c)
+ */
+
 __int64 CmpCreateObjectTypes()
 {
   _QWORD v1[16]; // [rsp+20h] [rbp-29h] BYREF

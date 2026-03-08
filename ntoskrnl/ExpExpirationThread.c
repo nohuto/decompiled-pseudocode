@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpExpirationThread @ 0x1409F4E30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsTerminateSystemThread @ 0x1407DC870 (PsTerminateSystemThread.c)
+ *     ExRaiseHardError @ 0x1409FDD30 (ExRaiseHardError.c)
+ */
+
 void __fastcall ExpExpirationThread(__int64 a1)
 {
   NTSTATUS v1; // eax

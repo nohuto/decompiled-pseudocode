@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiRemovePageAnyColor @ 0x1402D748C
+ * Callers:
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ *     MiGetFreeOrZeroPageAnyColor @ 0x14034E684 (MiGetFreeOrZeroPageAnyColor.c)
+ * Callees:
+ *     MiGetPerfectColorHeadPage @ 0x140270750 (MiGetPerfectColorHeadPage.c)
+ *     MiSlistGetFreePage @ 0x1402D76AC (MiSlistGetFreePage.c)
+ */
+
 __int64 __fastcall MiRemovePageAnyColor(__int64 a1, unsigned int a2, int a3)
 {
   unsigned int v5; // ebx

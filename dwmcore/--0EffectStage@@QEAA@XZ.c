@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0EffectStage@@QEAA@XZ @ 0x18002FCE4
+ * Callers:
+ *     ?ExecuteShaders@CGraphRenderingContext@CExternalEffectGraph@@QEBAJII@Z @ 0x18002FAD0 (-ExecuteShaders@CGraphRenderingContext@CExternalEffectGraph@@QEBAJII@Z.c)
+ *     ?RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBrush@@IPEAVCDrawListCache@@@Z @ 0x180093070 (-RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBr.c)
+ * Callees:
+ *     ??0EffectInput@@QEAA@XZ @ 0x1800E3EE8 (--0EffectInput@@QEAA@XZ.c)
+ */
+
 EffectStage *__fastcall EffectStage::EffectStage(EffectStage *this)
 {
   EffectInput *v1; // rdi

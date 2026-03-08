@@ -1,3 +1,11 @@
+/*
+ * XREFs of _dynamic_initializer_for__CLineGeometry::sc_EndPoint__ @ 0x180002710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 dynamic_initializer_for__CLineGeometry::sc_EndPoint__()
 {
   __int64 result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of Command_GetSupportedExtendedCapabilityCommandCompletion @ 0x1C002FCC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_L @ 0x1C00136C0 (WPP_RECORDER_SF_L.c)
+ *     WPP_RECORDER_SF_D @ 0x1C00180C4 (WPP_RECORDER_SF_D.c)
+ */
+
 LONG __fastcall Command_GetSupportedExtendedCapabilityCommandCompletion(__int64 a1)
 {
   __int64 *v1; // rbx

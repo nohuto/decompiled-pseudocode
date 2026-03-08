@@ -1,3 +1,18 @@
+/*
+ * XREFs of VidSchiProcessVsyncCompletedFlipEntry @ 0x1C000CDD0
+ * Callers:
+ *     VidSchiProcessDpcVSyncCookie @ 0x1C0009880 (VidSchiProcessDpcVSyncCookie.c)
+ *     VidSchiExecuteMmIoFlip @ 0x1C000BE30 (VidSchiExecuteMmIoFlip.c)
+ *     VidSchiExecuteMmIoFlipAtPassiveLevel @ 0x1C0010D10 (VidSchiExecuteMmIoFlipAtPassiveLevel.c)
+ *     ?VidSchiCompleteFlipsFromLatestPresentId@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@IIPEA_KPEAIPEA_NQEAKPEAPEAU_VIDSCH_DEVICE@@@Z @ 0x1C004900C (-VidSchiCompleteFlipsFromLatestPresentId@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@IIPEA_K.c)
+ * Callees:
+ *     VidSchiCompleteFlipEntry @ 0x1C000D060 (VidSchiCompleteFlipEntry.c)
+ *     VidSchiUnreferenceDisplayingAllocationsForThisEntry @ 0x1C000E0D4 (VidSchiUnreferenceDisplayingAllocationsForThisEntry.c)
+ *     VidSchiReferenceDisplayingAllocationsForThisEntry @ 0x1C000E600 (VidSchiReferenceDisplayingAllocationsForThisEntry.c)
+ *     ??EVIDSCH_FLIP_MULTIPLANE_OVERLAY_ITERATOR@@QEAAXXZ @ 0x1C001124C (--EVIDSCH_FLIP_MULTIPLANE_OVERLAY_ITERATOR@@QEAAXXZ.c)
+ *     ?VidSchiValidateHwFlipQueueCompletionTimestamp@@YAXPEAUVIDSCH_FLIP_QUEUE@@K_K1@Z @ 0x1C004B250 (-VidSchiValidateHwFlipQueueCompletionTimestamp@@YAXPEAUVIDSCH_FLIP_QUEUE@@K_K1@Z.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 _BYTE *__fastcall VidSchiProcessVsyncCompletedFlipEntry(
         __int64 a1,

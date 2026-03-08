@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_WdfRequestIsFrom32BitProcess @ 0x1C00352B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ */
+
 BOOLEAN __fastcall imp_WdfRequestIsFrom32BitProcess(_WDF_DRIVER_GLOBALS *DriverGlobals, WDFREQUEST__ *Request)
 {
   FxRequest *pRequest; // [rsp+30h] [rbp+8h] BYREF

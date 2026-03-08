@@ -1,3 +1,20 @@
+/*
+ * XREFs of ACPIInternalSendSynchronousIrp @ 0x1C008822C
+ * Callers:
+ *     ACPIBusIrpQueryInterface @ 0x1C00165F0 (ACPIBusIrpQueryInterface.c)
+ *     ACPIQueryGedDeviceInterface @ 0x1C002E2DC (ACPIQueryGedDeviceInterface.c)
+ *     ACPIInternalQueryExtendedAddress @ 0x1C002ECC0 (ACPIInternalQueryExtendedAddress.c)
+ *     ACPIWakeInitializePmeRouting @ 0x1C0045E28 (ACPIWakeInitializePmeRouting.c)
+ *     ACPIBusIrpDeviceUsageNotification @ 0x1C007E820 (ACPIBusIrpDeviceUsageNotification.c)
+ *     ACPIFilterQueryBusD3ColdSupport @ 0x1C0086F38 (ACPIFilterQueryBusD3ColdSupport.c)
+ *     ACPIInternalGetDeviceCapabilities @ 0x1C0087F60 (ACPIInternalGetDeviceCapabilities.c)
+ *     ACPIMatchHardwareId @ 0x1C0088E00 (ACPIMatchHardwareId.c)
+ *     AcpiQueryPciBusInterface @ 0x1C008A38C (AcpiQueryPciBusInterface.c)
+ *     PcisuppInitializePciRouting @ 0x1C0099E6C (PcisuppInitializePciRouting.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qD @ 0x1C001B508 (WPP_RECORDER_SF_qD.c)
+ */
+
 __int64 __fastcall ACPIInternalSendSynchronousIrp(PDEVICE_OBJECT DeviceObject, __int64 a2, unsigned __int64 *a3)
 {
   struct _DEVICE_OBJECT *AttachedDeviceReference; // rsi

@@ -1,3 +1,29 @@
+/*
+ * XREFs of MiWsleFlush @ 0x14032B4A0
+ * Callers:
+ *     MiFreeWsleList @ 0x14032B2B0 (MiFreeWsleList.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140214870 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140214A54 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiCaptureWriteWatchDirtyBit @ 0x140228730 (MiCaptureWriteWatchDirtyBit.c)
+ *     MiGetWsleProtection @ 0x140229ECC (MiGetWsleProtection.c)
+ *     MiLockPageTableInternal @ 0x14026A0D0 (MiLockPageTableInternal.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiLockedPageTableHasActiveLargeEntries @ 0x1402FEB1C (MiLockedPageTableHasActiveLargeEntries.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiCheckReservePageFileSpace @ 0x14032D670 (MiCheckReservePageFileSpace.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiUnlockNestedPageTableWritePte @ 0x140346D60 (MiUnlockNestedPageTableWritePte.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiClonePteReadonly @ 0x140660C44 (MiClonePteReadonly.c)
+ */
+
 unsigned __int64 __fastcall MiWsleFlush(__int64 a1, unsigned __int64 a2, char a3, int *a4)
 {
   int v6; // edi

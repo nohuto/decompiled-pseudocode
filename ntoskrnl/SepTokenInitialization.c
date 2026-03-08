@@ -1,3 +1,14 @@
+/*
+ * XREFs of SepTokenInitialization @ 0x140B49514
+ * Callers:
+ *     SepInitializationPhase0 @ 0x140B48678 (SepInitializationPhase0.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     SeRegisterObjectTypeMandatoryPolicy @ 0x14037D9FC (SeRegisterObjectTypeMandatoryPolicy.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObCreateObjectType @ 0x14080CB00 (ObCreateObjectType.c)
+ */
+
 bool SepTokenInitialization()
 {
   int v0; // eax

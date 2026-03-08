@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetContentBounds@CRedirectVisual@@UEAAJPEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18001D250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ComputeBounds@CRedirectedVisualContent@@QEAAXXZ @ 0x18001D2C0 (-ComputeBounds@CRedirectedVisualContent@@QEAAXXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CRedirectVisual::GetContentBounds(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rdi

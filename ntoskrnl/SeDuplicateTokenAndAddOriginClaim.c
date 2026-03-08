@@ -1,3 +1,13 @@
+/*
+ * XREFs of SeDuplicateTokenAndAddOriginClaim @ 0x1407945AC
+ * Callers:
+ *     NtCreateUserProcess @ 0x14070C850 (NtCreateUserProcess.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     SepAddTokenOriginClaim @ 0x140794680 (SepAddTokenOriginClaim.c)
+ *     SepDuplicateToken @ 0x1407BCF00 (SepDuplicateToken.c)
+ */
+
 __int64 __fastcall SeDuplicateTokenAndAddOriginClaim(int a1, __int64 a2, unsigned int a3, _QWORD *a4)
 {
   int v7; // ebx

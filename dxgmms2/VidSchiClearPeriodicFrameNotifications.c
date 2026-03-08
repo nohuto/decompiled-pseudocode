@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchiClearPeriodicFrameNotifications @ 0x1C0018928
+ * Callers:
+ *     VidSchiSetFlipDevice @ 0x1C0002730 (VidSchiSetFlipDevice.c)
+ *     VidSchTerminateAdapter @ 0x1C0108B80 (VidSchTerminateAdapter.c)
+ * Callees:
+ *     VidSchDestroyPeriodicFrameNotification @ 0x1C003EF80 (VidSchDestroyPeriodicFrameNotification.c)
+ */
+
 void __fastcall VidSchiClearPeriodicFrameNotifications(__int64 a1, unsigned int a2)
 {
   __int64 v3; // rdi

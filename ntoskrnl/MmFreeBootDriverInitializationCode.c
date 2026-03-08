@@ -1,3 +1,16 @@
+/*
+ * XREFs of MmFreeBootDriverInitializationCode @ 0x14084B4CC
+ * Callers:
+ *     Phase1Initialization @ 0x14080E810 (Phase1Initialization.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MiFreeDriverInitialization @ 0x140729EFC (MiFreeDriverInitialization.c)
+ *     MmAcquireLoadLock @ 0x1407D2360 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x1407D2400 (MmReleaseLoadLock.c)
+ */
+
 char MmFreeBootDriverInitializationCode()
 {
   struct _KTHREAD *Lock; // rdi

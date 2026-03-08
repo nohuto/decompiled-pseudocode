@@ -1,3 +1,35 @@
+/*
+ * XREFs of MiLockLeafPage @ 0x14034AF20
+ * Callers:
+ *     MmCopyToCachedPage @ 0x14021DBE0 (MmCopyToCachedPage.c)
+ *     MiTranslatePageForCopy @ 0x1402A1FD4 (MiTranslatePageForCopy.c)
+ *     MiGetWorkingSetInfoList @ 0x1402A36A0 (MiGetWorkingSetInfoList.c)
+ *     MiActOnPte @ 0x1402CF06C (MiActOnPte.c)
+ *     MiDeletePerSessionProtos @ 0x1402CF6DC (MiDeletePerSessionProtos.c)
+ *     MiZeroCfgSystemWideBitmapWorker @ 0x1402DD950 (MiZeroCfgSystemWideBitmapWorker.c)
+ *     MiInitializeNewImageSectionProtos @ 0x1402EAAAC (MiInitializeNewImageSectionProtos.c)
+ *     MiMakeImageReadOnly @ 0x1402EFF50 (MiMakeImageReadOnly.c)
+ *     MiPurgeImageSection @ 0x1402FECC8 (MiPurgeImageSection.c)
+ *     MiReservePageFileSpaceForPage @ 0x14032ECD0 (MiReservePageFileSpaceForPage.c)
+ *     MiResolveProtoCombine @ 0x140345A28 (MiResolveProtoCombine.c)
+ *     MiCombineWithExisting @ 0x14034A4C4 (MiCombineWithExisting.c)
+ *     MiSoftFaultMappedView @ 0x14034A9A0 (MiSoftFaultMappedView.c)
+ *     MiReplacePageOfProtoPool @ 0x14061B5A0 (MiReplacePageOfProtoPool.c)
+ *     MiIsSubsectionClean @ 0x140622654 (MiIsSubsectionClean.c)
+ *     MiPurgeSubsection @ 0x140623294 (MiPurgeSubsection.c)
+ *     MiDecrementLargeSubsections @ 0x14063A2E8 (MiDecrementLargeSubsections.c)
+ *     MiEliminateStaleExtents @ 0x14063A788 (MiEliminateStaleExtents.c)
+ *     MiEnableLargeSubsection @ 0x14063AA00 (MiEnableLargeSubsection.c)
+ *     MiFillFileOnlyProtoAsBad @ 0x14063AB90 (MiFillFileOnlyProtoAsBad.c)
+ *     MiPurgeFileOnlyPfn @ 0x14063CAD0 (MiPurgeFileOnlyPfn.c)
+ *     MiHandleSpecialPurposeMemoryCachedFault @ 0x14065DE28 (MiHandleSpecialPurposeMemoryCachedFault.c)
+ * Callees:
+ *     MiInvalidPteConforms @ 0x140287530 (MiInvalidPteConforms.c)
+ *     MiLockNestedPageAtDpcInline @ 0x1402DDE90 (MiLockNestedPageAtDpcInline.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiLockSpecialPurposeMemoryCachedPage @ 0x14065E278 (MiLockSpecialPurposeMemoryCachedPage.c)
+ */
+
 __int64 __fastcall MiLockLeafPage(__int64 *a1, char a2)
 {
   unsigned __int64 v4; // r8

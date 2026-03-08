@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MapTemporaryResource@VIDMM_APERTURE_SEGMENT@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAU_MDL@@@Z @ 0x1C00F866C
+ * Callers:
+ *     ?BeginTemporaryResourceAccess@VIDMM_APERTURE_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAU_MDL@@@Z @ 0x1C00F7F60 (-BeginTemporaryResourceAccess@VIDMM_APERTURE_SEGMENT@@UEAAJPEAU_VIDMM_GLOBAL_ALLOC@@_K1PEAU_MDL@.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall VIDMM_APERTURE_SEGMENT::MapTemporaryResource(
         VIDMM_APERTURE_SEGMENT *this,
         struct _VIDMM_GLOBAL_ALLOC *a2,

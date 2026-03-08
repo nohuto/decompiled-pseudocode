@@ -1,3 +1,11 @@
+/*
+ * XREFs of LdrpGetMappingFromCacheEntry @ 0x14035C7E0
+ * Callers:
+ *     LdrpGetAlternateResourceModuleHandleEx @ 0x14035C910 (LdrpGetAlternateResourceModuleHandleEx.c)
+ * Callees:
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ */
+
 char __fastcall LdrpGetMappingFromCacheEntry(unsigned int a1, unsigned __int64 a2, _QWORD *a3, _QWORD *a4)
 {
   unsigned __int64 v7; // rcx

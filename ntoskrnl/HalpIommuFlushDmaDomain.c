@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpIommuFlushDmaDomain @ 0x140515AF0
+ * Callers:
+ *     HalpIommuFlushDomainTbs @ 0x140515C24 (HalpIommuFlushDomainTbs.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpIommuFlushDomainTB @ 0x140454AAA (HalpIommuFlushDomainTB.c)
+ *     IommuFlushTb @ 0x1405208E0 (IommuFlushTb.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall HalpIommuFlushDmaDomain(__int64 a1, __int64 a2)
 {
   KIRQL v3; // di

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExComputeTickCountMultiplier @ 0x140B4829C
+ * Callers:
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 ExComputeTickCountMultiplier()
 {
   unsigned int v0; // r8d

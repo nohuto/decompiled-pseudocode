@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiAdvanceVadView @ 0x1402D5E10
+ * Callers:
+ *     MiPerformVadSplitting @ 0x1402D581C (MiPerformVadSplitting.c)
+ *     MiInitializePartialVad @ 0x140760134 (MiInitializePartialVad.c)
+ * Callees:
+ *     MiStartingOffset @ 0x14028C530 (MiStartingOffset.c)
+ *     MiLocatePagefileSubsection @ 0x14031DDB0 (MiLocatePagefileSubsection.c)
+ *     MiLocateSubsectionNode @ 0x140332910 (MiLocateSubsectionNode.c)
+ *     MiComputeContiguousSubsectionPte @ 0x14034CB94 (MiComputeContiguousSubsectionPte.c)
+ */
+
 __int64 __fastcall MiAdvanceVadView(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

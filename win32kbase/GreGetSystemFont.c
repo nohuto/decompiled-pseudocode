@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreGetSystemFont @ 0x1C0012D10
+ * Callers:
+ *     InitUserScreen @ 0x1C00127A8 (InitUserScreen.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GreGetSystemFont(int a1)
 {
   __int64 v2; // rcx

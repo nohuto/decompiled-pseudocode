@@ -1,3 +1,20 @@
+/*
+ * XREFs of PpCheckInDriverDatabase @ 0x14079DC60
+ * Callers:
+ *     PnpPrepareDriverLoading @ 0x14079DAE0 (PnpPrepareDriverLoading.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     McTemplateK0j_EtwWriteTransfer @ 0x1403BE348 (McTemplateK0j_EtwWriteTransfer.c)
+ *     IopBuildFullDriverPath @ 0x1406C25D8 (IopBuildFullDriverPath.c)
+ *     PiLookupInDDBCache @ 0x14079DD70 (PiLookupInDDBCache.c)
+ *     PiLookupInDDB @ 0x14079DE5C (PiLookupInDDB.c)
+ *     PnpLogEvent @ 0x140955B40 (PnpLogEvent.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PpCheckInDriverDatabase(
         UNICODE_STRING *a1,
         void *a2,

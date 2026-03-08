@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpLoadManufacturingProfileNode @ 0x140B95F14
+ * Callers:
+ *     CmpLoadManufacturingProfileServicesNode @ 0x140B96004 (CmpLoadManufacturingProfileServicesNode.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpFindSubKeyByName @ 0x1407FE71C (CmpFindSubKeyByName.c)
+ *     CmpLoadManufacturingModeNode @ 0x140B95DEC (CmpLoadManufacturingModeNode.c)
+ */
+
 bool __fastcall CmpLoadManufacturingProfileNode(
         ULONG_PTR BugCheckParameter3,
         ULONG_PTR a2,

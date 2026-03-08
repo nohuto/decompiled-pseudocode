@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SysMmClosePhysicalObjectByAdapter@@YAXPEAUSYSMM_PHYSICAL_OBJECT@@PEAUSYSMM_ADAPTER@@@Z @ 0x1C00135E4
+ * Callers:
+ *     DxgkFreePagesFromMdlCB @ 0x1C0012E50 (DxgkFreePagesFromMdlCB.c)
+ *     DxgkFreeContiguousMemoryCB @ 0x1C0052320 (DxgkFreeContiguousMemoryCB.c)
+ *     DxgkUnmapMdlFromIoMmuCB @ 0x1C0052570 (DxgkUnmapMdlFromIoMmuCB.c)
+ * Callees:
+ *     SmmClosePhysicalObject @ 0x1C0013468 (SmmClosePhysicalObject.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 void __fastcall SysMmClosePhysicalObjectByAdapter(struct SYSMM_ADAPTER **a1, struct SYSMM_ADAPTER *a2, int a3)
 {
   __int64 *v3; // rbx

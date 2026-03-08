@@ -1,3 +1,19 @@
+/*
+ * XREFs of CiConfigInitializeFromRegistry @ 0x1C000E8D0
+ * Callers:
+ *     CiConfigInitialize @ 0x1C000E4E0 (CiConfigInitialize.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003050 (__security_check_cookie.c)
+ *     memmove @ 0x1C00034C0 (memmove.c)
+ *     memset @ 0x1C00037C0 (memset.c)
+ *     WPP_SF_Sd @ 0x1C0004664 (WPP_SF_Sd.c)
+ *     WPP_SF_d @ 0x1C0004884 (WPP_SF_d.c)
+ *     CiConfigTaskPolicy @ 0x1C000EB20 (CiConfigTaskPolicy.c)
+ *     CiTaskAllocate @ 0x1C000EBA0 (CiTaskAllocate.c)
+ *     CiConfigQueryTaskFromRegistry @ 0x1C000EC60 (CiConfigQueryTaskFromRegistry.c)
+ *     CiTaskDump @ 0x1C000EF00 (CiTaskDump.c)
+ */
+
 __int64 __fastcall CiConfigInitializeFromRegistry(HANDLE KeyHandle)
 {
   ULONG i; // esi

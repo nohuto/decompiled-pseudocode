@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpPerformSiloKeyLockTrackerEnabledCheck @ 0x14084610C
+ * Callers:
+ *     CmLockKeyForWrite @ 0x140845EFC (CmLockKeyForWrite.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmpPerformSiloKeyLockTrackerEnabledCheck(__int64 a1)
 {
   int v1; // eax

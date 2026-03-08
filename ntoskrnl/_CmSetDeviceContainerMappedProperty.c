@@ -1,3 +1,12 @@
+/*
+ * XREFs of _CmSetDeviceContainerMappedProperty @ 0x140A61D50
+ * Callers:
+ *     _PnpDispatchDeviceContainer @ 0x140682AC0 (_PnpDispatchDeviceContainer.c)
+ *     _CmDeleteDeviceContainerWorker @ 0x140A60E84 (_CmDeleteDeviceContainerWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmSetDeviceContainerMappedProperty(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   unsigned int v5; // r10d

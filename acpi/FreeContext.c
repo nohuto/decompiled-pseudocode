@@ -1,3 +1,18 @@
+/*
+ * XREFs of FreeContext @ 0x1C0053624
+ * Callers:
+ *     LoadDDB @ 0x1C004FA40 (LoadDDB.c)
+ *     RunContext @ 0x1C0053F34 (RunContext.c)
+ *     AsyncEvalObject @ 0x1C00544D0 (AsyncEvalObject.c)
+ *     SyncLoadDDB @ 0x1C00AB82C (SyncLoadDDB.c)
+ * Callees:
+ *     AcpiDiagTraceAmlEvaluation @ 0x1C00078AC (AcpiDiagTraceAmlEvaluation.c)
+ *     AcpiDiagTraceRecordAmlEvaluationStatistics @ 0x1C0008798 (AcpiDiagTraceRecordAmlEvaluationStatistics.c)
+ *     AmliDisableWatchdog @ 0x1C0046D30 (AmliDisableWatchdog.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ */
+
 void __fastcall FreeContext(char *Entry)
 {
   char **v2; // rdx

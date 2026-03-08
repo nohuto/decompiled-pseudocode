@@ -1,3 +1,15 @@
+/*
+ * XREFs of VfPoolTrackingEntry @ 0x1405CFD08
+ * Callers:
+ *     DifRegisterKernelPlugin @ 0x1405D2B20 (DifRegisterKernelPlugin.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     DifRegisterPlugin @ 0x1405D2C50 (DifRegisterPlugin.c)
+ *     ViPtInitAvlTrees @ 0x140ADBDB0 (ViPtInitAvlTrees.c)
+ *     ViPtInitCircularPoolTrace @ 0x140ADBE2C (ViPtInitCircularPoolTrace.c)
+ *     ViPtPluginUnload @ 0x140ADC1B0 (ViPtPluginUnload.c)
+ */
+
 __int64 VfPoolTrackingEntry()
 {
   int inited; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBHSM_CheckingIfHubDescriptorRetryCountExceededMax @ 0x1C0009570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBHSM_CheckingIfHubDescriptorRetryCountExceededMax(__int64 a1)
 {
   __int64 v1; // rdx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of WmipSDRegistryQueryRoutine @ 0x14075E9C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SeValidSecurityDescriptor @ 0x14075EA40 (SeValidSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall WmipSDRegistryQueryRoutine(__int64 a1, int a2, void *a3, ULONG a4, __int64 a5, _QWORD *a6)
 {
   unsigned int v6; // ebx

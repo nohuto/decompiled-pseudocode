@@ -1,3 +1,16 @@
+/*
+ * XREFs of TtmNotifyConsoleUserPresent @ 0x1409A1234
+ * Callers:
+ *     PopNotifyConsoleUserPresent @ 0x14073A3BC (PopNotifyConsoleUserPresent.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     TtmpAcquireSessionById @ 0x1409A1F50 (TtmpAcquireSessionById.c)
+ *     TtmiLogConsoleUserPresent @ 0x1409A4248 (TtmiLogConsoleUserPresent.c)
+ *     TtmiLogError @ 0x1409A536C (TtmiLogError.c)
+ *     TtmiResetTerminalTimeouts @ 0x1409A8238 (TtmiResetTerminalTimeouts.c)
+ */
+
 __int64 __fastcall TtmNotifyConsoleUserPresent(unsigned int a1, unsigned int a2)
 {
   int v4; // eax

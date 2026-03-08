@@ -1,3 +1,17 @@
+/*
+ * XREFs of BiDeleteEfiVariable @ 0x140A5B6EC
+ * Callers:
+ *     BiExportEfiBootManager @ 0x140A5B928 (BiExportEfiBootManager.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQuerySystemEnvironmentValueEx @ 0x140415070 (ZwQuerySystemEnvironmentValueEx.c)
+ *     ZwSetSystemEnvironmentValueEx @ 0x140415A10 (ZwSetSystemEnvironmentValueEx.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiAcquirePrivilege @ 0x14082F784 (BiAcquirePrivilege.c)
+ *     BiReleasePrivilege @ 0x14082F810 (BiReleasePrivilege.c)
+ */
+
 __int64 __fastcall BiDeleteEfiVariable(PCWSTR SourceString)
 {
   int v2; // ebx

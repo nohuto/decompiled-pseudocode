@@ -1,3 +1,13 @@
+/*
+ * XREFs of SshpAlpcProcessMessage @ 0x14084A1D8
+ * Callers:
+ *     SshpAlpcProcessAlpcMessage @ 0x14084A04C (SshpAlpcProcessAlpcMessage.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1402A4AB8 (SSHSupportReleasePushLockExclusive.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall SshpAlpcProcessMessage(__int64 a1)
 {
   unsigned int v1; // ebx

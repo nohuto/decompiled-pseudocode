@@ -1,3 +1,20 @@
+/*
+ * XREFs of GreCreatePatternBrushInternal @ 0x1C001A060
+ * Callers:
+ *     GreCreatePatternBrush @ 0x1C0016D80 (GreCreatePatternBrush.c)
+ *     bInitBRUSHOBJ @ 0x1C031D4F4 (bInitBRUSHOBJ.c)
+ * Callees:
+ *     ??0BRUSHMEMOBJ@@QEAA@PEAUHBITMAP__@@0HKKH@Z @ 0x1C001A160 (--0BRUSHMEMOBJ@@QEAA@PEAUHBITMAP__@@0HKKH@Z.c)
+ *     ??1BRUSHMEMOBJ@@QEAA@XZ @ 0x1C001CC00 (--1BRUSHMEMOBJ@@QEAA@XZ.c)
+ *     ?hbmCreateClone@@YAPEAUHBITMAP__@@PEAVSURFACE@@KK@Z @ 0x1C001CE8C (-hbmCreateClone@@YAPEAUHBITMAP__@@PEAVSURFACE@@KK@Z.c)
+ *     ?bIsMonochrome@XEPALOBJ@@QEBAHXZ @ 0x1C001D030 (-bIsMonochrome@XEPALOBJ@@QEBAHXZ.c)
+ *     HmgDecrementShareReferenceCountEx @ 0x1C00483B0 (HmgDecrementShareReferenceCountEx.c)
+ *     HmgShareLockCheck @ 0x1C0049E60 (HmgShareLockCheck.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C004E7E8 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C004E850 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     EngSetLastError @ 0x1C00BAB10 (EngSetLastError.c)
+ */
+
 __int64 __fastcall GreCreatePatternBrushInternal(HBITMAP a1, int a2, int a3)
 {
   __int64 v6; // rdi

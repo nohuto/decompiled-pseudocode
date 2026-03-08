@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetCurrentTarget@CManipulationContext@@UEAAXAEBUTargetingInfo@@@Z @ 0x1801297B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CManipulationContext::SetCurrentTarget(CManipulationContext *this, const struct TargetingInfo *a2)
 {
   *((_DWORD *)this + 26) = *(_DWORD *)a2;

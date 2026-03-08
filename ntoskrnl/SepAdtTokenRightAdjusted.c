@@ -1,3 +1,21 @@
+/*
+ * XREFs of SepAdtTokenRightAdjusted @ 0x14070F51C
+ * Callers:
+ *     SepAdjustPrivileges @ 0x14070EDE0 (SepAdjustPrivileges.c)
+ * Callees:
+ *     PsGetCurrentThreadProcess @ 0x1402C0BB0 (PsGetCurrentThreadProcess.c)
+ *     SepAdtLogAuditRecord @ 0x140397890 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SepAdtAuditablePrivilege @ 0x1405B683C (SepAdtAuditablePrivilege.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x14070F610 (SeAuditingWithTokenForSubcategory.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1407E7618 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall SepAdtTokenRightAdjusted(__int64 a1, char *a2, unsigned int a3, char *a4, unsigned int a5, char a6)
 {
   unsigned int *v9; // r14

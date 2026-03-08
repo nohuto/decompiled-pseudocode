@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?xxxImmersiveZBandDpiChange@CRecalcState@@QEAAXPEAUtagWND@@@Z @ 0x1C0229878
+ * Callers:
+ *     ?xxxProcessPendingRecalcState@CRecalcProp@@AEAAXPEAUtagWND@@PEAVCRecalcState@@PEAVCRecalcContext@@@Z @ 0x1C00FBF50 (-xxxProcessPendingRecalcState@CRecalcProp@@AEAAXPEAUtagWND@@PEAVCRecalcState@@PEAVCRecalcContext.c)
+ * Callees:
+ *     IsNonImmersiveBand @ 0x1C0039CB0 (IsNonImmersiveBand.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     UpdateMonitorForWindowAndChildren @ 0x1C00991CC (UpdateMonitorForWindowAndChildren.c)
+ *     xxxNotifyMonitorChanged @ 0x1C0099554 (xxxNotifyMonitorChanged.c)
+ *     GetWindowDpiLastNotify @ 0x1C00A3A34 (GetWindowDpiLastNotify.c)
+ *     _MonitorFromRect @ 0x1C00AEE80 (_MonitorFromRect.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C00E3308 (WPP_RECORDER_AND_TRACE_SF_dd.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qddddddd @ 0x1C022A190 (WPP_RECORDER_AND_TRACE_SF_qddddddd.c)
+ */
+
 void __fastcall CRecalcState::xxxImmersiveZBandDpiChange(CRecalcState *this, struct tagWND *a2)
 {
   int v3; // edx

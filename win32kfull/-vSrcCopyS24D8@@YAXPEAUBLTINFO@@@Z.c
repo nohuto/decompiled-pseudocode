@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vSrcCopyS24D8@@YAXPEAUBLTINFO@@@Z @ 0x1C02ECED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?XLATEOBJ_RGB32ToPalSurf@@YAEPEAU_XLATEOBJ@@PEBEK@Z @ 0x1C02DE140 (-XLATEOBJ_RGB32ToPalSurf@@YAEPEAU_XLATEOBJ@@PEBEK@Z.c)
+ *     ?XLATEOBJ_pGetXlate555@@YAPEAEPEAU_XLATEOBJ@@@Z @ 0x1C02DE1EC (-XLATEOBJ_pGetXlate555@@YAPEAEPEAU_XLATEOBJ@@@Z.c)
+ */
+
 void __fastcall vSrcCopyS24D8(struct BLTINFO *a1)
 {
   unsigned int v1; // ebp

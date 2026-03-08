@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiForceSectionClosed @ 0x1402F3AB0
+ * Callers:
+ *     MmForceSectionClosed @ 0x1402F3A70 (MmForceSectionClosed.c)
+ *     MmForceSectionClosedEx @ 0x140623F50 (MmForceSectionClosedEx.c)
+ *     MiCreateImageOrDataSection @ 0x1407D12B0 (MiCreateImageOrDataSection.c)
+ * Callees:
+ *     MiAttemptSectionDelete @ 0x1402F3B10 (MiAttemptSectionDelete.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiLockSectionControlArea @ 0x1403638A8 (MiLockSectionControlArea.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiForceSectionClosed(__int64 a1, char a2, char a3)
 {
   __int64 v5; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ScsiPersistentReserveIn @ 0x1C001A12C
+ * Callers:
+ *     ScsiToNVMe @ 0x1C00010C0 (ScsiToNVMe.c)
+ * Callees:
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     NVMeReservationReportCapabilities @ 0x1C001734C (NVMeReservationReportCapabilities.c)
+ *     NVMeReservationReportStatus @ 0x1C0017528 (NVMeReservationReportStatus.c)
+ *     NVMeSetSenseData @ 0x1C0024238 (NVMeSetSenseData.c)
+ */
+
 __int64 __fastcall ScsiPersistentReserveIn(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // r8

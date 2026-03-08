@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetSensorHostingProcessHandle@CBaseInput@@IEBAPEAXXZ @ 0x1C00CDDE8
+ * Callers:
+ *     ?GetCursorUpdateHandle@CMouseSensor@@QEBAPEAXXZ @ 0x1C00CDD24 (-GetCursorUpdateHandle@CMouseSensor@@QEBAPEAXXZ.c)
+ * Callees:
+ *     LockProcessByClientId @ 0x1C0084110 (LockProcessByClientId.c)
+ */
+
 void *__fastcall CBaseInput::GetSensorHostingProcessHandle(CBaseInput *this)
 {
   __int64 v1; // rcx

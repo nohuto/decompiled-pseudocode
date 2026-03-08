@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetImeInfoEx@@YAHPEAUtagWINDOWSTATION@@PEAUtagIMEINFOEX@@W4_IMEINFOEXCLASS@@@Z @ 0x1C00D44C8
+ * Callers:
+ *     NtUserGetImeInfoEx @ 0x1C00D42B0 (NtUserGetImeInfoEx.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetImeInfoEx(__int64 a1, wchar_t *a2, int a3)
 {
   wchar_t *v3; // rbx

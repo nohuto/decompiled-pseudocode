@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiSaveIptState @ 0x140570730
+ * Callers:
+ *     KeSaveSupervisorState @ 0x14036A078 (KeSaveSupervisorState.c)
+ *     KeSaveIptStateBeforeProcessorGoesOffline @ 0x1405700B8 (KeSaveIptStateBeforeProcessorGoesOffline.c)
+ *     KiSaveThreadIptState @ 0x140570830 (KiSaveThreadIptState.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall KiSaveIptState(unsigned __int64 *a1)
 {
   char v1; // r9

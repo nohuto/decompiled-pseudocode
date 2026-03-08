@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitOLEFormats @ 0x1C03B7D30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ */
+
 __int64 InitOLEFormats()
 {
   char v0; // dl

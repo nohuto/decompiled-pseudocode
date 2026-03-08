@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_E?$RuntimeClass@UIHotKeyClientOwner@Text@Internal@UI@Windows@@@WRL@Microsoft@@UEAAPEAXI@Z @ 0x14000A970
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX_K@Z @ 0x140005940 (--3@YAXPEAX_K@Z.c)
+ *     ??1?$RuntimeClassImpl@U?$RuntimeClassFlags@$00@WRL@Microsoft@@$00$00$0A@UIHotKeyClientOwner@Text@Internal@UI@Windows@@@Details@WRL@Microsoft@@UEAA@XZ @ 0x14000A8A4 (--1-$RuntimeClassImpl@U-$RuntimeClassFlags@$00@WRL@Microsoft@@$00$00$0A@UIHotKeyClientOwner@Text.c)
+ */
+
 void *__fastcall Microsoft::WRL::RuntimeClass<Windows::UI::Internal::Text::IHotKeyClientOwner>::`vector deleting destructor'(
         void *a1,
         char a2)

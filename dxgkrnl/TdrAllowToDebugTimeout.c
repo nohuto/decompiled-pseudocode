@@ -1,3 +1,12 @@
+/*
+ * XREFs of TdrAllowToDebugTimeout @ 0x1C030AD88
+ * Callers:
+ *     ?TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C030A4E0 (-TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ * Callees:
+ *     ?TdrValidateDebugMode@@YAXXZ @ 0x1C004F094 (-TdrValidateDebugMode@@YAXXZ.c)
+ *     ?TdrGetDbgOwnerTag@@YA_KPEBU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C030A36C (-TdrGetDbgOwnerTag@@YA_KPEBU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ */
+
 __int64 __fastcall TdrAllowToDebugTimeout(struct _TDR_RECOVERY_CONTEXT *a1)
 {
   unsigned int v1; // ebx

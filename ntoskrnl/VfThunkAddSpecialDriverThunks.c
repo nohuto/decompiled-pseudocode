@@ -1,3 +1,16 @@
+/*
+ * XREFs of VfThunkAddSpecialDriverThunks @ 0x140AD8020
+ * Callers:
+ *     MmAddVerifierSpecialThunks @ 0x140A2A740 (MmAddVerifierSpecialThunks.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     VfDriverLock @ 0x140AC773C (VfDriverLock.c)
+ *     ViThunkCreateThunkTable @ 0x140AD8784 (ViThunkCreateThunkTable.c)
+ *     ViThunkFindNextSpecialTable @ 0x140AD8A68 (ViThunkFindNextSpecialTable.c)
+ *     ViThunkRecoverPristines @ 0x140AD8D6C (ViThunkRecoverPristines.c)
+ */
+
 __int64 __fastcall VfThunkAddSpecialDriverThunks(__int64 a1, void *a2, __int64 a3, __int64 a4)
 {
   _QWORD *ThunkTable; // rbx

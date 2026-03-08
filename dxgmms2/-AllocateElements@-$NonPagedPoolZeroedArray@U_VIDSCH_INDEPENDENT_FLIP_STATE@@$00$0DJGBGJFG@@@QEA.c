@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AllocateElements@?$NonPagedPoolZeroedArray@U_VIDSCH_INDEPENDENT_FLIP_STATE@@$00$0DJGBGJFG@@@QEAAPEAU_VIDSCH_INDEPENDENT_FLIP_STATE@@I@Z @ 0x1C0019170
+ * Callers:
+ *     VidSchInitializeAdapter @ 0x1C00B5B90 (VidSchInitializeAdapter.c)
+ * Callees:
+ *     memset @ 0x1C001AC80 (memset.c)
+ */
+
 __int64 __fastcall NonPagedPoolZeroedArray<_VIDSCH_INDEPENDENT_FLIP_STATE,1,962685270>::AllocateElements(
         __int64 *a1,
         unsigned int a2)

@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiAssignSchedulingGroupWeights @ 0x1402F1A84
+ * Callers:
+ *     KeSetSchedulingGroupWeights @ 0x140200CE0 (KeSetSchedulingGroupWeights.c)
+ *     KeRemoveSchedulingGroup @ 0x1402F1480 (KeRemoveSchedulingGroup.c)
+ *     KeInsertSchedulingGroup @ 0x1402F161C (KeInsertSchedulingGroup.c)
+ *     KeSetSchedulingGroupCpuRates @ 0x1402F19B4 (KeSetSchedulingGroupCpuRates.c)
+ *     KeUpdateGroupSchedulingConstants @ 0x1403AA794 (KeUpdateGroupSchedulingConstants.c)
+ * Callees:
+ *     KiUpdateCpuTargetByWeight @ 0x1402F1C6C (KiUpdateCpuTargetByWeight.c)
+ */
+
 __int64 __fastcall KiAssignSchedulingGroupWeights(int a1, char a2, __int64 a3)
 {
   unsigned int v5; // edi

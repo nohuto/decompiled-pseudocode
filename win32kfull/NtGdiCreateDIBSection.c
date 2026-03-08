@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtGdiCreateDIBSection @ 0x1C008FFA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreGetDCDpiScaleValue @ 0x1C0014EA8 (GreGetDCDpiScaleValue.c)
+ *     ?GreCreateDIBitmapReal@@YAPEAUHBITMAP__@@PEAUHDC__@@KAEAV?$umptr_r@E@@PEAUtagBITMAPINFO@@KIPEAXK3K_KPEAPEAX@Z @ 0x1C00906B0 (-GreCreateDIBitmapReal@@YAPEAUHBITMAP__@@PEAUHDC__@@KAEAV-$umptr_r@E@@PEAUtagBITMAPINFO@@KIPEAXK.c)
+ *     ?noOverflowCJSCAN@@YAKKGGK@Z @ 0x1C0091284 (-noOverflowCJSCAN@@YAKKGGK@Z.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall NtGdiCreateDIBSection(
         HDC a1,
         void *a2,

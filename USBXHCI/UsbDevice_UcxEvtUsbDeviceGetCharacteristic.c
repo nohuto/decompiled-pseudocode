@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbDevice_UcxEvtUsbDeviceGetCharacteristic @ 0x1C004A040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall UsbDevice_UcxEvtUsbDeviceGetCharacteristic(__int64 a1, __int64 a2, _DWORD *a3)
 {
   unsigned int v3; // edi

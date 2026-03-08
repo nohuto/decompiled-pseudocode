@@ -1,3 +1,13 @@
+/*
+ * XREFs of SeTokenSetNoChildProcessRestricted @ 0x140300474
+ * Callers:
+ *     PspSetNoChildProcessRestrictedPolicy @ 0x1407998F0 (PspSetNoChildProcessRestrictedPolicy.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 __int64 __fastcall SeTokenSetNoChildProcessRestricted(__int64 a1, char a2, char a3)
 {
   struct _KTHREAD *CurrentThread; // rax

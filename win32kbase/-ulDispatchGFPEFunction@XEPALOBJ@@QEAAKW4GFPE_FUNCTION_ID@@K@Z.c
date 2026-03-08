@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?ulDispatchGFPEFunction@XEPALOBJ@@QEAAKW4GFPE_FUNCTION_ID@@K@Z @ 0x1C0028270
+ * Callers:
+ *     ?ulGetMatchingIndexFromColorref@@YAKVXEPALOBJ@@0K@Z @ 0x1C00281CC (-ulGetMatchingIndexFromColorref@@YAKVXEPALOBJ@@0K@Z.c)
+ *     ulGetNearestIndexFromColorref @ 0x1C00AAA70 (ulGetNearestIndexFromColorref.c)
+ *     ?ulGetMatchFromPalentry@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@@Z @ 0x1C0184B48 (-ulGetMatchFromPalentry@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@@Z.c)
+ *     GreSetMagicColors @ 0x1C01995FC (GreSetMagicColors.c)
+ *     ?ulGetNearestFromPalentry@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@K@Z @ 0x1C0199D34 (-ulGetNearestFromPalentry@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@K@Z.c)
+ * Callees:
+ *     ?ulIndexedGetMatchFromPalentry@@YAKPEAVPALETTE@@K@Z @ 0x1C00282F4 (-ulIndexedGetMatchFromPalentry@@YAKPEAVPALETTE@@K@Z.c)
+ *     ?ulGetNearestFromPalentryNoExactMatchFirst@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@@Z @ 0x1C0184B70 (-ulGetNearestFromPalentryNoExactMatchFirst@XEPALOBJ@@QEAAKUtagPALETTEENTRY@@@Z.c)
+ */
+
 unsigned int __fastcall XEPALOBJ::ulDispatchGFPEFunction(ULONG_PTR *a1, int a2, unsigned int a3)
 {
   unsigned int v3; // r11d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MmGetWorkingSetLeafSize @ 0x140299868
+ * Callers:
+ *     ExpQuerySystemPerformanceInformation @ 0x14071F960 (ExpQuerySystemPerformanceInformation.c)
+ * Callees:
+ *     MiGetCurrentMultiplexedVm @ 0x1402998AC (MiGetCurrentMultiplexedVm.c)
+ *     MiTranslateWsType @ 0x1402998EC (MiTranslateWsType.c)
+ */
+
 char *__fastcall MmGetWorkingSetLeafSize(__int64 a1, __int64 a2)
 {
   char *result; // rax

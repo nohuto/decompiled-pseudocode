@@ -1,3 +1,15 @@
+/*
+ * XREFs of IoCreateController @ 0x140944220
+ * Callers:
+ *     DifIoCreateControllerWrapper @ 0x1405DBAB0 (DifIoCreateControllerWrapper.c)
+ * Callees:
+ *     KeInitializeDeviceQueue @ 0x1402F96C0 (KeInitializeDeviceQueue.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ */
+
 PCONTROLLER_OBJECT __stdcall IoCreateController(ULONG Size)
 {
   struct _CONTROLLER_OBJECT *v1; // rbx

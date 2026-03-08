@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpAddStringToMapping @ 0x140734140
+ * Callers:
+ *     CmpVEAddHiveToSIDMappingTable @ 0x1407340A0 (CmpVEAddHiveToSIDMappingTable.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     CmpHashUnicodeComponent @ 0x1407A480C (CmpHashUnicodeComponent.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmpAddStringToMapping(const void **a1, __int64 a2)
 {
   unsigned int v4; // ebx

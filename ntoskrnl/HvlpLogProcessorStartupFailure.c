@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvlpLogProcessorStartupFailure @ 0x140546740
+ * Callers:
+ *     HvlPhase2Initialize @ 0x1403AF870 (HvlPhase2Initialize.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HvlpWriteEventLog @ 0x140546808 (HvlpWriteEventLog.c)
+ */
+
 __int64 __fastcall HvlpLogProcessorStartupFailure(int a1, int a2, __int64 a3)
 {
   const EVENT_DESCRIPTOR *v3; // rcx

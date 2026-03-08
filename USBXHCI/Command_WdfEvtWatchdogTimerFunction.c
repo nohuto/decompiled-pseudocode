@@ -1,3 +1,32 @@
+/*
+ * XREFs of Command_WdfEvtWatchdogTimerFunction @ 0x1C0030270
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     Controller_IsControllerAccessible @ 0x1C000A8E4 (Controller_IsControllerAccessible.c)
+ *     DynamicLock_Acquire @ 0x1C000A918 (DynamicLock_Acquire.c)
+ *     DynamicLock_Release @ 0x1C000A958 (DynamicLock_Release.c)
+ *     Command_InternalSendCommand @ 0x1C000A998 (Command_InternalSendCommand.c)
+ *     XilCommand_WriteDoorbell @ 0x1C000ABF8 (XilCommand_WriteDoorbell.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C00141F4 (WPP_RECORDER_SF_qd.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ddL @ 0x1C0030BE4 (WPP_RECORDER_SF_ddL.c)
+ *     WPP_RECORDER_SF_qL @ 0x1C0030E00 (WPP_RECORDER_SF_qL.c)
+ *     WPP_RECORDER_SF_qLd @ 0x1C0030F30 (WPP_RECORDER_SF_qLd.c)
+ *     XilCommand_AdvanceCommandRingControlDequeuePointer @ 0x1C0031388 (XilCommand_AdvanceCommandRingControlDequeuePointer.c)
+ *     XilCommand_SendAbortRingCommandRequest @ 0x1C00319C0 (XilCommand_SendAbortRingCommandRequest.c)
+ *     XilCommand_SendQueryIsRingRunningRequest @ 0x1C0031F68 (XilCommand_SendQueryIsRingRunningRequest.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Controller_SetControllerGone @ 0x1C00347AC (Controller_SetControllerGone.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     Etw_CommandCompleteError @ 0x1C004A868 (Etw_CommandCompleteError.c)
+ *     XilCoreCommand_AbortCommandRing @ 0x1C0052A80 (XilCoreCommand_AbortCommandRing.c)
+ *     XilCoreCommand_QueryIsRingRunning @ 0x1C0052B1C (XilCoreCommand_QueryIsRingRunning.c)
+ */
+
 __int64 __fastcall Command_WdfEvtWatchdogTimerFunction(__int64 a1)
 {
   __int64 (__fastcall *v1)(PWDF_DRIVER_GLOBALS, __int64); // rax

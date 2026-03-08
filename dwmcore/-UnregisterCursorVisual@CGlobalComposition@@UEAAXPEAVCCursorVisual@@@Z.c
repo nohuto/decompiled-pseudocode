@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UnregisterCursorVisual@CGlobalComposition@@UEAAXPEAVCCursorVisual@@@Z @ 0x1801EF970
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ *     ??$_Resize_reallocate@U_Value_init_tag@std@@@?$vector@PEAVCCursorVisual@@V?$allocator@PEAVCCursorVisual@@@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x1801EF368 (--$_Resize_reallocate@U_Value_init_tag@std@@@-$vector@PEAVCCursorVisual@@V-$allocator@PEAVCCurso.c)
+ */
+
 void __fastcall CGlobalComposition::UnregisterCursorVisual(CGlobalComposition *this, struct CCursorVisual *a2)
 {
   struct CCursorVisual **v2; // r8

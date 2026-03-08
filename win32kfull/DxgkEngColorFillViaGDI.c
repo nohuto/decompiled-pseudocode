@@ -1,3 +1,13 @@
+/*
+ * XREFs of DxgkEngColorFillViaGDI @ 0x1C02724F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ *     NtGdiPatBlt @ 0x1C008B370 (NtGdiPatBlt.c)
+ */
+
 __int64 __fastcall DxgkEngColorFillViaGDI(HDC a1, _DWORD *a2, __int64 a3, unsigned int a4, int a5)
 {
   unsigned int v5; // ebp

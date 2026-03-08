@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FindFirstOutstandingFrameIndex@CPartitionVerticalBlankScheduler@@AEAAIXZ @ 0x18004E168
+ * Callers:
+ *     ?UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ @ 0x18004DFB0 (-UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ.c)
+ *     ?RetireFrames@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z @ 0x1800AEE6C (-RetireFrames@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CPartitionVerticalBlankScheduler::FindFirstOutstandingFrameIndex(
         CPartitionVerticalBlankScheduler *this)
 {

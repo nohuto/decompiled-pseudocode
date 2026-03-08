@@ -1,3 +1,11 @@
+/*
+ * XREFs of CleanupHLSURF @ 0x1C00F5FA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?bhLSurfDestroyLogicalSurfaceObject@@YAHPEAVSFMLOGICALSURFACE@@H@Z @ 0x1C002D6F0 (-bhLSurfDestroyLogicalSurfaceObject@@YAHPEAVSFMLOGICALSURFACE@@H@Z.c)
+ */
+
 __int64 CleanupHLSURF()
 {
   __int64 v0; // rdx

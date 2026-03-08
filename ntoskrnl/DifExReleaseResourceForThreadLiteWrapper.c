@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifExReleaseResourceForThreadLiteWrapper @ 0x1405D77C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseResourceForThreadLite @ 0x14033A350 (ExReleaseResourceForThreadLite.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 void __fastcall DifExReleaseResourceForThreadLiteWrapper(PERESOURCE Resource, ERESOURCE_THREAD ResourceThreadId)
 {
   __int64 *APIThunkContextById; // rax

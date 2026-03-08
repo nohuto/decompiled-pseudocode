@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiFreeProcessorNumber @ 0x14056E36C
+ * Callers:
+ *     KiFreeProcessorStateInitializationParameters @ 0x140569A34 (KiFreeProcessorStateInitializationParameters.c)
+ * Callees:
+ *     KiFindSubNodeForProcessorNumber @ 0x140371B68 (KiFindSubNodeForProcessorNumber.c)
+ *     KiUncommitGroupSubNodeAssignments @ 0x14056E4D0 (KiUncommitGroupSubNodeAssignments.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall KiFreeProcessorNumber(unsigned __int16 *a1)
 {
   __int64 v2; // r9

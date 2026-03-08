@@ -1,3 +1,15 @@
+/*
+ * XREFs of KsepMatchInitMachineInfo @ 0x140B35058
+ * Callers:
+ *     KseInitialize @ 0x140B3E688 (KseInitialize.c)
+ * Callees:
+ *     KsepLogError @ 0x140303450 (KsepLogError.c)
+ *     KsepDebugPrint @ 0x14057E834 (KsepDebugPrint.c)
+ *     KsepMatchInitCpuInfo @ 0x140B35128 (KsepMatchInitCpuInfo.c)
+ *     KsepMatchInitAcpiOemInfo @ 0x140B351B8 (KsepMatchInitAcpiOemInfo.c)
+ *     KsepMatchInitBiosInfo @ 0x140B35308 (KsepMatchInitBiosInfo.c)
+ */
+
 __int64 KsepMatchInitMachineInfo()
 {
   int matched; // ebx

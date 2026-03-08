@@ -1,3 +1,30 @@
+/*
+ * XREFs of WheaInitialize @ 0x140B3E1A0
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     WheapCallErrorSourceInitialize @ 0x14037D864 (WheapCallErrorSourceInitialize.c)
+ *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403AEE1C (WheapCheckForAndReportErrorsFromPreviousSession.c)
+ *     WheapInitializeWorkQueue @ 0x1403AFA9C (WheapInitializeWorkQueue.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     WheapLogInitEvent @ 0x14085337C (WheapLogInitEvent.c)
+ *     WheapInitWnfCallbacks @ 0x1408602D0 (WheapInitWnfCallbacks.c)
+ *     IoWMIRegistrationControl @ 0x140869750 (IoWMIRegistrationControl.c)
+ *     WheapInitializeErrorSourceTable @ 0x140B3E058 (WheapInitializeErrorSourceTable.c)
+ *     WheapQueryPshedForErrorSources @ 0x140B3E5DC (WheapQueryPshedForErrorSources.c)
+ *     WheapInitializeEventing @ 0x140B63B48 (WheapInitializeEventing.c)
+ *     WheapLoadPolicy @ 0x140B6A2B0 (WheapLoadPolicy.c)
+ *     WheapCreatePerProcessorInfo @ 0x140B70AF4 (WheapCreatePerProcessorInfo.c)
+ */
+
 __int64 __fastcall WheaInitialize(__int64 a1, unsigned int a2)
 {
   ULONG_PTR v2; // r12

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Init@FxPowerPolicyOwnerSettings@@QEAAJXZ @ 0x1C007A5E4
+ * Callers:
+ *     ?Initialize@FxPkgPnp@@UEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C0073160 (-Initialize@FxPkgPnp@@UEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ * Callees:
+ *     ?Initialize@MxTimer@@QEAAJPEAXP6AXPEAU_KDPC@@000@ZJ@Z @ 0x1C003FB10 (-Initialize@MxTimer@@QEAAJPEAXP6AXPEAU_KDPC@@000@ZJ@Z.c)
+ *     ?Reset@FxPowerIdleMachine@@QEAAXXZ @ 0x1C0077520 (-Reset@FxPowerIdleMachine@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall FxPowerPolicyOwnerSettings::Init(FxPowerPolicyOwnerSettings *this)
 {
   struct _CALLBACK_OBJECT **p_m_PowerCallbackObject; // rbx

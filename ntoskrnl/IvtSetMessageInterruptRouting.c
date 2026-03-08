@@ -1,3 +1,11 @@
+/*
+ * XREFs of IvtSetMessageInterruptRouting @ 0x140A8EDB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IvtSetMessageInterruptRouting(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   _DWORD *v4; // rdx

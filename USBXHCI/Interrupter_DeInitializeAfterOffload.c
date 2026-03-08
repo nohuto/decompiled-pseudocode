@@ -1,3 +1,15 @@
+/*
+ * XREFs of Interrupter_DeInitializeAfterOffload @ 0x1C003DCEC
+ * Callers:
+ *     Controller_DecrementNumberOfEndpointsOffloaded @ 0x1C0032DE0 (Controller_DecrementNumberOfEndpointsOffloaded.c)
+ * Callees:
+ *     XilRegister_WriteUlong64 @ 0x1C0014C68 (XilRegister_WriteUlong64.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0018428 (XilRegister_WriteUlong.c)
+ *     WPP_RECORDER_SF_i @ 0x1C001C5CC (WPP_RECORDER_SF_i.c)
+ *     XilRegister_ReadUlong64 @ 0x1C003F338 (XilRegister_ReadUlong64.c)
+ */
+
 __int64 __fastcall Interrupter_DeInitializeAfterOffload(__int64 a1)
 {
   __int64 v2; // rsi

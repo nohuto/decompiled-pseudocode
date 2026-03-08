@@ -1,3 +1,13 @@
+/*
+ * XREFs of ProcessSuspendedPostMessage @ 0x1C014322E
+ * Callers:
+ *     _PostThreadMessageEx @ 0x1C0037298 (_PostThreadMessageEx.c)
+ *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C0048220 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
+ * Callees:
+ *     ?FindQMsgForCoalesce@@YAPEAUtagQMSG@@PEAUtagMLIST@@IPEAUHWND__@@PEAU1@@Z @ 0x1C0009E88 (-FindQMsgForCoalesce@@YAPEAUtagQMSG@@PEAUtagMLIST@@IPEAUHWND__@@PEAU1@@Z.c)
+ *     ?ProcessComplexCoalescence@@YAHII_K_JPEA_KPEA_J@Z @ 0x1C000F514 (-ProcessComplexCoalescence@@YAHII_K_JPEA_KPEA_J@Z.c)
+ */
+
 __int64 __fastcall ProcessSuspendedPostMessage(__int64 a1, HWND *a2, unsigned int a3, unsigned __int64 a4, __int64 a5)
 {
   HWND v7; // rsi

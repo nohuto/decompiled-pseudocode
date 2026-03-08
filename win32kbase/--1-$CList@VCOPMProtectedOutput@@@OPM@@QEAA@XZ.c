@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1?$CList@VCOPMProtectedOutput@@@OPM@@QEAA@XZ @ 0x1C009FDC8
+ * Callers:
+ *     ??1COPM@@QEAA@XZ @ 0x1C009FC8C (--1COPM@@QEAA@XZ.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall OPM::CList<COPMProtectedOutput>::~CList<COPMProtectedOutput>(__int64 a1)
 {
   __int64 i; // rdi

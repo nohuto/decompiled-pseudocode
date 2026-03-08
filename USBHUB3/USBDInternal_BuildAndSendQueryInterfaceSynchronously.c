@@ -1,3 +1,11 @@
+/*
+ * XREFs of USBDInternal_BuildAndSendQueryInterfaceSynchronously @ 0x1C0041CB8
+ * Callers:
+ *     USBD_CreateHandle @ 0x1C004247C (USBD_CreateHandle.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall USBDInternal_BuildAndSendQueryInterfaceSynchronously(
         PDEVICE_OBJECT DeviceObject,
         PDEVICE_OBJECT a2,

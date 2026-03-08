@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ExtractCustomUsage@InteractiveControlParser@@SAJPEAU_HIDP_PREPARSED_DATA@@PEAEKGGGPEAJ@Z @ 0x1C024D65C
+ * Callers:
+ *     ?GetReportExtendedUsage@InteractiveControlManager@@QEAAJKKGGGPEAJ@Z @ 0x1C0243814 (-GetReportExtendedUsage@InteractiveControlManager@@QEAAJKKGGGPEAJ@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall InteractiveControlParser::ExtractCustomUsage(
         PHIDP_PREPARSED_DATA PreparsedData,
         PCHAR Report,

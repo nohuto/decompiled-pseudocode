@@ -1,3 +1,17 @@
+/*
+ * XREFs of OffsetWindow @ 0x1C004C918
+ * Callers:
+ *     OffsetChildren @ 0x1C004CB34 (OffsetChildren.c)
+ *     ?UpdateWindowPositionsForDpiBoundaryChange@@YAXPEAUtagWLDBI@@@Z @ 0x1C00A397C (-UpdateWindowPositionsForDpiBoundaryChange@@YAXPEAUtagWLDBI@@@Z.c)
+ * Callees:
+ *     UpdateSprite @ 0x1C002E7A8 (UpdateSprite.c)
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C0044080 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     ?IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ @ 0x1C004A174 (-IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ.c)
+ *     DwmChildRectChange @ 0x1C00AD03C (DwmChildRectChange.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     FindSpb @ 0x1C01FA54C (FindSpb.c)
+ */
+
 __int64 __fastcall OffsetWindow(struct tagWND *a1, __int64 a2, __int64 a3)
 {
   unsigned int v4; // esi

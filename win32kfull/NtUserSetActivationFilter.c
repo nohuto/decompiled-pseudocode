@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtUserSetActivationFilter @ 0x1C0011060
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _SetActivationFilter @ 0x1C0011114 (_SetActivationFilter.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     IsIAMThread @ 0x1C00967E0 (IsIAMThread.c)
+ *     IAMThreadAccessGranted @ 0x1C009A2DC (IAMThreadAccessGranted.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall NtUserSetActivationFilter(__int64 a1, unsigned int a2)
 {
   int v4; // ebx

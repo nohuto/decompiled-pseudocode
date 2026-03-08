@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DeviceClassCDROMNotify@@YAJPEAU_DEVICE_INTERFACE_CHANGE_NOTIFICATION@@PEAX@Z @ 0x1C01B31A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall DeviceClassCDROMNotify(char *NotificationStructure, PVOID Context)
 {
   __int64 v3; // rax

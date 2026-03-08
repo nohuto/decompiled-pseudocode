@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SHData_NeedsArrangementCallout@MOVESIZEDATA@@QEBA_NW4THRESHOLD_MARGIN_DIRECTION@@AEBUtagPOINT@@@Z @ 0x1C023D2A4
+ * Callers:
+ *     ?xxxSizeOrMoveRect@@YA_NPEAUMOVESIZEDATA@@UtagPOINT@@PEAUtagRECT@@PEAI@Z @ 0x1C01F230C (-xxxSizeOrMoveRect@@YA_NPEAUMOVESIZEDATA@@UtagPOINT@@PEAUtagRECT@@PEAI@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     PtInRect @ 0x1C00A34E8 (PtInRect.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ddsdddddd @ 0x1C023E0D0 (WPP_RECORDER_AND_TRACE_SF_ddsdddddd.c)
+ */
+
 char __fastcall MOVESIZEDATA::SHData_NeedsArrangementCallout(__int64 a1, int a2, unsigned __int64 *a3)
 {
   int v3; // r10d

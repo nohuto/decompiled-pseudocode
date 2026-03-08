@@ -1,3 +1,15 @@
+/*
+ * XREFs of RIMGetSourceProcessId @ 0x1C01A61D0
+ * Callers:
+ *     NtRIMGetSourceProcessId @ 0x1C01A2090 (NtRIMGetSourceProcessId.c)
+ * Callees:
+ *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0037330 (RawInputManagerDeviceObjectResolveHandle.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     RawInputManagerObjectResolveHandle @ 0x1C0039E60 (RawInputManagerObjectResolveHandle.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ */
+
 __int64 __fastcall RIMGetSourceProcessId(char *a1, char *a2, ULONG64 a3)
 {
   int v4; // edx

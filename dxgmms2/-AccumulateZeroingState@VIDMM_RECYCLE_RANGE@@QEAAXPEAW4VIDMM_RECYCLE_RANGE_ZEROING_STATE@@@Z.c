@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AccumulateZeroingState@VIDMM_RECYCLE_RANGE@@QEAAXPEAW4VIDMM_RECYCLE_RANGE_ZEROING_STATE@@@Z @ 0x1C009B6D8
+ * Callers:
+ *     ?MergeRanges@VIDMM_RECYCLE_MULTIRANGE@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@0@Z @ 0x1C009AF50 (-MergeRanges@VIDMM_RECYCLE_MULTIRANGE@@QEAAXPEAVVIDMM_RECYCLE_RANGE@@0@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall VIDMM_RECYCLE_RANGE::AccumulateZeroingState(
         VIDMM_RECYCLE_RANGE *this,

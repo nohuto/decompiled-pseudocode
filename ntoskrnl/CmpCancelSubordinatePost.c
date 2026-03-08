@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpCancelSubordinatePost @ 0x1406B4E10
+ * Callers:
+ *     CmpPostNotify @ 0x1406B3790 (CmpPostNotify.c)
+ *     CmNotifyRunDown @ 0x1407D9F54 (CmNotifyRunDown.c)
+ * Callees:
+ *     CmpAddToDelayedDeref @ 0x1406B4DDC (CmpAddToDelayedDeref.c)
+ */
+
 _QWORD *__fastcall CmpCancelSubordinatePost(__int64 a1, __int64 a2)
 {
   _QWORD **v2; // rcx

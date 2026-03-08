@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbDevice_UcxEvtAddress @ 0x1C0019410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     Controller_IsControllerAccessible @ 0x1C000A8E4 (Controller_IsControllerAccessible.c)
+ *     UsbDevice_SetAddress @ 0x1C0018EE0 (UsbDevice_SetAddress.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0019330 (WPP_RECORDER_SF_dq.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall UsbDevice_UcxEvtAddress(__int64 a1, __int64 a2)
 {
   _QWORD *v3; // rax

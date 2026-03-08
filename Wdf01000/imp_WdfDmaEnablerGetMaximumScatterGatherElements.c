@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_WdfDmaEnablerGetMaximumScatterGatherElements @ 0x1C0018B50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ */
+
 unsigned __int64 __fastcall imp_WdfDmaEnablerGetMaximumScatterGatherElements(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFDMAENABLER__ *DmaEnabler)

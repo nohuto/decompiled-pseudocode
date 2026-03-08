@@ -1,3 +1,21 @@
+/*
+ * XREFs of UsbhReferenceListAdd @ 0x1C0002650
+ * Callers:
+ *     UsbhResetPort @ 0x1C0002918 (UsbhResetPort.c)
+ *     UsbhGetTopOfBusStack @ 0x1C002CD18 (UsbhGetTopOfBusStack.c)
+ *     UsbhSetOutOfBandwidthTimer @ 0x1C002DA9C (UsbhSetOutOfBandwidthTimer.c)
+ *     UsbhSetTimer @ 0x1C002DD38 (UsbhSetTimer.c)
+ *     UsbhSyncSendDeviceIoctl @ 0x1C002DDE4 (UsbhSyncSendDeviceIoctl.c)
+ *     UsbhAutoOvercurrentResetWorker @ 0x1C002FB00 (UsbhAutoOvercurrentResetWorker.c)
+ *     UsbhDriverOvercurrentResetWorker @ 0x1C002FC70 (UsbhDriverOvercurrentResetWorker.c)
+ *     UsbhResetPortTimerDpc @ 0x1C00394C0 (UsbhResetPortTimerDpc.c)
+ *     UsbhTimerPnpStart @ 0x1C003BCF0 (UsbhTimerPnpStart.c)
+ *     UsbhReferenceListOpen @ 0x1C00418C8 (UsbhReferenceListOpen.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ */
+
 __int64 __fastcall UsbhReferenceListAdd(__int64 a1, __int64 a2, int a3)
 {
   KIRQL v6; // di

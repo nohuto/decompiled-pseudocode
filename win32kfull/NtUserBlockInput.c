@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserBlockInput @ 0x1C01CDF80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     _BlockInput @ 0x1C01AD9CC (_BlockInput.c)
+ */
+
 __int64 __fastcall NtUserBlockInput(unsigned int a1)
 {
   __int64 v2; // rdx

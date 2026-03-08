@@ -1,3 +1,11 @@
+/*
+ * XREFs of PfpPrefetchRequestPatchOffsets @ 0x140766DFC
+ * Callers:
+ *     PfpPrefetchRequestPerform @ 0x1407662E0 (PfpPrefetchRequestPerform.c)
+ * Callees:
+ *     <none>
+ */
+
 char *__fastcall PfpPrefetchRequestPatchOffsets(_DWORD *a1)
 {
   __int64 v1; // r8

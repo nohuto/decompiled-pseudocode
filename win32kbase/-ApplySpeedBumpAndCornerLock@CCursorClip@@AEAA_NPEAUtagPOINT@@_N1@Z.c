@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ApplySpeedBumpAndCornerLock@CCursorClip@@AEAA_NPEAUtagPOINT@@_N1@Z @ 0x1C020A97C
+ * Callers:
+ *     ?BoundPointToRegions@CCursorClip@@AEAAXUtagPOINT@@_N11PEAU2@@Z @ 0x1C0015640 (-BoundPointToRegions@CCursorClip@@AEAAXUtagPOINT@@_N11PEAU2@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CCursorClip::ApplySpeedBumpAndCornerLock(CCursorClip *this, struct tagPOINT *a2, char a3, char a4)
 {
   __int64 v4; // r10

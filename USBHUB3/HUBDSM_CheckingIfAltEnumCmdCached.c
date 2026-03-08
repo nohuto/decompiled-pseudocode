@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBDSM_CheckingIfAltEnumCmdCached @ 0x1C0021110
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBDSM_CheckingIfAltEnumCmdCached(__int64 a1)
 {
   __int64 v1; // rdx

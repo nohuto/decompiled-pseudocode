@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiFlushComplete @ 0x140633A40
+ * Callers:
+ *     MiIssueAsynchronousFlush @ 0x140633C34 (MiIssueAsynchronousFlush.c)
+ * Callees:
+ *     MiDecrementModifiedWriteCount @ 0x140212BE4 (MiDecrementModifiedWriteCount.c)
+ *     MiReleaseControlAreaWaiters @ 0x140214DCC (MiReleaseControlAreaWaiters.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     MiUnlockMdlWritePages @ 0x140284DD0 (MiUnlockMdlWritePages.c)
+ *     MiRetardMdl @ 0x14061A580 (MiRetardMdl.c)
+ *     MiFreeOverlappedFlushEntry @ 0x140633BC0 (MiFreeOverlappedFlushEntry.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 LONG __fastcall MiFlushComplete(__int64 a1, __int64 a2)
 {
   struct _MDL *v2; // rbx

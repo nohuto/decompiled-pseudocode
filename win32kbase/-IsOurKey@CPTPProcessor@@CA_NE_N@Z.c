@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsOurKey@CPTPProcessor@@CA_NE_N@Z @ 0x1C00F33A0
+ * Callers:
+ *     ?OnKeyEvent@CPTPProcessor@@SAXE_N@Z @ 0x1C020E594 (-OnKeyEvent@CPTPProcessor@@SAXE_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CPTPProcessor::IsOurKey(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v4; // di

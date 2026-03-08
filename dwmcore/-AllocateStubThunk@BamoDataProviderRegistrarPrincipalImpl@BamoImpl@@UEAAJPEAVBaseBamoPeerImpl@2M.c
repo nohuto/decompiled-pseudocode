@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AllocateStubThunk@BamoDataProviderRegistrarPrincipalImpl@BamoImpl@@UEAAJPEAVBaseBamoPeerImpl@2Microsoft@@PEAPEAVBamoStub@Bamo@4@@Z @ 0x180103A70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B44D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
 __int64 __fastcall BamoImpl::BamoDataProviderRegistrarPrincipalImpl::AllocateStubThunk(
         BamoImpl::BamoDataProviderRegistrarPrincipalImpl *this,
         struct Microsoft::BamoImpl::BaseBamoPeerImpl *a2,

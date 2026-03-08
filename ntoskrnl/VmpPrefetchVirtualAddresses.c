@@ -1,3 +1,20 @@
+/*
+ * XREFs of VmpPrefetchVirtualAddresses @ 0x1405F828C
+ * Callers:
+ *     VmPrefetchVirtualAddresses @ 0x1409D90F4 (VmPrefetchVirtualAddresses.c)
+ *     VmpPrefetchWorker @ 0x1409DA890 (VmpPrefetchWorker.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     ExGetExtensionTable @ 0x1402C57F0 (ExGetExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     VmpProcessContextLockShared @ 0x14045E744 (VmpProcessContextLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpFillGpnRanges @ 0x1405F6B8C (VmpFillGpnRanges.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall VmpPrefetchVirtualAddresses(volatile LONG *SpinLock, _QWORD *a2, unsigned __int64 a3)
 {
   int v6; // ebx

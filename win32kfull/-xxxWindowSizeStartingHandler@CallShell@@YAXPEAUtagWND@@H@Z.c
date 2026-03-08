@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?xxxWindowSizeStartingHandler@CallShell@@YAXPEAUtagWND@@H@Z @ 0x1C0221E40
+ * Callers:
+ *     ?xxxQueryShellForSizeCooperation@@YAXPEAUMOVESIZEDATA@@@Z @ 0x1C01F1CB0 (-xxxQueryShellForSizeCooperation@@YAXPEAUMOVESIZEDATA@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     Feature_1200431418__private_IsEnabledDeviceUsage @ 0x1C012EB44 (Feature_1200431418__private_IsEnabledDeviceUsage.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     WPP_RECORDER_AND_TRACE_SF_Dq @ 0x1C01AF928 (WPP_RECORDER_AND_TRACE_SF_Dq.c)
+ *     _anonymous_namespace_::GetModifiersStateForShell @ 0x1C021FCEC (_anonymous_namespace_--GetModifiersStateForShell.c)
+ *     _anonymous_namespace_::xxxCallIAMWindowManagementHandler @ 0x1C0220E14 (_anonymous_namespace_--xxxCallIAMWindowManagementHandler.c)
+ */
+
 void __fastcall CallShell::xxxWindowSizeStartingHandler(CallShell *this, struct tagWND *a2)
 {
   int v2; // r14d

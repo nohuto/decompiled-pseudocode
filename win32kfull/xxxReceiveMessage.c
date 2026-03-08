@@ -1,3 +1,30 @@
+/*
+ * XREFs of xxxReceiveMessage @ 0x1C006DB60
+ * Callers:
+ *     ?xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z @ 0x1C006D360 (-xxxRealSleepThread@@YAHIKHHPEAW4SLEEP_STATUS@@@Z.c)
+ *     xxxRealInternalGetMessage @ 0x1C006F2F0 (xxxRealInternalGetMessage.c)
+ *     RawInputThread @ 0x1C007A0C0 (RawInputThread.c)
+ *     ?xxxPollAndWaitForSingleObject@@YAKPEAU_KEVENT@@PEAXK@Z @ 0x1C0095CF4 (-xxxPollAndWaitForSingleObject@@YAKPEAU_KEVENT@@PEAXK@Z.c)
+ *     xxxWaitForDITMouseInjectionFlush @ 0x1C01AE114 (xxxWaitForDITMouseInjectionFlush.c)
+ * Callees:
+ *     SfnDWORD @ 0x1C00385D0 (SfnDWORD.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     FreeDelayedHooks @ 0x1C0042B90 (FreeDelayedHooks.c)
+ *     xxxInterSendMsgEx @ 0x1C004A280 (xxxInterSendMsgEx.c)
+ *     ?xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z @ 0x1C006C010 (-xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z.c)
+ *     ?xxxSendMessageToClient@@YAXPEAUtagWND@@I_K_JPEAUtagSMS@@HPEA_J@Z @ 0x1C006EE00 (-xxxSendMessageToClient@@YAXPEAUtagWND@@I_K_JPEAUtagSMS@@HPEA_J@Z.c)
+ *     UnlinkSendListSms @ 0x1C0094A8C (UnlinkSendListSms.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ *     ??0?$ObjectLock@$$V@?$DomainExclusive@$$V@?$DomainShared@VDLT_HOOK@@@SharedUserCritOnly@@QEAA@XZ @ 0x1C00E379C (--0-$ObjectLock@$$V@-$DomainExclusive@$$V@-$DomainShared@VDLT_HOOK@@@SharedUserCritOnly@@QEAA@XZ.c)
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C01098A8 (-xxxCallHook@@YAHH_K_JH@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ??1?$ObjectLock@$$V@?$DomainExclusive@VDLT_HANDLEMANAGER@@@?$DomainShared@$$V@SharedUserCritOnly@@QEAA@XZ @ 0x1C012D1C4 (--1-$ObjectLock@$$V@-$DomainExclusive@VDLT_HANDLEMANAGER@@@-$DomainShared@$$V@SharedUserCritOnly.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     ?HandleLowLevelHook@Mouse@InputTraceLogging@@SAXXZ @ 0x1C01496B6 (-HandleLowLevelHook@Mouse@InputTraceLogging@@SAXXZ.c)
+ *     ?ProcessLowLevelHook@Keyboard@InputTraceLogging@@SAXXZ @ 0x1C01FE774 (-ProcessLowLevelHook@Keyboard@InputTraceLogging@@SAXXZ.c)
+ */
+
 int __fastcall xxxReceiveMessage(__int64 a1)
 {
   __int64 v2; // r12

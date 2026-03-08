@@ -1,3 +1,11 @@
+/*
+ * XREFs of EmonInitializePebs @ 0x140A8ECE8
+ * Callers:
+ *     EmonInitializeProfiling @ 0x140A868F0 (EmonInitializeProfiling.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void EmonInitializePebs()
 {
   unsigned __int64 v5; // rax

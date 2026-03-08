@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnExclusiveViewDeactivate@CHolographicClient@@QEAAXPEAVCHolographicExclusiveView@@@Z @ 0x1802A99A4
+ * Callers:
+ *     ?DeactivateView@CHolographicExclusiveView@@QEAAXPEAVCHolographicClient@@@Z @ 0x1802A4FCC (-DeactivateView@CHolographicExclusiveView@@QEAAXPEAVCHolographicClient@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CHolographicClient::OnExclusiveViewDeactivate(
         CHolographicClient *this,
         struct CHolographicExclusiveView *a2)

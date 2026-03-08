@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpHpLfhOwnerInitialize @ 0x1402F6104
+ * Callers:
+ *     RtlpHpLfhBucketInitialize @ 0x1402F5EC0 (RtlpHpLfhBucketInitialize.c)
+ *     RtlpHpLfhBucketActivate @ 0x1402F5F3C (RtlpHpLfhBucketActivate.c)
+ *     RtlpHpLfhBucketAllocateSlot @ 0x1403CF094 (RtlpHpLfhBucketAllocateSlot.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpHpLfhOwnerInitialize(__int64 a1, char a2, int a3)
 {
   __int64 result; // rax

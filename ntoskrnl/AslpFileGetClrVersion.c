@@ -1,3 +1,14 @@
+/*
+ * XREFs of AslpFileGetClrVersion @ 0x140A5533C
+ * Callers:
+ *     AslpFileGetClrVersionAttribute @ 0x140A55514 (AslpFileGetClrVersionAttribute.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslpFileGetImageNtHeader @ 0x140A55E4C (AslpFileGetImageNtHeader.c)
+ *     AslpImageRvaToVa @ 0x140A5680C (AslpImageRvaToVa.c)
+ */
+
 __int64 __fastcall AslpFileGetClrVersion(_BYTE *a1, __int64 a2)
 {
   unsigned int *v4; // rdi

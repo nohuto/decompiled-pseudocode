@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopQueryBusResourceUpdateInterface @ 0x140969F68
+ * Callers:
+ *     PiUpdateDeviceResourceLists @ 0x14096C29C (PiUpdateDeviceResourceLists.c)
+ * Callees:
+ *     PnpQueryInterface @ 0x1407F8C60 (PnpQueryInterface.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopQueryBusResourceUpdateInterface(_QWORD *Object, USHORT **a2)
 {
   USHORT *Pool2; // rax

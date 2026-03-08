@@ -1,3 +1,14 @@
+/*
+ * XREFs of BgpConsoleDisplayString @ 0x140AEE870
+ * Callers:
+ *     <none>
+ * Callees:
+ *     BgpFwReleaseLock @ 0x140381C10 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140381C60 (BgpFwAcquireLock.c)
+ *     AnFwFadeCompletion @ 0x140AE9FB8 (AnFwFadeCompletion.c)
+ *     BgpConsoleDisplayCharacterEx @ 0x140AEE5D4 (BgpConsoleDisplayCharacterEx.c)
+ */
+
 __int64 __fastcall BgpConsoleDisplayString(unsigned __int16 *a1)
 {
   __int64 v2; // rdx

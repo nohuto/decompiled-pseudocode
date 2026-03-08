@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIFilterIrpDeviceEnumeratedCompletion @ 0x1C00857C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIInternalSetFlags @ 0x1C002F068 (ACPIInternalSetFlags.c)
+ */
+
 __int64 __fastcall ACPIFilterIrpDeviceEnumeratedCompletion(ULONG_PTR a1, __int64 a2)
 {
   __int64 v2; // rax

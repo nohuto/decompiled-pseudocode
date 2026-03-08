@@ -1,3 +1,15 @@
+/*
+ * XREFs of rimFindOrCreateActiveContact @ 0x1C01D8680
+ * Callers:
+ *     rimProcessPointerDeviceContact @ 0x1C01D9C8C (rimProcessPointerDeviceContact.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C00052A0 (WPP_RECORDER_AND_TRACE_SF_dd.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimHidP_GetUsageValue @ 0x1C00EF9AA (rimHidP_GetUsageValue.c)
+ *     RIMCmActivateContact @ 0x1C01DDE90 (RIMCmActivateContact.c)
+ */
+
 __int64 __fastcall rimFindOrCreateActiveContact(
         __int64 a1,
         __int64 a2,

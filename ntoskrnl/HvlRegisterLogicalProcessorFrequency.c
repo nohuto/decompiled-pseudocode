@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvlRegisterLogicalProcessorFrequency @ 0x140544954
+ * Callers:
+ *     PpmScaleIdleStateValues @ 0x1402ED878 (PpmScaleIdleStateValues.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvlpSetPowerProperty @ 0x140544E50 (HvlpSetPowerProperty.c)
+ */
+
 __int64 __fastcall HvlRegisterLogicalProcessorFrequency(int a1, int a2)
 {
   __int64 v4; // rdx

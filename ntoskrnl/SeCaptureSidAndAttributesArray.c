@@ -1,3 +1,24 @@
+/*
+ * XREFs of SeCaptureSidAndAttributesArray @ 0x140710470
+ * Callers:
+ *     NtCreateLowBoxToken @ 0x14069D520 (NtCreateLowBoxToken.c)
+ *     NtCreateTokenEx @ 0x14070F880 (NtCreateTokenEx.c)
+ *     SepSetTokenCapabilities @ 0x140710278 (SepSetTokenCapabilities.c)
+ *     SepLengthSidAndAttributesArray @ 0x1407103B8 (SepLengthSidAndAttributesArray.c)
+ *     NtFilterToken @ 0x14073FB20 (NtFilterToken.c)
+ *     NtSetInformationToken @ 0x140741E70 (NtSetInformationToken.c)
+ *     NtAdjustGroupsToken @ 0x14077A050 (NtAdjustGroupsToken.c)
+ *     SepCreateClaimAttributes @ 0x140780934 (SepCreateClaimAttributes.c)
+ *     SepDuplicateClaimAttributes @ 0x1409CE654 (SepDuplicateClaimAttributes.c)
+ * Callees:
+ *     RtlLengthSid @ 0x140245EC0 (RtlLengthSid.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlValidSid @ 0x1407C92A0 (RtlValidSid.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SeCaptureSidAndAttributesArray(
         char *Src,
         unsigned int a2,

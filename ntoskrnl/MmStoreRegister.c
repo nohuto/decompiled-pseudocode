@@ -1,3 +1,23 @@
+/*
+ * XREFs of MmStoreRegister @ 0x140834CA4
+ * Callers:
+ *     SmFirstTimeInit @ 0x1407DDCE0 (SmFirstTimeInit.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     RtlClearAllBits @ 0x1402B24A0 (RtlClearAllBits.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     MiMoveModifiedPagesToCompressList @ 0x140392EB4 (MiMoveModifiedPagesToCompressList.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1407DE330 (PsCreateSystemThreadEx.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     MiCreatePagefile @ 0x140835934 (MiCreatePagefile.c)
+ *     MiInsertPageFileInList @ 0x140835F30 (MiInsertPageFileInList.c)
+ *     MmStoreCheckPagefiles @ 0x140836214 (MmStoreCheckPagefiles.c)
+ *     MiDeletePagefile @ 0x140A2FB40 (MiDeletePagefile.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MmStoreRegister(__int64 *a1, __int64 a2, __int64 a3, __int64 a4, int a5)
 {
   __int64 v6; // rdi

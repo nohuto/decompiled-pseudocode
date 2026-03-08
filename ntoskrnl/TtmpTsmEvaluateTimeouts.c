@@ -1,3 +1,11 @@
+/*
+ * XREFs of TtmpTsmEvaluateTimeouts @ 0x1409A8B74
+ * Callers:
+ *     TtmpTsmIterate @ 0x1409A8BDC (TtmpTsmIterate.c)
+ * Callees:
+ *     TtmpTsmTestTimeout @ 0x1409A8CAC (TtmpTsmTestTimeout.c)
+ */
+
 _QWORD *__fastcall TtmpTsmEvaluateTimeouts(__int64 a1, __int64 a2, __int64 a3, __int64 a4, _QWORD *a5)
 {
   __int64 v5; // rdx

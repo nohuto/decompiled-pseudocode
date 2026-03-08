@@ -1,3 +1,13 @@
+/*
+ * XREFs of Xp10BuildAndWriteHuffmanTables @ 0x1409C16E0
+ * Callers:
+ *     Xp10BuildAndWriteHuffmanEncodings @ 0x1409C1308 (Xp10BuildAndWriteHuffmanEncodings.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     Xp10BuildHuffmanEncodings @ 0x1409C23AC (Xp10BuildHuffmanEncodings.c)
+ */
+
 __int64 __fastcall Xp10BuildAndWriteHuffmanTables(int a1, __int64 a2, unsigned int a3, __int64 *a4)
 {
   int v8; // r9d

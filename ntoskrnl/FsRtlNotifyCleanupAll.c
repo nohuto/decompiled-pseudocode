@@ -1,3 +1,15 @@
+/*
+ * XREFs of FsRtlNotifyCleanupAll @ 0x14093D030
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     FsRtlNotifyCleanupOneEntry @ 0x140775FD8 (FsRtlNotifyCleanupOneEntry.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __stdcall FsRtlNotifyCleanupAll(PNOTIFY_SYNC NotifySync, PLIST_ENTRY NotifyList)
 {
   struct _KTHREAD *CurrentThread; // rdi

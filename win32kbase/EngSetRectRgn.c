@@ -1,3 +1,13 @@
+/*
+ * XREFs of EngSetRectRgn @ 0x1C0019BF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0EngModeState@@QEAA@XZ @ 0x1C0019C74 (--0EngModeState@@QEAA@XZ.c)
+ *     GreGetObjectOwner @ 0x1C0019E80 (GreGetObjectOwner.c)
+ *     GreSetRectRgn @ 0x1C0041FD0 (GreSetRectRgn.c)
+ */
+
 BOOL __stdcall EngSetRectRgn(HANDLE hrgn, INT left, INT top, INT right, INT bottom)
 {
   BOOL result; // eax

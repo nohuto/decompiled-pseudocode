@@ -1,3 +1,25 @@
+/*
+ * XREFs of MmSetPageProtection @ 0x1403BCCE0
+ * Callers:
+ *     sub_1403EBEF0 @ 0x1403EBEF0 (sub_1403EBEF0.c)
+ *     HvpProtectBinPartial @ 0x1407A4030 (HvpProtectBinPartial.c)
+ *     MmAllocateIsrStack @ 0x14080AFF0 (MmAllocateIsrStack.c)
+ *     KeWriteProtectProcessorState @ 0x140A8E420 (KeWriteProtectProcessorState.c)
+ *     sub_140B16730 @ 0x140B16730 (sub_140B16730.c)
+ *     VslpIumPhase0Initialize @ 0x140B903AC (VslpIumPhase0Initialize.c)
+ * Callees:
+ *     MiLockPageAndSetDirty @ 0x1402110B8 (MiLockPageAndSetDirty.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeProtectionMask @ 0x140320CC0 (MiMakeProtectionMask.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiWriteValidPteNewProtection @ 0x14032E660 (MiWriteValidPteNewProtection.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14032E710 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 char __fastcall MmSetPageProtection(unsigned __int64 a1, unsigned __int64 a2, unsigned int a3)
 {
   unsigned int ProtectionMask; // eax

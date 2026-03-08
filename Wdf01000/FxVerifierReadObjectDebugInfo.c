@@ -1,3 +1,13 @@
+/*
+ * XREFs of FxVerifierReadObjectDebugInfo @ 0x1C0044CF0
+ * Callers:
+ *     FxVerifierGetObjectDebugInfo @ 0x1C00449C4 (FxVerifierGetObjectDebugInfo.c)
+ * Callees:
+ *     FxVerifyAllocateDebugInfo @ 0x1C0044E50 (FxVerifyAllocateDebugInfo.c)
+ *     ?_QueryValue@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEBU_UNICODE_STRING@@K1PEAK3@Z @ 0x1C004CBC4 (-_QueryValue@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEBU_UNICODE_STRING@@K1PEAK3@Z.c)
+ *     ?_VerifyMultiSzString@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@PEAGK@Z @ 0x1C004E45C (-_VerifyMultiSzString@FxRegKey@@SAJPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@PEAGK@Z.c)
+ */
+
 __int64 __fastcall FxVerifierReadObjectDebugInfo(
         void *Key,
         _FX_DRIVER_GLOBALS *FxDriverGlobals,

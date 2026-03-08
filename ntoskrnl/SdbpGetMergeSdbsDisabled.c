@@ -1,3 +1,14 @@
+/*
+ * XREFs of SdbpGetMergeSdbsDisabled @ 0x14066B714
+ * Callers:
+ *     SdbpGetManifestedMergeStubAlloc @ 0x140A4BEA8 (SdbpGetManifestedMergeStubAlloc.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslRegistryGetKey @ 0x14084BF1C (AslRegistryGetKey.c)
+ *     AslRegistryGetUInt32 @ 0x140A51820 (AslRegistryGetUInt32.c)
+ */
+
 __int64 __fastcall SdbpGetMergeSdbsDisabled(_DWORD *a1)
 {
   int Key; // eax

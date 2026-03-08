@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpWdatInitializeWdat @ 0x14051CB28
+ * Callers:
+ *     HalpWdatInitialize @ 0x14051CAB0 (HalpWdatInitialize.c)
+ * Callees:
+ *     WdInstrInitializeInstruction @ 0x1405281DC (WdInstrInitializeInstruction.c)
+ */
+
 __int64 __fastcall HalpWdatInitializeWdat(__int64 a1)
 {
   _DWORD *v1; // rbx

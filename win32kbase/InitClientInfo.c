@@ -1,3 +1,12 @@
+/*
+ * XREFs of InitClientInfo @ 0x1C0079034
+ * Callers:
+ *     xxxCreateThreadInfo @ 0x1C0076490 (xxxCreateThreadInfo.c)
+ *     InitSystemThread @ 0x1C00C2CB0 (InitSystemThread.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ */
+
 __int64 __fastcall InitClientInfo(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rcx

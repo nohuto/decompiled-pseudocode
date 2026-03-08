@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpInitSystem @ 0x140B493C0
+ * Callers:
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     RtlInitializeGenericTableAvl @ 0x140245560 (RtlInitializeGenericTableAvl.c)
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 char PpInitSystem()
 {
   if ( (_DWORD)InitializationPhase )

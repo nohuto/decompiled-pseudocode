@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NotifyInvalidResource@CWindowBackgroundTreatment@@UEAAXPEBVIDeviceResource@@@Z @ 0x180216E20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InvalidateBitmapRealization@CWindowBackgroundTreatment@@QEAAXXZ @ 0x1800A4D24 (-InvalidateBitmapRealization@CWindowBackgroundTreatment@@QEAAXXZ.c)
+ */
+
 void __fastcall CWindowBackgroundTreatment::NotifyInvalidResource(
         CWindowBackgroundTreatment *this,
         const struct IDeviceResource *a2)

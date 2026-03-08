@@ -1,3 +1,25 @@
+/*
+ * XREFs of IoCreateStreamFileObjectEx2 @ 0x1406B5020
+ * Callers:
+ *     IoCreateStreamFileObjectLite @ 0x1406B4FD0 (IoCreateStreamFileObjectLite.c)
+ *     IoCreateStreamFileObject @ 0x140870BD0 (IoCreateStreamFileObject.c)
+ *     IoCreateStreamFileObjectEx @ 0x140872AB0 (IoCreateStreamFileObjectEx.c)
+ * Callees:
+ *     IopGetSetSpecificExtension @ 0x14023EA58 (IopGetSetSpecificExtension.c)
+ *     IopIncrementVpbRefCount @ 0x14023FD50 (IopIncrementVpbRefCount.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IopDecrementDeviceObjectRef @ 0x14030F5C0 (IopDecrementDeviceObjectRef.c)
+ *     IopIncrementDeviceObjectRefCount @ 0x14030F910 (IopIncrementDeviceObjectRefCount.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ *     ObInsertObject @ 0x1407F0A20 (ObInsertObject.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ */
+
 NTSTATUS __fastcall IoCreateStreamFileObjectEx2(__int64 a1, __int64 a2, ULONG_PTR a3, PVOID *a4, HANDLE *a5)
 {
   HANDLE *v5; // r14

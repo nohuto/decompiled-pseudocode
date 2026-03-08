@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfMiscIoFreeMdl_Entry @ 0x140ADCCB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VfMiscCheckKernelAddress @ 0x1405D0078 (VfMiscCheckKernelAddress.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ */
+
 char __fastcall VfMiscIoFreeMdl_Entry(__int64 a1)
 {
   ULONG_PTR v2; // r8

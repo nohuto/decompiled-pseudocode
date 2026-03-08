@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vSrcCopyS16D16Identity@@YAXPEAUBLTINFO@@@Z @ 0x1C02ED910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ?vSrcAlignCopyMemory@@YAXPEAE0K@Z @ 0x1C03078EC (-vSrcAlignCopyMemory@@YAXPEAE0K@Z.c)
+ */
+
 void __fastcall vSrcCopyS16D16Identity(struct BLTINFO *a1)
 {
   int v2; // ebp

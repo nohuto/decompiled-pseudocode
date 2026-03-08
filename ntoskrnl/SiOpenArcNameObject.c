@@ -1,3 +1,12 @@
+/*
+ * XREFs of SiOpenArcNameObject @ 0x140A5DA44
+ * Callers:
+ *     SiGetBiosSystemDisk @ 0x140A5D694 (SiGetBiosSystemDisk.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1404149D0 (ZwOpenSymbolicLinkObject.c)
+ */
+
 __int64 __fastcall SiOpenArcNameObject(PCWSTR SourceString, HANDLE *a2)
 {
   NTSTATUS v3; // eax

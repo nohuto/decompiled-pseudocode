@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProcessorpGetSecondaryInterruptAffinity @ 0x1C009B990
+ * Callers:
+ *     ProcessorpFindIdtEntriesApic @ 0x1C009B5F0 (ProcessorpFindIdtEntriesApic.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ProcessorpGetSecondaryInterruptAffinity(__int64 a1, int a2, _OWORD *a3)
 {
   unsigned int v4; // ebx

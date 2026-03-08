@@ -1,3 +1,18 @@
+/*
+ * XREFs of PiLastGoodCopyKeyContents @ 0x140B6AE50
+ * Callers:
+ *     PpLastGoodDoBootProcessing @ 0x140B6ACC4 (PpLastGoodDoBootProcessing.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x140412570 (ZwEnumerateValueKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     ZwDeleteKey @ 0x140413E50 (ZwDeleteKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiLastGoodCopyKeyContents(UNICODE_STRING *a1, UNICODE_STRING *a2)
 {
   __int64 Pool2; // rbx

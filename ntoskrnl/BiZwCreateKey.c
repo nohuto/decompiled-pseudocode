@@ -1,3 +1,11 @@
+/*
+ * XREFs of BiZwCreateKey @ 0x140390478
+ * Callers:
+ *     BiCreateKey @ 0x14082D580 (BiCreateKey.c)
+ * Callees:
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ */
+
 NTSTATUS __fastcall BiZwCreateKey(
         HANDLE *a1,
         ACCESS_MASK a2,

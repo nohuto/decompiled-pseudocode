@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_VfWdfDeviceInitRegisterPnpStateChangeCallback @ 0x1C00B3C00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall imp_VfWdfDeviceInitRegisterPnpStateChangeCallback(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFDEVICE_INIT *DeviceInit,

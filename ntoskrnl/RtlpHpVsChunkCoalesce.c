@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpHpVsChunkCoalesce @ 0x14024B8C0
+ * Callers:
+ *     RtlpHpVsChunkFree @ 0x140249D70 (RtlpHpVsChunkFree.c)
+ *     RtlpHpFreeHeap @ 0x140313CC0 (RtlpHpFreeHeap.c)
+ * Callees:
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ *     RtlpHpVsChunkComputeCost @ 0x14024E230 (RtlpHpVsChunkComputeCost.c)
+ */
+
 unsigned __int64 __fastcall RtlpHpVsChunkCoalesce(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned int *a4)
 {
   unsigned __int64 v4; // rdi

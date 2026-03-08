@@ -1,3 +1,23 @@
+/*
+ * XREFs of Controller_InitiateRecovery @ 0x1C0033990
+ * Callers:
+ *     Controller_TelemetryReportWorker @ 0x1C0034EB0 (Controller_TelemetryReportWorker.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     CommonBuffer_FlushWorkItems @ 0x1C000ED94 (CommonBuffer_FlushWorkItems.c)
+ *     Register_ControllerStop @ 0x1C000EEB0 (Register_ControllerStop.c)
+ *     WPP_RECORDER_SF_D @ 0x1C00180C4 (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Command_FailAllCommands @ 0x1C002FB48 (Command_FailAllCommands.c)
+ *     Controller_DisableController @ 0x1C003314C (Controller_DisableController.c)
+ *     Controller_InternalReset @ 0x1C0033D04 (Controller_InternalReset.c)
+ *     XilDeviceSlot_GetUsbDeviceHandleArray @ 0x1C0038210 (XilDeviceSlot_GetUsbDeviceHandleArray.c)
+ *     UsbDevice_ControllerGone @ 0x1C0048450 (UsbDevice_ControllerGone.c)
+ */
+
 __int64 __fastcall Controller_InitiateRecovery(_QWORD *a1, __int64 a2, int a3)
 {
   __int64 result; // rax

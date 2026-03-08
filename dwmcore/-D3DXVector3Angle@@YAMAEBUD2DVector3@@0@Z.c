@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?D3DXVector3Angle@@YAMAEBUD2DVector3@@0@Z @ 0x18027C100
+ * Callers:
+ *     _anonymous_namespace_::VectorInsideAngleThreshold @ 0x1801AD808 (_anonymous_namespace_--VectorInsideAngleThreshold.c)
+ * Callees:
+ *     sqrtf_0 @ 0x1801177AC (sqrtf_0.c)
+ */
+
 float __fastcall D3DXVector3Angle(const struct D2DVector3 *a1, const struct D2DVector3 *a2)
 {
   float v2; // xmm1_4

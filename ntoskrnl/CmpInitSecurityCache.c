@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpInitSecurityCache @ 0x14072CC90
+ * Callers:
+ *     CmpValidateHiveSecurityDescriptors @ 0x14071C9C4 (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpHiveInitialize @ 0x14072CBCC (CmpHiveInitialize.c)
+ *     CmpGetSystemControlValues @ 0x140B33800 (CmpGetSystemControlValues.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmpInitSecurityCache(__int64 a1)
 {
   _QWORD *v1; // rcx

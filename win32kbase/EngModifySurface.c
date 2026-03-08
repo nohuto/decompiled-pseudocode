@@ -1,3 +1,14 @@
+/*
+ * XREFs of EngModifySurface @ 0x1C00A3E40
+ * Callers:
+ *     ?MulEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C018BB00 (-MulEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z.c)
+ * Callees:
+ *     HmgDecrementShareReferenceCountEx @ 0x1C00483B0 (HmgDecrementShareReferenceCountEx.c)
+ *     ?dhpdev@SURFACE@@QEAAXPEAUDHPDEV__@@@Z @ 0x1C00A4010 (-dhpdev@SURFACE@@QEAAXPEAUDHPDEV__@@@Z.c)
+ *     ?hdev@SURFACE@@QEAAXPEAUHDEV__@@@Z @ 0x1C00A40A0 (-hdev@SURFACE@@QEAAXPEAUHDEV__@@@Z.c)
+ *     HmgShareLockIgnoreStockBit @ 0x1C00BC754 (HmgShareLockIgnoreStockBit.c)
+ */
+
 BOOL __stdcall EngModifySurface(
         HSURF hsurf,
         HDEV hdev,

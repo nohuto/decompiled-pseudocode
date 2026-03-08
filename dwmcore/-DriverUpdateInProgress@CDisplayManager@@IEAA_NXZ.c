@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?DriverUpdateInProgress@CDisplayManager@@IEAA_NXZ @ 0x180282A1C
+ * Callers:
+ *     ?UpdateRenderFailureCount@CComposition@@SAXJ@Z @ 0x180050788 (-UpdateRenderFailureCount@CComposition@@SAXJ@Z.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180004700 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?InternalGetDXGIFactory@CDisplayManager@@AEAAJPEAPEAUIDXGIFactory5@@@Z @ 0x1800CE1BC (-InternalGetDXGIFactory@CDisplayManager@@AEAAJPEAPEAUIDXGIFactory5@@@Z.c)
+ *     ??1CKMAdapterHandle@@QEAA@XZ @ 0x1800D0B90 (--1CKMAdapterHandle@@QEAA@XZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?Initialize@CKMAdapterHandle@@QEAAJPEAUIDXGIAdapter@@@Z @ 0x180282CC4 (-Initialize@CKMAdapterHandle@@QEAAJPEAUIDXGIAdapter@@@Z.c)
+ */
+
 char __fastcall CDisplayManager::DriverUpdateInProgress(struct _RTL_CRITICAL_SECTION *this)
 {
   struct IDXGIFactory5 *v1; // rbx

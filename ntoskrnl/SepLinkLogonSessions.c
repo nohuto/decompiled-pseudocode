@@ -1,3 +1,18 @@
+/*
+ * XREFs of SepLinkLogonSessions @ 0x1402E832C
+ * Callers:
+ *     NtSetInformationToken @ 0x140741E70 (NtSetInformationToken.c)
+ * Callees:
+ *     SepDeReferenceLogonSessionDirect @ 0x1402BE52C (SepDeReferenceLogonSessionDirect.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     SepStopReferencingLogonSession @ 0x140742B6C (SepStopReferencingLogonSession.c)
+ *     SepReferenceLogonSession @ 0x140773DC0 (SepReferenceLogonSession.c)
+ *     SepDuplicateToken @ 0x1407BCF00 (SepDuplicateToken.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     SepRemoveTokenLogonSession @ 0x1409CD544 (SepRemoveTokenLogonSession.c)
+ */
+
 __int64 __fastcall SepLinkLogonSessions(__int64 a1, void *a2, KPROCESSOR_MODE a3)
 {
   PVOID v5; // rdi

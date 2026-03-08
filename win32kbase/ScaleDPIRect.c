@@ -1,3 +1,11 @@
+/*
+ * XREFs of ScaleDPIRect @ 0x1C00089CC
+ * Callers:
+ *     PhysicalToLogicalDPIRect @ 0x1C00A8E10 (PhysicalToLogicalDPIRect.c)
+ * Callees:
+ *     EngMulDiv @ 0x1C003BF30 (EngMulDiv.c)
+ */
+
 __int64 __fastcall ScaleDPIRect(
         _DWORD *a1,
         __m128i *a2,

@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopPowerRequestCreateUserModeRequest @ 0x1402B8EEC
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ * Callees:
+ *     PopPowerRequestCreateCommon @ 0x1402BC348 (PopPowerRequestCreateCommon.c)
+ *     PoCaptureReasonContext @ 0x1402BD2FC (PoCaptureReasonContext.c)
+ *     PoDestroyReasonContext @ 0x1402BDBE4 (PoDestroyReasonContext.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     TtmIsEnabled @ 0x14073C8BC (TtmIsEnabled.c)
+ *     ObInsertObject @ 0x1407F0A20 (ObInsertObject.c)
+ *     TtmNotifySessionPowerRequestCreated @ 0x1409A1540 (TtmNotifySessionPowerRequestCreated.c)
+ */
+
 __int64 __fastcall PopPowerRequestCreateUserModeRequest(int a1, int a2, HANDLE *a3)
 {
   char v4; // bl

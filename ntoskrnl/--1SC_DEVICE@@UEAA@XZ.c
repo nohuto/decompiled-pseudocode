@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1SC_DEVICE@@UEAA@XZ @ 0x1406741F0
+ * Callers:
+ *     ??1SC_DISK@@UEAA@XZ @ 0x140672EB0 (--1SC_DISK@@UEAA@XZ.c)
+ *     ??_GSC_DEVICE@@UEAAPEAXI@Z @ 0x1406742B0 (--_GSC_DEVICE@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x14078FD20 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ */
+
 void __fastcall SC_DEVICE::~SC_DEVICE(SC_DEVICE *this)
 {
   void *v2; // rcx

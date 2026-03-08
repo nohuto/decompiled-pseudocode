@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiReturnProcessVads @ 0x140A286A0
+ * Callers:
+ *     MiAllocateProcessVads @ 0x1407286B0 (MiAllocateProcessVads.c)
+ *     MmInitializeProcessAddressSpace @ 0x1407291A8 (MmInitializeProcessAddressSpace.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiReturnProcessVads(_QWORD *P)
 {
   _QWORD *v1; // rbx

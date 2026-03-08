@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopCreateIdlePhaseWatchdog @ 0x140B71E38
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     ZwPowerInformation @ 0x140412EF0 (ZwPowerInformation.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 PopCreateIdlePhaseWatchdog()
 {
   __int64 result; // rax

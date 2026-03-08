@@ -1,3 +1,19 @@
+/*
+ * XREFs of UsbDevice_UcxEvtEnable @ 0x1C0013210
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Command_SendCommand @ 0x1C000A820 (Command_SendCommand.c)
+ *     Controller_IsControllerAccessible @ 0x1C000A8E4 (Controller_IsControllerAccessible.c)
+ *     Endpoint_Disable @ 0x1C000B0AC (Endpoint_Disable.c)
+ *     Endpoint_Enable @ 0x1C000BDC0 (Endpoint_Enable.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     MicrosoftTelemetryAssertTriggeredMsgKM @ 0x1C00533B4 (MicrosoftTelemetryAssertTriggeredMsgKM.c)
+ */
+
 char __fastcall UsbDevice_UcxEvtEnable(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdi

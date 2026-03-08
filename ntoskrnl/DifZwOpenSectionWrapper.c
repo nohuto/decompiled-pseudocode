@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifZwOpenSectionWrapper @ 0x1405F0140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwOpenSection @ 0x1404129F0 (ZwOpenSection.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifZwOpenSectionWrapper(
         PHANDLE SectionHandle,
         ACCESS_MASK DesiredAccess,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpCovQueryInfoCallBack @ 0x140A03AE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExpCovIsLoadedModulePresent @ 0x140A037F4 (ExpCovIsLoadedModulePresent.c)
+ *     ExpCovQueryLoadedModule @ 0x140A04090 (ExpCovQueryLoadedModule.c)
+ */
+
 __int64 __fastcall ExpCovQueryInfoCallBack(__int64 a1, __int64 a2)
 {
   int v3; // esi

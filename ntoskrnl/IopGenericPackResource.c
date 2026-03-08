@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopGenericPackResource @ 0x1407F90F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IopGenericPackResource(__int64 a1, __int64 a2, __int64 a3)
 {
   *(_BYTE *)a3 = *(_BYTE *)(a1 + 1);

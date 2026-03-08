@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiAcpiRegisterAcpiCallbacks @ 0x1C0218574
+ * Callers:
+ *     DpiAddDevice @ 0x1C01F38A0 (DpiAddDevice.c)
+ * Callees:
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000B270 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DpiAcpiRegisterAcpiCallbacks(__int64 a1)
 {
   __int64 v1; // rdi

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PiGetDriverMutableStateDirectory @ 0x1409530D4
+ * Callers:
+ *     IoGetDriverDirectory @ 0x140952490 (IoGetDriverDirectory.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintfEx @ 0x1403C1A7C (RtlUnicodeStringPrintfEx.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     IopAllocateUnicodeString @ 0x140683958 (IopAllocateUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     PiGetStateRootPath @ 0x14086F420 (PiGetStateRootPath.c)
+ *     PiOpenDirectoryWithRoot @ 0x140953234 (PiOpenDirectoryWithRoot.c)
+ */
+
 __int64 __fastcall PiGetDriverMutableStateDirectory(unsigned __int16 *a1, __int64 a2, __int64 a3, __int64 *a4)
 {
   void *v6; // rdi

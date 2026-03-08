@@ -1,3 +1,11 @@
+/*
+ * XREFs of EmonReleaseReservedCounters @ 0x14051BDC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall EmonReleaseReservedCounters(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdi

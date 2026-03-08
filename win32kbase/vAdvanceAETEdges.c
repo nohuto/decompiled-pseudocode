@@ -1,3 +1,11 @@
+/*
+ * XREFs of vAdvanceAETEdges @ 0x1C01848F0
+ * Callers:
+ *     ?vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z @ 0x1C0184190 (-vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall vAdvanceAETEdges(__int64 **a1)
 {
   int v1; // r9d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpReserveWithPebsIndex @ 0x1405FBE50
+ * Callers:
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     EtwpLogContextSwapEvent @ 0x140384C90 (EtwpLogContextSwapEvent.c)
+ * Callees:
+ *     EtwpReserveTraceBuffer @ 0x1403151E0 (EtwpReserveTraceBuffer.c)
+ */
+
 __int64 __fastcall EtwpReserveWithPebsIndex(__int64 a1, __int16 a2, int a3, __int64 a4, __int64 *a5, __int16 a6)
 {
   __int16 v6; // bx

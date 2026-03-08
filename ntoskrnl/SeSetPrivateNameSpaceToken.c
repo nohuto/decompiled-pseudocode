@@ -1,3 +1,13 @@
+/*
+ * XREFs of SeSetPrivateNameSpaceToken @ 0x1409C6608
+ * Callers:
+ *     NtSetInformationToken @ 0x140741E70 (NtSetInformationToken.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 __int64 __fastcall SeSetPrivateNameSpaceToken(__int64 a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // rax

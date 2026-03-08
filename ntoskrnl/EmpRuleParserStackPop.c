@@ -1,3 +1,11 @@
+/*
+ * XREFs of EmpRuleParserStackPop @ 0x140B4E8C4
+ * Callers:
+ *     EmpParseRuleExpression @ 0x140B4D6DC (EmpParseRuleExpression.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall EmpRuleParserStackPop(__int64 a1, _DWORD *a2, _QWORD *a3, _QWORD *a4, _DWORD *a5)
 {
   _QWORD *v5; // r10

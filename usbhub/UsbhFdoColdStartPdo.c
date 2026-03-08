@@ -1,3 +1,21 @@
+/*
+ * XREFs of UsbhFdoColdStartPdo @ 0x1C00222BC
+ * Callers:
+ *     UsbhFdoSetD0Cold @ 0x1C000FBD0 (UsbhFdoSetD0Cold.c)
+ * Callees:
+ *     UsbhEtwLogHubIrpEvent @ 0x1C00098E0 (UsbhEtwLogHubIrpEvent.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhQueryPortState @ 0x1C0016540 (UsbhQueryPortState.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     UsbhFlushPortChange @ 0x1C002B22C (UsbhFlushPortChange.c)
+ *     WPP_RECORDER_SF_q @ 0x1C002EA5C (WPP_RECORDER_SF_q.c)
+ *     UsbhQueueSoftConnectChange @ 0x1C0034FA8 (UsbhQueueSoftConnectChange.c)
+ *     UsbhWaitForBootDevice @ 0x1C003A608 (UsbhWaitForBootDevice.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 __int64 __fastcall UsbhFdoColdStartPdo(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _DWORD *v7; // r13

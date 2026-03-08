@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?SendMessageToHostForCreation@CSuperWetSource@@QEAAJ_K@Z @ 0x18022B388
+ * Callers:
+ *     ?RegisterStrokeOnHost@CSuperWetInkManager@@AEAAJPEAUVailSuperWetStroke@1@PEA_N@Z @ 0x1801C9170 (-RegisterStrokeOnHost@CSuperWetInkManager@@AEAAJPEAUVailSuperWetStroke@1@PEA_N@Z.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ *     ?EnsureVailPerFrameDataHostReaderQueue@CSuperWetSource@@QEAAJI@Z @ 0x18022B1CC (-EnsureVailPerFrameDataHostReaderQueue@CSuperWetSource@@QEAAJI@Z.c)
+ *     SendRemotingMetaData @ 0x18022B584 (SendRemotingMetaData.c)
+ *     McTemplateU0px_EventWriteTransfer @ 0x18022B6EC (McTemplateU0px_EventWriteTransfer.c)
+ */
+
 __int64 __fastcall CSuperWetSource::SendMessageToHostForCreation(CSuperWetSource *this, __int64 a2)
 {
   int v4; // ebx

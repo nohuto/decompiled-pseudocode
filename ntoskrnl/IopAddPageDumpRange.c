@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopAddPageDumpRange @ 0x14054FB48
+ * Callers:
+ *     IopDumpCallAddPagesCallbacks @ 0x140550198 (IopDumpCallAddPagesCallbacks.c)
+ * Callees:
+ *     IoSetDumpRange @ 0x14054E9E0 (IoSetDumpRange.c)
+ */
+
 __int64 __fastcall IopAddPageDumpRange(__int64 a1, char *a2)
 {
   int v4; // ecx

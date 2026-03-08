@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CreatePathPersistentMonitorsIfNeeded@@YAJIPEBUD3DKMT_GETPATHSMODALITY@@PEAG@Z @ 0x1C00D2F20
+ * Callers:
+ *     DrvSetDisplayConfig @ 0x1C0025C00 (DrvSetDisplayConfig.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CreatePathPersistentMonitorsIfNeeded(
         __int64 a1,
         const struct D3DKMT_GETPATHSMODALITY *a2,

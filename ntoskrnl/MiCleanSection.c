@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiCleanSection @ 0x14020165C
+ * Callers:
+ *     MiAttemptSectionDelete @ 0x1402F3B10 (MiAttemptSectionDelete.c)
+ *     MiCheckControlArea @ 0x140334D00 (MiCheckControlArea.c)
+ * Callees:
+ *     MiDestroySection @ 0x1402017AC (MiDestroySection.c)
+ *     MiRemoveWakeListEntry @ 0x14020181C (MiRemoveWakeListEntry.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiFlushSectionInternal @ 0x14031FA90 (MiFlushSectionInternal.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiInsertUnusedSegment @ 0x14034C75C (MiInsertUnusedSegment.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x140668DD4 (MiReturnCrossPartitionSectionCharges.c)
+ */
+
 __int64 __fastcall MiCleanSection(__int64 a1, __int64 a2, char a3)
 {
   bool v3; // zf

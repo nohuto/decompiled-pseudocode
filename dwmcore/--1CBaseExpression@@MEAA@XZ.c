@@ -1,3 +1,24 @@
+/*
+ * XREFs of ??1CBaseExpression@@MEAA@XZ @ 0x180099D04
+ * Callers:
+ *     ??1CKeyframeAnimation@@UEAA@XZ @ 0x180097428 (--1CKeyframeAnimation@@UEAA@XZ.c)
+ *     ??1CExpression@@MEAA@XZ @ 0x1800BC92C (--1CExpression@@MEAA@XZ.c)
+ *     ??1CConditionalExpression@@UEAA@XZ @ 0x18022404C (--1CConditionalExpression@@UEAA@XZ.c)
+ *     ??1CInjectionAnimation@@UEAA@XZ @ 0x18022BA50 (--1CInjectionAnimation@@UEAA@XZ.c)
+ *     ??1CNaturalAnimation@@UEAA@XZ @ 0x180238804 (--1CNaturalAnimation@@UEAA@XZ.c)
+ *     ??_ECBaseExpression@@MEAAPEAXI@Z @ 0x18023B8F0 (--_ECBaseExpression@@MEAAPEAXI@Z.c)
+ *     ??1CScrollAnimation@@UEAA@XZ @ 0x180261254 (--1CScrollAnimation@@UEAA@XZ.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ??1CSparseStorage@@QEAA@XZ @ 0x18009A24C (--1CSparseStorage@@QEAA@XZ.c)
+ *     ?EnsureExpressionIsUnregistered@CBaseExpression@@QEAAXXZ @ 0x18009AF40 (-EnsureExpressionIsUnregistered@CBaseExpression@@QEAAXXZ.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D4A28 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800E0830 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CBaseExpression::~CBaseExpression(CBaseExpression *this)
 {
   __int64 v2; // rcx

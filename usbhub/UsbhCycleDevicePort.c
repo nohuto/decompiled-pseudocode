@@ -1,3 +1,21 @@
+/*
+ * XREFs of UsbhCycleDevicePort @ 0x1C003725C
+ * Callers:
+ *     UsbhFdoCyclePdoPort @ 0x1C00303A4 (UsbhFdoCyclePdoPort.c)
+ *     UsbhIoctlCyclePort @ 0x1C003E3F8 (UsbhIoctlCyclePort.c)
+ * Callees:
+ *     UsbhUnlatchPdo @ 0x1C0001380 (UsbhUnlatchPdo.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhLatchPdo @ 0x1C0019420 (UsbhLatchPdo.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     UsbhAcquirePdoStateLock @ 0x1C0031CB0 (UsbhAcquirePdoStateLock.c)
+ *     UsbhQueueSoftConnectChange @ 0x1C0034FA8 (UsbhQueueSoftConnectChange.c)
+ *     UsbhSyncResumePort @ 0x1C003A460 (UsbhSyncResumePort.c)
+ */
+
 __int64 __fastcall UsbhCycleDevicePort(__int64 a1, __int64 a2, _DWORD *a3)
 {
   int v6; // ebx

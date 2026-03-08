@@ -1,3 +1,45 @@
+/*
+ * XREFs of CmpCallCallBacksEx @ 0x1406E0B20
+ * Callers:
+ *     NtDeleteKey @ 0x1406B72F0 (NtDeleteKey.c)
+ *     NtQueryMultipleValueKey @ 0x1406B8CB0 (NtQueryMultipleValueKey.c)
+ *     NtDeleteValueKey @ 0x1406B9280 (NtDeleteValueKey.c)
+ *     CmLoadDifferencingKey @ 0x1406BC49C (CmLoadDifferencingKey.c)
+ *     CmpCallCallBacks @ 0x1406BD20C (CmpCallCallBacks.c)
+ *     CmPostCallbackNotificationEx @ 0x1406BD240 (CmPostCallbackNotificationEx.c)
+ *     CmpDeleteKeyObject @ 0x1406E5C50 (CmpDeleteKeyObject.c)
+ *     NtQueryKey @ 0x1406E6630 (NtQueryKey.c)
+ *     NtQueryValueKey @ 0x1406E6C50 (NtQueryValueKey.c)
+ *     CmpParseKey @ 0x1406E7480 (CmpParseKey.c)
+ *     CmUnloadKey @ 0x140749BD8 (CmUnloadKey.c)
+ *     NtFlushKey @ 0x140758B70 (NtFlushKey.c)
+ *     NtSetInformationKey @ 0x1407590A0 (NtSetInformationKey.c)
+ *     NtSetValueKey @ 0x1407A9030 (NtSetValueKey.c)
+ *     NtEnumerateValueKey @ 0x1407AB260 (NtEnumerateValueKey.c)
+ *     CmpSecurityMethod @ 0x1407AC040 (CmpSecurityMethod.c)
+ *     NtEnumerateKey @ 0x1407AC4B0 (NtEnumerateKey.c)
+ *     NtRenameKey @ 0x140A0B350 (NtRenameKey.c)
+ *     NtReplaceKey @ 0x140A0B850 (NtReplaceKey.c)
+ *     NtRestoreKey @ 0x140A0BBB0 (NtRestoreKey.c)
+ *     NtSaveKeyEx @ 0x140A0BF70 (NtSaveKeyEx.c)
+ *     NtSaveMergedKeys @ 0x140A0C200 (NtSaveMergedKeys.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ExfUnblockPushLock @ 0x14040CCE0 (ExfUnblockPushLock.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     CmpFreeCallbackContext @ 0x1404632AA (CmpFreeCallbackContext.c)
+ *     CmpCallbackFillObjectContext @ 0x1406E1220 (CmpCallbackFillObjectContext.c)
+ *     CmpCallbackFatalFilter @ 0x140A0C930 (CmpCallbackFatalFilter.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmpCallCallBacksEx(
         unsigned int a1,
         __int128 *a2,

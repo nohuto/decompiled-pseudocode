@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitContext @ 0x1C0053838
+ * Callers:
+ *     NewContext @ 0x1C00539EC (NewContext.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ */
+
 _QWORD *__fastcall InitContext(char *DeferredContext)
 {
   char *v2; // rax

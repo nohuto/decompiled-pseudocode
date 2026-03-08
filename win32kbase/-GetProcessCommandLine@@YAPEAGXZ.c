@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetProcessCommandLine@@YAPEAGXZ @ 0x1C0168E78
+ * Callers:
+ *     NtUserWin32kSysCallFilterStub @ 0x1C017A690 (NtUserWin32kSysCallFilterStub.c)
+ * Callees:
+ *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0068568 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ?RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C0085E78 (-RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 char *GetProcessCommandLine(void)
 {
   BOOL v0; // esi

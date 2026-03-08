@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIIsPhase3ListEmptyOfUnblockedItemsPowerNodeEnum @ 0x1C0021F40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qDqqss @ 0x1C0022A3C (WPP_RECORDER_SF_qDqqss.c)
+ */
+
 __int64 __fastcall ACPIIsPhase3ListEmptyOfUnblockedItemsPowerNodeEnum(__int64 a1, __int64 a2, __int64 a3)
 {
   int v3; // r10d

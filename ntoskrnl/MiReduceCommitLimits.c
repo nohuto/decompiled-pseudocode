@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiReduceCommitLimits @ 0x140653F84
+ * Callers:
+ *     MiAttemptPageFileReductionApc @ 0x140635960 (MiAttemptPageFileReductionApc.c)
+ *     MiInsertPartitionPages @ 0x140657EB8 (MiInsertPartitionPages.c)
+ *     MiCreatePagingFile @ 0x140834F7C (MiCreatePagingFile.c)
+ *     MiMapNewPfns @ 0x140A29C20 (MiMapNewPfns.c)
+ *     MiRemovePhysicalMemory @ 0x140A29F5C (MiRemovePhysicalMemory.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiComputeCommitThresholds @ 0x140392978 (MiComputeCommitThresholds.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiReduceCommitLimits(_QWORD *a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

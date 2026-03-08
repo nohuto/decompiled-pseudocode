@@ -1,3 +1,19 @@
+/*
+ * XREFs of CmpStartCLFSLog @ 0x14086411C
+ * Callers:
+ *     CmpStartRMLog @ 0x140863C7C (CmpStartRMLog.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PsDisableImpersonation @ 0x1406D2C20 (PsDisableImpersonation.c)
+ *     PsRestoreImpersonation @ 0x1406D2D60 (PsRestoreImpersonation.c)
+ *     CmpAddRemoveContainerToCLFSLog @ 0x140864428 (CmpAddRemoveContainerToCLFSLog.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmpStartCLFSLog(
         PCUNICODE_STRING Source,
         PCUNICODE_STRING a2,

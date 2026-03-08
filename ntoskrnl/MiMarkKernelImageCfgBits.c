@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiMarkKernelImageCfgBits @ 0x1407F72E0
+ * Callers:
+ *     MiProcessKernelCfgImage @ 0x1402FCCC4 (MiProcessKernelCfgImage.c)
+ *     MiUnloadSystemImage @ 0x1407F627C (MiUnloadSystemImage.c)
+ *     MiInitializeDriverImages @ 0x140B3B090 (MiInitializeDriverImages.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiSnapDriverRange @ 0x14072A118 (MiSnapDriverRange.c)
+ *     MiCompleteSecureDriverLoad @ 0x140880F78 (MiCompleteSecureDriverLoad.c)
+ *     MiAcquireKernelCfgLock @ 0x140A41184 (MiAcquireKernelCfgLock.c)
+ *     MiAllocateKernelCfgBitmapPageTables @ 0x140A411E8 (MiAllocateKernelCfgBitmapPageTables.c)
+ *     MiReleaseKernelCfgLock @ 0x140A41450 (MiReleaseKernelCfgLock.c)
+ */
+
 __int64 __fastcall MiMarkKernelImageCfgBits(__int64 a1, __int64 a2)
 {
   int KernelCfgBitmapPageTables; // edi

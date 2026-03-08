@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpQueryTokenPackageInfo @ 0x14071DD5C
+ * Callers:
+ *     EtwQueryProcessTelemetryInfo @ 0x14071D7DC (EtwQueryProcessTelemetryInfo.c)
+ *     EtwpBuildProcessEvent @ 0x14071DE28 (EtwpBuildProcessEvent.c)
+ *     EtwTraceAppStateChange @ 0x1407E8520 (EtwTraceAppStateChange.c)
+ *     EtwpPsProvProcessEnumCallback @ 0x1409ECC80 (EtwpPsProvProcessEnumCallback.c)
+ * Callees:
+ *     RtlQueryPackageIdentity @ 0x140298300 (RtlQueryPackageIdentity.c)
+ *     PsQueryProcessAttributesByToken @ 0x1406D44E0 (PsQueryProcessAttributesByToken.c)
+ */
+
 __int64 __fastcall EtwpQueryTokenPackageInfo(__int64 a1, __int64 a2, _DWORD *a3)
 {
   _QWORD *v3; // rdi

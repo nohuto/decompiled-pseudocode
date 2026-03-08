@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhPdoPower_SetPower @ 0x1C00208E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhPdoSystemPowerState @ 0x1C0009F9C (UsbhPdoSystemPowerState.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     UsbhPdoDevicePowerState @ 0x1C000A4C0 (UsbhPdoDevicePowerState.c)
+ *     UsbhPoStartNextPowerIrp_Pdo @ 0x1C001E7C8 (UsbhPoStartNextPowerIrp_Pdo.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ */
+
 __int64 __fastcall UsbhPdoPower_SetPower(struct _DEVICE_OBJECT *a1, IRP *a2)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // r8

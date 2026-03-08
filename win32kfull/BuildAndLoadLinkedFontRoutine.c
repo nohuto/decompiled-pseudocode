@@ -1,3 +1,12 @@
+/*
+ * XREFs of BuildAndLoadLinkedFontRoutine @ 0x1C0118F90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     bAddFlEntry @ 0x1C0119070 (bAddFlEntry.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall BuildAndLoadLinkedFontRoutine(wchar_t *Str1, __int64 a2, const void *a3, __int64 a4)
 {
   unsigned __int64 v4; // rbx

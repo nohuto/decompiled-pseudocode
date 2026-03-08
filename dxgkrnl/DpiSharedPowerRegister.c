@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiSharedPowerRegister @ 0x1C03997D0
+ * Callers:
+ *     DpiFdoDispatchInternalIoctl @ 0x1C0212B10 (DpiFdoDispatchInternalIoctl.c)
+ * Callees:
+ *     DxgRegisterSharedPowerComponent @ 0x1C02E0F4C (DxgRegisterSharedPowerComponent.c)
+ */
+
 __int64 __fastcall DpiSharedPowerRegister(
         __int64 a1,
         __int64 a2,

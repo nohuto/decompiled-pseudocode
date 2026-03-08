@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_Lrotate@?$_Tree_val@U?$_Tree_simple_types@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@std@@@std@@QEAAXPEAU?$_Tree_node@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@PEAX@2@@Z @ 0x1800D6CA8
+ * Callers:
+ *     ?_Insert_node@?$_Tree_val@U?$_Tree_simple_types@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@@std@@@std@@QEAAPEAU?$_Tree_node@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@PEAX@2@U?$_Tree_id@PEAU?$_Tree_node@V?$basic_string@GU?$char_traits@G@std@@V?$allocator@G@2@@std@@PEAX@std@@@2@QEAU32@@Z @ 0x1800D6ACC (-_Insert_node@-$_Tree_val@U-$_Tree_simple_types@V-$basic_string@GU-$char_traits@G@std@@V-$alloca.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall std::_Tree_val<std::_Tree_simple_types<std::wstring>>::_Lrotate(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // r8

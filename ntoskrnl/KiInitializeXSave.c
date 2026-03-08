@@ -1,3 +1,19 @@
+/*
+ * XREFs of KiInitializeXSave @ 0x140A8CAA0
+ * Callers:
+ *     KiSystemStartup @ 0x140A84010 (KiSystemStartup.c)
+ * Callees:
+ *     KiGetIptInfo @ 0x140397F50 (KiGetIptInfo.c)
+ *     KiGetXSaveSupportedFeatures @ 0x140398050 (KiGetXSaveSupportedFeatures.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiIntersectFeaturesWithLoader @ 0x140A8CD54 (KiIntersectFeaturesWithLoader.c)
+ *     KiParseLoadOptions @ 0x140A8CDAC (KiParseLoadOptions.c)
+ *     KiUpdateXSaveSizeAndVolatileFeatures @ 0x140A8CE64 (KiUpdateXSaveSizeAndVolatileFeatures.c)
+ *     KiIntersectFeaturesWithPolicy @ 0x140A8D294 (KiIntersectFeaturesWithPolicy.c)
+ */
+
 __int64 __fastcall KiInitializeXSave(__int64 a1, int a2)
 {
   __int64 result; // rax

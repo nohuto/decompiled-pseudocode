@@ -1,3 +1,12 @@
+/*
+ * XREFs of RaspLoadBearings @ 0x14038307C
+ * Callers:
+ *     RaspGetUnscaledGlyphData @ 0x140382708 (RaspGetUnscaledGlyphData.c)
+ * Callees:
+ *     FioFwReadUshortAtOffset @ 0x140383398 (FioFwReadUshortAtOffset.c)
+ *     FioFwReadBytesAtOffset @ 0x140383778 (FioFwReadBytesAtOffset.c)
+ */
+
 __int64 __fastcall RaspLoadBearings(__int64 a1, unsigned int a2, __int64 a3, int *a4)
 {
   unsigned int v4; // ebp

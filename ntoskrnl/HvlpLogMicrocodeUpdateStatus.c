@@ -1,3 +1,14 @@
+/*
+ * XREFs of HvlpLogMicrocodeUpdateStatus @ 0x14093E204
+ * Callers:
+ *     HvlPhase2Initialize @ 0x1403AF870 (HvlPhase2Initialize.c)
+ *     HvlpDynamicUpdateMicrocode @ 0x14093E628 (HvlpDynamicUpdateMicrocode.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HvlpGetLogicalProcessorProperty @ 0x14053EAB4 (HvlpGetLogicalProcessorProperty.c)
+ *     CmLogMcUpdateStatus @ 0x1406133DC (CmLogMcUpdateStatus.c)
+ */
+
 void HvlpLogMicrocodeUpdateStatus()
 {
   unsigned int v0; // ebx

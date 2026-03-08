@@ -1,3 +1,30 @@
+/*
+ * XREFs of MiApplyHotPatchToLoadedDriver @ 0x140A323A8
+ * Callers:
+ *     MiApplyHotPatchToDriver @ 0x140A321B0 (MiApplyHotPatchToDriver.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MiDetachSessionGlobal @ 0x1402EA04C (MiDetachSessionGlobal.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14032E710 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     MiMakeZeroedPageTables @ 0x14036C240 (MiMakeZeroedPageTables.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     VslPrepareDriverForPatch @ 0x140549980 (VslPrepareDriverForPatch.c)
+ *     KeIsImageIATProtected @ 0x14056A0EC (KeIsImageIATProtected.c)
+ *     MiDereferenceSessionGlobal @ 0x1406350F4 (MiDereferenceSessionGlobal.c)
+ *     MiAttachToSessionForBaseImage @ 0x14063F7A4 (MiAttachToSessionForBaseImage.c)
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ *     MiGenerateSystemImageNames @ 0x14072ECD0 (MiGenerateSystemImageNames.c)
+ *     MmUnloadSystemImage @ 0x1407F5FA0 (MmUnloadSystemImage.c)
+ *     MiDriverLoadSucceeded @ 0x1407F6FFC (MiDriverLoadSucceeded.c)
+ *     MiEnumerateBasePatches @ 0x1407F7420 (MiEnumerateBasePatches.c)
+ *     MiFindEntryInImportList @ 0x140A28344 (MiFindEntryInImportList.c)
+ *     MiApplyDriverHotPatch @ 0x140A31BB8 (MiApplyDriverHotPatch.c)
+ */
+
 __int64 __fastcall MiApplyHotPatchToLoadedDriver(__int64 a1, unsigned __int16 *a2, __int64 a3)
 {
   unsigned __int64 v3; // rbx

@@ -1,3 +1,25 @@
+/*
+ * XREFs of ReleaseCacheDC @ 0x1C003F210
+ * Callers:
+ *     xxxEnumDisplayMonitors @ 0x1C003AE40 (xxxEnumDisplayMonitors.c)
+ *     UserReleaseDC @ 0x1C003DB80 (UserReleaseDC.c)
+ *     _ReleaseDC @ 0x1C003EAA0 (_ReleaseDC.c)
+ *     NtUserReleaseDC @ 0x1C003F170 (NtUserReleaseDC.c)
+ * Callees:
+ *     IsFlushWEFCOMPOSITEDDCEBoundsSupported @ 0x1C000DBB4 (IsFlushWEFCOMPOSITEDDCEBoundsSupported.c)
+ *     DestroyCacheDC @ 0x1C003DA20 (DestroyCacheDC.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     GreValidateVisrgn @ 0x1C004145C (GreValidateVisrgn.c)
+ *     IsDeleteHrgnClipSupported @ 0x1C0041F9C (IsDeleteHrgnClipSupported.c)
+ *     GreUnlockVisRgn @ 0x1C00795D0 (GreUnlockVisRgn.c)
+ *     GreCleanDCAndSetOwnerEx @ 0x1C00DEED0 (GreCleanDCAndSetOwnerEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     ?TraceLoggingGlobalDCsInUse@@YAXK@Z @ 0x1C017D92C (-TraceLoggingGlobalDCsInUse@@YAXK@Z.c)
+ *     ?TraceLoggingProcessDCsInUse@@YAXKK@Z @ 0x1C017D99C (-TraceLoggingProcessDCsInUse@@YAXKK@Z.c)
+ *     McTemplateK0pqz_EtwWriteTransfer @ 0x1C0198958 (McTemplateK0pqz_EtwWriteTransfer.c)
+ *     McTemplateK0pz_EtwWriteTransfer @ 0x1C0198A10 (McTemplateK0pz_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall ReleaseCacheDC(__int64 a1, int a2)
 {
   _QWORD *v4; // rbx

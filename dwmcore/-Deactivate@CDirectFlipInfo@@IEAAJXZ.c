@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Deactivate@CDirectFlipInfo@@IEAAJXZ @ 0x1801F3C84
+ * Callers:
+ *     ?Reset@CDirectFlipInfo@@QEAAXXZ @ 0x1800CA284 (-Reset@CDirectFlipInfo@@QEAAXXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CDirectFlipInfo::Deactivate(CDirectFlipInfo *this, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

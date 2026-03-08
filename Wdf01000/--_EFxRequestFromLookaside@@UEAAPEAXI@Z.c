@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_EFxRequestFromLookaside@@UEAAPEAXI@Z @ 0x1C003A7D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1FxRequestBase@@MEAA@XZ @ 0x1C0002EE8 (--1FxRequestBase@@MEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ */
+
 FxRequestBase *__fastcall FxRequestFromLookaside::`vector deleting destructor'(FxRequestBase *this, unsigned int a2)
 {
   char v2; // bl

@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiSoftFaultMappedView @ 0x14034A9A0
+ * Callers:
+ *     MiMapViewOfImageSection @ 0x1407D3750 (MiMapViewOfImageSection.c)
+ * Callees:
+ *     MiLockProtoPoolPage @ 0x140283CA0 (MiLockProtoPoolPage.c)
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     MiCompleteRestrictedImageFault @ 0x14028D690 (MiCompleteRestrictedImageFault.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MiUnlockFaultWorkingSet @ 0x1402F7444 (MiUnlockFaultWorkingSet.c)
+ *     MiMakeSystemAddressValid @ 0x140321770 (MiMakeSystemAddressValid.c)
+ *     MiVadMapsLargeImage @ 0x140327280 (MiVadMapsLargeImage.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiLockLeafPage @ 0x14034AF20 (MiLockLeafPage.c)
+ *     MiImagePageOk @ 0x14034B09C (MiImagePageOk.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall MiSoftFaultMappedView(__int64 a1)
 {
   int v1; // edx

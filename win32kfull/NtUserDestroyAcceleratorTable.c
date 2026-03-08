@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserDestroyAcceleratorTable @ 0x1C00F3BA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ */
+
 __int64 __fastcall NtUserDestroyAcceleratorTable(__int64 a1)
 {
   __int64 v2; // rax

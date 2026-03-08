@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?xxxPromotePointer@PointerPromotion@@YAHGKK@Z @ 0x1C01F9E6C
+ * Callers:
+ *     EditionPromotePointer @ 0x1C0149650 (EditionPromotePointer.c)
+ *     ?xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z @ 0x1C01F9BE8 (-xxxProcessPointerInputAsMouse@PointerPromotion@@YAXAEBUtagPOINTER_INFO@@GG@Z.c)
+ * Callees:
+ *     ?PromoteToMouse@Pointer@InputTraceLogging@@SAXKGKG@Z @ 0x1C01494D2 (-PromoteToMouse@Pointer@InputTraceLogging@@SAXKGKG@Z.c)
+ *     ?ForceCompletePendingPromotion@@YAXXZ @ 0x1C01F8F5C (-ForceCompletePendingPromotion@@YAXXZ.c)
+ *     ?HasPendingPromotion@@YAHXZ @ 0x1C01F9064 (-HasPendingPromotion@@YAHXZ.c)
+ *     ?PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z @ 0x1C01F93F8 (-PromotePointerInternal@@YAHGKPEAUtagMOUSE_PROMOTION_ENTRY@@0@Z.c)
+ *     ?ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z @ 0x1C01F9854 (-ValidatePointerPromotion@@YAHGKPEAKPEAPEAUtagMOUSE_PROMOTION_ENTRY@@1@Z.c)
+ *     ?xxxProcessMousePromotionQueue@@YAXXZ @ 0x1C01F99E8 (-xxxProcessMousePromotionQueue@@YAXXZ.c)
+ */
+
 __int64 __fastcall PointerPromotion::xxxPromotePointer(PointerPromotion *this, unsigned int a2, unsigned int a3)
 {
   unsigned __int16 v4; // si

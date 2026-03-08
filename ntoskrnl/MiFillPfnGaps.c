@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiFillPfnGaps @ 0x140B71C84
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     MiWalkPageTables @ 0x140222CF0 (MiWalkPageTables.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 MiFillPfnGaps()
 {
   __int64 result; // rax

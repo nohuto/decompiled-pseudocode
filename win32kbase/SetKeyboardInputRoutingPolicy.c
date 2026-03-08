@@ -1,3 +1,13 @@
+/*
+ * XREFs of SetKeyboardInputRoutingPolicy @ 0x1C00CD7B4
+ * Callers:
+ *     NtMITSetKeyboardInputRoutingPolicy @ 0x1C00CD720 (NtMITSetKeyboardInputRoutingPolicy.c)
+ * Callees:
+ *     ?IsInputThread@CInputThreadBase@@QEBA_NXZ @ 0x1C007CCB8 (-IsInputThread@CInputThreadBase@@QEBA_NXZ.c)
+ *     _anonymous_namespace_::GetKeyboardProcessor @ 0x1C0080388 (_anonymous_namespace_--GetKeyboardProcessor.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall SetKeyboardInputRoutingPolicy(__int32 a1)
 {
   PKDPC BufferChainingDpc; // rdi

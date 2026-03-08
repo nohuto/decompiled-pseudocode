@@ -1,3 +1,23 @@
+/*
+ * XREFs of RtlpHpReleaseQueuedLockExclusive @ 0x1402CD080
+ * Callers:
+ *     RtlpHpVsContextFreeList @ 0x140249050 (RtlpHpVsContextFreeList.c)
+ *     RtlpHpVsChunkFree @ 0x140249D70 (RtlpHpVsChunkFree.c)
+ *     RtlpHpAllocateHeap @ 0x14024A2B0 (RtlpHpAllocateHeap.c)
+ *     RtlpHpVsContextMultiAlloc @ 0x14024A490 (RtlpHpVsContextMultiAlloc.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x14024A790 (RtlpHpVsContextAllocateInternal.c)
+ *     RtlpHpVsChunkSplit @ 0x14024AB60 (RtlpHpVsChunkSplit.c)
+ *     RtlpHpVsContextAllocate @ 0x1402E0C44 (RtlpHpVsContextAllocate.c)
+ *     ExAllocateHeapPool @ 0x1403101C0 (ExAllocateHeapPool.c)
+ *     RtlpHpFreeHeap @ 0x140313CC0 (RtlpHpFreeHeap.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140608CDC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ */
+
 char __fastcall RtlpHpReleaseQueuedLockExclusive(int a1, __int64 a2)
 {
   _DWORD *v3; // rcx

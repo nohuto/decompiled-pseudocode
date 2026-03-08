@@ -1,3 +1,13 @@
+/*
+ * XREFs of I_MincryptAddChainInfo @ 0x140A6DD90
+ * Callers:
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6CBC8 (MinCryptVerifyCertificateWithPolicy2.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall I_MincryptAddChainInfo(
         __int64 a1,
         int a2,

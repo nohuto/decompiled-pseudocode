@@ -1,3 +1,14 @@
+/*
+ * XREFs of wil_details_IsEnabledFallback @ 0x1C000CD00
+ * Callers:
+ *     Feature_USB4PowerImprovements__private_IsEnabledFallback @ 0x1C000CDE8 (Feature_USB4PowerImprovements__private_IsEnabledFallback.c)
+ *     Feature_DropPowerReferenceOnLPE__private_IsEnabledFallback @ 0x1C000CE3C (Feature_DropPowerReferenceOnLPE__private_IsEnabledFallback.c)
+ * Callees:
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C000C97C (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState @ 0x1C000CAA8 (wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C000CD94 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ */
+
 __int64 __fastcall wil_details_IsEnabledFallback(__int64 a1, unsigned int a2, volatile signed __int32 **a3)
 {
   char v5; // bl

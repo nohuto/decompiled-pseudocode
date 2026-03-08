@@ -1,3 +1,15 @@
+/*
+ * XREFs of KeQueryAffinityProcess @ 0x14029A300
+ * Callers:
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ *     NtQueryInformationProcess @ 0x1407215F0 (NtQueryInformationProcess.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeQueryAffinityProcess(__int64 a1, __int64 a2, _DWORD *a3, _OWORD *a4, _WORD *a5)
 {
   unsigned __int8 CurrentIrql; // bl

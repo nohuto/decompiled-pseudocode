@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UpdateDesktopMonitorNavigationOrder@@YAXXZ @ 0x1C00E1D58
+ * Callers:
+ *     SortMonitorsInSpatialOrder @ 0x1C00E1D30 (SortMonitorsInSpatialOrder.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C01032D0 (xxxSystemParametersInfoWorker.c)
+ * Callees:
+ *     GetMonitorWorkRectForDpi @ 0x1C00E1F04 (GetMonitorWorkRectForDpi.c)
+ */
+
 void UpdateDesktopMonitorNavigationOrder(void)
 {
   __int64 v0; // rbx

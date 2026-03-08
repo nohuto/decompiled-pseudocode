@@ -1,3 +1,21 @@
+/*
+ * XREFs of BcdEnumerateObjects @ 0x140A597EC
+ * Callers:
+ *     SepSecureBootCorrectBcd @ 0x1409CDB74 (SepSecureBootCorrectBcd.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     BiIsOfflineHandle @ 0x1403903FC (BiIsOfflineHandle.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ *     BiEnumerateSubKeys @ 0x14082D288 (BiEnumerateSubKeys.c)
+ *     BiGetObjectDescription @ 0x14082E2C8 (BiGetObjectDescription.c)
+ *     BiOpenKey @ 0x14082E7AC (BiOpenKey.c)
+ *     BiCloseKey @ 0x14082E938 (BiCloseKey.c)
+ *     BiAcquireBcdSyncMutant @ 0x14082ED10 (BiAcquireBcdSyncMutant.c)
+ *     BiReleaseBcdSyncMutant @ 0x14082EDB8 (BiReleaseBcdSyncMutant.c)
+ *     BiIsEnumerateMatch @ 0x140A59B5C (BiIsEnumerateMatch.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall BcdEnumerateObjects(__int64 a1, _DWORD *a2, GUID *a3, unsigned int *a4, unsigned int *a5)
 {
   unsigned int *v5; // r12

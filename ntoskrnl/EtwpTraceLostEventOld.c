@@ -1,3 +1,19 @@
+/*
+ * XREFs of EtwpTraceLostEventOld @ 0x14040C2E0
+ * Callers:
+ *     EtwpEventWriteFull @ 0x1402319C0 (EtwpEventWriteFull.c)
+ *     EtwpFailLoggingOld @ 0x14040C914 (EtwpFailLoggingOld.c)
+ *     EtwpWriteUserEvent @ 0x1406AA640 (EtwpWriteUserEvent.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1404210C0 (_alloca_probe.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     EtwpGetEventNameFromEventMetadata @ 0x140462A96 (EtwpGetEventNameFromEventMetadata.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EtwpTraceLostEventOld(
         _QWORD *a1,
         __int16 *a2,

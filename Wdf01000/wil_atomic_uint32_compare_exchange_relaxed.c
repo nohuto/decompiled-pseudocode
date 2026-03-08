@@ -1,3 +1,11 @@
+/*
+ * XREFs of wil_atomic_uint32_compare_exchange_relaxed @ 0x1C000A968
+ * Callers:
+ *     wil_details_EvaluateFeatureDependencies_ReevaluateCachedFeatureEnabledState @ 0x1C00B01C4 (wil_details_EvaluateFeatureDependencies_ReevaluateCachedFeatureEnabledState.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall wil_atomic_uint32_compare_exchange_relaxed(
         volatile unsigned int *object,
         unsigned int *expected,

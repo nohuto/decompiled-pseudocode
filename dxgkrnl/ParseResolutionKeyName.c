@@ -1,3 +1,14 @@
+/*
+ * XREFs of ParseResolutionKeyName @ 0x1C01FEAE0
+ * Callers:
+ *     ?_ProcessMonitorResolutionKey@MonitorModes@DxgMonitor@@AEAAJPEAXPEAU_KEY_BASIC_INFORMATION@@@Z @ 0x1C01FE8CC (-_ProcessMonitorResolutionKey@MonitorModes@DxgMonitor@@AEAAJPEAXPEAU_KEY_BASIC_INFORMATION@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ParseModeCap @ 0x1C01FF3DC (ParseModeCap.c)
+ */
+
 __int64 __fastcall ParseResolutionKeyName(const void **a1, int a2, int a3)
 {
   size_t v6; // r8

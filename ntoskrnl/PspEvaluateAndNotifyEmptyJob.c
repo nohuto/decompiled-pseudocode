@@ -1,3 +1,16 @@
+/*
+ * XREFs of PspEvaluateAndNotifyEmptyJob @ 0x1406F8844
+ * Callers:
+ *     PspNotifyEmptyJobsInJobChain @ 0x1406F870C (PspNotifyEmptyJobsInJobChain.c)
+ *     PspTerminateAllProcessesInJobHierarchy @ 0x140791E78 (PspTerminateAllProcessesInJobHierarchy.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PspHardDereferenceSiloWorker @ 0x14029432C (PspHardDereferenceSiloWorker.c)
+ *     PspSendReliableJobNotification @ 0x1406F4D9C (PspSendReliableJobNotification.c)
+ *     PspUnlockJob @ 0x1406FBF7C (PspUnlockJob.c)
+ *     PspLockJobExclusive @ 0x1406FC178 (PspLockJobExclusive.c)
+ */
+
 __int64 __fastcall PspEvaluateAndNotifyEmptyJob(struct _KEVENT *Object, char a2, char a3)
 {
   struct _KTHREAD *CurrentThread; // rsi

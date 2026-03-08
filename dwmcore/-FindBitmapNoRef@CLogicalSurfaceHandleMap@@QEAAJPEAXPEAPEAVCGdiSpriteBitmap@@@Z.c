@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FindBitmapNoRef@CLogicalSurfaceHandleMap@@QEAAJPEAXPEAPEAVCGdiSpriteBitmap@@@Z @ 0x180045398
+ * Callers:
+ *     ?ProcessToken@CLegacySurfaceManager@@IEAAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAIPEA_N@Z @ 0x18004523C (-ProcessToken@CLegacySurfaceManager@@IEAAJPEBU_D3DKMT_PRESENTHISTORYTOKEN@@PEAIPEA_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CLogicalSurfaceHandleMap::FindBitmapNoRef(
         CLogicalSurfaceHandleMap *this,
         void *a2,

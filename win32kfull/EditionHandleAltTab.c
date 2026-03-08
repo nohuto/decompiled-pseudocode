@@ -1,3 +1,18 @@
+/*
+ * XREFs of EditionHandleAltTab @ 0x1C00F54C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxSetWindowPos @ 0x1C0028F4C (xxxSetWindowPos.c)
+ *     PostInputMessage @ 0x1C0037A48 (PostInputMessage.c)
+ *     HasHidTable @ 0x1C0038CB0 (HasHidTable.c)
+ *     PtiKbdFromQ @ 0x1C009FA48 (PtiKbdFromQ.c)
+ *     AdjustPwndPtiPqForDelegation @ 0x1C009FA68 (AdjustPwndPtiPqForDelegation.c)
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C00A126C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ *     SetNewForegroundQueue @ 0x1C00CE270 (SetNewForegroundQueue.c)
+ *     xxxCancelCoolSwitch @ 0x1C0146A72 (xxxCancelCoolSwitch.c)
+ */
+
 __int64 __fastcall EditionHandleAltTab(
         unsigned __int8 a1,
         unsigned __int16 a2,

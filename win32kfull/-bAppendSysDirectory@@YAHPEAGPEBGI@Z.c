@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?bAppendSysDirectory@@YAHPEAGPEBGI@Z @ 0x1C00B9FA4
+ * Callers:
+ *     bAddAllFlEntry @ 0x1C00B8F0C (bAddAllFlEntry.c)
+ *     vInitFontsDirectoryNameInformation @ 0x1C00BD320 (vInitFontsDirectoryNameInformation.c)
+ *     FontAssocDefaultRoutine @ 0x1C02A0D90 (FontAssocDefaultRoutine.c)
+ *     GreEudcLoadLinkW @ 0x1C02A10C8 (GreEudcLoadLinkW.c)
+ *     bDeleteFlEntry @ 0x1C02A1F2C (bDeleteFlEntry.c)
+ * Callees:
+ *     ??1?$AutoResource@$1?Win32FreePool@@YAXPEAX@Z@@QEAA@XZ @ 0x1C00B90C0 (--1-$AutoResource@$1-Win32FreePool@@YAXPEAX@Z@@QEAA@XZ.c)
+ *     ?StringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1C00BA474 (-StringCchCatW@@YAJPEAG_KPEBG@Z.c)
+ *     ??0MALLOCOBJ@@QEAA@K@Z @ 0x1C0116400 (--0MALLOCOBJ@@QEAA@K@Z.c)
+ *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C01165A4 (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     cCapString @ 0x1C0117F80 (cCapString.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall bAppendSysDirectory(unsigned __int16 *a1, const unsigned __int16 *a2)
 {
   unsigned __int16 *v4; // rbx

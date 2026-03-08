@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopCoalescingCallbackWorker @ 0x140983F50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PoIssueCoalescingNotification @ 0x14058B2F4 (PoIssueCoalescingNotification.c)
+ *     PopCoalescingSetActiveState @ 0x14058B44C (PopCoalescingSetActiveState.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopCoalescingCallbackWorker(int a1)
 {
   __int64 v1; // rdx

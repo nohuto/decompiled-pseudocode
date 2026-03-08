@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?bFindFirstSegment@XCLIPOBJ@@IEAAHXZ @ 0x1C02F58E0
+ * Callers:
+ *     ?bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z @ 0x1C02F5534 (-bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z.c)
+ *     ?bSetup@XCLIPOBJ@@IEAAHXZ @ 0x1C02F5D98 (-bSetup@XCLIPOBJ@@IEAAHXZ.c)
+ * Callees:
+ *     ?vUnflip@DDA_CLIPLINE@@QEBAXPEAJ0@Z @ 0x1C01519D0 (-vUnflip@DDA_CLIPLINE@@QEBAXPEAJ0@Z.c)
+ *     ?bIntersectWall@XCLIPOBJ@@IEAAHJPEAU_POINTL@@0PEAJ@Z @ 0x1C02F5CA8 (-bIntersectWall@XCLIPOBJ@@IEAAHJPEAU_POINTL@@0PEAJ@Z.c)
+ *     ?vIntersectScan@XCLIPOBJ@@IEAAXJPEAU_POINTL@@0PEAJ@Z @ 0x1C02F61C8 (-vIntersectScan@XCLIPOBJ@@IEAAXJPEAU_POINTL@@0PEAJ@Z.c)
+ */
+
 __int64 __fastcall XCLIPOBJ::bFindFirstSegment(XCLIPOBJ *this)
 {
   __int64 v2; // rcx

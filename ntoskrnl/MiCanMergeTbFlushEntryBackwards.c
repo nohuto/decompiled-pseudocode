@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiCanMergeTbFlushEntryBackwards @ 0x1402DD894
+ * Callers:
+ *     MiTerminateWsleCluster @ 0x1403234E0 (MiTerminateWsleCluster.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall MiCanMergeTbFlushEntryBackwards(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   int v5; // r8d

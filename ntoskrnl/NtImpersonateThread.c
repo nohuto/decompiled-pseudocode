@@ -1,3 +1,17 @@
+/*
+ * XREFs of NtImpersonateThread @ 0x140773790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SeDeleteClientSecurity @ 0x1406D4FF0 (SeDeleteClientSecurity.c)
+ *     SeCreateClientSecurity @ 0x1406D61E0 (SeCreateClientSecurity.c)
+ *     SeImpersonateClientEx @ 0x140773900 (SeImpersonateClientEx.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 NTSTATUS __fastcall NtImpersonateThread(HANDLE Handle, HANDLE a2, struct _SECURITY_QUALITY_OF_SERVICE *a3)
 {
   KPROCESSOR_MODE PreviousMode; // di

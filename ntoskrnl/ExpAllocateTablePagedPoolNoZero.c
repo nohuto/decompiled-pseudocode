@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpAllocateTablePagedPoolNoZero @ 0x140706670
+ * Callers:
+ *     ExpAllocateTablePagedPool @ 0x1407045FC (ExpAllocateTablePagedPool.c)
+ *     ExpAllocateLowLevelTable @ 0x14070663C (ExpAllocateLowLevelTable.c)
+ * Callees:
+ *     PsChargeProcessPagedPoolQuota @ 0x1407D6CF0 (PsChargeProcessPagedPoolQuota.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void *__fastcall ExpAllocateTablePagedPoolNoZero(__int64 a1, __int64 a2)
 {
   void *Pool2; // rbx

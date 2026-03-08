@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopDiagSnapPassiveHistogram @ 0x14058F530
+ * Callers:
+ *     PopTraceThermalRequestPassiveHistogram @ 0x14059356C (PopTraceThermalRequestPassiveHistogram.c)
+ *     PopTraceThermalZonePassiveHistogram @ 0x140593A94 (PopTraceThermalZonePassiveHistogram.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PopDiagSnapPassiveHistogram(__int64 a1, _DWORD *a2)
 {
   char v2; // r8

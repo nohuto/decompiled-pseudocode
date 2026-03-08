@@ -1,3 +1,11 @@
+/*
+ * XREFs of AslpHasStarForceWrapper @ 0x140A56788
+ * Callers:
+ *     AslpFileGetExeWrapper @ 0x140A55740 (AslpFileGetExeWrapper.c)
+ * Callees:
+ *     strncmp @ 0x1403D3310 (strncmp.c)
+ */
+
 __int64 __fastcall AslpHasStarForceWrapper(__int64 a1)
 {
   unsigned int v1; // ebx

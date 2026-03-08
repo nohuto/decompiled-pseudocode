@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoValidateDeviceIoControlAccess @ 0x1402FF900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall IoValidateDeviceIoControlAccess(PIRP Irp, ULONG RequiredAccess)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r8

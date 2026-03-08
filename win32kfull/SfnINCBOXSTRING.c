@@ -1,3 +1,11 @@
+/*
+ * XREFs of SfnINCBOXSTRING @ 0x1C014A830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_SfnINBOXSTRING@@YA_JJPEAUtagWND@@I_K_J1P6A_JXZKPEAUtagSMS@@@Z @ 0x1C02266CC (-_SfnINBOXSTRING@@YA_JJPEAUtagWND@@I_K_J1P6A_JXZKPEAUtagSMS@@@Z.c)
+ */
+
 __int64 __fastcall SfnINCBOXSTRING(
         struct tagWND *a1,
         unsigned int a2,

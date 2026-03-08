@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhClearTt @ 0x1C003708C
+ * Callers:
+ *     UsbhInitializeDevice @ 0x1C0002778 (UsbhInitializeDevice.c)
+ *     UsbhReset1Complete @ 0x1C0002B20 (UsbhReset1Complete.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhSyncSendCommand @ 0x1C0016EE0 (UsbhSyncSendCommand.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 void __fastcall UsbhClearTt(__int64 a1, __int64 a2, unsigned __int16 a3)
 {
   __int64 v3; // rsi

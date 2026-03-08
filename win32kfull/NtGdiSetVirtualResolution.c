@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiSetVirtualResolution @ 0x1C02D2B30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ */
+
 __int64 __fastcall NtGdiSetVirtualResolution(HDC a1, int a2, int a3, int a4, int a5)
 {
   unsigned int v5; // ebp

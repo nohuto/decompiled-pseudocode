@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpGenerateFastLeafHintForUnicodeString @ 0x140786860
+ * Callers:
+ *     CmpAddToLeaf @ 0x1407A4520 (CmpAddToLeaf.c)
+ *     CmpCheckLeaf @ 0x1407B0800 (CmpCheckLeaf.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmpGenerateFastLeafHintForUnicodeString(unsigned __int16 *a1)
 {
   __int64 result; // rax

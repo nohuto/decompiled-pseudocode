@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMIDEBuildButtonFlagsFromRawButtonsAndMouseInputStruct @ 0x1C01C149C
+ * Callers:
+ *     RIMIDEInjectMouseFromMouseInputStruct @ 0x1C01C4968 (RIMIDEInjectMouseFromMouseInputStruct.c)
+ * Callees:
+ *     <none>
+ */
+
 __int16 __fastcall RIMIDEBuildButtonFlagsFromRawButtonsAndMouseInputStruct(int a1, int a2, __int64 a3)
 {
   int v3; // ecx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwNotifyChangeDirectoryFile @ 0x1404146F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwNotifyChangeDirectoryFile(__int64 a1, __int64 a2)
 {
   _disable();

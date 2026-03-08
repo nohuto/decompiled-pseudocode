@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExpWnfCaptureScopeInstanceId @ 0x14071A42C
+ * Callers:
+ *     ExpNtUpdateWnfStateData @ 0x14071943C (ExpNtUpdateWnfStateData.c)
+ *     NtQueryWnfStateData @ 0x140719DF0 (NtQueryWnfStateData.c)
+ *     NtQueryWnfStateNameInformation @ 0x14077DEB0 (NtQueryWnfStateNameInformation.c)
+ *     ExpNtDeleteWnfStateData @ 0x14085860C (ExpNtDeleteWnfStateData.c)
+ * Callees:
+ *     MmGetSessionById @ 0x14022A4F0 (MmGetSessionById.c)
+ *     SeCaptureSid @ 0x140710930 (SeCaptureSid.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ */
+
 __int64 __fastcall ExpWnfCaptureScopeInstanceId(int a1, char *a2, __int64 a3, __int64 a4, __int64 a5)
 {
   _QWORD *v5; // rdi

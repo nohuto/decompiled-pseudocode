@@ -1,3 +1,19 @@
+/*
+ * XREFs of PspLocateSystemDll @ 0x14084AE64
+ * Callers:
+ *     PsLocateSystemDlls @ 0x14084ADDC (PsLocateSystemDlls.c)
+ * Callees:
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     ZwSystemDebugControl @ 0x140415CB0 (ZwSystemDebugControl.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ObInitializeFastReference @ 0x14070A3AC (ObInitializeFastReference.c)
+ *     MmCreateSpecialImageSection @ 0x14070DBD4 (MmCreateSpecialImageSection.c)
+ *     MmGetSectionInformation @ 0x140720B20 (MmGetSectionInformation.c)
+ *     PspMapSystemDll @ 0x140727ACC (PspMapSystemDll.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ */
+
 NTSTATUS __fastcall PspLocateSystemDll(UNICODE_STRING *a1, char a2)
 {
   NTSTATUS result; // eax

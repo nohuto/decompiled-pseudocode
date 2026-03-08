@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDirtyRects@CHolographicFrameProcessor@@UEAAXIIPEAIPEAUtagRECT@@PEA_N@Z @ 0x180107F90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CHolographicFrameProcessor::GetDirtyRects(
         CHolographicFrameProcessor *this,
         __int64 a2,

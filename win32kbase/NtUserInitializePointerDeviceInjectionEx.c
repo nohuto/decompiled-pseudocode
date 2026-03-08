@@ -1,3 +1,25 @@
+/*
+ * XREFs of NtUserInitializePointerDeviceInjectionEx @ 0x1C0172660
+ * Callers:
+ *     NtUserInitializePointerDeviceInjection @ 0x1C0172630 (NtUserInitializePointerDeviceInjection.c)
+ * Callees:
+ *     RIMIDECheckCurrentProcessForInjectionCapability @ 0x1C0004814 (RIMIDECheckCurrentProcessForInjectionCapability.c)
+ *     ?Enter@EnterLeaveCritMitRitHandOffHazard@@AEAAXXZ @ 0x1C00097A0 (-Enter@EnterLeaveCritMitRitHandOffHazard@@AEAAXXZ.c)
+ *     HMValidateSharedHandle @ 0x1C003DE88 (HMValidateSharedHandle.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     EtwTraceReleaseUserCrit @ 0x1C004E0F0 (EtwTraceReleaseUserCrit.c)
+ *     DestroyExclusiveUserCritDeferredUnlockList @ 0x1C004E2E0 (DestroyExclusiveUserCritDeferredUnlockList.c)
+ *     W32GetThreadWin32Thread @ 0x1C004E3B0 (W32GetThreadWin32Thread.c)
+ *     ?GetCount@AtomicExecutionCheck@@SAIXZ @ 0x1C004F93C (-GetCount@AtomicExecutionCheck@@SAIXZ.c)
+ *     ?IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ @ 0x1C004F968 (-IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C004FE50 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     NtUserRemoveInjectionDevice @ 0x1C0175990 (NtUserRemoveInjectionDevice.c)
+ *     RIMIDE_InitializePointerDeviceInjection @ 0x1C01C6D10 (RIMIDE_InitializePointerDeviceInjection.c)
+ */
+
 _BOOL8 __fastcall NtUserInitializePointerDeviceInjectionEx(
         int a1,
         __int64 a2,

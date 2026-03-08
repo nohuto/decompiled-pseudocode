@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?xxxSetConsoleCaretInfo@@YAHPEAU_CONSOLE_CARET_INFO@@@Z @ 0x1C0039EBC
+ * Callers:
+ *     xxxConsoleControl @ 0x1C003C5E8 (xxxConsoleControl.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ */
+
 __int64 __fastcall xxxSetConsoleCaretInfo(struct _CONSOLE_CARET_INFO *a1)
 {
   __int64 v2; // rcx

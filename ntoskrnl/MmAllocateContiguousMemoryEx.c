@@ -1,3 +1,17 @@
+/*
+ * XREFs of MmAllocateContiguousMemoryEx @ 0x14038D1E0
+ * Callers:
+ *     HalpAllocateCommonBufferDmaThin @ 0x14038CE84 (HalpAllocateCommonBufferDmaThin.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x14050FF60 (HalpAllocateDomainCommonBufferInternal.c)
+ *     DifMmAllocateContiguousMemoryExWrapper @ 0x1405E42F0 (DifMmAllocateContiguousMemoryExWrapper.c)
+ * Callees:
+ *     MiPartitionObjectToPartition @ 0x140236884 (MiPartitionObjectToPartition.c)
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     MiAllocateContiguousMemory @ 0x1403B49B4 (MiAllocateContiguousMemory.c)
+ *     MiConvertContiguousMemoryParameters @ 0x1403B5118 (MiConvertContiguousMemoryParameters.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall MmAllocateContiguousMemoryEx(
         _QWORD *a1,
         int a2,

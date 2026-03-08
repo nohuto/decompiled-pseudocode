@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CheckProcessForeground@ForegroundManagement@@YA_NK@Z @ 0x1C0155E30
+ * Callers:
+ *     NtUserConfigureActivationObject @ 0x1C00C8D70 (NtUserConfigureActivationObject.c)
+ * Callees:
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C006AE58 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockShared@CPushLock@@QEBAJXZ @ 0x1C00B9120 (-AcquireLockShared@CPushLock@@QEBAJXZ.c)
+ */
+
 bool __fastcall ForegroundManagement::CheckProcessForeground(ForegroundManagement *this)
 {
   __int64 v1; // rdi

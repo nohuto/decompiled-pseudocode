@@ -1,3 +1,11 @@
+/*
+ * XREFs of XLATEOBJ_cGetPalette @ 0x1C02DDE00
+ * Callers:
+ *     NtGdiXLATEOBJ_cGetPalette @ 0x1C02D01A0 (NtGdiXLATEOBJ_cGetPalette.c)
+ * Callees:
+ *     ?ulGetEntries@XEPALOBJ@@QEAAKKKPEAUtagPALETTEENTRY@@H@Z @ 0x1C007CAB0 (-ulGetEntries@XEPALOBJ@@QEAAKKKPEAUtagPALETTEENTRY@@H@Z.c)
+ */
+
 ULONG __stdcall XLATEOBJ_cGetPalette(XLATEOBJ *pxlo, ULONG iPal, ULONG cPal, ULONG *pPal)
 {
   ULONG v4; // r10d

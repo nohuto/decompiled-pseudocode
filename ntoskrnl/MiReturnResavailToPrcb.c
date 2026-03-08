@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiReturnResavailToPrcb @ 0x1402872B0
+ * Callers:
+ *     MmMarkPhysicalMemoryAsBad @ 0x1406291A0 (MmMarkPhysicalMemoryAsBad.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall MiReturnResavailToPrcb(void *a1, unsigned __int64 a2)
 {
   unsigned __int64 v2; // r8

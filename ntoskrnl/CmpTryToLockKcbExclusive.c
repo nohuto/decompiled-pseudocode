@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpTryToLockKcbExclusive @ 0x140790CD8
+ * Callers:
+ *     CmpCreateKeyControlBlock @ 0x1407AFAA0 (CmpCreateKeyControlBlock.c)
+ *     CmpCreateRegistryRoot @ 0x140B5131C (CmpCreateRegistryRoot.c)
+ * Callees:
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ */
+
 char __fastcall CmpTryToLockKcbExclusive(__int64 a1)
 {
   volatile signed __int32 *v1; // rdi

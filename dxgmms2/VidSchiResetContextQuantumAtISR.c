@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiResetContextQuantumAtISR @ 0x1C0016C80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0piixqq_EtwWriteTransfer @ 0x1C0037E04 (McTemplateK0piixqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall VidSchiResetContextQuantumAtISR(__int64 a1)
 {
   __int64 v1; // r8

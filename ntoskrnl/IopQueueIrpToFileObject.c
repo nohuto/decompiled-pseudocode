@@ -1,3 +1,17 @@
+/*
+ * XREFs of IopQueueIrpToFileObject @ 0x140315880
+ * Callers:
+ *     IopSynchronousServiceTail @ 0x1407C33C0 (IopSynchronousServiceTail.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxWaitForSpinLockAndAcquire @ 0x14024F7D0 (KxWaitForSpinLockAndAcquire.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiAcquireSpinLockInstrumented @ 0x140457E30 (KiAcquireSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14056F278 (KiReleaseSpinLockInstrumented.c)
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ */
+
 char __fastcall IopQueueIrpToFileObject(__int64 a1, __int64 a2, char a3)
 {
   volatile signed __int32 *v4; // rsi

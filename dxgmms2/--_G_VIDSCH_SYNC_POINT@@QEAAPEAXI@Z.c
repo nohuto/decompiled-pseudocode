@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??_G_VIDSCH_SYNC_POINT@@QEAAPEAXI@Z @ 0x1C00345E4
+ * Callers:
+ *     ?VidSchiAddPendingCommandToSyncPointList@@YAJPEAU_VIDSCH_DEVICE@@PEAUVIDMM_ALLOC@@_JIIW4_VIDSCH_DEVICE_COMMAND_TYPE@@@Z @ 0x1C00159A0 (-VidSchiAddPendingCommandToSyncPointList@@YAJPEAU_VIDSCH_DEVICE@@PEAUVIDMM_ALLOC@@_JIIW4_VIDSCH_.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall _VIDSCH_SYNC_POINT::`scalar deleting destructor'(_QWORD *P)
 {
   _QWORD *v2; // rcx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of FontDriverQueryRoutine @ 0x1C03B8780
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FntCacheHDEV@@YAXPEAVPDEV@@K@Z @ 0x1C00E7578 (-FntCacheHDEV@@YAXPEAVPDEV@@K@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall FontDriverQueryRoutine(__int64 a1, int a2, const wchar_t *a3, int a4)
 {
   struct _LDEV *Driver; // rax

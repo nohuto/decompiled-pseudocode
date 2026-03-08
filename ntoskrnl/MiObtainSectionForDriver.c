@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiObtainSectionForDriver @ 0x14072EE44
+ * Callers:
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ * Callees:
+ *     ObDereferenceObjectDeferDelete @ 0x1402637F0 (ObDereferenceObjectDeferDelete.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     MiAllocateTempLoaderEntry @ 0x140796A2C (MiAllocateTempLoaderEntry.c)
+ *     MmAcquireLoadLock @ 0x1407D2360 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x1407D2400 (MmReleaseLoadLock.c)
+ *     MiCreateSectionForDriver @ 0x1407F5C64 (MiCreateSectionForDriver.c)
+ *     MiFindDataTableEntryBySection @ 0x1407F6234 (MiFindDataTableEntryBySection.c)
+ */
+
 __int64 __fastcall MiObtainSectionForDriver(
         PCUNICODE_STRING String1,
         __int64 a2,

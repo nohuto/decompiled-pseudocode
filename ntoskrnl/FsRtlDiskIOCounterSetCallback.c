@@ -1,3 +1,13 @@
+/*
+ * XREFs of FsRtlDiskIOCounterSetCallback @ 0x14093BCB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     PcwAddInstance @ 0x14086B690 (PcwAddInstance.c)
+ *     FsRtlAddDiskIOCounterInstance @ 0x14093BBDC (FsRtlAddDiskIOCounterInstance.c)
+ */
+
 NTSTATUS __fastcall FsRtlDiskIOCounterSetCallback(int a1, __int64 a2)
 {
   int v3; // ecx

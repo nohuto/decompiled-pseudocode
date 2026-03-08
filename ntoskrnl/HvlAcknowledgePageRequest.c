@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvlAcknowledgePageRequest @ 0x140540470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HvlpHvToNtStatus @ 0x140456F16 (HvlpHvToNtStatus.c)
+ *     HvlpFastAcknowledgePageRequest @ 0x140543CC0 (HvlpFastAcknowledgePageRequest.c)
+ *     HvlpSlowAcknowledgePageRequest @ 0x140543EF8 (HvlpSlowAcknowledgePageRequest.c)
+ */
+
 __int64 __fastcall HvlAcknowledgePageRequest(unsigned int a1, __int64 a2, _DWORD *a3)
 {
   unsigned __int16 v6; // cx

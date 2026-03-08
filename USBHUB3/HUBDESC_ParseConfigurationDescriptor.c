@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBDESC_ParseConfigurationDescriptor @ 0x1C003599C
+ * Callers:
+ *     HUBPARENT_SetHubConfiguration @ 0x1C00073A8 (HUBPARENT_SetHubConfiguration.c)
+ *     HUBUCX_UpdateHubInformationUsingUCXIoctl @ 0x1C00289B0 (HUBUCX_UpdateHubInformationUsingUCXIoctl.c)
+ *     HUBDTX_ValidateAndCacheConfigDescriptor @ 0x1C002B98C (HUBDTX_ValidateAndCacheConfigDescriptor.c)
+ *     HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectConfiguration @ 0x1C002EBC0 (HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectConfiguration.c)
+ *     HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectInterface @ 0x1C002F848 (HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectInterface.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ */
+
 unsigned __int8 *__fastcall HUBDESC_ParseConfigurationDescriptor(
         __int64 a1,
         unsigned __int8 *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?BoostFrameRate@CLegacyRenderTarget@@UEAA_N_N@Z @ 0x1801C0D60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CLegacyRenderTarget::BoostFrameRate(CLegacyRenderTarget *this)
 {
   __int64 v1; // rcx

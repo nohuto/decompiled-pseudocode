@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceGdiCreateHandle @ 0x1C005365C
+ * Callers:
+ *     HmgAlloc @ 0x1C0052E60 (HmgAlloc.c)
+ * Callees:
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C00EE72C (McTemplateK0pqqq_EtwWriteTransfer.c)
+ */
+
 void __fastcall EtwTraceGdiCreateHandle(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v4; // bl

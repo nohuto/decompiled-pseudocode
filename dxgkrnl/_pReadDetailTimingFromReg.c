@@ -1,3 +1,12 @@
+/*
+ * XREFs of _pReadDetailTimingFromReg @ 0x1C03C4434
+ * Callers:
+ *     _pLoadAdditinalMode @ 0x1C01CE9D4 (_pLoadAdditinalMode.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     ?IsValidVideoStandardType@@YAJW4_D3DKMDT_VIDEO_SIGNAL_STANDARD@@@Z @ 0x1C006C0B4 (-IsValidVideoStandardType@@YAJW4_D3DKMDT_VIDEO_SIGNAL_STANDARD@@@Z.c)
+ */
+
 __int64 __fastcall pReadDetailTimingFromReg(HANDLE KeyHandle, int a2, unsigned int a3, __int64 a4)
 {
   unsigned int *v4; // rsi

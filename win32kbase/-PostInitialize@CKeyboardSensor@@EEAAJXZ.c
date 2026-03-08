@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?PostInitialize@CKeyboardSensor@@EEAAJXZ @ 0x1C00D0580
+ * Callers:
+ *     <none>
+ * Callees:
+ *     isInputVirtualizationEnabled @ 0x1C0079014 (isInputVirtualizationEnabled.c)
+ *     ?CreateInstance@CKeyboardProcessor@@SAJPEAPEAV1@@Z @ 0x1C00D05D8 (-CreateInstance@CKeyboardProcessor@@SAJPEAPEAV1@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?Initialize@CIVChannel@@QEAAXXZ @ 0x1C022858C (-Initialize@CIVChannel@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall CKeyboardSensor::PostInitialize(CKeyboardSensor *this)
 {
   struct CKeyboardProcessor **v1; // rdi

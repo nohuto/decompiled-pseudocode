@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIInitReadRegistryKeys @ 0x1C00A8998
+ * Callers:
+ *     DriverEntry @ 0x1C00A7300 (DriverEntry.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     RtlStringCchPrintfA @ 0x1C000B5D8 (RtlStringCchPrintfA.c)
+ *     OSCloseHandle @ 0x1C008DB38 (OSCloseHandle.c)
+ *     OSOpenHandle @ 0x1C008DF10 (OSOpenHandle.c)
+ *     OSReadRegValue @ 0x1C008E6A0 (OSReadRegValue.c)
+ */
+
 void ACPIInitReadRegistryKeys()
 {
   void *v0; // rbx

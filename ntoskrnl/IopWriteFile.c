@@ -1,3 +1,21 @@
+/*
+ * XREFs of IopWriteFile @ 0x1406B3E10
+ * Callers:
+ *     NtWriteFile @ 0x1406B3A60 (NtWriteFile.c)
+ *     IopIoRingDispatchWrite @ 0x140946CF4 (IopIoRingDispatchWrite.c)
+ * Callees:
+ *     IopValidateAndGetWriteParameters @ 0x1402400A0 (IopValidateAndGetWriteParameters.c)
+ *     IopAllocateAndPopulateWriteIrp @ 0x140240590 (IopAllocateAndPopulateWriteIrp.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     IopReleaseFileObjectLock @ 0x140267920 (IopReleaseFileObjectLock.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     MmIsDriverVerifying @ 0x140303C10 (MmIsDriverVerifying.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IopSynchronousServiceTail @ 0x1407C33C0 (IopSynchronousServiceTail.c)
+ *     VfFastIoCheckState @ 0x140AC8204 (VfFastIoCheckState.c)
+ *     VfFastIoSnapState @ 0x140AC82DC (VfFastIoSnapState.c)
+ */
+
 __int64 __fastcall IopWriteFile(
         _QWORD *Object,
         void *a2,

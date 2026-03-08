@@ -1,3 +1,18 @@
+/*
+ * XREFs of ??1COffScreenRenderTarget@@MEAA@XZ @ 0x1801E671C
+ * Callers:
+ *     ??_ECOffScreenRenderTarget@@MEAAPEAXI@Z @ 0x1801E6810 (--_ECOffScreenRenderTarget@@MEAAPEAXI@Z.c)
+ *     ??1CCaptureRenderTarget@@MEAA@XZ @ 0x1801E92B0 (--1CCaptureRenderTarget@@MEAA@XZ.c)
+ *     ??1CIndirectSwapchainRenderTarget@@EEAA@XZ @ 0x1801EB9A8 (--1CIndirectSwapchainRenderTarget@@EEAA@XZ.c)
+ *     ??1CMagnifierRenderTarget@@EEAA@XZ @ 0x1801ECB9C (--1CMagnifierRenderTarget@@EEAA@XZ.c)
+ *     ??1CVisualCapture@@UEAA@XZ @ 0x1802523B0 (--1CVisualCapture@@UEAA@XZ.c)
+ * Callees:
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800234BC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ??1COcclusionContext@@QEAA@XZ @ 0x18003BFFC (--1COcclusionContext@@QEAA@XZ.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097680 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ?ReleaseRenderTargets@COffScreenRenderTarget@@MEAAXXZ @ 0x1801E6CD0 (-ReleaseRenderTargets@COffScreenRenderTarget@@MEAAXXZ.c)
+ */
+
 void __fastcall COffScreenRenderTarget::~COffScreenRenderTarget(COffScreenRenderTarget *this)
 {
   __int64 v2; // rcx

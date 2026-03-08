@@ -1,3 +1,17 @@
+/*
+ * XREFs of SeComputeAutoInheritByObjectTypeEx @ 0x14030FBF0
+ * Callers:
+ *     SeComputeAutoInheritByObjectType @ 0x1402EA340 (SeComputeAutoInheritByObjectType.c)
+ *     ObpAssignSecurity @ 0x14076AFF0 (ObpAssignSecurity.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     RtlFindAceByType @ 0x1403100D0 (RtlFindAceByType.c)
+ */
+
 __int64 __fastcall SeComputeAutoInheritByObjectTypeEx(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, _DWORD *a5)
 {
   _DWORD *v5; // rdi

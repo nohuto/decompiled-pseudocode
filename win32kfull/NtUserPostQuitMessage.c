@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserPostQuitMessage @ 0x1C00786A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IPostQuitMessage @ 0x1C00786E8 (IPostQuitMessage.c)
+ */
+
 __int64 __fastcall NtUserPostQuitMessage(unsigned int a1)
 {
   __int64 v2; // rbx

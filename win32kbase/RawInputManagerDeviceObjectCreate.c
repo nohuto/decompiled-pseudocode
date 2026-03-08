@@ -1,3 +1,13 @@
+/*
+ * XREFs of RawInputManagerDeviceObjectCreate @ 0x1C00373B8
+ * Callers:
+ *     rimCreateDev @ 0x1C00371D0 (rimCreateDev.c)
+ * Callees:
+ *     rimAddToObTrackList @ 0x1C0038300 (rimAddToObTrackList.c)
+ *     isChildPartition @ 0x1C0078FF0 (isChildPartition.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 __fastcall RawInputManagerDeviceObjectCreate(__int64 a1, __int64 a2, __int64 a3, __int64 a4, PHANDLE Handle)
 {
   NTSTATUS inserted; // ebx

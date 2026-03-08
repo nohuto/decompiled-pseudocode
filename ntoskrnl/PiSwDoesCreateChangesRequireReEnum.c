@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiSwDoesCreateChangesRequireReEnum @ 0x140964328
+ * Callers:
+ *     PiSwIrpStartCreateWorker @ 0x140806A2C (PiSwIrpStartCreateWorker.c)
+ * Callees:
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     PnpCompareMultiSz @ 0x140969650 (PnpCompareMultiSz.c)
+ */
+
 char __fastcall PiSwDoesCreateChangesRequireReEnum(__int64 a1, __int64 a2)
 {
   _QWORD *v4; // rdx

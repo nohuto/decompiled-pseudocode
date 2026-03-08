@@ -1,3 +1,16 @@
+/*
+ * XREFs of XilDeviceSlot_SendSetDeviceContextRequest @ 0x1C00389B8
+ * Callers:
+ *     XilDeviceSlot_SetDeviceContext @ 0x1C0019D94 (XilDeviceSlot_SetDeviceContext.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     XilUsbDevice_GetDeviceContextBufferLA @ 0x1C0019F3C (XilUsbDevice_GetDeviceContextBufferLA.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C0052470 (SecureChannel_SendRequestSynchronously.c)
+ */
+
 __int64 __fastcall XilDeviceSlot_SendSetDeviceContextRequest(__int64 *a1, __int64 a2, int a3)
 {
   __int64 v6; // r14

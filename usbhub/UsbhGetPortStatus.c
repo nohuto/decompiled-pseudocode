@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhGetPortStatus @ 0x1C002CB60
+ * Callers:
+ *     UsbhSuspendPort @ 0x1C0018E8C (UsbhSuspendPort.c)
+ * Callees:
+ *     UsbhSyncSendCommand @ 0x1C0016EE0 (UsbhSyncSendCommand.c)
+ */
+
 __int64 __fastcall UsbhGetPortStatus(__int64 a1, __int16 a2, _DWORD *a3, _DWORD *a4)
 {
   __int64 Pool2; // rax

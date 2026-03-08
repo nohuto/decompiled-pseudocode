@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ulGetFontData2@@YAKAEAVDCOBJ@@KKPEAXKAEBUTag@RFONTOBJ@@@Z @ 0x1C01206D4
+ * Callers:
+ *     ?ulGetFontData@@YAKPEAUHDC__@@KKPEAXKW4EntryPoint@RFONTOBJ@@@Z @ 0x1C0113360 (-ulGetFontData@@YAKPEAUHDC__@@KKPEAXKW4EntryPoint@RFONTOBJ@@@Z.c)
+ * Callees:
+ *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HKAEBUTag@1@@Z @ 0x1C0057C50 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HKAEBUTag@1@@Z.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C011DDB0 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?QueryTrueTypeTable@PFFOBJ@@QEAAJ_KKKJKPEAEPEAPEAEPEAK@Z @ 0x1C01205AC (-QueryTrueTypeTable@PFFOBJ@@QEAAJ_KKKJKPEAEPEAPEAEPEAK@Z.c)
+ */
+
 __int64 __fastcall ulGetFontData2(
         struct DCOBJ *a1,
         unsigned int a2,

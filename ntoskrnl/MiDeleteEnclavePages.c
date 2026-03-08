@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiDeleteEnclavePages @ 0x140AAA2F8
+ * Callers:
+ *     MiDeleteVad @ 0x1407C82E0 (MiDeleteVad.c)
+ *     MiDeleteAllHardwareEnclaves @ 0x140AAA0D0 (MiDeleteAllHardwareEnclaves.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KeRemoveEnclavePage @ 0x14056E0D0 (KeRemoveEnclavePage.c)
+ *     MiDeleteEnclavePage @ 0x140645874 (MiDeleteEnclavePage.c)
+ *     PsDeleteVsmEnclave @ 0x1409B4488 (PsDeleteVsmEnclave.c)
+ *     MiReturnReservedEnclavePages @ 0x140AAA540 (MiReturnReservedEnclavePages.c)
+ *     MiTerminateHardwareEnclave @ 0x140AAA598 (MiTerminateHardwareEnclave.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiDeleteEnclavePages(__int64 a1, __int64 a2)
 {
   int v2; // eax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of SdbpMergeAreTagValuesEqual @ 0x140A50E64
+ * Callers:
+ *     SdbMergeIsEntryUpdated @ 0x140A50A7C (SdbMergeIsEntryUpdated.c)
+ * Callees:
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbGetStringTagPtr @ 0x1407A20E8 (SdbGetStringTagPtr.c)
+ *     SdbpGetMappedTagData @ 0x1407A2238 (SdbpGetMappedTagData.c)
+ *     SdbGetTagDataSize @ 0x1407A2980 (SdbGetTagDataSize.c)
+ *     SdbGetTagFromTagID @ 0x1407A2A70 (SdbGetTagFromTagID.c)
+ */
+
 __int64 __fastcall SdbpMergeAreTagValuesEqual(__int64 a1, unsigned int a2, __int64 a3, unsigned int a4)
 {
   unsigned int v4; // ebx

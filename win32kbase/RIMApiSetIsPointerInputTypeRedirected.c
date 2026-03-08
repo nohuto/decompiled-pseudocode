@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMApiSetIsPointerInputTypeRedirected @ 0x1C01D1624
+ * Callers:
+ *     RIMUpdatePrimaryDevice @ 0x1C01BA144 (RIMUpdatePrimaryDevice.c)
+ *     RIMUpdatePrimaryAndFinalizePointerFlags @ 0x1C01D5A04 (RIMUpdatePrimaryAndFinalizePointerFlags.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RIMApiSetIsPointerInputTypeRedirected(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // edi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetNotifiedWorldUpVector@CVisual@@QEBA?AUVector3@Numerics@Foundation@Windows@@XZ @ 0x1800DFA18
+ * Callers:
+ *     ?IssueContextUpdateNotification@CVisual@@IEAAXMAEBUD2D_VECTOR_2F@@@Z @ 0x1800DF63C (-IssueContextUpdateNotification@CVisual@@IEAAXMAEBUD2D_VECTOR_2F@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CVisual::GetNotifiedWorldUpVector(__int64 a1, __int64 a2)
 {
   __int64 v2; // rcx

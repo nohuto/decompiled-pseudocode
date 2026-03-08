@@ -1,3 +1,17 @@
+/*
+ * XREFs of HvlpTryConfigureInterface @ 0x14037FC60
+ * Callers:
+ *     HvlRestoreEnlightenment @ 0x14053D924 (HvlRestoreEnlightenment.c)
+ *     HvlPhase0Initialize @ 0x14080D7C8 (HvlPhase0Initialize.c)
+ *     HvlEnableVsmCalls @ 0x140B7294C (HvlEnableVsmCalls.c)
+ * Callees:
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     HviIsHypervisorMicrosoftCompatible @ 0x14037F140 (HviIsHypervisorMicrosoftCompatible.c)
+ *     HviGetHypervisorFeatures @ 0x14037F8A0 (HviGetHypervisorFeatures.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HvlpTryConfigureInterface(__int64 a1)
 {
   unsigned __int64 v2; // rsi

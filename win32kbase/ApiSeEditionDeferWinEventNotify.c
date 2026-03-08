@@ -1,3 +1,13 @@
+/*
+ * XREFs of ApiSeEditionDeferWinEventNotify @ 0x1C00AD970
+ * Callers:
+ *     xxxResetDisplayDevice @ 0x1C0016410 (xxxResetDisplayDevice.c)
+ *     ?DeliverMouseMoveToInputDest@CMouseProcessor@@AEAAXAEBVCMoveEvent@1@AEBVCInputDest@@AEBUInputDeliveryContext@1@PEAU_mouseCursorEvent@@@Z @ 0x1C007D110 (-DeliverMouseMoveToInputDest@CMouseProcessor@@AEAAXAEBVCMoveEvent@1@AEBVCInputDest@@AEBUInputDel.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (*ApiSeEditionDeferWinEventNotify())(void)
 {
   char v0; // bl

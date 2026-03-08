@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpTimerPowerChange @ 0x1405071C0
+ * Callers:
+ *     HalpTimerPowerCriticalTransitionCallback @ 0x140507280 (HalpTimerPowerCriticalTransitionCallback.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HalpTimerClockPowerChange @ 0x140506414 (HalpTimerClockPowerChange.c)
+ *     HalpTimerPerformanceCounterPowerChange @ 0x140506BD0 (HalpTimerPerformanceCounterPowerChange.c)
+ *     HalpTimerStallCounterPowerChange @ 0x140507408 (HalpTimerStallCounterPowerChange.c)
+ *     HalpTimerProfilePowerChange @ 0x140508488 (HalpTimerProfilePowerChange.c)
+ */
+
 __int64 __fastcall HalpTimerPowerChange(ULONG_PTR BugCheckParameter3, __int64 a2)
 {
   char v2; // di

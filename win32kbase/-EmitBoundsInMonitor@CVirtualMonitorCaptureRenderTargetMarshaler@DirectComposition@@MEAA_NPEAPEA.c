@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EmitBoundsInMonitor@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C026CFE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0064740 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ */
+
 char __fastcall DirectComposition::CVirtualMonitorCaptureRenderTargetMarshaler::EmitBoundsInMonitor(
         DirectComposition::CVirtualMonitorCaptureRenderTargetMarshaler *this,
         struct DirectComposition::CBatch ***a2)

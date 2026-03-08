@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpMigrateOOBELanguageToInstallationLanguage @ 0x140B51CDC
+ * Callers:
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ */
+
 __int64 CmpMigrateOOBELanguageToInstallationLanguage()
 {
   __int64 result; // rax

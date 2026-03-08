@@ -1,3 +1,19 @@
+/*
+ * XREFs of RIMDiscoverDevicesOfInputType @ 0x1C00374F8
+ * Callers:
+ *     RIMRegisterForInputWithCallbacks @ 0x1C00356F0 (RIMRegisterForInputWithCallbacks.c)
+ *     rimDoScheduledUserModeRimPnpRegistration @ 0x1C00D751C (rimDoScheduledUserModeRimPnpRegistration.c)
+ *     RIMDirectStartDeviceClassNotifications @ 0x1C00D76C0 (RIMDirectStartDeviceClassNotifications.c)
+ *     RIMAddInputOfType @ 0x1C01A3240 (RIMAddInputOfType.c)
+ * Callees:
+ *     RIMRegisterForDeviceClassNotifications @ 0x1C0034318 (RIMRegisterForDeviceClassNotifications.c)
+ *     RIMChildInputTypeIsVirtualized @ 0x1C0034C48 (RIMChildInputTypeIsVirtualized.c)
+ *     RIMApiSetIsRemoteConnection @ 0x1C00364A8 (RIMApiSetIsRemoteConnection.c)
+ *     DeviceTypeToRimInputType @ 0x1C0039CC0 (DeviceTypeToRimInputType.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall RIMDiscoverDevicesOfInputType(char *Object)
 {
   NTSTATUS v2; // edi

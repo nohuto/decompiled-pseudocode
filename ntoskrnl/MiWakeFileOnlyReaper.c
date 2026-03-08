@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiWakeFileOnlyReaper @ 0x14063E05C
+ * Callers:
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ *     MiQueueExtentPfnDeletion @ 0x14063CCC0 (MiQueueExtentPfnDeletion.c)
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ */
+
 void MiWakeFileOnlyReaper()
 {
   if ( !byte_140C653A9 )

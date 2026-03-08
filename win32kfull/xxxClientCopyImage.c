@@ -1,3 +1,15 @@
+/*
+ * XREFs of xxxClientCopyImage @ 0x1C0107FC0
+ * Callers:
+ *     xxxCreateClassSmIcon @ 0x1C0107B5C (xxxCreateClassSmIcon.c)
+ *     ?xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z @ 0x1C0108704 (-xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z.c)
+ *     xxxCreateWindowSmIcon @ 0x1C010A268 (xxxCreateWindowSmIcon.c)
+ * Callees:
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00344F8 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0034558 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     HMValidateHandleNoRip @ 0x1C01083AC (HMValidateHandleNoRip.c)
+ */
+
 __int64 __fastcall xxxClientCopyImage(__int64 a1, int a2, int a3, int a4, int a5)
 {
   int v6; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeGetHeteroSetByQoS @ 0x140569FF8
+ * Callers:
+ *     PpmEventTraceHeteroSets @ 0x140826F54 (PpmEventTraceHeteroSets.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall KeGetHeteroSetByQoS(__int64 a1, unsigned int a2, int a3, void *a4, void *a5, void *a6)
 {
   size_t v8; // rbx

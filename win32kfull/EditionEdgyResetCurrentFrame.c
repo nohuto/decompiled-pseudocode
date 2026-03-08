@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionEdgyResetCurrentFrame @ 0x1C01E9BE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 EditionEdgyResetCurrentFrame()
 {
   __int64 result; // rax

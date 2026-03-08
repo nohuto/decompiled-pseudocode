@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PropertyIdToColorChannelAndIndex@CTableTransferEffect@@QEBA_NIPEAI0@Z @ 0x18025129C
+ * Callers:
+ *     ?SetProperty@CTableTransferEffect@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z @ 0x180251600 (-SetProperty@CTableTransferEffect@@UEAAJIW4DCOMPOSITION_EXPRESSION_TYPE@@PEBX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CTableTransferEffect::PropertyIdToColorChannelAndIndex(
         CTableTransferEffect *this,
         unsigned int a2,

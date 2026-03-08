@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcAggregateCumulativeGlobalTelemetry @ 0x14087C3AC
+ * Callers:
+ *     CcPostVolumeTelemetry @ 0x1403CB4D0 (CcPostVolumeTelemetry.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 CcAggregateCumulativeGlobalTelemetry()
 {
   __int64 result; // rax

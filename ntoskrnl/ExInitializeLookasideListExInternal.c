@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExInitializeLookasideListExInternal @ 0x1402A8000
+ * Callers:
+ *     ExInitializeLookasideListEx @ 0x1402A7FB0 (ExInitializeLookasideListEx.c)
+ *     VmInitSystem @ 0x140B43DDC (VmInitSystem.c)
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     InitializeSListHead @ 0x1402A8B90 (InitializeSListHead.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExInitializeLookasideListExInternal(
         PSLIST_HEADER SListHead,
         __int64 (__fastcall *a2)(),

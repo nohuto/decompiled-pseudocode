@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidMmReferenceWrittenPrimaries @ 0x1C0002310
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?VidMmReferenceWrittenPrimaries@VIDMM_GLOBAL@@QEAAJPEAVDXGDEVICE@@IQEBIIPEAU_VIDMM_PRIMARIES_REFERENCES@@PEAUVIDSCH_HW_QUEUE@@PEAPEAVDXGCONTEXT@@@Z @ 0x1C009F0F0 (-VidMmReferenceWrittenPrimaries@VIDMM_GLOBAL@@QEAAJPEAVDXGDEVICE@@IQEBIIPEAU_VIDMM_PRIMARIES_REF.c)
+ */
+
 __int64 __fastcall VidMmReferenceWrittenPrimaries(
         VIDMM_GLOBAL *a1,
         struct DXGDEVICE *a2,

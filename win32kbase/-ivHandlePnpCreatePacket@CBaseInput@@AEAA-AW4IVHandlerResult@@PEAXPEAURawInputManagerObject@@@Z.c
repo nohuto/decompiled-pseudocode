@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ivHandlePnpCreatePacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C021F510
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     RIMVirtDeviceClassNotifyUsingAsyncPnpWorkNotification @ 0x1C01D07BC (RIMVirtDeviceClassNotifyUsingAsyncPnpWorkNotification.c)
+ *     ?Deserialize@CIVDeserializer@@AEAAXAEAU_IV_HID_POINTER_DEVICE_INFO@@@Z @ 0x1C0233318 (-Deserialize@CIVDeserializer@@AEAAXAEAU_IV_HID_POINTER_DEVICE_INFO@@@Z.c)
+ */
+
 __int64 __fastcall CBaseInput::ivHandlePnpCreatePacket(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rbp

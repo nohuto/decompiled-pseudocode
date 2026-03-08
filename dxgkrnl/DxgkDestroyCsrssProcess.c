@@ -1,3 +1,16 @@
+/*
+ * XREFs of DxgkDestroyCsrssProcess @ 0x1C01C56D4
+ * Callers:
+ *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C01A8400 (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??_GSESSION_ADAPTER@@QEAAPEAXI@Z @ 0x1C000B2E8 (--_GSESSION_ADAPTER@@QEAAPEAXI@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C01A9568 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?RemoveAllSourceViewFromSession@DXGSESSIONDATA@@QEAAXXZ @ 0x1C01C4F08 (-RemoveAllSourceViewFromSession@DXGSESSIONDATA@@QEAAXXZ.c)
+ *     ?Cleanup@SESSION_ADAPTER@@QEAAXXZ @ 0x1C01C595C (-Cleanup@SESSION_ADAPTER@@QEAAXXZ.c)
+ */
+
 void DxgkDestroyCsrssProcess()
 {
   __int64 v0; // rdx

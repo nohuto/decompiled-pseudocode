@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bIsProcessLocalSystem@@YAHPEAU_EPROCESS@@@Z @ 0x1C028BA40
+ * Callers:
+ *     ?UmpdSecurityGateNoUmpdObj@@YA_NXZ @ 0x1C0279028 (-UmpdSecurityGateNoUmpdObj@@YA_NXZ.c)
+ *     NtGdiSetPUMPDOBJ @ 0x1C02CFA80 (NtGdiSetPUMPDOBJ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall bIsProcessLocalSystem(struct _EPROCESS *a1)
 {
   unsigned int v1; // esi

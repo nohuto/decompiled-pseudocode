@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?DepartBufferedOutputPointer@CInteractionProcessor@@QEAA_NIW4InputType@@@Z @ 0x1801AB578
+ * Callers:
+ *     ?DepartBufferedOutputPointer@CInteractionRoot@@UEAA_NI@Z @ 0x1801A0E20 (-DepartBufferedOutputPointer@CInteractionRoot@@UEAA_NI@Z.c)
+ *     ?DepartBufferedOutputPointer@CInteraction@@UEAA_NI@Z @ 0x180208BB0 (-DepartBufferedOutputPointer@CInteraction@@UEAA_NI@Z.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ @ 0x1800EB9F4 (-InternalRelease@-$ComPtr@VCBrushRenderingGraph@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetInteractionContext@CInteractionProcessor@@QEBAJW4InputType@@PEAPEAUIInteractionContextWrapper@@@Z @ 0x1801AB8A0 (-GetInteractionContext@CInteractionProcessor@@QEBAJW4InputType@@PEAPEAUIInteractionContextWrappe.c)
+ */
+
 char __fastcall CInteractionProcessor::DepartBufferedOutputPointer(__int64 a1, unsigned int a2)
 {
   unsigned int v2; // ebx

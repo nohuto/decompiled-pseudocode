@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CInputSinkStruct@@QEAA@XZ @ 0x1800E57C0
+ * Callers:
+ *     ?UpdateInputSink@CInteraction@@QEAAJPEAX@Z @ 0x1800E53C4 (-UpdateInputSink@CInteraction@@QEAAJPEAX@Z.c)
+ * Callees:
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x18003A2A4 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ */
+
 CInputSinkStruct *__fastcall CInputSinkStruct::CInputSinkStruct(CInputSinkStruct *this)
 {
   __int64 v1; // rdi

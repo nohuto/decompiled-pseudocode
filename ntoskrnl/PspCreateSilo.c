@@ -1,3 +1,16 @@
+/*
+ * XREFs of PspCreateSilo @ 0x140797438
+ * Callers:
+ *     NtSetInformationJobObject @ 0x1406FC3C0 (NtSetInformationJobObject.c)
+ * Callees:
+ *     PsIsCurrentThreadInServerSilo @ 0x1402459D0 (PsIsCurrentThreadInServerSilo.c)
+ *     PspUnlockJob @ 0x1406FBF7C (PspUnlockJob.c)
+ *     PspLockJobExclusive @ 0x1406FC178 (PspLockJobExclusive.c)
+ *     PspAllocStorage @ 0x140797524 (PspAllocStorage.c)
+ *     PspJobHasChildren @ 0x140797584 (PspJobHasChildren.c)
+ *     PspFreeStorage @ 0x1409B4D28 (PspFreeStorage.c)
+ */
+
 __int64 __fastcall PspCreateSilo(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rbp

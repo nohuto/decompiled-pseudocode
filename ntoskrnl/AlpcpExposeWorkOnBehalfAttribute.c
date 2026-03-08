@@ -1,3 +1,11 @@
+/*
+ * XREFs of AlpcpExposeWorkOnBehalfAttribute @ 0x1407CE2D0
+ * Callers:
+ *     AlpcpExposeAttributes @ 0x1407CDCB0 (AlpcpExposeAttributes.c)
+ * Callees:
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ */
+
 char __fastcall AlpcpExposeWorkOnBehalfAttribute(__int64 a1, __int64 a2, _QWORD *a3, _DWORD *a4)
 {
   SIZE_T v5; // rax

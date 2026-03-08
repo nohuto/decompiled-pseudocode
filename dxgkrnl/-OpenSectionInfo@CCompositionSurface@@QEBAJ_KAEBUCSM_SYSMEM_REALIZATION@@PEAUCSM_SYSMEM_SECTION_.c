@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?OpenSectionInfo@CCompositionSurface@@QEBAJ_KAEBUCSM_SYSMEM_REALIZATION@@PEAUCSM_SYSMEM_SECTION_INFO@@@Z @ 0x1C007C0C8
+ * Callers:
+ *     NtOpenCompositionSurfaceSectionInfo @ 0x1C007A5A0 (NtOpenCompositionSurfaceSectionInfo.c)
+ * Callees:
+ *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C000D670 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
+ *     ?FindRealization@CCompositionBuffer@@QEBAJAEBUCSM_REALIZATION_INFO@@PEAPEAVCBufferRealization@@@Z @ 0x1C007CA44 (-FindRealization@CCompositionBuffer@@QEBAJAEBUCSM_REALIZATION_INFO@@PEAPEAVCBufferRealization@@@.c)
+ */
+
 __int64 __fastcall CCompositionSurface::OpenSectionInfo(
         CCompositionSurface *this,
         __int64 a2,

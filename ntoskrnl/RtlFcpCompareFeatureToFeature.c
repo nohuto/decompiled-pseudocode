@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlFcpCompareFeatureToFeature @ 0x1405B2594
+ * Callers:
+ *     RtlpFcValidateFeatureConfigurationBuffer @ 0x1409C07F0 (RtlpFcValidateFeatureConfigurationBuffer.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlFcpCompareFeatureToFeature(_DWORD *a1, _DWORD *a2)
 {
   unsigned int v2; // eax

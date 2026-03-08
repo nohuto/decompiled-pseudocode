@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlpHpLfhOwnerCompact @ 0x140309864
+ * Callers:
+ *     RtlpHpLfhContextCompact @ 0x140308C98 (RtlpHpLfhContextCompact.c)
+ *     RtlpHpLfhOwnerCompact @ 0x140309864 (RtlpHpLfhOwnerCompact.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpLfhOwnerCompact @ 0x140309864 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpAcquireLockShared @ 0x140309A10 (RtlpHpAcquireLockShared.c)
+ *     RtlpHpLfhSubsegmentDecommitPages @ 0x14030A210 (RtlpHpLfhSubsegmentDecommitPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall RtlpHpLfhOwnerCompact(__int64 a1, __int64 a2, unsigned int a3)
 {
   _QWORD **v6; // rdi

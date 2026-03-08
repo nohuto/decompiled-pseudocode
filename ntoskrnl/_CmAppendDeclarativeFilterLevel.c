@@ -1,3 +1,18 @@
+/*
+ * XREFs of _CmAppendDeclarativeFilterLevel @ 0x140A643AC
+ * Callers:
+ *     _CmAppendDeclarativeDefaultFilters @ 0x140A642C4 (_CmAppendDeclarativeDefaultFilters.c)
+ *     _CmGetDeclarativeFilterList @ 0x140A64F80 (_CmGetDeclarativeFilterList.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _SysCtxRegOpenKey @ 0x1406D4350 (_SysCtxRegOpenKey.c)
+ *     _PnpMultiSzAppend @ 0x140839FAC (_PnpMultiSzAppend.c)
+ *     _PnpCtxRegEnumValue @ 0x140866444 (_PnpCtxRegEnumValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1408665AC (_PnpCtxRegQueryInfoKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmAppendDeclarativeFilterLevel(
         __int64 a1,
         __int64 a2,

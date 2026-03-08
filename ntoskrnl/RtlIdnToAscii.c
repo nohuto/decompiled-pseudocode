@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlIdnToAscii @ 0x1409BC3C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlpNameprepAsciiWorker @ 0x1409BC4BC (RtlpNameprepAsciiWorker.c)
+ */
+
 NTSTATUS __stdcall RtlIdnToAscii(
         ULONG Flags,
         PCWSTR SourceString,

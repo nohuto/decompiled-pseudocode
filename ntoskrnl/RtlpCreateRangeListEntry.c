@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpCreateRangeListEntry @ 0x14081F5E4
+ * Callers:
+ *     RtlAddRange @ 0x14081F540 (RtlAddRange.c)
+ * Callees:
+ *     ExAllocateFromNPagedLookasideList @ 0x14023FE20 (ExAllocateFromNPagedLookasideList.c)
+ */
+
 _BYTE *__fastcall RtlpCreateRangeListEntry(__int64 a1, __int64 a2, char a3, __int64 a4, __int64 a5)
 {
   _BYTE *result; // rax

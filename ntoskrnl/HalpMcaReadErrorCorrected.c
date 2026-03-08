@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpMcaReadErrorCorrected @ 0x140503FDC
+ * Callers:
+ *     HalpMcaReadError @ 0x1405014E0 (HalpMcaReadError.c)
+ * Callees:
+ *     HalpGetCpuVendor @ 0x14037D1B4 (HalpGetCpuVendor.c)
+ */
+
 char __fastcall HalpMcaReadErrorCorrected(__int64 *a1, _BYTE *a2)
 {
   char result; // al

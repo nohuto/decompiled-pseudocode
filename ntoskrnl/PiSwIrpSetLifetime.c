@@ -1,3 +1,18 @@
+/*
+ * XREFs of PiSwIrpSetLifetime @ 0x140858894
+ * Callers:
+ *     PiSwDispatch @ 0x140785720 (PiSwDispatch.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     McTemplateK0zz_EtwWriteTransfer @ 0x1405613D4 (McTemplateK0zz_EtwWriteTransfer.c)
+ *     McTemplateK0zzd_EtwWriteTransfer @ 0x1405614A4 (McTemplateK0zzd_EtwWriteTransfer.c)
+ *     McTemplateK0zzqq_EtwWriteTransfer @ 0x140561674 (McTemplateK0zzqq_EtwWriteTransfer.c)
+ *     PiSwDeviceOperationsAllowed @ 0x140785C78 (PiSwDeviceOperationsAllowed.c)
+ */
+
 __int64 __fastcall PiSwIrpSetLifetime(PIRP Irp, __int64 a2, __int64 a3)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r15

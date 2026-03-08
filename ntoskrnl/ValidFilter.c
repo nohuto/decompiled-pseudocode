@@ -1,3 +1,13 @@
+/*
+ * XREFs of ValidFilter @ 0x1407483C4
+ * Callers:
+ *     PiDqQueryValidateQueryData @ 0x140746B18 (PiDqQueryValidateQueryData.c)
+ * Callees:
+ *     ValidFilterExpression @ 0x1402BED30 (ValidFilterExpression.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     FilterEval @ 0x1406CC630 (FilterEval.c)
+ */
+
 __int64 __fastcall ValidFilter(unsigned int a1, _DWORD *a2)
 {
   int v4; // ebx

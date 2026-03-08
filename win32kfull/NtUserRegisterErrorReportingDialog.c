@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserRegisterErrorReportingDialog @ 0x1C01DA370
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_RegisterErrorReportingDialog@@YAHPEAUtagWND@@K@Z @ 0x1C01F5350 (-_RegisterErrorReportingDialog@@YAHPEAUtagWND@@K@Z.c)
+ */
+
 __int64 __fastcall NtUserRegisterErrorReportingDialog(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // edi

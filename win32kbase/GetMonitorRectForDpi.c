@@ -1,3 +1,17 @@
+/*
+ * XREFs of GetMonitorRectForDpi @ 0x1C003BDD8
+ * Callers:
+ *     PhysicalToLogicalDPIPoint @ 0x1C000AD50 (PhysicalToLogicalDPIPoint.c)
+ *     GetScreenRectForDpi @ 0x1C003A9AC (GetScreenRectForDpi.c)
+ *     CreateMonitorRegionForDpi @ 0x1C003B6D0 (CreateMonitorRegionForDpi.c)
+ *     LogicalCursorPosFromDpiAwarenessContext @ 0x1C003B720 (LogicalCursorPosFromDpiAwarenessContext.c)
+ *     GetMonitorRect @ 0x1C003DBB4 (GetMonitorRect.c)
+ *     PhysicalToLogicalDPIRect @ 0x1C00A8E10 (PhysicalToLogicalDPIRect.c)
+ *     LogicalToPhysicalDPIPoint @ 0x1C00C1BB0 (LogicalToPhysicalDPIPoint.c)
+ * Callees:
+ *     EngMulDiv @ 0x1C003BF30 (EngMulDiv.c)
+ */
+
 __m128i *__fastcall GetMonitorRectForDpi(__m128i *a1, __int64 a2, unsigned __int16 a3)
 {
   __int64 v3; // r12

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?StartKernelRedirection@CDwmAppHost@@AEAAJXZ @ 0x14000394C
+ * Callers:
+ *     ?StartComposition@CDwmAppHost@@AEAAJXZ @ 0x1400038B0 (-StartComposition@CDwmAppHost@@AEAAJXZ.c)
+ * Callees:
+ *     ??1CPortClient@@UEAA@XZ @ 0x1400026E8 (--1CPortClient@@UEAA@XZ.c)
+ *     ??0CPortClient@@QEAA@IPEAX@Z @ 0x14000272C (--0CPortClient@@QEAA@IPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x14000309C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SendSimpleAsyncRequest@CPortClient@@QEAAJK@Z @ 0x140003A18 (-SendSimpleAsyncRequest@CPortClient@@QEAAJK@Z.c)
+ *     __security_check_cookie @ 0x140005510 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwEventWriteTransfer @ 0x14000B068 (McGenEventWrite_EtwEventWriteTransfer.c)
+ */
+
 __int64 __fastcall CDwmAppHost::StartKernelRedirection(CDwmAppHost *this, __int64 a2, void *a3)
 {
   unsigned int v3; // ebx

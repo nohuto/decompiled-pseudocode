@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiForceIdleParkUnparkDpcRoutine @ 0x14057A8F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiForceIdleParkUnparkProcessor @ 0x14057A918 (KiForceIdleParkUnparkProcessor.c)
+ */
+
 void __fastcall KiForceIdleParkUnparkDpcRoutine(
         struct _KDPC *Dpc,
         PVOID DeferredContext,

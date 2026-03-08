@@ -1,3 +1,29 @@
+/*
+ * XREFs of CmpDoReOpenTransKey @ 0x140A27F24
+ * Callers:
+ *     CmpDoReDoSetEntireSecurityDescriptor @ 0x14067DC08 (CmpDoReDoSetEntireSecurityDescriptor.c)
+ *     CmpDoReDoCreateKey @ 0x140A27AE0 (CmpDoReDoCreateKey.c)
+ *     CmpDoReDoDeleteValue @ 0x140A27BD0 (CmpDoReDoDeleteValue.c)
+ *     CmpDoReDoRecord @ 0x140A27C2C (CmpDoReDoRecord.c)
+ *     CmpDoReDoRenameKey @ 0x140A27D14 (CmpDoReDoRenameKey.c)
+ *     CmpDoReDoSetKeyUserFlags @ 0x140A27D70 (CmpDoReDoSetKeyUserFlags.c)
+ *     CmpDoReDoSetLastWriteTime @ 0x140A27DE0 (CmpDoReDoSetLastWriteTime.c)
+ *     CmpDoReDoSetSecurityDescriptor @ 0x140A27E50 (CmpDoReDoSetSecurityDescriptor.c)
+ *     CmpDoReDoSetValueExisting @ 0x140A27EB0 (CmpDoReDoSetValueExisting.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ExIsResourceAcquiredSharedLite @ 0x140336990 (ExIsResourceAcquiredSharedLite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpCleanupParseContext @ 0x1406BD6A8 (CmpCleanupParseContext.c)
+ *     ObOpenObjectByName @ 0x1406C39E0 (ObOpenObjectByName.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     CmpLockRegistry @ 0x140AF2270 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ *     CmpSplitParentKeyName @ 0x140AF2CC8 (CmpSplitParentKeyName.c)
+ */
+
 __int64 __fastcall CmpDoReOpenTransKey(__int64 a1, __int128 *a2, int a3, _QWORD *a4)
 {
   __int128 v4; // xmm1

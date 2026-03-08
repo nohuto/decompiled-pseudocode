@@ -1,3 +1,19 @@
+/*
+ * XREFs of SmStoreCompressionStop @ 0x1409D4AD8
+ * Callers:
+ *     MmProcessWorkingSetControl @ 0x140A408A4 (MmProcessWorkingSetControl.c)
+ * Callees:
+ *     SmpGetProcessPartition @ 0x14029622C (SmpGetProcessPartition.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     ExQueueWorkItemToPartition @ 0x1403439E0 (ExQueueWorkItemToPartition.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140356594 (SmKmStoreRefFromStoreIndex.c)
+ *     SmpKeyedStoreEntryGet @ 0x14035BDC0 (SmpKeyedStoreEntryGet.c)
+ *     ?SmTrimWsStore@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU?$SMKM_STORE@USM_TRAITS@@@@_K@Z @ 0x1405C089C (-SmTrimWsStore@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@PEAU-$SMKM_STORE@USM_TRAITS@@@@_K@Z.c)
+ *     MmQueryProcessWorkingSetSwapPages @ 0x140650B98 (MmQueryProcessWorkingSetSwapPages.c)
+ *     SmSwapStore @ 0x14067E484 (SmSwapStore.c)
+ */
+
 int __fastcall SmStoreCompressionStop(int a1)
 {
   __int64 ProcessPartition; // rbx

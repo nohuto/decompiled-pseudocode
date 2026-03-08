@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiIndirectCbSendMessage @ 0x1C03A00C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiFdoGetDeviceFileObject @ 0x1C0396E88 (DpiFdoGetDeviceFileObject.c)
+ *     ?DpiIndirectSendAsyncUserModeRequest@@YAJPEAU_FILE_OBJECT@@PEAU_DEVICE_OBJECT@@KPEAXK2KP6AX2PEAU_IO_STATUS_BLOCK@@@Z2PEA_NPEAPEAU_IRP@@@Z @ 0x1C039FA48 (-DpiIndirectSendAsyncUserModeRequest@@YAJPEAU_FILE_OBJECT@@PEAU_DEVICE_OBJECT@@KPEAXK2KP6AX2PEAU.c)
+ */
+
 __int64 __fastcall DpiIndirectCbSendMessage(
         __int64 a1,
         int a2,

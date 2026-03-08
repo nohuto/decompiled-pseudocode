@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?HasWindowMovedUnexpectedly@CRecalcState@@QEBA_NPEBUtagWND@@@Z @ 0x1C00FB054
+ * Callers:
+ *     ?xxxProcessPendingRecalcState@CRecalcProp@@AEAAXPEAUtagWND@@PEAVCRecalcState@@PEAVCRecalcContext@@@Z @ 0x1C00FBF50 (-xxxProcessPendingRecalcState@CRecalcProp@@AEAAXPEAUtagWND@@PEAVCRecalcState@@PEAVCRecalcContext.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dddddddddddd @ 0x1C0229F50 (WPP_RECORDER_AND_TRACE_SF_dddddddddddd.c)
+ */
+
 char __fastcall CRecalcState::HasWindowMovedUnexpectedly(CRecalcState *this, const struct tagWND *a2)
 {
   int v2; // r8d

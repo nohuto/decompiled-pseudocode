@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopGetMountFlag @ 0x1402F6CEC
+ * Callers:
+ *     NtQueryVolumeInformationFile @ 0x1406B2A90 (NtQueryVolumeInformationFile.c)
+ * Callees:
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ */
+
 bool __fastcall IopGetMountFlag(__int64 a1)
 {
   bool v2; // di

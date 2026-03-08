@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtUserSelectPalette @ 0x1C00D0140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _IsChild @ 0x1C00164BC (_IsChild.c)
+ *     GetNonChildAncestor @ 0x1C0027014 (GetNonChildAncestor.c)
+ *     GetThreadDesktopWindow @ 0x1C003BE08 (GetThreadDesktopWindow.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     WindowFromCacheDC @ 0x1C01BF06C (WindowFromCacheDC.c)
+ *     ?IsTopmostRealApp@@YAHPEAUtagWND@@@Z @ 0x1C02178E4 (-IsTopmostRealApp@@YAHPEAUtagWND@@@Z.c)
+ */
+
 __int64 __fastcall NtUserSelectPalette(__int64 a1, __int64 a2, int a3)
 {
   unsigned int v6; // edi

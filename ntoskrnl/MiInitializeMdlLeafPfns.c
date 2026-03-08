@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiInitializeMdlLeafPfns @ 0x140386EC0
+ * Callers:
+ *     MiInitializeLargeMdlLeafPfns @ 0x140386D90 (MiInitializeLargeMdlLeafPfns.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiInitializeMdlPfn @ 0x1403870D0 (MiInitializeMdlPfn.c)
+ */
+
 char __fastcall MiInitializeMdlLeafPfns(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4, int a5)
 {
   unsigned int v5; // r12d

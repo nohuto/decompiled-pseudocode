@@ -1,3 +1,12 @@
+/*
+ * XREFs of imp_WdfUsbTargetPipeFormatRequestForRead @ 0x1C0056B10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_IFR_SF_qqq @ 0x1C001C308 (WPP_IFR_SF_qqq.c)
+ *     ?_FormatTransfer@FxUsbPipe@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFUSBPIPE__@@PEAUWDFREQUEST__@@PEAUWDFMEMORY__@@PEAU_WDFMEMORY_OFFSET@@K@Z @ 0x1C005B090 (-_FormatTransfer@FxUsbPipe@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFUSBPIPE__@@PEAUWDFREQUEST__@@PEAUW.c)
+ */
+
 int __fastcall imp_WdfUsbTargetPipeFormatRequestForRead(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFUSBPIPE__ *Pipe,

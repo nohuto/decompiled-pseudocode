@@ -1,3 +1,19 @@
+/*
+ * XREFs of Usbh_PCE_wDone_Action @ 0x1C00116B0
+ * Callers:
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0014330 (UsbhDispatch_PortChangeQueueEventEx.c)
+ * Callees:
+ *     UsbhFlushPortChangeQueue @ 0x1C00041C0 (UsbhFlushPortChangeQueue.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhHubQueueProcessChangeWorker @ 0x1C0020078 (UsbhHubQueueProcessChangeWorker.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002E98C (WPP_RECORDER_SF_dq.c)
+ *     UsbhSetPcqEventStatus @ 0x1C0035294 (UsbhSetPcqEventStatus.c)
+ *     UsbhUnlockPcqWithTag @ 0x1C0035444 (UsbhUnlockPcqWithTag.c)
+ */
+
 void __fastcall Usbh_PCE_wDone_Action(__int64 a1, __int64 a2, int a3)
 {
   __int64 v5; // rdx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwTraceGdiTransformHandle @ 0x1C001D41C
+ * Callers:
+ *     HmgModifyHandleType @ 0x1C001D300 (HmgModifyHandleType.c)
+ *     ?bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BASEOBJECT@@@Z @ 0x1C00542B0 (-bPEBCacheHandle@@YAHW4_HANDLECACHETYPE@@PEAT_OBJECTATTR@@PEAU_ENTRY@@PEAVHANDLELOCK@@PEAPEAU_BA.c)
+ *     ?_IncrementOrDecrementUniqueness@GdiHandleManager@@AEAAXPEAVOBJECT@@_N@Z @ 0x1C0274CF0 (-_IncrementOrDecrementUniqueness@GdiHandleManager@@AEAAXPEAVOBJECT@@_N@Z.c)
+ * Callees:
+ *     McTemplateK0ppqqq_EtwWriteTransfer @ 0x1C00EE512 (McTemplateK0ppqqq_EtwWriteTransfer.c)
+ */
+
 void __fastcall EtwTraceGdiTransformHandle(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v4; // bl

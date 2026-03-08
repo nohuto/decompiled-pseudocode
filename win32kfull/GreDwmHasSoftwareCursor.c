@@ -1,3 +1,14 @@
+/*
+ * XREFs of GreDwmHasSoftwareCursor @ 0x1C007F36C
+ * Callers:
+ *     DwmDestroyDeviceSpecificResources @ 0x1C007B790 (DwmDestroyDeviceSpecificResources.c)
+ *     zzzEnableDwmPointerSupport @ 0x1C007F1FC (zzzEnableDwmPointerSupport.c)
+ * Callees:
+ *     ??0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z @ 0x1C0028198 (--0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z.c)
+ *     IsDwmActive @ 0x1C002CF30 (IsDwmActive.c)
+ *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C002D7C8 (--1DWMSPRITELOCK@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall GreDwmHasSoftwareCursor(__int64 a1, int a2)
 {
   unsigned int v4; // ebx

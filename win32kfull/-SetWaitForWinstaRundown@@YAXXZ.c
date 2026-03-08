@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetWaitForWinstaRundown@@YAXXZ @ 0x1C00779BC
+ * Callers:
+ *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C0078068 (-InitiateWin32kCleanup@@YAHXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void SetWaitForWinstaRundown(void)
 {
   void *KernelEvent; // rbx

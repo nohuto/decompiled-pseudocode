@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?StartTransfer@FxDmaPacketTransaction@@UEAAJXZ @ 0x1C001D3F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qd @ 0x1C0007FCC (WPP_IFR_SF_qd.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0017BA8 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0018194 (WPP_IFR_SF_q.c)
+ *     ?GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C0018D10 (-GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z.c)
+ *     ?AllocateAdapterChannel@FxDmaPacketTransaction@@IEAAJE@Z @ 0x1C001C4BC (-AllocateAdapterChannel@FxDmaPacketTransaction@@IEAAJE@Z.c)
+ *     WPP_IFR_SF_qqii @ 0x1C001DE48 (WPP_IFR_SF_qqii.c)
+ */
+
 __int64 __fastcall FxDmaPacketTransaction::StartTransfer(FxDmaPacketTransaction *this)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // rdi

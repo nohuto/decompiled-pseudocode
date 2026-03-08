@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBDSM_ComparingSerialNumberOnReEnumeration @ 0x1C00237F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     McTemplateK0psqzq_EtwWriteTransfer @ 0x1C002DC3C (McTemplateK0psqzq_EtwWriteTransfer.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C0032FCC (HUBMISC_VerifierDbgBreak.c)
+ */
+
 __int64 __fastcall HUBDSM_ComparingSerialNumberOnReEnumeration(__int64 a1)
 {
   __int64 v1; // rbx

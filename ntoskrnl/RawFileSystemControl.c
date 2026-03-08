@@ -1,3 +1,14 @@
+/*
+ * XREFs of RawFileSystemControl @ 0x1406F36F8
+ * Callers:
+ *     RawDispatch @ 0x1406F2E80 (RawDispatch.c)
+ * Callees:
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     RawVerifyVolume @ 0x1405A483C (RawVerifyVolume.c)
+ *     RawMountVolume @ 0x1406F37D0 (RawMountVolume.c)
+ *     RawUserFsCtrl @ 0x14087D8B4 (RawUserFsCtrl.c)
+ */
+
 __int64 __fastcall RawFileSystemControl(__int64 a1, IRP *a2, __int64 a3)
 {
   unsigned int v4; // eax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UpdateDwmTimingInfo@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18004EBFC
+ * Callers:
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x18004E7F8 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
+ *     ?ComputeFrameTime@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18004EB20 (-ComputeFrameTime@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CPartitionVerticalBlankScheduler::UpdateDwmTimingInfo(CPartitionVerticalBlankScheduler *this)
 {
   __int64 v1; // r8

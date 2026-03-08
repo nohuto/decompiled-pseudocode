@@ -1,3 +1,27 @@
+/*
+ * XREFs of HvlStartBootLogicalProcessors @ 0x1403714E0
+ * Callers:
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ * Callees:
+ *     HalQueryMaximumProcessorCount @ 0x140375910 (HalQueryMaximumProcessorCount.c)
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpEnableNextLogicalProcessor @ 0x14053E9B4 (HvlpEnableNextLogicalProcessor.c)
+ *     HvlpGetLpcbByApicId @ 0x14053EB98 (HvlpGetLpcbByApicId.c)
+ *     HvlpQueryApicIdAndNumaNode @ 0x14053EF38 (HvlpQueryApicIdAndNumaNode.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ *     HvlpSelectLpSet @ 0x14053F128 (HvlpSelectLpSet.c)
+ *     HvlpSelectVpSet @ 0x14053F57C (HvlpSelectVpSet.c)
+ *     HvlpSetLogicalProcessorProperty @ 0x14053FBE4 (HvlpSetLogicalProcessorProperty.c)
+ *     HvlNotifyAllProcessorsStarted @ 0x140542A34 (HvlNotifyAllProcessorsStarted.c)
+ *     MmAllocateIndependentPages @ 0x140869AC0 (MmAllocateIndependentPages.c)
+ *     MmFreeIndependentPages @ 0x14087B250 (MmFreeIndependentPages.c)
+ *     HvlpDiscoverTopologyLocal @ 0x14093E420 (HvlpDiscoverTopologyLocal.c)
+ */
+
 __int64 __fastcall HvlStartBootLogicalProcessors(int a1)
 {
   unsigned int v1; // r12d

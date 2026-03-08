@@ -1,3 +1,14 @@
+/*
+ * XREFs of PnpBuildUnsafeRemovalDeviceList @ 0x14087F410
+ * Callers:
+ *     PnpProcessQueryRemoveAndEject @ 0x1408625F0 (PnpProcessQueryRemoveAndEject.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IopEnumerateRelations @ 0x140863508 (IopEnumerateRelations.c)
+ *     PnpIsBeingRemovedSafely @ 0x14087F540 (PnpIsBeingRemovedSafely.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void __fastcall PnpBuildUnsafeRemovalDeviceList(__int64 a1, unsigned int **a2, __int64 *a3)
 {
   int v5; // ebx

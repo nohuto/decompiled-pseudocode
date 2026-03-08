@@ -1,3 +1,11 @@
+/*
+ * XREFs of EngDeleteFile @ 0x1C027BEB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 BOOL __stdcall EngDeleteFile(LPWSTR pwszFileName)
 {
   struct _UNICODE_STRING v2; // [rsp+20h] [rbp-48h] BYREF

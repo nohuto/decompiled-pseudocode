@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?HitTestPartUpdate@NotifyShell@@YAXAEBUtagDESKTOP@@PEAUtagWND@@H@Z @ 0x1C00BDB5C
+ * Callers:
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ *     xxxTrackMouseMove @ 0x1C00BD950 (xxxTrackMouseMove.c)
+ * Callees:
+ *     _lambda_a4faeffec317e94db02d9bdb76d95fff_::operator() @ 0x1C00BDBE4 (_lambda_a4faeffec317e94db02d9bdb76d95fff_--operator().c)
+ *     _anonymous_namespace_::NotifyPartExit @ 0x1C00BDC68 (_anonymous_namespace_--NotifyPartExit.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _anonymous_namespace_::NotifyPartEnter @ 0x1C021FE90 (_anonymous_namespace_--NotifyPartEnter.c)
+ */
+
 void __fastcall NotifyShell::HitTestPartUpdate(
         NotifyShell *this,
         const struct tagDESKTOP *a2,

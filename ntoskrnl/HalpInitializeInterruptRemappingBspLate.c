@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpInitializeInterruptRemappingBspLate @ 0x14085A328
+ * Callers:
+ *     HalpInitializeInterruptsBspLate @ 0x1403A9F1C (HalpInitializeInterruptsBspLate.c)
+ * Callees:
+ *     RtlSetBits @ 0x14028BC50 (RtlSetBits.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     HalpIrtExtendRemappingRange @ 0x14085A40C (HalpIrtExtendRemappingRange.c)
+ *     HalpIrtInitializeDeviceApertures @ 0x140931A84 (HalpIrtInitializeDeviceApertures.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 HalpInitializeInterruptRemappingBspLate()
 {
   unsigned int v0; // ebx

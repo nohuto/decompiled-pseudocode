@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhGetQualifierDescriptorFromDevice @ 0x1C00547AC
+ * Callers:
+ *     UsbhSetupDevice @ 0x1C0039728 (UsbhSetupDevice.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhSyncSendCommandToDevice @ 0x1C001A250 (UsbhSyncSendCommandToDevice.c)
+ */
+
 __int64 __fastcall UsbhGetQualifierDescriptorFromDevice(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int16 *a5)
 {
   __int16 v9; // ax

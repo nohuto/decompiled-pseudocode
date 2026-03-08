@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmSiCreateEvent @ 0x1402440C8
+ * Callers:
+ *     CmpOpenHiveFile @ 0x1406C05C4 (CmpOpenHiveFile.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateEvent @ 0x140412C10 (ZwCreateEvent.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall CmSiCreateEvent(__int64 a1, HANDLE *a2)
 {
   NTSTATUS v3; // ebx

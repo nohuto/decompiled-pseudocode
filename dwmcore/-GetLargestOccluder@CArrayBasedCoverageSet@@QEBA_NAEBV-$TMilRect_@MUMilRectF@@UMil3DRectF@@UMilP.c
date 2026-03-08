@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetLargestOccluder@CArrayBasedCoverageSet@@QEBA_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@HPEAV2@@Z @ 0x1801F5ED0
+ * Callers:
+ *     ?GetLargestOccluder@COcclusionContext@@QEBA_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_NHPEAV2@@Z @ 0x1801E4098 (-GetLargestOccluder@COcclusionContext@@QEBA_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointA.c)
+ * Callees:
+ *     ?IsEmpty@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ @ 0x18004AF54 (-IsEmpty@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEBA_NXZ.c)
+ */
+
 bool __fastcall CArrayBasedCoverageSet::GetLargestOccluder(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // r10

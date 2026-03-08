@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhInitGlobal @ 0x1C0043978
+ * Callers:
+ *     DriverEntry @ 0x1C0041964 (DriverEntry.c)
+ * Callees:
+ *     memset @ 0x1C0023880 (memset.c)
+ */
+
 __int64 UsbhInitGlobal()
 {
   __int64 result; // rax

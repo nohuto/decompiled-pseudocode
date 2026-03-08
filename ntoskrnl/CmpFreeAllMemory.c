@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpFreeAllMemory @ 0x140A0E6C8
+ * Callers:
+ *     CmShutdownSystem2 @ 0x1406139DC (CmShutdownSystem2.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     CmpGetNextActiveHive @ 0x1406BD940 (CmpGetNextActiveHive.c)
+ *     CmpDumpKeyBodyList @ 0x140A143F8 (CmpDumpKeyBodyList.c)
+ *     CmpDestroyHive @ 0x140A19FFC (CmpDestroyHive.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     CmpAttachToRegistryProcess @ 0x140AF26E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140AF2710 (CmpDetachFromRegistryProcess.c)
+ */
+
 void CmpFreeAllMemory()
 {
   unsigned int v0; // ebp

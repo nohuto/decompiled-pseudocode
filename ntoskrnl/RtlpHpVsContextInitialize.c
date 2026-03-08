@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpHpVsContextInitialize @ 0x1402F7B28
+ * Callers:
+ *     RtlpHpFixedHeapCreate @ 0x1402F78D8 (RtlpHpFixedHeapCreate.c)
+ *     RtlpHpHeapCreate @ 0x140375288 (RtlpHpHeapCreate.c)
+ * Callees:
+ *     InitializeSListHead @ 0x1402A8B90 (InitializeSListHead.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void __fastcall RtlpHpVsContextInitialize(unsigned __int64 a1, __int64 a2, __int128 *a3, int a4, int a5, _DWORD *a6)
 {
   __int128 v10; // xmm0

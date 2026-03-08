@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiInitializeShadowPageTable @ 0x14080B974
+ * Callers:
+ *     MiMakeShadowPageTableRange @ 0x14080B864 (MiMakeShadowPageTableRange.c)
+ * Callees:
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MiReplicatePteChange @ 0x1402A4528 (MiReplicatePteChange.c)
+ *     MiSetPfnOldestWsleLeafCount @ 0x1402A6F00 (MiSetPfnOldestWsleLeafCount.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14032E710 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiInitializePfnForOtherProcess @ 0x140348804 (MiInitializePfnForOtherProcess.c)
+ *     MiMarkPxeAsShadowed @ 0x140371944 (MiMarkPxeAsShadowed.c)
+ *     MiVaToPfnEx @ 0x140384AD0 (MiVaToPfnEx.c)
+ *     MiReadWriteAnyLevelShadowPte @ 0x1403BA720 (MiReadWriteAnyLevelShadowPte.c)
+ */
+
 void __fastcall MiInitializeShadowPageTable(unsigned __int64 a1, _DWORD *a2, int a3)
 {
   unsigned __int64 v5; // rbx

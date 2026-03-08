@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GammaConvert_64bppABGR_128bppABGR@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802BA270
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Convert_sRGB_UINT16_To_scRGB_float@@YAMG@Z @ 0x18027C47C (-Convert_sRGB_UINT16_To_scRGB_float@@YAMG@Z.c)
+ */
+
 void __fastcall GammaConvert_64bppABGR_128bppABGR(const struct PipelineParams *a1, const struct ScanOpParams *a2)
 {
   __int64 v2; // r11

@@ -1,3 +1,15 @@
+/*
+ * XREFs of WmipInitializeDataStructs @ 0x140B540A4
+ * Callers:
+ *     WmipDriverEntry @ 0x140B53F10 (WmipDriverEntry.c)
+ * Callees:
+ *     WmipAllocRegEntry @ 0x1403BC6F4 (WmipAllocRegEntry.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WmipAddMofResource @ 0x1408199DC (WmipAddMofResource.c)
+ *     WmipAddDataSource @ 0x140867978 (WmipAddDataSource.c)
+ */
+
 __int64 WmipInitializeDataStructs()
 {
   _QWORD *v0; // rbx

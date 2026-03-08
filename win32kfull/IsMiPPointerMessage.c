@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsMiPPointerMessage @ 0x1C01441CC
+ * Callers:
+ *     xxxPointerCallHook @ 0x1C01C5F94 (xxxPointerCallHook.c)
+ * Callees:
+ *     IsPointerInputMessage @ 0x1C0038580 (IsPointerInputMessage.c)
+ */
+
 __int64 __fastcall IsMiPPointerMessage(unsigned int a1)
 {
   BOOL v1; // eax

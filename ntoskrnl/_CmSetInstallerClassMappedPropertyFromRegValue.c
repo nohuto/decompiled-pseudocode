@@ -1,3 +1,14 @@
+/*
+ * XREFs of _CmSetInstallerClassMappedPropertyFromRegValue @ 0x140A67080
+ * Callers:
+ *     _CmSetInstallerClassMappedProperty @ 0x140A66C94 (_CmSetInstallerClassMappedProperty.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _CmOpenInstallerClassRegKey @ 0x1406C4ED8 (_CmOpenInstallerClassRegKey.c)
+ *     _PnpOpenPropertiesKey @ 0x1406D1610 (_PnpOpenPropertiesKey.c)
+ *     _RegRtlSetValue @ 0x140784FE4 (_RegRtlSetValue.c)
+ */
+
 __int64 __fastcall CmSetInstallerClassMappedPropertyFromRegValue(
         __int64 a1,
         int a2,

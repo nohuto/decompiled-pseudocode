@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?dtorHelper@RFONTOBJ@@QEAAXXZ @ 0x1C02B70B0
+ * Callers:
+ *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXKAEBUTag@RFONTOBJ@@@Z @ 0x1C00AB7D0 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXKAEBUTag@RFONTOBJ@@@Z.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C011DDB0 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?GreGetGlyphOutlineInternal@@YAKPEAUHDC__@@GIPEAU_GLYPHMETRICS@@KPEAXPEAU_MAT2@@HW4EntryPoint@RFONTOBJ@@@Z @ 0x1C0123E18 (-GreGetGlyphOutlineInternal@@YAKPEAUHDC__@@GIPEAU_GLYPHMETRICS@@KPEAXPEAU_MAT2@@HW4EntryPoint@RF.c)
+ *     RFONTOBJ_dtorHelperWrap @ 0x1C01303B0 (RFONTOBJ_dtorHelperWrap.c)
+ * Callees:
+ *     ?vUnlockEUDCFontsGlyphCache@RFONTOBJ@@QEAAXXZ @ 0x1C014FD94 (-vUnlockEUDCFontsGlyphCache@RFONTOBJ@@QEAAXXZ.c)
+ */
+
 void __fastcall RFONTOBJ::dtorHelper(RFONTOBJ *this)
 {
   int v2; // ebx

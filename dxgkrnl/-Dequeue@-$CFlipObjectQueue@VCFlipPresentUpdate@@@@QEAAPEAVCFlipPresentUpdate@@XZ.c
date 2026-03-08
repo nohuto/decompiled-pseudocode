@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Dequeue@?$CFlipObjectQueue@VCFlipPresentUpdate@@@@QEAAPEAVCFlipPresentUpdate@@XZ @ 0x1C0082FA4
+ * Callers:
+ *     ?ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z @ 0x1C0081E44 (-ConsumerBeginProcessPresent@CFlipManager@@QEAAJPEAI0@Z.c)
+ *     ?FreeQueuedUpdates@CFlipManager@@AEAAXXZ @ 0x1C008322C (-FreeQueuedUpdates@CFlipManager@@AEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CFlipObjectQueue<CFlipPresentUpdate>::Dequeue(_QWORD *a1)
 {
   __int64 v1; // r9

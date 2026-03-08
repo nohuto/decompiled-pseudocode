@@ -1,3 +1,13 @@
+/*
+ * XREFs of InsertEventEntryInLookUpTable @ 0x1C0044208
+ * Callers:
+ *     _tlgWriteAgg @ 0x1C00447BC (_tlgWriteAgg.c)
+ * Callees:
+ *     EnableFlushTimer @ 0x1C0043ED8 (EnableFlushTimer.c)
+ *     CreateNewEventEntry @ 0x1C0043F84 (CreateNewEventEntry.c)
+ *     memcmp @ 0x1C0044B70 (memcmp.c)
+ */
+
 __int64 __fastcall InsertEventEntryInLookUpTable(
         __int64 a1,
         __int128 *a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserSetWindowStationUser @ 0x1C00EDFA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     _SetWindowStationUser @ 0x1C00EE0CC (_SetWindowStationUser.c)
+ */
+
 __int64 __fastcall NtUserSetWindowStationUser(__int64 a1, _QWORD *a2, volatile void *a3, unsigned int a4)
 {
   unsigned int v8; // edi

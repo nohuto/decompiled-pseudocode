@@ -1,3 +1,15 @@
+/*
+ * XREFs of imp_WdfInterruptTryToAcquireLock @ 0x1C0068530
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C0001B10 (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0017BA8 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_q @ 0x1C0018194 (WPP_IFR_SF_q.c)
+ *     ?TryToAcquireLock@FxInterrupt@@QEAAEXZ @ 0x1C007F86C (-TryToAcquireLock@FxInterrupt@@QEAAEXZ.c)
+ */
+
 unsigned __int8 __fastcall imp_WdfInterruptTryToAcquireLock(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFINTERRUPT__ *Interrupt)

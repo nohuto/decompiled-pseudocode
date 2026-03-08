@@ -1,3 +1,13 @@
+/*
+ * XREFs of NormBuffer__Insert @ 0x1405AE250
+ * Callers:
+ *     NormBuffer__AppendAndSortDecomposed @ 0x1405AE09C (NormBuffer__AppendAndSortDecomposed.c)
+ *     NormBuffer__Insert @ 0x1405AE250 (NormBuffer__Insert.c)
+ *     Normalization__NormalizeCharacter @ 0x1409BE3B8 (Normalization__NormalizeCharacter.c)
+ * Callees:
+ *     NormBuffer__Insert @ 0x1405AE250 (NormBuffer__Insert.c)
+ */
+
 bool __fastcall NormBuffer__Insert(_QWORD *a1, int a2, __int16 *a3)
 {
   __int16 *v3; // r9

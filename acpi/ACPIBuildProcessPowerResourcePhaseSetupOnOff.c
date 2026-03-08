@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIBuildProcessPowerResourcePhaseSetupOnOff @ 0x1C0011120
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIBuildCompleteCommon @ 0x1C000BC30 (ACPIBuildCompleteCommon.c)
+ *     ACPIVerifyAndCopyFirmwareDependencies @ 0x1C00146C0 (ACPIVerifyAndCopyFirmwareDependencies.c)
+ *     AMLIAsyncEvalObject @ 0x1C00478E8 (AMLIAsyncEvalObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessPowerResourcePhaseSetupOnOff(__int64 a1)
 {
   __int64 v1; // r14

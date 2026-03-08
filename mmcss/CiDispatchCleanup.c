@@ -1,3 +1,11 @@
+/*
+ * XREFs of CiDispatchCleanup @ 0x1C000A440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CiThreadCleanup @ 0x1C000A4B0 (CiThreadCleanup.c)
+ */
+
 __int64 __fastcall CiDispatchCleanup(__int64 a1, IRP *a2)
 {
   _QWORD *FsContext; // rax

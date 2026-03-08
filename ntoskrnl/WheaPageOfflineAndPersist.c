@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheaPageOfflineAndPersist @ 0x140A05220
+ * Callers:
+ *     WheapWmiExecutePageOfflineMethod @ 0x140611D54 (WheapWmiExecutePageOfflineMethod.c)
+ * Callees:
+ *     WheapAttemptPhysicalPageOffline @ 0x140A0555C (WheapAttemptPhysicalPageOffline.c)
+ *     WheapReverseAddressTranslateToPAInPlugin @ 0x140A05A60 (WheapReverseAddressTranslateToPAInPlugin.c)
+ */
+
 __int64 __fastcall WheaPageOfflineAndPersist(__int64 a1)
 {
   unsigned __int8 v1; // dl

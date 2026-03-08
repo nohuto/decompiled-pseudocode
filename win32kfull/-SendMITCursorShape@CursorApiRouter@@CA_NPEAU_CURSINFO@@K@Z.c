@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?SendMITCursorShape@CursorApiRouter@@CA_NPEAU_CURSINFO@@K@Z @ 0x1C02261A0
+ * Callers:
+ *     ?DwmSetPointer@CursorApiRouter@@CA_NPEAU_CURSINFO@@K@Z @ 0x1C0225E48 (-DwmSetPointer@CursorApiRouter@@CA_NPEAU_CURSINFO@@K@Z.c)
+ * Callees:
+ *     GreExtGetObjectW @ 0x1C0065580 (GreExtGetObjectW.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?GetCursorColorPixels@CursorApiRouter@@CA_NPEAUHBITMAP__@@PEBUtagBITMAP@@IPEAK@Z @ 0x1C0225E90 (-GetCursorColorPixels@CursorApiRouter@@CA_NPEAUHBITMAP__@@PEBUtagBITMAP@@IPEAK@Z.c)
+ *     ?GetCursorMaskAndXorBits@CursorApiRouter@@CA_NPEAUHBITMAP__@@PEBUtagBITMAP@@PEAPEAEPEAI@Z @ 0x1C0225F84 (-GetCursorMaskAndXorBits@CursorApiRouter@@CA_NPEAUHBITMAP__@@PEBUtagBITMAP@@PEAPEAEPEAI@Z.c)
+ *     ?PopulateMSLogoTestPattern@@YAXPEAXHH@Z @ 0x1C02260A4 (-PopulateMSLogoTestPattern@@YAXPEAXHH@Z.c)
+ *     ?PopulateXORTestPattern@@YAXPEAXHH@Z @ 0x1C0226124 (-PopulateXORTestPattern@@YAXPEAXHH@Z.c)
+ */
+
 char __fastcall CursorApiRouter::SendMITCursorShape(struct _CURSINFO *a1, unsigned int a2)
 {
   char v2; // di

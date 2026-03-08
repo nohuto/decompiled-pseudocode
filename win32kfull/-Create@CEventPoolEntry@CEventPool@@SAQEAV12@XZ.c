@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Create@CEventPoolEntry@CEventPool@@SAQEAV12@XZ @ 0x1C00E7128
+ * Callers:
+ *     UmfdHostLifeTimeManager::ExecuteCallbackIfUmfdHostIsReady__lambda_eef90ce73a6a62b5089d029612c95735___ @ 0x1C011F3C4 (UmfdHostLifeTimeManager--ExecuteCallbackIfUmfdHostIsReady__lambda_eef90ce73a6a62b5089d029612c957.c)
+ *     _lambda_eef90ce73a6a62b5089d029612c95735_::operator() @ 0x1C011F5B4 (_lambda_eef90ce73a6a62b5089d029612c95735_--operator().c)
+ * Callees:
+ *     ?Create@CManualResetEvent@@SAQEAV1@XZ @ 0x1C00E72CC (-Create@CManualResetEvent@@SAQEAV1@XZ.c)
+ *     ??1?$CAutoDestroy@VCEventPoolEntry@CEventPool@@@@QEAA@XZ @ 0x1C011F800 (--1-$CAutoDestroy@VCEventPoolEntry@CEventPool@@@@QEAA@XZ.c)
+ */
+
 struct CEventPool::CEventPoolEntry *CEventPool::CEventPoolEntry::Create(void)
 {
   _QWORD *v0; // rax

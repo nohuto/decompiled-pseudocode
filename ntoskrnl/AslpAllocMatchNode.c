@@ -1,3 +1,11 @@
+/*
+ * XREFs of AslpAllocMatchNode @ 0x140A537B4
+ * Callers:
+ *     AslpParsePattern @ 0x140A538F4 (AslpParsePattern.c)
+ * Callees:
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ */
+
 __int64 __fastcall AslpAllocMatchNode(__int64 a1, __int64 a2, __int64 *a3)
 {
   _QWORD *v6; // rax

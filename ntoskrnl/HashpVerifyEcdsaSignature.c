@@ -1,3 +1,16 @@
+/*
+ * XREFs of HashpVerifyEcdsaSignature @ 0x140A74544
+ * Callers:
+ *     MinCryptVerifySignedHash2 @ 0x140A6C6A0 (MinCryptVerifySignedHash2.c)
+ * Callees:
+ *     SymCryptEcurveAllocate @ 0x1403F252C (SymCryptEcurveAllocate.c)
+ *     SymCryptEcurveFree @ 0x1403F2CB4 (SymCryptEcurveFree.c)
+ *     SymCryptEckeyAllocate @ 0x1403F2CF4 (SymCryptEckeyAllocate.c)
+ *     SymCryptEckeyFree @ 0x1403F2DD8 (SymCryptEckeyFree.c)
+ *     SymCryptEckeySetValue @ 0x1403F2F18 (SymCryptEckeySetValue.c)
+ *     SymCryptEcDsaVerify @ 0x1403F4010 (SymCryptEcDsaVerify.c)
+ */
+
 __int64 __fastcall HashpVerifyEcdsaSignature(
         int a1,
         __int64 a2,

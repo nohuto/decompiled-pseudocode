@@ -1,3 +1,11 @@
+/*
+ * XREFs of vCheckCharSet @ 0x1C010F68C
+ * Callers:
+ *     vProcessEntry @ 0x1C010F5B8 (vProcessEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 int __fastcall vCheckCharSet(__int64 a1, WCHAR *a2)
 {
   unsigned int v2; // ebx

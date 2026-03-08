@@ -1,3 +1,15 @@
+/*
+ * XREFs of WppInitGlobalLoggerWdf @ 0x1C0022AFC
+ * Callers:
+ *     WppTraceCallbackWdf @ 0x1C0022F00 (WppTraceCallbackWdf.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ *     wcscmp_0 @ 0x1C000AB56 (wcscmp_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C000B140 (memmove.c)
+ *     WppGuidToStr @ 0x1C00229F8 (WppGuidToStr.c)
+ */
+
 void __fastcall WppInitGlobalLoggerWdf(
         const wchar_t *LoggerName,
         const _GUID *pControlGuid,

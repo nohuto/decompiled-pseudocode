@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcAggregateCumulativeVolumeTelemetry @ 0x1403CD190
+ * Callers:
+ *     CcPostVolumeTelemetry @ 0x1403CB4D0 (CcPostVolumeTelemetry.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CcAggregateCumulativeVolumeTelemetry(_QWORD *a1)
 {
   unsigned __int64 v1; // rdx

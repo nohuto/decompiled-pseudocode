@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?VidSchiCancelQueuedIndependentFlips@@YAXPEAU_VIDSCH_GLOBAL@@IPEAU_VIDSCH_DEVICE@@PEAUVIDSCH_FLIP_QUEUE@@_KAEAI444@Z @ 0x1C00352C8
+ * Callers:
+ *     VidSchCancelPresentAtFlips @ 0x1C003E410 (VidSchCancelPresentAtFlips.c)
+ * Callees:
+ *     ?ProcessHwQueues@HwQueueStagingList@@QEAAXXZ @ 0x1C0006790 (-ProcessHwQueues@HwQueueStagingList@@QEAAXXZ.c)
+ *     ?VidSchiAbortSoftwarePacket@@YA_NPEAU_VIDSCH_QUEUE_PACKET@@_K@Z @ 0x1C0034FB0 (-VidSchiAbortSoftwarePacket@@YA_NPEAU_VIDSCH_QUEUE_PACKET@@_K@Z.c)
+ *     VidSchiCancelIndependentFlips @ 0x1C003A50C (VidSchiCancelIndependentFlips.c)
+ *     ?VidSchiCancelIndependentFlipsHwQueue@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@IPEAUVIDSCH_FLIP_QUEUE@@PEA_NPEAIII@Z @ 0x1C00489D8 (-VidSchiCancelIndependentFlipsHwQueue@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_GLOBAL@@IPEAUVIDSC.c)
+ */
+
 void __fastcall VidSchiCancelQueuedIndependentFlips(
         struct _VIDSCH_GLOBAL *a1,
         unsigned int a2,

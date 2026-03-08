@@ -1,3 +1,19 @@
+/*
+ * XREFs of CmpSplitLeaf @ 0x140A21D7C
+ * Callers:
+ *     CmpSelectLeaf @ 0x140872120 (CmpSelectLeaf.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvReallocateCell @ 0x1407A5D90 (HvReallocateCell.c)
+ *     HvAllocateCell @ 0x1407A63A8 (HvAllocateCell.c)
+ *     HvFreeCell @ 0x1407A6A90 (HvFreeCell.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpMarkCellDirty @ 0x1407D2460 (HvpMarkCellDirty.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall CmpSplitLeaf(ULONG_PTR BugCheckParameter3, ULONG_PTR a2, unsigned int a3, unsigned int a4, int *a5)
 {
   __int64 v5; // r13

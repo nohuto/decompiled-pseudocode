@@ -1,3 +1,22 @@
+/*
+ * XREFs of PsSetProcessFaultInformation @ 0x14067FC50
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ *     DbgkForwardException @ 0x1409365F4 (DbgkForwardException.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExGetExtensionTable @ 0x1402C57F0 (ExGetExtensionTable.c)
+ *     ExReleaseExtensionTable @ 0x1402C5820 (ExReleaseExtensionTable.c)
+ *     EtwTelemetryCoverageReport @ 0x1402F9DD0 (EtwTelemetryCoverageReport.c)
+ *     TelemetryCoverageStringHashInternal @ 0x1402F9F5C (TelemetryCoverageStringHashInternal.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PsSetProcessTelemetryAppState @ 0x1407E7C28 (PsSetProcessTelemetryAppState.c)
+ *     PspRecordCrashedProcessIntoBlackbox @ 0x1409AC84C (PspRecordCrashedProcessIntoBlackbox.c)
+ */
+
 __int64 __fastcall PsSetProcessFaultInformation(__int64 a1, _DWORD *a2)
 {
   volatile signed __int64 *v4; // rdi

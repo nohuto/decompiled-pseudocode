@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CFrameStats@CConnection@DirectComposition@@QEAA@XZ @ 0x1C00D6210
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 DirectComposition::CConnection::CFrameStats *__fastcall DirectComposition::CConnection::CFrameStats::CFrameStats(
         DirectComposition::CConnection::CFrameStats *this)
 {

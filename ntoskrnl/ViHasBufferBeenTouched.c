@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViHasBufferBeenTouched @ 0x140AC64A8
+ * Callers:
+ *     ViCheckPadding @ 0x140AC5364 (ViCheckPadding.c)
+ * Callees:
+ *     <none>
+ */
+
 _BYTE *__fastcall ViHasBufferBeenTouched(_BYTE *a1, unsigned __int64 a2)
 {
   __int64 v2; // r10

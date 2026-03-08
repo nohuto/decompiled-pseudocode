@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifZwQueryInformationTokenWrapper @ 0x1405F27D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwQueryInformationToken @ 0x140412730 (ZwQueryInformationToken.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifZwQueryInformationTokenWrapper(
         HANDLE TokenHandle,
         TOKEN_INFORMATION_CLASS TokenInformationClass,

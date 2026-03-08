@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopIdleWakeConvertIntervalBucketsTo @ 0x140997348
+ * Callers:
+ *     PopIdleWakeNotifyModernStandbyExitWorker @ 0x140997860 (PopIdleWakeNotifyModernStandbyExitWorker.c)
+ *     PopIdleWakeSourceAccountingBucketsToDiagnosticBuckets @ 0x140998098 (PopIdleWakeSourceAccountingBucketsToDiagnosticBuckets.c)
+ * Callees:
+ *     PpmConvertTimeTo @ 0x1403A1D04 (PpmConvertTimeTo.c)
+ */
+
 void __fastcall PopIdleWakeConvertIntervalBucketsTo(unsigned int a1, __int64 a2, _QWORD *a3, unsigned __int64 a4)
 {
   __int64 v4; // rdi

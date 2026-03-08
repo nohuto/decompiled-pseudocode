@@ -1,3 +1,39 @@
+/*
+ * XREFs of xxxKeyEventEx @ 0x1C007F2E0
+ * Callers:
+ *     xxxProcessKeyEvent @ 0x1C007EE00 (xxxProcessKeyEvent.c)
+ *     ?xxxNumpadCursor@@YAHPEAUtagKE@@@Z @ 0x1C00C3A30 (-xxxNumpadCursor@@YAHPEAUtagKE@@@Z.c)
+ *     ?xxxICO_00@@YAHPEAUtagKE@@@Z @ 0x1C00C76F0 (-xxxICO_00@@YAHPEAUtagKE@@@Z.c)
+ *     ?xxxAdjustPushState@@YAXPEAUtagTHREADINFO@@EEPEAUtagKL@@1@Z @ 0x1C021419C (-xxxAdjustPushState@@YAXPEAUtagTHREADINFO@@EEPEAUtagKL@@1@Z.c)
+ *     ?xxxManageKeyboardModifiers@@YAXPEAUtagKL@@0@Z @ 0x1C0214488 (-xxxManageKeyboardModifiers@@YAXPEAUtagKL@@0@Z.c)
+ *     xxxKeyEvent @ 0x1C021B2F0 (xxxKeyEvent.c)
+ *     ?xxxAltGr@@YAXPEAUtagKE@@@Z @ 0x1C021B374 (-xxxAltGr@@YAXPEAUtagKE@@@Z.c)
+ *     ?xxxShiftLock@@YAHPEAUtagKE@@@Z @ 0x1C021B490 (-xxxShiftLock@@YAHPEAUtagKE@@@Z.c)
+ *     ?NlsAlphanumericModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C021BF70 (-NlsAlphanumericModeProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsCodeInputToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C021C100 (-NlsCodeInputToggleProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsHiraganaModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C021C360 (-NlsHiraganaModeProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsKatakanaModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C021C580 (-NlsKatakanaModeProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsRomanToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C021C760 (-NlsRomanToggleProc@@YAHPEAUtagKE@@_KK@Z.c)
+ *     ?NlsSbcsDbcsToggleProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C021C870 (-NlsSbcsDbcsToggleProc@@YAHPEAUtagKE@@_KK@Z.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     HMAssignmentLock @ 0x1C00788D0 (HMAssignmentLock.c)
+ *     ?Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z @ 0x1C007D0EC (-Enabled@InputTraceLogging@@CA_NW4InputTraceKeywords@@E@Z.c)
+ *     GetActiveHKL @ 0x1C007F950 (GetActiveHKL.c)
+ *     ApiSetEditionKeyEventLLHook @ 0x1C0080144 (ApiSetEditionKeyEventLLHook.c)
+ *     ?HandleLeftRightVKs@CKeyboardProcessor@@SAEE@Z @ 0x1C0080360 (-HandleLeftRightVKs@CKeyboardProcessor@@SAEE@Z.c)
+ *     _anonymous_namespace_::GetKeyboardProcessor @ 0x1C0080388 (_anonymous_namespace_--GetKeyboardProcessor.c)
+ *     GetKeyEventInputSource @ 0x1C00804A0 (GetKeyEventInputSource.c)
+ *     ApiSetEditionUpdateSASModifiers @ 0x1C0080664 (ApiSetEditionUpdateSASModifiers.c)
+ *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C008097C (xxxUpdateGlobalsAndSendKeyEvent.c)
+ *     ?OnKeyEvent@CAsyncKeyEventMonitor@@QEAAXXZ @ 0x1C0081090 (-OnKeyEvent@CAsyncKeyEventMonitor@@QEAAXXZ.c)
+ *     ?DropInput@Keyboard@InputTraceLogging@@SAXW4DropReason@12@@Z @ 0x1C01E3DAC (-DropInput@Keyboard@InputTraceLogging@@SAXW4DropReason@12@@Z.c)
+ *     ?ForwardInputToKeyboardOverrider@CKeyboardProcessor@@SAX_NGGGPEAXKGPEAU_KEYBOARD_VIRTUAL_DEVICE_INFO@@@Z @ 0x1C020A370 (-ForwardInputToKeyboardOverrider@CKeyboardProcessor@@SAX_NGGGPEAXKGPEAU_KEYBOARD_VIRTUAL_DEVICE_.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@U1@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$07@@U2@U2@U2@U2@U?$_tlgWrapperByVal@$00@@U?$_tlgWrapperByVal@$01@@U2@U2@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@3AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$07@@4444AEBU?$_tlgWrapperByVal@$00@@AEBU?$_tlgWrapperByVal@$01@@444@Z @ 0x1C0219A4C (--$Write@U-$_tlgWrapSz@D@@U1@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$07@@U2@U2@U2@U2@U-$_t.c)
+ *     ?DeviceTypeToString@InputTraceLogging@@CAPEBDK@Z @ 0x1C0219BE8 (-DeviceTypeToString@InputTraceLogging@@CAPEBDK@Z.c)
+ *     ?OriginIdToString@InputTraceLogging@@CAPEBDW4tagINPUT_MESSAGE_ORIGIN_ID@@@Z @ 0x1C021A3B0 (-OriginIdToString@InputTraceLogging@@CAPEBDW4tagINPUT_MESSAGE_ORIGIN_ID@@@Z.c)
+ */
+
 void __fastcall xxxKeyEventEx(
         __int64 a1,
         __int64 a2,

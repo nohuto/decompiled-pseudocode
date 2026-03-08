@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Create@?$CSortedVector@_K_K@NSInstrumentation@@SAPEAV12@XZ @ 0x1C00E70A4
+ * Callers:
+ *     UmfdSessionInitialize @ 0x1C00E6FB0 (UmfdSessionInitialize.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *NSInstrumentation::CSortedVector<unsigned __int64,unsigned __int64>::Create()
 {
   _QWORD *Pool2; // rbx

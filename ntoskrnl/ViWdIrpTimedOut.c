@@ -1,3 +1,13 @@
+/*
+ * XREFs of ViWdIrpTimedOut @ 0x140ADB3EC
+ * Callers:
+ *     ViWdIrpTimerDpcRoutine @ 0x140ADB490 (ViWdIrpTimerDpcRoutine.c)
+ * Callees:
+ *     VfUtilDbgPrint @ 0x1405CBEB4 (VfUtilDbgPrint.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ *     VfErrorStoreTriageInformation @ 0x140AD0684 (VfErrorStoreTriageInformation.c)
+ */
+
 __int64 __fastcall ViWdIrpTimedOut(__int64 a1)
 {
   __int64 result; // rax

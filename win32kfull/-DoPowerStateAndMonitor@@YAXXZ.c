@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DoPowerStateAndMonitor@@YAXXZ @ 0x1C00CAA00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _PostTransformableMessage @ 0x1C00CB714 (_PostTransformableMessage.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void __fastcall DoPowerStateAndMonitor(__int64 a1)
 {
   __int64 v1; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ApplyEdgeFlagsWorker_3_1_2_ @ 0x1801FC710
+ * Callers:
+ *     ApplyEdgeFlags @ 0x1801FCAE8 (ApplyEdgeFlags.c)
+ * Callees:
+ *     <none>
+ */
+
 float __fastcall ApplyEdgeFlagsWorker_3_1_2_(char a1, float a2, float a3)
 {
   int v3; // ecx

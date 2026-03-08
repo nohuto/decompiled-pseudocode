@@ -1,3 +1,21 @@
+/*
+ * XREFs of SeIsTokenAssignableToProcess @ 0x140776104
+ * Callers:
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ *     PspAssignPrimaryToken @ 0x14083F864 (PspAssignPrimaryToken.c)
+ * Callees:
+ *     ObFastDereferenceObject @ 0x140245F50 (ObFastDereferenceObject.c)
+ *     RtlSidDominatesForTrust @ 0x140247D00 (RtlSidDominatesForTrust.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     SepCopyTokenIntegrity @ 0x14030FED0 (SepCopyTokenIntegrity.c)
+ *     RtlSidDominates @ 0x14030FF10 (RtlSidDominates.c)
+ *     SepIsChildTokenByPointer @ 0x1407762B8 (SepIsChildTokenByPointer.c)
+ *     SepIsSiblingTokenByPointer @ 0x140776354 (SepIsSiblingTokenByPointer.c)
+ */
+
 __int64 __fastcall SeIsTokenAssignableToProcess(__int64 a1, char *a2)
 {
   char v2; // di

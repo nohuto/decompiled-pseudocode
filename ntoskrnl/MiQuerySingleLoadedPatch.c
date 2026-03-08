@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiQuerySingleLoadedPatch @ 0x140A38EEC
+ * Callers:
+ *     NtManageHotPatch @ 0x140784740 (NtManageHotPatch.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     MiFindProcessImageHotPatchRecord @ 0x140A3404C (MiFindProcessImageHotPatchRecord.c)
+ */
+
 __int64 __fastcall MiQuerySingleLoadedPatch(
         UNICODE_STRING **a1,
         _DWORD *a2,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlpWriteExtendedContext @ 0x14077CA08
+ * Callers:
+ *     PspWow64GetContextThread @ 0x14077BF00 (PspWow64GetContextThread.c)
+ *     PspGetContextThreadInternal @ 0x1407EE524 (PspGetContextThreadInternal.c)
+ * Callees:
+ *     RtlpCopyExtendedContext @ 0x140364B00 (RtlpCopyExtendedContext.c)
+ *     RtlpValidateContextFlags @ 0x1403650A0 (RtlpValidateContextFlags.c)
+ *     RtlpGetLegacyContextLength @ 0x140365130 (RtlpGetLegacyContextLength.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ */
+
 __int64 __fastcall RtlpWriteExtendedContext(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, __int64 a5)
 {
   __int64 result; // rax

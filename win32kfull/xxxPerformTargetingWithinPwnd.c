@@ -1,3 +1,15 @@
+/*
+ * XREFs of xxxPerformTargetingWithinPwnd @ 0x1C01E7FFC
+ * Callers:
+ *     PerformTargetingWithinPwnd @ 0x1C01E7940 (PerformTargetingWithinPwnd.c)
+ * Callees:
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C006E550 (xxxSendTransformableMessageTimeout.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     TouchTargetingCreateContact @ 0x1C0250C6C (TouchTargetingCreateContact.c)
+ */
+
 __int64 __fastcall xxxPerformTargetingWithinPwnd(struct tagWND *a1, __int64 a2, _DWORD *a3)
 {
   __int64 result; // rax

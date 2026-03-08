@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIConvertWideStringToUpperCaseHelper @ 0x1C004399C
+ * Callers:
+ *     ACPIDeviceIdMutiStringMatchCallback @ 0x1C002C830 (ACPIDeviceIdMutiStringMatchCallback.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPIConvertWideStringToUpperCaseHelper(__int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 v2; // r8

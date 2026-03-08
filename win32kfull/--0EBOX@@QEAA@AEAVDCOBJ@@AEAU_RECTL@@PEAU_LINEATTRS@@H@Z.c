@@ -1,3 +1,17 @@
+/*
+ * XREFs of ??0EBOX@@QEAA@AEAVDCOBJ@@AEAU_RECTL@@PEAU_LINEATTRS@@H@Z @ 0x1C02C7828
+ * Callers:
+ *     GreRectangle @ 0x1C02AF0B0 (GreRectangle.c)
+ *     NtGdiEllipse @ 0x1C02AF970 (NtGdiEllipse.c)
+ *     NtGdiRoundRect @ 0x1C02AFD00 (NtGdiRoundRect.c)
+ *     NtGdiArcInternal @ 0x1C02C8EE0 (NtGdiArcInternal.c)
+ * Callees:
+ *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C0088198 (-vOrder@ERECTL@@QEAAXXZ.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00CFF10 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?efHalfDiff@@YA?AVEFLOAT@@JJ@Z @ 0x1C02C8980 (-efHalfDiff@@YA-AVEFLOAT@@JJ@Z.c)
+ */
+
 EBOX *__fastcall EBOX::EBOX(EBOX *this, struct DCOBJ *a2, struct _RECTL *a3, struct _LINEATTRS *a4, int a5)
 {
   __int128 v5; // xmm0

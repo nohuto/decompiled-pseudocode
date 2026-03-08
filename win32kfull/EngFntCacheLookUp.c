@@ -1,3 +1,11 @@
+/*
+ * XREFs of EngFntCacheLookUp @ 0x1C011D690
+ * Callers:
+ *     ?CreateUsermodeParameters@LoadFontFileRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C011D480 (-CreateUsermodeParameters@LoadFontFileRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z.c)
+ * Callees:
+ *     SearchFNTCacheHlink @ 0x1C0116040 (SearchFNTCacheHlink.c)
+ */
+
 PVOID __stdcall EngFntCacheLookUp(ULONG FastCheckSum, ULONG *pulSize)
 {
   void *v2; // rbx

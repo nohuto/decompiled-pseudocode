@@ -1,3 +1,15 @@
+/*
+ * XREFs of _CmOpenCommonClassRegKey @ 0x1406C4F8C
+ * Callers:
+ *     _CmOpenInstallerClassRegKey @ 0x1406C4ED8 (_CmOpenInstallerClassRegKey.c)
+ *     _CmOpenInterfaceClassRegKey @ 0x1406C4F44 (_CmOpenInterfaceClassRegKey.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     _CmOpenCommonClassRegKeyWorker @ 0x1406C50D8 (_CmOpenCommonClassRegKeyWorker.c)
+ */
+
 __int64 __fastcall CmOpenCommonClassRegKey(
         __int64 a1,
         __int64 a2,

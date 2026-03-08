@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiDeleteHotPatchEntry @ 0x140A33A90
+ * Callers:
+ *     MiApplyImageHotPatchRequest @ 0x140A32920 (MiApplyImageHotPatchRequest.c)
+ *     MiDeleteVadHotPatchState @ 0x140A33D1C (MiDeleteVadHotPatchState.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     MiGetProcessHotPatchContext @ 0x140A345D0 (MiGetProcessHotPatchContext.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiDeleteHotPatchEntry(char *P)
 {
   struct _KTHREAD *CurrentThread; // rsi

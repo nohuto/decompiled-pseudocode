@@ -1,3 +1,15 @@
+/*
+ * XREFs of SdbpOpenLocalDatabaseEx @ 0x140A4F86C
+ * Callers:
+ *     SdbTagRefToTagID @ 0x140800B74 (SdbTagRefToTagID.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbOpenDatabaseEx @ 0x140A4B8F0 (SdbOpenDatabaseEx.c)
+ *     SdbpCloseLocalDatabaseEx @ 0x140A4F7D4 (SdbpCloseLocalDatabaseEx.c)
+ *     SdbResolveDatabaseEx @ 0x140A4FB10 (SdbResolveDatabaseEx.c)
+ */
+
 __int64 __fastcall SdbpOpenLocalDatabaseEx(__int64 a1, __int128 *a2, __int64 a3, wchar_t ****a4, _DWORD *a5)
 {
   unsigned int v5; // esi

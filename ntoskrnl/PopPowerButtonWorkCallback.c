@@ -1,3 +1,30 @@
+/*
+ * XREFs of PopPowerButtonWorkCallback @ 0x140596C60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeDisableTimer2 @ 0x140204028 (KeDisableTimer2.c)
+ *     MmGetSessionById @ 0x14022A4F0 (MmGetSessionById.c)
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     RtlGetActiveConsoleId @ 0x1402B8940 (RtlGetActiveConsoleId.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     MmAttachSession @ 0x1402EA500 (MmAttachSession.c)
+ *     KeInitializeIRTimer @ 0x14036D61C (KeInitializeIRTimer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExUuidCreate @ 0x1406F7EF0 (ExUuidCreate.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x14087EC10 (DbgkWerCaptureLiveKernelDump.c)
+ *     PopRecordPhysicalPowerButton @ 0x14097E2A0 (PopRecordPhysicalPowerButton.c)
+ *     PopDiagTracePowerButtonBugcheck @ 0x14098D8D8 (PopDiagTracePowerButtonBugcheck.c)
+ *     PopPublishPowerButtonState @ 0x140993B84 (PopPublishPowerButtonState.c)
+ *     PopQueryPowerButtonBugcheckEnabled @ 0x140993C88 (PopQueryPowerButtonBugcheckEnabled.c)
+ *     PopRecordPoBlackboxInformation @ 0x14099E024 (PopRecordPoBlackboxInformation.c)
+ */
+
 __int64 PopPowerButtonWorkCallback()
 {
   unsigned __int64 v0; // rbx

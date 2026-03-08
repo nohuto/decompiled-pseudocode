@@ -1,3 +1,18 @@
+/*
+ * XREFs of KiInitializeReservedCpuSets @ 0x140B70380
+ * Callers:
+ *     KeInitSystem @ 0x140B42FB8 (KeInitSystem.c)
+ * Callees:
+ *     KeModifySystemAllowedCpuSets @ 0x140399138 (KeModifySystemAllowedCpuSets.c)
+ *     KiValidateCpuSetMasks @ 0x140399340 (KiValidateCpuSetMasks.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 NTSTATUS KiInitializeReservedCpuSets()
 {
   unsigned int v0; // ebx

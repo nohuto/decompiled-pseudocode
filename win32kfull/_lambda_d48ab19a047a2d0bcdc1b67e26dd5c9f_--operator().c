@@ -1,3 +1,12 @@
+/*
+ * XREFs of _lambda_d48ab19a047a2d0bcdc1b67e26dd5c9f_::operator() @ 0x1C02DFB50
+ * Callers:
+ *     ?bClipSrcDstRectsAndValidate@@YA_NPEAU_SURFOBJ@@0PEAVDCOBJ@@1PEAU_CLIPOBJ@@PEAU_RECTL@@3@Z @ 0x1C02E00E4 (-bClipSrcDstRectsAndValidate@@YA_NPEAU_SURFOBJ@@0PEAVDCOBJ@@1PEAU_CLIPOBJ@@PEAU_RECTL@@3@Z.c)
+ * Callees:
+ *     ?bDpiScaleTransform@DC@@QEBAHXZ @ 0x1C00E90D4 (-bDpiScaleTransform@DC@@QEBAHXZ.c)
+ *     ?vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z @ 0x1C0269834 (-vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z.c)
+ */
+
 void __fastcall lambda_d48ab19a047a2d0bcdc1b67e26dd5c9f_::operator()(__int64 a1, DC **a2, __int64 a3, ERECTL *a4)
 {
   __int64 v5; // rcx

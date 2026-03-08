@@ -1,3 +1,13 @@
+/*
+ * XREFs of AMLICreateOverrideObjectDep @ 0x1C004A920
+ * Callers:
+ *     AMLIAddNextNamespaceOverrideObject @ 0x1C004A534 (AMLIAddNextNamespaceOverrideObject.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     FreeObjData @ 0x1C004B544 (FreeObjData.c)
+ *     NewObjData @ 0x1C004C19C (NewObjData.c)
+ */
+
 __int64 __fastcall AMLICreateOverrideObjectDep(_BYTE *Src, unsigned int a2, __int64 a3)
 {
   unsigned int v3; // ebx

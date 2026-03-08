@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpTimerFindIdealWatchdog @ 0x140376AFC
+ * Callers:
+ *     HalpTimerSelectRoles @ 0x140376F4C (HalpTimerSelectRoles.c)
+ * Callees:
+ *     HalpFindTimer @ 0x140377CA8 (HalpFindTimer.c)
+ *     HalpTimerGetClockRates @ 0x1403AE2D0 (HalpTimerGetClockRates.c)
+ */
+
 __int64 HalpTimerFindIdealWatchdog()
 {
   int v0; // edi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIIsPowerRequestBlocked @ 0x1C0022250
+ * Callers:
+ *     ACPIDevicePowerProcessBlockedItems @ 0x1C001EB38 (ACPIDevicePowerProcessBlockedItems.c)
+ *     ACPIDevicePowerProcessGenericPhase @ 0x1C001EC1C (ACPIDevicePowerProcessGenericPhase.c)
+ *     ACPIMovePowerListUnblockedItems @ 0x1C002234C (ACPIMovePowerListUnblockedItems.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qsLLdqss @ 0x1C0023064 (WPP_RECORDER_SF_qsLLdqss.c)
+ */
+
 char __fastcall ACPIIsPowerRequestBlocked(__int64 a1)
 {
   int v1; // r8d

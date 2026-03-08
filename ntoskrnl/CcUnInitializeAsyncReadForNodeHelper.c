@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcUnInitializeAsyncReadForNodeHelper @ 0x1403B95D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall CcUnInitializeAsyncReadForNodeHelper(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v4; // edi

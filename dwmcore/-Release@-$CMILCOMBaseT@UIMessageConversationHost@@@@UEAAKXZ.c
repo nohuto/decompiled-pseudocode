@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Release@?$CMILCOMBaseT@UIMessageConversationHost@@@@UEAAKXZ @ 0x1801B1DD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CMILCOMBaseT<IMessageConversationHost>::Release(volatile signed __int32 *a1)
 {
   volatile signed __int32 *v2; // rdi

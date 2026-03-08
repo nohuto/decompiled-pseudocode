@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionBaseDriverEntryInitialize @ 0x1C00CEA08
+ * Callers:
+ *     Win32UserInitialize @ 0x1C031E444 (Win32UserInitialize.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 ApiSetEditionBaseDriverEntryInitialize()
 {
   char v0; // bl

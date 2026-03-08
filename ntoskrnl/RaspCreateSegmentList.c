@@ -1,3 +1,14 @@
+/*
+ * XREFs of RaspCreateSegmentList @ 0x1403837AC
+ * Callers:
+ *     RaspScanConvert @ 0x1403827F0 (RaspScanConvert.c)
+ * Callees:
+ *     RaspDestroySegmentList @ 0x140382570 (RaspDestroySegmentList.c)
+ *     RaspInterpolatePoint @ 0x140383AF4 (RaspInterpolatePoint.c)
+ *     RaspAllocateMemory @ 0x140383B7C (RaspAllocateMemory.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall RaspCreateSegmentList(
         __int64 a1,
         __int64 a2,

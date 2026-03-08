@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlGetSessionProperties @ 0x1409B92D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall RtlGetSessionProperties(int a1, unsigned int *a2)
 {
   __int64 v4; // rdx

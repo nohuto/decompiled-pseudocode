@@ -1,3 +1,13 @@
+/*
+ * XREFs of WppTraceCallback @ 0x1C0079A50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0020400 (memmove.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 __int64 __fastcall WppTraceCallback(
         unsigned __int8 a1,
         __int64 a2,

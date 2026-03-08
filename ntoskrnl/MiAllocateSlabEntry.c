@@ -1,3 +1,28 @@
+/*
+ * XREFs of MiAllocateSlabEntry @ 0x140349850
+ * Callers:
+ *     MiReplenishSlabAllocator @ 0x1403496D8 (MiReplenishSlabAllocator.c)
+ * Callees:
+ *     MiAbortCombineScan @ 0x14021467C (MiAbortCombineScan.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     RtlInterlockedSetClearRunEx @ 0x1403293B0 (RtlInterlockedSetClearRunEx.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x14032F834 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiAcquireNonPagedResources @ 0x140348D54 (MiAcquireNonPagedResources.c)
+ *     MiPopLargePfnList @ 0x140349C1C (MiPopLargePfnList.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     MiUpdateSlabPagePlaceholderState @ 0x14034A0A8 (MiUpdateSlabPagePlaceholderState.c)
+ *     MiSetPfnIdentity @ 0x14034BE78 (MiSetPfnIdentity.c)
+ *     MiAllocateLargeZeroPages @ 0x14034DCB0 (MiAllocateLargeZeroPages.c)
+ *     MiInitializeLargePfnList @ 0x14035059C (MiInitializeLargePfnList.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLogSlabEntryAllocateFailure @ 0x140654B1C (MiLogSlabEntryAllocateFailure.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 _QWORD *__fastcall MiAllocateSlabEntry(__int64 a1, unsigned __int64 a2, int a3)
 {
   __int64 v6; // rcx

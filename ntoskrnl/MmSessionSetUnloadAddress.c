@@ -1,3 +1,13 @@
+/*
+ * XREFs of MmSessionSetUnloadAddress @ 0x14030260C
+ * Callers:
+ *     ExpInitializeSessionDriver @ 0x14079B72C (ExpInitializeSessionDriver.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MmSessionSetUnloadAddress(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax

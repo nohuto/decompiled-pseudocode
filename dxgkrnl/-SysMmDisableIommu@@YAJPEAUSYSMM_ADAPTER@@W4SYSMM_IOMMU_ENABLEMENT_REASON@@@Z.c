@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?SysMmDisableIommu@@YAJPEAUSYSMM_ADAPTER@@W4SYSMM_IOMMU_ENABLEMENT_REASON@@@Z @ 0x1C03D19B0
+ * Callers:
+ *     SysMmTestDisableIommu @ 0x1C0071950 (SysMmTestDisableIommu.c)
+ *     ?DisableIommuForDrt@ADAPTER_RENDER@@QEAAJPEAUSYSMM_ADAPTER@@@Z @ 0x1C02BBCB4 (-DisableIommuForDrt@ADAPTER_RENDER@@QEAAJPEAUSYSMM_ADAPTER@@@Z.c)
+ *     ?SmmDomainTypeStateChangeCallback@@YAXPEAU_IOMMU_INTERFACE_STATE_CHANGE@@PEAX@Z @ 0x1C03D0FD0 (-SmmDomainTypeStateChangeCallback@@YAXPEAU_IOMMU_INTERFACE_STATE_CHANGE@@PEAX@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?SmmUseIommuV2Interface@@YA_NXZ @ 0x1C00205A8 (-SmmUseIommuV2Interface@@YA_NXZ.c)
+ *     ?SmmUseIommuV3Interface@@YA_NXZ @ 0x1C00205BC (-SmmUseIommuV3Interface@@YA_NXZ.c)
+ *     McTemplateK0pt_EtwWriteTransfer @ 0x1C003FF7C (McTemplateK0pt_EtwWriteTransfer.c)
+ *     ??$SmmAcquirePushLockExclusive@$03@@YAXPEAU?$SYSMM_PUSHLOCK@$03@@@Z @ 0x1C006DD04 (--$SmmAcquirePushLockExclusive@$03@@YAXPEAU-$SYSMM_PUSHLOCK@$03@@@Z.c)
+ *     ??$SmmReleasePushLockExclusive@$03@@YAXPEAU?$SYSMM_PUSHLOCK@$03@@@Z @ 0x1C006DD4C (--$SmmReleasePushLockExclusive@$03@@YAXPEAU-$SYSMM_PUSHLOCK@$03@@@Z.c)
+ *     ?SmmIommuSwitchToPassthrough@@YAJPEAUSYSMM_ADAPTER@@@Z @ 0x1C03D13E8 (-SmmIommuSwitchToPassthrough@@YAJPEAUSYSMM_ADAPTER@@@Z.c)
+ *     ?SmmTelemetryDisableIommu@@YAXPEBUSYSMM_ADAPTER@@II@Z @ 0x1C03D345C (-SmmTelemetryDisableIommu@@YAXPEBUSYSMM_ADAPTER@@II@Z.c)
+ */
+
 __int64 __fastcall SysMmDisableIommu(__int64 a1, unsigned int a2)
 {
   __int64 v3; // rdi

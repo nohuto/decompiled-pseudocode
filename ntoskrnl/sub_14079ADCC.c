@@ -1,3 +1,13 @@
+/*
+ * XREFs of sub_14079ADCC @ 0x14079ADCC
+ * Callers:
+ *     WbGetWarbirdThread @ 0x1406AF248 (WbGetWarbirdThread.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     sub_1406AF488 @ 0x1406AF488 (sub_1406AF488.c)
+ *     WbAlloc @ 0x1406AF510 (WbAlloc.c)
+ */
+
 __int64 __fastcall sub_14079ADCC(__int64 a1, __int64 a2, _QWORD *a3)
 {
   void *v5; // rdi

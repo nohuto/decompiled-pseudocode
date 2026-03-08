@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeQueryIntervalProfile @ 0x140972060
+ * Callers:
+ *     KeSetIntervalProfile @ 0x140972128 (KeSetIntervalProfile.c)
+ *     NtQueryIntervalProfile @ 0x140A01910 (NtQueryIntervalProfile.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall KeQueryIntervalProfile(int a1)
 {
   __int128 v2; // [rsp+30h] [rbp-28h] BYREF

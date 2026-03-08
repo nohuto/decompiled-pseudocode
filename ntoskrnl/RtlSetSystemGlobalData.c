@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlSetSystemGlobalData @ 0x1402EF650
+ * Callers:
+ *     HalpTimerPropagateQpcBiasUpdate @ 0x1403773C0 (HalpTimerPropagateQpcBiasUpdate.c)
+ *     HalpTimerConfigureQpcBypass @ 0x1403ADC54 (HalpTimerConfigureQpcBypass.c)
+ *     HalpTscFallback @ 0x140508250 (HalpTscFallback.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140811500 (ExpRefreshTimeZoneInformation.c)
+ * Callees:
+ *     PsIsCurrentThreadInServerSilo @ 0x1402459D0 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ */
+
 __int64 __fastcall RtlSetSystemGlobalData(int a1, _QWORD *a2, int a3)
 {
   int v4; // ecx

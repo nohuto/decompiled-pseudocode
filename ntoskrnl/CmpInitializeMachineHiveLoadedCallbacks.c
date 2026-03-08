@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpInitializeMachineHiveLoadedCallbacks @ 0x140813414
+ * Callers:
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ */
+
 void CmpInitializeMachineHiveLoadedCallbacks()
 {
   _QWORD *v0; // rbx

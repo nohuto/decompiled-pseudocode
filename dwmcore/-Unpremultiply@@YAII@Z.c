@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Unpremultiply@@YAII@Z @ 0x18027C650
+ * Callers:
+ *     ?AlphaDivide_32bppPARGB@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z @ 0x1802BA3B0 (-AlphaDivide_32bppPARGB@@YAXPEBUPipelineParams@@PEBUScanOpParams@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Unpremultiply(unsigned int a1)
 {
   __int64 v1; // r10

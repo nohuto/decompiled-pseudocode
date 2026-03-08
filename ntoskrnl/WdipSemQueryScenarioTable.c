@@ -1,3 +1,11 @@
+/*
+ * XREFs of WdipSemQueryScenarioTable @ 0x140796800
+ * Callers:
+ *     WdipSemEnableScenario @ 0x1407966C0 (WdipSemEnableScenario.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WdipSemQueryScenarioTable(_QWORD *a1, __int16 a2)
 {
   __int64 v2; // r8

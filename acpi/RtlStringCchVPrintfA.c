@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlStringCchVPrintfA @ 0x1C0047260
+ * Callers:
+ *     CatError @ 0x1C004D728 (CatError.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlStringCchVPrintfA(
         NTSTRSAFE_PSTR pszDest,
         size_t cchDest,

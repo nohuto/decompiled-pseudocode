@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?WritePredictionSettings@@YAHPEAUtagDEVICECONFIG_SETTING@@KPEBGK@Z @ 0x1C01F4AA0
+ * Callers:
+ *     WritePointerDeviceSettingsFull @ 0x1C01F4CBC (WritePointerDeviceSettingsFull.c)
+ * Callees:
+ *     ?RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C01031CC (-RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     ?RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C0107898 (-RtlUnicodeStringCatString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?WritePointerDeviceCfgSetting@@YAJPEAXPEBGIPEAEI@Z @ 0x1C01F4A30 (-WritePointerDeviceCfgSetting@@YAJPEAXPEBGIPEAEI@Z.c)
+ */
+
 _BOOL8 __fastcall WritePredictionSettings(
         struct tagDEVICECONFIG_SETTING *a1,
         const unsigned __int16 *a2,

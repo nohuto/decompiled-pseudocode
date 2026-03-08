@@ -1,3 +1,14 @@
+/*
+ * XREFs of PnpCompareInterruptInformation @ 0x1406F4E64
+ * Callers:
+ *     PnpGetDevicePropertyData @ 0x1406F7418 (PnpGetDevicePropertyData.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ */
+
 char __fastcall PnpCompareInterruptInformation(__int64 a1, const void *a2, unsigned int a3)
 {
   SIZE_T v3; // rax

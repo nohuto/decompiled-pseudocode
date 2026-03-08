@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProcessUpdateKeyStateEvent @ 0x1C0092690
+ * Callers:
+ *     PostUpdateKeyStateEvent @ 0x1C0092540 (PostUpdateKeyStateEvent.c)
+ * Callees:
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 void __fastcall ProcessUpdateKeyStateEvent(__int64 a1, unsigned __int64 a2, unsigned __int64 a3, unsigned __int64 a4)
 {
   unsigned __int64 v4; // rsi

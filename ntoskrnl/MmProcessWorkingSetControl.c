@@ -1,3 +1,23 @@
+/*
+ * XREFs of MmProcessWorkingSetControl @ 0x140A408A4
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ *     VmpPauseResumeNotify @ 0x1409DA524 (VmpPauseResumeNotify.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiEmptyWorkingSet @ 0x140619C4C (MiEmptyWorkingSet.c)
+ *     MiEmptyWorkingSetPrivatePagesByVa @ 0x140619C68 (MiEmptyWorkingSetPrivatePagesByVa.c)
+ *     MiLogWsEmptyControl @ 0x140650470 (MiLogWsEmptyControl.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     PsSwapProcessWorkingSet @ 0x1409AB6DC (PsSwapProcessWorkingSet.c)
+ *     SmStoreCompressionStart @ 0x1409D4A38 (SmStoreCompressionStart.c)
+ *     SmStoreCompressionStop @ 0x1409D4AD8 (SmStoreCompressionStop.c)
+ */
+
 __int64 __fastcall MmProcessWorkingSetControl(
         ULONG_PTR BugCheckParameter1,
         __int64 *a2,

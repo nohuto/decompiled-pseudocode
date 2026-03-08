@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiOp_Div @ 0x14057D3D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiOpRetrieveRegMemAddress @ 0x14057D26C (KiOpRetrieveRegMemAddress.c)
+ */
+
 __int64 __fastcall KiOp_Div(__int64 a1)
 {
   _DWORD *v2; // rdi

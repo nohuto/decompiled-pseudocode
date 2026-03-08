@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpFindMessageInTable @ 0x14035CABC
+ * Callers:
+ *     RtlFindMessage @ 0x1407E97C0 (RtlFindMessage.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpFindMessageInTable(int *a1, int a2, unsigned int a3, unsigned __int16 **a4)
 {
   __int64 v4; // r11

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExAllocateAutoExpandPushLock @ 0x1403C9D80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 _QWORD *__fastcall ExAllocateAutoExpandPushLock(char a1)
 {
   int v1; // ebx

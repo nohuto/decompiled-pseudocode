@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetFreeIntermediateBuffer@ScanPipelineBuilder@@IEAA?AW4BufferLocation@@XZ @ 0x1802B99C4
+ * Callers:
+ *     ?AddOp_Binary@ScanPipelineBuilder@@QEAAJP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZPEAUOpSpecificData@@W4Subpipe@1@@Z @ 0x1802B9380 (-AddOp_Binary@ScanPipelineBuilder@@QEAAJP6AXPEBUPipelineParams@@PEBUScanOpParams@@@ZPEAUOpSpecif.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ScanPipelineBuilder::GetFreeIntermediateBuffer(__int64 a1)
 {
   __int64 v1; // rdx

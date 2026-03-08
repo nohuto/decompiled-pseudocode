@@ -1,3 +1,13 @@
+/*
+ * XREFs of NVMeReservationReportCapabilities @ 0x1C001734C
+ * Callers:
+ *     ScsiPersistentReserveIn @ 0x1C001A12C (ScsiPersistentReserveIn.c)
+ * Callees:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     GetNamespaceId @ 0x1C0007A8C (GetNamespaceId.c)
+ */
+
 __int64 __fastcall NVMeReservationReportCapabilities(__int64 a1, __int64 a2, unsigned __int16 a3)
 {
   unsigned int v3; // esi

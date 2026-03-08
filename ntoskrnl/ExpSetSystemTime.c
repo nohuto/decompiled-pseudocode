@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExpSetSystemTime @ 0x140AA7AF4
+ * Callers:
+ *     NtSetSystemTime @ 0x1409F54B0 (NtSetSystemTime.c)
+ *     ExUpdateSystemTimeFromCmos @ 0x140A850B4 (ExUpdateSystemTimeFromCmos.c)
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     ExSystemTimeToLocalTime @ 0x1402D10F0 (ExSystemTimeToLocalTime.c)
+ *     RtlTimeToTimeFields @ 0x1402D14B0 (RtlTimeToTimeFields.c)
+ *     KeSetSystemTime @ 0x1403B0A8C (KeSetSystemTime.c)
+ *     PoNotifySystemTimeSet @ 0x1403B11A8 (PoNotifySystemTimeSet.c)
+ *     HalSetRealTimeClock @ 0x1404FCC40 (HalSetRealTimeClock.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140811500 (ExpRefreshTimeZoneInformation.c)
+ */
+
 __int64 ExpSetSystemTime(char a1, char a2, int a3, ...)
 {
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // r14

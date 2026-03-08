@@ -1,3 +1,14 @@
+/*
+ * XREFs of HmgPentryFromPobj @ 0x1C004A180
+ * Callers:
+ *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C0044400 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
+ *     ?MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z @ 0x1C006D528 (-MultiUserGreCleanupHmgRemoveAllLocks@@YAXE@Z.c)
+ *     ?vReleaseVis@DC@@QEAAXXZ @ 0x1C00D5DA4 (-vReleaseVis@DC@@QEAAXXZ.c)
+ *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00DE3A0 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
+ * Callees:
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C004B5B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ */
+
 __int64 __fastcall HmgPentryFromPobj(_DWORD *a1)
 {
   GdiHandleManager *v2; // rdi

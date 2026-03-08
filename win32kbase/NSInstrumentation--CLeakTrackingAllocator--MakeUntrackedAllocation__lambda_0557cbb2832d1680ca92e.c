@@ -1,3 +1,11 @@
+/*
+ * XREFs of NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_0557cbb2832d1680ca92e9237d413628__unsigned___int64_ @ 0x1C019AD84
+ * Callers:
+ *     NSInstrumentation::CLeakTrackingAllocator::AllocateCommon__lambda_0557cbb2832d1680ca92e9237d413628___ @ 0x1C019A7B8 (NSInstrumentation--CLeakTrackingAllocator--AllocateCommon__lambda_0557cbb2832d1680ca92e9237d4136.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_0557cbb2832d1680ca92e9237d413628__unsigned___int64_(
         __int64 a1,
         __int64 a2,

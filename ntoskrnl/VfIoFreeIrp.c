@@ -1,3 +1,20 @@
+/*
+ * XREFs of VfIoFreeIrp @ 0x140ACA7E4
+ * Callers:
+ *     IovFreeIrpPrivate @ 0x140ABE6D0 (IovFreeIrpPrivate.c)
+ * Callees:
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1402955D0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ViErrorReport1 @ 0x1405CDA04 (ViErrorReport1.c)
+ *     ViIrpDatabaseAcquireLockExclusive @ 0x1405D0134 (ViIrpDatabaseAcquireLockExclusive.c)
+ *     ViIrpDatabaseReleaseLockExclusive @ 0x1405D017C (ViIrpDatabaseReleaseLockExclusive.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140ABF44C (VfUtilAddressRangeRemoveCheckEmpty.c)
+ *     VfIrpDatabaseEntryFindAndLock @ 0x140ADE768 (VfIrpDatabaseEntryFindAndLock.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140ADE8EC (VfIrpDatabaseEntryReleaseLock.c)
+ */
+
 __int64 __fastcall VfIoFreeIrp(char *P, const void *a2)
 {
   __int64 v4; // rax

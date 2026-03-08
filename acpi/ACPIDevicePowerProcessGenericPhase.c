@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIDevicePowerProcessGenericPhase @ 0x1C001EC1C
+ * Callers:
+ *     ACPIDevicePowerDpc @ 0x1C001E5C0 (ACPIDevicePowerDpc.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ACPIDeviceCompleteRequest @ 0x1C001C95C (ACPIDeviceCompleteRequest.c)
+ *     ACPIIsPowerRequestBlocked @ 0x1C0022250 (ACPIIsPowerRequestBlocked.c)
+ */
+
 __int64 __fastcall ACPIDevicePowerProcessGenericPhase(_QWORD *a1, __int64 a2, unsigned __int16 a3, char a4)
 {
   _QWORD *v4; // rbx

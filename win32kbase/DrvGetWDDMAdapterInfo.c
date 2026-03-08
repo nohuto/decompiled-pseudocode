@@ -1,3 +1,14 @@
+/*
+ * XREFs of DrvGetWDDMAdapterInfo @ 0x1C001F730
+ * Callers:
+ *     ?_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ @ 0x1C00130D0 (-_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ.c)
+ *     RIMGetDisplayMonitor @ 0x1C01BD4AC (RIMGetDisplayMonitor.c)
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C01C21B8 (RIMIDECreatePointerDeviceInfo.c)
+ * Callees:
+ *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C001F7C4 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
+ *     ?pAdapterLuid@PDEVOBJ@@QEAAPEAU_LUID@@XZ @ 0x1C001F800 (-pAdapterLuid@PDEVOBJ@@QEAAPEAU_LUID@@XZ.c)
+ */
+
 __int64 __fastcall DrvGetWDDMAdapterInfo(__int64 a1, int a2, struct _LUID *a3, _DWORD *a4)
 {
   __int64 v4; // r10

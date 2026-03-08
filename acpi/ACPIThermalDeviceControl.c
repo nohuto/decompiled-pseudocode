@@ -1,3 +1,19 @@
+/*
+ * XREFs of ACPIThermalDeviceControl @ 0x1C0040410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     ACPIIoctlEvalControlMethod @ 0x1C0004232 (ACPIIoctlEvalControlMethod.c)
+ *     ACPIIoctlAsyncEvalControlMethod @ 0x1C002F468 (ACPIIoctlAsyncEvalControlMethod.c)
+ *     ACPIIoctlEnumChildren @ 0x1C002FA10 (ACPIIoctlEnumChildren.c)
+ *     ACPIThermalLoopEx @ 0x1C00410F0 (ACPIThermalLoopEx.c)
+ *     WPP_RECORDER_SF_qDDqssdddd @ 0x1C0042E3C (WPP_RECORDER_SF_qDDqssdddd.c)
+ *     WPP_RECORDER_SF_qDqssdddd @ 0x1C0043114 (WPP_RECORDER_SF_qDqssdddd.c)
+ *     WPP_RECORDER_SF_qqssdddd @ 0x1C00433B0 (WPP_RECORDER_SF_qqssdddd.c)
+ */
+
 __int64 __fastcall ACPIThermalDeviceControl(ULONG_PTR a1, __int64 a2)
 {
   unsigned int v4; // edi

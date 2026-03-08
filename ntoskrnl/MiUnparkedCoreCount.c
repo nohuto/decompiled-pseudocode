@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiUnparkedCoreCount @ 0x1402A85DC
+ * Callers:
+ *     MiWakeZeroingThreads @ 0x1402A7E98 (MiWakeZeroingThreads.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402A9460 (KeFindFirstSetRightGroupAffinity.c)
+ */
+
 __int64 __fastcall MiUnparkedCoreCount(__int64 a1, unsigned int a2)
 {
   unsigned int v3; // ebx

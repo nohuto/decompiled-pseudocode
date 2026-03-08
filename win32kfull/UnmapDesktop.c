@@ -1,3 +1,14 @@
+/*
+ * XREFs of UnmapDesktop @ 0x1C003CEA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FreeView@@YAXPEAU_EPROCESS@@PEAUtagDESKTOP@@@Z @ 0x1C003CD80 (-FreeView@@YAXPEAU_EPROCESS@@PEAUtagDESKTOP@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqDD @ 0x1C003CFF8 (WPP_RECORDER_AND_TRACE_SF_qqDD.c)
+ *     ?IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ @ 0x1C004A174 (-IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ.c)
+ *     ?DestroyDesktop@@YAHPEAUtagDESKTOP@@@Z @ 0x1C0094B64 (-DestroyDesktop@@YAHPEAUtagDESKTOP@@@Z.c)
+ */
+
 __int64 __fastcall UnmapDesktop(__int64 a1)
 {
   struct tagDESKTOP *v1; // r14

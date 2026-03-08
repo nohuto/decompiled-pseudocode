@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBPSM20_CheckingIfPortErrorShouldBeTreatedAsConnect @ 0x1C0012C70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsMsgKM @ 0x1C0041C84 (MicrosoftTelemetryAssertTriggeredArgsMsgKM.c)
+ */
+
 __int64 __fastcall HUBPSM20_CheckingIfPortErrorShouldBeTreatedAsConnect(__int64 a1)
 {
   __int64 *v1; // r10

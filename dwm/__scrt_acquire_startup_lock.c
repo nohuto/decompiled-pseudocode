@@ -1,3 +1,11 @@
+/*
+ * XREFs of __scrt_acquire_startup_lock @ 0x1400056C0
+ * Callers:
+ *     __scrt_common_main_seh @ 0x140005350 (__scrt_common_main_seh.c)
+ * Callees:
+ *     __scrt_is_ucrt_dll_in_use @ 0x140005FA4 (__scrt_is_ucrt_dll_in_use.c)
+ */
+
 char _scrt_acquire_startup_lock()
 {
   PVOID StackBase; // rcx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpDpInitSystem @ 0x140A8E2D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpInterruptModel @ 0x14028EADC (HalpInterruptModel.c)
+ *     HalpDpInitDiscard @ 0x140B67570 (HalpDpInitDiscard.c)
+ */
+
 __int64 HalpDpInitSystem()
 {
   int v0; // edx

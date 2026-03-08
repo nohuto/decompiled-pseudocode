@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?PurgeAndNotify@CAtlasTexture@@QEAAXXZ @ 0x180018504
+ * Callers:
+ *     ?MergeAtlases@CAtlasManager@@AEAAXPEA_N@Z @ 0x180018348 (-MergeAtlases@CAtlasManager@@AEAAXPEA_N@Z.c)
+ *     ?CompactSingleAtlas@CAtlasManager@@AEAAJPEA_N@Z @ 0x1800FA91C (-CompactSingleAtlas@CAtlasManager@@AEAAJPEA_N@Z.c)
+ * Callees:
+ *     ?NotifyOwner@CAtlasEntry@@AEBAXXZ @ 0x18001E050 (-NotifyOwner@CAtlasEntry@@AEBAXXZ.c)
+ */
+
 void __fastcall CAtlasTexture::PurgeAndNotify(CAtlasTexture *this)
 {
   __int64 i; // rdi

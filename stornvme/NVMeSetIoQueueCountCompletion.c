@@ -1,3 +1,11 @@
+/*
+ * XREFs of NVMeSetIoQueueCountCompletion @ 0x1C0023C00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ */
+
 char __fastcall NVMeSetIoQueueCountCompletion(__int64 a1, __int64 a2, _WORD *a3)
 {
   __int64 v4; // rdx

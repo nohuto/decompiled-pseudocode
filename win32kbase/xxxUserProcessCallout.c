@@ -1,3 +1,32 @@
+/*
+ * XREFs of xxxUserProcessCallout @ 0x1C0074450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DestroyCacheDC @ 0x1C003DA20 (DestroyCacheDC.c)
+ *     IsThreadCrossSessionAttached @ 0x1C004B600 (IsThreadCrossSessionAttached.c)
+ *     IsEtwUserCritEnabled @ 0x1C004DF60 (IsEtwUserCritEnabled.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     ?UpdateUserCritInfo@UserCritTelemetry@@QEAAX_KW4BucketType@1@@Z @ 0x1C004E1A8 (-UpdateUserCritInfo@UserCritTelemetry@@QEAAX_KW4BucketType@1@@Z.c)
+ *     ?SendUserCritSummary@UserCritTelemetry@@QEAAXXZ @ 0x1C004E418 (-SendUserCritSummary@UserCritTelemetry@@QEAAXXZ.c)
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     EtwTraceAcquiredExclusiveUserCrit @ 0x1C004F99C (EtwTraceAcquiredExclusiveUserCrit.c)
+ *     ?UserProcessImmersiveType@@YAJPEAU_WIN32_PROCESS_CALLOUT_PARAMETERS@@PEAXPEAW4_PROCESS_IMMERSIVE_TYPE@@PEAKPEAH@Z @ 0x1C007077C (-UserProcessImmersiveType@@YAJPEAU_WIN32_PROCESS_CALLOUT_PARAMETERS@@PEAXPEAW4_PROCESS_IMMERSIVE.c)
+ *     xxxInitProcessInfo @ 0x1C0070EFC (xxxInitProcessInfo.c)
+ *     HMUnlockObject @ 0x1C0072980 (HMUnlockObject.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     GreLockVisRgn @ 0x1C00794E0 (GreLockVisRgn.c)
+ *     GreUnlockVisRgn @ 0x1C00795D0 (GreUnlockVisRgn.c)
+ *     ?CloseCoreMsgPort@InputExtensibilityCallout@@QEAAXXZ @ 0x1C0094A28 (-CloseCoreMsgPort@InputExtensibilityCallout@@QEAAXXZ.c)
+ *     ApiSetEditionShowSystemCursor @ 0x1C00B35E8 (ApiSetEditionShowSystemCursor.c)
+ *     UserJobCallout @ 0x1C00BD268 (UserJobCallout.c)
+ *     DestroyProcessInfo @ 0x1C00D51B0 (DestroyProcessInfo.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     McTemplateK0xqx_EtwWriteTransfer @ 0x1C0167CA4 (McTemplateK0xqx_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall xxxUserProcessCallout(struct _W32PROCESS *a1, PEPROCESS *a2, __int64 a3, __int64 a4)
 {
   char v4; // r14

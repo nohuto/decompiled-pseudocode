@@ -1,3 +1,17 @@
+/*
+ * XREFs of ACPIIoctlGetDeviceSpecificData @ 0x1C0030F58
+ * Callers:
+ *     ACPIIrpDispatchDeviceControl @ 0x1C0001290 (ACPIIrpDispatchDeviceControl.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIIoctlEvalPostProcessingV1 @ 0x1C002FD84 (ACPIIoctlEvalPostProcessingV1.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C0047B9C (AMLIEvalNameSpaceObject.c)
+ *     AMLIGetNameSpaceObject @ 0x1C00483B8 (AMLIGetNameSpaceObject.c)
+ *     AMLIIsObjectInGivenScope @ 0x1C0048828 (AMLIIsObjectInGivenScope.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ */
+
 __int64 __fastcall ACPIIoctlGetDeviceSpecificData(ULONG_PTR a1, IRP *a2, __int64 a3)
 {
   unsigned int v3; // eax

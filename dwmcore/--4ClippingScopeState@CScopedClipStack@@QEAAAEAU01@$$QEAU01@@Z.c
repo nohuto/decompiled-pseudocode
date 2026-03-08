@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??4ClippingScopeState@CScopedClipStack@@QEAAAEAU01@$$QEAU01@@Z @ 0x1801CFCF8
+ * Callers:
+ *     ??$move@V?$move_iterator@PEAUClippingScopeState@CScopedClipStack@@@std@@V?$checked_array_iterator@PEAUClippingScopeState@CScopedClipStack@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAUClippingScopeState@CScopedClipStack@@@stdext@@V?$move_iterator@PEAUClippingScopeState@CScopedClipStack@@@0@0V12@@Z @ 0x1801CF948 (--$move@V-$move_iterator@PEAUClippingScopeState@CScopedClipStack@@@std@@V-$checked_array_iterato.c)
+ *     ??$move_backward@V?$move_iterator@PEAUClippingScopeState@CScopedClipStack@@@std@@V?$checked_array_iterator@PEAUClippingScopeState@CScopedClipStack@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAUClippingScopeState@CScopedClipStack@@@stdext@@V?$move_iterator@PEAUClippingScopeState@CScopedClipStack@@@0@0V12@@Z @ 0x1801D7510 (--$move_backward@V-$move_iterator@PEAUClippingScopeState@CScopedClipStack@@@std@@V-$checked_arra.c)
+ * Callees:
+ *     ?attach@?$com_ptr_t@VCCpuClipAntialiasSinkContext@@Uerr_returncode_policy@wil@@@wil@@QEAAXPEAVCCpuClipAntialiasSinkContext@@@Z @ 0x1801D3FF0 (-attach@-$com_ptr_t@VCCpuClipAntialiasSinkContext@@Uerr_returncode_policy@wil@@@wil@@QEAAXPEAVCC.c)
+ */
+
 __int64 __fastcall CScopedClipStack::ClippingScopeState::operator=(__int64 a1, __int64 a2)
 {
   __int64 v4; // rdx

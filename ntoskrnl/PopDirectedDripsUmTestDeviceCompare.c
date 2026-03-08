@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopDirectedDripsUmTestDeviceCompare @ 0x14099CAF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlCompareUnicodeStrings @ 0x140684CA0 (RtlCompareUnicodeStrings.c)
+ *     PopDirectedDripsUmGetDeviceInstancePath @ 0x14099C858 (PopDirectedDripsUmGetDeviceInstancePath.c)
+ */
+
 __int64 __fastcall PopDirectedDripsUmTestDeviceCompare(
         struct _RTL_AVL_TABLE *Table,
         _DWORD *FirstStruct,

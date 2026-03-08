@@ -1,3 +1,15 @@
+/*
+ * XREFs of WdipSemDisableContextProvider @ 0x140832344
+ * Callers:
+ *     WdipSemDisableContextProviders @ 0x1408321DC (WdipSemDisableContextProviders.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     WdipSemCaptureState @ 0x140391168 (WdipSemCaptureState.c)
+ *     WdipSemEnableDisableTrace @ 0x140833B40 (WdipSemEnableDisableTrace.c)
+ */
+
 __int64 __fastcall WdipSemDisableContextProvider(__int64 a1, char a2)
 {
   struct _KTHREAD *CurrentThread; // rax

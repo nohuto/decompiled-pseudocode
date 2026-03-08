@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CMaskBrush@@MEAA@XZ @ 0x1800B8B34
+ * Callers:
+ *     ??_ECMaskBrush@@MEAAPEAXI@Z @ 0x1800B8AF0 (--_ECMaskBrush@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800234BC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ */
+
 void __fastcall CMaskBrush::~CMaskBrush(CMaskBrush *this)
 {
   __int64 v2; // rcx

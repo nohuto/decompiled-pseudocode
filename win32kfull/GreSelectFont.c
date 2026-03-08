@@ -1,3 +1,14 @@
+/*
+ * XREFs of GreSelectFont @ 0x1C0050B00
+ * Callers:
+ *     MNSetupAnimationDC @ 0x1C00C1D98 (MNSetupAnimationDC.c)
+ *     ?xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z @ 0x1C012E4C8 (-xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z.c)
+ *     MNAllocMenuState @ 0x1C0201C50 (MNAllocMenuState.c)
+ * Callees:
+ *     ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C0050964 (-vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ */
+
 __int64 __fastcall GreSelectFont(HDC a1, __int64 a2)
 {
   __int64 v2; // rbx

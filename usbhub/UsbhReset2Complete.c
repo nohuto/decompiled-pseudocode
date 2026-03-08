@@ -1,3 +1,41 @@
+/*
+ * XREFs of UsbhReset2Complete @ 0x1C0002D00
+ * Callers:
+ *     UsbhReset1Complete @ 0x1C0002B20 (UsbhReset1Complete.c)
+ * Callees:
+ *     UsbhCancelResetTimeout @ 0x1C00015A0 (UsbhCancelResetTimeout.c)
+ *     UsbhDerefPdo @ 0x1C00019F0 (UsbhDerefPdo.c)
+ *     UsbhBusConnectPdo @ 0x1C0001B70 (UsbhBusConnectPdo.c)
+ *     UsbhInitializeDevice @ 0x1C0002778 (UsbhInitializeDevice.c)
+ *     UsbhBusIf_GetContainerIdForPort @ 0x1C0002888 (UsbhBusIf_GetContainerIdForPort.c)
+ *     UsbhResetPort @ 0x1C0002918 (UsbhResetPort.c)
+ *     Usbh_UsbdReadFrameCounter @ 0x1C00031B0 (Usbh_UsbdReadFrameCounter.c)
+ *     UsbhReleaseEnumBusLockEx @ 0x1C0003BCC (UsbhReleaseEnumBusLockEx.c)
+ *     UsbhFdoCheckUpstreamConnectionState @ 0x1C0004A1C (UsbhFdoCheckUpstreamConnectionState.c)
+ *     UsbhAcquireEnumBusLock @ 0x1C0004C60 (UsbhAcquireEnumBusLock.c)
+ *     UsbhEtwLogHubIrpEvent @ 0x1C00098E0 (UsbhEtwLogHubIrpEvent.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhRawWait @ 0x1C0019670 (UsbhRawWait.c)
+ *     UsbhAllocateTimeoutObject @ 0x1C001B9D8 (UsbhAllocateTimeoutObject.c)
+ *     UsbhUnlinkPdoDeviceHandle @ 0x1C001BEDC (UsbhUnlinkPdoDeviceHandle.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     UsbhWait @ 0x1C002E204 (UsbhWait.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhPCE_Check @ 0x1C003439C (UsbhPCE_Check.c)
+ *     UsbhDisablePort @ 0x1C00377CC (UsbhDisablePort.c)
+ *     UsbhSetupDevice @ 0x1C0039728 (UsbhSetupDevice.c)
+ *     Usbh_Disconnect_PdoEvent @ 0x1C003AFBC (Usbh_Disconnect_PdoEvent.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhBusIf_SetContainerIdForPort @ 0x1C004C210 (UsbhBusIf_SetContainerIdForPort.c)
+ *     UsbhBusUnlatchPdo @ 0x1C004C9E8 (UsbhBusUnlatchPdo.c)
+ *     UsbhSetEnumerationFailed @ 0x1C004E9B8 (UsbhSetEnumerationFailed.c)
+ *     UsbhBuildContainerID @ 0x1C004F3E8 (UsbhBuildContainerID.c)
+ *     UsbhFreeID @ 0x1C00503BC (UsbhFreeID.c)
+ */
+
 __int64 __fastcall UsbhReset2Complete(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v6; // r15d

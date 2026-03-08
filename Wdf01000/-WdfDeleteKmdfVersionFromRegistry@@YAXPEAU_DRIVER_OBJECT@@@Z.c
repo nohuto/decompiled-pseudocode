@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?WdfDeleteKmdfVersionFromRegistry@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C0016D34
+ * Callers:
+ *     DriverUnload @ 0x1C0017570 (DriverUnload.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall WdfDeleteKmdfVersionFromRegistry(_DRIVER_OBJECT *DriverObject)
 {
   _UNICODE_STRING *DriverObjectExtension; // rax

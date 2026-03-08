@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDeviceSpecificAccelerationData@CMouseAcceleration@@UEAAXAEBUBallistics@CDeviceAcceleration@@PEAKPEAPEB_J22@Z @ 0x1C00D6180
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CMouseAcceleration::GetDeviceSpecificAccelerationData(
         CMouseAcceleration *this,
         const struct CDeviceAcceleration::Ballistics *a2,

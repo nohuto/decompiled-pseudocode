@@ -1,3 +1,18 @@
+/*
+ * XREFs of AcpiIrqLibConfigureLibrary @ 0x1C00ABA48
+ * Callers:
+ *     ACPIInitialize @ 0x1C00A8F78 (ACPIInitialize.c)
+ * Callees:
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C007A840 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     IcAddGicInstance @ 0x1C009EAFC (IcAddGicInstance.c)
+ *     IcAddSecondaryIcInstance @ 0x1C009EBC4 (IcAddSecondaryIcInstance.c)
+ *     IrqLibpParseMadt @ 0x1C00ABC98 (IrqLibpParseMadt.c)
+ *     ProcessorConfigure @ 0x1C00ABEEC (ProcessorConfigure.c)
+ *     IrqArbUpdateInterruptLimit @ 0x1C00AC160 (IrqArbUpdateInterruptLimit.c)
+ *     IrqPolicyConfigure @ 0x1C00AC2A4 (IrqPolicyConfigure.c)
+ *     IrqPolicyUpdatePolicy @ 0x1C00AC5CC (IrqPolicyUpdatePolicy.c)
+ */
+
 __int64 __fastcall AcpiIrqLibConfigureLibrary(int a1, __int64 a2)
 {
   __int64 result; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of Controller_PopulateVIAFirmwareVersion @ 0x1C00783C8
+ * Callers:
+ *     Controller_PopulatePciDeviceInformation @ 0x1C0074CAC (Controller_PopulatePciDeviceInformation.c)
+ * Callees:
+ *     WPP_RECORDER_SF_D @ 0x1C00180C4 (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C001E054 (WPP_RECORDER_SF_DDD.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall Controller_PopulateVIAFirmwareVersion(int a1, __int64 a2, __int64 a3, unsigned __int64 *a4)
 {
   __int64 (__fastcall *v7)(__int64, _QWORD, _DWORD *, __int64, int); // rax

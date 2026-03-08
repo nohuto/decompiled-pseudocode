@@ -1,3 +1,14 @@
+/*
+ * XREFs of ulIndexToRGB @ 0x1C0008B00
+ * Callers:
+ *     GreGetNearestColor @ 0x1C001A710 (GreGetNearestColor.c)
+ *     ulColorRefToRGB @ 0x1C0199E30 (ulColorRefToRGB.c)
+ * Callees:
+ *     ?ulIndexToRGB@XEPALOBJ@@QEAAKK@Z @ 0x1C0008B50 (-ulIndexToRGB@XEPALOBJ@@QEAAKK@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00219D4 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     EngAcquireSemaphore @ 0x1C004B690 (EngAcquireSemaphore.c)
+ */
+
 unsigned int __fastcall ulIndexToRGB(HSEMAPHORE a1, __int64 a2, unsigned int a3)
 {
   int v3; // esi

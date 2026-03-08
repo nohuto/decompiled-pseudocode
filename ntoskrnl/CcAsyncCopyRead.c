@@ -1,3 +1,26 @@
+/*
+ * XREFs of CcAsyncCopyRead @ 0x140216AA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcScheduleReadAheadNuma @ 0x14020D0BC (CcScheduleReadAheadNuma.c)
+ *     CcPostWorkQueueAsyncRead @ 0x140216768 (CcPostWorkQueueAsyncRead.c)
+ *     CcGetNodeForReadAhead @ 0x140216E14 (CcGetNodeForReadAhead.c)
+ *     IoReferenceIoAttributionFromThread @ 0x140216E60 (IoReferenceIoAttributionFromThread.c)
+ *     CcAllocateWorkQueueEntry @ 0x140219880 (CcAllocateWorkQueueEntry.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     PsGetIoPriorityThread @ 0x1402832C0 (PsGetIoPriorityThread.c)
+ *     PsGetPagePriorityThread @ 0x14028A290 (PsGetPagePriorityThread.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x140310130 (ExpAllocatePoolWithTagFromNode.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     CcSetTelemetryPeriodicTimer @ 0x140872D84 (CcSetTelemetryPeriodicTimer.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall CcAsyncCopyRead(
         _QWORD *Object,
         _QWORD *a2,

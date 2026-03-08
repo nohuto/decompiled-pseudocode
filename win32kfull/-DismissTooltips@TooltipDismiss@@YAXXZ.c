@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DismissTooltips@TooltipDismiss@@YAXXZ @ 0x1C0230240
+ * Callers:
+ *     ?xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0097FCC (-xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
+ * Callees:
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ */
+
 void __fastcall TooltipDismiss::DismissTooltips(TooltipDismiss *this)
 {
   struct tagTOOLTIPENTRY *i; // rbx

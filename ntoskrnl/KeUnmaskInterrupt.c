@@ -1,3 +1,13 @@
+/*
+ * XREFs of KeUnmaskInterrupt @ 0x1403D1EFC
+ * Callers:
+ *     IopUnmaskInterrupt @ 0x1403D1E7C (IopUnmaskInterrupt.c)
+ * Callees:
+ *     KiIsInterruptTypeSecondary @ 0x140290340 (KiIsInterruptTypeSecondary.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiUnmaskSecondaryInterruptInternal @ 0x14056F948 (KiUnmaskSecondaryInterruptInternal.c)
+ */
+
 __int64 __fastcall KeUnmaskInterrupt(__int64 a1, unsigned __int8 a2, _DWORD *a3)
 {
   char IsInterruptTypeSecondary; // al

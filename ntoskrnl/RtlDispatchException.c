@@ -1,3 +1,28 @@
+/*
+ * XREFs of RtlDispatchException @ 0x14027FA60
+ * Callers:
+ *     KiDispatchException @ 0x140362740 (KiDispatchException.c)
+ *     RtlRaiseException @ 0x140364BF0 (RtlRaiseException.c)
+ * Callees:
+ *     RtlpCopyContext @ 0x140280F40 (RtlpCopyContext.c)
+ *     RtlLookupFunctionEntry @ 0x140281130 (RtlLookupFunctionEntry.c)
+ *     RtlpxVirtualUnwind @ 0x140281720 (RtlpxVirtualUnwind.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     KeQueryCurrentStackInformation @ 0x1402E1E00 (KeQueryCurrentStackInformation.c)
+ *     RtlpGetStackLimitsEx @ 0x1402E6750 (RtlpGetStackLimitsEx.c)
+ *     RtlVirtualUnwind @ 0x140364D20 (RtlVirtualUnwind.c)
+ *     RtlGetExtendedContextLength2 @ 0x140364DF0 (RtlGetExtendedContextLength2.c)
+ *     RtlInitializeExtendedContext2 @ 0x140364EE0 (RtlInitializeExtendedContext2.c)
+ *     RtlLookupExceptionHandler @ 0x1403BEEE8 (RtlLookupExceptionHandler.c)
+ *     RtlpIsFrameInBounds @ 0x1403BFA10 (RtlpIsFrameInBounds.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1404210C0 (_alloca_probe.c)
+ *     RtlpExecuteHandlerForException @ 0x140421690 (RtlpExecuteHandlerForException.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpLogExceptionDispatch @ 0x1405A4938 (RtlpLogExceptionDispatch.c)
+ *     RtlpLogExceptionHandler @ 0x1405A4AE0 (RtlpLogExceptionHandler.c)
+ */
+
 char __fastcall RtlDispatchException(ULONG_PTR a1, __int64 a2)
 {
   ULONG_PTR v3; // rsi

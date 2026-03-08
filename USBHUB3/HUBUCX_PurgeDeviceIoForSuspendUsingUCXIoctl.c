@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBUCX_PurgeDeviceIoForSuspendUsingUCXIoctl @ 0x1C0029078
+ * Callers:
+ *     HUBDSM_PurgingDeviceIoOnHubSuspendWhileWaitingForD0EntryOnHwWake @ 0x1C001FAA0 (HUBDSM_PurgingDeviceIoOnHubSuspendWhileWaitingForD0EntryOnHwWake.c)
+ *     HUBDSM_PurgingDeviceIoOnPrepareForHibernate @ 0x1C001FAD0 (HUBDSM_PurgingDeviceIoOnPrepareForHibernate.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBUCX_SubmitUcxIoctl @ 0x1C00263DC (HUBUCX_SubmitUcxIoctl.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBUCX_PurgeDeviceIoForSuspendUsingUCXIoctl(__int64 *a1)
 {
   __int64 v2; // rax

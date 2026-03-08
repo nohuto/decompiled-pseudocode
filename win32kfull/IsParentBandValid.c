@@ -1,3 +1,12 @@
+/*
+ * XREFs of IsParentBandValid @ 0x1C0039C20
+ * Callers:
+ *     xxxSetWindowData @ 0x1C002F9C8 (xxxSetWindowData.c)
+ *     ValidateNewParent @ 0x1C0039AAC (ValidateNewParent.c)
+ * Callees:
+ *     IsTopLevelParent @ 0x1C0039C84 (IsTopLevelParent.c)
+ */
+
 __int64 __fastcall IsParentBandValid(__int64 a1, __int64 a2)
 {
   __int64 v2; // rcx

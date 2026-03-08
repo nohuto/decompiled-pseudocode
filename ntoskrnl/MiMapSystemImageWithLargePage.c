@@ -1,3 +1,35 @@
+/*
+ * XREFs of MiMapSystemImageWithLargePage @ 0x140A46F04
+ * Callers:
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ *     MiHandleBootImage @ 0x140B3BA98 (MiHandleBootImage.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MiDeleteSystemPagableVm @ 0x1402B04B0 (MiDeleteSystemPagableVm.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     MiIsImportOptimizationEnabled @ 0x140369044 (MiIsImportOptimizationEnabled.c)
+ *     MiIsRetpolineEnabled @ 0x14036905C (MiIsRetpolineEnabled.c)
+ *     RtlApplyFunctionOverrideFixupsToImage @ 0x1403712F4 (RtlApplyFunctionOverrideFixupsToImage.c)
+ *     MiGetPageTablesForLargeMap @ 0x14038A5B8 (MiGetPageTablesForLargeMap.c)
+ *     MiMapWithLargePages @ 0x14038A6D4 (MiMapWithLargePages.c)
+ *     MiFindContiguousPagesEx @ 0x1403B5CF8 (MiFindContiguousPagesEx.c)
+ *     MiFreeContiguousPages @ 0x1403BDABC (MiFreeContiguousPages.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiPageToNode @ 0x1406153B0 (MiPageToNode.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x14061B438 (MiLogPerfMemoryRangeEvent.c)
+ *     MiInitPerfMemoryFlags @ 0x14063F1FC (MiInitPerfMemoryFlags.c)
+ *     MiRoundUpToPowerOf2SizeT @ 0x1406670D8 (MiRoundUpToPowerOf2SizeT.c)
+ *     RtlPerformRetpolineRelocationsOnImage @ 0x14067800C (RtlPerformRetpolineRelocationsOnImage.c)
+ *     MiChargeSystemImageCommitment @ 0x1407F5F44 (MiChargeSystemImageCommitment.c)
+ *     MiReservePrivilegedPtes @ 0x1407F6AA8 (MiReservePrivilegedPtes.c)
+ *     MiReleasePrivilegedPtes @ 0x1407F7400 (MiReleasePrivilegedPtes.c)
+ *     LdrRelocateImageWithBias @ 0x1409BF024 (LdrRelocateImageWithBias.c)
+ *     MiUnmapLargeDriver @ 0x140A472B8 (MiUnmapLargeDriver.c)
+ */
+
 char *__fastcall MiMapSystemImageWithLargePage(__int64 a1, unsigned int a2, const void *a3)
 {
   __int64 v4; // rsi

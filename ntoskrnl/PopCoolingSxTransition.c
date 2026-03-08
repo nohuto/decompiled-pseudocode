@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopCoolingSxTransition @ 0x140584670
+ * Callers:
+ *     PopThermalSxEntry @ 0x14058D7A8 (PopThermalSxEntry.c)
+ *     PopThermalSxExit @ 0x14058D8D4 (PopThermalSxExit.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopTraceThermalRequestActiveActivity @ 0x14059334C (PopTraceThermalRequestActiveActivity.c)
+ *     PopTraceThermalRequestPassiveHistogram @ 0x14059356C (PopTraceThermalRequestPassiveHistogram.c)
+ *     PopThermalUpdateActiveTimeTracking @ 0x140846CC0 (PopThermalUpdateActiveTimeTracking.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x140987FC0 (PopThermalUpdatePassiveTimeTracking.c)
+ */
+
 void __fastcall PopCoolingSxTransition(char a1)
 {
   __int64 i; // rdi

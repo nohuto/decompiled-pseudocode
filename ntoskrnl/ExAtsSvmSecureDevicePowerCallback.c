@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExAtsSvmSecureDevicePowerCallback @ 0x14040D420
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExpAtsConfigureSecureDevice @ 0x14040D320 (ExpAtsConfigureSecureDevice.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall ExAtsSvmSecureDevicePowerCallback(__int64 a1, int a2, ULONG_PTR a3)
 {
   bool v5; // si

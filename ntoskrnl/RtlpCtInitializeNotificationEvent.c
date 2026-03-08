@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpCtInitializeNotificationEvent @ 0x1409BF27C
+ * Callers:
+ *     RtlpCtContextInit @ 0x1409BF198 (RtlpCtContextInit.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall RtlpCtInitializeNotificationEvent(struct _KEVENT **a1)
 {
   struct _KEVENT *Pool2; // rax

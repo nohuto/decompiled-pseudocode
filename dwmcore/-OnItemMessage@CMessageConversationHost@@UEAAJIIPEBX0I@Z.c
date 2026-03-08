@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnItemMessage@CMessageConversationHost@@UEAAJIIPEBX0I@Z @ 0x180104CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CMessageConversationHost::OnItemMessage(
         CMessageConversationHost *this,
         __int64 a2,

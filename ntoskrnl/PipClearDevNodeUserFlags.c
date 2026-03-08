@@ -1,3 +1,20 @@
+/*
+ * XREFs of PipClearDevNodeUserFlags @ 0x1406831A8
+ * Callers:
+ *     PnpRemoveLockedDeviceNode @ 0x1403B1D8C (PnpRemoveLockedDeviceNode.c)
+ *     PnpProcessAssignResources @ 0x140681528 (PnpProcessAssignResources.c)
+ *     PiProcessQueryDeviceState @ 0x140683054 (PiProcessQueryDeviceState.c)
+ *     PiProcessNewDeviceNode @ 0x140685858 (PiProcessNewDeviceNode.c)
+ *     IopRemoveDevice @ 0x140866E38 (IopRemoveDevice.c)
+ *     PiDevCfgProcessDevice @ 0x140873308 (PiDevCfgProcessDevice.c)
+ *     PnpRestartDeviceNode @ 0x140955D4C (PnpRestartDeviceNode.c)
+ *     PnpCancelRemoveLockedDeviceNode @ 0x140955FCC (PnpCancelRemoveLockedDeviceNode.c)
+ *     PnpQueryRemoveLockedDeviceNode @ 0x1409561C8 (PnpQueryRemoveLockedDeviceNode.c)
+ *     PnpTrackQueryRemoveDevices @ 0x140961AFC (PnpTrackQueryRemoveDevices.c)
+ * Callees:
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140687320 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ */
+
 __int64 __fastcall PipClearDevNodeUserFlags(__int64 a1, int a2)
 {
   unsigned int v2; // edi

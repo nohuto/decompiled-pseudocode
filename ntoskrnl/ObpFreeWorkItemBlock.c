@@ -1,3 +1,16 @@
+/*
+ * XREFs of ObpFreeWorkItemBlock @ 0x140979BBC
+ * Callers:
+ *     ObpPushStackInfoQueue @ 0x14097A330 (ObpPushStackInfoQueue.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall ObpFreeWorkItemBlock(struct _SLIST_ENTRY *P)
 {
   struct _KTHREAD *CurrentThread; // rax

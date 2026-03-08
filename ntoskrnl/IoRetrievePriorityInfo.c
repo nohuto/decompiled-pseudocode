@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoRetrievePriorityInfo @ 0x1402AB5C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoGetIoPriorityHint @ 0x14027F300 (IoGetIoPriorityHint.c)
+ *     PsGetIoPriorityThread @ 0x1402832C0 (PsGetIoPriorityThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 NTSTATUS __stdcall IoRetrievePriorityInfo(
         PIRP Irp,
         PFILE_OBJECT FileObject,

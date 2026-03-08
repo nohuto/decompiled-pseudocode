@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiFdoRebootWorkItem @ 0x1C0398550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DpiFdoRebootWorkItem(_QWORD *IoObject, PVOID Context, PIO_WORKITEM IoWorkItem)
 {
   unsigned int v4; // ebx

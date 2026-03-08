@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspIsProcessReadyForRemoteThread @ 0x1402F31D4
+ * Callers:
+ *     PspCreateThread @ 0x1406B1908 (PspCreateThread.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 bool __fastcall PspIsProcessReadyForRemoteThread(__int64 a1)
 {
   bool v2; // bl

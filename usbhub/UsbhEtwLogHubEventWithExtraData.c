@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhEtwLogHubEventWithExtraData @ 0x1C005B848
+ * Callers:
+ *     UsbhCreateDevice @ 0x1C0002364 (UsbhCreateDevice.c)
+ *     UsbhInitializeDevice @ 0x1C0002778 (UsbhInitializeDevice.c)
+ *     UsbhEtwLogPortInformation @ 0x1C005BD4C (UsbhEtwLogPortInformation.c)
+ * Callees:
+ *     UsbhEtwWrite @ 0x1C0009AC0 (UsbhEtwWrite.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhEtwGetHubInfo @ 0x1C0021B60 (UsbhEtwGetHubInfo.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall UsbhEtwLogHubEventWithExtraData(__int64 a1, const EVENT_DESCRIPTOR *a2, int a3, __int64 a4, int a5)
 {
   NTSTATUS result; // eax

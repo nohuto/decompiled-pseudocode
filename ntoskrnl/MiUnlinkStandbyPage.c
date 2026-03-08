@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiUnlinkStandbyPage @ 0x140464E9A
+ * Callers:
+ *     MiRemoveLowestPriorityStandbyPage @ 0x14064F264 (MiRemoveLowestPriorityStandbyPage.c)
+ * Callees:
+ *     MiReleasePageListLock @ 0x140288360 (MiReleasePageListLock.c)
+ *     MiSetPfnBlink @ 0x140289900 (MiSetPfnBlink.c)
+ *     MiUnlinkNumaStandbyPage @ 0x1402C77BC (MiUnlinkNumaStandbyPage.c)
+ *     MiUnlinkProtectedStandbyPfn @ 0x14032F4F0 (MiUnlinkProtectedStandbyPfn.c)
+ *     MiDecreaseAvailablePages @ 0x1403504C0 (MiDecreaseAvailablePages.c)
+ *     MiRestoreTransitionPte @ 0x14036A9C4 (MiRestoreTransitionPte.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall MiUnlinkStandbyPage(__int64 a1, __int64 a2, ULONG_PTR a3, unsigned __int64 a4, __int16 a5)
 {
   __int64 v9; // rdi

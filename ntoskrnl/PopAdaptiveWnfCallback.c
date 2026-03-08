@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopAdaptiveWnfCallback @ 0x140998A20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopAcquireAdaptiveLock @ 0x14073CCB4 (PopAcquireAdaptiveLock.c)
+ *     PopReleaseAdaptiveLock @ 0x14073CD60 (PopReleaseAdaptiveLock.c)
+ *     ExQueryWnfStateData @ 0x140793060 (ExQueryWnfStateData.c)
+ *     PopDiagTraceAdaptiveOverrideTriggered @ 0x14098966C (PopDiagTraceAdaptiveOverrideTriggered.c)
+ *     PopAdaptiveConsoleSessionOverrideClear @ 0x140998780 (PopAdaptiveConsoleSessionOverrideClear.c)
+ */
+
 __int64 __fastcall PopAdaptiveWnfCallback(__int64 a1, _QWORD *a2)
 {
   bool v2; // zf

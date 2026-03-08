@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtFindAtom @ 0x1407DABC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmSessionGetWin32Callouts @ 0x14034C010 (MmSessionGetWin32Callouts.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExCallCallBack @ 0x1407D2DA4 (ExCallCallBack.c)
+ *     RtlLookupAtomInAtomTable @ 0x1407DA4D0 (RtlLookupAtomInAtomTable.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall NtFindAtom(char *Src, size_t Size, _WORD *a3)
 {
   size_t v4; // rbx

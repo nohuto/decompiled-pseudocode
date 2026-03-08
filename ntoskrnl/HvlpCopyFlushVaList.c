@@ -1,3 +1,14 @@
+/*
+ * XREFs of HvlpCopyFlushVaList @ 0x1403C6E98
+ * Callers:
+ *     HvlpFastFlushListTb @ 0x1403C6998 (HvlpFastFlushListTb.c)
+ *     HvlpFastFlushListTbEx @ 0x140547580 (HvlpFastFlushListTbEx.c)
+ *     HvlpSlowFlushListTb @ 0x140547974 (HvlpSlowFlushListTb.c)
+ *     HvlpSlowFlushListTbEx @ 0x140547AF8 (HvlpSlowFlushListTbEx.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall HvlpCopyFlushVaList(unsigned int a1, __int64 *a2, char a3, __int64 *a4)
 {
   __int64 *v4; // r10

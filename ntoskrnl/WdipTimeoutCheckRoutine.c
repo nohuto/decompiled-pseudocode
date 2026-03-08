@@ -1,3 +1,19 @@
+/*
+ * XREFs of WdipTimeoutCheckRoutine @ 0x14078BFD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExSetTimer @ 0x1402042A0 (ExSetTimer.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     WdipSemMarkNextTimedOutInstanceForDeletion @ 0x14078C080 (WdipSemMarkNextTimedOutInstanceForDeletion.c)
+ *     WdipSemSqmLogInflightLimitExceededDataPoints @ 0x14078C108 (WdipSemSqmLogInflightLimitExceededDataPoints.c)
+ *     WdipSemDeleteTransitionalInstance @ 0x140831C10 (WdipSemDeleteTransitionalInstance.c)
+ *     WdipSemDisableContextProviders @ 0x1408321DC (WdipSemDisableContextProviders.c)
+ *     WdipSemLogTimeoutInformation @ 0x1409DB47C (WdipSemLogTimeoutInformation.c)
+ */
+
 __int64 WdipTimeoutCheckRoutine()
 {
   struct _KTHREAD *CurrentThread; // rax

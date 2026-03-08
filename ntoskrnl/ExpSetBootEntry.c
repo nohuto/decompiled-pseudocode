@@ -1,3 +1,28 @@
+/*
+ * XREFs of ExpSetBootEntry @ 0x1409FA390
+ * Callers:
+ *     NtAddBootEntry @ 0x1409FB9F0 (NtAddBootEntry.c)
+ *     NtModifyBootEntry @ 0x1409FC430 (NtModifyBootEntry.c)
+ * Callees:
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     strcmp @ 0x1403D5570 (strcmp.c)
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     ZwTranslateFilePath @ 0x140415D90 (ZwTranslateFilePath.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IoGetEnvironmentVariableEx @ 0x14075D3B0 (IoGetEnvironmentVariableEx.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     ExpSafeWcslen @ 0x14083EB44 (ExpSafeWcslen.c)
+ *     ExpVerifyFilePath @ 0x14083EE50 (ExpVerifyFilePath.c)
+ *     IoSetEnvironmentVariableEx @ 0x14094D504 (IoSetEnvironmentVariableEx.c)
+ *     ExpVerifyWindowsOsOptions @ 0x1409FB97C (ExpVerifyWindowsOsOptions.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpSetBootEntry(int a1, const void *a2, unsigned __int64 a3)
 {
   unsigned int i; // r12d

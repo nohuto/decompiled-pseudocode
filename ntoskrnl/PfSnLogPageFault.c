@@ -1,3 +1,17 @@
+/*
+ * XREFs of PfSnLogPageFault @ 0x14028D4BC
+ * Callers:
+ *     MiMakeSystemCacheRangeValid @ 0x140221870 (MiMakeSystemCacheRangeValid.c)
+ *     MiCompleteRestrictedImageFault @ 0x14028D690 (MiCompleteRestrictedImageFault.c)
+ *     MiMakeSystemCachePteValid @ 0x1402DA87C (MiMakeSystemCachePteValid.c)
+ *     MiLogRelocationRva @ 0x1407F4A00 (MiLogRelocationRva.c)
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     PfSnReferenceProcessTrace @ 0x14028D560 (PfSnReferenceProcessTrace.c)
+ *     PfSnCheckLoggingForThread @ 0x1402EA88C (PfSnCheckLoggingForThread.c)
+ *     PfSnLogPageFaultCommon @ 0x140306D88 (PfSnLogPageFaultCommon.c)
+ */
+
 void __fastcall PfSnLogPageFault(__int64 a1, int a2, unsigned int a3)
 {
   struct _KTHREAD *CurrentThread; // rbp

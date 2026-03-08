@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?DisplayID_GetNativeLuminance@@YAJPEBUDisplayIDObj@@PEAK11PEAI@Z @ 0x1C007286C
+ * Callers:
+ *     ?GetBasicDisplayParams@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAU_WmiMonitorBasicDisplayParams@@@Z @ 0x1C03CBD50 (-GetBasicDisplayParams@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAU_WmiMonitorBasicDisplayPa.c)
+ *     ?GetHdrLuminance@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAK00@Z @ 0x1C03CBF90 (-GetHdrLuminance@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAK00@Z.c)
+ * Callees:
+ *     ?ConvertHalfToFloat@@YAMG@Z @ 0x1C00725E4 (-ConvertHalfToFloat@@YAMG@Z.c)
+ *     ?IsValidBlock@DisplayID_DisplayParameters_Parser@@QEBA_NXZ @ 0x1C00729B0 (-IsValidBlock@DisplayID_DisplayParameters_Parser@@QEBA_NXZ.c)
+ *     ?DisplayID_GetBlock@@YAJAEBUDisplayIDObj@@W4_DISPLAYID_DATA_BLOCK_TYPE@@AEAPEBU_DISPLAYID_BLOCK_HEADER@@@Z @ 0x1C0072A9C (-DisplayID_GetBlock@@YAJAEBUDisplayIDObj@@W4_DISPLAYID_DATA_BLOCK_TYPE@@AEAPEBU_DISPLAYID_BLOCK_.c)
+ */
+
 __int64 __fastcall DisplayID_GetNativeLuminance(
         const struct DisplayIDObj *a1,
         unsigned int *a2,

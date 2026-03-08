@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CColorBrush@@QEAA@PEAVCComposition@@AEBU_D3DCOLORVALUE@@@Z @ 0x1800AEA04
+ * Callers:
+ *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800AE4F0 (-Initialize@CComposition@@MEAAJXZ.c)
+ * Callees:
+ *     ??0CContent@@IEAA@PEAVCComposition@@@Z @ 0x1800B8F68 (--0CContent@@IEAA@PEAVCComposition@@@Z.c)
+ */
+
 CColorBrush *__fastcall CColorBrush::CColorBrush(
         CColorBrush *this,
         struct CComposition *a2,

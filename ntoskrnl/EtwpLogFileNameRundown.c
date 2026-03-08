@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpLogFileNameRundown @ 0x1409EBE4C
+ * Callers:
+ *     EtwpEnableDisableSpecialGuids @ 0x14068FF34 (EtwpEnableDisableSpecialGuids.c)
+ * Callees:
+ *     EtwpCheckGuidAccess @ 0x1406910EC (EtwpCheckGuidAccess.c)
+ *     WmiTraceRundownNotify @ 0x1408479D8 (WmiTraceRundownNotify.c)
+ */
+
 __int64 __fastcall EtwpLogFileNameRundown(__int64 *a1, int a2)
 {
   __int64 result; // rax

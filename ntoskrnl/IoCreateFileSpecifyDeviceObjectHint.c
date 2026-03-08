@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoCreateFileSpecifyDeviceObjectHint @ 0x140792760
+ * Callers:
+ *     DifIoCreateFileSpecifyDeviceObjectHintWrapper @ 0x1405DBF40 (DifIoCreateFileSpecifyDeviceObjectHintWrapper.c)
+ * Callees:
+ *     IoCreateFileEx @ 0x14070DA20 (IoCreateFileEx.c)
+ */
+
 NTSTATUS __stdcall IoCreateFileSpecifyDeviceObjectHint(
         PHANDLE FileHandle,
         ACCESS_MASK DesiredAccess,

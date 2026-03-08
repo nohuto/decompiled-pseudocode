@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpTimerWatchdogResetCountdown @ 0x1403CE870
+ * Callers:
+ *     HalpTimerWatchdogPreResetInterrupt @ 0x14051C6D0 (HalpTimerWatchdogPreResetInterrupt.c)
+ * Callees:
+ *     HalpSetTimer @ 0x1402CBEE0 (HalpSetTimer.c)
+ *     HalpTimerWatchdogWakeSetDueTime @ 0x1403CE8CC (HalpTimerWatchdogWakeSetDueTime.c)
+ */
+
 __int64 HalpTimerWatchdogResetCountdown()
 {
   __int64 result; // rax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of TtmNotifySessionDisplayBurst @ 0x1409A1344
+ * Callers:
+ *     PopPowerSourceChangeCallback @ 0x140380CA0 (PopPowerSourceChangeCallback.c)
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     TtmpAcquireSessionById @ 0x1409A1F50 (TtmpAcquireSessionById.c)
+ *     TtmiLogError @ 0x1409A536C (TtmiLogError.c)
+ *     TtmiResetTerminalTimeouts @ 0x1409A8238 (TtmiResetTerminalTimeouts.c)
+ */
+
 __int64 __fastcall TtmNotifySessionDisplayBurst(unsigned int a1, int a2)
 {
   int v3; // eax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?MarshalSend@SendProcessor@Calling@CoreMessaging@@QEAAJPEAXIPEAD@Z @ 0x1C00AE86C
+ * Callers:
+ *     CoreUICallSendVaList @ 0x1C00AE220 (CoreUICallSendVaList.c)
+ * Callees:
+ *     ?MarshalLPCWSTR@SendProcessor@Calling@CoreMessaging@@AEAAXPEAHPEBG@Z @ 0x1C00AEA8C (-MarshalLPCWSTR@SendProcessor@Calling@CoreMessaging@@AEAAXPEAHPEBG@Z.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ *     ?MarshalArray@SendProcessor@Calling@CoreMessaging@@AEAAXPEAHPEBX@Z @ 0x1C0275688 (-MarshalArray@SendProcessor@Calling@CoreMessaging@@AEAAXPEAHPEBX@Z.c)
+ *     ?Error@FailFast@Calling@CoreMessaging@@SAXPEBDI@Z @ 0x1C02756E4 (-Error@FailFast@Calling@CoreMessaging@@SAXPEBDI@Z.c)
+ */
+
 __int64 __fastcall CoreMessaging::Calling::SendProcessor::MarshalSend(
         CoreMessaging::Calling::SendProcessor *this,
         char *a2,

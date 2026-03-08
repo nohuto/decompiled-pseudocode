@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpOpenConsumer @ 0x14074902C
+ * Callers:
+ *     EtwpRealtimeConnect @ 0x140748BFC (EtwpRealtimeConnect.c)
+ * Callees:
+ *     ObOpenObjectByPointer @ 0x1407C93D0 (ObOpenObjectByPointer.c)
+ */
+
 NTSTATUS __fastcall EtwpOpenConsumer(PHANDLE Handle)
 {
   return ObOpenObjectByPointer(

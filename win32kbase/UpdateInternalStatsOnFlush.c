@@ -1,3 +1,12 @@
+/*
+ * XREFs of UpdateInternalStatsOnFlush @ 0x1C0301C78
+ * Callers:
+ *     LookUpTableFlushComplete @ 0x1C0301AEC (LookUpTableFlushComplete.c)
+ *     LookUpTableFlushPartial @ 0x1C030292C (LookUpTableFlushPartial.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall UpdateInternalStatsOnFlush(__int64 a1, unsigned int a2)
 {
   __int64 *v2; // r8

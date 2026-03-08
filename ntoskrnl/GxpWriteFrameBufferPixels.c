@@ -1,3 +1,20 @@
+/*
+ * XREFs of GxpWriteFrameBufferPixels @ 0x14038188C
+ * Callers:
+ *     BgpGxDrawRectangle @ 0x1403817FC (BgpGxDrawRectangle.c)
+ * Callees:
+ *     BgpGetBitsPerPixel @ 0x140381AB0 (BgpGetBitsPerPixel.c)
+ *     GxpAdjustRectangleToFrameBuffer @ 0x140381AD8 (GxpAdjustRectangleToFrameBuffer.c)
+ *     BgpGxConvertRectangleEx @ 0x14038204C (BgpGxConvertRectangleEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     BgfxGrowDirtyRect @ 0x14066F848 (BgfxGrowDirtyRect.c)
+ *     GxpGetRotatedPixelOffset @ 0x14066F8F8 (GxpGetRotatedPixelOffset.c)
+ *     BgpGxRectangleDestroy @ 0x140AEAA70 (BgpGxRectangleDestroy.c)
+ */
+
 __int64 __fastcall GxpWriteFrameBufferPixels(unsigned __int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 v2; // r14

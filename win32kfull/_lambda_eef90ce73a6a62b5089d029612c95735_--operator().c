@@ -1,3 +1,15 @@
+/*
+ * XREFs of _lambda_eef90ce73a6a62b5089d029612c95735_::operator() @ 0x1C011F5B4
+ * Callers:
+ *     ?UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z @ 0x1C011ED74 (-UmfdClientSendAndWaitForCompletion@@YAJW4FontDriverType@@PEAVFontDriverDdiRequest@@@Z.c)
+ * Callees:
+ *     ?Create@CEventPoolEntry@CEventPool@@SAQEAV12@XZ @ 0x1C00E7128 (-Create@CEventPoolEntry@CEventPool@@SAQEAV12@XZ.c)
+ *     ??1?$CAutoDestroy@VCEventPoolEntry@CEventPool@@@@QEAA@XZ @ 0x1C011F800 (--1-$CAutoDestroy@VCEventPoolEntry@CEventPool@@@@QEAA@XZ.c)
+ *     ??1?$CAutoDestroy@VCWaitableWorkItem@CMultipleConsumerWorkQueue@@@@QEAA@XZ @ 0x1C011F92C (--1-$CAutoDestroy@VCWaitableWorkItem@CMultipleConsumerWorkQueue@@@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     ?QueueTryResurrectPffApc@UmfdHostLifeTimeManager@@SAX_K@Z @ 0x1C02E2A54 (-QueueTryResurrectPffApc@UmfdHostLifeTimeManager@@SAX_K@Z.c)
+ */
+
 __int64 __fastcall lambda_eef90ce73a6a62b5089d029612c95735_::operator()(__int64 a1)
 {
   __int64 v2; // rcx

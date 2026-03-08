@@ -1,3 +1,37 @@
+/*
+ * XREFs of ?DpiPdoHandleOpmIoctlsInternal@@YAJPEAU_FDO_CONTEXT@@PEAU_PDO_CONTEXT@@KPEAXK2KPEA_K@Z @ 0x1C0063168
+ * Callers:
+ *     DpiProcessOpmVmBusRequest @ 0x1C0064504 (DpiProcessOpmVmBusRequest.c)
+ *     DpiPdoHandleOpmIoctls @ 0x1C039DD08 (DpiPdoHandleOpmIoctls.c)
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000B270 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqtqq_EtwWriteTransfer @ 0x1C0040104 (McTemplateK0pqtqq_EtwWriteTransfer.c)
+ *     ?CreateProtectedOutputIndirectDisplay@@YAJPEAU_FDO_CONTEXT@@0W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@IPEAPEAX2@Z @ 0x1C0062DD0 (-CreateProtectedOutputIndirectDisplay@@YAJPEAU_FDO_CONTEXT@@0W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTI.c)
+ *     ?DpiOpmLogCreateContext@@YAXJI@Z @ 0x1C0062FC8 (-DpiOpmLogCreateContext@@YAXJI@Z.c)
+ *     ?DpiOpmLogSetLevel@@YAXJII@Z @ 0x1C0063090 (-DpiOpmLogSetLevel@@YAXJII@Z.c)
+ *     McTemplateK0ptpjq_EtwWriteTransfer @ 0x1C00645E8 (McTemplateK0ptpjq_EtwWriteTransfer.c)
+ *     McTemplateK0ptpjqq_EtwWriteTransfer @ 0x1C0064698 (McTemplateK0ptpjqq_EtwWriteTransfer.c)
+ *     McTemplateK0ptpq_EtwWriteTransfer @ 0x1C0064758 (McTemplateK0ptpq_EtwWriteTransfer.c)
+ *     McTemplateK0ptpqq_EtwWriteTransfer @ 0x1C00647F0 (McTemplateK0ptpqq_EtwWriteTransfer.c)
+ *     McTemplateK0ptpqqq_EtwWriteTransfer @ 0x1C0064898 (McTemplateK0ptpqqq_EtwWriteTransfer.c)
+ *     McTemplateK0ptqppq_EtwWriteTransfer @ 0x1C0064950 (McTemplateK0ptqppq_EtwWriteTransfer.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C0180684 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C0180B30 (DpiAcquireCoreSyncAccessSafe.c)
+ *     DxgkReleaseAdapterDdiSync @ 0x1C01E7088 (DxgkReleaseAdapterDdiSync.c)
+ *     DxgkAcquireAdapterDdiSync @ 0x1C01E70A8 (DxgkAcquireAdapterDdiSync.c)
+ *     DpiMiracastFindRenderAdapterForSession @ 0x1C01F7F00 (DpiMiracastFindRenderAdapterForSession.c)
+ *     DxgkAcquireAdapterOpmI2CSync @ 0x1C02205EE (DxgkAcquireAdapterOpmI2CSync.c)
+ *     DxgkReleaseAdapterOpmI2CSync @ 0x1C02206C8 (DxgkReleaseAdapterOpmI2CSync.c)
+ *     DxgkOpmCreateHandle @ 0x1C02BD9E4 (DxgkOpmCreateHandle.c)
+ *     DxgkOpmTranslateAndDestroyHandle @ 0x1C02BDF38 (DxgkOpmTranslateAndDestroyHandle.c)
+ *     DxgkOpmTranslateHandle @ 0x1C02BE130 (DxgkOpmTranslateHandle.c)
+ *     DpiPdoVerifyOpmParameters @ 0x1C039DDE0 (DpiPdoVerifyOpmParameters.c)
+ */
+
 __int64 __fastcall DpiPdoHandleOpmIoctlsInternal(
         struct _FDO_CONTEXT *RenderAdapterForSession,
         struct _PDO_CONTEXT *a2,

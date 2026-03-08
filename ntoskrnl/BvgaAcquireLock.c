@@ -1,3 +1,17 @@
+/*
+ * XREFs of BvgaAcquireLock @ 0x14054CD30
+ * Callers:
+ *     BvgaBitBlt @ 0x14054CDD0 (BvgaBitBlt.c)
+ *     BvgaDisplayString @ 0x14054CE50 (BvgaDisplayString.c)
+ *     BvgaEnableBootDriver @ 0x14054CEC0 (BvgaEnableBootDriver.c)
+ *     BvgaNotifyDisplayOwnershipLost @ 0x14054CFC0 (BvgaNotifyDisplayOwnershipLost.c)
+ *     BvgaSolidColorFill @ 0x14054D170 (BvgaSolidColorFill.c)
+ *     BvgaUpdateProgressBar @ 0x14054D230 (BvgaUpdateProgressBar.c)
+ * Callees:
+ *     KeTestSpinLock @ 0x1402053F0 (KeTestSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ */
+
 void BvgaAcquireLock()
 {
   unsigned __int8 CurrentIrql; // bl

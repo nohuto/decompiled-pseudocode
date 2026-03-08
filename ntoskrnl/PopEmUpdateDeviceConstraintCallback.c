@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopEmUpdateDeviceConstraintCallback @ 0x14059C560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ */
+
 __int64 __fastcall PopEmUpdateDeviceConstraintCallback(
         unsigned int ***a1,
         int a2,

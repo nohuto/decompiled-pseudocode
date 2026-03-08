@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0CRIMBase@@IEAA@K@Z @ 0x1C0096848
+ * Callers:
+ *     ??0CBaseInput@@IEAA@KKW4_InputSensorName@@@Z @ 0x1C0096768 (--0CBaseInput@@IEAA@KKW4_InputSensorName@@@Z.c)
+ * Callees:
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C00968E4 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 CRIMBase *__fastcall CRIMBase::CRIMBase(CRIMBase *this, int a2)
 {
   char *v3; // rbx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlCmEncodeMemIoResource @ 0x140370750
+ * Callers:
+ *     VslGetSecurePciDeviceBootConfiguration @ 0x140548F70 (VslGetSecurePciDeviceBootConfiguration.c)
+ *     HalpReportResourceUsage @ 0x140B35B2C (HalpReportResourceUsage.c)
+ *     IopInitializeResourceMap @ 0x140B36130 (IopInitializeResourceMap.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlCmEncodeMemIoResource(
         PCM_PARTIAL_RESOURCE_DESCRIPTOR Descriptor,
         UCHAR Type,

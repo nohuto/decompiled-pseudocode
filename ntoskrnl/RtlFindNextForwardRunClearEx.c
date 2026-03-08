@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlFindNextForwardRunClearEx @ 0x14045B7C0
+ * Callers:
+ *     MmQueryMemoryRanges @ 0x140859AF0 (MmQueryMemoryRanges.c)
+ *     MiDeleteAweInfoPages @ 0x140A3EE20 (MiDeleteAweInfoPages.c)
+ *     IopLiveDumpMirrorPhysicalMemoryCallback @ 0x140A98F10 (IopLiveDumpMirrorPhysicalMemoryCallback.c)
+ *     IopLiveDumpPopulateBitmapForDump @ 0x140A990E0 (IopLiveDumpPopulateBitmapForDump.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall RtlFindNextForwardRunClearEx(
         unsigned __int64 *a1,
         unsigned __int64 a2,

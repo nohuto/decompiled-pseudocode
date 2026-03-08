@@ -1,3 +1,13 @@
+/*
+ * XREFs of McTemplateK0pqqqqqqqsssxqqqt_EtwWriteTransfer @ 0x1C004B3B8
+ * Callers:
+ *     Etw_ControllerDelete @ 0x1C004A8F0 (Etw_ControllerDelete.c)
+ *     Etw_ControllerFirmareVersionUpdate @ 0x1C004A9F0 (Etw_ControllerFirmareVersionUpdate.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0022498 (McGenEventWrite_EtwWriteTransfer.c)
+ */
+
 NTSTATUS McTemplateK0pqqqqqqqsssxqqqt_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)
 {
   const char *v3; // r8

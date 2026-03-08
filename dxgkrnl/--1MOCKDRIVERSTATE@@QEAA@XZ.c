@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1MOCKDRIVERSTATE@@QEAA@XZ @ 0x1C003E6F8
+ * Callers:
+ *     ??1DXGADAPTER@@QEAA@XZ @ 0x1C02B0AE4 (--1DXGADAPTER@@QEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall MOCKDRIVERSTATE::~MOCKDRIVERSTATE(MOCKDRIVERSTATE *this)
 {
   void *v2; // rcx

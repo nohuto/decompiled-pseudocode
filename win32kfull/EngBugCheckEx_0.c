@@ -1,3 +1,11 @@
+/*
+ * XREFs of EngBugCheckEx_0 @ 0x1C012C3A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // attributes: thunk
 void __stdcall EngBugCheckEx_0(ULONG BugCheckCode, ULONG_PTR P1, ULONG_PTR P2, ULONG_PTR P3, ULONG_PTR P4)
 {

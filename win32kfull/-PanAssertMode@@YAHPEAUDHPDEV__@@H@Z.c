@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?PanAssertMode@@YAHPEAUDHPDEV__@@H@Z @ 0x1C029DF10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     ?vUnLock@PANDEVLOCK@@QEAAXXZ @ 0x1C02A0750 (-vUnLock@PANDEVLOCK@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall PanAssertMode(struct DHPDEV__ *a1, unsigned int a2)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x14035A528
+ * Callers:
+ *     ?SmStStart@?$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z @ 0x140359180 (-SmStStart@-$SMKM_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_SMST_PARAMETERS@@@Z.c)
+ * Callees:
+ *     ?StDmStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_DATA_MGR@1@PEAU_STDM_PARAMETERS@@PEAU_RTL_BITMAP@@PEAKK@Z @ 0x140359FF8 (-StDmStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_DATA_MGR@1@PEAU_STDM_PARAMETERS@@PEAU_RTL_B.c)
+ *     ?StartHelper@StEtaHelper@@SAJPEAU_ST_ETA_CONTEXT@@K@Z @ 0x14035A46C (-StartHelper@StEtaHelper@@SAJPEAU_ST_ETA_CONTEXT@@K@Z.c)
+ *     RtlGetCompressionWorkSpaceSize @ 0x14035AEA0 (RtlGetCompressionWorkSpaceSize.c)
+ *     RtlNumberOfSetBits @ 0x14035C520 (RtlNumberOfSetBits.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SmCrEncStart @ 0x1409D7A3C (SmCrEncStart.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 int __fastcall ST_STORE<SM_TRAITS>::StStart(__int64 a1, __int64 a2)
 {
   unsigned int v4; // edx

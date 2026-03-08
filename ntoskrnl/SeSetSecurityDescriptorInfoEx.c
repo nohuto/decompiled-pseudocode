@@ -1,3 +1,11 @@
+/*
+ * XREFs of SeSetSecurityDescriptorInfoEx @ 0x140790F60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlpSetSecurityObject @ 0x1407BF100 (RtlpSetSecurityObject.c)
+ */
+
 NTSTATUS __stdcall SeSetSecurityDescriptorInfoEx(
         PVOID Object,
         PSECURITY_INFORMATION SecurityInformation,

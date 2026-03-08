@@ -1,3 +1,21 @@
+/*
+ * XREFs of RtlpHpVsContextAllocateInternal @ 0x14024A790
+ * Callers:
+ *     RtlpHpAllocateHeap @ 0x14024A2B0 (RtlpHpAllocateHeap.c)
+ *     RtlpHpVsContextMultiAlloc @ 0x14024A490 (RtlpHpVsContextMultiAlloc.c)
+ *     RtlpHpVsContextAllocate @ 0x1402E0C44 (RtlpHpVsContextAllocate.c)
+ *     ExAllocateHeapPool @ 0x1403101C0 (ExAllocateHeapPool.c)
+ * Callees:
+ *     RtlpHpVsChunkSplit @ 0x14024AB60 (RtlpHpVsChunkSplit.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x1402CD080 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpVsSubsegmentCreate @ 0x1402DD684 (RtlpHpVsSubsegmentCreate.c)
+ *     RtlpHpVsContextAddSubsegment @ 0x1402E2240 (RtlpHpVsContextAddSubsegment.c)
+ *     RtlpHpAcquireQueuedLockExclusive @ 0x140350330 (RtlpHpAcquireQueuedLockExclusive.c)
+ *     RtlHeapZero @ 0x1403D2D10 (RtlHeapZero.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpLogHeapFailure @ 0x1405B2884 (RtlpLogHeapFailure.c)
+ */
+
 char *__fastcall RtlpHpVsContextAllocateInternal(
         __int64 a1,
         unsigned int a2,

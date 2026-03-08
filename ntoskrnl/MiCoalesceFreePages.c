@@ -1,3 +1,31 @@
+/*
+ * XREFs of MiCoalesceFreePages @ 0x140278FE0
+ * Callers:
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ * Callees:
+ *     MiCreateInitialLargeLeafPfns @ 0x140213A50 (MiCreateInitialLargeLeafPfns.c)
+ *     MiInitializeAllResidentPageBasePfns @ 0x140213BC4 (MiInitializeAllResidentPageBasePfns.c)
+ *     MiPfnZeroingNeeded @ 0x140214AC4 (MiPfnZeroingNeeded.c)
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x140276500 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiDetermineCoalescedLargePageHeatState @ 0x1402DD078 (MiDetermineCoalescedLargePageHeatState.c)
+ *     MiInsertLargePageInNodeList @ 0x14031C970 (MiInsertLargePageInNodeList.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x14032F834 (MiSetOriginalPtePfnFromFreeList.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     MiReturnFreeZeroPage @ 0x14034E5C4 (MiReturnFreeZeroPage.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     ExfTryAcquirePushLockSharedEx @ 0x1403586D0 (ExfTryAcquirePushLockSharedEx.c)
+ *     MiChangePageAttribute @ 0x14036CE40 (MiChangePageAttribute.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiChangePageHeatImmediate @ 0x1406517FC (MiChangePageHeatImmediate.c)
+ */
+
 __int64 __fastcall MiCoalesceFreePages(__int64 a1)
 {
   ULONG_PTR v1; // r13

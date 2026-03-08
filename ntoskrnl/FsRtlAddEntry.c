@@ -1,3 +1,17 @@
+/*
+ * XREFs of FsRtlAddEntry @ 0x1402D0C14
+ * Callers:
+ *     FsRtlRemoveBaseMcbEntry @ 0x1402D0270 (FsRtlRemoveBaseMcbEntry.c)
+ *     FsRtlAddBaseMcbEntryEx @ 0x1402D06D0 (FsRtlAddBaseMcbEntryEx.c)
+ *     FsRtlSplitBaseMcb @ 0x14053A920 (FsRtlSplitBaseMcb.c)
+ * Callees:
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall FsRtlAddEntry(__int64 a1, unsigned int a2, int a3)
 {
   __int64 v4; // rsi

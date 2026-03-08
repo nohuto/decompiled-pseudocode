@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIInitGetPlatformOverrides @ 0x1C00A87E8
+ * Callers:
+ *     DriverEntry @ 0x1C00A7300 (DriverEntry.c)
+ * Callees:
+ *     OSCloseHandle @ 0x1C008DB38 (OSCloseHandle.c)
+ *     OSGetRegistryValue @ 0x1C008DCAC (OSGetRegistryValue.c)
+ *     OSOpenHandle @ 0x1C008DF10 (OSOpenHandle.c)
+ *     ACPIIsSystemStartOptionPresent @ 0x1C00A9564 (ACPIIsSystemStartOptionPresent.c)
+ */
+
 __int64 ACPIInitGetPlatformOverrides()
 {
   void *v0; // rbx

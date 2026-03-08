@@ -1,3 +1,38 @@
+/*
+ * XREFs of MiRelocateImage @ 0x1407F2760
+ * Callers:
+ *     MiCreateNewSection @ 0x1406A6414 (MiCreateNewSection.c)
+ *     MiGetSystemAddressForImage @ 0x1407F6010 (MiGetSystemAddressForImage.c)
+ * Callees:
+ *     MI_UNLOCK_RELOCATIONS_EXCLUSIVE @ 0x14020AFAC (MI_UNLOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MI_LOCK_RELOCATIONS_EXCLUSIVE @ 0x14020B028 (MI_LOCK_RELOCATIONS_EXCLUSIVE.c)
+ *     MiWalkEntireImage @ 0x1402862C0 (MiWalkEntireImage.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiOffsetToProtos @ 0x140331B90 (MiOffsetToProtos.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     MiLegacyImageArchitecture @ 0x140368540 (MiLegacyImageArchitecture.c)
+ *     PsRevertToUserPagePriorityThread @ 0x140368F54 (PsRevertToUserPagePriorityThread.c)
+ *     PsSetSystemPagePriorityThread @ 0x140368FAC (PsSetSystemPagePriorityThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiSetDeleteOnClose @ 0x1406239AC (MiSetDeleteOnClose.c)
+ *     RtlGetFunctionOverrideRelocationMaxVpn @ 0x1406797A4 (RtlGetFunctionOverrideRelocationMaxVpn.c)
+ *     MiUpdateImageSystemWideBitmaps @ 0x1406A190C (MiUpdateImageSystemWideBitmaps.c)
+ *     MiSelectImageBase @ 0x1406A1934 (MiSelectImageBase.c)
+ *     MiMapImageInSystemSpace @ 0x1406A53F8 (MiMapImageInSystemSpace.c)
+ *     MiUnmapImageInSystemSpace @ 0x1406A556C (MiUnmapImageInSystemSpace.c)
+ *     MiScanRelocationPage @ 0x1407F2ED0 (MiScanRelocationPage.c)
+ *     MiCompressRelocations @ 0x1407F41B0 (MiCompressRelocations.c)
+ *     MiLogRelocationFaults @ 0x1407F457C (MiLogRelocationFaults.c)
+ *     MiParseImageLoadConfig @ 0x1407F4AEC (MiParseImageLoadConfig.c)
+ *     MiCreateFileOnlyImageFixupList @ 0x140A30D1C (MiCreateFileOnlyImageFixupList.c)
+ *     MiFreeRelocations @ 0x140A45458 (MiFreeRelocations.c)
+ *     MiFreeImageLoadConfig @ 0x140A47684 (MiFreeImageLoadConfig.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiRelocateImage(__int64 a1, __int64 a2, int a3, unsigned int a4, __int64 a5, int a6)
 {
   unsigned int v8; // ebx

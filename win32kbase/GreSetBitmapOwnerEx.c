@@ -1,3 +1,14 @@
+/*
+ * XREFs of GreSetBitmapOwnerEx @ 0x1C001D614
+ * Callers:
+ *     GreSetBrushOwner @ 0x1C001BD80 (GreSetBrushOwner.c)
+ * Callees:
+ *     ?bDIBSection@SURFACE@@QEAAHXZ @ 0x1C001D270 (-bDIBSection@SURFACE@@QEAAHXZ.c)
+ *     HmgDecrementShareReferenceCountEx @ 0x1C00483B0 (HmgDecrementShareReferenceCountEx.c)
+ *     HmgShareLockCheck @ 0x1C0049E60 (HmgShareLockCheck.c)
+ *     HmgSetOwner @ 0x1C00522C0 (HmgSetOwner.c)
+ */
+
 __int64 __fastcall GreSetBitmapOwnerEx(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebp

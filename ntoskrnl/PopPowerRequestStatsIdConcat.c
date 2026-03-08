@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopPowerRequestStatsIdConcat @ 0x14079ABEC
+ * Callers:
+ *     PopPowerRequestStatsGetIdForRequest @ 0x14073C3F4 (PopPowerRequestStatsGetIdForRequest.c)
+ * Callees:
+ *     RtlUnicodeStringCatString @ 0x1402BD420 (RtlUnicodeStringCatString.c)
+ *     RtlUnicodeStringCat @ 0x1402BD900 (RtlUnicodeStringCat.c)
+ *     RtlUnicodeStringValidateDestWorker @ 0x1402BD9D8 (RtlUnicodeStringValidateDestWorker.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopPowerRequestStatsIdConcat(PUNICODE_STRING DestinationString, PCUNICODE_STRING SourceString)
 {
   unsigned int v4; // edi

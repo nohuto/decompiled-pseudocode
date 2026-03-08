@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetIndependentFlipCandidate@CIFlipPresentHistoryTokenRedirectedFlip@@UEBA_NXZ @ 0x1C00198F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CIFlipPresentHistoryTokenRedirectedFlip::GetIndependentFlipCandidate(
         CIFlipPresentHistoryTokenRedirectedFlip *this)
 {

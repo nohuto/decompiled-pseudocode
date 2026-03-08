@@ -1,3 +1,12 @@
+/*
+ * XREFs of vUnlinkEudcRFONTsAndPFEsWorker @ 0x1C02A3238
+ * Callers:
+ *     vUnlinkEudcRFONTsAndPFEs @ 0x1C02A311C (vUnlinkEudcRFONTsAndPFEs.c)
+ * Callees:
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C011DDB0 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     vMakeInactiveHelper @ 0x1C02A2F4C (vMakeInactiveHelper.c)
+ */
+
 void __fastcall vUnlinkEudcRFONTsAndPFEsWorker(_QWORD *a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rdi

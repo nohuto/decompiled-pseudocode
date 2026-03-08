@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopFxDisableWorkOrderWatchdog @ 0x140305680
+ * Callers:
+ *     PopFxDispatchPluginWorkOnce @ 0x14030541C (PopFxDispatchPluginWorkOnce.c)
+ *     PopFxCompleteDirectedPowerTransition @ 0x1405871FC (PopFxCompleteDirectedPowerTransition.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeCancelTimer @ 0x140250B60 (KeCancelTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ */
+
 void __fastcall PopFxDisableWorkOrderWatchdog(__int64 *BugCheckParameter2)
 {
   KIRQL v2; // al

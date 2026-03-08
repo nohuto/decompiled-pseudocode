@@ -1,3 +1,15 @@
+/*
+ * XREFs of VrpRegistryUnload @ 0x140A6F3C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     IoDeleteDevice @ 0x140368010 (IoDeleteDevice.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwUnregister @ 0x14076F9E0 (EtwUnregister.c)
+ *     PsFreeSiloContextSlot @ 0x1409A95C0 (PsFreeSiloContextSlot.c)
+ */
+
 NTSTATUS VrpRegistryUnload()
 {
   REGHANDLE v0; // rcx

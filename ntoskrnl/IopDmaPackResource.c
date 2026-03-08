@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopDmaPackResource @ 0x1409571D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IopDmaPackResource(__int64 a1, int a2, __int64 a3)
 {
   __int16 v3; // ax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vFillGRectDIB24RGB@@YAXPEAVSURFACE@@PEAU_GRADIENTRECTDATA@@@Z @ 0x1C02F9B90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 void __fastcall vFillGRectDIB24RGB(struct SURFACE *a1, struct _GRADIENTRECTDATA *a2)
 {
   __int64 v3; // r12

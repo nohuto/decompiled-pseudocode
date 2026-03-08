@@ -1,3 +1,11 @@
+/*
+ * XREFs of _lambda_97c9cca63d1bce585f2b122b4771693f_::operator() @ 0x1C0125488
+ * Callers:
+ *     ?UmfdZombifyAllUmfdFonts@@YAXXZ @ 0x1C0125298 (-UmfdZombifyAllUmfdFonts@@YAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall lambda_97c9cca63d1bce585f2b122b4771693f_::operator()(__int64 a1, __int64 a2)
 {
   unsigned int i; // r9d

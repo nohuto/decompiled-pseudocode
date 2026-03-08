@@ -1,3 +1,12 @@
+/*
+ * XREFs of TUNNEL_RegisterForPnPNotifications @ 0x1C008E8E4
+ * Callers:
+ *     HUBFDO_EvtPostPoFxRegisterDevice @ 0x1C000EF70 (HUBFDO_EvtPostPoFxRegisterDevice.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 NTSTATUS __fastcall TUNNEL_RegisterForPnPNotifications(__int64 a1)
 {
   __int64 v2; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MulAccumulateD3DDirtyRect@@YAHPEAU_SURFOBJ@@PEAUtagCDDDXGK_REDIRBITMAPPRESENTINFO@@@Z @ 0x1C014E370
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall MulAccumulateD3DDirtyRect(struct _SURFOBJ *a1, struct tagCDDDXGK_REDIRBITMAPPRESENTINFO *a2)
 {
   unsigned int v2; // r8d

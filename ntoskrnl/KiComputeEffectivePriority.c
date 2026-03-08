@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiComputeEffectivePriority @ 0x140342350
+ * Callers:
+ *     KiDirectSwitchThread @ 0x1403414A0 (KiDirectSwitchThread.c)
+ * Callees:
+ *     KiComputeHeteroThreadQos @ 0x1402569B0 (KiComputeHeteroThreadQos.c)
+ *     KiUpdateThreadPriority @ 0x1403437B0 (KiUpdateThreadPriority.c)
+ *     KiAbQueueAutoBoostDpc @ 0x14035845C (KiAbQueueAutoBoostDpc.c)
+ *     KiScheduleNextForegroundBoost @ 0x1403CE5BC (KiScheduleNextForegroundBoost.c)
+ *     KiSetSchedulerAssistPriority @ 0x14040A730 (KiSetSchedulerAssistPriority.c)
+ *     KiSetThreadQosLevelUnsafe @ 0x14045A058 (KiSetThreadQosLevelUnsafe.c)
+ */
+
 char __fastcall KiComputeEffectivePriority(__int64 a1, char a2, unsigned __int64 a3, char a4)
 {
   int v5; // ebp

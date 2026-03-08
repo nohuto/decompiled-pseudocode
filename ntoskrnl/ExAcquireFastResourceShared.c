@@ -1,3 +1,28 @@
+/*
+ * XREFs of ExAcquireFastResourceShared @ 0x1403C3C70
+ * Callers:
+ *     ExpFastResourceLegacyAcquireShared @ 0x1403C33D4 (ExpFastResourceLegacyAcquireShared.c)
+ * Callees:
+ *     KeAbPreWait @ 0x140241620 (KeAbPreWait.c)
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KxWaitForLockChainValid @ 0x140291730 (KxWaitForLockChainValid.c)
+ *     RtlInsertHeadCircularList @ 0x1402E22E4 (RtlInsertHeadCircularList.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x14033B510 (KxWaitForLockOwnerShip.c)
+ *     ExpWaitForResource @ 0x140342994 (ExpWaitForResource.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     ExpTryAcquireResourceShared @ 0x1403C42DC (ExpTryAcquireResourceShared.c)
+ *     ExpAddFastOwnerEntryToThreadList @ 0x1403C4DC8 (ExpAddFastOwnerEntryToThreadList.c)
+ *     ExAcquireFastResourceShared2 @ 0x14040D7F0 (ExAcquireFastResourceShared2.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140457B8E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x14056EF78 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14057DAC8 (KiHaltOnAddressWakeEntireList.c)
+ */
+
 __int64 __fastcall ExAcquireFastResourceShared(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, char a3)
 {
   struct _KTHREAD *CurrentThread; // r10

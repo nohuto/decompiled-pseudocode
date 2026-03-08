@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvlGetEnlightenmentInfo @ 0x140541BC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VslGetNestedPageProtectionFlags @ 0x1402D85B0 (VslGetNestedPageProtectionFlags.c)
+ *     VslGetSecurePciEnabled @ 0x1403B1220 (VslGetSecurePciEnabled.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall HvlGetEnlightenmentInfo(_DWORD *a1)
 {
   __int64 result; // rax

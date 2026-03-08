@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmCheckIdleVeto @ 0x140581B28
+ * Callers:
+ *     PpmIdleCheckCoordinatedStateEligibility @ 0x140582574 (PpmIdleCheckCoordinatedStateEligibility.c)
+ *     PpmIdleCheckProcessorStateEligibility @ 0x1405827EC (PpmIdleCheckProcessorStateEligibility.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PpmCheckIdleVeto(__int64 a1)
 {
   __int64 result; // rax

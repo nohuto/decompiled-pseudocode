@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpPciHandleSecureAccess @ 0x140456190
+ * Callers:
+ *     HalpAcpiAccessSecureAddress @ 0x140456300 (HalpAcpiAccessSecureAddress.c)
+ * Callees:
+ *     HalpPCIConfig @ 0x1402D7810 (HalpPCIConfig.c)
+ *     HalpPciIsAddressWithinMcfg @ 0x14045624E (HalpPciIsAddressWithinMcfg.c)
+ */
+
 char __fastcall HalpPciHandleSecureAccess(char a1, __int16 a2, __int64 a3, void *a4, unsigned int a5, unsigned int *a6)
 {
   unsigned int v9; // edi

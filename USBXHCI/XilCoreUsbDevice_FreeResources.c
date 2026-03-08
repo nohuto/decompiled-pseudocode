@@ -1,3 +1,12 @@
+/*
+ * XREFs of XilCoreUsbDevice_FreeResources @ 0x1C0052FC4
+ * Callers:
+ *     XilCoreUsbDevice_Create @ 0x1C001BA28 (XilCoreUsbDevice_Create.c)
+ *     XilUsbDevice_FreeResources @ 0x1C004814C (XilUsbDevice_FreeResources.c)
+ * Callees:
+ *     CommonBuffer_ReleaseBuffer @ 0x1C001E754 (CommonBuffer_ReleaseBuffer.c)
+ */
+
 void __fastcall XilCoreUsbDevice_FreeResources(_QWORD *a1)
 {
   __int64 v2; // rax

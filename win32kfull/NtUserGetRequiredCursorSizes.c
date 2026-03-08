@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserGetRequiredCursorSizes @ 0x1C00DDEE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ *     ?HandleRequestCursorSizesRequest@CCursorSizes@@QEBAXPEAUtagCURSORSIZEINFO@@@Z @ 0x1C00DDF8C (-HandleRequestCursorSizesRequest@CCursorSizes@@QEBAXPEAUtagCURSORSIZEINFO@@@Z.c)
+ */
+
 __int64 __fastcall NtUserGetRequiredCursorSizes(__int64 a1, volatile void *a2)
 {
   __int64 v4; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiMiracastDdiMiracastDestroyContext @ 0x1C039A39C
+ * Callers:
+ *     DpiMiracastTearDownAssociation @ 0x1C0060BE0 (DpiMiracastTearDownAssociation.c)
+ *     DxgkMiracastStartMiracastSession @ 0x1C00615C4 (DxgkMiracastStartMiracastSession.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pp_EtwWriteTransfer @ 0x1C0062550 (McTemplateK0pp_EtwWriteTransfer.c)
+ */
+
 NTSTATUS __fastcall DpiMiracastDdiMiracastDestroyContext(__int64 a1, __int64 a2, __int64 a3)
 {
   _QWORD *v3; // rbx

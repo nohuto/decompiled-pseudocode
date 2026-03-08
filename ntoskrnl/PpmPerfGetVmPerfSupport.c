@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmPerfGetVmPerfSupport @ 0x14058AE84
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ * Callees:
+ *     PpmReleaseLock @ 0x1402D1F40 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402D1F90 (PpmAcquireLock.c)
+ */
+
 void __fastcall PpmPerfGetVmPerfSupport(__int64 a1)
 {
   bool v2; // zf

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViMiscCheckKeRaiseIrql @ 0x140ADE3AC
+ * Callers:
+ *     VfMiscKeAcquireSpinLockRaiseToDpc_Entry @ 0x140ABD850 (VfMiscKeAcquireSpinLockRaiseToDpc_Entry.c)
+ *     VfMiscKeSynchronizeExecution_Entry @ 0x140ADD0C0 (VfMiscKeSynchronizeExecution_Entry.c)
+ * Callees:
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ */
+
 __int64 __fastcall ViMiscCheckKeRaiseIrql(unsigned __int8 a1)
 {
   ULONG_PTR v1; // rbx

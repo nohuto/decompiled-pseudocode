@@ -1,3 +1,12 @@
+/*
+ * XREFs of Isoch_WdfEvtRingEmptyTimer @ 0x1C0045E90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 char __fastcall Isoch_WdfEvtRingEmptyTimer(__int64 a1)
 {
   __int64 v1; // rax

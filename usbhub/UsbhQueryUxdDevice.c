@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhQueryUxdDevice @ 0x1C005AA70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0023580 (memmove.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_q @ 0x1C002EA5C (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_S @ 0x1C003B830 (WPP_RECORDER_SF_S.c)
+ */
+
 __int64 __fastcall UsbhQueryUxdDevice(__int64 a1, __int64 a2, const void *a3, unsigned int a4, __int64 a5, _DWORD *a6)
 {
   size_t v6; // rdi

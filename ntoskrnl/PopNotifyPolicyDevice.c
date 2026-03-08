@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopNotifyPolicyDevice @ 0x14084A7A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopAcquireTransitionLock @ 0x14082AD04 (PopAcquireTransitionLock.c)
+ *     PopReleaseTransitionLock @ 0x14082AD60 (PopReleaseTransitionLock.c)
+ *     PopEnableHiberFile @ 0x14082ADA4 (PopEnableHiberFile.c)
+ *     PopConnectToPolicyDevice @ 0x14084A820 (PopConnectToPolicyDevice.c)
+ *     PopPolicyDeviceHandleWakeAlarmNotification @ 0x1409915D4 (PopPolicyDeviceHandleWakeAlarmNotification.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopNotifyPolicyDevice(_QWORD *NotificationStructure, PVOID Context)
 {
   unsigned int v2; // edi

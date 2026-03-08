@@ -1,3 +1,18 @@
+/*
+ * XREFs of MxCopyPage @ 0x140B96330
+ * Callers:
+ *     MiInitializeSystemPageTable @ 0x1403483AC (MiInitializeSystemPageTable.c)
+ * Callees:
+ *     KeFlushSingleTb @ 0x140211E60 (KeFlushSingleTb.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KeCopyPage @ 0x14041BC90 (KeCopyPage.c)
+ *     MxGetPhase0Mapping @ 0x140B5049C (MxGetPhase0Mapping.c)
+ */
+
 __int64 __fastcall MxCopyPage(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   unsigned __int64 Phase0Mapping; // rax

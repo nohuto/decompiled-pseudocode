@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIWmiEnableLog @ 0x1C00470A0
+ * Callers:
+ *     ACPIDispatchWmiLog @ 0x1C0046FE0 (ACPIDispatchWmiLog.c)
+ * Callees:
+ *     WPP_RECORDER_SF_IdDD @ 0x1C00472D8 (WPP_RECORDER_SF_IdDD.c)
+ */
+
 __int64 __fastcall ACPIWmiEnableLog(__int64 a1, unsigned int a2, int a3, int a4)
 {
   _InterlockedExchange(&ACPIWmiTraceEnable, 1);

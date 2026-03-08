@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopInvokeStateHandlerTargetProcessor @ 0x140AA53B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopHandleNextState @ 0x140AA4FAC (PopHandleNextState.c)
+ */
+
 void __fastcall PopInvokeStateHandlerTargetProcessor(
         struct _KDPC *Dpc,
         union _SLIST_HEADER *DeferredContext,

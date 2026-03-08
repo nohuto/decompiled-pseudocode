@@ -1,3 +1,37 @@
+/*
+ * XREFs of MiPfnReferenceCountIsZero @ 0x1402879C0
+ * Callers:
+ *     MiWriteCompletePfn @ 0x140212B10 (MiWriteCompletePfn.c)
+ *     MmCheckCachedPageStates @ 0x1402200B0 (MmCheckCachedPageStates.c)
+ *     MiUnlockImageSection @ 0x140225A90 (MiUnlockImageSection.c)
+ *     MiResolveProtoPteFault @ 0x140270A50 (MiResolveProtoPteFault.c)
+ *     MiResolveTransitionFault @ 0x140271760 (MiResolveTransitionFault.c)
+ *     MiMakePageAvoidRead @ 0x140272670 (MiMakePageAvoidRead.c)
+ *     MiProbeUnlockPage @ 0x14027C720 (MiProbeUnlockPage.c)
+ *     MiFinishHardFault @ 0x140284200 (MiFinishHardFault.c)
+ *     MiAddPageToInsertList @ 0x1402848D0 (MiAddPageToInsertList.c)
+ *     MiUnlockMdlWritePages @ 0x140284DD0 (MiUnlockMdlWritePages.c)
+ *     MmUnmapViewInSystemCache @ 0x140285250 (MmUnmapViewInSystemCache.c)
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x140286264 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiWalkEntireImage @ 0x1402862C0 (MiWalkEntireImage.c)
+ *     MiHardFaultPageRelease @ 0x140287C78 (MiHardFaultPageRelease.c)
+ *     MiCombineInitialInstance @ 0x14029CD58 (MiCombineInitialInstance.c)
+ *     MiCombineWithStandbyExisting @ 0x14029F020 (MiCombineWithStandbyExisting.c)
+ *     MiInsertProtectedStandbyPage @ 0x1402DFCF4 (MiInsertProtectedStandbyPage.c)
+ *     MiMirrorPerformBrownWrites @ 0x1406251F8 (MiMirrorPerformBrownWrites.c)
+ *     MiMarkFileOnlyPfnGood @ 0x14063BF34 (MiMarkFileOnlyPfnGood.c)
+ *     MiPurgeBadFileOnlyPages @ 0x14063C678 (MiPurgeBadFileOnlyPages.c)
+ *     MiNoPagesLastChance @ 0x14064E904 (MiNoPagesLastChance.c)
+ *     MiSwapHardFaultPage @ 0x14066A398 (MiSwapHardFaultPage.c)
+ * Callees:
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiSetNonResidentPteHeat @ 0x140287A90 (MiSetNonResidentPteHeat.c)
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ *     MiReleasePageFileSpace @ 0x14034BE0C (MiReleasePageFileSpace.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall MiPfnReferenceCountIsZero(__int64 a1, ULONG_PTR a2)
 {
   ULONG_PTR v4; // r9

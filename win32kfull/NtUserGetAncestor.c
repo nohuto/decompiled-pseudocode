@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserGetAncestor @ 0x1C00C84D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     _GetParent @ 0x1C00C85CC (_GetParent.c)
+ */
+
 __int64 __fastcall NtUserGetAncestor(__int64 a1, __int64 a2, __int64 a3)
 {
   int v3; // edi

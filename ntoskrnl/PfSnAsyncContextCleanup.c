@@ -1,3 +1,13 @@
+/*
+ * XREFs of PfSnAsyncContextCleanup @ 0x1407E1B50
+ * Callers:
+ *     PfSnAsyncPrefetchWorker @ 0x1407E3C20 (PfSnAsyncPrefetchWorker.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PfSnAsyncContextCleanup(_QWORD *a1)
 {
   struct _EX_RUNDOWN_REF *v2; // rcx

@@ -1,3 +1,23 @@
+/*
+ * XREFs of PfpCreateEvent @ 0x1408458E4
+ * Callers:
+ *     PfTStart @ 0x140844B00 (PfTStart.c)
+ *     PfpScenCtxStart @ 0x140844E90 (PfpScenCtxStart.c)
+ *     PfSnInitializePrefetcher @ 0x140B61AEC (PfSnInitializePrefetcher.c)
+ *     PfpParametersInitialize @ 0x140B61C6C (PfpParametersInitialize.c)
+ * Callees:
+ *     RtlLengthSid @ 0x140245EC0 (RtlLengthSid.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateEvent @ 0x140412C10 (ZwCreateEvent.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D26A0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x1406D3290 (RtlpAddKnownAce.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406DB5A0 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406DB640 (RtlCreateAcl.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfpCreateEvent(UNICODE_STRING *a1, EVENT_TYPE a2, PVOID *a3)
 {
   int Acl; // ebx

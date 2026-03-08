@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DXGADAPTER_ReleaseCoreSync@@YAXPEAVDXGADAPTER@@W4DXGADAPTERCORESYNC_LEVEL@@@Z @ 0x1C0016F30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReleaseCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z @ 0x1C0180784 (-ReleaseCoreSync@DXGADAPTER@@QEAAXW4DXGADAPTERCORESYNC_LEVEL@@@Z.c)
+ */
+
 __int64 DXGADAPTER_ReleaseCoreSync()
 {
   return DXGADAPTER::ReleaseCoreSync();

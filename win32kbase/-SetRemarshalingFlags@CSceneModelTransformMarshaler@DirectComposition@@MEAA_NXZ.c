@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CSceneModelTransformMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025EAC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall DirectComposition::CSceneModelTransformMarshaler::SetRemarshalingFlags(
         DirectComposition::CSceneModelTransformMarshaler *this)
 {

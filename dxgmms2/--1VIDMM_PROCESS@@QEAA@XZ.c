@@ -1,3 +1,22 @@
+/*
+ * XREFs of ??1VIDMM_PROCESS@@QEAA@XZ @ 0x1C00944F0
+ * Callers:
+ *     VidMmTerminateProcess @ 0x1C0017830 (VidMmTerminateProcess.c)
+ *     ??_GVIDMM_PROCESS@@QEAAPEAXI@Z @ 0x1C002C7A8 (--_GVIDMM_PROCESS@@QEAAPEAXI@Z.c)
+ * Callees:
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0001998 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1C0001A30 (--3@YAXPEAX@Z.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0001AD8 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?GetMaximumGlobalAdapterCount@DXGGLOBAL@@QEAAKXZ @ 0x1C0001AFC (-GetMaximumGlobalAdapterCount@DXGGLOBAL@@QEAAKXZ.c)
+ *     ?VidMmiClosePartition@@YAXPEAUVIDMM_PARTITION@@@Z @ 0x1C0001B50 (-VidMmiClosePartition@@YAXPEAUVIDMM_PARTITION@@@Z.c)
+ *     ??_GVIDMM_PROCESS_ADAPTER_INFO@@QEAAPEAXI@Z @ 0x1C0014898 (--_GVIDMM_PROCESS_ADAPTER_INFO@@QEAAPEAXI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     ?RequestNewBudget@VIDMM_GLOBAL@@QEAAX_N@Z @ 0x1C0095E30 (-RequestNewBudget@VIDMM_GLOBAL@@QEAAX_N@Z.c)
+ *     ?DestroyVaAllocator@CVirtualAddressAllocator@@QEAAXXZ @ 0x1C00A62CC (-DestroyVaAllocator@CVirtualAddressAllocator@@QEAAXXZ.c)
+ *     ??1VIDMM_PROCESS_FENCE_STORAGE@@QEAA@XZ @ 0x1C00B3050 (--1VIDMM_PROCESS_FENCE_STORAGE@@QEAA@XZ.c)
+ *     ?FreeVmProcessFencePageInGlobalStorage@VIDMM_PROCESS@@QEAAXXZ @ 0x1C00F0E10 (-FreeVmProcessFencePageInGlobalStorage@VIDMM_PROCESS@@QEAAXXZ.c)
+ */
+
 void __fastcall VIDMM_PROCESS::~VIDMM_PROCESS(VIDMM_PROCESS *this)
 {
   __int64 v2; // rbp

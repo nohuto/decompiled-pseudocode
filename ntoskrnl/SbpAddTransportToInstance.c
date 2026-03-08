@@ -1,3 +1,17 @@
+/*
+ * XREFs of SbpAddTransportToInstance @ 0x140B9874C
+ * Callers:
+ *     IopInitializeBootDrivers @ 0x140B57F78 (IopInitializeBootDrivers.c)
+ * Callees:
+ *     IopBuildDeviceIoControlRequest @ 0x14024FAC0 (IopBuildDeviceIoControlRequest.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     IoGetDeviceObjectPointer @ 0x140720950 (IoGetDeviceObjectPointer.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 SbpAddTransportToInstance()
 {
   void *v0; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptCpuidExFuncEnvWindowsKernelmodeWin8_1nLater @ 0x1403ED768
+ * Callers:
+ *     SymCryptCpuidExFunc @ 0x1403B1768 (SymCryptCpuidExFunc.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptCpuidExFuncEnvWindowsKernelmodeWin8_1nLater(_DWORD *a1, unsigned int a2)
 {
   __int64 result; // rax

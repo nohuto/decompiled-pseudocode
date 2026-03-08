@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?LogFailure@details@wil@@YAXPEAXIPEBD110W4FailureType@2@AEBUResultStatus@12@PEBG_NPEAG_KPEAD7PEAUFailureInfo@2@@Z @ 0x1800FBEA8
+ * Callers:
+ *     ??$ReportFailure_Return@$01@details@wil@@YAXPEAXIPEBD110AEBUResultStatus@01@PEBGW4ReportFailureOptions@01@@Z @ 0x180194374 (--$ReportFailure_Return@$01@details@wil@@YAXPEAXIPEBD110AEBUResultStatus@01@PEBGW4ReportFailureO.c)
+ * Callees:
+ *     ?RecordReturn@details@wil@@YAHJ@Z @ 0x1800FC0EC (-RecordReturn@details@wil@@YAHJ@Z.c)
+ *     ?HrToNtStatus@details@wil@@YAJJ@Z @ 0x1801026E0 (-HrToNtStatus@details@wil@@YAJJ@Z.c)
+ *     ?RecordFailFast@details@wil@@YAHJ@Z @ 0x1801046A0 (-RecordFailFast@details@wil@@YAHJ@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??$ReportFailure_Hr@$01@details@wil@@YAXPEAXIPEBD110J@Z @ 0x180193FB0 (--$ReportFailure_Hr@$01@details@wil@@YAXPEAXIPEBD110J@Z.c)
+ *     ?GetFailureLogString@wil@@YAJPEAG_KAEBUFailureInfo@1@@Z @ 0x180195260 (-GetFailureLogString@wil@@YAJPEAG_KAEBUFailureInfo@1@@Z.c)
+ *     ?RecordException@details@wil@@YAHJ@Z @ 0x180196180 (-RecordException@details@wil@@YAHJ@Z.c)
+ *     ?RecordLog@details@wil@@YAHJ@Z @ 0x180196368 (-RecordLog@details@wil@@YAHJ@Z.c)
+ *     ?_FailFastImmediate_Unexpected@in1diag3@details@wil@@YAXXZ @ 0x18019761C (-_FailFastImmediate_Unexpected@in1diag3@details@wil@@YAXXZ.c)
+ */
+
 void __fastcall wil::details::LogFailure(
         __int64 a1,
         int a2,

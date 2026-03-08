@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TryGetFileDeviceRemoteBit@@YAJPEAXPEA_N@Z @ 0x1C00BC65C
+ * Callers:
+ *     ?bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z @ 0x1C00BC0F8 (-bCreateSectionFromHandle@@YAHPEAXPEBGPEAU_FILEVIEW@@HPEAHE@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall TryGetFileDeviceRemoteBit(void *a1, bool *a2)
 {
   NTSTATUS v3; // ebx

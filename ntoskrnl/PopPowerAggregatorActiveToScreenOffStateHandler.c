@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPowerAggregatorActiveToScreenOffStateHandler @ 0x140879490
+ * Callers:
+ *     PopPowerAggregatorInvokeStateMachine @ 0x140872018 (PopPowerAggregatorInvokeStateMachine.c)
+ * Callees:
+ *     PopPowerAggregatorStartNextSession @ 0x1408794D4 (PopPowerAggregatorStartNextSession.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140879638 (PopPowerAggregatorSetCurrentState.c)
+ */
+
 __int64 __fastcall PopPowerAggregatorActiveToScreenOffStateHandler(__int64 a1)
 {
   _DWORD v3[10]; // [rsp+20h] [rbp-28h] BYREF

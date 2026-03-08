@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??$ReportFailure_Win32@$00@details@wil@@YAJPEAXIPEBD110K@Z @ 0x1801FEE6C
+ * Callers:
+ *     ?Return_Win32@in1diag3@details@wil@@YAJPEAXIPEBDK@Z @ 0x1802009AC (-Return_Win32@in1diag3@details@wil@@YAJPEAXIPEBDK@Z.c)
+ * Callees:
+ *     ??$ReportFailure_Base@$00$0A@@details@wil@@YAXPEAXIPEBD110AEBUResultStatus@01@PEBGW4ReportFailureOptions@01@@Z @ 0x1800FBC70 (--$ReportFailure_Base@$00$0A@@details@wil@@YAXPEAXIPEBD110AEBUResultStatus@01@PEBGW4ReportFailur.c)
+ *     ?HrToNtStatus@details@wil@@YAJJ@Z @ 0x1801026E0 (-HrToNtStatus@details@wil@@YAJJ@Z.c)
+ */
+
 __int64 __fastcall wil::details::ReportFailure_Win32<1>(
         __int64 a1,
         __int64 a2,

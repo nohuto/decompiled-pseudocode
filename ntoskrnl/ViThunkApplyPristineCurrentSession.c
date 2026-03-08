@@ -1,3 +1,15 @@
+/*
+ * XREFs of ViThunkApplyPristineCurrentSession @ 0x140AD858C
+ * Callers:
+ *     VfThunkApplyPristineToAllSession @ 0x140AD82CC (VfThunkApplyPristineToAllSession.c)
+ * Callees:
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     VfUtilPrintCheckinString @ 0x140ABF804 (VfUtilPrintCheckinString.c)
+ *     ViThunkGetPristine @ 0x140AD8B80 (ViThunkGetPristine.c)
+ *     MmApplyVerifierToRunningImage @ 0x140AE4F80 (MmApplyVerifierToRunningImage.c)
+ */
+
 __int64 __fastcall ViThunkApplyPristineCurrentSession(__int64 a1)
 {
   int v2; // ebx

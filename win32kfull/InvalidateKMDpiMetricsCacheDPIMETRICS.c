@@ -1,3 +1,15 @@
+/*
+ * XREFs of InvalidateKMDpiMetricsCacheDPIMETRICS @ 0x1C010C82C
+ * Callers:
+ *     DestroyDpiMetricsCache @ 0x1C00B7F10 (DestroyDpiMetricsCache.c)
+ *     SetIconMetrics @ 0x1C010C85C (SetIconMetrics.c)
+ *     xxxSetNCFonts @ 0x1C010E91C (xxxSetNCFonts.c)
+ *     ?SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z @ 0x1C01C8BB4 (-SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z.c)
+ * Callees:
+ *     DeleteMetricsFont @ 0x1C00B8050 (DeleteMetricsFont.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 InvalidateKMDpiMetricsCacheDPIMETRICS()
 {
   __int64 result; // rax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MmMarkHiberPhase @ 0x140AA9B70
+ * Callers:
+ *     PopMarkComponentsBootPhase @ 0x140AA049C (PopMarkComponentsBootPhase.c)
+ * Callees:
+ *     MiQuerySystemBase @ 0x1403030C4 (MiQuerySystemBase.c)
+ *     MiIsRetpolineEnabled @ 0x14036905C (MiIsRetpolineEnabled.c)
+ *     PoSetHiberRange @ 0x14058C400 (PoSetHiberRange.c)
+ *     MiMarkHiberNotCachedPages @ 0x140AA9138 (MiMarkHiberNotCachedPages.c)
+ *     MiMarkKernelPageTablePages @ 0x140AA9288 (MiMarkKernelPageTablePages.c)
+ *     MiMarkNonPagedHiberPhasePages @ 0x140AA9324 (MiMarkNonPagedHiberPhasePages.c)
+ */
+
 __int64 MmMarkHiberPhase()
 {
   __int64 SystemBase; // rax

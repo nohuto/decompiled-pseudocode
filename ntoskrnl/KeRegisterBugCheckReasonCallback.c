@@ -1,3 +1,26 @@
+/*
+ * XREFs of KeRegisterBugCheckReasonCallback @ 0x1402E8DA0
+ * Callers:
+ *     HvlPhase1Initialize @ 0x140384654 (HvlPhase1Initialize.c)
+ *     HvlpInitializeHvCrashdump @ 0x140545BF4 (HvlpInitializeHvCrashdump.c)
+ *     SmPrepareForFatalHeapCorruption @ 0x1405CB2EC (SmPrepareForFatalHeapCorruption.c)
+ *     SmPrepareForFatalPageError @ 0x1405CB3E4 (SmPrepareForFatalPageError.c)
+ *     CarpBugcheckInit @ 0x1405D34B4 (CarpBugcheckInit.c)
+ *     IopInitializeTriageDumpData @ 0x14084C360 (IopInitializeTriageDumpData.c)
+ *     IopInitializeBugCheckDriverData @ 0x140861990 (IopInitializeBugCheckDriverData.c)
+ *     EtwpInitialize @ 0x140B3CA40 (EtwpInitialize.c)
+ *     PspInitPhase0 @ 0x140B3F968 (PspInitPhase0.c)
+ *     HalpMiscInitDiscard @ 0x140B67248 (HalpMiscInitDiscard.c)
+ *     PopRecorderInit @ 0x140B68B08 (PopRecorderInit.c)
+ *     HalpEfiInitialization @ 0x140B68BC0 (HalpEfiInitialization.c)
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KiCheckForDuplicateBugCheckCallback @ 0x1402E8EF0 (KiCheckForDuplicateBugCheckCallback.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 BOOLEAN __stdcall KeRegisterBugCheckReasonCallback(
         PKBUGCHECK_REASON_CALLBACK_RECORD CallbackRecord,
         PKBUGCHECK_REASON_CALLBACK_ROUTINE CallbackRoutine,

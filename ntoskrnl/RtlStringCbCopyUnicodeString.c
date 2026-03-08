@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlStringCbCopyUnicodeString @ 0x1402BD854
+ * Callers:
+ *     PoStoreRequester @ 0x1402BCF14 (PoStoreRequester.c)
+ *     PopSafeCopyUnicodeString @ 0x1402BD794 (PopSafeCopyUnicodeString.c)
+ * Callees:
+ *     RtlUnicodeStringValidateSrcWorker @ 0x1402BDA48 (RtlUnicodeStringValidateSrcWorker.c)
+ */
+
 NTSTATUS __stdcall RtlStringCbCopyUnicodeString(NTSTRSAFE_PWSTR pszDest, size_t cbDest, PCUNICODE_STRING SourceString)
 {
   size_t v3; // rbx

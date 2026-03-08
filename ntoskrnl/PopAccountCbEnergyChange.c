@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopAccountCbEnergyChange @ 0x14086E8D8
+ * Callers:
+ *     PopBatteryApplyCompositeState @ 0x14086E430 (PopBatteryApplyCompositeState.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_char @ 0x1403BE3FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 int PopAccountCbEnergyChange()
 {
   __int64 *v0; // rcx

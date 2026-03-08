@@ -1,3 +1,20 @@
+/*
+ * XREFs of VidSchiCreateContextInternal @ 0x1C0013B3C
+ * Callers:
+ *     VidSchCreateContext @ 0x1C00AC500 (VidSchCreateContext.c)
+ *     VidSchCreateSystemDevices @ 0x1C00C2444 (VidSchCreateSystemDevices.c)
+ * Callees:
+ *     VidSchiInterlockedInsertTailList @ 0x1C00035E0 (VidSchiInterlockedInsertTailList.c)
+ *     VidSchiFreeQueuePacket @ 0x1C0014154 (VidSchiFreeQueuePacket.c)
+ *     VidSchiIncrementContextReference @ 0x1C00146D0 (VidSchiIncrementContextReference.c)
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     McTemplateK0pqqqqqqqqppp_EtwWriteTransfer @ 0x1C003DE9C (McTemplateK0pqqqqqqqqppp_EtwWriteTransfer.c)
+ *     VidSchTerminateContext @ 0x1C00A8F80 (VidSchTerminateContext.c)
+ *     VidSchSetPriorityContext @ 0x1C00ACE20 (VidSchSetPriorityContext.c)
+ */
+
 __int64 __fastcall VidSchiCreateContextInternal(__int64 a1, int *a2, __int64 a3)
 {
   __int64 v4; // rdi

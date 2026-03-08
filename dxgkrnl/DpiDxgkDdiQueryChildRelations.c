@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiDxgkDdiQueryChildRelations @ 0x1C02093E8
+ * Callers:
+ *     DpiFdoEnumChildDevices @ 0x1C02088D0 (DpiFdoEnumChildDevices.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0hbr0pqx_EtwWriteTransfer @ 0x1C0065AC0 (McTemplateK0hbr0pqx_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DpiDxgkDdiQueryChildRelations(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   unsigned __int64 v5; // rbx

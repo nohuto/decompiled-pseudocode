@@ -1,3 +1,13 @@
+/*
+ * XREFs of WheapLoadPolicy @ 0x140B6A2B0
+ * Callers:
+ *     WheaInitialize @ 0x140B3E1A0 (WheaInitialize.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     HalWheaUpdateCmciPolicy @ 0x1403A76C0 (HalWheaUpdateCmciPolicy.c)
+ *     ZwQueryLicenseValue @ 0x140414ED0 (ZwQueryLicenseValue.c)
+ */
+
 __int64 WheapLoadPolicy()
 {
   bool v0; // zf

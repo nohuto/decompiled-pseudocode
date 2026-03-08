@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReferenceByHandle@CoreMsgObject@CoreMessagingK@@SAJPEAXW4ObjectType@2@DPEAPEAU12@@Z @ 0x1C008178C
+ * Callers:
+ *     ?Send@ServerPorts@CoreMessagingK@@SAJPEAXDPEBXI@Z @ 0x1C00814C4 (-Send@ServerPorts@CoreMessagingK@@SAJPEAXDPEBXI@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CoreMessagingK::CoreMsgObject::ReferenceByHandle(void *a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
   NTSTATUS v5; // eax

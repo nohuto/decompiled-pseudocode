@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??1CChannel@@AEAA@XZ @ 0x1801CB2C4
+ * Callers:
+ *     ?Release@CChannel@@UEAAKXZ @ 0x1801CD3F0 (-Release@CChannel@@UEAAKXZ.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ??$_Destroy_range@V?$allocator@UHandleTableEntry@CChannel@@@std@@@std@@YAXPEAUHandleTableEntry@CChannel@@QEAU12@AEAV?$allocator@UHandleTableEntry@CChannel@@@0@@Z @ 0x1800A827C (--$_Destroy_range@V-$allocator@UHandleTableEntry@CChannel@@@std@@@std@@YAXPEAUHandleTableEntry@C.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??_GCCommandBatch@@QEAAPEAXI@Z @ 0x1801B261C (--_GCCommandBatch@@QEAAPEAXI@Z.c)
+ *     ?DestroyChannel@CInternalMilCmdConnection@@QEAAJI@Z @ 0x1801B2658 (-DestroyChannel@CInternalMilCmdConnection@@QEAAJI@Z.c)
+ */
+
 void __fastcall CChannel::~CChannel(CChannel *this)
 {
   _QWORD **v2; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?WriteSettings@InteractiveControlSettings@@QEAAJXZ @ 0x1C02478B0
+ * Callers:
+ *     ?SetExternalParameters@InteractiveControlManager@@QEAAJPEAUtagINTERACTIVECTRL_PARAMETERS@@H@Z @ 0x1C0244330 (-SetExternalParameters@InteractiveControlManager@@QEAAJPEAUtagINTERACTIVECTRL_PARAMETERS@@H@Z.c)
+ * Callees:
+ *     ?_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z @ 0x1C0079E10 (-_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z.c)
+ */
+
 __int64 __fastcall InteractiveControlSettings::WriteSettings(InteractiveControlSettings *this, __int64 a2, __int64 a3)
 {
   int v4; // esi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FxLibraryCreateDevice@@YAJPEAU_UNICODE_STRING@@@Z @ 0x1C0016C4C
+ * Callers:
+ *     DriverEntry @ 0x1C00172E0 (DriverEntry.c)
+ * Callees:
+ *     RtlUnicodeStringPrintf @ 0x1C00178B4 (RtlUnicodeStringPrintf.c)
+ *     ?_CreateAndInitialize@FxCompanionLibrary@@SAJPEAPEAV1@@Z @ 0x1C002DA34 (-_CreateAndInitialize@FxCompanionLibrary@@SAJPEAPEAV1@@Z.c)
+ */
+
 int __fastcall FxLibraryCreateDevice(_UNICODE_STRING *DeviceName)
 {
   unsigned int v2; // ebx

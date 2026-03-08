@@ -1,3 +1,27 @@
+/*
+ * XREFs of xxxSetClassData @ 0x1C00ED168
+ * Callers:
+ *     xxxSetClassLongPtr @ 0x1C00ED0A8 (xxxSetClassLongPtr.c)
+ *     xxxSetClassLong @ 0x1C01BF660 (xxxSetClassLong.c)
+ * Callees:
+ *     GetCPD @ 0x1C000DFB4 (GetCPD.c)
+ *     ?xxxSetClassCursor@@YA_KPEAUtagWND@@PEAUtagCLS@@K_K@Z @ 0x1C0012624 (-xxxSetClassCursor@@YA_KPEAUtagWND@@PEAUtagCLS@@K_K@Z.c)
+ *     ?ClassUnlockWorker@@YAPEAUtagCLS@@PEAU1@@Z @ 0x1C0012890 (-ClassUnlockWorker@@YAPEAUtagCLS@@PEAU1@@Z.c)
+ *     ClassLock @ 0x1C00128B8 (ClassLock.c)
+ *     DwmAsyncChildStyleChange @ 0x1C002E648 (DwmAsyncChildStyleChange.c)
+ *     MapClientNeuterToClientPfn @ 0x1C002FFC4 (MapClientNeuterToClientPfn.c)
+ *     MapClientToServerPfn @ 0x1C0031460 (MapClientToServerPfn.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     DwmGetClassStyle @ 0x1C007E918 (DwmGetClassStyle.c)
+ *     DirtyVisRgnTrackers @ 0x1C00AEA8C (DirtyVisRgnTrackers.c)
+ *     AllocateUnicodeString @ 0x1C00E9BB0 (AllocateUnicodeString.c)
+ *     HMValidateHandleNoRip @ 0x1C01083AC (HMValidateHandleNoRip.c)
+ *     ??1?$SmartObjStackRef@UtagCLS@@@@QEAA@XZ @ 0x1C012DC8C (--1-$SmartObjStackRef@UtagCLS@@@@QEAA@XZ.c)
+ *     ??0?$SmartObjStackRef@UtagCLS@@@@QEAA@PEAUtagCLS@@@Z @ 0x1C012DCA4 (--0-$SmartObjStackRef@UtagCLS@@@@QEAA@PEAUtagCLS@@@Z.c)
+ *     MapServerToClientPfn @ 0x1C024F514 (MapServerToClientPfn.c)
+ */
+
 _QWORD *__fastcall xxxSetClassData(struct tagWND *a1, int a2, unsigned __int64 a3, unsigned int a4)
 {
   __int64 v6; // rbx

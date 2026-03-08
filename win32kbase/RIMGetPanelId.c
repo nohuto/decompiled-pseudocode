@@ -1,3 +1,15 @@
+/*
+ * XREFs of RIMGetPanelId @ 0x1C0030420
+ * Callers:
+ *     ?PopulatePanelId@CInputSpaceRegion@@QEAAXXZ @ 0x1C0030364 (-PopulatePanelId@CInputSpaceRegion@@QEAAXXZ.c)
+ *     RIMGetDeviceLocationInfo @ 0x1C01B67F4 (RIMGetDeviceLocationInfo.c)
+ *     rimFindMonitorForDigitizerWithQDCData @ 0x1C01BE49C (rimFindMonitorForDigitizerWithQDCData.c)
+ * Callees:
+ *     RIMGetPointerDevicePDO @ 0x1C0031414 (RIMGetPointerDevicePDO.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ */
+
 __int64 __fastcall RIMGetPanelId(struct _DEVICE_OBJECT *a1, _WORD *a2, ULONG a3)
 {
   NTSTATUS DevicePropertyData; // ebx

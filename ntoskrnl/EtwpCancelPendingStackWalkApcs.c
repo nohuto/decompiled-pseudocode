@@ -1,3 +1,21 @@
+/*
+ * XREFs of EtwpCancelPendingStackWalkApcs @ 0x14028E24C
+ * Callers:
+ *     EtwpFreeLoggerContext @ 0x1406F29FC (EtwpFreeLoggerContext.c)
+ * Callees:
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402331B0 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeRemoveQueueDpcEx @ 0x14028DB50 (KeRemoveQueueDpcEx.c)
+ *     KeRemoveQueueApc @ 0x1402F7360 (KeRemoveQueueApc.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ *     EtwpFinalizePendingApc @ 0x140460334 (EtwpFinalizePendingApc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall EtwpCancelPendingStackWalkApcs(unsigned int *a1)
 {
   union _SLIST_HEADER *v1; // r15

@@ -1,3 +1,47 @@
+/*
+ * XREFs of CmpInitCmRM @ 0x1407334D4
+ * Callers:
+ *     CmpLoadKeyCommon @ 0x1402B2DEC (CmpLoadKeyCommon.c)
+ *     CmpMountPreloadedHives @ 0x140812EF4 (CmpMountPreloadedHives.c)
+ *     CmpFinishSystemHivesLoad @ 0x140815160 (CmpFinishSystemHivesLoad.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     ExDeleteResourceLite @ 0x140336580 (ExDeleteResourceLite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateResourceManager @ 0x140413B70 (ZwCreateResourceManager.c)
+ *     ZwCreateTransactionManager @ 0x140413CD0 (ZwCreateTransactionManager.c)
+ *     ZwOpenResourceManager @ 0x140414970 (ZwOpenResourceManager.c)
+ *     ZwRecoverResourceManager @ 0x1404151F0 (ZwRecoverResourceManager.c)
+ *     ZwRecoverTransactionManager @ 0x140415210 (ZwRecoverTransactionManager.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     CmpQueryFileSecurityDescriptor @ 0x1406C1120 (CmpQueryFileSecurityDescriptor.c)
+ *     CmpUuidCreate @ 0x140733C60 (CmpUuidCreate.c)
+ *     RtlStringFromGUIDEx @ 0x140733E90 (RtlStringFromGUIDEx.c)
+ *     CmpQueryNameString @ 0x140733F8C (CmpQueryNameString.c)
+ *     ExpAllocateStringRoutine @ 0x140777DB0 (ExpAllocateStringRoutine.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     CmpStartRMLog @ 0x140863C7C (CmpStartRMLog.c)
+ *     HvMarkBaseBlockDirty @ 0x140871E3C (HvMarkBaseBlockDirty.c)
+ *     CmpLogTxrInitEvent @ 0x140A1B858 (CmpLogTxrInitEvent.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     CmpLockRegistry @ 0x140AF2270 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ */
+
 __int64 __fastcall CmpInitCmRM(ULONG_PTR a1, char a2)
 {
   ULONG_PTR v3; // r13

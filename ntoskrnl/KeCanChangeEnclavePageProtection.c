@@ -1,3 +1,14 @@
+/*
+ * XREFs of KeCanChangeEnclavePageProtection @ 0x14056DE10
+ * Callers:
+ *     MiProtectEnclavePages @ 0x140645C9C (MiProtectEnclavePages.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiEncls @ 0x140417230 (KiEncls.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiEnclsStatus @ 0x14056E148 (KiEnclsStatus.c)
+ */
+
 __int64 KeCanChangeEnclavePageProtection()
 {
   _DWORD *v0; // rbp

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??$WriteData@_K@MonitorDataStore@DxgMonitor@@AEAAXPEAXPEBG_K@Z @ 0x1C03CA480
+ * Callers:
+ *     ?WriteQWord@MonitorDataStore@DxgMonitor@@UEAAXPEAXPEBG_K@Z @ 0x1C03CA860 (-WriteQWord@MonitorDataStore@DxgMonitor@@UEAAXPEAXPEBG_K@Z.c)
+ *     ?WriteQWord@MonitorDataStore@DxgMonitor@@UEAAXW4MonitorDataStoreBehavior@2@PEBG_K@Z @ 0x1C03CA880 (-WriteQWord@MonitorDataStore@DxgMonitor@@UEAAXW4MonitorDataStoreBehavior@2@PEBG_K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS DxgMonitor::MonitorDataStore::WriteData<unsigned __int64>(__int64 a1, void *a2, const WCHAR *a3, ...)
 {
   NTSTATUS result; // eax

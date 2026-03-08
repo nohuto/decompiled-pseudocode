@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ReleaseHandleTableEntries@CResourceTable@@QEAA_NPEAVCComposition@@PEAVCChannelContext@@@Z @ 0x180099A64
+ * Callers:
+ *     ?CloseChannel@CComposition@@IEAAJI@Z @ 0x1800A9BF4 (-CloseChannel@CComposition@@IEAAJI@Z.c)
+ * Callees:
+ *     ?DeleteHandle@CResourceTable@@QEAAJI@Z @ 0x180099B0C (-DeleteHandle@CResourceTable@@QEAAJI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CResourceTable::ReleaseHandleTableEntries(
         CResourceTable *this,
         struct CComposition *a2,

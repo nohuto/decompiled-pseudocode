@@ -1,3 +1,23 @@
+/*
+ * XREFs of AlpcpReceiveSynchronousReply @ 0x1407CFC50
+ * Callers:
+ *     AlpcpProcessConnectionRequest @ 0x140717E20 (AlpcpProcessConnectionRequest.c)
+ *     AlpcpReceiveLegacyConnectionReply @ 0x140774E0C (AlpcpReceiveLegacyConnectionReply.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1407CF500 (AlpcpProcessSynchronousRequest.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     AlpcpWaitForSingleObject @ 0x1402E0F40 (AlpcpWaitForSingleObject.c)
+ *     AlpcpSignalAndWait @ 0x14033E350 (AlpcpSignalAndWait.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     AlpcpCancelMessage @ 0x1407141F0 (AlpcpCancelMessage.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     AlpcpInsertMessagePendingQueue @ 0x1407CF440 (AlpcpInsertMessagePendingQueue.c)
+ *     AlpcpLogReceiveMessage @ 0x14097743C (AlpcpLogReceiveMessage.c)
+ */
+
 __int64 __fastcall AlpcpReceiveSynchronousReply(
         __int64 *a1,
         KPROCESSOR_MODE a2,

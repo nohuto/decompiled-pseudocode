@@ -1,3 +1,18 @@
+/*
+ * XREFs of xxxSetShellWindow @ 0x1C0092CAC
+ * Callers:
+ *     NtUserSetShellWindowEx @ 0x1C0092AD0 (NtUserSetShellWindowEx.c)
+ * Callees:
+ *     xxxSetWindowPos @ 0x1C0028F4C (xxxSetWindowPos.c)
+ *     ?_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z @ 0x1C003AB6C (-_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     DwmAsyncShellWindowChange @ 0x1C007DD0C (DwmAsyncShellWindowChange.c)
+ *     xxxGenerateIAMKey @ 0x1C0092EA4 (xxxGenerateIAMKey.c)
+ *     CleanupIAMAccess @ 0x1C0092F00 (CleanupIAMAccess.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     Feature_ReportShellHotKey__private_IsEnabledDeviceUsage @ 0x1C012C740 (Feature_ReportShellHotKey__private_IsEnabledDeviceUsage.c)
+ */
+
 __int64 __fastcall xxxSetShellWindow(struct tagWND *a1, struct tagWND *a2)
 {
   _QWORD *v4; // rsi

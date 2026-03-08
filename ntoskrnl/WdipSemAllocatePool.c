@@ -1,3 +1,14 @@
+/*
+ * XREFs of WdipSemAllocatePool @ 0x140833974
+ * Callers:
+ *     WdipSemFastAllocate @ 0x14083362C (WdipSemFastAllocate.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall WdipSemAllocatePool(int a1)
 {
   struct _KTHREAD *CurrentThread; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of rimCreateDev @ 0x1C00371D0
+ * Callers:
+ *     RIMCreateDev @ 0x1C0036CBC (RIMCreateDev.c)
+ *     RIMVirtCreateDev @ 0x1C019DFF8 (RIMVirtCreateDev.c)
+ * Callees:
+ *     RawInputManagerDeviceObjectCreateKernelHandle @ 0x1C00372A0 (RawInputManagerDeviceObjectCreateKernelHandle.c)
+ *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0037330 (RawInputManagerDeviceObjectResolveHandle.c)
+ *     RawInputManagerDeviceObjectCreate @ 0x1C00373B8 (RawInputManagerDeviceObjectCreate.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 _QWORD *__fastcall rimCreateDev(int a1, int a2, int a3, int a4)
 {
   _QWORD *v4; // rbx

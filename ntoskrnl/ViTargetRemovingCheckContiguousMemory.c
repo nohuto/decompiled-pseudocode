@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViTargetRemovingCheckContiguousMemory @ 0x140AC8C50
+ * Callers:
+ *     VfTargetDriversRemove @ 0x140303260 (VfTargetDriversRemove.c)
+ * Callees:
+ *     VfUtilFreePoolDispatchLevel @ 0x1405CBF00 (VfUtilFreePoolDispatchLevel.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ */
+
 void __fastcall ViTargetRemovingCheckContiguousMemory(ULONG_PTR BugCheckParameter3, __int64 a2)
 {
   struct _SLIST_ENTRY **v2; // rbx

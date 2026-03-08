@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EnsureAlpcCallbackRegistered@ServerPorts@CoreMessagingK@@CAJXZ @ 0x1C00C0944
+ * Callers:
+ *     ?CreateAlpcPort@ServerPorts@CoreMessagingK@@CAJQEAXPEAU_UNICODE_STRING@@PEAUServerPortInfo@2@@Z @ 0x1C00C0834 (-CreateAlpcPort@ServerPorts@CoreMessagingK@@CAJQEAXPEAU_UNICODE_STRING@@PEAUServerPortInfo@2@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 CoreMessagingK::ServerPorts::EnsureAlpcCallbackRegistered(void)
 {
   NTSTATUS v0; // ebx

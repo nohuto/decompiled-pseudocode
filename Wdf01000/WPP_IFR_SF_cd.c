@@ -1,3 +1,13 @@
+/*
+ * XREFs of WPP_IFR_SF_cd @ 0x1C0031714
+ * Callers:
+ *     imp_WdfDeviceConfigureWdmIrpDispatchCallback @ 0x1C00324B0 (imp_WdfDeviceConfigureWdmIrpDispatchCallback.c)
+ *     ?ConfigureDynamicDispatching@FxPkgIo@@QEAAJEPEAUFxCxDeviceInfo@@P6AJPEAUWDFDEVICE__@@EEKPEAXPEAU_IRP@@2@Z2@Z @ 0x1C00621F0 (-ConfigureDynamicDispatching@FxPkgIo@@QEAAJEPEAUFxCxDeviceInfo@@P6AJPEAUWDFDEVICE__@@EEKPEAXPEAU.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_cd(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 flags,

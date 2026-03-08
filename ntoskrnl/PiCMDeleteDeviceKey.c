@@ -1,3 +1,23 @@
+/*
+ * XREFs of PiCMDeleteDeviceKey @ 0x140966320
+ * Callers:
+ *     PiCMHandleIoctl @ 0x1406CF040 (PiCMHandleIoctl.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     PiAuDoesClientHaveAccess @ 0x1406C4454 (PiAuDoesClientHaveAccess.c)
+ *     PiCMReleaseObjectInputData @ 0x1406C7AC0 (PiCMReleaseObjectInputData.c)
+ *     PiCMReturnBasicResultData @ 0x1406C7AF0 (PiCMReturnBasicResultData.c)
+ *     PiCMCaptureObjectInputData @ 0x1406C7B6C (PiCMCaptureObjectInputData.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406D3680 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _SysCtxRegOpenKey @ 0x1406D4350 (_SysCtxRegOpenKey.c)
+ *     RtlUnicodeStringToInteger @ 0x140751D60 (RtlUnicodeStringToInteger.c)
+ *     PiCMConvertDeviceKeyType @ 0x14076C950 (PiCMConvertDeviceKeyType.c)
+ *     _RegRtlEnumKey @ 0x140868D44 (_RegRtlEnumKey.c)
+ *     _CmDeleteDeviceRegKey @ 0x140A5F12C (_CmDeleteDeviceRegKey.c)
+ */
+
 __int64 __fastcall PiCMDeleteDeviceKey(
         unsigned __int64 a1,
         unsigned int a2,

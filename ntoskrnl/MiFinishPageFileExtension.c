@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiFinishPageFileExtension @ 0x1406376C8
+ * Callers:
+ *     MiAttemptPageFileExtension @ 0x140A2F9B4 (MiAttemptPageFileExtension.c)
+ * Callees:
+ *     MiUpdateReserveClusterInfo @ 0x14020B44C (MiUpdateReserveClusterInfo.c)
+ *     MiCoalescePageFileBitmapsCache @ 0x14020B47C (MiCoalescePageFileBitmapsCache.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiFinishPageFileExtension(__int64 a1, __int64 a2, __int64 a3)
 {
   volatile LONG *v3; // rbp

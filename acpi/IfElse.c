@@ -1,3 +1,16 @@
+/*
+ * XREFs of IfElse @ 0x1C0055570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     PushScope @ 0x1C0053D40 (PushScope.c)
+ *     ParsePackageLen @ 0x1C005BEFC (ParsePackageLen.c)
+ */
+
 __int64 __fastcall IfElse(_QWORD *a1, __int64 a2)
 {
   unsigned int v4; // eax

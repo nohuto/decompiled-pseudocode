@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetModuleInformation@details@wil@@YA_NPEAXPEAIPEAD_K@Z @ 0x140009594
+ * Callers:
+ *     ?GetCurrentModuleName@details@wil@@YAPEBDXZ @ 0x140009120 (-GetCurrentModuleName@details@wil@@YAPEBDXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x140005510 (__security_check_cookie.c)
+ *     ?StringCchCopyA@@YAJPEAD_KPEBD@Z @ 0x14000A378 (-StringCchCopyA@@YAJPEAD_KPEBD@Z.c)
+ */
+
 char __fastcall wil::details::GetModuleInformation(LPCWSTR lpModuleName, _DWORD *a2, char *a3, char *a4)
 {
   HMODULE v6; // rcx

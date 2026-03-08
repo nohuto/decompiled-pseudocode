@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetHandleProperty@CCompiledEffectTemplateMarshaler@DirectComposition@@UEAAJIPEAXPEA_N@Z @ 0x1C005CF00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Create@CEvent@DirectComposition@@SAJPEAXHPEAPEAV12@@Z @ 0x1C005CF5C (-Create@CEvent@DirectComposition@@SAJPEAXHPEAPEAV12@@Z.c)
+ */
+
 __int64 __fastcall DirectComposition::CCompiledEffectTemplateMarshaler::SetHandleProperty(
         DirectComposition::CCompiledEffectTemplateMarshaler *this,
         int a2,

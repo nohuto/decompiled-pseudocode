@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpLbrConfigureProcessor @ 0x1405261C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 ULONG_PTR __fastcall HalpLbrConfigureProcessor(ULONG_PTR Argument)
 {
   unsigned int v1; // r11d

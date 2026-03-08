@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxDoSysExpunge @ 0x1C00C9400
+ * Callers:
+ *     xxxDoSysExpungeIfNeeded @ 0x1C012F440 (xxxDoSysExpungeIfNeeded.c)
+ * Callees:
+ *     ?LockRefactorStagingAssertOwned@@YAXAEBUtagDomLock@@@Z @ 0x1C00C9628 (-LockRefactorStagingAssertOwned@@YAXAEBUtagDomLock@@@Z.c)
+ *     ClientFreeLibrary @ 0x1C00C966C (ClientFreeLibrary.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x1C012BEC0 (__report_rangecheckfailure.c)
+ */
+
 void __fastcall xxxDoSysExpunge(__int64 a1)
 {
   int v2; // r14d

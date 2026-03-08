@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?_HandleShellHandwritingDelegatedInput@@YAHPEAUtagTHREADINFO@@W4HDIOPTION@@QEAUtagMSG@@@Z @ 0x1C01B7454
+ * Callers:
+ *     NtUserShellHandwritingHandleDelegatedInput @ 0x1C01DEBA0 (NtUserShellHandwritingHandleDelegatedInput.c)
+ *     NtUserShellHandwritingUndelegateInput @ 0x1C01DEC90 (NtUserShellHandwritingUndelegateInput.c)
+ * Callees:
+ *     ??0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z @ 0x1C0014940 (--0CInpLockGuardExclusive@@QEAA@AEAUCInpLockGuard@@PEAX@Z.c)
+ *     ??1CInpLockGuardExclusive@@QEAA@XZ @ 0x1C0014984 (--1CInpLockGuardExclusive@@QEAA@XZ.c)
+ *     ?_FindShellHandwritingDelegationQMsgFromMsg@@YAHQEAUtagTHREADINFO@@QEAUtagMSG@@PEAPEAUtagQMSG@@@Z @ 0x1C01B734C (-_FindShellHandwritingDelegationQMsgFromMsg@@YAHQEAUtagTHREADINFO@@QEAUtagMSG@@PEAPEAUtagQMSG@@@.c)
+ *     ?_HandleShellHandwritingDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z @ 0x1C01B7500 (-_HandleShellHandwritingDelegatedInputWorker@@YAPEAUtagQMSG@@PEAUtagTHREADINFO@@KPEAU1@@Z.c)
+ */
+
 __int64 __fastcall _HandleShellHandwritingDelegatedInput(struct tagTHREADINFO *a1, unsigned int a2, struct tagMSG *a3)
 {
   struct tagQMSG *v3; // rbx

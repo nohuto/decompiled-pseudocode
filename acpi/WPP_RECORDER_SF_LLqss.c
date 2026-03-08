@@ -1,3 +1,14 @@
+/*
+ * XREFs of WPP_RECORDER_SF_LLqss @ 0x1C0014D18
+ * Callers:
+ *     ACPIBuildProcessDeviceFailure @ 0x1C000E680 (ACPIBuildProcessDeviceFailure.c)
+ *     ACPIBuildProcessDeviceGenericEval @ 0x1C000E740 (ACPIBuildProcessDeviceGenericEval.c)
+ *     ACPIBuildProcessDeviceGenericEvalStrict @ 0x1C000E8D0 (ACPIBuildProcessDeviceGenericEvalStrict.c)
+ *     ACPIBuildProcessThermalZoneFailure @ 0x1C0012A90 (ACPIBuildProcessThermalZoneFailure.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WPP_RECORDER_SF_LLqss(
         __int64 a1,
         unsigned __int8 a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CAtlasedRectsMeshMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0259D10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Marshal@CMarshaledArrayBase@DirectComposition@@IEAA_NPEAPEAVCBatch@2@IPEAKKW4MILCMD@@2_K@Z @ 0x1C0252828 (-Marshal@CMarshaledArrayBase@DirectComposition@@IEAA_NPEAPEAVCBatch@2@IPEAKKW4MILCMD@@2_K@Z.c)
+ *     ?EmitSetIsHitTestVisibleCommand@CAtlasedRectsMeshMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02569B4 (-EmitSetIsHitTestVisibleCommand@CAtlasedRectsMeshMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatc.c)
+ *     ?EmitSetOpacityCommand@CAtlasedRectsMeshMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0257E3C (-EmitSetOpacityCommand@CAtlasedRectsMeshMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ */
+
 char __fastcall DirectComposition::CAtlasedRectsMeshMarshaler::EmitUpdateCommands(
         DirectComposition::CAtlasedRectsMeshMarshaler *this,
         struct DirectComposition::CBatch ***a2)

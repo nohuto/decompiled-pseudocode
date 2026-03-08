@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DisplayID_GetPrimaryUseCase@@YAJPEBUDisplayIDObj@@PEAW4DISPLAY_USE_CASE@@@Z @ 0x1C0071F8C
+ * Callers:
+ *     ?GetUsageParams@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAW4DISPLAY_USE_CASE@@AEA_N1@Z @ 0x1C03CC120 (-GetUsageParams@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAW4DISPLAY_USE_CASE@@AEA_N1@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DisplayID_GetPrimaryUseCase(const struct DisplayIDObj *a1, enum DISPLAY_USE_CASE *a2)
 {
   if ( !a1 || !*((_DWORD *)a1 + 5) || !a2 )

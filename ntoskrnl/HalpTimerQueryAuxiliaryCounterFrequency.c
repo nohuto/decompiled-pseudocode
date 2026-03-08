@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpTimerQueryAuxiliaryCounterFrequency @ 0x1404FC790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpTimerQueryAuxiliaryCounterFrequency(_QWORD *a1)
 {
   if ( !HalpAuxiliaryCounter )

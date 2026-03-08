@@ -1,3 +1,26 @@
+/*
+ * XREFs of PspEnableProcessOptionalXStateFeatures @ 0x1409AB970
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ * Callees:
+ *     KeFlushProcessWriteBuffers @ 0x1402373CC (KeFlushProcessWriteBuffers.c)
+ *     KeInitializeApc @ 0x140237E20 (KeInitializeApc.c)
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeInsertQueueApc @ 0x14027DBF0 (KeInsertQueueApc.c)
+ *     KeCopyXfdMaskToPeb @ 0x14029618C (KeCopyXfdMaskToPeb.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MmCreateKernelStack @ 0x140317B10 (MmCreateKernelStack.c)
+ *     MmDeleteKernelStackEx @ 0x140318070 (MmDeleteKernelStackEx.c)
+ *     KeGetProcessorNodeNumberByIndex @ 0x140353BBC (KeGetProcessorNodeNumberByIndex.c)
+ *     KeEnableOptionalXStateFeaturesApc @ 0x14056FFF0 (KeEnableOptionalXStateFeaturesApc.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PspEnableProcessOptionalXStateFeatures(_QWORD *a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // r14

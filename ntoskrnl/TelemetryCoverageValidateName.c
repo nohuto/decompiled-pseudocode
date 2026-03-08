@@ -1,3 +1,11 @@
+/*
+ * XREFs of TelemetryCoverageValidateName @ 0x1402F9F9C
+ * Callers:
+ *     EtwpCoverageValidateCP @ 0x1402F9EFC (EtwpCoverageValidateCP.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall TelemetryCoverageValidateName(_BYTE *a1)
 {
   int v1; // edx

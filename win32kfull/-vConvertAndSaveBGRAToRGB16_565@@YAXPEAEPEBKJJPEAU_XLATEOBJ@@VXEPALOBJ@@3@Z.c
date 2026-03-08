@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vConvertAndSaveBGRAToRGB16_565@@YAXPEAEPEBKJJPEAU_XLATEOBJ@@VXEPALOBJ@@3@Z @ 0x1C02E68E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 __fastcall vConvertAndSaveBGRAToRGB16_565(__int64 a1, int *a2, int a3, int a4)
 {
   _WORD *v5; // r9

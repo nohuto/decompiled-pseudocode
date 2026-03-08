@@ -1,3 +1,17 @@
+/*
+ * XREFs of PfSnNameQueryWorker @ 0x1402E1560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PfSnVolumeKeyQuery @ 0x14076C3D0 (PfSnVolumeKeyQuery.c)
+ */
+
 void __fastcall PfSnNameQueryWorker(struct _EX_RUNDOWN_REF *a1)
 {
   volatile LONG *v1; // r14

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RemoveThreadPointerHookData@@YAXPEAUtagTHREADINPUTPOINTERLIST@@@Z @ 0x1C0146628
+ * Callers:
+ *     xxxPointerCallHook @ 0x1C01C5F94 (xxxPointerCallHook.c)
+ * Callees:
+ *     ?FreeThreadPointerHookData@@YAXPEAUtagTHREADPOINTERDATA@@@Z @ 0x1C01C6B78 (-FreeThreadPointerHookData@@YAXPEAUtagTHREADPOINTERDATA@@@Z.c)
+ */
+
 void __fastcall RemoveThreadPointerHookData(struct tagTHREADINPUTPOINTERLIST *a1)
 {
   struct tagTHREADPOINTERDATA *v2; // rcx

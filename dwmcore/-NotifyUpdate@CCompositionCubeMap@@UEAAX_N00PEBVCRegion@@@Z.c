@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NotifyUpdate@CCompositionCubeMap@@UEAAX_N00PEBVCRegion@@@Z @ 0x18021FBA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CCompositionCubeMap::NotifyUpdate(
         CCompositionCubeMap *this,
         char a2,

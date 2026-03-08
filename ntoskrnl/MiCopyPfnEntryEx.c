@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiCopyPfnEntryEx @ 0x140213930
+ * Callers:
+ *     MiTradeActivePage @ 0x140211BC0 (MiTradeActivePage.c)
+ *     MiMigratePfn @ 0x140272370 (MiMigratePfn.c)
+ *     MiCombineInitialInstance @ 0x14029CD58 (MiCombineInitialInstance.c)
+ *     MiReplaceTransitionPage @ 0x1402C6784 (MiReplaceTransitionPage.c)
+ *     MiSwapStackPageNoDpc @ 0x1403963DC (MiSwapStackPageNoDpc.c)
+ *     MiStealPage @ 0x1403B70BC (MiStealPage.c)
+ *     MiSwitchKstackPages @ 0x14062B268 (MiSwitchKstackPages.c)
+ *     MiSplitDirectMapPage @ 0x14063CE6C (MiSplitDirectMapPage.c)
+ *     MiSwapNumaStandbyPage @ 0x14064F7E0 (MiSwapNumaStandbyPage.c)
+ *     MiSwapHardFaultPage @ 0x14066A398 (MiSwapHardFaultPage.c)
+ *     MiTradeBootImagePage @ 0x140B3BE4C (MiTradeBootImagePage.c)
+ *     MxSwapPages @ 0x140B50198 (MxSwapPages.c)
+ * Callees:
+ *     MiUpdatePageFileHighInPte @ 0x14032F49C (MiUpdatePageFileHighInPte.c)
+ *     MiSetPfnIdentity @ 0x14034BE78 (MiSetPfnIdentity.c)
+ */
+
 char __fastcall MiCopyPfnEntryEx(__int64 a1, __int128 *a2)
 {
   __int128 v3; // xmm2

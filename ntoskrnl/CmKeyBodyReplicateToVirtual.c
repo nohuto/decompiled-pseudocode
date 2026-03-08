@@ -1,3 +1,39 @@
+/*
+ * XREFs of CmKeyBodyReplicateToVirtual @ 0x140A15598
+ * Callers:
+ *     NtSetInformationKey @ 0x1407590A0 (NtSetInformationKey.c)
+ *     NtSetValueKey @ 0x1407A9030 (NtSetValueKey.c)
+ *     NtRenameKey @ 0x140A0B350 (NtRenameKey.c)
+ * Callees:
+ *     CmpInitializeDelayDerefContext @ 0x140262F00 (CmpInitializeDelayDerefContext.c)
+ *     CmpDrainDelayDerefContext @ 0x140262F30 (CmpDrainDelayDerefContext.c)
+ *     SepDeleteAccessState @ 0x140265F50 (SepDeleteAccessState.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KCBNeedsVirtualImage @ 0x1402DD15C (KCBNeedsVirtualImage.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpLockRegistryExclusive @ 0x1406B6454 (CmpLockRegistryExclusive.c)
+ *     CmpCleanupParseContext @ 0x1406BD6A8 (CmpCleanupParseContext.c)
+ *     CmpLockKcbExclusive @ 0x1407AF778 (CmpLockKcbExclusive.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     SeCreateAccessStateFromSubjectContext @ 0x1409C6FC8 (SeCreateAccessStateFromSubjectContext.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x140A14AA4 (CmpSearchKeyControlBlockTreeEx.c)
+ *     CmpCheckAdminAccess @ 0x140A16150 (CmpCheckAdminAccess.c)
+ *     CmpReparseToVirtualPath @ 0x140A17264 (CmpReparseToVirtualPath.c)
+ *     CmpReplicateKeyToVirtual @ 0x140A17308 (CmpReplicateKeyToVirtual.c)
+ *     CmpExamineSaclForAuditEvent @ 0x140A18BC8 (CmpExamineSaclForAuditEvent.c)
+ *     CmpReportAuditVirtualizationEvent @ 0x140A18D84 (CmpReportAuditVirtualizationEvent.c)
+ *     CmpUnlockKcb @ 0x140AF2140 (CmpUnlockKcb.c)
+ *     CmpLockRegistry @ 0x140AF2270 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ *     CmObReferenceObjectByName @ 0x140AF2458 (CmObReferenceObjectByName.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140AF24F0 (CmpPerformKeyBodyDeletionCheck.c)
+ *     CmpAttachToRegistryProcess @ 0x140AF26E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140AF2710 (CmpDetachFromRegistryProcess.c)
+ */
+
 __int64 __fastcall CmKeyBodyReplicateToVirtual(_QWORD **a1, char a2, ACCESS_MASK a3, __int64 a4)
 {
   _QWORD *v7; // r14

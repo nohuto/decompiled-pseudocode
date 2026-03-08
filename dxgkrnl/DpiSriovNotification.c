@@ -1,3 +1,14 @@
+/*
+ * XREFs of DpiSriovNotification @ 0x1C0399DB8
+ * Callers:
+ *     DpiFdoDispatchIoctl @ 0x1C01D7C80 (DpiFdoDispatchIoctl.c)
+ * Callees:
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005A55C (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ??0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z @ 0x1C005D778 (--0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z.c)
+ *     ??1CInterfaceCallContext@@QEAA@XZ @ 0x1C005D8F0 (--1CInterfaceCallContext@@QEAA@XZ.c)
+ *     DpiFdoGetVirtualGpuType @ 0x1C0396F0C (DpiFdoGetVirtualGpuType.c)
+ */
+
 __int64 __fastcall DpiSriovNotification(_QWORD *a1, struct _IRP *a2, __int64 a3, unsigned int a4)
 {
   __int64 v5; // rdi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?_ShouldGhostWindow@@YA_NPEBUtagWND@@@Z @ 0x1C01F55FC
+ * Callers:
+ *     ?ShouldProcessHungWindow@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C01F5038 (-ShouldProcessHungWindow@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     ?xxxRegisterGhostWindow@@YAHPEAUHWND__@@0@Z @ 0x1C01F62F4 (-xxxRegisterGhostWindow@@YAHPEAUHWND__@@0@Z.c)
+ * Callees:
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     IsWindowBeingDestroyed @ 0x1C0039B60 (IsWindowBeingDestroyed.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ */
+
 bool __fastcall _ShouldGhostWindow(const struct tagWND *a1)
 {
   __int64 v1; // rdi

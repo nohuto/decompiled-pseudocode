@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0SensorDispatcherObject@CRIMBase@@QEAA@XZ @ 0x1C00C42A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 CRIMBase::SensorDispatcherObject *__fastcall CRIMBase::SensorDispatcherObject::SensorDispatcherObject(
         CRIMBase::SensorDispatcherObject *this)
 {

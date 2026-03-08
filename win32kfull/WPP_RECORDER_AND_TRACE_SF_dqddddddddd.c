@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_AND_TRACE_SF_dqddddddddd @ 0x1C00E2C90
+ * Callers:
+ *     ?CreateTopologySnapshot@CMonitorTopology@@SAPEAV1@XZ @ 0x1C00E2DF4 (-CreateTopologySnapshot@CMonitorTopology@@SAPEAV1@XZ.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 _UNKNOWN **WPP_RECORDER_AND_TRACE_SF_dqddddddddd(
         __int64 a1,
         char a2,

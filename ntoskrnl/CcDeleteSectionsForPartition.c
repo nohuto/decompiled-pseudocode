@@ -1,3 +1,20 @@
+/*
+ * XREFs of CcDeleteSectionsForPartition @ 0x140536B34
+ * Callers:
+ *     CcReapPrivateVolumeCachemap @ 0x1403BBD24 (CcReapPrivateVolumeCachemap.c)
+ *     CcExitPartition @ 0x140536FC8 (CcExitPartition.c)
+ * Callees:
+ *     CcDeleteSharedCacheMap @ 0x140217A10 (CcDeleteSharedCacheMap.c)
+ *     CcScheduleLazyWriteScan @ 0x140242B0C (CcScheduleLazyWriteScan.c)
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     MmGetControlAreaPartition @ 0x1402A1224 (MmGetControlAreaPartition.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall CcDeleteSectionsForPartition(_QWORD **a1, __int64 a2)
 {
   char v2; // r14

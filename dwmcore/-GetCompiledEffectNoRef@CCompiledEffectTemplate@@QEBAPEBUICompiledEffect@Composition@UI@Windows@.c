@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetCompiledEffectNoRef@CCompiledEffectTemplate@@QEBAPEBUICompiledEffect@Composition@UI@Windows@@XZ @ 0x18003F68C
+ * Callers:
+ *     ?TryCreateEffectInstance@CEffectBrush@@AEAAJXZ @ 0x18003F4C4 (-TryCreateEffectInstance@CEffectBrush@@AEAAJXZ.c)
+ *     ?AddEffectBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCEffectBrush@@_NPEAPEAVCRenderingTechniqueFragment@@@Z @ 0x18003F6F4 (-AddEffectBrush@CBrushRenderingGraphBuilder@@AEAAJPEAVCEffectBrush@@_NPEAPEAVCRenderingTechnique.c)
+ * Callees:
+ *     <none>
+ */
+
 const struct Windows::UI::Composition::ICompiledEffect *__fastcall CCompiledEffectTemplate::GetCompiledEffectNoRef(
         CCompiledEffectTemplate *this)
 {

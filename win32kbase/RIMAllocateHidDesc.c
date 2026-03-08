@@ -1,3 +1,36 @@
+/*
+ * XREFs of RIMAllocateHidDesc @ 0x1C01AC4D4
+ * Callers:
+ *     RIMCreateHidDesc @ 0x1C0035100 (RIMCreateHidDesc.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C000F0BC (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     ?DbgPrintWarning@@YAXPEADZZ @ 0x1C0034DB0 (-DbgPrintWarning@@YAXPEADZZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_DD @ 0x1C0035414 (WPP_RECORDER_AND_TRACE_SF_DD.c)
+ *     WPP_RECORDER_AND_TRACE_SF_S @ 0x1C0037E30 (WPP_RECORDER_AND_TRACE_SF_S.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C0077CF4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00A07E0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
+ *     RimDeviceTypeToRimInputType @ 0x1C00BC2F4 (RimDeviceTypeToRimInputType.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimIsHidInputDevice @ 0x1C00EFBB2 (rimIsHidInputDevice.c)
+ *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C019AB48 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
+ *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C019ABFC (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
+ *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C019B14C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
+ *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C019B518 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
+ *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C019C49C (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
+ *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C019C93C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
+ *     RIMConfigurePointerDevice @ 0x1C01AD4A0 (RIMConfigurePointerDevice.c)
+ *     RIMFreeHidDesc @ 0x1C01ADFC4 (RIMFreeHidDesc.c)
+ *     RIMGetDeviceFeedbackGlobalIntensityCaps @ 0x1C01AE0E4 (RIMGetDeviceFeedbackGlobalIntensityCaps.c)
+ *     RIMIsInteractiveCtrl @ 0x1C01AF3B8 (RIMIsInteractiveCtrl.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C01B3FEC (RIMCreatePointerDeviceInfo.c)
+ *     RIMApiSetSetUserPTPEnabledPreference @ 0x1C01C0898 (RIMApiSetSetUserPTPEnabledPreference.c)
+ *     ApiSetEtwTracePointerDeviceArrivalStart @ 0x1C0243CA0 (ApiSetEtwTracePointerDeviceArrivalStart.c)
+ *     ApiSetEtwTracePointerDeviceArrivalStop @ 0x1C0243DC8 (ApiSetEtwTracePointerDeviceArrivalStop.c)
+ *     ApiSetInkProcessorIsInkDevice @ 0x1C0244F58 (ApiSetInkProcessorIsInkDevice.c)
+ */
+
 __int64 __fastcall RIMAllocateHidDesc(
         __int64 a1,
         __int64 a2,

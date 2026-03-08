@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptParallelSha256AppendBlocks_ymm @ 0x1403F0FD4
+ * Callers:
+ *     SymCryptParallelSha256Append @ 0x1403EF490 (SymCryptParallelSha256Append.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptParallelSha256AppendBlocks_ymm(__int64 *a1, __int64 *a2, unsigned __int64 a3, __int64 _R9)
 {
   unsigned __int64 v49; // r10

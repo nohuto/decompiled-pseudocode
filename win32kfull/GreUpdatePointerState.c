@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreUpdatePointerState @ 0x1C002A8E0
+ * Callers:
+ *     ?HidePointer@CursorApiRouter@@QEAA_N_N@Z @ 0x1C002A470 (-HidePointer@CursorApiRouter@@QEAA_N_N@Z.c)
+ *     GreHidePointer @ 0x1C002A524 (GreHidePointer.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GreUpdatePointerState(__int64 a1)
 {
   int v1; // esi

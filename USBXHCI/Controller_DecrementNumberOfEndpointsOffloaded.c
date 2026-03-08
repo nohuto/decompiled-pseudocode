@@ -1,3 +1,16 @@
+/*
+ * XREFs of Controller_DecrementNumberOfEndpointsOffloaded @ 0x1C0032DE0
+ * Callers:
+ *     Endpoint_Disable @ 0x1C000B0AC (Endpoint_Disable.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     DynamicLock_Acquire @ 0x1C000A918 (DynamicLock_Acquire.c)
+ *     DynamicLock_Release @ 0x1C000A958 (DynamicLock_Release.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     Interrupter_DeInitializeAfterOffload @ 0x1C003DCEC (Interrupter_DeInitializeAfterOffload.c)
+ */
+
 __int64 __fastcall Controller_DecrementNumberOfEndpointsOffloaded(__int64 a1)
 {
   int v2; // edx

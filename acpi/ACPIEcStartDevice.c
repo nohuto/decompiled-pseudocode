@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIEcStartDevice @ 0x1C0025450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIEcCreateEcData @ 0x1C00250B4 (ACPIEcCreateEcData.c)
+ *     ACPIInitStartDevice @ 0x1C002DA2C (ACPIInitStartDevice.c)
+ *     AMLIIsEqualHandle @ 0x1C0048794 (AMLIIsEqualHandle.c)
+ */
+
 __int64 __fastcall ACPIEcStartDevice(ULONG_PTR a1, __int64 a2)
 {
   __int64 DeviceExtension; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?TerminateDesktopThreads@@YAXXZ @ 0x1C0077D9C
+ * Callers:
+ *     ?InitiateWin32kCleanup@@YAHXZ @ 0x1C0078068 (-InitiateWin32kCleanup@@YAHXZ.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     IPostQuitMessage @ 0x1C00786E8 (IPostQuitMessage.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall TerminateDesktopThreads(__int64 a1)
 {

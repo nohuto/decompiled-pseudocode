@@ -1,3 +1,14 @@
+/*
+ * XREFs of FreeThreadsWinEvents @ 0x1C00C8670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?RemoveNotify@@YAXPEAUtagNOTIFY@@@Z @ 0x1C000F7B0 (-RemoveNotify@@YAXPEAUtagNOTIFY@@@Z.c)
+ *     DestroyEventHook @ 0x1C0035F80 (DestroyEventHook.c)
+ *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C00394B4 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void __fastcall FreeThreadsWinEvents(__int64 a1)
 {
   unsigned int DLT; // eax

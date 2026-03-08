@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@CCompositionGlyphRunMarshaler@DirectComposition@@UEAAJXZ @ 0x1C025B400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CCompositionGlyphRunMarshaler::Initialize(
         DirectComposition::CCompositionGlyphRunMarshaler *this)
 {

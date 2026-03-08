@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmIdlePrepare @ 0x14022AA10
+ * Callers:
+ *     PoIdle @ 0x14022D240 (PoIdle.c)
+ * Callees:
+ *     PpmComputeIdleDurationHint @ 0x14022A658 (PpmComputeIdleDurationHint.c)
+ *     PpmIdleEvaluateConstraints @ 0x14022AB68 (PpmIdleEvaluateConstraints.c)
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall PpmIdlePrepare(
         __int64 a1,
         char a2,

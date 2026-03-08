@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?xxxProcessRecalcForWindow@DesktopRecalc@@YAXPEAUHWND__@@@Z @ 0x1C0229B38
+ * Callers:
+ *     xxxProcessEventMessage @ 0x1C006B460 (xxxProcessEventMessage.c)
+ * Callees:
+ *     ?s_xxxProcessTopologyChange@CRecalcProp@@SAXPEAUHWND__@@PEAVCRecalcContext@@@Z @ 0x1C00FCADC (-s_xxxProcessTopologyChange@CRecalcProp@@SAXPEAUHWND__@@PEAVCRecalcContext@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void __fastcall DesktopRecalc::xxxProcessRecalcForWindow(DesktopRecalc *this, HWND a2)
 {
   _BYTE v2[4]; // [rsp+20h] [rbp-48h] BYREF

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AlphaScanLineBlend@@YAHPEAEPEAU_RECTL@@J0JPEAU_POINTL@@PEAU_XLATEOBJ@@33VXEPALOBJ@@4PEAU_ALPHA_DISPATCH_FORMAT@@@Z @ 0x1C00B4EC0
+ * Callers:
+ *     EngAlphaBlend @ 0x1C00B4820 (EngAlphaBlend.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall AlphaScanLineBlend(
         __int64 a1,
         int *a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserRegisterTouchHitTestingWindow @ 0x1C0100BD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     InternalRemoveProp @ 0x1C002484C (InternalRemoveProp.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     InternalSetProp @ 0x1C01011E0 (InternalSetProp.c)
+ */
+
 __int64 __fastcall NtUserRegisterTouchHitTestingWindow(__int64 a1, int a2)
 {
   __int64 v2; // rdi

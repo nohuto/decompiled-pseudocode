@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBDSM_EnablingU1 @ 0x1C0025380
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBMISC_ControlTransfer @ 0x1C0032664 (HUBMISC_ControlTransfer.c)
+ */
+
 __int64 __fastcall HUBDSM_EnablingU1(__int64 a1)
 {
   __int64 v1; // rbx

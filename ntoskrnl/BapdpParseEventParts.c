@@ -1,3 +1,11 @@
+/*
+ * XREFs of BapdpParseEventParts @ 0x1403805F4
+ * Callers:
+ *     BapdWriteEtwEvents @ 0x140380290 (BapdWriteEtwEvents.c)
+ * Callees:
+ *     <none>
+ */
+
 int *__fastcall BapdpParseEventParts(__int64 a1, unsigned __int16 *a2, unsigned int a3, __int64 a4, int *a5)
 {
   int v5; // r10d

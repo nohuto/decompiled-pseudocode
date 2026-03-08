@@ -1,3 +1,30 @@
+/*
+ * XREFs of HalpAcpiPostSleep @ 0x140A93580
+ * Callers:
+ *     HaliAcpiSleep @ 0x140525AD0 (HaliAcpiSleep.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     HalpAcpiPmRegisterWrite @ 0x1402F76E0 (HalpAcpiPmRegisterWrite.c)
+ *     HalpAcpiPmRegisterAvailable @ 0x1402F9250 (HalpAcpiPmRegisterAvailable.c)
+ *     HalpAcpiPmRegisterRead @ 0x14039CF90 (HalpAcpiPmRegisterRead.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpTimerRestorePerformanceCounter @ 0x1404FC86C (HalpTimerRestorePerformanceCounter.c)
+ *     HalpTimerSwitchStallSource @ 0x1404FCBCC (HalpTimerSwitchStallSource.c)
+ *     HalpTimerInitializeVpptClockTimer @ 0x140506B84 (HalpTimerInitializeVpptClockTimer.c)
+ *     HalpTimerEnableHypervisorTimer @ 0x140508738 (HalpTimerEnableHypervisorTimer.c)
+ *     HalpSetClockAfterSleep @ 0x140508AF0 (HalpSetClockAfterSleep.c)
+ *     HalpHvNotifyDebugDeviceAvailable @ 0x140509AC4 (HalpHvNotifyDebugDeviceAvailable.c)
+ *     HalpRestoreNvsArea @ 0x14051A1F0 (HalpRestoreNvsArea.c)
+ *     HalpPiix4Detect @ 0x140A85B70 (HalpPiix4Detect.c)
+ *     HalpResetSBF @ 0x140A8D7E8 (HalpResetSBF.c)
+ *     HalpRestoreDmaControllerState @ 0x140A92288 (HalpRestoreDmaControllerState.c)
+ *     HalpInterruptReinitialize @ 0x140A923CC (HalpInterruptReinitialize.c)
+ *     HalpCheckFixedWakeSources @ 0x140A93A7C (HalpCheckFixedWakeSources.c)
+ *     HalpCheckLowMemoryPostSleep @ 0x140A93B8C (HalpCheckLowMemoryPostSleep.c)
+ */
+
 char __fastcall HalpAcpiPostSleep(unsigned int a1)
 {
   __int16 v2; // di

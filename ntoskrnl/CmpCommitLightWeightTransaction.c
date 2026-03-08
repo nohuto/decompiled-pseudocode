@@ -1,3 +1,21 @@
+/*
+ * XREFs of CmpCommitLightWeightTransaction @ 0x140A197CC
+ * Callers:
+ *     CmpTransMgrCommit @ 0x1406B5ED0 (CmpTransMgrCommit.c)
+ *     NtCommitRegistryTransaction @ 0x140A0A5F0 (NtCommitRegistryTransaction.c)
+ * Callees:
+ *     CmpInitializeDelayDerefContext @ 0x140262F00 (CmpInitializeDelayDerefContext.c)
+ *     CmpDrainDelayDerefContext @ 0x140262F30 (CmpDrainDelayDerefContext.c)
+ *     ExfUnblockPushLock @ 0x14040CCE0 (ExfUnblockPushLock.c)
+ *     CmpLockRegistryExclusive @ 0x1406B6454 (CmpLockRegistryExclusive.c)
+ *     CmpAbortLightWeightTransaction @ 0x140781F48 (CmpAbortLightWeightTransaction.c)
+ *     CmpCleanupLightWeightTransaction @ 0x140782064 (CmpCleanupLightWeightTransaction.c)
+ *     CmpCleanupLightWeightPrepare @ 0x140A19654 (CmpCleanupLightWeightPrepare.c)
+ *     CmpCommitPreparedLightWeightTransaction @ 0x140A19944 (CmpCommitPreparedLightWeightTransaction.c)
+ *     CmpPrepareLightWeightTransaction @ 0x140A19AB4 (CmpPrepareLightWeightTransaction.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ */
+
 __int64 __fastcall CmpCommitLightWeightTransaction(__int64 a1)
 {
   char v2; // bp

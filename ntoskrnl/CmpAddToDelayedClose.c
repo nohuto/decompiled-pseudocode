@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpAddToDelayedClose @ 0x1406B7220
+ * Callers:
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x1406B7100 (CmpDereferenceKeyControlBlockWithLock.c)
+ * Callees:
+ *     CmpArmDelayedCloseTimer @ 0x140243848 (CmpArmDelayedCloseTimer.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void __fastcall CmpAddToDelayedClose(ULONG_PTR BugCheckParameter2)
 {
   _QWORD *v2; // rax

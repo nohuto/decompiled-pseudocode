@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiAngleArc @ 0x1C02C46B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreAngleArc @ 0x1C02ADE64 (GreAngleArc.c)
+ */
+
 __int64 __fastcall NtGdiAngleArc(HDC a1, int a2, int a3, int a4, unsigned int a5, unsigned int a6)
 {
   unsigned int v10; // ebx

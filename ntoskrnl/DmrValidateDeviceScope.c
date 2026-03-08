@@ -1,3 +1,13 @@
+/*
+ * XREFs of DmrValidateDeviceScope @ 0x14037BE8C
+ * Callers:
+ *     HalpIvtProcessDrhdEntry @ 0x14037B514 (HalpIvtProcessDrhdEntry.c)
+ * Callees:
+ *     DmrGetNextDrhdDeviceScope @ 0x14037BF80 (DmrGetNextDrhdDeviceScope.c)
+ *     DmrGetNextRemappingStructure @ 0x14037BFAC (DmrGetNextRemappingStructure.c)
+ *     DmrCheckPathMatch @ 0x14037C1AC (DmrCheckPathMatch.c)
+ */
+
 __int64 __fastcall DmrValidateDeviceScope(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

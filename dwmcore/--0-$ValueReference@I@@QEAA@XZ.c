@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0?$ValueReference@I@@QEAA@XZ @ 0x18028E6E4
+ * Callers:
+ *     ??$MakeAndInitialize@V?$ValueReference@I@@U?$IReference@I@Foundation@Windows@@J@Details@WRL@Microsoft@@YAJPEAPEAU?$IReference@I@Foundation@Windows@@$$QEAJ@Z @ 0x18028DC88 (--$MakeAndInitialize@V-$ValueReference@I@@U-$IReference@I@Foundation@Windows@@J@Details@WRL@Micr.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??0FtmBase@WRL@Microsoft@@QEAA@XZ @ 0x18028EB68 (--0FtmBase@WRL@Microsoft@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall ValueReference<unsigned int>::ValueReference<unsigned int>(__int64 a1)
 {
   _QWORD *v2; // rdi

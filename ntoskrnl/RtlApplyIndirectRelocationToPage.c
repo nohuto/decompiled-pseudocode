@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlApplyIndirectRelocationToPage @ 0x140677EB4
+ * Callers:
+ *     MiApplyRetpolineFixups @ 0x140209950 (MiApplyRetpolineFixups.c)
+ * Callees:
+ *     RtlpApplyGenericRetpolineFixup @ 0x1402098E0 (RtlpApplyGenericRetpolineFixup.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlpConstructIndirectRelocationFixup @ 0x140678410 (RtlpConstructIndirectRelocationFixup.c)
+ */
+
 _BYTE *__fastcall RtlApplyIndirectRelocationToPage(
         unsigned __int64 a1,
         int a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of AuthzBasepCompareSecurityAttribute @ 0x140776900
+ * Callers:
+ *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x140776804 (AuthzBasepCompareLegacySecurityAttributesInformation.c)
+ *     AuthzBasepCompareSecurityAttributesInformation @ 0x140A57160 (AuthzBasepCompareSecurityAttributesInformation.c)
+ * Callees:
+ *     AuthzBasepFindSecurityAttributeValue @ 0x140297C74 (AuthzBasepFindSecurityAttributeValue.c)
+ */
+
 char __fastcall AuthzBasepCompareSecurityAttribute(__int64 a1, __int64 a2)
 {
   char v2; // si

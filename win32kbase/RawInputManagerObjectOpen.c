@@ -1,3 +1,11 @@
+/*
+ * XREFs of RawInputManagerObjectOpen @ 0x1C0036140
+ * Callers:
+ *     RIMObjectManagerCallout @ 0x1C00360B4 (RIMObjectManagerCallout.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall RawInputManagerObjectOpen(__int64 a1)
 {
   __int64 v1; // rsi

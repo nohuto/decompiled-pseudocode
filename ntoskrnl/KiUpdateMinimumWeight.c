@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiUpdateMinimumWeight @ 0x1402F1B38
+ * Callers:
+ *     KeSetSchedulingGroupWeights @ 0x140200CE0 (KeSetSchedulingGroupWeights.c)
+ *     KeRemoveSchedulingGroup @ 0x1402F1480 (KeRemoveSchedulingGroup.c)
+ *     KeSetSchedulingGroupCpuRates @ 0x1402F19B4 (KeSetSchedulingGroupCpuRates.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall KiUpdateMinimumWeight(int a1, char a2, _DWORD *a3)
 {
   int v5; // r9d

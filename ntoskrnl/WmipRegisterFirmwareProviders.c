@@ -1,3 +1,11 @@
+/*
+ * XREFs of WmipRegisterFirmwareProviders @ 0x140B546C8
+ * Callers:
+ *     WMIInitialize @ 0x140B54790 (WMIInitialize.c)
+ * Callees:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ */
+
 __int64 WmipRegisterFirmwareProviders()
 {
   __int64 result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetNlsTablePath@@YAHIPEAG@Z @ 0x1C027BCE4
+ * Callers:
+ *     ?ConvertToAndFromWideChar@@YAHIPEAGHPEADHH@Z @ 0x1C00BCE20 (-ConvertToAndFromWideChar@@YAHIPEAGHPEADHH@Z.c)
+ * Callees:
+ *     ?StringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1C00BA474 (-StringCchCatW@@YAJPEAG_KPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall GetNlsTablePath(unsigned int a1, char *a2)
 {
   unsigned int v2; // ebx

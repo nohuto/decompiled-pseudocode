@@ -1,3 +1,19 @@
+/*
+ * XREFs of SeAuditBootConfiguration @ 0x14083FCC8
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     SepAdtLogAuditRecord @ 0x140397890 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     BcdUtilGetBootOptionString @ 0x14083FC4C (BcdUtilGetBootOptionString.c)
+ *     BcdUtilGetBootOptionInteger @ 0x14083FC8C (BcdUtilGetBootOptionInteger.c)
+ *     BcdUtilGetBootOptionBoolean @ 0x140840138 (BcdUtilGetBootOptionBoolean.c)
+ */
+
 void __fastcall SeAuditBootConfiguration(__int64 a1)
 {
   _QWORD *PrimaryToken; // r8

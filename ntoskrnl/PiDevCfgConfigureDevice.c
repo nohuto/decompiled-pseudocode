@@ -1,3 +1,46 @@
+/*
+ * XREFs of PiDevCfgConfigureDevice @ 0x14087384C
+ * Callers:
+ *     PiDevCfgProcessDevice @ 0x140873308 (PiDevCfgProcessDevice.c)
+ * Callees:
+ *     PipIsDevNodeDNStarted @ 0x140245658 (PipIsDevNodeDNStarted.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintf @ 0x1403BEBCC (RtlUnicodeStringPrintf.c)
+ *     PnpDuplicateUnicodeString @ 0x1403C2368 (PnpDuplicateUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PnpIsNullGuid @ 0x140689294 (PnpIsNullGuid.c)
+ *     RtlpQueryRegistryValues @ 0x14069B3C0 (RtlpQueryRegistryValues.c)
+ *     _PnpOpenObjectRegKey @ 0x1406CECB8 (_PnpOpenObjectRegKey.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     RtlCompareUnicodeString @ 0x1406EA3B0 (RtlCompareUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140868B00 (_RegRtlDeleteTreeInternal.c)
+ *     PiDevCfgQueryObjectProperties @ 0x14086AC20 (PiDevCfgQueryObjectProperties.c)
+ *     PiDevCfgSetObjectProperty @ 0x140874858 (PiDevCfgSetObjectProperty.c)
+ *     PiDevCfgBuildIndirectString @ 0x1408748EC (PiDevCfgBuildIndirectString.c)
+ *     PiDevCfgConfigureDeviceDriver @ 0x140875764 (PiDevCfgConfigureDeviceDriver.c)
+ *     PiDevCfgMigrateDevice @ 0x1408758B8 (PiDevCfgMigrateDevice.c)
+ *     PipHardwareConfigActivateService @ 0x140875A78 (PipHardwareConfigActivateService.c)
+ *     PiDevCfgGetDeviceClassConfigFlags @ 0x140875C3C (PiDevCfgGetDeviceClassConfigFlags.c)
+ *     PiDevCfgConfigureDeviceLocation @ 0x140875E34 (PiDevCfgConfigureDeviceLocation.c)
+ *     PiDevCfgEnforceDevicePolicy @ 0x140875F3C (PiDevCfgEnforceDevicePolicy.c)
+ *     PiDevCfgQueryDriverConfiguration @ 0x140876268 (PiDevCfgQueryDriverConfiguration.c)
+ *     PiDevCfgBuildDriverNodeStrongName @ 0x1408768C0 (PiDevCfgBuildDriverNodeStrongName.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x140876A38 (PiDevCfgConfigureDeviceKeys.c)
+ *     PiDevCfgVerifyDeviceAllowed @ 0x14087FC64 (PiDevCfgVerifyDeviceAllowed.c)
+ *     PnpDeleteDeviceInterfaces @ 0x1409534E4 (PnpDeleteDeviceInterfaces.c)
+ *     PiDevCfgAppendMultiSz @ 0x1409596C4 (PiDevCfgAppendMultiSz.c)
+ *     PiDevCfgMakeServiceBootStart @ 0x14095BA4C (PiDevCfgMakeServiceBootStart.c)
+ *     PiDevCfgResetDeviceDriverSettings @ 0x14095CBE0 (PiDevCfgResetDeviceDriverSettings.c)
+ *     _CmDeleteDeviceRegKey @ 0x140A5F12C (_CmDeleteDeviceRegKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDevCfgConfigureDevice(__int64 a1, __int64 a2, __int64 a3, int *a4, _DWORD *a5)
 {
   __int64 v6; // r12

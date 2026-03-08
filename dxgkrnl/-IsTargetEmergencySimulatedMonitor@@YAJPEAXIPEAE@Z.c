@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?IsTargetEmergencySimulatedMonitor@@YAJPEAXIPEAE@Z @ 0x1C0167480
+ * Callers:
+ *     ?GetPreferredScaleFactorForMonitor@DpiInternal@@YA_NQEAXIHPEAI@Z @ 0x1C0167338 (-GetPreferredScaleFactorForMonitor@DpiInternal@@YA_NQEAXIHPEAI@Z.c)
+ *     ?IsEmergencyMonitorConnected@@YAJPEAXIPEAE@Z @ 0x1C01697CC (-IsEmergencyMonitorConnected@@YAJPEAXIPEAE@Z.c)
+ * Callees:
+ *     MonitorGetMonitorHandle @ 0x1C0171B54 (MonitorGetMonitorHandle.c)
+ *     MonitorGetMonitorType @ 0x1C017A15C (MonitorGetMonitorType.c)
+ *     MonitorReleaseMonitorHandle @ 0x1C01AE14C (MonitorReleaseMonitorHandle.c)
+ */
+
 __int64 __fastcall IsTargetEmergencySimulatedMonitor(void *a1, __int64 a2, unsigned __int8 *a3)
 {
   int MonitorHandle; // ebx

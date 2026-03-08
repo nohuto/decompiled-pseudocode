@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidSchiProcessIsrVSyncMultiPlaneOverlay3@@YAXPEAU_VIDSCH_GLOBAL@@PEAU_VIDSCH_PRESENT_INFO@@PEAU_DXGKARGCB_NOTIFY_INTERRUPT_DATA@@PEAU_VIDSCH_VSYNC_COOKIE@@@Z @ 0x1C0036460
+ * Callers:
+ *     VidSchiProcessIsrVSync @ 0x1C000B2F0 (VidSchiProcessIsrVSync.c)
+ * Callees:
+ *     memset @ 0x1C001AC80 (memset.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall VidSchiProcessIsrVSyncMultiPlaneOverlay3(
         struct _VIDSCH_GLOBAL *a1,

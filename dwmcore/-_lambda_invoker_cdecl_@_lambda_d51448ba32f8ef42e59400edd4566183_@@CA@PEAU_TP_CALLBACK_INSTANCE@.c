@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_lambda_invoker_cdecl_@_lambda_d51448ba32f8ef42e59400edd4566183_@@CA@PEAU_TP_CALLBACK_INSTANCE@@PEAXPEAU_TP_TIMER@@@Z @ 0x180193D90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FlushUsage@FeatureStateManager@details@wil@@QEAAXXZ @ 0x1801951B4 (-FlushUsage@FeatureStateManager@details@wil@@QEAAXXZ.c)
+ */
+
 void __fastcall _lambda_d51448ba32f8ef42e59400edd4566183_::_lambda_invoker_cdecl_(
         PTP_CALLBACK_INSTANCE Instance,
         RTL_SRWLOCK *Context,

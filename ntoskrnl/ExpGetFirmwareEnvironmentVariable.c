@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExpGetFirmwareEnvironmentVariable @ 0x14075D2DC
+ * Callers:
+ *     NtQuerySystemEnvironmentValueEx @ 0x14075CF50 (NtQuerySystemEnvironmentValueEx.c)
+ *     ExGetFirmwareEnvironmentVariable @ 0x14075D1E0 (ExGetFirmwareEnvironmentVariable.c)
+ * Callees:
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     ExUnlockUserBuffer @ 0x1402CFFD4 (ExUnlockUserBuffer.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     IoGetEnvironmentVariableEx @ 0x14075D3B0 (IoGetEnvironmentVariableEx.c)
+ *     ExLockUserBuffer @ 0x14075D5A4 (ExLockUserBuffer.c)
+ */
+
 __int64 __fastcall ExpGetFirmwareEnvironmentVariable(int a1, int a2, __int64 a3, unsigned int *a4, __int64 a5, char a6)
 {
   int v7; // ebx

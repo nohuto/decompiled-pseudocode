@@ -1,3 +1,16 @@
+/*
+ * XREFs of MincrypK_ParseCertificateChainWithPolicy2 @ 0x14067DCCC
+ * Callers:
+ *     MincrypK_ParseCertificateChainWithPolicy @ 0x140A6D63C (MincrypK_ParseCertificateChainWithPolicy.c)
+ * Callees:
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6CBC8 (MinCryptVerifyCertificateWithPolicy2.c)
+ *     I_MinCryptBuildErrorPolicy @ 0x140A6DC44 (I_MinCryptBuildErrorPolicy.c)
+ *     MinAsn1ExtractParsedCertificatesFromSignedData @ 0x140A6EAD0 (MinAsn1ExtractParsedCertificatesFromSignedData.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MincrypK_ParseCertificateChainWithPolicy2(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rsi

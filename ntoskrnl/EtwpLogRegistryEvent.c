@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpLogRegistryEvent @ 0x1408A24EC
+ * Callers:
+ *     EtwpTraceRegistry @ 0x1408A2820 (EtwpTraceRegistry.c)
+ * Callees:
+ *     EtwpLogSystemEventUnsafe @ 0x14036F9F8 (EtwpLogSystemEventUnsafe.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall EtwpLogRegistryEvent(
         unsigned int a1,
         unsigned __int8 a2,

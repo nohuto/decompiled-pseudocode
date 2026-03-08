@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiInitializeMdlBatchPages @ 0x1402B4150
+ * Callers:
+ *     MiAllocatePagesForMdl @ 0x1402B3B18 (MiAllocatePagesForMdl.c)
+ *     MiReturnMdlExcess @ 0x1406212E8 (MiReturnMdlExcess.c)
+ * Callees:
+ *     MiAbortCombineScan @ 0x14021467C (MiAbortCombineScan.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x1402B4650 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiUpdatePageFileHighInPte @ 0x14032F49C (MiUpdatePageFileHighInPte.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiSetPfnIdentity @ 0x14034BE78 (MiSetPfnIdentity.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiConvertLargePfnToSmall @ 0x14038BB4C (MiConvertLargePfnToSmall.c)
+ *     MiConvertSmallPageRangeToLarge @ 0x1403B3040 (MiConvertSmallPageRangeToLarge.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceShouldYieldProcessor @ 0x1405FB09C (EtwTraceShouldYieldProcessor.c)
+ */
+
 __int64 __fastcall MiInitializeMdlBatchPages(__int64 a1)
 {
   unsigned __int64 v1; // r10

@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoGetSilo @ 0x140294DC0
+ * Callers:
+ *     IopAllocateFoExtensionsOnCreate @ 0x140700A20 (IopAllocateFoExtensionsOnCreate.c)
+ *     IopParseDevice @ 0x1407B6A30 (IopParseDevice.c)
+ *     IopAllocRealFileObject @ 0x1407BA090 (IopAllocRealFileObject.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IoGetSilo(__int64 a1)
 {
   _QWORD *v1; // rax

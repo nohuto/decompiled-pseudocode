@@ -1,3 +1,13 @@
+/*
+ * XREFs of HmgPrefetchAllObjt @ 0x1C00A4130
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C004B5B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 __fastcall HmgPrefetchAllObjt(char a1, __int64 a2)
 {
   unsigned int v4; // edi

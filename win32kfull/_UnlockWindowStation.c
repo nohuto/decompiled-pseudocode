@@ -1,3 +1,11 @@
+/*
+ * XREFs of _UnlockWindowStation @ 0x1C00F0400
+ * Callers:
+ *     NtUserUnlockWindowStation @ 0x1C00F0380 (NtUserUnlockWindowStation.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall UnlockWindowStation(__int64 a1)
 {
   unsigned int v2; // ecx

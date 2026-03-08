@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiScanInterruptObjectList @ 0x140417C90
+ * Callers:
+ *     KiChainedDispatch @ 0x140417850 (KiChainedDispatch.c)
+ * Callees:
+ *     EtwGetKernelTraceTimestamp @ 0x140250530 (EtwGetKernelTraceTimestamp.c)
+ *     KiEndThreadAccountingPeriod @ 0x1402566F0 (KiEndThreadAccountingPeriod.c)
+ *     KiCallInterruptServiceRoutine @ 0x1402B7620 (KiCallInterruptServiceRoutine.c)
+ *     PerfInfoLogInterrupt @ 0x1402CD5F0 (PerfInfoLogInterrupt.c)
+ *     KiEntropyQueueDpc @ 0x1402F31A0 (KiEntropyQueueDpc.c)
+ *     KiDispatchPassiveInterrupts @ 0x14045A370 (KiDispatchPassiveInterrupts.c)
+ *     KzSetIrqlUnsafe @ 0x140569C60 (KzSetIrqlUnsafe.c)
+ */
+
 char __fastcall KiScanInterruptObjectList()
 {
   __int64 v0; // rbp

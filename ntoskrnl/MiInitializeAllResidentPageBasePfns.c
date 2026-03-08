@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiInitializeAllResidentPageBasePfns @ 0x140213BC4
+ * Callers:
+ *     MiCoalesceFreePages @ 0x140278FE0 (MiCoalesceFreePages.c)
+ *     MiDeleteClusterSection @ 0x14034B3A4 (MiDeleteClusterSection.c)
+ *     MiInitializeDynamicPfns @ 0x140618AB8 (MiInitializeDynamicPfns.c)
+ *     MxCreateFreePfns @ 0x140B37690 (MxCreateFreePfns.c)
+ * Callees:
+ *     MiUpdatePageFileHighInPte @ 0x14032F49C (MiUpdatePageFileHighInPte.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall MiInitializeAllResidentPageBasePfns(
         unsigned __int16 *a1,
         __int64 a2,

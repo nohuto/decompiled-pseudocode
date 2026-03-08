@@ -1,3 +1,11 @@
+/*
+ * XREFs of _dynamic_initializer_for__CEllipseGeometry::sc_CenterPoint__ @ 0x1800025D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 dynamic_initializer_for__CEllipseGeometry::sc_CenterPoint__()
 {
   __int64 result; // rax

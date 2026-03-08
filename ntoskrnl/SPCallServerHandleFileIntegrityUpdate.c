@@ -1,3 +1,19 @@
+/*
+ * XREFs of SPCallServerHandleFileIntegrityUpdate @ 0x1407FA154
+ * Callers:
+ *     sub_1406DC290 @ 0x1406DC290 (sub_1406DC290.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwSetCachedSigningLevel @ 0x1404155D0 (ZwSetCachedSigningLevel.c)
+ *     FsRtlSetKernelEaFile @ 0x140786AA0 (FsRtlSetKernelEaFile.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByPointer @ 0x1407C93D0 (ObOpenObjectByPointer.c)
+ *     FsRtlKernelFsControlFile @ 0x1407DB1B0 (FsRtlKernelFsControlFile.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SPCallServerHandleFileIntegrityUpdate(__int64 a1, void *a2, int a3, __int64 a4)
 {
   unsigned int *v6; // rcx

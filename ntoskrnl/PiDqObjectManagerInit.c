@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiDqObjectManagerInit @ 0x14081D390
+ * Callers:
+ *     PiDqInit @ 0x140B5AB90 (PiDqInit.c)
+ * Callees:
+ *     KeInitializeGuardedMutex @ 0x140204750 (KeInitializeGuardedMutex.c)
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 char (__fastcall *__fastcall PiDqObjectManagerInit(PERESOURCE Resource, int a2))(PERESOURCE Resource)
 {
   char (__fastcall *result)(PERESOURCE); // rax

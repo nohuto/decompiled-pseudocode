@@ -1,3 +1,16 @@
+/*
+ * XREFs of Isoch_ProcessTransferCompletion @ 0x1C0044B2C
+ * Callers:
+ *     Isoch_WdfEvtDpcForTransferCompletion @ 0x1C0045AC0 (Isoch_WdfEvtDpcForTransferCompletion.c)
+ *     Isoch_WdfEvtWorkItemForTransferCompletion @ 0x1C0045F40 (Isoch_WdfEvtWorkItemForTransferCompletion.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DD @ 0x1C0007C90 (WPP_RECORDER_SF_DD.c)
+ *     TR_TransfersReclaimed @ 0x1C000E578 (TR_TransfersReclaimed.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Isoch_CompleteTransfers @ 0x1C0043E28 (Isoch_CompleteTransfers.c)
+ *     Isoch_DoesDriverOwnRequests @ 0x1C004400C (Isoch_DoesDriverOwnRequests.c)
+ */
+
 void __fastcall Isoch_ProcessTransferCompletion(__int64 a1)
 {
   char v1; // bp

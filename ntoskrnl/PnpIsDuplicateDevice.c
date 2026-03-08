@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpIsDuplicateDevice @ 0x140950E0C
+ * Callers:
+ *     IopIsReportedAlready @ 0x140803270 (IopIsReportedAlready.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PnpIsDuplicateDevice(_DWORD *a1, _DWORD *a2)
 {
   int v2; // r14d

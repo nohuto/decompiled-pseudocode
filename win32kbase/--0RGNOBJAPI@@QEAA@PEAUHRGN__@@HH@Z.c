@@ -1,3 +1,37 @@
+/*
+ * XREFs of ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00DE3A0
+ * Callers:
+ *     GrePtInRegion @ 0x1C0007000 (GrePtInRegion.c)
+ *     GreEqualRgn @ 0x1C00099E0 (GreEqualRgn.c)
+ *     GreIsValidRegion @ 0x1C000B060 (GreIsValidRegion.c)
+ *     EngDeleteRgn @ 0x1C0019A50 (EngDeleteRgn.c)
+ *     GreGetRegionData @ 0x1C003C510 (GreGetRegionData.c)
+ *     GreCopyVisRgn @ 0x1C003CF00 (GreCopyVisRgn.c)
+ *     GreCombineRgn @ 0x1C0041BD0 (GreCombineRgn.c)
+ *     GreSetRectRgn @ 0x1C0041FD0 (GreSetRectRgn.c)
+ *     GreOffsetRgn @ 0x1C0042C20 (GreOffsetRgn.c)
+ *     GreDeleteObject @ 0x1C0043CD0 (GreDeleteObject.c)
+ *     ?GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z @ 0x1C004592C (-GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z.c)
+ *     ?ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z @ 0x1C0048B20 (-ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z.c)
+ *     SetOrCreateRectRgnIndirectPublic @ 0x1C00517A0 (SetOrCreateRectRgnIndirectPublic.c)
+ *     SetRectRgnIndirect @ 0x1C0051A40 (SetRectRgnIndirect.c)
+ *     bDeleteRegion @ 0x1C0053FA0 (bDeleteRegion.c)
+ *     GreRectInRegion @ 0x1C00A65A0 (GreRectInRegion.c)
+ *     GreGetRgnBox @ 0x1C00A70C0 (GreGetRgnBox.c)
+ *     EngEqualRgn @ 0x1C0197710 (EngEqualRgn.c)
+ *     InitializeGre @ 0x1C031D988 (InitializeGre.c)
+ * Callees:
+ *     ?GrepIsPreviousModeKernel@@YAHXZ @ 0x1C001D054 (-GrepIsPreviousModeKernel@@YAHXZ.c)
+ *     HmgLock @ 0x1C0049C00 (HmgLock.c)
+ *     HmgPentryFromPobj @ 0x1C004A180 (HmgPentryFromPobj.c)
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     ?vSet@RGNOBJ@@QEAAXQEBU_RECTL@@@Z @ 0x1C0051770 (-vSet@RGNOBJ@@QEAAXQEBU_RECTL@@@Z.c)
+ *     ?vSet@RGNOBJ@@QEAAXXZ @ 0x1C0053560 (-vSet@RGNOBJ@@QEAAXXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C008D2C0 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$07@@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$07@@3@Z @ 0x1C0182EDC (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$07@@U1@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
+ */
+
 RGNOBJAPI *__fastcall RGNOBJAPI::RGNOBJAPI(RGNOBJAPI *this, HRGN a2, int a3, int a4)
 {
   __int64 v8; // rax

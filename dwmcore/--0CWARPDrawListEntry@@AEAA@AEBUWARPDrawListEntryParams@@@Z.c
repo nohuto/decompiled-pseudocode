@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??0CWARPDrawListEntry@@AEAA@AEBUWARPDrawListEntryParams@@@Z @ 0x1801FC838
+ * Callers:
+ *     ?Create@CWARPDrawListEntry@@SAJAEBUWARPDrawListEntryParams@@PEAPEAV1@@Z @ 0x1801FCBC0 (-Create@CWARPDrawListEntry@@SAJAEBUWARPDrawListEntryParams@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     ??4WARPDrawListEntryBitmapDesc@@QEAAAEAU0@AEBU0@@Z @ 0x1801FC9E0 (--4WARPDrawListEntryBitmapDesc@@QEAAAEAU0@AEBU0@@Z.c)
+ *     ??0CDrawListEntry@@IEAA@AEBUDrawListEntryParams@@@Z @ 0x180202078 (--0CDrawListEntry@@IEAA@AEBUDrawListEntryParams@@@Z.c)
+ */
+
 CWARPDrawListEntry *__fastcall CWARPDrawListEntry::CWARPDrawListEntry(
         CWARPDrawListEntry *this,
         const struct WARPDrawListEntryParams *a2)

@@ -1,3 +1,14 @@
+/*
+ * XREFs of TtmpTerminal0PowerSettingCallback @ 0x1409A2CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     TtmiTerminalSetDisplayTimeouts @ 0x1409A8608 (TtmiTerminalSetDisplayTimeouts.c)
+ */
+
 __int64 __fastcall TtmpTerminal0PowerSettingCallback(
         LPCGUID SettingGuid,
         int *Value,

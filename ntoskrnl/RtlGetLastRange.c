@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlGetLastRange @ 0x140823720
+ * Callers:
+ *     RtlFindRange @ 0x140823440 (RtlFindRange.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlGetLastRange(__int64 a1, __int64 a2, _QWORD *a3)
 {
   __int64 v3; // r9

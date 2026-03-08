@@ -1,3 +1,14 @@
+/*
+ * XREFs of ViFaultsInitializeTagsList @ 0x140AD387C
+ * Callers:
+ *     VfFaultsInitPhase0 @ 0x140AD2E18 (VfFaultsInitPhase0.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ViFaultsAddAllTags @ 0x140AD3400 (ViFaultsAddAllTags.c)
+ */
+
 __int64 ViFaultsInitializeTagsList()
 {
   unsigned int v0; // ebx

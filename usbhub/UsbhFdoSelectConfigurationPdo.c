@@ -1,3 +1,18 @@
+/*
+ * XREFs of UsbhFdoSelectConfigurationPdo @ 0x1C002AC9C
+ * Callers:
+ *     UsbhPdoInternalDeviceControl @ 0x1C0015370 (UsbhPdoInternalDeviceControl.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     UsbhDecPdoIoCount @ 0x1C001BC4C (UsbhDecPdoIoCount.c)
+ *     WPP_RECORDER_SF_q @ 0x1C002EA5C (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C002ED20 (WPP_RECORDER_SF_qd.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhValidateConfigurationDescriptor @ 0x1C00525F0 (UsbhValidateConfigurationDescriptor.c)
+ */
+
 NTSTATUS __fastcall UsbhFdoSelectConfigurationPdo(
         PDEVICE_OBJECT DeviceObject,
         ULONG_PTR BugCheckParameter3,

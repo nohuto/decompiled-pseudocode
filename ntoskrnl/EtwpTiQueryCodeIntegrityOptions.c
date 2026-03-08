@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpTiQueryCodeIntegrityOptions @ 0x14078FE50
+ * Callers:
+ *     EtwTiLogDriverObjectLoad @ 0x14078FD38 (EtwTiLogDriverObjectLoad.c)
+ * Callees:
+ *     ZwQuerySystemInformation @ 0x1404129D0 (ZwQuerySystemInformation.c)
+ */
+
 __int64 __fastcall EtwpTiQueryCodeIntegrityOptions(_DWORD *a1)
 {
   __int64 result; // rax

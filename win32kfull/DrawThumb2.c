@@ -1,3 +1,19 @@
+/*
+ * XREFs of DrawThumb2 @ 0x1C0013FB8
+ * Callers:
+ *     ?xxxDrawSB2@@YAXPEAUtagWND@@PEAUtagSBCALC@@PEAUHDC__@@HI@Z @ 0x1C0013CD4 (-xxxDrawSB2@@YAXPEAUtagWND@@PEAUtagSBCALC@@PEAUHDC__@@HI@Z.c)
+ *     ?DrawCtlThumb@@YAXPEAUtagSBWND@@@Z @ 0x1C022B9E0 (-DrawCtlThumb@@YAXPEAUtagSBWND@@@Z.c)
+ *     ?xxxDrawThumb@@YAXPEAUtagWND@@PEAUtagSBCALC@@H@Z @ 0x1C022C1A4 (-xxxDrawThumb@@YAXPEAUtagWND@@PEAUtagSBCALC@@H@Z.c)
+ *     ?xxxMoveThumb@@YAXPEAUtagWND@@PEAUtagSBCALC@@H@Z @ 0x1C022C460 (-xxxMoveThumb@@YAXPEAUtagWND@@PEAUtagSBCALC@@H@Z.c)
+ *     xxxSBWndProc @ 0x1C022D770 (xxxSBWndProc.c)
+ * Callees:
+ *     ?DrawGroove@@YAXPEAUHDC__@@PEAUHBRUSH__@@PEAUtagRECT@@H@Z @ 0x1C00140F0 (-DrawGroove@@YAXPEAUHDC__@@PEAUHBRUSH__@@PEAUtagRECT@@H@Z.c)
+ *     DrawPushButton @ 0x1C0086E34 (DrawPushButton.c)
+ *     NtGdiPatBlt @ 0x1C008B370 (NtGdiPatBlt.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z @ 0x1C022BEFC (-RecalcTrackRect@@YAXPEAUtagSBTRACK@@@Z.c)
+ */
+
 void __fastcall DrawThumb2(__int64 a1, _DWORD *a2, HDC a3, HBRUSH a4, int a5, char a6)
 {
   int v6; // eax

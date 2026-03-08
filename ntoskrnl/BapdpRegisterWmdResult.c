@@ -1,3 +1,15 @@
+/*
+ * XREFs of BapdpRegisterWmdResult @ 0x140B94A14
+ * Callers:
+ *     BapdpProcessWmdResults @ 0x140B42B54 (BapdpProcessWmdResults.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ */
+
 int __fastcall BapdpRegisterWmdResult(ULONG *Data)
 {
   int result; // eax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIPepWorker @ 0x1C008B020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     ACPIPepGetNextPlatformNotification @ 0x1C008A8F0 (ACPIPepGetNextPlatformNotification.c)
+ *     ACPIPepPlatformEntryExitNotify @ 0x1C008ACCC (ACPIPepPlatformEntryExitNotify.c)
+ */
+
 void __fastcall ACPIPepWorker(__int64 a1, char a2)
 {
   struct _FAST_MUTEX *v2; // rdi

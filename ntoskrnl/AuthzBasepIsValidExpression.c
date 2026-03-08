@@ -1,3 +1,11 @@
+/*
+ * XREFs of AuthzBasepIsValidExpression @ 0x1402DA698
+ * Callers:
+ *     AuthzBasepEvaluateAceCondition @ 0x140246980 (AuthzBasepEvaluateAceCondition.c)
+ * Callees:
+ *     AuthzBasepSupportSetOperation @ 0x1402DA7DC (AuthzBasepSupportSetOperation.c)
+ */
+
 bool __fastcall AuthzBasepIsValidExpression(__int64 a1, __int64 a2, int a3, _BYTE *a4)
 {
   unsigned int v4; // esi

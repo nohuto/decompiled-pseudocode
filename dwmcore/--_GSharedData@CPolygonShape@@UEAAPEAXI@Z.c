@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??_GSharedData@CPolygonShape@@UEAAPEAXI@Z @ 0x1800F1420
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ @ 0x1800E0830 (-InternalRelease@-$ComPtr@UID2D1PathGeometry@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ */
+
 CPolygonShape::SharedData *__fastcall CPolygonShape::SharedData::`scalar deleting destructor'(
         CPolygonShape::SharedData *this,
         char a2)

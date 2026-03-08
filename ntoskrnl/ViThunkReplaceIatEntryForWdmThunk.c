@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViThunkReplaceIatEntryForWdmThunk @ 0x140AD9048
+ * Callers:
+ *     ViThunkReplaceAllThunkedImports @ 0x140AD8EC8 (ViThunkReplaceAllThunkedImports.c)
+ * Callees:
+ *     VfIsVerifierEnabled @ 0x14036B1B0 (VfIsVerifierEnabled.c)
+ *     MmReplaceImportEntry @ 0x14062A6B8 (MmReplaceImportEntry.c)
+ */
+
 __int64 __fastcall ViThunkReplaceIatEntryForWdmThunk(_QWORD *a1, _QWORD *a2)
 {
   _QWORD *v2; // rbx

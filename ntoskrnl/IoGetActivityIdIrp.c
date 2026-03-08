@@ -1,3 +1,12 @@
+/*
+ * XREFs of IoGetActivityIdIrp @ 0x1402C1630
+ * Callers:
+ *     IoPropagateActivityIdToThread @ 0x1402B1D20 (IoPropagateActivityIdToThread.c)
+ *     EtwpTraceIo @ 0x14035E9C0 (EtwpTraceIo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IoGetActivityIdIrp(__int64 a1, _OWORD *a2)
 {
   __int64 v2; // rax

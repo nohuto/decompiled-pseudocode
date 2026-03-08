@@ -1,3 +1,14 @@
+/*
+ * XREFs of KdpPrintString @ 0x140AAF4EC
+ * Callers:
+ *     KdRefreshDebuggerNotPresent @ 0x1403ACAF0 (KdRefreshDebuggerNotPresent.c)
+ *     KdpPrint @ 0x140AB2368 (KdpPrint.c)
+ * Callees:
+ *     KdpPollBreakInWithPortLock @ 0x1403ACB6C (KdpPollBreakInWithPortLock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KdpCopyMemoryChunks @ 0x140AAD0F4 (KdpCopyMemoryChunks.c)
+ */
+
 bool __fastcall KdpPrintString(unsigned __int16 *a1)
 {
   unsigned int v1; // r8d

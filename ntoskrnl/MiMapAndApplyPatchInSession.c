@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiMapAndApplyPatchInSession @ 0x140A37338
+ * Callers:
+ *     MiActOnPatchInAllSessions @ 0x140A31950 (MiActOnPatchInAllSessions.c)
+ *     MiApplySingleSessionPatch @ 0x140A333E0 (MiApplySingleSessionPatch.c)
+ * Callees:
+ *     KeIsImageIATProtected @ 0x14056A0EC (KeIsImageIATProtected.c)
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ *     MmUnloadSystemImage @ 0x1407F5FA0 (MmUnloadSystemImage.c)
+ *     MiFreeLoadedImportList @ 0x1407F6CA0 (MiFreeLoadedImportList.c)
+ *     MiDriverLoadSucceeded @ 0x1407F6FFC (MiDriverLoadSucceeded.c)
+ *     MiAddEntryToImportList @ 0x140A282AC (MiAddEntryToImportList.c)
+ *     MiApplyHotPatchToDriverDataPages @ 0x140A32268 (MiApplyHotPatchToDriverDataPages.c)
+ *     MiInvokePatchCallback @ 0x140A351D0 (MiInvokePatchCallback.c)
+ *     RtlFindHotPatchBase @ 0x140A7380C (RtlFindHotPatchBase.c)
+ *     RtlFindHotPatchInformation @ 0x140A7383C (RtlFindHotPatchInformation.c)
+ */
+
 __int64 __fastcall MiMapAndApplyPatchInSession(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 *v3; // r12

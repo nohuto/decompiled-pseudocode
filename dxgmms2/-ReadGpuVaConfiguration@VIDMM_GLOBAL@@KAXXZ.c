@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReadGpuVaConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00BEE90
+ * Callers:
+ *     ?ReadConfiguration@VIDMM_GLOBAL@@KAXXZ @ 0x1C00C0968 (-ReadConfiguration@VIDMM_GLOBAL@@KAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ */
+
 void VIDMM_GLOBAL::ReadGpuVaConfiguration(void)
 {
   int v0; // [rsp+30h] [rbp-D0h] BYREF

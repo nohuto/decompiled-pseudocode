@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhGetSerialNumber @ 0x1C00509A4
+ * Callers:
+ *     UsbhSyncResetDeviceInternal @ 0x1C0019820 (UsbhSyncResetDeviceInternal.c)
+ *     UsbhSetupDevice @ 0x1C0039728 (UsbhSetupDevice.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhFreeID @ 0x1C00503BC (UsbhFreeID.c)
+ *     UsbhValidateSerialNumberString @ 0x1C0052FB8 (UsbhValidateSerialNumberString.c)
+ *     UsbhValidateStringDescriptor @ 0x1C00530B4 (UsbhValidateStringDescriptor.c)
+ *     UsbhGetStringFromDevice @ 0x1C0054830 (UsbhGetStringFromDevice.c)
+ */
+
 __int64 __fastcall UsbhGetSerialNumber(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v4; // ebx

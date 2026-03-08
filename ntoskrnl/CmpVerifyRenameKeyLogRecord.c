@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpVerifyRenameKeyLogRecord @ 0x140A1C6C4
+ * Callers:
+ *     CmpVerifyLogRecord @ 0x140A1C5E0 (CmpVerifyLogRecord.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmpVerifyRenameKeyLogRecord(__int64 a1)
 {
   unsigned int v1; // edx

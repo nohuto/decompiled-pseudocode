@@ -1,3 +1,11 @@
+/*
+ * XREFs of DxgkCreateDoDPrimarySection @ 0x1C02B8110
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 PVOID __fastcall DxgkCreateDoDPrimarySection(__int64 a1, unsigned int a2)
 {
   unsigned int v2; // eax

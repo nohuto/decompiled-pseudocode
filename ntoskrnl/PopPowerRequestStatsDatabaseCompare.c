@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopPowerRequestStatsDatabaseCompare @ 0x140797850
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlCompareUnicodeString @ 0x1406EA3B0 (RtlCompareUnicodeString.c)
+ */
+
 __int64 __fastcall PopPowerRequestStatsDatabaseCompare(
         struct _RTL_AVL_TABLE *Table,
         _QWORD *FirstStruct,

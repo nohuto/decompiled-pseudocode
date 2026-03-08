@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopFetchConfigurationInformation @ 0x140B54DF4
+ * Callers:
+ *     IopCreateArcNamesDisk @ 0x140B54B24 (IopCreateArcNamesDisk.c)
+ *     IopCreateArcNamesCd @ 0x140B54C8C (IopCreateArcNamesCd.c)
+ * Callees:
+ *     IoGetDeviceInterfaces @ 0x1406C3A60 (IoGetDeviceInterfaces.c)
+ */
+
 __int64 __fastcall IopFetchConfigurationInformation(
         PZZWSTR *SymbolicLinkList,
         GUID *InterfaceClassGuid,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpHandleMaskUnmaskSecondaryInterrupt @ 0x140517A94
+ * Callers:
+ *     HalpMaskInterrupt @ 0x140376370 (HalpMaskInterrupt.c)
+ *     HalpUnmaskInterrupt @ 0x140379600 (HalpUnmaskInterrupt.c)
+ * Callees:
+ *     HalpIsInterruptTypeSecondary @ 0x1402FCE50 (HalpIsInterruptTypeSecondary.c)
+ *     HalpFindSecondaryIcEntry @ 0x140379320 (HalpFindSecondaryIcEntry.c)
+ *     HalpReleaseSecondaryIcEntryShared @ 0x140379B70 (HalpReleaseSecondaryIcEntryShared.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpHandleMaskUnmaskSecondaryInterrupt(unsigned int a1, unsigned int a2, char a3)
 {
   int v6; // edi

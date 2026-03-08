@@ -1,3 +1,14 @@
+/*
+ * XREFs of MNClearCachedPopupSizes @ 0x1C023B1B0
+ * Callers:
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ *     xxxMNOpenHierarchy @ 0x1C021B7B0 (xxxMNOpenHierarchy.c)
+ *     xxxTrackPopupMenuEx @ 0x1C02353CC (xxxTrackPopupMenuEx.c)
+ *     xxxMenuBarCompute @ 0x1C023BEA8 (xxxMenuBarCompute.c)
+ * Callees:
+ *     MNRefreshUAHCachedSizes @ 0x1C023B230 (MNRefreshUAHCachedSizes.c)
+ */
+
 __int64 __fastcall MNClearCachedPopupSizes(_QWORD *a1)
 {
   __int64 v1; // rax

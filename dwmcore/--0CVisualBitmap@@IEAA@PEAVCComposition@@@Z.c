@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CVisualBitmap@@IEAA@PEAVCComposition@@@Z @ 0x1801BE490
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     ??0CContent@@IEAA@PEAVCComposition@@@Z @ 0x1800B8F68 (--0CContent@@IEAA@PEAVCComposition@@@Z.c)
+ */
+
 CVisualBitmap *__fastcall CVisualBitmap::CVisualBitmap(CVisualBitmap *this, struct CComposition *a2)
 {
   CVisualBitmap *v2; // r9

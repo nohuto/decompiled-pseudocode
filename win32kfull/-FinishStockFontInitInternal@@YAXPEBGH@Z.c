@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?FinishStockFontInitInternal@@YAXPEBGH@Z @ 0x1C00BA144
+ * Callers:
+ *     FinishStockFontInit @ 0x1C00B9D70 (FinishStockFontInit.c)
+ * Callees:
+ *     ?bGetRegString@@YA_NPEAXPEBGPEAGK@Z @ 0x1C00BA3C4 (-bGetRegString@@YA_NPEAXPEBGPEAGK@Z.c)
+ *     ?StringCchCatW@@YAJPEAG_KPEBG@Z @ 0x1C00BA474 (-StringCchCatW@@YAJPEAG_KPEBG@Z.c)
+ *     ?bOpenKey@@YAHPEBGPEAPEAX@Z @ 0x1C00BA544 (-bOpenKey@@YAHPEBGPEAPEAX@Z.c)
+ *     bDeleteFont @ 0x1C00BA960 (bDeleteFont.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     bInitOneStockFontInternal @ 0x1C03B6790 (bInitOneStockFontInternal.c)
+ */
+
 void __fastcall FinishStockFontInitInternal(const unsigned __int16 *a1, int a2)
 {
   unsigned int v3; // edi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifPsTerminateSystemThreadWrapper @ 0x1405E87D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     PsTerminateSystemThread @ 0x1407DC870 (PsTerminateSystemThread.c)
+ */
+
 NTSTATUS __fastcall DifPsTerminateSystemThreadWrapper(NTSTATUS ExitStatus)
 {
   __int64 *APIThunkContextById; // rax

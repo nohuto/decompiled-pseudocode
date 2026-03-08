@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiAbEntryUpdateOwnerTreePosition @ 0x14035827C
+ * Callers:
+ *     KiAbProcessThreadLocks @ 0x140239A40 (KiAbProcessThreadLocks.c)
+ *     KiDispatchInterrupt @ 0x140255DA0 (KiDispatchInterrupt.c)
+ *     KiSwapThread @ 0x14025F500 (KiSwapThread.c)
+ * Callees:
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ *     KiAbOwnerComputeCpuPriorityKey @ 0x140358338 (KiAbOwnerComputeCpuPriorityKey.c)
+ */
+
 char __fastcall KiAbEntryUpdateOwnerTreePosition(__int64 a1, __int64 a2)
 {
   char result; // al

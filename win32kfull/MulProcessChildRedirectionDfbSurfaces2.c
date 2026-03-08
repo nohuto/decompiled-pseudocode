@@ -1,3 +1,11 @@
+/*
+ * XREFs of MulProcessChildRedirectionDfbSurfaces2 @ 0x1C02B58C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsMetaRedirectionBitmap@@YAHPEAU_SURFOBJ@@@Z @ 0x1C014E342 (-IsMetaRedirectionBitmap@@YAHPEAU_SURFOBJ@@@Z.c)
+ */
+
 __int64 __fastcall MulProcessChildRedirectionDfbSurfaces2(struct _SURFOBJ *a1, __int64 a2)
 {
   PVOID *p_pvScan0; // rdi

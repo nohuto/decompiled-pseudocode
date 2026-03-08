@@ -1,3 +1,14 @@
+/*
+ * XREFs of FsRtlOplockBreakToNoneEx @ 0x14053B920
+ * Callers:
+ *     FsRtlOplockBreakToNone @ 0x14053B8C0 (FsRtlOplockBreakToNone.c)
+ * Callees:
+ *     FsRtlpOplockBreakByCacheFlags @ 0x14023BD20 (FsRtlpOplockBreakByCacheFlags.c)
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     FsRtlpOplockBreakToNone @ 0x14053C500 (FsRtlpOplockBreakToNone.c)
+ */
+
 NTSTATUS __stdcall FsRtlOplockBreakToNoneEx(
         POPLOCK Oplock,
         PIRP Irp,

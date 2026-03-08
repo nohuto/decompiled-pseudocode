@@ -1,3 +1,13 @@
+/*
+ * XREFs of WmipOpenGuidObject @ 0x14069B120
+ * Callers:
+ *     WmipOpenBlock @ 0x14069AF1C (WmipOpenBlock.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     WmipCreateGuidObject @ 0x14069AA20 (WmipCreateGuidObject.c)
+ *     WmipUuidFromString @ 0x14069B1D8 (WmipUuidFromString.c)
+ */
+
 __int64 __fastcall WmipOpenGuidObject(__int64 a1, __int64 a2, int a3, _QWORD *a4)
 {
   __int64 v4; // rax

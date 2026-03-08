@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?OnDaemonTimer@ForegroundLaunch@@YAXXZ @ 0x1C00CE5F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_Ddd @ 0x1C000BA0C (WPP_RECORDER_AND_TRACE_SF_Ddd.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C003F908 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     LockProcessByClientId @ 0x1C0099860 (LockProcessByClientId.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void __fastcall ForegroundLaunch::OnDaemonTimer(ForegroundLaunch *this)
 {
   __int64 v1; // rbx

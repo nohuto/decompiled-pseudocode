@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionUpdateSASModifiers @ 0x1C0102CC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?VKTOMODIFIERS@@YAIE@Z @ 0x1C0148E14 (-VKTOMODIFIERS@@YAIE@Z.c)
+ */
+
 void __fastcall EditionUpdateSASModifiers(int a1, unsigned __int8 a2, __int16 a3)
 {
   __int64 v3; // rcx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??0CMouseProcessor@@IEAA@XZ @ 0x1C0095D40
+ * Callers:
+ *     ?CreateInstance@CMouseProcessor@@SAJPEAPEAV1@@Z @ 0x1C0095CA4 (-CreateInstance@CMouseProcessor@@SAJPEAPEAV1@@Z.c)
+ * Callees:
+ *     ??0MousePerfSummary@@QEAA@XZ @ 0x1C0095F48 (--0MousePerfSummary@@QEAA@XZ.c)
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x1C00968E4 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 CMouseProcessor *__fastcall CMouseProcessor::CMouseProcessor(CMouseProcessor *this)
 {
   CMouseProcessor *result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpTraceHiveLoadStart @ 0x1406BD708
+ * Callers:
+ *     CmLoadDifferencingKey @ 0x1406BC49C (CmLoadDifferencingKey.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 BOOLEAN __fastcall CmpTraceHiveLoadStart(unsigned __int16 *a1, int a2)
 {
   REGHANDLE v2; // rbx

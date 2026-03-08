@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserEnableNonClientDpiScaling @ 0x1C0015380
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?xxxEnableNonClientDpiScaling@@YA_NPEAUtagWND@@@Z @ 0x1C0015434 (-xxxEnableNonClientDpiScaling@@YA_NPEAUtagWND@@@Z.c)
+ */
+
 _BOOL8 __fastcall NtUserEnableNonClientDpiScaling(__int64 a1)
 {
   __int64 v2; // rax

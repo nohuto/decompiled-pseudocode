@@ -1,3 +1,16 @@
+/*
+ * XREFs of OutputDuplRemoteSessionReconnected @ 0x1C032C60C
+ * Callers:
+ *     DxgkSessionReconnected @ 0x1C01E5250 (DxgkSessionReconnected.c)
+ * Callees:
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0006F40 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007104 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C00095A8 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?FindRemoteOutputDuplMgr@@YAPEAVOUTPUTDUPL_MGR@@XZ @ 0x1C01A89D0 (-FindRemoteOutputDuplMgr@@YAPEAVOUTPUTDUPL_MGR@@XZ.c)
+ *     ?ReconfigureNumSources@OUTPUTDUPL_MGR@@QEAAJI@Z @ 0x1C0329F40 (-ReconfigureNumSources@OUTPUTDUPL_MGR@@QEAAJI@Z.c)
+ */
+
 void __fastcall OutputDuplRemoteSessionReconnected(unsigned int a1)
 {
   struct OUTPUTDUPL_MGR *RemoteOutputDuplMgr; // rax

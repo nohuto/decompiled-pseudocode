@@ -1,3 +1,22 @@
+/*
+ * XREFs of HalpSetupAcpiPhase0 @ 0x140B62CA8
+ * Callers:
+ *     HalpAcpiInitDiscard @ 0x140B62AD4 (HalpAcpiInitDiscard.c)
+ * Callees:
+ *     HalpAcpiGetTable @ 0x14029C550 (HalpAcpiGetTable.c)
+ *     HalpMmAllocateMemoryInternal @ 0x14037A7A8 (HalpMmAllocateMemoryInternal.c)
+ *     HalpMap @ 0x14037AE88 (HalpMap.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     HalpAllocPhysicalMemory @ 0x140B3D9F4 (HalpAllocPhysicalMemory.c)
+ *     HalpAcpiTableCacheInit @ 0x140B3DDE0 (HalpAcpiTableCacheInit.c)
+ *     HalpAcpiInitializePmRegisters @ 0x140B62E74 (HalpAcpiInitializePmRegisters.c)
+ *     HalpInitBootTable @ 0x140B6316C (HalpInitBootTable.c)
+ *     HalpSetPlatformFlags @ 0x140B631DC (HalpSetPlatformFlags.c)
+ *     HalpNumaInitializeStaticConfiguration @ 0x140B63268 (HalpNumaInitializeStaticConfiguration.c)
+ *     HalpAcpiDetectMachineSpecificActions @ 0x140B63318 (HalpAcpiDetectMachineSpecificActions.c)
+ *     HalpNumaParseHmat @ 0x140B8E1C4 (HalpNumaParseHmat.c)
+ */
+
 __int64 __fastcall HalpSetupAcpiPhase0(__int64 a1)
 {
   __int64 result; // rax

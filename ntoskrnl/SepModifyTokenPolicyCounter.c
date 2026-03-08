@@ -1,3 +1,14 @@
+/*
+ * XREFs of SepModifyTokenPolicyCounter @ 0x1409C69B8
+ * Callers:
+ *     SepFilterToken @ 0x14073FED0 (SepFilterToken.c)
+ *     NtSetInformationToken @ 0x140741E70 (NtSetInformationToken.c)
+ *     SepDuplicateToken @ 0x1407BCF00 (SepDuplicateToken.c)
+ *     SepTokenDeleteMethod @ 0x1407C3CB0 (SepTokenDeleteMethod.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SepModifyTokenPolicyCounter(__int64 a1, char a2)
 {
   volatile signed __int32 *v2; // r9

@@ -1,3 +1,14 @@
+/*
+ * XREFs of _GetQueueStatus @ 0x1C01B46D8
+ * Callers:
+ *     NtUserGetThreadState @ 0x1C00D2960 (NtUserGetThreadState.c)
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     xxxDrainQueueCompletions @ 0x1C00B6940 (xxxDrainQueueCompletions.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ??0?$ObjectLock@UtagObjLock@@@?$DomainExclusive@$$V@?$DomainShared@VDLT_THREADINFO@@@@QEAA@AEAUtagObjLock@@@Z @ 0x1C01B3E6C (--0-$ObjectLock@UtagObjLock@@@-$DomainExclusive@$$V@-$DomainShared@VDLT_THREADINFO@@@@QEAA@AEAUt.c)
+ */
+
 __int64 __fastcall GetQueueStatus(__int64 a1)
 {
   __int16 v1; // bx

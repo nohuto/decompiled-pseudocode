@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_Change_array@?$vector@UMilGradientStop@@V?$allocator@UMilGradientStop@@@std@@@std@@AEAAXQEAUMilGradientStop@@_K1@Z @ 0x1801C785C
+ * Callers:
+ *     ??$_Insert_range@PEBUMilGradientStop@@@?$vector@UMilGradientStop@@V?$allocator@UMilGradientStop@@@std@@@std@@AEAAXV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@UMilGradientStop@@@std@@@std@@@1@PEBUMilGradientStop@@1Uforward_iterator_tag@1@@Z @ 0x1801BC138 (--$_Insert_range@PEBUMilGradientStop@@@-$vector@UMilGradientStop@@V-$allocator@UMilGradientStop@.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ */
+
 __int64 __fastcall std::vector<MilGradientStop>::_Change_array(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   void *v6; // rcx

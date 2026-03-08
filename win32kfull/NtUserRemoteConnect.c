@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserRemoteConnect @ 0x1C00EF850
+ * Callers:
+ *     <none>
+ * Callees:
+ *     wcsncpycch @ 0x1C01093D4 (wcsncpycch.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x1C012BEC0 (__report_rangecheckfailure.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall NtUserRemoteConnect(_OWORD *a1, unsigned int a2, volatile void *a3)
 {

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ValidateDesktopRecalcSetting@DesktopRecalcSettings@@YA_NIK@Z @ 0x1C0229198
+ * Callers:
+ *     xxxSystemParametersInfoWorker @ 0x1C01032D0 (xxxSystemParametersInfoWorker.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_Ds @ 0x1C0229E04 (WPP_RECORDER_AND_TRACE_SF_Ds.c)
+ */
+
 bool __fastcall DesktopRecalcSettings::ValidateDesktopRecalcSetting(DesktopRecalcSettings *this, unsigned int a2)
 {
   unsigned int v2; // ebx

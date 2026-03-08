@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserEmptyClipboard @ 0x1C01D0310
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxEmptyClipboard @ 0x1C00F130C (xxxEmptyClipboard.c)
+ */
+
 __int64 NtUserEmptyClipboard()
 {
   __int64 v0; // rbx

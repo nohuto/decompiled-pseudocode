@@ -1,3 +1,22 @@
+/*
+ * XREFs of LocalConvertAclToString @ 0x14074FD70
+ * Callers:
+ *     LocalConvertSDToStringSD_Rev1 @ 0x14074F708 (LocalConvertSDToStringSD_Rev1.c)
+ * Callees:
+ *     _ultow_s @ 0x1403D8C70 (_ultow_s.c)
+ *     wcscpy_s @ 0x1403DA210 (wcscpy_s.c)
+ *     LookupSidInTable @ 0x1406999A0 (LookupSidInTable.c)
+ *     LookupAccessMaskInTable @ 0x14075060C (LookupAccessMaskInTable.c)
+ *     LookupAceTypeInTable @ 0x1407506A4 (LookupAceTypeInTable.c)
+ *     LocalGetAceCondition @ 0x140750740 (LocalGetAceCondition.c)
+ *     SddlpAlloc @ 0x1407507C8 (SddlpAlloc.c)
+ *     RtlNtStatusToDosError @ 0x140755BE0 (RtlNtStatusToDosError.c)
+ *     LocalConvertSidToStringSidW @ 0x1408368E8 (LocalConvertSidToStringSidW.c)
+ *     LookupAceFlagsInTable @ 0x14083F7B0 (LookupAceFlagsInTable.c)
+ *     SddlpUuidToString @ 0x1409CFD68 (SddlpUuidToString.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall LocalConvertAclToString(
         __int64 a1,
         char a2,

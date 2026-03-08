@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?FlushThrottledRawMouseInput@@YAXPEAUtagPROCESS_HID_TABLE@@K@Z @ 0x1C01AC08C
+ * Callers:
+ *     EditionPostRawMouseInputMessage @ 0x1C0142A40 (EditionPostRawMouseInputMessage.c)
+ *     ?ThrottleRawMouseInputToBackgroundListener@@YA_NPEAUtagPROCESS_HID_TABLE@@PEAXPEBUtagRAWMOUSE@@_KK@Z @ 0x1C01AC4B4 (-ThrottleRawMouseInputToBackgroundListener@@YA_NPEAUtagPROCESS_HID_TABLE@@PEAXPEBUtagRAWMOUSE@@_.c)
+ *     EditionHandleRawInputThrottlingTimer @ 0x1C01AD3A0 (EditionHandleRawInputThrottlingTimer.c)
+ * Callees:
+ *     ?FlushThrottledRawInput@Mouse@InputTraceLogging@@SAXPEAUtagPROCESS_HID_TABLE@@_KK@Z @ 0x1C01ABFC4 (-FlushThrottledRawInput@Mouse@InputTraceLogging@@SAXPEAUtagPROCESS_HID_TABLE@@_KK@Z.c)
+ *     ?PostRawMouseInputToBackgroundListener@@YAXPEAUtagPROCESS_HID_TABLE@@PEAXPEBUtagRAWMOUSE@@_KK@Z @ 0x1C01AC288 (-PostRawMouseInputToBackgroundListener@@YAXPEAUtagPROCESS_HID_TABLE@@PEAXPEBUtagRAWMOUSE@@_KK@Z.c)
+ */
+
 void __fastcall FlushThrottledRawMouseInput(struct tagPROCESS_HID_TABLE *a1, unsigned int a2)
 {
   __int64 v4; // rax

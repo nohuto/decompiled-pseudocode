@@ -1,3 +1,19 @@
+/*
+ * XREFs of PpmUnlockProcessors @ 0x140583CC8
+ * Callers:
+ *     PpmIdleSelectStates @ 0x1403B2150 (PpmIdleSelectStates.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140237640 (KeRemoveProcessorAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x140237C30 (KeIsEmptyAffinityEx.c)
+ *     KeInterlockedClearProcessorAffinityEx @ 0x1402DA1D0 (KeInterlockedClearProcessorAffinityEx.c)
+ *     HalRequestIpi @ 0x1402EF7C0 (HalRequestIpi.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall PpmUnlockProcessors(unsigned __int16 *a1, __int64 a2)
 {
   unsigned int Number; // esi

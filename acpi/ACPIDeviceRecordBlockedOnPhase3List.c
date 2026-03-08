@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIDeviceRecordBlockedOnPhase3List @ 0x1C0021B70
+ * Callers:
+ *     ACPIDevicePowerDpc @ 0x1C001E5C0 (ACPIDevicePowerDpc.c)
+ * Callees:
+ *     ACPIDevicePowerEnumerateAssociatedPowerNodes @ 0x1C001E980 (ACPIDevicePowerEnumerateAssociatedPowerNodes.c)
+ */
+
 void __fastcall ACPIDeviceRecordBlockedOnPhase3List(_QWORD **a1)
 {
   _QWORD *v2; // rdi

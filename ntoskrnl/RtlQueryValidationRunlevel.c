@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlQueryValidationRunlevel @ 0x1405AEAA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ */
+
 __int64 __fastcall RtlQueryValidationRunlevel(PUNICODE_STRING ValueName)
 {
   int v1; // ebx

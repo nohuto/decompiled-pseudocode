@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiCopyHeaderIfResident @ 0x140368D84
+ * Callers:
+ *     MiCreateImageFileMap @ 0x1407F1C28 (MiCreateImageFileMap.c)
+ * Callees:
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     MiTryLockProtoPoolPageAtDpc @ 0x1402A2850 (MiTryLockProtoPoolPageAtDpc.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiCopyPage @ 0x14032DC70 (MiCopyPage.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiIsPageOnBadList @ 0x14034B1D0 (MiIsPageOnBadList.c)
+ *     MiStandbyPageContentsIntact @ 0x14034B200 (MiStandbyPageContentsIntact.c)
+ *     MiLockSectionControlArea @ 0x1403638A8 (MiLockSectionControlArea.c)
+ *     MiUpdatePageAttributeStamp @ 0x14036A854 (MiUpdatePageAttributeStamp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiCopyHeaderIfResident(__int64 a1, ULONG_PTR a2)
 {
   _QWORD *v2; // rcx

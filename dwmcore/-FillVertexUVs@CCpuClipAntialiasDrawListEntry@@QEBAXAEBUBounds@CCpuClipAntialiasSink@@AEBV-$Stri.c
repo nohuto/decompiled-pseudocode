@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?FillVertexUVs@CCpuClipAntialiasDrawListEntry@@QEBAXAEBUBounds@CCpuClipAntialiasSink@@AEBV?$StridedSpan@UUVxN@CCpuClipAntialiasSink@@@@_K@Z @ 0x18007D530
+ * Callers:
+ *     ?EmitCpuClipAntialiasTemplateGeometry@@YAJPEAVCD3DBatchExecutionContext@@PEBVCCpuClipAntialiasBatchCommand@@_N@Z @ 0x18007D038 (-EmitCpuClipAntialiasTemplateGeometry@@YAJPEAVCD3DBatchExecutionContext@@PEBVCCpuClipAntialiasBa.c)
+ * Callees:
+ *     ?ComputeRelativeOutlinePosition@Bounds@CCpuClipAntialiasSink@@QEBAMM@Z @ 0x18007D6F8 (-ComputeRelativeOutlinePosition@Bounds@CCpuClipAntialiasSink@@QEBAMM@Z.c)
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ *     memcpy_0 @ 0x1801177E8 (memcpy_0.c)
+ */
+
 char *__fastcall CCpuClipAntialiasDrawListEntry::FillVertexUVs(__int64 a1, __int64 a2, __int64 a3, char *a4)
 {
   unsigned int v4; // edi

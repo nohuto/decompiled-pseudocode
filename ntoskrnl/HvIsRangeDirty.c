@@ -1,3 +1,15 @@
+/*
+ * XREFs of HvIsRangeDirty @ 0x140A22C54
+ * Callers:
+ *     HvpRemapAndEnlistHiveBins @ 0x1407A488C (HvpRemapAndEnlistHiveBins.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     RtlAreBitsClear @ 0x14036C910 (RtlAreBitsClear.c)
+ */
+
 bool __fastcall HvIsRangeDirty(__int64 a1, int a2, ULONG a3)
 {
   unsigned __int64 *v6; // rbx

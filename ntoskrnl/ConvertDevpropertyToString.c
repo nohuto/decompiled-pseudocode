@@ -1,3 +1,13 @@
+/*
+ * XREFs of ConvertDevpropertyToString @ 0x140A6B5A0
+ * Callers:
+ *     ExpressionConvertToString @ 0x140A6BCC8 (ExpressionConvertToString.c)
+ * Callees:
+ *     RtlStringCbPrintfExW @ 0x1402986C0 (RtlStringCbPrintfExW.c)
+ *     RtlStringCbCopyExW @ 0x1402E1820 (RtlStringCbCopyExW.c)
+ *     ConvertDevpropcompkeyToString @ 0x140A6B464 (ConvertDevpropcompkeyToString.c)
+ */
+
 __int64 __fastcall ConvertDevpropertyToString(__int64 a1, unsigned int a2, wchar_t *a3, unsigned int *a4)
 {
   unsigned __int64 v4; // r14

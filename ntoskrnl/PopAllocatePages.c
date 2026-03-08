@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopAllocatePages @ 0x140A9E958
+ * Callers:
+ *     PopAllocateHiberContext @ 0x140984D38 (PopAllocateHiberContext.c)
+ *     PopBuildMemoryImageHeader @ 0x140A9EA28 (PopBuildMemoryImageHeader.c)
+ * Callees:
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     PopGenerateMdl @ 0x14058C638 (PopGenerateMdl.c)
+ */
+
 PVOID __fastcall PopAllocatePages(__int64 a1)
 {
   PVOID v1; // rbx

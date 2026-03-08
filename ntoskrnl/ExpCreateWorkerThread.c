@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExpCreateWorkerThread @ 0x1407DE0C4
+ * Callers:
+ *     ExpWorkQueueManagerThread @ 0x140839860 (ExpWorkQueueManagerThread.c)
+ *     ExpPartitionCreatePoolInternal @ 0x1408483B0 (ExpPartitionCreatePoolInternal.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeBoostPriorityThread @ 0x140359A88 (KeBoostPriorityThread.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExpPartitionCreateSystemThread @ 0x1407DE1A0 (ExpPartitionCreateSystemThread.c)
+ */
+
 __int64 __fastcall ExpCreateWorkerThread(_QWORD *a1, int a2, __int64 a3, int a4)
 {
   signed __int32 v5; // eax

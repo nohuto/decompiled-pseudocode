@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMIDEPopulateExtendedPointerDeviceProperties @ 0x1C01C7410
+ * Callers:
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C01C21B8 (RIMIDECreatePointerDeviceInfo.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 void __fastcall RIMIDEPopulateExtendedPointerDeviceProperties(__int64 a1, __int64 a2)
 {
   __int128 v3; // xmm1

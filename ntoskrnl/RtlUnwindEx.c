@@ -1,3 +1,32 @@
+/*
+ * XREFs of RtlUnwindEx @ 0x1402809E0
+ * Callers:
+ *     RtlUnwind @ 0x1403BE7D0 (RtlUnwind.c)
+ *     __C_specific_handler @ 0x1403D2190 (__C_specific_handler.c)
+ *     KiSystemServiceHandler @ 0x14042AF80 (KiSystemServiceHandler.c)
+ * Callees:
+ *     RtlpCopyContext @ 0x140280F40 (RtlpCopyContext.c)
+ *     RtlLookupFunctionEntry @ 0x140281130 (RtlLookupFunctionEntry.c)
+ *     RtlpxVirtualUnwind @ 0x140281720 (RtlpxVirtualUnwind.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     RtlGuardRestoreContext @ 0x1402D851C (RtlGuardRestoreContext.c)
+ *     KeQueryCurrentStackInformation @ 0x1402E1E00 (KeQueryCurrentStackInformation.c)
+ *     RtlpGetStackLimitsEx @ 0x1402E6750 (RtlpGetStackLimitsEx.c)
+ *     RtlpGetStackLimits @ 0x1403129F0 (RtlpGetStackLimits.c)
+ *     RtlInitializeExtendedContext @ 0x140364A10 (RtlInitializeExtendedContext.c)
+ *     RtlGetExtendedContextLength @ 0x140364A90 (RtlGetExtendedContextLength.c)
+ *     RtlVirtualUnwind @ 0x140364D20 (RtlVirtualUnwind.c)
+ *     RtlGetExtendedContextLength2 @ 0x140364DF0 (RtlGetExtendedContextLength2.c)
+ *     RtlInitializeExtendedContext2 @ 0x140364EE0 (RtlInitializeExtendedContext2.c)
+ *     RtlpIsFrameInBounds @ 0x1403BFA10 (RtlpIsFrameInBounds.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwRaiseException @ 0x140415150 (ZwRaiseException.c)
+ *     RtlCaptureContext2 @ 0x1404206E0 (RtlCaptureContext2.c)
+ *     _alloca_probe @ 0x1404210C0 (_alloca_probe.c)
+ *     RtlpExecuteHandlerForUnwind @ 0x140421710 (RtlpExecuteHandlerForUnwind.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall RtlUnwindEx(ULONG_PTR a1, __int64 a2, _QWORD *a3, __int64 a4, unsigned int *a5, __int64 a6)
 {
   unsigned int *v6; // r14

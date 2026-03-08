@@ -1,3 +1,21 @@
+/*
+ * XREFs of RtlpReadExtendedContext @ 0x1407EDC30
+ * Callers:
+ *     KiContinuePreviousModeUser @ 0x1403647F4 (KiContinuePreviousModeUser.c)
+ *     KyRaiseException @ 0x140576670 (KyRaiseException.c)
+ *     KiUnwindUserSspForApcContextCopyBypass @ 0x14057E274 (KiUnwindUserSspForApcContextCopyBypass.c)
+ *     PspWow64GetContextThread @ 0x14077BF00 (PspWow64GetContextThread.c)
+ *     PspWow64SetContextThread @ 0x14077C1CC (PspWow64SetContextThread.c)
+ *     PspSetContextThreadInternal @ 0x1407EE340 (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x1407EE524 (PspGetContextThreadInternal.c)
+ * Callees:
+ *     RtlpCopyExtendedContext @ 0x140364B00 (RtlpCopyExtendedContext.c)
+ *     RtlpValidateContextFlags @ 0x1403650A0 (RtlpValidateContextFlags.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlpReadExtendedContextLayout @ 0x1407EE7F0 (RtlpReadExtendedContextLayout.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall RtlpReadExtendedContext(__int64 a1, char a2, __int64 a3, unsigned int a4, __int64 a5, _OWORD *a6)
 {
   int v7; // esi

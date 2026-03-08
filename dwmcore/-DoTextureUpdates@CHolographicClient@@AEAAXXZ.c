@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?DoTextureUpdates@CHolographicClient@@AEAAXXZ @ 0x1802A93D0
+ * Callers:
+ *     ?FrameUpdate@CHolographicClient@@UEAAJIII@Z @ 0x1802A96C0 (-FrameUpdate@CHolographicClient@@UEAAJIII@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0xxxq_EventWriteTransfer @ 0x180201FDC (McTemplateU0xxxq_EventWriteTransfer.c)
+ *     McTemplateU0xxxx_EventWriteTransfer @ 0x1802A6850 (McTemplateU0xxxx_EventWriteTransfer.c)
+ *     ?RemoveAt@?$DynArray@UTextureUpdate@CHolographicClient@@$0A@@@QEAAJI@Z @ 0x1802AAE68 (-RemoveAt@-$DynArray@UTextureUpdate@CHolographicClient@@$0A@@@QEAAJI@Z.c)
+ *     McTemplateU0f_EventWriteTransfer @ 0x1802AAFCC (McTemplateU0f_EventWriteTransfer.c)
+ */
+
 void __fastcall CHolographicClient::DoTextureUpdates(CHolographicClient *this)
 {
   __int64 v1; // rsi

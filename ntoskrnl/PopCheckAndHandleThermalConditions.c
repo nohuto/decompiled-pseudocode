@@ -1,3 +1,31 @@
+/*
+ * XREFs of PopCheckAndHandleThermalConditions @ 0x14039CAB4
+ * Callers:
+ *     PopThermalWorker @ 0x140846460 (PopThermalWorker.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140240954 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopQueueWorkItem @ 0x1402BCCB4 (PopQueueWorkItem.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     PopThermalStandbyEndTracking @ 0x14058D6F8 (PopThermalStandbyEndTracking.c)
+ *     PopThermalStandbyNotify @ 0x14058D750 (PopThermalStandbyNotify.c)
+ *     PopThermalWriteShutdownToRegistry @ 0x14058DC80 (PopThermalWriteShutdownToRegistry.c)
+ *     PopDiagTraceThermalStateChange @ 0x140592798 (PopDiagTraceThermalStateChange.c)
+ *     PopTraceCr3Mitigated @ 0x140592E58 (PopTraceCr3Mitigated.c)
+ *     PopTraceCr3Tripped @ 0x140592EF4 (PopTraceCr3Tripped.c)
+ *     PopTraceZoneCr3Mitigated @ 0x140593C1C (PopTraceZoneCr3Mitigated.c)
+ *     PopTraceZoneCr3Tripped @ 0x140593D44 (PopTraceZoneCr3Tripped.c)
+ *     PopIsHibernateSupported @ 0x140870C14 (PopIsHibernateSupported.c)
+ *     PopUpdateOverThrottledCount @ 0x1409881F8 (PopUpdateOverThrottledCount.c)
+ *     PopDiagTraceZoneCriticalTripPointExceeded @ 0x14098F1D8 (PopDiagTraceZoneCriticalTripPointExceeded.c)
+ *     PopDiagTraceZoneS4TripPointExceeded @ 0x14098F2CC (PopDiagTraceZoneS4TripPointExceeded.c)
+ *     PopSqmThermalCriticalShutdown @ 0x14099DE38 (PopSqmThermalCriticalShutdown.c)
+ *     PopSqmThermalHibernate @ 0x14099DE5C (PopSqmThermalHibernate.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 void __fastcall PopCheckAndHandleThermalConditions(__int64 a1)
 {
   __int64 v1; // rbp

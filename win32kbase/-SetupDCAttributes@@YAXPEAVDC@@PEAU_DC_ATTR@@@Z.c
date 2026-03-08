@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SetupDCAttributes@@YAXPEAVDC@@PEAU_DC_ATTR@@@Z @ 0x1C00502A0
+ * Callers:
+ *     GreSetDCOwnerEx @ 0x1C0041580 (GreSetDCOwnerEx.c)
+ *     GreCreateDisplayDC @ 0x1C0055340 (GreCreateDisplayDC.c)
+ * Callees:
+ *     ?GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z @ 0x1C004A2C0 (-GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z.c)
+ *     ?RestoreAttributes@DC@@QEAAXPEAU_DC_ATTR@@@Z @ 0x1C0050300 (-RestoreAttributes@DC@@QEAAXPEAU_DC_ATTR@@@Z.c)
+ */
+
 void __fastcall SetupDCAttributes(struct DC *a1, struct _DC_ATTR *a2)
 {
   __int64 v4; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?InternalDiscard@CAdapterCollection@@AEAAXXZ @ 0x1C00192B0
+ * Callers:
+ *     ??1CTokenManager@@AEAA@XZ @ 0x1C00172B0 (--1CTokenManager@@AEAA@XZ.c)
+ *     ?ResetAdapterCollection@CTokenManager@@MEAAXXZ @ 0x1C00173F0 (-ResetAdapterCollection@CTokenManager@@MEAAXXZ.c)
+ *     ?UpdateCollection@CAdapterCollection@@QEAA_NPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C00188A4 (-UpdateCollection@CAdapterCollection@@QEAA_NPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
+ *     ?PopulateFromInfo@CAdapterCollection@@QEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C0018FD8 (-PopulateFromInfo@CAdapterCollection@@QEAAJPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CAdapterCollection::InternalDiscard(CAdapterCollection *this)
 {
   _QWORD *v1; // rbx

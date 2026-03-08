@@ -1,3 +1,15 @@
+/*
+ * XREFs of PiUEventHandleGetEvent @ 0x14068E028
+ * Callers:
+ *     PiUEventHandleIoctl @ 0x14068DF6C (PiUEventHandleIoctl.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     PiUEventNotifyClientPendingEvent @ 0x1406804B0 (PiUEventNotifyClientPendingEvent.c)
+ *     PiUEventDequeuePendingEventWorker @ 0x14068DE6C (PiUEventDequeuePendingEventWorker.c)
+ *     PiUEventCopyEventData @ 0x14068E1A4 (PiUEventCopyEventData.c)
+ */
+
 __int64 __fastcall PiUEventHandleGetEvent(__int64 a1, _DWORD *a2, __int64 a3, unsigned int a4, __int64 a5)
 {
   __int64 v5; // rsi

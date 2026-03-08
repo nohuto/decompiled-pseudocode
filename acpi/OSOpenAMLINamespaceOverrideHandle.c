@@ -1,3 +1,16 @@
+/*
+ * XREFs of OSOpenAMLINamespaceOverrideHandle @ 0x1C008DDB4
+ * Callers:
+ *     AMLIAddNamespaceOverride @ 0x1C004A2A8 (AMLIAddNamespaceOverride.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     RtlStringCchPrintfA @ 0x1C000B5D8 (RtlStringCchPrintfA.c)
+ *     RtlStringCchCatA @ 0x1C003BD94 (RtlStringCchCatA.c)
+ *     RtlStringCchCatNA @ 0x1C003BDE4 (RtlStringCchCatNA.c)
+ *     OSOpenHandle @ 0x1C008DF10 (OSOpenHandle.c)
+ */
+
 __int64 OSOpenAMLINamespaceOverrideHandle()
 {
   __int64 v0; // rdi

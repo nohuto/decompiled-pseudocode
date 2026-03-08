@@ -1,3 +1,12 @@
+/*
+ * XREFs of sub_14081A850 @ 0x14081A850
+ * Callers:
+ *     ExInitLicenseData @ 0x140819CE8 (ExInitLicenseData.c)
+ *     ExpLoadAndSortLicensingCacheDescriptors @ 0x14081A5DC (ExpLoadAndSortLicensingCacheDescriptors.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall sub_14081A850(unsigned int **a1)
 {
   unsigned int *v1; // rax

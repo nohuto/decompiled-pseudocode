@@ -1,3 +1,19 @@
+/*
+ * XREFs of CsInitialize @ 0x1C000E0B0
+ * Callers:
+ *     DriverEntry @ 0x1C000E080 (DriverEntry.c)
+ * Callees:
+ *     WPP_SF_D @ 0x1C00045E4 (WPP_SF_D.c)
+ *     WPP_SF_d @ 0x1C0004884 (WPP_SF_d.c)
+ *     WppLoadTracingSupport @ 0x1C000BAF0 (WppLoadTracingSupport.c)
+ *     WppInitKm @ 0x1C000BC40 (WppInitKm.c)
+ *     CiNdisOpenDevice @ 0x1C000BCB0 (CiNdisOpenDevice.c)
+ *     CiSystemInitialize @ 0x1C000E270 (CiSystemInitialize.c)
+ *     CiDispatchInitialize @ 0x1C000E300 (CiDispatchInitialize.c)
+ *     CiSchedulerInitialize @ 0x1C000E3B0 (CiSchedulerInitialize.c)
+ *     CiConfigInitialize @ 0x1C000E4E0 (CiConfigInitialize.c)
+ */
+
 __int64 __fastcall CsInitialize(__int64 a1)
 {
   NTSTATUS ThreadNotifyRoutine; // ebx

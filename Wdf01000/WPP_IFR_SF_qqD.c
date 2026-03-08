@@ -1,3 +1,13 @@
+/*
+ * XREFs of WPP_IFR_SF_qqD @ 0x1C0050A64
+ * Callers:
+ *     FxIoTargetSendIo @ 0x1C000E794 (FxIoTargetSendIo.c)
+ *     imp_WdfUsbTargetPipeFormatRequestForReset @ 0x1C0056BB0 (imp_WdfUsbTargetPipeFormatRequestForReset.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_qqD(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 id,

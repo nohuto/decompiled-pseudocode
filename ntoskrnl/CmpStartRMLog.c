@@ -1,3 +1,24 @@
+/*
+ * XREFs of CmpStartRMLog @ 0x140863C7C
+ * Callers:
+ *     CmpInitCmRM @ 0x1407334D4 (CmpInitCmRM.c)
+ *     CmpStartRMLogs @ 0x14073565C (CmpStartRMLogs.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     CmpQueryFileSecurityDescriptor @ 0x1406C1120 (CmpQueryFileSecurityDescriptor.c)
+ *     RtlStringFromGUIDEx @ 0x140733E90 (RtlStringFromGUIDEx.c)
+ *     CmpQueryNameString @ 0x140733F8C (CmpQueryNameString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     CmpStartCLFSLog @ 0x14086411C (CmpStartCLFSLog.c)
+ *     CmpRmAnalysisPhase @ 0x140A1BFB0 (CmpRmAnalysisPhase.c)
+ *     CmpRmReDoPhase @ 0x140A1C1E0 (CmpRmReDoPhase.c)
+ *     CmpRmUnDoPhase @ 0x140A1C3B4 (CmpRmUnDoPhase.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmpStartRMLog(char *a1, _OWORD *a2)
 {
   unsigned int v2; // edi

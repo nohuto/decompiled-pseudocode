@@ -1,3 +1,15 @@
+/*
+ * XREFs of VslpIumInitializeTelemetry @ 0x140B6E0BC
+ * Callers:
+ *     VslpIumPhase4Initialize @ 0x1403AB65C (VslpIumPhase4Initialize.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwUnregister @ 0x14076F9E0 (EtwUnregister.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14080F6BC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ */
+
 char VslpIumInitializeTelemetry()
 {
   char result; // al

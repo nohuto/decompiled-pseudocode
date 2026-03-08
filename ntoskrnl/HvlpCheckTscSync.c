@@ -1,3 +1,16 @@
+/*
+ * XREFs of HvlpCheckTscSync @ 0x140546060
+ * Callers:
+ *     HvlPhase2Initialize @ 0x1403AF870 (HvlPhase2Initialize.c)
+ *     HvlpPowerStateCallback @ 0x14053DB50 (HvlpPowerStateCallback.c)
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ *     HvlpWriteEventLog @ 0x140546808 (HvlpWriteEventLog.c)
+ */
+
 char HvlpCheckTscSync()
 {
   PHYSICAL_ADDRESS *v0; // rbx

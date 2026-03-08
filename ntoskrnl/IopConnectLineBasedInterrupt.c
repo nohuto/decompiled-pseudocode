@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopConnectLineBasedInterrupt @ 0x140853C50
+ * Callers:
+ *     IoConnectInterruptEx @ 0x1406F4AE0 (IoConnectInterruptEx.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IoDisconnectInterrupt @ 0x1406F41C0 (IoDisconnectInterrupt.c)
+ *     IopConnectInterrupt @ 0x1406F43D8 (IopConnectInterrupt.c)
+ *     IopGetInterruptConnectionData @ 0x1406F5728 (IopGetInterruptConnectionData.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall IopConnectLineBasedInterrupt(
         struct _DEVICE_OBJECT *a1,
         _QWORD *a2,

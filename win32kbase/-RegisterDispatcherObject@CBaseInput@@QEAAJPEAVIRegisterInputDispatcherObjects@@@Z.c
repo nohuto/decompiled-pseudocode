@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?RegisterDispatcherObject@CBaseInput@@QEAAJPEAVIRegisterInputDispatcherObjects@@@Z @ 0x1C009A640
+ * Callers:
+ *     _anonymous_namespace_::InitializeInputSensorPass1Worker @ 0x1C009A5B4 (_anonymous_namespace_--InitializeInputSensorPass1Worker.c)
+ * Callees:
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C0070484 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ *     ?IsValid@SensorDispatcherObject@CRIMBase@@QEBA_NXZ @ 0x1C007B0DC (-IsValid@SensorDispatcherObject@CRIMBase@@QEBA_NXZ.c)
+ *     ?IsDispatcherObjectValid@CRIMBase@@IEBA_NI@Z @ 0x1C009A754 (-IsDispatcherObjectValid@CRIMBase@@IEBA_NI@Z.c)
+ *     ?GetDispatcherObjectByIndex@CRIMBase@@IEBAPEAXI@Z @ 0x1C009A794 (-GetDispatcherObjectByIndex@CRIMBase@@IEBAPEAXI@Z.c)
+ *     ?OnPnpNotification@CBaseInput@@AEAAJXZ @ 0x1C009A800 (-OnPnpNotification@CBaseInput@@AEAAJXZ.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CBaseInput::RegisterDispatcherObject(CBaseInput *this, struct IRegisterInputDispatcherObjects *a2)
 {
   CRIMBase::SensorDispatcherObject *v2; // rbp

@@ -1,3 +1,44 @@
+/*
+ * XREFs of W32CalloutDispatch @ 0x1C00ED390
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RIMObjectManagerCallout @ 0x1C00360B4 (RIMObjectManagerCallout.c)
+ *     ??0CTempW32ThreadNonPaged@@QEAA@XZ @ 0x1C0036710 (--0CTempW32ThreadNonPaged@@QEAA@XZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterCritInternal @ 0x1C004FB50 (PrivateAPI--_anonymous_namespace_--EnterCritInternal.c)
+ *     PrivateAPI::_anonymous_namespace_::IsValidGuiContext @ 0x1C004FD4C (PrivateAPI--_anonymous_namespace_--IsValidGuiContext.c)
+ *     EnterSharedCrit @ 0x1C0050560 (EnterSharedCrit.c)
+ *     ??1CTempW32ThreadNonPaged@@QEAA@XZ @ 0x1C007012C (--1CTempW32ThreadNonPaged@@QEAA@XZ.c)
+ *     GreIsCurrentProcessSystemCritical @ 0x1C0070248 (GreIsCurrentProcessSystemCritical.c)
+ *     IsGreIsCurrentProcessSystemCriticalSupported @ 0x1C007026C (IsGreIsCurrentProcessSystemCriticalSupported.c)
+ *     UserGlobalAtomTableCallout @ 0x1C0072268 (UserGlobalAtomTableCallout.c)
+ *     HMUnlockObject @ 0x1C0072980 (HMUnlockObject.c)
+ *     CoreMsgObjectCallout @ 0x1C0081F88 (CoreMsgObjectCallout.c)
+ *     UserProcessFreezeCallout @ 0x1C0083BC4 (UserProcessFreezeCallout.c)
+ *     UserProcessThawCallout @ 0x1C0084770 (UserProcessThawCallout.c)
+ *     ParseWindowStation @ 0x1C00AA220 (ParseWindowStation.c)
+ *     UserUnsafeIsProcessDwm @ 0x1C00AAB60 (UserUnsafeIsProcessDwm.c)
+ *     ?Open@CompositionObject@@SAJPEAU_WIN32_OPENMETHOD_PARAMETERS@@@Z @ 0x1C00ABDB8 (-Open@CompositionObject@@SAJPEAU_WIN32_OPENMETHOD_PARAMETERS@@@Z.c)
+ *     ?OkToClose@CompositionObject@@SAJPEAU_WIN32_OKAYTOCLOSEMETHOD_PARAMETERS@@@Z @ 0x1C00AFD30 (-OkToClose@CompositionObject@@SAJPEAU_WIN32_OKAYTOCLOSEMETHOD_PARAMETERS@@@Z.c)
+ *     UserPowerInfoCallout @ 0x1C00B657C (UserPowerInfoCallout.c)
+ *     UserPowerStateCallout @ 0x1C00B7A1C (UserPowerStateCallout.c)
+ *     QueuePowerRequest @ 0x1C00B7EA0 (QueuePowerRequest.c)
+ *     UserJobCallout @ 0x1C00BD268 (UserJobCallout.c)
+ *     ?ActivationObjectCallout@ForegroundManagement@@YAJW4_WIN32_CALLOUTS_OPERATION@@PEAX@Z @ 0x1C00CF148 (-ActivationObjectCallout@ForegroundManagement@@YAJW4_WIN32_CALLOUTS_OPERATION@@PEAX@Z.c)
+ *     ?ReleaseAllWaiters@EnterLeaveCritMitRitHandOffHazard@@SAXXZ @ 0x1C00D43A0 (-ReleaseAllWaiters@EnterLeaveCritMitRitHandOffHazard@@SAXXZ.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     Feature_Servicing_BypassGraphicsFreezeNotification__private_IsEnabledDeviceUsage @ 0x1C00DCCB0 (Feature_Servicing_BypassGraphicsFreezeNotification__private_IsEnabledDeviceUsage.c)
+ *     Feature_Servicing_Win32kbaseWatchdogTimeoutIssue__private_IsEnabledDeviceUsage @ 0x1C00DCD04 (Feature_Servicing_Win32kbaseWatchdogTimeoutIssue__private_IsEnabledDeviceUsage.c)
+ *     Win32WatchdogLiveKernelDumpCaptureInfo @ 0x1C00DD6D0 (Win32WatchdogLiveKernelDumpCaptureInfo.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     UserProcessTimerDelayCallout @ 0x1C015456C (UserProcessTimerDelayCallout.c)
+ *     UserProcessTimerStatisticsCallout @ 0x1C01549FC (UserProcessTimerStatisticsCallout.c)
+ *     ?W32pQuerySubsystemProcess@@YAJPEAU_WIN32_SUBSYSTEM_PROCESS_QUERY_CALLOUT_PARAMETERS@@@Z @ 0x1C01599EC (-W32pQuerySubsystemProcess@@YAJPEAU_WIN32_SUBSYSTEM_PROCESS_QUERY_CALLOUT_PARAMETERS@@@Z.c)
+ */
+
 __int64 __fastcall W32CalloutDispatch(__int64 a1, int a2, unsigned int *a3)
 {
   __int64 v5; // rdx

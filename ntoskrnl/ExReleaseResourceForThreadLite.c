@@ -1,3 +1,23 @@
+/*
+ * XREFs of ExReleaseResourceForThreadLite @ 0x14033A350
+ * Callers:
+ *     DifExReleaseResourceForThreadLiteWrapper @ 0x1405D77C0 (DifExReleaseResourceForThreadLiteWrapper.c)
+ *     CcUnpinDataForThread @ 0x140933CB0 (CcUnpinDataForThread.c)
+ * Callees:
+ *     ExpFindCurrentThread @ 0x14033A7F0 (ExpFindCurrentThread.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     ExpPrepareToWakeResourceShared @ 0x14033A9D0 (ExpPrepareToWakeResourceShared.c)
+ *     ExpFreeOwnerEntry @ 0x14033B150 (ExpFreeOwnerEntry.c)
+ *     ExpCommitWakeResourceShared @ 0x14033B220 (ExpCommitWakeResourceShared.c)
+ *     KxWaitForLockOwnerShip @ 0x14033B510 (KxWaitForLockOwnerShip.c)
+ *     ExpReleaseResourceExclusiveForThreadLite @ 0x14033B5E0 (ExpReleaseResourceExclusiveForThreadLite.c)
+ *     ExpFastResourceLegacyRelease @ 0x1403C5290 (ExpFastResourceLegacyRelease.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140457B8E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PerfLogExecutiveResourceRelease @ 0x1405FE480 (PerfLogExecutiveResourceRelease.c)
+ */
+
 void __stdcall ExReleaseResourceForThreadLite(PERESOURCE Resource, ERESOURCE_THREAD ResourceThreadId)
 {
   USHORT Flag; // cx

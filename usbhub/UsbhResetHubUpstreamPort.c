@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhResetHubUpstreamPort @ 0x1C003D440
+ * Callers:
+ *     UsbhFdoSetD0Cold @ 0x1C000FBD0 (UsbhFdoSetD0Cold.c)
+ * Callees:
+ *     UsbhSyncSendInternalIoctl @ 0x1C0004A70 (UsbhSyncSendInternalIoctl.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ */
+
 __int64 __fastcall UsbhResetHubUpstreamPort(__int64 a1)
 {
   _UNICODE_STRING *v2; // r9

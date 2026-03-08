@@ -1,3 +1,12 @@
+/*
+ * XREFs of WdipSemWriteTimeoutEvent @ 0x1409DB810
+ * Callers:
+ *     WdipSemLogTimeoutInformation @ 0x1409DB47C (WdipSemLogTimeoutInformation.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     WdipSemWriteEvent @ 0x140833CFC (WdipSemWriteEvent.c)
+ */
+
 NTSTATUS __fastcall WdipSemWriteTimeoutEvent(ULONGLONG a1, __int16 a2, const GUID *a3)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-38h] BYREF

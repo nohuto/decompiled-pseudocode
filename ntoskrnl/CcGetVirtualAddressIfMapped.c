@@ -1,3 +1,14 @@
+/*
+ * XREFs of CcGetVirtualAddressIfMapped @ 0x14021B360
+ * Callers:
+ *     CcFlushCacheOneRange @ 0x14021B070 (CcFlushCacheOneRange.c)
+ * Callees:
+ *     CcGetVacbLargeOffset @ 0x14021BBE0 (CcGetVacbLargeOffset.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     CcIncrementVacbActiveCount @ 0x140335D80 (CcIncrementVacbActiveCount.c)
+ */
+
 __int64 __fastcall CcGetVirtualAddressIfMapped(__int64 a1, __int64 a2, __int64 *a3, _DWORD *a4)
 {
   unsigned int v6; // r14d

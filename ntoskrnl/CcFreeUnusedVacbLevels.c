@@ -1,3 +1,14 @@
+/*
+ * XREFs of CcFreeUnusedVacbLevels @ 0x14029E2EC
+ * Callers:
+ *     CcSetVacbLargeOffset @ 0x1402180C0 (CcSetVacbLargeOffset.c)
+ *     CcAllocateVacbLevels @ 0x14029C894 (CcAllocateVacbLevels.c)
+ *     CcExtendVacbArray @ 0x14029E348 (CcExtendVacbArray.c)
+ *     CcReferenceFileOffset @ 0x140535C90 (CcReferenceFileOffset.c)
+ * Callees:
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ */
+
 void __fastcall CcFreeUnusedVacbLevels(__int64 a1)
 {
   _QWORD *v2; // rdx

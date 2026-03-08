@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetAdjustedHimetricLong@@YAHJJJPEAJ@Z @ 0x1C021738C
+ * Callers:
+ *     ?GetAdjustedHimetric@@YAHUtagPOINT@@00PEAU1@PEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C02172A4 (-GetAdjustedHimetric@@YAHUtagPOINT@@00PEAU1@PEAUtagHID_POINTER_DEVICE_INFO@@@Z.c)
+ * Callees:
+ *     LongLongToLong @ 0x1C00A7CFC (LongLongToLong.c)
+ */
+
 __int64 __fastcall GetAdjustedHimetricLong(int a1, int a2, int a3, int *a4)
 {
   __int64 v4; // rbx

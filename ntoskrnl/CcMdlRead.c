@@ -1,3 +1,21 @@
+/*
+ * XREFs of CcMdlRead @ 0x1406A3B50
+ * Callers:
+ *     FsRtlMdlReadDev @ 0x14093A3E0 (FsRtlMdlReadDev.c)
+ * Callees:
+ *     IoAllocateMdl @ 0x14020CAD0 (IoAllocateMdl.c)
+ *     CcUpdateReadHistory @ 0x14020CF04 (CcUpdateReadHistory.c)
+ *     CcScheduleReadAheadEx @ 0x14020D0A0 (CcScheduleReadAheadEx.c)
+ *     CcFreeVirtualAddress @ 0x14021E5D0 (CcFreeVirtualAddress.c)
+ *     CcGetVirtualAddress @ 0x14021FB80 (CcGetVirtualAddress.c)
+ *     CcFetchDataForRead @ 0x140221EE0 (CcFetchDataForRead.c)
+ *     MmProbeAndLockPages @ 0x140267B90 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x14027C0C0 (MmUnlockPages.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     CcUpdateSharedCacheMapFlag @ 0x1402E0460 (CcUpdateSharedCacheMapFlag.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ */
+
 void __stdcall CcMdlRead(
         PFILE_OBJECT FileObject,
         PLARGE_INTEGER FileOffset,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtOpenDirectoryObject @ 0x1406C3950
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObOpenObjectByName @ 0x1406C39E0 (ObOpenObjectByName.c)
+ */
+
 __int64 __fastcall NtOpenDirectoryObject(_QWORD *a1, int a2, int a3)
 {
   int v3; // r10d

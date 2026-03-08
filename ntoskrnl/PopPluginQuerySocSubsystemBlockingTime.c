@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopPluginQuerySocSubsystemBlockingTime @ 0x140983478
+ * Callers:
+ *     PopFxLogSocSubsystemBlockingTimes @ 0x140982038 (PopFxLogSocSubsystemBlockingTimes.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ *     RtlHashUnicodeString @ 0x140680AE0 (RtlHashUnicodeString.c)
+ */
+
 char __fastcall PopPluginQuerySocSubsystemBlockingTime(__int64 a1, int a2, __int64 a3)
 {
   ULONG_PTR v4; // rsi

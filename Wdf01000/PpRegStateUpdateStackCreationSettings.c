@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpRegStateUpdateStackCreationSettings @ 0x1C00B1774
+ * Callers:
+ *     IoDevObjCreateDeviceSecure @ 0x1C00B05A0 (IoDevObjCreateDeviceSecure.c)
+ * Callees:
+ *     PiRegStateOpenClassKey @ 0x1C00B1280 (PiRegStateOpenClassKey.c)
+ *     CmRegUtilCreateWstrKey @ 0x1C00B1A4C (CmRegUtilCreateWstrKey.c)
+ *     CmRegUtilWstrValueSetFullBuffer @ 0x1C00B1EAC (CmRegUtilWstrValueSetFullBuffer.c)
+ */
+
 int __fastcall PpRegStateUpdateStackCreationSettings(
         const _GUID *DeviceClassGuid,
         STACK_CREATION_SETTINGS *StackCreationSettings)

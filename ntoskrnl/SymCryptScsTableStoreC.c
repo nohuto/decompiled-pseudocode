@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptScsTableStoreC @ 0x1404095CC
+ * Callers:
+ *     SymCryptScsTableStore @ 0x14040954C (SymCryptScsTableStore.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptScsTableStoreC(__int64 a1, int a2, __int64 a3)
 {
   unsigned int v3; // r10d

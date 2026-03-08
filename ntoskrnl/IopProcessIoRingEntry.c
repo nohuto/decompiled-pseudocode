@@ -1,3 +1,19 @@
+/*
+ * XREFs of IopProcessIoRingEntry @ 0x140947008
+ * Callers:
+ *     NtSubmitIoRing @ 0x1405575D0 (NtSubmitIoRing.c)
+ * Callees:
+ *     IopCompleteIoRingEntry @ 0x140556F5C (IopCompleteIoRingEntry.c)
+ *     IopIoRingSetupCompletionWait @ 0x140557278 (IopIoRingSetupCompletionWait.c)
+ *     IopIoRingWaitForCompletionEvent @ 0x1405574BC (IopIoRingWaitForCompletionEvent.c)
+ *     IopIoRingDispatchCancel @ 0x14094630C (IopIoRingDispatchCancel.c)
+ *     IopIoRingDispatchFlush @ 0x1409463CC (IopIoRingDispatchFlush.c)
+ *     IopIoRingDispatchRead @ 0x1409464AC (IopIoRingDispatchRead.c)
+ *     IopIoRingDispatchRegisterBuffers @ 0x140946620 (IopIoRingDispatchRegisterBuffers.c)
+ *     IopIoRingDispatchRegisterFiles @ 0x140946A40 (IopIoRingDispatchRegisterFiles.c)
+ *     IopIoRingDispatchWrite @ 0x140946CF4 (IopIoRingDispatchWrite.c)
+ */
+
 __int64 __fastcall IopProcessIoRingEntry(_QWORD *a1, __int64 a2, _BYTE *a3)
 {
   __int64 v6; // rcx

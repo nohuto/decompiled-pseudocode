@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpandDIB_CX @ 0x1C0261A50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall ExpandDIB_CX(__int128 *a1, __int16 *a2, _BYTE *a3, __int64 a4, int a5)
 {
   __int64 result; // rax

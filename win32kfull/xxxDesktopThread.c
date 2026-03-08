@@ -1,3 +1,19 @@
+/*
+ * XREFs of xxxDesktopThread @ 0x1C0093DC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsAnyThreadAttached@tagQ@@QEBA_NXZ @ 0x1C0014278 (-IsAnyThreadAttached@tagQ@@QEBA_NXZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     xxxCleanupMotherDesktopWindow @ 0x1C00929C4 (xxxCleanupMotherDesktopWindow.c)
+ *     ??_GLegacyInputDispatcher@@QEAAPEAXI@Z @ 0x1C0093010 (--_GLegacyInputDispatcher@@QEAAPEAXI@Z.c)
+ *     xxxDesktopThreadWaiter @ 0x1C0094300 (xxxDesktopThreadWaiter.c)
+ *     ?xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C0094570 (-xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall xxxDesktopThread(struct tagTERMINAL *a1)
 {

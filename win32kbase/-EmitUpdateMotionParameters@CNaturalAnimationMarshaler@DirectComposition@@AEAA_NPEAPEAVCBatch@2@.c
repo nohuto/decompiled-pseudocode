@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EmitUpdateMotionParameters@CNaturalAnimationMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C026B52C
+ * Callers:
+ *     ?EmitUpdateCommands@CNaturalAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C026B430 (-EmitUpdateCommands@CNaturalAnimationMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ * Callees:
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_82a12b1bd6d405ea304fb103b341a057___ @ 0x1C026B088 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_82a12b1bd6d405ea304fb103b341a05.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_f8795bc2ab0d14603e3171119bdacd19___ @ 0x1C026B388 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_f8795bc2ab0d14603e3171119bdacd1.c)
+ */
+
 char __fastcall DirectComposition::CNaturalAnimationMarshaler::EmitUpdateMotionParameters(
         DirectComposition::CNaturalAnimationMarshaler *this,
         struct DirectComposition::CBatch ***a2)

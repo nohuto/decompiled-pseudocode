@@ -1,3 +1,13 @@
+/*
+ * XREFs of AuthzBasepRemoveSecurityAttributeFromLists @ 0x14066C88C
+ * Callers:
+ *     AuthzBasepCommitSecurityAttributeChanges @ 0x140297AA0 (AuthzBasepCommitSecurityAttributeChanges.c)
+ *     AuthzBasepDeleteSecurityAttribute @ 0x140297E80 (AuthzBasepDeleteSecurityAttribute.c)
+ *     AuthzBasepRollbackSecurityAttributeChanges @ 0x14066C990 (AuthzBasepRollbackSecurityAttributeChanges.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall AuthzBasepRemoveSecurityAttributeFromLists(_DWORD *a1, __int64 *a2, char a3, char a4)
 {
   __int64 v5; // r9

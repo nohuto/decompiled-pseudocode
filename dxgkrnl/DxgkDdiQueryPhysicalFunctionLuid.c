@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkDdiQueryPhysicalFunctionLuid @ 0x1C0365ED0
+ * Callers:
+ *     ?DpiDdiQueryPhysicalFunctionLuid@@YAJPEAXPEAU_LUID@@@Z @ 0x1C0064C00 (-DpiDdiQueryPhysicalFunctionLuid@@YAJPEAXPEAU_LUID@@@Z.c)
+ *     DpiFdoDispatchIoctl @ 0x1C01D7C80 (DpiFdoDispatchIoctl.c)
+ * Callees:
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005A55C (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ */
+
 void __fastcall DxgkDdiQueryPhysicalFunctionLuid(char *a1, int a2, struct _LUID *a3)
 {
   bool v3; // zf

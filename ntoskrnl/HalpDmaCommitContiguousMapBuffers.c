@@ -1,3 +1,20 @@
+/*
+ * XREFs of HalpDmaCommitContiguousMapBuffers @ 0x14039839C
+ * Callers:
+ *     HalpDmaAllocateMapRegisters @ 0x14045399E (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaAllocateLocalContiguousPool @ 0x140930FF0 (HalpDmaAllocateLocalContiguousPool.c)
+ *     HalpDmaGrowContiguousMapBuffers @ 0x1409315C0 (HalpDmaGrowContiguousMapBuffers.c)
+ *     HalpDmaInitializeMasterAdapter @ 0x140B60FAC (HalpDmaInitializeMasterAdapter.c)
+ * Callees:
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     HalpDmaGetTranslationEntries @ 0x14039860C (HalpDmaGetTranslationEntries.c)
+ *     HalpDmaTranslationEntryToIndex @ 0x14039873C (HalpDmaTranslationEntryToIndex.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpDmaCommitContiguousMapBuffers(__int64 a1, __int64 a2, unsigned __int64 a3, unsigned int a4)
 {
   __int64 v4; // rbp

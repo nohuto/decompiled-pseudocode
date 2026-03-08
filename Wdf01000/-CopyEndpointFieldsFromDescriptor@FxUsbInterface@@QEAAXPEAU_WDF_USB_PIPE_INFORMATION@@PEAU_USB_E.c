@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CopyEndpointFieldsFromDescriptor@FxUsbInterface@@QEAAXPEAU_WDF_USB_PIPE_INFORMATION@@PEAU_USB_ENDPOINT_DESCRIPTOR@@E@Z @ 0x1C005EAE8
+ * Callers:
+ *     ?GetEndpointInformation@FxUsbInterface@@QEAAXEEPEAU_WDF_USB_PIPE_INFORMATION@@@Z @ 0x1C005EFD0 (-GetEndpointInformation@FxUsbInterface@@QEAAXEEPEAU_WDF_USB_PIPE_INFORMATION@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxUsbInterface::CopyEndpointFieldsFromDescriptor(
         FxUsbInterface *this,
         _WDF_USB_PIPE_INFORMATION *PipeInfo,

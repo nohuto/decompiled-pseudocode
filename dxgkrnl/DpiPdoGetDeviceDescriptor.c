@@ -1,3 +1,18 @@
+/*
+ * XREFs of DpiPdoGetDeviceDescriptor @ 0x1C02014BC
+ * Callers:
+ *     DpiPdoAddPdo @ 0x1C0201FA0 (DpiPdoAddPdo.c)
+ * Callees:
+ *     ?IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z @ 0x1C000A240 (-IsInternalVideoOutput@@YAEW4_D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY@@@Z.c)
+ *     DpiIsValidEdid @ 0x1C001F86C (DpiIsValidEdid.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DxgkReleaseAdapterDdiSync @ 0x1C01E7088 (DxgkReleaseAdapterDdiSync.c)
+ *     DxgkAcquireAdapterDdiSync @ 0x1C01E70A8 (DxgkAcquireAdapterDdiSync.c)
+ *     DpiDxgkDdiQueryDeviceDescriptor @ 0x1C0201770 (DpiDxgkDdiQueryDeviceDescriptor.c)
+ *     DpiPdoPollChild @ 0x1C03A4F60 (DpiPdoPollChild.c)
+ */
+
 __int64 __fastcall DpiPdoGetDeviceDescriptor(
         __int64 a1,
         int *a2,

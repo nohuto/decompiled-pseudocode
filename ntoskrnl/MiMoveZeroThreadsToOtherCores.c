@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiMoveZeroThreadsToOtherCores @ 0x1402A8404
+ * Callers:
+ *     MiReduceZeroingThreads @ 0x1402A81E4 (MiReduceZeroingThreads.c)
+ * Callees:
+ *     MiZeroThreadContending @ 0x1402A84A8 (MiZeroThreadContending.c)
+ *     MiGetIdleProcessorCount @ 0x1402A86CC (MiGetIdleProcessorCount.c)
+ */
+
 __int64 __fastcall MiMoveZeroThreadsToOtherCores(__int64 a1)
 {
   unsigned int v1; // r14d

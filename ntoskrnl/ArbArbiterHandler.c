@@ -1,3 +1,15 @@
+/*
+ * XREFs of ArbArbiterHandler @ 0x140849900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall ArbArbiterHandler(__int64 a1, int a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rax

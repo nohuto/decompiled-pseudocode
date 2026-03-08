@@ -1,3 +1,13 @@
+/*
+ * XREFs of vConvertXformToMatrix @ 0x1C000DEE0
+ * Callers:
+ *     GreExtCreateRegion @ 0x1C0019830 (GreExtCreateRegion.c)
+ * Callees:
+ *     bFToL @ 0x1C0002B7C (bFToL.c)
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C000DEC0 (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ *     ?bIs1@EFLOAT@@QEBAHXZ @ 0x1C000DFC8 (-bIs1@EFLOAT@@QEBAHXZ.c)
+ */
+
 __int64 __fastcall vConvertXformToMatrix(float *a1, _DWORD *a2)
 {
   float *v2; // rdi

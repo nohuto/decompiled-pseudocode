@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlFnToFxFrame @ 0x1402ECBDC
+ * Callers:
+ *     RtlpWow64CtxToAmd64 @ 0x14077D078 (RtlpWow64CtxToAmd64.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RtlFnToFxFrame(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // r11

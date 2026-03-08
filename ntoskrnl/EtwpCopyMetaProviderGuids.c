@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpCopyMetaProviderGuids @ 0x140462B1C
+ * Callers:
+ *     EtwpGetTraceGuidList @ 0x1409E4FB4 (EtwpGetTraceGuidList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EtwpCopyMetaProviderGuids(_OWORD *a1, unsigned int a2)
 {
   __int64 result; // rax

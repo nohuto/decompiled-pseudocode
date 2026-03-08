@@ -1,3 +1,20 @@
+/*
+ * XREFs of AlpcpCaptureMessageData @ 0x1407CC930
+ * Callers:
+ *     AlpcpSetupMessageDataForDeferredCopy @ 0x14071478C (AlpcpSetupMessageDataForDeferredCopy.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x140715930 (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x140716318 (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpCreateReserve @ 0x140781384 (AlpcpCreateReserve.c)
+ *     AlpcpSendMessage @ 0x1407CAFB0 (AlpcpSendMessage.c)
+ *     AlpcpCaptureMessageDataSafe @ 0x1407CC88C (AlpcpCaptureMessageDataSafe.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     AlpcpReleasePagedPoolQuota @ 0x1406D453C (AlpcpReleasePagedPoolQuota.c)
+ *     AlpcpChargePagedPoolQuota @ 0x1406D477C (AlpcpChargePagedPoolQuota.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AlpcpCaptureMessageData(__int64 a1, size_t a2, char *a3)
 {
   __int64 v3; // rsi

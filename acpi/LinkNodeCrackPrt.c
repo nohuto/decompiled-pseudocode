@@ -1,3 +1,33 @@
+/*
+ * XREFs of LinkNodeCrackPrt @ 0x1C005CE9C
+ * Callers:
+ *     IrqArbAddAllocation @ 0x1C009C4B0 (IrqArbAddAllocation.c)
+ *     IrqArbGetNextAllocationRange @ 0x1C009D3B0 (IrqArbGetNextAllocationRange.c)
+ *     IrqArbpFindSuitableRangePci @ 0x1C009E1A4 (IrqArbpFindSuitableRangePci.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_s @ 0x1C000AEC4 (WPP_RECORDER_SF_s.c)
+ *     RtlStringCchPrintfW @ 0x1C000B900 (RtlStringCchPrintfW.c)
+ *     WPP_RECORDER_SF_i @ 0x1C002293C (WPP_RECORDER_SF_i.c)
+ *     ACPIWriteEventLogEntry @ 0x1C0025F5C (ACPIWriteEventLogEntry.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C0047B9C (AMLIEvalNameSpaceObject.c)
+ *     AMLIEvalPkgDataElement @ 0x1C0047F38 (AMLIEvalPkgDataElement.c)
+ *     AMLIGetNameSpaceObject @ 0x1C00483B8 (AMLIGetNameSpaceObject.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ *     LinkNodepGetFilter @ 0x1C005D8A8 (LinkNodepGetFilter.c)
+ *     LinkNodeFindByNsObj @ 0x1C0099450 (LinkNodeFindByNsObj.c)
+ *     LinkNodepAddAttachedDevice @ 0x1C009967C (LinkNodepAddAttachedDevice.c)
+ *     PcisuppGetBusSlotNumber @ 0x1C0099948 (PcisuppGetBusSlotNumber.c)
+ *     PcisuppGetParentPdo @ 0x1C0099A54 (PcisuppGetParentPdo.c)
+ *     PcisuppGetProgConfigHeader @ 0x1C0099B50 (PcisuppGetProgConfigHeader.c)
+ *     PcisuppGetRoutingInfo @ 0x1C0099C6C (PcisuppGetRoutingInfo.c)
+ *     PcisuppSetRoutingInfo @ 0x1C009A1E8 (PcisuppSetRoutingInfo.c)
+ */
+
 __int64 __fastcall LinkNodeCrackPrt(__int64 a1, _QWORD *a2, _DWORD *a3, char a4)
 {
   volatile signed __int32 *v4; // r15

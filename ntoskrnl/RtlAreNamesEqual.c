@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlAreNamesEqual @ 0x1402B7510
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     RtlpUpcaseUnicodeStringPrivate @ 0x140365BA0 (RtlpUpcaseUnicodeStringPrivate.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ */
+
 BOOLEAN __stdcall RtlAreNamesEqual(
         PCUNICODE_STRING ConstantNameA,
         PCUNICODE_STRING ConstantNameB,

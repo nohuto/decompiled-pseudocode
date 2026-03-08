@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpFindNameInListFromIndex @ 0x1407B42D0
+ * Callers:
+ *     CmQueryValueKey @ 0x1407B4730 (CmQueryValueKey.c)
+ * Callees:
+ *     NLS_UPCASE @ 0x140267AD0 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlCompareUnicodeStrings @ 0x140684CA0 (RtlCompareUnicodeStrings.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall CmpFindNameInListFromIndex(
         ULONG_PTR BugCheckParameter3,
         unsigned int *a2,

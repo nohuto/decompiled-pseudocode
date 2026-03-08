@@ -1,3 +1,21 @@
+/*
+ * XREFs of WbGetHeapExecutedBlock @ 0x1406AFAAC
+ * Callers:
+ *     WbHeapExecuteCall @ 0x1406AF56C (WbHeapExecuteCall.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     sub_1406AF4BC @ 0x1406AF4BC (sub_1406AF4BC.c)
+ *     sub_1406AFC38 @ 0x1406AFC38 (sub_1406AFC38.c)
+ *     WbMoveHeapExecutedBlockToBackOfLRU @ 0x1406AFCA0 (WbMoveHeapExecutedBlockToBackOfLRU.c)
+ *     sub_140753BB4 @ 0x140753BB4 (sub_140753BB4.c)
+ *     WbAddHeapExecutedBlockToCache @ 0x140754E94 (WbAddHeapExecutedBlockToCache.c)
+ *     WbReleaseLeastRecentlyUsedHeapExecutedBlocks @ 0x140770D60 (WbReleaseLeastRecentlyUsedHeapExecutedBlocks.c)
+ */
+
 __int64 __fastcall WbGetHeapExecutedBlock(__int64 a1, __int64 a2, _QWORD *a3)
 {
   __int64 v5; // rdx

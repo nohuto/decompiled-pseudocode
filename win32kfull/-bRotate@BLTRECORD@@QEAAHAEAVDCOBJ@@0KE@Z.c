@@ -1,3 +1,31 @@
+/*
+ * XREFs of ?bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@0KE@Z @ 0x1C02913F8
+ * Callers:
+ *     GreStretchBltInternal @ 0x1C0059930 (GreStretchBltInternal.c)
+ *     GreMaskBlt @ 0x1C007F6E8 (GreMaskBlt.c)
+ *     GrePlgBlt @ 0x1C0293740 (GrePlgBlt.c)
+ * Callees:
+ *     ?bBitBlt@BLTRECORD@@QEAAHAEAVDCOBJ@@0K@Z @ 0x1C0058BC0 (-bBitBlt@BLTRECORD@@QEAAHAEAVDCOBJ@@0K@Z.c)
+ *     ?vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z @ 0x1C008219C (-vAccumulate@XDCOBJ@@QEAAXAEAVERECTL@@@Z.c)
+ *     ?vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z @ 0x1C00821D8 (-vAccumulateTight@XDCOBJ@@QEAAXPEAVECLIPOBJ@@AEAVERECTL@@@Z.c)
+ *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C0088198 (-vOrder@ERECTL@@QEAAXXZ.c)
+ *     ?prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ @ 0x1C008C1D8 (-prgnEffRao@XDCOBJ@@QEAAPEAVREGION@@XZ.c)
+ *     ?bEmpty@ERECTL@@QEBAHXZ @ 0x1C008D3C0 (-bEmpty@ERECTL@@QEBAHXZ.c)
+ *     ?pSurfaceEff@XDCOBJ@@QEAAPEAVSURFACE@@XZ @ 0x1C008D3E0 (-pSurfaceEff@XDCOBJ@@QEAAPEAVSURFACE@@XZ.c)
+ *     ?pSurfMskOut@BLTRECORD@@QEAAPEAVSURFACE@@XZ @ 0x1C00F39C4 (-pSurfMskOut@BLTRECORD@@QEAAPEAVSURFACE@@XZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     ?bOffsetAdd@ERECTL@@QEAAHAEBU_POINTL@@H@Z @ 0x1C0268F1C (-bOffsetAdd@ERECTL@@QEAAHAEBU_POINTL@@H@Z.c)
+ *     ?bCreateRegion@BLTRECORD@@QEAAHAEAVDCOBJ@@PEAU_POINTFIX@@@Z @ 0x1C02912E0 (-bCreateRegion@BLTRECORD@@QEAAHAEAVDCOBJ@@PEAU_POINTFIX@@@Z.c)
+ *     ?bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@AEAVSURFMEM@@1KK@Z @ 0x1C0291AAC (-bRotate@BLTRECORD@@QEAAHAEAVDCOBJ@@AEAVSURFMEM@@1KK@Z.c)
+ *     ?bRotate@BLTRECORD@@QEAAHAEAVSURFMEM@@K@Z @ 0x1C0291D14 (-bRotate@BLTRECORD@@QEAAHAEAVSURFMEM@@K@Z.c)
+ *     ?vBound@BLTRECORD@@QEAAXPEAVERECTL@@@Z @ 0x1C0291F78 (-vBound@BLTRECORD@@QEAAXPEAVERECTL@@@Z.c)
+ *     ?vExtrema@BLTRECORD@@QEAAXXZ @ 0x1C0291FF4 (-vExtrema@BLTRECORD@@QEAAXXZ.c)
+ *     ?vMirror@BLTRECORD@@QEAAXPEAU_POINTFIX@@@Z @ 0x1C0292088 (-vMirror@BLTRECORD@@QEAAXPEAU_POINTFIX@@@Z.c)
+ *     LongLongMult @ 0x1C0293DE4 (LongLongMult.c)
+ *     ?vOrder@BLTRECORD@@QEAAXPEAVERECTL@@@Z @ 0x1C0295FEC (-vOrder@BLTRECORD@@QEAAXPEAVERECTL@@@Z.c)
+ */
+
 __int64 __fastcall BLTRECORD::bRotate(
         struct _POINTFIX *this,
         struct DCOBJ *a2,

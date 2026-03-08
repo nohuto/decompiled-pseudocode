@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Create@?$TypeIsolationFactory@V?$CTypeIsolation@$0IAAA@$0IA@@NSInstrumentation@@V?$CTypeIsolation@$0DJAAA@$0DJA@@2@@@SA_NPEAPEAE@Z @ 0x1C00C52E0
+ * Callers:
+ *     ?Create@?$TypeIsolationFactory@V?$CTypeIsolation@$0NPAAA@$0NPA@@NSInstrumentation@@V?$CTypeIsolation@$0IAAA@$0IA@@2@V?$CTypeIsolation@$0DJAAA@$0DJA@@2@@@SA_NPEAPEAE@Z @ 0x1C00C5184 (-Create@-$TypeIsolationFactory@V-$CTypeIsolation@$0NPAAA@$0NPA@@NSInstrumentation@@V-$CTypeIsola.c)
+ * Callees:
+ *     ?Initialize@?$CTypeIsolation@$0IAAA@$0IA@@NSInstrumentation@@IEAA_NXZ @ 0x1C002C6E4 (-Initialize@-$CTypeIsolation@$0IAAA@$0IA@@NSInstrumentation@@IEAA_NXZ.c)
+ *     ??1?$CTypeIsolation@$0IAAA@$0IA@@NSInstrumentation@@IEAA@XZ @ 0x1C00A0A10 (--1-$CTypeIsolation@$0IAAA@$0IA@@NSInstrumentation@@IEAA@XZ.c)
+ *     ?Create@?$TypeIsolationFactory@V?$CTypeIsolation@$0DJAAA@$0DJA@@NSInstrumentation@@@@SA_NPEAPEAE@Z @ 0x1C00C535C (-Create@-$TypeIsolationFactory@V-$CTypeIsolation@$0DJAAA@$0DJA@@NSInstrumentation@@@@SA_NPEAPEAE.c)
+ */
+
 char __fastcall TypeIsolationFactory<NSInstrumentation::CTypeIsolation<32768,128>,NSInstrumentation::CTypeIsolation<233472,912>>::Create(
         __int64 a1)
 {

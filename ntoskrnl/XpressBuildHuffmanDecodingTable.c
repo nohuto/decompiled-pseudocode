@@ -1,3 +1,12 @@
+/*
+ * XREFs of XpressBuildHuffmanDecodingTable @ 0x1402B53E0
+ * Callers:
+ *     RtlDecompressBufferXpressHuff @ 0x1402B4E70 (RtlDecompressBufferXpressHuff.c)
+ *     RtlDecompressBufferXpressHuffProgress @ 0x1405B1224 (RtlDecompressBufferXpressHuffProgress.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall XpressBuildHuffmanDecodingTable(__m128i *a1, __int64 a2)
 {
   __int16 v2; // bp

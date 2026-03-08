@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiIsPteDecommittedPage @ 0x140345F34
+ * Callers:
+ *     MiCommitExistingVad @ 0x140320D70 (MiCommitExistingVad.c)
+ *     MiComputePageCommitment @ 0x140345CE0 (MiComputePageCommitment.c)
+ * Callees:
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiIsPrototypePteVadLookup @ 0x140327240 (MiIsPrototypePteVadLookup.c)
+ */
+
 __int64 __fastcall MiIsPteDecommittedPage(unsigned __int64 a1)
 {
   unsigned __int64 v1; // rbx

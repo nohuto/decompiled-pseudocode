@@ -1,3 +1,11 @@
+/*
+ * XREFs of sub_140769C84 @ 0x140769C84
+ * Callers:
+ *     ExHandleSPCall2 @ 0x140769A60 (ExHandleSPCall2.c)
+ * Callees:
+ *     KeExpandKernelStackAndCalloutEx @ 0x1403155F0 (KeExpandKernelStackAndCalloutEx.c)
+ */
+
 NTSTATUS __fastcall sub_140769C84(__int64 a1, int a2, int a3, _QWORD *a4, _DWORD *a5)
 {
   NTSTATUS result; // eax

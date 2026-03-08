@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0REMOTE_VSYNC@@QEAA@XZ @ 0x1C0208510
+ * Callers:
+ *     ??0DXGGLOBAL@@AEAA@XZ @ 0x1C0207C44 (--0DXGGLOBAL@@AEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 REMOTE_VSYNC *__fastcall REMOTE_VSYNC::REMOTE_VSYNC(REMOTE_VSYNC *this)
 {
   *(_WORD *)this = 0;

@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheapCallErrorSourceRecover @ 0x1406103F8
+ * Callers:
+ *     WheapAttemptErrorRecovery @ 0x14060E8B4 (WheapAttemptErrorRecovery.c)
+ * Callees:
+ *     WheapGetErrorSourceFunction @ 0x14037D8DC (WheapGetErrorSourceFunction.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall WheapCallErrorSourceRecover(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 (__fastcall *ErrorSourceFunction)(__int64, __int64); // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of DwmAsyncUpdateVisRgn @ 0x1C0021F40
+ * Callers:
+ *     ?RemoveTracker@CVisRgnTrackerProp@@QEAAXK@Z @ 0x1C0025B7C (-RemoveTracker@CVisRgnTrackerProp@@QEAAXK@Z.c)
+ *     ?UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z @ 0x1C0044204 (-UpdateTrackerRegion@CVisRgnTrackerProp@@AEAAXKI@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall DwmAsyncUpdateVisRgn(PVOID Object, __int64 a2, int a3, __int64 a4, int a5)
 {
   int v8; // esi

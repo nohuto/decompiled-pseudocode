@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiCreateSessionDriverProtos @ 0x140A4316C
+ * Callers:
+ *     MiAddPrivateFixupEntryForSystemImage @ 0x1403A6104 (MiAddPrivateFixupEntryForSystemImage.c)
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ * Callees:
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiDeleteSessionDriverProtos @ 0x14067F83C (MiDeleteSessionDriverProtos.c)
+ *     MiMapImageInSystemSpace @ 0x1406A53F8 (MiMapImageInSystemSpace.c)
+ *     MiUnmapImageInSystemSpace @ 0x1406A556C (MiUnmapImageInSystemSpace.c)
+ *     MiAllocatePerSessionProtos @ 0x14075B9D4 (MiAllocatePerSessionProtos.c)
+ */
+
 __int64 __fastcall MiCreateSessionDriverProtos(__int64 *a1, unsigned __int64 a2, __int64 a3)
 {
   __int64 v5; // rsi

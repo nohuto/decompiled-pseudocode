@@ -1,3 +1,11 @@
+/*
+ * XREFs of rimProcessMouseInput @ 0x1C00F0EA4
+ * Callers:
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0003AE4 (rimProcessDeviceBufferAndStartRead.c)
+ * Callees:
+ *     rimStackAttachAndProcessInput @ 0x1C00044C4 (rimStackAttachAndProcessInput.c)
+ */
+
 void __fastcall rimProcessMouseInput(__int64 a1, __int64 a2)
 {
   int v3; // eax

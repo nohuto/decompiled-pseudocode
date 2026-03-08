@@ -1,3 +1,11 @@
+/*
+ * XREFs of TranslateBridgeRequirements @ 0x1C00977A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall TranslateBridgeRequirements(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, __int64 *a5)
 {
   __int64 Pool2; // rax

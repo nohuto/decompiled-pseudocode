@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopEnableIrpWatchdog @ 0x1402BB290
+ * Callers:
+ *     PoHandleIrp @ 0x1402B986C (PoHandleIrp.c)
+ *     PopQueueQuerySetIrp @ 0x1402BAFA4 (PopQueueQuerySetIrp.c)
+ *     PopDequeueQuerySetIrp @ 0x1402BB70C (PopDequeueQuerySetIrp.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ *     PopComputeWatchdogTimeout @ 0x1402BB3D0 (PopComputeWatchdogTimeout.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PopEnableIrpWatchdog(__int64 a1)
 {
   __int64 v1; // rbx

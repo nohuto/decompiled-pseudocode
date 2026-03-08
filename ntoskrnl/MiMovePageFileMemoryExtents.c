@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiMovePageFileMemoryExtents @ 0x14065E2B8
+ * Callers:
+ *     MiInsertPageFileMemoryExtents @ 0x14065E138 (MiInsertPageFileMemoryExtents.c)
+ * Callees:
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ *     MiComparePageFileMemoryExtents @ 0x14065D52C (MiComparePageFileMemoryExtents.c)
+ */
+
 char __fastcall MiMovePageFileMemoryExtents(unsigned __int64 a1, __int64 a2)
 {
   unsigned __int64 v2; // rbx

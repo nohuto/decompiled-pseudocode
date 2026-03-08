@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_G?$LinearKeyframeAnimation@Ufloat2@Numerics@Foundation@Windows@@@Particles@@UEAAPEAXI@Z @ 0x1801BF710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ */
+
 _QWORD *__fastcall Particles::LinearKeyframeAnimation<Windows::Foundation::Numerics::float2>::`scalar deleting destructor'(
         _QWORD *a1,
         char a2)

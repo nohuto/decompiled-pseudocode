@@ -1,3 +1,12 @@
+/*
+ * XREFs of vUnlinkEudcRFONTsWorker @ 0x1C02A3388
+ * Callers:
+ *     vUnlinkEudcRFONTs @ 0x1C02A3018 (vUnlinkEudcRFONTs.c)
+ * Callees:
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C011DDB0 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     vMakeInactiveHelper @ 0x1C02A2F4C (vMakeInactiveHelper.c)
+ */
+
 void __fastcall vUnlinkEudcRFONTsWorker(_QWORD *a1, __int64 a2)
 {
   __int64 v4; // rbx

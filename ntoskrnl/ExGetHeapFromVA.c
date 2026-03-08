@@ -1,3 +1,21 @@
+/*
+ * XREFs of ExGetHeapFromVA @ 0x140313BF0
+ * Callers:
+ *     ExpHpCompactionRoutine @ 0x1402CC0B0 (ExpHpCompactionRoutine.c)
+ *     ExReturnPoolQuota @ 0x1403144E0 (ExReturnPoolQuota.c)
+ *     ExGetBigPoolInfo @ 0x140604B70 (ExGetBigPoolInfo.c)
+ *     ExPoolCleanupExpansionTable @ 0x140604EC8 (ExPoolCleanupExpansionTable.c)
+ *     ExQueryPoolBlockSize @ 0x1406055A0 (ExQueryPoolBlockSize.c)
+ *     ExIsSpecialPoolAddress @ 0x14060CCD8 (ExIsSpecialPoolAddress.c)
+ *     ExpAllocatePoolWithQuotaTag @ 0x140AAB128 (ExpAllocatePoolWithQuotaTag.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ * Callees:
+ *     RtlCSparseBitmapBitmaskRead @ 0x1402B689C (RtlCSparseBitmapBitmaskRead.c)
+ *     RtlpHpQueryVA @ 0x140309578 (RtlpHpQueryVA.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 ULONG_PTR __fastcall ExGetHeapFromVA(ULONG_PTR BugCheckParameter3)
 {
   int v2; // eax

@@ -1,3 +1,32 @@
+/*
+ * XREFs of MiLockStealUserVm @ 0x1403B7F90
+ * Callers:
+ *     MiStealPage @ 0x1403B70BC (MiStealPage.c)
+ * Callees:
+ *     MiLockLowestValidPageTable @ 0x140225DB0 (MiLockLowestValidPageTable.c)
+ *     MiLocateAddress @ 0x140228680 (MiLocateAddress.c)
+ *     MiGetTopLevelPfn @ 0x14022A3D0 (MiGetTopLevelPfn.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiFastLockLeafPageTable @ 0x140269C50 (MiFastLockLeafPageTable.c)
+ *     MiPrepareAttachThread @ 0x14029CA64 (MiPrepareAttachThread.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     MiTryToAcquireExpansionLockAtDpc @ 0x1402DE81C (MiTryToAcquireExpansionLockAtDpc.c)
+ *     KeForceAttachProcess @ 0x1402E6610 (KeForceAttachProcess.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     MiUnlockVadTree @ 0x140330EC8 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x1403334B4 (MiLockVadTree.c)
+ *     MiFillPteHierarchy @ 0x140333AE0 (MiFillPteHierarchy.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     MiVadPagesTradable @ 0x1403481F0 (MiVadPagesTradable.c)
+ *     MiSmallVaStillMapsFrame @ 0x1403A3A90 (MiSmallVaStillMapsFrame.c)
+ *     MiUnlockStealVm @ 0x1403B7AF8 (MiUnlockStealVm.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiRotatedToFrameBuffer @ 0x140630A34 (MiRotatedToFrameBuffer.c)
+ *     MiClusterVadActive @ 0x1406678C8 (MiClusterVadActive.c)
+ */
+
 __int64 MiLockStealUserVm(__int64 a1, ULONG_PTR a2, unsigned __int8 a3, ...)
 {
   __int64 v3; // rsi

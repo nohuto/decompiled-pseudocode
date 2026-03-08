@@ -1,3 +1,12 @@
+/*
+ * XREFs of Control_WdfDpcForCanceledOnQueueTransferCompletion @ 0x1C0042E30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Control_Transfer_Complete @ 0x1C0005E64 (Control_Transfer_Complete.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall Control_WdfDpcForCanceledOnQueueTransferCompletion(__int64 a1)
 {
   __int64 v1; // rax

@@ -1,3 +1,22 @@
+/*
+ * XREFs of ObpVerifyCreatorAccessCheck @ 0x140741CB8
+ * Callers:
+ *     NtCreatePrivateNamespace @ 0x140741A50 (NtCreatePrivateNamespace.c)
+ *     NtDeletePrivateNamespace @ 0x140881680 (NtDeletePrivateNamespace.c)
+ * Callees:
+ *     RtlSubAuthoritySid @ 0x1402BE740 (RtlSubAuthoritySid.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlInitializeSid @ 0x14068E3A0 (RtlInitializeSid.c)
+ *     SeUnlockSubjectContext @ 0x140699470 (SeUnlockSubjectContext.c)
+ *     SeLockSubjectContext @ 0x1406994B0 (SeLockSubjectContext.c)
+ *     RtlEnumerateBoundaryDescriptorEntries @ 0x140743B80 (RtlEnumerateBoundaryDescriptorEntries.c)
+ *     SeQueryInformationToken @ 0x1407B9760 (SeQueryInformationToken.c)
+ *     SeCaptureSubjectContextEx @ 0x1407C9AF0 (SeCaptureSubjectContextEx.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ObpVerifyCreatorAccessCheck(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rcx

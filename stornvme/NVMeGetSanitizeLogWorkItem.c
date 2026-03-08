@@ -1,3 +1,19 @@
+/*
+ * XREFs of NVMeGetSanitizeLogWorkItem @ 0x1C0016690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     NVMeRequestComplete @ 0x1C000318C (NVMeRequestComplete.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C000C1C0 (NVMeAllocateDmaBuffer.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ *     BuildGetLogPageCommand @ 0x1C0010E14 (BuildGetLogPageCommand.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 __int64 __fastcall NVMeGetSanitizeLogWorkItem(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v5; // r9

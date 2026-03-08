@@ -1,3 +1,16 @@
+/*
+ * XREFs of HsaUpdateRemappingTableInDeviceTableEntry @ 0x14052F02C
+ * Callers:
+ *     HsaAllocateRemappingTableEntry @ 0x14052C890 (HsaAllocateRemappingTableEntry.c)
+ *     HsaFreeRemappingTableEntry @ 0x14052D9F0 (HsaFreeRemappingTableEntry.c)
+ * Callees:
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     HsaBuildInterruptRemappingEntry @ 0x14052D004 (HsaBuildInterruptRemappingEntry.c)
+ *     HsaInvalidateRemappingTableEntries @ 0x14052E114 (HsaInvalidateRemappingTableEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HsaUpdateRemappingTableInDeviceTableEntry(__int64 a1, unsigned int *a2, __int64 a3)
 {
   unsigned __int8 CurrentIrql; // bl

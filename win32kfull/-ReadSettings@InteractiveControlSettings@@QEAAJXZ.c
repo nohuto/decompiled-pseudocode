@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ReadSettings@InteractiveControlSettings@@QEAAJXZ @ 0x1C0079CC4
+ * Callers:
+ *     ??0InteractiveControlManager@@AEAA@XZ @ 0x1C0079FB4 (--0InteractiveControlManager@@AEAA@XZ.c)
+ *     RawInputThread @ 0x1C007A0C0 (RawInputThread.c)
+ *     ?GetExternalParameters@InteractiveControlManager@@QEAAJPEAUtagINTERACTIVECTRL_PARAMETERS@@@Z @ 0x1C0243710 (-GetExternalParameters@InteractiveControlManager@@QEAAJPEAUtagINTERACTIVECTRL_PARAMETERS@@@Z.c)
+ * Callees:
+ *     ?_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z @ 0x1C0079E10 (-_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall InteractiveControlSettings::ReadSettings(InteractiveControlSettings *this, __int64 a2, int a3)
 {
   unsigned int *v4; // rbx

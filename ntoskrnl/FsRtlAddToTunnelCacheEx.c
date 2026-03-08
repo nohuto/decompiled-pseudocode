@@ -1,3 +1,19 @@
+/*
+ * XREFs of FsRtlAddToTunnelCacheEx @ 0x1407524E0
+ * Callers:
+ *     FsRtlAddToTunnelCache @ 0x14093AAA0 (FsRtlAddToTunnelCache.c)
+ * Callees:
+ *     ExAllocateFromNPagedLookasideList @ 0x14023FE20 (ExAllocateFromNPagedLookasideList.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     FsRtlCompareNodeAndKey @ 0x1402C1AA8 (FsRtlCompareNodeAndKey.c)
+ *     FsRtlEmptyFreePoolList @ 0x1402C1B10 (FsRtlEmptyFreePoolList.c)
+ *     FsRtlFreeTunnelNode @ 0x1402C1B68 (FsRtlFreeTunnelNode.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     FsRtlPruneTunnelCache @ 0x140752970 (FsRtlPruneTunnelCache.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall FsRtlAddToTunnelCacheEx(
         PFAST_MUTEX FastMutex,
         unsigned __int64 a2,

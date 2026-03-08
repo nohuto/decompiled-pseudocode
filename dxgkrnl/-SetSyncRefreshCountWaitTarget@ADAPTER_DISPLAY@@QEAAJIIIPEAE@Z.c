@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SetSyncRefreshCountWaitTarget@ADAPTER_DISPLAY@@QEAAJIIIPEAE@Z @ 0x1C02BB070
+ * Callers:
+ *     ?DxgkSetSyncRefreshCountWaitTargetInternal@@YAJIIII@Z @ 0x1C01911B0 (-DxgkSetSyncRefreshCountWaitTargetInternal@@YAJIIII@Z.c)
+ * Callees:
+ *     ?SetSyncRefreshCountWaitTargetNonPaged@ADAPTER_DISPLAY@@QEAAXIIPEAE@Z @ 0x1C0007520 (-SetSyncRefreshCountWaitTargetNonPaged@ADAPTER_DISPLAY@@QEAAXIIPEAE@Z.c)
+ *     McTemplateK0qqqqq_EtwWriteTransfer @ 0x1C0041810 (McTemplateK0qqqqq_EtwWriteTransfer.c)
+ *     ?SetDWMTargetVsync@BLTQUEUE@@QEAAXI@Z @ 0x1C006D53C (-SetDWMTargetVsync@BLTQUEUE@@QEAAXI@Z.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01A3640 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ */
+
 __int64 __fastcall ADAPTER_DISPLAY::SetSyncRefreshCountWaitTarget(
         ADAPTER_DISPLAY *this,
         unsigned int a2,

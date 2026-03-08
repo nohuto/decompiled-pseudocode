@@ -1,3 +1,14 @@
+/*
+ * XREFs of SeQuerySigningPolicy @ 0x14070DD2C
+ * Callers:
+ *     NtCreateUserProcess @ 0x14070C850 (NtCreateUserProcess.c)
+ *     PspCreateProcess @ 0x140858F60 (PspCreateProcess.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     SeQuerySigningPolicyWorker @ 0x14070BBF8 (SeQuerySigningPolicyWorker.c)
+ *     SepIsMinTCB @ 0x14070E10C (SepIsMinTCB.c)
+ */
+
 __int64 __fastcall SeQuerySigningPolicy(
         void *a1,
         const UNICODE_STRING *a2,

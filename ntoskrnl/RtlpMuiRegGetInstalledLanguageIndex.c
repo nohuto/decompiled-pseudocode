@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlpMuiRegGetInstalledLanguageIndex @ 0x140A71DC4
+ * Callers:
+ *     RtlpMuiRegValidateConfigNode @ 0x140677BB8 (RtlpMuiRegValidateConfigNode.c)
+ *     RtlpLoadPolicyLanguageSpec @ 0x140A716A4 (RtlpLoadPolicyLanguageSpec.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x140A719B4 (RtlpMuiRegConfigMatchesInstalled.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlCultureNameToLCID @ 0x1407FE570 (RtlCultureNameToLCID.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x140843BA8 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
+ */
+
 __int64 __fastcall RtlpMuiRegGetInstalledLanguageIndex(__int64 a1, int a2, __int16 a3, _WORD *a4)
 {
   unsigned int v4; // ebx

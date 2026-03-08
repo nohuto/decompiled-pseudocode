@@ -1,3 +1,19 @@
+/*
+ * XREFs of EtwTimLogUserCetSetContextIpValidationFailure @ 0x1409E83F8
+ * Callers:
+ *     KiLogUserCetSetContextIpValidationFailureWorker @ 0x1409726C0 (KiLogUserCetSetContextIpValidationFailureWorker.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     EtwpTiFillProcessIdentity @ 0x140367BF4 (EtwpTiFillProcessIdentity.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQueryVirtualMemory @ 0x140412770 (ZwQueryVirtualMemory.c)
+ *     EtwpQueryProcessCommandLine @ 0x14071DB40 (EtwpQueryProcessCommandLine.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EtwTimLogUserCetSetContextIpValidationFailure(int a1, __int64 a2, void *a3, int a4, int a5)
 {
   __int64 *v6; // rsi

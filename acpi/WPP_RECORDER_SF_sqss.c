@@ -1,3 +1,14 @@
+/*
+ * XREFs of WPP_RECORDER_SF_sqss @ 0x1C0015EC4
+ * Callers:
+ *     ACPIBuildDevicePowerNodes @ 0x1C000C5A4 (ACPIBuildDevicePowerNodes.c)
+ *     ACPIBuildDeviceResetPowerNode @ 0x1C000CAD0 (ACPIBuildDeviceResetPowerNode.c)
+ *     ACPIBuildProcessSynchronizationList @ 0x1C00123A0 (ACPIBuildProcessSynchronizationList.c)
+ *     ACPIBuildWakeEventDeviceContext @ 0x1C00140F0 (ACPIBuildWakeEventDeviceContext.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WPP_RECORDER_SF_sqss(
         __int64 a1,
         unsigned __int8 a2,

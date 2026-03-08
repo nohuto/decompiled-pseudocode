@@ -1,3 +1,11 @@
+/*
+ * XREFs of PcGetChannelAdapter @ 0x140519A30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char *__fastcall PcGetChannelAdapter(__int64 a1)
 {
   char *v2; // r10

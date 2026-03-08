@@ -1,3 +1,19 @@
+/*
+ * XREFs of NtGdiPolyPolyDraw @ 0x1C000C360
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AllocFreeTmpBuffer @ 0x1C003C6A0 (AllocFreeTmpBuffer.c)
+ *     FreeTmpBuffer @ 0x1C003C850 (FreeTmpBuffer.c)
+ *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0062994 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     EngSetLastError @ 0x1C00BAB10 (EngSetLastError.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ *     GreCreatePolyPolygonRgnInternal @ 0x1C0197C30 (GreCreatePolyPolygonRgnInternal.c)
+ */
+
 __int64 __fastcall NtGdiPolyPolyDraw(__int64 a1, void *a2, void *a3, unsigned int a4, int a5)
 {
   __int64 v5; // r13

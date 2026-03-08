@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?xxxDWP_SetCursor@@YAHPEAUtagWND@@PEAUHWND__@@HI@Z @ 0x1C00A5C50
+ * Callers:
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ * Callees:
+ *     ?IsSemiMaximized@@YA_NPEBUtagWND@@@Z @ 0x1C0031BD4 (-IsSemiMaximized@@YA_NPEBUtagWND@@@Z.c)
+ *     ?zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C0042A88 (-zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z.c)
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     ?IsLeftSemiMaximized@@YA_NPEBUtagWND@@@Z @ 0x1C0101D30 (-IsLeftSemiMaximized@@YA_NPEBUtagWND@@@Z.c)
+ *     ?IsRightSemiMaximized@@YA_NPEBUtagWND@@@Z @ 0x1C0101D4C (-IsRightSemiMaximized@@YA_NPEBUtagWND@@@Z.c)
+ *     xxxActiveWindowTracking @ 0x1C01B83D0 (xxxActiveWindowTracking.c)
+ *     xxxGetSysMenu @ 0x1C0224EB0 (xxxGetSysMenu.c)
+ *     xxxActivateEnabledPopup @ 0x1C0225928 (xxxActivateEnabledPopup.c)
+ *     xxxFlashEnabledPopup @ 0x1C0225A38 (xxxFlashEnabledPopup.c)
+ *     _GetMenuState @ 0x1C024E814 (_GetMenuState.c)
+ */
+
 __int64 __fastcall xxxDWP_SetCursor(struct tagWND *a1, HWND a2, int a3, int a4)
 {
   int v6; // r14d

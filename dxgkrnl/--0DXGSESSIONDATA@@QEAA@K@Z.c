@@ -1,3 +1,21 @@
+/*
+ * XREFs of ??0DXGSESSIONDATA@@QEAA@K@Z @ 0x1C01DDCF0
+ * Callers:
+ *     ?CreateSession@DXGSESSIONMGR@@QEAAJXZ @ 0x1C01DDB7C (-CreateSession@DXGSESSIONMGR@@QEAAJXZ.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ??_GOUTPUTDUPL_SESSION_MGR@@QEAAPEAXI@Z @ 0x1C00161D0 (--_GOUTPUTDUPL_SESSION_MGR@@QEAAPEAXI@Z.c)
+ *     ?Assign@DispBrokerClientReference@@QEAAXPEAVDispBrokerClientHandle@@@Z @ 0x1C0016524 (-Assign@DispBrokerClientReference@@QEAAXPEAVDispBrokerClientHandle@@@Z.c)
+ *     CreateTokenManagerSessionGlobal @ 0x1C0016FC4 (CreateTokenManagerSessionGlobal.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01A3640 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ??0OUTPUTDUPL_SESSION_MGR@@QEAA@XZ @ 0x1C01DE294 (--0OUTPUTDUPL_SESSION_MGR@@QEAA@XZ.c)
+ *     ?Initialize@OUTPUTDUPL_SESSION_MGR@@QEAAJXZ @ 0x1C01DE304 (-Initialize@OUTPUTDUPL_SESSION_MGR@@QEAAJXZ.c)
+ */
+
 DXGSESSIONDATA *__fastcall DXGSESSIONDATA::DXGSESSIONDATA(DXGSESSIONDATA *this, unsigned int a2)
 {
   __int64 v2; // r15

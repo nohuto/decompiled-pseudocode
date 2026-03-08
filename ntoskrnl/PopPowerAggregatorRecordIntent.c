@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopPowerAggregatorRecordIntent @ 0x140757470
+ * Callers:
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x140757290 (PopPowerAggregatorHandleIntentUnsafe.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     PopPowerAggregatorAllocateLogEntry @ 0x140757580 (PopPowerAggregatorAllocateLogEntry.c)
+ *     PopPowerAggregatorDiagTraceHandleIntent @ 0x140757608 (PopPowerAggregatorDiagTraceHandleIntent.c)
+ *     PopPowerAggregatorAreTargetStatesEqual @ 0x1409904F0 (PopPowerAggregatorAreTargetStatesEqual.c)
+ */
+
 unsigned __int64 __fastcall PopPowerAggregatorRecordIntent(
         __int64 a1,
         int a2,

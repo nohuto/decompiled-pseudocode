@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiCreateSecurityDescriptorForGpuVirtualization @ 0x1C0216B20
+ * Callers:
+ *     DpiFdoInitializeGpuVirtualization @ 0x1C01F3380 (DpiFdoInitializeGpuVirtualization.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 __int64 __fastcall DpiCreateSecurityDescriptorForGpuVirtualization(_QWORD *a1)
 {
   void *v2; // rdi

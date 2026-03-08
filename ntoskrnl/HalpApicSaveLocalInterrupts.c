@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpApicSaveLocalInterrupts @ 0x1405306C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpApicSaveLocalInterrupts(__int64 a1, __int64 a2)
 {
   unsigned int v2; // esi

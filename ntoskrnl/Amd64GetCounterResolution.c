@@ -1,3 +1,11 @@
+/*
+ * XREFs of Amd64GetCounterResolution @ 0x140526F60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Amd64GetCounterResolution(unsigned int a1, int *a2)
 {
   int v2; // eax

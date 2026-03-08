@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopWnfSprActiveSessionChangeCallback @ 0x14085F020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopSetPowerSettingValueAcDc @ 0x14073BE70 (PopSetPowerSettingValueAcDc.c)
+ *     ExQueryWnfStateData @ 0x140793060 (ExQueryWnfStateData.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopWnfSprActiveSessionChangeCallback(__int64 a1)
 {
   int v1; // ecx

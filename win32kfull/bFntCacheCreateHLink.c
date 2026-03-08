@@ -1,3 +1,11 @@
+/*
+ * XREFs of bFntCacheCreateHLink @ 0x1C028C86C
+ * Callers:
+ *     SearchFntCacheNewLink @ 0x1C028C790 (SearchFntCacheNewLink.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall bFntCacheCreateHLink(__int64 a1)
 {
   unsigned int v1; // ebx

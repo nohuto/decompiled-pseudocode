@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlStringCchCopyA @ 0x1C0030B80
+ * Callers:
+ *     Controller_Create @ 0x1C00712C4 (Controller_Create.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlStringCchCopyA(NTSTRSAFE_PSTR pszDest, size_t cchDest, NTSTRSAFE_PCSTR pszSrc)
 {
   size_t v3; // r9

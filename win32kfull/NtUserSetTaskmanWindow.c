@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserSetTaskmanWindow @ 0x1C00F23F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     _SetTaskmanWindow @ 0x1C00F246C (_SetTaskmanWindow.c)
+ */
+
 __int64 __fastcall NtUserSetTaskmanWindow(__int64 a1)
 {
   int v2; // ebx

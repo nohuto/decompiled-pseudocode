@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_IFR_SF_iiddiidd @ 0x1C00459D4
+ * Callers:
+ *     ?FxPoolDump@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@@Z @ 0x1C0045588 (-FxPoolDump@@YAJPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@@Z.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_iiddiidd(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 _a1,

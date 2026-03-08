@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@CHwndBitmapProp@@QEAAJXZ @ 0x1C001477C
+ * Callers:
+ *     ?_GetWindowCompositionVisualBitmap@@YAJPEAUtagWND@@PEAPEAUCompositionObject@@@Z @ 0x1C0014674 (-_GetWindowCompositionVisualBitmap@@YAJPEAUtagWND@@PEAPEAUCompositionObject@@@Z.c)
+ * Callees:
+ *     DwmAsyncCreateDCompositionVisualBitmapForHwnd @ 0x1C0014820 (DwmAsyncCreateDCompositionVisualBitmapForHwnd.c)
+ */
+
 __int64 __fastcall CHwndBitmapProp::Initialize(CHwndBitmapProp *this)
 {
   CompositionObject **v1; // rsi

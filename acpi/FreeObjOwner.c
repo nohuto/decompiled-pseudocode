@@ -1,3 +1,16 @@
+/*
+ * XREFs of FreeObjOwner @ 0x1C004B650
+ * Callers:
+ *     AMLIRemoveNativeObjectsFromNamespace @ 0x1C0049C4C (AMLIRemoveNativeObjectsFromNamespace.c)
+ *     AMLIAddNamespaceOverride @ 0x1C004A2A8 (AMLIAddNamespaceOverride.c)
+ *     FreeObjOwnerWorker @ 0x1C004B7F0 (FreeObjOwnerWorker.c)
+ *     ParseCall @ 0x1C005A6A0 (ParseCall.c)
+ *     ParseUnload @ 0x1C005CB20 (ParseUnload.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ */
+
 __int64 __fastcall FreeObjOwner(__int64 a1, struct _EX_RUNDOWN_REF *a2)
 {
   KIRQL v4; // al

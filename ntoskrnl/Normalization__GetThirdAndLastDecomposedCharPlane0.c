@@ -1,3 +1,11 @@
+/*
+ * XREFs of Normalization__GetThirdAndLastDecomposedCharPlane0 @ 0x1409BDAA0
+ * Callers:
+ *     NormBuffer__ReplaceLastStartBasePair @ 0x1405AE600 (NormBuffer__ReplaceLastStartBasePair.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Normalization__GetThirdAndLastDecomposedCharPlane0(__int64 a1, int a2)
 {
   __int16 v4; // r9

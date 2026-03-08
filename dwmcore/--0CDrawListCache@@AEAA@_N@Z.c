@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CDrawListCache@@AEAA@_N@Z @ 0x18007B6DC
+ * Callers:
+ *     ?InternalCreate@CDrawListCache@@CAJ_NPEAPEAV1@@Z @ 0x18007B614 (-InternalCreate@CDrawListCache@@CAJ_NPEAPEAV1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 CDrawListCache *__fastcall CDrawListCache::CDrawListCache(CDrawListCache *this, char a2)
 {
   struct CComposition *v2; // r8

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmEventCoreParkingStateChange @ 0x1405979BC
+ * Callers:
+ *     PpmParkReportUnparkedCore @ 0x14045B1CC (PpmParkReportUnparkedCore.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PpmEventCoreParkingStateChange(__int64 a1)
 {
   REGHANDLE v2; // rbx

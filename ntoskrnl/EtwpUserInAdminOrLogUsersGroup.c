@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpUserInAdminOrLogUsersGroup @ 0x1409E218C
+ * Callers:
+ *     EtwSetPerformanceTraceInformation @ 0x1409DF094 (EtwSetPerformanceTraceInformation.c)
+ * Callees:
+ *     RtlCheckTokenMembership @ 0x1402BDFD0 (RtlCheckTokenMembership.c)
+ *     RtlAllocateAndInitializeSidEx @ 0x1409B90AC (RtlAllocateAndInitializeSidEx.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 bool EtwpUserInAdminOrLogUsersGroup()
 {
   __int64 v0; // rdx

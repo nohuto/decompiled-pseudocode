@@ -1,3 +1,15 @@
+/*
+ * XREFs of KeDeleteCpuPartition @ 0x140972338
+ * Callers:
+ *     PspDeleteCpuPartition @ 0x1409AE100 (PspDeleteCpuPartition.c)
+ * Callees:
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x140237C30 (KeIsEmptyAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KeCpuPartitionMoveCpus @ 0x140572954 (KeCpuPartitionMoveCpus.c)
+ */
+
 __int64 __fastcall KeDeleteCpuPartition(unsigned __int16 *a1)
 {
   __int64 result; // rax

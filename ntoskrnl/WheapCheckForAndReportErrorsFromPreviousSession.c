@@ -1,3 +1,17 @@
+/*
+ * XREFs of WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403AEE1C
+ * Callers:
+ *     WheaInitialize @ 0x140B3E1A0 (WheaInitialize.c)
+ * Callees:
+ *     HalGetEnvironmentVariableEx @ 0x1402AF770 (HalGetEnvironmentVariableEx.c)
+ *     HalSetEnvironmentVariableEx @ 0x140502A90 (HalSetEnvironmentVariableEx.c)
+ *     WheapReportBootError @ 0x14060E01C (WheapReportBootError.c)
+ *     WheapReportPersistedErrorRecord @ 0x14060E0E4 (WheapReportPersistedErrorRecord.c)
+ *     WheaPersistBadPageToBcd @ 0x14060F9E0 (WheaPersistBadPageToBcd.c)
+ *     WheaPersistBadPageToRegistry @ 0x14060FBA0 (WheaPersistBadPageToRegistry.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 WheapCheckForAndReportErrorsFromPreviousSession()
 {
   int BootErrorPacket; // eax

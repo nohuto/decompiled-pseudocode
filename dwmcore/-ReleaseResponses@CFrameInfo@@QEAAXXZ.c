@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ReleaseResponses@CFrameInfo@@QEAAXXZ @ 0x18004D0C8
+ * Callers:
+ *     ?UpdateFrameIndices@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18004CFE4 (-UpdateFrameIndices@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ *     ?Clear@CFrameInfo@@QEAAXXZ @ 0x1800AF11C (-Clear@CFrameInfo@@QEAAXXZ.c)
+ *     ??1CFrameInfo@@QEAA@XZ @ 0x1801EE660 (--1CFrameInfo@@QEAA@XZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CFrameInfo::ReleaseResponses(CFrameInfo *this)
 {
   __int64 v1; // rsi

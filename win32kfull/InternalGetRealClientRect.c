@@ -1,3 +1,19 @@
+/*
+ * XREFs of InternalGetRealClientRect @ 0x1C00A2710
+ * Callers:
+ *     SetTiledRect @ 0x1C0045B74 (SetTiledRect.c)
+ *     ParkIcon @ 0x1C0101D68 (ParkIcon.c)
+ *     xxxArrangeIconicWindows @ 0x1C023C684 (xxxArrangeIconicWindows.c)
+ * Callees:
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ *     GetRect @ 0x1C0067778 (GetRect.c)
+ *     GetMonitorRectForDpi @ 0x1C00A2698 (GetMonitorRectForDpi.c)
+ *     ExpandMonitorSpaceVertex @ 0x1C00A3584 (ExpandMonitorSpaceVertex.c)
+ *     ScaleDPIRect @ 0x1C00A3890 (ScaleDPIRect.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall InternalGetRealClientRect(__int64 a1, __int64 a2, char a3, __int64 a4, int a5)
 {
   __int64 v6; // rbp

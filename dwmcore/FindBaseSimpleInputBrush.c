@@ -1,3 +1,11 @@
+/*
+ * XREFs of FindBaseSimpleInputBrush @ 0x18002EB28
+ * Callers:
+ *     ?GetInputBrushParameters@CBrushRenderingGraph@@IEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@IIPEAUEffectInput@@@Z @ 0x18002E744 (-GetInputBrushParameters@CBrushRenderingGraph@@IEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@IIPEAUE.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 _QWORD *__fastcall FindBaseSimpleInputBrush(_QWORD *a1)
 {
   while ( 1 )

@@ -1,3 +1,30 @@
+/*
+ * XREFs of PopThermalWorker @ 0x140846460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     PopCheckAndHandleThermalConditions @ 0x14039CAB4 (PopCheckAndHandleThermalConditions.c)
+ *     PopDiagTraceThermalZoneEnumeration @ 0x14039CBDC (PopDiagTraceThermalZoneEnumeration.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x140580CC0 (PopInternalAddToDumpFile.c)
+ *     PopFireThermalWmiEvent @ 0x14058D2A4 (PopFireThermalWmiEvent.c)
+ *     PopDiagTraceThermalZoneThrottleDurationPerfTrack @ 0x140592AB8 (PopDiagTraceThermalZoneThrottleDurationPerfTrack.c)
+ *     PopDiagTraceThermalZoneThrottlePerfTrack @ 0x140592BEC (PopDiagTraceThermalZoneThrottlePerfTrack.c)
+ *     PopPrepareIoctl @ 0x140846A50 (PopPrepareIoctl.c)
+ *     PopCheckThermalPolicy @ 0x140846B78 (PopCheckThermalPolicy.c)
+ *     PopThermalUpdateActiveTimeTracking @ 0x140846CC0 (PopThermalUpdateActiveTimeTracking.c)
+ *     PopDiagTraceThermalCoolingMode @ 0x140846CFC (PopDiagTraceThermalCoolingMode.c)
+ *     PopThermalUpdatePassiveTimeTracking @ 0x140987FC0 (PopThermalUpdatePassiveTimeTracking.c)
+ *     PopDiagTraceActiveCooling @ 0x140989298 (PopDiagTraceActiveCooling.c)
+ *     PopDiagTracePassiveCooling @ 0x14098CF00 (PopDiagTracePassiveCooling.c)
+ */
+
 void __fastcall PopThermalWorker(__int64 a1)
 {
   int v1; // esi

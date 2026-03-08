@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiInitializeWorkingSetManagerParameters @ 0x1403A9C3C
+ * Callers:
+ *     MiProcessWorkingSets @ 0x14035F6F0 (MiProcessWorkingSets.c)
+ *     MmCreatePartition @ 0x1403A6A3C (MmCreatePartition.c)
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiSetTrimWhileAgingState @ 0x1402FF644 (MiSetTrimWhileAgingState.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeGenericCallDpcEx @ 0x1403C07D0 (KeGenericCallDpcEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiInitializeWorkingSetManagerParameters(__int64 a1)
 {
   __int64 v1; // rdi

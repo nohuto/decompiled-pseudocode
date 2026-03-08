@@ -1,3 +1,21 @@
+/*
+ * XREFs of IopValidateAndGetWriteParameters @ 0x1402400A0
+ * Callers:
+ *     IopPopulateCopyWriteWorkerData @ 0x14035A864 (IopPopulateCopyWriteWorkerData.c)
+ *     IopWriteFile @ 0x1406B3E10 (IopWriteFile.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     IopVerifyDeviceObjectOnStack @ 0x1402409DC (IopVerifyDeviceObjectOnStack.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     IopReleaseFileObjectLock @ 0x140267920 (IopReleaseFileObjectLock.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     IopExceptionFilter @ 0x1405530E8 (IopExceptionFilter.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406B5654 (IopWaitAndAcquireFileObjectLock.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall IopValidateAndGetWriteParameters(
         struct _KTHREAD **a1,
         void *a2,

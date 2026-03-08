@@ -1,3 +1,12 @@
+/*
+ * XREFs of ImpInitializeLock @ 0x1C008BE24
+ * Callers:
+ *     ImpInitializeWork @ 0x1C0089C08 (ImpInitializeWork.c)
+ * Callees:
+ *     ImpAllocate @ 0x1C0089EE4 (ImpAllocate.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C008D2C0 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ */
+
 __int64 __fastcall ImpInitializeLock(__int64 a1, __int64 a2, __int64 a3)
 {
   struct _ERESOURCE *v3; // rax

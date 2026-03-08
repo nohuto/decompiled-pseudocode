@@ -1,3 +1,19 @@
+/*
+ * XREFs of sub_14066A530 @ 0x14066A530
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     KeExitRetpoline @ 0x1402E3E6C (KeExitRetpoline.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PsQueryThreadTerminationPort @ 0x14067C368 (PsQueryThreadTerminationPort.c)
+ *     KeRundownApcQueues @ 0x1407D9DB0 (KeRundownApcQueues.c)
+ */
+
 void __fastcall __noreturn sub_14066A530(__int64 a1, __int64 a2)
 {
   _QWORD *v3; // r15

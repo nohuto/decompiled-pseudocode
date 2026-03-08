@@ -1,3 +1,15 @@
+/*
+ * XREFs of PpmEventTraceDeliveredPerfChange @ 0x1402356B4
+ * Callers:
+ *     PpmPerfSnapDeliveredPerformance @ 0x140234BB0 (PpmPerfSnapDeliveredPerformance.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     PpmEventGetEventDescriptorAndProcessorId @ 0x140233B18 (PpmEventGetEventDescriptorAndProcessorId.c)
+ *     PpmConvertTime @ 0x140235D70 (PpmConvertTime.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PpmEventTraceDeliveredPerfChange(__int64 a1, int a2, int a3, int a4, __int64 a5)
 {
   const EVENT_DESCRIPTOR *EventDescriptorAndProcessorId; // rax

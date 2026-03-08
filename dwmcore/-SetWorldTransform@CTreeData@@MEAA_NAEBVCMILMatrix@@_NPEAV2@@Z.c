@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SetWorldTransform@CTreeData@@MEAA_NAEBVCMILMatrix@@_NPEAV2@@Z @ 0x180031530
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$IsEqualTo@$0A@@CMILMatrix@@AEBA_NAEBV0@@Z @ 0x180031670 (--$IsEqualTo@$0A@@CMILMatrix@@AEBA_NAEBV0@@Z.c)
+ *     ??2@YAPEAX_K@Z @ 0x180034790 (--2@YAPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ */
+
 bool __fastcall CTreeData::SetWorldTransform(
         CTreeData *this,
         const struct CMILMatrix *a2,

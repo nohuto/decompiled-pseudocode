@@ -1,3 +1,13 @@
+/*
+ * XREFs of MagpDestroyLensContext @ 0x1C00337D8
+ * Callers:
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ * Callees:
+ *     ?MagpFindLensContext@@YAPEAU_MAG_LENS_CONTEXT@@PEAU_MAG_THREAD_CONTEXT@@PEAUtagWND@@@Z @ 0x1C01A4024 (-MagpFindLensContext@@YAPEAU_MAG_LENS_CONTEXT@@PEAU_MAG_THREAD_CONTEXT@@PEAUtagWND@@@Z.c)
+ *     ChangeComposableCursor @ 0x1C01AA1C4 (ChangeComposableCursor.c)
+ *     DwmAsyncMagnDestroy @ 0x1C026F38C (DwmAsyncMagnDestroy.c)
+ */
+
 void __fastcall MagpDestroyLensContext(struct _MAG_THREAD_CONTEXT **a1, __int64 a2, struct tagWND *a3)
 {
   struct _MAG_THREAD_CONTEXT *i; // rdi

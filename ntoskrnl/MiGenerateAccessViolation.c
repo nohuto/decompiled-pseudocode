@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiGenerateAccessViolation @ 0x1406439D8
+ * Callers:
+ *     MiSystemFault @ 0x1402220A0 (MiSystemFault.c)
+ *     MiCheckSystemPageTables @ 0x140222830 (MiCheckSystemPageTables.c)
+ *     MiRaisedIrqlFault @ 0x1402DA4D0 (MiRaisedIrqlFault.c)
+ * Callees:
+ *     MiDeterminePoolType @ 0x14020DEF0 (MiDeterminePoolType.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiGenerateAccessViolation(unsigned __int64 *a1)
 {
   unsigned __int64 v1; // rsi

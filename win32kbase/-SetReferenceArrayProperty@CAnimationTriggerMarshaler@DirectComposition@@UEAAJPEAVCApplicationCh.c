@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetReferenceArrayProperty@CAnimationTriggerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C00D2CC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Set@CResourceMarshalerArrayBase@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAPEAVCResourceMarshaler@2@_KW4MIL_RESOURCE_TYPE@@@Z @ 0x1C00AA160 (-Set@CResourceMarshalerArrayBase@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAPEAVCResou.c)
+ */
+
 __int64 __fastcall DirectComposition::CAnimationTriggerMarshaler::SetReferenceArrayProperty(
         DirectComposition::CAnimationTriggerMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

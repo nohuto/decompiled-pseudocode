@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetVisible @ 0x1C01DE050
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SetVisible @ 0x1C002DB8C (SetVisible.c)
+ */
+
 __int64 __fastcall NtUserSetVisible(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rax

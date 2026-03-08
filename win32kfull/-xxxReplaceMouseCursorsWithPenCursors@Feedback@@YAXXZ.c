@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?xxxReplaceMouseCursorsWithPenCursors@Feedback@@YAXXZ @ 0x1C01AEBA4
+ * Callers:
+ *     ?xxxSwitchCursors@@YAXHH@Z @ 0x1C01AECF8 (-xxxSwitchCursors@@YAXHH@Z.c)
+ * Callees:
+ *     xxxClientLoadImage @ 0x1C01080C0 (xxxClientLoadImage.c)
+ *     ?zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C01084CC (-zzzInternalSetSystemCursor@@YAXPEAUtagCURSOR@@IPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCur.c)
+ *     RtlInitUnicodeStringOrId @ 0x1C0108BB4 (RtlInitUnicodeStringOrId.c)
+ */
+
 void __fastcall Feedback::xxxReplaceMouseCursorsWithPenCursors(Feedback *this)
 {
   unsigned __int16 *v1; // rbx

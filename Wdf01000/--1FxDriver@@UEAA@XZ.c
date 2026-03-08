@@ -1,3 +1,18 @@
+/*
+ * XREFs of ??1FxDriver@@UEAA@XZ @ 0x1C003FE58
+ * Callers:
+ *     ??_EFxDriver@@UEAAPEAXI@Z @ 0x1C003FF30 (--_EFxDriver@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0002D30 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_qq @ 0x1C001828C (WPP_IFR_SF_qq.c)
+ *     ??1FxCallbackMutexLock@@UEAA@XZ @ 0x1C0038C50 (--1FxCallbackMutexLock@@UEAA@XZ.c)
+ *     ?IsDisposed@FxObject@@QEAAEXZ @ 0x1C003E6F8 (-IsDisposed@FxObject@@QEAAEXZ.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0045B6C (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ */
+
 void __fastcall FxDriver::~FxDriver(FxDriver *this)
 {
   const void *_a2; // rax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlpCoalesceFreeBlocks @ 0x1405A97B8
+ * Callers:
+ *     RtlpDeCommitFreeBlock @ 0x1405AA41C (RtlpDeCommitFreeBlock.c)
+ *     RtlpExtendHeap @ 0x1405AA9D8 (RtlpExtendHeap.c)
+ *     RtlpFreeHeap @ 0x1405AAE88 (RtlpFreeHeap.c)
+ * Callees:
+ *     DbgPrint @ 0x1402BDD20 (DbgPrint.c)
+ *     RtlCompareMemoryUlong @ 0x140420E50 (RtlCompareMemoryUlong.c)
+ *     RtlpLogHeapFailure @ 0x1405B2884 (RtlpLogHeapFailure.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1405B28D8 (RtlpAnalyzeHeapFailure.c)
+ *     RtlpHeapRemoveListEntry @ 0x1405B33A0 (RtlpHeapRemoveListEntry.c)
+ */
+
 __int64 __fastcall RtlpCoalesceFreeBlocks(__int64 a1, __int64 a2, _QWORD *a3)
 {
   __int64 v4; // rbp

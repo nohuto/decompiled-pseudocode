@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBUCX_ComputeUsb20HardwareLpmParameters @ 0x1C0026D6C
+ * Callers:
+ *     HUBDSM_CheckingIf20LPMShouldBeEnabled @ 0x1C00257E0 (HUBDSM_CheckingIf20LPMShouldBeEnabled.c)
+ *     HUBUCX_UpdateDeviceInfoUsingUCXIoctl @ 0x1C0026F1C (HUBUCX_UpdateDeviceInfoUsingUCXIoctl.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 char __fastcall HUBUCX_ComputeUsb20HardwareLpmParameters(__int64 a1, __int64 a2)
 {
   __int64 v4; // r8

@@ -1,3 +1,16 @@
+/*
+ * XREFs of _RtlpRemovePendingDeleteLanguages @ 0x14039C3E0
+ * Callers:
+ *     _RtlpMuiRegValidateInstalled @ 0x140843870 (_RtlpMuiRegValidateInstalled.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwEnumerateKey @ 0x140412950 (ZwEnumerateKey.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     LdrpOpenKey @ 0x14084370C (LdrpOpenKey.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByName @ 0x140A71F24 (RtlpMuiRegGetInstalledLanguageIndexByName.c)
+ */
+
 __int64 __fastcall RtlpRemovePendingDeleteLanguages(__int64 a1, __int16 a2)
 {
   __int16 *v2; // rbp

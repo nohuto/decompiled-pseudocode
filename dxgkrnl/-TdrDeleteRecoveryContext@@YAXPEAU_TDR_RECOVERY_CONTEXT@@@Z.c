@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TdrDeleteRecoveryContext@@YAXPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C030A210
+ * Callers:
+ *     ?TdrDereferenceRecoveryContext@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C030A2A0 (-TdrDereferenceRecoveryContext@@YAXPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
+ * Callees:
+ *     ??_GCTDR_DUMP_BUFFER@@QEAAPEAXI@Z @ 0x1C0308754 (--_GCTDR_DUMP_BUFFER@@QEAAPEAXI@Z.c)
+ */
+
 void __fastcall TdrDeleteRecoveryContext(_QWORD *P)
 {
   __int64 v2; // rcx

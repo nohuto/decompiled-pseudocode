@@ -1,3 +1,11 @@
+/*
+ * XREFs of IommupHvDetachPasidSubDeviceDomain @ 0x14052251C
+ * Callers:
+ *     IommupDomainDetachPasidDevice @ 0x14050C048 (IommupDomainDetachPasidDevice.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall IommupHvDetachPasidSubDeviceDomain(__int64 a1)
 {
   __int64 v1; // rbx

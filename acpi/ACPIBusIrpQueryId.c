@@ -1,3 +1,22 @@
+/*
+ * XREFs of ACPIBusIrpQueryId @ 0x1C0080330
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsdLqss @ 0x1C000A590 (WPP_RECORDER_SF_qsdLqss.c)
+ *     WPP_RECORDER_SF_qsdqss @ 0x1C000A844 (WPP_RECORDER_SF_qsdqss.c)
+ *     ACPIBusAndFilterIrpQueryContainerId @ 0x1C0016120 (ACPIBusAndFilterIrpQueryContainerId.c)
+ *     ACPIInternalSetFlags @ 0x1C002F068 (ACPIInternalSetFlags.c)
+ *     ACPIEmQueryFailDeviceResetOnOpenHandles @ 0x1C00439DC (ACPIEmQueryFailDeviceResetOnOpenHandles.c)
+ *     ACPIBusIrpQueryCompatibleId @ 0x1C007EE84 (ACPIBusIrpQueryCompatibleId.c)
+ *     ACPIBusIrpQueryDeviceId @ 0x1C007F574 (ACPIBusIrpQueryDeviceId.c)
+ *     ACPIBusIrpQueryHardwareId @ 0x1C007FC3C (ACPIBusIrpQueryHardwareId.c)
+ *     ACPIBusIrpQueryInstanceId @ 0x1C008060C (ACPIBusIrpQueryInstanceId.c)
+ *     ACPIEmQueryEnableD3ColdOnSurpriseRemovalRule @ 0x1C0097D3C (ACPIEmQueryEnableD3ColdOnSurpriseRemovalRule.c)
+ */
+
 __int64 __fastcall ACPIBusIrpQueryId(ULONG_PTR a1, IRP *a2)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // rbx

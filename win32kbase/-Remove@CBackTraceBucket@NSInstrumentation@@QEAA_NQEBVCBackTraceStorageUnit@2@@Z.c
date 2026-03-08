@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Remove@CBackTraceBucket@NSInstrumentation@@QEAA_NQEBVCBackTraceStorageUnit@2@@Z @ 0x1C019D08C
+ * Callers:
+ *     ?Remove@?$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBackTrace@2@@NSInstrumentation@@QEAA_NQEBVCBackTraceStorageUnit@2@@Z @ 0x1C019CF8C (-Remove@-$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBa.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall NSInstrumentation::CBackTraceBucket::Remove(
         NSInstrumentation::CBackTraceBucket *this,
         NSInstrumentation::CBackTraceBucket *a2)

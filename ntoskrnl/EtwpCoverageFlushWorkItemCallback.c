@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpCoverageFlushWorkItemCallback @ 0x140799AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     EtwpCoverageFlushPending @ 0x140799B84 (EtwpCoverageFlushPending.c)
+ *     EtwpCoverageReset @ 0x1409E566C (EtwpCoverageReset.c)
+ */
+
 char __fastcall EtwpCoverageFlushWorkItemCallback(_DWORD *a1)
 {
   struct _KTHREAD *CurrentThread; // rax

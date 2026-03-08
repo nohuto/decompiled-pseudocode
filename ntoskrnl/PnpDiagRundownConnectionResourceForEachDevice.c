@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpDiagRundownConnectionResourceForEachDevice @ 0x140954BA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall PnpDiagRundownConnectionResourceForEachDevice(__int64 a1)
 {
   _DWORD *v2; // rbx

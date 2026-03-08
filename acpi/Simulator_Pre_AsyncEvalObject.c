@@ -1,3 +1,13 @@
+/*
+ * XREFs of Simulator_Pre_AsyncEvalObject @ 0x1C00495FC
+ * Callers:
+ *     AMLIAsyncEvalObject @ 0x1C00478E8 (AMLIAsyncEvalObject.c)
+ * Callees:
+ *     Simulator_AllocAndInitTestData @ 0x1C0048EC4 (Simulator_AllocAndInitTestData.c)
+ *     Simulator_Copy_Arguments @ 0x1C0049088 (Simulator_Copy_Arguments.c)
+ *     Simulator_TestNotify @ 0x1C0049970 (Simulator_TestNotify.c)
+ */
+
 __int64 __fastcall Simulator_Pre_AsyncEvalObject(
         __int64 a1,
         __int64 a2,

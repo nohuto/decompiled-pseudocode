@@ -1,3 +1,18 @@
+/*
+ * XREFs of _SetMagnificationInputTransform @ 0x1C007F160
+ * Callers:
+ *     MagpRevokeInputTransfrom @ 0x1C007F120 (MagpRevokeInputTransfrom.c)
+ *     ?xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0097FCC (-xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
+ *     FreeDesktop @ 0x1C00F2180 (FreeDesktop.c)
+ *     ?MagpUpdateInputTransfrom@@YAJPEAU_MAGN_INPUT_TRANSFORM@@@Z @ 0x1C01A4048 (-MagpUpdateInputTransfrom@@YAJPEAU_MAGN_INPUT_TRANSFORM@@@Z.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ *     ?ComputeMagnificationFactor@@YAXPEAU_MAGNIFICATION_INPUT_TRANSFORM@@@Z @ 0x1C01F7C48 (-ComputeMagnificationFactor@@YAXPEAU_MAGNIFICATION_INPUT_TRANSFORM@@@Z.c)
+ *     ?VerifyMagInputDimensions@@YAHPEAU_MAGN_INPUT_TRANSFORM@@@Z @ 0x1C01F7CC4 (-VerifyMagInputDimensions@@YAHPEAU_MAGN_INPUT_TRANSFORM@@@Z.c)
+ *     AcquireMagInputLock @ 0x1C01F7D00 (AcquireMagInputLock.c)
+ */
+
 __int64 __fastcall SetMagnificationInputTransform(__int128 *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // edx

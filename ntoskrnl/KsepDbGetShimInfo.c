@@ -1,3 +1,22 @@
+/*
+ * XREFs of KsepDbGetShimInfo @ 0x140800448
+ * Callers:
+ *     KsepEngineGetShimsFromRegistry @ 0x14079E958 (KsepEngineGetShimsFromRegistry.c)
+ * Callees:
+ *     KsepPoolFreePaged @ 0x140303C7C (KsepPoolFreePaged.c)
+ *     KsepPoolAllocatePaged @ 0x140303CA4 (KsepPoolAllocatePaged.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KseShimDatabaseClose @ 0x14079E25C (KseShimDatabaseClose.c)
+ *     KsepDbFreeDriverShims @ 0x14079E360 (KsepDbFreeDriverShims.c)
+ *     KseShimDatabaseOpen @ 0x14079EFB4 (KseShimDatabaseOpen.c)
+ *     SdbReadDWORDTag @ 0x14079FC18 (SdbReadDWORDTag.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ *     SdbGetKShimTagRef @ 0x14080030C (SdbGetKShimTagRef.c)
+ *     KsepDbGetSdbString @ 0x140800688 (KsepDbGetSdbString.c)
+ *     SdbReadGUIDTag @ 0x1408006BC (SdbReadGUIDTag.c)
+ *     SdbTagRefToTagID @ 0x140800B74 (SdbTagRefToTagID.c)
+ */
+
 __int64 __fastcall KsepDbGetShimInfo(__int64 a1, unsigned int a2)
 {
   __m128i *Paged; // rdi

@@ -1,3 +1,19 @@
+/*
+ * XREFs of GreGetDxSharedSurface @ 0x1C000A248
+ * Callers:
+ *     WindowRedirectionBitmapMatchesMonitorAdapter @ 0x1C000A1BC (WindowRedirectionBitmapMatchesMonitorAdapter.c)
+ *     CreateOrGetRedirectionBitmap @ 0x1C002B8C8 (CreateOrGetRedirectionBitmap.c)
+ *     NtUserHwndQueryRedirectionInfo @ 0x1C0147D40 (NtUserHwndQueryRedirectionInfo.c)
+ *     DxgkEngGetRedirBitmapSharedHandle @ 0x1C014D550 (DxgkEngGetRedirBitmapSharedHandle.c)
+ * Callees:
+ *     ?uiDxPresentFlags@SFMLOGICALSURFACE@@QEAAIXZ @ 0x1C000A484 (-uiDxPresentFlags@SFMLOGICALSURFACE@@QEAAIXZ.c)
+ *     ??0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@PEAX@Z @ 0x1C000A514 (--0DWMALTSPRITEREF@@QEAA@PEAUHWND__@@PEAX@Z.c)
+ *     UserIsWindowWithNoRedirectionBitmap @ 0x1C000A70C (UserIsWindowWithNoRedirectionBitmap.c)
+ *     ?bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ @ 0x1C001EC6C (-bDeviceBitmap@SFMLOGICALSURFACE@@QEAAHXZ.c)
+ *     IsDwmActive @ 0x1C002CF30 (IsDwmActive.c)
+ *     ?AdapterLuid@SFMLOGICALSURFACE@@QEAA?AU_LUID@@XZ @ 0x1C014CAD8 (-AdapterLuid@SFMLOGICALSURFACE@@QEAA-AU_LUID@@XZ.c)
+ */
+
 __int64 __fastcall GreGetDxSharedSurface(HWND a1, _QWORD *a2, _DWORD *a3, _DWORD *a4, _DWORD *a5, _QWORD *a6)
 {
   unsigned int v10; // esi

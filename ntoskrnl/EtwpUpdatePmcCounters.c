@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpUpdatePmcCounters @ 0x1409E1F88
+ * Callers:
+ *     EtwSetPerformanceTraceInformation @ 0x1409DF094 (EtwSetPerformanceTraceInformation.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     EtwpAllocatePmcData @ 0x1409E0458 (EtwpAllocatePmcData.c)
+ */
+
 __int64 __fastcall EtwpUpdatePmcCounters(__int64 a1, __int64 a2, unsigned int a3)
 {
   unsigned int v6; // r12d

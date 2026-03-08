@@ -1,3 +1,19 @@
+/*
+ * XREFs of ParseSuperName @ 0x1C005C56C
+ * Callers:
+ *     ParseArg @ 0x1C005A46C (ParseArg.c)
+ * Callees:
+ *     GetBaseData @ 0x1C00055CA (GetBaseData.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     GetBaseObject @ 0x1C004B918 (GetBaseObject.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ *     PushTerm @ 0x1C0053E18 (PushTerm.c)
+ *     ParseAndGetNameSpaceObject @ 0x1C005A3B4 (ParseAndGetNameSpaceObject.c)
+ */
+
 __int64 __fastcall ParseSuperName(__int64 *a1, __int64 a2, char a3, __int64 a4)
 {
   const void **v4; // rdi

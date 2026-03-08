@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiSignalSyncObject @ 0x1C001C0A0
+ * Callers:
+ *     VidSchSubmitSignalToHwQueue @ 0x1C0044980 (VidSchSubmitSignalToHwQueue.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VidSchiSignalSyncObject(unsigned int a1, __int64 a2, char a3, __int64 a4, char a5)
 {
   __int64 v5; // rbx

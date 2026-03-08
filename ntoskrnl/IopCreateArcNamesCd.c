@@ -1,3 +1,27 @@
+/*
+ * XREFs of IopCreateArcNamesCd @ 0x140B54C8C
+ * Callers:
+ *     IopCreateArcNames @ 0x140B550C4 (IopCreateArcNames.c)
+ * Callees:
+ *     IopBuildDeviceIoControlRequest @ 0x14024FAC0 (IopBuildDeviceIoControlRequest.c)
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     RtlStringCchPrintfA @ 0x140389204 (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IoGetDeviceObjectPointer @ 0x140720950 (IoGetDeviceObjectPointer.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     IoBuildSynchronousFsdRequest @ 0x1407F8DA0 (IoBuildSynchronousFsdRequest.c)
+ *     IoCreateSymbolicLink @ 0x14086DC10 (IoCreateSymbolicLink.c)
+ *     IoGetConfigurationInformation @ 0x140872E30 (IoGetConfigurationInformation.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     IopFetchConfigurationInformation @ 0x140B54DF4 (IopFetchConfigurationInformation.c)
+ */
+
 __int64 __fastcall IopCreateArcNamesCd(__int64 a1)
 {
   WCHAR **v1; // rdi

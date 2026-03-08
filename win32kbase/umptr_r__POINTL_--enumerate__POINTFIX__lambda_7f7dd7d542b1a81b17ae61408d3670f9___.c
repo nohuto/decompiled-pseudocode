@@ -1,3 +1,12 @@
+/*
+ * XREFs of umptr_r__POINTL_::enumerate__POINTFIX__lambda_7f7dd7d542b1a81b17ae61408d3670f9___ @ 0x1C01802A8
+ * Callers:
+ *     ?vOffsetPoints@@YAXPEAU_POINTFIX@@AEAV?$umptr_r@U_POINTL@@@@IJJ@Z @ 0x1C01818C8 (-vOffsetPoints@@YAXPEAU_POINTFIX@@AEAV-$umptr_r@U_POINTL@@@@IJJ@Z.c)
+ * Callees:
+ *     ?internal_get_bytecount@?$umptr@U_POINTL@@@@IEBA_KAEB_K0@Z @ 0x1C01800B4 (-internal_get_bytecount@-$umptr@U_POINTL@@@@IEBA_KAEB_K0@Z.c)
+ *     ?internal_get_offset@?$umptr@U_POINTL@@@@IEBA_KAEB_J@Z @ 0x1C01800FC (-internal_get_offset@-$umptr@U_POINTL@@@@IEBA_KAEB_J@Z.c)
+ */
+
 char umptr_r__POINTL_::enumerate__POINTFIX__lambda_7f7dd7d542b1a81b17ae61408d3670f9___(__int64 a1, __int64 a2, ...)
 {
   ULONGLONG v2; // r14

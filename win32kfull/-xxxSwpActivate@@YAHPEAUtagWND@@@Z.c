@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?xxxSwpActivate@@YAHPEAUtagWND@@@Z @ 0x1C00DBEA4
+ * Callers:
+ *     xxxEndDeferWindowPosEx @ 0x1C00698F0 (xxxEndDeferWindowPosEx.c)
+ * Callees:
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     ?xxxActivateWindow@@YA_NPEAUtagWND@@@Z @ 0x1C00DBF58 (-xxxActivateWindow@@YA_NPEAUtagWND@@@Z.c)
+ */
+
 __int64 __fastcall xxxSwpActivate(struct tagWND *a1)
 {
   __int64 *v2; // rdx

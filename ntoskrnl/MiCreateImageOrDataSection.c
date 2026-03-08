@@ -1,3 +1,35 @@
+/*
+ * XREFs of MiCreateImageOrDataSection @ 0x1407D12B0
+ * Callers:
+ *     MiCreateSection @ 0x1407D05D0 (MiCreateSection.c)
+ * Callees:
+ *     MiReleaseControlAreaWaiters @ 0x140214DCC (MiReleaseControlAreaWaiters.c)
+ *     ObFastReplaceObject @ 0x140217FC8 (ObFastReplaceObject.c)
+ *     IoAllowExecution @ 0x140240058 (IoAllowExecution.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     PsReferencePartitionSafe @ 0x140295BC8 (PsReferencePartitionSafe.c)
+ *     ObReferenceObjectExWithTag @ 0x1402CBB20 (ObReferenceObjectExWithTag.c)
+ *     CcWaitForUninitializeCacheMap @ 0x1402E1014 (CcWaitForUninitializeCacheMap.c)
+ *     MiForceSectionClosed @ 0x1402F3AB0 (MiForceSectionClosed.c)
+ *     MiZeroSectionObjectPointer @ 0x140302C1C (MiZeroSectionObjectPointer.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MiGetControlAreaPartition @ 0x14031F9F0 (MiGetControlAreaPartition.c)
+ *     MiReferenceControlArea @ 0x140331908 (MiReferenceControlArea.c)
+ *     MiDereferenceControlAreaBySection @ 0x1403349EC (MiDereferenceControlAreaBySection.c)
+ *     IoGetFileMemoryPartitionInformation @ 0x140343A74 (IoGetFileMemoryPartitionInformation.c)
+ *     IoGetTopLevelIrp @ 0x140343AD0 (IoGetTopLevelIrp.c)
+ *     IoSetTopLevelIrp @ 0x140343AF0 (IoSetTopLevelIrp.c)
+ *     ObDereferenceObjectEx @ 0x140344218 (ObDereferenceObjectEx.c)
+ *     MiReferenceExistingControlArea @ 0x140361BD4 (MiReferenceExistingControlArea.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiCreateNewSection @ 0x1406A6414 (MiCreateNewSection.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     MiCallCreateSectionFilters @ 0x1407D16B0 (MiCallCreateSectionFilters.c)
+ *     MiShareExistingControlArea @ 0x1407D1CAC (MiShareExistingControlArea.c)
+ *     MiDereferenceFailedControlArea @ 0x14085F4AC (MiDereferenceFailedControlArea.c)
+ */
+
 __int64 __fastcall MiCreateImageOrDataSection(__int64 a1)
 {
   int v2; // esi

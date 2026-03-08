@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpInvokeIsrForGsiv @ 0x14039E150
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeDispatchSecondaryInterrupt @ 0x14039E1A0 (KeDispatchSecondaryInterrupt.c)
+ */
+
 char __fastcall HalpInvokeIsrForGsiv(unsigned int a1, __int64 a2, _DWORD *a3)
 {
   unsigned int v3; // r9d

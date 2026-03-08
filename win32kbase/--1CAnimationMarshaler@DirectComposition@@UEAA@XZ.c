@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CAnimationMarshaler@DirectComposition@@UEAA@XZ @ 0x1C00B9998
+ * Callers:
+ *     ??_GCAnimationMarshaler@DirectComposition@@UEAAPEAXI@Z @ 0x1C00B9954 (--_GCAnimationMarshaler@DirectComposition@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?Release@CAnimationTimeList@DirectComposition@@QEAAKXZ @ 0x1C00B9A24 (-Release@CAnimationTimeList@DirectComposition@@QEAAKXZ.c)
+ */
+
 void __fastcall DirectComposition::CAnimationMarshaler::~CAnimationMarshaler(
         DirectComposition::CAnimationMarshaler *this)
 {

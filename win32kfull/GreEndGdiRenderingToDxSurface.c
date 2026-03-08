@@ -1,3 +1,13 @@
+/*
+ * XREFs of GreEndGdiRenderingToDxSurface @ 0x1C0009194
+ * Callers:
+ *     NtGdiEndGdiRendering @ 0x1C0009140 (NtGdiEndGdiRendering.c)
+ * Callees:
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002A694 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002A6E0 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall GreEndGdiRenderingToDxSurface(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v6; // r15d

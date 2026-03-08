@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?bDeleteColorSpace@@YAHPEAUHCOLORSPACE__@@W4_CLEANUPTYPE@@@Z @ 0x1C00DEF60
+ * Callers:
+ *     ?GrepCloseCurrentProcess@@YAHXZ @ 0x1C006D158 (-GrepCloseCurrentProcess@@YAHXZ.c)
+ *     ??$vGarbageCollectObject@VCOLORSPACEGC@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00DEC7C (--$vGarbageCollectObject@VCOLORSPACEGC@@@@YAXPEAUHOBJ__@@@Z.c)
+ *     NtGdiDeleteColorSpace @ 0x1C019A230 (NtGdiDeleteColorSpace.c)
+ * Callees:
+ *     HmgRemoveObject @ 0x1C0045C70 (HmgRemoveObject.c)
+ *     ?HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z @ 0x1C0045E40 (-HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z.c)
+ *     FreeObject @ 0x1C00597F0 (FreeObject.c)
+ *     EngSetLastError @ 0x1C00BAB10 (EngSetLastError.c)
+ *     Feature_1626422585__private_IsEnabledDeviceUsage @ 0x1C00DDF7C (Feature_1626422585__private_IsEnabledDeviceUsage.c)
+ */
+
 __int64 __fastcall bDeleteColorSpace(struct HOBJ__ *a1, int a2)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsKernelDebuggerPresent@@YAHXZ @ 0x14000E328
+ * Callers:
+ *     ?LpcVerifyOutgoingPayloadSize@@YAXPEBU_PORT_MESSAGE@@@Z @ 0x140002CA0 (-LpcVerifyOutgoingPayloadSize@@YAXPEBU_PORT_MESSAGE@@@Z.c)
+ *     ?MilInstrumentationBreak@@YAXK_N@Z @ 0x14000E39C (-MilInstrumentationBreak@@YAXK_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 IsKernelDebuggerPresent(void)
 {
   char v0; // al

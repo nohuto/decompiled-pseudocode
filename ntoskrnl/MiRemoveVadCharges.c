@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiRemoveVadCharges @ 0x1406ECCF0
+ * Callers:
+ *     MiFinishVadDeletion @ 0x140248200 (MiFinishVadDeletion.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiFillCommitReturnInfo @ 0x140289968 (MiFillCommitReturnInfo.c)
+ *     MiReturnFullProcessCharges @ 0x140289980 (MiReturnFullProcessCharges.c)
+ *     MiIsVadLarge @ 0x1402899E4 (MiIsVadLarge.c)
+ *     MiReturnResident @ 0x1402A52C8 (MiReturnResident.c)
+ *     MiGetProcessPartition @ 0x14031F9D4 (MiGetProcessPartition.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     MiReleaseVadEventBlocks @ 0x1406ECE8C (MiReleaseVadEventBlocks.c)
+ *     MiResidentPagesForSpan @ 0x140784F38 (MiResidentPagesForSpan.c)
+ */
+
 __int64 __fastcall MiRemoveVadCharges(__int64 a1, __int64 a2)
 {
   __int64 ProcessPartition; // r14

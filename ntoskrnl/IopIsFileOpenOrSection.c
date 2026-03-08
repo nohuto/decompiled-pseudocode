@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopIsFileOpenOrSection @ 0x1408A0330
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExGetHandlePointer @ 0x1403120A0 (ExGetHandlePointer.c)
+ *     ExfUnblockPushLock @ 0x14040CCE0 (ExfUnblockPushLock.c)
+ *     MmSectionToSectionObjectPointers @ 0x1408A770E (MmSectionToSectionObjectPointers.c)
+ */
+
 bool __fastcall IopIsFileOpenOrSection(__int64 a1, __int64 *a2, __int64 a3, __int64 *a4)
 {
   unsigned __int64 HandlePointer; // rax

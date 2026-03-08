@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIIsDebuggingDevice @ 0x1C0098070
+ * Callers:
+ *     ACPIBuildPdo @ 0x1C000DC84 (ACPIBuildPdo.c)
+ * Callees:
+ *     ACPIQueryDeviceBiosNameEx @ 0x1C0043BC4 (ACPIQueryDeviceBiosNameEx.c)
+ */
+
 __int64 __fastcall ACPIIsDebuggingDevice(ULONG_PTR a1)
 {
   int v1; // ebx

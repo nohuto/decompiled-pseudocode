@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetComposedEventId@CInternalMilCmdConnection@@QEAAJPEAI@Z @ 0x1800ADB80
+ * Callers:
+ *     ?MilCompositionEngine_GetComposedEventId@@YAJPEAI@Z @ 0x1800ADB30 (-MilCompositionEngine_GetComposedEventId@@YAJPEAI@Z.c)
+ * Callees:
+ *     ?OpenComposedEvent@@YAJIKPEAPEAX@Z @ 0x1800ADC48 (-OpenComposedEvent@@YAJIKPEAPEAX@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ??1?$CWriteGuard@VCReadWriteLock@@@@QEAA@XZ @ 0x18019A3F0 (--1-$CWriteGuard@VCReadWriteLock@@@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall CInternalMilCmdConnection::GetComposedEventId(CInternalMilCmdConnection *this, unsigned int *a2)
 {
   RTL_SRWLOCK *v4; // rdi

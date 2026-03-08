@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlpHpHeapAllocate @ 0x140375668
+ * Callers:
+ *     RtlpHpHeapCreate @ 0x140375288 (RtlpHpHeapCreate.c)
+ * Callees:
+ *     RtlpHpFreeVA @ 0x14020DC8C (RtlpHpFreeVA.c)
+ *     RtlpHpMetadataAlloc @ 0x1402B71FC (RtlpHpMetadataAlloc.c)
+ *     RtlpHpMetadataHeapCtxGet @ 0x1402B72FC (RtlpHpMetadataHeapCtxGet.c)
+ *     RtlpHpAllocVA @ 0x140330920 (RtlpHpAllocVA.c)
+ *     RtlpHpMetadataCommit @ 0x1403C1314 (RtlpHpMetadataCommit.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 volatile signed __int64 *__fastcall RtlpHpHeapAllocate(__int64 a1, unsigned int a2, __int128 *a3)
 {
   unsigned __int64 v4; // r13

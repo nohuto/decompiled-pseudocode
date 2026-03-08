@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_RECORDER_SF_c @ 0x1C0002790
+ * Callers:
+ *     HUBHTX_GetDescriptor @ 0x1C00034C0 (HUBHTX_GetDescriptor.c)
+ *     HUBPDO_ValidateConfigurationDescriptor @ 0x1C001676C (HUBPDO_ValidateConfigurationDescriptor.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_c(__int64 a1, unsigned __int8 a2, unsigned int a3, unsigned __int16 a4, __int64 a5, ...)
 {
   unsigned __int64 v7; // rdi

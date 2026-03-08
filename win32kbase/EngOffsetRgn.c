@@ -1,3 +1,13 @@
+/*
+ * XREFs of EngOffsetRgn @ 0x1C01978C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0EngModeState@@QEAA@XZ @ 0x1C0019C74 (--0EngModeState@@QEAA@XZ.c)
+ *     GreGetObjectOwner @ 0x1C0019E80 (GreGetObjectOwner.c)
+ *     GreOffsetRgn @ 0x1C0042C20 (GreOffsetRgn.c)
+ */
+
 INT __stdcall EngOffsetRgn(HANDLE hrgn, INT x, INT y)
 {
   INT result; // eax

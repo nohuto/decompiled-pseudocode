@@ -1,3 +1,27 @@
+/*
+ * XREFs of IopQueryDeviceResources @ 0x1406F6440
+ * Callers:
+ *     PnpGetResourceRequirementsForAssignTable @ 0x1406F6080 (PnpGetResourceRequirementsForAssignTable.c)
+ *     PiQueryAndAllocateBootResources @ 0x1406F6240 (PiQueryAndAllocateBootResources.c)
+ *     IopReleaseDeviceResources @ 0x140866C4C (IopReleaseDeviceResources.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopSynchronousCall @ 0x14069DD78 (IopSynchronousCall.c)
+ *     _CmOpenDeviceRegKey @ 0x1406D3B3C (_CmOpenDeviceRegKey.c)
+ *     PnpGetDeviceResourcesFromRegistry @ 0x1406F67F8 (PnpGetDeviceResourcesFromRegistry.c)
+ *     PnpDetermineResourceListSize @ 0x1406F69E8 (PnpDetermineResourceListSize.c)
+ *     IopFilterResourceRequirementsCall @ 0x1406F6A4C (IopFilterResourceRequirementsCall.c)
+ *     PpIrpQueryResourceRequirements @ 0x1406F6D48 (PpIrpQueryResourceRequirements.c)
+ *     PnpFilterResourceRequirementsList @ 0x140803FE4 (PnpFilterResourceRequirementsList.c)
+ *     PnpCmResourcesToIoResources @ 0x140804A84 (PnpCmResourcesToIoResources.c)
+ *     PnpMergeFilteredResourceRequirementsList @ 0x14085A248 (PnpMergeFilteredResourceRequirementsList.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopQueryDeviceResources(_QWORD *a1, int a2, PVOID *a3, ULONG *a4)
 {
   _DWORD *v8; // rdi

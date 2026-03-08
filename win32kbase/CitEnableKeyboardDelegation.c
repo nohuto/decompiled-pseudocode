@@ -1,3 +1,12 @@
+/*
+ * XREFs of CitEnableKeyboardDelegation @ 0x1C00B0154
+ * Callers:
+ *     NtMITSetInputDelegationMode @ 0x1C016BD10 (NtMITSetInputDelegationMode.c)
+ * Callees:
+ *     ?CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z @ 0x1C006B590 (-CitpProcessEnsureContext@@YAPEAU_CIT_PROCESS@@PEAUtagPROCESSINFO@@@Z.c)
+ *     ?CitpClearDelegation@@YAXPEAU_CIT_PROCESS@@@Z @ 0x1C00B01AC (-CitpClearDelegation@@YAXPEAU_CIT_PROCESS@@@Z.c)
+ */
+
 void __fastcall CitEnableKeyboardDelegation(int a1, __int64 a2, __int64 a3)
 {
   struct _CIT_PROCESS *v4; // rdi

@@ -1,3 +1,17 @@
+/*
+ * XREFs of CreateSharedResourceObject @ 0x1C00A19E4
+ * Callers:
+ *     CreateSharedSystemVisualBitmapObject @ 0x1C000DDF0 (CreateSharedSystemVisualBitmapObject.c)
+ *     CreateSharedSystemVisualObject @ 0x1C00A12E0 (CreateSharedSystemVisualObject.c)
+ *     ?CreateExternalSharedResource@CApplicationChannel@DirectComposition@@QEAAJII@Z @ 0x1C00A1498 (-CreateExternalSharedResource@CApplicationChannel@DirectComposition@@QEAAJII@Z.c)
+ *     NtDCompositionCreateSharedResourceHandle @ 0x1C00A18F0 (NtDCompositionCreateSharedResourceHandle.c)
+ * Callees:
+ *     UserAllocDefaultCompositionSecurityDescriptor @ 0x1C0065460 (UserAllocDefaultCompositionSecurityDescriptor.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z @ 0x1C00A7DB4 (-ResolveHandle@ResourceObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z.c)
+ *     ?Create@CompositionObject@@KAJDPEAU_OBJECT_ATTRIBUTES@@KDW4CompositionObjectType@@KP6AJPEAU1@PEAXPEAPEAVICompositionObject@@@Z3PEAPEAX@Z @ 0x1C00AD178 (-Create@CompositionObject@@KAJDPEAU_OBJECT_ATTRIBUTES@@KDW4CompositionObjectType@@KP6AJPEAU1@PEA.c)
+ */
+
 __int64 __fastcall CreateSharedResourceObject(__int64 a1, struct DirectComposition::ResourceObject **a2)
 {
   int v3; // ebx

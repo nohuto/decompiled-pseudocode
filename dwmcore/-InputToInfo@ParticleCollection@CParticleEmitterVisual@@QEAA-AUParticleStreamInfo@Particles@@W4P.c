@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InputToInfo@ParticleCollection@CParticleEmitterVisual@@QEAA?AUParticleStreamInfo@Particles@@W4ParticleInputSource@4Composition@UI@Windows@@@Z @ 0x1802427DC
+ * Callers:
+ *     ?ApplyActiveBehaviors@CParticleEmitterVisual@@IEAAXM@Z @ 0x180240B14 (-ApplyActiveBehaviors@CParticleEmitterVisual@@IEAAXM@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CParticleEmitterVisual::ParticleCollection::InputToInfo(__int64 *a1, __int64 a2, int a3)
 {
   int v5; // r8d

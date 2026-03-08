@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@KPEAUtagTHREADINFO@@PEBUtagPROCESSINFO@@PEBU3@2@Z @ 0x1C003CD2C
+ * Callers:
+ *     EtwTraceUIPIInputError @ 0x1C003A560 (EtwTraceUIPIInputError.c)
+ *     EtwTraceUIPISystemError @ 0x1C003A8B0 (EtwTraceUIPISystemError.c)
+ *     EtwTraceUIPIHandleValidationError @ 0x1C003CC40 (EtwTraceUIPIHandleValidationError.c)
+ *     EtwTraceUIPIMsgError @ 0x1C00C4A30 (EtwTraceUIPIMsgError.c)
+ *     EtwTraceUIPIClipboardError @ 0x1C0164800 (EtwTraceUIPIClipboardError.c)
+ *     EtwTraceUIPIEventHookError @ 0x1C0164940 (EtwTraceUIPIEventHookError.c)
+ *     EtwTraceUIPIHookError @ 0x1C0164A70 (EtwTraceUIPIHookError.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall EtwpSetTraceHeader(
         struct _W32KUIPI_Msg_Template::_tagW32KUIPI_Msg_Template_UIPI_Trace_Header *a1,
         int a2,

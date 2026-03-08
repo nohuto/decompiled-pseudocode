@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?xxxUpdateModifierState@@YAXHH@Z @ 0x1C01E62D0
+ * Callers:
+ *     ?xxxStickyKeys@@YAHPEAUtagKE@@KH@Z @ 0x1C01E5C10 (-xxxStickyKeys@@YAHPEAUtagKE@@KH@Z.c)
+ *     ?xxxTurnOffStickyKeys@@YAXXZ @ 0x1C01E6170 (-xxxTurnOffStickyKeys@@YAXXZ.c)
+ *     ?xxxTwoKeysDown@@YAHH@Z @ 0x1C01E61D0 (-xxxTwoKeysDown@@YAHH@Z.c)
+ *     ?xxxUnlatchStickyKeys@@YAXXZ @ 0x1C01E6260 (-xxxUnlatchStickyKeys@@YAXXZ.c)
+ * Callees:
+ *     xxxProcessKeyEvent @ 0x1C007EE00 (xxxProcessKeyEvent.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     ?AccessProceduresStream@@YAHPEAUtagKE@@KH@Z @ 0x1C00F1F00 (-AccessProceduresStream@@YAHPEAUtagKE@@KH@Z.c)
+ */
+
 void __fastcall xxxUpdateModifierState(int a1, signed int a2)
 {
   _DWORD *v2; // rbx

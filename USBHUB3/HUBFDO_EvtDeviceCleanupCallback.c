@@ -1,3 +1,17 @@
+/*
+ * XREFs of HUBFDO_EvtDeviceCleanupCallback @ 0x1C000DB80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     Feature_DropPowerReferenceOnLPE__private_IsEnabledDeviceUsage @ 0x1C000CE58 (Feature_DropPowerReferenceOnLPE__private_IsEnabledDeviceUsage.c)
+ *     HUBMISC_WaitForSignal @ 0x1C0032DEC (HUBMISC_WaitForSignal.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     TUNNEL_CloseAllUsb4RemoteTargets @ 0x1C008E780 (TUNNEL_CloseAllUsb4RemoteTargets.c)
+ */
+
 NTSTATUS __fastcall HUBFDO_EvtDeviceCleanupCallback(__int64 a1)
 {
   __int64 v1; // rax

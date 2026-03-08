@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@CParticleGeneratorMarshaler@DirectComposition@@UEAAJXZ @ 0x1C025B4F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CParticleGeneratorMarshaler::Initialize(
         DirectComposition::CParticleGeneratorMarshaler *this)
 {

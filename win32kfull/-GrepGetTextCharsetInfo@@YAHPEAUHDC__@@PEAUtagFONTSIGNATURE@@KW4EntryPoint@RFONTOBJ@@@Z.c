@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?GrepGetTextCharsetInfo@@YAHPEAUHDC__@@PEAUtagFONTSIGNATURE@@KW4EntryPoint@RFONTOBJ@@@Z @ 0x1C01119CC
+ * Callers:
+ *     NtGdiGetTextCharsetInfo @ 0x1C0111C80 (NtGdiGetTextCharsetInfo.c)
+ *     GreGetTextCharsetInfo @ 0x1C0290D68 (GreGetTextCharsetInfo.c)
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HKAEBUTag@1@@Z @ 0x1C0057C50 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HKAEBUTag@1@@Z.c)
+ *     GreGetCharSet @ 0x1C0111B08 (GreGetCharSet.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C011DDB0 (--1RFONTOBJ@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall GrepGetTextCharsetInfo(HDC a1, __int64 a2, __int64 a3, int a4)
 {
   unsigned int v7; // ebx

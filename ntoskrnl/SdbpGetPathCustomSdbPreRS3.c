@@ -1,3 +1,15 @@
+/*
+ * XREFs of SdbpGetPathCustomSdbPreRS3 @ 0x14066BCC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbpGetPathAppPatch @ 0x140A4FFD0 (SdbpGetPathAppPatch.c)
+ *     SdbpGetProcessHostGuestArchitectures @ 0x140A503E0 (SdbpGetProcessHostGuestArchitectures.c)
+ *     AslPathCombine @ 0x140A524A8 (AslPathCombine.c)
+ */
+
 __int64 __fastcall SdbpGetPathCustomSdbPreRS3(wchar_t *a1, size_t a2, __int64 a3, __int64 a4)
 {
   wchar_t *v7; // rdi

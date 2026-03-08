@@ -1,3 +1,46 @@
+/*
+ * XREFs of MiFindContiguousPagesEx @ 0x1403B5CF8
+ * Callers:
+ *     MiWaitForInPageComplete @ 0x140342A90 (MiWaitForInPageComplete.c)
+ *     MiAllocateSkipPagesForMdl @ 0x1403A71B0 (MiAllocateSkipPagesForMdl.c)
+ *     MiAllocateMostlyContiguousPagesForMdl @ 0x1403A796C (MiAllocateMostlyContiguousPagesForMdl.c)
+ *     MiAllocateContiguousMemory @ 0x1403B49B4 (MiAllocateContiguousMemory.c)
+ *     MiRebuildLargePage @ 0x140466288 (MiRebuildLargePage.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x1406291A0 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiIdealClusterPage @ 0x140667EB0 (MiIdealClusterPage.c)
+ *     MiAllocateDriverPage @ 0x1407290FC (MiAllocateDriverPage.c)
+ *     MmRemovePhysicalMemory @ 0x140A2A520 (MmRemovePhysicalMemory.c)
+ *     MiCreatePagefileMemoryExtents @ 0x140A44298 (MiCreatePagefileMemoryExtents.c)
+ *     MiFindLargePageMemory @ 0x140A46B08 (MiFindLargePageMemory.c)
+ *     MiMapSystemImageWithLargePage @ 0x140A46F04 (MiMapSystemImageWithLargePage.c)
+ * Callees:
+ *     MiCreateUltraThreadContext @ 0x140244548 (MiCreateUltraThreadContext.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiReferencePageRuns @ 0x1402EB520 (MiReferencePageRuns.c)
+ *     MiDereferencePageRunsEx @ 0x1402EBA28 (MiDereferencePageRunsEx.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MiSetPfnOwnedAndActive @ 0x14034591C (MiSetPfnOwnedAndActive.c)
+ *     MiAcquireNonPagedResources @ 0x140348D54 (MiAcquireNonPagedResources.c)
+ *     MiIsPageOnBadList @ 0x14034B1D0 (MiIsPageOnBadList.c)
+ *     MiUpdateLargePageBitMap @ 0x14034D79C (MiUpdateLargePageBitMap.c)
+ *     MiDeleteUltraThreadContext @ 0x14035137C (MiDeleteUltraThreadContext.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     MiSufficientAvailablePages @ 0x1403643E4 (MiSufficientAvailablePages.c)
+ *     MiClaimPhysicalRun @ 0x1403B545C (MiClaimPhysicalRun.c)
+ *     MiCollapseRunTopDown @ 0x1403B62B0 (MiCollapseRunTopDown.c)
+ *     MiPfnsWorthTrying @ 0x1403B6374 (MiPfnsWorthTrying.c)
+ *     MiConvertContiguousPages @ 0x1403B7B48 (MiConvertContiguousPages.c)
+ *     MiFreeContiguousPages @ 0x1403BDABC (MiFreeContiguousPages.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFindLargeNodePage @ 0x14061B228 (MiFindLargeNodePage.c)
+ *     MiTrimNoStealPagesFromWorkingSets @ 0x140633040 (MiTrimNoStealPagesFromWorkingSets.c)
+ *     MiEmptyKernelStackCache @ 0x1406423A0 (MiEmptyKernelStackCache.c)
+ */
+
 __int64 __fastcall MiFindContiguousPagesEx(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,27 @@
+/*
+ * XREFs of RtlpGetRegistryHandle @ 0x14069BBB0
+ * Callers:
+ *     RtlpQueryRegistryValues @ 0x14069B3C0 (RtlpQueryRegistryValues.c)
+ *     RtlWriteRegistryValue @ 0x14069EDB0 (RtlWriteRegistryValue.c)
+ *     RtlpGetTimeZoneInfoHandle @ 0x1407736C4 (RtlpGetTimeZoneInfoHandle.c)
+ *     RtlCheckRegistryKey @ 0x1407964F0 (RtlCheckRegistryKey.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140811500 (ExpRefreshTimeZoneInformation.c)
+ *     RtlpGetDynamicTimeZoneInfoHandle @ 0x140811DC4 (RtlpGetDynamicTimeZoneInfoHandle.c)
+ *     RtlpUpdateDynamicTimeZones @ 0x1408122E8 (RtlpUpdateDynamicTimeZones.c)
+ *     RtlCreateRegistryKey @ 0x140860170 (RtlCreateRegistryKey.c)
+ *     RtlDeleteRegistryValue @ 0x140871310 (RtlDeleteRegistryValue.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     RtlFormatCurrentUserKeyPath @ 0x140747770 (RtlFormatCurrentUserKeyPath.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ */
+
 __int64 __fastcall RtlpGetRegistryHandle(int a1, const WCHAR *a2, char a3, HANDLE *a4)
 {
   __int64 result; // rax

@@ -1,3 +1,23 @@
+/*
+ * XREFs of HalpAcpiTableCacheInit @ 0x140B3DDE0
+ * Callers:
+ *     HalpAcpiGetTable @ 0x14029C550 (HalpAcpiGetTable.c)
+ *     HalpSetupAcpiPhase0 @ 0x140B62CA8 (HalpSetupAcpiPhase0.c)
+ * Callees:
+ *     HalpAcpiGetCachedTable @ 0x14029C6E4 (HalpAcpiGetCachedTable.c)
+ *     DbgPrint @ 0x1402BDD20 (DbgPrint.c)
+ *     HalpAcpiCopyBiosTable @ 0x14037AA9C (HalpAcpiCopyBiosTable.c)
+ *     HalpAcpiAllocateMemory @ 0x14037AB24 (HalpAcpiAllocateMemory.c)
+ *     HalpAcpiCacheTable @ 0x14037ABF4 (HalpAcpiCacheTable.c)
+ *     HalpUnmapVirtualAddress @ 0x14037ADE0 (HalpUnmapVirtualAddress.c)
+ *     HalpMap @ 0x14037AE88 (HalpMap.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpAcpiFindRsdp @ 0x140B6C7C8 (HalpAcpiFindRsdp.c)
+ *     HalpAcpiCacheOverrideTables @ 0x140B8DD04 (HalpAcpiCacheOverrideTables.c)
+ *     HalpAcpiCalculateCacheSizeForOverrideTables @ 0x140B8DDA4 (HalpAcpiCalculateCacheSizeForOverrideTables.c)
+ */
+
 __int64 __fastcall HalpAcpiTableCacheInit(__int64 a1)
 {
   unsigned int Rsdp; // esi

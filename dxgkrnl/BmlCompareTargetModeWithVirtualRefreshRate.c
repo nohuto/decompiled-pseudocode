@@ -1,3 +1,16 @@
+/*
+ * XREFs of BmlCompareTargetModeWithVirtualRefreshRate @ 0x1C03B89AC
+ * Callers:
+ *     BmlCompareTargetModes @ 0x1C016E704 (BmlCompareTargetModes.c)
+ *     BmlCompareTargetModesWithConstraint @ 0x1C017116C (BmlCompareTargetModesWithConstraint.c)
+ * Callees:
+ *     ?IsUnspecifiedFrequency@@YA_NAEBU_D3DDDI_RATIONAL@@@Z @ 0x1C00021C8 (-IsUnspecifiedFrequency@@YA_NAEBU_D3DDDI_RATIONAL@@@Z.c)
+ *     ??$DIFF@I@@YAIII@Z @ 0x1C0069724 (--$DIFF@I@@YAIII@Z.c)
+ *     ??$BmlCompareValues@I@@YA?AW4BML_COMPARISON_RESULT@@II@Z @ 0x1C0171118 (--$BmlCompareValues@I@@YA-AW4BML_COMPARISON_RESULT@@II@Z.c)
+ *     ?DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@PEAE@Z @ 0x1C0172AAC (-DmmMapVSyncFromRationalToInteger@@YAIAEBU_D3DDDI_RATIONAL@@W4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDE.c)
+ *     ?DmmCalculatePresentationVSync@@YAXPEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@PEAU_D3DDDI_RATIONAL@@@Z @ 0x1C01E6480 (-DmmCalculatePresentationVSync@@YAXPEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@PEAU_D3DDDI_RATIONAL@@@Z.c)
+ */
+
 __int64 __fastcall BmlCompareTargetModeWithVirtualRefreshRate(
         struct _D3DKMDT_VIDEO_SIGNAL_INFO *a1,
         struct _D3DKMDT_VIDEO_SIGNAL_INFO *a2,

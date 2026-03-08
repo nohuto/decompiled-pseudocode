@@ -1,3 +1,23 @@
+/*
+ * XREFs of MmReleaseCommitForMemResetPages @ 0x140617408
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ * Callees:
+ *     KeForceDetachProcess @ 0x14020CC48 (KeForceDetachProcess.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiAttachThreadDone @ 0x14029C9D4 (MiAttachThreadDone.c)
+ *     MiPrepareAttachThread @ 0x14029CA64 (MiPrepareAttachThread.c)
+ *     KeForceAttachProcess @ 0x1402E6610 (KeForceAttachProcess.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeRetryOutswapProcess @ 0x14056CFF0 (KeRetryOutswapProcess.c)
+ */
+
 __int64 __fastcall MmReleaseCommitForMemResetPages(volatile signed __int32 *BugCheckParameter1, int a2)
 {
   __int64 v3; // rsi

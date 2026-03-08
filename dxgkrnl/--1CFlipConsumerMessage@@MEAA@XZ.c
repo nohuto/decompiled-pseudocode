@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CFlipConsumerMessage@@MEAA@XZ @ 0x1C007EE40
+ * Callers:
+ *     ??_ECFlipConsumerMessage@@MEAAPEAXI@Z @ 0x1C007EEA0 (--_ECFlipConsumerMessage@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1CFlipPropertySetBase@@MEAA@XZ @ 0x1C00847C4 (--1CFlipPropertySetBase@@MEAA@XZ.c)
+ */
+
 void __fastcall CFlipConsumerMessage::~CFlipConsumerMessage(CFlipConsumerMessage *this)
 {
   unsigned __int64 v1; // r8

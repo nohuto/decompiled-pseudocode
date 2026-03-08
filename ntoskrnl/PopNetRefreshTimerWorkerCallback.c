@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopNetRefreshTimerWorkerCallback @ 0x1409938F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopOkayToQueueNextWorkItem @ 0x140302D08 (PopOkayToQueueNextWorkItem.c)
+ *     PopNetArmRefreshTimer @ 0x1409935C0 (PopNetArmRefreshTimer.c)
+ *     PopNetDisengageNetworkRefresh @ 0x140993720 (PopNetDisengageNetworkRefresh.c)
+ *     PopNetEngageNetworkRefresh @ 0x14099376C (PopNetEngageNetworkRefresh.c)
+ *     PopNetGetNextDueRefreshTime @ 0x1409937B8 (PopNetGetNextDueRefreshTime.c)
+ *     PopNetIsNetworkRefreshEnabled @ 0x14099386C (PopNetIsNetworkRefreshEnabled.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopNetRefreshTimerWorkerCallback(int a1)
 {
   __int64 v1; // rcx

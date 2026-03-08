@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsInLowBox@@YAHXZ @ 0x1C0327EF4
+ * Callers:
+ *     DxgkCreateOutputDupl @ 0x1C032B210 (DxgkCreateOutputDupl.c)
+ * Callees:
+ *     ?OpenThreadToken@@YAJPEAPEAX@Z @ 0x1C0045F44 (-OpenThreadToken@@YAJPEAPEAX@Z.c)
+ */
+
 __int64 IsInLowBox(void)
 {
   unsigned int v0; // ebx

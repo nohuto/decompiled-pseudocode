@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiDeleteHardwareAccelerators @ 0x140652540
+ * Callers:
+ *     MiShutdownSystem @ 0x140AA8A00 (MiShutdownSystem.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiWakeLargePageWaiters @ 0x14064DA54 (MiWakeLargePageWaiters.c)
+ *     MiWakeAllZeroConductors @ 0x140653030 (MiWakeAllZeroConductors.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void MiDeleteHardwareAccelerators()
 {
   unsigned __int64 v0; // rdi

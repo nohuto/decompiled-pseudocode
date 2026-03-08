@@ -1,3 +1,27 @@
+/*
+ * XREFs of ObpCreateSymbolicLinkName @ 0x1407612D4
+ * Callers:
+ *     ObpCreateHandle @ 0x1407C0130 (ObpCreateHandle.c)
+ * Callees:
+ *     ObFastReplaceObject @ 0x140217FC8 (ObFastReplaceObject.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1402637F0 (ObDereferenceObjectDeferDelete.c)
+ *     PsGetCurrentSilo @ 0x1402640A0 (PsGetCurrentSilo.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     NLS_UPCASE @ 0x140267AD0 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO @ 0x140299598 (OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     ObpLockDirectoryShared @ 0x140698E08 (ObpLockDirectoryShared.c)
+ *     ObpUnlockDirectory @ 0x140699588 (ObpUnlockDirectory.c)
+ *     ObpLookupDirectoryEntry @ 0x14076161C (ObpLookupDirectoryEntry.c)
+ *     ObpParseComponentName @ 0x140870108 (ObpParseComponentName.c)
+ *     ObpLockChildDirectory @ 0x140871F00 (ObpLockChildDirectory.c)
+ */
+
 __int16 __fastcall ObpCreateSymbolicLinkName(__int64 a1)
 {
   __int64 v1; // rdi

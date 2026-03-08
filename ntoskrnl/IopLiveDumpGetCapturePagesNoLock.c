@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopLiveDumpGetCapturePagesNoLock @ 0x140A986DC
+ * Callers:
+ *     IopLiveDumpGetNtMergePages @ 0x14094B7E0 (IopLiveDumpGetNtMergePages.c)
+ *     IopLiveDumpBufferDumpData @ 0x140A972E0 (IopLiveDumpBufferDumpData.c)
+ * Callees:
+ *     RtlFindSetBitsEx @ 0x1402D8E10 (RtlFindSetBitsEx.c)
+ */
+
 unsigned __int64 __fastcall IopLiveDumpGetCapturePagesNoLock(
         unsigned __int64 *a1,
         __int64 a2,

@@ -1,3 +1,16 @@
+/*
+ * XREFs of PfpLogScenarioEvent @ 0x14073A758
+ * Callers:
+ *     PfpProcessScenarioPhase @ 0x14073A2C8 (PfpProcessScenarioPhase.c)
+ *     PfPowerActionNotify @ 0x140A9CD7C (PfPowerActionNotify.c)
+ * Callees:
+ *     PfLogEvent @ 0x14028D0D0 (PfLogEvent.c)
+ *     PfTSetTraceWorkerPriority @ 0x1402B896C (PfTSetTraceWorkerPriority.c)
+ *     PfTAccessTracingCheck @ 0x1402B8A04 (PfTAccessTracingCheck.c)
+ *     PfGenerateTrace @ 0x14073A870 (PfGenerateTrace.c)
+ *     MmPerformMemoryListCommand @ 0x140A849F4 (MmPerformMemoryListCommand.c)
+ */
+
 __int64 __fastcall PfpLogScenarioEvent(int a1, char a2, char a3, unsigned __int16 a4, char a5)
 {
   __int64 v6; // r14

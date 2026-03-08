@@ -1,3 +1,15 @@
+/*
+ * XREFs of xxxSwitchToThisWindow @ 0x1C0014D74
+ * Callers:
+ *     NtUserSwitchToThisWindow @ 0x1C0014CB0 (NtUserSwitchToThisWindow.c)
+ * Callees:
+ *     ?xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegroundBehaviors@@W4SetForegroundffects@@@Z @ 0x1C002498C (-xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegrou.c)
+ *     xxxSetWindowPos @ 0x1C0028F4C (xxxSetWindowPos.c)
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0044D58 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     ?IsThreadHungTimeCheck@@YA_NPEBUtagTHREADINFO@@K@Z @ 0x1C00E2134 (-IsThreadHungTimeCheck@@YA_NPEBUtagTHREADINFO@@K@Z.c)
+ *     _GetNextQueueWindow @ 0x1C01CB3B8 (_GetNextQueueWindow.c)
+ */
+
 __int64 __fastcall xxxSwitchToThisWindow(struct tagTHREADINFO **a1, __int64 a2)
 {
   int v2; // esi

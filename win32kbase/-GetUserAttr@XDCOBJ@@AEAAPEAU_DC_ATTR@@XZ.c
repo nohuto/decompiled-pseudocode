@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?GetUserAttr@XDCOBJ@@AEAAPEAU_DC_ATTR@@XZ @ 0x1C004AC60
+ * Callers:
+ *     GreGetClipBox @ 0x1C001AB40 (GreGetClipBox.c)
+ *     ?bLock@DEVLOCKOBJ@@QEAAHAEAVXDCOBJ@@H@Z @ 0x1C001ADD0 (-bLock@DEVLOCKOBJ@@QEAAHAEAVXDCOBJ@@H@Z.c)
+ *     GreCreateCompatibleDC @ 0x1C0052510 (GreCreateCompatibleDC.c)
+ *     ?SaveAttributes@XDCOBJ@@AEAAHXZ @ 0x1C0053730 (-SaveAttributes@XDCOBJ@@AEAAHXZ.c)
+ * Callees:
+ *     ?GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C004AE10 (-GetEntry@GdiHandleEntryDirectory@@QEAAPEAU_ENTRY@@I_N@Z.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C004B5B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ */
+
 struct _DC_ATTR *__fastcall XDCOBJ::GetUserAttr(XDCOBJ *this)
 {
   XDCOBJ *v1; // rbx

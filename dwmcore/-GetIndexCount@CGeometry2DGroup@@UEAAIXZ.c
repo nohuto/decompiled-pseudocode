@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetIndexCount@CGeometry2DGroup@@UEAAIXZ @ 0x18021A9A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CGeometry2DGroup::GetIndexCount(CGeometry2DGroup *this)
 {
   unsigned int v1; // esi

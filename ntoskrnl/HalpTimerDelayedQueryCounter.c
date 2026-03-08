@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpTimerDelayedQueryCounter @ 0x1405069D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     HalpTimerScaleCounter @ 0x1403BE604 (HalpTimerScaleCounter.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpTimerDelayedQueryCounter(__int64 a1)
 {
   __int64 (__fastcall *v1)(__int64); // rbp

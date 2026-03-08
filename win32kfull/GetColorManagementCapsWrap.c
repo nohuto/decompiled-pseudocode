@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetColorManagementCapsWrap @ 0x1C00F2560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetColorManagementCapsWrap(_DWORD *a1)
 {
   int v1; // r8d

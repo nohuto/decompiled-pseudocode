@@ -1,3 +1,18 @@
+/*
+ * XREFs of DxgkNotifySessionStateChange @ 0x1C01DDA00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z @ 0x1C000A280 (-DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z.c)
+ *     ??1?$unique_storage@U?$resource_policy@PEAU_EJOB@@$$A6AXPEAU1@@Z$1?PsDetachSiloFromCurrentThread@@YAX0@ZU?$integral_constant@_K$0A@@wistd@@PEAU1@PEAU1@$0A@$$T@details@wil@@@details@wil@@IEAA@XZ @ 0x1C0016F80 (--1-$unique_storage@U-$resource_policy@PEAU_EJOB@@$$A6AXPEAU1@@Z$1-PsDetachSiloFromCurrentThread.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C01A9568 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?DestroySession@DXGSESSIONMGR@@QEAAXXZ @ 0x1C01D9338 (-DestroySession@DXGSESSIONMGR@@QEAAXXZ.c)
+ *     DpiSessionCreateCallback @ 0x1C01DDB08 (DpiSessionCreateCallback.c)
+ *     ?CreateSession@DXGSESSIONMGR@@QEAAJXZ @ 0x1C01DDB7C (-CreateSession@DXGSESSIONMGR@@QEAAJXZ.c)
+ *     ?DxgkpQueryHostDriverStoreAvailability@@YA_NXZ @ 0x1C0350714 (-DxgkpQueryHostDriverStoreAvailability@@YA_NXZ.c)
+ */
+
 __int64 __fastcall DxgkNotifySessionStateChange(int a1)
 {
   int Session; // esi

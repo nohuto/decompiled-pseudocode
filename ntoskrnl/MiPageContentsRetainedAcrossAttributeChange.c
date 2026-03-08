@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiPageContentsRetainedAcrossAttributeChange @ 0x140214AFC
+ * Callers:
+ *     MiPfnZeroingNeeded @ 0x140214AC4 (MiPfnZeroingNeeded.c)
+ *     MiChangePageAttribute @ 0x14036CE40 (MiChangePageAttribute.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall MiPageContentsRetainedAcrossAttributeChange(int a1, int a2)
 {
   _BOOL8 result; // rax

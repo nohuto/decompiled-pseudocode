@@ -1,3 +1,37 @@
+/*
+ * XREFs of WriteObject @ 0x1C00532A0
+ * Callers:
+ *     ExprOp2_32 @ 0x1C0006642 (ExprOp2_32.c)
+ *     Concat @ 0x1C0055F60 (Concat.c)
+ *     ConcatenateResTemplate @ 0x1C0056290 (ConcatenateResTemplate.c)
+ *     CondRefOf @ 0x1C0056490 (CondRefOf.c)
+ *     CopyObject @ 0x1C0056550 (CopyObject.c)
+ *     ExprOp1_32 @ 0x1C00566C0 (ExprOp1_32.c)
+ *     ExprOp1_64 @ 0x1C005681C (ExprOp1_64.c)
+ *     ExprOp2_64 @ 0x1C00569E0 (ExprOp2_64.c)
+ *     Index @ 0x1C0056C00 (Index.c)
+ *     MidString @ 0x1C0057B40 (MidString.c)
+ *     ProcessDivide @ 0x1C00583C0 (ProcessDivide.c)
+ *     ProcessIncDec @ 0x1C0058510 (ProcessIncDec.c)
+ *     Store @ 0x1C0058B60 (Store.c)
+ *     ToBuffer @ 0x1C0058C40 (ToBuffer.c)
+ *     ToDecStr @ 0x1C0058CC0 (ToDecStr.c)
+ *     ToHexStr @ 0x1C00590B0 (ToHexStr.c)
+ *     ToInteger @ 0x1C00593D0 (ToInteger.c)
+ * Callees:
+ *     CopyObjBuffer @ 0x1C00054F2 (CopyObjBuffer.c)
+ *     GetBaseData @ 0x1C00055CA (GetBaseData.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     DupObjData @ 0x1C004AF04 (DupObjData.c)
+ *     GetObjectTypeName @ 0x1C004BD50 (GetObjectTypeName.c)
+ *     IsCompatableDSDTRevision @ 0x1C004BE28 (IsCompatableDSDTRevision.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     DumpObject @ 0x1C0051E98 (DumpObject.c)
+ *     WriteField @ 0x1C0053090 (WriteField.c)
+ *     PushFrame @ 0x1C0053C34 (PushFrame.c)
+ */
+
 __int64 __fastcall WriteObject(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 BaseData; // rax

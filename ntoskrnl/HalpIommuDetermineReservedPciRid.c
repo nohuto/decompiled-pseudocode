@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpIommuDetermineReservedPciRid @ 0x14039A1AC
+ * Callers:
+ *     HalpIommuProcessReservationsInternal @ 0x14039A0E8 (HalpIommuProcessReservationsInternal.c)
+ * Callees:
+ *     HalpPciConvertDevicePathToRid @ 0x14039A210 (HalpPciConvertDevicePathToRid.c)
+ */
+
 __int64 __fastcall HalpIommuDetermineReservedPciRid(unsigned int *a1)
 {
   __int64 v2; // r8

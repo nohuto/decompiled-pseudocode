@@ -1,3 +1,13 @@
+/*
+ * XREFs of DrvDbUnregisterDatabase @ 0x140A6AC64
+ * Callers:
+ *     PiDrvDbRegisterNode @ 0x14081C38C (PiDrvDbRegisterNode.c)
+ *     PiDrvDbUnregisterNode @ 0x14096E504 (PiDrvDbUnregisterNode.c)
+ * Callees:
+ *     DrvDbFindDatabaseNode @ 0x1408661B4 (DrvDbFindDatabaseNode.c)
+ *     DrvDbDestroyDatabaseNode @ 0x140A6ACC0 (DrvDbDestroyDatabaseNode.c)
+ */
+
 __int64 __fastcall DrvDbUnregisterDatabase(__int64 a1, const WCHAR *a2)
 {
   __int64 v2; // rbx

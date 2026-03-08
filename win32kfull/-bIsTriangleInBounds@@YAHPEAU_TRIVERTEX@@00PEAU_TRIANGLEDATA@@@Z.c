@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bIsTriangleInBounds@@YAHPEAU_TRIVERTEX@@00PEAU_TRIANGLEDATA@@@Z @ 0x1C028F0E0
+ * Callers:
+ *     ?bTriangleMesh@@YAHPEAVSURFACE@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAU_GRADIENT_TRIANGLE@@KKPEAU_RECTL@@4PEAU_POINTL@@@Z @ 0x1C028F504 (-bTriangleMesh@@YAHPEAVSURFACE@@PEAU_XLATEOBJ@@PEAU_TRIVERTEX@@KPEAU_GRADIENT_TRIANGLE@@KKPEAU_R.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall bIsTriangleInBounds(
         struct _TRIVERTEX *a1,
         struct _TRIVERTEX *a2,

@@ -1,3 +1,20 @@
+/*
+ * XREFs of PiDqQueryFreeActiveData @ 0x1407910F8
+ * Callers:
+ *     PiDqObjectManagerServiceActionQueue @ 0x140688EF0 (PiDqObjectManagerServiceActionQueue.c)
+ *     PiDqQueryApplyObjectEvent @ 0x1406896F4 (PiDqQueryApplyObjectEvent.c)
+ *     PiDqQueryRelease @ 0x140689C8C (PiDqQueryRelease.c)
+ *     PiDqIrpQueryCreate @ 0x140745F08 (PiDqIrpQueryCreate.c)
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x140746D28 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDqQueryAppendActionEntry @ 0x140747108 (PiDqQueryAppendActionEntry.c)
+ *     PiDqIrpQueryGetResult @ 0x1407480E0 (PiDqIrpQueryGetResult.c)
+ * Callees:
+ *     RtlIsGenericTableEmptyAvl @ 0x140244F30 (RtlIsGenericTableEmptyAvl.c)
+ *     PiDqQueryActionQueueEntryFree @ 0x140746890 (PiDqQueryActionQueueEntryFree.c)
+ *     PiDqActionDataFree @ 0x1407468D4 (PiDqActionDataFree.c)
+ *     PiDqQueryDeleteObjectFromResultSet @ 0x140791164 (PiDqQueryDeleteObjectFromResultSet.c)
+ */
+
 void __fastcall PiDqQueryFreeActiveData(__int64 a1)
 {
   RTL_AVL_TABLE *i; // rcx

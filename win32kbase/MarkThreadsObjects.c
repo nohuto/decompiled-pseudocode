@@ -1,3 +1,11 @@
+/*
+ * XREFs of MarkThreadsObjects @ 0x1C00783B0
+ * Callers:
+ *     xxxDestroyThreadInfo @ 0x1C0072BF4 (xxxDestroyThreadInfo.c)
+ * Callees:
+ *     HMChangeOwnerThreadWorker @ 0x1C00AEC48 (HMChangeOwnerThreadWorker.c)
+ */
+
 __int64 __fastcall MarkThreadsObjects(__int64 a1)
 {
   struct _HANDLEENTRY *v1; // rbx

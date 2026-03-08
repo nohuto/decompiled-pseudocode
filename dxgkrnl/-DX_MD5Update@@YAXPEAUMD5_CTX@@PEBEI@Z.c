@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DX_MD5Update@@YAXPEAUMD5_CTX@@PEBEI@Z @ 0x1C01BD918
+ * Callers:
+ *     ?CcdCreateMd5Checksum@@YAJPEBEIPEAE@Z @ 0x1C01BD748 (-CcdCreateMd5Checksum@@YAJPEBEIPEAE@Z.c)
+ *     ?DX_MD5Final@@YAXPEAUMD5_CTX@@@Z @ 0x1C01BD804 (-DX_MD5Final@@YAXPEAUMD5_CTX@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     TransformMD5 @ 0x1C01BD9A4 (TransformMD5.c)
+ */
+
 void __fastcall DX_MD5Update(struct MD5_CTX *a1, const unsigned __int8 *a2, unsigned int a3)
 {
   unsigned int v3; // eax

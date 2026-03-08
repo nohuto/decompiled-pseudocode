@@ -1,3 +1,13 @@
+/*
+ * XREFs of WheapReportPersistedErrorRecord @ 0x14060E0E4
+ * Callers:
+ *     WheapCheckForAndReportErrorsFromPreviousSession @ 0x1403AEE1C (WheapCheckForAndReportErrorsFromPreviousSession.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     WheapWorkQueueAddItem @ 0x1406115E4 (WheapWorkQueueAddItem.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 char __fastcall WheapReportPersistedErrorRecord(_DWORD *Src)
 {
   _QWORD *WheaInfo; // rsi

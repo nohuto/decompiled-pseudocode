@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?QueryInterface@CDeviceTextureTarget@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180051510
+ * Callers:
+ *     ?QueryInterface@CDeviceTextureTarget@@$4PPPPPPPM@BCI@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18011C3F0 (-QueryInterface@CDeviceTextureTarget@@$4PPPPPPPM@BCI@EAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?QueryInterface@CDeviceTextureTarget@@WHA@EAAJAEBU_GUID@@PEAPEAX@Z @ 0x18011C410 (-QueryInterface@CDeviceTextureTarget@@WHA@EAAJAEBU_GUID@@PEAPEAX@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x180279008 (-IsKernelDebuggerPresent@@YAHXZ.c)
+ */
+
 __int64 __fastcall CDeviceTextureTarget::QueryInterface(CDeviceTextureTarget *this, const struct _GUID *a2, void **a3)
 {
   int v5; // esi

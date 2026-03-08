@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SearchAndSetKbdTbl@@YAXPEAUDEVICEINFO@@KK@Z @ 0x1C0214018
+ * Callers:
+ *     ?ProcessInputNoLock@CKeyboardProcessor@@QEAA?AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_KEYBOARD_INPUT_DATA@@K_NPEAU_KEYBOARD_VIRTUAL_DEVICE_INFO@@@Z @ 0x1C000ED44 (-ProcessInputNoLock@CKeyboardProcessor@@QEAA-AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_KEYB.c)
+ * Callees:
+ *     HMAssignmentLock @ 0x1C00788D0 (HMAssignmentLock.c)
+ *     SetGlobalKeyboardTableInfo @ 0x1C0085F08 (SetGlobalKeyboardTableInfo.c)
+ */
+
 void __fastcall SearchAndSetKbdTbl(struct DEVICEINFO *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // ebp

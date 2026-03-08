@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0DDAMetaData@@QEAA@II@Z @ 0x1C032C6D8
+ * Callers:
+ *     ?Initialize@OUTPUTDUPL_CONTEXT@@QEAAJPEBU_D3DKMT_CREATE_OUTPUTDUPL@@@Z @ 0x1C032D884 (-Initialize@OUTPUTDUPL_CONTEXT@@QEAAJPEBU_D3DKMT_CREATE_OUTPUTDUPL@@@Z.c)
+ * Callees:
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01A3640 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ */
+
 DDAMetaData *__fastcall DDAMetaData::DDAMetaData(DDAMetaData *this)
 {
   struct DXGPROCESS *Current; // rax

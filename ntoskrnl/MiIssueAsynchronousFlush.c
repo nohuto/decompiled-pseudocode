@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiIssueAsynchronousFlush @ 0x140633C34
+ * Callers:
+ *     MiFlushSectionInternal @ 0x14031FA90 (MiFlushSectionInternal.c)
+ * Callees:
+ *     IoAsynchronousPageWrite @ 0x1402FE3CC (IoAsynchronousPageWrite.c)
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFlushComplete @ 0x140633A40 (MiFlushComplete.c)
+ */
+
 unsigned __int64 __fastcall MiIssueAsynchronousFlush(
         struct _FILE_OBJECT *a1,
         unsigned __int64 a2,

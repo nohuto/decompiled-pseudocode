@@ -1,3 +1,34 @@
+/*
+ * XREFs of EtwStartAutoLogger @ 0x14083CA48
+ * Callers:
+ *     PerfDiagpStartPerfDiagLogger @ 0x14083C01C (PerfDiagpStartPerfDiagLogger.c)
+ *     EtwpInitializeAutoLoggers @ 0x14083C56C (EtwpInitializeAutoLoggers.c)
+ *     EtwpEnumerateAutologgerPath @ 0x14083C7E8 (EtwpEnumerateAutologgerPath.c)
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcscmp @ 0x1403D5DD0 (wcscmp.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpCreateKeyTreeForPath @ 0x1405FEE28 (EtwpCreateKeyTreeForPath.c)
+ *     EtwpStartLogger @ 0x140691964 (EtwpStartLogger.c)
+ *     RtlpQueryRegistryValues @ 0x14069B3C0 (RtlpQueryRegistryValues.c)
+ *     RtlWriteRegistryValue @ 0x14069EDB0 (RtlWriteRegistryValue.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ *     RtlCreateUnicodeString @ 0x140747D00 (RtlCreateUnicodeString.c)
+ *     RtlNtStatusToDosError @ 0x140755BE0 (RtlNtStatusToDosError.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     EtwpEnableKeyProviders @ 0x14083D574 (EtwpEnableKeyProviders.c)
+ *     EtwpUpdateDisallowList @ 0x1409E4B08 (EtwpUpdateDisallowList.c)
+ *     EtwpParsePoolTagFilter @ 0x1409EA35C (EtwpParsePoolTagFilter.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwStartAutoLogger(wchar_t *SourceString, __int64 a2, WCHAR *a3)
 {
   void *v5; // rsi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of xxxSendEraseBkgnd @ 0x1C00FE248
+ * Callers:
+ *     xxxSimpleDoSyncPaint @ 0x1C0038E64 (xxxSimpleDoSyncPaint.c)
+ *     xxxInternalDoSyncPaint @ 0x1C00FDB80 (xxxInternalDoSyncPaint.c)
+ * Callees:
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ */
+
 __int64 __fastcall xxxSendEraseBkgnd(struct tagWND *a1, __int64 a2, __int64 a3)
 {
   __int64 DCEx; // rdi

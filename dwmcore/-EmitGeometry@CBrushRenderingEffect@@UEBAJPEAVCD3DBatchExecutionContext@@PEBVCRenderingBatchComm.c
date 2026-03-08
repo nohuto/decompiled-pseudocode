@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EmitGeometry@CBrushRenderingEffect@@UEBAJPEAVCD3DBatchExecutionContext@@PEBVCRenderingBatchCommand@@@Z @ 0x1800E10A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CBrushRenderingEffect::EmitGeometry(
         CBrushRenderingEffect *this,
         struct CD3DBatchExecutionContext *a2,

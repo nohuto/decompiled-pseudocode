@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBDTX_ValidateInterfaceStatusForRemoteWakeCapability @ 0x1C002A628
+ * Callers:
+ *     HUBDSM_ValidatingInterfaceStatusForRemoteWake @ 0x1C00257C0 (HUBDSM_ValidatingInterfaceStatusForRemoteWake.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0pqqh_EtwWriteTransfer @ 0x1C000CF08 (McTemplateK0pqqh_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_q @ 0x1C0015204 (WPP_RECORDER_SF_q.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C0032FCC (HUBMISC_VerifierDbgBreak.c)
+ */
+
 __int64 __fastcall HUBDTX_ValidateInterfaceStatusForRemoteWakeCapability(__int64 a1)
 {
   unsigned int v2; // edi

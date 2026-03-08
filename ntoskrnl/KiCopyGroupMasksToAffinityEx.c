@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiCopyGroupMasksToAffinityEx @ 0x140237BB0
+ * Callers:
+ *     KiComputeCpuSetAffinity @ 0x140237838 (KiComputeCpuSetAffinity.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int16 __fastcall KiCopyGroupMasksToAffinityEx(char *a1, char *a2, unsigned __int16 a3)
 {
   unsigned __int16 result; // ax

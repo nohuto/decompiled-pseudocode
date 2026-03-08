@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpDmaFinalizeDoubleBufferingDisposition @ 0x140B613CC
+ * Callers:
+ *     HalpDmaInitSystem @ 0x140A8D4D0 (HalpDmaInitSystem.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void HalpDmaFinalizeDoubleBufferingDisposition()
 {
   void *v0; // rbx

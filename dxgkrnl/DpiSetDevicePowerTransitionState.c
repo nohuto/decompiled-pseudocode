@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiSetDevicePowerTransitionState @ 0x1C001AFB8
+ * Callers:
+ *     ?DpiStartSuspendingAdapter@@YAEPEAU_FDO_CONTEXT@@@Z @ 0x1C001AA78 (-DpiStartSuspendingAdapter@@YAEPEAU_FDO_CONTEXT@@@Z.c)
+ *     ?DpiFinishSuspendAdapter@@YAXPEAU_FDO_CONTEXT@@@Z @ 0x1C001AAEC (-DpiFinishSuspendAdapter@@YAXPEAU_FDO_CONTEXT@@@Z.c)
+ *     DpiRequestDevicePowerState @ 0x1C001AC34 (DpiRequestDevicePowerState.c)
+ * Callees:
+ *     McTemplateK0pt_EtwWriteTransfer @ 0x1C003FF7C (McTemplateK0pt_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DpiSetDevicePowerTransitionState(__int64 a1, int a2)
 {
   __int64 result; // rax

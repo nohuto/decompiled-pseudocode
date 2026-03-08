@@ -1,3 +1,20 @@
+/*
+ * XREFs of PoNotifySystemTimeSet @ 0x1403B11A8
+ * Callers:
+ *     ExpRefreshSystemTime @ 0x1408132EC (ExpRefreshSystemTime.c)
+ *     NtSetSystemTime @ 0x1409F54B0 (NtSetSystemTime.c)
+ *     ExpSetSystemTime @ 0x140AA7AF4 (ExpSetSystemTime.c)
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     PpmConvertTime @ 0x140235D70 (PpmConvertTime.c)
+ *     PopGetPolicyWorker @ 0x1402BCB34 (PopGetPolicyWorker.c)
+ *     PopCheckForWork @ 0x1402BCB88 (PopCheckForWork.c)
+ *     ExNotifyWithProcessing @ 0x1402D2F20 (ExNotifyWithProcessing.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopSstDiagAddResumeTimestampAdjustment @ 0x140AA74E4 (PopSstDiagAddResumeTimestampAdjustment.c)
+ *     EtwTraceSystemTimeChange @ 0x140AA7600 (EtwTraceSystemTimeChange.c)
+ */
+
 __int64 __fastcall PoNotifySystemTimeSet(__int64 *a1, __int64 *a2, int a3, int a4, int a5, int a6, unsigned __int8 a7)
 {
   __int64 result; // rax

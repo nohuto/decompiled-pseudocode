@@ -1,3 +1,14 @@
+/*
+ * XREFs of IoInitializeRemoveLockEx @ 0x1403BF180
+ * Callers:
+ *     PopFxCreateDeviceCommon @ 0x1403934D4 (PopFxCreateDeviceCommon.c)
+ *     DifIoInitializeRemoveLockExWrapper @ 0x1405DD9E0 (DifIoInitializeRemoveLockExWrapper.c)
+ *     PopFxRegisterDeviceWorker @ 0x14083714C (PopFxRegisterDeviceWorker.c)
+ *     VfFilterAttach @ 0x140ADC20C (VfFilterAttach.c)
+ * Callees:
+ *     <none>
+ */
+
 void __stdcall IoInitializeRemoveLockEx(
         PIO_REMOVE_LOCK Lock,
         ULONG AllocateTag,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of DpiFdoIsDevicePresent @ 0x1C0397F70
+ * Callers:
+ *     DpiFdoHandleDevicePower @ 0x1C01E1A70 (DpiFdoHandleDevicePower.c)
+ *     DpiFdoHandleSurpriseRemoval @ 0x1C03977F0 (DpiFdoHandleSurpriseRemoval.c)
+ *     DpiFdoStopAdapter @ 0x1C0398994 (DpiFdoStopAdapter.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 __int64 __fastcall DpiFdoIsDevicePresent(__int64 a1, char *a2)
 {
   unsigned int v4; // ebx

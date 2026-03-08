@@ -1,3 +1,12 @@
+/*
+ * XREFs of XilCommand_AllocateResources @ 0x1C001BBE0
+ * Callers:
+ *     Command_PrepareHardware @ 0x1C0072DA0 (Command_PrepareHardware.c)
+ * Callees:
+ *     XilCoreCommand_AllocateResources @ 0x1C001BC30 (XilCoreCommand_AllocateResources.c)
+ *     XilCommand_AllocateSecureResources @ 0x1C00313B0 (XilCommand_AllocateSecureResources.c)
+ */
+
 __int64 __fastcall XilCommand_AllocateResources(__int64 a1)
 {
   __int64 v1; // rbx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??1CChannelContext@@EEAA@XZ @ 0x1800A9D2C
+ * Callers:
+ *     ??_ECChannelContext@@EEAAPEAXI@Z @ 0x1800A9B60 (--_ECChannelContext@@EEAAPEAXI@Z.c)
+ * Callees:
+ *     ?erase@?$_Hash@V?$_Umap_traits@PEAVCChannelContext@@MV?$_Uhash_compare@PEAVCChannelContext@@U?$hash@PEAVCChannelContext@@@std@@U?$equal_to@PEAVCChannelContext@@@3@@std@@V?$allocator@U?$pair@QEAVCChannelContext@@M@std@@@3@$0A@@std@@@std@@QEAA_KAEBQEAVCChannelContext@@@Z @ 0x1800242D8 (-erase@-$_Hash@V-$_Umap_traits@PEAVCChannelContext@@MV-$_Uhash_compare@PEAVCChannelContext@@U-$h.c)
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ??$ReleaseInterface@VCProcessAttribution@@@@YAXAEAPEAVCProcessAttribution@@@Z @ 0x1800AB2F8 (--$ReleaseInterface@VCProcessAttribution@@@@YAXAEAPEAVCProcessAttribution@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CChannelContext::~CChannelContext(CChannelContext *this)
 {
   __int64 v2; // rax

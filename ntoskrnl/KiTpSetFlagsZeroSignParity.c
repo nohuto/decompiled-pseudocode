@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiTpSetFlagsZeroSignParity @ 0x140AF17E8
+ * Callers:
+ *     KiTpEmulateGroup0Instruction @ 0x140AF043C (KiTpEmulateGroup0Instruction.c)
+ *     KiTpEmulateGroup1Instruction @ 0x140AF0754 (KiTpEmulateGroup1Instruction.c)
+ *     KiTpEmulateInstruction @ 0x140AF0944 (KiTpEmulateInstruction.c)
+ *     KiTpSetFlagsAdd @ 0x140AF15F8 (KiTpSetFlagsAdd.c)
+ *     KiTpSetFlagsSub @ 0x140AF16E4 (KiTpSetFlagsSub.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiTpSetFlagsZeroSignParity(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int8 v3; // r10

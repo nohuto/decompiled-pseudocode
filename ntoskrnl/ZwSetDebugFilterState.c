@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwSetDebugFilterState @ 0x140415630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwSetDebugFilterState(__int64 a1, __int64 a2)
 {
   _disable();

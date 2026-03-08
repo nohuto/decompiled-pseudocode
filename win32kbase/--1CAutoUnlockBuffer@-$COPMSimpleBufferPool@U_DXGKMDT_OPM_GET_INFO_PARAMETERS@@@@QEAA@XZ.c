@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CAutoUnlockBuffer@?$COPMSimpleBufferPool@U_DXGKMDT_OPM_GET_INFO_PARAMETERS@@@@QEAA@XZ @ 0x1C0187DD4
+ * Callers:
+ *     NtGdiGetCOPPCompatibleOPMInformation @ 0x1C01892B0 (NtGdiGetCOPPCompatibleOPMInformation.c)
+ *     NtGdiGetOPMInformation @ 0x1C0189770 (NtGdiGetOPMInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall COPMSimpleBufferPool<_DXGKMDT_OPM_GET_INFO_PARAMETERS>::CAutoUnlockBuffer::~CAutoUnlockBuffer(
         __int64 a1)
 {

@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpSetPartitionContext @ 0x1405FF3A0
+ * Callers:
+ *     EtwpStartLogger @ 0x140691964 (EtwpStartLogger.c)
+ * Callees:
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     PsReferencePartitionByHandle @ 0x14070591C (PsReferencePartitionByHandle.c)
+ */
+
 __int64 __fastcall EtwpSetPartitionContext(__int64 *a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rcx

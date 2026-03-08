@@ -1,3 +1,21 @@
+/*
+ * XREFs of LocalGetConditionForString @ 0x1409D1B24
+ * Callers:
+ *     LocalGetAclForString @ 0x14074F18C (LocalGetAclForString.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     iswspace @ 0x1403D4650 (iswspace.c)
+ *     SddlpAlloc @ 0x1407507C8 (SddlpAlloc.c)
+ *     AppendCondition @ 0x1409CFE44 (AppendCondition.c)
+ *     FreeOperandValue @ 0x1409D02C8 (FreeOperandValue.c)
+ *     GetConditionToken @ 0x1409D05B8 (GetConditionToken.c)
+ *     GetOperandValue @ 0x1409D07DC (GetOperandValue.c)
+ *     GetOperatorIndexByToken @ 0x1409D0F50 (GetOperatorIndexByToken.c)
+ *     IsArrayType @ 0x1409D1A10 (IsArrayType.c)
+ *     IsValueSizeFixed @ 0x1409D1AD4 (IsValueSizeFixed.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall LocalGetConditionForString(wint_t *a1, __int64 a2, const void **a3, unsigned int *a4)
 {
   unsigned int *v4; // r14

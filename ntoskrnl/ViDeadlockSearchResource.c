@@ -1,3 +1,14 @@
+/*
+ * XREFs of ViDeadlockSearchResource @ 0x140AD6D80
+ * Callers:
+ *     VfDeadlockAcquireResource @ 0x140AD3DAC (VfDeadlockAcquireResource.c)
+ *     VfDeadlockReleaseResource @ 0x140AD4ECC (VfDeadlockReleaseResource.c)
+ *     ViDeadlockAddResource @ 0x140AD53DC (ViDeadlockAddResource.c)
+ * Callees:
+ *     VfUtilAddressRangeFit @ 0x140ABF3C4 (VfUtilAddressRangeFit.c)
+ *     ViDeadlockTrimResources @ 0x140AD6F04 (ViDeadlockTrimResources.c)
+ */
+
 _QWORD *__fastcall ViDeadlockSearchResource(unsigned __int64 a1)
 {
   unsigned __int64 v2; // rcx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpCreateInterrupt @ 0x140379F48
+ * Callers:
+ *     HalpInterruptSetIdtEntry @ 0x140379F10 (HalpInterruptSetIdtEntry.c)
+ * Callees:
+ *     HalpAllocateKInterrupt @ 0x140379FF8 (HalpAllocateKInterrupt.c)
+ *     KeConnectInterruptForHal @ 0x14037A0E0 (KeConnectInterruptForHal.c)
+ *     KeInitializeInterrupt @ 0x14037A150 (KeInitializeInterrupt.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall HalpCreateInterrupt(int a1, int a2, char a3, __int64 a4, __int64 a5)
 {
   unsigned int Number; // ebp

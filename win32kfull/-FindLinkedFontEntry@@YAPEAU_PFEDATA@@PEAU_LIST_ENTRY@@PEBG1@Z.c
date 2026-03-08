@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FindLinkedFontEntry@@YAPEAU_PFEDATA@@PEAU_LIST_ENTRY@@PEBG1@Z @ 0x1C02A1020
+ * Callers:
+ *     bDeleteFlEntry @ 0x1C02A1F2C (bDeleteFlEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _LIST_ENTRY *__fastcall FindLinkedFontEntry(
         struct _LIST_ENTRY *a1,
         const unsigned __int16 *a2,

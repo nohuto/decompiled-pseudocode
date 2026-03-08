@@ -1,3 +1,15 @@
+/*
+ * XREFs of HaliAcpiMachineStateInit @ 0x14085A4F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpInterruptModel @ 0x14028EADC (HalpInterruptModel.c)
+ *     HalpIsXboxNanovisorPresent @ 0x140373A1C (HalpIsXboxNanovisorPresent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwPowerInformation @ 0x140412EF0 (ZwPowerInformation.c)
+ *     HalpHvSetSleepStateProperty @ 0x140509CA8 (HalpHvSetSleepStateProperty.c)
+ */
+
 int __fastcall HaliAcpiMachineStateInit(_BYTE *a1)
 {
   bool v2; // di

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiUEventHashGuidIntoBucket @ 0x140201EB4
+ * Callers:
+ *     PiUEventNotifyDeviceInterfaceChange @ 0x140681F08 (PiUEventNotifyDeviceInterfaceChange.c)
+ *     PiUEventHandleRegistration @ 0x14068E738 (PiUEventHandleRegistration.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall PiUEventHashGuidIntoBucket(unsigned __int8 *a1)
 {
   unsigned __int64 v2; // r8

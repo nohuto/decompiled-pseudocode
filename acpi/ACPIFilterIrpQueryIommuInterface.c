@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIFilterIrpQueryIommuInterface @ 0x1C00863F4
+ * Callers:
+ *     ACPIFilterIrpQueryInterface @ 0x1C0086160 (ACPIFilterIrpQueryInterface.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIBusIommuBusInterface @ 0x1C008736C (ACPIBusIommuBusInterface.c)
+ */
+
 __int64 __fastcall ACPIFilterIrpQueryIommuInterface(ULONG_PTR a1, IRP *a2)
 {
   __int64 DeviceExtension; // rbx

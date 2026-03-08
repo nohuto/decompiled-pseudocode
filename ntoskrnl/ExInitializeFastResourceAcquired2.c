@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExInitializeFastResourceAcquired2 @ 0x14040E404
+ * Callers:
+ *     ExInitializeFastResourceAcquired @ 0x14040D290 (ExInitializeFastResourceAcquired.c)
+ * Callees:
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     ExInitializeFastResource2 @ 0x14040E2C0 (ExInitializeFastResource2.c)
+ *     ExpAddFastOwnerEntryToThreadList2 @ 0x14040FD90 (ExpAddFastOwnerEntryToThreadList2.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int16 __fastcall ExInitializeFastResourceAcquired2(
         ULONG_PTR BugCheckParameter2,
         ULONG_PTR BugCheckParameter3,

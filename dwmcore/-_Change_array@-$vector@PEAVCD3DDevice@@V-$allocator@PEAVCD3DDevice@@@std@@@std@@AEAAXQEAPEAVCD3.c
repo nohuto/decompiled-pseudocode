@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_Change_array@?$vector@PEAVCD3DDevice@@V?$allocator@PEAVCD3DDevice@@@std@@@std@@AEAAXQEAPEAVCD3DDevice@@_K1@Z @ 0x1802829B4
+ * Callers:
+ *     ??$_Emplace_reallocate@AEBQEAVCD3DDevice@@@?$vector@PEAVCD3DDevice@@V?$allocator@PEAVCD3DDevice@@@std@@@std@@QEAAPEAPEAVCD3DDevice@@QEAPEAV2@AEBQEAV2@@Z @ 0x180282594 (--$_Emplace_reallocate@AEBQEAVCD3DDevice@@@-$vector@PEAVCD3DDevice@@V-$allocator@PEAVCD3DDevice@.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ */
+
 __int64 __fastcall std::vector<CD3DDevice *>::_Change_array(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   void *v6; // rcx

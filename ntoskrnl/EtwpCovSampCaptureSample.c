@@ -1,3 +1,21 @@
+/*
+ * XREFs of EtwpCovSampCaptureSample @ 0x140601340
+ * Callers:
+ *     EtwpCovSampProfileInterrupt @ 0x140601680 (EtwpCovSampProfileInterrupt.c)
+ *     EtwpCoverageSamplerContextSwap @ 0x140601874 (EtwpCoverageSamplerContextSwap.c)
+ *     EtwpCoverageSamplerPageFault @ 0x140601A34 (EtwpCoverageSamplerPageFault.c)
+ *     EtwpCoverageSamplerReadyThread @ 0x140601C50 (EtwpCoverageSamplerReadyThread.c)
+ * Callees:
+ *     EtwpCovSampCaptureBufferAddIP @ 0x140461944 (EtwpCovSampCaptureBufferAddIP.c)
+ *     EtwpCovSampCaptureBufferGet @ 0x14046197C (EtwpCovSampCaptureBufferGet.c)
+ *     EtwpCovSampCaptureBufferQueue @ 0x140461A8C (EtwpCovSampCaptureBufferQueue.c)
+ *     EtwpCovSampCaptureReleaseToLookaside @ 0x140461C2A (EtwpCovSampCaptureReleaseToLookaside.c)
+ *     EtwpCovSampSafeForUserAddressCapture @ 0x140461D68 (EtwpCovSampSafeForUserAddressCapture.c)
+ *     EtwpCovSampCaptureKernelStack @ 0x140600FD8 (EtwpCovSampCaptureKernelStack.c)
+ *     EtwpCovSampCaptureQueueApc @ 0x1406010A0 (EtwpCovSampCaptureQueueApc.c)
+ *     EtwpCovSampCaptureUserAddresses @ 0x1408A3D6C (EtwpCovSampCaptureUserAddresses.c)
+ */
+
 __int64 __fastcall EtwpCovSampCaptureSample(unsigned __int64 a1, unsigned int a2)
 {
   struct _KTHREAD *CurrentThread; // rbx

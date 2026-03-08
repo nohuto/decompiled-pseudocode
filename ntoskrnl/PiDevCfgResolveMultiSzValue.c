@@ -1,3 +1,20 @@
+/*
+ * XREFs of PiDevCfgResolveMultiSzValue @ 0x1408784A4
+ * Callers:
+ *     PiDevCfgCopyDeviceKey @ 0x140877A34 (PiDevCfgCopyDeviceKey.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     PnpValidateStringData @ 0x1403C1C24 (PnpValidateStringData.c)
+ *     PnpMultiSzContainsString @ 0x1403C22EC (PnpMultiSzContainsString.c)
+ *     PnpValidateRegistryMultiSz @ 0x1403C23D0 (PnpValidateRegistryMultiSz.c)
+ *     PnpValidateMultiSzData @ 0x1403C2404 (PnpValidateMultiSzData.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IopGetRegistryValue @ 0x1406C18D4 (IopGetRegistryValue.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDevCfgResolveMultiSzValue(
         int a1,
         unsigned int a2,

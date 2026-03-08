@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhSshBusBusy @ 0x1C003170C
+ * Callers:
+ *     UsbhDispatch_BusEvent @ 0x1C001CF30 (UsbhDispatch_BusEvent.c)
+ *     Usbh_BS_BusRun @ 0x1C001D160 (Usbh_BS_BusRun.c)
+ *     UsbhHubSSH_PnpStart @ 0x1C0058E20 (UsbhHubSSH_PnpStart.c)
+ *     UsbhHubSSH_PnpStop @ 0x1C0058F40 (UsbhHubSSH_PnpStop.c)
+ * Callees:
+ *     UsbhDecHubBusy @ 0x1C0003DB0 (UsbhDecHubBusy.c)
+ *     UsbhIncHubBusy @ 0x1C0007050 (UsbhIncHubBusy.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 void __fastcall UsbhSshBusBusy(__int64 a1, __int64 a2)
 {
   volatile signed __int64 *v4; // rdi

@@ -1,3 +1,32 @@
+/*
+ * XREFs of ?BltQueueWorker@BLTQUEUE@@QEAAXXZ @ 0x1C01CB020
+ * Callers:
+ *     ?BltQueueWorkerThread@BLTQUEUE@@SAXPEAX@Z @ 0x1C01CAFD0 (-BltQueueWorkerThread@BLTQUEUE@@SAXPEAX@Z.c)
+ * Callees:
+ *     ??0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z @ 0x1C0003BCC (--0COREADAPTERACCESS@@QEAA@QEAVDXGADAPTER@@0@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0006F40 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0006FA0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z @ 0x1C00090C8 (-AcquireShared@COREADAPTERACCESS@@QEAAJPEAD@Z.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C00095A8 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     ??1COREADAPTERACCESS@@QEAA@XZ @ 0x1C0009800 (--1COREADAPTERACCESS@@QEAA@XZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C002463C (McTemplateK0q_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?RecreateVsyncSource@BLTQUEUE@@AEAAX_NW4VsyncEvent@1@@Z @ 0x1C01C7040 (-RecreateVsyncSource@BLTQUEUE@@AEAAX_NW4VsyncEvent@1@@Z.c)
+ *     ?UpdateDisplayModeInfoWorker@BLTQUEUE@@AEAAXXZ @ 0x1C01CAEC8 (-UpdateDisplayModeInfoWorker@BLTQUEUE@@AEAAXXZ.c)
+ *     ?ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z @ 0x1C01CB6F0 (-ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z.c)
+ *     ?FinishCommand@BLTQUEUE@@AEAAXJ@Z @ 0x1C01CBAB0 (-FinishCommand@BLTQUEUE@@AEAAXJ@Z.c)
+ *     ?StartVSync@BLTQUEUE@@AEAAXHW4VsyncEvent@1@@Z @ 0x1C01CBAFC (-StartVSync@BLTQUEUE@@AEAAXHW4VsyncEvent@1@@Z.c)
+ *     ?TdrIsDodVSyncTimeoutForcedFlip@@YA_NXZ @ 0x1C030A4C0 (-TdrIsDodVSyncTimeoutForcedFlip@@YA_NXZ.c)
+ *     ?DisableHwVSyncWorker@BLTQUEUE@@AEAAXXZ @ 0x1C03CCFEC (-DisableHwVSyncWorker@BLTQUEUE@@AEAAXXZ.c)
+ *     ?DiscardPendingPresent@BLTQUEUE@@AEAAXXZ @ 0x1C03CD0F0 (-DiscardPendingPresent@BLTQUEUE@@AEAAXXZ.c)
+ *     ?LogRemoteVsyncTimeout@BLTQUEUE@@AEAAXXZ @ 0x1C03CD4B4 (-LogRemoteVsyncTimeout@BLTQUEUE@@AEAAXXZ.c)
+ *     ?ProcessVSyncTdrWorker@BLTQUEUE@@AEAAXE@Z @ 0x1C03CEDAC (-ProcessVSyncTdrWorker@BLTQUEUE@@AEAAXE@Z.c)
+ *     ?ResetInternal@BLTQUEUE@@AEAAXXZ @ 0x1C03CF094 (-ResetInternal@BLTQUEUE@@AEAAXXZ.c)
+ *     ?ResetWorker@BLTQUEUE@@AEAAXXZ @ 0x1C03CF0DC (-ResetWorker@BLTQUEUE@@AEAAXXZ.c)
+ *     ?StopVSync@BLTQUEUE@@AEAAXHW4VsyncEvent@1@@Z @ 0x1C03D0170 (-StopVSync@BLTQUEUE@@AEAAXHW4VsyncEvent@1@@Z.c)
+ */
+
 void __fastcall __noreturn BLTQUEUE::BltQueueWorker(BLTQUEUE *this)
 {
   char v2; // r12

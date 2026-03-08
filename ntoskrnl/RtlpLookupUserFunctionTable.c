@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlpLookupUserFunctionTable @ 0x14039DB7C
+ * Callers:
+ *     RtlpLookupFunctionEntryForStackWalks @ 0x140281490 (RtlpLookupFunctionEntryForStackWalks.c)
+ * Callees:
+ *     RtlCaptureImageExceptionValues @ 0x1402B274C (RtlCaptureImageExceptionValues.c)
+ *     RtlpLookupUserFunctionTableInverted @ 0x14039DBC0 (RtlpLookupUserFunctionTableInverted.c)
+ *     RtlpLookupDynamicUserFunctionTable @ 0x1405AFF68 (RtlpLookupDynamicUserFunctionTable.c)
+ *     MmGetImageInformation @ 0x14077582C (MmGetImageInformation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall RtlpLookupUserFunctionTable(__int64 a1, __int64 a2)
 {
   __int64 v4; // rbx

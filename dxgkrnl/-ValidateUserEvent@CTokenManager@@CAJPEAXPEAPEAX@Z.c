@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ValidateUserEvent@CTokenManager@@CAJPEAXPEAPEAX@Z @ 0x1C0017CFC
+ * Callers:
+ *     ?TokenThread@CTokenManager@@UEAAJPEAXPEAUCSM_TOKEN_ADAPTER_INFO@@I@Z @ 0x1C0017C30 (-TokenThread@CTokenManager@@UEAAJPEAXPEAUCSM_TOKEN_ADAPTER_INFO@@I@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CTokenManager::ValidateUserEvent(void *a1, void **a2)
 {
   NTSTATUS v3; // eax

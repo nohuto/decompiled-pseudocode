@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??0COREOVERLAYACCESS@@QEAA@QEAVDXGOVERLAY@@@Z @ 0x1C00541E0
+ * Callers:
+ *     DxgkFlipOverlay @ 0x1C0331B90 (DxgkFlipOverlay.c)
+ *     DxgkGetOverlayState @ 0x1C0332170 (DxgkGetOverlayState.c)
+ *     DxgkUpdateOverlay @ 0x1C0332840 (DxgkUpdateOverlay.c)
+ * Callees:
+ *     ??0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z @ 0x1C0009580 (--0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z.c)
+ */
+
 COREOVERLAYACCESS *__fastcall COREOVERLAYACCESS::COREOVERLAYACCESS(
         COREOVERLAYACCESS *this,
         struct DXGOVERLAY *const a2)

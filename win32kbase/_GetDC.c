@@ -1,3 +1,12 @@
+/*
+ * XREFs of _GetDC @ 0x1C000D070
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _GetDCEx @ 0x1C003F6E0 (_GetDCEx.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C004FE50 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ */
+
 __int64 __fastcall GetDC(__int64 a1)
 {
   __int64 v1; // r8

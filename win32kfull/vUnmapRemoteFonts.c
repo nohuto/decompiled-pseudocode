@@ -1,3 +1,13 @@
+/*
+ * XREFs of vUnmapRemoteFonts @ 0x1C028E900
+ * Callers:
+ *     FreeFileView @ 0x1C00B7620 (FreeFileView.c)
+ *     GreAddFontMemResourceEx @ 0x1C028E05C (GreAddFontMemResourceEx.c)
+ *     NtGdiAddRemoteFontToDC @ 0x1C028E180 (NtGdiAddRemoteFontToDC.c)
+ * Callees:
+ *     ?MmUnmapViewOfSection@UmfdHostLifeTimeManager@@SAJPEAX_K@Z @ 0x1C00E9AF8 (-MmUnmapViewOfSection@UmfdHostLifeTimeManager@@SAJPEAX_K@Z.c)
+ */
+
 void __fastcall vUnmapRemoteFonts(__int64 a1)
 {
   int v1; // eax

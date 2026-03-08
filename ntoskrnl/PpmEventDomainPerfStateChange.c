@@ -1,3 +1,15 @@
+/*
+ * XREFs of PpmEventDomainPerfStateChange @ 0x1402E5E8C
+ * Callers:
+ *     PpmPerfApplyDomainState @ 0x1402E56F8 (PpmPerfApplyDomainState.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     KeAndGroupAffinityEx @ 0x140233690 (KeAndGroupAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PpmFireWmiEvent @ 0x140596908 (PpmFireWmiEvent.c)
+ */
+
 char __fastcall PpmEventDomainPerfStateChange(__int64 a1)
 {
   _UNKNOWN **v1; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvlpCountFlushVaList @ 0x1403C697C
+ * Callers:
+ *     HvlpFlushRangeListTb @ 0x1403C68E4 (HvlpFlushRangeListTb.c)
+ *     HvlpFlushRangeListTbEx @ 0x1405476CC (HvlpFlushRangeListTbEx.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HvlpCountFlushVaList(unsigned int a1, _QWORD *a2)
 {
   __int64 result; // rax

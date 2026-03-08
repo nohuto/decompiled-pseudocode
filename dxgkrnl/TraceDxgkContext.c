@@ -1,3 +1,11 @@
+/*
+ * XREFs of TraceDxgkContext @ 0x1C0025AE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0pqqqqqqqqppp_EtwWriteTransfer @ 0x1C0047864 (McTemplateK0pqqqqqqqqppp_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall TraceDxgkContext(
         int a1,
         int a2,

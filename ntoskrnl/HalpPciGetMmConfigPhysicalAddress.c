@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpPciGetMmConfigPhysicalAddress @ 0x1402D7A54
+ * Callers:
+ *     HalpPciAccessMmConfigSpace @ 0x1402D79A4 (HalpPciAccessMmConfigSpace.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpPciGetMmConfigPhysicalAddress(__int16 a1, unsigned __int8 a2, unsigned __int8 a3)
 {
   int v3; // r10d

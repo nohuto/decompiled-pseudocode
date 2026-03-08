@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiPreparePfnDatabasePageForFree @ 0x14038B564
+ * Callers:
+ *     MiPfnRangeIsZero @ 0x14038B144 (MiPfnRangeIsZero.c)
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x14032F834 (MiSetOriginalPtePfnFromFreeList.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 unsigned __int64 __fastcall MiPreparePfnDatabasePageForFree(unsigned __int64 a1, int a2, int a3)
 {
   unsigned __int64 v5; // rbx

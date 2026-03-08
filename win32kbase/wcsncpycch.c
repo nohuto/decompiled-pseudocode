@@ -1,3 +1,12 @@
+/*
+ * XREFs of wcsncpycch @ 0x1C00115C4
+ * Callers:
+ *     _GetKeyNameText @ 0x1C00114E0 (_GetKeyNameText.c)
+ *     ?LoadKeyboardLayoutFile@@YAPEAUtagKBDFILE@@PEAXIIPEBGPEAGKK@Z @ 0x1C0011CCC (-LoadKeyboardLayoutFile@@YAPEAUtagKBDFILE@@PEAXIIPEBGPEAGKK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall wcsncpycch(_WORD *a1, __int64 a2, int a3)
 {
   _WORD *v3; // r9

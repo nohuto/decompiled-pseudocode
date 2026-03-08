@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepConstrainByMandatory @ 0x1402E40BC
+ * Callers:
+ *     SepCommonAccessCheckEx @ 0x140206FC0 (SepCommonAccessCheckEx.c)
+ *     SeAccessCheckByType @ 0x14033BB40 (SeAccessCheckByType.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1406973E0 (SepAccessCheckAndAuditAlarm.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall SepConstrainByMandatory(__int64 a1, int a2, char *a3, char *a4, bool *a5, unsigned int a6)
 {
   int v7; // ecx

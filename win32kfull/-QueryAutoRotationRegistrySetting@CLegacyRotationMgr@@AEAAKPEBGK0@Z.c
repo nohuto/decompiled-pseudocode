@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?QueryAutoRotationRegistrySetting@CLegacyRotationMgr@@AEAAKPEBGK0@Z @ 0x1C00F8560
+ * Callers:
+ *     ?xxxUserReinitializeAutoRotation@CLegacyRotationMgr@@UEAAXXZ @ 0x1C00F8410 (-xxxUserReinitializeAutoRotation@CLegacyRotationMgr@@UEAAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall CLegacyRotationMgr::QueryAutoRotationRegistrySetting(
         CLegacyRotationMgr *this,
         const unsigned __int16 *a2,

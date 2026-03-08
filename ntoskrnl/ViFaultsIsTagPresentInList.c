@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViFaultsIsTagPresentInList @ 0x140AD3B50
+ * Callers:
+ *     ViFaultsAddTagNoDuplicates @ 0x140AD3600 (ViFaultsAddTagNoDuplicates.c)
+ *     ViFaultsIsTagTarget @ 0x140AD3B9C (ViFaultsIsTagTarget.c)
+ * Callees:
+ *     ExCheckSingleFilter @ 0x140462BFE (ExCheckSingleFilter.c)
+ */
+
 __int64 __fastcall ViFaultsIsTagPresentInList(int a1)
 {
   PVOID *v1; // r8

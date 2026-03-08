@@ -1,3 +1,21 @@
+/*
+ * XREFs of CmpBecomeActiveFlusherAndReconciler @ 0x140820C84
+ * Callers:
+ *     CmShutdownSystem1 @ 0x140613784 (CmShutdownSystem1.c)
+ *     CmpLoadHiveThread @ 0x140820360 (CmpLoadHiveThread.c)
+ *     CmpRefreshHive @ 0x140A09C50 (CmpRefreshHive.c)
+ *     CmpSaveKeyByFileCopy @ 0x140A0A220 (CmpSaveKeyByFileCopy.c)
+ *     CmReplaceKey @ 0x140A12A54 (CmReplaceKey.c)
+ * Callees:
+ *     CmpIsWriteQueueActive @ 0x140244040 (CmpIsWriteQueueActive.c)
+ *     CmpAcquireWriteQueue @ 0x140244090 (CmpAcquireWriteQueue.c)
+ *     CmpLockRegistryFreezeAware @ 0x1406BF3D0 (CmpLockRegistryFreezeAware.c)
+ *     CmpWaitOnHiveWriteQueue @ 0x14085C738 (CmpWaitOnHiveWriteQueue.c)
+ *     HvLockHiveFlusherExclusive @ 0x140AF2098 (HvLockHiveFlusherExclusive.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x140AF20B4 (HvUnlockHiveFlusherExclusive.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ */
+
 __int64 __fastcall CmpBecomeActiveFlusherAndReconciler(__int64 a1)
 {
   _QWORD *v2; // rdi

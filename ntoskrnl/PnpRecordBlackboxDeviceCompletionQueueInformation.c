@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpRecordBlackboxDeviceCompletionQueueInformation @ 0x140688C14
+ * Callers:
+ *     PnpRecordBlackbox @ 0x14068A980 (PnpRecordBlackbox.c)
+ * Callees:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PnpRecordBlackboxDeviceCompletionQueueInformation(__int64 a1)
 {
   __int64 v1; // rbx

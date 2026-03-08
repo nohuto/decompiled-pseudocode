@@ -1,3 +1,12 @@
+/*
+ * XREFs of I_MinAsn1ScanFrac @ 0x140A6E28C
+ * Callers:
+ *     MinAsn1DecodeGeneralizedTime @ 0x140A6E30C (MinAsn1DecodeGeneralizedTime.c)
+ *     MinAsn1DecodeUtcTime @ 0x140A6E7D4 (MinAsn1DecodeUtcTime.c)
+ * Callees:
+ *     isdigit @ 0x1403D44D0 (isdigit.c)
+ */
+
 __int64 __fastcall I_MinAsn1ScanFrac(unsigned __int8 *a1, unsigned int a2, int *a3, _DWORD *a4)
 {
   unsigned int v4; // ebx

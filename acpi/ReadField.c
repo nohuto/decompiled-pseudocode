@@ -1,3 +1,21 @@
+/*
+ * XREFs of ReadField @ 0x1C0052AE0
+ * Callers:
+ *     ReadObject @ 0x1C0005BEE (ReadObject.c)
+ *     AccFieldUnit @ 0x1C0051630 (AccFieldUnit.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     GetObjectTypeName @ 0x1C004BD50 (GetObjectTypeName.c)
+ *     IsCompatableDSDTRevision @ 0x1C004BE28 (IsCompatableDSDTRevision.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ *     PushAccFieldObj @ 0x1C00525E8 (PushAccFieldObj.c)
+ *     RawFieldAccess @ 0x1C0052760 (RawFieldAccess.c)
+ *     SupportsOnlyRawAccess @ 0x1C0052F58 (SupportsOnlyRawAccess.c)
+ */
+
 __int64 __fastcall ReadField(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rbx

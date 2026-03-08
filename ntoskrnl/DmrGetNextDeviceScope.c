@@ -1,3 +1,15 @@
+/*
+ * XREFs of DmrGetNextDeviceScope @ 0x14037C0D0
+ * Callers:
+ *     DmrEnumerateSatcDevices @ 0x14037BC00 (DmrEnumerateSatcDevices.c)
+ *     DmrEnumerateRmrrDomains @ 0x14037BD30 (DmrEnumerateRmrrDomains.c)
+ *     DmrGetNextDrhdDeviceScope @ 0x14037BF80 (DmrGetNextDrhdDeviceScope.c)
+ *     IvtpGetNextInternalDeviceScope @ 0x14037C09C (IvtpGetNextInternalDeviceScope.c)
+ *     IvtCheckForReservedRegion @ 0x14080BF70 (IvtCheckForReservedRegion.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall DmrGetNextDeviceScope(unsigned __int64 a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   __int64 v3; // r9

@@ -1,3 +1,14 @@
+/*
+ * XREFs of imp_WdfCxDeviceInitAllocate @ 0x1C0036160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C0001B10 (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ *     FxValiateCx @ 0x1C00360F4 (FxValiateCx.c)
+ *     ?_AllocateCxDeviceInit@WDFCXDEVICE_INIT@@SAPEAU1@PEAUWDFDEVICE_INIT@@@Z @ 0x1C003FC1C (-_AllocateCxDeviceInit@WDFCXDEVICE_INIT@@SAPEAU1@PEAUWDFDEVICE_INIT@@@Z.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C0045BD8 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ */
+
 WDFCXDEVICE_INIT *__fastcall imp_WdfCxDeviceInitAllocate(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFDEVICE_INIT *DeviceInit)

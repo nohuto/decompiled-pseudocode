@@ -1,3 +1,11 @@
+/*
+ * XREFs of sub_1403DFAB0 @ 0x1403DFAB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_check_icall @ 0x140421180 (_guard_check_icall.c)
+ */
+
 char __fastcall sub_1403DFAB0(
         unsigned __int64 a1,
         unsigned int a2,

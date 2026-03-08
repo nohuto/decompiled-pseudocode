@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?StInitialize@?$ST_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x1403589B4
+ * Callers:
+ *     ?SmStInitialize@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z @ 0x140358FB0 (-SmStInitialize@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@@Z.c)
+ * Callees:
+ *     InitializeSListHead @ 0x1402A8B90 (InitializeSListHead.c)
+ *     ?StDmInitialize@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@0@Z @ 0x140358B58 (-StDmInitialize@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@0@Z.c)
+ *     StLcInitialize @ 0x140358F18 (StLcInitialize.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SmCrEncInitialize @ 0x1407DD508 (SmCrEncInitialize.c)
+ */
+
 __int64 __fastcall ST_STORE<SM_TRAITS>::StInitialize(__int64 a1)
 {
   unsigned int v2; // eax

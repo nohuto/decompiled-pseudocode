@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlpHpSegSegmentFree @ 0x140308E54
+ * Callers:
+ *     RtlpHpSegPageRangeShrink @ 0x14024DB00 (RtlpHpSegPageRangeShrink.c)
+ *     RtlpHpSegContextCompact @ 0x1402CC380 (RtlpHpSegContextCompact.c)
+ *     RtlpHpSegSegmentAllocate @ 0x140305B38 (RtlpHpSegSegmentAllocate.c)
+ *     RtlpHpSegContextCleanup @ 0x1405B4600 (RtlpHpSegContextCleanup.c)
+ * Callees:
+ *     RtlpHpSegMgrRelease @ 0x140308F28 (RtlpHpSegMgrRelease.c)
+ *     RtlCSparseBitmapBitsClear @ 0x140309068 (RtlCSparseBitmapBitsClear.c)
+ */
+
 __int64 __fastcall RtlpHpSegSegmentFree(__int64 a1, __int64 a2, unsigned int a3, int a4)
 {
   unsigned __int64 i; // rcx

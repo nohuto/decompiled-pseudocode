@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopPowerRequestStatsCreate @ 0x14073C194
+ * Callers:
+ *     PopPowerRequestCreateCommon @ 0x1402BC348 (PopPowerRequestCreateCommon.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     RtlInsertElementGenericTableAvl @ 0x1402451A0 (RtlInsertElementGenericTableAvl.c)
+ *     RtlLookupElementGenericTableAvl @ 0x140245A20 (RtlLookupElementGenericTableAvl.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x140726450 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
+ *     PopPowerRequestStatsCleanup @ 0x14073C280 (PopPowerRequestStatsCleanup.c)
+ *     PopPowerRequestStatsGetIdForRequest @ 0x14073C3F4 (PopPowerRequestStatsGetIdForRequest.c)
+ *     PopPowerRequestStatsGetIdForBlocker @ 0x140798C04 (PopPowerRequestStatsGetIdForBlocker.c)
+ *     PopPowerRequestStatsFreeId @ 0x14079B420 (PopPowerRequestStatsFreeId.c)
+ */
+
 __int64 __fastcall PopPowerRequestStatsCreate(__int64 a1)
 {
   _DWORD *inserted; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoIsFileObjectIgnoringSharing @ 0x140872F10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __stdcall IoIsFileObjectIgnoringSharing(PFILE_OBJECT FileObject)
 {
   _DWORD *FileObjectExtension; // rax

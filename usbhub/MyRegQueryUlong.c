@@ -1,3 +1,14 @@
+/*
+ * XREFs of MyRegQueryUlong @ 0x1C005D320
+ * Callers:
+ *     CheckUSBFnIncludeDefaultCfg @ 0x1C005C528 (CheckUSBFnIncludeDefaultCfg.c)
+ *     ReadManifestAssignedValue @ 0x1C005C878 (ReadManifestAssignedValue.c)
+ *     ReadTestOverrideValue @ 0x1C005C974 (ReadTestOverrideValue.c)
+ *     UpdateUcmIsPresentBit @ 0x1C005CC80 (UpdateUcmIsPresentBit.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall MyRegQueryUlong(HANDLE KeyHandle, const WCHAR *a2, _DWORD *a3)
 {
   NTSTATUS v5; // ecx

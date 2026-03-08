@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmSnapDripsAccountingSnapshot @ 0x140583970
+ * Callers:
+ *     PopCaptureSleepStudyStatistics @ 0x1403C24C4 (PopCaptureSleepStudyStatistics.c)
+ * Callees:
+ *     PpmConvertTime @ 0x140235D70 (PpmConvertTime.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopDiagTraceDripsHistogram @ 0x1405907C8 (PopDiagTraceDripsHistogram.c)
+ *     PpmEventTraceDripsAccountingSnapshot @ 0x140995E3C (PpmEventTraceDripsAccountingSnapshot.c)
+ */
+
 __int64 __fastcall PpmSnapDripsAccountingSnapshot(__int64 a1, int a2, int a3)
 {
   __int64 result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of IoGetLoadedDriverInfo @ 0x14054E304
+ * Callers:
+ *     IoFillTriageDumpBuffer @ 0x14054DAD0 (IoFillTriageDumpBuffer.c)
+ *     KeCapturePersistentThreadState @ 0x140551EC0 (KeCapturePersistentThreadState.c)
+ * Callees:
+ *     KiIsAddressRangeValid @ 0x1403849BC (KiIsAddressRangeValid.c)
+ */
+
 __int64 __fastcall IoGetLoadedDriverInfo(__int64 a1, _DWORD *a2, _DWORD *a3)
 {
   PVOID *v3; // rbx

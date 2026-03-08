@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CComponentTransform2DMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00AD600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CComponentTransform2DMarshaler::SetBufferProperty(
         DirectComposition::CComponentTransform2DMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??4?$SharedMixedObjectPointerFieldpMonitorFirst@UtagMONITOR@@@tagKERNELDISPLAYINFO@@QEAAPEAUtagMONITOR@@PEAU2@@Z @ 0x1C0016324
+ * Callers:
+ *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C0014608 (-zzzUpdateUserScreen@@YAJXZ.c)
+ *     DestroyMonitor @ 0x1C00B5C00 (DestroyMonitor.c)
+ *     ??4tagKERNELDISPLAYINFO@@QEAAAEAU0@AEAU0@@Z @ 0x1C01685BC (--4tagKERNELDISPLAYINFO@@QEAAAEAU0@AEAU0@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall tagKERNELDISPLAYINFO::SharedMixedObjectPointerFieldpMonitorFirst<tagMONITOR>::operator=(
         _QWORD *a1,
         __int64 a2)

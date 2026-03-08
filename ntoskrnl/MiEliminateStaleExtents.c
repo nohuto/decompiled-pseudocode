@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiEliminateStaleExtents @ 0x14063A788
+ * Callers:
+ *     MiAllocateFileExtents @ 0x140A303A8 (MiAllocateFileExtents.c)
+ * Callees:
+ *     MiLockProtoPoolPageForce @ 0x14028331C (MiLockProtoPoolPageForce.c)
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     MiLockLeafPage @ 0x14034AF20 (MiLockLeafPage.c)
+ */
+
 void __fastcall MiEliminateStaleExtents(signed __int64 BugCheckParameter1, __int64 a2, unsigned __int64 a3)
 {
   unsigned int v3; // esi

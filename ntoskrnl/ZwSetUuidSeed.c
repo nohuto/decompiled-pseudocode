@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwSetUuidSeed @ 0x140415B10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwSetUuidSeed(__int64 a1, __int64 a2)
 {
   _disable();

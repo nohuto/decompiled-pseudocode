@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiLegitimatePageForDriversToMap @ 0x14029F8D0
+ * Callers:
+ *     MmMapLockedPagesWithReservedMapping @ 0x1403A1EB0 (MmMapLockedPagesWithReservedMapping.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140725C90 (MiMapLockedPagesInUserSpace.c)
+ *     MiRotateToFrameBuffer @ 0x140A2E9E0 (MiRotateToFrameBuffer.c)
+ *     MiRotateToFrameBufferNoCopy @ 0x140A2ECE4 (MiRotateToFrameBufferNoCopy.c)
+ * Callees:
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x14035094C (MiGetPfnPageSizeIndexUnsynchronized.c)
+ */
+
 __int64 __fastcall MiLegitimatePageForDriversToMap(__int64 a1)
 {
   __int64 v1; // rdx

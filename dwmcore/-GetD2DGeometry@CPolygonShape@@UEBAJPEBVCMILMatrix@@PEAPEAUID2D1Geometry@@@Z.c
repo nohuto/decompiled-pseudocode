@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetD2DGeometry@CPolygonShape@@UEBAJPEBVCMILMatrix@@PEAPEAUID2D1Geometry@@@Z @ 0x1800D2C80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 int __fastcall CPolygonShape::GetD2DGeometry(
         CPolygonShape *this,
         const struct CMILMatrix *a2,

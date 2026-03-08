@@ -1,3 +1,13 @@
+/*
+ * XREFs of PfSnLogOpenVolumesForPrefetch @ 0x14077B144
+ * Callers:
+ *     PfSnOpenVolumesForPrefetch @ 0x14077A964 (PfSnOpenVolumesForPrefetch.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PfSnLogOpenVolumesForPrefetch(__int64 a1, char a2)
 {
   const EVENT_DESCRIPTOR *v2; // rbx

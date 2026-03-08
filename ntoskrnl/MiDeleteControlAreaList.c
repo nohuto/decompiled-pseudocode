@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiDeleteControlAreaList @ 0x140622024
+ * Callers:
+ *     MiDereferenceSegmentThread @ 0x1403A2790 (MiDereferenceSegmentThread.c)
+ * Callees:
+ *     MiDeleteControlArea @ 0x140215028 (MiDeleteControlArea.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiDeleteControlAreaList(__int64 a1)
 {
   volatile LONG *v2; // rbp

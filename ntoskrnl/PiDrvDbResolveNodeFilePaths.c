@@ -1,3 +1,20 @@
+/*
+ * XREFs of PiDrvDbResolveNodeFilePaths @ 0x14081C828
+ * Callers:
+ *     PiDrvDbSetupNodeHive @ 0x14081C5C8 (PiDrvDbSetupNodeHive.c)
+ * Callees:
+ *     CmIsStateSeparationEnabled @ 0x1402FBD38 (CmIsStateSeparationEnabled.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintf @ 0x1403BEBCC (RtlUnicodeStringPrintf.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _SysCtxRegOpenKey @ 0x1406D4350 (_SysCtxRegOpenKey.c)
+ *     RtlCreateUnicodeString @ 0x140747D00 (RtlCreateUnicodeString.c)
+ *     ExpAllocateStringRoutine @ 0x140777DB0 (ExpAllocateStringRoutine.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     PiDrvDbGetNodeSystemRoot @ 0x14081D958 (PiDrvDbGetNodeSystemRoot.c)
+ *     PiDrvDbResolveFilePathKeyValues @ 0x14081DBF0 (PiDrvDbResolveFilePathKeyValues.c)
+ */
+
 __int64 __fastcall PiDrvDbResolveNodeFilePaths(__int64 a1, __int64 a2)
 {
   unsigned int v4; // edi

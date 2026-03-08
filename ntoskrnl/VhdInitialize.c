@@ -1,3 +1,22 @@
+/*
+ * XREFs of VhdInitialize @ 0x140B56EA0
+ * Callers:
+ *     IopInitializeBootDrivers @ 0x140B57F78 (IopInitializeBootDrivers.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     RtlStringCbCatW @ 0x1402092FC (RtlStringCbCatW.c)
+ *     PnpBootDeviceWait @ 0x14038932C (PnpBootDeviceWait.c)
+ *     strstr @ 0x1403D3650 (strstr.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlStringFromGUID @ 0x140733E70 (RtlStringFromGUID.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     VhdiMountVhdFile @ 0x140A7058C (VhdiMountVhdFile.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     VhdiGetDiskParameters @ 0x140B977A4 (VhdiGetDiskParameters.c)
+ */
+
 __int64 __fastcall VhdInitialize(__int64 a1)
 {
   const char *v2; // rcx

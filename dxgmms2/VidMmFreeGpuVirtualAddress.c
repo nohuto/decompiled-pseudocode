@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidMmFreeGpuVirtualAddress @ 0x1C002D1E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?VidMmFreeGpuVirtualAddress@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@PEAU_D3DKMT_FREEGPUVIRTUALADDRESS@@E@Z @ 0x1C0087130 (-VidMmFreeGpuVirtualAddress@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@PEAU_D3DKMT_FREEGPUVIRTUALADDR.c)
+ */
+
 int __fastcall VidMmFreeGpuVirtualAddress(VIDMM_GLOBAL *a1, __int64 a2, struct _D3DKMT_FREEGPUVIRTUALADDRESS *a3)
 {
   __int64 v3; // rax

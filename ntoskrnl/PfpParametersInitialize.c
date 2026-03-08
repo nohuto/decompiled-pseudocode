@@ -1,3 +1,20 @@
+/*
+ * XREFs of PfpParametersInitialize @ 0x140B61C6C
+ * Callers:
+ *     PfInitializeSuperfetch @ 0x140B619EC (PfInitializeSuperfetch.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PfpSetBaseTime @ 0x140844ED0 (PfpSetBaseTime.c)
+ *     PfpSetParameter @ 0x140844F64 (PfpSetParameter.c)
+ *     PfpParametersRead @ 0x140844FC8 (PfpParametersRead.c)
+ *     PfSnParametersRead @ 0x140845198 (PfSnParametersRead.c)
+ *     PfpGetParameter @ 0x1408456E4 (PfpGetParameter.c)
+ *     PfpCreateEvent @ 0x1408458E4 (PfpCreateEvent.c)
+ *     PfSnParametersSetDefaults @ 0x140B61EA0 (PfSnParametersSetDefaults.c)
+ */
+
 NTSTATUS __fastcall PfpParametersInitialize(__int64 a1)
 {
   HANDLE *v2; // rsi

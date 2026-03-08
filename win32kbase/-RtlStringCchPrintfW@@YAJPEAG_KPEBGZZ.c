@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00CD374
+ * Callers:
+ *     ?UserInitialize@@YAJXZ @ 0x1C002D838 (-UserInitialize@@YAJXZ.c)
+ *     OpenCacheKeyEx @ 0x1C00760E0 (OpenCacheKeyEx.c)
+ *     xxxSystemParametersInfo @ 0x1C009C980 (xxxSystemParametersInfo.c)
+ *     ?DrvUpdateRemoteAdapterInfo@@YAJPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00D8708 (-DrvUpdateRemoteAdapterInfo@@YAJPEAUtagGRAPHICS_DEVICE@@@Z.c)
+ *     ?SetFilterKeys@@YAHPEAUtagFILTERKEYS@@@Z @ 0x1C017B1F4 (-SetFilterKeys@@YAHPEAUtagFILTERKEYS@@@Z.c)
+ *     ?SpiSetAccessTimeOut@@YAHKPEAXHHPEAH@Z @ 0x1C017B404 (-SpiSetAccessTimeOut@@YAHKPEAXHHPEAH@Z.c)
+ *     ?SpiSetStickyKeys@@YAHKPEAXHHPEAH@Z @ 0x1C017B7A0 (-SpiSetStickyKeys@@YAHKPEAXHHPEAH@Z.c)
+ *     ?SpiSetToggleKeys@@YAHKPEAXHHPEAH@Z @ 0x1C017B954 (-SpiSetToggleKeys@@YAHKPEAXHHPEAH@Z.c)
+ *     rimReadSingleDigitizerToMonitorMappings @ 0x1C01BC984 (rimReadSingleDigitizerToMonitorMappings.c)
+ * Callees:
+ *     _vsnwprintf @ 0x1C00DAA34 (_vsnwprintf.c)
+ */
+
 __int64 RtlStringCchPrintfW(unsigned __int16 *a1, __int64 a2, const unsigned __int16 *a3, ...)
 {
   unsigned __int64 v4; // rsi

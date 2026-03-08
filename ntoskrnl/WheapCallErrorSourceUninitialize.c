@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheapCallErrorSourceUninitialize @ 0x140610450
+ * Callers:
+ *     WheaRemoveErrorSource @ 0x140A04C80 (WheaRemoveErrorSource.c)
+ * Callees:
+ *     WheapGetErrorSourceFunction @ 0x14037D8DC (WheapGetErrorSourceFunction.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall WheapCallErrorSourceUninitialize(__int64 a1)
 {
   void (__fastcall *ErrorSourceFunction)(_QWORD); // rax

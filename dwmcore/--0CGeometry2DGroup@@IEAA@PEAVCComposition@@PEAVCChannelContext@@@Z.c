@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CGeometry2DGroup@@IEAA@PEAVCComposition@@PEAVCChannelContext@@@Z @ 0x1801BDA28
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     ??0CCyclicResourceListEntry@@IEAA@PEAVCResourceTable@@@Z @ 0x18000C09C (--0CCyclicResourceListEntry@@IEAA@PEAVCResourceTable@@@Z.c)
+ */
+
 CGeometry2DGroup *__fastcall CGeometry2DGroup::CGeometry2DGroup(
         CGeometry2DGroup *this,
         struct CComposition *a2,

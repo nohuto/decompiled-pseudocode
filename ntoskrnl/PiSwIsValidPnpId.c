@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiSwIsValidPnpId @ 0x140807A90
+ * Callers:
+ *     PiSwValidateCreateData @ 0x14080780C (PiSwValidateCreateData.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PiSwIsValidPnpId(__int16 *a1, char a2)
 {
   __int16 v2; // r8

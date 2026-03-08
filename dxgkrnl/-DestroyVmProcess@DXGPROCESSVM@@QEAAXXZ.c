@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?DestroyVmProcess@DXGPROCESSVM@@QEAAXXZ @ 0x1C033F07C
+ * Callers:
+ *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C01A8400 (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
+ * Callees:
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007104 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?ReleaseReference@DXGPROCESS@@QEAAXXZ @ 0x1C0008E74 (-ReleaseReference@DXGPROCESS@@QEAAXXZ.c)
+ *     ?FreeHandleSafe@DXGPROCESS@@QEAAXI@Z @ 0x1C000A070 (-FreeHandleSafe@DXGPROCESS@@QEAAXI@Z.c)
+ *     ?DecrementNumVmProcesses@DXGPROCESSVMWP@@QEAAXXZ @ 0x1C0055728 (-DecrementNumVmProcesses@DXGPROCESSVMWP@@QEAAXXZ.c)
+ *     McTemplateK0ppqqpppz_EtwWriteTransfer @ 0x1C0055B94 (McTemplateK0ppqqpppz_EtwWriteTransfer.c)
+ */
+
 void __fastcall DXGPROCESSVM::DestroyVmProcess(DXGPROCESSVM *this)
 {
   DXGPROCESS **v1; // rbx

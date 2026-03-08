@@ -1,3 +1,18 @@
+/*
+ * XREFs of VfInitVerifierComponents @ 0x140ABFE40
+ * Callers:
+ *     VfInitSystemNoRebootNeeded @ 0x140ABFCE8 (VfInitSystemNoRebootNeeded.c)
+ *     VfInitBootDriversLoaded @ 0x140B4EE44 (VfInitBootDriversLoaded.c)
+ * Callees:
+ *     VfIovPluginEntry @ 0x1405CF810 (VfIovPluginEntry.c)
+ *     ExSetPoolFlags @ 0x1406056B8 (ExSetPoolFlags.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     VfPendingCheckForChanges @ 0x140ACE7C0 (VfPendingCheckForChanges.c)
+ *     VfKeCheckForChanges @ 0x140AD2BC0 (VfKeCheckForChanges.c)
+ *     VfFaultsInitPhase0 @ 0x140AD2E18 (VfFaultsInitPhase0.c)
+ *     ViSettingsIoCheckForChanges @ 0x140AD7F18 (ViSettingsIoCheckForChanges.c)
+ */
+
 __int64 __fastcall VfInitVerifierComponents(unsigned int a1, __int64 a2, __int64 a3, char a4)
 {
   _DWORD *Pool2; // rax

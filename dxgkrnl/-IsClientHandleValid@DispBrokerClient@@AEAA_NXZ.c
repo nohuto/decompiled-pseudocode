@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsClientHandleValid@DispBrokerClient@@AEAA_NXZ @ 0x1C01D5D70
+ * Callers:
+ *     _lambda_8317567312832b51b45aaef017a7684b_::operator() @ 0x1C01D5A20 (_lambda_8317567312832b51b45aaef017a7684b_--operator().c)
+ *     ?ReferencePort@DispBrokerClient@@AEAA?AVDispBrokerClientReference@@XZ @ 0x1C01D5CF8 (-ReferencePort@DispBrokerClient@@AEAA-AVDispBrokerClientReference@@XZ.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 char __fastcall DispBrokerClient::IsClientHandleValid(DispBrokerClient *this)
 {
   __int64 v2; // rcx

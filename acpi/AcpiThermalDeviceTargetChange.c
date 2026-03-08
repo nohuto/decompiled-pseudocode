@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiThermalDeviceTargetChange @ 0x1C0042620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIThermalStopZone @ 0x1C0041F54 (ACPIThermalStopZone.c)
+ */
+
 __int64 __fastcall AcpiThermalDeviceTargetChange(char *NotificationStructure, __int64 Context)
 {
   __int64 v2; // rax

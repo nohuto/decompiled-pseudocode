@@ -1,3 +1,18 @@
+/*
+ * XREFs of _CmDeleteInterfaceClassWorker @ 0x140A60258
+ * Callers:
+ *     _CmDeleteInterfaceClass @ 0x140A6012C (_CmDeleteInterfaceClass.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceList @ 0x1406C42E4 (_CmGetMatchingFilteredDeviceInterfaceList.c)
+ *     _CmDeleteCommonClassRegKey @ 0x140A5E35C (_CmDeleteCommonClassRegKey.c)
+ *     _CmRaiseDeleteEvent @ 0x140A62958 (_CmRaiseDeleteEvent.c)
+ *     _CmGetInterfaceClassMappedPropertyKeys @ 0x140A66558 (_CmGetInterfaceClassMappedPropertyKeys.c)
+ *     _CmSetInterfaceClassMappedProperty @ 0x140A673A8 (_CmSetInterfaceClassMappedProperty.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmDeleteInterfaceClassWorker(__int64 a1, __int64 a2, __int16 a3)
 {
   int v3; // edi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of _lambda_2c23dc335d575e6068a59f43383614b1_::operator() @ 0x1801CFE34
+ * Callers:
+ *     ?DrawScene3D@CDrawingContext@@QEAAJPEAUISpectreWorld@@PEAVCCompositionEnvironmentLight@@AEBVCMILMatrix@@@Z @ 0x1801D1564 (-DrawScene3D@CDrawingContext@@QEAAJPEAUISpectreWorld@@PEAVCCompositionEnvironmentLight@@AEBVCMIL.c)
+ *     ?Render@CSpectreCallbackRenderer@@UEAAJXZ @ 0x1801FA940 (-Render@CSpectreCallbackRenderer@@UEAAJXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall lambda_2c23dc335d575e6068a59f43383614b1_::operator()(_QWORD *a1)
 {
   __int64 *v1; // rax

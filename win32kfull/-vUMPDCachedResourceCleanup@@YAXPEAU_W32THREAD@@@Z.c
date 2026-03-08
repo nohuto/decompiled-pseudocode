@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vUMPDCachedResourceCleanup@@YAXPEAU_W32THREAD@@@Z @ 0x1C029CA14
+ * Callers:
+ *     ?UMPDDrvDisablePDEV@@YAXPEAUDHPDEV__@@@Z @ 0x1C02BB8D0 (-UMPDDrvDisablePDEV@@YAXPEAUDHPDEV__@@@Z.c)
+ * Callees:
+ *     ?DestroyUMPDHeap@@YAXPEAU_UMPDHEAP@@@Z @ 0x1C029B570 (-DestroyUMPDHeap@@YAXPEAU_UMPDHEAP@@@Z.c)
+ *     ?Close@PROXYPORT@@QEAAXXZ @ 0x1C02C1E80 (-Close@PROXYPORT@@QEAAXXZ.c)
+ */
+
 void __fastcall vUMPDCachedResourceCleanup(struct _W32THREAD *a1)
 {
   struct _UMPDHEAP *v2; // rcx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifKeAcquireQueuedSpinLockRaiseToSynchWrapper @ 0x1405E0390
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     KeAcquireQueuedSpinLockRaiseToSynch @ 0x14056ECD0 (KeAcquireQueuedSpinLockRaiseToSynch.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 unsigned __int8 __fastcall DifKeAcquireQueuedSpinLockRaiseToSynchWrapper(__int64 a1)
 {
   __int64 *APIThunkContextById; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiRemoveEnclavePagesFromDump @ 0x140646304
+ * Callers:
+ *     MmGetDumpRange @ 0x14062DF70 (MmGetDumpRange.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 _QWORD *__fastcall MiRemoveEnclavePagesFromDump(__int64 a1)
 {
   _QWORD *result; // rax

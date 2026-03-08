@@ -1,3 +1,14 @@
+/*
+ * XREFs of TtmiLogInactivityTimerReset @ 0x1409A55D8
+ * Callers:
+ *     TtmiResetInactivityTimer @ 0x1409A8198 (TtmiResetInactivityTimer.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetProcessSessionIdEx @ 0x1402BDFA0 (PsGetProcessSessionIdEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall TtmiLogInactivityTimerReset(int a1)
 {
   int ProcessSessionId; // eax

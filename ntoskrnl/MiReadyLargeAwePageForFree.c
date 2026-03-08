@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiReadyLargeAwePageForFree @ 0x1406496AC
+ * Callers:
+ *     MiFreeAwePagesFromMdl @ 0x140647764 (MiFreeAwePagesFromMdl.c)
+ *     MiFreePhysicalPageChain @ 0x140647BC4 (MiFreePhysicalPageChain.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiClearAweLargePageMetadata @ 0x14064703C (MiClearAweLargePageMetadata.c)
+ */
+
 __int64 __fastcall MiReadyLargeAwePageForFree(__int64 a1)
 {
   unsigned __int64 v2; // rdi

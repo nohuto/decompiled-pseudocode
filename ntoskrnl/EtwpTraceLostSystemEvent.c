@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpTraceLostSystemEvent @ 0x1405FA2E0
+ * Callers:
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     EtwpLogSystemEventUnsafe @ 0x14036F9F8 (EtwpLogSystemEventUnsafe.c)
+ *     EtwpLogContextSwapEvent @ 0x140384C90 (EtwpLogContextSwapEvent.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall EtwpTraceLostSystemEvent(__int16 a1, unsigned __int16 *a2, __int16 a3, int a4)
 {
   ULONG v4; // r9d

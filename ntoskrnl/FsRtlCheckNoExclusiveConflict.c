@@ -1,3 +1,14 @@
+/*
+ * XREFs of FsRtlCheckNoExclusiveConflict @ 0x140200C64
+ * Callers:
+ *     FsRtlFastCheckLockForWrite @ 0x1402C8110 (FsRtlFastCheckLockForWrite.c)
+ *     FsRtlFastCheckLockForRead @ 0x1402C8270 (FsRtlFastCheckLockForRead.c)
+ * Callees:
+ *     RtlRealSuccessor @ 0x1402C1970 (RtlRealSuccessor.c)
+ *     RtlSplay @ 0x1402C2B50 (RtlSplay.c)
+ *     FsRtlFindFirstOverlappingExclusiveNode @ 0x1402C3018 (FsRtlFindFirstOverlappingExclusiveNode.c)
+ */
+
 char __fastcall FsRtlCheckNoExclusiveConflict(
         __int64 a1,
         _RTL_SPLAY_LINKS **a2,

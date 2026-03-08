@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?EnableDirectFlip@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJ_NPEAVIOverlaySwapChain@@@Z @ 0x180257844
+ * Callers:
+ *     ?EnableDirectFlip@CGlobalCompositionSurfaceInfo@@UEAAJ_K_NPEAVIOverlaySwapChain@@@Z @ 0x180257940 (-EnableDirectFlip@CGlobalCompositionSurfaceInfo@@UEAAJ_K_NPEAVIOverlaySwapChain@@@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?EnsureOverlaySwapChainWeakRef@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAJPEAVIOverlaySwapChain@@@Z @ 0x180257C6C (-EnsureOverlaySwapChainWeakRef@CBindInfo@CGlobalCompositionSurfaceInfo@@IEAAJPEAVIOverlaySwapCha.c)
+ *     ?PinResources@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJXZ @ 0x18025802C (-PinResources@CBindInfo@CGlobalCompositionSurfaceInfo@@QEAAJXZ.c)
+ */
+
 __int64 __fastcall CGlobalCompositionSurfaceInfo::CBindInfo::EnableDirectFlip(
         CGlobalCompositionSurfaceInfo::CBindInfo *this,
         unsigned __int8 a2,

@@ -1,3 +1,16 @@
+/*
+ * XREFs of xxxSendMessageBSM @ 0x1C00A48F0
+ * Callers:
+ *     ?BroadcastCompositionChange@@YAXPEBUtagDESKTOP@@@Z @ 0x1C007ECB0 (-BroadcastCompositionChange@@YAXPEBUtagDESKTOP@@@Z.c)
+ *     xxxWrapSendMessageBSM @ 0x1C00DD8F0 (xxxWrapSendMessageBSM.c)
+ * Callees:
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ *     ExchangeW32ThreadLock @ 0x1C00A1ECC (ExchangeW32ThreadLock.c)
+ *     ?xxxSendBSMtoDesktop@@YAHPEAUtagWND@@I_K_JPEAUtagBROADCASTSYSTEMMSGPARAMS@@H@Z @ 0x1C00A560C (-xxxSendBSMtoDesktop@@YAHPEAUtagWND@@I_K_JPEAUtagBROADCASTSYSTEMMSGPARAMS@@H@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall xxxSendMessageBSM(
         struct tagWND *a1,
         unsigned int a2,

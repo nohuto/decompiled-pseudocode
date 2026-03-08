@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FxIFRValidateRecord@@YAJPEAU_WDF_IFR_RECORD@@_K1@Z @ 0x1C002763C
+ * Callers:
+ *     ?FxIFRSendRecordsToWpp@@YAJ_KPEAU_WDF_IFR_HEADER@@@Z @ 0x1C0027390 (-FxIFRSendRecordsToWpp@@YAJ_KPEAU_WDF_IFR_HEADER@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FxIFRValidateRecord(
         _WDF_IFR_RECORD *IfrRecord,
         unsigned __int64 IfrHeaderMaxValidPtr,

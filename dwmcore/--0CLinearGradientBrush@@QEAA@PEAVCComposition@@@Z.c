@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0CLinearGradientBrush@@QEAA@PEAVCComposition@@@Z @ 0x1800B8280
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ?EnsureDrawlistBrush@CLinearGradientLegacyMilBrush@@QEAAJXZ @ 0x18021B560 (-EnsureDrawlistBrush@CLinearGradientLegacyMilBrush@@QEAAJXZ.c)
+ * Callees:
+ *     ??0CGradientBrush@@IEAA@PEAVCComposition@@_N@Z @ 0x1800B81D8 (--0CGradientBrush@@IEAA@PEAVCComposition@@_N@Z.c)
+ */
+
 CLinearGradientBrush *__fastcall CLinearGradientBrush::CLinearGradientBrush(
         CLinearGradientBrush *this,
         struct CComposition *a2)

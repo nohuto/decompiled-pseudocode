@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SendFrameStatisticsTelemetry@CTelemetryFrameStatistics@@AEAAX_K@Z @ 0x1801EEA94
+ * Callers:
+ *     ?UpdateFrameStatistics@CTelemetryFrameStatistics@@QEAAX_K00II_N@Z @ 0x180050AE8 (-UpdateFrameStatistics@CTelemetryFrameStatistics@@QEAAX_K00II_N@Z.c)
+ *     ??1CTelemetryFrameStatistics@@QEAA@XZ @ 0x1801EE9EC (--1CTelemetryFrameStatistics@@QEAA@XZ.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1800BAD18 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapperByVal@$07@@U1@U2@U2@U1@U1@U1@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EventWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3AEBU?$_tlgWrapperByVal@$07@@344333@Z @ 0x1801EE8FC (--$Write@U-$_tlgWrapperByVal@$03@@U1@U-$_tlgWrapperByVal@$07@@U1@U2@U2@U1@U1@U1@@-$_tlgWriteTemp.c)
+ *     GetProcessAndSessionId @ 0x1801EEA20 (GetProcessAndSessionId.c)
+ */
+
 void __fastcall CTelemetryFrameStatistics::SendFrameStatisticsTelemetry(CTelemetryFrameStatistics *this, __int64 a2)
 {
   __int64 v4; // r9

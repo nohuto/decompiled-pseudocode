@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtGdiAddFontMemResourceEx @ 0x1C02C4500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ @ 0x1C011C60C (-WaitForSessionRasterizerInitialization@UmfdHostLifeTimeManager@@SAJXZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     GreAddFontMemResourceEx @ 0x1C028E05C (GreAddFontMemResourceEx.c)
+ *     GreRemoveFontMemResourceEx @ 0x1C0290DB8 (GreRemoveFontMemResourceEx.c)
+ */
+
 __int64 __fastcall NtGdiAddFontMemResourceEx(
         struct tagDOWNLOADFONTHEADER *a1,
         unsigned int a2,

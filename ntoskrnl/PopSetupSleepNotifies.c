@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopSetupSleepNotifies @ 0x140AA4370
+ * Callers:
+ *     PoBroadcastSystemState @ 0x140AA38F8 (PoBroadcastSystemState.c)
+ * Callees:
+ *     PopMoveList @ 0x140AA4114 (PopMoveList.c)
+ */
+
 __int64 __fastcall PopSetupSleepNotifies(__int64 a1)
 {
   int i; // r11d

@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?GreSetBitmapBitsInternal@@YAJPEAUHBITMAP__@@AEAV?$umptr_r@E@@PEAJ@Z @ 0x1C002941C
+ * Callers:
+ *     GreSetBitmapBits @ 0x1C0029220 (GreSetBitmapBits.c)
+ *     NtGdiSetBitmapBits @ 0x1C0150110 (NtGdiSetBitmapBits.c)
+ * Callees:
+ *     ?bDoGetSetBitmapBits@@YAHPEAU_SURFOBJ@@0H@Z @ 0x1C0029258 (-bDoGetSetBitmapBits@@YAHPEAU_SURFOBJ@@0H@Z.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002A694 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002A6E0 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     EngCopyBits @ 0x1C008AE00 (EngCopyBits.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall GreSetBitmapBitsInternal(__int64 a1, __int64 a2, LONG *a3)
 {
   int v3; // esi

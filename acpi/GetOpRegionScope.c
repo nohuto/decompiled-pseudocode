@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetOpRegionScope @ 0x1C0034B60
+ * Callers:
+ *     PciConfigSpaceHandlerWorker @ 0x1C0036080 (PciConfigSpaceHandlerWorker.c)
+ * Callees:
+ *     GetOpRegionScopeWorker @ 0x1C0034C20 (GetOpRegionScopeWorker.c)
+ *     AMLIGetParent @ 0x1C0048724 (AMLIGetParent.c)
+ */
+
 __int64 __fastcall GetOpRegionScope(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _QWORD *Pool2; // rax

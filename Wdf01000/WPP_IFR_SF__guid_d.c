@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_IFR_SF__guid_d @ 0x1C0060D10
+ * Callers:
+ *     ?QueryUsbCapability@FxUsbDevice@@QEAAJPEBU_GUID@@KPEAXPEAK@Z @ 0x1C0060628 (-QueryUsbCapability@FxUsbDevice@@QEAAJPEBU_GUID@@KPEAXPEAK@Z.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF__guid_d(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 _a1,

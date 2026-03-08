@@ -1,3 +1,20 @@
+/*
+ * XREFs of MmFreeNonChargedSecurePages @ 0x1406556E8
+ * Callers:
+ *     PspIumAllocatePartitionState @ 0x1405A34F0 (PspIumAllocatePartitionState.c)
+ *     PspIumFreePartitionPages @ 0x1405A3A2C (PspIumFreePartitionPages.c)
+ *     PspIumFreePartitionState @ 0x1405A3B3C (PspIumFreePartitionState.c)
+ * Callees:
+ *     MiPartitionObjectToPartition @ 0x140236884 (MiPartitionObjectToPartition.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     MiFreePagesFromMdl @ 0x1402C0DD0 (MiFreePagesFromMdl.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiFreeSecureKernelPage @ 0x1406543B4 (MiFreeSecureKernelPage.c)
+ */
+
 void __fastcall MmFreeNonChargedSecurePages(void **BugCheckParameter2, int a2, unsigned int a3, ULONG_PTR *a4)
 {
   __int64 v4; // r12

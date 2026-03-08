@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?CleanupInputSpaces@CInputConfig@@QEAAXPEBUtagPROCESSINFO@@@Z @ 0x1C0213444
+ * Callers:
+ *     xxxDestroyThreadInfo @ 0x1C0072BF4 (xxxDestroyThreadInfo.c)
+ * Callees:
+ *     ?_FreeInputSpace@CInputConfig@@AEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0010938 (-_FreeInputSpace@CInputConfig@@AEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     ?_NotifyExternalComponents@CInputConfig@@AEAAXXZ @ 0x1C0012FE8 (-_NotifyExternalComponents@CInputConfig@@AEAAXXZ.c)
+ *     ?_EnsureInputSpace@CInputConfig@@AEAAXXZ @ 0x1C00158E8 (-_EnsureInputSpace@CInputConfig@@AEAAXXZ.c)
+ *     ?Entry@Iter@CInputConfig@@QEAAPEAU_LIST_ENTRY@@XZ @ 0x1C001634C (-Entry@Iter@CInputConfig@@QEAAPEAU_LIST_ENTRY@@XZ.c)
+ */
+
 void __fastcall CInputConfig::CleanupInputSpaces(CInputConfig *this, const struct tagPROCESSINFO *a2)
 {
   CInputConfig *v2; // rdi

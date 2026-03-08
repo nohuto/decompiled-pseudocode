@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpTiVadQueryEventWrite @ 0x1402F8AE4
+ * Callers:
+ *     EtwTiLogInsertQueueUserApc @ 0x1402F8804 (EtwTiLogInsertQueueUserApc.c)
+ *     EtwTiLogSetContextThread @ 0x14077D1C4 (EtwTiLogSetContextThread.c)
+ * Callees:
+ *     EtwpTiAsyncVadQueryEventWrite @ 0x1402F8B5C (EtwpTiAsyncVadQueryEventWrite.c)
+ *     EtwpTiFillVadEventWrite @ 0x1402FC438 (EtwpTiFillVadEventWrite.c)
+ */
+
 __int64 EtwpTiVadQueryEventWrite(
         struct _EVENT_DATA_DESCRIPTOR *a1,
         int a2,

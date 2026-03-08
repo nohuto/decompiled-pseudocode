@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpReleaseFannedOutPushLockExclusive @ 0x1403CA0B0
+ * Callers:
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x14023A620 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     FsRtlInsertPerStreamContext @ 0x1402C99C0 (FsRtlInsertPerStreamContext.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1402A7240 (KeQueryMaximumProcessorCountEx.c)
+ */
+
 unsigned int __fastcall ExpReleaseFannedOutPushLockExclusive(unsigned __int64 a1)
 {
   unsigned int result; // eax

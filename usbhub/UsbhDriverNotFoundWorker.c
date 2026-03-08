@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhDriverNotFoundWorker @ 0x1C00428B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhUnlatchPdo @ 0x1C0001380 (UsbhUnlatchPdo.c)
+ *     UsbhEnableTimerObject @ 0x1C0008770 (UsbhEnableTimerObject.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     UsbhSshSetPortsBusyState @ 0x1C000ABD0 (UsbhSshSetPortsBusyState.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     UsbhDisablePort @ 0x1C00377CC (UsbhDisablePort.c)
+ */
+
 __int64 __fastcall UsbhDriverNotFoundWorker(__int64 a1, unsigned __int16 a2, __int64 a3)
 {
   _DWORD *v6; // rbx

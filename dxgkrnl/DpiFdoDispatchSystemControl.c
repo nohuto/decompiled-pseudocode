@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiFdoDispatchSystemControl @ 0x1C0396940
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiFdoDispatchSystemControl(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 {
   unsigned int v3; // ebx

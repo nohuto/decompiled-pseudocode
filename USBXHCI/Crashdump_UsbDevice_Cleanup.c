@@ -1,3 +1,12 @@
+/*
+ * XREFs of Crashdump_UsbDevice_Cleanup @ 0x1C004FB20
+ * Callers:
+ *     Crashdump_Cleanup @ 0x1C004BE10 (Crashdump_Cleanup.c)
+ * Callees:
+ *     memset @ 0x1C0020700 (memset.c)
+ *     Crashdump_Endpoint_StopEndpoint @ 0x1C004F914 (Crashdump_Endpoint_StopEndpoint.c)
+ */
+
 __int64 __fastcall Crashdump_UsbDevice_Cleanup(__int64 a1)
 {
   unsigned int v2; // edi

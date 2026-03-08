@@ -1,3 +1,12 @@
+/*
+ * XREFs of PfHardFaultLog @ 0x1402E03F4
+ * Callers:
+ *     MiWaitForInPageComplete @ 0x140342A90 (MiWaitForInPageComplete.c)
+ * Callees:
+ *     PfLogEvent @ 0x14028D0D0 (PfLogEvent.c)
+ *     EtwTraceSiloTimedEvent @ 0x14045F036 (EtwTraceSiloTimedEvent.c)
+ */
+
 struct _KTHREAD *__fastcall PfHardFaultLog(_QWORD *a1, int a2, int a3)
 {
   struct _KTHREAD *result; // rax

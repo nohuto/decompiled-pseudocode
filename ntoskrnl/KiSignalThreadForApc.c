@@ -1,3 +1,19 @@
+/*
+ * XREFs of KiSignalThreadForApc @ 0x140353F08
+ * Callers:
+ *     KeInsertQueueApc @ 0x14027DBF0 (KeInsertQueueApc.c)
+ *     KiSchedulerApc @ 0x140353560 (KiSchedulerApc.c)
+ *     KiResumeThread @ 0x1403538F8 (KiResumeThread.c)
+ *     KiSuspendThread @ 0x140354348 (KiSuspendThread.c)
+ *     KeRequestTerminationThread @ 0x140354D78 (KeRequestTerminationThread.c)
+ *     KiInsertDeferredPreemptionApc @ 0x1403554AC (KiInsertDeferredPreemptionApc.c)
+ *     KeTryToInsertQueueApc @ 0x140570BD0 (KeTryToInsertQueueApc.c)
+ * Callees:
+ *     HalRequestSoftwareInterrupt @ 0x140230830 (HalRequestSoftwareInterrupt.c)
+ *     KiSendSoftwareInterrupt @ 0x1402B7A00 (KiSendSoftwareInterrupt.c)
+ *     KiSignalThread @ 0x14033FD70 (KiSignalThread.c)
+ */
+
 char __fastcall KiSignalThreadForApc(__int64 a1, __int64 a2, char a3)
 {
   __int64 v3; // rbx

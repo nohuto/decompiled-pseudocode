@@ -1,3 +1,14 @@
+/*
+ * XREFs of ApiSetpLoadSchemaImage @ 0x140A075CC
+ * Callers:
+ *     ApiSetLoadSchemaEx @ 0x140A070AC (ApiSetLoadSchemaEx.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x140412810 (ZwMapViewOfSection.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     ZwCreateSection @ 0x140412C50 (ZwCreateSection.c)
+ */
+
 __int64 __fastcall ApiSetpLoadSchemaImage(__int64 a1, UNICODE_STRING *a2, PVOID *a3, ULONG_PTR *a4)
 {
   NTSTATUS v6; // ebx

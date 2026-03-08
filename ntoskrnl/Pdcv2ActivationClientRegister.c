@@ -1,3 +1,17 @@
+/*
+ * XREFs of Pdcv2ActivationClientRegister @ 0x140857554
+ * Callers:
+ *     PnpBootPhaseComplete @ 0x14081BD60 (PnpBootPhaseComplete.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     PdcPortOpenCommon @ 0x140852DF8 (PdcPortOpenCommon.c)
+ *     PdcRwLockInitialize2 @ 0x1408576A8 (PdcRwLockInitialize2.c)
+ *     PdcReleaseRwLockExclusive2 @ 0x140857710 (PdcReleaseRwLockExclusive2.c)
+ *     PdcAcquireRwLockExclusive2 @ 0x140857778 (PdcAcquireRwLockExclusive2.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall Pdcv2ActivationClientRegister(__int64 a1, __int128 *a2, __int64 (__fastcall *a3)())
 {
   __int64 Pool2; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlMergeBitMaps @ 0x1402D7420
+ * Callers:
+ *     HvUnCOWReconciledPages @ 0x1402D7168 (HvUnCOWReconciledPages.c)
+ *     CmpFlushHive @ 0x1406BEA70 (CmpFlushHive.c)
+ *     HvStoreModifiedData @ 0x14072D6A8 (HvStoreModifiedData.c)
+ *     HvpPerformLogFileRecovery @ 0x1407FBCAC (HvpPerformLogFileRecovery.c)
+ *     HvFoldBackUnreconciledData @ 0x140A1DE3C (HvFoldBackUnreconciledData.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlMergeBitMaps(__int64 a1, unsigned int *a2)
 {
   unsigned int v2; // r9d

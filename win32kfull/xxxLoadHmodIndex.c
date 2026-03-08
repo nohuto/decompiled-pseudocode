@@ -1,3 +1,23 @@
+/*
+ * XREFs of xxxLoadHmodIndex @ 0x1C006CD10
+ * Callers:
+ *     ?xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z @ 0x1C006C010 (-xxxCallHook2@@YA_JPEAUtagHOOK@@H_K_JPEAH_N@Z.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ *     ?xxxGetEventProc@@YAP6AXPEAUHWINEVENTHOOK__@@KPEAUHWND__@@JJKK@ZPEAUtagEVENTHOOK@@@Z @ 0x1C00D25FC (-xxxGetEventProc@@YAP6AXPEAUHWINEVENTHOOK__@@KPEAUHWND__@@JJKK@ZPEAUtagEVENTHOOK@@@Z.c)
+ *     xxxLoadUserApiHook @ 0x1C00DE45C (xxxLoadUserApiHook.c)
+ * Callees:
+ *     UserGetLastStatus @ 0x1C00156FC (UserGetLastStatus.c)
+ *     UserGetLastError @ 0x1C0015748 (UserGetLastError.c)
+ *     ClientLoadLibrary @ 0x1C0034858 (ClientLoadLibrary.c)
+ *     ?LockRefactorStagingAssertAny@@YAXAEBUtagDomLock@@@Z @ 0x1C003794C (-LockRefactorStagingAssertAny@@YAXAEBUtagDomLock@@@Z.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?LockRefactorStagingAssertOwned@@YAXAEBUtagDomLock@@@Z @ 0x1C00C9628 (-LockRefactorStagingAssertOwned@@YAXAEBUtagDomLock@@@Z.c)
+ *     ClientFreeLibrary @ 0x1C00C966C (ClientFreeLibrary.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ??1?$ObjectLock@$$V@?$DomainExclusive@VDLT_HANDLEMANAGER@@@?$DomainShared@$$V@@QEAA@XZ @ 0x1C012D328 (--1-$ObjectLock@$$V@-$DomainExclusive@VDLT_HANDLEMANAGER@@@-$DomainShared@$$V@@QEAA@XZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall xxxLoadHmodIndex(__int64 a1)
 {
   __int64 v1; // r14

@@ -1,3 +1,18 @@
+/*
+ * XREFs of KiComputeCpuSetAffinity @ 0x140237838
+ * Callers:
+ *     KiComputeThreadAffinity @ 0x140236FD4 (KiComputeThreadAffinity.c)
+ * Callees:
+ *     KiOrAffinityEx @ 0x14022B190 (KiOrAffinityEx.c)
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KiAndAffinityEx @ 0x140237720 (KiAndAffinityEx.c)
+ *     KiCopyGroupMasksToAffinityEx @ 0x140237BB0 (KiCopyGroupMasksToAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x140237C30 (KeIsEmptyAffinityEx.c)
+ *     KiGetSystemAllowedSetsAffinityEx @ 0x140237CA4 (KiGetSystemAllowedSetsAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall KiComputeCpuSetAffinity(__int64 a1, unsigned __int16 *a2)
 {
   unsigned __int16 v4; // di

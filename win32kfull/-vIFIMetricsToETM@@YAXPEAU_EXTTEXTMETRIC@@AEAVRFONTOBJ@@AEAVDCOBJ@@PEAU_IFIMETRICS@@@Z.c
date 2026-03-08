@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?vIFIMetricsToETM@@YAXPEAU_EXTTEXTMETRIC@@AEAVRFONTOBJ@@AEAVDCOBJ@@PEAU_IFIMETRICS@@@Z @ 0x1C02B59E4
+ * Callers:
+ *     NtGdiGetETM @ 0x1C02D79C0 (NtGdiGetETM.c)
+ * Callees:
+ *     bFToL @ 0x1C00D1C50 (bFToL.c)
+ *     ??0IFIOBJR@@QEAA@PEBU_IFIMETRICS@@AEAVRFONTOBJ@@AEAVXDCOBJ@@@Z @ 0x1C0110770 (--0IFIOBJR@@QEAA@PEBU_IFIMETRICS@@AEAVRFONTOBJ@@AEAVXDCOBJ@@@Z.c)
+ *     ?ulLogPixelsY@PDEVOBJ@@QEAAKXZ @ 0x1C0110BD8 (-ulLogPixelsY@PDEVOBJ@@QEAAKXZ.c)
+ *     ?vSetNotionalToDevice@RFONTOBJ@@QEAAXAEAVEXFORMOBJ@@@Z @ 0x1C01207B8 (-vSetNotionalToDevice@RFONTOBJ@@QEAAXAEAVEXFORMOBJ@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ??0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z @ 0x1C02900F0 (--0EXFORMOBJ@@QEAA@PEAVMATRIX@@K@Z.c)
+ */
+
 void __fastcall vIFIMetricsToETM(
         struct _EXTTEXTMETRIC *a1,
         struct RFONTOBJ *a2,

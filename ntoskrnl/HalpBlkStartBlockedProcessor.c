@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpBlkStartBlockedProcessor @ 0x140A9564C
+ * Callers:
+ *     HalpInterruptStartBlockedProcessors @ 0x1405185E4 (HalpInterruptStartBlockedProcessors.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpInterruptStartProcessor @ 0x140A86180 (HalpInterruptStartProcessor.c)
+ *     HalpBlkInitializeProcessorState @ 0x140A9544C (HalpBlkInitializeProcessorState.c)
+ */
+
 __int64 __fastcall HalpBlkStartBlockedProcessor(int a1, unsigned int a2)
 {
   ULONG_PTR v2; // rdi

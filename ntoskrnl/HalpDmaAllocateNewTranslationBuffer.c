@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpDmaAllocateNewTranslationBuffer @ 0x14050E378
+ * Callers:
+ *     HalpDmaGetTranslationEntries @ 0x14039860C (HalpDmaGetTranslationEntries.c)
+ * Callees:
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x14029B230 (MmUnmapIoSpace.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPool @ 0x140452DAE (HalpDmaAllocateScatterPagesFromScatterPool.c)
+ *     HalpDmaReturnPageToOwner @ 0x140454296 (HalpDmaReturnPageToOwner.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x1404FF03C (HalpDmaAllocateScatterPagesFromContiguousPool.c)
+ */
+
 __int64 __fastcall HalpDmaAllocateNewTranslationBuffer(__int64 a1, unsigned int a2)
 {
   __int64 v3; // rbp

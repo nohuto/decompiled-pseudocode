@@ -1,3 +1,11 @@
+/*
+ * XREFs of _DrvFunctionalizeDisplayConfig_::_2_::_AUTO::_scalar_deleting_destructor_ @ 0x1C018C930
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _DrvFunctionalizeDisplayConfig_::_2_::_AUTO::__AUTO @ 0x1C018C804 (_DrvFunctionalizeDisplayConfig_--_2_--_AUTO--__AUTO.c)
+ */
+
 struct D3DKMT_GETPATHSMODALITY **__fastcall DrvFunctionalizeDisplayConfig_::_2_::_AUTO::_scalar_deleting_destructor_(
         struct D3DKMT_GETPATHSMODALITY **a1,
         __int64 a2)

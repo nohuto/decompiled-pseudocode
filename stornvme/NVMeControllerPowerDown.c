@@ -1,3 +1,13 @@
+/*
+ * XREFs of NVMeControllerPowerDown @ 0x1C000DF70
+ * Callers:
+ *     NVMeHwStartIo @ 0x1C0001DD0 (NVMeHwStartIo.c)
+ *     NVMeHwAdapterControl @ 0x1C0003050 (NVMeHwAdapterControl.c)
+ * Callees:
+ *     IoQueuesDeletion @ 0x1C000AB24 (IoQueuesDeletion.c)
+ *     NVMeSetHostMemoryBuffer @ 0x1C00237E0 (NVMeSetHostMemoryBuffer.c)
+ */
+
 char __fastcall NVMeControllerPowerDown(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
 {
   unsigned __int128 v4; // rax

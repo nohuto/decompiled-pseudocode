@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpNumaQueryNodeCapacity @ 0x1403B1370
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpNumaQueryNodeCapacity(unsigned __int16 a1, _DWORD *a2)
 {
   __int64 result; // rax

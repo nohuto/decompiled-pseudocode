@@ -1,3 +1,49 @@
+/*
+ * XREFs of NtQueryInformationFile @ 0x1406EAEB0
+ * Callers:
+ *     PfpFileCheckAttributesForPrefetch @ 0x1402DC2D0 (PfpFileCheckAttributesForPrefetch.c)
+ *     PfSnGetPrefetchInstructions @ 0x1407E1BA4 (PfSnGetPrefetchInstructions.c)
+ *     RtlIsPartialPlaceholderFileHandle @ 0x1409BD2F0 (RtlIsPartialPlaceholderFileHandle.c)
+ *     SdbpGetFileTimestamp @ 0x140A4BCD4 (SdbpGetFileTimestamp.c)
+ * Callees:
+ *     IoSetActivityIdThread @ 0x140203940 (IoSetActivityIdThread.c)
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1402637F0 (ObDereferenceObjectDeferDelete.c)
+ *     IopReleaseFileObjectLock @ 0x140267920 (IopReleaseFileObjectLock.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     IoGetIoPriorityHint @ 0x14027F300 (IoGetIoPriorityHint.c)
+ *     KeSetKernelStackSwapEnable @ 0x140283360 (KeSetKernelStackSwapEnable.c)
+ *     IopWaitForSynchronousIo @ 0x140299468 (IopWaitForSynchronousIo.c)
+ *     MmIsDriverVerifying @ 0x140303C10 (MmIsDriverVerifying.c)
+ *     IoGetAttachedDevice @ 0x14030EE00 (IoGetAttachedDevice.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     IopAllocateIrpExReturn @ 0x140312290 (IopAllocateIrpExReturn.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     IopQueueThreadIrp @ 0x140312720 (IopQueueThreadIrp.c)
+ *     IopCompleteRequest @ 0x140312C80 (IopCompleteRequest.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     IopGetFileVolumeNameInformation @ 0x1403C16A0 (IopGetFileVolumeNameInformation.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406B5654 (IopWaitAndAcquireFileObjectLock.c)
+ *     IopValidateQueryInformationParameters @ 0x1406EB8A0 (IopValidateQueryInformationParameters.c)
+ *     IopGetModeInformation @ 0x1406EB9CC (IopGetModeInformation.c)
+ *     PsIsProcessAppContainer @ 0x140781158 (PsIsProcessAppContainer.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     IopAllocateIrpCleanup @ 0x1409411D4 (IopAllocateIrpCleanup.c)
+ *     IopCancelAlertedRequest @ 0x14094140C (IopCancelAlertedRequest.c)
+ *     IopExceptionCleanupEx @ 0x140941A08 (IopExceptionCleanupEx.c)
+ *     IopGetNumaNodeInformation @ 0x140948150 (IopGetNumaNodeInformation.c)
+ *     IopQueryProcessIdsUsingFile @ 0x1409481C8 (IopQueryProcessIdsUsingFile.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     VfFastIoCheckState @ 0x140AC8204 (VfFastIoCheckState.c)
+ *     VfFastIoSnapState @ 0x140AC82DC (VfFastIoSnapState.c)
+ */
+
 NTSTATUS __stdcall NtQueryInformationFile(
         HANDLE FileHandle,
         PIO_STATUS_BLOCK IoStatusBlock,

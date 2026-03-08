@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?zzzRecalc2@@YAXPEAUtagQ@@@Z @ 0x1C00CD7DC
+ * Callers:
+ *     ?zzzRecalcThreadAttachment@@YAXXZ @ 0x1C00CD304 (-zzzRecalcThreadAttachment@@YAXXZ.c)
+ * Callees:
+ *     zzzEndDeferWinEventNotify @ 0x1C002EF28 (zzzEndDeferWinEventNotify.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     ?GetRecalcHeadPtiListEntry@@YAPEAU_LIST_ENTRY@@XZ @ 0x1C00CD7AC (-GetRecalcHeadPtiListEntry@@YAPEAU_LIST_ENTRY@@XZ.c)
+ *     ?GetRecalcPtiFromListEntry@@YAPEAUtagTHREADINFO@@PEAU_LIST_ENTRY@@@Z @ 0x1C00CD8D0 (-GetRecalcPtiFromListEntry@@YAPEAUtagTHREADINFO@@PEAU_LIST_ENTRY@@@Z.c)
+ *     ?IsPackedQueueRecalc@@YAHXZ @ 0x1C00CD914 (-IsPackedQueueRecalc@@YAHXZ.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall zzzRecalc2(struct tagQ *a1)
 {

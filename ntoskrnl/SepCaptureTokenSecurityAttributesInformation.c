@@ -1,3 +1,20 @@
+/*
+ * XREFs of SepCaptureTokenSecurityAttributesInformation @ 0x140742D6C
+ * Callers:
+ *     NtCreateTokenEx @ 0x14070F880 (NtCreateTokenEx.c)
+ *     SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x140742BEC (SepCaptureTokenSecurityAttributesAndOperationsInformation.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SepCaptureUnicodeStringArray @ 0x1406D5840 (SepCaptureUnicodeStringArray.c)
+ *     RtlCompareUnicodeString @ 0x1406EA3B0 (RtlCompareUnicodeString.c)
+ *     SepCaptureInt64Array @ 0x140743FDC (SepCaptureInt64Array.c)
+ *     SepCaptureFqbnArray @ 0x1409CA98C (SepCaptureFqbnArray.c)
+ *     SepCaptureOctetStringArray @ 0x1409CABC4 (SepCaptureOctetStringArray.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepCaptureTokenSecurityAttributesInformation(
         unsigned __int64 a1,
         _DWORD *a2,

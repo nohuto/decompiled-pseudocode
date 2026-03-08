@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiGetDevicePropertyDataString @ 0x1C02164D8
+ * Callers:
+ *     DpiMiracastInterfaceChange @ 0x1C005F540 (DpiMiracastInterfaceChange.c)
+ *     DpiFdoInitializeFdo @ 0x1C01F5A64 (DpiFdoInitializeFdo.c)
+ *     ?FillInternalAdapterInfo@DXGADAPTER@@QEBAXPEAUDXGKVMB_COMMAND_GETINTERNALADAPTERINFO_RETURN@@@Z @ 0x1C0371108 (-FillInternalAdapterInfo@DXGADAPTER@@QEBAXPEAUDXGKVMB_COMMAND_GETINTERNALADAPTERINFO_RETURN@@@Z.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 __int64 __fastcall DpiGetDevicePropertyDataString(
         PDEVICE_OBJECT Pdo,
         DEVPROPKEY *PropertyKey,

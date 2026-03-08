@@ -1,3 +1,13 @@
+/*
+ * XREFs of SiOpenRegistryKey @ 0x14076E880
+ * Callers:
+ *     SiGetRegistryValue @ 0x14076E70C (SiGetRegistryValue.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ */
+
 __int64 __fastcall SiOpenRegistryKey(void *a1, const WCHAR *a2, __int64 a3, HANDLE *a4)
 {
   NTSTATUS v6; // ebx

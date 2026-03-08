@@ -1,3 +1,17 @@
+/*
+ * XREFs of PiDcResetChildDeviceContainers @ 0x140958510
+ * Callers:
+ *     PiDcUpdateDeviceContainerMembership @ 0x1406825AC (PiDcUpdateDeviceContainerMembership.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     _CmSetDeviceRegProp @ 0x140684F2C (_CmSetDeviceRegProp.c)
+ *     _CmGetDeviceRegProp @ 0x1406C9884 (_CmGetDeviceRegProp.c)
+ *     _CmEnumDevicesInContainerWithCallback @ 0x140A61054 (_CmEnumDevicesInContainerWithCallback.c)
+ *     _CmRemoveDeviceFromContainer @ 0x140A619AC (_CmRemoveDeviceFromContainer.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDcResetChildDeviceContainers(__int64 a1, const wchar_t *a2)
 {
   int v3; // edi

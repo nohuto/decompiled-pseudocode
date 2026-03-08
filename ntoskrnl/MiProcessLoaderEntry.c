@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiProcessLoaderEntry @ 0x1402B2790
+ * Callers:
+ *     MiConstructLoaderEntry @ 0x14072CE24 (MiConstructLoaderEntry.c)
+ *     MiUnloadSystemImage @ 0x1407F627C (MiUnloadSystemImage.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     RtlInsertInvertedFunctionTable @ 0x1402B26C8 (RtlInsertInvertedFunctionTable.c)
+ *     MmLockLoadedModuleListExclusive @ 0x1402B29E0 (MmLockLoadedModuleListExclusive.c)
+ *     RtlRemoveInvertedFunctionTable @ 0x1402FE620 (RtlRemoveInvertedFunctionTable.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiProcessLoaderEntry(int *a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // rbp

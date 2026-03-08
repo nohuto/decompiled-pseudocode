@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserScrollWindowEx @ 0x1C01482B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     xxxScrollWindowEx @ 0x1C0231B34 (xxxScrollWindowEx.c)
+ */
+
 __int64 __fastcall NtUserScrollWindowEx(
         __int64 a1,
         __int64 a2,

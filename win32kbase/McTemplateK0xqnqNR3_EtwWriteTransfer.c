@@ -1,3 +1,14 @@
+/*
+ * XREFs of McTemplateK0xqnqNR3_EtwWriteTransfer @ 0x1C00EF3C2
+ * Callers:
+ *     EtwTraceLifetimeAccum @ 0x1C00AAD00 (EtwTraceLifetimeAccum.c)
+ *     EtwTraceDWMGetDirtyRegion @ 0x1C00D3540 (EtwTraceDWMGetDirtyRegion.c)
+ *     EtwTraceMoveRegion @ 0x1C01983F0 (EtwTraceMoveRegion.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 NTSTATUS McTemplateK0xqnqNR3_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, _DWORD a3, __int64 a4, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v5; // [rsp+30h] [rbp-49h] BYREF

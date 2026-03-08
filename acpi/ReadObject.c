@@ -1,3 +1,22 @@
+/*
+ * XREFs of ReadObject @ 0x1C0005BEE
+ * Callers:
+ *     DerefOf @ 0x1C0006500 (DerefOf.c)
+ *     AMLIReadNamespaceOverrideObject @ 0x1C004AC40 (AMLIReadNamespaceOverrideObject.c)
+ *     LoadFieldUnitDDB @ 0x1C004FB68 (LoadFieldUnitDDB.c)
+ *     AsyncEvalObject @ 0x1C00544D0 (AsyncEvalObject.c)
+ *     NestAsyncEvalObject @ 0x1C005496C (NestAsyncEvalObject.c)
+ *     IncDec @ 0x1C0056BA0 (IncDec.c)
+ *     ParseNameObj @ 0x1C005B96C (ParseNameObj.c)
+ * Callees:
+ *     GetBaseData @ 0x1C00055CA (GetBaseData.c)
+ *     CopyObjData @ 0x1C004AEB4 (CopyObjData.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     PrintObject @ 0x1C004E4C8 (PrintObject.c)
+ *     ReadField @ 0x1C0052AE0 (ReadField.c)
+ *     PushFrame @ 0x1C0053C34 (PushFrame.c)
+ */
+
 __int64 __fastcall ReadObject(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // esi

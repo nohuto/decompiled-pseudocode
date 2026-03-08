@@ -1,3 +1,16 @@
+/*
+ * XREFs of AllocGestureInfo @ 0x1C0207064
+ * Callers:
+ *     NtUserInjectGesture @ 0x1C01D62D0 (NtUserInjectGesture.c)
+ *     SendGestureMessage @ 0x1C020742C (SendGestureMessage.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ??1?$ObjectLock@$$V@?$DomainExclusive@VDLT_HANDLEMANAGER@@@?$DomainShared@$$V@SharedUserCritOnly@@QEAA@XZ @ 0x1C012D1C4 (--1-$ObjectLock@$$V@-$DomainExclusive@VDLT_HANDLEMANAGER@@@-$DomainShared@$$V@SharedUserCritOnly.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ??0?$ObjectLock@$$V@?$DomainExclusive@VDLT_HANDLEMANAGER@@@?$DomainShared@$$V@SharedUserCritOnly@@QEAA@XZ @ 0x1C01AFD74 (--0-$ObjectLock@$$V@-$DomainExclusive@VDLT_HANDLEMANAGER@@@-$DomainShared@$$V@SharedUserCritOnly.c)
+ */
+
 __int64 __fastcall AllocGestureInfo(__int64 a1, int a2, __int64 a3, const void *a4)
 {
   __int64 v7; // r15

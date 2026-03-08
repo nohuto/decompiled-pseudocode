@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExpWnfUpdateSubscription @ 0x14071AFB0
+ * Callers:
+ *     ExpWnfSubscribeNameInstance @ 0x14071AB90 (ExpWnfSubscribeNameInstance.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ */
+
 __int64 __fastcall ExpWnfUpdateSubscription(
         __int64 a1,
         __int64 a2,

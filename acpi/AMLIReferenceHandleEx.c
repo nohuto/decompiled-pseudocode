@@ -1,3 +1,11 @@
+/*
+ * XREFs of AMLIReferenceHandleEx @ 0x1C0048A58
+ * Callers:
+ *     AcpiArblibAllocateArbiterInstance @ 0x1C007CB64 (AcpiArblibAllocateArbiterInstance.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AMLIReferenceHandleEx(__int64 a1)
 {
   __int64 result; // rax

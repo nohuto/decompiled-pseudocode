@@ -1,3 +1,21 @@
+/*
+ * XREFs of PspRevertContainerImpersonation @ 0x140248164
+ * Callers:
+ *     IopProcessWorkItem @ 0x140203980 (IopProcessWorkItem.c)
+ *     PsImpersonateContainerOfThread @ 0x140225F60 (PsImpersonateContainerOfThread.c)
+ *     NtRevertContainerImpersonation @ 0x1405A1CC0 (NtRevertContainerImpersonation.c)
+ *     NtSetInformationThread @ 0x1406D8E90 (NtSetInformationThread.c)
+ *     PspExitThread @ 0x1407D9464 (PspExitThread.c)
+ * Callees:
+ *     EtwTraceThreadWorkOnBehalfUpdate @ 0x140231900 (EtwTraceThreadWorkOnBehalfUpdate.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140283390 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KiClearSystemPriority @ 0x1402DAA90 (KiClearSystemPriority.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetThreadChargeOnlySchedulingGroup @ 0x140369DE4 (KeSetThreadChargeOnlySchedulingGroup.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PspRevertContainerImpersonation(ULONG_PTR BugCheckParameter1)
 {
   void *v1; // rbx

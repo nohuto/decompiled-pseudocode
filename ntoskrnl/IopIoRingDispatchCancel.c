@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopIoRingDispatchCancel @ 0x14094630C
+ * Callers:
+ *     IopProcessIoRingEntry @ 0x140947008 (IopProcessIoRingEntry.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IopCompleteIoRingEntry @ 0x140556F5C (IopCompleteIoRingEntry.c)
+ *     IopCancelIoFile @ 0x14077006C (IopCancelIoFile.c)
+ *     IopIoRingReferenceFileObject @ 0x140946F94 (IopIoRingReferenceFileObject.c)
+ */
+
 LONG_PTR __fastcall IopIoRingDispatchCancel(__int64 a1, __int64 a2)
 {
   char PreviousMode; // r9

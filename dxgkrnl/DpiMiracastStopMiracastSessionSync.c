@@ -1,3 +1,27 @@
+/*
+ * XREFs of DpiMiracastStopMiracastSessionSync @ 0x1C0060170
+ * Callers:
+ *     DxgkMiracastEnforceInactiveMonitorPolicy @ 0x1C000B1E0 (DxgkMiracastEnforceInactiveMonitorPolicy.c)
+ *     DpiMiracastTargetDeviceChange @ 0x1C0060710 (DpiMiracastTargetDeviceChange.c)
+ *     DxgkMiracastStopMiracastSession @ 0x1C00624C4 (DxgkMiracastStopMiracastSession.c)
+ *     DxgkMiracastStopAllMiracastSessions @ 0x1C01C5790 (DxgkMiracastStopAllMiracastSessions.c)
+ *     DpiFdoStopMiracastSession @ 0x1C01E2B40 (DpiFdoStopMiracastSession.c)
+ *     DpiMiracastStopMiracastSessionWork @ 0x1C039B710 (DpiMiracastStopMiracastSessionWork.c)
+ *     DxgkHandleMiracastEscape @ 0x1C039B7B8 (DxgkHandleMiracastEscape.c)
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000B270 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C005FF40 (DpiMiracastReleaseMiracastDeviceContext.c)
+ *     DpiMiracastTearDownAssociation @ 0x1C0060BE0 (DpiMiracastTearDownAssociation.c)
+ *     McTemplateK0pxzqq_EtwWriteTransfer @ 0x1C006266C (McTemplateK0pxzqq_EtwWriteTransfer.c)
+ *     McTemplateK0qqqz_EtwWriteTransfer @ 0x1C006274C (McTemplateK0qqqz_EtwWriteTransfer.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01BA77C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     DpiMiracastBroadcastDeviceStateChange @ 0x1C0399F0C (DpiMiracastBroadcastDeviceStateChange.c)
+ *     DpiMiracastSendAsyncUserModeRequest @ 0x1C039B048 (DpiMiracastSendAsyncUserModeRequest.c)
+ */
+
 __int64 __fastcall DpiMiracastStopMiracastSessionSync(
         char *P,
         char a2,

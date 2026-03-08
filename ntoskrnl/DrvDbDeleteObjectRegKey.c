@@ -1,3 +1,17 @@
+/*
+ * XREFs of DrvDbDeleteObjectRegKey @ 0x140A681B0
+ * Callers:
+ *     DrvDbDispatchDriverInfFile @ 0x140864AC0 (DrvDbDispatchDriverInfFile.c)
+ *     DrvDbDispatchDeviceId @ 0x140864D40 (DrvDbDispatchDeviceId.c)
+ *     DrvDbDispatchDriverPackage @ 0x140864E40 (DrvDbDispatchDriverPackage.c)
+ *     DrvDbDispatchDriverFile @ 0x140A6B1D0 (DrvDbDispatchDriverFile.c)
+ * Callees:
+ *     DrvDbReleaseDatabaseNodeBaseKey @ 0x14086585C (DrvDbReleaseDatabaseNodeBaseKey.c)
+ *     DrvDbAcquireDatabaseNodeBaseKey @ 0x1408658F8 (DrvDbAcquireDatabaseNodeBaseKey.c)
+ *     DrvDbGetObjectDatabaseNode @ 0x140865AB0 (DrvDbGetObjectDatabaseNode.c)
+ *     DrvDbDeleteObjectSubKey @ 0x140A6832C (DrvDbDeleteObjectSubKey.c)
+ */
+
 __int64 __fastcall DrvDbDeleteObjectRegKey(__int64 *a1, int a2, wchar_t *a3, unsigned int a4)
 {
   int v5; // edi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiMaskInterruptInternal @ 0x1403AEACC
+ * Callers:
+ *     KeMaskInterrupt @ 0x14028E5A8 (KeMaskInterrupt.c)
+ *     KiMaskInterruptDpc @ 0x140571080 (KiMaskInterruptDpc.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall KiMaskInterruptInternal(__int64 a1, unsigned int a2)
 {
   _DWORD *v3; // r8

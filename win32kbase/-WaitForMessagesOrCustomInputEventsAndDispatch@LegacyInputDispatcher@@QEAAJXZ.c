@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?WaitForMessagesOrCustomInputEventsAndDispatch@LegacyInputDispatcher@@QEAAJXZ @ 0x1C020C230
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Dispatch@LegacyInputDispatcher@@QEBAJI@Z @ 0x1C00335F4 (-Dispatch@LegacyInputDispatcher@@QEBAJI@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C004E3B0 (W32GetThreadWin32Thread.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 NTSTATUS __fastcall LegacyInputDispatcher::WaitForMessagesOrCustomInputEventsAndDispatch(LegacyInputDispatcher *this)
 {
   NTSTATUS result; // eax

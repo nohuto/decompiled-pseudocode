@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpInitializeStackLookasideList @ 0x140861A64
+ * Callers:
+ *     EtwpInitialize @ 0x140B3CA40 (EtwpInitialize.c)
+ * Callees:
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ */
+
 union _SLIST_HEADER *EtwpInitializeStackLookasideList()
 {
   union _SLIST_HEADER *result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of AslpFileQuery16BitModuleName @ 0x140A564A8
+ * Callers:
+ *     AslpFileGet16BitModuleName @ 0x140A54FC8 (AslpFileGet16BitModuleName.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ */
+
 __int64 __fastcall AslpFileQuery16BitModuleName(_BYTE *a1, __int64 a2)
 {
   unsigned int v3; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepAppendDefaultDacl @ 0x140743EAC
+ * Callers:
+ *     SepAppendAceToTokenDefaultDacl @ 0x1402BE754 (SepAppendAceToTokenDefaultDacl.c)
+ *     NtSetInformationToken @ 0x140741E70 (NtSetInformationToken.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 void *__fastcall SepAppendDefaultDacl(__int64 a1, unsigned __int16 *a2)
 {
   int v3; // edi

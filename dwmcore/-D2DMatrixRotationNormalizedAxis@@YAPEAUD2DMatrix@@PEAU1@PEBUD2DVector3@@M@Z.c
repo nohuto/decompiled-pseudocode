@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?D2DMatrixRotationNormalizedAxis@@YAPEAUD2DMatrix@@PEAU1@PEBUD2DVector3@@M@Z @ 0x18027A45C
+ * Callers:
+ *     ?D2DMatrixRotationAxis@@YAPEAUD2DMatrix@@PEAU1@PEBUD2DVector3@@M@Z @ 0x18027A408 (-D2DMatrixRotationAxis@@YAPEAUD2DMatrix@@PEAU1@PEBUD2DVector3@@M@Z.c)
+ * Callees:
+ *     cosf_0 @ 0x1801176F8 (cosf_0.c)
+ *     sinf_0 @ 0x180117794 (sinf_0.c)
+ */
+
 struct D2DMatrix *__fastcall D2DMatrixRotationNormalizedAxis(
         struct D2DMatrix *a1,
         const struct D2DVector3 *a2,

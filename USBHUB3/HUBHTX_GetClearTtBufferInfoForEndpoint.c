@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBHTX_GetClearTtBufferInfoForEndpoint @ 0x1C000696C
+ * Callers:
+ *     HUBHTX_ClearTTBuffer @ 0x1C0006BA0 (HUBHTX_ClearTTBuffer.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBHTX_GetClearTtBufferInfoForEndpoint(__int64 a1, __int64 a2, char a3, _WORD *a4)
 {
   bool v5; // cc

@@ -1,3 +1,18 @@
+/*
+ * XREFs of ParseString @ 0x1C005C440
+ * Callers:
+ *     ParsePackage @ 0x1C0058160 (ParsePackage.c)
+ *     ParseArg @ 0x1C005A46C (ParseArg.c)
+ *     ParseOpcode @ 0x1C005BD40 (ParseOpcode.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ */
+
 __int64 __fastcall ParseString(__int64 a1, const char **a2, __int64 a3, char a4)
 {
   unsigned int v4; // ebx

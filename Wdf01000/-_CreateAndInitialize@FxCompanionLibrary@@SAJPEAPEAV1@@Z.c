@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_CreateAndInitialize@FxCompanionLibrary@@SAJPEAPEAV1@@Z @ 0x1C002DA34
+ * Callers:
+ *     ?FxLibraryCreateDevice@@YAJPEAU_UNICODE_STRING@@@Z @ 0x1C0016C4C (-FxLibraryCreateDevice@@YAJPEAU_UNICODE_STRING@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FxCompanionLibrary::_CreateAndInitialize(FxCompanionLibrary **CompanionLib)
 {
   _KEVENT *Pool2; // rax

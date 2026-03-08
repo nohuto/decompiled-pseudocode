@@ -1,3 +1,12 @@
+/*
+ * XREFs of MmTriageActiveInLastCrash @ 0x140B96664
+ * Callers:
+ *     VfTriageSystem @ 0x140B49FDC (VfTriageSystem.c)
+ * Callees:
+ *     TriageGetBugcheckData @ 0x140B98DCC (TriageGetBugcheckData.c)
+ *     TriagepVerifyDump @ 0x140B98EC0 (TriagepVerifyDump.c)
+ */
+
 __int64 __fastcall MmTriageActiveInLastCrash(__int64 a1)
 {
   __int64 v1; // rax

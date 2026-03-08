@@ -1,3 +1,33 @@
+/*
+ * XREFs of ValidateTarget @ 0x1C004D4F0
+ * Callers:
+ *     Divide @ 0x1C00065A0 (Divide.c)
+ *     ExprOp2_32 @ 0x1C0006642 (ExprOp2_32.c)
+ *     Load @ 0x1C00556C0 (Load.c)
+ *     Concat @ 0x1C0055F60 (Concat.c)
+ *     ConcatenateResTemplate @ 0x1C0056290 (ConcatenateResTemplate.c)
+ *     CondRefOf @ 0x1C0056490 (CondRefOf.c)
+ *     CopyObject @ 0x1C0056550 (CopyObject.c)
+ *     ExprOp1_32 @ 0x1C00566C0 (ExprOp1_32.c)
+ *     ExprOp1_64 @ 0x1C005681C (ExprOp1_64.c)
+ *     ExprOp2_64 @ 0x1C00569E0 (ExprOp2_64.c)
+ *     Index @ 0x1C0056C00 (Index.c)
+ *     MidString @ 0x1C0057B40 (MidString.c)
+ *     Store @ 0x1C0058B60 (Store.c)
+ *     ToBuffer @ 0x1C0058C40 (ToBuffer.c)
+ *     ToDecStr @ 0x1C0058CC0 (ToDecStr.c)
+ *     ToHexStr @ 0x1C00590B0 (ToHexStr.c)
+ *     ToInteger @ 0x1C00593D0 (ToInteger.c)
+ *     ToString @ 0x1C0059450 (ToString.c)
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ *     GetObjectTypeName @ 0x1C004BD50 (GetObjectTypeName.c)
+ *     MatchObjType @ 0x1C004C064 (MatchObjType.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ */
+
 __int64 __fastcall ValidateTarget(__int64 a1, __int64 a2, int a3, __int64 a4)
 {
   _WORD *v4; // r14

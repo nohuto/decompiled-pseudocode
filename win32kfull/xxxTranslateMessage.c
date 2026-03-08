@@ -1,3 +1,20 @@
+/*
+ * XREFs of xxxTranslateMessage @ 0x1C00E4F1C
+ * Callers:
+ *     NtUserTranslateMessage @ 0x1C00E4E70 (NtUserTranslateMessage.c)
+ *     xxxOldNextWindow @ 0x1C01CBDC8 (xxxOldNextWindow.c)
+ *     ?xxxMoveSize@@YAXPEAUtagWND@@IK@Z @ 0x1C01F0DC4 (-xxxMoveSize@@YAXPEAUtagWND@@IK@Z.c)
+ *     xxxHandleMenuMessages @ 0x1C0216988 (xxxHandleMenuMessages.c)
+ *     xxxMNLoop @ 0x1C021726C (xxxMNLoop.c)
+ *     ?xxxSBTrackLoop@@YAXPEAUtagWND@@_JPEAUtagSBCALC@@@Z @ 0x1C022C64C (-xxxSBTrackLoop@@YAXPEAUtagWND@@_JPEAUtagSBCALC@@@Z.c)
+ *     xxxHelpLoop @ 0x1C023C17C (xxxHelpLoop.c)
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C0048220 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ??1CEtwTraceTranslateMessage@@QEAA@XZ @ 0x1C014570E (--1CEtwTraceTranslateMessage@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall xxxTranslateMessage(__int64 a1, int a2)
 {
   unsigned int v2; // ebx

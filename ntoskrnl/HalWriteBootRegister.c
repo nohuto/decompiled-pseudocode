@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalWriteBootRegister @ 0x140A8D86C
+ * Callers:
+ *     HalpResetSBF @ 0x140A8D7E8 (HalpResetSBF.c)
+ *     HalpInitBootTable @ 0x140B6316C (HalpInitBootTable.c)
+ * Callees:
+ *     HalpSetCmosData @ 0x14039F790 (HalpSetCmosData.c)
+ */
+
 __int64 __fastcall HalWriteBootRegister(unsigned __int8 a1)
 {
   char v1; // r9

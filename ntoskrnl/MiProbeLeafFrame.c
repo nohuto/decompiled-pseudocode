@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiProbeLeafFrame @ 0x1403CFA14
+ * Callers:
+ *     MmProbeAndLockSelectedPages @ 0x1403CF7D0 (MmProbeAndLockSelectedPages.c)
+ *     MmStoreProbeAndLockPages @ 0x14065ACBC (MmStoreProbeAndLockPages.c)
+ * Callees:
+ *     MiLockPageLeafPageTable @ 0x140269310 (MiLockPageLeafPageTable.c)
+ *     MiProbeLeafPteAccess @ 0x140269620 (MiProbeLeafPteAccess.c)
+ *     MiSetProbePagesAhead @ 0x1402699A0 (MiSetProbePagesAhead.c)
+ *     MiFaultInProbeAddress @ 0x1402E021C (MiFaultInProbeAddress.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ */
+
 __int64 __fastcall MiProbeLeafFrame(__int64 a1)
 {
   _QWORD *v2; // rdi

@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?VidSchiCreateHwContextInternal@@YAPEAUVIDSCH_HW_CONTEXT@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_CONTEXT_DATA@@PEAVDXGCONTEXT@@@Z @ 0x1C0042114
+ * Callers:
+ *     VidSchCreateSystemDevices @ 0x1C00C2444 (VidSchCreateSystemDevices.c)
+ *     VidSchCreateHwContext @ 0x1C01092E0 (VidSchCreateHwContext.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     ?DxgkrnlContextHandleCompareFunction@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z @ 0x1C001C620 (-DxgkrnlContextHandleCompareFunction@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z.c)
+ *     McTemplateK0pppp_EtwWriteTransfer @ 0x1C003DCE8 (McTemplateK0pppp_EtwWriteTransfer.c)
+ *     McTemplateK0pqqqqqqqqppp_EtwWriteTransfer @ 0x1C003DE9C (McTemplateK0pqqqqqqqqppp_EtwWriteTransfer.c)
+ *     ?KmdContextHandleCompareFunction@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z @ 0x1C0040E0C (-KmdContextHandleCompareFunction@@YAJPEAXPEAU_RTL_BALANCED_NODE@@@Z.c)
+ *     ?VidSchiIncrementHwContextReference@@YAXPEAUVIDSCH_HW_CONTEXT@@@Z @ 0x1C0042A7C (-VidSchiIncrementHwContextReference@@YAXPEAUVIDSCH_HW_CONTEXT@@@Z.c)
+ *     VidSchTerminateHwContext @ 0x1C0045190 (VidSchTerminateHwContext.c)
+ *     VidSchiUpdateDdiHwContextPriority @ 0x1C0109954 (VidSchiUpdateDdiHwContextPriority.c)
+ */
+
 struct VIDSCH_HW_CONTEXT *__fastcall VidSchiCreateHwContextInternal(
         struct _VIDSCH_DEVICE *a1,
         struct _VIDSCH_CONTEXT_DATA *a2,

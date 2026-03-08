@@ -1,3 +1,16 @@
+/*
+ * XREFs of SmcCacheAdd @ 0x1409D7BE0
+ * Callers:
+ *     SmcProcessCreateRequest @ 0x1409D50AC (SmcProcessCreateRequest.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ */
+
 __int64 __fastcall SmcCacheAdd(__int64 a1, int *a2, int *a3)
 {
   unsigned int v3; // edi

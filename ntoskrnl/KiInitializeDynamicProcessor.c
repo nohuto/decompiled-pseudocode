@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiInitializeDynamicProcessor @ 0x140A9C1F8
+ * Callers:
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ * Callees:
+ *     KeGenericCallDpc @ 0x1403008E0 (KeGenericCallDpc.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiStartDpcThread @ 0x14080F080 (KiStartDpcThread.c)
+ */
+
 char __fastcall KiInitializeDynamicProcessor(__int64 a1)
 {
   int started; // eax

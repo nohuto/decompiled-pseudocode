@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_QueryColorSpaceTransformCaps@MonitorGammaState@DxgMonitor@@AEAAJKPEAXPEA_K@Z @ 0x1C01802A4
+ * Callers:
+ *     ?_DispatchIoctrls@DXGMONITOR@@QEAAJKKPEAXK0PEA_K@Z @ 0x1C0180A58 (-_DispatchIoctrls@DXGMONITOR@@QEAAJKKPEAXK0PEA_K@Z.c)
+ * Callees:
+ *     ?_IsTargetMatrix_3x4Supported@MonitorGammaState@DxgMonitor@@AEAA_NXZ @ 0x1C0180360 (-_IsTargetMatrix_3x4Supported@MonitorGammaState@DxgMonitor@@AEAA_NXZ.c)
+ */
+
 __int64 __fastcall DxgMonitor::MonitorGammaState::_QueryColorSpaceTransformCaps(
         DxgMonitor::MonitorGammaState *this,
         unsigned int a2,

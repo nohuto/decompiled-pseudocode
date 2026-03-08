@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Remove@?$DynArray@PEAVCBaseExpression@@$0A@@@QEAAHAEBQEAVCBaseExpression@@@Z @ 0x1800BC8C0
+ * Callers:
+ *     ?RemoveSourceAnimation@CResource@@QEAAXPEAVCBaseExpression@@I@Z @ 0x1800BC5F8 (-RemoveSourceAnimation@CResource@@QEAAXPEAVCBaseExpression@@I@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DynArray<CBaseExpression *,0>::Remove(__int64 *a1, _QWORD *a2)
 {
   unsigned int v2; // r8d

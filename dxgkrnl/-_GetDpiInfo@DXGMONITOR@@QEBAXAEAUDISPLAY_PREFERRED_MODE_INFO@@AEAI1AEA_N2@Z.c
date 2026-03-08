@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_GetDpiInfo@DXGMONITOR@@QEBAXAEAUDISPLAY_PREFERRED_MODE_INFO@@AEAI1AEA_N2@Z @ 0x1C016892C
+ * Callers:
+ *     MonitorGetDpiInfoFromDescriptor @ 0x1C0168844 (MonitorGetDpiInfoFromDescriptor.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall DXGMONITOR::_GetDpiInfo(
         DXGMONITOR *this,
         struct DISPLAY_PREFERRED_MODE_INFO *a2,

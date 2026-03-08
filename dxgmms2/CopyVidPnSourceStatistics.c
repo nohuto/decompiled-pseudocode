@@ -1,3 +1,11 @@
+/*
+ * XREFs of CopyVidPnSourceStatistics @ 0x1C0107494
+ * Callers:
+ *     VidSchQueryVidPnSourceStatistics @ 0x1C0040760 (VidSchQueryVidPnSourceStatistics.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CopyVidPnSourceStatistics(_DWORD *a1, _DWORD *a2)
 {
   __int64 result; // rax

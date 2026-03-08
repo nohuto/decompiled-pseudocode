@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopLiveDumpFreeIoSpaceRanges @ 0x14094B2F4
+ * Callers:
+ *     IopLiveDumpAllocateFromIOSpace @ 0x14094A574 (IopLiveDumpAllocateFromIOSpace.c)
+ *     IopLiveDumpFreeDumpBuffers @ 0x14094B0B8 (IopLiveDumpFreeDumpBuffers.c)
+ *     IopLiveDumpWriteDumpFile @ 0x14094C514 (IopLiveDumpWriteDumpFile.c)
+ * Callees:
+ *     IopLiveDumpUnpackMemoryRun @ 0x14094C204 (IopLiveDumpUnpackMemoryRun.c)
+ *     MmFreeMemoryRanges @ 0x140A2B7D0 (MmFreeMemoryRanges.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall IopLiveDumpFreeIoSpaceRanges(PVOID *a1, unsigned int a2)
 {
   unsigned int v4; // ebx

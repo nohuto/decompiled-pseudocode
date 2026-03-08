@@ -1,3 +1,18 @@
+/*
+ * XREFs of NtUserGetClassInfoEx @ 0x1C002F120
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RegisterDefaultClass @ 0x1C003124C (RegisterDefaultClass.c)
+ *     _GetClassInfoEx @ 0x1C00314C8 (_GetClassInfoEx.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     RegisterIconTitleClass @ 0x1C00DBAB8 (RegisterIconTitleClass.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall NtUserGetClassInfoEx(int a1, ULONG64 a2, ULONG64 a3, _QWORD *a4, int a5)
 {
   _QWORD *v5; // r15

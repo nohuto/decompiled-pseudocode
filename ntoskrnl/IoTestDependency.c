@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoTestDependency @ 0x1403ADED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PipFindDependencyNodePath @ 0x1403ADF2C (PipFindDependencyNodePath.c)
+ */
+
 __int64 __fastcall IoTestDependency(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4)
 {
   unsigned int v4; // ebx

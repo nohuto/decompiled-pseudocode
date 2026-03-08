@@ -1,3 +1,12 @@
+/*
+ * XREFs of isspace @ 0x1403D4560
+ * Callers:
+ *     ?ScTrimString@@YAXPEAD@Z @ 0x140672CCC (-ScTrimString@@YAXPEAD@Z.c)
+ *     CmpGetToken @ 0x140B5BF5C (CmpGetToken.c)
+ * Callees:
+ *     <none>
+ */
+
 int __cdecl isspace(int C)
 {
   int v1; // eax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InitializeBootSettings@DXGVALIDATION@@QEAAXXZ @ 0x1C002399C
+ * Callers:
+ *     ?Initialize@DXGGLOBAL@@QEAAJXZ @ 0x1C0205878 (-Initialize@DXGGLOBAL@@QEAAJXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 void __fastcall DXGVALIDATION::InitializeBootSettings(DXGVALIDATION *this)
 {
   int v2; // eax

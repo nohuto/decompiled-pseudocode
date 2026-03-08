@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?xxxUnexpectedClientPost@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FD134
+ * Callers:
+ *     ?xxxAdviseDataAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FB960 (-xxxAdviseDataAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ *     xxxDDETrackPostHook @ 0x1C01FDCA4 (xxxDDETrackPostHook.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ?AbnormalDDEPost@@YAKPEAUtagDDECONV@@K@Z @ 0x1C01FA7BC (-AbnormalDDEPost@@YAKPEAUtagDDECONV@@K@Z.c)
+ *     ?Request@@YAKPEAUtagDDECONV@@@Z @ 0x1C01FAF4C (-Request@@YAKPEAUtagDDECONV@@@Z.c)
+ *     ?SpontaneousTerminate@@YAKPEAKPEAUtagDDECONV@@@Z @ 0x1C01FAFFC (-SpontaneousTerminate@@YAKPEAKPEAUtagDDECONV@@@Z.c)
+ *     ?Unadvise@@YAKPEAUtagDDECONV@@@Z @ 0x1C01FB0AC (-Unadvise@@YAKPEAUtagDDECONV@@@Z.c)
+ *     ?xxxAdvise@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FB2BC (-xxxAdvise@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ *     ?xxxExecute@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FC298 (-xxxExecute@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ *     ?xxxFreeDDEHandle@@YAXPEAXK@Z @ 0x1C01FC6B8 (-xxxFreeDDEHandle@@YAXPEAXK@Z.c)
+ *     ?xxxPoke@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FC880 (-xxxPoke@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ */
+
 __int64 __fastcall xxxUnexpectedClientPost(unsigned int *a1, void **a2, struct tagDDECONV *a3)
 {
   int v4; // edx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExInitSystem @ 0x140B49A20
+ * Callers:
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExpInitSystemPhase1 @ 0x140B3F0B8 (ExpInitSystemPhase1.c)
+ *     ExpInitSystemPhase0 @ 0x140B49BD0 (ExpInitSystemPhase0.c)
+ *     ExpStringCheck @ 0x140B4A084 (ExpStringCheck.c)
+ */
+
 char __fastcall ExInitSystem(__int64 a1)
 {
   if ( (_DWORD)InitializationPhase )

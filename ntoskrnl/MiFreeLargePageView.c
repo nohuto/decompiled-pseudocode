@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiFreeLargePageView @ 0x140A46E40
+ * Callers:
+ *     MiReleaseVadEventBlocks @ 0x1406ECE8C (MiReleaseVadEventBlocks.c)
+ *     MiDeleteVad @ 0x1407C82E0 (MiDeleteVad.c)
+ *     MiDeletePartialCloneVads @ 0x140A461CC (MiDeletePartialCloneVads.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14031F590 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14031F600 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiReturnFullProcessCommitment @ 0x1406B6FB4 (MiReturnFullProcessCommitment.c)
+ */
+
 char __fastcall MiFreeLargePageView(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
   __int64 v4; // rax

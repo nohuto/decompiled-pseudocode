@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DisplayID_GetContainerID@@YAJPEBUDisplayIDObj@@PEAU_GUID@@@Z @ 0x1C0071D8C
+ * Callers:
+ *     ?GetContainerId@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAU_GUID@@@Z @ 0x1C03CBF70 (-GetContainerId@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAU_GUID@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DisplayID_GetContainerID(const struct DisplayIDObj *a1, struct _GUID *a2)
 {
   int v3; // edi

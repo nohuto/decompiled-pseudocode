@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x14057B53C
+ * Callers:
+ *     KiSoftParkElectionUnparkProcessor @ 0x14040B280 (KiSoftParkElectionUnparkProcessor.c)
+ *     KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule @ 0x14057B6AC (KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule.c)
+ *     KiParkCurrentProcessor @ 0x14057BAA4 (KiParkCurrentProcessor.c)
+ *     KiUnparkCurrentProcessor @ 0x14057C38C (KiUnparkCurrentProcessor.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall KiAdjustReadyQueueScanOwnerOnParkingChange(__int64 a1, __int64 a2, char a3, char *a4)
 {
   __int64 v4; // rdi

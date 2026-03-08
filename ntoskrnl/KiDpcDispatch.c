@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiDpcDispatch @ 0x140B31940
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiDpcDispatch(__int64 a1, __int64 a2)
 {
   __int64 v2; // rcx

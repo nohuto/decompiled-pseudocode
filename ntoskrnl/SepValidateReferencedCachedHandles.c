@@ -1,3 +1,25 @@
+/*
+ * XREFs of SepValidateReferencedCachedHandles @ 0x1407448F8
+ * Callers:
+ *     SepSetTokenCachedHandles @ 0x140739630 (SepSetTokenCachedHandles.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     RtlSubAuthoritySid @ 0x1402BE740 (RtlSubAuthoritySid.c)
+ *     RtlGetCurrentServiceSessionId @ 0x1403024F0 (RtlGetCurrentServiceSessionId.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlPrefixUnicodeString @ 0x1406D5A70 (RtlPrefixUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     RtlGetAppContainerSidType @ 0x1407414C0 (RtlGetAppContainerSidType.c)
+ *     SepQueryNameString @ 0x140744C84 (SepQueryNameString.c)
+ *     RtlConvertSidToUnicodeString @ 0x1407479E0 (RtlConvertSidToUnicodeString.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     RtlGetAppContainerParent @ 0x1409B9200 (RtlGetAppContainerParent.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepValidateReferencedCachedHandles(__int64 a1, int *a2, unsigned int a3, HANDLE *a4)
 {
   int v5; // ecx

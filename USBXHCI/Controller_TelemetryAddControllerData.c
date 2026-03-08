@@ -1,3 +1,15 @@
+/*
+ * XREFs of Controller_TelemetryAddControllerData @ 0x1C0078AF0
+ * Callers:
+ *     Controller_TelemetryReport @ 0x1C0034B08 (Controller_TelemetryReport.c)
+ * Callees:
+ *     Controller_IsSecureDevice @ 0x1C000B0F8 (Controller_IsSecureDevice.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     XilDeviceSlot_GetNumberOfDeviceSlots @ 0x1C0038204 (XilDeviceSlot_GetNumberOfDeviceSlots.c)
+ *     XilDeviceSlot_GetUsbDeviceHandleArray @ 0x1C0038210 (XilDeviceSlot_GetUsbDeviceHandleArray.c)
+ *     TelemetryData_InsertTriageDataBlock @ 0x1C00531E8 (TelemetryData_InsertTriageDataBlock.c)
+ */
+
 char __fastcall Controller_TelemetryAddControllerData(_QWORD *a1, __int64 *a2)
 {
   __int64 UsbDeviceHandleArray; // rax

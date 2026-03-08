@@ -1,3 +1,15 @@
+/*
+ * XREFs of ResumeIdleWorker @ 0x1C00314AC
+ * Callers:
+ *     imp_WdfDeviceResumeIdleActual @ 0x1C00331A0 (imp_WdfDeviceResumeIdleActual.c)
+ *     imp_WdfDeviceResumeIdleNoTrack @ 0x1C00331C0 (imp_WdfDeviceResumeIdleNoTrack.c)
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?IoDecrement@FxPowerIdleMachine@@QEAAXPEAXJPEBD@Z @ 0x1C00088EC (-IoDecrement@FxPowerIdleMachine@@QEAAXPEAXJPEBD@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_ @ 0x1C001BC64 (WPP_IFR_SF_.c)
+ */
+
 void __fastcall ResumeIdleWorker(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFDEVICE__ *Device,

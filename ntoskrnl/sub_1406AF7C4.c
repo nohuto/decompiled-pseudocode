@@ -1,3 +1,12 @@
+/*
+ * XREFs of sub_1406AF7C4 @ 0x1406AF7C4
+ * Callers:
+ *     WbHeapExecuteCall @ 0x1406AF56C (WbHeapExecuteCall.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ */
+
 __int64 __fastcall sub_1406AF7C4(__int64 a1, __int64 a2, __int64 *a3, _QWORD *a4, char *a5, unsigned int Size)
 {
   unsigned int v9; // ebx

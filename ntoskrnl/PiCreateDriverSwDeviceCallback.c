@@ -1,3 +1,35 @@
+/*
+ * XREFs of PiCreateDriverSwDeviceCallback @ 0x140807FD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlUnicodeStringPrintf @ 0x1403BEBCC (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     McTemplateK0zzd_EtwWriteTransfer @ 0x1405614A4 (McTemplateK0zzd_EtwWriteTransfer.c)
+ *     PnpGenerateDeviceIdsHash @ 0x140680864 (PnpGenerateDeviceIdsHash.c)
+ *     RtlHashUnicodeString @ 0x140680AE0 (RtlHashUnicodeString.c)
+ *     RtlpQueryRegistryValues @ 0x14069B3C0 (RtlpQueryRegistryValues.c)
+ *     IopGetRegistryValue @ 0x1406C18D4 (IopGetRegistryValue.c)
+ *     _CmGetDeviceRegProp @ 0x1406C9884 (_CmGetDeviceRegProp.c)
+ *     _PnpGetGenericStoreProperty @ 0x1406D13D0 (_PnpGetGenericStoreProperty.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ *     _SysCtxRegOpenKey @ 0x1406D4350 (_SysCtxRegOpenKey.c)
+ *     RtlPrefixUnicodeString @ 0x1406D5A70 (RtlPrefixUnicodeString.c)
+ *     RtlCreateUnicodeString @ 0x140747D00 (RtlCreateUnicodeString.c)
+ *     ExpAllocateStringRoutine @ 0x140777DB0 (ExpAllocateStringRoutine.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     PiSwStartCreate @ 0x140806E88 (PiSwStartCreate.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x140864664 (_PnpGetGenericStorePropertyKeys.c)
+ *     PipMakeGloballyUniqueId @ 0x14086E9D0 (PipMakeGloballyUniqueId.c)
+ *     PnpCompareMultiSz @ 0x140969650 (PnpCompareMultiSz.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiCreateDriverSwDeviceCallback(__int64 a1, __int64 a2, const WCHAR *a3, _DWORD *a4)
 {
   __int64 v5; // rcx

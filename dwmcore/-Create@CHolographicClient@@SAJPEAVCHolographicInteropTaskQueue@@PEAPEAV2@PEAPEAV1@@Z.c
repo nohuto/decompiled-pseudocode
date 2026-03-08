@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?Create@CHolographicClient@@SAJPEAVCHolographicInteropTaskQueue@@PEAPEAV2@PEAPEAV1@@Z @ 0x1802A92AC
+ * Callers:
+ *     ?EnsureHolographicClient@CHolographicManager@@AEAAJXZ @ 0x1802A1D18 (-EnsureHolographicClient@CHolographicManager@@AEAAJXZ.c)
+ * Callees:
+ *     ??2@YAPEAX_K@Z @ 0x180034790 (--2@YAPEAX_K@Z.c)
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     ?InternalRelease@?$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ @ 0x18008F164 (-InternalRelease@-$CMILRefCountBaseT@UIUnknown@@@@IEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?Create@CHolographicInteropTaskQueue@@SAJPEAPEAV1@@Z @ 0x1802A8BB4 (-Create@CHolographicInteropTaskQueue@@SAJPEAPEAV1@@Z.c)
+ *     ??0CHolographicClient@@IEAA@PEAVCHolographicInteropTaskQueue@@0@Z @ 0x1802A8F24 (--0CHolographicClient@@IEAA@PEAVCHolographicInteropTaskQueue@@0@Z.c)
+ *     ?Initialize@CHolographicClient@@AEAAJXZ @ 0x1802A98A4 (-Initialize@CHolographicClient@@AEAAJXZ.c)
+ */
+
 __int64 __fastcall CHolographicClient::Create(
         struct CHolographicInteropTaskQueue *a1,
         struct CHolographicInteropTaskQueue **a2,

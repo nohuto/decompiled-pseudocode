@@ -1,3 +1,29 @@
+/*
+ * XREFs of ?_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z @ 0x1C003AB6C
+ * Callers:
+ *     NtUserRegisterHotKey @ 0x1C003B2F0 (NtUserRegisterHotKey.c)
+ *     ?SetWinlogonHotKeys@@YAXXZ @ 0x1C0078988 (-SetWinlogonHotKeys@@YAXXZ.c)
+ *     ?SetPenHotKeys@@YAXXZ @ 0x1C0078F0C (-SetPenHotKeys@@YAXXZ.c)
+ *     SetDebugHotKeys @ 0x1C0078FDC (SetDebugHotKeys.c)
+ *     ?SetWindowArrangementHotKeys@@YAXXZ @ 0x1C0079514 (-SetWindowArrangementHotKeys@@YAXXZ.c)
+ *     RawInputThread @ 0x1C007A0C0 (RawInputThread.c)
+ *     xxxSetShellWindow @ 0x1C0092CAC (xxxSetShellWindow.c)
+ *     ?_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z @ 0x1C00975C4 (-_RegisterWindowArrangementCallout@@YA_JPEAUtagWND@@H@Z.c)
+ *     NtUserShellRegisterHotKey @ 0x1C00ED920 (NtUserShellRegisterHotKey.c)
+ * Callees:
+ *     ?FindHotKey@@YAPEAUtagHOTKEY@@PEAUtagTHREADINFO@@PEAUtagWND@@HIIPEAPEAU1@@Z @ 0x1C003B02C (-FindHotKey@@YAPEAUtagHOTKEY@@PEAUtagTHREADINFO@@PEAUtagWND@@HIIPEAPEAU1@@Z.c)
+ *     ?HKInsertHashElement@@YAXPEAUtagHOTKEY@@@Z @ 0x1C003B0EC (-HKInsertHashElement@@YAXPEAUtagHOTKEY@@@Z.c)
+ *     ?NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z @ 0x1C003B140 (-NotifyHotKeyRegistrationChanged@@YAXQEAUtagHOTKEY@@QEAUtagCHILDHOTKEY@@_N@Z.c)
+ *     CheckWinstaAttributeAccess @ 0x1C003B230 (CheckWinstaAttributeAccess.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?HKGetHashHead@@YAPEAUtagHOTKEY@@I@Z @ 0x1C0098A7C (-HKGetHashHead@@YAPEAUtagHOTKEY@@I@Z.c)
+ *     IsShellProcess @ 0x1C009C278 (IsShellProcess.c)
+ *     ?HKAddChildHotkey@@YA_NPEAUtagTHREADINFO@@PEAUtagHOTKEY@@PEAUtagWND@@HGPEAUHWND__@@@Z @ 0x1C00EDE60 (-HKAddChildHotkey@@YA_NPEAUtagTHREADINFO@@PEAUtagHOTKEY@@PEAUtagWND@@HGPEAUHWND__@@@Z.c)
+ *     ?AddSasKey@@YAHII@Z @ 0x1C00F46E0 (-AddSasKey@@YAHII@Z.c)
+ *     Feature_ReportShellHotKey__private_IsEnabledDeviceUsage @ 0x1C012C740 (Feature_ReportShellHotKey__private_IsEnabledDeviceUsage.c)
+ *     ?HKRemoveMatchingChildHotkeys@@YA_NPEAUtagHOTKEY@@PEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryType@@@Z @ 0x1C012E0A4 (-HKRemoveMatchingChildHotkeys@@YA_NPEAUtagHOTKEY@@PEAUtagTHREADINFO@@PEAUtagWND@@HW4HotkeyQueryT.c)
+ */
+
 __int64 __fastcall _RegisterHotKey(
         struct tagWND *a1,
         void (*a2)(unsigned __int64, __int64),

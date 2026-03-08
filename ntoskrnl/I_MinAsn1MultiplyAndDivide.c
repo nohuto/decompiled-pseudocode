@@ -1,3 +1,12 @@
+/*
+ * XREFs of I_MinAsn1MultiplyAndDivide @ 0x140A6E230
+ * Callers:
+ *     MinAsn1DecodeGeneralizedTime @ 0x140A6E30C (MinAsn1DecodeGeneralizedTime.c)
+ *     MinAsn1DecodeUtcTime @ 0x140A6E7D4 (MinAsn1DecodeUtcTime.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall I_MinAsn1MultiplyAndDivide(int a1, int a2, int a3)
 {
   signed __int64 v3; // r9

@@ -1,3 +1,17 @@
+/*
+ * XREFs of ResetSignal @ 0x1C00559C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     GetObjectPath @ 0x1C004BB70 (GetObjectPath.c)
+ *     GetObjectTypeName @ 0x1C004BD50 (GetObjectTypeName.c)
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     SignalASLEvent @ 0x1C0054E2C (SignalASLEvent.c)
+ */
+
 __int64 __fastcall ResetSignal(__int64 a1, _QWORD *a2)
 {
   unsigned int v4; // edi

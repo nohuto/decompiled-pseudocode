@@ -1,3 +1,15 @@
+/*
+ * XREFs of PsAssignProcessToJobObject @ 0x1406FF9A0
+ * Callers:
+ *     NtAssignProcessToJobObject @ 0x1406FF8A0 (NtAssignProcessToJobObject.c)
+ *     PsCreateMinimalProcess @ 0x140817C28 (PsCreateMinimalProcess.c)
+ *     PspAssignProcessToJobList @ 0x1409ADF10 (PspAssignProcessToJobList.c)
+ *     PspSetJobMemoryPartition @ 0x1409AFC84 (PspSetJobMemoryPartition.c)
+ * Callees:
+ *     PspAssignProcessToJob @ 0x1406FFA20 (PspAssignProcessToJob.c)
+ *     PspGetJobAssignmentDisposition @ 0x1406FFFD0 (PspGetJobAssignmentDisposition.c)
+ */
+
 __int64 __fastcall PsAssignProcessToJobObject(ULONG_PTR BugCheckParameter3, PEPROCESS Process, __int64 a3)
 {
   unsigned int i; // ebx

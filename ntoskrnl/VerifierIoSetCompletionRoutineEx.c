@@ -1,3 +1,12 @@
+/*
+ * XREFs of VerifierIoSetCompletionRoutineEx @ 0x140AC7FF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     VfFaultsInjectResourceFailure @ 0x140AD2FAC (VfFaultsInjectResourceFailure.c)
+ */
+
 __int64 __fastcall VerifierIoSetCompletionRoutineEx(
         __int64 a1,
         __int64 a2,

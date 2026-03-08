@@ -1,3 +1,12 @@
+/*
+ * XREFs of VmpProcessAccessedBatch @ 0x1405F854C
+ * Callers:
+ *     VmpQueryAccessedState @ 0x14045E7BA (VmpQueryAccessedState.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HvlGetSparseGpaPagesAccessState @ 0x1406768F8 (HvlGetSparseGpaPagesAccessState.c)
+ */
+
 unsigned __int64 __fastcall VmpProcessAccessedBatch(__int64 a1, __int64 a2, int a3, unsigned __int64 *a4, int a5)
 {
   __int64 v6; // rbp

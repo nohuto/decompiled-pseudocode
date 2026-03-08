@@ -1,3 +1,13 @@
+/*
+ * XREFs of MmAllocateUserStack @ 0x14077409C
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ *     PspReserveAndCommitUserShadowStack @ 0x1409AE7B0 (PspReserveAndCommitUserShadowStack.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiAllocateVirtualMemoryCommon @ 0x1407C4A70 (MiAllocateVirtualMemoryCommon.c)
+ */
+
 __int64 __fastcall MmAllocateUserStack(int a1, int a2, int a3, int a4, int a5)
 {
   unsigned int v9; // ecx

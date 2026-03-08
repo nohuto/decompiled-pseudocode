@@ -1,3 +1,11 @@
+/*
+ * XREFs of FreeEditionSessionGlobalsArea @ 0x1C00F6000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FreeEditionSessionGlobalsArea(__int64 a1)
 {
   __int64 v1; // rbx

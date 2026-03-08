@@ -1,3 +1,18 @@
+/*
+ * XREFs of AlpcpPortQueryServerSessionInfo @ 0x1407568CC
+ * Callers:
+ *     NtAlpcQueryInformation @ 0x140756660 (NtAlpcQueryInformation.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     AlpcpReferenceConnectedPort @ 0x1406D4F38 (AlpcpReferenceConnectedPort.c)
+ */
+
 __int64 __fastcall AlpcpPortQueryServerSessionInfo(__int64 a1, _DWORD *a2, unsigned int a3, _DWORD *a4)
 {
   __int64 v7; // rax

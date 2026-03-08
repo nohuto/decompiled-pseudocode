@@ -1,3 +1,22 @@
+/*
+ * XREFs of _CmGetDeviceSoftwareKey @ 0x1406C8A54
+ * Callers:
+ *     _CmGetDeviceSoftwareKeyPath @ 0x1406C8948 (_CmGetDeviceSoftwareKeyPath.c)
+ * Callees:
+ *     RtlStringCchPrintfExW @ 0x140245C80 (RtlStringCchPrintfExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _CmSetDeviceRegProp @ 0x140684F2C (_CmSetDeviceRegProp.c)
+ *     _CmOpenInstallerClassRegKey @ 0x1406C4ED8 (_CmOpenInstallerClassRegKey.c)
+ *     _CmGetDeviceRegProp @ 0x1406C9884 (_CmGetDeviceRegProp.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x14085F0A8 (_RegRtlDeleteKeyTransacted.c)
+ *     _CmCreateOrdinalInstanceKey @ 0x14087B610 (_CmCreateOrdinalInstanceKey.c)
+ */
+
 __int64 __fastcall CmGetDeviceSoftwareKey(__int64 a1, __int64 a2, wchar_t *a3, __int64 a4, char a5)
 {
   int DeviceRegProp; // ebx

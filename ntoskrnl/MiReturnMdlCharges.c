@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiReturnMdlCharges @ 0x140621210
+ * Callers:
+ *     MiReturnMdlExcess @ 0x1406212E8 (MiReturnMdlExcess.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ */
+
 void __fastcall MiReturnMdlCharges(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   unsigned __int64 v5; // r8

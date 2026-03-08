@@ -1,3 +1,16 @@
+/*
+ * XREFs of Isoch_ProcessTransferRingEmptyEvent @ 0x1C004503C
+ * Callers:
+ *     Isoch_ProcessTransferEventWithED0 @ 0x1C0044CF4 (Isoch_ProcessTransferEventWithED0.c)
+ * Callees:
+ *     Isoch_MapTransfers @ 0x1C0001C9C (Isoch_MapTransfers.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0007C90 (WPP_RECORDER_SF_DD.c)
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_GetFrameNumber @ 0x1C0033490 (Controller_GetFrameNumber.c)
+ *     WPP_RECORDER_SF_DDDL @ 0x1C0046128 (WPP_RECORDER_SF_DDDL.c)
+ */
+
 void __fastcall Isoch_ProcessTransferRingEmptyEvent(__int64 a1, __int64 a2)
 {
   char v4; // r14

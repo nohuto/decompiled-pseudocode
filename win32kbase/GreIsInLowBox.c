@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreIsInLowBox @ 0x1C0199A50
+ * Callers:
+ *     ?DrvProcessWin32kEscape@@YAJPEAU_D3DKMT_ESCAPE@@@Z @ 0x1C00BCAC8 (-DrvProcessWin32kEscape@@YAJPEAU_D3DKMT_ESCAPE@@@Z.c)
+ * Callees:
+ *     GreOpenThreadToken @ 0x1C0199ADC (GreOpenThreadToken.c)
+ */
+
 __int64 GreIsInLowBox()
 {
   unsigned int v0; // ebx

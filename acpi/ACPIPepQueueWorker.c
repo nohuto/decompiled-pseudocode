@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIPepQueueWorker @ 0x1C008AF08
+ * Callers:
+ *     ACPIPepPowerSettingChangeCallback @ 0x1C008ADB0 (ACPIPepPowerSettingChangeCallback.c)
+ *     ACPIPepWnfCallback @ 0x1C008AF90 (ACPIPepWnfCallback.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     ACPISetDeviceWorker @ 0x1C00474D4 (ACPISetDeviceWorker.c)
+ */
+
 void __fastcall ACPIPepQueueWorker(__int64 a1)
 {
   __int128 InputBuffer; // [rsp+30h] [rbp-28h] BYREF

@@ -1,3 +1,11 @@
+/*
+ * XREFs of rimInputTypeFromDeviceTypeAndUsages @ 0x1C0004A44
+ * Callers:
+ *     RIMIDECreatePseudoHIDDevice @ 0x1C01C2E38 (RIMIDECreatePseudoHIDDevice.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall rimInputTypeFromDeviceTypeAndUsages(int a1, __int16 a2, __int16 a3)
 {
   __int64 result; // rax

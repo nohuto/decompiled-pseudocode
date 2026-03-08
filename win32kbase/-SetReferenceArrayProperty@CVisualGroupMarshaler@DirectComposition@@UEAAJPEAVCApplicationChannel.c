@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetReferenceArrayProperty@CVisualGroupMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEAPEAVCResourceMarshaler@2@_KPEA_N@Z @ 0x1C025D150
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Set@CResourceMarshalerArrayBase@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAPEAVCResourceMarshaler@2@_KW4MIL_RESOURCE_TYPE@@@Z @ 0x1C00AA160 (-Set@CResourceMarshalerArrayBase@DirectComposition@@IEAAJPEAVCApplicationChannel@2@PEAPEAVCResou.c)
+ */
+
 __int64 __fastcall DirectComposition::CVisualGroupMarshaler::SetReferenceArrayProperty(
         DirectComposition::CVisualGroupMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

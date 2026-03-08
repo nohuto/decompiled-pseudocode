@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIBuildProcessDevicePhasePsc @ 0x1C0010470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIBuildCompleteCommon @ 0x1C000BC30 (ACPIBuildCompleteCommon.c)
+ *     WPP_RECORDER_SF_ddqss @ 0x1C0014AC8 (WPP_RECORDER_SF_ddqss.c)
+ *     ACPIDeviceInternalDelayedDeviceRequest @ 0x1C001D2C8 (ACPIDeviceInternalDelayedDeviceRequest.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessDevicePhasePsc(__int64 a1)
 {
   ULONG_PTR v1; // rbx

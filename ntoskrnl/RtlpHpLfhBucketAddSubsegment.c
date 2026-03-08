@@ -1,3 +1,20 @@
+/*
+ * XREFs of RtlpHpLfhBucketAddSubsegment @ 0x14030A880
+ * Callers:
+ *     RtlpHpLfhSubsegmentFreeBlock @ 0x140309BA0 (RtlpHpLfhSubsegmentFreeBlock.c)
+ *     RtlpHpLfhSlotAllocate @ 0x140310BA0 (RtlpHpLfhSlotAllocate.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpLfhSubsegmentFree @ 0x1402EB198 (RtlpHpLfhSubsegmentFree.c)
+ *     RtlpHpLfhSubsegmentSetOwner @ 0x14030AA5C (RtlpHpLfhSubsegmentSetOwner.c)
+ *     RtlpHpLfhOwnerMoveSubsegment @ 0x14030AA84 (RtlpHpLfhOwnerMoveSubsegment.c)
+ *     RtlpHpAcquireLockExclusive @ 0x14030ABA4 (RtlpHpAcquireLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall RtlpHpLfhBucketAddSubsegment(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
   __int64 v5; // rbx

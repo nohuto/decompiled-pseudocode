@@ -1,3 +1,18 @@
+/*
+ * XREFs of rimObsDeliverToNonExclusiveObservers @ 0x1C00046F0
+ * Callers:
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0003AE4 (rimProcessDeviceBufferAndStartRead.c)
+ *     rimProcessInput @ 0x1C00045B0 (rimProcessInput.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimObsIsObserverTarget_0 @ 0x1C01DA9A4 (rimObsIsObserverTarget_0.c)
+ *     rimObsIsRegisteredObserverAllowed @ 0x1C01DA9E0 (rimObsIsRegisteredObserverAllowed.c)
+ *     rimObsDeliverInputToObserver @ 0x1C01DBC24 (rimObsDeliverInputToObserver.c)
+ */
+
 void __fastcall rimObsDeliverToNonExclusiveObservers(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CalculateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEAVCAnimationTimeList@2@_KPEA_KPEA_NPEA_J2@Z @ 0x1C00BA67C
+ * Callers:
+ *     ?UpdateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAX_K@Z @ 0x1C00BA5EC (-UpdateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAX_K@Z.c)
+ *     ?GetAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEA_NPEA_JPEA_K@Z @ 0x1C024CF60 (-GetAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEA_NPEA_JPEA_K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DirectComposition::CAnimationMarshaler::CalculateAnimationTimeState(
         DirectComposition::CAnimationMarshaler *this,
         struct DirectComposition::CAnimationTimeList *a2,

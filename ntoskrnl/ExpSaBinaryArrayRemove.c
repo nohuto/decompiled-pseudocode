@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpSaBinaryArrayRemove @ 0x1403D00EC
+ * Callers:
+ *     ExpSaPageGroupDescriptorAllocate @ 0x1403BFEBC (ExpSaPageGroupDescriptorAllocate.c)
+ *     ExpSaPageGroupDescriptorFree @ 0x1403CFF54 (ExpSaPageGroupDescriptorFree.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall ExpSaBinaryArrayRemove(__int64 a1, unsigned int a2)
 {
   unsigned int v3; // ecx

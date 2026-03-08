@@ -1,3 +1,36 @@
+/*
+ * XREFs of MmDuplicateMemory @ 0x140AA96DC
+ * Callers:
+ *     IopLiveDumpCapture @ 0x14094AEEC (IopLiveDumpCapture.c)
+ *     MmCreateMirror @ 0x140A2C460 (MmCreateMirror.c)
+ *     PnprInitiateReplaceOperation @ 0x140A99894 (PnprInitiateReplaceOperation.c)
+ *     PopTransitionToSleep @ 0x140AA21D0 (PopTransitionToSleep.c)
+ * Callees:
+ *     MmUnlockPagableImageSection @ 0x140225D90 (MmUnlockPagableImageSection.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     CcNotifyWriteBehind @ 0x1405345B8 (CcNotifyWriteBehind.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockDynamicMemoryExclusive @ 0x140619164 (MiLockDynamicMemoryExclusive.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x140619B70 (MiUnlockDynamicMemoryExclusive.c)
+ *     MiMirrorBlackPhase @ 0x1406247B4 (MiMirrorBlackPhase.c)
+ *     MiMirrorVerify @ 0x1406261B0 (MiMirrorVerify.c)
+ *     MiResumeFromHibernate @ 0x1406263EC (MiResumeFromHibernate.c)
+ *     MiLockAllMemoryLists @ 0x14064E354 (MiLockAllMemoryLists.c)
+ *     MiUnlockAllMemoryLists @ 0x140650214 (MiUnlockAllMemoryLists.c)
+ *     MmLockPagableSectionByHandle @ 0x1406A7BD0 (MmLockPagableSectionByHandle.c)
+ *     MiActOnMirrorBitmap @ 0x140A2C318 (MiActOnMirrorBitmap.c)
+ *     MiUpdateMirrorBitmaps @ 0x140A2C418 (MiUpdateMirrorBitmaps.c)
+ *     MiMirrorBrownPhase @ 0x140AA94BC (MiMirrorBrownPhase.c)
+ */
+
 NTSTATUS __fastcall MmDuplicateMemory(__int64 a1)
 {
   int v1; // edx

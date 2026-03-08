@@ -1,3 +1,13 @@
+/*
+ * XREFs of _lambda_90059f71cfa5f8b5cb7e7949f1719e3b_::_lambda_invoker_cdecl_ @ 0x1C00DF130
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?UnLockExclusive@CInpPushLock@@QEAAXXZ @ 0x1C00397E0 (-UnLockExclusive@CInpPushLock@@QEAAXXZ.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void __fastcall lambda_90059f71cfa5f8b5cb7e7949f1719e3b_::_lambda_invoker_cdecl_(__int64 a1)
 {
   void *v2; // rcx

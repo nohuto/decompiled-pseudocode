@@ -1,3 +1,15 @@
+/*
+ * XREFs of KeWriteProtectProcessorState @ 0x140A8E420
+ * Callers:
+ *     MakeGdtReadOnly @ 0x1403A90CC (MakeGdtReadOnly.c)
+ *     KiDynamicProcessorInitialization @ 0x140569868 (KiDynamicProcessorInitialization.c)
+ * Callees:
+ *     MmSetPageProtection @ 0x1403BCCE0 (MmSetPageProtection.c)
+ *     KeBugCheck @ 0x140415FE0 (KeBugCheck.c)
+ *     VslFinishStartSecureProcessor @ 0x140548B00 (VslFinishStartSecureProcessor.c)
+ *     KiShadowProcessorAllocation @ 0x140A8666C (KiShadowProcessorAllocation.c)
+ */
+
 char __fastcall KeWriteProtectProcessorState(__int64 *a1)
 {
   __int64 v1; // rsi

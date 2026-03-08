@@ -1,3 +1,51 @@
+/*
+ * XREFs of VidSchiProfilePerformanceTick @ 0x1C0006E50
+ * Callers:
+ *     VidSchiSubmitCommandPacketToQueue @ 0x1C0003280 (VidSchiSubmitCommandPacketToQueue.c)
+ *     VidSchSignalSyncObjectsFromGpu @ 0x1C00040E0 (VidSchSignalSyncObjectsFromGpu.c)
+ *     VidSchiProcessDpcCompletedPacket @ 0x1C0004B90 (VidSchiProcessDpcCompletedPacket.c)
+ *     ?VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z @ 0x1C00055E0 (-VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z.c)
+ *     VidSchiScheduleCommandToRun @ 0x1C0006850 (VidSchiScheduleCommandToRun.c)
+ *     VidSchiSelectContext @ 0x1C0006BC0 (VidSchiSelectContext.c)
+ *     VidSchiSwitchContextWithCheck @ 0x1C0007A60 (VidSchiSwitchContextWithCheck.c)
+ *     VidSchiSendToExecutionQueue @ 0x1C0008D50 (VidSchiSendToExecutionQueue.c)
+ *     VidSchiCheckPreemptionPolicy @ 0x1C00095E0 (VidSchiCheckPreemptionPolicy.c)
+ *     VidSchiProcessIsrCompletedPacket @ 0x1C000B650 (VidSchiProcessIsrCompletedPacket.c)
+ *     VidSchiProcessDpcPreemptedPacket @ 0x1C000FCEC (VidSchiProcessDpcPreemptedPacket.c)
+ *     VidSchiProcessDpcSystemRequest @ 0x1C00100E4 (VidSchiProcessDpcSystemRequest.c)
+ *     VidSchiProcessIsrPreemptedPacket @ 0x1C00175D0 (VidSchiProcessIsrPreemptedPacket.c)
+ *     VidSchiNeedToForcePreemptNode @ 0x1C0017AA4 (VidSchiNeedToForcePreemptNode.c)
+ *     ?VidSchiFreeCompletedHwQueuePacket@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C001CC2E (-VidSchiFreeCompletedHwQueuePacket@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     VidSchiSubmitCommandPacketToHwQueue @ 0x1C001DC60 (VidSchiSubmitCommandPacketToHwQueue.c)
+ *     VidSchiProcessIsrFaultedPacket @ 0x1C003AE5C (VidSchiProcessIsrFaultedPacket.c)
+ *     VidSchiReadCommandFromContextQueue @ 0x1C003B4EC (VidSchiReadCommandFromContextQueue.c)
+ *     VidSchiCompletePendingCommandInNodeHwQueue @ 0x1C0047148 (VidSchiCompletePendingCommandInNodeHwQueue.c)
+ *     VidSchiWaitForSchedulerEvents @ 0x1C00A5590 (VidSchiWaitForSchedulerEvents.c)
+ *     VidSchiWaitForDrainFlipQueue @ 0x1C00B5A88 (VidSchiWaitForDrainFlipQueue.c)
+ *     VidSchiWaitForCompletePreemption @ 0x1C01072AC (VidSchiWaitForCompletePreemption.c)
+ *     VidSchiWaitForEmptyHwQueue @ 0x1C0107370 (VidSchiWaitForEmptyHwQueue.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C00023B8 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ?VidSchiFlushGpuWorkEntries@@YAXPEAU_VIDSCH_CONTEXT@@@Z @ 0x1C0011A3C (-VidSchiFlushGpuWorkEntries@@YAXPEAU_VIDSCH_CONTEXT@@@Z.c)
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C001BE4A (McTemplateK0q_EtwWriteTransfer.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C002EF24 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C002EF9C (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     McTemplateK0ppqqqPR4PR4_EtwWriteTransfer @ 0x1C0037F38 (McTemplateK0ppqqqPR4PR4_EtwWriteTransfer.c)
+ *     McTemplateK0ppqxqpq_EtwWriteTransfer @ 0x1C0038108 (McTemplateK0ppqxqpq_EtwWriteTransfer.c)
+ *     McTemplateK0pqqPR2p_EtwWriteTransfer @ 0x1C0038528 (McTemplateK0pqqPR2p_EtwWriteTransfer.c)
+ *     McTemplateK0pqqpxp_EtwWriteTransfer @ 0x1C0038A84 (McTemplateK0pqqpxp_EtwWriteTransfer.c)
+ *     McTemplateK0pqqqPR3XR3p_EtwWriteTransfer @ 0x1C0038C38 (McTemplateK0pqqqPR3XR3p_EtwWriteTransfer.c)
+ *     McTemplateK0pqqttp_EtwWriteTransfer @ 0x1C0038F48 (McTemplateK0pqqttp_EtwWriteTransfer.c)
+ *     McTemplateK0pqqxqqtppx_EtwWriteTransfer @ 0x1C0039290 (McTemplateK0pqqxqqtppx_EtwWriteTransfer.c)
+ *     McTemplateK0pqxqqqxqp_EtwWriteTransfer @ 0x1C0039528 (McTemplateK0pqxqqqxqp_EtwWriteTransfer.c)
+ *     McTemplateK0pqxqt_EtwWriteTransfer @ 0x1C003961C (McTemplateK0pqxqt_EtwWriteTransfer.c)
+ *     McTemplateK0qpqdqPR4XR4p_EtwWriteTransfer @ 0x1C003990C (McTemplateK0qpqdqPR4XR4p_EtwWriteTransfer.c)
+ *     McTemplateK0qtpiixi_EtwWriteTransfer @ 0x1C0039D14 (McTemplateK0qtpiixi_EtwWriteTransfer.c)
+ */
+
 void __fastcall VidSchiProfilePerformanceTick(
         __int64 a1,
         __int64 a2,

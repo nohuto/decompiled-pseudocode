@@ -1,3 +1,13 @@
+/*
+ * XREFs of WbCreateWarbirdProcess @ 0x1407987BC
+ * Callers:
+ *     WbGetWarbirdProcess @ 0x1406AEEB8 (WbGetWarbirdProcess.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     sub_1406AF0D8 @ 0x1406AF0D8 (sub_1406AF0D8.c)
+ *     WbAlloc @ 0x1406AF510 (WbAlloc.c)
+ */
+
 __int64 __fastcall WbCreateWarbirdProcess(__int64 a1, _QWORD *a2)
 {
   volatile signed __int64 *v4; // rdi

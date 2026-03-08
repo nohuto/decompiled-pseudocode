@@ -1,3 +1,15 @@
+/*
+ * XREFs of CiSchedulerUpdateTimer @ 0x1C0002050
+ * Callers:
+ *     CiSchedulerProcessDeadlines @ 0x1C0001250 (CiSchedulerProcessDeadlines.c)
+ *     CiSchedulerSleep @ 0x1C00014A0 (CiSchedulerSleep.c)
+ *     CiSchedulerWait @ 0x1C0001680 (CiSchedulerWait.c)
+ *     CiSchedulerRemoveTaskIndex @ 0x1C0002B60 (CiSchedulerRemoveTaskIndex.c)
+ *     CiSchedulerPostSuspend @ 0x1C0004D88 (CiSchedulerPostSuspend.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CiSchedulerUpdateTimer(unsigned __int64 a1)
 {
   __int64 DeviceObjectExtension; // rax

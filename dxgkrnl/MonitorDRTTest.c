@@ -1,3 +1,15 @@
+/*
+ * XREFs of MonitorDRTTest @ 0x1C03BF2F0
+ * Callers:
+ *     ?DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z @ 0x1C030302C (-DxgkDrtTestEscape@@YAJPEAVDXGADAPTER@@PEAU_D3DKMT_DRT_ESCAPE_HEAD@@PEAVCOREADAPTERACCESS@@@Z.c)
+ * Callees:
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00070C4 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?DmmEnableModeResetOnMonitorEvent@@YAJQEAXE@Z @ 0x1C03A81C0 (-DmmEnableModeResetOnMonitorEvent@@YAJQEAXE@Z.c)
+ *     MonitorCreateSimulatedMonitor @ 0x1C03BF180 (MonitorCreateSimulatedMonitor.c)
+ *     MonitorDestroySimulatedMonitor @ 0x1C03BF480 (MonitorDestroySimulatedMonitor.c)
+ *     ?_DRTGetTargetInformation@MONITOR_MGR@@QEAAJPEAU_D3DKMT_DRT_MONITOR@@@Z @ 0x1C03C3044 (-_DRTGetTargetInformation@MONITOR_MGR@@QEAAJPEAU_D3DKMT_DRT_MONITOR@@@Z.c)
+ */
+
 __int64 __fastcall MonitorDRTTest(
         DXGADAPTER *this,
         struct _D3DKMT_DRT_MONITOR *a2,

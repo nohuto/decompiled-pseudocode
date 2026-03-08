@@ -1,3 +1,13 @@
+/*
+ * XREFs of DNG_DrawRow @ 0x1C0081850
+ * Callers:
+ *     DNG_StretchCol @ 0x1C00034CC (DNG_StretchCol.c)
+ *     RenderNineGridInternal @ 0x1C0080D30 (RenderNineGridInternal.c)
+ * Callees:
+ *     DNG_StretchRow @ 0x1C0080318 (DNG_StretchRow.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 unsigned __int64 __fastcall DNG_DrawRow(__int64 a1)
 {
   int v1; // eax

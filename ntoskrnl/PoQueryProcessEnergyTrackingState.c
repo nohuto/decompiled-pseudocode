@@ -1,3 +1,14 @@
+/*
+ * XREFs of PoQueryProcessEnergyTrackingState @ 0x1409955A8
+ * Callers:
+ *     NtQueryInformationProcess @ 0x1407215F0 (NtQueryInformationProcess.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     RtlStringCchCopyNW @ 0x140303EF8 (RtlStringCchCopyNW.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void __fastcall PoQueryProcessEnergyTrackingState(__int64 a1, __int64 a2)
 {
   __int64 v4; // rbx

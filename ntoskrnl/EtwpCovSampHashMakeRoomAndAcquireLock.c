@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwpCovSampHashMakeRoomAndAcquireLock @ 0x1408A4B3A
+ * Callers:
+ *     EtwpCovSampContextAddSamples @ 0x1408A4190 (EtwpCovSampContextAddSamples.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     EtwpCovSampHashLookupInTable @ 0x1408A4A72 (EtwpCovSampHashLookupInTable.c)
+ *     EtwpCoverageSamplerAllocateTable @ 0x1409F00DC (EtwpCoverageSamplerAllocateTable.c)
+ *     EtwpCoverageSamplerFreeTable @ 0x1409F0328 (EtwpCoverageSamplerFreeTable.c)
+ */
+
 __int64 __fastcall EtwpCovSampHashMakeRoomAndAcquireLock(ULONG_PTR BugCheckParameter2, int a2, __int64 **a3)
 {
   struct _KTHREAD *CurrentThread; // rax

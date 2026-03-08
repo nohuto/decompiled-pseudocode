@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?PowerPolStartingDecideS0Wake@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_POLICY_STATE@@PEAV1@@Z @ 0x1C007B700
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SaveState@FxPkgPnp@@IEAAXE@Z @ 0x1C0075808 (-SaveState@FxPkgPnp@@IEAAXE@Z.c)
+ *     ?PowerPolicyChildrenCanPowerUp@FxPkgPnp@@AEAAXXZ @ 0x1C007D1B4 (-PowerPolicyChildrenCanPowerUp@FxPkgPnp@@AEAAXXZ.c)
+ */
+
 __int64 __fastcall FxPkgPnp::PowerPolStartingDecideS0Wake(FxPkgPnp *This)
 {
   FxPowerPolicyOwnerSettings *m_Owner; // rcx

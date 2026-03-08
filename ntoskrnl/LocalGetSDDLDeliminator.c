@@ -1,3 +1,12 @@
+/*
+ * XREFs of LocalGetSDDLDeliminator @ 0x140750C60
+ * Callers:
+ *     LocalGetAclForString @ 0x14074F18C (LocalGetAclForString.c)
+ * Callees:
+ *     wcschr @ 0x1403D5D90 (wcschr.c)
+ *     FContainCallBackAce @ 0x140750D80 (FContainCallBackAce.c)
+ */
+
 __int64 __fastcall LocalGetSDDLDeliminator(wchar_t *Str, _QWORD *a2)
 {
   BOOL v3; // ebp

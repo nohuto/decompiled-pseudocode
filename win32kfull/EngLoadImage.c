@@ -1,3 +1,11 @@
+/*
+ * XREFs of EngLoadImage @ 0x1C026EF70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 HANDLE __stdcall EngLoadImage(LPWSTR pwszDriver)
 {
   struct Gre::Base::SESSION_GLOBALS *v2; // rdi

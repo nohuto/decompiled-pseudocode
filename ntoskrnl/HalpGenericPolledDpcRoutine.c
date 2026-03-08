@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpGenericPolledDpcRoutine @ 0x1402F8140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ */
+
 void __fastcall HalpGenericPolledDpcRoutine(
         struct _KDPC *Dpc,
         char *DeferredContext,

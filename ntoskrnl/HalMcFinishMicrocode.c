@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalMcFinishMicrocode @ 0x1403ABA24
+ * Callers:
+ *     HalpProcInitSystem @ 0x140A878D0 (HalpProcInitSystem.c)
+ * Callees:
+ *     HalpMcUpdateFindDataTableEntry @ 0x1403719E0 (HalpMcUpdateFindDataTableEntry.c)
+ *     HalpIsPartitionCpuManager @ 0x1403732F8 (HalpIsPartitionCpuManager.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     MmGetSystemRoutineAddress @ 0x1407EA850 (MmGetSystemRoutineAddress.c)
+ *     HalpMcExportAndChargeNeededData @ 0x14085CB10 (HalpMcExportAndChargeNeededData.c)
+ */
+
 char __fastcall HalMcFinishMicrocode(__int64 a1, __int64 a2)
 {
   __int64 (__fastcall *DataTableEntry)(_QWORD); // rax

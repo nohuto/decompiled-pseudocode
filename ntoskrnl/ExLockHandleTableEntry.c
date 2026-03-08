@@ -1,3 +1,19 @@
+/*
+ * XREFs of ExLockHandleTableEntry @ 0x140352148
+ * Callers:
+ *     NtWriteFile @ 0x1406B3A60 (NtWriteFile.c)
+ *     PspReferenceCidTableEntry @ 0x1406DC0A0 (PspReferenceCidTableEntry.c)
+ *     ExDupHandleTable @ 0x140705D54 (ExDupHandleTable.c)
+ *     ObWaitForMultipleObjects @ 0x1407D79B0 (ObWaitForMultipleObjects.c)
+ *     ExMapHandleToPointer @ 0x1407D80C0 (ExMapHandleToPointer.c)
+ *     ObpReferenceObjectByHandle @ 0x1407DF424 (ObpReferenceObjectByHandle.c)
+ *     ExpSnapShotHandleTables @ 0x1408A6B82 (ExpSnapShotHandleTables.c)
+ *     ObpAuditObjectAccess @ 0x140979114 (ObpAuditObjectAccess.c)
+ *     ExQueryProcessHandleInformation @ 0x1409F60F4 (ExQueryProcessHandleInformation.c)
+ * Callees:
+ *     ExpBlockOnLockedHandleEntry @ 0x140749B5C (ExpBlockOnLockedHandleEntry.c)
+ */
+
 char __fastcall ExLockHandleTableEntry(__int64 a1, _QWORD *a2)
 {
   signed __int64 v4; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpCompareInstancePath @ 0x14076B1E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlCompareUnicodeString @ 0x1406EA3B0 (RtlCompareUnicodeString.c)
+ */
+
 __int64 __fastcall PnpCompareInstancePath(
         struct _RTL_AVL_TABLE *Table,
         PCUNICODE_STRING *FirstStruct,

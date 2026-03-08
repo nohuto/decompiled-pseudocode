@@ -1,3 +1,12 @@
+/*
+ * XREFs of FsRtlFindFirstOverlapInNode @ 0x14053AFE4
+ * Callers:
+ *     FsRtlCheckNoSharedConflict @ 0x140200DCC (FsRtlCheckNoSharedConflict.c)
+ *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x1402C30F4 (FsRtlPrivateCheckForExclusiveLockAccess.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall FsRtlFindFirstOverlapInNode(_QWORD *a1, unsigned __int64 *a2, unsigned __int64 *a3)
 {
   _QWORD *result; // rax

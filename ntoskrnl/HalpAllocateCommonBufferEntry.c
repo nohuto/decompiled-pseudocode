@@ -1,3 +1,20 @@
+/*
+ * XREFs of HalpAllocateCommonBufferEntry @ 0x14038D0B4
+ * Callers:
+ *     HalpAllocateCommonBufferDmaThin @ 0x14038CE84 (HalpAllocateCommonBufferDmaThin.c)
+ *     HalCreateCommonBufferFromMdl @ 0x14050FA20 (HalCreateCommonBufferFromMdl.c)
+ *     HalpAllocateDomainCommonBufferInternal @ 0x14050FF60 (HalpAllocateDomainCommonBufferInternal.c)
+ *     HalCreateCommonBufferFromMdlDmaThin @ 0x140510B70 (HalCreateCommonBufferFromMdlDmaThin.c)
+ *     HalCreateCommonBufferFromMdlDmarThin @ 0x140511380 (HalCreateCommonBufferFromMdlDmarThin.c)
+ *     HalpAllocateCommonBufferDmarThin @ 0x1405116E8 (HalpAllocateCommonBufferDmarThin.c)
+ * Callees:
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall HalpAllocateCommonBufferEntry(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4, char a5)
 {
   __int64 Pool2; // rax

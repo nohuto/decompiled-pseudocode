@@ -1,3 +1,20 @@
+/*
+ * XREFs of EtwGetKernelTraceTimestampSilo @ 0x140250570
+ * Callers:
+ *     KiIpiSendRequest @ 0x140233230 (KiIpiSendRequest.c)
+ *     KiExpireTimer2 @ 0x14024FED0 (KiExpireTimer2.c)
+ *     EtwGetKernelTraceTimestamp @ 0x140250530 (EtwGetKernelTraceTimestamp.c)
+ *     KiExecuteAllDpcs @ 0x140252F60 (KiExecuteAllDpcs.c)
+ *     KiIpiProcessRequests @ 0x1402CB4E0 (KiIpiProcessRequests.c)
+ *     PfHardFaultRecord @ 0x140344BD4 (PfHardFaultRecord.c)
+ *     HvcallFastExtended @ 0x1403C6CA0 (HvcallFastExtended.c)
+ *     HvlSendSyntheticClusterIpi @ 0x1403C6D90 (HvlSendSyntheticClusterIpi.c)
+ * Callees:
+ *     RtlGetSystemTimePrecise @ 0x140205310 (RtlGetSystemTimePrecise.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall EtwGetKernelTraceTimestampSilo(LARGE_INTEGER *a1, unsigned int a2, __int64 a3)
 {
   unsigned __int64 v3; // r10

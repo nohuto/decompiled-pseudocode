@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_GetColorGamutTriangleArea@MonitorColorState@DxgMonitor@@CANNNNNNN@Z @ 0x1C01FCA8C
+ * Callers:
+ *     ?_GetColorPrimariesType@MonitorColorState@DxgMonitor@@AEBA?AW4ColorPrimaryType@12@XZ @ 0x1C01FCC08 (-_GetColorPrimariesType@MonitorColorState@DxgMonitor@@AEBA-AW4ColorPrimaryType@12@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 double __fastcall DxgMonitor::MonitorColorState::_GetColorGamutTriangleArea(
         double a1,
         double a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of WMI_AcquireHubName @ 0x1C008B7AC
+ * Callers:
+ *     WMI_ExecuteMethodUsbWmiStdData @ 0x1C008BE50 (WMI_ExecuteMethodUsbWmiStdData.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     HUBMISC_StripSymbolicNamePrefix @ 0x1C0033784 (HUBMISC_StripSymbolicNamePrefix.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 __int64 __fastcall WMI_AcquireHubName(__int64 a1, unsigned int a2, _DWORD *a3, __int64 a4)
 {
   unsigned int v4; // r14d

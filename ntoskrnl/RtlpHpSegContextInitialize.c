@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlpHpSegContextInitialize @ 0x140375540
+ * Callers:
+ *     RtlpHpHeapCreate @ 0x140375288 (RtlpHpHeapCreate.c)
+ * Callees:
+ *     RtlpHpQueryVA @ 0x140309578 (RtlpHpQueryVA.c)
+ *     RtlpHpSegMgrVaCtxInsert @ 0x14030C1E4 (RtlpHpSegMgrVaCtxInsert.c)
+ *     RtlpHpSegMgrVaCtxInitialize @ 0x14030C2C4 (RtlpHpSegMgrVaCtxInitialize.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void __fastcall RtlpHpSegContextInitialize(
         __int64 *a1,
         unsigned int a2,

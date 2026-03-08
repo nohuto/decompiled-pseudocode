@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReportBlockStates@VIDMM_RECYCLE_HEAP@@QEAAXXZ @ 0x1C00F66D4
+ * Callers:
+ *     ?ReportHeapStates@VIDMM_RECYCLE_HEAP_MGR@@QEAAXXZ @ 0x1C00F6780 (-ReportHeapStates@VIDMM_RECYCLE_HEAP_MGR@@QEAAXXZ.c)
+ * Callees:
+ *     McTemplateK0pxqqt_EtwWriteTransfer @ 0x1C003234C (McTemplateK0pxqqt_EtwWriteTransfer.c)
+ *     ?ReportStates@VIDMM_RECYCLE_BLOCK@@QEAAXXZ @ 0x1C00C492A (-ReportStates@VIDMM_RECYCLE_BLOCK@@QEAAXXZ.c)
+ */
+
 void __fastcall VIDMM_RECYCLE_HEAP::ReportBlockStates(VIDMM_RECYCLE_HEAP *this, __int64 a2, __int64 a3)
 {
   char *v3; // rdi

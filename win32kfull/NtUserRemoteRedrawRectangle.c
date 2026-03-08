@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserRemoteRedrawRectangle @ 0x1C01DABB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     RemoteRedrawRectangle @ 0x1C01F6C78 (RemoteRedrawRectangle.c)
+ */
+
 __int64 __fastcall NtUserRemoteRedrawRectangle(unsigned int a1, unsigned int a2, unsigned int a3, unsigned int a4)
 {
   __int64 v8; // rdx

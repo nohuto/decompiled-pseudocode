@@ -1,3 +1,12 @@
+/*
+ * XREFs of imp_WdfUsbTargetPipeReadSynchronously @ 0x1C0056E20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_IFR_SF_q @ 0x1C0018194 (WPP_IFR_SF_q.c)
+ *     ?_SendTransfer@FxUsbPipe@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFUSBPIPE__@@PEAUWDFREQUEST__@@PEAU_WDF_REQUEST_SEND_OPTIONS@@PEAU_WDF_MEMORY_DESCRIPTOR@@PEAKK@Z @ 0x1C005B4E0 (-_SendTransfer@FxUsbPipe@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAUWDFUSBPIPE__@@PEAUWDFREQUEST__@@PEAU_WD.c)
+ */
+
 int __fastcall imp_WdfUsbTargetPipeReadSynchronously(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFUSBPIPE__ *Pipe,

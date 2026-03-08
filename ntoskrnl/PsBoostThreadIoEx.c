@@ -1,3 +1,42 @@
+/*
+ * XREFs of PsBoostThreadIoEx @ 0x1402634D0
+ * Callers:
+ *     CcApplyLowIoPriorityToThread @ 0x140219DB8 (CcApplyLowIoPriorityToThread.c)
+ *     CcAcquireByteRangeForWrite @ 0x14021A220 (CcAcquireByteRangeForWrite.c)
+ *     FsRtlpWaitForIoAtEof @ 0x140240CC0 (FsRtlpWaitForIoAtEof.c)
+ *     ExpReleaseResourceSharedForThreadLite @ 0x14025D990 (ExpReleaseResourceSharedForThreadLite.c)
+ *     PsBoostThreadIo @ 0x1402634B0 (PsBoostThreadIo.c)
+ *     ExpApplyPriorityBoost @ 0x140282C50 (ExpApplyPriorityBoost.c)
+ *     ExpSetResourceOwnerPointerEx @ 0x1402911D0 (ExpSetResourceOwnerPointerEx.c)
+ *     FsRtlReleaseEofLock @ 0x1402C3460 (FsRtlReleaseEofLock.c)
+ *     ExReinitializeResourceLite @ 0x1402CB110 (ExReinitializeResourceLite.c)
+ *     ExEnterPriorityRegionAndAcquireResourceShared @ 0x1402CD140 (ExEnterPriorityRegionAndAcquireResourceShared.c)
+ *     PsLeavePriorityRegion @ 0x1402CFB50 (PsLeavePriorityRegion.c)
+ *     PsEnterPriorityRegion @ 0x1402D3110 (PsEnterPriorityRegion.c)
+ *     KiAbThreadUnboostIoPriority @ 0x1402D9F48 (KiAbThreadUnboostIoPriority.c)
+ *     FsRtlpModifyThreadPriorities @ 0x1402ECCB4 (FsRtlpModifyThreadPriorities.c)
+ *     FsRtlpDoBoost @ 0x1402ECD68 (FsRtlpDoBoost.c)
+ *     CcBoostLowPriorityWorkerThread @ 0x140300D74 (CcBoostLowPriorityWorkerThread.c)
+ *     ExDeleteResourceLite @ 0x140336580 (ExDeleteResourceLite.c)
+ *     CcUnpinFileDataEx @ 0x140337E50 (CcUnpinFileDataEx.c)
+ *     ExpFreeOwnerEntry @ 0x14033B150 (ExpFreeOwnerEntry.c)
+ *     ExpReleaseResourceExclusiveForThreadLite @ 0x14033B5E0 (ExpReleaseResourceExclusiveForThreadLite.c)
+ *     ExpBoostIoAfterAcquire @ 0x140356B60 (ExpBoostIoAfterAcquire.c)
+ *     KiAbThreadBoostIoPriority @ 0x140358384 (KiAbThreadBoostIoPriority.c)
+ *     IoBoostThreadIo @ 0x14036F310 (IoBoostThreadIo.c)
+ *     ExEnterPriorityRegionAndAcquireResourceExclusive @ 0x1406085D0 (ExEnterPriorityRegionAndAcquireResourceExclusive.c)
+ *     ExReleaseResourceAndLeavePriorityRegion @ 0x140608630 (ExReleaseResourceAndLeavePriorityRegion.c)
+ * Callees:
+ *     RtlCaptureStackBackTrace @ 0x140205C20 (RtlCaptureStackBackTrace.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiAbThreadInsertList @ 0x1402F45E0 (KiAbThreadInsertList.c)
+ *     KiAbQueueAutoBoostDpc @ 0x14035845C (KiAbQueueAutoBoostDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PsBoostThreadIoEx(__int64 a1, char a2, char a3, __int64 a4)
 {
   signed __int32 v4; // edi

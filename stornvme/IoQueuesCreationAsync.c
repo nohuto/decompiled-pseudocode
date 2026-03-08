@@ -1,3 +1,14 @@
+/*
+ * XREFs of IoQueuesCreationAsync @ 0x1C000A774
+ * Callers:
+ *     NVMeControllerInitPart2 @ 0x1C000D9F0 (NVMeControllerInitPart2.c)
+ * Callees:
+ *     CalculateTimeDurationIn100ns @ 0x1C0007370 (CalculateTimeDurationIn100ns.c)
+ *     IoQueuesFreeResources @ 0x1C000ADC4 (IoQueuesFreeResources.c)
+ *     NVMeIoCompletionQueueCreate @ 0x1C001EF80 (NVMeIoCompletionQueueCreate.c)
+ *     NVMeIoSubmissionQueueCreate @ 0x1C001F6B0 (NVMeIoSubmissionQueueCreate.c)
+ */
+
 char __fastcall IoQueuesCreationAsync(__int64 a1)
 {
   __int64 v1; // rbx

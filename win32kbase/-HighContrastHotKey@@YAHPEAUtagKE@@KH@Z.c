@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?HighContrastHotKey@@YAHPEAUtagKE@@KH@Z @ 0x1C01E4320
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PostWinlogonMessage @ 0x1C0090D50 (PostWinlogonMessage.c)
+ *     ApiSetEditionPostAccessibilityShortcutNotification @ 0x1C02416C0 (ApiSetEditionPostAccessibilityShortcutNotification.c)
+ *     ApiSetEditionPostRitSound @ 0x1C0241DC8 (ApiSetEditionPostRitSound.c)
+ */
+
 __int64 __fastcall HighContrastHotKey(struct tagKE *a1)
 {
   char v1; // r8

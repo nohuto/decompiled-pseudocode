@@ -1,3 +1,11 @@
+/*
+ * XREFs of TelemetryData_pDeleteDumpFile @ 0x1C007B204
+ * Callers:
+ *     TelemetryData_SubmitReport @ 0x1C007AF58 (TelemetryData_SubmitReport.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall TelemetryData_pDeleteDumpFile(__int64 a1)
 {
   _WORD *v1; // rbx

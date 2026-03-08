@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Release@?$CMILRefCountBaseT@VCRenderingEffect@@@@UEAAKXZ @ 0x1800D4B10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x180279008 (-IsKernelDebuggerPresent@@YAHXZ.c)
+ */
+
 __int64 __fastcall CMILRefCountBaseT<CRenderingEffect>::Release(volatile signed __int32 *a1)
 {
   unsigned __int32 v2; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeSanitizeCommandCompletion @ 0x1C0017D20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     NVMeQueueWorkItem @ 0x1C0016B88 (NVMeQueueWorkItem.c)
+ */
+
 __int16 __fastcall NVMeSanitizeCommandCompletion(__int64 a1, __int64 a2)
 {
   __int64 SrbExtension; // rax

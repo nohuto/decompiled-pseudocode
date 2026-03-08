@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_IFR_SF_DDDDDDD @ 0x1C00767B8
+ * Callers:
+ *     ?PnpDeviceUsageNotification@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z @ 0x1C0073678 (-PnpDeviceUsageNotification@FxPkgPnp@@IEAAJPEAVFxIrp@@@Z.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_DDDDDDD(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 _a1,

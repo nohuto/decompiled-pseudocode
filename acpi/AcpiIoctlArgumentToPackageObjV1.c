@@ -1,3 +1,13 @@
+/*
+ * XREFs of AcpiIoctlArgumentToPackageObjV1 @ 0x1C003157C
+ * Callers:
+ *     ACPIIoctlEvalPreProcessingV1 @ 0x1C002FE58 (ACPIIoctlEvalPreProcessingV1.c)
+ *     ACPIIoctlEvalPreProcessingV1Ex @ 0x1C0030194 (ACPIIoctlEvalPreProcessingV1Ex.c)
+ *     AcpiIoctlArgumentToPackageObjV1 @ 0x1C003157C (AcpiIoctlArgumentToPackageObjV1.c)
+ * Callees:
+ *     AcpiIoctlArgumentToPackageObjV1 @ 0x1C003157C (AcpiIoctlArgumentToPackageObjV1.c)
+ */
+
 __int64 __fastcall AcpiIoctlArgumentToPackageObjV1(_WORD *a1, __int64 a2, char a3, unsigned int *a4, PVOID *a5)
 {
   __int64 v7; // rbx

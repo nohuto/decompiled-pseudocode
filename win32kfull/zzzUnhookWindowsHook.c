@@ -1,3 +1,19 @@
+/*
+ * XREFs of zzzUnhookWindowsHook @ 0x1C01BCE2C
+ * Callers:
+ *     NtUserUnhookWindowsHook @ 0x1C01E0380 (NtUserUnhookWindowsHook.c)
+ * Callees:
+ *     PhkFirstValid @ 0x1C00368A8 (PhkFirstValid.c)
+ *     PhkNextValid @ 0x1C0039A4C (PhkNextValid.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C003F908 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     zzzUnhookWindowsHookEx @ 0x1C009C50C (zzzUnhookWindowsHookEx.c)
+ *     ??1?$ObjectLock@$$V@?$DomainExclusive@VDLT_HOOK@@@?$DomainShared@$$V@@QEAA@XZ @ 0x1C009DA74 (--1-$ObjectLock@$$V@-$DomainExclusive@VDLT_HOOK@@@-$DomainShared@$$V@@QEAA@XZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall zzzUnhookWindowsHook(int a1, __int64 a2)
 {
   unsigned int DLT; // eax

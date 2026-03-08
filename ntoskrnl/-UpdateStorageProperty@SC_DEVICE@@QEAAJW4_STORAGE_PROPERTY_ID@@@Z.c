@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z @ 0x14067464C
+ * Callers:
+ *     ?Initialize@SC_DISK@@UEAAJXZ @ 0x1406732C0 (-Initialize@SC_DISK@@UEAAJXZ.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ?GetStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@PEAPEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x140674348 (-GetStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@PEAPEAU_STORAGE_DESCRIPTOR_HEADER@@@.c)
+ */
+
 __int64 __fastcall SC_DEVICE::UpdateStorageProperty(SC_DEVICE *this, enum _STORAGE_PROPERTY_ID a2)
 {
   int StorageProperty; // ebx

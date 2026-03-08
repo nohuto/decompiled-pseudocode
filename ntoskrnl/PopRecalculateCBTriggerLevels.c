@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopRecalculateCBTriggerLevels @ 0x14099300C
+ * Callers:
+ *     PopBatteryApplyCompositeState @ 0x14086E430 (PopBatteryApplyCompositeState.c)
+ * Callees:
+ *     PopBatteryCheckTrigger @ 0x14086E6E0 (PopBatteryCheckTrigger.c)
+ *     PopDiagTraceBatteryTriggerFlags @ 0x14086E710 (PopDiagTraceBatteryTriggerFlags.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopRecalculateCBTriggerLevels(unsigned int a1)
 {
   unsigned int v1; // ebx

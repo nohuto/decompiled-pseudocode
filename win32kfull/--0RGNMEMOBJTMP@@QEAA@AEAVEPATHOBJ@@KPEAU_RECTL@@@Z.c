@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0RGNMEMOBJTMP@@QEAA@AEAVEPATHOBJ@@KPEAU_RECTL@@@Z @ 0x1C012FE3C
+ * Callers:
+ *     EngPlgBlt @ 0x1C0292140 (EngPlgBlt.c)
+ * Callees:
+ *     <none>
+ */
+
 RGNMEMOBJTMP *__fastcall RGNMEMOBJTMP::RGNMEMOBJTMP(
         RGNMEMOBJTMP *this,
         struct EPATHOBJ *a2,

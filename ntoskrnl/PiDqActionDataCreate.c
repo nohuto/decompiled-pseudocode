@@ -1,3 +1,18 @@
+/*
+ * XREFs of PiDqActionDataCreate @ 0x140746614
+ * Callers:
+ *     PiDqQuerySerializeActionQueue @ 0x140746290 (PiDqQuerySerializeActionQueue.c)
+ * Callees:
+ *     PiDqGetPnpObjectType @ 0x1406CCB4C (PiDqGetPnpObjectType.c)
+ *     PnpAllocatePWSTR @ 0x1406CD7F4 (PnpAllocatePWSTR.c)
+ *     PiDqActionDataFree @ 0x1407468D4 (PiDqActionDataFree.c)
+ *     PiDqActionDataGetRequestedProperties @ 0x140746928 (PiDqActionDataGetRequestedProperties.c)
+ *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x14083A4C8 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
+ *     PiDqActionDataGetChangedProperties @ 0x14083AC48 (PiDqActionDataGetChangedProperties.c)
+ *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x140958F20 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PiDqActionDataCreate(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
   int PWSTR; // ebx

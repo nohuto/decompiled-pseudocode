@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetPointerDevicePDO @ 0x1C01C4268
+ * Callers:
+ *     GetPointerDeviceKey @ 0x1C01AB10C (GetPointerDeviceKey.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetPointerDevicePDO(PDEVICE_OBJECT DeviceObject, _QWORD *a2)
 {
   PIRP v4; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiRemoveEntryFromImportList @ 0x140A2838C
+ * Callers:
+ *     MiActOnPatchInAllSessions @ 0x140A31950 (MiActOnPatchInAllSessions.c)
+ * Callees:
+ *     MiCompressImportList @ 0x14078AB10 (MiCompressImportList.c)
+ */
+
 __int64 __fastcall MiRemoveEntryFromImportList(_QWORD *a1, __int64 a2)
 {
   unsigned int v4; // edx

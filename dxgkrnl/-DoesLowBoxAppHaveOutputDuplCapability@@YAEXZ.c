@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DoesLowBoxAppHaveOutputDuplCapability@@YAEXZ @ 0x1C0326A30
+ * Callers:
+ *     DxgkCreateOutputDupl @ 0x1C032B210 (DxgkCreateOutputDupl.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 DoesLowBoxAppHaveOutputDuplCapability(void)
 {
   char v0; // bl

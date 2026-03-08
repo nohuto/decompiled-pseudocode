@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiLocatePhysicalViewInTree @ 0x1406489F4
+ * Callers:
+ *     MiRemoveUserPhysicalPagesView @ 0x140A3F408 (MiRemoveUserPhysicalPagesView.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall MiLocatePhysicalViewInTree(unsigned __int64 a1, _QWORD *a2)
 {
   _QWORD *v2; // r8

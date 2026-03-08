@@ -1,3 +1,30 @@
+/*
+ * XREFs of DpiFdoHandleStopDevice @ 0x1C03973C0
+ * Callers:
+ *     DpiFdoHandleRemoveDevice @ 0x1C0396F80 (DpiFdoHandleRemoveDevice.c)
+ *     DpiFdoHandleSurpriseRemoval @ 0x1C03977F0 (DpiFdoHandleSurpriseRemoval.c)
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000B270 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ *     DpiRequestIoPowerState @ 0x1C01E2390 (DpiRequestIoPowerState.c)
+ *     DpiFdoStopMiracastSession @ 0x1C01E2B40 (DpiFdoStopMiracastSession.c)
+ *     DxgkMiracastQueryMiracastSupportInternal @ 0x1C01F7DCC (DxgkMiracastQueryMiracastSupportInternal.c)
+ *     DpiPnpEnableVga @ 0x1C0209774 (DpiPnpEnableVga.c)
+ *     DxgkStartPnPTransition @ 0x1C020ACBC (DxgkStartPnPTransition.c)
+ *     DxgkCompletePnPTransition @ 0x1C0214FC4 (DxgkCompletePnPTransition.c)
+ *     ?Stop@DXGADAPTER@@QEAAXEE@Z @ 0x1C02B5558 (-Stop@DXGADAPTER@@QEAAXEE@Z.c)
+ *     ?NotifyAdapterRemoval@DXGGLOBAL@@QEAAXXZ @ 0x1C030E948 (-NotifyAdapterRemoval@DXGGLOBAL@@QEAAXXZ.c)
+ *     DpiEnableMsBddFallbackDriver @ 0x1C0395EF8 (DpiEnableMsBddFallbackDriver.c)
+ *     DpiFdoCloseDeviceFileObject @ 0x1C03967C8 (DpiFdoCloseDeviceFileObject.c)
+ *     DpiFdoStopAdapter @ 0x1C0398994 (DpiFdoStopAdapter.c)
+ *     DpiLdaStopAllAdaptersInChain @ 0x1C03A4294 (DpiLdaStopAllAdaptersInChain.c)
+ */
+
 __int64 __fastcall DpiFdoHandleStopDevice(struct _DEVICE_OBJECT *a1, IRP *a2)
 {
   __int64 v4; // rdi

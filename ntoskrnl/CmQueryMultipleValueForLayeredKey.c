@@ -1,3 +1,27 @@
+/*
+ * XREFs of CmQueryMultipleValueForLayeredKey @ 0x140A11200
+ * Callers:
+ *     CmQueryMultipleValueKey @ 0x1407A6F60 (CmQueryMultipleValueKey.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     CmpGetKeyNodeForKcb @ 0x1406B7CA4 (CmpGetKeyNodeForKcb.c)
+ *     CmpIsValueTombstone @ 0x1406BB868 (CmpIsValueTombstone.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpFindNameInListWithStatus @ 0x1407A8DA0 (CmpFindNameInListWithStatus.c)
+ *     CmpGetValueData @ 0x1407AAC20 (CmpGetValueData.c)
+ *     CmpUnlockKcbStack @ 0x1407ABFF8 (CmpUnlockKcbStack.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1407AF294 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpLockKcbStackShared @ 0x1407AF490 (CmpLockKcbStackShared.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1407AF600 (CmpGetKcbAtLayerHeight.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     CmpPerformKeyBodyDeletionCheck @ 0x140AF24F0 (CmpPerformKeyBodyDeletionCheck.c)
+ */
+
 __int64 __fastcall CmQueryMultipleValueForLayeredKey(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of WdipSemEnableAllProviders @ 0x140833A4C
+ * Callers:
+ *     WdipSemLoadScenarioTable @ 0x140832BA4 (WdipSemLoadScenarioTable.c)
+ * Callees:
+ *     WdipSemEnableDisableTrace @ 0x140833B40 (WdipSemEnableDisableTrace.c)
+ */
+
 void WdipSemEnableAllProviders()
 {
   __int64 v0; // rdi

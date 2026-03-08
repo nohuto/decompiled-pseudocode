@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiGetWorkingSetInfo @ 0x1402F7C60
+ * Callers:
+ *     MmQueryVirtualMemory @ 0x1407C6390 (MmQueryVirtualMemory.c)
+ * Callees:
+ *     MiProbeAndLockPages @ 0x140242114 (MiProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x14027C0C0 (MmUnlockPages.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiGetWorkingSetInfoEx @ 0x1402F7DFC (MiGetWorkingSetInfoEx.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiGetWorkingSetInfo(__int64 a1, int a2, __int64 a3, unsigned __int64 a4, _QWORD *P)
 {
   struct _MDL *Pool; // rax

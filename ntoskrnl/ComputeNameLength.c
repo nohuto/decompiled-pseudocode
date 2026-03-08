@@ -1,3 +1,13 @@
+/*
+ * XREFs of ComputeNameLength @ 0x1409B7A14
+ * Callers:
+ *     PfxFindPrefix @ 0x1409B7AF0 (PfxFindPrefix.c)
+ *     PfxInsertPrefix @ 0x1409B7BF0 (PfxInsertPrefix.c)
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpIsUtf8Process @ 0x1406EA7A0 (RtlpIsUtf8Process.c)
+ */
+
 __int64 __fastcall ComputeNameLength(unsigned __int16 *a1)
 {
   bool v2; // di

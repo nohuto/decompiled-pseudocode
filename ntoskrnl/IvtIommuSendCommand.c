@@ -1,3 +1,22 @@
+/*
+ * XREFs of IvtIommuSendCommand @ 0x1402F49A4
+ * Callers:
+ *     IvtInvalidateRemappingTableEntries @ 0x1402F4800 (IvtInvalidateRemappingTableEntries.c)
+ *     IvtIommuWaitCommand @ 0x1402F4874 (IvtIommuWaitCommand.c)
+ *     IvtFlushTbInternal @ 0x1403ABA60 (IvtFlushTbInternal.c)
+ *     IvtInvalidateAllContextEntries @ 0x1403B0A30 (IvtInvalidateAllContextEntries.c)
+ *     IvtDismissPageFault @ 0x140529D10 (IvtDismissPageFault.c)
+ *     IvtDrainSvmPageRequests @ 0x140529DE0 (IvtDrainSvmPageRequests.c)
+ *     IvtFlushDeviceTbOnly @ 0x14052A180 (IvtFlushDeviceTbOnly.c)
+ *     IvtInvalidateContextEntry @ 0x14052AF68 (IvtInvalidateContextEntry.c)
+ *     IvtInvalidateScalableModePasidCache @ 0x14052AFF4 (IvtInvalidateScalableModePasidCache.c)
+ * Callees:
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IvtIommuSendCommand(__int64 a1, unsigned __int64 a2, int a3)
 {
   __int64 v3; // r9

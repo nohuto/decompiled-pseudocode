@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopFanEndCsFanPeriod @ 0x140994200
+ * Callers:
+ *     PopFanUpdateCsState @ 0x14099463C (PopFanUpdateCsState.c)
+ *     PopFanUpdateRunningState @ 0x1409946B8 (PopFanUpdateRunningState.c)
+ * Callees:
+ *     PopDiagTraceCsFanPerfTrack @ 0x14058FB9C (PopDiagTraceCsFanPerfTrack.c)
+ */
+
 void PopFanEndCsFanPeriod()
 {
   __int64 v0; // r10

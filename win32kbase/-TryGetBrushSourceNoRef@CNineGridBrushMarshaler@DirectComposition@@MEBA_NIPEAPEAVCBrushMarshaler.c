@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TryGetBrushSourceNoRef@CNineGridBrushMarshaler@DirectComposition@@MEBA_NIPEAPEAVCBrushMarshaler@2@@Z @ 0x1C00C1710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CNineGridBrushMarshaler::TryGetBrushSourceNoRef(
         DirectComposition::CNineGridBrushMarshaler *this,
         int a2,

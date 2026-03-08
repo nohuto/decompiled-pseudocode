@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DxgkpCreateFile@@YAJPEAGKKKKPEAPEAX@Z @ 0x1C0306B40
+ * Callers:
+ *     ?CopyDriverStore@DXGADAPTER@@QEAAJXZ @ 0x1C0305F44 (-CopyDriverStore@DXGADAPTER@@QEAAJXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x1C003F8DC (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
+ */
+
 NTSTATUS __fastcall DxgkpCreateFile(
         size_t *a1,
         ACCESS_MASK DesiredAccess,

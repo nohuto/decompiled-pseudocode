@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspGetBaseTrapFrame @ 0x1402822C0
+ * Callers:
+ *     PsGetBaseTrapFrame @ 0x14045B2A0 (PsGetBaseTrapFrame.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspGetBaseTrapFrame(__int64 a1, _DWORD *a2)
 {
   __int64 i; // r8

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0UNDORENDERLOCKCOUNTS@@QEAA@XZ @ 0x1C00167E0
+ * Callers:
+ *     GreStretchBltInternal @ 0x1C0059930 (GreStretchBltInternal.c)
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ */
+
 UNDORENDERLOCKCOUNTS *__fastcall UNDORENDERLOCKCOUNTS::UNDORENDERLOCKCOUNTS(UNDORENDERLOCKCOUNTS *this)
 {
   __int64 ThreadWin32Thread; // rax

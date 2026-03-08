@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiIntSteerAddLoadToProcessorAndCheckThreshold @ 0x140577990
+ * Callers:
+ *     KeIntSteerSnapPerf @ 0x1402A94D0 (KeIntSteerSnapPerf.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall KiIntSteerAddLoadToProcessorAndCheckThreshold(__int64 a1, int a2, unsigned int a3, _DWORD *a4)
 {
   __int64 v4; // r10

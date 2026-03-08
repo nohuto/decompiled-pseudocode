@@ -1,3 +1,17 @@
+/*
+ * XREFs of NtUserDrawCaptionTemp @ 0x1C01CFDF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0035F20 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     xxxDrawCaptionTemp @ 0x1C022EDB4 (xxxDrawCaptionTemp.c)
+ */
+
 __int64 __fastcall NtUserDrawCaptionTemp(
         __int64 a1,
         HDC a2,

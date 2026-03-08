@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CallfnHkINLPMSG@@YA_JHH_K_JP6A_JXZPEAU_PFNCLIENT@@K@Z @ 0x1C022E4C4
+ * Callers:
+ *     xxxHkCallHook @ 0x1C006C7F0 (xxxHkCallHook.c)
+ * Callees:
+ *     fnHkINLPMSG @ 0x1C00C5E60 (fnHkINLPMSG.c)
+ */
+
 __int64 __fastcall CallfnHkINLPMSG(
         unsigned __int16 a1,
         unsigned __int16 a2,

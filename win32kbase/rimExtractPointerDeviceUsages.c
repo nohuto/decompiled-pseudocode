@@ -1,3 +1,22 @@
+/*
+ * XREFs of rimExtractPointerDeviceUsages @ 0x1C01D78A0
+ * Callers:
+ *     rimPopulateContactFrameData @ 0x1C01D906C (rimPopulateContactFrameData.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C000F0BC (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimHidP_GetUsageValue @ 0x1C00EF9AA (rimHidP_GetUsageValue.c)
+ *     rimHidP_GetUsageValueArray @ 0x1C00EFA58 (rimHidP_GetUsageValueArray.c)
+ *     rimHidP_GetUsages @ 0x1C00EFB14 (rimHidP_GetUsages.c)
+ *     RIMEnsureUsageWithinLogicalBoundary @ 0x1C00F11AE (RIMEnsureUsageWithinLogicalBoundary.c)
+ *     rimExtractData @ 0x1C00F1486 (rimExtractData.c)
+ *     rimExtractTouchInfo @ 0x1C00F160A (rimExtractTouchInfo.c)
+ *     rimExtractDigitizerPageButtonUsages @ 0x1C01D6EB4 (rimExtractDigitizerPageButtonUsages.c)
+ *     rimExtractGeometryPoints @ 0x1C01D708C (rimExtractGeometryPoints.c)
+ *     rimExtractPenInfo @ 0x1C01D778C (rimExtractPenInfo.c)
+ */
+
 __int64 __fastcall rimExtractPointerDeviceUsages(
         __int64 a1,
         __int64 a2,

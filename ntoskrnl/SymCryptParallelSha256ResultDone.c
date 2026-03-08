@@ -1,3 +1,12 @@
+/*
+ * XREFs of SymCryptParallelSha256ResultDone @ 0x1403F0260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SymCryptSha256Init @ 0x1403EF360 (SymCryptSha256Init.c)
+ *     SymCryptWipe @ 0x1403F0988 (SymCryptWipe.c)
+ */
+
 void __fastcall SymCryptParallelSha256ResultDone(__int64 a1, __int64 a2, __int64 a3)
 {
   _QWORD *v3; // rcx

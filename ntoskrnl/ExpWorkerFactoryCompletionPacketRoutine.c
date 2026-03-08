@@ -1,3 +1,19 @@
+/*
+ * XREFs of ExpWorkerFactoryCompletionPacketRoutine @ 0x140290DA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxWaitForLockChainValid @ 0x140291730 (KxWaitForLockChainValid.c)
+ *     IoSetIoCompletionEx3 @ 0x1402928A0 (IoSetIoCompletionEx3.c)
+ *     KxWaitForLockOwnerShip @ 0x14033B510 (KxWaitForLockOwnerShip.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140457B8E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x14056EF78 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14057DAC8 (KiHaltOnAddressWakeEntireList.c)
+ *     IoFreeMiniCompletionPacket @ 0x1406F4D80 (IoFreeMiniCompletionPacket.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall ExpWorkerFactoryCompletionPacketRoutine(__int64 a1, __int64 a2)
 {
   unsigned __int8 CurrentIrql; // dl

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReleaseAllReferences@?$CSharedResourceMarshaler@VCProjectedShadowCasterMarshaler@DirectComposition@@$01@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C024CD20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReleaseAllReferences@CProjectedShadowCasterMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C000D9F0 (-ReleaseAllReferences@CProjectedShadowCasterMarshaler@DirectComposition@@MEAAXPEAVCApplicationCh.c)
+ */
+
 void __fastcall DirectComposition::CSharedResourceMarshaler<DirectComposition::CProjectedShadowCasterMarshaler,2>::ReleaseAllReferences(
         DirectComposition::CProjectedShadowCasterMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2)

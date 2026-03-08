@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopLiveDumpMarkImportantDumpData @ 0x140A98980
+ * Callers:
+ *     IopLiveDumpCollectPages @ 0x140A97A84 (IopLiveDumpCollectPages.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x14055793C (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x140557990 (IopLiveDumpIsTracingEnabled.c)
+ *     IopLiveDumpTraceMarkImportantDumpDataDuration @ 0x140558B18 (IopLiveDumpTraceMarkImportantDumpDataDuration.c)
+ */
+
 __int64 __fastcall IopLiveDumpMarkImportantDumpData(__int64 a1, __int64 a2)
 {
   const EVENT_DESCRIPTOR *v2; // r12

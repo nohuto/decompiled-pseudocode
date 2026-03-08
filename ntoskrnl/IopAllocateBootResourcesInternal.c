@@ -1,3 +1,19 @@
+/*
+ * XREFs of IopAllocateBootResourcesInternal @ 0x1408046F8
+ * Callers:
+ *     IopReleaseResources @ 0x140801F0C (IopReleaseResources.c)
+ *     IopAllocateBootResources @ 0x140804670 (IopAllocateBootResources.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PipSetDevNodeFlags @ 0x1406857DC (PipSetDevNodeFlags.c)
+ *     PnpCmResourcesToIoResources @ 0x140804A84 (PnpCmResourcesToIoResources.c)
+ *     IopBootAllocation @ 0x140804CB0 (IopBootAllocation.c)
+ *     PnpBuildCmResourceList @ 0x140804D9C (PnpBuildCmResourceList.c)
+ *     IopResourceRequirementsListToReqList @ 0x140805448 (IopResourceRequirementsListToReqList.c)
+ *     IopFreeReqList @ 0x140806108 (IopFreeReqList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopAllocateBootResourcesInternal(int a1, __int64 a2, __int64 a3)
 {
   __int64 v6; // rcx

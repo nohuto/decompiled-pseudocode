@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiDqObjectManagerUnregisterQuery @ 0x140747D8C
+ * Callers:
+ *     PiDqDispatch @ 0x140745C20 (PiDqDispatch.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     PiDqQueryRelease @ 0x140689C8C (PiDqQueryRelease.c)
+ */
+
 void __fastcall PiDqObjectManagerUnregisterQuery(__int64 a1, __int64 *a2)
 {
   __int64 v4; // rax

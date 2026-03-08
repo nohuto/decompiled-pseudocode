@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CBitmapLock@@MEAA@XZ @ 0x1800A7F34
+ * Callers:
+ *     ??_GCBitmapLock@@MEAAPEAXI@Z @ 0x1800A7E30 (--_GCBitmapLock@@MEAAPEAXI@Z.c)
+ *     ??1CBitmapLockUnaligned@@UEAA@XZ @ 0x18027ED98 (--1CBitmapLockUnaligned@@UEAA@XZ.c)
+ * Callees:
+ *     ?Unlock@CBitmapLock@@IEAAXXZ @ 0x1800A7F9C (-Unlock@CBitmapLock@@IEAAXXZ.c)
+ */
+
 void __fastcall CBitmapLock::~CBitmapLock(CBitmapLock *this)
 {
   __int64 v2; // rdx

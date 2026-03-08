@@ -1,3 +1,20 @@
+/*
+ * XREFs of CmpFinishBeingActiveFlusherAndReconciler @ 0x140820D0C
+ * Callers:
+ *     CmShutdownSystem1 @ 0x140613784 (CmShutdownSystem1.c)
+ *     CmpLoadHiveThread @ 0x140820360 (CmpLoadHiveThread.c)
+ *     CmpRefreshHive @ 0x140A09C50 (CmpRefreshHive.c)
+ *     CmpSaveKeyByFileCopy @ 0x140A0A220 (CmpSaveKeyByFileCopy.c)
+ *     CmReplaceKey @ 0x140A12A54 (CmReplaceKey.c)
+ * Callees:
+ *     CmpReleaseWriteQueue @ 0x1406C0054 (CmpReleaseWriteQueue.c)
+ *     CmpWakeWriteQueueWaiters @ 0x1406C0080 (CmpWakeWriteQueueWaiters.c)
+ *     HvLockHiveFlusherExclusive @ 0x140AF2098 (HvLockHiveFlusherExclusive.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x140AF20B4 (HvUnlockHiveFlusherExclusive.c)
+ *     CmpLockRegistry @ 0x140AF2270 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ */
+
 signed __int32 __fastcall CmpFinishBeingActiveFlusherAndReconciler(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rcx

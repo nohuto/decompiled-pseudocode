@@ -1,3 +1,13 @@
+/*
+ * XREFs of DwmAsyncDesktopFree @ 0x1C007CB6C
+ * Callers:
+ *     xxxDwmStopRedirection @ 0x1C007B850 (xxxDwmStopRedirection.c)
+ *     zzzDwmStartRedirection @ 0x1C007CEC8 (zzzDwmStartRedirection.c)
+ *     xxxCreateDesktopEx @ 0x1C00C03D4 (xxxCreateDesktopEx.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall DwmAsyncDesktopFree(PVOID Object, __int64 a2)
 {
   unsigned int v3; // ebx

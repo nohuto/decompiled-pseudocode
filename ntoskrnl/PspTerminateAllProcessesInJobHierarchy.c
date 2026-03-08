@@ -1,3 +1,16 @@
+/*
+ * XREFs of PspTerminateAllProcessesInJobHierarchy @ 0x140791E78
+ * Callers:
+ *     PspJobClose @ 0x1406F8760 (PspJobClose.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x1406FBA00 (PspEnforceLimitsJobPostCallback.c)
+ *     NtTerminateJobObject @ 0x140791E00 (NtTerminateJobObject.c)
+ *     PsTerminateServerSilo @ 0x1409A98D0 (PsTerminateServerSilo.c)
+ * Callees:
+ *     PspEvaluateAndNotifyEmptyJob @ 0x1406F8844 (PspEvaluateAndNotifyEmptyJob.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406FB7C8 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     EtwTraceJob @ 0x1409E2518 (EtwTraceJob.c)
+ */
+
 char __fastcall PspTerminateAllProcessesInJobHierarchy(struct _KEVENT *Object, unsigned int a2, char a3)
 {
   char v3; // bl

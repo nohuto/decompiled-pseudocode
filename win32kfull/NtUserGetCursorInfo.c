@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserGetCursorInfo @ 0x1C0009CE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_GetCursorInfo@@YAXPEAUtagCURSORINFO@@@Z @ 0x1C0009E08 (-_GetCursorInfo@@YAXPEAUtagCURSORINFO@@@Z.c)
+ *     CheckWinstaAttributeAccess @ 0x1C003B230 (CheckWinstaAttributeAccess.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserGetCursorInfo(ULONG64 a1)
 {
   __int64 v2; // rsi

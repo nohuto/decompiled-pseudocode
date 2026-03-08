@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bGenColorXlate555@XEPALOBJ@@QEAAHXZ @ 0x1C02DA5E4
+ * Callers:
+ *     ?pGetRGBXlate@XEPALOBJ@@QEAAPEAEXZ @ 0x1C02DA6D8 (-pGetRGBXlate@XEPALOBJ@@QEAAPEAEXZ.c)
+ * Callees:
+ *     ?ulTime@XEPALOBJ@@QEAAKXZ @ 0x1C00E4450 (-ulTime@XEPALOBJ@@QEAAKXZ.c)
+ *     ?MakeITable@@YAHPEAEPEAURGBX@@H@Z @ 0x1C02A5D44 (-MakeITable@@YAHPEAEPEAURGBX@@H@Z.c)
+ */
+
 __int64 __fastcall XEPALOBJ::bGenColorXlate555(XEPALOBJ *this)
 {
   unsigned int v2; // ebx

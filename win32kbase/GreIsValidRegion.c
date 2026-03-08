@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreIsValidRegion @ 0x1C000B060
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C005173C (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00DE3A0 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
+ */
+
 _BOOL8 __fastcall GreIsValidRegion(HRGN a1)
 {
   BOOL v1; // ebx

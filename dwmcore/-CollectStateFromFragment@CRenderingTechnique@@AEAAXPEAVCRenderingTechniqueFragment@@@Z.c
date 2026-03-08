@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CollectStateFromFragment@CRenderingTechnique@@AEAAXPEAVCRenderingTechniqueFragment@@@Z @ 0x18002A92C
+ * Callers:
+ *     ?CollectStateFromAllFragments@CRenderingTechnique@@AEAAXXZ @ 0x18002ADC8 (-CollectStateFromAllFragments@CRenderingTechnique@@AEAAXXZ.c)
+ * Callees:
+ *     ?GetSurfaceDescription@CRenderingTechniqueFragment@@AEBAXPEBVCBrushRenderingGraph@@IPEAUSurfaceDescription@1@@Z @ 0x18002D968 (-GetSurfaceDescription@CRenderingTechniqueFragment@@AEBAXPEBVCBrushRenderingGraph@@IPEAUSurfaceD.c)
+ *     ??8SurfaceDescription@CRenderingTechniqueFragment@@QEBA_NAEBU01@@Z @ 0x18002DBE4 (--8SurfaceDescription@CRenderingTechniqueFragment@@QEBA_NAEBU01@@Z.c)
+ */
+
 void __fastcall CRenderingTechnique::CollectStateFromFragment(
         CRenderingTechnique *this,
         struct CRenderingTechniqueFragment *a2)

@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiMapProcessExecutable @ 0x14072787C
+ * Callers:
+ *     MmInitializeProcessAddressSpace @ 0x1407291A8 (MmInitializeProcessAddressSpace.c)
+ * Callees:
+ *     MmMapViewOfSectionEx @ 0x1402A5B98 (MmMapViewOfSectionEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFillPteHierarchy @ 0x140333AE0 (MiFillPteHierarchy.c)
+ *     MiCfgInitializeProcess @ 0x140727724 (MiCfgInitializeProcess.c)
+ *     PsMapSystemDlls @ 0x1407279B4 (PsMapSystemDlls.c)
+ *     MiCommitInitialVadMetadataBits @ 0x1407285AC (MiCommitInitialVadMetadataBits.c)
+ *     MiSessionCreate @ 0x140756EC8 (MiSessionCreate.c)
+ */
+
 __int64 __fastcall MiMapProcessExecutable(__int64 a1, __int64 a2, unsigned int *a3)
 {
   int v3; // eax

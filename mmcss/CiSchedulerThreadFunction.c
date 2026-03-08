@@ -1,3 +1,16 @@
+/*
+ * XREFs of CiSchedulerThreadFunction @ 0x1C0002E60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CiSchedulerDeepSleep @ 0x1C00011C0 (CiSchedulerDeepSleep.c)
+ *     CiSchedulerWait @ 0x1C0001680 (CiSchedulerWait.c)
+ *     CiSchedulerSetPriority @ 0x1C00029B0 (CiSchedulerSetPriority.c)
+ *     CiSchedulerRemoveDeadline @ 0x1C0002D50 (CiSchedulerRemoveDeadline.c)
+ *     CiLogSchedulerWakeup @ 0x1C0004010 (CiLogSchedulerWakeup.c)
+ *     WPP_SF_ @ 0x1C0004634 (WPP_SF_.c)
+ */
+
 void __fastcall CiSchedulerThreadFunction(struct _KEVENT *StartContext)
 {
   PVOID *p_Reserved; // rbp

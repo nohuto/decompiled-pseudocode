@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AddOcclusionInformation@CBrush@@$4PPPPPPPM@KA@EAAJPEAVCOcclusionContext@@AEBUD2D_SIZE_F@@@Z @ 0x180119E30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CBrush::AddOcclusionInformation(
         __int64 a1,
         struct COcclusionContext *a2,

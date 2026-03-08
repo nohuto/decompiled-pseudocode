@@ -1,3 +1,14 @@
+/*
+ * XREFs of VidSchTerminateProcess @ 0x1C0094450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0001AD8 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?GetMaximumGlobalAdapterCount@DXGGLOBAL@@QEAAKXZ @ 0x1C0001AFC (-GetMaximumGlobalAdapterCount@DXGGLOBAL@@QEAAKXZ.c)
+ *     ?VidSchiProcessExitTelemetry@@YAXPEAU_VIDSCH_PROCESS@@@Z @ 0x1C0017860 (-VidSchiProcessExitTelemetry@@YAXPEAU_VIDSCH_PROCESS@@@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall VidSchTerminateProcess(struct _VIDSCH_PROCESS *a1)
 {
   unsigned int v2; // edi

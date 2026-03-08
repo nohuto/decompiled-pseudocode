@@ -1,3 +1,16 @@
+/*
+ * XREFs of KseResetDeviceCache @ 0x140973ABC
+ * Callers:
+ *     KseQueryDeviceData @ 0x1408016F0 (KseQueryDeviceData.c)
+ *     KseQueryDeviceDataList @ 0x140973910 (KseQueryDeviceDataList.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     KsepCacheReset @ 0x14097472C (KsepCacheReset.c)
+ */
+
 __int64 KseResetDeviceCache()
 {
   struct _KTHREAD *CurrentThread; // rax

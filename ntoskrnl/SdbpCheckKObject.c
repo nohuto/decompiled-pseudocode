@@ -1,3 +1,21 @@
+/*
+ * XREFs of SdbpCheckKObject @ 0x1407A1BD8
+ * Callers:
+ *     SdbGetDatabaseMatchEx @ 0x1407A1A40 (SdbGetDatabaseMatchEx.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SdbpCheckForMatch @ 0x1407A1468 (SdbpCheckForMatch.c)
+ *     AslFileMappingDelete @ 0x1407A1D38 (AslFileMappingDelete.c)
+ *     SdbpReleaseSearchDBContext @ 0x1407A1D98 (SdbpReleaseSearchDBContext.c)
+ *     AslFileMappingCreate @ 0x1407A2D8C (AslFileMappingCreate.c)
+ *     SdbpCreateSearchDBContext @ 0x1407A3094 (SdbpCreateSearchDBContext.c)
+ *     SdbpMatchOem @ 0x14085F35C (SdbpMatchOem.c)
+ *     SdbpMatchCpu @ 0x14085F3B0 (SdbpMatchCpu.c)
+ *     SdbpMatchBios @ 0x14085F404 (SdbpMatchBios.c)
+ *     SdbpMatchAcpi @ 0x14085F458 (SdbpMatchAcpi.c)
+ *     SdbpIsEntryIdAvailableInOtherDb @ 0x140A4F5AC (SdbpIsEntryIdAvailableInOtherDb.c)
+ */
+
 __int64 __fastcall SdbpCheckKObject(
         __int64 a1,
         __int64 a2,

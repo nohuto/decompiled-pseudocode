@@ -1,3 +1,16 @@
+/*
+ * XREFs of xxxRemoveQueueCompletion @ 0x1C00946F4
+ * Callers:
+ *     RawInputThread @ 0x1C007A0C0 (RawInputThread.c)
+ *     xxxDesktopThreadWaiter @ 0x1C0094300 (xxxDesktopThreadWaiter.c)
+ *     ?xxxPollAndWaitForSingleObject@@YAKPEAU_KEVENT@@PEAXK@Z @ 0x1C0095CF4 (-xxxPollAndWaitForSingleObject@@YAKPEAU_KEVENT@@PEAXK@Z.c)
+ *     xxxMsgWaitForMultipleObjectsEx @ 0x1C012D428 (xxxMsgWaitForMultipleObjectsEx.c)
+ *     xxxWaitForDITMouseInjectionFlush @ 0x1C01AE114 (xxxWaitForDITMouseInjectionFlush.c)
+ *     NtUserRemoveQueueCompletion @ 0x1C01DAEA0 (NtUserRemoveQueueCompletion.c)
+ * Callees:
+ *     ?xxxHandleQueueCompletion@@YA?AW4QueueCompletionStatus@@PEAUtagTHREADINFO@@JQEAU_FILE_IO_COMPLETION_INFORMATION@@W4tagQUEUE_COMPLETION_DRAINER@@@Z @ 0x1C0047B0C (-xxxHandleQueueCompletion@@YA-AW4QueueCompletionStatus@@PEAUtagTHREADINFO@@JQEAU_FILE_IO_COMPLET.c)
+ */
+
 __int64 xxxRemoveQueueCompletion()
 {
   unsigned int v0; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpSetupLoggingState @ 0x140818BD0
+ * Callers:
+ *     CmpInitializeSystemHive @ 0x140B528D4 (CmpInitializeSystemHive.c)
+ *     CmpInitializePreloadedHive @ 0x140B52F50 (CmpInitializePreloadedHive.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmpSetupLoggingState(__int64 a1, unsigned int *a2)
 {
   __int64 result; // rax

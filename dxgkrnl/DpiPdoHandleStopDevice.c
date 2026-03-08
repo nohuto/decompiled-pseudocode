@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiPdoHandleStopDevice @ 0x1C03A4E90
+ * Callers:
+ *     DpiPdoDispatchPnp @ 0x1C01D5FF0 (DpiPdoDispatchPnp.c)
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ */
+
 __int64 __fastcall DpiPdoHandleStopDevice(__int64 a1)
 {
   __int64 v1; // rbx

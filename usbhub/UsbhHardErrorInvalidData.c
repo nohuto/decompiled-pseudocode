@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhHardErrorInvalidData @ 0x1C004CED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhReleaseEnumBusLockEx @ 0x1C0003BCC (UsbhReleaseEnumBusLockEx.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 __int64 __fastcall UsbhHardErrorInvalidData(__int64 a1, __int64 a2)
 {
   int v5; // [rsp+28h] [rbp-30h]

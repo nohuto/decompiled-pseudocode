@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtGdiGetPhysicalMonitorDescription @ 0x1C026CF50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?GetMonitorDescription@CMonitorAPI@@QEAAJPEAXKPEAG@Z @ 0x1C026C7DC (-GetMonitorDescription@CMonitorAPI@@QEAAJPEAXKPEAG@Z.c)
+ */
+
 __int64 __fastcall NtGdiGetPhysicalMonitorDescription(void *a1, int a2, _OWORD *a3)
 {
   __int64 v6; // rcx

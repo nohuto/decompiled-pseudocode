@@ -1,3 +1,19 @@
+/*
+ * XREFs of PpmEndHighPerfRequest @ 0x1402B884C
+ * Callers:
+ *     PopSwitchUpdateUserShutdownScenarioState @ 0x14067EF08 (PopSwitchUpdateUserShutdownScenarioState.c)
+ *     PopSetupHighPerfPowerRequest @ 0x140810204 (PopSetupHighPerfPowerRequest.c)
+ *     PopIssueActionRequest @ 0x140986CA4 (PopIssueActionRequest.c)
+ *     PoClearBroadcast @ 0x140988B8C (PoClearBroadcast.c)
+ *     PdcPoPerfOverride @ 0x1409949A8 (PdcPoPerfOverride.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ *     PopPowerRequestReferenceRelease @ 0x1402BA084 (PopPowerRequestReferenceRelease.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PpmEndHighPerfRequest(int a1)
 {
   __int64 v1; // rbx

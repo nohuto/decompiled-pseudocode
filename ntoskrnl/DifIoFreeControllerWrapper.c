@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifIoFreeControllerWrapper @ 0x1405DCDD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     IoFreeController @ 0x140554450 (IoFreeController.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 void __fastcall DifIoFreeControllerWrapper(PCONTROLLER_OBJECT ControllerObject)
 {
   __int64 *APIThunkContextById; // rax

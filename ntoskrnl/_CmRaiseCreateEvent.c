@@ -1,3 +1,18 @@
+/*
+ * XREFs of _CmRaiseCreateEvent @ 0x14087BC44
+ * Callers:
+ *     _CmCreateDeviceContainerWorker @ 0x140682A20 (_CmCreateDeviceContainerWorker.c)
+ *     _CmCreateDeviceWorker @ 0x1407893E0 (_CmCreateDeviceWorker.c)
+ *     _CmCreateDeviceInterfaceWorker @ 0x14087B924 (_CmCreateDeviceInterfaceWorker.c)
+ *     _CmCreateInterfaceClassWorker @ 0x14087BBB0 (_CmCreateInterfaceClassWorker.c)
+ *     _CmCreateInstallerClassWorker @ 0x140A5E2B0 (_CmCreateInstallerClassWorker.c)
+ *     _CmCreateDevicePanelWorker @ 0x140A63028 (_CmCreateDevicePanelWorker.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     _CmMapCmObjectTypeToPnpObjectType @ 0x1406CEAE4 (_CmMapCmObjectTypeToPnpObjectType.c)
+ *     _PnpObjectRaiseCreateEvent @ 0x14087BCA8 (_PnpObjectRaiseCreateEvent.c)
+ */
+
 __int64 (__fastcall *__fastcall CmRaiseCreateEvent(
         __int64 a1,
         __int64 a2,

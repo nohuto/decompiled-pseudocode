@@ -1,3 +1,20 @@
+/*
+ * XREFs of LoadTable @ 0x1C0056E80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ *     GetNameSpaceObject @ 0x1C004F728 (GetNameSpaceObject.c)
+ *     LoadDDB @ 0x1C004FA40 (LoadDDB.c)
+ *     PushPost @ 0x1C0053CE0 (PushPost.c)
+ */
+
 __int64 __fastcall LoadTable(_QWORD *a1, __int64 a2)
 {
   __int64 v3; // rdx

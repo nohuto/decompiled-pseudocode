@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bRecordRun@XCLIPOBJ@@IEAAHAEAJ@Z @ 0x1C02F5D10
+ * Callers:
+ *     ?bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z @ 0x1C02F5534 (-bEnumLine@XCLIPOBJ@@QEAAHKPEAU_CLIPLINE@@@Z.c)
+ *     ?bSetup@XCLIPOBJ@@IEAAHXZ @ 0x1C02F5D98 (-bSetup@XCLIPOBJ@@IEAAHXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall XCLIPOBJ::bRecordRun(XCLIPOBJ *this, int *a2)
 {
   __int64 v2; // r8

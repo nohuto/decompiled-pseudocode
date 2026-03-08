@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpCreateOutputNT @ 0x14083F22C
+ * Callers:
+ *     ExpTranslateEfiPath @ 0x14083EF60 (ExpTranslateEfiPath.c)
+ *     ExpConvertArcName @ 0x1409F8CB8 (ExpConvertArcName.c)
+ *     ExpConvertSignatureName @ 0x1409F8E7C (ExpConvertSignatureName.c)
+ * Callees:
+ *     wcscpy_s @ 0x1403DA210 (wcscpy_s.c)
+ */
+
 __int64 __fastcall ExpCreateOutputNT(__int64 a1, unsigned int *a2, const wchar_t **a3, const wchar_t *a4)
 {
   int v4; // edi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of CFlipPropertySetBase::WriteSerializedProperties__lambda_e99d979129121065e2eb9a95ec4ea8f5___ @ 0x1C007ECFC
+ * Callers:
+ *     NtFlipObjectConsumerAcquirePresent @ 0x1C007FB30 (NtFlipObjectConsumerAcquirePresent.c)
+ *     NtFlipObjectReadNextMessageToProducer @ 0x1C0080A70 (NtFlipObjectReadNextMessageToProducer.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ */
+
 _UNKNOWN **__fastcall CFlipPropertySetBase::WriteSerializedProperties__lambda_e99d979129121065e2eb9a95ec4ea8f5___(
         __int64 a1,
         __int64 a2,

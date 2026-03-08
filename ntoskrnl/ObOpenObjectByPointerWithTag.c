@@ -1,3 +1,11 @@
+/*
+ * XREFs of ObOpenObjectByPointerWithTag @ 0x1409790E0
+ * Callers:
+ *     DbgkCaptureLiveKernelDump @ 0x140539CE8 (DbgkCaptureLiveKernelDump.c)
+ * Callees:
+ *     ObOpenObjectByPointer @ 0x1407C93D0 (ObOpenObjectByPointer.c)
+ */
+
 NTSTATUS __stdcall ObOpenObjectByPointerWithTag(
         PVOID Object,
         ULONG HandleAttributes,

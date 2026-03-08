@@ -1,3 +1,23 @@
+/*
+ * XREFs of SdbGetDatabaseMatchEx @ 0x1407A1A40
+ * Callers:
+ *     KsepDbGetDriverShimsInternal @ 0x14079EF10 (KsepDbGetDriverShimsInternal.c)
+ *     KsepDbCacheReadDeviceInternal @ 0x1408012E8 (KsepDbCacheReadDeviceInternal.c)
+ * Callees:
+ *     wcsrchr @ 0x1403D5F90 (wcsrchr.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbFindFirstStringIndexedTag @ 0x14079F36C (SdbFindFirstStringIndexedTag.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x1407A1870 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbpCheckKObject @ 0x1407A1BD8 (SdbpCheckKObject.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x1407A1E68 (SdbpFindNextIndexedWildCardTag.c)
+ *     SdbTagIDToTagRef @ 0x1408003AC (SdbTagIDToTagRef.c)
+ *     SdbFindNextStringIndexedTag @ 0x140848AD4 (SdbFindNextStringIndexedTag.c)
+ *     SdbpFindFirstTagWithoutIndex @ 0x140A4DE80 (SdbpFindFirstTagWithoutIndex.c)
+ *     SdbpFindFirstWildcardTagWithoutIndex @ 0x140A4DF28 (SdbpFindFirstWildcardTagWithoutIndex.c)
+ *     SdbpFindNextTagWithoutIndex @ 0x140A4DFD4 (SdbpFindNextTagWithoutIndex.c)
+ *     SdbpFindNextWildcardTagWithoutIndex @ 0x140A4E050 (SdbpFindNextWildcardTagWithoutIndex.c)
+ */
+
 __int64 __fastcall SdbGetDatabaseMatchEx(
         __int64 a1,
         int a2,

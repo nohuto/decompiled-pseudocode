@@ -1,3 +1,11 @@
+/*
+ * XREFs of AslpDetermineDosPathNameType @ 0x140A53838
+ * Callers:
+ *     AslPathToNetworkPathNt @ 0x140A5261C (AslPathToNetworkPathNt.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AslpDetermineDosPathNameType(__int16 *a1)
 {
   unsigned __int64 v1; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FunctionalizeDisplayConfigRemoveUnownedPaths@@YAXPEAXPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C018FB14
+ * Callers:
+ *     DrvFunctionalizeDisplayConfig @ 0x1C0193FD4 (DrvFunctionalizeDisplayConfig.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall FunctionalizeDisplayConfigRemoveUnownedPaths(_OWORD *a1, __int64 a2)
 {
   unsigned int v2; // r14d

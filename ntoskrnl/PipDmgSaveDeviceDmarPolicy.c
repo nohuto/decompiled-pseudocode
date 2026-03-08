@@ -1,3 +1,13 @@
+/*
+ * XREFs of PipDmgSaveDeviceDmarPolicy @ 0x1408213C0
+ * Callers:
+ *     PiDmaGuardProcessPreAddDevice @ 0x14079656C (PiDmaGuardProcessPreAddDevice.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     _PnpSetObjectProperty @ 0x140686C8C (_PnpSetObjectProperty.c)
+ *     PnpTraceDmaGuardDevicePolicy @ 0x1408214A4 (PnpTraceDmaGuardDevicePolicy.c)
+ */
+
 __int64 __fastcall PipDmgSaveDeviceDmarPolicy(__int64 a1, __int64 a2, unsigned int a3)
 {
   unsigned int v3; // esi

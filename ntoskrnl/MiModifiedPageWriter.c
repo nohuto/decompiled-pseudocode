@@ -1,3 +1,26 @@
+/*
+ * XREFs of MiModifiedPageWriter @ 0x1403AD2B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KeQueryPriorityThread @ 0x140240EA0 (KeQueryPriorityThread.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     MiStoreUpdateMemoryConditions @ 0x1403561BC (MiStoreUpdateMemoryConditions.c)
+ *     MiUseLowIoPriorityForModifiedPages @ 0x140356350 (MiUseLowIoPriorityForModifiedPages.c)
+ *     IoBoostThreadIoPriority @ 0x140356FD0 (IoBoostThreadIoPriority.c)
+ *     KeSetActualBasePriorityThread @ 0x140357730 (KeSetActualBasePriorityThread.c)
+ *     MiStoreCheckCompleteWriteBatch @ 0x1403AD3F4 (MiStoreCheckCompleteWriteBatch.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiCheckFreeModifiedReservations @ 0x1406368F0 (MiCheckFreeModifiedReservations.c)
+ *     MiGatherPagefilePages @ 0x140637D34 (MiGatherPagefilePages.c)
+ *     MiMakePagefileWriterEntryAvailable @ 0x140638C18 (MiMakePagefileWriterEntryAvailable.c)
+ */
+
 LONG __fastcall MiModifiedPageWriter(__int64 a1)
 {
   __int64 v1; // rsi

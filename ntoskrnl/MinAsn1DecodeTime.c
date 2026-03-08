@@ -1,3 +1,13 @@
+/*
+ * XREFs of MinAsn1DecodeTime @ 0x140A6E75C
+ * Callers:
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6CBC8 (MinCryptVerifyCertificateWithPolicy2.c)
+ * Callees:
+ *     MinAsn1DecodeGeneralizedTime @ 0x140A6E30C (MinAsn1DecodeGeneralizedTime.c)
+ *     MinAsn1DecodeUtcTime @ 0x140A6E7D4 (MinAsn1DecodeUtcTime.c)
+ *     MinAsn1ExtractContent @ 0x140A6EA28 (MinAsn1ExtractContent.c)
+ */
+
 char __fastcall MinAsn1DecodeTime(unsigned int *a1, LARGE_INTEGER *a2)
 {
   __int64 v3; // rdx

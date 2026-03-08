@@ -1,3 +1,11 @@
+/*
+ * XREFs of DesktopFromDesktopWindow @ 0x1C00BF0C8
+ * Callers:
+ *     CreateOrGetRedirectionBitmap @ 0x1C002B8C8 (CreateOrGetRedirectionBitmap.c)
+ * Callees:
+ *     _GetProcessWindowStation @ 0x1C00BF460 (_GetProcessWindowStation.c)
+ */
+
 __int64 __fastcall DesktopFromDesktopWindow(__int64 a1)
 {
   __int64 v1; // rbx

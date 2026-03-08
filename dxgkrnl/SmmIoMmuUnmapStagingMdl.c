@@ -1,3 +1,14 @@
+/*
+ * XREFs of SmmIoMmuUnmapStagingMdl @ 0x1C006E17C
+ * Callers:
+ *     SmmIommuMapStagingMdl @ 0x1C006E458 (SmmIommuMapStagingMdl.c)
+ *     SmmIommuUnmapReferenced @ 0x1C006E5C4 (SmmIommuUnmapReferenced.c)
+ * Callees:
+ *     SmmUnmapIommu @ 0x1C002A53E (SmmUnmapIommu.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     SmmIoMmuReferenceMdl @ 0x1C006E014 (SmmIoMmuReferenceMdl.c)
+ */
+
 __int64 __fastcall SmmIoMmuUnmapStagingMdl(__int64 a1, unsigned int *a2)
 {
   int v4; // edx

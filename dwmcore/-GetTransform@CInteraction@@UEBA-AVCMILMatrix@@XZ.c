@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetTransform@CInteraction@@UEBA?AVCMILMatrix@@XZ @ 0x180106400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CInteraction::GetTransform(__int64 a1, __int64 a2)
 {
   int v2; // eax

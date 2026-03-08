@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetIntegerProperty@CHolographicCompositionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C02659B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CHolographicCompositionMarshaler::SetIntegerProperty(
         DirectComposition::CHolographicCompositionMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

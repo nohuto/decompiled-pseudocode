@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpReceiveReplyDataBlock @ 0x1407741A4
+ * Callers:
+ *     NtTraceControl @ 0x140694040 (NtTraceControl.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeRemoveQueue @ 0x1402E9390 (KeRemoveQueue.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     EtwpUnreferenceDataBlock @ 0x1406909A0 (EtwpUnreferenceDataBlock.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpReceiveReplyDataBlock(unsigned int *a1, unsigned int a2, _DWORD *a3)
 {
   void *v5; // rcx

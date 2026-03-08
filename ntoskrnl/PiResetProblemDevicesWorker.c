@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiResetProblemDevicesWorker @ 0x1408486B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PnpRequestDeviceAction @ 0x1402F5074 (PnpRequestDeviceAction.c)
+ */
+
 __int64 __fastcall PiResetProblemDevicesWorker(__int64 a1, _DWORD *a2)
 {
   unsigned int v5; // eax

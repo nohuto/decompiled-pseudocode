@@ -1,3 +1,11 @@
+/*
+ * XREFs of LW_BrushInit @ 0x1C00F3140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 LW_BrushInit()
 {

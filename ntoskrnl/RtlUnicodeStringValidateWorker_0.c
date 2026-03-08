@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlUnicodeStringValidateWorker_0 @ 0x1402BDA84
+ * Callers:
+ *     RtlUnicodeStringValidateDestWorker @ 0x1402BD9D8 (RtlUnicodeStringValidateDestWorker.c)
+ *     RtlUnicodeStringValidateSrcWorker @ 0x1402BDA48 (RtlUnicodeStringValidateSrcWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlUnicodeStringValidateWorker_0(PCUNICODE_STRING SourceString, const size_t cchMax, ULONG dwFlags)
 {
   unsigned __int16 Length; // r8

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??$ReleaseInterface@VCVisualTree@@@@YAXAEAPEAVCVisualTree@@@Z @ 0x18021B920
+ * Callers:
+ *     ?OnVisualChanged@CVisualBitmap@@IEAAXXZ @ 0x18021C038 (-OnVisualChanged@CVisualBitmap@@IEAAXXZ.c)
+ *     ?ReleaseVisualTree@CHolographicInteropTexture@@AEAAXXZ @ 0x1802A80EC (-ReleaseVisualTree@CHolographicInteropTexture@@AEAAXXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ReleaseInterface<CVisualTree>(__int64 *a1)
 {
   __int64 v2; // rcx

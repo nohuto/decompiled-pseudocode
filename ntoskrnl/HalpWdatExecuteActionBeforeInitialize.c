@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpWdatExecuteActionBeforeInitialize @ 0x14051C944
+ * Callers:
+ *     HalpWdatDiscover @ 0x140375F28 (HalpWdatDiscover.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WdInstrDestroyInstruction @ 0x14052802C (WdInstrDestroyInstruction.c)
+ *     WdInstrExecuteInstruction @ 0x1405280DC (WdInstrExecuteInstruction.c)
+ *     WdInstrInitializeInstruction @ 0x1405281DC (WdInstrInitializeInstruction.c)
+ */
+
 __int64 __fastcall HalpWdatExecuteActionBeforeInitialize(char a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   int v8; // edx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpQueryKeyData @ 0x1407ADD50
+ * Callers:
+ *     CmQueryKey @ 0x1407AE5C0 (CmQueryKey.c)
+ * Callees:
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpQueryKeyDataFromCache @ 0x1407ABC40 (CmpQueryKeyDataFromCache.c)
+ *     CmpQueryKeyDataFromNode @ 0x1407AD510 (CmpQueryKeyDataFromNode.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall CmpQueryKeyData(__int64 a1, int a2, __int64 a3, unsigned int a4, unsigned int *a5, __int64 a6)
 {
   unsigned int v10; // ebx

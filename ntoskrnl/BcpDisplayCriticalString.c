@@ -1,3 +1,17 @@
+/*
+ * XREFs of BcpDisplayCriticalString @ 0x14066FD2C
+ * Callers:
+ *     BcpDisplayErrorInformation @ 0x140670094 (BcpDisplayErrorInformation.c)
+ *     BcpDisplayProgress @ 0x140670320 (BcpDisplayProgress.c)
+ *     BgpDisplaySafeToPowerOffScreen @ 0x140670864 (BgpDisplaySafeToPowerOffScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140670AE4 (BgpFwDisplayBugCheckScreen.c)
+ * Callees:
+ *     BgpDisplayCharacterEx @ 0x14066F654 (BgpDisplayCharacterEx.c)
+ *     BgpFoGetStringAdvanceWidth @ 0x14066F9B0 (BgpFoGetStringAdvanceWidth.c)
+ *     BcpPrintSpaces @ 0x1406706FC (BcpPrintSpaces.c)
+ *     BgpRasGetGlyphAdvanceWidth @ 0x140670E7C (BgpRasGetGlyphAdvanceWidth.c)
+ */
+
 __int64 __fastcall BcpDisplayCriticalString(unsigned __int16 *a1, int a2, __int64 a3, int a4)
 {
   __int64 v5; // r9

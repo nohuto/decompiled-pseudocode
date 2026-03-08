@@ -1,3 +1,20 @@
+/*
+ * XREFs of ExpCovCreateUnloadedModuleEntry @ 0x140A034B4
+ * Callers:
+ *     ExCovReadjustUnloadedModuleEntry @ 0x1407F6CC8 (ExCovReadjustUnloadedModuleEntry.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusive @ 0x1402411A0 (ExfAcquirePushLockExclusive.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlDuplicateUnicodeString @ 0x140761970 (RtlDuplicateUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     ExpCovFreeUnloadedModuleEntry @ 0x140A03794 (ExpCovFreeUnloadedModuleEntry.c)
+ *     ExpCovReadFriendlyName @ 0x140A0420C (ExpCovReadFriendlyName.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void __fastcall ExpCovCreateUnloadedModuleEntry(__int64 a1)
 {
   __int64 v1; // rsi

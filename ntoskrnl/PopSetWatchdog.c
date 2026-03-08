@@ -1,3 +1,21 @@
+/*
+ * XREFs of PopSetWatchdog @ 0x1402BDFEC
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x140250B60 (KeCancelTimer.c)
+ *     PopUpdateWatchdogNoWorkersEvent @ 0x1402BE330 (PopUpdateWatchdogNoWorkersEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopCacheDisplayOnPhaseDuration @ 0x140597524 (PopCacheDisplayOnPhaseDuration.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char *__fastcall PopSetWatchdog(char *P, unsigned int *a2, char a3)
 {
   char *v5; // rdi

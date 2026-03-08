@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?QueryInterface@FxDeviceBase@@UEAAJPEAUFxQueryInterfaceParams@@@Z @ 0x1C0008FB0
+ * Callers:
+ *     ?QueryInterface@FxDevice@@UEAAJPEAUFxQueryInterfaceParams@@@Z @ 0x1C0008F80 (-QueryInterface@FxDevice@@UEAAJPEAUFxQueryInterfaceParams@@@Z.c)
+ * Callees:
+ *     ?QueryInterface@FxObject@@UEAAJPEAUFxQueryInterfaceParams@@@Z @ 0x1C0009030 (-QueryInterface@FxObject@@UEAAJPEAUFxQueryInterfaceParams@@@Z.c)
+ */
+
 int __fastcall FxDeviceBase::QueryInterface(FxDeviceBase *this, FxQueryInterfaceParams *Params)
 {
   unsigned __int16 Type; // ax

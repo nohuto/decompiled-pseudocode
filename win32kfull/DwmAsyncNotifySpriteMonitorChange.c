@@ -1,3 +1,11 @@
+/*
+ * XREFs of DwmAsyncNotifySpriteMonitorChange @ 0x1C002D208
+ * Callers:
+ *     GreDwmNotifySpriteMonitorChange @ 0x1C002C60C (GreDwmNotifySpriteMonitorChange.c)
+ * Callees:
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall DwmAsyncNotifySpriteMonitorChange(PVOID Object, __int64 a2, __int128 *a3)
 {
   unsigned int v6; // ebx

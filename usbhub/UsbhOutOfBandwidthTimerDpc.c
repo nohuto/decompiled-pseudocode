@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhOutOfBandwidthTimerDpc @ 0x1C002D5F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhReferenceListRemove @ 0x1C00018CC (UsbhReferenceListRemove.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 void __fastcall UsbhOutOfBandwidthTimerDpc(
         struct _KDPC *Dpc,
         PVOID DeferredContext,

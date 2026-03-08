@@ -1,3 +1,13 @@
+/*
+ * XREFs of CcAllocateVacbLevel @ 0x14029C810
+ * Callers:
+ *     CcSetVacbLargeOffset @ 0x1402180C0 (CcSetVacbLargeOffset.c)
+ *     CcExtendVacbArray @ 0x14029E348 (CcExtendVacbArray.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 _QWORD *__fastcall CcAllocateVacbLevel(__int64 a1, int a2)
 {
   _QWORD *v2; // rbx

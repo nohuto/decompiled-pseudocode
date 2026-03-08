@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiUpdatePageFileList @ 0x140392600
+ * Callers:
+ *     MiIncreaseCommitLimits @ 0x140392864 (MiIncreaseCommitLimits.c)
+ *     MiInsertPageFileInList @ 0x140835F30 (MiInsertPageFileInList.c)
+ *     MiDeletePagefile @ 0x140A2FB40 (MiDeletePagefile.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiUpdatePageFileList(__int64 a1, int a2)
 {
   unsigned __int64 *v4; // rbp

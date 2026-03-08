@@ -1,3 +1,14 @@
+/*
+ * XREFs of ViWdIrpTimerDpcRoutine @ 0x140ADB490
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ *     ViWdIrpTimedOut @ 0x140ADB3EC (ViWdIrpTimedOut.c)
+ */
+
 void __fastcall ViWdIrpTimerDpcRoutine(
         struct _KDPC *Dpc,
         PVOID DeferredContext,

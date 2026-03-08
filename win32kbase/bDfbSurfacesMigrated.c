@@ -1,3 +1,14 @@
+/*
+ * XREFs of bDfbSurfacesMigrated @ 0x1C0186C20
+ * Callers:
+ *     pProcessDfbSurfaces2 @ 0x1C0187750 (pProcessDfbSurfaces2.c)
+ * Callees:
+ *     HmgDecrementShareReferenceCountEx @ 0x1C00483B0 (HmgDecrementShareReferenceCountEx.c)
+ *     HmgShareLockCheck @ 0x1C0049E60 (HmgShareLockCheck.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     MulFindDisplayDhsurfFromMetaSurf @ 0x1C018BCD8 (MulFindDisplayDhsurfFromMetaSurf.c)
+ */
+
 __int64 __fastcall bDfbSurfacesMigrated(__int64 a1, __int64 a2)
 {
   unsigned int v2; // edi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpTraceClearDevNodeProblem @ 0x140866ADC
+ * Callers:
+ *     PipClearDevNodeProblem @ 0x14086666C (PipClearDevNodeProblem.c)
+ * Callees:
+ *     _tlgWriteAgg @ 0x14035EDD0 (_tlgWriteAgg.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PnpTraceClearDevNodeProblem(unsigned __int16 *a1, __int64 a2, int a3)
 {
   int v4; // r9d

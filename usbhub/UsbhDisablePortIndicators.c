@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhDisablePortIndicators @ 0x1C002EFC0
+ * Callers:
+ *     UsbhBusPnpStop_Action @ 0x1C00314EC (UsbhBusPnpStop_Action.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     UsbhDispatch_PindicatorEvent @ 0x1C002F098 (UsbhDispatch_PindicatorEvent.c)
+ */
+
 _DWORD *__fastcall UsbhDisablePortIndicators(__int64 a1)
 {
   unsigned __int16 i; // bx

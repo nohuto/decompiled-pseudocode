@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiSetMiterLimit @ 0x1C02C7660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreSetMiterLimit @ 0x1C02C3294 (GreSetMiterLimit.c)
+ */
+
 __int64 __fastcall NtGdiSetMiterLimit(HDC a1, unsigned int a2, unsigned __int64 a3)
 {
   unsigned int v5; // edx

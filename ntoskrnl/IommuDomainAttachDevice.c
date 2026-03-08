@@ -1,3 +1,20 @@
+/*
+ * XREFs of IommuDomainAttachDevice @ 0x140523210
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     HalpIommuGetDeviceId @ 0x14038CC4C (HalpIommuGetDeviceId.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     HalpIommuJoinDmaDomain @ 0x140515ED4 (HalpIommuJoinDmaDomain.c)
+ *     IommupFindAndPopCachedDevice @ 0x140524604 (IommupFindAndPopCachedDevice.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     HalpIommuCreateDevice @ 0x140822B28 (HalpIommuCreateDevice.c)
+ *     HalpIommuDeleteDevice @ 0x140930ACC (HalpIommuDeleteDevice.c)
+ */
+
 __int64 __fastcall IommuDomainAttachDevice(__int64 a1, __int64 a2, int a3, int a4)
 {
   __int64 v6; // rsi

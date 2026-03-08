@@ -1,3 +1,17 @@
+/*
+ * XREFs of PspSiloLoadApiSets @ 0x1409AAA20
+ * Callers:
+ *     PspInitializeServerSiloDeferred @ 0x1409AA0D0 (PspInitializeServerSiloDeferred.c)
+ * Callees:
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     PsAttachSiloToCurrentThread @ 0x1402993A0 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x1402993C0 (PsDetachSiloFromCurrentThread.c)
+ *     ApiSetReleaseSchema @ 0x140612300 (ApiSetReleaseSchema.c)
+ *     PspQueryForwardersEnabled @ 0x140812AAC (PspQueryForwardersEnabled.c)
+ *     PspApiSetCopyToSystemSpace @ 0x1409A98F8 (PspApiSetCopyToSystemSpace.c)
+ *     ApiSetLoadSchemaWithExtensions @ 0x140A0717C (ApiSetLoadSchemaWithExtensions.c)
+ */
+
 __int64 __fastcall PspSiloLoadApiSets(struct _LIST_ENTRY *a1)
 {
   struct _LIST_ENTRY *v2; // r14

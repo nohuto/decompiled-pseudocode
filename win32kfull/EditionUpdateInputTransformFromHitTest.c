@@ -1,3 +1,15 @@
+/*
+ * XREFs of EditionUpdateInputTransformFromHitTest @ 0x1C0007B90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetCompositionInput@InputTransform@@YAHPEAUtagWND@@PEAX@Z @ 0x1C0007C54 (-SetCompositionInput@InputTransform@@YAHPEAUtagWND@@PEAX@Z.c)
+ *     ?StoreTransform@InputTransform@@YAHPEAUtagWND@@PEBUtagINPUT_TRANSFORM@@PEA_K@Z @ 0x1C0007CC8 (-StoreTransform@InputTransform@@YAHPEAUtagWND@@PEBUtagINPUT_TRANSFORM@@PEA_K@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003E858 (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ *     ?SetCompositionInputWindowUIOwner@@YAHPEAUtagWND@@0@Z @ 0x1C014A79A (-SetCompositionInputWindowUIOwner@@YAHPEAUtagWND@@0@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqi @ 0x1C01AD8C0 (WPP_RECORDER_AND_TRACE_SF_qqi.c)
+ */
+
 __int64 __fastcall EditionUpdateInputTransformFromHitTest(
         __int64 a1,
         struct tagWND *a2,

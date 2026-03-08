@@ -1,3 +1,13 @@
+/*
+ * XREFs of wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState @ 0x1404FBF0C
+ * Callers:
+ *     wil_details_FeatureStateCache_GetCachedFeatureEnabledState @ 0x1402C8FD0 (wil_details_FeatureStateCache_GetCachedFeatureEnabledState.c)
+ *     wil_details_IsEnabledFallback @ 0x140409AE0 (wil_details_IsEnabledFallback.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     wil_details_GetCurrentFeatureEnabledState @ 0x1404FC00C (wil_details_GetCurrentFeatureEnabledState.c)
+ */
+
 __int64 __fastcall wil_details_FeatureStateCache_ReevaluateCachedFeatureEnabledState(
         volatile signed __int32 *a1,
         __int64 a2,

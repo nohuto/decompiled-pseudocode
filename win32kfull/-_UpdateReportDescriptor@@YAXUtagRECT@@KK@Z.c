@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_UpdateReportDescriptor@@YAXUtagRECT@@KK@Z @ 0x1C01B331C
+ * Callers:
+ *     CreatePseudoDigitizerDevice @ 0x1C01B3424 (CreatePseudoDigitizerDevice.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall _UpdateReportDescriptor(struct tagRECT *a1, __int16 a2, unsigned int a3)
 {
   unsigned int v3; // eax

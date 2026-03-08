@@ -1,3 +1,11 @@
+/*
+ * XREFs of ControllerEnable @ 0x1C000959C
+ * Callers:
+ *     NVMeControllerInitPart1 @ 0x1C000D7A8 (NVMeControllerInitPart1.c)
+ * Callees:
+ *     CheckDpcWatchdogTimerExpireSoon @ 0x1C0025AB8 (CheckDpcWatchdogTimerExpireSoon.c)
+ */
+
 __int64 __fastcall ControllerEnable(__int64 a1)
 {
   unsigned int v2; // r14d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PipEventRemovalCheckOpenHandles @ 0x14096EB8C
+ * Callers:
+ *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x14096ED2C (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ * Callees:
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     PnpIsChainDereferenced @ 0x1403CE6E0 (PnpIsChainDereferenced.c)
+ */
+
 __int64 __fastcall PipEventRemovalCheckOpenHandles(_QWORD *a1, int a2, _QWORD *a3)
 {
   int v4; // ebx

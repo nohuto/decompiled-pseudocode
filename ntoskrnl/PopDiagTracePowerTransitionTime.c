@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopDiagTracePowerTransitionTime @ 0x14098E1F8
+ * Callers:
+ *     PopIssueActionRequest @ 0x140986CA4 (PopIssueActionRequest.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopPowerTransitionTimesInMs @ 0x140581020 (PopPowerTransitionTimesInMs.c)
+ */
+
 void PopDiagTracePowerTransitionTime()
 {
   int v0; // [rsp+30h] [rbp-59h] BYREF

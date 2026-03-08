@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmInitHeteroEngine @ 0x140B6840C
+ * Callers:
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ * Callees:
+ *     KeQueryMaximumProcessorCountEx @ 0x1402A7240 (KeQueryMaximumProcessorCountEx.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 PpmInitHeteroEngine()
 {
   _QWORD *v0; // rdi

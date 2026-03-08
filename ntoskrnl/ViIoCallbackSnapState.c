@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViIoCallbackSnapState @ 0x140AC83D4
+ * Callers:
+ *     IovpLocalCompletionRoutine @ 0x140ABEB60 (IovpLocalCompletionRoutine.c)
+ *     VfFastIoSnapState @ 0x140AC82DC (VfFastIoSnapState.c)
+ * Callees:
+ *     ExAllocateFromNPagedLookasideList @ 0x14023FE20 (ExAllocateFromNPagedLookasideList.c)
+ */
+
 _DWORD *ViIoCallbackSnapState()
 {
   _DWORD *result; // rax

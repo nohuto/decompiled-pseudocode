@@ -1,3 +1,24 @@
+/*
+ * XREFs of RtlIsSandboxedToken @ 0x140741410
+ * Callers:
+ *     NtSetInformationFile @ 0x14027E490 (NtSetInformationFile.c)
+ *     IopCheckInitiatorHint @ 0x14035E260 (IopCheckInitiatorHint.c)
+ *     CmpCheckCreateAccess @ 0x14069A410 (CmpCheckCreateAccess.c)
+ *     ObpParseSymbolicLinkEx @ 0x14069CAB0 (ObpParseSymbolicLinkEx.c)
+ *     NtDuplicateToken @ 0x1406DAB50 (NtDuplicateToken.c)
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ *     ObpCreateDirectoryObject @ 0x14073DED0 (ObpCreateDirectoryObject.c)
+ *     SepFilterToken @ 0x14073FED0 (SepFilterToken.c)
+ *     ObCreateSymbolicLink @ 0x140740FE8 (ObCreateSymbolicLink.c)
+ *     ObpGetShadowDirectory @ 0x14075F49C (ObpGetShadowDirectory.c)
+ *     CmSetValueKey @ 0x1407A9870 (CmSetValueKey.c)
+ *     IopXxxControlFile @ 0x1407C1720 (IopXxxControlFile.c)
+ * Callees:
+ *     SeQueryInformationToken @ 0x1407B9760 (SeQueryInformationToken.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ */
+
 bool __fastcall RtlIsSandboxedToken(PSECURITY_SUBJECT_CONTEXT SubjectContext, char a2)
 {
   bool v2; // bl

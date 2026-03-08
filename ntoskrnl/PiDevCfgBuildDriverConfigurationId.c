@@ -1,3 +1,17 @@
+/*
+ * XREFs of PiDevCfgBuildDriverConfigurationId @ 0x140874BA8
+ * Callers:
+ *     PiDevCfgQueryDriverConfiguration @ 0x140876268 (PiDevCfgQueryDriverConfiguration.c)
+ * Callees:
+ *     RtlTimeToTimeFields @ 0x1402D14B0 (RtlTimeToTimeFields.c)
+ *     RtlUnicodeStringPrintf @ 0x1403BEBCC (RtlUnicodeStringPrintf.c)
+ *     RtlUnicodeStringPrintfEx @ 0x1403C1A7C (RtlUnicodeStringPrintfEx.c)
+ *     RtlUnicodeStringExHandleOtherFlags @ 0x14055D498 (RtlUnicodeStringExHandleOtherFlags.c)
+ *     PnpIsNullGuid @ 0x140689294 (PnpIsNullGuid.c)
+ *     ExpAllocateStringRoutine @ 0x140777DB0 (ExpAllocateStringRoutine.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ */
+
 __int64 __fastcall PiDevCfgBuildDriverConfigurationId(__int64 a1, UNICODE_STRING *a2)
 {
   __int64 v2; // r15

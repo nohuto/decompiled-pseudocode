@@ -1,3 +1,20 @@
+/*
+ * XREFs of IopInitActivityIdIrp @ 0x140553324
+ * Callers:
+ *     IopAllocateIrpWithExtension @ 0x1402B18A4 (IopAllocateIrpWithExtension.c)
+ *     IopAllocateIrpPrivate @ 0x1403122C0 (IopAllocateIrpPrivate.c)
+ *     IopAllocateBackpocketIrp @ 0x1405525E0 (IopAllocateBackpocketIrp.c)
+ *     IopAllocateReserveIrp @ 0x140552878 (IopAllocateReserveIrp.c)
+ *     IovAllocateIrp @ 0x140ABDCE0 (IovAllocateIrp.c)
+ * Callees:
+ *     PnpIsSafeToExamineUserModeTeb @ 0x140203EC4 (PnpIsSafeToExamineUserModeTeb.c)
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwActivityIdControl @ 0x140244870 (EtwActivityIdControl.c)
+ *     IoSetActivityIdIrp @ 0x1402B2080 (IoSetActivityIdIrp.c)
+ *     IopIsActivityTracingEventEnabled @ 0x1403BD158 (IopIsActivityTracingEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 int __fastcall IopInitActivityIdIrp(__int64 a1)
 {
   bool v2; // r14

@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserResolveDesktopForWOW @ 0x1C01DAF30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0035F20 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     xxxResolveDesktopForWOW @ 0x1C01BFDF8 (xxxResolveDesktopForWOW.c)
+ */
+
 __int64 __fastcall NtUserResolveDesktopForWOW(struct _UNICODE_STRING *a1)
 {
   ULONG64 v2; // rax

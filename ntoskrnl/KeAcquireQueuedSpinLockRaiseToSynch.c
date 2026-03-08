@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeAcquireQueuedSpinLockRaiseToSynch @ 0x14056ECD0
+ * Callers:
+ *     DifKeAcquireQueuedSpinLockRaiseToSynchWrapper @ 0x1405E0390 (DifKeAcquireQueuedSpinLockRaiseToSynchWrapper.c)
+ * Callees:
+ *     KxAcquireQueuedSpinLock @ 0x140336C10 (KxAcquireQueuedSpinLock.c)
+ */
+
 unsigned __int8 __fastcall KeAcquireQueuedSpinLockRaiseToSynch(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // bl

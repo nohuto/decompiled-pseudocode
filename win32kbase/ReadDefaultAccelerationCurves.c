@@ -1,3 +1,11 @@
+/*
+ * XREFs of ReadDefaultAccelerationCurves @ 0x1C0017870
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CreateDefaultAcceleratorCurve@CDeviceAcceleration@@QEAAXPEAU_UNICODE_STRING@@@Z @ 0x1C0017CAC (-CreateDefaultAcceleratorCurve@CDeviceAcceleration@@QEAAXPEAU_UNICODE_STRING@@@Z.c)
+ */
+
 void __fastcall ReadDefaultAccelerationCurves(__int64 a1, struct _UNICODE_STRING *a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rbx

@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiDecrementCloneBlock @ 0x14029DC04
+ * Callers:
+ *     MiCombineInitialInstance @ 0x14029CD58 (MiCombineInitialInstance.c)
+ *     MiDecrementCombinedPteEx @ 0x14029DAF4 (MiDecrementCombinedPteEx.c)
+ *     MiDecrementCloneBlockReference @ 0x14066176C (MiDecrementCloneBlockReference.c)
+ * Callees:
+ *     MiDeleteMergedPte @ 0x14029CAD8 (MiDeleteMergedPte.c)
+ *     MiReturnCrossPartitionCloneCharges @ 0x14029DD9C (MiReturnCrossPartitionCloneCharges.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiLockCloneBlockAtDpc @ 0x14034A49C (MiLockCloneBlockAtDpc.c)
+ */
+
 __int64 __fastcall MiDecrementCloneBlock(__int64 a1, __int64 a2, unsigned __int64 a3, char a4, _DWORD *a5)
 {
   __int64 v9; // r13

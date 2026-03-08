@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?Activate@CDirectFlipInfo@@QEAAJXZ @ 0x1801F373C
+ * Callers:
+ *     ?ApplyConfiguration@COverlayContext@@QEAAJAEBVCDirtyRegion@@PEAV?$vector@PEBVCVisual@@V?$allocator@PEBVCVisual@@@std@@@std@@PEA_N2@Z @ 0x18008BD94 (-ApplyConfiguration@COverlayContext@@QEAAJAEBVCDirtyRegion@@PEAV-$vector@PEBVCVisual@@V-$allocat.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?RenderingRealizationChanged@CDirectFlipInfo@@QEBA_NXZ @ 0x18012D42C (-RenderingRealizationChanged@CDirectFlipInfo@@QEBA_NXZ.c)
+ *     ?CalcIndependentFlipSupport@CDirectFlipInfo@@IEAAXXZ @ 0x1801F3AF0 (-CalcIndependentFlipSupport@CDirectFlipInfo@@IEAAXXZ.c)
+ *     ?CheckCustomPresentDuration@CDirectFlipInfo@@IEAA_NXZ @ 0x1801F3B70 (-CheckCustomPresentDuration@CDirectFlipInfo@@IEAA_NXZ.c)
+ *     ?DisableIndependentFlip@CDirectFlipInfo@@QEAAJXZ @ 0x1801F3CD0 (-DisableIndependentFlip@CDirectFlipInfo@@QEAAJXZ.c)
+ *     ?EnableIndependentFlip@CDirectFlipInfo@@QEAAJXZ @ 0x1801F3D60 (-EnableIndependentFlip@CDirectFlipInfo@@QEAAJXZ.c)
+ */
+
 __int64 __fastcall CDirectFlipInfo::Activate(CDirectFlipInfo *this)
 {
   int v1; // edi

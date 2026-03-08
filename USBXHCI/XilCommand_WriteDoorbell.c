@@ -1,3 +1,13 @@
+/*
+ * XREFs of XilCommand_WriteDoorbell @ 0x1C000ABF8
+ * Callers:
+ *     XilCommand_AddCommandCRBToRing @ 0x1C000AB9C (XilCommand_AddCommandCRBToRing.c)
+ *     Command_HandleCommandRingStoppedEvent @ 0x1C002FD74 (Command_HandleCommandRingStoppedEvent.c)
+ *     Command_WdfEvtWatchdogTimerFunction @ 0x1C0030270 (Command_WdfEvtWatchdogTimerFunction.c)
+ * Callees:
+ *     XilCommand_SendRequestToRingDoorbell @ 0x1C00320D8 (XilCommand_SendRequestToRingDoorbell.c)
+ */
+
 _DWORD *__fastcall XilCommand_WriteDoorbell(__int64 a1)
 {
   _DWORD *result; // rax

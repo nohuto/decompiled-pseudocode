@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopTraceSystemIdleS0LowPowerDozeTimerCancelled @ 0x14098FD78
+ * Callers:
+ *     PopIdleCancelAoAcDozeS4Timer @ 0x14036D07C (PopIdleCancelAoAcDozeS4Timer.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PopTraceSystemIdleS0LowPowerDozeTimerCancelled(int a1)
 {
   REGHANDLE v1; // rbx

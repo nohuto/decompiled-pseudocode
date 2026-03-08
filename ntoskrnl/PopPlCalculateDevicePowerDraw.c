@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopPlCalculateDevicePowerDraw @ 0x14059ED14
+ * Callers:
+ *     PopPlNotifyDeviceDState @ 0x1402B9D3C (PopPlNotifyDeviceDState.c)
+ *     PopPlNotifyDeviceFState @ 0x1402EFC60 (PopPlNotifyDeviceFState.c)
+ *     PopPlRegisterDeviceIterator @ 0x14059F270 (PopPlRegisterDeviceIterator.c)
+ *     PopPlUnregisterDevice @ 0x14059F9D0 (PopPlUnregisterDevice.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopPlCalculateDevicePowerDraw(__int64 a1, int *a2, unsigned int *a3, _DWORD *a4)
 {
   __int64 v4; // r11

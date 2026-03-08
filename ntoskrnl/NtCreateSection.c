@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtCreateSection @ 0x1407D1770
+ * Callers:
+ *     PfSnGetSectionObject @ 0x1406A48D0 (PfSnGetSectionObject.c)
+ *     PfpFileBuildReadSupport @ 0x140767138 (PfpFileBuildReadSupport.c)
+ * Callees:
+ *     MiCreateSectionCommon @ 0x1407D01E0 (MiCreateSectionCommon.c)
+ */
+
 NTSTATUS __stdcall NtCreateSection(
         PHANDLE SectionHandle,
         ACCESS_MASK DesiredAccess,

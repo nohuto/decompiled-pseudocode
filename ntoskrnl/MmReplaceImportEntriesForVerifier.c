@@ -1,3 +1,13 @@
+/*
+ * XREFs of MmReplaceImportEntriesForVerifier @ 0x140A2A95C
+ * Callers:
+ *     MmApplyVerifierToRunningImage @ 0x140AE4F80 (MmApplyVerifierToRunningImage.c)
+ * Callees:
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     MiReplaceImportEntry @ 0x14062A2A0 (MiReplaceImportEntry.c)
+ *     MiEnumerateBasePatches @ 0x1407F7420 (MiEnumerateBasePatches.c)
+ */
+
 __int64 __fastcall MmReplaceImportEntriesForVerifier(__int64 a1, int *a2, unsigned int a3)
 {
   __int64 v3; // rdi

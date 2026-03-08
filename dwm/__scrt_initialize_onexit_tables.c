@@ -1,3 +1,13 @@
+/*
+ * XREFs of __scrt_initialize_onexit_tables @ 0x140005750
+ * Callers:
+ *     pre_c_initialization @ 0x140005260 (pre_c_initialization.c)
+ * Callees:
+ *     __scrt_fastfail @ 0x140005AC8 (__scrt_fastfail.c)
+ *     __scrt_is_ucrt_dll_in_use @ 0x140005FA4 (__scrt_is_ucrt_dll_in_use.c)
+ *     _initialize_onexit_table @ 0x1400062D0 (_initialize_onexit_table.c)
+ */
+
 char __fastcall _scrt_initialize_onexit_tables(unsigned int a1)
 {
   if ( !byte_1400167F0 )

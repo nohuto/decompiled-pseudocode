@@ -1,3 +1,13 @@
+/*
+ * XREFs of InitCreateObjectDirectory @ 0x1C031FDA8
+ * Callers:
+ *     ?UserInitialize@@YAJXZ @ 0x1C002D838 (-UserInitialize@@YAJXZ.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ApiSetEditionCreateDefaultWindowStation @ 0x1C00CC3B0 (ApiSetEditionCreateDefaultWindowStation.c)
+ */
+
 __int64 InitCreateObjectDirectory()
 {
   bool v0; // dl

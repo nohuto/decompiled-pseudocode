@@ -1,3 +1,43 @@
+/*
+ * XREFs of PipProcessDevNodeTree @ 0x1406CCD80
+ * Callers:
+ *     PnpDeviceActionWorker @ 0x140203020 (PnpDeviceActionWorker.c)
+ *     PnpProcessRebalance @ 0x140562AF4 (PnpProcessRebalance.c)
+ *     PipProcessDevNodeTree @ 0x1406CCD80 (PipProcessDevNodeTree.c)
+ *     PiProcessReenumeration @ 0x1407854F4 (PiProcessReenumeration.c)
+ *     PiProcessStartSystemDevices @ 0x140860040 (PiProcessStartSystemDevices.c)
+ *     PiRestartDevice @ 0x1408608D0 (PiRestartDevice.c)
+ *     PiProcessResourceRequirementsChanged @ 0x140956564 (PiProcessResourceRequirementsChanged.c)
+ * Callees:
+ *     PoFxActivateDevice @ 0x140202138 (PoFxActivateDevice.c)
+ *     PoFxIdleDevice @ 0x14020259C (PoFxIdleDevice.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PoFxPrepareDevice @ 0x140291E3C (PoFxPrepareDevice.c)
+ *     PiCollapseEnumRequests @ 0x1402F4C5C (PiCollapseEnumRequests.c)
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     McTemplateK0z_EtwWriteTransfer @ 0x14055EEE8 (McTemplateK0z_EtwWriteTransfer.c)
+ *     PnpProcessAssignResources @ 0x140681528 (PnpProcessAssignResources.c)
+ *     PipProcessStartPhase2 @ 0x1406817A0 (PipProcessStartPhase2.c)
+ *     PipProcessStartPhase3 @ 0x14068203C (PipProcessStartPhase3.c)
+ *     IopAllocateUnicodeString @ 0x140683958 (IopAllocateUnicodeString.c)
+ *     PipEnumerateCompleted @ 0x140685510 (PipEnumerateCompleted.c)
+ *     PipEnumerateDevice @ 0x140688710 (PipEnumerateDevice.c)
+ *     PipCallDriverAddDevice @ 0x1406C644C (PipCallDriverAddDevice.c)
+ *     PpDevNodeUnlockTree @ 0x1406CB8B0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406CB944 (PpDevNodeLockTree.c)
+ *     PipProcessDevNodeTree @ 0x1406CCD80 (PipProcessDevNodeTree.c)
+ *     PnpDeviceCompletionProcessCompletedRequests @ 0x1406CD318 (PnpDeviceCompletionProcessCompletedRequests.c)
+ *     PnpCheckForActiveDependencies @ 0x1406CD3AC (PnpCheckForActiveDependencies.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CDF08 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PipProcessStartPhase1 @ 0x1406F7074 (PipProcessStartPhase1.c)
+ *     PiProcessNewDeviceNodeAsync @ 0x140793334 (PiProcessNewDeviceNodeAsync.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     PipSetDevNodeProblem @ 0x1408667BC (PipSetDevNodeProblem.c)
+ *     PnpSynchronizeDeviceEventQueue @ 0x1408729DC (PnpSynchronizeDeviceEventQueue.c)
+ *     PipProcessRestartPhase1 @ 0x14096C3CC (PipProcessRestartPhase1.c)
+ *     PipProcessRestartPhase2 @ 0x14096C498 (PipProcessRestartPhase2.c)
+ */
+
 __int64 __fastcall PipProcessDevNodeTree(
         __int64 a1,
         __int64 a2,

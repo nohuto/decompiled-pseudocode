@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpValidateFlagExtension @ 0x1407485B0
+ * Callers:
+ *     EtwpStartLogger @ 0x140691964 (EtwpStartLogger.c)
+ *     EtwpUpdateTrace @ 0x140744D3C (EtwpUpdateTrace.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EtwpValidateFlagExtension(unsigned int *a1)
 {
   int v1; // r8d

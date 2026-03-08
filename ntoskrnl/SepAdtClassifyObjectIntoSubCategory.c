@@ -1,3 +1,17 @@
+/*
+ * XREFs of SepAdtClassifyObjectIntoSubCategory @ 0x1408A1798
+ * Callers:
+ *     SepAdtAuditObjectAccessWithContext @ 0x1406995C8 (SepAdtAuditObjectAccessWithContext.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x14069A700 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SeAuditHandleCreation @ 0x14078D9F8 (SeAuditHandleCreation.c)
+ *     ObpCreateHandle @ 0x1407C0130 (ObpCreateHandle.c)
+ *     SeOperationAuditAlarm @ 0x1409C84FC (SeOperationAuditAlarm.c)
+ * Callees:
+ *     SepAuditingEnabledForSubcategory @ 0x1402079C0 (SepAuditingEnabledForSubcategory.c)
+ *     RtlCompareUnicodeString @ 0x1406EA3B0 (RtlCompareUnicodeString.c)
+ *     SepIsRemovableStorageDevice @ 0x1409CE430 (SepIsRemovableStorageDevice.c)
+ */
+
 __int16 __fastcall SepAdtClassifyObjectIntoSubCategory(__int64 a1, const UNICODE_STRING *a2, char a3, char a4)
 {
   POBJECT_TYPE *v5; // rax

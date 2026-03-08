@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionProcessPointerInputAsMouse @ 0x1C0242098
+ * Callers:
+ *     ?GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z @ 0x1C01F3D8C (-GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (__fastcall *__fastcall ApiSetEditionProcessPointerInputAsMouse(
         __int64 a1,
         __int64 a2,

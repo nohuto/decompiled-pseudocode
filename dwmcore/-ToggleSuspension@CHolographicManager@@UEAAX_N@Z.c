@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ToggleSuspension@CHolographicManager@@UEAAX_N@Z @ 0x1800FABB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DwmHolographicSuspendRequest_@CompositorTracing@@QEAAX_N@Z @ 0x1800FAC0C (-DwmHolographicSuspendRequest_@CompositorTracing@@QEAAX_N@Z.c)
+ *     ?IsEnabled@CompositorTracing@@SA_NE_K@Z @ 0x1800FACA4 (-IsEnabled@CompositorTracing@@SA_NE_K@Z.c)
+ *     ?get@?$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z @ 0x1800FACE4 (-get@-$static_lazy@VCompositorTracing@@@details@wil@@QEAAPEAVCompositorTracing@@P6AXXZ@Z.c)
+ *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x1802A8D0C (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
+ */
+
 void __fastcall CHolographicManager::ToggleSuspension(CHolographicManager *this, unsigned __int64 a2)
 {
   unsigned __int64 v2; // rbx

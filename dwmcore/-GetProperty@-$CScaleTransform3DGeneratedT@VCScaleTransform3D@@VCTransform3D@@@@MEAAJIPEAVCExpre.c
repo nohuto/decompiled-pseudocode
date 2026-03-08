@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetProperty@?$CScaleTransform3DGeneratedT@VCScaleTransform3D@@VCTransform3D@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x1801C1890
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CScaleTransform3DGeneratedT<CScaleTransform3D,CTransform3D>::GetProperty(
         _DWORD *a1,
         int a2,

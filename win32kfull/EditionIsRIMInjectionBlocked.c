@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionIsRIMInjectionBlocked @ 0x1C000C650
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EditionIsRIMInjectionBlocked(__int64 a1)
 {
   unsigned int v1; // ebx

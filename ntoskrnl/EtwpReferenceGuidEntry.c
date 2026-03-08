@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwpReferenceGuidEntry @ 0x140695054
+ * Callers:
+ *     EtwGetProviderIdFromHandle @ 0x1402FDB04 (EtwGetProviderIdFromHandle.c)
+ *     EtwpUpdateGuidEnableInfo @ 0x14068FA30 (EtwpUpdateGuidEnableInfo.c)
+ *     EtwpAddGuidEntry @ 0x140690A30 (EtwpAddGuidEntry.c)
+ *     EtwpAddRegEntryToGroup @ 0x140693640 (EtwpAddRegEntryToGroup.c)
+ *     EtwpGetNextGuidEntry @ 0x140693F10 (EtwpGetNextGuidEntry.c)
+ *     EtwpInitializeRegEntry @ 0x140694D00 (EtwpInitializeRegEntry.c)
+ *     EtwpFindGuidEntryByGuid @ 0x140694F60 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpCreateUmReplyObject @ 0x14078BE14 (EtwpCreateUmReplyObject.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 char __fastcall EtwpReferenceGuidEntry(ULONG_PTR BugCheckParameter2)
 {
   signed __int64 v1; // r8

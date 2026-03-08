@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnKeyStateRequested@CAsyncKeyEventMonitor@@QEAAXK@Z @ 0x1C0080074
+ * Callers:
+ *     EtwTraceGetAsyncKeyState @ 0x1C007FFE4 (EtwTraceGetAsyncKeyState.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CAsyncKeyEventMonitor::OnKeyStateRequested(CAsyncKeyEventMonitor *this, int a2)
 {
   __int64 v4; // rax

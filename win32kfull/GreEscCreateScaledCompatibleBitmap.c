@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreEscCreateScaledCompatibleBitmap @ 0x1C02AA3F0
+ * Callers:
+ *     GreScalingDispatchEscape @ 0x1C02AA894 (GreScalingDispatchEscape.c)
+ * Callees:
+ *     GreCreateCompatibleBitmapInternal @ 0x1C007BB00 (GreCreateCompatibleBitmapInternal.c)
+ */
+
 __int16 __fastcall GreEscCreateScaledCompatibleBitmap(__int64 a1)
 {
   __int64 v2; // rcx

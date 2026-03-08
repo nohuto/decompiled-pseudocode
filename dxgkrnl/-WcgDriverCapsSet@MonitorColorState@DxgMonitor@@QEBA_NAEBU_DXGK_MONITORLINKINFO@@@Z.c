@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?WcgDriverCapsSet@MonitorColorState@DxgMonitor@@QEBA_NAEBU_DXGK_MONITORLINKINFO@@@Z @ 0x1C01AE058
+ * Callers:
+ *     MonitorIsMonitorAndDriverWCGCapable @ 0x1C01ADF6C (MonitorIsMonitorAndDriverWCGCapable.c)
+ *     ?TriggerMonitorTelemetry@DXGMONITOR@@UEBAXW4TELEMETRY_MONITOR_INVENTORY_TRIGGER@DxgMonitor@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0210E00 (-TriggerMonitorTelemetry@DXGMONITOR@@UEBAXW4TELEMETRY_MONITOR_INVENTORY_TRIGGER@DxgMonitor@@PEAU.c)
+ * Callees:
+ *     Feature_EnableIddCx110__private_IsEnabledDeviceUsage @ 0x1C0024584 (Feature_EnableIddCx110__private_IsEnabledDeviceUsage.c)
+ *     Feature_36371531__private_IsEnabledDeviceUsage @ 0x1C0026A10 (Feature_36371531__private_IsEnabledDeviceUsage.c)
+ *     Feature_WCG_Skip_WideColorSpace_Check__private_ReportDeviceUsage @ 0x1C0026C58 (Feature_WCG_Skip_WideColorSpace_Check__private_ReportDeviceUsage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 char __fastcall DxgMonitor::MonitorColorState::WcgDriverCapsSet(
         DxgMonitor::MonitorColorState *this,
         const struct _DXGK_MONITORLINKINFO *a2)

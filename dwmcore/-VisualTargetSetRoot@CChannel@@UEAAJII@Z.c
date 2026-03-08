@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?VisualTargetSetRoot@CChannel@@UEAAJII@Z @ 0x18003FF00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180004700 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?VisualRemoveAllChildren@CChannel@@UEAAJI@Z @ 0x180040450 (-VisualRemoveAllChildren@CChannel@@UEAAJI@Z.c)
+ *     ?VisualInsertChild@CChannel@@UEAAJIII_N@Z @ 0x180043D90 (-VisualInsertChild@CChannel@@UEAAJIII_N@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?QueryResourceInterface@CChannel@@UEAAJIAEBU_GUID@@PEAPEAX@Z @ 0x1801CD330 (-QueryResourceInterface@CChannel@@UEAAJIAEBU_GUID@@PEAPEAX@Z.c)
+ */
+
 __int64 __fastcall CChannel::VisualTargetSetRoot(CChannel *this, unsigned int a2, unsigned int a3)
 {
   int inserted; // ebx

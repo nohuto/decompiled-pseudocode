@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??$read@U_POINTL@@@?$umptr_r@UtagPOINT@@@@QEBA_NPEAU_POINTL@@_K_J@Z @ 0x1C02ACC40
+ * Callers:
+ *     ?GrePolyDraw@@YAHPEAUHDC__@@AEAV?$umptr_r@UtagPOINT@@@@AEAV?$umptr_r@E@@K@Z @ 0x1C02AD894 (-GrePolyDraw@@YAHPEAUHDC__@@AEAV-$umptr_r@UtagPOINT@@@@AEAV-$umptr_r@E@@K@Z.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ULongLongMult @ 0x1C014D830 (ULongLongMult.c)
+ *     ?ssizet_add_to_sizet@?$umptr@E@@SA_N_K_JPEA_K@Z @ 0x1C02ADE18 (-ssizet_add_to_sizet@-$umptr@E@@SA_N_K_JPEA_K@Z.c)
+ */
+
 char __fastcall umptr_r<tagPOINT>::read<_POINTL>(__int64 a1, void *a2, ULONGLONG a3)
 {
   char v5; // al

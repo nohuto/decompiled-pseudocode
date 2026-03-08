@@ -1,3 +1,15 @@
+/*
+ * XREFs of MmGetPageFileForCrashDump @ 0x140A30138
+ * Callers:
+ *     IoConfigureCrashDump @ 0x14054D564 (IoConfigureCrashDump.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ */
+
 __int64 __fastcall MmGetPageFileForCrashDump(_OWORD *a1)
 {
   struct _KTHREAD *CurrentThread; // rbx

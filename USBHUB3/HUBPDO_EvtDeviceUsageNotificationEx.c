@@ -1,3 +1,19 @@
+/*
+ * XREFs of HUBPDO_EvtDeviceUsageNotificationEx @ 0x1C001CA80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     HUBPDO_AllocateForwardProgressResources @ 0x1C001C944 (HUBPDO_AllocateForwardProgressResources.c)
+ *     HUBMISC_DbgBreak @ 0x1C0032F4C (HUBMISC_DbgBreak.c)
+ *     HUBBOOT_RegisterBootDevice @ 0x1C003F9F8 (HUBBOOT_RegisterBootDevice.c)
+ *     HUBBOOT_IsBootDeviceExternal @ 0x1C003FAF4 (HUBBOOT_IsBootDeviceExternal.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_UpdateSqmFlags @ 0x1C0088158 (HUBREG_UpdateSqmFlags.c)
+ *     WMI_RegisterSurpriseRemovalNotificationInstance @ 0x1C008C2C4 (WMI_RegisterSurpriseRemovalNotificationInstance.c)
+ */
+
 __int64 __fastcall HUBPDO_EvtDeviceUsageNotificationEx(__int64 a1, int a2, char a3)
 {
   bool v6; // r14

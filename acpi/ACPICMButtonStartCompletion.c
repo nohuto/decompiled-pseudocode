@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPICMButtonStartCompletion @ 0x1C0018DC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ */
+
 void __fastcall ACPICMButtonStartCompletion(__int64 a1, IRP *a2, int a3)
 {
   struct _WORK_QUEUE_ITEM *v4; // rcx

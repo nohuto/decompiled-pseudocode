@@ -1,3 +1,13 @@
+/*
+ * XREFs of ParseLocalObj @ 0x1C005B7EC
+ * Callers:
+ *     ParseOpcode @ 0x1C005BD40 (ParseOpcode.c)
+ * Callees:
+ *     CopyObjData @ 0x1C004AEB4 (CopyObjData.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     PrintObject @ 0x1C004E4C8 (PrintObject.c)
+ */
+
 __int64 __fastcall ParseLocalObj(__int64 a1, __int64 a2)
 {
   __int64 v4; // r10

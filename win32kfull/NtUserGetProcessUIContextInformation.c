@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetProcessUIContextInformation @ 0x1C00CFD70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserGetProcessUIContextInformation(HANDLE Handle, _QWORD *a2, __int64 a3)
 {
   _QWORD *v3; // r14

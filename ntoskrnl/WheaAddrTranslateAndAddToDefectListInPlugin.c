@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheaAddrTranslateAndAddToDefectListInPlugin @ 0x140A04FEC
+ * Callers:
+ *     WheapAttemptPhysicalPageOffline @ 0x140A0555C (WheapAttemptPhysicalPageOffline.c)
+ * Callees:
+ *     WheapAddToDefectListInPlugin @ 0x14060FE04 (WheapAddToDefectListInPlugin.c)
+ *     WheapTranslateAddressInPlugin @ 0x140A05B24 (WheapTranslateAddressInPlugin.c)
+ */
+
 __int64 __fastcall WheaAddrTranslateAndAddToDefectListInPlugin(__int64 a1, _OWORD *a2)
 {
   __int64 result; // rax

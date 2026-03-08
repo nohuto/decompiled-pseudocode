@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefIntIsLessThan @ 0x1403FD8D8
+ * Callers:
+ *     SymCryptIntIsLessThan @ 0x1403F38B4 (SymCryptIntIsLessThan.c)
+ * Callees:
+ *     SymCryptFdefRawIsLessThanC @ 0x1403FDF94 (SymCryptFdefRawIsLessThanC.c)
+ */
+
 unsigned __int64 __fastcall SymCryptFdefIntIsLessThan(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

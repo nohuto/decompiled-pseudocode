@@ -1,3 +1,13 @@
+/*
+ * XREFs of Interrupter_InterruptDisable @ 0x1C000F7DC
+ * Callers:
+ *     Interrupter_WdfEvtInterruptDisable @ 0x1C000F750 (Interrupter_WdfEvtInterruptDisable.c)
+ * Callees:
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     XilRegister_WriteUlong @ 0x1C0018428 (XilRegister_WriteUlong.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ */
+
 __int64 __fastcall Interrupter_InterruptDisable(__int64 a1)
 {
   int *v2; // rdx

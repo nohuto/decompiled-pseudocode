@@ -1,3 +1,26 @@
+/*
+ * XREFs of ObShutdownSystem @ 0x140977E00
+ * Callers:
+ *     PopGracefulShutdown @ 0x140A9D970 (PopGracefulShutdown.c)
+ *     PoBroadcastSystemState @ 0x140AA38F8 (PoBroadcastSystemState.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402992F0 (PdcCreateWatchdogAroundClientCall.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ObReferenceObjectByName @ 0x140698F90 (ObReferenceObjectByName.c)
+ *     ExEnumHandleTable @ 0x14070F670 (ExEnumHandleTable.c)
+ *     ObpDeleteSymbolicLinkName @ 0x14076F408 (ObpDeleteSymbolicLinkName.c)
+ *     ObMakeTemporaryObject @ 0x140791C40 (ObMakeTemporaryObject.c)
+ *     ObCleanupSiloState @ 0x140977DD0 (ObCleanupSiloState.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     ObpShutdownTraceLoggingProvider @ 0x140B93128 (ObpShutdownTraceLoggingProvider.c)
+ */
+
 LONG_PTR __fastcall ObShutdownSystem(int a1)
 {
   _QWORD *v1; // rdi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?bPushMergeScrScan@STACKOBJ@@QEAAHXZ @ 0x1C02D5C70
+ * Callers:
+ *     ?bExtendScanline@FLOODBM@@QEAAHAEAVSTACKOBJ@@0JPEAE1@Z @ 0x1C02D569C (-bExtendScanline@FLOODBM@@QEAAHAEAVSTACKOBJ@@0JPEAE1@Z.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ?bExpand@STACKOBJ@@QEAAHK@Z @ 0x1C02D551C (-bExpand@STACKOBJ@@QEAAHK@Z.c)
+ *     ?bExpandScanline@STACKOBJ@@QEAAHKK@Z @ 0x1C02D55E8 (-bExpandScanline@STACKOBJ@@QEAAHKK@Z.c)
+ *     ?vMergeSpans@@YAXPEAU_SPAN@@0000@Z @ 0x1C02D6194 (-vMergeSpans@@YAXPEAU_SPAN@@0000@Z.c)
+ */
+
 __int64 __fastcall STACKOBJ::bPushMergeScrScan(STACKOBJ *this, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rsi

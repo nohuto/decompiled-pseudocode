@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopVerifyDiskSignature @ 0x1408607B0
+ * Callers:
+ *     IopCreateArcName @ 0x14086D7D8 (IopCreateArcName.c)
+ *     IopGetBootDiskInformation @ 0x140B907EC (IopGetBootDiskInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall IopVerifyDiskSignature(__int64 a1, __int64 a2, _DWORD *a3)
 {
   __int64 v4; // rdx

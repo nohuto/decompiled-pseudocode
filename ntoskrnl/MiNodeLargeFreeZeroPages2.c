@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiNodeLargeFreeZeroPages2 @ 0x14064D5BC
+ * Callers:
+ *     MiAddPhysicalMemoryChunks @ 0x140A2919C (MiAddPhysicalMemoryChunks.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiNodeLargeFreeZeroPages2(__int64 a1, int a2)
 {
   __int64 v2; // r8

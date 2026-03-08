@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViShutdownWatchdogExecuteDpc @ 0x140AD2100
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ *     ViShutdownScheduleWatchdog @ 0x140AD2084 (ViShutdownScheduleWatchdog.c)
+ */
+
 void __fastcall ViShutdownWatchdogExecuteDpc(
         struct _KDPC *Dpc,
         PVOID DeferredContext,

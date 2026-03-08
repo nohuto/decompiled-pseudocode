@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIBuildProcessRunMethodPhaseRecurse @ 0x1C0011C70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIBuildCompleteMustSucceed @ 0x1C000BCB0 (ACPIBuildCompleteMustSucceed.c)
+ *     ACPIBuildRunMethodRequest @ 0x1C0013564 (ACPIBuildRunMethodRequest.c)
+ *     ACPIExtListEnumNext @ 0x1C00263F4 (ACPIExtListEnumNext.c)
+ *     ACPIExtListStartEnum @ 0x1C00264F8 (ACPIExtListStartEnum.c)
+ *     ACPIExtListTestElement @ 0x1C0026554 (ACPIExtListTestElement.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessRunMethodPhaseRecurse(__int64 a1)
 {
   int v1; // eax

@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpCmdInit @ 0x140819024
+ * Callers:
+ *     CmCompleteRegistryInitialization @ 0x1408174BC (CmCompleteRegistryInitialization.c)
+ * Callees:
+ *     KeInitializeTimerEx @ 0x140237DB0 (KeInitializeTimerEx.c)
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     CmpInitializeLazyWriters @ 0x1408176F8 (CmpInitializeLazyWriters.c)
+ *     PoRegisterCoalescingCallback @ 0x140819500 (PoRegisterCoalescingCallback.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmpCmdInit(char a1)
 {
   int v2; // eax

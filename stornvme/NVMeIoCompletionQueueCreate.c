@@ -1,3 +1,19 @@
+/*
+ * XREFs of NVMeIoCompletionQueueCreate @ 0x1C001EF80
+ * Callers:
+ *     IoQueuesCreation @ 0x1C000A5E8 (IoQueuesCreation.c)
+ *     IoQueuesCreationAsync @ 0x1C000A774 (IoQueuesCreationAsync.c)
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C000C1C0 (NVMeAllocateDmaBuffer.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ *     ProcessMultipleCommands @ 0x1C0024780 (ProcessMultipleCommands.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 __int64 __fastcall NVMeIoCompletionQueueCreate(__int64 a1, __int64 a2, char a3)
 {
   _WORD *v3; // rdi

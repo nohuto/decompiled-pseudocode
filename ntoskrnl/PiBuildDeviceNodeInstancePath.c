@@ -1,3 +1,17 @@
+/*
+ * XREFs of PiBuildDeviceNodeInstancePath @ 0x1407830E8
+ * Callers:
+ *     PiProcessNewDeviceNode @ 0x140685858 (PiProcessNewDeviceNode.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     PnpFreeDeviceInstancePath @ 0x140783208 (PnpFreeDeviceInstancePath.c)
+ *     PnpCleanupDeviceRegistryValues @ 0x14088039C (PnpCleanupDeviceRegistryValues.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiBuildDeviceNodeInstancePath(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v8; // rax

@@ -1,3 +1,20 @@
+/*
+ * XREFs of RawQueryFileSystemInformation @ 0x1409B58F4
+ * Callers:
+ *     RawUserFsCtrl @ 0x14087D8B4 (RawUserFsCtrl.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopBuildSynchronousFsdRequest @ 0x1407F8DE0 (IopBuildSynchronousFsdRequest.c)
+ *     RawPerformDevIoCtrl @ 0x1409B5354 (RawPerformDevIoCtrl.c)
+ *     RawComputeFileSystemInformationChecksum @ 0x1409B58A0 (RawComputeFileSystemInformationChecksum.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RawQueryFileSystemInformation(__int64 a1, __int64 a2, __int64 a3)
 {
   size_t v4; // rax

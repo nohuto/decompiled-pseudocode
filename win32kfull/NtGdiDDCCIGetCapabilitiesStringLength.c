@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiDDCCIGetCapabilitiesStringLength @ 0x1C026CBB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DdcciGetCapabilitiesStringLength@CMonitorAPI@@QEAAJPEAXPEAK@Z @ 0x1C026BEB4 (-DdcciGetCapabilitiesStringLength@CMonitorAPI@@QEAAJPEAXPEAK@Z.c)
+ */
+
 __int64 __fastcall NtGdiDDCCIGetCapabilitiesStringLength(void *a1, unsigned int *Address)
 {
   __int64 v4; // rax

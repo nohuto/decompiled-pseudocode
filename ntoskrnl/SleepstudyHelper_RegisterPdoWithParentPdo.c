@@ -1,3 +1,14 @@
+/*
+ * XREFs of SleepstudyHelper_RegisterPdoWithParentPdo @ 0x140842C50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SleepstudyHelperDestroyBlocker @ 0x1403AFD80 (SleepstudyHelperDestroyBlocker.c)
+ *     SleepstudyHelperBuildBlocker @ 0x1407261A0 (SleepstudyHelperBuildBlocker.c)
+ *     SleepstudyHelperDestroyBlockerBuilder @ 0x140726370 (SleepstudyHelperDestroyBlockerBuilder.c)
+ *     SleepstudyHelperCreateBlockerFromDevice @ 0x140842D00 (SleepstudyHelperCreateBlockerFromDevice.c)
+ */
+
 __int64 __fastcall SleepstudyHelper_RegisterPdoWithParentPdo(__int64 a1, __int64 a2, __int64 a3, KSPIN_LOCK **a4)
 {
   KSPIN_LOCK *v4; // rsi

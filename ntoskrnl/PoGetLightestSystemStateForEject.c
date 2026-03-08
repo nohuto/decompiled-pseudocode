@@ -1,3 +1,16 @@
+/*
+ * XREFs of PoGetLightestSystemStateForEject @ 0x14097D470
+ * Callers:
+ *     PnpProcessQueryRemoveAndEject @ 0x1408625F0 (PnpProcessQueryRemoveAndEject.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     PopOpenPowerKey @ 0x1403900C8 (PopOpenPowerKey.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     ZwPowerInformation @ 0x140412EF0 (ZwPowerInformation.c)
+ */
+
 int __fastcall PoGetLightestSystemStateForEject(char a1, bool a2, char a3, _DWORD *a4)
 {
   bool v6; // bl

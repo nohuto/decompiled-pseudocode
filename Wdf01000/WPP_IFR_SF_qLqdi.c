@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_IFR_SF_qLqdi @ 0x1C001BF2C
+ * Callers:
+ *     ?InitializeResources@FxDmaEnabler@@AEAAJPEAU_FxDmaDescription@@@Z @ 0x1C001B788 (-InitializeResources@FxDmaEnabler@@AEAAJPEAU_FxDmaDescription@@@Z.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_qLqdi(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 _a1,

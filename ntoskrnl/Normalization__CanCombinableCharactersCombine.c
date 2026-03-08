@@ -1,3 +1,16 @@
+/*
+ * XREFs of Normalization__CanCombinableCharactersCombine @ 0x1409BD590
+ * Callers:
+ *     NormBuffer__LastStartBasePair @ 0x1405AE3E4 (NormBuffer__LastStartBasePair.c)
+ *     NormBuffer__RecheckStartCombinations @ 0x1405AE434 (NormBuffer__RecheckStartCombinations.c)
+ *     Normalization__CanCombineWithStartBase @ 0x1409BD708 (Normalization__CanCombineWithStartBase.c)
+ *     Normalization__CanCombineWithStartFirstPair @ 0x1409BD754 (Normalization__CanCombineWithStartFirstPair.c)
+ *     Normalization__IsNormalized @ 0x1409BDB3C (Normalization__IsNormalized.c)
+ *     Normalization__NormalizeCharacter @ 0x1409BE3B8 (Normalization__NormalizeCharacter.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Normalization__CanCombinableCharactersCombine(__int64 a1, int a2, int a3)
 {
   int v5; // r8d

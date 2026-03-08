@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiReturnUnusedHugeDescriptors @ 0x1406202D4
+ * Callers:
+ *     MiZeroHugeRangeCore @ 0x140A2B20C (MiZeroHugeRangeCore.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockHugePfn @ 0x14061EFAC (MiLockHugePfn.c)
+ *     MiDeleteAcceleratorDescriptor @ 0x14065241C (MiDeleteAcceleratorDescriptor.c)
+ */
+
 __int64 __fastcall MiReturnUnusedHugeDescriptors(__int64 a1)
 {
   __int64 v1; // rbx

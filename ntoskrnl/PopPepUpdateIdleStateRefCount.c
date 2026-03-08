@@ -1,3 +1,23 @@
+/*
+ * XREFs of PopPepUpdateIdleStateRefCount @ 0x1402F295C
+ * Callers:
+ *     PopPepDeviceDState @ 0x1402B9C4C (PopPepDeviceDState.c)
+ *     PopPepStartComponentIdleStateChangeActivity @ 0x1402EFB90 (PopPepStartComponentIdleStateChangeActivity.c)
+ *     PopPepCompleteComponentIdleStateChangeActivity @ 0x1402F2810 (PopPepCompleteComponentIdleStateChangeActivity.c)
+ *     PopPepClearDripsDeviceVetoMask @ 0x14059C634 (PopPepClearDripsDeviceVetoMask.c)
+ *     PopPepInitializeVetoMasks @ 0x14059CE34 (PopPepInitializeVetoMasks.c)
+ *     PopPepPlatformStateRegistered @ 0x14059D504 (PopPepPlatformStateRegistered.c)
+ *     PopPepUpdateDripsDeviceVetoMask @ 0x14059D9D4 (PopPepUpdateDripsDeviceVetoMask.c)
+ *     PopPepUnregisterDevice @ 0x14099A948 (PopPepUnregisterDevice.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ *     PopFxPlatformStateAvailable @ 0x140588EBC (PopFxPlatformStateAvailable.c)
+ */
+
 __int64 __fastcall PopPepUpdateIdleStateRefCount(unsigned int a1, unsigned int a2, int a3, volatile signed __int32 *a4)
 {
   __int64 v8; // r8

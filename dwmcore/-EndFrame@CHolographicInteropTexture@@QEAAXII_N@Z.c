@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EndFrame@CHolographicInteropTexture@@QEAAXII_N@Z @ 0x1802A743C
+ * Callers:
+ *     ?RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTexture@@II@Z @ 0x1802A6564 (-RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTextu.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CHolographicInteropTexture::EndFrame(RTL_SRWLOCK *this, __int64 a2, unsigned int a3, char a4)
 {
   RTL_SRWLOCK *v4; // rbx

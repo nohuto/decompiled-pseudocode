@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBMISC_CheckIfU2ShouldBeSetForEnumeratedDevice @ 0x1C003075C
+ * Callers:
+ *     HUBDSM_ComputingLPMTimeoutValuesInUnconfigured @ 0x1C00256B0 (HUBDSM_ComputingLPMTimeoutValuesInUnconfigured.c)
+ *     HUBUCX_UpdateDeviceInfoUsingUCXIoctl @ 0x1C0026F1C (HUBUCX_UpdateDeviceInfoUsingUCXIoctl.c)
+ * Callees:
+ *     Feature_USB4PowerImprovements__private_IsEnabledDeviceUsage @ 0x1C000CE04 (Feature_USB4PowerImprovements__private_IsEnabledDeviceUsage.c)
+ */
+
 __int64 __fastcall HUBMISC_CheckIfU2ShouldBeSetForEnumeratedDevice(__int64 a1)
 {
   char v2; // r8

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AddRef@CDrawListEntryBatch@@UEAAKXZ @ 0x1800E1C10
+ * Callers:
+ *     ?AddRef@CDrawListEntryBatch@@W7EAAKXZ @ 0x180119970 (-AddRef@CDrawListEntryBatch@@W7EAAKXZ.c)
+ * Callees:
+ *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x180279008 (-IsKernelDebuggerPresent@@YAHXZ.c)
+ */
+
 __int64 __fastcall CDrawListEntryBatch::AddRef(CDrawListEntryBatch *this)
 {
   int v3; // eax

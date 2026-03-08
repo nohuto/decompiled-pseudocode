@@ -1,3 +1,14 @@
+/*
+ * XREFs of McTemplateK0qpqxxq_EtwWriteTransfer @ 0x1C01663EC
+ * Callers:
+ *     ?BeginFrame@CConnection@DirectComposition@@QEAAJAEBUCOMPOSITION_FRAME_INFO@@PEA_K@Z @ 0x1C00991C0 (-BeginFrame@CConnection@DirectComposition@@QEAAJAEBUCOMPOSITION_FRAME_INFO@@PEA_K@Z.c)
+ *     EtwTraceDCompDeferBatchEvent @ 0x1C0099720 (EtwTraceDCompDeferBatchEvent.c)
+ *     ?KeepOrDeferBatches@CConnection@DirectComposition@@AEAAX_KPEAPEAVCBatch@2@@Z @ 0x1C0249998 (-KeepOrDeferBatches@CConnection@DirectComposition@@AEAAX_KPEAPEAVCBatch@2@@Z.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0qpqxxq_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,

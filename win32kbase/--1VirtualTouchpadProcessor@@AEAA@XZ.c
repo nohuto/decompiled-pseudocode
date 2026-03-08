@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1VirtualTouchpadProcessor@@AEAA@XZ @ 0x1C0223D34
+ * Callers:
+ *     UserDeactivateMITInputProcessing @ 0x1C0093B20 (UserDeactivateMITInputProcessing.c)
+ *     ?UnInitialize@CTouchProcessor@@SAJXZ @ 0x1C0094E4C (-UnInitialize@CTouchProcessor@@SAJXZ.c)
+ * Callees:
+ *     ??_GVPTPContact@@QEAAPEAXI@Z @ 0x1C0223E44 (--_GVPTPContact@@QEAAPEAXI@Z.c)
+ *     ?RemoveTouchpad@VirtualTouchpadProcessor@@AEAAXPEAVVPTPTouchpad@@@Z @ 0x1C0225574 (-RemoveTouchpad@VirtualTouchpadProcessor@@AEAAXPEAVVPTPTouchpad@@@Z.c)
+ */
+
 void __fastcall VirtualTouchpadProcessor::~VirtualTouchpadProcessor(struct VPTPTouchpad **this, unsigned int a2)
 {
   struct VPTPTouchpad *v3; // rbx

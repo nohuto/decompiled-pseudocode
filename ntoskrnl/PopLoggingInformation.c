@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopLoggingInformation @ 0x14097DDE4
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ *     PopDiagTraceControlCallback @ 0x14085EC40 (PopDiagTraceControlCallback.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PopLoggingInformation(unsigned int **a1, unsigned int *a2)
 {
   __int64 v2; // r9

@@ -1,3 +1,25 @@
+/*
+ * XREFs of FsRtlNotifyFilterReportChange @ 0x140848F70
+ * Callers:
+ *     FsRtlNotifyFullReportChange @ 0x140848F10 (FsRtlNotifyFullReportChange.c)
+ *     FsRtlNotifyReportChange @ 0x14093D160 (FsRtlNotifyReportChange.c)
+ * Callees:
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     PsChargePoolQuota @ 0x140294F20 (PsChargePoolQuota.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x140295600 (PsReturnProcessPagedPoolQuota.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402ECFB0 (FsRtlIsNtstatusExpected.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     FsRtlNotifyCompleteIrpList @ 0x1407041D4 (FsRtlNotifyCompleteIrpList.c)
+ *     RtlxOemStringToUnicodeSize @ 0x1407A39B0 (RtlxOemStringToUnicodeSize.c)
+ *     FsRtlNotifyUpdateBuffer @ 0x14093D1A8 (FsRtlNotifyUpdateBuffer.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __stdcall FsRtlNotifyFilterReportChange(
         PNOTIFY_SYNC NotifySync,
         PLIST_ENTRY NotifyList,

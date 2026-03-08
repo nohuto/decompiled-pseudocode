@@ -1,3 +1,16 @@
+/*
+ * XREFs of SleepstudyHelperCreateBlockerFromDevice @ 0x140842D00
+ * Callers:
+ *     SleepstudyHelper_RegisterPdoWithParentPdo @ 0x140842C50 (SleepstudyHelper_RegisterPdoWithParentPdo.c)
+ *     SleepstudyHelper_RegisterPdoWithParentGuid @ 0x14099F2D0 (SleepstudyHelper_RegisterPdoWithParentGuid.c)
+ *     SleepstudyHelper_RegisterPdoWithParentHandle @ 0x14099F390 (SleepstudyHelper_RegisterPdoWithParentHandle.c)
+ * Callees:
+ *     SleepstudyHelperDestroyBlockerBuilder @ 0x140726370 (SleepstudyHelperDestroyBlockerBuilder.c)
+ *     SshpGenerateDeviceFriendlyName @ 0x140842DE4 (SshpGenerateDeviceFriendlyName.c)
+ *     SshpGenerateDeviceVerboseDescription @ 0x140842FDC (SshpGenerateDeviceVerboseDescription.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall SleepstudyHelperCreateBlockerFromDevice(
         __int64 a1,
         __int128 *a2,

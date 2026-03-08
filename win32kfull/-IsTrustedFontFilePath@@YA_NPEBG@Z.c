@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsTrustedFontFilePath@@YA_NPEBG@Z @ 0x1C011CA84
+ * Callers:
+ *     ?bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH@Z @ 0x1C0119A20 (-bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall IsTrustedFontFilePath(PCWSTR SourceString)
 {
   __int64 v2; // rbx

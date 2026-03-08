@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vInit@HFDBASIS64@@QEAAXJJJJ@Z @ 0x1C018AEE8
+ * Callers:
+ *     ?bNext@BEZIER64@@QEAAHPEAU_POINTFIX@@@Z @ 0x1C018A3B0 (-bNext@BEZIER64@@QEAAHPEAU_POINTFIX@@@Z.c)
+ *     ?vInit@BEZIER64@@QEAAXPEAU_POINTFIX@@PEAU_RECTFX@@PEB_J@Z @ 0x1C018AD70 (-vInit@BEZIER64@@QEAAXPEAU_POINTFIX@@PEAU_RECTFX@@PEB_J@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall HFDBASIS64::vInit(HFDBASIS64 *this, int a2, int a3, int a4, int a5)
 {
   __int64 v5; // rbx

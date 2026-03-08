@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiConvertAndFlushWsleVas @ 0x14036C29C
+ * Callers:
+ *     MiEliminateZeroPages @ 0x1407F6B10 (MiEliminateZeroPages.c)
+ * Callees:
+ *     MiLockLowestValidPageTable @ 0x140225DB0 (MiLockLowestValidPageTable.c)
+ *     MiGetWsleContents @ 0x140229790 (MiGetWsleContents.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFreeWsleList @ 0x14032B2B0 (MiFreeWsleList.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ */
+
 void __fastcall MiConvertAndFlushWsleVas(__int64 a1, __int64 a2)
 {
   unsigned __int64 v4; // rbx

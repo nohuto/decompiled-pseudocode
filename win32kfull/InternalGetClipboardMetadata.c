@@ -1,3 +1,13 @@
+/*
+ * XREFs of InternalGetClipboardMetadata @ 0x1C02004BC
+ * Callers:
+ *     NtUserGetClipboardMetadata @ 0x1C01D1AF0 (NtUserGetClipboardMetadata.c)
+ * Callees:
+ *     ?FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z @ 0x1C0012468 (-FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00BD7B8 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ */
+
 __int64 __fastcall InternalGetClipboardMetadata(__int64 a1, _DWORD *a2)
 {
   unsigned int v3; // esi

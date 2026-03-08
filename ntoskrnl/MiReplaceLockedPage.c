@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiReplaceLockedPage @ 0x14063487C
+ * Callers:
+ *     MiTrimSharedPageFromViews @ 0x1402A031C (MiTrimSharedPageFromViews.c)
+ * Callees:
+ *     MiTradeActivePage @ 0x140211BC0 (MiTradeActivePage.c)
+ *     MiTbFlushType @ 0x140224BDC (MiTbFlushType.c)
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ *     MiLockProtoPoolPage @ 0x140283CA0 (MiLockProtoPoolPage.c)
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x14032F834 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiGetPfnChannel @ 0x140334470 (MiGetPfnChannel.c)
+ *     MiReleaseFreshPage @ 0x14034E570 (MiReleaseFreshPage.c)
+ *     MiCanPageMove @ 0x1403B7F24 (MiCanPageMove.c)
+ */
+
 __int64 __fastcall MiReplaceLockedPage(__int64 a1, ULONG_PTR a2, unsigned __int64 a3, unsigned int a4, unsigned int a5)
 {
   int v9; // edi

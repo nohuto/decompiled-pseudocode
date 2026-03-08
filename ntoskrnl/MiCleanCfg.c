@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiCleanCfg @ 0x1402F86F4
+ * Callers:
+ *     MmCleanProcessAddressSpace @ 0x1407D4924 (MmCleanProcessAddressSpace.c)
+ * Callees:
+ *     MiUnlockAndDereferenceVadShared @ 0x14031F7B0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiLockVadShared @ 0x14031F870 (MiLockVadShared.c)
+ */
+
 __int64 MiCleanCfg()
 {
   struct _KTHREAD *CurrentThread; // rbp

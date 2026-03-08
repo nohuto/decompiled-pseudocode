@@ -1,3 +1,18 @@
+/*
+ * XREFs of DbgkpCloseObject @ 0x1409341B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PsGetNextProcess @ 0x1406AA530 (PsGetNextProcess.c)
+ *     PsTerminateProcess @ 0x1407DC8A0 (PsTerminateProcess.c)
+ *     DbgkpMarkProcessPeb @ 0x1409344AC (DbgkpMarkProcessPeb.c)
+ *     DbgkpWakeTarget @ 0x1409354D4 (DbgkpWakeTarget.c)
+ */
+
 void __fastcall DbgkpCloseObject(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
 {
   _QWORD *v5; // rsi

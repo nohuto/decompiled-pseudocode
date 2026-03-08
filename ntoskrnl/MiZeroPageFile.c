@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiZeroPageFile @ 0x140617730
+ * Callers:
+ *     MiZeroAllPageFiles @ 0x140AA8C04 (MiZeroAllPageFiles.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MmZeroPageWrite @ 0x1403BB7E4 (MmZeroPageWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiTransferMemoryPagefileData @ 0x14065E4C8 (MiTransferMemoryPagefileData.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 LONG __fastcall MiZeroPageFile(PVOID P)
 {
   __int64 *v2; // r14

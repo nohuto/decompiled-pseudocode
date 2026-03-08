@@ -1,3 +1,13 @@
+/*
+ * XREFs of SecureDump_ProvisionCrashDumpKey @ 0x1403B1104
+ * Callers:
+ *     SecureDump_ReInitialize @ 0x14055C0B8 (SecureDump_ReInitialize.c)
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     SecureDump_LoadCertAndProvisionKey @ 0x14055BD40 (SecureDump_LoadCertAndProvisionKey.c)
+ */
+
 __int64 SecureDump_ProvisionCrashDumpKey()
 {
   __int64 result; // rax

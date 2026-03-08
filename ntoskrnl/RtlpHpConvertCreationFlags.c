@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpHpConvertCreationFlags @ 0x1402F7A8C
+ * Callers:
+ *     RtlCreateHeap @ 0x14078AD90 (RtlCreateHeap.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpHpConvertCreationFlags(int a1, __int16 a2)
 {
   unsigned int v4; // r9d

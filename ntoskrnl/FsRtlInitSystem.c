@@ -1,3 +1,22 @@
+/*
+ * XREFs of FsRtlInitSystem @ 0x140B65B14
+ * Callers:
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     FsFilterInit @ 0x1403A3F60 (FsFilterInit.c)
+ *     ExInitializePagedLookasideList @ 0x140787D60 (ExInitializePagedLookasideList.c)
+ *     FsRtlInitializeTieringHeat @ 0x14084DBB0 (FsRtlInitializeTieringHeat.c)
+ *     FsRtlInitializeDedupChange @ 0x14084DBE4 (FsRtlInitializeDedupChange.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ *     FsRtlInitializeWorkerThread @ 0x140B65C4C (FsRtlInitializeWorkerThread.c)
+ *     FsRtlInitializeSmssEvent @ 0x140B65D30 (FsRtlInitializeSmssEvent.c)
+ *     FsRtlGetCompatibilityModeValue @ 0x140B65E28 (FsRtlGetCompatibilityModeValue.c)
+ *     FsRtlInitializeLargeMcbs @ 0x140B65F50 (FsRtlInitializeLargeMcbs.c)
+ *     FsRtlInitializeTunnels @ 0x140B65FF0 (FsRtlInitializeTunnels.c)
+ *     FsRtlInitializeFileLocks @ 0x140B660E0 (FsRtlInitializeFileLocks.c)
+ */
+
 char FsRtlInitSystem()
 {
   __int64 v0; // rdi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMIDEIsCompatibleDevice @ 0x1C01C4D48
+ * Callers:
+ *     RIMIDEAdoptOrphanedRimDevs @ 0x1C00345C8 (RIMIDEAdoptOrphanedRimDevs.c)
+ * Callees:
+ *     rimIsExplicitRimUsagesMatchingUsages @ 0x1C00350D4 (rimIsExplicitRimUsagesMatchingUsages.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimInputTypeFromRimDev @ 0x1C01A10C0 (rimInputTypeFromRimDev.c)
+ */
+
 __int64 __fastcall RIMIDEIsCompatibleDevice(_DWORD *a1, __int64 a2)
 {
   int v4; // eax

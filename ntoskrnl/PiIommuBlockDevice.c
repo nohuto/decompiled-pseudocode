@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiIommuBlockDevice @ 0x140861948
+ * Callers:
+ *     PiDmaGuardProcessPostRemove @ 0x140867254 (PiDmaGuardProcessPostRemove.c)
+ *     PnpIommuBlockUnblockDevice @ 0x14096BFE8 (PnpIommuBlockUnblockDevice.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall PiIommuBlockDevice(__int64 a1)
 {
   __int64 result; // rax

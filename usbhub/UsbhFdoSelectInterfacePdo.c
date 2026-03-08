@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhFdoSelectInterfacePdo @ 0x1C002AF54
+ * Callers:
+ *     UsbhPdoInternalDeviceControl @ 0x1C0015370 (UsbhPdoInternalDeviceControl.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ */
+
 NTSTATUS __fastcall UsbhFdoSelectInterfacePdo(PDEVICE_OBJECT DeviceObject, PVOID Context, PIRP Irp)
 {
   PDEVICE_OBJECT *v6; // rbp

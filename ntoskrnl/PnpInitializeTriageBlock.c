@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpInitializeTriageBlock @ 0x14055E240
+ * Callers:
+ *     IopAddBugcheckTriageDataFromParameters @ 0x14054F674 (IopAddBugcheckTriageDataFromParameters.c)
+ *     PnpWatchdogBugcheck @ 0x14055E314 (PnpWatchdogBugcheck.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 ULONG_PTR __fastcall PnpInitializeTriageBlock(_DWORD *a1)
 {
   ULONG_PTR result; // rax

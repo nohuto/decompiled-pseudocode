@@ -1,3 +1,15 @@
+/*
+ * XREFs of VslValidateSecureImagePages @ 0x14054BF70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     VslpLockPagesForTransfer @ 0x1403C8E74 (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x1403C90EC (VslpUnlockPagesForTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall VslValidateSecureImagePages(
         __int64 a1,
         unsigned int a2,

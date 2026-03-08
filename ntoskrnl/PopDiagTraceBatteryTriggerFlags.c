@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopDiagTraceBatteryTriggerFlags @ 0x14086E710
+ * Callers:
+ *     PopResetCBTriggers @ 0x14082AA6C (PopResetCBTriggers.c)
+ *     PopBatteryApplyCompositeState @ 0x14086E430 (PopBatteryApplyCompositeState.c)
+ *     PopRecalculateCBTriggerLevels @ 0x14099300C (PopRecalculateCBTriggerLevels.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_char @ 0x1403BE3FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 int __fastcall PopDiagTraceBatteryTriggerFlags(unsigned int *a1, __int64 a2)
 {
   __int64 v2; // rax

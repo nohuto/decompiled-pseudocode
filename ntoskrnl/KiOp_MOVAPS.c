@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiOp_MOVAPS @ 0x14057D5B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiOpPatchCode @ 0x14057CF80 (KiOpPatchCode.c)
+ */
+
 __int64 __fastcall KiOp_MOVAPS(__int64 a1)
 {
   __int64 CurrentThread; // rcx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpAllocateTraceBufferPool @ 0x14074867C
+ * Callers:
+ *     EtwpStartLogger @ 0x140691964 (EtwpStartLogger.c)
+ * Callees:
+ *     EtwpAllocateFreeBuffers @ 0x140205030 (EtwpAllocateFreeBuffers.c)
+ *     EtwpQueryUsedProcessorCount @ 0x140206540 (EtwpQueryUsedProcessorCount.c)
+ *     EtwpGetSystemMaximumBufferCount @ 0x140748750 (EtwpGetSystemMaximumBufferCount.c)
+ */
+
 __int64 __fastcall EtwpAllocateTraceBufferPool(_DWORD *a1)
 {
   unsigned int SystemMaximumBufferCount; // eax

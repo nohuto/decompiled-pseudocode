@@ -1,3 +1,39 @@
+/*
+ * XREFs of ?xxxUserPowerStateCalloutWorker@@YAJXZ @ 0x1C00B3E28
+ * Callers:
+ *     xxxUserPowerCalloutWorker @ 0x1C00B3AC0 (xxxUserPowerCalloutWorker.c)
+ * Callees:
+ *     xxxUserSetDisplayConfig @ 0x1C0011DE0 (xxxUserSetDisplayConfig.c)
+ *     ?UpdateLastInputTime@CInputGlobals@@QEAAX_KW4_LINP_SOURCE@@@Z @ 0x1C0016C10 (-UpdateLastInputTime@CInputGlobals@@QEAAX_KW4_LINP_SOURCE@@@Z.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     ??1LeaveEnterCrit@@QEAA@XZ @ 0x1C0085FBC (--1LeaveEnterCrit@@QEAA@XZ.c)
+ *     PowerResumeSuspendEvent @ 0x1C00898E0 (PowerResumeSuspendEvent.c)
+ *     LeavePowerCrit @ 0x1C00B5640 (LeavePowerCrit.c)
+ *     EnterPowerCrit @ 0x1C00B5670 (EnterPowerCrit.c)
+ *     ?AddPowerStateLogEntry@@YAXW4_POWER_STATE_LOG_ENTRY_TYPE@@K@Z @ 0x1C00B7E1C (-AddPowerStateLogEntry@@YAXW4_POWER_STATE_LOG_ENTRY_TYPE@@K@Z.c)
+ *     RIMSetSystemInputMode @ 0x1C00BD984 (RIMSetSystemInputMode.c)
+ *     xxxSendMessageBSM @ 0x1C00D3120 (xxxSendMessageBSM.c)
+ *     IsxxxSendMessageBSMSupported @ 0x1C00D37D4 (IsxxxSendMessageBSMSupported.c)
+ *     EtwTraceWinlogonSleepStartEvent @ 0x1C00D4440 (EtwTraceWinlogonSleepStartEvent.c)
+ *     IsPowerOnGdiSupported @ 0x1C00D4684 (IsPowerOnGdiSupported.c)
+ *     PowerOnGdi @ 0x1C00D47CC (PowerOnGdi.c)
+ *     DrvStopPresenterView @ 0x1C00D4848 (DrvStopPresenterView.c)
+ *     EtwTraceWinlogonSleepEndEvent @ 0x1C00D48C0 (EtwTraceWinlogonSleepEndEvent.c)
+ *     IsPowerOffGdiSupported @ 0x1C00D49A4 (IsPowerOffGdiSupported.c)
+ *     PowerOffGdi @ 0x1C00D49F4 (PowerOffGdi.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     ??0PoWin32CalloutDeadlockTracker@@QEAA@W4_POPWIN32CALLOUT_WATCHDOG_STATE_INDEX@@@Z @ 0x1C00DCD58 (--0PoWin32CalloutDeadlockTracker@@QEAA@W4_POPWIN32CALLOUT_WATCHDOG_STATE_INDEX@@@Z.c)
+ *     ??1PoWin32CalloutDeadlockTracker@@QEAA@XZ @ 0x1C00DCDE8 (--1PoWin32CalloutDeadlockTracker@@QEAA@XZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     McTemplateK0dq_EtwWriteTransfer @ 0x1C00EE444 (McTemplateK0dq_EtwWriteTransfer.c)
+ *     xxxSendWinlogonPowerMessage @ 0x1C0159AA0 (xxxSendWinlogonPowerMessage.c)
+ *     PowerOffMonitor @ 0x1C015BA60 (PowerOffMonitor.c)
+ *     PowerOnMonitor @ 0x1C015BD90 (PowerOnMonitor.c)
+ *     ProcessDelayedSdc @ 0x1C0272050 (ProcessDelayedSdc.c)
+ */
+
 __int64 xxxUserPowerStateCalloutWorker(void)
 {
   __int64 v0; // rdx

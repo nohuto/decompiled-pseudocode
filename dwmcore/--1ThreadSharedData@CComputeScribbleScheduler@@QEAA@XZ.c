@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1ThreadSharedData@CComputeScribbleScheduler@@QEAA@XZ @ 0x1801FF68C
+ * Callers:
+ *     ??1CComputeScribbleScheduler@@QEAA@XZ @ 0x1801FF518 (--1CComputeScribbleScheduler@@QEAA@XZ.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180004700 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ */
+
 void __fastcall CComputeScribbleScheduler::ThreadSharedData::~ThreadSharedData(
         CComputeScribbleScheduler::ThreadSharedData *this)
 {

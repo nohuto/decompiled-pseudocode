@@ -1,3 +1,11 @@
+/*
+ * XREFs of Isoch_CalculateBytesTransferred @ 0x1C0043A14
+ * Callers:
+ *     Isoch_FindTrbMatch @ 0x1C0044330 (Isoch_FindTrbMatch.c)
+ * Callees:
+ *     Isoch_ProcessSegment @ 0x1C0044714 (Isoch_ProcessSegment.c)
+ */
+
 __int64 __fastcall Isoch_CalculateBytesTransferred(int a1, __int64 a2, int a3)
 {
   _QWORD *v5; // rbx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?Remove@CPointerHashTable@NSInstrumentation@@QEAA_NPEBXPEAPEAX@Z @ 0x1C019C5E4
+ * Callers:
+ *     ?vDeleteRGNOBJ@RGNOBJ@@QEAAXXZ @ 0x1C0055800 (-vDeleteRGNOBJ@RGNOBJ@@QEAAXXZ.c)
+ *     ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C00558E0 (-vDeleteREGION@REGION@@QEAAXXZ.c)
+ *     Win32FreeToPagedLookasideList @ 0x1C0055B50 (Win32FreeToPagedLookasideList.c)
+ *     Win32FreePool @ 0x1C0070430 (Win32FreePool.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?FreeToPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX0@Z @ 0x1C00A3274 (-FreeToPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX0@Z.c)
+ *     ?ReleaseReferenceCountedObjectHandle@@YAXW4ReferenceTrackerCountedType@@PEAX@Z @ 0x1C019A314 (-ReleaseReferenceCountedObjectHandle@@YAXW4ReferenceTrackerCountedType@@PEAX@Z.c)
+ * Callees:
+ *     ?ReleaseShared@CPrioritizedWriterLock@NSInstrumentation@@QEAAXXZ @ 0x1C00EF470 (-ReleaseShared@CPrioritizedWriterLock@NSInstrumentation@@QEAAXXZ.c)
+ */
+
 char __fastcall NSInstrumentation::CPointerHashTable::Remove(
         NSInstrumentation::CPointerHashTable *this,
         unsigned __int64 a2,

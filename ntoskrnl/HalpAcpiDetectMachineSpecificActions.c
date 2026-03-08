@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpAcpiDetectMachineSpecificActions @ 0x140B63318
+ * Callers:
+ *     HalpSetupAcpiPhase0 @ 0x140B62CA8 (HalpSetupAcpiPhase0.c)
+ * Callees:
+ *     HalpAcpiGetTable @ 0x14029C550 (HalpAcpiGetTable.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 int __fastcall HalpAcpiDetectMachineSpecificActions(__int64 a1)
 {
   _UNKNOWN **Table; // rax

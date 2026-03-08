@@ -1,3 +1,18 @@
+/*
+ * XREFs of KeSaveExtendedAndSupervisorState @ 0x14036A62C
+ * Callers:
+ *     KeSaveExtendedProcessorState @ 0x14036A5E0 (KeSaveExtendedProcessorState.c)
+ *     PnprQuiesceProcessorDpc @ 0x140A9A400 (PnprQuiesceProcessorDpc.c)
+ *     PopHandleNextState @ 0x140AA4FAC (PopHandleNextState.c)
+ * Callees:
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlXSaveS @ 0x140302524 (RtlXSaveS.c)
+ *     KeAllocateXStateContext @ 0x14036A7A0 (KeAllocateXStateContext.c)
+ *     RtlXSave @ 0x14036A800 (RtlXSave.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall KeSaveExtendedAndSupervisorState(ULONG_PTR BugCheckParameter3, __int64 *a2)
 {
   unsigned __int8 CurrentIrql; // r15

@@ -1,3 +1,18 @@
+/*
+ * XREFs of _CmGetDeviceInterfaceSubkeyPath @ 0x1406D208C
+ * Callers:
+ *     _CmGetDeviceInterfaceClassGuidString @ 0x1406CB790 (_CmGetDeviceInterfaceClassGuidString.c)
+ *     _CmGetDeviceInterfaceRegKeyPath @ 0x1406D1834 (_CmGetDeviceInterfaceRegKeyPath.c)
+ * Callees:
+ *     RtlStringCchCopyExW @ 0x140244A08 (RtlStringCchCopyExW.c)
+ *     RtlStringCchCopyNExW @ 0x140245AC0 (RtlStringCchCopyNExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcschr @ 0x1403D5D90 (wcschr.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ *     _CmValidateDeviceInterfaceName @ 0x1406D3FF0 (_CmValidateDeviceInterfaceName.c)
+ */
+
 int __fastcall CmGetDeviceInterfaceSubkeyPath(
         __int64 a1,
         const wchar_t *a2,

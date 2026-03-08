@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpExtEnvMarkHiberRegions @ 0x14051D2B8
+ * Callers:
+ *     HaliLocateHiberRanges @ 0x140A92C20 (HaliLocateHiberRanges.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PoSetHiberRange @ 0x14058C400 (PoSetHiberRange.c)
+ */
+
 __int64 __fastcall HalpExtEnvMarkHiberRegions(PVOID MemoryMap)
 {
   unsigned __int64 v2; // rdi

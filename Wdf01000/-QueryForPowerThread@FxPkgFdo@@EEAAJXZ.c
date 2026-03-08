@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?QueryForPowerThread@FxPkgFdo@@EEAAJXZ @ 0x1C0078520
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?QueryForInterface@FxDeviceBase@@QEAAJPEBU_GUID@@PEAU_INTERFACE@@GGPEAXPEAU_DEVICE_OBJECT@@@Z @ 0x1C003B79C (-QueryForInterface@FxDeviceBase@@QEAAJPEBU_GUID@@PEAU_INTERFACE@@GGPEAXPEAU_DEVICE_OBJECT@@@Z.c)
+ *     ?CreatePowerThread@FxPkgPnp@@IEAAJXZ @ 0x1C0072040 (-CreatePowerThread@FxPkgPnp@@IEAAJXZ.c)
+ */
+
 int __fastcall FxPkgFdo::QueryForPowerThread(FxPkgFdo *this)
 {
   int result; // eax

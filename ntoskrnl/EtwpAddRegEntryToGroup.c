@@ -1,3 +1,39 @@
+/*
+ * XREFs of EtwpAddRegEntryToGroup @ 0x140693640
+ * Callers:
+ *     EtwpSetProviderTraitsCommon @ 0x140695C68 (EtwpSetProviderTraitsCommon.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402331B0 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     EtwpReleaseLoggerContext @ 0x14069349C (EtwpReleaseLoggerContext.c)
+ *     EtwpComputeRegEntryEnableInfo @ 0x1406934E8 (EtwpComputeRegEntryEnableInfo.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140693AFC (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpGetSchematizedFilterSize @ 0x140694C98 (EtwpGetSchematizedFilterSize.c)
+ *     EtwpFindOrCreateGuidEntry @ 0x140694E30 (EtwpFindOrCreateGuidEntry.c)
+ *     EtwpReferenceGuidEntry @ 0x140695054 (EtwpReferenceGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x140695094 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpApplyScopeFilters @ 0x140695404 (EtwpApplyScopeFilters.c)
+ *     EtwpAccessCheckFromState @ 0x140695F0C (EtwpAccessCheckFromState.c)
+ *     EtwpIsGuidAllowed @ 0x140695F94 (EtwpIsGuidAllowed.c)
+ *     EtwpProviderArrivalCallback @ 0x140775208 (EtwpProviderArrivalCallback.c)
+ *     EtwpCopySchematizedFilters @ 0x1409F23CC (EtwpCopySchematizedFilters.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpAddRegEntryToGroup(__int64 a1, int a2, __int64 a3, unsigned int a4, unsigned int *a5)
 {
   char v7; // r13

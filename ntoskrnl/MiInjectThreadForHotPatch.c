@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiInjectThreadForHotPatch @ 0x140A34C94
+ * Callers:
+ *     MiHotPatchProcess @ 0x140A34804 (MiHotPatchProcess.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateThreadEx @ 0x140413BF0 (ZwCreateThreadEx.c)
+ *     PsGetThreadExitStatus @ 0x140797F00 (PsGetThreadExitStatus.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     MiLogHotPatchOperationStatus @ 0x140A36298 (MiLogHotPatchOperationStatus.c)
+ */
+
 __int64 __fastcall MiInjectThreadForHotPatch(int a1, int a2, int a3)
 {
   struct _KTHREAD *v6; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GreUnTearDownSprites@@YAXPEAUHDEV__@@PEAU_RECTL@@H@Z @ 0x1C027D80C
+ * Callers:
+ *     ??1DEVEXCLUDERECT@@QEAA@XZ @ 0x1C02778A8 (--1DEVEXCLUDERECT@@QEAA@XZ.c)
+ * Callees:
+ *     vSpUnTearDownSprites @ 0x1C0286E00 (vSpUnTearDownSprites.c)
+ */
+
 void __fastcall GreUnTearDownSprites(_QWORD *a1, struct _RECTL *a2)
 {
   __int64 v2; // rbx

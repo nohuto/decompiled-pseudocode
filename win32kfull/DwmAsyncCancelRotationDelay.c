@@ -1,3 +1,11 @@
+/*
+ * XREFs of DwmAsyncCancelRotationDelay @ 0x1C026F07C
+ * Callers:
+ *     NtUserLayoutCompleted @ 0x1C0098EE0 (NtUserLayoutCompleted.c)
+ * Callees:
+ *     ?IncrementDWMWindowUniqueness@@YA_JXZ @ 0x1C0028164 (-IncrementDWMWindowUniqueness@@YA_JXZ.c)
+ */
+
 __int64 __fastcall DwmAsyncCancelRotationDelay(PVOID Object)
 {
   unsigned int v2; // edi

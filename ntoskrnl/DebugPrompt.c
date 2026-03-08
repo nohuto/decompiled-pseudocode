@@ -1,3 +1,11 @@
+/*
+ * XREFs of DebugPrompt @ 0x140420410
+ * Callers:
+ *     DbgPrompt @ 0x1405A5370 (DbgPrompt.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DebugPrompt(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // r8

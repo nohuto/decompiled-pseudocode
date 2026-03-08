@@ -1,3 +1,21 @@
+/*
+ * XREFs of PiDevCfgConfigureDeviceLocation @ 0x140875E34
+ * Callers:
+ *     PiDevCfgConfigureDevice @ 0x14087384C (PiDevCfgConfigureDevice.c)
+ *     PpDevCfgProcessDeviceClass @ 0x14095F98C (PpDevCfgProcessDeviceClass.c)
+ * Callees:
+ *     PnpDuplicateUnicodeString @ 0x1403C2368 (PnpDuplicateUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     IopReplaceSeperatorWithPound @ 0x140680B88 (IopReplaceSeperatorWithPound.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406D3680 (_PnpCtxGetCachedContextBaseKey.c)
+ *     NtQueryKey @ 0x1406E6630 (NtQueryKey.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     PiDevCfgConfigureDeviceKeys @ 0x140876A38 (PiDevCfgConfigureDeviceKeys.c)
+ *     PnpOpenFirstMatchingSubKey @ 0x140955C68 (PnpOpenFirstMatchingSubKey.c)
+ */
+
 __int64 __fastcall PiDevCfgConfigureDeviceLocation(__int64 a1, __int64 a2, _DWORD *a3, _DWORD *a4)
 {
   unsigned int v4; // edi

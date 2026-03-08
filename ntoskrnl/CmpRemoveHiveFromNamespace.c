@@ -1,3 +1,23 @@
+/*
+ * XREFs of CmpRemoveHiveFromNamespace @ 0x1402BFC14
+ * Callers:
+ *     CmpLinkHiveToMaster @ 0x140731250 (CmpLinkHiveToMaster.c)
+ *     CmpCompleteUnloadKey @ 0x14074A958 (CmpCompleteUnloadKey.c)
+ * Callees:
+ *     CmpRemoveLayerLinkForDiscardedKcb @ 0x14067D4A8 (CmpRemoveLayerLinkForDiscardedKcb.c)
+ *     CmpUnlockHashEntryByKcb @ 0x1406B6550 (CmpUnlockHashEntryByKcb.c)
+ *     CmpFreeKeyByCell @ 0x1406BA854 (CmpFreeKeyByCell.c)
+ *     HvUnlockHiveFlusherShared @ 0x14074A8C4 (HvUnlockHiveFlusherShared.c)
+ *     HvLockHiveFlusherShared @ 0x14074A8FC (HvLockHiveFlusherShared.c)
+ *     CmpMarkKeyUnbacked @ 0x14074AD64 (CmpMarkKeyUnbacked.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x14074AF50 (CmpFlushNotifiesOnKeyBodyList.c)
+ *     CmpDiscardKcb @ 0x14074B098 (CmpDiscardKcb.c)
+ *     CmpLockHashEntryExclusiveByKcb @ 0x1407AB174 (CmpLockHashEntryExclusiveByKcb.c)
+ *     CmpLockKcbExclusive @ 0x1407AF778 (CmpLockKcbExclusive.c)
+ *     CmpLogHiveDestroyEvent @ 0x140A0FAD4 (CmpLogHiveDestroyEvent.c)
+ *     CmpUnlockKcb @ 0x140AF2140 (CmpUnlockKcb.c)
+ */
+
 __int64 __fastcall CmpRemoveHiveFromNamespace(__int64 a1, __int64 a2, __int64 a3)
 {
   ULONG_PTR v3; // rdi

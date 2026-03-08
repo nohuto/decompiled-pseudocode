@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiWakePageZeroing @ 0x140361388
+ * Callers:
+ *     MiWorkingSetManager @ 0x1403616C0 (MiWorkingSetManager.c)
+ *     MiInsertHugeRangeInList @ 0x14061EB84 (MiInsertHugeRangeInList.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiNodeLargeFreeZeroPages @ 0x14027DEB0 (MiNodeLargeFreeZeroPages.c)
+ *     MiWakeZeroingThreads @ 0x1402A7E98 (MiWakeZeroingThreads.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 __fastcall MiWakePageZeroing(__int64 a1, unsigned __int64 a2, char a3)
 {
   unsigned __int64 result; // rax

@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiReleaseReadListResources @ 0x1406A4E80
+ * Callers:
+ *     MmWaitForCacheManagerPrefetch @ 0x14020D9A0 (MmWaitForCacheManagerPrefetch.c)
+ *     MmPrefetchPagesEx @ 0x1406A387C (MmPrefetchPagesEx.c)
+ *     MmPrefetchForCacheManager @ 0x1406A3DCC (MmPrefetchForCacheManager.c)
+ *     MiPfPrepareSequentialReadList @ 0x1406EBE40 (MiPfPrepareSequentialReadList.c)
+ *     MiPrefetchControlArea @ 0x14078DBC4 (MiPrefetchControlArea.c)
+ *     MiPfPrepareReadList @ 0x1407C42F0 (MiPfPrepareReadList.c)
+ * Callees:
+ *     MiRemoveViewsFromSectionWithPfn @ 0x14020DBB4 (MiRemoveViewsFromSectionWithPfn.c)
+ *     MiFreeReadListPages @ 0x1406A4F10 (MiFreeReadListPages.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiReleaseReadListResources(__int64 a1)
 {
   __int64 v1; // rbx

@@ -1,3 +1,25 @@
+/*
+ * XREFs of ExpWatchLicenseInfoWork @ 0x1409F57C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcscat_s @ 0x1403DA170 (wcscat_s.c)
+ *     wcscpy_s @ 0x1403DA210 (wcscpy_s.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     NtNotifyChangeKey @ 0x1406B4D70 (NtNotifyChangeKey.c)
+ *     NtQueryKey @ 0x1406E6630 (NtQueryKey.c)
+ *     NtOpenKey @ 0x140758B00 (NtOpenKey.c)
+ *     NtSetValueKey @ 0x1407A9030 (NtSetValueKey.c)
+ *     NtEnumerateKey @ 0x1407AC4B0 (NtEnumerateKey.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     PsCreateSystemThreadEx @ 0x1407DE330 (PsCreateSystemThreadEx.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall ExpWatchLicenseInfoWork(__int64 a1)
 {
   char v2; // si

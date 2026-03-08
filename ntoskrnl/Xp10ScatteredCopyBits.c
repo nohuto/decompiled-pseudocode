@@ -1,3 +1,12 @@
+/*
+ * XREFs of Xp10ScatteredCopyBits @ 0x1409C52B8
+ * Callers:
+ *     RtlDecompressBuffer2Xp10 @ 0x1409C0EF0 (RtlDecompressBuffer2Xp10.c)
+ * Callees:
+ *     Xp10BitCopy @ 0x1409C1198 (Xp10BitCopy.c)
+ *     Xp10ScatteredNextBuffer @ 0x1409C5514 (Xp10ScatteredNextBuffer.c)
+ */
+
 __int64 __fastcall Xp10ScatteredCopyBits(__int64 a1, int *a2, unsigned int a3)
 {
   unsigned int v3; // r15d

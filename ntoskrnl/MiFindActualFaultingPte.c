@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiFindActualFaultingPte @ 0x1402A31F0
+ * Callers:
+ *     MiIsFaultPteIntact @ 0x1402A30FC (MiIsFaultPteIntact.c)
+ *     MiFindActualFaultingPte @ 0x1402A31F0 (MiFindActualFaultingPte.c)
+ * Callees:
+ *     MiCheckVirtualAddress @ 0x140225600 (MiCheckVirtualAddress.c)
+ *     MiFindActualFaultingPte @ 0x1402A31F0 (MiFindActualFaultingPte.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiIsPrototypePteVadLookup @ 0x140327240 (MiIsPrototypePteVadLookup.c)
+ *     MiUnlockVadTree @ 0x140330EC8 (MiUnlockVadTree.c)
+ *     MiFillPteHierarchy @ 0x140333AE0 (MiFillPteHierarchy.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiFindActualFaultingPte(__int64 a1, unsigned __int64 a2)
 {
   __int64 result; // rax

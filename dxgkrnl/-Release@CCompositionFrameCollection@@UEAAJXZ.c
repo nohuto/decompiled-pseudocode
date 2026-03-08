@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Release@CCompositionFrameCollection@@UEAAJXZ @ 0x1C0019320
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??_GCCompositionFrameCollection@@IEAAPEAXI@Z @ 0x1C001934C (--_GCCompositionFrameCollection@@IEAAPEAXI@Z.c)
+ */
+
 __int64 __fastcall CCompositionFrameCollection::Release(CCompositionFrameCollection *this, unsigned int a2)
 {
   unsigned __int32 v2; // ebx

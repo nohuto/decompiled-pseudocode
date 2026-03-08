@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CGradientBrushMarshaler@DirectComposition@@IEAA@W4MIL_RESOURCE_TYPE@@@Z @ 0x1C00BF214
+ * Callers:
+ *     ?CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C00673F4 (-CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CGradientBrushMarshaler::CGradientBrushMarshaler(__int64 a1, int a2)
 {
   __int64 result; // rax

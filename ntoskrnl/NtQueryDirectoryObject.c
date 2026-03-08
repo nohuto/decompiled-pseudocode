@@ -1,3 +1,19 @@
+/*
+ * XREFs of NtQueryDirectoryObject @ 0x1406989A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ObpLockDirectoryShared @ 0x140698E08 (ObpLockDirectoryShared.c)
+ *     ObpUnlockDirectory @ 0x140699588 (ObpUnlockDirectory.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall NtQueryDirectoryObject(
         HANDLE Handle,
         char *Address,

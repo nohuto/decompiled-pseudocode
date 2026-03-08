@@ -1,3 +1,19 @@
+/*
+ * XREFs of HUBUCX_EnableDisableEndpointsUsingUCXIoctl @ 0x1C00268D8
+ * Callers:
+ *     HUBDSM_DeconfiguringEndpointsInControllerForDeviceConfiguration @ 0x1C0023C60 (HUBDSM_DeconfiguringEndpointsInControllerForDeviceConfiguration.c)
+ *     HUBDSM_ProgrammingEndpointsInControllerAfterDecreasingExitLatency @ 0x1C0023D50 (HUBDSM_ProgrammingEndpointsInControllerAfterDecreasingExitLatency.c)
+ *     HUBDSM_DisablingEndpointsForTheNewInterfaceOnFailure @ 0x1C0024490 (HUBDSM_DisablingEndpointsForTheNewInterfaceOnFailure.c)
+ *     HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl @ 0x1C00285D0 (HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBUCX_SubmitUcxIoctl @ 0x1C00263DC (HUBUCX_SubmitUcxIoctl.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 _UNKNOWN **__fastcall HUBUCX_EnableDisableEndpointsUsingUCXIoctl(__int64 *a1)
 {
   int v2; // edx

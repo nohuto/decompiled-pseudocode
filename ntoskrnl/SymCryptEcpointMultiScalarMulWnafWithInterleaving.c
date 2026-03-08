@@ -1,3 +1,26 @@
+/*
+ * XREFs of SymCryptEcpointMultiScalarMulWnafWithInterleaving @ 0x1403F8820
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SymCryptIntCopy @ 0x1403F3798 (SymCryptIntCopy.c)
+ *     SymCryptIntCreate @ 0x1403F37C8 (SymCryptIntCreate.c)
+ *     SymCryptIntIsEqualUint32 @ 0x1403F389C (SymCryptIntIsEqualUint32.c)
+ *     SymCryptSizeofIntFromDigits @ 0x1403F3EF0 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptPrecomputation @ 0x1403F93C0 (SymCryptPrecomputation.c)
+ *     SymCryptEcpointCopy @ 0x1403F9464 (SymCryptEcpointCopy.c)
+ *     SymCryptEcpointCreate @ 0x1403F94A0 (SymCryptEcpointCreate.c)
+ *     SymCryptSizeofEcpointFromCurve @ 0x1403F9E14 (SymCryptSizeofEcpointFromCurve.c)
+ *     SymCryptEcpointAdd @ 0x1403FD098 (SymCryptEcpointAdd.c)
+ *     SymCryptEcpointDouble @ 0x1403FD134 (SymCryptEcpointDouble.c)
+ *     SymCryptEcpointIsZero @ 0x1403FD1BC (SymCryptEcpointIsZero.c)
+ *     SymCryptEcpointNegate @ 0x1403FD258 (SymCryptEcpointNegate.c)
+ *     SymCryptEcpointSetZero @ 0x1403FD318 (SymCryptEcpointSetZero.c)
+ *     SymCryptWidthNafRecoding @ 0x140404004 (SymCryptWidthNafRecoding.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall SymCryptEcpointMultiScalarMulWnafWithInterleaving(
         __int64 a1,
         __int64 a2,

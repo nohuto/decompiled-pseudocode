@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnlyCompositionMetrics@@YAHPEBU_CIT_INTERACTION_SUMMARY@@U_CIT_INPUT_TIMES@@@Z @ 0x1C008830C
+ * Callers:
+ *     ?CitpInteractionSummaryStopTracking@@YAXPEAU_CIT_INTERACTION_SUMMARY@@I@Z @ 0x1C0087D08 (-CitpInteractionSummaryStopTracking@@YAXPEAU_CIT_INTERACTION_SUMMARY@@I@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall OnlyCompositionMetrics(__int64 a1, _WORD *a2)
 {
   unsigned int v2; // r8d

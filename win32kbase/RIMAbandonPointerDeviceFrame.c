@@ -1,3 +1,18 @@
+/*
+ * XREFs of RIMAbandonPointerDeviceFrame @ 0x1C01CD2D0
+ * Callers:
+ *     rimAbSuppressLowerRankActivityForFrame @ 0x1C01A93A0 (rimAbSuppressLowerRankActivityForFrame.c)
+ *     RIMSuppressAllActiveContacts @ 0x1C01B9F94 (RIMSuppressAllActiveContacts.c)
+ *     rimEndAllActiveContactsWorker @ 0x1C01BC12C (rimEndAllActiveContactsWorker.c)
+ *     rimEndPointerDeviceStaleContacts @ 0x1C01D6A24 (rimEndPointerDeviceStaleContacts.c)
+ *     rimExtractParallelFrameInfoAndAbandonIncompleteFrame @ 0x1C01D724C (rimExtractParallelFrameInfoAndAbandonIncompleteFrame.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     rimFindHoldingFrame @ 0x1C00F07AA (rimFindHoldingFrame.c)
+ *     rimReclaimHoldingFrame @ 0x1C01CF270 (rimReclaimHoldingFrame.c)
+ *     RIMUpdatePointerDeviceStateAfterFrameCompleted @ 0x1C01D5678 (RIMUpdatePointerDeviceStateAfterFrameCompleted.c)
+ */
+
 __int64 __fastcall RIMAbandonPointerDeviceFrame(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

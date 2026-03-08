@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwCreateTransaction @ 0x140413CB0
+ * Callers:
+ *     DifZwCreateTransactionWrapper @ 0x1405ECE80 (DifZwCreateTransactionWrapper.c)
+ * Callees:
+ *     <none>
+ */
+
 // local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateTransaction(
         PHANDLE TransactionHandle,

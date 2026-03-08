@@ -1,3 +1,14 @@
+/*
+ * XREFs of SeTokenGetRedirectionTrustPolicy @ 0x1402FA04C
+ * Callers:
+ *     IoCheckRedirectionTrustLevel @ 0x1403CB430 (IoCheckRedirectionTrustLevel.c)
+ *     PspGetRedirectionTrustPolicy @ 0x14078F55C (PspGetRedirectionTrustPolicy.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 bool __fastcall SeTokenGetRedirectionTrustPolicy(__int64 a1, bool *a2, bool *a3)
 {
   struct _KTHREAD *CurrentThread; // rax

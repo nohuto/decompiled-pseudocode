@@ -1,3 +1,19 @@
+/*
+ * XREFs of PiCMOpenDeviceKey @ 0x14076C7C4
+ * Callers:
+ *     PiCMHandleIoctl @ 0x1406CF040 (PiCMHandleIoctl.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     PiAuDoesClientHaveAccess @ 0x1406C4454 (PiAuDoesClientHaveAccess.c)
+ *     PiCMReleaseObjectInputData @ 0x1406C7AC0 (PiCMReleaseObjectInputData.c)
+ *     _CmOpenDeviceRegKey @ 0x1406D3B3C (_CmOpenDeviceRegKey.c)
+ *     PiCMConvertDeviceKeyType @ 0x14076C950 (PiCMConvertDeviceKeyType.c)
+ *     PiCMReturnHandleResultData @ 0x14076C9D4 (PiCMReturnHandleResultData.c)
+ *     PiCMCaptureRegistryInputData @ 0x14076CA6C (PiCMCaptureRegistryInputData.c)
+ *     PiCMDuplicateRegistryHandle @ 0x14076CC0C (PiCMDuplicateRegistryHandle.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ */
+
 __int64 __fastcall PiCMOpenDeviceKey(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, unsigned int a5, _DWORD *a6)
 {
   _DWORD *v7; // r13

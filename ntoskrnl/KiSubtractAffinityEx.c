@@ -1,3 +1,26 @@
+/*
+ * XREFs of KiSubtractAffinityEx @ 0x1402D4CBC
+ * Callers:
+ *     KiIpiSetTargetAffinity @ 0x140233704 (KiIpiSetTargetAffinity.c)
+ *     PpmParkSteerInterrupts @ 0x1402341D0 (PpmParkSteerInterrupts.c)
+ *     PpmCheckContinueExecution @ 0x140236E60 (PpmCheckContinueExecution.c)
+ *     PpmParkReportParkedCores @ 0x1402E3AE0 (PpmParkReportParkedCores.c)
+ *     PpmParkReportUnparkedCores @ 0x1402EAA30 (PpmParkReportUnparkedCores.c)
+ *     PpmIdleSelectStates @ 0x1403B2150 (PpmIdleSelectStates.c)
+ *     KeSubtractAffinityEx @ 0x140457950 (KeSubtractAffinityEx.c)
+ *     HalpRemoveProfileSourceFromList @ 0x140505E80 (HalpRemoveProfileSourceFromList.c)
+ *     KeSubtractAffinityEx2 @ 0x14056CED0 (KeSubtractAffinityEx2.c)
+ *     KiStartProfileTarget @ 0x140571FC0 (KiStartProfileTarget.c)
+ *     KiStopProfileTarget @ 0x140572310 (KiStopProfileTarget.c)
+ *     KeCpuPartitionMoveCpus @ 0x140572954 (KeCpuPartitionMoveCpus.c)
+ *     RtlUpdateSwapReference @ 0x140818560 (RtlUpdateSwapReference.c)
+ *     PpmCheckInitProcessors @ 0x140827DA4 (PpmCheckInitProcessors.c)
+ *     PpmPostProcessMediaBuffering @ 0x14099A314 (PpmPostProcessMediaBuffering.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall KiSubtractAffinityEx(unsigned __int16 *a1, char *a2, _BYTE *a3, unsigned __int16 a4)
 {
   unsigned __int16 v8; // ax

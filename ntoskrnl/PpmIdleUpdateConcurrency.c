@@ -1,3 +1,15 @@
+/*
+ * XREFs of PpmIdleUpdateConcurrency @ 0x1402D6DC0
+ * Callers:
+ *     PpmIdleExecuteTransition @ 0x14022D7D0 (PpmIdleExecuteTransition.c)
+ *     PpmIdleInstallConcurrency @ 0x1403AE090 (PpmIdleInstallConcurrency.c)
+ *     PpmIdleRemoveConcurrency @ 0x140582F10 (PpmIdleRemoveConcurrency.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PpmIdleUpdateConcurrency(PKSPIN_LOCK SpinLock, KSPIN_LOCK a2, char a3, char a4)
 {
   unsigned int v4; // ebx

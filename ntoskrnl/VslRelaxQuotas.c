@@ -1,3 +1,14 @@
+/*
+ * XREFs of VslRelaxQuotas @ 0x14093FE98
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x1402D8618 (HvlQueryVsmConnection.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 VslRelaxQuotas()
 {
   char v0; // cl

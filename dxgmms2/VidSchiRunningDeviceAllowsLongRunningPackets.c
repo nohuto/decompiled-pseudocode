@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchiRunningDeviceAllowsLongRunningPackets @ 0x1C003C4FC
+ * Callers:
+ *     VidSchiCheckNodeTimeout @ 0x1C00A5B80 (VidSchiCheckNodeTimeout.c)
+ * Callees:
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0013414 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00134D8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ */
+
 char __fastcall VidSchiRunningDeviceAllowsLongRunningPackets(__int64 a1)
 {
   char v2; // bl

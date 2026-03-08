@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlCheckRegistryKey @ 0x1407964F0
+ * Callers:
+ *     RtlCheckPortableOperatingSystem @ 0x1402FD500 (RtlCheckPortableOperatingSystem.c)
+ *     DifRtlCheckRegistryKeyWrapper @ 0x1405E8A10 (DifRtlCheckRegistryKeyWrapper.c)
+ *     WheapCommitPolicy @ 0x140A06A08 (WheapCommitPolicy.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     RtlpGetRegistryHandle @ 0x14069BBB0 (RtlpGetRegistryHandle.c)
+ */
+
 NTSTATUS __stdcall RtlCheckRegistryKey(ULONG RelativeTo, PWSTR Path)
 {
   NTSTATUS result; // eax

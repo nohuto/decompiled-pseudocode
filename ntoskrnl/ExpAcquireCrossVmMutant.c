@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpAcquireCrossVmMutant @ 0x140A02D7C
+ * Callers:
+ *     NtAcquireCrossVmMutant @ 0x140A02A50 (NtAcquireCrossVmMutant.c)
+ * Callees:
+ *     ExReleaseExtensionTable @ 0x1402C5820 (ExReleaseExtensionTable.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExpGetExtensionHostForCrossVmObject @ 0x140A03088 (ExpGetExtensionHostForCrossVmObject.c)
+ */
+
 __int64 __fastcall ExpAcquireCrossVmMutant(__int64 a1, __int64 a2, char a3)
 {
   __int64 ExtensionHostForCrossVmObject; // rax

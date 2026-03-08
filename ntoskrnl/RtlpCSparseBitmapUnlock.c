@@ -1,3 +1,20 @@
+/*
+ * XREFs of RtlpCSparseBitmapUnlock @ 0x1403083A8
+ * Callers:
+ *     RtlpCSparseBitmapPageDecommit @ 0x1403046C4 (RtlpCSparseBitmapPageDecommit.c)
+ *     RtlSparseArrayElementAllocate @ 0x140304B54 (RtlSparseArrayElementAllocate.c)
+ *     RtlCSparseBitmapBitmaskWrite @ 0x140305C10 (RtlCSparseBitmapBitmaskWrite.c)
+ *     RtlpCSparseBitmapPageCommit @ 0x140306EB8 (RtlpCSparseBitmapPageCommit.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall RtlpCSparseBitmapUnlock(int *a1)
 {
   __int64 v1; // rax

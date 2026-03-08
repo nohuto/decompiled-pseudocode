@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??$insert_unchecked@AEBQEAVCVisualTree@@@?$vector_facade@PEAVCVisualTree@@V?$buffer_impl@PEAVCVisualTree@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAA?AV?$basic_iterator@PEAVCVisualTree@@@1@V?$basic_iterator@QEAVCVisualTree@@@1@AEBQEAVCVisualTree@@@Z @ 0x1800C7628
+ * Callers:
+ *     ?Initialize@CVisualTree@@MEAAJXZ @ 0x1800C7540 (-Initialize@CVisualTree@@MEAAJXZ.c)
+ * Callees:
+ *     ?ensure_extra_capacity@?$buffer_impl@PEAVCVisualTree@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@QEAAX_K@Z @ 0x1800BA540 (-ensure_extra_capacity@-$buffer_impl@PEAVCVisualTree@@$0BA@$00Vliberal_expansion_policy@detail@@.c)
+ *     ??$move_backward@V?$move_iterator@PEAUD2D_POINT_2F@@@std@@V?$checked_array_iterator@PEAUD2D_POINT_2F@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAUD2D_POINT_2F@@@stdext@@V?$move_iterator@PEAUD2D_POINT_2F@@@0@0V12@@Z @ 0x1801B026C (--$move_backward@V-$move_iterator@PEAUD2D_POINT_2F@@@std@@V-$checked_array_iterator@PEAUD2D_POIN.c)
+ */
+
 _QWORD *__fastcall detail::vector_facade<CVisualTree *,detail::buffer_impl<CVisualTree *,16,1,detail::liberal_expansion_policy>>::insert_unchecked<CVisualTree * const &>(
         __int64 a1,
         _QWORD *a2,

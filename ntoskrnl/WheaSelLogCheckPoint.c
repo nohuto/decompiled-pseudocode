@@ -1,3 +1,18 @@
+/*
+ * XREFs of WheaSelLogCheckPoint @ 0x140A04B94
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ *     WheaSelLogInitialize @ 0x140B482FC (WheaSelLogInitialize.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     IpmiHwContextInitialized @ 0x1406751AC (IpmiHwContextInitialized.c)
+ *     IpmiLibAddSelCheckpointRecord @ 0x140675868 (IpmiLibAddSelCheckpointRecord.c)
+ */
+
 __int64 WheaSelLogCheckPoint()
 {
   struct _KTHREAD *CurrentThread; // rax

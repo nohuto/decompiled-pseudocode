@@ -1,3 +1,12 @@
+/*
+ * XREFs of HaliInitializePlatformDebugTriggers @ 0x140525970
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     HalpAcquirePccInterface @ 0x1409328F4 (HalpAcquirePccInterface.c)
+ */
+
 void HaliInitializePlatformDebugTriggers()
 {
   __int64 v0; // rdi

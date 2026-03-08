@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlStringCbCatNW @ 0x14066BE34
+ * Callers:
+ *     AslPathWildcardFindNext @ 0x140A52E68 (AslPathWildcardFindNext.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlStringCbCatNW(NTSTRSAFE_PWSTR pszDest, size_t cbDest, STRSAFE_PCNZWCH pszSrc, size_t cbToAppend)
 {
   __int64 v4; // r10

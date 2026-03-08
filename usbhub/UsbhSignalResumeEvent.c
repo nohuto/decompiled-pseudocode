@@ -1,3 +1,22 @@
+/*
+ * XREFs of UsbhSignalResumeEvent @ 0x1C001B710
+ * Callers:
+ *     Usbh_CheckPortHwPendingStatus @ 0x1C0001F1C (Usbh_CheckPortHwPendingStatus.c)
+ *     UsbhHubDispatchPortEvent @ 0x1C0017430 (UsbhHubDispatchPortEvent.c)
+ *     UsbhResumeSuspendedPort @ 0x1C001A698 (UsbhResumeSuspendedPort.c)
+ *     UsbhPortResumeComplete @ 0x1C001B070 (UsbhPortResumeComplete.c)
+ *     UsbhDriverResetPort @ 0x1C001B8C0 (UsbhDriverResetPort.c)
+ *     UsbhHubIsr @ 0x1C001D8F0 (UsbhHubIsr.c)
+ *     Usbh_PCE_wChangeERROR_Action @ 0x1C0036434 (Usbh_PCE_wChangeERROR_Action.c)
+ *     UsbhPortCycle @ 0x1C004D4D0 (UsbhPortCycle.c)
+ *     UsbhPortDisconnect @ 0x1C004D690 (UsbhPortDisconnect.c)
+ *     UsbhPortRecycle @ 0x1C004D870 (UsbhPortRecycle.c)
+ *     UsbhPortResumeFailed @ 0x1C004D940 (UsbhPortResumeFailed.c)
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhLogSignalResumeEvent @ 0x1C001B7B8 (UsbhLogSignalResumeEvent.c)
+ */
+
 void __fastcall UsbhSignalResumeEvent(__int64 a1, __int64 a2)
 {
   __int64 v4; // r9

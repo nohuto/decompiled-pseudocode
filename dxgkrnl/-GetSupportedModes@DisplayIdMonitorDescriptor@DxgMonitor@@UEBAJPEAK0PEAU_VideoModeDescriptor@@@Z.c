@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetSupportedModes@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJPEAK0PEAU_VideoModeDescriptor@@@Z @ 0x1C03CC100
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DisplayID_GetSupportedModes@@YAJPEBUDisplayIDObj@@PEAK1PEAU_VideoModeDescriptor@@@Z @ 0x1C0072ED8 (-DisplayID_GetSupportedModes@@YAJPEBUDisplayIDObj@@PEAK1PEAU_VideoModeDescriptor@@@Z.c)
+ */
+
 __int64 __fastcall DxgMonitor::DisplayIdMonitorDescriptor::GetSupportedModes(
         DxgMonitor::DisplayIdMonitorDescriptor *this,
         unsigned int *a2,

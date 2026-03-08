@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ApplyDeferredD2DLayersInScope@CScopedClipStack@@QEAAJPEAVCDrawingContext@@@Z @ 0x180076160
+ * Callers:
+ *     ?FlushAllDeferredClipping@CDrawingContext@@AEAAJXZ @ 0x180076110 (-FlushAllDeferredClipping@CDrawingContext@@AEAAJXZ.c)
+ *     ?PushD2DLayer@CDrawingContext@@QEAAJPEBVCVisual@@PEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAUID2D1Geometry@@PEBUD2D_MATRIX_3X2_F@@M_NI@Z @ 0x18007E934 (-PushD2DLayer@CDrawingContext@@QEAAJPEBVCVisual@@PEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPo.c)
+ * Callees:
+ *     ?ApplyState@CD2DLayer@@UEAAJPEAVCDrawingContext@@@Z @ 0x180013130 (-ApplyState@CD2DLayer@@UEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?FlushDrawList@CCpuClipAntialiasSinkContext@@QEAAJPEAVCDrawingContext@@I@Z @ 0x180090A0C (-FlushDrawList@CCpuClipAntialiasSinkContext@@QEAAJPEAVCDrawingContext@@I@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall CScopedClipStack::ApplyDeferredD2DLayersInScope(CScopedClipStack *this, struct CDrawingContext *a2)
 {
   __int64 v2; // rbx

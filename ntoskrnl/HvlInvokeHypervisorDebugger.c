@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlInvokeHypervisorDebugger @ 0x14053D440
+ * Callers:
+ *     KeAccumulateTicks @ 0x14022F310 (KeAccumulateTicks.c)
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ */
+
 __int64 HvlInvokeHypervisorDebugger()
 {
   __int64 result; // rax

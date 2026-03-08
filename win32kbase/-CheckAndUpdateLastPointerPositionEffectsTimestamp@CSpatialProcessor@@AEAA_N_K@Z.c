@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CheckAndUpdateLastPointerPositionEffectsTimestamp@CSpatialProcessor@@AEAA_N_K@Z @ 0x1C0225DD4
+ * Callers:
+ *     ?CheckAndSendPointerPositionEffectsUpdate@CSpatialProcessor@@IEAAXKUtagPOINT@@_KIK@Z @ 0x1C0225CB4 (-CheckAndSendPointerPositionEffectsUpdate@CSpatialProcessor@@IEAAXKUtagPOINT@@_KIK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CSpatialProcessor::CheckAndUpdateLastPointerPositionEffectsTimestamp(
         CSpatialProcessor *this,
         __int64 a2)

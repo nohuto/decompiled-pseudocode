@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1800C7868
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ??0CLegacyStereoRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1801BDDB4 (--0CLegacyStereoRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ * Callees:
+ *     ??0CMonitorTransform@@QEAA@XZ @ 0x1800C7B10 (--0CMonitorTransform@@QEAA@XZ.c)
+ *     ??0CRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1800C7B7C (--0CRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0IOverlayMonitorTarget@@QEAA@XZ @ 0x1800C7C0C (--0IOverlayMonitorTarget@@QEAA@XZ.c)
+ *     ??0COverlayContext@@QEAA@PEAVIOverlayMonitorTarget@@@Z @ 0x1800C7CA8 (--0COverlayContext@@QEAA@PEAVIOverlayMonitorTarget@@@Z.c)
+ */
+
 CLegacyRenderTarget *__fastcall CLegacyRenderTarget::CLegacyRenderTarget(
         CLegacyRenderTarget *this,
         struct CComposition *a2,

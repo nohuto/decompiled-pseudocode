@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlLoadString @ 0x1409B7450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DownLevelLanguageNameToLangID @ 0x14036F74C (DownLevelLanguageNameToLangID.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     LdrpAccessResourceData @ 0x1407E987C (LdrpAccessResourceData.c)
+ *     LdrpSearchResourceSection_U @ 0x1407E9958 (LdrpSearchResourceSection_U.c)
+ *     LdrResSearchResource @ 0x1407EACB0 (LdrResSearchResource.c)
+ */
+
 __int64 __fastcall RtlLoadString(
         unsigned __int64 a1,
         unsigned __int16 a2,

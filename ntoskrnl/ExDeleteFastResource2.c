@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExDeleteFastResource2 @ 0x14040DFE4
+ * Callers:
+ *     ExDeleteFastResource @ 0x1403CEDE0 (ExDeleteFastResource.c)
+ * Callees:
+ *     ExpIsFastResourceOwned @ 0x14041057C (ExpIsFastResourceOwned.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall ExDeleteFastResource2(ULONG_PTR BugCheckParameter2)
 {
   unsigned __int8 CurrentIrql; // al

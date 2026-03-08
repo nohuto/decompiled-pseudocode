@@ -1,3 +1,11 @@
+/*
+ * XREFs of DwmAsyncNotifyDisplayModeChange @ 0x1C00F3400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IncrementDWMWindowUniqueness@@YA_JXZ @ 0x1C0028164 (-IncrementDWMWindowUniqueness@@YA_JXZ.c)
+ */
+
 __int64 __fastcall DwmAsyncNotifyDisplayModeChange(PVOID Object)
 {
   unsigned int v2; // edi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of VfTargetDriversGetNode @ 0x140303628
+ * Callers:
+ *     VfDifCaptureDriverEntry @ 0x1403035E8 (VfDifCaptureDriverEntry.c)
+ *     VfTargetDriversGetVerifierData @ 0x140AC8528 (VfTargetDriversGetVerifierData.c)
+ *     VfThunkApplyThunksCurrentSession @ 0x140AD83AC (VfThunkApplyThunksCurrentSession.c)
+ *     ViThunkApplyWdmThunksCurrentSession @ 0x140AD86BC (ViThunkApplyWdmThunksCurrentSession.c)
+ * Callees:
+ *     VfAvlLookupTreeNode @ 0x140303680 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403039F0 (VfAvlCleanupLockContext.c)
+ */
+
 __int64 __fastcall VfTargetDriversGetNode(__int64 a1)
 {
   __int64 v1; // rbx

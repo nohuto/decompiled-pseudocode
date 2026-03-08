@@ -1,3 +1,13 @@
+/*
+ * XREFs of OSNotifyDeviceEject @ 0x1C0032E08
+ * Callers:
+ *     NotifyHandler @ 0x1C0004EE0 (NotifyHandler.c)
+ *     OSNotifyDeviceCheck @ 0x1C0032C80 (OSNotifyDeviceCheck.c)
+ * Callees:
+ *     ACPIBuildSynchronizationRequestInternal @ 0x1C0013BE0 (ACPIBuildSynchronizationRequestInternal.c)
+ *     WPP_RECORDER_SF_qs @ 0x1C00152B8 (WPP_RECORDER_SF_qs.c)
+ */
+
 __int64 __fastcall OSNotifyDeviceEject(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v5; // edx

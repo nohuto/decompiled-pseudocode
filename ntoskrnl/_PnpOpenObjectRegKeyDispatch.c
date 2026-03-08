@@ -1,3 +1,13 @@
+/*
+ * XREFs of _PnpOpenObjectRegKeyDispatch @ 0x1406CEDAC
+ * Callers:
+ *     _PnpOpenObjectRegKey @ 0x1406CECB8 (_PnpOpenObjectRegKey.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     _PnpCtxGetObjectDispatchCallback @ 0x1406D13A4 (_PnpCtxGetObjectDispatchCallback.c)
+ */
+
 __int64 __fastcall PnpOpenObjectRegKeyDispatch(
         __int64 a1,
         __int64 a2,

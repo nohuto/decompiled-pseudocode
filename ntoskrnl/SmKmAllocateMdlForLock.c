@@ -1,3 +1,13 @@
+/*
+ * XREFs of SmKmAllocateMdlForLock @ 0x1403A1920
+ * Callers:
+ *     SmFpPreAllocate @ 0x1403A1704 (SmFpPreAllocate.c)
+ *     SmFpAllocate @ 0x14045D93E (SmFpAllocate.c)
+ * Callees:
+ *     SmAcquireReleaseCharges @ 0x140359F14 (SmAcquireReleaseCharges.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall SmKmAllocateMdlForLock(__int64 a1, unsigned __int64 a2)
 {
   __int64 v2; // rbx

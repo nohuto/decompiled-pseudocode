@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvpViewMapSealRange @ 0x1407A50A4
+ * Callers:
+ *     HvpSetRangeProtection @ 0x1407A5934 (HvpSetRangeProtection.c)
+ * Callees:
+ *     CmSiProtectViewOfSection @ 0x14030D290 (CmSiProtectViewOfSection.c)
+ */
+
 void __fastcall HvpViewMapSealRange(__int64 a1, int a2, unsigned int a3)
 {
   __int64 v3; // rdi

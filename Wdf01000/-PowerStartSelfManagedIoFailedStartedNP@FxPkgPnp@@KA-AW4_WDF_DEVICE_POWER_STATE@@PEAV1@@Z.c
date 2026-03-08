@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PowerStartSelfManagedIoFailedStartedNP@FxPkgPnp@@KA?AW4_WDF_DEVICE_POWER_STATE@@PEAV1@@Z @ 0x1C006FE80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ProcessEvent@FxSelfManagedIoMachine@@IEAAJW4FxSelfManagedIoEvents@@PEAW4FxCxCallbackProgress@@@Z @ 0x1C0081AA0 (-ProcessEvent@FxSelfManagedIoMachine@@IEAAJW4FxSelfManagedIoEvents@@PEAW4FxCxCallbackProgress@@@.c)
+ */
+
 __int64 __fastcall FxPkgPnp::PowerStartSelfManagedIoFailedStartedNP(FxPkgPnp *This)
 {
   FxSelfManagedIoMachine *m_SelfManagedIoMachine; // rcx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiEnumerateNextProcessorNumber @ 0x1402AA0A0
+ * Callers:
+ *     KeGenericProcessorCallback @ 0x1402A9E48 (KeGenericProcessorCallback.c)
+ *     PoExecuteIdleCheck @ 0x1403C65A0 (PoExecuteIdleCheck.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiEnumerateNextProcessorNumber(__int64 a1, unsigned __int16 **a2)
 {
   unsigned int v3; // r9d

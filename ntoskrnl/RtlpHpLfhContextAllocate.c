@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpHpLfhContextAllocate @ 0x1402F8774
+ * Callers:
+ *     RtlpHpAllocateHeap @ 0x14024A2B0 (RtlpHpAllocateHeap.c)
+ * Callees:
+ *     RtlpHpLfhBucketUpdateStats @ 0x14030BFE0 (RtlpHpLfhBucketUpdateStats.c)
+ *     RtlpHpLfhBucketAllocate @ 0x1403CE658 (RtlpHpLfhBucketAllocate.c)
+ */
+
 __int64 __fastcall RtlpHpLfhContextAllocate(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4)
 {
   bool v5; // zf

@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiFdoDetectVgaDeviceInCapabilities @ 0x1C0218DC8
+ * Callers:
+ *     DpiGetVgaStatus @ 0x1C0218D80 (DpiGetVgaStatus.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 __int64 __fastcall DpiFdoDetectVgaDeviceInCapabilities(__int64 a1)
 {
   __int64 v1; // rdi

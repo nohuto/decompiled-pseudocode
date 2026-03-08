@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?Initialize@CGlobalInputManager@@UEAAJXZ @ 0x1800CB060
+ * Callers:
+ *     ?Initialize@CComposition@@MEAAJXZ @ 0x1800AE4F0 (-Initialize@CComposition@@MEAAJXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Create@CKst@@SAJPEAVCComposition@@PEAPEAV1@@Z @ 0x1800CB0DC (-Create@CKst@@SAJPEAVCComposition@@PEAPEAV1@@Z.c)
+ *     ?Start@CKstBase@@AEAAJPEBG@Z @ 0x1800CB16C (-Start@CKstBase@@AEAAJPEBG@Z.c)
+ *     ?Initialize@CInputManager@@UEAAJXZ @ 0x1800CB370 (-Initialize@CInputManager@@UEAAJXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
 __int64 __fastcall CGlobalInputManager::Initialize(struct CComposition **this)
 {
   int v2; // eax

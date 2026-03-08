@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_OnAdapterInitializationDone@MONITOR_MGR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0215598
+ * Callers:
+ *     MonitorInitializeAdapterDone @ 0x1C0215528 (MonitorInitializeAdapterDone.c)
+ * Callees:
+ *     ?DmmGetEmergentSimulatedTarget@@YAJQEAXPEAI@Z @ 0x1C01B9E90 (-DmmGetEmergentSimulatedTarget@@YAJQEAXPEAI@Z.c)
+ *     ?_CreateBootPersistentMonitors@MONITOR_MGR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0215610 (-_CreateBootPersistentMonitors@MONITOR_MGR@@QEAAJPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ */
+
 __int64 __fastcall MONITOR_MGR::_OnAdapterInitializationDone(
         MONITOR_MGR *this,
         struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a2,

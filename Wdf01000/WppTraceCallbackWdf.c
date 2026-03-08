@@ -1,3 +1,13 @@
+/*
+ * XREFs of WppTraceCallbackWdf @ 0x1C0022F00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x1C000AC00 (memset.c)
+ *     WppInitGlobalLoggerWdf @ 0x1C0022AFC (WppInitGlobalLoggerWdf.c)
+ *     ?FxIFRReplay@@YAX_K@Z @ 0x1C0027070 (-FxIFRReplay@@YAX_K@Z.c)
+ */
+
 __int64 __fastcall WppTraceCallbackWdf(
         unsigned __int8 minorFunction,
         void *DataPath,

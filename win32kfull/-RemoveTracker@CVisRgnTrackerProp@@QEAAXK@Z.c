@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RemoveTracker@CVisRgnTrackerProp@@QEAAXK@Z @ 0x1C0025B7C
+ * Callers:
+ *     RemoveVisRgnTracker @ 0x1C0025C7C (RemoveVisRgnTracker.c)
+ * Callees:
+ *     ?FreeTrackedRegion@CVisRgnTrackerProp@@AEAAXI@Z @ 0x1C0021EE8 (-FreeTrackedRegion@CVisRgnTrackerProp@@AEAAXI@Z.c)
+ *     DwmAsyncUpdateVisRgn @ 0x1C0021F40 (DwmAsyncUpdateVisRgn.c)
+ */
+
 void __fastcall CVisRgnTrackerProp::RemoveTracker(CVisRgnTrackerProp *this, int a2)
 {
   int v3; // edx

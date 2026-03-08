@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceFocusChange @ 0x1C00C2FD0
+ * Callers:
+ *     ??1ForegroundChangeTracker@CActivationObjectManager@@QEAA@XZ @ 0x1C005BD48 (--1ForegroundChangeTracker@CActivationObjectManager@@QEAA@XZ.c)
+ * Callees:
+ *     McTemplateK0dq_EtwWriteTransfer @ 0x1C00EE444 (McTemplateK0dq_EtwWriteTransfer.c)
+ */
+
 char __fastcall EtwTraceFocusChange(__int64 a1, int a2)
 {
   char result; // al

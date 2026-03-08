@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiFreeMdlPageRun @ 0x14027AF50
+ * Callers:
+ *     MiFreePagesFromMdl @ 0x1402C0DD0 (MiFreePagesFromMdl.c)
+ *     MiFreePartitionPageRun @ 0x140657734 (MiFreePartitionPageRun.c)
+ *     MiDeleteAweInfoPages @ 0x140A3EE20 (MiDeleteAweInfoPages.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140A416B8 (MiAllocatePartitionPhysicalPages.c)
+ * Callees:
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     MiUpdateLargePageBitMap @ 0x14034D79C (MiUpdateLargePageBitMap.c)
+ *     MiFreeLargePageMemory @ 0x1403505C0 (MiFreeLargePageMemory.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiResidentPageDangleFree @ 0x14038A9AC (MiResidentPageDangleFree.c)
+ *     MiConvertSmallPageRangeToLarge @ 0x1403B3040 (MiConvertSmallPageRangeToLarge.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiFreeMdlPageRun(ULONG_PTR a1, unsigned __int64 a2, char a3, __int64 a4)
 {
   __int64 v4; // r13

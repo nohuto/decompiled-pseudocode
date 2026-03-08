@@ -1,3 +1,16 @@
+/*
+ * XREFs of McTemplateK0phbr1q_EtwWriteTransfer @ 0x1C005E0A8
+ * Callers:
+ *     DpiDispatchPnp @ 0x1C01D10E0 (DpiDispatchPnp.c)
+ *     DpiDispatchIoctl @ 0x1C01D1280 (DpiDispatchIoctl.c)
+ *     DpiDispatchInternalIoctl @ 0x1C01D1400 (DpiDispatchInternalIoctl.c)
+ *     DpiDispatchPower @ 0x1C01E3400 (DpiDispatchPower.c)
+ *     DpiDispatchSystemControl @ 0x1C03959D0 (DpiDispatchSystemControl.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002BBC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 NTSTATUS McTemplateK0phbr1q_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)
 {
   __int16 v4; // [rsp+30h] [rbp-31h] BYREF

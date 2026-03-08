@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?GetRandomPoint@CEllipseSpawner@EmitterShapes@@UEBA?AUfloat2@Numerics@Foundation@Windows@@AEAV?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@M@Z @ 0x180266A60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     cosf_0 @ 0x1801176F8 (cosf_0.c)
+ *     sinf_0 @ 0x180117794 (sinf_0.c)
+ *     sqrtf_0 @ 0x1801177AC (sqrtf_0.c)
+ *     ??$generate_canonical@M$0?0V?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@std@@@std@@YAMAEAV?$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PPPPPPPP@$06$0JNCMFGIA@$0P@$0OPMGAAAA@$0BC@$0GMAHIJGF@@0@@Z @ 0x18023F9D0 (--$generate_canonical@M$0-0V-$mersenne_twister_engine@I$0CA@$0CHA@$0BIN@$0BP@$0JJAILANP@$0L@$0PP.c)
+ */
+
 float *__fastcall EmitterShapes::CEllipseSpawner::GetRandomPoint(__int64 a1, float *a2, __int64 a3, float a4)
 {
   float v7; // xmm8_4

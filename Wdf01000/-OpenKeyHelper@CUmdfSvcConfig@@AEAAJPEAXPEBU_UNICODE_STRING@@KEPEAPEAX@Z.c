@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?OpenKeyHelper@CUmdfSvcConfig@@AEAAJPEAXPEBU_UNICODE_STRING@@KEPEAPEAX@Z @ 0x1C00868D8
+ * Callers:
+ *     ?GetSecureSoftwareDeviceTag@CUmdfSvcConfig@@QEAAJPEAXPEAK@Z @ 0x1C0086764 (-GetSecureSoftwareDeviceTag@CUmdfSvcConfig@@QEAAJPEAXPEAK@Z.c)
+ *     ?OpenServiceKey@CUmdfSvcConfig@@QEAAJPEBGKPEAPEAX@Z @ 0x1C0086974 (-OpenServiceKey@CUmdfSvcConfig@@QEAAJPEBGKPEAPEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall CUmdfSvcConfig::OpenKeyHelper(
         CUmdfSvcConfig *this,
         void *ParentKey,

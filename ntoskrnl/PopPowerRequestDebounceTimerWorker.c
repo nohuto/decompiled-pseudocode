@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopPowerRequestDebounceTimerWorker @ 0x14097E560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeCancelTimer2 @ 0x140204390 (KeCancelTimer2.c)
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ *     PopAcquirePowerRequestPushLock @ 0x14073B7D4 (PopAcquirePowerRequestPushLock.c)
+ *     PopPowerRequestHandleRequestUpdate @ 0x14073BF54 (PopPowerRequestHandleRequestUpdate.c)
+ */
+
 void PopPowerRequestDebounceTimerWorker()
 {
   __int64 v0; // r8

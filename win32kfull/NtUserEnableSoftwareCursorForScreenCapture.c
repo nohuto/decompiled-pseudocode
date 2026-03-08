@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserEnableSoftwareCursorForScreenCapture @ 0x1C01D0580
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ChangeComposableCursor @ 0x1C01AA1C4 (ChangeComposableCursor.c)
+ */
+
 __int64 __fastcall NtUserEnableSoftwareCursorForScreenCapture(unsigned int a1)
 {
   __int64 v2; // rdi

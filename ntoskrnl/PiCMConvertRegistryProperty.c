@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiCMConvertRegistryProperty @ 0x1406C76A0
+ * Callers:
+ *     PiCMGetRegistryProperty @ 0x1406C74A4 (PiCMGetRegistryProperty.c)
+ *     PiCMSetRegistryProperty @ 0x140967BA4 (PiCMSetRegistryProperty.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PiCMConvertRegistryProperty(int a1, _DWORD *a2)
 {
   unsigned int v2; // r8d

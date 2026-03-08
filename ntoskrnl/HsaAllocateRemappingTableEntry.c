@@ -1,3 +1,21 @@
+/*
+ * XREFs of HsaAllocateRemappingTableEntry @ 0x14052C890
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ *     HalpAcquireHighLevelLock @ 0x140379818 (HalpAcquireHighLevelLock.c)
+ *     ExtEnvAllocateMemory @ 0x14037C828 (ExtEnvAllocateMemory.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExtEnvAllocatePhysicalMemory @ 0x14051CE10 (ExtEnvAllocatePhysicalMemory.c)
+ *     ExtEnvFreeMemory @ 0x14051D13C (ExtEnvFreeMemory.c)
+ *     ExtEnvFreePhysicalMemory @ 0x14051D17C (ExtEnvFreePhysicalMemory.c)
+ *     HsaGetDeviceAperture @ 0x14052DBF0 (HsaGetDeviceAperture.c)
+ *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x14052F02C (HsaUpdateRemappingTableInDeviceTableEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HsaAllocateRemappingTableEntry(
         __int64 a1,
         unsigned int a2,

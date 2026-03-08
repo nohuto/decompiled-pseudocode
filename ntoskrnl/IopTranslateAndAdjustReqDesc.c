@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopTranslateAndAdjustReqDesc @ 0x140807B6C
+ * Callers:
+ *     IopSetupArbiterAndTranslators @ 0x1408059BC (IopSetupArbiterAndTranslators.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopTranslateAndAdjustReqDesc(__int64 a1, __int64 a2, __int64 *a3)
 {
   _DWORD *v3; // r14

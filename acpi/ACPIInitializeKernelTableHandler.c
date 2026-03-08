@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIInitializeKernelTableHandler @ 0x1C002E260
+ * Callers:
+ *     ACPIRootIrpRemoveDevice @ 0x1C003D280 (ACPIRootIrpRemoveDevice.c)
+ *     ACPIInitialize @ 0x1C00A8F78 (ACPIInitialize.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall ACPIInitializeKernelTableHandler(char a1, __int64 a2)
 {
   NTSTATUS result; // eax

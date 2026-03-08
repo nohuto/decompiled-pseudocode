@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeNumaInitialize @ 0x140B4931C
+ * Callers:
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 (*KeNumaInitialize())()
 {
   __int64 (*result)(); // rax

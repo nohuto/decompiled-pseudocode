@@ -1,3 +1,21 @@
+/*
+ * XREFs of ExpFastResourceLegacyRelease @ 0x1403C5290
+ * Callers:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     SepMandatoryIntegrityCheck @ 0x140263A50 (SepMandatoryIntegrityCheck.c)
+ *     CcUnpinFileDataEx @ 0x140337E50 (CcUnpinFileDataEx.c)
+ *     ExReleaseResourceForThreadLite @ 0x14033A350 (ExReleaseResourceForThreadLite.c)
+ *     ExReleaseResourceAndLeaveCriticalRegion @ 0x14033AA70 (ExReleaseResourceAndLeaveCriticalRegion.c)
+ *     SeAccessCheckByType @ 0x14033BB40 (SeAccessCheckByType.c)
+ * Callees:
+ *     ExpFindFastOwnerEntryForThread @ 0x1403C53E4 (ExpFindFastOwnerEntryForThread.c)
+ *     ExReleaseFastResource @ 0x1403C5940 (ExReleaseFastResource.c)
+ *     ExpFastResourceLegacyRelease2 @ 0x1404103B8 (ExpFastResourceLegacyRelease2.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall ExpFastResourceLegacyRelease(
         ULONG_PTR BugCheckParameter1,
         __int64 a2,

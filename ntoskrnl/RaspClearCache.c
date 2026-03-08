@@ -1,3 +1,14 @@
+/*
+ * XREFs of RaspClearCache @ 0x140AEA540
+ * Callers:
+ *     BgpTxtDestroyRegion @ 0x140AE9904 (BgpTxtDestroyRegion.c)
+ *     AnFwDisplayProgressIndicator @ 0x140AEA598 (AnFwDisplayProgressIndicator.c)
+ *     AnFwpDisableProgressTimer @ 0x140AEC610 (AnFwpDisableProgressTimer.c)
+ *     ResFwFreeContext @ 0x140AEEED4 (ResFwFreeContext.c)
+ * Callees:
+ *     RaspDestroyCachedBitmap @ 0x140AEAB20 (RaspDestroyCachedBitmap.c)
+ */
+
 __int64 *RaspClearCache()
 {
   __int64 *result; // rax

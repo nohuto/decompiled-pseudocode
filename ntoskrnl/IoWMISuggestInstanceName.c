@@ -1,3 +1,17 @@
+/*
+ * XREFs of IoWMISuggestInstanceName @ 0x1409DC410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     IoGetDeviceProperty @ 0x1406C5B00 (IoGetDeviceProperty.c)
+ *     IoOpenDeviceInterfaceRegistryKey @ 0x1408478E0 (IoOpenDeviceInterfaceRegistryKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall IoWMISuggestInstanceName(
         PDEVICE_OBJECT PhysicalDeviceObject,
         PUNICODE_STRING SymbolicLinkName,

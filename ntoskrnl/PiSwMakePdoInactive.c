@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiSwMakePdoInactive @ 0x14096467C
+ * Callers:
+ *     PiSwGetChildPdo @ 0x140846F50 (PiSwGetChildPdo.c)
+ *     PiSwProcessRemove @ 0x140964760 (PiSwProcessRemove.c)
+ * Callees:
+ *     <none>
+ */
+
 _DWORD *__fastcall PiSwMakePdoInactive(__int64 a1)
 {
   _DWORD *result; // rax

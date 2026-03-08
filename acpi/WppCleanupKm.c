@@ -1,3 +1,11 @@
+/*
+ * XREFs of WppCleanupKm @ 0x1C007C0F0
+ * Callers:
+ *     ACPIUnload @ 0x1C00247F0 (ACPIUnload.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall WppCleanupKm(__int64 a1)
 {
   PDEVICE_OBJECT v1; // rbx

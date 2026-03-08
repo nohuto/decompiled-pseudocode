@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0VIDMM_RECYCLE_HEAP_MGR@@QEAA@XZ @ 0x1C0094D98
+ * Callers:
+ *     ?Init@VIDMM_PROCESS@@QEAAJPEAVDXGPROCESS@@@Z @ 0x1C0094260 (-Init@VIDMM_PROCESS@@QEAAJPEAVDXGPROCESS@@@Z.c)
+ * Callees:
+ *     memset @ 0x1C001AC80 (memset.c)
+ */
+
 VIDMM_RECYCLE_HEAP_MGR *__fastcall VIDMM_RECYCLE_HEAP_MGR::VIDMM_RECYCLE_HEAP_MGR(char *DeferredContext)
 {
   *((_DWORD *)DeferredContext + 4) = 1;

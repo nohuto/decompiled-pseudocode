@@ -1,3 +1,19 @@
+/*
+ * XREFs of WmipBuildInstanceSet @ 0x140867C6C
+ * Callers:
+ *     WmipUpdateModifyGuid @ 0x1407FB638 (WmipUpdateModifyGuid.c)
+ *     WmipAddDataSource @ 0x140867978 (WmipAddDataSource.c)
+ *     WmipUpdateAddGuid @ 0x1409DED7C (WmipUpdateAddGuid.c)
+ * Callees:
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     RtlStringCchCopyNW @ 0x140303EF8 (RtlStringCchCopyNW.c)
+ *     WmipValidateWmiRegInfoString @ 0x1408680AC (WmipValidateWmiRegInfoString.c)
+ *     WmipDetermineInstanceBaseIndex @ 0x1408680E4 (WmipDetermineInstanceBaseIndex.c)
+ *     WmipMangleInstanceName @ 0x1408687EC (WmipMangleInstanceName.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WmipBuildInstanceSet(_DWORD *a1, __int64 a2, unsigned int a3, __int64 a4, int a5)
 {
   __int64 v5; // r12

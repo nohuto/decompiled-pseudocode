@@ -1,3 +1,11 @@
+/*
+ * XREFs of WdipSemValidateEndEvent @ 0x140834640
+ * Callers:
+ *     WdipSemDisableScenario @ 0x140831E48 (WdipSemDisableScenario.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WdipSemValidateEndEvent(_QWORD *a1, __int16 a2, __int64 a3)
 {
   unsigned int v3; // r9d

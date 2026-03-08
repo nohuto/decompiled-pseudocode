@@ -1,3 +1,23 @@
+/*
+ * XREFs of Control_ProcessTransferEventWithED1 @ 0x1C0006840
+ * Callers:
+ *     Control_EP_TransferEventHandler @ 0x1C0006810 (Control_EP_TransferEventHandler.c)
+ *     Endpoint_TransferEventHandler @ 0x1C0009BA0 (Endpoint_TransferEventHandler.c)
+ *     TR_TransferEventHandler @ 0x1C0041CD4 (TR_TransferEventHandler.c)
+ * Callees:
+ *     Endpoint_HaltedCompletionCode @ 0x1C0006D98 (Endpoint_HaltedCompletionCode.c)
+ *     WPP_RECORDER_SF_DDqq @ 0x1C0006DF0 (WPP_RECORDER_SF_DDqq.c)
+ *     WPP_RECORDER_SF_DDqLDDi @ 0x1C0006EBC (WPP_RECORDER_SF_DDqLDDi.c)
+ *     Control_Transfer_CompleteCancelable @ 0x1C0006FBC (Control_Transfer_CompleteCancelable.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0007C90 (WPP_RECORDER_SF_DD.c)
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     WPP_RECORDER_SF_DDDD @ 0x1C000E120 (WPP_RECORDER_SF_DDDD.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     memmove @ 0x1C0020400 (memmove.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ *     WPP_RECORDER_SF_DDiqq @ 0x1C0043670 (WPP_RECORDER_SF_DDiqq.c)
+ */
+
 __int64 __fastcall Control_ProcessTransferEventWithED1(__int64 *a1, __int64 a2)
 {
   __int64 v2; // r8

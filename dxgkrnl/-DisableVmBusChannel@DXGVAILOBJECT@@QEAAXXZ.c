@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DisableVmBusChannel@DXGVAILOBJECT@@QEAAXXZ @ 0x1C0055888
+ * Callers:
+ *     ?DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z @ 0x1C01A6B80 (-DestroyDxgProcess@DXGPROCESS@@SAXPEAV1@@Z.c)
+ *     NtDxgkVailDisconnect @ 0x1C0360390 (NtDxgkVailDisconnect.c)
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     ?DisableVmBusChannel@@YAXPEAVDXGVMBUSCHANNEL@@@Z @ 0x1C035D0A4 (-DisableVmBusChannel@@YAXPEAVDXGVMBUSCHANNEL@@@Z.c)
+ */
+
 void __fastcall DXGVAILOBJECT::DisableVmBusChannel(struct _KTHREAD **this)
 {
   int v2; // edx

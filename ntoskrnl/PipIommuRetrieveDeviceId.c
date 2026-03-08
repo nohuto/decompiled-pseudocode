@@ -1,3 +1,14 @@
+/*
+ * XREFs of PipIommuRetrieveDeviceId @ 0x140841074
+ * Callers:
+ *     PiIommuAllocateExtension @ 0x140840F4C (PiIommuAllocateExtension.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PipIommuValidateDeviceId @ 0x140841140 (PipIommuValidateDeviceId.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PipIommuRetrieveDeviceId(__int64 a1, _QWORD *a2)
 {
   void *Pool2; // rdi

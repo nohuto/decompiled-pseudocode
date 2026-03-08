@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIVectorEnable @ 0x1C00050C0
+ * Callers:
+ *     ACPIEcUnmaskInterrupt @ 0x1C0002CF6 (ACPIEcUnmaskInterrupt.c)
+ *     ACPIVectorEnable2 @ 0x1C0044180 (ACPIVectorEnable2.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     ACPIGpeEnableDisableEvents @ 0x1C002C29C (ACPIGpeEnableDisableEvents.c)
+ *     ACPIGpeIndexToGpeRegister @ 0x1C002C39C (ACPIGpeIndexToGpeRegister.c)
+ */
+
 __int64 __fastcall ACPIVectorEnable(__int64 a1, unsigned int *a2)
 {
   int v2; // esi

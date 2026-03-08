@@ -1,3 +1,13 @@
+/*
+ * XREFs of IsPciDevice @ 0x1C00358A8
+ * Callers:
+ *     GetOpRegionScopeWorker @ 0x1C0034C20 (GetOpRegionScopeWorker.c)
+ *     ACPIInternalIsPci @ 0x1C0088074 (ACPIInternalIsPci.c)
+ *     AcpiDeletePciBusInterface @ 0x1C008A2A4 (AcpiDeletePciBusInterface.c)
+ * Callees:
+ *     IsPciDeviceWorker @ 0x1C0035980 (IsPciDeviceWorker.c)
+ */
+
 __int64 __fastcall IsPciDevice(volatile signed __int32 *a1, __int64 a2, __int64 a3, _BYTE *a4)
 {
   __int64 v8; // rax

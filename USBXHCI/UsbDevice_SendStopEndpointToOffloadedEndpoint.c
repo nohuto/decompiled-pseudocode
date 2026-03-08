@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbDevice_SendStopEndpointToOffloadedEndpoint @ 0x1C0049A14
+ * Callers:
+ *     UsbDevice_HandleSendStopEndpointToOffloadedEndpointsState @ 0x1C0049284 (UsbDevice_HandleSendStopEndpointToOffloadedEndpointsState.c)
+ * Callees:
+ *     Command_SendCommand @ 0x1C000A820 (Command_SendCommand.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 char __fastcall UsbDevice_SendStopEndpointToOffloadedEndpoint(__int64 a1, __int64 a2)
 {
   __int64 v2; // rdi

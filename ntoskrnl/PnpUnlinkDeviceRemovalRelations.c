@@ -1,3 +1,28 @@
+/*
+ * XREFs of PnpUnlinkDeviceRemovalRelations @ 0x140862FDC
+ * Callers:
+ *     PnpProcessQueryRemoveAndEject @ 0x1408625F0 (PnpProcessQueryRemoveAndEject.c)
+ *     PipRemoveDevicesInRelationList @ 0x14087CF0C (PipRemoveDevicesInRelationList.c)
+ *     PiEventRemovalPostSurpriseRemove @ 0x14087E710 (PiEventRemovalPostSurpriseRemove.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PpDevNodeRemoveFromTree @ 0x1403CF61C (PpDevNodeRemoveFromTree.c)
+ *     PnpSetDeviceInstanceRemovalEvent @ 0x1403D071C (PnpSetDeviceInstanceRemovalEvent.c)
+ *     _PnpSetObjectProperty @ 0x140686C8C (_PnpSetObjectProperty.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140687320 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     PpDevNodeUnlockTree @ 0x1406CB8B0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406CB944 (PpDevNodeLockTree.c)
+ *     PiPnpRtlEndOperation @ 0x1406CCB7C (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1406CDF98 (PiPnpRtlBeginOperation.c)
+ *     IopIsDescendantNode @ 0x140861DAC (IopIsDescendantNode.c)
+ *     IopEnumerateRelations @ 0x140863508 (IopEnumerateRelations.c)
+ *     PnpCleanupDeviceRegistryValues @ 0x14088039C (PnpCleanupDeviceRegistryValues.c)
+ *     IopRemoveCurrentRelationFromList @ 0x140969BAC (IopRemoveCurrentRelationFromList.c)
+ */
+
 void __fastcall PnpUnlinkDeviceRemovalRelations(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax

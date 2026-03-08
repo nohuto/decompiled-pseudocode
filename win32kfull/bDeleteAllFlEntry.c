@@ -1,3 +1,15 @@
+/*
+ * XREFs of bDeleteAllFlEntry @ 0x1C0116094
+ * Callers:
+ *     GreEnableEUDC @ 0x1C00B77A8 (GreEnableEUDC.c)
+ * Callees:
+ *     ?IsConcurrentEUDCOperationInProgress@@YA_NAEAUSESSION_GLOBALS@Full@Gre@@@Z @ 0x1C00B918C (-IsConcurrentEUDCOperationInProgress@@YA_NAEAUSESSION_GLOBALS@Full@Gre@@@Z.c)
+ *     vUnlinkAllEudcRFONTsAndPFEs @ 0x1C00DEFF0 (vUnlinkAllEudcRFONTsAndPFEs.c)
+ *     vLinkEudcPFEs @ 0x1C011177C (vLinkEudcPFEs.c)
+ *     bUnloadEudcFont @ 0x1C01162DC (bUnloadEudcFont.c)
+ *     ?vUnlinkAllEudcFromRFONTList@@YAXXZ @ 0x1C0125504 (-vUnlinkAllEudcFromRFONTList@@YAXXZ.c)
+ */
+
 __int64 __fastcall bDeleteAllFlEntry(__int64 a1)
 {
   __int64 v1; // rbx

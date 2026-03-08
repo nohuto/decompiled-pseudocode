@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiCommitPageTablesForVad @ 0x1407C74B0
+ * Callers:
+ *     MiSplitPrivatePage @ 0x14021114C (MiSplitPrivatePage.c)
+ *     MiCommitExistingVad @ 0x140320D70 (MiCommitExistingVad.c)
+ *     MiSetProtectionOnSection @ 0x140321FC0 (MiSetProtectionOnSection.c)
+ *     MiCommitPageTableRangesForVad @ 0x1406413B4 (MiCommitPageTableRangesForVad.c)
+ *     MiInsertVadCharges @ 0x1407D6A70 (MiInsertVadCharges.c)
+ * Callees:
+ *     MmGetMinWsPagePriority @ 0x140242D60 (MmGetMinWsPagePriority.c)
+ *     RtlAreBitsClearEx @ 0x1402E4560 (RtlAreBitsClearEx.c)
+ *     MiMakeHyperRangeAccessible @ 0x1403219F0 (MiMakeHyperRangeAccessible.c)
+ *     MiVadPureReserve @ 0x140321EB0 (MiVadPureReserve.c)
+ *     MiVadLeafPagesPrecharged @ 0x140321F00 (MiVadLeafPagesPrecharged.c)
+ *     MiVadPageTableChargeLevel @ 0x140321F50 (MiVadPageTableChargeLevel.c)
+ *     MiUpdateChargedWsles @ 0x14065F8E4 (MiUpdateChargedWsles.c)
+ *     MiChargeFullProcessCommitment @ 0x1407C5840 (MiChargeFullProcessCommitment.c)
+ */
+
 __int64 __fastcall MiCommitPageTablesForVad(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   _KPROCESS *Process; // r15

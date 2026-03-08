@@ -1,3 +1,11 @@
+/*
+ * XREFs of wctomb @ 0x1403D6460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _wctomb_s_l @ 0x1403D63A4 (_wctomb_s_l.c)
+ */
+
 int __cdecl wctomb(char *MbCh, wchar_t WCh)
 {
   int v2; // ebx

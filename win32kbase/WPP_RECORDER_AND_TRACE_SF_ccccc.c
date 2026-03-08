@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_AND_TRACE_SF_ccccc @ 0x1C0221F40
+ * Callers:
+ *     ShouldEnableInputVirtualization @ 0x1C00982F4 (ShouldEnableInputVirtualization.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 char __fastcall WPP_RECORDER_AND_TRACE_SF_ccccc(__int64 a1, char a2, char a3)
 {
   struct _LIST_ENTRY *Flink; // rdi

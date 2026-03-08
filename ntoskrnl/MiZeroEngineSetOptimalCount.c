@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiZeroEngineSetOptimalCount @ 0x1403AF760
+ * Callers:
+ *     MiInitializeZeroEngines @ 0x140729A34 (MiInitializeZeroEngines.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiZeroEngineSetOptimalCount(__int64 a1, int a2)
 {
   __int64 v2; // rbx

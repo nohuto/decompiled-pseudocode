@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0tqDR1DR1DR1DR1_EtwWriteTransfer @ 0x1C0039E80
+ * Callers:
+ *     ?VidSchiLogMmIoFlipMultiPlaneOverlay3@@YAXPEAU_VIDSCH_GLOBAL@@PEAU_VIDSCH_FLIP_QUEUE_ENTRY@@PEBU_VIDSCH_CALL_EXECUTE_FLIP@@W4_VIDSCH_FLIP_STATUS@@I_K@Z @ 0x1C000A7D0 (-VidSchiLogMmIoFlipMultiPlaneOverlay3@@YAXPEAU_VIDSCH_GLOBAL@@PEAU_VIDSCH_FLIP_QUEUE_ENTRY@@PEBU.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BDEC (McGenEventWrite_EtwWriteTransfer.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0tqDR1DR1DR1DR1_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,

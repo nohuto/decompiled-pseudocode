@@ -1,3 +1,19 @@
+/*
+ * XREFs of RIMProcessAnyPointerDeviceInput @ 0x1C01D517C
+ * Callers:
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0003AE4 (rimProcessDeviceBufferAndStartRead.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     Feature_RIMUserCritOpt__private_ReportDeviceUsage @ 0x1C00DF02C (Feature_RIMUserCritOpt__private_ReportDeviceUsage.c)
+ *     IsPTPInputEnabled @ 0x1C00EDB2C (IsPTPInputEnabled.c)
+ *     ApiSetProcessHidRawInput @ 0x1C00F626A (ApiSetProcessHidRawInput.c)
+ *     RIMAbConfigureDeviceArbitration @ 0x1C01AA500 (RIMAbConfigureDeviceArbitration.c)
+ *     ?DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z @ 0x1C01C0BD4 (-DropInput@RIM@InputTraceLogging@@SAXPEBURIMDEV@@W4DropReason@12@@Z.c)
+ *     rimDoProcessAnyPointerDeviceInput @ 0x1C01D6420 (rimDoProcessAnyPointerDeviceInput.c)
+ *     rimQueueApiSetHidRawInputAsyncWorkItem @ 0x1C01DA354 (rimQueueApiSetHidRawInputAsyncWorkItem.c)
+ *     ApiSetEnsurePointerDeviceHasMonitor @ 0x1C0243A14 (ApiSetEnsurePointerDeviceHasMonitor.c)
+ */
+
 char __fastcall RIMProcessAnyPointerDeviceInput(__int64 a1, __int64 a2)
 {
   __int64 v2; // rsi

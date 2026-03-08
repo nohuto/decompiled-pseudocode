@@ -1,3 +1,47 @@
+/*
+ * XREFs of MiPfPutPagesInTransition @ 0x140288890
+ * Callers:
+ *     MmPrefetchPagesEx @ 0x1406A387C (MmPrefetchPagesEx.c)
+ *     MmPrefetchForCacheManager @ 0x1406A3DCC (MmPrefetchForCacheManager.c)
+ *     MiPrefetchControlArea @ 0x14078DBC4 (MiPrefetchControlArea.c)
+ * Callees:
+ *     MiGetPageForHeader @ 0x1402140A4 (MiGetPageForHeader.c)
+ *     MiPfnZeroingNeeded @ 0x140214AC4 (MiPfnZeroingNeeded.c)
+ *     MiGetSlabPage @ 0x14025BA50 (MiGetSlabPage.c)
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ *     PsGetIoPriorityThread @ 0x1402832C0 (PsGetIoPriorityThread.c)
+ *     MiLockProtoPoolPageForce @ 0x14028331C (MiLockProtoPoolPageForce.c)
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiInvalidPteConforms @ 0x140287530 (MiInvalidPteConforms.c)
+ *     MiFreeInPageSupportBlock @ 0x140287B5C (MiFreeInPageSupportBlock.c)
+ *     MiUseSlabAllocator @ 0x140289310 (MiUseSlabAllocator.c)
+ *     MiInitializeReadInProgressPfn @ 0x140289390 (MiInitializeReadInProgressPfn.c)
+ *     MiGetInPageSupportBlock @ 0x14028A054 (MiGetInPageSupportBlock.c)
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     MiUpdatePfnPriority @ 0x14028D35C (MiUpdatePfnPriority.c)
+ *     MiGetPagingFileOffset @ 0x14029EA80 (MiGetPagingFileOffset.c)
+ *     MiObtainProtoReference @ 0x1402A304C (MiObtainProtoReference.c)
+ *     MiAddLockedPageCharge @ 0x1402A309C (MiAddLockedPageCharge.c)
+ *     MiSetInPagePriority @ 0x1402CCCBC (MiSetInPagePriority.c)
+ *     MiZeroPhysicalPage @ 0x1402CE78C (MiZeroPhysicalPage.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1402CF5DC (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiReduceMdl @ 0x1402D674C (MiReduceMdl.c)
+ *     MiReleasePrefetchGapPages @ 0x1402EDD24 (MiReleasePrefetchGapPages.c)
+ *     MiReturnFaultCharges @ 0x1402F4480 (MiReturnFaultCharges.c)
+ *     MiPrefetchPagesViable @ 0x1402FCD14 (MiPrefetchPagesViable.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140350400 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140462ED8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140608CDC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiRefillPurgedExtents @ 0x14063CD7C (MiRefillPurgedExtents.c)
+ *     MiLockSpecialPurposeMemoryCachedPage @ 0x14065E278 (MiLockSpecialPurposeMemoryCachedPage.c)
+ *     MiFreeReadListPages @ 0x1406A4F10 (MiFreeReadListPages.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiPfPutPagesInTransition(__int64 a1, int a2, int a3, int a4)
 {
   __int64 v4; // rbx

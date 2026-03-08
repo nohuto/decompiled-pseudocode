@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetDpiForWindow @ 0x1C01DCA90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserSetDpiForWindow(__int64 a1)
 {
   __int64 v2; // rax

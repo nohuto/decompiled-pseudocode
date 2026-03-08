@@ -1,3 +1,19 @@
+/*
+ * XREFs of xxxDWP_DoNCActivate @ 0x1C00245B8
+ * Callers:
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ *     xxxEndMenuLoop @ 0x1C0216810 (xxxEndMenuLoop.c)
+ *     xxxMenuWindowProc @ 0x1C021D3D0 (xxxMenuWindowProc.c)
+ * Callees:
+ *     xxxDrawCaptionBar @ 0x1C0021730 (xxxDrawCaptionBar.c)
+ *     GetWindowBorders @ 0x1C0021910 (GetWindowBorders.c)
+ *     IsModelessMenuNotificationWindow @ 0x1C00236D8 (IsModelessMenuNotificationWindow.c)
+ *     DwmAsyncActivationChange @ 0x1C0024744 (DwmAsyncActivationChange.c)
+ *     IsToplevelWindowDesktopComposed @ 0x1C002D900 (IsToplevelWindowDesktopComposed.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     xxxMenuBarDraw @ 0x1C0238AB0 (xxxMenuBarDraw.c)
+ */
+
 __int64 __fastcall xxxDWP_DoNCActivate(struct tagWND *a1, char a2, __int64 a3)
 {
   int v5; // r15d

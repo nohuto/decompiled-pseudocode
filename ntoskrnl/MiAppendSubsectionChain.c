@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiAppendSubsectionChain @ 0x1402A5090
+ * Callers:
+ *     MiExtendSection @ 0x140726AAC (MiExtendSection.c)
+ * Callees:
+ *     MiInsertSubsectionNode @ 0x140214E00 (MiInsertSubsectionNode.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiInsertUnusedSubsection @ 0x1402D4DE8 (MiInsertUnusedSubsection.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiDecrementSubsectionViewCount @ 0x140334C10 (MiDecrementSubsectionViewCount.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x140668DD4 (MiReturnCrossPartitionSectionCharges.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x140668EB4 (MiUpdateSubsectionCrossPartitionRefs.c)
+ */
+
 __int64 __fastcall MiAppendSubsectionChain(__int64 a1, __int64 a2, char a3)
 {
   ULONG_PTR v4; // rdi

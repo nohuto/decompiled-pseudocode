@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CConnection@@UEAA@XZ @ 0x1801B27CC
+ * Callers:
+ *     ??1CInternalMilCmdConnection@@UEAA@XZ @ 0x1801B25E8 (--1CInternalMilCmdConnection@@UEAA@XZ.c)
+ *     ??_GCConnection@@UEAAPEAXI@Z @ 0x1801B2860 (--_GCConnection@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?Disconnect@CConnection@@QEAAXXZ @ 0x1801B28AC (-Disconnect@CConnection@@QEAAXXZ.c)
+ */
+
 void __fastcall CConnection::~CConnection(CConnection *this)
 {
   void *v2; // rcx

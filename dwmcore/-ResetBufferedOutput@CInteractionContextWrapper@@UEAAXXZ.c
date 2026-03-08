@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ResetBufferedOutput@CInteractionContextWrapper@@UEAAXXZ @ 0x180281B40
+ * Callers:
+ *     ??1CInteractionContextWrapper@@EEAA@XZ @ 0x180039F6C (--1CInteractionContextWrapper@@EEAA@XZ.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ */
+
 void __fastcall CInteractionContextWrapper::ResetBufferedOutput(CInteractionContextWrapper *this)
 {
   char *v2; // rbx

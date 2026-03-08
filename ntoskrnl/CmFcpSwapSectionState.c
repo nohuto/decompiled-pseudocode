@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmFcpSwapSectionState @ 0x14079C17C
+ * Callers:
+ *     CmFcManagerStartRuntimePhase @ 0x140B53284 (CmFcManagerStartRuntimePhase.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmFcpSwapSectionState(__int64 *a1, __int64 *a2)
 {
   __int64 v3; // r8

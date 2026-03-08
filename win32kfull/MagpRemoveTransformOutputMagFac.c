@@ -1,3 +1,12 @@
+/*
+ * XREFs of MagpRemoveTransformOutputMagFac @ 0x1C00DE518
+ * Callers:
+ *     ?OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z @ 0x1C0007904 (-OnInput@InputTransform@@YAHPEAUtagWND@@_K@Z.c)
+ *     RemoveMagnificationOutputTransform @ 0x1C00DE500 (RemoveMagnificationOutputTransform.c)
+ * Callees:
+ *     memcmp @ 0x1C012BEF0 (memcmp.c)
+ */
+
 int __fastcall MagpRemoveTransformOutputMagFac(float *a1)
 {
   int result; // eax

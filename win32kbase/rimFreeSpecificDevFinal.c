@@ -1,3 +1,15 @@
+/*
+ * XREFs of rimFreeSpecificDevFinal @ 0x1C00BC028
+ * Callers:
+ *     RIMFreeSpecificDev @ 0x1C00BBF88 (RIMFreeSpecificDev.c)
+ *     rimDoRimDevChangeAsyncWorkItem @ 0x1C00BC0DC (rimDoRimDevChangeAsyncWorkItem.c)
+ *     RIMFreeSpecificDevOnCreateFailure @ 0x1C019DEC8 (RIMFreeSpecificDevOnCreateFailure.c)
+ * Callees:
+ *     rimDereferenceDev @ 0x1C00354BC (rimDereferenceDev.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     RIMRemoveHoldingFrame @ 0x1C01CDBCC (RIMRemoveHoldingFrame.c)
+ */
+
 LONG_PTR __fastcall rimFreeSpecificDevFinal(__int64 *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _QWORD *v4; // rax

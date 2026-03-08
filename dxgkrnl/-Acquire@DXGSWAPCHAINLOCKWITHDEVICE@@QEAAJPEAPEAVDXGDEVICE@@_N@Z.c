@@ -1,3 +1,31 @@
+/*
+ * XREFs of ?Acquire@DXGSWAPCHAINLOCKWITHDEVICE@@QEAAJPEAPEAVDXGDEVICE@@_N@Z @ 0x1C035241C
+ * Callers:
+ *     ?SwapChainReleaseInternal@@YAJPEAVDXGSWAPCHAIN@@PEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXDHH@Z @ 0x1C0355B14 (-SwapChainReleaseInternal@@YAJPEAVDXGSWAPCHAIN@@PEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXDHH@Z.c)
+ *     DxgkAcquireSwapChain @ 0x1C0356160 (DxgkAcquireSwapChain.c)
+ *     DxgkAddSurfaceToSwapChain @ 0x1C0356760 (DxgkAddSurfaceToSwapChain.c)
+ *     DxgkCreateSwapChain @ 0x1C0356B70 (DxgkCreateSwapChain.c)
+ *     DxgkGetSwapChainSurfacePhysicalAddress @ 0x1C0357700 (DxgkGetSwapChainSurfacePhysicalAddress.c)
+ *     DxgkRemoveSurfaceFromSwapChain @ 0x1C0358510 (DxgkRemoveSurfaceFromSwapChain.c)
+ *     DxgkUnOrderedPresentSwapChain @ 0x1C0358800 (DxgkUnOrderedPresentSwapChain.c)
+ * Callees:
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0006FA0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireShared@COREACCESS@@QEAAXPEAD@Z @ 0x1C00073CC (-AcquireShared@COREACCESS@@QEAAXPEAD@Z.c)
+ *     ?Release@COREACCESS@@QEAAXXZ @ 0x1C0007444 (-Release@COREACCESS@@QEAAXXZ.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008F20 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008FA8 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ??0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z @ 0x1C0009580 (--0COREACCESS@@QEAA@QEAVDXGADAPTER@@_N@Z.c)
+ *     ??1COREACCESS@@QEAA@XZ @ 0x1C00098CC (--1COREACCESS@@QEAA@XZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C002463C (McTemplateK0q_EtwWriteTransfer.c)
+ *     ??4COREACCESS@@QEAAAEAV0@$$QEAV0@@Z @ 0x1C0058164 (--4COREACCESS@@QEAAAEAV0@$$QEAV0@@Z.c)
+ *     ?TryWakeUpFromD3State@DXGADAPTER@@QEAAEXZ @ 0x1C017FBC8 (-TryWakeUpFromD3State@DXGADAPTER@@QEAAEXZ.c)
+ *     ?EnableD3Requests@DXGADAPTER@@QEAAXXZ @ 0x1C0180304 (-EnableD3Requests@DXGADAPTER@@QEAAXXZ.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01A3640 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     ?Release@DXGSWAPCHAINLOCKWITHDEVICE@@QEAAXXZ @ 0x1C0224C40 (-Release@DXGSWAPCHAINLOCKWITHDEVICE@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall DXGSWAPCHAINLOCKWITHDEVICE::Acquire(
         DXGSWAPCHAINLOCKWITHDEVICE *this,
         struct DXGDEVICE **a2,

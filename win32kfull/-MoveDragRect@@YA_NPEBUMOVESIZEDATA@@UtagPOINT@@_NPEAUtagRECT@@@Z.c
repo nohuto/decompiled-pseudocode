@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?MoveDragRect@@YA_NPEBUMOVESIZEDATA@@UtagPOINT@@_NPEAUtagRECT@@@Z @ 0x1C01EB508
+ * Callers:
+ *     ?xxxSizeOrMoveRect@@YA_NPEAUMOVESIZEDATA@@UtagPOINT@@PEAUtagRECT@@PEAI@Z @ 0x1C01F230C (-xxxSizeOrMoveRect@@YA_NPEAUMOVESIZEDATA@@UtagPOINT@@PEAUtagRECT@@PEAI@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_sdddddd @ 0x1C00FACBC (WPP_RECORDER_AND_TRACE_SF_sdddddd.c)
+ *     ?RectInClipRegion@MOVESIZEDATA@@QEBA_NAEBUtagRECT@@@Z @ 0x1C023D110 (-RectInClipRegion@MOVESIZEDATA@@QEBA_NAEBUtagRECT@@@Z.c)
+ */
+
 char __fastcall MoveDragRect(const struct MOVESIZEDATA *this, struct tagPOINT a2, char a3, struct tagRECT *a4)
 {
   char v4; // bl

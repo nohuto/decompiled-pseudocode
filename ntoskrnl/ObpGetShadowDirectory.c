@@ -1,3 +1,16 @@
+/*
+ * XREFs of ObpGetShadowDirectory @ 0x14075F49C
+ * Callers:
+ *     ObpLookupObjectName @ 0x1406E86B0 (ObpLookupObjectName.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlIsSandboxedToken @ 0x140741410 (RtlIsSandboxedToken.c)
+ */
+
 __int64 __fastcall ObpGetShadowDirectory(
         __int64 a1,
         __int64 a2,

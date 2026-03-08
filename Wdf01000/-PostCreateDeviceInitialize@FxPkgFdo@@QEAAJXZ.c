@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?PostCreateDeviceInitialize@FxPkgFdo@@QEAAJXZ @ 0x1C00783A4
+ * Callers:
+ *     ?FdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C003C710 (-FdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ * Callees:
+ *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C0006470 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
+ *     ?AllocateTarget@FxDeviceBase@@QEAAJPEAPEAVFxIoTarget@@E@Z @ 0x1C0038DFC (-AllocateTarget@FxDeviceBase@@QEAAJPEAPEAVFxIoTarget@@E@Z.c)
+ *     ?PostCreateDeviceInitialize@FxPkgPnp@@QEAAJXZ @ 0x1C00741DC (-PostCreateDeviceInitialize@FxPkgPnp@@QEAAJXZ.c)
+ *     ?QueryForDsfInterface@FxPkgFdo@@AEAAJXZ @ 0x1C0082BE0 (-QueryForDsfInterface@FxPkgFdo@@AEAAJXZ.c)
+ */
+
 int __fastcall FxPkgFdo::PostCreateDeviceInitialize(FxPkgFdo *this, __int64 a2, void *a3)
 {
   int result; // eax

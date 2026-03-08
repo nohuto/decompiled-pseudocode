@@ -1,3 +1,12 @@
+/*
+ * XREFs of GxpGetRotatedPixelOffset @ 0x14066F8F8
+ * Callers:
+ *     GxpWriteFrameBufferPixels @ 0x14038188C (GxpWriteFrameBufferPixels.c)
+ *     GxpReadFrameBufferPixels @ 0x140AE9548 (GxpReadFrameBufferPixels.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GxpGetRotatedPixelOffset(unsigned __int64 a1, int *a2, _DWORD *a3, __int64 a4, _DWORD *a5)
 {
   unsigned int v5; // r11d

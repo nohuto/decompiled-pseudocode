@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bCalcMeshExtent@@YAHPEAU_TRIVERTEX@@KPEAXKKPEAU_RECTL@@@Z @ 0x1C0001FFC
+ * Callers:
+ *     GreGradientFill @ 0x1C0001610 (GreGradientFill.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall bCalcMeshExtent(
         struct _TRIVERTEX *a1,
         unsigned int a2,

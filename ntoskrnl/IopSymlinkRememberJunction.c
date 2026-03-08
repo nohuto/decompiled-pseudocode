@@ -1,3 +1,21 @@
+/*
+ * XREFs of IopSymlinkRememberJunction @ 0x14087A7D0
+ * Callers:
+ *     IopSymlinkProcessReparse @ 0x140790C0C (IopSymlinkProcessReparse.c)
+ *     IopGraftName @ 0x14087A8D0 (IopGraftName.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     IopSymlinkGetECP @ 0x14023ADA0 (IopSymlinkGetECP.c)
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     IopSymlinkInitializeSymlinkInfo @ 0x14077E4E8 (IopSymlinkInitializeSymlinkInfo.c)
+ *     IopSymlinkFreeRelatedMountPointChain @ 0x14078B018 (IopSymlinkFreeRelatedMountPointChain.c)
+ *     IopSymlinkGetRelatedMountPoint @ 0x14087AF0C (IopSymlinkGetRelatedMountPoint.c)
+ *     IopSymlinkUpdateECP @ 0x14087BDFC (IopSymlinkUpdateECP.c)
+ *     IopGetRelatedFileName @ 0x140941AE0 (IopGetRelatedFileName.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopSymlinkRememberJunction(unsigned __int16 a1, __int64 a2, __int64 a3, UNICODE_STRING *a4)
 {
   int RelatedFileName; // esi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PowerOffGdi @ 0x1C01295B0
+ * Callers:
+ *     xxxRemoteDisconnect @ 0x1C00F7034 (xxxRemoteDisconnect.c)
+ * Callees:
+ *     TransitionCursorSuppressionState @ 0x1C007B640 (TransitionCursorSuppressionState.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 PowerOffGdi()
 {

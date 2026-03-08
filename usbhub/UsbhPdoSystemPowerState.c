@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhPdoSystemPowerState @ 0x1C0009F9C
+ * Callers:
+ *     UsbhPdoPower_SetPower @ 0x1C00208E0 (UsbhPdoPower_SetPower.c)
+ * Callees:
+ *     UsbhSetPdoPowerState @ 0x1C0003960 (UsbhSetPdoPowerState.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C002E788 (WPP_RECORDER_SF_dd.c)
+ */
+
 __int64 __fastcall UsbhPdoSystemPowerState(__int64 a1, __int64 a2, IRP *a3)
 {
   __int64 v6; // r15

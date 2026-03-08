@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoGetPagingIoPriority @ 0x1402D3F90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 IO_PAGING_PRIORITY __stdcall IoGetPagingIoPriority(PIRP Irp)
 {
   ULONG Flags; // edx

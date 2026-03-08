@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtQueryDirectoryFile @ 0x140780770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     NtQueryDirectoryFileEx @ 0x1406B2200 (NtQueryDirectoryFileEx.c)
+ */
+
 NTSTATUS __stdcall NtQueryDirectoryFile(
         HANDLE FileHandle,
         HANDLE Event,

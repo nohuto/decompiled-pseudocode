@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsValidFONTSIM@@YA_NPEBXKJ@Z @ 0x1C02BA188
+ * Callers:
+ *     ?IsValidIFIMETRICS@@YA_NPEBU_IFIMETRICS@@K@Z @ 0x1C02BA1FC (-IsValidIFIMETRICS@@YA_NPEBU_IFIMETRICS@@K@Z.c)
+ * Callees:
+ *     ?IsValidFONTDIFF@@YA_NPEBXKJ@Z @ 0x1C02BA14C (-IsValidFONTDIFF@@YA_NPEBXKJ@Z.c)
+ */
+
 bool __fastcall IsValidFONTSIM(char *a1, unsigned int a2, int a3)
 {
   bool result; // al

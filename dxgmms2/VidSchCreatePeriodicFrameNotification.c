@@ -1,3 +1,18 @@
+/*
+ * XREFs of VidSchCreatePeriodicFrameNotification @ 0x1C003EA40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?VidSchiGetCurrentVSyncPeriodQpc@@YA_KPEAU_VIDSCH_GLOBAL@@I_N@Z @ 0x1C0017488 (-VidSchiGetCurrentVSyncPeriodQpc@@YA_KPEAU_VIDSCH_GLOBAL@@I_N@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C001BE4A (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?VidSchCalculatePeriodicMonitoredFenceTimerDueTime@@YA_J_J00H@Z @ 0x1C003D654 (-VidSchCalculatePeriodicMonitoredFenceTimerDueTime@@YA_J_J00H@Z.c)
+ *     McTemplateK0pqxxqpp_EtwWriteTransfer @ 0x1C003DFD0 (McTemplateK0pqxxqpp_EtwWriteTransfer.c)
+ *     VidSchDestroyPeriodicFrameNotification @ 0x1C003EF80 (VidSchDestroyPeriodicFrameNotification.c)
+ *     VidSchControlVSyncAdapter @ 0x1C00AD380 (VidSchControlVSyncAdapter.c)
+ *     VidSchIsVSyncAvailable @ 0x1C00B49C0 (VidSchIsVSyncAvailable.c)
+ */
+
 __int64 __fastcall VidSchCreatePeriodicFrameNotification(
         struct _VIDSCH_GLOBAL *a1,
         __int64 a2,

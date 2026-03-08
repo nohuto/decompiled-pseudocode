@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopFreeCopyObjectsFromIrp @ 0x1402F98FC
+ * Callers:
+ *     IopfCompleteRequest @ 0x14027B2C0 (IopfCompleteRequest.c)
+ *     IopFreeIrpExtension @ 0x1402B18FC (IopFreeIrpExtension.c)
+ *     IoReuseIrp @ 0x1402B1EB0 (IoReuseIrp.c)
+ * Callees:
+ *     IopIrpHasExtensionType @ 0x1402B1D58 (IopIrpHasExtensionType.c)
+ *     IopFreeCopyObjectsFromDataBuffer @ 0x1402F9948 (IopFreeCopyObjectsFromDataBuffer.c)
+ *     IopUnlockAndFreeMdl @ 0x1402F9CA8 (IopUnlockAndFreeMdl.c)
+ */
+
 unsigned __int8 __fastcall IopFreeCopyObjectsFromIrp(__int64 a1)
 {
   unsigned __int8 result; // al

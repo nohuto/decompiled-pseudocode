@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ConvertTimingData@VIDMM_TELEMETRY_PAGING_COSTS@@CAXPEBUTimingData@1@PEAU21@@Z @ 0x1C00F3FCC
+ * Callers:
+ *     ?LogData@VIDMM_TELEMETRY_PAGING_COSTS@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C00F4494 (-LogData@VIDMM_TELEMETRY_PAGING_COSTS@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VIDMM_TELEMETRY_PAGING_COSTS::ConvertTimingData(
         const struct VIDMM_TELEMETRY_PAGING_COSTS::TimingData *a1,
         struct VIDMM_TELEMETRY_PAGING_COSTS::TimingData *a2)

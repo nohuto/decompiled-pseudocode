@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiDiagTraceDeviceCoolingRundown @ 0x1C0007ECC
+ * Callers:
+ *     AcpiDiagTraceControlCallback @ 0x1C0007C80 (AcpiDiagTraceControlCallback.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C000B2B0 (ACPIAmliBuildObjectPathnameUnicode.c)
+ */
+
 void __fastcall AcpiDiagTraceDeviceCoolingRundown(__int64 a1, char a2, char a3)
 {
   __int16 v5; // [rsp+30h] [rbp-29h] BYREF

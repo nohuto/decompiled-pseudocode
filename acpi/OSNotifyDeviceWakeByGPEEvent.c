@@ -1,3 +1,16 @@
+/*
+ * XREFs of OSNotifyDeviceWakeByGPEEvent @ 0x1C0033280
+ * Callers:
+ *     ACPIInterruptDispatchEventDpc @ 0x1C0003670 (ACPIInterruptDispatchEventDpc.c)
+ * Callees:
+ *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C000518C (ACPIWakeRemoveDevicesAndUpdate.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     OSNotifyDeviceWakeCallBack @ 0x1C0033670 (OSNotifyDeviceWakeCallBack.c)
+ *     WPP_RECORDER_SF_LDL @ 0x1C00337FC (WPP_RECORDER_SF_LDL.c)
+ *     ACPIWakeDisableAsync @ 0x1C0044CC8 (ACPIWakeDisableAsync.c)
+ */
+
 void __fastcall OSNotifyDeviceWakeByGPEEvent(int a1, int a2, int a3, int a4)
 {
   char v4; // si

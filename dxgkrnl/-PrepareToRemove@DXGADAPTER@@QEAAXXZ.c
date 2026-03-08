@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?PrepareToRemove@DXGADAPTER@@QEAAXXZ @ 0x1C02B3D8C
+ * Callers:
+ *     DpiPowerArbiterThread @ 0x1C0210150 (DpiPowerArbiterThread.c)
+ * Callees:
+ *     ?DdiPowerRuntimeControlRequest@DXGADAPTER@@QEAAJPEBU_GUID@@PEAX_K12PEA_K@Z @ 0x1C0020BD4 (-DdiPowerRuntimeControlRequest@DXGADAPTER@@QEAAJPEBU_GUID@@PEAX_K12PEA_K@Z.c)
+ *     ?FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z @ 0x1C0180040 (-FlushScheduler@ADAPTER_RENDER@@QEAAJW4DXGADAPTER_FLUSHSCHEDULER_REASON@@IH@Z.c)
+ */
+
 void __fastcall DXGADAPTER::PrepareToRemove(DXGADAPTER *this)
 {
   bool v1; // zf

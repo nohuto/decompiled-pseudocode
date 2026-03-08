@@ -1,3 +1,21 @@
+/*
+ * XREFs of PopUserPresentSetWorker @ 0x14058BD10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PopSetNotificationWork @ 0x1402BCB00 (PopSetNotificationWork.c)
+ *     PopEventCalloutDispatch @ 0x1403B127C (PopEventCalloutDispatch.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopNotifyConsoleUserPresent @ 0x14073A3BC (PopNotifyConsoleUserPresent.c)
+ *     PopInitSIdle @ 0x14082A7A4 (PopInitSIdle.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 PopUserPresentSetWorker()
 {
   unsigned int v0; // esi

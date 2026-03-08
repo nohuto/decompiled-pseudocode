@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBCONNECTOR_DeRegisterPort @ 0x1C008214C
+ * Callers:
+ *     HUBCONNECTOR_UnMapHubPorts @ 0x1C0082B58 (HUBCONNECTOR_UnMapHubPorts.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBCONNECTOR_DeRegisterPort(__int64 a1)
 {
   unsigned int v2; // edi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ObCheckActiveHandles @ 0x140790BB4
+ * Callers:
+ *     MiFinishCreateSection @ 0x1407D0800 (MiFinishCreateSection.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ */
+
 bool __fastcall ObCheckActiveHandles(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax

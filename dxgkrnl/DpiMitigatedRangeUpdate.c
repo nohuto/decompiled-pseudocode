@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiMitigatedRangeUpdate @ 0x1C0394B74
+ * Callers:
+ *     DxgkMitigatedRangeUpdateCB @ 0x1C0048460 (DxgkMitigatedRangeUpdateCB.c)
+ * Callees:
+ *     ??0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z @ 0x1C005D778 (--0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z.c)
+ *     ??1CInterfaceCallContext@@QEAA@XZ @ 0x1C005D8F0 (--1CInterfaceCallContext@@QEAA@XZ.c)
+ *     DxgkDdiQueryVirtualFunctionLuid @ 0x1C0366104 (DxgkDdiQueryVirtualFunctionLuid.c)
+ */
+
 void __fastcall DpiMitigatedRangeUpdate(_QWORD *a1, int a2)
 {
   __int64 v2; // rbx

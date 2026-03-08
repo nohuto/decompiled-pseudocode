@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?DetectPressAndHoldGesture@InteractiveControlDevice@@QEAAXPEAVInteractiveControlInput@@I@Z @ 0x1C0248044
+ * Callers:
+ *     ?PerformInputActions@InteractiveControlDevice@@QEAAXPEAVInteractiveControlInput@@I@Z @ 0x1C024897C (-PerformInputActions@InteractiveControlDevice@@QEAAXPEAVInteractiveControlInput@@I@Z.c)
+ * Callees:
+ *     SetRITTimer @ 0x1C00793E0 (SetRITTimer.c)
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C007A05C (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     FindTimer @ 0x1C00DEEDC (FindTimer.c)
+ *     ?FlushBufferedInput@InteractiveControlDevice@@QEAAXI@Z @ 0x1C0248350 (-FlushBufferedInput@InteractiveControlDevice@@QEAAXI@Z.c)
+ */
+
 void __fastcall InteractiveControlDevice::DetectPressAndHoldGesture(
         InteractiveControlDevice *this,
         struct InteractiveControlInput *a2,

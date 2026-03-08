@@ -1,3 +1,18 @@
+/*
+ * XREFs of NtUserSetKeyboardState @ 0x1C0009040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _SetKeyboardState @ 0x1C0009164 (_SetKeyboardState.c)
+ *     CheckAccessEx @ 0x1C0016FB0 (CheckAccessEx.c)
+ *     EtwTraceUIPIInputError @ 0x1C003A560 (EtwTraceUIPIInputError.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterCritInternal @ 0x1C004FB50 (PrivateAPI--_anonymous_namespace_--EnterCritInternal.c)
+ *     HMUnlockObject @ 0x1C0072980 (HMUnlockObject.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall NtUserSetKeyboardState(__int64 a1)
 {
   __int64 v1; // r14

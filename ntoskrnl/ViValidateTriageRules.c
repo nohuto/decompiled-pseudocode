@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViValidateTriageRules @ 0x140B94260
+ * Callers:
+ *     VfTriageSystem @ 0x140B49FDC (VfTriageSystem.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ */
+
 __int64 __fastcall ViValidateTriageRules(unsigned int *a1, __int64 a2)
 {
   unsigned int *v2; // r8

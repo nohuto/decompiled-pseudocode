@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0ButtonInputMessage@CMouseProcessor@@QEAA@AEBVCButtonEvent@1@_KAEAVCInputDest@@AEBUInputDeliveryContext@1@@Z @ 0x1C022A798
+ * Callers:
+ *     ?CreateInputMessage@CButtonEvent@CMouseProcessor@@UEBAPEAUMouseInputMessage@2@_KAEAVCInputDest@@AEBUInputDeliveryContext@2@@Z @ 0x1C022BA50 (-CreateInputMessage@CButtonEvent@CMouseProcessor@@UEBAPEAUMouseInputMessage@2@_KAEAVCInputDest@@.c)
+ * Callees:
+ *     ??0MouseInputMessage@CMouseProcessor@@QEAA@_KAEBVCMouseEvent@1@AEAVCInputDest@@AEBUInputDeliveryContext@1@@Z @ 0x1C022A9C4 (--0MouseInputMessage@CMouseProcessor@@QEAA@_KAEBVCMouseEvent@1@AEAVCInputDest@@AEBUInputDelivery.c)
+ */
+
 CMouseProcessor::ButtonInputMessage *__fastcall CMouseProcessor::ButtonInputMessage::ButtonInputMessage(
         CMouseProcessor::ButtonInputMessage *this,
         const struct CMouseProcessor::CButtonEvent *a2,

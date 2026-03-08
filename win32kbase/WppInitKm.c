@@ -1,3 +1,11 @@
+/*
+ * XREFs of WppInitKm @ 0x1C03014F4
+ * Callers:
+ *     ?InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z @ 0x1C00C35F8 (-InitializeWppLogging@@YAJPEAU_DRIVER_OBJECT@@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall WppInitKm(__int64 a1, __int64 a2)
 {
   struct _DEVICE_OBJECT *v4; // rbx

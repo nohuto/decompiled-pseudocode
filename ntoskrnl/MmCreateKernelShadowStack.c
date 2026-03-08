@@ -1,3 +1,25 @@
+/*
+ * XREFs of MmCreateKernelShadowStack @ 0x140642B98
+ * Callers:
+ *     KeUserModeCallback @ 0x1407DA1F0 (KeUserModeCallback.c)
+ *     KiCreateKernelShadowStack @ 0x1409713F0 (KiCreateKernelShadowStack.c)
+ * Callees:
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     MiAllocateKernelStackPages @ 0x14031D830 (MiAllocateKernelStackPages.c)
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MiChargeResident @ 0x140348DE8 (MiChargeResident.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     FirstEntrySList @ 0x140420450 (FirstEntrySList.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     MiDeleteKernelShadowStack @ 0x140641FD4 (MiDeleteKernelShadowStack.c)
+ *     MiUpdateKernelShadowStackOwnerData @ 0x140642A9C (MiUpdateKernelShadowStackOwnerData.c)
+ *     VslAllocateKernelShadowStack @ 0x14093E7EC (VslAllocateKernelShadowStack.c)
+ */
+
 __int64 __fastcall MmCreateKernelShadowStack(
         unsigned __int64 a1,
         int a2,

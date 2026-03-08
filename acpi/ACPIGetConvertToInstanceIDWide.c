@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIGetConvertToInstanceIDWide @ 0x1C002A404
+ * Callers:
+ *     ACPIGetConvertToInstanceID @ 0x1C002A39C (ACPIGetConvertToInstanceID.c)
+ *     ACPIGetWorkerForString @ 0x1C002B860 (ACPIGetWorkerForString.c)
+ * Callees:
+ *     RtlStringCchPrintfA @ 0x1C000B5D8 (RtlStringCchPrintfA.c)
+ *     RtlStringCchPrintfW @ 0x1C000B900 (RtlStringCchPrintfW.c)
+ *     ACPIAnsiStringToWideHelper @ 0x1C00438EC (ACPIAnsiStringToWideHelper.c)
+ */
+
 __int64 __fastcall ACPIGetConvertToInstanceIDWide(__int64 a1, int a2, __int64 a3, int a4, _QWORD *a5, _DWORD *a6)
 {
   __int64 v8; // rbx

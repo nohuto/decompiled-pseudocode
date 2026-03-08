@@ -1,3 +1,18 @@
+/*
+ * XREFs of USBHUB_TriggerCallBacks @ 0x1C0041C74
+ * Callers:
+ *     UsbhFdoReturnPortStatus @ 0x1C0015DF0 (UsbhFdoReturnPortStatus.c)
+ *     UsbhDecPdoIoCount @ 0x1C001BC4C (UsbhDecPdoIoCount.c)
+ *     UsbhPdoTrapFatal_Dbg @ 0x1C002D6F8 (UsbhPdoTrapFatal_Dbg.c)
+ *     UsbhTrapBadIrp @ 0x1C002DFF0 (UsbhTrapBadIrp.c)
+ *     UsbhTrapFatalTimeout_x9f @ 0x1C002E034 (UsbhTrapFatalTimeout_x9f.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (__fastcall *__fastcall USBHUB_TriggerCallBacks(__int64 a1))(_QWORD)
 {
   _DWORD *v1; // rdi

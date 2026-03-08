@@ -1,3 +1,12 @@
+/*
+ * XREFs of DeviceSlot_D0Entry @ 0x1C001482C
+ * Callers:
+ *     Controller_WdfEvtDeviceD0Entry @ 0x1C00144B0 (Controller_WdfEvtDeviceD0Entry.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qd @ 0x1C00141F4 (WPP_RECORDER_SF_qd.c)
+ *     DeviceSlot_Initialize @ 0x1C0014888 (DeviceSlot_Initialize.c)
+ */
+
 __int64 __fastcall DeviceSlot_D0Entry(__int64 a1, int a2)
 {
   char v4; // [rsp+30h] [rbp-18h]

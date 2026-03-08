@@ -1,3 +1,14 @@
+/*
+ * XREFs of ObInitializeProcessor @ 0x14080D354
+ * Callers:
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ *     ObInitSystem @ 0x140B403CC (ObInitSystem.c)
+ * Callees:
+ *     MmIsThisAnNtAsSystem @ 0x1402B23D0 (MmIsThisAnNtAsSystem.c)
+ *     ExInitializeSystemLookasideList @ 0x140A886F8 (ExInitializeSystemLookasideList.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall ObInitializeProcessor(_QWORD *a1)
 {
   BOOLEAN IsThisAnNtAsSystem; // bp

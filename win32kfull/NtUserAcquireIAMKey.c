@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserAcquireIAMKey @ 0x1C00F2DB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserAcquireIAMKey(_QWORD *Address)
 {
   int v2; // r8d

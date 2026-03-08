@@ -1,3 +1,16 @@
+/*
+ * XREFs of XilCommonBuffer_AcquireBufferEx @ 0x1C001BAFC
+ * Callers:
+ *     XilEndpoint_AcquireBuffer @ 0x1C001B9F0 (XilEndpoint_AcquireBuffer.c)
+ *     XilCoreUsbDevice_Create @ 0x1C001BA28 (XilCoreUsbDevice_Create.c)
+ *     XilEndpoint_AllocateStreamContextArray @ 0x1C0038BDC (XilEndpoint_AllocateStreamContextArray.c)
+ *     Interrupter_PrepareInterrupter @ 0x1C007275C (Interrupter_PrepareInterrupter.c)
+ * Callees:
+ *     CommonBuffer_AcquireBuffer @ 0x1C0013038 (CommonBuffer_AcquireBuffer.c)
+ *     CommonBuffer_AcquireSecureBuffer @ 0x1C00321B8 (CommonBuffer_AcquireSecureBuffer.c)
+ *     CommonBuffer_AcquireShadowBuffer @ 0x1C003229C (CommonBuffer_AcquireShadowBuffer.c)
+ */
+
 __int64 __fastcall XilCommonBuffer_AcquireBufferEx(
         struct _KEVENT *a1,
         unsigned int a2,

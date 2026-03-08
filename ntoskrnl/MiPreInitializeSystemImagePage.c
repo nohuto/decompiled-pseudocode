@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiPreInitializeSystemImagePage @ 0x14062A1BC
+ * Callers:
+ *     MiAllocateDriverPage @ 0x1407290FC (MiAllocateDriverPage.c)
+ * Callees:
+ *     MiSetPfnBlink @ 0x140289900 (MiSetPfnBlink.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x14032F834 (MiSetOriginalPtePfnFromFreeList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 __fastcall MiPreInitializeSystemImagePage(__int64 a1)
 {
   unsigned __int64 v2; // rdi

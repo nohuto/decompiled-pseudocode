@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpIommuDmaRemappingCapable @ 0x1403AF2A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpIommuQueryAcpiDeviceMapping @ 0x1403AF2F4 (HalpIommuQueryAcpiDeviceMapping.c)
+ *     HalpIommuGetAcpiDeviceMapCount @ 0x140515D7C (HalpIommuGetAcpiDeviceMapCount.c)
+ */
+
 bool __fastcall HalpIommuDmaRemappingCapable(_DWORD *a1, unsigned int *a2)
 {
   unsigned int AcpiDeviceMapCount; // eax

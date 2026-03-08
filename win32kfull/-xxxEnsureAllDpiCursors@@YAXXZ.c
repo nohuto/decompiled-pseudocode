@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?xxxEnsureAllDpiCursors@@YAXXZ @ 0x1C0109FBC
+ * Callers:
+ *     ?OnPointerCursorOperation@@YAXXZ @ 0x1C00D69D0 (-OnPointerCursorOperation@@YAXXZ.c)
+ * Callees:
+ *     ?xxxEnsureDpiCursorsForSysCur@@YAXI@Z @ 0x1C01086B4 (-xxxEnsureDpiCursorsForSysCur@@YAXI@Z.c)
+ *     ?xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z @ 0x1C0108704 (-xxxEnsureDpiCursors@@YAXPEAUtagCURSOR@@PEAU_UNICODE_STRING@@I@Z.c)
+ *     ThreadLockExchange @ 0x1C010A0D0 (ThreadLockExchange.c)
+ */
+
 void __fastcall xxxEnsureAllDpiCursors(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

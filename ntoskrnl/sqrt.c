@@ -1,3 +1,11 @@
+/*
+ * XREFs of sqrt @ 0x1403D5180
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _handle_error @ 0x1403D7EA0 (_handle_error.c)
+ */
+
 double __cdecl sqrt(double X)
 {
   if ( (*(_QWORD *)&X & 0x7FF0000000000000LL) != 0x7FF0000000000000LL )

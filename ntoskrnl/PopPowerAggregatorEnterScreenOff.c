@@ -1,3 +1,23 @@
+/*
+ * XREFs of PopPowerAggregatorEnterScreenOff @ 0x140879524
+ * Callers:
+ *     PopPowerAggregatorScreenOffActiveToScreenOffStateHandler @ 0x140879470 (PopPowerAggregatorScreenOffActiveToScreenOffStateHandler.c)
+ *     PopPowerAggregatorScreenOffEnterStateHandler @ 0x140880F30 (PopPowerAggregatorScreenOffEnterStateHandler.c)
+ *     PopPowerAggregatorDisengageModernStandby @ 0x14099057C (PopPowerAggregatorDisengageModernStandby.c)
+ *     PopPowerAggregatorScreenOffExitStateHandler @ 0x140990EA0 (PopPowerAggregatorScreenOffExitStateHandler.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopPowerRequestReferenceRelease @ 0x1402BA084 (PopPowerRequestReferenceRelease.c)
+ *     PopPowerRequestReferenceAcquire @ 0x1402BBDF0 (PopPowerRequestReferenceAcquire.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopGetMonitorReasonFromPowerEventId @ 0x1403C2490 (PopGetMonitorReasonFromPowerEventId.c)
+ *     PopPdcEngagePhases @ 0x14087960C (PopPdcEngagePhases.c)
+ *     PopPowerAggregatorSetCurrentState @ 0x140879638 (PopPowerAggregatorSetCurrentState.c)
+ *     PopSleepstudyStartNextSession @ 0x1408797E4 (PopSleepstudyStartNextSession.c)
+ *     PdcPoPerfOverride @ 0x1409949A8 (PdcPoPerfOverride.c)
+ *     PopPdcDisengagePhases @ 0x140995050 (PopPdcDisengagePhases.c)
+ */
+
 struct _KTHREAD *__fastcall PopPowerAggregatorEnterScreenOff(__int64 a1)
 {
   int v1; // edi

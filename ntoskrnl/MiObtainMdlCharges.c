@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiObtainMdlCharges @ 0x1402B3CA8
+ * Callers:
+ *     MiAllocatePagesForMdl @ 0x1402B3B18 (MiAllocatePagesForMdl.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiAcquireNonPagedResources @ 0x140348D54 (MiAcquireNonPagedResources.c)
+ */
+
 __int64 __fastcall MiObtainMdlCharges(__int64 *a1)
 {
   unsigned __int64 v1; // rbx

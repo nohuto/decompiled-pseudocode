@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@EEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0261CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0064740 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     ?CreateDwmHandle@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@EEAAPEAXXZ @ 0x1C0261BD0 (-CreateDwmHandle@CCrossContainerHostReadOnlySharedSectionMarshaler@DirectComposition@@EEAAPEAXXZ.c)
+ */
+
 char __fastcall DirectComposition::CCrossContainerHostReadOnlySharedSectionMarshaler::EmitUpdateCommands(
         DirectComposition::CCrossContainerHostReadOnlySharedSectionMarshaler *this,
         struct DirectComposition::CBatch ***a2)

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpFastResourceLegacyAcquireSharedStarveExclusive2 @ 0x1404100C8
+ * Callers:
+ *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x140608144 (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
+ * Callees:
+ *     ExAcquireFastResourceSharedStarveExclusive2 @ 0x14040DB2C (ExAcquireFastResourceSharedStarveExclusive2.c)
+ *     ExIsFastResourceHeldExclusive2 @ 0x14040E7A0 (ExIsFastResourceHeldExclusive2.c)
+ *     ExpAllocateOwnerEntryForLegacyShim2 @ 0x14040FDCC (ExpAllocateOwnerEntryForLegacyShim2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall ExpFastResourceLegacyAcquireSharedStarveExclusive2(_WORD *BugCheckParameter2, char a2)
 {
   void *OwnerEntryForLegacyShim2; // rdi

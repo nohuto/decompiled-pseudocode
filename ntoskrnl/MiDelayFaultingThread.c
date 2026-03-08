@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiDelayFaultingThread @ 0x140643864
+ * Callers:
+ *     MiUserFault @ 0x140268260 (MiUserFault.c)
+ * Callees:
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     MiWaitForAvailablePages @ 0x1406512FC (MiWaitForAvailablePages.c)
+ */
+
 NTSTATUS __fastcall MiDelayFaultingThread(int a1)
 {
   _KPROCESS *Process; // rdx

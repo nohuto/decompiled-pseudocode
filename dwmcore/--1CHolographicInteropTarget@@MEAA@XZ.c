@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CHolographicInteropTarget@@MEAA@XZ @ 0x1802A59F0
+ * Callers:
+ *     ??_GCHolographicInteropTarget@@MEAAPEAXI@Z @ 0x1802A5AF0 (--_GCHolographicInteropTarget@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@VCD3DDevice@@@WRL@Microsoft@@IEAAKXZ @ 0x18021FB18 (-InternalRelease@-$ComPtr@VCD3DDevice@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?ReleaseInteropTextures@CHolographicManager@@QEAAXXZ @ 0x1802A269C (-ReleaseInteropTextures@CHolographicManager@@QEAAXXZ.c)
+ */
+
 void __fastcall CHolographicInteropTarget::~CHolographicInteropTarget(CHolographicInteropTarget *this)
 {
   __int64 v2; // rcx

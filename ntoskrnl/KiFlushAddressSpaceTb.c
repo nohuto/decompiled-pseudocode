@@ -1,3 +1,19 @@
+/*
+ * XREFs of KiFlushAddressSpaceTb @ 0x1403C6B40
+ * Callers:
+ *     KeFlushProcessTb @ 0x1402A566C (KeFlushProcessTb.c)
+ *     KeFlushTb @ 0x140323CB0 (KeFlushTb.c)
+ *     KeFlushEntireTb @ 0x1403AD590 (KeFlushEntireTb.c)
+ * Callees:
+ *     KxSetTimeStampBusy @ 0x1402DC0CC (KxSetTimeStampBusy.c)
+ *     HvlFlushAddressSpaceTb @ 0x1403C6A88 (HvlFlushAddressSpaceTb.c)
+ *     HvcallFastExtended @ 0x1403C6CA0 (HvcallFastExtended.c)
+ *     HvlpPrepareFlushHeader @ 0x1403C6D38 (HvlpPrepareFlushHeader.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HvlpSlowFlushAddressSpaceTb @ 0x1405477B4 (HvlpSlowFlushAddressSpaceTb.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KiFlushAddressSpaceTb(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
   unsigned __int8 v4; // bl

@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpApplyAdminSdOnHiveFiles @ 0x14038BE1C
+ * Callers:
+ *     CmpLoadHiveThread @ 0x140820360 (CmpLoadHiveThread.c)
+ * Callees:
+ *     ZwSetSecurityObject @ 0x1404159D0 (ZwSetSecurityObject.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall CmpApplyAdminSdOnHiveFiles(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
 {
   NTSTATUS v4; // eax

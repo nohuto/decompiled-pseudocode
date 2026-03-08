@@ -1,3 +1,15 @@
+/*
+ * XREFs of ParseDLMObjectInternal @ 0x1C004C718
+ * Callers:
+ *     PerformDLMObjectBindings @ 0x1C004C95C (PerformDLMObjectBindings.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     DupObjData @ 0x1C004AF04 (DupObjData.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ *     GetNameSpaceObject @ 0x1C004F728 (GetNameSpaceObject.c)
+ */
+
 __int64 __fastcall ParseDLMObjectInternal(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // r12

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetDesktopID @ 0x1C00DE1D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserGetDesktopID(__int64 a1, _QWORD *a2, __int64 a3)
 {
   _QWORD *v3; // r14

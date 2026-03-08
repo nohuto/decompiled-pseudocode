@@ -1,3 +1,16 @@
+/*
+ * XREFs of LdrpResGetMappingSize @ 0x1407EB0A8
+ * Callers:
+ *     LdrpResSearchResourceMappedFile @ 0x14035DC3C (LdrpResSearchResourceMappedFile.c)
+ *     LdrResGetRCConfig @ 0x1407928C4 (LdrResGetRCConfig.c)
+ *     LdrResSearchResource @ 0x1407EACB0 (LdrResSearchResource.c)
+ * Callees:
+ *     LdrpKrnGetDataTableEntry @ 0x14035CF08 (LdrpKrnGetDataTableEntry.c)
+ *     RtlImageNtHeaderEx @ 0x14035E850 (RtlImageNtHeaderEx.c)
+ *     Feature_1875039550__private_IsEnabledDeviceUsage @ 0x14040BBB4 (Feature_1875039550__private_IsEnabledDeviceUsage.c)
+ *     ZwQueryVirtualMemory @ 0x140412770 (ZwQueryVirtualMemory.c)
+ */
+
 int __fastcall LdrpResGetMappingSize(unsigned __int64 a1, unsigned __int64 *a2, int a3)
 {
   unsigned __int64 v6; // r12

@@ -1,3 +1,14 @@
+/*
+ * XREFs of IommuGetAtsSettings @ 0x1403A3090
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     IommupHvGetDeviceAtsCapability @ 0x14052287C (IommupHvGetDeviceAtsCapability.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IommuGetAtsSettings(__int64 a1, _BYTE *a2)
 {
   unsigned int v2; // edi

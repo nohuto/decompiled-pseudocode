@@ -1,3 +1,13 @@
+/*
+ * XREFs of GreGetBitmapDpiScaleValue @ 0x1C02AA444
+ * Callers:
+ *     zzzUpdateWindowsAfterModeChange @ 0x1C0097D18 (zzzUpdateWindowsAfterModeChange.c)
+ *     NtGdiGetBitmapDpiScaleValue @ 0x1C02C4C10 (NtGdiGetBitmapDpiScaleValue.c)
+ * Callees:
+ *     bFToL @ 0x1C00D1C50 (bFToL.c)
+ *     ??1EPALOBJ@@QEAA@XZ @ 0x1C0124F2C (--1EPALOBJ@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall GreGetBitmapDpiScaleValue(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax

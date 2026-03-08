@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FreeSessionGlobalsArea@Base@Gre@@YAXXZ @ 0x1C009FBD4
+ * Callers:
+ *     MultiUserNtGreCleanup @ 0x1C009EFD4 (MultiUserNtGreCleanup.c)
+ * Callees:
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 void __fastcall Gre::Base::FreeSessionGlobalsArea(Gre::Base *this)
 {
   __int64 v1; // rbx

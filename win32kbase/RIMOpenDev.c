@@ -1,3 +1,17 @@
+/*
+ * XREFs of RIMOpenDev @ 0x1C0089058
+ * Callers:
+ *     rimOnPnpArrived @ 0x1C00889C0 (rimOnPnpArrived.c)
+ * Callees:
+ *     RIMCloseDev @ 0x1C00308E4 (RIMCloseDev.c)
+ *     RIMApiSetIsRemoteConnection @ 0x1C00364A8 (RIMApiSetIsRemoteConnection.c)
+ *     RIMIsRunningOnDesktop @ 0x1C007B004 (RIMIsRunningOnDesktop.c)
+ *     RIMOpenDevWorker @ 0x1C0089188 (RIMOpenDevWorker.c)
+ *     Feature_RIMUserCritOpt__private_ReportDeviceUsage @ 0x1C00DF02C (Feature_RIMUserCritOpt__private_ReportDeviceUsage.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimIsCrossSessionDevice @ 0x1C019EDB8 (rimIsCrossSessionDevice.c)
+ */
+
 __int64 __fastcall RIMOpenDev(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
 {
   __int64 v8; // rdx

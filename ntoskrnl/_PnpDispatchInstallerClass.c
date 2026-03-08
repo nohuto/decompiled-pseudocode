@@ -1,3 +1,20 @@
+/*
+ * XREFs of _PnpDispatchInstallerClass @ 0x14074D6F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _PnpMapCmStatusToDispatchStatus @ 0x140244BE4 (_PnpMapCmStatusToDispatchStatus.c)
+ *     _CmOpenInstallerClassRegKey @ 0x1406C4ED8 (_CmOpenInstallerClassRegKey.c)
+ *     _CmValidateInstallerClassName @ 0x1406C4F20 (_CmValidateInstallerClassName.c)
+ *     _CmGetInstallerClassMappedProperty @ 0x14074D838 (_CmGetInstallerClassMappedProperty.c)
+ *     _CmGetMatchingCommonClassList @ 0x1408241FC (_CmGetMatchingCommonClassList.c)
+ *     _CmCreateInstallerClass @ 0x140A5E144 (_CmCreateInstallerClass.c)
+ *     _CmDeleteInstallerClass @ 0x140A5FD64 (_CmDeleteInstallerClass.c)
+ *     _CmGetInstallerClassMappedPropertyKeys @ 0x140A6601C (_CmGetInstallerClassMappedPropertyKeys.c)
+ *     _CmGetInstallerClassMappedPropertyLocales @ 0x140A66320 (_CmGetInstallerClassMappedPropertyLocales.c)
+ *     _CmSetInstallerClassMappedProperty @ 0x140A66C94 (_CmSetInstallerClassMappedProperty.c)
+ */
+
 __int64 __fastcall PnpDispatchInstallerClass(__int64 a1, const WCHAR *a2, __int64 a3, int a4, __int64 a5)
 {
   __int64 (__fastcall *v5)(); // r8

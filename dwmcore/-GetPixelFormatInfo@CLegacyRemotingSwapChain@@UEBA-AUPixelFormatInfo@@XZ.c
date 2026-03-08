@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPixelFormatInfo@CLegacyRemotingSwapChain@@UEBA?AUPixelFormatInfo@@XZ @ 0x1802A01A0
+ * Callers:
+ *     ?GetPixelFormatInfo@CLegacyRemotingSwapChain@@$4PPPPPPPM@A@EBA?AUPixelFormatInfo@@XZ @ 0x18011D490 (-GetPixelFormatInfo@CLegacyRemotingSwapChain@@$4PPPPPPPM@A@EBA-AUPixelFormatInfo@@XZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 _DWORD *__fastcall CLegacyRemotingSwapChain::GetPixelFormatInfo(__int64 a1, _DWORD *a2)
 {
   __int64 v3; // rdx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ProcessorGetMsiConnectionData @ 0x1C009ACE4
+ * Callers:
+ *     MsiGetTargetInfo @ 0x1C00A0698 (MsiGetTargetInfo.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     ProcessorGetDestinationMode @ 0x1C009ABB8 (ProcessorGetDestinationMode.c)
+ */
+
 __int64 __fastcall ProcessorGetMsiConnectionData(__int64 a1)
 {
   unsigned int v1; // ebx

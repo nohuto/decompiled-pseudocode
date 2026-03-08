@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhCreateConfigurationRequestEx @ 0x1C0031E3C
+ * Callers:
+ *     UsbhConfigureUsbHub @ 0x1C0029DB0 (UsbhConfigureUsbHub.c)
+ * Callees:
+ *     memset @ 0x1C0023880 (memset.c)
+ */
+
 char *__fastcall UsbhCreateConfigurationRequestEx(__int64 a1, __int64 a2, __int64 a3, _BYTE *a4)
 {
   __int16 v4; // ax

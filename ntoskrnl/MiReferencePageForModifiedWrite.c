@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiReferencePageForModifiedWrite @ 0x140213038
+ * Callers:
+ *     MiBuildMappedCluster @ 0x140213100 (MiBuildMappedCluster.c)
+ *     MiGatherMappedPages @ 0x140215150 (MiGatherMappedPages.c)
+ *     MiGetPageForWriteCluster @ 0x1404641B6 (MiGetPageForWriteCluster.c)
+ *     MiAddToReservationCluster @ 0x140635394 (MiAddToReservationCluster.c)
+ *     MiBuildReservationCluster @ 0x140635ED4 (MiBuildReservationCluster.c)
+ *     MiFillNoReservationCluster @ 0x140637058 (MiFillNoReservationCluster.c)
+ *     MmStoreProbeAndLockPages @ 0x14065ACBC (MmStoreProbeAndLockPages.c)
+ * Callees:
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiChargeForWriteInProgressPage @ 0x1402E44C4 (MiChargeForWriteInProgressPage.c)
+ *     MiGetPagePrivilege @ 0x14032D3F0 (MiGetPagePrivilege.c)
+ *     MiClearPfnImageVerified @ 0x14036ABC0 (MiClearPfnImageVerified.c)
+ */
+
 __int64 __fastcall MiReferencePageForModifiedWrite(ULONG_PTR BugCheckParameter2, char a2)
 {
   __int64 v4; // rcx

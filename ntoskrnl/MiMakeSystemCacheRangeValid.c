@@ -1,3 +1,28 @@
+/*
+ * XREFs of MiMakeSystemCacheRangeValid @ 0x140221870
+ * Callers:
+ *     MmCheckCachedPageStates @ 0x1402200B0 (MmCheckCachedPageStates.c)
+ * Callees:
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x14026A0D0 (MiLockPageTableInternal.c)
+ *     MiAllocateWsle @ 0x14026D1B0 (MiAllocateWsle.c)
+ *     MiAddWorkingSetEntries @ 0x14026D700 (MiAddWorkingSetEntries.c)
+ *     MiStartingOffset @ 0x14028C530 (MiStartingOffset.c)
+ *     PfSnLogPageFault @ 0x14028D4BC (PfSnLogPageFault.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x1402CFF20 (MiEmptyDeferredWorkingSetEntries.c)
+ *     ExpWaitForSpinLockSharedAndAcquire @ 0x14030AD60 (ExpWaitForSpinLockSharedAndAcquire.c)
+ *     MiDecrementShareCount @ 0x14032AE40 (MiDecrementShareCount.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x1403440B0 (MiReferenceControlAreaFileWithTag.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1403441C0 (ObFastDereferenceObjectDeferDelete.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140462F92 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiMakeSystemCacheRangeValid(unsigned __int64 a1, unsigned __int64 *a2, unsigned int a3, __int64 a4)
 {
   __int64 v4; // r12

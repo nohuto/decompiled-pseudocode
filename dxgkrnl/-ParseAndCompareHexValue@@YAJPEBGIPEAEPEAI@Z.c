@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ParseAndCompareHexValue@@YAJPEBGIPEAEPEAI@Z @ 0x1C020E79C
+ * Callers:
+ *     ?ParseAndCompareBlockListCondition@@YAJPEBGII0W4_QAI_DRIVERVERSION@@PEAE@Z @ 0x1C020E618 (-ParseAndCompareBlockListCondition@@YAJPEBGII0W4_QAI_DRIVERVERSION@@PEAE@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ParseAndCompareHexValue(const unsigned __int16 *a1, int a2, unsigned __int8 *a3, unsigned int *a4)
 {
   __int64 v4; // r10

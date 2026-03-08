@@ -1,3 +1,12 @@
+/*
+ * XREFs of SshpSessionManagerInterruptTimeToSystemTime @ 0x14099ECA4
+ * Callers:
+ *     SshSessionManagerTracePostSleepNotification @ 0x14099EA1C (SshSessionManagerTracePostSleepNotification.c)
+ * Callees:
+ *     SSHSupportQueryInterruptTime @ 0x1402A4AA4 (SSHSupportQueryInterruptTime.c)
+ *     CmSiQuerySystemTime @ 0x1403026D0 (CmSiQuerySystemTime.c)
+ */
+
 __int64 SshpSessionManagerInterruptTimeToSystemTime()
 {
   _QWORD *v0; // rdx

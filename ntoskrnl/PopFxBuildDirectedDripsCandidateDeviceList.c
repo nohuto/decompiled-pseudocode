@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopFxBuildDirectedDripsCandidateDeviceList @ 0x140586764
+ * Callers:
+ *     PopDirectedDripsInitializeBroadcast @ 0x1409806E8 (PopDirectedDripsInitializeBroadcast.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PopFxAddRefDevice @ 0x140305F38 (PopFxAddRefDevice.c)
+ */
+
 signed __int32 __fastcall PopFxBuildDirectedDripsCandidateDeviceList(_QWORD *a1)
 {
   struct _KTHREAD *CurrentThread; // rax

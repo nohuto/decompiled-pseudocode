@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspSelectNodeForProcess @ 0x1407067D8
+ * Callers:
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ * Callees:
+ *     RtlRandomEx @ 0x1402A6210 (RtlRandomEx.c)
+ */
+
 __int64 PspSelectNodeForProcess()
 {
   ULONG v0; // eax

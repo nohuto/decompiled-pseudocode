@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?NotifyOnDeadObserver@CProcessAttributionManager@@AEAAXPEAVCProcessAttributionObserver@@@Z @ 0x1801CEF2C
+ * Callers:
+ *     ??1Observer@CProcessAttributionManager@@UEAA@XZ @ 0x1801CEE18 (--1Observer@CProcessAttributionManager@@UEAA@XZ.c)
+ * Callees:
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     _lambda_73f2a4da0cca98f221385d01cc2cbc64_::operator() @ 0x1801CEEA8 (_lambda_73f2a4da0cca98f221385d01cc2cbc64_--operator().c)
+ */
+
 void __fastcall CProcessAttributionManager::NotifyOnDeadObserver(
         CProcessAttributionManager *this,
         struct CProcessAttributionObserver *a2)

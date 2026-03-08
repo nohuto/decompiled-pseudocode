@@ -1,3 +1,11 @@
+/*
+ * XREFs of RawMouseThrottlingTimerActive @ 0x1C0218390
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RawMouseThrottlingTimerActive(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rcx

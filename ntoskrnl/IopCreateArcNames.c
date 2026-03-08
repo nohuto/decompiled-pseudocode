@@ -1,3 +1,18 @@
+/*
+ * XREFs of IopCreateArcNames @ 0x140B550C4
+ * Callers:
+ *     IopInitializeBootDrivers @ 0x140B57F78 (IopInitializeBootDrivers.c)
+ * Callees:
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     RtlStringCchPrintfA @ 0x140389204 (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     IopCreateArcNamesDisk @ 0x140B54B24 (IopCreateArcNamesDisk.c)
+ *     IopCreateArcNamesCd @ 0x140B54C8C (IopCreateArcNamesCd.c)
+ */
+
 __int64 __fastcall IopCreateArcNames(__int64 a1)
 {
   const char *v1; // r9

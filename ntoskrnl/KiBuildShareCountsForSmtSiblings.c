@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiBuildShareCountsForSmtSiblings @ 0x14057B89C
+ * Callers:
+ *     KiPerformHeteroSoftParkElection @ 0x14057BD18 (KiPerformHeteroSoftParkElection.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 unsigned __int64 __fastcall KiBuildShareCountsForSmtSiblings(int a1, unsigned __int64 a2, void *a3)
 {
   unsigned __int64 result; // rax

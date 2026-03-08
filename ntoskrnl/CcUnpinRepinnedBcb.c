@@ -1,3 +1,21 @@
+/*
+ * XREFs of CcUnpinRepinnedBcb @ 0x140390990
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcSetDirtyPinnedData @ 0x140242420 (CcSetDirtyPinnedData.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     CcIsFatalWriteError @ 0x1402EFE78 (CcIsFatalWriteError.c)
+ *     MmSetAddressRangeModifiedEx @ 0x140329510 (MmSetAddressRangeModifiedEx.c)
+ *     MmFlushSection @ 0x140333F20 (MmFlushSection.c)
+ *     CcUnpinFileDataEx @ 0x140337E50 (CcUnpinFileDataEx.c)
+ *     CcReferenceSharedCacheMapFileObject @ 0x140343320 (CcReferenceSharedCacheMapFileObject.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1403441C0 (ObFastDereferenceObjectDeferDelete.c)
+ *     CcPerfLogFlushSection @ 0x140390B04 (CcPerfLogFlushSection.c)
+ *     CcPostDeferredWrites @ 0x1403BBEB8 (CcPostDeferredWrites.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void __stdcall CcUnpinRepinnedBcb(PVOID Bcb, BOOLEAN WriteThrough, PIO_STATUS_BLOCK IoStatus)
 {
   __int64 v5; // rsi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmAllocateQueryTable @ 0x140999FC0
+ * Callers:
+ *     PpmRegisterSpmSettings @ 0x14099A640 (PpmRegisterSpmSettings.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PpmAllocateQueryTable(__int64 a1)
 {
   __int64 result; // rax

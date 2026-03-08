@@ -1,3 +1,41 @@
+/*
+ * XREFs of PopAllocateHiberContext @ 0x140984D38
+ * Callers:
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     MmGetHighestPhysicalPage @ 0x140236718 (MmGetHighestPhysicalPage.c)
+ *     RtlSetAllBits @ 0x14028BD00 (RtlSetAllBits.c)
+ *     RtlClearAllBits @ 0x1402B24A0 (RtlClearAllBits.c)
+ *     MmBuildMdlForNonPagedPool @ 0x1402B5DB0 (MmBuildMdlForNonPagedPool.c)
+ *     ZwQuerySystemInformation @ 0x1404129D0 (ZwQuerySystemInformation.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopInternalAddToDumpFile @ 0x140580CC0 (PopInternalAddToDumpFile.c)
+ *     PoSetHiberRange @ 0x14058C400 (PoSetHiberRange.c)
+ *     PopBcdEstablishResumeObject @ 0x14082B658 (PopBcdEstablishResumeObject.c)
+ *     BcdCloseStore @ 0x14082C570 (BcdCloseStore.c)
+ *     BcdOpenStore @ 0x14082C814 (BcdOpenStore.c)
+ *     BcdCloseObject @ 0x14082E5DC (BcdCloseObject.c)
+ *     HvlpAllocatePageListResources @ 0x14093E720 (HvlpAllocatePageListResources.c)
+ *     VslAllocateSecureHibernateResources @ 0x14093E89C (VslAllocateSecureHibernateResources.c)
+ *     IoGetDumpStack @ 0x140940ABC (IoGetDumpStack.c)
+ *     PopLoadResumeContext @ 0x14097DC78 (PopLoadResumeContext.c)
+ *     PopFreeHiberContext @ 0x1409855F0 (PopFreeHiberContext.c)
+ *     PopHiberInitializeResources @ 0x140985824 (PopHiberInitializeResources.c)
+ *     PopBcdSetPendingResume @ 0x140999E60 (PopBcdSetPendingResume.c)
+ *     MmLockPreChargedPagedPool @ 0x140A2DC90 (MmLockPreChargedPagedPool.c)
+ *     MmMarkHiberRange @ 0x140A2DDB0 (MmMarkHiberRange.c)
+ *     BcdForciblyUnloadStore @ 0x140A5964C (BcdForciblyUnloadStore.c)
+ *     BgkResumePrepare @ 0x140A969F4 (BgkResumePrepare.c)
+ *     PopGetBitlockerKeyLocation @ 0x140A9D6A0 (PopGetBitlockerKeyLocation.c)
+ *     PopAllocatePages @ 0x140A9E958 (PopAllocatePages.c)
+ *     PopDiscardRange @ 0x140A9F68C (PopDiscardRange.c)
+ *     PopGenerateUnHibernatedMdl @ 0x140A9F9AC (PopGenerateUnHibernatedMdl.c)
+ *     PopGetHwConfigurationSignature @ 0x140A9FA5C (PopGetHwConfigurationSignature.c)
+ *     PopCheckpointSystemSleep @ 0x140AA7378 (PopCheckpointSystemSleep.c)
+ */
+
 __int64 __fastcall PopAllocateHiberContext(_DWORD *a1)
 {
   int DumpStack; // edi

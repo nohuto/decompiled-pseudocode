@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReleaseBuffer@CHolographicViewer@@UEAAJIPEAX@Z @ 0x1802A89B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CHolographicViewer::ReleaseBuffer(RTL_SRWLOCK *this, unsigned int a2, void *a3)
 {
   RTL_SRWLOCK *v3; // rbx

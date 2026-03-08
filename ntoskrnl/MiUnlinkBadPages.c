@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiUnlinkBadPages @ 0x1406288F4
+ * Callers:
+ *     MmMarkPhysicalMemoryAsGood @ 0x14062A140 (MmMarkPhysicalMemoryAsGood.c)
+ * Callees:
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiIsPageInHugePfn @ 0x14029C30C (MiIsPageInHugePfn.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MiIsPageOnBadList @ 0x14034B1D0 (MiIsPageOnBadList.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiMarkHugePfnGood @ 0x14061F9B8 (MiMarkHugePfnGood.c)
+ *     MiMarkFileOnlyPfnGood @ 0x14063BF34 (MiMarkFileOnlyPfnGood.c)
+ *     MiSetPfnRemovalRequested @ 0x14064B908 (MiSetPfnRemovalRequested.c)
+ *     MiUnlinkPageFromBadList @ 0x14064BA18 (MiUnlinkPageFromBadList.c)
+ */
+
 __int64 __fastcall MiUnlinkBadPages(unsigned __int64 a1, unsigned __int64 a2)
 {
   __int64 v2; // rbx

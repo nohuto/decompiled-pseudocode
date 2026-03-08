@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiDynamicProcessorAddNotification @ 0x14056F354
+ * Callers:
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ * Callees:
+ *     ExNotifyWithProcessing @ 0x1402D2F20 (ExNotifyWithProcessing.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall KiDynamicProcessorAddNotification(int a1, int a2, __int16 a3, char a4, int a5, int a6)
 {
   unsigned int v7; // [rsp+20h] [rbp-30h] BYREF

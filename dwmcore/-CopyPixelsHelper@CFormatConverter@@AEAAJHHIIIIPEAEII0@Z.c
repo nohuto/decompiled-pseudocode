@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CopyPixelsHelper@CFormatConverter@@AEAAJHHIIIIPEAEII0@Z @ 0x1802B8814
+ * Callers:
+ *     ?CopyPixels@CFormatConverter@@UEAAJPEBUWICRect@@IIPEAE@Z @ 0x1802B83B0 (-CopyPixels@CFormatConverter@@UEAAJPEBUWICRect@@IIPEAE@Z.c)
+ * Callees:
+ *     ?HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IIII@Z @ 0x18003E720 (-HrCheckBufferSize@@YAJW4DXGI_FORMAT@@IIII@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?Run@CScanPipeline@@QEAAXPEAXPEBXIHH@Z @ 0x1802B9164 (-Run@CScanPipeline@@QEAAXPEAXPEBXIHH@Z.c)
+ */
+
 __int64 __fastcall CFormatConverter::CopyPixelsHelper(
         CFormatConverter *this,
         int a2,

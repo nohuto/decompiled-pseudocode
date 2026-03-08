@@ -1,3 +1,17 @@
+/*
+ * XREFs of VidSchTerminateContext @ 0x1C00A8F80
+ * Callers:
+ *     VidSchiCreateContextInternal @ 0x1C0013B3C (VidSchiCreateContextInternal.c)
+ *     VidSchTerminateAdapter @ 0x1C0108B80 (VidSchTerminateAdapter.c)
+ * Callees:
+ *     VidSchiDecrementContextReference @ 0x1C0011CE0 (VidSchiDecrementContextReference.c)
+ *     ?VidSchiRemoveContextFromSyncPoints@@YAXPEAU_VIDSCH_CONTEXT@@@Z @ 0x1C0011E64 (-VidSchiRemoveContextFromSyncPoints@@YAXPEAU_VIDSCH_CONTEXT@@@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     ?DdiDestroyContext@ADAPTER_RENDER@@QEAAJPEAX@Z @ 0x1C002C828 (-DdiDestroyContext@ADAPTER_RENDER@@QEAAJPEAX@Z.c)
+ *     McTemplateK0pqqqqqqqqppp_EtwWriteTransfer @ 0x1C003DE9C (McTemplateK0pqqqqqqqqppp_EtwWriteTransfer.c)
+ *     VidSchFlushContext @ 0x1C00AB850 (VidSchFlushContext.c)
+ */
+
 __int64 __fastcall VidSchTerminateContext(struct _VIDSCH_CONTEXT *a1)
 {
   __int64 v2; // r14

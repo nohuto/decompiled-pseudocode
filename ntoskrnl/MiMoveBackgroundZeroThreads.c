@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiMoveBackgroundZeroThreads @ 0x1406529D0
+ * Callers:
+ *     MmReportParkedProcessors @ 0x140653870 (MmReportParkedProcessors.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeSetUserGroupAffinityThread @ 0x1403A8A60 (KeSetUserGroupAffinityThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUnlinkZeroThreadFromActiveDomain @ 0x140652FA8 (MiUnlinkZeroThreadFromActiveDomain.c)
+ */
+
 __int64 __fastcall MiMoveBackgroundZeroThreads(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

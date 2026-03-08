@@ -1,3 +1,12 @@
+/*
+ * XREFs of EmpCheckOperator @ 0x140841EC0
+ * Callers:
+ *     EmCpuMatchCallback @ 0x140841DE0 (EmCpuMatchCallback.c)
+ *     EmMatchDate @ 0x140939C40 (EmMatchDate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EmpCheckOperator(unsigned __int8 *a1, unsigned int a2, unsigned int a3)
 {
   unsigned int v3; // r9d

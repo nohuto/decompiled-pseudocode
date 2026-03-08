@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CacheTarget@CD2DTarget@@QEBA_NXZ @ 0x180299850
+ * Callers:
+ *     ?PopTarget@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEAPEAVIDeviceTarget@@@Z @ 0x180284470 (-PopTarget@CD2DContext@@UEAAJPEBVID2DContextOwner@@PEAPEAVIDeviceTarget@@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 bool __fastcall CD2DTarget::CacheTarget(CD2DTarget *this)
 {
   char v1; // bl

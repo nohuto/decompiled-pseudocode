@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionPointerParentNotify @ 0x1C0271B00
+ * Callers:
+ *     ApiSetEditionPointerParentNotify @ 0x1C0241170 (ApiSetEditionPointerParentNotify.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (__fastcall *__fastcall EditionPointerParentNotify(_OWORD *a1))(_QWORD)
 {
   __int64 (__fastcall *result)(_QWORD); // rax

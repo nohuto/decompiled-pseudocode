@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiPageFileNoFreeSpace @ 0x140638D04
+ * Callers:
+ *     MiGatherPagefilePages @ 0x140637D34 (MiGatherPagefilePages.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFreeModifiedReservations @ 0x140637B1C (MiFreeModifiedReservations.c)
+ *     MiIssuePageExtendRequest @ 0x14063890C (MiIssuePageExtendRequest.c)
+ *     MiMakePagefileWriterEntryAvailable @ 0x140638C18 (MiMakePagefileWriterEntryAvailable.c)
+ *     MiCauseOverCommitPopup @ 0x140653D38 (MiCauseOverCommitPopup.c)
+ */
+
 void __fastcall MiPageFileNoFreeSpace(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rdi

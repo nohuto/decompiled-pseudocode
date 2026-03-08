@@ -1,3 +1,12 @@
+/*
+ * XREFs of AlpcpReferenceReplyTargetPorts @ 0x140716180
+ * Callers:
+ *     AlpcpDispatchReplyToPort @ 0x140715F0C (AlpcpDispatchReplyToPort.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectSafe @ 0x1402CBCB0 (ObReferenceObjectSafe.c)
+ */
+
 __int64 __fastcall AlpcpReferenceReplyTargetPorts(__int64 Object, signed __int64 a2)
 {
   _DWORD *v3; // rdi

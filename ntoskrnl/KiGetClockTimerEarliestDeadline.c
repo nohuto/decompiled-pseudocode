@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiGetClockTimerEarliestDeadline @ 0x1402D9790
+ * Callers:
+ *     KiShouldRearmClockTimer @ 0x1402D96B0 (KiShouldRearmClockTimer.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiGetClockTimerEarliestDeadline(__int64 a1, char a2)
 {
   unsigned __int64 v2; // r10

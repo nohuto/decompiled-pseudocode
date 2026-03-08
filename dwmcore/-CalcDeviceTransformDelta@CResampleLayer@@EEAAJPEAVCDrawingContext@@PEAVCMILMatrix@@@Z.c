@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CalcDeviceTransformDelta@CResampleLayer@@EEAAJPEAVCDrawingContext@@PEAVCMILMatrix@@@Z @ 0x1801F20C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DA10 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
+ *     ?Translate@CMILMatrix@@QEAAXMM@Z @ 0x180090CB0 (-Translate@CMILMatrix@@QEAAXMM@Z.c)
+ *     ?Scale@CMILMatrix@@QEAAXMMM@Z @ 0x1800DAF28 (-Scale@CMILMatrix@@QEAAXMMM@Z.c)
+ */
+
 __int64 __fastcall CResampleLayer::CalcDeviceTransformDelta(
         CResampleLayer *this,
         struct CDrawingContext *a2,

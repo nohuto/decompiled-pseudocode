@@ -1,3 +1,21 @@
+/*
+ * XREFs of VidSchiProcessDpcPreemptedPacket @ 0x1C000FCEC
+ * Callers:
+ *     VidSchiProcessDpcDmaPacket @ 0x1C000AA50 (VidSchiProcessDpcDmaPacket.c)
+ * Callees:
+ *     VidSchiProfilePerformanceTick @ 0x1C0006E50 (VidSchiProfilePerformanceTick.c)
+ *     VidSchiSignalRegisteredEvent @ 0x1C00104D4 (VidSchiSignalRegisteredEvent.c)
+ *     ?VidSchiStopExecutionTimeAtThisPriority@@YAXPEAU_VIDSCH_NODE@@K_K1@Z @ 0x1C0010564 (-VidSchiStopExecutionTimeAtThisPriority@@YAXPEAU_VIDSCH_NODE@@K_K1@Z.c)
+ *     VidSchiRewindPacket @ 0x1C0010730 (VidSchiRewindPacket.c)
+ *     VidSchiCompleteRewindPacket @ 0x1C00107E8 (VidSchiCompleteRewindPacket.c)
+ *     ?VidSchiStartExecutionTimeAtThisPriority@@YAXPEAU_VIDSCH_NODE@@K_K@Z @ 0x1C0010AD0 (-VidSchiStartExecutionTimeAtThisPriority@@YAXPEAU_VIDSCH_NODE@@K_K@Z.c)
+ *     ?VidSchiAddGpuWorkEntry@@YAXPEAU_VIDSCH_CONTEXT@@_N@Z @ 0x1C0010B0C (-VidSchiAddGpuWorkEntry@@YAXPEAU_VIDSCH_CONTEXT@@_N@Z.c)
+ *     VidSchiSetTransferContextRunningTime @ 0x1C0010B90 (VidSchiSetTransferContextRunningTime.c)
+ *     VidSchiFinishMeasuringPreemptionTime @ 0x1C0010C38 (VidSchiFinishMeasuringPreemptionTime.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ */
+
 LONG __fastcall VidSchiProcessDpcPreemptedPacket(__int64 a1)
 {
   signed __int64 v1; // rbx

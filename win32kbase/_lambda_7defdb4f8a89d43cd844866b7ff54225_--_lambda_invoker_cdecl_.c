@@ -1,3 +1,11 @@
+/*
+ * XREFs of _lambda_7defdb4f8a89d43cd844866b7ff54225_::_lambda_invoker_cdecl_ @ 0x1C019EEF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     rimEndAllActiveContactsWorker @ 0x1C01BC12C (rimEndAllActiveContactsWorker.c)
+ */
+
 __int64 __fastcall lambda_7defdb4f8a89d43cd844866b7ff54225_::_lambda_invoker_cdecl_(__int64 a1)
 {
   __int64 result; // rax

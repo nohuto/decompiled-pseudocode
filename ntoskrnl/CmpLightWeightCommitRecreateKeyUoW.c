@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpLightWeightCommitRecreateKeyUoW @ 0x14067DB14
+ * Callers:
+ *     CmpProcessLightWeightUOW @ 0x140A19C0C (CmpProcessLightWeightUOW.c)
+ * Callees:
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x14074AF50 (CmpFlushNotifiesOnKeyBodyList.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs @ 0x140A1CF98 (CmpFlushNotifiesOnAllUnbackedHigherLayerKcbs.c)
+ */
+
 __int64 __fastcall CmpLightWeightCommitRecreateKeyUoW(__int64 a1, _QWORD *a2, __int64 a3)
 {
   __int64 v4; // rax

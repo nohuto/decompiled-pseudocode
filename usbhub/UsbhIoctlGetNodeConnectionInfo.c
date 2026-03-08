@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhIoctlGetNodeConnectionInfo @ 0x1C003FD3C
+ * Callers:
+ *     UsbhFdoDeviceControl @ 0x1C002A630 (UsbhFdoDeviceControl.c)
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     UsbhIoctlGetNodeConnectionInfoExApi @ 0x1C003FE6C (UsbhIoctlGetNodeConnectionInfoExApi.c)
+ */
+
 __int64 __fastcall UsbhIoctlGetNodeConnectionInfo(__int64 a1, __int64 a2)
 {
   int v2; // ebx

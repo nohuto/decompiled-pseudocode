@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0?$ObjectLock@$$V@?$DomainExclusive@VDLT_CLIENTLIB@@@?$DomainShared@$$V@@QEAA@XZ @ 0x1C012F39C
+ * Callers:
+ *     GetHmodTableIndex @ 0x1C009D950 (GetHmodTableIndex.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DomainShared<>::DomainExclusive<DLT_CLIENTLIB>::ObjectLock<>::ObjectLock<>(__int64 a1)
 {
   unsigned int DLT; // eax

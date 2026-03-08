@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceRetrievePostMessage @ 0x1C00A6260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetCallbackCount@@YACXZ @ 0x1C00EDBA8 (-GetCallbackCount@@YACXZ.c)
+ *     McTemplateK0cppppqqq_EtwWriteTransfer @ 0x1C00EE162 (McTemplateK0cppppqqq_EtwWriteTransfer.c)
+ */
+
 void __fastcall EtwTraceRetrievePostMessage(__int64 a1)
 {
   char v1; // si

@@ -1,3 +1,16 @@
+/*
+ * XREFs of VerifierNtWriteFile @ 0x140AE0EA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlStringCbPrintfA @ 0x140380B18 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     VfUtilDbgPrint @ 0x1405CBEB4 (VfUtilDbgPrint.c)
+ *     ViErrorDisplayDescription @ 0x140AD06D0 (ViErrorDisplayDescription.c)
+ *     ViErrorFinishReport @ 0x140AD0724 (ViErrorFinishReport.c)
+ */
+
 __int64 __fastcall VerifierNtWriteFile(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiInitializeDynamicVa @ 0x140B6BDEC
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiCountBootDriverRegions @ 0x140B6BE5C (MiCountBootDriverRegions.c)
+ *     MiAssignSessionRanges @ 0x140B6BF00 (MiAssignSessionRanges.c)
+ */
+
 char *MiInitializeDynamicVa()
 {
   char *result; // rax

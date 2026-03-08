@@ -1,3 +1,13 @@
+/*
+ * XREFs of KeQueryUserAffinityThread @ 0x140301774
+ * Callers:
+ *     NtQueryInformationThread @ 0x1406A7BF0 (NtQueryInformationThread.c)
+ * Callees:
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeQueryUserAffinityThread(__int64 a1, __int64 a2)
 {
   unsigned __int8 CurrentIrql; // bl

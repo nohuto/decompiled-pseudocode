@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopPlTraceLogPowerPlane @ 0x14059F5B8
+ * Callers:
+ *     PopPlRegisterPowerPlane @ 0x14059F404 (PopPlRegisterPowerPlane.c)
+ *     PopDiagTraceControlCallback @ 0x14085EC40 (PopDiagTraceControlCallback.c)
+ * Callees:
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 int __fastcall PopPlTraceLogPowerPlane(unsigned __int16 *a1)
 {
   _UNKNOWN **v1; // rax

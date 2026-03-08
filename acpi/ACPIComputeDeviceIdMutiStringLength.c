@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIComputeDeviceIdMutiStringLength @ 0x1C0043918
+ * Callers:
+ *     ACPIEmQueryFailDeviceResetOnOpenHandles @ 0x1C00439DC (ACPIEmQueryFailDeviceResetOnOpenHandles.c)
+ *     ACPIEmQueryEnableD3ColdOnSurpriseRemovalRule @ 0x1C0097D3C (ACPIEmQueryEnableD3ColdOnSurpriseRemovalRule.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPIComputeDeviceIdMutiStringLength(_WORD *a1)
 {
   _WORD *v2; // r8

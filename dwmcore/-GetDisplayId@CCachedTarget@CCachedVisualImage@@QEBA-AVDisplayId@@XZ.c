@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDisplayId@CCachedTarget@CCachedVisualImage@@QEBA?AVDisplayId@@XZ @ 0x1802143E8
+ * Callers:
+ *     ?Snapshot@CCachedVisualImage@@IEAAJXZ @ 0x1800CDAF4 (-Snapshot@CCachedVisualImage@@IEAAJXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CCachedVisualImage::CCachedTarget::GetDisplayId(__int64 a1, __int64 a2)
 {
   __int64 v3; // rax

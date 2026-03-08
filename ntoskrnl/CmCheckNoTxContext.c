@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmCheckNoTxContext @ 0x1406BD098
+ * Callers:
+ *     CmLoadDifferencingKey @ 0x1406BC49C (CmLoadDifferencingKey.c)
+ *     NtCompactKeys @ 0x140A0A710 (NtCompactKeys.c)
+ *     NtCompressKey @ 0x140A0A9E0 (NtCompressKey.c)
+ *     NtReplaceKey @ 0x140A0B850 (NtReplaceKey.c)
+ *     NtRestoreKey @ 0x140A0BBB0 (NtRestoreKey.c)
+ *     NtSaveKeyEx @ 0x140A0BF70 (NtSaveKeyEx.c)
+ *     NtSaveMergedKeys @ 0x140A0C200 (NtSaveMergedKeys.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 CmCheckNoTxContext()
 {
   __int64 result; // rax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of BgkDisplayStringEx @ 0x14054C9A4
+ * Callers:
+ *     BgkDisplayString @ 0x14054C8F0 (BgkDisplayString.c)
+ *     NtDisplayString @ 0x1409F5C70 (NtDisplayString.c)
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     HeadlessDispatch @ 0x140372650 (HeadlessDispatch.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     BgkpAcquireConsole @ 0x14054CB88 (BgkpAcquireConsole.c)
+ *     BgDisplayFade @ 0x140AEC4BC (BgDisplayFade.c)
+ */
+
 char __fastcall BgkDisplayStringEx(_WORD *a1)
 {
   __int64 v3; // r8

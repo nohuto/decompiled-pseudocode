@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtGdiCreateOPMProtectedOutputs @ 0x1C0189200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList @ 0x1C00CE990 (AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList.c)
+ *     DrvCreatePhysicalMonitorObjects @ 0x1C0192D10 (DrvCreatePhysicalMonitorObjects.c)
+ */
+
 __int64 __fastcall NtGdiCreateOPMProtectedOutputs(
         struct _UNICODE_STRING *a1,
         __int64 a2,

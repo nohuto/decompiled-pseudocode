@@ -1,3 +1,18 @@
+/*
+ * XREFs of VidSchiClearFlipDevice @ 0x1C0012708
+ * Callers:
+ *     ?VidSchFlushQueuePacketsInternal@@YAXPEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_PACKET_TYPE@@IE_N@Z @ 0x1C0012A7C (-VidSchFlushQueuePacketsInternal@@YAXPEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_PACKET_TYPE@@IE_N@Z.c)
+ *     VidSchiReportHwHang @ 0x1C00475B8 (VidSchiReportHwHang.c)
+ *     VidSchFlushDevice @ 0x1C00AB9F0 (VidSchFlushDevice.c)
+ *     VidSchFlushAdapter @ 0x1C0107550 (VidSchFlushAdapter.c)
+ * Callees:
+ *     VidSchiSetFlipDevice @ 0x1C0002730 (VidSchiSetFlipDevice.c)
+ *     ??1HwQueueStagingList@@QEAA@XZ @ 0x1C00067E0 (--1HwQueueStagingList@@QEAA@XZ.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0013414 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00134D8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     VidSchiProcessFlipPendingContextList @ 0x1C001BFCC (VidSchiProcessFlipPendingContextList.c)
+ */
+
 void __fastcall VidSchiClearFlipDevice(
         struct _VIDSCH_GLOBAL *a1,
         __int64 a2,

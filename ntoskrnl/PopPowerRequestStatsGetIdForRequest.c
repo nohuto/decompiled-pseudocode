@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopPowerRequestStatsGetIdForRequest @ 0x14073C3F4
+ * Callers:
+ *     PopPowerRequestStatsCreate @ 0x14073C194 (PopPowerRequestStatsCreate.c)
+ * Callees:
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     PopPowerRequestStatsIsDetailedRequestReason @ 0x14073C588 (PopPowerRequestStatsIsDetailedRequestReason.c)
+ *     PopPowerRequestStatsIdConcat @ 0x14079ABEC (PopPowerRequestStatsIdConcat.c)
+ *     PopAnsiStringToUnicodeString @ 0x14079B134 (PopAnsiStringToUnicodeString.c)
+ *     PopPowerRequestStatsFreeId @ 0x14079B420 (PopPowerRequestStatsFreeId.c)
+ *     PopUnicodeStringDeepCopy @ 0x140856290 (PopUnicodeStringDeepCopy.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PopPowerRequestStatsGetIdForRequest(__int64 a1, __int64 *a2)
 {
   __int64 v2; // rsi

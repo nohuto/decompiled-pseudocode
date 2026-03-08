@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Initalize@USB4_HOSTROUTER_MGR@@QEAAJXZ @ 0x1C01FBEC4
+ * Callers:
+ *     MonitorInitializeGlobal @ 0x1C01FAE24 (MonitorInitializeGlobal.c)
+ * Callees:
+ *     ?reset@?$unique_storage@U?$resource_policy@PEAX$$A6AJPEAX@Z$1?IoUnregisterPlugPlayNotification@@YAJ0@ZU?$integral_constant@_K$0A@@wistd@@PEAXPEAX$0A@$$T@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x1C001D77C (-reset@-$unique_storage@U-$resource_policy@PEAX$$A6AJPEAX@Z$1-IoUnregisterPlugPlayNotification@@.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall USB4_HOSTROUTER_MGR::Initalize(USB4_HOSTROUTER_MGR *this)
 {
   PVOID Context; // rbx

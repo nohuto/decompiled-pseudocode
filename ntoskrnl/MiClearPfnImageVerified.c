@@ -1,3 +1,30 @@
+/*
+ * XREFs of MiClearPfnImageVerified @ 0x14036ABC0
+ * Callers:
+ *     MiReferencePageForModifiedWrite @ 0x140213038 (MiReferencePageForModifiedWrite.c)
+ *     MiGatherMappedPages @ 0x140215150 (MiGatherMappedPages.c)
+ *     MiProbeLeafPteAccess @ 0x140269620 (MiProbeLeafPteAccess.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiDeleteClusterPage @ 0x14027A890 (MiDeleteClusterPage.c)
+ *     MiDeletePerSessionProtos @ 0x1402CF6DC (MiDeletePerSessionProtos.c)
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ *     MiFlushSectionInternal @ 0x14031FA90 (MiFlushSectionInternal.c)
+ *     MiCopyPage @ 0x14032DC70 (MiCopyPage.c)
+ *     MiDeleteClusterSection @ 0x14034B3A4 (MiDeleteClusterSection.c)
+ *     MiRestoreTransitionPte @ 0x14036A9C4 (MiRestoreTransitionPte.c)
+ *     MiStealPage @ 0x1403B70BC (MiStealPage.c)
+ *     MiPrepareLargePageSubPageForFree @ 0x140666E94 (MiPrepareLargePageSubPageForFree.c)
+ *     MmChangeImageProtection @ 0x1407D1E10 (MmChangeImageProtection.c)
+ *     MiTradeBootImagePage @ 0x140B3BE4C (MiTradeBootImagePage.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiGetPagePrivilege @ 0x14032D3F0 (MiGetPagePrivilege.c)
+ *     MiSetPfnIdentity @ 0x14034BE78 (MiSetPfnIdentity.c)
+ *     KeSetPagePrivilege @ 0x1403CF124 (KeSetPagePrivilege.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall MiClearPfnImageVerified(ULONG_PTR BugCheckParameter2, char a2)
 {
   char result; // al

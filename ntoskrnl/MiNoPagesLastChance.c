@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiNoPagesLastChance @ 0x14064E904
+ * Callers:
+ *     MiWaitForFreePage @ 0x140651458 (MiWaitForFreePage.c)
+ * Callees:
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402879C0 (MiPfnReferenceCountIsZero.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     MiSufficientAvailablePages @ 0x1403643E4 (MiSufficientAvailablePages.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PsGetJobLastThrottledIoTime @ 0x1405A1CE0 (PsGetJobLastThrottledIoTime.c)
+ */
+
 void __fastcall MiNoPagesLastChance(__int64 a1, unsigned int a2)
 {
   int v2; // eax

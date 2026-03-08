@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiFdoQueueConnectionChangePackage @ 0x1C005EB78
+ * Callers:
+ *     DpiFdoHandleDisplayDetectControl @ 0x1C001BDEC (DpiFdoHandleDisplayDetectControl.c)
+ *     DpIndicateChildStatus @ 0x1C005D370 (DpIndicateChildStatus.c)
+ * Callees:
+ *     DpIndicateConnectorChange @ 0x1C001C790 (DpIndicateConnectorChange.c)
+ */
+
 __int64 __fastcall DpiFdoQueueConnectionChangePackage(__int64 a1, _QWORD *a2, char a3)
 {
   KSPIN_LOCK *v3; // rbp

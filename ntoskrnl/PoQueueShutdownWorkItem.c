@@ -1,3 +1,12 @@
+/*
+ * XREFs of PoQueueShutdownWorkItem @ 0x140983DC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ */
+
 NTSTATUS __stdcall PoQueueShutdownWorkItem(PWORK_QUEUE_ITEM WorkItem)
 {
   NTSTATUS v2; // ebx

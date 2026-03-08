@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiComputeNewPriority @ 0x140369CB0
+ * Callers:
+ *     KiQuantumEnd @ 0x140254F30 (KiQuantumEnd.c)
+ *     KiQueueReadyThread @ 0x140257C00 (KiQueueReadyThread.c)
+ *     KiDeferredReadySingleThread @ 0x140259FB0 (KiDeferredReadySingleThread.c)
+ *     KiDirectSwitchThread @ 0x1403414A0 (KiDirectSwitchThread.c)
+ *     KeSetBasePriorityThread @ 0x140369500 (KeSetBasePriorityThread.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiComputeNewPriority(__int64 a1, char a2, char a3)
 {
   __int64 result; // rax

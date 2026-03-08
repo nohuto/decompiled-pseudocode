@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlIsEnclaveFeaturePresent @ 0x1409BC368
+ * Callers:
+ *     NtCreateEnclave @ 0x140A3BE40 (NtCreateEnclave.c)
+ * Callees:
+ *     PsIsCurrentThreadInServerSilo @ 0x1402459D0 (PsIsCurrentThreadInServerSilo.c)
+ */
+
 unsigned __int8 __fastcall RtlIsEnclaveFeaturePresent(unsigned int a1)
 {
   __int64 v1; // rdx

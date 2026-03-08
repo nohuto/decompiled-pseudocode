@@ -1,3 +1,23 @@
+/*
+ * XREFs of DifRegisterKernelPlugin @ 0x1405D2B20
+ * Callers:
+ *     VfVolatileSetDifRuleClass @ 0x140ADABEC (VfVolatileSetDifRuleClass.c)
+ *     VfInitBootDriversLoaded @ 0x140B4EE44 (VfInitBootDriversLoaded.c)
+ * Callees:
+ *     VfSecurityEntry @ 0x1405CDC54 (VfSecurityEntry.c)
+ *     VfIovPluginEntry @ 0x1405CF810 (VfIovPluginEntry.c)
+ *     VfDmaPluginEntry @ 0x1405CFB70 (VfDmaPluginEntry.c)
+ *     VfPoolTrackingEntry @ 0x1405CFD08 (VfPoolTrackingEntry.c)
+ *     CarRegisterDefaultRuleClassConfiguration @ 0x1405D1C20 (CarRegisterDefaultRuleClassConfiguration.c)
+ *     CarSetCustomRuleIdRange @ 0x1405D2240 (CarSetCustomRuleIdRange.c)
+ *     DifUtilDbgPrint @ 0x1405D2720 (DifUtilDbgPrint.c)
+ *     VfLwSPEntry @ 0x1405F6278 (VfLwSPEntry.c)
+ *     VfIrqlPluginEntry @ 0x140679A04 (VfIrqlPluginEntry.c)
+ *     VfSpecialPoolEntry @ 0x140679C24 (VfSpecialPoolEntry.c)
+ *     VfDeadlockPluginEntry @ 0x140AD48C8 (VfDeadlockPluginEntry.c)
+ *     VfMiscPluginEntry @ 0x140ADD684 (VfMiscPluginEntry.c)
+ */
+
 __int64 DifRegisterKernelPlugin()
 {
   unsigned int *v0; // rdi

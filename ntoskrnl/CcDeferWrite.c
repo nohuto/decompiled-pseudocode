@@ -1,3 +1,22 @@
+/*
+ * XREFs of CcDeferWrite @ 0x140535060
+ * Callers:
+ *     DifCcDeferWriteWrapper @ 0x1405D3D90 (DifCcDeferWriteWrapper.c)
+ * Callees:
+ *     CcDereferencePartition @ 0x140219EF0 (CcDereferencePartition.c)
+ *     CcScheduleLazyWriteScan @ 0x140242B0C (CcScheduleLazyWriteScan.c)
+ *     CcGetPartitionFromFileObject @ 0x140243818 (CcGetPartitionFromFileObject.c)
+ *     CcGetPrivateVolumeCacheMapFromFileObject @ 0x140290B30 (CcGetPrivateVolumeCacheMapFromFileObject.c)
+ *     ExInterlockedInsertTailList @ 0x1402B8DC0 (ExInterlockedInsertTailList.c)
+ *     ExInterlockedInsertHeadList @ 0x1402E5000 (ExInterlockedInsertHeadList.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcPostDeferredWrites @ 0x1403BBEB8 (CcPostDeferredWrites.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ */
+
 void __stdcall CcDeferWrite(
         PFILE_OBJECT FileObject,
         PCC_POST_DEFERRED_WRITE PostRoutine,

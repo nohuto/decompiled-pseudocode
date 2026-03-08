@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtGetCompleteWnfStateSubscription @ 0x140718CF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExpWnfDeliverThreadNotifications @ 0x140718E50 (ExpWnfDeliverThreadNotifications.c)
+ *     ExpWnfCompleteThreadSubscriptions @ 0x140719114 (ExpWnfCompleteThreadSubscriptions.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ */
+
 __int64 __fastcall NtGetCompleteWnfStateSubscription(
         unsigned __int64 a1,
         unsigned __int64 a2,

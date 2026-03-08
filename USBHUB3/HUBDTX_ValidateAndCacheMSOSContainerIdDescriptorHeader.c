@@ -1,3 +1,16 @@
+/*
+ * XREFs of HUBDTX_ValidateAndCacheMSOSContainerIdDescriptorHeader @ 0x1C002C5F0
+ * Callers:
+ *     HUBDSM_ValidatingMSOSContainerIdHeaderDescriptor @ 0x1C0021ED0 (HUBDSM_ValidatingMSOSContainerIdHeaderDescriptor.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBMISC_LogDescriptorValidationErrorForDevice @ 0x1C0033F70 (HUBMISC_LogDescriptorValidationErrorForDevice.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBDTX_ValidateAndCacheMSOSContainerIdDescriptorHeader(__int64 a1)
 {
   unsigned int v2; // esi

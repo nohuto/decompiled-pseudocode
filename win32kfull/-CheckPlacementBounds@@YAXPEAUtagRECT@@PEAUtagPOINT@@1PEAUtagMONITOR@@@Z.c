@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CheckPlacementBounds@@YAXPEAUtagRECT@@PEAUtagPOINT@@1PEAUtagMONITOR@@@Z @ 0x1C000F544
+ * Callers:
+ *     xxxSetWindowPlacement @ 0x1C00FF7C8 (xxxSetWindowPlacement.c)
+ * Callees:
+ *     GetMonitorWorkRect @ 0x1C0101744 (GetMonitorWorkRect.c)
+ */
+
 void __fastcall CheckPlacementBounds(
         struct tagRECT *a1,
         struct tagPOINT *a2,

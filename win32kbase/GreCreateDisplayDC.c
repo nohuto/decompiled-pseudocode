@@ -1,3 +1,35 @@
+/*
+ * XREFs of GreCreateDisplayDC @ 0x1C0055340
+ * Callers:
+ *     InitUserScreen @ 0x1C00127A8 (InitUserScreen.c)
+ *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C0014BB4 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
+ *     hdcOpenDCW @ 0x1C003C8E0 (hdcOpenDCW.c)
+ *     UserGetDesktopDC @ 0x1C003D300 (UserGetDesktopDC.c)
+ *     CreateCacheDC @ 0x1C003DC40 (CreateCacheDC.c)
+ *     GreCreateCompatibleDC @ 0x1C0052510 (GreCreateCompatibleDC.c)
+ *     NtGdiCreateMetafileDC @ 0x1C0199440 (NtGdiCreateMetafileDC.c)
+ * Callees:
+ *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C001A878 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
+ *     ?bLddmDriver@PDEVOBJ@@QEBAHXZ @ 0x1C001F7C4 (-bLddmDriver@PDEVOBJ@@QEBAHXZ.c)
+ *     GreValidateVisrgn @ 0x1C004145C (GreValidateVisrgn.c)
+ *     ?vReferencePdev@PDEVOBJ@@QEAAXXZ @ 0x1C00448F0 (-vReferencePdev@PDEVOBJ@@QEAAXXZ.c)
+ *     ?vUpdate_VisRect@DC@@QEAAXPEAVREGION@@@Z @ 0x1C0048610 (-vUpdate_VisRect@DC@@QEAAXPEAVREGION@@@Z.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C004E7E8 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C004E850 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     HmgAllocateDcAttr @ 0x1C00500EC (HmgAllocateDcAttr.c)
+ *     ?SetupDCAttributes@@YAXPEAVDC@@PEAU_DC_ATTR@@@Z @ 0x1C00502A0 (-SetupDCAttributes@@YAXPEAVDC@@PEAU_DC_ATTR@@@Z.c)
+ *     HmgFreeDcAttr @ 0x1C0053788 (HmgFreeDcAttr.c)
+ *     ??1DCMEMOBJ@@QEAA@XZ @ 0x1C0054D30 (--1DCMEMOBJ@@QEAA@XZ.c)
+ *     ?IsAllocationBusy@?$CTypeIsolation@$0NPAAA@$0NPA@@NSInstrumentation@@QEAA_NPEAX@Z @ 0x1C00A44FC (-IsAllocationBusy@-$CTypeIsolation@$0NPAAA@$0NPA@@NSInstrumentation@@QEAA_NPEAX@Z.c)
+ *     IsXDCOBJ_vSetDefaultFontSupported @ 0x1C00ACB98 (IsXDCOBJ_vSetDefaultFontSupported.c)
+ *     XDCOBJ_vSetDefaultFontWrap @ 0x1C00AD568 (XDCOBJ_vSetDefaultFontWrap.c)
+ *     ?sizl@PDEVOBJ@@QEAA?AUtagSIZE@@XZ @ 0x1C00BAADC (-sizl@PDEVOBJ@@QEAA-AUtagSIZE@@XZ.c)
+ *     ?ReleaseLock@GreInnermostPushLockMSRC85333@@QEAAXXZ @ 0x1C00DE014 (-ReleaseLock@GreInnermostPushLockMSRC85333@@QEAAXXZ.c)
+ *     ?AcquireDcVisRgnShared@DC@@QEAA@XZ @ 0x1C00DE7E0 (-AcquireDcVisRgnShared@DC@@QEAA@XZ.c)
+ *     ?bSetDefaultRegion@DC@@QEAAHXZ @ 0x1C00EED00 (-bSetDefaultRegion@DC@@QEAAHXZ.c)
+ *     ??0DCMEMOBJ@@QEAA@PEAUHDEV__@@KHH@Z @ 0x1C017F048 (--0DCMEMOBJ@@QEAA@PEAUHDEV__@@KHH@Z.c)
+ */
+
 HDC __fastcall GreCreateDisplayDC(HDEV a1, unsigned int a2, int a3)
 {
   char v3; // r12

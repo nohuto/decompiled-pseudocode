@@ -1,3 +1,11 @@
+/*
+ * XREFs of UserGetLastStatus @ 0x1C00156FC
+ * Callers:
+ *     xxxLoadHmodIndex @ 0x1C006CD10 (xxxLoadHmodIndex.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 UserGetLastStatus()
 {
   __int64 CurrentProcessWow64Process; // rax

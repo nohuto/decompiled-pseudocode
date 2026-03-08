@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtGdiDescribePixelFormat @ 0x1C02C4920
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     GreDescribePixelFormat @ 0x1C02D9DF4 (GreDescribePixelFormat.c)
+ */
+
 __int64 __fastcall NtGdiDescribePixelFormat(HDC a1, __int64 a2, unsigned int a3, char *a4)
 {
   __int64 v5; // rdi

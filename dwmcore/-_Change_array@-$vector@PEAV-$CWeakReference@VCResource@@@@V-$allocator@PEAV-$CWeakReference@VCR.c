@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_Change_array@?$vector@PEAV?$CWeakReference@VCResource@@@@V?$allocator@PEAV?$CWeakReference@VCResource@@@@@std@@@std@@AEAAXQEAPEAV?$CWeakReference@VCResource@@@@_K1@Z @ 0x1801E09E8
+ * Callers:
+ *     ??$_Emplace_reallocate@AEBQEAV?$CWeakReference@VCResource@@@@@?$vector@PEAV?$CWeakReference@VCResource@@@@V?$allocator@PEAV?$CWeakReference@VCResource@@@@@std@@@std@@QEAAPEAPEAV?$CWeakReference@VCResource@@@@QEAPEAV2@AEBQEAV2@@Z @ 0x1801DF06C (--$_Emplace_reallocate@AEBQEAV-$CWeakReference@VCResource@@@@@-$vector@PEAV-$CWeakReference@VCRe.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ */
+
 __int64 __fastcall std::vector<CWeakReference<CResource> *,std::allocator<CWeakReference<CResource> *>>::_Change_array(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpTimerUpdateApiConsumers @ 0x14051D4B4
+ * Callers:
+ *     HalpPrepareForBugcheck @ 0x140509440 (HalpPrepareForBugcheck.c)
+ *     HalpRestoreHvEnlightenment @ 0x140509E30 (HalpRestoreHvEnlightenment.c)
+ *     HalpSaveAndDisableEnlightenment @ 0x14050A1D0 (HalpSaveAndDisableEnlightenment.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 HalpTimerUpdateApiConsumers()
 {
   __int64 i; // rbx

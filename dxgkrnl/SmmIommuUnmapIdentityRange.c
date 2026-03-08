@@ -1,3 +1,11 @@
+/*
+ * XREFs of SmmIommuUnmapIdentityRange @ 0x1C006E570
+ * Callers:
+ *     SmmUnmapIommu @ 0x1C002A53E (SmmUnmapIommu.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall SmmIommuUnmapIdentityRange(__int64 a1, _DWORD *a2)
 {
   unsigned __int64 v2; // rax

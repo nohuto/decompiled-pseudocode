@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmAllocateExtraParameter @ 0x140797310
+ * Callers:
+ *     VrpPreOpenOrCreate @ 0x1406C1A34 (VrpPreOpenOrCreate.c)
+ *     VrpPostOpenOrCreate @ 0x1406C2968 (VrpPostOpenOrCreate.c)
+ * Callees:
+ *     CmpAllocatePool @ 0x140243878 (CmpAllocatePool.c)
+ */
+
 __int64 CmAllocateExtraParameter()
 {
   __int64 result; // rax

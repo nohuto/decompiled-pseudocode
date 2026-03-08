@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExpFindDiskSignature @ 0x1409F983C
+ * Callers:
+ *     ExpTranslateEfiPath @ 0x14083EF60 (ExpTranslateEfiPath.c)
+ *     ExpConvertSignatureName @ 0x1409F8E7C (ExpConvertSignatureName.c)
+ *     ExpCreateOutputEFI @ 0x1409F91B8 (ExpCreateOutputEFI.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     ZwQuerySystemInformation @ 0x1404129D0 (ZwQuerySystemInformation.c)
+ *     ExpGetPartitionTableInfo @ 0x1409F9DB4 (ExpGetPartitionTableInfo.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpFindDiskSignature(_QWORD *a1, _DWORD *a2, unsigned int *a3, _QWORD *a4, _QWORD *a5, char a6)
 {
   __int64 result; // rax

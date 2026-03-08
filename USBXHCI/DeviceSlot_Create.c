@@ -1,3 +1,14 @@
+/*
+ * XREFs of DeviceSlot_Create @ 0x1C0070454
+ * Callers:
+ *     Controller_WdfEvtDeviceAdd @ 0x1C006FA60 (Controller_WdfEvtDeviceAdd.c)
+ * Callees:
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     XilDeviceSlot_Create @ 0x1C001A6F4 (XilDeviceSlot_Create.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DeviceSlot_Create(__int64 a1, __int64 a2, _QWORD *a3)
 {
   int v5; // eax

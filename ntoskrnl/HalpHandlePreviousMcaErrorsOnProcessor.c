@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpHandlePreviousMcaErrorsOnProcessor @ 0x140A920B0
+ * Callers:
+ *     HalpInitializeMce @ 0x140A87FF0 (HalpInitializeMce.c)
+ *     HalpHandlePreviousMcaErrors @ 0x140A91F70 (HalpHandlePreviousMcaErrors.c)
+ * Callees:
+ *     HalpMcaReadErrorPresence @ 0x14037D0E4 (HalpMcaReadErrorPresence.c)
+ *     HalpMcaClearError @ 0x140500FC0 (HalpMcaClearError.c)
+ *     HalpMcaReadError @ 0x1405014E0 (HalpMcaReadError.c)
+ *     HalpMcaReportError @ 0x140501778 (HalpMcaReportError.c)
+ *     HalpMceInitializeErrorPacketContents @ 0x140A87D98 (HalpMceInitializeErrorPacketContents.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall HalpHandlePreviousMcaErrorsOnProcessor(__int64 a1, GUID *a2, __int64 a3)
 {
   char v5; // r14

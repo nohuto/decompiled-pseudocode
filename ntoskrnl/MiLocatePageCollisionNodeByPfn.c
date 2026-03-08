@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiLocatePageCollisionNodeByPfn @ 0x14064CDD4
+ * Callers:
+ *     MiStopPageAccessor @ 0x1402FD06C (MiStopPageAccessor.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 _QWORD *__fastcall MiLocatePageCollisionNodeByPfn(ULONG_PTR *BugCheckParameter2)
 {
   _QWORD *v2; // rax

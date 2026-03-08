@@ -1,3 +1,28 @@
+/*
+ * XREFs of ObDereferenceObjectDeferDelete @ 0x1402637F0
+ * Callers:
+ *     CmpFreePostBlock @ 0x1406B5600 (CmpFreePostBlock.c)
+ *     ObpLookupObjectName @ 0x1406E86B0 (ObpLookupObjectName.c)
+ *     NtQueryInformationFile @ 0x1406EAEB0 (NtQueryInformationFile.c)
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ *     MiObtainSectionForDriver @ 0x14072EE44 (MiObtainSectionForDriver.c)
+ *     CmpCleanupTransactionState @ 0x14073526C (CmpCleanupTransactionState.c)
+ *     CmpRunDownCmRM @ 0x14074C420 (CmpRunDownCmRM.c)
+ *     ObpCreateSymbolicLinkName @ 0x1407612D4 (ObpCreateSymbolicLinkName.c)
+ *     ObpDeleteSymbolicLinkName @ 0x14076F408 (ObpDeleteSymbolicLinkName.c)
+ *     ObpDeleteDirectoryObject @ 0x14078DDD0 (ObpDeleteDirectoryObject.c)
+ *     CmpDelayedDerefKeys @ 0x1407AEFE8 (CmpDelayedDerefKeys.c)
+ *     IopSynchronousServiceTail @ 0x1407C33C0 (IopSynchronousServiceTail.c)
+ *     MiUnloadSystemImage @ 0x1407F627C (MiUnloadSystemImage.c)
+ *     NtAlpcImpersonateClientContainerOfPort @ 0x140975AB0 (NtAlpcImpersonateClientContainerOfPort.c)
+ *     PfpServiceMainThreadBoostPrep @ 0x14097BCA8 (PfpServiceMainThreadBoostPrep.c)
+ *     PfpScenCtxScenarioSet @ 0x140A84910 (PfpScenCtxScenarioSet.c)
+ * Callees:
+ *     ObpDeferObjectDeletion @ 0x1402ECA68 (ObpDeferObjectDeletion.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ */
+
 void __stdcall ObDereferenceObjectDeferDelete(PVOID Object)
 {
   signed __int64 v2; // rax

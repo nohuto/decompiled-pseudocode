@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxRemotePassthruEnable @ 0x1C0206C6C
+ * Callers:
+ *     NtUserRemotePassthruEnable @ 0x1C01DAB70 (NtUserRemotePassthruEnable.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     xxxRemoteStopScreenUpdates @ 0x1C00F6E08 (xxxRemoteStopScreenUpdates.c)
+ *     GreDrvDisconnect @ 0x1C0128FB4 (GreDrvDisconnect.c)
+ *     bDrvDisconnect @ 0x1C02DF008 (bDrvDisconnect.c)
+ */
+
 __int64 xxxRemotePassthruEnable()
 {
   __int64 v0; // rdx

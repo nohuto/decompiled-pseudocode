@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bMapRoutine@@YAHPEAU_FONTFILEVIEW@@PEAU_FILEVIEW@@W4_MAP_MODE@@H@Z @ 0x1C00BBE98
+ * Callers:
+ *     ?UmfdEscEngMapFontFileFD@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00BB9C0 (-UmfdEscEngMapFontFileFD@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
+ *     EngMapFontFileFDInternal @ 0x1C0115154 (EngMapFontFileFDInternal.c)
+ *     ?EngMapFontFileInternal@@YAH_KPEAPEAKPEAK@Z @ 0x1C028CE58 (-EngMapFontFileInternal@@YAH_KPEAPEAKPEAK@Z.c)
+ * Callees:
+ *     ?bShouldMap@@YAHPEAU_FILEVIEW@@0H@Z @ 0x1C00BBF58 (-bShouldMap@@YAHPEAU_FILEVIEW@@0H@Z.c)
+ */
+
 __int64 __fastcall bMapRoutine(__int64 a1, __int64 a2, int a3, int a4)
 {
   unsigned int ShouldMap; // edx

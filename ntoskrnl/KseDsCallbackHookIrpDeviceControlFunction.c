@@ -1,3 +1,12 @@
+/*
+ * XREFs of KseDsCallbackHookIrpDeviceControlFunction @ 0x14057EAA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KsepDsEventDataIrp @ 0x14057F1E4 (KsepDsEventDataIrp.c)
+ */
+
 __int64 __fastcall KseDsCallbackHookIrpDeviceControlFunction(__int64 a1, __int64 a2)
 {
   __int64 v4; // rdi

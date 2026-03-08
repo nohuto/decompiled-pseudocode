@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiCreateDiscoveryDeleteParameters @ 0x1C0037348
+ * Callers:
+ *     AcpiNotifyPlExtDeleteDeviceAsync @ 0x1C00377F0 (AcpiNotifyPlExtDeleteDeviceAsync.c)
+ *     AcpiNotifyPlExtDiscoverDeviceAsync @ 0x1C0037A5C (AcpiNotifyPlExtDiscoverDeviceAsync.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AcpiCreateDiscoveryDeleteParameters(__int64 *a1, char a2, __int64 *a3)
 {
   __int64 Pool2; // rax

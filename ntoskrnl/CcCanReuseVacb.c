@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcCanReuseVacb @ 0x140535A7C
+ * Callers:
+ *     CcUnmapInactiveViewsInternal @ 0x140535FC0 (CcUnmapInactiveViewsInternal.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CcCanReuseVacb(__int64 a1, __int64 a2)
 {
   char v2; // r8

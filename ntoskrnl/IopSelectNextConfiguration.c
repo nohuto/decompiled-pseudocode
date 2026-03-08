@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopSelectNextConfiguration @ 0x140803664
+ * Callers:
+ *     PnpFindBestConfigurationWorker @ 0x14080375C (PnpFindBestConfigurationWorker.c)
+ * Callees:
+ *     IopAddRemoveReqDescs @ 0x1408061D8 (IopAddRemoveReqDescs.c)
+ */
+
 char __fastcall IopSelectNextConfiguration(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // edi

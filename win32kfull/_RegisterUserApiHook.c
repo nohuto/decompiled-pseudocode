@@ -1,3 +1,17 @@
+/*
+ * XREFs of _RegisterUserApiHook @ 0x1C00DD234
+ * Callers:
+ *     NtUserRegisterUserApiHook @ 0x1C00DD1B0 (NtUserRegisterUserApiHook.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     RemoveHmodDependency @ 0x1C009D71C (RemoveHmodDependency.c)
+ *     AddHmodDependency @ 0x1C009D860 (AddHmodDependency.c)
+ *     GetHmodTableIndex @ 0x1C009D950 (GetHmodTableIndex.c)
+ *     IsPrivileged @ 0x1C00DD9E0 (IsPrivileged.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C010A9B4 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall RegisterUserApiHook(ULONG64 a1, ULONG64 a2, ULONG64 a3, ULONG64 a4)
 {

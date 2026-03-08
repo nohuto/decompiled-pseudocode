@@ -1,3 +1,31 @@
+/*
+ * XREFs of NVMeControllerInitPart2 @ 0x1C000D9F0
+ * Callers:
+ *     NVMeHwInitialize @ 0x1C00083B0 (NVMeHwInitialize.c)
+ *     NVMeHwPassiveInitialize @ 0x1C0008480 (NVMeHwPassiveInitialize.c)
+ *     NVMeControllerPowerUp @ 0x1C000E0F4 (NVMeControllerPowerUp.c)
+ *     NVMeControllerReset @ 0x1C000E4D8 (NVMeControllerReset.c)
+ *     NVMeControllerReinitialize @ 0x1C001C9A0 (NVMeControllerReinitialize.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003260 (__security_check_cookie.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ *     FillControllerRuntimeLog @ 0x1C0007908 (FillControllerRuntimeLog.c)
+ *     GetInterruptMessageInformation @ 0x1C0009AAC (GetInterruptMessageInformation.c)
+ *     InitializePerfOptions @ 0x1C000A498 (InitializePerfOptions.c)
+ *     IoQueuesCreation @ 0x1C000A5E8 (IoQueuesCreation.c)
+ *     IoQueuesCreationAsync @ 0x1C000A774 (IoQueuesCreationAsync.c)
+ *     IoQueuesInitialize @ 0x1C000B04C (IoQueuesInitialize.c)
+ *     IoReservedQueuesInitialize @ 0x1C000B674 (IoReservedQueuesInitialize.c)
+ *     IoSqToIoCqMapping @ 0x1C000B78C (IoSqToIoCqMapping.c)
+ *     NVMeControllerGetFeaturesSupportedCacheCapabilities @ 0x1C000D694 (NVMeControllerGetFeaturesSupportedCacheCapabilities.c)
+ *     NVMeInitHostMemoryBuffer @ 0x1C000F3EC (NVMeInitHostMemoryBuffer.c)
+ *     NVMeInitStreams @ 0x1C000F660 (NVMeInitStreams.c)
+ *     NVMeBuildPollingConfiguration @ 0x1C001C338 (NVMeBuildPollingConfiguration.c)
+ *     NVMeSetArbitration @ 0x1C002362C (NVMeSetArbitration.c)
+ *     NVMeSetInterruptCoalescing @ 0x1C0023968 (NVMeSetInterruptCoalescing.c)
+ *     NVMeSetIoQueueCount @ 0x1C0023A50 (NVMeSetIoQueueCount.c)
+ */
+
 __int64 __fastcall NVMeControllerInitPart2(__int64 a1, char a2, char a3)
 {
   __int64 v6; // rdx

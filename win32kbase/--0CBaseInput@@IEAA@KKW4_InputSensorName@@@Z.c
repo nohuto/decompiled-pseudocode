@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??0CBaseInput@@IEAA@KKW4_InputSensorName@@@Z @ 0x1C0096768
+ * Callers:
+ *     ?CreateInstance@CHidInput@@SAJPEAPEAV1@@Z @ 0x1C00962C8 (-CreateInstance@CHidInput@@SAJPEAPEAV1@@Z.c)
+ *     ?CreateInstance@CKeyboardSensor@@SAJPEAPEAV1@@Z @ 0x1C009637C (-CreateInstance@CKeyboardSensor@@SAJPEAPEAV1@@Z.c)
+ *     ??0CMouseSensor@@IEAA@XZ @ 0x1C0096430 (--0CMouseSensor@@IEAA@XZ.c)
+ * Callees:
+ *     ??0CRIMBase@@IEAA@K@Z @ 0x1C0096848 (--0CRIMBase@@IEAA@K@Z.c)
+ */
+
 __int64 __fastcall CBaseInput::CBaseInput(__int64 a1, unsigned int a2, unsigned int a3, int a4)
 {
   __int64 v4; // rbx

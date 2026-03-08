@@ -1,3 +1,13 @@
+/*
+ * XREFs of INCREMENT_ADAPTER_CHANNELS @ 0x140AC14EC
+ * Callers:
+ *     VfAllocateAdapterChannel @ 0x140AC1B90 (VfAllocateAdapterChannel.c)
+ *     VfAllocateAdapterChannelEx @ 0x140AC1DE0 (VfAllocateAdapterChannelEx.c)
+ * Callees:
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140AC62F4 (ViHalPreprocessOptions.c)
+ */
+
 void __fastcall INCREMENT_ADAPTER_CHANNELS(__int64 a1)
 {
   signed __int32 v2; // ebx

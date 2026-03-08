@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiUEventDeviceNeedsInstall @ 0x14078BA10
+ * Callers:
+ *     PiUEventNotifyUserMode @ 0x14068C2D0 (PiUEventNotifyUserMode.c)
+ * Callees:
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ */
+
 __int64 __fastcall PiUEventDeviceNeedsInstall(__int64 a1, _BYTE *a2)
 {
   int ObjectProperty; // ecx

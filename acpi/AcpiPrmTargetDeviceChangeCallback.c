@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiPrmTargetDeviceChangeCallback @ 0x1C008CD10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     AcpiAcquirePrmInterface @ 0x1C008CAB8 (AcpiAcquirePrmInterface.c)
+ */
+
 __int64 __fastcall AcpiPrmTargetDeviceChangeCallback(char *NotificationStructure, PVOID Context)
 {
   __int64 v2; // rax

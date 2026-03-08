@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?InitializeSensor@CBaseInput@@QEAAJXZ @ 0x1C0032000
+ * Callers:
+ *     _anonymous_namespace_::InitializeInputSensorPass1Worker @ 0x1C009A5B4 (_anonymous_namespace_--InitializeInputSensorPass1Worker.c)
+ * Callees:
+ *     ?CreateHandles@CRIMBase@@IEAAJQEBW4DispatcherHandleName@1@_KP6AXPEAURIMDevChangeStruct@@@ZPEAX@Z @ 0x1C00320D4 (-CreateHandles@CRIMBase@@IEAAJQEBW4DispatcherHandleName@1@_KP6AXPEAURIMDevChangeStruct@@@ZPEAX@Z.c)
+ *     W32GetThreadWin32Thread @ 0x1C004E3B0 (W32GetThreadWin32Thread.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CBaseInput::InitializeSensor(CBaseInput *this)
 {
   void (*v2)(struct RIMDevChangeStruct *); // r9

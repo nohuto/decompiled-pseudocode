@@ -1,3 +1,25 @@
+/*
+ * XREFs of AlpcpPortQueryConnectedSidInfo @ 0x1407569CC
+ * Callers:
+ *     NtAlpcQueryInformation @ 0x140756660 (NtAlpcQueryInformation.c)
+ * Callees:
+ *     RtlEqualSid @ 0x140208A60 (RtlEqualSid.c)
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ObFastDereferenceObject @ 0x140245F50 (ObFastDereferenceObject.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AlpcpReferenceConnectedPort @ 0x1406D4F38 (AlpcpReferenceConnectedPort.c)
+ *     SeCaptureSid @ 0x140710930 (SeCaptureSid.c)
+ *     SeReleaseSid @ 0x140710A34 (SeReleaseSid.c)
+ *     SeQueryUserSidToken @ 0x1407187E4 (SeQueryUserSidToken.c)
+ */
+
 __int64 __fastcall AlpcpPortQueryConnectedSidInfo(__int64 a1, PSID a2, __int64 a3, _DWORD *a4, char a5)
 {
   __int64 v8; // r8

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViWdInsertSortIrp @ 0x140ADB2E8
+ * Callers:
+ *     ViWdBeforeCancelIrp @ 0x140ADB23C (ViWdBeforeCancelIrp.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ViWdInsertSortIrp(__int64 a1)
 {
   __int64 i; // rdx

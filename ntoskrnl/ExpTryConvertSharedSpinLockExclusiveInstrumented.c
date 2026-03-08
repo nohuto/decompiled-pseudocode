@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpTryConvertSharedSpinLockExclusiveInstrumented @ 0x1404630E8
+ * Callers:
+ *     KiAbEntryGetLockedHeadEntry @ 0x14024CE30 (KiAbEntryGetLockedHeadEntry.c)
+ *     ExTryConvertSharedSpinLockExclusive @ 0x1403C1810 (ExTryConvertSharedSpinLockExclusive.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     PerfLogSpinLockAcquire @ 0x1405FE910 (PerfLogSpinLockAcquire.c)
+ *     PerfLogSpinLockRelease @ 0x1405FE984 (PerfLogSpinLockRelease.c)
+ */
+
 __int64 __fastcall ExpTryConvertSharedSpinLockExclusiveInstrumented(volatile signed __int32 *a1, __int64 a2)
 {
   int v2; // r15d

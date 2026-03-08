@@ -1,3 +1,12 @@
+/*
+ * XREFs of FxGetCallbackLock @ 0x1C0042FE0
+ * Callers:
+ *     imp_WdfObjectAcquireLock @ 0x1C0043050 (imp_WdfObjectAcquireLock.c)
+ *     imp_WdfObjectReleaseLock @ 0x1C0043270 (imp_WdfObjectReleaseLock.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 FxCallbackLock *__fastcall FxGetCallbackLock(FxObject *Object)
 {
   FxQueryInterfaceParams params; // [rsp+20h] [rbp-18h] BYREF

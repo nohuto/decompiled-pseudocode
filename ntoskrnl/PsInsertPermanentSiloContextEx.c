@@ -1,3 +1,17 @@
+/*
+ * XREFs of PsInsertPermanentSiloContextEx @ 0x14073858C
+ * Callers:
+ *     CmpGetOrCreateContextForSiloNoRef @ 0x1407361AC (CmpGetOrCreateContextForSiloNoRef.c)
+ *     PsInsertPermanentSiloContext @ 0x140860A60 (PsInsertPermanentSiloContext.c)
+ *     ObCreateSiloRootDirectory @ 0x140A70E70 (ObCreateSiloRootDirectory.c)
+ * Callees:
+ *     PspUnlockJob @ 0x1406FBF7C (PspUnlockJob.c)
+ *     PspLockJobShared @ 0x1406FBFC0 (PspLockJobShared.c)
+ *     PspStorageInsertObject @ 0x140738660 (PspStorageInsertObject.c)
+ *     PspIsSiloContext @ 0x1407387C4 (PspIsSiloContext.c)
+ *     PspJobHasChildren @ 0x140797584 (PspJobHasChildren.c)
+ */
+
 __int64 __fastcall PsInsertPermanentSiloContextEx(__int64 a1, unsigned int a2, __int64 a3, int a4)
 {
   __int64 v7; // rbp

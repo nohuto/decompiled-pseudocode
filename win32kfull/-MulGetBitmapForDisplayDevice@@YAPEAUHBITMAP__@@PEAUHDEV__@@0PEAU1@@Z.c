@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MulGetBitmapForDisplayDevice@@YAPEAUHBITMAP__@@PEAUHDEV__@@0PEAU1@@Z @ 0x1C014EEBA
+ * Callers:
+ *     GreSelectRedirectionBitmap @ 0x1C0097150 (GreSelectRedirectionBitmap.c)
+ * Callees:
+ *     <none>
+ */
+
 HBITMAP __fastcall MulGetBitmapForDisplayDevice(HDEV a1, HDEV a2, HBITMAP a3)
 {
   HBITMAP v3; // rbx

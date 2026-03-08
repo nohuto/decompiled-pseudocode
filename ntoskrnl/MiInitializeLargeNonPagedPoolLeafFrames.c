@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiInitializeLargeNonPagedPoolLeafFrames @ 0x1402E5F48
+ * Callers:
+ *     MiLinkPoolCommitChain @ 0x140330100 (MiLinkPoolCommitChain.c)
+ * Callees:
+ *     MiSetPfnPteFrame @ 0x14028A310 (MiSetPfnPteFrame.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiInitializeLargeNonPagedPoolLeafFrames(unsigned __int64 a1, __int64 a2)
 {
   __int64 v3; // rsi

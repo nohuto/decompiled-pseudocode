@@ -1,3 +1,13 @@
+/*
+ * XREFs of UpdateMouseConnectionState @ 0x1C0031898
+ * Callers:
+ *     UpdateTPCurrentActiveState @ 0x1C0031AA0 (UpdateTPCurrentActiveState.c)
+ * Callees:
+ *     IsMouseDeviceOnIgnoreList @ 0x1C0031278 (IsMouseDeviceOnIgnoreList.c)
+ *     WPP_RECORDER_AND_TRACE_SF_l @ 0x1C0031A10 (WPP_RECORDER_AND_TRACE_SF_l.c)
+ *     RIMIsRunningOnDesktop @ 0x1C007B004 (RIMIsRunningOnDesktop.c)
+ */
+
 __int64 __fastcall UpdateMouseConnectionState(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // esi

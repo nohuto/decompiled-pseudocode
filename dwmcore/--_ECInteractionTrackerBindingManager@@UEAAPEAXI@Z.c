@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??_ECInteractionTrackerBindingManager@@UEAAPEAXI@Z @ 0x180233AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801046B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ *     ??1CInteractionTrackerBindingManager@@UEAA@XZ @ 0x1802339EC (--1CInteractionTrackerBindingManager@@UEAA@XZ.c)
+ */
+
 CInteractionTrackerBindingManager *__fastcall CInteractionTrackerBindingManager::`vector deleting destructor'(
         CInteractionTrackerBindingManager *this,
         char a2)

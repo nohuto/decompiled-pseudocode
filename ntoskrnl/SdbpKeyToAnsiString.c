@@ -1,3 +1,12 @@
+/*
+ * XREFs of SdbpKeyToAnsiString @ 0x1407A1A10
+ * Callers:
+ *     SdbpFindFirstIndexedWildCardTag @ 0x1407A1870 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x1407A1E68 (SdbpFindNextIndexedWildCardTag.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SdbpKeyToAnsiString(__int64 a1, __int64 a2)
 {
   char *v2; // r8

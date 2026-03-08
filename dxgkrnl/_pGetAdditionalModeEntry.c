@@ -1,3 +1,11 @@
+/*
+ * XREFs of _pGetAdditionalModeEntry @ 0x1C0225244
+ * Callers:
+ *     ?GetAdditionalTiming@DXGK_MONITOR_INTERFACE_V2_IMPL@@KAJQEAXIPEAIPEAPEAU_DXGK_TARGETMODE_DETAIL_TIMING@@@Z @ 0x1C01CE5A0 (-GetAdditionalTiming@DXGK_MONITOR_INTERFACE_V2_IMPL@@KAJQEAXIPEAIPEAPEAU_DXGK_TARGETMODE_DETAIL_.c)
+ * Callees:
+ *     <none>
+ */
+
 _DWORD *__fastcall pGetAdditionalModeEntry(int a1, char a2)
 {
   _DWORD *result; // rax

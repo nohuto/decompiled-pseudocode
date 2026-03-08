@@ -1,3 +1,21 @@
+/*
+ * XREFs of AlpcpDispatchNewMessage @ 0x1407CB7E0
+ * Callers:
+ *     AlpcpDispatchMessage @ 0x1407141B8 (AlpcpDispatchMessage.c)
+ *     AlpcpSendMessage @ 0x1407CAFB0 (AlpcpSendMessage.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     PsGetProcessJob @ 0x1402F5B40 (PsGetProcessJob.c)
+ *     PsGetJobEffectiveFreezeCount @ 0x1405A1878 (PsGetJobEffectiveFreezeCount.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x14078C518 (AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo.c)
+ *     AlpcpReferenceAndLockTargetPortsAndCommunicationInfo @ 0x1407CBA00 (AlpcpReferenceAndLockTargetPortsAndCommunicationInfo.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1407CBD90 (AlpcpCompleteDispatchMessage.c)
+ */
+
 __int64 __fastcall AlpcpDispatchNewMessage(__int64 *a1)
 {
   __int64 v1; // rsi

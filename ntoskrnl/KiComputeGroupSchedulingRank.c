@@ -1,3 +1,18 @@
+/*
+ * XREFs of KiComputeGroupSchedulingRank @ 0x1402AEC84
+ * Callers:
+ *     KiQueueReadyThread @ 0x140257C00 (KiQueueReadyThread.c)
+ *     KiSwapThread @ 0x14025F500 (KiSwapThread.c)
+ *     KiGroupSchedulingQuantumEnd @ 0x1402AB8A8 (KiGroupSchedulingQuantumEnd.c)
+ * Callees:
+ *     KiCheckMaxOverQuotaTransition @ 0x1402AEDD4 (KiCheckMaxOverQuotaTransition.c)
+ *     KiResortScbQueue @ 0x1402AEDFC (KiResortScbQueue.c)
+ *     KiRemoveSchedulingGroupQueue @ 0x1402AEF44 (KiRemoveSchedulingGroupQueue.c)
+ *     KeInterlockedSetProcessorAffinityEx @ 0x1402DE1C0 (KeInterlockedSetProcessorAffinityEx.c)
+ *     KiCheckForEffectivePriorityChange @ 0x1402F2428 (KiCheckForEffectivePriorityChange.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int8 __fastcall KiComputeGroupSchedulingRank(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v7; // al

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetWindowCompositedDpi@@YAGPEBUtagWND@@@Z @ 0x1C004489C
+ * Callers:
+ *     SelectWindowRgn @ 0x1C00275FC (SelectWindowRgn.c)
+ *     xxxInitSendValidateMinMaxInfoEx @ 0x1C004524C (xxxInitSendValidateMinMaxInfoEx.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetWindowCompositedDpi(const struct tagWND *a1)
 {
   unsigned __int16 v1; // r8

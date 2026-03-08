@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiRequestIoPageMdlCacheRelease @ 0x1403D146C
+ * Callers:
+ *     MiPfnsWorthTrying @ 0x1403B6374 (MiPfnsWorthTrying.c)
+ *     MiActivePageClaimCandidate @ 0x1403B68D8 (MiActivePageClaimCandidate.c)
+ * Callees:
+ *     IoTryReleasePage @ 0x14055C684 (IoTryReleasePage.c)
+ */
+
 __int64 __fastcall MiRequestIoPageMdlCacheRelease(__int64 a1)
 {
   unsigned __int64 v1; // rdx

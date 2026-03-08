@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIDeviceIrpWaitWakeRequestComplete @ 0x1C001E0B8
+ * Callers:
+ *     ACPIDeviceIrpWaitWakeRequestPending @ 0x1C001E2A0 (ACPIDeviceIrpWaitWakeRequestPending.c)
+ *     ACPIWakeCompleteRequestQueue @ 0x1C0044B4C (ACPIWakeCompleteRequestQueue.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ACPIDeviceInternalQueueRequest @ 0x1C001D4A0 (ACPIDeviceInternalQueueRequest.c)
+ *     ACPIGpeIndexToGpeRegister @ 0x1C002C39C (ACPIGpeIndexToGpeRegister.c)
+ */
+
 void __fastcall ACPIDeviceIrpWaitWakeRequestComplete(__int64 a1)
 {
   __int64 v1; // rsi

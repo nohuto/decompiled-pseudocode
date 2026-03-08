@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiStoreSetEvictPageFile @ 0x14065A380
+ * Callers:
+ *     MiReleasePageFileInfo @ 0x14020B300 (MiReleasePageFileInfo.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     MiSufficientAvailablePages @ 0x1403643E4 (MiSufficientAvailablePages.c)
+ */
+
 LONG __fastcall MiStoreSetEvictPageFile(__int64 a1, unsigned int a2)
 {
   __int64 v2; // rbx

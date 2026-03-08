@@ -1,3 +1,19 @@
+/*
+ * XREFs of NtMapViewOfSection @ 0x1407D4B90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwTiLogMapExecView @ 0x14067FA78 (EtwTiLogMapExecView.c)
+ *     DbgkMapViewOfSection @ 0x1407D2C6C (DbgkMapViewOfSection.c)
+ *     MiValidateZeroBits @ 0x1407D4DF0 (MiValidateZeroBits.c)
+ *     MiMapViewOfSectionCommon @ 0x1407D4E50 (MiMapViewOfSectionCommon.c)
+ *     MiMapParametersInitialize @ 0x1407D5090 (MiMapParametersInitialize.c)
+ *     MiMapViewOfSection @ 0x1407D51F0 (MiMapViewOfSection.c)
+ */
+
 __int64 NtMapViewOfSection(__int64 a1, __int64 a2, _QWORD *a3, ...)
 {
   __int64 v6; // rdx

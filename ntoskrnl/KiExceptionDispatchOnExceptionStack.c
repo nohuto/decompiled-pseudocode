@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiExceptionDispatchOnExceptionStack @ 0x1404171D0
+ * Callers:
+ *     KiExceptionDispatch @ 0x14042BF40 (KiExceptionDispatch.c)
+ * Callees:
+ *     <none>
+ */
+
 // bad sp value at call has been detected, the output may be wrong!
 __int64 __fastcall KiExceptionDispatchOnExceptionStack(
         int a1,

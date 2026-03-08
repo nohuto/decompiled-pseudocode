@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetCachedBBNResult @ 0x1C0034ACC
+ * Callers:
+ *     GetPciAddressWorker @ 0x1C0034E00 (GetPciAddressWorker.c)
+ * Callees:
+ *     AMLIIsEqualHandle @ 0x1C0048794 (AMLIIsEqualHandle.c)
+ */
+
 __int64 __fastcall GetCachedBBNResult(__int64 a1, _DWORD *a2)
 {
   KIRQL v4; // al

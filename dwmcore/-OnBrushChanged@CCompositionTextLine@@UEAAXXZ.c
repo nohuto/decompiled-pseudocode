@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?OnBrushChanged@CCompositionTextLine@@UEAAXXZ @ 0x180223D60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800234BC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?RegisterNotifier@CResource@@QEAAJPEAV1@@Z @ 0x18004A70C (-RegisterNotifier@CResource@@QEAAJPEAV1@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?IsBrushGraphRequired@CClipBrush@@AEBA_NXZ @ 0x18021E170 (-IsBrushGraphRequired@CClipBrush@@AEBA_NXZ.c)
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ */
+
 void __fastcall CCompositionTextLine::OnBrushChanged(CCompositionTextLine *this)
 {
   __int64 v1; // rbx

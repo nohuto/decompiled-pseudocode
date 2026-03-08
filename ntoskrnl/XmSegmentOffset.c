@@ -1,3 +1,15 @@
+/*
+ * XREFs of XmSegmentOffset @ 0x14039F330
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmGetLongImmediate @ 0x140395F88 (XmGetLongImmediate.c)
+ *     XmGetOffsetAddress @ 0x14039F39C (XmGetOffsetAddress.c)
+ *     XmSetSourceValue @ 0x1403B41A0 (XmSetSourceValue.c)
+ *     XmSetDataType @ 0x1403B41C8 (XmSetDataType.c)
+ *     XmGetWordImmediate @ 0x1403B4350 (XmGetWordImmediate.c)
+ */
+
 __int64 __fastcall XmSegmentOffset(__int64 a1)
 {
   unsigned int LongImmediate; // eax

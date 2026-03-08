@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiLocateExclusiveSecure @ 0x1402EDA70
+ * Callers:
+ *     MiAddSecureEntry @ 0x1407D3424 (MiAddSecureEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiLocateExclusiveSecure(__int64 a1)
 {
   unsigned __int64 v1; // rdx

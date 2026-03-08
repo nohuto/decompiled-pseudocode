@@ -1,3 +1,12 @@
+/*
+ * XREFs of FxVerifierIsDebugInfoFlagSetForType @ 0x1C0044B68
+ * Callers:
+ *     ?AllocateTagTracker@FxObject@@IEAAXG@Z @ 0x1C00460E8 (-AllocateTagTracker@FxObject@@IEAAXG@Z.c)
+ *     ?Vf_VerifyLeakDetectionConsiderObject@FxObject@@AEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00BAD98 (-Vf_VerifyLeakDetectionConsiderObject@FxObject@@AEAAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall FxVerifierIsDebugInfoFlagSetForType(
         FxObjectDebugInfo *DebugInfo,
         unsigned __int16 ObjectType,

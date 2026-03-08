@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiInitializeCacheFlushing @ 0x140B675DC
+ * Callers:
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     MiFlushCacheForAttributeChange @ 0x140214754 (MiFlushCacheForAttributeChange.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiFinalizePageAttribute @ 0x14028A354 (MiFinalizePageAttribute.c)
+ *     MiZeroPhysicalPage @ 0x1402CE78C (MiZeroPhysicalPage.c)
+ *     KeInvalidateAllCaches @ 0x1403010D0 (KeInvalidateAllCaches.c)
+ *     MiReleaseFreshPage @ 0x14034E570 (MiReleaseFreshPage.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14036D020 (MiFlushEntireTbDueToAttributeChange.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1404129D0 (ZwQuerySystemInformation.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 MiInitializeCacheFlushing()
 {
   __int64 result; // rax

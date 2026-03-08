@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPixelColor@CSystemMemoryBitmap@@UEBA?AU_D3DCOLORVALUE@@AEBUD2D_POINT_2U@@@Z @ 0x180130DE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 struct _D3DCOLORVALUE *__fastcall CSystemMemoryBitmap::GetPixelColor(
         CSystemMemoryBitmap *this,
         struct _D3DCOLORVALUE *__return_ptr retstr,

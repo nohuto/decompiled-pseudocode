@@ -1,3 +1,15 @@
+/*
+ * XREFs of _lambda_130f3fd38fafab82521855fb46aefe92_::operator() @ 0x1800143A4
+ * Callers:
+ *     ?TryMerge@CRoundedRectangleGeometryData@@SA_NAEBU1@0PEAU1@@Z @ 0x18001421C (-TryMerge@CRoundedRectangleGeometryData@@SA_NAEBU1@0PEAU1@@Z.c)
+ * Callees:
+ *     ??8@YA_NAEBVCMilPoint2F@@0@Z @ 0x1800145FC (--8@YA_NAEBVCMilPoint2F@@0@Z.c)
+ *     ?HasAnyRoundedCorners@CRoundedRectangleGeometryData@@QEBA_NXZ @ 0x180083710 (-HasAnyRoundedCorners@CRoundedRectangleGeometryData@@QEBA_NXZ.c)
+ *     ?IsRoundedCorner@CRoundedRectangleGeometryData@@QEBA_NW4RoundedCornerIndex@@@Z @ 0x1800D3A18 (-IsRoundedCorner@CRoundedRectangleGeometryData@@QEBA_NW4RoundedCornerIndex@@@Z.c)
+ *     ?IsPointOutsideCorner@CRoundedRectangleGeometryData@@CA_NAEBVCMilPoint2F@@0AEBUD2D_VECTOR_2F@@@Z @ 0x1800F8E2C (-IsPointOutsideCorner@CRoundedRectangleGeometryData@@CA_NAEBVCMilPoint2F@@0AEBUD2D_VECTOR_2F@@@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ */
+
 char __fastcall lambda_130f3fd38fafab82521855fb46aefe92_::operator()(
         __int64 a1,
         int *a2,

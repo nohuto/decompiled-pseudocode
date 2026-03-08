@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiNodeHasFreeOrZeroPages @ 0x14064B4C0
+ * Callers:
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiNodeHasFreeOrZeroPages(_QWORD *a1, int a2)
 {
   unsigned int v2; // eax

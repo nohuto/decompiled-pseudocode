@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopSystemIdleEventHandler @ 0x140880C00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopAcquireAdaptiveLock @ 0x14073CCB4 (PopAcquireAdaptiveLock.c)
+ *     PopReleaseAdaptiveLock @ 0x14073CD60 (PopReleaseAdaptiveLock.c)
+ */
+
 __int64 __fastcall PopSystemIdleEventHandler(char a1, _DWORD *a2, _DWORD *a3)
 {
   __int64 v6; // rdx

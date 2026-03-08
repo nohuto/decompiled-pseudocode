@@ -1,3 +1,11 @@
+/*
+ * XREFs of Feature_Servicing_GpuAcceleratedVideoDecodingLeak__private_IsEnabledFallback @ 0x1C001A5F4
+ * Callers:
+ *     Feature_Servicing_GpuAcceleratedVideoDecodingLeak__private_IsEnabledDeviceUsage @ 0x1C001A5BC (Feature_Servicing_GpuAcceleratedVideoDecodingLeak__private_IsEnabledDeviceUsage.c)
+ * Callees:
+ *     wil_details_IsEnabledFallback @ 0x1C001A424 (wil_details_IsEnabledFallback.c)
+ */
+
 __int64 __fastcall Feature_Servicing_GpuAcceleratedVideoDecodingLeak__private_IsEnabledFallback(
         __int64 a1,
         unsigned int a2)

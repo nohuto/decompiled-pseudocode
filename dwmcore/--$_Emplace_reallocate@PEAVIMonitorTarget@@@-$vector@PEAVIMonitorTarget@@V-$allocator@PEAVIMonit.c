@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??$_Emplace_reallocate@PEAVIMonitorTarget@@@?$vector@PEAVIMonitorTarget@@V?$allocator@PEAVIMonitorTarget@@@std@@@std@@QEAAPEAPEAVIMonitorTarget@@QEAPEAV2@$$QEAPEAV2@@Z @ 0x18020C730
+ * Callers:
+ *     ?GetIntersectingMonitorTargets@CDesktopTree@@QEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAV?$vector@PEAVIMonitorTarget@@V?$allocator@PEAVIMonitorTarget@@@std@@@std@@@Z @ 0x18020CA64 (-GetIntersectingMonitorTargets@CDesktopTree@@QEAAXAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilP.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$07@std@@YA_K_K@Z @ 0x1800B9880 (--$_Get_size_of_n@$07@std@@YA_K_K@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     ?_Change_array@?$vector@PEAVIMonitorTarget@@V?$allocator@PEAVIMonitorTarget@@@std@@@std@@AEAAXQEAPEAVIMonitorTarget@@_K1@Z @ 0x18020CC8C (-_Change_array@-$vector@PEAVIMonitorTarget@@V-$allocator@PEAVIMonitorTarget@@@std@@@std@@AEAAXQE.c)
+ */
+
 char *__fastcall std::vector<IMonitorTarget *>::_Emplace_reallocate<IMonitorTarget *>(
         const void **a1,
         _BYTE *a2,

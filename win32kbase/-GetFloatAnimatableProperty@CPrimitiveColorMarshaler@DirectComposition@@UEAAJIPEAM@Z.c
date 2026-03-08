@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetFloatAnimatableProperty@CPrimitiveColorMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C02620E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C024C0F0 (-GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z.c)
+ */
+
 __int64 __fastcall DirectComposition::CPrimitiveColorMarshaler::GetFloatAnimatableProperty(
         DirectComposition::CPrimitiveColorMarshaler *this,
         int a2,

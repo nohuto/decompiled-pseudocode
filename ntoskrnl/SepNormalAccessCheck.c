@@ -1,3 +1,22 @@
+/*
+ * XREFs of SepNormalAccessCheck @ 0x140267220
+ * Callers:
+ *     SepAccessCheck @ 0x140266980 (SepAccessCheck.c)
+ * Callees:
+ *     AuthzBasepAddAccessTypeList @ 0x140206EC4 (AuthzBasepAddAccessTypeList.c)
+ *     RtlEqualSid @ 0x140208A60 (RtlEqualSid.c)
+ *     SepIsPackageSid @ 0x140208A9C (SepIsPackageSid.c)
+ *     SepIsCapabilitySid @ 0x140208AF4 (SepIsCapabilitySid.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x140246980 (AuthzBasepEvaluateAceCondition.c)
+ *     SepMatchPackage @ 0x14024717C (SepMatchPackage.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1402975A8 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     SepMatchCapability @ 0x1402E8F24 (SepMatchCapability.c)
+ *     SepSidInTokenSidHash @ 0x14033DEA0 (SepSidInTokenSidHash.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     AuthzBasepObjectInTypeList @ 0x14066CAA0 (AuthzBasepObjectInTypeList.c)
+ */
+
 __int64 __fastcall SepNormalAccessCheck(
         int a1,
         __int64 a2,

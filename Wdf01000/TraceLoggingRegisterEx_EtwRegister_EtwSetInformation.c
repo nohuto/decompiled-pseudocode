@@ -1,3 +1,12 @@
+/*
+ * XREFs of TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C00B0350
+ * Callers:
+ *     RegisterTelemetryProvider @ 0x1C004DB60 (RegisterTelemetryProvider.c)
+ *     InitializeTelemetryAssertsKMWorkerInternal @ 0x1C0086BDC (InitializeTelemetryAssertsKMWorkerInternal.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall TraceLoggingRegisterEx_EtwRegister_EtwSetInformation(
         _tlgProvider_t *hProvider,
         void (__fastcall *a2)(const _GUID *, unsigned int, unsigned __int8, unsigned __int64, unsigned __int64, _EVENT_FILTER_DESCRIPTOR *, void *),

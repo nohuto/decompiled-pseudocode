@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpArtAvailable @ 0x1403733F0
+ * Callers:
+ *     HalpArtInitialize @ 0x140372B50 (HalpArtInitialize.c)
+ *     HalpArtDiscover @ 0x1403A0C88 (HalpArtDiscover.c)
+ * Callees:
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x14037333C (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpIsHvPresent @ 0x14037337C (HalpIsHvPresent.c)
+ *     HalSocRequestApi @ 0x1403737EC (HalSocRequestApi.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char __fastcall HalpArtAvailable(_DWORD *a1, unsigned int *a2)
 {
   __int64 v4; // rdx

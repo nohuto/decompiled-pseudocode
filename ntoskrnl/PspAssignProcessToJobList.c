@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspAssignProcessToJobList @ 0x1409ADF10
+ * Callers:
+ *     PspInsertThread @ 0x1406B0F50 (PspInsertThread.c)
+ * Callees:
+ *     PsAssignProcessToJobObject @ 0x1406FF9A0 (PsAssignProcessToJobObject.c)
+ *     EtwTraceJobAssignProcess @ 0x1409E25F8 (EtwTraceJobAssignProcess.c)
+ */
+
 __int64 __fastcall PspAssignProcessToJobList(struct _KPROCESS *a1, __int64 a2, unsigned __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // r15

@@ -1,3 +1,13 @@
+/*
+ * XREFs of WindowFromCacheDC @ 0x1C01BF06C
+ * Callers:
+ *     NtUserSelectPalette @ 0x1C00D0140 (NtUserSelectPalette.c)
+ *     _SelectPalette @ 0x1C0125A20 (_SelectPalette.c)
+ *     xxxRealizePalette @ 0x1C0217A18 (xxxRealizePalette.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WindowFromCacheDC(__int64 *a1)
 {
   __int64 v2; // rbx

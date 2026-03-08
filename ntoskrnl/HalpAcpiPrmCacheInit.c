@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpAcpiPrmCacheInit @ 0x140B62BF0
+ * Callers:
+ *     HalpAcpiInitSystem @ 0x140A8D770 (HalpAcpiInitSystem.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 HalpAcpiPrmCacheInit()
 {
   __int64 v0; // rbp

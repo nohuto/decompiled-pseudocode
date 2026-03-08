@@ -1,3 +1,17 @@
+/*
+ * XREFs of PpmHeteroInitializeHgsSupport @ 0x1403A6784
+ * Callers:
+ *     PpmHeteroHgsBackupInit @ 0x1403A6744 (PpmHeteroHgsBackupInit.c)
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ * Callees:
+ *     MmAllocatePagesForMdlEx @ 0x1402B3960 (MmAllocatePagesForMdlEx.c)
+ *     MiFreePagesFromMdl @ 0x1402C0DD0 (MiFreePagesFromMdl.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     Feature_HgsPlusSupportRequired__private_ReportDeviceUsage @ 0x14040BA08 (Feature_HgsPlusSupportRequired__private_ReportDeviceUsage.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 PpmHeteroInitializeHgsSupport()
 {
   unsigned __int8 v10; // di

@@ -1,3 +1,14 @@
+/*
+ * XREFs of CompareNamesCaseSensitive @ 0x1409B7868
+ * Callers:
+ *     PfxFindPrefix @ 0x1409B7AF0 (PfxFindPrefix.c)
+ *     PfxInsertPrefix @ 0x1409B7BF0 (PfxInsertPrefix.c)
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     RtlpIsUtf8Process @ 0x1406EA7A0 (RtlpIsUtf8Process.c)
+ */
+
 __int64 __fastcall CompareNamesCaseSensitive(unsigned __int16 *a1, unsigned __int16 *a2)
 {
   unsigned int v3; // edi

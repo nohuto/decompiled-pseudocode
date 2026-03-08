@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1DXGADAPTER_REFERENCE@@QEAA@XZ @ 0x1C0029240
+ * Callers:
+ *     DxgkDisplayConfigDeviceInfo @ 0x1C01AB2A0 (DxgkDisplayConfigDeviceInfo.c)
+ * Callees:
+ *     ?Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z @ 0x1C00097B8 (-Assign@DXGADAPTER_REFERENCE@@QEAAXPEAVDXGADAPTER@@@Z.c)
+ */
+
 void __fastcall DXGADAPTER_REFERENCE::~DXGADAPTER_REFERENCE(DXGADAPTER **this)
 {
   DXGADAPTER_REFERENCE::Assign(this, 0LL);

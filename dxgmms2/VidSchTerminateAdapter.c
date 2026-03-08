@@ -1,3 +1,26 @@
+/*
+ * XREFs of VidSchTerminateAdapter @ 0x1C0108B80
+ * Callers:
+ *     VidSchInitializeAdapter @ 0x1C00B5B90 (VidSchInitializeAdapter.c)
+ *     VidSchiHandleControlEvent @ 0x1C01063DC (VidSchiHandleControlEvent.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C0001A30 (--3@YAXPEAX@Z.c)
+ *     VidSchiAcceptsIncomingWork @ 0x1C0006830 (VidSchiAcceptsIncomingWork.c)
+ *     VidSchiDecrementContextReference @ 0x1C0011CE0 (VidSchiDecrementContextReference.c)
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C0012530 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     VidSchIsWorkerThread @ 0x1C0014FD0 (VidSchIsWorkerThread.c)
+ *     VidSchiClearPeriodicFrameNotifications @ 0x1C0018928 (VidSchiClearPeriodicFrameNotifications.c)
+ *     ??1_VIDSCH_GLOBAL@@QEAA@XZ @ 0x1C003D454 (--1_VIDSCH_GLOBAL@@QEAA@XZ.c)
+ *     VidSchTerminateHwContext @ 0x1C0045190 (VidSchTerminateHwContext.c)
+ *     VidSchTerminateHwQueue @ 0x1C0045300 (VidSchTerminateHwQueue.c)
+ *     VidSchTerminateDevice @ 0x1C00A8E60 (VidSchTerminateDevice.c)
+ *     VidSchTerminateContext @ 0x1C00A8F80 (VidSchTerminateContext.c)
+ *     VidSchControlVSyncAdapter @ 0x1C00AD380 (VidSchControlVSyncAdapter.c)
+ *     VidSchiRequestSchedulerStatus @ 0x1C00B7E60 (VidSchiRequestSchedulerStatus.c)
+ *     VidSchFlushAdapter @ 0x1C0107550 (VidSchFlushAdapter.c)
+ *     VidSchiBlockDriverCallback @ 0x1C010A3BC (VidSchiBlockDriverCallback.c)
+ */
+
 __int64 __fastcall VidSchTerminateAdapter(struct _VIDSCH_GLOBAL *a1)
 {
   int v2; // r14d

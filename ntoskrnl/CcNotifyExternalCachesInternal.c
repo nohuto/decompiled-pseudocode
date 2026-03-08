@@ -1,3 +1,19 @@
+/*
+ * XREFs of CcNotifyExternalCachesInternal @ 0x1403CD5F8
+ * Callers:
+ *     CcQueueLazyWriteScanThreadForVolume @ 0x1403BA4E0 (CcQueueLazyWriteScanThreadForVolume.c)
+ *     CcQueueLazyWriteScanThread @ 0x140534A20 (CcQueueLazyWriteScanThread.c)
+ * Callees:
+ *     CcCalculatePagesToWrite @ 0x140217524 (CcCalculatePagesToWrite.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     CcCalculatePagesToWriteForVolume @ 0x1402EA204 (CcCalculatePagesToWriteForVolume.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall CcNotifyExternalCachesInternal(unsigned int a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 v6; // rbp

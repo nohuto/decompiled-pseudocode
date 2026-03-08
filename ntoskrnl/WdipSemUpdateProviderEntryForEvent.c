@@ -1,3 +1,11 @@
+/*
+ * XREFs of WdipSemUpdateProviderEntryForEvent @ 0x1408338F0
+ * Callers:
+ *     WdipSemUpdateProviderEntriesForScenario @ 0x140833898 (WdipSemUpdateProviderEntriesForScenario.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WdipSemUpdateProviderEntryForEvent(__int64 a1, char a2)
 {
   __int64 v2; // r11

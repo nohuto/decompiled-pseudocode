@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMIDEValidateLogicalDeviceSize @ 0x1C01C537C
+ * Callers:
+ *     RIMPopulatePointerDevice @ 0x1C01AF510 (RIMPopulatePointerDevice.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ */
+
 __int64 __fastcall RIMIDEValidateLogicalDeviceSize(_DWORD *a1, int a2, int a3)
 {
   unsigned int v3; // r9d

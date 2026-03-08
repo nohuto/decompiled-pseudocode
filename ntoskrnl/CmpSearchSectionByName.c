@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpSearchSectionByName @ 0x140B4E7D0
+ * Callers:
+ *     CmpGetSectionLineIndexValueCount @ 0x140B4DB74 (CmpGetSectionLineIndexValueCount.c)
+ *     EmpInfParseGetSectionLineCount @ 0x140B4E09C (EmpInfParseGetSectionLineCount.c)
+ *     CmpGetSectionLineIndex @ 0x140B4E640 (CmpGetSectionLineIndex.c)
+ *     CmpGetKeyName @ 0x140B4E760 (CmpGetKeyName.c)
+ * Callees:
+ *     _stricmp @ 0x1403D3BD0 (_stricmp.c)
+ */
+
 __int64 **__fastcall CmpSearchSectionByName(__int64 ***a1, const char *a2)
 {
   __int64 **i; // rbx

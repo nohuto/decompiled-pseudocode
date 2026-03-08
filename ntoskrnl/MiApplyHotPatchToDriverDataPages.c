@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiApplyHotPatchToDriverDataPages @ 0x140A32268
+ * Callers:
+ *     MiApplyDriverHotPatch @ 0x140A31BB8 (MiApplyDriverHotPatch.c)
+ *     MiMapAndApplyPatchInSession @ 0x140A37338 (MiMapAndApplyPatchInSession.c)
+ * Callees:
+ *     RtlClearBitsEx @ 0x14020FC50 (RtlClearBitsEx.c)
+ *     MiSetImageProtection @ 0x1402E3BB8 (MiSetImageProtection.c)
+ *     RtlFindNextForwardRunSetEx @ 0x1405A5FA4 (RtlFindNextForwardRunSetEx.c)
+ *     RtlApplyHotPatch @ 0x140AAA600 (RtlApplyHotPatch.c)
+ */
+
 __int64 __fastcall MiApplyHotPatchToDriverDataPages(__int64 a1)
 {
   int v2; // edx

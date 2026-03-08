@@ -1,3 +1,15 @@
+/*
+ * XREFs of ParseNestedContext @ 0x1C005BB50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DupObjData @ 0x1C004AF04 (DupObjData.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ *     AsyncCallBack @ 0x1C00543D8 (AsyncCallBack.c)
+ */
+
 __int64 __fastcall ParseNestedContext(__int64 a1, __int64 a2, unsigned int a3)
 {
   unsigned int v3; // eax

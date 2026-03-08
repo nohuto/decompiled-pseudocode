@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlpHpVaMgrCtxAlloc @ 0x1403041DC
+ * Callers:
+ *     RtlpHpAllocVA @ 0x140330920 (RtlpHpAllocVA.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     RtlpHpVaMgrAlloc @ 0x14030424C (RtlpHpVaMgrAlloc.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     RtlpHpVaMgrCtxAllocatorFind @ 0x140375BE8 (RtlpHpVaMgrCtxAllocatorFind.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall RtlpHpVaMgrCtxAlloc(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
 {
   __int64 v4; // rax

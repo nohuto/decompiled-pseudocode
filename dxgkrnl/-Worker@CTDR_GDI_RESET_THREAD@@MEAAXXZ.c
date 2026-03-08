@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Worker@CTDR_GDI_RESET_THREAD@@MEAAXXZ @ 0x1C030AC50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GdiCalloutLoop@CTDR_GDI_RESET_THREAD@@IEAAJAEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@@Z @ 0x1C0308DE0 (-GdiCalloutLoop@CTDR_GDI_RESET_THREAD@@IEAAJAEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@@Z.c)
+ *     TdrBugcheckOnTimeout @ 0x1C030AF10 (TdrBugcheckOnTimeout.c)
+ */
+
 void __fastcall CTDR_GDI_RESET_THREAD::Worker(ULONG_PTR *this, __int64 a2, __int64 a3)
 {
   int v4; // eax

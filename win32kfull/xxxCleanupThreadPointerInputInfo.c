@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxCleanupThreadPointerInputInfo @ 0x1C00D1B90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?UnlinkAndFreeThreadPointerData@@YAXPEAUtagTHREADINPUTPOINTERLIST@@PEAUtagTHREADPOINTERDATA@@@Z @ 0x1C0146652 (-UnlinkAndFreeThreadPointerData@@YAXPEAUtagTHREADINPUTPOINTERLIST@@PEAUtagTHREADPOINTERDATA@@@Z.c)
+ *     ?FreeThreadPointerHookData@@YAXPEAUtagTHREADPOINTERDATA@@@Z @ 0x1C01C6B78 (-FreeThreadPointerHookData@@YAXPEAUtagTHREADPOINTERDATA@@@Z.c)
+ *     ?ForceCompletePendingPromotion@@YAXXZ @ 0x1C01F8F5C (-ForceCompletePendingPromotion@@YAXXZ.c)
+ *     ?xxxProcessMousePromotionQueue@@YAXXZ @ 0x1C01F99E8 (-xxxProcessMousePromotionQueue@@YAXXZ.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall xxxCleanupThreadPointerInputInfo(__int64 a1)
 {

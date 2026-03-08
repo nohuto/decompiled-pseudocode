@@ -1,3 +1,15 @@
+/*
+ * XREFs of PsReferencePartitionSystemProcess @ 0x1409B3550
+ * Callers:
+ *     ExSwapinWorkerThreads @ 0x1409FD778 (ExSwapinWorkerThreads.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 __int64 __fastcall PsReferencePartitionSystemProcess(__int64 a1, _QWORD *a2)
 {
   struct _KTHREAD *CurrentThread; // rax

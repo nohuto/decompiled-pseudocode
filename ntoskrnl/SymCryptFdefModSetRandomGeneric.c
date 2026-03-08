@@ -1,3 +1,18 @@
+/*
+ * XREFs of SymCryptFdefModSetRandomGeneric @ 0x1403FF2CC
+ * Callers:
+ *     SymCryptModSetRandom @ 0x1403F3DE4 (SymCryptModSetRandom.c)
+ *     SymCryptFdefModInvGeneric @ 0x1403FE960 (SymCryptFdefModInvGeneric.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     SymCryptWipe @ 0x1403F0988 (SymCryptWipe.c)
+ *     SymCryptFdefRawAddUint32 @ 0x1403FDCF4 (SymCryptFdefRawAddUint32.c)
+ *     SymCryptFdefRawIsLessThan @ 0x1403FDF7C (SymCryptFdefRawIsLessThan.c)
+ *     SymCryptFdefRawSubUint32 @ 0x1403FE1D4 (SymCryptFdefRawSubUint32.c)
+ *     SymCryptFatal @ 0x14056ADB4 (SymCryptFatal.c)
+ *     SymCryptCallbackRandom @ 0x14067B454 (SymCryptCallbackRandom.c)
+ */
+
 void __fastcall __noreturn SymCryptFdefModSetRandomGeneric(int *a1, __int64 a2, char a3, _DWORD *a4, __int64 a5)
 {
   int v5; // r14d

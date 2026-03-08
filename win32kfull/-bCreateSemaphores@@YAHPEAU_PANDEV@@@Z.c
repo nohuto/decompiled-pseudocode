@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bCreateSemaphores@@YAHPEAU_PANDEV@@@Z @ 0x1C029F970
+ * Callers:
+ *     ?PanEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C029E3D0 (-PanEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO@@PEA.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall bCreateSemaphores(struct _PANDEV *a1)
 {
   struct _KSEMAPHORE *v2; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserRegisterWindowMessage @ 0x1C00C59E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastStatus @ 0x1C0012568 (UserSetLastStatus.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall NtUserRegisterWindowMessage(ULONG64 a1)
 {
   ULONG64 v1; // rdx

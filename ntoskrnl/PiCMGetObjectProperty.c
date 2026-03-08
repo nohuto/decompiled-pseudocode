@@ -1,3 +1,18 @@
+/*
+ * XREFs of PiCMGetObjectProperty @ 0x1406CF2B4
+ * Callers:
+ *     PiCMHandleIoctl @ 0x1406CF040 (PiCMHandleIoctl.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PiCMReleasePropertyInputData @ 0x1406CF510 (PiCMReleasePropertyInputData.c)
+ *     PiCMCapturePropertyInputData @ 0x1406CF564 (PiCMCapturePropertyInputData.c)
+ *     PiCMReturnBufferResultData @ 0x1406D0ED4 (PiCMReturnBufferResultData.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiCMGetObjectProperty(
         __int64 a1,
         unsigned int a2,

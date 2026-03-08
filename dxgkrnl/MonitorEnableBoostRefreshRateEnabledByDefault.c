@@ -1,3 +1,12 @@
+/*
+ * XREFs of MonitorEnableBoostRefreshRateEnabledByDefault @ 0x1C03BF704
+ * Callers:
+ *     DxgkDisplayConfigDeviceInfo @ 0x1C01AB2A0 (DxgkDisplayConfigDeviceInfo.c)
+ * Callees:
+ *     ?AcquireMonitorExclusive@MONITOR_MGR@@SA?AV?$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@PEAXI_N@Z @ 0x1C0001E2C (-AcquireMonitorExclusive@MONITOR_MGR@@SA-AV-$RESOURCE_LOCK_ACCESSOR@VDXGMONITOR@@@@PEAXI_N@Z.c)
+ *     ?_EnableBoostRefreshRateEnabled@DXGMONITOR@@QEAAJ_N@Z @ 0x1C03C4D50 (-_EnableBoostRefreshRateEnabled@DXGMONITOR@@QEAAJ_N@Z.c)
+ */
+
 __int64 __fastcall MonitorEnableBoostRefreshRateEnabledByDefault(__int64 a1, unsigned int a2, bool a3)
 {
   int refreshed; // edi

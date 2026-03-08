@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiTrimThisWsle @ 0x1403493EC
+ * Callers:
+ *     MiTrimPteWorker @ 0x140349308 (MiTrimPteWorker.c)
+ * Callees:
+ *     MiGetPfnPriority @ 0x14028A3F8 (MiGetPfnPriority.c)
+ *     MiLocateCloneAddress @ 0x1402CF530 (MiLocateCloneAddress.c)
+ *     MiGetVaAge @ 0x140349610 (MiGetVaAge.c)
+ */
+
 __int64 __fastcall MiTrimThisWsle(__int64 a1, unsigned __int64 a2, __int64 a3, int *a4, unsigned __int8 a5, _DWORD *a6)
 {
   __int64 v10; // rdi

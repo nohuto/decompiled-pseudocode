@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlQueryPointerMapping @ 0x1405A83D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpAcquirePropStoreLockShared @ 0x1405A8904 (RtlpAcquirePropStoreLockShared.c)
+ */
+
 __int64 __fastcall RtlQueryPointerMapping(__int64 a1, _QWORD *a2)
 {
   unsigned __int64 v4; // rdi

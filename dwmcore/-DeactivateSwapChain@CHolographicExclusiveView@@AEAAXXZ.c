@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?DeactivateSwapChain@CHolographicExclusiveView@@AEAAXXZ @ 0x1802A4F60
+ * Callers:
+ *     ?ActivateView@CHolographicExclusiveView@@QEAA_NPEAVCHolographicClient@@@Z @ 0x1802A4DB4 (-ActivateView@CHolographicExclusiveView@@QEAA_NPEAVCHolographicClient@@@Z.c)
+ *     ?DeactivateView@CHolographicExclusiveView@@QEAAXPEAVCHolographicClient@@@Z @ 0x1802A4FCC (-DeactivateView@CHolographicExclusiveView@@QEAAXPEAVCHolographicClient@@@Z.c)
+ *     ?OnSwapChainRelease@CHolographicExclusiveView@@QEAAXXZ @ 0x1802A514C (-OnSwapChainRelease@CHolographicExclusiveView@@QEAAXXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?CloseSurfaceHandles@CHolographicExclusiveView@@AEAAXXZ @ 0x1802A4EF4 (-CloseSurfaceHandles@CHolographicExclusiveView@@AEAAXXZ.c)
+ */
+
 void __fastcall CHolographicExclusiveView::DeactivateSwapChain(CHolographicExclusiveView *this)
 {
   __int64 v2; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of IpmiLibpHandleSendInterrupt @ 0x140676360
+ * Callers:
+ *     IpmiLibpKcsSendRequestToBMC @ 0x140675EF8 (IpmiLibpKcsSendRequestToBMC.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall IpmiLibpHandleSendInterrupt(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

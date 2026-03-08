@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DpiClaimPersistedMemoryBlock@@YAJPEAU_FDO_CONTEXT@@_KPEBU_GUID@@@Z @ 0x1C03A0934
+ * Callers:
+ *     DpiKsrRestore @ 0x1C03A19E0 (DpiKsrRestore.c)
+ *     DpiKsrRestoreAdapterDriverState @ 0x1C03A1B4C (DpiKsrRestoreAdapterDriverState.c)
+ * Callees:
+ *     ?DpiDxgkDdiRestoreMemoryForHotUpdate@@YAJPEAU_FDO_CONTEXT@@PEBU_DXGKARG_RESTOREMEMORYFORHOTUPDATE@@@Z @ 0x1C03A0D94 (-DpiDxgkDdiRestoreMemoryForHotUpdate@@YAJPEAU_FDO_CONTEXT@@PEBU_DXGKARG_RESTOREMEMORYFORHOTUPDAT.c)
+ */
+
 __int64 __fastcall DpiClaimPersistedMemoryBlock(struct _FDO_CONTEXT *a1, __int64 a2, const struct _GUID *a3)
 {
   void *Pool2; // r15

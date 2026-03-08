@@ -1,3 +1,17 @@
+/*
+ * XREFs of IoInitializeIrp @ 0x1402CABC0
+ * Callers:
+ *     IoInitializeIrpEx @ 0x1403CAE50 (IoInitializeIrpEx.c)
+ *     IopAllocateBackpocketIrp @ 0x1405525E0 (IopAllocateBackpocketIrp.c)
+ *     IopAllocateReserveIrp @ 0x140552878 (IopAllocateReserveIrp.c)
+ *     WmipSendWmiIrpToTraceDeviceList @ 0x140847A74 (WmipSendWmiIrpToTraceDeviceList.c)
+ *     SmStorePhysicalRequestIssue @ 0x1409D4DC0 (SmStorePhysicalRequestIssue.c)
+ *     ViIrpAllocateLockedPacket @ 0x140ACAC64 (ViIrpAllocateLockedPacket.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IovInitializeIrp @ 0x140ABE758 (IovInitializeIrp.c)
+ */
+
 void __stdcall IoInitializeIrp(PIRP Irp, USHORT PacketSize, CCHAR StackSize)
 {
   __int64 v4; // rdi

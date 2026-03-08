@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?xxxSetAndDrawNCMetrics@@YAHPEAU_UNICODE_STRING@@HPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C01C954C
+ * Callers:
+ *     xxxSystemParametersInfoWorker @ 0x1C01032D0 (xxxSystemParametersInfoWorker.c)
+ *     ?xxxSPISetNCMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagNONCLIENTMETRICSW@@H@Z @ 0x1C01C92D0 (-xxxSPISetNCMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagNONCLIENTMETRICSW@@H@Z.c)
+ * Callees:
+ *     xxxInternalInvalidate @ 0x1C0053270 (xxxInternalInvalidate.c)
+ *     xxxSetWindowNCMetrics @ 0x1C010CBC8 (xxxSetWindowNCMetrics.c)
+ *     xxxMetricsRecalc @ 0x1C01C9A5C (xxxMetricsRecalc.c)
+ *     MenuRecalc @ 0x1C0230930 (MenuRecalc.c)
+ */
+
 __int64 __fastcall xxxSetAndDrawNCMetrics(struct _UNICODE_STRING *a1, int a2, struct tagNONCLIENTMETRICSW *a3)
 {
   struct tagWND *v5; // rbx

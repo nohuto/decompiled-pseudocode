@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetStringLength @ 0x1C0007B60
+ * Callers:
+ *     CompareId @ 0x1C0025AD8 (CompareId.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetStringLength(_BYTE *a1, unsigned int a2)
 {
   __int64 result; // rax

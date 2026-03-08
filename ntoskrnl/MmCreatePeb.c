@@ -1,3 +1,24 @@
+/*
+ * XREFs of MmCreatePeb @ 0x140706A60
+ * Callers:
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     KeQueryGroupAffinity @ 0x140296080 (KeQueryGroupAffinity.c)
+ *     KeQueryGroupMaskProcess @ 0x1402961A4 (KeQueryGroupMaskProcess.c)
+ *     MmGetSessionId @ 0x140299600 (MmGetSessionId.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MmMapViewOfSection @ 0x14069EC70 (MmMapViewOfSection.c)
+ *     MiCreatePebOrTeb @ 0x1406A35BC (MiCreatePebOrTeb.c)
+ *     MiInitializeWowPeb @ 0x140795138 (MiInitializeWowPeb.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall MmCreatePeb(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4)
 {
   __int64 v6; // r13

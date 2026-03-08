@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpCompileDeviceInstancePaths @ 0x1408633B8
+ * Callers:
+ *     PnpProcessQueryRemoveAndEject @ 0x1408625F0 (PnpProcessQueryRemoveAndEject.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IopEnumerateRelations @ 0x140863508 (IopEnumerateRelations.c)
+ *     PnpAllocateCriticalMemory @ 0x1408637CC (PnpAllocateCriticalMemory.c)
+ */
+
 __int64 __fastcall PnpCompileDeviceInstancePaths(unsigned int a1, __int64 a2, char a3, __int64 *a4)
 {
   unsigned int v4; // edi

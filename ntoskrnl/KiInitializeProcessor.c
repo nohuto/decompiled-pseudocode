@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiInitializeProcessor @ 0x140A8BBD4
+ * Callers:
+ *     KiInitializeDynamicProcessorDpc @ 0x140A9C260 (KiInitializeDynamicProcessorDpc.c)
+ *     KeInitSystem @ 0x140B42FB8 (KeInitSystem.c)
+ * Callees:
+ *     KeInitializeGate @ 0x1402A4FEC (KeInitializeGate.c)
+ *     KiInitializeDpcList @ 0x140302F70 (KiInitializeDpcList.c)
+ *     KeInitializeThreadedDpc @ 0x14037FED0 (KeInitializeThreadedDpc.c)
+ *     KiCreateDpcLimitsProcessorConfiguration @ 0x14037FEF0 (KiCreateDpcLimitsProcessorConfiguration.c)
+ *     KiApplyProcessorDpcLimits @ 0x140A8BC98 (KiApplyProcessorDpcLimits.c)
+ */
+
 __int64 __fastcall KiInitializeProcessor(__int64 a1)
 {
   int v1; // esi

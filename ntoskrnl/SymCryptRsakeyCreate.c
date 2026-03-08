@@ -1,3 +1,16 @@
+/*
+ * XREFs of SymCryptRsakeyCreate @ 0x1403F1CE4
+ * Callers:
+ *     HashpVerifyPkcs1Signature @ 0x140A7467C (HashpVerifyPkcs1Signature.c)
+ * Callees:
+ *     SymCryptWipe @ 0x1403F0988 (SymCryptWipe.c)
+ *     SymCryptSizeofRsakeyFromParams @ 0x1403F249C (SymCryptSizeofRsakeyFromParams.c)
+ *     SymCryptDigitsFromBits @ 0x1403F36C0 (SymCryptDigitsFromBits.c)
+ *     SymCryptModulusCreate @ 0x1403F3EC0 (SymCryptModulusCreate.c)
+ *     SymCryptSizeofIntFromDigits @ 0x1403F3EF0 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptSizeofModulusFromDigits @ 0x1403F3F20 (SymCryptSizeofModulusFromDigits.c)
+ */
+
 __int64 __fastcall SymCryptRsakeyCreate(__int64 a1, unsigned __int64 a2, unsigned int *a3)
 {
   unsigned int v4; // esi

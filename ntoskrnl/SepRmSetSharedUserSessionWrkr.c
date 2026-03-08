@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepRmSetSharedUserSessionWrkr @ 0x1409CD6A0
+ * Callers:
+ *     SepRmCommandServerThread @ 0x140825260 (SepRmCommandServerThread.c)
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ */
+
 struct _LIST_ENTRY *SepRmSetSharedUserSessionWrkr()
 {
   struct _LIST_ENTRY *result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViPendingTryReserveWorker @ 0x1405CD854
+ * Callers:
+ *     ViPendingQueuePassiveLevelCompletion @ 0x140ACEEB0 (ViPendingQueuePassiveLevelCompletion.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ViPendingTryReserveWorker(signed __int64 a1)
 {
   int v1; // r9d

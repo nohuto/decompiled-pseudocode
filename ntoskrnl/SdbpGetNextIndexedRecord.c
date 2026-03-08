@@ -1,3 +1,17 @@
+/*
+ * XREFs of SdbpGetNextIndexedRecord @ 0x140848BC4
+ * Callers:
+ *     SdbFindNextStringIndexedTag @ 0x140848AD4 (SdbFindNextStringIndexedTag.c)
+ *     SdbpFindMatchingName @ 0x140848B18 (SdbpFindMatchingName.c)
+ *     SdbMergeIsEntryUpdated @ 0x140A50A7C (SdbMergeIsEntryUpdated.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbpGetMappedTagData @ 0x1407A2238 (SdbpGetMappedTagData.c)
+ *     SdbpGetNextTagId @ 0x1407A2880 (SdbpGetNextTagId.c)
+ *     SdbGetTagDataSize @ 0x1407A2980 (SdbGetTagDataSize.c)
+ *     SdbGetTagFromTagID @ 0x1407A2A70 (SdbGetTagFromTagID.c)
+ */
+
 __int64 __fastcall SdbpGetNextIndexedRecord(__int64 a1, unsigned int a2, _DWORD *a3)
 {
   __int64 MappedTagData; // rdi

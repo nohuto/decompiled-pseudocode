@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReadVirtualFunctionConfigBlock@DXGK_VIRTUAL_GPU_PARAV@@UEAAJPEAU_DXGKARG_READVIRTUALFUNCTIONCONFIGBLOCK@@@Z @ 0x1C036ABD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall DXGK_VIRTUAL_GPU_PARAV::ReadVirtualFunctionConfigBlock(
         DXGK_VIRTUAL_GPU_PARAV *this,
         struct _DXGKARG_READVIRTUALFUNCTIONCONFIGBLOCK *a2)

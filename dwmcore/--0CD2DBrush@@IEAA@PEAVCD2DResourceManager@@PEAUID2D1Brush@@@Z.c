@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0CD2DBrush@@IEAA@PEAVCD2DResourceManager@@PEAUID2D1Brush@@@Z @ 0x1800F0844
+ * Callers:
+ *     ?Create@CD2DBrush@@SAJPEAVCD2DResourceManager@@PEAUID2D1Brush@@PEAPEAV1@@Z @ 0x1800F0790 (-Create@CD2DBrush@@SAJPEAVCD2DResourceManager@@PEAUID2D1Brush@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     ??0CD2DResource@@IEAA@PEAVCD2DResourceManager@@_N@Z @ 0x18003D1B0 (--0CD2DResource@@IEAA@PEAVCD2DResourceManager@@_N@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 CD2DBrush *__fastcall CD2DBrush::CD2DBrush(CD2DBrush *this, struct CD2DResourceManager *a2, struct ID2D1Brush *a3)
 {
   __int64 v5; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreSfmDwmStartup @ 0x1C00C30D4
+ * Callers:
+ *     GreDwmStartup @ 0x1C00C2644 (GreDwmStartup.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GreSfmDwmStartup(Gre::Base *a1)
 {
   struct Gre::Base::SESSION_GLOBALS *v1; // rbx

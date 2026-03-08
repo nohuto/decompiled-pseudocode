@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsMDIItem @ 0x1C023B184
+ * Callers:
+ *     ?MBC_RightJustifyMenu@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C023A5CC (-MBC_RightJustifyMenu@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IsMDIItem(__int64 *a1)
 {
   __int64 v1; // rdx

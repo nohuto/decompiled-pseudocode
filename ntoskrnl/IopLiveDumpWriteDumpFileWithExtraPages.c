@@ -1,3 +1,26 @@
+/*
+ * XREFs of IopLiveDumpWriteDumpFileWithExtraPages @ 0x14094C9E8
+ * Callers:
+ *     IoCaptureLiveDump @ 0x140948A78 (IoCaptureLiveDump.c)
+ * Callees:
+ *     MmFreePagesFromMdl @ 0x1402C0DB0 (MmFreePagesFromMdl.c)
+ *     RtlClearAllBitsEx @ 0x1402D4520 (RtlClearAllBitsEx.c)
+ *     RtlMergeBitMapsEx @ 0x14039F630 (RtlMergeBitMapsEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SecureDump_Get_SecureDumpHeader @ 0x14055BBE0 (SecureDump_Get_SecureDumpHeader.c)
+ *     RtlNumberOfSetBitsEx @ 0x1405A6770 (RtlNumberOfSetBitsEx.c)
+ *     MmFreeIndependentPages @ 0x14087B250 (MmFreeIndependentPages.c)
+ *     IopLiveDumpCheckTermination @ 0x14094AF74 (IopLiveDumpCheckTermination.c)
+ *     IopLiveDumpFreeDumpBuffers @ 0x14094B0B8 (IopLiveDumpFreeDumpBuffers.c)
+ *     IopLiveDumpGetExtraMergePages @ 0x14094B4D0 (IopLiveDumpGetExtraMergePages.c)
+ *     IopLiveDumpGetNtMergePages @ 0x14094B7E0 (IopLiveDumpGetNtMergePages.c)
+ *     IopLiveDumpWriteBuffer @ 0x14094C450 (IopLiveDumpWriteBuffer.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopLiveDumpWriteDumpFileWithExtraPages(__int64 a1)
 {
   __int64 v1; // r14

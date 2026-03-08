@@ -1,3 +1,11 @@
+/*
+ * XREFs of StringFromGuid @ 0x1C02752BC
+ * Callers:
+ *     CreateVmSharedMemorySection @ 0x1C02750B0 (CreateVmSharedMemorySection.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall StringFromGuid(unsigned int *a1, __int64 a2)
 {
   wchar_t *Pool2; // rax

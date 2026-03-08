@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpCompareUnicodeString @ 0x14077B3C0
+ * Callers:
+ *     CmpPerformCompleteKcbCacheLookup @ 0x1406E1630 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpFindKcbInHashEntryByName @ 0x140775070 (CmpFindKcbInHashEntryByName.c)
+ *     CmpCreateKeyControlBlock @ 0x1407AFAA0 (CmpCreateKeyControlBlock.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1407B0EF0 (CmpGetSymbolicLinkTarget.c)
+ *     CmpCheckValueList @ 0x1407B2930 (CmpCheckValueList.c)
+ *     CmpGetMappingHiveForString @ 0x140A16EC8 (CmpGetMappingHiveForString.c)
+ *     CmpCompareKeysByName @ 0x140A1CA20 (CmpCompareKeysByName.c)
+ * Callees:
+ *     NLS_UPCASE @ 0x140267AD0 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ */
+
 __int64 __fastcall CmpCompareUnicodeString(__int64 a1, __int64 a2, char a3)
 {
   unsigned __int16 *v4; // rdi

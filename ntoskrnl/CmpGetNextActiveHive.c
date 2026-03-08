@@ -1,3 +1,30 @@
+/*
+ * XREFs of CmpGetNextActiveHive @ 0x1406BD940
+ * Callers:
+ *     CmShutdownSystem1 @ 0x140613784 (CmShutdownSystem1.c)
+ *     CmShutdownSystem2 @ 0x1406139DC (CmShutdownSystem2.c)
+ *     CmpLockKcbStackFlusherLocksExclusive @ 0x140613E8C (CmpLockKcbStackFlusherLocksExclusive.c)
+ *     CmpTransMgrPrepare @ 0x1406B5D04 (CmpTransMgrPrepare.c)
+ *     CmpDoFlushNextHive @ 0x1406BD800 (CmpDoFlushNextHive.c)
+ *     CmpDoLocalizeNextHive @ 0x140731900 (CmpDoLocalizeNextHive.c)
+ *     CmpDoReconcileNextHive @ 0x140732AC0 (CmpDoReconcileNextHive.c)
+ *     CmpHandlePageFileOpenNotification @ 0x140851670 (CmpHandlePageFileOpenNotification.c)
+ *     CmpUpdatePhaseAccessBit @ 0x14085A0A4 (CmpUpdatePhaseAccessBit.c)
+ *     CmpFreeAllMemory @ 0x140A0E6C8 (CmpFreeAllMemory.c)
+ *     CmEtwRunDown @ 0x140A0F788 (CmEtwRunDown.c)
+ *     CmFreezeRegistry @ 0x140A10664 (CmFreezeRegistry.c)
+ *     CmThawRegistry @ 0x140A10894 (CmThawRegistry.c)
+ *     CmpBlockTwoHiveWrites @ 0x140A10BB8 (CmpBlockTwoHiveWrites.c)
+ *     CmpIsHiveAlreadyLoaded @ 0x140A13C04 (CmpIsHiveAlreadyLoaded.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ */
+
 __int64 *__fastcall CmpGetNextActiveHive(struct _EX_RUNDOWN_REF *a1)
 {
   __int64 *v2; // rsi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIEcWatchdogDpc @ 0x1C0025D70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIEcLogAction @ 0x1C0002D3C (ACPIEcLogAction.c)
+ *     ACPIEcLogError @ 0x1C0025B98 (ACPIEcLogError.c)
+ *     ACPIEcServiceDevice @ 0x1C0025C50 (ACPIEcServiceDevice.c)
+ */
+
 void __fastcall ACPIEcWatchdogDpc(
         struct _KDPC *Dpc,
         char *DeferredContext,

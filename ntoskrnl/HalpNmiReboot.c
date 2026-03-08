@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpNmiReboot @ 0x1405198E0
+ * Callers:
+ *     HalpInterruptResetAllProcessors @ 0x140502DCC (HalpInterruptResetAllProcessors.c)
+ * Callees:
+ *     KeStallExecutionProcessor @ 0x14022B710 (KeStallExecutionProcessor.c)
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140237640 (KeRemoveProcessorAffinityEx.c)
+ *     HalSendNMI @ 0x14036B5E0 (HalSendNMI.c)
+ *     HalpIsHvPresent @ 0x14037337C (HalpIsHvPresent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpInterruptRebootService @ 0x140519E00 (HalpInterruptRebootService.c)
+ */
+
 __int64 HalpNmiReboot()
 {
   struct _KPRCB *CurrentPrcb; // rbx

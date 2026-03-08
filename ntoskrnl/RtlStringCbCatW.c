@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlStringCbCatW @ 0x1402092FC
+ * Callers:
+ *     SeSetLearningModeObjectInformation @ 0x1405B5FAC (SeSetLearningModeObjectInformation.c)
+ *     WmipInsertStaticNames @ 0x14069E478 (WmipInsertStaticNames.c)
+ *     PnpConcatPWSTR @ 0x14069EE54 (PnpConcatPWSTR.c)
+ *     RtlpGetDynamicTimeZoneInfoHandle @ 0x140811DC4 (RtlpGetDynamicTimeZoneInfoHandle.c)
+ *     PerfDiagpStartPerfDiagLogger @ 0x14083C01C (PerfDiagpStartPerfDiagLogger.c)
+ *     WmipIncludeStaticNames @ 0x1409DDB94 (WmipIncludeStaticNames.c)
+ *     VhdInitialize @ 0x140B56EA0 (VhdInitialize.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlStringCbCatW(NTSTRSAFE_PWSTR pszDest, size_t cbDest, NTSTRSAFE_PCWSTR pszSrc)
 {
   size_t v4; // r9

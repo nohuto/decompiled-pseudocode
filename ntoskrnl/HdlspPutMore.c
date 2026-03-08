@@ -1,3 +1,14 @@
+/*
+ * XREFs of HdlspPutMore @ 0x140AE80B8
+ * Callers:
+ *     HdlspProcessDumpCommand @ 0x140AE7CAC (HdlspProcessDumpCommand.c)
+ * Callees:
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HdlspGetLine @ 0x140AE7690 (HdlspGetLine.c)
+ *     HdlspPutString @ 0x140AE8194 (HdlspPutString.c)
+ */
+
 char __fastcall HdlspPutMore(bool *a1)
 {
   int v2; // ebx

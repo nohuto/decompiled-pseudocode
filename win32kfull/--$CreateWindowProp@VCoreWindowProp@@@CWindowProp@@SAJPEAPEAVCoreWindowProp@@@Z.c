@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$CreateWindowProp@VCoreWindowProp@@@CWindowProp@@SAJPEAPEAVCoreWindowProp@@@Z @ 0x1C0222C48
+ * Callers:
+ *     ?ChangeRole@CoreWindowProp@@KAJPEAUtagWND@@W4COREWINDOWROLE@@_N@Z @ 0x1C0222DF4 (-ChangeRole@CoreWindowProp@@KAJPEAUtagWND@@W4COREWINDOWROLE@@_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CWindowProp::CreateWindowProp<CoreWindowProp>(__int64 *a1)
 {
   unsigned int v2; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpTimerClearProblem @ 0x140506994
+ * Callers:
+ *     HalpSetTimerAnyMode @ 0x1405068F0 (HalpSetTimerAnyMode.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpTimerClearProblem(__int64 a1, int a2)
 {
   __int64 result; // rax

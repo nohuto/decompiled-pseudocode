@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUnmapViewOfSectionEx @ 0x1406A24A0
+ * Callers:
+ *     NtUnmapViewOfSection @ 0x1406A2480 (NtUnmapViewOfSection.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     MiUnmapViewOfSection @ 0x1406A2570 (MiUnmapViewOfSection.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ */
+
 __int64 __fastcall NtUnmapViewOfSectionEx(ULONG_PTR a1, unsigned __int64 a2, int a3)
 {
   __int64 result; // rax

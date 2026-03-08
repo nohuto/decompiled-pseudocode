@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopTranslateDependencyArray @ 0x14058AADC
+ * Callers:
+ *     PopProcessorIdleSelectNotification @ 0x14058A730 (PopProcessorIdleSelectNotification.c)
+ *     PopProcessorQueryPlatformStateNotification @ 0x14058AA20 (PopProcessorQueryPlatformStateNotification.c)
+ * Callees:
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ */
+
 void __fastcall PopTranslateDependencyArray(
         ULONG_PTR BugCheckParameter2,
         ULONG_PTR BugCheckParameter3,

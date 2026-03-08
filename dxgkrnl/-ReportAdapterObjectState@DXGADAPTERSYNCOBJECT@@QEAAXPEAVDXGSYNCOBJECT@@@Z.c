@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?ReportAdapterObjectState@DXGADAPTERSYNCOBJECT@@QEAAXPEAVDXGSYNCOBJECT@@@Z @ 0x1C034C530
+ * Callers:
+ *     ?ReportState@DXGGLOBAL@@QEAAXXZ @ 0x1C031007C (-ReportState@DXGGLOBAL@@QEAAXXZ.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     McTemplateK0ppp_EtwWriteTransfer @ 0x1C0051A38 (McTemplateK0ppp_EtwWriteTransfer.c)
+ *     McTemplateK0ppqqpx_EtwWriteTransfer @ 0x1C0057A18 (McTemplateK0ppqqpx_EtwWriteTransfer.c)
+ *     McTemplateK0ppqqppqi_EtwWriteTransfer @ 0x1C0057AD0 (McTemplateK0ppqqppqi_EtwWriteTransfer.c)
+ *     McTemplateK0ppqqpqq_EtwWriteTransfer @ 0x1C0057BA8 (McTemplateK0ppqqpqq_EtwWriteTransfer.c)
+ *     McTemplateK0ppqqpt_EtwWriteTransfer @ 0x1C0057C5C (McTemplateK0ppqqpt_EtwWriteTransfer.c)
+ */
+
 void __fastcall DXGADAPTERSYNCOBJECT::ReportAdapterObjectState(
         DXGADAPTERSYNCOBJECT *this,
         struct DXGSYNCOBJECT *a2,

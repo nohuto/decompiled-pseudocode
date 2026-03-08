@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspTlsInitialize @ 0x140B641FC
+ * Callers:
+ *     PspInitPhase0 @ 0x140B3F968 (PspInitPhase0.c)
+ * Callees:
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     PsTlsAlloc @ 0x140849A30 (PsTlsAlloc.c)
+ *     RtlpFlsInitialize @ 0x140849CB4 (RtlpFlsInitialize.c)
+ */
+
 __int64 PspTlsInitialize()
 {
   int v0; // ebx

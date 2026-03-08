@@ -1,3 +1,11 @@
+/*
+ * XREFs of SleepInputIdle @ 0x1C00947C4
+ * Callers:
+ *     xxxDesktopThreadWaiter @ 0x1C0094300 (xxxDesktopThreadWaiter.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall SleepInputIdle(__int64 a1)
 {
   __int64 v1; // rax

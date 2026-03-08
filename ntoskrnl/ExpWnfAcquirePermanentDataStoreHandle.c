@@ -1,3 +1,20 @@
+/*
+ * XREFs of ExpWnfAcquirePermanentDataStoreHandle @ 0x140793770
+ * Callers:
+ *     ExpWnfWriteStateData @ 0x14071B1B0 (ExpWnfWriteStateData.c)
+ *     ExpWnfPopulateStateData @ 0x14071B9DC (ExpWnfPopulateStateData.c)
+ *     ExpWnfDeletePermanentStateData @ 0x140A046AC (ExpWnfDeletePermanentStateData.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ExpWnfGetPermanentPerUserDataStoreHandle @ 0x140793848 (ExpWnfGetPermanentPerUserDataStoreHandle.c)
+ */
+
 __int64 __fastcall ExpWnfAcquirePermanentDataStoreHandle(__int64 a1, _QWORD *a2)
 {
   signed __int64 *v2; // rbx

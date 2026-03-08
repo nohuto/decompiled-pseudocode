@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsEmptyDrawing@CBrush@@UEBA_NXZ @ 0x1800DAB20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CBrush::IsEmptyDrawing(CBrush *this)
 {
   __int64 v1; // rax

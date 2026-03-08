@@ -1,3 +1,23 @@
+/*
+ * XREFs of PiLastGoodRevertLastKnownDirectory @ 0x140B91710
+ * Callers:
+ *     PpLastGoodDoBootProcessing @ 0x140B6ACC4 (PpLastGoodDoBootProcessing.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x140412570 (ZwEnumerateValueKey.c)
+ *     ZwDeleteFile @ 0x140413E30 (ZwDeleteFile.c)
+ *     ZwDeleteKey @ 0x140413E50 (ZwDeleteKey.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopFileUtilClearAttributes @ 0x14096BE90 (IopFileUtilClearAttributes.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     IopFileUtilWalkDirectoryTreeTopDown @ 0x140B9225C (IopFileUtilWalkDirectoryTreeTopDown.c)
+ */
+
 void __fastcall PiLastGoodRevertLastKnownDirectory(__int64 a1, UNICODE_STRING *a2)
 {
   __int64 v4; // rdx

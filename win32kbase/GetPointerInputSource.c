@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetPointerInputSource @ 0x1C00F4410
+ * Callers:
+ *     ?PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerInfoNode@@_KIKHH@Z @ 0x1C01FDB10 (-PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerIn.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetPointerInputSource(int a1, int a2, int a3, _DWORD *a4)
 {
   __int64 result; // rax

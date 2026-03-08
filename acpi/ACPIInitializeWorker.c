@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIInitializeWorker @ 0x1C00AA920
+ * Callers:
+ *     DriverEntry @ 0x1C00A7300 (DriverEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS ACPIInitializeWorker()
 {
   struct _OBJECT_ATTRIBUTES ObjectAttributes; // [rsp+40h] [rbp-30h] BYREF

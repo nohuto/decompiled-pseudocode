@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiReplenishSlabAllocatorWorker @ 0x14034A100
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiReplenishSlabAllocator @ 0x1403496D8 (MiReplenishSlabAllocator.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiReplenishSlabAllocatorWorker(__int64 a1)
 {
   unsigned __int64 v1; // rdx

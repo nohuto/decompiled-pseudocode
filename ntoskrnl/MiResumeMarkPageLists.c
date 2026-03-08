@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiResumeMarkPageLists @ 0x140626410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall MiResumeMarkPageLists(__int64 a1, int a2)
 {
   if ( a2 )

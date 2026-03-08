@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiGetCrossPartitionCharges @ 0x1406579B0
+ * Callers:
+ *     MiGetCrossPartitionCloneCharges @ 0x14066222C (MiGetCrossPartitionCloneCharges.c)
+ *     MiCreateLargePfnList @ 0x14066540C (MiCreateLargePfnList.c)
+ *     MiGetSubsectionCharges @ 0x140668BC8 (MiGetSubsectionCharges.c)
+ *     MiAllocateUserPhysicalPages @ 0x140A3D6E8 (MiAllocateUserPhysicalPages.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiApplyCrossPartitionCharges @ 0x14065694C (MiApplyCrossPartitionCharges.c)
+ *     MiReturnCrossPartitionCharge @ 0x140658D04 (MiReturnCrossPartitionCharge.c)
+ */
+
 __int64 __fastcall MiGetCrossPartitionCharges(__int64 a1, int a2, char a3, __int64 a4)
 {
   volatile LONG *v5; // r13

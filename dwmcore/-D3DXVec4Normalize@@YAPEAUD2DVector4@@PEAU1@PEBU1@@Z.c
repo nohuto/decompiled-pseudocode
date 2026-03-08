@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?D3DXVec4Normalize@@YAPEAUD2DVector4@@PEAU1@PEBU1@@Z @ 0x18027B858
+ * Callers:
+ *     ?Normalize@CExpressionValueStack@@QEAAJXZ @ 0x18025D0F0 (-Normalize@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?InterpolateSpherical@KeyframeInterpolation@@KAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpressionValue@@11@Z @ 0x180264948 (-InterpolateSpherical@KeyframeInterpolation@@KAXNW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCExpression.c)
+ * Callees:
+ *     WithinEpsilon_0 @ 0x180023C58 (WithinEpsilon_0.c)
+ *     sqrtf_0 @ 0x1801177AC (sqrtf_0.c)
+ */
+
 struct D2DVector4 *__fastcall D3DXVec4Normalize(struct D2DVector4 *a1, const struct D2DVector4 *a2)
 {
   float v3; // xmm7_4

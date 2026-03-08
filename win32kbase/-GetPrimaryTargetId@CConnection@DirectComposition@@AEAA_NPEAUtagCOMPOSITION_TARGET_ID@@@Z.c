@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPrimaryTargetId@CConnection@DirectComposition@@AEAA_NPEAUtagCOMPOSITION_TARGET_ID@@@Z @ 0x1C000827C
+ * Callers:
+ *     ?GetCompositorClockInfo@CConnection@DirectComposition@@QEAAJPEAPEAVCCompClockInfo@2@@Z @ 0x1C0008188 (-GetCompositorClockInfo@CConnection@DirectComposition@@QEAAJPEAPEAVCCompClockInfo@2@@Z.c)
+ * Callees:
+ *     ?Release@CPushLockCriticalSection@DirectComposition@@QEAAXXZ @ 0x1C0091D74 (-Release@CPushLockCriticalSection@DirectComposition@@QEAAXXZ.c)
+ */
+
 char __fastcall DirectComposition::CConnection::GetPrimaryTargetId(
         DirectComposition::CConnection *this,
         struct tagCOMPOSITION_TARGET_ID *a2)

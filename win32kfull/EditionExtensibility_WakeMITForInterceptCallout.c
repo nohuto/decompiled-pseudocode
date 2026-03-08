@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionExtensibility_WakeMITForInterceptCallout @ 0x1C01AD2A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EditionExtensibility_WakeMITForInterceptCallout(__int64 a1)
 {
   __int64 v1; // rdx

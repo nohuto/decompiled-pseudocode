@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwpAllocateTraceBuffer @ 0x140205174
+ * Callers:
+ *     EtwpAllocateFreeBuffers @ 0x140205030 (EtwpAllocateFreeBuffers.c)
+ *     EtwpPreserveLogger @ 0x1409EA82C (EtwpPreserveLogger.c)
+ * Callees:
+ *     MmAllocatePagesForMdlEx @ 0x1402B3960 (MmAllocatePagesForMdlEx.c)
+ *     MiFreePagesFromMdl @ 0x1402C0DD0 (MiFreePagesFromMdl.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     EtwpAllocatePartitionMemory @ 0x1405FEEF0 (EtwpAllocatePartitionMemory.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpAllocateTraceBuffer(__int64 a1, unsigned int a2)
 {
   _QWORD *v3; // rcx

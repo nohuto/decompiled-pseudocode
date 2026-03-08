@@ -1,3 +1,11 @@
+/*
+ * XREFs of CleanupShadow @ 0x1C02242EC
+ * Callers:
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CleanupShadow(__int64 a1)
 {
   struct tagSHADOW *v1; // rbx

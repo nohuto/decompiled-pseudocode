@@ -1,3 +1,11 @@
+/*
+ * XREFs of PsSetThreadWin32Thread @ 0x1407821D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 signed __int64 __fastcall PsSetThreadWin32Thread(__int64 a1, __int64 a2, signed __int64 a3)
 {
   signed __int64 result; // rax

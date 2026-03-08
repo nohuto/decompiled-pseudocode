@@ -1,3 +1,20 @@
+/*
+ * XREFs of ImpWorkerRoutine @ 0x1C0089F90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     ImpRpcQueryEnabledStateAsync @ 0x1C0087020 (ImpRpcQueryEnabledStateAsync.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0088924 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ImpRpcAsyncResponseHandler @ 0x1C0089B28 (ImpRpcAsyncResponseHandler.c)
+ *     ImpReleaseLock @ 0x1C008A6FC (ImpReleaseLock.c)
+ *     ImpAcquireLock @ 0x1C008A74C (ImpAcquireLock.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C008D2C0 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     Feature_IMRespectWTDToggle__private_IsEnabledDeviceUsage @ 0x1C00E1674 (Feature_IMRespectWTDToggle__private_IsEnabledDeviceUsage.c)
+ *     ImpProcessSequence @ 0x1C027489C (ImpProcessSequence.c)
+ */
+
 void __fastcall ImpWorkerRoutine(PVOID StartContext)
 {
   __int64 v1; // r12

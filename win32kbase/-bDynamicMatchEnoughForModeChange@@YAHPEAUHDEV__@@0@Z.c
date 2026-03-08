@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bDynamicMatchEnoughForModeChange@@YAHPEAUHDEV__@@0@Z @ 0x1C00D0464
+ * Callers:
+ *     bDynamicModeChange @ 0x1C006DF9C (bDynamicModeChange.c)
+ * Callees:
+ *     DrvDxgkLogCodePointPacket @ 0x1C00CA680 (DrvDxgkLogCodePointPacket.c)
+ *     ?ulLogPixelsX@PDEVOBJ@@QEAAKXZ @ 0x1C018C364 (-ulLogPixelsX@PDEVOBJ@@QEAAKXZ.c)
+ *     ?ulLogPixelsY@PDEVOBJ@@QEAAKXZ @ 0x1C018C3A8 (-ulLogPixelsY@PDEVOBJ@@QEAAKXZ.c)
+ */
+
 __int64 __fastcall bDynamicMatchEnoughForModeChange(_DWORD *a1, _DWORD *a2)
 {
   int v3; // edx

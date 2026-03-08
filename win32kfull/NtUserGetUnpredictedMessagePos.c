@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetUnpredictedMessagePos @ 0x1C01D5170
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ */
+
 __int64 __fastcall NtUserGetUnpredictedMessagePos(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rcx

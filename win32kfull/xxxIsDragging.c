@@ -1,3 +1,19 @@
+/*
+ * XREFs of xxxIsDragging @ 0x1C0232C4C
+ * Callers:
+ *     xxxSysCommand @ 0x1C00DE67C (xxxSysCommand.c)
+ *     NtUserDragDetect @ 0x1C01CF8A0 (NtUserDragDetect.c)
+ * Callees:
+ *     xxxReleaseCapture @ 0x1C00108E8 (xxxReleaseCapture.c)
+ *     xxxSetCapture @ 0x1C00109E4 (xxxSetCapture.c)
+ *     xxxSleepThread2 @ 0x1C006D200 (xxxSleepThread2.c)
+ *     xxxInternalGetMessage @ 0x1C00946B0 (xxxInternalGetMessage.c)
+ *     PtInRect @ 0x1C00A34E8 (PtInRect.c)
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C01098A8 (-xxxCallHook@@YAHH_K_JH@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     xxxSleepThread @ 0x1C01B48DC (xxxSleepThread.c)
+ */
+
 __int64 __fastcall xxxIsDragging(__int64 a1, __int64 a2)
 {
   int v5; // r12d

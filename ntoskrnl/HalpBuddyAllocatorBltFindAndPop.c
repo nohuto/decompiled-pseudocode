@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpBuddyAllocatorBltFindAndPop @ 0x14052FC98
+ * Callers:
+ *     HalpBuddyAllocatorAllocateLogicalAddress @ 0x14052F760 (HalpBuddyAllocatorAllocateLogicalAddress.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 _QWORD *__fastcall HalpBuddyAllocatorBltFindAndPop(unsigned __int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rax

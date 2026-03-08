@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpQueryPsmKey @ 0x1409E4448
+ * Callers:
+ *     EtwpGetPsmKeyExtendedHeaderItem @ 0x1409E4364 (EtwpGetPsmKeyExtendedHeaderItem.c)
+ * Callees:
+ *     RtlpQueryPackageIdentityAttributes @ 0x140298538 (RtlpQueryPackageIdentityAttributes.c)
+ *     RtlStringCbPrintfExW @ 0x1402986C0 (RtlStringCbPrintfExW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall EtwpQueryPsmKey(int a1, wchar_t *a2, size_t *a3)
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpAddErrorEntryToPacket @ 0x1405165F0
+ * Callers:
+ *     HalpAddMcaExtendedLogToMemoryErrorSection @ 0x1404FFE04 (HalpAddMcaExtendedLogToMemoryErrorSection.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpAddErrorEntryToPacket(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v6; // ecx

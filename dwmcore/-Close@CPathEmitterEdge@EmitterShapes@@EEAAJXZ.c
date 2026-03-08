@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Close@CPathEmitterEdge@EmitterShapes@@EEAAJXZ @ 0x1802665B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EmitterShapes::CPathEmitterEdge::Close(EmitterShapes::CPathEmitterEdge *this)
 {
   __int64 v1; // rdx

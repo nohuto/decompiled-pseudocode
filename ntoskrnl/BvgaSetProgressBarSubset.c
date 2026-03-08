@@ -1,3 +1,11 @@
+/*
+ * XREFs of BvgaSetProgressBarSubset @ 0x14036DE50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall BvgaSetProgressBarSubset(int a1, int a2)
 {
   __int64 result; // rax

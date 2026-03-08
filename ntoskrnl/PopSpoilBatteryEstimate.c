@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopSpoilBatteryEstimate @ 0x14087105C
+ * Callers:
+ *     PopUpdateConsoleDisplayState @ 0x140870EA4 (PopUpdateConsoleDisplayState.c)
+ *     PopSpoilEstimatesOnPowerStateTransitionWorker @ 0x140988B70 (PopSpoilEstimatesOnPowerStateTransitionWorker.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     PopBatteryQueueWork @ 0x1403C0538 (PopBatteryQueueWork.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall PopSpoilBatteryEstimate(int a1, unsigned __int8 a2)
 {
   int v2; // edi

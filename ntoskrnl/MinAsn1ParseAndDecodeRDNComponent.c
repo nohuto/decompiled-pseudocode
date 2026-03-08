@@ -1,3 +1,13 @@
+/*
+ * XREFs of MinAsn1ParseAndDecodeRDNComponent @ 0x140A6D6CC
+ * Callers:
+ *     I_MinCryptGetCommonName @ 0x140A6CB7C (I_MinCryptGetCommonName.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MinAsn1ExtractContent @ 0x140A6EA28 (MinAsn1ExtractContent.c)
+ *     MinAsn1ExtractValues @ 0x140A6EB74 (MinAsn1ExtractValues.c)
+ */
+
 char __fastcall MinAsn1ParseAndDecodeRDNComponent(unsigned int *a1, __int64 a2, _BYTE *a3, __int64 a4)
 {
   __int64 v4; // rdx

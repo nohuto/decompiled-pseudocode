@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsProtected@CCachedVisualImage@@UEBA_NXZ @ 0x1801C2770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CCachedVisualImage::IsProtected(CCachedVisualImage *this)
 {
   __int64 v1; // rsi

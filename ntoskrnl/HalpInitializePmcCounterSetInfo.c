@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpInitializePmcCounterSetInfo @ 0x140B3D3DC
+ * Callers:
+ *     HalpHwPerfCntInitSystem @ 0x140A8DE90 (HalpHwPerfCntInitSystem.c)
+ * Callees:
+ *     HalpMmAllocatePerProcessorMemory @ 0x140374B44 (HalpMmAllocatePerProcessorMemory.c)
+ *     HalQueryMaximumProcessorCount @ 0x140375910 (HalQueryMaximumProcessorCount.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void *HalpInitializePmcCounterSetInfo()
 {
   __int64 MaximumProcessorCount; // rbx

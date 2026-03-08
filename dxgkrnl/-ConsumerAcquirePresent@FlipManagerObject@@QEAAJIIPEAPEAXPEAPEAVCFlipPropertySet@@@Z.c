@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ConsumerAcquirePresent@FlipManagerObject@@QEAAJIIPEAPEAXPEAPEAVCFlipPropertySet@@@Z @ 0x1C007F0E8
+ * Callers:
+ *     NtFlipObjectConsumerAcquirePresent @ 0x1C007FB30 (NtFlipObjectConsumerAcquirePresent.c)
+ * Callees:
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000E098 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C000E344 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?ConsumerAcquirePresent@CFlipManager@@QEAAJIIPEAPEAXPEAPEAVCFlipPropertySet@@@Z @ 0x1C0081DD0 (-ConsumerAcquirePresent@CFlipManager@@QEAAJIIPEAPEAXPEAPEAVCFlipPropertySet@@@Z.c)
+ */
+
 __int64 __fastcall FlipManagerObject::ConsumerAcquirePresent(
         FlipManagerObject *this,
         unsigned int a2,

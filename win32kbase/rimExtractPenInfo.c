@@ -1,3 +1,12 @@
+/*
+ * XREFs of rimExtractPenInfo @ 0x1C01D778C
+ * Callers:
+ *     rimExtractPointerDeviceUsages @ 0x1C01D78A0 (rimExtractPointerDeviceUsages.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimExtractData @ 0x1C00F1486 (rimExtractData.c)
+ */
+
 __int64 __fastcall rimExtractPenInfo(__int64 a1, int a2, _DWORD *a3)
 {
   __int64 result; // rax

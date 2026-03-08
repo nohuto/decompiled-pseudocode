@@ -1,3 +1,11 @@
+/*
+ * XREFs of _wcsupr @ 0x1C00DAF40
+ * Callers:
+ *     ?CitpProcessGetProgramId@@YAJPEAUtagPROCESSINFO@@PEAU_CIT_PROGRAM_ID@@@Z @ 0x1C00B14F0 (-CitpProcessGetProgramId@@YAJPEAUtagPROCESSINFO@@PEAU_CIT_PROGRAM_ID@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 wchar_t *__cdecl wcsupr(wchar_t *String)
 {
   wchar_t v1; // dx

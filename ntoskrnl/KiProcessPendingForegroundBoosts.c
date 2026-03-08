@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiProcessPendingForegroundBoosts @ 0x1403CACA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KiDeferredReadySingleThread @ 0x140259FB0 (KiDeferredReadySingleThread.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x1402B7960 (KiFlushSoftwareInterruptBatch.c)
+ *     KiApplyForegroundBoostThread @ 0x1402E3178 (KiApplyForegroundBoostThread.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 void __fastcall KiProcessPendingForegroundBoosts(
         struct _KDPC *Dpc,
         PVOID DeferredContext,

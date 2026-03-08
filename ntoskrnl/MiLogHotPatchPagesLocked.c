@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiLogHotPatchPagesLocked @ 0x140A368B0
+ * Callers:
+ *     MiPrepareImagePagesForHotPatch @ 0x1406404D8 (MiPrepareImagePagesForHotPatch.c)
+ * Callees:
+ *     PsGetProcessId @ 0x140236D10 (PsGetProcessId.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall MiLogHotPatchPagesLocked(__int64 a1, __int64 a2, int a3, int a4, int a5)
 {
   _UNKNOWN **v5; // rax

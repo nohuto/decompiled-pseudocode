@@ -1,3 +1,15 @@
+/*
+ * XREFs of GetImageName @ 0x1C004D584
+ * Callers:
+ *     imp_WdfDriverCreate @ 0x1C0037350 (imp_WdfDriverCreate.c)
+ * Callees:
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0002834 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
+ *     WPP_IFR_SF_D @ 0x1C0017F78 (WPP_IFR_SF_D.c)
+ *     ?RtlUShortAdd@@YAJGGPEAG@Z @ 0x1C002DA0C (-RtlUShortAdd@@YAJGGPEAG@Z.c)
+ *     RtlUnicodeStringCopy @ 0x1C004DF40 (RtlUnicodeStringCopy.c)
+ *     GetNameFromPath @ 0x1C004E0BC (GetNameFromPath.c)
+ */
+
 __int64 __fastcall GetImageName(_FX_DRIVER_GLOBALS *DriverGlobals, _UNICODE_STRING *ImageName)
 {
   _DRIVER_OBJECT *m_DriverObject; // rcx

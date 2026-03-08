@@ -1,3 +1,22 @@
+/*
+ * XREFs of ExpSetTimeZoneInformation @ 0x1409F484C
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     PsIsCurrentThreadInServerSilo @ 0x1402459D0 (PsIsCurrentThreadInServerSilo.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlWriteRegistryValue @ 0x14069EDB0 (RtlWriteRegistryValue.c)
+ *     ExAcquireTimeRefreshLock @ 0x1407E2A54 (ExAcquireTimeRefreshLock.c)
+ *     RtlpSetTimeZoneInformationWorker @ 0x1409BA84C (RtlpSetTimeZoneInformationWorker.c)
+ *     ExpReadSiloTimeZoneMarker @ 0x1409F5178 (ExpReadSiloTimeZoneMarker.c)
+ *     NtSetSystemTime @ 0x1409F54B0 (NtSetSystemTime.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 NTSTATUS __fastcall ExpSetTimeZoneInformation(unsigned __int64 a1, int a2)
 {
   char SiloTimeZoneMarker; // r14

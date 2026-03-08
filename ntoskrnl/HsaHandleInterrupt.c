@@ -1,3 +1,11 @@
+/*
+ * XREFs of HsaHandleInterrupt @ 0x14052E0B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HsaHandleInterrupt(__int64 *a1)
 {
   __int64 v1; // r9

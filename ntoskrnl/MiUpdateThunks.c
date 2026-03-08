@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiUpdateThunks @ 0x140B97620
+ * Callers:
+ *     MiBootImageRelocated @ 0x140B97534 (MiBootImageRelocated.c)
+ * Callees:
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ */
+
 void __fastcall MiUpdateThunks(__int64 a1, _QWORD *a2, __int64 a3, int a4)
 {
   char *v4; // rbp

@@ -1,3 +1,25 @@
+/*
+ * XREFs of EtwpCoverageSamplerStop @ 0x1409F08E4
+ * Callers:
+ *     EtwpCoverageSamplerClose @ 0x1409F0240 (EtwpCoverageSamplerClose.c)
+ *     EtwpSetCoverageSamplerInformation @ 0x1409F0DFC (EtwpSetCoverageSamplerInformation.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ExRundownCompleted @ 0x140294280 (ExRundownCompleted.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     KeStopProfile @ 0x140571BAC (KeStopProfile.c)
+ *     EtwpCovSampCaptureContextStop @ 0x140600CB8 (EtwpCovSampCaptureContextStop.c)
+ *     PsGetNextProcess @ 0x1406AA530 (PsGetNextProcess.c)
+ *     EtwUnregister @ 0x14076F9E0 (EtwUnregister.c)
+ *     EtwpUpdateGlobalGroupMasks @ 0x140785F3C (EtwpUpdateGlobalGroupMasks.c)
+ *     PsRemoveLoadImageNotifyRoutine @ 0x1409B2D60 (PsRemoveLoadImageNotifyRoutine.c)
+ *     EtwpCovSampProcessCleanup @ 0x1409EFCC8 (EtwpCovSampProcessCleanup.c)
+ */
+
 NTSTATUS __fastcall EtwpCoverageSamplerStop(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax

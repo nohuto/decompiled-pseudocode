@@ -1,3 +1,30 @@
+/*
+ * XREFs of MiArePageContentsZero @ 0x14064AE74
+ * Callers:
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x140276500 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiConvertEntireLargePageToSmall @ 0x140277140 (MiConvertEntireLargePageToSmall.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiCreateSharedZeroPages @ 0x14028A420 (MiCreateSharedZeroPages.c)
+ *     MiSlistGetFreePage @ 0x1402D76AC (MiSlistGetFreePage.c)
+ *     MiInsertLargePageInNodeList @ 0x14031C970 (MiInsertLargePageInNodeList.c)
+ *     MiLargePageFreeToZero @ 0x1403341E0 (MiLargePageFreeToZero.c)
+ *     MiInitializeSystemPageTable @ 0x1403483AC (MiInitializeSystemPageTable.c)
+ *     MiCreateSystemPageTable @ 0x140348960 (MiCreateSystemPageTable.c)
+ *     MiReplenishPageSlist @ 0x14034E120 (MiReplenishPageSlist.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x14034FE70 (MiUnlinkNodeLargePageHelper.c)
+ *     MiGetPageSlist @ 0x1403D1650 (MiGetPageSlist.c)
+ *     MiIdealClusterPage @ 0x140667EB0 (MiIdealClusterPage.c)
+ * Callees:
+ *     MiMapPageInHyperSpaceWorker @ 0x140214870 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140214A54 (MiUnmapPageInHyperSpaceWorker.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MiIsPageOnBadList @ 0x14034B1D0 (MiIsPageOnBadList.c)
+ *     KeCheckForZeroPage @ 0x14041BB10 (KeCheckForZeroPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiPageNotZero @ 0x14064B500 (MiPageNotZero.c)
+ */
+
 __int64 __fastcall MiArePageContentsZero(ULONG_PTR BugCheckParameter2, unsigned __int64 a2)
 {
   ULONG_PTR v3; // r14

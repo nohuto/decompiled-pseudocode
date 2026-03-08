@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiCombineActiveCrcSortByVa @ 0x1402DD2D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiCombineActiveCrcSortByVa(const void *a1, const void *a2)
 {
   unsigned __int64 v2; // rcx

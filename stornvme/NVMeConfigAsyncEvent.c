@@ -1,3 +1,13 @@
+/*
+ * XREFs of NVMeConfigAsyncEvent @ 0x1C001C480
+ * Callers:
+ *     NVMeControllerInitPart3 @ 0x1C000DCDC (NVMeControllerInitPart3.c)
+ * Callees:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 __int64 __fastcall NVMeConfigAsyncEvent(__int64 a1)
 {
   __int64 v1; // rbx

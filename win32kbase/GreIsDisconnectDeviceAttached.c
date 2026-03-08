@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreIsDisconnectDeviceAttached @ 0x1C00218D0
+ * Callers:
+ *     NtUserGetDisplayConfigBufferSizes @ 0x1C00217F0 (NtUserGetDisplayConfigBufferSizes.c)
+ * Callees:
+ *     ??1SEMOBJSHARED@@QEAA@XZ @ 0x1C002194C (--1SEMOBJSHARED@@QEAA@XZ.c)
+ *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C0021994 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
+ */
+
 __int64 __fastcall GreIsDisconnectDeviceAttached(__int64 a1)
 {
   __int64 v1; // rdi

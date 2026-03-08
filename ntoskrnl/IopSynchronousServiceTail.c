@@ -1,3 +1,49 @@
+/*
+ * XREFs of IopSynchronousServiceTail @ 0x1407C33C0
+ * Callers:
+ *     IopQueueCopyWrite @ 0x140300780 (IopQueueCopyWrite.c)
+ *     NtLockFile @ 0x1406B1EB0 (NtLockFile.c)
+ *     NtQueryDirectoryFileEx @ 0x1406B2200 (NtQueryDirectoryFileEx.c)
+ *     NtQueryVolumeInformationFile @ 0x1406B2A90 (NtQueryVolumeInformationFile.c)
+ *     IopWriteFile @ 0x1406B3E10 (IopWriteFile.c)
+ *     NtUnlockFile @ 0x14075F620 (NtUnlockFile.c)
+ *     NtQueryEaFile @ 0x14076D8E0 (NtQueryEaFile.c)
+ *     IopFlushBuffersFile @ 0x14076DF74 (IopFlushBuffersFile.c)
+ *     NtNotifyChangeDirectoryFileEx @ 0x14077B8F0 (NtNotifyChangeDirectoryFileEx.c)
+ *     NtReadFileScatter @ 0x140798190 (NtReadFileScatter.c)
+ *     NtWriteFileGather @ 0x140799670 (NtWriteFileGather.c)
+ *     IopXxxControlFile @ 0x1407C1720 (IopXxxControlFile.c)
+ *     IopReadFile @ 0x1407E0C40 (IopReadFile.c)
+ *     NtSetVolumeInformationFile @ 0x14087CFF0 (NtSetVolumeInformationFile.c)
+ *     IopSetEaOrQuotaInformationFile @ 0x140942B50 (IopSetEaOrQuotaInformationFile.c)
+ *     NtSetEaFile @ 0x140947CF0 (NtSetEaFile.c)
+ *     NtQueryQuotaInformationFile @ 0x140948300 (NtQueryQuotaInformationFile.c)
+ * Callees:
+ *     IoSetActivityIdThread @ 0x140203940 (IoSetActivityIdThread.c)
+ *     IopGetFileObjectExtension @ 0x14023EB8C (IopGetFileObjectExtension.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1402637F0 (ObDereferenceObjectDeferDelete.c)
+ *     IopReleaseFileObjectLock @ 0x140267920 (IopReleaseFileObjectLock.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     IopCallDriverReference @ 0x14027F1E0 (IopCallDriverReference.c)
+ *     IoGetIoPriorityHint @ 0x14027F300 (IoGetIoPriorityHint.c)
+ *     IopSetIrpPriorityHintFromFileObject @ 0x14027F340 (IopSetIrpPriorityHintFromFileObject.c)
+ *     IoSetDiskIoAttributionFromThread @ 0x14027F900 (IoSetDiskIoAttributionFromThread.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     IopQueueThreadIrp @ 0x140312720 (IopQueueThreadIrp.c)
+ *     IopCompleteRequest @ 0x140312C80 (IopCompleteRequest.c)
+ *     IopQueueIrpToFileObject @ 0x140315880 (IopQueueIrpToFileObject.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     IoGetBaseFileSystemDeviceObject @ 0x140343B10 (IoGetBaseFileSystemDeviceObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IopCheckIrpCancelled @ 0x140552B98 (IopCheckIrpCancelled.c)
+ *     IopIoRingCompleteIrp @ 0x1405570DC (IopIoRingCompleteIrp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PsIsProcessAppContainer @ 0x140781158 (PsIsProcessAppContainer.c)
+ *     IopCancelAlertedRequest @ 0x14094140C (IopCancelAlertedRequest.c)
+ */
+
 __int64 __fastcall IopSynchronousServiceTail(
         struct _DEVICE_OBJECT *a1,
         __int64 a2,

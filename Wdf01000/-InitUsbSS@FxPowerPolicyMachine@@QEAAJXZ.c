@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?InitUsbSS@FxPowerPolicyMachine@@QEAAJXZ @ 0x1C007A6F4
+ * Callers:
+ *     ?PowerPolicySetS0IdleSettings@FxPkgPnp@@QEAAJPEAU_WDF_DEVICE_POWER_POLICY_IDLE_SETTINGS@@@Z @ 0x1C0074544 (-PowerPolicySetS0IdleSettings@FxPkgPnp@@QEAAJPEAU_WDF_DEVICE_POWER_POLICY_IDLE_SETTINGS@@@Z.c)
+ * Callees:
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0002834 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
+ *     ??_GFxUsbIdleInfo@@QEAAPEAXI@Z @ 0x1C007A2A4 (--_GFxUsbIdleInfo@@QEAAPEAXI@Z.c)
+ *     ?Initialize@FxUsbIdleInfo@@QEAAJXZ @ 0x1C0083434 (-Initialize@FxUsbIdleInfo@@QEAAJXZ.c)
+ */
+
 __int64 __fastcall FxPowerPolicyMachine::InitUsbSS(FxPowerPolicyMachine *this)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // rcx

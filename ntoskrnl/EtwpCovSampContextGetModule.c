@@ -1,3 +1,30 @@
+/*
+ * XREFs of EtwpCovSampContextGetModule @ 0x1409EE4AC
+ * Callers:
+ *     EtwpCovSampImageNotify @ 0x1408A4E40 (EtwpCovSampImageNotify.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwCovSampHash @ 0x140461748 (EtwCovSampHash.c)
+ *     ProcessForExeModule @ 0x14046221A (ProcessForExeModule.c)
+ *     EtwpCheckDebugInfoEqual @ 0x140600988 (EtwpCheckDebugInfoEqual.c)
+ *     EtwpFindDebugId @ 0x140775478 (EtwpFindDebugId.c)
+ *     EtwpCovSampCheckForSegments @ 0x1408A3FCC (EtwpCovSampCheckForSegments.c)
+ *     EtwpCovSampContextFastFindModule @ 0x1408A4418 (EtwpCovSampContextFastFindModule.c)
+ *     EtwpCovSampContextPruneModules @ 0x1408A4560 (EtwpCovSampContextPruneModules.c)
+ *     EtwpCovSampModuleCleanup @ 0x1409EF8C8 (EtwpCovSampModuleCleanup.c)
+ *     EtwpCovSampModuleGetName @ 0x1409EF918 (EtwpCovSampModuleGetName.c)
+ *     EtwpCovSampModuleNameInfoCleanup @ 0x1409EFA24 (EtwpCovSampModuleNameInfoCleanup.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpCovSampContextGetModule(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, __int64 *a6)
 {
   __int64 v8; // r12

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMValidatePTPButtons @ 0x1C01E2390
+ * Callers:
+ *     RIMGetDeviceButtons @ 0x1C01B5D38 (RIMGetDeviceButtons.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ */
+
 __int64 __fastcall RIMValidatePTPButtons(__int64 a1, unsigned int a2)
 {
   int v2; // r8d

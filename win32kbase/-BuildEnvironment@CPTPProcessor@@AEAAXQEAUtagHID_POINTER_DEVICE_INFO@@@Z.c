@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?BuildEnvironment@CPTPProcessor@@AEAAXQEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C020CEEC
+ * Callers:
+ *     ?InitState@CPTPProcessor@@AEAAJPEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C020DF74 (-InitState@CPTPProcessor@@AEAAJPEAUtagHID_POINTER_DEVICE_INFO@@@Z.c)
+ *     ?UpdateEnvironment@CPTPProcessor@@AEAAXW4EnvironmentUpdateOptions@@PEAUtagHID_POINTER_DEVICE_INFO@@@Z @ 0x1C020FAF8 (-UpdateEnvironment@CPTPProcessor@@AEAAXW4EnvironmentUpdateOptions@@PEAUtagHID_POINTER_DEVICE_INF.c)
+ * Callees:
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C0015510 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ *     EngMulDiv @ 0x1C003BF30 (EngMulDiv.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 void __fastcall CPTPProcessor::BuildEnvironment(CPTPProcessor *this, struct tagHID_POINTER_DEVICE_INFO *const a2)
 {
   char *v2; // rbx

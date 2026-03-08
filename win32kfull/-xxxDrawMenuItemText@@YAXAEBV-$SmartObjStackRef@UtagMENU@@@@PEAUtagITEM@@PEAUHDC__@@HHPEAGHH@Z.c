@@ -1,3 +1,22 @@
+/*
+ * XREFs of ?xxxDrawMenuItemText@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUHDC__@@HHPEAGHH@Z @ 0x1C0236C78
+ * Callers:
+ *     xxxRealDrawMenuItem @ 0x1C0239598 (xxxRealDrawMenuItem.c)
+ * Callees:
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0035F20 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     MNGetpItemIndex @ 0x1C00A6FD0 (MNGetpItemIndex.c)
+ *     GreExtTextOutW @ 0x1C0113604 (GreExtTextOutW.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     xxxClientExtTextOutW @ 0x1C0214CF4 (xxxClientExtTextOutW.c)
+ *     CALL_LPK @ 0x1C0228CCC (CALL_LPK.c)
+ *     ?xxxDrawItemUnderline@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUHDC__@@HHPEAGJ@Z @ 0x1C0236ABC (-xxxDrawItemUnderline@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@PEAUHDC__@@HHPEAGJ@Z.c)
+ *     xxxPSMTextOut @ 0x1C0244494 (xxxPSMTextOut.c)
+ *     GetPrefixCount @ 0x1C0250138 (GetPrefixCount.c)
+ */
+
 WCHAR *__fastcall xxxDrawMenuItemText(
         __int64 **a1,
         __int64 a2,

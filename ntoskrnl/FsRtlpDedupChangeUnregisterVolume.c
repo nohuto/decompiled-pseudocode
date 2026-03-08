@@ -1,3 +1,13 @@
+/*
+ * XREFs of FsRtlpDedupChangeUnregisterVolume @ 0x14093BB4C
+ * Callers:
+ *     FsRtlDedupChangeUninit @ 0x14093B810 (FsRtlDedupChangeUninit.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall FsRtlpDedupChangeUnregisterVolume(_QWORD *a1)
 {
   __int64 *i; // rcx

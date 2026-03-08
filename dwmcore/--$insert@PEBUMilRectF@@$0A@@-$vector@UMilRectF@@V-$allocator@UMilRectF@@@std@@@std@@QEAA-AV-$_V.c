@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??$insert@PEBUMilRectF@@$0A@@?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@UMilRectF@@@std@@@std@@@1@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@UMilRectF@@@std@@@std@@@1@PEBUMilRectF@@1@Z @ 0x1800E5F00
+ * Callers:
+ *     ?SetOrAppendDestinationRectangles@?$CAtlasedRectsMeshGeneratedT@VCAtlasedRectsMesh@@VCResource@@@@AEAAJAEBV?$span@$$CBUMilRectF@@$0?0@gsl@@_N@Z @ 0x1800E5E20 (-SetOrAppendDestinationRectangles@-$CAtlasedRectsMeshGeneratedT@VCAtlasedRectsMesh@@VCResource@@.c)
+ *     ?SetOrAppendSourceRectangles@?$CAtlasedRectsMeshGeneratedT@VCAtlasedRectsMesh@@VCResource@@@@AEAAJAEBV?$span@$$CBUMilRectF@@$0?0@gsl@@_N@Z @ 0x1800E5E90 (-SetOrAppendSourceRectangles@-$CAtlasedRectsMeshGeneratedT@VCAtlasedRectsMesh@@VCResource@@@@AEA.c)
+ * Callees:
+ *     ??$_Insert_range@PEBUMilRectF@@@?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@AEAAXV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@UMilRectF@@@std@@@std@@@1@PEBUMilRectF@@1Uforward_iterator_tag@1@@Z @ 0x1800E5F58 (--$_Insert_range@PEBUMilRectF@@@-$vector@UMilRectF@@V-$allocator@UMilRectF@@@std@@@std@@AEAAXV-$.c)
+ */
+
 _QWORD *__fastcall std::vector<MilRectF>::insert<MilRectF const *,0>(
         _QWORD *a1,
         _QWORD *a2,

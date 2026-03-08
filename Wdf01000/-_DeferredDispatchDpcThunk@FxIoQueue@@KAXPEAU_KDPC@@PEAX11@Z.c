@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_DeferredDispatchDpcThunk@FxIoQueue@@KAXPEAU_KDPC@@PEAX11@Z @ 0x1C0066D10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_IFR_SF_ @ 0x1C001BC64 (WPP_IFR_SF_.c)
+ *     ?DeferredDispatchRequestsFromDpc@FxIoQueue@@QEAAXXZ @ 0x1C0063B28 (-DeferredDispatchRequestsFromDpc@FxIoQueue@@QEAAXXZ.c)
+ */
+
 void __fastcall FxIoQueue::_DeferredDispatchDpcThunk(
         _KDPC *Dpc,
         FxIoQueue *DeferredContext,

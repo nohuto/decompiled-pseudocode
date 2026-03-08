@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspWow64SetupCpuArea @ 0x14077BE68
+ * Callers:
+ *     PspSetupUserStack @ 0x1406A2EF8 (PspSetupUserStack.c)
+ * Callees:
+ *     RtlpGetLegacyContextLength @ 0x140365130 (RtlpGetLegacyContextLength.c)
+ *     RtlpArchContextFlagFromMachine @ 0x14077C9E4 (RtlpArchContextFlagFromMachine.c)
+ */
+
 __int64 __fastcall PspWow64SetupCpuArea(unsigned __int64 *a1, __int64 a2)
 {
   unsigned __int16 v3; // ax

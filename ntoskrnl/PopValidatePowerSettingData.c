@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopValidatePowerSettingData @ 0x14068D570
+ * Callers:
+ *     PopSetPowerSettingValue @ 0x14068CFA0 (PopSetPowerSettingValue.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopValidatePowerSettingData(_QWORD *a1, int a2, _DWORD *a3)
 {
   unsigned int v4; // r10d

@@ -1,3 +1,13 @@
+/*
+ * XREFs of DxgkCbReportDiagnostic @ 0x1C004E910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiGetDxgAdapter @ 0x1C000E550 (DpiGetDxgAdapter.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DxgkCbReportDiagnostic(__int64 a1, unsigned int *a2)
 {
   int v4; // edx

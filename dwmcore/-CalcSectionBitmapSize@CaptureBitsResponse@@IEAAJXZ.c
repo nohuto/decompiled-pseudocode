@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CalcSectionBitmapSize@CaptureBitsResponse@@IEAAJXZ @ 0x180020740
+ * Callers:
+ *     ?OnPresentComplete@VisualCaptureBitsResponse@@UEAAJXZ @ 0x1800206D0 (-OnPresentComplete@VisualCaptureBitsResponse@@UEAAJXZ.c)
+ *     ?CreateSectionBitmap@CaptureBitsResponse@@IEAAJXZ @ 0x1801DCC64 (-CreateSectionBitmap@CaptureBitsResponse@@IEAAJXZ.c)
+ * Callees:
+ *     ?GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z @ 0x18003E6F0 (-GetPixelFormatSize@@YAEW4DXGI_FORMAT@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall CaptureBitsResponse::CalcSectionBitmapSize(enum DXGI_FORMAT *this)
 {
   unsigned __int8 PixelFormatSize; // al

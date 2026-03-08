@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InsertDependenciesInOrder@CInteractionTrackerScaleAnimation@@MEAAXAEBUExpressionWalkContext@@@Z @ 0x1802636C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetInteractionTracker@CScrollAnimation@@IEBAPEAVCInteractionTracker@@XZ @ 0x18026191C (-GetInteractionTracker@CScrollAnimation@@IEBAPEAVCInteractionTracker@@XZ.c)
+ */
+
 void __fastcall CInteractionTrackerScaleAnimation::InsertDependenciesInOrder(
         CInteractionTrackerScaleAnimation *this,
         const struct ExpressionWalkContext *a2)

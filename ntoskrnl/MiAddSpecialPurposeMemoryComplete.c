@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiAddSpecialPurposeMemoryComplete @ 0x140A440DC
+ * Callers:
+ *     MmManagePartitionInitialAddMemory @ 0x140A42A68 (MmManagePartitionInitialAddMemory.c)
+ *     MmManagePartitionMoveMemory @ 0x140A42B54 (MmManagePartitionMoveMemory.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiSpecialPurposeMemoryRemoved @ 0x140A44BE4 (MiSpecialPurposeMemoryRemoved.c)
+ */
+
 void __fastcall MiAddSpecialPurposeMemoryComplete(__int64 *a1, volatile signed __int64 **a2, int a3)
 {
   __int64 v3; // rsi

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiSanitizePfnProtection @ 0x140322D40
+ * Callers:
+ *     MiResolveMappedFileFault @ 0x14028A780 (MiResolveMappedFileFault.c)
+ *     MiSetProtectionOnTransitionPte @ 0x1402EC490 (MiSetProtectionOnTransitionPte.c)
+ *     MiCommitExistingVad @ 0x140320D70 (MiCommitExistingVad.c)
+ *     MiSetProtectionOnSection @ 0x140321FC0 (MiSetProtectionOnSection.c)
+ *     MiProtectPrivateMemory @ 0x140344540 (MiProtectPrivateMemory.c)
+ *     MiUpdatePfnProtection @ 0x140344B44 (MiUpdatePfnProtection.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiSanitizePfnProtection(__int64 a1, int a2, unsigned int a3)
 {
   int v3; // edx

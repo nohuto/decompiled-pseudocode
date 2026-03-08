@@ -1,3 +1,13 @@
+/*
+ * XREFs of _tlgWriteTransfer_EtwWriteTransfer @ 0x1C004BD00
+ * Callers:
+ *     Etw_DeviceUpdate @ 0x1C001D724 (Etw_DeviceUpdate.c)
+ *     Etw_ReportControllerHealthWithPortInfo @ 0x1C001F980 (Etw_ReportControllerHealthWithPortInfo.c)
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C00533E4 (MicrosoftTelemetryAssertTriggeredWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall tlgWriteTransfer_EtwWriteTransfer(
         __int64 a1,
         unsigned __int8 *a2,

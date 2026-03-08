@@ -1,3 +1,30 @@
+/*
+ * XREFs of UsbhInitialize @ 0x1C002CE20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhSyncSendInternalIoctl @ 0x1C0004A70 (UsbhSyncSendInternalIoctl.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     UsbhConfigureUsbHub @ 0x1C0029DB0 (UsbhConfigureUsbHub.c)
+ *     UsbhGetExtendedHubInformation @ 0x1C002BEBC (UsbhGetExtendedHubInformation.c)
+ *     UsbhGetHubClassDescriptor @ 0x1C002C09C (UsbhGetHubClassDescriptor.c)
+ *     UsbhGetHubCount @ 0x1C002C420 (UsbhGetHubCount.c)
+ *     UsbhGetHubDeviceInformation @ 0x1C002C4A8 (UsbhGetHubDeviceInformation.c)
+ *     UsbhGetHubPowerStatus @ 0x1C002C868 (UsbhGetHubPowerStatus.c)
+ *     UsbhGetTopOfBusStack @ 0x1C002CD18 (UsbhGetTopOfBusStack.c)
+ *     UsbhInitializeTtHub @ 0x1C002D268 (UsbhInitializeTtHub.c)
+ *     UsbhIsHighSpeedCapable @ 0x1C002D368 (UsbhIsHighSpeedCapable.c)
+ *     UsbhLogStartFailure @ 0x1C002D464 (UsbhLogStartFailure.c)
+ *     UsbhWait @ 0x1C002E204 (UsbhWait.c)
+ *     Usbh_UsbdQueryContollerType @ 0x1C002E45C (Usbh_UsbdQueryContollerType.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     UsbhCheckHubErrata @ 0x1C005182C (UsbhCheckHubErrata.c)
+ *     UsbhRegisterPowerCallback @ 0x1C00591B0 (UsbhRegisterPowerCallback.c)
+ *     UsbhQueryParentHubConfig @ 0x1C005A8D8 (UsbhQueryParentHubConfig.c)
+ */
+
 __int64 __fastcall UsbhInitialize(PDEVICE_OBJECT DeviceObject, __int64 a2)
 {
   unsigned int v3; // r14d

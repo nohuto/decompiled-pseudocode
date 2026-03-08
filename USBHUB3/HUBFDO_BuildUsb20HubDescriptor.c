@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBFDO_BuildUsb20HubDescriptor @ 0x1C000E3B4
+ * Callers:
+ *     HUBFDO_IoctlGetNodeInformation @ 0x1C007996C (HUBFDO_IoctlGetNodeInformation.c)
+ *     WMI_QueryInstanceHubNodeInfo @ 0x1C008BA80 (WMI_QueryInstanceHubNodeInfo.c)
+ * Callees:
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 char __fastcall HUBFDO_BuildUsb20HubDescriptor(__int64 a1, _OWORD *a2)
 {
   __int64 v4; // rax

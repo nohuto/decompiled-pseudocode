@@ -1,3 +1,21 @@
+/*
+ * XREFs of ExpGetGlobalLocaleSection @ 0x140780BAC
+ * Callers:
+ *     NtInitializeNlsFiles @ 0x140780A70 (NtInitializeNlsFiles.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     ZwCreateSection @ 0x140412C50 (ZwCreateSection.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 NTSTATUS __fastcall ExpGetGlobalLocaleSection(_QWORD *a1, void *a2)
 {
   struct _LIST_ENTRY *Flink; // rdi

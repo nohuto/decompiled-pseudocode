@@ -1,3 +1,11 @@
+/*
+ * XREFs of USBD_ValidateExtendedConfigurationDescriptor @ 0x1C0032600
+ * Callers:
+ *     UsbhGetMsOsExtendedConfigDesc @ 0x1C0033348 (UsbhGetMsOsExtendedConfigDesc.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall USBD_ValidateExtendedConfigurationDescriptor(
         unsigned int *a1,
         unsigned int a2,

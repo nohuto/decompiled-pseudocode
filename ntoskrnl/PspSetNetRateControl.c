@@ -1,3 +1,19 @@
+/*
+ * XREFs of PspSetNetRateControl @ 0x1409B0054
+ * Callers:
+ *     NtSetInformationJobObject @ 0x1406FC3C0 (NtSetInformationJobObject.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PspUnlockJobConditionally @ 0x1406FB418 (PspUnlockJobConditionally.c)
+ *     PspLockJobConditionally @ 0x1406FB448 (PspLockJobConditionally.c)
+ *     PspUnlockJob @ 0x1406FBF7C (PspUnlockJob.c)
+ *     PspLockRootJobExclusive @ 0x14075168C (PspLockRootJobExclusive.c)
+ *     PspNetRateControlDispatch @ 0x1409AF644 (PspNetRateControlDispatch.c)
+ *     PspSetJobRateControl @ 0x1409AFE3C (PspSetJobRateControl.c)
+ *     EtwTraceJobSetQuery @ 0x1409E28AC (EtwTraceJobSetQuery.c)
+ */
+
 __int64 __fastcall PspSetNetRateControl(void *Src, size_t Size, _QWORD *Object)
 {
   char v4; // r12

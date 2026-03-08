@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1ConnectionIndirector@BamoImpl@Microsoft@@MEAA@XZ @ 0x1801B5BF4
+ * Callers:
+ *     ??_GConnectionIndirector@BamoImpl@Microsoft@@MEAAPEAXI@Z @ 0x1801B5E90 (--_GConnectionIndirector@BamoImpl@Microsoft@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall Microsoft::BamoImpl::ConnectionIndirector::~ConnectionIndirector(
         Microsoft::BamoImpl::ConnectionIndirector *this)
 {

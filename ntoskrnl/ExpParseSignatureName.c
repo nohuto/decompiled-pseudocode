@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExpParseSignatureName @ 0x1409FA090
+ * Callers:
+ *     ExpConvertSignatureName @ 0x1409F8E7C (ExpConvertSignatureName.c)
+ * Callees:
+ *     wcsncpy_s @ 0x1403DA3B0 (wcsncpy_s.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ *     ExpTranslateHexStringToGUID @ 0x1409FB3B4 (ExpTranslateHexStringToGUID.c)
+ *     ExpTranslateHexStringToULONG @ 0x1409FB538 (ExpTranslateHexStringToULONG.c)
+ *     ExpTranslateHexStringToULONGLONG @ 0x1409FB5D8 (ExpTranslateHexStringToULONGLONG.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall ExpParseSignatureName(
         wchar_t *Src,
         unsigned int a2,

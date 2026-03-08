@@ -1,3 +1,25 @@
+/*
+ * XREFs of BapdpProcessVsmKeyBlobs @ 0x140B44AFC
+ * Callers:
+ *     BootApplicationPersistentDataProcess @ 0x140B44538 (BootApplicationPersistentDataProcess.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     RtlStringCchCatW @ 0x140246580 (RtlStringCchCatW.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwWriteFile @ 0x140412410 (ZwWriteFile.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     ZwCreateFile @ 0x140412DB0 (ZwCreateFile.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x140413EB0 (ZwDeleteValueKey.c)
+ *     RtlIsStateSeparationEnabled @ 0x140792EC0 (RtlIsStateSeparationEnabled.c)
+ *     BapdGetISRegistryKey @ 0x140A8C170 (BapdGetISRegistryKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     BapdpQueryData @ 0x140B44D10 (BapdpQueryData.c)
+ */
+
 void __fastcall BapdpProcessVsmKeyBlobs(int a1)
 {
   ULONG *Pool2; // rbx

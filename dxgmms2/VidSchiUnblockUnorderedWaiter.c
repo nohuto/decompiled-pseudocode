@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchiUnblockUnorderedWaiter @ 0x1C003CA48
+ * Callers:
+ *     VidSchiCompleteSignalSyncObject @ 0x1C0003670 (VidSchiCompleteSignalSyncObject.c)
+ *     VidSchTimeoutSyncObject @ 0x1C0040B90 (VidSchTimeoutSyncObject.c)
+ * Callees:
+ *     VidSchiUnblockUnorderedWaitQueuePacket @ 0x1C003C938 (VidSchiUnblockUnorderedWaitQueuePacket.c)
+ */
+
 int __fastcall VidSchiUnblockUnorderedWaiter(__int64 a1, __int64 a2, __int64 a3)
 {
   _QWORD *v3; // rax

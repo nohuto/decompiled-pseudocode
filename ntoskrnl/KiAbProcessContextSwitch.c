@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiAbProcessContextSwitch @ 0x140239508
+ * Callers:
+ *     KiQuantumEnd @ 0x140254F30 (KiQuantumEnd.c)
+ *     KiHandleDeferredPreemption @ 0x1402AE8D0 (KiHandleDeferredPreemption.c)
+ *     KeRemoveQueueEx @ 0x140315D50 (KeRemoveQueueEx.c)
+ *     KeSetThreadSchedulerAssist @ 0x14056AE2C (KeSetThreadSchedulerAssist.c)
+ * Callees:
+ *     KiReadyDeferredReadyList @ 0x140226FA0 (KiReadyDeferredReadyList.c)
+ *     KiAbPropagateBoosts @ 0x1402395C0 (KiAbPropagateBoosts.c)
+ *     KiAbProcessThreadLocks @ 0x140239A40 (KiAbProcessThreadLocks.c)
+ *     KiCheckForThreadDispatch @ 0x14023A168 (KiCheckForThreadDispatch.c)
+ */
+
 __int64 __fastcall KiAbProcessContextSwitch(__int64 a1, int a2)
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of AssociateShellFrameAppThreads @ 0x1C01B41E8
+ * Callers:
+ *     TryDetachShellFrame @ 0x1C01B7EFC (TryDetachShellFrame.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AssociateShellFrameAppThreads(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

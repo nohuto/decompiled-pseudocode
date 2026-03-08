@@ -1,3 +1,18 @@
+/*
+ * XREFs of PoFxAbandonDevice @ 0x140867048
+ * Callers:
+ *     PnpDriverLoadingFailed @ 0x14085EEA4 (PnpDriverLoadingFailed.c)
+ *     IopRemoveDevice @ 0x140866E38 (IopRemoveDevice.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PopPluginAbandonDevice @ 0x14058A1A8 (PopPluginAbandonDevice.c)
+ *     PopDiagTraceFxDevicePreparation @ 0x1408665EC (PopDiagTraceFxDevicePreparation.c)
+ *     PopFxUnregisterDeviceOrWait @ 0x1408803F8 (PopFxUnregisterDeviceOrWait.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PoFxAbandonDevice(__int64 a1)
 {
   ULONG HandleAttributes; // eax

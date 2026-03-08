@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiConvertHiberPhasePte @ 0x140AA8FB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiIsPfn @ 0x14025F1D0 (MiIsPfn.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ */
+
 __int64 __fastcall MiConvertHiberPhasePte(__int64 a1, unsigned __int64 *a2, int a3)
 {
   __int64 v3; // r14

@@ -1,3 +1,16 @@
+/*
+ * XREFs of _ChildWindowFromPointEx @ 0x1C01489CA
+ * Callers:
+ *     NtUserChildWindowFromPointEx @ 0x1C0147500 (NtUserChildWindowFromPointEx.c)
+ *     ?xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z @ 0x1C02323EC (-xxxQueryDropObject@@YAPEAUtagCURSOR@@PEAUtagWND@@PEAUtagDROPSTRUCT@@@Z.c)
+ * Callees:
+ *     ?LayerHitTest@@YA_NPEAUtagWND@@UtagPOINT@@@Z @ 0x1C0011B6C (-LayerHitTest@@YA_NPEAUtagWND@@UtagPOINT@@@Z.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     ?GetWindowCloakState@@YAKPEBUtagWND@@@Z @ 0x1C0048F7C (-GetWindowCloakState@@YAKPEBUtagWND@@@Z.c)
+ *     PtInRect @ 0x1C00A34E8 (PtInRect.c)
+ *     ?PtOutsideClipRgnOrMaxClip@tagWND@@QEBA_NAEBUtagPOINT@@@Z @ 0x1C00DEEB0 (-PtOutsideClipRgnOrMaxClip@tagWND@@QEBA_NAEBUtagPOINT@@@Z.c)
+ */
+
 struct tagWND *__fastcall ChildWindowFromPointEx(struct tagWND *a1, struct tagPOINT a2, char a3)
 {
   unsigned int CurrentThreadDpiAwarenessContext; // eax

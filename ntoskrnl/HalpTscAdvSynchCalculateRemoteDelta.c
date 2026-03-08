@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpTscAdvSynchCalculateRemoteDelta @ 0x14038829C
+ * Callers:
+ *     HalpTscAdvSynchCalculateRemoteDeltas @ 0x140388048 (HalpTscAdvSynchCalculateRemoteDeltas.c)
+ *     HalpTscAdvSynchToLeader @ 0x140388164 (HalpTscAdvSynchToLeader.c)
+ *     HalpTscAdvSynchToTarget @ 0x140507F18 (HalpTscAdvSynchToTarget.c)
+ * Callees:
+ *     HalpTscAdvSynchComputeMinimumDeltaAlternate @ 0x140388478 (HalpTscAdvSynchComputeMinimumDeltaAlternate.c)
+ */
+
 __int64 __fastcall HalpTscAdvSynchCalculateRemoteDelta(unsigned int a1, _DWORD *a2)
 {
   unsigned __int64 v3; // rbx

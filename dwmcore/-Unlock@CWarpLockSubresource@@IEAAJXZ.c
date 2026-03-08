@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Unlock@CWarpLockSubresource@@IEAAJXZ @ 0x1800A854C
+ * Callers:
+ *     ??1CWarpLockSubresource@@MEAA@XZ @ 0x1800A8510 (--1CWarpLockSubresource@@MEAA@XZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CWarpLockSubresource::Unlock(CWarpLockSubresource *this)
 {
   int v2; // eax

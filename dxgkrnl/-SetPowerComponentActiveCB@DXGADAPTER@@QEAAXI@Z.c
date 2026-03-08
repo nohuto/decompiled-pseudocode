@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetPowerComponentActiveCB@DXGADAPTER@@QEAAXI@Z @ 0x1C001CAC0
+ * Callers:
+ *     DxgSetPowerComponentActiveCB @ 0x1C01E83D0 (DxgSetPowerComponentActiveCB.c)
+ *     ?SetSharedPowerComponentState@DXGGLOBAL@@QEAAJQEAX0KE@Z @ 0x1C03107FC (-SetSharedPowerComponentState@DXGGLOBAL@@QEAAJQEAX0KE@Z.c)
+ * Callees:
+ *     ?SetPowerComponentActiveCBWorker@DXGADAPTER@@QEAAXIEK@Z @ 0x1C000E6B0 (-SetPowerComponentActiveCBWorker@DXGADAPTER@@QEAAXIEK@Z.c)
+ */
+
 void __fastcall DXGADAPTER::SetPowerComponentActiveCB(DXGADAPTER *this, unsigned int a2, __int64 a3)
 {
   unsigned int v4; // edi

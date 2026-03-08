@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiDereferenceIoHugeRange @ 0x14061D540
+ * Callers:
+ *     MiDeleteStaleCacheMaps @ 0x14062B5C0 (MiDeleteStaleCacheMaps.c)
+ * Callees:
+ *     MiIsPageInIoHugeRangeTransition @ 0x14029BA30 (MiIsPageInIoHugeRangeTransition.c)
+ *     MiHugePfnPartition @ 0x14061E808 (MiHugePfnPartition.c)
+ *     MiInsertHugeRangeInList @ 0x14061EB84 (MiInsertHugeRangeInList.c)
+ *     MiLockHugePfnInternal @ 0x14061F020 (MiLockHugePfnInternal.c)
+ */
+
 __int64 __fastcall MiDereferenceIoHugeRange(unsigned __int64 a1, __int64 a2)
 {
   __int64 result; // rax

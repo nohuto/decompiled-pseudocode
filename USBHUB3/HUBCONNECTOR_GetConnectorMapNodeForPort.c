@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBCONNECTOR_GetConnectorMapNodeForPort @ 0x1C0082C14
+ * Callers:
+ *     HUBDSM_AddingDeviceToGlobalChildList @ 0x1C0023150 (HUBDSM_AddingDeviceToGlobalChildList.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 _QWORD *__fastcall HUBCONNECTOR_GetConnectorMapNodeForPort(__int64 a1)
 {
   _QWORD *v1; // rdi

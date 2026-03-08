@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ValidateInputSink@CompositionInputObject@@SAJAEBUCOMPOSITION_INPUT_SINK_V2@@@Z @ 0x1C00B1394
+ * Callers:
+ *     ?KernelCreateCompositionInputSink@CompositionInputObject@@SAJPEBUCOMPOSITION_INPUT_SINK_V2@@PEAPEAX@Z @ 0x1C00B1118 (-KernelCreateCompositionInputSink@CompositionInputObject@@SAJPEBUCOMPOSITION_INPUT_SINK_V2@@PEAP.c)
+ * Callees:
+ *     ?LooksLikeALocalHandle@@YA_NAEBUCOMPOSITION_INPUT_QUEUE@@@Z @ 0x1C00B1458 (-LooksLikeALocalHandle@@YA_NAEBUCOMPOSITION_INPUT_QUEUE@@@Z.c)
+ *     ??$GenerateNonTerminatingUserModeWerReport@$00@@YAXKPEAXAEAY00_K@Z @ 0x1C027029C (--$GenerateNonTerminatingUserModeWerReport@$00@@YAXKPEAXAEAY00_K@Z.c)
+ */
+
 __int64 __fastcall CompositionInputObject::ValidateInputSink(const struct COMPOSITION_INPUT_SINK_V2 *a1)
 {
   unsigned int v1; // ebx

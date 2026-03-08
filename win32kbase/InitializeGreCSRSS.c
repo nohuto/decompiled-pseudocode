@@ -1,3 +1,14 @@
+/*
+ * XREFs of InitializeGreCSRSS @ 0x1C009F4FC
+ * Callers:
+ *     Win32kBaseUserInitialize @ 0x1C00C6170 (Win32kBaseUserInitialize.c)
+ * Callees:
+ *     DrvNotifySessionStateChange @ 0x1C009F810 (DrvNotifySessionStateChange.c)
+ *     ?GetLanguageID@@YAGXZ @ 0x1C009F890 (-GetLanguageID@@YAGXZ.c)
+ *     ?vCheckIsSetupRunning@@YAXXZ @ 0x1C009FA34 (-vCheckIsSetupRunning@@YAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 InitializeGreCSRSS()
 {
   unsigned int v0; // ebx

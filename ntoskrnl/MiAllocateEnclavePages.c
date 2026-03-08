@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiAllocateEnclavePages @ 0x1406447E4
+ * Callers:
+ *     MiAllocateEnclavePagesForMdl @ 0x140620C1C (MiAllocateEnclavePagesForMdl.c)
+ *     MiGetPageForEnclave @ 0x140645A8C (MiGetPageForEnclave.c)
+ *     MiReserveEnclavePages @ 0x140646394 (MiReserveEnclavePages.c)
+ *     MiCreateHardwareEnclave @ 0x140A3AB10 (MiCreateHardwareEnclave.c)
+ *     MiInitializeEnclaveMetadataPage @ 0x140B96A34 (MiInitializeEnclaveMetadataPage.c)
+ * Callees:
+ *     MiSetPfnBlink @ 0x140289900 (MiSetPfnBlink.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnEnclavePage @ 0x140646460 (MiReturnEnclavePage.c)
+ */
+
 __int64 __fastcall MiAllocateEnclavePages(__int64 a1, int a2, int a3, __int64 a4)
 {
   __int64 v4; // rdi

@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1408A3ADC
+ * Callers:
+ *     EtwpCovSampCaptureUserAddresses @ 0x1408A3D6C (EtwpCovSampCaptureUserAddresses.c)
+ * Callees:
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     EtwpCovSampCaptureBufferRelease @ 0x14040CB5C (EtwpCovSampCaptureBufferRelease.c)
+ *     EtwpCovSampCaptureBufferIsEmpty @ 0x140461A12 (EtwpCovSampCaptureBufferIsEmpty.c)
+ *     EtwpCovSampCaptureBufferQueue @ 0x140461A8C (EtwpCovSampCaptureBufferQueue.c)
+ *     EtwpCovSampAcquireSamplerRundown @ 0x1408A3A8C (EtwpCovSampAcquireSamplerRundown.c)
+ *     EtwpCovSampProcessMapAddresses @ 0x1408A5072 (EtwpCovSampProcessMapAddresses.c)
+ *     EtwpCovSampStackHashCheck @ 0x1408A537C (EtwpCovSampStackHashCheck.c)
+ */
+
 void __fastcall EtwpCovSampCaptureBufferMapAddressesAndQueue(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdi

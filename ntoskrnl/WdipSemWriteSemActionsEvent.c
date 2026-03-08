@@ -1,3 +1,17 @@
+/*
+ * XREFs of WdipSemWriteSemActionsEvent @ 0x140832438
+ * Callers:
+ *     WdipSemEnableScenario @ 0x1407966C0 (WdipSemEnableScenario.c)
+ *     WdipSemDisableScenario @ 0x140831E48 (WdipSemDisableScenario.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WdipSemFastAllocate @ 0x14083362C (WdipSemFastAllocate.c)
+ *     WdipSemFastFree @ 0x140833700 (WdipSemFastFree.c)
+ *     WdipSemWriteEvent @ 0x140833CFC (WdipSemWriteEvent.c)
+ *     WmiQueryTraceInformation @ 0x140833D80 (WmiQueryTraceInformation.c)
+ */
+
 __int64 __fastcall WdipSemWriteSemActionsEvent(__int64 a1, __int64 a2)
 {
   __int64 v4; // rsi

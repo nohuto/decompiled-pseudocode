@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwKernelMemoryRundown @ 0x1409E2228
+ * Callers:
+ *     PopEndMirroring @ 0x140A9F6B0 (PopEndMirroring.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwpKernelTraceRundown @ 0x14080D9F8 (EtwpKernelTraceRundown.c)
+ */
+
 char EtwKernelMemoryRundown()
 {
   __int64 v0; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of Crashdump_EventRing_Poll @ 0x1C004E500
+ * Callers:
+ *     Crashdump_Command_SendCommand @ 0x1C004EB8C (Crashdump_Command_SendCommand.c)
+ *     Crashdump_Command_Stop @ 0x1C004ED20 (Crashdump_Command_Stop.c)
+ *     Crashdump_Endpoint_SendTransferAndPollForCompletion @ 0x1C004F708 (Crashdump_Endpoint_SendTransferAndPollForCompletion.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Crashdump_EventRing_UpdateDequeuePointer @ 0x1C004E9FC (Crashdump_EventRing_UpdateDequeuePointer.c)
+ */
+
 __int64 __fastcall Crashdump_EventRing_Poll(
         __int64 a1,
         int a2,

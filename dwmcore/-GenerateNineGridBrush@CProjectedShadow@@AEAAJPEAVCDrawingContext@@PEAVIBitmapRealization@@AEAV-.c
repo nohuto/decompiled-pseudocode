@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?GenerateNineGridBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVIBitmapRealization@@AEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAVCNineGridBrush@@@Z @ 0x180247240
+ * Callers:
+ *     ?GenerateApproxBlur@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z @ 0x180246204 (-GenerateApproxBlur@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180004700 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038C50 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ??0CNineGridBrush@@QEAA@PEAVCComposition@@@Z @ 0x1800B86E0 (--0CNineGridBrush@@QEAA@PEAVCComposition@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SetInsetProperty@CNineGridBrush@@QEAAXKM@Z @ 0x1800E6CF8 (-SetInsetProperty@CNineGridBrush@@QEAAXKM@Z.c)
+ *     ?SetSource@CNineGridBrush@@QEAAJPEAVCBrush@@@Z @ 0x1800EA04C (-SetSource@CNineGridBrush@@QEAAJPEAVCBrush@@@Z.c)
+ *     ?reset@?$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800FF6C0 (-reset@-$com_ptr_t@UIDXGISwapChain1@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?SetCanUseSurfaceTransform@CNineGridBrush@@QEAAX_N@Z @ 0x18023C534 (-SetCanUseSurfaceTransform@CNineGridBrush@@QEAAX_N@Z.c)
+ *     ??4?$com_ptr_t@VCNineGridBrush@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCNineGridBrush@@@Z @ 0x1802456DC (--4-$com_ptr_t@VCNineGridBrush@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@PEAVCNineGridBrush@.c)
+ *     ?GenerateSurfaceBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVIBitmapRealization@@AEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@PEAPEAVCSurfaceBrush@@@Z @ 0x1802473C0 (-GenerateSurfaceBrush@CProjectedShadow@@AEAAJPEAVCDrawingContext@@PEAVIBitmapRealization@@AEAV-$.c)
+ */
+
 __int64 __fastcall CProjectedShadow::GenerateNineGridBrush(
         __int64 a1,
         __int64 a2,

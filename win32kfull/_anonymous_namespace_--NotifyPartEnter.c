@@ -1,3 +1,13 @@
+/*
+ * XREFs of _anonymous_namespace_::NotifyPartEnter @ 0x1C021FE90
+ * Callers:
+ *     ?HitTestPartUpdate@NotifyShell@@YAXAEBUtagDESKTOP@@PEAUtagWND@@H@Z @ 0x1C00BDB5C (-HitTestPartUpdate@NotifyShell@@YAXAEBUtagDESKTOP@@PEAUtagWND@@H@Z.c)
+ * Callees:
+ *     _GetTopLevelWindow @ 0x1C0035AF0 (_GetTopLevelWindow.c)
+ *     _anonymous_namespace_::GetWindowStateForPartNotification @ 0x1C021FD2C (_anonymous_namespace_--GetWindowStateForPartNotification.c)
+ *     _anonymous_namespace_::NotifyShellSimplePayload @ 0x1C0220058 (_anonymous_namespace_--NotifyShellSimplePayload.c)
+ */
+
 __int64 __fastcall anonymous_namespace_::NotifyPartEnter(__int64 a1, unsigned __int16 a2)
 {
   struct tagWND *TopLevelWindow; // r14

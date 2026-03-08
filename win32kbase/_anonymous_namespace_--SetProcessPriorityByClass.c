@@ -1,3 +1,11 @@
+/*
+ * XREFs of _anonymous_namespace_::SetProcessPriorityByClass @ 0x1C005BE24
+ * Callers:
+ *     _anonymous_namespace_::SetForegroundPriorityProcess @ 0x1C005BD80 (_anonymous_namespace_--SetForegroundPriorityProcess.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall anonymous_namespace_::SetProcessPriorityByClass(__int64 *a1, int a2)
 {
   int v4; // ecx

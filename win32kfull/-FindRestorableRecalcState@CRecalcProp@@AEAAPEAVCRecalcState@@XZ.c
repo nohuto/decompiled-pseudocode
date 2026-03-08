@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?FindRestorableRecalcState@CRecalcProp@@AEAAPEAVCRecalcState@@XZ @ 0x1C012949C
+ * Callers:
+ *     ?s_xxxProcessTopologyChange@CRecalcProp@@SAXPEAUHWND__@@PEAVCRecalcContext@@@Z @ 0x1C00FCADC (-s_xxxProcessTopologyChange@CRecalcProp@@SAXPEAUHWND__@@PEAVCRecalcContext@@@Z.c)
+ *     ?HasRestorableState@CRecalcProp@@AEAA_NXZ @ 0x1C00FF458 (-HasRestorableState@CRecalcProp@@AEAA_NXZ.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ?GetWindowCloakState@@YAKPEBUtagWND@@@Z @ 0x1C0048F7C (-GetWindowCloakState@@YAKPEBUtagWND@@@Z.c)
+ *     ?ShouldRestoreWindowToState@CRecalcState@@QEBA_NPEBUtagWND@@@Z @ 0x1C0228FD4 (-ShouldRestoreWindowToState@CRecalcState@@QEBA_NPEBUtagWND@@@Z.c)
+ */
+
 struct CRecalcState *__fastcall CRecalcProp::FindRestorableRecalcState(CRecalcProp *this)
 {
   int v2; // r8d

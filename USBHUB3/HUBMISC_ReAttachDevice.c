@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBMISC_ReAttachDevice @ 0x1C00311C8
+ * Callers:
+ *     HUBPSM30_IssuingReAttachDeviceToBootDevice @ 0x1C00121B0 (HUBPSM30_IssuingReAttachDeviceToBootDevice.c)
+ * Callees:
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ */
+
 __int64 __fastcall HUBMISC_ReAttachDevice(__int64 a1)
 {
   __int64 result; // rax

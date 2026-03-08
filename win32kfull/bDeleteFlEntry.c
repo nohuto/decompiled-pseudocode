@@ -1,3 +1,20 @@
+/*
+ * XREFs of bDeleteFlEntry @ 0x1C02A1F2C
+ * Callers:
+ *     GreEudcUnloadLinkW @ 0x1C02A13F0 (GreEudcUnloadLinkW.c)
+ * Callees:
+ *     ??1?$AutoResource@$1?Win32FreePool@@YAXPEAX@Z@@QEAA@XZ @ 0x1C00B90C0 (--1-$AutoResource@$1-Win32FreePool@@YAXPEAX@Z@@QEAA@XZ.c)
+ *     ?bAppendSysDirectory@@YAHPEAGPEBGI@Z @ 0x1C00B9FA4 (-bAppendSysDirectory@@YAHPEAGPEBGI@Z.c)
+ *     ?FindBaseFontEntry@@YAPEAU_FLENTRY@@PEBG@Z @ 0x1C0115FA0 (-FindBaseFontEntry@@YAPEAU_FLENTRY@@PEBG@Z.c)
+ *     bUnloadEudcFont @ 0x1C01162DC (bUnloadEudcFont.c)
+ *     ??0MALLOCOBJ@@QEAA@K@Z @ 0x1C0116400 (--0MALLOCOBJ@@QEAA@K@Z.c)
+ *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C01165A4 (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     ?FindLinkedFontEntry@@YAPEAU_PFEDATA@@PEAU_LIST_ENTRY@@PEBG1@Z @ 0x1C02A1020 (-FindLinkedFontEntry@@YAPEAU_PFEDATA@@PEAU_LIST_ENTRY@@PEBG1@Z.c)
+ *     ?ParseFontLinkEntry@@YA_NPEAGPEAUFontLinkData@@@Z @ 0x1C02A1A0C (-ParseFontLinkEntry@@YA_NPEAGPEAUFontLinkData@@@Z.c)
+ *     vUnlinkEudcRFONTs @ 0x1C02A3018 (vUnlinkEudcRFONTs.c)
+ *     vUnlinkEudcRFONTsAndPFEs @ 0x1C02A311C (vUnlinkEudcRFONTsAndPFEs.c)
+ */
+
 __int64 __fastcall bDeleteFlEntry(wchar_t *Str1, char *a2, int a3)
 {
   wchar_t *v6; // rdi

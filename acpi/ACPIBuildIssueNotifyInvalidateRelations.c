@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIBuildIssueNotifyInvalidateRelations @ 0x1C000D6D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIPendingInvalidate @ 0x1C00145A4 (ACPIPendingInvalidate.c)
+ */
+
 void __fastcall ACPIBuildIssueNotifyInvalidateRelations(__int64 a1, __int64 a2)
 {
   __int64 v3; // rax

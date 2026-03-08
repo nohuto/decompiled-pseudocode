@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetClassIcoCur @ 0x1C00E123C
+ * Callers:
+ *     NtUserGetClassIcoCur @ 0x1C00E1170 (NtUserGetClassIcoCur.c)
+ * Callees:
+ *     ??1?$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ @ 0x1C0031BF4 (--1-$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z @ 0x1C00E02D4 (-Init@-$SmartObjStackRefBase@UtagCLS@@@@AEAAXPEAUtagCLS@@@Z.c)
+ */
+
 __int64 __fastcall GetClassIcoCur(__int64 a1, int a2)
 {
   __int64 v3; // rbx

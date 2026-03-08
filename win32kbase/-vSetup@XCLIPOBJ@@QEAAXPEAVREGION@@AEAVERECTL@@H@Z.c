@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vSetup@XCLIPOBJ@@QEAAXPEAVREGION@@AEAVERECTL@@H@Z @ 0x1C0075590
+ * Callers:
+ *     EngUpdateDeviceSurface @ 0x1C018BD80 (EngUpdateDeviceSurface.c)
+ * Callees:
+ *     ?bEqual@ERECTL@@QEBAHAEBV1@@Z @ 0x1C0002C10 (-bEqual@ERECTL@@QEBAHAEBV1@@Z.c)
+ *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C0078860 (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
+ */
+
 void __fastcall XCLIPOBJ::vSetup(XCLIPOBJ *this, struct REGION *a2, struct ERECTL *a3, int a4)
 {
   int v5; // r14d

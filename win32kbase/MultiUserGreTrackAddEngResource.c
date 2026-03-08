@@ -1,3 +1,12 @@
+/*
+ * XREFs of MultiUserGreTrackAddEngResource @ 0x1C002B0F0
+ * Callers:
+ *     GreCreateSemaphoreInternal @ 0x1C002B04C (GreCreateSemaphoreInternal.c)
+ * Callees:
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0049E20 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EngAcquireSemaphore @ 0x1C004B690 (EngAcquireSemaphore.c)
+ */
+
 __int64 __fastcall MultiUserGreTrackAddEngResource(__int64 a1, int a2)
 {
   __int64 v4; // rsi

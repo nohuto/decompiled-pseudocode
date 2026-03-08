@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopPowerAggregatorNotifyCsStateExited @ 0x140990B24
+ * Callers:
+ *     PopPowerAggregatorScreenOffActiveToActiveStateHandler @ 0x140990E50 (PopPowerAggregatorScreenOffActiveToActiveStateHandler.c)
+ * Callees:
+ *     PopInvokeWin32Callout @ 0x14073A52C (PopInvokeWin32Callout.c)
+ *     TtmIsEnabled @ 0x14073C8BC (TtmIsEnabled.c)
+ *     PopBlockSessionSwitch @ 0x140994CF0 (PopBlockSessionSwitch.c)
+ *     TtmNotifyLowPowerStateExited @ 0x1409A12C8 (TtmNotifyLowPowerStateExited.c)
+ */
+
 __int64 __fastcall PopPowerAggregatorNotifyCsStateExited(__int64 a1)
 {
   __int64 v1; // rdx

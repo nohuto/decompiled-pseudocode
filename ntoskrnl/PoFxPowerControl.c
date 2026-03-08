@@ -1,3 +1,13 @@
+/*
+ * XREFs of PoFxPowerControl @ 0x1402D91A0
+ * Callers:
+ *     DifPoFxPowerControlWrapper @ 0x1405E73B0 (DifPoFxPowerControlWrapper.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     IoAcquireRemoveLockEx @ 0x140305F80 (IoAcquireRemoveLockEx.c)
+ *     PopPluginRequestPowerControl @ 0x14058A654 (PopPluginRequestPowerControl.c)
+ */
+
 __int64 __fastcall PoFxPowerControl(__int64 a1, int a2, int a3, int a4, __int64 a5, __int64 a6, _QWORD *a7)
 {
   NTSTATUS v11; // edi

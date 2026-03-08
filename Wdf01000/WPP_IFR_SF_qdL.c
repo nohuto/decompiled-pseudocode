@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_IFR_SF_qdL @ 0x1C005B7CC
+ * Callers:
+ *     ?QueueWorkItemLocked@FxUsbPipeContinuousReader@@IEAAEPEAUFxUsbPipeRepeatReader@@@Z @ 0x1C005AB54 (-QueueWorkItemLocked@FxUsbPipeContinuousReader@@IEAAEPEAUFxUsbPipeRepeatReader@@@Z.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_qdL(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 _a1,

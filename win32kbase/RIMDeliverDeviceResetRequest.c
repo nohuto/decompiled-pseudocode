@@ -1,3 +1,16 @@
+/*
+ * XREFs of RIMDeliverDeviceResetRequest @ 0x1C00893E4
+ * Callers:
+ *     rimOnPnpArrived @ 0x1C00889C0 (rimOnPnpArrived.c)
+ *     rimDeviceResetApc @ 0x1C01E2FC0 (rimDeviceResetApc.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0088924 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall RIMDeliverDeviceResetRequest(char *OutputBuffer)
 {
   bool v2; // dl

@@ -1,3 +1,13 @@
+/*
+ * XREFs of CcAmILowPriorityWriter @ 0x14021B7DC
+ * Callers:
+ *     CcFlushCacheAcquireRange @ 0x14021A0CC (CcFlushCacheAcquireRange.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ */
+
 bool __fastcall CcAmILowPriorityWriter(__int64 a1)
 {
   __int64 v1; // rbx

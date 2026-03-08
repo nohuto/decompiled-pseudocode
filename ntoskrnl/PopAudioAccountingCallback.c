@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopAudioAccountingCallback @ 0x140852568
+ * Callers:
+ *     PopWnfAudioCallback @ 0x140852480 (PopWnfAudioCallback.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopAudioAccountingCallback(char a1)
 {
   __int64 result; // rax

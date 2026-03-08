@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiInitializeLockedPagesTracking @ 0x140A28654
+ * Callers:
+ *     MmInitializeProcessAddressSpace @ 0x1407291A8 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeHandBuiltProcess2 @ 0x14085D06C (MmInitializeHandBuiltProcess2.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ */
+
 _QWORD *__fastcall MiInitializeLockedPagesTracking(__int64 a1)
 {
   _QWORD *result; // rax

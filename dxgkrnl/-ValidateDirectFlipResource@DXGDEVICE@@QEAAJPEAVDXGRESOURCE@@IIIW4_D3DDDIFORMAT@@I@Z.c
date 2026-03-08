@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ValidateDirectFlipResource@DXGDEVICE@@QEAAJPEAVDXGRESOURCE@@IIIW4_D3DDDIFORMAT@@I@Z @ 0x1C02E9448
+ * Callers:
+ *     ?PinDirectFlipResources@DXGDEVICE@@QEAAJIPEBVDXGRESOURCEREFERENCE@@_N@Z @ 0x1C02E7020 (-PinDirectFlipResources@DXGDEVICE@@QEAAJIPEBVDXGRESOURCEREFERENCE@@_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DXGDEVICE::ValidateDirectFlipResource(
         DXGDEVICE *this,
         struct DXGRESOURCE *a2,

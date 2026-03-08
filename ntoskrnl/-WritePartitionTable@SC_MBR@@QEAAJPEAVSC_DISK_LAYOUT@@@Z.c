@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?WritePartitionTable@SC_MBR@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x140673F9C
+ * Callers:
+ *     ?WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z @ 0x1406737F8 (-WritePartitionTable@SC_DISK@@QEAAJPEAVSC_DISK_LAYOUT@@@Z.c)
+ *     ?CreatePartitionTable@SC_MBR@@QEAAJPEAU_CREATE_DISK@@@Z @ 0x140673A40 (-CreatePartitionTable@SC_MBR@@QEAAJPEAU_CREATE_DISK@@@Z.c)
+ *     ?SetPartition@SC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z @ 0x140673E54 (-SetPartition@SC_MBR@@QEAAJKPEAU_SET_PARTITION_INFORMATION_EX@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ?ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x1406735AC (-ReadSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     ?WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z @ 0x1406738DC (-WriteSectors@SC_DISK@@QEAAJK_KPEAX@Z.c)
+ *     ?CheckSum@MBR_HEADER@@QEAAKXZ @ 0x140673920 (-CheckSum@MBR_HEADER@@QEAAKXZ.c)
+ *     ?ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z @ 0x140673964 (-ComputeChs@MBR_ENTRY@@QEAAXPEAU_DISK_GEOMETRY@@@Z.c)
+ *     ?CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z @ 0x14093D4B0 (-CreateGuid@SC_ENV@@SAJPEAU_GUID@@@Z.c)
+ */
+
 __int64 __fastcall SC_MBR::WritePartitionTable(SC_DISK **this, struct SC_DISK_LAYOUT *a2)
 {
   __int8 *v2; // r11

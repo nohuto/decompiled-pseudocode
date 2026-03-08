@@ -1,3 +1,13 @@
+/*
+ * XREFs of SymCryptSizeofRsakeyFromParams @ 0x1403F249C
+ * Callers:
+ *     SymCryptRsakeyCreate @ 0x1403F1CE4 (SymCryptRsakeyCreate.c)
+ * Callees:
+ *     SymCryptDigitsFromBits @ 0x1403F36C0 (SymCryptDigitsFromBits.c)
+ *     SymCryptSizeofIntFromDigits @ 0x1403F3EF0 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptSizeofModulusFromDigits @ 0x1403F3F20 (SymCryptSizeofModulusFromDigits.c)
+ */
+
 __int64 __fastcall SymCryptSizeofRsakeyFromParams(unsigned int *a1)
 {
   unsigned int v2; // esi

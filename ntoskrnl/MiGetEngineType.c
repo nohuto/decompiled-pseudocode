@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiGetEngineType @ 0x14039580C
+ * Callers:
+ *     MiInitializeDpcGroupAffinity @ 0x1402A9390 (MiInitializeDpcGroupAffinity.c)
+ *     MiComputeMemoryNodeProcessorAssignments @ 0x140B5F834 (MiComputeMemoryNodeProcessorAssignments.c)
+ *     MiFindProcessorsForMemoryOnlyNode @ 0x140B96EFC (MiFindProcessorsForMemoryOnlyNode.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiGetEngineType(__int64 a1)
 {
   int v1; // eax

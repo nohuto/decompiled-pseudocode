@@ -1,3 +1,22 @@
+/*
+ * XREFs of KiEndThreadCycleAccumulation @ 0x140227260
+ * Callers:
+ *     KiIdleSchedule @ 0x140228140 (KiIdleSchedule.c)
+ *     KeUpdateTotalCyclesCurrentThread @ 0x140228820 (KeUpdateTotalCyclesCurrentThread.c)
+ *     KiQuantumEnd @ 0x140254F30 (KiQuantumEnd.c)
+ *     KiChooseTargetProcessor @ 0x140258FC0 (KiChooseTargetProcessor.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x1402ABBFC (KiGroupSchedulingGenerationEnd.c)
+ *     KiHandleDeferredPreemption @ 0x1402AE8D0 (KiHandleDeferredPreemption.c)
+ *     PpmCheckCustomRun @ 0x1402D1B4C (PpmCheckCustomRun.c)
+ *     KeUpdateThreadTag @ 0x1402FB2F0 (KeUpdateThreadTag.c)
+ *     KeRemoveQueueEx @ 0x140315D50 (KeRemoveQueueEx.c)
+ *     KiCaptureTotalCyclesCurrentThread @ 0x14035867C (KiCaptureTotalCyclesCurrentThread.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x14036A030 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiSelectIdleProcessor @ 0x14057528C (KiSelectIdleProcessor.c)
+ * Callees:
+ *     KiEndThreadAccountingPeriodEx @ 0x140256710 (KiEndThreadAccountingPeriodEx.c)
+ */
+
 unsigned __int64 __fastcall KiEndThreadCycleAccumulation(__int64 a1, __int64 a2, unsigned __int64 *a3, __int64 a4)
 {
   unsigned __int64 v7; // rsi

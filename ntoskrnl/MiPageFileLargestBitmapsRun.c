@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiPageFileLargestBitmapsRun @ 0x14020A53C
+ * Callers:
+ *     MiFindFreePageFileSpace @ 0x140209F7C (MiFindFreePageFileSpace.c)
+ *     MiFindBestOutswapPagefile @ 0x1402DBE44 (MiFindBestOutswapPagefile.c)
+ *     MiGetKernelStackSwapSupport @ 0x1402DBFB8 (MiGetKernelStackSwapSupport.c)
+ *     MiGatherPagefilePages @ 0x140637D34 (MiGatherPagefilePages.c)
+ *     MiTrimUnusedPageFileRegionsWorker @ 0x1406392E0 (MiTrimUnusedPageFileRegionsWorker.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiPageFileLargestBitmapsRun(__int64 a1)
 {
   volatile LONG *v1; // rbp

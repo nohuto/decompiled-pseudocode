@@ -1,3 +1,12 @@
+/*
+ * XREFs of _MapCmDevicePropertyToRegType @ 0x1402FA1A8
+ * Callers:
+ *     _CmGetDeviceRegPropWorker @ 0x1406C9A04 (_CmGetDeviceRegPropWorker.c)
+ *     _CmSetDeviceRegPropWorker @ 0x14086A240 (_CmSetDeviceRegPropWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MapCmDevicePropertyToRegType(int a1)
 {
   int v1; // ecx

@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiInitializeTransitionPfn @ 0x140214B28
+ * Callers:
+ *     MiInitializeImageProtos @ 0x140213DD0 (MiInitializeImageProtos.c)
+ *     MiInitializeNewImageSectionProtos @ 0x1402EAAAC (MiInitializeNewImageSectionProtos.c)
+ *     MiCopyDataPageToImagePage @ 0x140334490 (MiCopyDataPageToImagePage.c)
+ *     MiCopyFileOnlyGlobalSubsectionPage @ 0x140639EB8 (MiCopyFileOnlyGlobalSubsectionPage.c)
+ * Callees:
+ *     MiGetContainingPageTable @ 0x140289FE0 (MiGetContainingPageTable.c)
+ *     MiProtectionToCacheAttribute @ 0x14028A2D0 (MiProtectionToCacheAttribute.c)
+ *     MiSetPfnPteFrame @ 0x14028A310 (MiSetPfnPteFrame.c)
+ *     MiFinalizePageAttribute @ 0x14028A354 (MiFinalizePageAttribute.c)
+ *     MiLockNestedPageAtDpcInline @ 0x1402DDE90 (MiLockNestedPageAtDpcInline.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ */
+
 __int64 __fastcall MiInitializeTransitionPfn(__int64 a1, __int64 *a2, __int64 a3)
 {
   __int64 v6; // rdi

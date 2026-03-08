@@ -1,3 +1,16 @@
+/*
+ * XREFs of LocalGetSidForString @ 0x140750A70
+ * Callers:
+ *     LocalConvertStringSDToSD_Rev1 @ 0x14074E300 (LocalConvertStringSDToSD_Rev1.c)
+ *     LocalGetAclForString @ 0x14074F18C (LocalGetAclForString.c)
+ *     GetOperandValue @ 0x1409D07DC (GetOperandValue.c)
+ *     LocalGetRelativeAttributeForString @ 0x1409D2214 (LocalGetRelativeAttributeForString.c)
+ * Callees:
+ *     LookupSidInTable @ 0x1406999A0 (LookupSidInTable.c)
+ *     LocalpConvertStringSidToSid @ 0x14074CCC8 (LocalpConvertStringSidToSid.c)
+ *     RtlNtStatusToDosError @ 0x140755BE0 (RtlNtStatusToDosError.c)
+ */
+
 __int64 __fastcall LocalGetSidForString(wchar_t *a1, __int64 *a2, wchar_t **a3, _BYTE *a4)
 {
   ULONG v8; // ebp

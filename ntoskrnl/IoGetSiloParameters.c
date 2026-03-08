@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoGetSiloParameters @ 0x1402D3F40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IoGetSiloParameters(__int64 a1)
 {
   _QWORD *v1; // rax

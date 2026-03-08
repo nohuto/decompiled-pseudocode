@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidSchiSelectContextFromThisProcess@@YAXPEAU_VIDSCH_CONTEXT@@PEAPEAU1@@Z @ 0x1C00010C0
+ * Callers:
+ *     VidSchiIsQuantumLeft @ 0x1C0001054 (VidSchiIsQuantumLeft.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VidSchiSelectContextFromThisProcess(struct _VIDSCH_CONTEXT *a1, struct _VIDSCH_CONTEXT **a2)
 {
   _QWORD **v4; // rdi

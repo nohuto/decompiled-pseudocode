@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?vSetBest@MAPPER@@QEAAXPEAVPFE@@HE@Z @ 0x1C014DEE0
+ * Callers:
+ *     ?vEmergency@MAPPER@@QEAAXXZ @ 0x1C014DD80 (-vEmergency@MAPPER@@QEAAXXZ.c)
+ *     ?bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z @ 0x1C029D344 (-bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z.c)
+ *     ?vAttemptDeviceMatch@MAPPER@@QEAAXXZ @ 0x1C029D774 (-vAttemptDeviceMatch@MAPPER@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall MAPPER::vSetBest(MAPPER *this, struct PFE *a2, int a3, unsigned __int8 a4)
 {
   int v4; // eax

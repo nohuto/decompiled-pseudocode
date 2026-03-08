@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiRotateComplete @ 0x1406309AC
+ * Callers:
+ *     MiRotateToFrameBuffer @ 0x140A2E9E0 (MiRotateToFrameBuffer.c)
+ *     MiRotateToFrameBufferNoCopy @ 0x140A2ECE4 (MiRotateToFrameBufferNoCopy.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ */
+
 void __fastcall MiRotateComplete(unsigned __int64 *a1)
 {
   _KPROCESS *Process; // rdx

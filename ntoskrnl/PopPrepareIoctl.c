@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopPrepareIoctl @ 0x140846A50
+ * Callers:
+ *     PopThermalWorker @ 0x140846460 (PopThermalWorker.c)
+ *     PopFanWorker @ 0x140846840 (PopFanWorker.c)
+ *     PopBatteryInitialize @ 0x140992318 (PopBatteryInitialize.c)
+ *     PopBatteryQueryEstimatedTime @ 0x1409924A8 (PopBatteryQueryEstimatedTime.c)
+ *     PopBatteryQueryStatus @ 0x140992530 (PopBatteryQueryStatus.c)
+ *     PopBatteryReadTag @ 0x1409926B4 (PopBatteryReadTag.c)
+ *     PopBatteryWaitTag @ 0x140992B14 (PopBatteryWaitTag.c)
+ * Callees:
+ *     IoReuseIrp @ 0x1402B1EB0 (IoReuseIrp.c)
+ */
+
 __int64 __fastcall PopPrepareIoctl(IRP *a1, ULONG a2, char a3, struct _IRP *a4, ULONG a5, ULONG a6)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r8

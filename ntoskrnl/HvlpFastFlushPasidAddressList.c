@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvlpFastFlushPasidAddressList @ 0x140543D18
+ * Callers:
+ *     HvlFlushPasid @ 0x140541A50 (HvlFlushPasid.c)
+ * Callees:
+ *     HvcallFastExtended @ 0x1403C6CA0 (HvcallFastExtended.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall HvlpFastFlushPasidAddressList(int a1, int a2, __int64 a3, const void *a4, char a5)
 {
   __int16 v5; // bx

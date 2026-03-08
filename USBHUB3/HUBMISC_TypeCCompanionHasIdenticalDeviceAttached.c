@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBMISC_TypeCCompanionHasIdenticalDeviceAttached @ 0x1C0034144
+ * Callers:
+ *     HUBDSM_AddingDeviceToGlobalChildList @ 0x1C0023150 (HUBDSM_AddingDeviceToGlobalChildList.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBCONNECTOR_GetCompanionPort @ 0x1C0082380 (HUBCONNECTOR_GetCompanionPort.c)
+ */
+
 bool __fastcall HUBMISC_TypeCCompanionHasIdenticalDeviceAttached(__int64 a1)
 {
   __int64 v1; // rsi

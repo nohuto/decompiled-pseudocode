@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtSetInformationDebugObject @ 0x140935CE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 NTSTATUS __fastcall NtSetInformationDebugObject(HANDLE Handle, int a2, int *a3, unsigned int a4, unsigned __int64 a5)
 {
   KPROCESSOR_MODE PreviousMode; // r11

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?VidSchiStopNodeYield@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C0018E98
+ * Callers:
+ *     VidSchiCheckYieldExitCondition @ 0x1C0018E4C (VidSchiCheckYieldExitCondition.c)
+ *     ?VidSchiUpdateNodeYieldStatus@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C00379BC (-VidSchiUpdateNodeYieldStatus@@YAXPEAU_VIDSCH_NODE@@@Z.c)
+ * Callees:
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C002EF24 (McTemplateK0pq_EtwWriteTransfer.c)
+ */
+
 void __fastcall VidSchiStopNodeYield(unsigned __int64 a1, __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // rbx

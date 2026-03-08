@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ShouldBuffer@TelemetryBuffer@UserCritTelemetry@@CA_NW4BucketType@2@QEB_K1@Z @ 0x1C00DD8CC
+ * Callers:
+ *     ?Update@TelemetryBuffer@UserCritTelemetry@@QEAAXQEB_K00@Z @ 0x1C00DD904 (-Update@TelemetryBuffer@UserCritTelemetry@@QEAAXQEB_K00@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall UserCritTelemetry::TelemetryBuffer::ShouldBuffer(int a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // r9

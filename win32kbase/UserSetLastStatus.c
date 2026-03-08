@@ -1,3 +1,13 @@
+/*
+ * XREFs of UserSetLastStatus @ 0x1C00DA3A4
+ * Callers:
+ *     NtUserGetDpiForMonitor @ 0x1C003DF40 (NtUserGetDpiForMonitor.c)
+ *     NtUserGetPrecisionTouchPadConfiguration @ 0x1C0170EE0 (NtUserGetPrecisionTouchPadConfiguration.c)
+ *     NtUserSetPrecisionTouchPadConfiguration @ 0x1C0177910 (NtUserSetPrecisionTouchPadConfiguration.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ */
+
 struct _NT_TIB *__fastcall UserSetLastStatus(NTSTATUS Status)
 {
   NTSTATUS v2; // ebx

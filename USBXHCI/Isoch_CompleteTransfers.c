@@ -1,3 +1,16 @@
+/*
+ * XREFs of Isoch_CompleteTransfers @ 0x1C0043E28
+ * Callers:
+ *     Isoch_ProcessTransferCompletion @ 0x1C0044B2C (Isoch_ProcessTransferCompletion.c)
+ * Callees:
+ *     StageQueue_Release @ 0x1C0011840 (StageQueue_Release.c)
+ *     TR_ReleaseSegments @ 0x1C001187C (TR_ReleaseSegments.c)
+ *     StageQueue_ForwardScanGetNextStage @ 0x1C0012EEC (StageQueue_ForwardScanGetNextStage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Isoch_Stage_FreeScatterGatherList @ 0x1C0045238 (Isoch_Stage_FreeScatterGatherList.c)
+ *     Isoch_Transfer_CompleteCancelable @ 0x1C0045590 (Isoch_Transfer_CompleteCancelable.c)
+ */
+
 void __fastcall Isoch_CompleteTransfers(__int64 a1, _QWORD *a2)
 {
   _QWORD *v4; // rdi

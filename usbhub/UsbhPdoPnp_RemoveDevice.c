@@ -1,3 +1,23 @@
+/*
+ * XREFs of UsbhPdoPnp_RemoveDevice @ 0x1C0056380
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhSetPdoPowerState @ 0x1C0003960 (UsbhSetPdoPowerState.c)
+ *     UsbhDecHubBusy @ 0x1C0003DB0 (UsbhDecHubBusy.c)
+ *     UsbhIncHubBusy @ 0x1C0007050 (UsbhIncHubBusy.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     UsbhAcquireFdoPwrLock @ 0x1C001AB8C (UsbhAcquireFdoPwrLock.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     UsbhReleaseFdoPwrLock @ 0x1C0031D74 (UsbhReleaseFdoPwrLock.c)
+ *     UsbhSetPdo_FailIo @ 0x1C00396D0 (UsbhSetPdo_FailIo.c)
+ *     UsbhSyncResumeDeviceInternal @ 0x1C003A2F8 (UsbhSyncResumeDeviceInternal.c)
+ *     Usbh_PdoRemove_PdoEvent @ 0x1C003B22C (Usbh_PdoRemove_PdoEvent.c)
+ *     SET_PDO_SWPNPSTATE @ 0x1C0053274 (SET_PDO_SWPNPSTATE.c)
+ *     UsbhPdoRemoveCleanup @ 0x1C0056C34 (UsbhPdoRemoveCleanup.c)
+ */
+
 __int64 __fastcall UsbhPdoPnp_RemoveDevice(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 {
   _QWORD *v4; // r15

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmParkMaximumCoresParked @ 0x14059ABE4
+ * Callers:
+ *     PpmCheckMakeupSkippedChecks @ 0x1402EB350 (PpmCheckMakeupSkippedChecks.c)
+ * Callees:
+ *     <none>
+ */
+
 char PpmParkMaximumCoresParked()
 {
   char v0; // r9

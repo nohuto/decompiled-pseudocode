@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlpNormalizeAcl @ 0x1407594B0
+ * Callers:
+ *     RtlNormalizeSecurityDescriptor @ 0x1403BE650 (RtlNormalizeSecurityDescriptor.c)
+ *     RtlpNewSecurityObject @ 0x1407BD790 (RtlpNewSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x1407BF100 (RtlpSetSecurityObject.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 char __fastcall RtlpNormalizeAcl(__int64 a1, __int64 a2, _DWORD *a3)
 {
   __int64 v3; // rsi

@@ -1,3 +1,17 @@
+/*
+ * XREFs of GetSrbScsiData @ 0x1C0012B7C
+ * Callers:
+ *     MdlToPrp @ 0x1C0001570 (MdlToPrp.c)
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     NVMeGetFeaturesCurrentCacheValueCompletion @ 0x1C0015980 (NVMeGetFeaturesCurrentCacheValueCompletion.c)
+ *     NVMeModeSenseGetLogPageHealthInfoCompletion @ 0x1C0016990 (NVMeModeSenseGetLogPageHealthInfoCompletion.c)
+ *     NVMeWriteBufferFirmwareActivateCompletion @ 0x1C00181D0 (NVMeWriteBufferFirmwareActivateCompletion.c)
+ *     NVMeMapError @ 0x1C00200A8 (NVMeMapError.c)
+ *     NVMeSetSenseData @ 0x1C0024238 (NVMeSetSenseData.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetSrbScsiData(__int64 a1, _DWORD *a2, _QWORD *a3, _QWORD *a4, _BYTE *a5)
 {
   __int64 v5; // rdi

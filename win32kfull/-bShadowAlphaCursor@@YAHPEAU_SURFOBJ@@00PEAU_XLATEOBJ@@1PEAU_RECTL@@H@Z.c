@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?bShadowAlphaCursor@@YAHPEAU_SURFOBJ@@00PEAU_XLATEOBJ@@1PEAU_RECTL@@H@Z @ 0x1C01279B8
+ * Callers:
+ *     ?vProcessCursorShape@@YAXPEAUHDEV__@@HHPEAU_SURFOBJ@@1PEAVPALETTE@@PEAU_RECTL@@PEAPEAUHBITMAP__@@@Z @ 0x1C012739C (-vProcessCursorShape@@YAXPEAUHDEV__@@HHPEAU_SURFOBJ@@1PEAVPALETTE@@PEAU_RECTL@@PEAPEAUHBITMAP__@.c)
+ * Callees:
+ *     EngBitBlt @ 0x1C0088BA0 (EngBitBlt.c)
+ *     EngCopyBits @ 0x1C008AE00 (EngCopyBits.c)
+ *     EngAlphaBlend @ 0x1C00B4820 (EngAlphaBlend.c)
+ *     ?bBlurCursorShadow@@YAHPEAU_SURFOBJ@@@Z @ 0x1C0127BA0 (-bBlurCursorShadow@@YAHPEAU_SURFOBJ@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall bShadowAlphaCursor(
         struct _SURFOBJ *a1,
         SURFOBJ *psoSrc,

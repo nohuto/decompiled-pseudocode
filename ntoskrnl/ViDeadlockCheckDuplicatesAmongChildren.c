@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViDeadlockCheckDuplicatesAmongChildren @ 0x140AD5BD4
+ * Callers:
+ *     VfDeadlockAcquireResource @ 0x140AD3DAC (VfDeadlockAcquireResource.c)
+ * Callees:
+ *     ViDeadlockMergeNodes @ 0x140AD65B4 (ViDeadlockMergeNodes.c)
+ *     ViDeadlockSimilarNodes @ 0x140AD6EE0 (ViDeadlockSimilarNodes.c)
+ */
+
 _UNKNOWN **__fastcall ViDeadlockCheckDuplicatesAmongChildren(__int64 a1, __int64 a2, __int64 a3)
 {
   _UNKNOWN **result; // rax

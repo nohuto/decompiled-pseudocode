@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopMeasureEnergyChange @ 0x1408560F8
+ * Callers:
+ *     PopCalculateCsSummary @ 0x14058EE94 (PopCalculateCsSummary.c)
+ *     PopTransitionTelemetryOsState @ 0x140855C64 (PopTransitionTelemetryOsState.c)
+ * Callees:
+ *     PopGetEnergyCounter @ 0x140872DDC (PopGetEnergyCounter.c)
+ */
+
 __int64 __fastcall PopMeasureEnergyChange(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

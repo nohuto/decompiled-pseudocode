@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpRtcInitialize @ 0x14051D760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 HalpRtcInitialize()
 {
   char v1; // [rsp+48h] [rbp+10h] BYREF

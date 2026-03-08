@@ -1,3 +1,12 @@
+/*
+ * XREFs of KdpPromptString @ 0x140AB2D4C
+ * Callers:
+ *     KdpPrompt @ 0x140AB24E8 (KdpPrompt.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KdpCopyMemoryChunks @ 0x140AAD0F4 (KdpCopyMemoryChunks.c)
+ */
+
 char __fastcall KdpPromptString(unsigned __int16 *a1, __int64 a2)
 {
   unsigned int v2; // r8d

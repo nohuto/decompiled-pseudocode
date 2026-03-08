@@ -1,3 +1,32 @@
+/*
+ * XREFs of NtEnumerateKey @ 0x1407AC4B0
+ * Callers:
+ *     AdtpObjsInitialize @ 0x140841808 (AdtpObjsInitialize.c)
+ *     ExpWatchLicenseInfoWork @ 0x1409F57C0 (ExpWatchLicenseInfoWork.c)
+ *     ExpWatchProductTypeInitialization @ 0x140B64AFC (ExpWatchProductTypeInitialization.c)
+ * Callees:
+ *     EtwGetKernelTraceTimestamp @ 0x140250530 (EtwGetKernelTraceTimestamp.c)
+ *     CmpIsRegistryLockAcquired @ 0x1402630C0 (CmpIsRegistryLockAcquired.c)
+ *     CmCleanupThreadInfo @ 0x140263740 (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x140263760 (CmpInitializeThreadInfo.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpCallCallBacksEx @ 0x1406E0B20 (CmpCallCallBacksEx.c)
+ *     CmpBounceContextStart @ 0x1407AC9C0 (CmpBounceContextStart.c)
+ *     CmEnumerateKey @ 0x1407ACAE0 (CmEnumerateKey.c)
+ *     CmpBounceContextCleanup @ 0x1407ACEB8 (CmpBounceContextCleanup.c)
+ *     CmKeyBodyRemapToVirtualForEnum @ 0x1407B8FB0 (CmKeyBodyRemapToVirtualForEnum.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     CmObReferenceObjectByHandle @ 0x140AF2300 (CmObReferenceObjectByHandle.c)
+ *     CmpAcquireShutdownRundown @ 0x140AF23A0 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140AF23F0 (CmpReleaseShutdownRundown.c)
+ */
+
 __int64 __fastcall NtEnumerateKey(
         HANDLE Handle,
         unsigned int a2,

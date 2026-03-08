@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnChanged@CTransform3D@@UEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800E2970
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CTransform3D::OnChanged(__int64 a1)
 {
   int v1; // edx

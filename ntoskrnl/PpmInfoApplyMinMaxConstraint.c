@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmInfoApplyMinMaxConstraint @ 0x14038E14C
+ * Callers:
+ *     PpmInfoWriteData @ 0x140825EDC (PpmInfoWriteData.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PpmInfoApplyMinMaxConstraint(unsigned int a1, __int64 a2)
 {
   if ( a1 < *(_DWORD *)(a2 + 16) )

@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtGdiCreateColorSpace @ 0x1C019A100
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z @ 0x1C0016D9C (-GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 struct HOBJ__ *__fastcall NtGdiCreateColorSpace(_OWORD *a1)
 {
   _OWORD *v2; // rax

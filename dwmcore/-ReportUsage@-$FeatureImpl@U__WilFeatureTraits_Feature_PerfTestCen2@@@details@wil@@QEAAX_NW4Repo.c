@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_PerfTestCen2@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180115814
+ * Callers:
+ *     ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_PerfTestCen2@@@details@wil@@QEAA_NW4ReportingKind@3@@Z @ 0x1801165EC (-__private_IsEnabled@-$FeatureImpl@U__WilFeatureTraits_Feature_PerfTestCen2@@@details@wil@@QEAA_.c)
+ * Callees:
+ *     ?ReportUsageToService@details@wil@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x1800392F4 (-ReportUsageToService@details@wil@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGG.c)
+ *     ?GetCachedFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_PerfTestCen2@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@XZ @ 0x18011225C (-GetCachedFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_PerfTestCen2@@@details@w.c)
+ */
+
 _UNKNOWN **__fastcall wil::details::FeatureImpl<__WilFeatureTraits_Feature_PerfTestCen2>::ReportUsage(
         volatile signed __int32 *a1,
         unsigned __int8 a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserDwmKernelShutdown @ 0x1C01D0260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastStatus @ 0x1C0012568 (UserSetLastStatus.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxDwmStopRedirection @ 0x1C007B850 (xxxDwmStopRedirection.c)
+ */
+
 __int64 NtUserDwmKernelShutdown()
 {
   __int64 v0; // rdx

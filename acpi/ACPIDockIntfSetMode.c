@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIDockIntfSetMode @ 0x1C007A9C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ */
+
 __int64 __fastcall ACPIDockIntfSetMode(ULONG_PTR a1, int a2)
 {
   __int64 DeviceExtension; // rdx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopSetRelationsTag @ 0x14087CD58
+ * Callers:
+ *     PnpChainDereferenceComplete @ 0x14087CAC8 (PnpChainDereferenceComplete.c)
+ *     PnpInvalidateRelationsInList @ 0x14087CBE8 (PnpInvalidateRelationsInList.c)
+ * Callees:
+ *     PipIsDeviceInDeviceObjectList @ 0x14086210C (PipIsDeviceInDeviceObjectList.c)
+ */
+
 __int64 __fastcall IopSetRelationsTag(unsigned int **a1, __int64 a2)
 {
   unsigned int *v3; // rcx

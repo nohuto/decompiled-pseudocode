@@ -1,3 +1,28 @@
+/*
+ * XREFs of SendCaptureStateNotificationsWorker @ 0x1409E9FE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExSetTimer @ 0x1402042A0 (ExSetTimer.c)
+ *     EtwpGetEnableInfoIndex @ 0x1402068FC (EtwpGetEnableInfoIndex.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpBuildNotificationPacket @ 0x14068ECF4 (EtwpBuildNotificationPacket.c)
+ *     EtwpSendDataBlock @ 0x1406901A8 (EtwpSendDataBlock.c)
+ *     EtwpUnreferenceDataBlock @ 0x1406909A0 (EtwpUnreferenceDataBlock.c)
+ *     EtwpReleaseLoggerContext @ 0x14069349C (EtwpReleaseLoggerContext.c)
+ *     EtwpComputeRegEntryEnableInfo @ 0x1406934E8 (EtwpComputeRegEntryEnableInfo.c)
+ *     EtwpFindGuidEntryByGuid @ 0x140694F60 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpUnreferenceGuidEntry @ 0x140695094 (EtwpUnreferenceGuidEntry.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void __fastcall SendCaptureStateNotificationsWorker(__int64 a1)
 {
   __int64 v2; // rsi

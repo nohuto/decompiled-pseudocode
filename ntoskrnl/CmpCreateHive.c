@@ -1,3 +1,53 @@
+/*
+ * XREFs of CmpCreateHive @ 0x14072C06C
+ * Callers:
+ *     CmpInitHiveFromFile @ 0x1406C0BF0 (CmpInitHiveFromFile.c)
+ *     CmRestoreKey @ 0x140A08004 (CmRestoreKey.c)
+ *     CmpCreateTemporaryHive @ 0x140A09630 (CmpCreateTemporaryHive.c)
+ *     CmpLoadHiveVolatile @ 0x140A096F0 (CmpLoadHiveVolatile.c)
+ *     CmpRefreshHive @ 0x140A09C50 (CmpRefreshHive.c)
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ *     CmpInitializeSystemHive @ 0x140B528D4 (CmpInitializeSystemHive.c)
+ *     CmpInitializePreloadedHive @ 0x140B52F50 (CmpInitializePreloadedHive.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     SetFailureLocation @ 0x140243E5C (SetFailureLocation.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     CmpRecheckHiveVolumePolicy @ 0x1402B2B14 (CmpRecheckHiveVolumePolicy.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwSetInformationObject @ 0x140412E90 (ZwSetInformationObject.c)
+ *     CmpAllocateForNonPagedHive @ 0x1406140E0 (CmpAllocateForNonPagedHive.c)
+ *     ObDuplicateObject @ 0x1406ED5C0 (ObDuplicateObject.c)
+ *     CmpVolumeManagerGetContextForFile @ 0x14072B8A0 (CmpVolumeManagerGetContextForFile.c)
+ *     CmpAllocate @ 0x14072C880 (CmpAllocate.c)
+ *     CmpReorganizeHive @ 0x14072C970 (CmpReorganizeHive.c)
+ *     CmpHiveInitialize @ 0x14072CBCC (CmpHiveInitialize.c)
+ *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x14072CD4C (HvCheckAndUpdateHiveBackupTimeStamp.c)
+ *     CmCheckRegistry @ 0x14072DEB4 (CmCheckRegistry.c)
+ *     CmpGetVolumeClusterSize @ 0x14072EFBC (CmpGetVolumeClusterSize.c)
+ *     HvHiveStartFileBacked @ 0x14072F1D4 (HvHiveStartFileBacked.c)
+ *     CmpVolumeContextMustHiveFilePagesBeKeptLocal @ 0x14072F528 (CmpVolumeContextMustHiveFilePagesBeKeptLocal.c)
+ *     HvHiveStartMemoryBacked @ 0x1407FF060 (HvHiveStartMemoryBacked.c)
+ *     HvMarkBaseBlockDirty @ 0x140871E3C (HvMarkBaseBlockDirty.c)
+ *     CmpLogHiveInitializeEvent @ 0x140A0FBC8 (CmpLogHiveInitializeEvent.c)
+ *     CmpDestroyHive @ 0x140A19FFC (CmpDestroyHive.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     CmpLockRegistry @ 0x140AF2270 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ *     CmpAcquireShutdownRundown @ 0x140AF23A0 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140AF23F0 (CmpReleaseShutdownRundown.c)
+ *     CmpAttachToRegistryProcess @ 0x140AF26E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140AF2710 (CmpDetachFromRegistryProcess.c)
+ */
+
 __int64 __fastcall CmpCreateHive(
         ULONG_PTR *a1,
         unsigned int a2,

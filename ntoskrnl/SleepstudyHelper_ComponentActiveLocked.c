@@ -1,3 +1,11 @@
+/*
+ * XREFs of SleepstudyHelper_ComponentActiveLocked @ 0x1402F0FC0
+ * Callers:
+ *     SleepstudyHelper_ComponentActive @ 0x1402F0F50 (SleepstudyHelper_ComponentActive.c)
+ * Callees:
+ *     SshpSetBlockerActive @ 0x1402F11C8 (SshpSetBlockerActive.c)
+ */
+
 __int64 __fastcall SleepstudyHelper_ComponentActiveLocked(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

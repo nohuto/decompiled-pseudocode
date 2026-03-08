@@ -1,3 +1,25 @@
+/*
+ * XREFs of KeDeleteMutant @ 0x140292FB8
+ * Callers:
+ *     ExpDeleteMutant @ 0x140292FA0 (ExpDeleteMutant.c)
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KiTryUnwaitThread @ 0x140258880 (KiTryUnwaitThread.c)
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiAcquireReleaseObjectRundownLockExclusive @ 0x14029319C (KiAcquireReleaseObjectRundownLockExclusive.c)
+ *     KiWakeOtherQueueWaiters @ 0x140293BF4 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     KiWakeQueueWaiter @ 0x140340700 (KiWakeQueueWaiter.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeIsThreadRunning @ 0x14056C7FC (KeIsThreadRunning.c)
+ *     KeAbCrossThreadDelete @ 0x1405770F0 (KeAbCrossThreadDelete.c)
+ *     EtwTraceEnqueueWork @ 0x1405FA8FC (EtwTraceEnqueueWork.c)
+ */
+
 char __fastcall KeDeleteMutant(ULONG_PTR BugCheckParameter2)
 {
   struct _KTHREAD *CurrentThread; // rdi

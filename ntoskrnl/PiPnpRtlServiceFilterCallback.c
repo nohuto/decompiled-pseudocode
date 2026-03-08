@@ -1,3 +1,20 @@
+/*
+ * XREFs of PiPnpRtlServiceFilterCallback @ 0x1409579A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     _CmIsDevicePresent @ 0x1406C8810 (_CmIsDevicePresent.c)
+ *     _CmGetDeviceRegProp @ 0x1406C9884 (_CmGetDeviceRegProp.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall PiPnpRtlServiceFilterCallback(__int64 a1, const WCHAR *a2, unsigned int a3, __int64 a4)
 {
   unsigned int v5; // esi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of SeValidateImageHeader @ 0x1406A02B4
+ * Callers:
+ *     MiValidateSectionCreate @ 0x14069F890 (MiValidateSectionCreate.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     SepScheduleImageVerificationCallbacks @ 0x140793224 (SepScheduleImageVerificationCallbacks.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SeValidateImageHeader(
         __int64 a1,
         __int64 a2,

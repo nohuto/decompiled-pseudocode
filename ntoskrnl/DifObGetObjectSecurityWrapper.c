@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifObGetObjectSecurityWrapper @ 0x1405E60F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     ObGetObjectSecurity @ 0x1406DB220 (ObGetObjectSecurity.c)
+ */
+
 NTSTATUS __fastcall DifObGetObjectSecurityWrapper(
         PVOID Object,
         PSECURITY_DESCRIPTOR *SecurityDescriptor,

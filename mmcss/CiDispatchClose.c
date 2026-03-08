@@ -1,3 +1,13 @@
+/*
+ * XREFs of CiDispatchClose @ 0x1C000A380
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CiTaskIndexDereference @ 0x1C00021B0 (CiTaskIndexDereference.c)
+ *     CiThreadDereference @ 0x1C000A400 (CiThreadDereference.c)
+ *     CiProcessDereference @ 0x1C000B280 (CiProcessDereference.c)
+ */
+
 __int64 __fastcall CiDispatchClose(__int64 a1, IRP *a2)
 {
   PFILE_OBJECT FileObject; // rcx

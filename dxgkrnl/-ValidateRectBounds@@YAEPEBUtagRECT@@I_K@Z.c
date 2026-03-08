@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ValidateRectBounds@@YAEPEBUtagRECT@@I_K@Z @ 0x1C0373188
+ * Callers:
+ *     ?ValidateGdiCommand@@YAEIIPEBE00_K1PEBUtagRECT@@2IIEEIPEAPEAE@Z @ 0x1C0372E38 (-ValidateGdiCommand@@YAEIIPEBE00_K1PEBUtagRECT@@2IIEEIPEAPEAE@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?ValidateRect@@YAEPEBUtagRECT@@@Z @ 0x1C0373114 (-ValidateRect@@YAEPEBUtagRECT@@@Z.c)
+ */
+
 unsigned __int8 __fastcall ValidateRectBounds(const struct tagRECT *a1, unsigned int right, unsigned __int64 a3)
 {
   unsigned __int64 v6; // rcx

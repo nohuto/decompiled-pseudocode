@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopVerifierFlushMemoryBeforeSleep @ 0x140AA46C4
+ * Callers:
+ *     PoBroadcastSystemState @ 0x140AA38F8 (PoBroadcastSystemState.c)
+ * Callees:
+ *     MmPerformMemoryListCommand @ 0x140A849F4 (MmPerformMemoryListCommand.c)
+ *     MmIsVerifierEnabled @ 0x140AB9E10 (MmIsVerifierEnabled.c)
+ */
+
 __int64 PopVerifierFlushMemoryBeforeSleep()
 {
   __int64 result; // rax

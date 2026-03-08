@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserGetWindowProcessHandle @ 0x1C00E84A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     IsShellProcess @ 0x1C009C278 (IsShellProcess.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void *__fastcall NtUserGetWindowProcessHandle(__int64 a1, __int64 a2, __int64 a3)
 {
   ACCESS_MASK v3; // esi

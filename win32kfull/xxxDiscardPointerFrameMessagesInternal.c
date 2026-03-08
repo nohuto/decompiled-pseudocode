@@ -1,3 +1,13 @@
+/*
+ * XREFs of xxxDiscardPointerFrameMessagesInternal @ 0x1C01C5F24
+ * Callers:
+ *     NtUserDiscardPointerFrameMessages @ 0x1C01CF7E0 (NtUserDiscardPointerFrameMessages.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?GetThreadPointerData@@YA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01C6BCC (-GetThreadPointerData@@YA_KPEAUtagTHREADINPUTPOINTERLIST@@GPEAKPEAHPEAPEAUHWND__@@@Z.c)
+ *     ?xxxDiscardPointerWindowFrameMessages@@YAHPEAUtagTHREADINFO@@_K@Z @ 0x1C01C7270 (-xxxDiscardPointerWindowFrameMessages@@YAHPEAUtagTHREADINFO@@_K@Z.c)
+ */
+
 __int64 __fastcall xxxDiscardPointerFrameMessagesInternal(unsigned __int16 a1)
 {
   unsigned __int64 ThreadPointerData; // rax

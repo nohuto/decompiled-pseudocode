@@ -1,3 +1,19 @@
+/*
+ * XREFs of LogSenseTemperature @ 0x1C0014D00
+ * Callers:
+ *     ScsiLogSenseRequest @ 0x1C0019D6C (ScsiLogSenseRequest.c)
+ * Callees:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C000C1C0 (NVMeAllocateDmaBuffer.c)
+ *     BuildGetLogPageCommand @ 0x1C0010E14 (BuildGetLogPageCommand.c)
+ *     TemperatureFromKelvinToCelsius @ 0x1C001B714 (TemperatureFromKelvinToCelsius.c)
+ *     NVMeSetSenseData @ 0x1C0024238 (NVMeSetSenseData.c)
+ */
+
 __int64 __fastcall LogSenseTemperature(__int64 a1, __int64 a2)
 {
   _BYTE *SrbDataBuffer; // rax

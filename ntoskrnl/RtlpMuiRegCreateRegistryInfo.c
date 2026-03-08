@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpMuiRegCreateRegistryInfo @ 0x140843F60
+ * Callers:
+ *     RtlpMuiRegCreateKernelRegistryInfo @ 0x14039C764 (RtlpMuiRegCreateKernelRegistryInfo.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 _DWORD *RtlpMuiRegCreateRegistryInfo()
 {
   _DWORD *result; // rax

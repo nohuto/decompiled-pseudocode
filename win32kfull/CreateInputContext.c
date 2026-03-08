@@ -1,3 +1,13 @@
+/*
+ * XREFs of CreateInputContext @ 0x1C00CF480
+ * Callers:
+ *     ?xxxCreateDefaultImeWindow@@YAPEAUtagWND@@PEAU1@GPEAX@Z @ 0x1C00A0450 (-xxxCreateDefaultImeWindow@@YAPEAUtagWND@@PEAU1@GPEAX@Z.c)
+ *     NtUserCreateInputContext @ 0x1C01CF060 (NtUserCreateInputContext.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ??4?$SharedMixedObjectPointerFieldpImcNext@UtagIMC@@@tagIMC@@QEAAPEAU1@PEAU1@@Z @ 0x1C01B86FC (--4-$SharedMixedObjectPointerFieldpImcNext@UtagIMC@@@tagIMC@@QEAAPEAU1@PEAU1@@Z.c)
+ */
+
 _QWORD *__fastcall CreateInputContext(__int64 a1)
 {
   __int64 v2; // rax

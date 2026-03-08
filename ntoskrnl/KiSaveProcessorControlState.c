@@ -1,3 +1,20 @@
+/*
+ * XREFs of KiSaveProcessorControlState @ 0x140416350
+ * Callers:
+ *     KdpReport @ 0x140361A88 (KdpReport.c)
+ *     KiFreezeTargetExecution @ 0x140369240 (KiFreezeTargetExecution.c)
+ *     KiSaveProcessorState @ 0x14036A140 (KiSaveProcessorState.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KeSaveStateForHibernate @ 0x1404170A0 (KeSaveStateForHibernate.c)
+ *     ExpSystemErrorHandler @ 0x140422390 (ExpSystemErrorHandler.c)
+ *     IopLiveDumpCollectPages @ 0x140A97A84 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpCorralDpc @ 0x140A97DC0 (IopLiveDumpCorralDpc.c)
+ *     KdpSymbol @ 0x140AAD56C (KdpSymbol.c)
+ *     KdpCommandString @ 0x140AB228C (KdpCommandString.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiSaveProcessorControlState(__int64 _RCX, int a2)
 {
   unsigned __int64 v2; // rax

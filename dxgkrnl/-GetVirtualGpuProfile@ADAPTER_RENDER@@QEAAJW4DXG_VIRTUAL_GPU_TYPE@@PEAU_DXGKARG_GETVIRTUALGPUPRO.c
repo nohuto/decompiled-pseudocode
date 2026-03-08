@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetVirtualGpuProfile@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETVIRTUALGPUPROFILE@@@Z @ 0x1C0363FF8
+ * Callers:
+ *     DxgkDdiGetVirtualGpuProfile @ 0x1C0365BEC (DxgkDdiGetVirtualGpuProfile.c)
+ * Callees:
+ *     ?DdiGetVirtualGpuProfile@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_GETVIRTUALGPUPROFILE@@@Z @ 0x1C0367D30 (-DdiGetVirtualGpuProfile@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_GETVIRTUALGPUPROFILE@@@Z.c)
+ */
+
 __int64 __fastcall ADAPTER_RENDER::GetVirtualGpuProfile(ADAPTER_RENDER *a1, int a2, __int64 a3)
 {
   __int64 v3; // rcx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of __report_gsfailure @ 0x140005570
+ * Callers:
+ *     __security_check_cookie @ 0x140005510 (__security_check_cookie.c)
+ * Callees:
+ *     __raise_securityfailure @ 0x140005534 (__raise_securityfailure.c)
+ *     capture_previous_context @ 0x140005648 (capture_previous_context.c)
+ */
+
 void __cdecl __noreturn _report_gsfailure(uintptr_t StackCookie)
 {
   DWORD64 retaddr; // [rsp+38h] [rbp+0h]

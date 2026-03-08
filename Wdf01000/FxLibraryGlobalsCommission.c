@@ -1,3 +1,12 @@
+/*
+ * XREFs of FxLibraryGlobalsCommission @ 0x1C0043F0C
+ * Callers:
+ *     FxLibraryCommonCommission @ 0x1C002BFD8 (FxLibraryCommonCommission.c)
+ * Callees:
+ *     FxLibraryGlobalsQueryRegistrySettings @ 0x1C00440CC (FxLibraryGlobalsQueryRegistrySettings.c)
+ *     FxInitializeBugCheckDriverInfo @ 0x1C0088B50 (FxInitializeBugCheckDriverInfo.c)
+ */
+
 NTSTATUS __fastcall FxLibraryGlobalsCommission()
 {
   _IO_ALLOCATION_ACTION (__fastcall *SystemRoutineAddress)(_DEVICE_OBJECT *, _IRP *, void *, void *); // rax

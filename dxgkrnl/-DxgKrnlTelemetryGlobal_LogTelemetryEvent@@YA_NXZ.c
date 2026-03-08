@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DxgKrnlTelemetryGlobal_LogTelemetryEvent@@YA_NXZ @ 0x1C004E060
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool DxgKrnlTelemetryGlobal_LogTelemetryEvent(void)
 {
   bool v0; // di

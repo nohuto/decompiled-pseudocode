@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DxgkCreateRegistrySubkey@@YAJPEAPEAXKPEAXPEBU_UNICODE_STRING@@@Z @ 0x1C001D7C0
+ * Callers:
+ *     ?OpenMonitorDataStore@DXGMONITOR@@UEBAJ_NPEAPEAX@Z @ 0x1C01CE410 (-OpenMonitorDataStore@DXGMONITOR@@UEBAJ_NPEAPEAX@Z.c)
+ *     MonitorInitializeGlobal @ 0x1C01FAE24 (MonitorInitializeGlobal.c)
+ *     ?_OpenPersistencyRegistry@MONITOR_MGR@@AEBAJKPEAPEAX@Z @ 0x1C02156A4 (-_OpenPersistencyRegistry@MONITOR_MGR@@AEBAJKPEAPEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall DxgkCreateRegistrySubkey(void **a1, ACCESS_MASK a2, void *a3, struct _UNICODE_STRING *a4)
 {
   struct _OBJECT_ATTRIBUTES v5; // [rsp+40h] [rbp-38h] BYREF

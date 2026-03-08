@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiDpcRuntimeHistoryHashTableCleanupTimerCallback @ 0x1402DFFD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     KiDpcRuntimeHistoryHashTableCleanupDpcRoutine @ 0x1402E0070 (KiDpcRuntimeHistoryHashTableCleanupDpcRoutine.c)
+ */
+
 void KiDpcRuntimeHistoryHashTableCleanupTimerCallback()
 {
   struct _KPRCB *CurrentPrcb; // rbx

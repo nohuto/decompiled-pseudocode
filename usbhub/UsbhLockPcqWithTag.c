@@ -1,3 +1,23 @@
+/*
+ * XREFs of UsbhLockPcqWithTag @ 0x1C001FF20
+ * Callers:
+ *     Usbh_PCE_psSUSPEND_Action @ 0x1C00040B8 (Usbh_PCE_psSUSPEND_Action.c)
+ *     Usbh_PCE_Suspend_Action @ 0x1C000F290 (Usbh_PCE_Suspend_Action.c)
+ *     Usbh_PCE_QueueDriverReset_Action @ 0x1C001F8E0 (Usbh_PCE_QueueDriverReset_Action.c)
+ *     Usbh_PCE_HardwareWake_Action @ 0x1C0021580 (Usbh_PCE_HardwareWake_Action.c)
+ *     Usbh_PCE_BusDisconnect_Action @ 0x1C00354BC (Usbh_PCE_BusDisconnect_Action.c)
+ *     Usbh_PCE_Check_Action @ 0x1C00356AC (Usbh_PCE_Check_Action.c)
+ *     Usbh_PCE_Close_Action @ 0x1C00357E8 (Usbh_PCE_Close_Action.c)
+ *     Usbh_PCE_HW_Stop_Action @ 0x1C0035A14 (Usbh_PCE_HW_Stop_Action.c)
+ *     Usbh_PCE_ResumeDone_Action @ 0x1C0035CA8 (Usbh_PCE_ResumeDone_Action.c)
+ *     Usbh_PCE_ResumeTimeout_Action @ 0x1C0035DD8 (Usbh_PCE_ResumeTimeout_Action.c)
+ *     Usbh_PCE_SD_Resume_Action @ 0x1C0035FD8 (Usbh_PCE_SD_Resume_Action.c)
+ *     Usbh_PCE_SoftDisconnect_Action @ 0x1C0036144 (Usbh_PCE_SoftDisconnect_Action.c)
+ *     Usbh_PCE_wChangeERROR_Action @ 0x1C0036434 (Usbh_PCE_wChangeERROR_Action.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall UsbhLockPcqWithTag(__int64 a1, __int64 a2, int a3, KIRQL *a4, int a5)
 {
   __int64 v6; // rbp

@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserSetTimer @ 0x1C00616A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     InternalSetTimer @ 0x1C0061830 (InternalSetTimer.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall NtUserSetTimer(__int64 a1, int a2, unsigned int a3, int a4, unsigned int a5)
 {
   __int64 v9; // rcx

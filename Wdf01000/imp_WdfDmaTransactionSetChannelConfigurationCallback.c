@@ -1,3 +1,13 @@
+/*
+ * XREFs of imp_WdfDmaTransactionSetChannelConfigurationCallback @ 0x1C0019F40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0017BA8 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_ql @ 0x1C00190DC (WPP_IFR_SF_ql.c)
+ */
+
 void __fastcall imp_WdfDmaTransactionSetChannelConfigurationCallback(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFDMATRANSACTION__ *DmaTransaction,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of SdbpCheckExe @ 0x14085F610
+ * Callers:
+ *     SdbpSearchDB @ 0x14079F878 (SdbpSearchDB.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbpCheckForMatch @ 0x1407A1468 (SdbpCheckForMatch.c)
+ */
+
 __int64 __fastcall SdbpCheckExe(int a1, __int64 a2, __int64 a3, _DWORD *a4, __int64 a5, int a6, int *a7, void *a8)
 {
   unsigned int v9; // ebx

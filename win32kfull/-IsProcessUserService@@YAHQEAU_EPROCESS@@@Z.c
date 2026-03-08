@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsProcessUserService@@YAHQEAU_EPROCESS@@@Z @ 0x1C0093820
+ * Callers:
+ *     xxxQueryInformationThread @ 0x1C0093274 (xxxQueryInformationThread.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IsProcessUserService(PEPROCESS Process)
 {
   PACCESS_TOKEN v2; // rdi

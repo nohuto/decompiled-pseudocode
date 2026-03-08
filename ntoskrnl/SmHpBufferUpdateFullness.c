@@ -1,3 +1,15 @@
+/*
+ * XREFs of SmHpBufferUpdateFullness @ 0x1405C7FD0
+ * Callers:
+ *     SmHpBufferAlloc @ 0x1405C7CF4 (SmHpBufferAlloc.c)
+ *     SmHpBufferCleanup @ 0x1405C7E38 (SmHpBufferCleanup.c)
+ *     SmHpChunkAlloc @ 0x1405C811C (SmHpChunkAlloc.c)
+ *     SmHpChunkFree @ 0x1405C81A8 (SmHpChunkFree.c)
+ * Callees:
+ *     SmHpBufferProtectEx @ 0x1405C7E94 (SmHpBufferProtectEx.c)
+ *     SmHpUnprotectListNeighbors @ 0x1405C8270 (SmHpUnprotectListNeighbors.c)
+ */
+
 __int64 __fastcall SmHpBufferUpdateFullness(__int64 a1, __int64 a2, __int16 a3)
 {
   unsigned int v3; // eax

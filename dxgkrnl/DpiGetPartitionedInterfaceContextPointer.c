@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiGetPartitionedInterfaceContextPointer @ 0x1C039EB94
+ * Callers:
+ *     DpiFdoHandleQueryFlexibleIovInterface @ 0x1C039DF00 (DpiFdoHandleQueryFlexibleIovInterface.c)
+ *     DpiFdoHandleQueryPartitioningDeviceInterface @ 0x1C039E2B0 (DpiFdoHandleQueryPartitioningDeviceInterface.c)
+ *     DpiFdoHandleQuerySrIovInterface @ 0x1C039E440 (DpiFdoHandleQuerySrIovInterface.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiGetPartitionedInterfaceContextPointer(__int64 a1, __int64 a2)
 {
   __int64 v4; // r8

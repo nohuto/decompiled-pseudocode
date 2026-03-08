@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiAnyProtosAreMapped @ 0x1402A35A0
+ * Callers:
+ *     MiTrimSection @ 0x1402A0034 (MiTrimSection.c)
+ * Callees:
+ *     MiCheckProtoPtePageState @ 0x140283EB0 (MiCheckProtoPtePageState.c)
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ */
+
 __int64 __fastcall MiAnyProtosAreMapped(__int64 a1, _QWORD *a2)
 {
   unsigned int v2; // ebp

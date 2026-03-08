@@ -1,3 +1,24 @@
+/*
+ * XREFs of _RegRtlOpenKeyTransacted @ 0x1406D43A0
+ * Callers:
+ *     _SysCtxRegOpenKey @ 0x1406D4350 (_SysCtxRegOpenKey.c)
+ *     _SysCtxOpenMachine @ 0x1408520D0 (_SysCtxOpenMachine.c)
+ *     _SysCtxOpenControlSet @ 0x140852308 (_SysCtxOpenControlSet.c)
+ *     _RegRtlOpenPredefinedKey @ 0x140858A9C (_RegRtlOpenPredefinedKey.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x14085F0A8 (_RegRtlDeleteKeyTransacted.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140868B00 (_RegRtlDeleteTreeInternal.c)
+ *     _RegRtlCopyTreeInternal @ 0x140A67A08 (_RegRtlCopyTreeInternal.c)
+ *     _RegRtlDeletePathInternal @ 0x140A67F0C (_RegRtlDeletePathInternal.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKeyEx @ 0x140414830 (ZwOpenKeyEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     _RegRtlIsPredefinedKey @ 0x1406D44BC (_RegRtlIsPredefinedKey.c)
+ *     _RegRtlOpenPredefinedKey @ 0x140858A9C (_RegRtlOpenPredefinedKey.c)
+ *     NtOpenKeyTransactedEx_Stub @ 0x140A68158 (NtOpenKeyTransactedEx_Stub.c)
+ */
+
 __int64 __fastcall RegRtlOpenKeyTransacted(
         void *a1,
         const WCHAR *a2,

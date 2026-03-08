@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IndirectBlt@BLTENTRY@@QEAAJXZ @ 0x1C03CD34C
+ * Callers:
+ *     ?ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z @ 0x1C01CB6F0 (-ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z.c)
+ * Callees:
+ *     ?CompletePresentIndirectInternal@BLTQUEUE@@AEAAJPEAVBLTENTRY@@PEAT_LARGE_INTEGER@@H@Z @ 0x1C03CC4E4 (-CompletePresentIndirectInternal@BLTQUEUE@@AEAAJPEAVBLTENTRY@@PEAT_LARGE_INTEGER@@H@Z.c)
+ *     ?SetVisibilityIfDeferred@BLTQUEUE@@QEAAXXZ @ 0x1C03CF948 (-SetVisibilityIfDeferred@BLTQUEUE@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall BLTENTRY::IndirectBlt(LARGE_INTEGER *this)
 {
   unsigned int v2; // edi

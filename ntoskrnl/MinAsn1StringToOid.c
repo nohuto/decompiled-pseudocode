@@ -1,3 +1,12 @@
+/*
+ * XREFs of MinAsn1StringToOid @ 0x140A6EE24
+ * Callers:
+ *     I_MinCryptCheckEKURequirements @ 0x140A6DC80 (I_MinCryptCheckEKURequirements.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall MinAsn1StringToOid(_BYTE *a1, _BYTE **a2)
 {
   __int64 v2; // rbx

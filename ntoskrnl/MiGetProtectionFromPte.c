@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiGetProtectionFromPte @ 0x140646910
+ * Callers:
+ *     MiGetWorkingSetInfoList @ 0x1402A36A0 (MiGetWorkingSetInfoList.c)
+ *     MiQueryAddressState @ 0x14031B4F0 (MiQueryAddressState.c)
+ *     MiGetPageProtection @ 0x14031C310 (MiGetPageProtection.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 ULONG_PTR __fastcall MiGetProtectionFromPte(ULONG_PTR BugCheckParameter2, signed __int64 BugCheckParameter3)
 {
   unsigned int v2; // ecx

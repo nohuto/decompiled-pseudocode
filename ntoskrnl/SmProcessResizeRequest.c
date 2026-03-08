@@ -1,3 +1,14 @@
+/*
+ * XREFs of SmProcessResizeRequest @ 0x1409D4470
+ * Callers:
+ *     SmSetStoreInformation @ 0x1407990D4 (SmSetStoreInformation.c)
+ * Callees:
+ *     SmpGetProcessPartition @ 0x14029622C (SmpGetProcessPartition.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     ?SmStoreRequest@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_IO_STATUS_BLOCK@@@Z @ 0x1405C07D4 (-SmStoreRequest@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAJPEAU1@KPEAU_SM_WORK_ITEM@1@PEAU_KEVENT@@PEAU_I.c)
+ */
+
 __int64 __fastcall SmProcessResizeRequest(__int64 a1, int a2, char a3)
 {
   __int64 result; // rax

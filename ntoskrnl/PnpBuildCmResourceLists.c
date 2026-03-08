@@ -1,3 +1,20 @@
+/*
+ * XREFs of PnpBuildCmResourceLists @ 0x140803A38
+ * Callers:
+ *     PnpAllocateResources @ 0x1406F5CE0 (PnpAllocateResources.c)
+ *     PnpReallocateResources @ 0x14096A5D8 (PnpReallocateResources.c)
+ *     PnpRebalance @ 0x14096B948 (PnpRebalance.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     PipSetDevNodeFlags @ 0x1406857DC (PipSetDevNodeFlags.c)
+ *     PipClearDevNodeFlags @ 0x14068816C (PipClearDevNodeFlags.c)
+ *     PnpDetermineResourceListSize @ 0x1406F69E8 (PnpDetermineResourceListSize.c)
+ *     IopWriteAllocatedResourcesToRegistry @ 0x140803B38 (IopWriteAllocatedResourcesToRegistry.c)
+ *     PnpBuildCmResourceList @ 0x140804D9C (PnpBuildCmResourceList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PnpBuildCmResourceLists(unsigned __int64 a1, unsigned __int64 a2, char a3)
 {
   unsigned __int64 v4; // r15

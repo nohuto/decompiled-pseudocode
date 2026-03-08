@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpHpGCTimerCallback @ 0x1402FA460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ */
+
 void __fastcall ExpHpGCTimerCallback(__int64 a1, void *a2)
 {
   struct _WORK_QUEUE_ITEM *v2; // rcx

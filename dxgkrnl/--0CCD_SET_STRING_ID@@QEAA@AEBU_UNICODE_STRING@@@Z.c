@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??0CCD_SET_STRING_ID@@QEAA@AEBU_UNICODE_STRING@@@Z @ 0x1C01BB1EC
+ * Callers:
+ *     ??RCCD_BTL_CONNECTIVITY_COLLECTOR@@QEAAJXZ @ 0x1C01BB028 (--RCCD_BTL_CONNECTIVITY_COLLECTOR@@QEAAJXZ.c)
+ *     _CcdRetrieveSetIdFromRegistry @ 0x1C01BF090 (_CcdRetrieveSetIdFromRegistry.c)
+ *     ?SortMonitorSetIdAndAppendHash@DpiPersistence@@YAJPEAU_UNICODE_STRING@@@Z @ 0x1C01C14E0 (-SortMonitorSetIdAndAppendHash@DpiPersistence@@YAJPEAU_UNICODE_STRING@@@Z.c)
+ *     ?GetModalitySetId@CCD_TOPOLOGY@@QEBAAEBVCCD_SET_STRING_ID@@XZ @ 0x1C01C1A1C (-GetModalitySetId@CCD_TOPOLOGY@@QEBAAEBVCCD_SET_STRING_ID@@XZ.c)
+ * Callees:
+ *     ?_ReallocString@CCD_SET_STRING_ID@@CAJPEAU_STRING@@G@Z @ 0x1C01BB3F4 (-_ReallocString@CCD_SET_STRING_ID@@CAJPEAU_STRING@@G@Z.c)
+ *     ?_ParseMonitorDescriptors@CCD_SET_STRING_ID@@AEAAXXZ @ 0x1C01BB474 (-_ParseMonitorDescriptors@CCD_SET_STRING_ID@@AEAAXXZ.c)
+ */
+
 CCD_SET_STRING_ID *__fastcall CCD_SET_STRING_ID::CCD_SET_STRING_ID(
         CCD_SET_STRING_ID *this,
         const struct _UNICODE_STRING *a2)

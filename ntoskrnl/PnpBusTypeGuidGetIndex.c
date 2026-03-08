@@ -1,3 +1,16 @@
+/*
+ * XREFs of PnpBusTypeGuidGetIndex @ 0x14078CC74
+ * Callers:
+ *     PnpQueryBusInformation @ 0x14078CB9C (PnpQueryBusInformation.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpBusTypeGuidGetIndex(__int128 *Source1)
 {
   unsigned int v2; // ebx

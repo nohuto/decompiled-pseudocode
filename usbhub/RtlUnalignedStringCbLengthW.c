@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlUnalignedStringCbLengthW @ 0x1C0053200
+ * Callers:
+ *     UsbhPdo_ReportPnPFailureProblem @ 0x1C0056F88 (UsbhPdo_ReportPnPFailureProblem.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlUnalignedStringCbLengthW(STRSAFE_PCUNZWCH psz, size_t cbMax, size_t *pcbLength)
 {
   size_t v3; // rdx

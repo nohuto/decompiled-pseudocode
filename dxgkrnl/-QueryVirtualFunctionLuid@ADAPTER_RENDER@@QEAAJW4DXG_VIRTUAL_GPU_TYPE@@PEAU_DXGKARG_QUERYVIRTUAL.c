@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?QueryVirtualFunctionLuid@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_QUERYVIRTUALFUNCTIONLUID@@@Z @ 0x1C036452C
+ * Callers:
+ *     DxgkDdiQueryVirtualFunctionLuid @ 0x1C0366104 (DxgkDdiQueryVirtualFunctionLuid.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ADAPTER_RENDER::QueryVirtualFunctionLuid(__int64 a1, int a2, _DWORD *a3)
 {
   __int64 v4; // rcx

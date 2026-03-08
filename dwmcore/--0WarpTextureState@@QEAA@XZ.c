@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0WarpTextureState@@QEAA@XZ @ 0x180106220
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 WarpTextureState *__fastcall WarpTextureState::WarpTextureState(WarpTextureState *this)
 {
   WarpTextureState *result; // rax

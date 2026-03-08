@@ -1,3 +1,13 @@
+/*
+ * XREFs of FastGetProfileIntsW @ 0x1C0017DC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlLoadStringOrError @ 0x1C0018EE0 (RtlLoadStringOrError.c)
+ *     FastGetProfileIntW @ 0x1C0018FA0 (FastGetProfileIntW.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall FastGetProfileIntsW(int a1, __int64 a2, unsigned int a3, int a4)
 {
   PULONG *v6; // rbx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of AslRegWildcardFindFirst @ 0x140A53674
+ * Callers:
+ *     SdbpCheckMatchingWildcardRegistryEntry @ 0x140A4DAFC (SdbpCheckMatchingWildcardRegistryEntry.c)
+ * Callees:
+ *     AslStringDuplicate @ 0x1406D51D8 (AslStringDuplicate.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     AslRegWildcardFindClose @ 0x140A535F0 (AslRegWildcardFindClose.c)
+ *     AslRegWildcardFindNext @ 0x140A53734 (AslRegWildcardFindNext.c)
+ *     AslpParsePattern @ 0x140A538F4 (AslpParsePattern.c)
+ */
+
 __int64 __fastcall AslRegWildcardFindFirst(__int64 a1, PVOID **a2, const wchar_t *a3)
 {
   wchar_t **v6; // rax

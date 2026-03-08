@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserSetLayeredWindowAttributes @ 0x1C002A290
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastStatus @ 0x1C0012568 (UserSetLastStatus.c)
+ *     WindowHasShadow @ 0x1C002A3D0 (WindowHasShadow.c)
+ *     _SetLayeredWindowAttributes @ 0x1C002BBFC (_SetLayeredWindowAttributes.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     zzzUpdateShadowAlpha @ 0x1C02248CC (zzzUpdateShadowAlpha.c)
+ */
+
 __int64 __fastcall NtUserSetLayeredWindowAttributes(__int64 a1, unsigned int a2, char a3, unsigned int a4)
 {
   __int64 v8; // rax

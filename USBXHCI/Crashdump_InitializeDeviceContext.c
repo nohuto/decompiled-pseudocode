@@ -1,3 +1,14 @@
+/*
+ * XREFs of Crashdump_InitializeDeviceContext @ 0x1C004C684
+ * Callers:
+ *     Crashdump_UcxEvtGetDumpData @ 0x1C004D200 (Crashdump_UcxEvtGetDumpData.c)
+ * Callees:
+ *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C0007FC0 (XilUsbDevice_GetDeviceContextBufferVA.c)
+ *     DeviceSlot_LocateDeviceByPortPath @ 0x1C0037CFC (DeviceSlot_LocateDeviceByPortPath.c)
+ *     Crashdump_Endpoint_Initialize @ 0x1C004F014 (Crashdump_Endpoint_Initialize.c)
+ *     Crashdump_UsbDevice_Initialize @ 0x1C0050630 (Crashdump_UsbDevice_Initialize.c)
+ */
+
 __int64 __fastcall Crashdump_InitializeDeviceContext(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5)
 {
   int v8; // ebx

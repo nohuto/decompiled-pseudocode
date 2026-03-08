@@ -1,3 +1,15 @@
+/*
+ * XREFs of PfSnInitializePrefetcher @ 0x140B61AEC
+ * Callers:
+ *     PfInitializeSuperfetch @ 0x140B619EC (PfInitializeSuperfetch.c)
+ * Callees:
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     PfpCreateEvent @ 0x1408458E4 (PfpCreateEvent.c)
+ *     PfSnPrefetchCacheCtxInitialize @ 0x140845B08 (PfSnPrefetchCacheCtxInitialize.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 PfSnInitializePrefetcher()
 {
   __int64 Pool2; // rax

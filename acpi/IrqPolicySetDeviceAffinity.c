@@ -1,3 +1,11 @@
+/*
+ * XREFs of IrqPolicySetDeviceAffinity @ 0x1C009FED4
+ * Callers:
+ *     IrqArbpSetDeviceProperties @ 0x1C009E5F4 (IrqArbpSetDeviceProperties.c)
+ * Callees:
+ *     IrqPolicyGetSubKey @ 0x1C009FC24 (IrqPolicyGetSubKey.c)
+ */
+
 NTSTATUS __fastcall IrqPolicySetDeviceAffinity(struct _DEVICE_OBJECT *a1, unsigned __int16 *a2)
 {
   NTSTATUS result; // eax

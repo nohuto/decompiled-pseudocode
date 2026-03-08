@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?RetireFrame@CPartitionVerticalBlankScheduler@@AEAAJPEAVCFrameInfo@@IPEA_N_N@Z @ 0x18004D474
+ * Callers:
+ *     ?UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ @ 0x18004DFB0 (-UpdateTimes@CPartitionVerticalBlankScheduler@@EEAAJXZ.c)
+ *     ?RetireFrames@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z @ 0x1800AEE6C (-RetireFrames@CPartitionVerticalBlankScheduler@@AEAAJ_N@Z.c)
+ * Callees:
+ *     ?CheckAndNotifyAboutLongFrames@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18004D3F0 (-CheckAndNotifyAboutLongFrames@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D4A28 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     ?TraceGlitch@CScheduleStatistics@@CAXIPEBVCFrameInfo@@AEB_K1@Z @ 0x1800E6C40 (-TraceGlitch@CScheduleStatistics@@CAXIPEBVCFrameInfo@@AEB_K1@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0xqxxqq_EventWriteTransfer @ 0x18012A8EC (McTemplateU0xqxxqq_EventWriteTransfer.c)
+ */
+
 __int64 __fastcall CPartitionVerticalBlankScheduler::RetireFrame(
         CPartitionVerticalBlankScheduler *this,
         struct CFrameInfo *a2,

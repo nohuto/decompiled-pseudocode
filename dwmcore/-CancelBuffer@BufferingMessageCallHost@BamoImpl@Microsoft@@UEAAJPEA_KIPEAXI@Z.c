@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?CancelBuffer@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAJPEA_KIPEAXI@Z @ 0x1801B6160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z @ 0x180195018 (-_FailFast_Unexpected@in1diag3@details@wil@@YAXPEAXIPEBD@Z.c)
+ *     ?TryFindBufferStream@BufferingMessageCallHost@BamoImpl@Microsoft@@AEAA_N_KPEAPEAUBufferStream@23@@Z @ 0x1801B8BAC (-TryFindBufferStream@BufferingMessageCallHost@BamoImpl@Microsoft@@AEAA_N_KPEAPEAUBufferStream@23.c)
+ */
+
 __int64 __fastcall Microsoft::BamoImpl::BufferingMessageCallHost::CancelBuffer(
         Microsoft::BamoImpl::BufferingMessageCallHost *this,
         unsigned __int64 *a2,

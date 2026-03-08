@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bSaveAttributes@XEBRUSHOBJ@@IEAAHXZ @ 0x1C001C044
+ * Callers:
+ *     ??0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z @ 0x1C001BD04 (--0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall XEBRUSHOBJ::bSaveAttributes(XEBRUSHOBJ *this)
 {
   __int64 v2; // rdx

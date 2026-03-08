@@ -1,3 +1,18 @@
+/*
+ * XREFs of VmAccessFault @ 0x1409D9200
+ * Callers:
+ *     VmpPinMemoryRange @ 0x1405F7F20 (VmpPinMemoryRange.c)
+ * Callees:
+ *     ExFreeToLookasideListEx @ 0x1402C0A60 (ExFreeToLookasideListEx.c)
+ *     ExAllocateFromLookasideListEx @ 0x14030DE20 (ExAllocateFromLookasideListEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     VmpAccessFaultBatch @ 0x14045DEF6 (VmpAccessFaultBatch.c)
+ *     VmpLogAccessFault @ 0x1405F7518 (VmpLogAccessFault.c)
+ *     VmpLogAccessFaultRange @ 0x1405F765C (VmpLogAccessFaultRange.c)
+ *     VmpPrefetchForVirtualFault @ 0x1409DA7AC (VmpPrefetchForVirtualFault.c)
+ */
+
 __int64 __fastcall VmAccessFault(
         unsigned __int64 *a1,
         __int64 *a2,

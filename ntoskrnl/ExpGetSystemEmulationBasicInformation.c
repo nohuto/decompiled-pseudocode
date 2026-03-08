@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpGetSystemEmulationBasicInformation @ 0x1402DCACC
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     MmGetNumberOfPhysicalPages @ 0x140768AB0 (MmGetNumberOfPhysicalPages.c)
+ *     ExSystemExceptionFilter @ 0x140861790 (ExSystemExceptionFilter.c)
+ */
+
 __int64 __fastcall ExpGetSystemEmulationBasicInformation(__int64 a1)
 {
   unsigned __int64 v2; // r8

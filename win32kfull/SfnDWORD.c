@@ -1,3 +1,20 @@
+/*
+ * XREFs of SfnDWORD @ 0x1C00385D0
+ * Callers:
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ *     xxxDispatchMessage @ 0x1C0038064 (xxxDispatchMessage.c)
+ *     xxxSendMessageCallback @ 0x1C004C51C (xxxSendMessageCallback.c)
+ *     xxxHkCallHook @ 0x1C006C7F0 (xxxHkCallHook.c)
+ *     xxxReceiveMessage @ 0x1C006DB60 (xxxReceiveMessage.c)
+ *     ?xxxSendMessageToClient@@YAXPEAUtagWND@@I_K_JPEAUtagSMS@@HPEA_J@Z @ 0x1C006EE00 (-xxxSendMessageToClient@@YAXPEAUtagWND@@I_K_JPEAUtagSMS@@HPEA_J@Z.c)
+ *     xxxDefWindowProc @ 0x1C00A66F0 (xxxDefWindowProc.c)
+ *     ?xxxWrapCallWindowProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C01B9940 (-xxxWrapCallWindowProc@@YA_JPEAUtagWND@@I_K_J1@Z.c)
+ *     ?_SfnINBOXSTRING@@YA_JJPEAUtagWND@@I_K_J1P6A_JXZKPEAUtagSMS@@@Z @ 0x1C02266CC (-_SfnINBOXSTRING@@YA_JJPEAUtagWND@@I_K_J1P6A_JXZKPEAUtagSMS@@@Z.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall SfnDWORD(__int64 *a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
 {
   __int64 v9; // rsi

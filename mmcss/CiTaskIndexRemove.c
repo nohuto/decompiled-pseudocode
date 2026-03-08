@@ -1,3 +1,11 @@
+/*
+ * XREFs of CiTaskIndexRemove @ 0x1C000B5F0
+ * Callers:
+ *     CiTaskIndexDereference @ 0x1C00021B0 (CiTaskIndexDereference.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall CiTaskIndexRemove(__int64 a1)
 {
   _QWORD *v1; // rcx

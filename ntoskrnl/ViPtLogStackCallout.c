@@ -1,3 +1,16 @@
+/*
+ * XREFs of ViPtLogStackCallout @ 0x140ADBF00
+ * Callers:
+ *     ViPtLogStackTrace @ 0x140ADC05C (ViPtLogStackTrace.c)
+ * Callees:
+ *     RtlCaptureStackBackTrace @ 0x140205C20 (RtlCaptureStackBackTrace.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     VfPtAddStackInfoIfNotExist @ 0x140ADB5A0 (VfPtAddStackInfoIfNotExist.c)
+ *     VfPtProcessAllocPoolInfo @ 0x140ADBA18 (VfPtProcessAllocPoolInfo.c)
+ *     VfPtProcessFreePoolInfo @ 0x140ADBAD0 (VfPtProcessFreePoolInfo.c)
+ */
+
 void __fastcall ViPtLogStackCallout(_DWORD *Parameter)
 {
   __int64 *v2; // rbx

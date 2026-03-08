@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiCommitGroupSubNodeAssignments @ 0x1403A4F00
+ * Callers:
+ *     KiAllocateProcessorNumber @ 0x14037279C (KiAllocateProcessorNumber.c)
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall KiCommitGroupSubNodeAssignments(__int16 a1)
 {
   __int16 v1; // dx

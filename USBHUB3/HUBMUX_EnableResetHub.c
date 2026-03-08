@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBMUX_EnableResetHub @ 0x1C0010FB0
+ * Callers:
+ *     HUBHSM_WaitingForPortsToAcquireReferenceOnStart @ 0x1C0009440 (HUBHSM_WaitingForPortsToAcquireReferenceOnStart.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall HUBMUX_EnableResetHub(__int64 a1)
 {
   KSPIN_LOCK *v1; // rdi

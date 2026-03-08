@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserGetUniformSpaceMapping @ 0x1C0013860
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DrvIsUniformSpaceMapping @ 0x1C0014FA0 (DrvIsUniformSpaceMapping.c)
+ *     HMValidateSharedHandle @ 0x1C003DE88 (HMValidateSharedHandle.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C005040C (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
+ */
+
 __int64 __fastcall NtUserGetUniformSpaceMapping(__int64 a1, _OWORD *a2, __int64 a3, __int64 a4)
 {
   int v6; // edi

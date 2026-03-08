@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceFlipManagerProducerSetContent_Enabled @ 0x1C0163740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 EtwTraceFlipManagerProducerSetContent_Enabled()
 {
   unsigned int v0; // edx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EvaluateCurve@XamlExponentialInterpolation@@MEAANN@Z @ 0x18001AB50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     exp_0 @ 0x180117704 (exp_0.c)
+ */
+
 double __fastcall XamlExponentialInterpolation::EvaluateCurve(XamlExponentialInterpolation *this, double a2)
 {
   double v2; // xmm8_8

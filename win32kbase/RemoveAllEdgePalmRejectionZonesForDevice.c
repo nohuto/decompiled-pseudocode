@@ -1,3 +1,12 @@
+/*
+ * XREFs of RemoveAllEdgePalmRejectionZonesForDevice @ 0x1C0216FD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ @ 0x1C0096A80 (-GetInstance@DelayZonePalmRejection@@SAPEAV1@XZ.c)
+ *     ?RemoveEdgeZonesForDevice@DelayZonePalmRejection@@QEAA_NPEAX@Z @ 0x1C0216BE4 (-RemoveEdgeZonesForDevice@DelayZonePalmRejection@@QEAA_NPEAX@Z.c)
+ */
+
 DelayZonePalmRejection *__fastcall RemoveAllEdgePalmRejectionZonesForDevice(
         void *a1,
         __int64 a2,

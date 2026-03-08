@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bOpenKey@@YAHPEBGPEAPEAX@Z @ 0x1C00BA544
+ * Callers:
+ *     ?FinishStockFontInitInternal@@YAXPEBGH@Z @ 0x1C00BA144 (-FinishStockFontInitInternal@@YAXPEBGH@Z.c)
+ *     bInitStockFontsInternal @ 0x1C03B63A8 (bInitStockFontsInternal.c)
+ *     hfontInitDefaultGuiFont @ 0x1C03B6C5C (hfontInitDefaultGuiFont.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall bOpenKey(PCWSTR SourceString, PHANDLE KeyHandle)
 {
   struct _UNICODE_STRING v4; // [rsp+20h] [rbp-48h] BYREF

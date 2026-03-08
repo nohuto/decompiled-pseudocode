@@ -1,3 +1,21 @@
+/*
+ * XREFs of EmpParseInfDatabase @ 0x140B4CEE0
+ * Callers:
+ *     EmInitSystem @ 0x140B4CBA8 (EmInitSystem.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     EmpParseEntryTypes @ 0x140B4D1D4 (EmpParseEntryTypes.c)
+ *     EmpParseCallbacks @ 0x140B4D34C (EmpParseCallbacks.c)
+ *     EmpParseRules @ 0x140B4DBC0 (EmpParseRules.c)
+ *     EmpParseStrings @ 0x140B4DEC4 (EmpParseStrings.c)
+ *     EmpParseTargetRules @ 0x140B4E0F0 (EmpParseTargetRules.c)
+ *     CmpFreeSectionList @ 0x140B4ECD4 (CmpFreeSectionList.c)
+ *     CmpParseInfBuffer @ 0x140B5BC3C (CmpParseInfBuffer.c)
+ */
+
 __int64 __fastcall EmpParseInfDatabase(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rax

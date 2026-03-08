@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VmBusChannelPostStarted@DXG_HOST_VIRTUALGPU_VMBUS@@SAXPEAUVMBCHANNEL__@@@Z @ 0x1C0374F40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005A55C (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ */
+
 void __fastcall DXG_HOST_VIRTUALGPU_VMBUS::VmBusChannelPostStarted(struct VMBCHANNEL__ *a1)
 {
   if ( bTracingEnabled )

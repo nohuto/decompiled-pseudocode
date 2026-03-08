@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepCreateToken @ 0x1408106D4
+ * Callers:
+ *     SeMakeAnonymousLogonTokenNoEveryone @ 0x140B48710 (SeMakeAnonymousLogonTokenNoEveryone.c)
+ *     SeMakeAnonymousLogonToken @ 0x140B489A0 (SeMakeAnonymousLogonToken.c)
+ *     SeMakeSystemToken @ 0x140B48C50 (SeMakeSystemToken.c)
+ * Callees:
+ *     SepCreateTokenEx @ 0x1402079F0 (SepCreateTokenEx.c)
+ */
+
 __int64 __fastcall SepCreateToken(
         HANDLE *a1,
         __int64 a2,

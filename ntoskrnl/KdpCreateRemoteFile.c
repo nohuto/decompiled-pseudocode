@@ -1,3 +1,15 @@
+/*
+ * XREFs of KdpCreateRemoteFile @ 0x140AADE64
+ * Callers:
+ *     KdPullRemoteFileEx @ 0x140AADD80 (KdPullRemoteFileEx.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KdpCopyMemoryChunks @ 0x140AAD0F4 (KdpCopyMemoryChunks.c)
+ *     KdExitDebugger @ 0x140AAD2D0 (KdExitDebugger.c)
+ *     KdEnterDebugger @ 0x140AAD40C (KdEnterDebugger.c)
+ */
+
 __int64 __fastcall KdpCreateRemoteFile(_QWORD *a1, __int64 *a2, unsigned __int16 *a3)
 {
   char v6; // si

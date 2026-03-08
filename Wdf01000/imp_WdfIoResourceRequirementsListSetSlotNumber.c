@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_WdfIoResourceRequirementsListSetSlotNumber @ 0x1C0049A60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ */
+
 void __fastcall imp_WdfIoResourceRequirementsListSetSlotNumber(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFIORESREQLIST__ *RequirementsList,

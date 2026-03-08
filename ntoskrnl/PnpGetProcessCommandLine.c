@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpGetProcessCommandLine @ 0x1409613D8
+ * Callers:
+ *     PnpLogVetoInformation @ 0x140961470 (PnpLogVetoInformation.c)
+ * Callees:
+ *     PsQueryProcessCommandLine @ 0x1402E8A40 (PsQueryProcessCommandLine.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void *__fastcall PnpGetProcessCommandLine(struct _EX_RUNDOWN_REF *a1)
 {
   void *Pool2; // rbx

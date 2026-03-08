@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtGdiConfigureOPMProtectedOutput @ 0x1C0188F50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ *     SafelyCopyUserModeDataToKernelModeData__DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS_ @ 0x1C0187BA8 (SafelyCopyUserModeDataToKernelModeData__DXGKMDT_OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS_.c)
+ *     ?ConfigureProtectedOutput@COPM@@QEAAJPEAXQEAU_DXGKMDT_OPM_CONFIGURE_PARAMETERS@@KPEBE@Z @ 0x1C01880F8 (-ConfigureProtectedOutput@COPM@@QEAAJPEAXQEAU_DXGKMDT_OPM_CONFIGURE_PARAMETERS@@KPEBE@Z.c)
+ */
+
 __int64 __fastcall NtGdiConfigureOPMProtectedOutput(void *a1, char *a2, unsigned int a3, char *a4)
 {
   size_t v4; // r13

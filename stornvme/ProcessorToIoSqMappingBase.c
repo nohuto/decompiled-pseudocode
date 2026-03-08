@@ -1,3 +1,13 @@
+/*
+ * XREFs of ProcessorToIoSqMappingBase @ 0x1C0010C84
+ * Callers:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     NVMeInitializeProcessorIoQueueMapping @ 0x1C000F870 (NVMeInitializeProcessorIoQueueMapping.c)
+ *     ProcessorToDedicatedIoSqMapping @ 0x1C0010C00 (ProcessorToDedicatedIoSqMapping.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ProcessorToIoSqMappingBase(__int64 a1, unsigned int a2, unsigned __int16 a3, int a4)
 {
   __int64 v4; // rbx

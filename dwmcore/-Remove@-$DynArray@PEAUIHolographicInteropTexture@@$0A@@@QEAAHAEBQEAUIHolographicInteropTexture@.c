@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Remove@?$DynArray@PEAUIHolographicInteropTexture@@$0A@@@QEAAHAEBQEAUIHolographicInteropTexture@@@Z @ 0x1802AAD90
+ * Callers:
+ *     ?ProcessRemoveTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AA898 (-ProcessRemoveTexture@CHolographicClient@@AEAAXPEAUIUnknown@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DynArray<IHolographicInteropTexture *,0>::Remove(__int64 *a1, _QWORD *a2)
 {
   unsigned int v2; // r8d

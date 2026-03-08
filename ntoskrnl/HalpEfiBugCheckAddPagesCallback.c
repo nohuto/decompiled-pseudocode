@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpEfiBugCheckAddPagesCallback @ 0x14050B2B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalQueryMaximumProcessorCount @ 0x140375910 (HalQueryMaximumProcessorCount.c)
+ */
+
 void __fastcall HalpEfiBugCheckAddPagesCallback(
         KBUGCHECK_CALLBACK_REASON Reason,
         struct _KBUGCHECK_REASON_CALLBACK_RECORD *Record,

@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?UpdateThreadPointerList@CTouchProcessor@@QEAAXPEAUtagTHREADINPUTPOINTERLIST@@G@Z @ 0x1C0092B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     ?IsLastMsgData@CTouchProcessor@@AEAAH_K@Z @ 0x1C00F2CD4 (-IsLastMsgData@CTouchProcessor@@AEAAH_K@Z.c)
+ *     ApiSetEditionFindThreadPointerData @ 0x1C00F5E90 (ApiSetEditionFindThreadPointerData.c)
+ *     ?IsCoalescedMsgData@CTouchProcessor@@AEAAH_K@Z @ 0x1C01FB838 (-IsCoalescedMsgData@CTouchProcessor@@AEAAH_K@Z.c)
+ *     ?IsSamePointerFrame@CTouchProcessor@@AEAAH_K0@Z @ 0x1C01FBF44 (-IsSamePointerFrame@CTouchProcessor@@AEAAH_K0@Z.c)
+ *     ?ReferenceMsgDataFromGuard@CTouchProcessor@@QEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z @ 0x1C02014F0 (-ReferenceMsgDataFromGuard@CTouchProcessor@@QEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z.c)
+ *     ?UnreferenceMsgDataFromGuard@CTouchProcessor@@QEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z @ 0x1C02078F0 (-UnreferenceMsgDataFromGuard@CTouchProcessor@@QEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z.c)
+ *     ApiSetEditionUnlinkAndFreeThreadPointerData @ 0x1C0243320 (ApiSetEditionUnlinkAndFreeThreadPointerData.c)
+ */
+
 void __fastcall CTouchProcessor::UpdateThreadPointerList(
         PERESOURCE *this,
         struct tagTHREADINPUTPOINTERLIST *a2,

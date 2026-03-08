@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?AllocateStub@BamoDataProviderRegistrarPrincipal@@MEAAJPEAVBamoPeer@dataprovider_AutoBamos@@PEAPEAVBamoDataProviderRegistrarStub@@@Z @ 0x180102B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??2@YAPEAX_K@Z @ 0x180034790 (--2@YAPEAX_K@Z.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ */
+
 __int64 __fastcall BamoDataProviderRegistrarPrincipal::AllocateStub(
         BamoDataProviderRegistrarPrincipal *this,
         struct dataprovider_AutoBamos::BamoPeer *a2,

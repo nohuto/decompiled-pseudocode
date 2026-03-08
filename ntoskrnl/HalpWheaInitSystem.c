@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpWheaInitSystem @ 0x140A8CF90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpInterruptModel @ 0x14028EADC (HalpInterruptModel.c)
+ *     HalpMcaInitializePcrContext @ 0x140A8CFF8 (HalpMcaInitializePcrContext.c)
+ *     HalpWheaInitDiscard @ 0x140B60A80 (HalpWheaInitDiscard.c)
+ */
+
 __int64 HalpWheaInitSystem()
 {
   int v0; // edx

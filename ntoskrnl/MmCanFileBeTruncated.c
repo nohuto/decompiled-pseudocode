@@ -1,3 +1,13 @@
+/*
+ * XREFs of MmCanFileBeTruncated @ 0x1402A48B0
+ * Callers:
+ *     CcPurgeCacheSection @ 0x1402A0EA0 (CcPurgeCacheSection.c)
+ * Callees:
+ *     MiCanFileBeTruncatedInternal @ 0x1402A492C (MiCanFileBeTruncatedInternal.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 BOOLEAN __stdcall MmCanFileBeTruncated(PSECTION_OBJECT_POINTERS SectionPointer, PLARGE_INTEGER NewFileSize)
 {
   __int64 CanFileBeTruncatedInternal; // rax

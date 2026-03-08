@@ -1,3 +1,21 @@
+/*
+ * XREFs of PopFxUpdateVetoMaskWork @ 0x140982F50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PoFxActivateDevice @ 0x140202138 (PoFxActivateDevice.c)
+ *     PoFxIdleDevice @ 0x14020259C (PoFxIdleDevice.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     PopFxReleaseDevice @ 0x14045A79C (PopFxReleaseDevice.c)
+ *     PopPepUpdateDripsDeviceVetoMask @ 0x14059D9D4 (PopPepUpdateDripsDeviceVetoMask.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 signed __int32 __fastcall PopFxUpdateVetoMaskWork(__int64 P)
 {
   __int64 v1; // rbp

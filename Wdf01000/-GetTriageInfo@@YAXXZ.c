@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetTriageInfo@@YAXXZ @ 0x1C002BCEC
+ * Callers:
+ *     FxLibraryCommonCommission @ 0x1C002BFD8 (FxLibraryCommonCommission.c)
+ * Callees:
+ *     <none>
+ */
+
 void GetTriageInfo(void)
 {
   WdfObjectTriageInfo.RawObjectSize = 104;

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Destroy@GdiHandleManager@@SAXPEAV1@@Z @ 0x1C009FC10
+ * Callers:
+ *     HmgCreate @ 0x1C002CDD0 (HmgCreate.c)
+ *     MultiUserNtGreCleanup @ 0x1C009EFD4 (MultiUserNtGreCleanup.c)
+ * Callees:
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?Destroy@GdiHandleEntryDirectory@@SAXPEAV1@@Z @ 0x1C00A0CA4 (-Destroy@GdiHandleEntryDirectory@@SAXPEAV1@@Z.c)
+ */
+
 void __fastcall GdiHandleManager::Destroy(struct GdiHandleManager *a1)
 {
   char *v1; // rdx

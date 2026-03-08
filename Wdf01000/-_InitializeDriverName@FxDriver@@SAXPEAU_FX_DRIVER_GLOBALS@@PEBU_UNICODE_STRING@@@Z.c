@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_InitializeDriverName@FxDriver@@SAXPEAU_FX_DRIVER_GLOBALS@@PEBU_UNICODE_STRING@@@Z @ 0x1C00404D4
+ * Callers:
+ *     imp_WdfDriverCreate @ 0x1C0037350 (imp_WdfDriverCreate.c)
+ * Callees:
+ *     RtlStringCopyWorkerA @ 0x1C0017958 (RtlStringCopyWorkerA.c)
+ */
+
 void __fastcall FxDriver::_InitializeDriverName(
         _FX_DRIVER_GLOBALS *FxDriverGlobals,
         const _UNICODE_STRING *RegistryPath)

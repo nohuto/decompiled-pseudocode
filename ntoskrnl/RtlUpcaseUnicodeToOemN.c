@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlUpcaseUnicodeToOemN @ 0x14079FFE0
+ * Callers:
+ *     RtlUpcaseUnicodeStringToCountedOemString @ 0x1407A0140 (RtlUpcaseUnicodeStringToCountedOemString.c)
+ *     RtlUpcaseUnicodeStringToOemString @ 0x1408716E0 (RtlUpcaseUnicodeStringToOemString.c)
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     UpcaseUnicodeToSingleByteNHelper @ 0x140303D00 (UpcaseUnicodeToSingleByteNHelper.c)
+ *     UpcaseUnicodeToUTF8NHelper @ 0x14039FDA4 (UpcaseUnicodeToUTF8NHelper.c)
+ *     UpcaseUnicodeToMultiByteNHelper @ 0x14045B5C4 (UpcaseUnicodeToMultiByteNHelper.c)
+ *     RtlpIsUtf8Process @ 0x1406EA7A0 (RtlpIsUtf8Process.c)
+ */
+
 NTSTATUS __stdcall RtlUpcaseUnicodeToOemN(
         PCHAR OemString,
         ULONG MaxBytesInOemString,

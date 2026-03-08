@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?RemoveAllSourceViewFromSession@DXGSESSIONDATA@@QEAAXXZ @ 0x1C01C4F08
+ * Callers:
+ *     DxgkRemoveAllSessionViewForCurrentSession @ 0x1C01C4E60 (DxgkRemoveAllSessionViewForCurrentSession.c)
+ *     DxgkDestroyCsrssProcess @ 0x1C01C56D4 (DxgkDestroyCsrssProcess.c)
+ * Callees:
+ *     ??_GSESSION_VIEW@@QEAAPEAXI@Z @ 0x1C000B2B4 (--_GSESSION_VIEW@@QEAAPEAXI@Z.c)
+ *     ?RemoveAllDisplaySource@SESSION_VIEW@@QEAAXXZ @ 0x1C01C582C (-RemoveAllDisplaySource@SESSION_VIEW@@QEAAXXZ.c)
+ */
+
 void __fastcall DXGSESSIONDATA::RemoveAllSourceViewFromSession(DXGSESSIONDATA *this)
 {
   char *v1; // rdi

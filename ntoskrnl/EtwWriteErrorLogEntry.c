@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwWriteErrorLogEntry @ 0x1408707C8
+ * Callers:
+ *     IopErrorLogThread @ 0x1408704E0 (IopErrorLogThread.c)
+ * Callees:
+ *     EtwpEventWriteFull @ 0x1402319C0 (EtwpEventWriteFull.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall EtwWriteErrorLogEntry(
         __int64 a1,
         unsigned __int16 *a2,

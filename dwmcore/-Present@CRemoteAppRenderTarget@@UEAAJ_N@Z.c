@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Present@CRemoteAppRenderTarget@@UEAAJ_N@Z @ 0x1801E7DE8
+ * Callers:
+ *     ?Present@CRemoteAppRenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z @ 0x1801195D0 (-Present@CRemoteAppRenderTarget@@$4PPPPPPPM@A@EAAJ_N@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z @ 0x1800F1BF8 (-ScheduleCompositionPass@@YAXKW4CompositionReason@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CRemoteAppRenderTarget::Present(CRemoteAppRenderTarget *this)
 {
   unsigned int v1; // ebx

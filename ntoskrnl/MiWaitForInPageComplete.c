@@ -1,3 +1,43 @@
+/*
+ * XREFs of MiWaitForInPageComplete @ 0x140342A90
+ * Callers:
+ *     MiPfCompleteInPageSupport @ 0x14020DAF4 (MiPfCompleteInPageSupport.c)
+ *     MiIssueHardFault @ 0x140342F00 (MiIssueHardFault.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MiIsRetryIoStatus @ 0x140212D58 (MiIsRetryIoStatus.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140214870 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140214A54 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiDeleteControlArea @ 0x140215028 (MiDeleteControlArea.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     MiValidateInPage @ 0x140287570 (MiValidateInPage.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     MiZeroPhysicalPage @ 0x1402CE78C (MiZeroPhysicalPage.c)
+ *     PfHardFaultLog @ 0x1402E03F4 (PfHardFaultLog.c)
+ *     MiPrefetchRestOfCluster @ 0x1402FBFE0 (MiPrefetchRestOfCluster.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiCopyPage @ 0x14032DC70 (MiCopyPage.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x14032F834 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     MmIsAddressValidEx @ 0x1403471E0 (MmIsAddressValidEx.c)
+ *     MiFindContiguousPagesEx @ 0x1403B5CF8 (MiFindContiguousPagesEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiValidatePagefilePageHash @ 0x140466E1A (MiValidatePagefilePageHash.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiRetardMdl @ 0x14061A580 (MiRetardMdl.c)
+ *     MiFlushAllFilesystemPages @ 0x140626E68 (MiFlushAllFilesystemPages.c)
+ *     MiExceptionForMappedVa @ 0x14062E6B0 (MiExceptionForMappedVa.c)
+ *     MiStoreFaultComplete @ 0x140659C34 (MiStoreFaultComplete.c)
+ */
+
 __int64 __fastcall MiWaitForInPageComplete(__int64 a1, ULONG_PTR a2, int *a3)
 {
   ULONG_PTR v3; // rbp

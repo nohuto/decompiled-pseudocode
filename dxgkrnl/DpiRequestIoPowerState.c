@@ -1,3 +1,17 @@
+/*
+ * XREFs of DpiRequestIoPowerState @ 0x1C01E2390
+ * Callers:
+ *     DpiFdoHandleDevicePower @ 0x1C01E1A70 (DpiFdoHandleDevicePower.c)
+ *     DpiFdoSetAdapterPowerState @ 0x1C01E1E80 (DpiFdoSetAdapterPowerState.c)
+ *     DpiFdoInitializeFdo @ 0x1C01F5A64 (DpiFdoInitializeFdo.c)
+ *     DpiFdoExcludeAdapterAccess @ 0x1C03969C0 (DpiFdoExcludeAdapterAccess.c)
+ *     DpiFdoHandleStopDevice @ 0x1C03973C0 (DpiFdoHandleStopDevice.c)
+ *     DpiFdoResetFdo @ 0x1C0398754 (DpiFdoResetFdo.c)
+ * Callees:
+ *     ?DpiInsertEntryToPowerActionQueue@@YAXPEAU_FDO_CONTEXT@@PEAU_DPI_POWER_ACTION@@@Z @ 0x1C001A380 (-DpiInsertEntryToPowerActionQueue@@YAXPEAU_FDO_CONTEXT@@PEAU_DPI_POWER_ACTION@@@Z.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 __int64 __fastcall DpiRequestIoPowerState(__int64 a1, LONG a2, __int64 a3, int a4)
 {
   __int64 v4; // rsi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopEtIsrDpcQuery @ 0x1407824C0
+ * Callers:
+ *     PopEtProcessEnumSnapshotCallback @ 0x140701C20 (PopEtProcessEnumSnapshotCallback.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeQueryCycleTimeStatsProcessor @ 0x1402F04F0 (KeQueryCycleTimeStatsProcessor.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall PopEtIsrDpcQuery(__int64 a1, _OWORD *a2)
 {
   _OWORD *v2; // rbx

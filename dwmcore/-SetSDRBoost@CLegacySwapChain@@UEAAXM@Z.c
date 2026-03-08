@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SetSDRBoost@CLegacySwapChain@@UEAAXM@Z @ 0x180298320
+ * Callers:
+ *     ?SetSDRBoost@CLegacySwapChain@@$4PPPPPPPM@A@EAAXM@Z @ 0x18011BAB0 (-SetSDRBoost@CLegacySwapChain@@$4PPPPPPPM@A@EAAXM@Z.c)
+ *     ?SetSDRBoost@CLegacyStereoSwapChain@@UEAAXM@Z @ 0x18029D034 (-SetSDRBoost@CLegacyStereoSwapChain@@UEAAXM@Z.c)
+ *     ?SetSDRBoost@CConversionSwapChain@@UEAAXM@Z @ 0x18029F738 (-SetSDRBoost@CConversionSwapChain@@UEAAXM@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CLegacySwapChain::SetSDRBoost(CLegacySwapChain *this, float a2)
 {
   __int64 v2; // rdx

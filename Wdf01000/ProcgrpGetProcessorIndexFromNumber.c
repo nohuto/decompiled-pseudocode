@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProcgrpGetProcessorIndexFromNumber @ 0x1C008A4C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ProcgrpGetProcessorIndexFromNumber(_PROCESSOR_NUMBER *ProcNumber)
 {
   unsigned __int8 *v1; // rax

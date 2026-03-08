@@ -1,3 +1,17 @@
+/*
+ * XREFs of FsRtlpRegisterUncProvider @ 0x14084EEE8
+ * Callers:
+ *     FsRtlRegisterUncProviderEx2 @ 0x14084EEC0 (FsRtlRegisterUncProviderEx2.c)
+ *     FsRtlRegisterUncProvider @ 0x14093ABE0 (FsRtlRegisterUncProvider.c)
+ *     FsRtlRegisterUncProviderEx @ 0x14093AC20 (FsRtlRegisterUncProviderEx.c)
+ * Callees:
+ *     KeReleaseSemaphore @ 0x140292210 (KeReleaseSemaphore.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     FsRtlpOpenDev @ 0x14084EFE0 (FsRtlpOpenDev.c)
+ *     FsRtlpRegisterProviderWithMUP @ 0x14084F0A8 (FsRtlpRegisterProviderWithMUP.c)
+ */
+
 __int64 __fastcall FsRtlpRegisterUncProvider(__int64 a1, __int64 a2, __int64 a3, HANDLE *a4)
 {
   int v5; // esi

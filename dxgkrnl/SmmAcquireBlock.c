@@ -1,3 +1,18 @@
+/*
+ * XREFs of SmmAcquireBlock @ 0x1C006FC8C
+ * Callers:
+ *     SmmAcquireBlock @ 0x1C006FC8C (SmmAcquireBlock.c)
+ *     ?SmmAllocateLogicalAddress@@YAJPEAUSYSMM_LOGICAL_ALLOCATOR@@_KPEBXPEAPEAUSYSMM_LOGICAL_BLOCK@@@Z @ 0x1C006FF1C (-SmmAllocateLogicalAddress@@YAJPEAUSYSMM_LOGICAL_ALLOCATOR@@_KPEBXPEAPEAUSYSMM_LOGICAL_BLOCK@@@Z.c)
+ *     ?SmmAllocateLogicalAddressAt@@YAJPEAUSYSMM_LOGICAL_ALLOCATOR@@_K1PEBXPEAPEAUSYSMM_LOGICAL_BLOCK@@@Z @ 0x1C03D24BC (-SmmAllocateLogicalAddressAt@@YAJPEAUSYSMM_LOGICAL_ALLOCATOR@@_K1PEBXPEAPEAUSYSMM_LOGICAL_BLOCK@.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     SmmAcquireBlock @ 0x1C006FC8C (SmmAcquireBlock.c)
+ *     SmmGetAnyFreeBlockFromPool @ 0x1C007034C (SmmGetAnyFreeBlockFromPool.c)
+ *     SmmGetFreeBlockFromPool @ 0x1C00703EC (SmmGetFreeBlockFromPool.c)
+ *     SmmReleaseBlock @ 0x1C007050C (SmmReleaseBlock.c)
+ */
+
 __int64 __fastcall SmmAcquireBlock(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
 {
   int v4; // r15d

@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?RecordUsageInternal@RawUsageIndex@details_abi@wil@@AEAA_NPEAX_K01I@Z @ 0x140001A64
+ * Callers:
+ *     ?RecordUsage@RawUsageIndex@details_abi@wil@@QEAA_NPEAX_K01I@Z @ 0x140001808 (-RecordUsage@RawUsageIndex@details_abi@wil@@QEAA_NPEAX_K01I@Z.c)
+ * Callees:
+ *     ?FindInsertionPointOrIncrement@RawUsageIndex@details_abi@wil@@AEAAPEAEAEAUUsageIndexProperty@23@PEAEPEAX_KI@Z @ 0x140001620 (-FindInsertionPointOrIncrement@RawUsageIndex@details_abi@wil@@AEAAPEAEAEAUUsageIndexProperty@23@.c)
+ *     ?Compare@UsageIndexProperty@details_abi@wil@@QEBAHPEAX_K@Z @ 0x140001D44 (-Compare@UsageIndexProperty@details_abi@wil@@QEBAHPEAX_K@Z.c)
+ *     ?Read@UsageIndexProperty@details_abi@wil@@QEAA_NAEAPEAEPEAE@Z @ 0x140001D78 (-Read@UsageIndexProperty@details_abi@wil@@QEAA_NAEAPEAEPEAE@Z.c)
+ *     ?GetSize@UsageIndexProperty@details_abi@wil@@QEBA_KXZ @ 0x140001EB0 (-GetSize@UsageIndexProperty@details_abi@wil@@QEBA_KXZ.c)
+ *     ?Write@UsageIndexProperty@details_abi@wil@@QEBA_NAEAPEAEPEAE@Z @ 0x140002018 (-Write@UsageIndexProperty@details_abi@wil@@QEBA_NAEAPEAEPEAE@Z.c)
+ *     _invalid_parameter_noinfo @ 0x1400062E8 (_invalid_parameter_noinfo.c)
+ *     memmove_0 @ 0x1400071C8 (memmove_0.c)
+ *     ?UpdateCount@UsageIndexProperty@details_abi@wil@@QEAAXI@Z @ 0x14000BA28 (-UpdateCount@UsageIndexProperty@details_abi@wil@@QEAAXI@Z.c)
+ */
+
 char __fastcall wil::details_abi::RawUsageIndex::RecordUsageInternal(
         wil::details_abi::RawUsageIndex *this,
         void *a2,

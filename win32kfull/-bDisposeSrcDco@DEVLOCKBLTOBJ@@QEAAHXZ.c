@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?bDisposeSrcDco@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C00D32E4
+ * Callers:
+ *     NtGdiBitBltInternal @ 0x1C005E110 (NtGdiBitBltInternal.c)
+ *     ?vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z @ 0x1C0272EF8 (-vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z.c)
+ * Callees:
+ *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C000FF70 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
+ *     ?RestoreAttributesHelper@XDCOBJ@@AEAAXXZ @ 0x1C0050D28 (-RestoreAttributesHelper@XDCOBJ@@AEAAXXZ.c)
+ *     ?vClearRenderState@DEVLOCKBLTOBJ@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C0055220 (-vClearRenderState@DEVLOCKBLTOBJ@@QEAAXAEAVXDCOBJ@@@Z.c)
+ */
+
 __int64 __fastcall DEVLOCKBLTOBJ::bDisposeSrcDco(DEVLOCKBLTOBJ *this, __int64 a2, __int64 a3)
 {
   DC **v3; // rdi

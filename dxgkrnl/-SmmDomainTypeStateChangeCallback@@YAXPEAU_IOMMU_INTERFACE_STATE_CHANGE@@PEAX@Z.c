@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SmmDomainTypeStateChangeCallback@@YAXPEAU_IOMMU_INTERFACE_STATE_CHANGE@@PEAX@Z @ 0x1C03D0FD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ??$SmmAcquirePushLockExclusive@$0EC@@@YAXPEAU?$SYSMM_PUSHLOCK@$0EC@@@@Z @ 0x1C006DD24 (--$SmmAcquirePushLockExclusive@$0EC@@@YAXPEAU-$SYSMM_PUSHLOCK@$0EC@@@@Z.c)
+ *     ??$SmmReleasePushLockExclusive@$0EC@@@YAXPEAU?$SYSMM_PUSHLOCK@$0EC@@@@Z @ 0x1C006DD6C (--$SmmReleasePushLockExclusive@$0EC@@@YAXPEAU-$SYSMM_PUSHLOCK@$0EC@@@@Z.c)
+ *     ?SysMmDisableIommu@@YAJPEAUSYSMM_ADAPTER@@W4SYSMM_IOMMU_ENABLEMENT_REASON@@@Z @ 0x1C03D19B0 (-SysMmDisableIommu@@YAJPEAUSYSMM_ADAPTER@@W4SYSMM_IOMMU_ENABLEMENT_REASON@@@Z.c)
+ */
+
 void __fastcall SmmDomainTypeStateChangeCallback(struct _IOMMU_INTERFACE_STATE_CHANGE *a1, _DWORD *a2)
 {
   SmmAcquirePushLockExclusive<66>();

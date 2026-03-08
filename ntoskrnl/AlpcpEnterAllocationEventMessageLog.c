@@ -1,3 +1,16 @@
+/*
+ * XREFs of AlpcpEnterAllocationEventMessageLog @ 0x1409778E8
+ * Callers:
+ *     AlpcpAllocateMessage @ 0x140712E84 (AlpcpAllocateMessage.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x140715930 (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpSendMessage @ 0x1407CAFB0 (AlpcpSendMessage.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     AlpcpAllocateMessageLog @ 0x1409776F4 (AlpcpAllocateMessageLog.c)
+ */
+
 signed __int32 __fastcall AlpcpEnterAllocationEventMessageLog(__int64 a1)
 {
   __int64 MessageLog; // rax

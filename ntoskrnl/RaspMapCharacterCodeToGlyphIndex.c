@@ -1,3 +1,11 @@
+/*
+ * XREFs of RaspMapCharacterCodeToGlyphIndex @ 0x140383EE8
+ * Callers:
+ *     RaspGetUnscaledGlyphData @ 0x140382708 (RaspGetUnscaledGlyphData.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RaspMapCharacterCodeToGlyphIndex(unsigned int *a1, unsigned __int16 a2, _WORD *a3)
 {
   unsigned int v3; // r11d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of wil::details::_dynamic_initializer_for__g_header_init_InitializeStagingHeaderInternalApi__ @ 0x140001190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void (__fastcall *wil::details::_dynamic_initializer_for__g_header_init_InitializeStagingHeaderInternalApi__())(struct FEATURE_STATE_CHANGE_SUBSCRIPTION__ *this, struct FEATURE_STATE_CHANGE_SUBSCRIPTION__ *)
 {
   void (__fastcall *result)(struct FEATURE_STATE_CHANGE_SUBSCRIPTION__ *, struct FEATURE_STATE_CHANGE_SUBSCRIPTION__ *); // rax

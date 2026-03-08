@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Create@UmfdUMBuffer@@SAPEAV1@XZ @ 0x1C00BC784
+ * Callers:
+ *     ?Create@UmfdTls@@CAPEAV1@XZ @ 0x1C00BC724 (-Create@UmfdTls@@CAPEAV1@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 struct UmfdUMBuffer *UmfdUMBuffer::Create(void)
 {
   PVOID v0; // rax

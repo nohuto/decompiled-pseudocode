@@ -1,3 +1,16 @@
+/*
+ * XREFs of RIMUpdateDeviceForInputMode @ 0x1C00BC380
+ * Callers:
+ *     RIMSetDeviceInputMode @ 0x1C00BC07C (RIMSetDeviceInputMode.c)
+ *     RIMHandlePowerDeviceArrival @ 0x1C00BC314 (RIMHandlePowerDeviceArrival.c)
+ * Callees:
+ *     RIMConfigureDeviceFeedback @ 0x1C01ACF00 (RIMConfigureDeviceFeedback.c)
+ *     RIMConfigurePointerDevice @ 0x1C01AD4A0 (RIMConfigurePointerDevice.c)
+ *     RIMSendLatencyMgtDeviceRequest @ 0x1C01AFB54 (RIMSendLatencyMgtDeviceRequest.c)
+ *     RIMSetDevicePDOSuppression @ 0x1C01BFB88 (RIMSetDevicePDOSuppression.c)
+ *     RIMApiSetSetUserPTPEnabledPreference @ 0x1C01C0898 (RIMApiSetSetUserPTPEnabledPreference.c)
+ */
+
 __int64 __fastcall RIMUpdateDeviceForInputMode(__int64 a1, int a2)
 {
   __int64 v4; // rdx

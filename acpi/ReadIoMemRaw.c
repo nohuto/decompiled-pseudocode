@@ -1,3 +1,11 @@
+/*
+ * XREFs of ReadIoMemRaw @ 0x1C0004968
+ * Callers:
+ *     AcpiPccRingDoorbell @ 0x1C0034340 (AcpiPccRingDoorbell.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ */
+
 __int64 __fastcall ReadIoMemRaw(unsigned __int8 *a1, int a2, int a3)
 {
   __int64 v3; // rbx

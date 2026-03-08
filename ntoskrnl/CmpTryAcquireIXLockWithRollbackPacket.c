@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpTryAcquireIXLockWithRollbackPacket @ 0x14074C1BC
+ * Callers:
+ *     CmpTryAcquireKcbIXLocks @ 0x14074C150 (CmpTryAcquireKcbIXLocks.c)
+ * Callees:
+ *     CmpSnapshotTxOwnerArrayToRollbackPacket @ 0x140A1BB24 (CmpSnapshotTxOwnerArrayToRollbackPacket.c)
+ */
+
 __int64 __fastcall CmpTryAcquireIXLockWithRollbackPacket(int *a1, char a2, __int64 a3)
 {
   int v3; // eax

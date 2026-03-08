@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopConfigureHeteroPolicies @ 0x1408273AC
+ * Callers:
+ *     PopInitializeHeteroProcessors @ 0x140826970 (PopInitializeHeteroProcessors.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopCapturePlatformRole @ 0x140796DC4 (PopCapturePlatformRole.c)
+ *     KeConfigureHeteroPolicy @ 0x140827A64 (KeConfigureHeteroPolicy.c)
+ *     PopConfigureHeteroThresholds @ 0x140827BD0 (PopConfigureHeteroThresholds.c)
+ *     PpmHeteroComputeBias @ 0x14098FE28 (PpmHeteroComputeBias.c)
+ */
+
 char __fastcall PopConfigureHeteroPolicies(int a1, char a2, char a3)
 {
   __int64 v3; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiMarkKernelStack @ 0x140371560
+ * Callers:
+ *     MiMarkBootKernelStack @ 0x140B3AD3C (MiMarkBootKernelStack.c)
+ * Callees:
+ *     MiSetPfnKernelStack @ 0x1402A7DF0 (MiSetPfnKernelStack.c)
+ *     MiSetPfnIdentity @ 0x14034BE78 (MiSetPfnIdentity.c)
+ */
+
 char __fastcall MiMarkKernelStack(__int64 a1, __int64 a2, unsigned __int64 a3)
 {
   char v5; // al

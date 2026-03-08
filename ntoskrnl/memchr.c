@@ -1,3 +1,11 @@
+/*
+ * XREFs of memchr @ 0x1403D4790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void *__cdecl memchr(const void *Buf, int Val, size_t MaxCount)
 {
   for ( ; MaxCount; --MaxCount )

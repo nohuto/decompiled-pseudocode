@@ -1,3 +1,11 @@
+/*
+ * XREFs of FastWindowFromDC @ 0x1C01BECEC
+ * Callers:
+ *     _ScrollDC @ 0x1C0231974 (_ScrollDC.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FastWindowFromDC(__int64 a1)
 {
   __int64 v2; // rbx

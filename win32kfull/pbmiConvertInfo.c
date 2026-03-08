@@ -1,3 +1,11 @@
+/*
+ * XREFs of pbmiConvertInfo @ 0x1C02C7738
+ * Callers:
+ *     GreSetDIBits @ 0x1C02E0580 (GreSetDIBits.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall pbmiConvertInfo(unsigned __int16 *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // edx

@@ -1,3 +1,23 @@
+/*
+ * XREFs of KseDriverUnloadImage @ 0x1407F7364
+ * Callers:
+ *     MiUnloadSystemImage @ 0x1407F627C (MiUnloadSystemImage.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     MmIsSessionAddress @ 0x140239ED0 (MmIsSessionAddress.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KsepPoolFreePaged @ 0x140303C7C (KsepPoolFreePaged.c)
+ *     KsepLogInfo @ 0x14036F8F4 (KsepLogInfo.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KsepDebugPrint @ 0x14057E834 (KsepDebugPrint.c)
+ *     RtlAssert @ 0x1405A7CA0 (RtlAssert.c)
+ *     KsepDbFreeDriverShims @ 0x14079E360 (KsepDbFreeDriverShims.c)
+ *     KsepIsModuleShimmed @ 0x14079E588 (KsepIsModuleShimmed.c)
+ */
+
 __int64 __fastcall KseDriverUnloadImage(__int64 a1)
 {
   __int64 v2; // rbx

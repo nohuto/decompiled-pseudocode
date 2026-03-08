@@ -1,3 +1,11 @@
+/*
+ * XREFs of TtmpPublishDisplayRequiredPowerRequestEvents @ 0x1409A27EC
+ * Callers:
+ *     TtmiWriteEnumerationEventsToQueue @ 0x1409A1E3C (TtmiWriteEnumerationEventsToQueue.c)
+ * Callees:
+ *     TtmpWriteDisplayRequiredPowerRequestUpdatedEvent @ 0x1409A2F00 (TtmpWriteDisplayRequiredPowerRequestUpdatedEvent.c)
+ */
+
 unsigned __int64 __fastcall TtmpPublishDisplayRequiredPowerRequestEvents(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // rdi

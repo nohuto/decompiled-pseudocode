@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlpCompareActiveLpcbs @ 0x14053E5E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HvlpCompareActiveLpcbs(_BYTE *a1, _BYTE *a2)
 {
   char v2; // al

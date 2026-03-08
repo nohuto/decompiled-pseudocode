@@ -1,3 +1,37 @@
+/*
+ * XREFs of PipSetDevNodeProblem @ 0x1408667BC
+ * Callers:
+ *     PnpRemoveLockedDeviceNode @ 0x1403B1D8C (PnpRemoveLockedDeviceNode.c)
+ *     PnpProcessAssignResources @ 0x140681528 (PnpProcessAssignResources.c)
+ *     PipProcessEnumeratedChildDevice @ 0x14068571C (PipProcessEnumeratedChildDevice.c)
+ *     PiProcessNewDeviceNode @ 0x140685858 (PiProcessNewDeviceNode.c)
+ *     PnpQueryID @ 0x1406882B4 (PnpQueryID.c)
+ *     PipCallDriverAddDeviceQueryRoutine @ 0x1406C3364 (PipCallDriverAddDeviceQueryRoutine.c)
+ *     PipCallDriverAddDevice @ 0x1406C644C (PipCallDriverAddDevice.c)
+ *     PipProcessDevNodeTree @ 0x1406CCD80 (PipProcessDevNodeTree.c)
+ *     IoReportDetectedDevice @ 0x140802A80 (IoReportDetectedDevice.c)
+ *     IopInitializeDeviceInstanceKey @ 0x14081CE14 (IopInitializeDeviceInstanceKey.c)
+ *     PnpDriverLoadingFailed @ 0x14085EEA4 (PnpDriverLoadingFailed.c)
+ *     PiDevCfgProcessDevice @ 0x140873308 (PiDevCfgProcessDevice.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x14087E214 (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     IopQueueDeviceResetEvent @ 0x14095467C (IopQueueDeviceResetEvent.c)
+ *     PnpDisableDevice @ 0x1409559A8 (PnpDisableDevice.c)
+ *     PiProcessSetDeviceProblem @ 0x1409566C8 (PiProcessSetDeviceProblem.c)
+ *     PiProfileUpdateDeviceTreeCallback @ 0x1409607E0 (PiProfileUpdateDeviceTreeCallback.c)
+ *     PiInitializeDevice @ 0x14096AB74 (PiInitializeDevice.c)
+ *     PnpRebalance @ 0x14096B948 (PnpRebalance.c)
+ *     PiProcessQueryRemoveNoFdo @ 0x14096EA58 (PiProcessQueryRemoveNoFdo.c)
+ * Callees:
+ *     PipSetDevNodeFlags @ 0x1406857DC (PipSetDevNodeFlags.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140687320 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     PiPnpRtlEndOperation @ 0x1406CCB7C (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1406CDF98 (PiPnpRtlBeginOperation.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x14070F610 (SeAuditingWithTokenForSubcategory.c)
+ *     PnpTraceSetDevNodeProblem @ 0x14086697C (PnpTraceSetDevNodeProblem.c)
+ *     PiAuditDeviceEnableDisableAction @ 0x14096C730 (PiAuditDeviceEnableDisableAction.c)
+ */
+
 void __fastcall PipSetDevNodeProblem(__int64 a1, int a2, int a3)
 {
   unsigned int v6; // edi

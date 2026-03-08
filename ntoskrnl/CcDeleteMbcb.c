@@ -1,3 +1,20 @@
+/*
+ * XREFs of CcDeleteMbcb @ 0x14029CBA4
+ * Callers:
+ *     CcDeleteSharedCacheMap @ 0x140217A10 (CcDeleteSharedCacheMap.c)
+ *     CcSetFileSizesEx @ 0x14029F9B0 (CcSetFileSizesEx.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     CcDeallocateBcb @ 0x14029CCF0 (CcDeallocateBcb.c)
+ *     CcDeductDirtyPages @ 0x14029CD20 (CcDeductDirtyPages.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall CcDeleteMbcb(__int64 a1)
 {
   __int64 v1; // rbx

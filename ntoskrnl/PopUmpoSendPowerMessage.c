@@ -1,3 +1,31 @@
+/*
+ * XREFs of PopUmpoSendPowerMessage @ 0x1402BD1D0
+ * Callers:
+ *     PopUmpoSendPowerRequestOverrideQuery @ 0x1402BCE58 (PopUmpoSendPowerRequestOverrideQuery.c)
+ *     PopUmpoSendFlushSleepStudyLoggerNotification @ 0x1405972BC (PopUmpoSendFlushSleepStudyLoggerNotification.c)
+ *     PopPowerRequestDelete @ 0x14073B0E0 (PopPowerRequestDelete.c)
+ *     PopPowerRequestHandleRequestUpdate @ 0x14073BF54 (PopPowerRequestHandleRequestUpdate.c)
+ *     PopUmpoSendPowerRequestCreate @ 0x14073C318 (PopUmpoSendPowerRequestCreate.c)
+ *     PopEvaluateGlobalUserStatus @ 0x14073CA7C (PopEvaluateGlobalUserStatus.c)
+ *     PopMonitorProcessLoop @ 0x14085C548 (PopMonitorProcessLoop.c)
+ *     PopUserPresencePredictionModeCallback @ 0x14085F4E0 (PopUserPresencePredictionModeCallback.c)
+ *     PopPowerRequestNotificationsBegin @ 0x14097E644 (PopPowerRequestNotificationsBegin.c)
+ *     PopUmpoSendLegacyEvent @ 0x1409948A0 (PopUmpoSendLegacyEvent.c)
+ * Callees:
+ *     AlpcGetMessageAttribute @ 0x1402BBFE0 (AlpcGetMessageAttribute.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwAlpcSendWaitReceivePort @ 0x140413490 (ZwAlpcSendWaitReceivePort.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopUmpoProcessMessage @ 0x14073B3C8 (PopUmpoProcessMessage.c)
+ *     PopReleaseUmpoPushLock @ 0x14073C2B8 (PopReleaseUmpoPushLock.c)
+ *     PopAcquireUmpoPushLock @ 0x14073C2DC (PopAcquireUmpoPushLock.c)
+ *     PoDelistPowerStateTransitionBlocker @ 0x140AA2FFC (PoDelistPowerStateTransitionBlocker.c)
+ *     PopPushPowerStateTransitionRecord @ 0x140AA309C (PopPushPowerStateTransitionRecord.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopUmpoSendPowerMessage(_DWORD *Src, size_t Size, char a3)
 {
   int v6; // ebp

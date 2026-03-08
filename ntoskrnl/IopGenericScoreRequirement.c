@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopGenericScoreRequirement @ 0x140808530
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlIoDecodeMemIoResource @ 0x1403706F0 (RtlIoDecodeMemIoResource.c)
+ */
+
 signed __int64 __fastcall IopGenericScoreRequirement(struct _IO_RESOURCE_DESCRIPTOR *a1)
 {
   ULONGLONG v1; // rax

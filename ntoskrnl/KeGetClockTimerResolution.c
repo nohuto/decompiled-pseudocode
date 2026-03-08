@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeGetClockTimerResolution @ 0x14056D2C0
+ * Callers:
+ *     HalpTimerSwitchToNormalClock @ 0x140506594 (HalpTimerSwitchToNormalClock.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KeGetClockTimerResolution(_DWORD *a1, unsigned int *a2, _BYTE *a3)
 {
   struct _KPRCB *CurrentPrcb; // r9

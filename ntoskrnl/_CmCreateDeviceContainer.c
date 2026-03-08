@@ -1,3 +1,15 @@
+/*
+ * XREFs of _CmCreateDeviceContainer @ 0x1406828C0
+ * Callers:
+ *     _CmAddDeviceToContainerWorker @ 0x1406851BC (_CmAddDeviceToContainerWorker.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     _CmCreateDeviceContainerWorker @ 0x140682A20 (_CmCreateDeviceContainerWorker.c)
+ */
+
 __int64 __fastcall CmCreateDeviceContainer(__int64 a1, __int64 a2, __int64 a3, HANDLE *a4, _BYTE *a5)
 {
   __int64 (__fastcall *v8)(__int64, __int64, __int64); // rdi

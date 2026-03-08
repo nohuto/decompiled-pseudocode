@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpQueryIdPdo @ 0x1408223AC
+ * Callers:
+ *     HalpDispatchPnp @ 0x140821D00 (HalpDispatchPnp.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall HalpQueryIdPdo(__int64 a1, int a2, _QWORD *a3)
 {
   __int64 v3; // r9

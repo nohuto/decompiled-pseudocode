@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopReplaceCompletionPort @ 0x140555A90
+ * Callers:
+ *     NtSetInformationFile @ 0x14027E490 (NtSetInformationFile.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopReplaceCompletionPort(__int64 a1, void *a2, __int64 a3)
 {
   volatile signed __int64 *v3; // r14

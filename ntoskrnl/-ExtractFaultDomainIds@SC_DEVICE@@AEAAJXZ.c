@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ExtractFaultDomainIds@SC_DEVICE@@AEAAJXZ @ 0x1406742E8
+ * Callers:
+ *     ?SaveStorageProperty@SC_DEVICE@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z @ 0x140674570 (-SaveStorageProperty@SC_DEVICE@@MEAAXW4_STORAGE_PROPERTY_ID@@PEAU_STORAGE_DESCRIPTOR_HEADER@@@Z.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall SC_DEVICE::ExtractFaultDomainIds(SC_DEVICE *this)
 {
   __int64 v2; // r9

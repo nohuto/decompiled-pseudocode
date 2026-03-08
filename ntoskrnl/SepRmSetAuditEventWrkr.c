@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepRmSetAuditEventWrkr @ 0x14084A570
+ * Callers:
+ *     SepRmCommandServerThread @ 0x140825260 (SepRmCommandServerThread.c)
+ * Callees:
+ *     PsIsCurrentThreadInServerSilo @ 0x1402459D0 (PsIsCurrentThreadInServerSilo.c)
+ */
+
 char __fastcall SepRmSetAuditEventWrkr(__int64 a1, __int64 a2)
 {
   unsigned int v3; // ebx

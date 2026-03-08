@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0InputQueueInfo@CInputSinkStruct@@QEAA@XZ @ 0x180104840
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 CInputSinkStruct::InputQueueInfo *__fastcall CInputSinkStruct::InputQueueInfo::InputQueueInfo(
         CInputSinkStruct::InputQueueInfo *this)
 {

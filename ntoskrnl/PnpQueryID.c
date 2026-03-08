@@ -1,3 +1,18 @@
+/*
+ * XREFs of PnpQueryID @ 0x1406882B4
+ * Callers:
+ *     PipProcessStartPhase3 @ 0x14068203C (PipProcessStartPhase3.c)
+ *     PiProcessNewDeviceNode @ 0x140685858 (PiProcessNewDeviceNode.c)
+ * Callees:
+ *     PipSetDevNodeFlags @ 0x1406857DC (PipSetDevNodeFlags.c)
+ *     PnpIrpQueryID @ 0x1406883A8 (PnpIrpQueryID.c)
+ *     PnpFixupID @ 0x140688430 (PnpFixupID.c)
+ *     PipSetDevNodeProblem @ 0x1408667BC (PipSetDevNodeProblem.c)
+ *     PnpLogEvent @ 0x140955B40 (PnpLogEvent.c)
+ *     PnpSetInvalidIDEvent @ 0x1409618D8 (PnpSetInvalidIDEvent.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpQueryID(__int64 a1, __int64 a2, PVOID *a3, _DWORD *a4)
 {
   __int64 v5; // rcx

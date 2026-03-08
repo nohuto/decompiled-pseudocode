@@ -1,3 +1,11 @@
+/*
+ * XREFs of WppCleanupKm @ 0x1C0073330
+ * Callers:
+ *     UsbhDriverUnload @ 0x1C00429E0 (UsbhDriverUnload.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall WppCleanupKm(__int64 a1)
 {
   PDEVICE_OBJECT v1; // rbx

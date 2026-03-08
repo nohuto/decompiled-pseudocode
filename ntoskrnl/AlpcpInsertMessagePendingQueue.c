@@ -1,3 +1,17 @@
+/*
+ * XREFs of AlpcpInsertMessagePendingQueue @ 0x1407CF440
+ * Callers:
+ *     AlpcpSendLegacySynchronousRequest @ 0x140715930 (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpReceiveDirectMessagePort @ 0x140769704 (AlpcpReceiveDirectMessagePort.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1407CBD90 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpReceiveMessagePort @ 0x1407CD3A0 (AlpcpReceiveMessagePort.c)
+ *     AlpcpReceiveSynchronousReply @ 0x1407CFC50 (AlpcpReceiveSynchronousReply.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ */
+
 signed __int32 __fastcall AlpcpInsertMessagePendingQueue(__int64 a1, __int64 a2)
 {
   int v4; // eax

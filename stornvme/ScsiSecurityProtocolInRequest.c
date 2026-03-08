@@ -1,3 +1,14 @@
+/*
+ * XREFs of ScsiSecurityProtocolInRequest @ 0x1C001AA38
+ * Callers:
+ *     ScsiToNVMe @ 0x1C00010C0 (ScsiToNVMe.c)
+ * Callees:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     NVMeSetSenseData @ 0x1C0024238 (NVMeSetSenseData.c)
+ */
+
 __int64 __fastcall ScsiSecurityProtocolInRequest(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 SrbExtension; // rax

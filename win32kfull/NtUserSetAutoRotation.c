@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserSetAutoRotation @ 0x1C01DB550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastStatus @ 0x1C0012568 (UserSetLastStatus.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall NtUserSetAutoRotation(unsigned int a1)
 {
   NTSTATUS v2; // eax

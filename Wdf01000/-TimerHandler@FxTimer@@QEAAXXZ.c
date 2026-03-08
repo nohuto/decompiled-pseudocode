@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?TimerHandler@FxTimer@@QEAAXXZ @ 0x1C0008C04
+ * Callers:
+ *     ?_FxTimerWorkItemCallback@FxTimer@@CAXPEAX@Z @ 0x1C0008BA0 (-_FxTimerWorkItemCallback@FxTimer@@CAXPEAX@Z.c)
+ *     ?_FxTimerExtCallbackThunk@FxTimer@@CAXPEAU_EX_TIMER@@PEAX@Z @ 0x1C0008BC0 (-_FxTimerExtCallbackThunk@FxTimer@@CAXPEAU_EX_TIMER@@PEAX@Z.c)
+ *     ?_FxTimerDpcThunk@FxTimer@@CAXPEAU_KDPC@@PEAX11@Z @ 0x1C00093D0 (-_FxTimerDpcThunk@FxTimer@@CAXPEAU_KDPC@@PEAX11@Z.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall FxTimer::TimerHandler(FxTimer *this)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // rcx

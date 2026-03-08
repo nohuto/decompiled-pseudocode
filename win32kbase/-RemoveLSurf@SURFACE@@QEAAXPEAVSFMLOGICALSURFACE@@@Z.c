@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RemoveLSurf@SURFACE@@QEAAXPEAVSFMLOGICALSURFACE@@@Z @ 0x1C00A6350
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00A6424 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00A6464 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ */
+
 void __fastcall SURFACE::RemoveLSurf(SURFACE *this, struct SFMLOGICALSURFACE *a2)
 {
   _QWORD *v3; // rbx

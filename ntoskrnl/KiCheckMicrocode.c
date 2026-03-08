@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiCheckMicrocode @ 0x140A89B04
+ * Callers:
+ *     KiRestoreFeatureBits @ 0x140574114 (KiRestoreFeatureBits.c)
+ *     KiInitializeKernel @ 0x140A89160 (KiInitializeKernel.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void __fastcall KiCheckMicrocode(__int64 a1)
 {
   char v2; // al

@@ -1,3 +1,27 @@
+/*
+ * XREFs of MiReleaseOutSwappedProcessCommit @ 0x140616E38
+ * Callers:
+ *     MmOutSwapProcess @ 0x1402C00EC (MmOutSwapProcess.c)
+ * Callees:
+ *     KeForceDetachProcess @ 0x14020CC48 (KeForceDetachProcess.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     KeForceAttachProcess @ 0x1402E6610 (KeForceAttachProcess.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x14034C380 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14034CA58 (LOCK_ADDRESS_SPACE.c)
+ *     MiLockVad @ 0x14034CF60 (MiLockVad.c)
+ *     MiUnlockVad @ 0x14034D51C (MiUnlockVad.c)
+ *     SmStoreExistsForProcess @ 0x14035BD70 (SmStoreExistsForProcess.c)
+ *     SmQueryStoreCommitUsage @ 0x1405C7730 (SmQueryStoreCommitUsage.c)
+ *     MiCheckCommitReleaseFromVad @ 0x1406157F0 (MiCheckCommitReleaseFromVad.c)
+ *     MiIsVadEligibleForCommitRelease @ 0x140615D8C (MiIsVadEligibleForCommitRelease.c)
+ *     MiLogOutswappedProcessCommitRelease @ 0x140615F48 (MiLogOutswappedProcessCommitRelease.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiReleaseOutSwappedProcessCommit(struct _EPROCESS *a1)
 {
   _QWORD *SharedVm; // r13

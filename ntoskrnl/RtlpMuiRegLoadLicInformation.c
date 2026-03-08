@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlpMuiRegLoadLicInformation @ 0x14036F370
+ * Callers:
+ *     RtlpMuiRegLoadRegistryInfo @ 0x140843F90 (RtlpMuiRegLoadRegistryInfo.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     wcspbrk @ 0x1403D64C0 (wcspbrk.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlCultureNameToLCID @ 0x1407FE570 (RtlCultureNameToLCID.c)
+ *     RtlpGetWindowsPolicy @ 0x1407FE630 (RtlpGetWindowsPolicy.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlpMuiRegLoadLicInformation(__int64 a1)
 {
   wchar_t *v2; // r13

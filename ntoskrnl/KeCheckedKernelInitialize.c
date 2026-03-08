@@ -1,3 +1,16 @@
+/*
+ * XREFs of KeCheckedKernelInitialize @ 0x140B14B50
+ * Callers:
+ *     PipInitializeCoreDriversAndElam @ 0x140B57734 (PipInitializeCoreDriversAndElam.c)
+ * Callees:
+ *     KeExpandKernelStackAndCallout @ 0x1403D0D60 (KeExpandKernelStackAndCallout.c)
+ *     KdDisableDebugger @ 0x140565110 (KdDisableDebugger.c)
+ *     KdEnableDebugger @ 0x140565340 (KdEnableDebugger.c)
+ *     sub_140B31828 @ 0x140B31828 (sub_140B31828.c)
+ *     KiSwInterruptPresent @ 0x140B65038 (KiSwInterruptPresent.c)
+ *     KiAreCodePatchesAllowed @ 0x140B926E0 (KiAreCodePatchesAllowed.c)
+ */
+
 int KeCheckedKernelInitialize()
 {
   int result; // eax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhGetNextMsOs20Descriptor @ 0x1C00336F0
+ * Callers:
+ *     UsbhParseAndInstallRegistryValueDescriptors @ 0x1C0033A30 (UsbhParseAndInstallRegistryValueDescriptors.c)
+ *     UsbhValidateMsOs20ConfigurationSubset @ 0x1C00528D0 (UsbhValidateMsOs20ConfigurationSubset.c)
+ *     UsbhValidateMsOs20DescriptorSet @ 0x1C0052A24 (UsbhValidateMsOs20DescriptorSet.c)
+ *     UsbhValidateMsOs20FunctionSubset @ 0x1C0052C20 (UsbhValidateMsOs20FunctionSubset.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall UsbhGetNextMsOs20Descriptor(unsigned __int64 a1, unsigned __int16 **a2)
 {
   unsigned __int16 *v2; // r8

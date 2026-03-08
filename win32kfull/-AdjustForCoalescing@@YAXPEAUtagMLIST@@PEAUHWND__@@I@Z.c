@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AdjustForCoalescing@@YAXPEAUtagMLIST@@PEAUHWND__@@I@Z @ 0x1C0039130
+ * Callers:
+ *     _PostThreadMessageEx @ 0x1C0037298 (_PostThreadMessageEx.c)
+ * Callees:
+ *     DelQEntry @ 0x1C0038CDC (DelQEntry.c)
+ */
+
 void __fastcall AdjustForCoalescing(struct tagMLIST *a1, HWND a2, int a3)
 {
   __int64 v4; // rdx

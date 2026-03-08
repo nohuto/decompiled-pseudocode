@@ -1,3 +1,24 @@
+/*
+ * XREFs of FastExpAA_CY @ 0x1C0263760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     GetFixupScan @ 0x1C014BF50 (GetFixupScan.c)
+ *     AlphaBlendBGRF @ 0x1C0260824 (AlphaBlendBGRF.c)
+ *     Do1141 @ 0x1C02610B4 (Do1141.c)
+ *     Do13 @ 0x1C02611D0 (Do13.c)
+ *     Do1319 @ 0x1C0261294 (Do1319.c)
+ *     Do3121 @ 0x1C0261368 (Do3121.c)
+ *     Do3263 @ 0x1C0261470 (Do3263.c)
+ *     Do35 @ 0x1C02615A0 (Do35.c)
+ *     Do5225 @ 0x1C0261698 (Do5225.c)
+ *     Do6251 @ 0x1C02617F0 (Do6251.c)
+ *     MappingBGRF @ 0x1C0265A54 (MappingBGRF.c)
+ */
+
 __int64 __fastcall FastExpAA_CY(__int64 a1)
 {
   __int64 v1; // rdx

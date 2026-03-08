@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?AllocateAdapterChannel@FxDmaPacketTransaction@@IEAAJE@Z @ 0x1C001C4BC
+ * Callers:
+ *     ?StartTransfer@FxDmaPacketTransaction@@UEAAJXZ @ 0x1C001D3F0 (-StartTransfer@FxDmaPacketTransaction@@UEAAJXZ.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_dq @ 0x1C0018070 (WPP_IFR_SF_dq.c)
+ *     ?GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z @ 0x1C0018D10 (-GetDmaDescription@FxDmaEnabler@@QEAAPEAU_FxDmaDescription@@W4_WDF_DMA_DIRECTION@@@Z.c)
+ *     ?_AdapterControl@FxDmaPacketTransaction@@KA?AW4_IO_ALLOCATION_ACTION@@PEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX2@Z @ 0x1C001D810 (-_AdapterControl@FxDmaPacketTransaction@@KA-AW4_IO_ALLOCATION_ACTION@@PEAU_DEVICE_OBJECT@@PEAU_I.c)
+ *     WPP_IFR_SF_dqd @ 0x1C001DADC (WPP_IFR_SF_dqd.c)
+ */
+
 __int64 __fastcall FxDmaPacketTransaction::AllocateAdapterChannel(
         FxDmaPacketTransaction *this,
         unsigned __int8 MapRegistersReserved)

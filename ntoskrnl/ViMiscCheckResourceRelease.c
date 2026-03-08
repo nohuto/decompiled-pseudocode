@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViMiscCheckResourceRelease @ 0x140ADE4BC
+ * Callers:
+ *     VfMiscExReleaseResourceLite_Entry @ 0x140ABD830 (VfMiscExReleaseResourceLite_Entry.c)
+ *     VfMiscExReleaseResourceForThreadLite_Entry @ 0x140ADCC50 (VfMiscExReleaseResourceForThreadLite_Entry.c)
+ * Callees:
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ */
+
 struct _KTHREAD *__fastcall ViMiscCheckResourceRelease(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // r8

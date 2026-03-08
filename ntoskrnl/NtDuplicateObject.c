@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtDuplicateObject @ 0x1406ED400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObDuplicateObject @ 0x1406ED5C0 (ObDuplicateObject.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ */
+
 __int64 __fastcall NtDuplicateObject(ULONG_PTR a1, int a2, ULONG_PTR a3, _QWORD *a4, int a5, int a6, int a7)
 {
   PVOID v10; // rdi

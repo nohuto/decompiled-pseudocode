@@ -1,3 +1,14 @@
+/*
+ * XREFs of KCBNeedsVirtualImage @ 0x1402DD15C
+ * Callers:
+ *     CmpVEExecuteCreateLogic @ 0x140768C00 (CmpVEExecuteCreateLogic.c)
+ *     CmKeyBodyRemapToVirtual @ 0x140A152D4 (CmKeyBodyRemapToVirtual.c)
+ *     CmKeyBodyReplicateToVirtual @ 0x140A15598 (CmKeyBodyReplicateToVirtual.c)
+ * Callees:
+ *     KCBIsVirtualizable @ 0x1402DD194 (KCBIsVirtualizable.c)
+ *     CmpIsSystemEntity @ 0x140768CB8 (CmpIsSystemEntity.c)
+ */
+
 bool KCBNeedsVirtualImage()
 {
   __int64 v0; // rdx

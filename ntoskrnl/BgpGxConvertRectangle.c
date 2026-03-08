@@ -1,3 +1,13 @@
+/*
+ * XREFs of BgpGxConvertRectangle @ 0x14038118C
+ * Callers:
+ *     BgpGxProcessQrCodeBitmap @ 0x140381108 (BgpGxProcessQrCodeBitmap.c)
+ *     BgConvertResources @ 0x140AEE198 (BgConvertResources.c)
+ * Callees:
+ *     BgpGxConvertRectangleEx @ 0x14038204C (BgpGxConvertRectangleEx.c)
+ *     BgpGxRectangleDestroy @ 0x140AEAA70 (BgpGxRectangleDestroy.c)
+ */
+
 __int64 __fastcall BgpGxConvertRectangle(_QWORD *a1, __int64 a2)
 {
   int v3; // edi

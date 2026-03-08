@@ -1,3 +1,27 @@
+/*
+ * XREFs of AlpcpCreateReserve @ 0x140781384
+ * Callers:
+ *     NtAlpcCreateResourceReserve @ 0x140781290 (NtAlpcCreateResourceReserve.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     AlpcpInsertResourcePort @ 0x1406A0BC8 (AlpcpInsertResourcePort.c)
+ *     AlpcpReleasePagedPoolQuota @ 0x1406D453C (AlpcpReleasePagedPoolQuota.c)
+ *     AlpcpChargePagedPoolQuota @ 0x1406D477C (AlpcpChargePagedPoolQuota.c)
+ *     AlpcAddHandleTableEntry @ 0x140711FD4 (AlpcAddHandleTableEntry.c)
+ *     AlpcpEndInitialization @ 0x140712334 (AlpcpEndInitialization.c)
+ *     AlpcpAllocateMessage @ 0x140712E84 (AlpcpAllocateMessage.c)
+ *     AlpcpDereferenceBlobEx @ 0x14071550C (AlpcpDereferenceBlobEx.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     AlpcpReferenceBlob @ 0x1407CAA30 (AlpcpReferenceBlob.c)
+ *     AlpcpAllocateBlob @ 0x1407CBB50 (AlpcpAllocateBlob.c)
+ *     AlpcpCaptureMessageData @ 0x1407CC930 (AlpcpCaptureMessageData.c)
+ */
+
 __int64 __fastcall AlpcpCreateReserve(signed __int64 *Object, unsigned __int64 a2, _QWORD *a3)
 {
   _OWORD *Blob; // rax

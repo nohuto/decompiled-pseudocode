@@ -1,3 +1,19 @@
+/*
+ * XREFs of PspReturnQuota @ 0x1403148A0
+ * Callers:
+ *     PsReturnProcessQuota @ 0x14020D064 (PsReturnProcessQuota.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1402955D0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x140295600 (PsReturnProcessPagedPoolQuota.c)
+ *     PsChargeSharedPoolQuota @ 0x140696154 (PsChargeSharedPoolQuota.c)
+ *     PsReturnSharedPoolQuota @ 0x140696A48 (PsReturnSharedPoolQuota.c)
+ *     PsReturnProcessPageFileQuota @ 0x1406EC714 (PsReturnProcessPageFileQuota.c)
+ *     ObpIncrementHandleCountEx @ 0x1407C1090 (ObpIncrementHandleCountEx.c)
+ *     ObpFreeObject @ 0x1407C3980 (ObpFreeObject.c)
+ * Callees:
+ *     PspReturnResourceQuota @ 0x1402953A0 (PspReturnResourceQuota.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 signed __int64 __fastcall PspReturnQuota(char *a1, ULONG_PTR a2, signed int a3, ULONG_PTR a4)
 {
   void *v5; // r12

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeConnectInterruptForHal @ 0x14037A0E0
+ * Callers:
+ *     HalpCreateInterrupt @ 0x140379F48 (HalpCreateInterrupt.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeConnectInterruptForHal(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // bl

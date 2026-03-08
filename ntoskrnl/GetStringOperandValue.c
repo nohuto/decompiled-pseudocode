@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetStringOperandValue @ 0x1409D1838
+ * Callers:
+ *     GetOperandValue @ 0x1409D07DC (GetOperandValue.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SddlpAlloc @ 0x1407507C8 (SddlpAlloc.c)
+ */
+
 __int64 __fastcall GetStringOperandValue(__int64 a1, __int64 *a2, _DWORD *a3)
 {
   unsigned int v3; // ebx

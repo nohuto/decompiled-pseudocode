@@ -1,3 +1,17 @@
+/*
+ * XREFs of PiSwQueuedCreateInfoCreate @ 0x140964A90
+ * Callers:
+ *     PiSwIrpStartCreateWorker @ 0x140806A2C (PiSwIrpStartCreateWorker.c)
+ * Callees:
+ *     PsGetCurrentThreadProcessId @ 0x140204F00 (PsGetCurrentThreadProcessId.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PnpAllocatePWSTR @ 0x1406CD7F4 (PnpAllocatePWSTR.c)
+ *     PiSwPnPInfoInit @ 0x140806FB0 (PiSwPnPInfoInit.c)
+ *     PnpCopyDevPropertyArray @ 0x140807540 (PnpCopyDevPropertyArray.c)
+ *     PiSwQueuedCreateInfoFree @ 0x140964BA0 (PiSwQueuedCreateInfoFree.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PiSwQueuedCreateInfoCreate(PVOID *a1, __int64 a2)
 {
   PVOID *Pool2; // rax

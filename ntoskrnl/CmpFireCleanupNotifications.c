@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpFireCleanupNotifications @ 0x14078CDC4
+ * Callers:
+ *     CmpDeleteKeyObject @ 0x1406E5C50 (CmpDeleteKeyObject.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     CmpCallbackFatalFilter @ 0x140A0C930 (CmpCallbackFatalFilter.c)
+ */
+
 __int64 __fastcall CmpFireCleanupNotifications(__int64 a1)
 {
   __int64 result; // rax

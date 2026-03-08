@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlDisableXfgOnTarget @ 0x1405AF938
+ * Callers:
+ *     RtlCheckXfgFailureInformation @ 0x1405AF650 (RtlCheckXfgFailureInformation.c)
+ *     MiDisableXfgOnPatchedFunctions @ 0x140640170 (MiDisableXfgOnPatchedFunctions.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwSetInformationVirtualMemory @ 0x1404158B0 (ZwSetInformationVirtualMemory.c)
+ */
+
 __int64 __fastcall RtlDisableXfgOnTarget(__int64 a1)
 {
   int v2; // [rsp+30h] [rbp-9h] BYREF

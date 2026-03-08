@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?ConsumerAdjustUsageReference@FlipManagerObject@@QEAAJ_K_N@Z @ 0x1C007F164
+ * Callers:
+ *     NtFlipObjectConsumerAdjustUsageReference @ 0x1C007FC90 (NtFlipObjectConsumerAdjustUsageReference.c)
+ *     ?Complete@CFlipWaitedConsumerReturn@@UEAAXXZ @ 0x1C0087E50 (-Complete@CFlipWaitedConsumerReturn@@UEAAXXZ.c)
+ * Callees:
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000E098 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C000E344 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     ?AddUsageReference@CPoolBufferResource@@QEAAXXZ @ 0x1C0084B2C (-AddUsageReference@CPoolBufferResource@@QEAAXXZ.c)
+ *     ?RemoveUsageReference@CPoolBufferResource@@QEAAXXZ @ 0x1C0084EE0 (-RemoveUsageReference@CPoolBufferResource@@QEAAXXZ.c)
+ *     ?FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@@@Z @ 0x1C0085680 (-FindResourceState@CEndpointResourceStateManager@@AEAAPEAVCFlipResourceState@@_KPEAU_LIST_ENTRY@.c)
+ */
+
 __int64 __fastcall FlipManagerObject::ConsumerAdjustUsageReference(
         FlipManagerObject *this,
         unsigned __int64 a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AreAllCornerRadiiEqual@CRoundedRectangleGeometryData@@QEBA_NXZ @ 0x18007F820
+ * Callers:
+ *     ?TryGetMeshAAOffsetsForRoundedRectangle@CMeshCacheManager@@AEAAPEAVVertexAAOffsetsResource@Mesh@@AEBUMeshDesc@3@PEBVCRoundedRectangleShape@@AEBVMatrix3x2F@D2D1@@_N@Z @ 0x18007F5A8 (-TryGetMeshAAOffsetsForRoundedRectangle@CMeshCacheManager@@AEAAPEAVVertexAAOffsetsResource@Mesh@.c)
+ *     ?IsEllipse@CRoundedRectangleGeometryData@@QEBA_NXZ @ 0x1800D3228 (-IsEllipse@CRoundedRectangleGeometryData@@QEBA_NXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CRoundedRectangleGeometryData::AreAllCornerRadiiEqual(CRoundedRectangleGeometryData *this)
 {
   float *v1; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnprMapPhysicalPages @ 0x140A99C68
+ * Callers:
+ *     PnprMapTargetSparePhysicalPages @ 0x140A99E30 (PnprMapTargetSparePhysicalPages.c)
+ * Callees:
+ *     MmMapLockedPagesWithReservedMapping @ 0x1403A1EB0 (MmMapLockedPagesWithReservedMapping.c)
+ *     MmUnmapReservedMapping @ 0x14061C4D0 (MmUnmapReservedMapping.c)
+ */
+
 __int64 __fastcall PnprMapPhysicalPages(PMDL *a1, unsigned __int64 a2, unsigned __int64 *a3, _QWORD *a4)
 {
   __int64 v6; // rdx

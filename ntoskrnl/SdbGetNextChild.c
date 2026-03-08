@@ -1,3 +1,17 @@
+/*
+ * XREFs of SdbGetNextChild @ 0x1407A280C
+ * Callers:
+ *     SdbFindNextTag @ 0x1407A0218 (SdbFindNextTag.c)
+ *     SdbpMatchList @ 0x1407A2310 (SdbpMatchList.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ *     SdbpFindFirstNamedTagHelper @ 0x140A4EEE0 (SdbpFindFirstNamedTagHelper.c)
+ *     SdbpFindNextNamedTagHelper @ 0x140A4EFC0 (SdbpFindNextNamedTagHelper.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbpGetNextTagId @ 0x1407A2880 (SdbpGetNextTagId.c)
+ *     SdbGetTagFromTagID @ 0x1407A2A70 (SdbGetTagFromTagID.c)
+ */
+
 __int64 __fastcall SdbGetNextChild(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // esi

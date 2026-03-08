@@ -1,3 +1,17 @@
+/*
+ * XREFs of ??1CDDisplayRenderTarget@@UEAA@XZ @ 0x1801BEB48
+ * Callers:
+ *     ??_GCDDisplayRenderTarget@@UEAAPEAXI@Z @ 0x1801BFBF0 (--_GCDDisplayRenderTarget@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?InternalRelease@CResource@@IEAAKXZ @ 0x180078858 (-InternalRelease@CResource@@IEAAKXZ.c)
+ *     ??1COverlayContext@@QEAA@XZ @ 0x1800C898C (--1COverlayContext@@QEAA@XZ.c)
+ *     ?FreeMemory@CRegion@FastRegion@@IEAAXXZ @ 0x1800DF2E0 (-FreeMemory@CRegion@FastRegion@@IEAAXXZ.c)
+ *     PubSebUnregisterRpc @ 0x1800FCE3C (PubSebUnregisterRpc.c)
+ *     ?InternalRelease@CMILCOMBaseWeakRef@@IEAAKXZ @ 0x180102C1C (-InternalRelease@CMILCOMBaseWeakRef@@IEAAKXZ.c)
+ *     McTemplateU0zqq_EventWriteTransfer @ 0x1801E43FC (McTemplateU0zqq_EventWriteTransfer.c)
+ *     ?PubSebiUpdateLevelEventRpc@@YAJPEAXE@Z @ 0x180279114 (-PubSebiUpdateLevelEventRpc@@YAJPEAXE@Z.c)
+ */
+
 void __fastcall CDDisplayRenderTarget::~CDDisplayRenderTarget(CDDisplayRenderTarget *this)
 {
   struct _SEB_RPC_PUBLISH_DATA *v2; // rcx

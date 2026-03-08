@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?TraceStateChanged@CFlipToken@@AEBAXXZ @ 0x1C0079624
+ * Callers:
+ *     ?CanReleaseAnalogToken@CFlipToken@@UEAAJIPEA_N@Z @ 0x1C00787D0 (-CanReleaseAnalogToken@CFlipToken@@UEAAJIPEA_N@Z.c)
+ *     ?Confirm@CFlipToken@@UEAAXXZ @ 0x1C0078950 (-Confirm@CFlipToken@@UEAAXXZ.c)
+ *     ?Discard@CFlipToken@@UEAAXXZ @ 0x1C0078C00 (-Discard@CFlipToken@@UEAAXXZ.c)
+ *     ?InFrame@CFlipToken@@UEAAJPEAVCCompositionFrame@@PEA_N@Z @ 0x1C0078DE0 (-InFrame@CFlipToken@@UEAAJPEAVCCompositionFrame@@PEA_N@Z.c)
+ *     ?InitializeCompleted@CFlipToken@@IEAAJAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@_NW4TokenState@CTokenBase@@@Z @ 0x1C0078FE8 (-InitializeCompleted@CFlipToken@@IEAAJAEBU_D3DKMT_FLIPMODEL_PRESENTHISTORYTOKEN@@_NW4TokenState@.c)
+ *     ?Retire@CFlipToken@@UEAAXAEBUDXGI_FRAME_STATISTICS@@0@Z @ 0x1C0079460 (-Retire@CFlipToken@@UEAAXAEBUDXGI_FRAME_STATISTICS@@0@Z.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?StartCompositionEarly@CompositionSurfaceObject@@QEAA_N_K@Z @ 0x1C0077300 (-StartCompositionEarly@CompositionSurfaceObject@@QEAA_N_K@Z.c)
+ */
+
 void __fastcall CFlipToken::TraceStateChanged(CFlipToken *this)
 {
   CompositionSurfaceObject **v1; // rbx

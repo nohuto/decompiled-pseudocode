@@ -1,3 +1,33 @@
+/*
+ * XREFs of FsRtlpRequestExclusiveOplock @ 0x1403B9C94
+ * Callers:
+ *     FsRtlpOplockFsctrlInternal @ 0x1406B3240 (FsRtlpOplockFsctrlInternal.c)
+ * Callees:
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x140201B90 (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     FsRtlpClearOwner @ 0x14023AB1C (FsRtlpClearOwner.c)
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x14023AB60 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpOplockKeysEqual @ 0x14023E170 (FsRtlpOplockKeysEqual.c)
+ *     FsRtlpOplockDequeueRH @ 0x14023EA10 (FsRtlpOplockDequeueRH.c)
+ *     FsRtlpComputeShareableOplockState @ 0x14023F940 (FsRtlpComputeShareableOplockState.c)
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     FsRtlpCallerIsAtomicRequestor @ 0x14023FF90 (FsRtlpCallerIsAtomicRequestor.c)
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     MmDoesFileHaveUserWritableReferences @ 0x140330F30 (MmDoesFileHaveUserWritableReferences.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     _tlgWriteAgg @ 0x14035EDD0 (_tlgWriteAgg.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     FsRtlpCancelExclusiveIrp @ 0x1403ACFD0 (FsRtlpCancelExclusiveIrp.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     FsRtlpRemoveAndCompleteReadOnlyIrp @ 0x14053C86C (FsRtlpRemoveAndCompleteReadOnlyIrp.c)
+ *     FsRtlpOplockUpperLowerCompatible @ 0x1406B36C8 (FsRtlpOplockUpperLowerCompatible.c)
+ *     FsRtlpAllocateOplock @ 0x140773FDC (FsRtlpAllocateOplock.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall FsRtlpRequestExclusiveOplock(
         __int64 *a1,
         __int64 a2,

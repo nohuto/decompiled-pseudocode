@@ -1,3 +1,11 @@
+/*
+ * XREFs of PsGetServerSiloActiveConsoleId @ 0x1405A148C
+ * Callers:
+ *     IopGetThreadActiveConsoleId @ 0x140944B3C (IopGetThreadActiveConsoleId.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PsGetServerSiloActiveConsoleId(__int64 a1)
 {
   _QWORD *v1; // rax

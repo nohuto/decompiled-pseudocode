@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_DwmAsyncClearTaggedWindowRect@@YAJPEBUtagWND@@@Z @ 0x1C01F8848
+ * Callers:
+ *     NtUserSetWindowCompositionAttribute @ 0x1C0041D90 (NtUserSetWindowCompositionAttribute.c)
+ * Callees:
+ *     DwmAsyncClearTaggedWindowRect @ 0x1C026F100 (DwmAsyncClearTaggedWindowRect.c)
+ */
+
 __int64 __fastcall _DwmAsyncClearTaggedWindowRect(const struct tagWND *a1)
 {
   unsigned int v1; // ebx

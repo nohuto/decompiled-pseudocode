@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiInsertPteTracker @ 0x14065EDA4
+ * Callers:
+ *     MiMapContiguousMemory @ 0x14029AF58 (MiMapContiguousMemory.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmAllocateMappingAddressEx @ 0x140869D20 (MmAllocateMappingAddressEx.c)
+ * Callees:
+ *     RtlCaptureStackBackTrace @ 0x140205C20 (RtlCaptureStackBackTrace.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiInsertPteTracker(__int64 a1, int a2, char a3, char a4)
 {
   PSLIST_ENTRY v8; // rdi

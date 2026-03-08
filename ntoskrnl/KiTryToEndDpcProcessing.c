@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiTryToEndDpcProcessing @ 0x14057A6F4
+ * Callers:
+ *     KiExecuteDpc @ 0x140396B20 (KiExecuteDpc.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall KiTryToEndDpcProcessing(volatile signed __int16 *a1, __int64 a2)
 {
   if ( _InterlockedCompareExchange16(a1, 0, 1) != 1 )

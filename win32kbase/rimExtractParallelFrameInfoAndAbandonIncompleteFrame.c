@@ -1,3 +1,16 @@
+/*
+ * XREFs of rimExtractParallelFrameInfoAndAbandonIncompleteFrame @ 0x1C01D724C
+ * Callers:
+ *     rimExtractFrameInfoAndAbandonIncompleteFrame @ 0x1C00F1544 (rimExtractFrameInfoAndAbandonIncompleteFrame.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C00052A0 (WPP_RECORDER_AND_TRACE_SF_dd.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C000F0BC (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimHidP_GetUsageValue @ 0x1C00EF9AA (rimHidP_GetUsageValue.c)
+ *     RIMAbandonPointerDeviceFrame @ 0x1C01CD2D0 (RIMAbandonPointerDeviceFrame.c)
+ */
+
 __int64 __fastcall rimExtractParallelFrameInfoAndAbandonIncompleteFrame(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,16 @@
+/*
+ * XREFs of DrvEscapeRemoteDrivers @ 0x1C00D8D30
+ * Callers:
+ *     xxxRemoteConnect @ 0x1C000F480 (xxxRemoteConnect.c)
+ * Callees:
+ *     DrvGetDisplayDriverNames @ 0x1C0024700 (DrvGetDisplayDriverNames.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0049800 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0049E20 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EngAcquireSemaphore @ 0x1C004B690 (EngAcquireSemaphore.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     HDXDrvEscape @ 0x1C00D8F50 (HDXDrvEscape.c)
+ */
+
 __int64 __fastcall DrvEscapeRemoteDrivers(
         __int64 a1,
         __int64 a2,

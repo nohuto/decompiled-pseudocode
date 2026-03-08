@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBFDO_BugcheckSystemOnBootHubFailure @ 0x1C000EEF8
+ * Callers:
+ *     HUBHSM_BugcheckingSystemOnExcessiveResetsForHubInBootPath @ 0x1C0008480 (HUBHSM_BugcheckingSystemOnExcessiveResetsForHubInBootPath.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall __noreturn HUBFDO_BugcheckSystemOnBootHubFailure(__int64 a1)
 {
   __int64 v1; // rax

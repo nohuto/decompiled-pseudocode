@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionGetLogicalPointForMouseCaptureButtonEvent @ 0x1C01AD300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     TransformVectorWithInputTargetPrecedence @ 0x1C01442D8 (TransformVectorWithInputTargetPrecedence.c)
+ */
+
 __int64 __fastcall EditionGetLogicalPointForMouseCaptureButtonEvent(
         __int64 a1,
         __int64 a2,

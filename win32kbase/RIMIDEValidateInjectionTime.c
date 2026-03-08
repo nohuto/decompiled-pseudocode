@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMIDEValidateInjectionTime @ 0x1C01C530C
+ * Callers:
+ *     RIMIDEGetTimeStampDelta @ 0x1C01C3440 (RIMIDEGetTimeStampDelta.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RIMIDEValidateInjectionTime(int a1, int a2, unsigned int a3, int a4, int a5)
 {
   char result; // al

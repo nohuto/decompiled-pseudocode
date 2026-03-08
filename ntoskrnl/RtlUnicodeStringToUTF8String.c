@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlUnicodeStringToUTF8String @ 0x1409BF4C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CountUnicodeToUTF8 @ 0x1403040B8 (CountUnicodeToUTF8.c)
+ *     ExpAllocateStringRoutine @ 0x140777DB0 (ExpAllocateStringRoutine.c)
+ *     RtlUnicodeToUTF8N @ 0x1407A3750 (RtlUnicodeToUTF8N.c)
+ *     ExFreePool @ 0x140AAB270 (ExFreePool.c)
+ */
+
 __int64 __fastcall RtlUnicodeStringToUTF8String(__int64 a1, unsigned int **a2, char a3)
 {
   unsigned int v5; // edx

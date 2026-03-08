@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefRawMultSubUint32 @ 0x1403FE08C
+ * Callers:
+ *     SymCryptFdefRawDivMod @ 0x1403FDD28 (SymCryptFdefRawDivMod.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdefRawMultSubUint32(_DWORD *a1, __int64 a2, unsigned int a3, unsigned int a4)
 {
   unsigned __int64 v4; // r10

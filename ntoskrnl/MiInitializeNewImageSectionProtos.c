@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiInitializeNewImageSectionProtos @ 0x1402EAAAC
+ * Callers:
+ *     MiSectionCreated @ 0x140331184 (MiSectionCreated.c)
+ * Callees:
+ *     MiInitializeTransitionPfn @ 0x140214B28 (MiInitializeTransitionPfn.c)
+ *     MiReferenceControlAreaPfn @ 0x140224DA0 (MiReferenceControlAreaPfn.c)
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     MiLockProtoPoolPageForce @ 0x14028331C (MiLockProtoPoolPageForce.c)
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     MiReturnPfnReferenceCount @ 0x1402EDD4C (MiReturnPfnReferenceCount.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockLeafPage @ 0x14034AF20 (MiLockLeafPage.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 void __fastcall MiInitializeNewImageSectionProtos(__int64 a1, __int64 *a2)
 {
   __int64 v2; // rdi

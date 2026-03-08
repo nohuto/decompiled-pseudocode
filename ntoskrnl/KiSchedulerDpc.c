@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiSchedulerDpc @ 0x14066B0D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlWriteTryAcquireTickLock @ 0x14036B174 (RtlWriteTryAcquireTickLock.c)
+ *     KiMcaDeferredRecoveryService @ 0x140422F50 (KiMcaDeferredRecoveryService.c)
+ */
+
 void __fastcall __noreturn KiSchedulerDpc(
         struct _KDPC *Dpc,
         ULONG_PTR *DeferredContext,

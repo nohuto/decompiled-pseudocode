@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CaptureUsermodeParameters@GetTrueTypeFileRequest@@UEAAXPEAX@Z @ 0x1C03085F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Win32ProbeForRead@@YAXPEAX_KK@Z @ 0x1C00C490C (-Win32ProbeForRead@@YAXPEAX_KK@Z.c)
+ */
+
 void __fastcall GetTrueTypeFileRequest::CaptureUsermodeParameters(GetTrueTypeFileRequest *this, _QWORD *a2)
 {
   _DWORD *v3; // rax

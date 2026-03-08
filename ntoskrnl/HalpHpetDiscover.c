@@ -1,3 +1,19 @@
+/*
+ * XREFs of HalpHpetDiscover @ 0x140372BE0
+ * Callers:
+ *     HalpTimerRegisterBuiltinPlugins @ 0x1403A08F8 (HalpTimerRegisterBuiltinPlugins.c)
+ * Callees:
+ *     HalSocRequestConfigurationData @ 0x1403731C8 (HalSocRequestConfigurationData.c)
+ *     HalpTimerRegister @ 0x140373EB4 (HalpTimerRegister.c)
+ *     HalSocGetAcpiTable @ 0x14037601C (HalSocGetAcpiTable.c)
+ *     HalMapIoSpace @ 0x14037AD90 (HalMapIoSpace.c)
+ *     HalpUnmapVirtualAddress @ 0x14037ADE0 (HalpUnmapVirtualAddress.c)
+ *     HalRegisterPermanentAddressUsage @ 0x14037C950 (HalRegisterPermanentAddressUsage.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 HalpHpetDiscover()
 {
   __int64 AcpiTable; // rax

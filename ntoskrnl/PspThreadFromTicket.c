@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspThreadFromTicket @ 0x1406DBA1C
+ * Callers:
+ *     NtSetInformationThread @ 0x1406D8E90 (NtSetInformationThread.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PsLookupThreadByThreadId @ 0x1406DBE00 (PsLookupThreadByThreadId.c)
+ */
+
 __int64 __fastcall PspThreadFromTicket(_QWORD *a1, PETHREAD *a2)
 {
   __int64 v3; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_GetNextMonitorFrequencyRange@MonitorModes@DxgMonitor@@QEBAJPEBU_D3DKMDT_MONITOR_FREQUENCY_RANGE@@PEAPEBU3@@Z @ 0x1C016F20C
+ * Callers:
+ *     MonitorGetNextFrequencyRange @ 0x1C016F178 (MonitorGetNextFrequencyRange.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DxgMonitor::MonitorModes::_GetNextMonitorFrequencyRange(
         DxgMonitor::MonitorModes *this,
         const struct _D3DKMDT_MONITOR_FREQUENCY_RANGE *a2,

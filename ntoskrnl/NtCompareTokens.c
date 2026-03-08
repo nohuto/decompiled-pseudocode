@@ -1,3 +1,21 @@
+/*
+ * XREFs of NtCompareTokens @ 0x140776460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SeTokenIsRestricted @ 0x140206B10 (SeTokenIsRestricted.c)
+ *     RtlEqualSid @ 0x140208A60 (RtlEqualSid.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     SeTokenIsWriteRestricted @ 0x1402B8710 (SeTokenIsWriteRestricted.c)
+ *     SepReleaseOrderedReadLocks @ 0x1402E9D34 (SepReleaseOrderedReadLocks.c)
+ *     SepAcquireOrderedReadLocks @ 0x1402E9D68 (SepAcquireOrderedReadLocks.c)
+ *     SepCompareClaimAttributes @ 0x140776718 (SepCompareClaimAttributes.c)
+ *     SepCompareSidAndAttributeArrays @ 0x140776770 (SepCompareSidAndAttributeArrays.c)
+ *     AuthzBasepCompareLegacySecurityAttributesInformation @ 0x140776804 (AuthzBasepCompareLegacySecurityAttributesInformation.c)
+ *     SeQueryInformationToken @ 0x1407B9760 (SeQueryInformationToken.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall NtCompareTokens(HANDLE Handle, HANDLE a2, char *a3)
 {
   unsigned int *v5; // rdi

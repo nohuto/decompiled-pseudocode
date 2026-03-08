@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsValidBandForProcess @ 0x1C009BB4C
+ * Callers:
+ *     ?_DeferWindowPosAndBand@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@W4WindowBandOptions@@@Z @ 0x1C0099DE8 (-_DeferWindowPosAndBand@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@1HHHHIW4ZBID@@W4WindowBandOptions@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IsValidBandForProcess(__int64 a1, int a2, __int64 a3)
 {
   int v6; // eax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of _anonymous_namespace_::OnScreenOnStudySessionStateChange @ 0x1801037D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall anonymous_namespace_::OnScreenOnStudySessionStateChange(__int128 *a1)
 {
   DWORD CurrentThreadId; // eax

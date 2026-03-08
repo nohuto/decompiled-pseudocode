@@ -1,3 +1,13 @@
+/*
+ * XREFs of PoTraceDynamicTickDisabled @ 0x14058EB5C
+ * Callers:
+ *     KeInitializeClock @ 0x140B67BE8 (KeInitializeClock.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 BOOLEAN PoTraceDynamicTickDisabled()
 {
   BOOLEAN result; // al

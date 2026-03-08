@@ -1,3 +1,15 @@
+/*
+ * XREFs of PiCollapseEnumRequests @ 0x1402F4C5C
+ * Callers:
+ *     PipProcessDevNodeTree @ 0x1406CCD80 (PipProcessDevNodeTree.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PiMarkDeviceTreeForReenumeration @ 0x1407855A8 (PiMarkDeviceTreeForReenumeration.c)
+ */
+
 bool __fastcall PiCollapseEnumRequests(__int64 a1)
 {
   KIRQL v2; // al

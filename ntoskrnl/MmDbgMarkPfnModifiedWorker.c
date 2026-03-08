@@ -1,3 +1,15 @@
+/*
+ * XREFs of MmDbgMarkPfnModifiedWorker @ 0x1403A4834
+ * Callers:
+ *     ExpDebuggerWorker @ 0x140AAED30 (ExpDebuggerWorker.c)
+ * Callees:
+ *     MiReleasePageFileInfo @ 0x14020B300 (MiReleasePageFileInfo.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x140286264 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14032D790 (MiCaptureDirtyBitToPfn.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void MmDbgMarkPfnModifiedWorker()
 {
   __int64 v0; // rdi

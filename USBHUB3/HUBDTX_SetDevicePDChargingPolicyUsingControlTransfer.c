@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBDTX_SetDevicePDChargingPolicyUsingControlTransfer @ 0x1C002D7DC
+ * Callers:
+ *     HUBDSM_SettingDevicePDChargingPolicy @ 0x1C00209F0 (HUBDSM_SettingDevicePDChargingPolicy.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBMISC_ControlTransfer @ 0x1C0032664 (HUBMISC_ControlTransfer.c)
+ */
+
 __int64 __fastcall HUBDTX_SetDevicePDChargingPolicyUsingControlTransfer(__int64 a1)
 {
   __int64 result; // rax

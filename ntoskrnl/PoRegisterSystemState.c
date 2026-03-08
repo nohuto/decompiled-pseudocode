@@ -1,3 +1,17 @@
+/*
+ * XREFs of PoRegisterSystemState @ 0x14058B800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopGetLegacyPowerRequestFlags @ 0x1402B8BEC (PopGetLegacyPowerRequestFlags.c)
+ *     PopApplyLegacyPowerRequestFlags @ 0x1402B8C40 (PopApplyLegacyPowerRequestFlags.c)
+ *     PopPowerRequestCreateCommon @ 0x1402BC348 (PopPowerRequestCreateCommon.c)
+ *     PoCaptureReasonContext @ 0x1402BD2FC (PoCaptureReasonContext.c)
+ *     PoDestroyReasonContext @ 0x1402BDBE4 (PoDestroyReasonContext.c)
+ *     PoSetSystemState @ 0x14058B8D0 (PoSetSystemState.c)
+ *     PopDiagTraceRegisterSystemState @ 0x140592068 (PopDiagTraceRegisterSystemState.c)
+ */
+
 PVOID __stdcall PoRegisterSystemState(PVOID StateHandle, EXECUTION_STATE Flags)
 {
   _DWORD *v2; // rbx

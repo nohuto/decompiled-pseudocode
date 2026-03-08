@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?FxIFRReplay@@YAX_K@Z @ 0x1C0027070
+ * Callers:
+ *     WppTraceCallbackWdf @ 0x1C0022F00 (WppTraceCallbackWdf.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ *     memset @ 0x1C000AC00 (memset.c)
+ *     WPP_IFR_SF_D @ 0x1C0017F78 (WPP_IFR_SF_D.c)
+ *     WPP_IFR_SF_ @ 0x1C001BC64 (WPP_IFR_SF_.c)
+ *     ?FxIFRCreateSnapshot@@YAPEAU_WDF_IFR_HEADER@@PEBDPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0026CBC (-FxIFRCreateSnapshot@@YAPEAU_WDF_IFR_HEADER@@PEBDPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     ?FxIFRGetDriverMultiString@@YAJKPEAGPEAK@Z @ 0x1C0026E98 (-FxIFRGetDriverMultiString@@YAJKPEAGPEAK@Z.c)
+ *     ?FxIFRSendRecordsToWpp@@YAJ_KPEAU_WDF_IFR_HEADER@@@Z @ 0x1C0027390 (-FxIFRSendRecordsToWpp@@YAJ_KPEAU_WDF_IFR_HEADER@@@Z.c)
+ *     WPP_IFR_SF_s @ 0x1C00277AC (WPP_IFR_SF_s.c)
+ *     WPP_IFR_SF_sd @ 0x1C00278B4 (WPP_IFR_SF_sd.c)
+ */
+
 void __fastcall FxIFRReplay(unsigned __int64 LoggerHandle)
 {
   signed int v2; // ebx

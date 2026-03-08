@@ -1,3 +1,13 @@
+/*
+ * XREFs of CarCopyDriverName @ 0x1405D0358
+ * Callers:
+ *     CarGetDriverInfoFromViolationStack @ 0x1405D0C78 (CarGetDriverInfoFromViolationStack.c)
+ *     CarLoadImageHandler @ 0x1405D0EB4 (CarLoadImageHandler.c)
+ *     CarInitializeTelemetryData @ 0x1405D1970 (CarInitializeTelemetryData.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void __fastcall CarCopyDriverName(_WORD *a1, unsigned __int16 *a2)
 {
   __int64 v4; // rax

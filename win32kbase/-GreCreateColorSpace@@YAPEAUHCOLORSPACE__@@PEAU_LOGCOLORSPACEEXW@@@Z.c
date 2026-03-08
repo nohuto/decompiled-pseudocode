@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?GreCreateColorSpace@@YAPEAUHCOLORSPACE__@@PEAU_LOGCOLORSPACEEXW@@@Z @ 0x1C0016D9C
+ * Callers:
+ *     NtGdiCreateColorSpace @ 0x1C019A100 (NtGdiCreateColorSpace.c)
+ *     bInitICM @ 0x1C031D1E8 (bInitICM.c)
+ * Callees:
+ *     ?Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@_N1E@Z @ 0x1C001A2C4 (-Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@_N1E@Z.c)
+ *     HmgDecrementShareReferenceCountEx @ 0x1C00483B0 (HmgDecrementShareReferenceCountEx.c)
+ *     AllocateObject @ 0x1C0052FA0 (AllocateObject.c)
+ *     FreeObject @ 0x1C00597F0 (FreeObject.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C0070E78 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     EngSetLastError @ 0x1C00BAB10 (EngSetLastError.c)
+ */
+
 struct HOBJ__ *__fastcall GreCreateColorSpace(struct _LOGCOLORSPACEEXW *a1)
 {
   struct HOBJ__ *v1; // rsi

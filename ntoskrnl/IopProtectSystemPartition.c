@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopProtectSystemPartition @ 0x140B70DDC
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     NtQueryValueKey @ 0x1406E6C50 (NtQueryValueKey.c)
+ *     NtOpenKey @ 0x140758B00 (NtOpenKey.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     IopApplySystemPartitionProt @ 0x140B90CC0 (IopApplySystemPartitionProt.c)
+ */
+
 char __fastcall IopProtectSystemPartition(__int64 a1)
 {
   size_t Size; // [rsp+20h] [rbp-79h]

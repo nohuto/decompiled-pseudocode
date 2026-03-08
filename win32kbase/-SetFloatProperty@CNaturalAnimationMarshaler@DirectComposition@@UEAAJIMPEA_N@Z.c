@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?SetFloatProperty@CNaturalAnimationMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C026B690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C0006C90 (-SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z.c)
+ *     DirectComposition::_anonymous_namespace_::UpdatePropertyIfChanged_float_ @ 0x1C026B40C (DirectComposition--_anonymous_namespace_--UpdatePropertyIfChanged_float_.c)
+ *     ?EnsureProperties@CNaturalAnimationMarshaler@DirectComposition@@AEAAJW4Enum@NaturalMotionAnimationType@@@Z @ 0x1C026B59C (-EnsureProperties@CNaturalAnimationMarshaler@DirectComposition@@AEAAJW4Enum@NaturalMotionAnimati.c)
+ *     ?FinalValueSetOrChanged@CNaturalAnimationMarshaler@DirectComposition@@AEAAXPEA_N@Z @ 0x1C026B610 (-FinalValueSetOrChanged@CNaturalAnimationMarshaler@DirectComposition@@AEAAXPEA_N@Z.c)
+ *     ?InitialValueSetOrChanged@CNaturalAnimationMarshaler@DirectComposition@@AEAAXPEA_N@Z @ 0x1C026B64C (-InitialValueSetOrChanged@CNaturalAnimationMarshaler@DirectComposition@@AEAAXPEA_N@Z.c)
+ */
+
 __int64 __fastcall DirectComposition::CNaturalAnimationMarshaler::SetFloatProperty(
         DirectComposition::CNaturalAnimationMarshaler *this,
         unsigned int a2,

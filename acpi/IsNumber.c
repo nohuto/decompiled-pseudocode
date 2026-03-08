@@ -1,3 +1,15 @@
+/*
+ * XREFs of IsNumber @ 0x1C004E1D4
+ * Callers:
+ *     DebugExpr @ 0x1C004D830 (DebugExpr.c)
+ *     DebugInPort @ 0x1C004DA10 (DebugInPort.c)
+ *     DebugNotify @ 0x1C004DB10 (DebugNotify.c)
+ *     DebugOutPort @ 0x1C004DCE0 (DebugOutPort.c)
+ *     DebugRunMethod @ 0x1C004DE10 (DebugRunMethod.c)
+ * Callees:
+ *     _strtoui64_0 @ 0x1C0001A79 (_strtoui64_0.c)
+ */
+
 char __fastcall IsNumber(const char *a1, int a2)
 {
   char v3; // di

@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiRemoveSystemImagePage @ 0x1402E3EA0
+ * Callers:
+ *     MiLockCode @ 0x14032C9C0 (MiLockCode.c)
+ *     MiMakeDriverPageStayResident @ 0x140617F48 (MiMakeDriverPageStayResident.c)
+ * Callees:
+ *     MiTerminateWsle @ 0x14032AAF0 (MiTerminateWsle.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 __int64 __fastcall MiRemoveSystemImagePage(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 v4; // rdx

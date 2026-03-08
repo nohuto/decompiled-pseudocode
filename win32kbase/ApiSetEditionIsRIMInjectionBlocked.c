@@ -1,3 +1,16 @@
+/*
+ * XREFs of ApiSetEditionIsRIMInjectionBlocked @ 0x1C0003600
+ * Callers:
+ *     NtUserInjectKeyboardInput @ 0x1C00031D0 (NtUserInjectKeyboardInput.c)
+ *     NtUserInjectDeviceInput @ 0x1C0172A60 (NtUserInjectDeviceInput.c)
+ *     NtUserInjectGenericHidInput @ 0x1C0173440 (NtUserInjectGenericHidInput.c)
+ *     NtUserInjectMouseInput @ 0x1C0173C50 (NtUserInjectMouseInput.c)
+ *     NtUserInjectPointerInput @ 0x1C01746E0 (NtUserInjectPointerInput.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ApiSetEditionIsRIMInjectionBlocked(__int64 a1, __int64 a2, __int64 a3)
 {
   PDEVICE_OBJECT v4; // rcx

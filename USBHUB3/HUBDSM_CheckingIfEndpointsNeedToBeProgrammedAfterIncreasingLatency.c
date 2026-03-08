@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBDSM_CheckingIfEndpointsNeedToBeProgrammedAfterIncreasingLatency @ 0x1C0024F60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBDSM_CheckingIfEndpointsNeedToBeProgrammedAfterIncreasingLatency(__int64 a1)
 {
   __int64 v1; // rax

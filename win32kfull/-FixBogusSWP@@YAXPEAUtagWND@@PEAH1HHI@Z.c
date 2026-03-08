@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?FixBogusSWP@@YAXPEAUtagWND@@PEAH1HHI@Z @ 0x1C01A6F6C
+ * Callers:
+ *     xxxSetWindowPosAndBand @ 0x1C0028FFC (xxxSetWindowPosAndBand.c)
+ *     NtUserSetWindowPos @ 0x1C0067A30 (NtUserSetWindowPos.c)
+ * Callees:
+ *     ?_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z @ 0x1C00D2B90 (-_MonitorFromWindowInternal@@YAPEAUtagMONITOR@@PEAUtagWND@@KH@Z.c)
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ *     GetMonitorWorkRect @ 0x1C0101744 (GetMonitorWorkRect.c)
+ *     GetMonitorRect @ 0x1C0101788 (GetMonitorRect.c)
+ *     ?IsRectBogus@@YAHHHHH@Z @ 0x1C01A70F0 (-IsRectBogus@@YAHHHHH@Z.c)
+ */
+
 void __fastcall FixBogusSWP(struct tagWND **a1, int *a2, int *a3, int a4, int a5, char a6)
 {
   struct tagMONITOR *v10; // r15

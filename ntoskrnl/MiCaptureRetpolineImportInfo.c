@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiCaptureRetpolineImportInfo @ 0x14076CDAC
+ * Callers:
+ *     MiApplyImportOptimizationToRuntimeDriver @ 0x14076CCAC (MiApplyImportOptimizationToRuntimeDriver.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlCaptureRetpolineImportRvas @ 0x1402E1A7C (RtlCaptureRetpolineImportRvas.c)
+ *     MiIsRetpolineEnabled @ 0x14036905C (MiIsRetpolineEnabled.c)
+ */
+
 __int64 __fastcall MiCaptureRetpolineImportInfo(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rdi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of _CmDevicePropertyRead @ 0x140244C38
+ * Callers:
+ *     _CmGetDeviceRegPropWorker @ 0x1406C9A04 (_CmGetDeviceRegPropWorker.c)
+ *     PiPnpRtlCmActionCallback @ 0x1406CE2F0 (PiPnpRtlCmActionCallback.c)
+ *     _CmSetDeviceRegPropWorker @ 0x14086A240 (_CmSetDeviceRegPropWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CmDevicePropertyRead(__int64 a1, int a2)
 {
   int v2; // edx

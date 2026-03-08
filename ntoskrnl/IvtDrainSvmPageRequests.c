@@ -1,3 +1,16 @@
+/*
+ * XREFs of IvtDrainSvmPageRequests @ 0x140529DE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IvtIommuWaitCommand @ 0x1402F4874 (IvtIommuWaitCommand.c)
+ *     IvtIommuSendCommand @ 0x1402F49A4 (IvtIommuSendCommand.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IvtDrainSvmPageRequests(__int64 a1, unsigned __int16 a2, char a3)
 {
   unsigned __int8 CurrentIrql; // bl

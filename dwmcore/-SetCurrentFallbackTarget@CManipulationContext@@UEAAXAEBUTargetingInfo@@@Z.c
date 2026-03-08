@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetCurrentFallbackTarget@CManipulationContext@@UEAAXAEBUTargetingInfo@@@Z @ 0x1801A3400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CManipulationContext::SetCurrentFallbackTarget(
         CManipulationContext *this,
         const struct TargetingInfo *a2)

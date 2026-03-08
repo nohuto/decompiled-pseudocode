@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiLogPinDriverAddressesWorker @ 0x1407EB6F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInterlockedClearBitRun @ 0x14035E550 (RtlInterlockedClearBitRun.c)
+ *     _tlgWriteAgg @ 0x14035EDD0 (_tlgWriteAgg.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiLogPinDriverAddress @ 0x1407EB808 (MiLogPinDriverAddress.c)
+ */
+
 char MiLogPinDriverAddressesWorker()
 {
   unsigned int v0; // ebx

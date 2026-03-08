@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlCheckNotifyForDelete @ 0x14093CF20
+ * Callers:
+ *     FsRtlNotifyFilterChangeDirectory @ 0x14084F730 (FsRtlNotifyFilterChangeDirectory.c)
+ * Callees:
+ *     FsRtlNotifyCompleteIrpList @ 0x1407041D4 (FsRtlNotifyCompleteIrpList.c)
+ */
+
 _QWORD *__fastcall FsRtlCheckNotifyForDelete(_QWORD **a1, __int64 a2)
 {
   _QWORD *i; // rbx

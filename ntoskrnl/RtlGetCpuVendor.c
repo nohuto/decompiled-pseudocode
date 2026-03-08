@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlGetCpuVendor @ 0x1403A2664
+ * Callers:
+ *     RtlGetProcessorSignature @ 0x1403A25C8 (RtlGetProcessorSignature.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     strncmp @ 0x1403D3310 (strncmp.c)
+ */
+
 __int64 RtlGetCpuVendor()
 {
   char Str1[16]; // [rsp+20h] [rbp-28h] BYREF

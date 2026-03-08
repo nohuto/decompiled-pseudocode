@@ -1,3 +1,39 @@
+/*
+ * XREFs of Controller_WdfEvtDeviceD0Entry @ 0x1C00144B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     Register_ControllerStop @ 0x1C000EEB0 (Register_ControllerStop.c)
+ *     DeviceSlot_DisableAllDeviceSlots @ 0x1C000FCF8 (DeviceSlot_DisableAllDeviceSlots.c)
+ *     DeviceSlot_D0EntryCleanupState @ 0x1C000FF08 (DeviceSlot_D0EntryCleanupState.c)
+ *     Register_SetClearSSICPortUnused @ 0x1C0013BD0 (Register_SetClearSSICPortUnused.c)
+ *     WPP_RECORDER_SF_qLL @ 0x1C0013DC4 (WPP_RECORDER_SF_qLL.c)
+ *     DeviceSlot_D0Entry @ 0x1C001482C (DeviceSlot_D0Entry.c)
+ *     Command_D0Entry @ 0x1C00148C8 (Command_D0Entry.c)
+ *     Interrupter_D0Entry @ 0x1C0014924 (Interrupter_D0Entry.c)
+ *     Register_D0Entry @ 0x1C0014A04 (Register_D0Entry.c)
+ *     RootHub_D0Entry @ 0x1C0015520 (RootHub_D0Entry.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     Register_ControllerReset @ 0x1C0018518 (Register_ControllerReset.c)
+ *     Register_BiosHandoff @ 0x1C00186F0 (Register_BiosHandoff.c)
+ *     Controller_InUseByDebugger @ 0x1C001C410 (Controller_InUseByDebugger.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_D0EntryRestoreState @ 0x1C0032754 (Controller_D0EntryRestoreState.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ *     Controller_SetControllerGone @ 0x1C00347AC (Controller_SetControllerGone.c)
+ *     McTemplateK0pqqh_EtwWriteTransfer @ 0x1C0036EF4 (McTemplateK0pqqh_EtwWriteTransfer.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0036F88 (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     Register_SaveRestoreCHTNonArchitecturalRegisters @ 0x1C003F048 (Register_SaveRestoreCHTNonArchitecturalRegisters.c)
+ *     Controller_UpdateIdleTimeoutOnControllerFDOD0Entry @ 0x1C006E388 (Controller_UpdateIdleTimeoutOnControllerFDOD0Entry.c)
+ *     Controller_ExecuteHSICDisconnectInU3Workaround @ 0x1C006E400 (Controller_ExecuteHSICDisconnectInU3Workaround.c)
+ *     Controller_ExecuteKBLPowerTransitionWorkaround @ 0x1C0078248 (Controller_ExecuteKBLPowerTransitionWorkaround.c)
+ */
+
 __int64 __fastcall Controller_WdfEvtDeviceD0Entry(__int64 a1, unsigned int a2)
 {
   char v4; // r12

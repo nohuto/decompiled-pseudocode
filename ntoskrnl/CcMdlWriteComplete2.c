@@ -1,3 +1,21 @@
+/*
+ * XREFs of CcMdlWriteComplete2 @ 0x1403002DC
+ * Callers:
+ *     FsRtlMdlWriteCompleteDev @ 0x140799640 (FsRtlMdlWriteCompleteDev.c)
+ *     CcMdlWriteComplete @ 0x14079B3A0 (CcMdlWriteComplete.c)
+ * Callees:
+ *     CcDecrementOpenCount @ 0x14021B85C (CcDecrementOpenCount.c)
+ *     CcSetDirtyInMask @ 0x14021C370 (CcSetDirtyInMask.c)
+ *     MmUnlockPages @ 0x14027C0C0 (MmUnlockPages.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402ECFB0 (FsRtlIsNtstatusExpected.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ *     MmFlushSection @ 0x140333F20 (MmFlushSection.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall CcMdlWriteComplete2(__int64 a1, __int64 *a2, struct _MDL *a3)
 {
   __int64 v3; // rbx

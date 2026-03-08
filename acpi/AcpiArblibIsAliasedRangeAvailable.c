@@ -1,3 +1,13 @@
+/*
+ * XREFs of AcpiArblibIsAliasedRangeAvailable @ 0x1C007D0D8
+ * Callers:
+ *     AcpiPortarbFindSuitableRange @ 0x1C008C260 (AcpiPortarbFindSuitableRange.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     AcpiArblibGetNextAlias @ 0x1C007D0A4 (AcpiArblibGetNextAlias.c)
+ */
+
 char __fastcall AcpiArblibIsAliasedRangeAvailable(__int64 a1, __int128 *a2)
 {
   __int64 v4; // rdx

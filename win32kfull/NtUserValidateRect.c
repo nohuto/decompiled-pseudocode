@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserValidateRect @ 0x1C00F3EC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxValidateRect @ 0x1C00F3F9C (xxxValidateRect.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall NtUserValidateRect(__int64 a1, __int128 *a2)
 {
   int v4; // ebx

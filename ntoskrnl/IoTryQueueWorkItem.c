@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoTryQueueWorkItem @ 0x140300920
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExpTryQueueWorkItem @ 0x140308AAC (ExpTryQueueWorkItem.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     IopQueueWorkItemProlog @ 0x140341380 (IopQueueWorkItemProlog.c)
+ */
+
 char __fastcall IoTryQueueWorkItem(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
 {
   __int64 v6; // rax

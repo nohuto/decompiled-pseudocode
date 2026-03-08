@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExpWaitForFastResource2 @ 0x140411334
+ * Callers:
+ *     ExpAcquireFastResourceExclusiveSlow @ 0x14040F2AC (ExpAcquireFastResourceExclusiveSlow.c)
+ *     ExpAcquireFastResourceSharedSlow @ 0x14040F630 (ExpAcquireFastResourceSharedSlow.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     PerfLogExecutiveResourceWait @ 0x1405FE790 (PerfLogExecutiveResourceWait.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 NTSTATUS __fastcall ExpWaitForFastResource2(_DWORD *a1, __int64 a2, unsigned int a3)
 {
   unsigned int v6; // ebx

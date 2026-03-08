@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ForwardInputToKeyboardOverrider@CKeyboardProcessor@@SAX_NGGGPEAXKGPEAU_KEYBOARD_VIRTUAL_DEVICE_INFO@@@Z @ 0x1C020A370
+ * Callers:
+ *     xxxKeyEventEx @ 0x1C007F2E0 (xxxKeyEventEx.c)
+ * Callees:
+ *     ?CreateKeyboardInputMessage@CKeyboardProcessor@@CAX_NGGGPEAXK0G_KPEAU_KEYBOARD_VIRTUAL_DEVICE_INFO@@PEAU_MIT_KEYBOARD_INPUT_MESSAGE@@@Z @ 0x1C007F530 (-CreateKeyboardInputMessage@CKeyboardProcessor@@CAX_NGGGPEAXK0G_KPEAU_KEYBOARD_VIRTUAL_DEVICE_IN.c)
+ *     SendMessageTo @ 0x1C0081230 (SendMessageTo.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 void __fastcall CKeyboardProcessor::ForwardInputToKeyboardOverrider(
         unsigned __int8 a1,
         __int16 a2,

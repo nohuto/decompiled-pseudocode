@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Union@CStripe@Internal@FastRegion@@QEAAXPEBV123@0@Z @ 0x1800475C8
+ * Callers:
+ *     ?Union@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z @ 0x18004705C (-Union@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FastRegion::Internal::CStripe::Union(
         FastRegion::Internal::CStripe *this,
         const struct FastRegion::Internal::CStripe *a2,

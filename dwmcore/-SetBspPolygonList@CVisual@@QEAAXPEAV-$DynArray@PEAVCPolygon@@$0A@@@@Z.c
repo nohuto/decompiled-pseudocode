@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SetBspPolygonList@CVisual@@QEAAXPEAV?$DynArray@PEAVCPolygon@@$0A@@@@Z @ 0x18020E728
+ * Callers:
+ *     ?ReleaseBspPolygonList@CVisual@@IEAAXXZ @ 0x18009A1EC (-ReleaseBspPolygonList@CVisual@@IEAAXXZ.c)
+ *     ?AddToBspPolygonList@CVisual@@IEAAJPEAVCPolygon@@@Z @ 0x18020D2C0 (-AddToBspPolygonList@CVisual@@IEAAJPEAVCPolygon@@@Z.c)
+ * Callees:
+ *     ?ReserveSlot@AllocatedStorage@?$CSparseAlignedStorage@$07$07@@SAAEAT?$_Align_type@N$07@std@@PEAPEAV12@I@Z @ 0x180099C48 (-ReserveSlot@AllocatedStorage@-$CSparseAlignedStorage@$07$07@@SAAEAT-$_Align_type@N$07@std@@PEAP.c)
+ *     ?FindSlot@AllocatedStorage@?$CSparseAlignedStorage@$07$07@@AEBAII@Z @ 0x1800E1BE0 (-FindSlot@AllocatedStorage@-$CSparseAlignedStorage@$07$07@@AEBAII@Z.c)
+ */
+
 __int64 __fastcall CVisual::SetBspPolygonList(__int64 a1, __int64 a2)
 {
   unsigned int **v2; // rcx

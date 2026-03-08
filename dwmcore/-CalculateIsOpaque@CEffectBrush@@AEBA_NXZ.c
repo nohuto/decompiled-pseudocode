@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CalculateIsOpaque@CEffectBrush@@AEBA_NXZ @ 0x1800EED8C
+ * Callers:
+ *     ?EnsureBrushGraph@CEffectBrush@@MEAAJ_N@Z @ 0x1800EED10 (-EnsureBrushGraph@CEffectBrush@@MEAAJ_N@Z.c)
+ * Callees:
+ *     ?AreEqual@@YA_NAEBUD2D_RECT_F@@0@Z @ 0x1800909CC (-AreEqual@@YA_NAEBUD2D_RECT_F@@0@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CEffectBrush::CalculateIsOpaque(CEffectBrush *this)
 {
   __int64 v2; // rsi

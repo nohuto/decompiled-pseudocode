@@ -1,3 +1,18 @@
+/*
+ * XREFs of WheaConfigureErrorSource @ 0x140A8D100
+ * Callers:
+ *     WheaAddErrorSourceDeviceDriver @ 0x14080C280 (WheaAddErrorSourceDeviceDriver.c)
+ *     HalpWheaInitDiscard @ 0x140B60A80 (HalpWheaInitDiscard.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     WheapInitializeDeferredErrorSources @ 0x14060DF90 (WheapInitializeDeferredErrorSources.c)
+ */
+
 __int64 __fastcall WheaConfigureErrorSource(signed int a1, __int64 a2)
 {
   __int64 v2; // rsi

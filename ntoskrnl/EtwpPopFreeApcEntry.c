@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpPopFreeApcEntry @ 0x140460490
+ * Callers:
+ *     EtwpQueueStackWalkApc @ 0x140460526 (EtwpQueueStackWalkApc.c)
+ * Callees:
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 PSLIST_ENTRY __fastcall EtwpPopFreeApcEntry(__int64 a1, unsigned __int8 a2)
 {
   PSLIST_ENTRY v4; // rdi

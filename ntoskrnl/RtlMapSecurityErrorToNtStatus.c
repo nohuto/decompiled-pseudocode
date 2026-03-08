@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlMapSecurityErrorToNtStatus @ 0x1403CA040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlMapSecurityErrorToNtStatus(int a1)
 {
   unsigned int v1; // edx

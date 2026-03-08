@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopDirectedDripsHandleResiliencyNotification @ 0x140980530
+ * Callers:
+ *     PopDirectedDripsWorkerRoutine @ 0x1407FFD30 (PopDirectedDripsWorkerRoutine.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PopDeepSleepClearDisengageReason @ 0x1402BBAAC (PopDeepSleepClearDisengageReason.c)
+ *     PopQueueWorkItem @ 0x1402BCCB4 (PopQueueWorkItem.c)
+ *     PopDirectedDripsDiagPnpActionQueueAccountingUpdate @ 0x14059DFB8 (PopDirectedDripsDiagPnpActionQueueAccountingUpdate.c)
+ *     PopDirectedDripsResumeDevices @ 0x140980BC4 (PopDirectedDripsResumeDevices.c)
+ *     PopDirectedDripsSuspendDevices @ 0x140980E14 (PopDirectedDripsSuspendDevices.c)
+ */
+
 __int64 __fastcall PopDirectedDripsHandleResiliencyNotification(__int64 a1)
 {
   volatile signed __int64 *v1; // rdi

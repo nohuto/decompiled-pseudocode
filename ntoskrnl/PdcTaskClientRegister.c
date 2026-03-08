@@ -1,3 +1,15 @@
+/*
+ * XREFs of PdcTaskClientRegister @ 0x14080F930
+ * Callers:
+ *     PopDiagInitialize @ 0x140B442C4 (PopDiagInitialize.c)
+ *     PopUserShutdownScenarioInitialize @ 0x140B46CF0 (PopUserShutdownScenarioInitialize.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PdcPortOpenCommon @ 0x140852DF8 (PdcPortOpenCommon.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PdcTaskClientRegister(int a1, _QWORD *a2)
 {
   _DWORD *Pool2; // rax

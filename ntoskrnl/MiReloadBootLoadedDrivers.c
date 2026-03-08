@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiReloadBootLoadedDrivers @ 0x140B3B9BC
+ * Callers:
+ *     MiInitializeDriverImages @ 0x140B3B090 (MiInitializeDriverImages.c)
+ * Callees:
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiProcessLoadConfigForDriver @ 0x140784998 (MiProcessLoadConfigForDriver.c)
+ *     MmAcquireLoadLock @ 0x1407D2360 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x1407D2400 (MmReleaseLoadLock.c)
+ *     MiApplyBootLoadedDriversFixups @ 0x140B3ACB4 (MiApplyBootLoadedDriversFixups.c)
+ *     MiHandleBootImage @ 0x140B3BA98 (MiHandleBootImage.c)
+ */
+
 __int64 __fastcall MiReloadBootLoadedDrivers(__int64 a1)
 {
   struct _KTHREAD *Lock; // rbp

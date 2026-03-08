@@ -1,3 +1,32 @@
+/*
+ * XREFs of xxxDispatchMessage @ 0x1C0038064
+ * Callers:
+ *     NtUserDispatchMessage @ 0x1C0037F50 (NtUserDispatchMessage.c)
+ *     xxxRestoreCsrssThreadDesktop @ 0x1C0093CF0 (xxxRestoreCsrssThreadDesktop.c)
+ *     ?xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C0094570 (-xxxHandleDesktopMessages@@YAHPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
+ *     xxxSetCsrssThreadDesktop @ 0x1C00948B0 (xxxSetCsrssThreadDesktop.c)
+ *     xxxDCETrackCaptionButton @ 0x1C01BBA1C (xxxDCETrackCaptionButton.c)
+ *     xxxOldNextWindow @ 0x1C01CBDC8 (xxxOldNextWindow.c)
+ *     ?xxxMoveSize@@YAXPEAUtagWND@@IK@Z @ 0x1C01F0DC4 (-xxxMoveSize@@YAXPEAUtagWND@@IK@Z.c)
+ *     xxxMNLoop @ 0x1C021726C (xxxMNLoop.c)
+ *     ?xxxSBTrackLoop@@YAXPEAUtagWND@@_JPEAUtagSBCALC@@@Z @ 0x1C022C64C (-xxxSBTrackLoop@@YAXPEAUtagWND@@_JPEAUtagSBCALC@@@Z.c)
+ *     xxxTrackCaptionButton @ 0x1C022F438 (xxxTrackCaptionButton.c)
+ *     xxxHelpLoop @ 0x1C023C17C (xxxHelpLoop.c)
+ * Callees:
+ *     DwmAsyncChildStyleChange @ 0x1C002E648 (DwmAsyncChildStyleChange.c)
+ *     SfnDWORD @ 0x1C00385D0 (SfnDWORD.c)
+ *     xxxSimpleDoSyncPaint @ 0x1C0038E64 (xxxSimpleDoSyncPaint.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z @ 0x1C00AD734 (-CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z.c)
+ *     DirtyVisRgnTrackers @ 0x1C00AEA8C (DirtyVisRgnTrackers.c)
+ *     ValidateTimerCallback @ 0x1C00D1AE4 (ValidateTimerCallback.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     ??1CEtwTraceDispatchMessage@@QEAA@XZ @ 0x1C01C1F70 (--1CEtwTraceDispatchMessage@@QEAA@XZ.c)
+ *     RtlMBMessageWParamCharToWCS @ 0x1C024EA38 (RtlMBMessageWParamCharToWCS.c)
+ *     RtlWCSMessageWParamCharToMB @ 0x1C024EB88 (RtlWCSMessageWParamCharToMB.c)
+ */
+
 __int64 __fastcall xxxDispatchMessage(__int64 *a1)
 {
   unsigned int v1; // ebp

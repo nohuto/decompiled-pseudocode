@@ -1,3 +1,13 @@
+/*
+ * XREFs of ComputeFlushPeriod @ 0x14080F88C
+ * Callers:
+ *     TlgRegisterAggregateProviderEx @ 0x14080F588 (TlgRegisterAggregateProviderEx.c)
+ * Callees:
+ *     FinishHash @ 0x140302BE0 (FinishHash.c)
+ *     RunningHash @ 0x14035F340 (RunningHash.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall ComputeFlushPeriod(unsigned __int64 a1)
 {
   __int64 v1; // rax

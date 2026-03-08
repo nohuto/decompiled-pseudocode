@@ -1,3 +1,26 @@
+/*
+ * XREFs of ExpReleaseResourceForThreadLite @ 0x14033ABF0
+ * Callers:
+ *     SepMandatoryIntegrityCheck @ 0x140263A50 (SepMandatoryIntegrityCheck.c)
+ *     CcUnpinFileDataEx @ 0x140337E50 (CcUnpinFileDataEx.c)
+ *     ExReleaseResourceAndLeaveCriticalRegion @ 0x14033AA70 (ExReleaseResourceAndLeaveCriticalRegion.c)
+ *     SeAccessCheckByType @ 0x14033BB40 (SeAccessCheckByType.c)
+ * Callees:
+ *     ExpReleaseResourceSharedForThreadLite @ 0x14025D990 (ExpReleaseResourceSharedForThreadLite.c)
+ *     KxWaitForLockChainValid @ 0x140291730 (KxWaitForLockChainValid.c)
+ *     KeCaptureWaitChainHeadEx @ 0x1402D3E54 (KeCaptureWaitChainHeadEx.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeWakeWaitChain @ 0x14033AF30 (KeWakeWaitChain.c)
+ *     ExpFreeOwnerEntry @ 0x14033B150 (ExpFreeOwnerEntry.c)
+ *     KxWaitForLockOwnerShip @ 0x14033B510 (KxWaitForLockOwnerShip.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140457B8E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x14056EF78 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14057DAC8 (KiHaltOnAddressWakeEntireList.c)
+ *     PerfLogExecutiveResourceRelease @ 0x1405FE480 (PerfLogExecutiveResourceRelease.c)
+ */
+
 char __fastcall ExpReleaseResourceForThreadLite(ULONG_PTR BugCheckParameter1, ULONG_PTR BugCheckParameter2)
 {
   volatile __int64 *v2; // r8

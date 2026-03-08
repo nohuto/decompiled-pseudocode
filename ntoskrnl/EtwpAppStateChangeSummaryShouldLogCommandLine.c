@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpAppStateChangeSummaryShouldLogCommandLine @ 0x1407E885C
+ * Callers:
+ *     EtwTraceAppStateChange @ 0x1407E8520 (EtwTraceAppStateChange.c)
+ *     EtwTraceProcess @ 0x1407E93B4 (EtwTraceProcess.c)
+ * Callees:
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ */
+
 char __fastcall EtwpAppStateChangeSummaryShouldLogCommandLine(__int64 a1)
 {
   unsigned __int16 *v1; // rax

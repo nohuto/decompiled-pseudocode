@@ -1,3 +1,13 @@
+/*
+ * XREFs of CcGetNodeForLazyWrite @ 0x1402191F0
+ * Callers:
+ *     CcNotifyOfMappedWrite @ 0x140215670 (CcNotifyOfMappedWrite.c)
+ *     CcLazyWriteScanVolume @ 0x140218810 (CcLazyWriteScanVolume.c)
+ *     CcLazyWriteScan @ 0x140533B4C (CcLazyWriteScan.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CcGetNodeForLazyWrite(__int64 a1)
 {
   unsigned int v1; // eax

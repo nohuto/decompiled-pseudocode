@@ -1,3 +1,11 @@
+/*
+ * XREFs of std::_Pop_heap_hole_by_index_CPolygon_____CPolygon____lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x180255DF4
+ * Callers:
+ *     std::_Sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___ @ 0x180255EC0 (std--_Sort_unchecked_CPolygon______lambda_216ffb03724e5fb78403a39766447e0e___.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall std::_Pop_heap_hole_by_index_CPolygon_____CPolygon____lambda_216ffb03724e5fb78403a39766447e0e___(
         __int64 a1,
         __int64 a2,

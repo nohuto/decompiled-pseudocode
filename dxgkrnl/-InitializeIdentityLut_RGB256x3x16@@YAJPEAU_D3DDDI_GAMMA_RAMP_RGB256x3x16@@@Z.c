@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InitializeIdentityLut_RGB256x3x16@@YAJPEAU_D3DDDI_GAMMA_RAMP_RGB256x3x16@@@Z @ 0x1C0074248
+ * Callers:
+ *     ColorSpaceTransformInitIdentityTransform @ 0x1C0074718 (ColorSpaceTransformInitIdentityTransform.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall InitializeIdentityLut_RGB256x3x16(struct _D3DDDI_GAMMA_RAMP_RGB256x3x16 *a1)
 {
   USHORT *Green; // rdx

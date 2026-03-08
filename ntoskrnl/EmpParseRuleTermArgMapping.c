@@ -1,3 +1,11 @@
+/*
+ * XREFs of EmpParseRuleTermArgMapping @ 0x140B4E9B8
+ * Callers:
+ *     EmpParseRuleTerm @ 0x140B4D578 (EmpParseRuleTerm.c)
+ * Callees:
+ *     strtoul @ 0x1403D32B8 (strtoul.c)
+ */
+
 bool __fastcall EmpParseRuleTermArgMapping(char *Str, __int64 a2, int a3, int a4, int a5)
 {
   __int64 v5; // rdi

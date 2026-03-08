@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiGetImageProtoProtection @ 0x1402EA8EC
+ * Callers:
+ *     MiGetPageProtection @ 0x14031C310 (MiGetPageProtection.c)
+ * Callees:
+ *     MiGetSharedProtos @ 0x1402CCDF8 (MiGetSharedProtos.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ */
+
 __int64 __fastcall MiGetImageProtoProtection(__int64 a1, unsigned __int64 a2)
 {
   __int64 v2; // rbx

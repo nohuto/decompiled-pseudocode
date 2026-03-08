@@ -1,3 +1,15 @@
+/*
+ * XREFs of RIMTransformDimensionFromDigitizer @ 0x1C01BE2D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C0032C40 (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C0033950 (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMTransformPointerDevicePointToPhysical @ 0x1C00EFE38 (RIMTransformPointerDevicePointToPhysical.c)
+ *     RIMConvertPointCoordinates @ 0x1C01BD270 (RIMConvertPointCoordinates.c)
+ */
+
 void __fastcall RIMTransformDimensionFromDigitizer(__int64 a1, _DWORD *a2, _DWORD *a3, __int64 a4)
 {
   int v8; // ecx

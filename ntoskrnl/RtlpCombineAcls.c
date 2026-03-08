@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlpCombineAcls @ 0x1407BC8E0
+ * Callers:
+ *     RtlpNewSecurityObject @ 0x1407BD790 (RtlpNewSecurityObject.c)
+ *     RtlpSetSecurityObject @ 0x1407BF100 (RtlpSetSecurityObject.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlpCombineAcls(
         unsigned __int8 *a1,
         unsigned __int8 *a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopSleepstudyScenarioStopWorker @ 0x1409903B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopDiagTraceSleepStudyStart @ 0x140879BB0 (PopDiagTraceSleepStudyStart.c)
+ *     PopDiagTraceSleepStudyStop @ 0x14098E6C8 (PopDiagTraceSleepStudyStop.c)
+ */
+
 void PopSleepstudyScenarioStopWorker()
 {
   _DWORD *v0; // rbx

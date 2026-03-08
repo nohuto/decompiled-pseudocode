@@ -1,3 +1,24 @@
+/*
+ * XREFs of Isoch_WdfEvtIoQueueReadyNotification @ 0x1C0003140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Isoch_MapTransfers @ 0x1C0001C9C (Isoch_MapTransfers.c)
+ *     Isoch_RetrieveNextStage @ 0x1C0003800 (Isoch_RetrieveNextStage.c)
+ *     Isoch_MapStage @ 0x1C0004810 (Isoch_MapStage.c)
+ *     Isoch_PrepareStage @ 0x1C0004AD0 (Isoch_PrepareStage.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     TR_AttemptStateChange @ 0x1C0008120 (TR_AttemptStateChange.c)
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C001E054 (WPP_RECORDER_SF_DDD.c)
+ *     Controller_GetWdmPhysicalDeviceObject @ 0x1C001EA48 (Controller_GetWdmPhysicalDeviceObject.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_ReportFatalError @ 0x1C0034770 (Controller_ReportFatalError.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ */
+
 void __fastcall Isoch_WdfEvtIoQueueReadyNotification(__int64 a1, __int64 a2)
 {
   char v3; // bp

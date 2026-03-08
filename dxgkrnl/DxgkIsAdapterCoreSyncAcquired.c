@@ -1,3 +1,16 @@
+/*
+ * XREFs of DxgkIsAdapterCoreSyncAcquired @ 0x1C01E5204
+ * Callers:
+ *     DpiPowerArbiterThread @ 0x1C0210150 (DpiPowerArbiterThread.c)
+ *     DpExcludeAdapterAccess @ 0x1C03941A0 (DpExcludeAdapterAccess.c)
+ *     DpiFdoWaitConnectionChangeComplete @ 0x1C03993A8 (DpiFdoWaitConnectionChangeComplete.c)
+ *     DpiMiracastSendSyncUserModeRequest @ 0x1C039B354 (DpiMiracastSendSyncUserModeRequest.c)
+ * Callees:
+ *     ?IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00045F8 (-IsCoreResourceExclusiveOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     ?IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ @ 0x1C00070C4 (-IsCoreResourceSharedOwner@DXGADAPTER@@QEBAEXZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 BOOLEAN __fastcall DxgkIsAdapterCoreSyncAcquired(DXGADAPTER *this, int a2)
 {
   char v2; // di

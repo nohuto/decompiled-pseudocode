@@ -1,3 +1,14 @@
+/*
+ * XREFs of WheaTerminateProcess @ 0x140A053E0
+ * Callers:
+ *     KiMcheckAlternateReturn @ 0x14057DEF0 (KiMcheckAlternateReturn.c)
+ * Callees:
+ *     PsGetProcessId @ 0x140236D10 (PsGetProcessId.c)
+ *     WheaGetCurrentProcessName @ 0x14060F890 (WheaGetCurrentProcessName.c)
+ *     WheapLogProcessTerminateEvent @ 0x140611080 (WheapLogProcessTerminateEvent.c)
+ *     PsTerminateProcess @ 0x1407DC8A0 (PsTerminateProcess.c)
+ */
+
 __int64 WheaTerminateProcess()
 {
   struct _KPROCESS *Process; // rdi

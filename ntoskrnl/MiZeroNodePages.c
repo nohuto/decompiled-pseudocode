@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiZeroNodePages @ 0x14038FAA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiZeroLocalPages @ 0x140273BB0 (MiZeroLocalPages.c)
+ *     MiSelectBestZeroingProcessor @ 0x140274D20 (MiSelectBestZeroingProcessor.c)
+ *     MiSignalZeroingPassComplete @ 0x1402E1384 (MiSignalZeroingPassComplete.c)
+ *     MiDereferencePageRunsEx @ 0x1402EBA28 (MiDereferencePageRunsEx.c)
+ *     MiDecrementZeroEngineThread @ 0x1402F0700 (MiDecrementZeroEngineThread.c)
+ *     MiDereferenceAnyActiveHugeContext @ 0x1402F309C (MiDereferenceAnyActiveHugeContext.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeSetActualBasePriorityThread @ 0x140357730 (KeSetActualBasePriorityThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiZeroNodePages(ULONG_PTR a1)
 {
   __int64 v2; // r14

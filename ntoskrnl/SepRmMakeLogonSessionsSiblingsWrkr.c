@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepRmMakeLogonSessionsSiblingsWrkr @ 0x1409CD660
+ * Callers:
+ *     SepRmCommandServerThread @ 0x140825260 (SepRmCommandServerThread.c)
+ * Callees:
+ *     SepMakeLogonSessionsSiblings @ 0x1409CD2D0 (SepMakeLogonSessionsSiblings.c)
+ */
+
 __int64 __fastcall SepRmMakeLogonSessionsSiblingsWrkr(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of DrvIsUniformSpaceMapping @ 0x1C0014FA0
+ * Callers:
+ *     NtUserGetUniformSpaceMapping @ 0x1C0013860 (NtUserGetUniformSpaceMapping.c)
+ *     ?SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z @ 0x1C0014BB4 (-SetMonitorData@@YAPEAUtagMONITOR@@PEAU1@K@Z.c)
+ *     ?TransformPointWithUniformSpaceMapping@@YAHPEAU_MDEV@@PEAH1H@Z @ 0x1C0014F3C (-TransformPointWithUniformSpaceMapping@@YAHPEAU_MDEV@@PEAH1H@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DrvIsUniformSpaceMapping(__int64 a1)
 {
   __int64 v2; // rax

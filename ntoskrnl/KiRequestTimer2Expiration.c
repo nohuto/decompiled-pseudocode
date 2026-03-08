@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiRequestTimer2Expiration @ 0x1402B78B8
+ * Callers:
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ *     KiAdjustTimer2DueTimes @ 0x14039680C (KiAdjustTimer2DueTimes.c)
+ * Callees:
+ *     KiSetDpcRequestFlag @ 0x1402B791C (KiSetDpcRequestFlag.c)
+ *     KiSendSoftwareInterrupt @ 0x1402B7A00 (KiSendSoftwareInterrupt.c)
+ *     KiRequestSoftwareInterrupt @ 0x1402B7A24 (KiRequestSoftwareInterrupt.c)
+ */
+
 __int64 KiRequestTimer2Expiration()
 {
   unsigned int v0; // edi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViAvlCompareNode @ 0x1402F2B20
+ * Callers:
+ *     ViAvlCompareNodeUseSessionId @ 0x1402F2AD0 (ViAvlCompareNodeUseSessionId.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ViAvlCompareNode(
         struct _RTL_AVL_TABLE *Table,
         unsigned __int64 *FirstStruct,

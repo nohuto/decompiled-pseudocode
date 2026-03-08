@@ -1,3 +1,14 @@
+/*
+ * XREFs of VidSchiReadGlobalConfiguration @ 0x1C00B6ED0
+ * Callers:
+ *     VidSchInitializeAdapter @ 0x1C00B5B90 (VidSchInitializeAdapter.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     VidSchiReadNodeConfiguration @ 0x1C00B7D6C (VidSchiReadNodeConfiguration.c)
+ */
+
 bool __fastcall VidSchiReadGlobalConfiguration(__int64 a1)
 {
   unsigned int v2; // ecx

@@ -1,3 +1,33 @@
+/*
+ * XREFs of ExAllocatePool3 @ 0x140AAB320
+ * Callers:
+ *     KiAllocateLocalSharedReadyQueue @ 0x1403721F0 (KiAllocateLocalSharedReadyQueue.c)
+ *     ExAllocateCacheAwarePushLock @ 0x1403A28D0 (ExAllocateCacheAwarePushLock.c)
+ *     ExpSaInitialize @ 0x1403A5B5C (ExpSaInitialize.c)
+ *     KeEtwInitializeCpuStarvationProvider @ 0x1403A807C (KeEtwInitializeCpuStarvationProvider.c)
+ *     ExpSaPageGroupDescriptorAllocate @ 0x1403BFEBC (ExpSaPageGroupDescriptorAllocate.c)
+ *     ExpSaBinaryArrayInsert @ 0x1403C0224 (ExpSaBinaryArrayInsert.c)
+ *     KiAllocateSchedulerSubNode @ 0x14056E238 (KiAllocateSchedulerSubNode.c)
+ *     AstLogDeviceSDDLUpdated @ 0x14074EF88 (AstLogDeviceSDDLUpdated.c)
+ *     IopAllocateMiniCompletionPacket @ 0x1407D0108 (IopAllocateMiniCompletionPacket.c)
+ *     AstLogDeviceCreated @ 0x1407F0D60 (AstLogDeviceCreated.c)
+ *     KiInitializeThreadCycleTable @ 0x140A89F10 (KiInitializeThreadCycleTable.c)
+ *     IoVerifierCheckForSettingsChange @ 0x140ABDBF0 (IoVerifierCheckForSettingsChange.c)
+ *     VerifierExAllocatePool3 @ 0x140ACDB20 (VerifierExAllocatePool3.c)
+ *     VfHandlePoolAlloc @ 0x140ACDFB0 (VfHandlePoolAlloc.c)
+ *     VfPendingCheckForChanges @ 0x140ACE7C0 (VfPendingCheckForChanges.c)
+ *     VfKeCheckForChanges @ 0x140AD2BC0 (VfKeCheckForChanges.c)
+ *     VfFaultsInitPhase0 @ 0x140AD2E18 (VfFaultsInitPhase0.c)
+ *     ViPtInitCircularPoolTrace @ 0x140ADBE2C (ViPtInitCircularPoolTrace.c)
+ *     ViIrqlInit @ 0x140AE5484 (ViIrqlInit.c)
+ * Callees:
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x140310130 (ExpAllocatePoolWithTagFromNode.c)
+ *     MmResourcesAvailable @ 0x140311DB0 (MmResourcesAvailable.c)
+ *     VslSecurePoolAllocate @ 0x14054A218 (VslSecurePoolAllocate.c)
+ *     ExpAllocatePoolWithQuotaTag @ 0x140AAB128 (ExpAllocatePoolWithQuotaTag.c)
+ */
+
 __int64 __fastcall ExAllocatePool3(__int64 a1, ULONG_PTR a2, unsigned int a3, __int64 a4, unsigned int a5)
 {
   __int64 v5; // rbx

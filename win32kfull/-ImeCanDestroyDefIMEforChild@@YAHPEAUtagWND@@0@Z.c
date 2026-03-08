@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ImeCanDestroyDefIMEforChild@@YAHPEAUtagWND@@0@Z @ 0x1C00EAAC4
+ * Callers:
+ *     xxxDestroyWindow @ 0x1C004B7F0 (xxxDestroyWindow.c)
+ * Callees:
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     unsafe_cast_fnid_or_class_to_PIMEWND @ 0x1C00A0B80 (unsafe_cast_fnid_or_class_to_PIMEWND.c)
+ *     ?IsChildSameThread@@YAHPEAUtagWND@@0@Z @ 0x1C01B89FC (-IsChildSameThread@@YAHPEAUtagWND@@0@Z.c)
+ */
+
 __int64 __fastcall ImeCanDestroyDefIMEforChild(struct tagWND *a1, struct tagWND *a2)
 {
   ULONG64 *v4; // rax

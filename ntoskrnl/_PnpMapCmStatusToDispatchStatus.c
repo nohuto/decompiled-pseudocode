@@ -1,3 +1,14 @@
+/*
+ * XREFs of _PnpMapCmStatusToDispatchStatus @ 0x140244BE4
+ * Callers:
+ *     _PnpDispatchInterfaceClass @ 0x1406C59F0 (_PnpDispatchInterfaceClass.c)
+ *     _PnpDispatchDeviceInterface @ 0x1406C8CF0 (_PnpDispatchDeviceInterface.c)
+ *     _PnpDispatchDevice @ 0x1406C8E70 (_PnpDispatchDevice.c)
+ *     _PnpDispatchInstallerClass @ 0x14074D6F0 (_PnpDispatchInstallerClass.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PnpMapCmStatusToDispatchStatus(unsigned int a1)
 {
   __int64 result; // rax

@@ -1,3 +1,18 @@
+/*
+ * XREFs of PsMultiResumeThread @ 0x140354658
+ * Callers:
+ *     NtResumeThread @ 0x14076EF80 (NtResumeThread.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140934820 (DbgkpPostFakeThreadMessages.c)
+ *     DbgkpWakeTarget @ 0x1409354D4 (DbgkpWakeTarget.c)
+ *     DbgkUserReportWorkRoutine @ 0x140936CD0 (DbgkUserReportWorkRoutine.c)
+ *     NtChangeThreadState @ 0x1409ACF20 (NtChangeThreadState.c)
+ *     PspDeleteThreadStateChange @ 0x1409AE180 (PspDeleteThreadStateChange.c)
+ *     PsResumeThread @ 0x1409B30E0 (PsResumeThread.c)
+ * Callees:
+ *     KeResumeThread @ 0x140354130 (KeResumeThread.c)
+ *     EtwTiLogSuspendResumeThread @ 0x1408A2F24 (EtwTiLogSuspendResumeThread.c)
+ */
+
 __int64 __fastcall PsMultiResumeThread(__int64 a1, unsigned int *a2, unsigned int a3)
 {
   unsigned int v6; // eax

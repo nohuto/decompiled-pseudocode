@@ -1,3 +1,17 @@
+/*
+ * XREFs of VfUtilPrintCheckinString @ 0x140ABF804
+ * Callers:
+ *     VfSuspectDriversLoadCallback @ 0x140AD7704 (VfSuspectDriversLoadCallback.c)
+ *     VfSuspectDriversUnloadCallback @ 0x140AD7AB4 (VfSuspectDriversUnloadCallback.c)
+ *     ViThunkApplyPristineCurrentSession @ 0x140AD858C (ViThunkApplyPristineCurrentSession.c)
+ *     ViThunkApplyWdmThunksCurrentSession @ 0x140AD86BC (ViThunkApplyWdmThunksCurrentSession.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x1404FBCCC (__report_rangecheckfailure.c)
+ *     VfUtilDbgPrint @ 0x1405CBEB4 (VfUtilDbgPrint.c)
+ *     RtlUpcaseUnicodeChar @ 0x1406EA4F0 (RtlUpcaseUnicodeChar.c)
+ */
+
 __int64 __fastcall VfUtilPrintCheckinString(unsigned __int16 *a1, char a2)
 {
   unsigned int v2; // edi

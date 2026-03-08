@@ -1,3 +1,15 @@
+/*
+ * XREFs of SmmSwapDomains @ 0x1C03D1710
+ * Callers:
+ *     SmmIommuSwitchToGpuVaIoMmu @ 0x1C03D11C0 (SmmIommuSwitchToGpuVaIoMmu.c)
+ *     ?SmmIommuSwitchToPassthrough@@YAJPEAUSYSMM_ADAPTER@@@Z @ 0x1C03D13E8 (-SmmIommuSwitchToPassthrough@@YAJPEAUSYSMM_ADAPTER@@@Z.c)
+ *     SmmIommuSwitchToTranslation @ 0x1C03D14A4 (SmmIommuSwitchToTranslation.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     SmmAttachDomainToAllDevices @ 0x1C03D0E00 (SmmAttachDomainToAllDevices.c)
+ *     SmmDetachDomainFromAllDevices @ 0x1C03D0F74 (SmmDetachDomainFromAllDevices.c)
+ */
+
 __int64 __fastcall SmmSwapDomains(__int64 a1, struct _IOMMU_DMA_DOMAIN *a2, struct _IOMMU_DMA_DOMAIN *a3)
 {
   int v6; // edi

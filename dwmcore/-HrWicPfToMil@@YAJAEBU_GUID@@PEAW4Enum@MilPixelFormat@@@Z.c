@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrWicPfToMil@@YAJAEBU_GUID@@PEAW4Enum@MilPixelFormat@@@Z @ 0x1800A6178
+ * Callers:
+ *     ?HrInit@CWICBitmapWrapper@@IEAAJPEAUIWICBitmapSource@@@Z @ 0x1800A5FFC (-HrInit@CWICBitmapWrapper@@IEAAJPEAUIWICBitmapSource@@@Z.c)
+ * Callees:
+ *     memcmp_0 @ 0x1801177DC (memcmp_0.c)
+ */
+
 __int64 __fastcall HrWicPfToMil(const struct _GUID *a1, enum MilPixelFormat::Enum *a2)
 {
   int v2; // edi

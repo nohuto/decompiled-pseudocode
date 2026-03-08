@@ -1,3 +1,18 @@
+/*
+ * XREFs of PspQueryQuotaLimits @ 0x14071F77C
+ * Callers:
+ *     NtQueryInformationProcess @ 0x1407215F0 (NtQueryInformationProcess.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MmQueryWorkingSetInformation @ 0x140299640 (MmQueryWorkingSetInformation.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ */
+
 __int64 __fastcall PspQueryQuotaLimits(ULONG_PTR BugCheckParameter1, __int64 a2, void *a3, unsigned int a4, _DWORD *a5)
 {
   size_t v5; // rdi

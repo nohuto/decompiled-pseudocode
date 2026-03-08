@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bPolyBezierTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@AEBV?$umptr_r@U_POINTL@@@@K@Z @ 0x1C0180FE0
+ * Callers:
+ *     PATHOBJ_bPolyBezierTo @ 0x1C0181A00 (PATHOBJ_bPolyBezierTo.c)
+ * Callees:
+ *     ?addpoints@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@@Z @ 0x1C0180B48 (-addpoints@EPATHOBJ@@IEAAHPEAVEXFORMOBJ@@PEAU_PATHDATAL@@@Z.c)
+ */
+
 __int64 __fastcall EPATHOBJ::bPolyBezierTo(__int64 a1, struct EXFORMOBJ *a2, __int64 a3, unsigned int a4)
 {
   unsigned int v7; // ecx

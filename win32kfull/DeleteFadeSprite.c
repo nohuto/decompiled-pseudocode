@@ -1,3 +1,14 @@
+/*
+ * XREFs of DeleteFadeSprite @ 0x1C01BDE40
+ * Callers:
+ *     ?CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z @ 0x1C01BD154 (-CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z.c)
+ *     StopFade @ 0x1C01BDEF0 (StopFade.c)
+ * Callees:
+ *     UnsetLayeredWindow @ 0x1C00240E0 (UnsetLayeredWindow.c)
+ *     GreDeleteSprite @ 0x1C0024368 (GreDeleteSprite.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 DeleteFadeSprite()
 {

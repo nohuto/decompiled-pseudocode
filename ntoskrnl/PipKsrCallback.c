@@ -1,3 +1,12 @@
+/*
+ * XREFs of PipKsrCallback @ 0x14096A300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwQuerySystemInformation @ 0x1404129D0 (ZwQuerySystemInformation.c)
+ *     PipKsrNotifyDrivers @ 0x14096A3D0 (PipKsrNotifyDrivers.c)
+ */
+
 void __fastcall PipKsrCallback(PVOID CallbackContext, unsigned __int64 Argument1, int *Argument2)
 {
   int v4; // edx

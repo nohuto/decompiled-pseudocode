@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlFindNextAlignedForwardRunClear @ 0x14020B170
+ * Callers:
+ *     EtwpFindUserBufferSpace @ 0x1406A1E50 (EtwpFindUserBufferSpace.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlFindNextAlignedForwardRunClear(int *a1, __int64 a2, int a3)
 {
   unsigned int v3; // esi

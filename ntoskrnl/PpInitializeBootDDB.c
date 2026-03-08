@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpInitializeBootDDB @ 0x140B5A6EC
+ * Callers:
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     PpBootDDBHelper @ 0x14081D504 (PpBootDDBHelper.c)
+ *     PiInitializeDDBCache @ 0x140B5A928 (PiInitializeDDBCache.c)
+ */
+
 __int64 __fastcall PpInitializeBootDDB(__int64 a1, int a2)
 {
   __int64 result; // rax

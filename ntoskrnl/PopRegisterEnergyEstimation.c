@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopRegisterEnergyEstimation @ 0x1403B03A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopDetermineBucketFrequencies @ 0x140581250 (PopDetermineBucketFrequencies.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void __fastcall PopRegisterEnergyEstimation(__int64 a1, __int64 (__fastcall *a2)(_QWORD, _QWORD, _QWORD), char a3)
 {
   unsigned int v3; // ebx

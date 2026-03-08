@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionLLMouseWheelHook @ 0x1C02403FC
+ * Callers:
+ *     ?ProcessMouseWheel@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@@Z @ 0x1C023042C (-ProcessMouseWheel@CMouseProcessor@@AEAAXAEBVCWheelEvent@1@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ApiSetEditionLLMouseWheelHook(__int64 a1, __int64 a2, __int64 *a3, unsigned int a4)
 {
   __int64 *v5; // rsi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of Register_GetExtendedCapabilityTotalSize @ 0x1C001E138
+ * Callers:
+ *     Wmi_CreateControllerCapabilities @ 0x1C00151B4 (Wmi_CreateControllerCapabilities.c)
+ * Callees:
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ */
+
 __int64 __fastcall Register_GetExtendedCapabilityTotalSize(__int64 a1)
 {
   unsigned int *v1; // rdi

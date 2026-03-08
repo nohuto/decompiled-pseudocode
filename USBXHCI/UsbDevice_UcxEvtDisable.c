@@ -1,3 +1,21 @@
+/*
+ * XREFs of UsbDevice_UcxEvtDisable @ 0x1C0049D80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Command_SendCommand @ 0x1C000A820 (Command_SendCommand.c)
+ *     Controller_IsControllerAccessible @ 0x1C000A8E4 (Controller_IsControllerAccessible.c)
+ *     Endpoint_Disable @ 0x1C000B0AC (Endpoint_Disable.c)
+ *     UsbDevice_SetDeviceDisabled @ 0x1C000FD4C (UsbDevice_SetDeviceDisabled.c)
+ *     RootHub_ReleaseReadModifyWriteLock @ 0x1C00182B0 (RootHub_ReleaseReadModifyWriteLock.c)
+ *     RootHub_AcquireReadModifyWriteLock @ 0x1C00182F4 (RootHub_AcquireReadModifyWriteLock.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0019330 (WPP_RECORDER_SF_dq.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     RootHub_DisableLPMForSlot @ 0x1C003F3E8 (RootHub_DisableLPMForSlot.c)
+ */
+
 char __fastcall UsbDevice_UcxEvtDisable(__int64 a1, __int64 a2)
 {
   _QWORD *v3; // rax

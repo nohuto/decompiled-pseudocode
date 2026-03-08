@@ -1,3 +1,11 @@
+/*
+ * XREFs of Feature_Servicing_BypassGraphicsFreezeNotification__private_IsEnabledFallback @ 0x1C00DCCE8
+ * Callers:
+ *     Feature_Servicing_BypassGraphicsFreezeNotification__private_IsEnabledDeviceUsage @ 0x1C00DCCB0 (Feature_Servicing_BypassGraphicsFreezeNotification__private_IsEnabledDeviceUsage.c)
+ * Callees:
+ *     wil_details_IsEnabledFallback @ 0x1C00DC9A0 (wil_details_IsEnabledFallback.c)
+ */
+
 __int64 __fastcall Feature_Servicing_BypassGraphicsFreezeNotification__private_IsEnabledFallback(
         __int64 a1,
         unsigned int a2)

@@ -1,3 +1,19 @@
+/*
+ * XREFs of CmpBuildAdminInformation @ 0x140A15CBC
+ * Callers:
+ *     CmpCheckAdminAccess @ 0x140A16150 (CmpCheckAdminAccess.c)
+ * Callees:
+ *     RtlEqualSid @ 0x140208A60 (RtlEqualSid.c)
+ *     CmpAllocatePool @ 0x140243878 (CmpAllocatePool.c)
+ *     RtlLengthSid @ 0x140245EC0 (RtlLengthSid.c)
+ *     RtlSidHashInitialize @ 0x140310020 (RtlSidHashInitialize.c)
+ *     RtlCopySidAndAttributesArray @ 0x1406D47D0 (RtlCopySidAndAttributesArray.c)
+ *     CmpEffectiveTokenForSubject @ 0x140768D98 (CmpEffectiveTokenForSubject.c)
+ *     SeQueryInformationToken @ 0x1407B9760 (SeQueryInformationToken.c)
+ *     RtlCopyLuidAndAttributesArray @ 0x1409B91B0 (RtlCopyLuidAndAttributesArray.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmpBuildAdminInformation(__int64 *a1, __int64 *a2)
 {
   void *v2; // rax

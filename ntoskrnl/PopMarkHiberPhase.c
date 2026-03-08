@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopMarkHiberPhase @ 0x140AA0728
+ * Callers:
+ *     PopMarkComponentsBootPhase @ 0x140AA049C (PopMarkComponentsBootPhase.c)
+ * Callees:
+ *     MmSizeOfMdl @ 0x1402CFFB0 (MmSizeOfMdl.c)
+ *     PoSetHiberRange @ 0x14058C400 (PoSetHiberRange.c)
+ */
+
 void __fastcall PopMarkHiberPhase(unsigned int *Address)
 {
   void *v2; // r8

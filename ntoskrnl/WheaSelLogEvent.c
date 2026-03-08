@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheaSelLogEvent @ 0x14060DD48
+ * Callers:
+ *     WheaLogInternalEvent @ 0x14037D610 (WheaLogInternalEvent.c)
+ * Callees:
+ *     WheaSelLogErrorPkt @ 0x14060DC5C (WheaSelLogErrorPkt.c)
+ *     WheapLogIpmiSELEvent @ 0x140610F90 (WheapLogIpmiSELEvent.c)
+ */
+
 __int64 __fastcall WheaSelLogEvent(char *Src)
 {
   int v1; // edx

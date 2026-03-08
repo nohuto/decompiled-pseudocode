@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?OverrideClip@CCursorClip@@QEAAX_N@Z @ 0x1C020AF94
+ * Callers:
+ *     DisableDelegation @ 0x1C00C8990 (DisableDelegation.c)
+ *     SetInputDelegationModeImpl @ 0x1C021882C (SetInputDelegationModeImpl.c)
+ * Callees:
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C006AE58 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C00AB5F0 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void __fastcall CCursorClip::OverrideClip(CCursorClip *this, unsigned __int8 a2)
 {
   __int64 v2; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetPTPShellTarget @ 0x1C0271DBC
+ * Callers:
+ *     ApiSetGetPTPShellTarget @ 0x1C0244748 (ApiSetGetPTPShellTarget.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 _OWORD *__fastcall GetPTPShellTarget(_OWORD *a1)
 {
   _OWORD *v2; // rax

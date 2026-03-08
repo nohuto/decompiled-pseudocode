@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxBroadcastPaletteChanged @ 0x1C021794C
+ * Callers:
+ *     xxxFlushPalette @ 0x1C02179E0 (xxxFlushPalette.c)
+ *     xxxRealizePalette @ 0x1C0217A18 (xxxRealizePalette.c)
+ * Callees:
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     xxxSendNotifyMessage @ 0x1C00D8320 (xxxSendNotifyMessage.c)
+ *     xxxRealizeDesktop @ 0x1C01BFDAC (xxxRealizeDesktop.c)
+ */
+
 __int64 __fastcall xxxBroadcastPaletteChanged(unsigned __int64 *a1)
 {
   unsigned __int64 v1; // rdi

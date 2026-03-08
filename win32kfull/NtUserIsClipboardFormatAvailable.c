@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserIsClipboardFormatAvailable @ 0x1C00123E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z @ 0x1C0012468 (-FindClipFormat@@YAPEAUtagCLIP@@PEAUtagWINDOWSTATION@@IK@Z.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00BD7B8 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ */
+
 __int64 __fastcall NtUserIsClipboardFormatAvailable(unsigned int a1)
 {
   __int64 v2; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vDetermineSurfaceBounds@@YAXPEAU_SURFOBJ@@EJJPEAU_RECTL@@@Z @ 0x1C012785C
+ * Callers:
+ *     ?vCalculateCursorBounds@@YAXPEAU_SURFOBJ@@0PEAU_RECTL@@@Z @ 0x1C0127790 (-vCalculateCursorBounds@@YAXPEAU_SURFOBJ@@0PEAU_RECTL@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vDetermineSurfaceBounds(struct _SURFOBJ *a1, char a2, LONG a3, LONG a4, struct _RECTL *a5)
 {
   __int64 iBitmapFormat; // rax

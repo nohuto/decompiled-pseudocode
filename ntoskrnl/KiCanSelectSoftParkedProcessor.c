@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiCanSelectSoftParkedProcessor @ 0x14036DE9C
+ * Callers:
+ *     KiHeteroChooseTargetProcessor @ 0x140459316 (KiHeteroChooseTargetProcessor.c)
+ * Callees:
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140255D00 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402ADF80 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiSelectCandidateProcessor @ 0x14045A5B4 (KiSelectCandidateProcessor.c)
+ *     KiAreSoftUnparkingElectionsEnabled @ 0x14057B67C (KiAreSoftUnparkingElectionsEnabled.c)
+ */
+
 bool __fastcall KiCanSelectSoftParkedProcessor(__int64 a1, __int64 a2, int a3)
 {
   char v3; // bl

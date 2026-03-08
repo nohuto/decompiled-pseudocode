@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??1CEffectCompilationTask@@QEAA@XZ @ 0x1801E2F4C
+ * Callers:
+ *     ?Release@CEffectCompilationTask@@UEAAKXZ @ 0x1800E2E40 (-Release@CEffectCompilationTask@@UEAAKXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?erase@?$_Hash@V?$_Umap_traits@UEffectDescriptionKey@@PEAVCEffectCompilationTask@@V?$_Uhash_compare@UEffectDescriptionKey@@U?$hash@UEffectDescriptionKey@@@std@@U?$equal_to@UEffectDescriptionKey@@@3@@std@@V?$allocator@U?$pair@$$CBUEffectDescriptionKey@@PEAVCEffectCompilationTask@@@std@@@4@$0A@@std@@@std@@QEAA_KAEBUEffectDescriptionKey@@@Z @ 0x1801B92E4 (-erase@-$_Hash@V-$_Umap_traits@UEffectDescriptionKey@@PEAVCEffectCompilationTask@@V-$_Uhash_comp.c)
+ *     ??_GCCompiledEffectCache@@QEAAPEAXI@Z @ 0x1801E3010 (--_GCCompiledEffectCache@@QEAAPEAXI@Z.c)
+ *     ?Cancel_RenderThread@CEffectCompilationTask@@AEAAXXZ @ 0x1801E30B4 (-Cancel_RenderThread@CEffectCompilationTask@@AEAAXXZ.c)
+ */
+
 void __fastcall CEffectCompilationTask::~CEffectCompilationTask(CEffectCompilationTask *this)
 {
   unsigned int v2; // edx

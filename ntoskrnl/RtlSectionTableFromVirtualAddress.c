@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlSectionTableFromVirtualAddress @ 0x14035D7C0
+ * Callers:
+ *     RtlAddressInSectionTable @ 0x14035D764 (RtlAddressInSectionTable.c)
+ *     KeQueryKvaShadowRegion @ 0x1403CA1C8 (KeQueryKvaShadowRegion.c)
+ *     EtwpIsValidImageAddress @ 0x140775684 (EtwpIsValidImageAddress.c)
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x1407EA480 (LdrpAccessResourceDataNoMultipleLanguage.c)
+ *     KiTpIsSupportedKernelTracepointLocation @ 0x140973640 (KiTpIsSupportedKernelTracepointLocation.c)
+ *     KiShadowProcessorAllocation @ 0x140A8666C (KiShadowProcessorAllocation.c)
+ *     KiVerifyXcpt15 @ 0x140B14320 (KiVerifyXcpt15.c)
+ *     CcInitializeBcbProfiler @ 0x140B14354 (CcInitializeBcbProfiler.c)
+ *     sub_140B16730 @ 0x140B16730 (sub_140B16730.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall RtlSectionTableFromVirtualAddress(unsigned __int64 a1, __int64 a2, unsigned int a3)
 {
   unsigned __int64 v4; // r9

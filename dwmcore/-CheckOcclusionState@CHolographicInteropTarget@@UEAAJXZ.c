@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CheckOcclusionState@CHolographicInteropTarget@@UEAAJXZ @ 0x1802A5B3C
+ * Callers:
+ *     ?CheckOcclusionState@CHolographicInteropTarget@@$4PPPPPPPM@A@EAAJXZ @ 0x18011D5B0 (-CheckOcclusionState@CHolographicInteropTarget@@$4PPPPPPPM@A@EAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CHolographicInteropTarget::CheckOcclusionState(CHolographicInteropTarget *this)
 {
   __int64 v1; // rax

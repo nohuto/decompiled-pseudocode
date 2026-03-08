@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpReferenceLastBranchLookasideList @ 0x1409ED67C
+ * Callers:
+ *     EtwpUpdateLastBranchTracingConfiguration @ 0x1409ED6FC (EtwpUpdateLastBranchTracingConfiguration.c)
+ * Callees:
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 struct _SLIST_ENTRY *EtwpReferenceLastBranchLookasideList()
 {
   __int64 v0; // rdi

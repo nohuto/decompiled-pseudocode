@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?TransformRgn@@YAPEAUHRGN__@@PEAU1@PEAUtagXFORM@@@Z @ 0x1C0144C5C
+ * Callers:
+ *     PhysicalToLogicalInPlaceRgnWorker @ 0x1C0052B04 (PhysicalToLogicalInPlaceRgnWorker.c)
+ *     LogicalToPhysicalInPlaceRgnWorker @ 0x1C00DB9C4 (LogicalToPhysicalInPlaceRgnWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall TransformRgn(HRGN a1, struct tagXFORM *a2)
 {
   __int64 Region; // rbx

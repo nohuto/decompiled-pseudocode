@@ -1,3 +1,35 @@
+/*
+ * XREFs of RtlDeleteElementGenericTableAvl @ 0x140244F40
+ * Callers:
+ *     VfAvlDeleteTreeNode @ 0x140303394 (VfAvlDeleteTreeNode.c)
+ *     PiDmRemoveCacheReferenceForObject @ 0x140680BEC (PiDmRemoveCacheReferenceForObject.c)
+ *     PiPnpRtlObjectEventWorker @ 0x1406CC6A0 (PiPnpRtlObjectEventWorker.c)
+ *     PiPnpRtlEndOperation @ 0x1406CCB7C (PiPnpRtlEndOperation.c)
+ *     PopPowerRequestDelete @ 0x14073B0E0 (PopPowerRequestDelete.c)
+ *     PiDqQueryDeleteObjectFromResultSet @ 0x140791164 (PiDqQueryDeleteObjectFromResultSet.c)
+ *     PiUpdateDriverDBCache @ 0x14079D924 (PiUpdateDriverDBCache.c)
+ *     PiSwIrpStartCreateWorker @ 0x140806A2C (PiSwIrpStartCreateWorker.c)
+ *     PiDmObjectManagerPopulate @ 0x14083A17C (PiDmObjectManagerPopulate.c)
+ *     EtwpFreeKeyNameList @ 0x14083D658 (EtwpFreeKeyNameList.c)
+ *     PopPowerRequestStatsOnSleepstudySessionChange @ 0x1408730B0 (PopPowerRequestStatsOnSleepstudySessionChange.c)
+ *     PnpCleanupDeviceRegistryValues @ 0x14088039C (PnpCleanupDeviceRegistryValues.c)
+ *     IopCleanupFileObjectIosbRange @ 0x140941770 (IopCleanupFileObjectIosbRange.c)
+ *     IopSetFileObjectIosbRange @ 0x140942FC8 (IopSetFileObjectIosbRange.c)
+ *     PiDmListRemoveObjectWorker @ 0x140958008 (PiDmListRemoveObjectWorker.c)
+ *     PiSwBusRelationRemove @ 0x140964098 (PiSwBusRelationRemove.c)
+ *     PiSwCloseDevice @ 0x140964150 (PiSwCloseDevice.c)
+ *     PiSwProcessRemove @ 0x140964760 (PiSwProcessRemove.c)
+ *     PopPowerRequestTableDeleteEntry @ 0x14097EAFC (PopPowerRequestTableDeleteEntry.c)
+ *     PopDirectedDripsUmDirectedFxRemoveTestDevice @ 0x14099C770 (PopDirectedDripsUmDirectedFxRemoveTestDevice.c)
+ *     VfAvlDeleteAllTreeNodes @ 0x140AD9230 (VfAvlDeleteAllTreeNodes.c)
+ *     VfPtProcessFreePoolInfo @ 0x140ADBAD0 (VfPtProcessFreePoolInfo.c)
+ *     ViPtDeleteAvlTrees @ 0x140ADBBF0 (ViPtDeleteAvlTrees.c)
+ * Callees:
+ *     DeleteNodeFromTree @ 0x140244FF0 (DeleteNodeFromTree.c)
+ *     RealPredecessor @ 0x1402F4B58 (RealPredecessor.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 BOOLEAN __stdcall RtlDeleteElementGenericTableAvl(PRTL_AVL_TABLE Table, PVOID Buffer)
 {
   _RTL_BALANCED_LINKS *RightChild; // rbx

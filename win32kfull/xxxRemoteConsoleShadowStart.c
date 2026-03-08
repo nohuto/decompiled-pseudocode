@@ -1,3 +1,16 @@
+/*
+ * XREFs of xxxRemoteConsoleShadowStart @ 0x1C02063C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?FindMirrorDriver@@YAJPEBGPEAU_DISPLAY_DEVICEW@@@Z @ 0x1C0205904 (-FindMirrorDriver@@YAJPEBGPEAU_DISPLAY_DEVICEW@@@Z.c)
+ *     GreConsoleShadowStart @ 0x1C02DEB38 (GreConsoleShadowStart.c)
+ *     bDrvReconnect @ 0x1C02DF36C (bDrvReconnect.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall xxxRemoteConsoleShadowStart(__int64 a1, const WCHAR *a2, __int64 a3)
 {

@@ -1,3 +1,13 @@
+/*
+ * XREFs of Controller_ReferenceTrustletProcess @ 0x1C0034428
+ * Callers:
+ *     Controller_Create @ 0x1C00712C4 (Controller_Create.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Controller_ReferenceTrustletProcess(_QWORD *a1)
 {
   unsigned int v2; // ebx

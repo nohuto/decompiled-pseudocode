@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlConfigureDynamicMemory @ 0x1406764F0
+ * Callers:
+ *     KeConfigureDynamicMemory @ 0x14056C5A8 (KeConfigureDynamicMemory.c)
+ * Callees:
+ *     HvlpAddRemovePhysicalMemory @ 0x140676630 (HvlpAddRemovePhysicalMemory.c)
+ */
+
 __int64 __fastcall HvlConfigureDynamicMemory(unsigned __int64 a1, unsigned __int64 a2, int a3)
 {
   int v3; // edi

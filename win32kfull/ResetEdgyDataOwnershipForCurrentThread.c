@@ -1,3 +1,11 @@
+/*
+ * XREFs of ResetEdgyDataOwnershipForCurrentThread @ 0x1C00D9190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 ResetEdgyDataOwnershipForCurrentThread()
 {
   __int64 result; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ReadSystemMem @ 0x1C0005CC0
+ * Callers:
+ *     WriteFieldObj @ 0x1C0006080 (WriteFieldObj.c)
+ *     AccessBaseField @ 0x1C00517B0 (AccessBaseField.c)
+ *     ReadBuffField @ 0x1C0052A14 (ReadBuffField.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ */
+
 __int64 __fastcall ReadSystemMem(unsigned __int64 Src, size_t Size, __int64 a3)
 {
   size_t v5; // rbx

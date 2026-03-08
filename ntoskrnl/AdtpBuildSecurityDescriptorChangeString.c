@@ -1,3 +1,12 @@
+/*
+ * XREFs of AdtpBuildSecurityDescriptorChangeString @ 0x140A58254
+ * Callers:
+ *     AdtpPackageParameters @ 0x1403958B4 (AdtpPackageParameters.c)
+ * Callees:
+ *     AdtpBuildSecurityDescriptorUnicodeString @ 0x140A58320 (AdtpBuildSecurityDescriptorUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AdtpBuildSecurityDescriptorChangeString(
         int a1,
         int a2,

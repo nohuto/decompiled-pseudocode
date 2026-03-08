@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?PreRender@CComputeScribbleRenderer@@QEAAJXZ @ 0x1801F894C
+ * Callers:
+ *     ?AddComputeScribbleInvalidRects@CLegacySwapChain@@UEAAJAEBVCMILMatrix@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVCDirtyRegion@@@Z @ 0x1800D6F70 (-AddComputeScribbleInvalidRects@CLegacySwapChain@@UEAAJAEBVCMILMatrix@@AEBV-$TMilRect@IUMilRectU.c)
+ * Callees:
+ *     ?reset@?$com_ptr_t@VCBrushRenderingGraph@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E707C (-reset@-$com_ptr_t@VCBrushRenderingGraph@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0x_EventWriteTransfer @ 0x180129DEE (McTemplateU0x_EventWriteTransfer.c)
+ *     ?SaveDirtyForPreRender@CComputeScribbleFramebuffer@@QEAAXXZ @ 0x18012D90C (-SaveDirtyForPreRender@CComputeScribbleFramebuffer@@QEAAXXZ.c)
+ *     McTemplateU0xqqqqt_EventWriteTransfer @ 0x1801F8C90 (McTemplateU0xqqqqt_EventWriteTransfer.c)
+ *     ?SetScannedOutBuffer@CComputeScribbleScheduler@@QEAAXII@Z @ 0x180200C50 (-SetScannedOutBuffer@CComputeScribbleScheduler@@QEAAXII@Z.c)
+ *     ?AcquireForRender@CComputeScribbleFramebuffer@@QEAAX_K@Z @ 0x18020163C (-AcquireForRender@CComputeScribbleFramebuffer@@QEAAX_K@Z.c)
+ */
+
 __int64 __fastcall CComputeScribbleRenderer::PreRender(CComputeScribbleRenderer *this)
 {
   __int64 v1; // r8

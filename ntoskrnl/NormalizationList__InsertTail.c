@@ -1,3 +1,11 @@
+/*
+ * XREFs of NormalizationList__InsertTail @ 0x1405B3664
+ * Callers:
+ *     RtlpGetNormalization @ 0x1409C5918 (RtlpGetNormalization.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall NormalizationList__InsertTail(__int64 a1)
 {
   _QWORD *result; // rax

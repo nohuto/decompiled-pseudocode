@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?MulCreateDeviceBitmapEx@@YAPEAUHBITMAP__@@PEAUDHPDEV__@@UtagSIZE@@KKPEAUDHSURF__@@KKPEAPEAX@Z @ 0x1C02B1430
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreDwmUseDeviceBitmapsForMultiAdapter @ 0x1C000A4DC (GreDwmUseDeviceBitmapsForMultiAdapter.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     ?pAllocateAndInitializeMDSURF@@YAPEAU_MDSURF@@PEAU_VDEV@@@Z @ 0x1C02B5350 (-pAllocateAndInitializeMDSURF@@YAPEAU_MDSURF@@PEAU_VDEV@@@Z.c)
+ *     ?vSetupDevBitmap@@YAXPEAVPDEVOBJ@@PEAVSURFACE@@@Z @ 0x1C02B5680 (-vSetupDevBitmap@@YAXPEAVPDEVOBJ@@PEAVSURFACE@@@Z.c)
+ */
+
 HBITMAP __fastcall MulCreateDeviceBitmapEx(
         struct DHPDEV__ *a1,
         SIZEL a2,

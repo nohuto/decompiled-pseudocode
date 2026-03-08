@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?greenloop@INVCMAP@@QEAAHH@Z @ 0x1C02A627C
+ * Callers:
+ *     ?redloop@INVCMAP@@QEAAHXZ @ 0x1C02A667C (-redloop@INVCMAP@@QEAAHXZ.c)
+ * Callees:
+ *     ?blueloop@INVCMAP@@QEAAHH@Z @ 0x1C02A60E4 (-blueloop@INVCMAP@@QEAAHH@Z.c)
+ */
+
 __int64 __fastcall INVCMAP::greenloop(INVCMAP *this, int a2)
 {
   int v3; // r13d

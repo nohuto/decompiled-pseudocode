@@ -1,3 +1,11 @@
+/*
+ * XREFs of NVMeGetTemperatureThresholdCompletion @ 0x1C001EF40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ */
+
 __int64 __fastcall NVMeGetTemperatureThresholdCompletion(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

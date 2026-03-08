@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpKeyEnumStackVerifyResumeContext @ 0x140A21738
+ * Callers:
+ *     CmpEnumerateLayeredKey @ 0x140A13774 (CmpEnumerateLayeredKey.c)
+ * Callees:
+ *     CmpGetKcbAtLayerHeight @ 0x1407AF600 (CmpGetKcbAtLayerHeight.c)
+ */
+
 __int64 __fastcall CmpKeyEnumStackVerifyResumeContext(__int64 a1)
 {
   unsigned int v1; // r8d

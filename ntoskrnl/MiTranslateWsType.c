@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiTranslateWsType @ 0x1402998EC
+ * Callers:
+ *     MmGetWorkingSetLeafSize @ 0x140299868 (MmGetWorkingSetLeafSize.c)
+ *     MiInitializeSystemWorkingSetList @ 0x140726074 (MiInitializeSystemWorkingSetList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiTranslateWsType(int a1)
 {
   __int64 result; // rax

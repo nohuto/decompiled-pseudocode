@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiWriteFixedMtrr @ 0x140A8C7FC
+ * Callers:
+ *     KeLoadMTRR @ 0x140A8C4C0 (KeLoadMTRR.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall KiWriteFixedMtrr(unsigned __int64 *a1)
 {
   unsigned __int64 v1; // r8

@@ -1,3 +1,21 @@
+/*
+ * XREFs of EtwpCreateUmReplyObject @ 0x14078BE14
+ * Callers:
+ *     EtwpNotifyGuid @ 0x14068EA84 (EtwpNotifyGuid.c)
+ *     EtwpEnableGuid @ 0x14068EEBC (EtwpEnableGuid.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeInitializeQueue @ 0x1402A8580 (KeInitializeQueue.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpReferenceGuidEntry @ 0x140695054 (EtwpReferenceGuidEntry.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ *     ObInsertObject @ 0x1407F0A20 (ObInsertObject.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpCreateUmReplyObject(ULONG_PTR BugCheckParameter2, PHANDLE Handle, _QWORD *a3)
 {
   struct _KQUEUE *Pool2; // rax

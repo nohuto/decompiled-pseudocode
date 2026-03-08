@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpTreeDoubleRotateNodes @ 0x14024E910
+ * Callers:
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpTreeDoubleRotateNodes(_QWORD *a1, __int64 a2, unsigned __int64 a3, unsigned int a4)
 {
   __int64 v4; // r10

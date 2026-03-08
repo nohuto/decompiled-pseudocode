@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Compare@MonitorData@CMonitorTopology@@SA_NAEBU12@0@Z @ 0x1C01022AC
+ * Callers:
+ *     ?NeedsMigration@CRecalcState@@AEBA_NPEBUtagWND@@@Z @ 0x1C00FF140 (-NeedsMigration@CRecalcState@@AEBA_NPEBUtagWND@@@Z.c)
+ * Callees:
+ *     ?Compare@MonitorId@CMonitorTopology@@SA_NAEBU12@0@Z @ 0x1C00FF3F8 (-Compare@MonitorId@CMonitorTopology@@SA_NAEBU12@0@Z.c)
+ */
+
 bool __fastcall CMonitorTopology::MonitorData::Compare(
         const struct CMonitorTopology::MonitorData *a1,
         const struct CMonitorTopology::MonitorData *a2,

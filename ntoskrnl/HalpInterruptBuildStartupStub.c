@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpInterruptBuildStartupStub @ 0x1403A3CC8
+ * Callers:
+ *     HalpInterruptBuildGlobalStartupStub @ 0x1403A3BE0 (HalpInterruptBuildGlobalStartupStub.c)
+ * Callees:
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     HalpInterruptCreateGdtEntry32 @ 0x1403A3ECC (HalpInterruptCreateGdtEntry32.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 PVOID HalpInterruptBuildStartupStub()
 {
   PHYSICAL_ADDRESS PhysicalAddress; // rax

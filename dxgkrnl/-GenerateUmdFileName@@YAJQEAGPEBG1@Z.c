@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GenerateUmdFileName@@YAJQEAGPEBG1@Z @ 0x1C02CAAFC
+ * Callers:
+ *     ?TranslateUmdFileNameToVm@@YAJPEAGIPEAK@Z @ 0x1C02CB87C (-TranslateUmdFileNameToVm@@YAJPEAGIPEAK@Z.c)
+ * Callees:
+ *     ?RtlStringCbCatW@@YAJPEAG_KPEBG@Z @ 0x1C003F868 (-RtlStringCbCatW@@YAJPEAG_KPEBG@Z.c)
+ *     ?RtlStringCbCopyW@@YAJPEAG_KPEBG@Z @ 0x1C003F8DC (-RtlStringCbCopyW@@YAJPEAG_KPEBG@Z.c)
+ */
+
 signed int __fastcall GenerateUmdFileName(unsigned __int16 *const a1, const unsigned __int16 *a2, size_t *a3)
 {
   size_t *NtSystemRoot; // rax

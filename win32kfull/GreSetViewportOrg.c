@@ -1,3 +1,17 @@
+/*
+ * XREFs of GreSetViewportOrg @ 0x1C02D2434
+ * Callers:
+ *     xxxDrawMenuBarUnderlines @ 0x1C00F268C (xxxDrawMenuBarUnderlines.c)
+ *     xxxMNInvertItem @ 0x1C02382C8 (xxxMNInvertItem.c)
+ *     xxxMenuDraw @ 0x1C0238E5C (xxxMenuDraw.c)
+ *     xxxDrawState @ 0x1C02423C0 (xxxDrawState.c)
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C0050C40 (--1DCOBJ@@QEAA@XZ.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00CFF10 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ */
+
 __int64 __fastcall GreSetViewportOrg(HDC a1, int a2, int a3)
 {
   __int64 v5; // rcx

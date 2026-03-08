@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtAcquireProcessActivityReference @ 0x1407FC5F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ExCpuSetResourceManagerAccessCheck @ 0x1403AB15C (ExCpuSetResourceManagerAccessCheck.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspCreateActivityReference @ 0x1407FC704 (PspCreateActivityReference.c)
+ */
+
 __int64 __fastcall NtAcquireProcessActivityReference(_QWORD *a1, ULONG_PTR a2, int a3)
 {
   KPROCESSOR_MODE PreviousMode; // si

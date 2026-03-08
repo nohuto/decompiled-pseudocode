@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_ClampPositionAfterExpressionProcessing@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x180230A9C
+ * Callers:
+ *     ?SetRequestedPosition@CInteractionTracker@@AEAA_NAEBUD2DVector3@@W4Enum@InteractionTrackerClampingOption@@W43InteractionTrackerPositionUpdateOption@@@Z @ 0x180231B08 (-SetRequestedPosition@CInteractionTracker@@AEAA_NAEBUD2DVector3@@W4Enum@InteractionTrackerClampi.c)
+ * Callees:
+ *     ?ReportUsageToService@details@wil@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x1800392F4 (-ReportUsageToService@details@wil@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGG.c)
+ *     ?GetCachedFeatureEnabledState@?$FeatureImpl@U__WilFeatureTraits_Feature_ClampPositionAfterExpressionProcessing@@@details@wil@@AEAA?ATwil_details_FeatureStateCache@@XZ @ 0x18022EFB4 (-GetCachedFeatureEnabledState@-$FeatureImpl@U__WilFeatureTraits_Feature_ClampPositionAfterExpres.c)
+ */
+
 _UNKNOWN **__fastcall wil::details::FeatureImpl<__WilFeatureTraits_Feature_ClampPositionAfterExpressionProcessing>::ReportUsage(
         volatile signed __int32 *a1,
         unsigned __int8 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of StringCbCopyNW @ 0x1405C87C4
+ * Callers:
+ *     SmUniqueIdParseProductName @ 0x1405C83D8 (SmUniqueIdParseProductName.c)
+ * Callees:
+ *     StringCopyWorkerW_0 @ 0x1405C8810 (StringCopyWorkerW_0.c)
+ */
+
 HRESULT __stdcall StringCbCopyNW(STRSAFE_LPWSTR pszDest, size_t cbDest, STRSAFE_PCNZWCH pszSrc, size_t cbToCopy)
 {
   size_t v4; // rdx

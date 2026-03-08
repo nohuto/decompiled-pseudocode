@@ -1,3 +1,17 @@
+/*
+ * XREFs of ViIrpDatabaseReleaseLockExclusive @ 0x1405D017C
+ * Callers:
+ *     IovpCompleteRequest2 @ 0x140AC9AFC (IovpCompleteRequest2.c)
+ *     VfIoFreeIrp @ 0x140ACA7E4 (VfIoFreeIrp.c)
+ *     VfPendingMoreProcessingRequired @ 0x140ACE970 (VfPendingMoreProcessingRequired.c)
+ *     ViPendingCompleteAfterWait @ 0x140ACEBEC (ViPendingCompleteAfterWait.c)
+ *     VfIrpDatabaseEntryInsertAndLock @ 0x140ADE818 (VfIrpDatabaseEntryInsertAndLock.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140ADE8EC (VfIrpDatabaseEntryReleaseLock.c)
+ * Callees:
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall ViIrpDatabaseReleaseLockExclusive(unsigned __int8 a1)
 {
   unsigned __int64 v1; // rbx

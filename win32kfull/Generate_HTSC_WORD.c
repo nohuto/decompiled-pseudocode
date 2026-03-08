@@ -1,3 +1,14 @@
+/*
+ * XREFs of Generate_HTSC_WORD @ 0x1C02550F0
+ * Callers:
+ *     CachedHalftonePattern @ 0x1C0254570 (CachedHalftonePattern.c)
+ * Callees:
+ *     ExpandHTPatX @ 0x1C0254E34 (ExpandHTPatX.c)
+ *     GenerateWORDPat @ 0x1C0254ED4 (GenerateWORDPat.c)
+ *     RotateHTPat45 @ 0x1C0255388 (RotateHTPat45.c)
+ *     RotateHTPatXY @ 0x1C0255480 (RotateHTPatXY.c)
+ */
+
 __int64 __fastcall Generate_HTSC_WORD(__m128i *a1)
 {
   __int64 v2; // rbx

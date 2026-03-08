@@ -1,3 +1,12 @@
+/*
+ * XREFs of Interrupter_Initialize @ 0x1C0014CBC
+ * Callers:
+ *     Interrupter_D0Entry @ 0x1C0014924 (Interrupter_D0Entry.c)
+ *     Interrupter_ControllerResetPostReset @ 0x1C003DC84 (Interrupter_ControllerResetPostReset.c)
+ * Callees:
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 _UNKNOWN **__fastcall Interrupter_Initialize(__int64 a1)
 {
   _UNKNOWN **result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiFdoHandleQueryPowerRelations @ 0x1C021A898
+ * Callers:
+ *     DpiFdoHandleQueryDeviceRelations @ 0x1C01E64B0 (DpiFdoHandleQueryDeviceRelations.c)
+ * Callees:
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000B270 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ */
+
 __int64 __fastcall DpiFdoHandleQueryPowerRelations(__int64 a1, __int64 a2)
 {
   unsigned int *v2; // rdi

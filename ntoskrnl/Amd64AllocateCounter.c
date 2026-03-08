@@ -1,3 +1,13 @@
+/*
+ * XREFs of Amd64AllocateCounter @ 0x140526678
+ * Callers:
+ *     Amd64EnableMonitoring @ 0x140526CE0 (Amd64EnableMonitoring.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     HalpAllocateHalCounters @ 0x1404FFC48 (HalpAllocateHalCounters.c)
+ *     Amd64CheckCoreEventConstraints @ 0x140526950 (Amd64CheckCoreEventConstraints.c)
+ */
+
 __int64 __fastcall Amd64AllocateCounter(signed __int32 a1, __int64 a2, unsigned int *a3, _BYTE *a4)
 {
   unsigned int v7; // ebp

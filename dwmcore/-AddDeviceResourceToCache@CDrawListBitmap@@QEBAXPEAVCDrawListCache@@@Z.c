@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?AddDeviceResourceToCache@CDrawListBitmap@@QEBAXPEAVCDrawListCache@@@Z @ 0x1800A9690
+ * Callers:
+ *     ?AddDeviceResourcesToCache@CBrushRenderingEffect@@UEBAXPEAVCDrawListCache@@@Z @ 0x1800A9640 (-AddDeviceResourcesToCache@CBrushRenderingEffect@@UEBAXPEAVCDrawListCache@@@Z.c)
+ *     ?AddDeviceResourcesToCache@CWARPDrawListEntry@@UEBAXPEAVCDrawListCache@@@Z @ 0x1801FCAB0 (-AddDeviceResourcesToCache@CWARPDrawListEntry@@UEBAXPEAVCDrawListCache@@@Z.c)
+ *     ?AddDeviceResourcesToCache@CCubeMapRenderingEffect@@UEBAXPEAVCDrawListCache@@@Z @ 0x1802B4F20 (-AddDeviceResourcesToCache@CCubeMapRenderingEffect@@UEBAXPEAVCDrawListCache@@@Z.c)
+ * Callees:
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800342C8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?AddDeviceResource@CDrawListCache@@QEAAXPEAVIDeviceResource@@@Z @ 0x1800A9744 (-AddDeviceResource@CDrawListCache@@QEAAXPEAVIDeviceResource@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CDrawListBitmap::AddDeviceResourceToCache(CDrawListBitmap *this, struct CDrawListCache *a2)
 {
   __int64 v2; // r8

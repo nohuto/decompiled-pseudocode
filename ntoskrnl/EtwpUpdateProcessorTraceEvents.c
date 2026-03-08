@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpUpdateProcessorTraceEvents @ 0x1409ED9A0
+ * Callers:
+ *     EtwSetPerformanceTraceInformation @ 0x1409DF094 (EtwSetPerformanceTraceInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EtwpUpdateProcessorTraceEvents(__int64 a1, __int64 a2, unsigned int a3)
 {
   _QWORD *v4; // rax

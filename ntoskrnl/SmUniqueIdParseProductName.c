@@ -1,3 +1,14 @@
+/*
+ * XREFs of SmUniqueIdParseProductName @ 0x1405C83D8
+ * Callers:
+ *     SmKmEtwAppendProductName @ 0x1405C8F6C (SmKmEtwAppendProductName.c)
+ * Callees:
+ *     wcschr @ 0x1403D5D90 (wcschr.c)
+ *     wcsstr @ 0x1403D6020 (wcsstr.c)
+ *     StringCbCatW @ 0x1405C8740 (StringCbCatW.c)
+ *     StringCbCopyNW @ 0x1405C87C4 (StringCbCopyNW.c)
+ */
+
 __int64 __fastcall SmUniqueIdParseProductName(wchar_t *Str, STRSAFE_LPWSTR pszDest, size_t cbDest)
 {
   size_t v4; // rbp

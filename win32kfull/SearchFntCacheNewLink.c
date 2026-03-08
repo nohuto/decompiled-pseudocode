@@ -1,3 +1,14 @@
+/*
+ * XREFs of SearchFntCacheNewLink @ 0x1C028C790
+ * Callers:
+ *     ?PutFNTCacheCheckSum@@YAXKK@Z @ 0x1C028C5B0 (-PutFNTCacheCheckSum@@YAXKK@Z.c)
+ *     ?PutFntCacheDrvAndFileInfo@@YAXKPEAVPDEV@@KPEAPEAU_FONTFILEVIEW@@K@Z @ 0x1C028C660 (-PutFntCacheDrvAndFileInfo@@YAXKPEAVPDEV@@KPEAPEAU_FONTFILEVIEW@@K@Z.c)
+ *     EngFntCacheAllocInternal @ 0x1C028CC6C (EngFntCacheAllocInternal.c)
+ * Callees:
+ *     SearchFNTCacheHlink @ 0x1C0116040 (SearchFNTCacheHlink.c)
+ *     bFntCacheCreateHLink @ 0x1C028C86C (bFntCacheCreateHLink.c)
+ */
+
 unsigned int *__fastcall SearchFntCacheNewLink(__int64 a1)
 {
   unsigned int v1; // esi

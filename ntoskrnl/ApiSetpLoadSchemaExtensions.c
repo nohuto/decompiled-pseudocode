@@ -1,3 +1,15 @@
+/*
+ * XREFs of ApiSetpLoadSchemaExtensions @ 0x140A0749C
+ * Callers:
+ *     ApiSetLoadSchemaWithExtensions @ 0x140A0717C (ApiSetLoadSchemaWithExtensions.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x140412950 (ZwEnumerateKey.c)
+ *     ApiSetpLoadSchemaExtension @ 0x140A07380 (ApiSetpLoadSchemaExtension.c)
+ */
+
 __int64 __fastcall ApiSetpLoadSchemaExtensions(HANDLE KeyHandle, unsigned int **a2, unsigned int *a3)
 {
   ULONG v4; // edi

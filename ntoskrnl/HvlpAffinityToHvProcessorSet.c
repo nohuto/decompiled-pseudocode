@@ -1,3 +1,20 @@
+/*
+ * XREFs of HvlpAffinityToHvProcessorSet @ 0x1405472B0
+ * Callers:
+ *     HvlMapDeviceInterrupt @ 0x1405427C0 (HvlMapDeviceInterrupt.c)
+ *     HvlRetargetDeviceInterrupt @ 0x1405431C0 (HvlRetargetDeviceInterrupt.c)
+ *     HvlpFastSendSyntheticClusterIpiEx @ 0x140543E08 (HvlpFastSendSyntheticClusterIpiEx.c)
+ *     HvlpSlowSendSyntheticClusterIpiEx @ 0x1405440CC (HvlpSlowSendSyntheticClusterIpiEx.c)
+ *     HvlParkedVirtualProcessors @ 0x1405445A8 (HvlParkedVirtualProcessors.c)
+ *     HvlpFastFlushAddressSpaceTbEx @ 0x1405474C4 (HvlpFastFlushAddressSpaceTbEx.c)
+ *     HvlpFastFlushListTbEx @ 0x140547580 (HvlpFastFlushListTbEx.c)
+ *     HvlpSlowFlushAddressSpaceTbEx @ 0x14054785C (HvlpSlowFlushAddressSpaceTbEx.c)
+ *     HvlpSlowFlushListTbEx @ 0x140547AF8 (HvlpSlowFlushListTbEx.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall HvlpAffinityToHvProcessorSet(__int64 a1, _QWORD *a2, unsigned int a3)
 {
   unsigned __int64 v3; // r15

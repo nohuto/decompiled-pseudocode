@@ -1,3 +1,15 @@
+/*
+ * XREFs of ViFlushZeroMapRegisterBaseWcbs @ 0x1405CC53C
+ * Callers:
+ *     VfPutDmaAdapter @ 0x140AC4280 (VfPutDmaAdapter.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     SUBTRACT_MAP_REGISTERS @ 0x140AC158C (SUBTRACT_MAP_REGISTERS.c)
+ */
+
 __int64 __fastcall ViFlushZeroMapRegisterBaseWcbs(__int64 a1)
 {
   volatile signed __int64 *v1; // rbp

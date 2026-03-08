@@ -1,3 +1,12 @@
+/*
+ * XREFs of MinAsn1ParseCertificate @ 0x140A6D7E0
+ * Callers:
+ *     MinCryptCheckCertsAndKeys @ 0x140674F10 (MinCryptCheckCertsAndKeys.c)
+ *     MinAsn1ParseSignedDataCertificatesEx @ 0x140A6D9C8 (MinAsn1ParseSignedDataCertificatesEx.c)
+ * Callees:
+ *     MinAsn1ExtractValues @ 0x140A6EB74 (MinAsn1ExtractValues.c)
+ */
+
 __int64 __fastcall MinAsn1ParseCertificate(int a1, int a2, __int64 a3)
 {
   int Values; // ecx

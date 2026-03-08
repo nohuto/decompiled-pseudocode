@@ -1,3 +1,38 @@
+/*
+ * XREFs of MiCreatePagingFileMap @ 0x1407F3500
+ * Callers:
+ *     MiCreateSection @ 0x1407D05D0 (MiCreateSection.c)
+ * Callees:
+ *     MiFreeLargeZeroPages @ 0x14020FD6C (MiFreeLargeZeroPages.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiReturnResident @ 0x1402A52C8 (MiReturnResident.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     MiChargeResident @ 0x140348DE8 (MiChargeResident.c)
+ *     MiAllocateLargeZeroPages @ 0x14034DCB0 (MiAllocateLargeZeroPages.c)
+ *     MiInitializeLargePfnList @ 0x14035059C (MiInitializeLargePfnList.c)
+ *     MiUpdateControlAreaCommitCount @ 0x140368568 (MiUpdateControlAreaCommitCount.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140368AE0 (MiUpdateSystemProtoPtesTree.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiUpdateLargePageSectionPfns @ 0x140626B50 (MiUpdateLargePageSectionPfns.c)
+ *     MiDeleteSectionAwe @ 0x140647390 (MiDeleteSectionAwe.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     MiInitializePrototypePtes @ 0x1407F3F04 (MiInitializePrototypePtes.c)
+ *     MmObtainChargesToLockPagedPool @ 0x14085CC30 (MmObtainChargesToLockPagedPool.c)
+ *     MiLogSectionCreate @ 0x140A2C970 (MiLogSectionCreate.c)
+ *     MmLockPreChargedPagedPool @ 0x140A2DC90 (MmLockPreChargedPagedPool.c)
+ *     MmReturnChargesToLockPagedPool @ 0x140A2DCE0 (MmReturnChargesToLockPagedPool.c)
+ *     MiAllocateAweInfo @ 0x140A3D3BC (MiAllocateAweInfo.c)
+ *     MiValidateUserPhysicalExternalFlags @ 0x140A3F608 (MiValidateUserPhysicalExternalFlags.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiCreatePagingFileMap(__int64 a1)
 {
   int v2; // esi

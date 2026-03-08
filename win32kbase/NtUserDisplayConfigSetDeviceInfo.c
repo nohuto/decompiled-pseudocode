@@ -1,3 +1,25 @@
+/*
+ * XREFs of NtUserDisplayConfigSetDeviceInfo @ 0x1C016E700
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CheckAccessEx @ 0x1C0016FB0 (CheckAccessEx.c)
+ *     _DeviceInfoTranslateStatusDefault @ 0x1C00221BC (_DeviceInfoTranslateStatusDefault.c)
+ *     UserIsWddmConnectedSession @ 0x1C0022420 (UserIsWddmConnectedSession.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterCritInternal @ 0x1C004FB50 (PrivateAPI--_anonymous_namespace_--EnterCritInternal.c)
+ *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0068568 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     HMUnlockObject @ 0x1C0072980 (HMUnlockObject.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ *     ?GetSetterTypeSize@DispConfigTypes@@YAKW4DISPLAYCONFIG_DEVICE_INFO_TYPE@@@Z @ 0x1C0169004 (-GetSetterTypeSize@DispConfigTypes@@YAKW4DISPLAYCONFIG_DEVICE_INFO_TYPE@@@Z.c)
+ *     DrvDisplayConfigSetDeviceInfo @ 0x1C0193490 (DrvDisplayConfigSetDeviceInfo.c)
+ */
+
 __int64 __fastcall NtUserDisplayConfigSetDeviceInfo(unsigned int *Src)
 {
   _DWORD *QuotaZInit; // rsi

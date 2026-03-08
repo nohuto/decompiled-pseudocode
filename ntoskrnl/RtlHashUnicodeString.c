@@ -1,3 +1,26 @@
+/*
+ * XREFs of RtlHashUnicodeString @ 0x140680AE0
+ * Callers:
+ *     KsepCacheHwIdHash @ 0x140201E30 (KsepCacheHwIdHash.c)
+ *     PiUEventHashStringIntoBucket @ 0x140201E5C (PiUEventHashStringIntoBucket.c)
+ *     CarLiveDumpCallBack @ 0x1405D3780 (CarLiveDumpCallBack.c)
+ *     PnpGenerateDeviceIdsHash @ 0x140680864 (PnpGenerateDeviceIdsHash.c)
+ *     PipFindDeviceOverrideEntry @ 0x14068092C (PipFindDeviceOverrideEntry.c)
+ *     SepGetCachedHandlesEntry @ 0x1407397EC (SepGetCachedHandlesEntry.c)
+ *     PiCreateDriverSwDeviceCallback @ 0x140807FD0 (PiCreateDriverSwDeviceCallback.c)
+ *     KsepCacheDeviceHash @ 0x140852620 (KsepCacheDeviceHash.c)
+ *     PiDmObjectCreate @ 0x140868FFC (PiDmObjectCreate.c)
+ *     PiDevCfgBuildDriverNodeStrongName @ 0x1408768C0 (PiDevCfgBuildDriverNodeStrongName.c)
+ *     PiDevCfgResolveVariable @ 0x140878210 (PiDevCfgResolveVariable.c)
+ *     PopFxInitializeSocSubsystemStaticInfo @ 0x140981C30 (PopFxInitializeSocSubsystemStaticInfo.c)
+ *     PopPluginQuerySocSubsystemBlockingTime @ 0x140983478 (PopPluginQuerySocSubsystemBlockingTime.c)
+ *     PopPluginQuerySocSubsystemMetadata @ 0x1409835B4 (PopPluginQuerySocSubsystemMetadata.c)
+ *     PipInitDeviceOverrideCache @ 0x140B5738C (PipInitDeviceOverrideCache.c)
+ * Callees:
+ *     NLS_UPCASE @ 0x140267AD0 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ */
+
 NTSTATUS __stdcall RtlHashUnicodeString(
         PCUNICODE_STRING String,
         BOOLEAN CaseInSensitive,

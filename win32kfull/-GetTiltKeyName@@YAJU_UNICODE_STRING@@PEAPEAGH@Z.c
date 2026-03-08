@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?GetTiltKeyName@@YAJU_UNICODE_STRING@@PEAPEAGH@Z @ 0x1C01A590C
+ * Callers:
+ *     ReadTiltCalibrationData @ 0x1C01A678C (ReadTiltCalibrationData.c)
+ *     WriteTiltCalibrationData @ 0x1C01A6CF4 (WriteTiltCalibrationData.c)
+ * Callees:
+ *     ?RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1C00BE504 (-RtlStringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
+ *     ?GetDeviceId@@YAJU_UNICODE_STRING@@PEAPEAG1@Z @ 0x1C01A57DC (-GetDeviceId@@YAJU_UNICODE_STRING@@PEAPEAG1@Z.c)
+ *     ?GetInstanceId@@YAJU_UNICODE_STRING@@PEAPEAG1@Z @ 0x1C01A5864 (-GetInstanceId@@YAJU_UNICODE_STRING@@PEAPEAG1@Z.c)
+ */
+
 __int64 __fastcall GetTiltKeyName(struct _UNICODE_STRING *a1, unsigned __int16 **a2)
 {
   struct _UNICODE_STRING v2; // xmm0

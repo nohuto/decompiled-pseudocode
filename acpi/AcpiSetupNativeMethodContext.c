@@ -1,3 +1,18 @@
+/*
+ * XREFs of AcpiSetupNativeMethodContext @ 0x1C0037EA0
+ * Callers:
+ *     AcpiNativeMethodEvalRequestHandler @ 0x1C00375E0 (AcpiNativeMethodEvalRequestHandler.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C001B508 (WPP_RECORDER_SF_qD.c)
+ *     AcpiConvertObjDataToMethodArguments @ 0x1C0036EF4 (AcpiConvertObjDataToMethodArguments.c)
+ *     WPP_RECORDER_SF_qqD @ 0x1C0038720 (WPP_RECORDER_SF_qqD.c)
+ *     WPP_RECORDER_SF_sqqD @ 0x1C0038878 (WPP_RECORDER_SF_sqqD.c)
+ *     AcpiGetNativeMethodHandleFromAcpiObject @ 0x1C0043C98 (AcpiGetNativeMethodHandleFromAcpiObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetParent @ 0x1C0048724 (AMLIGetParent.c)
+ */
+
 __int64 __fastcall AcpiSetupNativeMethodContext(__int64 a1, _QWORD *a2)
 {
   __int64 v3; // rcx

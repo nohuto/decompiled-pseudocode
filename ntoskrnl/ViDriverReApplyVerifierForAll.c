@@ -1,3 +1,15 @@
+/*
+ * XREFs of ViDriverReApplyVerifierForAll @ 0x140AC7934
+ * Callers:
+ *     VfDriverInitSuccess @ 0x140ABA5FC (VfDriverInitSuccess.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     VfDriverLock @ 0x140AC773C (VfDriverLock.c)
+ *     VfThunkApplyDriverAddedThunks @ 0x140AD8160 (VfThunkApplyDriverAddedThunks.c)
+ *     VfSuspectDriversIsLoaded @ 0x140B93B54 (VfSuspectDriversIsLoaded.c)
+ */
+
 __int64 __fastcall ViDriverReApplyVerifierForAll(__int64 **a1)
 {
   unsigned int v1; // esi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetCpuManufacturer @ 0x140613378
+ * Callers:
+ *     MicrocodeSetProcMcLog @ 0x14061327C (MicrocodeSetProcMcLog.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall GetCpuManufacturer(int a1)
 {
   _RAX = 0LL;

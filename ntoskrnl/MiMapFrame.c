@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiMapFrame @ 0x14062C794
+ * Callers:
+ *     MmCopyToCachedPage @ 0x14021DBE0 (MmCopyToCachedPage.c)
+ *     MiMapSystemCachePage @ 0x14062C834 (MiMapSystemCachePage.c)
+ * Callees:
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ */
+
 __int64 __fastcall MiMapFrame(unsigned __int64 a1, unsigned __int64 a2)
 {
   int v3; // r8d

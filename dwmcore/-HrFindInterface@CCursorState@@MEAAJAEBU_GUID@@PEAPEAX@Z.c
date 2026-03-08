@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CCursorState@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180276EB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CCursorState::HrFindInterface(CCursorState *this, const struct _GUID *a2, void **a3)
 {
   unsigned int v3; // r9d

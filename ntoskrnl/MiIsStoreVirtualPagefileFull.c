@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiIsStoreVirtualPagefileFull @ 0x1406599F8
+ * Callers:
+ *     MiFillNoReservationCluster @ 0x140637058 (MiFillNoReservationCluster.c)
+ *     MiGatherPagefilePages @ 0x140637D34 (MiGatherPagefilePages.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiIsStoreVirtualPagefileFull(__int64 a1)
 {
   __int64 result; // rax

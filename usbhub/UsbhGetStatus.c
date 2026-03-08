@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhGetStatus @ 0x1C002CC48
+ * Callers:
+ *     UsbhGetMaxPowerPerPort @ 0x1C002C9B4 (UsbhGetMaxPowerPerPort.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhSyncSendCommand @ 0x1C0016EE0 (UsbhSyncSendCommand.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 __int64 __fastcall UsbhGetStatus(__int64 a1, __int64 a2)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhEtwLogHubInformation @ 0x1C005BA60
+ * Callers:
+ *     UsbhSetFdoPnpState @ 0x1C0044248 (UsbhSetFdoPnpState.c)
+ *     UsbhEtwRundown @ 0x1C005BED0 (UsbhEtwRundown.c)
+ * Callees:
+ *     UsbhEtwWrite @ 0x1C0009AC0 (UsbhEtwWrite.c)
+ *     UsbhEtwGetHubInfo @ 0x1C0021B60 (UsbhEtwGetHubInfo.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall UsbhEtwLogHubInformation(__int64 a1, const EVENT_DESCRIPTOR *a2)
 {
   NTSTATUS result; // eax

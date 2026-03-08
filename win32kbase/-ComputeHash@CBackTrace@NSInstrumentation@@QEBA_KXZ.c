@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ComputeHash@CBackTrace@NSInstrumentation@@QEBA_KXZ @ 0x1C019CA1C
+ * Callers:
+ *     ?Insert@?$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBackTrace@2@@NSInstrumentation@@QEAAPEAVCBackTraceStorageUnit@2@QEBVCBackTrace@2@@Z @ 0x1C019CC18 (-Insert@-$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBa.c)
+ *     ?Lookup@?$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBackTrace@2@@NSInstrumentation@@QEBAPEAVCBackTraceStorageUnit@2@QEBVCBackTrace@2@@Z @ 0x1C019CE14 (-Lookup@-$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBa.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall NSInstrumentation::CBackTrace::ComputeHash(const __m128i *this)
 {
   __int64 v1; // rax

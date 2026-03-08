@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiDmGetObjectList @ 0x140777800
+ * Callers:
+ *     PiPnpRtlObjectActionCallback @ 0x1406CFC70 (PiPnpRtlObjectActionCallback.c)
+ *     PiDmGetCmObjectListFromCache @ 0x1407777AC (PiDmGetCmObjectListFromCache.c)
+ * Callees:
+ *     PiDmEnumObjectsWithCallback @ 0x1406CE130 (PiDmEnumObjectsWithCallback.c)
+ */
+
 __int64 __fastcall PiDmGetObjectList(unsigned int a1, __int64 a2, __int64 a3, _WORD *a4, unsigned int a5, _DWORD *a6)
 {
   int v7; // edx

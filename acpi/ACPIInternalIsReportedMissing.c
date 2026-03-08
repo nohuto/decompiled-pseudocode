@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIInternalIsReportedMissing @ 0x1C002EB90
+ * Callers:
+ *     ACPIBusIrpSurpriseRemoval @ 0x1C0017400 (ACPIBusIrpSurpriseRemoval.c)
+ *     ACPIFilterIrpSurpriseRemoval @ 0x1C0086E40 (ACPIFilterIrpSurpriseRemoval.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall ACPIInternalIsReportedMissing(__int64 a1)
 {
   char v2; // di

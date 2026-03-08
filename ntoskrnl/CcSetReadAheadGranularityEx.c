@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcSetReadAheadGranularityEx @ 0x140535520
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CcSetReadAheadGranularityEx(__int64 a1, _DWORD *a2)
 {
   _DWORD *v2; // r8

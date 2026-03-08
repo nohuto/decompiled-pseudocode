@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmPerfFeedbackCounterRead @ 0x1402301C0
+ * Callers:
+ *     PpmUpdatePerformanceFeedback @ 0x14022E540 (PpmUpdatePerformanceFeedback.c)
+ *     PpmInstallFeedbackCounters @ 0x14038F058 (PpmInstallFeedbackCounters.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall PpmPerfFeedbackCounterRead(__int64 a1, __int64 a2, _DWORD *a3)
 {
   void (__fastcall *v5)(__int64, __int64, __int64 *, __int64 *); // rax

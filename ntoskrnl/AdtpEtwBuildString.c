@@ -1,3 +1,12 @@
+/*
+ * XREFs of AdtpEtwBuildString @ 0x14083DBC8
+ * Callers:
+ *     AdtpPackageParameters @ 0x1403958B4 (AdtpPackageParameters.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall AdtpEtwBuildString(__int64 a1, unsigned __int16 *a2, __int64 a3, _DWORD *a4, _BYTE *a5)
 {
   unsigned int v7; // ecx

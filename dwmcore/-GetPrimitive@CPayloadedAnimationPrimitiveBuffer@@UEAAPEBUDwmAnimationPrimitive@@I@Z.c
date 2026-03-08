@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPrimitive@CPayloadedAnimationPrimitiveBuffer@@UEAAPEBUDwmAnimationPrimitive@@I@Z @ 0x180260DD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 const struct DwmAnimationPrimitive *__fastcall CPayloadedAnimationPrimitiveBuffer::GetPrimitive(
         CPayloadedAnimationPrimitiveBuffer *this,
         unsigned int a2)

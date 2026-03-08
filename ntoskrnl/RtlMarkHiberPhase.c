@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlMarkHiberPhase @ 0x1405B232C
+ * Callers:
+ *     PopMarkComponentsBootPhase @ 0x140AA049C (PopMarkComponentsBootPhase.c)
+ * Callees:
+ *     MiGetPhysicalAddress @ 0x14030C890 (MiGetPhysicalAddress.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     PoSetHiberRange @ 0x14058C400 (PoSetHiberRange.c)
+ *     PopSetRange @ 0x14058CA7C (PopSetRange.c)
+ */
+
 void RtlMarkHiberPhase()
 {
   ULONG_PTR v0; // rbp

@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpAcpiGetRsdt @ 0x14029C328
+ * Callers:
+ *     HalpAcpiGetTableFromBios @ 0x14029ABA0 (HalpAcpiGetTableFromBios.c)
+ * Callees:
+ *     HalpAcpiCheckAndMapTable @ 0x14029AD4C (HalpAcpiCheckAndMapTable.c)
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x14029B230 (MmUnmapIoSpace.c)
+ *     HalpAcpiGetCachedTable @ 0x14029C6E4 (HalpAcpiGetCachedTable.c)
+ *     HalpAcpiCopyBiosTable @ 0x14037AA9C (HalpAcpiCopyBiosTable.c)
+ *     HalpUnmapVirtualAddress @ 0x14037ADE0 (HalpUnmapVirtualAddress.c)
+ *     HalpMap @ 0x14037AE88 (HalpMap.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ */
+
 _QWORD *__fastcall HalpAcpiGetRsdt(__int64 a1)
 {
   _QWORD *CachedTable; // rbx

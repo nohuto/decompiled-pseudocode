@@ -1,3 +1,37 @@
+/*
+ * XREFs of AlpcpCancelMessage @ 0x1407141F0
+ * Callers:
+ *     AlpcpAcceptConnectPort @ 0x140713844 (AlpcpAcceptConnectPort.c)
+ *     AlpcpDispatchReplyToPort @ 0x140715F0C (AlpcpDispatchReplyToPort.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x140716318 (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpReceiveLegacyMessage @ 0x1407168B0 (AlpcpReceiveLegacyMessage.c)
+ *     AlpcpFlushQueue @ 0x1407178BC (AlpcpFlushQueue.c)
+ *     AlpcpFlushMessagesByRequestor @ 0x140781C5C (AlpcpFlushMessagesByRequestor.c)
+ *     NtAlpcCancelMessage @ 0x140793E30 (NtAlpcCancelMessage.c)
+ *     AlpcpSendMessage @ 0x1407CAFB0 (AlpcpSendMessage.c)
+ *     AlpcpReceiveMessage @ 0x1407CCD50 (AlpcpReceiveMessage.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1407CF500 (AlpcpProcessSynchronousRequest.c)
+ *     AlpcpReceiveSynchronousReply @ 0x1407CFC50 (AlpcpReceiveSynchronousReply.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectSafe @ 0x1402CBCB0 (ObReferenceObjectSafe.c)
+ *     KeReleaseSemaphoreEx @ 0x14033E940 (KeReleaseSemaphoreEx.c)
+ *     AlpcpSignalPortAndUnlock @ 0x1406F77CC (AlpcpSignalPortAndUnlock.c)
+ *     PsReleaseProcessWakeCounter @ 0x140711BD0 (PsReleaseProcessWakeCounter.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     AlpcpClearOwnerPortMessage @ 0x140716D48 (AlpcpClearOwnerPortMessage.c)
+ *     AlpcpRemoveMessageFromPendingQueue @ 0x140716D7C (AlpcpRemoveMessageFromPendingQueue.c)
+ *     AlpcpTransferQuotaMessage @ 0x140717BD0 (AlpcpTransferQuotaMessage.c)
+ *     AlpcpReleaseMessageAttributesOnCancel @ 0x140717C30 (AlpcpReleaseMessageAttributesOnCancel.c)
+ *     AlpcpInsertMessageCanceledQueue @ 0x1407950AC (AlpcpInsertMessageCanceledQueue.c)
+ *     AlpcpRemoveMessagePort @ 0x140797F3C (AlpcpRemoveMessagePort.c)
+ */
+
 __int64 __fastcall AlpcpCancelMessage(__int64 a1, ULONG_PTR a2, int a3)
 {
   int v3; // ebp

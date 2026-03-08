@@ -1,3 +1,31 @@
+/*
+ * XREFs of Bulk_ProcessTransferEventWithED1 @ 0x1C0011324
+ * Callers:
+ *     Endpoint_TransferEventHandler @ 0x1C0009BA0 (Endpoint_TransferEventHandler.c)
+ *     Bulk_EP_TransferEventHandler @ 0x1C0011300 (Bulk_EP_TransferEventHandler.c)
+ *     TR_TransferEventHandler @ 0x1C0041CD4 (TR_TransferEventHandler.c)
+ * Callees:
+ *     Endpoint_HaltedCompletionCode @ 0x1C0006D98 (Endpoint_HaltedCompletionCode.c)
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     Bulk_ProcessTransferEventWithStoppedCompletion @ 0x1C000DFBC (Bulk_ProcessTransferEventWithStoppedCompletion.c)
+ *     WPP_RECORDER_SF_DDDD @ 0x1C000E120 (WPP_RECORDER_SF_DDDD.c)
+ *     Bulk_FindStage @ 0x1C000E218 (Bulk_FindStage.c)
+ *     StageQueue_Release @ 0x1C0011840 (StageQueue_Release.c)
+ *     TR_ReleaseSegments @ 0x1C001187C (TR_ReleaseSegments.c)
+ *     Bulk_Stage_FreeScatterGatherList @ 0x1C00118C4 (Bulk_Stage_FreeScatterGatherList.c)
+ *     WPP_RECORDER_SF_DDDqLDDi @ 0x1C0011914 (WPP_RECORDER_SF_DDDqLDDi.c)
+ *     WPP_RECORDER_SF_DDDqqq @ 0x1C0011A28 (WPP_RECORDER_SF_DDDqqq.c)
+ *     Bulk_MapTransfers @ 0x1C0011EA8 (Bulk_MapTransfers.c)
+ *     Bulk_ValidateStagePointer @ 0x1C0012E28 (Bulk_ValidateStagePointer.c)
+ *     Bulk_Transfer_CompleteCancelable @ 0x1C0012F30 (Bulk_Transfer_CompleteCancelable.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     memmove @ 0x1C0020400 (memmove.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ *     WPP_RECORDER_SF_DDDDD @ 0x1C0041E20 (WPP_RECORDER_SF_DDDDD.c)
+ *     Bulk_ProcessTransferEventWithHaltedCompletion @ 0x1C0046FFC (Bulk_ProcessTransferEventWithHaltedCompletion.c)
+ *     WPP_RECORDER_SF_DDDi @ 0x1C0047998 (WPP_RECORDER_SF_DDDi.c)
+ */
+
 char __fastcall Bulk_ProcessTransferEventWithED1(__int64 *a1, __int64 a2, __int64 a3, int a4)
 {
   __int64 v4; // rsi

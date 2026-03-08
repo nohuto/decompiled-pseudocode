@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExpGetDeviceDataInformation @ 0x1409F34C8
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     KseQueryDeviceData @ 0x1408016F0 (KseQueryDeviceData.c)
+ *     KseQueryDeviceDataList @ 0x140973910 (KseQueryDeviceDataList.c)
+ *     ExpStringCapture @ 0x1409F4BAC (ExpStringCapture.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpGetDeviceDataInformation(int a1, unsigned __int64 a2, int a3)
 {
   void *Pool2; // rsi

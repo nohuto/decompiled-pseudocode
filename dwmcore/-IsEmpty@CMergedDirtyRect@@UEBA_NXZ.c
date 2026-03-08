@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsEmpty@CMergedDirtyRect@@UEBA_NXZ @ 0x1800E9B00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetCurrentFrameId@@YA_KXZ @ 0x180089410 (-GetCurrentFrameId@@YA_KXZ.c)
+ */
+
 bool __fastcall CMergedDirtyRect::IsEmpty(CMergedDirtyRect *this)
 {
   unsigned __int64 CurrentFrameId; // rax

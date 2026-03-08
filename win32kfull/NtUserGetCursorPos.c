@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetCursorPos @ 0x1C003A680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?xxxGetCursorPos@@YAHPEAUtagPOINT@@K@Z @ 0x1C003A6CC (-xxxGetCursorPos@@YAHPEAUtagPOINT@@K@Z.c)
+ */
+
 __int64 __fastcall NtUserGetCursorPos(struct tagPOINT *a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

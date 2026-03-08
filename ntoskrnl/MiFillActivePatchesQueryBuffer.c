@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiFillActivePatchesQueryBuffer @ 0x140A33DC0
+ * Callers:
+ *     MiQueryProcessActivePatches @ 0x140A3892C (MiQueryProcessActivePatches.c)
+ * Callees:
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ */
+
 UNICODE_STRING *__fastcall MiFillActivePatchesQueryBuffer(
         __int64 a1,
         __int64 a2,

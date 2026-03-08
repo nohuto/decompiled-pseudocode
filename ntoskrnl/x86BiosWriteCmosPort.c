@@ -1,3 +1,11 @@
+/*
+ * XREFs of x86BiosWriteCmosPort @ 0x1405062D8
+ * Callers:
+ *     x86BiosWriteIoSpace @ 0x1403BC9E0 (x86BiosWriteIoSpace.c)
+ * Callees:
+ *     x86BiosWriteCmosPortByte @ 0x140506350 (x86BiosWriteCmosPortByte.c)
+ */
+
 __int64 __fastcall x86BiosWriteCmosPort(int a1, __int64 a2, unsigned int a3)
 {
   int v3; // edi

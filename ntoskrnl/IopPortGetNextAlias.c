@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopPortGetNextAlias @ 0x14081F944
+ * Callers:
+ *     IopPortAddAllocation @ 0x14081F360 (IopPortAddAllocation.c)
+ *     IopPortBacktrackAllocation @ 0x140957150 (IopPortBacktrackAllocation.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall IopPortGetNextAlias(char a1, __int64 a2, _QWORD *a3)
 {
   __int64 v4; // rax

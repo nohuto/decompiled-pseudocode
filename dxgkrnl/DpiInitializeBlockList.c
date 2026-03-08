@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiInitializeBlockList @ 0x1C020D7F4
+ * Callers:
+ *     DpiFdoInitializeFdo @ 0x1C01F5A64 (DpiFdoInitializeFdo.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     DxgkInitializeBlockList @ 0x1C020DD10 (DxgkInitializeBlockList.c)
+ *     DpiDestroyBlockList @ 0x1C0395504 (DpiDestroyBlockList.c)
+ */
+
 __int64 __fastcall DpiInitializeBlockList(__int64 a1)
 {
   __int64 v1; // rbx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of IoUnregisterShutdownNotification @ 0x140A96D40
+ * Callers:
+ *     IoDeleteDevice @ 0x140368010 (IoDeleteDevice.c)
+ *     DifIoUnregisterShutdownNotificationWrapper @ 0x1405DF3F0 (DifIoUnregisterShutdownNotificationWrapper.c)
+ * Callees:
+ *     MmUnlockPagableImageSection @ 0x140225D90 (MmUnlockPagableImageSection.c)
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ *     MmLockPagableSectionByHandle @ 0x1406A7BD0 (MmLockPagableSectionByHandle.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __stdcall IoUnregisterShutdownNotification(PDEVICE_OBJECT DeviceObject)
 {
   KIRQL v2; // al

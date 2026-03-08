@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfDifRecoverIoCallbacks @ 0x1405CC8D4
+ * Callers:
+ *     VfTargetRecoverIoCallbacks @ 0x1405CCDE4 (VfTargetRecoverIoCallbacks.c)
+ * Callees:
+ *     ViDifFindIoCallbackContext @ 0x1405CCD64 (ViDifFindIoCallbackContext.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall VfDifRecoverIoCallbacks(__int64 a1)
 {
   __int64 v1; // rbx

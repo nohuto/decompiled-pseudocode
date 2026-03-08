@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?GrepDeleteDCOBJ@@YAHAEAVXDCOBJ@@KPEAH@Z @ 0x1C00BF644
+ * Callers:
+ *     ??1DCMEMOBJ@@QEAA@XZ @ 0x1C0054D30 (--1DCMEMOBJ@@QEAA@XZ.c)
+ * Callees:
+ *     ?bCleanDC@XDCOBJ@@QEAAHH@Z @ 0x1C0046C90 (-bCleanDC@XDCOBJ@@QEAAHH@Z.c)
+ *     ?vDelete@XDCOBJ@@QEAAXK@Z @ 0x1C004EC00 (-vDelete@XDCOBJ@@QEAAXK@Z.c)
+ *     EngSetLastError @ 0x1C00BAB10 (EngSetLastError.c)
+ *     ?HmgQueryRemoveAttempted@@YAHPEAUHOBJ__@@E@Z @ 0x1C0185B1C (-HmgQueryRemoveAttempted@@YAHPEAUHOBJ__@@E@Z.c)
+ */
+
 __int64 __fastcall GrepDeleteDCOBJ(DC **this, unsigned int a2, int *a3)
 {
   int v3; // esi

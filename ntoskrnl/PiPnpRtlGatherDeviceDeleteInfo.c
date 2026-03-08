@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiPnpRtlGatherDeviceDeleteInfo @ 0x140957504
+ * Callers:
+ *     PiPnpRtlCmActionCallback @ 0x1406CE2F0 (PiPnpRtlCmActionCallback.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwPlugPlayControl @ 0x140414A70 (ZwPlugPlayControl.c)
+ *     _CmGetDeviceRegProp @ 0x1406C9884 (_CmGetDeviceRegProp.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PiPnpRtlGatherDeviceDeleteInfo(PCWSTR SourceString, __int64 *a2)
 {
   __int64 Pool2; // rax

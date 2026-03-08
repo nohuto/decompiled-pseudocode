@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetPointerPromotionGetCurrentPointerId @ 0x1C02459A8
+ * Callers:
+ *     ?FindNodeForPointerPromotion@CTouchProcessor@@AEAAPEBUCPointerInfoNode@@PEBUCPointerInputFrame@@@Z @ 0x1C01F161C (-FindNodeForPointerPromotion@CTouchProcessor@@AEAAPEBUCPointerInfoNode@@PEBUCPointerInputFrame@@.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 ApiSetPointerPromotionGetCurrentPointerId()
 {
   unsigned __int16 v0; // di

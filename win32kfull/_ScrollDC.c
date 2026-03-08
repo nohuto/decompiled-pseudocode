@@ -1,3 +1,15 @@
+/*
+ * XREFs of _ScrollDC @ 0x1C0231974
+ * Callers:
+ *     ?xxxPaintIconsInSwitchWindow@@YAXPEAUtagWND@@PEAUtagSwitchWndInfo@@PEAUHDC__@@HHHHHPEAUtagCURSOR@@@Z @ 0x1C01CA94C (-xxxPaintIconsInSwitchWindow@@YAXPEAUtagWND@@PEAUtagSwitchWndInfo@@PEAUHDC__@@HHHHHPEAUtagCURSOR.c)
+ *     NtUserScrollDC @ 0x1C01DB1B0 (NtUserScrollDC.c)
+ * Callees:
+ *     SpbCheckRect @ 0x1C000B2CC (SpbCheckRect.c)
+ *     UnionRect @ 0x1C00DD06C (UnionRect.c)
+ *     FastWindowFromDC @ 0x1C01BECEC (FastWindowFromDC.c)
+ *     ?InternalScrollDC@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAUtagRECT@@2PEAUHRGN__@@32H@Z @ 0x1C0230DA0 (-InternalScrollDC@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAUtagRECT@@2PEAUHRGN__@@32H@Z.c)
+ */
+
 _BOOL8 __fastcall ScrollDC(
         HDC a1,
         unsigned int a2,

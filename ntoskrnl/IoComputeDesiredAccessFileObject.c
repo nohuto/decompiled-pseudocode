@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoComputeDesiredAccessFileObject @ 0x1407DF4AC
+ * Callers:
+ *     ObReferenceFileObjectForWrite @ 0x1407DF2CC (ObReferenceFileObjectForWrite.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IoComputeDesiredAccessFileObject(__int64 a1, int *a2)
 {
   unsigned int v2; // r10d

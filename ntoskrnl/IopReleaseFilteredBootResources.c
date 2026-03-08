@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopReleaseFilteredBootResources @ 0x140803C88
+ * Callers:
+ *     PnpAllocateResources @ 0x1406F5CE0 (PnpAllocateResources.c)
+ * Callees:
+ *     PnpRequestDeviceAction @ 0x1402F5074 (PnpRequestDeviceAction.c)
+ *     PnpReleaseBootResourcesForFilteredRequirements @ 0x14055F1D4 (PnpReleaseBootResourcesForFilteredRequirements.c)
+ *     PipClearDevNodeFlags @ 0x14068816C (PipClearDevNodeFlags.c)
+ *     PnpNeedToReleaseBootResources @ 0x14080484C (PnpNeedToReleaseBootResources.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall IopReleaseFilteredBootResources(unsigned __int64 a1, unsigned __int64 a2)
 {
   int v2; // edi

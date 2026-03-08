@@ -1,3 +1,12 @@
+/*
+ * XREFs of EditionPostInertiaMessage @ 0x1C01F8900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _PostThreadMessage @ 0x1C009575C (_PostThreadMessage.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ */
+
 __int64 __fastcall EditionPostInertiaMessage(__int64 a1, unsigned int a2, unsigned __int64 a3, __int64 a4, __int16 *a5)
 {
   if ( a5 )

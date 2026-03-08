@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?VmBusWnfNotification@DXG_GUEST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0390F30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 unsigned __int8 __fastcall DXG_GUEST_GLOBAL_VMBUS::VmBusWnfNotification(struct DXGADAPTER_VMBUS_PACKET *a1)
 {
   __int64 v1; // rbx

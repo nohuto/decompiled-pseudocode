@@ -1,3 +1,51 @@
+/*
+ * XREFs of PspProcessDelete @ 0x140704DD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KeInsertQueueDpc @ 0x140230290 (KeInsertQueueDpc.c)
+ *     PsGetProcessId @ 0x140236D10 (PsGetProcessId.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140283390 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     PsReturnProcessNonPagedPoolQuota @ 0x1402955D0 (PsReturnProcessNonPagedPoolQuota.c)
+ *     IoSetDiskIoAttributionOnProcess @ 0x140295634 (IoSetDiskIoAttributionOnProcess.c)
+ *     ExSaFree @ 0x1402956DC (ExSaFree.c)
+ *     KiRemoveAndFreeCpuPartitionAssignmentProcess @ 0x140295B18 (KiRemoveAndFreeCpuPartitionAssignmentProcess.c)
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     SmpGetProcessPartition @ 0x14029622C (SmpGetProcessPartition.c)
+ *     PspUnlockProcessListExclusive @ 0x140298F30 (PspUnlockProcessListExclusive.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwDeleteWnfStateName @ 0x140413EF0 (ZwDeleteWnfStateName.c)
+ *     KeBugCheck @ 0x140415FE0 (KeBugCheck.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KeUnsecureProcess @ 0x14056D228 (KeUnsecureProcess.c)
+ *     SmCompressionProcessHoldsPartitionReference @ 0x1405C76C0 (SmCompressionProcessHoldsPartitionReference.c)
+ *     PspDereferenceQuotaBlock @ 0x140696A94 (PspDereferenceQuotaBlock.c)
+ *     PspRemoveProcessFromJobChain @ 0x1406FB110 (PspRemoveProcessFromJobChain.c)
+ *     PoEnergyContextCleanup @ 0x1407046AC (PoEnergyContextCleanup.c)
+ *     ObClearProcessDeviceMap @ 0x140704918 (ObClearProcessDeviceMap.c)
+ *     EtwExitProcess @ 0x1407049EC (EtwExitProcess.c)
+ *     ExWnfExitProcess @ 0x140704A58 (ExWnfExitProcess.c)
+ *     LpcExitProcess @ 0x140704CEC (LpcExitProcess.c)
+ *     WbRemoveWarbirdProcess @ 0x14070546C (WbRemoveWarbirdProcess.c)
+ *     SeDeassignPrimaryToken @ 0x140705614 (SeDeassignPrimaryToken.c)
+ *     MmDeleteProcessAddressSpace @ 0x140726E8C (MmDeleteProcessAddressSpace.c)
+ *     ExDestroyHandle @ 0x1407D76E4 (ExDestroyHandle.c)
+ *     ExMapHandleToPointer @ 0x1407D80C0 (ExMapHandleToPointer.c)
+ *     SmpKeyedStoreDeleteInitiate @ 0x1407E6938 (SmpKeyedStoreDeleteInitiate.c)
+ *     PspExitProcess @ 0x1407E7B3C (PspExitProcess.c)
+ *     PspDetachProcessFromSyscallProvider @ 0x1409B1B48 (PspDetachProcessFromSyscallProvider.c)
+ *     VmpProcessContextCleanup @ 0x1409DA91C (VmpProcessContextCleanup.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PspProcessDelete(PEPROCESS Process)
 {
   struct _LIST_ENTRY **p_Blink; // rsi

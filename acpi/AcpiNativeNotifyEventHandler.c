@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiNativeNotifyEventHandler @ 0x1C00376C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     NotifyHandler @ 0x1C0004EE0 (NotifyHandler.c)
+ *     AcpiHandleInternalNotify @ 0x1C0037468 (AcpiHandleInternalNotify.c)
+ */
+
 __int64 __fastcall AcpiNativeNotifyEventHandler(__int64 a1)
 {
   int v1; // edx

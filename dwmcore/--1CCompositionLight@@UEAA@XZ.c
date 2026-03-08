@@ -1,3 +1,19 @@
+/*
+ * XREFs of ??1CCompositionLight@@UEAA@XZ @ 0x180012668
+ * Callers:
+ *     ??_ECCompositionAmbientLight@@UEAAPEAXI@Z @ 0x1800125A0 (--_ECCompositionAmbientLight@@UEAAPEAXI@Z.c)
+ *     ??1CCompositionSpotLight@@UEAA@XZ @ 0x180012634 (--1CCompositionSpotLight@@UEAA@XZ.c)
+ *     ??_GCCompositionLight@@UEAAPEAXI@Z @ 0x180215500 (--_GCCompositionLight@@UEAAPEAXI@Z.c)
+ *     ??_GCCompositionDistantLight@@UEAAPEAXI@Z @ 0x18021FFD0 (--_GCCompositionDistantLight@@UEAAPEAXI@Z.c)
+ *     ??_ECCompositionPointLight@@UEAAPEAXI@Z @ 0x180221500 (--_ECCompositionPointLight@@UEAAPEAXI@Z.c)
+ *     ??_GCCompositionEnvironmentLight@@UEAAPEAXI@Z @ 0x18026ABA0 (--_GCCompositionEnvironmentLight@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?RemoveAllTargets@CCompositionLight@@AEAAJW4LightBehavior@@@Z @ 0x180012760 (-RemoveAllTargets@CCompositionLight@@AEAAJW4LightBehavior@@@Z.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097680 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?UnregisterSceneListener@CSceneResourceManager@@QEAAXPEAUISceneNotificationListener@@@Z @ 0x1801BA31C (-UnregisterSceneListener@CSceneResourceManager@@QEAAXPEAUISceneNotificationListener@@@Z.c)
+ */
+
 void __fastcall CCompositionLight::~CCompositionLight(CCompositionLight *this)
 {
   bool v1; // zf

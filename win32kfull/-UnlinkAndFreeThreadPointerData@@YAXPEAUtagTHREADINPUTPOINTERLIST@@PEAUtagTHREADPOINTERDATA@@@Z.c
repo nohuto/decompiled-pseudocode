@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UnlinkAndFreeThreadPointerData@@YAXPEAUtagTHREADINPUTPOINTERLIST@@PEAUtagTHREADPOINTERDATA@@@Z @ 0x1C0146652
+ * Callers:
+ *     xxxCleanupThreadPointerInputInfo @ 0x1C00D1B90 (xxxCleanupThreadPointerInputInfo.c)
+ *     EditionUnlinkAndFreeThreadPointerData @ 0x1C01C7C00 (EditionUnlinkAndFreeThreadPointerData.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall UnlinkAndFreeThreadPointerData(struct tagTHREADINPUTPOINTERLIST *a1, struct tagTHREADPOINTERDATA *a2)
 {
   __int64 v4; // rdx

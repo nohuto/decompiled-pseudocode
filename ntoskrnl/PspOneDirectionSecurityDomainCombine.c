@@ -1,3 +1,20 @@
+/*
+ * XREFs of PspOneDirectionSecurityDomainCombine @ 0x14070C414
+ * Callers:
+ *     PspDisablePrimaryTokenExchange @ 0x1407ED630 (PspDisablePrimaryTokenExchange.c)
+ * Callees:
+ *     SepDeleteAccessState @ 0x140265F50 (SepDeleteAccessState.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PspIsParentProcess @ 0x140298EF8 (PspIsParentProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SeCreateAccessStateEx @ 0x1406991E0 (SeCreateAccessStateEx.c)
+ *     PsLookupProcessByProcessId @ 0x1406AC100 (PsLookupProcessByProcessId.c)
+ *     ObOpenObjectByPointer @ 0x1407C93D0 (ObOpenObjectByPointer.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ */
+
 void __fastcall PspOneDirectionSecurityDomainCombine(__int64 Object)
 {
   void *v2; // rcx

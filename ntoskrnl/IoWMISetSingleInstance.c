@@ -1,3 +1,14 @@
+/*
+ * XREFs of IoWMISetSingleInstance @ 0x1409DC1B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     WmipQuerySetExecuteSI @ 0x14069C72C (WmipQuerySetExecuteSI.c)
+ *     WmipAllocateSingleInstanceWnode @ 0x1409DC6D4 (WmipAllocateSingleInstanceWnode.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall IoWMISetSingleInstance(
         PVOID DataBlockObject,
         PUNICODE_STRING InstanceName,

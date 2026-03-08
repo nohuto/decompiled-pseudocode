@@ -1,3 +1,23 @@
+/*
+ * XREFs of PnpQueuePendingSurpriseRemoval @ 0x14087E79C
+ * Callers:
+ *     PiEventRemovalPostSurpriseRemove @ 0x14087E710 (PiEventRemovalPostSurpriseRemove.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PpDevNodeUnlockTree @ 0x1406CB8B0 (PpDevNodeUnlockTree.c)
+ *     PnpAcquireDependencyRelationsLock @ 0x1406CB90C (PnpAcquireDependencyRelationsLock.c)
+ *     IopIsDescendantNode @ 0x140861DAC (IopIsDescendantNode.c)
+ *     IopEnumerateRelations @ 0x140863508 (IopEnumerateRelations.c)
+ *     IopFreeRelationList @ 0x140863634 (IopFreeRelationList.c)
+ *     IopAllocateRelationList @ 0x140863684 (IopAllocateRelationList.c)
+ *     PnpAllocateCriticalMemory @ 0x1408637CC (PnpAllocateCriticalMemory.c)
+ *     IopCheckIfMergeRequired @ 0x1409699BC (IopCheckIfMergeRequired.c)
+ *     IopMergeRelationLists @ 0x140969AC4 (IopMergeRelationLists.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall PnpQueuePendingSurpriseRemoval(PVOID a1, unsigned int ***a2, int a3, int a4)
 {
   unsigned int **v4; // rbp

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UnTransformOutput@CInteractionContextTransformHelper@@QEAAXAEBUInteractionOutput@@K_NPEAU2@@Z @ 0x1802B7C98
+ * Callers:
+ *     ?GetGlobalMotion@CInteractionContextWrapper@@UEAA?AUInteractionMotion@@XZ @ 0x1802810A0 (-GetGlobalMotion@CInteractionContextWrapper@@UEAA-AUInteractionMotion@@XZ.c)
+ * Callees:
+ *     ?IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ @ 0x18008048C (-IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ.c)
+ *     TransformTranslateDelta @ 0x1802B7C10 (TransformTranslateDelta.c)
+ */
+
 void __fastcall CInteractionContextTransformHelper::UnTransformOutput(
         CInteractionContextTransformHelper *this,
         const struct InteractionOutput *a2,

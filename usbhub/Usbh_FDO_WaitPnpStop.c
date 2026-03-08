@@ -1,3 +1,22 @@
+/*
+ * XREFs of Usbh_FDO_WaitPnpStop @ 0x1C0044890
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhFdoCheckUpstreamConnectionState @ 0x1C0004A1C (UsbhFdoCheckUpstreamConnectionState.c)
+ *     Usbh_SSH_Event @ 0x1C0007220 (Usbh_SSH_Event.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     UsbhSyncBusPause @ 0x1C0031870 (UsbhSyncBusPause.c)
+ *     UsbhReleaseFdoPnpLock @ 0x1C0031D14 (UsbhReleaseFdoPnpLock.c)
+ *     Usbh_BusPnpFreeResources_PdoEvent @ 0x1C003A9B8 (Usbh_BusPnpFreeResources_PdoEvent.c)
+ *     UsbhDisableHardReset @ 0x1C003CFA4 (UsbhDisableHardReset.c)
+ *     UsbhModuleDispatch @ 0x1C0043D00 (UsbhModuleDispatch.c)
+ *     UsbhSetFdoPnpState @ 0x1C0044248 (UsbhSetFdoPnpState.c)
+ *     Usbh_PnpRemove @ 0x1C0044B44 (Usbh_PnpRemove.c)
+ *     UsbhSshDisabled @ 0x1C00592A0 (UsbhSshDisabled.c)
+ */
+
 __int64 __fastcall Usbh_FDO_WaitPnpStop(ULONG_PTR a1, int a2)
 {
   __int64 v4; // rdx

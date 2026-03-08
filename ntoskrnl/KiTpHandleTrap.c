@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiTpHandleTrap @ 0x14057C800
+ * Callers:
+ *     KiDispatchException @ 0x140362740 (KiDispatchException.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiTpWriteBreakpoint @ 0x14057CA4C (KiTpWriteBreakpoint.c)
+ *     KiTpCompletion @ 0x140AF0130 (KiTpCompletion.c)
+ */
+
 bool __fastcall KiTpHandleTrap(__int64 a1, __int64 a2, char a3, __int64 a4)
 {
   __int64 v6; // r11

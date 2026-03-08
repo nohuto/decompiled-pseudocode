@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_PowerPolDeviceWaitWakeComplete@FxPkgPnp@@KAXPEAU_DEVICE_OBJECT@@ET_POWER_STATE@@PEAXPEAU_IO_STATUS_BLOCK@@@Z @ 0x1C007E150
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PowerPolicyProcessEvent@FxPkgPnp@@QEAAXW4FxPowerPolicyEvent@@E@Z @ 0x1C007D66C (-PowerPolicyProcessEvent@FxPkgPnp@@QEAAXW4FxPowerPolicyEvent@@E@Z.c)
+ */
+
 void __fastcall FxPkgPnp::_PowerPolDeviceWaitWakeComplete(
         _DEVICE_OBJECT *DeviceObject,
         unsigned __int8 MinorFunction,

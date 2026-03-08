@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?InitializeInputGlobals@@YAJXZ @ 0x1C0096E3C
+ * Callers:
+ *     InputInitialize @ 0x1C0096C0C (InputInitialize.c)
+ * Callees:
+ *     ?InitializeMouseGlobals@@YAJXZ @ 0x1C009704C (-InitializeMouseGlobals@@YAJXZ.c)
+ *     ?InitializeKeyboardGlobals@@YAJXZ @ 0x1C009737C (-InitializeKeyboardGlobals@@YAJXZ.c)
+ *     ?InitializeSensorGlobals@@YAJXZ @ 0x1C0097460 (-InitializeSensorGlobals@@YAJXZ.c)
+ */
+
 __int64 __fastcall InitializeInputGlobals(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 result; // rax

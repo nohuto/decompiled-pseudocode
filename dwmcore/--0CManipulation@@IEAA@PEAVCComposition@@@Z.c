@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??0CManipulation@@IEAA@PEAVCComposition@@@Z @ 0x18020A37C
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x18003A2A4 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ *     ??0ManipulationData@@QEAA@XZ @ 0x18020A45C (--0ManipulationData@@QEAA@XZ.c)
+ */
+
 CManipulation *__fastcall CManipulation::CManipulation(CManipulation *this, struct CComposition *a2)
 {
   CManipulation *result; // rax

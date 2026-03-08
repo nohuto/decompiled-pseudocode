@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CWindowNodeMarshaler@DirectComposition@@QEAA@XZ @ 0x1C024A21C
+ * Callers:
+ *     ?CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C00673F4 (-CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2.c)
+ * Callees:
+ *     <none>
+ */
+
 DirectComposition::CWindowNodeMarshaler *__fastcall DirectComposition::CWindowNodeMarshaler::CWindowNodeMarshaler(
         DirectComposition::CWindowNodeMarshaler *this)
 {

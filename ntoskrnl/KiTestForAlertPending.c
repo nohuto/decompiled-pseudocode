@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiTestForAlertPending @ 0x1402E4408
+ * Callers:
+ *     KeRemoveQueueEx @ 0x140315D50 (KeRemoveQueueEx.c)
+ *     KiResumeThread @ 0x1403538F8 (KiResumeThread.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiTestForAlertPending(__int64 a1, char a2, char a3, int a4)
 {
   unsigned int v4; // r10d

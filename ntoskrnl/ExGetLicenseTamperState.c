@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExGetLicenseTamperState @ 0x1409F6890
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExpGetLicenseTamperState @ 0x140606C7C (ExpGetLicenseTamperState.c)
+ */
+
 bool __fastcall ExGetLicenseTamperState(_DWORD *a1)
 {
   struct _LIST_ENTRY *Blink; // rbx

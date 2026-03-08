@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vDeletePFELink@FHOBJ@@QEAAXPEAU_HASHBUCKET@@IAEAVPFEOBJ@@@Z @ 0x1C0117844
+ * Callers:
+ *     ?vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z @ 0x1C0117D44 (-vDelete@FHOBJ@@QEAAXAEAVPFEOBJ@@@Z.c)
+ * Callees:
+ *     ?flFontType@PFEOBJ@@QEAAKXZ @ 0x1C0117C98 (-flFontType@PFEOBJ@@QEAAKXZ.c)
+ */
+
 void __fastcall FHOBJ::vDeletePFELink(FHOBJ *this, struct _HASHBUCKET *a2, unsigned int a3, struct PFEOBJ *a4)
 {
   _QWORD *v5; // rcx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?bCalculateWishCell@MAPPER@@AEAAHXZ @ 0x1C011CF58
+ * Callers:
+ *     ?bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z @ 0x1C011B94C (-bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z.c)
+ *     ?bGetFaceName@MAPPER@@AEAAHXZ @ 0x1C011CD5C (-bGetFaceName@MAPPER@@AEAAHXZ.c)
+ *     ?bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z @ 0x1C029D344 (-bFoundForcedMatch@MAPPER@@QEAAHPEAU_UNIVERSAL_FONT_ID@@@Z.c)
+ * Callees:
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00CFF10 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ *     bFToL @ 0x1C00D1C50 (bFToL.c)
+ */
+
 __int64 __fastcall MAPPER::bCalculateWishCell(MAPPER *this)
 {
   int v2; // eax

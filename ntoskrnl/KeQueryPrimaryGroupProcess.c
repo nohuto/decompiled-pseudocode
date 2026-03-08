@@ -1,3 +1,14 @@
+/*
+ * XREFs of KeQueryPrimaryGroupProcess @ 0x1402FA680
+ * Callers:
+ *     NtSetInformationThread @ 0x1406D8E90 (NtSetInformationThread.c)
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeQueryPrimaryGroupProcess(__int64 a1, _WORD *a2)
 {
   unsigned __int8 CurrentIrql; // di

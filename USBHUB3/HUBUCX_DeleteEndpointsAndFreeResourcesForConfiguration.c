@@ -1,3 +1,18 @@
+/*
+ * XREFs of HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration @ 0x1C00287B8
+ * Callers:
+ *     HUBDSM_CleaningUpAnyExistingConfigurationOnStart @ 0x1C001F2B0 (HUBDSM_CleaningUpAnyExistingConfigurationOnStart.c)
+ *     HUBDSM_CompletingClientUnconfigureRequest @ 0x1C001F3E0 (HUBDSM_CompletingClientUnconfigureRequest.c)
+ *     HUBDSM_CompletingClientUnconfigureRequestWithFailure @ 0x1C001F420 (HUBDSM_CompletingClientUnconfigureRequestWithFailure.c)
+ *     HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupWithPortOff @ 0x1C001F650 (HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupWithPortOff.c)
+ *     HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupAfterDetach @ 0x1C001F6B0 (HUBDSM_DeletingDeviceAndDefaultEndpointOnCleanupAfterDetach.c)
+ *     HUBDSM_DeletingEndpointsAndDeviceOnOnCleanup @ 0x1C001F700 (HUBDSM_DeletingEndpointsAndDeviceOnOnCleanup.c)
+ *     HUBDSM_DeletingEndpointsForOldConfiguration @ 0x1C0023CB0 (HUBDSM_DeletingEndpointsForOldConfiguration.c)
+ * Callees:
+ *     HUBUCX_DeleteEndpointsAndFreeResourcesForInterface @ 0x1C0028718 (HUBUCX_DeleteEndpointsAndFreeResourcesForInterface.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBUCX_DeleteEndpointsAndFreeResourcesForConfiguration(__int64 *a1, _QWORD *a2)
 {
   _QWORD *v2; // rsi

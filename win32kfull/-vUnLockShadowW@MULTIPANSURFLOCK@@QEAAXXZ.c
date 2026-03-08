@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vUnLockShadowW@MULTIPANSURFLOCK@@QEAAXXZ @ 0x1C02A0A0C
+ * Callers:
+ *     ??1MULTIPANSURFLOCK@@QEAA@XZ @ 0x1C029DCF4 (--1MULTIPANSURFLOCK@@QEAA@XZ.c)
+ * Callees:
+ *     ?ShadowUnLock@@YAXPEAU_PANDEV@@@Z @ 0x1C029F890 (-ShadowUnLock@@YAXPEAU_PANDEV@@@Z.c)
+ */
+
 void __fastcall MULTIPANSURFLOCK::vUnLockShadowW(MULTIPANSURFLOCK *this)
 {
   _BYTE *v2; // rdi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?TransformSWPCoords@@YAXPEAUtagWND@@PEAH111I@Z @ 0x1C01CD768
+ * Callers:
+ *     NtUserSetWindowPos @ 0x1C0067A30 (NtUserSetWindowPos.c)
+ *     NtUserDeferWindowPosAndBand @ 0x1C0099C50 (NtUserDeferWindowPosAndBand.c)
+ * Callees:
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ *     ?IsChildWindowDpiBoundary@@YA_NPEBUtagWND@@@Z @ 0x1C00647C8 (-IsChildWindowDpiBoundary@@YA_NPEBUtagWND@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ScaleDpiValueWithSubpixel @ 0x1C01BB288 (ScaleDpiValueWithSubpixel.c)
+ */
+
 void __fastcall TransformSWPCoords(struct tagWND *a1, int *a2, int *a3, int *a4, int *a5, char a6)
 {
   __int64 v10; // rcx

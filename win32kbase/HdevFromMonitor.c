@@ -1,3 +1,12 @@
+/*
+ * XREFs of HdevFromMonitor @ 0x1C00163A0
+ * Callers:
+ *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C0014608 (-zzzUpdateUserScreen@@YAJXZ.c)
+ *     DestroyMonitorDCs @ 0x1C00D0790 (DestroyMonitorDCs.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HdevFromMonitor(__int64 a1)
 {
   unsigned int v1; // edx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlUnwind @ 0x1403BE7D0
+ * Callers:
+ *     _local_unwind @ 0x1403D3990 (_local_unwind.c)
+ *     __longjmp_internal @ 0x140411B40 (__longjmp_internal.c)
+ * Callees:
+ *     RtlUnwindEx @ 0x1402809E0 (RtlUnwindEx.c)
+ *     RtlGetExtendedContextLength2 @ 0x140364DF0 (RtlGetExtendedContextLength2.c)
+ *     RtlInitializeExtendedContext2 @ 0x140364EE0 (RtlInitializeExtendedContext2.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1404210C0 (_alloca_probe.c)
+ */
+
 __int64 __fastcall RtlUnwind(ULONG_PTR a1, __int64 a2, _QWORD *a3, __int64 a4)
 {
   int v8; // edi

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiCaptureBootDriverRetpolineInfo @ 0x140828D60
+ * Callers:
+ *     MiInitializeLoadedModuleList @ 0x140B5D84C (MiInitializeLoadedModuleList.c)
+ * Callees:
+ *     RtlImageNtHeaderEx @ 0x14035E850 (RtlImageNtHeaderEx.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x140784BDC (LdrImageDirectoryEntryToLoadConfig.c)
+ *     MiFreeImageRetpolineContext @ 0x1407F5140 (MiFreeImageRetpolineContext.c)
+ *     LdrCaptureDynamicRelocationTableHeader @ 0x1407F5778 (LdrCaptureDynamicRelocationTableHeader.c)
+ *     MiCaptureRetpolineRelocationTables @ 0x1407F5944 (MiCaptureRetpolineRelocationTables.c)
+ *     MiCreateRetpolineRelocationInformation @ 0x1407F5B50 (MiCreateRetpolineRelocationInformation.c)
+ */
+
 __int64 __fastcall MiCaptureBootDriverRetpolineInfo(unsigned __int64 a1, unsigned int a2, _QWORD *a3)
 {
   __int64 v5; // r14

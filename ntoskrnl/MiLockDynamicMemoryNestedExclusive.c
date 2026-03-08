@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiLockDynamicMemoryNestedExclusive @ 0x140619288
+ * Callers:
+ *     MiRemovePhysicalMemory @ 0x140A29F5C (MiRemovePhysicalMemory.c)
+ * Callees:
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 MiLockDynamicMemoryNestedExclusive()
 {
   struct _KTHREAD *CurrentThread; // rdi

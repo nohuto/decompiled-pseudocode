@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifMmSecureVirtualMemoryWrapper @ 0x1405E5590
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     MmSecureVirtualMemory @ 0x140769000 (MmSecureVirtualMemory.c)
+ */
+
 HANDLE __fastcall DifMmSecureVirtualMemoryWrapper(PVOID Address, SIZE_T Size, ULONG ProbeMode)
 {
   __int64 *APIThunkContextById; // rax

@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?Release@FxRequest@@UEAAKPEAXJPEBD@Z @ 0x1C0008570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetObjectStateLocked@FxObject@@AEAAXW4FxObjectState@@@Z @ 0x1C000536C (-SetObjectStateLocked@FxObject@@AEAAXW4FxObjectState@@@Z.c)
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0006060 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ?DispatchInternalEvents@FxIoQueue@@QEAAXE@Z @ 0x1C00080F8 (-DispatchInternalEvents@FxIoQueue@@QEAAXE@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ?Add@FxDisposeList@@QEAAXPEAVFxObject@@@Z @ 0x1C0041D2C (-Add@FxDisposeList@@QEAAXPEAVFxObject@@@Z.c)
+ *     ??_GFxTagTracker@@QEAAPEAXI@Z @ 0x1C0045FBC (--_GFxTagTracker@@QEAAPEAXI@Z.c)
+ *     ?CheckForAbandondedTags@FxTagTracker@@QEAAXXZ @ 0x1C00478C4 (-CheckForAbandondedTags@FxTagTracker@@QEAAXXZ.c)
+ *     ?UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z @ 0x1C0047A7C (-UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z.c)
+ *     ?ReturnReservedRequest@FxIoQueue@@QEAAXPEAVFxRequest@@@Z @ 0x1C0067A34 (-ReturnReservedRequest@FxIoQueue@@QEAAXPEAVFxRequest@@@Z.c)
+ */
+
 __int64 __fastcall FxRequest::Release(FxRequest *this, FxObjectDebugLeakDetection *Tag, __int64 Line, const char *File)
 {
   unsigned __int8 m_IrpAllocation; // bp

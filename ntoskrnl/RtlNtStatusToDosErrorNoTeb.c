@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlNtStatusToDosErrorNoTeb @ 0x1402C9C30
+ * Callers:
+ *     RtlNtStatusToDosError @ 0x140755BE0 (RtlNtStatusToDosError.c)
+ * Callees:
+ *     <none>
+ */
+
 ULONG __stdcall RtlNtStatusToDosErrorNoTeb(NTSTATUS Status)
 {
   ULONG result; // eax

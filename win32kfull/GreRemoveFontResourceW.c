@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreRemoveFontResourceW @ 0x1C0290E90
+ * Callers:
+ *     NtGdiRemoveFontResourceW @ 0x1C02C6D80 (NtGdiRemoveFontResourceW.c)
+ * Callees:
+ *     ?bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z @ 0x1C01181FC (-bUnloadWorkhorse@PFTOBJ@@QEAAHPEAVPFF@@PEAPEAV2@K@Z.c)
+ *     ?pPFFGet@PUBLIC_PFTOBJ@@QEAAPEAVPFF@@PEBGKKPEAUtagDESIGNVECTOR@@KPEAPEAPEAV2@H@Z @ 0x1C011D0B8 (-pPFFGet@PUBLIC_PFTOBJ@@QEAAPEAVPFF@@PEBGKKPEAUtagDESIGNVECTOR@@KPEAPEAPEAV2@H@Z.c)
+ */
+
 _BOOL8 __fastcall GreRemoveFontResourceW(
         Gre::Base *a1,
         unsigned int a2,

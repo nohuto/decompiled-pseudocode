@@ -1,3 +1,11 @@
+/*
+ * XREFs of rimObsCheckForExistingDeviceHandle @ 0x1C01DB6E4
+ * Callers:
+ *     rimObsDeliverInputToObserver @ 0x1C01DBC24 (rimObsDeliverInputToObserver.c)
+ * Callees:
+ *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0037330 (RawInputManagerDeviceObjectResolveHandle.c)
+ */
+
 char *__fastcall rimObsCheckForExistingDeviceHandle(__int64 a1, PVOID a2)
 {
   _QWORD *v2; // rsi

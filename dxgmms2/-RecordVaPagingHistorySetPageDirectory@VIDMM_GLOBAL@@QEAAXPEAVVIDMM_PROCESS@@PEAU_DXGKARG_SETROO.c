@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?RecordVaPagingHistorySetPageDirectory@VIDMM_GLOBAL@@QEAAXPEAVVIDMM_PROCESS@@PEAU_DXGKARG_SETROOTPAGETABLE@@PEAX@Z @ 0x1C00A89B8
+ * Callers:
+ *     VidSchiSubmitRenderVirtualCommand @ 0x1C00A46E0 (VidSchiSubmitRenderVirtualCommand.c)
+ *     VidSchSetPagingNodePageDirectory @ 0x1C00C31B8 (VidSchSetPagingNodePageDirectory.c)
+ *     VidSchiEnsureRootPageTableUpdated @ 0x1C00C4DE4 (VidSchiEnsureRootPageTableUpdated.c)
+ *     VidSchiSetPagingHwContextPageDirectory @ 0x1C0109238 (VidSchiSetPagingHwContextPageDirectory.c)
+ * Callees:
+ *     ??2@YAPEAX_KPEAVDXGK_LOG@@II@Z @ 0x1C0001830 (--2@YAPEAX_KPEAVDXGK_LOG@@II@Z.c)
+ *     ??0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z @ 0x1C0011B70 (--0DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAA@AEAVDXGPUSHLOCKFAST@@_N@Z.c)
+ *     ?Release@DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAAXXZ @ 0x1C0017980 (-Release@DXGAUTOPUSHLOCKFASTEXCLUSIVE@@QEAAXXZ.c)
+ *     ?AllocateVaPagingHistoryEntry@VIDMM_GLOBAL@@QEAAPEAXW4VIDMM_PAGING_HISTORY_ENTRY_TYPE@@_K@Z @ 0x1C00F1D64 (-AllocateVaPagingHistoryEntry@VIDMM_GLOBAL@@QEAAPEAXW4VIDMM_PAGING_HISTORY_ENTRY_TYPE@@_K@Z.c)
+ */
+
 void __fastcall VIDMM_GLOBAL::RecordVaPagingHistorySetPageDirectory(
         VIDMM_GLOBAL *this,
         struct VIDMM_PROCESS *a2,

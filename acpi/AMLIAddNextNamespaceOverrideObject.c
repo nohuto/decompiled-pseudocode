@@ -1,3 +1,17 @@
+/*
+ * XREFs of AMLIAddNextNamespaceOverrideObject @ 0x1C004A534
+ * Callers:
+ *     AMLIAddNextNamespaceOverride @ 0x1C004A3CC (AMLIAddNextNamespaceOverride.c)
+ * Callees:
+ *     AMLICreateOverrideObjectDefault @ 0x1C004A82C (AMLICreateOverrideObjectDefault.c)
+ *     AMLICreateOverrideObjectDep @ 0x1C004A920 (AMLICreateOverrideObjectDep.c)
+ *     AMLIGetValidNamespaceName @ 0x1C004ABA8 (AMLIGetValidNamespaceName.c)
+ *     FreeObjData @ 0x1C004B544 (FreeObjData.c)
+ *     CreateNameSpaceObject @ 0x1C004F10C (CreateNameSpaceObject.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ *     OSReadRegValue @ 0x1C008E6A0 (OSReadRegValue.c)
+ */
+
 __int64 __fastcall AMLIAddNextNamespaceOverrideObject(__int64 a1, __int64 a2, const char *a3)
 {
   int valid; // ebx

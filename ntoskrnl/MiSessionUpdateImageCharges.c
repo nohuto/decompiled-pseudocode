@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiSessionUpdateImageCharges @ 0x14036C724
+ * Callers:
+ *     MiDriverLoadSucceeded @ 0x1407F6FFC (MiDriverLoadSucceeded.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiCountSystemImageCommitment @ 0x1402B0C2C (MiCountSystemImageCommitment.c)
+ *     MiSessionLookupImage @ 0x14036C7B8 (MiSessionLookupImage.c)
+ */
+
 __int64 __fastcall MiSessionUpdateImageCharges(__int64 a1)
 {
   __int64 v1; // rsi

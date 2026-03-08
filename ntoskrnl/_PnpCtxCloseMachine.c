@@ -1,3 +1,17 @@
+/*
+ * XREFs of _PnpCtxCloseMachine @ 0x140A5DAE0
+ * Callers:
+ *     PiDevCfgInitDriverDatabaseCallback @ 0x14095B6D8 (PiDevCfgInitDriverDatabaseCallback.c)
+ *     PipMigratePnpState @ 0x140B5AC14 (PipMigratePnpState.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExDeleteResourceLite @ 0x140336580 (ExDeleteResourceLite.c)
+ *     _PnpCtxDestroyNode @ 0x140A5DBA8 (_PnpCtxDestroyNode.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpCtxCloseMachine(PERESOURCE *P)
 {
   struct _KTHREAD *CurrentThread; // rax

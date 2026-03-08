@@ -1,3 +1,13 @@
+/*
+ * XREFs of DxgkCleanupPresentHistoryInternal @ 0x1C01DE680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     ?FlipManagerConsumerAdapterCleanupTokenDiscard@@YAJPEAUFlipManagerTokenObject@@@Z @ 0x1C0081048 (-FlipManagerConsumerAdapterCleanupTokenDiscard@@YAJPEAUFlipManagerTokenObject@@@Z.c)
+ *     DxgkGetPresentHistoryInternal @ 0x1C01DE730 (DxgkGetPresentHistoryInternal.c)
+ */
+
 __int64 __fastcall DxgkCleanupPresentHistoryInternal(int a1)
 {
   int PresentHistoryInternal; // esi

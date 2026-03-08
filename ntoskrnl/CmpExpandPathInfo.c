@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpExpandPathInfo @ 0x14073A0C4
+ * Callers:
+ *     CmpDoParseKey @ 0x1406E1D90 (CmpDoParseKey.c)
+ *     CmpComputeComponentHashes @ 0x140739D80 (CmpComputeComponentHashes.c)
+ * Callees:
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall CmpExpandPathInfo(__int64 a1)
 {
   struct _KPRCB *CurrentPrcb; // rbp

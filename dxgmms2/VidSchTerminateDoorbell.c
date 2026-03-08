@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchTerminateDoorbell @ 0x1C0045120
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0013414 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00134D8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ */
+
 void __fastcall VidSchTerminateDoorbell(__int64 a1)
 {
   __int64 v2; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of KeSelectNodeForAffinity @ 0x1403B0188
+ * Callers:
+ *     KiSetIdealNodeProcessByGroup @ 0x140296818 (KiSetIdealNodeProcessByGroup.c)
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ *     KeInitializeProcess @ 0x14070A0C8 (KeInitializeProcess.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KeSelectNodeForAffinity(__int64 a1)
 {
   unsigned __int16 v3; // cx

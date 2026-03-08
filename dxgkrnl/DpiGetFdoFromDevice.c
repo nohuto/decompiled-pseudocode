@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiGetFdoFromDevice @ 0x1C0012F68
+ * Callers:
+ *     DpiGetSysMmAdapterFromDevice @ 0x1C0012F3C (DpiGetSysMmAdapterFromDevice.c)
+ *     DpiMiracastFindRenderAdapterForSession @ 0x1C01F7F00 (DpiMiracastFindRenderAdapterForSession.c)
+ *     DpiMiracastFindDisplayAdapterFdoIhv @ 0x1C02196D4 (DpiMiracastFindDisplayAdapterFdoIhv.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiGetFdoFromDevice(__int64 a1)
 {
   __int64 v1; // rdx

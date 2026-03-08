@@ -1,3 +1,12 @@
+/*
+ * XREFs of SymCryptFdef369RawSubAsm @ 0x1404096D0
+ * Callers:
+ *     SymCryptFdef369ModAddGeneric @ 0x140403AD0 (SymCryptFdef369ModAddGeneric.c)
+ *     SymCryptFdef369ModSubGeneric @ 0x140403DD0 (SymCryptFdef369ModSubGeneric.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall SymCryptFdef369RawSubAsm(unsigned __int64 *a1, _QWORD *a2, _QWORD *a3, int a4)
 {
   int v4; // r9d

@@ -1,3 +1,22 @@
+/*
+ * XREFs of PopEtEnergyTrackerQuery @ 0x140767578
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     KeQueryTimelineBitmapTime @ 0x1402384D0 (KeQueryTimelineBitmapTime.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406D8E50 (ObReferenceObjectByHandleWithTag.c)
+ *     PopEtDataSectionCopyData @ 0x140768274 (PopEtDataSectionCopyData.c)
+ *     PopEtDataSectionReserve @ 0x1407682C0 (PopEtDataSectionReserve.c)
+ *     PopEtDataSectionStart @ 0x140768310 (PopEtDataSectionStart.c)
+ *     PopEtEnergyTrackerCleanupAggregates @ 0x140768330 (PopEtEnergyTrackerCleanupAggregates.c)
+ *     PsEnumProcesses @ 0x1407809CC (PsEnumProcesses.c)
+ */
+
 __int64 __fastcall PopEtEnergyTrackerQuery(void *a1, __int64 a2, unsigned int a3)
 {
   char v5; // r14

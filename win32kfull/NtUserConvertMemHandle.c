@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserConvertMemHandle @ 0x1C01CEFE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _ConvertMemHandle @ 0x1C0200554 (_ConvertMemHandle.c)
+ */
+
 __int64 __fastcall NtUserConvertMemHandle(void *Src, size_t Size)
 {
   unsigned int v2; // ebx

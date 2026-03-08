@@ -1,3 +1,13 @@
+/*
+ * XREFs of MonitorAPIProcessTerminating @ 0x1C00D6D20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DestroyHandleInternal@?$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@AEAAJPEAVCPhysicalMonitorHandle@@KPEAVCMutex@2@@Z @ 0x1C026C618 (-DestroyHandleInternal@-$CMonitorHandleTable@VCPhysicalMonitorHandle@@PEAX@OPM@@AEAAJPEAVCPhysic.c)
+ *     ?GetElement@?$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAJKPEAPEAVCPhysicalMonitorHandle@@@Z @ 0x1C026C738 (-GetElement@-$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAJKPEAPEAVCPhysicalMonitorHandle@@@Z.c)
+ *     ?GetNextElementIndex@?$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAEKPEAK@Z @ 0x1C026C908 (-GetNextElementIndex@-$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAEKPEAK@Z.c)
+ */
+
 void __fastcall MonitorAPIProcessTerminating(void *a1)
 {
   __int64 v2; // rsi

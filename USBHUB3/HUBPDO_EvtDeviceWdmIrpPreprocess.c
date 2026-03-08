@@ -1,3 +1,34 @@
+/*
+ * XREFs of HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0018550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001CA0 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C000CE90 (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     McTemplateK0pjq_EtwWriteTransfer @ 0x1C0014284 (McTemplateK0pjq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_q @ 0x1C0015204 (WPP_RECORDER_SF_q.c)
+ *     HUBPDO_GetHubName @ 0x1C00160D8 (HUBPDO_GetHubName.c)
+ *     HUBPDO_RecordFailure @ 0x1C001624C (HUBPDO_RecordFailure.c)
+ *     HUBPDO_ReturnDeviceConfigInfo @ 0x1C0016420 (HUBPDO_ReturnDeviceConfigInfo.c)
+ *     HUBPDO_ValidateURB @ 0x1C0017480 (HUBPDO_ValidateURB.c)
+ *     EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Wrapper @ 0x1C001D0E0 (EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Wrapper.c)
+ *     HUBUCX_GetControllerName @ 0x1C0028D3C (HUBUCX_GetControllerName.c)
+ *     HUBUCX_GetDeviceBusInfo @ 0x1C0028E94 (HUBUCX_GetDeviceBusInfo.c)
+ *     HUBMISC_WaitForSignal @ 0x1C0032DEC (HUBMISC_WaitForSignal.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C0032FCC (HUBMISC_VerifierDbgBreak.c)
+ *     HUBMISC_GenerateControllerSuffix @ 0x1C0034298 (HUBMISC_GenerateControllerSuffix.c)
+ *     HUBIDLE_AddEvent @ 0x1C003EAB4 (HUBIDLE_AddEvent.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ *     HUBPDO_RegisterPortPLDRCapability @ 0x1C0080B64 (HUBPDO_RegisterPortPLDRCapability.c)
+ *     HUBPDO_UnregisterPortPLDRCapability @ 0x1C0081350 (HUBPDO_UnregisterPortPLDRCapability.c)
+ */
+
 __int64 __fastcall HUBPDO_EvtDeviceWdmIrpPreprocess(__int64 a1, IRP *a2)
 {
   unsigned int Status; // ebx

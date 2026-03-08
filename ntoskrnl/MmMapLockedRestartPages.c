@@ -1,3 +1,13 @@
+/*
+ * XREFs of MmMapLockedRestartPages @ 0x140A286F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiMapMdlCommon @ 0x1403A2070 (MiMapMdlCommon.c)
+ *     MiReserveDriverPtes @ 0x1407F6D70 (MiReserveDriverPtes.c)
+ */
+
 __int64 __fastcall MmMapLockedRestartPages(_DWORD *a1, int a2, int a3, __int64 a4)
 {
   char *AnyMultiplexedVm; // rax

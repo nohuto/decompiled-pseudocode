@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiReplenishTransitionPageHeatList @ 0x14065227C
+ * Callers:
+ *     MmCopyToCachedPage @ 0x14021DBE0 (MmCopyToCachedPage.c)
+ *     MmCheckCachedPageStates @ 0x1402200B0 (MmCheckCachedPageStates.c)
+ *     MmAccessFault @ 0x140267D40 (MmAccessFault.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ */
+
 void MiReplenishTransitionPageHeatList()
 {
   struct _SLIST_ENTRY *Pool; // rax

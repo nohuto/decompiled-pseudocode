@@ -1,3 +1,16 @@
+/*
+ * XREFs of VidSchiAllocateDmaPacket @ 0x1C00ADBDC
+ * Callers:
+ *     VidSchiSwitchNodeFromContext @ 0x1C00AD9A0 (VidSchiSwitchNodeFromContext.c)
+ *     VidSchiSubmitPreemptionCommand @ 0x1C00ADB04 (VidSchiSubmitPreemptionCommand.c)
+ *     VidSchiSubmitPagingCommand @ 0x1C0106954 (VidSchiSubmitPagingCommand.c)
+ *     VidSchiSubmitRenderCommand @ 0x1C0106E0C (VidSchiSubmitRenderCommand.c)
+ * Callees:
+ *     VidSchiInterlockedRemoveHeadListIfExist @ 0x1C0003540 (VidSchiInterlockedRemoveHeadListIfExist.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     VidSchWaitForCompletionEvent @ 0x1C00ADD4C (VidSchWaitForCompletionEvent.c)
+ */
+
 _QWORD *__fastcall VidSchiAllocateDmaPacket(__int64 a1)
 {
   __int64 i; // rbx

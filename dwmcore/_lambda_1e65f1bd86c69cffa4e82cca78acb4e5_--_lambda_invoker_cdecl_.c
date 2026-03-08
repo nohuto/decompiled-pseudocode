@@ -1,3 +1,12 @@
+/*
+ * XREFs of _lambda_1e65f1bd86c69cffa4e82cca78acb4e5_::_lambda_invoker_cdecl_ @ 0x1801FED70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B2934 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?ProcessScribbleFrame@CComputeScribbleScheduler@@AEAAJXZ @ 0x180200614 (-ProcessScribbleFrame@CComputeScribbleScheduler@@AEAAJXZ.c)
+ */
+
 __int64 __fastcall lambda_1e65f1bd86c69cffa4e82cca78acb4e5_::_lambda_invoker_cdecl_(CComputeScribbleScheduler *a1)
 {
   int v1; // eax

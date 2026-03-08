@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpCallWakeAlarmDriver @ 0x140931F9C
+ * Callers:
+ *     HalpArmAcpiWakeAlarm @ 0x140931EE0 (HalpArmAcpiWakeAlarm.c)
+ * Callees:
+ *     IoBuildDeviceIoControlRequest @ 0x14024FE00 (IoBuildDeviceIoControlRequest.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ */
+
 NTSTATUS __fastcall HalpCallWakeAlarmDriver(PDEVICE_OBJECT DeviceObject, char a2, char a3, int a4)
 {
   IRP *v6; // rax

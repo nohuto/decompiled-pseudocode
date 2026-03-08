@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlIpv6AddressToStringExW @ 0x14039EF80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlIpv6AddressToStringW @ 0x14039F060 (RtlIpv6AddressToStringW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 NTSTATUS __stdcall RtlIpv6AddressToStringExW(
         const struct in6_addr *Address,
         ULONG ScopeId,

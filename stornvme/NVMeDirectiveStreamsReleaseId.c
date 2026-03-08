@@ -1,3 +1,14 @@
+/*
+ * XREFs of NVMeDirectiveStreamsReleaseId @ 0x1C001D090
+ * Callers:
+ *     IoctlStorageStreamsReleaseId @ 0x1C0014708 (IoctlStorageStreamsReleaseId.c)
+ * Callees:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 __int64 __fastcall NVMeDirectiveStreamsReleaseId(__int64 a1, int a2, __int16 a3)
 {
   __int64 v6; // rdx

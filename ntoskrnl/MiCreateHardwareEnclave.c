@@ -1,3 +1,28 @@
+/*
+ * XREFs of MiCreateHardwareEnclave @ 0x140A3AB10
+ * Callers:
+ *     MiCreateEnclave @ 0x140A3A9F4 (MiCreateEnclave.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiSetPfnBlink @ 0x140289900 (MiSetPfnBlink.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     KeGetIdealNodeNumberThread @ 0x14056E190 (KeGetIdealNodeNumberThread.c)
+ *     MiGetVmPartition @ 0x140626FC4 (MiGetVmPartition.c)
+ *     MiAllocateEnclavePages @ 0x1406447E4 (MiAllocateEnclavePages.c)
+ *     MiInitializeEnclavePfn @ 0x140645B58 (MiInitializeEnclavePfn.c)
+ *     MiReserveEnclavePages @ 0x140646394 (MiReserveEnclavePages.c)
+ *     KeCreateEnclave @ 0x140971484 (KeCreateEnclave.c)
+ */
+
 __int64 __fastcall MiCreateHardwareEnclave(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4, _DWORD *a5)
 {
   struct _KTHREAD *CurrentThread; // rbp

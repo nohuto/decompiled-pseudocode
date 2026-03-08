@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?DeviceCDROMNotify@@YAJPEAU_TARGET_DEVICE_CUSTOM_NOTIFICATION@@PEAU_CDROM_NOTIFY@@@Z @ 0x1C01B2F60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ShowAutorunCursor @ 0x1C01AA2E0 (ShowAutorunCursor.c)
+ *     ??0CTempW32ThreadNonPaged@@QEAA@XZ @ 0x1C01B2DB4 (--0CTempW32ThreadNonPaged@@QEAA@XZ.c)
+ *     ??1CTempW32ThreadNonPaged@@QEAA@XZ @ 0x1C01B2F14 (--1CTempW32ThreadNonPaged@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall DeviceCDROMNotify(char *NotificationStructure, unsigned int *Context)
 {
   __int64 v4; // rax

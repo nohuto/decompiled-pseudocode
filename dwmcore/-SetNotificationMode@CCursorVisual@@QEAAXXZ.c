@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SetNotificationMode@CCursorVisual@@QEAAXXZ @ 0x180225968
+ * Callers:
+ *     ?EndUpdateCursors@CGlobalComposition@@UEAAXXZ @ 0x1800E9040 (-EndUpdateCursors@CGlobalComposition@@UEAAXXZ.c)
+ * Callees:
+ *     ?GetDesktopTree@CVisual@@QEBAPEAVCDesktopTree@@XZ @ 0x18003A490 (-GetDesktopTree@CVisual@@QEBAPEAVCDesktopTree@@XZ.c)
+ *     ?GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ @ 0x18008A3EC (-GetTreeDataListHead@CVisual@@QEBAPEAU_LIST_ENTRY@@XZ.c)
+ *     ?NeedsCursorPositionUpdates@CDesktopTree@@QEBA_NPEBVCCursorVisual@@@Z @ 0x18020CBC0 (-NeedsCursorPositionUpdates@CDesktopTree@@QEBA_NPEBVCCursorVisual@@@Z.c)
+ */
+
 void __fastcall CCursorVisual::SetNotificationMode(CCursorVisual *this)
 {
   bool v2; // di

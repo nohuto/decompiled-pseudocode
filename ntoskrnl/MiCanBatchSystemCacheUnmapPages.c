@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiCanBatchSystemCacheUnmapPages @ 0x14062C6E4
+ * Callers:
+ *     MiAddPageToInsertList @ 0x1402848D0 (MiAddPageToInsertList.c)
+ *     MiUnlockMdlWritePages @ 0x140284DD0 (MiUnlockMdlWritePages.c)
+ * Callees:
+ *     MiSetNonResidentPteHeat @ 0x140287A90 (MiSetNonResidentPteHeat.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14032D790 (MiCaptureDirtyBitToPfn.c)
+ */
+
 __int64 __fastcall MiCanBatchSystemCacheUnmapPages(_BYTE *a1, __int64 a2)
 {
   char v3; // al

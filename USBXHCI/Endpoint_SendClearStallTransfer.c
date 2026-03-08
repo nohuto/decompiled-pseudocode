@@ -1,3 +1,13 @@
+/*
+ * XREFs of Endpoint_SendClearStallTransfer @ 0x1C003BE6C
+ * Callers:
+ *     Endpoint_OnCancelEndpointConfigureCompletion @ 0x1C003A9C0 (Endpoint_OnCancelEndpointConfigureCompletion.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ddq @ 0x1C000C300 (WPP_RECORDER_SF_ddq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 _UNKNOWN **__fastcall Endpoint_SendClearStallTransfer(_QWORD *Context)
 {
   PIRP *v1; // rax

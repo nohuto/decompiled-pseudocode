@@ -1,3 +1,17 @@
+/*
+ * XREFs of LinkNodepRunSrsWorker @ 0x1C005DB40
+ * Callers:
+ *     LinkNodepRunSrsAsync @ 0x1C005DAAC (LinkNodepRunSrsAsync.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     WPP_RECORDER_SF_i @ 0x1C002293C (WPP_RECORDER_SF_i.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     AMLIAsyncEvalObject @ 0x1C00478E8 (AMLIAsyncEvalObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ */
+
 __int64 __fastcall LinkNodepRunSrsWorker(__int64 a1, int a2, __int64 a3, char *a4)
 {
   volatile signed __int32 *v4; // rax

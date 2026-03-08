@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpHpMetadataHeapCreate @ 0x140374B90
+ * Callers:
+ *     RtlHpHeapManagerStart @ 0x1403762C8 (RtlHpHeapManagerStart.c)
+ * Callees:
+ *     RtlpHpHeapCreate @ 0x140375288 (RtlpHpHeapCreate.c)
+ */
+
 __int64 __fastcall RtlpHpMetadataHeapCreate(PRTL_RUN_ONCE RunOnce, __int128 *Parameter, PVOID *Context)
 {
   union _RTL_RUN_ONCE v4; // rdx

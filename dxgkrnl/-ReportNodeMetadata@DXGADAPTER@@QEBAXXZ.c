@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReportNodeMetadata@DXGADAPTER@@QEBAXXZ @ 0x1C020CA04
+ * Callers:
+ *     ?CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C020A930 (-CreateAdapter@DXGGLOBAL@@QEAAJPEAU_DEVICE_OBJECT@@PEAPEAVDXGADAPTER@@PEAXPEAU_DXGK_ADAPTER_CAPS.c)
+ *     ?ReportState@DXGADAPTER@@QEAAXXZ @ 0x1C02B4808 (-ReportState@DXGADAPTER@@QEAAXXZ.c)
+ * Callees:
+ *     McTemplateK0pqqz_EtwWriteTransfer @ 0x1C0040564 (McTemplateK0pqqz_EtwWriteTransfer.c)
+ */
+
 void __fastcall DXGADAPTER::ReportNodeMetadata(DXGADAPTER *this, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

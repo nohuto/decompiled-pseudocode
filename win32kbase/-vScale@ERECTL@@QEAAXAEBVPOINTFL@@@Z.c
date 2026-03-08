@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z @ 0x1C01845D8
+ * Callers:
+ *     ?vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z @ 0x1C01846B0 (-vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z.c)
+ * Callees:
+ *     bFToL @ 0x1C0002B7C (bFToL.c)
+ */
+
 void __fastcall ERECTL::vScale(ERECTL *this, const struct POINTFL *a2)
 {
   float v2; // xmm2_4

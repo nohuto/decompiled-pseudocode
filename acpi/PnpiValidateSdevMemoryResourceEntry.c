@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpiValidateSdevMemoryResourceEntry @ 0x1C0092398
+ * Callers:
+ *     PnpiValidateSdevResources @ 0x1C0092454 (PnpiValidateSdevResources.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PnpiValidateSdevMemoryResourceEntry(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepConstrainByConstraintMask @ 0x1402077A4
+ * Callers:
+ *     SeAccessCheckByType @ 0x14033BB40 (SeAccessCheckByType.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1406973E0 (SepAccessCheckAndAuditAlarm.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall SepConstrainByConstraintMask(int a1, int a2, char *a3, char *a4, bool *a5, unsigned int a6, _BYTE *a7)
 {
   int v9; // r10d

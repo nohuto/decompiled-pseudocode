@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlpGetWindowsPolicy @ 0x1407FE630
+ * Callers:
+ *     RtlpMuiRegLoadLicInformation @ 0x14036F370 (RtlpMuiRegLoadLicInformation.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwQueryLicenseValue @ 0x140414ED0 (ZwQueryLicenseValue.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlpGetWindowsPolicy(PCWSTR SourceString, __int64 a2, _DWORD *a3, _QWORD *a4)
 {
   void *Pool2; // rbx

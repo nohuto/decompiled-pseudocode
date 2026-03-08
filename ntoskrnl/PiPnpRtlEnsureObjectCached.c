@@ -1,3 +1,21 @@
+/*
+ * XREFs of PiPnpRtlEnsureObjectCached @ 0x140957214
+ * Callers:
+ *     PiCMCreateDevice @ 0x1409654C0 (PiCMCreateDevice.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1406CBBDC (PiDmAddCacheReferenceForObject.c)
+ *     PiPnpRtlEndOperation @ 0x1406CCB7C (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1406CDF98 (PiPnpRtlBeginOperation.c)
+ *     PiPnpRtlObjectEventCreate @ 0x1406CEB28 (PiPnpRtlObjectEventCreate.c)
+ *     PiDmObjectRelease @ 0x1406D0328 (PiDmObjectRelease.c)
+ *     PiDmGetObject @ 0x1406D0370 (PiDmGetObject.c)
+ */
+
 __int64 __fastcall PiPnpRtlEnsureObjectCached(__int64 a1, __int64 a2)
 {
   int Object; // eax

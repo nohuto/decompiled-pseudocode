@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vLock@NEEDGRELOCK@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C00210C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0049800 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ */
+
 void __fastcall NEEDGRELOCK::vLock(NEEDGRELOCK *this, struct XDCOBJ *a2)
 {
   NEEDGRELOCK *v3; // rsi

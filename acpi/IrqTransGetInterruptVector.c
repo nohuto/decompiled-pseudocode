@@ -1,3 +1,15 @@
+/*
+ * XREFs of IrqTransGetInterruptVector @ 0x1C009A410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IrqLibAcquireArbiterLock @ 0x1C005CC88 (IrqLibAcquireArbiterLock.c)
+ *     IrqLibReleaseArbiterLock @ 0x1C005CD28 (IrqLibReleaseArbiterLock.c)
+ *     IrqTranslatepQueryDeviceIrql @ 0x1C009A6BC (IrqTranslatepQueryDeviceIrql.c)
+ *     ProcessorGetDeviceIdtAssignment @ 0x1C009ABF4 (ProcessorGetDeviceIdtAssignment.c)
+ *     IrqArbGsivFromIrq @ 0x1C009D69C (IrqArbGsivFromIrq.c)
+ */
+
 __int64 __fastcall IrqTransGetInterruptVector(__int64 a1, __int64 a2, unsigned int a3, int a4, _BYTE *a5, _QWORD *a6)
 {
   __int64 v6; // rbx

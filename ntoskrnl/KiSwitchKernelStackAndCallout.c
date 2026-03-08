@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiSwitchKernelStackAndCallout @ 0x14041AC70
+ * Callers:
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140317800 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiSwitchKernelStackAndCallout(int a1, int a2, __int64 a3, int a4, int a5, int a6, __int64 a7)
 {
   char v7; // bl

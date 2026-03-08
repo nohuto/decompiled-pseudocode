@@ -1,3 +1,13 @@
+/*
+ * XREFs of SeGetImageRequiredSigningLevel @ 0x1406A17A8
+ * Callers:
+ *     MiValidateExistingImage @ 0x1406A1230 (MiValidateExistingImage.c)
+ *     MiCreateNewSection @ 0x1406A6414 (MiCreateNewSection.c)
+ * Callees:
+ *     RtlIsUntrustedObject @ 0x140200E40 (RtlIsUntrustedObject.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall SeGetImageRequiredSigningLevel(__int64 a1, __int64 a2, __int64 a3, char a4, char *a5)
 {
   unsigned int IsUntrustedObject; // esi

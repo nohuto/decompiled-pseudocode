@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcInitPerVolumeParameters @ 0x1403B02F4
+ * Callers:
+ *     CcInitializeCacheManager @ 0x140B3EB44 (CcInitializeCacheManager.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ */
+
 __int64 CcInitPerVolumeParameters()
 {
   char v0; // al

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopS0LowPowerIdleInfo @ 0x140981530
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ * Callees:
+ *     PopNetIsDisconnectStandbyActive @ 0x140879C70 (PopNetIsDisconnectStandbyActive.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopS0LowPowerIdleInfo(__int64 a1)
 {
   unsigned int v1; // ebx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmEventTraceMultiClassHeteroResponse @ 0x140599710
+ * Callers:
+ *     PpmHeteroComputeMultiClassUnparkCount @ 0x140594A00 (PpmHeteroComputeMultiClassUnparkCount.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PpmEventTraceMultiClassHeteroResponse(
         char a1,
         unsigned __int64 *a2,

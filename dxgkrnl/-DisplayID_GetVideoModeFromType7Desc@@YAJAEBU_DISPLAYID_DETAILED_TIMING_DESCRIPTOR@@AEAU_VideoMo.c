@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DisplayID_GetVideoModeFromType7Desc@@YAJAEBU_DISPLAYID_DETAILED_TIMING_DESCRIPTOR@@AEAU_VideoModeDescriptor@@@Z @ 0x1C00733DC
+ * Callers:
+ *     ?DisplayID_GetVideoModeDescriptors@@YAJAEBUDisplayIDObj@@AEAGPEAU_VideoModeDescriptor@@1G@Z @ 0x1C0072FCC (-DisplayID_GetVideoModeDescriptors@@YAJAEBUDisplayIDObj@@AEAGPEAU_VideoModeDescriptor@@1G@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DisplayID_GetVideoModeFromType7Desc(
         const struct _DISPLAYID_DETAILED_TIMING_DESCRIPTOR *a1,
         struct _VideoModeDescriptor *a2)

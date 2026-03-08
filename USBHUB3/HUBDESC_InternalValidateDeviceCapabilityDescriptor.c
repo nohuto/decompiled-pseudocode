@@ -1,3 +1,23 @@
+/*
+ * XREFs of HUBDESC_InternalValidateDeviceCapabilityDescriptor @ 0x1C003B5DC
+ * Callers:
+ *     HUBDESC_ValidateBOSDescriptorSet @ 0x1C003BEA8 (HUBDESC_ValidateBOSDescriptorSet.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C001497C (WPP_RECORDER_SF_DDD.c)
+ *     WPP_RECORDER_SF_DDDD @ 0x1C0029788 (WPP_RECORDER_SF_DDDD.c)
+ *     HUBDESC_InternalValidateContainerIDCapabilityDescriptor @ 0x1C003917C (HUBDESC_InternalValidateContainerIDCapabilityDescriptor.c)
+ *     HUBDESC_InternalValidatePowerDeliveryCapabilityDescriptor @ 0x1C0039478 (HUBDESC_InternalValidatePowerDeliveryCapabilityDescriptor.c)
+ *     HUBDESC_InternalValidatePlatformCapabilityDescriptor @ 0x1C0039788 (HUBDESC_InternalValidatePlatformCapabilityDescriptor.c)
+ *     HUBDESC_InternalValidateBillboardCapabilityDescriptor @ 0x1C0039DAC (HUBDESC_InternalValidateBillboardCapabilityDescriptor.c)
+ *     HUBDESC_InternalValidateFirmwareStatusCapabilityDescriptor @ 0x1C003A064 (HUBDESC_InternalValidateFirmwareStatusCapabilityDescriptor.c)
+ *     HUBDESC_InternalValidateSuperSpeedPlusDeviceCapabilityDescriptor @ 0x1C003A3BC (HUBDESC_InternalValidateSuperSpeedPlusDeviceCapabilityDescriptor.c)
+ *     HUBDESC_InternalValidateSuperSpeedDeviceCapabilityDescriptor @ 0x1C003AC58 (HUBDESC_InternalValidateSuperSpeedDeviceCapabilityDescriptor.c)
+ *     HUBDESC_InternalValidateUSB20DeviceCapabilityDescriptor @ 0x1C003B210 (HUBDESC_InternalValidateUSB20DeviceCapabilityDescriptor.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 char __fastcall HUBDESC_InternalValidateDeviceCapabilityDescriptor(
         unsigned __int8 *a1,
         __int64 a2,

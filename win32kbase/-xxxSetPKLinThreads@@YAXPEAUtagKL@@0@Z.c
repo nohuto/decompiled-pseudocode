@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?xxxSetPKLinThreads@@YAXPEAUtagKL@@0@Z @ 0x1C0086318
+ * Callers:
+ *     ?xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_INTERNAL@@PEBGII@Z @ 0x1C0085310 (-xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_IN.c)
+ * Callees:
+ *     HMAssignmentLock @ 0x1C00788D0 (HMAssignmentLock.c)
+ *     ?GetThreadsWithPKL@@YAIPEAPEAPEAUtagTHREADINFO@@PEAU_TL@@PEAUtagKL@@@Z @ 0x1C0086400 (-GetThreadsWithPKL@@YAIPEAPEAPEAUtagTHREADINFO@@PEAU_TL@@PEAUtagKL@@@Z.c)
+ *     xxxChangeForegroundKeyboardTable @ 0x1C00C7730 (xxxChangeForegroundKeyboardTable.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     ApiSetEditionImmActivateAndUnloadThreadsLayout @ 0x1C023F138 (ApiSetEditionImmActivateAndUnloadThreadsLayout.c)
+ */
+
 void __fastcall xxxSetPKLinThreads(struct tagKL *a1, struct tagKL *a2)
 {
   __int64 ThreadsWithPKL; // rsi

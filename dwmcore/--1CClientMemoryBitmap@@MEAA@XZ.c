@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CClientMemoryBitmap@@MEAA@XZ @ 0x1800A743C
+ * Callers:
+ *     ??_ECClientMemoryBitmap@@MEAAPEAXI@Z @ 0x1800A7330 (--_ECClientMemoryBitmap@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CClientMemoryBitmap::~CClientMemoryBitmap(CClientMemoryBitmap *this)
 {
   __int64 v2; // rcx

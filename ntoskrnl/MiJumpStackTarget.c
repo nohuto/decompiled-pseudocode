@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiJumpStackTarget @ 0x14062AB70
+ * Callers:
+ *     MiDoStackCopy @ 0x14062A990 (MiDoStackCopy.c)
+ * Callees:
+ *     MiMapPageInHyperSpaceWorker @ 0x140214870 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140214A54 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x14026A0D0 (MiLockPageTableInternal.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x140286264 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiGetLeafPfnBuddy @ 0x140386E8C (MiGetLeafPfnBuddy.c)
+ *     MiCanStealKernelStack @ 0x14039634C (MiCanStealKernelStack.c)
+ *     MiSwapStackPageNoDpc @ 0x1403963DC (MiSwapStackPageNoDpc.c)
+ *     MiStackTheftFreezeProcessors @ 0x14062AF0C (MiStackTheftFreezeProcessors.c)
+ */
+
 volatile signed __int32 *__fastcall MiJumpStackTarget(ULONG_PTR *a1)
 {
   ULONG_PTR v1; // r14

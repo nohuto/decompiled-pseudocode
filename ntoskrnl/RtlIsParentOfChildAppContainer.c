@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlIsParentOfChildAppContainer @ 0x1409B9428
+ * Callers:
+ *     SeTokenCanImpersonate @ 0x1406DA880 (SeTokenCanImpersonate.c)
+ *     SepSetTokenCapabilities @ 0x140710278 (SepSetTokenCapabilities.c)
+ *     SepSetTokenPackage @ 0x140739590 (SepSetTokenPackage.c)
+ *     SepCheckCreateLowBox @ 0x140799F04 (SepCheckCreateLowBox.c)
+ *     SepIsParentOfChildAppContainer @ 0x1409CEBF4 (SepIsParentOfChildAppContainer.c)
+ * Callees:
+ *     RtlSubAuthoritySid @ 0x1402BE740 (RtlSubAuthoritySid.c)
+ *     RtlGetAppContainerSidType @ 0x1407414C0 (RtlGetAppContainerSidType.c)
+ */
+
 char __fastcall RtlIsParentOfChildAppContainer(PSID Sid, PSID a2)
 {
   ULONG v4; // edi

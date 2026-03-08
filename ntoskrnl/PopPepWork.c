@@ -1,3 +1,24 @@
+/*
+ * XREFs of PopPepWork @ 0x140305714
+ * Callers:
+ *     PopFxDispatchPluginWorkOnce @ 0x14030541C (PopFxDispatchPluginWorkOnce.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140305AB0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     PopPepStartActivity @ 0x1403072CC (PopPepStartActivity.c)
+ *     PopPepGetReadyActivityType @ 0x140308330 (PopPepGetReadyActivityType.c)
+ *     PopDiagTraceFxDefaultPepWorkerEnd @ 0x140308828 (PopDiagTraceFxDefaultPepWorkerEnd.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall PopPepWork(char a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax

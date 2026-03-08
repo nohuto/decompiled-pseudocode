@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeSendControllerInternalData @ 0x1C0027B90
+ * Callers:
+ *     NVMeHwAdapterControl @ 0x1C0003050 (NVMeHwAdapterControl.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003260 (__security_check_cookie.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ */
+
 _BOOL8 __fastcall NVMeSendControllerInternalData(__int64 a1, __int64 a2)
 {
   __int64 v4; // rcx

@@ -1,3 +1,24 @@
+/*
+ * XREFs of IopIncrementDeviceObjectRefCount @ 0x14030F910
+ * Callers:
+ *     IopCompleteUnloadOrDelete @ 0x1402F0CC4 (IopCompleteUnloadOrDelete.c)
+ *     PnpMarkDeviceForRemove @ 0x1403CF1B8 (PnpMarkDeviceForRemove.c)
+ *     IoCreateStreamFileObjectEx2 @ 0x1406B5020 (IoCreateStreamFileObjectEx2.c)
+ *     IopMountVolume @ 0x14072B180 (IopMountVolume.c)
+ *     IopDeleteFile @ 0x1407BAF80 (IopDeleteFile.c)
+ *     IoRegisterFileSystem @ 0x14086F860 (IoRegisterFileSystem.c)
+ *     IopShutdownBaseFileSystems @ 0x140A96E64 (IopShutdownBaseFileSystems.c)
+ * Callees:
+ *     KxWaitForLockChainValid @ 0x140291730 (KxWaitForLockChainValid.c)
+ *     KxWaitForLockOwnerShip @ 0x14033B510 (KxWaitForLockOwnerShip.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140457B8E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x14056EF78 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14057DAC8 (KiHaltOnAddressWakeEntireList.c)
+ */
+
 __int64 __fastcall IopIncrementDeviceObjectRefCount(ULONG_PTR BugCheckParameter2, char a2)
 {
   unsigned __int8 CurrentIrql; // r14

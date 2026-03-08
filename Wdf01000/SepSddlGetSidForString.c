@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepSddlGetSidForString @ 0x1C00B0E60
+ * Callers:
+ *     SepSddlGetAclForString @ 0x1C00B0AE0 (SepSddlGetAclForString.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SepSddlGetSidForString(wchar_t *String, void **SID, wchar_t **End)
 {
   void *v3; // rbx

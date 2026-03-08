@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIBusAndFilterIrpQueryContainerId @ 0x1C0016120
+ * Callers:
+ *     ACPIBusIrpQueryId @ 0x1C0080330 (ACPIBusIrpQueryId.c)
+ *     ACPIFilterIrpQueryIdCompletion @ 0x1C0085F40 (ACPIFilterIrpQueryIdCompletion.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     ACPIFreePhysicalDeviceLocationDescriptors @ 0x1C0097DF4 (ACPIFreePhysicalDeviceLocationDescriptors.c)
+ *     ACPIProcessPhysicalDeviceLocation @ 0x1C0098134 (ACPIProcessPhysicalDeviceLocation.c)
+ */
+
 __int64 __fastcall ACPIBusAndFilterIrpQueryContainerId(_QWORD *a1, __int64 *a2, __int64 a3)
 {
   NTSTATUS v6; // ebx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of bCvtPts1 @ 0x1C0006D84
+ * Callers:
+ *     ?bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@0_K@Z @ 0x1C0006D20 (-bXform@EXFORMOBJ@@QEAAHPEAU_POINTL@@0_K@Z.c)
+ *     GreGetClipBox @ 0x1C001AB40 (GreGetClipBox.c)
+ *     GreIntersectClipRect @ 0x1C0056F30 (GreIntersectClipRect.c)
+ * Callees:
+ *     bFToL @ 0x1C0002B7C (bFToL.c)
+ */
+
 __int64 __fastcall bCvtPts1(__int64 a1, int *a2, __int64 a3)
 {
   __int64 v3; // rsi

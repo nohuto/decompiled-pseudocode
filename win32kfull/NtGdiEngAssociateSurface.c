@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiEngAssociateSurface @ 0x1C02CAF00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ValidUmpdHdev@@YAPEAUHDEV__@@PEAU1@@Z @ 0x1C02C9BFC (-ValidUmpdHdev@@YAPEAUHDEV__@@PEAU1@@Z.c)
+ *     ?ValidUmpdHooks@@YAHPEAVPDEVOBJ@@K@Z @ 0x1C02C9CD0 (-ValidUmpdHooks@@YAHPEAVPDEVOBJ@@K@Z.c)
+ */
+
 __int64 __fastcall NtGdiEngAssociateSurface(HSURF hsurf, Gre::Base *a2, int a3)
 {
   Gre::Base *v3; // rbp

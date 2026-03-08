@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?IsInMotion@CInteractionTrackerPositionAnimation@@UEBA_NXZ @ 0x1802636F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ @ 0x18012E802 (-AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?GetInteractionTracker@CScrollAnimation@@IEBAPEAVCInteractionTracker@@XZ @ 0x18026191C (-GetInteractionTracker@CScrollAnimation@@IEBAPEAVCInteractionTracker@@XZ.c)
+ *     ?IsInMotion@CScrollAnimation@@UEBA_NXZ @ 0x180261B60 (-IsInMotion@CScrollAnimation@@UEBA_NXZ.c)
+ */
+
 char __fastcall CInteractionTrackerPositionAnimation::IsInMotion(CInteractionTrackerPositionAnimation *this)
 {
   CInteractionTracker *InteractionTracker; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiDecommitEnclavePages @ 0x140A3B114
+ * Callers:
+ *     MmFreeVirtualMemory @ 0x1406EC820 (MmFreeVirtualMemory.c)
+ * Callees:
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MiDecommitHardwareEnclavePages @ 0x140644F2C (MiDecommitHardwareEnclavePages.c)
+ */
+
 __int64 __fastcall MiDecommitEnclavePages(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4, int a5)
 {
   ULONG_PTR PteAddress; // rax

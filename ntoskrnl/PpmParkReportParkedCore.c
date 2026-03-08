@@ -1,3 +1,15 @@
+/*
+ * XREFs of PpmParkReportParkedCore @ 0x14059AC6C
+ * Callers:
+ *     PpmPerfAction @ 0x140236430 (PpmPerfAction.c)
+ * Callees:
+ *     KeCheckProcessorAffinityEx @ 0x140234B10 (KeCheckProcessorAffinityEx.c)
+ *     KeInterlockedSetProcessorAffinityEx @ 0x1402DE1C0 (KeInterlockedSetProcessorAffinityEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeTransitionProcessorParkState @ 0x14057B3EC (KeTransitionProcessorParkState.c)
+ *     PpmEventCoreParkingStateChangeEx @ 0x140597AB0 (PpmEventCoreParkingStateChangeEx.c)
+ */
+
 char __fastcall PpmParkReportParkedCore(__int64 a1)
 {
   int v2; // edi

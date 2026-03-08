@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiBeginPageAccessor @ 0x140350290
+ * Callers:
+ *     MiGetFreeLargePage @ 0x14034FBD0 (MiGetFreeLargePage.c)
+ *     MiTryUnlinkNodeLargePages @ 0x14039BDDC (MiTryUnlinkNodeLargePages.c)
+ *     MiGetHugeRangeFromNode @ 0x1403BF1C4 (MiGetHugeRangeFromNode.c)
+ * Callees:
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiIsFreeZeroPfnCold @ 0x140350240 (MiIsFreeZeroPfnCold.c)
+ */
+
 __int64 __fastcall MiBeginPageAccessor(unsigned __int64 a1, __int64 a2, int a3)
 {
   bool v3; // bl

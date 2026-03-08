@@ -1,3 +1,15 @@
+/*
+ * XREFs of FreeDdeXact @ 0x1C01FD370
+ * Callers:
+ *     FindQMsg @ 0x1C0072160 (FindQMsg.c)
+ *     ?PopState@@YAXPEAUtagDDECONV@@@Z @ 0x1C01FAE20 (-PopState@@YAXPEAUtagDDECONV@@@Z.c)
+ *     xxxDDETrackGetMessageHook @ 0x1C01FD7B8 (xxxDDETrackGetMessageHook.c)
+ * Callees:
+ *     ??0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z @ 0x1C003AA08 (--0IdentifyPrimaryDestroyTarget@@QEAA@PEAX@Z.c)
+ *     ?RemovePublicObject@@YAHIPEAX@Z @ 0x1C01FAEC8 (-RemovePublicObject@@YAHIPEAX@Z.c)
+ *     GreDeleteServerMetaFile @ 0x1C02D4A5C (GreDeleteServerMetaFile.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 struct _HANDLEENTRY *__fastcall FreeDdeXact(void **a1)
 {

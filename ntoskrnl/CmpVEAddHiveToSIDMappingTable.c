@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpVEAddHiveToSIDMappingTable @ 0x1407340A0
+ * Callers:
+ *     CmpLoadKeyCommon @ 0x1402B2DEC (CmpLoadKeyCommon.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     CmpAddStringToMapping @ 0x140734140 (CmpAddStringToMapping.c)
+ */
+
 __int64 __fastcall CmpVEAddHiveToSIDMappingTable(__int64 a1, __int64 a2)
 {
   unsigned __int16 *v4; // rax

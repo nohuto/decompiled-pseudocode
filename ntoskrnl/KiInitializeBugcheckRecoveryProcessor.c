@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiInitializeBugcheckRecoveryProcessor @ 0x14037DCA0
+ * Callers:
+ *     KiInitPrcb @ 0x140A88DD8 (KiInitPrcb.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiInitializeBugcheckRecoveryProcessor(__int64 a1)
 {
   __int64 result; // rax

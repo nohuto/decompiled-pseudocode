@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsSPIActionAllowedForFilteredProcess@@YAHI@Z @ 0x1C017AEB4
+ * Callers:
+ *     xxxSystemParametersInfo @ 0x1C009C980 (xxxSystemParametersInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall IsSPIActionAllowedForFilteredProcess(unsigned int a1)
 {
   unsigned int v1; // ecx

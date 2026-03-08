@@ -1,3 +1,11 @@
+/*
+ * XREFs of XmBtsOp @ 0x140531F10
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmStoreResult @ 0x1403B42E8 (XmStoreResult.c)
+ */
+
 _WORD *__fastcall XmBtsOp(_DWORD *a1)
 {
   unsigned int v1; // r8d

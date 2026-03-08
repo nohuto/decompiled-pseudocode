@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Initialize@CInputQueue@@IEAAJPEAUHWND__@@UtagMsgRoutingInfo@@@Z @ 0x1C00ABAD0
+ * Callers:
+ *     ?Create@CInputQueue@@SAJW4CompositionInputQueueType@@PEAUHWND__@@UtagMsgRoutingInfo@@W4CompositionInputFlags@@PEAPEAV1@@Z @ 0x1C00AB9EC (-Create@CInputQueue@@SAJW4CompositionInputQueueType@@PEAUHWND__@@UtagMsgRoutingInfo@@W4Compositi.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     UserGetWindowThreadProcessId @ 0x1C017CBD4 (UserGetWindowThreadProcessId.c)
+ */
+
 __int64 __fastcall CInputQueue::Initialize(__int64 a1, __int64 a2, __int64 a3)
 {
   int v6; // ecx

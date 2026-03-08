@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiDmListInit @ 0x14083A120
+ * Callers:
+ *     PiDmInit @ 0x140B5E6D8 (PiDmInit.c)
+ * Callees:
+ *     PiDmEnumObjectsWithCallback @ 0x1406CE130 (PiDmEnumObjectsWithCallback.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDmListInit(int a1)
 {
   unsigned int v1; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of InitializeSidLookupTable @ 0x140810910
+ * Callers:
+ *     SddlBaseInitialize @ 0x140384A24 (SddlBaseInitialize.c)
+ * Callees:
+ *     RtlSubAuthoritySid @ 0x1402BE740 (RtlSubAuthoritySid.c)
+ *     RtlInitializeSid @ 0x14068E3A0 (RtlInitializeSid.c)
+ */
+
 char InitializeSidLookupTable()
 {
   _DWORD *v0; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcInitializeVacbs @ 0x140B725CC
+ * Callers:
+ *     CcInitializeCacheManager @ 0x140B3EB44 (CcInitializeCacheManager.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ */
+
 __int64 *CcInitializeVacbs()
 {
   __int64 *result; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of TelemetryData_pInitWerContext @ 0x1C007B300
+ * Callers:
+ *     TelemetryData_SubmitReport @ 0x1C007AF58 (TelemetryData_SubmitReport.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1C001C700 (RtlStringCbPrintfW.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     memmove @ 0x1C0020400 (memmove.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     RegRetrieveValueInfo @ 0x1C007B834 (RegRetrieveValueInfo.c)
+ */
+
 __int64 __fastcall TelemetryData_pInitWerContext(__int64 a1)
 {
   int v2; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpTraceALPC @ 0x1405FBF50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall EtwpTraceALPC(__int64 a1, int a2)
 {
   unsigned __int16 v2; // r9

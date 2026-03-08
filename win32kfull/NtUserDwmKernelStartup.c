@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserDwmKernelStartup @ 0x1C00795C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastStatus @ 0x1C0012568 (UserSetLastStatus.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     zzzDwmStartRedirection @ 0x1C007CEC8 (zzzDwmStartRedirection.c)
+ */
+
 __int64 NtUserDwmKernelStartup()
 {
   __int64 v0; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CiConfigTaskPolicy @ 0x1C000EB20
+ * Callers:
+ *     CiConfigInitializeFromRegistry @ 0x1C000E8D0 (CiConfigInitializeFromRegistry.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 __fastcall CiConfigTaskPolicy(__int64 a1)
 {
   unsigned __int8 result; // al

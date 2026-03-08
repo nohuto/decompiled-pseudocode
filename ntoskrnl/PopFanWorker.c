@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopFanWorker @ 0x140846840
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopPrepareIoctl @ 0x140846A50 (PopPrepareIoctl.c)
+ *     PopFanUpdateSpeed @ 0x140846AC0 (PopFanUpdateSpeed.c)
+ *     PopFanSetupRpmBuckets @ 0x140994364 (PopFanSetupRpmBuckets.c)
+ *     PopFanUpdateRunningState @ 0x1409946B8 (PopFanUpdateRunningState.c)
+ */
+
 void __fastcall PopFanWorker(__int64 a1)
 {
   IRP *v1; // r14

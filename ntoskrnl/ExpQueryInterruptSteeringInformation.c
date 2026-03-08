@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpQueryInterruptSteeringInformation @ 0x140849CE4
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     KeIntSteerGetSteeringMode @ 0x14028F388 (KeIntSteerGetSteeringMode.c)
+ *     KeIntSteerIsSteeringEnabled @ 0x140303194 (KeIntSteerIsSteeringEnabled.c)
+ */
+
 __int64 __fastcall ExpQueryInterruptSteeringInformation(int *a1, __int64 a2, _DWORD *a3, unsigned int a4, _DWORD *a5)
 {
   unsigned int v6; // ebx

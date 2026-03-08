@@ -1,3 +1,19 @@
+/*
+ * XREFs of PiGetStateRootPath @ 0x14086F420
+ * Callers:
+ *     PiCreateDriverRedirectedStateKey @ 0x14086F37C (PiCreateDriverRedirectedStateKey.c)
+ *     PiOpenDriverRedirectedStateKey @ 0x140875B5C (PiOpenDriverRedirectedStateKey.c)
+ *     IoGetDeviceDirectory @ 0x1409520A0 (IoGetDeviceDirectory.c)
+ *     PiGetDriverMutableStateDirectory @ 0x1409530D4 (PiGetDriverMutableStateDirectory.c)
+ *     PiOpenDriverRedirectedStateRootKey @ 0x1409533F8 (PiOpenDriverRedirectedStateRootKey.c)
+ *     PiCreateDriverDataDirectoryRoot @ 0x140B68F88 (PiCreateDriverDataDirectoryRoot.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     RtlGetPersistedStateLocation @ 0x14069ADC0 (RtlGetPersistedStateLocation.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiGetStateRootPath(PCWSTR SourceString, _WORD *a2, unsigned int a3, UNICODE_STRING *a4)
 {
   int PersistedStateLocation; // eax

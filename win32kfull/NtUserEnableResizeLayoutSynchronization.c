@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserEnableResizeLayoutSynchronization @ 0x1C00E8EA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ */
+
 __int64 __fastcall NtUserEnableResizeLayoutSynchronization(__int64 a1, int a2)
 {
   __int64 v4; // rax

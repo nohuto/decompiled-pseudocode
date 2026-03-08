@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpCheckLowMemoryPreSleep @ 0x140A93CC8
+ * Callers:
+ *     HaliAcpiSleep @ 0x140525AD0 (HaliAcpiSleep.c)
+ * Callees:
+ *     RtlClearAllBits @ 0x1402B24A0 (RtlClearAllBits.c)
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     IoGetStackLimits @ 0x1403129C0 (IoGetStackLimits.c)
+ *     HalpUnmapVirtualAddress @ 0x14037ADE0 (HalpUnmapVirtualAddress.c)
+ *     HalpMapPhysicalMemory64 @ 0x140409B90 (HalpMapPhysicalMemory64.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpSimpleCheck @ 0x140A94110 (HalpSimpleCheck.c)
+ */
+
 void __fastcall HalpCheckLowMemoryPreSleep(int a1)
 {
   char *v1; // rbx

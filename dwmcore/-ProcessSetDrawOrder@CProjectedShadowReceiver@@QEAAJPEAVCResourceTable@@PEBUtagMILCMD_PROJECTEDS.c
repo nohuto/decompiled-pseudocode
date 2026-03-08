@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ProcessSetDrawOrder@CProjectedShadowReceiver@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_PROJECTEDSHADOWRECEIVER_SETDRAWORDER@@@Z @ 0x1802484A4
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F0A8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     ?RequestRedraw@CProjectedShadowReceiver@@QEAAXXZ @ 0x180005B7C (-RequestRedraw@CProjectedShadowReceiver@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall CProjectedShadowReceiver::ProcessSetDrawOrder(
         CProjectedShadowReceiver *this,
         struct CResourceTable *a2,

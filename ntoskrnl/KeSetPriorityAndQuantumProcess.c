@@ -1,3 +1,23 @@
+/*
+ * XREFs of KeSetPriorityAndQuantumProcess @ 0x1402E2E30
+ * Callers:
+ *     PspSetProcessPriorityByClass @ 0x1402E2DD8 (PspSetProcessPriorityByClass.c)
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ * Callees:
+ *     KiProcessDeferredReadyList @ 0x140226BD0 (KiProcessDeferredReadyList.c)
+ *     KiSetQuantumTargetThread @ 0x1402270C0 (KiSetQuantumTargetThread.c)
+ *     KiSetPriorityThread @ 0x1402273F0 (KiSetPriorityThread.c)
+ *     KeFlushProcessWriteBuffers @ 0x1402373CC (KeFlushProcessWriteBuffers.c)
+ *     KiApplyForegroundBoostThread @ 0x1402E3178 (KiApplyForegroundBoostThread.c)
+ *     KeSetQuantumProcess @ 0x1402E39BC (KeSetQuantumProcess.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiSetBasePriorityAndClearDecrement @ 0x14033FBD0 (KiSetBasePriorityAndClearDecrement.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiPriQueueThreadPriorityChanged @ 0x1403578B0 (KiPriQueueThreadPriorityChanged.c)
+ *     EtwTracePriority @ 0x14045EE2A (EtwTracePriority.c)
+ */
+
 __int64 __fastcall KeSetPriorityAndQuantumProcess(__int64 a1, __int64 a2, UCHAR a3, unsigned int a4, int a5)
 {
   __int64 result; // rax

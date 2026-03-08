@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ReadValueFromCache@CExpression@@AEAAJIPEAVCExpressionValue@@PEA_N@Z @ 0x1800C0094
+ * Callers:
+ *     ?ProcessReferenceNode@CExpressionValueStack@@QEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@_K@Z @ 0x1800BF040 (-ProcessReferenceNode@CExpressionValueStack@@QEAAJPEAVCExpression@@PEAUExpressionReferenceNode@@.c)
+ * Callees:
+ *     ?EnsureCacheBounds@CExpression@@AEAAJI_K@Z @ 0x1800C0170 (-EnsureCacheBounds@CExpression@@AEAAJI_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?LogCacheAccess@CExpression@@AEAAX_NIPEAVCExpressionValue@@@Z @ 0x180228D04 (-LogCacheAccess@CExpression@@AEAAX_NIPEAVCExpressionValue@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgs @ 0x180279264 (MicrosoftTelemetryAssertTriggeredNoArgs.c)
+ */
+
 __int64 __fastcall CExpression::ReadValueFromCache(
         CExpression *this,
         unsigned int a2,

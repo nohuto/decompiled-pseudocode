@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VKTOMODIFIERS@@YAIE@Z @ 0x1C0148E14
+ * Callers:
+ *     EditionUpdateSASModifiers @ 0x1C0102CC0 (EditionUpdateSASModifiers.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VKTOMODIFIERS(char a1)
 {
   __int64 result; // rax

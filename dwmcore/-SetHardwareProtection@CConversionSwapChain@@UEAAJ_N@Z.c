@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?SetHardwareProtection@CConversionSwapChain@@UEAAJ_N@Z @ 0x18029F648
+ * Callers:
+ *     ?SetHardwareProtection@CConversionSwapChain@@$4PPPPPPPM@A@EAAJ_N@Z @ 0x18011D1D0 (-SetHardwareProtection@CConversionSwapChain@@$4PPPPPPPM@A@EAAJ_N@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?reset@?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E91E4 (-reset@-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?SetHardwareProtection@CLegacySwapChain@@UEAAJ_N@Z @ 0x180298210 (-SetHardwareProtection@CLegacySwapChain@@UEAAJ_N@Z.c)
+ *     ?EnsureTargetBitmap@CConversionSwapChain@@IEAAJXZ @ 0x18029E818 (-EnsureTargetBitmap@CConversionSwapChain@@IEAAJXZ.c)
+ */
+
 __int64 __fastcall CConversionSwapChain::SetHardwareProtection(CConversionSwapChain *this, unsigned __int8 a2)
 {
   int v4; // eax

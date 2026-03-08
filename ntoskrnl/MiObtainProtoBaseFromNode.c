@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiObtainProtoBaseFromNode @ 0x140368C0C
+ * Callers:
+ *     MiUpdateSystemProtoPtesTree @ 0x140368AE0 (MiUpdateSystemProtoPtesTree.c)
+ *     MiGetPrototypePteBoundaries @ 0x140667104 (MiGetPrototypePteBoundaries.c)
+ *     MiGetPrototypePteRanges @ 0x140667260 (MiGetPrototypePteRanges.c)
+ *     MiReplaceSystemProtoPtesNode @ 0x140667768 (MiReplaceSystemProtoPtesNode.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiObtainProtoBaseFromNode(_QWORD *a1, _QWORD *a2)
 {
   unsigned __int64 v3; // rax

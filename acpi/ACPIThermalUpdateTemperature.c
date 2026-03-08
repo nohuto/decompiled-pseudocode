@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIThermalUpdateTemperature @ 0x1C0042348
+ * Callers:
+ *     ACPIThermalReadTemperatureComplete @ 0x1C00419A0 (ACPIThermalReadTemperatureComplete.c)
+ *     ACPIThermalTMPCallback @ 0x1C00421C0 (ACPIThermalTMPCallback.c)
+ *     ACPIThermalReadTemperature @ 0x1C0095B94 (ACPIThermalReadTemperature.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     ACPIThermalLoop @ 0x1C00410D8 (ACPIThermalLoop.c)
+ *     WPP_RECORDER_SF_ddqssdddd @ 0x1C0042BA0 (WPP_RECORDER_SF_ddqssdddd.c)
+ */
+
 __int64 __fastcall ACPIThermalUpdateTemperature(__int64 a1, int a2)
 {
   __int64 v2; // rbp

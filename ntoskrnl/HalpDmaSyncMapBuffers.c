@@ -1,3 +1,26 @@
+/*
+ * XREFs of HalpDmaSyncMapBuffers @ 0x1404544F2
+ * Callers:
+ *     HalpDmaFlushContiguousTransferV2 @ 0x140455976 (HalpDmaFlushContiguousTransferV2.c)
+ *     HalpDmaFlushScatterTransferV2 @ 0x140455A8C (HalpDmaFlushScatterTransferV2.c)
+ *     HalpDmaMapContiguousTransferV2 @ 0x140455BE8 (HalpDmaMapContiguousTransferV2.c)
+ *     HalpDmaMapScatterTransferV2 @ 0x140455D28 (HalpDmaMapScatterTransferV2.c)
+ *     HalpDmaFlushContiguousTransferV3 @ 0x1404FDA54 (HalpDmaFlushContiguousTransferV3.c)
+ *     HalpDmaFlushScatterTransferV3 @ 0x1404FDBA4 (HalpDmaFlushScatterTransferV3.c)
+ *     HalpDmaMapContiguousTransferV3 @ 0x1404FDFEC (HalpDmaMapContiguousTransferV3.c)
+ *     HalpDmaMapScatterTransferV3 @ 0x1404FE110 (HalpDmaMapScatterTransferV3.c)
+ * Callees:
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     HalpDmaAcquireBufferMappings @ 0x140453764 (HalpDmaAcquireBufferMappings.c)
+ *     HalpDmaReleaseBufferMappings @ 0x1404541D8 (HalpDmaReleaseBufferMappings.c)
+ *     HalpDmaSyncMapBuffersWithEmergencyResources @ 0x14050F0B4 (HalpDmaSyncMapBuffersWithEmergencyResources.c)
+ *     HalpFlushMapBuffers @ 0x14050F610 (HalpFlushMapBuffers.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall HalpDmaSyncMapBuffers(
         __int64 a1,
         __int64 a2,

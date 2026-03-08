@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?pCreateXlate@@YAPEAVXLATE@@K@Z @ 0x1C02DE810
+ * Callers:
+ *     ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C012448C (-bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOB.c)
+ *     ??0XLATEMEMOBJ@@QEAA@VXEPALOBJ@@0@Z @ 0x1C02DDE94 (--0XLATEMEMOBJ@@QEAA@VXEPALOBJ@@0@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct XLATE *__fastcall pCreateXlate(int a1)
 {
   Gre::Base *v2; // rcx

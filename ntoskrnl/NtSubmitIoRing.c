@@ -1,3 +1,17 @@
+/*
+ * XREFs of NtSubmitIoRing @ 0x1405575D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     IopExceptionFilter @ 0x1405530E8 (IopExceptionFilter.c)
+ *     IopIoRingGetAvailableCqSlots @ 0x1405571B8 (IopIoRingGetAvailableCqSlots.c)
+ *     IopIoRingSetupCompletionWait @ 0x140557278 (IopIoRingSetupCompletionWait.c)
+ *     IopIoRingWaitForCompletionEvent @ 0x1405574BC (IopIoRingWaitForCompletionEvent.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     IopProcessIoRingEntry @ 0x140947008 (IopProcessIoRingEntry.c)
+ */
+
 __int64 __fastcall NtSubmitIoRing(HANDLE Handle, __int16 a2, unsigned int a3, LARGE_INTEGER *a4)
 {
   unsigned int v4; // r13d

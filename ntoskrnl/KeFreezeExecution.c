@@ -1,3 +1,25 @@
+/*
+ * XREFs of KeFreezeExecution @ 0x14036ADA0
+ * Callers:
+ *     ExpWaitForBootDevices @ 0x140607340 (ExpWaitForBootDevices.c)
+ *     KdEnterDebugger @ 0x140AAD40C (KdEnterDebugger.c)
+ * Callees:
+ *     KeStallExecutionProcessor @ 0x14022B710 (KeStallExecutionProcessor.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140237640 (KeRemoveProcessorAffinityEx.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KiStartDebugAccumulation @ 0x1403694D0 (KiStartDebugAccumulation.c)
+ *     KxTryToAcquireSpinLock @ 0x14036B144 (KxTryToAcquireSpinLock.c)
+ *     RtlWriteTryAcquireTickLock @ 0x14036B174 (RtlWriteTryAcquireTickLock.c)
+ *     KiSetDebuggerOwner @ 0x14036B4E0 (KiSetDebuggerOwner.c)
+ *     KiSendFreeze @ 0x14036B528 (KiSendFreeze.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 bool KeFreezeExecution()
 {
   __int16 v0; // r14

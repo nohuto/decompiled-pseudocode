@@ -1,3 +1,20 @@
+/*
+ * XREFs of PipChangeDeviceObjectFromRegistryProperties @ 0x14074D328
+ * Callers:
+ *     PipCallDriverAddDevice @ 0x1406C644C (PipCallDriverAddDevice.c)
+ * Callees:
+ *     RtlGetDaclSecurityDescriptor @ 0x140299320 (RtlGetDaclSecurityDescriptor.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ObSetSecurityObjectByPointer @ 0x1406DB6C0 (ObSetSecurityObjectByPointer.c)
+ *     RtlGetSaclSecurityDescriptor @ 0x14071C1D0 (RtlGetSaclSecurityDescriptor.c)
+ *     PipGetRegistrySecurityWithFallback @ 0x14074D0CC (PipGetRegistrySecurityWithFallback.c)
+ *     PipGetRegistryDwordWithFallback @ 0x14074D604 (PipGetRegistryDwordWithFallback.c)
+ *     RtlGetOwnerSecurityDescriptor @ 0x140750BE0 (RtlGetOwnerSecurityDescriptor.c)
+ *     RtlGetGroupSecurityDescriptor @ 0x140750C20 (RtlGetGroupSecurityDescriptor.c)
+ *     IopCreateDefaultDeviceSecurityDescriptor @ 0x1407F092C (IopCreateDefaultDeviceSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PipChangeDeviceObjectFromRegistryProperties(__int64 a1, __int64 a2, ACL *a3, __int64 a4, char a5)
 {
   __int64 v5; // rbx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of _soutput_s @ 0x1403DAF04
+ * Callers:
+ *     _vsnprintf_s @ 0x1403D90C0 (_vsnprintf_s.c)
+ *     vsprintf_s @ 0x1403D9BD0 (vsprintf_s.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     _flsbuf @ 0x1403D67F0 (_flsbuf.c)
+ *     _output_s @ 0x1403DA5B8 (_output_s.c)
+ */
+
 __int64 __fastcall soutput_s(char *a1, unsigned __int64 a2, char *a3, unsigned __int16 *a4)
 {
   __int64 result; // rax

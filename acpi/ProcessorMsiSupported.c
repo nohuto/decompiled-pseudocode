@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProcessorMsiSupported @ 0x1C009AE88
+ * Callers:
+ *     IrqArbpFindSuitableRangeMsi @ 0x1C009E028 (IrqArbpFindSuitableRangeMsi.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ProcessorMsiSupported(__int64 *a1, _BYTE *a2)
 {
   unsigned __int8 v3; // di

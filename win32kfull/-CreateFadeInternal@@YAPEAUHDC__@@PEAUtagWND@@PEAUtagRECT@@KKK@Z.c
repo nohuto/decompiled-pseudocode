@@ -1,3 +1,27 @@
+/*
+ * XREFs of ?CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z @ 0x1C01BD154
+ * Callers:
+ *     xxxTooltipWndProc @ 0x1C00FA000 (xxxTooltipWndProc.c)
+ *     zzzStartSonar @ 0x1C01BE79C (zzzStartSonar.c)
+ *     ?zzzMNFadeSelection@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0219098 (-zzzMNFadeSelection@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
+ *     xxxMenuWindowProc @ 0x1C021D3D0 (xxxMenuWindowProc.c)
+ * Callees:
+ *     GreCreateSprite @ 0x1C0028A54 (GreCreateSprite.c)
+ *     xxxSetLayeredWindow @ 0x1C0028C1C (xxxSetLayeredWindow.c)
+ *     GreDwmNotifySpriteMonitorChange @ 0x1C002C60C (GreDwmNotifySpriteMonitorChange.c)
+ *     InitializeMonitorInfo @ 0x1C002D4E8 (InitializeMonitorInfo.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     GreCreateCompatibleBitmapInternal @ 0x1C007BB00 (GreCreateCompatibleBitmapInternal.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     ScaleDPIRect @ 0x1C00A3890 (ScaleDPIRect.c)
+ *     _MonitorFromRect @ 0x1C00AEE80 (_MonitorFromRect.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     DeleteFadeSprite @ 0x1C01BDE40 (DeleteFadeSprite.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 HDC __fastcall CreateFadeInternal(struct tagWND *a1, struct tagRECT *a2, unsigned int a3, int a4, unsigned int a5)
 {

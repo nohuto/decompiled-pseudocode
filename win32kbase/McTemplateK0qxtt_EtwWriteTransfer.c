@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0qxtt_EtwWriteTransfer @ 0x1C01676CC
+ * Callers:
+ *     EtwTraceFlipManagerPresentIFlipCompleted @ 0x1C0162E30 (EtwTraceFlipManagerPresentIFlipCompleted.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0qxtt_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,

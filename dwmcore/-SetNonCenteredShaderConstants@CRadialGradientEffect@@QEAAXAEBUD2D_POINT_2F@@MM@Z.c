@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetNonCenteredShaderConstants@CRadialGradientEffect@@QEAAXAEBUD2D_POINT_2F@@MM@Z @ 0x1802B62CC
+ * Callers:
+ *     ?GetBrushParameters@CRadialGradientBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z @ 0x18024A460 (-GetBrushParameters@CRadialGradientBrush@@UEBAJPEAVCBrushDrawListGenerator@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CRadialGradientEffect::SetNonCenteredShaderConstants(
         CRadialGradientEffect *this,
         const struct D2D_POINT_2F *a2,

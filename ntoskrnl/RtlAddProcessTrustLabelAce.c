@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlAddProcessTrustLabelAce @ 0x1406DB8A0
+ * Callers:
+ *     SepSetProcessTrustLabelAceForToken @ 0x140247DF0 (SepSetProcessTrustLabelAceForToken.c)
+ *     RtlpNewSecurityObject @ 0x1407BD790 (RtlpNewSecurityObject.c)
+ *     SeMakeSystemToken @ 0x140B48C50 (SeMakeSystemToken.c)
+ * Callees:
+ *     RtlIsValidProcessTrustLabelSid @ 0x1402480E0 (RtlIsValidProcessTrustLabelSid.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlValidAcl @ 0x1407BB670 (RtlValidAcl.c)
+ */
+
 __int64 __fastcall RtlAddProcessTrustLabelAce(
         unsigned __int8 *a1,
         unsigned int a2,

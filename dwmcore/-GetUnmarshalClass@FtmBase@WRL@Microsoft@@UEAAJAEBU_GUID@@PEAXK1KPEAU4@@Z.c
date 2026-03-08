@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetUnmarshalClass@FtmBase@WRL@Microsoft@@UEAAJAEBU_GUID@@PEAXK1KPEAU4@@Z @ 0x180292B60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Microsoft::WRL::FtmBase::GetUnmarshalClass(
         Microsoft::WRL::FtmBase *this,
         const struct _GUID *a2,

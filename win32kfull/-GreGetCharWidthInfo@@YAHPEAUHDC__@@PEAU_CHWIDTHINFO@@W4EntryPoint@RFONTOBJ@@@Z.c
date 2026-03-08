@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?GreGetCharWidthInfo@@YAHPEAUHDC__@@PEAU_CHWIDTHINFO@@W4EntryPoint@RFONTOBJ@@@Z @ 0x1C000D728
+ * Callers:
+ *     NtGdiGetCharWidthInfo @ 0x1C000D690 (NtGdiGetCharWidthInfo.c)
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ *     ?bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HKAEBUTag@1@@Z @ 0x1C0057C50 (-bInit@RFONTOBJ@@QEAAHAEAVXDCOBJ@@HKAEBUTag@1@@Z.c)
+ *     bFToL @ 0x1C00D1C50 (bFToL.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C011DDB0 (--1RFONTOBJ@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall GreGetCharWidthInfo(HDC a1, _DWORD *a2, int a3)
 {
   unsigned int v4; // esi

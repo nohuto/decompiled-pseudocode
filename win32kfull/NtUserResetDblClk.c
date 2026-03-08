@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserResetDblClk @ 0x1C01DAEE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 NtUserResetDblClk()
 {
   EnterCrit(0LL, 0LL);

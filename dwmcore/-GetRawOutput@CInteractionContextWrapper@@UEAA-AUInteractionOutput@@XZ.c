@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetRawOutput@CInteractionContextWrapper@@UEAA?AUInteractionOutput@@XZ @ 0x180107560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CInteractionContextWrapper::GetRawOutput(__int64 a1, __int64 a2)
 {
   int v2; // eax

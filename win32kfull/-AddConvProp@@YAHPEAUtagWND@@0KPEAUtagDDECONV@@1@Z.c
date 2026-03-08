@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AddConvProp@@YAHPEAUtagWND@@0KPEAUtagDDECONV@@1@Z @ 0x1C01FA810
+ * Callers:
+ *     ?NewConversation@@YAHPEAPEAUtagDDECONV@@0PEAUtagWND@@1@Z @ 0x1C01FAD3C (-NewConversation@@YAHPEAPEAUtagDDECONV@@0PEAUtagWND@@1@Z.c)
+ * Callees:
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     InternalSetProp @ 0x1C01011E0 (InternalSetProp.c)
+ */
+
 __int64 __fastcall AddConvProp(
         struct tagWND *a1,
         struct tagWND *a2,

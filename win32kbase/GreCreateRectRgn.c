@@ -1,3 +1,18 @@
+/*
+ * XREFs of GreCreateRectRgn @ 0x1C0019F70
+ * Callers:
+ *     EngCreateRectRgn @ 0x1C0019B70 (EngCreateRectRgn.c)
+ *     InitializeGre @ 0x1C031D988 (InitializeGre.c)
+ * Callees:
+ *     ?Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@_N1E@Z @ 0x1C001A2C4 (-Insert@HmgInsertObjectHelper@@QEAAPEAUHOBJ__@@PEAVOBJECT@@_N1E@Z.c)
+ *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C001CD74 (-vOrder@ERECTL@@QEAAXXZ.c)
+ *     ?GrepIsPreviousModeKernel@@YAHXZ @ 0x1C001D054 (-GrepIsPreviousModeKernel@@YAHXZ.c)
+ *     ?vSet@RGNOBJ@@QEAAXQEBU_RECTL@@@Z @ 0x1C0051770 (-vSet@RGNOBJ@@QEAAXQEBU_RECTL@@@Z.c)
+ *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C0053220 (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
+ *     ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C00558E0 (-vDeleteREGION@REGION@@QEAAXXZ.c)
+ *     EngSetLastError @ 0x1C00BAB10 (EngSetLastError.c)
+ */
+
 struct HOBJ__ *__fastcall GreCreateRectRgn(LONG a1, LONG a2, LONG a3, LONG a4)
 {
   unsigned int v4; // ecx

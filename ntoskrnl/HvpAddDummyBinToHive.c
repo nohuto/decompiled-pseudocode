@@ -1,3 +1,14 @@
+/*
+ * XREFs of HvpAddDummyBinToHive @ 0x140A1AF8C
+ * Callers:
+ *     HvpPerformLogFileRecovery @ 0x1407FBCAC (HvpPerformLogFileRecovery.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvpPointMapEntriesToBuffer @ 0x140730010 (HvpPointMapEntriesToBuffer.c)
+ *     HvpAllocateBin @ 0x140730410 (HvpAllocateBin.c)
+ *     HvpFreeBin @ 0x14079AE68 (HvpFreeBin.c)
+ */
+
 __int64 __fastcall HvpAddDummyBinToHive(ULONG_PTR BugCheckParameter2, int a2, _QWORD *a3)
 {
   int Bin; // ebx

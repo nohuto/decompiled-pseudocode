@@ -1,3 +1,12 @@
+/*
+ * XREFs of MmTrimFilePagesFromWorkingSets @ 0x14063327C
+ * Callers:
+ *     PopTransitionToSleep @ 0x140AA21D0 (PopTransitionToSleep.c)
+ * Callees:
+ *     MiQueueWorkingSetRequest @ 0x1402B8A34 (MiQueueWorkingSetRequest.c)
+ *     PsGetNextPartition @ 0x1402FF5F0 (PsGetNextPartition.c)
+ */
+
 void MmTrimFilePagesFromWorkingSets()
 {
   __int64 *i; // rcx

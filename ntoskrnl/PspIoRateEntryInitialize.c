@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspIoRateEntryInitialize @ 0x1406F80C8
+ * Callers:
+ *     NtCreateJobObject @ 0x1406F7BA0 (NtCreateJobObject.c)
+ *     PspSetJobIoRateControlForVolume @ 0x1409AFB14 (PspSetJobIoRateControlForVolume.c)
+ * Callees:
+ *     ExInitializePushLock @ 0x140238200 (ExInitializePushLock.c)
+ *     ExRundownCompleted @ 0x140294280 (ExRundownCompleted.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ */
+
 void __fastcall PspIoRateEntryInitialize(__int64 a1)
 {
   struct _EX_RUNDOWN_REF *v1; // rbx

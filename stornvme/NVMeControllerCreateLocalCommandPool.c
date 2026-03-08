@@ -1,3 +1,11 @@
+/*
+ * XREFs of NVMeControllerCreateLocalCommandPool @ 0x1C0003408
+ * Callers:
+ *     NVMeHwFindAdapter @ 0x1C0007CD0 (NVMeHwFindAdapter.c)
+ * Callees:
+ *     NVMeControllerAllocateLocalCommand @ 0x1C00032F0 (NVMeControllerAllocateLocalCommand.c)
+ */
+
 __int64 __fastcall NVMeControllerCreateLocalCommandPool(__int64 a1)
 {
   __int64 v1; // rbx

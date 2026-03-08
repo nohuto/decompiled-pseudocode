@@ -1,3 +1,15 @@
+/*
+ * XREFs of XmSubOperands @ 0x1403B3B58
+ * Callers:
+ *     XmSubOp @ 0x1403AAAD0 (XmSubOp.c)
+ *     XmDecOp @ 0x1403B35E0 (XmDecOp.c)
+ *     XmCmpxchgOp @ 0x140530EA0 (XmCmpxchgOp.c)
+ *     XmNegOp @ 0x140530F10 (XmNegOp.c)
+ *     XmSbbOp @ 0x140530F40 (XmSbbOp.c)
+ * Callees:
+ *     XmStoreResult @ 0x1403B42E8 (XmStoreResult.c)
+ */
+
 __int64 __fastcall XmSubOperands(_DWORD *a1, unsigned int a2)
 {
   int v2; // eax

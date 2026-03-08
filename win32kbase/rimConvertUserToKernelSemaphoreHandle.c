@@ -1,3 +1,11 @@
+/*
+ * XREFs of rimConvertUserToKernelSemaphoreHandle @ 0x1C00348B4
+ * Callers:
+ *     RIMRegisterForInputWithCallbacks @ 0x1C00356F0 (RIMRegisterForInputWithCallbacks.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall rimConvertUserToKernelSemaphoreHandle(void *a1, void **a2)
 {
   NTSTATUS v3; // eax

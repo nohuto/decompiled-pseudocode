@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpIrtExtendApertureRange @ 0x140931890
+ * Callers:
+ *     HalpIrtAllocateDeviceAperture @ 0x140931740 (HalpIrtAllocateDeviceAperture.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 HalpIrtExtendApertureRange()
 {
   unsigned int v0; // ebp

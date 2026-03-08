@@ -1,3 +1,17 @@
+/*
+ * XREFs of UpdateRedirectedDCE @ 0x1C0096EF0
+ * Callers:
+ *     RedirectDCEs @ 0x1C002B7EC (RedirectDCEs.c)
+ *     UnredirectDCEs @ 0x1C002C2E4 (UnredirectDCEs.c)
+ *     ChangeRedirectionParentInDCEs @ 0x1C0096D00 (ChangeRedirectionParentInDCEs.c)
+ * Callees:
+ *     GetStyleWindow @ 0x1C0039020 (GetStyleWindow.c)
+ *     GetRedirectionBitmap @ 0x1C0043F00 (GetRedirectionBitmap.c)
+ *     GreHintDCWnd @ 0x1C0097030 (GreHintDCWnd.c)
+ *     GreSelectRedirectionBitmap @ 0x1C0097150 (GreSelectRedirectionBitmap.c)
+ *     RevalidateDCE @ 0x1C0097390 (RevalidateDCE.c)
+ */
+
 __int64 __fastcall UpdateRedirectedDCE(__int64 a1, int a2)
 {
   __int64 RedirectionBitmap; // rsi

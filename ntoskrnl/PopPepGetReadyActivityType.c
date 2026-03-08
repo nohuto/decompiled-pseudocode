@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPepGetReadyActivityType @ 0x140308330
+ * Callers:
+ *     PopPepWork @ 0x140305714 (PopPepWork.c)
+ *     PopPepComponentGetWork @ 0x1403078BC (PopPepComponentGetWork.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopPepGetReadyActivityType(__int64 a1, unsigned int a2, int a3)
 {
   int **i; // rcx

@@ -1,3 +1,22 @@
+/*
+ * XREFs of CmpAddSubKeyEx @ 0x1407A4094
+ * Callers:
+ *     CmpCreateChild @ 0x1407A7590 (CmpCreateChild.c)
+ *     CmpAddSubKey @ 0x1408A734E (CmpAddSubKey.c)
+ *     CmpCopySyncTree2 @ 0x140A1E7F8 (CmpCopySyncTree2.c)
+ *     CmpPartialPromoteSingleKeyFromKeyNodeStacks @ 0x140A23568 (CmpPartialPromoteSingleKeyFromKeyNodeStacks.c)
+ * Callees:
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpAddSubKeyToList @ 0x1407A4300 (CmpAddSubKeyToList.c)
+ *     HvAllocateCell @ 0x1407A63A8 (HvAllocateCell.c)
+ *     HvFreeCell @ 0x1407A6A90 (HvFreeCell.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpMarkCellDirty @ 0x1407D2460 (HvpMarkCellDirty.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall CmpAddSubKeyEx(
         ULONG_PTR BugCheckParameter3,
         ULONG_PTR BugCheckParameter4,

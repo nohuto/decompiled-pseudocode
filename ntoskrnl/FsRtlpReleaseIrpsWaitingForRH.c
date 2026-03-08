@@ -1,3 +1,19 @@
+/*
+ * XREFs of FsRtlpReleaseIrpsWaitingForRH @ 0x1402F5A44
+ * Callers:
+ *     FsRtlCheckOplockEx2 @ 0x14023AE40 (FsRtlCheckOplockEx2.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x14023BD20 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockCleanup @ 0x14023E404 (FsRtlpOplockCleanup.c)
+ *     FsRtlpCancelOplockRHIrp @ 0x1402F57D0 (FsRtlpCancelOplockRHIrp.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403CD730 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1406B3240 (FsRtlpOplockFsctrlInternal.c)
+ * Callees:
+ *     FsRtlpRemoveAndCompleteWaitingIrp @ 0x140201B90 (FsRtlpRemoveAndCompleteWaitingIrp.c)
+ *     FsRtlpOplockKeysEqual @ 0x14023E170 (FsRtlpOplockKeysEqual.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall FsRtlpReleaseIrpsWaitingForRH(__int64 a1)
 {
   NTSTATUS result; // eax

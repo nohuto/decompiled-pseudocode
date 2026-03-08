@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CurrentTime@CDebugFrameCounter@@IEAA_KXZ @ 0x1801EFAA0
+ * Callers:
+ *     ?ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ @ 0x18004DAF0 (-ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 unsigned __int64 __fastcall CDebugFrameCounter::CurrentTime(CDebugFrameCounter *this)
 {
   unsigned __int64 result; // rax

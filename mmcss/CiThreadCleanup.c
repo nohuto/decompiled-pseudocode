@@ -1,3 +1,20 @@
+/*
+ * XREFs of CiThreadCleanup @ 0x1C000A4B0
+ * Callers:
+ *     CiThreadNotification @ 0x1C0001040 (CiThreadNotification.c)
+ *     CiDispatchCleanup @ 0x1C000A440 (CiDispatchCleanup.c)
+ *     CiThreadCreate @ 0x1C000AD80 (CiThreadCreate.c)
+ * Callees:
+ *     CiDecrementTotalThreadCount @ 0x1C000212C (CiDecrementTotalThreadCount.c)
+ *     CiThreadRemoveFromTree @ 0x1C0002140 (CiThreadRemoveFromTree.c)
+ *     CiTaskIndexDereference @ 0x1C00021B0 (CiTaskIndexDereference.c)
+ *     CiSchedulerRemoveThread @ 0x1C0002250 (CiSchedulerRemoveThread.c)
+ *     CiLogThreadLeave @ 0x1C00044D4 (CiLogThreadLeave.c)
+ *     CiThreadDecrementScheduledCount @ 0x1C000A660 (CiThreadDecrementScheduledCount.c)
+ *     CiProcessRemoveThread @ 0x1C000A6D0 (CiProcessRemoveThread.c)
+ *     CiProcessDereference @ 0x1C000B280 (CiProcessDereference.c)
+ */
+
 void __fastcall CiThreadCleanup(__int64 a1)
 {
   bool v2; // zf

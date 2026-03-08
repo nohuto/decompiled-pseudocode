@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpDmaInitMemory @ 0x140B3D81C
+ * Callers:
+ *     HalpDmaInitDiscard @ 0x140B60DD0 (HalpDmaInitDiscard.c)
+ * Callees:
+ *     HalpAllocPhysicalMemory @ 0x140B3D9F4 (HalpAllocPhysicalMemory.c)
+ */
+
 __int64 __fastcall HalpDmaInitMemory(__int64 a1)
 {
   unsigned int v2; // r8d

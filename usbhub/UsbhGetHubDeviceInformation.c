@@ -1,3 +1,18 @@
+/*
+ * XREFs of UsbhGetHubDeviceInformation @ 0x1C002C4A8
+ * Callers:
+ *     UsbhInitialize @ 0x1C002CE20 (UsbhInitialize.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     Usbh_HubDerefDeviceHandle @ 0x1C002E238 (Usbh_HubDerefDeviceHandle.c)
+ *     Usbh_HubQueryDeviceInformation @ 0x1C002E3BC (Usbh_HubQueryDeviceInformation.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     UsbhGetDeviceHandle @ 0x1C0038178 (UsbhGetDeviceHandle.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhValidateDeviceDescriptor @ 0x1C0052668 (UsbhValidateDeviceDescriptor.c)
+ */
+
 __int64 __fastcall UsbhGetHubDeviceInformation(__int64 a1, __int64 a2)
 {
   _DWORD *v4; // r15

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopPowerAggregatorHandleResumeIntent @ 0x140595E80
+ * Callers:
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x140757290 (PopPowerAggregatorHandleIntentUnsafe.c)
+ * Callees:
+ *     PopPowerAggregatorDetermineTargetSystemPowerState @ 0x140880280 (PopPowerAggregatorDetermineTargetSystemPowerState.c)
+ */
+
 __int64 __fastcall PopPowerAggregatorHandleResumeIntent(__int64 a1, __int64 a2)
 {
   unsigned int v2; // edi

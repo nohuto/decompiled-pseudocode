@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?NeedToBeTrimmed@VIDMM_DMA_POOL@@IEAAHXZ @ 0x1C00EFDF4
+ * Callers:
+ *     ?GetNextBuffersContractedSize@VIDMM_DMA_POOL@@QEAAXPEA_KPEAI1@Z @ 0x1C00EFC00 (-GetNextBuffersContractedSize@VIDMM_DMA_POOL@@QEAAXPEA_KPEAI1@Z.c)
+ *     ?TrimPool@VIDMM_DMA_POOL@@QEAAXE@Z @ 0x1C00F04E0 (-TrimPool@VIDMM_DMA_POOL@@QEAAXE@Z.c)
+ * Callees:
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C002EF24 (McTemplateK0pq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall VIDMM_DMA_POOL::NeedToBeTrimmed(VIDMM_DMA_POOL *this, __int64 a2, __int64 a3)
 {
   __int64 v3; // rax

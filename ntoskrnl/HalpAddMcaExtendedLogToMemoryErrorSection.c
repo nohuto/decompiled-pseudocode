@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpAddMcaExtendedLogToMemoryErrorSection @ 0x1404FFE04
+ * Callers:
+ *     HalpCreateMcaMemoryErrorRecord @ 0x140500898 (HalpCreateMcaMemoryErrorRecord.c)
+ * Callees:
+ *     HalpAddMcaToMemoryErrorSection @ 0x1404FFE7C (HalpAddMcaToMemoryErrorSection.c)
+ *     HalpGetMcaExtendedLogStatusBlock @ 0x140500E34 (HalpGetMcaExtendedLogStatusBlock.c)
+ *     HalpAddErrorEntryToPacket @ 0x1405165F0 (HalpAddErrorEntryToPacket.c)
+ */
+
 __int64 __fastcall HalpAddMcaExtendedLogToMemoryErrorSection(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v6; // ebx

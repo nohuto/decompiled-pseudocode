@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FindEntryByTime@@YAPEAUtagINPUTTRANSFORMENTRY@@PEAUtagINPUTTRANSFORMLIST@@PEAU1@_K@Z @ 0x1C0146AE4
+ * Callers:
+ *     ?GetTransformList@InputTransform@@YAHPEAUtagWND@@IPEA_KPEAUtagINPUT_TRANSFORM@@D@Z @ 0x1C0146BFE (-GetTransformList@InputTransform@@YAHPEAUtagWND@@IPEA_KPEAUtagINPUT_TRANSFORM@@D@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ii @ 0x1C01B1660 (WPP_RECORDER_AND_TRACE_SF_ii.c)
+ */
+
 struct tagINPUTTRANSFORMLIST **__fastcall FindEntryByTime(
         struct tagINPUTTRANSFORMLIST *a1,
         struct tagINPUTTRANSFORMLIST **a2,

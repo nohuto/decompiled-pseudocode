@@ -1,3 +1,25 @@
+/*
+ * XREFs of MmLockPagableDataSection @ 0x1407EBF70
+ * Callers:
+ *     DifMmLockPagableDataSectionWrapper @ 0x1405E4EE0 (DifMmLockPagableDataSectionWrapper.c)
+ *     HalpPowerInitSystem @ 0x140A8D5A0 (HalpPowerInitSystem.c)
+ *     VfInitDifWithoutReboot @ 0x140ABFC04 (VfInitDifWithoutReboot.c)
+ *     VfInitSystemNoRebootNeeded @ 0x140ABFCE8 (VfInitSystemNoRebootNeeded.c)
+ *     BgkpLockBgfxCodeSection @ 0x140AEBB60 (BgkpLockBgfxCodeSection.c)
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ *     HeadlessInit @ 0x140B484E0 (HeadlessInit.c)
+ *     MiLockPagableSections @ 0x140B5F628 (MiLockPagableSections.c)
+ * Callees:
+ *     MiLockPagableImageSection @ 0x1402252E0 (MiLockPagableImageSection.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14032E710 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     MiLookupDataTableEntry @ 0x14035ECF0 (MiLookupDataTableEntry.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 PVOID __stdcall MmLockPagableDataSection(PVOID AddressWithinSection)
 {
   struct _KTHREAD *CurrentThread; // rbp

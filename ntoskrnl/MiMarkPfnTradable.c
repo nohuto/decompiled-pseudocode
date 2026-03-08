@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiMarkPfnTradable @ 0x1402A7E34
+ * Callers:
+ *     MiSetPfnKernelStack @ 0x1402A7DF0 (MiSetPfnKernelStack.c)
+ *     KiInSwapProcesses @ 0x1402C0180 (KiInSwapProcesses.c)
+ *     MiAllocateProcessShadow @ 0x140728E84 (MiAllocateProcessShadow.c)
+ *     MmFreeLoaderBlock @ 0x140B5C404 (MmFreeLoaderBlock.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiMarkPfnTradable(__int64 a1, int a2)
 {
   unsigned __int8 v3; // bl

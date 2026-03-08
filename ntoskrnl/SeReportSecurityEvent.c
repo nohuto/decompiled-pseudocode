@@ -1,3 +1,11 @@
+/*
+ * XREFs of SeReportSecurityEvent @ 0x1405B6810
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SeReportSecurityEventWithSubCategory @ 0x140299040 (SeReportSecurityEventWithSubCategory.c)
+ */
+
 NTSTATUS __stdcall SeReportSecurityEvent(
         ULONG Flags,
         PUNICODE_STRING SourceName,

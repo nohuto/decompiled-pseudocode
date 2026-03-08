@@ -1,3 +1,13 @@
+/*
+ * XREFs of HviIsXboxNanovisorPresent @ 0x1402E4648
+ * Callers:
+ *     PpmIdleExecuteTransition @ 0x14022D7D0 (PpmIdleExecuteTransition.c)
+ *     HalpTscSynchronization @ 0x140396C20 (HalpTscSynchronization.c)
+ *     KiIntSteerDetermineSteeringEnabled @ 0x140B713C0 (KiIntSteerDetermineSteeringEnabled.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char HviIsXboxNanovisorPresent()
 {
   char v0; // r8

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBHTX_CancelInterruptTransfer @ 0x1C0003E1C
+ * Callers:
+ *     HUBHSM_CancellingInterruptTransferOnSuspend @ 0x1C00084A0 (HUBHSM_CancellingInterruptTransferOnSuspend.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 _UNKNOWN **__fastcall HUBHTX_CancelInterruptTransfer(__int64 a1)
 {
   _UNKNOWN **result; // rax

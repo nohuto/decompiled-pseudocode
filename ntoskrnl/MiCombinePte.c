@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiCombinePte @ 0x140650CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiProcessSuitableForCombining @ 0x140229534 (MiProcessSuitableForCombining.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiComputeCombineHash @ 0x14032C2E0 (MiComputeCombineHash.c)
+ *     MiCombineCandidate @ 0x14032C640 (MiCombineCandidate.c)
+ *     MiComputeHash64 @ 0x14032D5D0 (MiComputeHash64.c)
+ *     MiCombineWorkingSetTail @ 0x140651030 (MiCombineWorkingSetTail.c)
+ */
+
 __int64 __fastcall MiCombinePte(__int64 a1, unsigned __int64 a2, int a3)
 {
   int v4; // r9d

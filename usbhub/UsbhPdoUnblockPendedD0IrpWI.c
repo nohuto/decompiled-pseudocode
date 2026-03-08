@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhPdoUnblockPendedD0IrpWI @ 0x1C001A910
+ * Callers:
+ *     UsbhFdoUnblockAllPendedPdoD0Irps @ 0x1C00212F4 (UsbhFdoUnblockAllPendedPdoD0Irps.c)
+ * Callees:
+ *     UsbhDecHubBusy @ 0x1C0003DB0 (UsbhDecHubBusy.c)
+ *     UsbhEtwLogDevicePowerEvent @ 0x1C0008330 (UsbhEtwLogDevicePowerEvent.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhPdoSetD0_Finish @ 0x1C001AA00 (UsbhPdoSetD0_Finish.c)
+ *     UsbhReleasePowerContext @ 0x1C001BA68 (UsbhReleasePowerContext.c)
+ *     UsbhDecPdoIoCount @ 0x1C001BC4C (UsbhDecPdoIoCount.c)
+ */
+
 __int64 __fastcall UsbhPdoUnblockPendedD0IrpWI(__int64 a1, unsigned int a2, __int64 a3)
 {
   __int64 v5; // r9

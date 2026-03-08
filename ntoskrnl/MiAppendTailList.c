@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiAppendTailList @ 0x14066509C
+ * Callers:
+ *     MiPruneProcessLargePageCaches @ 0x1403614A0 (MiPruneProcessLargePageCaches.c)
+ *     MiAllocateLargeProcessPagesFromCache @ 0x140664B5C (MiAllocateLargeProcessPagesFromCache.c)
+ *     MiFreeLargeProcessPagesToCache @ 0x140666064 (MiFreeLargeProcessPagesToCache.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall MiAppendTailList(_QWORD *a1, _QWORD *a2)
 {
   _QWORD *v3; // r8

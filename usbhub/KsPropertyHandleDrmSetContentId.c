@@ -1,3 +1,11 @@
+/*
+ * XREFs of KsPropertyHandleDrmSetContentId @ 0x1C0073BA0
+ * Callers:
+ *     UsbhPdoDeviceControl @ 0x1C0054C70 (UsbhPdoDeviceControl.c)
+ * Callees:
+ *     memmove @ 0x1C0023580 (memmove.c)
+ */
+
 __int64 __fastcall KsPropertyHandleDrmSetContentId(__int64 a1)
 {
   __int64 v3; // r13

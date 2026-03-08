@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CD2DContext@@IEAA@XZ @ 0x1800CE860
+ * Callers:
+ *     ??0CD3DDevice@@AEAA@W4D3D_FEATURE_LEVEL@@W4_QAI_DRIVERVERSION@@T_LARGE_INTEGER@@@Z @ 0x1800CE610 (--0CD3DDevice@@AEAA@W4D3D_FEATURE_LEVEL@@W4_QAI_DRIVERVERSION@@T_LARGE_INTEGER@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 CD2DContext *__fastcall CD2DContext::CD2DContext(CD2DContext *this)
 {
   CD2DContext *result; // rax

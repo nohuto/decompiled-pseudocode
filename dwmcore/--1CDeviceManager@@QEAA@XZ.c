@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CDeviceManager@@QEAA@XZ @ 0x18010DF90
+ * Callers:
+ *     _dynamic_atexit_destructor_for__g_DeviceManager__ @ 0x180120470 (_dynamic_atexit_destructor_for__g_DeviceManager__.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??$_Destroy_range@V?$allocator@VDeviceInfo@CDeviceManager@@@std@@@std@@YAXPEAVDeviceInfo@CDeviceManager@@QEAV12@AEAV?$allocator@VDeviceInfo@CDeviceManager@@@0@@Z @ 0x180103AE4 (--$_Destroy_range@V-$allocator@VDeviceInfo@CDeviceManager@@@std@@@std@@YAXPEAVDeviceInfo@CDevice.c)
+ */
+
 void __fastcall CDeviceManager::~CDeviceManager(CDeviceManager *this)
 {
   __int64 v2; // rcx

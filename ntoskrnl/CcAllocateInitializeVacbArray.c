@@ -1,3 +1,14 @@
+/*
+ * XREFs of CcAllocateInitializeVacbArray @ 0x1403BD650
+ * Callers:
+ *     CcGetVirtualAddress @ 0x14021FB80 (CcGetVirtualAddress.c)
+ *     CcInitializePartitionVacbs @ 0x14039BA70 (CcInitializePartitionVacbs.c)
+ * Callees:
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ */
+
 char *CcAllocateInitializeVacbArray()
 {
   KIRQL v0; // al

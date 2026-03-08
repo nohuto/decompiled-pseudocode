@@ -1,3 +1,16 @@
+/*
+ * XREFs of InitIllegalIOAddressListFromHAL @ 0x1C00AB6A0
+ * Callers:
+ *     AMLIInitialize @ 0x1C00AAAB0 (AMLIInitialize.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     FreellegalIOAddressList @ 0x1C00AB64C (FreellegalIOAddressList.c)
+ */
+
 void InitIllegalIOAddressListFromHAL()
 {
   int v0; // eax

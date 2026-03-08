@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpMcaExtendedLogInitialize @ 0x14050110C
+ * Callers:
+ *     HalpInitializeMce @ 0x140A87FF0 (HalpInitializeMce.c)
+ * Callees:
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x14029B230 (MmUnmapIoSpace.c)
+ *     HalpMcaExtendedLogGetL1DirectoryBase @ 0x140500FFC (HalpMcaExtendedLogGetL1DirectoryBase.c)
+ */
+
 __int64 HalpMcaExtendedLogInitialize()
 {
   SIZE_T v0; // rbp

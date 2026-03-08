@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmParkDistributeUtility @ 0x140234820
+ * Callers:
+ *     PpmParkDistributeAllUtility @ 0x1402E12B0 (PpmParkDistributeAllUtility.c)
+ *     PpmHeteroDistributeUtility @ 0x140594ED0 (PpmHeteroDistributeUtility.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PpmHeteroNormalizedUtilityToUtility @ 0x140234B94 (PpmHeteroNormalizedUtilityToUtility.c)
+ */
+
 __int64 __fastcall PpmParkDistributeUtility(
         __int64 a1,
         __int64 a2,

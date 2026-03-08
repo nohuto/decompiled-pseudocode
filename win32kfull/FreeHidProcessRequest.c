@@ -1,3 +1,16 @@
+/*
+ * XREFs of FreeHidProcessRequest @ 0x1C00D58B8
+ * Callers:
+ *     DestroyThreadHidObjects @ 0x1C00D5730 (DestroyThreadHidObjects.c)
+ *     _RegisterRawInputDevices @ 0x1C00D5AC8 (_RegisterRawInputDevices.c)
+ *     FreeProcessHidTable @ 0x1C00F0B38 (FreeProcessHidTable.c)
+ * Callees:
+ *     ?IsLegacyDevice@@YAHGG@Z @ 0x1C00D6024 (-IsLegacyDevice@@YAHGG@Z.c)
+ *     ?DerefIncludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@HH@Z @ 0x1C00D6420 (-DerefIncludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@HH@Z.c)
+ *     ?DerefExcludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@HH@Z @ 0x1C01AA764 (-DerefExcludeRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@HH@Z.c)
+ *     ?DerefPageOnlyRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@H@Z @ 0x1C01AA7F4 (-DerefPageOnlyRequest@@YAXPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESS_HID_TABLE@@H@Z.c)
+ */
+
 void __fastcall FreeHidProcessRequest(struct tagPROCESS_HID_REQUEST *a1, int a2, struct tagPROCESS_HID_TABLE *a3)
 {
   int v6; // ebp

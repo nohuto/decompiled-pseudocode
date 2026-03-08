@@ -1,3 +1,14 @@
+/*
+ * XREFs of EngCreateClip @ 0x1C0197B70
+ * Callers:
+ *     ?MulEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C018BB00 (-MulEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z.c)
+ * Callees:
+ *     ?vSet@RGNOBJ@@QEAAXQEBU_RECTL@@@Z @ 0x1C0051770 (-vSet@RGNOBJ@@QEAAXQEBU_RECTL@@@Z.c)
+ *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C0053220 (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
+ *     EngAllocMem @ 0x1C009EBD0 (EngAllocMem.c)
+ *     EngDeleteClip @ 0x1C0197C00 (EngDeleteClip.c)
+ */
+
 CLIPOBJ *EngCreateClip(void)
 {
   CLIPOBJ *v0; // rbx

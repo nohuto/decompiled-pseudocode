@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtDrawText @ 0x140604340
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     BgkDrawText @ 0x140AEE00C (BgkDrawText.c)
+ */
+
 __int64 __fastcall NtDrawText(__int128 *a1)
 {
   int v2; // ebx

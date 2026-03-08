@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?HmgAllocateSecureUserMemory@@YAPEAXPEAPEAX@Z @ 0x1C001CDA0
+ * Callers:
+ *     HmgAllocateObjectAttr @ 0x1C001CC34 (HmgAllocateObjectAttr.c)
+ *     HmgAllocateDcAttr @ 0x1C00500EC (HmgAllocateDcAttr.c)
+ * Callees:
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 PVOID __fastcall HmgAllocateSecureUserMemory(void **a1)
 {
   HANDLE v2; // rax

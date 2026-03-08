@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RecordTransformAndColorSpace@CFlipExSwapchainStatistics@@UEAA_N_NAEBVCMILMatrix@@W4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x1800129E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetRotation@CMILMatrix@@QEBA?AW4DXGI_MODE_ROTATION@@XZ @ 0x180012A10 (-GetRotation@CMILMatrix@@QEBA-AW4DXGI_MODE_ROTATION@@XZ.c)
+ */
+
 char __fastcall CFlipExSwapchainStatistics::RecordTransformAndColorSpace(
         CFlipExSwapchainStatistics *this,
         char a2,

@@ -1,3 +1,20 @@
+/*
+ * XREFs of MmStoreAllocateVirtualMemory @ 0x140A42EFC
+ * Callers:
+ *     SmKmStoreHelperCommandProcess @ 0x1405C93E8 (SmKmStoreHelperCommandProcess.c)
+ * Callees:
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MiFreeVadRange @ 0x1402D5634 (MiFreeVadRange.c)
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     MiDecommitPages @ 0x140329B10 (MiDecommitPages.c)
+ *     MiObtainReferencedSecureVad @ 0x14034C5AC (MiObtainReferencedSecureVad.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiMakeSecureExclusive @ 0x140631940 (MiMakeSecureExclusive.c)
+ *     MiLockPageTableRange @ 0x14064AAA8 (MiLockPageTableRange.c)
+ *     MiAllocateVirtualMemory @ 0x1407C5270 (MiAllocateVirtualMemory.c)
+ *     MmUnsecureVirtualMemory @ 0x1407D48C0 (MmUnsecureVirtualMemory.c)
+ */
+
 unsigned __int64 __fastcall MmStoreAllocateVirtualMemory(__int64 a1)
 {
   __int64 v1; // rsi

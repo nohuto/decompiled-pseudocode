@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspGetMemoryPartitionImplicit @ 0x140798000
+ * Callers:
+ *     PspGetMemoryPartitionContext @ 0x14070D690 (PspGetMemoryPartitionContext.c)
+ * Callees:
+ *     PsGetEffectiveServerSilo @ 0x140294DF0 (PsGetEffectiveServerSilo.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     PspUnlockJobChain @ 0x1406F8F60 (PspUnlockJobChain.c)
+ *     PspLockJobChain @ 0x1406F9018 (PspLockJobChain.c)
+ */
+
 __int64 __fastcall PspGetMemoryPartitionImplicit(__int64 a1, __int16 a2, _QWORD *a3)
 {
   unsigned int v5; // edi

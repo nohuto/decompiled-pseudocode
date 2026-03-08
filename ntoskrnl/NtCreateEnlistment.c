@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtCreateEnlistment @ 0x1403D2450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // attributes: thunk
 NTSTATUS __stdcall NtCreateEnlistment(
         PHANDLE EnlistmentHandle,

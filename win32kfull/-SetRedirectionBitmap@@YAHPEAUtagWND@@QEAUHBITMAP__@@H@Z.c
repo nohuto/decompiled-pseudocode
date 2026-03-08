@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?SetRedirectionBitmap@@YAHPEAUtagWND@@QEAUHBITMAP__@@H@Z @ 0x1C002D938
+ * Callers:
+ *     UnsetRedirectedWindow @ 0x1C0022ADC (UnsetRedirectedWindow.c)
+ *     SetRedirectedWindow @ 0x1C002BE1C (SetRedirectedWindow.c)
+ *     RecreateRedirectionBitmap @ 0x1C0096A48 (RecreateRedirectionBitmap.c)
+ *     ?RestoreOldRedirectionBitmap@@YAHPEAUtagWND@@PEAUHBITMAP__@@@Z @ 0x1C01BDB10 (-RestoreOldRedirectionBitmap@@YAHPEAUtagWND@@PEAUHBITMAP__@@@Z.c)
+ *     UserRecreateRedirectionBitmap @ 0x1C01BE090 (UserRecreateRedirectionBitmap.c)
+ * Callees:
+ *     InternalRemoveProp @ 0x1C002484C (InternalRemoveProp.c)
+ *     GreAccNotifyWindow @ 0x1C0029704 (GreAccNotifyWindow.c)
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     InternalSetProp @ 0x1C01011E0 (InternalSetProp.c)
+ */
+
 __int64 __fastcall SetRedirectionBitmap(void **a1, HBITMAP a2, int a3)
 {
   unsigned int v5; // ebx

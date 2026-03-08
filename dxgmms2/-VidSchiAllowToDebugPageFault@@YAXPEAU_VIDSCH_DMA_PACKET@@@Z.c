@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidSchiAllowToDebugPageFault@@YAXPEAU_VIDSCH_DMA_PACKET@@@Z @ 0x1C0035124
+ * Callers:
+ *     VidSchiProcessDpcCompletedPacket @ 0x1C0004B90 (VidSchiProcessDpcCompletedPacket.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VidSchiAllowToDebugPageFault(struct _VIDSCH_DMA_PACKET *a1)
 {
   __int64 v2; // rax

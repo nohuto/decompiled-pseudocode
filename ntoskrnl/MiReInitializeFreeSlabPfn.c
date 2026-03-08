@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiReInitializeFreeSlabPfn @ 0x1402CE68C
+ * Callers:
+ *     MiFreePageToSlabAllocator @ 0x1402CE4E0 (MiFreePageToSlabAllocator.c)
+ *     MiGetSlabStandbyPage @ 0x14065488C (MiGetSlabStandbyPage.c)
+ * Callees:
+ *     MiSetOriginalPtePfnFromFreeList @ 0x14032F834 (MiSetOriginalPtePfnFromFreeList.c)
+ */
+
 char __fastcall MiReInitializeFreeSlabPfn(_QWORD *a1, __int64 a2)
 {
   _QWORD *v2; // r8

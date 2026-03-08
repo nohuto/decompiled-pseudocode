@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Initialize@FxDisposeList@@QEAAJPEAX@Z @ 0x1C0041E58
+ * Callers:
+ *     ?_Create@FxDisposeList@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAPEAV1@@Z @ 0x1C0041F88 (-_Create@FxDisposeList@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAPEAV1@@Z.c)
+ * Callees:
+ *     WPP_IFR_SF_D @ 0x1C0017F78 (WPP_IFR_SF_D.c)
+ *     ?_Create@FxSystemWorkItem@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAPEAV1@@Z @ 0x1C0042DAC (-_Create@FxSystemWorkItem@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAXPEAPEAV1@@Z.c)
+ */
+
 __int64 __fastcall FxDisposeList::Initialize(FxDisposeList *this, void *WdmObject)
 {
   _FX_DRIVER_GLOBALS *m_Globals; // rbp

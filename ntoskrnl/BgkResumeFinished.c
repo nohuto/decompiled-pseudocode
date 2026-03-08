@@ -1,3 +1,13 @@
+/*
+ * XREFs of BgkResumeFinished @ 0x140A969B8
+ * Callers:
+ *     BgkNotifyDisplayOwnershipChange @ 0x1403A7F10 (BgkNotifyDisplayOwnershipChange.c)
+ *     PopFreeHiberContext @ 0x1409855F0 (PopFreeHiberContext.c)
+ * Callees:
+ *     BgkpUnlockBgfxCodeSection @ 0x140AEC590 (BgkpUnlockBgfxCodeSection.c)
+ *     BgFreeContext @ 0x140AEE228 (BgFreeContext.c)
+ */
+
 __int64 BgkResumeFinished()
 {
   __int64 result; // rax

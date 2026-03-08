@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopSetBootPhaseRange @ 0x140AA2164
+ * Callers:
+ *     PopSetRange @ 0x14058CA7C (PopSetRange.c)
+ * Callees:
+ *     RtlSetBits @ 0x14028BC50 (RtlSetBits.c)
+ */
+
 void __fastcall PopSetBootPhaseRange(__int64 a1, ULONG a2, ULONG a3)
 {
   unsigned int v3; // r9d

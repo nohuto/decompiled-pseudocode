@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_WdfDriverRegisterTraceInfo @ 0x1C0009570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall imp_WdfDriverRegisterTraceInfo(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         _DRIVER_OBJECT *DriverObject,

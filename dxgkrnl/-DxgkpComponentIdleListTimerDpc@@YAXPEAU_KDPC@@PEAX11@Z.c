@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DxgkpComponentIdleListTimerDpc@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1C00100F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ScheduleComponentIdleListTimer@DXGADAPTER@@QEAAX_J@Z @ 0x1C00102E4 (-ScheduleComponentIdleListTimer@DXGADAPTER@@QEAAX_J@Z.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C003FB88 (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C003FFEC (McTemplateK0pqq_EtwWriteTransfer.c)
+ */
+
 void __fastcall DxgkpComponentIdleListTimerDpc(
         struct _KDPC *Dpc,
         KSPIN_LOCK *DeferredContext,

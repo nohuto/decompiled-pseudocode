@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmEventCoreParkingStateChangeEx @ 0x140597AB0
+ * Callers:
+ *     PpmParkReportParkedCore @ 0x14059AC6C (PpmParkReportParkedCore.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PpmEventCoreParkingStateChangeEx(__int64 a1, char a2)
 {
   _UNKNOWN **v2; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhParseAndInstallRegistryValueDescriptors @ 0x1C0033A30
+ * Callers:
+ *     UsbhInstallMsOs20RegistryProperties @ 0x1C003375C (UsbhInstallMsOs20RegistryProperties.c)
+ * Callees:
+ *     UsbhGetNextMsOs20Descriptor @ 0x1C00336F0 (UsbhGetNextMsOs20Descriptor.c)
+ */
+
 char __fastcall UsbhParseAndInstallRegistryValueDescriptors(
         HANDLE KeyHandle,
         __int64 a2,

@@ -1,3 +1,23 @@
+/*
+ * XREFs of xxxMNUpdateShownMenu @ 0x1C02341E4
+ * Callers:
+ *     xxxSetMenuInfo @ 0x1C00A3A58 (xxxSetMenuInfo.c)
+ *     ?xxxRemoveDeleteMenuHelper@@YAHAEBV?$SmartObjStackRef@UtagMENU@@@@IKH@Z @ 0x1C00A4FB4 (-xxxRemoveDeleteMenuHelper@@YAHAEBV-$SmartObjStackRef@UtagMENU@@@@IKH@Z.c)
+ *     ?xxxRedrawForSetLPITEMInfo@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C00A6850 (-xxxRedrawForSetLPITEMInfo@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
+ *     xxxEnableMenuItem @ 0x1C0224CA0 (xxxEnableMenuItem.c)
+ * Callees:
+ *     xxxSetWindowPos @ 0x1C0028F4C (xxxSetWindowPos.c)
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     MNGetpItemFromIndex @ 0x1C00A266C (MNGetpItemFromIndex.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C00A6450 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     MNGetpItemIndex @ 0x1C00A6FD0 (MNGetpItemIndex.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00D5030 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     _GetClientRect @ 0x1C01016A4 (_GetClientRect.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     xxxInvalidateRect @ 0x1C0217D5C (xxxInvalidateRect.c)
+ *     xxxScrollWindowEx @ 0x1C0231B34 (xxxScrollWindowEx.c)
+ */
+
 _QWORD *__fastcall xxxMNUpdateShownMenu(__int64 *a1, __int64 *a2, char a3)
 {
   __int64 v3; // rax

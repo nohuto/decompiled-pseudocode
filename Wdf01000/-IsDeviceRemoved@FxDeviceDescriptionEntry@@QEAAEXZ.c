@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsDeviceRemoved@FxDeviceDescriptionEntry@@QEAAEXZ @ 0x1C0024FB4
+ * Callers:
+ *     ?PnpEventCheckForDevicePresenceOverload@FxPkgPdo@@EEAA?AW4_WDF_DEVICE_PNP_STATE@@XZ @ 0x1C00691A0 (-PnpEventCheckForDevicePresenceOverload@FxPkgPdo@@EEAA-AW4_WDF_DEVICE_PNP_STATE@@XZ.c)
+ * Callees:
+ *     ?FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z @ 0x1C0001B10 (-FxVerifierCheckIrqlLevel@@YAJPEAU_FX_DRIVER_GLOBALS@@E@Z.c)
+ */
+
 char __fastcall FxDeviceDescriptionEntry::IsDeviceRemoved(FxDeviceDescriptionEntry *this)
 {
   FxChildList *m_DeviceList; // rsi

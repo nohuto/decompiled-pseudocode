@@ -1,3 +1,11 @@
+/*
+ * XREFs of Simulator_InitializeInterface @ 0x1C00AB290
+ * Callers:
+ *     DriverEntry @ 0x1C00A7300 (DriverEntry.c)
+ * Callees:
+ *     Simulator_UnInitializeInterface @ 0x1C00AB538 (Simulator_UnInitializeInterface.c)
+ */
+
 __int64 Simulator_InitializeInterface()
 {
   __int64 v0; // rdx

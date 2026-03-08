@@ -1,3 +1,12 @@
+/*
+ * XREFs of _MapCmDevicePropertyToRegValue @ 0x140244D48
+ * Callers:
+ *     _CmGetDeviceRegPropWorker @ 0x1406C9A04 (_CmGetDeviceRegPropWorker.c)
+ *     _CmSetDeviceRegPropWorker @ 0x14086A240 (_CmSetDeviceRegPropWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 const wchar_t *__fastcall MapCmDevicePropertyToRegValue(__int64 a1, int a2)
 {
   int v2; // edx

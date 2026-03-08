@@ -1,3 +1,22 @@
+/*
+ * XREFs of CreateXField @ 0x1C0050374
+ * Callers:
+ *     CreateBitField @ 0x1C00500D0 (CreateBitField.c)
+ *     CreateByteField @ 0x1C0050140 (CreateByteField.c)
+ *     CreateDWordField @ 0x1C00501A0 (CreateDWordField.c)
+ *     CreateField @ 0x1C0050200 (CreateField.c)
+ *     CreateQWordField @ 0x1C00502C0 (CreateQWordField.c)
+ *     CreateWordField @ 0x1C0050320 (CreateWordField.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ *     CreateNameSpaceObject @ 0x1C004F10C (CreateNameSpaceObject.c)
+ */
+
 __int64 __fastcall CreateXField(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
   unsigned int NameSpaceObject; // ebx

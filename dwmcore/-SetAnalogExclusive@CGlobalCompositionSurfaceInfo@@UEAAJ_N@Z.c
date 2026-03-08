@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetAnalogExclusive@CGlobalCompositionSurfaceInfo@@UEAAJ_N@Z @ 0x180258420
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall CGlobalCompositionSurfaceInfo::SetAnalogExclusive(
         CGlobalCompositionSurfaceInfo *this,
         unsigned __int8 a2)

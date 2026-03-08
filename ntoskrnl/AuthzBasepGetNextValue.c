@@ -1,3 +1,15 @@
+/*
+ * XREFs of AuthzBasepGetNextValue @ 0x1403656C8
+ * Callers:
+ *     AuthzBasepValueInSet @ 0x14036559C (AuthzBasepValueInSet.c)
+ *     AuthzBasepEvaluateSetRelationship @ 0x1403663B8 (AuthzBasepEvaluateSetRelationship.c)
+ *     AuthzBasepDeviceMemberOf @ 0x14066D2CC (AuthzBasepDeviceMemberOf.c)
+ *     AuthzBasepMemberOf @ 0x14066D410 (AuthzBasepMemberOf.c)
+ * Callees:
+ *     AuthzBasepQuerySecurityAttributeAndValues @ 0x1402472F0 (AuthzBasepQuerySecurityAttributeAndValues.c)
+ *     AuthzBasepGetConstantOperand @ 0x1402E9A60 (AuthzBasepGetConstantOperand.c)
+ */
+
 __int64 __fastcall AuthzBasepGetNextValue(__int64 a1, __int64 a2)
 {
   unsigned int ConstantOperand; // ecx

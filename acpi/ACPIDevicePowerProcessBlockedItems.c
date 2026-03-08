@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIDevicePowerProcessBlockedItems @ 0x1C001EB38
+ * Callers:
+ *     ACPIDevicePowerDpc @ 0x1C001E5C0 (ACPIDevicePowerDpc.c)
+ * Callees:
+ *     ACPIIsPowerRequestBlocked @ 0x1C0022250 (ACPIIsPowerRequestBlocked.c)
+ */
+
 __int64 ACPIDevicePowerProcessBlockedItems()
 {
   __int64 *v0; // rbx

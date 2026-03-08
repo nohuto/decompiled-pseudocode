@@ -1,3 +1,11 @@
+/*
+ * XREFs of AuthzBasepFindSystemSecurityAttribute @ 0x14070B828
+ * Callers:
+ *     AuthzBasepQuerySystemSecurityAttributeAndValues @ 0x14070B7B8 (AuthzBasepQuerySystemSecurityAttributeAndValues.c)
+ * Callees:
+ *     AuthzBasepEqualUnicodeString @ 0x140297EF8 (AuthzBasepEqualUnicodeString.c)
+ */
+
 __int64 __fastcall AuthzBasepFindSystemSecurityAttribute(const UNICODE_STRING *a1)
 {
   char v1; // bl

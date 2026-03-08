@@ -1,3 +1,11 @@
+/*
+ * XREFs of SleepQueueDpc @ 0x1C0005AC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RestartContext @ 0x1C00512E8 (RestartContext.c)
+ */
+
 __int64 **SleepQueueDpc()
 {
   __int64 v0; // rdx

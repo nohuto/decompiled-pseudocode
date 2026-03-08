@@ -1,3 +1,21 @@
+/*
+ * XREFs of TtmNotifyDeviceArrival @ 0x14099F580
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlStringCchLengthW @ 0x140247080 (RtlStringCchLengthW.c)
+ *     RtlStringCchCopyW @ 0x1402470F0 (RtlStringCchCopyW.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     TtmpFindDeviceByToken @ 0x1409A06D8 (TtmpFindDeviceByToken.c)
+ *     TtmiAcquireCurrentSession @ 0x1409A1950 (TtmiAcquireCurrentSession.c)
+ *     TtmiScheduleSessionWorker @ 0x1409A1AC4 (TtmiScheduleSessionWorker.c)
+ *     TtmiLogDeviceArrivalNotified @ 0x1409A4310 (TtmiLogDeviceArrivalNotified.c)
+ *     TtmiLogError @ 0x1409A536C (TtmiLogError.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall TtmNotifyDeviceArrival(unsigned int a1, __int64 a2, _QWORD *a3, int a4, __int64 a5)
 {
   __int64 v5; // r13

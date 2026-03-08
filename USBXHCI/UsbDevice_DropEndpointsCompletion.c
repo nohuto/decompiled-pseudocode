@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbDevice_DropEndpointsCompletion @ 0x1C0048BA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0008958 (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0019330 (WPP_RECORDER_SF_dq.c)
+ */
+
 __int64 __fastcall UsbDevice_DropEndpointsCompletion(__int64 a1, int a2)
 {
   __int64 v2; // rbx

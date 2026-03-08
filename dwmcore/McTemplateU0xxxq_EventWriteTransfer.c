@@ -1,3 +1,13 @@
+/*
+ * XREFs of McTemplateU0xxxq_EventWriteTransfer @ 0x180201FDC
+ * Callers:
+ *     ?DispatchScribbles@CComputeScribbleFramebuffer@@QEAAJPEAUID3D12CommandQueue@@PEAVCComputeScribbleStopwatch@@_KPEAUIDCompositionDirectInkSuperWetRenderer@@PEAUIUnknown@@PEAUComputeScribbleLatencyData@@@Z @ 0x1802019CC (-DispatchScribbles@CComputeScribbleFramebuffer@@QEAAJPEAUID3D12CommandQueue@@PEAVCComputeScribbl.c)
+ *     ?DoTextureUpdates@CHolographicClient@@AEAAXXZ @ 0x1802A93D0 (-DoTextureUpdates@CHolographicClient@@AEAAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 ULONG McTemplateU0xxxq_EventWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v3; // [rsp+38h] [rbp-19h] BYREF

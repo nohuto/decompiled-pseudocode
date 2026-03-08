@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIReadGpeStatusRegister @ 0x1C0038A4C
+ * Callers:
+ *     ACPIInterruptDispatchEvents @ 0x1C0003AE8 (ACPIInterruptDispatchEvents.c)
+ *     ACPIInterruptServiceRoutine @ 0x1C0003D30 (ACPIInterruptServiceRoutine.c)
+ *     ACPIGpeClearRegisters @ 0x1C002C240 (ACPIGpeClearRegisters.c)
+ *     ACPIGpeHalEnableDisableEvents @ 0x1C002C300 (ACPIGpeHalEnableDisableEvents.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 char __fastcall ACPIReadGpeStatusRegister(unsigned int a1)
 {
   unsigned int v1; // ebx

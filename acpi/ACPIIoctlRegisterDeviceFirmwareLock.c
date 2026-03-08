@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIIoctlRegisterDeviceFirmwareLock @ 0x1C00312BC
+ * Callers:
+ *     ACPIIrpDispatchDeviceControl @ 0x1C0001290 (ACPIIrpDispatchDeviceControl.c)
+ * Callees:
+ *     AcpiRegisterDeviceFirmwareLockHandler @ 0x1C0082744 (AcpiRegisterDeviceFirmwareLockHandler.c)
+ */
+
 __int64 __fastcall ACPIIoctlRegisterDeviceFirmwareLock(void *a1, IRP *a2, __int64 a3)
 {
   unsigned int v3; // eax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalGetInterruptTargetInformation @ 0x14037D3A0
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     HalpInterruptIsMsiSupported @ 0x14037D4DC (HalpInterruptIsMsiSupported.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ */
+
 __int64 __fastcall HalGetInterruptTargetInformation(int a1, int a2, __int64 a3)
 {
   bool v6; // zf

@@ -1,3 +1,15 @@
+/*
+ * XREFs of VidSchWaitForQueuedPresentLimit @ 0x1C00B21F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VidSchiInterlockedRemoveEntryList @ 0x1C0014268 (VidSchiInterlockedRemoveEntryList.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     VidSchWaitForCompletionEvent @ 0x1C00ADD4C (VidSchWaitForCompletionEvent.c)
+ *     VidSchRegisterCompletionEvent @ 0x1C00AE0A4 (VidSchRegisterCompletionEvent.c)
+ */
+
 __int64 __fastcall VidSchWaitForQueuedPresentLimit(__int64 a1, unsigned int a2, char a3)
 {
   unsigned int v3; // ebx

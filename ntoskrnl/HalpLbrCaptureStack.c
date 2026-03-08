@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpLbrCaptureStack @ 0x1404565C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpLbrCaptureStack(unsigned int a1, __int64 a2, _DWORD *a3)
 {
   int v3; // r9d

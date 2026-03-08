@@ -1,3 +1,17 @@
+/*
+ * XREFs of AcpiExternalTranslateBiosToNtResources @ 0x1C0083DA0
+ * Callers:
+ *     PnpiBiosGpioInterruptIoToNtIoDescriptor @ 0x1C0091918 (PnpiBiosGpioInterruptIoToNtIoDescriptor.c)
+ *     PnpiBiosVendorToNtIoDescriptor @ 0x1C0091C74 (PnpiBiosVendorToNtIoDescriptor.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C001B508 (WPP_RECORDER_SF_qD.c)
+ *     AcpiCheckExternalConnection @ 0x1C0083BF4 (AcpiCheckExternalConnection.c)
+ *     ExternalRequestBiosNameDeviceAssociation @ 0x1C00842D4 (ExternalRequestBiosNameDeviceAssociation.c)
+ */
+
 __int64 __fastcall AcpiExternalTranslateBiosToNtResources(
         ULONG_PTR a1,
         __int64 a2,

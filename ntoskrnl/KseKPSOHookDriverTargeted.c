@@ -1,3 +1,13 @@
+/*
+ * XREFs of KseKPSOHookDriverTargeted @ 0x140580050
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KsepLogError @ 0x140303450 (KsepLogError.c)
+ *     KsepDebugPrint @ 0x14057E834 (KsepDebugPrint.c)
+ *     RtlWriteRegistryValue @ 0x14069EDB0 (RtlWriteRegistryValue.c)
+ */
+
 __int64 KseKPSOHookDriverTargeted()
 {
   NTSTATUS v0; // eax

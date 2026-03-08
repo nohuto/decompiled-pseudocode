@@ -1,3 +1,15 @@
+/*
+ * XREFs of AcpiQueryPciBusInterface @ 0x1C008A38C
+ * Callers:
+ *     ACPIDetectFilterDevices @ 0x1C001AA10 (ACPIDetectFilterDevices.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     ACPIInternalSendSynchronousIrp @ 0x1C008822C (ACPIInternalSendSynchronousIrp.c)
+ */
+
 __int64 __fastcall AcpiQueryPciBusInterface(ULONG_PTR BugCheckParameter3)
 {
   __int64 DeviceExtension; // rbx

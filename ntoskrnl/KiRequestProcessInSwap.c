@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiRequestProcessInSwap @ 0x1402C0908
+ * Callers:
+ *     KiInswapAndReadyThread @ 0x1402C06E8 (KiInswapAndReadyThread.c)
+ *     KiInSwapSingleProcess @ 0x1402C0868 (KiInSwapSingleProcess.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     MmNotifyProcessInSwapTrigger @ 0x1402C0A08 (MmNotifyProcessInSwapTrigger.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 char __fastcall KiRequestProcessInSwap(__int64 a1, __int64 a2)
 {
   char v2; // si

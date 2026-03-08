@@ -1,3 +1,13 @@
+/*
+ * XREFs of _GetKeyboardLayout @ 0x1C00827AC
+ * Callers:
+ *     GetActiveHKL @ 0x1C007F950 (GetActiveHKL.c)
+ *     NtUserGetKeyboardLayout @ 0x1C0082780 (NtUserGetKeyboardLayout.c)
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C004FE50 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     ?IsWinstaLessSession@@YA_NXZ @ 0x1C0082864 (-IsWinstaLessSession@@YA_NXZ.c)
+ */
+
 __int64 __fastcall GetKeyboardLayout(int a1)
 {
   HANDLE v1; // rsi

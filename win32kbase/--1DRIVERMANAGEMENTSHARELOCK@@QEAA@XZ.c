@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1DRIVERMANAGEMENTSHARELOCK@@QEAA@XZ @ 0x1C018C7B0
+ * Callers:
+ *     DrvDisplayConfigGetScaleFactorOverrides @ 0x1C0193370 (DrvDisplayConfigGetScaleFactorOverrides.c)
+ *     DrvDisplayConfigSetScaleFactorOverride @ 0x1C0193A60 (DrvDisplayConfigSetScaleFactorOverride.c)
+ * Callees:
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0049E20 (EtwTraceGreLockReleaseSemaphore.c)
+ */
+
 void __fastcall DRIVERMANAGEMENTSHARELOCK::~DRIVERMANAGEMENTSHARELOCK(DRIVERMANAGEMENTSHARELOCK *this)
 {
   __int64 v1; // rbx

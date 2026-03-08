@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vInit256Default@XEPALOBJ@@QEAAXXZ @ 0x1C02DAE5C
+ * Callers:
+ *     ?GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@PEAUHBITMAP__@@IIAEAV?$umptr_w@E@@PEAUtagBITMAPINFO@@III@Z @ 0x1C008A530 (-GreGetDIBitsInternalWorker@@YAHKAEAVDCOBJ@@AEAVPDEVOBJ@@AEAVSURFREF@@AEAVXEPALOBJ@@PEAUHDC__@@P.c)
+ *     ?vInit256Rainbow@XEPALOBJ@@QEAAXXZ @ 0x1C02DAECC (-vInit256Rainbow@XEPALOBJ@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall XEPALOBJ::vInit256Default(XEPALOBJ *this)
 {
   struct Gre::Base::SESSION_GLOBALS *v2; // rax

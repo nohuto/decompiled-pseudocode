@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?DestroyDesktop@@YAHPEAUtagDESKTOP@@@Z @ 0x1C0094B64
+ * Callers:
+ *     UnmapDesktop @ 0x1C003CEA0 (UnmapDesktop.c)
+ * Callees:
+ *     ?GetDesktopName@@YAPEBGPEAUtagDESKTOP@@@Z @ 0x1C0095610 (-GetDesktopName@@YAPEBGPEAUtagDESKTOP@@@Z.c)
+ *     _PostThreadMessage @ 0x1C009575C (_PostThreadMessage.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qS @ 0x1C00957C8 (WPP_RECORDER_AND_TRACE_SF_qS.c)
+ *     UnpackAffectedThreadList @ 0x1C00CE1E4 (UnpackAffectedThreadList.c)
+ */
+
 __int64 __fastcall DestroyDesktop(struct tagDESKTOP *a1)
 {
   __int64 v2; // rdi

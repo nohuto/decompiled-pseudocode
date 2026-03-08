@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBPSM30_StartingDisableSuperSpeedTimer @ 0x1C0013940
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBPSM30_StartingDisableSuperSpeedTimer(__int64 a1)
 {
   ExSetTimer(*(_QWORD *)(*(_QWORD *)(a1 + 960) + 1312LL), -50000000LL, 0LL, 0LL);

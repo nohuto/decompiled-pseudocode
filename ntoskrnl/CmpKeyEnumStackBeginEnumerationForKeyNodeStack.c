@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpKeyEnumStackBeginEnumerationForKeyNodeStack @ 0x140A20C04
+ * Callers:
+ *     CmpSubtreeEnumeratorAdvance @ 0x140A1D6E8 (CmpSubtreeEnumeratorAdvance.c)
+ *     CmpKeyEnumStackStartFromKeyNodeStack @ 0x140A216EC (CmpKeyEnumStackStartFromKeyNodeStack.c)
+ * Callees:
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140783798 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpGetEffectiveKeyNodeSemantics @ 0x140A1D040 (CmpGetEffectiveKeyNodeSemantics.c)
+ *     CmpKeyEnumStackEntryBegin @ 0x140A20F7C (CmpKeyEnumStackEntryBegin.c)
+ *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x140A213F8 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
+ */
+
 __int64 __fastcall CmpKeyEnumStackBeginEnumerationForKeyNodeStack(unsigned __int16 *a1, __int64 a2)
 {
   __int64 result; // rax

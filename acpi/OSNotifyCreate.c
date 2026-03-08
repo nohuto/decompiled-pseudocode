@@ -1,3 +1,17 @@
+/*
+ * XREFs of OSNotifyCreate @ 0x1C00325E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_qsL @ 0x1C0022EB8 (WPP_RECORDER_SF_qsL.c)
+ *     OSNotifyCreateDevice @ 0x1C0032738 (OSNotifyCreateDevice.c)
+ *     OSNotifyCreateOperationRegion @ 0x1C003285C (OSNotifyCreateOperationRegion.c)
+ *     OSNotifyCreatePowerResource @ 0x1C0032A14 (OSNotifyCreatePowerResource.c)
+ *     OSNotifyCreateProcessor @ 0x1C0032ABC (OSNotifyCreateProcessor.c)
+ *     OSNotifyCreateThermalZone @ 0x1C0032BC0 (OSNotifyCreateThermalZone.c)
+ */
+
 __int64 __fastcall OSNotifyCreate(int a1, ULONG_PTR a2)
 {
   int v4; // edx

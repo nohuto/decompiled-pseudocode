@@ -1,3 +1,12 @@
+/*
+ * XREFs of FindMaterialProperty @ 0x1C00BE3C0
+ * Callers:
+ *     NtDCompositionGetMaterialProperty @ 0x1C000C040 (NtDCompositionGetMaterialProperty.c)
+ *     FindOrCreateMaterialProperty @ 0x1C00BE2B8 (FindOrCreateMaterialProperty.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FindMaterialProperty(__int64 a1, __int64 a2, _QWORD *a3)
 {
   __int64 v3; // rbx

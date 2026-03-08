@@ -1,3 +1,11 @@
+/*
+ * XREFs of BcpPrintSpaces @ 0x1406706FC
+ * Callers:
+ *     BcpDisplayCriticalString @ 0x14066FD2C (BcpDisplayCriticalString.c)
+ * Callees:
+ *     BgpDisplayCharacterEx @ 0x14066F654 (BgpDisplayCharacterEx.c)
+ */
+
 __int64 __fastcall BcpPrintSpaces(__int64 *a1, unsigned int a2, unsigned int a3, unsigned int a4, int a5, _DWORD *a6)
 {
   int v6; // ebx

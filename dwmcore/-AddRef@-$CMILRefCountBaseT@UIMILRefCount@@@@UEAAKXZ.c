@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AddRef@?$CMILRefCountBaseT@UIMILRefCount@@@@UEAAKXZ @ 0x1800D51D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x180279008 (-IsKernelDebuggerPresent@@YAHXZ.c)
+ */
+
 __int64 __fastcall CMILRefCountBaseT<IMILRefCount>::AddRef(__int64 a1)
 {
   int v3; // eax

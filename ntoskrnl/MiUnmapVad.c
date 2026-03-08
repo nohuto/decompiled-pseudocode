@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiUnmapVad @ 0x1406A2850
+ * Callers:
+ *     MiDeletePartialVad @ 0x1402D5768 (MiDeletePartialVad.c)
+ *     MiUnmapViewOfSection @ 0x1406A2570 (MiUnmapViewOfSection.c)
+ *     MiCleanVad @ 0x1407D36F8 (MiCleanVad.c)
+ *     MiMapViewOfImageSection @ 0x1407D3750 (MiMapViewOfImageSection.c)
+ *     MiMapViewOfDataSection @ 0x1407D57C0 (MiMapViewOfDataSection.c)
+ * Callees:
+ *     MiReferenceControlAreaFile @ 0x140344094 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1403441A0 (MiDereferenceControlAreaFile.c)
+ *     MiDeleteVad @ 0x1407C82E0 (MiDeleteVad.c)
+ *     PfCheckDeprioritizeFile @ 0x1407E6FF0 (PfCheckDeprioritizeFile.c)
+ *     MiLogMapFileEvent @ 0x1408A76B2 (MiLogMapFileEvent.c)
+ */
+
 __int64 __fastcall MiUnmapVad(unsigned int *P, __int64 a2, unsigned __int64 a3)
 {
   __int64 v5; // rbx

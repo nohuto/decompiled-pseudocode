@@ -1,3 +1,25 @@
+/*
+ * XREFs of RtlpHpLargeAlloc @ 0x1402B6D70
+ * Callers:
+ *     RtlpHpAllocateHeap @ 0x14024A2B0 (RtlpHpAllocateHeap.c)
+ *     ExAllocateHeapPool @ 0x1403101C0 (ExAllocateHeapPool.c)
+ * Callees:
+ *     RtlpHpFreeVA @ 0x14020DC8C (RtlpHpFreeVA.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     RtlpHpMetadataFree @ 0x1402B6D30 (RtlpHpMetadataFree.c)
+ *     RtlpHpMetadataAlloc @ 0x1402B71FC (RtlpHpMetadataAlloc.c)
+ *     RtlpHpSegHeapCheckCommitLimit @ 0x1402B735C (RtlpHpSegHeapCheckCommitLimit.c)
+ *     RtlpHpLargeLockAcquire @ 0x1402B73D4 (RtlpHpLargeLockAcquire.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpQueryVA @ 0x140309578 (RtlpHpQueryVA.c)
+ *     RtlpHpAllocVA @ 0x140330920 (RtlpHpAllocVA.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlHeapZero @ 0x1403D2D10 (RtlHeapZero.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 __fastcall RtlpHpLargeAlloc(__int64 a1, __int16 a2, unsigned __int64 a3, unsigned int a4)
 {
   __int128 v4; // xmm0

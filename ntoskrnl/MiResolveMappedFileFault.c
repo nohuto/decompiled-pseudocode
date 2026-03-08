@@ -1,3 +1,38 @@
+/*
+ * XREFs of MiResolveMappedFileFault @ 0x14028A780
+ * Callers:
+ *     MiResolveProtoPteFault @ 0x140270A50 (MiResolveProtoPteFault.c)
+ *     MiIssueFlowThroughFault @ 0x1402A2C24 (MiIssueFlowThroughFault.c)
+ * Callees:
+ *     MiGetAvailablePagesBelowPriority @ 0x140224C00 (MiGetAvailablePagesBelowPriority.c)
+ *     MiLocateAddress @ 0x140228680 (MiLocateAddress.c)
+ *     MiGetSlabPage @ 0x14025BA50 (MiGetSlabPage.c)
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     MiFreeInPageSupportBlock @ 0x140287B5C (MiFreeInPageSupportBlock.c)
+ *     MiUseSlabAllocator @ 0x140289310 (MiUseSlabAllocator.c)
+ *     MiAllocateInPageSupport @ 0x14028A6A0 (MiAllocateInPageSupport.c)
+ *     MiComputeFaultNode @ 0x14028AE90 (MiComputeFaultNode.c)
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     MiPickClusterForMappedFileFault @ 0x14028B0C0 (MiPickClusterForMappedFileFault.c)
+ *     MiBuildMdlForMappedFileFault @ 0x14028B490 (MiBuildMdlForMappedFileFault.c)
+ *     MiFinishMdlForMappedFileFault @ 0x14028BD60 (MiFinishMdlForMappedFileFault.c)
+ *     MiSetInPagePrefetchPriority @ 0x1402CCC8C (MiSetInPagePrefetchPriority.c)
+ *     MiGetSharedProtos @ 0x1402CCDF8 (MiGetSharedProtos.c)
+ *     KeInvalidAccessAllowed @ 0x1402DA5E0 (KeInvalidAccessAllowed.c)
+ *     MiReturnFaultCharges @ 0x1402F4480 (MiReturnFaultCharges.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiObtainFaultCharges @ 0x14031EEE0 (MiObtainFaultCharges.c)
+ *     MiSanitizePfnProtection @ 0x140322D40 (MiSanitizePfnProtection.c)
+ *     MiUnlockVadTree @ 0x140330EC8 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x1403334B4 (MiLockVadTree.c)
+ *     MiCopyDataPageToImagePage @ 0x140334490 (MiCopyDataPageToImagePage.c)
+ *     MiGetSessionIdForVa @ 0x140343520 (MiGetSessionIdForVa.c)
+ *     MiComputeFaultCluster @ 0x140363DD0 (MiComputeFaultCluster.c)
+ *     MiCopyFileOnlyGlobalSubsectionPage @ 0x140639EB8 (MiCopyFileOnlyGlobalSubsectionPage.c)
+ */
+
 __int64 MiResolveMappedFileFault(__int64 a1, unsigned __int64 *a2, ...)
 {
   __int64 v2; // rsi

@@ -1,3 +1,27 @@
+/*
+ * XREFs of ExSwapinWorkerThreads @ 0x1409FD778
+ * Callers:
+ *     PopUnlockAfterSleepWorker @ 0x140AA37E0 (PopUnlockAfterSleepWorker.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ *     ExShutdownSystem @ 0x140AA79E8 (ExShutdownSystem.c)
+ * Callees:
+ *     KeInitializeApc @ 0x140237E20 (KeInitializeApc.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeInsertQueueApc @ 0x14027DBF0 (KeInsertQueueApc.c)
+ *     KeSetKernelStackSwapEnable @ 0x140283360 (KeSetKernelStackSwapEnable.c)
+ *     KeRemoveQueueApc @ 0x1402F7360 (KeRemoveQueueApc.c)
+ *     PsGetNextPartitionUnsafe @ 0x140305364 (PsGetNextPartitionUnsafe.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PoPushPowerStateTransitionRecordWithCallback @ 0x14058CC64 (PoPushPowerStateTransitionRecordWithCallback.c)
+ *     PsGetNextProcessThread @ 0x1406A8E30 (PsGetNextProcessThread.c)
+ *     PsReferencePartitionSystemProcess @ 0x1409B3550 (PsReferencePartitionSystemProcess.c)
+ *     PoDelistPowerStateTransitionBlocker @ 0x140AA2FFC (PoDelistPowerStateTransitionBlocker.c)
+ */
+
 void __fastcall ExSwapinWorkerThreads(BOOLEAN a1)
 {
   struct _KTHREAD *CurrentThread; // r15

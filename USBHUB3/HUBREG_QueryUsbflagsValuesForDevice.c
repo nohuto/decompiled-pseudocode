@@ -1,3 +1,18 @@
+/*
+ * XREFs of HUBREG_QueryUsbflagsValuesForDevice @ 0x1C0084444
+ * Callers:
+ *     HUBMISC_QueryAndCacheRegistryValuesForDevice @ 0x1C0083100 (HUBMISC_QueryAndCacheRegistryValuesForDevice.c)
+ * Callees:
+ *     RtlStringCchPrintfA @ 0x1C00014E0 (RtlStringCchPrintfA.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     RtlUnicodeStringPrintf @ 0x1C000C4DC (RtlUnicodeStringPrintf.c)
+ *     HUBMISC_QueryKseDeviceFlags @ 0x1C0033144 (HUBMISC_QueryKseDeviceFlags.c)
+ *     HUBREG_QueryUsbflagsAlternateSettingFilter @ 0x1C00348E8 (HUBREG_QueryUsbflagsAlternateSettingFilter.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_OpenCreateUsbflagsDeviceKey @ 0x1C00838E4 (HUBREG_OpenCreateUsbflagsDeviceKey.c)
+ */
+
 __int64 __fastcall HUBREG_QueryUsbflagsValuesForDevice(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rbx

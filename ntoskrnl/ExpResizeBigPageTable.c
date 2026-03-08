@@ -1,3 +1,19 @@
+/*
+ * XREFs of ExpResizeBigPageTable @ 0x1403B453C
+ * Callers:
+ *     ExpAddTagForBigPages @ 0x1402C7A20 (ExpAddTagForBigPages.c)
+ * Callees:
+ *     ExpPlFindLimitEntry @ 0x1402F00EC (ExpPlFindLimitEntry.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExAllocateHeapPages @ 0x1403B489C (ExAllocateHeapPages.c)
+ *     ExpPoolTrackerChargeEntry @ 0x1403B53DC (ExpPoolTrackerChargeEntry.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTracePool @ 0x1405FAD80 (EtwTracePool.c)
+ *     ExpInsertPoolTrackerExpansion @ 0x140605758 (ExpInsertPoolTrackerExpansion.c)
+ */
+
 __int64 __fastcall ExpResizeBigPageTable(__int64 a1, __int64 a2, _QWORD *a3)
 {
   __int64 v3; // rsi

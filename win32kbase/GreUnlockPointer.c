@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreUnlockPointer @ 0x1C00CDF70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0049E20 (EtwTraceGreLockReleaseSemaphore.c)
+ */
+
 __int64 __fastcall GreUnlockPointer(__int64 a1)
 {
   __int64 result; // rax

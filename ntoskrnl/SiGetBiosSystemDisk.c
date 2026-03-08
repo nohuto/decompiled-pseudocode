@@ -1,3 +1,18 @@
+/*
+ * XREFs of SiGetBiosSystemDisk @ 0x140A5D694
+ * Callers:
+ *     SiGetSystemDisk @ 0x14087C0C0 (SiGetSystemDisk.c)
+ *     SiGetBiosSystemPartition @ 0x140A5D7C4 (SiGetBiosSystemPartition.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQuerySymbolicLinkObject @ 0x140415030 (ZwQuerySymbolicLinkObject.c)
+ *     SiIsWinPeHardDiskZeroUfdBoot @ 0x140A5D904 (SiIsWinPeHardDiskZeroUfdBoot.c)
+ *     SiOpenArcNameObject @ 0x140A5DA44 (SiOpenArcNameObject.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SiGetBiosSystemDisk(wchar_t **a1)
 {
   wchar_t *Pool2; // rdi

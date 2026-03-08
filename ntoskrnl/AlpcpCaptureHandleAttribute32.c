@@ -1,3 +1,11 @@
+/*
+ * XREFs of AlpcpCaptureHandleAttribute32 @ 0x140977C14
+ * Callers:
+ *     AlpcpCaptureAttributes @ 0x1407CAAD0 (AlpcpCaptureAttributes.c)
+ * Callees:
+ *     AlpcpCaptureHandleAttributeInternal @ 0x140710ED0 (AlpcpCaptureHandleAttributeInternal.c)
+ */
+
 __int64 __fastcall AlpcpCaptureHandleAttribute32(_DWORD *a1, __int64 a2)
 {
   __int128 v3; // [rsp+30h] [rbp-28h] BYREF

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiCreatePteCopyList @ 0x1402F54C0
+ * Callers:
+ *     MiGetPteMappingSet @ 0x14032E050 (MiGetPteMappingSet.c)
+ *     MiCopyPagesIntoEnclave @ 0x140A3A34C (MiCopyPagesIntoEnclave.c)
+ * Callees:
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ */
+
 __int64 __fastcall MiCreatePteCopyList(unsigned int a1, __int64 a2)
 {
   __int64 v4; // rax

@@ -1,3 +1,22 @@
+/*
+ * XREFs of DisplayBootBitmap @ 0x1403A4B48
+ * Callers:
+ *     DisplayFilter @ 0x1404FB8C0 (DisplayFilter.c)
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     InbvReleaseResources @ 0x1403A4BA0 (InbvReleaseResources.c)
+ *     InbvIsBootDriverInstalled @ 0x1403A4C40 (InbvIsBootDriverInstalled.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     InbvAcquireLock @ 0x14054C0FC (InbvAcquireLock.c)
+ *     InbvGetResourceAddress @ 0x14054C1C0 (InbvGetResourceAddress.c)
+ *     InbvReleaseLock @ 0x14054C22C (InbvReleaseLock.c)
+ *     InbvSetTextColor @ 0x14054C2C0 (InbvSetTextColor.c)
+ *     InbvSolidColorFill @ 0x14054C2F0 (InbvSolidColorFill.c)
+ *     RotBarInit @ 0x14054C470 (RotBarInit.c)
+ *     PsCreateSystemThread @ 0x1407DE2E0 (PsCreateSystemThread.c)
+ */
+
 int __fastcall DisplayBootBitmap(char a1)
 {
   int v1; // ebx

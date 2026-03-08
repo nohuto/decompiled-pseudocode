@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopInitializePowerButtonHold @ 0x140B47194
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlGetPersistedStateLocation @ 0x14069ADC0 (RtlGetPersistedStateLocation.c)
+ *     RtlIsStateSeparationEnabled @ 0x140792EC0 (RtlIsStateSeparationEnabled.c)
+ *     PopInitializeWorkItem @ 0x14080FA3C (PopInitializeWorkItem.c)
+ *     PopPowerButtonBugcheckConfigure @ 0x140857318 (PopPowerButtonBugcheckConfigure.c)
+ */
+
 char __fastcall PopInitializePowerButtonHold(int a1)
 {
   _UNKNOWN **v1; // rax

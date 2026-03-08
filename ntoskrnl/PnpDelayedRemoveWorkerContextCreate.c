@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpDelayedRemoveWorkerContextCreate @ 0x140956024
+ * Callers:
+ *     PnpChainDereferenceComplete @ 0x14087CAC8 (PnpChainDereferenceComplete.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 _QWORD *__fastcall PnpDelayedRemoveWorkerContextCreate(__int64 a1)
 {
   _QWORD *result; // rax

@@ -1,3 +1,22 @@
+/*
+ * XREFs of PopPolicyWorkerThread @ 0x1402F6DE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopSystemIdleWorker @ 0x14073B6A0 (PopSystemIdleWorker.c)
+ *     PopPolicyWorkerNotify @ 0x14078DE30 (PopPolicyWorkerNotify.c)
+ *     PopCoalescingNotify @ 0x140983FE0 (PopCoalescingNotify.c)
+ *     PopPolicyWorkerAction @ 0x140987130 (PopPolicyWorkerAction.c)
+ *     PopPolicyWorkerActionPromote @ 0x140987320 (PopPolicyWorkerActionPromote.c)
+ *     PopPreCriticalBatteryNotify @ 0x14098F6C0 (PopPreCriticalBatteryNotify.c)
+ *     PopPolicyTimeChange @ 0x140991540 (PopPolicyTimeChange.c)
+ *     PopPolicySystemIdle @ 0x140998EF0 (PopPolicySystemIdle.c)
+ */
+
 __int64 __fastcall PopPolicyWorkerThread(int a1)
 {
   KIRQL v2; // al

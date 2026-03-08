@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SearchIndexdModeList@MODE_UNION_LIST@@AEAAPEAU_D3DKMT_DISPLAYMODE@@AEBU2@AEAI@Z @ 0x1C01E98A8
+ * Callers:
+ *     ?AddUniqueMode@MODE_UNION_LIST@@QEAAJAEBU_D3DKMT_DISPLAYMODE@@@Z @ 0x1C01E984C (-AddUniqueMode@MODE_UNION_LIST@@QEAAJAEBU_D3DKMT_DISPLAYMODE@@@Z.c)
+ * Callees:
+ *     _CompareDisplayMode @ 0x1C01E9980 (_CompareDisplayMode.c)
+ */
+
 struct _D3DKMT_DISPLAYMODE *__fastcall MODE_UNION_LIST::SearchIndexdModeList(
         MODE_UNION_LIST *this,
         const struct _D3DKMT_DISPLAYMODE *a2,

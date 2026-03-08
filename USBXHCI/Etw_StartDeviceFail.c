@@ -1,3 +1,14 @@
+/*
+ * XREFs of Etw_StartDeviceFail @ 0x1C004ACDC
+ * Callers:
+ *     Register_ControllerReset @ 0x1C0018518 (Register_ControllerReset.c)
+ *     Register_BiosHandoff @ 0x1C00186F0 (Register_BiosHandoff.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqzr1q_EtwWriteTransfer @ 0x1C004BC00 (McTemplateK0pqzr1q_EtwWriteTransfer.c)
+ */
+
 void __fastcall Etw_StartDeviceFail(__int64 *a1, __int64 a2, char a3)
 {
   __int64 v3; // rdx

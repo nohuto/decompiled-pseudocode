@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HandleAdapterMultiPlaneDisableEvent@@YAXPEAU_DEVICE_OBJECT@@PEAXPEAU_IO_WORKITEM@@@Z @ 0x1C01CBF30
+ * Callers:
+ *     ?NotifyMultiPlaneOverlayDisable@DXGADAPTER@@QEAAXI@Z @ 0x1C000EAB4 (-NotifyMultiPlaneOverlayDisable@DXGADAPTER@@QEAAXI@Z.c)
+ * Callees:
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C003FFEC (McTemplateK0pqq_EtwWriteTransfer.c)
+ */
+
 void __fastcall HandleAdapterMultiPlaneDisableEvent(PVOID IoObject, _DWORD *Context, PIO_WORKITEM IoWorkItem)
 {
   __int64 v5; // rcx

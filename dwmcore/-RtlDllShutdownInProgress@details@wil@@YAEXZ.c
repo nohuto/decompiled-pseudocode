@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RtlDllShutdownInProgress@details@wil@@YAEXZ @ 0x180100A40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?wil_details_GetNtDllModuleHandle@@YAPEAUHINSTANCE__@@XZ @ 0x180100B20 (-wil_details_GetNtDllModuleHandle@@YAPEAUHINSTANCE__@@XZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall wil::details::RtlDllShutdownInProgress(wil::details *this)
 {
   FARPROC ProcAddress; // rax

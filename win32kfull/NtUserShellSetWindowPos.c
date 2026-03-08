@@ -1,3 +1,24 @@
+/*
+ * XREFs of NtUserShellSetWindowPos @ 0x1C01DF140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C00200C4 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     ?IsSemiMaximized@@YA_NPEBUtagWND@@@Z @ 0x1C0031BD4 (-IsSemiMaximized@@YA_NPEBUtagWND@@@Z.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C003E900 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C003F908 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ *     ValidateHwndIAM @ 0x1C009A070 (ValidateHwndIAM.c)
+ *     IAMThreadAccessGranted @ 0x1C009A2DC (IAMThreadAccessGranted.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     ?IsHungWindow@@YA_NPEBUtagWND@@@Z @ 0x1C009FF14 (-IsHungWindow@@YA_NPEBUtagWND@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qdqd @ 0x1C01E4528 (WPP_RECORDER_AND_TRACE_SF_qdqd.c)
+ *     ?PositionWindowAsync@ShellWindowPos@@YA?AW4PositionWindowAsyncResult@1@PEAUtagWND@@PEAUHWND__@@AEBUtagRECT@@W4_SHELLSETWINDOWPOS_STATE@@W4_SHELLSETWINDOWPOS_OPTIONS@@K@Z @ 0x1C0220198 (-PositionWindowAsync@ShellWindowPos@@YA-AW4PositionWindowAsyncResult@1@PEAUtagWND@@PEAUHWND__@@A.c)
+ */
+
 __int64 __fastcall NtUserShellSetWindowPos(__int64 a1, __int64 a2, _OWORD *a3, unsigned int a4, int a5, int a6)
 {
   __int64 v8; // r14

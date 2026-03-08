@@ -1,3 +1,17 @@
+/*
+ * XREFs of PerfLogExecutiveResourceRelease @ 0x1405FE480
+ * Callers:
+ *     ExpReleaseResourceSharedForThreadLite @ 0x14025D990 (ExpReleaseResourceSharedForThreadLite.c)
+ *     CcUnpinFileDataEx @ 0x140337E50 (CcUnpinFileDataEx.c)
+ *     ExReleaseResourceForThreadLite @ 0x14033A350 (ExReleaseResourceForThreadLite.c)
+ *     ExpReleaseResourceForThreadLite @ 0x14033ABF0 (ExpReleaseResourceForThreadLite.c)
+ *     ExpReleaseResourceExclusiveForThreadLite @ 0x14033B5E0 (ExpReleaseResourceExclusiveForThreadLite.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwpGetTrackingLockSlotForThread @ 0x1405FE198 (EtwpGetTrackingLockSlotForThread.c)
+ */
+
 void __fastcall PerfLogExecutiveResourceRelease(int a1, __int64 a2, int a3, unsigned int a4)
 {
   struct _KPRCB *CurrentPrcb; // rdi

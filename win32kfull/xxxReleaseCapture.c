@@ -1,3 +1,26 @@
+/*
+ * XREFs of xxxReleaseCapture @ 0x1C00108E8
+ * Callers:
+ *     ?xxxDWP_DoCancelMode@@YAXPEAUtagWND@@@Z @ 0x1C0010864 (-xxxDWP_DoCancelMode@@YAXPEAUtagWND@@@Z.c)
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ *     xxxDCETrackCaptionButton @ 0x1C01BBA1C (xxxDCETrackCaptionButton.c)
+ *     xxxOldNextWindow @ 0x1C01CBDC8 (xxxOldNextWindow.c)
+ *     NtUserReleaseCapture @ 0x1C01DAAB0 (NtUserReleaseCapture.c)
+ *     ?xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAUMOVESIZEDATA@@@Z @ 0x1C01EFBFC (-xxxMS_TrackMove@@YAXPEAUtagWND@@W4_WM_VALUE@@_K_JPEAUMOVESIZEDATA@@@Z.c)
+ *     ?xxxTrackInitSize@@YAHPEAUtagWND@@I_K_JPEAUMOVESIZEDATA@@@Z @ 0x1C01F2BD0 (-xxxTrackInitSize@@YAHPEAUtagWND@@I_K_JPEAUMOVESIZEDATA@@@Z.c)
+ *     xxxMNReleaseCapture @ 0x1C021C5E0 (xxxMNReleaseCapture.c)
+ *     xxxEndScroll @ 0x1C022CE90 (xxxEndScroll.c)
+ *     xxxTrackCaptionButton @ 0x1C022F438 (xxxTrackCaptionButton.c)
+ *     xxxDragObject @ 0x1C023257C (xxxDragObject.c)
+ *     xxxIsDragging @ 0x1C0232C4C (xxxIsDragging.c)
+ *     xxxHelpLoop @ 0x1C023C17C (xxxHelpLoop.c)
+ * Callees:
+ *     xxxCapture @ 0x1C0010A5C (xxxCapture.c)
+ *     bSetDevDragRect @ 0x1C001DE80 (bSetDevDragRect.c)
+ *     ?xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z @ 0x1C01ED7C0 (-xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z.c)
+ */
+
 __int64 xxxReleaseCapture()
 {
   __int64 v1; // rcx

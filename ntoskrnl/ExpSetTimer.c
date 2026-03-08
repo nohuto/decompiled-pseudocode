@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExpSetTimer @ 0x1402CDD38
+ * Callers:
+ *     NtSetTimerEx @ 0x1402CDBB0 (NtSetTimerEx.c)
+ *     NtSetTimer @ 0x1403AD470 (NtSetTimer.c)
+ * Callees:
+ *     ExpSetTimerObject @ 0x1402CDE34 (ExpSetTimerObject.c)
+ *     ExpSetTimerObject2 @ 0x1402CF9D4 (ExpSetTimerObject2.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 NTSTATUS __fastcall ExpSetTimer(
         void *a1,
         KPROCESSOR_MODE a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of SymCryptFdefRawSquareMulx @ 0x140404760
+ * Callers:
+ *     SymCryptFdefRawSquare @ 0x1403FE168 (SymCryptFdefRawSquare.c)
+ *     SymCryptFdefModSquareMontgomeryMulx @ 0x1403FF5A0 (SymCryptFdefModSquareMontgomeryMulx.c)
+ * Callees:
+ *     <none>
+ */
+
 // local variable allocation has failed, the output may be wrong!
 int __fastcall SymCryptFdefRawSquareMulx(unsigned __int64 *a1, __int64 a2, __int64 *a3)
 {

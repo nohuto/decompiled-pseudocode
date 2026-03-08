@@ -1,3 +1,14 @@
+/*
+ * XREFs of GreDesktopSwitch @ 0x1C002026C
+ * Callers:
+ *     xxxSwitchDesktop @ 0x1C00205D4 (xxxSwitchDesktop.c)
+ * Callees:
+ *     ?LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z @ 0x1C001EE54 (-LEAVE_GRE_DWM_CRIT@@YAXVPDEVOBJ@@H@Z.c)
+ *     ?ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z @ 0x1C001EFA4 (-ENTER_GRE_DWM_CRIT@@YAXVPDEVOBJ@@PEAH@Z.c)
+ *     IsDwmActive @ 0x1C002CF30 (IsDwmActive.c)
+ *     ?SpRenderHint@@YAJAEAVPDEVOBJ@@W4_RENDERHINT_NOTIFY@@_KPEAX@Z @ 0x1C00C28A4 (-SpRenderHint@@YAJAEAVPDEVOBJ@@W4_RENDERHINT_NOTIFY@@_KPEAX@Z.c)
+ */
+
 __int64 __fastcall GreDesktopSwitch(__int64 a1, int a2, int a3, __int64 a4, int a5)
 {
   struct Gre::Base::SESSION_GLOBALS *v9; // rsi

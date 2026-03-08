@@ -1,3 +1,11 @@
+/*
+ * XREFs of AslStringSearchW @ 0x140A51304
+ * Callers:
+ *     SdbpCheckMatchingTextEntry @ 0x140A4D2F4 (SdbpCheckMatchingTextEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AslStringSearchW(__int64 a1, unsigned int a2, _WORD *a3, unsigned int a4)
 {
   __int64 v4; // r10

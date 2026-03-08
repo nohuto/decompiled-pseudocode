@@ -1,3 +1,29 @@
+/*
+ * XREFs of MiGetNextPageTable @ 0x1403468E0
+ * Callers:
+ *     MiSplitPrivatePage @ 0x14021114C (MiSplitPrivatePage.c)
+ *     NtGetWriteWatch @ 0x1402CA150 (NtGetWriteWatch.c)
+ *     MiWalkVaRange @ 0x1402CECEC (MiWalkVaRange.c)
+ *     MiFlushDirtyBitsToPfn @ 0x1402D4830 (MiFlushDirtyBitsToPfn.c)
+ *     MiMakeHyperRangeAccessible @ 0x1403219F0 (MiMakeHyperRangeAccessible.c)
+ *     MiMoveDirtyBitsToPfns @ 0x14032F870 (MiMoveDirtyBitsToPfns.c)
+ *     NtLockVirtualMemory @ 0x140344C50 (NtLockVirtualMemory.c)
+ *     MiComputePageCommitment @ 0x140345CE0 (MiComputePageCommitment.c)
+ *     MiGetNextNonGapPfnPage @ 0x14038AF50 (MiGetNextNonGapPfnPage.c)
+ *     MiCheckCommitReleaseFromVad @ 0x1406157F0 (MiCheckCommitReleaseFromVad.c)
+ *     MiCloneCaptureVadCommit @ 0x140641180 (MiCloneCaptureVadCommit.c)
+ *     MiQueryVaPhysicalContiguity @ 0x1406469A0 (MiQueryVaPhysicalContiguity.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x14065B0E0 (MiMakeVaRangePhysicallyContiguous.c)
+ *     MiUpdateForkMaps @ 0x140662E50 (MiUpdateForkMaps.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiWalkPageTables @ 0x140222CF0 (MiWalkPageTables.c)
+ *     MiFastLockLeafPageTable @ 0x140269C50 (MiFastLockLeafPageTable.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiGetNextPageTable(__int64 a1, __int64 a2, __int64 a3, __int8 a4, char a5, _DWORD *a6)
 {
   unsigned __int64 v10; // rdi

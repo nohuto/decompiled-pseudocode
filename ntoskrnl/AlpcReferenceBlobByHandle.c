@@ -1,3 +1,22 @@
+/*
+ * XREFs of AlpcReferenceBlobByHandle @ 0x1406D1E94
+ * Callers:
+ *     AlpcpCaptureSecurityAttributeInternal @ 0x1406D3584 (AlpcpCaptureSecurityAttributeInternal.c)
+ *     NtAlpcDeletePortSection @ 0x140711AE0 (NtAlpcDeletePortSection.c)
+ *     NtAlpcCreateSectionView @ 0x140712140 (NtAlpcCreateSectionView.c)
+ *     AlpcpCaptureViewAttributeInternal @ 0x140714E74 (AlpcpCaptureViewAttributeInternal.c)
+ *     NtAlpcDeleteSecurityContext @ 0x140715410 (NtAlpcDeleteSecurityContext.c)
+ *     AlpcpLookupMessage @ 0x1407CA7C0 (AlpcpLookupMessage.c)
+ *     NtAlpcDeleteResourceReserve @ 0x1408A04F0 (NtAlpcDeleteResourceReserve.c)
+ *     NtAlpcRevokeSecurityContext @ 0x140975D00 (NtAlpcRevokeSecurityContext.c)
+ * Callees:
+ *     ExfAcquireReleasePushLockExclusive @ 0x140201D54 (ExfAcquireReleasePushLockExclusive.c)
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     AlpcpReferenceBlob @ 0x1407CAA30 (AlpcpReferenceBlob.c)
+ */
+
 ULONG_PTR __fastcall AlpcReferenceBlobByHandle(_QWORD *a1, int a2, _DWORD *a3)
 {
   signed __int64 *v6; // rbx

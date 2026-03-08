@@ -1,3 +1,12 @@
+/*
+ * XREFs of PreserveWriteObj @ 0x1C0052540
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ *     PushAccFieldObj @ 0x1C00525E8 (PushAccFieldObj.c)
+ */
+
 __int64 __fastcall PreserveWriteObj(__int64 a1, __int64 a2, unsigned int a3)
 {
   unsigned int v3; // ebx

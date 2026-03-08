@@ -1,3 +1,31 @@
+/*
+ * XREFs of KiChooseTargetProcessor @ 0x140258FC0
+ * Callers:
+ *     KiDeferredReadySingleThread @ 0x140259FB0 (KiDeferredReadySingleThread.c)
+ * Callees:
+ *     KiEndThreadCycleAccumulation @ 0x140227260 (KiEndThreadCycleAccumulation.c)
+ *     KiStartThreadCycleAccumulation @ 0x140227310 (KiStartThreadCycleAccumulation.c)
+ *     KeIsEmptyAffinityEx @ 0x140237C30 (KeIsEmptyAffinityEx.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140255D00 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiTryLocalThreadSchedule @ 0x140259D60 (KiTryLocalThreadSchedule.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402ADF80 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403C8140 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403C8170 (HvlNotifyLongSpinWait.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiSelectCandidateProcessor @ 0x14045A5B4 (KiSelectCandidateProcessor.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiEnumerateNextSchedulerSubNodeInSystem @ 0x14056E2D8 (KiEnumerateNextSchedulerSubNodeInSystem.c)
+ *     KiAcquirePrcbLocksForPreemptionAttemptSlowPath @ 0x1405747AC (KiAcquirePrcbLocksForPreemptionAttemptSlowPath.c)
+ *     KiFindRankBiasedIdleSmtSet @ 0x140574DA8 (KiFindRankBiasedIdleSmtSet.c)
+ *     KiSelectIdleProcessor @ 0x14057528C (KiSelectIdleProcessor.c)
+ *     KiAreSoftUnparkingElectionsEnabled @ 0x14057B67C (KiAreSoftUnparkingElectionsEnabled.c)
+ *     KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule @ 0x14057B6AC (KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule.c)
+ *     KiIsIsolationUnitIdleByHandle @ 0x14057C470 (KiIsIsolationUnitIdleByHandle.c)
+ */
+
 __int64 __fastcall KiChooseTargetProcessor(
         __int64 a1,
         _DWORD *a2,

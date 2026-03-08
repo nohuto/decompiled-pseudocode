@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EvaluateHitTestAttributesAndInputType@CHitTestContext@@AEAAXW4DIT_HITTESTATTRIBUTES@@K@Z @ 0x180031C10
+ * Callers:
+ *     ?HitTestPoint@CHitTestContext@@QEAAJAEBUHitTestPointRequest@1@AEAUHitTestPointResult@1@@Z @ 0x180031CF4 (-HitTestPoint@CHitTestContext@@QEAAJAEBUHitTestPointRequest@1@AEAUHitTestPointResult@1@@Z.c)
+ * Callees:
+ *     ?ConvertToInputType@@YA?AW4InputType@@KI@Z @ 0x180031CA8 (-ConvertToInputType@@YA-AW4InputType@@KI@Z.c)
+ */
+
 __int64 __fastcall CHitTestContext::EvaluateHitTestAttributesAndInputType(__int64 a1, __int64 a2, __int64 a3)
 {
   int v3; // eax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhGetControllerName @ 0x1C002B838
+ * Callers:
+ *     UsbhFdoReturnControllerName @ 0x1C0030D44 (UsbhFdoReturnControllerName.c)
+ *     UsbhAcquireControllerName @ 0x1C0048AC0 (UsbhAcquireControllerName.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0023580 (memmove.c)
+ */
+
 __int64 __fastcall UsbhGetControllerName(__int64 a1, _DWORD *a2, unsigned int a3)
 {
   __int64 v4; // rsi

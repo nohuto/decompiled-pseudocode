@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiFreeOverlappedFlushEntry @ 0x140633BC0
+ * Callers:
+ *     MmFlushSection @ 0x140333F20 (MmFlushSection.c)
+ *     MiFlushComplete @ 0x140633A40 (MiFlushComplete.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     MiFlushRelease @ 0x140334AC0 (MiFlushRelease.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 LONG __fastcall MiFreeOverlappedFlushEntry(__int64 **P)
 {
   struct _KEVENT *v1; // rdi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhLinkPdoDeviceHandle @ 0x1C0002540
+ * Callers:
+ *     UsbhCreateDevice @ 0x1C0002364 (UsbhCreateDevice.c)
+ *     UsbhSyncResetDeviceInternal @ 0x1C0019820 (UsbhSyncResetDeviceInternal.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall UsbhLinkPdoDeviceHandle(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v6; // r15

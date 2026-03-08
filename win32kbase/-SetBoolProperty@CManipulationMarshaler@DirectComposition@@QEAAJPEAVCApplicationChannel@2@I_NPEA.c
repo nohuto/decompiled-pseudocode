@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBoolProperty@CManipulationMarshaler@DirectComposition@@QEAAJPEAVCApplicationChannel@2@I_NPEA_N@Z @ 0x1C0251D98
+ * Callers:
+ *     ?SetIntegerProperty@CManipulationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0251F90 (-SetIntegerProperty@CManipulationMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_J.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CManipulationMarshaler::SetBoolProperty(
         DirectComposition::CManipulationMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmSetExitLatencySamplingPercentage @ 0x1405836EC
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ * Callees:
+ *     KeFlushProcessWriteBuffers @ 0x1402373CC (KeFlushProcessWriteBuffers.c)
+ *     PpmReleaseLock @ 0x1402D1F40 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402D1F90 (PpmAcquireLock.c)
+ */
+
 __int64 __fastcall PpmSetExitLatencySamplingPercentage(int *a1)
 {
   unsigned int v2; // ebx

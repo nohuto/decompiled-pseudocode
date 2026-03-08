@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopLiveDumpAddProcessFilter @ 0x1409494EC
+ * Callers:
+ *     IopLiveDumpExcludeProtectedProcesses @ 0x14094B038 (IopLiveDumpExcludeProtectedProcesses.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PsLookupProcessByProcessId @ 0x1406AC100 (PsLookupProcessByProcessId.c)
+ *     IopLiveDumpDiscardVirtualAddressRange @ 0x14094AFA4 (IopLiveDumpDiscardVirtualAddressRange.c)
+ *     IopLiveDumpLookupProcessFilter @ 0x140A988E4 (IopLiveDumpLookupProcessFilter.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall IopLiveDumpAddProcessFilter(__int64 a1, void *a2, int a3)
 {
   PEPROCESS v3; // rsi

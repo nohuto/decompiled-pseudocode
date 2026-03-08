@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiInitializeKernelStacks @ 0x140B3B3A4
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     MiSystemVaToDynamicBitmap @ 0x14021055C (MiSystemVaToDynamicBitmap.c)
+ *     MiBuildDynamicRegion @ 0x1403715AC (MiBuildDynamicRegion.c)
+ *     MiMarkBootGuardPage @ 0x14080B0BC (MiMarkBootGuardPage.c)
+ *     MiMarkBootKernelStack @ 0x140B3AD3C (MiMarkBootKernelStack.c)
+ *     MiInitializePteInfo @ 0x140B3B548 (MiInitializePteInfo.c)
+ */
+
 __int64 MiInitializeKernelStacks()
 {
   struct _KTHREAD *CurrentThread; // rsi

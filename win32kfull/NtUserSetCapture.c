@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetCapture @ 0x1C0010940
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxSetCapture @ 0x1C00109E4 (xxxSetCapture.c)
+ */
+
 __int64 __fastcall NtUserSetCapture(__int64 a1)
 {
   __int64 v2; // rbx

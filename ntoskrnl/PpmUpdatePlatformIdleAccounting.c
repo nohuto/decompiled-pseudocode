@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmUpdatePlatformIdleAccounting @ 0x14058415C
+ * Callers:
+ *     PpmIdleExecuteTransition @ 0x14022D7D0 (PpmIdleExecuteTransition.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PpmUpdatePlatformIdleAccounting(__int64 a1, unsigned __int64 a2)
 {
   __int64 result; // rax

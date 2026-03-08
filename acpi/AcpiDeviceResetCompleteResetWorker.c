@@ -1,3 +1,13 @@
+/*
+ * XREFs of AcpiDeviceResetCompleteResetWorker @ 0x1C0023530
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     AcpiDeviceResetDereference @ 0x1C0023770 (AcpiDeviceResetDereference.c)
+ *     AcpiResetDeviceAlreadyProcessed @ 0x1C0023E24 (AcpiResetDeviceAlreadyProcessed.c)
+ */
+
 __int64 __fastcall AcpiDeviceResetCompleteResetWorker(volatile signed __int32 *P)
 {
   volatile signed __int32 *v1; // rdi

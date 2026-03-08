@@ -1,3 +1,16 @@
+/*
+ * XREFs of Controller_WdfEvtDeviceD0ExitPreInterruptsDisabled @ 0x1C000F310
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Interrupter_D0ExitPreInterruptsDisabled @ 0x1C000F410 (Interrupter_D0ExitPreInterruptsDisabled.c)
+ *     ControllerPreInterruptsDisableAcpiCallout @ 0x1C000F53C (ControllerPreInterruptsDisableAcpiCallout.c)
+ *     WPP_RECORDER_SF_qLL @ 0x1C0013DC4 (WPP_RECORDER_SF_qLL.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqqh_EtwWriteTransfer @ 0x1C0036EF4 (McTemplateK0pqqh_EtwWriteTransfer.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C0036F88 (McTemplateK0pqqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall Controller_WdfEvtDeviceD0ExitPreInterruptsDisabled(__int64 a1, char a2)
 {
   __int64 v4; // rdi

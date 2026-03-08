@@ -1,3 +1,11 @@
+/*
+ * XREFs of ValidFilterExpression @ 0x1402BED30
+ * Callers:
+ *     ValidFilter @ 0x1407483C4 (ValidFilter.c)
+ * Callees:
+ *     _PnpValidatePropertyData @ 0x140686FC8 (_PnpValidatePropertyData.c)
+ */
+
 _BOOL8 __fastcall ValidFilterExpression(__int64 a1)
 {
   int v1; // eax

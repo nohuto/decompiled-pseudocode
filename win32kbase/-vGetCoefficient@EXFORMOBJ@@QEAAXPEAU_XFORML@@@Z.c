@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vGetCoefficient@EXFORMOBJ@@QEAAXPEAU_XFORML@@@Z @ 0x1C005A770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall EXFORMOBJ::vGetCoefficient(__m128i **this, struct _XFORML *a2)
 {
   __m128i *v2; // rax

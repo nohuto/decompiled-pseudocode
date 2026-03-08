@@ -1,3 +1,28 @@
+/*
+ * XREFs of VfGetScatterGatherList @ 0x140AC3800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAllocateFromNPagedLookasideList @ 0x14023FE20 (ExAllocateFromNPagedLookasideList.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     DECREMENT_SCATTER_GATHER_LISTS @ 0x140AC13C0 (DECREMENT_SCATTER_GATHER_LISTS.c)
+ *     VERIFY_BUFFER_LOCKED @ 0x140AC1620 (VERIFY_BUFFER_LOCKED.c)
+ *     VF_ASSERT_IRQL @ 0x140AC16AC (VF_ASSERT_IRQL.c)
+ *     ViAllocateMapRegisterFile @ 0x140AC4C84 (ViAllocateMapRegisterFile.c)
+ *     ViCheckMdlLength @ 0x140AC531C (ViCheckMdlLength.c)
+ *     ViFreeMapRegisterFile @ 0x140AC5A90 (ViFreeMapRegisterFile.c)
+ *     ViGetAdapterInformationInternal @ 0x140AC5E44 (ViGetAdapterInformationInternal.c)
+ *     ViGetRealDmaAdapter @ 0x140AC6158 (ViGetRealDmaAdapter.c)
+ *     ViHalPreprocessOptions @ 0x140AC62F4 (ViHalPreprocessOptions.c)
+ *     ViMapDoubleBuffer @ 0x140AC678C (ViMapDoubleBuffer.c)
+ *     ViSwap @ 0x140AC7104 (ViSwap.c)
+ */
+
 __int64 VfGetScatterGatherList(int a1, __int64 a2, ...)
 {
   __int64 v2; // r15

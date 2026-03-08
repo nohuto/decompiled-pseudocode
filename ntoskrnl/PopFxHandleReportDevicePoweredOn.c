@@ -1,3 +1,23 @@
+/*
+ * XREFs of PopFxHandleReportDevicePoweredOn @ 0x1402B90C0
+ * Callers:
+ *     PoFxReportDevicePoweredOn @ 0x1402B90A0 (PoFxReportDevicePoweredOn.c)
+ *     DifPoFxReportDevicePoweredOnWrapper @ 0x1405E7660 (DifPoFxReportDevicePoweredOnWrapper.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     PopFxQueueWorkItem @ 0x1402B8D54 (PopFxQueueWorkItem.c)
+ *     PopFxGetDeviceDStateReason @ 0x1402B9BF4 (PopFxGetDeviceDStateReason.c)
+ *     PopPepDeviceDState @ 0x1402B9C4C (PopPepDeviceDState.c)
+ *     PopDiagTraceFxDevicePowerState @ 0x1402B9DB4 (PopDiagTraceFxDevicePowerState.c)
+ *     PopFxCompleteDevicePowerRequired @ 0x140304EE0 (PopFxCompleteDevicePowerRequired.c)
+ *     PoFxIdleComponent @ 0x140306A10 (PoFxIdleComponent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ *     PopFxDerefAndCompleteDirectedPowerTransition @ 0x1405876D8 (PopFxDerefAndCompleteDirectedPowerTransition.c)
+ *     PopSystemIrpCompletion @ 0x140AA4450 (PopSystemIrpCompletion.c)
+ */
+
 void __fastcall PopFxHandleReportDevicePoweredOn(ULONG_PTR BugCheckParameter3)
 {
   ULONG_PTR v1; // rbp

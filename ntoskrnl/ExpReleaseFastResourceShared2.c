@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExpReleaseFastResourceShared2 @ 0x14041109C
+ * Callers:
+ *     ExReleaseFastResource2 @ 0x14040EBEC (ExReleaseFastResource2.c)
+ *     ExReleaseFastResourceShared2 @ 0x14040EF54 (ExReleaseFastResourceShared2.c)
+ * Callees:
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402916B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     ExpCommitWakeFastResource @ 0x14040FE18 (ExpCommitWakeFastResource.c)
+ *     ExpPrepareToWakeFastResourceShared @ 0x1404109F0 (ExpPrepareToWakeFastResourceShared.c)
+ *     ExpRemoveEntryListAndClear2 @ 0x14041128C (ExpRemoveEntryListAndClear2.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExpReleaseFastResourceShared2(KSPIN_LOCK *BugCheckParameter2, __int64 a2)
 {
   __int64 result; // rax

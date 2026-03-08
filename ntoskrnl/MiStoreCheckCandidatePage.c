@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiStoreCheckCandidatePage @ 0x1404650E0
+ * Callers:
+ *     MiStoreWriteModifiedPages @ 0x14046554A (MiStoreWriteModifiedPages.c)
+ * Callees:
+ *     MiIsStoreProcess @ 0x140229574 (MiIsStoreProcess.c)
+ *     MiGetTopLevelPfn @ 0x14022A3D0 (MiGetTopLevelPfn.c)
+ *     MiGetPfnPriority @ 0x14028A3F8 (MiGetPfnPriority.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ */
+
 __int64 __fastcall MiStoreCheckCandidatePage(
         ULONG_PTR BugCheckParameter2,
         unsigned int a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UnlockNotifyWindow@@YAXPEAUtagMENU@@@Z @ 0x1C0203030
+ * Callers:
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ *     ?UnlockNotifyWindow@@YAXPEAUtagMENU@@@Z @ 0x1C0203030 (-UnlockNotifyWindow@@YAXPEAUtagMENU@@@Z.c)
+ * Callees:
+ *     ?UnlockNotifyWindow@@YAXPEAUtagMENU@@@Z @ 0x1C0203030 (-UnlockNotifyWindow@@YAXPEAUtagMENU@@@Z.c)
+ */
+
 void __fastcall UnlockNotifyWindow(struct tagMENU *a1)
 {
   int v2; // ebx

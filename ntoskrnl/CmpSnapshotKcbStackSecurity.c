@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpSnapshotKcbStackSecurity @ 0x140A19060
+ * Callers:
+ *     CmDeleteValueKey @ 0x1406B9764 (CmDeleteValueKey.c)
+ *     CmSetValueKey @ 0x1407A9870 (CmSetValueKey.c)
+ * Callees:
+ *     CmpAllocatePool @ 0x140243878 (CmpAllocatePool.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x1407AF4E0 (CmpGetSecurityCacheEntryForKcbStack.c)
+ */
+
 __int64 __fastcall CmpSnapshotKcbStackSecurity(__int64 a1, __int64 a2, unsigned int a3, _QWORD *a4)
 {
   __int64 SecurityCacheEntryForKcbStack; // rdi

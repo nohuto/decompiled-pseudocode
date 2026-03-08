@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FlushDevicesForTermination@DXGVIRTUALMACHINE@@QEAAXXZ @ 0x1C033FFD8
+ * Callers:
+ *     ?Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z @ 0x1C01A8400 (-Destroy@DXGPROCESS@@QEAAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@E@Z.c)
+ * Callees:
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0006FA0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ?FlushDevicesForTermination@DXGPROCESSVM@@QEAAXXZ @ 0x1C033FED0 (-FlushDevicesForTermination@DXGPROCESSVM@@QEAAXXZ.c)
+ */
+
 void __fastcall DXGVIRTUALMACHINE::FlushDevicesForTermination(DXGVIRTUALMACHINE *this)
 {
   volatile signed __int32 *v1; // rdi

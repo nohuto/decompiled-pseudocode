@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoGetDeviceNumaNode @ 0x14085FE10
+ * Callers:
+ *     IopGetNumaNodeInformation @ 0x140948150 (IopGetNumaNodeInformation.c)
+ * Callees:
+ *     KeQueryHighestNodeNumber @ 0x1402AEF30 (KeQueryHighestNodeNumber.c)
+ */
+
 NTSTATUS __stdcall IoGetDeviceNumaNode(PDEVICE_OBJECT Pdo, PUSHORT NodeNumber)
 {
   struct _DEVOBJ_EXTENSION *DeviceObjectExtension; // rax

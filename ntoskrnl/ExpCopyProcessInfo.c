@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpCopyProcessInfo @ 0x140711514
+ * Callers:
+ *     ExpGetProcessInformation @ 0x1406A9140 (ExpGetProcessInformation.c)
+ *     ExProcessCounterSetCallback @ 0x1409F2FF0 (ExProcessCounterSetCallback.c)
+ * Callees:
+ *     PsQueryStatisticsProcess @ 0x1406A8F30 (PsQueryStatisticsProcess.c)
+ *     ObGetProcessHandleCount @ 0x14071172C (ObGetProcessHandleCount.c)
+ */
+
 __int64 __fastcall ExpCopyProcessInfo(__int64 a1, __int64 a2, char a3, _QWORD *a4)
 {
   unsigned __int64 v8; // rdx

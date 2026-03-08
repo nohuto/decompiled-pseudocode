@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpCCSwapInitializeProcessor @ 0x14080B358
+ * Callers:
+ *     EtwInitializeProcessor @ 0x14080B24C (EtwInitializeProcessor.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall EtwpCCSwapInitializeProcessor(__int64 a1)
 {
   __int64 *v1; // rdi

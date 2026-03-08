@@ -1,3 +1,15 @@
+/*
+ * XREFs of UnlinkSendListSms @ 0x1C0094A8C
+ * Callers:
+ *     xxxReceiveMessage @ 0x1C006DB60 (xxxReceiveMessage.c)
+ *     xxxReceiverDied @ 0x1C00949E0 (xxxReceiverDied.c)
+ *     ?SenderDied@@YAXPEAUtagSMS@@@Z @ 0x1C0095A8C (-SenderDied@@YAXPEAUtagSMS@@@Z.c)
+ *     SuspendThreadQueue @ 0x1C00DE9B0 (SuspendThreadQueue.c)
+ * Callees:
+ *     _FreeTouchInputInfo @ 0x1C01B1740 (_FreeTouchInputInfo.c)
+ *     _FreeGestureInfo @ 0x1C0207760 (_FreeGestureInfo.c)
+ */
+
 __int64 __fastcall UnlinkSendListSms(__int64 *a1)
 {
   int v2; // ecx

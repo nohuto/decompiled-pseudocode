@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreGetRasterizerCaps @ 0x1C02D7760
+ * Callers:
+ *     NtGdiGetRasterizerCaps @ 0x1C02C5C20 (NtGdiGetRasterizerCaps.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GreGetRasterizerCaps(Gre::Base *a1)
 {
   __int16 v1; // di

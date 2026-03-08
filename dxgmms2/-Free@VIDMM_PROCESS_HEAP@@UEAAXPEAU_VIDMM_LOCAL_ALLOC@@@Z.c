@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?Free@VIDMM_PROCESS_HEAP@@UEAAXPEAU_VIDMM_LOCAL_ALLOC@@@Z @ 0x1C01045D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C00199A4 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pxqqt_EtwWriteTransfer @ 0x1C003234C (McTemplateK0pxqqt_EtwWriteTransfer.c)
+ *     McTemplateK0qxxx_EtwWriteTransfer @ 0x1C00323F4 (McTemplateK0qxxx_EtwWriteTransfer.c)
+ *     ?VidMmDereferenceObjectAsync@@YAXPEAX@Z @ 0x1C0095D04 (-VidMmDereferenceObjectAsync@@YAXPEAX@Z.c)
+ *     ?FreeSmallAllocation@VIDMM_PROCESS_HEAP@@QEAAXPEAU_VIDMM_LOCAL_ALLOC@@@Z @ 0x1C01049A4 (-FreeSmallAllocation@VIDMM_PROCESS_HEAP@@QEAAXPEAU_VIDMM_LOCAL_ALLOC@@@Z.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall VIDMM_PROCESS_HEAP::Free(
         VIDMM_PROCESS_HEAP *this,

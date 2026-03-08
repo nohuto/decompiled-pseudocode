@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlRegisterUncProviderEx @ 0x14093AC20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FsRtlpRegisterUncProvider @ 0x14084EEE8 (FsRtlpRegisterUncProvider.c)
+ */
+
 NTSTATUS __stdcall FsRtlRegisterUncProviderEx(
         PHANDLE MupHandle,
         PCUNICODE_STRING RedirDevName,

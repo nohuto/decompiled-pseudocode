@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptInverseMod2e64 @ 0x140400018
+ * Callers:
+ *     SymCryptFdefModulusInitMontgomeryInternal @ 0x1403FF7F0 (SymCryptFdefModulusInitMontgomeryInternal.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptInverseMod2e64(__int64 a1)
 {
   int v1; // r8d

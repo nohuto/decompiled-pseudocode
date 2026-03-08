@@ -1,3 +1,14 @@
+/*
+ * XREFs of SdbpValidateAndApplyCompatFlags @ 0x14079D0F4
+ * Callers:
+ *     SdbpOpenDatabaseInMemory @ 0x14079D050 (SdbpOpenDatabaseInMemory.c)
+ *     SdbOpenDatabaseEx @ 0x140A4B8F0 (SdbOpenDatabaseEx.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbGetDatabaseID @ 0x14079F0D0 (SdbGetDatabaseID.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ */
+
 __int64 __fastcall SdbpValidateAndApplyCompatFlags(__int64 a1, _DWORD *a2, char a3)
 {
   unsigned int v4; // edi

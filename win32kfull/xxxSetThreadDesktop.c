@@ -1,3 +1,23 @@
+/*
+ * XREFs of xxxSetThreadDesktop @ 0x1C00361B8
+ * Callers:
+ *     xxxRestoreCsrssThreadDesktop @ 0x1C0093CF0 (xxxRestoreCsrssThreadDesktop.c)
+ *     xxxSetCsrssThreadDesktop @ 0x1C00948B0 (xxxSetCsrssThreadDesktop.c)
+ *     ?DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z @ 0x1C0094CDC (-DestroyPendingDesktops@@YAXPEAUtagTHREADINFO@@PEAUtagTERMINAL@@@Z.c)
+ *     NtUserSetThreadDesktop @ 0x1C00EE1E0 (NtUserSetThreadDesktop.c)
+ *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C00FA1BC (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
+ *     xxxNextWindow @ 0x1C01CB604 (xxxNextWindow.c)
+ * Callees:
+ *     zzzSetDesktop @ 0x1C0036340 (zzzSetDesktop.c)
+ *     ?AreMultipleThreadsAttached@tagQ@@QEBA_NXZ @ 0x1C00390F4 (-AreMultipleThreadsAttached@tagQ@@QEBA_NXZ.c)
+ *     MapDesktop @ 0x1C003E450 (MapDesktop.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C00A126C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ *     ?zzzAttachToQueue@tagQ@@QEAAXPEAUtagTHREADINFO@@PEAU1@_N@Z @ 0x1C00CD940 (-zzzAttachToQueue@tagQ@@QEAAXPEAUtagTHREADINFO@@PEAU1@_N@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     MagContextThreadCallout @ 0x1C01A4070 (MagContextThreadCallout.c)
+ */
+
 __int64 __fastcall xxxSetThreadDesktop(__int64 a1, __int64 a2, __int64 a3)
 {
   _QWORD *v5; // rsi

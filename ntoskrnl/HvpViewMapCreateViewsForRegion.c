@@ -1,3 +1,19 @@
+/*
+ * XREFs of HvpViewMapCreateViewsForRegion @ 0x140730B54
+ * Callers:
+ *     HvpViewMapStart @ 0x140730468 (HvpViewMapStart.c)
+ *     HvpViewMapExtendStorage @ 0x140732D5C (HvpViewMapExtendStorage.c)
+ * Callees:
+ *     CmSiReleaseProcessLockedPagesCharge @ 0x14020C564 (CmSiReleaseProcessLockedPagesCharge.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ *     CmSiGetMemoryAllocationGranularity @ 0x1402B2DDC (CmSiGetMemoryAllocationGranularity.c)
+ *     CmSiUnmapViewOfSection @ 0x1402C0A9C (CmSiUnmapViewOfSection.c)
+ *     HvcallpNoHypervisorPresent @ 0x1402C0AC0 (HvcallpNoHypervisorPresent.c)
+ *     HvpViewMapCreateView @ 0x140730DF8 (HvpViewMapCreateView.c)
+ *     HvpViewMapMakeViewRangeValid @ 0x140730EE4 (HvpViewMapMakeViewRangeValid.c)
+ */
+
 __int64 __fastcall HvpViewMapCreateViewsForRegion(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
   PPRIVILEGE_SET v4; // rbx

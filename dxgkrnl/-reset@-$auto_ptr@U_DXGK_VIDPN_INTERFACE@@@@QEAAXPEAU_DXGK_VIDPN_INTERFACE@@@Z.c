@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?reset@?$auto_ptr@U_DXGK_VIDPN_INTERFACE@@@@QEAAXPEAU_DXGK_VIDPN_INTERFACE@@@Z @ 0x1C001FCA0
+ * Callers:
+ *     ?_InitializeVidPnMiniportInterfaces@VIDPN_MGR@@AEAAJXZ @ 0x1C0207188 (-_InitializeVidPnMiniportInterfaces@VIDPN_MGR@@AEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall auto_ptr<_DXGK_VIDPN_INTERFACE>::reset(void **a1, void *a2)
 {
   void *v4; // rcx

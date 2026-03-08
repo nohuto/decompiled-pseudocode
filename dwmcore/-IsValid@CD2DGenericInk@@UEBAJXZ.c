@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsValid@CD2DGenericInk@@UEBAJXZ @ 0x180299800
+ * Callers:
+ *     ?IsValid@CD2DGenericInk@@$4PPPPPPPM@A@EBAJXZ @ 0x18011BD30 (-IsValid@CD2DGenericInk@@$4PPPPPPPM@A@EBAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CD2DGenericInk::IsValid(CD2DGenericInk *this)
 {
   __int64 v1; // rcx

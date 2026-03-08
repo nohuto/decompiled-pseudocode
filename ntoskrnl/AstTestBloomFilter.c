@@ -1,3 +1,11 @@
+/*
+ * XREFs of AstTestBloomFilter @ 0x14075A710
+ * Callers:
+ *     IopXxxControlFile @ 0x1407C1720 (IopXxxControlFile.c)
+ * Callees:
+ *     AstGetHashedBitNumbers @ 0x14075A7A0 (AstGetHashedBitNumbers.c)
+ */
+
 bool __fastcall AstTestBloomFilter(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v4; // [rsp+20h] [rbp-18h] BYREF

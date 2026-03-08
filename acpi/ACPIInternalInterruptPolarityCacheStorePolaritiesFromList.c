@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIInternalInterruptPolarityCacheStorePolaritiesFromList @ 0x1C002EA00
+ * Callers:
+ *     ACPIBusIrpQueryResourceRequirements @ 0x1C0080980 (ACPIBusIrpQueryResourceRequirements.c)
+ *     ACPIBusIrpQueryResources @ 0x1C0080E80 (ACPIBusIrpQueryResources.c)
+ * Callees:
+ *     ACPIInternalInterruptPolarityCacheStorePolarity @ 0x1C002EAA0 (ACPIInternalInterruptPolarityCacheStorePolarity.c)
+ */
+
 __int64 __fastcall ACPIInternalInterruptPolarityCacheStorePolaritiesFromList(__int64 a1, __int64 a2)
 {
   unsigned int v4; // r14d

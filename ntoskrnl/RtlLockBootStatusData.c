@@ -1,3 +1,24 @@
+/*
+ * XREFs of RtlLockBootStatusData @ 0x14073DD00
+ * Callers:
+ *     PopBootStatGet @ 0x14073D308 (PopBootStatGet.c)
+ *     PopBootStatSet @ 0x14073D9E0 (PopBootStatSet.c)
+ *     CmCompleteRegistryInitialization @ 0x1408174BC (CmCompleteRegistryInitialization.c)
+ *     PopBootStatCheckIntegrity @ 0x14084B00C (PopBootStatCheckIntegrity.c)
+ *     PoClearTransitionMarker @ 0x14085A768 (PoClearTransitionMarker.c)
+ *     PopBootStatRestoreDefaults @ 0x1409940B0 (PopBootStatRestoreDefaults.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlInitializeBootStatDataCache @ 0x1403A4724 (RtlInitializeBootStatDataCache.c)
+ *     RtlpGetBootStatusPath @ 0x1403C03F4 (RtlpGetBootStatusPath.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlLockBootStatusData(HANDLE *a1)
 {
   NTSTATUS v2; // esi

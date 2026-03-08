@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Link@CVisualTreeData@@MEAAXXZ @ 0x1800DB4C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReserveSlot@AllocatedStorage@?$CSparseAlignedStorage@$07$07@@SAAEAT?$_Align_type@N$07@std@@PEAPEAV12@I@Z @ 0x180099C48 (-ReserveSlot@AllocatedStorage@-$CSparseAlignedStorage@$07$07@@SAAEAT-$_Align_type@N$07@std@@PEAP.c)
+ */
+
 void __fastcall CVisualTreeData::Link(CVisualTreeData *this)
 {
   __int64 v2; // rcx

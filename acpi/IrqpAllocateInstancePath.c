@@ -1,3 +1,11 @@
+/*
+ * XREFs of IrqpAllocateInstancePath @ 0x1C00A014C
+ * Callers:
+ *     IrqTraceAffinityPolicy @ 0x1C009FFC0 (IrqTraceAffinityPolicy.c)
+ * Callees:
+ *     <none>
+ */
+
 __int16 __fastcall IrqpAllocateInstancePath(PDEVICE_OBJECT Pdo, __int64 a2)
 {
   _WORD *Data; // rdi

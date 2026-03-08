@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiDrvDbUnloadHive @ 0x14086773C
+ * Callers:
+ *     PiDrvDbSetupNodeHive @ 0x14081C5C8 (PiDrvDbSetupNodeHive.c)
+ *     PiDrvDbLoadNodeWorkerCallback @ 0x1408674A0 (PiDrvDbLoadNodeWorkerCallback.c)
+ * Callees:
+ *     ZwUnloadKey2 @ 0x140415E10 (ZwUnloadKey2.c)
+ *     ZwUnloadKeyEx @ 0x140415E30 (ZwUnloadKeyEx.c)
+ */
+
 __int64 __fastcall PiDrvDbUnloadHive(__int64 a1, __int64 a2)
 {
   _QWORD v3[4]; // [rsp+20h] [rbp-38h] BYREF

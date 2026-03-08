@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpMcParallelLoadSupported @ 0x1405196CC
+ * Callers:
+ *     HalpLoadMicrocode @ 0x140931BD0 (HalpLoadMicrocode.c)
+ * Callees:
+ *     <none>
+ */
+
 bool HalpMcParallelLoadSupported()
 {
   struct _KPRCB *CurrentPrcb; // rax

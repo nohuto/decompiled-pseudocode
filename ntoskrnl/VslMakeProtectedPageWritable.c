@@ -1,3 +1,14 @@
+/*
+ * XREFs of VslMakeProtectedPageWritable @ 0x140549888
+ * Callers:
+ *     KeSetPagePrivilege @ 0x1403CF124 (KeSetPagePrivilege.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x1402D8618 (HvlQueryVsmConnection.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall VslMakeProtectedPageWritable(__int64 a1, __int128 *a2)
 {
   __int128 v5; // xmm0

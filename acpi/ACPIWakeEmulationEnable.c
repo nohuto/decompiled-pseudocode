@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIWakeEmulationEnable @ 0x1C00452A4
+ * Callers:
+ *     ACPIDeviceInitializePowerRequest @ 0x1C001CF98 (ACPIDeviceInitializePowerRequest.c)
+ * Callees:
+ *     ACPIAssociateWakeInterrupt @ 0x1C004431C (ACPIAssociateWakeInterrupt.c)
+ */
+
 __int64 __fastcall ACPIWakeEmulationEnable(__int64 a1)
 {
   unsigned int v1; // esi

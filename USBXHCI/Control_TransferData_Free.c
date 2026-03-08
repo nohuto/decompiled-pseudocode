@@ -1,3 +1,13 @@
+/*
+ * XREFs of Control_TransferData_Free @ 0x1C0006034
+ * Callers:
+ *     Control_Transfer_Complete @ 0x1C0005E64 (Control_Transfer_Complete.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     TR_SendCompleteStageRequest @ 0x1C0041C60 (TR_SendCompleteStageRequest.c)
+ *     SecureDmaEnabler_ReleaseResourcesAfterDma @ 0x1C00521B0 (SecureDmaEnabler_ReleaseResourcesAfterDma.c)
+ */
+
 void __fastcall Control_TransferData_Free(__int64 a1, __int64 a2)
 {
   __int64 v2; // r14

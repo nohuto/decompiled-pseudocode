@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiTryUnlinkNodeLargePages @ 0x14039BDDC
+ * Callers:
+ *     MiGetFastLargePages @ 0x14034D588 (MiGetFastLargePages.c)
+ *     MiDemoteLargeFreePage @ 0x14039BCC8 (MiDemoteLargeFreePage.c)
+ *     MiLargeFreePageToMdl @ 0x1403D1BC4 (MiLargeFreePageToMdl.c)
+ *     MiMoveLargeFreePage @ 0x14064D244 (MiMoveLargeFreePage.c)
+ *     MiScrubLargePage @ 0x14065C38C (MiScrubLargePage.c)
+ * Callees:
+ *     KeWaitForGate @ 0x1402931D8 (KeWaitForGate.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiGetPfnChannel @ 0x140334470 (MiGetPfnChannel.c)
+ *     MiGetPfnPageSizeIndex @ 0x14034D770 (MiGetPfnPageSizeIndex.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x14034FE70 (MiUnlinkNodeLargePageHelper.c)
+ *     MiBeginPageAccessor @ 0x140350290 (MiBeginPageAccessor.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiPageToChannel @ 0x140370C10 (MiPageToChannel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiTryUnlinkNodeLargePages(
         __int64 a1,
         ULONG_PTR a2,

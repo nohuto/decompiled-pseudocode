@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetIndependentFlipRequestDwmExit@CIFlipPresentHistoryTokenRedirectedFlip@@UEAAX_N@Z @ 0x1C0019C80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CIFlipPresentHistoryTokenRedirectedFlip::SetIndependentFlipRequestDwmExit(
         CIFlipPresentHistoryTokenRedirectedFlip *this,
         unsigned __int8 a2)

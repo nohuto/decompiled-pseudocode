@@ -1,3 +1,22 @@
+/*
+ * XREFs of CcNotifyOfMappedWrite @ 0x140215670
+ * Callers:
+ *     MiGatherMappedPages @ 0x140215150 (MiGatherMappedPages.c)
+ * Callees:
+ *     CcPostWorkQueue @ 0x1402191C4 (CcPostWorkQueue.c)
+ *     CcGetNodeForLazyWrite @ 0x1402191F0 (CcGetNodeForLazyWrite.c)
+ *     CcAllocateWorkQueueEntry @ 0x140219880 (CcAllocateWorkQueueEntry.c)
+ *     CcAcquireByteRangeForWrite @ 0x14021A220 (CcAcquireByteRangeForWrite.c)
+ *     CcDecrementOpenCount @ 0x14021B85C (CcDecrementOpenCount.c)
+ *     CcScheduleLazyWriteScan @ 0x140242B0C (CcScheduleLazyWriteScan.c)
+ *     KeReleaseInStackQueuedSpinLock @ 0x14025C890 (KeReleaseInStackQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcCanIWriteStreamEx @ 0x140363460 (CcCanIWriteStreamEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall CcNotifyOfMappedWrite(__int64 a1, signed __int64 a2, unsigned int a3)
 {
   __int64 v5; // rdi

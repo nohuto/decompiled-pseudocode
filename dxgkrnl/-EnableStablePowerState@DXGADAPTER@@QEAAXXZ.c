@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?EnableStablePowerState@DXGADAPTER@@QEAAXXZ @ 0x1C02B285C
+ * Callers:
+ *     ?EnableStablePowerState@DXGGLOBAL@@QEAAXXZ @ 0x1C030DC34 (-EnableStablePowerState@DXGGLOBAL@@QEAAXXZ.c)
+ * Callees:
+ *     ?SetPowerComponentActiveCBInternal@DXGADAPTER@@QEAAXIEK@Z @ 0x1C000E594 (-SetPowerComponentActiveCBInternal@DXGADAPTER@@QEAAXIEK@Z.c)
+ *     ?EnableStablePState@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXXZ @ 0x1C0054614 (-EnableStablePState@DXGPOWERSTATISTICSTRANSITIONENGINE@@QEAAXXZ.c)
+ *     ?AddStablePowerReference@ADAPTER_RENDER@@QEAAXXZ @ 0x1C02BB890 (-AddStablePowerReference@ADAPTER_RENDER@@QEAAXXZ.c)
+ */
+
 void __fastcall DXGADAPTER::EnableStablePowerState(ADAPTER_RENDER **this)
 {
   unsigned int i; // edi

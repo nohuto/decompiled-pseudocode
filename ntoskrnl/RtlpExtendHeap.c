@@ -1,3 +1,18 @@
+/*
+ * XREFs of RtlpExtendHeap @ 0x1405AA9D8
+ * Callers:
+ *     RtlpAllocateHeap @ 0x1405A8E28 (RtlpAllocateHeap.c)
+ * Callees:
+ *     RtlpHpHeapCheckCommitLimit @ 0x1402B738C (RtlpHpHeapCheckCommitLimit.c)
+ *     ZwAllocateVirtualMemory @ 0x140412610 (ZwAllocateVirtualMemory.c)
+ *     ZwFreeVirtualMemory @ 0x1404126D0 (ZwFreeVirtualMemory.c)
+ *     RtlpCoalesceFreeBlocks @ 0x1405A97B8 (RtlpCoalesceFreeBlocks.c)
+ *     RtlpFindAndCommitPages @ 0x1405AAC2C (RtlpFindAndCommitPages.c)
+ *     RtlpInitializeHeapSegment @ 0x1405AB4DC (RtlpInitializeHeapSegment.c)
+ *     RtlpInsertFreeBlock @ 0x1405AB78C (RtlpInsertFreeBlock.c)
+ *     RtlpAnalyzeHeapFailure @ 0x1405B28D8 (RtlpAnalyzeHeapFailure.c)
+ */
+
 __int64 __fastcall RtlpExtendHeap(__int64 a1, __int64 a2)
 {
   __int64 v4; // rax

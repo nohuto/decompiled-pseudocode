@@ -1,3 +1,14 @@
+/*
+ * XREFs of VfSuspectDriversRemove @ 0x140AD7A14
+ * Callers:
+ *     VfRemoveVerifierEntry @ 0x140ADA7C0 (VfRemoveVerifierEntry.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     VfDriverLock @ 0x140AC773C (VfDriverLock.c)
+ *     ViSuspectDriversLookupEntry @ 0x140AD7CE0 (ViSuspectDriversLookupEntry.c)
+ */
+
 __int64 __fastcall VfSuspectDriversRemove(PCUNICODE_STRING String2)
 {
   unsigned int v2; // edi

@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiLogPerfMemoryRangeEvent @ 0x14061B438
+ * Callers:
+ *     MiDecommitLargePoolVa @ 0x14020FF88 (MiDecommitLargePoolVa.c)
+ *     MiCommitPoolMemory @ 0x14032FC90 (MiCommitPoolMemory.c)
+ *     MiAllocateContiguousMemory @ 0x1403B49B4 (MiAllocateContiguousMemory.c)
+ *     MmFreeContiguousMemory @ 0x1403BD6E0 (MmFreeContiguousMemory.c)
+ *     MiMapUserLargePages @ 0x1406667E0 (MiMapUserLargePages.c)
+ *     MiDeleteVad @ 0x1407C82E0 (MiDeleteVad.c)
+ *     MiUnloadSystemImage @ 0x1407F627C (MiUnloadSystemImage.c)
+ *     MiLogSectionCreate @ 0x140A2C970 (MiLogSectionCreate.c)
+ *     MiMapSystemImageWithLargePage @ 0x140A46F04 (MiMapSystemImageWithLargePage.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall MiLogPerfMemoryRangeEvent(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
 {
   __int64 v4; // r10

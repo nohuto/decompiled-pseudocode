@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpCmcLogPollingTimeoutEvent @ 0x140500654
+ * Callers:
+ *     HalpCmcPollProcessor @ 0x14037CF58 (HalpCmcPollProcessor.c)
+ * Callees:
+ *     WheaLogInternalEvent @ 0x14037D610 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 LONG __fastcall HalpCmcLogPollingTimeoutEvent(__int128 *a1, int a2)
 {
   __int128 v2; // xmm0

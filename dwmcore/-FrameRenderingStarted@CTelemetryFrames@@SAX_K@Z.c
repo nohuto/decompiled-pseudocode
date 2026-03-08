@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FrameRenderingStarted@CTelemetryFrames@@SAX_K@Z @ 0x18004F8FC
+ * Callers:
+ *     ?ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ @ 0x18004E7F8 (-ProcessFrame@CPartitionVerticalBlankScheduler@@QEAAXXZ.c)
+ * Callees:
+ *     _anonymous_namespace_::SealCurrentFrameSequence @ 0x180035F64 (_anonymous_namespace_--SealCurrentFrameSequence.c)
+ *     _anonymous_namespace_::FramesReport::OffsetInMillisecondsFromStartOfReport @ 0x1800375FC (_anonymous_namespace_--FramesReport--OffsetInMillisecondsFromStartOfReport.c)
+ */
+
 void __fastcall CTelemetryFrames::FrameRenderingStarted(__int64 a1)
 {
   unsigned __int64 v2; // rax

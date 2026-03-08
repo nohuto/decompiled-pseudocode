@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIIoctlRegisterOpRegionHandler @ 0x1C003133C
+ * Callers:
+ *     ACPIIrpDispatchDeviceControl @ 0x1C0001290 (ACPIIrpDispatchDeviceControl.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     RegisterOperationRegionHandler @ 0x1C008BB24 (RegisterOperationRegionHandler.c)
+ */
+
 __int64 __fastcall ACPIIoctlRegisterOpRegionHandler(ULONG_PTR a1, IRP *a2, __int64 a3)
 {
   unsigned int v4; // ebx

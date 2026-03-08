@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?bLoadAFont@PUBLIC_PFTOBJ@@QEAAHPEBGPEAKKPEAPEAVPFF@@PEAU_EUDCLOAD@@H@Z @ 0x1C00BA638
+ * Callers:
+ *     ?vInitializeFontAssocStatus@@YAXXZ @ 0x1C00B7C2C (-vInitializeFontAssocStatus@@YAXXZ.c)
+ *     bAddAllFlEntry @ 0x1C00B8F0C (bAddAllFlEntry.c)
+ *     ?vInitEmergencyStockFont@@YAXPEBG@Z @ 0x1C00B9F44 (-vInitEmergencyStockFont@@YAXPEBG@Z.c)
+ *     ?bSetupDefaultFlEntry@@YAHXZ @ 0x1C02A0B3C (-bSetupDefaultFlEntry@@YAHXZ.c)
+ *     GreEudcLoadLinkW @ 0x1C02A10C8 (GreEudcLoadLinkW.c)
+ *     bInitOneStockFontInternal @ 0x1C03B6790 (bInitOneStockFontInternal.c)
+ *     bInitSystemFont @ 0x1C03B85AC (bInitSystemFont.c)
+ * Callees:
+ *     cCapString @ 0x1C0117F80 (cCapString.c)
+ *     ?bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH@Z @ 0x1C0119A20 (-bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH.c)
+ */
+
 __int64 __fastcall PUBLIC_PFTOBJ::bLoadAFont(
         PUBLIC_PFTOBJ *this,
         const unsigned __int16 *a2,

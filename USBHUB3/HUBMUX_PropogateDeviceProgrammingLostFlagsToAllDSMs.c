@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBMUX_PropogateDeviceProgrammingLostFlagsToAllDSMs @ 0x1C00114C0
+ * Callers:
+ *     HUBPARENT_QueryParentIfDeviceWasReset @ 0x1C0007808 (HUBPARENT_QueryParentIfDeviceWasReset.c)
+ *     HUBPARENT_ResetHubComplete @ 0x1C0007C30 (HUBPARENT_ResetHubComplete.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall HUBMUX_PropogateDeviceProgrammingLostFlagsToAllDSMs(__int64 a1)
 {
   KSPIN_LOCK *v1; // rbx

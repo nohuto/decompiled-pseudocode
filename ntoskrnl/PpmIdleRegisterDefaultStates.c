@@ -1,3 +1,18 @@
+/*
+ * XREFs of PpmIdleRegisterDefaultStates @ 0x14080FA58
+ * Callers:
+ *     PopNewProcessorCallback @ 0x14097D420 (PopNewProcessorCallback.c)
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopExecuteOnTargetProcessors @ 0x140236D20 (PopExecuteOnTargetProcessors.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     PpmHvUseNativeAlgorithms @ 0x14037DF20 (PpmHvUseNativeAlgorithms.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 PpmIdleRegisterDefaultStates()
 {
   bool v0; // di

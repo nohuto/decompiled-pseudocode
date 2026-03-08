@@ -1,3 +1,38 @@
+/*
+ * XREFs of PipInitComputerIds @ 0x140B552F0
+ * Callers:
+ *     IopInitializeBootDrivers @ 0x140B57F78 (IopInitializeBootDrivers.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     RtlStringCchPrintfExW @ 0x140245C80 (RtlStringCchPrintfExW.c)
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x14029B230 (MmUnmapIoSpace.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x140413EB0 (ZwDeleteValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     McTemplateK0d_EtwWriteTransfer @ 0x14055D19C (McTemplateK0d_EtwWriteTransfer.c)
+ *     _PnpSetObjectProperty @ 0x140686C8C (_PnpSetObjectProperty.c)
+ *     PnpUnicodeStringToWstr @ 0x1406D07D4 (PnpUnicodeStringToWstr.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1406D08F4 (PnpUnicodeStringToWstrFree.c)
+ *     RtlStringFromGUIDEx @ 0x140733E90 (RtlStringFromGUIDEx.c)
+ *     IopCreateRegistryKeyEx @ 0x14078BB90 (IopCreateRegistryKeyEx.c)
+ *     RtlUpcaseUnicodeString @ 0x1407A3D00 (RtlUpcaseUnicodeString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     PiSwStartCreate @ 0x140806E88 (PiSwStartCreate.c)
+ *     _PnpCtxRegDeleteTree @ 0x14081B6AC (_PnpCtxRegDeleteTree.c)
+ *     PipHardwareConfigOpenKey @ 0x14081B6E8 (PipHardwareConfigOpenKey.c)
+ *     _PnpCtxRegCloseKey @ 0x1408653B4 (_PnpCtxRegCloseKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     PipCreateComputerId @ 0x140B56980 (PipCreateComputerId.c)
+ *     PipSmBiosGetString @ 0x140B56BA4 (PipSmBiosGetString.c)
+ *     PipSmBiosFindStruct @ 0x140B56CD0 (PipSmBiosFindStruct.c)
+ */
+
 __int64 __fastcall PipInitComputerIds(__int64 a1)
 {
   void *v2; // r14

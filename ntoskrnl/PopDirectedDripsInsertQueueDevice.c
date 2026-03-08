@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopDirectedDripsInsertQueueDevice @ 0x14099D07C
+ * Callers:
+ *     PopDirectedDripsBuildBroadcastTreeFull @ 0x14099CB70 (PopDirectedDripsBuildBroadcastTreeFull.c)
+ *     PopDirectedDripsBuildPs4BroadcastTree @ 0x14099CEBC (PopDirectedDripsBuildPs4BroadcastTree.c)
+ *     PopDirectedDripsMarkDfxDevice @ 0x14099D104 (PopDirectedDripsMarkDfxDevice.c)
+ *     PopDirectedDripsVisitPs4Device @ 0x14099D284 (PopDirectedDripsVisitPs4Device.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall PopDirectedDripsInsertQueueDevice(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // r8

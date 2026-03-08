@@ -1,3 +1,15 @@
+/*
+ * XREFs of DeleteOldRedirectionBitmap @ 0x1C002E738
+ * Callers:
+ *     UnsetRedirectedWindow @ 0x1C0022ADC (UnsetRedirectedWindow.c)
+ *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C0068A60 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
+ *     UserRecreateRedirectionBitmap @ 0x1C01BE090 (UserRecreateRedirectionBitmap.c)
+ * Callees:
+ *     SetOldRedirectionBitmap @ 0x1C001331C (SetOldRedirectionBitmap.c)
+ *     DeleteOrSetRedirectionBitmap @ 0x1C0021D34 (DeleteOrSetRedirectionBitmap.c)
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ */
+
 __int64 __fastcall DeleteOldRedirectionBitmap(__int64 a1)
 {
   unsigned int v1; // ebx

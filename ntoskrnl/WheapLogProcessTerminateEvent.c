@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheapLogProcessTerminateEvent @ 0x140611080
+ * Callers:
+ *     WheaTerminateProcess @ 0x140A053E0 (WheaTerminateProcess.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall WheapLogProcessTerminateEvent(int a1, __int64 a2, int a3)
 {
   int v4; // [rsp+40h] [rbp-40h] BYREF

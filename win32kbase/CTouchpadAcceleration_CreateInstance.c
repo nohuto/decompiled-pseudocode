@@ -1,3 +1,12 @@
+/*
+ * XREFs of CTouchpadAcceleration_CreateInstance @ 0x1C00D0130
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CreateInstance@CTouchpadAcceleration@@SAJPEAPEAVCDeviceAcceleration@@I@Z @ 0x1C00D0180 (-CreateInstance@CTouchpadAcceleration@@SAJPEAPEAVCDeviceAcceleration@@I@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 struct CDeviceAcceleration *__fastcall CTouchpadAcceleration_CreateInstance(
         __int64 a1,
         __int64 a2,

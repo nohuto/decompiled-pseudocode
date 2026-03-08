@@ -1,3 +1,14 @@
+/*
+ * XREFs of WheapLogIpmiSELEvent @ 0x140610F90
+ * Callers:
+ *     WheaSelLogErrorPkt @ 0x14060DC5C (WheaSelLogErrorPkt.c)
+ *     WheaSelLogEvent @ 0x14060DD48 (WheaSelLogEvent.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WheapLogIpmiSELEventHighIrql @ 0x140611030 (WheapLogIpmiSELEventHighIrql.c)
+ */
+
 __int64 __fastcall WheapLogIpmiSELEvent(void *Src, size_t Size, int a3)
 {
   ULONG v4; // ebx

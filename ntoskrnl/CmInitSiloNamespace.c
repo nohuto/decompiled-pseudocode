@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmInitSiloNamespace @ 0x1407388F8
+ * Callers:
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x140735A88 (VrpHandleIoctlInitializeJobForVreg.c)
+ * Callees:
+ *     CmCleanupThreadInfo @ 0x140263740 (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x140263760 (CmpInitializeThreadInfo.c)
+ *     CmpGetOrCreateContextForSiloNoRef @ 0x1407361AC (CmpGetOrCreateContextForSiloNoRef.c)
+ *     CmpStartSiloRegistryNamespace @ 0x140738F48 (CmpStartSiloRegistryNamespace.c)
+ */
+
 __int64 CmInitSiloNamespace()
 {
   __int64 v0; // r8

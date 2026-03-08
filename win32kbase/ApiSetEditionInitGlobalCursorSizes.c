@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionInitGlobalCursorSizes @ 0x1C0011384
+ * Callers:
+ *     InitUserScreen @ 0x1C00127A8 (InitUserScreen.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 ApiSetEditionInitGlobalCursorSizes()
 {
   char v0; // bl

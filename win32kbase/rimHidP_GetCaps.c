@@ -1,3 +1,12 @@
+/*
+ * XREFs of rimHidP_GetCaps @ 0x1C01B1F2C
+ * Callers:
+ *     ?IsHIDMouseDeviceRelative@@YAHPEAU_FILE_OBJECT@@PEAU_DEVICE_OBJECT@@@Z @ 0x1C01C00C4 (-IsHIDMouseDeviceRelative@@YAHPEAU_FILE_OBJECT@@PEAU_DEVICE_OBJECT@@@Z.c)
+ *     RIMIDECreateHIDDesc @ 0x1C01C16CC (RIMIDECreateHIDDesc.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall rimHidP_GetCaps(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v6; // rdx

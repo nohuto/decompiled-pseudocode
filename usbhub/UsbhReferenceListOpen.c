@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhReferenceListOpen @ 0x1C00418C8
+ * Callers:
+ *     UsbhAddDevice @ 0x1C0041E10 (UsbhAddDevice.c)
+ * Callees:
+ *     UsbhReferenceListAdd @ 0x1C0002650 (UsbhReferenceListAdd.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 __int64 __fastcall UsbhReferenceListOpen(__int64 a1)
 {
   _DWORD *v2; // rbx

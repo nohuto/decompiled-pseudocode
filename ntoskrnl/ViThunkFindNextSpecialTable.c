@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViThunkFindNextSpecialTable @ 0x140AD8A68
+ * Callers:
+ *     VfThunkAddSpecialDriverThunks @ 0x140AD8020 (VfThunkAddSpecialDriverThunks.c)
+ *     ViThunkFindAllSpecialTables @ 0x140AD8890 (ViThunkFindAllSpecialTables.c)
+ * Callees:
+ *     <none>
+ */
+
 PVOID *__fastcall ViThunkFindNextSpecialTable(__int64 a1, unsigned int a2, PVOID *a3)
 {
   __int64 v3; // r9

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpWorkerFactoryFinishDeferredWork @ 0x140317790
+ * Callers:
+ *     NtWaitForWorkViaWorkerFactory @ 0x140316BE0 (NtWaitForWorkViaWorkerFactory.c)
+ * Callees:
+ *     AlpciDestroyDeferredMessageContext @ 0x14075E950 (AlpciDestroyDeferredMessageContext.c)
+ */
+
 unsigned __int64 __fastcall ExpWorkerFactoryFinishDeferredWork(__int64 a1)
 {
   _DWORD *v1; // rbx

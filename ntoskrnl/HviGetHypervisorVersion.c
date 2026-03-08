@@ -1,3 +1,14 @@
+/*
+ * XREFs of HviGetHypervisorVersion @ 0x14061301C
+ * Callers:
+ *     HvlpHvIdentityInfoCallback @ 0x14053DAA0 (HvlpHvIdentityInfoCallback.c)
+ *     KiIsHyperVCr3RspErrataPresent @ 0x140576E08 (KiIsHyperVCr3RspErrataPresent.c)
+ *     HvlPhase0Initialize @ 0x14080D7C8 (HvlPhase0Initialize.c)
+ *     HvlQueryDetailInfo @ 0x14093DEE8 (HvlQueryDetailInfo.c)
+ * Callees:
+ *     HviIsHypervisorMicrosoftCompatible @ 0x14037F140 (HviIsHypervisorMicrosoftCompatible.c)
+ */
+
 char __fastcall HviGetHypervisorVersion(_DWORD *a1)
 {
   LOBYTE(_RAX) = HviIsHypervisorMicrosoftCompatible();

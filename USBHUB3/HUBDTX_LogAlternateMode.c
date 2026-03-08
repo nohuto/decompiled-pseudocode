@@ -1,3 +1,17 @@
+/*
+ * XREFs of HUBDTX_LogAlternateMode @ 0x1C002D134
+ * Callers:
+ *     HUBDSM_CheckingIfAlternateModeStringDescriptorShouldBeQueried @ 0x1C0022320 (HUBDSM_CheckingIfAlternateModeStringDescriptorShouldBeQueried.c)
+ *     HUBDSM_ValidatingAndLoggingAlternateModeStringDescriptor @ 0x1C0022B30 (HUBDSM_ValidatingAndLoggingAlternateModeStringDescriptor.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C001497C (WPP_RECORDER_SF_DDD.c)
+ *     McTemplateK0phuzu_EtwWriteTransfer @ 0x1C00295D8 (McTemplateK0phuzu_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 int __fastcall HUBDTX_LogAlternateMode(__int64 a1, _BYTE *a2)
 {
   __int64 *v2; // r12

@@ -1,3 +1,25 @@
+/*
+ * XREFs of EtwpSetCoverageSamplerInformation @ 0x1409F0DFC
+ * Callers:
+ *     EtwSetPerformanceTraceInformation @ 0x1409DF094 (EtwSetPerformanceTraceInformation.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExCheckFullProcessInformationAccess @ 0x140791A18 (ExCheckFullProcessInformationAccess.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ *     EtwpCovSampApplyBounds @ 0x1409EDA10 (EtwpCovSampApplyBounds.c)
+ *     EtwpCovSampSplitSegments @ 0x1409EFE98 (EtwpCovSampSplitSegments.c)
+ *     EtwpCoverageSamplerInitialize @ 0x1409F0364 (EtwpCoverageSamplerInitialize.c)
+ *     EtwpCoverageSamplerSetBloomFilter @ 0x1409F042C (EtwpCoverageSamplerSetBloomFilter.c)
+ *     EtwpCoverageSamplerStart @ 0x1409F05F8 (EtwpCoverageSamplerStart.c)
+ *     EtwpCoverageSamplerStop @ 0x1409F08E4 (EtwpCoverageSamplerStop.c)
+ */
+
 __int64 __fastcall EtwpSetCoverageSamplerInformation(_OWORD *Address, SIZE_T Length, KPROCESSOR_MODE AccessMode)
 {
   SIZE_T v4; // r15

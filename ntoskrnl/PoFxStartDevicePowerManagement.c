@@ -1,3 +1,32 @@
+/*
+ * XREFs of PoFxStartDevicePowerManagement @ 0x140393C70
+ * Callers:
+ *     HalpInterruptInitPowerManagement @ 0x1403930CC (HalpInterruptInitPowerManagement.c)
+ *     HalpTimerInitPowerManagement @ 0x1403931E8 (HalpTimerInitPowerManagement.c)
+ *     HalpDmaInitPowerManagement @ 0x14039826C (HalpDmaInitPowerManagement.c)
+ *     DifPoFxStartDevicePowerManagementWrapper @ 0x1405E7BF0 (DifPoFxStartDevicePowerManagementWrapper.c)
+ *     PoFxEnableDStateReporting @ 0x140981710 (PoFxEnableDStateReporting.c)
+ *     PoFxRegisterDebugger @ 0x140B5E498 (PoFxRegisterDebugger.c)
+ * Callees:
+ *     PopFxActivateDevice @ 0x140202154 (PopFxActivateDevice.c)
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PoFxActivateComponent @ 0x140305CE0 (PoFxActivateComponent.c)
+ *     PoFxIdleComponent @ 0x140306A10 (PoFxIdleComponent.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     PopFxReinitializeAccountingInstance @ 0x140393EC4 (PopFxReinitializeAccountingInstance.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxIncrementDeviceSleepCount @ 0x140588194 (PopFxIncrementDeviceSleepCount.c)
+ *     PopPepInitializeVetoMasks @ 0x14059CE34 (PopPepInitializeVetoMasks.c)
+ *     PopDiagTraceFxDeviceStartPowerManagement @ 0x140837CD4 (PopDiagTraceFxDeviceStartPowerManagement.c)
+ */
+
 char __fastcall PoFxStartDevicePowerManagement(ULONG_PTR BugCheckParameter2)
 {
   unsigned int v1; // edi

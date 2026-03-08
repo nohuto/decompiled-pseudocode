@@ -1,3 +1,15 @@
+/*
+ * XREFs of DestroyThreadsMessages @ 0x1C00D3420
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FreeQEntry@@YAXPEAUtagQMSG@@@Z @ 0x1C0011A90 (-FreeQEntry@@YAXPEAUtagQMSG@@@Z.c)
+ *     ?RemoveQMsgFromDeferList@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z @ 0x1C0011C00 (-RemoveQMsgFromDeferList@@YAXPEAUtagMLIST@@PEAUtagQMSG@@@Z.c)
+ *     DelQEntry @ 0x1C0038CDC (DelQEntry.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003E858 (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ *     ?CleanEventMessage@@YAXPEAUtagQMSG@@@Z @ 0x1C00D34C0 (-CleanEventMessage@@YAXPEAUtagQMSG@@@Z.c)
+ */
+
 void __fastcall DestroyThreadsMessages(_QWORD *a1, __int64 a2)
 {
   struct tagMLIST *v2; // rsi

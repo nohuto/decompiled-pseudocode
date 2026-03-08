@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?vNextStyleEvent@STYLER@@QEAAXXZ @ 0x1C02F4D64
+ * Callers:
+ *     ?bWiden@WIDENER@@IEAAHXZ @ 0x1C0150E1A (-bWiden@WIDENER@@IEAAHXZ.c)
+ * Callees:
+ *     ?efNextStyleLength@STYLER@@IEAA?AVEFLOAT@@XZ @ 0x1C01510A6 (-efNextStyleLength@STYLER@@IEAA-AVEFLOAT@@XZ.c)
+ *     ?ptfxFraction@@YA?AU_POINTFIX@@U1@PEAVLINEDATA@@AEAVEFLOAT@@2@Z @ 0x1C01510E2 (-ptfxFraction@@YA-AU_POINTFIX@@U1@PEAVLINEDATA@@AEAVEFLOAT@@2@Z.c)
+ *     ?efWorldLength@STYLER@@IEAA?AVEFLOAT@@VEVECTORFX@@@Z @ 0x1C02F3F58 (-efWorldLength@STYLER@@IEAA-AVEFLOAT@@VEVECTORFX@@@Z.c)
+ *     ?vNextEvent@LINER@@QEAAXXZ @ 0x1C02F4870 (-vNextEvent@LINER@@QEAAXXZ.c)
+ */
+
 void __fastcall STYLER::vNextStyleEvent(STYLER *this)
 {
   int v1; // eax

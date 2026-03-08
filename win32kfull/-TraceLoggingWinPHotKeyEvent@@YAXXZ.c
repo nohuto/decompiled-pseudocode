@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?TraceLoggingWinPHotKeyEvent@@YAXXZ @ 0x1C02053AC
+ * Callers:
+ *     ?WinlogonHotkeyCallback@@YAX_K_J@Z @ 0x1C01AC770 (-WinlogonHotkeyCallback@@YAX_K_J@Z.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C00F8FF0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x1C0102BC4 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void TraceLoggingWinPHotKeyEvent(void)
 {
   __int64 v0; // [rsp+30h] [rbp-48h] BYREF

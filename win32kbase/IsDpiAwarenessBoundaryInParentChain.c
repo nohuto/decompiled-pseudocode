@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsDpiAwarenessBoundaryInParentChain @ 0x1C0168404
+ * Callers:
+ *     TransformRectBetweenCoordinateSpaces @ 0x1C00152E0 (TransformRectBetweenCoordinateSpaces.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IsDpiAwarenessBoundaryInParentChain(__int64 a1)
 {
   unsigned int v1; // edx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of XilCoreCommonBuffer_Cleanup @ 0x1C0052CE4
+ * Callers:
+ *     CommonBuffer_WdfEvtCleanupCallback @ 0x1C0032380 (CommonBuffer_WdfEvtCleanupCallback.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ddd @ 0x1C0017FB0 (WPP_RECORDER_SF_ddd.c)
+ */
+
 __int64 __fastcall XilCoreCommonBuffer_Cleanup(__int64 a1)
 {
   unsigned int *v2; // rbx

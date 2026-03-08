@@ -1,3 +1,33 @@
+/*
+ * XREFs of memmove @ 0x1C0004280
+ * Callers:
+ *     NVMeHwAdapterControl @ 0x1C0003050 (NVMeHwAdapterControl.c)
+ *     NVMeLogTelemetry @ 0x1C0008A04 (NVMeLogTelemetry.c)
+ *     NVMeControllerFilterResourceRequirements @ 0x1C000CD5C (NVMeControllerFilterResourceRequirements.c)
+ *     NVMeControllerSetHostIdentifier @ 0x1C000E854 (NVMeControllerSetHostIdentifier.c)
+ *     NVMeInitHostMemoryBuffer @ 0x1C000F3EC (NVMeInitHostMemoryBuffer.c)
+ *     DiagAllDiagnosticData @ 0x1C00110F4 (DiagAllDiagnosticData.c)
+ *     FormInquiryStandardData @ 0x1C0012754 (FormInquiryStandardData.c)
+ *     NVMeGetErrorInfoLogPageCompletion @ 0x1C00158D0 (NVMeGetErrorInfoLogPageCompletion.c)
+ *     NVMeGetLogPageTelemetryDataCompletion @ 0x1C0015DE0 (NVMeGetLogPageTelemetryDataCompletion.c)
+ *     NVMeReservationReportStatusCompletion @ 0x1C00176E0 (NVMeReservationReportStatusCompletion.c)
+ *     QueryProtocolInfoCompletion @ 0x1C0018B80 (QueryProtocolInfoCompletion.c)
+ *     QueryProtocolInfoLogPageData @ 0x1C001944C (QueryProtocolInfoLogPageData.c)
+ *     SetProtocolInfoCompletion @ 0x1C001B0B0 (SetProtocolInfoCompletion.c)
+ *     SetProtocolInfoFeatureData @ 0x1C001B16C (SetProtocolInfoFeatureData.c)
+ *     NVMeGetControllerInitiatedTelemetryLog @ 0x1C001DC54 (NVMeGetControllerInitiatedTelemetryLog.c)
+ *     NVMeGetNVMSetAttributeList @ 0x1C001E5F8 (NVMeGetNVMSetAttributeList.c)
+ *     NVMeGetNamespaceMetadataCompletion @ 0x1C001ED10 (NVMeGetNamespaceMetadataCompletion.c)
+ *     NVMeMapError @ 0x1C00200A8 (NVMeMapError.c)
+ *     NVMeReenumerateNameSpaceIdentify @ 0x1C0021AB8 (NVMeReenumerateNameSpaceIdentify.c)
+ *     NVMeReenumerateReissueGetLogNamespaceChangeList @ 0x1C0022838 (NVMeReenumerateReissueGetLogNamespaceChangeList.c)
+ *     NVMeSetHostMemoryBuffer @ 0x1C00237E0 (NVMeSetHostMemoryBuffer.c)
+ *     NVMeSetSenseData @ 0x1C0024238 (NVMeSetSenseData.c)
+ *     GetRegistrySettings @ 0x1C0025E60 (GetRegistrySettings.c)
+ * Callees:
+ *     <none>
+ */
+
 void *__cdecl memmove(void *a1, const void *Src, size_t Size)
 {
   void *result; // rax

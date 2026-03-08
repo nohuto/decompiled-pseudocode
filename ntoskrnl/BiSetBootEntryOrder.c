@@ -1,3 +1,16 @@
+/*
+ * XREFs of BiSetBootEntryOrder @ 0x140A5C048
+ * Callers:
+ *     BiAddBootEntryToNvramDisplayOrder @ 0x140A5AC9C (BiAddBootEntryToNvramDisplayOrder.c)
+ *     BiExportEfiBootManager @ 0x140A5B928 (BiExportEfiBootManager.c)
+ *     BiRemoveBootEntryFromNvramDisplayOrder @ 0x140A5BF94 (BiRemoveBootEntryFromNvramDisplayOrder.c)
+ * Callees:
+ *     ZwSetBootEntryOrder @ 0x140415590 (ZwSetBootEntryOrder.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiAcquirePrivilege @ 0x14082F784 (BiAcquirePrivilege.c)
+ *     BiReleasePrivilege @ 0x14082F810 (BiReleasePrivilege.c)
+ */
+
 __int64 __fastcall BiSetBootEntryOrder(__int64 a1, unsigned int a2)
 {
   int v4; // ebx

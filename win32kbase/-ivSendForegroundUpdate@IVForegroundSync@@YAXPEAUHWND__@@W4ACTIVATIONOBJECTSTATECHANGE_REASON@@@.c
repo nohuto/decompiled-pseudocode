@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?ivSendForegroundUpdate@IVForegroundSync@@YAXPEAUHWND__@@W4ACTIVATIONOBJECTSTATECHANGE_REASON@@@Z @ 0x1C02228EC
+ * Callers:
+ *     ?NotifySystemSateChanged@CActivationObjectManager@@AEBAXPEBVCActivationObject@@W4ACTIVATION_OBJECT_NOTIFICATION_ACTION@@U_tagActivationObjectNotificationForegroundData@@@Z @ 0x1C00839F8 (-NotifySystemSateChanged@CActivationObjectManager@@AEBAXPEBVCActivationObject@@W4ACTIVATION_OBJE.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ddd @ 0x1C007E6B0 (WPP_RECORDER_AND_TRACE_SF_ddd.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     ValidateHbwnd @ 0x1C01576D0 (ValidateHbwnd.c)
+ *     IVForegroundSync::_anonymous_namespace_::ivBroadcastSetNullForeground @ 0x1C02225DC (IVForegroundSync--_anonymous_namespace_--ivBroadcastSetNullForeground.c)
+ *     IVForegroundSync::_anonymous_namespace_::ivSyncForegroundToContainer @ 0x1C0222C8C (IVForegroundSync--_anonymous_namespace_--ivSyncForegroundToContainer.c)
+ *     ?ContainerConnected@CIVChannel@@SA_NK@Z @ 0x1C0228560 (-ContainerConnected@CIVChannel@@SA_NK@Z.c)
+ */
+
 void __fastcall IVForegroundSync::ivSendForegroundUpdate(unsigned __int64 a1, int a2)
 {
   __int64 v4; // rdx

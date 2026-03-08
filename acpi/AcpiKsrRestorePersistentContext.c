@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiKsrRestorePersistentContext @ 0x1C008B24C
+ * Callers:
+ *     ACPIKsrSupportInitialize @ 0x1C00369A8 (ACPIKsrSupportInitialize.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AcpiKsrRestorePersistentContext(__int64 a1)
 {
   __int64 v2; // r8

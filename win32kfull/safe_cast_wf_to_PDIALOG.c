@@ -1,3 +1,12 @@
+/*
+ * XREFs of safe_cast_wf_to_PDIALOG @ 0x1C0031B08
+ * Callers:
+ *     ?xxxSetWindowLongPtr@@YA_KPEAUtagWND@@H_KHH@Z @ 0x1C002F618 (-xxxSetWindowLongPtr@@YA_KPEAUtagWND@@H_KHH@Z.c)
+ *     xxxSetWindowLong @ 0x1C00C9054 (xxxSetWindowLong.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall safe_cast_wf_to_PDIALOG(__int64 a1)
 {
   __int64 v2; // rcx

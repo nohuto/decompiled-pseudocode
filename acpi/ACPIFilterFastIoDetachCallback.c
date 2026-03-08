@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIFilterFastIoDetachCallback @ 0x1C0028500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qss @ 0x1C0015444 (WPP_RECORDER_SF_qss.c)
+ *     ACPIInitDeleteChildDeviceList @ 0x1C002CC88 (ACPIInitDeleteChildDeviceList.c)
+ *     ACPIInitResetDeviceExtension @ 0x1C002D7B0 (ACPIInitResetDeviceExtension.c)
+ */
+
 char __fastcall ACPIFilterFastIoDetachCallback(ULONG_PTR a1)
 {
   __int64 DeviceExtension; // rax

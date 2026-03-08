@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiCheckPhysicalAddressRange @ 0x1406415CC
+ * Callers:
+ *     MmCopyMemory @ 0x1402A1CE0 (MmCopyMemory.c)
+ *     MiDbgTranslatePhysicalAddress @ 0x140641B08 (MiDbgTranslatePhysicalAddress.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiCheckPhysicalAddressRange(unsigned __int64 a1, __int64 a2)
 {
   unsigned __int64 v2; // r9

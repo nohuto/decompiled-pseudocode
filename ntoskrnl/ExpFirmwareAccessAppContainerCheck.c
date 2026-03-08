@@ -1,3 +1,19 @@
+/*
+ * XREFs of ExpFirmwareAccessAppContainerCheck @ 0x1409F9A04
+ * Callers:
+ *     NtQuerySystemEnvironmentValueEx @ 0x14075CF50 (NtQuerySystemEnvironmentValueEx.c)
+ *     ExpGetSystemFirmwareTableInformation @ 0x140780E98 (ExpGetSystemFirmwareTableInformation.c)
+ *     NtSetSystemEnvironmentValueEx @ 0x1409FD460 (NtSetSystemEnvironmentValueEx.c)
+ * Callees:
+ *     RtlCheckTokenMembershipEx @ 0x140204B90 (RtlCheckTokenMembershipEx.c)
+ *     RtlSubAuthoritySid @ 0x1402BE740 (RtlSubAuthoritySid.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQueryInformationToken @ 0x140412730 (ZwQueryInformationToken.c)
+ *     RtlInitializeSid @ 0x14068E3A0 (RtlInitializeSid.c)
+ *     RtlRunOnceExecuteOnce @ 0x1407A2BE0 (RtlRunOnceExecuteOnce.c)
+ *     ExpCapabilityCheck @ 0x1409F8C54 (ExpCapabilityCheck.c)
+ */
+
 bool __fastcall ExpFirmwareAccessAppContainerCheck(int a1)
 {
   int v1; // ecx

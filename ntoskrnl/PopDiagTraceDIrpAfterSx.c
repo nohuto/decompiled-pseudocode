@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopDiagTraceDIrpAfterSx @ 0x140590058
+ * Callers:
+ *     PoHandleIrp @ 0x1402B986C (PoHandleIrp.c)
+ * Callees:
+ *     _tlgCreate1Sz_wchar_t @ 0x140244050 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopDiagGetDriverName @ 0x14058F424 (PopDiagGetDriverName.c)
+ */
+
 char __fastcall PopDiagTraceDIrpAfterSx(__int64 a1)
 {
   char result; // al

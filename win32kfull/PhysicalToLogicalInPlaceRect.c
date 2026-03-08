@@ -1,3 +1,14 @@
+/*
+ * XREFs of PhysicalToLogicalInPlaceRect @ 0x1C005460C
+ * Callers:
+ *     ?InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z @ 0x1C0052B80 (-InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z.c)
+ *     xxxInternalInvalidate @ 0x1C0053270 (xxxInternalInvalidate.c)
+ *     ?CalcVisRgnWorker@@YAHQEBUtagWND@@PEAPEAUHRGN__@@K@Z @ 0x1C0053AA0 (-CalcVisRgnWorker@@YAHQEBUtagWND@@PEAPEAUHRGN__@@K@Z.c)
+ *     IntersectWithParents @ 0x1C00FEB48 (IntersectWithParents.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PhysicalToLogicalInPlaceRect(__int64 a1, unsigned int *a2)
 {
   unsigned int v2; // ebx

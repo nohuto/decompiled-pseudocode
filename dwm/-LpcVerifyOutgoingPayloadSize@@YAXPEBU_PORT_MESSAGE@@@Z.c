@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?LpcVerifyOutgoingPayloadSize@@YAXPEBU_PORT_MESSAGE@@@Z @ 0x140002CA0
+ * Callers:
+ *     ?LpcNotifySettingsChange@CDwmAppHost@@AEAAJK@Z @ 0x1400025CC (-LpcNotifySettingsChange@CDwmAppHost@@AEAAJK@Z.c)
+ *     ?SendSimpleAsyncRequest@CPortClient@@QEAAJK@Z @ 0x140003A18 (-SendSimpleAsyncRequest@CPortClient@@QEAAJK@Z.c)
+ *     ?SendComplexSyncRequest@CPortClient@@QEAAJKPEBXFPEAXFPEAJ@Z @ 0x140003AB4 (-SendComplexSyncRequest@CPortClient@@QEAAJKPEBXFPEAXFPEAJ@Z.c)
+ * Callees:
+ *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x14000E328 (-IsKernelDebuggerPresent@@YAHXZ.c)
+ */
+
 void __fastcall LpcVerifyOutgoingPayloadSize(const struct _PORT_MESSAGE *a1)
 {
   int v1; // eax

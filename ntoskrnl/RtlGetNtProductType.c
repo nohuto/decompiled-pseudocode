@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlGetNtProductType @ 0x140303E90
+ * Callers:
+ *     IoFillDumpHeader @ 0x14054D7C8 (IoFillDumpHeader.c)
+ *     KeCapturePersistentThreadState @ 0x140551EC0 (KeCapturePersistentThreadState.c)
+ *     MmWriteTriageInformation @ 0x14062E4BC (MmWriteTriageInformation.c)
+ *     RtlGetVersion @ 0x1407A1380 (RtlGetVersion.c)
+ *     IopCreateDefaultDeviceSecurityDescriptor @ 0x1407F092C (IopCreateDefaultDeviceSecurityDescriptor.c)
+ *     RtlRestoreBootStatusDefaults @ 0x1409BAB20 (RtlRestoreBootStatusDefaults.c)
+ *     AstInitialize @ 0x140B716E4 (AstInitialize.c)
+ * Callees:
+ *     PsIsCurrentThreadInServerSilo @ 0x1402459D0 (PsIsCurrentThreadInServerSilo.c)
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     RtlpGetNtProductTypeFromRegistry @ 0x14087B034 (RtlpGetNtProductTypeFromRegistry.c)
+ */
+
 char __fastcall RtlGetNtProductType(_DWORD *a1, __int64 a2)
 {
   char v3; // bl

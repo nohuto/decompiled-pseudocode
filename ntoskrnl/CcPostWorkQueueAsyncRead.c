@@ -1,3 +1,20 @@
+/*
+ * XREFs of CcPostWorkQueueAsyncRead @ 0x140216768
+ * Callers:
+ *     CcAsyncCopyRead @ 0x140216AA0 (CcAsyncCopyRead.c)
+ *     CcAsyncReadWorker @ 0x1403B8B70 (CcAsyncReadWorker.c)
+ * Callees:
+ *     CcCompleteAsyncRead @ 0x14020A77C (CcCompleteAsyncRead.c)
+ *     CcShouldSpinAsyncReadWorkerThread @ 0x1402169EC (CcShouldSpinAsyncReadWorkerThread.c)
+ *     CcFreeWorkQueueEntry @ 0x140219E50 (CcFreeWorkQueueEntry.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x140310130 (ExpAllocatePoolWithTagFromNode.c)
+ *     ExQueueWorkItemToPartition @ 0x1403439E0 (ExQueueWorkItemToPartition.c)
+ *     CcPerfLogWorkItemEnqueue @ 0x140391D54 (CcPerfLogWorkItemEnqueue.c)
+ */
+
 __int64 __fastcall CcPostWorkQueueAsyncRead(PSLIST_ENTRY ListEntry, __int64 a2)
 {
   _SLIST_ENTRY *Next; // r13

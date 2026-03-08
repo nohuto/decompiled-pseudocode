@@ -1,3 +1,13 @@
+/*
+ * XREFs of AlpcpInsertMessageLargeMessageQueue @ 0x14077EDB8
+ * Callers:
+ *     AlpcpReturnMessageOnInsufficientBuffer @ 0x14077EC7C (AlpcpReturnMessageOnInsufficientBuffer.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ */
+
 signed __int32 __fastcall AlpcpInsertMessageLargeMessageQueue(__int64 a1, __int64 a2)
 {
   volatile signed __int64 *v2; // rsi

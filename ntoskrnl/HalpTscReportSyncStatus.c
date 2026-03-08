@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpTscReportSyncStatus @ 0x14085DD54
+ * Callers:
+ *     HalpTimerInitSystem @ 0x1403776D0 (HalpTimerInitSystem.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x140372460 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void HalpTscReportSyncStatus()
 {
   unsigned int MaximumRegisteredProcessorCount; // eax

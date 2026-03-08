@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpGetNumberOfSGElementsDmaThin @ 0x1402B5B70
+ * Callers:
+ *     HalpBuildScatterGatherListDmaThin @ 0x1402B58B4 (HalpBuildScatterGatherListDmaThin.c)
+ *     HalBuildScatterGatherListDmaThin @ 0x1402B5A40 (HalBuildScatterGatherListDmaThin.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpGetNumberOfSGElementsDmaThin(__int64 *a1, int a2, unsigned int a3, _DWORD *a4)
 {
   int v4; // r10d

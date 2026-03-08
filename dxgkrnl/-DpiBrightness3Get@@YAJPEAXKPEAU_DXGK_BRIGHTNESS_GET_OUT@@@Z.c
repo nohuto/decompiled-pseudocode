@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DpiBrightness3Get@@YAJPEAXKPEAU_DXGK_BRIGHTNESS_GET_OUT@@@Z @ 0x1C039BF10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     DpiReleaseCoreSyncAccessSafe @ 0x1C0180684 (DpiReleaseCoreSyncAccessSafe.c)
+ *     DpiAcquireCoreSyncAccessSafe @ 0x1C0180B30 (DpiAcquireCoreSyncAccessSafe.c)
+ */
+
 __int64 __fastcall DpiBrightness3Get(_QWORD *a1, unsigned int a2, struct _DXGK_BRIGHTNESS_GET_OUT *a3)
 {
   __int64 v3; // rdi

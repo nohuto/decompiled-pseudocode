@@ -1,3 +1,13 @@
+/*
+ * XREFs of bSetDeviceSessionUsage @ 0x1C001F9F0
+ * Callers:
+ *     DrvCloseGraphicsDevices @ 0x1C000F140 (DrvCloseGraphicsDevices.c)
+ *     DrvUpdateGraphicsDeviceList @ 0x1C001FAC0 (DrvUpdateGraphicsDeviceList.c)
+ *     DrvCleanupOneGraphicsDevice @ 0x1C00A0200 (DrvCleanupOneGraphicsDevice.c)
+ * Callees:
+ *     ?GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z @ 0x1C0021280 (-GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z.c)
+ */
+
 __int64 __fastcall bSetDeviceSessionUsage(__int64 a1, int a2)
 {
   unsigned int v4; // ebx

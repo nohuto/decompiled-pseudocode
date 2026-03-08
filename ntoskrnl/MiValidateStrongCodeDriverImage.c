@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiValidateStrongCodeDriverImage @ 0x14062A5C0
+ * Callers:
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiValidateStrongCodeDriverImage(__int64 a1, char a2)
 {
   int v3; // r9d

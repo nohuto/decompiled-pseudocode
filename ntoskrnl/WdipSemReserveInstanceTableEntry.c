@@ -1,3 +1,16 @@
+/*
+ * XREFs of WdipSemReserveInstanceTableEntry @ 0x140831D7C
+ * Callers:
+ *     WdipSemEnableScenario @ 0x1407966C0 (WdipSemEnableScenario.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     WdipSemQueryEnabledInstanceTable @ 0x140832008 (WdipSemQueryEnabledInstanceTable.c)
+ *     WdipSemBuildScenarioInstance @ 0x140832050 (WdipSemBuildScenarioInstance.c)
+ *     WdipSemLogInflightLimitExceededInformation @ 0x1409DAEA4 (WdipSemLogInflightLimitExceededInformation.c)
+ */
+
 _QWORD *__fastcall WdipSemReserveInstanceTableEntry(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax

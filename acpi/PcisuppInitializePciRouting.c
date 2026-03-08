@@ -1,3 +1,12 @@
+/*
+ * XREFs of PcisuppInitializePciRouting @ 0x1C0099E6C
+ * Callers:
+ *     PcisuppAcquirePciInterfaces @ 0x1C0099894 (PcisuppAcquirePciInterfaces.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     ACPIInternalSendSynchronousIrp @ 0x1C008822C (ACPIInternalSendSynchronousIrp.c)
+ */
+
 __int64 __fastcall PcisuppInitializePciRouting(PDEVICE_OBJECT DeviceObject)
 {
   int v2; // ebx

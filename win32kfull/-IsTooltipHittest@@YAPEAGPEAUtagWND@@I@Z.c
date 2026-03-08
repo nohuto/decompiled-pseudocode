@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsTooltipHittest@@YAPEAGPEAUtagWND@@I@Z @ 0x1C0016D40
+ * Callers:
+ *     xxxTrackMouseMove @ 0x1C00BD950 (xxxTrackMouseMove.c)
+ * Callees:
+ *     ?BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z @ 0x1C00FAA10 (-BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z.c)
+ */
+
 unsigned __int16 *__fastcall IsTooltipHittest(struct tagWND *a1, int a2, unsigned int a3)
 {
   int v3; // edx

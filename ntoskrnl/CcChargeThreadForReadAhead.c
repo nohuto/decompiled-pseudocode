@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcChargeThreadForReadAhead @ 0x1402EF03C
+ * Callers:
+ *     CcScheduleReadAheadNuma @ 0x14020D0BC (CcScheduleReadAheadNuma.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 unsigned __int64 __fastcall CcChargeThreadForReadAhead(__int64 a1, __int64 a2, __int64 a3, int a4, struct _KTHREAD *a5)
 {
   unsigned __int64 result; // rax

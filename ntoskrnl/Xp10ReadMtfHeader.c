@@ -1,3 +1,11 @@
+/*
+ * XREFs of Xp10ReadMtfHeader @ 0x1409C4F98
+ * Callers:
+ *     RtlDecompressBuffer2Xp10 @ 0x1409C0EF0 (RtlDecompressBuffer2Xp10.c)
+ * Callees:
+ *     Xp10ScatteredReadBytes @ 0x1409C5568 (Xp10ScatteredReadBytes.c)
+ */
+
 __int64 __fastcall Xp10ReadMtfHeader(_WORD *a1, int *a2, __int64 a3)
 {
   unsigned int v3; // ebp

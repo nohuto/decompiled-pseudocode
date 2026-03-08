@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?PushTarget@CGraphRenderingContext@CExternalEffectGraph@@QEAAJI@Z @ 0x180033774
+ * Callers:
+ *     _lambda_16c4919e5c7bc2115c075ef4a54f2434_::operator() @ 0x180030CAC (_lambda_16c4919e5c7bc2115c075ef4a54f2434_--operator().c)
+ *     std::_Func_impl_no_alloc__lambda_6dafb9ec696576b7ca181ab96f810b3b__long_CExternalEffectGraph::CGraphRenderingContext___::_Do_call @ 0x1800F7B60 (std--_Func_impl_no_alloc__lambda_6dafb9ec696576b7ca181ab96f810b3b__long_CExternalEffectGraph--CG.c)
+ *     _lambda_5d5aaaad4d10f157f91a33890a246c1f_::operator() @ 0x18027F8B8 (_lambda_5d5aaaad4d10f157f91a33890a246c1f_--operator().c)
+ * Callees:
+ *     ??0CDrawListBitmap@@QEAA@PEAVIBitmapRealization@@@Z @ 0x180033864 (--0CDrawListBitmap@@QEAA@PEAVIBitmapRealization@@@Z.c)
+ *     ??4CDrawListBitmap@@QEAAAEAV0@$$QEAV0@@Z @ 0x180033894 (--4CDrawListBitmap@@QEAAAEAV0@$$QEAV0@@Z.c)
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800342C8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?PushOffScreenRenderingLayer@CDrawingContext@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_F@@VDisplayId@@W4Enum@CacheMode@@PEAPEAVIRenderTargetBitmap@@@Z @ 0x1800344D0 (-PushOffScreenRenderingLayer@CDrawingContext@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_F@@VDisplayId@.c)
+ *     ?reset@?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E91E4 (-reset@-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CExternalEffectGraph::CGraphRenderingContext::PushTarget(
         CExternalEffectGraph::CGraphRenderingContext *this,
         unsigned int a2)

@@ -1,3 +1,17 @@
+/*
+ * XREFs of rimObsCheckForRegistrationConflicts @ 0x1C01DA69C
+ * Callers:
+ *     rimObsAddInputObserver @ 0x1C01DADB0 (rimObsAddInputObserver.c)
+ *     rimObsUpdateInputObserverRegistration @ 0x1C01DD920 (rimObsUpdateInputObserverRegistration.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qdd @ 0x1C007EA2C (WPP_RECORDER_AND_TRACE_SF_qdd.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimObsIsObserverTarget @ 0x1C01DA97C (rimObsIsObserverTarget.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ss @ 0x1C01DAC2C (WPP_RECORDER_AND_TRACE_SF_ss.c)
+ */
+
 char __fastcall rimObsCheckForRegistrationConflicts(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v4; // r12

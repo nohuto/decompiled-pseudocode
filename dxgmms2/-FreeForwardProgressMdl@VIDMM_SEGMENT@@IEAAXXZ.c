@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?FreeForwardProgressMdl@VIDMM_SEGMENT@@IEAAXXZ @ 0x1C00FD318
+ * Callers:
+ *     ??1VIDMM_SEGMENT@@UEAA@XZ @ 0x1C00FC3B0 (--1VIDMM_SEGMENT@@UEAA@XZ.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C0001A30 (--3@YAXPEAX@Z.c)
+ *     ?DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ @ 0x1C00199A4 (-DxgkGetVirtualMemoryInterface@@YAPEBUDXGK_VIRTUAL_MEMORY_INTERFACE@@XZ.c)
+ *     Feature_Servicing_SystemBugcheckAfterStressTest__private_IsEnabledDeviceUsage @ 0x1C0019BEC (Feature_Servicing_SystemBugcheckAfterStressTest__private_IsEnabledDeviceUsage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     ?SysMmFreeLogicalMemory@@YAXPEAUSYSMM_ADAPTER@@PEAX@Z @ 0x1C002CA20 (-SysMmFreeLogicalMemory@@YAXPEAUSYSMM_ADAPTER@@PEAX@Z.c)
+ *     ?VidMmiGetLogicalAddress@@YA_KPEAX_K@Z @ 0x1C00F1AA4 (-VidMmiGetLogicalAddress@@YA_KPEAX_K@Z.c)
+ */
+
 void __fastcall VIDMM_SEGMENT::FreeForwardProgressMdl(VIDMM_SEGMENT *this)
 {
   struct _MDL *v2; // rbx

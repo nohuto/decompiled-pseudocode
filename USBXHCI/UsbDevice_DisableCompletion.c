@@ -1,3 +1,24 @@
+/*
+ * XREFs of UsbDevice_DisableCompletion @ 0x1C0048860
+ * Callers:
+ *     UsbDevice_DisableCompletionReturnFailure @ 0x1C0048B60 (UsbDevice_DisableCompletionReturnFailure.c)
+ *     UsbDevice_DisableCompletionReturnSuccess @ 0x1C0048B80 (UsbDevice_DisableCompletionReturnSuccess.c)
+ *     UsbDevice_OnResetDisableCompletion @ 0x1C00495D0 (UsbDevice_OnResetDisableCompletion.c)
+ * Callees:
+ *     Command_SendCommand @ 0x1C000A820 (Command_SendCommand.c)
+ *     Endpoint_Disable @ 0x1C000B0AC (Endpoint_Disable.c)
+ *     WPP_RECORDER_SF_dqL @ 0x1C000CC70 (WPP_RECORDER_SF_dqL.c)
+ *     UsbDevice_SetDeviceDisabled @ 0x1C000FD4C (UsbDevice_SetDeviceDisabled.c)
+ *     XilCoreDeviceSlot_ClearDeviceContext @ 0x1C001128C (XilCoreDeviceSlot_ClearDeviceContext.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0019330 (WPP_RECORDER_SF_dq.c)
+ *     DeviceSlot_GetXilCoreDeviceSlotData @ 0x1C0019E24 (DeviceSlot_GetXilCoreDeviceSlotData.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ *     XilDeviceSlot_SendClearDeviceContextRequest @ 0x1C0038540 (XilDeviceSlot_SendClearDeviceContextRequest.c)
+ */
+
 char __fastcall UsbDevice_DisableCompletion(__int64 a1, __int64 a2, int a3, int a4)
 {
   __int64 v4; // rdi

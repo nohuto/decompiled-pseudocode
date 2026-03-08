@@ -1,3 +1,19 @@
+/*
+ * XREFs of PspInitializeFullProcessImageName @ 0x140707B78
+ * Callers:
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ * Callees:
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x1403440B0 (MiReferenceControlAreaFileWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PspSetProcessShortName @ 0x1407069F8 (PspSetProcessShortName.c)
+ *     ObQueryNameStringMode @ 0x14071EE84 (ObQueryNameStringMode.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PspInitializeFullProcessImageName(__int64 a1, __int64 a2)
 {
   unsigned __int64 v4; // r14

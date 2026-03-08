@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheaQuerySystemInformation @ 0x140A04B00
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     IpmiHwContextInitialized @ 0x1406751AC (IpmiHwContextInitialized.c)
+ */
+
 __int64 WheaQuerySystemInformation()
 {
   signed __int8 v0; // al

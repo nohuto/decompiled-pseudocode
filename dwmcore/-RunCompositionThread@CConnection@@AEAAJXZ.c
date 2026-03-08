@@ -1,3 +1,29 @@
+/*
+ * XREFs of ?RunCompositionThread@CConnection@@AEAAJXZ @ 0x1800D5BCC
+ * Callers:
+ *     ?CompositionThreadEntryPoint@CConnection@@CAKPEAX@Z @ 0x1800D5BC0 (-CompositionThreadEntryPoint@CConnection@@CAKPEAX@Z.c)
+ * Callees:
+ *     ??2@YAPEAX_K@Z @ 0x180034790 (--2@YAPEAX_K@Z.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038C50 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044B4C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x1800CE01C (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
+ *     ?MainCompositionThreadLoop@CConnection@@AEAAJXZ @ 0x1800D5CD8 (-MainCompositionThreadLoop@CConnection@@AEAAJXZ.c)
+ *     _anonymous_namespace_::State::State @ 0x1800D606C (_anonymous_namespace_--State--State.c)
+ *     ??0CEnergyReporter@@AEAA@XZ @ 0x1800D618C (--0CEnergyReporter@@AEAA@XZ.c)
+ *     ??0CProcessAttributionReporter@@AEAA@XZ @ 0x1800D6228 (--0CProcessAttributionReporter@@AEAA@XZ.c)
+ *     ??0CProcessResourceAttributionReporter@@AEAA@XZ @ 0x1800D6290 (--0CProcessResourceAttributionReporter@@AEAA@XZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B2934 (-_Log_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _anonymous_namespace_::State::_State @ 0x1801CA928 (_anonymous_namespace_--State--_State.c)
+ *     ??1CProcessAttributionManager@@AEAA@XZ @ 0x1801CED80 (--1CProcessAttributionManager@@AEAA@XZ.c)
+ *     ??1CEnergyReporter@@AEAA@XZ @ 0x1801CF100 (--1CEnergyReporter@@AEAA@XZ.c)
+ *     ??1CProcessAttributionReporter@@AEAA@XZ @ 0x1801CF284 (--1CProcessAttributionReporter@@AEAA@XZ.c)
+ *     ??1CProcessResourceAttributionReporter@@AEAA@XZ @ 0x1801CF424 (--1CProcessResourceAttributionReporter@@AEAA@XZ.c)
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ */
+
 __int64 __fastcall CConnection::RunCompositionThread(CConnection *this)
 {
   CProcessAttributionManager *v2; // rax

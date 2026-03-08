@@ -1,3 +1,17 @@
+/*
+ * XREFs of PfTTraceListAdd @ 0x1407E797C
+ * Callers:
+ *     PfTGenerateTrace @ 0x1407E5150 (PfTGenerateTrace.c)
+ *     PfpSectInfoHandleFullBuffer @ 0x1407E5A60 (PfpSectInfoHandleFullBuffer.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     PfTTraceListFree @ 0x1407E7AC8 (PfTTraceListFree.c)
+ *     PfTTraceListTrim @ 0x14097C3AC (PfTTraceListTrim.c)
+ *     PfTAccessTracingCleanup @ 0x140A844E0 (PfTAccessTracingCleanup.c)
+ */
+
 __int64 __fastcall PfTTraceListAdd(__int64 a1)
 {
   __int64 v2; // rdx

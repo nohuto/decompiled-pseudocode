@@ -1,3 +1,13 @@
+/*
+ * XREFs of Controller_IsRunningWithIrqlRaisedAndTracked @ 0x1C0034200
+ * Callers:
+ *     ESM_RunStateMachine @ 0x1C000C510 (ESM_RunStateMachine.c)
+ *     ESM_ShouldQueueWorkItem @ 0x1C0051340 (ESM_ShouldQueueWorkItem.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 char __fastcall Controller_IsRunningWithIrqlRaisedAndTracked(__int64 a1)
 {
   ULONG CurrentProcessorNumber; // eax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpTraceKernelEventWithFilter @ 0x1405FC0F8
+ * Callers:
+ *     EtwTraceObjectOperation @ 0x1405FAC04 (EtwTraceObjectOperation.c)
+ *     EtwTraceDuplicateHandle @ 0x1409E22CC (EtwTraceDuplicateHandle.c)
+ *     EtwTraceObject @ 0x1409E2DE8 (EtwTraceObject.c)
+ *     EtwpTraceHandle @ 0x1409E3D9C (EtwpTraceHandle.c)
+ * Callees:
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ */
+
 void __fastcall EtwpTraceKernelEventWithFilter(
         __int64 a1,
         unsigned int a2,

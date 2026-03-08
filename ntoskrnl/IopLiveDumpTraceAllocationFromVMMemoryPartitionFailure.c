@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopLiveDumpTraceAllocationFromVMMemoryPartitionFailure @ 0x140557CD0
+ * Callers:
+ *     IopLiveDumpAllocateFromVMMemoryPartition @ 0x14094A8B4 (IopLiveDumpAllocateFromVMMemoryPartition.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x140557990 (IopLiveDumpIsTracingEnabled.c)
+ */
+
 char IopLiveDumpTraceAllocationFromVMMemoryPartitionFailure()
 {
   char result; // al

@@ -1,3 +1,16 @@
+/*
+ * XREFs of KeInsertPriQueue @ 0x14033F6C0
+ * Callers:
+ *     ExpTryQueueWorkItem @ 0x140308AAC (ExpTryQueueWorkItem.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ * Callees:
+ *     KiSetPriorityThread @ 0x1402273F0 (KiSetPriorityThread.c)
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiAbQueueAutoBoostDpc @ 0x14035845C (KiAbQueueAutoBoostDpc.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall KeInsertPriQueue(__int64 a1, __int64 *a2, int a3, int a4, int a5)
 {
   __int64 v5; // r12

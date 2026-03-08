@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DetermineViewDistance@Win81@@YA_NQEAXAEBUtagSIZE@@H1HPEAI@Z @ 0x1C031C49C
+ * Callers:
+ *     ?UpdateGdiInfoForVidPnSource@Win81@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIIHPEAU_DPI_INFORMATION@@@Z @ 0x1C031CC94 (-UpdateGdiInfoForVidPnSource@Win81@@YAJPEBU_DXGDMM_INTERFACE@@QEAXIIHPEAU_DPI_INFORMATION@@@Z.c)
+ * Callees:
+ *     ?HeuristicallyDetermineViewingDistance@Win81@@YAIAEBUtagSIZE@@H0H@Z @ 0x1C031C960 (-HeuristicallyDetermineViewingDistance@Win81@@YAIAEBUtagSIZE@@H0H@Z.c)
+ *     ?OemSpecifiedViewDist@Win81@@YAIQEAX@Z @ 0x1C031CB78 (-OemSpecifiedViewDist@Win81@@YAIQEAX@Z.c)
+ */
+
 char __fastcall Win81::DetermineViewDistance(
         Win81 *this,
         void *const a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiNonNumaQueryNodeCapacity @ 0x14056E430
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiNonNumaQueryNodeCapacity(__int16 a1, _DWORD *a2)
 {
   if ( a1 )

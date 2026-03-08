@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?BuildManipulationInputInfo@CTouchProcessor@@QEAAXPEAUtagMANIPULATION_INPUT_INFO@@IPEBUCPointerInputFrame@@@Z @ 0x1C01E9B90
+ * Callers:
+ *     ?ForwardInputToManipulationThread@CTouchProcessor@@QEAAXPEBUCPointerInputFrame@@W4MIT_INPUT_INTEROP_CALLBACK@@@Z @ 0x1C01F1CA0 (-ForwardInputToManipulationThread@CTouchProcessor@@QEAAXPEBUCPointerInputFrame@@W4MIT_INPUT_INTE.c)
+ * Callees:
+ *     HMValidateHandleNoSecure @ 0x1C007A1CC (HMValidateHandleNoSecure.c)
+ *     ApiSetAddMagnificationOutputTransform @ 0x1C007E5A8 (ApiSetAddMagnificationOutputTransform.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ *     GetPointerInfoSize @ 0x1C00EEA9A (GetPointerInfoSize.c)
+ *     ?GetInputProcessContext@CTouchProcessor@@AEAAPEAUtagPROCESSINFO@@PEAX@Z @ 0x1C00F25F0 (-GetInputProcessContext@CTouchProcessor@@AEAAPEAUtagPROCESSINFO@@PEAX@Z.c)
+ *     ?IsForManipulationThread@CPointerInfoNode@@QEBAHXZ @ 0x1C00F2CB2 (-IsForManipulationThread@CPointerInfoNode@@QEBAHXZ.c)
+ *     ?CalcManipulationInputInfoSize@CTouchProcessor@@AEAAKK@Z @ 0x1C01E9F64 (-CalcManipulationInputInfoSize@CTouchProcessor@@AEAAKK@Z.c)
+ *     ?CountMTNodesReadyForRouting@CTouchProcessor@@AEAAIPEBUCPointerInputFrame@@@Z @ 0x1C01EEC18 (-CountMTNodesReadyForRouting@CTouchProcessor@@AEAAIPEBUCPointerInputFrame@@@Z.c)
+ *     ConvertPointCoordinates @ 0x1C0223374 (ConvertPointCoordinates.c)
+ */
+
 void __fastcall CTouchProcessor::BuildManipulationInputInfo(
         CTouchProcessor *this,
         struct tagMANIPULATION_INPUT_INFO *a2,

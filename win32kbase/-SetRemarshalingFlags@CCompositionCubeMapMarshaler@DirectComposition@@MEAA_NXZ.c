@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CCompositionCubeMapMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C00D6470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall DirectComposition::CCompositionCubeMapMarshaler::SetRemarshalingFlags(
         DirectComposition::CCompositionCubeMapMarshaler *this)
 {

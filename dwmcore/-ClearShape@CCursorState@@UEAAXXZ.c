@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ClearShape@CCursorState@@UEAAXXZ @ 0x180276450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_Decref@_Ref_count_base@std@@QEAAXXZ @ 0x18012BB3A (-_Decref@_Ref_count_base@std@@QEAAXXZ.c)
+ *     ??4?$shared_ptr@VCRegion@@@std@@QEAAAEAV01@$$QEAV01@@Z @ 0x1801D8440 (--4-$shared_ptr@VCRegion@@@std@@QEAAAEAV01@$$QEAV01@@Z.c)
+ *     ?ScheduleCompositionPass@CCursorState@@AEAAXXZ @ 0x180277A58 (-ScheduleCompositionPass@CCursorState@@AEAAXXZ.c)
+ */
+
 void __fastcall CCursorState::ClearShape(CCursorState *this)
 {
   std::_Ref_count_base *v2[2]; // [rsp+20h] [rbp-18h] BYREF

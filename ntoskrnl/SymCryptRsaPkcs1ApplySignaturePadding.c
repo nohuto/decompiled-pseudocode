@@ -1,3 +1,12 @@
+/*
+ * XREFs of SymCryptRsaPkcs1ApplySignaturePadding @ 0x1403F33D8
+ * Callers:
+ *     SymCryptRsaPkcs1CheckSignaturePadding @ 0x1403F351C (SymCryptRsaPkcs1CheckSignaturePadding.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall SymCryptRsaPkcs1ApplySignaturePadding(
         const void *a1,
         size_t a2,

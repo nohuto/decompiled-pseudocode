@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhFdoPnp @ 0x1C0021200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ */
+
 NTSTATUS __fastcall UsbhFdoPnp(__int64 a1, IRP *a2)
 {
   __int64 v4; // rdi

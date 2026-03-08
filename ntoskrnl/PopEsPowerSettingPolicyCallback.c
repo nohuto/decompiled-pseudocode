@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopEsPowerSettingPolicyCallback @ 0x140860990
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopEsQueueStateEvaluation @ 0x14086E7D0 (PopEsQueueStateEvaluation.c)
+ */
+
 __int64 __fastcall PopEsPowerSettingPolicyCallback(__int64 a1, _DWORD *a2, int a3)
 {
   unsigned int v3; // ebx

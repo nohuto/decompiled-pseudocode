@@ -1,3 +1,15 @@
+/*
+ * XREFs of PfSnGetCompletedTrace @ 0x140788154
+ * Callers:
+ *     PfSnQueryPrefetcherInformation @ 0x140787F0C (PfSnQueryPrefetcherInformation.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfSnGetCompletedTrace(volatile void *a1, unsigned int a2, unsigned int *a3)
 {
   char v5; // r12

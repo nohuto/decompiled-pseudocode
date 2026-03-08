@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??$_Insert_range@PEAPEAVCSceneComponent@@@?$vector@PEAVCSceneComponent@@V?$allocator@PEAVCSceneComponent@@@std@@@std@@AEAAXV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@PEAVCSceneComponent@@@std@@@std@@@1@PEAPEAVCSceneComponent@@1Uforward_iterator_tag@1@@Z @ 0x1801BB9D8
+ * Callers:
+ *     ?SetOrAppendComponents@?$CSceneNodeGeneratedT@VCSceneNode@@VCSceneObject@@@@AEAAJAEBV?$span@PEAVCSceneComponent@@$0?0@gsl@@_N@Z @ 0x1801C4EC4 (-SetOrAppendComponents@-$CSceneNodeGeneratedT@VCSceneNode@@VCSceneObject@@@@AEAAJAEBV-$span@PEAV.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$07@std@@YA_K_K@Z @ 0x1800B9880 (--$_Get_size_of_n@$07@std@@YA_K_K@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     ?_Change_array@?$vector@PEAVCSceneComponent@@V?$allocator@PEAVCSceneComponent@@@std@@@std@@AEAAXQEAPEAVCSceneComponent@@_K1@Z @ 0x1801C7694 (-_Change_array@-$vector@PEAVCSceneComponent@@V-$allocator@PEAVCSceneComponent@@@std@@@std@@AEAAX.c)
+ */
+
 void __fastcall std::vector<CSceneComponent *>::_Insert_range<CSceneComponent * *>(
         __int64 a1,
         _BYTE *a2,

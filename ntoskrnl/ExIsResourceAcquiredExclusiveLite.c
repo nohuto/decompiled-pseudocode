@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExIsResourceAcquiredExclusiveLite @ 0x1402C3360
+ * Callers:
+ *     HvpTruncateBins @ 0x14072DABC (HvpTruncateBins.c)
+ * Callees:
+ *     ExIsFastResourceHeldExclusive @ 0x1403C4E10 (ExIsFastResourceHeldExclusive.c)
+ *     ExIsFastResourceHeldExclusive2 @ 0x14040E7A0 (ExIsFastResourceHeldExclusive2.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 BOOLEAN __stdcall ExIsResourceAcquiredExclusiveLite(PERESOURCE Resource)
 {
   USHORT Flag; // dx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReleaseAndRestore@FxInternalIoctlOthersContext@@UEAAXPEAVFxRequestBase@@@Z @ 0x1C0050360
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReleaseAndRestore@FxRequestContext@@UEAAXPEAVFxRequestBase@@@Z @ 0x1C0008E40 (-ReleaseAndRestore@FxRequestContext@@UEAAXPEAVFxRequestBase@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall FxInternalIoctlOthersContext::ReleaseAndRestore(
         FxInternalIoctlOthersContext *this,
         FxRequestBase *Request)

@@ -1,3 +1,13 @@
+/*
+ * XREFs of _SetDisplayMapping @ 0x1C01C4A90
+ * Callers:
+ *     NtUserSetDisplayMapping @ 0x1C01DC8D0 (NtUserSetDisplayMapping.c)
+ * Callees:
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C010A9B4 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall SetDisplayMapping(__int64 a1, __int64 a2)
 {
   unsigned int v4; // edi

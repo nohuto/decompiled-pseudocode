@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopQueryReconfiguration @ 0x14096A0F4
+ * Callers:
+ *     PnpCancelStopDeviceNode @ 0x14096B484 (PnpCancelStopDeviceNode.c)
+ *     PnpQueryStopDeviceNode @ 0x14096B8B8 (PnpQueryStopDeviceNode.c)
+ *     PnpStopDeviceSubtree @ 0x14096BD20 (PnpStopDeviceSubtree.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopSynchronousCall @ 0x14069DD78 (IopSynchronousCall.c)
+ */
+
 __int64 __fastcall IopQueryReconfiguration(char a1, _QWORD *a2)
 {
   __int64 v4; // r9

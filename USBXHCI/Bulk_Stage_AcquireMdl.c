@@ -1,3 +1,11 @@
+/*
+ * XREFs of Bulk_Stage_AcquireMdl @ 0x1C002292E
+ * Callers:
+ *     Bulk_PrepareStage @ 0x1C001239C (Bulk_PrepareStage.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DDDqq @ 0x1C00127F0 (WPP_RECORDER_SF_DDDqq.c)
+ */
+
 __int64 __fastcall Bulk_Stage_AcquireMdl(__int64 a1)
 {
   unsigned int v2; // esi

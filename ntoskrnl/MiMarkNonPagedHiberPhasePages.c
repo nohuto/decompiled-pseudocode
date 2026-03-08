@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiMarkNonPagedHiberPhasePages @ 0x140AA9324
+ * Callers:
+ *     MiMarkHotPatchForHiberPhase @ 0x140640410 (MiMarkHotPatchForHiberPhase.c)
+ *     MiMarkHotPatchesForHiberPhase @ 0x140640440 (MiMarkHotPatchesForHiberPhase.c)
+ *     MmMarkHiberPhase @ 0x140AA9B70 (MmMarkHiberPhase.c)
+ *     MmMarkImageForHiberPhase @ 0x140AA9DFC (MmMarkImageForHiberPhase.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiWalkPageTables @ 0x140222CF0 (MiWalkPageTables.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiMarkNonPagedHiberPhasePages(__int64 a1, __int64 a2, unsigned __int16 a3)
 {
   __m128i v4; // rdi

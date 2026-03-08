@@ -1,3 +1,17 @@
+/*
+ * XREFs of _winput_s @ 0x1403DCC54
+ * Callers:
+ *     _swinput_s @ 0x1403DCB80 (_swinput_s.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     iswctype @ 0x1403D67C4 (iswctype.c)
+ *     ReadString_0 @ 0x1403DC78C (ReadString_0.c)
+ *     ReadStringDelimited_0 @ 0x1403DC9D4 (ReadStringDelimited_0.c)
+ *     _whiteout @ 0x1403DCBFC (_whiteout.c)
+ *     _fgetwc_nolock @ 0x1403DD6B8 (_fgetwc_nolock.c)
+ *     _ungetwc_nolock @ 0x1403DD704 (_ungetwc_nolock.c)
+ */
+
 __int64 __fastcall winput_s(FILE *File, unsigned __int16 *a2, __int64 a3)
 {
   unsigned int v3; // ebx

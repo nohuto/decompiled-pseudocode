@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBMISC_IsD3ColdSupported @ 0x1C0033D00
+ * Callers:
+ *     HUBPSM30_CheckingIsD3ColdIsEnabled @ 0x1C0012D30 (HUBPSM30_CheckingIsD3ColdIsEnabled.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_dddd @ 0x1C002E0D0 (WPP_RECORDER_SF_dddd.c)
+ */
+
 __int64 __fastcall HUBMISC_IsD3ColdSupported(__int64 *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 *v5; // rsi

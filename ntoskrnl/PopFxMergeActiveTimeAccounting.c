@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopFxMergeActiveTimeAccounting @ 0x140588AE0
+ * Callers:
+ *     PopFxPauseDeviceAccounting @ 0x140588B84 (PopFxPauseDeviceAccounting.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopFxMergeActiveTimeAccounting(_QWORD *a1)
 {
   __int64 v1; // rdx

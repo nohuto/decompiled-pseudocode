@@ -1,3 +1,17 @@
+/*
+ * XREFs of MmPrepareImagePagesForHotPatch @ 0x140A395A0
+ * Callers:
+ *     PsDispatchIumService @ 0x1405A2A44 (PsDispatchIumService.c)
+ * Callees:
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x14031EFE0 (MiObtainReferencedVadEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiPrepareImagePagesForHotPatch @ 0x1406404D8 (MiPrepareImagePagesForHotPatch.c)
+ *     MiImageVadHotPatchEligible @ 0x140768E2C (MiImageVadHotPatchEligible.c)
+ *     MiInitializeImageHotPatchContext @ 0x140A34BC4 (MiInitializeImageHotPatchContext.c)
+ *     MiReleaseHotPatchResources @ 0x140A39030 (MiReleaseHotPatchResources.c)
+ */
+
 __int64 __fastcall MmPrepareImagePagesForHotPatch(unsigned __int64 a1, __int64 a2, __int64 *a3)
 {
   __int64 v6; // rax

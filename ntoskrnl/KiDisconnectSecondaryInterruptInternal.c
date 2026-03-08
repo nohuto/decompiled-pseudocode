@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiDisconnectSecondaryInterruptInternal @ 0x14056F5B0
+ * Callers:
+ *     KiDisconnectInterruptCommon @ 0x14028E714 (KiDisconnectInterruptCommon.c)
+ *     KiProcessPendingDisconnect @ 0x14039E4D0 (KiProcessPendingDisconnect.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiDisconnectSecondaryInterruptInternal(__int64 a1)
 {
   __int64 result; // rax

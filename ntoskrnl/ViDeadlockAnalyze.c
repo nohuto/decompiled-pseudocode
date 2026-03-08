@@ -1,3 +1,18 @@
+/*
+ * XREFs of ViDeadlockAnalyze @ 0x140AD5740
+ * Callers:
+ *     VfDeadlockAcquireResource @ 0x140AD3DAC (VfDeadlockAcquireResource.c)
+ *     ViDeadlockAnalyze @ 0x140AD5740 (ViDeadlockAnalyze.c)
+ * Callees:
+ *     KeQueryCurrentStackInformation @ 0x1402E1E00 (KeQueryCurrentStackInformation.c)
+ *     KeGetCurrentStackPointer @ 0x1404166E0 (KeGetCurrentStackPointer.c)
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     ViDeadlockAddParticipant @ 0x140AD53A8 (ViDeadlockAddParticipant.c)
+ *     ViDeadlockAnalyze @ 0x140AD5740 (ViDeadlockAnalyze.c)
+ *     ViDeadlockCertify @ 0x140AD59AC (ViDeadlockCertify.c)
+ *     ViDeadlockPreprocessOptions @ 0x140AD6830 (ViDeadlockPreprocessOptions.c)
+ */
+
 __int64 __fastcall ViDeadlockAnalyze(ULONG_PTR a1, ULONG_PTR a2, int a3, unsigned int a4, __int64 a5)
 {
   unsigned int v8; // ebx

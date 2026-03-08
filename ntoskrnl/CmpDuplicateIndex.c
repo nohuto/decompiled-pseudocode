@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpDuplicateIndex @ 0x140A20550
+ * Callers:
+ *     CmRenameKey @ 0x140A1170C (CmRenameKey.c)
+ *     CmpLightWeightDuplicateParentLists @ 0x140A25F50 (CmpLightWeightDuplicateParentLists.c)
+ * Callees:
+ *     HvDuplicateCell @ 0x1407890A4 (HvDuplicateCell.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvFreeCell @ 0x1407A6A90 (HvFreeCell.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall CmpDuplicateIndex(
         ULONG_PTR BugCheckParameter2,
         ULONG_PTR BugCheckParameter4,

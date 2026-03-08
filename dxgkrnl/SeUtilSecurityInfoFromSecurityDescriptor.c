@@ -1,3 +1,12 @@
+/*
+ * XREFs of SeUtilSecurityInfoFromSecurityDescriptor @ 0x1C0393830
+ * Callers:
+ *     IopDevObjApplyPostCreationSettings @ 0x1C03926D0 (IopDevObjApplyPostCreationSettings.c)
+ *     PiRegStateReadStackCreationSettingsFromKey @ 0x1C03933A4 (PiRegStateReadStackCreationSettingsFromKey.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall SeUtilSecurityInfoFromSecurityDescriptor(
         PSECURITY_DESCRIPTOR SecurityDescriptor,
         unsigned __int8 *a2,

@@ -1,3 +1,16 @@
+/*
+ * XREFs of UserSetAltScaleFont @ 0x1C010E47C
+ * Callers:
+ *     SetIconMetrics @ 0x1C010C85C (SetIconMetrics.c)
+ *     xxxSetNCFonts @ 0x1C010E91C (xxxSetNCFonts.c)
+ *     ?SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z @ 0x1C01C8BB4 (-SPISetIconTitleFont@@YAHPEAU_UNICODE_STRING@@PEAUtagLOGFONTW@@H@Z.c)
+ * Callees:
+ *     GreCreateFontIndirectW @ 0x1C0025AF8 (GreCreateFontIndirectW.c)
+ *     GreExtGetObjectW @ 0x1C0065580 (GreExtGetObjectW.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall UserSetAltScaleFont(HBRUSH a1, __int64 *a2)
 {
   int ObjectW; // eax

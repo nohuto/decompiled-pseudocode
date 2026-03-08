@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtUserGetWindowMinimizeRect @ 0x1C000D3A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxSendMinRectMessages @ 0x1C000D518 (xxxSendMinRectMessages.c)
+ *     ?IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z @ 0x1C002E354 (-IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z.c)
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ParkIcon @ 0x1C0101D68 (ParkIcon.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall NtUserGetWindowMinimizeRect(__int64 a1, _OWORD *a2)
 {
   int v4; // edi

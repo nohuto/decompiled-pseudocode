@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UpdateLastActiveEntry@DripsBlockerTrackingHelper@@IEAAXII@Z @ 0x1C0302AE8
+ * Callers:
+ *     ?RemoveProcessEntry@DripsBlockerTrackingHelper@@QEAAJ_KPEBDPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0302920 (-RemoveProcessEntry@DripsBlockerTrackingHelper@@QEAAJ_KPEBDPEAU_EPROCESS@@W4_DXGKETW_PROFILER_TY.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DripsBlockerTrackingHelper::UpdateLastActiveEntry(
         DripsBlockerTrackingHelper *this,
         unsigned int a2,

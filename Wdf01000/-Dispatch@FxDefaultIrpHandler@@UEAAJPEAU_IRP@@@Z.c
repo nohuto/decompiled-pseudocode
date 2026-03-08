@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Dispatch@FxDefaultIrpHandler@@UEAAJPEAU_IRP@@@Z @ 0x1C0067BE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_RequiresRemLock@FxDevice@@SA?AW4FxDeviceRemLockAction@@EE@Z @ 0x1C003F1E0 (-_RequiresRemLock@FxDevice@@SA-AW4FxDeviceRemLockAction@@EE@Z.c)
+ */
+
 NTSTATUS __fastcall FxDefaultIrpHandler::Dispatch(FxDefaultIrpHandler *this, _IRP *Irp)
 {
   char v4; // cl

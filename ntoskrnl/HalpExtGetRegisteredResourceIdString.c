@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpExtGetRegisteredResourceIdString @ 0x14050B59C
+ * Callers:
+ *     HalpExtRegisterResourceDescriptor @ 0x14050B5F0 (HalpExtRegisterResourceDescriptor.c)
+ * Callees:
+ *     HalpExtBuildResourceIdString @ 0x140374218 (HalpExtBuildResourceIdString.c)
+ */
+
 __int64 __fastcall HalpExtGetRegisteredResourceIdString(__int64 a1, __int64 a2, wchar_t *Dst)
 {
   __int64 v3; // r10

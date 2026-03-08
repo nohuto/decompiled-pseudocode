@@ -1,3 +1,19 @@
+/*
+ * XREFs of PspCompleteServerSiloShutdownDeferred @ 0x1409A9B20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     PspSendJobNotification @ 0x14030201C (PspSendJobNotification.c)
+ *     PsGetServerSiloState @ 0x1403552EC (PsGetServerSiloState.c)
+ *     PspUnlockJob @ 0x1406FBF7C (PspUnlockJob.c)
+ *     PspLockJobShared @ 0x1406FBFC0 (PspLockJobShared.c)
+ *     PspDeleteExternalServerSiloState @ 0x1409A9DE8 (PspDeleteExternalServerSiloState.c)
+ *     PspTerminateSiloSubsystemProcesses @ 0x1409AAAF0 (PspTerminateSiloSubsystemProcesses.c)
+ *     PspNotifyServerSiloTermination @ 0x1409B147C (PspNotifyServerSiloTermination.c)
+ */
+
 LONG_PTR __fastcall PspCompleteServerSiloShutdownDeferred(_QWORD *Object)
 {
   void *ServerSiloGlobals; // rdi

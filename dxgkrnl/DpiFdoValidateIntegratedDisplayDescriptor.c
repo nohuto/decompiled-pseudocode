@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiFdoValidateIntegratedDisplayDescriptor @ 0x1C0399218
+ * Callers:
+ *     DpiFdoCreateRelatedObjects @ 0x1C0202548 (DpiFdoCreateRelatedObjects.c)
+ * Callees:
+ *     DpiIsValidEdid @ 0x1C001F86C (DpiIsValidEdid.c)
+ *     DpiFdoValidateDxgkColorimetry @ 0x1C02148C0 (DpiFdoValidateDxgkColorimetry.c)
+ */
+
 __int64 __fastcall DpiFdoValidateIntegratedDisplayDescriptor(__int64 a1, __int64 a2)
 {
   unsigned int *v3; // rdi

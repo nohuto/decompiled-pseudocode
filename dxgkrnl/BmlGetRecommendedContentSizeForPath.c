@@ -1,3 +1,17 @@
+/*
+ * XREFs of BmlGetRecommendedContentSizeForPath @ 0x1C03B8D90
+ * Callers:
+ *     ?BmlFunctionalizeVidPn@@YAJPEBUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@@Z @ 0x1C016D684 (-BmlFunctionalizeVidPn@@YAJPEBUBML_VIDPN_PATH_ORDER@@PEAVDMMVIDPN@@@Z.c)
+ * Callees:
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C0007E94 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     ?AcquireCofuncModeSetRef@DMMVIDPNTARGET@@QEBAPEAVDMMVIDPNTARGETMODESET@@XZ @ 0x1C0007F20 (-AcquireCofuncModeSetRef@DMMVIDPNTARGET@@QEBAPEAVDMMVIDPNTARGETMODESET@@XZ.c)
+ *     ?GetNextMode@DMMVIDPNSOURCEMODESET@@QEBAPEBVDMMVIDPNSOURCEMODE@@QEBV2@@Z @ 0x1C00688BC (-GetNextMode@DMMVIDPNSOURCEMODESET@@QEBAPEBVDMMVIDPNSOURCEMODE@@QEBV2@@Z.c)
+ *     BmlCompareRegionsWithPivot @ 0x1C016E1AC (BmlCompareRegionsWithPivot.c)
+ *     BmlAreRawModesEnabled @ 0x1C016E6D4 (BmlAreRawModesEnabled.c)
+ *     BmlGetModeCategoryForRegion @ 0x1C017104C (BmlGetModeCategoryForRegion.c)
+ *     BmlIsSupportedSourceMode @ 0x1C03B8FC8 (BmlIsSupportedSourceMode.c)
+ */
+
 __int64 __fastcall BmlGetRecommendedContentSizeForPath(
         unsigned __int8 *a1,
         unsigned __int16 a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?LogLockAllocationBackingStoreToEtw@VIDMM_SEGMENT@@SAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00FDCA8
+ * Callers:
+ *     ?ReportSegmentState@VIDMM_SEGMENT@@QEAAXXZ @ 0x1C00FF1BC (-ReportSegmentState@VIDMM_SEGMENT@@QEAAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0xxqXR2_EtwWriteTransfer @ 0x1C0032EF8 (McTemplateK0xxqXR2_EtwWriteTransfer.c)
+ */
+
 void __fastcall VIDMM_SEGMENT::LogLockAllocationBackingStoreToEtw(
         struct _VIDMM_GLOBAL_ALLOC *a1,
         __int64 a2,

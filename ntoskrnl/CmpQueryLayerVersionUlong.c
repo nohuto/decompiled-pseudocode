@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpQueryLayerVersionUlong @ 0x140814F44
+ * Callers:
+ *     CmpLoadLayerVersion @ 0x140814A94 (CmpLoadLayerVersion.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 NTSTATUS __fastcall CmpQueryLayerVersionUlong(_DWORD *a1, const WCHAR *a2, void *a3)
 {
   NTSTATUS result; // eax

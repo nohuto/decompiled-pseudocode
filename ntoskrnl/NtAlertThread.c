@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtAlertThread @ 0x1409B2F60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KeAlertThread @ 0x140354F40 (KeAlertThread.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ */
+
 __int64 __fastcall NtAlertThread(ULONG_PTR a1)
 {
   char PreviousMode; // bl

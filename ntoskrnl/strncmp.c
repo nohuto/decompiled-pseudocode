@@ -1,3 +1,26 @@
+/*
+ * XREFs of strncmp @ 0x1403D3310
+ * Callers:
+ *     HalpAcpiCheckAndMapTable @ 0x14029AD4C (HalpAcpiCheckAndMapTable.c)
+ *     HalpAcpiGetCachedTable @ 0x14029C6E4 (HalpAcpiGetCachedTable.c)
+ *     RtlLookupImageSectionByName @ 0x1402F4704 (RtlLookupImageSectionByName.c)
+ *     RtlGetCpuVendor @ 0x1403A2664 (RtlGetCpuVendor.c)
+ *     HvlDebuggerSupportInitialize @ 0x1403B0FD4 (HvlDebuggerSupportInitialize.c)
+ *     EtwpApplyPredicate @ 0x140602884 (EtwpApplyPredicate.c)
+ *     PopPowerRequestStatsIsDetailedRequestReason @ 0x14073C588 (PopPowerRequestStatsIsDetailedRequestReason.c)
+ *     BiGetObjectReferenceFromEfiEntry @ 0x14082F354 (BiGetObjectReferenceFromEfiEntry.c)
+ *     RtlValidateCorrelationVector @ 0x1409BBFC0 (RtlValidateCorrelationVector.c)
+ *     ApiSetpFindImageSection @ 0x140A072FC (ApiSetpFindImageSection.c)
+ *     AslpFileHasSecuromWrapper @ 0x140A5630C (AslpFileHasSecuromWrapper.c)
+ *     AslpHasStarForceWrapper @ 0x140A56788 (AslpHasStarForceWrapper.c)
+ *     KiGetCpuVendor @ 0x140A85800 (KiGetCpuVendor.c)
+ *     HalpInitializeProfiling @ 0x140A8DF54 (HalpInitializeProfiling.c)
+ *     KdInitSystem @ 0x140AAE040 (KdInitSystem.c)
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     <none>
+ */
+
 int __cdecl strncmp(const char *Str1, const char *Str2, size_t MaxCount)
 {
   signed __int64 v3; // r9

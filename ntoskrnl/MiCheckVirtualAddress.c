@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiCheckVirtualAddress @ 0x140225600
+ * Callers:
+ *     MiSystemFault @ 0x1402220A0 (MiSystemFault.c)
+ *     MiUserFault @ 0x140268260 (MiUserFault.c)
+ *     MiResolveDemandZeroFault @ 0x14026B720 (MiResolveDemandZeroFault.c)
+ *     MiTranslatePageForCopy @ 0x1402A1FD4 (MiTranslatePageForCopy.c)
+ *     MiIsFaultPteIntact @ 0x1402A30FC (MiIsFaultPteIntact.c)
+ *     MiFindActualFaultingPte @ 0x1402A31F0 (MiFindActualFaultingPte.c)
+ *     MiCheckProtoAccess @ 0x1402DF228 (MiCheckProtoAccess.c)
+ *     MiInPagePageTable @ 0x140345FA0 (MiInPagePageTable.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     MiCheckUserVirtualAddress @ 0x1402258B0 (MiCheckUserVirtualAddress.c)
+ *     MiUnlockVadTree @ 0x140330EC8 (MiUnlockVadTree.c)
+ */
+
 __int64 __fastcall MiCheckVirtualAddress(unsigned __int64 a1, _DWORD *a2, _QWORD *a3)
 {
   __int64 v6; // rax

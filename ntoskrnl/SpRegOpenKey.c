@@ -1,3 +1,12 @@
+/*
+ * XREFs of SpRegOpenKey @ 0x14085A004
+ * Callers:
+ *     SpRegOpenRedirectedKey @ 0x140859F40 (SpRegOpenRedirectedKey.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ */
+
 __int64 __fastcall SpRegOpenKey(UNICODE_STRING *a1, HANDLE *a2)
 {
   NTSTATUS v3; // eax

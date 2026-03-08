@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspInitializeCpuPartitionsPhase0 @ 0x140B68074
+ * Callers:
+ *     PspInitPhase0 @ 0x140B3F968 (PspInitPhase0.c)
+ * Callees:
+ *     KeInitializeCpuPartition @ 0x1403A5F58 (KeInitializeCpuPartition.c)
+ *     PsCreateCpuPartition @ 0x140853FE4 (PsCreateCpuPartition.c)
+ *     PspInitializeCpuPartitionsDefaultSd @ 0x140B6811C (PspInitializeCpuPartitionsDefaultSd.c)
+ */
+
 __int64 PspInitializeCpuPartitionsPhase0()
 {
   __int64 result; // rax

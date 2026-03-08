@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CHolographicInteropTexture@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802A7AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CHolographicInteropTexture::HrFindInterface(
         CHolographicInteropTexture *this,
         const struct _GUID *a2,

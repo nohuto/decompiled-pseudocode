@@ -1,3 +1,12 @@
+/*
+ * XREFs of DwmSyncFlushForceRenderAndWaitForBatch @ 0x1C0270960
+ * Callers:
+ *     DwmSyncFlushWindowChanges @ 0x1C0270A50 (DwmSyncFlushWindowChanges.c)
+ * Callees:
+ *     ?DwmSyncLPCAllowed@@YAJXZ @ 0x1C001D800 (-DwmSyncLPCAllowed@@YAJXZ.c)
+ *     ?SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z @ 0x1C001D830 (-SyncLpcCheckNtStatus@@YAJJPEAU_PORT_MESSAGE@@@Z.c)
+ */
+
 __int64 __fastcall DwmSyncFlushForceRenderAndWaitForBatch(PVOID Object, int a2)
 {
   int v4; // ebx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of HsaUpdateRemappingDestination @ 0x14052EC90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IvtUpdateExtendedDestination @ 0x14052B6EC (IvtUpdateExtendedDestination.c)
+ *     HsaGetDeviceAperture @ 0x14052DBF0 (HsaGetDeviceAperture.c)
+ *     HsaInvalidateRemappingTableEntries @ 0x14052E114 (HsaInvalidateRemappingTableEntries.c)
+ */
+
 __int64 __fastcall HsaUpdateRemappingDestination(__int64 a1, __int64 a2, int a3, int a4, int a5)
 {
   __m128i v5; // rax

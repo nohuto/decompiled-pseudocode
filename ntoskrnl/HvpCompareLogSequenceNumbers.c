@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvpCompareLogSequenceNumbers @ 0x1407F985C
+ * Callers:
+ *     HvAnalyzeLogFiles @ 0x1407F9528 (HvAnalyzeLogFiles.c)
+ *     HvpDetermineLogFileApplicationOrder @ 0x1407F9F14 (HvpDetermineLogFileApplicationOrder.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HvpCompareLogSequenceNumbers(unsigned int a1, unsigned int a2)
 {
   unsigned int v2; // edx

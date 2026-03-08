@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGhostWindowFromHungWindow @ 0x1C0025580
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_GhostWindowFromHungWindow@@YAPEAUtagWND@@PEBU1@@Z @ 0x1C00255DC (-_GhostWindowFromHungWindow@@YAPEAUtagWND@@PEBU1@@Z.c)
+ */
+
 __int64 __fastcall NtUserGhostWindowFromHungWindow(__int64 a1)
 {
   const struct tagWND *v2; // rax

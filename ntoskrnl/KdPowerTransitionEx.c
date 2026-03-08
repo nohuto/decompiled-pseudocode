@@ -1,3 +1,21 @@
+/*
+ * XREFs of KdPowerTransitionEx @ 0x1403A7D80
+ * Callers:
+ *     PpmIdleExecuteTransition @ 0x14022D7D0 (PpmIdleExecuteTransition.c)
+ *     HalReturnToFirmware @ 0x140504990 (HalReturnToFirmware.c)
+ *     KdDisableDebuggerWithLock @ 0x140565128 (KdDisableDebuggerWithLock.c)
+ *     KdEnableDebuggerWithLock @ 0x14056537C (KdEnableDebuggerWithLock.c)
+ *     KdPowerTransition @ 0x1405655B0 (KdPowerTransition.c)
+ *     PopFxDebuggerPowerCriticalTransitionCallback @ 0x1405976B0 (PopFxDebuggerPowerCriticalTransitionCallback.c)
+ * Callees:
+ *     ObGetCurrentIrql @ 0x140205E10 (ObGetCurrentIrql.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     PpmCancelExitLatencyTrace @ 0x1403A7EC8 (PpmCancelExitLatencyTrace.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KdPowerTransitionEx(int a1, char a2)
 {
   unsigned int v3; // esi

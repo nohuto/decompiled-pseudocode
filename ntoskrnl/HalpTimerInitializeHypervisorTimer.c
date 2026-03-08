@@ -1,3 +1,21 @@
+/*
+ * XREFs of HalpTimerInitializeHypervisorTimer @ 0x1403B13E0
+ * Callers:
+ *     HalpTimerInitSystem @ 0x1403776D0 (HalpTimerInitSystem.c)
+ * Callees:
+ *     HalpInterruptGsiToLine @ 0x14028EF10 (HalpInterruptGsiToLine.c)
+ *     HalpIsPartitionCpuManager @ 0x1403732F8 (HalpIsPartitionCpuManager.c)
+ *     HalpTimerInitialize @ 0x140377220 (HalpTimerInitialize.c)
+ *     HalpFindTimer @ 0x140377CA8 (HalpFindTimer.c)
+ *     HalpInterruptApplyOverrides @ 0x140379748 (HalpInterruptApplyOverrides.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpInterruptSetRemappedLineState @ 0x140502790 (HalpInterruptSetRemappedLineState.c)
+ *     HalpTimerEnableHypervisorTimer @ 0x140508738 (HalpTimerEnableHypervisorTimer.c)
+ *     HalpTimerTestHypervisorTimer @ 0x140508908 (HalpTimerTestHypervisorTimer.c)
+ *     HalpHvBuildDeviceId @ 0x140A92814 (HalpHvBuildDeviceId.c)
+ */
+
 char __fastcall HalpTimerInitializeHypervisorTimer(__int64 a1, __int64 a2)
 {
   __int64 v7; // rbx

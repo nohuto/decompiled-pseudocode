@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?vOrder@ERECTL@@QEAAXXZ @ 0x1C001CD74
+ * Callers:
+ *     GreCreateRectRgn @ 0x1C0019F70 (GreCreateRectRgn.c)
+ *     NtGdiCreateRectRgn @ 0x1C001C0B0 (NtGdiCreateRectRgn.c)
+ *     ?GrepValidateVisRgn@@YAXPEAVDC@@PEAVREGION@@@Z @ 0x1C00432EC (-GrepValidateVisRgn@@YAXPEAVDC@@PEAVREGION@@@Z.c)
+ *     ?GrepValidateVisRgn@@YA_NPEAVDC@@PEAVREGION@@AEAVERECTL@@@Z @ 0x1C00DE9A0 (-GrepValidateVisRgn@@YA_NPEAVDC@@PEAVREGION@@AEAVERECTL@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ERECTL::vOrder(ERECTL *this)
 {
   int v1; // eax

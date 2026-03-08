@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsExpressionValueValid@CBaseExpression@@AEAA_NPEAVCExpressionValue@@@Z @ 0x1800547D0
+ * Callers:
+ *     ?CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x180053D90 (-CalculateValue@CBaseExpression@@QEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CBaseExpression::IsExpressionValueValid(CBaseExpression *this, struct CExpressionValue *a2)
 {
   int v2; // eax

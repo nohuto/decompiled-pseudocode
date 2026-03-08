@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??8tagCOMPOSITION_TARGET_ID@@QEBA_NAEBU0@@Z @ 0x1C0002B2C
+ * Callers:
+ *     ?QueryTargetStats@CConnection@DirectComposition@@QEAA_N_KAEBUtagCOMPOSITION_TARGET_ID@@PEAUtagCOMPOSITION_TARGET_STATS@@@Z @ 0x1C00025E4 (-QueryTargetStats@CConnection@DirectComposition@@QEAA_N_KAEBUtagCOMPOSITION_TARGET_ID@@PEAUtagCO.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall tagCOMPOSITION_TARGET_ID::operator==(_DWORD *a1, _DWORD *a2)
 {
   char v2; // r8

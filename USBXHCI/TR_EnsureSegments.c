@@ -1,3 +1,18 @@
+/*
+ * XREFs of TR_EnsureSegments @ 0x1C000B240
+ * Callers:
+ *     Isoch_PrepareStage @ 0x1C0004AD0 (Isoch_PrepareStage.c)
+ *     TR_AcquireSegments @ 0x1C00225C8 (TR_AcquireSegments.c)
+ *     TR_ReAllocateTransferRingSegmentsForOffload @ 0x1C0041B80 (TR_ReAllocateTransferRingSegmentsForOffload.c)
+ *     Bulk_EP_EnableForwardProgress @ 0x1C0046B10 (Bulk_EP_EnableForwardProgress.c)
+ *     TR_Create @ 0x1C006DDF8 (TR_Create.c)
+ * Callees:
+ *     CommonBuffer_AcquireBuffers @ 0x1C000B404 (CommonBuffer_AcquireBuffers.c)
+ *     WPP_RECORDER_SF_DDDD @ 0x1C000E120 (WPP_RECORDER_SF_DDDD.c)
+ *     TR_AcquireSecureSegments @ 0x1C0040F24 (TR_AcquireSecureSegments.c)
+ *     WPP_RECORDER_SF_DDDDD @ 0x1C0041E20 (WPP_RECORDER_SF_DDDDD.c)
+ */
+
 __int64 __fastcall TR_EnsureSegments(__int64 a1, unsigned int a2, char a3)
 {
   __int64 v4; // rdi

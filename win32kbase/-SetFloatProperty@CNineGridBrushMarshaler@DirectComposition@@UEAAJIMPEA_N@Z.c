@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetFloatProperty@CNineGridBrushMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C00B3220
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C0006C90 (-SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z.c)
+ */
+
 __int64 __fastcall DirectComposition::CNineGridBrushMarshaler::SetFloatProperty(
         DirectComposition::CNineGridBrushMarshaler *this,
         unsigned int a2,

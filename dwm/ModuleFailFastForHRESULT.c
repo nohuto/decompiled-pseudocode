@@ -1,3 +1,12 @@
+/*
+ * XREFs of ModuleFailFastForHRESULT @ 0x14000BD40
+ * Callers:
+ *     ?MilInstrumentationHandleFailure_MaybeFailFast@@YAXJKIPEAX@Z @ 0x14000E1AC (-MilInstrumentationHandleFailure_MaybeFailFast@@YAXJKIPEAX@Z.c)
+ * Callees:
+ *     ?IsOOM@@YA_NJ@Z @ 0x140003144 (-IsOOM@@YA_NJ@Z.c)
+ *     memset_0 @ 0x1400063A8 (memset_0.c)
+ */
+
 void __fastcall ModuleFailFastForHRESULT(DWORD a1, void *a2)
 {
   struct _EXCEPTION_RECORD pExceptionRecord; // [rsp+20h] [rbp-A8h] BYREF

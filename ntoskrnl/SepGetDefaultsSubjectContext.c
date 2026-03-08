@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepGetDefaultsSubjectContext @ 0x1409CADF0
+ * Callers:
+ *     RtlpSetSecurityObject @ 0x1407BF100 (RtlpSetSecurityObject.c)
+ * Callees:
+ *     SepLocateTokenTrustLevel @ 0x14030FE50 (SepLocateTokenTrustLevel.c)
+ *     SepLocateTokenIntegrity @ 0x14030FEA8 (SepLocateTokenIntegrity.c)
+ */
+
 __int64 __fastcall SepGetDefaultsSubjectContext(
         __int64 *a1,
         _QWORD *a2,

@@ -1,3 +1,19 @@
+/*
+ * XREFs of PiDmListInitEnumCallback @ 0x1407FE3D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PiDmRemoveCacheReferenceForObject @ 0x140680BEC (PiDmRemoveCacheReferenceForObject.c)
+ *     _PnpStringFromGuid @ 0x1406881E8 (_PnpStringFromGuid.c)
+ *     PiDmListAddObject @ 0x1406CBAD4 (PiDmListAddObject.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1406CBBDC (PiDmAddCacheReferenceForObject.c)
+ *     PiDmObjectRelease @ 0x1406D0328 (PiDmObjectRelease.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDmListInitEnumCallback(__int64 a1, __int64 a2, _BYTE *a3)
 {
   unsigned int v3; // eax

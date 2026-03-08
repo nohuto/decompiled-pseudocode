@@ -1,3 +1,11 @@
+/*
+ * XREFs of TR_CommonBufferCallback @ 0x1C00412F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall TR_CommonBufferCallback(__int64 a1, int a2, _QWORD **a3)
 {
   __int64 v3; // rbx

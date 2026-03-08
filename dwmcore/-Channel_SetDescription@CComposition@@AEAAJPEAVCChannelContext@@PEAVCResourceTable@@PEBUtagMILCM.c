@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Channel_SetDescription@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_CHANNEL_SETDESCRIPTION@@PEBXI@Z @ 0x1800F3428
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F0A8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     ?SetOwnerProcessName@CChannelContext@@QEAAXPEBDI@Z @ 0x1800F346C (-SetOwnerProcessName@CChannelContext@@QEAAXPEBDI@Z.c)
+ *     ?FailFastOnMalformedPacket@CComposition@@AEAAXW4MILCMD_CRASHID@@PEBX@Z @ 0x1801B1904 (-FailFastOnMalformedPacket@CComposition@@AEAAXW4MILCMD_CRASHID@@PEBX@Z.c)
+ */
+
 __int64 __fastcall CComposition::Channel_SetDescription(
         CComposition *this,
         struct CChannelContext *a2,

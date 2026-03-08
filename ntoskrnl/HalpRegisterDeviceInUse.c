@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpRegisterDeviceInUse @ 0x140AAF2D0
+ * Callers:
+ *     HalpKdSetupDebuggingDevice @ 0x140AAF250 (HalpKdSetupDebuggingDevice.c)
+ * Callees:
+ *     HalpMmAllocateMemory @ 0x14037A380 (HalpMmAllocateMemory.c)
+ *     wcscpy_s @ 0x1403DA210 (wcscpy_s.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     HalpFindDevice @ 0x140AAF410 (HalpFindDevice.c)
+ */
+
 __int64 __fastcall HalpRegisterDeviceInUse(__int64 a1)
 {
   unsigned int v1; // eax

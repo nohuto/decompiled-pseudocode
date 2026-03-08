@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CInternalMilCmdConnection@@QEAA@XZ @ 0x1800CAA88
+ * Callers:
+ *     ?MilCompositionEngine_Initialize@@YAJHPEAPEAUHMIL_CONNECTION__@@@Z @ 0x1800CA9F0 (-MilCompositionEngine_Initialize@@YAJHPEAPEAUHMIL_CONNECTION__@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 CInternalMilCmdConnection *__fastcall CInternalMilCmdConnection::CInternalMilCmdConnection(
         CInternalMilCmdConnection *this)
 {

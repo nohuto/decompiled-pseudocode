@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeCancelTimerInternal @ 0x1402FDCC4
+ * Callers:
+ *     ExpTimerPause @ 0x1402FDBFC (ExpTimerPause.c)
+ *     ExpTimerAdjust @ 0x140609980 (ExpTimerAdjust.c)
+ * Callees:
+ *     KiCancelTimer @ 0x140251440 (KiCancelTimer.c)
+ */
+
 char __fastcall KeCancelTimerInternal(__int64 a1, _QWORD *a2, int *a3, unsigned int *a4)
 {
   char v8; // r8

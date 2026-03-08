@@ -1,3 +1,20 @@
+/*
+ * XREFs of PfProcessExitNotification @ 0x1407E6B80
+ * Callers:
+ *     PspExitProcess @ 0x1407E7B3C (PspExitProcess.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     PfpLogApplicationEvent @ 0x14035B9B8 (PfpLogApplicationEvent.c)
+ *     PfSnEndProcessTrace @ 0x140796460 (PfSnEndProcessTrace.c)
+ *     PfSnAltProfileTreeCompareByProcess @ 0x14097C66C (PfSnAltProfileTreeCompareByProcess.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PfProcessExitNotification(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax

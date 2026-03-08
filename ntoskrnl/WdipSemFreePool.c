@@ -1,3 +1,12 @@
+/*
+ * XREFs of WdipSemFreePool @ 0x1409DB200
+ * Callers:
+ *     WdipSemShutdown @ 0x1409DAE00 (WdipSemShutdown.c)
+ * Callees:
+ *     InitializeSListHead @ 0x1402A8B90 (InitializeSListHead.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void WdipSemFreePool()
 {
   PVOID *v0; // rax

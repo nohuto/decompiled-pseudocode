@@ -1,3 +1,14 @@
+/*
+ * XREFs of CcMapData @ 0x1406A7910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcPinFileData @ 0x14021E620 (CcPinFileData.c)
+ *     CcGetVirtualAddress @ 0x14021FB80 (CcGetVirtualAddress.c)
+ *     CcMapAndRead @ 0x14021FF20 (CcMapAndRead.c)
+ *     CcUnpinFileDataEx @ 0x140337E50 (CcUnpinFileDataEx.c)
+ */
+
 BOOLEAN __stdcall CcMapData(
         PFILE_OBJECT FileObject,
         PLARGE_INTEGER FileOffset,

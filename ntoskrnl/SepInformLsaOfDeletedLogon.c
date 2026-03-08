@@ -1,3 +1,14 @@
+/*
+ * XREFs of SepInformLsaOfDeletedLogon @ 0x1407DBD7C
+ * Callers:
+ *     SepDeReferenceLogonSession @ 0x1407DBBB8 (SepDeReferenceLogonSession.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     SepQueueWorkItem @ 0x140355178 (SepQueueWorkItem.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall SepInformLsaOfDeletedLogon(__int64 *a1, void *a2, __int64 a3)
 {
   __int64 Pool2; // rbx

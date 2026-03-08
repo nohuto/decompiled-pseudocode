@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopPepCompleteComponentActiveActivity @ 0x140304CC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopPepComponentGetResidencyIdleState @ 0x140304D38 (PopPepComponentGetResidencyIdleState.c)
+ *     PopPepTryPowerDownComponent @ 0x140304D78 (PopPepTryPowerDownComponent.c)
+ *     PopPepUpdateIdleState @ 0x140304DB8 (PopPepUpdateIdleState.c)
+ */
+
 void __fastcall PopPepCompleteComponentActiveActivity(__int64 a1, __int64 a2)
 {
   int ResidencyIdleState; // eax

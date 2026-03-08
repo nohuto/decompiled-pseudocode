@@ -1,3 +1,17 @@
+/*
+ * XREFs of NtSetCachedSigningLevel2 @ 0x1407FAFF0
+ * Callers:
+ *     NtSetCachedSigningLevel @ 0x1407FAFC0 (NtSetCachedSigningLevel.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlUnicodeStringValidateEx @ 0x1405A4CA8 (RtlUnicodeStringValidateEx.c)
+ *     SepCaptureUnicodeStringArray @ 0x1406D5840 (SepCaptureUnicodeStringArray.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall NtSetCachedSigningLevel2(
         __int64 a1,
         __int64 a2,

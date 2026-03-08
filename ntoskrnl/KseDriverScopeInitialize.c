@@ -1,3 +1,13 @@
+/*
+ * XREFs of KseDriverScopeInitialize @ 0x140B35418
+ * Callers:
+ *     KseInitialize @ 0x140B3E688 (KseInitialize.c)
+ * Callees:
+ *     KsepLogInfo @ 0x14036F8F4 (KsepLogInfo.c)
+ *     KsepDebugPrint @ 0x14057E834 (KsepDebugPrint.c)
+ *     KseRegisterShim @ 0x140800EC0 (KseRegisterShim.c)
+ */
+
 void KseDriverScopeInitialize()
 {
   __int64 v0; // rax

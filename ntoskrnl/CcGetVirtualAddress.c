@@ -1,3 +1,27 @@
+/*
+ * XREFs of CcGetVirtualAddress @ 0x14021FB80
+ * Callers:
+ *     CcMapAndCopyInToCache @ 0x14021CD00 (CcMapAndCopyInToCache.c)
+ *     CcPinFileData @ 0x14021E620 (CcPinFileData.c)
+ *     CcPurgeAndClearCacheSection @ 0x14029FCE4 (CcPurgeAndClearCacheSection.c)
+ *     CcPrepareMdlWrite @ 0x1402FD600 (CcPrepareMdlWrite.c)
+ *     CcMdlRead @ 0x1406A3B50 (CcMdlRead.c)
+ *     CcMapAndCopyFromCache @ 0x1406A7510 (CcMapAndCopyFromCache.c)
+ *     CcMapData @ 0x1406A7910 (CcMapData.c)
+ *     CcMapDataCommon @ 0x1406B6954 (CcMapDataCommon.c)
+ * Callees:
+ *     CcUnmapVacbArray @ 0x14021B910 (CcUnmapVacbArray.c)
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     CcGetVacbMiss @ 0x140335850 (CcGetVacbMiss.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ *     CcInsertVacbArray @ 0x1403BC918 (CcInsertVacbArray.c)
+ *     CcAllocateInitializeVacbArray @ 0x1403BD650 (CcAllocateInitializeVacbArray.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     CcBuildUpHighPriorityMappings @ 0x1405359F0 (CcBuildUpHighPriorityMappings.c)
+ */
+
 __int64 __fastcall CcGetVirtualAddress(__int64 a1, __int64 a2, __int64 *a3, _DWORD *a4, int a5, int a6)
 {
   __int64 v6; // r15

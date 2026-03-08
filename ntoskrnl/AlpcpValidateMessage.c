@@ -1,3 +1,14 @@
+/*
+ * XREFs of AlpcpValidateMessage @ 0x140716CC8
+ * Callers:
+ *     AlpcpValidateConnectionMessage @ 0x140714744 (AlpcpValidateConnectionMessage.c)
+ *     AlpcpSendLegacySynchronousRequest @ 0x140715930 (AlpcpSendLegacySynchronousRequest.c)
+ *     AlpcpReplyLegacySynchronousRequest @ 0x140716318 (AlpcpReplyLegacySynchronousRequest.c)
+ *     AlpcpSendMessage @ 0x1407CAFB0 (AlpcpSendMessage.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AlpcpValidateMessage(unsigned __int16 *a1, char a2)
 {
   __int64 v2; // rax

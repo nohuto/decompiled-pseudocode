@@ -1,3 +1,13 @@
+/*
+ * XREFs of KdpRestoreBreakPointEx @ 0x140AB1530
+ * Callers:
+ *     KdpSendWaitContinue @ 0x140AAD824 (KdpSendWaitContinue.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KdpCopyMemoryChunks @ 0x140AAD0F4 (KdpCopyMemoryChunks.c)
+ *     KdpDeleteBreakpoint @ 0x140AAEB50 (KdpDeleteBreakpoint.c)
+ */
+
 __int64 __fastcall KdpRestoreBreakPointEx(__int64 a1, char **a2)
 {
   unsigned int v3; // edx

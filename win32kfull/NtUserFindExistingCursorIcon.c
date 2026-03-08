@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtUserFindExistingCursorIcon @ 0x1C00C5470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastStatus @ 0x1C0012568 (UserSetLastStatus.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ *     ?ResStrCmp@@YAHPEAU_UNICODE_STRING@@0@Z @ 0x1C00C5990 (-ResStrCmp@@YAHPEAU_UNICODE_STRING@@0@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall NtUserFindExistingCursorIcon(int *a1, ULONG64 a2, ULONG64 a3)
 {
   ULONG64 v4; // rdi

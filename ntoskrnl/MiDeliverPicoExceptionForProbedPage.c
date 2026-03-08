@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiDeliverPicoExceptionForProbedPage @ 0x14061A338
+ * Callers:
+ *     MiFaultInProbeAddress @ 0x1402E021C (MiFaultInProbeAddress.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiDeliverPicoExceptionForProbedPage(__int64 a1, int a2)
 {
   __int64 v4; // rax

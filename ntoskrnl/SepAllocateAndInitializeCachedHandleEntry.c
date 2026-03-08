@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepAllocateAndInitializeCachedHandleEntry @ 0x140739C2C
+ * Callers:
+ *     SepGetCachedHandlesEntry @ 0x1407397EC (SepGetCachedHandlesEntry.c)
+ * Callees:
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     RtlCopySid @ 0x1406D4890 (RtlCopySid.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall SepAllocateAndInitializeCachedHandleEntry(int *a1, __int64 *a2)
 {
   int v3; // ecx

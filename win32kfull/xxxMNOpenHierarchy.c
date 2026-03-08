@@ -1,3 +1,46 @@
+/*
+ * XREFs of xxxMNOpenHierarchy @ 0x1C021B7B0
+ * Callers:
+ *     xxxMNButtonDown @ 0x1C02197A8 (xxxMNButtonDown.c)
+ *     xxxMNButtonUp @ 0x1C02198AC (xxxMNButtonUp.c)
+ *     xxxMNKeyDown @ 0x1C021ABF8 (xxxMNKeyDown.c)
+ *     xxxMenuWindowProc @ 0x1C021D3D0 (xxxMenuWindowProc.c)
+ *     xxxMNKeyFilter @ 0x1C0241E88 (xxxMNKeyFilter.c)
+ * Callees:
+ *     xxxSetWindowPos @ 0x1C0028F4C (xxxSetWindowPos.c)
+ *     xxxDestroyWindow @ 0x1C004B7F0 (xxxDestroyWindow.c)
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     ?xxxEnableChildWindowDpiMessageX@@YA_NPEAUtagWND@@H@Z @ 0x1C0099104 (-xxxEnableChildWindowDpiMessageX@@YA_NPEAUtagWND@@H@Z.c)
+ *     ??1?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ @ 0x1C00A11DC (--1-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ.c)
+ *     MNGetpItemFromIndex @ 0x1C00A266C (MNGetpItemFromIndex.c)
+ *     GetWindowDpiLastNotify @ 0x1C00A3A34 (GetWindowDpiLastNotify.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C00A6450 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     MNGetpItemIndex @ 0x1C00A6FD0 (MNGetpItemIndex.c)
+ *     xxxInheritWindowMonitor @ 0x1C00ADDA0 (xxxInheritWindowMonitor.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00D5030 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     xxxPlayEventSound @ 0x1C00DE8D0 (xxxPlayEventSound.c)
+ *     FindTimer @ 0x1C00DEEDC (FindTimer.c)
+ *     ??4?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z @ 0x1C00E0FE0 (--4-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z @ 0x1C00E67A8 (-Init@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z.c)
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ *     GetMonitorRectForWindow @ 0x1C00FF4DC (GetMonitorRectForWindow.c)
+ *     ?xxxInternalUpdateWindow@@YAXPEAUtagWND@@K@Z @ 0x1C0101FD4 (-xxxInternalUpdateWindow@@YAXPEAUtagWND@@K@Z.c)
+ *     safe_cast_fnid_to_PMENUWND @ 0x1C012D8B8 (safe_cast_fnid_to_PMENUWND.c)
+ *     MNMarkDelayedFreePopup @ 0x1C0202124 (MNMarkDelayedFreePopup.c)
+ *     xxxUserModeCallback @ 0x1C02165AC (xxxUserModeCallback.c)
+ *     ?MNGetPopupBoundsRect@@YAXV?$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagMONITOR@@PEAUtagRECT@@H@Z @ 0x1C0218110 (-MNGetPopupBoundsRect@@YAXV-$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagMONITOR@@PEAUtagRECT@@H@Z.c)
+ *     ?xxxMNPositionHierarchy@@YAIAEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@HHPEAH2PEAPEAUtagMONITOR@@@Z @ 0x1C0218C94 (-xxxMNPositionHierarchy@@YAIAEBV-$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@HHPEAH2PEAPEAUt.c)
+ *     LockPopupMenu @ 0x1C0219378 (LockPopupMenu.c)
+ *     MNIsUAHMenu @ 0x1C02194D8 (MNIsUAHMenu.c)
+ *     xxxMNCloseHierarchy @ 0x1C021A0D0 (xxxMNCloseHierarchy.c)
+ *     ?GetMenuRightAlignHint@MenuHelpers@@YA_NXZ @ 0x1C022A9CC (-GetMenuRightAlignHint@MenuHelpers@@YA_NXZ.c)
+ *     MNClearCachedPopupSizes @ 0x1C023B1B0 (MNClearCachedPopupSizes.c)
+ *     MNRefreshUAHCachedSizes @ 0x1C023B230 (MNRefreshUAHCachedSizes.c)
+ */
+
 __int64 __fastcall xxxMNOpenHierarchy(__int64 **a1, __int64 a2)
 {
   int v4; // r12d

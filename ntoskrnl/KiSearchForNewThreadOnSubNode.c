@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiSearchForNewThreadOnSubNode @ 0x1402AC670
+ * Callers:
+ *     KiSearchForNewThread @ 0x140260460 (KiSearchForNewThread.c)
+ * Callees:
+ *     KiSearchForNewThreadOnProcessor @ 0x1402AC810 (KiSearchForNewThreadOnProcessor.c)
+ */
+
 __int64 __fastcall KiSearchForNewThreadOnSubNode(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // r9

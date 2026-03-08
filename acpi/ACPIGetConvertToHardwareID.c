@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIGetConvertToHardwareID @ 0x1C002A0C4
+ * Callers:
+ *     ACPIGetWorkerForString @ 0x1C002B860 (ACPIGetWorkerForString.c)
+ * Callees:
+ *     ACPIGetConvertToHardwareIDWide @ 0x1C002A12C (ACPIGetConvertToHardwareIDWide.c)
+ *     ACPIWideStringToAnsiHelper @ 0x1C0043C58 (ACPIWideStringToAnsiHelper.c)
+ */
+
 __int64 __fastcall ACPIGetConvertToHardwareID(int a1, int a2, int a3, int a4, _QWORD *a5, unsigned int *a6)
 {
   int v6; // edi

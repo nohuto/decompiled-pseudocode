@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhFdoPower_WaitWake @ 0x1C0020750
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhEtwLogHubIrpEvent @ 0x1C00098E0 (UsbhEtwLogHubIrpEvent.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 __int64 __fastcall UsbhFdoPower_WaitWake(PDEVICE_OBJECT DeviceObject, IRP *Tag)
 {
   _DWORD *v4; // rdi

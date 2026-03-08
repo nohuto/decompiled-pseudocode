@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserScrollDC @ 0x1C01DB1B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _ScrollDC @ 0x1C0231974 (_ScrollDC.c)
+ */
+
 __int64 __fastcall NtUserScrollDC(
         HDC a1,
         __int64 a2,

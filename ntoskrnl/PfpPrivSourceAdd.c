@@ -1,3 +1,11 @@
+/*
+ * XREFs of PfpPrivSourceAdd @ 0x1407E83E0
+ * Callers:
+ *     PfpPrivSourceEnum @ 0x1407E7DC0 (PfpPrivSourceEnum.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PfpPrivSourceAdd(unsigned int *a1, _OWORD *a2)
 {
   __int64 v3; // rax

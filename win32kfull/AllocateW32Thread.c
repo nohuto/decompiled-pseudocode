@@ -1,3 +1,11 @@
+/*
+ * XREFs of AllocateW32Thread @ 0x1C00C800C
+ * Callers:
+ *     W32pThreadCallout @ 0x1C00C7D90 (W32pThreadCallout.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AllocateW32Thread(__int64 a1)
 {
   _QWORD *Pool2; // rbx

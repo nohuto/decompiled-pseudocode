@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpHvWatchdogDiscover @ 0x1403A097C
+ * Callers:
+ *     HalpTimerRegisterBuiltinPlugins @ 0x1403A08F8 (HalpTimerRegisterBuiltinPlugins.c)
+ * Callees:
+ *     HalpIsMicrosoftCompatibleHvLoaded @ 0x14037333C (HalpIsMicrosoftCompatibleHvLoaded.c)
+ *     HalpTimerRegister @ 0x140373EB4 (HalpTimerRegister.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall HalpHvWatchdogDiscover(__int64 a1, __int64 a2)
 {
   _QWORD v8[18]; // [rsp+20h] [rbp-59h] BYREF

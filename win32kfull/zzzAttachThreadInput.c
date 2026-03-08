@@ -1,3 +1,20 @@
+/*
+ * XREFs of zzzAttachThreadInput @ 0x1C00CCFE8
+ * Callers:
+ *     ?xxxHandleOwnerSwitch@@YAXPEAUtagWND@@00@Z @ 0x1C000A7BC (-xxxHandleOwnerSwitch@@YAXPEAUtagWND@@00@Z.c)
+ *     xxxSetModernAppWindow @ 0x1C000E204 (xxxSetModernAppWindow.c)
+ *     NtUserAttachThreadInput @ 0x1C0011210 (NtUserAttachThreadInput.c)
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C0036908 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ *     xxxDestroyWindow @ 0x1C004B7F0 (xxxDestroyWindow.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ *     ?TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z @ 0x1C01B6E20 (-TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z.c)
+ *     TryDetachShellFrame @ 0x1C01B7EFC (TryDetachShellFrame.c)
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     zzzReattachThreads @ 0x1C00CD3A8 (zzzReattachThreads.c)
+ *     ExemptedFromImmersiveRestrictions @ 0x1C01B4350 (ExemptedFromImmersiveRestrictions.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall zzzAttachThreadInput(__int64 a1, __int64 a2, __int16 a3)
 {

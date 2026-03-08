@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopUpdateNonAttributedCpuTimeReference @ 0x140597458
+ * Callers:
+ *     PpmUpdateIdleVeto @ 0x140583F90 (PpmUpdateIdleVeto.c)
+ *     PopFxPlatformStateAvailable @ 0x140588EBC (PopFxPlatformStateAvailable.c)
+ *     PopPdcIdleResiliencyCallback @ 0x14099507C (PopPdcIdleResiliencyCallback.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopAccumulateNonActivatedCpuTime @ 0x1405973F0 (PopAccumulateNonActivatedCpuTime.c)
+ */
+
 __int64 __fastcall PopUpdateNonAttributedCpuTimeReference(char a1)
 {
   __int64 v2; // rcx

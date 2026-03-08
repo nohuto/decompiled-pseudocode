@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpIommuCleanupPageTable @ 0x140524854
+ * Callers:
+ *     HalpIommuFreeDmaDomain @ 0x140515CC0 (HalpIommuFreeDmaDomain.c)
+ * Callees:
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall HalpIommuCleanupPageTable(__int64 a1)
 {
   char *v1; // rdi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of rimScheduleUserModeRimPnpRegistration @ 0x1C00CC0B4
+ * Callers:
+ *     UserActivateMITInputProcessing @ 0x1C00942B4 (UserActivateMITInputProcessing.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void __fastcall rimScheduleUserModeRimPnpRegistration(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   PDEVICE_OBJECT v4; // rcx

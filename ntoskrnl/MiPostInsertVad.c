@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiPostInsertVad @ 0x1402D5DE4
+ * Callers:
+ *     MiPerformVadSplitting @ 0x1402D581C (MiPerformVadSplitting.c)
+ * Callees:
+ *     MiManageSubsectionView @ 0x140335DC0 (MiManageSubsectionView.c)
+ *     MiAweViewInserter @ 0x140A3E64C (MiAweViewInserter.c)
+ */
+
 __int64 __fastcall MiPostInsertVad(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DestroyPhysicalAdapterData@DXGADAPTER@@QEAAXXZ @ 0x1C02B1C34
+ * Callers:
+ *     ??1DXGADAPTER@@QEAA@XZ @ 0x1C02B0AE4 (--1DXGADAPTER@@QEAA@XZ.c)
+ *     ?Destroy@DXGADAPTER@@QEAAXXZ @ 0x1C02B1790 (-Destroy@DXGADAPTER@@QEAAXXZ.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     ?GetNumDifferentPhysicalAdapters@DXGADAPTER@@QEBAIXZ @ 0x1C0016460 (-GetNumDifferentPhysicalAdapters@DXGADAPTER@@QEBAIXZ.c)
+ */
+
 void __fastcall DXGADAPTER::DestroyPhysicalAdapterData(DXGADAPTER *this)
 {
   unsigned int i; // esi

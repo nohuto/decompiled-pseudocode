@@ -1,3 +1,11 @@
+/*
+ * XREFs of CarpSaveViolationSnapshot @ 0x1405D3534
+ * Callers:
+ *     CarReportRuleViolationForTriage @ 0x1405D1FA0 (CarReportRuleViolationForTriage.c)
+ * Callees:
+ *     RtlStringCchCopyW @ 0x1402470F0 (RtlStringCchCopyW.c)
+ */
+
 NTSTATUS __fastcall CarpSaveViolationSnapshot(int a1, int a2, __int64 *a3, __int64 a4)
 {
   NTSTATUS result; // eax

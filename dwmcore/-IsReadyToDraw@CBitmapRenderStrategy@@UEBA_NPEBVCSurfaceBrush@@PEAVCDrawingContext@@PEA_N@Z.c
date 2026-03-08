@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsReadyToDraw@CBitmapRenderStrategy@@UEBA_NPEBVCSurfaceBrush@@PEAVCDrawingContext@@PEA_N@Z @ 0x1800D3F10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 bool __fastcall CBitmapRenderStrategy::IsReadyToDraw(
         CBitmapRenderStrategy *this,
         const struct CSurfaceBrush *a2,

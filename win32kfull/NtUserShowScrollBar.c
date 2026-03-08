@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserShowScrollBar @ 0x1C01DFC80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxShowScrollBar @ 0x1C0234CF4 (xxxShowScrollBar.c)
+ */
+
 __int64 __fastcall NtUserShowScrollBar(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rax

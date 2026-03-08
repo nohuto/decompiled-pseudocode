@@ -1,3 +1,15 @@
+/*
+ * XREFs of EmpSearchEntryDatabase @ 0x1403862FC
+ * Callers:
+ *     EmpProviderRegister @ 0x140810DB0 (EmpProviderRegister.c)
+ *     EmProviderRegisterEntry @ 0x140939950 (EmProviderRegisterEntry.c)
+ *     EmpParseEntryTypes @ 0x140B4D1D4 (EmpParseEntryTypes.c)
+ *     EmpParseCallbacks @ 0x140B4D34C (EmpParseCallbacks.c)
+ *     EmpParseRules @ 0x140B4DBC0 (EmpParseRules.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall EmpSearchEntryDatabase(_QWORD *a1)
 {
   _QWORD *i; // rdx

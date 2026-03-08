@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwpApplyPackageIdFilter @ 0x1409F2138
+ * Callers:
+ *     EtwpApplyScopeFilters @ 0x140695404 (EtwpApplyScopeFilters.c)
+ *     EtwpApplyTransientFilters @ 0x1409F2338 (EtwpApplyTransientFilters.c)
+ * Callees:
+ *     ObFastDereferenceObject @ 0x140245F50 (ObFastDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     RtlQueryPackageIdentity @ 0x140298300 (RtlQueryPackageIdentity.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsQueryProcessAttributesByToken @ 0x1406D44E0 (PsQueryProcessAttributesByToken.c)
+ */
+
 char __fastcall EtwpApplyPackageIdFilter(__int64 a1, _WORD *a2, _WORD *a3)
 {
   char v6; // bl

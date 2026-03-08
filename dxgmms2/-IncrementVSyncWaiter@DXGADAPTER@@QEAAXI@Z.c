@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?IncrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z @ 0x1C0034C70
+ * Callers:
+ *     VidSchiFlushPendingHWSubmittedFlips @ 0x1C0017DD8 (VidSchiFlushPendingHWSubmittedFlips.c)
+ *     VidSchiFlushPendingFlips @ 0x1C00AE270 (VidSchiFlushPendingFlips.c)
+ *     VidSchiWaitForDrainFlipQueue @ 0x1C00B5A88 (VidSchiWaitForDrainFlipQueue.c)
+ * Callees:
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C002EF9C (McTemplateK0pqq_EtwWriteTransfer.c)
+ */
+
 void __fastcall DXGADAPTER::IncrementVSyncWaiter(DXGADAPTER *this, int a2)
 {
   __int64 v3; // r8

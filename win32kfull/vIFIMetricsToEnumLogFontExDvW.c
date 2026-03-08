@@ -1,3 +1,15 @@
+/*
+ * XREFs of vIFIMetricsToEnumLogFontExDvW @ 0x1C00BA744
+ * Callers:
+ *     bInitOneStockFontInternal @ 0x1C03B6790 (bInitOneStockFontInternal.c)
+ *     bInitSystemFont @ 0x1C03B85AC (bInitSystemFont.c)
+ * Callees:
+ *     ?vLookupScript@@YAXKPEAGK@Z @ 0x1C00BA7B4 (-vLookupScript@@YAXKPEAGK@Z.c)
+ *     ?vIFIMetricsToEnumLogFontW@@YAXPEAUtagENUMLOGFONTW@@PEAU_IFIMETRICS@@@Z @ 0x1C01122D8 (-vIFIMetricsToEnumLogFontW@@YAXPEAUtagENUMLOGFONTW@@PEAU_IFIMETRICS@@@Z.c)
+ *     ?IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z @ 0x1C0115CAC (-IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 void __fastcall vIFIMetricsToEnumLogFontExDvW(__int64 a1, struct _IFIMETRICS *a2)
 {
   unsigned int v4; // r8d

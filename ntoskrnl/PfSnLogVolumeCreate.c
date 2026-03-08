@@ -1,3 +1,14 @@
+/*
+ * XREFs of PfSnLogVolumeCreate @ 0x14078C1D0
+ * Callers:
+ *     PfFileInfoNotify @ 0x14028C770 (PfFileInfoNotify.c)
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     RtlUpcaseUnicodeString @ 0x1407A3D00 (RtlUpcaseUnicodeString.c)
+ *     PfSnGetNLLogEntry @ 0x1407A3E08 (PfSnGetNLLogEntry.c)
+ *     PfSnLogHelper @ 0x1407A3FD0 (PfSnLogHelper.c)
+ */
+
 __int64 __fastcall PfSnLogVolumeCreate(__int64 *a1)
 {
   int v1; // esi

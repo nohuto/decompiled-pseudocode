@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiSetIdealProcessorThread @ 0x140664A8C
+ * Callers:
+ *     MiZeroInParallel @ 0x140242EB8 (MiZeroInParallel.c)
+ *     MiZeroHugeRangeCore @ 0x140A2B20C (MiZeroHugeRangeCore.c)
+ * Callees:
+ *     KeSetPriorityThread @ 0x1402261B0 (KeSetPriorityThread.c)
+ *     KeQueryPriorityThread @ 0x140240EA0 (KeQueryPriorityThread.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402A9460 (KeFindFirstSetRightGroupAffinity.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402AA110 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402ABED0 (KeSetSystemGroupAffinityThread.c)
+ *     KeSetIdealProcessorThreadEx @ 0x1403C9248 (KeSetIdealProcessorThreadEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall MiSetIdealProcessorThread(PGROUP_AFFINITY Affinity)
 {
   bool v1; // zf

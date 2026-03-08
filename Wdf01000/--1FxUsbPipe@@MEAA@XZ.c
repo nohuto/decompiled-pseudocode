@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1FxUsbPipe@@MEAA@XZ @ 0x1C0059894
+ * Callers:
+ *     ??_GFxUsbPipe@@MEAAPEAXI@Z @ 0x1C0059AA0 (--_GFxUsbPipe@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1FxNonPagedObject@@UEAA@XZ @ 0x1C0002D30 (--1FxNonPagedObject@@UEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall FxUsbPipe::~FxUsbPipe(FxUsbPipe *this, unsigned int a2)
 {
   FxUsbInterface *m_UsbInterface; // rcx

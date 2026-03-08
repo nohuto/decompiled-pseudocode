@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PROBEDISPATBRUSH@@YAHPEAU_BRUSHOBJ@@@Z @ 0x1C02C9BA8
+ * Callers:
+ *     NtGdiEngStretchBltROP @ 0x1C02CD470 (NtGdiEngStretchBltROP.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PROBEDISPATBRUSH(struct _BRUSHOBJ *a1)
 {
   unsigned int v1; // r8d

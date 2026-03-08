@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserEnableWindow @ 0x1C000AD60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxEnableWindow @ 0x1C000AE3C (xxxEnableWindow.c)
+ */
+
 __int64 __fastcall NtUserEnableWindow(__int64 a1)
 {
   __int64 v2; // rax

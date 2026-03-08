@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpLbrConfigurationWorker @ 0x140932E74
+ * Callers:
+ *     HalpLbrConfigureRecording @ 0x140932F80 (HalpLbrConfigureRecording.c)
+ *     HalpLbrStartRecording @ 0x140932FC0 (HalpLbrStartRecording.c)
+ *     HalpLbrStopRecording @ 0x1409330C0 (HalpLbrStopRecording.c)
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     KeIpiGenericCall @ 0x140396D40 (KeIpiGenericCall.c)
+ */
+
 __int64 __fastcall HalpLbrConfigurationWorker(int a1, unsigned __int8 a2)
 {
   ULONG_PTR v3; // rdi

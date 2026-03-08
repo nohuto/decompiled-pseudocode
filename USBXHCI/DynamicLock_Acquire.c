@@ -1,3 +1,30 @@
+/*
+ * XREFs of DynamicLock_Acquire @ 0x1C000A918
+ * Callers:
+ *     Command_HandleCommandCompletionEvent @ 0x1C000A2B4 (Command_HandleCommandCompletionEvent.c)
+ *     Command_SendCommand @ 0x1C000A820 (Command_SendCommand.c)
+ *     Interrupter_AcquireEventRingLock @ 0x1C000F4FC (Interrupter_AcquireEventRingLock.c)
+ *     Controller_Start @ 0x1C0014F3C (Controller_Start.c)
+ *     RootHub_AcquireReadModifyWriteLock @ 0x1C00182F4 (RootHub_AcquireReadModifyWriteLock.c)
+ *     Command_ControllerResetPostReset @ 0x1C002F8B4 (Command_ControllerResetPostReset.c)
+ *     Command_ControllerResetPostResetSuccess @ 0x1C002FA7C (Command_ControllerResetPostResetSuccess.c)
+ *     Command_FailAllCommands @ 0x1C002FB48 (Command_FailAllCommands.c)
+ *     Command_HandleCommandRingStoppedEvent @ 0x1C002FD74 (Command_HandleCommandRingStoppedEvent.c)
+ *     Command_WdfEvtWatchdogTimerFunction @ 0x1C0030270 (Command_WdfEvtWatchdogTimerFunction.c)
+ *     Controller_AudioOffloadWnfStateUpdateWorker @ 0x1C0032650 (Controller_AudioOffloadWnfStateUpdateWorker.c)
+ *     Controller_DecrementNumberOfEndpointsOffloaded @ 0x1C0032DE0 (Controller_DecrementNumberOfEndpointsOffloaded.c)
+ *     Controller_DetectFrameMicroframeBoundary @ 0x1C0032EF4 (Controller_DetectFrameMicroframeBoundary.c)
+ *     Controller_IncrementNumberOfEndpointsOffloaded @ 0x1C0033878 (Controller_IncrementNumberOfEndpointsOffloaded.c)
+ *     Controller_InternalReset @ 0x1C0033D04 (Controller_InternalReset.c)
+ *     Controller_IsHandlePresentInCollection @ 0x1C0034130 (Controller_IsHandlePresentInCollection.c)
+ *     Controller_StopTimeTrackingForHandle @ 0x1C0034904 (Controller_StopTimeTrackingForHandle.c)
+ *     Controller_TimeSyncStartTrackingWorker @ 0x1C0035200 (Controller_TimeSyncStartTrackingWorker.c)
+ *     Controller_UcxEvtStartTrackingForTimeSync @ 0x1C0035B60 (Controller_UcxEvtStartTrackingForTimeSync.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ */
+
 __int64 __fastcall DynamicLock_Acquire(__int64 a1)
 {
   int v3; // edx

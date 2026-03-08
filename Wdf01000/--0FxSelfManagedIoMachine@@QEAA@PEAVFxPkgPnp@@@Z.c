@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0FxSelfManagedIoMachine@@QEAA@PEAVFxPkgPnp@@@Z @ 0x1C00818AC
+ * Callers:
+ *     ?_CreateAndInit@FxSelfManagedIoMachine@@SAJPEAPEAV1@PEAVFxPkgPnp@@@Z @ 0x1C0081D48 (-_CreateAndInit@FxSelfManagedIoMachine@@SAJPEAPEAV1@PEAVFxPkgPnp@@@Z.c)
+ * Callees:
+ *     ??0FxWaitLockInternal@@QEAA@XZ @ 0x1C004FF48 (--0FxWaitLockInternal@@QEAA@XZ.c)
+ */
+
 void __fastcall FxSelfManagedIoMachine::FxSelfManagedIoMachine(FxSelfManagedIoMachine *this, FxPkgPnp *PkgPnp)
 {
   this->m_DeviceSelfManagedIoCleanup.m_Method = 0LL;

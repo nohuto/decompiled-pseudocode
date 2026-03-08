@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMHidGetUsageAndPage @ 0x1C0034DF0
+ * Callers:
+ *     RIMCreateHidDesc @ 0x1C0035100 (RIMCreateHidDesc.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_qd @ 0x1C000431C (WPP_RECORDER_AND_TRACE_SF_qd.c)
+ */
+
 __int64 __fastcall RIMHidGetUsageAndPage(__int64 a1, _WORD *a2, _WORD *a3)
 {
   char v3; // r14

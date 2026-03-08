@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhFdoScheduleDeferredPowerRequest @ 0x1C001E494
+ * Callers:
+ *     UsbhSet_D0_wQueued_Action @ 0x1C001E1B0 (UsbhSet_D0_wQueued_Action.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhQueueWorkItemEx @ 0x1C001E320 (UsbhQueueWorkItemEx.c)
+ *     UsbhAllocWorkItem @ 0x1C001E570 (UsbhAllocWorkItem.c)
+ *     UsbhPoStartNextPowerIrp_Pdo @ 0x1C001E7C8 (UsbhPoStartNextPowerIrp_Pdo.c)
+ */
+
 __int64 __fastcall UsbhFdoScheduleDeferredPowerRequest(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rbp

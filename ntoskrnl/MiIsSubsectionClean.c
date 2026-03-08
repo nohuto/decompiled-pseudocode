@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiIsSubsectionClean @ 0x140622654
+ * Callers:
+ *     MiDeleteCachedSubsection @ 0x140621708 (MiDeleteCachedSubsection.c)
+ * Callees:
+ *     MiCheckProtoPtePageState @ 0x140283EB0 (MiCheckProtoPtePageState.c)
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockLeafPage @ 0x14034AF20 (MiLockLeafPage.c)
+ */
+
 __int64 __fastcall MiIsSubsectionClean(__int64 a1)
 {
   unsigned int v1; // edi

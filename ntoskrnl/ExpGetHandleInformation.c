@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpGetHandleInformation @ 0x1409F36D4
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     ExUnlockUserBuffer @ 0x1402CFFD4 (ExUnlockUserBuffer.c)
+ *     ExLockUserBuffer @ 0x14075D5A4 (ExLockUserBuffer.c)
+ *     ObGetHandleInformation @ 0x1409785F8 (ObGetHandleInformation.c)
+ */
+
 __int64 __fastcall ExpGetHandleInformation(unsigned __int64 a1, unsigned int a2, _DWORD *a3)
 {
   __int64 result; // rax

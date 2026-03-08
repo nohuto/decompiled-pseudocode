@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GTF_InitWorkset@MonDescParser@@YAXPEAU_GTF_WORKSET@1@@Z @ 0x1C001EB2C
+ * Callers:
+ *     ?GTF_UsingVerticalRefreshFrequency_Stage1@MonDescParser@@YAXJJJJJPEAU_GTF_WORKSET@1@@Z @ 0x1C001E8AC (-GTF_UsingVerticalRefreshFrequency_Stage1@MonDescParser@@YAXJJJJJPEAU_GTF_WORKSET@1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall MonDescParser::GTF_InitWorkset(MonDescParser *this, struct MonDescParser::_GTF_WORKSET *a2)
 {
   *((_QWORD *)this + 2) = 0x4060000000000000LL;

@@ -1,3 +1,15 @@
+/*
+ * XREFs of AllocQueue @ 0x1C0078C60
+ * Callers:
+ *     xxxCreateThreadInfo @ 0x1C0076490 (xxxCreateThreadInfo.c)
+ * Callees:
+ *     ApiSetEditionIsGetKeyStateBlocked @ 0x1C0078EE8 (ApiSetEditionIsGetKeyStateBlocked.c)
+ *     isInputVirtualizationEnabled @ 0x1C0079014 (isInputVirtualizationEnabled.c)
+ *     ?AllocateFromPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAXPEAX@Z @ 0x1C009D8BC (-AllocateFromPagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 _QWORD *__fastcall AllocQueue(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _QWORD *v4; // r14

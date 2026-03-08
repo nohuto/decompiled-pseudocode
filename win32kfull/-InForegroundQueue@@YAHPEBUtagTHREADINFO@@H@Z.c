@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?InForegroundQueue@@YAHPEBUtagTHREADINFO@@H@Z @ 0x1C0023F94
+ * Callers:
+ *     CheckCursorClipAccess @ 0x1C0022250 (CheckCursorClipAccess.c)
+ *     NtUserCheckProcessForClipboardAccess @ 0x1C0023DD0 (NtUserCheckProcessForClipboardAccess.c)
+ *     NtUserGetClipboardData @ 0x1C01D13A0 (NtUserGetClipboardData.c)
+ * Callees:
+ *     IsDebuggerAttached @ 0x1C0024014 (IsDebuggerAttached.c)
+ *     ?ForegroundInputOwnerMatch@@YAHPEBUtagTHREADINFO@@H@Z @ 0x1C0024054 (-ForegroundInputOwnerMatch@@YAHPEBUtagTHREADINFO@@H@Z.c)
+ */
+
 __int64 __fastcall InForegroundQueue(const struct tagTHREADINFO *a1, int a2)
 {
   unsigned int v4; // r11d

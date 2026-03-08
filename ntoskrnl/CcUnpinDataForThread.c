@@ -1,3 +1,14 @@
+/*
+ * XREFs of CcUnpinDataForThread @ 0x140933CB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcUnpinFileDataEx @ 0x140337E50 (CcUnpinFileDataEx.c)
+ *     ExReleaseResourceForThreadLite @ 0x14033A350 (ExReleaseResourceForThreadLite.c)
+ *     CcUnpinData @ 0x1407C89D0 (CcUnpinData.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __stdcall CcUnpinDataForThread(PVOID Bcb, ERESOURCE_THREAD ResourceThreadId)
 {
   char *v2; // rbx

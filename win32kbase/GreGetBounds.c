@@ -1,3 +1,18 @@
+/*
+ * XREFs of GreGetBounds @ 0x1C004D5B0
+ * Callers:
+ *     GetMonitorDC @ 0x1C003D41C (GetMonitorDC.c)
+ *     CreateCacheDC @ 0x1C003DC40 (CreateCacheDC.c)
+ * Callees:
+ *     ?TrackObjectReferenceDecrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z @ 0x1C0046C4C (-TrackObjectReferenceDecrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C004A440 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C004A680 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     ?AcquireEntryLock@GdiHandleEntryTable@@QEAAPEAU_ENTRY@@I_N@Z @ 0x1C004AAC0 (-AcquireEntryLock@GdiHandleEntryTable@@QEAAPEAU_ENTRY@@I_N@Z.c)
+ *     ?pObj@HANDLELOCK@@QEAAPEAVOBJECT@@XZ @ 0x1C004B3B0 (-pObj@HANDLELOCK@@QEAAPEAVOBJECT@@XZ.c)
+ *     ?DecodeIndex@GdiHandleManager@@QEAAII@Z @ 0x1C004B5B0 (-DecodeIndex@GdiHandleManager@@QEAAII@Z.c)
+ *     GrepDeleteDC @ 0x1C00549D0 (GrepDeleteDC.c)
+ */
+
 __int64 __fastcall GreGetBounds(unsigned int a1, _DWORD *a2, char a3)
 {
   _DWORD *v4; // rsi

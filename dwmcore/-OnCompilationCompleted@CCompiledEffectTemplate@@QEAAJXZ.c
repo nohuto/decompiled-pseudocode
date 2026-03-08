@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?OnCompilationCompleted@CCompiledEffectTemplate@@QEAAJXZ @ 0x1800EAA00
+ * Callers:
+ *     ?HandleCompletedTasks@CEffectCompilationService@@AEAAJXZ @ 0x1800EA81C (-HandleCompletedTasks@CEffectCompilationService@@AEAAJXZ.c)
+ * Callees:
+ *     ?ShouldNotify@CNotificationResource@@IEBA_NXZ @ 0x180098AA0 (-ShouldNotify@CNotificationResource@@IEBA_NXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SignalCompileCompletedEvent@CCompiledEffectTemplate@@AEAAXXZ @ 0x1800EAAE0 (-SignalCompileCompletedEvent@CCompiledEffectTemplate@@AEAAXXZ.c)
+ *     ?GetChannelCallbackId@CNotificationResource@@IEBAIXZ @ 0x1800EAB28 (-GetChannelCallbackId@CNotificationResource@@IEBAIXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CCompiledEffectTemplate::OnCompilationCompleted(CCompiledEffectTemplate *this)
 {
   unsigned int v2; // edi

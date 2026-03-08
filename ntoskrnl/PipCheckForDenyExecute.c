@@ -1,3 +1,17 @@
+/*
+ * XREFs of PipCheckForDenyExecute @ 0x14086AB0C
+ * Callers:
+ *     IopRegisterDeviceInterface @ 0x14086A664 (IopRegisterDeviceInterface.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     PnpConcatPWSTR @ 0x14069EE54 (PnpConcatPWSTR.c)
+ *     IopGetRegistryValue @ 0x1406C18D4 (IopGetRegistryValue.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 bool __fastcall PipCheckForDenyExecute(wchar_t *Str2)
 {
   WCHAR *v1; // rbx

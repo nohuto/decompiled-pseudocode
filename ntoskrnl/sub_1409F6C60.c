@@ -1,3 +1,23 @@
+/*
+ * XREFs of sub_1409F6C60 @ 0x1409F6C60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     KeQueryTimeIncrement @ 0x140351FF0 (KeQueryTimeIncrement.c)
+ *     ExpGetLicenseTamperState @ 0x140606C7C (ExpGetLicenseTamperState.c)
+ *     ExpLicUpdateChecksum @ 0x140606DE8 (ExpLicUpdateChecksum.c)
+ *     ExpSetLicenseTamperState @ 0x140607004 (ExpSetLicenseTamperState.c)
+ *     ExpSetKernelDataProtection @ 0x14075B0D0 (ExpSetKernelDataProtection.c)
+ *     ExpGetKernelDataProtection @ 0x14075B2C0 (ExpGetKernelDataProtection.c)
+ *     sub_1409F6ABC @ 0x1409F6ABC (sub_1409F6ABC.c)
+ */
+
 __int64 __fastcall sub_1409F6C60(__int64 a1, _DWORD *a2, _DWORD *a3, unsigned int a4, _DWORD *a5, _BYTE *a6)
 {
   _DWORD *v8; // rbx

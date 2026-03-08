@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MonitorPowerStateChange@VSYNC_TIME_STATS@@QEAAXW4VSYNC_TIME_STATS_TYPE@@@Z @ 0x1C001CA20
+ * Callers:
+ *     ?SetVidPnSourceActive@ADAPTER_DISPLAY@@QEAAJI_NPEBU_DXGK_DISPLAYMODE_INFO@@00@Z @ 0x1C0176944 (-SetVidPnSourceActive@ADAPTER_DISPLAY@@QEAAJI_NPEBU_DXGK_DISPLAYMODE_INFO@@00@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VSYNC_TIME_STATS::MonitorPowerStateChange(__int64 a1, int a2)
 {
   __int64 v2; // r8

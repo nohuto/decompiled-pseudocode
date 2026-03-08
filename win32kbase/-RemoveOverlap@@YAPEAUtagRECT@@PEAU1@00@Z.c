@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RemoveOverlap@@YAPEAUtagRECT@@PEAU1@00@Z @ 0x1C0247848
+ * Callers:
+ *     ?RemoveOverlaps@@YAXPEAUtagRECT@@I@Z @ 0x1C0247A38 (-RemoveOverlaps@@YAXPEAUtagRECT@@I@Z.c)
+ * Callees:
+ *     PtInRect @ 0x1C00157B4 (PtInRect.c)
+ */
+
 struct tagRECT *__fastcall RemoveOverlap(struct tagRECT *a1, struct tagRECT *a2, struct tagRECT *a3)
 {
   LONG left; // r11d

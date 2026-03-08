@@ -1,3 +1,20 @@
+/*
+ * XREFs of PfSnReferenceProcessTrace @ 0x14028D560
+ * Callers:
+ *     PfSnLogFileDataAccess @ 0x14028D408 (PfSnLogFileDataAccess.c)
+ *     PfSnLogPageFault @ 0x14028D4BC (PfSnLogPageFault.c)
+ *     PfSnEndProcessTrace @ 0x140796460 (PfSnEndProcessTrace.c)
+ *     PfSnLogHelper @ 0x1407A3FD0 (PfSnLogHelper.c)
+ *     PfSnAsyncContextInitialize @ 0x1407DFF7C (PfSnAsyncContextInitialize.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExAcquireRundownProtectionEx @ 0x14035AFC0 (ExAcquireRundownProtectionEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PfSnReferenceProcessTrace(__int64 a1)
 {
   signed __int64 v2; // rdx

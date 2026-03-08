@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@CManipulationTransformMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00BDF00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CManipulationTransformMarshaler::Initialize(
         DirectComposition::CManipulationTransformMarshaler *this)
 {

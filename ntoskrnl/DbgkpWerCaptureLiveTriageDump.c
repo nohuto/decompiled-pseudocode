@@ -1,3 +1,18 @@
+/*
+ * XREFs of DbgkpWerCaptureLiveTriageDump @ 0x1409388FC
+ * Callers:
+ *     DbgkpWerProcessPolicyResult @ 0x140938DC0 (DbgkpWerProcessPolicyResult.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlCaptureContext @ 0x140420580 (RtlCaptureContext.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KeCapturePersistentThreadState @ 0x140551EC0 (KeCapturePersistentThreadState.c)
+ *     DbgkpWerInvokeCallbacks @ 0x140938CFC (DbgkpWerInvokeCallbacks.c)
+ *     DbgkpWerWriteTriageDump @ 0x140939010 (DbgkpWerWriteTriageDump.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall DbgkpWerCaptureLiveTriageDump(__int64 a1)
 {
   __int64 Pool2; // rax

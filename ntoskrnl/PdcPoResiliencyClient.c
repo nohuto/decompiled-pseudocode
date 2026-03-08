@@ -1,3 +1,14 @@
+/*
+ * XREFs of PdcPoResiliencyClient @ 0x140994AF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopCheckResiliencyScenarios @ 0x14073AF4C (PopCheckResiliencyScenarios.c)
+ *     PopPdcIdleResiliencyCallback @ 0x14099507C (PopPdcIdleResiliencyCallback.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PdcPoResiliencyClient(int a1, char a2, unsigned int a3)
 {
   int v4; // ecx

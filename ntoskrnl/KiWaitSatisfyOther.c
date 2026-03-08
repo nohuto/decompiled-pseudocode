@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiWaitSatisfyOther @ 0x140293B88
+ * Callers:
+ *     KeRegisterObjectNotification @ 0x14024F260 (KeRegisterObjectNotification.c)
+ *     KiWaitForAllObjects @ 0x1402936D0 (KiWaitForAllObjects.c)
+ *     KeRegisterObjectDpc @ 0x140565CE8 (KeRegisterObjectDpc.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall KiWaitSatisfyOther(__int64 a1)
 {
   char v1; // r8

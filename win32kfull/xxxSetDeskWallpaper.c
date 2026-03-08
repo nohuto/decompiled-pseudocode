@@ -1,3 +1,20 @@
+/*
+ * XREFs of xxxSetDeskWallpaper @ 0x1C00D7F38
+ * Callers:
+ *     xxxSystemParametersInfoWorker @ 0x1C01032D0 (xxxSystemParametersInfoWorker.c)
+ * Callees:
+ *     ?xxxNotifyShellOfWallpaperChange@@YAHXZ @ 0x1C00D80A0 (-xxxNotifyShellOfWallpaperChange@@YAHXZ.c)
+ *     ?_GetShellWindow@@YAPEAUtagWND@@PEAUtagDESKTOP@@@Z @ 0x1C00D812C (-_GetShellWindow@@YAPEAUtagWND@@PEAUtagDESKTOP@@@Z.c)
+ *     DwmAsyncNotifyWallpaperChange @ 0x1C00D8148 (DwmAsyncNotifyWallpaperChange.c)
+ *     ?SetGlobalWallpaperSettings@@YAHPEBUtagWALLPAPERSETTINGS@@@Z @ 0x1C00D81C4 (-SetGlobalWallpaperSettings@@YAHPEBUtagWALLPAPERSETTINGS@@@Z.c)
+ *     xxxSendNotifyMessage @ 0x1C00D8320 (xxxSendNotifyMessage.c)
+ *     LoadWallpaperFilenameFromRegistry @ 0x1C00D8520 (LoadWallpaperFilenameFromRegistry.c)
+ *     IsThreadDesktopComposed @ 0x1C0101360 (IsThreadDesktopComposed.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C010A9B4 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall xxxSetDeskWallpaper(__int64 a1, const unsigned __int16 *a2)
 {
   int v4; // ebp

@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiStoreCheckCompleteWriteBatch @ 0x1403AD3F4
+ * Callers:
+ *     MiWriteComplete @ 0x1402126E0 (MiWriteComplete.c)
+ *     MiModifiedPageWriter @ 0x1403AD2B0 (MiModifiedPageWriter.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ?SmDrainSList@?$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAT_SLIST_HEADER@@K@Z @ 0x1405BC8E4 (-SmDrainSList@-$SMKM_STORE_MGR@USM_TRAITS@@@@SAXPEAT_SLIST_HEADER@@K@Z.c)
+ */
+
 void __fastcall MiStoreCheckCompleteWriteBatch(__int64 a1)
 {
   volatile LONG *v2; // rsi

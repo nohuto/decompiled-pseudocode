@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpDmaAllocateMappingResources @ 0x140B6124C
+ * Callers:
+ *     HalpDmaInit @ 0x140B60E78 (HalpDmaInit.c)
+ * Callees:
+ *     KeQueryMaximumProcessorCountEx @ 0x1402A7240 (KeQueryMaximumProcessorCountEx.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     MmFreeMappingAddress @ 0x14086B720 (MmFreeMappingAddress.c)
+ *     HalpDmaAllocateReservedMapping @ 0x140B61370 (HalpDmaAllocateReservedMapping.c)
+ *     HalpDmaAllocateReservedMappingArray @ 0x140B8DE04 (HalpDmaAllocateReservedMappingArray.c)
+ */
+
 __int64 HalpDmaAllocateMappingResources()
 {
   __int64 MaximumProcessorCount; // rdi

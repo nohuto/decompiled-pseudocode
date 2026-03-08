@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MKShowMouseCursor@@YAXXZ @ 0x1C01E4400
+ * Callers:
+ *     xxxUpdatePerUserAccessPackSettings @ 0x1C0017E70 (xxxUpdatePerUserAccessPackSettings.c)
+ * Callees:
+ *     ?SetGlobalCursorLevel@@YAXH@Z @ 0x1C00C8FB0 (-SetGlobalCursorLevel@@YAXH@Z.c)
+ */
+
 void MKShowMouseCursor(void)
 {
   if ( (gdwGTERMFlags & 1) == 0 )

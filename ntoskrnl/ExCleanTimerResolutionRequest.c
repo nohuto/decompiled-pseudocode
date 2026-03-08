@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExCleanTimerResolutionRequest @ 0x140201AD0
+ * Callers:
+ *     PspExitProcess @ 0x1407E7B3C (PspExitProcess.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ZwSetTimerResolution @ 0x140415AF0 (ZwSetTimerResolution.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PoDiagFreeUsermodeStack @ 0x14067FDD8 (PoDiagFreeUsermodeStack.c)
+ *     ExReleaseTimeRefreshLock @ 0x1407E2A30 (ExReleaseTimeRefreshLock.c)
+ *     ExAcquireTimeRefreshLock @ 0x1407E2A54 (ExAcquireTimeRefreshLock.c)
+ */
+
 __int64 __fastcall ExCleanTimerResolutionRequest(__int64 a1)
 {
   _KPROCESS *Process; // rbx

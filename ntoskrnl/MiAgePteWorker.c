@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiAgePteWorker @ 0x140326530
+ * Callers:
+ *     MiAgePte @ 0x1403260A0 (MiAgePte.c)
+ *     MiAgeWorkingSetEPTCallback @ 0x1404636A0 (MiAgeWorkingSetEPTCallback.c)
+ *     MiSimpleAgePte @ 0x140632C70 (MiSimpleAgePte.c)
+ *     MiSimpleAgeWorkingSetEPTCallback @ 0x140632DC0 (MiSimpleAgeWorkingSetEPTCallback.c)
+ * Callees:
+ *     MiSetVaAgeList @ 0x14031AB40 (MiSetVaAgeList.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiClearPteAccessed @ 0x140326910 (MiClearPteAccessed.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiFreeWsleList @ 0x14032B2B0 (MiFreeWsleList.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 void __fastcall MiAgePteWorker(__int64 a1, int a2, unsigned __int64 a3, __int64 a4, __int64 a5, int a6)
 {
   unsigned __int8 v10; // al

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBMISC_CheckIfBOSDescriptorQueryShouldBeSkipped @ 0x1C002D420
+ * Callers:
+ *     HUBDSM_CheckingIfAlternateBOSDescriptorQueryShouldBeSkipped @ 0x1C0022300 (HUBDSM_CheckingIfAlternateBOSDescriptorQueryShouldBeSkipped.c)
+ * Callees:
+ *     WPP_RECORDER_SF_q @ 0x1C0015204 (WPP_RECORDER_SF_q.c)
+ */
+
 __int64 __fastcall HUBMISC_CheckIfBOSDescriptorQueryShouldBeSkipped(__int64 a1)
 {
   unsigned int v1; // ebx

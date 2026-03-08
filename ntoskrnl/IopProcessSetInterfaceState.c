@@ -1,3 +1,40 @@
+/*
+ * XREFs of IopProcessSetInterfaceState @ 0x140683354
+ * Callers:
+ *     IopDoDeferredSetInterfaceState @ 0x140681E54 (IopDoDeferredSetInterfaceState.c)
+ *     IoSetDeviceInterfaceState @ 0x1406832E0 (IoSetDeviceInterfaceState.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateSymbolicLinkObject @ 0x140413BD0 (ZwCreateSymbolicLinkObject.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1404149D0 (ZwOpenSymbolicLinkObject.c)
+ *     PiDmRemoveCacheReferenceForObject @ 0x140680BEC (PiDmRemoveCacheReferenceForObject.c)
+ *     IopBuildGlobalSymbolicLinkString @ 0x14068383C (IopBuildGlobalSymbolicLinkString.c)
+ *     PnpSetDeviceClassChange @ 0x140683CA4 (PnpSetDeviceClassChange.c)
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x140687404 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     IoGetDeviceProperty @ 0x1406C5B00 (IoGetDeviceProperty.c)
+ *     _CmGetDeviceInterfaceClassGuid @ 0x1406CB71C (_CmGetDeviceInterfaceClassGuid.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1406CBBDC (PiDmAddCacheReferenceForObject.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CDF08 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     PiDmObjectRelease @ 0x1406D0328 (PiDmObjectRelease.c)
+ *     PiDmGetObject @ 0x1406D0370 (PiDmGetObject.c)
+ *     PnpUnicodeStringToWstr @ 0x1406D07D4 (PnpUnicodeStringToWstr.c)
+ *     PnpUnicodeStringToWstrFree @ 0x1406D08F4 (PnpUnicodeStringToWstrFree.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     PiDeferSetInterfaceState @ 0x14086FD40 (PiDeferSetInterfaceState.c)
+ *     PipCanEnableInterfaces @ 0x1408703C0 (PipCanEnableInterfaces.c)
+ *     PiRemoveDeferredSetInterfaceState @ 0x140871408 (PiRemoveDeferredSetInterfaceState.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopProcessSetInterfaceState(__int64 a1, char a2, char a3)
 {
   WCHAR *v4; // r12

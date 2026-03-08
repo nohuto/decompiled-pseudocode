@@ -1,3 +1,27 @@
+/*
+ * XREFs of rimAbSuppressLowerRankActivityInFrame @ 0x1C01A98C0
+ * Callers:
+ *     RIMAbArbitratePointerDeviceFrame @ 0x1C01AA284 (RIMAbArbitratePointerDeviceFrame.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMCmActiveContactsEnd @ 0x1C00F1A04 (RIMCmActiveContactsEnd.c)
+ *     RIMCmGetButtonContact @ 0x1C00F1A60 (RIMCmGetButtonContact.c)
+ *     rimAbIsContactSuppressedByDeviceDeadzones @ 0x1C01A8668 (rimAbIsContactSuppressedByDeviceDeadzones.c)
+ *     rimAbIsPointerSuppressedByGlobalPenDeadzone @ 0x1C01A89E4 (rimAbIsPointerSuppressedByGlobalPenDeadzone.c)
+ *     rimAbIsPointerSuppressedByOtherActiveDevicesContacts @ 0x1C01A8AF4 (rimAbIsPointerSuppressedByOtherActiveDevicesContacts.c)
+ *     rimAbShouldButtonContactBeSuppressed @ 0x1C01A91C8 (rimAbShouldButtonContactBeSuppressed.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dDD @ 0x1C01AB010 (WPP_RECORDER_AND_TRACE_SF_dDD.c)
+ *     RIMUpdatePrimaryDevice @ 0x1C01BA144 (RIMUpdatePrimaryDevice.c)
+ *     RIMInsertSimulatedContactEndStateInFrame @ 0x1C01D4EA0 (RIMInsertSimulatedContactEndStateInFrame.c)
+ *     RIMResetPointerDevicePrimaryContact @ 0x1C01D546C (RIMResetPointerDevicePrimaryContact.c)
+ *     RIMSetContactEndState @ 0x1C01D551C (RIMSetContactEndState.c)
+ *     RIMCmActiveContactsBeginNoButton @ 0x1C01DE028 (RIMCmActiveContactsBeginNoButton.c)
+ *     RIMCmActiveContactsNext @ 0x1C01DE0AC (RIMCmActiveContactsNext.c)
+ *     RIMCmAddContactSuppressionReasons @ 0x1C01DE1B0 (RIMCmAddContactSuppressionReasons.c)
+ *     RIMCmIsContactDeliveringAnyData @ 0x1C01DEB08 (RIMCmIsContactDeliveringAnyData.c)
+ */
+
 __int64 __fastcall rimAbSuppressLowerRankActivityInFrame(__int64 a1, __int64 a2)
 {
   __int64 v3; // r13

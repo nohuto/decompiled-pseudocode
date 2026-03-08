@@ -1,3 +1,16 @@
+/*
+ * XREFs of AslpFileGetChecksumAttributes @ 0x140A55198
+ * Callers:
+ *     AslFileAllocAndGetAttributes @ 0x1407A11E8 (AslFileAllocAndGetAttributes.c)
+ * Callees:
+ *     RtlFileMapFree @ 0x140303F60 (RtlFileMapFree.c)
+ *     RtlFileMapMapView @ 0x1403ABF40 (RtlFileMapMapView.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslFileMappingEnsureMappedAs @ 0x140A51A4C (AslFileMappingEnsureMappedAs.c)
+ *     AslpFileGetChecksum @ 0x140A550AC (AslpFileGetChecksum.c)
+ *     AslpFileGetCrcChecksum @ 0x140A556A4 (AslpFileGetCrcChecksum.c)
+ */
+
 __int64 __fastcall AslpFileGetChecksumAttributes(__int64 a1, __int64 a2)
 {
   int Checksum; // ebx

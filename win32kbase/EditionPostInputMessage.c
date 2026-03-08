@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionPostInputMessage @ 0x1C0007444
+ * Callers:
+ *     ApiSetEditionPostInputMessage @ 0x1C00072A4 (ApiSetEditionPostInputMessage.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall EditionPostInputMessage(
         __int64 a1,
         __int64 a2,

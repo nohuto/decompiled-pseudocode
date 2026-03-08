@@ -1,3 +1,24 @@
+/*
+ * XREFs of _RtlpMuiRegValidateInstalled @ 0x140843870
+ * Callers:
+ *     _RtlpMuiRegLoadInstalled @ 0x140844000 (_RtlpMuiRegLoadInstalled.c)
+ * Callees:
+ *     _MuiRegAllocArray @ 0x14039C31C (_MuiRegAllocArray.c)
+ *     _RtlpRemovePendingDeleteLanguages @ 0x14039C3E0 (_RtlpRemovePendingDeleteLanguages.c)
+ *     RtlpGetNameFromLangInfoNode @ 0x14039C6C4 (RtlpGetNameFromLangInfoNode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     NtQueryInstallUILanguage @ 0x140749760 (NtQueryInstallUILanguage.c)
+ *     RtlpIsALicensedRegularLanguage @ 0x140843AD4 (RtlpIsALicensedRegularLanguage.c)
+ *     RtlpMuiRegGetInstalledLanguageIndexByLangId @ 0x140843BA8 (RtlpMuiRegGetInstalledLanguageIndexByLangId.c)
+ *     RtlpMuiRegGetOrAddString @ 0x140844498 (RtlpMuiRegGetOrAddString.c)
+ *     RtlpMuiRegGetOrAddLangInfo @ 0x14085B02C (RtlpMuiRegGetOrAddLangInfo.c)
+ *     RtlLCIDToCultureName @ 0x1409BBD70 (RtlLCIDToCultureName.c)
+ *     _RtlpMuiRegValidateLIPLanguage @ 0x140A73198 (_RtlpMuiRegValidateLIPLanguage.c)
+ *     _RtlpMuiRegValidatePartialLanguage @ 0x140A733DC (_RtlpMuiRegValidatePartialLanguage.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlpMuiRegValidateInstalled(__int64 a1)
 {
   int v2; // r15d

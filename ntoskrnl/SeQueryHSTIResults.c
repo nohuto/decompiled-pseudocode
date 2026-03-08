@@ -1,3 +1,11 @@
+/*
+ * XREFs of SeQueryHSTIResults @ 0x1408567AC
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall SeQueryHSTIResults(void *a1, unsigned int a2, _DWORD *a3)
 {
   size_t v3; // rax

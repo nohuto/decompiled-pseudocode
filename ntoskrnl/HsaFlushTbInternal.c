@@ -1,3 +1,16 @@
+/*
+ * XREFs of HsaFlushTbInternal @ 0x14052D57C
+ * Callers:
+ *     HsaAttachDeviceDomainInternal @ 0x14052CC78 (HsaAttachDeviceDomainInternal.c)
+ *     HsaFlushDomainTb @ 0x14052D500 (HsaFlushDomainTb.c)
+ *     HsaFlushTb @ 0x14052D540 (HsaFlushTb.c)
+ * Callees:
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     HalpIommuGetNextFlushDevice @ 0x140513058 (HalpIommuGetNextFlushDevice.c)
+ *     HsaIommuSendCommand @ 0x14052E1A8 (HsaIommuSendCommand.c)
+ */
+
 void __fastcall HsaFlushTbInternal(
         _QWORD *a1,
         int a2,

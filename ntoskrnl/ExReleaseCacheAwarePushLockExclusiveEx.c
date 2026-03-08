@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExReleaseCacheAwarePushLockExclusiveEx @ 0x14040CC40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 char __fastcall ExReleaseCacheAwarePushLockExclusiveEx(
         volatile signed __int64 **BugCheckParameter2,
         ULONG_PTR BugCheckParameter1)

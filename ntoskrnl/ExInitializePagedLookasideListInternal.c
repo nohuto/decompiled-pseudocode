@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExInitializePagedLookasideListInternal @ 0x1402F6750
+ * Callers:
+ *     ExInitializePagedLookasideList @ 0x140787D60 (ExInitializePagedLookasideList.c)
+ *     FsRtlInitExtraCreateParameterLookasideList @ 0x140855610 (FsRtlInitExtraCreateParameterLookasideList.c)
+ *     AlpcpInitSystem @ 0x140856E38 (AlpcpInitSystem.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     InitializeSListHead @ 0x1402A8B90 (InitializeSListHead.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExInitializePagedLookasideListInternal(
         __int64 a1,
         PVOID (__fastcall *a2)(int a1, SIZE_T a2, ULONG a3),

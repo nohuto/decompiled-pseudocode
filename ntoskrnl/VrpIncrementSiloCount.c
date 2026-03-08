@@ -1,3 +1,16 @@
+/*
+ * XREFs of VrpIncrementSiloCount @ 0x14073895C
+ * Callers:
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x140735A88 (VrpHandleIoctlInitializeJobForVreg.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     CmRegisterInternalCallback @ 0x14084E76C (CmRegisterInternalCallback.c)
+ */
+
 __int64 VrpIncrementSiloCount()
 {
   struct _KTHREAD *CurrentThread; // rax

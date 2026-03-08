@@ -1,3 +1,13 @@
+/*
+ * XREFs of McTemplateU0xqqqqt_EventWriteTransfer @ 0x1801F8C90
+ * Callers:
+ *     ?PreRender@CComputeScribbleRenderer@@QEAAJXZ @ 0x1801F894C (-PreRender@CComputeScribbleRenderer@@QEAAJXZ.c)
+ *     ?ScheduleScribble@CComputeScribbleRenderer@@QEAAJXZ @ 0x1801F8B3C (-ScheduleScribble@CComputeScribbleRenderer@@QEAAJXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 ULONG __fastcall McTemplateU0xqqqqt_EventWriteTransfer(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,

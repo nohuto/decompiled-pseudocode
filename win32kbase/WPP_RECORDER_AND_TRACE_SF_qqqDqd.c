@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_AND_TRACE_SF_qqqDqd @ 0x1C01C8194
+ * Callers:
+ *     rimQueueHandleAnyPnpRemovePendingDevicesAsyncWorkItem @ 0x1C01C8B04 (rimQueueHandleAnyPnpRemovePendingDevicesAsyncWorkItem.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_AND_TRACE_SF_qqqDqd(__int64 a1, char a2, char a3, __int64 a4, int a5, int a6, int a7, int a8, ...)
 {
   struct RECORDER_LOG__ *v8; // rdi

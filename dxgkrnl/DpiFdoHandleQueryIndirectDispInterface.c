@@ -1,3 +1,14 @@
+/*
+ * XREFs of DpiFdoHandleQueryIndirectDispInterface @ 0x1C039E120
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ *     DpiQueryMiniportInterface @ 0x1C01F65F4 (DpiQueryMiniportInterface.c)
+ */
+
 __int64 __fastcall DpiFdoHandleQueryIndirectDispInterface(__int64 a1, __int16 a2, __int16 a3, _OWORD *a4)
 {
   __int64 v8; // rdi

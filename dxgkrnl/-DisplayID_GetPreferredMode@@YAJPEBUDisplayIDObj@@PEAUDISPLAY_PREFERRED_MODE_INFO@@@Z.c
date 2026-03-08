@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DisplayID_GetPreferredMode@@YAJPEBUDisplayIDObj@@PEAUDISPLAY_PREFERRED_MODE_INFO@@@Z @ 0x1C0072DA4
+ * Callers:
+ *     ?GetNativeMode@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAUDISPLAY_PREFERRED_MODE_INFO@@@Z @ 0x1C03CC010 (-GetNativeMode@DisplayIdMonitorDescriptor@DxgMonitor@@UEBAJAEAUDISPLAY_PREFERRED_MODE_INFO@@@Z.c)
+ * Callees:
+ *     ?DisplayID_GetFirstType7Desc@@YAJAEBUDisplayIDObj@@AEAPEBU_DISPLAYID_TYPE7_TIMING_BLOCK@@@Z @ 0x1C0072B4C (-DisplayID_GetFirstType7Desc@@YAJAEBUDisplayIDObj@@AEAPEBU_DISPLAYID_TYPE7_TIMING_BLOCK@@@Z.c)
+ *     ?IsValidBlock@DisplayID_Type7Timing_Parser@@QEBA_NXZ @ 0x1C0073690 (-IsValidBlock@DisplayID_Type7Timing_Parser@@QEBA_NXZ.c)
+ */
+
 __int64 __fastcall DisplayID_GetPreferredMode(const struct DisplayIDObj *a1, struct DISPLAY_PREFERRED_MODE_INFO *a2)
 {
   __int64 result; // rax

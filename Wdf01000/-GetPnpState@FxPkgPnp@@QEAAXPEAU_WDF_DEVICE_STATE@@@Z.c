@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPnpState@FxPkgPnp@@QEAAXPEAU_WDF_DEVICE_STATE@@@Z @ 0x1C0072504
+ * Callers:
+ *     imp_WdfDeviceGetDeviceState @ 0x1C0032AA0 (imp_WdfDeviceGetDeviceState.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxPkgPnp::GetPnpState(FxPkgPnp *this, _WDF_DEVICE_STATE *State)
 {
   FxPnpState v2; // r9d

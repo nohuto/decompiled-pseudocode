@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpSetHwProfileChangeEvent @ 0x14096183C
+ * Callers:
+ *     PnpRequestHwProfileChangeNotification @ 0x140953AA8 (PnpRequestHwProfileChangeNotification.c)
+ * Callees:
+ *     PnpCreateDeviceEventEntry @ 0x140688A98 (PnpCreateDeviceEventEntry.c)
+ *     PnpInsertEventInQueue @ 0x140688D90 (PnpInsertEventInQueue.c)
+ */
+
 __int64 __fastcall PnpSetHwProfileChangeEvent(__int128 *a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   __int64 DeviceEventEntry; // rax

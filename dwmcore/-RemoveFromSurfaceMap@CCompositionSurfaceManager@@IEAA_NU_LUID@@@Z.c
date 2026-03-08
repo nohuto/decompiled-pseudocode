@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RemoveFromSurfaceMap@CCompositionSurfaceManager@@IEAA_NU_LUID@@@Z @ 0x1800BA170
+ * Callers:
+ *     ??1CCompositionSurfaceInfo@@MEAA@XZ @ 0x1800BA1D0 (--1CCompositionSurfaceInfo@@MEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CCompositionSurfaceManager::RemoveFromSurfaceMap(CCompositionSurfaceManager *this, struct _LUID a2)
 {
   struct _RTL_GENERIC_TABLE *v2; // rbx

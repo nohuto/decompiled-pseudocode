@@ -1,3 +1,27 @@
+/*
+ * XREFs of PipUpdateDeviceProducts @ 0x140389620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeQueryBootTimeValues @ 0x1402E3FEC (KeQueryBootTimeValues.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     _PnpCtxRegCreateTree @ 0x140687A74 (_PnpCtxRegCreateTree.c)
+ *     _PnpCtxRegCreateKey @ 0x140687FD0 (_PnpCtxRegCreateKey.c)
+ *     RtlGetPersistedStateLocation @ 0x14069ADC0 (RtlGetPersistedStateLocation.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406D3680 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _PnpCtxRegOpenKey @ 0x14081D410 (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumKey @ 0x14081D44C (_PnpCtxRegEnumKey.c)
+ *     _PnpCtxRegCloseKey @ 0x1408653B4 (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegQueryValue @ 0x14086617C (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegEnumValue @ 0x140866444 (_PnpCtxRegEnumValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1408665AC (_PnpCtxRegQueryInfoKey.c)
+ *     _PnpCtxRegDeleteValue @ 0x140A5DEB8 (_PnpCtxRegDeleteValue.c)
+ *     _PnpCtxRegSetValue @ 0x140A5DEF4 (_PnpCtxRegSetValue.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PipUpdateDeviceProducts(void *a1)
 {
   unsigned int v1; // esi

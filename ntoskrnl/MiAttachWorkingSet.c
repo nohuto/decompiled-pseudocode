@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiAttachWorkingSet @ 0x1402D4FE4
+ * Callers:
+ *     MiTrimOrAgeWorkingSet @ 0x1402245D0 (MiTrimOrAgeWorkingSet.c)
+ *     MiHandleForceTrimWorkingSets @ 0x1406326A0 (MiHandleForceTrimWorkingSets.c)
+ * Callees:
+ *     MiAttachSessionGlobal @ 0x1402D509C (MiAttachSessionGlobal.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 char __fastcall MiAttachWorkingSet(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax

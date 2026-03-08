@@ -1,3 +1,15 @@
+/*
+ * XREFs of KeIntSteerAssignCpuSetForGsiv @ 0x140577890
+ * Callers:
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiIntSteerAssignCpuSet @ 0x140577A00 (KiIntSteerAssignCpuSet.c)
+ *     KiIntSteerClearCpuSetAssignment @ 0x140577C00 (KiIntSteerClearCpuSetAssignment.c)
+ */
+
 __int64 __fastcall KeIntSteerAssignCpuSetForGsiv(int a1, unsigned __int16 a2, __int64 a3)
 {
   unsigned int v6; // ebx

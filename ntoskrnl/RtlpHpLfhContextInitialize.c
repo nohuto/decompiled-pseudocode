@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpHpLfhContextInitialize @ 0x140375CA8
+ * Callers:
+ *     RtlpHpHeapCreate @ 0x140375288 (RtlpHpHeapCreate.c)
+ * Callees:
+ *     RtlpHeapGenerateRandomValue64 @ 0x14030B578 (RtlpHeapGenerateRandomValue64.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 unsigned __int64 __fastcall RtlpHpLfhContextInitialize(
         unsigned __int64 a1,
         __int64 a2,

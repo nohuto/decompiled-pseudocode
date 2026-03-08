@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiDevCfgParseVariableName @ 0x1403C2244
+ * Callers:
+ *     PiDevCfgQueryResolveValue @ 0x14055FEC8 (PiDevCfgQueryResolveValue.c)
+ *     PiDevCfgConfigureDeviceInterfaces @ 0x140876D34 (PiDevCfgConfigureDeviceInterfaces.c)
+ *     PiDevCfgCopyDeviceKey @ 0x140877A34 (PiDevCfgCopyDeviceKey.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ */
+
 bool __fastcall PiDevCfgParseVariableName(_WORD *a1, UNICODE_STRING *a2, _DWORD *a3)
 {
   const WCHAR *i; // rbx

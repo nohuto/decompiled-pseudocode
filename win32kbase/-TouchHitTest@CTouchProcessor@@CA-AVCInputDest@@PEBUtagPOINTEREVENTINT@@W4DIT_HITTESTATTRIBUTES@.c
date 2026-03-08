@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?TouchHitTest@CTouchProcessor@@CA?AVCInputDest@@PEBUtagPOINTEREVENTINT@@W4DIT_HITTESTATTRIBUTES@@KKPEAHPEAU_InputHitTestResult@@@Z @ 0x1C0206804
+ * Callers:
+ *     ?SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z @ 0x1C02038B0 (-SetPointerFrameTargetWindows@CTouchProcessor@@QEAAHPEAUtagTHREADINFO@@_KIPEAH@Z.c)
+ *     ?UpdateInputCaptureAndGetTarget@CTouchProcessor@@QEAA?AVCInputDest@@PEBUCPointerInputFrame@@PEBUtagPOINTEREVENTINT@@PEAUCInputPointerNode@@IPEAGPEAIK@Z @ 0x1C02083AC (-UpdateInputCaptureAndGetTarget@CTouchProcessor@@QEAA-AVCInputDest@@PEBUCPointerInputFrame@@PEBU.c)
+ * Callees:
+ *     ??0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z @ 0x1C0079840 (--0CInputDest@@QEAA@AEBUtagINPUTDEST@@@Z.c)
+ *     CanHitTestInDwm @ 0x1C007CAF0 (CanHitTestInDwm.c)
+ *     DCompHitTest @ 0x1C007DF20 (DCompHitTest.c)
+ *     ApiSetEditionPostDwmSpeedHitTest @ 0x1C007E8EC (ApiSetEditionPostDwmSpeedHitTest.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     ApiSetEditionComputeInputSpaceId @ 0x1C023CCE8 (ApiSetEditionComputeInputSpaceId.c)
+ *     ApiSetEditionNeedsTouchTargeting @ 0x1C0240AF4 (ApiSetEditionNeedsTouchTargeting.c)
+ *     ApiSetEditionNonDwmTouchHitTest @ 0x1C0240C70 (ApiSetEditionNonDwmTouchHitTest.c)
+ */
+
 CInputDest *__fastcall CTouchProcessor::TouchHitTest(
         CInputDest *a1,
         __int64 a2,

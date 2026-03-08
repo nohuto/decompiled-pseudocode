@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeSetSchedulingGroupCycleNotification @ 0x14057AE40
+ * Callers:
+ *     NtSetInformationJobObject @ 0x1406FC3C0 (NtSetInformationJobObject.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall KeSetSchedulingGroupCycleNotification(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int8 CurrentIrql; // bl

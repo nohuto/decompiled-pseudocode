@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Reinitialize@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x1800AEEF4
+ * Callers:
+ *     ?Reset@CPartitionVerticalBlankScheduler@@QEAAJXZ @ 0x1800AEDD4 (-Reset@CPartitionVerticalBlankScheduler@@QEAAJXZ.c)
+ *     ?Initialize@CPartitionVerticalBlankScheduler@@AEAAJXZ @ 0x1800D5F58 (-Initialize@CPartitionVerticalBlankScheduler@@AEAAJXZ.c)
+ * Callees:
+ *     ?UpdateCurrentTime@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18004E374 (-UpdateCurrentTime@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ *     ?Clear@CFrameInfo@@QEAAXXZ @ 0x1800AF11C (-Clear@CFrameInfo@@QEAAXXZ.c)
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_Scheduler_VSync_Smoothing@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1800AF148 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_Scheduler_VSync_Smoothing@@@details@wil@@.c)
+ */
+
 void __fastcall CPartitionVerticalBlankScheduler::Reinitialize(CPartitionVerticalBlankScheduler *this)
 {
   __int64 v2; // rcx

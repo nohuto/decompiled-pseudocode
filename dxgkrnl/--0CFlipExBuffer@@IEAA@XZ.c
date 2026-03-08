@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??0CFlipExBuffer@@IEAA@XZ @ 0x1C000C600
+ * Callers:
+ *     ?Create@CFlipExBuffer@@SAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_SWAPCHAIN_BUFFER_INFO_@@_NPEAPEAV1@@Z @ 0x1C000C544 (-Create@CFlipExBuffer@@SAJAEBUCSM_BUFFER_ATTRIBUTES@@AEBUCSM_SWAPCHAIN_BUFFER_INFO_@@_NPEAPEAV1@.c)
+ *     ?Create@CCompositionSwapchainBuffer@@SAJ_N0PEAUFlipManagerObject@@_KPEAPEAV1@@Z @ 0x1C0089440 (-Create@CCompositionSwapchainBuffer@@SAJ_N0PEAUFlipManagerObject@@_KPEAPEAV1@@Z.c)
+ * Callees:
+ *     ??0CCompositionBuffer@@IEAA@XZ @ 0x1C000C6F0 (--0CCompositionBuffer@@IEAA@XZ.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 CFlipExBuffer *__fastcall CFlipExBuffer::CFlipExBuffer(CFlipExBuffer *this)
 {
   CFlipExBuffer *result; // rax

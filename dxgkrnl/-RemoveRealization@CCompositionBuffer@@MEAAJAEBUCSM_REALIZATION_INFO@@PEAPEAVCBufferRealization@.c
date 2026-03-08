@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RemoveRealization@CCompositionBuffer@@MEAAJAEBUCSM_REALIZATION_INFO@@PEAPEAVCBufferRealization@@@Z @ 0x1C007CDD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FindRealization@CCompositionBuffer@@QEBAJAEBUCSM_REALIZATION_INFO@@PEAPEAVCBufferRealization@@@Z @ 0x1C007CA44 (-FindRealization@CCompositionBuffer@@QEBAJAEBUCSM_REALIZATION_INFO@@PEAPEAVCBufferRealization@@@.c)
+ */
+
 __int64 __fastcall CCompositionBuffer::RemoveRealization(
         CCompositionBuffer *this,
         const struct CSM_REALIZATION_INFO *a2,

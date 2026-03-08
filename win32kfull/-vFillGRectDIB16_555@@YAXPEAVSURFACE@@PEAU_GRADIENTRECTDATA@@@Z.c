@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vFillGRectDIB16_555@@YAXPEAVSURFACE@@PEAU_GRADIENTRECTDATA@@@Z @ 0x1C02F8E00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vFillGRectDIB16_555(struct SURFACE *a1, struct _GRADIENTRECTDATA *a2)
 {
   struct _GRADIENTRECTDATA *v2; // r11

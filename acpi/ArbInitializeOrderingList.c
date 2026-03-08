@@ -1,3 +1,11 @@
+/*
+ * XREFs of ArbInitializeOrderingList @ 0x1C00A1F40
+ * Callers:
+ *     ArbBuildAssignmentOrdering @ 0x1C00A124C (ArbBuildAssignmentOrdering.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ArbInitializeOrderingList(__int64 a1)
 {
   __int64 Pool2; // rax

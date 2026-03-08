@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopBatteryTraceSystemBatteryStatus @ 0x1403BE46C
+ * Callers:
+ *     PopBatteryApplyCompositeState @ 0x14086E430 (PopBatteryApplyCompositeState.c)
+ *     PopBatteryEtwCallback @ 0x1409922D0 (PopBatteryEtwCallback.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PopBatteryTraceSystemBatteryStatus(char a1)
 {
   const EVENT_DESCRIPTOR *v1; // rax
@@ -26,7 +37,7 @@ char __fastcall PopBatteryTraceSystemBatteryStatus(char a1)
     {
       if ( BYTE1(xmmword_140C3CD28) )
       {
-        v6 = unk_140C3CB80;
+        v6 = xmmword_140C3CB80;
         v4 = 1;
       }
       else

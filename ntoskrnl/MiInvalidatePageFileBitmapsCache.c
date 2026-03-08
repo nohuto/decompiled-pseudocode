@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiInvalidatePageFileBitmapsCache @ 0x14020A3E4
+ * Callers:
+ *     MiFindFreePageFileSpace @ 0x140209F7C (MiFindFreePageFileSpace.c)
+ *     MiAttemptPageFileReductionApc @ 0x140635960 (MiAttemptPageFileReductionApc.c)
+ *     MiGatherPagefilePages @ 0x140637D34 (MiGatherPagefilePages.c)
+ * Callees:
+ *     MiBitmapsCachedEntryLengthChanged @ 0x14020B884 (MiBitmapsCachedEntryLengthChanged.c)
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ */
+
 __int64 __fastcall MiInvalidatePageFileBitmapsCache(__int64 a1, unsigned int a2, int a3, __int64 a4)
 {
   __int64 result; // rax

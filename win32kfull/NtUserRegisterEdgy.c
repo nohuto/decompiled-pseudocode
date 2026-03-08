@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserRegisterEdgy @ 0x1C01DA110
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ *     IsShellProcess @ 0x1C009C278 (IsShellProcess.c)
+ *     ?_AddOrUpdateListener@Edgy@@YAHPEAUtagDESKTOP@@PEAXW4tagEDGY_LOCATION@@PEAUHWND__@@@Z @ 0x1C01E8ADC (-_AddOrUpdateListener@Edgy@@YAHPEAUtagDESKTOP@@PEAXW4tagEDGY_LOCATION@@PEAUHWND__@@@Z.c)
+ *     EdgyUnregisterListener @ 0x1C01E9B74 (EdgyUnregisterListener.c)
+ */
+
 __int64 __fastcall NtUserRegisterEdgy(unsigned int a1, __int64 a2, int a3)
 {
   int v6; // ebx

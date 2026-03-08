@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhValidateBOSDescriptorSet @ 0x1C00524CC
+ * Callers:
+ *     UsbhGetAlternateUsbDescriptors @ 0x1C0037CEC (UsbhGetAlternateUsbDescriptors.c)
+ *     UsbhSetupDevice @ 0x1C0039728 (UsbhSetupDevice.c)
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhInternalValidateBOSDescriptor @ 0x1C0051B04 (UsbhInternalValidateBOSDescriptor.c)
+ *     UsbhInternalValidateCommonDescriptorHeader @ 0x1C0051D4C (UsbhInternalValidateCommonDescriptorHeader.c)
+ *     UsbhInternalValidateDeviceCapabilityDescriptor @ 0x1C0051EEC (UsbhInternalValidateDeviceCapabilityDescriptor.c)
+ */
+
 char __fastcall UsbhValidateBOSDescriptorSet(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, _OWORD *a5)
 {
   _OWORD *v7; // rcx

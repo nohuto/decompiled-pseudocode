@@ -1,3 +1,22 @@
+/*
+ * XREFs of KiStartThreadCycleAccumulation @ 0x140227310
+ * Callers:
+ *     KiIdleSchedule @ 0x140228140 (KiIdleSchedule.c)
+ *     KeUpdateTotalCyclesCurrentThread @ 0x140228820 (KeUpdateTotalCyclesCurrentThread.c)
+ *     KiRetireDpcList @ 0x1402521E0 (KiRetireDpcList.c)
+ *     KiChooseTargetProcessor @ 0x140258FC0 (KiChooseTargetProcessor.c)
+ *     KiSwapThread @ 0x14025F500 (KiSwapThread.c)
+ *     KiGroupSchedulingGenerationEnd @ 0x1402ABBFC (KiGroupSchedulingGenerationEnd.c)
+ *     PpmCheckCustomRun @ 0x1402D1B4C (PpmCheckCustomRun.c)
+ *     KeUpdateThreadTag @ 0x1402FB2F0 (KeUpdateThreadTag.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x14036A030 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiSelectIdleProcessor @ 0x14057528C (KiSelectIdleProcessor.c)
+ * Callees:
+ *     HalRequestSoftwareInterrupt @ 0x140230830 (HalRequestSoftwareInterrupt.c)
+ *     PoGetFrequencyBucket @ 0x140254EC0 (PoGetFrequencyBucket.c)
+ *     KiBeginCounterAccumulation @ 0x140571C80 (KiBeginCounterAccumulation.c)
+ */
+
 __int64 __fastcall KiStartThreadCycleAccumulation(__int64 a1, __int64 a2, char a3)
 {
   __int64 v4; // r10

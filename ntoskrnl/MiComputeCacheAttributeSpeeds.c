@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiComputeCacheAttributeSpeeds @ 0x140811138
+ * Callers:
+ *     MiInitializeZeroEngines @ 0x140729A34 (MiInitializeZeroEngines.c)
+ * Callees:
+ *     MiMapPageInHyperSpaceWorker @ 0x140214870 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140214A54 (MiUnmapPageInHyperSpaceWorker.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ *     MiZeroEngineMemory @ 0x1402758F0 (MiZeroEngineMemory.c)
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     MiGetNextPageColor @ 0x1402A6DC8 (MiGetNextPageColor.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiChangePageAttribute @ 0x14036CE40 (MiChangePageAttribute.c)
+ *     MiLockAndInsertPageInFreeList @ 0x140387CB4 (MiLockAndInsertPageInFreeList.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall MiComputeCacheAttributeSpeeds(int *a1)
 {
   char result; // al

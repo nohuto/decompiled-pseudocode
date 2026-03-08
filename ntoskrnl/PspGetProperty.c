@@ -1,3 +1,15 @@
+/*
+ * XREFs of PspGetProperty @ 0x1402C86DC
+ * Callers:
+ *     PspGetJobProperty @ 0x1402C8674 (PspGetJobProperty.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PspFindPropertySetEntry @ 0x1402C8774 (PspFindPropertySetEntry.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PspGetProperty(__int64 a1, __int64 a2, _QWORD *a3)
 {
   volatile signed __int64 *v3; // r14

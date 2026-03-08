@@ -1,3 +1,11 @@
+/*
+ * XREFs of OutputAATo32BPP_RGB @ 0x1C014B760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall OutputAATo32BPP_RGB(unsigned int *a1, __int64 a2, unsigned __int64 a3, __int64 a4, __int64 a5)
 {
   __int64 result; // rax

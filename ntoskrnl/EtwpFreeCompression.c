@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwpFreeCompression @ 0x14028E2C4
+ * Callers:
+ *     EtwpFreeLoggerContext @ 0x1406F29FC (EtwpFreeLoggerContext.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeRemoveQueueDpcEx @ 0x14028DB50 (KeRemoveQueueDpcEx.c)
+ *     EtwpFreePlaceholderList @ 0x14028E33C (EtwpFreePlaceholderList.c)
+ *     EtwpRelinquishCompressionTarget @ 0x140600688 (EtwpRelinquishCompressionTarget.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EtwpFreeCompression(__int64 a1)
 {
   void *v2; // rcx

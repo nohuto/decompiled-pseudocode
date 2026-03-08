@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0CFlipContentToken@@IEAA@_KPEAVCompositionSurfaceObject@@@Z @ 0x1C0089044
+ * Callers:
+ *     ?CreateCompleted@CFlipContentToken@@SAJ_KPEAVCompositionSurfaceObject@@PEAPEAV1@@Z @ 0x1C00891B4 (-CreateCompleted@CFlipContentToken@@SAJ_KPEAVCompositionSurfaceObject@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ??0CToken@@IEAA@_KPEAVCompositionSurfaceObject@@@Z @ 0x1C0077C08 (--0CToken@@IEAA@_KPEAVCompositionSurfaceObject@@@Z.c)
+ */
+
 CFlipContentToken *__fastcall CFlipContentToken::CFlipContentToken(
         CFlipContentToken *this,
         __int64 a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIProcessorContainerStartDeviceWorker @ 0x1C003ACF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ */
+
 _UNKNOWN **__fastcall ACPIProcessorContainerStartDeviceWorker(__int64 a1)
 {
   __int64 DeviceExtension; // rax

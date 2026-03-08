@@ -1,3 +1,12 @@
+/*
+ * XREFs of DeleteNodeFromTree @ 0x140244FF0
+ * Callers:
+ *     RtlDeleteElementGenericTableAvl @ 0x140244F40 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlDeleteElementGenericTableAvlEx @ 0x1405AC130 (RtlDeleteElementGenericTableAvlEx.c)
+ * Callees:
+ *     RebalanceNode @ 0x1402453A0 (RebalanceNode.c)
+ */
+
 __int64 __fastcall DeleteNodeFromTree(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax

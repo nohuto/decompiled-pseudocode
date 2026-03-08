@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?xxxImeWindowPosChanged@@YAXPEAUtagSMWP@@@Z @ 0x1C0068140
+ * Callers:
+ *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C0068640 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
+ * Callees:
+ *     FreeHwndList @ 0x1C00680B0 (FreeHwndList.c)
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall xxxImeWindowPosChanged(struct tagSMWP *a1)
 {

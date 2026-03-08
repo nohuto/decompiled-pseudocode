@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CopyPixels@CWICBitmapWrapper@@UEBAJAEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@IIPEAE@Z @ 0x180101960
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CWICBitmapWrapper::CopyPixels(__int64 a1, int *a2)
 {
   __int64 *v2; // rcx

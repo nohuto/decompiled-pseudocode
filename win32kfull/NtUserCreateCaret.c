@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserCreateCaret @ 0x1C000F2D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxCreateCaret @ 0x1C000F3B4 (xxxCreateCaret.c)
+ */
+
 __int64 __fastcall NtUserCreateCaret(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
 {
   __int64 v8; // rax

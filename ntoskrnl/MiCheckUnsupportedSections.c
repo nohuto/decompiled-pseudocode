@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiCheckUnsupportedSections @ 0x140A338C0
+ * Callers:
+ *     MiPrepareToHotPatchImage @ 0x140A37C98 (MiPrepareToHotPatchImage.c)
+ * Callees:
+ *     RtlAreBitsSet @ 0x14036C840 (RtlAreBitsSet.c)
+ */
+
 __int64 __fastcall MiCheckUnsupportedSections(PRTL_BITMAP *a1)
 {
   unsigned int v1; // ebx

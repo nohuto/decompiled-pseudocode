@@ -1,3 +1,14 @@
+/*
+ * XREFs of VslGetSecurePciDeviceAlternateFunctionNumberForVtl0Dma @ 0x140548ED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     HvlQueryVsmConnection @ 0x1402D8618 (HvlQueryVsmConnection.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 char __fastcall VslGetSecurePciDeviceAlternateFunctionNumberForVtl0Dma(int a1, char a2, char a3, char a4)
 {
   bool v8; // sf

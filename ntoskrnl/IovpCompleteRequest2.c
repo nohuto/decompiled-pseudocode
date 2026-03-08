@@ -1,3 +1,26 @@
+/*
+ * XREFs of IovpCompleteRequest2 @ 0x140AC9AFC
+ * Callers:
+ *     IovpLocalCompletionRoutine @ 0x140ABEB60 (IovpLocalCompletionRoutine.c)
+ * Callees:
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MdlInvariantPostProcessing1 @ 0x1405CD074 (MdlInvariantPostProcessing1.c)
+ *     ViErrorReport6 @ 0x1405CDBC0 (ViErrorReport6.c)
+ *     ViIrpDatabaseAcquireLockExclusive @ 0x1405D0134 (ViIrpDatabaseAcquireLockExclusive.c)
+ *     ViIrpDatabaseReleaseLockExclusive @ 0x1405D017C (ViIrpDatabaseReleaseLockExclusive.c)
+ *     VfUtilAddressRangeRemoveCheckEmpty @ 0x140ABF44C (VfUtilAddressRangeRemoveCheckEmpty.c)
+ *     IovpValidateStatusInformation @ 0x140ACA15C (IovpValidateStatusInformation.c)
+ *     VfMajorAdvanceIrpStatus @ 0x140ACFE6C (VfMajorAdvanceIrpStatus.c)
+ *     VfMajorVerifyFinalIrpStack @ 0x140AD01D8 (VfMajorVerifyFinalIrpStack.c)
+ *     VfMajorVerifyIrpStackUpward @ 0x140AD0324 (VfMajorVerifyIrpStackUpward.c)
+ *     IovpSessionDataDereference @ 0x140ADAFB4 (IovpSessionDataDereference.c)
+ *     IovpSessionDataReference @ 0x140ADB01C (IovpSessionDataReference.c)
+ *     ViWdIrpBeforeCompletionRoutine @ 0x140ADB358 (ViWdIrpBeforeCompletionRoutine.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140ADE8EC (VfIrpDatabaseEntryReleaseLock.c)
+ */
+
 void __fastcall IovpCompleteRequest2(ULONG_PTR a1, __int64 a2)
 {
   _DWORD *v2; // r14

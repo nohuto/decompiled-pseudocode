@@ -1,3 +1,36 @@
+/*
+ * XREFs of MiGatherPagefilePages @ 0x140637D34
+ * Callers:
+ *     MiModifiedPageWriter @ 0x1403AD2B0 (MiModifiedPageWriter.c)
+ * Callees:
+ *     MiInvalidatePageFileBitmapsCache @ 0x14020A3E4 (MiInvalidatePageFileBitmapsCache.c)
+ *     MiPageFileLargestBitmapsRun @ 0x14020A53C (MiPageFileLargestBitmapsRun.c)
+ *     MiWriteComplete @ 0x1402126E0 (MiWriteComplete.c)
+ *     MiWriteCompletePfn @ 0x140212B10 (MiWriteCompletePfn.c)
+ *     MiReleaseWriteInProgressCharges @ 0x140212C98 (MiReleaseWriteInProgressCharges.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     IoAsynchronousPageWrite @ 0x1402FE3CC (IoAsynchronousPageWrite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MiTransferSoftwarePte @ 0x14032F630 (MiTransferSoftwarePte.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiStoreWriteModifiedPages @ 0x14046554A (MiStoreWriteModifiedPages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiBuildReservationCluster @ 0x140635ED4 (MiBuildReservationCluster.c)
+ *     MiFillNoReservationCluster @ 0x140637058 (MiFillNoReservationCluster.c)
+ *     MiFindPageFileWriteCluster @ 0x1406374E0 (MiFindPageFileWriteCluster.c)
+ *     MiMakePagefileWriterEntryAvailable @ 0x140638C18 (MiMakePagefileWriterEntryAvailable.c)
+ *     MiPageFileNoFreeSpace @ 0x140638D04 (MiPageFileNoFreeSpace.c)
+ *     MiSetPageFileAllocationBits @ 0x1406391A8 (MiSetPageFileAllocationBits.c)
+ *     MiUpdatePagefilePeakUsage @ 0x140639760 (MiUpdatePagefilePeakUsage.c)
+ *     MiIsStoreVirtualPagefileFull @ 0x1406599F8 (MiIsStoreVirtualPagefileFull.c)
+ *     MiTransferMemoryPagefileData @ 0x14065E4C8 (MiTransferMemoryPagefileData.c)
+ *     MI_PAGEFILE_WRITE @ 0x14065EB48 (MI_PAGEFILE_WRITE.c)
+ *     MiMapPageFileHash @ 0x140663D0C (MiMapPageFileHash.c)
+ */
+
 char __fastcall MiGatherPagefilePages(__int64 a1)
 {
   __int64 v1; // rsi

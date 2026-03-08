@@ -1,3 +1,28 @@
+/*
+ * XREFs of bMigrateSurfaceForConversion @ 0x1C0186E60
+ * Callers:
+ *     pProcessDfbSurfacesInternal @ 0x1C01878E0 (pProcessDfbSurfacesInternal.c)
+ * Callees:
+ *     ?bMap@SURFREFVIEW@@QEAAHPEAU_SURFOBJ@@@Z @ 0x1C0021450 (-bMap@SURFREFVIEW@@QEAAHPEAU_SURFOBJ@@@Z.c)
+ *     ?bDeleteSurface@SURFREF@@QEAAHH@Z @ 0x1C0029684 (-bDeleteSurface@SURFREF@@QEAAHH@Z.c)
+ *     HmgIncrementShareReferenceCount @ 0x1C0046970 (HmgIncrementShareReferenceCount.c)
+ *     HmgDecrementShareReferenceCountEx @ 0x1C00483B0 (HmgDecrementShareReferenceCountEx.c)
+ *     HmgShareLockEx @ 0x1C0048840 (HmgShareLockEx.c)
+ *     HmgShareLockCheck @ 0x1C0049E60 (HmgShareLockCheck.c)
+ *     ?bUnMap@SURFREFVIEW@@QEAAHXZ @ 0x1C00ABF60 (-bUnMap@SURFREFVIEW@@QEAAHXZ.c)
+ *     ?GetFirstLSurf@SURFACE@@QEAAPEAVSFMLOGICALSURFACE@@XZ @ 0x1C00B8650 (-GetFirstLSurf@SURFACE@@QEAAPEAVSFMLOGICALSURFACE@@XZ.c)
+ *     ?vAppContainerOwner@SURFACE@@QEAAXPEAU_EPROCESS@@@Z @ 0x1C00D27E8 (-vAppContainerOwner@SURFACE@@QEAAXPEAU_EPROCESS@@@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     ?bUnMapImmediate@SURFREFVIEW@@QEAAHXZ @ 0x1C0185380 (-bUnMapImmediate@SURFREFVIEW@@QEAAHXZ.c)
+ *     ?SwapShareCount@OBJECT@@SAXPEAV1@0@Z @ 0x1C0185BC0 (-SwapShareCount@OBJECT@@SAXPEAV1@0@Z.c)
+ *     HmgQueryAltLock @ 0x1C01862A0 (HmgQueryAltLock.c)
+ *     HmgSwapLockedHandleContents @ 0x1C0186370 (HmgSwapLockedHandleContents.c)
+ *     ??1SFMLOGICALSURFACEREF@@QEAA@XZ @ 0x1C0186A44 (--1SFMLOGICALSURFACEREF@@QEAA@XZ.c)
+ *     ?LockLogicalSurfaceObj@SFMLOGICALSURFACEREF@@AEAAXPEAUHLSURF__@@@Z @ 0x1C0186A88 (-LockLogicalSurfaceObj@SFMLOGICALSURFACEREF@@AEAAXPEAUHLSURF__@@@Z.c)
+ *     IsvSpDwmMigrateLSurfShapeReferenceSupported @ 0x1C027165C (IsvSpDwmMigrateLSurfShapeReferenceSupported.c)
+ */
+
 __int64 __fastcall bMigrateSurfaceForConversion(struct OBJECT *a1, struct OBJECT *a2, int a3, int *a4)
 {
   unsigned int v7; // r14d

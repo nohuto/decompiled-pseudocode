@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetEffectiveInputSink@CInteraction@@UEBAXW4InputType@@PEAPEAX@Z @ 0x18012DBB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CInteraction::GetEffectiveInputSink(_QWORD *a1, int a2, _QWORD *a3)
 {
   int v3; // edx

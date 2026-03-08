@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBID_FreeID @ 0x1C001DB90
+ * Callers:
+ *     HUBPDO_ReturnDeviceConfigInfo @ 0x1C0016420 (HUBPDO_ReturnDeviceConfigInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall HUBID_FreeID(__int64 a1)
 {
   void *v2; // rcx

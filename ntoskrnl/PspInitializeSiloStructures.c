@@ -1,3 +1,18 @@
+/*
+ * XREFs of PspInitializeSiloStructures @ 0x140B3E8CC
+ * Callers:
+ *     PspInitPhase0 @ 0x140B3F968 (PspInitPhase0.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PspAllocStorage @ 0x140797524 (PspAllocStorage.c)
+ *     PspSiloInitializeSharedUserSessionId @ 0x14079C7D0 (PspSiloInitializeSharedUserSessionId.c)
+ *     PspStorageAllocSlot @ 0x14080C8BC (PspStorageAllocSlot.c)
+ *     ObCreateObjectType @ 0x14080CB00 (ObCreateObjectType.c)
+ *     PspStorageFreeSlot @ 0x1409B4EC4 (PspStorageFreeSlot.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 char PspInitializeSiloStructures()
 {
   __int64 Pool2; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiAddSyncObjectToCrossAdapterInfo @ 0x1C003A308
+ * Callers:
+ *     VidSchCreateSyncObject @ 0x1C00AA640 (VidSchCreateSyncObject.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VidSchiAddSyncObjectToCrossAdapterInfo(__int64 a1)
 {
   KSPIN_LOCK *v2; // rcx

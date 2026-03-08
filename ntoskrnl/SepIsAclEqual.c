@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepIsAclEqual @ 0x1409CE3E8
+ * Callers:
+ *     SeTokenDefaultDaclChangedAuditAlarm @ 0x140743F0C (SeTokenDefaultDaclChangedAuditAlarm.c)
+ *     SeSecurityDescriptorChangedAuditAlarm @ 0x14076AA40 (SeSecurityDescriptorChangedAuditAlarm.c)
+ * Callees:
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ */
+
 char __fastcall SepIsAclEqual(_WORD *a1, _WORD *a2)
 {
   if ( a1 )

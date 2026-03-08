@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiCopyUnicodeString @ 0x1C0205478
+ * Callers:
+ *     DpiGetDeviceRegistryPaths @ 0x1C001D038 (DpiGetDeviceRegistryPaths.c)
+ *     DpiGdoSetupGdiParameters @ 0x1C0204950 (DpiGdoSetupGdiParameters.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiCopyUnicodeString(PUNICODE_STRING DestinationString, PCUNICODE_STRING SourceString)
 {
   unsigned int v2; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of SdbpCheckUptoStringVersion @ 0x140A50900
+ * Callers:
+ *     SdbpCheckApplicationTypeAttributes @ 0x14066B804 (SdbpCheckApplicationTypeAttributes.c)
+ *     SdbpCheckAttribute @ 0x1407A0F7C (SdbpCheckAttribute.c)
+ * Callees:
+ *     Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage @ 0x1404117B8 (Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage.c)
+ */
+
 _BOOL8 __fastcall SdbpCheckUptoStringVersion(unsigned __int16 *a1, unsigned __int16 *a2)
 {
   int v4; // ebp

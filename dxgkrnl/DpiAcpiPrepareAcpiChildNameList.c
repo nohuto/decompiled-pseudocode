@@ -1,3 +1,14 @@
+/*
+ * XREFs of DpiAcpiPrepareAcpiChildNameList @ 0x1C0208E34
+ * Callers:
+ *     DpiAcpiGetAcpiChildName @ 0x1C0208DD8 (DpiAcpiGetAcpiChildName.c)
+ *     DpiAcpiExposeInfo @ 0x1C02094A4 (DpiAcpiExposeInfo.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiAcpiEvalAcpiMethodEx @ 0x1C02091CC (DpiAcpiEvalAcpiMethodEx.c)
+ */
+
 __int64 __fastcall DpiAcpiPrepareAcpiChildNameList(__int64 a1)
 {
   __int64 result; // rax

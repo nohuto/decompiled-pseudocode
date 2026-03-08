@@ -1,3 +1,13 @@
+/*
+ * XREFs of KCBNeedsVirtualImage_0 @ 0x140614000
+ * Callers:
+ *     CmQueryLayeredKey @ 0x1402F262C (CmQueryLayeredKey.c)
+ *     CmQueryKey @ 0x1407AE5C0 (CmQueryKey.c)
+ * Callees:
+ *     CmpIsSystemEntity @ 0x140768CB8 (CmpIsSystemEntity.c)
+ *     CmpIsKcbInsideVirtualizedHive @ 0x1407B96F0 (CmpIsKcbInsideVirtualizedHive.c)
+ */
+
 bool __fastcall KCBNeedsVirtualImage_0(__int64 a1)
 {
   __int64 v1; // rdx

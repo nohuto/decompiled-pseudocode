@@ -1,3 +1,17 @@
+/*
+ * XREFs of IopMcRemoveMdlPagesFromTable @ 0x14055CE20
+ * Callers:
+ *     IopMcTryUnlockMdl @ 0x14055D00C (IopMcTryUnlockMdl.c)
+ *     IopMcCreateBufferEntryMdl @ 0x14094E6D0 (IopMcCreateBufferEntryMdl.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     IopMcShouldYield @ 0x14055CFD0 (IopMcShouldYield.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 _DWORD *__fastcall IopMcRemoveMdlPagesFromTable(__int64 a1, __int64 a2)
 {
   int v2; // r8d

@@ -1,3 +1,24 @@
+/*
+ * XREFs of SdbQueryDataExTagID @ 0x140A4C328
+ * Callers:
+ *     SdbQueryDataEx @ 0x140A4C284 (SdbQueryDataEx.c)
+ * Callees:
+ *     RtlStringCchCopyW @ 0x1402470F0 (RtlStringCchCopyW.c)
+ *     RtlStringCchCopyNW @ 0x140303EF8 (RtlStringCchCopyNW.c)
+ *     wcschr @ 0x1403D5D90 (wcschr.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbReadDWORDTag @ 0x14079FC18 (SdbReadDWORDTag.c)
+ *     SdbGetStringTagPtr @ 0x1407A20E8 (SdbGetStringTagPtr.c)
+ *     SdbpGetMappedTagData @ 0x1407A2238 (SdbpGetMappedTagData.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ *     SdbGetTagDataSize @ 0x1407A2980 (SdbGetTagDataSize.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     SdbReadQWORDTag @ 0x140800D70 (SdbReadQWORDTag.c)
+ *     SdbpFindFirstNamedTagHelper @ 0x140A4EEE0 (SdbpFindFirstNamedTagHelper.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SdbQueryDataExTagID(
         __int64 a1,
         unsigned int a2,

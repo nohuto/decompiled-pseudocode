@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ADAPTER_RENDER_DdiStopCapture@@YAJPEAVADAPTER_RENDER@@PEAU_DXGKARG_STOPCAPTURE@@@Z @ 0x1C0047E30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DdiStopCapture@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_STOPCAPTURE@@@Z @ 0x1C02C7CD8 (-DdiStopCapture@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_STOPCAPTURE@@@Z.c)
+ */
+
 __int64 __fastcall ADAPTER_RENDER_DdiStopCapture(struct ADAPTER_RENDER *a1, struct _DXGKARG_STOPCAPTURE *a2)
 {
   return ADAPTER_RENDER::DdiStopCapture(a1, a2);

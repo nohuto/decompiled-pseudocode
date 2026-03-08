@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpComputeLogFillLevel @ 0x140735120
+ * Callers:
+ *     CmpTransWriteLog @ 0x140734F84 (CmpTransWriteLog.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmpComputeLogFillLevel(
         PLOG_FILE_OBJECT plfoLog,
         PCLFS_LSN plsnStart,

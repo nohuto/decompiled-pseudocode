@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheaInitializeDeferredRecoveryObject @ 0x1406108F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WheaInitializeDeferredRecoveryObject(__int64 a1, __int64 a2, char a3)
 {
   __int64 result; // rax

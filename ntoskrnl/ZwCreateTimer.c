@@ -1,3 +1,12 @@
+/*
+ * XREFs of ZwCreateTimer @ 0x140413C30
+ * Callers:
+ *     DifZwCreateTimerWrapper @ 0x1405ECBE0 (DifZwCreateTimerWrapper.c)
+ *     DbgkpWerInitializeDeferredLiveDump @ 0x140938BA4 (DbgkpWerInitializeDeferredLiveDump.c)
+ * Callees:
+ *     <none>
+ */
+
 // local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwCreateTimer(
         PHANDLE TimerHandle,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?bDynamicIntersectVisRect@@YAHPEAVSURFACE@@UtagSIZE@@@Z @ 0x1C0199130
+ * Callers:
+ *     bDynamicModeChange @ 0x1C006DF9C (bDynamicModeChange.c)
+ * Callees:
+ *     HmgSafeNextObjt @ 0x1C006EFB0 (HmgSafeNextObjt.c)
+ *     ?ReleaseLock@GreInnermostPushLockMSRC85333@@QEAAXXZ @ 0x1C00DE014 (-ReleaseLock@GreInnermostPushLockMSRC85333@@QEAAXXZ.c)
+ *     Feature_3160330556__private_IsEnabledDeviceUsage @ 0x1C00DE090 (Feature_3160330556__private_IsEnabledDeviceUsage.c)
+ *     ?AcquireDcVisRgnShared@DC@@QEAA@XZ @ 0x1C00DE7E0 (-AcquireDcVisRgnShared@DC@@QEAA@XZ.c)
+ *     GreIntersectVisRect @ 0x1C0197D20 (GreIntersectVisRect.c)
+ */
+
 __int64 __fastcall bDynamicIntersectVisRect(struct SURFACE *a1, struct tagSIZE a2)
 {
   LONG cx; // ebx

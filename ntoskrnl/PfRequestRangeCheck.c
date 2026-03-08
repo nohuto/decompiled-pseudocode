@@ -1,3 +1,13 @@
+/*
+ * XREFs of PfRequestRangeCheck @ 0x140765FA0
+ * Callers:
+ *     PfPrefetchRequestVerify @ 0x140765CC0 (PfPrefetchRequestVerify.c)
+ *     PfPrefetchRequestVerifyPath @ 0x140765F14 (PfPrefetchRequestVerifyPath.c)
+ *     PfPrefetchRequestVerifyRanges @ 0x140765FE0 (PfPrefetchRequestVerifyRanges.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PfRequestRangeCheck(unsigned int *a1, unsigned int a2, int a3, int a4, int a5)
 {
   unsigned int v5; // eax

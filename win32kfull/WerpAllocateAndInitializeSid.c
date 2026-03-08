@@ -1,3 +1,11 @@
+/*
+ * XREFs of WerpAllocateAndInitializeSid @ 0x1C02522CC
+ * Callers:
+ *     WerKernelSubmitReportForHungProcess @ 0x1C0251D44 (WerKernelSubmitReportForHungProcess.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WerpAllocateAndInitializeSid(
         PSID_IDENTIFIER_AUTHORITY IdentifierAuthority,
         __int64 a2,

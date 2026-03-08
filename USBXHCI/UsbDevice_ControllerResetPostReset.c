@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbDevice_ControllerResetPostReset @ 0x1C00484EC
+ * Callers:
+ *     DeviceSlot_ControllerResetPostReset @ 0x1C0037BD0 (DeviceSlot_ControllerResetPostReset.c)
+ * Callees:
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ */
+
 NTSTATUS __fastcall UsbDevice_ControllerResetPostReset(__int64 a1)
 {
   __int64 *v1; // rdi

@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlStringCbPrintfW @ 0x1C0044C1C
+ * Callers:
+ *     UsbhGetPersistedUsbFlagsPath @ 0x1C0045160 (UsbhGetPersistedUsbFlagsPath.c)
+ *     UsbhGetRegUsbClassFlags @ 0x1C00454E8 (UsbhGetRegUsbClassFlags.c)
+ *     UsbhRegQueryGlobalLegacyDeviceKeys @ 0x1C0046A7C (UsbhRegQueryGlobalLegacyDeviceKeys.c)
+ *     UsbhGetDeviceFlags @ 0x1C00519E8 (UsbhGetDeviceFlags.c)
+ *     UsbhPdo_ReportPnPFailureProblem @ 0x1C0056F88 (UsbhPdo_ReportPnPFailureProblem.c)
+ *     UsbhBuildUxdDeviceKey @ 0x1C0059864 (UsbhBuildUxdDeviceKey.c)
+ *     UsbhDeleteUxdPortSettings @ 0x1C0059B28 (UsbhDeleteUxdPortSettings.c)
+ *     UsbhGetUxdPortKey @ 0x1C005A540 (UsbhGetUxdPortKey.c)
+ *     UsbhPropagateUxdState @ 0x1C005A7DC (UsbhPropagateUxdState.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS RtlStringCbPrintfW(NTSTRSAFE_PWSTR pszDest, size_t cbDest, NTSTRSAFE_PCWSTR pszFormat, ...)
 {
   size_t v3; // rdx

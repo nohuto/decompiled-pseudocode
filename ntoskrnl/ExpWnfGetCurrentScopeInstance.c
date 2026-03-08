@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpWnfGetCurrentScopeInstance @ 0x14071B8A0
+ * Callers:
+ *     ExpWnfResolveScopeInstance @ 0x14071A508 (ExpWnfResolveScopeInstance.c)
+ * Callees:
+ *     PsGetProcessSessionId @ 0x140299380 (PsGetProcessSessionId.c)
+ *     ExpWnfQueryCurrentUserSID @ 0x140718888 (ExpWnfQueryCurrentUserSID.c)
+ */
+
 __int64 __fastcall ExpWnfGetCurrentScopeInstance(
         __int64 Process,
         __int64 a2,

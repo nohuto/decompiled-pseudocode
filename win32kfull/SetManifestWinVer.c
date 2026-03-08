@@ -1,3 +1,11 @@
+/*
+ * XREFs of SetManifestWinVer @ 0x1C00CC090
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SbGetProcessSwitchContext @ 0x1C00CC1C8 (SbGetProcessSwitchContext.c)
+ */
+
 __int64 SetManifestWinVer()
 {
   unsigned __int16 v0; // di

@@ -1,3 +1,22 @@
+/*
+ * XREFs of ?xxxDrawSB2@@YAXPEAUtagWND@@PEAUtagSBCALC@@PEAUHDC__@@HI@Z @ 0x1C0013CD4
+ * Callers:
+ *     xxxDrawScrollBar @ 0x1C0013C30 (xxxDrawScrollBar.c)
+ *     xxxSBWndProc @ 0x1C022D770 (xxxSBWndProc.c)
+ * Callees:
+ *     ?xxxGetColorObjects@@YAPEAUHBRUSH__@@PEAUtagWND@@PEAUHDC__@@@Z @ 0x1C0013EE8 (-xxxGetColorObjects@@YAPEAUHBRUSH__@@PEAUtagWND@@PEAUHDC__@@@Z.c)
+ *     GreGetBkColor @ 0x1C0013F28 (GreGetBkColor.c)
+ *     GreGetTextColor @ 0x1C0013F70 (GreGetTextColor.c)
+ *     DrawThumb2 @ 0x1C0013FB8 (DrawThumb2.c)
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ *     BitBltSysBmp @ 0x1C00D04B0 (BitBltSysBmp.c)
+ *     GreSetBkColor @ 0x1C0113964 (GreSetBkColor.c)
+ *     GreSetTextColor @ 0x1C0113D94 (GreSetTextColor.c)
+ *     DrawFrameControl @ 0x1C0116938 (DrawFrameControl.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void __fastcall xxxDrawSB2(struct tagWND *a1, struct tagSBCALC *a2, HDC a3, int a4, unsigned int a5)
 {
   int v6; // eax

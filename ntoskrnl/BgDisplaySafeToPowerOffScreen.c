@@ -1,3 +1,13 @@
+/*
+ * XREFs of BgDisplaySafeToPowerOffScreen @ 0x14066F460
+ * Callers:
+ *     PopShutdownHandler @ 0x140AA5D70 (PopShutdownHandler.c)
+ * Callees:
+ *     BgpFwReleaseLock @ 0x140381C10 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140381C60 (BgpFwAcquireLock.c)
+ *     BgpDisplaySafeToPowerOffScreen @ 0x140670864 (BgpDisplaySafeToPowerOffScreen.c)
+ */
+
 __int64 BgDisplaySafeToPowerOffScreen()
 {
   unsigned int v0; // ebx

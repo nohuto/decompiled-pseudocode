@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtPlugPlayControl @ 0x1406CF8E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsIsCurrentThreadInServerSilo @ 0x1402459D0 (PsIsCurrentThreadInServerSilo.c)
+ *     PiControlFreeUserModeCallersBuffer @ 0x1402459EC (PiControlFreeUserModeCallersBuffer.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PiControlMakeUserModeCallersCopy @ 0x1406CFA10 (PiControlMakeUserModeCallersCopy.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ */
+
 __int64 __fastcall NtPlugPlayControl(unsigned int a1, __int64 a2, unsigned int a3)
 {
   __int64 v4; // rdi

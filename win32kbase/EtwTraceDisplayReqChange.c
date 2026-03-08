@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceDisplayReqChange @ 0x1C00B8144
+ * Callers:
+ *     UserPowerInfoCallout @ 0x1C00B657C (UserPowerInfoCallout.c)
+ * Callees:
+ *     McTemplateK0qhq_EtwWriteTransfer @ 0x1C01660A0 (McTemplateK0qhq_EtwWriteTransfer.c)
+ */
+
 void __fastcall EtwTraceDisplayReqChange(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v4; // di

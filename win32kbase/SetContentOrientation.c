@@ -1,3 +1,16 @@
+/*
+ * XREFs of SetContentOrientation @ 0x1C0218748
+ * Callers:
+ *     NtSetShellCursorState @ 0x1C016D020 (NtSetShellCursorState.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     _anonymous_namespace_::GetMouseProcessor @ 0x1C0079E3C (_anonymous_namespace_--GetMouseProcessor.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@@Z @ 0x1C0159B5C (--$Write@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_E.c)
+ *     ?OrientationToString@InputTraceLogging@@CAPEBDK@Z @ 0x1C02139C4 (-OrientationToString@InputTraceLogging@@CAPEBDK@Z.c)
+ *     SendOrientationChanged @ 0x1C0218410 (SendOrientationChanged.c)
+ */
+
 char __fastcall SetContentOrientation(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // ebx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??1CBrushRenderingGraph@@MEAA@XZ @ 0x180029C04
+ * Callers:
+ *     ??_GCBrushRenderingGraph@@MEAAPEAXI@Z @ 0x180029840 (--_GCBrushRenderingGraph@@MEAAPEAXI@Z.c)
+ *     ??1CExternalEffectGraph@@MEAA@XZ @ 0x1800D12A4 (--1CExternalEffectGraph@@MEAA@XZ.c)
+ * Callees:
+ *     ??_GCShaderCache@@QEAAPEAXI@Z @ 0x18001BE58 (--_GCShaderCache@@QEAAPEAXI@Z.c)
+ *     ??_GCRenderingTechnique@@QEAAPEAXI@Z @ 0x180029C90 (--_GCRenderingTechnique@@QEAAPEAXI@Z.c)
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097680 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ */
+
 void __fastcall CBrushRenderingGraph::~CBrushRenderingGraph(CBrushRenderingGraph *this, unsigned int a2)
 {
   bool v2; // zf

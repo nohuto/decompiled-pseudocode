@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpCalculateScatterGatherListSize @ 0x1403B4390
+ * Callers:
+ *     HalCalculateScatterGatherListSizeV2 @ 0x1403AF830 (HalCalculateScatterGatherListSizeV2.c)
+ *     HalBuildScatterGatherListV2 @ 0x1403C7C60 (HalBuildScatterGatherListV2.c)
+ * Callees:
+ *     HalpDmaGetAdapterCacheAlignment @ 0x1403B44EC (HalpDmaGetAdapterCacheAlignment.c)
+ */
+
 __int64 __fastcall HalpCalculateScatterGatherListSize(
         __int64 a1,
         __int64 *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopDiagTraceUsermodeTripPointExceeded @ 0x14098F160
+ * Callers:
+ *     PopThermalProcessUsermodeEvent @ 0x140987DC8 (PopThermalProcessUsermodeEvent.c)
+ * Callees:
+ *     PopDiagTraceTripPointExceeded @ 0x14098EEE4 (PopDiagTraceTripPointExceeded.c)
+ */
+
 char __fastcall PopDiagTraceUsermodeTripPointExceeded(unsigned __int16 a1, __int64 a2, int a3, char a4)
 {
   bool v5; // zf

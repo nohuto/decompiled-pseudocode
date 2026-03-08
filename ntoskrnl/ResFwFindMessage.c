@@ -1,3 +1,11 @@
+/*
+ * XREFs of ResFwFindMessage @ 0x140AEA0A8
+ * Callers:
+ *     BcpFindMessage @ 0x140B99148 (BcpFindMessage.c)
+ * Callees:
+ *     RtlFindMessage @ 0x1407E97C0 (RtlFindMessage.c)
+ */
+
 unsigned __int16 *__fastcall ResFwFindMessage(unsigned int a1)
 {
   unsigned __int16 *v2; // [rsp+48h] [rbp+10h] BYREF

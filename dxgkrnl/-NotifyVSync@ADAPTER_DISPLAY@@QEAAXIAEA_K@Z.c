@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?NotifyVSync@ADAPTER_DISPLAY@@QEAAXIAEA_K@Z @ 0x1C000EEBC
+ * Callers:
+ *     ?NotifyVSync@DXGADAPTER@@QEAAXI@Z @ 0x1C000ED70 (-NotifyVSync@DXGADAPTER@@QEAAXI@Z.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C000AA90 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0014BA0 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 void __fastcall ADAPTER_DISPLAY::NotifyVSync(ADAPTER_DISPLAY *this, unsigned int a2, unsigned __int64 *a3)
 {
   __int64 v5; // rdx

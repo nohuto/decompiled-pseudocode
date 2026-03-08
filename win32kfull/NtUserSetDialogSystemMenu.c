@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetDialogSystemMenu @ 0x1C00E7F40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxSetDialogSystemMenu @ 0x1C00E7FF4 (xxxSetDialogSystemMenu.c)
+ */
+
 __int64 __fastcall NtUserSetDialogSystemMenu(__int64 a1)
 {
   __int64 v2; // rax

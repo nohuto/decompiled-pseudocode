@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CollectInvalidClientRects@CVisualTree@@IEAAXXZ @ 0x180210C14
+ * Callers:
+ *     ?EndPreCompute@CVisualTree@@QEAAXJ@Z @ 0x180210C84 (-EndPreCompute@CVisualTree@@QEAAXJ@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CVisualTree::CollectInvalidClientRects(CVisualTree *this)
 {
   __int64 i; // rbx

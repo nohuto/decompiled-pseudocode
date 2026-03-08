@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPowerAggregatorDiagTracePdcSleepTransition @ 0x14099DF84
+ * Callers:
+ *     PopPowerAggregatorNotifyPdcSleepTransition @ 0x140990C08 (PopPowerAggregatorNotifyPdcSleepTransition.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopPowerAggregatorDiagTraceEvent @ 0x1407577FC (PopPowerAggregatorDiagTraceEvent.c)
+ */
+
 void __fastcall PopPowerAggregatorDiagTracePdcSleepTransition(
         unsigned __int8 a1,
         int a2,

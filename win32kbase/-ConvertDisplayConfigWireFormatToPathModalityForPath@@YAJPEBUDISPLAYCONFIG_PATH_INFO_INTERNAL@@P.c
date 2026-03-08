@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ConvertDisplayConfigWireFormatToPathModalityForPath@@YAJPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@PEAUD3DKMT_PATHMODALITY_DESCRIPTOR@@@Z @ 0x1C018D0A4
+ * Callers:
+ *     ?ConvertDisplayConfigPathIntoExistingPathModalityAtIdx@@YAJPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@II_N1PEAUD3DKMT_GETPATHSMODALITY@@PEA_N@Z @ 0x1C018CA3C (-ConvertDisplayConfigPathIntoExistingPathModalityAtIdx@@YAJPEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ConvertDisplayConfigWireFormatToPathModalityForPath(
         const struct DISPLAYCONFIG_PATH_INFO_INTERNAL *a1,
         struct D3DKMT_PATHMODALITY_DESCRIPTOR *a2)

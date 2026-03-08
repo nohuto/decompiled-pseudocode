@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiCreateNodeLists @ 0x140809274
+ * Callers:
+ *     MiMakePartitionMemoryBlock @ 0x140A4242C (MiMakePartitionMemoryBlock.c)
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiDescribePageRun @ 0x14037082C (MiDescribePageRun.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char *__fastcall MiCreateNodeLists(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

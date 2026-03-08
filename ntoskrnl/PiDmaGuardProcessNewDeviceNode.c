@@ -1,3 +1,17 @@
+/*
+ * XREFs of PiDmaGuardProcessNewDeviceNode @ 0x1407F84D0
+ * Callers:
+ *     PiProcessNewDeviceNode @ 0x140685858 (PiProcessNewDeviceNode.c)
+ * Callees:
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PiIommuGetInterface @ 0x1407F8574 (PiIommuGetInterface.c)
+ *     PipDmgDestroyIommuExtension @ 0x1407F8E3C (PipDmgDestroyIommuExtension.c)
+ *     PiIommuAllocateExtension @ 0x140840F4C (PiIommuAllocateExtension.c)
+ */
+
 __int64 __fastcall PiDmaGuardProcessNewDeviceNode(ULONG_PTR MaxDataSize)
 {
   unsigned int Extension; // ebx

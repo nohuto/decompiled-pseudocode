@@ -1,3 +1,12 @@
+/*
+ * XREFs of WdipSemAddScenarioToTable @ 0x140833C3C
+ * Callers:
+ *     WdipSemLoadScenarioTable @ 0x140832BA4 (WdipSemLoadScenarioTable.c)
+ * Callees:
+ *     WdipSemMergeScenarios @ 0x140831ABC (WdipSemMergeScenarios.c)
+ *     WdipSemFreeScenario @ 0x140833668 (WdipSemFreeScenario.c)
+ */
+
 __int64 __fastcall WdipSemAddScenarioToTable(__int64 a1)
 {
   int v1; // edi

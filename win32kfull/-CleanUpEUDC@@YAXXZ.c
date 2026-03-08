@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CleanUpEUDC@@YAXXZ @ 0x1C00B76C0
+ * Callers:
+ *     GdiMultiUserFontCleanup @ 0x1C00B6E30 (GdiMultiUserFontCleanup.c)
+ * Callees:
+ *     GreEnableEUDC @ 0x1C00B77A8 (GreEnableEUDC.c)
+ *     bUnloadEudcFont @ 0x1C01162DC (bUnloadEudcFont.c)
+ *     ?bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z @ 0x1C01183E8 (-bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z.c)
+ */
+
 void __fastcall CleanUpEUDC(Gre::Base *a1)
 {
   struct Gre::Base::SESSION_GLOBALS *v1; // rdi

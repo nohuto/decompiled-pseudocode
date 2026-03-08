@@ -1,3 +1,13 @@
+/*
+ * XREFs of SubstringMatch @ 0x140A6C2AC
+ * Callers:
+ *     PropertyEval @ 0x1407622B0 (PropertyEval.c)
+ *     StringListElementSubstringMatch @ 0x140A6C1B4 (StringListElementSubstringMatch.c)
+ * Callees:
+ *     wcsstr @ 0x1403D6020 (wcsstr.c)
+ *     _wcsistr @ 0x140A6C33C (_wcsistr.c)
+ */
+
 __int64 __fastcall SubstringMatch(const wchar_t *a1, const wchar_t *a2, int a3, int a4)
 {
   unsigned int v4; // ebx

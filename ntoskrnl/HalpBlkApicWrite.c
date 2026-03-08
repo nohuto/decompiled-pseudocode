@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpBlkApicWrite @ 0x140B13148
+ * Callers:
+ *     HalpBlkApicEndOfInterrupt @ 0x140B12F90 (HalpBlkApicEndOfInterrupt.c)
+ *     HalpBlkApicInitializeLocalUnit @ 0x140B12FB0 (HalpBlkApicInitializeLocalUnit.c)
+ * Callees:
+ *     <none>
+ */
+
 _EXCEPTION_REGISTRATION_RECORD *__fastcall HalpBlkApicWrite(int a1, unsigned int a2)
 {
   _EXCEPTION_REGISTRATION_RECORD *ExceptionList; // rax

@@ -1,3 +1,37 @@
+/*
+ * XREFs of MiTradePage @ 0x1403B5640
+ * Callers:
+ *     MiClaimPhysicalRun @ 0x1403B545C (MiClaimPhysicalRun.c)
+ * Callees:
+ *     MiIsPfn @ 0x14025F1D0 (MiIsPfn.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x140276500 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInvalidPteConforms @ 0x140287530 (MiInvalidPteConforms.c)
+ *     MiSetPfnTbFlushStamp @ 0x14028A3A0 (MiSetPfnTbFlushStamp.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x14032F834 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiGetPfnChannel @ 0x140334470 (MiGetPfnChannel.c)
+ *     MiIsPageOnBadList @ 0x14034B1D0 (MiIsPageOnBadList.c)
+ *     MiGetPfnPageSizeIndex @ 0x14034D770 (MiGetPfnPageSizeIndex.c)
+ *     MiReturnFreeZeroPage @ 0x14034E5C4 (MiReturnFreeZeroPage.c)
+ *     MiGetBaseResidentPage @ 0x140350A30 (MiGetBaseResidentPage.c)
+ *     MiLockAndInsertPageInFreeList @ 0x140387CB4 (MiLockAndInsertPageInFreeList.c)
+ *     MiSwapStackPage @ 0x14039604C (MiSwapStackPage.c)
+ *     MiDemoteLargeFreePage @ 0x14039BCC8 (MiDemoteLargeFreePage.c)
+ *     MiTrimSharedPage @ 0x1403A0EBC (MiTrimSharedPage.c)
+ *     MiActivePageClaimCandidate @ 0x1403B68D8 (MiActivePageClaimCandidate.c)
+ *     MiPfnLargeBitSet @ 0x1403B6D48 (MiPfnLargeBitSet.c)
+ *     MiAddMdlPageToTradeBlock @ 0x1403B6DA8 (MiAddMdlPageToTradeBlock.c)
+ *     MiDrainZeroLookasides @ 0x1403B6E88 (MiDrainZeroLookasides.c)
+ *     MiStealPage @ 0x1403B70BC (MiStealPage.c)
+ *     MiTradeTransitionPage @ 0x1403B7C98 (MiTradeTransitionPage.c)
+ *     MiLargeFreePageToMdl @ 0x1403D1BC4 (MiLargeFreePageToMdl.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLargePageMovesInProgress @ 0x14064CD64 (MiLargePageMovesInProgress.c)
+ *     MiReuseStandbyPage @ 0x14064F6CC (MiReuseStandbyPage.c)
+ */
+
 unsigned __int64 __fastcall MiTradePage(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   unsigned int v3; // r13d

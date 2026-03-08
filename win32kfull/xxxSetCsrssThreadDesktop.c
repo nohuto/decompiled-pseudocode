@@ -1,3 +1,17 @@
+/*
+ * XREFs of xxxSetCsrssThreadDesktop @ 0x1C00948B0
+ * Callers:
+ *     xxxQueryInformationThread @ 0x1C0093274 (xxxQueryInformationThread.c)
+ *     xxxSetInformationThread @ 0x1C0093B70 (xxxSetInformationThread.c)
+ *     xxxHardErrorControl @ 0x1C0226A64 (xxxHardErrorControl.c)
+ * Callees:
+ *     xxxSetThreadDesktop @ 0x1C00361B8 (xxxSetThreadDesktop.c)
+ *     xxxDispatchMessage @ 0x1C0038064 (xxxDispatchMessage.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxInternalGetMessage @ 0x1C00946B0 (xxxInternalGetMessage.c)
+ *     CloseProtectedHandle @ 0x1C0094854 (CloseProtectedHandle.c)
+ */
+
 NTSTATUS __fastcall xxxSetCsrssThreadDesktop(_DWORD *Object, PVOID *a2)
 {
   void *v4; // rcx

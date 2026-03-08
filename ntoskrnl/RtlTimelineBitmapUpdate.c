@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlTimelineBitmapUpdate @ 0x140250EE0
+ * Callers:
+ *     KiRetireDpcList @ 0x1402521E0 (KiRetireDpcList.c)
+ *     PoEnergyContextUpdateComponentPower @ 0x1406FF3F8 (PoEnergyContextUpdateComponentPower.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall RtlTimelineBitmapUpdate(unsigned int *a1, unsigned int a2)
 {
   unsigned int v3; // ecx

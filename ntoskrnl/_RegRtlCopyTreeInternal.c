@@ -1,3 +1,28 @@
+/*
+ * XREFs of _RegRtlCopyTreeInternal @ 0x140A67A08
+ * Callers:
+ *     PiDevCfgConfigureDeviceFilters @ 0x140876BD0 (PiDevCfgConfigureDeviceFilters.c)
+ *     PiDevCfgConfigureSoftwareDevices @ 0x140876C88 (PiDevCfgConfigureSoftwareDevices.c)
+ *     _PnpCtxRegCopyTree @ 0x140A5DE1C (_PnpCtxRegCopyTree.c)
+ *     _RegRtlCopyTreeInternal @ 0x140A67A08 (_RegRtlCopyTreeInternal.c)
+ * Callees:
+ *     IoGetStackLimits @ 0x1403129C0 (IoGetStackLimits.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryKey @ 0x1404125D0 (ZwQueryKey.c)
+ *     ZwQuerySecurityObject @ 0x140414FD0 (ZwQuerySecurityObject.c)
+ *     ZwSetSecurityObject @ 0x1404159D0 (ZwSetSecurityObject.c)
+ *     _RegRtlCreateKeyTransacted @ 0x14068804C (_RegRtlCreateKeyTransacted.c)
+ *     _RegRtlOpenKeyTransacted @ 0x1406D43A0 (_RegRtlOpenKeyTransacted.c)
+ *     _RegRtlSetValue @ 0x140784FE4 (_RegRtlSetValue.c)
+ *     _RegRtlQueryInfoKey @ 0x140868C7C (_RegRtlQueryInfoKey.c)
+ *     _RegRtlEnumKey @ 0x140868D44 (_RegRtlEnumKey.c)
+ *     _RegRtlEnumValue @ 0x14086C580 (_RegRtlEnumValue.c)
+ *     _RegRtlCopyTreeInternal @ 0x140A67A08 (_RegRtlCopyTreeInternal.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RegRtlCopyTreeInternal(
         void *a1,
         const WCHAR *a2,

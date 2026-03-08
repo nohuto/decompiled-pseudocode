@@ -1,3 +1,26 @@
+/*
+ * XREFs of MiProtectLargeKernelHalRange @ 0x14080A3F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiInitializeTbFlushList @ 0x14036C25C (MiInitializeTbFlushList.c)
+ *     MiGetPdeAddress @ 0x14036C27C (MiGetPdeAddress.c)
+ *     MiRewritePteWithLockBit @ 0x140371830 (MiRewritePteWithLockBit.c)
+ *     MiUnlockPageTable @ 0x140371878 (MiUnlockPageTable.c)
+ *     MiLockPageTable @ 0x140371890 (MiLockPageTable.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiComputeDriverProtection @ 0x14080A918 (MiComputeDriverProtection.c)
+ */
+
 __int64 __fastcall MiProtectLargeKernelHalRange(unsigned __int64 a1, unsigned __int64 a2, unsigned int a3)
 {
   int v6; // r14d

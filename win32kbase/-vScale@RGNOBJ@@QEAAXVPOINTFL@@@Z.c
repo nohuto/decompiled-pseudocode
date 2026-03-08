@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z @ 0x1C01846B0
+ * Callers:
+ *     ?vDuplicateAndScaleRegion@@YAXPEAVREGION@@PEAPEAV1@VPOINTFL@@@Z @ 0x1C0189D98 (-vDuplicateAndScaleRegion@@YAXPEAVREGION@@PEAPEAV1@VPOINTFL@@@Z.c)
+ * Callees:
+ *     bFToL @ 0x1C0002B7C (bFToL.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     ?vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z @ 0x1C01845D8 (-vScale@ERECTL@@QEAAXAEBVPOINTFL@@@Z.c)
+ */
+
 __int64 __fastcall RGNOBJ::vScale(__int64 *a1, __int64 a2)
 {
   __int64 v2; // rax

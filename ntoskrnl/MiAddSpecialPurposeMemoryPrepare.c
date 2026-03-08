@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiAddSpecialPurposeMemoryPrepare @ 0x140A44160
+ * Callers:
+ *     MmManagePartitionInitialAddMemory @ 0x140A42A68 (MmManagePartitionInitialAddMemory.c)
+ *     MmManagePartitionMoveMemory @ 0x140A42B54 (MmManagePartitionMoveMemory.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiFindSpecialPurposeMemoryType @ 0x14065DBE8 (MiFindSpecialPurposeMemoryType.c)
+ *     MiInitializePartitionSpecialPurposeMemory @ 0x140A4470C (MiInitializePartitionSpecialPurposeMemory.c)
+ */
+
 __int64 __fastcall MiAddSpecialPurposeMemoryPrepare(__int64 a1, const void *a2, _QWORD *a3, unsigned __int64 **a4)
 {
   struct _KTHREAD *CurrentThread; // rsi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiInitializeProcessorState @ 0x14080AC80
+ * Callers:
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ * Callees:
+ *     KiAssignProcessorNumberToPrcb @ 0x140371A40 (KiAssignProcessorNumberToPrcb.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiEnableKvaShadowing @ 0x140A864CC (KiEnableKvaShadowing.c)
+ */
+
 __int64 __fastcall KiInitializeProcessorState(unsigned __int64 *a1, _QWORD *a2, __int64 a3)
 {
   KPCR *Pcr; // rbx

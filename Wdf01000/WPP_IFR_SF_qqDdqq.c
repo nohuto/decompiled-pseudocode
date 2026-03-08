@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_IFR_SF_qqDdqq @ 0x1C0050B54
+ * Callers:
+ *     FxIoTargetFormatIoctl @ 0x1C0005C48 (FxIoTargetFormatIoctl.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_qqDdqq(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 _a1,

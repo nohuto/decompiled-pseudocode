@@ -1,3 +1,11 @@
+/*
+ * XREFs of ESM_CheckingIfStopEndpointCommandShouldBeDelayed @ 0x1C000FB20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ESM_CheckingIfStopEndpointCommandShouldBeDelayed(__int64 a1)
 {
   _DWORD *v1; // rdx

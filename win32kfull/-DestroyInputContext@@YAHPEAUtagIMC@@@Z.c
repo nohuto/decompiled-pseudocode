@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?DestroyInputContext@@YAHPEAUtagIMC@@@Z @ 0x1C01B88F4
+ * Callers:
+ *     NtUserDestroyInputContext @ 0x1C01CF610 (NtUserDestroyInputContext.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     BuildHwndList @ 0x1C0041A10 (BuildHwndList.c)
+ *     FreeHwndList @ 0x1C00680B0 (FreeHwndList.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     ?AssociateInputContext@@YAPEAUHIMC__@@PEAUtagWND@@PEAUtagIMC@@@Z @ 0x1C01B8724 (-AssociateInputContext@@YAPEAUHIMC__@@PEAUtagWND@@PEAUtagIMC@@@Z.c)
+ */
+
 __int64 __fastcall DestroyInputContext(struct tagIMC *a1)
 {
   __int64 v2; // rdi

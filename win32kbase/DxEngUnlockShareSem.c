@@ -1,3 +1,11 @@
+/*
+ * XREFs of DxEngUnlockShareSem @ 0x1C01961D0
+ * Callers:
+ *     ?W32kReleaseDynamicModeChangeLockShared@@YAXXZ @ 0x1C0196160 (-W32kReleaseDynamicModeChangeLockShared@@YAXXZ.c)
+ * Callees:
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0049E20 (EtwTraceGreLockReleaseSemaphore.c)
+ */
+
 __int64 __fastcall DxEngUnlockShareSem(__int64 a1)
 {
   __int64 v1; // rbx

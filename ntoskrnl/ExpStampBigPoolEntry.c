@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExpStampBigPoolEntry @ 0x140307098
+ * Callers:
+ *     ExpStampPoolWithQuotaProcess @ 0x140295114 (ExpStampPoolWithQuotaProcess.c)
+ *     ExReturnPoolQuota @ 0x1403144E0 (ExReturnPoolQuota.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExpBigPoolGetTrackerEntry @ 0x140307164 (ExpBigPoolGetTrackerEntry.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 ULONG_PTR __fastcall ExpStampBigPoolEntry(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, _QWORD *a4, _DWORD *a5)
 {
   unsigned __int64 v8; // rsi

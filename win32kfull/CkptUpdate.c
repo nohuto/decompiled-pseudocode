@@ -1,3 +1,15 @@
+/*
+ * XREFs of CkptUpdate @ 0x1C0100B24
+ * Callers:
+ *     _GetWindowPlacement @ 0x1C0006898 (_GetWindowPlacement.c)
+ *     CkptRestore @ 0x1C0100A4C (CkptRestore.c)
+ * Callees:
+ *     ?IsSemiMaximized@@YA_NPEBUtagWND@@@Z @ 0x1C0031BD4 (-IsSemiMaximized@@YA_NPEBUtagWND@@@Z.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     ?GetMonitorMaxArea@@YA?AUtagRECT@@PEBUtagWND@@PEAUtagMONITOR@@@Z @ 0x1C00A1EF8 (-GetMonitorMaxArea@@YA-AUtagRECT@@PEBUtagWND@@PEAUtagMONITOR@@@Z.c)
+ *     _MonitorFromRect @ 0x1C00AEE80 (_MonitorFromRect.c)
+ */
+
 char __fastcall CkptUpdate(struct tagWND *a1, _DWORD *a2, _DWORD *a3)
 {
   char v6; // cl

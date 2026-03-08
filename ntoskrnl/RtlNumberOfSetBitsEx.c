@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlNumberOfSetBitsEx @ 0x1405A6770
+ * Callers:
+ *     HvlIsSingleGroupRequired @ 0x1403A4F6C (HvlIsSingleGroupRequired.c)
+ *     IoWriteCrashDump @ 0x14054EF00 (IoWriteCrashDump.c)
+ *     RtlNumberOfClearBitsEx @ 0x1405A6710 (RtlNumberOfClearBitsEx.c)
+ *     MiMakeEntireHugePfnGood @ 0x14061F0CC (MiMakeEntireHugePfnGood.c)
+ *     MiInsertPartitionPages @ 0x140657EB8 (MiInsertPartitionPages.c)
+ *     IopLiveDumpWriteDumpFile @ 0x14094C514 (IopLiveDumpWriteDumpFile.c)
+ *     IopLiveDumpWriteDumpFileWithExtraPages @ 0x14094C9E8 (IopLiveDumpWriteDumpFileWithExtraPages.c)
+ *     IopLiveDumpCollectPages @ 0x140A97A84 (IopLiveDumpCollectPages.c)
+ *     IopLiveDumpEstimateMemoryPages @ 0x140A9811C (IopLiveDumpEstimateMemoryPages.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlNumberOfSetBitsEx(_QWORD *a1)
 {
   char *v1; // r11

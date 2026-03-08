@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlValidateReparsePointBuffer @ 0x140202320
+ * Callers:
+ *     IopValidateJunctionTarget @ 0x140943674 (IopValidateJunctionTarget.c)
+ * Callees:
+ *     RtlUShortAdd @ 0x140202574 (RtlUShortAdd.c)
+ */
+
 NTSTATUS __stdcall FsRtlValidateReparsePointBuffer(ULONG BufferLength, PREPARSE_DATA_BUFFER ReparseBuffer)
 {
   signed int ReparseTag; // edx

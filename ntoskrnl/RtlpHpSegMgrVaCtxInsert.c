@@ -1,3 +1,18 @@
+/*
+ * XREFs of RtlpHpSegMgrVaCtxInsert @ 0x14030C1E4
+ * Callers:
+ *     RtlpHpSegMgrAllocate @ 0x14030853C (RtlpHpSegMgrAllocate.c)
+ *     RtlpHpSegContextInitialize @ 0x140375540 (RtlpHpSegContextInitialize.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpQueryVA @ 0x140309578 (RtlpHpQueryVA.c)
+ *     RtlpHpAcquireLockExclusive @ 0x14030ABA4 (RtlpHpAcquireLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall RtlpHpSegMgrVaCtxInsert(__int64 a1, __int64 a2)
 {
   unsigned __int16 *v3; // r14

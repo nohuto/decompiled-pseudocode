@@ -1,3 +1,11 @@
+/*
+ * XREFs of CSTRemove @ 0x1C015CEA0
+ * Callers:
+ *     VideoPortCallout @ 0x1C00D9A60 (VideoPortCallout.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CSTRemove(int a1, __int64 a2)
 {
   __int64 v2; // r8

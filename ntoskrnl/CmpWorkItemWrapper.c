@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpWorkItemWrapper @ 0x1403AA940
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __fastcall CmpWorkItemWrapper(__int64 a1)
 {
   signed __int32 v2; // eax

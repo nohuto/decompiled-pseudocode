@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FxStubInitTypes@@YAJXZ @ 0x1C001CEE0
+ * Callers:
+ *     FxDriverEntryWorker @ 0x1C001CDB4 (FxDriverEntryWorker.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 FxStubInitTypes(void)
 {
   unsigned int *i; // rcx

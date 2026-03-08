@@ -1,3 +1,16 @@
+/*
+ * XREFs of KeRundownQueueEx @ 0x140292C14
+ * Callers:
+ *     KeRundownQueue @ 0x1402919B0 (KeRundownQueue.c)
+ *     IopDeleteIoCompletionInternal @ 0x140292B28 (IopDeleteIoCompletionInternal.c)
+ *     EtwpDeleteRegistrationObject @ 0x140693BC0 (EtwpDeleteRegistrationObject.c)
+ * Callees:
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     KeRundownQueueCommon @ 0x140292D44 (KeRundownQueueCommon.c)
+ *     KiAcquireReleaseObjectRundownLockExclusive @ 0x14029319C (KiAcquireReleaseObjectRundownLockExclusive.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ */
+
 __int64 __fastcall KeRundownQueueEx(__int64 a1, char a2)
 {
   unsigned __int8 CurrentIrql; // si

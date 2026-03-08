@@ -1,3 +1,14 @@
+/*
+ * XREFs of WMI_QueryInstanceDeviceNodeInfo @ 0x1C003F6F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ *     WMI_GetPropertyString @ 0x1C008BCF8 (WMI_GetPropertyString.c)
+ */
+
 __int64 __fastcall WMI_QueryInstanceDeviceNodeInfo(__int64 a1, unsigned int a2, _DWORD *a3, unsigned int *a4)
 {
   size_t v4; // rbp

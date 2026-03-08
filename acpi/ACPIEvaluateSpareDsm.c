@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIEvaluateSpareDsm @ 0x1C0089068
+ * Callers:
+ *     ACPIModuleGetSpareProperties @ 0x1C0089260 (ACPIModuleGetSpareProperties.c)
+ *     ACPIModuleIsValidSpare @ 0x1C0089340 (ACPIModuleIsValidSpare.c)
+ *     ACPIQuerySpareDsm @ 0x1C0089418 (ACPIQuerySpareDsm.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     AMLIEvalNameSpaceObject @ 0x1C0047B9C (AMLIEvalNameSpaceObject.c)
+ */
+
 __int64 __fastcall ACPIEvaluateSpareDsm(__int64 *a1, unsigned int a2, __int128 *a3, __int64 a4)
 {
   __int64 v4; // rbx

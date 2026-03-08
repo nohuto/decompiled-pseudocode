@@ -1,3 +1,13 @@
+/*
+ * XREFs of AccessPTPEnabledStatus @ 0x1C009D120
+ * Callers:
+ *     EnablePTPDevices @ 0x1C015CA90 (EnablePTPDevices.c)
+ *     RIMApiSetSetUserPTPEnabledPreference @ 0x1C01C0898 (RIMApiSetSetUserPTPEnabledPreference.c)
+ * Callees:
+ *     ApiSetEditionGetPointerDeviceConfigurationKey @ 0x1C009D4F4 (ApiSetEditionGetPointerDeviceConfigurationKey.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall AccessPTPEnabledStatus(int a1, int a2, _DWORD *a3)
 {
   unsigned int v3; // ebx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of PsConvertToGuiThread @ 0x140776D40
+ * Callers:
+ *     KiConvertToGuiThread @ 0x14041B920 (KiConvertToGuiThread.c)
+ *     PspEnsureGuiThreadAndBatchFlush @ 0x1409B1C08 (PspEnsureGuiThreadAndBatchFlush.c)
+ * Callees:
+ *     SeCaptureAtomTableCallout @ 0x1402EA5D0 (SeCaptureAtomTableCallout.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PsQuerySectionSignatureInformation @ 0x140776E70 (PsQuerySectionSignatureInformation.c)
+ *     PsInvokeWin32Callout @ 0x1407D2D10 (PsInvokeWin32Callout.c)
+ *     EtwTimLogProhibitWin32kSystemCalls @ 0x1409E7844 (EtwTimLogProhibitWin32kSystemCalls.c)
+ */
+
 __int64 PsConvertToGuiThread()
 {
   struct _KTHREAD *CurrentThread; // rbx

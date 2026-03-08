@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?DrawBox@@YAHPEAUHDC__@@PEAUtagRECT@@I@Z @ 0x1C0114038
+ * Callers:
+ *     DrawFrameControl @ 0x1C0116938 (DrawFrameControl.c)
+ * Callees:
+ *     ?GreExtTextOutWInternal@@YAHPEAUHDC__@@HHIPEAUtagRECT@@PEAGHPEAHPEAXKW4EntryPoint@RFONTOBJ@@@Z @ 0x1C004D014 (-GreExtTextOutWInternal@@YAHPEAUHDC__@@HHIPEAUtagRECT@@PEAGHPEAHPEAXKW4EntryPoint@RFONTOBJ@@@Z.c)
+ *     FillRect @ 0x1C00881F8 (FillRect.c)
+ *     GrePolyPatBlt @ 0x1C0088258 (GrePolyPatBlt.c)
+ *     ?FlipUserTextOutW@@YAHPEAUHDC__@@HHPEBGH@Z @ 0x1C01116B0 (-FlipUserTextOutW@@YAHPEAUHDC__@@HHPEBGH@Z.c)
+ *     GreExtTextOutW @ 0x1C0113604 (GreExtTextOutW.c)
+ *     GreSetBkColor @ 0x1C0113964 (GreSetBkColor.c)
+ *     GreSetTextColor @ 0x1C0113D94 (GreSetTextColor.c)
+ *     ??1EUDCCountRegion@@QEAA@XZ @ 0x1C0114AF8 (--1EUDCCountRegion@@QEAA@XZ.c)
+ *     ??0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z @ 0x1C0114B84 (--0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall DrawBox(HDC a1, struct tagRECT *a2, __int16 a3)
 {
   const wchar_t *v3; // r14

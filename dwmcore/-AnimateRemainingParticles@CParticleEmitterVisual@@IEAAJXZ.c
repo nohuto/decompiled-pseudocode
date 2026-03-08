@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?AnimateRemainingParticles@CParticleEmitterVisual@@IEAAJXZ @ 0x180240978
+ * Callers:
+ *     ?NotifyOnChanged@CParticleEmitterVisual@@MEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1802428F0 (-NotifyOnChanged@CParticleEmitterVisual@@MEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ * Callees:
+ *     ??0CKeyframeAnimation@@QEAA@PEAVCComposition@@@Z @ 0x180098224 (--0CKeyframeAnimation@@QEAA@PEAVCComposition@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     ??2CKeyframeAnimation@@SAPEAX_K@Z @ 0x1801BF29C (--2CKeyframeAnimation@@SAPEAX_K@Z.c)
+ *     ?SetEmitterAnimation@?$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@QEAAJPEAVCKeyframeAnimation@@@Z @ 0x1801C39E8 (-SetEmitterAnimation@-$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@QEA.c)
+ *     ?Initialize@CKeyframeAnimation@@QEAAJPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4Enum@CompositionColorSpace@@W4SubchannelMaskType@@E_KW44KeyframeAnimationDelayBehavior@@MW44KeyframeAnimationDirection@@MW44KeyframeAnimationStopBehavior@@IPEAUKeyframeData@@@Z @ 0x180236828 (-Initialize@CKeyframeAnimation@@QEAAJPEAVCResource@@IW4DCOMPOSITION_EXPRESSION_TYPE@@W4Enum@Comp.c)
+ */
+
 __int64 __fastcall CParticleEmitterVisual::AnimateRemainingParticles(CParticleEmitterVisual *this)
 {
   unsigned int v2; // ebx

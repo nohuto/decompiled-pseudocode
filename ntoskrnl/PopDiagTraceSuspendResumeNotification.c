@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopDiagTraceSuspendResumeNotification @ 0x14098EC68
+ * Callers:
+ *     PopSendSuspendResumeApplicationNotification @ 0x140987528 (PopSendSuspendResumeApplicationNotification.c)
+ *     PopSendSuspendResumeServiceNotification @ 0x140987724 (PopSendSuspendResumeServiceNotification.c)
+ * Callees:
+ *     PopDiagTraceEventNoPayload @ 0x1402FBBF8 (PopDiagTraceEventNoPayload.c)
+ */
+
 void __fastcall PopDiagTraceSuspendResumeNotification(char a1, char a2, char a3)
 {
   __int64 *v3; // rax

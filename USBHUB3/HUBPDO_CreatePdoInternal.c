@@ -1,3 +1,25 @@
+/*
+ * XREFs of HUBPDO_CreatePdoInternal @ 0x1C007EDF4
+ * Callers:
+ *     HUBPDO_CreatePdo @ 0x1C00800C0 (HUBPDO_CreatePdo.c)
+ *     HUBPDO_CreateUnknownPdo @ 0x1C0080184 (HUBPDO_CreateUnknownPdo.c)
+ * Callees:
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001CA0 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     McTemplateK0ppqq_EtwWriteTransfer @ 0x1C0014388 (McTemplateK0ppqq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_qDDDdddddd @ 0x1C0015304 (WPP_RECORDER_SF_qDDDdddddd.c)
+ *     HUBPDO_RegisterForPowerSettingsForDevice @ 0x1C001AD54 (HUBPDO_RegisterForPowerSettingsForDevice.c)
+ *     HUBPDO_RegisterForPowerSettingsForHub @ 0x1C001AEB8 (HUBPDO_RegisterForPowerSettingsForHub.c)
+ *     HUBIDLE_AddEvent @ 0x1C003EAB4 (HUBIDLE_AddEvent.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ *     HUBPDO_MakePdoName @ 0x1C007EA80 (HUBPDO_MakePdoName.c)
+ *     HUBPDO_AssignPDOIds @ 0x1C007EB7C (HUBPDO_AssignPDOIds.c)
+ *     HUBREG_SetVidPidRevForPort @ 0x1C008972C (HUBREG_SetVidPidRevForPort.c)
+ *     WMI_FireNotification @ 0x1C008C428 (WMI_FireNotification.c)
+ */
+
 __int64 __fastcall HUBPDO_CreatePdoInternal(_QWORD *a1, char a2)
 {
   _QWORD *v3; // rbx

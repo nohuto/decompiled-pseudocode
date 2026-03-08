@@ -1,3 +1,12 @@
+/*
+ * XREFs of rimUpdatePointerDeviceFrameScanTime @ 0x1C00F18F6
+ * Callers:
+ *     rimDoProcessAnyPointerDeviceInput @ 0x1C01D6420 (rimDoProcessAnyPointerDeviceInput.c)
+ * Callees:
+ *     rimSimulatedPointerDeviceScanTime @ 0x1C00F1808 (rimSimulatedPointerDeviceScanTime.c)
+ *     rimExtractScantime @ 0x1C01D7F80 (rimExtractScantime.c)
+ */
+
 void __fastcall rimUpdatePointerDeviceFrameScanTime(__int64 a1, int a2, int a3)
 {
   __int64 v3; // rbx

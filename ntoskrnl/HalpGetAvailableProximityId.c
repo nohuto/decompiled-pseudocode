@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpGetAvailableProximityId @ 0x140B8DF00
+ * Callers:
+ *     HalpNumaInitializeStaticConfiguration @ 0x140B63268 (HalpNumaInitializeStaticConfiguration.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 HalpGetAvailableProximityId()
 {
   unsigned int v0; // r8d

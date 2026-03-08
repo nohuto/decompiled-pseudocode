@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DeleteObject@FxInterrupt@@UEAAXXZ @ 0x1C007ECA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DeleteObject@FxObject@@UEAAXXZ @ 0x1C00032C0 (-DeleteObject@FxObject@@UEAAXXZ.c)
+ *     memset @ 0x1C000AC00 (memset.c)
+ *     ??_GFxWakeInterruptMachine@@QEAAPEAXI@Z @ 0x1C007E730 (--_GFxWakeInterruptMachine@@QEAAPEAXI@Z.c)
+ */
+
 void __fastcall FxInterrupt::DeleteObject(FxInterrupt *this)
 {
   FxDeviceBase *m_DeviceBase; // rax

@@ -1,3 +1,26 @@
+/*
+ * XREFs of ACPIIrpDispatchDeviceControl @ 0x1C0001290
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIDispatchForwardIrp @ 0x1C0001770 (ACPIDispatchForwardIrp.c)
+ *     ACPIIoctlEvalControlMethod @ 0x1C0004232 (ACPIIoctlEvalControlMethod.c)
+ *     ACPIIoctlAcquireGlobalLock @ 0x1C002F39C (ACPIIoctlAcquireGlobalLock.c)
+ *     ACPIIoctlAsyncEvalControlMethod @ 0x1C002F468 (ACPIIoctlAsyncEvalControlMethod.c)
+ *     ACPIIoctlEnumChildren @ 0x1C002FA10 (ACPIIoctlEnumChildren.c)
+ *     ACPIIoctlEvaluateUsb4Osc @ 0x1C0030B4C (ACPIIoctlEvaluateUsb4Osc.c)
+ *     ACPIIoctlGetDeviceInformation @ 0x1C0030CE8 (ACPIIoctlGetDeviceInformation.c)
+ *     ACPIIoctlGetDeviceSpecificData @ 0x1C0030F58 (ACPIIoctlGetDeviceSpecificData.c)
+ *     ACPIIoctlQueryDeviceBiosNameEx @ 0x1C00311E0 (ACPIIoctlQueryDeviceBiosNameEx.c)
+ *     ACPIIoctlRegisterDeviceFirmwareLock @ 0x1C00312BC (ACPIIoctlRegisterDeviceFirmwareLock.c)
+ *     ACPIIoctlRegisterOpRegionHandler @ 0x1C003133C (ACPIIoctlRegisterOpRegionHandler.c)
+ *     ACPIIoctlReleaseGlobalLock @ 0x1C0031418 (ACPIIoctlReleaseGlobalLock.c)
+ *     ACPIIoctlUnRegisterOpRegionHandler @ 0x1C00314A4 (ACPIIoctlUnRegisterOpRegionHandler.c)
+ *     ACPIIoctlUnregisterDeviceFirmwareLockHandler @ 0x1C003150C (ACPIIoctlUnregisterDeviceFirmwareLockHandler.c)
+ *     ACPIIoctlQueryDeviceBiosName @ 0x1C00885E4 (ACPIIoctlQueryDeviceBiosName.c)
+ *     ACPIIoctlTranslateBiosResources @ 0x1C0088698 (ACPIIoctlTranslateBiosResources.c)
+ */
+
 __int64 __fastcall ACPIIrpDispatchDeviceControl(ULONG_PTR BugCheckParameter3, PIRP Irp)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // rdi

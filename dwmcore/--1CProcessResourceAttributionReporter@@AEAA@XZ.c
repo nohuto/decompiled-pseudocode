@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1CProcessResourceAttributionReporter@@AEAA@XZ @ 0x1801CF424
+ * Callers:
+ *     ?RunCompositionThread@CConnection@@AEAAJXZ @ 0x1800D5BCC (-RunCompositionThread@CConnection@@AEAAJXZ.c)
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CProcessResourceAttributionReporter::~CProcessResourceAttributionReporter(
         CProcessResourceAttributionReporter *this)
 {

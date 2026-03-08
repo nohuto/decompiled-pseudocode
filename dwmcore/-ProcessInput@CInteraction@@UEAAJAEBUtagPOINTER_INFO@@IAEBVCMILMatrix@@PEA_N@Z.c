@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ProcessInput@CInteraction@@UEAAJAEBUtagPOINTER_INFO@@IAEBVCMILMatrix@@PEA_N@Z @ 0x1802092E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ProcessInput@CInteractionProcessor@@QEAAJPEBVCInteraction@@AEBUtagPOINTER_INFO@@IAEBVCMILMatrix@@PEAUIManipulationResource@@PEA_N@Z @ 0x1801AC330 (-ProcessInput@CInteractionProcessor@@QEAAJPEBVCInteraction@@AEBUtagPOINTER_INFO@@IAEBVCMILMatrix.c)
+ */
+
 __int64 __fastcall CInteraction::ProcessInput(
         CInteraction *this,
         const struct tagPOINTER_INFO *a2,

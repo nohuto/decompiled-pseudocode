@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvlpReadPerfRegister @ 0x14053EF94
+ * Callers:
+ *     HvlReadPerfIoPort @ 0x14053E110 (HvlReadPerfIoPort.c)
+ *     HvlReadPerfMsr @ 0x14053E190 (HvlReadPerfMsr.c)
+ * Callees:
+ *     HvcallFastExtended @ 0x1403C6CA0 (HvcallFastExtended.c)
+ *     HvlpHvToNtStatus @ 0x140456F16 (HvlpHvToNtStatus.c)
+ */
+
 __int64 __fastcall HvlpReadPerfRegister(int a1, __int64 a2, _QWORD *a3)
 {
   unsigned int v3; // ebx

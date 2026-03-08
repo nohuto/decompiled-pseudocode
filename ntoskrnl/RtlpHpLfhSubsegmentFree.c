@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpHpLfhSubsegmentFree @ 0x1402EB198
+ * Callers:
+ *     RtlpHpLfhBucketAddSubsegment @ 0x14030A880 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpLfhOwnerCleanup @ 0x1405B48C8 (RtlpHpLfhOwnerCleanup.c)
+ * Callees:
+ *     RtlpHpLfhSubsegmentFindEmptyUnits @ 0x14030A5A0 (RtlpHpLfhSubsegmentFindEmptyUnits.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall RtlpHpLfhSubsegmentFree(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
   unsigned int v7; // eax

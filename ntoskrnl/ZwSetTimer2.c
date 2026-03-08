@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwSetTimer2 @ 0x140415AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwSetTimer2(__int64 a1, __int64 a2)
 {
   _disable();

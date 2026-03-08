@@ -1,3 +1,20 @@
+/*
+ * XREFs of AnFwDisplayBackgroundUpdate @ 0x140AE90B8
+ * Callers:
+ *     BgDisplayBackgroundUpdate @ 0x140AE907C (BgDisplayBackgroundUpdate.c)
+ * Callees:
+ *     KeInitializeTimerEx @ 0x140237DB0 (KeInitializeTimerEx.c)
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     KeSetCoalescableTimer @ 0x140250440 (KeSetCoalescableTimer.c)
+ *     KeCancelTimer @ 0x140250B60 (KeCancelTimer.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     BgpClearScreen @ 0x14066F510 (BgpClearScreen.c)
+ *     AnFwDisableBackgroundUpdateTimer @ 0x140AEC6DC (AnFwDisableBackgroundUpdateTimer.c)
+ *     BgpGxDrawBitmapImage @ 0x140AEF720 (BgpGxDrawBitmapImage.c)
+ */
+
 NTSTATUS __fastcall AnFwDisplayBackgroundUpdate(char a1)
 {
   NTSTATUS result; // eax

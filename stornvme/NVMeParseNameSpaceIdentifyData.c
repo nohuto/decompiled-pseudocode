@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeParseNameSpaceIdentifyData @ 0x1C0021490
+ * Callers:
+ *     NVMeNameSpaceIdentify @ 0x1C002108C (NVMeNameSpaceIdentify.c)
+ *     NVMeReenumerateNameSpaceIdentifyWorkItem @ 0x1C0021CA0 (NVMeReenumerateNameSpaceIdentifyWorkItem.c)
+ * Callees:
+ *     memset @ 0x1C0004580 (memset.c)
+ */
+
 __int64 __fastcall NVMeParseNameSpaceIdentifyData(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, char *a6)
 {
   int v10; // r9d

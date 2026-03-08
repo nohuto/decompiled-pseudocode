@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?DrvDriverFailure@@YAJXZ @ 0x1C0168718
+ * Callers:
+ *     ?UserInitialize@@YAJXZ @ 0x1C002D838 (-UserInitialize@@YAJXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     ??4tagKERNELDISPLAYINFO@@QEAAAEAU0@AEAU0@@Z @ 0x1C01685BC (--4tagKERNELDISPLAYINFO@@QEAAAEAU0@AEAU0@@Z.c)
+ *     CollectDriverFailureData @ 0x1C0192188 (CollectDriverFailureData.c)
+ *     ExistsInGraphicsDeviceList @ 0x1C0194FB4 (ExistsInGraphicsDeviceList.c)
+ */
+
 __int64 DrvDriverFailure(void)
 {
   __int64 v0; // rcx

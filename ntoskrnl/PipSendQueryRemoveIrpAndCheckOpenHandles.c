@@ -1,3 +1,16 @@
+/*
+ * XREFs of PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x14096ED2C
+ * Callers:
+ *     PipProcessQueryRemovalInKernelMode @ 0x14096EC0C (PipProcessQueryRemovalInKernelMode.c)
+ * Callees:
+ *     PnpDeleteLockedDeviceNodes @ 0x1408632A0 (PnpDeleteLockedDeviceNodes.c)
+ *     PnpCollectOpenHandles @ 0x14096114C (PnpCollectOpenHandles.c)
+ *     PnpFreeVetoInformation @ 0x140961340 (PnpFreeVetoInformation.c)
+ *     PnpLogVetoInformation @ 0x140961470 (PnpLogVetoInformation.c)
+ *     PipEventRemovalCheckOpenHandles @ 0x14096EB8C (PipEventRemovalCheckOpenHandles.c)
+ *     PipRecordOpenHandleVeto @ 0x14096ECA4 (PipRecordOpenHandleVeto.c)
+ */
+
 __int64 __fastcall PipSendQueryRemoveIrpAndCheckOpenHandles(
         int a1,
         __int64 a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhHubAckHubChange @ 0x1C00389CC
+ * Callers:
+ *     UsbhHubProcessIsr @ 0x1C000B860 (UsbhHubProcessIsr.c)
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhSyncSendCommand @ 0x1C0016EE0 (UsbhSyncSendCommand.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ */
+
 __int64 __fastcall UsbhHubAckHubChange(__int64 a1, __int64 a2, _DWORD *a3)
 {
   __int16 v6; // ax

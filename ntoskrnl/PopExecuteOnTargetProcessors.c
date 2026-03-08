@@ -1,3 +1,31 @@
+/*
+ * XREFs of PopExecuteOnTargetProcessors @ 0x140236D20
+ * Callers:
+ *     PoGetIdleTimes @ 0x140236ABC (PoGetIdleTimes.c)
+ *     PoGetPerfStateAndParkingInfo @ 0x1402F74A8 (PoGetPerfStateAndParkingInfo.c)
+ *     PpmParkRegisterParking @ 0x14038D880 (PpmParkRegisterParking.c)
+ *     PpmCheckResetProcessors @ 0x14038F23C (PpmCheckResetProcessors.c)
+ *     PpmHeteroHgsBackupInit @ 0x1403A6744 (PpmHeteroHgsBackupInit.c)
+ *     PpmUpdateIdleDomains @ 0x140583E60 (PpmUpdateIdleDomains.c)
+ *     PpmUpdatePlatformIdleVeto @ 0x1405841D0 (PpmUpdatePlatformIdleVeto.c)
+ *     PpmUpdateProcessorIdleVeto @ 0x140584430 (PpmUpdateProcessorIdleVeto.c)
+ *     PpmCapturePerformanceDistribution @ 0x14059558C (PpmCapturePerformanceDistribution.c)
+ *     PpmUpdateIdleStates @ 0x14080D6D0 (PpmUpdateIdleStates.c)
+ *     EtwpKernelTraceRundown @ 0x14080D9F8 (EtwpKernelTraceRundown.c)
+ *     PpmIdleRegisterDefaultStates @ 0x14080FA58 (PpmIdleRegisterDefaultStates.c)
+ *     PpmUpdateProcessorPolicy @ 0x140826290 (PpmUpdateProcessorPolicy.c)
+ *     PpmParkUpdateConcurrencyTracking @ 0x14082681C (PpmParkUpdateConcurrencyTracking.c)
+ *     PpmCheckInitProcessors @ 0x140827DA4 (PpmCheckInitProcessors.c)
+ *     PpmEventTraceControlCallback @ 0x140860AA0 (PpmEventTraceControlCallback.c)
+ *     PpmReapplyIdlePolicy @ 0x14097FAC4 (PpmReapplyIdlePolicy.c)
+ *     PpmWmiIdleAccountingWork @ 0x140993530 (PpmWmiIdleAccountingWork.c)
+ *     PpmPostProcessMediaBuffering @ 0x14099A314 (PpmPostProcessMediaBuffering.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     PopQueueTargetDpc @ 0x140235F8C (PopQueueTargetDpc.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ */
+
 __int64 __fastcall PopExecuteOnTargetProcessors(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 Object; // [rsp+30h] [rbp-49h] BYREF

@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhRegDriverEntry @ 0x1C0046560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_S @ 0x1C003B830 (WPP_RECORDER_SF_S.c)
+ *     UsbhRegCreateUsbflagsKey @ 0x1C004650C (UsbhRegCreateUsbflagsKey.c)
+ *     UsbhRegQueryGlobalKey @ 0x1C00468F0 (UsbhRegQueryGlobalKey.c)
+ *     WPP_RECORDER_SF_SD @ 0x1C00485E4 (WPP_RECORDER_SF_SD.c)
+ */
+
 __int64 __fastcall UsbhRegDriverEntry(__int64 a1, __int64 a2, int a3)
 {
   unsigned int v4; // edi

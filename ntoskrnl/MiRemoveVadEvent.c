@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiRemoveVadEvent @ 0x1406319E8
+ * Callers:
+ *     MiMapViewOfImageSection @ 0x1407D3750 (MiMapViewOfImageSection.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ */
+
 void __fastcall MiRemoveVadEvent(__int64 a1, _QWORD *a2)
 {
   _QWORD *v4; // rdi

@@ -1,3 +1,20 @@
+/*
+ * XREFs of PnpRestoreResourcesInternal @ 0x14096A7C4
+ * Callers:
+ *     PnpReallocateResources @ 0x14096A5D8 (PnpReallocateResources.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PnpDetermineResourceListSize @ 0x1406F69E8 (PnpDetermineResourceListSize.c)
+ *     PnpFindBestConfiguration @ 0x140803704 (PnpFindBestConfiguration.c)
+ *     IopWriteAllocatedResourcesToRegistry @ 0x140803B38 (IopWriteAllocatedResourcesToRegistry.c)
+ *     PnpFreeResourceRequirementsForAssignTable @ 0x140803C30 (PnpFreeResourceRequirementsForAssignTable.c)
+ *     PnpCmResourcesToIoResources @ 0x140804A84 (PnpCmResourcesToIoResources.c)
+ *     IopResourceRequirementsListToReqList @ 0x140805448 (IopResourceRequirementsListToReqList.c)
+ *     IopCommitConfiguration @ 0x14084D8A8 (IopCommitConfiguration.c)
+ *     IopRearrangeReqList @ 0x14085097C (IopRearrangeReqList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpRestoreResourcesInternal(__int64 a1)
 {
   _DWORD *v1; // rdx

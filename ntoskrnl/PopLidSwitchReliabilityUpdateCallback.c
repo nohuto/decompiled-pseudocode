@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopLidSwitchReliabilityUpdateCallback @ 0x140829020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopBroadcastSessionInfo @ 0x1408294F4 (PopBroadcastSessionInfo.c)
+ *     PopEvaluatePowerButtonSuppressionState @ 0x140999A7C (PopEvaluatePowerButtonSuppressionState.c)
+ */
+
 __int64 __fastcall PopLidSwitchReliabilityUpdateCallback(_QWORD *a1, int *a2, int a3)
 {
   unsigned int v3; // ebx

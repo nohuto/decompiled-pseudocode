@@ -1,3 +1,16 @@
+/*
+ * XREFs of PoFxCompleteDevicePowerNotRequired @ 0x140302820
+ * Callers:
+ *     DifPoFxCompleteDevicePowerNotRequiredWrapper @ 0x1405E6E40 (DifPoFxCompleteDevicePowerNotRequiredWrapper.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxQueueWorkOrder @ 0x1402B8CF4 (PopFxQueueWorkOrder.c)
+ *     PopFxAddLogEntry @ 0x140306584 (PopFxAddLogEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ */
+
 __int64 __fastcall PoFxCompleteDevicePowerNotRequired(ULONG_PTR BugCheckParameter2)
 {
   signed __int32 v2; // eax

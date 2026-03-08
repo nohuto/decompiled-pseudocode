@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopLiveDumpBufferDumpData @ 0x140A972E0
+ * Callers:
+ *     IopLiveDumpProcessCorralStateChange @ 0x140A99280 (IopLiveDumpProcessCorralStateChange.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     MmMapMemoryDumpMdlEx @ 0x14062E270 (MmMapMemoryDumpMdlEx.c)
+ *     IopLiveDumpGetCapturePagesNoLock @ 0x140A986DC (IopLiveDumpGetCapturePagesNoLock.c)
+ */
+
 __int64 __fastcall IopLiveDumpBufferDumpData(__int64 *a1, unsigned int *a2)
 {
   __int64 v2; // rcx

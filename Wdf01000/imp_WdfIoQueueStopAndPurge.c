@@ -1,3 +1,13 @@
+/*
+ * XREFs of imp_WdfIoQueueStopAndPurge @ 0x1C0061DD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FatalError@FxIoQueue@@QEAAXJ@Z @ 0x1C0063DB4 (-FatalError@FxIoQueue@@QEAAXJ@Z.c)
+ *     ?QueueIdle@FxIoQueue@@QEAAJEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z @ 0x1C00658E8 (-QueueIdle@FxIoQueue@@QEAAJEP6AXPEAUWDFQUEUE__@@PEAX@Z1@Z.c)
+ */
+
 void __fastcall imp_WdfIoQueueStopAndPurge(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFQUEUE__ *Queue,

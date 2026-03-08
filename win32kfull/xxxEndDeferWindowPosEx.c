@@ -1,3 +1,38 @@
+/*
+ * XREFs of xxxEndDeferWindowPosEx @ 0x1C00698F0
+ * Callers:
+ *     xxxSetWindowRgn @ 0x1C0028E44 (xxxSetWindowRgn.c)
+ *     xxxSetWindowPosAndBand @ 0x1C0028FFC (xxxSetWindowPosAndBand.c)
+ *     NtUserSetWindowPos @ 0x1C0067A30 (NtUserSetWindowPos.c)
+ *     ?xxxSetWindowBand@@YAHPEAUtagWND@@0W4ZBID@@W4WindowBandOptions@@@Z @ 0x1C009BB98 (-xxxSetWindowBand@@YAHPEAUtagWND@@0W4ZBID@@W4WindowBandOptions@@@Z.c)
+ *     NtUserEndDeferWindowPosEx @ 0x1C00DFB10 (NtUserEndDeferWindowPosEx.c)
+ *     xxxProcessSetWindowPosEvent @ 0x1C00E5F4C (xxxProcessSetWindowPosEvent.c)
+ *     ?xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z @ 0x1C00FFAF8 (-xxxMinMaximizeEx@@YAXPEAUtagWND@@IW4MinMaxOptions@@PEAVCMinMaxParams@@@Z.c)
+ *     xxxArrangeIconicWindows @ 0x1C023C684 (xxxArrangeIconicWindows.c)
+ * Callees:
+ *     SetWindowGroupBand @ 0x1C0025CE4 (SetWindowGroupBand.c)
+ *     ?ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z @ 0x1C0025E8C (-ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z.c)
+ *     DestroySMWP @ 0x1C003A920 (DestroySMWP.c)
+ *     ?Identify@IdentifyPrimaryDestroyTarget@@AEAAXPEAU_HANDLEENTRY@@@Z @ 0x1C003AA40 (-Identify@IdentifyPrimaryDestroyTarget@@AEAAXPEAU_HANDLEENTRY@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C003F908 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     PostIAMShellHookMessageEx @ 0x1C0044C60 (PostIAMShellHookMessageEx.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     ?ValidateWindowPos@@YAHPEAUtagCVR@@PEAUtagWND@@@Z @ 0x1C0064384 (-ValidateWindowPos@@YAHPEAUtagCVR@@PEAUtagWND@@@Z.c)
+ *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C0068640 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
+ *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C0068A60 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
+ *     ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C006A610 (-xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     ?AsyncWindowPos@@YAXPEAUtagSMWP@@@Z @ 0x1C00DAE30 (-AsyncWindowPos@@YAXPEAUtagSMWP@@@Z.c)
+ *     ?xxxSwpActivate@@YAHPEAUtagWND@@@Z @ 0x1C00DBEA4 (-xxxSwpActivate@@YAHPEAUtagWND@@@Z.c)
+ *     xxxDoSyncPaint @ 0x1C00FDA04 (xxxDoSyncPaint.c)
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C01098A8 (-xxxCallHook@@YAHH_K_JH@Z.c)
+ *     PostShellHookMessagesEx @ 0x1C0109A90 (PostShellHookMessagesEx.c)
+ *     xxxSetTrayWindow @ 0x1C0109D38 (xxxSetTrayWindow.c)
+ *     ??1IdentifyPrimaryDestroyTarget@@QEAA@XZ @ 0x1C01A6EC8 (--1IdentifyPrimaryDestroyTarget@@QEAA@XZ.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall xxxEndDeferWindowPosEx(struct tagSMWP *a1, int a2)
 {

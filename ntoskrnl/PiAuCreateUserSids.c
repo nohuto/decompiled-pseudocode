@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiAuCreateUserSids @ 0x140B5B564
+ * Callers:
+ *     PiAuCreateSecurityObjects @ 0x140B5A978 (PiAuCreateSecurityObjects.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlValidSid @ 0x1407C92A0 (RtlValidSid.c)
+ *     PiAuAllocateAndInitializeSid @ 0x14081E100 (PiAuAllocateAndInitializeSid.c)
+ */
+
 __int64 __fastcall PiAuCreateUserSids(PVOID *a1)
 {
   int v2; // ebx

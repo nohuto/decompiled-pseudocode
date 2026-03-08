@@ -1,3 +1,15 @@
+/*
+ * XREFs of SpbCheckDce @ 0x1C0097430
+ * Callers:
+ *     SpbCheck @ 0x1C0014BB8 (SpbCheck.c)
+ *     RevalidateDCE @ 0x1C0097390 (RevalidateDCE.c)
+ * Callees:
+ *     SpbCheckRect @ 0x1C000B2CC (SpbCheckRect.c)
+ *     GetStyleWindow @ 0x1C0039020 (GetStyleWindow.c)
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 char __fastcall SpbCheckDce(__int64 a1)
 {
   __int64 v2; // rcx

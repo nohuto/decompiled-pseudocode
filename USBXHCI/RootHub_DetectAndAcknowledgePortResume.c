@@ -1,3 +1,21 @@
+/*
+ * XREFs of RootHub_DetectAndAcknowledgePortResume @ 0x1C0015630
+ * Callers:
+ *     Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled @ 0x1C0013F90 (Controller_WdfEvtDeviceD0EntryPostInterruptsEnabled.c)
+ *     RootHub_HandlePortStatusChangeEvent @ 0x1C0014E60 (RootHub_HandlePortStatusChangeEvent.c)
+ *     RootHub_WdfEvtTimerPortOperationPendingTimerDpc @ 0x1C0040950 (RootHub_WdfEvtTimerPortOperationPendingTimerDpc.c)
+ * Callees:
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     WPP_RECORDER_SF_D @ 0x1C00180C4 (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0018184 (WPP_RECORDER_SF_dD.c)
+ *     RootHub_ReleaseReadModifyWriteLock @ 0x1C00182B0 (RootHub_ReleaseReadModifyWriteLock.c)
+ *     RootHub_AcquireReadModifyWriteLock @ 0x1C00182F4 (RootHub_AcquireReadModifyWriteLock.c)
+ *     XilRegister_WriteUlong @ 0x1C0018428 (XilRegister_WriteUlong.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     RootHub_RestoreU1U2Timeouts @ 0x1C003FB14 (RootHub_RestoreU1U2Timeouts.c)
+ *     WPP_RECORDER_SF_dDd @ 0x1C0040E30 (WPP_RECORDER_SF_dDd.c)
+ */
+
 char __fastcall RootHub_DetectAndAcknowledgePortResume(_QWORD *a1, unsigned int a2, char a3)
 {
   unsigned int v3; // r14d

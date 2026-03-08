@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?OnChanged@CInteractionTracker@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18022FD00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180004700 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?CheckAndUnRegisterDefaultAnimations@CInteractionTracker@@AEAA_NPEAUIUnknown@@@Z @ 0x18022E5DC (-CheckAndUnRegisterDefaultAnimations@CInteractionTracker@@AEAA_NPEAUIUnknown@@@Z.c)
+ *     ?CheckForIdle@CInteractionTracker@@AEAAXXZ @ 0x18022E664 (-CheckForIdle@CInteractionTracker@@AEAAXXZ.c)
+ *     ?StopCustomAnimation@CInteractionTracker@@AEAAXH_N@Z @ 0x180232290 (-StopCustomAnimation@CInteractionTracker@@AEAAXH_N@Z.c)
+ *     ?OnManipulationChanged@InteractionSourceManager@@QEAAXW4Flags@NotificationEventArgs@@PEAVCManipulation@@@Z @ 0x180271824 (-OnManipulationChanged@InteractionSourceManager@@QEAAXW4Flags@NotificationEventArgs@@PEAVCManipu.c)
+ */
+
 __int64 __fastcall CInteractionTracker::OnChanged(__int64 a1, unsigned int a2, struct IUnknown *a3)
 {
   __int64 v5; // r9

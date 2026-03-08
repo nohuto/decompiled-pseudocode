@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmHeteroDetectFavoredCores @ 0x14079C25C
+ * Callers:
+ *     PopInitializeHeteroProcessors @ 0x140826970 (PopInitializeHeteroProcessors.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PoHeteroIsArchFavoredCoreSupported @ 0x14040B854 (PoHeteroIsArchFavoredCoreSupported.c)
+ */
+
 char __fastcall PpmHeteroDetectFavoredCores(__int64 a1)
 {
   char v2; // cl

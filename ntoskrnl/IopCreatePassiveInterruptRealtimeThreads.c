@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopCreatePassiveInterruptRealtimeThreads @ 0x140853088
+ * Callers:
+ *     IopInitializePassiveInterruptServices @ 0x140B67854 (IopInitializePassiveInterruptServices.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeSetActualBasePriorityThread @ 0x140357730 (KeSetActualBasePriorityThread.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1407DE330 (PsCreateSystemThreadEx.c)
+ */
+
 __int64 __fastcall IopCreatePassiveInterruptRealtimeThreads(void *a1)
 {
   int v1; // edi

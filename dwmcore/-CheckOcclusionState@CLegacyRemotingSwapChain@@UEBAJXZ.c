@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CheckOcclusionState@CLegacyRemotingSwapChain@@UEBAJXZ @ 0x18010A7E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall CLegacyRemotingSwapChain::CheckOcclusionState(CLegacyRemotingSwapChain *this)
 {
   int v1; // ebx

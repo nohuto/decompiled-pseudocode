@@ -1,3 +1,19 @@
+/*
+ * XREFs of PnpInitializeNotifyEntry @ 0x1406F543C
+ * Callers:
+ *     IoRegisterPlugPlayNotification @ 0x1406F4F30 (IoRegisterPlugPlayNotification.c)
+ *     PiRegisterKernelSoftRestartNotification @ 0x14085FB0C (PiRegisterKernelSoftRestartNotification.c)
+ * Callees:
+ *     MmIsSessionAddress @ 0x140239ED0 (MmIsSessionAddress.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     ZwOpenSession @ 0x1404149B0 (ZwOpenSession.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PnpInitializeNotifyEntry(__int64 a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
 {
   __int64 v7; // rsi

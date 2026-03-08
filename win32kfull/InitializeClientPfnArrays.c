@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitializeClientPfnArrays @ 0x1C00EE884
+ * Callers:
+ *     NtUserInitializeClientPfnArrays @ 0x1C00EE790 (NtUserInitializeClientPfnArrays.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall InitializeClientPfnArrays(__int128 *a1, _OWORD *a2, __int64 a3, __int64 a4)
 {
   __int128 v8; // xmm0

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0FxSystemThread@@AEAA@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0089184
+ * Callers:
+ *     ?_CreateAndInit@FxSystemThread@@SAJPEAPEAV1@PEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEAU_DEVICE_OBJECT@@@Z @ 0x1C00896E8 (-_CreateAndInit@FxSystemThread@@SAJPEAPEAV1@PEAU_FX_DRIVER_GLOBALS@@PEAUWDFDEVICE__@@PEAU_DEVICE.c)
+ * Callees:
+ *     ??0FxNonPagedObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C001AA5C (--0FxNonPagedObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ */
+
 void __fastcall FxSystemThread::FxSystemThread(FxSystemThread *this, _FX_DRIVER_GLOBALS *FxDriverGlobals)
 {
   FxNonPagedObject::FxNonPagedObject(this, 0x1013u, 0, FxDriverGlobals);

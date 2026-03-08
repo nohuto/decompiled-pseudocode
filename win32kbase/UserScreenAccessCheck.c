@@ -1,3 +1,11 @@
+/*
+ * XREFs of UserScreenAccessCheck @ 0x1C00A3900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSurfaceAccessCheck @ 0x1C00A3930 (UserSurfaceAccessCheck.c)
+ */
+
 __int64 UserScreenAccessCheck()
 {
   __int64 v0; // rcx

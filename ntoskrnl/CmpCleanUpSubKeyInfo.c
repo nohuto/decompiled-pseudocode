@@ -1,3 +1,23 @@
+/*
+ * XREFs of CmpCleanUpSubKeyInfo @ 0x1407A5570
+ * Callers:
+ *     CmpCreateTombstone @ 0x140614A00 (CmpCreateTombstone.c)
+ *     CmpInvalidateSubtreeWorker @ 0x14067F320 (CmpInvalidateSubtreeWorker.c)
+ *     CmDeleteKey @ 0x1406B762C (CmDeleteKey.c)
+ *     CmpCompleteUnloadKey @ 0x14074A958 (CmpCompleteUnloadKey.c)
+ *     CmpRebuildKcbCacheFromNode @ 0x1407A5468 (CmpRebuildKcbCacheFromNode.c)
+ *     CmpCreateChild @ 0x1407A7590 (CmpCreateChild.c)
+ *     CmRestoreKey @ 0x140A08004 (CmRestoreKey.c)
+ *     CmRenameKey @ 0x140A1170C (CmRenameKey.c)
+ *     CmpLightWeightCommitDeleteKeyUoW @ 0x140A254B8 (CmpLightWeightCommitDeleteKeyUoW.c)
+ * Callees:
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmpCleanUpSubKeyInfo(__int64 a1, char a2)
 {
   __int64 result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopFxIsDirectedPowerTransitionSupported @ 0x1405884F8
+ * Callers:
+ *     PopDripsWatchdogCallbackHandler @ 0x140999010 (PopDripsWatchdogCallbackHandler.c)
+ *     PopDirectedDripsBuildBroadcastTreeFull @ 0x14099CB70 (PopDirectedDripsBuildBroadcastTreeFull.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PopFxIsDirectedPowerTransitionSupported(__int64 a1, int *a2)
 {
   int v2; // r8d

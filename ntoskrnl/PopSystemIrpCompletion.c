@@ -1,3 +1,23 @@
+/*
+ * XREFs of PopSystemIrpCompletion @ 0x140AA4450
+ * Callers:
+ *     PopFxHandleReportDevicePoweredOn @ 0x1402B90C0 (PopFxHandleReportDevicePoweredOn.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeReleaseSemaphore @ 0x140292210 (KeReleaseSemaphore.c)
+ *     PopFreeIrp @ 0x1402BB5E8 (PopFreeIrp.c)
+ *     PopDequeueQuerySetIrp @ 0x1402BB70C (PopDequeueQuerySetIrp.c)
+ *     IoFindDeviceThatFailedIrp @ 0x1402FC254 (IoFindDeviceThatFailedIrp.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxIncrementDeviceSleepCount @ 0x140588194 (PopFxIncrementDeviceSleepCount.c)
+ *     PopCompleteNotifyTransitionCommon @ 0x14058DFFC (PopCompleteNotifyTransitionCommon.c)
+ *     PopDiagTraceIrpPended @ 0x140591D10 (PopDiagTraceIrpPended.c)
+ */
+
 __int64 __fastcall PopSystemIrpCompletion(__int64 a1, IRP *a2, __int64 a3)
 {
   __int64 DeviceThatFailedIrp; // rdi

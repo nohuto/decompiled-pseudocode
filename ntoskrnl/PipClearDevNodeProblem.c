@@ -1,3 +1,33 @@
+/*
+ * XREFs of PipClearDevNodeProblem @ 0x14086666C
+ * Callers:
+ *     PnpRemoveLockedDeviceNode @ 0x1403B1D8C (PnpRemoveLockedDeviceNode.c)
+ *     PnpProcessAssignResourcesWorker @ 0x1406816EC (PnpProcessAssignResourcesWorker.c)
+ *     PiProcessNewDeviceNode @ 0x140685858 (PiProcessNewDeviceNode.c)
+ *     PipCallDriverAddDevice @ 0x1406C644C (PipCallDriverAddDevice.c)
+ *     IoReportDetectedDevice @ 0x140802A80 (IoReportDetectedDevice.c)
+ *     IopInitializeDeviceInstanceKey @ 0x14081CE14 (IopInitializeDeviceInstanceKey.c)
+ *     PipAttemptDependentStart @ 0x14085E134 (PipAttemptDependentStart.c)
+ *     PiRestartRemovalRelations @ 0x14085F6D8 (PiRestartRemovalRelations.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1408625F0 (PnpProcessQueryRemoveAndEject.c)
+ *     PiDevCfgProcessDevice @ 0x140873308 (PiDevCfgProcessDevice.c)
+ *     PnpDisableDevice @ 0x1409559A8 (PnpDisableDevice.c)
+ *     PiProcessClearDeviceProblem @ 0x140956400 (PiProcessClearDeviceProblem.c)
+ *     PiProcessResourceRequirementsChanged @ 0x140956564 (PiProcessResourceRequirementsChanged.c)
+ *     PiProfileUpdateDeviceTreeCallback @ 0x1409607E0 (PiProfileUpdateDeviceTreeCallback.c)
+ *     PnpRebalance @ 0x14096B948 (PnpRebalance.c)
+ *     PiProcessQueryRemoveNoFdo @ 0x14096EA58 (PiProcessQueryRemoveNoFdo.c)
+ * Callees:
+ *     _PnpSetObjectProperty @ 0x140686C8C (_PnpSetObjectProperty.c)
+ *     _PnpRaiseNtPlugPlayDevicePropertyChangeEvent @ 0x140687320 (_PnpRaiseNtPlugPlayDevicePropertyChangeEvent.c)
+ *     PipClearDevNodeFlags @ 0x14068816C (PipClearDevNodeFlags.c)
+ *     PiPnpRtlEndOperation @ 0x1406CCB7C (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1406CDF98 (PiPnpRtlBeginOperation.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x14070F610 (SeAuditingWithTokenForSubcategory.c)
+ *     PnpTraceClearDevNodeProblem @ 0x140866ADC (PnpTraceClearDevNodeProblem.c)
+ *     PiAuditDeviceEnableDisableAction @ 0x14096C730 (PiAuditDeviceEnableDisableAction.c)
+ */
+
 void __fastcall PipClearDevNodeProblem(__int64 a1)
 {
   unsigned int v2; // edi

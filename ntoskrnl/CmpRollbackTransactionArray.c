@@ -1,3 +1,20 @@
+/*
+ * XREFs of CmpRollbackTransactionArray @ 0x140A1BA5C
+ * Callers:
+ *     CmDeleteKey @ 0x1406B762C (CmDeleteKey.c)
+ *     CmpSetKeySecurity @ 0x1406B7E3C (CmpSetKeySecurity.c)
+ *     CmDeleteValueKey @ 0x1406B9764 (CmDeleteValueKey.c)
+ *     CmpParseKey @ 0x1406E7480 (CmpParseKey.c)
+ *     CmSetValueKey @ 0x1407A9870 (CmSetValueKey.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     TmRollbackEnlistment @ 0x1403D2BD0 (TmRollbackEnlistment.c)
+ *     CmpTransDereferenceTransaction @ 0x1406B5C90 (CmpTransDereferenceTransaction.c)
+ *     CmpRollbackLightWeightTransaction @ 0x140781EE0 (CmpRollbackLightWeightTransaction.c)
+ *     CmpRetryBackOff @ 0x140A1BA24 (CmpRetryBackOff.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmpRollbackTransactionArray(unsigned int a1, PVOID *a2, __int64 a3, _DWORD *a4)
 {
   int v4; // edi

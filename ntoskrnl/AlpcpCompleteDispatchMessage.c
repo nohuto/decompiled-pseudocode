@@ -1,3 +1,39 @@
+/*
+ * XREFs of AlpcpCompleteDispatchMessage @ 0x1407CBD90
+ * Callers:
+ *     AlpcpDispatchReplyToPort @ 0x140715F0C (AlpcpDispatchReplyToPort.c)
+ *     AlpcpDispatchConnectionRequest @ 0x140717CC0 (AlpcpDispatchConnectionRequest.c)
+ *     AlpcpDispatchCloseMessage @ 0x140718414 (AlpcpDispatchCloseMessage.c)
+ *     AlpcpDispatchNewMessage @ 0x1407CB7E0 (AlpcpDispatchNewMessage.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     AlpcpQueueIoCompletionPort @ 0x1402925F4 (AlpcpQueueIoCompletionPort.c)
+ *     ExNotifyCallback @ 0x1402D2F00 (ExNotifyCallback.c)
+ *     KeReleaseSemaphoreEx @ 0x14033E940 (KeReleaseSemaphoreEx.c)
+ *     AlpcpExposeViewAttributeInSenderContext @ 0x1406A07CC (AlpcpExposeViewAttributeInSenderContext.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     AlpcpReadMessageData @ 0x140716C08 (AlpcpReadMessageData.c)
+ *     AlpcpInsertMessageDirectQueue @ 0x140774758 (AlpcpInsertMessageDirectQueue.c)
+ *     PsChargeProcessWakeCounter @ 0x140793DC0 (PsChargeProcessWakeCounter.c)
+ *     AlpcpCaptureMessageDataSafe @ 0x1407CC88C (AlpcpCaptureMessageDataSafe.c)
+ *     AlpcpUnlockBlob @ 0x1407CDB50 (AlpcpUnlockBlob.c)
+ *     AlpcpExposeAttributes @ 0x1407CDCB0 (AlpcpExposeAttributes.c)
+ *     AlpcpInsertMessagePendingQueue @ 0x1407CF440 (AlpcpInsertMessagePendingQueue.c)
+ *     AlpcpAllocateCompletionBuffer @ 0x1408A05F0 (AlpcpAllocateCompletionBuffer.c)
+ *     AlpcpInsertCompletionListEntry @ 0x1408A0820 (AlpcpInsertCompletionListEntry.c)
+ *     AlpcpGetDataFromUserVaSafe @ 0x140975F5C (AlpcpGetDataFromUserVaSafe.c)
+ *     AlpcpFreeBitmap @ 0x140976654 (AlpcpFreeBitmap.c)
+ *     AlpcpLogReceiveMessage @ 0x14097743C (AlpcpLogReceiveMessage.c)
+ *     AlpcpLogSendMessage @ 0x1409774AC (AlpcpLogSendMessage.c)
+ *     AlpcpLogWaitForReply @ 0x140977684 (AlpcpLogWaitForReply.c)
+ *     AlpcpEnterStateChangeEventMessageLog @ 0x140977A1C (AlpcpEnterStateChangeEventMessageLog.c)
+ */
+
 int __fastcall AlpcpCompleteDispatchMessage(__int64 a1)
 {
   int v1; // r8d

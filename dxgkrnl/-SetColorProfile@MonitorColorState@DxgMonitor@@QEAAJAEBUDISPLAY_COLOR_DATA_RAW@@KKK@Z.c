@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?SetColorProfile@MonitorColorState@DxgMonitor@@QEAAJAEBUDISPLAY_COLOR_DATA_RAW@@KKK@Z @ 0x1C03C9714
+ * Callers:
+ *     MonitorSetAdvancedColorParams @ 0x1C03C01F4 (MonitorSetAdvancedColorParams.c)
+ * Callees:
+ *     ?TriggerMonitorColorimetryChangedWnf@MonitorColorState@DxgMonitor@@AEAAJXZ @ 0x1C0167CA8 (-TriggerMonitorColorimetryChangedWnf@MonitorColorState@DxgMonitor@@AEAAJXZ.c)
+ *     ?SendAdjustedHDRParamsToDriver@MonitorColorState@DxgMonitor@@QEAAJ_N0@Z @ 0x1C0169354 (-SendAdjustedHDRParamsToDriver@MonitorColorState@DxgMonitor@@QEAAJ_N0@Z.c)
+ *     ?SetLuminanceValuesWithBrightnessCompensation@MonitorColorState@DxgMonitor@@AEAAJXZ @ 0x1C01F89F4 (-SetLuminanceValuesWithBrightnessCompensation@MonitorColorState@DxgMonitor@@AEAAJXZ.c)
+ *     ?_UpdateHDRParamsIfRequired@MonitorColorState@DxgMonitor@@AEAAXXZ @ 0x1C01FA1E0 (-_UpdateHDRParamsIfRequired@MonitorColorState@DxgMonitor@@AEAAXXZ.c)
+ *     ??8CachedColorData@MonitorColorState@DxgMonitor@@QEBA_NAEBU012@@Z @ 0x1C03C92CC (--8CachedColorData@MonitorColorState@DxgMonitor@@QEBA_NAEBU012@@Z.c)
+ *     ??8CachedLuminanceData@MonitorColorState@DxgMonitor@@QEBA_NAEBU012@@Z @ 0x1C03C9350 (--8CachedLuminanceData@MonitorColorState@DxgMonitor@@QEBA_NAEBU012@@Z.c)
+ */
+
 __int64 __fastcall DxgMonitor::MonitorColorState::SetColorProfile(
         DxgMonitor::MonitorColorState *this,
         const struct DISPLAY_COLOR_DATA_RAW *a2,

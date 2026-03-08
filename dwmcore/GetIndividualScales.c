@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetIndividualScales @ 0x1802B70D4
+ * Callers:
+ *     ?UpdateTransform@CInteractionContextTransformHelper@@QEAAJAEBVMatrix3x2F@D2D1@@PEA_N@Z @ 0x1802B7D7C (-UpdateTransform@CInteractionContextTransformHelper@@QEAAJAEBVMatrix3x2F@D2D1@@PEA_N@Z.c)
+ * Callees:
+ *     sqrtf_0 @ 0x1801177AC (sqrtf_0.c)
+ */
+
 __int64 __fastcall GetIndividualScales(float *a1, float *a2, float *a3)
 {
   float v4; // xmm6_4

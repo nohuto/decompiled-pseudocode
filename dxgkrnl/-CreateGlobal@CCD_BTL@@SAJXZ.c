@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CreateGlobal@CCD_BTL@@SAJXZ @ 0x1C0205590
+ * Callers:
+ *     DriverEntry @ 0x1C03D9E6C (DriverEntry.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ??0CCD_BTL@@IEAA@XZ @ 0x1C0205604 (--0CCD_BTL@@IEAA@XZ.c)
+ */
+
 __int64 CCD_BTL::CreateGlobal(void)
 {
   CCD_BTL *v0; // rax

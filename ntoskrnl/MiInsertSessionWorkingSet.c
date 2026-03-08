@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiInsertSessionWorkingSet @ 0x1403023FC
+ * Callers:
+ *     MiAllowWorkingSetExpansion @ 0x1402A5F58 (MiAllowWorkingSetExpansion.c)
+ * Callees:
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ */
+
 __int64 __fastcall MiInsertSessionWorkingSet(__int64 a1)
 {
   _QWORD *v1; // rdx

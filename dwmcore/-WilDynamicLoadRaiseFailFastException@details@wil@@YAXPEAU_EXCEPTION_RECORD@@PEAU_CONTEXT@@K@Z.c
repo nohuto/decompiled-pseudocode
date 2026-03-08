@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?WilDynamicLoadRaiseFailFastException@details@wil@@YAXPEAU_EXCEPTION_RECORD@@PEAU_CONTEXT@@K@Z @ 0x1801973B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall wil::details::WilDynamicLoadRaiseFailFastException(
         wil::details *this,
         struct _EXCEPTION_RECORD *a2,

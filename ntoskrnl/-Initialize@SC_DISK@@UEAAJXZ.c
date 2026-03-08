@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?Initialize@SC_DISK@@UEAAJXZ @ 0x1406732C0
+ * Callers:
+ *     ?Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x14093D4C8 (-Initialize@NT_DISK@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ?GenerateId@SC_DISK@@AEAAJXZ @ 0x14067305C (-GenerateId@SC_DISK@@AEAAJXZ.c)
+ *     ?Initialize@SC_DEVICE@@UEAAJXZ @ 0x1406744E0 (-Initialize@SC_DEVICE@@UEAAJXZ.c)
+ *     ?UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z @ 0x14067464C (-UpdateStorageProperty@SC_DEVICE@@QEAAJW4_STORAGE_PROPERTY_ID@@@Z.c)
+ */
+
 __int64 __fastcall SC_DISK::Initialize(SC_DISK *this)
 {
   __int64 result; // rax

@@ -1,3 +1,32 @@
+/*
+ * XREFs of PiDevCfgMigrateDevice @ 0x1408758B8
+ * Callers:
+ *     PiDevCfgConfigureDevice @ 0x14087384C (PiDevCfgConfigureDevice.c)
+ *     PiDevCfgMigrateRootDevice @ 0x14095BC74 (PiDevCfgMigrateRootDevice.c)
+ *     PpDevCfgProcessDeviceReset @ 0x14096044C (PpDevCfgProcessDeviceReset.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     PnpValidateRegistryDword @ 0x1403C0C9C (PnpValidateRegistryDword.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x140413EB0 (ZwDeleteValueKey.c)
+ *     IopGetRegistryValue @ 0x1406C18D4 (IopGetRegistryValue.c)
+ *     _CmIsRootEnumeratedDevice @ 0x1406CD550 (_CmIsRootEnumeratedDevice.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     _SysCtxRegOpenKey @ 0x1406D4350 (_SysCtxRegOpenKey.c)
+ *     PiDevCfgSetObjectProperty @ 0x140874858 (PiDevCfgSetObjectProperty.c)
+ *     PiDevCfgSetDeviceRegProp @ 0x140875718 (PiDevCfgSetDeviceRegProp.c)
+ *     PiDevCfgConfigureDeviceDriverConfiguration @ 0x1408757F4 (PiDevCfgConfigureDeviceDriverConfiguration.c)
+ *     PiDevCfgInitMigrationContext @ 0x140875994 (PiDevCfgInitMigrationContext.c)
+ *     PiDevCfgFreeMigrationContext @ 0x140877348 (PiDevCfgFreeMigrationContext.c)
+ *     PiDevCfgClearDeviceMigrationNode @ 0x14095A044 (PiDevCfgClearDeviceMigrationNode.c)
+ *     PiDevCfgFindDeviceMigrationNode @ 0x14095AB1C (PiDevCfgFindDeviceMigrationNode.c)
+ *     PiDevCfgFreeDeviceMigrationNode @ 0x14095B4F0 (PiDevCfgFreeDeviceMigrationNode.c)
+ *     PiDevCfgLogDeviceMigrated @ 0x14095B958 (PiDevCfgLogDeviceMigrated.c)
+ *     PiDevCfgQueryDeviceMigrationNode @ 0x14095BE90 (PiDevCfgQueryDeviceMigrationNode.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDevCfgMigrateDevice(int a1, __int64 a2, unsigned __int16 *a3, __int64 a4, _DWORD *a5, _DWORD *a6)
 {
   int v8; // esi

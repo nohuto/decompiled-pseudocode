@@ -1,3 +1,22 @@
+/*
+ * XREFs of PopPowerAggregatorDisengageModernStandby @ 0x14099057C
+ * Callers:
+ *     PopPowerAggregatorModernStandbyEnterStateHandler @ 0x140990A90 (PopPowerAggregatorModernStandbyEnterStateHandler.c)
+ *     PopPowerAggregatorModernStandbyExitStateHandler @ 0x140990AE0 (PopPowerAggregatorModernStandbyExitStateHandler.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopGetMonitorReasonFromPowerEventId @ 0x1403C2490 (PopGetMonitorReasonFromPowerEventId.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopDirectedDripsNotify @ 0x140872AF4 (PopDirectedDripsNotify.c)
+ *     PopPowerAggregatorEnterScreenOff @ 0x140879524 (PopPowerAggregatorEnterScreenOff.c)
+ *     PopSleepstudyStartNextSession @ 0x1408797E4 (PopSleepstudyStartNextSession.c)
+ *     PopSleepstudySnapModernStandbySessionData @ 0x140990418 (PopSleepstudySnapModernStandbySessionData.c)
+ *     PopNetClearConnectivityConstraint @ 0x140993680 (PopNetClearConnectivityConstraint.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 struct _KTHREAD *__fastcall PopPowerAggregatorDisengageModernStandby(__int64 a1)
 {
   unsigned int v2; // esi

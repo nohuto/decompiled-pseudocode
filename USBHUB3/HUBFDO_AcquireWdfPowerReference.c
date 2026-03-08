@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBFDO_AcquireWdfPowerReference @ 0x1C000E064
+ * Callers:
+ *     HUBHSM_AcquiringWdfPowerReferenceOnInterrupt @ 0x1C0008410 (HUBHSM_AcquiringWdfPowerReferenceOnInterrupt.c)
+ *     HUBHSM_AcquiringWdfPowerReferenceOnInterruptFailureAndCheckingIfRootHub @ 0x1C0008440 (HUBHSM_AcquiringWdfPowerReferenceOnInterruptFailureAndCheckingIfRootHub.c)
+ *     HUBHSM_SuspendedWithPendingReset @ 0x1C00091D0 (HUBHSM_SuspendedWithPendingReset.c)
+ *     HUBHSM_UnblockResumeWaitingForStop @ 0x1C0009200 (HUBHSM_UnblockResumeWaitingForStop.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall HUBFDO_AcquireWdfPowerReference(__int64 a1)
 {
   KIRQL v2; // di

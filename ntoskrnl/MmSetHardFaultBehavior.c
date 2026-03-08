@@ -1,3 +1,12 @@
+/*
+ * XREFs of MmSetHardFaultBehavior @ 0x140356964
+ * Callers:
+ *     ?SmStWorker@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z @ 0x1403567C4 (-SmStWorker@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAX@Z.c)
+ * Callees:
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiChargeResident @ 0x140348DE8 (MiChargeResident.c)
+ */
+
 __int64 __fastcall MmSetHardFaultBehavior(__int64 a1, int a2)
 {
   bool v2; // zf

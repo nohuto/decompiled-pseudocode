@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpCmciSetProcessorConfigAMD @ 0x140503AC8
+ * Callers:
+ *     HalpCmciSetProcessorConfig @ 0x14037CC58 (HalpCmciSetProcessorConfig.c)
+ *     HalpCmciPollProcessor @ 0x14037CE58 (HalpCmciPollProcessor.c)
+ *     HalpCmciResetStateAMD @ 0x1405039DC (HalpCmciResetStateAMD.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpCmciSetProcessorMiscConfigAMD @ 0x140503D34 (HalpCmciSetProcessorMiscConfigAMD.c)
+ *     HalpWheaReadMsrMisc @ 0x140516598 (HalpWheaReadMsrMisc.c)
+ */
+
 char __fastcall HalpCmciSetProcessorConfigAMD(int a1, char a2, __int64 a3)
 {
   int v5; // ebp

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PiSwInterfaceCreate @ 0x140808CA8
+ * Callers:
+ *     PiSwCompleteCreate @ 0x1408071C4 (PiSwCompleteCreate.c)
+ *     PiSwIrpInterfaceRegister @ 0x1408086D4 (PiSwIrpInterfaceRegister.c)
+ * Callees:
+ *     PnpAllocatePWSTR @ 0x1406CD7F4 (PnpAllocatePWSTR.c)
+ *     PnpCopyDevPropertyArray @ 0x140807540 (PnpCopyDevPropertyArray.c)
+ *     PiSwInterfaceFree @ 0x140964570 (PiSwInterfaceFree.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PiSwInterfaceCreate(NTSTRSAFE_PCWSTR pszSrc, __int64 a2, unsigned int a3, PVOID *a4)
 {
   __int64 Pool2; // rax

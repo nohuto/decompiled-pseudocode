@@ -1,3 +1,15 @@
+/*
+ * XREFs of PpmInitPolicyConfiguration @ 0x140B5CAC0
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     PpmReleaseLock @ 0x1402D1F40 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402D1F90 (PpmAcquireLock.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     PpmBeginProfileAccumulation @ 0x14079C7F8 (PpmBeginProfileAccumulation.c)
+ *     PpmEnableProfile @ 0x140825808 (PpmEnableProfile.c)
+ */
+
 void PpmInitPolicyConfiguration()
 {
   char *v0; // rdx

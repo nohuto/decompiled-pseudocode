@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiStoreWriteIssue @ 0x14065A714
+ * Callers:
+ *     MiStoreWriteModifiedPages @ 0x14046554A (MiStoreWriteModifiedPages.c)
+ * Callees:
+ *     SmpPageWrite @ 0x1405C7990 (SmpPageWrite.c)
+ *     ?SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z @ 0x1405CA728 (-SmKeyConvert@@YAJPEAT_MM_STORE_KEY@@PEAT_SM_PAGE_KEY@@@Z.c)
+ */
+
 __int64 __fastcall MiStoreWriteIssue(
         __int64 a1,
         __int64 a2,

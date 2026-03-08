@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsWindowGDIScaledDpiMessageEnabledX@@YA_NPEAUtagWND@@@Z @ 0x1C0222404
+ * Callers:
+ *     NtUserIsWindowGDIScaledDpiMessageEnabled @ 0x1C01D6E80 (NtUserIsWindowGDIScaledDpiMessageEnabled.c)
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ */
+
 char __fastcall IsWindowGDIScaledDpiMessageEnabledX(struct tagWND *a1)
 {
   __int64 v2; // rcx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of IntPartIsInterruptSteerable @ 0x14028F4A8
+ * Callers:
+ *     KeIntSteerGetSteeringMode @ 0x14028F388 (KeIntSteerGetSteeringMode.c)
+ * Callees:
+ *     KeQueryInterruptPartitionInformation @ 0x14028F550 (KeQueryInterruptPartitionInformation.c)
+ *     KeQueryInterruptPartitionCount @ 0x14028F5C0 (KeQueryInterruptPartitionCount.c)
+ */
+
 __int64 __fastcall IntPartIsInterruptSteerable(__int64 a1, bool *a2)
 {
   __int64 v2; // rsi

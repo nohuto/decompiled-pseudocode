@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBREG_EvtWorkItemUpdateSqmHubOvercurrentDetected @ 0x1C0085EC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_WriteValueToHubHardwareKey @ 0x1C0085D90 (HUBREG_WriteValueToHubHardwareKey.c)
+ */
+
 __int64 __fastcall HUBREG_EvtWorkItemUpdateSqmHubOvercurrentDetected(__int64 a1)
 {
   __int64 v2; // rax

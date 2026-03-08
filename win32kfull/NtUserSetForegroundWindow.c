@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetForegroundWindow @ 0x1C00E6490
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegroundBehaviors@@W4SetForegroundffects@@@Z @ 0x1C002498C (-xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegrou.c)
+ */
+
 __int64 __fastcall NtUserSetForegroundWindow(__int64 a1)
 {
   __int64 v2; // rax

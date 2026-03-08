@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiPageHasRelocations @ 0x14069F28C
+ * Callers:
+ *     MiWalkEntireImage @ 0x1402862C0 (MiWalkEntireImage.c)
+ *     MiWalkEntireImagePageNeedsProcessing @ 0x140653AF8 (MiWalkEntireImagePageNeedsProcessing.c)
+ *     MiRevertRelocatedImagePfn @ 0x14069F1D0 (MiRevertRelocatedImagePfn.c)
+ *     MiCreateFileOnlyImageFixupList @ 0x140A30D1C (MiCreateFileOnlyImageFixupList.c)
+ * Callees:
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402992F0 (PdcCreateWatchdogAroundClientCall.c)
+ *     RtlDoesRequireFunctionOverrideFixups @ 0x140679788 (RtlDoesRequireFunctionOverrideFixups.c)
+ */
+
 __int64 __fastcall MiPageHasRelocations(__int64 *a1, unsigned int a2, char a3)
 {
   __int64 v3; // rbx

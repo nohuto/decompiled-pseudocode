@@ -1,3 +1,13 @@
+/*
+ * XREFs of AcpiEvaluateOscMethodOnPciRootBus @ 0x1C0034694
+ * Callers:
+ *     AcpiEvaluateBiosMethodsOnPciRootBus @ 0x1C00345C4 (AcpiEvaluateBiosMethodsOnPciRootBus.c)
+ *     PciRootBusBiosMethodDispatcherOnResume @ 0x1C0034750 (PciRootBusBiosMethodDispatcherOnResume.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     ACPIAmliEvaluateOsc @ 0x1C007C7D8 (ACPIAmliEvaluateOsc.c)
+ */
+
 __int64 __fastcall AcpiEvaluateOscMethodOnPciRootBus(__int64 a1, unsigned __int8 a2, int a3, _DWORD *a4, int *a5)
 {
   __int64 v6; // rcx

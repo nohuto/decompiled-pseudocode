@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlUnicodeStringInit @ 0x1C003444C
+ * Callers:
+ *     HUBREG_ValidateAndPopulateEndpointPriorities @ 0x1C0034C18 (HUBREG_ValidateAndPopulateEndpointPriorities.c)
+ *     HUBREG_OpenCreateUsbflagsDeviceKey @ 0x1C00838E4 (HUBREG_OpenCreateUsbflagsDeviceKey.c)
+ *     HUBREG_OpenQueryAttemptRecoveryFromUsbPowerDrainValue @ 0x1C00887B0 (HUBREG_OpenQueryAttemptRecoveryFromUsbPowerDrainValue.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlUnicodeStringInit(PUNICODE_STRING DestinationString, NTSTRSAFE_PCWSTR pszSrc)
 {
   NTSTATUS v2; // r8d

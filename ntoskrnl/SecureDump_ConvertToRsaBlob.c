@@ -1,3 +1,16 @@
+/*
+ * XREFs of SecureDump_ConvertToRsaBlob @ 0x14055B6F0
+ * Callers:
+ *     SecureDump_ValidateAmeCertChain @ 0x14055C3D0 (SecureDump_ValidateAmeCertChain.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SecureDump_ConvertParsedRSAPubKeyToBCryptPubKey @ 0x14055B5F8 (SecureDump_ConvertParsedRSAPubKeyToBCryptPubKey.c)
+ *     MinAsn1ParsePublicKeyInfo @ 0x140A6D938 (MinAsn1ParsePublicKeyInfo.c)
+ *     MinAsn1ParseRSAPublicKey @ 0x140A6D980 (MinAsn1ParseRSAPublicKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SecureDump_ConvertToRsaBlob(__int64 a1, _QWORD *a2)
 {
   int v3; // edi

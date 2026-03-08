@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?HasSingleD2DBitmapOrPrimitiveGroup@CVisual@@QEBA_NXZ @ 0x1800E5814
+ * Callers:
+ *     ?PostSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18006E820 (-PostSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ * Callees:
+ *     ?HasProjectedShadowReceivers@CVisual@@QEBA_NXZ @ 0x1800E585C (-HasProjectedShadowReceivers@CVisual@@QEBA_NXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CVisual::HasSingleD2DBitmapOrPrimitiveGroup(CVisual *this)
 {
   __int64 v1; // r11

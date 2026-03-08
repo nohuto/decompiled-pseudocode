@@ -1,3 +1,28 @@
+/*
+ * XREFs of rimHidP_GetSpecificValueCaps @ 0x1C01B2114
+ * Callers:
+ *     RIMDeliverConfigRequest @ 0x1C01AD678 (RIMDeliverConfigRequest.c)
+ *     RIMGetDeviceFeedbackGlobalIntensityCaps @ 0x1C01AE0E4 (RIMGetDeviceFeedbackGlobalIntensityCaps.c)
+ *     RIMIsInputUsagePresent @ 0x1C01AF31C (RIMIsInputUsagePresent.c)
+ *     RIMPopulatePointerDevice @ 0x1C01AF510 (RIMPopulatePointerDevice.c)
+ *     _PopulatePropertyUsageValues @ 0x1C01B272C (_PopulatePropertyUsageValues.c)
+ *     RIMAssignTouchType @ 0x1C01B3810 (RIMAssignTouchType.c)
+ *     RIMCacheAxisChildIndex @ 0x1C01B3B48 (RIMCacheAxisChildIndex.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C01B3FEC (RIMCreatePointerDeviceInfo.c)
+ *     RIMExtractPointerPropertyValues @ 0x1C01B5500 (RIMExtractPointerPropertyValues.c)
+ *     RIMGetMaxCountFeatureDetails @ 0x1C01B69A4 (RIMGetMaxCountFeatureDetails.c)
+ *     RIMGetPointerDeviceProperties @ 0x1C01B70A0 (RIMGetPointerDeviceProperties.c)
+ *     RIMGetPropertyCount @ 0x1C01B7E64 (RIMGetPropertyCount.c)
+ *     RIMIsParallelDevice @ 0x1C01B8C44 (RIMIsParallelDevice.c)
+ *     RIMRetrieveAllLinkIndexUsages @ 0x1C01B93B4 (RIMRetrieveAllLinkIndexUsages.c)
+ *     RIMRetrieveLinkCollection @ 0x1C01B9AA4 (RIMRetrieveLinkCollection.c)
+ *     ?IsHIDMouseDeviceRelative@@YAHPEAU_FILE_OBJECT@@PEAU_DEVICE_OBJECT@@@Z @ 0x1C01C00C4 (-IsHIDMouseDeviceRelative@@YAHPEAU_FILE_OBJECT@@PEAU_DEVICE_OBJECT@@@Z.c)
+ *     RIMIDECheckScanTimeSupport @ 0x1C01C160C (RIMIDECheckScanTimeSupport.c)
+ *     RIMApiSetValidateDeviceSignature @ 0x1C01E1A0C (RIMApiSetValidateDeviceSignature.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall rimHidP_GetSpecificValueCaps(
         __int64 a1,
         __int64 a2,

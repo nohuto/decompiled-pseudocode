@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CSnapshotMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0262720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memcmp @ 0x1C00E17D0 (memcmp.c)
+ */
+
 __int64 __fastcall DirectComposition::CSnapshotMarshaler::SetBufferProperty(
         DirectComposition::CSnapshotMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

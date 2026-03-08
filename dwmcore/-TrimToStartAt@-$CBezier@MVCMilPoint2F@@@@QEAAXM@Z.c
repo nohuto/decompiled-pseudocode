@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?TrimToStartAt@?$CBezier@MVCMilPoint2F@@@@QEAAXM@Z @ 0x1802AC724
+ * Callers:
+ *     ?InterpolateBezier@CTrimPathOperation@@AEAA_NMM_N@Z @ 0x1802AC128 (-InterpolateBezier@CTrimPathOperation@@AEAA_NMM_N@Z.c)
+ *     ?TrimBetween@?$CBezier@MVCMilPoint2F@@@@QEAA_NMM@Z @ 0x1802AC524 (-TrimBetween@-$CBezier@MVCMilPoint2F@@@@QEAA_NMM@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 _UNKNOWN **__fastcall CBezier<float,CMilPoint2F>::TrimToStartAt(float *a1, float a2)
 {
   _UNKNOWN **result; // rax

@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiLockAddressSpaceToo @ 0x140332B7C
+ * Callers:
+ *     MiPrepareVadDelete @ 0x14075FF3C (MiPrepareVadDelete.c)
+ *     MiDeleteVad @ 0x1407C82E0 (MiDeleteVad.c)
+ * Callees:
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14034CA58 (LOCK_ADDRESS_SPACE.c)
+ *     MiUnlockVad @ 0x14034D51C (MiUnlockVad.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiUnlockNestedVad @ 0x140A44F98 (MiUnlockNestedVad.c)
+ */
+
 __int64 __fastcall MiLockAddressSpaceToo(__int64 a1, __int64 a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rsi

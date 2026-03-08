@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiAssignFixedSubNodes @ 0x140B927DC
+ * Callers:
+ *     KiPerformAutomaticGroupConfiguration @ 0x140B929BC (KiPerformAutomaticGroupConfiguration.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall KiAssignFixedSubNodes(__int64 *a1, __int64 a2, unsigned __int16 a3, char a4, _DWORD *a5, _WORD *a6)
 {
   __int64 v7; // r12

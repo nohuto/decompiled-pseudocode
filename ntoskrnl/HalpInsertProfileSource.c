@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpInsertProfileSource @ 0x14050584C
+ * Callers:
+ *     EmonAddProfileSource @ 0x14051A480 (EmonAddProfileSource.c)
+ *     Amd64AddProfileSource @ 0x1405263A0 (Amd64AddProfileSource.c)
+ * Callees:
+ *     wcsncmp @ 0x1403D5ED0 (wcsncmp.c)
+ */
+
 char __fastcall HalpInsertProfileSource(__int64 a1, __int64 a2, int a3, __int64 **a4)
 {
   __int64 *v4; // rsi

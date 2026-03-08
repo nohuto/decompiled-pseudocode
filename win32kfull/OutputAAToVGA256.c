@@ -1,3 +1,11 @@
+/*
+ * XREFs of OutputAAToVGA256 @ 0x1C025C4C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall OutputAAToVGA256(
         unsigned int *a1,
         __int64 a2,

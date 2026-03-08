@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepValidateCAPIDs @ 0x1405B75BC
+ * Callers:
+ *     SeRmReferenceFindCapName @ 0x1405B7318 (SeRmReferenceFindCapName.c)
+ * Callees:
+ *     RtlValidSid @ 0x1407C92A0 (RtlValidSid.c)
+ */
+
 __int64 __fastcall SepValidateCAPIDs(__int64 a1, PSID *a2)
 {
   unsigned int v2; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhWmiInsufficentBandwidth @ 0x1C004A320
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ */
+
 __int64 __fastcall UsbhWmiInsufficentBandwidth(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, __int64 a5)
 {
   __int64 v6; // r11

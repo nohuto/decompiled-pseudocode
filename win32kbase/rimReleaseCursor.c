@@ -1,3 +1,11 @@
+/*
+ * XREFs of rimReleaseCursor @ 0x1C01DEE8C
+ * Callers:
+ *     RIMCmDeactivateContact @ 0x1C01DE86C (RIMCmDeactivateContact.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void __fastcall rimReleaseCursor(__int64 a1, int a2)
 {
   unsigned int v4; // ecx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of MultiUserCleanupPathAlloc @ 0x1C00F6040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall MultiUserCleanupPathAlloc(Gre::Base *a1)
 {
   struct Gre::Base::SESSION_GLOBALS *v1; // rbx

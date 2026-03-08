@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiDeletePartialCloneVads @ 0x140A461CC
+ * Callers:
+ *     MiAllocateChildVads @ 0x140A4571C (MiAllocateChildVads.c)
+ *     MiInsertChildVads @ 0x140A4642C (MiInsertChildVads.c)
+ * Callees:
+ *     MiGetVadWakeList @ 0x140289A20 (MiGetVadWakeList.c)
+ *     MiGetProtoPteAddress @ 0x14031C780 (MiGetProtoPteAddress.c)
+ *     MiIsVadLargePrivate @ 0x1403316C0 (MiIsVadLargePrivate.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     MiFreeVadEvents @ 0x140631910 (MiFreeVadEvents.c)
+ *     MiDecrementLargeSubsections @ 0x14063A2E8 (MiDecrementLargeSubsections.c)
+ *     MiFreePlaceholderStorage @ 0x1406800F8 (MiFreePlaceholderStorage.c)
+ *     MiDereferencePerSessionProtos @ 0x14075B72C (MiDereferencePerSessionProtos.c)
+ *     MiRemoveSharedCommitNode @ 0x1407D6770 (MiRemoveSharedCommitNode.c)
+ *     MiFreeVadEventBitmap @ 0x140A2F248 (MiFreeVadEventBitmap.c)
+ *     MiVadHasSharedCommit @ 0x140A41134 (MiVadHasSharedCommit.c)
+ *     MiFreeLargePageView @ 0x140A46E40 (MiFreeLargePageView.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiDeletePartialCloneVads(char *P)
 {
   char *v1; // r14

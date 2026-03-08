@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiInitializeDescriptorIst @ 0x1403726E0
+ * Callers:
+ *     KiEnableKvaShadowing @ 0x140A864CC (KiEnableKvaShadowing.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiInitializeDescriptorIst(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // r9

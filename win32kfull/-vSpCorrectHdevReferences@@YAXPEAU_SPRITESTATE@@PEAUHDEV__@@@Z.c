@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vSpCorrectHdevReferences@@YAXPEAU_SPRITESTATE@@PEAUHDEV__@@@Z @ 0x1C00E5D98
+ * Callers:
+ *     vSpDynamicModeChange @ 0x1C00E5A90 (vSpDynamicModeChange.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vSpCorrectHdevReferences(struct _SPRITESTATE *a1, HDEV a2)
 {
   _QWORD *v4; // rbx

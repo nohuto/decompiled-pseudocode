@@ -1,3 +1,11 @@
+/*
+ * XREFs of __cpu_features_init @ 0x1C00271F0
+ * Callers:
+ *     __memset_query @ 0x1C0027800 (__memset_query.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 _cpu_features_init()
 {
   int v5; // r8d

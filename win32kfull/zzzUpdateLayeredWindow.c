@@ -1,3 +1,31 @@
+/*
+ * XREFs of zzzUpdateLayeredWindow @ 0x1C01BE8C0
+ * Callers:
+ *     xxxSetLayeredWindow @ 0x1C0028C1C (xxxSetLayeredWindow.c)
+ *     ?zzzUpdateFade@@YAXPEAUtagPOINT@@PEAUtagSIZE@@PEAUHDC__@@0PEAU_BLENDFUNCTION@@@Z @ 0x1C01BDC84 (-zzzUpdateFade@@YAXPEAUtagPOINT@@PEAUtagSIZE@@PEAUHDC__@@0PEAU_BLENDFUNCTION@@@Z.c)
+ *     NtUserUpdateLayeredWindow @ 0x1C01E0780 (NtUserUpdateLayeredWindow.c)
+ *     ?zzzApplyShadow@@YAHPEAUtagWND@@0@Z @ 0x1C0224188 (-zzzApplyShadow@@YAHPEAUtagWND@@0@Z.c)
+ *     zzzMoveShadow @ 0x1C022482C (zzzMoveShadow.c)
+ *     zzzUpdateShadowAlpha @ 0x1C02248CC (zzzUpdateShadowAlpha.c)
+ * Callees:
+ *     DeleteOrSetRedirectionBitmap @ 0x1C0021D34 (DeleteOrSetRedirectionBitmap.c)
+ *     UnsetRedirectedWindow @ 0x1C0022ADC (UnsetRedirectedWindow.c)
+ *     UpdateSprite @ 0x1C002E7A8 (UpdateSprite.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     GetRedirectionBitmap @ 0x1C0043F00 (GetRedirectionBitmap.c)
+ *     OffsetChildren @ 0x1C004CB34 (OffsetChildren.c)
+ *     GreClientRgnUpdated @ 0x1C005464C (GreClientRgnUpdated.c)
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ *     GreUpdateSpriteVisRgn @ 0x1C007ED24 (GreUpdateSpriteVisRgn.c)
+ *     RecreateRedirectionBitmap @ 0x1C0096A48 (RecreateRedirectionBitmap.c)
+ *     GetRedirectionFlags @ 0x1C0096CD0 (GetRedirectionFlags.c)
+ *     DwmChildRectChange @ 0x1C00AD03C (DwmChildRectChange.c)
+ *     DirtyVisRgnTrackers @ 0x1C00AEA8C (DirtyVisRgnTrackers.c)
+ *     ?UpdateWindowRects@@YAXPEAUtagWND@@PEBUtagPOINT@@PEBUtagSIZE@@PEAH3@Z @ 0x1C01454BA (-UpdateWindowRects@@YAXPEAUtagWND@@PEBUtagPOINT@@PEBUtagSIZE@@PEAH3@Z.c)
+ *     ?RestoreOldRedirectionBitmap@@YAHPEAUtagWND@@PEAUHBITMAP__@@@Z @ 0x1C01BDB10 (-RestoreOldRedirectionBitmap@@YAHPEAUtagWND@@PEAUHBITMAP__@@@Z.c)
+ *     InvalidateGDIWindows @ 0x1C01BEE24 (InvalidateGDIWindows.c)
+ */
+
 __int64 __fastcall zzzUpdateLayeredWindow(
         struct tagWND *a1,
         HDC a2,

@@ -1,3 +1,21 @@
+/*
+ * XREFs of VidSchDdiNotifyDpcWorker @ 0x1C003A0D4
+ * Callers:
+ *     VidSchiCompletePendingCommandInNodeHwQueue @ 0x1C0047148 (VidSchiCompletePendingCommandInNodeHwQueue.c)
+ *     VidSchiForceTdr @ 0x1C00473F4 (VidSchiForceTdr.c)
+ * Callees:
+ *     VidSchiProcessDpcVSyncCookie @ 0x1C0009880 (VidSchiProcessDpcVSyncCookie.c)
+ *     VidSchiProcessDpcDmaPacket @ 0x1C000AA50 (VidSchiProcessDpcDmaPacket.c)
+ *     VidSchiProcessMonitoredFenceSignaledDpc @ 0x1C001DBB6 (VidSchiProcessMonitoredFenceSignaledDpc.c)
+ *     ?ApertureCorruptionCheck@VIDMM_GLOBAL@@QEAAJE@Z @ 0x1C002DBD8 (-ApertureCorruptionCheck@VIDMM_GLOBAL@@QEAAJE@Z.c)
+ *     VidSchiProcessPeriodicNotificationCookie @ 0x1C003B0C4 (VidSchiProcessPeriodicNotificationCookie.c)
+ *     ?VidSchiAsyncReCreateSchedulingLog@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C0041814 (-VidSchiAsyncReCreateSchedulingLog@@YAXPEAU_VIDSCH_NODE@@@Z.c)
+ *     VidSchiProcessGpuEngineTimeoutDpc @ 0x1C00455A0 (VidSchiProcessGpuEngineTimeoutDpc.c)
+ *     VidSchiProcessHwQueuePageFaultedDpc @ 0x1C0045608 (VidSchiProcessHwQueuePageFaultedDpc.c)
+ *     VidSchiProcessSuspendContextCompletedDpc @ 0x1C0045F04 (VidSchiProcessSuspendContextCompletedDpc.c)
+ *     ?VidSchiProcessDpcVSyncHwFlipQueue@@YAXPEAU_VIDSCH_VSYNC_COOKIE@@@Z @ 0x1C0049A8C (-VidSchiProcessDpcVSyncHwFlipQueue@@YAXPEAU_VIDSCH_VSYNC_COOKIE@@@Z.c)
+ */
+
 void __fastcall VidSchDdiNotifyDpcWorker(__int64 a1, int a2)
 {
   union _SLIST_HEADER *v2; // rbp

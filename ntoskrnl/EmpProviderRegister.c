@@ -1,3 +1,22 @@
+/*
+ * XREFs of EmpProviderRegister @ 0x140810DB0
+ * Callers:
+ *     EmProviderRegister @ 0x140810D40 (EmProviderRegister.c)
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ *     HalRegisterErrataCallbacks @ 0x140B4CB70 (HalRegisterErrataCallbacks.c)
+ *     EmInitSystem @ 0x140B4CBA8 (EmInitSystem.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     EmpQueueRuleUpdateState @ 0x1403861E4 (EmpQueueRuleUpdateState.c)
+ *     EmpSearchCallbackDatabase @ 0x1403862C4 (EmpSearchCallbackDatabase.c)
+ *     EmpSearchEntryDatabase @ 0x1403862FC (EmpSearchEntryDatabase.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EmpProviderRegister(
         PVOID Object,
         __int64 a2,

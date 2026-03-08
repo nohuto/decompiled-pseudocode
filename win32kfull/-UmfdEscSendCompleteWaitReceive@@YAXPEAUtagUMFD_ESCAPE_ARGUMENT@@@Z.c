@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?UmfdEscSendCompleteWaitReceive@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00BB490
+ * Callers:
+ *     UmfdDispatchEscape @ 0x1C00BB270 (UmfdDispatchEscape.c)
+ * Callees:
+ *     ?Create@UmfdTls@@CAPEAV1@XZ @ 0x1C00BC724 (-Create@UmfdTls@@CAPEAV1@XZ.c)
+ *     ?WaitForWorkItem@CWorkItemQueue@@QEBAPEAVCWorkItem@1@XZ @ 0x1C00BD100 (-WaitForWorkItem@CWorkItemQueue@@QEBAPEAVCWorkItem@1@XZ.c)
+ *     ?DequeueWorkItem@CWorkItemQueue@@QEBAPEAVCWorkItem@1@XZ @ 0x1C00BD190 (-DequeueWorkItem@CWorkItemQueue@@QEBAPEAVCWorkItem@1@XZ.c)
+ *     ?UmfdCreateRequestContext@@YAPEAXXZ @ 0x1C011F1FC (-UmfdCreateRequestContext@@YAPEAXXZ.c)
+ *     ?QueueWorkItem@CWorkItemQueue@@QEAA_NQEAVCWorkItem@1@@Z @ 0x1C011FE60 (-QueueWorkItem@CWorkItemQueue@@QEAA_NQEAVCWorkItem@1@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ?Cancel@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ @ 0x1C03091C8 (-Cancel@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ.c)
+ *     ?Complete@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ @ 0x1C0309200 (-Complete@CWaitableWorkItem@CMultipleConsumerWorkQueue@@QEAAXXZ.c)
+ */
+
 void __fastcall UmfdEscSendCompleteWaitReceive(struct tagUMFD_ESCAPE_ARGUMENT *a1)
 {
   struct tagUMFD_ESCAPE_ARGUMENT *v1; // r12

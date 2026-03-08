@@ -1,3 +1,12 @@
+/*
+ * XREFs of IovpCompleteRequest3 @ 0x140AC9E10
+ * Callers:
+ *     IovpLocalCompletionRoutine @ 0x140ABEB60 (IovpLocalCompletionRoutine.c)
+ * Callees:
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140ADE8EC (VfIrpDatabaseEntryReleaseLock.c)
+ */
+
 _UNKNOWN **__fastcall IovpCompleteRequest3(__int64 a1, __int64 a2, __int64 a3)
 {
   _UNKNOWN **result; // rax

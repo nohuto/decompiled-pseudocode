@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetFloatProperty@CProjectedShadowSceneMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C000CE80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C0006C90 (-SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z.c)
+ */
+
 __int64 __fastcall DirectComposition::CProjectedShadowSceneMarshaler::SetFloatProperty(
         DirectComposition::CProjectedShadowSceneMarshaler *this,
         unsigned int a2,

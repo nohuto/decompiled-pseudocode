@@ -1,3 +1,12 @@
+/*
+ * XREFs of IoAllocateErrorLogEntry @ 0x1403C11C0
+ * Callers:
+ *     IopDisassociateThreadIrp @ 0x140552D34 (IopDisassociateThreadIrp.c)
+ *     FsRtlLogCcFlushError @ 0x14093A170 (FsRtlLogCcFlushError.c)
+ * Callees:
+ *     IopAllocateErrorLogEntry @ 0x1403C11FC (IopAllocateErrorLogEntry.c)
+ */
+
 PVOID __stdcall IoAllocateErrorLogEntry(PVOID IoObject, UCHAR EntrySize)
 {
   PVOID v2; // rdx

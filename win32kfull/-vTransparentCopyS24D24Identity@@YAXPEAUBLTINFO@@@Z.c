@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vTransparentCopyS24D24Identity@@YAXPEAUBLTINFO@@@Z @ 0x1C014DAC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vTransparentCopyS24D24Identity(struct BLTINFO *a1)
 {
   int v1; // esi

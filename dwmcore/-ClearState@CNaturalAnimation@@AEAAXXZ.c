@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ClearState@CNaturalAnimation@@AEAAXXZ @ 0x180238F38
+ * Callers:
+ *     ??0CNaturalAnimation@@QEAA@PEAVCComposition@@@Z @ 0x1801BDF64 (--0CNaturalAnimation@@QEAA@PEAVCComposition@@@Z.c)
+ *     ?GetForceForAxis@CNaturalAnimation@@QEAAJW4ScrollAxis@@MMPEAPEAUIScalarForce@@@Z @ 0x1802394BC (-GetForceForAxis@CNaturalAnimation@@QEAAJW4ScrollAxis@@MMPEAPEAUIScalarForce@@@Z.c)
+ *     ?StartAsTriggeredAnimation@CNaturalAnimation@@UEAAJXZ @ 0x18023AD60 (-StartAsTriggeredAnimation@CNaturalAnimation@@UEAAJXZ.c)
+ * Callees:
+ *     ?GetD3DMatrix@CMILMatrix@@QEBA?AU_D3DMATRIX@@XZ @ 0x1800E4D30 (-GetD3DMatrix@CMILMatrix@@QEBA-AU_D3DMATRIX@@XZ.c)
+ */
+
 void __fastcall CNaturalAnimation::ClearState(CNaturalAnimation *this)
 {
   struct _D3DMATRIX *D3DMatrix; // rax

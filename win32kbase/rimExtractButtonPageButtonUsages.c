@@ -1,3 +1,13 @@
+/*
+ * XREFs of rimExtractButtonPageButtonUsages @ 0x1C00F1382
+ * Callers:
+ *     rimProcessPointerDeviceButtonContact @ 0x1C01D99D4 (rimProcessPointerDeviceButtonContact.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     rimHidP_GetUsages @ 0x1C00EFB14 (rimHidP_GetUsages.c)
+ */
+
 __int64 __fastcall rimExtractButtonPageButtonUsages(__int64 a1, __int64 a2, __int64 a3, int a4, _DWORD *a5)
 {
   _WORD *v5; // rdi

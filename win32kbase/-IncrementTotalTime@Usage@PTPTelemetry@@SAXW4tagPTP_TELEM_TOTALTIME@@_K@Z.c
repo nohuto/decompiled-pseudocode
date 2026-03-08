@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IncrementTotalTime@Usage@PTPTelemetry@@SAXW4tagPTP_TELEM_TOTALTIME@@_K@Z @ 0x1C020DF10
+ * Callers:
+ *     ?OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z @ 0x1C020E7E0 (-OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall PTPTelemetry::Usage::IncrementTotalTime(__int64 a1, unsigned __int64 a2, __int64 a3, __int64 a4)
 {
   int v5; // edi

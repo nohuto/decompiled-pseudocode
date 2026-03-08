@@ -1,3 +1,11 @@
+/*
+ * XREFs of ArbAddAllocation @ 0x1C00A0720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlAddRange_0 @ 0x1C0001A43 (RtlAddRange_0.c)
+ */
+
 NTSTATUS __fastcall ArbAddAllocation(__int64 a1, __int64 a2)
 {
   return RtlAddRange_0(

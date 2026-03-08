@@ -1,3 +1,13 @@
+/*
+ * XREFs of McTemplateK0j_EtwWriteTransfer @ 0x1403BE348
+ * Callers:
+ *     CcInitializeVolumeCacheMap @ 0x14036D0F0 (CcInitializeVolumeCacheMap.c)
+ *     PpCheckInDriverDatabase @ 0x14079DC60 (PpCheckInDriverDatabase.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1403BE3A0 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall McTemplateK0j_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _BYTE v5[16]; // [rsp+30h] [rbp-38h] BYREF

@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlpGetBootStatusPathFromRegistry @ 0x1403C0450
+ * Callers:
+ *     RtlpGetBootStatusPath @ 0x1403C03F4 (RtlpGetBootStatusPath.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlpGetBootStatusPathFromRegistry(_QWORD *a1)
 {
   NTSTATUS v2; // ebx

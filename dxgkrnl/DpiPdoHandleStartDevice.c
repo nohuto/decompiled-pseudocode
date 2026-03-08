@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiPdoHandleStartDevice @ 0x1C021A3A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ */
+
 __int64 __fastcall DpiPdoHandleStartDevice(PDEVICE_OBJECT DeviceObject)
 {
   PVOID DeviceExtension; // rbx

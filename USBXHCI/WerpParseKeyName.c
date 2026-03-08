@@ -1,3 +1,11 @@
+/*
+ * XREFs of WerpParseKeyName @ 0x1C0054C28
+ * Callers:
+ *     WerKernelSubmitReport @ 0x1C00540E0 (WerKernelSubmitReport.c)
+ * Callees:
+ *     WerpGetReverseCharPosition @ 0x1C0054BFC (WerpGetReverseCharPosition.c)
+ */
+
 __int64 __fastcall WerpParseKeyName(
         unsigned __int64 a1,
         unsigned int a2,

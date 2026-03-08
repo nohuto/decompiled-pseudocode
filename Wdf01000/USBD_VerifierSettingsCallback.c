@@ -1,3 +1,11 @@
+/*
+ * XREFs of USBD_VerifierSettingsCallback @ 0x1C0088860
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall USBD_VerifierSettingsCallback(
         wchar_t *ValueName,
         unsigned int ValueType,

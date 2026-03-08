@@ -1,3 +1,22 @@
+/*
+ * XREFs of CcQueueLazyWriteScanThreadForVolume @ 0x1403BA4E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcPostWorkQueue @ 0x1402191C4 (CcPostWorkQueue.c)
+ *     CcAllocateWorkQueueEntry @ 0x140219880 (CcAllocateWorkQueueEntry.c)
+ *     CcSetLazyWriteScanQueuedInternal @ 0x1402EEE90 (CcSetLazyWriteScanQueuedInternal.c)
+ *     CcIsLazyWriteScanQueuedInternal @ 0x1402F0124 (CcIsLazyWriteScanQueuedInternal.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     CcNotifyExternalCachesInternal @ 0x1403CD5F8 (CcNotifyExternalCachesInternal.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     CcPostWorkQueueSpecial @ 0x140534894 (CcPostWorkQueueSpecial.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall CcQueueLazyWriteScanThreadForVolume(_QWORD *StartContext)
 {
   __int64 v1; // r13

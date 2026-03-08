@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopNetGetNextDueRefreshTime @ 0x1409937B8
+ * Callers:
+ *     PopNetRefreshTimerWorkerCallback @ 0x1409938F0 (PopNetRefreshTimerWorkerCallback.c)
+ *     PopNetWnfLowPowerEpochCallback @ 0x140993A30 (PopNetWnfLowPowerEpochCallback.c)
+ * Callees:
+ *     ExLocalTimeToSystemTime @ 0x1402D10A0 (ExLocalTimeToSystemTime.c)
+ *     ExSystemTimeToLocalTime @ 0x1402D10F0 (ExSystemTimeToLocalTime.c)
+ */
+
 LARGE_INTEGER PopNetGetNextDueRefreshTime()
 {
   LARGE_INTEGER LocalTime; // [rsp+30h] [rbp+8h] BYREF

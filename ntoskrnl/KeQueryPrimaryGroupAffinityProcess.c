@@ -1,3 +1,13 @@
+/*
+ * XREFs of KeQueryPrimaryGroupAffinityProcess @ 0x1402960A4
+ * Callers:
+ *     PspGetProcessAffinityForPeb @ 0x1407069CC (PspGetProcessAffinityForPeb.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeQueryPrimaryGroupAffinityProcess(__int64 a1, __int64 a2)
 {
   unsigned __int8 CurrentIrql; // di

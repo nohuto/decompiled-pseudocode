@@ -1,3 +1,15 @@
+/*
+ * XREFs of MyRegOpenKeyForRead @ 0x1C0043A3C
+ * Callers:
+ *     ReadManifestAssignedValue @ 0x1C0042FCC (ReadManifestAssignedValue.c)
+ *     CheckUSBFnIncludeDefaultCfg @ 0x1C00430C8 (CheckUSBFnIncludeDefaultCfg.c)
+ *     CheckUSBFnConfiguration @ 0x1C004329C (CheckUSBFnConfiguration.c)
+ *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C004353C (ReadUSBFnFeaturesFromCurrentConfiguration.c)
+ *     UsbDualRoleFeaturesQueryLocalMachine @ 0x1C00436CC (UsbDualRoleFeaturesQueryLocalMachine.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall MyRegOpenKeyForRead(__int64 a1, const WCHAR *a2, void **a3)
 {
   struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF

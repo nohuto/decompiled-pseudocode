@@ -1,3 +1,11 @@
+/*
+ * XREFs of PsTlsGetValue @ 0x1407564B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlpFlsCallbackEntryGetContext @ 0x1402CAA5C (RtlpFlsCallbackEntryGetContext.c)
+ */
+
 __int64 __fastcall PsTlsGetValue(__int64 a1, _QWORD *a2)
 {
   unsigned __int64 *EndPadding; // rbx

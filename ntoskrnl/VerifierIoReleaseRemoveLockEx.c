@@ -1,3 +1,12 @@
+/*
+ * XREFs of VerifierIoReleaseRemoveLockEx @ 0x140ACF800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ViRemLockFindSurrogate @ 0x140ACF978 (ViRemLockFindSurrogate.c)
+ */
+
 __int64 __fastcall VerifierIoReleaseRemoveLockEx(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 Surrogate; // rax

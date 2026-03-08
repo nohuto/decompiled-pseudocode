@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiDetachSessionGlobal @ 0x1402EA04C
+ * Callers:
+ *     MiDetachAndUnlockWorkingSet @ 0x14020CF74 (MiDetachAndUnlockWorkingSet.c)
+ *     MiAttachToSessionForBaseImage @ 0x14063F7A4 (MiAttachToSessionForBaseImage.c)
+ *     MiActOnPatchInAllSessions @ 0x140A31950 (MiActOnPatchInAllSessions.c)
+ *     MiApplyHotPatchToLoadedDriver @ 0x140A323A8 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiUnapplyDriverHotPatch @ 0x140A390F8 (MiUnapplyDriverHotPatch.c)
+ * Callees:
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiDetachProcessFromSession @ 0x1402EA0D8 (MiDetachProcessFromSession.c)
+ */
+
 char __fastcall MiDetachSessionGlobal(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rbx

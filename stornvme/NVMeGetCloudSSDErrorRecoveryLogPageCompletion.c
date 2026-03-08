@@ -1,3 +1,13 @@
+/*
+ * XREFs of NVMeGetCloudSSDErrorRecoveryLogPageCompletion @ 0x1C001D740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     __security_check_cookie @ 0x1C0003260 (__security_check_cookie.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ */
+
 __int64 __fastcall NVMeGetCloudSSDErrorRecoveryLogPageCompletion(__int64 a1, __int64 a2)
 {
   __int64 SrbExtension; // rax

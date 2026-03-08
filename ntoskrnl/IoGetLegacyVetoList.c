@@ -1,3 +1,19 @@
+/*
+ * XREFs of IoGetLegacyVetoList @ 0x1407609A0
+ * Callers:
+ *     PopFilterCapabilities @ 0x140760774 (PopFilterCapabilities.c)
+ *     PnpProcessQueryRemoveAndEject @ 0x1408625F0 (PnpProcessQueryRemoveAndEject.c)
+ *     PnprLegacyDeviceDriversPresent @ 0x1409635A4 (PnprLegacyDeviceDriversPresent.c)
+ *     ExpQueryLegacyDriverInformation @ 0x1409F3FFC (ExpQueryLegacyDriverInformation.c)
+ * Callees:
+ *     IopGetLegacyVetoListDrivers @ 0x140698764 (IopGetLegacyVetoListDrivers.c)
+ *     PpDevNodeUnlockTree @ 0x1406CB8B0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406CB944 (PpDevNodeLockTree.c)
+ *     IopGetLegacyVetoListDeviceNode @ 0x140760B58 (IopGetLegacyVetoListDeviceNode.c)
+ *     IopAppendLegacyVeto @ 0x1409696E4 (IopAppendLegacyVeto.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IoGetLegacyVetoList(PVOID *a1, _DWORD *a2)
 {
   bool v4; // zf

@@ -1,3 +1,11 @@
+/*
+ * XREFs of BiTranslateBootOrder @ 0x14082D114
+ * Callers:
+ *     BiBindEfiBootManager @ 0x14082C288 (BiBindEfiBootManager.c)
+ * Callees:
+ *     BiTranslateBootEntryId @ 0x14082F2D4 (BiTranslateBootEntryId.c)
+ */
+
 __int64 __fastcall BiTranslateBootOrder(__int64 a1, unsigned int *a2, __int64 a3, unsigned int *a4)
 {
   unsigned int v4; // r11d

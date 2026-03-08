@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AddToSums@?$LinearFitT@$0BAA@@@QEAA_NAEBUPoint@1@@Z @ 0x18004A494
+ * Callers:
+ *     ?Update@?$LinearFitT@$0BAA@@@QEAA_N_J0@Z @ 0x18004D8A4 (-Update@-$LinearFitT@$0BAA@@@QEAA_N_J0@Z.c)
+ *     ?RebaseSums@?$LinearFitT@$0BAA@@@QEAA_NXZ @ 0x1801CEB04 (-RebaseSums@-$LinearFitT@$0BAA@@@QEAA_NXZ.c)
+ * Callees:
+ *     ?LongLongAdd@@YAJ_J0PEA_J@Z @ 0x18004A534 (-LongLongAdd@@YAJ_J0PEA_J@Z.c)
+ */
+
 char __fastcall LinearFitT<256>::AddToSums(_QWORD *a1, _QWORD *a2)
 {
   __int64 v2; // rbx

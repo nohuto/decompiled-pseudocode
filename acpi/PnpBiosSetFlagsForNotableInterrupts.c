@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpBiosSetFlagsForNotableInterrupts @ 0x1C003C200
+ * Callers:
+ *     ACPIBuildProcessDevicePhaseCrs @ 0x1C000F000 (ACPIBuildProcessDevicePhaseCrs.c)
+ *     ACPIBuildProcessDevicePhasePrs @ 0x1C000FC90 (ACPIBuildProcessDevicePhasePrs.c)
+ * Callees:
+ *     PnpBiosScanForWakeInterrupt @ 0x1C003C104 (PnpBiosScanForWakeInterrupt.c)
+ */
+
 char __fastcall PnpBiosSetFlagsForNotableInterrupts(__int64 a1, char *a2, unsigned int a3)
 {
   __int64 v4; // rsi

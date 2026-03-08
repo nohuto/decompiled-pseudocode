@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBDSM_CheckingIfMsOs20RegistryValuesShouldBeInstalled @ 0x1C0024810
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBDSM_CheckingIfMsOs20RegistryValuesShouldBeInstalled(__int64 a1)
 {
   __int64 v1; // rdx

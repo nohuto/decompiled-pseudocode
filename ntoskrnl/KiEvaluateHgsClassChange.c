@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiEvaluateHgsClassChange @ 0x140574B80
+ * Callers:
+ *     KiUpdateThreadHgsFeedback @ 0x140576260 (KiUpdateThreadHgsFeedback.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall KiEvaluateHgsClassChange(__int64 a1, unsigned __int8 a2, unsigned __int8 a3, __int16 *a4)
 {
   __int64 v4; // r10

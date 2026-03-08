@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiPageStandbyLookasideStatus @ 0x1402C7560
+ * Callers:
+ *     MiReplaceStandbyLookaside @ 0x1402C6D1C (MiReplaceStandbyLookaside.c)
+ *     MiFindSuitableLookasideReplacement @ 0x1402C7240 (MiFindSuitableLookasideReplacement.c)
+ *     MiReservePageFileSpaceForPage @ 0x14032ECD0 (MiReservePageFileSpaceForPage.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiPageStandbyLookasideStatus(ULONG_PTR a1)
 {
   unsigned __int64 v1; // rax

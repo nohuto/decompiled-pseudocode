@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBDSM_ClearingDeviceLostProgammingFlagOnRestart @ 0x1C00236F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBDSM_ClearingDeviceLostProgammingFlagOnRestart(__int64 a1)
 {
   volatile signed __int32 *v1; // roff

@@ -1,3 +1,15 @@
+/*
+ * XREFs of VidSchiFlushPendingHWSubmittedFlips @ 0x1C0017DD8
+ * Callers:
+ *     VidSchiSuspendFlipQueues @ 0x1C00B4208 (VidSchiSuspendFlipQueues.c)
+ * Callees:
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     ?DecrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z @ 0x1C0034668 (-DecrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z.c)
+ *     ?IncrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z @ 0x1C0034C70 (-IncrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z.c)
+ *     ?VidSchiSetInterruptTargetPresentId@@YAJPEAU_VIDSCH_GLOBAL@@II_K_NI@Z @ 0x1C004A448 (-VidSchiSetInterruptTargetPresentId@@YAJPEAU_VIDSCH_GLOBAL@@II_K_NI@Z.c)
+ *     VidSchiWaitFlushCompletion @ 0x1C00ADCEC (VidSchiWaitFlushCompletion.c)
+ */
+
 __int64 __fastcall VidSchiFlushPendingHWSubmittedFlips(struct _VIDSCH_GLOBAL *a1, __int64 a2, unsigned int a3)
 {
   __int64 v3; // rdi

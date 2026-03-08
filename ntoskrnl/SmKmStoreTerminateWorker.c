@@ -1,3 +1,23 @@
+/*
+ * XREFs of SmKmStoreTerminateWorker @ 0x1405C9740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140356594 (SmKmStoreRefFromStoreIndex.c)
+ *     SmEtwEnabled @ 0x14035911C (SmEtwEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1404129D0 (ZwQuerySystemInformation.c)
+ *     ZwSetSystemInformation @ 0x140415A30 (ZwSetSystemInformation.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SmKmEtwAppendObjectName @ 0x1405C8DF4 (SmKmEtwAppendObjectName.c)
+ *     SmKmEtwAppendProductName @ 0x1405C8F6C (SmKmEtwAppendProductName.c)
+ *     SmKmSqmAddToStream @ 0x1405CB888 (SmKmSqmAddToStream.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall SmKmStoreTerminateWorker(char *P)
 {
   unsigned int v2; // ebx

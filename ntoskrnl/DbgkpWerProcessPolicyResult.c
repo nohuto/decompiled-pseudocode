@@ -1,3 +1,13 @@
+/*
+ * XREFs of DbgkpWerProcessPolicyResult @ 0x140938DC0
+ * Callers:
+ *     DbgkWerCaptureLiveKernelDump2 @ 0x14087EC90 (DbgkWerCaptureLiveKernelDump2.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     DbgkpWerCaptureLiveFullDump @ 0x1409386E8 (DbgkpWerCaptureLiveFullDump.c)
+ *     DbgkpWerCaptureLiveTriageDump @ 0x1409388FC (DbgkpWerCaptureLiveTriageDump.c)
+ */
+
 __int64 __fastcall DbgkpWerProcessPolicyResult(__int64 a1, int a2, __int64 a3, _BYTE *a4)
 {
   *a4 = 1;

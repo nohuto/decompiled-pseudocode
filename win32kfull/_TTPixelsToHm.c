@@ -1,3 +1,16 @@
+/*
+ * XREFs of _TTPixelsToHm @ 0x1C014AE60
+ * Callers:
+ *     ?DoesPointSnapToBorder@@YAHPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@UtagPOINT@@@Z @ 0x1C01E5134 (-DoesPointSnapToBorder@@YAHPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@UtagPOINT@@@Z.c)
+ *     TouchTargetChildTree @ 0x1C01E7B88 (TouchTargetChildTree.c)
+ *     ?_TTAdjustContactSide@@YAXJPEAJ0J@Z @ 0x1C02503A0 (-_TTAdjustContactSide@@YAXJPEAJ0J@Z.c)
+ *     ?_TTLimitDeepTargetingPoint@@YAXJJPEAJ@Z @ 0x1C025076C (-_TTLimitDeepTargetingPoint@@YAXJJPEAJ@Z.c)
+ *     TouchTargetingBigTargetWindow @ 0x1C0250AE8 (TouchTargetingBigTargetWindow.c)
+ *     TouchTargetingRankForRect @ 0x1C0251150 (TouchTargetingRankForRect.c)
+ * Callees:
+ *     LongLongToLong @ 0x1C0013C0C (LongLongToLong.c)
+ */
+
 __int64 __fastcall TTPixelsToHm(int a1, int a2)
 {
   __int64 v2; // rcx

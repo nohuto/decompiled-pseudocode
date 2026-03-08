@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DCEPointInTriangle@@YAHPEAU_D3DVERTEX@@MM@Z @ 0x1C01449E2
+ * Callers:
+ *     ?DCEHitTestWindow@@YA_NPEBUtagRECT@@PEBU_D3DMATRIX@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z @ 0x1C01446E8 (-DCEHitTestWindow@@YA_NPEBUtagRECT@@PEBU_D3DMATRIX@@PEAUtagPOINT@@PEBU_SUBPIXELS@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DCEPointInTriangle(struct _D3DVERTEX *a1, D3DVALUE a2, float a3)
 {
   float y; // xmm3_4

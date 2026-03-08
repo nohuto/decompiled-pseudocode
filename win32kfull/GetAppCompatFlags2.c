@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetAppCompatFlags2 @ 0x1C01FEA00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ */
+
 __int64 __fastcall GetAppCompatFlags2(unsigned __int16 a1)
 {
   unsigned int v1; // ebx

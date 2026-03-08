@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpPreserveNvsArea @ 0x14051A188
+ * Callers:
+ *     HalpAcpiPreSleep @ 0x140A93820 (HalpAcpiPreSleep.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 void *HalpPreserveNvsArea()
 {
   unsigned int v0; // ebx

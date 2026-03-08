@@ -1,3 +1,16 @@
+/*
+ * XREFs of ForwardTouchMessage @ 0x1C01B139C
+ * Callers:
+ *     NtUserPostMessage @ 0x1C0047F50 (NtUserPostMessage.c)
+ *     NtUserfnTOUCH @ 0x1C01E4230 (NtUserfnTOUCH.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     ?CreateValidTouchInputInfo@@YAPEAUHTOUCHINPUT__@@PEAUtagTHREADINFO@@IIQEAUtagTOUCHINPUT@@@Z @ 0x1C01B021C (-CreateValidTouchInputInfo@@YAPEAUHTOUCHINPUT__@@PEAUtagTHREADINFO@@IIQEAUtagTOUCHINPUT@@@Z.c)
+ *     _FreeTouchInputInfo @ 0x1C01B1740 (_FreeTouchInputInfo.c)
+ *     _PostMessageCheckIL @ 0x1C01B81EC (_PostMessageCheckIL.c)
+ */
+
 __int64 __fastcall ForwardTouchMessage(
         struct tagTHREADINFO *a1,
         struct tagWND *a2,

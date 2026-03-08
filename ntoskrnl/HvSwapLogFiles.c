@@ -1,3 +1,14 @@
+/*
+ * XREFs of HvSwapLogFiles @ 0x140732470
+ * Callers:
+ *     CmpFlushHive @ 0x1406BEA70 (CmpFlushHive.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HvpLogTypeToLogArrayIndex @ 0x1407307FC (HvpLogTypeToLogArrayIndex.c)
+ *     HvGetEffectiveLogSizeCapForHive @ 0x140730814 (HvGetEffectiveLogSizeCapForHive.c)
+ */
+
 __int64 __fastcall HvSwapLogFiles(__int64 a1)
 {
   unsigned int v2; // eax

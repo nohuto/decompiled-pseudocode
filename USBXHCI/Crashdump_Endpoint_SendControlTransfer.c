@@ -1,3 +1,17 @@
+/*
+ * XREFs of Crashdump_Endpoint_SendControlTransfer @ 0x1C004F524
+ * Callers:
+ *     Crashdump_SendUrb @ 0x1C004CEC0 (Crashdump_SendUrb.c)
+ *     Crashdump_SendUrbAsync @ 0x1C004CFB0 (Crashdump_SendUrbAsync.c)
+ *     Crashdump_UsbDevice_ChangePortFeature @ 0x1C004FA68 (Crashdump_UsbDevice_ChangePortFeature.c)
+ *     Crashdump_UsbDevice_Configure @ 0x1C004FC34 (Crashdump_UsbDevice_Configure.c)
+ *     Crashdump_UsbDevice_GetDeviceDescriptor @ 0x1C0050254 (Crashdump_UsbDevice_GetDeviceDescriptor.c)
+ *     Crashdump_UsbDevice_GetPortStatus @ 0x1C00503E8 (Crashdump_UsbDevice_GetPortStatus.c)
+ *     Crashdump_UsbDevice_SuspendPort @ 0x1C00510F8 (Crashdump_UsbDevice_SuspendPort.c)
+ * Callees:
+ *     Crashdump_Endpoint_SendTransferAndPollForCompletion @ 0x1C004F708 (Crashdump_Endpoint_SendTransferAndPollForCompletion.c)
+ */
+
 __int64 __fastcall Crashdump_Endpoint_SendControlTransfer(__int64 a1, _QWORD *a2, int a3, _QWORD *a4)
 {
   int v8; // eax

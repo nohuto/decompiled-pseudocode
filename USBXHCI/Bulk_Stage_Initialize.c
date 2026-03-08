@@ -1,3 +1,11 @@
+/*
+ * XREFs of Bulk_Stage_Initialize @ 0x1C001262C
+ * Callers:
+ *     Bulk_Stage_Acquire @ 0x1C001224C (Bulk_Stage_Acquire.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Bulk_Stage_Initialize(__int64 a1, __int64 a2)
 {
   __int64 v2; // r8

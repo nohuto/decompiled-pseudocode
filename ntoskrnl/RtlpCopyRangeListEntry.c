@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlpCopyRangeListEntry @ 0x14081FB60
+ * Callers:
+ *     RtlpAddIntersectingRanges @ 0x14081F70C (RtlpAddIntersectingRanges.c)
+ *     RtlCopyRangeList @ 0x14081FAD0 (RtlCopyRangeList.c)
+ *     RtlMergeRangeLists @ 0x1409B5CD0 (RtlMergeRangeLists.c)
+ * Callees:
+ *     ExAllocateFromNPagedLookasideList @ 0x14023FE20 (ExAllocateFromNPagedLookasideList.c)
+ *     RtlpDeleteRangeListEntry @ 0x1408202B8 (RtlpDeleteRangeListEntry.c)
+ */
+
 char *__fastcall RtlpCopyRangeListEntry(__int64 a1)
 {
   char *v2; // rax

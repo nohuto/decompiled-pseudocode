@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwSetInformation @ 0x1407882D0
+ * Callers:
+ *     BapdWriteEtwEvents @ 0x140380290 (BapdWriteEtwEvents.c)
+ *     BapdRegisterEtwProvider @ 0x14038069C (BapdRegisterEtwProvider.c)
+ *     HvlpEtwRegister @ 0x1405461A4 (HvlpEtwRegister.c)
+ *     PsDispatchIumService @ 0x1405A2A44 (PsDispatchIumService.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14080F6BC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     PopDiagInitialize @ 0x140B442C4 (PopDiagInitialize.c)
+ * Callees:
+ *     EtwpSetProviderTraitsKm @ 0x140788328 (EtwpSetProviderTraitsKm.c)
+ */
+
 NTSTATUS __stdcall EtwSetInformation(
         REGHANDLE RegHandle,
         EVENT_INFO_CLASS InformationClass,

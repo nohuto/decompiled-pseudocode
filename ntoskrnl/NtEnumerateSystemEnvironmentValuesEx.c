@@ -1,3 +1,18 @@
+/*
+ * XREFs of NtEnumerateSystemEnvironmentValuesEx @ 0x1409FC230
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     ExUnlockUserBuffer @ 0x1402CFFD4 (ExUnlockUserBuffer.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExLockUserBuffer @ 0x14075D5A4 (ExLockUserBuffer.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     IoEnumerateEnvironmentVariablesEx @ 0x14083F460 (IoEnumerateEnvironmentVariablesEx.c)
+ */
+
 __int64 __fastcall NtEnumerateSystemEnvironmentValuesEx(unsigned int a1, volatile void *a2, unsigned int *a3)
 {
   __int64 result; // rax

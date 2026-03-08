@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?s_LpcCommandHandler@CDwmAppHost@@CAJPEAUIPortMessage@@PEBUPORT_CONTEXT@@PEAH2@Z @ 0x1400023E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ProcessLPCCommand@CDwmAppHost@@AEAAJPEAUIPortMessage@@PEBUPORT_CONTEXT@@PEAH2@Z @ 0x140002400 (-ProcessLPCCommand@CDwmAppHost@@AEAAJPEAUIPortMessage@@PEBUPORT_CONTEXT@@PEAH2@Z.c)
+ */
+
 __int64 __fastcall CDwmAppHost::s_LpcCommandHandler(
         struct IPortMessage *a1,
         const struct PORT_CONTEXT *a2,

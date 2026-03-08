@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpNextYearDpcRoutine @ 0x140603D00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ */
+
 void __fastcall ExpNextYearDpcRoutine(
         struct _KDPC *Dpc,
         _QWORD *DeferredContext,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDrvType@FontManagementRequest@@UEBA?AW4FontDriverType@@XZ @ 0x1C0307E20
+ * Callers:
+ *     UmfdFontManagement @ 0x1C0307F50 (UmfdFontManagement.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FontManagementRequest::GetDrvType(__int64 a1)
 {
   __int64 v1; // rax

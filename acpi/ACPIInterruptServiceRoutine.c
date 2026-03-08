@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIInterruptServiceRoutine @ 0x1C0003D30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ACPIPccSciReceived @ 0x1C0004576 (ACPIPccSciReceived.c)
+ *     CLEAR_PM1_STATUS_BITS @ 0x1C0004B96 (CLEAR_PM1_STATUS_BITS.c)
+ *     ACPIGpeEnableDisableEvents @ 0x1C002C29C (ACPIGpeEnableDisableEvents.c)
+ *     ACPIReadGpeStatusRegister @ 0x1C0038A4C (ACPIReadGpeStatusRegister.c)
+ *     READ_PM1_STATUS @ 0x1C0038E70 (READ_PM1_STATUS.c)
+ */
+
 bool __fastcall ACPIInterruptServiceRoutine(__int64 a1, __int64 a2)
 {
   unsigned int v3; // edi

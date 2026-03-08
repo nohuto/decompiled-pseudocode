@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmHvSetVirtualProcessorQos @ 0x14059DC24
+ * Callers:
+ *     PoSetProcessorQoS @ 0x14045A860 (PoSetProcessorQoS.c)
+ * Callees:
+ *     HvlpSetRegister64 @ 0x140546A30 (HvlpSetRegister64.c)
+ *     PpmEventVpQosChange @ 0x140599FC8 (PpmEventVpQosChange.c)
+ */
+
 BOOLEAN __fastcall PpmHvSetVirtualProcessorQos(__int64 a1)
 {
   int v2; // ecx

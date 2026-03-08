@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpFindHiveSubKey @ 0x140B32F34
+ * Callers:
+ *     CmpGetStateSepKeysRedirectionPathValue @ 0x140B34C18 (CmpGetStateSepKeysRedirectionPathValue.c)
+ *     CmpGetKnownHivePathNode @ 0x140B95CEC (CmpGetKnownHivePathNode.c)
+ * Callees:
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpWalkUnicodeStringPath @ 0x1407FE980 (CmpWalkUnicodeStringPath.c)
+ *     CmpGetNextName @ 0x1407FEA44 (CmpGetNextName.c)
+ */
+
 bool __fastcall CmpFindHiveSubKey(
         ULONG_PTR BugCheckParameter3,
         ULONG_PTR BugCheckParameter4,

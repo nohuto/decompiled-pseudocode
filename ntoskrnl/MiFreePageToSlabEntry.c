@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiFreePageToSlabEntry @ 0x1402CE6EC
+ * Callers:
+ *     MiFreePageToSlabAllocator @ 0x1402CE4E0 (MiFreePageToSlabAllocator.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiFreePageToSlabEntry(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v4; // r9d

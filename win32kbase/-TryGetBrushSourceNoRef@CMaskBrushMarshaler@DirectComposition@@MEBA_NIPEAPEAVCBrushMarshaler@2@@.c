@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TryGetBrushSourceNoRef@CMaskBrushMarshaler@DirectComposition@@MEBA_NIPEAPEAVCBrushMarshaler@2@@Z @ 0x1C02536D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CMaskBrushMarshaler::TryGetBrushSourceNoRef(
         DirectComposition::CMaskBrushMarshaler *this,
         unsigned int a2,

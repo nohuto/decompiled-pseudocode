@@ -1,3 +1,22 @@
+/*
+ * XREFs of HUBPDO_EvtDeviceReleaseHardware @ 0x1C007DFC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001CA0 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBSM_AddDsmEvent @ 0x1C000A740 (HUBSM_AddDsmEvent.c)
+ *     Feature_USB4PowerImprovements__private_IsEnabledDeviceUsage @ 0x1C000CE04 (Feature_USB4PowerImprovements__private_IsEnabledDeviceUsage.c)
+ *     HUBMISC_WaitForSignal @ 0x1C0032DEC (HUBMISC_WaitForSignal.c)
+ *     SleepstudyHelper_UnregisterComponent @ 0x1C0043D7C (SleepstudyHelper_UnregisterComponent.c)
+ *     DereferenceDeviceResetInterface @ 0x1C0043E24 (DereferenceDeviceResetInterface.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_DeleteUxdSettings @ 0x1C00878E8 (HUBREG_DeleteUxdSettings.c)
+ *     HUBWNF_PublishUsbPartnerDualRoleFeatures @ 0x1C008C594 (HUBWNF_PublishUsbPartnerDualRoleFeatures.c)
+ *     TUNNEL_ReleaseUsb4HostPowerReferenceForPort @ 0x1C008F2DC (TUNNEL_ReleaseUsb4HostPowerReferenceForPort.c)
+ */
+
 __int64 __fastcall HUBPDO_EvtDeviceReleaseHardware(const void *a1)
 {
   __int64 v2; // rbx

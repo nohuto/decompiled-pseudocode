@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserNlsKbdSendIMENotification @ 0x1C01D8E60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtUserNlsKbdSendIMENotification(unsigned int a1, unsigned int a2)
 {
   unsigned int v4; // ebx

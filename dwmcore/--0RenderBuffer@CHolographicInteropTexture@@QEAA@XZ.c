@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0RenderBuffer@CHolographicInteropTexture@@QEAA@XZ @ 0x1802A6AF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 CHolographicInteropTexture::RenderBuffer *__fastcall CHolographicInteropTexture::RenderBuffer::RenderBuffer(
         CHolographicInteropTexture::RenderBuffer *this)
 {

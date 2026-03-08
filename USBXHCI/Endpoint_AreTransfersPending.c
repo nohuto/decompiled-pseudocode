@@ -1,3 +1,12 @@
+/*
+ * XREFs of Endpoint_AreTransfersPending @ 0x1C0039840
+ * Callers:
+ *     Endpoint_SM_ShouldReconfigureEndpointOnResetWhenNotHalted @ 0x1C003BCF0 (Endpoint_SM_ShouldReconfigureEndpointOnResetWhenNotHalted.c)
+ *     ESM_CheckingIfEndpointCanBeResetAfterHalt @ 0x1C0051590 (ESM_CheckingIfEndpointCanBeResetAfterHalt.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 char __fastcall Endpoint_AreTransfersPending(__int64 a1)
 {
   __int64 v2; // rdx

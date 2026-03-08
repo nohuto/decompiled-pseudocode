@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CVirtualMonitorCaptureRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1801BE36C
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     ??0CCaptureRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1801BD2F8 (--0CCaptureRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ */
+
 CVirtualMonitorCaptureRenderTarget *__fastcall CVirtualMonitorCaptureRenderTarget::CVirtualMonitorCaptureRenderTarget(
         CVirtualMonitorCaptureRenderTarget *this,
         struct CComposition *a2)

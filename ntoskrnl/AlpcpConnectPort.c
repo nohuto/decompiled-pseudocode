@@ -1,3 +1,22 @@
+/*
+ * XREFs of AlpcpConnectPort @ 0x140712F5C
+ * Callers:
+ *     NtAlpcConnectPort @ 0x140710A60 (NtAlpcConnectPort.c)
+ *     NtAlpcConnectPortEx @ 0x140710E00 (NtAlpcConnectPortEx.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SeCaptureSid @ 0x140710930 (SeCaptureSid.c)
+ *     SeReleaseSid @ 0x140710A34 (SeReleaseSid.c)
+ *     AlpcpCreateClientPort @ 0x140713330 (AlpcpCreateClientPort.c)
+ *     AlpcpProcessConnectionRequest @ 0x140717E20 (AlpcpProcessConnectionRequest.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     SeCaptureSecurityDescriptor @ 0x1407C8A50 (SeCaptureSecurityDescriptor.c)
+ *     SeReleaseSecurityDescriptor @ 0x1407C92D0 (SeReleaseSecurityDescriptor.c)
+ */
+
 __int64 __fastcall AlpcpConnectPort(
         HANDLE *a1,
         __int64 a2,

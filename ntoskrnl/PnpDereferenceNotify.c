@@ -1,3 +1,19 @@
+/*
+ * XREFs of PnpDereferenceNotify @ 0x1406F59C0
+ * Callers:
+ *     PnpUnregisterPlugPlayNotification @ 0x14028F5FC (PnpUnregisterPlugPlayNotification.c)
+ *     PnpProcessDeferredRegistrations @ 0x1406895A4 (PnpProcessDeferredRegistrations.c)
+ *     PnpNotifyTargetDeviceChange @ 0x14068C820 (PnpNotifyTargetDeviceChange.c)
+ *     PnpNotifyDeviceClassChange @ 0x1406F5818 (PnpNotifyDeviceClassChange.c)
+ *     PnpNotifyHwProfileChange @ 0x14095372C (PnpNotifyHwProfileChange.c)
+ *     PipKsrNotifyDrivers @ 0x14096A3D0 (PipKsrNotifyDrivers.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ExDeleteResourceLite @ 0x140336580 (ExDeleteResourceLite.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PnpDereferenceNotify(PVOID P)
 {
   PVOID *v3; // rcx

@@ -1,3 +1,21 @@
+/*
+ * XREFs of RtlpUpdateDynamicTimeZones @ 0x1408122E8
+ * Callers:
+ *     ExpRefreshTimeZoneInformation @ 0x140811500 (ExpRefreshTimeZoneInformation.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlpFindRegTziForCurrentYear @ 0x140388568 (RtlpFindRegTziForCurrentYear.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwEnumerateKey @ 0x140412950 (ZwEnumerateKey.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x14069B3C0 (RtlpQueryRegistryValues.c)
+ *     RtlpGetRegistryHandle @ 0x14069BBB0 (RtlpGetRegistryHandle.c)
+ *     RtlWriteRegistryValue @ 0x14069EDB0 (RtlWriteRegistryValue.c)
+ */
+
 char __fastcall RtlpUpdateDynamicTimeZones(__int16 a1)
 {
   ULONG v2; // edi

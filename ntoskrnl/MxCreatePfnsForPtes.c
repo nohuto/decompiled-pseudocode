@@ -1,3 +1,15 @@
+/*
+ * XREFs of MxCreatePfnsForPtes @ 0x140B4FD40
+ * Callers:
+ *     MxCreatePfns @ 0x140B4F6EC (MxCreatePfns.c)
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiWriteValidPteNewProtection @ 0x14032E660 (MiWriteValidPteNewProtection.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     MiIsRegularMemory @ 0x140B4FF44 (MiIsRegularMemory.c)
+ *     MxCreatePfn @ 0x140B5002C (MxCreatePfn.c)
+ */
+
 __int64 __fastcall MxCreatePfnsForPtes(__int64 a1, unsigned __int64 a2, unsigned int a3)
 {
   __int64 v4; // r14

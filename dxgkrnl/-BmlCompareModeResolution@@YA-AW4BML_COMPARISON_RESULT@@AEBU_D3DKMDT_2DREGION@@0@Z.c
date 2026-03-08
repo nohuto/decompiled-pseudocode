@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?BmlCompareModeResolution@@YA?AW4BML_COMPARISON_RESULT@@AEBU_D3DKMDT_2DREGION@@0@Z @ 0x1C03B85B4
+ * Callers:
+ *     BmlGetNextBestSourceMode @ 0x1C01706B0 (BmlGetNextBestSourceMode.c)
+ *     BmlCompareSourceModes @ 0x1C03B86F4 (BmlCompareSourceModes.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall BmlCompareModeResolution(int *a1, int *a2)
 {
   int v2; // eax

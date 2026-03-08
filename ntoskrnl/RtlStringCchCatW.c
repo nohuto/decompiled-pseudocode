@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlStringCchCatW @ 0x140246580
+ * Callers:
+ *     AslpFileQueryVersionString @ 0x1406D48D0 (AslpFileQueryVersionString.c)
+ *     SdbpCreateSearchDBContext @ 0x1407A3094 (SdbpCreateSearchDBContext.c)
+ *     SdbGetMergeRedirectPath @ 0x140A4B4A0 (SdbGetMergeRedirectPath.c)
+ *     AslPathCombine @ 0x140A524A8 (AslPathCombine.c)
+ *     AslPathToSystemPathBuf @ 0x140A527A4 (AslPathToSystemPathBuf.c)
+ *     AslpEnvResolveVars @ 0x140A54B80 (AslpEnvResolveVars.c)
+ *     BapdpProcessVsmKeyBlobs @ 0x140B44AFC (BapdpProcessVsmKeyBlobs.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlStringCchCatW(NTSTRSAFE_PWSTR pszDest, size_t cchDest, NTSTRSAFE_PCWSTR pszSrc)
 {
   size_t v5; // r10

@@ -1,3 +1,24 @@
+/*
+ * XREFs of NtUserDisplayConfigGetDeviceInfo @ 0x1C0021D40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _DeviceInfoTranslateStatusDefault @ 0x1C00221BC (_DeviceInfoTranslateStatusDefault.c)
+ *     ?RequiresUserCritShared@DispConfigTypes@@YA_NW4DISPLAYCONFIG_DEVICE_INFO_TYPE@@@Z @ 0x1C0022250 (-RequiresUserCritShared@DispConfigTypes@@YA_NW4DISPLAYCONFIG_DEVICE_INFO_TYPE@@@Z.c)
+ *     ?AllowInAnySession@DispConfigTypes@@YA_NW4DISPLAYCONFIG_DEVICE_INFO_TYPE@@@Z @ 0x1C0022280 (-AllowInAnySession@DispConfigTypes@@YA_NW4DISPLAYCONFIG_DEVICE_INFO_TYPE@@@Z.c)
+ *     ?GetGetterTypeSize@DispConfigTypes@@YAKW4DISPLAYCONFIG_DEVICE_INFO_TYPE@@@Z @ 0x1C00222E8 (-GetGetterTypeSize@DispConfigTypes@@YAKW4DISPLAYCONFIG_DEVICE_INFO_TYPE@@@Z.c)
+ *     UserIsWddmConnectedSession @ 0x1C0022420 (UserIsWddmConnectedSession.c)
+ *     DrvSampleDisplayState @ 0x1C0022700 (DrvSampleDisplayState.c)
+ *     ?DrvDisplayConfigGetDeviceInfoInternal@@YAJPEAUDISPLAYCONFIG_DEVICE_INFO_HEADER@@_N@Z @ 0x1C002834C (-DrvDisplayConfigGetDeviceInfoInternal@@YAJPEAUDISPLAYCONFIG_DEVICE_INFO_HEADER@@_N@Z.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C005040C (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
+ *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0068568 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ *     ?HelperCreateLiveDumpWithWdLogs@@YAXJW4_DISPLAY_INFO_FAILURE_POINT@@@Z @ 0x1C019082C (-HelperCreateLiveDumpWithWdLogs@@YAXJW4_DISPLAY_INFO_FAILURE_POINT@@@Z.c)
+ */
+
 __int64 __fastcall NtUserDisplayConfigGetDeviceInfo(char *a1)
 {
   unsigned int *QuotaZInit; // rsi

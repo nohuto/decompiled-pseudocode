@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CTextVisualMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025ED70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetRemarshalingFlags@CVisualMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0252DA0 (-SetRemarshalingFlags@CVisualMarshaler@DirectComposition@@MEAA_NXZ.c)
+ */
+
 char __fastcall DirectComposition::CTextVisualMarshaler::SetRemarshalingFlags(
         DirectComposition::CTextVisualMarshaler *this)
 {

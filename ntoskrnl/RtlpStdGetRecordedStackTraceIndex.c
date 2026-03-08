@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlpStdGetRecordedStackTraceIndex @ 0x1405A7574
+ * Callers:
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     ExpInitializeResource @ 0x1403BF090 (ExpInitializeResource.c)
+ *     ExInitializeFastResource2 @ 0x14040E2C0 (ExInitializeFastResource2.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpStdExtendUpperWatermark @ 0x1405A7440 (RtlpStdExtendUpperWatermark.c)
+ */
+
 __int64 __fastcall RtlpStdGetRecordedStackTraceIndex(__int64 a1, unsigned __int16 *a2)
 {
   __int64 v2; // r8

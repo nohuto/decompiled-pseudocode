@@ -1,3 +1,13 @@
+/*
+ * XREFs of Controller_TelemetryOkToGenerateReport @ 0x1C0078CD4
+ * Callers:
+ *     Controller_TelemetryReport @ 0x1C0034B08 (Controller_TelemetryReport.c)
+ * Callees:
+ *     WPP_RECORDER_SF_L @ 0x1C00136C0 (WPP_RECORDER_SF_L.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 char __fastcall Controller_TelemetryOkToGenerateReport(_QWORD *a1, __int64 a2, int a3)
 {
   char v3; // bl

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DXGADAPTER_SetMockDriverState@@YAXPEAVDXGADAPTER@@W4_MOCKDRIVERSTATE_VIOLATION@@PEAX@Z @ 0x1C0047EE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetMockDriverState@MOCKDRIVERSTATE@@QEAAXW4_MOCKDRIVERSTATE_VIOLATION@@PEAX@Z @ 0x1C0052BB0 (-SetMockDriverState@MOCKDRIVERSTATE@@QEAAXW4_MOCKDRIVERSTATE_VIOLATION@@PEAX@Z.c)
+ */
+
 __int64 __fastcall DXGADAPTER_SetMockDriverState(__int64 a1)
 {
   return MOCKDRIVERSTATE::SetMockDriverState(*(_QWORD *)(a1 + 4728));

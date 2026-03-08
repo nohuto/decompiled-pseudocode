@@ -1,3 +1,11 @@
+/*
+ * XREFs of WmipSMBiosFindStructure @ 0x1409DD320
+ * Callers:
+ *     WmipSMBiosHideMachine @ 0x1409DD3A8 (WmipSMBiosHideMachine.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WmipSMBiosFindStructure(char a1, unsigned int a2, _QWORD *a3, _DWORD *a4, _BYTE *a5, int a6)
 {
   _BYTE *v6; // r10

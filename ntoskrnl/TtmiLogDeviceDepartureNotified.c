@@ -1,3 +1,14 @@
+/*
+ * XREFs of TtmiLogDeviceDepartureNotified @ 0x1409A475C
+ * Callers:
+ *     TtmNotifyDeviceDeparture @ 0x14099F880 (TtmNotifyDeviceDeparture.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetProcessSessionIdEx @ 0x1402BDFA0 (PsGetProcessSessionIdEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall TtmiLogDeviceDepartureNotified(int a1, __int64 a2, char a3)
 {
   _UNKNOWN **v3; // rax

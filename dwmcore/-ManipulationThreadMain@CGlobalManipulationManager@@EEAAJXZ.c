@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?ManipulationThreadMain@CGlobalManipulationManager@@EEAAJXZ @ 0x1800CAD30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?UpdateMMCSSTask@CGlobalManipulationManager@@UEAAJXZ @ 0x1800CAF20 (-UpdateMMCSSTask@CGlobalManipulationManager@@UEAAJXZ.c)
+ *     ?SetupMessageCallThreadInfo@CManipulationManager@@IEAAJPEAUIMessageSession@@P6AJPEAXPEBXH@ZPEAUMessageCallThreadInfo@1@@Z @ 0x1800CAF6C (-SetupMessageCallThreadInfo@CManipulationManager@@IEAAJPEAUIMessageSession@@P6AJPEAXPEBXH@ZPEAUM.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     IsRegisterManipulationThreadPresent @ 0x18010FA08 (IsRegisterManipulationThreadPresent.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ */
+
 __int64 __fastcall CGlobalManipulationManager::ManipulationThreadMain(
         CGlobalManipulationManager *this,
         __int64 a2,

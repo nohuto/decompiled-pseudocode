@@ -1,3 +1,12 @@
+/*
+ * XREFs of EditionCreateDesktopEntryPoint @ 0x1C00BF140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxCreateDesktopEx @ 0x1C00C03D4 (xxxCreateDesktopEx.c)
+ */
+
 __int64 __fastcall EditionCreateDesktopEntryPoint(int a1, __int64 a2, __int64 a3, unsigned int a4, int a5, int a6)
 {
   int v10; // eax

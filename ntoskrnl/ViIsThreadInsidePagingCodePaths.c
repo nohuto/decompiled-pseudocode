@@ -1,3 +1,16 @@
+/*
+ * XREFs of ViIsThreadInsidePagingCodePaths @ 0x140AD6FA0
+ * Callers:
+ *     VfDeadlockAcquireResource @ 0x140AD3DAC (VfDeadlockAcquireResource.c)
+ *     VfDeadlockReleaseResource @ 0x140AD4ECC (VfDeadlockReleaseResource.c)
+ * Callees:
+ *     ViLowerIrql @ 0x1405CF698 (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x1405CF710 (ViRaiseIrqlToDpcLevel.c)
+ *     ViDeadlockDetectionLock @ 0x140AD5DD8 (ViDeadlockDetectionLock.c)
+ *     ViDeadlockDetectionUnlock @ 0x140AD5E10 (ViDeadlockDetectionUnlock.c)
+ *     ViDeadlockSearchThread @ 0x140AD6E28 (ViDeadlockSearchThread.c)
+ */
+
 _BOOL8 ViIsThreadInsidePagingCodePaths()
 {
   struct _KTHREAD *CurrentThread; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AllocatePriority@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0IW4_EX_POOL_PRIORITY@@@Z @ 0x1C019AEA0
+ * Callers:
+ *     Win32AllocPoolWithPriority @ 0x1C017D030 (Win32AllocPoolWithPriority.c)
+ *     Win32UAFMAllocPoolWithPriority @ 0x1C017D1B0 (Win32UAFMAllocPoolWithPriority.c)
+ * Callees:
+ *     NSInstrumentation::CLeakTrackingAllocator::AllocateCommon__lambda_0557cbb2832d1680ca92e9237d413628___ @ 0x1C019A7B8 (NSInstrumentation--CLeakTrackingAllocator--AllocateCommon__lambda_0557cbb2832d1680ca92e9237d4136.c)
+ */
+
 __int64 __fastcall NSInstrumentation::CLeakTrackingAllocator::AllocatePriority(
         NSInstrumentation::CLeakTrackingAllocator *this,
         __int64 a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of TransformRectAroundPoint @ 0x1C01BB2C0
+ * Callers:
+ *     GetNewMonitor @ 0x1C00AB0FC (GetNewMonitor.c)
+ *     ?TransformRectAroundCursor@@YAXPEAUMOVESIZEDATA@@PEBUtagRECT@@GPEAU2@2G@Z @ 0x1C01BA574 (-TransformRectAroundCursor@@YAXPEAUMOVESIZEDATA@@PEBUtagRECT@@GPEAU2@2G@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 INT __fastcall TransformRectAroundPoint(
         _DWORD *a1,
         unsigned __int16 a2,

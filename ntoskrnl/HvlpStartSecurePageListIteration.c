@@ -1,3 +1,17 @@
+/*
+ * XREFs of HvlpStartSecurePageListIteration @ 0x14054800C
+ * Callers:
+ *     HvlDiscardSecurePagesFromHibernation @ 0x140544308 (HvlDiscardSecurePagesFromHibernation.c)
+ *     HvlIterateSecurePagesForHibernation @ 0x140544434 (HvlIterateSecurePagesForHibernation.c)
+ *     HvlAddSecurePagesCallbackRoutine @ 0x140545098 (HvlAddSecurePagesCallbackRoutine.c)
+ *     HvlpGetEncryptedDataFromSecureKernel @ 0x140545AC0 (HvlpGetEncryptedDataFromSecureKernel.c)
+ * Callees:
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     HvlpEndPageListIteration @ 0x140547D2C (HvlpEndPageListIteration.c)
+ *     HvlpSetupPageListIteration @ 0x140547F78 (HvlpSetupPageListIteration.c)
+ *     VslStartSecurePageIteration @ 0x14054A6A8 (VslStartSecurePageIteration.c)
+ */
+
 __int64 __fastcall HvlpStartSecurePageListIteration(int a1, int a2, char *a3, void *a4, unsigned int a5, LONGLONG **a6)
 {
   LONGLONG v9; // rax

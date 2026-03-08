@@ -1,3 +1,16 @@
+/*
+ * XREFs of PiProcessQueryAndCancelRemoval @ 0x14096E8C4
+ * Callers:
+ *     PnpProcessQueryRemoveAndEject @ 0x1408625F0 (PnpProcessQueryRemoveAndEject.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PnpNotifyUserModeDeviceRemoval @ 0x140862BC0 (PnpNotifyUserModeDeviceRemoval.c)
+ *     PnpAllocateCriticalMemory @ 0x1408637CC (PnpAllocateCriticalMemory.c)
+ *     PnpFinalizeVetoedRemove @ 0x14096125C (PnpFinalizeVetoedRemove.c)
+ *     PipProcessQueryRemovalInKernelMode @ 0x14096EC0C (PipProcessQueryRemovalInKernelMode.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiProcessQueryAndCancelRemoval(
         int a1,
         __int64 a2,

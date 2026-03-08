@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsOfType@?$CTransform3DGroupGeneratedT@VCTransform3DGroup@@VCTransform3D@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801C2090
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsOfType@?$CTransform3DGeneratedT@VCTransform3D@@VCEffect@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800E0230 (-IsOfType@-$CTransform3DGeneratedT@VCTransform3D@@VCEffect@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ */
+
 char __fastcall CTransform3DGroupGeneratedT<CTransform3DGroup,CTransform3D>::IsOfType(__int64 a1, int a2)
 {
   char v2; // al

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetContactLeaf@CManipulationContext@@UEBAPEAUIInteractionResource@@I@Z @ 0x180129660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FindKey@?$CMap@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V?$CMapEqualHelper@IV?$ComPtr@VCManipulationContext@@@WRL@Microsoft@@@@@@QEBAHAEBI@Z @ 0x180129100 (-FindKey@-$CMap@IV-$ComPtr@VCManipulationContext@@@WRL@Microsoft@@V-$CMapEqualHelper@IV-$ComPtr@.c)
+ */
+
 struct IInteractionResource *__fastcall CManipulationContext::GetContactLeaf(CManipulationContext *this, int a2)
 {
   int Key; // eax

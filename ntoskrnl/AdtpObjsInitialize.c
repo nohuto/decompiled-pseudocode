@@ -1,3 +1,20 @@
+/*
+ * XREFs of AdtpObjsInitialize @ 0x140841808
+ * Callers:
+ *     AdtpInitializeAuditingCommon @ 0x140841394 (AdtpInitializeAuditingCommon.c)
+ * Callees:
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     NtOpenKey @ 0x140758B00 (NtOpenKey.c)
+ *     RtlIntegerToUnicodeString @ 0x1407805C0 (RtlIntegerToUnicodeString.c)
+ *     NtEnumerateValueKey @ 0x1407AB260 (NtEnumerateValueKey.c)
+ *     NtEnumerateKey @ 0x1407AC4B0 (NtEnumerateKey.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 int AdtpObjsInitialize()
 {
   int v0; // edi

@@ -1,3 +1,22 @@
+/*
+ * XREFs of ExSweepHandleTable @ 0x1407D8110
+ * Callers:
+ *     ObKillProcess @ 0x1406C0F5C (ObKillProcess.c)
+ *     PspRundownSingleProcess @ 0x1406F8160 (PspRundownSingleProcess.c)
+ *     ObInitProcess @ 0x140707D3C (ObInitProcess.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140749B5C (ExpBlockOnLockedHandleEntry.c)
+ *     ExpLookupHandleTableEntry @ 0x1407C3370 (ExpLookupHandleTableEntry.c)
+ *     ObCloseHandleTableEntry @ 0x1407D8274 (ObCloseHandleTableEntry.c)
+ */
+
 char __fastcall ExSweepHandleTable(struct _KPROCESS *a1, __int64 a2, char a3)
 {
   char v3; // r13

@@ -1,3 +1,18 @@
+/*
+ * XREFs of UsbhRequestPortSuspend @ 0x1C0018D14
+ * Callers:
+ *     UsbhWaitConnect @ 0x1C0018530 (UsbhWaitConnect.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhSuspendPort @ 0x1C0018E8C (UsbhSuspendPort.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhSignalSuspendEvent @ 0x1C00353B4 (UsbhSignalSuspendEvent.c)
+ *     UsbhBusUnlatchPdo @ 0x1C004C9E8 (UsbhBusUnlatchPdo.c)
+ *     UsbhDeletePdo @ 0x1C005409C (UsbhDeletePdo.c)
+ */
+
 __int64 __fastcall UsbhRequestPortSuspend(__int64 a1, __int64 a2, char a3, __int64 a4, __int64 a5)
 {
   unsigned int v8; // edi

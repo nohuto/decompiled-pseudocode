@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspGetJobLimitInformationValidFlags @ 0x1406F8924
+ * Callers:
+ *     NtQueryInformationJobObject @ 0x1406F9480 (NtQueryInformationJobObject.c)
+ *     NtSetInformationJobObject @ 0x1406FC3C0 (NtSetInformationJobObject.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspGetJobLimitInformationValidFlags(int a1, int a2)
 {
   __int64 result; // rax

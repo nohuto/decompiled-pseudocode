@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0pqPR1x_EtwWriteTransfer @ 0x1C0057EF4
+ * Callers:
+ *     ?WaitForSynchronizationObjectFromGpu@@YAJIPEBIPEB_K_KIPEAVDXGPROCESS@@_N4444@Z @ 0x1C0188F60 (-WaitForSynchronizationObjectFromGpu@@YAJIPEBIPEB_K_KIPEAVDXGPROCESS@@_N4444@Z.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002BBC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 NTSTATUS McTemplateK0pqPR1x_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
 {
   int v4; // [rsp+30h] [rbp-31h] BYREF

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProcessInfoFromPID @ 0x1C00998DC
+ * Callers:
+ *     ?_AllowSetForegroundWindow@@YA?AW4AllowSetForegroundWindowResult@@KW4AllowSetForegroundWindowPolicy@@@Z @ 0x1C009B4EC (-_AllowSetForegroundWindow@@YA-AW4AllowSetForegroundWindowResult@@KW4AllowSetForegroundWindowPol.c)
+ * Callees:
+ *     LockProcessByClientId @ 0x1C0099860 (LockProcessByClientId.c)
+ */
+
 __int64 __fastcall ProcessInfoFromPID(int a1)
 {
   __int64 v1; // rbx

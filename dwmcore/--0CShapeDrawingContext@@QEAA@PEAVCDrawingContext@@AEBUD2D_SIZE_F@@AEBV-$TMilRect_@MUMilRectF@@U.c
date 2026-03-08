@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0CShapeDrawingContext@@QEAA@PEAVCDrawingContext@@AEBUD2D_SIZE_F@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBVCMILMatrix@@@Z @ 0x1800814F8
+ * Callers:
+ *     ?DrawShapes@CShapeTree@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z @ 0x180090F1C (-DrawShapes@CShapeTree@@AEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@@Z.c)
+ * Callees:
+ *     ?Clear@CMatrixStack2D@@QEAAXXZ @ 0x1800816B0 (-Clear@CMatrixStack2D@@QEAAXXZ.c)
+ *     ?Get2DScaleDimensions@CMILMatrix@@QEBAXPEAM0@Z @ 0x1800B4BA4 (-Get2DScaleDimensions@CMILMatrix@@QEBAXPEAM0@Z.c)
+ */
+
 __int64 __fastcall CShapeDrawingContext::CShapeDrawingContext(
         __int64 a1,
         __int64 a2,

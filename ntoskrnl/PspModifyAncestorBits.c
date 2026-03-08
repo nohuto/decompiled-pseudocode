@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspModifyAncestorBits @ 0x1409AF60C
+ * Callers:
+ *     PspRemoveRateControl @ 0x1409AF8BC (PspRemoveRateControl.c)
+ *     PspSetJobRateControl @ 0x1409AFE3C (PspSetJobRateControl.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspModifyAncestorBits(__int64 a1, unsigned int a2, char a3)
 {
   __int64 i; // r9

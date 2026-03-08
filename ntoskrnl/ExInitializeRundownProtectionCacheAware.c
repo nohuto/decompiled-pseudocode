@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExInitializeRundownProtectionCacheAware @ 0x1406F3C80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeGetRecommendedSharedDataAlignment @ 0x14028E210 (KeGetRecommendedSharedDataAlignment.c)
+ */
+
 void __stdcall ExInitializeRundownProtectionCacheAware(PEX_RUNDOWN_REF_CACHE_AWARE RunRefCacheAware, SIZE_T RunRefSize)
 {
   unsigned int v2; // esi

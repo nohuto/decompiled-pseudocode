@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?UpdateDebugCounter@CComposition@@QEAAX_N@Z @ 0x1801B209C
+ * Callers:
+ *     ?CloseChannel@CComposition@@IEAAJI@Z @ 0x1800A9BF4 (-CloseChannel@CComposition@@IEAAJI@Z.c)
+ *     ?Channel_EnableDebugCounter@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagMILCMD_CHANNEL_ENABLEDEBUGCOUNTER@@@Z @ 0x1801B1888 (-Channel_EnableDebugCounter@CComposition@@AEAAJPEAVCChannelContext@@PEAVCResourceTable@@PEBUtagM.c)
+ * Callees:
+ *     ?ForceFullRender@CRenderTargetManager@@QEAAXXZ @ 0x1800F8868 (-ForceFullRender@CRenderTargetManager@@QEAAXXZ.c)
+ *     ?SetEnabled@CDebugFrameCounter@@QEAAX_N@Z @ 0x1801B1FFC (-SetEnabled@CDebugFrameCounter@@QEAAX_N@Z.c)
+ */
+
 void __fastcall CComposition::UpdateDebugCounter(CComposition *this, char a2)
 {
   int v2; // eax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptScsTableLoad128Xmm @ 0x14040914C
+ * Callers:
+ *     SymCryptScsTableLoad @ 0x140409124 (SymCryptScsTableLoad.c)
+ * Callees:
+ *     <none>
+ */
+
 __m128i *__fastcall SymCryptScsTableLoad128Xmm(__int64 a1, unsigned int a2, __m128i *a3)
 {
   __m128i *v3; // rax

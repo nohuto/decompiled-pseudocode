@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetSrbFunction @ 0x1C0007AEC
+ * Callers:
+ *     MdlToPrp @ 0x1C0001570 (MdlToPrp.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetSrbFunction(__int64 a1)
 {
   __int64 result; // rax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiRspInIstStack @ 0x1402EDCB0
+ * Callers:
+ *     MiSystemFault @ 0x1402220A0 (MiSystemFault.c)
+ *     MiDispatchFault @ 0x14026A900 (MiDispatchFault.c)
+ *     MiComputeMaximumFaultCluster @ 0x14026AFC0 (MiComputeMaximumFaultCluster.c)
+ *     KeInvalidAccessAllowed @ 0x1402DA5E0 (KeInvalidAccessAllowed.c)
+ *     KiMcheckFastForward @ 0x1402EDB10 (KiMcheckFastForward.c)
+ *     KeQueryCurrentStackInformationEx @ 0x140312A40 (KeQueryCurrentStackInformationEx.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiRspInIstStack(unsigned int a1, unsigned __int64 a2)
 {
   unsigned int v2; // r8d

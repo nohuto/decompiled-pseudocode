@@ -1,3 +1,20 @@
+/*
+ * XREFs of PiDmObjectCreate @ 0x140868FFC
+ * Callers:
+ *     PiDmAddCacheReferenceForObject @ 0x1406CBBDC (PiDmAddCacheReferenceForObject.c)
+ *     PiDmObjectManagerPopulate @ 0x14083A17C (PiDmObjectManagerPopulate.c)
+ * Callees:
+ *     RtlHashUnicodeString @ 0x140680AE0 (RtlHashUnicodeString.c)
+ *     _CmSetDeviceInterfacePathFormat @ 0x1406C3E94 (_CmSetDeviceInterfacePathFormat.c)
+ *     PnpAllocatePWSTR @ 0x1406CD7F4 (PnpAllocatePWSTR.c)
+ *     PiDmObjectRelease @ 0x1406D0328 (PiDmObjectRelease.c)
+ *     PiDmGetCacheKeys @ 0x1406D071C (PiDmGetCacheKeys.c)
+ *     PiDmGetCachedKeyIndex @ 0x1406D0770 (PiDmGetCachedKeyIndex.c)
+ *     _PnpValidateObjectName @ 0x140747528 (_PnpValidateObjectName.c)
+ *     PiDmCacheDataEncode @ 0x14077DC74 (PiDmCacheDataEncode.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PiDmObjectCreate(int a1, const wchar_t *a2, __int64 *a3)
 {
   unsigned int v3; // r14d

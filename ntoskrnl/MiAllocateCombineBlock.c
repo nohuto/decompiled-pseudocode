@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiAllocateCombineBlock @ 0x1402A14C4
+ * Callers:
+ *     MiSharePages @ 0x140228990 (MiSharePages.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiInsertNewCombineBlocks @ 0x1402A15C4 (MiInsertNewCombineBlocks.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiAllocateCombineBlock(__int64 a1)
 {
   __int64 inserted; // rbx

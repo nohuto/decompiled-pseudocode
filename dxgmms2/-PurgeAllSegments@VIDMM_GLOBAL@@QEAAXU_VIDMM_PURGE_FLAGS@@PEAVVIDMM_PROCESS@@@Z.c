@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?PurgeAllSegments@VIDMM_GLOBAL@@QEAAXU_VIDMM_PURGE_FLAGS@@PEAVVIDMM_PROCESS@@@Z @ 0x1C00B4D90
+ * Callers:
+ *     VidMmPurgeAllSegments @ 0x1C0018C40 (VidMmPurgeAllSegments.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     ?QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z @ 0x1C0087E80 (-QueueSystemCommandAndWait@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_SYSTEM_COMMAND@@_N@Z.c)
+ *     ?ProcessDebounceListsGlobally@VIDMM_RECYCLE_HEAP_MGR@@SAX_N@Z @ 0x1C00B4E90 (-ProcessDebounceListsGlobally@VIDMM_RECYCLE_HEAP_MGR@@SAX_N@Z.c)
+ *     ?AddData@VIDMM_PURGE_TELEMETRY@@QEAAX_K0@Z @ 0x1C00F3D38 (-AddData@VIDMM_PURGE_TELEMETRY@@QEAAX_K0@Z.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall VIDMM_GLOBAL::PurgeAllSegments(_DWORD *a1, unsigned int a2, __int64 a3)
 {

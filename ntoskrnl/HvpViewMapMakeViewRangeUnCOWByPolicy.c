@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvpViewMapMakeViewRangeUnCOWByPolicy @ 0x140823068
+ * Callers:
+ *     HvpViewMapAdjustFlag @ 0x140822FBC (HvpViewMapAdjustFlag.c)
+ * Callees:
+ *     CmSiReleaseProcessLockedPagesCharge @ 0x14020C564 (CmSiReleaseProcessLockedPagesCharge.c)
+ *     CmSiUnlockViewOfSection @ 0x1402B3864 (CmSiUnlockViewOfSection.c)
+ *     CmSiProtectViewOfSection @ 0x14030D290 (CmSiProtectViewOfSection.c)
+ */
+
 void __fastcall HvpViewMapMakeViewRangeUnCOWByPolicy(__int64 a1, _QWORD *a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rdi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiComputePageHash @ 0x140466BDC
+ * Callers:
+ *     MiWritePageFileHash @ 0x1404670A6 (MiWritePageFileHash.c)
+ *     MiArePagefileContentsCorrupted @ 0x1406633DC (MiArePagefileContentsCorrupted.c)
+ * Callees:
+ *     MiMapPageInHyperSpaceWorker @ 0x140214870 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140214A54 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiGetPagingFileOffset @ 0x14029EA80 (MiGetPagingFileOffset.c)
+ */
+
 __int64 __fastcall MiComputePageHash(__int64 a1, __int64 a2, unsigned __int64 a3)
 {
   __int64 v6; // rdi

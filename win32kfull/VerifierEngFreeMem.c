@@ -1,3 +1,11 @@
+/*
+ * XREFs of VerifierEngFreeMem @ 0x1C02A9840
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VerifierEngFreeMem(_QWORD *a1)
 {
   _QWORD *v1; // rbx

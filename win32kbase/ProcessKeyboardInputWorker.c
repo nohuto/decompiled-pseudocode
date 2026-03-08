@@ -1,3 +1,37 @@
+/*
+ * XREFs of ProcessKeyboardInputWorker @ 0x1C021A7E0
+ * Callers:
+ *     ?ProcessInputNoLock@CKeyboardProcessor@@QEAA?AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_KEYBOARD_INPUT_DATA@@K_NPEAU_KEYBOARD_VIRTUAL_DEVICE_INFO@@@Z @ 0x1C000ED44 (-ProcessInputNoLock@CKeyboardProcessor@@QEAA-AW4InputProcessingResult@@PEAUDEVICEINFO@@PEAU_KEYB.c)
+ *     ?MapFlexibleKeys@@YAHPEAUtagKE@@EPEAUDEVICEINFO@@@Z @ 0x1C0219E4C (-MapFlexibleKeys@@YAHPEAUtagKE@@EPEAUDEVICEINFO@@@Z.c)
+ * Callees:
+ *     IsThreadCrossSessionAttached @ 0x1C004B600 (IsThreadCrossSessionAttached.c)
+ *     IsEtwUserCritEnabled @ 0x1C004DF60 (IsEtwUserCritEnabled.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     ?UpdateUserCritInfo@UserCritTelemetry@@QEAAX_KW4BucketType@1@@Z @ 0x1C004E1A8 (-UpdateUserCritInfo@UserCritTelemetry@@QEAAX_KW4BucketType@1@@Z.c)
+ *     ?SendUserCritSummary@UserCritTelemetry@@QEAAXXZ @ 0x1C004E418 (-SendUserCritSummary@UserCritTelemetry@@QEAAXXZ.c)
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     EtwTraceAcquiredExclusiveUserCrit @ 0x1C004F99C (EtwTraceAcquiredExclusiveUserCrit.c)
+ *     HMUnlockObject @ 0x1C0072980 (HMUnlockObject.c)
+ *     isChildPartition @ 0x1C0078FF0 (isChildPartition.c)
+ *     xxxProcessKeyEvent @ 0x1C007EE00 (xxxProcessKeyEvent.c)
+ *     GetActiveHKL @ 0x1C007F950 (GetActiveHKL.c)
+ *     InternalMapVirtualKeyEx @ 0x1C0081970 (InternalMapVirtualKeyEx.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     ?AccessProceduresStream@@YAHPEAUtagKE@@KH@Z @ 0x1C00F1F00 (-AccessProceduresStream@@YAHPEAUtagKE@@KH@Z.c)
+ *     ?AccessTimeOut@@YAXXZ @ 0x1C00F1F80 (-AccessTimeOut@@YAXXZ.c)
+ *     PtiKbdFromQ @ 0x1C00F43EE (PtiKbdFromQ.c)
+ *     McTemplateK0xqx_EtwWriteTransfer @ 0x1C0167CA4 (McTemplateK0xqx_EtwWriteTransfer.c)
+ *     ?DropInput@Keyboard@InputTraceLogging@@SAXW4DropReason@12@@Z @ 0x1C01E3DAC (-DropInput@Keyboard@InputTraceLogging@@SAXW4DropReason@12@@Z.c)
+ *     ?MapScancode@@YAHPEAUtagKE@@PEAEPEAUDEVICEINFO@@@Z @ 0x1C021A2F0 (-MapScancode@@YAHPEAUtagKE@@PEAEPEAUDEVICEINFO@@@Z.c)
+ *     ?RemoteSyncToggleKeys@@YAXK@Z @ 0x1C021A3F8 (-RemoteSyncToggleKeys@@YAXK@Z.c)
+ *     VKFromVSC @ 0x1C021B5D0 (VKFromVSC.c)
+ *     ApiSetEditionRawInputRequestedForKeyboard @ 0x1C02424F8 (ApiSetEditionRawInputRequestedForKeyboard.c)
+ *     ApiSetEditionUserBeep @ 0x1C024347C (ApiSetEditionUserBeep.c)
+ */
+
 void __fastcall ProcessKeyboardInputWorker(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // r13d

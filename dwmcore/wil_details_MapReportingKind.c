@@ -1,3 +1,11 @@
+/*
+ * XREFs of wil_details_MapReportingKind @ 0x18011116C
+ * Callers:
+ *     ?ReportUsageToService@details@wil@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGGED_TRAITS@@HW4wil_ReportingKind@@_K@Z @ 0x1800392F4 (-ReportUsageToService@details@wil@@YAXPEAUwil_details_FeatureReportingCache@@IHHPEBUFEATURE_LOGG.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall wil_details_MapReportingKind(int a1, int a2)
 {
   unsigned __int8 v2; // cl

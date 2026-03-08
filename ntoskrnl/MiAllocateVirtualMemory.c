@@ -1,3 +1,46 @@
+/*
+ * XREFs of MiAllocateVirtualMemory @ 0x1407C5270
+ * Callers:
+ *     MiAllocateUserStack @ 0x14077B2C0 (MiAllocateUserStack.c)
+ *     MiAllocateVirtualMemoryCommon @ 0x1407C4A70 (MiAllocateVirtualMemoryCommon.c)
+ *     MmStoreAllocateVirtualMemory @ 0x140A42EFC (MmStoreAllocateVirtualMemory.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MiLocateVadEvent @ 0x14020DC50 (MiLocateVadEvent.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402992F0 (PdcCreateWatchdogAroundClientCall.c)
+ *     MiResetVirtualMemory @ 0x1402CEC2C (MiResetVirtualMemory.c)
+ *     MiFlushAcquire @ 0x1402D4788 (MiFlushAcquire.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     MiVadSupportsPrivateCommit @ 0x14031EE80 (MiVadSupportsPrivateCommit.c)
+ *     MiObtainReferencedVadEx @ 0x14031EFE0 (MiObtainReferencedVadEx.c)
+ *     MiVadDeleted @ 0x14031F750 (MiVadDeleted.c)
+ *     MiGetVadPageSize @ 0x14031F9B4 (MiGetVadPageSize.c)
+ *     MiGetProcessPartition @ 0x14031F9D4 (MiGetProcessPartition.c)
+ *     MiGetControlAreaPartition @ 0x14031F9F0 (MiGetControlAreaPartition.c)
+ *     MiMakeProtectionMask @ 0x140320CC0 (MiMakeProtectionMask.c)
+ *     MiCommitExistingVad @ 0x140320D70 (MiCommitExistingVad.c)
+ *     MiSetProtectionOnSection @ 0x140321FC0 (MiSetProtectionOnSection.c)
+ *     MiFlushRelease @ 0x140334AC0 (MiFlushRelease.c)
+ *     MiLockVad @ 0x14034CF60 (MiLockVad.c)
+ *     MiUnlockVad @ 0x14034D51C (MiUnlockVad.c)
+ *     MiAllowProtectionChange @ 0x140367C88 (MiAllowProtectionChange.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiCommitEnclavePages @ 0x140644C84 (MiCommitEnclavePages.c)
+ *     MiCheckSecuredVad @ 0x1406A0F38 (MiCheckSecuredVad.c)
+ *     MmExtendSection @ 0x1407267DC (MmExtendSection.c)
+ *     MiCommitPagefileBackedSection @ 0x14078D374 (MiCommitPagefileBackedSection.c)
+ *     MmProtectVirtualMemory @ 0x1407C77B0 (MmProtectVirtualMemory.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     MiCommitVadMetadataBits @ 0x1407D2944 (MiCommitVadMetadataBits.c)
+ *     MiReserveUserMemory @ 0x1407D4340 (MiReserveUserMemory.c)
+ *     EtwTiLogAllocExecVm @ 0x1407F1018 (EtwTiLogAllocExecVm.c)
+ *     PerfInfoLogVirtualAlloc @ 0x1409E41C8 (PerfInfoLogVirtualAlloc.c)
+ *     MiLogMemResetInfo @ 0x140A2BB4C (MiLogMemResetInfo.c)
+ */
+
 __int64 __fastcall MiAllocateVirtualMemory(__int64 a1, LARGE_INTEGER a2, __int64 *a3)
 {
   struct _KTHREAD *CurrentThread; // rax

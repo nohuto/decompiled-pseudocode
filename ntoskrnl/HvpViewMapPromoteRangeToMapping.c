@@ -1,3 +1,22 @@
+/*
+ * XREFs of HvpViewMapPromoteRangeToMapping @ 0x140779930
+ * Callers:
+ *     HvpAddBin @ 0x14072F9F0 (HvpAddBin.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x1407A488C (HvpRemapAndEnlistHiveBins.c)
+ * Callees:
+ *     CmSiReleaseProcessLockedPagesCharge @ 0x14020C564 (CmSiReleaseProcessLockedPagesCharge.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ *     CmSiGetMemoryAllocationGranularity @ 0x1402B2DDC (CmSiGetMemoryAllocationGranularity.c)
+ *     CmSiUnmapViewOfSection @ 0x1402C0A9C (CmSiUnmapViewOfSection.c)
+ *     HvcallpNoHypervisorPresent @ 0x1402C0AC0 (HvcallpNoHypervisorPresent.c)
+ *     HvpViewMapCreateView @ 0x140730DF8 (HvpViewMapCreateView.c)
+ *     HvpViewMapMakeViewRangeValid @ 0x140730EE4 (HvpViewMapMakeViewRangeValid.c)
+ *     HvpViewMapMigrateCOWData @ 0x1408807B4 (HvpViewMapMigrateCOWData.c)
+ *     HvpViewMapMakeViewRangeInvalid @ 0x140880D20 (HvpViewMapMakeViewRangeInvalid.c)
+ */
+
 __int64 __fastcall HvpViewMapPromoteRangeToMapping(__int64 a1, int a2, unsigned int a3, __int64 *a4)
 {
   __int64 v4; // r14

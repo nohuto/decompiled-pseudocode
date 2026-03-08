@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopPepInitializeDebuggerMasks @ 0x14059CD30
+ * Callers:
+ *     PopPepPlatformStateRegistered @ 0x14059D504 (PopPepPlatformStateRegistered.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ *     PopDiagTraceDebuggerTransitionRequirements @ 0x14059015C (PopDiagTraceDebuggerTransitionRequirements.c)
+ */
+
 void __fastcall PopPepInitializeDebuggerMasks(__int64 a1, unsigned int a2)
 {
   ULONG_PTR v3; // rbx

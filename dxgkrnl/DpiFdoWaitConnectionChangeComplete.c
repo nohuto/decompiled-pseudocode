@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiFdoWaitConnectionChangeComplete @ 0x1C03993A8
+ * Callers:
+ *     DxgkIddHandleSetDisplayConfig @ 0x1C02EFC88 (DxgkIddHandleSetDisplayConfig.c)
+ *     DxgkIddHandleSetDisplayConfig2 @ 0x1C02F0840 (DxgkIddHandleSetDisplayConfig2.c)
+ * Callees:
+ *     DxgkIsAdapterCoreSyncAcquired @ 0x1C01E5204 (DxgkIsAdapterCoreSyncAcquired.c)
+ */
+
 __int64 __fastcall DpiFdoWaitConnectionChangeComplete(__int64 a1)
 {
   unsigned int v1; // ebx

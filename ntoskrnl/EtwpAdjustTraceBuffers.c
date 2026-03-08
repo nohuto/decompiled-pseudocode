@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpAdjustTraceBuffers @ 0x1402948E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwpAdjustSiloTraceBuffers @ 0x1402067AC (EtwpAdjustSiloTraceBuffers.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     PspGetNextSilo @ 0x1406FB574 (PspGetNextSilo.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void EtwpAdjustTraceBuffers()
 {
   __int64 v0; // rdx

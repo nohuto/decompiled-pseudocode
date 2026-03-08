@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIFilterIrpQueryPower @ 0x1C0028770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDispatchForwardPowerIrp @ 0x1C0002AF0 (ACPIDispatchForwardPowerIrp.c)
+ *     ACPIDockIsDockDevice @ 0x1C0009A34 (ACPIDockIsDockDevice.c)
+ *     AMLIIsNamedChildPresent @ 0x1C00487BC (AMLIIsNamedChildPresent.c)
+ */
+
 __int64 __fastcall ACPIFilterIrpQueryPower(ULONG_PTR a1, IRP *a2)
 {
   __int64 DeviceExtension; // rax

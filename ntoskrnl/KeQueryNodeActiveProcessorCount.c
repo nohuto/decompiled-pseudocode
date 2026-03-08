@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeQueryNodeActiveProcessorCount @ 0x1403AEEE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402AB030 (KeEnumerateNextSchedulerSubNodeInNode.c)
+ *     KiQuerySubNodeActiveAffinity @ 0x1402AE38C (KiQuerySubNodeActiveAffinity.c)
+ */
+
 __int64 __fastcall KeQueryNodeActiveProcessorCount(unsigned __int16 a1)
 {
   unsigned int v1; // r10d

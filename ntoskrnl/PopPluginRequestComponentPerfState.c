@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPluginRequestComponentPerfState @ 0x14058A548
+ * Callers:
+ *     PopFxIssueComponentPerfStateChanges @ 0x140588718 (PopFxIssueComponentPerfStateChanges.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ */
+
 char __fastcall PopPluginRequestComponentPerfState(__int64 a1, int a2, int a3, __int64 a4, char *a5)
 {
   ULONG_PTR v5; // rbx

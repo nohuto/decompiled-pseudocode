@@ -1,3 +1,11 @@
+/*
+ * XREFs of USBHUB_BugCheckSavePortArrayData @ 0x1C0041B60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ */
+
 void __fastcall USBHUB_BugCheckSavePortArrayData(
         KBUGCHECK_CALLBACK_REASON Reason,
         struct _KBUGCHECK_REASON_CALLBACK_RECORD *Record,

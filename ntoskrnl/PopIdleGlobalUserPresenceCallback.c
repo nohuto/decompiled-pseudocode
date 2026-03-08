@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopIdleGlobalUserPresenceCallback @ 0x1407F8050
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopIdleCancelAoAcDozeS4Timer @ 0x14036D07C (PopIdleCancelAoAcDozeS4Timer.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopIdleGlobalUserPresenceCallback(LPCGUID SettingGuid, int *Value, ULONG ValueLength, PVOID Context)
 {
   __int64 v4; // rax

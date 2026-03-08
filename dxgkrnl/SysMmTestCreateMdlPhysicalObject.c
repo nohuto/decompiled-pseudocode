@@ -1,3 +1,11 @@
+/*
+ * XREFs of SysMmTestCreateMdlPhysicalObject @ 0x1C0071750
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SysMmCreateMdlPhysicalObject@@YAJPEAUSYSMM_ADAPTER@@_KT_LARGE_INTEGER@@22W4_MEMORY_CACHING_TYPE@@IQEAXW4SYSMM_PHYSICAL_OBJECT_OWNER@@PEAPEAUSYSMM_PHYSICAL_OBJECT@@PEAPEAUSYSMM_ADAPTER_OBJECT@@PEAPEAU_MDL@@@Z @ 0x1C0012FB4 (-SysMmCreateMdlPhysicalObject@@YAJPEAUSYSMM_ADAPTER@@_KT_LARGE_INTEGER@@22W4_MEMORY_CACHING_TYPE.c)
+ */
+
 __int64 __fastcall SysMmTestCreateMdlPhysicalObject(
         struct SYSMM_ADAPTER *a1,
         SIZE_T a2,

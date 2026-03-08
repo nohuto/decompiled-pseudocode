@@ -1,3 +1,37 @@
+/*
+ * XREFs of MiDeletePteList @ 0x140276AC0
+ * Callers:
+ *     MiDecommitPages @ 0x140329B10 (MiDecommitPages.c)
+ *     MiDeletePteWsleCluster @ 0x14032A9F0 (MiDeletePteWsleCluster.c)
+ * Callees:
+ *     MiReleasePageFileInfo @ 0x14020B300 (MiReleasePageFileInfo.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiSetNonResidentPteHeat @ 0x140287A90 (MiSetNonResidentPteHeat.c)
+ *     MiGetContainingPageTable @ 0x140289FE0 (MiGetContainingPageTable.c)
+ *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14029DAB8 (MI_IS_PTE_IN_WS_SWAP_SET.c)
+ *     MiDecrementCombinedPteEx @ 0x14029DAF4 (MiDecrementCombinedPteEx.c)
+ *     MiGetPagingFileOffset @ 0x14029EA80 (MiGetPagingFileOffset.c)
+ *     MiMakeProtoTransition @ 0x1402C59B0 (MiMakeProtoTransition.c)
+ *     MiLocateCloneAddress @ 0x1402CF530 (MiLocateCloneAddress.c)
+ *     MiReducePteUseCount @ 0x1402D0E3C (MiReducePteUseCount.c)
+ *     MiDecreaseUsedPtesCount @ 0x1402D0E90 (MiDecreaseUsedPtesCount.c)
+ *     MiReduceShareCount @ 0x1402EADCC (MiReduceShareCount.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiDecrementShareCount @ 0x14032AE40 (MiDecrementShareCount.c)
+ *     MiPfnShareCountIsZero @ 0x14032BF50 (MiPfnShareCountIsZero.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14032D790 (MiCaptureDirtyBitToPfn.c)
+ *     MiTransferSoftwarePte @ 0x14032F630 (MiTransferSoftwarePte.c)
+ *     MiGetUsedPtesHandle @ 0x140346CA0 (MiGetUsedPtesHandle.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiBadShareCount @ 0x14064B0E0 (MiBadShareCount.c)
+ *     MiDecrementCloneBlockReference @ 0x14066176C (MiDecrementCloneBlockReference.c)
+ */
+
 __int64 MiDeletePteList(__int64 a1, __int64 a2, unsigned __int64 a3, ...)
 {
   unsigned int v3; // edx

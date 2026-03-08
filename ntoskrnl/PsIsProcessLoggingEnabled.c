@@ -1,3 +1,12 @@
+/*
+ * XREFs of PsIsProcessLoggingEnabled @ 0x1402CD440
+ * Callers:
+ *     MiReadWriteVirtualMemory @ 0x14075AD90 (MiReadWriteVirtualMemory.c)
+ *     NtProtectVirtualMemory @ 0x1407C7210 (NtProtectVirtualMemory.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PsIsProcessLoggingEnabled(__int64 a1, __int64 a2, int a3)
 {
   unsigned int v3; // r10d

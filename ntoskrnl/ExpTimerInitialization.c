@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpTimerInitialization @ 0x140B3EA2C
+ * Callers:
+ *     ExpInitSystemPhase1 @ 0x140B3F0B8 (ExpInitSystemPhase1.c)
+ * Callees:
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObCreateObjectType @ 0x14080CB00 (ObCreateObjectType.c)
+ */
+
 bool ExpTimerInitialization()
 {
   int v0; // ebx

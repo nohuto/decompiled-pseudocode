@@ -1,3 +1,17 @@
+/*
+ * XREFs of xxxSetCapture @ 0x1C00109E4
+ * Callers:
+ *     NtUserSetCapture @ 0x1C0010940 (NtUserSetCapture.c)
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ *     xxxDCETrackCaptionButton @ 0x1C01BBA1C (xxxDCETrackCaptionButton.c)
+ *     xxxTrackCaptionButton @ 0x1C022F438 (xxxTrackCaptionButton.c)
+ *     xxxDragObject @ 0x1C023257C (xxxDragObject.c)
+ *     xxxIsDragging @ 0x1C0232C4C (xxxIsDragging.c)
+ * Callees:
+ *     xxxCapture @ 0x1C0010A5C (xxxCapture.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ */
+
 __int64 __fastcall xxxSetCapture(__int64 a1)
 {
   __int64 v1; // rbx

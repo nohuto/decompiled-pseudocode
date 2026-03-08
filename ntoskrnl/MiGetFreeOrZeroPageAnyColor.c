@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiGetFreeOrZeroPageAnyColor @ 0x14034E684
+ * Callers:
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ * Callees:
+ *     MiRemovePageAnyColor @ 0x1402D748C (MiRemovePageAnyColor.c)
+ *     MiDemoteLocalLargePage @ 0x14034E760 (MiDemoteLocalLargePage.c)
+ *     MiGetPageSlist @ 0x1403D1650 (MiGetPageSlist.c)
+ */
+
 __int64 __fastcall MiGetFreeOrZeroPageAnyColor(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

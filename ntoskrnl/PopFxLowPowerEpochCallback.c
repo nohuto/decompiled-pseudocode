@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopFxLowPowerEpochCallback @ 0x1403AAE20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall PopFxLowPowerEpochCallback(_QWORD *a1, char *a2, int a3)
 {
   unsigned int v3; // r10d

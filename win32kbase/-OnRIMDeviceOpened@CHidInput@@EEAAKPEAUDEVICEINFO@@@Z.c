@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?OnRIMDeviceOpened@CHidInput@@EEAAKPEAUDEVICEINFO@@@Z @ 0x1C0211FE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?OnRimDeviceOpened@CTouchProcessor@@QEAAXPEAX@Z @ 0x1C01FC878 (-OnRimDeviceOpened@CTouchProcessor@@QEAAXPEAX@Z.c)
+ *     ?UpdatePointerDeviceCount@CHidInput@@AEAAKK@Z @ 0x1C0212B18 (-UpdatePointerDeviceCount@CHidInput@@AEAAKK@Z.c)
+ *     IsPublicPointerDevice @ 0x1C0218060 (IsPublicPointerDevice.c)
+ */
+
 __int64 __fastcall CHidInput::OnRIMDeviceOpened(CHidInput *this, struct DEVICEINFO *a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // ebx

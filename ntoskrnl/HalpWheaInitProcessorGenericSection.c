@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpWheaInitProcessorGenericSection @ 0x14051F5E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HaliWheaInitProcessorGenericSection @ 0x1405168A8 (HaliWheaInitProcessorGenericSection.c)
+ */
+
 __int64 __fastcall HalpWheaInitProcessorGenericSection(__int64 a1, _QWORD *a2)
 {
   memset((void *)a1, 0, 0x48uLL);

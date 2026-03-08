@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetDesktopTree@CLegacyRenderTarget@@UEBAJPEAPEAVCDesktopTree@@@Z @ 0x1801C12D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall CLegacyRenderTarget::GetDesktopTree(CLegacyRenderTarget *this, struct CDesktopTree **a2)
 {
   __int64 v2; // rcx

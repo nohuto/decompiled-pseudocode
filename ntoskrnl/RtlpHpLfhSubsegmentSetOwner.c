@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpHpLfhSubsegmentSetOwner @ 0x14030AA5C
+ * Callers:
+ *     RtlpHpLfhBucketAddSubsegment @ 0x14030A880 (RtlpHpLfhBucketAddSubsegment.c)
+ *     RtlpHpLfhSlotAddSubsegment @ 0x14030AA0C (RtlpHpLfhSlotAddSubsegment.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpHpLfhSubsegmentSetOwner(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

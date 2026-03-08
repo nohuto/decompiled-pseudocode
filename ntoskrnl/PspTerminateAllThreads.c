@@ -1,3 +1,23 @@
+/*
+ * XREFs of PspTerminateAllThreads @ 0x1407DB73C
+ * Callers:
+ *     PspTerminateProcess @ 0x1407DC198 (PspTerminateProcess.c)
+ *     NtTerminateProcess @ 0x1407DC2F0 (NtTerminateProcess.c)
+ * Callees:
+ *     KeFlushProcessWriteBuffers @ 0x1402373CC (KeFlushProcessWriteBuffers.c)
+ *     PsGetProcessServerSilo @ 0x1402637E0 (PsGetProcessServerSilo.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     DbgkClearProcessDebugObject @ 0x14067F39C (DbgkClearProcessDebugObject.c)
+ *     PsGetNextProcessThread @ 0x1406A8E30 (PsGetNextProcessThread.c)
+ *     PspRundownSingleProcess @ 0x1406F8160 (PspRundownSingleProcess.c)
+ *     PspTerminateThreadByPointer @ 0x1407DA8F0 (PspTerminateThreadByPointer.c)
+ *     PspGetPreviousProcessThread @ 0x1407DB974 (PspGetPreviousProcessThread.c)
+ *     PspCatchCriticalBreak @ 0x1409B0A80 (PspCatchCriticalBreak.c)
+ */
+
 __int64 __fastcall PspTerminateAllThreads(PRKPROCESS PROCESS, __int64 a2, unsigned int a3, unsigned int a4)
 {
   struct _KPROCESS *v8; // r13

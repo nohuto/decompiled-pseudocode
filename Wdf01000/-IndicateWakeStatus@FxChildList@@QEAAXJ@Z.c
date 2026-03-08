@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IndicateWakeStatus@FxChildList@@QEAAXJ@Z @ 0x1C0024D3C
+ * Callers:
+ *     ?PowerPolicyDisarmWakeFromSx@FxPkgPnp@@AEAAXXZ @ 0x1C007D2A8 (-PowerPolicyDisarmWakeFromSx@FxPkgPnp@@AEAAXXZ.c)
+ * Callees:
+ *     ?PowerIndicateWaitWakeStatus@FxPkgPnp@@QEAAEJ@Z @ 0x1C006F0D4 (-PowerIndicateWaitWakeStatus@FxPkgPnp@@QEAAEJ@Z.c)
+ */
+
 void __fastcall FxChildList::IndicateWakeStatus(FxChildList *this, int WaitWakeStatus)
 {
   unsigned __int64 *p_m_ListLock; // rsi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserRemotePassthruDisable @ 0x1C01DAB30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RemotePassthruDisable @ 0x1C0205C9C (RemotePassthruDisable.c)
+ */
+
 __int64 NtUserRemotePassthruDisable()
 {
   unsigned int v0; // ebx

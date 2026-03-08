@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlInitializeSidEx @ 0x1402FCFD0
+ * Callers:
+ *     RtlCheckTokenMembershipEx @ 0x140204B90 (RtlCheckTokenMembershipEx.c)
+ * Callees:
+ *     RtlInitializeSid @ 0x14068E3A0 (RtlInitializeSid.c)
+ */
+
 NTSTATUS __fastcall RtlInitializeSidEx(_DWORD *a1, struct _SID_IDENTIFIER_AUTHORITY *a2, UCHAR a3, __int64 a4)
 {
   unsigned int v4; // ebx

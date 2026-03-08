@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopGetBitlockerKeyLocation @ 0x140A9D6A0
+ * Callers:
+ *     PopAllocateHiberContext @ 0x140984D38 (PopAllocateHiberContext.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcsstr @ 0x1403D6020 (wcsstr.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopGetBitlockerKeyLocation(__int64 *a1)
 {
   NTSTATUS v2; // ebx

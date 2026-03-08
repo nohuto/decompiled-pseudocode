@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApplyTexcoordExtendMode @ 0x180027B00
+ * Callers:
+ *     ApplyTexcoordTransformations @ 0x180027D08 (ApplyTexcoordTransformations.c)
+ * Callees:
+ *     ?AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V?$span@$$CBW4ShaderLinkingArgument@@$0?0@gsl@@@Z @ 0x18002A318 (-AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V-$.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall ApplyTexcoordExtendMode(
         __int64 a1,
         unsigned __int16 a2,

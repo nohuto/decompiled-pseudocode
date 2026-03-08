@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopDiagTraceSleepStudyStart @ 0x140879BB0
+ * Callers:
+ *     PopSleepstudyStartNextSession @ 0x1408797E4 (PopSleepstudyStartNextSession.c)
+ *     PopSleepstudyScenarioStopWorker @ 0x1409903B0 (PopSleepstudyScenarioStopWorker.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     PopGetModernStandbyTransitionReason @ 0x1403C2A80 (PopGetModernStandbyTransitionReason.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void PopDiagTraceSleepStudyStart()
 {
   int ModernStandbyTransitionReason; // eax

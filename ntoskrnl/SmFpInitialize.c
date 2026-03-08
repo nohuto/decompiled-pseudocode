@@ -1,3 +1,12 @@
+/*
+ * XREFs of SmFpInitialize @ 0x1403A33A8
+ * Callers:
+ *     SmFirstTimeInit @ 0x1407DDCE0 (SmFirstTimeInit.c)
+ *     SmPartitionInitialize @ 0x14084CDAC (SmPartitionInitialize.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall SmFpInitialize(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

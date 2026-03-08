@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vPatternCopyLoop@@YAXPEAU_RECTL@@PEAKPEAU_PATBLTFRAME@@HKKKKJJJPEBK3@Z @ 0x1C02E973C
+ * Callers:
+ *     ?vPatCpyRect1_8x8@@YAXPEAU_PATBLTFRAME@@H@Z @ 0x1C02E8040 (-vPatCpyRect1_8x8@@YAXPEAU_PATBLTFRAME@@H@Z.c)
+ *     ?vPatCpyRect4_8x8@@YAXPEAU_PATBLTFRAME@@H@Z @ 0x1C02E82C0 (-vPatCpyRect4_8x8@@YAXPEAU_PATBLTFRAME@@H@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vPatternCopyLoop(
         struct _RECTL *a1,
         unsigned int *a2,

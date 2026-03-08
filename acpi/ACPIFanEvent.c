@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIFanEvent @ 0x1C0026EA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIFanLoop @ 0x1C002759C (ACPIFanLoop.c)
+ */
+
 _UNKNOWN **__fastcall ACPIFanEvent(ULONG_PTR a1, int a2)
 {
   __int64 DeviceExtension; // rax

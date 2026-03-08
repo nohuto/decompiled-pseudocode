@@ -1,3 +1,19 @@
+/*
+ * XREFs of KiRemoveThreadFromSchedulingGroup @ 0x1402AF3E4
+ * Callers:
+ *     KeTerminateThread @ 0x140353168 (KeTerminateThread.c)
+ *     KiSetThreadSchedulingGroup @ 0x1403557B8 (KiSetThreadSchedulingGroup.c)
+ * Callees:
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140255D00 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiAddThreadToPrcbQueue @ 0x1402584D0 (KiAddThreadToPrcbQueue.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402ADF80 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiRemoveThreadFromScbQueue @ 0x1402AE79C (KiRemoveThreadFromScbQueue.c)
+ *     KiUpdateThreadSchedulingProperties @ 0x1402AF670 (KiUpdateThreadSchedulingProperties.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiUpdateTotalCyclesCurrentThread @ 0x14036A030 (KiUpdateTotalCyclesCurrentThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KiRemoveThreadFromSchedulingGroup(__int64 a1)
 {
   struct _KPRCB *CurrentPrcb; // rdi

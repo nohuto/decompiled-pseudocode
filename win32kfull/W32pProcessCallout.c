@@ -1,3 +1,13 @@
+/*
+ * XREFs of W32pProcessCallout @ 0x1C00CA590
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AllocateW32Process @ 0x1C003EBB0 (AllocateW32Process.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     DereferenceW32ProcessEx @ 0x1C00CA980 (DereferenceW32ProcessEx.c)
+ */
+
 __int64 __fastcall W32pProcessCallout(__int64 a1)
 {
   __int64 v1; // r15

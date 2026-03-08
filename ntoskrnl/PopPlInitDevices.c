@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopPlInitDevices @ 0x14099D660
+ * Callers:
+ *     PopPlInitPowerPlane @ 0x14099D7DC (PopPlInitPowerPlane.c)
+ * Callees:
+ *     PopPlInitDevice @ 0x14099D558 (PopPlInitDevice.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopPlInitDevices(
         __int64 a1,
         __int64 a2,

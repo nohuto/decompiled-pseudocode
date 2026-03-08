@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifExReleaseResourceLiteWrapper @ 0x1405D78E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 void __fastcall DifExReleaseResourceLiteWrapper(PERESOURCE Resource)
 {
   __int64 *APIThunkContextById; // rax

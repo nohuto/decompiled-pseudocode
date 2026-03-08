@@ -1,3 +1,14 @@
+/*
+ * XREFs of CcMapAndRead @ 0x14021FF20
+ * Callers:
+ *     CcPinFileData @ 0x14021E620 (CcPinFileData.c)
+ *     CcPrepareMdlWrite @ 0x1402FD600 (CcPrepareMdlWrite.c)
+ *     CcMapData @ 0x1406A7910 (CcMapData.c)
+ * Callees:
+ *     MmCheckCachedPageStates @ 0x1402200B0 (MmCheckCachedPageStates.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ */
+
 __int64 __fastcall CcMapAndRead(unsigned int a1, int a2, char a3, __int64 a4)
 {
   struct _KTHREAD *CurrentThread; // rsi

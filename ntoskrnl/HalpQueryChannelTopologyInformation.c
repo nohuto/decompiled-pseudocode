@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpQueryChannelTopologyInformation @ 0x140B8F7C8
+ * Callers:
+ *     HaliQuerySystemInformation @ 0x140A85470 (HaliQuerySystemInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpQueryChannelTopologyInformation(_QWORD *a1, unsigned int a2, int *a3)
 {
   int v3; // r9d

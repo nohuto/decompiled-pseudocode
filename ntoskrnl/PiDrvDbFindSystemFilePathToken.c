@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiDrvDbFindSystemFilePathToken @ 0x14096CFAC
+ * Callers:
+ *     PiDrvDbResolveSystemFilePath @ 0x14096E128 (PiDrvDbResolveSystemFilePath.c)
+ * Callees:
+ *     iswalnum @ 0x1403D45F0 (iswalnum.c)
+ *     iswalpha @ 0x1403D460C (iswalpha.c)
+ *     RtlFindUnicodeSubstring @ 0x1406B8BB0 (RtlFindUnicodeSubstring.c)
+ */
+
 char *__fastcall PiDrvDbFindSystemFilePathToken(__m128i *a1, unsigned __int16 *a2)
 {
   __int64 v2; // rbx

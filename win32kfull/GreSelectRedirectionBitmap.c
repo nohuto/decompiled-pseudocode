@@ -1,3 +1,18 @@
+/*
+ * XREFs of GreSelectRedirectionBitmap @ 0x1C0097150
+ * Callers:
+ *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C00519F0 (zzzLockDisplayAreaAndInvalidateDCCache.c)
+ *     ?vClearRendering@DC@@QEAAXXZ @ 0x1C00589A0 (-vClearRendering@DC@@QEAAXXZ.c)
+ *     InvalidateDCE @ 0x1C0096E74 (InvalidateDCE.c)
+ *     UpdateRedirectedDCE @ 0x1C0096EF0 (UpdateRedirectedDCE.c)
+ *     ?UnselectRedirectionBitmapsInDCEs@@YAXQEAUtagWND@@@Z @ 0x1C01BDB84 (-UnselectRedirectionBitmapsInDCEs@@YAXQEAUtagWND@@@Z.c)
+ * Callees:
+ *     ?vAltUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C00DC828 (-vAltUnlockFast@XDCOBJ@@QEAAXXZ.c)
+ *     ?vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z @ 0x1C014CFA4 (-vSetDpiScaling@DC@@QEAAXVPOINTFL@@@Z.c)
+ *     ?vUpdateCachedDPIScaleValue@DC@@QEAAXXZ @ 0x1C014CFF2 (-vUpdateCachedDPIScaleValue@DC@@QEAAXXZ.c)
+ *     ?MulGetBitmapForDisplayDevice@@YAPEAUHBITMAP__@@PEAUHDEV__@@0PEAU1@@Z @ 0x1C014EEBA (-MulGetBitmapForDisplayDevice@@YAPEAUHBITMAP__@@PEAUHDEV__@@0PEAU1@@Z.c)
+ */
+
 __int64 __fastcall GreSelectRedirectionBitmap(__int64 a1, HBITMAP a2)
 {
   HBITMAP BitmapForDisplayDevice; // r15

@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiDeleteFinalPageTables @ 0x1402A54F4
+ * Callers:
+ *     MmDeleteProcessAddressSpace @ 0x140726E8C (MmDeleteProcessAddressSpace.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MiUnlinkProcessFromSession @ 0x1402A5200 (MiUnlinkProcessFromSession.c)
+ *     KeFlushProcessTb @ 0x1402A566C (KeFlushProcessTb.c)
+ *     MiDeleteTopLevelPage @ 0x1402A568C (MiDeleteTopLevelPage.c)
+ *     MiDeleteProcessShadow @ 0x1402A5828 (MiDeleteProcessShadow.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiDeleteVirtualAddresses @ 0x140332E60 (MiDeleteVirtualAddresses.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x14034C380 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14034CA58 (LOCK_ADDRESS_SPACE.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiDeleteVadBitmap @ 0x1407266B4 (MiDeleteVadBitmap.c)
+ */
+
 __int64 __fastcall MiDeleteFinalPageTables(ULONG_PTR BugCheckParameter2)
 {
   __int64 v2; // rax

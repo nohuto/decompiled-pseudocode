@@ -1,3 +1,19 @@
+/*
+ * XREFs of Controller_WdfEvtDeviceReleaseHardware @ 0x1C0079480
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Controller_IsSecureDevice @ 0x1C000B0F8 (Controller_IsSecureDevice.c)
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     XilDeviceSlot_ReleaseHardware @ 0x1C00384F4 (XilDeviceSlot_ReleaseHardware.c)
+ *     Register_UnmapSecureMmio @ 0x1C003F120 (Register_UnmapSecureMmio.c)
+ *     SleepstudyHelper_UnregisterComponent @ 0x1C0054D74 (SleepstudyHelper_UnregisterComponent.c)
+ *     Command_ReleaseHardware @ 0x1C0077ED0 (Command_ReleaseHardware.c)
+ *     Interrupter_ReleaseInterrupter @ 0x1C007A04C (Interrupter_ReleaseInterrupter.c)
+ *     RootHub_ReleaseHardware @ 0x1C007A350 (RootHub_ReleaseHardware.c)
+ */
+
 __int64 __fastcall Controller_WdfEvtDeviceReleaseHardware(__int64 a1)
 {
   char v1; // bl

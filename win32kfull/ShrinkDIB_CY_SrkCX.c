@@ -1,3 +1,18 @@
+/*
+ * XREFs of ShrinkDIB_CY_SrkCX @ 0x1C0266AA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     GetFixupScan @ 0x1C014BF50 (GetFixupScan.c)
+ *     SrkYDIB_SrkCX @ 0x1C014C952 (SrkYDIB_SrkCX.c)
+ *     AlphaBlendBGRF @ 0x1C0260824 (AlphaBlendBGRF.c)
+ *     MappingBGRF @ 0x1C0265A54 (MappingBGRF.c)
+ */
+
 __int64 __fastcall ShrinkDIB_CY_SrkCX(__int64 a1)
 {
   __int64 v3; // rax

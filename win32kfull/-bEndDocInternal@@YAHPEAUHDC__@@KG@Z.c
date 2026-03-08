@@ -1,3 +1,24 @@
+/*
+ * XREFs of ?bEndDocInternal@@YAHPEAUHDC__@@KG@Z @ 0x1C0279074
+ * Callers:
+ *     NtGdiAbortDoc @ 0x1C027A7C0 (NtGdiAbortDoc.c)
+ *     NtGdiEndDoc @ 0x1C027AC70 (NtGdiEndDoc.c)
+ *     NtGdiStartPage @ 0x1C027B830 (NtGdiStartPage.c)
+ * Callees:
+ *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C000FF70 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C0050C40 (--1DCOBJ@@QEAA@XZ.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ *     ?RestoreAttributesHelper@XDCOBJ@@AEAAXXZ @ 0x1C0050D28 (-RestoreAttributesHelper@XDCOBJ@@AEAAXXZ.c)
+ *     ?bValidSurf@XDCOBJ@@QEAAHXZ @ 0x1C007FBAC (-bValidSurf@XDCOBJ@@QEAAHXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     ?UmpdSecurityGateNoUmpdObj@@YA_NXZ @ 0x1C0279028 (-UmpdSecurityGateNoUmpdObj@@YA_NXZ.c)
+ *     ?vDec_cRef@SURFACE@@QEAAXXZ @ 0x1C027A190 (-vDec_cRef@SURFACE@@QEAAXXZ.c)
+ *     ?vDone@RESTORESAVEDCATTRS@@QEAAXXZ @ 0x1C027A2E4 (-vDone@RESTORESAVEDCATTRS@@QEAAXXZ.c)
+ *     ?vSaveAttributesAlways@XDCOBJ@@AEAAXXZ @ 0x1C027A344 (-vSaveAttributesAlways@XDCOBJ@@AEAAXXZ.c)
+ *     ?UMPDServer@@YAHPEAVSURFACE@@@Z @ 0x1C02C1308 (-UMPDServer@@YAHPEAVSURFACE@@@Z.c)
+ */
+
 __int64 __fastcall bEndDocInternal(HDC a1, unsigned int a2, __int16 a3)
 {
   DC *v6; // r9

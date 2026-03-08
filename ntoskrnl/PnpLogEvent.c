@@ -1,3 +1,20 @@
+/*
+ * XREFs of PnpLogEvent @ 0x140955B40
+ * Callers:
+ *     PnpQueryID @ 0x1406882B4 (PnpQueryID.c)
+ *     PnpFixupID @ 0x140688430 (PnpFixupID.c)
+ *     PiInitializeDDB @ 0x14079CD80 (PiInitializeDDB.c)
+ *     PpCheckInDriverDatabase @ 0x14079DC60 (PpCheckInDriverDatabase.c)
+ *     PiIsDriverBlocked @ 0x14079DF64 (PiIsDriverBlocked.c)
+ *     PpBootDDBHelper @ 0x14081D504 (PpBootDDBHelper.c)
+ *     PnpLogDuplicateDevice @ 0x140956834 (PnpLogDuplicateDevice.c)
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     IoWriteErrorLogEntry @ 0x1403C13F0 (IoWriteErrorLogEntry.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IoAllocateGenericErrorLogEntry @ 0x140554348 (IoAllocateGenericErrorLogEntry.c)
+ */
+
 void __fastcall PnpLogEvent(const void **a1, const void **a2, int a3, const void *a4, unsigned int Size)
 {
   __int64 v9; // rcx

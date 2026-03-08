@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CProjectedShadowSceneMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C000A660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_7fa288b36b5b909ebd944124da990719___ @ 0x1C000A7E0 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_7fa288b36b5b909ebd944124da99071.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_587f969927acac595f5d776e9a526bf5___ @ 0x1C000A854 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_587f969927acac595f5d776e9a526bf.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_6b3e6a14467ecf4e900add31c48c06c0___ @ 0x1C000A8C8 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_6b3e6a14467ecf4e900add31c48c06c.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_4dea41512b0d65b210438b606e35899d___ @ 0x1C000A93C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_4dea41512b0d65b210438b606e35899.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_a1494ef117167e0d115bb3d6da080f6a___ @ 0x1C000A9B0 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_a1494ef117167e0d115bb3d6da080f6.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_42c85abcceb014ab0ba5d8ad63447384___ @ 0x1C000AA24 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_42c85abcceb014ab0ba5d8ad6344738.c)
+ *     ?EmitAddReceivers@CProjectedShadowSceneMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C000AAAC (-EmitAddReceivers@CProjectedShadowSceneMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitAddCasters@CProjectedShadowSceneMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z @ 0x1C000ABAC (-EmitAddCasters@CProjectedShadowSceneMarshaler@DirectComposition@@IEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0061EBC (-EmitUpdateCommands@CPropertyChangeResourceMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0064740 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_d9f70ade21717f3320853a4d81c25eea___ @ 0x1C026DDB4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_d9f70ade21717f3320853a4d81c25ee.c)
+ */
+
 char __fastcall DirectComposition::CProjectedShadowSceneMarshaler::EmitUpdateCommands(
         DirectComposition::CProjectedShadowSceneMarshaler *this,
         struct DirectComposition::CBatch **a2)

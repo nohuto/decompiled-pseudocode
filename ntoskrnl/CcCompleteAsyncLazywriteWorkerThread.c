@@ -1,3 +1,15 @@
+/*
+ * XREFs of CcCompleteAsyncLazywriteWorkerThread @ 0x140538F10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcDereferencePartition @ 0x140219EF0 (CcDereferencePartition.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcCompleteAsyncLazywriteWorker @ 0x140538D80 (CcCompleteAsyncLazywriteWorker.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall CcCompleteAsyncLazywriteWorkerThread(__int64 a1)
 {
   __int64 v1; // rbp

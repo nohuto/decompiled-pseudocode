@@ -1,3 +1,20 @@
+/*
+ * XREFs of MmUnmapProtectedKernelPageRange @ 0x140A41560
+ * Callers:
+ *     PsDispatchIumService @ 0x1405A2A44 (PsDispatchIumService.c)
+ * Callees:
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiInitializeTbFlushList @ 0x14036C25C (MiInitializeTbFlushList.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void __fastcall MmUnmapProtectedKernelPageRange(unsigned __int64 a1, __int64 a2)
 {
   __int64 PteAddress; // rdi

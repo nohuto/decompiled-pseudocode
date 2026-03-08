@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpQueryLayerVersionString @ 0x14081502C
+ * Callers:
+ *     CmpLoadLayerVersion @ 0x140814A94 (CmpLoadLayerVersion.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 NTSTATUS __fastcall CmpQueryLayerVersionString(
         PUNICODE_STRING DestinationString,
         char *SourceString,

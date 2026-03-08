@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiSnapThunk @ 0x1407ECC30
+ * Callers:
+ *     MiResolveImageReferences @ 0x1407EC794 (MiResolveImageReferences.c)
+ *     MiSnapThunk @ 0x1407ECC30 (MiSnapThunk.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     strchr @ 0x1403D5520 (strchr.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlPrefixString @ 0x14075DBF0 (RtlPrefixString.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ *     MiSnapThunk @ 0x1407ECC30 (MiSnapThunk.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiSnapThunk(__int64 a1, __int64 a2, __int64 *a3, char **a4, unsigned __int16 *a5)
 {
   __int64 v7; // r12

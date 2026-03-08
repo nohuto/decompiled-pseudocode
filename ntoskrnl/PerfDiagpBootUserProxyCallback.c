@@ -1,3 +1,11 @@
+/*
+ * XREFs of PerfDiagpBootUserProxyCallback @ 0x14085B480
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PerfDiagpRequestState @ 0x14085B4AC (PerfDiagpRequestState.c)
+ */
+
 void __fastcall PerfDiagpBootUserProxyCallback(
         LPCGUID SourceId,
         __int64 ControlCode,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserGetOemBitmapSize @ 0x1C01D3AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ *     GetOemBitmapInfoForDpi @ 0x1C00D05EC (GetOemBitmapInfoForDpi.c)
+ */
+
 __int64 __fastcall NtUserGetOemBitmapSize(unsigned int a1, _QWORD *a2)
 {
   __int64 v4; // rcx

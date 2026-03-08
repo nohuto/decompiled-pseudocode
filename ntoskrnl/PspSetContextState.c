@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspSetContextState @ 0x1409B51B8
+ * Callers:
+ *     PspGetSetContextInternal @ 0x1406EA840 (PspGetSetContextInternal.c)
+ * Callees:
+ *     RtlInitializeExtendedContext @ 0x140364A10 (RtlInitializeExtendedContext.c)
+ *     RtlGetExtendedContextLength @ 0x140364A90 (RtlGetExtendedContextLength.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlCopyContext @ 0x1407EE220 (RtlCopyContext.c)
+ */
+
 __int64 __fastcall PspSetContextState(__int64 a1, __int64 a2)
 {
   _DWORD *v4; // r14

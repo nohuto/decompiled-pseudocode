@@ -1,3 +1,11 @@
+/*
+ * XREFs of EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Cleanup @ 0x1C001D22C
+ * Callers:
+ *     HUBPDO_EvtDeviceReportedMissing @ 0x1C0080380 (HUBPDO_EvtDeviceReportedMissing.c)
+ * Callees:
+ *     McTemplateK0pqqhhhq_EtwWriteTransfer @ 0x1C00147F4 (McTemplateK0pqqhhhq_EtwWriteTransfer.c)
+ */
+
 NTSTATUS __fastcall EventWriteUSBHUB3_ETW_EVENT_CLIENT_INITIATED_RECOVERY_ACTION_Cleanup(__int64 a1, __int64 a2)
 {
   _DWORD *v3; // rsi

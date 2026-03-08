@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopDiagTraceCsResiliencyEnter @ 0x14058FC5C
+ * Callers:
+ *     PopSleepstudyCaptureResiliencyStatistics @ 0x140990254 (PopSleepstudyCaptureResiliencyStatistics.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopIsRemoteDesktopEnabled @ 0x14097DB64 (PopIsRemoteDesktopEnabled.c)
+ */
+
 __int64 __fastcall PopDiagTraceCsResiliencyEnter(__int64 a1, char a2, __int128 *a3)
 {
   char IsRemoteDesktopEnabled; // bl

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0InteractiveControlDevice@@QEAA@XZ @ 0x1C0247A4C
+ * Callers:
+ *     ?OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0243C58 (-OnDeviceAttach@InteractiveControlManager@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ * Callees:
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 InteractiveControlDevice *__fastcall InteractiveControlDevice::InteractiveControlDevice(InteractiveControlDevice *this)
 {
   InteractiveControlDevice *result; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiInitializeScrubPacket @ 0x140A433C8
+ * Callers:
+ *     MiScrubMemoryWorker @ 0x140A439A0 (MiScrubMemoryWorker.c)
+ * Callees:
+ *     MiCreateUltraThreadContext @ 0x140244548 (MiCreateUltraThreadContext.c)
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     ExAllocatePoolMm @ 0x14034C1AC (ExAllocatePoolMm.c)
+ *     MiReleaseScrubPacket @ 0x140A436D0 (MiReleaseScrubPacket.c)
+ */
+
 __int64 __fastcall MiInitializeScrubPacket(__int64 *a1)
 {
   int v2; // edx

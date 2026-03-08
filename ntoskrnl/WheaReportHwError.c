@@ -1,3 +1,30 @@
+/*
+ * XREFs of WheaReportHwError @ 0x14060E280
+ * Callers:
+ *     HalpCheckAndReportGhes @ 0x14029AA2C (HalpCheckAndReportGhes.c)
+ *     HalpMcaReportError @ 0x140501778 (HalpMcaReportError.c)
+ *     HalHandleNMI @ 0x140504300 (HalHandleNMI.c)
+ *     WheaHwErrorReportSubmitDeviceDriver @ 0x14060F030 (WheaHwErrorReportSubmitDeviceDriver.c)
+ * Callees:
+ *     WheaLogInternalEvent @ 0x14037D610 (WheaLogInternalEvent.c)
+ *     WheaIsCriticalState @ 0x14037D730 (WheaIsCriticalState.c)
+ *     WheapGetErrorSourceFunction @ 0x14037D8DC (WheapGetErrorSourceFunction.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     WheaRecoveryBugCheck @ 0x14060E210 (WheaRecoveryBugCheck.c)
+ *     WheapAddToDumpFile @ 0x14060E748 (WheapAddToDumpFile.c)
+ *     WheapAllocErrorRecord @ 0x14060E78C (WheapAllocErrorRecord.c)
+ *     WheapApplyThresholdChecks @ 0x14060E808 (WheapApplyThresholdChecks.c)
+ *     WheapAttemptErrorRecovery @ 0x14060E8B4 (WheapAttemptErrorRecovery.c)
+ *     WheapCompressErrorRecord @ 0x14060E978 (WheapCompressErrorRecord.c)
+ *     WheapFreeErrorRecord @ 0x14060EAB0 (WheapFreeErrorRecord.c)
+ *     WheapGetErrorSource @ 0x14060EAE8 (WheapGetErrorSource.c)
+ *     WheapPersistPageForMemoryError @ 0x14060EC18 (WheapPersistPageForMemoryError.c)
+ *     WheapGenerateETWEvents @ 0x140610F18 (WheapGenerateETWEvents.c)
+ *     WheapWorkQueueAddItem @ 0x1406115E4 (WheapWorkQueueAddItem.c)
+ */
+
 __int64 __fastcall WheaReportHwError(__int64 a1)
 {
   int v1; // r11d

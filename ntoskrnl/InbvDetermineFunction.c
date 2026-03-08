@@ -1,3 +1,12 @@
+/*
+ * XREFs of InbvDetermineFunction @ 0x1403845A8
+ * Callers:
+ *     InbvDriverInitialize @ 0x140B47614 (InbvDriverInitialize.c)
+ * Callees:
+ *     _strupr @ 0x1403D2DE0 (_strupr.c)
+ *     strstr @ 0x1403D3650 (strstr.c)
+ */
+
 __int64 __fastcall InbvDetermineFunction(__int64 a1)
 {
   unsigned int v1; // edx

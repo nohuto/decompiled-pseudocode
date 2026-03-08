@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiUnlinkCrossAdapterSyncObjects @ 0x1C003CB14
+ * Callers:
+ *     VidSchFlushAdapter @ 0x1C0107550 (VidSchFlushAdapter.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VidSchiUnlinkCrossAdapterSyncObjects(__int64 a1)
 {
   _QWORD *v1; // rsi

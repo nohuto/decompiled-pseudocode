@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?RegisterIndirectTarget@CBaseExpression@@QEAAJPEAV?$CWeakReference@VCResource@@@@I@Z @ 0x18023C1BC
+ * Callers:
+ *     ?RegisterIndirectTargetsForBoundTrackers@CInteractionTrackerBindingManager@@QEAAJPEAVCInteractionTracker@@PEAVCBaseExpression@@W4Enum@InteractionTrackerProperty@@@Z @ 0x180235210 (-RegisterIndirectTargetsForBoundTrackers@CInteractionTrackerBindingManager@@QEAAJPEAVCInteractio.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?__private_IsEnabled@?$FeatureImpl@U__WilFeatureTraits_Feature_2831068478@@@details@wil@@QEAA_NXZ @ 0x180111B70 (-__private_IsEnabled@-$FeatureImpl@U__WilFeatureTraits_Feature_2831068478@@@details@wil@@QEAA_NX.c)
+ *     ?RegisterIndirectTarget@CExpressionManager@@QEAAJPEAVCBaseExpression@@PEAV?$CWeakReference@VCResource@@@@IPEAVSubchannelMaskInfo@@@Z @ 0x180213A54 (-RegisterIndirectTarget@CExpressionManager@@QEAAJPEAVCBaseExpression@@PEAV-$CWeakReference@VCRes.c)
+ *     ??$emplace_back@AEAPEAV?$CWeakReference@VCResource@@@@AEAI@?$vector@U?$pair@PEAV?$CWeakReference@VCResource@@@@I@std@@V?$allocator@U?$pair@PEAV?$CWeakReference@VCResource@@@@I@std@@@2@@std@@QEAA?A_TAEAPEAV?$CWeakReference@VCResource@@@@AEAI@Z @ 0x18023B8B0 (--$emplace_back@AEAPEAV-$CWeakReference@VCResource@@@@AEAI@-$vector@U-$pair@PEAV-$CWeakReference.c)
+ */
+
 __int64 __fastcall CBaseExpression::RegisterIndirectTarget(struct CBaseExpression *a1, __int64 a2, int a3)
 {
   int v6; // eax

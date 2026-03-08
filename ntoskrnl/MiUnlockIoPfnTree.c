@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiUnlockIoPfnTree @ 0x14029B9B4
+ * Callers:
+ *     MiDereferenceIoPages @ 0x14029B654 (MiDereferenceIoPages.c)
+ *     MiReferenceIoPages @ 0x14029BA60 (MiReferenceIoPages.c)
+ *     MiLookupIoPageNode @ 0x1403AB558 (MiLookupIoPageNode.c)
+ *     MiDeleteStaleCacheMaps @ 0x14062B5C0 (MiDeleteStaleCacheMaps.c)
+ *     MiIsProbeActive @ 0x14062BDE8 (MiIsProbeActive.c)
+ *     MiMakeIoRangePermanent @ 0x14062C04C (MiMakeIoRangePermanent.c)
+ *     MiMarkHugeRangeIoPfnDeleted @ 0x14062C34C (MiMarkHugeRangeIoPfnDeleted.c)
+ *     MiMarkHugeRangeTransition @ 0x14062C4CC (MiMarkHugeRangeTransition.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiUnlockIoPfnTree(unsigned __int8 a1, char a2)
 {
   unsigned __int64 v2; // rdi

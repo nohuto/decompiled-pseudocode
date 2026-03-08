@@ -1,3 +1,13 @@
+/*
+ * XREFs of PipAreDriversLoadedWorker @ 0x1402455E4
+ * Callers:
+ *     PipSetDevNodeState @ 0x1402028D0 (PipSetDevNodeState.c)
+ *     PipAreDriversLoaded @ 0x1402455C0 (PipAreDriversLoaded.c)
+ *     PipRestoreDevNodeState @ 0x1403B1C68 (PipRestoreDevNodeState.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PipAreDriversLoadedWorker(int a1, int a2)
 {
   __int64 result; // rax

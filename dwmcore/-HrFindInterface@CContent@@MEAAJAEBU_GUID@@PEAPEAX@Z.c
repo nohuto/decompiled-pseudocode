@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?HrFindInterface@CContent@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180035170
+ * Callers:
+ *     ?HrFindInterface@CPrimitiveGroup@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180016D70 (-HrFindInterface@CPrimitiveGroup@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CCompositionSurfaceBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180075A40 (-HrFindInterface@CCompositionSurfaceBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CVisualBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801C1BA0 (-HrFindInterface@CVisualBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?HrFindInterface@CGenericInk@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18022A510 (-HrFindInterface@CGenericInk@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CContent::HrFindInterface(CContent *this, const struct _GUID *a2, void **a3)
 {
   __int64 result; // rax

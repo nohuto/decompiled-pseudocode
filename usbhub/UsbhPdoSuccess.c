@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhPdoSuccess @ 0x1C0056DF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhDecPdoIoCount @ 0x1C001BC4C (UsbhDecPdoIoCount.c)
+ *     UsbhIncPdoIoCount @ 0x1C0020E30 (UsbhIncPdoIoCount.c)
+ */
+
 __int64 __fastcall UsbhPdoSuccess(ULONG_PTR BugCheckParameter3, IRP *BugCheckParameter4)
 {
   unsigned int v4; // eax

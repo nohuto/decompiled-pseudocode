@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIInternalUpdateDeviceStatus @ 0x1C002F084
+ * Callers:
+ *     ACPIGetConvertToDevicePresence @ 0x1C0029F4C (ACPIGetConvertToDevicePresence.c)
+ * Callees:
+ *     ACPIBuildSynchronizationRequestInternal @ 0x1C0013BE0 (ACPIBuildSynchronizationRequestInternal.c)
+ */
+
 void __fastcall ACPIInternalUpdateDeviceStatus(__int64 a1, char a2)
 {
   __int64 v2; // rax

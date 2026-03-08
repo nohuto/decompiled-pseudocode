@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpLogProcessPerfCtrs @ 0x1409E3360
+ * Callers:
+ *     EtwTraceProcess @ 0x1407E93B4 (EtwTraceProcess.c)
+ * Callees:
+ *     PsGetProcessServerSilo @ 0x1402637E0 (PsGetProcessServerSilo.c)
+ *     EtwTraceSiloKernelEvent @ 0x14035EC20 (EtwTraceSiloKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void __fastcall EtwpLogProcessPerfCtrs(__int64 a1)
 {
   __int64 v2; // rax

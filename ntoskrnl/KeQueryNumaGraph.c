@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeQueryNumaGraph @ 0x140B923AC
+ * Callers:
+ *     MmInitSystem @ 0x140B393A4 (MmInitSystem.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void *KeQueryNumaGraph()
 {
   ULONG_PTR v0; // rdi

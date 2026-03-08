@@ -1,3 +1,12 @@
+/*
+ * XREFs of _anonymous_namespace_::AppStarting_Clear @ 0x1C003CBD0
+ * Callers:
+ *     ?OnFirstActivationAttempted@ForegroundLaunch@@YAXXZ @ 0x1C0022078 (-OnFirstActivationAttempted@ForegroundLaunch@@YAXXZ.c)
+ *     EditionPushExitingAppForegroundPolicy @ 0x1C003F010 (EditionPushExitingAppForegroundPolicy.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall anonymous_namespace_::AppStarting_Clear(__int64 a1)
 {
   __int64 *i; // rdx

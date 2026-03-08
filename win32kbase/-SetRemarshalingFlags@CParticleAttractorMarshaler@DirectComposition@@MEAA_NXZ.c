@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CParticleAttractorMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025E340
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CParticleAttractorMarshaler::SetRemarshalingFlags(
         DirectComposition::CParticleAttractorMarshaler *this)
 {

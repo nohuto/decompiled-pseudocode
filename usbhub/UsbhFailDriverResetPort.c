@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhFailDriverResetPort @ 0x1C004CBE0
+ * Callers:
+ *     UsbhEnumerate1 @ 0x1C001A4E8 (UsbhEnumerate1.c)
+ *     UsbhEnumerate2 @ 0x1C004C770 (UsbhEnumerate2.c)
+ * Callees:
+ *     UsbhSignalSyncDeviceResetPdo @ 0x1C0001CD0 (UsbhSignalSyncDeviceResetPdo.c)
+ *     UsbhSignalDriverResetEvent @ 0x1C0001DA8 (UsbhSignalDriverResetEvent.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ */
+
 __int64 __fastcall UsbhFailDriverResetPort(__int64 a1, __int64 a2, __int64 a3)
 {
   int v6; // r10d

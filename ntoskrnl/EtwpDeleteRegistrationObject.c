@@ -1,3 +1,26 @@
+/*
+ * XREFs of EtwpDeleteRegistrationObject @ 0x140693BC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeRundownQueueEx @ 0x140292C14 (KeRundownQueueEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpUnreferenceDataBlock @ 0x1406909A0 (EtwpUnreferenceDataBlock.c)
+ *     EtwpReleaseQueueEntry @ 0x1406909C8 (EtwpReleaseQueueEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x140695094 (EtwpUnreferenceGuidEntry.c)
+ *     EtwpReleaseProviderTraitsReference @ 0x140695900 (EtwpReleaseProviderTraitsReference.c)
+ *     EtwpRundownNotifications @ 0x140695998 (EtwpRundownNotifications.c)
+ *     EtwpQueueReply @ 0x140783E98 (EtwpQueueReply.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpDeleteRegistrationObject(__int64 *BugCheckParameter2)
 {
   ULONG_PTR v1; // r13

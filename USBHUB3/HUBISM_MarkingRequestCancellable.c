@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBISM_MarkingRequestCancellable @ 0x1C003F0F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBISM_MarkingRequestCancellable(__int64 a1)
 {
   unsigned int v1; // r8d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FlushPendingTriggeredAnimations@CExpressionManager@@AEAAX_N@Z @ 0x1802138FC
+ * Callers:
+ *     ?UpdateExpressions@CExpressionManager@@QEAAX_K0@Z @ 0x180051314 (-UpdateExpressions@CExpressionManager@@QEAAX_K0@Z.c)
+ * Callees:
+ *     ?TryRegisterWithExpressionManager@CBaseExpression@@IEAAJXZ @ 0x18009B288 (-TryRegisterWithExpressionManager@CBaseExpression@@IEAAJXZ.c)
+ *     ?ForceDependentAnimationsDirtied@CBaseExpression@@IEAAXXZ @ 0x18023B93C (-ForceDependentAnimationsDirtied@CBaseExpression@@IEAAXXZ.c)
+ */
+
 void __fastcall CExpressionManager::FlushPendingTriggeredAnimations(CExpressionManager *this, char a2)
 {
   __int64 v2; // rsi

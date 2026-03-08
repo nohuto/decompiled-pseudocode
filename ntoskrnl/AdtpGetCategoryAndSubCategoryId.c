@@ -1,3 +1,12 @@
+/*
+ * XREFs of AdtpGetCategoryAndSubCategoryId @ 0x14083DB64
+ * Callers:
+ *     AdtpWriteToEtwEx @ 0x14066D560 (AdtpWriteToEtwEx.c)
+ *     AdtpWriteToEtw @ 0x14083D7F0 (AdtpWriteToEtw.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AdtpGetCategoryAndSubCategoryId(int a1, unsigned int *a2, _DWORD *a3)
 {
   unsigned int v3; // r11d

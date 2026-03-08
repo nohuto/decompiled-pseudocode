@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Thread@FxSystemThread@@AEAAXXZ @ 0x1C0089558
+ * Callers:
+ *     ?StaticThreadThunk@FxSystemThread@@CAXPEAX@Z @ 0x1C0089540 (-StaticThreadThunk@FxSystemThread@@CAXPEAX@Z.c)
+ * Callees:
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0006060 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0006094 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall FxSystemThread::Thread(FxSystemThread *this)
 {
   unsigned __int8 v2; // r8

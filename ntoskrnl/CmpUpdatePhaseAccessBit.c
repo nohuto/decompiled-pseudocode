@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpUpdatePhaseAccessBit @ 0x14085A0A4
+ * Callers:
+ *     CmpAcceptBoot @ 0x14079A058 (CmpAcceptBoot.c)
+ * Callees:
+ *     CmpGetNextActiveHive @ 0x1406BD940 (CmpGetNextActiveHive.c)
+ *     CmpTrimHive @ 0x1407317CC (CmpTrimHive.c)
+ *     CmpUpdateReorganizeRegistryValues @ 0x14085A0F4 (CmpUpdateReorganizeRegistryValues.c)
+ */
+
 void CmpUpdatePhaseAccessBit()
 {
   struct _EX_RUNDOWN_REF *i; // rcx

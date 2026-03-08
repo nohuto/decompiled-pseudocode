@@ -1,3 +1,11 @@
+/*
+ * XREFs of UpdatePerUserKeyboardIndicators @ 0x1C00EEEE8
+ * Callers:
+ *     xxxUpdatePerUserSystemParameters @ 0x1C010AFDC (xxxUpdatePerUserSystemParameters.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall UpdatePerUserKeyboardIndicators(__int64 a1)
 {
   __int64 result; // rax

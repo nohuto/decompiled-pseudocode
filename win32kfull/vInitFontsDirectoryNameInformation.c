@@ -1,3 +1,12 @@
+/*
+ * XREFs of vInitFontsDirectoryNameInformation @ 0x1C00BD320
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?bAppendSysDirectory@@YAHPEAGPEBGI@Z @ 0x1C00B9FA4 (-bAppendSysDirectory@@YAHPEAGPEBGI@Z.c)
+ *     ?QueryNameStringFromHandle@@YAJPEAXPEAU_OBJECT_NAME_INFORMATION@@KD@Z @ 0x1C00BC5BC (-QueryNameStringFromHandle@@YAJPEAXPEAU_OBJECT_NAME_INFORMATION@@KD@Z.c)
+ */
+
 int vInitFontsDirectoryNameInformation()
 {
   __int64 v0; // rax

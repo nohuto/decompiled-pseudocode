@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiCoalesceActivePagesIntoFree @ 0x14065AF0C
+ * Callers:
+ *     MiFreeContiguousLargePageRun @ 0x14064780C (MiFreeContiguousLargePageRun.c)
+ *     MiFreeLargeProcessPagesToCache @ 0x140666064 (MiFreeLargeProcessPagesToCache.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MiGetPfnPageSizeIndex @ 0x14034D770 (MiGetPfnPageSizeIndex.c)
+ *     MiLargePagePromote @ 0x14034EC80 (MiLargePagePromote.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiCoalesceActivePagesIntoFree(__int64 a1, __int64 a2, int a3)
 {
   int v3; // r12d

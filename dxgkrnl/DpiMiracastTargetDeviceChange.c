@@ -1,3 +1,16 @@
+/*
+ * XREFs of DpiMiracastTargetDeviceChange @ 0x1C0060710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000B270 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C005FF40 (DpiMiracastReleaseMiracastDeviceContext.c)
+ *     DpiMiracastStopMiracastSessionSync @ 0x1C0060170 (DpiMiracastStopMiracastSessionSync.c)
+ *     DpiMiracastTearDownAssociation @ 0x1C0060BE0 (DpiMiracastTearDownAssociation.c)
+ *     DxgkFreeUnicodeString @ 0x1C020EA5C (DxgkFreeUnicodeString.c)
+ *     DpiMiracastBroadcastDeviceStateChange @ 0x1C0399F0C (DpiMiracastBroadcastDeviceStateChange.c)
+ */
+
 __int64 __fastcall DpiMiracastTargetDeviceChange(char *NotificationStructure, char *Context)
 {
   __int64 v3; // rbp

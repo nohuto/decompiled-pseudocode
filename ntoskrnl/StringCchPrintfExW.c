@@ -1,3 +1,14 @@
+/*
+ * XREFs of StringCchPrintfExW @ 0x14066EC40
+ * Callers:
+ *     AdtpBuildAccessReasonAuditStringInternal @ 0x14066DCEC (AdtpBuildAccessReasonAuditStringInternal.c)
+ *     AdtpBuildStagingReasonAuditStringInternal @ 0x14066E738 (AdtpBuildStagingReasonAuditStringInternal.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     StringExHandleOtherFlagsW @ 0x14055D3D8 (StringExHandleOtherFlagsW.c)
+ *     StringVPrintfWorkerW @ 0x14066EE08 (StringVPrintfWorkerW.c)
+ */
+
 HRESULT StringCchPrintfExW(
         STRSAFE_LPWSTR pszDest,
         size_t cchDest,

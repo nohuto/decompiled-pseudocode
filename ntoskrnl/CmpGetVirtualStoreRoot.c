@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpGetVirtualStoreRoot @ 0x140A16FE4
+ * Callers:
+ *     CmpReplicateKeyToVirtual @ 0x140A17308 (CmpReplicateKeyToVirtual.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     CmpReferenceKeyControlBlock @ 0x14074BF00 (CmpReferenceKeyControlBlock.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     CmpFindKcbInHashEntryByCellIndex @ 0x140A14668 (CmpFindKcbInHashEntryByCellIndex.c)
+ *     CmpGetMappingHiveForString @ 0x140A16EC8 (CmpGetMappingHiveForString.c)
+ *     CmpGetVirtualizationID @ 0x140A1709C (CmpGetVirtualizationID.c)
+ */
+
 __int64 __fastcall CmpGetVirtualStoreRoot(__int64 a1, __int64 *a2, int *a3, ULONG_PTR *a4)
 {
   int VirtualizationID; // esi

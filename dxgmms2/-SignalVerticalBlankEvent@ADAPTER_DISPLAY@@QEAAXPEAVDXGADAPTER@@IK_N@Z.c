@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SignalVerticalBlankEvent@ADAPTER_DISPLAY@@QEAAXPEAVDXGADAPTER@@IK_N@Z @ 0x1C0034D54
+ * Callers:
+ *     ?VidSchiProcessDpcVSyncHwFlipQueue@@YAXPEAU_VIDSCH_VSYNC_COOKIE@@@Z @ 0x1C0049A8C (-VidSchiProcessDpcVSyncHwFlipQueue@@YAXPEAU_VIDSCH_VSYNC_COOKIE@@@Z.c)
+ * Callees:
+ *     ?NumberOfVSyncWaiter@DXGADAPTER@@QEAAKI@Z @ 0x1C000EA94 (-NumberOfVSyncWaiter@DXGADAPTER@@QEAAKI@Z.c)
+ *     ?DecrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z @ 0x1C0034668 (-DecrementVSyncWaiter@DXGADAPTER@@QEAAXI@Z.c)
+ *     McTemplateK0qqqqq_EtwWriteTransfer @ 0x1C0039B2C (McTemplateK0qqqqq_EtwWriteTransfer.c)
+ */
+
 void __fastcall ADAPTER_DISPLAY::SignalVerticalBlankEvent(
         ADAPTER_DISPLAY *this,
         struct DXGADAPTER *a2,

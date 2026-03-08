@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiHyperPage @ 0x1403B6DD0
+ * Callers:
+ *     MiIdentifyPfn @ 0x14025E5D0 (MiIdentifyPfn.c)
+ *     MiActivePageClaimCandidate @ 0x1403B68D8 (MiActivePageClaimCandidate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiHyperPage(__int64 a1)
 {
   unsigned __int64 v1; // r10

@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiCompleteRestrictedImageFault @ 0x14028D690
+ * Callers:
+ *     MiSoftFaultMappedView @ 0x14034A9A0 (MiSoftFaultMappedView.c)
+ * Callees:
+ *     MiLockAndDecrementShareCount @ 0x140210114 (MiLockAndDecrementShareCount.c)
+ *     MiAllocateWsle @ 0x14026D1B0 (MiAllocateWsle.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiGetContainingPageTable @ 0x140289FE0 (MiGetContainingPageTable.c)
+ *     MiStartingOffset @ 0x14028C530 (MiStartingOffset.c)
+ *     PfSnLogPageFault @ 0x14028D4BC (PfSnLogPageFault.c)
+ *     MiQueueCoreWorkingSetEntries @ 0x14028D9D0 (MiQueueCoreWorkingSetEntries.c)
+ *     MiIncreaseUsedPtesCount @ 0x14029F850 (MiIncreaseUsedPtesCount.c)
+ *     MiEmptyDeferredWorkingSetEntries @ 0x1402CFF20 (MiEmptyDeferredWorkingSetEntries.c)
+ *     MiGetSessionIdForVa @ 0x140343520 (MiGetSessionIdForVa.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x1403440B0 (MiReferenceControlAreaFileWithTag.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1403441C0 (ObFastDereferenceObjectDeferDelete.c)
+ *     MiGetUsedPtesHandle @ 0x140346CA0 (MiGetUsedPtesHandle.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 __int64 __fastcall MiCompleteRestrictedImageFault(__int64 a1, unsigned __int64 a2, __int64 *a3, unsigned int a4)
 {
   __int64 *v4; // r15

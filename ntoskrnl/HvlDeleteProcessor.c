@@ -1,3 +1,16 @@
+/*
+ * XREFs of HvlDeleteProcessor @ 0x14093E28C
+ * Callers:
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ * Callees:
+ *     MmUnmapIoSpace @ 0x14029B230 (MmUnmapIoSpace.c)
+ *     HvlpGetRegister64 @ 0x1405468E0 (HvlpGetRegister64.c)
+ *     HvlpSetRegister64 @ 0x140546A30 (HvlpSetRegister64.c)
+ *     HvlpFreeOverlayPages @ 0x140547440 (HvlpFreeOverlayPages.c)
+ *     MmFreeIndependentPages @ 0x14087B250 (MmFreeIndependentPages.c)
+ */
+
 void __fastcall HvlDeleteProcessor(struct _KPRCB *a1)
 {
   void *VirtualApicAssist; // rcx

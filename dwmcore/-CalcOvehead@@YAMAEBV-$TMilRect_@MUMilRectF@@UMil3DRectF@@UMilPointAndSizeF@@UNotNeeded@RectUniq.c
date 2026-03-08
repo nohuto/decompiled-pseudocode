@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CalcOvehead@@YAMAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@0@Z @ 0x1800E9508
+ * Callers:
+ *     ?ShouldMerge@CDirtyRegion@@AEAA_NII@Z @ 0x1800E9494 (-ShouldMerge@CDirtyRegion@@AEAA_NII@Z.c)
+ * Callees:
+ *     ?UnionUnsafe@?$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z @ 0x180040360 (-UnionUnsafe@-$TMilRect@MUMilRectF@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@QEAA_NAEBV1@@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ */
+
 __m128 __fastcall CalcOvehead(__int128 *a1, float *a2)
 {
   __int128 v2; // xmm0

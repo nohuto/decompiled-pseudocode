@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CDriverStoreCopy@@QEAA@XZ @ 0x1C0305C78
+ * Callers:
+ *     ??_GCDriverStoreCopy@@QEAAPEAXI@Z @ 0x1C005A92C (--_GCDriverStoreCopy@@QEAAPEAXI@Z.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ */
+
 void __fastcall CDriverStoreCopy::~CDriverStoreCopy(CDriverStoreCopy *this)
 {
   void *v2; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreSetBitmapBits @ 0x1C0029220
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GreSetBitmapBitsInternal@@YAJPEAUHBITMAP__@@AEAV?$umptr_r@E@@PEAJ@Z @ 0x1C002941C (-GreSetBitmapBitsInternal@@YAJPEAUHBITMAP__@@AEAV-$umptr_r@E@@PEAJ@Z.c)
+ */
+
 __int64 __fastcall GreSetBitmapBits(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
 {
   _QWORD v5[3]; // [rsp+20h] [rbp-28h] BYREF

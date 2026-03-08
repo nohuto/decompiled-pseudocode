@@ -1,3 +1,11 @@
+/*
+ * XREFs of CiConfigQueryTaskFromRegistry @ 0x1C000EC60
+ * Callers:
+ *     CiConfigInitializeFromRegistry @ 0x1C000E8D0 (CiConfigInitializeFromRegistry.c)
+ * Callees:
+ *     CiConfigQueryValue @ 0x1C000ED40 (CiConfigQueryValue.c)
+ */
+
 __int64 __fastcall CiConfigQueryTaskFromRegistry(HANDLE KeyHandle, char *a2, __int64 a3)
 {
   __int64 v3; // rbx

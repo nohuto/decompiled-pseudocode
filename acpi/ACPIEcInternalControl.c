@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIEcInternalControl @ 0x1C0083234
+ * Callers:
+ *     ACPIEcOtherIrpDispatch @ 0x1C00832C0 (ACPIEcOtherIrpDispatch.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIEcConnectHandler @ 0x1C0083850 (ACPIEcConnectHandler.c)
+ *     ACPIEcDisconnectHandler @ 0x1C0083A80 (ACPIEcDisconnectHandler.c)
+ */
+
 __int64 __fastcall ACPIEcInternalControl(ULONG_PTR a1, IRP *a2)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // rbx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopTriggerMonitorPowerEvent @ 0x1407570F8
+ * Callers:
+ *     PopProcessSessionDisplayStateChange @ 0x140757094 (PopProcessSessionDisplayStateChange.c)
+ *     PoTtmInitiatePowerStateTransition @ 0x140994BF8 (PoTtmInitiatePowerStateTransition.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopPowerAggregatorHandleIntent @ 0x140757228 (PopPowerAggregatorHandleIntent.c)
+ *     PopDiagTracePowerStateEvent @ 0x140757410 (PopDiagTracePowerStateEvent.c)
+ */
+
 __int64 __fastcall PopTriggerMonitorPowerEvent(char a1, int a2)
 {
   _DWORD *v3; // r8

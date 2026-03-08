@@ -1,3 +1,40 @@
+/*
+ * XREFs of KiDispatchInterrupt @ 0x140255DA0
+ * Callers:
+ *     KiDpcInterrupt @ 0x14041E8C0 (KiDpcInterrupt.c)
+ *     KiDpcInterruptBypass @ 0x14041EF90 (KiDpcInterruptBypass.c)
+ * Callees:
+ *     KiReadyDeferredReadyList @ 0x140226FA0 (KiReadyDeferredReadyList.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14022BD30 (ObReferenceObjectSafeWithTag.c)
+ *     KiAbProcessThreadLocks @ 0x140239A40 (KiAbProcessThreadLocks.c)
+ *     KiAbDetermineMaxWaiterPriority @ 0x140239E10 (KiAbDetermineMaxWaiterPriority.c)
+ *     KiAbEntryGetLockedHeadEntry @ 0x14024CE30 (KiAbEntryGetLockedHeadEntry.c)
+ *     KiQuantumEnd @ 0x140254F30 (KiQuantumEnd.c)
+ *     KeIsUserVaAccessAllowed @ 0x140256450 (KeIsUserVaAccessAllowed.c)
+ *     KiEndThreadAccountingPeriodEx @ 0x140256710 (KiEndThreadAccountingPeriodEx.c)
+ *     KiQueueReadyThread @ 0x140257C00 (KiQueueReadyThread.c)
+ *     KiAbTryIncrementIoWaiterCounts @ 0x140282B80 (KiAbTryIncrementIoWaiterCounts.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140283390 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x1402ADC48 (KiDeferGroupSchedulingPreemption.c)
+ *     ExGetExtensionTable @ 0x1402C57F0 (ExGetExtensionTable.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     IoBoostThreadIoPriority @ 0x140356FD0 (IoBoostThreadIoPriority.c)
+ *     KiAbIoBoostOwners @ 0x140357CB0 (KiAbIoBoostOwners.c)
+ *     KiAbCpuBoostOwners @ 0x140357DB4 (KiAbCpuBoostOwners.c)
+ *     KiAbSetMinimumThreadPriority @ 0x140357EB4 (KiAbSetMinimumThreadPriority.c)
+ *     KiAbEntryUpdateWaiterTreePosition @ 0x140358150 (KiAbEntryUpdateWaiterTreePosition.c)
+ *     KiAbEntryGetCpuPriorityKey @ 0x14035822C (KiAbEntryGetCpuPriorityKey.c)
+ *     KiAbEntryUpdateOwnerTreePosition @ 0x14035827C (KiAbEntryUpdateOwnerTreePosition.c)
+ *     KiAbOwnerComputeCpuPriorityKey @ 0x140358338 (KiAbOwnerComputeCpuPriorityKey.c)
+ *     KiSwapStacksAndRetireDpcList @ 0x14041F850 (KiSwapStacksAndRetireDpcList.c)
+ *     KiSwapContext @ 0x14041F890 (KiSwapContext.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     VslKernelShadowStackAssist @ 0x140549640 (VslKernelShadowStackAssist.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KiDispatchInterrupt(unsigned __int8 a1, __int64 a2)
 {
   __int16 v3; // r8

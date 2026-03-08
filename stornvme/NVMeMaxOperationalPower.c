@@ -1,3 +1,13 @@
+/*
+ * XREFs of NVMeMaxOperationalPower @ 0x1C000FB54
+ * Callers:
+ *     NVMeHwAdapterControl @ 0x1C0003050 (NVMeHwAdapterControl.c)
+ * Callees:
+ *     NVMePerfStateTransition @ 0x1C000314C (NVMePerfStateTransition.c)
+ *     NVMeGetPowerState @ 0x1C0007C94 (NVMeGetPowerState.c)
+ *     NVMePowerStateGetMaxPower @ 0x1C001055C (NVMePowerStateGetMaxPower.c)
+ */
+
 void __fastcall NVMeMaxOperationalPower(__int64 a1, __int64 a2)
 {
   signed __int8 v4; // r9

@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpAllocatePmcData @ 0x1409E0458
+ * Callers:
+ *     EtwpUpdatePmcCounters @ 0x1409E1F88 (EtwpUpdatePmcCounters.c)
+ *     EtwpUpdatePmcEvents @ 0x1409E20E0 (EtwpUpdatePmcEvents.c)
+ * Callees:
+ *     KeQueryMaximumProcessorCountEx @ 0x1402A7240 (KeQueryMaximumProcessorCountEx.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpAllocatePmcData(__int64 a1)
 {
   ULONG MaximumProcessorCount; // eax

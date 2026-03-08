@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiAssignTopLevelRanges @ 0x140B604AC
+ * Callers:
+ *     MiInitializeSystemVa @ 0x140B60308 (MiInitializeSystemVa.c)
+ * Callees:
+ *     MiHyperSpaceSize @ 0x140222C78 (MiHyperSpaceSize.c)
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiAssignSystemVa @ 0x140B60784 (MiAssignSystemVa.c)
+ *     MiAddSubRegionEntropy @ 0x140B609A8 (MiAddSubRegionEntropy.c)
+ */
+
 __int64 __fastcall MiAssignTopLevelRanges(__int64 a1, _QWORD *a2, __int64 a3)
 {
   __int64 v5; // rdx

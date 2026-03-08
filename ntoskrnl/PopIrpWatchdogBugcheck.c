@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopIrpWatchdogBugcheck @ 0x140580EF4
+ * Callers:
+ *     PopCompleteIrpWatchdog @ 0x1402BB9F4 (PopCompleteIrpWatchdog.c)
+ *     PopDisableIrpWatchdog @ 0x140580BBC (PopDisableIrpWatchdog.c)
+ *     PopIrpWatchdog @ 0x140580EE0 (PopIrpWatchdog.c)
+ * Callees:
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     PopInternalAddToDumpFile @ 0x140580CC0 (PopInternalAddToDumpFile.c)
+ */
+
 void __fastcall __noreturn PopIrpWatchdogBugcheck(__int64 MaxDataSize)
 {
   __int64 v2; // rax

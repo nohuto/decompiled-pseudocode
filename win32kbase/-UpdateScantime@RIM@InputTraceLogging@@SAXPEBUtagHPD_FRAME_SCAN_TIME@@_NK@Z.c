@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?UpdateScantime@RIM@InputTraceLogging@@SAXPEBUtagHPD_FRAME_SCAN_TIME@@_NK@Z @ 0x1C00F0F66
+ * Callers:
+ *     rimSimulatedPointerDeviceScanTime @ 0x1C00F1808 (rimSimulatedPointerDeviceScanTime.c)
+ *     rimExtractScantime @ 0x1C01D7F80 (rimExtractScantime.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U?$_tlgWrapperByVal@$07@@U2@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@3333333333AEBU?$_tlgWrapperByVal@$07@@4@Z @ 0x1C01D31B4 (--$Write@U-$_tlgWrapperByVal@$03@@U1@U1@U1@U1@U1@U1@U1@U1@U1@U1@U-$_tlgWrapperByVal@$07@@U2@@-$_.c)
+ */
+
 void __fastcall InputTraceLogging::RIM::UpdateScantime(const struct tagHPD_FRAME_SCAN_TIME *a1)
 {
   int v1; // r8d

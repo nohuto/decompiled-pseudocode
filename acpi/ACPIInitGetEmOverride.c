@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIInitGetEmOverride @ 0x1C00A8574
+ * Callers:
+ *     DriverEntry @ 0x1C00A7300 (DriverEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 ACPIInitGetEmOverride()
 {
   ULONG ActiveProcessorCount; // eax

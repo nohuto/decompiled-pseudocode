@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopUnregisterPowerSettingCallback @ 0x14058B784
+ * Callers:
+ *     PopDispatchPowerSettingCallbacks @ 0x14068D630 (PopDispatchPowerSettingCallbacks.c)
+ *     PoUnregisterPowerSettingCallback @ 0x140984070 (PoUnregisterPowerSettingCallback.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PopUnregisterPowerSettingCallback(_QWORD *a1)
 {
   _QWORD *v1; // rdx

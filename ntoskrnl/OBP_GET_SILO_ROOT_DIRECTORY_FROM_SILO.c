@@ -1,3 +1,13 @@
+/*
+ * XREFs of OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO @ 0x140299598
+ * Callers:
+ *     ObpLookupObjectName @ 0x1406E86B0 (ObpLookupObjectName.c)
+ *     ObQueryNameStringMode @ 0x14071EE84 (ObQueryNameStringMode.c)
+ *     ObpCreateSymbolicLinkName @ 0x1407612D4 (ObpCreateSymbolicLinkName.c)
+ * Callees:
+ *     <none>
+ */
+
 PVOID __fastcall OBP_GET_SILO_ROOT_DIRECTORY_FROM_SILO(__int64 a1)
 {
   __int64 v1; // rcx

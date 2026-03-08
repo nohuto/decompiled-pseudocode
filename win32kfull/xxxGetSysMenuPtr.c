@@ -1,3 +1,21 @@
+/*
+ * XREFs of xxxGetSysMenuPtr @ 0x1C00A4DFC
+ * Callers:
+ *     xxxMNCanClose @ 0x1C00A4C44 (xxxMNCanClose.c)
+ *     NtUserGetSysMenuOffset @ 0x1C01D4E60 (NtUserGetSysMenuOffset.c)
+ *     xxxHandleNCMouseGuys @ 0x1C02035C0 (xxxHandleNCMouseGuys.c)
+ *     xxxMNLoop @ 0x1C021726C (xxxMNLoop.c)
+ *     xxxGetSysMenu @ 0x1C0224EB0 (xxxGetSysMenu.c)
+ *     xxxSetSysMenu @ 0x1C0224F64 (xxxSetSysMenu.c)
+ *     xxxMNInvertItem @ 0x1C02382C8 (xxxMNInvertItem.c)
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C00A4F34 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
+ *     ?DecrementCountAndTryFree@?$SmartObjStackRefBase@UtagMENU@@@@IEAAXXZ @ 0x1C00A8678 (-DecrementCountAndTryFree@-$SmartObjStackRefBase@UtagMENU@@@@IEAAXXZ.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C00D3DA0 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
+ *     xxxLoadSysDesktopMenu @ 0x1C00E8094 (xxxLoadSysDesktopMenu.c)
+ */
+
 __int64 __fastcall xxxGetSysMenuPtr(_QWORD *a1)
 {
   __int64 ThreadWin32Thread; // rax

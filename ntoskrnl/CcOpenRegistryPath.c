@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcOpenRegistryPath @ 0x1403ACF60
+ * Callers:
+ *     CcSetupWatchForRegistryChanges @ 0x1403ACDFC (CcSetupWatchForRegistryChanges.c)
+ *     CcRegistryChangeCallback @ 0x1403C1550 (CcRegistryChangeCallback.c)
+ * Callees:
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ */
+
 NTSTATUS __fastcall CcOpenRegistryPath(UNICODE_STRING *a1, HANDLE *a2)
 {
   OBJECT_ATTRIBUTES v3; // [rsp+20h] [rbp-38h] BYREF

@@ -1,3 +1,12 @@
+/*
+ * XREFs of Controller_SetLogIdentifier @ 0x1C007541C
+ * Callers:
+ *     Controller_Create @ 0x1C00712C4 (Controller_Create.c)
+ * Callees:
+ *     RtlStringCchPrintfA @ 0x1C000C294 (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ */
+
 void __fastcall Controller_SetLogIdentifier(__int64 a1)
 {
   __int64 v2; // r9

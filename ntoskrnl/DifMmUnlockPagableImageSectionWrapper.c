@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifMmUnlockPagableImageSectionWrapper @ 0x1405E56C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiLockPagableImageSection @ 0x1402252E0 (MiLockPagableImageSection.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 void __fastcall DifMmUnlockPagableImageSectionWrapper(ULONG_PTR BugCheckParameter2)
 {
   __int64 *APIThunkContextById; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of KdpRemoveBreakpoint @ 0x140AB2ABC
+ * Callers:
+ *     KdpLowWriteContent @ 0x140AB29EC (KdpLowWriteContent.c)
+ *     KdpSetOwedBreakpoints @ 0x140AB2B80 (KdpSetOwedBreakpoints.c)
+ * Callees:
+ *     KdpWriteInstructionBuffer @ 0x140565CB4 (KdpWriteInstructionBuffer.c)
+ *     KdpCopyCodeStream @ 0x140AB2660 (KdpCopyCodeStream.c)
+ */
+
 __int64 __fastcall KdpRemoveBreakpoint(__int64 a1, _BYTE *a2)
 {
   __int64 v3; // rax

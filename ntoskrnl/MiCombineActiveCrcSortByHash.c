@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiCombineActiveCrcSortByHash @ 0x1402CEB70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiCombineActiveCrcSortByHash(__int64 *a1, __int64 *a2)
 {
   __int64 v2; // r8

@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiApplyImageHotPatch @ 0x140A326C8
+ * Callers:
+ *     MiApplyImageHotPatchRequest @ 0x140A32920 (MiApplyImageHotPatchRequest.c)
+ * Callees:
+ *     IoAllocateMdl @ 0x14020CAD0 (IoAllocateMdl.c)
+ *     MiLockPagableImageSection @ 0x1402252E0 (MiLockPagableImageSection.c)
+ *     MmUnlockPagableImageSection @ 0x140225D90 (MmUnlockPagableImageSection.c)
+ *     MmProbeAndLockPages @ 0x140267B90 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x14027C0C0 (MmUnlockPages.c)
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     KeGenericCallDpc @ 0x1403008E0 (KeGenericCallDpc.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     RtlApplyHotPatch @ 0x140AAA600 (RtlApplyHotPatch.c)
+ */
+
 __int64 __fastcall MiApplyImageHotPatch(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   struct _MDL *v6; // rdi

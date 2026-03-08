@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpiCmResourceToBiosDma @ 0x1C0093178
+ * Callers:
+ *     PnpCmResourcesToBiosResources @ 0x1C0092820 (PnpCmResourcesToBiosResources.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PnpiCmResourceToBiosDma(__int64 a1, __int64 a2)
 {
   int v3; // eax

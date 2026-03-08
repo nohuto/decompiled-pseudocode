@@ -1,3 +1,36 @@
+/*
+ * XREFs of MiZeroHugeRangeCore @ 0x140A2B20C
+ * Callers:
+ *     MiHugePageOperation @ 0x14061E158 (MiHugePageOperation.c)
+ * Callees:
+ *     KeSetPriorityThread @ 0x1402261B0 (KeSetPriorityThread.c)
+ *     KeQueryPriorityThread @ 0x140240EA0 (KeQueryPriorityThread.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     KeWaitForGate @ 0x1402931D8 (KeWaitForGate.c)
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     KeInitializeGate @ 0x1402A4FEC (KeInitializeGate.c)
+ *     MiInitializeAffinityWalker @ 0x1402A7028 (MiInitializeAffinityWalker.c)
+ *     MiAllocateAcceleratorDescriptor @ 0x1402A9850 (MiAllocateAcceleratorDescriptor.c)
+ *     MiSelectEngine @ 0x1402B4AF8 (MiSelectEngine.c)
+ *     MiInitializeZeroGroup @ 0x1402F4E60 (MiInitializeZeroGroup.c)
+ *     MiGetNextAffinityWalker @ 0x1403B9938 (MiGetNextAffinityWalker.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeClearSystemPriorityThread @ 0x1405746EC (KeClearSystemPriorityThread.c)
+ *     KeSetSystemPriorityThread @ 0x140574720 (KeSetSystemPriorityThread.c)
+ *     MiFreeNextAffinityWalker @ 0x1405B559C (MiFreeNextAffinityWalker.c)
+ *     MiPageToNode @ 0x1406153B0 (MiPageToNode.c)
+ *     MiDereferenceHugeIoRange @ 0x14061D51C (MiDereferenceHugeIoRange.c)
+ *     MiReturnUnusedHugeDescriptors @ 0x1406202D4 (MiReturnUnusedHugeDescriptors.c)
+ *     MiZeroHugeRangeWorker @ 0x140620990 (MiZeroHugeRangeWorker.c)
+ *     MiRestoreIdealProcessorThread @ 0x140664A64 (MiRestoreIdealProcessorThread.c)
+ *     MiSetIdealProcessorThread @ 0x140664A8C (MiSetIdealProcessorThread.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1407DE330 (PsCreateSystemThreadEx.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiZeroHugeRangeCore(unsigned __int16 *a1, __int64 a2, int a3, int a4)
 {
   __int64 v5; // rsi

@@ -1,3 +1,18 @@
+/*
+ * XREFs of RIMRefreshDeviceAttributes @ 0x1C01A7490
+ * Callers:
+ *     ?ProcessInput@CKeyboardSensor@@EEAAJPEAXKK0@Z @ 0x1C000E8C0 (-ProcessInput@CKeyboardSensor@@EEAAJPEAXKK0@Z.c)
+ *     ?FlushMouseReports@CMouseSensor@@AEAAJXZ @ 0x1C00F3B84 (-FlushMouseReports@CMouseSensor@@AEAAJXZ.c)
+ *     ?ProcessInput@CMouseSensor@@EEAAJPEAXKK0@Z @ 0x1C00F3CE0 (-ProcessInput@CMouseSensor@@EEAAJPEAXKK0@Z.c)
+ * Callees:
+ *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0037330 (RawInputManagerDeviceObjectResolveHandle.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     RawInputManagerObjectResolveHandle @ 0x1C0039E60 (RawInputManagerObjectResolveHandle.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     RIMQueryDev @ 0x1C0089258 (RIMQueryDev.c)
+ */
+
 __int64 __fastcall RIMRefreshDeviceAttributes(char *a1, char *a2)
 {
   char *v2; // rdi

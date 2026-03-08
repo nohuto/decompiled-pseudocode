@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExpTimeZoneDpcRoutine @ 0x140603E50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     _local_unwind @ 0x1403D3990 (_local_unwind.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiCustomAccessRoutine8 @ 0x140422BC0 (KiCustomAccessRoutine8.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void __fastcall ExpTimeZoneDpcRoutine(
         struct _KDPC *Dpc,
         PVOID DeferredContext,

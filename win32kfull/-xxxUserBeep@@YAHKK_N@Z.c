@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?xxxUserBeep@@YAHKK_N@Z @ 0x1C01FA214
+ * Callers:
+ *     EditionInitiateMouseEventProcessing @ 0x1C00DB4E0 (EditionInitiateMouseEventProcessing.c)
+ *     ?xxxHandleVolumeUpDownCombo@@YAXXZ @ 0x1C01C1438 (-xxxHandleVolumeUpDownCombo@@YAXXZ.c)
+ *     xxxOldMessageBeep @ 0x1C01F7FE8 (xxxOldMessageBeep.c)
+ *     EditionUserBeep @ 0x1C01FA430 (EditionUserBeep.c)
+ * Callees:
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C003C250 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ *     xxxSoundSentry @ 0x1C01F73D8 (xxxSoundSentry.c)
+ */
+
 __int64 __fastcall xxxUserBeep(unsigned int a1, int a2, char a3)
 {
   unsigned int v3; // ebx

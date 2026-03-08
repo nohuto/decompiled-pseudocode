@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpProfileInterrupt @ 0x1405FBC20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwTraceSiloKernelEvent @ 0x14035EC20 (EtwTraceSiloKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall EtwpProfileInterrupt(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // r9

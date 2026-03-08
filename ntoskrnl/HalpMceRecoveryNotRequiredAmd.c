@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpMceRecoveryNotRequiredAmd @ 0x140516E54
+ * Callers:
+ *     HalpMceRecovery @ 0x1405169E0 (HalpMceRecovery.c)
+ * Callees:
+ *     HalpMemoryErrorDeferredRecovery @ 0x1405174A4 (HalpMemoryErrorDeferredRecovery.c)
+ */
+
 void __fastcall HalpMceRecoveryNotRequiredAmd(__int64 a1)
 {
   __int64 v1; // rdx

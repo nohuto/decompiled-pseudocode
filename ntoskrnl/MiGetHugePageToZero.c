@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiGetHugePageToZero @ 0x1402E41D8
+ * Callers:
+ *     MiZeroLocalPages @ 0x140273BB0 (MiZeroLocalPages.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExAllocatePoolMm @ 0x14034C1AC (ExAllocatePoolMm.c)
+ *     MiUnlinkNodeLargePages @ 0x14034EB80 (MiUnlinkNodeLargePages.c)
+ *     MiGetUltraHugeAlreadyActive @ 0x1403BA8F4 (MiGetUltraHugeAlreadyActive.c)
+ *     MiGetHugeRangeFromNode @ 0x1403BF1C4 (MiGetHugeRangeFromNode.c)
+ *     MiInitializeNewUltraHugeContext @ 0x1403BFBC8 (MiInitializeNewUltraHugeContext.c)
+ *     MiDecrementHugeContext @ 0x1403D0A68 (MiDecrementHugeContext.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiGetHugePageToZero(__int64 a1, __int64 a2)
 {
   unsigned int v3; // ebx

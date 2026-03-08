@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CFrameInfo@@QEAA@XZ @ 0x1800FE7E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 CFrameInfo *__fastcall CFrameInfo::CFrameInfo(CFrameInfo *this)
 {
   LARGE_INTEGER v1; // kr18_8

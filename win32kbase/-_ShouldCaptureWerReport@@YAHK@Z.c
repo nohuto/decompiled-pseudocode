@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_ShouldCaptureWerReport@@YAHK@Z @ 0x1C0169494
+ * Callers:
+ *     NtUserWin32kSysCallFilterStub @ 0x1C017A690 (NtUserWin32kSysCallFilterStub.c)
+ * Callees:
+ *     ?_IsStackThrottled@@YAHXZ @ 0x1C0169440 (-_IsStackThrottled@@YAHXZ.c)
+ */
+
 __int64 __fastcall _ShouldCaptureWerReport(unsigned int a1)
 {
   unsigned int v1; // ebx

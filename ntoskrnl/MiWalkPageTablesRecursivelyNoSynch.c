@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiWalkPageTablesRecursivelyNoSynch @ 0x140389AFC
+ * Callers:
+ *     MiWalkPageTables @ 0x140222CF0 (MiWalkPageTables.c)
+ *     MiWalkPageTablesRecursivelyNoSynch @ 0x140389AFC (MiWalkPageTablesRecursivelyNoSynch.c)
+ * Callees:
+ *     KdCheckForDebugBreak @ 0x1402C7D64 (KdCheckForDebugBreak.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiWalkPageTablesRecursivelyNoSynch @ 0x140389AFC (MiWalkPageTablesRecursivelyNoSynch.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall MiWalkPageTablesRecursivelyNoSynch(__int64 a1, unsigned __int64 a2, int a3)
 {
   unsigned __int64 v3; // rdi

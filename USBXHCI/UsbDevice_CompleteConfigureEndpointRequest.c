@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbDevice_CompleteConfigureEndpointRequest @ 0x1C00085AC
+ * Callers:
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0008958 (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     UsbDevice_HandleUnhandledEventReceivedState @ 0x1C00494D0 (UsbDevice_HandleUnhandledEventReceivedState.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dqqd @ 0x1C000AE8C (WPP_RECORDER_SF_dqqd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     McTemplateK0ppqqqq_EtwWriteTransfer @ 0x1C004B2FC (McTemplateK0ppqqqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall UsbDevice_CompleteConfigureEndpointRequest(__int64 a1, int a2, int a3, int a4)
 {
   __int64 v5; // rsi

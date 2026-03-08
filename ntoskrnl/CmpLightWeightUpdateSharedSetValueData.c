@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpLightWeightUpdateSharedSetValueData @ 0x140A27348
+ * Callers:
+ *     CmpLightWeightPrepareDeleteValueKeyUoW @ 0x140A264CC (CmpLightWeightPrepareDeleteValueKeyUoW.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x140A26E00 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ * Callees:
+ *     CmListGetNextElement @ 0x140AF2008 (CmListGetNextElement.c)
+ */
+
 __int64 __fastcall CmpLightWeightUpdateSharedSetValueData(__int64 a1, __int64 a2)
 {
   __int64 v2; // r10

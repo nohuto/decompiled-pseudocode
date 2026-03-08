@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIEcServiceIoLoop @ 0x1C0002EF0
+ * Callers:
+ *     ACPIEcServiceDevice @ 0x1C0025C50 (ACPIEcServiceDevice.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ACPIEcLogAction @ 0x1C0002D3C (ACPIEcLogAction.c)
+ *     ACPIEcDispatchQueries @ 0x1C0025958 (ACPIEcDispatchQueries.c)
+ *     ACPIEcLogError @ 0x1C0025B98 (ACPIEcLogError.c)
+ */
+
 PVOID *__fastcall ACPIEcServiceIoLoop(__int64 a1)
 {
   ULONG v2; // eax

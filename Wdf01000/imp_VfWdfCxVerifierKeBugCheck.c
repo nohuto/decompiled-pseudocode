@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_VfWdfCxVerifierKeBugCheck @ 0x1C00B3680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall imp_VfWdfCxVerifierKeBugCheck(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         void *Object,

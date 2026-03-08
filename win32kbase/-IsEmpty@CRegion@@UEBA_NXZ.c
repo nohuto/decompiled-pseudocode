@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsEmpty@CRegion@@UEBA_NXZ @ 0x1C00B95F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?iComplexity@RGNCOREOBJ@@QEBAJXZ @ 0x1C004832C (-iComplexity@RGNCOREOBJ@@QEBAJXZ.c)
+ */
+
 bool __fastcall CRegion::IsEmpty(CRegion *this)
 {
   int v1; // edx

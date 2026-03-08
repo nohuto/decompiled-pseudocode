@@ -1,3 +1,11 @@
+/*
+ * XREFs of TRY_ACQUIRE_EXLOCK_SHARED_TO_EXCLUSIVE @ 0x140608DC8
+ * Callers:
+ *     MiInsertLargeVadMapping @ 0x140643BA8 (MiInsertLargeVadMapping.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall TRY_ACQUIRE_EXLOCK_SHARED_TO_EXCLUSIVE(volatile signed __int32 *a1)
 {
   signed __int32 v1; // eax

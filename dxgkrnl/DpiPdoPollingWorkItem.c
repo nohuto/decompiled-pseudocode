@@ -1,3 +1,17 @@
+/*
+ * XREFs of DpiPdoPollingWorkItem @ 0x1C03A50C0
+ * Callers:
+ *     DpiCleanUpGlobalState @ 0x1C03957C0 (DpiCleanUpGlobalState.c)
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     DpiFdoGetChildDescriptor @ 0x1C0015614 (DpiFdoGetChildDescriptor.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ *     DpiFdoPendingCreatePdoCompletion @ 0x1C03961EC (DpiFdoPendingCreatePdoCompletion.c)
+ *     DpiFdoInvalidateChildStatus @ 0x1C0397E60 (DpiFdoInvalidateChildStatus.c)
+ */
+
 void __fastcall DpiPdoPollingWorkItem(PDEVICE_OBJECT DeviceObject, PVOID Context)
 {
   char v2; // r13

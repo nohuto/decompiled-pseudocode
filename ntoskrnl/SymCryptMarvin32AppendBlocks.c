@@ -1,3 +1,12 @@
+/*
+ * XREFs of SymCryptMarvin32AppendBlocks @ 0x1403F05F0
+ * Callers:
+ *     SymCryptMarvin32Append @ 0x1403F052C (SymCryptMarvin32Append.c)
+ *     SymCryptMarvin32Result @ 0x1403F06F8 (SymCryptMarvin32Result.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptMarvin32AppendBlocks(unsigned int *a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

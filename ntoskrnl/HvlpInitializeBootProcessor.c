@@ -1,3 +1,14 @@
+/*
+ * XREFs of HvlpInitializeBootProcessor @ 0x14053ECAC
+ * Callers:
+ *     HvlPhase0Initialize @ 0x14080D7C8 (HvlPhase0Initialize.c)
+ * Callees:
+ *     HvlEnlightenProcessor @ 0x14037F430 (HvlEnlightenProcessor.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvlpMapStatisticsPage @ 0x14053EE40 (HvlpMapStatisticsPage.c)
+ */
+
 __int64 __fastcall HvlpInitializeBootProcessor(__int64 a1)
 {
   __int64 v1; // rbx

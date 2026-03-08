@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??_EIBltQueueVSyncSource@@UEAAPEAXI@Z @ 0x1C006DBF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 IBltQueueVSyncSource *__fastcall IBltQueueVSyncSource::`vector deleting destructor'(
         IBltQueueVSyncSource *this,
         char a2)

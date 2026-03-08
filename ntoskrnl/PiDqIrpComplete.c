@@ -1,3 +1,13 @@
+/*
+ * XREFs of PiDqIrpComplete @ 0x140746C78
+ * Callers:
+ *     PiDqIrpQueryCreate @ 0x140745F08 (PiDqIrpQueryCreate.c)
+ *     PiDqIrpQueryGetResult @ 0x1407480E0 (PiDqIrpQueryGetResult.c)
+ *     PiDqQueryCompletePendedIrp @ 0x1407491B0 (PiDqQueryCompletePendedIrp.c)
+ * Callees:
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ */
+
 void __fastcall PiDqIrpComplete(IRP *a1, int a2, unsigned int a3, _OWORD *a4)
 {
   ULONG_PTR v4; // rax

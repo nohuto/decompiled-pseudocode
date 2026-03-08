@@ -1,3 +1,14 @@
+/*
+ * XREFs of zzzResetSharedDesktops @ 0x1C0096870
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?zzzInternalSetCursorPos@@YAXHHKW4_SetCursorPosReason@@@Z @ 0x1C001DD64 (-zzzInternalSetCursorPos@@YAXHHKW4_SetCursorPosReason@@@Z.c)
+ *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C00519F0 (zzzLockDisplayAreaAndInvalidateDCCache.c)
+ *     CalcVisRgn @ 0x1C00535C0 (CalcVisRgn.c)
+ *     zzzUpdateWindowsAfterModeChange @ 0x1C0097D18 (zzzUpdateWindowsAfterModeChange.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall zzzResetSharedDesktops(__int64 a1, unsigned __int64 a2, unsigned int a3)
 {

@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlCheckOplockEx @ 0x14023ADF0
+ * Callers:
+ *     FsRtlpOplockFsctrlInternal @ 0x1406B3240 (FsRtlpOplockFsctrlInternal.c)
+ * Callees:
+ *     FsRtlCheckOplockEx2 @ 0x14023AE40 (FsRtlCheckOplockEx2.c)
+ */
+
 NTSTATUS __stdcall FsRtlCheckOplockEx(
         POPLOCK Oplock,
         PIRP Irp,

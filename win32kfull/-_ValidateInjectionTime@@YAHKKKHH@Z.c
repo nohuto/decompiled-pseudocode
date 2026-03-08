@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_ValidateInjectionTime@@YAHKKKHH@Z @ 0x1C01B0FBC
+ * Callers:
+ *     xxxInjectTouchInput @ 0x1C01B19B4 (xxxInjectTouchInput.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall _ValidateInjectionTime(int a1, int a2, unsigned int a3, int a4, int a5)
 {
   char result; // al

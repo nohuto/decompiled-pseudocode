@@ -1,3 +1,11 @@
+/*
+ * XREFs of WmipIsEqualInstanceSets @ 0x1407FB788
+ * Callers:
+ *     WmipUpdateModifyGuid @ 0x1407FB638 (WmipUpdateModifyGuid.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall WmipIsEqualInstanceSets(__int64 a1, __int64 a2)
 {
   int v2; // r8d

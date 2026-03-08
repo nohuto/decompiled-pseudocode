@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhExtPropDescSemaphorePresent @ 0x1C0032980
+ * Callers:
+ *     UsbhInstallMsOs20RegistryProperties @ 0x1C003375C (UsbhInstallMsOs20RegistryProperties.c)
+ *     UsbhInstallMsOsExtendedProperties @ 0x1C003383C (UsbhInstallMsOsExtendedProperties.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhGetPdoRegistryParameter @ 0x1C0045000 (UsbhGetPdoRegistryParameter.c)
+ *     UsbhSetPdoRegistryParameter @ 0x1C0046D44 (UsbhSetPdoRegistryParameter.c)
+ */
+
 bool __fastcall UsbhExtPropDescSemaphorePresent(PDEVICE_OBJECT DeviceObject)
 {
   _DWORD *v2; // rbx

@@ -1,3 +1,18 @@
+/*
+ * XREFs of ViPtDeleteAvlTrees @ 0x140ADBBF0
+ * Callers:
+ *     ViPtPluginUnload @ 0x140ADC1B0 (ViPtPluginUnload.c)
+ * Callees:
+ *     RtlDeleteElementGenericTableAvl @ 0x140244F40 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlEnumerateGenericTableAvl @ 0x1402EF150 (RtlEnumerateGenericTableAvl.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ViPtAcquireTreeLockAtDpcLevelSafe @ 0x1405CFEE0 (ViPtAcquireTreeLockAtDpcLevelSafe.c)
+ *     ViPtCleanupLockContext @ 0x1405CFF24 (ViPtCleanupLockContext.c)
+ *     ViPtInitializeLockContext @ 0x1405CFFC0 (ViPtInitializeLockContext.c)
+ *     ViPtRaiseIrqlSafe @ 0x1405CFFD4 (ViPtRaiseIrqlSafe.c)
+ *     ViPtReleaseTreeLockFromDpcLevel @ 0x1405D0044 (ViPtReleaseTreeLockFromDpcLevel.c)
+ */
+
 unsigned __int64 ViPtDeleteAvlTrees()
 {
   PVOID v0; // rax

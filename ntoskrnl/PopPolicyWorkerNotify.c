@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPolicyWorkerNotify @ 0x14078DE30
+ * Callers:
+ *     PopPolicyWorkerThread @ 0x1402F6DE0 (PopPolicyWorkerThread.c)
+ * Callees:
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 PopPolicyWorkerNotify()
 {
   unsigned int v0; // ebx

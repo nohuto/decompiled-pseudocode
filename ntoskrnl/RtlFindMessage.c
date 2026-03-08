@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlFindMessage @ 0x1407E97C0
+ * Callers:
+ *     PiGetDefaultMessageString @ 0x140847760 (PiGetDefaultMessageString.c)
+ *     IopInitializeBootLogging @ 0x140941EE0 (IopInitializeBootLogging.c)
+ *     ExpSystemErrorHandler2 @ 0x140AA7FE0 (ExpSystemErrorHandler2.c)
+ *     ResFwFindMessage @ 0x140AEA0A8 (ResFwFindMessage.c)
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     RtlpFindMessageInTable @ 0x14035CABC (RtlpFindMessageInTable.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     LdrpAccessResourceData @ 0x1407E987C (LdrpAccessResourceData.c)
+ *     LdrpSearchResourceSection_U @ 0x1407E9958 (LdrpSearchResourceSection_U.c)
+ */
+
 __int64 __fastcall RtlFindMessage(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4, unsigned __int16 **a5)
 {
   __int64 result; // rax

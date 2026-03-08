@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopIsLockConsoleTimeoutActive @ 0x140879B20
+ * Callers:
+ *     PopCaptureSleepStudyStatistics @ 0x1403C24C4 (PopCaptureSleepStudyStatistics.c)
+ * Callees:
+ *     PopAcquireAdaptiveLock @ 0x14073CCB4 (PopAcquireAdaptiveLock.c)
+ *     PopReleaseAdaptiveLock @ 0x14073CD60 (PopReleaseAdaptiveLock.c)
+ */
+
 char __fastcall PopIsLockConsoleTimeoutActive(__int64 a1, __int64 a2)
 {
   char v2; // bl

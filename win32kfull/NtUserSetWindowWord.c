@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetWindowWord @ 0x1C01DE890
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?xxxSetWindowWord@@YAGPEAUtagWND@@HG@Z @ 0x1C022FC24 (-xxxSetWindowWord@@YAGPEAUtagWND@@HG@Z.c)
+ */
+
 __int64 __fastcall NtUserSetWindowWord(__int64 a1, int a2, unsigned __int16 a3)
 {
   __int64 v6; // rax

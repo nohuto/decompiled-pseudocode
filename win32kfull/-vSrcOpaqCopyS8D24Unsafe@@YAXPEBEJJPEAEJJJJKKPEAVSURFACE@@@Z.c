@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vSrcOpaqCopyS8D24Unsafe@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z @ 0x1C0275170
+ * Callers:
+ *     ?vSrcOpaqCopyS8D24@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z @ 0x1C02750A0 (-vSrcOpaqCopyS8D24@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z.c)
+ * Callees:
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?pvFillOpaqTableCT@@YAPEAXKKKPEAVSURFACE@@PEAUBLENDINFO@@H@Z @ 0x1C0273D88 (-pvFillOpaqTableCT@@YAPEAXKKKPEAVSURFACE@@PEAUBLENDINFO@@H@Z.c)
+ */
+
 void __fastcall vSrcOpaqCopyS8D24Unsafe(
         const unsigned __int8 *a1,
         int a2,

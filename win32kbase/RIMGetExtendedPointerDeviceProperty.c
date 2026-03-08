@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMGetExtendedPointerDeviceProperty @ 0x1C01C7328
+ * Callers:
+ *     NtUserGetExtendedPointerDeviceProperty @ 0x1C016F820 (NtUserGetExtendedPointerDeviceProperty.c)
+ * Callees:
+ *     ?ValidateProperty@@YAJPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagPOINTER_DEVICE_EXTENDED_PROPERTY@@@Z @ 0x1C01C72DC (-ValidateProperty@@YAJPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagPOINTER_DEVICE_EXTENDED_PROPERTY@@@.c)
+ */
+
 __int64 __fastcall RIMGetExtendedPointerDeviceProperty(
         struct tagHID_POINTER_DEVICE_INFO *a1,
         struct tagPOINTER_DEVICE_EXTENDED_PROPERTY *a2)

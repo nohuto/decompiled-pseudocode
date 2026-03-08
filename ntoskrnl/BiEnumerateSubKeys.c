@@ -1,3 +1,21 @@
+/*
+ * XREFs of BiEnumerateSubKeys @ 0x14082D288
+ * Callers:
+ *     BiOpenSystemStore @ 0x14082CC40 (BiOpenSystemStore.c)
+ *     BiDeleteKey @ 0x14082CF64 (BiDeleteKey.c)
+ *     BiBuildIdentifierList @ 0x14082DD44 (BiBuildIdentifierList.c)
+ *     BiCleanupLoadedStores @ 0x1408311C8 (BiCleanupLoadedStores.c)
+ *     BcdEnumerateObjects @ 0x140A597EC (BcdEnumerateObjects.c)
+ * Callees:
+ *     BiSanitizeHandle @ 0x1402FDDE8 (BiSanitizeHandle.c)
+ *     BiZwEnumerateKey @ 0x1403903B8 (BiZwEnumerateKey.c)
+ *     BiZwQueryKey @ 0x140390458 (BiZwQueryKey.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiEnumerateSubKeys(void *a1, _QWORD *a2, ULONG *a3)
 {
   _QWORD *v3; // rax

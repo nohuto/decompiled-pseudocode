@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SendCompSurfHandle@CRemoteAppRenderTarget@@IEAAJXZ @ 0x1801E89F0
+ * Callers:
+ *     ?CheckOcclusionState@CRemoteAppRenderTarget@@UEAAJXZ @ 0x1801E76E0 (-CheckOcclusionState@CRemoteAppRenderTarget@@UEAAJXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ *     ?SendMetaData@CRemoteAppRenderTarget@@IEBAJAEBU_DWMIndirectMetaData@@@Z @ 0x1801E8A90 (-SendMetaData@CRemoteAppRenderTarget@@IEBAJAEBU_DWMIndirectMetaData@@@Z.c)
+ */
+
 __int64 __fastcall CRemoteAppRenderTarget::SendCompSurfHandle(CRemoteAppRenderTarget *this)
 {
   __int64 v1; // rsi

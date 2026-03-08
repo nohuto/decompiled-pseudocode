@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPluginPrepareDevice @ 0x140291FC8
+ * Callers:
+ *     PoFxPrepareDevice @ 0x140291E3C (PoFxPrepareDevice.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ */
+
 char __fastcall PopPluginPrepareDevice(ULONG_PTR BugCheckParameter3, __int64 a2)
 {
   unsigned __int8 (__fastcall *v2)(_QWORD, __int128 *); // r8

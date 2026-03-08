@@ -1,3 +1,11 @@
+/*
+ * XREFs of SetLogSize @ 0x1C004E6AC
+ * Callers:
+ *     AMLIInitialize @ 0x1C00AAAB0 (AMLIInitialize.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ */
+
 char SetLogSize()
 {
   char v0; // bl

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C000AE80
+ * Callers:
+ *     ?SortMonitorSetIdAndAppendHash@DpiPersistence@@YAJPEAU_UNICODE_STRING@@@Z @ 0x1C01C14E0 (-SortMonitorSetIdAndAppendHash@DpiPersistence@@YAJPEAU_UNICODE_STRING@@@Z.c)
+ *     ?SaveHKCUPathInSessionData@DpiPersistence@@YAJXZ @ 0x1C01C3988 (-SaveHKCUPathInSessionData@DpiPersistence@@YAJXZ.c)
+ *     ?DeleteRegistryKey@DXGADAPTER@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C02B116C (-DeleteRegistryKey@DXGADAPTER@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
+ *     ?DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ @ 0x1C02B14FC (-DeleteRegistryKeys@DXGADAPTER@@QEAAXXZ.c)
+ *     ?AppendSubKeys@DXG_REGISTRY_KEY_LIST@@QEAAJPEAXPEAU_KEY_FULL_INFORMATION@@PEAU_UNICODE_STRING@@@Z @ 0x1C0305D80 (-AppendSubKeys@DXG_REGISTRY_KEY_LIST@@QEAAJPEAXPEAU_KEY_FULL_INFORMATION@@PEAU_UNICODE_STRING@@@.c)
+ * Callees:
+ *     RtlUnicodeStringValidateDestWorker @ 0x1C000AE14 (RtlUnicodeStringValidateDestWorker.c)
+ *     RtlUnicodeStringValidateWorker @ 0x1C000AF44 (RtlUnicodeStringValidateWorker.c)
+ */
+
 __int64 __fastcall RtlUnicodeStringCopy(struct _UNICODE_STRING *a1, const struct _UNICODE_STRING *a2)
 {
   __int16 v3; // bx

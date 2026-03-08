@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlTraceDatabaseEnumerate @ 0x1405AF020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlpTraceDatabaseAcquireLock @ 0x1405AF1B8 (RtlpTraceDatabaseAcquireLock.c)
+ *     RtlpTraceDatabaseReleaseLock @ 0x1405AF498 (RtlpTraceDatabaseReleaseLock.c)
+ */
+
 char __fastcall RtlTraceDatabaseEnumerate(__int64 a1, __int64 a2, _QWORD *a3)
 {
   char v6; // bl

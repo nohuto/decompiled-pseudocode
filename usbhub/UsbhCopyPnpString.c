@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhCopyPnpString @ 0x1C00599F0
+ * Callers:
+ *     UsbhFdoReturnDeviceConfigInfo @ 0x1C0030E68 (UsbhFdoReturnDeviceConfigInfo.c)
+ * Callees:
+ *     memmove @ 0x1C0023580 (memmove.c)
+ */
+
 __int64 __fastcall UsbhCopyPnpString(__int64 a1, __int64 a2)
 {
   void *Pool2; // rax

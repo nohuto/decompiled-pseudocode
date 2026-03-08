@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhValidateStringDescriptor @ 0x1C00530B4
+ * Callers:
+ *     UsbhGetBillboardInfo @ 0x1C0037E7C (UsbhGetBillboardInfo.c)
+ *     UsbhGetLanguageIdString @ 0x1C00503F4 (UsbhGetLanguageIdString.c)
+ *     UsbhGetProductIdString @ 0x1C00507E0 (UsbhGetProductIdString.c)
+ *     UsbhGetSerialNumber @ 0x1C00509A4 (UsbhGetSerialNumber.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ */
+
 char __fastcall UsbhValidateStringDescriptor(__int64 a1, unsigned __int8 *a2, unsigned int a3, _DWORD *a4)
 {
   signed int v4; // eax

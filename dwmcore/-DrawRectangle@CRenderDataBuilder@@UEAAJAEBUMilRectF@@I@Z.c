@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DrawRectangle@CRenderDataBuilder@@UEAAJAEBUMilRectF@@I@Z @ 0x1800F97F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800C3EE0 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
+ */
+
 __int64 __fastcall CRenderDataBuilder::DrawRectangle(CRenderDataBuilder *this, const struct MilRectF *a2, int a3)
 {
   int v6; // eax

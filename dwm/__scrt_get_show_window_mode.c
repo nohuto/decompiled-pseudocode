@@ -1,3 +1,11 @@
+/*
+ * XREFs of __scrt_get_show_window_mode @ 0x140005C1C
+ * Callers:
+ *     __scrt_common_main_seh @ 0x140005350 (__scrt_common_main_seh.c)
+ * Callees:
+ *     memset_0 @ 0x1400063A8 (memset_0.c)
+ */
+
 WORD _scrt_get_show_window_mode()
 {
   WORD result; // ax

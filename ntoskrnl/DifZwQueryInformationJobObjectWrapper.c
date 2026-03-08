@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifZwQueryInformationJobObjectWrapper @ 0x1405F2250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwQueryInformationJobObject @ 0x140414D90 (ZwQueryInformationJobObject.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 __int64 __fastcall DifZwQueryInformationJobObjectWrapper(__int64 a1, unsigned int a2, __int64 a3, int a4, __int64 a5)
 {
   __int64 *APIThunkContextById; // rax

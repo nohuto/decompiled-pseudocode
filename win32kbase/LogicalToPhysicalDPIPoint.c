@@ -1,3 +1,15 @@
+/*
+ * XREFs of LogicalToPhysicalDPIPoint @ 0x1C00C1BB0
+ * Callers:
+ *     TransformPointBetweenCoordinateSpaces @ 0x1C000ACB0 (TransformPointBetweenCoordinateSpaces.c)
+ * Callees:
+ *     Is_MonitorFromPointSupported @ 0x1C003B86C (Is_MonitorFromPointSupported.c)
+ *     ScaleDPIPt @ 0x1C003B898 (ScaleDPIPt.c)
+ *     GetMonitorRectForDpi @ 0x1C003BDD8 (GetMonitorRectForDpi.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C0041AF0 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall LogicalToPhysicalDPIPoint(_DWORD *a1, _QWORD *a2, unsigned int a3, __int64 *a4)
 {
   unsigned int CurrentThreadDpiAwarenessContext; // ebx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpUnblockHiveWrites @ 0x140A10CD4
+ * Callers:
+ *     CmpVEExecuteOpenLogic @ 0x1407B6770 (CmpVEExecuteOpenLogic.c)
+ *     CmpVEExecuteRealStoreParseLogic @ 0x140A17568 (CmpVEExecuteRealStoreParseLogic.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x140A17764 (CmpVEExecuteVirtualStoreParseLogic.c)
+ * Callees:
+ *     CmpGetNextHive @ 0x1406BE36C (CmpGetNextHive.c)
+ *     CmpDeleteHive @ 0x14074C680 (CmpDeleteHive.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x140AF20B4 (HvUnlockHiveFlusherExclusive.c)
+ */
+
 void __fastcall CmpUnblockHiveWrites(volatile signed __int32 *P, int a2, volatile signed __int32 *a3)
 {
   volatile signed __int32 *v5; // rbx

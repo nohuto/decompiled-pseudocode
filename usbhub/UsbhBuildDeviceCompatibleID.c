@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhBuildDeviceCompatibleID @ 0x1C004F8A8
+ * Callers:
+ *     UsbhBuildCompatibleID @ 0x1C004F2B4 (UsbhBuildCompatibleID.c)
+ * Callees:
+ *     UsbhBuildVendorSpecificCompatibleIDs @ 0x1C0022B08 (UsbhBuildVendorSpecificCompatibleIDs.c)
+ *     memmove @ 0x1C0023580 (memmove.c)
+ */
+
 __int64 __fastcall UsbhBuildDeviceCompatibleID(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of KeResumeClockTimerSafe @ 0x14056D3B4
+ * Callers:
+ *     IopLiveDumpProcessCorralStateChange @ 0x140A99280 (IopLiveDumpProcessCorralStateChange.c)
+ *     PnprQuiesceProcessorDpc @ 0x140A9A400 (PnprQuiesceProcessorDpc.c)
+ *     PnprWakeProcessors @ 0x140A9AF9C (PnprWakeProcessors.c)
+ * Callees:
+ *     ObGetCurrentIrql @ 0x140205E10 (ObGetCurrentIrql.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiResumeClockTimer @ 0x14056D878 (KiResumeClockTimer.c)
+ */
+
 __int64 KeResumeClockTimerSafe()
 {
   unsigned __int8 CurrentIrql; // bl

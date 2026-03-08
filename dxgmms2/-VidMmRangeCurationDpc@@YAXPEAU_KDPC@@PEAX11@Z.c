@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidMmRangeCurationDpc@@YAXPEAU_KDPC@@PEAX11@Z @ 0x1C00170F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VidMmRangeCurationDpc(
         struct _KDPC *Dpc,
         PVOID DeferredContext,

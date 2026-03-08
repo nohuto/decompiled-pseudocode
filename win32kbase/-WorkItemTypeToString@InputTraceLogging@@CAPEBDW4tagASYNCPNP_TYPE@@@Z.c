@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?WorkItemTypeToString@InputTraceLogging@@CAPEBDW4tagASYNCPNP_TYPE@@@Z @ 0x1C01A144C
+ * Callers:
+ *     RIMQueueAndSignalAsyncPnpWorkItem @ 0x1C00376B0 (RIMQueueAndSignalAsyncPnpWorkItem.c)
+ *     RIMOnAsyncPnpWorkNotification @ 0x1C0038B90 (RIMOnAsyncPnpWorkNotification.c)
+ *     RIMFreeAsyncPnpWorkItem @ 0x1C003A278 (RIMFreeAsyncPnpWorkItem.c)
+ * Callees:
+ *     <none>
+ */
+
 const char *__fastcall InputTraceLogging::WorkItemTypeToString(int a1)
 {
   int v1; // ecx

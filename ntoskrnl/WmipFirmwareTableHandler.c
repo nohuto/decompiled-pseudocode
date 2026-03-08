@@ -1,3 +1,13 @@
+/*
+ * XREFs of WmipFirmwareTableHandler @ 0x1405F9920
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     MmUnmapIoSpace @ 0x14029B230 (MmUnmapIoSpace.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall WmipFirmwareTableHandler(_DWORD *a1)
 {
   unsigned int v1; // edi

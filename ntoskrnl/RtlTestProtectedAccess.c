@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlTestProtectedAccess @ 0x14070C7FC
+ * Callers:
+ *     PopBlackBoxUpdate @ 0x14068BFB0 (PopBlackBoxUpdate.c)
+ *     NtSetInformationThread @ 0x1406D8E90 (NtSetInformationThread.c)
+ *     PspCheckForInvalidAccessByProtection @ 0x14070C7CC (PspCheckForInvalidAccessByProtection.c)
+ *     PspGetProcessProtectionRequirementsFromImage @ 0x14070D5FC (PspGetProcessProtectionRequirementsFromImage.c)
+ *     PspValidateCreateProcessProtection @ 0x14070D630 (PspValidateCreateProcessProtection.c)
+ *     EtwCheckSecurityLoggerAccess @ 0x140748A78 (EtwCheckSecurityLoggerAccess.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 __fastcall RtlTestProtectedAccess(unsigned __int8 a1, unsigned __int8 a2)
 {
   int v3; // eax

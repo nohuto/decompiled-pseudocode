@@ -1,3 +1,12 @@
+/*
+ * XREFs of IcUpdateControllers @ 0x1C009F79C
+ * Callers:
+ *     IrqArbpPrepareForTestOrConflict @ 0x1C009E4D0 (IrqArbpPrepareForTestOrConflict.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ */
+
 void IcUpdateControllers()
 {
   __int64 i; // rbx

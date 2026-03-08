@@ -1,3 +1,26 @@
+/*
+ * XREFs of MmPrefetchVirtualMemory @ 0x14067E690
+ * Callers:
+ *     MiProcessWsInSwapRanges @ 0x140200438 (MiProcessWsInSwapRanges.c)
+ *     MmPrefetchVirtualAddresses @ 0x14067E600 (MmPrefetchVirtualAddresses.c)
+ *     PfpPrefetchPrivatePages @ 0x14097B268 (PfpPrefetchPrivatePages.c)
+ *     ExpDebuggerWorker @ 0x140AAED30 (ExpDebuggerWorker.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     MmDetachSession @ 0x1402EA460 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1402EA500 (MmAttachSession.c)
+ *     ObIsKernelHandle @ 0x140303080 (ObIsKernelHandle.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     MiPrefetchVirtualMemory @ 0x140363970 (MiPrefetchVirtualMemory.c)
+ *     MiGetSessionVm @ 0x14036C17C (MiGetSessionVm.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiLockAndSelectSessionAttachProcess @ 0x14062F6C4 (MiLockAndSelectSessionAttachProcess.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406D8E50 (ObReferenceObjectByHandleWithTag.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 NTSTATUS __fastcall MmPrefetchVirtualMemory(char *Handle, unsigned __int64 a2, __int64 a3, int a4)
 {
   int v4; // ebx

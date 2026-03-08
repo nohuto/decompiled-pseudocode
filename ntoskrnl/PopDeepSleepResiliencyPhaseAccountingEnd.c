@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopDeepSleepResiliencyPhaseAccountingEnd @ 0x14059626C
+ * Callers:
+ *     PopDeepSleepResiliencyPhaseAccountingUpdate @ 0x1402BBC88 (PopDeepSleepResiliencyPhaseAccountingUpdate.c)
+ *     PdcPoCurrentPdcPhase @ 0x140597320 (PdcPoCurrentPdcPhase.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 LARGE_INTEGER __fastcall PopDeepSleepResiliencyPhaseAccountingEnd(unsigned int a1, char a2)
 {
   KIRQL v2; // di

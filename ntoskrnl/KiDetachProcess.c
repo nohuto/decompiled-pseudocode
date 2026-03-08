@@ -1,3 +1,20 @@
+/*
+ * XREFs of KiDetachProcess @ 0x14030E460
+ * Callers:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KeDetachProcess @ 0x1402FEBA0 (KeDetachProcess.c)
+ * Callees:
+ *     HalRequestSoftwareInterrupt @ 0x140230830 (HalRequestSoftwareInterrupt.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiMoveApcState @ 0x14030E330 (KiMoveApcState.c)
+ *     KiSetAddressPolicy @ 0x14030E890 (KiSetAddressPolicy.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeBugCheck @ 0x140415FE0 (KeBugCheck.c)
+ *     HvlSwitchVirtualAddressSpace @ 0x140547490 (HvlSwitchVirtualAddressSpace.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 __fastcall KiDetachProcess(__int64 *a1, char a2, _DWORD *SchedulerAssist, __int64 a4)
 {
   __int64 v4; // r11

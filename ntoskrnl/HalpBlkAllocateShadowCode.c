@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpBlkAllocateShadowCode @ 0x140B8EB3C
+ * Callers:
+ *     HalpBlkInitializeVirtualAddressSpace @ 0x140B8ECAC (HalpBlkInitializeVirtualAddressSpace.c)
+ * Callees:
+ *     HalpBlkAddVirtualMapping @ 0x140B8E880 (HalpBlkAddVirtualMapping.c)
+ *     HalpBlkAllocateShadowCodePages @ 0x140B8EBC4 (HalpBlkAllocateShadowCodePages.c)
+ */
+
 __int64 HalpBlkAllocateShadowCode()
 {
   __int64 result; // rax

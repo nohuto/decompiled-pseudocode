@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??GD2DMatrix@@QEBA?AU0@XZ @ 0x18027972C
+ * Callers:
+ *     ?Negate@CExpressionValueStack@@QEAAJXZ @ 0x1800BFE98 (-Negate@CExpressionValueStack@@QEAAJXZ.c)
+ * Callees:
+ *     ??0D2DMatrix@@QEAA@MMMMMMMMMMMMMMMM@Z @ 0x180279304 (--0D2DMatrix@@QEAA@MMMMMMMMMMMMMMMM@Z.c)
+ */
+
 D2DMatrix *__fastcall D2DMatrix::operator-(_DWORD *a1, D2DMatrix *a2)
 {
   D2DMatrix::D2DMatrix(

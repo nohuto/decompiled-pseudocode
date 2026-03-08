@@ -1,3 +1,15 @@
+/*
+ * XREFs of McTemplateK0pppnnn_EtwWriteTransfer @ 0x1C004B00C
+ * Callers:
+ *     Etw_EndpointCreate @ 0x1C000B79C (Etw_EndpointCreate.c)
+ *     Etw_EndpointListRundown @ 0x1C0010060 (Etw_EndpointListRundown.c)
+ *     Endpoint_EvaluateContextCompletion @ 0x1C001B8D0 (Endpoint_EvaluateContextCompletion.c)
+ *     Etw_EndpointDelete @ 0x1C004AC80 (Etw_EndpointDelete.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0022498 (McGenEventWrite_EtwWriteTransfer.c)
+ */
+
 NTSTATUS McTemplateK0pppnnn_EtwWriteTransfer(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,

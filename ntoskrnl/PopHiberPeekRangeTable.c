@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopHiberPeekRangeTable @ 0x140AA0170
+ * Callers:
+ *     ConsumerPeekAndConsumeBuffer @ 0x140A9E684 (ConsumerPeekAndConsumeBuffer.c)
+ * Callees:
+ *     PopReadProducerConsumerBuffer @ 0x140AA08AC (PopReadProducerConsumerBuffer.c)
+ */
+
 __int64 __fastcall PopHiberPeekRangeTable(int a1, int a2, __int64 a3)
 {
   _DWORD *ProducerConsumerBuffer; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopIsStandardFsctlIoControlCode @ 0x14055366C
+ * Callers:
+ *     IopXxxControlFile @ 0x1407C1720 (IopXxxControlFile.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall IopIsStandardFsctlIoControlCode(unsigned int a1)
 {
   unsigned int v1; // ecx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiAttachSessionGlobal @ 0x1402D509C
+ * Callers:
+ *     MiAttachWorkingSet @ 0x1402D4FE4 (MiAttachWorkingSet.c)
+ *     MiAttachToSessionForBaseImage @ 0x14063F7A4 (MiAttachToSessionForBaseImage.c)
+ *     MiActOnPatchInAllSessions @ 0x140A31950 (MiActOnPatchInAllSessions.c)
+ * Callees:
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiCompareTbFlushTimeStamp @ 0x1402D5158 (MiCompareTbFlushTimeStamp.c)
+ *     MiAttachSingleProcessThreadToSession @ 0x1402D51CC (MiAttachSingleProcessThreadToSession.c)
+ *     KeFlushTb @ 0x140323CB0 (KeFlushTb.c)
+ */
+
 char __fastcall MiAttachSessionGlobal(__int64 a1, unsigned int a2)
 {
   struct _KTHREAD *CurrentThread; // rbx

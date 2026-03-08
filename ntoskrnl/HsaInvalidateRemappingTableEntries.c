@@ -1,3 +1,13 @@
+/*
+ * XREFs of HsaInvalidateRemappingTableEntries @ 0x14052E114
+ * Callers:
+ *     HsaInvalidateRemappingTableEntry @ 0x14052E190 (HsaInvalidateRemappingTableEntry.c)
+ *     HsaUpdateRemappingDestination @ 0x14052EC90 (HsaUpdateRemappingDestination.c)
+ *     HsaUpdateRemappingTableInDeviceTableEntry @ 0x14052F02C (HsaUpdateRemappingTableInDeviceTableEntry.c)
+ * Callees:
+ *     HsaIommuSendCommand @ 0x14052E1A8 (HsaIommuSendCommand.c)
+ */
+
 __int64 __fastcall HsaInvalidateRemappingTableEntries(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

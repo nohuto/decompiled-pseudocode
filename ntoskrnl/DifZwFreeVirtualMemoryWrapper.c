@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifZwFreeVirtualMemoryWrapper @ 0x1405EE4F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwFreeVirtualMemory @ 0x1404126D0 (ZwFreeVirtualMemory.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifZwFreeVirtualMemoryWrapper(
         HANDLE ProcessHandle,
         PVOID *BaseAddress,

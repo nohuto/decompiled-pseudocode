@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ProcessRemoveComposition@CHolographicClient@@AEAAXPEAUIUnknown@@@Z @ 0x1802AA608
+ * Callers:
+ *     ?ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z @ 0x1802AA1A4 (-ProcessMessage@CHolographicClient@@AEAAXIPEAUIUnknown@@PEAX111@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?UninitializeResources@CHolographicClient@@AEAAXXZ @ 0x1802AAF3C (-UninitializeResources@CHolographicClient@@AEAAXXZ.c)
+ */
+
 void __fastcall CHolographicClient::ProcessRemoveComposition(CHolographicClient *this, struct IUnknown *a2)
 {
   struct IUnknownVtbl *lpVtbl; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CManipulationTransformMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00BCED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CManipulationTransformMarshaler::SetBufferProperty(
         DirectComposition::CManipulationTransformMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

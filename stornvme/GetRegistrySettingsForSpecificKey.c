@@ -1,3 +1,14 @@
+/*
+ * XREFs of GetRegistrySettingsForSpecificKey @ 0x1C00276D0
+ * Callers:
+ *     NVMeControllerValidateFirmwareActivateCapability @ 0x1C0014EF0 (NVMeControllerValidateFirmwareActivateCapability.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003260 (__security_check_cookie.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     ReadMultiSzRegistryValueAndCompareId @ 0x1C0027934 (ReadMultiSzRegistryValueAndCompareId.c)
+ *     UlongToHex @ 0x1C0027B00 (UlongToHex.c)
+ */
+
 __int64 __fastcall GetRegistrySettingsForSpecificKey(__int64 a1)
 {
   bool v1; // zf

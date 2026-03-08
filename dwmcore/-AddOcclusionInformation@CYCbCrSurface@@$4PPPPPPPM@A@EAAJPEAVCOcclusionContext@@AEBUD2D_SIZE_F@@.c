@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AddOcclusionInformation@CYCbCrSurface@@$4PPPPPPPM@A@EAAJPEAVCOcclusionContext@@AEBUD2D_SIZE_F@@@Z @ 0x180117CD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CYCbCrSurface::AddOcclusionInformation(
         __int64 a1,
         struct COcclusionContext *a2,

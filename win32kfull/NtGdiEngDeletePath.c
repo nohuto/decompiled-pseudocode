@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtGdiEngDeletePath @ 0x1C02CBE60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00D1B64 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     EngDeletePath @ 0x1C014D9C0 (EngDeletePath.c)
+ */
+
 __int64 __fastcall NtGdiEngDeletePath(__int64 a1)
 {
   struct _W32THREAD *ThreadWin32Thread; // rax

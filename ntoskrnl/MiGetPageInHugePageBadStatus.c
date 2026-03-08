@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiGetPageInHugePageBadStatus @ 0x14061DAC4
+ * Callers:
+ *     MiUpdateBadPfnIdentity @ 0x140628ED0 (MiUpdateBadPfnIdentity.c)
+ *     MmGetPageBadStatus @ 0x140629080 (MmGetPageBadStatus.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiIsPageInHugePfn @ 0x14029C30C (MiIsPageInHugePfn.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockHugePfn @ 0x14061EFAC (MiLockHugePfn.c)
+ */
+
 __int64 __fastcall MiGetPageInHugePageBadStatus(unsigned __int64 a1, __int64 a2, _DWORD *a3)
 {
   int v5; // eax

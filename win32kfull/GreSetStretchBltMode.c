@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreSetStretchBltMode @ 0x1C01139E4
+ * Callers:
+ *     BltIcon @ 0x1C011375C (BltIcon.c)
+ * Callees:
+ *     ?vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z @ 0x1C0050964 (-vLock@XDCOBJ@@IEAAXPEAUHDC__@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ */
+
 __int64 __fastcall GreSetStretchBltMode(HDC a1, int a2)
 {
   unsigned int v2; // ebx

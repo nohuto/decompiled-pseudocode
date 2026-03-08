@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?BltLnkSrcCopyMsk1@@YAXPEAUBLTINFO@@PEAU_BLTLNK_MASKINFO@@PEAK2@Z @ 0x1C0306E10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?BltLnkReadPat1@@YAXPEAEKPEBEKKKK@Z @ 0x1C0306910 (-BltLnkReadPat1@@YAXPEAEKPEBEKKKK@Z.c)
+ */
+
 void __fastcall BltLnkSrcCopyMsk1(
         struct BLTINFO *a1,
         struct _BLTLNK_MASKINFO *a2,

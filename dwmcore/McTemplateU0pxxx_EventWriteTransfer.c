@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0pxxx_EventWriteTransfer @ 0x18026A7A4
+ * Callers:
+ *     ?CommitRecordedStatistics@CCompositionSwapchainStatistics@@UEAAJXZ @ 0x18026A1E0 (-CommitRecordedStatistics@CCompositionSwapchainStatistics@@UEAAJXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 ULONG McTemplateU0pxxx_EventWriteTransfer(__int64 a1, __int64 a2, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v3; // [rsp+38h] [rbp-19h] BYREF

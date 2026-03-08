@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiCreateBitmap @ 0x1C00D03A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?init_probe@?$umptr_r@E@@SA?AV1@PEAE_K1@Z @ 0x1C008D8A4 (-init_probe@-$umptr_r@E@@SA-AV1@PEAE_K1@Z.c)
+ */
+
 __int64 __fastcall NtGdiCreateBitmap(
         unsigned int a1,
         unsigned int a2,

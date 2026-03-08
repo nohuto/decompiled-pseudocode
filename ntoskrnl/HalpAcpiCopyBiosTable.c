@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpAcpiCopyBiosTable @ 0x14037AA9C
+ * Callers:
+ *     HalpAcpiGetRsdt @ 0x14029C328 (HalpAcpiGetRsdt.c)
+ *     HalpAcpiGetTableWork @ 0x14029C5D0 (HalpAcpiGetTableWork.c)
+ *     HalpAcpiGetAllTablesWork @ 0x14037A8C8 (HalpAcpiGetAllTablesWork.c)
+ *     HalpAcpiTableCacheInit @ 0x140B3DDE0 (HalpAcpiTableCacheInit.c)
+ * Callees:
+ *     HalpAcpiAllocateMemory @ 0x14037AB24 (HalpAcpiAllocateMemory.c)
+ *     HalpAcpiValidateAcpiTable @ 0x14037ABA0 (HalpAcpiValidateAcpiTable.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 char *__fastcall HalpAcpiCopyBiosTable(__int64 a1, unsigned int *a2, __int64 a3)
 {
   unsigned int v4; // esi

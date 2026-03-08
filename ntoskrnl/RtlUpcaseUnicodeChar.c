@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlUpcaseUnicodeChar @ 0x1406EA4F0
+ * Callers:
+ *     AuthzBasepUnicodeStringFromOperandValue @ 0x140365960 (AuthzBasepUnicodeStringFromOperandValue.c)
+ *     towupper @ 0x1403D5C50 (towupper.c)
+ *     ObpUseSystemDeviceMap @ 0x14067CA7C (ObpUseSystemDeviceMap.c)
+ *     PfpRpFileKeyUpdate @ 0x140702E20 (PfpRpFileKeyUpdate.c)
+ *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x140737F24 (VrpFindDiffHiveEntryForMountPointWithLock.c)
+ *     VrpAllocateDiffHiveEntry @ 0x140738368 (VrpAllocateDiffHiveEntry.c)
+ *     VfUtilPrintCheckinString @ 0x140ABF804 (VfUtilPrintCheckinString.c)
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ */
+
 WCHAR __stdcall RtlUpcaseUnicodeChar(WCHAR SourceCharacter)
 {
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax

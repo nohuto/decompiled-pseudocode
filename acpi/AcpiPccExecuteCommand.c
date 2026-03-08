@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiPccExecuteCommand @ 0x1C0089A00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcpiPccExecuteCommandAsync @ 0x1C0033FB0 (AcpiPccExecuteCommandAsync.c)
+ */
+
 __int64 __fastcall AcpiPccExecuteCommand(char *DeferredContext, char a2)
 {
   __int64 result; // rax

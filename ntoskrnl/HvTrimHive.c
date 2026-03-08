@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvTrimHive @ 0x14085BB7C
+ * Callers:
+ *     CmpTrimHive @ 0x1407317CC (CmpTrimHive.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiDeprioritizeVirtualAddresses @ 0x14062B2BC (MiDeprioritizeVirtualAddresses.c)
+ *     HvpGetCellMap @ 0x140AF2670 (HvpGetCellMap.c)
+ */
+
 void __fastcall HvTrimHive(__int64 a1, unsigned int a2, unsigned int a3)
 {
   unsigned int v4; // ebx

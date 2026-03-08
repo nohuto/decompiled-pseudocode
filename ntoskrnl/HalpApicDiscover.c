@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpApicDiscover @ 0x140375E78
+ * Callers:
+ *     HalpInitializeInterrupts @ 0x140B3D448 (HalpInitializeInterrupts.c)
+ * Callees:
+ *     HalpApicSetupRegisterAccess @ 0x14037301C (HalpApicSetupRegisterAccess.c)
+ *     HalSocGetAcpiTable @ 0x14037601C (HalSocGetAcpiTable.c)
+ *     HalRegisterPermanentAddressUsage @ 0x14037C950 (HalRegisterPermanentAddressUsage.c)
+ *     HalpApicRegisterIoUnit @ 0x1403A8208 (HalpApicRegisterIoUnit.c)
+ */
+
 int HalpApicDiscover()
 {
   __int64 AcpiTable; // rbx

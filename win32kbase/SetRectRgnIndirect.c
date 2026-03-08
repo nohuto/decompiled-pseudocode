@@ -1,3 +1,13 @@
+/*
+ * XREFs of SetRectRgnIndirect @ 0x1C0051A40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?vSet@RGNCOREOBJ@@QEAAXQEBU_RECTL@@@Z @ 0x1C0051B70 (-vSet@RGNCOREOBJ@@QEAAXQEBU_RECTL@@@Z.c)
+ *     ?UpdateUserRgn@RGNOBJ@@QEAAXXZ @ 0x1C0051CB0 (-UpdateUserRgn@RGNOBJ@@QEAAXXZ.c)
+ *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00DE3A0 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
+ */
+
 __int64 __fastcall SetRectRgnIndirect(HRGN a1, LONG *a2)
 {
   LONG v2; // esi

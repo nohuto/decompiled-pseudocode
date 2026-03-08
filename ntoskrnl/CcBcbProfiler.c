@@ -1,3 +1,17 @@
+/*
+ * XREFs of CcBcbProfiler @ 0x1403DD7C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetCoalescableTimer @ 0x140250440 (KeSetCoalescableTimer.c)
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     KeExitRetpoline @ 0x1402E3E6C (KeExitRetpoline.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140305AB0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     CcAdjustBcbDepth @ 0x140422F00 (CcAdjustBcbDepth.c)
+ *     VslVerifyPage @ 0x14054A880 (VslVerifyPage.c)
+ */
+
 void __fastcall CcBcbProfiler(__int64 a1, __int64 a2)
 {
   __int64 v3; // r8

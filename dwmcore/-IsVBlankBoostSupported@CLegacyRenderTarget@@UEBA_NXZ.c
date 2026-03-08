@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsVBlankBoostSupported@CLegacyRenderTarget@@UEBA_NXZ @ 0x180103C30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CLegacyRenderTarget::IsVBlankBoostSupported(CLegacyRenderTarget *this)
 {
   __int64 v1; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmIdleDefaultExecute @ 0x14038FA50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalProcessorIdle @ 0x140411C30 (HalProcessorIdle.c)
+ */
+
 __int64 __fastcall PpmIdleDefaultExecute(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
 {
   if ( a5 )

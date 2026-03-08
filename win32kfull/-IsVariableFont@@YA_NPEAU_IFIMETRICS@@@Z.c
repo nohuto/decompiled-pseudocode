@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?IsVariableFont@@YA_NPEAU_IFIMETRICS@@@Z @ 0x1C0115CAC
+ * Callers:
+ *     cjCopyFontDataW @ 0x1C0004330 (cjCopyFontDataW.c)
+ *     vIFIMetricsToEnumLogFontExDvW @ 0x1C00BA744 (vIFIMetricsToEnumLogFontExDvW.c)
+ *     ?GetRealizationInfo@RFONTOBJ@@QEAAHPEAUtagFONT_REALIZATION_INFO2@@@Z @ 0x1C0112704 (-GetRealizationInfo@RFONTOBJ@@QEAAHPEAUtagFONT_REALIZATION_INFO2@@@Z.c)
+ *     ?dpNtmi@PFEOBJ@@QEAAKXZ @ 0x1C0115C50 (-dpNtmi@PFEOBJ@@QEAAKXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall IsVariableFont(struct _IFIMETRICS *a1)
 {
   __int64 dpwszStyleName; // rdx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MmEnoughMemoryForWrite @ 0x1403637E0
+ * Callers:
+ *     CcCanIWriteStreamEx @ 0x140363460 (CcCanIWriteStreamEx.c)
+ * Callees:
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiLockSectionControlArea @ 0x1403638A8 (MiLockSectionControlArea.c)
+ *     MiSufficientAvailablePages @ 0x1403643E4 (MiSufficientAvailablePages.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall MmEnoughMemoryForWrite(__int64 a1)
 {
   __int64 v1; // rbp

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetClipILIndexFromName@@YAIPEAGI@Z @ 0x1C01FEC34
+ * Callers:
+ *     InitClipboardILDef @ 0x1C012BCF0 (InitClipboardILDef.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetClipILIndexFromName(wchar_t *Str2, unsigned int a2)
 {
   unsigned int v2; // ebx

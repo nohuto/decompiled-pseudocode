@@ -1,3 +1,14 @@
+/*
+ * XREFs of CheckDesktopPolicy @ 0x1C0017BD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlLoadStringOrError @ 0x1C0018EE0 (RtlLoadStringOrError.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     OpenCacheKeyEx @ 0x1C00760E0 (OpenCacheKeyEx.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall CheckDesktopPolicy(PCUNICODE_STRING Source, PCWSTR SourceString)
 {
   void *v5; // rsi

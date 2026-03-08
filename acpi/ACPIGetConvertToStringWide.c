@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIGetConvertToStringWide @ 0x1C002A974
+ * Callers:
+ *     ACPIGetConvertToSerialIDWide @ 0x1C002A834 (ACPIGetConvertToSerialIDWide.c)
+ *     ACPIGetConvertToString @ 0x1C002A908 (ACPIGetConvertToString.c)
+ *     ACPIGetWorkerForString @ 0x1C002B860 (ACPIGetWorkerForString.c)
+ * Callees:
+ *     RtlStringCchPrintfA @ 0x1C000B5D8 (RtlStringCchPrintfA.c)
+ *     ACPIAnsiStringToWideHelper @ 0x1C00438EC (ACPIAnsiStringToWideHelper.c)
+ */
+
 __int64 __fastcall ACPIGetConvertToStringWide(__int64 a1, int a2, __int64 a3, int a4, char **a5, _DWORD *a6)
 {
   __int64 v8; // rbx

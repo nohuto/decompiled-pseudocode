@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpRemoveUCRBlock @ 0x1405ABC2C
+ * Callers:
+ *     RtlpDeCommitFreeBlock @ 0x1405AA41C (RtlpDeCommitFreeBlock.c)
+ *     RtlpFindAndCommitPages @ 0x1405AAC2C (RtlpFindAndCommitPages.c)
+ * Callees:
+ *     RtlpLogHeapFailure @ 0x1405B2884 (RtlpLogHeapFailure.c)
+ */
+
 __int64 __fastcall RtlpRemoveUCRBlock(__int64 a1, __int64 *a2)
 {
   _QWORD *v2; // r8

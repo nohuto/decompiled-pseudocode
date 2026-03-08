@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ResolveHandleForWrite@FlipManagerTokenObject@@SAJPEAXPEAPEAU1@@Z @ 0x1C007A124
+ * Callers:
+ *     ?NotifyPendingFlipManagerPresent@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z @ 0x1C0079B08 (-NotifyPendingFlipManagerPresent@@YAJHPEAU_D3DKMT_PRESENTHISTORYTOKEN@@@Z.c)
+ * Callees:
+ *     ?ResolveHandle@DxgkCompositionObject@@SAJPEAXKDW4DxgkCompositionObjectType@@PEAPEAV1@@Z @ 0x1C000D828 (-ResolveHandle@DxgkCompositionObject@@SAJPEAXKDW4DxgkCompositionObjectType@@PEAPEAV1@@Z.c)
+ */
+
 __int64 __fastcall FlipManagerTokenObject::ResolveHandleForWrite(void *a1, struct FlipManagerTokenObject **a2)
 {
   __int64 result; // rax

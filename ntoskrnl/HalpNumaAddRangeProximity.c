@@ -1,3 +1,22 @@
+/*
+ * XREFs of HalpNumaAddRangeProximity @ 0x140518980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     HalpNumaQueryProximityNode @ 0x1403B0AE0 (HalpNumaQueryProximityNode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     HalpCheckSratMemoryRanges @ 0x140518788 (HalpCheckSratMemoryRanges.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpNumaAddRangeProximity(unsigned __int64 a1, __int64 a2, int a3)
 {
   int ProximityNode; // edi

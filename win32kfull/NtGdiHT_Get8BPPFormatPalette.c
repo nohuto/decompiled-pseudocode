@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiHT_Get8BPPFormatPalette @ 0x1C02CF0F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HT_Get8BPPFormatPalette @ 0x1C0252D80 (HT_Get8BPPFormatPalette.c)
+ *     ?bSafeCopyBits@@YAHPEAX0K@Z @ 0x1C02CA494 (-bSafeCopyBits@@YAHPEAX0K@Z.c)
+ */
+
 __int64 __fastcall NtGdiHT_Get8BPPFormatPalette(char *a1, USHORT a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // ebx

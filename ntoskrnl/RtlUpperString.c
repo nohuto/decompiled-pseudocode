@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlUpperString @ 0x1407565B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlpIsUtf8Process @ 0x1406EA7A0 (RtlpIsUtf8Process.c)
+ */
+
 void __stdcall RtlUpperString(PSTRING DestinationString, const STRING *SourceString)
 {
   int Length; // ebp

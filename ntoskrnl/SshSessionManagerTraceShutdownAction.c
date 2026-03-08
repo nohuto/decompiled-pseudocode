@@ -1,3 +1,12 @@
+/*
+ * XREFs of SshSessionManagerTraceShutdownAction @ 0x14099EBAC
+ * Callers:
+ *     PopDiagTraceShutdownAction @ 0x1405925FC (PopDiagTraceShutdownAction.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SshpSessionManagerSendControlEvent @ 0x1408717B8 (SshpSessionManagerSendControlEvent.c)
+ */
+
 signed __int32 __fastcall SshSessionManagerTraceShutdownAction(int a1, int a2, int a3)
 {
   _QWORD v4[6]; // [rsp+20h] [rbp-40h] BYREF

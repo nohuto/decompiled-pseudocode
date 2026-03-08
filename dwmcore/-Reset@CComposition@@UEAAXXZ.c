@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Reset@CComposition@@UEAAXXZ @ 0x1800EB320
+ * Callers:
+ *     ??1CComposition@@MEAA@XZ @ 0x1801B0AEC (--1CComposition@@MEAA@XZ.c)
+ * Callees:
+ *     ?NotifyHelper@CComposition@@QEAAJPEAUMIL_MESSAGE@@@Z @ 0x1800EB548 (-NotifyHelper@CComposition@@QEAAJPEAUMIL_MESSAGE@@@Z.c)
+ *     McTemplateU0qqx_EventWriteTransfer @ 0x1801B229C (McTemplateU0qqx_EventWriteTransfer.c)
+ */
+
 void __fastcall CComposition::Reset(CComposition *this, int a2)
 {
   unsigned int v2; // ebp

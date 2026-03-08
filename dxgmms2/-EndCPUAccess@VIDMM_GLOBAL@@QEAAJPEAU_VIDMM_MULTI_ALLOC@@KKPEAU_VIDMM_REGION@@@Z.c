@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?EndCPUAccess@VIDMM_GLOBAL@@QEAAJPEAU_VIDMM_MULTI_ALLOC@@KKPEAU_VIDMM_REGION@@@Z @ 0x1C00B2C58
+ * Callers:
+ *     VidMmEndCPUAccess @ 0x1C0017130 (VidMmEndCPUAccess.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     McTemplateK0ppq_EtwWriteTransfer @ 0x1C002EAFC (McTemplateK0ppq_EtwWriteTransfer.c)
+ *     ?UnlockParavirtualizedAllocationOnHost@@YAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C00E8520 (-UnlockParavirtualizedAllocationOnHost@@YAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ */
+
 __int64 __fastcall VIDMM_GLOBAL::EndCPUAccess(
         VIDMM_GLOBAL *this,
         struct _VIDMM_GLOBAL_ALLOC ***a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of IaLpssSetPowerD0 @ 0x14067A430
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IaLpssPciSetPower @ 0x14067A238 (IaLpssPciSetPower.c)
+ *     Uart16550InitializePortCommon @ 0x14067A794 (Uart16550InitializePortCommon.c)
+ */
+
 __int64 __fastcall IaLpssSetPowerD0(__int64 a1)
 {
   unsigned int v2; // edx

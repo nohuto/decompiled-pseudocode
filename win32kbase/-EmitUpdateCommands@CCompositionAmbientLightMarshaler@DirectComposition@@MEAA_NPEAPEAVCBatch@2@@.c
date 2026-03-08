@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CCompositionAmbientLightMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C000AF00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EmitUpdateCommands@CCompositionLightMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00B2970 (-EmitUpdateCommands@CCompositionLightMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_9667edbf153d1ec1997082271e41d1a7___ @ 0x1C0269598 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_9667edbf153d1ec1997082271e41d1a.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_b8dba259dab38695fff82fd813a044bb___ @ 0x1C0269610 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_b8dba259dab38695fff82fd813a044b.c)
+ */
+
 char __fastcall DirectComposition::CCompositionAmbientLightMarshaler::EmitUpdateCommands(
         DirectComposition::CCompositionAmbientLightMarshaler *this,
         struct DirectComposition::CBatch **a2)

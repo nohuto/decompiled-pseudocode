@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiInsertUnusedSubsection @ 0x1402D4DE8
+ * Callers:
+ *     MmPurgeSection @ 0x1402836F0 (MmPurgeSection.c)
+ *     MiAppendSubsectionChain @ 0x1402A5090 (MiAppendSubsectionChain.c)
+ *     MiDereferenceControlAreaPfnList @ 0x1402CFBF0 (MiDereferenceControlAreaPfnList.c)
+ *     MiFlushSectionInternal @ 0x14031FA90 (MiFlushSectionInternal.c)
+ *     MiRemoveViewsFromSection @ 0x140334A28 (MiRemoveViewsFromSection.c)
+ *     MiDecrementSubsections @ 0x140334B70 (MiDecrementSubsections.c)
+ *     MiDeleteCachedSubsection @ 0x140621708 (MiDeleteCachedSubsection.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUpdateSubsectionCrossPartitionRefs @ 0x140668EB4 (MiUpdateSubsectionCrossPartitionRefs.c)
+ */
+
 __int64 __fastcall MiInsertUnusedSubsection(__int64 a1)
 {
   int v1; // ebp

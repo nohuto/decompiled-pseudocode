@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vPatNotRow8@@YAXPEAU_PATBLTFRAME@@JH@Z @ 0x1C02E9340
+ * Callers:
+ *     <none>
+ * Callees:
+ *     vFetchNotAndCopy @ 0x1C0305EFC (vFetchNotAndCopy.c)
+ *     vFetchShiftNotAndCopy @ 0x1C030606C (vFetchShiftNotAndCopy.c)
+ */
+
 void __fastcall vPatNotRow8(struct _PATBLTFRAME *a1, int a2, int a3)
 {
   _DWORD *v3; // r13

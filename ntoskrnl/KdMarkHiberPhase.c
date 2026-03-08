@@ -1,3 +1,11 @@
+/*
+ * XREFs of KdMarkHiberPhase @ 0x140A9B928
+ * Callers:
+ *     PopMarkComponentsBootPhase @ 0x140AA049C (PopMarkComponentsBootPhase.c)
+ * Callees:
+ *     PoSetHiberRange @ 0x14058C400 (PoSetHiberRange.c)
+ */
+
 void KdMarkHiberPhase()
 {
   __int64 i; // rbx

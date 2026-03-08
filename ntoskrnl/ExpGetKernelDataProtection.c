@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExpGetKernelDataProtection @ 0x14075B2C0
+ * Callers:
+ *     ExpGetLicenseTamperState @ 0x140606C7C (ExpGetLicenseTamperState.c)
+ *     sub_1409F6C60 @ 0x1409F6C60 (sub_1409F6C60.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     sub_14075B378 @ 0x14075B378 (sub_14075B378.c)
+ */
+
 __int64 __fastcall ExpGetKernelDataProtection(__int64 a1, _OWORD *a2)
 {
   signed __int64 *v4; // rbx

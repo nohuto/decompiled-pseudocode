@@ -1,3 +1,12 @@
+/*
+ * XREFs of InbvPortInitialize @ 0x14067701C
+ * Callers:
+ *     HdlspEnableTerminal @ 0x140AE75C4 (HdlspEnableTerminal.c)
+ * Callees:
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char __fastcall InbvPortInitialize(
         int a1,
         unsigned int a2,

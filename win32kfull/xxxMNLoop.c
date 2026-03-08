@@ -1,3 +1,35 @@
+/*
+ * XREFs of xxxMNLoop @ 0x1C021726C
+ * Callers:
+ *     xxxSysCommand @ 0x1C00DE67C (xxxSysCommand.c)
+ *     xxxTrackPopupMenuEx @ 0x1C02353CC (xxxTrackPopupMenuEx.c)
+ *     xxxMNKeyFilter @ 0x1C0241E88 (xxxMNKeyFilter.c)
+ * Callees:
+ *     IsShellFrameHangResilient @ 0x1C0006D64 (IsShellFrameHangResilient.c)
+ *     _IsChild @ 0x1C00164BC (_IsChild.c)
+ *     xxxDispatchMessage @ 0x1C0038064 (xxxDispatchMessage.c)
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     xxxInternalGetMessage @ 0x1C00946B0 (xxxInternalGetMessage.c)
+ *     xxxGetSysMenuPtr @ 0x1C00A4DFC (xxxGetSysMenuPtr.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C00A6450 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C00D3DA0 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00D5030 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     xxxSendNotifyMessage @ 0x1C00D8320 (xxxSendNotifyMessage.c)
+ *     xxxTranslateMessage @ 0x1C00E4F1C (xxxTranslateMessage.c)
+ *     FindNCHit @ 0x1C00E609C (FindNCHit.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ *     xxxCallMsgFilter @ 0x1C014538E (xxxCallMsgFilter.c)
+ *     SlowAppThreadInShellFrame @ 0x1C01B7C3C (SlowAppThreadInShellFrame.c)
+ *     TryDetachShellFrame @ 0x1C01B7EFC (TryDetachShellFrame.c)
+ *     xxxWaitMessageEx @ 0x1C01B84F0 (xxxWaitMessageEx.c)
+ *     MNFlushDestroyedPopups @ 0x1C0201F10 (MNFlushDestroyedPopups.c)
+ *     xxxMNStartMenu @ 0x1C0202834 (xxxMNStartMenu.c)
+ *     xxxEndMenuLoop @ 0x1C0216810 (xxxEndMenuLoop.c)
+ *     xxxHandleMenuMessages @ 0x1C0216988 (xxxHandleMenuMessages.c)
+ *     xxxMNReleaseCapture @ 0x1C021C5E0 (xxxMNReleaseCapture.c)
+ *     _GetMenuState @ 0x1C024E814 (_GetMenuState.c)
+ */
+
 __int64 __fastcall xxxMNLoop(__int64 **a1, __int64 a2, __int64 a3, int a4)
 {
   int v5; // r12d

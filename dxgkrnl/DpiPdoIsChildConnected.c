@@ -1,3 +1,19 @@
+/*
+ * XREFs of DpiPdoIsChildConnected @ 0x1C01E6E20
+ * Callers:
+ *     DpiFdoHandleDisplayDetectControl @ 0x1C001BDEC (DpiFdoHandleDisplayDetectControl.c)
+ * Callees:
+ *     DpiFdoGetChildDescriptor @ 0x1C0015614 (DpiFdoGetChildDescriptor.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     DxgkAcquireAdapterCoreSync @ 0x1C01801F4 (DxgkAcquireAdapterCoreSync.c)
+ *     DxgkReleaseAdapterCoreSync @ 0x1C0180708 (DxgkReleaseAdapterCoreSync.c)
+ *     ?DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z @ 0x1C01BA77C (-DxgkWriteDiagEntry@@YAJPEAU_DXGK_DIAG_HEADER@@_K@Z.c)
+ *     DxgkReleaseAdapterDdiSync @ 0x1C01E7088 (DxgkReleaseAdapterDdiSync.c)
+ *     DxgkAcquireAdapterDdiSync @ 0x1C01E70A8 (DxgkAcquireAdapterDdiSync.c)
+ *     DpiDxgkDdiQueryChildStatus @ 0x1C01E70DC (DpiDxgkDdiQueryChildStatus.c)
+ *     DpiFdoPendingCreatePdoCompletion @ 0x1C03961EC (DpiFdoPendingCreatePdoCompletion.c)
+ */
+
 __int64 __fastcall DpiPdoIsChildConnected(__int64 a1, int a2, char a3, char a4, char *a5, bool *a6)
 {
   char v6; // r12

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FlushQueue@DXGWORKQUEUE@@QEAAXXZ @ 0x1C00298D8
+ * Callers:
+ *     DxgkSubmitPresentToHwQueue @ 0x1C03198F0 (DxgkSubmitPresentToHwQueue.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall DXGWORKQUEUE::FlushQueue(PLIST_ENTRY ListHead)
 {
   struct _LIST_ENTRY *v1; // rdi

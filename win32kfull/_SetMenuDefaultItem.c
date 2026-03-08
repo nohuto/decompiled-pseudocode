@@ -1,3 +1,17 @@
+/*
+ * XREFs of _SetMenuDefaultItem @ 0x1C00DF9EC
+ * Callers:
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ *     NtUserSetMenuDefaultItem @ 0x1C00DF900 (NtUserSetMenuDefaultItem.c)
+ *     ?_SetCloseDefault@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C0224B4C (-_SetCloseDefault@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@@Z.c)
+ *     xxxSetSysMenu @ 0x1C0224F64 (xxxSetSysMenu.c)
+ * Callees:
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C00A6450 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     MNLookUpItem @ 0x1C00A75F0 (MNLookUpItem.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C00D3DA0 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00D5030 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ */
+
 __int64 __fastcall SetMenuDefaultItem(__int64 a1, unsigned int a2, int a3)
 {
   unsigned int v6; // ebx

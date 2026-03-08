@@ -1,3 +1,28 @@
+/*
+ * XREFs of MiAddPartitionHugeRange @ 0x14061CDC4
+ * Callers:
+ *     MiHotAddHugeRange @ 0x140A2B158 (MiHotAddHugeRange.c)
+ *     MiCreateHugeIoRanges @ 0x140B61968 (MiCreateHugeIoRanges.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     RtlSetBitsEx @ 0x14034CE90 (RtlSetBitsEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     MiRestrictRangeToNode @ 0x140370AB4 (MiRestrictRangeToNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiInsertHugeRangeInList @ 0x14061EB84 (MiInsertHugeRangeInList.c)
+ *     MiLockHugePfn @ 0x14061EFAC (MiLockHugePfn.c)
+ *     MiUpdateHugePageCounts @ 0x14062090C (MiUpdateHugePageCounts.c)
+ */
+
 __int64 __fastcall MiAddPartitionHugeRange(__int64 a1, __int64 a2, int a3, int a4)
 {
   struct _KTHREAD *CurrentThread; // r15

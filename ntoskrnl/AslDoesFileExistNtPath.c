@@ -1,3 +1,13 @@
+/*
+ * XREFs of AslDoesFileExistNtPath @ 0x140A514E0
+ * Callers:
+ *     AslPathWildcardFindFirst @ 0x140A52910 (AslPathWildcardFindFirst.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ */
+
 __int64 __fastcall AslDoesFileExistNtPath(PCWSTR SourceString)
 {
   unsigned int v1; // ebx

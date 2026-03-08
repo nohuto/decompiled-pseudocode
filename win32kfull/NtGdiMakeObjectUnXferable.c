@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiMakeObjectUnXferable @ 0x1C02AAAB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtGdiMakeObjectUnXferable(__int64 a1)
 {
   char v3; // bl

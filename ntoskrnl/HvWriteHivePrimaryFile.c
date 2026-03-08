@@ -1,3 +1,20 @@
+/*
+ * XREFs of HvWriteHivePrimaryFile @ 0x14073216C
+ * Callers:
+ *     CmpFlushHive @ 0x1406BEA70 (CmpFlushHive.c)
+ *     HvpPerformLogFileRecovery @ 0x1407FBCAC (HvpPerformLogFileRecovery.c)
+ * Callees:
+ *     RtlNumberOfSetBits @ 0x14035C520 (RtlNumberOfSetBits.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     CmpFileFlushAndPurge @ 0x140731D18 (CmpFileFlushAndPurge.c)
+ *     CmpTraceHiveFlushWrotePrimaryFile @ 0x140732314 (CmpTraceHiveFlushWrotePrimaryFile.c)
+ *     HvpFinishPrimaryWrite @ 0x140732380 (HvpFinishPrimaryWrite.c)
+ *     HvpFindNextDirtyBlock @ 0x1407A4B70 (HvpFindNextDirtyBlock.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     HvpHeaderCheckSum @ 0x140AF2414 (HvpHeaderCheckSum.c)
+ */
+
 __int64 __fastcall HvWriteHivePrimaryFile(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, __int64 a4)
 {
   char v4; // r14

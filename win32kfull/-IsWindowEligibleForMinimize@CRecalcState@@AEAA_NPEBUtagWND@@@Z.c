@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsWindowEligibleForMinimize@CRecalcState@@AEAA_NPEBUtagWND@@@Z @ 0x1C012971C
+ * Callers:
+ *     ?MinimizeOnMonitorRemove@CRecalcState@@AEAA_NPEAUtagWND@@PEBUMonitorData@CMonitorTopology@@PEBVCRecalcContext@@@Z @ 0x1C01296A8 (-MinimizeOnMonitorRemove@CRecalcState@@AEAA_NPEAUtagWND@@PEBUMonitorData@CMonitorTopology@@PEBVC.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C003E900 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     IsForegroundWindow @ 0x1C00C8988 (IsForegroundWindow.c)
+ */
+
 char __fastcall CRecalcState::IsWindowEligibleForMinimize(CRecalcState *this, const struct tagWND *a2)
 {
   __int64 v2; // rcx

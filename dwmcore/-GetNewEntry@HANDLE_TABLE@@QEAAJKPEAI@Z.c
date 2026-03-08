@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetNewEntry@HANDLE_TABLE@@QEAAJKPEAI@Z @ 0x1800E5158
+ * Callers:
+ *     ??0CInteraction@@IEAA@PEAVCComposition@@@Z @ 0x1800E4C20 (--0CInteraction@@IEAA@PEAVCComposition@@@Z.c)
+ * Callees:
+ *     ?ResizeToFit@HANDLE_TABLE@@QEAAJI@Z @ 0x180027498 (-ResizeToFit@HANDLE_TABLE@@QEAAJI@Z.c)
+ *     ?Resize@HANDLE_TABLE@@AEAAJI@Z @ 0x1800274EC (-Resize@HANDLE_TABLE@@AEAAJI@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall HANDLE_TABLE::GetNewEntry(HANDLE_TABLE *this, __int64 a2, unsigned int *a3)
 {
   unsigned int v3; // ebx

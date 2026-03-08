@@ -1,3 +1,20 @@
+/*
+ * XREFs of PiDqActionDataGetChangedProperties @ 0x14083AC48
+ * Callers:
+ *     PiDqActionDataCreate @ 0x140746614 (PiDqActionDataCreate.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     PiDqPnPGetObjectPropertyInBestLocale @ 0x1406CB9F8 (PiDqPnPGetObjectPropertyInBestLocale.c)
+ *     PnpFreeDevProperty @ 0x1406CC4E0 (PnpFreeDevProperty.c)
+ *     PiPnpRtlEndOperation @ 0x1406CCB7C (PiPnpRtlEndOperation.c)
+ *     PiDqPnPGetObjectProperty @ 0x1406CD8A8 (PiDqPnPGetObjectProperty.c)
+ *     PiPnpRtlBeginOperation @ 0x1406CDF98 (PiPnpRtlBeginOperation.c)
+ *     PiDqOpenObjectRegKey @ 0x140747218 (PiDqOpenObjectRegKey.c)
+ *     PiDqGrowPropertyArray @ 0x14083AE68 (PiDqGrowPropertyArray.c)
+ */
+
 __int64 __fastcall PiDqActionDataGetChangedProperties(
         __int64 a1,
         unsigned int a2,

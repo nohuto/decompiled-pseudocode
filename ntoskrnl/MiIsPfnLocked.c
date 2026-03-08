@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiIsPfnLocked @ 0x14030043C
+ * Callers:
+ *     MiDeletePteRun @ 0x140279760 (MiDeletePteRun.c)
+ *     MmAreMdlPagesLocked @ 0x140AE5198 (MmAreMdlPagesLocked.c)
+ * Callees:
+ *     MiPfnIsNonPagedPool @ 0x14063F458 (MiPfnIsNonPagedPool.c)
+ */
+
 _BOOL8 __fastcall MiIsPfnLocked(__int64 a1)
 {
   unsigned __int64 v1; // rdx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmPerfResetHistoryAll @ 0x140828CC4
+ * Callers:
+ *     PpmCheckReInit @ 0x1408265CC (PpmCheckReInit.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PpmPerfResetHistory @ 0x14038F778 (PpmPerfResetHistory.c)
+ */
+
 __int64 PpmPerfResetHistoryAll()
 {
   __int64 result; // rax

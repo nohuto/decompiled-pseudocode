@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiPulseCommitSignal @ 0x140653E9C
+ * Callers:
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KePulseEvent @ 0x14035F580 (KePulseEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiPulseCommitSignal(__int64 a1)
 {
   struct _KEVENT *v2; // rcx

@@ -1,3 +1,18 @@
+/*
+ * XREFs of VidSchWaitForEvents @ 0x1C0014E64
+ * Callers:
+ *     VidSchSuspendResumeDevice @ 0x1C0012E60 (VidSchSuspendResumeDevice.c)
+ *     VidSchiSwitchNodeFromContext @ 0x1C00AD9A0 (VidSchiSwitchNodeFromContext.c)
+ *     VidSchWaitForCompletionEvent @ 0x1C00ADD4C (VidSchWaitForCompletionEvent.c)
+ *     VidSchSwitchFromDevice @ 0x1C00ADEF0 (VidSchSwitchFromDevice.c)
+ *     VidSchSuspendAdapter @ 0x1C00AE170 (VidSchSuspendAdapter.c)
+ *     VidSchSwitchFromContext @ 0x1C00AE3A0 (VidSchSwitchFromContext.c)
+ *     VidSchiSuspendFlipQueues @ 0x1C00B4208 (VidSchiSuspendFlipQueues.c)
+ * Callees:
+ *     VidSchiIsMmIoFlipPending @ 0x1C0017B4C (VidSchiIsMmIoFlipPending.c)
+ *     VidSchiCheckHwProgress @ 0x1C00A5940 (VidSchiCheckHwProgress.c)
+ */
+
 __int64 __fastcall VidSchWaitForEvents(__int64 a1, ULONG a2, PVOID *a3, union _LARGE_INTEGER *a4, BOOLEAN a5)
 {
   union _LARGE_INTEGER *Timeout; // r15

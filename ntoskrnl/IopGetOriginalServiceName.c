@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopGetOriginalServiceName @ 0x1408031F4
+ * Callers:
+ *     IoReportDetectedDevice @ 0x140802A80 (IoReportDetectedDevice.c)
+ *     IopGetRootDeviceId @ 0x140803168 (IopGetRootDeviceId.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     PipOpenServiceEnumKeys @ 0x1406C1280 (PipOpenServiceEnumKeys.c)
+ *     _RegRtlQueryValue @ 0x1406D3E98 (_RegRtlQueryValue.c)
+ */
+
 NTSTATUS __fastcall IopGetOriginalServiceName(UNICODE_STRING *a1, void *a2, unsigned int *a3)
 {
   NTSTATUS result; // eax

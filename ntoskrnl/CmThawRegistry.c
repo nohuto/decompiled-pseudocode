@@ -1,3 +1,26 @@
+/*
+ * XREFs of CmThawRegistry @ 0x140A10894
+ * Callers:
+ *     NtThawRegistry @ 0x140A0C4A0 (NtThawRegistry.c)
+ *     CmFreezeRegistry @ 0x140A10664 (CmFreezeRegistry.c)
+ *     CmpFreezeThawWorker @ 0x140A10AC0 (CmpFreezeThawWorker.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeCancelTimer @ 0x140250B60 (KeCancelTimer.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     CmpEnableLazyFlush @ 0x1403AF4D8 (CmpEnableLazyFlush.c)
+ *     CmpLockRegistryExclusive @ 0x1406B6454 (CmpLockRegistryExclusive.c)
+ *     CmpGetNextActiveHive @ 0x1406BD940 (CmpGetNextActiveHive.c)
+ *     HvMarkBaseBlockDirty @ 0x140871E3C (HvMarkBaseBlockDirty.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ *     CmpAcquireShutdownRundown @ 0x140AF23A0 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140AF23F0 (CmpReleaseShutdownRundown.c)
+ */
+
 __int64 CmThawRegistry()
 {
   unsigned int v0; // ebx

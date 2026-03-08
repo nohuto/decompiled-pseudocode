@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreIsCurrentProcessSystemCritical @ 0x1C00C4D10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall GreIsCurrentProcessSystemCritical(__int64 a1)
 {
   __int64 v1; // rcx

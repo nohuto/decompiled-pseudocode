@@ -1,3 +1,13 @@
+/*
+ * XREFs of McTemplateK0dp_EtwWriteTransfer @ 0x1C0037D00
+ * Callers:
+ *     VidSchiResetEngine @ 0x1C003B96C (VidSchiResetEngine.c)
+ *     VidSchInvalidateHwContext @ 0x1C0044390 (VidSchInvalidateHwContext.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BDEC (McGenEventWrite_EtwWriteTransfer.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0dp_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
 {
   struct _EVENT_DATA_DESCRIPTOR v6; // [rsp+30h] [rbp-48h] BYREF

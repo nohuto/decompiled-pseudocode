@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ValidateIFIMETRICS@@YA_NPEAU_IFIMETRICS@@@Z @ 0x1C00C434C
+ * Callers:
+ *     ?CaptureUsermodeParameters@QueryFontRequest@@UEAAXPEAX@Z @ 0x1C00C3E60 (-CaptureUsermodeParameters@QueryFontRequest@@UEAAXPEAX@Z.c)
+ * Callees:
+ *     _lambda_070e29bc377876d11c9c205fcaeb93d1_::operator() @ 0x1C00C4554 (_lambda_070e29bc377876d11c9c205fcaeb93d1_--operator().c)
+ *     _lambda_6205c396a1390c774bd95fcbb0cc7414_::operator() @ 0x1C00C45A4 (_lambda_6205c396a1390c774bd95fcbb0cc7414_--operator().c)
+ *     _lambda_3eb24279fbdd178c4d8527d8e8f1e39f_::operator() @ 0x1C00C45D4 (_lambda_3eb24279fbdd178c4d8527d8e8f1e39f_--operator().c)
+ */
+
 char __fastcall ValidateIFIMETRICS(struct _IFIMETRICS *a1)
 {
   __int64 dpwszFamilyName; // rdx

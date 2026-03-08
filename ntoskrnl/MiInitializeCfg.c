@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiInitializeCfg @ 0x140B3A5E8
+ * Callers:
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     Feature_XFG_User__private_ReportDeviceUsage @ 0x1404116DC (Feature_XFG_User__private_ReportDeviceUsage.c)
+ *     MmCreateSection @ 0x140711DC0 (MmCreateSection.c)
+ */
+
 __int64 MiInitializeCfg()
 {
   __int64 result; // rax

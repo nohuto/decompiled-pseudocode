@@ -1,3 +1,14 @@
+/*
+ * XREFs of vProcessEntry @ 0x1C010F5B8
+ * Callers:
+ *     QueryRegistryFontSubstituteListRoutine @ 0x1C03B8180 (QueryRegistryFontSubstituteListRoutine.c)
+ * Callees:
+ *     vCheckCharSet @ 0x1C010F68C (vCheckCharSet.c)
+ *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C01165A4 (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     cCapString @ 0x1C0117F80 (cCapString.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall vProcessEntry(unsigned __int16 *a1, __int64 a2, void *a3)
 {
   unsigned __int16 *v3; // rax

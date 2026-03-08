@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreOpenThreadToken @ 0x1C0199ADC
+ * Callers:
+ *     GreIsInLowBox @ 0x1C0199A50 (GreIsInLowBox.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GreOpenThreadToken(HANDLE *a1)
 {
   NTSTATUS v2; // eax

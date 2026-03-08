@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoRequestDeviceRemovalForReset @ 0x1409542C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PnpRequestDeviceAction @ 0x1402F5074 (PnpRequestDeviceAction.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall IoRequestDeviceRemovalForReset(_QWORD *Object, int a2)
 {
   __int64 v3; // rcx

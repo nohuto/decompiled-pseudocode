@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?CheckOcclusionState@CLegacySwapChain@@UEBAJXZ @ 0x1800FDC9C
+ * Callers:
+ *     ?CheckOcclusionState@CLegacySwapChain@@$4PPPPPPPM@A@EBAJXZ @ 0x18011B590 (-CheckOcclusionState@CLegacySwapChain@@$4PPPPPPPM@A@EBAJXZ.c)
+ *     ?CheckOcclusionState@CLegacySwapChain@@$4PPPPPPPM@7EBAJXZ @ 0x18011C610 (-CheckOcclusionState@CLegacySwapChain@@$4PPPPPPPM@7EBAJXZ.c)
+ *     ?CheckOcclusionState@CLegacySwapChain@@$4PPPPPPPM@BKI@EBAJXZ @ 0x18011CCF0 (-CheckOcclusionState@CLegacySwapChain@@$4PPPPPPPM@BKI@EBAJXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CheckOcclusionState@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@@Z @ 0x1800FDCE4 (-CheckOcclusionState@CD3DDevice@@QEAAJPEAUIDXGISwapChainDWM1@@@Z.c)
+ *     McTemplateU0xq_EventWriteTransfer @ 0x18012A09C (McTemplateU0xq_EventWriteTransfer.c)
+ */
+
 __int64 __fastcall CLegacySwapChain::CheckOcclusionState(CLegacySwapChain *this)
 {
   struct IDXGISwapChainDWM1 *v1; // rdx

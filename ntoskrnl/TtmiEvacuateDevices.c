@@ -1,3 +1,12 @@
+/*
+ * XREFs of TtmiEvacuateDevices @ 0x14099FC34
+ * Callers:
+ *     TtmpDispatchEvacuateDevices @ 0x1409A367C (TtmpDispatchEvacuateDevices.c)
+ *     TtmiSessionTerminalListWorker @ 0x1409A82BC (TtmiSessionTerminalListWorker.c)
+ * Callees:
+ *     TtmiLogDeviceFromTerminalRemoved @ 0x1409A49B4 (TtmiLogDeviceFromTerminalRemoved.c)
+ */
+
 char __fastcall TtmiEvacuateDevices(__int64 a1, __int64 a2)
 {
   __int64 *v2; // rdi

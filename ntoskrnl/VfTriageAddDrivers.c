@@ -1,3 +1,17 @@
+/*
+ * XREFs of VfTriageAddDrivers @ 0x140B93E98
+ * Callers:
+ *     VfInitBootDriversLoaded @ 0x140B4EE44 (VfInitBootDriversLoaded.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     TriageGetLoaderEntry @ 0x140677268 (TriageGetLoaderEntry.c)
+ *     VfDriverLock @ 0x140AC773C (VfDriverLock.c)
+ *     VfDriverUnlock @ 0x140AC7860 (VfDriverUnlock.c)
+ *     VfSuspectDriversAllocateEntry @ 0x140AD7394 (VfSuspectDriversAllocateEntry.c)
+ *     VfSuspectDriversInsert @ 0x140AD76D0 (VfSuspectDriversInsert.c)
+ *     TriageGetDriverCount @ 0x140B98E48 (TriageGetDriverCount.c)
+ */
+
 __int64 __fastcall VfTriageAddDrivers(__int64 a1)
 {
   __int64 v3; // r14

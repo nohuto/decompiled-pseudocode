@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InitializeThreadInfoIocp@@YAJPEAU_EPROCESS@@PEAUtagTHREADINFO@@@Z @ 0x1C0075324
+ * Callers:
+ *     xxxCreateThreadInfo @ 0x1C0076490 (xxxCreateThreadInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall InitializeThreadInfoIocp(struct _EPROCESS *a1, void **a2)
 {
   _QWORD *v2; // r14

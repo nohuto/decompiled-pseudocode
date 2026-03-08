@@ -1,3 +1,21 @@
+/*
+ * XREFs of SepVerifyDesktopAppxPackageName @ 0x1405B5D24
+ * Callers:
+ *     SepVerifyDesktopAppxImage @ 0x1405B5B50 (SepVerifyDesktopAppxImage.c)
+ * Callees:
+ *     SeSecurityAttributePresent @ 0x1402464F0 (SeSecurityAttributePresent.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x140246980 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepSetSecurityAttributesToken @ 0x14029705C (AuthzBasepSetSecurityAttributesToken.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402B8730 (AuthzBasepFreeSecurityAttributesList.c)
+ *     AuthzBasepAllocateSecurityAttributesList @ 0x1402FF8B0 (AuthzBasepAllocateSecurityAttributesList.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlFindAceByType @ 0x1403100D0 (RtlFindAceByType.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SeQuerySecurityAttributesToken @ 0x14070BAA0 (SeQuerySecurityAttributesToken.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepVerifyDesktopAppxPackageName(__int64 a1, __int64 a2, _BYTE *a3)
 {
   int SecurityAttributesToken; // ebx

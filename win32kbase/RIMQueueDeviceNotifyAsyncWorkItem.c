@@ -1,3 +1,14 @@
+/*
+ * XREFs of RIMQueueDeviceNotifyAsyncWorkItem @ 0x1C01D01A4
+ * Callers:
+ *     RIMDeviceNotifyUsingAsyncPnpWorkNotification @ 0x1C01D0004 (RIMDeviceNotifyUsingAsyncPnpWorkNotification.c)
+ * Callees:
+ *     RIMAllocateAsyncPnpWorkItem @ 0x1C00364E8 (RIMAllocateAsyncPnpWorkItem.c)
+ *     RIMQueueAndSignalAsyncPnpWorkItem @ 0x1C00376B0 (RIMQueueAndSignalAsyncPnpWorkItem.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqqDSd @ 0x1C01BBF20 (WPP_RECORDER_AND_TRACE_SF_qqqDSd.c)
+ */
+
 __int64 __fastcall RIMQueueDeviceNotifyAsyncWorkItem(void *a1, __int64 a2, _OWORD *a3)
 {
   unsigned int v3; // ebx

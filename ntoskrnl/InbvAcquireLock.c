@@ -1,3 +1,13 @@
+/*
+ * XREFs of InbvAcquireLock @ 0x14054C0FC
+ * Callers:
+ *     DisplayBootBitmap @ 0x1403A4B48 (DisplayBootBitmap.c)
+ *     FinalizeBootLogo @ 0x14054C3BC (FinalizeBootLogo.c)
+ *     InbvRotateGuiBootDisplay @ 0x14054C410 (InbvRotateGuiBootDisplay.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 (*InbvAcquireLock())(void)
 {
   __int64 (*result)(void); // rax

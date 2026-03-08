@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetMdl@FxRequestSystemBuffer@@UEAAPEAU_MDL@@XZ @ 0x1C0042840
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _MDL *__fastcall FxRequestSystemBuffer::GetMdl(FxRequestSystemBuffer *this)
 {
   __int64 v2; // rcx

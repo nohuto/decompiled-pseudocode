@@ -1,3 +1,28 @@
+/*
+ * XREFs of MmCreateShadowMapping @ 0x14080B624
+ * Callers:
+ *     KeAllocateProcessorProfileStructures @ 0x1403A4C70 (KeAllocateProcessorProfileStructures.c)
+ *     KiShadowProcessorAllocation @ 0x140A8666C (KiShadowProcessorAllocation.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MiCleanupPageTablePages @ 0x14020FD04 (MiCleanupPageTablePages.c)
+ *     MiInitializeColorBase @ 0x14020FE2C (MiInitializeColorBase.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiGetPfnLink @ 0x1402FCBFC (MiGetPfnLink.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     MiGetPageTablePages @ 0x140348AF8 (MiGetPageTablePages.c)
+ *     MiInitializeLargePfnList @ 0x14035059C (MiInitializeLargePfnList.c)
+ *     MiPageTablesNeeded @ 0x140372730 (MiPageTablesNeeded.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiMakeShadowPageTableRange @ 0x14080B864 (MiMakeShadowPageTableRange.c)
+ */
+
 __int64 __fastcall MmCreateShadowMapping(unsigned __int64 PteAddress, __int64 a2)
 {
   unsigned __int64 v4; // r12

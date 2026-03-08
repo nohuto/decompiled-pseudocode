@@ -1,3 +1,12 @@
+/*
+ * XREFs of PoDiagTraceDeviceRundown @ 0x140988DB4
+ * Callers:
+ *     PopDiagDeviceRundownWorker @ 0x1408A1070 (PopDiagDeviceRundownWorker.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall PoDiagTraceDeviceRundown(__int64 a1, unsigned __int16 *a2, unsigned __int16 *a3, char a4)
 {
   int v4; // ecx

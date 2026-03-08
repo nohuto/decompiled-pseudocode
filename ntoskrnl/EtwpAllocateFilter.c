@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwpAllocateFilter @ 0x14077F2A4
+ * Callers:
+ *     EtwpValidateFilterDescriptors @ 0x14077F188 (EtwpValidateFilterDescriptors.c)
+ *     EtwpValidateTraceControlFilterDescriptors @ 0x1409F24E4 (EtwpValidateTraceControlFilterDescriptors.c)
+ * Callees:
+ *     EtwpCreatePerfectHashFunction @ 0x14077F3E8 (EtwpCreatePerfectHashFunction.c)
+ *     EtwpAllocateEventNameFilter @ 0x1409F179C (EtwpAllocateEventNameFilter.c)
+ *     EtwpAllocateLevelKwFilter @ 0x1409F1B68 (EtwpAllocateLevelKwFilter.c)
+ *     EtwpAllocatePayloadFilterData @ 0x1409F1BEC (EtwpAllocatePayloadFilterData.c)
+ *     EtwpAllocatePidFilter @ 0x1409F1C84 (EtwpAllocatePidFilter.c)
+ *     EtwpAllocateSchematizedFilter @ 0x1409F1D14 (EtwpAllocateSchematizedFilter.c)
+ *     EtwpAllocateStringFilterData @ 0x1409F1DA4 (EtwpAllocateStringFilterData.c)
+ */
+
 __int64 __fastcall EtwpAllocateFilter(int a1, __int64 *a2, __int64 a3, __int64 a4)
 {
   __int64 result; // rax

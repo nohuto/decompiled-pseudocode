@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiArblibScoreRequirement @ 0x1C007D280
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _ACPIInternalError @ 0x1C0001B74 (_ACPIInternalError.c)
+ *     AcpiArblibUnpackRequirement @ 0x1C007D320 (AcpiArblibUnpackRequirement.c)
+ */
+
 signed __int64 __fastcall AcpiArblibScoreRequirement(struct _IO_RESOURCE_DESCRIPTOR *a1)
 {
   unsigned __int64 v1; // r8

@@ -1,3 +1,12 @@
+/*
+ * XREFs of __scrt_initialize_default_local_stdio_options @ 0x18010F448
+ * Callers:
+ *     dllmain_crt_process_attach @ 0x18010E9E8 (dllmain_crt_process_attach.c)
+ * Callees:
+ *     __local_stdio_printf_options @ 0x18010E384 (__local_stdio_printf_options.c)
+ *     __local_stdio_scanf_options @ 0x18010E394 (__local_stdio_scanf_options.c)
+ */
+
 unsigned __int64 *_scrt_initialize_default_local_stdio_options()
 {
   unsigned __int64 *v0; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UnqueuePTPMouseEvent@CPTPProcessor@@CA_NPEAUtagPTPMOUSEEVENT@@0PEA_N@Z @ 0x1C00F3750
+ * Callers:
+ *     ?ProcessMouseQueue@CPTPProcessor@@SAXXZ @ 0x1C00F35E0 (-ProcessMouseQueue@CPTPProcessor@@SAXXZ.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ */
+
 char __fastcall CPTPProcessor::UnqueuePTPMouseEvent(
         struct tagPTPMOUSEEVENT *a1,
         struct tagPTPMOUSEEVENT *a2,

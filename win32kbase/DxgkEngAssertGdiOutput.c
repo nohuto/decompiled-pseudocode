@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkEngAssertGdiOutput @ 0x1C00CB6E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$hdevEnumerate@$00@@YAPEAUHDEV__@@PEAU0@@Z @ 0x1C006D990 (--$hdevEnumerate@$00@@YAPEAUHDEV__@@PEAU0@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 _BOOL8 __fastcall DxgkEngAssertGdiOutput(__int64 a1, __int64 a2, unsigned int a3, bool *a4)
 {
   BOOL v8; // edi

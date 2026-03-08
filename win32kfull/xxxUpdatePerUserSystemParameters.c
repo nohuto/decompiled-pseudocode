@@ -1,3 +1,42 @@
+/*
+ * XREFs of xxxUpdatePerUserSystemParameters @ 0x1C010AFDC
+ * Callers:
+ *     NtUserUpdatePerUserSystemParameters @ 0x1C010ACC0 (NtUserUpdatePerUserSystemParameters.c)
+ * Callees:
+ *     ?zzzRefreshSizes@CCursorSizes@@QEAAXXZ @ 0x1C001D944 (-zzzRefreshSizes@CCursorSizes@@QEAAXXZ.c)
+ *     SetMouseTrails @ 0x1C0020418 (SetMouseTrails.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C00A6450 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     _DestroyMenu @ 0x1C00A77C0 (_DestroyMenu.c)
+ *     ?PerformLegacyDpiUpgrade@@YAHPEAU_UNICODE_STRING@@K@Z @ 0x1C00B7B4C (-PerformLegacyDpiUpgrade@@YAHPEAU_UNICODE_STRING@@K@Z.c)
+ *     ?UserReinitializeStockFonts@@YAXKH@Z @ 0x1C00B7E08 (-UserReinitializeStockFonts@@YAXKH@Z.c)
+ *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00C1278 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C00D3DA0 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00D5030 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     WakeRIT @ 0x1C00DB568 (WakeRIT.c)
+ *     ?CalcScreenSaverTimeout@@YAXPEAU_UNICODE_STRING@@K@Z @ 0x1C00EBB24 (-CalcScreenSaverTimeout@@YAXPEAU_UNICODE_STRING@@K@Z.c)
+ *     UpdatePerUserKeyboardIndicators @ 0x1C00EEEE8 (UpdatePerUserKeyboardIndicators.c)
+ *     ?LW_LoadResources@@YAXPEAU_UNICODE_STRING@@@Z @ 0x1C00EF53C (-LW_LoadResources@@YAXPEAU_UNICODE_STRING@@@Z.c)
+ *     UnlockDesktopSysMenu @ 0x1C00F390C (UnlockDesktopSysMenu.c)
+ *     ?TraceLoggingAutoRotationStateEvent@@YAXXZ @ 0x1C00F73D8 (-TraceLoggingAutoRotationStateEvent@@YAXXZ.c)
+ *     ?xxxUpdateSystemCursorsFromRegistry@@YAXPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReason@@@Z @ 0x1C0107C68 (-xxxUpdateSystemCursorsFromRegistry@@YAXPEAU_UNICODE_STRING@@W4InputTracing_SetSystemCursorReaso.c)
+ *     ?xxxLoadSomeStrings@@YAXXZ @ 0x1C0108E98 (-xxxLoadSomeStrings@@YAXXZ.c)
+ *     xxxUpdateSystemIconsFromRegistry @ 0x1C0109E10 (xxxUpdateSystemIconsFromRegistry.c)
+ *     GreSetLCDOrientation @ 0x1C010AC70 (GreSetLCDOrientation.c)
+ *     ?LoadCPUserPreferences@@YAHPEAU_UNICODE_STRING@@K@Z @ 0x1C010AD6C (-LoadCPUserPreferences@@YAHPEAU_UNICODE_STRING@@K@Z.c)
+ *     GreSetFontEnumeration @ 0x1C010C224 (GreSetFontEnumeration.c)
+ *     _SetCaretBlinkTime @ 0x1C010C2C0 (_SetCaretBlinkTime.c)
+ *     GetKbdLangSwitch @ 0x1C010C334 (GetKbdLangSwitch.c)
+ *     SetIconMetrics @ 0x1C010C85C (SetIconMetrics.c)
+ *     SetMinMetrics @ 0x1C010CA78 (SetMinMetrics.c)
+ *     xxxSetWindowNCMetrics @ 0x1C010CBC8 (xxxSetWindowNCMetrics.c)
+ *     GreTextInitialized @ 0x1C010FB94 (GreTextInitialized.c)
+ *     xxxUserResetDisplayDevice @ 0x1C01293C0 (xxxUserResetDisplayDevice.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     Feature_ThrottleBackgroundRawMouseInput__private_IsEnabledDeviceUsage @ 0x1C012C794 (Feature_ThrottleBackgroundRawMouseInput__private_IsEnabledDeviceUsage.c)
+ *     CheckEasPolicyChange @ 0x1C01BC0B0 (CheckEasPolicyChange.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall xxxUpdatePerUserSystemParameters(Gre::Base *a1, __int64 a2)
 {

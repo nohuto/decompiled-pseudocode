@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtFlipObjectRemoveContent @ 0x1C0080B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?RemoveContent@FlipManagerObject@@QEAAJ_KPEAPEAVCDisableScanoutToken@@@Z @ 0x1C007F704 (-RemoveContent@FlipManagerObject@@QEAAJ_KPEAPEAVCDisableScanoutToken@@@Z.c)
+ *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C00817F8 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ *     ?SendToTokenManager@CDisableScanoutToken@@SAJAEAPEAV1@@Z @ 0x1C0088FA4 (-SendToTokenManager@CDisableScanoutToken@@SAJAEAPEAV1@@Z.c)
+ */
+
 __int64 __fastcall NtFlipObjectRemoveContent(struct CDisableScanoutToken *a1, unsigned __int64 *a2)
 {
   unsigned __int64 v3; // r14

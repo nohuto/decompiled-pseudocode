@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_SxWakeQueryInstance@FxPkgPnp@@KAJPEAVFxDevice@@PEAVFxWmiInstanceInternal@@KPEAXPEAK@Z @ 0x1C0009830
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FxPkgPnp::_SxWakeQueryInstance(
         FxDevice *Device,
         FxWmiInstanceInternal *__formal,

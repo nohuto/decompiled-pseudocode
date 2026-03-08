@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?Create@CLeakTrackingAllocator@NSInstrumentation@@SAPEAV12@PEAX_N@Z @ 0x1C00D4E64
+ * Callers:
+ *     ?InitializeWin32PoolTracking@@YAHXZ @ 0x1C00D4E04 (-InitializeWin32PoolTracking@@YAHXZ.c)
+ * Callees:
+ *     ?CreateCommon@CLeakTrackingAllocator@NSInstrumentation@@CAPEAV12@PEAX_N@Z @ 0x1C00D23DC (-CreateCommon@CLeakTrackingAllocator@NSInstrumentation@@CAPEAV12@PEAX_N@Z.c)
+ *     ?PersistState@CLeakTrackingAllocator@NSInstrumentation@@AEAAXXZ @ 0x1C00D4D04 (-PersistState@CLeakTrackingAllocator@NSInstrumentation@@AEAAXXZ.c)
+ *     ?RetrievePreviouslyPersistedState@CLeakTrackingAllocator@NSInstrumentation@@CAXPEAW4TrackingMode@LeakTrackingAllocatorCore@2@PEAW4PoolLeakState@12@PEAII2@Z @ 0x1C00D4F44 (-RetrievePreviouslyPersistedState@CLeakTrackingAllocator@NSInstrumentation@@CAXPEAW4TrackingMode.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     ?CreateGeneralTrackingAllocator@CLeakTrackingAllocator@NSInstrumentation@@SAPEAV12@PEAX_N@Z @ 0x1C019AFB8 (-CreateGeneralTrackingAllocator@CLeakTrackingAllocator@NSInstrumentation@@SAPEAV12@PEAX_N@Z.c)
+ *     ?CreatePoolTagTrackingAllocator@CLeakTrackingAllocator@NSInstrumentation@@SAPEAV12@PEAXPEAII_N@Z @ 0x1C019B004 (-CreatePoolTagTrackingAllocator@CLeakTrackingAllocator@NSInstrumentation@@SAPEAV12@PEAXPEAII_N@Z.c)
+ */
+
 struct NSInstrumentation::CLeakTrackingAllocator *__fastcall NSInstrumentation::CLeakTrackingAllocator::Create(
         void *a1,
         char a2,

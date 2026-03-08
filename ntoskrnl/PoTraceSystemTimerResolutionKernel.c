@@ -1,3 +1,18 @@
+/*
+ * XREFs of PoTraceSystemTimerResolutionKernel @ 0x1402D9468
+ * Callers:
+ *     KiResetClockIntervalOneShot @ 0x1402D935C (KiResetClockIntervalOneShot.c)
+ *     KiSetClockIntervalOneShot @ 0x1402D93BC (KiSetClockIntervalOneShot.c)
+ *     KiSetClockInterval @ 0x1403ACBC4 (KiSetClockInterval.c)
+ *     ExSetTimerResolution @ 0x1403AF930 (ExSetTimerResolution.c)
+ *     KiResetClockInterval @ 0x14056D814 (KiResetClockInterval.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x14056DA7C (KiSetClockIntervalToMinimumRequested.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PoTraceSystemTimerResolutionKernel(int a1, int a2, char a3)
 {
   const EVENT_DESCRIPTOR *v3; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwDisableLastKnownGood @ 0x140413F30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwDisableLastKnownGood(__int64 a1, __int64 a2)
 {
   _disable();

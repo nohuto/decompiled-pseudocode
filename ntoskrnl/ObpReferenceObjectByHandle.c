@@ -1,3 +1,19 @@
+/*
+ * XREFs of ObpReferenceObjectByHandle @ 0x1407DF424
+ * Callers:
+ *     ObReferenceFileObjectForWrite @ 0x1407DF2CC (ObReferenceFileObjectForWrite.c)
+ * Callees:
+ *     ExFastReplenishHandleTableEntry @ 0x1402F8548 (ExFastReplenishHandleTableEntry.c)
+ *     ExGetHandlePointer @ 0x1403120A0 (ExGetHandlePointer.c)
+ *     ExSlowReplenishHandleTableEntry @ 0x1403126C0 (ExSlowReplenishHandleTableEntry.c)
+ *     ObpIncrPointerCountEx @ 0x140352120 (ObpIncrPointerCountEx.c)
+ *     ExLockHandleTableEntry @ 0x140352148 (ExLockHandleTableEntry.c)
+ *     ExFastReferenceHandleTableEntry @ 0x14035A944 (ExFastReferenceHandleTableEntry.c)
+ *     ExfUnblockPushLock @ 0x14040CCE0 (ExfUnblockPushLock.c)
+ *     ExHandleLogBadReference @ 0x140604648 (ExHandleLogBadReference.c)
+ *     ExpLookupHandleTableEntry @ 0x1407C3370 (ExpLookupHandleTableEntry.c)
+ */
+
 volatile signed __int64 *__fastcall ObpReferenceObjectByHandle(
         ULONG_PTR BugCheckParameter2,
         ULONG_PTR BugCheckParameter1,

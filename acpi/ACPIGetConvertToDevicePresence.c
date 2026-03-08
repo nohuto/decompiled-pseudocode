@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIGetConvertToDevicePresence @ 0x1C0029F4C
+ * Callers:
+ *     ACPIGetWorkerForInteger @ 0x1C002B5C0 (ACPIGetWorkerForInteger.c)
+ * Callees:
+ *     ACPIGetProcessorStatus @ 0x1C002B0A4 (ACPIGetProcessorStatus.c)
+ *     ACPIInternalUpdateDeviceStatus @ 0x1C002F084 (ACPIInternalUpdateDeviceStatus.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ */
+
 __int64 __fastcall ACPIGetConvertToDevicePresence(
         ULONG_PTR BugCheckParameter2,
         __int64 a2,

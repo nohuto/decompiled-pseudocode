@@ -1,3 +1,18 @@
+/*
+ * XREFs of _CmDeleteDeviceRegKey @ 0x140A5F12C
+ * Callers:
+ *     PiDevCfgConfigureDevice @ 0x14087384C (PiDevCfgConfigureDevice.c)
+ *     PiCMDeleteDeviceKey @ 0x140966320 (PiCMDeleteDeviceKey.c)
+ *     _CmDeleteDeviceRegKeyWorker @ 0x140A5F264 (_CmDeleteDeviceRegKeyWorker.c)
+ *     _CmDeleteDeviceWorker @ 0x140A5F74C (_CmDeleteDeviceWorker.c)
+ *     PipResetDevice @ 0x140B91440 (PipResetDevice.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     _CmDeleteDeviceRegKeyWorker @ 0x140A5F264 (_CmDeleteDeviceRegKeyWorker.c)
+ */
+
 __int64 __fastcall CmDeleteDeviceRegKey(__int64 a1, __int64 a2, int a3, int a4)
 {
   __int64 (__fastcall *v8)(__int64, __int64, __int64); // rsi

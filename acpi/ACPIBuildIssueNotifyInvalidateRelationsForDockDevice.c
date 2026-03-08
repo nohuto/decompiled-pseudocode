@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIBuildIssueNotifyInvalidateRelationsForDockDevice @ 0x1C000D760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qs @ 0x1C00152B8 (WPP_RECORDER_SF_qs.c)
+ */
+
 void __fastcall ACPIBuildIssueNotifyInvalidateRelationsForDockDevice(__int64 a1, __int64 a2)
 {
   _QWORD *v3; // rdx

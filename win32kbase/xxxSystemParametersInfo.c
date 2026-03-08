@@ -1,3 +1,36 @@
+/*
+ * XREFs of xxxSystemParametersInfo @ 0x1C009C980
+ * Callers:
+ *     ?UserInitialize@@YAJXZ @ 0x1C002D838 (-UserInitialize@@YAJXZ.c)
+ *     NtUserSystemParametersInfo @ 0x1C01788A0 (NtUserSystemParametersInfo.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0088924 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _GetPrecisionTouchPadConfiguration @ 0x1C009C550 (_GetPrecisionTouchPadConfiguration.c)
+ *     ReadPointerDeviceSettings @ 0x1C009CC40 (ReadPointerDeviceSettings.c)
+ *     ?SpiGetStickyKeys@@YAHKPEAX@Z @ 0x1C009CEBC (-SpiGetStickyKeys@@YAHKPEAX@Z.c)
+ *     ApiSetEditionCheckDesktopPolicy @ 0x1C009CF38 (ApiSetEditionCheckDesktopPolicy.c)
+ *     BroadcastSettingsUpdateToAllContainers @ 0x1C009D090 (BroadcastSettingsUpdateToAllContainers.c)
+ *     ?GetWakeOnDeviceTypes@CInputGlobals@@QEBA?AW4InputType@@XZ @ 0x1C00BC680 (-GetWakeOnDeviceTypes@CInputGlobals@@QEBA-AW4InputType@@XZ.c)
+ *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00CD374 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ *     _SetPrecisionTouchPadConfiguration @ 0x1C015CC04 (_SetPrecisionTouchPadConfiguration.c)
+ *     FastWriteProfileValue @ 0x1C015D3A0 (FastWriteProfileValue.c)
+ *     WritePointerDeviceSettings @ 0x1C01680C0 (WritePointerDeviceSettings.c)
+ *     ?IsSPIActionAllowedForFilteredProcess@@YAHI@Z @ 0x1C017AEB4 (-IsSPIActionAllowedForFilteredProcess@@YAHI@Z.c)
+ *     ?SpiSetAccessTimeOut@@YAHKPEAXHHPEAH@Z @ 0x1C017B404 (-SpiSetAccessTimeOut@@YAHKPEAXHHPEAH@Z.c)
+ *     ?SpiSetFilterKeys@@YAHKPEAXHHPEAH@Z @ 0x1C017B654 (-SpiSetFilterKeys@@YAHKPEAXHHPEAH@Z.c)
+ *     ?SpiSetStickyKeys@@YAHKPEAXHHPEAH@Z @ 0x1C017B7A0 (-SpiSetStickyKeys@@YAHKPEAXHHPEAH@Z.c)
+ *     ?SpiSetToggleKeys@@YAHKPEAXHHPEAH@Z @ 0x1C017B954 (-SpiSetToggleKeys@@YAHKPEAXHHPEAH@Z.c)
+ *     EtwTraceSPIBlockedByFiltering @ 0x1C0198530 (EtwTraceSPIBlockedByFiltering.c)
+ *     ?SetWakeableInputTypesToRegistry@CInputGlobals@@QEAA_NKK@Z @ 0x1C020B7DC (-SetWakeableInputTypesToRegistry@CInputGlobals@@QEAA_NKK@Z.c)
+ *     ?PTPConfigUpdateEx@PTPTelemetry@@CAXQEAUDEVICEINFO@@@Z @ 0x1C020EABC (-PTPConfigUpdateEx@PTPTelemetry@@CAXQEAUDEVICEINFO@@@Z.c)
+ *     ApiSetEditionxxxBroadcastSPIChange @ 0x1C02435D4 (ApiSetEditionxxxBroadcastSPIChange.c)
+ */
+
 __int64 __fastcall xxxSystemParametersInfo(unsigned int a1, unsigned int a2, void *a3, unsigned int a4)
 {
   __int64 v7; // rdx

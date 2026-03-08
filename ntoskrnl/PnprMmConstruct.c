@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnprMmConstruct @ 0x140963D98
+ * Callers:
+ *     PnpReplacePartitionUnit @ 0x140961B80 (PnpReplacePartitionUnit.c)
+ * Callees:
+ *     PnprMmAddRange @ 0x140963C60 (PnprMmAddRange.c)
+ *     PnprMmFree @ 0x140963EA4 (PnprMmFree.c)
+ */
+
 __int64 __fastcall PnprMmConstruct(__int64 a1, _QWORD *a2)
 {
   int v2; // ebx

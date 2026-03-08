@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtGdiComputeXformCoefficients @ 0x1C02AC8B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00CFF10 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ */
+
 _BOOL8 __fastcall NtGdiComputeXformCoefficients(HDC a1)
 {
   BOOL v1; // ebx

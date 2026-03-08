@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhUninitialize @ 0x1C002E0C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhReferenceListRemove @ 0x1C00018CC (UsbhReferenceListRemove.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhDisarmHubForWakeDetect @ 0x1C0020A80 (UsbhDisarmHubForWakeDetect.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     UsbhUnregisterPowerCallback @ 0x1C00595B0 (UsbhUnregisterPowerCallback.c)
+ */
+
 void __fastcall UsbhUninitialize(__int64 a1)
 {
   _DWORD *v2; // rbx

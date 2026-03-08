@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtDCompositionSetDebugCounter @ 0x1C00C8D00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C005F334 (-ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall NtDCompositionSetDebugCounter(unsigned int a1, int a2)
 {
   int v3; // ebx

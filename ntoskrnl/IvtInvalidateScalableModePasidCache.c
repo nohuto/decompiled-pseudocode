@@ -1,3 +1,15 @@
+/*
+ * XREFs of IvtInvalidateScalableModePasidCache @ 0x14052AFF4
+ * Callers:
+ *     IvtSetPasidAddressSpace @ 0x14052B2E0 (IvtSetPasidAddressSpace.c)
+ *     IvtUpdateScalableModeContextEntry @ 0x14052B844 (IvtUpdateScalableModeContextEntry.c)
+ *     IvtInitializeIommu @ 0x140A87060 (IvtInitializeIommu.c)
+ * Callees:
+ *     IvtIommuWaitCommand @ 0x1402F4874 (IvtIommuWaitCommand.c)
+ *     IvtIommuSendCommand @ 0x1402F49A4 (IvtIommuSendCommand.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall IvtInvalidateScalableModePasidCache(
         __int64 a1,
         unsigned __int16 a2,

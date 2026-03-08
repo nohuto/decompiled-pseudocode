@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiTimeToWriteMemory @ 0x1402E5238
+ * Callers:
+ *     MiZeroInParallel @ 0x140242EB8 (MiZeroInParallel.c)
+ *     MiAllocateFastLargePagesForMdl @ 0x1403863B4 (MiAllocateFastLargePagesForMdl.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall MiTimeToWriteMemory(unsigned int a1, int a2, int a3, int a4, __int64 a5)
 {
   __int64 v5; // r10

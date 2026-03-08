@@ -1,3 +1,21 @@
+/*
+ * XREFs of UsbhSyncSuspendPdoPort @ 0x1C0009B88
+ * Callers:
+ *     UsbhSshResumeDownstream @ 0x1C000E1B0 (UsbhSshResumeDownstream.c)
+ *     UsbhBusIf_SuspendChildHub @ 0x1C001A0F0 (UsbhBusIf_SuspendChildHub.c)
+ *     UsbhPdoSetDx @ 0x1C001ACC4 (UsbhPdoSetDx.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhQueryPortState @ 0x1C0016540 (UsbhQueryPortState.c)
+ *     UsbhPCE_Suspend @ 0x1C00190B4 (UsbhPCE_Suspend.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_q @ 0x1C002EA5C (WPP_RECORDER_SF_q.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhEnableDeviceForWake @ 0x1C0054480 (UsbhEnableDeviceForWake.c)
+ */
+
 __int64 __fastcall UsbhSyncSuspendPdoPort(__int64 a1, __int64 a2, char a3)
 {
   __int64 v6; // rbx

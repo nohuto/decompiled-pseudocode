@@ -1,3 +1,17 @@
+/*
+ * XREFs of VidSchiPrepareToResetEngine @ 0x1C010667C
+ * Callers:
+ *     VidSchiCheckHwProgress @ 0x1C00A5940 (VidSchiCheckHwProgress.c)
+ *     VidSchWaitForCompletionEvent @ 0x1C00ADD4C (VidSchWaitForCompletionEvent.c)
+ * Callees:
+ *     VidSchIsTDRPending @ 0x1C0007920 (VidSchIsTDRPending.c)
+ *     VidSchiSchedulerNodeToDriverEngine @ 0x1C00196B8 (VidSchiSchedulerNodeToDriverEngine.c)
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     ?DdiQueryDependentEngineGroup@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_QUERYDEPENDENTENGINEGROUP@@@Z @ 0x1C002C8B8 (-DdiQueryDependentEngineGroup@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_QUERYDEPENDENTENGINEGROUP@@@Z.c)
+ *     VidSchiSchedulerNodeToDriverNode @ 0x1C003C618 (VidSchiSchedulerNodeToDriverNode.c)
+ *     VidSchiPreemptEngineNodes @ 0x1C0106530 (VidSchiPreemptEngineNodes.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 char __fastcall VidSchiPrepareToResetEngine(__int64 a1, __int64 *a2)
 {

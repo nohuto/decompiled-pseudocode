@@ -1,3 +1,14 @@
+/*
+ * XREFs of ScsiLogSenseRequest @ 0x1C0019D6C
+ * Callers:
+ *     ScsiToNVMe @ 0x1C00010C0 (ScsiToNVMe.c)
+ * Callees:
+ *     LogSenseInformationalExceptions @ 0x1C0014B14 (LogSenseInformationalExceptions.c)
+ *     LogSenseSupportedLogPages @ 0x1C0014C80 (LogSenseSupportedLogPages.c)
+ *     LogSenseTemperature @ 0x1C0014D00 (LogSenseTemperature.c)
+ *     NVMeSetSenseData @ 0x1C0024238 (NVMeSetSenseData.c)
+ */
+
 __int64 __fastcall ScsiLogSenseRequest(__int64 a1, __int64 a2, _BYTE *a3, unsigned __int64 a4)
 {
   __int64 v4; // r10

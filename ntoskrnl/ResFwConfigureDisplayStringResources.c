@@ -1,3 +1,13 @@
+/*
+ * XREFs of ResFwConfigureDisplayStringResources @ 0x140AEB630
+ * Callers:
+ *     BgpFwLibraryInitialize @ 0x140AEAC78 (BgpFwLibraryInitialize.c)
+ * Callees:
+ *     BgpTxtRegionSize @ 0x14038468C (BgpTxtRegionSize.c)
+ *     BgpFoGetFontHandle @ 0x140AEABC4 (BgpFoGetFontHandle.c)
+ *     BgpTxtCreateRegion @ 0x140AEB2AC (BgpTxtCreateRegion.c)
+ */
+
 __int64 __fastcall ResFwConfigureDisplayStringResources(__int64 a1)
 {
   int v2; // eax

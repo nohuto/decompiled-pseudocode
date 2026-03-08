@@ -1,3 +1,11 @@
+/*
+ * XREFs of CiSchedulerSetTaskIndexThreadTag @ 0x1C0002920
+ * Callers:
+ *     CiSchedulerRefreshTaskIndexQosProperties @ 0x1C00030B0 (CiSchedulerRefreshTaskIndexQosProperties.c)
+ * Callees:
+ *     CiSystemUpdateThreadTag @ 0x1C0002970 (CiSystemUpdateThreadTag.c)
+ */
+
 __int64 __fastcall CiSchedulerSetTaskIndexThreadTag(__int64 a1, unsigned int a2)
 {
   _QWORD *v2; // rbx

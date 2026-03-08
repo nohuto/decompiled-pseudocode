@@ -1,3 +1,13 @@
+/*
+ * XREFs of PowerIsDisplayIdleExpired @ 0x1C00ABE40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsTimeFromLastInputEvent@CInputGlobals@@QEBA_NK@Z @ 0x1C00AFD90 (-IsTimeFromLastInputEvent@CInputGlobals@@QEBA_NK@Z.c)
+ *     PowerIsDisplayBurstActive @ 0x1C015B940 (PowerIsDisplayBurstActive.c)
+ *     PowerIsDisplayRequired @ 0x1C015BA00 (PowerIsDisplayRequired.c)
+ */
+
 _BOOL8 __fastcall PowerIsDisplayIdleExpired(int a1, int *a2)
 {
   CInputGlobals *v3; // rbx

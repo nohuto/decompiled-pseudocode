@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIIoctlEnumChildrenPopulateOutputBuffer @ 0x1C002FC78
+ * Callers:
+ *     ACPIIoctlEnumChildren @ 0x1C002FA10 (ACPIIoctlEnumChildren.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ */
+
 __int64 __fastcall ACPIIoctlEnumChildrenPopulateOutputBuffer(_DWORD *a1, unsigned int a2, int *a3, __int64 a4)
 {
   unsigned int v4; // ebx

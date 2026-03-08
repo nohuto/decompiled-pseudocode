@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtDCompositionEnableMMCSS @ 0x1C0248710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Current@CProcessData@DirectComposition@@SAPEAV12@XZ @ 0x1C005CBD8 (-Current@CProcessData@DirectComposition@@SAPEAV12@XZ.c)
+ *     ?Release@CConnection@DirectComposition@@QEAAKXZ @ 0x1C005E51C (-Release@CConnection@DirectComposition@@QEAAKXZ.c)
+ *     ?GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ @ 0x1C006AA58 (-GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ.c)
+ *     ?Release@CPushLockCriticalSection@DirectComposition@@QEAAXXZ @ 0x1C0091D74 (-Release@CPushLockCriticalSection@DirectComposition@@QEAAXXZ.c)
+ *     ?EnableMMCSS@CConnection@DirectComposition@@QEAAJH@Z @ 0x1C024950C (-EnableMMCSS@CConnection@DirectComposition@@QEAAJH@Z.c)
+ */
+
 __int64 __fastcall NtDCompositionEnableMMCSS(int a1)
 {
   int v2; // ebx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of FsRtlFastCheckLockForWrite @ 0x1402C8110
+ * Callers:
+ *     FsRtlCheckLockForWriteAccess @ 0x1402C8020 (FsRtlCheckLockForWriteAccess.c)
+ * Callees:
+ *     FsRtlCheckNoExclusiveConflict @ 0x140200C64 (FsRtlCheckNoExclusiveConflict.c)
+ *     FsRtlCheckNoSharedConflict @ 0x140200DCC (FsRtlCheckNoSharedConflict.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 BOOLEAN __stdcall FsRtlFastCheckLockForWrite(
         PFILE_LOCK FileLock,
         PLARGE_INTEGER StartingByte,

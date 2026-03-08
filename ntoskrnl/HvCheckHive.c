@@ -1,3 +1,19 @@
+/*
+ * XREFs of HvCheckHive @ 0x1407A6080
+ * Callers:
+ *     CmCheckRegistry @ 0x14072DEB4 (CmCheckRegistry.c)
+ * Callees:
+ *     SetFailureLocation @ 0x140243E5C (SetFailureLocation.c)
+ *     HvCheckBin @ 0x1406ED190 (HvCheckBin.c)
+ *     HvMoveLayoutStats @ 0x1406ED3D4 (HvMoveLayoutStats.c)
+ *     HvAddToLayoutStats @ 0x1406ED3F0 (HvAddToLayoutStats.c)
+ *     HvpMapEntryGetFreeBin @ 0x1407A6910 (HvpMapEntryGetFreeBin.c)
+ *     HvpGetBinContextInitialize @ 0x140AF2644 (HvpGetBinContextInitialize.c)
+ *     HvpMapEntryGetBinAddress @ 0x140AF2654 (HvpMapEntryGetBinAddress.c)
+ *     HvpGetCellMap @ 0x140AF2670 (HvpGetCellMap.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x140AF26CC (HvpMapEntryReleaseBinAddress.c)
+ */
+
 __int64 HvCheckHive(__int64 a1, int a2, ...)
 {
   __int64 v2; // r8

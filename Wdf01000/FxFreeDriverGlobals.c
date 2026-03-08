@@ -1,3 +1,11 @@
+/*
+ * XREFs of FxFreeDriverGlobals @ 0x1C0043CA4
+ * Callers:
+ *     FxLibraryCommonUnregisterClient @ 0x1C002C650 (FxLibraryCommonUnregisterClient.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxFreeDriverGlobals(_WDF_DRIVER_GLOBALS *DriverGlobals)
 {
   _WDF_DRIVER_GLOBALS *v1; // rbx

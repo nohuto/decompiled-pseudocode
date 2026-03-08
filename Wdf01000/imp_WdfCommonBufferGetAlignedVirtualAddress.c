@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_WdfCommonBufferGetAlignedVirtualAddress @ 0x1C001A8C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ */
+
 void *__fastcall imp_WdfCommonBufferGetAlignedVirtualAddress(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFCOMMONBUFFER__ *CommonBuffer)

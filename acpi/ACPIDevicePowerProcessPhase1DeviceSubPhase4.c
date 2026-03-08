@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIDevicePowerProcessPhase1DeviceSubPhase4 @ 0x1C001F510
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qqss @ 0x1C000A374 (WPP_RECORDER_SF_qqss.c)
+ *     ACPIDeviceCompletePhase3Common @ 0x1C001C4F4 (ACPIDeviceCompletePhase3Common.c)
+ *     ACPIDevicePowerEnumerateAssociatedPowerNodes @ 0x1C001E980 (ACPIDevicePowerEnumerateAssociatedPowerNodes.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ */
+
 __int64 __fastcall ACPIDevicePowerProcessPhase1DeviceSubPhase4(__int64 a1)
 {
   __int64 v1; // rdi

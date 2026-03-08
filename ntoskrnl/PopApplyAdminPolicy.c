@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopApplyAdminPolicy @ 0x140981178
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall PopApplyAdminPolicy(__int64 a1, __m128i *a2)
 {
   __m128i v2; // xmm1

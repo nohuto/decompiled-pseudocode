@@ -1,3 +1,12 @@
+/*
+ * XREFs of _anonymous_namespace_::FrameSequenceInfo::FrameSequenceInfo_0 @ 0x1801CA468
+ * Callers:
+ *     std::_Uninitialized_move__anonymous_namespace_::FrameSequenceInfo___std::allocator__anonymous_namespace_::FrameSequenceInfo___ @ 0x1801CA408 (std--_Uninitialized_move__anonymous_namespace_--FrameSequenceInfo___std--allocator__anonymous_na.c)
+ * Callees:
+ *     ??$_Buyheadnode@V?$allocator@U?$_Tree_node@U?$pair@$$CBW4Enum@SceneMaterialInputType@@I@std@@PEAX@std@@@std@@@?$_Tree_node@U?$pair@$$CBW4Enum@SceneMaterialInputType@@I@std@@PEAX@std@@SAPEAU01@AEAV?$allocator@U?$_Tree_node@U?$pair@$$CBW4Enum@SceneMaterialInputType@@I@std@@PEAX@std@@@1@@Z @ 0x180036340 (--$_Buyheadnode@V-$allocator@U-$_Tree_node@U-$pair@$$CBW4Enum@SceneMaterialInputType@@I@std@@PEA.c)
+ *     std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void___::_Buyheadnode_std::allocator_std::_Tree_node_std::pair__anonymous_namespace_::AnimationId_const__unsigned_int__void_______ @ 0x180036EC0 (std--_Tree_node_std--pair__anonymous_namespace_--AnimationId_const__unsigned_int__void___--_Buyh.c)
+ */
+
 __int64 __fastcall anonymous_namespace_::FrameSequenceInfo::FrameSequenceInfo_0(__int64 a1, __int64 a2)
 {
   __int64 v4; // rax

@@ -1,3 +1,21 @@
+/*
+ * XREFs of NtGetNextThread @ 0x140790200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SepDeleteAccessState @ 0x140265F50 (SepDeleteAccessState.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SeCreateAccessState @ 0x1406991A0 (SeCreateAccessState.c)
+ *     PsGetNextProcessThread @ 0x1406A8E30 (PsGetNextProcessThread.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObOpenObjectByPointer @ 0x1407C93D0 (ObOpenObjectByPointer.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     PsSynchronizeWithThreadInsertion @ 0x1409AB528 (PsSynchronizeWithThreadInsertion.c)
+ */
+
 __int64 __fastcall NtGetNextThread(ULONG_PTR BugCheckParameter1, ULONG_PTR a2, int a3, int a4, int a5, HANDLE *a6)
 {
   KPROCESSOR_MODE AccessMode; // r12

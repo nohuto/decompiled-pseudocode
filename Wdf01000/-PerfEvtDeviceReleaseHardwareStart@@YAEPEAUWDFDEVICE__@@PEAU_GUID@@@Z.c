@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?PerfEvtDeviceReleaseHardwareStart@@YAEPEAUWDFDEVICE__@@PEAU_GUID@@@Z @ 0x1C002E5F0
+ * Callers:
+ *     VfEvtDeviceReleaseHardware @ 0x1C00B8C60 (VfEvtDeviceReleaseHardware.c)
+ * Callees:
+ *     ?_GetObjectFromHandle@FxObject@@SAPEAV1@PEAXPEAG@Z @ 0x1C0017C04 (-_GetObjectFromHandle@FxObject@@SAPEAV1@PEAXPEAG@Z.c)
+ *     McTemplateK0pp_EtwWriteTransfer @ 0x1C002E7C4 (McTemplateK0pp_EtwWriteTransfer.c)
+ */
+
 char __fastcall PerfEvtDeviceReleaseHardwareStart(WDFDEVICE__ *Handle, _GUID *pActivityId)
 {
   char v3; // bl

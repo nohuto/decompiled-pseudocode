@@ -1,3 +1,15 @@
+/*
+ * XREFs of IoPerfReset @ 0x140556BD4
+ * Callers:
+ *     EtwpDisableKernelTrace @ 0x1407864C4 (EtwpDisableKernelTrace.c)
+ *     IoUnregisterIoTracking @ 0x140946120 (IoUnregisterIoTracking.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     IopUpdateFunctionPointers @ 0x140553FEC (IopUpdateFunctionPointers.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IoPerfReset(char a1)
 {
   unsigned __int64 OldIrql; // rbx

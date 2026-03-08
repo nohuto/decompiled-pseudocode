@@ -1,3 +1,21 @@
+/*
+ * XREFs of RtlRaiseCustomSystemEventTrigger @ 0x1405AEB80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQueryWnfStateData @ 0x1404150D0 (ZwQueryWnfStateData.c)
+ *     ZwQueryWnfStateNameInformation @ 0x1404150F0 (ZwQueryWnfStateNameInformation.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ *     RtlpCtAllocateMemory @ 0x1409BF118 (RtlpCtAllocateMemory.c)
+ *     RtlpCtContextFree @ 0x1409BF13C (RtlpCtContextFree.c)
+ *     RtlpCtContextInit @ 0x1409BF198 (RtlpCtContextInit.c)
+ *     RtlpCtFreeMemory @ 0x1409BF260 (RtlpCtFreeMemory.c)
+ *     RtlpCtQueueWorkItem @ 0x1409BF320 (RtlpCtQueueWorkItem.c)
+ */
+
 __int64 __fastcall RtlRaiseCustomSystemEventTrigger(__int64 a1)
 {
   int WnfStateData; // ebx

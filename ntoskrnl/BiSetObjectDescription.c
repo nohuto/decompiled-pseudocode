@@ -1,3 +1,13 @@
+/*
+ * XREFs of BiSetObjectDescription @ 0x14082BB8C
+ * Callers:
+ *     BiCreateObject @ 0x14082CA14 (BiCreateObject.c)
+ * Callees:
+ *     BiSetRegistryValue @ 0x14082D198 (BiSetRegistryValue.c)
+ *     BiCreateKey @ 0x14082D580 (BiCreateKey.c)
+ *     BiCloseKey @ 0x14082E938 (BiCloseKey.c)
+ */
+
 __int64 __fastcall BiSetObjectDescription(__int64 a1)
 {
   __int64 result; // rax

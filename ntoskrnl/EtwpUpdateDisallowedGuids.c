@@ -1,3 +1,21 @@
+/*
+ * XREFs of EtwpUpdateDisallowedGuids @ 0x1409ED100
+ * Callers:
+ *     EtwpUpdateDisallowList @ 0x1409E4B08 (EtwpUpdateDisallowList.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     EtwpNotifyDisallowedGuidChange @ 0x1409E46E0 (EtwpNotifyDisallowedGuidChange.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpUpdateDisallowedGuids(
         __int64 a1,
         unsigned __int16 a2,

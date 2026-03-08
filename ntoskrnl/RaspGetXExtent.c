@@ -1,3 +1,17 @@
+/*
+ * XREFs of RaspGetXExtent @ 0x140382254
+ * Callers:
+ *     BcpGetCharacterMaxResourceProfile @ 0x1403913D4 (BcpGetCharacterMaxResourceProfile.c)
+ *     BgpRasGetGlyphAdvanceWidth @ 0x140670E7C (BgpRasGetGlyphAdvanceWidth.c)
+ * Callees:
+ *     RaspGetCacheEntry @ 0x1403823F4 (RaspGetCacheEntry.c)
+ *     RaspRasterize @ 0x140382470 (RaspRasterize.c)
+ *     RaspFreeMemory @ 0x140382634 (RaspFreeMemory.c)
+ *     RaspAllocateMemory @ 0x140383B7C (RaspAllocateMemory.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RaspAddCacheEntry @ 0x140AEAB60 (RaspAddCacheEntry.c)
+ */
+
 __int64 RaspGetXExtent(unsigned __int16 a1, __int64 a2, _DWORD *a3, ...)
 {
   __int64 *v3; // r14

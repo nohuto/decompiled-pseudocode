@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIBuildProcessThermalZoneHid @ 0x1C0012BD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIBuildCompleteCommon @ 0x1C000BC30 (ACPIBuildCompleteCommon.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessThermalZoneHid(__int64 a1)
 {
   __int64 v1; // rax

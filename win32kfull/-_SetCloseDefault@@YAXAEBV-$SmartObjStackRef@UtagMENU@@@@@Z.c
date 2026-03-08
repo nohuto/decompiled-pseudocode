@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_SetCloseDefault@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@@Z @ 0x1C0224B4C
+ * Callers:
+ *     ?SetupFakeMDIAppStuff@@YAXAEBV?$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z @ 0x1C0224A84 (-SetupFakeMDIAppStuff@@YAXAEBV-$SmartObjStackRef@UtagMENU@@@@PEAUtagITEM@@@Z.c)
+ *     xxxSetSysMenu @ 0x1C0224F64 (xxxSetSysMenu.c)
+ * Callees:
+ *     _SetMenuDefaultItem @ 0x1C00DF9EC (_SetMenuDefaultItem.c)
+ */
+
 __int64 __fastcall _SetCloseDefault(__int64 **a1)
 {
   __int64 v2; // rcx

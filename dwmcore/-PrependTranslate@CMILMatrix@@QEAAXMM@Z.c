@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PrependTranslate@CMILMatrix@@QEAAXMM@Z @ 0x18026CF08
+ * Callers:
+ *     ?GetRealization@CSkewTransform@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z @ 0x18024E550 (-GetRealization@CSkewTransform@@MEAAXPEBUD2D_SIZE_F@@PEAVCMILMatrix@@@Z.c)
+ * Callees:
+ *     ??$IsAffine@$00@CMILMatrix@@AEBA_N_N@Z @ 0x18005B510 (--$IsAffine@$00@CMILMatrix@@AEBA_N_N@Z.c)
+ */
+
 void __fastcall CMILMatrix::PrependTranslate(CMILMatrix *this, float a2, float a3)
 {
   float v4; // xmm2_4

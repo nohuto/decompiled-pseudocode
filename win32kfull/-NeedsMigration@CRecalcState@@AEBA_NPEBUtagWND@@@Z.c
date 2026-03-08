@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?NeedsMigration@CRecalcState@@AEBA_NPEBUtagWND@@@Z @ 0x1C00FF140
+ * Callers:
+ *     ?CreateRecalcState@CRecalcState@@SAPEAV1@PEBUtagWND@@PEAVCMonitorTopology@@W4StartRecalcOption@@PEAW4ProcessingDecision@1@@Z @ 0x1C00FCDBC (-CreateRecalcState@CRecalcState@@SAPEAV1@PEBUtagWND@@PEAVCMonitorTopology@@W4StartRecalcOption@@.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_qd @ 0x1C00FAFB4 (WPP_RECORDER_AND_TRACE_SF_qd.c)
+ *     ?MonitorDataFromId@CMonitorTopology@@QEBAPEBUMonitorData@1@AEBUMonitorId@1@@Z @ 0x1C00FF25C (-MonitorDataFromId@CMonitorTopology@@QEBAPEBUMonitorData@1@AEBUMonitorId@1@@Z.c)
+ *     ?Compare@MonitorData@CMonitorTopology@@SA_NAEBU12@0@Z @ 0x1C01022AC (-Compare@MonitorData@CMonitorTopology@@SA_NAEBU12@0@Z.c)
+ */
+
 char __fastcall CRecalcState::NeedsMigration(CRecalcState *this, PETHREAD **a2)
 {
   __int64 v2; // rsi

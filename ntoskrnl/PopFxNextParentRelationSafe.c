@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopFxNextParentRelationSafe @ 0x1402E4C58
+ * Callers:
+ *     PopFxNotifyPreDIrpIssue @ 0x1402BA338 (PopFxNotifyPreDIrpIssue.c)
+ *     PopFxNotifyPostDIrpCompletion @ 0x1402BA4B8 (PopFxNotifyPostDIrpCompletion.c)
+ *     PopFxActivateComponentDependencies @ 0x140306004 (PopFxActivateComponentDependencies.c)
+ *     PopFxDeactivateComponentDependencies @ 0x140306C70 (PopFxDeactivateComponentDependencies.c)
+ *     PoFxRemoveComponentRelation @ 0x140585C70 (PoFxRemoveComponentRelation.c)
+ *     PoFxRemoveDeviceRelation @ 0x140586060 (PoFxRemoveDeviceRelation.c)
+ *     PopFxComponentRelationsCleanup @ 0x140587474 (PopFxComponentRelationsCleanup.c)
+ *     PopFxDeviceRelationsCleanup @ 0x140587938 (PopFxDeviceRelationsCleanup.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall PopFxNextParentRelationSafe(_QWORD **a1, __int64 a2, _QWORD *a3)
 {
   char v3; // si

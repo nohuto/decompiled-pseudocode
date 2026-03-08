@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpStartRMLogs @ 0x14073565C
+ * Callers:
+ *     CmpTransInitializeTransaction @ 0x1407353BC (CmpTransInitializeTransaction.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     CmpLockRegistryFreezeAware @ 0x1406BF3D0 (CmpLockRegistryFreezeAware.c)
+ *     CmpUuidCreate @ 0x140733C60 (CmpUuidCreate.c)
+ *     CmpStartRMLog @ 0x140863C7C (CmpStartRMLog.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ */
+
 __int64 __fastcall CmpStartRMLogs(__int64 a1)
 {
   int v1; // eax

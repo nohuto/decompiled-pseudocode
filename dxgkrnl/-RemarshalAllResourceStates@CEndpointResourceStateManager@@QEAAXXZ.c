@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RemarshalAllResourceStates@CEndpointResourceStateManager@@QEAAXXZ @ 0x1C0086EDC
+ * Callers:
+ *     ?ProcessConsumerDisconnect@CFlipManager@@IEAAXXZ @ 0x1C0083F1C (-ProcessConsumerDisconnect@CFlipManager@@IEAAXXZ.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CEndpointResourceStateManager::RemarshalAllResourceStates(CEndpointResourceStateManager *this)
 {
   char *v1; // rsi

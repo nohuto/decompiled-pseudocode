@@ -1,3 +1,15 @@
+/*
+ * XREFs of IvtFreeDomain @ 0x14052A260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140379818 (HalpAcquireHighLevelLock.c)
+ *     ExtEnvCriticalFailure @ 0x14051D068 (ExtEnvCriticalFailure.c)
+ *     ExtEnvDestroySpinLock @ 0x14051D088 (ExtEnvDestroySpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IvtFreeDomain(ULONG_PTR a1, ULONG_PTR a2)
 {
   volatile signed __int64 *v2; // rdi

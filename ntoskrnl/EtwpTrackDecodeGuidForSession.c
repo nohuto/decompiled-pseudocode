@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpTrackDecodeGuidForSession @ 0x1409F26D8
+ * Callers:
+ *     EtwpUpdateRegEntryEnableMask @ 0x14069059C (EtwpUpdateRegEntryEnableMask.c)
+ *     AddDecodeGuidToSessions @ 0x14079AF30 (AddDecodeGuidToSessions.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 bool __fastcall EtwpTrackDecodeGuidForSession(__int64 a1, __int64 a2)
 {
   __int64 v2; // r15

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpCmResourcesExcludeSidebandResources @ 0x1C00926CC
+ * Callers:
+ *     ACPIFilterIrpStartDeviceWorker @ 0x1C00868F0 (ACPIFilterIrpStartDeviceWorker.c)
+ * Callees:
+ *     PnpiCmResourceRemoveSidebandResources @ 0x1C0092CD4 (PnpiCmResourceRemoveSidebandResources.c)
+ */
+
 __int64 __fastcall PnpCmResourcesExcludeSidebandResources(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4, _QWORD *a5)
 {
   int v6; // ebp

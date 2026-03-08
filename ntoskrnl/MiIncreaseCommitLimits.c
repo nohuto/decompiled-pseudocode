@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiIncreaseCommitLimits @ 0x140392864
+ * Callers:
+ *     MiInitializeCommitment @ 0x140392394 (MiInitializeCommitment.c)
+ *     MiInsertPartitionPages @ 0x140657EB8 (MiInsertPartitionPages.c)
+ *     MiCreatePagingFile @ 0x140834F7C (MiCreatePagingFile.c)
+ *     MiInsertPageFileInList @ 0x140835F30 (MiInsertPageFileInList.c)
+ *     MiMapNewPfns @ 0x140A29C20 (MiMapNewPfns.c)
+ *     MiExtendPagingFiles @ 0x140A2FD7C (MiExtendPagingFiles.c)
+ *     MiFreePartitionPhysicalPages @ 0x140A41E90 (MiFreePartitionPhysicalPages.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiUpdatePageFileList @ 0x140392600 (MiUpdatePageFileList.c)
+ *     MiComputeCommitThresholds @ 0x140392978 (MiComputeCommitThresholds.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiRestockOverCommit @ 0x140654060 (MiRestockOverCommit.c)
+ */
+
 __int64 __fastcall MiIncreaseCommitLimits(__int64 a1, unsigned __int64 a2, __int64 a3, int a4, __int64 a5)
 {
   unsigned int v8; // ebp

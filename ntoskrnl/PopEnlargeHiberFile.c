@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopEnlargeHiberFile @ 0x140985550
+ * Callers:
+ *     PopTransitionToSleep @ 0x140AA21D0 (PopTransitionToSleep.c)
+ * Callees:
+ *     PopResizeHiberFile @ 0x140985EE0 (PopResizeHiberFile.c)
+ */
+
 __int64 __fastcall PopEnlargeHiberFile(bool *a1)
 {
   __int64 v2; // rbx

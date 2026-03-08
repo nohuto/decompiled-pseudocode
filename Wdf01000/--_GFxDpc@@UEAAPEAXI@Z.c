@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_GFxDpc@@UEAAPEAXI@Z @ 0x1C0023180
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxDpc@@UEAA@XZ @ 0x1C0023110 (--1FxDpc@@UEAA@XZ.c)
+ */
+
 FxDpc *__fastcall FxDpc::`scalar deleting destructor'(FxDpc *this, unsigned int a2)
 {
   char v2; // bl

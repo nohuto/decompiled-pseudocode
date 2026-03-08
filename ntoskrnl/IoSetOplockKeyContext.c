@@ -1,3 +1,16 @@
+/*
+ * XREFs of IoSetOplockKeyContext @ 0x1403C9528
+ * Callers:
+ *     FsRtlCheckOplockEx2 @ 0x14023AE40 (FsRtlCheckOplockEx2.c)
+ *     FsRtlpAttachOplockKey @ 0x14023FE88 (FsRtlpAttachOplockKey.c)
+ * Callees:
+ *     IopGetFileObjectExtension @ 0x14023EB8C (IopGetFileObjectExtension.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14023FE20 (ExAllocateFromNPagedLookasideList.c)
+ *     IopSetTypeSpecificFoExtension @ 0x14023FE5C (IopSetTypeSpecificFoExtension.c)
+ *     IopAllocateFileObjectExtension @ 0x14024F600 (IopAllocateFileObjectExtension.c)
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ */
+
 __int64 __fastcall IoSetOplockKeyContext(__int64 a1, __int128 *a2, unsigned __int16 a3)
 {
   int v4; // edi

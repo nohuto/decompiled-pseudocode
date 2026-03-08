@@ -1,3 +1,13 @@
+/*
+ * XREFs of IntPartArbInit @ 0x1C00A318C
+ * Callers:
+ *     ProcessorpSelectProcessorSetFromPartitions @ 0x1C00A02C0 (ProcessorpSelectProcessorSetFromPartitions.c)
+ * Callees:
+ *     IntPartAllocateAndZeroMemory @ 0x1C005ECC4 (IntPartAllocateAndZeroMemory.c)
+ *     IntPartFree @ 0x1C005ECF0 (IntPartFree.c)
+ *     IntpReconstructPartitionGroupFromKernel @ 0x1C005EF2C (IntpReconstructPartitionGroupFromKernel.c)
+ */
+
 __int64 __fastcall IntPartArbInit(__int64 a1)
 {
   int v1; // eax

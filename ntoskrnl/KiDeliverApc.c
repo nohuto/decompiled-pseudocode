@@ -1,3 +1,48 @@
+/*
+ * XREFs of KiDeliverApc @ 0x140350B60
+ * Callers:
+ *     KiProcessDeferredReadyList @ 0x140226BD0 (KiProcessDeferredReadyList.c)
+ *     KiExitThreadWait @ 0x140239380 (KiExitThreadWait.c)
+ *     KiCheckForThreadDispatch @ 0x14023A168 (KiCheckForThreadDispatch.c)
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     KiSwapThread @ 0x14025F500 (KiSwapThread.c)
+ *     KiBeginThreadWait @ 0x1402934C0 (KiBeginThreadWait.c)
+ *     KiHandleDeferredPreemption @ 0x1402AE8D0 (KiHandleDeferredPreemption.c)
+ *     KeSetUserAffinityThread @ 0x1402B0FA0 (KeSetUserAffinityThread.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KiReadyOutSwappedThreads @ 0x1402C02E8 (KiReadyOutSwappedThreads.c)
+ *     KiAbThreadUnboostCpuPriority @ 0x1402D9A60 (KiAbThreadUnboostCpuPriority.c)
+ *     KeSetSchedulingGroupRankBias @ 0x1402F2018 (KeSetSchedulingGroupRankBias.c)
+ *     KiSetLegacyAffinityThread @ 0x1402FDE2C (KiSetLegacyAffinityThread.c)
+ *     KeSetSystemMultipleGroupAffinityThread @ 0x140301184 (KeSetSystemMultipleGroupAffinityThread.c)
+ *     KeRevertToUserMultipleGroupAffinityThread @ 0x140301A54 (KeRevertToUserMultipleGroupAffinityThread.c)
+ *     KeRemoveQueueEx @ 0x140315D50 (KeRemoveQueueEx.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     KeRemovePriQueue @ 0x140352720 (KeRemovePriQueue.c)
+ *     KeBoostPriorityThread @ 0x140359A88 (KeBoostPriorityThread.c)
+ *     KiContinueEx @ 0x140364520 (KiContinueEx.c)
+ *     KeSetBasePriorityThread @ 0x140369500 (KeSetBasePriorityThread.c)
+ *     KeSetCpuSetsProcess @ 0x140398C34 (KeSetCpuSetsProcess.c)
+ *     KeUpdateThreadCpuSets @ 0x140399998 (KeUpdateThreadCpuSets.c)
+ *     KeSetUserGroupAffinityThread @ 0x1403A8A60 (KeSetUserGroupAffinityThread.c)
+ *     KiAbForceProcessLockEntry @ 0x1403C7578 (KiAbForceProcessLockEntry.c)
+ *     KiApcInterrupt @ 0x14041BCF0 (KiApcInterrupt.c)
+ *     KiInitiateUserApc @ 0x14041C3D0 (KiInitiateUserApc.c)
+ *     KeSetThreadSchedulerAssist @ 0x14056AE2C (KeSetThreadSchedulerAssist.c)
+ *     KeRecomputeCpuSetAffinityProcess @ 0x140572DE4 (KeRecomputeCpuSetAffinityProcess.c)
+ *     KeSetSelectedCpuSetsThread @ 0x140573640 (KeSetSelectedCpuSetsThread.c)
+ *     KiSetHeteroPolicyThread @ 0x1405755E4 (KiSetHeteroPolicyThread.c)
+ * Callees:
+ *     KiCheckForSListAddress @ 0x1403510B0 (KiCheckForSListAddress.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeTestAlertThread @ 0x1403646F0 (KeTestAlertThread.c)
+ *     KiInitializeUserApc @ 0x1403664E8 (KiInitializeUserApc.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall KiDeliverApc(char a1, int a2, _KTRAP_FRAME *a3)
 {
   struct _KTHREAD *CurrentThread; // rbx

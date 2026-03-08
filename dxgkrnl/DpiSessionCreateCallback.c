@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiSessionCreateCallback @ 0x1C01DDB08
+ * Callers:
+ *     DxgkNotifySessionStateChange @ 0x1C01DDA00 (DxgkNotifySessionStateChange.c)
+ * Callees:
+ *     DpiFdoStartAdapterThread @ 0x1C02099A0 (DpiFdoStartAdapterThread.c)
+ *     DpiLdaValidateSystemChainStatus @ 0x1C0217240 (DpiLdaValidateSystemChainStatus.c)
+ */
+
 __int64 DpiSessionCreateCallback()
 {
   unsigned int v0; // ebx

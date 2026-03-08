@@ -1,3 +1,17 @@
+/*
+ * XREFs of Endpoint_EvtEndpointCleanupCallback @ 0x1C003A520
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     XilEndpoint_DestroySecureObject @ 0x1C0039068 (XilEndpoint_DestroySecureObject.c)
+ *     XilEndpoint_FreeResources @ 0x1C0039144 (XilEndpoint_FreeResources.c)
+ *     XilEndpoint_ReleaseBuffer @ 0x1C0039234 (XilEndpoint_ReleaseBuffer.c)
+ *     WPP_RECORDER_SF_ddqqq @ 0x1C003DB44 (WPP_RECORDER_SF_ddqqq.c)
+ *     UsbDevice_RemoveEndpointFromDeviceEndpointList @ 0x1C0049924 (UsbDevice_RemoveEndpointFromDeviceEndpointList.c)
+ *     Etw_EndpointDelete @ 0x1C004AC80 (Etw_EndpointDelete.c)
+ */
+
 __int64 __fastcall Endpoint_EvtEndpointCleanupCallback(__int64 a1)
 {
   __int64 v2; // rax

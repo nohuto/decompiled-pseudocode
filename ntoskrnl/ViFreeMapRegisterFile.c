@@ -1,3 +1,28 @@
+/*
+ * XREFs of ViFreeMapRegisterFile @ 0x140AC5A90
+ * Callers:
+ *     VfAllocateAdapterChannel @ 0x140AC1B90 (VfAllocateAdapterChannel.c)
+ *     VfBuildScatterGatherList @ 0x140AC2650 (VfBuildScatterGatherList.c)
+ *     VfCancelAdapterChannel @ 0x140AC2BE0 (VfCancelAdapterChannel.c)
+ *     VfFreeAdapterChannel @ 0x140AC3030 (VfFreeAdapterChannel.c)
+ *     VfFreeAdapterObject @ 0x140AC30E0 (VfFreeAdapterObject.c)
+ *     VfFreeMapRegisters @ 0x140AC3400 (VfFreeMapRegisters.c)
+ *     VfGetScatterGatherList @ 0x140AC3800 (VfGetScatterGatherList.c)
+ *     VfPutScatterGatherList @ 0x140AC45C0 (VfPutScatterGatherList.c)
+ *     ViAdapterCallback @ 0x140AC4860 (ViAdapterCallback.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     VfUtilFreePoolCheckIRQL @ 0x140303240 (VfUtilFreePoolCheckIRQL.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     ViCheckPadding @ 0x140AC5364 (ViCheckPadding.c)
+ *     ViFreeToContiguousMemory @ 0x140AC5D34 (ViFreeToContiguousMemory.c)
+ */
+
 __int64 __fastcall ViFreeMapRegisterFile(__int64 a1, struct _SLIST_ENTRY *a2)
 {
   volatile signed __int64 *v4; // rsi

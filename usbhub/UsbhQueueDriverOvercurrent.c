@@ -1,3 +1,18 @@
+/*
+ * XREFs of UsbhQueueDriverOvercurrent @ 0x1C002FF70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     UsbhQueueWorkItemEx @ 0x1C001E320 (UsbhQueueWorkItemEx.c)
+ *     UsbhDispatch_HardResetEvent @ 0x1C001EC80 (UsbhDispatch_HardResetEvent.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     Usbh_OvercurrentDerefHubBusy @ 0x1C0030260 (Usbh_OvercurrentDerefHubBusy.c)
+ *     UsbhPCE_Disable @ 0x1C0034550 (UsbhPCE_Disable.c)
+ */
+
 __int64 __fastcall UsbhQueueDriverOvercurrent(__int64 a1, __int64 a2)
 {
   _DWORD *v4; // rbx

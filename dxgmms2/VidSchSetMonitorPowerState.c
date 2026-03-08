@@ -1,3 +1,17 @@
+/*
+ * XREFs of VidSchSetMonitorPowerState @ 0x1C000FA60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ResetSmoother@VIDSCH_VSYNC_SMOOTHER@@QEAAXII@Z @ 0x1C00117E4 (-ResetSmoother@VIDSCH_VSYNC_SMOOTHER@@QEAAXII@Z.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0013414 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00134D8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0qqqq_EtwWriteTransfer @ 0x1C0039A94 (McTemplateK0qqqq_EtwWriteTransfer.c)
+ *     ?MonitorPowerStateChange@VSYNC_TIME_STATS@@QEAAXW4VSYNC_TIME_STATS_TYPE@@@Z @ 0x1C003D5DC (-MonitorPowerStateChange@VSYNC_TIME_STATS@@QEAAXW4VSYNC_TIME_STATS_TYPE@@@Z.c)
+ *     VidSchiControlVSync @ 0x1C00A5D30 (VidSchiControlVSync.c)
+ */
+
 __int64 __fastcall VidSchSetMonitorPowerState(__int64 a1, unsigned int a2, char a3, unsigned int *a4, _DWORD *a5)
 {
   unsigned int v5; // ebx

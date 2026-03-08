@@ -1,3 +1,13 @@
+/*
+ * XREFs of KeDeregisterBugCheckReasonCallback @ 0x1402FF440
+ * Callers:
+ *     CarCleanup @ 0x1405D1318 (CarCleanup.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 BOOLEAN __stdcall KeDeregisterBugCheckReasonCallback(PKBUGCHECK_REASON_CALLBACK_RECORD CallbackRecord)
 {
   unsigned __int8 CurrentIrql; // di

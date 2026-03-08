@@ -1,3 +1,11 @@
+/*
+ * XREFs of _GetProcessDefaultLayout @ 0x1C01B45F8
+ * Callers:
+ *     NtUserGetProcessDefaultLayout @ 0x1C01D44F0 (NtUserGetProcessDefaultLayout.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall GetProcessDefaultLayout(_DWORD *a1, __int64 a2, __int64 a3)
 {
   unsigned int v4; // ebx

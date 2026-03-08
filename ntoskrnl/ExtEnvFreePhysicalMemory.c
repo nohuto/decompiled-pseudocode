@@ -1,3 +1,19 @@
+/*
+ * XREFs of ExtEnvFreePhysicalMemory @ 0x14051D17C
+ * Callers:
+ *     IvtAllocateContextTable @ 0x140528DA0 (IvtAllocateContextTable.c)
+ *     IvtFreeScalableModePasidTables @ 0x14052A358 (IvtFreeScalableModePasidTables.c)
+ *     HsaAllocateRemappingTableEntry @ 0x14052C890 (HsaAllocateRemappingTableEntry.c)
+ *     HsaFreeRemappingTableEntry @ 0x14052D9F0 (HsaFreeRemappingTableEntry.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     MmFreeContiguousMemory @ 0x1403BD6E0 (MmFreeContiguousMemory.c)
+ *     HalpMmIsInsideHalVa @ 0x1405036B4 (HalpMmIsInsideHalVa.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall ExtEnvFreePhysicalMemory(__int64 a1, void *a2, unsigned int a3, unsigned int a4)
 {
   __int64 v5; // r14

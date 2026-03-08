@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetWindowCompositionVisualBitmap@@YAJPEAUHWND__@@PEAPEAUCompositionObject@@@Z @ 0x1C0014578
+ * Callers:
+ *     NtUserGetDCompositionHwndBitmap @ 0x1C0014480 (NtUserGetDCompositionHwndBitmap.c)
+ * Callees:
+ *     ?_GetWindowCompositionVisualBitmap@@YAJPEAUtagWND@@PEAPEAUCompositionObject@@@Z @ 0x1C0014674 (-_GetWindowCompositionVisualBitmap@@YAJPEAUtagWND@@PEAPEAUCompositionObject@@@Z.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall GetWindowCompositionVisualBitmap(HWND a1, struct CompositionObject **a2)
 {
   __int64 v4; // rax

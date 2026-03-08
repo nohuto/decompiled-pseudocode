@@ -1,3 +1,11 @@
+/*
+ * XREFs of UserFindAtom @ 0x1C00A7D20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ */
+
 __int64 __fastcall UserFindAtom(PWSTR AtomName)
 {
   NTSTATUS v1; // eax

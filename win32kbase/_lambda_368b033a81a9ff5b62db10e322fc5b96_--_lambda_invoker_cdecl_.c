@@ -1,3 +1,11 @@
+/*
+ * XREFs of _lambda_368b033a81a9ff5b62db10e322fc5b96_::_lambda_invoker_cdecl_ @ 0x1C015CA30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RIMConfigureDeviceFeedback @ 0x1C01ACF00 (RIMConfigureDeviceFeedback.c)
+ */
+
 char __fastcall lambda_368b033a81a9ff5b62db10e322fc5b96_::_lambda_invoker_cdecl_(
         struct DEVICEINFO *const a1,
         void *a2,

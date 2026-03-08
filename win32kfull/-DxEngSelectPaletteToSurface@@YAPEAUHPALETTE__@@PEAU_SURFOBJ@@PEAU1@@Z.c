@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DxEngSelectPaletteToSurface@@YAPEAUHPALETTE__@@PEAU_SURFOBJ@@PEAU1@@Z @ 0x1C0007394
+ * Callers:
+ *     NtGdiDdDDICreateDCFromMemory @ 0x1C0006F30 (NtGdiDdDDICreateDCFromMemory.c)
+ *     DxgkEngBltViaGDI @ 0x1C0271CF0 (DxgkEngBltViaGDI.c)
+ * Callees:
+ *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C007CA7C (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
+ */
+
 __int64 __fastcall DxEngSelectPaletteToSurface(struct _SURFOBJ *a1, HPALETTE a2)
 {
   __int64 v3; // rbp

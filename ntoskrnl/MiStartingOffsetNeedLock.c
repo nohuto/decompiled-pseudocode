@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiStartingOffsetNeedLock @ 0x14028C0C0
+ * Callers:
+ *     MiPfPrepareReadList @ 0x1407C42F0 (MiPfPrepareReadList.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiStartingOffset @ 0x14028C530 (MiStartingOffset.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiStartingOffsetNeedLock(_QWORD *a1, unsigned int a2)
 {
   __int64 v2; // r8

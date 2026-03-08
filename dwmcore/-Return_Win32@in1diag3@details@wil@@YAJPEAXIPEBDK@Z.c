@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Return_Win32@in1diag3@details@wil@@YAJPEAXIPEBDK@Z @ 0x1802009AC
+ * Callers:
+ *     CalculateDisplayBlankTime @ 0x1801FF76C (CalculateDisplayBlankTime.c)
+ * Callees:
+ *     ??$ReportFailure_Win32@$00@details@wil@@YAJPEAXIPEBD110K@Z @ 0x1801FEE6C (--$ReportFailure_Win32@$00@details@wil@@YAJPEAXIPEBD110K@Z.c)
+ */
+
 __int64 __fastcall wil::details::in1diag3::Return_Win32(
         wil::details::in1diag3 *this,
         __int64 a2,

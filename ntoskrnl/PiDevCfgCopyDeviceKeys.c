@@ -1,3 +1,21 @@
+/*
+ * XREFs of PiDevCfgCopyDeviceKeys @ 0x140877924
+ * Callers:
+ *     PiDevCfgConfigureDeviceKeyCallback @ 0x1408778D0 (PiDevCfgConfigureDeviceKeyCallback.c)
+ *     PiDevCfgConfigureDeviceInterface @ 0x14095A480 (PiDevCfgConfigureDeviceInterface.c)
+ *     PiDevCfgResetDeviceKeyCallback @ 0x14095CFB0 (PiDevCfgResetDeviceKeyCallback.c)
+ *     PipCommitPendingOsExtensionResource @ 0x140B91960 (PipCommitPendingOsExtensionResource.c)
+ *     PipCommitPendingService @ 0x140B91B70 (PipCommitPendingService.c)
+ * Callees:
+ *     PiDevCfgPopCopyKeyEntry @ 0x1403C2124 (PiDevCfgPopCopyKeyEntry.c)
+ *     PiDevCfgPushCopyKeyEntry @ 0x1403C2184 (PiDevCfgPushCopyKeyEntry.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwSetSecurityObject @ 0x1404159D0 (ZwSetSecurityObject.c)
+ *     PiDevCfgCopyDeviceKey @ 0x140877A34 (PiDevCfgCopyDeviceKey.c)
+ *     PiDevCfgGetKeySecurityDescriptor @ 0x140878110 (PiDevCfgGetKeySecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDevCfgCopyDeviceKeys(void *a1, void *a2, __int64 a3, __int64 a4)
 {
   int v7; // edi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ObjectInit@CompositionSurfaceObject@@KAJPEAVDxgkCompositionObject@@PEAXPEAPEAVIDxgkCompositionObject@@@Z @ 0x1C0014140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0CInterval@CPresentRate@@QEAA@XZ @ 0x1C0019FA0 (--0CInterval@CPresentRate@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall CompositionSurfaceObject::ObjectInit(
         struct DxgkCompositionObject *a1,
         void *a2,

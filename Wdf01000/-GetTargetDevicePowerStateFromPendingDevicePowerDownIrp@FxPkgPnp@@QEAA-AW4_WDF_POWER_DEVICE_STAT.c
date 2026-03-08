@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetTargetDevicePowerStateFromPendingDevicePowerDownIrp@FxPkgPnp@@QEAA?AW4_WDF_POWER_DEVICE_STATE@@XZ @ 0x1C006DD80
+ * Callers:
+ *     ?PowerGotoDx@FxPkgPnp@@IEAAXXZ @ 0x1C006ECE4 (-PowerGotoDx@FxPkgPnp@@IEAAXXZ.c)
+ *     ?PowerGotoDxIoStoppedCommon@FxPkgPnp@@IEAAEE@Z @ 0x1C006EDF4 (-PowerGotoDxIoStoppedCommon@FxPkgPnp@@IEAAEE@Z.c)
+ * Callees:
+ *     ?GetSystemPowerAction@FxPkgPnp@@QEAA?AW4POWER_ACTION@@XZ @ 0x1C00725F8 (-GetSystemPowerAction@FxPkgPnp@@QEAA-AW4POWER_ACTION@@XZ.c)
+ */
+
 __int64 __fastcall FxPkgPnp::GetTargetDevicePowerStateFromPendingDevicePowerDownIrp(FxPkgPnp *this)
 {
   __int64 result; // rax

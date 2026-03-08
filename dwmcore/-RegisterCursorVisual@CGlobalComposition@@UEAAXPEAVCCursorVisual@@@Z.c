@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RegisterCursorVisual@CGlobalComposition@@UEAAXPEAVCCursorVisual@@@Z @ 0x1801EF8E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$_Emplace_reallocate@AEBQEAVCCursorVisual@@@?$vector@PEAVCCursorVisual@@V?$allocator@PEAVCCursorVisual@@@std@@@std@@QEAAPEAPEAVCCursorVisual@@QEAPEAV2@AEBQEAV2@@Z @ 0x1801EF26C (--$_Emplace_reallocate@AEBQEAVCCursorVisual@@@-$vector@PEAVCCursorVisual@@V-$allocator@PEAVCCurs.c)
+ */
+
 void __fastcall CGlobalComposition::RegisterCursorVisual(CGlobalComposition *this, struct CCursorVisual *a2)
 {
   _BYTE *v3; // rdx

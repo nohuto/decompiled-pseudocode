@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiDiagThermalPollingTimerRoutine @ 0x1C0007430
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcpiDiagRequeueThermalPollingTimer @ 0x1C0007360 (AcpiDiagRequeueThermalPollingTimer.c)
+ *     ACPIThermalRereadTemperature @ 0x1C0041E34 (ACPIThermalRereadTemperature.c)
+ */
+
 void AcpiDiagThermalPollingTimerRoutine()
 {
   KIRQL v0; // al

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PrExtControlOperations @ 0x140613148
+ * Callers:
+ *     HalpLoadMicrocode @ 0x140931BD0 (HalpLoadMicrocode.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     MicrocodeSetProcMcLog @ 0x14061327C (MicrocodeSetProcMcLog.c)
+ *     RtlFindExportedRoutineByName @ 0x1407EBE40 (RtlFindExportedRoutineByName.c)
+ */
+
 __int64 __fastcall PrExtControlOperations(int a1, __int64 a2, int a3)
 {
   int v4; // ecx

@@ -1,3 +1,19 @@
+/*
+ * XREFs of GreSaveScreenBits @ 0x1C02AA584
+ * Callers:
+ *     FreeSpb @ 0x1C000B520 (FreeSpb.c)
+ *     CreateSpb @ 0x1C000D094 (CreateSpb.c)
+ *     ?SpbApc@@YAXPEAX00@Z @ 0x1C01FA4D0 (-SpbApc@@YAXPEAX00@Z.c)
+ *     RestoreSpb @ 0x1C01FA57C (RestoreSpb.c)
+ *     ?SaveScreen@@YA_KPEAUtagWND@@K_KHHHH@Z @ 0x1C022700C (-SaveScreen@@YA_KPEAUtagWND@@K_KHHHH@Z.c)
+ * Callees:
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C0018890 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ??0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z @ 0x1C001F240 (--0SEMOBJSHARED@@QEAA@PEAUHSEMAPHORE__@@@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall GreSaveScreenBits(__int64 a1, unsigned int a2, __int64 a3, __int128 *a4)
 {
   __int64 v8; // rdi

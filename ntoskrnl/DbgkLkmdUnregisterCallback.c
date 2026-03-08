@@ -1,3 +1,15 @@
+/*
+ * XREFs of DbgkLkmdUnregisterCallback @ 0x140937D20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReferenceCallBackBlock @ 0x14034C060 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x14034C120 (ExDereferenceCallBackBlock.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     ExCompareExchangeCallBack @ 0x140388EF8 (ExCompareExchangeCallBack.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall DbgkLkmdUnregisterCallback(__int64 a1)
 {
   unsigned int v2; // edi

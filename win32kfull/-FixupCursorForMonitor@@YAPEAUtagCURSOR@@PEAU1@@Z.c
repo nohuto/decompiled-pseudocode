@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FixupCursorForMonitor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C002052C
+ * Callers:
+ *     ?SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z @ 0x1C00219C0 (-SetPointerInternal@@YAX_NW4CursorImageReason@Cursor@InputTraceLogging@@@Z.c)
+ * Callees:
+ *     ?GetCurrentCursorSize@CCursorSizes@@QEBAIXZ @ 0x1C00204F0 (-GetCurrentCursorSize@CCursorSizes@@QEBAIXZ.c)
+ */
+
 struct tagCURSOR *__fastcall FixupCursorForMonitor(struct tagCURSOR *a1)
 {
   struct tagCURSOR *v1; // rbx

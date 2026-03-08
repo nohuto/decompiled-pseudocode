@@ -1,3 +1,21 @@
+/*
+ * XREFs of IommupDomainDetachPasidDevice @ 0x14050C048
+ * Callers:
+ *     IommuDomainAttachDeviceEx @ 0x1405234A0 (IommuDomainAttachDeviceEx.c)
+ *     IommuDomainDetachDeviceEx @ 0x1405238E0 (IommuDomainDetachDeviceEx.c)
+ *     IommuDomainDetachPasidDevice @ 0x140932780 (IommuDomainDetachPasidDevice.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpIommuGetHardwareDomain @ 0x1403A414C (HalpIommuGetHardwareDomain.c)
+ *     HalpIommuDereferenceHardwareDomain @ 0x14051567C (HalpIommuDereferenceHardwareDomain.c)
+ *     IommuDisableDevicePasid @ 0x14051FC00 (IommuDisableDevicePasid.c)
+ *     IommuSetAddressSpace @ 0x1405213A0 (IommuSetAddressSpace.c)
+ *     IommupHvDetachPasidDeviceDomain @ 0x140522474 (IommupHvDetachPasidDeviceDomain.c)
+ *     IommupHvDetachPasidSubDeviceDomain @ 0x14052251C (IommupHvDetachPasidSubDeviceDomain.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IommupDomainDetachPasidDevice(__int64 a1)
 {
   __int64 v2; // rdi

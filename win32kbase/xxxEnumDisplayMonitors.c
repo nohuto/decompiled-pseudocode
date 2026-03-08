@@ -1,3 +1,34 @@
+/*
+ * XREFs of xxxEnumDisplayMonitors @ 0x1C003AE40
+ * Callers:
+ *     NtUserEnumDisplayMonitors @ 0x1C003AD10 (NtUserEnumDisplayMonitors.c)
+ * Callees:
+ *     TransformRectBetweenCoordinateSpaces @ 0x1C00152E0 (TransformRectBetweenCoordinateSpaces.c)
+ *     GreGetClipBox @ 0x1C001AB40 (GreGetClipBox.c)
+ *     ?IsLockedShared@tagDomLock@@QEBA_NXZ @ 0x1C003A33C (-IsLockedShared@tagDomLock@@QEBA_NXZ.c)
+ *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C003A360 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
+ *     GetScreenRectForDpi @ 0x1C003A9AC (GetScreenRectForDpi.c)
+ *     ??0?$ObjectLock@$$V@?$DomainExclusive@$$V@?$DomainShared@VDLT_HANDLEMANAGER@@@SharedUserCritOnly@@QEAA@XZ @ 0x1C003B2D0 (--0-$ObjectLock@$$V@-$DomainExclusive@$$V@-$DomainShared@VDLT_HANDLEMANAGER@@@SharedUserCritOnly.c)
+ *     ThreadUnlock1 @ 0x1C003B460 (ThreadUnlock1.c)
+ *     IntersectRect @ 0x1C003B560 (IntersectRect.c)
+ *     GetCurrentThreadCompositedDpi @ 0x1C003B5D4 (GetCurrentThreadCompositedDpi.c)
+ *     LookupDC @ 0x1C003C0C0 (LookupDC.c)
+ *     GetMonitorDC @ 0x1C003D41C (GetMonitorDC.c)
+ *     GetMonitorRect @ 0x1C003DBB4 (GetMonitorRect.c)
+ *     ReleaseCacheDC @ 0x1C003F210 (ReleaseCacheDC.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C0041AF0 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C004E3E0 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     ?IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ @ 0x1C004F968 (-IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C004FE50 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     GreGetDCPoint @ 0x1C0053880 (GreGetDCPoint.c)
+ *     GreIntersectClipRect @ 0x1C0056F30 (GreIntersectClipRect.c)
+ *     GreLockVisRgn @ 0x1C00794E0 (GreLockVisRgn.c)
+ *     GreUnlockVisRgn @ 0x1C00795D0 (GreUnlockVisRgn.c)
+ *     ?AdjustDisplayMonitor@@YAPEAUtagMONITOR@@PEAU1@PEAUtagRECT@@@Z @ 0x1C00CB114 (-AdjustDisplayMonitor@@YAPEAUtagMONITOR@@PEAU1@PEAUtagRECT@@@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall xxxEnumDisplayMonitors(
         HDC a1,
         __int64 a2,

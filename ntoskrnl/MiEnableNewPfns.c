@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiEnableNewPfns @ 0x140618520
+ * Callers:
+ *     MiAddPhysicalMemory @ 0x140A289D8 (MiAddPhysicalMemory.c)
+ * Callees:
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiDetermineNewPfnHeatState @ 0x1402DD0B8 (MiDetermineNewPfnHeatState.c)
+ *     MiInsertLargePageInNodeList @ 0x14031C970 (MiInsertLargePageInNodeList.c)
+ *     MiUpdatePageFileHighInPte @ 0x14032F49C (MiUpdatePageFileHighInPte.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiEnableNewPfns(volatile signed __int64 *a1, ULONG_PTR a2, unsigned __int64 a3, unsigned int a4)
 {
   unsigned int v4; // r14d

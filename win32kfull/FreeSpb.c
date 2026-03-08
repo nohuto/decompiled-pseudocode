@@ -1,3 +1,21 @@
+/*
+ * XREFs of FreeSpb @ 0x1C000B520
+ * Callers:
+ *     ?SpbCheckRect2@@YAHPEAUtagSPB@@PEAUtagWND@@PEAUtagRECT@@K@Z @ 0x1C000B34C (-SpbCheckRect2@@YAHPEAUtagSPB@@PEAUtagWND@@PEAUtagRECT@@K@Z.c)
+ *     SpbCheckPwnd @ 0x1C0012BCC (SpbCheckPwnd.c)
+ *     FreeAllSpbs @ 0x1C0020240 (FreeAllSpbs.c)
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ *     ?zzzBltValidBits@@YA?AW4BltBitsResult@@PEAUtagSMWP@@@Z @ 0x1C0068A60 (-zzzBltValidBits@@YA-AW4BltBitsResult@@PEAUtagSMWP@@@Z.c)
+ *     zzzLockWindowUpdate2 @ 0x1C00E51C8 (zzzLockWindowUpdate2.c)
+ *     ?xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z @ 0x1C01ED7C0 (-xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z.c)
+ *     RestoreSpb @ 0x1C01FA57C (RestoreSpb.c)
+ * Callees:
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     ?IS_USERCRIT_OWNED_SHAREDONLY@@YA_NXZ @ 0x1C00E3814 (-IS_USERCRIT_OWNED_SHAREDONLY@@YA_NXZ.c)
+ *     ?PostSpbApc@@YAXPEAU_KAPC@@PEAUtagWND@@_K@Z @ 0x1C01FA448 (-PostSpbApc@@YAXPEAU_KAPC@@PEAUtagWND@@_K@Z.c)
+ *     GreSaveScreenBits @ 0x1C02AA584 (GreSaveScreenBits.c)
+ */
+
 void __fastcall FreeSpb(char *a1)
 {
   char v1; // bp

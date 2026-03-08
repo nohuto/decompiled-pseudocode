@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpAllocateHalCounters @ 0x1404FFC48
+ * Callers:
+ *     EmonAllocateCounter @ 0x14051A760 (EmonAllocateCounter.c)
+ *     EmonMarkCountersReserved @ 0x14051AFC0 (EmonMarkCountersReserved.c)
+ *     Amd64AllocateCounter @ 0x140526678 (Amd64AllocateCounter.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 HalpAllocateHalCounters()
 {
   struct _KPRCB *CurrentPrcb; // rcx

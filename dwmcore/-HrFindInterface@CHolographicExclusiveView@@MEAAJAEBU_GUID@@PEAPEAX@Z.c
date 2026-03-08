@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CHolographicExclusiveView@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802A5090
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CHolographicExclusiveView::HrFindInterface(
         CHolographicExclusiveView *this,
         const struct _GUID *a2,

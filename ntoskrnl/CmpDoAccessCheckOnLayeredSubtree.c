@@ -1,3 +1,22 @@
+/*
+ * XREFs of CmpDoAccessCheckOnLayeredSubtree @ 0x140A18A38
+ * Callers:
+ *     CmSaveKey @ 0x140A08D50 (CmSaveKey.c)
+ *     CmRenameKey @ 0x140A1170C (CmRenameKey.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpCheckKeySecurityDescriptorAccess @ 0x14074CA68 (CmpCheckKeySecurityDescriptorAccess.c)
+ *     CmpInitializeKeyNodeStack @ 0x1407836E4 (CmpInitializeKeyNodeStack.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x1407AF4E0 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     CmpCheckKeyNodeStackAccess @ 0x140A18620 (CmpCheckKeyNodeStackAccess.c)
+ *     CmpSubtreeEnumeratorAdvance @ 0x140A1D6E8 (CmpSubtreeEnumeratorAdvance.c)
+ *     CmpSubtreeEnumeratorCleanup @ 0x140A1D970 (CmpSubtreeEnumeratorCleanup.c)
+ *     CmpSubtreeEnumeratorGetCurrentKeyStacks @ 0x140A1D9F0 (CmpSubtreeEnumeratorGetCurrentKeyStacks.c)
+ *     CmpSubtreeEnumeratorStartForKcbStack @ 0x140A1DB88 (CmpSubtreeEnumeratorStartForKcbStack.c)
+ *     CmpSubtreeEnumeratorStartForKeyNodeStack @ 0x140A1DBC4 (CmpSubtreeEnumeratorStartForKeyNodeStack.c)
+ */
+
 __int64 __fastcall CmpDoAccessCheckOnLayeredSubtree(
         __int64 a1,
         __int64 a2,

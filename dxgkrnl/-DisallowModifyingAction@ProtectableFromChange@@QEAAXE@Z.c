@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DisallowModifyingAction@ProtectableFromChange@@QEAAXE@Z @ 0x1C01A05AC
+ * Callers:
+ *     ?OnModifyingActionCompletion@ProtectableFromChange@@QEAAXE@Z @ 0x1C00067DC (-OnModifyingActionCompletion@ProtectableFromChange@@QEAAXE@Z.c)
+ *     ?UpdatePathSupportInfo@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@PEBU_D3DKMDT_VIDPN_PRESENT_PATH@@@Z @ 0x1C01A0140 (-UpdatePathSupportInfo@DXGK_VIDPNTOPOLOGY_INTERFACE_V1_IMPL@@YAJQEAUD3DKMDT_HVIDPNTOPOLOGY__@@PE.c)
+ *     ??1ApplyPermissionWithinThisScope@@IEAA@XZ @ 0x1C01A23D0 (--1ApplyPermissionWithinThisScope@@IEAA@XZ.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 void __fastcall ProtectableFromChange::DisallowModifyingAction(
         ProtectableFromChange *this,
         __int64 a2,

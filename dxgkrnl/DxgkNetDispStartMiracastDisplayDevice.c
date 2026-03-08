@@ -1,3 +1,17 @@
+/*
+ * XREFs of DxgkNetDispStartMiracastDisplayDevice @ 0x1C02CEC90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ?DxgkNetDispAccessCheck@@YAJPEAVDXGPROCESS@@@Z @ 0x1C0045498 (-DxgkNetDispAccessCheck@@YAJPEAVDXGPROCESS@@@Z.c)
+ *     ?IsAllowedToCallMiracast@@YA_NXZ @ 0x1C0045B38 (-IsAllowedToCallMiracast@@YA_NXZ.c)
+ *     DxgkMiracastStartMiracastSession @ 0x1C00615C4 (DxgkMiracastStartMiracastSession.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01A3640 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ */
+
 __int64 __fastcall DxgkNetDispStartMiracastDisplayDevice(_OWORD *a1)
 {
   struct _KEVENT *v2; // rdi

@@ -1,3 +1,16 @@
+/*
+ * XREFs of DbgkpWerCaptureLiveFullDump @ 0x1409386E8
+ * Callers:
+ *     DbgkpWerProcessPolicyResult @ 0x140938DC0 (DbgkpWerProcessPolicyResult.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     DbgkpWerInitializeDeferredLiveDump @ 0x140938BA4 (DbgkpWerInitializeDeferredLiveDump.c)
+ *     DbgkpWerInvokeCallbacks @ 0x140938CFC (DbgkpWerInvokeCallbacks.c)
+ *     IoCaptureLiveDump @ 0x140948A78 (IoCaptureLiveDump.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall DbgkpWerCaptureLiveFullDump(__int64 a1, _BYTE *a2)
 {
   unsigned int v2; // eax

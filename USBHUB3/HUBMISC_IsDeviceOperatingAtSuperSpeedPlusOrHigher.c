@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBMISC_IsDeviceOperatingAtSuperSpeedPlusOrHigher @ 0x1C0030EE0
+ * Callers:
+ *     HUBFDO_IoctlGetNodeConnectionInformationExV2 @ 0x1C007B55C (HUBFDO_IoctlGetNodeConnectionInformationExV2.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall HUBMISC_IsDeviceOperatingAtSuperSpeedPlusOrHigher(__int64 a1)
 {
   char v1; // dl

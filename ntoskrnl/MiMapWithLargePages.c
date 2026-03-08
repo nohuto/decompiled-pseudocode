@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiMapWithLargePages @ 0x14038A6D4
+ * Callers:
+ *     MiInsertInSystemSpace @ 0x14020EB30 (MiInsertInSystemSpace.c)
+ *     MiMapContiguousMemoryLarge @ 0x14038A3C4 (MiMapContiguousMemoryLarge.c)
+ *     MiMapSystemImageWithLargePage @ 0x140A46F04 (MiMapSystemImageWithLargePage.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x14026A0D0 (MiLockPageTableInternal.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ */
+
 void __fastcall MiMapWithLargePages(
         __int64 a1,
         unsigned __int64 a2,

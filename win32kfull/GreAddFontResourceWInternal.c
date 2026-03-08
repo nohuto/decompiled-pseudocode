@@ -1,3 +1,14 @@
+/*
+ * XREFs of GreAddFontResourceWInternal @ 0x1C00D0B00
+ * Callers:
+ *     NtGdiAddFontResourceW @ 0x1C00D0870 (NtGdiAddFontResourceW.c)
+ * Callees:
+ *     ?RegistryNotificaionEnumerationEnd@@YAXPEAK@Z @ 0x1C00D0C74 (-RegistryNotificaionEnumerationEnd@@YAXPEAK@Z.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH@Z @ 0x1C0119A20 (-bLoadFonts@PUBLIC_PFTOBJ@@QEAAHPEAGKKPEAUtagDESIGNVECTOR@@KPEAKKPEAPEAVPFF@@KHPEAU_EUDCLOAD@@HH.c)
+ *     ?bInitPrivatePFT@@YAHXZ @ 0x1C026D728 (-bInitPrivatePFT@@YAHXZ.c)
+ */
+
 __int64 __fastcall GreAddFontResourceWInternal(
         unsigned __int16 *a1,
         unsigned int a2,

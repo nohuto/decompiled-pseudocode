@@ -1,3 +1,15 @@
+/*
+ * XREFs of SymCryptTwistedEdwardsFillScratchSpaces @ 0x1403FA5AC
+ * Callers:
+ *     SymCryptEcurveAllocate @ 0x1403F252C (SymCryptEcurveAllocate.c)
+ * Callees:
+ *     SymCryptEcurveDigitsofScalarMultiplier @ 0x1403F2C94 (SymCryptEcurveDigitsofScalarMultiplier.c)
+ *     SymCryptDigitsFromBits @ 0x1403F36C0 (SymCryptDigitsFromBits.c)
+ *     SymCryptSizeofIntFromDigits @ 0x1403F3EF0 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptSizeofEcpointEx @ 0x1403F9DF8 (SymCryptSizeofEcpointEx.c)
+ *     SymCryptSizeofEcpointFromCurve @ 0x1403F9E14 (SymCryptSizeofEcpointFromCurve.c)
+ */
+
 __int64 __fastcall SymCryptTwistedEdwardsFillScratchSpaces(_DWORD *a1)
 {
   int v2; // eax

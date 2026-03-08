@@ -1,3 +1,13 @@
+/*
+ * XREFs of _tlgCreate1Sz_char @ 0x1C004BCA0
+ * Callers:
+ *     Etw_DeviceUpdate @ 0x1C001D724 (Etw_DeviceUpdate.c)
+ *     Etw_ReportControllerHealthWithPortInfo @ 0x1C001F980 (Etw_ReportControllerHealthWithPortInfo.c)
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C00533E4 (MicrosoftTelemetryAssertTriggeredWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall tlgCreate1Sz_char(__int64 a1, _BYTE *a2)
 {
   __int64 v2; // rax

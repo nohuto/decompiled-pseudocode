@@ -1,3 +1,37 @@
+/*
+ * XREFs of MiWriteAwePtes @ 0x14064A010
+ * Callers:
+ *     MiDeleteVadAwePtes @ 0x1406473BC (MiDeleteVadAwePtes.c)
+ *     NtMapUserPhysicalPages @ 0x140A3FC10 (NtMapUserPhysicalPages.c)
+ *     NtMapUserPhysicalPagesScatter @ 0x140A3FEC0 (NtMapUserPhysicalPagesScatter.c)
+ * Callees:
+ *     MiInsertLargeTbFlushEntry @ 0x140210194 (MiInsertLargeTbFlushEntry.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MiDeleteEmptyPageTables @ 0x1402EB5E0 (MiDeleteEmptyPageTables.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeSystemAddressValid @ 0x140321770 (MiMakeSystemAddressValid.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     MiWorkingSetIsContended @ 0x1403478E0 (MiWorkingSetIsContended.c)
+ *     MiPageTableLockIsContended @ 0x140347920 (MiPageTableLockIsContended.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiLockHugePfnInternal @ 0x14061F020 (MiLockHugePfnInternal.c)
+ *     MiFlushGraphicsPtes @ 0x140623FF8 (MiFlushGraphicsPtes.c)
+ *     MiDecrementAweMapCount @ 0x14064709C (MiDecrementAweMapCount.c)
+ *     MiGetAweNode @ 0x1406482F8 (MiGetAweNode.c)
+ *     MiGetAweViewPageSize @ 0x14064840C (MiGetAweViewPageSize.c)
+ *     MiUpdateAwePageTable @ 0x140649AB0 (MiUpdateAwePageTable.c)
+ *     MiWriteAweClusterPte @ 0x140649F5C (MiWriteAweClusterPte.c)
+ *     MiPageSizeToPteLevel @ 0x14064BCD4 (MiPageSizeToPteLevel.c)
+ */
+
 __int64 __fastcall MiWriteAwePtes(
         __int64 a1,
         __int64 a2,

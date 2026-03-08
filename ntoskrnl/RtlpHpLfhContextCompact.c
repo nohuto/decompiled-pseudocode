@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlpHpLfhContextCompact @ 0x140308C98
+ * Callers:
+ *     RtlpHpHeapCompact @ 0x1402CC2D4 (RtlpHpHeapCompact.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpLfhOwnerCompact @ 0x140309864 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpAcquireLockShared @ 0x140309A10 (RtlpHpAcquireLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall RtlpHpLfhContextCompact(__int64 a1, int a2)
 {
   int v4; // ebp

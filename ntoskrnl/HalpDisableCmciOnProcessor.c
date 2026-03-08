@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpDisableCmciOnProcessor @ 0x140503E10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpCmciSetProcessorConfig @ 0x14037CC58 (HalpCmciSetProcessorConfig.c)
+ */
+
 ULONG_PTR __fastcall HalpDisableCmciOnProcessor(ULONG_PTR Argument)
 {
   __int64 i; // rbx

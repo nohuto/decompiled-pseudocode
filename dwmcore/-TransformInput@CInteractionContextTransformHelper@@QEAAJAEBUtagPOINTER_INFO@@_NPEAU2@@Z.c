@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?TransformInput@CInteractionContextTransformHelper@@QEAAJAEBUtagPOINTER_INFO@@_NPEAU2@@Z @ 0x1802B76B0
+ * Callers:
+ *     ?ProcessInput@CInteractionContextWrapper@@UEAAJAEBUtagPOINTER_INFO@@AEBVCMILMatrix@@I@Z @ 0x180281700 (-ProcessInput@CInteractionContextWrapper@@UEAAJAEBUtagPOINTER_INFO@@AEBVCMILMatrix@@I@Z.c)
+ * Callees:
+ *     ?IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ @ 0x18008048C (-IsIdentity@Matrix3x2F@D2D1@@QEBA_NXZ.c)
+ *     s_TransformPointByMatrix @ 0x1802B8068 (s_TransformPointByMatrix.c)
+ */
+
 __int64 __fastcall CInteractionContextTransformHelper::TransformInput(
         CInteractionContextTransformHelper *this,
         const struct tagPOINTER_INFO *a2,

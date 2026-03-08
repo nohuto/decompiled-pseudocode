@@ -1,3 +1,14 @@
+/*
+ * XREFs of KsepLogEtwMessage @ 0x140303480
+ * Callers:
+ *     KsepLogError @ 0x140303450 (KsepLogError.c)
+ *     KsepLogInfo @ 0x14036F8F4 (KsepLogInfo.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     RtlStringCbVPrintfA @ 0x14030355C (RtlStringCbVPrintfA.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall KsepLogEtwMessage(int a1, int a2, const char *a3, va_list a4)
 {
   __int64 v5; // rax

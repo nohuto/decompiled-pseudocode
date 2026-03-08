@@ -1,3 +1,18 @@
+/*
+ * XREFs of KiDeregisterNmiSxCallback @ 0x14056A694
+ * Callers:
+ *     KeDeregisterNmiCallback @ 0x140569FE0 (KeDeregisterNmiCallback.c)
+ *     DifKeDeregisterNmiCallbackWrapper @ 0x1405E0B00 (DifKeDeregisterNmiCallbackWrapper.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402AA110 (KeRevertToUserGroupAffinityThread.c)
+ *     KiSetSystemAffinityThreadToProcessor @ 0x140396BD0 (KiSetSystemAffinityThreadToProcessor.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall KiDeregisterNmiSxCallback(PVOID a1)
 {
   int v2; // esi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?UnlockWndMenuWorker@@YAPEAXPEAUtagWND@@_N@Z @ 0x1C00EC914
+ * Callers:
+ *     xxxGetSystemMenu @ 0x1C0021498 (xxxGetSystemMenu.c)
+ *     xxxSetWindowStyle @ 0x1C002DD90 (xxxSetWindowStyle.c)
+ *     xxxSetWindowData @ 0x1C002F9C8 (xxxSetWindowData.c)
+ *     UnlockWndMenu @ 0x1C012F0B4 (UnlockWndMenu.c)
+ *     UnlockWndMenuSys @ 0x1C012F0CC (UnlockWndMenuSys.c)
+ * Callees:
+ *     <none>
+ */
+
 struct tagWND **__fastcall UnlockWndMenuWorker(struct tagWND *a1, unsigned __int8 a2)
 {
   char *v3; // rsi

@@ -1,3 +1,19 @@
+/*
+ * XREFs of NtUserGetPrecisionTouchPadConfiguration @ 0x1C0170EE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterCritInternal @ 0x1C004FB50 (PrivateAPI--_anonymous_namespace_--EnterCritInternal.c)
+ *     HMUnlockObject @ 0x1C0072980 (HMUnlockObject.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C007795C (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     _GetPrecisionTouchPadConfiguration @ 0x1C009C550 (_GetPrecisionTouchPadConfiguration.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00ABD88 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     UserSetLastStatus @ 0x1C00DA3A4 (UserSetLastStatus.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall NtUserGetPrecisionTouchPadConfiguration(_QWORD *Address)
 {
   _QWORD *v1; // rdi

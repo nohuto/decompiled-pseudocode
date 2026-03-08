@@ -1,3 +1,28 @@
+/*
+ * XREFs of BiGetRegistryValue @ 0x14082EB20
+ * Callers:
+ *     BiWasFirmwareModified @ 0x140390280 (BiWasFirmwareModified.c)
+ *     BiMarkTreatAsSystemStore @ 0x14082B918 (BiMarkTreatAsSystemStore.c)
+ *     BiIsSystemStore @ 0x14082C6CC (BiIsSystemStore.c)
+ *     BiIsWinPEBoot @ 0x14082C790 (BiIsWinPEBoot.c)
+ *     BiUpdateBcdObject @ 0x14082DA80 (BiUpdateBcdObject.c)
+ *     BiGetObjectDescription @ 0x14082E2C8 (BiGetObjectDescription.c)
+ *     BcdGetElementDataWithFlags @ 0x14082E398 (BcdGetElementDataWithFlags.c)
+ *     BiGetSavedBootEntry @ 0x14082F250 (BiGetSavedBootEntry.c)
+ *     BiUnloadHiveByHandle @ 0x140A5A09C (BiUnloadHiveByHandle.c)
+ *     BiIsPortableWorkspaceBoot @ 0x140A5A244 (BiIsPortableWorkspaceBoot.c)
+ * Callees:
+ *     CmSiCloseSection @ 0x1402F8438 (CmSiCloseSection.c)
+ *     BiSanitizeHandle @ 0x1402FDDE8 (BiSanitizeHandle.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     BiZwQueryValueKey @ 0x140390428 (BiZwQueryValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     BiOpenKey @ 0x14082E7AC (BiOpenKey.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiGetRegistryValue(
         __int64 a1,
         const WCHAR *a2,

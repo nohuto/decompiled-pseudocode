@@ -1,3 +1,20 @@
+/*
+ * XREFs of HalpInterruptInitializeLocalUnit @ 0x1403786F0
+ * Callers:
+ *     HalpInterruptReinitializeThisProcessor @ 0x140377F50 (HalpInterruptReinitializeThisProcessor.c)
+ *     HalpInterruptInitializeController @ 0x14037B24C (HalpInterruptInitializeController.c)
+ *     HalpInterruptResetThisProcessor @ 0x140502E70 (HalpInterruptResetThisProcessor.c)
+ * Callees:
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     HalpInitializeDeferredErrorVector @ 0x140378988 (HalpInitializeDeferredErrorVector.c)
+ *     HalpInitializeCmciVector @ 0x140378CB4 (HalpInitializeCmciVector.c)
+ *     HalpInterruptMarkProcessorStarted @ 0x14037A1D8 (HalpInterruptMarkProcessorStarted.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpInterruptRestoreController @ 0x140518478 (HalpInterruptRestoreController.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ */
+
 __int64 __fastcall HalpInterruptInitializeLocalUnit(ULONG_PTR BugCheckParameter3)
 {
   __int64 v1; // r14

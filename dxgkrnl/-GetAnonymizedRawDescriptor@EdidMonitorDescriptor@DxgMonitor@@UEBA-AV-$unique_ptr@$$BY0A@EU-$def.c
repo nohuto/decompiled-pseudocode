@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetAnonymizedRawDescriptor@EdidMonitorDescriptor@DxgMonitor@@UEBA?AV?$unique_ptr@$$BY0A@EU?$default_delete@$$BY0A@E@wistd@@@wistd@@PEAI@Z @ 0x1C0212560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     ?EDID_V1_RemovePII@@YAJKPEAE@Z @ 0x1C00225C8 (-EDID_V1_RemovePII@@YAJKPEAE@Z.c)
+ *     ?GetRawDescriptor@EdidMonitorDescriptor@DxgMonitor@@UEBA?AV?$unique_ptr@$$BY0A@EU?$default_delete@$$BY0A@E@wistd@@@wistd@@PEAI@Z @ 0x1C01CFB00 (-GetRawDescriptor@EdidMonitorDescriptor@DxgMonitor@@UEBA-AV-$unique_ptr@$$BY0A@EU-$default_delet.c)
+ */
+
 unsigned __int8 **__fastcall DxgMonitor::EdidMonitorDescriptor::GetAnonymizedRawDescriptor(
         DxgMonitor::EdidMonitorDescriptor *a1,
         unsigned __int8 **a2,

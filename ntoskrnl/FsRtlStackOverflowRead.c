@@ -1,3 +1,13 @@
+/*
+ * XREFs of FsRtlStackOverflowRead @ 0x14053CFD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 struct _KTHREAD *__fastcall FsRtlStackOverflowRead(PVOID P)
 {
   struct _KTHREAD *result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIEnableEnterACPIMode @ 0x1C0036798
+ * Callers:
+ *     ACPIEnableInitializeACPI @ 0x1C00368F0 (ACPIEnableInitializeACPI.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     READ_PM1_CONTROL @ 0x1C0038D00 (READ_PM1_CONTROL.c)
+ */
+
 void __fastcall ACPIEnableEnterACPIMode(char a1)
 {
   char v1; // bl

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpQueryLegacyDriverInformation @ 0x1409F3FFC
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IoGetLegacyVetoList @ 0x1407609A0 (IoGetLegacyVetoList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpQueryLegacyDriverInformation(__int64 a1, unsigned int *a2)
 {
   __int64 result; // rax

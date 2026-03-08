@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CSceneMetallicRoughnessMaterialMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C025C620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetBufferProperty@CScenePbrMaterialMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C025C680 (-SetBufferProperty@CScenePbrMaterialMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@.c)
+ */
+
 __int64 __fastcall DirectComposition::CSceneMetallicRoughnessMaterialMarshaler::SetBufferProperty(
         DirectComposition::CSceneMetallicRoughnessMaterialMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

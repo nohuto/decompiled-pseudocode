@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiEpfDrainCompletionQueue @ 0x140576B0C
+ * Callers:
+ *     KeWaitPhysicalFaultCompletion @ 0x140576908 (KeWaitPhysicalFaultCompletion.c)
+ *     KiEpfCompletionDpcRoutine @ 0x140576AF0 (KiEpfCompletionDpcRoutine.c)
+ *     KiEpfHandleNotification @ 0x140576B90 (KiEpfHandleNotification.c)
+ *     KeInitSystem @ 0x140B42FB8 (KeInitSystem.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KiEpfComplete @ 0x140576A00 (KiEpfComplete.c)
+ */
+
 void KiEpfDrainCompletionQueue()
 {
   unsigned __int64 v0; // rbx

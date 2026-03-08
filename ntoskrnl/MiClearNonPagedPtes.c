@@ -1,3 +1,27 @@
+/*
+ * XREFs of MiClearNonPagedPtes @ 0x14020DF88
+ * Callers:
+ *     MmFreePoolMemory @ 0x14020DD58 (MmFreePoolMemory.c)
+ *     MiCommitPoolMemory @ 0x14032FC90 (MiCommitPoolMemory.c)
+ *     MmFreeSecurePoolMemory @ 0x14063F668 (MmFreeSecurePoolMemory.c)
+ * Callees:
+ *     MiDeleteNonPagedPoolPte @ 0x14020E220 (MiDeleteNonPagedPoolPte.c)
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiWalkPageTables @ 0x140222CF0 (MiWalkPageTables.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiFastLockLeafPageTable @ 0x140269C50 (MiFastLockLeafPageTable.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiReturnPhysicalPoolPages @ 0x1402D878C (MiReturnPhysicalPoolPages.c)
+ *     MiDeleteNonPagedPoolTail @ 0x1402EAD40 (MiDeleteNonPagedPoolTail.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiFillPteHierarchy @ 0x140333AE0 (MiFillPteHierarchy.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiLogNonPagedPoolReleaseEvent @ 0x14063F350 (MiLogNonPagedPoolReleaseEvent.c)
+ */
+
 __int64 __fastcall MiClearNonPagedPtes(unsigned __int64 LeafVa, __int64 a2, unsigned int a3, unsigned int a4)
 {
   unsigned int v7; // esi

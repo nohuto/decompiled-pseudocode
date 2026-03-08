@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?LpcSyncFlush@CDwmAppHost@@AEAAJXZ @ 0x140003824
+ * Callers:
+ *     ?Run@CDwmAppHost@@QEAAJXZ @ 0x140003700 (-Run@CDwmAppHost@@QEAAJXZ.c)
+ * Callees:
+ *     ??1CPortClient@@UEAA@XZ @ 0x1400026E8 (--1CPortClient@@UEAA@XZ.c)
+ *     ??0CPortClient@@QEAA@IPEAX@Z @ 0x14000272C (--0CPortClient@@QEAA@IPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x14000309C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?SendComplexSyncRequest@CPortClient@@QEAAJKPEBXFPEAXFPEAJ@Z @ 0x140003AB4 (-SendComplexSyncRequest@CPortClient@@QEAAJKPEBXFPEAXFPEAJ@Z.c)
+ */
+
 __int64 __fastcall CDwmAppHost::LpcSyncFlush(CDwmAppHost *this, __int64 a2, void *a3)
 {
   unsigned int v3; // ebx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopDiagTraceSessionState @ 0x14073CA10
+ * Callers:
+ *     PopSetSessionUserStatus @ 0x14073C8E4 (PopSetSessionUserStatus.c)
+ *     PopSetSessionDisplayStatus @ 0x14079A2F0 (PopSetSessionDisplayStatus.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PopDiagTraceSessionState(PCEVENT_DESCRIPTOR EventDescriptor, int a2, int a3)
 {
   REGHANDLE v4; // rdi

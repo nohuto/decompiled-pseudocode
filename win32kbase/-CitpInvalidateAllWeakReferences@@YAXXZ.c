@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CitpInvalidateAllWeakReferences@@YAXXZ @ 0x1C0272B98
+ * Callers:
+ *     ?CitpResetTracking@@YAJXZ @ 0x1C02734F8 (-CitpResetTracking@@YAJXZ.c)
+ * Callees:
+ *     ?CitpProcessInfoIsValid@@YA_NPEAU_CIT_PROCESS@@@Z @ 0x1C006C060 (-CitpProcessInfoIsValid@@YA_NPEAU_CIT_PROCESS@@@Z.c)
+ *     ?CitpInteractionSummaryDelete@@YAXPEAPEAU_CIT_INTERACTION_SUMMARY@@@Z @ 0x1C0087CA0 (-CitpInteractionSummaryDelete@@YAXPEAPEAU_CIT_INTERACTION_SUMMARY@@@Z.c)
+ */
+
 void CitpInvalidateAllWeakReferences(void)
 {
   __int64 i; // rbx

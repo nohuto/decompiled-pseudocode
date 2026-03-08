@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CBspPreComputeHelper@@QEAA@XZ @ 0x1800DA068
+ * Callers:
+ *     ?PostSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18006E820 (-PostSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ *     ??1SubTreeContext@CPreComputeContext@@QEAA@XZ @ 0x1801B12D0 (--1SubTreeContext@CPreComputeContext@@QEAA@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CBspPreComputeHelper::~CBspPreComputeHelper(CBspPreComputeHelper *this)
 {
   void *v1; // rdi

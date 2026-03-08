@@ -1,3 +1,21 @@
+/*
+ * XREFs of xxxResolveDesktop @ 0x1C00BF660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MapDesktop @ 0x1C003E450 (MapDesktop.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     CloseProtectedHandle @ 0x1C0094854 (CloseProtectedHandle.c)
+ *     _OpenDesktop @ 0x1C00BF4B0 (_OpenDesktop.c)
+ *     _UserTestForWinStaAccess @ 0x1C00C00CC (_UserTestForWinStaAccess.c)
+ *     _OpenWindowStation @ 0x1C00C0364 (_OpenWindowStation.c)
+ *     xxxCreateDesktopEx @ 0x1C00C03D4 (xxxCreateDesktopEx.c)
+ *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00C1278 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     xxxConnectService @ 0x1C012B764 (xxxConnectService.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 NTSTATUS __fastcall xxxResolveDesktop(void *a1, UNICODE_STRING *a2, HANDLE *a3, int a4, HANDLE *a5)
 {
   NTSTATUS result; // eax

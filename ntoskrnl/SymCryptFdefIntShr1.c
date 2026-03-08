@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefIntShr1 @ 0x1403FDA70
+ * Callers:
+ *     SymCryptIntShr1 @ 0x1403F3964 (SymCryptIntShr1.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdefIntShr1(int a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 v3; // r10

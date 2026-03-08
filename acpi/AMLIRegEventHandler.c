@@ -1,3 +1,21 @@
+/*
+ * XREFs of AMLIRegEventHandler @ 0x1C0048A7C
+ * Callers:
+ *     RegisterOperationRegionHandler @ 0x1C008BB24 (RegisterOperationRegionHandler.c)
+ *     UnRegisterOperationRegionHandler @ 0x1C008BDF0 (UnRegisterOperationRegionHandler.c)
+ *     OSInitializeCallbacks @ 0x1C00A8160 (OSInitializeCallbacks.c)
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     Simulator_Free_Arguments @ 0x1C0049214 (Simulator_Free_Arguments.c)
+ *     Simulator_Pre_RegEventHandler @ 0x1C00497CC (Simulator_Pre_RegEventHandler.c)
+ *     Simulator_TestNotifyRet @ 0x1C00499A8 (Simulator_TestNotifyRet.c)
+ *     RegEventHandler @ 0x1C004CC0C (RegEventHandler.c)
+ *     RegOpcodeHandler @ 0x1C004CC68 (RegOpcodeHandler.c)
+ *     RegRSAccess @ 0x1C004CD24 (RegRSAccess.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ */
+
 __int64 AMLIRegEventHandler(unsigned int a1, unsigned int a2, ...)
 {
   __int64 v2; // r9

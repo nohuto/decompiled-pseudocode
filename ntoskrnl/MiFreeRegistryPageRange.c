@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiFreeRegistryPageRange @ 0x140B5C9E4
+ * Callers:
+ *     MmFreeLoaderBlock @ 0x140B5C404 (MmFreeLoaderBlock.c)
+ * Callees:
+ *     MiDecrementShareCount @ 0x14032AE40 (MiDecrementShareCount.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 __int64 __fastcall MiFreeRegistryPageRange(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

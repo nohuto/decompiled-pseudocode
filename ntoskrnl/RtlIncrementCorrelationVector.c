@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlIncrementCorrelationVector @ 0x1409BBE50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _snprintf_s @ 0x1403D9090 (_snprintf_s.c)
+ *     sscanf_s @ 0x1403D9C20 (sscanf_s.c)
+ *     strcpy_s @ 0x1403D9D10 (strcpy_s.c)
+ *     RtlpGetCorrelationVectorLastDotPosition @ 0x1405AD34C (RtlpGetCorrelationVectorLastDotPosition.c)
+ *     RtlValidateCorrelationVector @ 0x1409BBFC0 (RtlValidateCorrelationVector.c)
+ *     RtlpGetCorrelationVectorBufferLength @ 0x1409BC190 (RtlpGetCorrelationVectorBufferLength.c)
+ */
+
 __int64 __fastcall RtlIncrementCorrelationVector(__int64 a1, __int64 a2, __int64 a3)
 {
   int CorrelationVectorBufferLength; // ebp

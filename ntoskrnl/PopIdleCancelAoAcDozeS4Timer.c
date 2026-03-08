@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopIdleCancelAoAcDozeS4Timer @ 0x14036D07C
+ * Callers:
+ *     PopUmpoProcessPowerMessage @ 0x14073B5A4 (PopUmpoProcessPowerMessage.c)
+ *     PopIdleGlobalUserPresenceCallback @ 0x1407F8050 (PopIdleGlobalUserPresenceCallback.c)
+ *     PopUpdateSystemIdleContext @ 0x14082A808 (PopUpdateSystemIdleContext.c)
+ *     PopIdleCsStateChanged @ 0x140998E5C (PopIdleCsStateChanged.c)
+ *     PopUpdateSmartUserPresencePredictions @ 0x140998F8C (PopUpdateSmartUserPresencePredictions.c)
+ * Callees:
+ *     KeCancelTimer2 @ 0x140204390 (KeCancelTimer2.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopTraceSystemIdleS0LowPowerDozeTimerCancelled @ 0x14098FD78 (PopTraceSystemIdleS0LowPowerDozeTimerCancelled.c)
+ */
+
 char __fastcall PopIdleCancelAoAcDozeS4Timer(unsigned int a1)
 {
   char v2; // bl

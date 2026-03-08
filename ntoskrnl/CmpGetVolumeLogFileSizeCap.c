@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpGetVolumeLogFileSizeCap @ 0x14079227C
+ * Callers:
+ *     CmpOpenHiveFile @ 0x1406C05C4 (CmpOpenHiveFile.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQueryVolumeInformationFile @ 0x140412C30 (ZwQueryVolumeInformationFile.c)
+ */
+
 __int64 __fastcall CmpGetVolumeLogFileSizeCap(void *a1)
 {
   __int64 result; // rax

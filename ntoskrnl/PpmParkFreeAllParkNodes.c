@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmParkFreeAllParkNodes @ 0x14067CCA8
+ * Callers:
+ *     PpmParkRegisterParking @ 0x14038D880 (PpmParkRegisterParking.c)
+ * Callees:
+ *     PpmParkFreeParkNodes @ 0x14079C034 (PpmParkFreeParkNodes.c)
+ */
+
 __int64 __fastcall PpmParkFreeAllParkNodes(char *P, unsigned int a2, _BYTE *a3, __int64 a4, char a5)
 {
   _QWORD *v7; // r9

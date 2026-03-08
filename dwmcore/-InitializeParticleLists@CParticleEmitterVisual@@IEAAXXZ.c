@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?InitializeParticleLists@CParticleEmitterVisual@@IEAAXXZ @ 0x1801C1C18
+ * Callers:
+ *     ?SetMaxParticleInstances@?$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@QEAAJI@Z @ 0x1801C4250 (-SetMaxParticleInstances@-$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@.c)
+ *     ??0CParticleEmitterVisual@@QEAA@PEAVCComposition@@@Z @ 0x18023FEB4 (--0CParticleEmitterVisual@@QEAA@PEAVCComposition@@@Z.c)
+ * Callees:
+ *     ??$_Resize_reallocate@U_Value_init_tag@std@@@?$vector@UInstance_Pos4_QRot_ColorDW_Size2@@V?$allocator@UInstance_Pos4_QRot_ColorDW_Size2@@@std@@@std@@AEAAX_KAEBU_Value_init_tag@1@@Z @ 0x1801BCA34 (--$_Resize_reallocate@U_Value_init_tag@std@@@-$vector@UInstance_Pos4_QRot_ColorDW_Size2@@V-$allo.c)
+ *     ??$_Uninitialized_value_construct_n@V?$allocator@UInstance_Pos4_QRot_ColorDW_Size2@@@std@@@std@@YAPEAUInstance_Pos4_QRot_ColorDW_Size2@@PEAU1@_KAEAV?$allocator@UInstance_Pos4_QRot_ColorDW_Size2@@@0@@Z @ 0x1801BCB28 (--$_Uninitialized_value_construct_n@V-$allocator@UInstance_Pos4_QRot_ColorDW_Size2@@@std@@@std@@.c)
+ *     ?Reserve@ParticleCollection@CParticleEmitterVisual@@QEAAXH@Z @ 0x1801C2EA0 (-Reserve@ParticleCollection@CParticleEmitterVisual@@QEAAXH@Z.c)
+ */
+
 void __fastcall CParticleEmitterVisual::InitializeParticleLists(CParticleEmitterVisual *this)
 {
   unsigned __int64 v2; // rdx

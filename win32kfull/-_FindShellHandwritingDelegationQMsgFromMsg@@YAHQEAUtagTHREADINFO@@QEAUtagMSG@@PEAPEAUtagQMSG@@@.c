@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_FindShellHandwritingDelegationQMsgFromMsg@@YAHQEAUtagTHREADINFO@@QEAUtagMSG@@PEAPEAUtagQMSG@@@Z @ 0x1C01B734C
+ * Callers:
+ *     ?_HandleShellHandwritingDelegatedInput@@YAHPEAUtagTHREADINFO@@W4HDIOPTION@@QEAUtagMSG@@@Z @ 0x1C01B7454 (-_HandleShellHandwritingDelegatedInput@@YAHPEAUtagTHREADINFO@@W4HDIOPTION@@QEAUtagMSG@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_qDqq @ 0x1C01B80D4 (WPP_RECORDER_AND_TRACE_SF_qDqq.c)
+ */
+
 __int64 __fastcall _FindShellHandwritingDelegationQMsgFromMsg(
         struct tagTHREADINFO *const a1,
         struct tagMSG *const a2,

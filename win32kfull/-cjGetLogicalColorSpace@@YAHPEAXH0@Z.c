@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?cjGetLogicalColorSpace@@YAHPEAXH0@Z @ 0x1C02D0A94
+ * Callers:
+ *     GreExtGetObjectW @ 0x1C0065580 (GreExtGetObjectW.c)
+ * Callees:
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C010A9B4 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ */
+
 __int64 __fastcall cjGetLogicalColorSpace(void *a1, __int64 a2, char *a3)
 {
   unsigned int v3; // ebx

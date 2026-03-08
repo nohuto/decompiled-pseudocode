@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepDuplicateTokenUserAndGroups @ 0x1409CC9C0
+ * Callers:
+ *     SepFilterToken @ 0x14073FED0 (SepFilterToken.c)
+ *     SepDuplicateToken @ 0x1407BCF00 (SepDuplicateToken.c)
+ * Callees:
+ *     SepDuplicateSid @ 0x1407843E0 (SepDuplicateSid.c)
+ */
+
 __int64 __fastcall SepDuplicateTokenUserAndGroups(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebp

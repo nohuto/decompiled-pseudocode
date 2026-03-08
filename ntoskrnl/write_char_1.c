@@ -1,3 +1,11 @@
+/*
+ * XREFs of write_char_1 @ 0x1403DBABC
+ * Callers:
+ *     _woutput_s @ 0x1403DB12C (_woutput_s.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall write_char_1(__int16 a1, __int64 a2, _DWORD *a3)
 {
   __int64 result; // rax

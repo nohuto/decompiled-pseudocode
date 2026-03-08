@@ -1,3 +1,14 @@
+/*
+ * XREFs of DpiPdoGetDeviceIdFromDescriptor @ 0x1C0201AEC
+ * Callers:
+ *     DpiPdoAddPdo @ 0x1C0201FA0 (DpiPdoAddPdo.c)
+ * Callees:
+ *     DpiIsValidEdid @ 0x1C001F86C (DpiIsValidEdid.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     MonitorGetMonitorDescriptorIDs @ 0x1C0201BDC (MonitorGetMonitorDescriptorIDs.c)
+ */
+
 __int64 __fastcall DpiPdoGetDeviceIdFromDescriptor(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

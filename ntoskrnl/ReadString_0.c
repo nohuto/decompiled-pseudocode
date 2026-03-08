@@ -1,3 +1,14 @@
+/*
+ * XREFs of ReadString_0 @ 0x1403DC78C
+ * Callers:
+ *     ReadStringDelimited_0 @ 0x1403DC9D4 (ReadStringDelimited_0.c)
+ *     _winput_s @ 0x1403DCC54 (_winput_s.c)
+ * Callees:
+ *     _fgetwc_nolock @ 0x1403DD6B8 (_fgetwc_nolock.c)
+ *     _ungetwc_nolock @ 0x1403DD704 (_ungetwc_nolock.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall ReadString_0(
         char a1,
         __int64 a2,

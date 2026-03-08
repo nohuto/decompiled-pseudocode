@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CRemoteRenderTargetMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0266060
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CRemoteRenderTargetMarshaler::SetRemarshalingFlags(
         DirectComposition::CRemoteRenderTargetMarshaler *this)
 {

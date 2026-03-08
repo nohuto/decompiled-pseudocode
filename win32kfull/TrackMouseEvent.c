@@ -1,3 +1,14 @@
+/*
+ * XREFs of TrackMouseEvent @ 0x1C00E01E4
+ * Callers:
+ *     NtUserTrackMouseEvent @ 0x1C00E0060 (NtUserTrackMouseEvent.c)
+ *     xxxMNMouseMove @ 0x1C021B510 (xxxMNMouseMove.c)
+ * Callees:
+ *     FindTimer @ 0x1C00DEEDC (FindTimer.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ *     ?ResetMouseHover@@YAXPEAUtagDESKTOP@@UtagPOINT@@@Z @ 0x1C0143AD6 (-ResetMouseHover@@YAXPEAUtagDESKTOP@@UtagPOINT@@@Z.c)
+ */
+
 __int64 __fastcall TrackMouseEvent(__int64 a1)
 {
   __int64 v2; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CLegacyRenderTargetMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0265FA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CLegacyRenderTargetMarshaler::SetRemarshalingFlags(
         DirectComposition::CLegacyRenderTargetMarshaler *this)
 {

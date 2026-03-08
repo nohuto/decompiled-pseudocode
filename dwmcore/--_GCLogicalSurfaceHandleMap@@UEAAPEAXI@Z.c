@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??_GCLogicalSurfaceHandleMap@@UEAAPEAXI@Z @ 0x1801B42D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ */
+
 CLogicalSurfaceHandleMap *__fastcall CLogicalSurfaceHandleMap::`scalar deleting destructor'(
         CLogicalSurfaceHandleMap *this,
         char a2)

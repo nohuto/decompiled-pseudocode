@@ -1,3 +1,27 @@
+/*
+ * XREFs of DxgkHandleIndirectEscape @ 0x1C03A0354
+ * Callers:
+ *     DxgkEscape @ 0x1C01A3EE0 (DxgkEscape.c)
+ * Callees:
+ *     ??0AUTO_PNPPOWER_LOCK@@QEAA@PEAU_COMMON_PNP_CONTEXT@@_N11@Z @ 0x1C001D6C8 (--0AUTO_PNPPOWER_LOCK@@QEAA@PEAU_COMMON_PNP_CONTEXT@@_N11@Z.c)
+ *     ?Acquire@AUTO_REMOVE_LOCK@@QEAAJXZ @ 0x1C001D6F8 (-Acquire@AUTO_REMOVE_LOCK@@QEAAJXZ.c)
+ *     ?Release@AUTO_PNPPOWER_LOCK@@QEAAXXZ @ 0x1C0024094 (-Release@AUTO_PNPPOWER_LOCK@@QEAAXXZ.c)
+ *     ?Release@AUTO_REMOVE_LOCK@@QEAAXXZ @ 0x1C00241A0 (-Release@AUTO_REMOVE_LOCK@@QEAAXXZ.c)
+ *     Feature_EnableIddCx110__private_IsEnabledDeviceUsage @ 0x1C0024584 (Feature_EnableIddCx110__private_IsEnabledDeviceUsage.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     ?Free@?$AUTO_FREE_POOL@PEAUIDD_COMPLETION_CONTEXT@@@@QEAAXXZ @ 0x1C005E784 (-Free@-$AUTO_FREE_POOL@PEAUIDD_COMPLETION_CONTEXT@@@@QEAAXXZ.c)
+ *     DxgkGetDeviceObjectFromAdapter @ 0x1C02BD908 (DxgkGetDeviceObjectFromAdapter.c)
+ *     DxgkSetIndirectDisplayHostProcess @ 0x1C02BE52C (DxgkSetIndirectDisplayHostProcess.c)
+ *     DxgkGetIndirectDisplayRenderAdapterByHandle @ 0x1C02CC9C0 (DxgkGetIndirectDisplayRenderAdapterByHandle.c)
+ *     DxgkSetIndirectDisplayRenderAdapterByHandle @ 0x1C02D1354 (DxgkSetIndirectDisplayRenderAdapterByHandle.c)
+ *     DxgkIddGetAdapterSessionDiagnostics @ 0x1C02EFAEC (DxgkIddGetAdapterSessionDiagnostics.c)
+ *     DxgkIddHandleSetDisplayConfig @ 0x1C02EFC88 (DxgkIddHandleSetDisplayConfig.c)
+ *     DxgkIddHandleSetDisplayConfig2 @ 0x1C02F0840 (DxgkIddHandleSetDisplayConfig2.c)
+ *     ?DpiIndirectEscapeAccessCheck@@YAJXZ @ 0x1C039F29C (-DpiIndirectEscapeAccessCheck@@YAJXZ.c)
+ *     ?DpiIndirectStartAdapter@@YAJPEAU_UNICODE_STRING@@PEBXK@Z @ 0x1C039FC7C (-DpiIndirectStartAdapter@@YAJPEAU_UNICODE_STRING@@PEBXK@Z.c)
+ *     DpiIndirectDdiIoControl @ 0x1C03A01A8 (DpiIndirectDdiIoControl.c)
+ */
+
 __int64 __fastcall DxgkHandleIndirectEscape(unsigned int a1, unsigned int *a2)
 {
   __int64 v3; // rdx

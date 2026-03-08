@@ -1,3 +1,53 @@
+/*
+ * XREFs of MiDecommitPages @ 0x140329B10
+ * Callers:
+ *     MmStoreDecommitVirtualMemory @ 0x14065A994 (MmStoreDecommitVirtualMemory.c)
+ *     MiDecommitRegion @ 0x1406EBCC0 (MiDecommitRegion.c)
+ *     MmStoreAllocateVirtualMemory @ 0x140A42EFC (MmStoreAllocateVirtualMemory.c)
+ * Callees:
+ *     MiReleasePageFileInfo @ 0x14020B300 (MiReleasePageFileInfo.c)
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiWalkPageTables @ 0x140222CF0 (MiWalkPageTables.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiFastLockLeafPageTable @ 0x140269C50 (MiFastLockLeafPageTable.c)
+ *     MiDeletePteList @ 0x140276AC0 (MiDeletePteList.c)
+ *     MiDeleteTransitionPte @ 0x1402833F0 (MiDeleteTransitionPte.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MI_IS_PTE_IN_WS_SWAP_SET @ 0x14029DAB8 (MI_IS_PTE_IN_WS_SWAP_SET.c)
+ *     MiDecrementCombinedPteEx @ 0x14029DAF4 (MiDecrementCombinedPteEx.c)
+ *     MiIncreaseUsedPtesCount @ 0x14029F850 (MiIncreaseUsedPtesCount.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x1402B0EB0 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MiLocateCloneAddress @ 0x1402CF530 (MiLocateCloneAddress.c)
+ *     MiReducePteUseCount @ 0x1402D0E3C (MiReducePteUseCount.c)
+ *     MiLockTransitionLeafPageEx @ 0x1402DD4C8 (MiLockTransitionLeafPageEx.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiMakeSystemAddressValid @ 0x140321770 (MiMakeSystemAddressValid.c)
+ *     MiVadPureReserve @ 0x140321EB0 (MiVadPureReserve.c)
+ *     MiTerminateWsleCluster @ 0x1403234E0 (MiTerminateWsleCluster.c)
+ *     MiIsPrototypePteVadLookup @ 0x140327240 (MiIsPrototypePteVadLookup.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiDeletePteWsleCluster @ 0x14032A9F0 (MiDeletePteWsleCluster.c)
+ *     MiTerminateWsle @ 0x14032AAF0 (MiTerminateWsle.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiTransferSoftwarePte @ 0x14032F630 (MiTransferSoftwarePte.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     MiGetUsedPtesHandle @ 0x140346CA0 (MiGetUsedPtesHandle.c)
+ *     MiReleasePageFileSpace @ 0x14034BE0C (MiReleasePageFileSpace.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceShouldYieldProcessor @ 0x1405FB09C (EtwTraceShouldYieldProcessor.c)
+ *     MiFlushGraphicsPtes @ 0x140623FF8 (MiFlushGraphicsPtes.c)
+ *     MiDecommitLargePte @ 0x1406334B0 (MiDecommitLargePte.c)
+ *     MiDecrementCloneBlockReference @ 0x14066176C (MiDecrementCloneBlockReference.c)
+ */
+
 __int64 __fastcall MiDecommitPages(
         unsigned __int64 a1,
         unsigned __int64 a2,

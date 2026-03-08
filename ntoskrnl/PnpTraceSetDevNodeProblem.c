@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpTraceSetDevNodeProblem @ 0x14086697C
+ * Callers:
+ *     PipSetDevNodeProblem @ 0x1408667BC (PipSetDevNodeProblem.c)
+ * Callees:
+ *     _tlgWriteAgg @ 0x14035EDD0 (_tlgWriteAgg.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PnpTraceSetDevNodeProblem(__int64 a1, __int64 a2, int a3, int a4, int a5, int a6, int a7)
 {
   int v7; // r9d

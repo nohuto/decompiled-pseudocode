@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Uninitialize@?$CSharedStorage@VCBackTraceBucket@NSInstrumentation@@$$CCJVCBackTraceStorageUnit@2@VCBackTrace@2@@NSInstrumentation@@QEAAXXZ @ 0x1C019D0E4
+ * Callers:
+ *     ??1CLeakTrackingAllocator@NSInstrumentation@@QEAA@XZ @ 0x1C00D4B84 (--1CLeakTrackingAllocator@NSInstrumentation@@QEAA@XZ.c)
+ *     ?InitializeBackTraceStore@CLeakTrackingAllocator@NSInstrumentation@@AEAAXPEAPEAVCBackTraceStoreEx@2@@Z @ 0x1C019B328 (-InitializeBackTraceStore@CLeakTrackingAllocator@NSInstrumentation@@AEAAXPEAPEAVCBackTraceStoreE.c)
+ *     ??1CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAA@XZ @ 0x1C019B8B0 (--1CReferenceCountedType@CReferenceTracker@NSInstrumentation@@AEAA@XZ.c)
+ * Callees:
+ *     ??1CBackTraceBucket@NSInstrumentation@@QEAA@XZ @ 0x1C019C97C (--1CBackTraceBucket@NSInstrumentation@@QEAA@XZ.c)
+ */
+
 void __fastcall NSInstrumentation::CSharedStorage<NSInstrumentation::CBackTraceBucket,long volatile,NSInstrumentation::CBackTraceStorageUnit,NSInstrumentation::CBackTrace>::Uninitialize(
         __int64 a1)
 {

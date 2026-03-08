@@ -1,3 +1,20 @@
+/*
+ * XREFs of DebugRunMethod @ 0x1C004DE10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _strtoui64_0 @ 0x1C0001A79 (_strtoui64_0.c)
+ *     GetBaseObject @ 0x1C004B918 (GetBaseObject.c)
+ *     GetObjectPath @ 0x1C004BB70 (GetObjectPath.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     DebugExpr @ 0x1C004D830 (DebugExpr.c)
+ *     IsNumber @ 0x1C004E1D4 (IsNumber.c)
+ *     RunMethodCallBack @ 0x1C004E5F0 (RunMethodCallBack.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ *     AsyncEvalObject @ 0x1C00544D0 (AsyncEvalObject.c)
+ */
+
 __int64 __fastcall DebugRunMethod(__int64 a1, char *a2)
 {
   unsigned int v2; // edi

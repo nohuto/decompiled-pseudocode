@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vFlushSpriteUpdates@DEVLOCKBLTOBJ@@QEAAXXZ @ 0x1C026E758
+ * Callers:
+ *     ?vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z @ 0x1C0272EF8 (-vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z.c)
+ * Callees:
+ *     ?GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z @ 0x1C0052680 (-GreUpdateSpriteDevLockEnd@@YAHAEAVXDCOBJ@@H@Z.c)
+ */
+
 void __fastcall DEVLOCKBLTOBJ::vFlushSpriteUpdates(DEVLOCKBLTOBJ *this)
 {
   struct tagSIZE **v2; // rcx

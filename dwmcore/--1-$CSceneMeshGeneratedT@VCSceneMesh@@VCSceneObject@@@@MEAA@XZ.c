@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1?$CSceneMeshGeneratedT@VCSceneMesh@@VCSceneObject@@@@MEAA@XZ @ 0x18024B3CC
+ * Callers:
+ *     ??1CSceneMesh@@MEAA@XZ @ 0x18024B470 (--1CSceneMesh@@MEAA@XZ.c)
+ * Callees:
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800234BC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ */
+
 void __fastcall CSceneMeshGeneratedT<CSceneMesh,CSceneObject>::~CSceneMeshGeneratedT<CSceneMesh,CSceneObject>(
         struct CResource **this)
 {

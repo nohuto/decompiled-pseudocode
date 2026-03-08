@@ -1,3 +1,12 @@
+/*
+ * XREFs of XmPushaOp @ 0x14039BBF0
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmSetSourceValue @ 0x1403B41A0 (XmSetSourceValue.c)
+ *     XmPushStack @ 0x1403B4270 (XmPushStack.c)
+ */
+
 __int64 __fastcall XmPushaOp(__int64 a1)
 {
   unsigned int v2; // edi

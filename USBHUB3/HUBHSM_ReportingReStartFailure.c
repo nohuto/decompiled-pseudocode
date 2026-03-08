@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBHSM_ReportingReStartFailure @ 0x1C0008EA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBHSM_ReportingReStartFailure(__int64 a1)
 {
   struct _KEVENT *v1; // rcx

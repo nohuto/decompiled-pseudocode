@@ -1,3 +1,15 @@
+/*
+ * XREFs of PiDevCfgResolveVariableConstant @ 0x14095D110
+ * Callers:
+ *     PiDevCfgResolveVariable @ 0x140878210 (PiDevCfgResolveVariable.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PnpValidateRegistryValue @ 0x14056004C (PnpValidateRegistryValue.c)
+ *     IopGetRegistryValue @ 0x1406C18D4 (IopGetRegistryValue.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDevCfgResolveVariableConstant(__int64 a1, void *a2, __int64 a3)
 {
   NTSTATUS RegistryValue; // eax

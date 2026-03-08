@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpGetMicroarchitecturalPmcAffinity @ 0x1409E1344
+ * Callers:
+ *     EtwSetPerformanceTraceInformation @ 0x1409DF094 (EtwSetPerformanceTraceInformation.c)
+ *     EtwpLoadMicroarchitecturalProfileGroup @ 0x1409E1528 (EtwpLoadMicroarchitecturalProfileGroup.c)
+ * Callees:
+ *     KeRemoveProcessorAffinityEx @ 0x140237640 (KeRemoveProcessorAffinityEx.c)
+ *     KeQueryActiveProcessorAffinity2 @ 0x14038F750 (KeQueryActiveProcessorAffinity2.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 _DWORD *__fastcall EtwpGetMicroarchitecturalPmcAffinity(__int64 a1, unsigned __int16 *a2)
 {
   _DWORD *result; // rax

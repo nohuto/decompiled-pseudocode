@@ -1,3 +1,14 @@
+/*
+ * XREFs of VidSchiWaitForEmptyHwQueue @ 0x1C0107370
+ * Callers:
+ *     VidSchiSwitchFromSuspendedDevices @ 0x1C0014360 (VidSchiSwitchFromSuspendedDevices.c)
+ *     VidSchFlushAdapter @ 0x1C0107550 (VidSchFlushAdapter.c)
+ * Callees:
+ *     VidSchiProfilePerformanceTick @ 0x1C0006E50 (VidSchiProfilePerformanceTick.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     VidSchWaitForCompletionEvent @ 0x1C00ADD4C (VidSchWaitForCompletionEvent.c)
+ */
+
 __int64 __fastcall VidSchiWaitForEmptyHwQueue(__int64 a1)
 {
   __int64 i; // rbx

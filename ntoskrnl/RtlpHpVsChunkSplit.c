@@ -1,3 +1,26 @@
+/*
+ * XREFs of RtlpHpVsChunkSplit @ 0x14024AB60
+ * Callers:
+ *     RtlpHpVsContextAllocateInternal @ 0x14024A790 (RtlpHpVsContextAllocateInternal.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     RtlpHpVsChunkComputeCost @ 0x14024E230 (RtlpHpVsChunkComputeCost.c)
+ *     RtlpHpVsFreeChunkRemove @ 0x14024E660 (RtlpHpVsFreeChunkRemove.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpVsSubsegmentCommitPages @ 0x1402CB850 (RtlpHpVsSubsegmentCommitPages.c)
+ *     RtlpHpReleaseQueuedLockExclusive @ 0x1402CD080 (RtlpHpReleaseQueuedLockExclusive.c)
+ *     RtlpHpVsSubsegmentCleanup @ 0x1402E55D8 (RtlpHpVsSubsegmentCleanup.c)
+ *     RtlpHpAcquireQueuedLockExclusive @ 0x140350330 (RtlpHpAcquireQueuedLockExclusive.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140608CDC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ */
+
 __int64 __fastcall RtlpHpVsChunkSplit(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, char a5, __int64 a6)
 {
   unsigned int v9; // r15d

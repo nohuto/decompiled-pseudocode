@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?QueryInterface@CDwmAppHost@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x140004F90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x140007200 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CDwmAppHost::QueryInterface(CDwmAppHost *this, const struct _GUID *a2, void **a3)
 {
   __int64 v4; // rax

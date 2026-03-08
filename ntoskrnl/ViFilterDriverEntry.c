@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViFilterDriverEntry @ 0x140ADC8B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ViFilterDriverEntry(struct _DRIVER_OBJECT *a1)
 {
   PDRIVER_EXTENSION DriverExtension; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bCleanupSpriteStateRects@@YAHPEAUHDEV__@@PEAU_SPRITESTATE@@@Z @ 0x1C001F2B0
+ * Callers:
+ *     bSetDevDragRect @ 0x1C001DE80 (bSetDevDragRect.c)
+ *     bSetDevPreviewRect @ 0x1C0286B70 (bSetDevPreviewRect.c)
+ * Callees:
+ *     GreDeleteSprite @ 0x1C0024368 (GreDeleteSprite.c)
+ */
+
 __int64 __fastcall bCleanupSpriteStateRects(HDEV a1, struct _SPRITESTATE *a2)
 {
   void **v5; // rdi

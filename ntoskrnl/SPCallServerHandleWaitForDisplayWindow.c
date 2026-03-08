@@ -1,3 +1,16 @@
+/*
+ * XREFs of SPCallServerHandleWaitForDisplayWindow @ 0x140799754
+ * Callers:
+ *     sub_1406DC290 @ 0x1406DC290 (sub_1406DC290.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall SPCallServerHandleWaitForDisplayWindow(__int64 a1, __int64 a2, int a3, __int64 a4)
 {
   __int64 *v6; // rbp

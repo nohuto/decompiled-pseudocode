@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpInterruptUpdateLinesPostSwap @ 0x140A94E8C
+ * Callers:
+ *     HalpInterruptSwapProcessorIdentifiers @ 0x140A94CE0 (HalpInterruptSwapProcessorIdentifiers.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpInterruptUpdateLinesPostSwap(__int64 a1, int a2, int a3, _DWORD *a4, _DWORD *a5)
 {
   int v5; // r15d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?OnRapidHpdComparisonFailed@DesktopRecalc@@YAXPEAVCMonitorTopology@@AEBU_GUID@@@Z @ 0x1C0228DAC
+ * Callers:
+ *     ?OnTimer@RapidHPD@@YAXXZ @ 0x1C00E0290 (-OnTimer@RapidHPD@@YAXXZ.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ?StartRecalc@DesktopRecalc@@YAXPEAUtagWINDOWSTATION@@PEAVCMonitorTopology@@PEBU_GUID@@@Z @ 0x1C00F954C (-StartRecalc@DesktopRecalc@@YAXPEAUtagWINDOWSTATION@@PEAVCMonitorTopology@@PEBU_GUID@@@Z.c)
+ */
+
 void __fastcall DesktopRecalc::OnRapidHpdComparisonFailed(
         DesktopRecalc *this,
         struct CMonitorTopology *a2,

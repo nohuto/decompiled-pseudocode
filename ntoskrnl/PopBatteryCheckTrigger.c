@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopBatteryCheckTrigger @ 0x14086E6E0
+ * Callers:
+ *     PopBatteryApplyCompositeState @ 0x14086E430 (PopBatteryApplyCompositeState.c)
+ *     PopRecalculateCBTriggerLevels @ 0x14099300C (PopRecalculateCBTriggerLevels.c)
+ * Callees:
+ *     PopBatteryCheckTriggerAllBatteries @ 0x140992038 (PopBatteryCheckTriggerAllBatteries.c)
+ */
+
 bool __fastcall PopBatteryCheckTrigger(__int64 a1)
 {
   char v1; // bl

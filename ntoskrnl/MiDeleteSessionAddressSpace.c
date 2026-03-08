@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiDeleteSessionAddressSpace @ 0x1402008EC
+ * Callers:
+ *     MiDereferenceSessionFinal @ 0x14067E7A0 (MiDereferenceSessionFinal.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiDeleteWorkingSetList @ 0x1402A5430 (MiDeleteWorkingSetList.c)
+ *     MiDeletePagablePteRange @ 0x1403244A0 (MiDeletePagablePteRange.c)
+ *     MiDrainSystemAccessLog @ 0x140330B34 (MiDrainSystemAccessLog.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ */
+
 __int64 __fastcall MiDeleteSessionAddressSpace(__int64 a1, __int64 a2)
 {
   __int64 v2; // rsi

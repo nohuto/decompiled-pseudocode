@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExExtendZone @ 0x140609C80
+ * Callers:
+ *     ExInterlockedExtendZone @ 0x140609D70 (ExInterlockedExtendZone.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall ExExtendZone(PZONE_HEADER Zone, PVOID Segment, ULONG SegmentSize)
 {
   struct _SINGLE_LIST_ENTRY *v4; // r9

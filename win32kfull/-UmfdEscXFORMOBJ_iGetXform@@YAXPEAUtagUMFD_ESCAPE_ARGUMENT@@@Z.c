@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?UmfdEscXFORMOBJ_iGetXform@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C00BBC94
+ * Callers:
+ *     UmfdDispatchEscape @ 0x1C00BB270 (UmfdDispatchEscape.c)
+ * Callees:
+ *     ?EnsureTls@UmfdTls@@SAPEAV1@XZ @ 0x1C00BBD4C (-EnsureTls@UmfdTls@@SAPEAV1@XZ.c)
+ *     XFORMOBJ_iGetXform @ 0x1C00BBD90 (XFORMOBJ_iGetXform.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void __fastcall UmfdEscXFORMOBJ_iGetXform(volatile void **a1)
 {
   ULONG *v2; // rbx

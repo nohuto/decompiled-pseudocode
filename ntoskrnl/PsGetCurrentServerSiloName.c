@@ -1,3 +1,11 @@
+/*
+ * XREFs of PsGetCurrentServerSiloName @ 0x1409A9650
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ */
+
 __int64 *PsGetCurrentServerSiloName()
 {
   struct _LIST_ENTRY *v0; // rax

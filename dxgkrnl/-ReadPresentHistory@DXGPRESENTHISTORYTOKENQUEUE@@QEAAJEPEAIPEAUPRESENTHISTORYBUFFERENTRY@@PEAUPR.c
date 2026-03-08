@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReadPresentHistory@DXGPRESENTHISTORYTOKENQUEUE@@QEAAJEPEAIPEAUPRESENTHISTORYBUFFERENTRY@@PEAUPRESENTHISTORYBITS@@@Z @ 0x1C0018634
+ * Callers:
+ *     DxgkGetPresentHistoryInternal @ 0x1C01DE730 (DxgkGetPresentHistoryInternal.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DXGPRESENTHISTORYTOKENQUEUE::ReadPresentHistory(
         KSPIN_LOCK *this,
         __int64 a2,

@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExConvertExclusiveToSharedLite @ 0x1402DCE90
+ * Callers:
+ *     FsRtlAcquireFileForModWriteEx @ 0x140212E3C (FsRtlAcquireFileForModWriteEx.c)
+ *     DifExConvertExclusiveToSharedLiteWrapper @ 0x1405D5C00 (DifExConvertExclusiveToSharedLiteWrapper.c)
+ *     PpDevNodeUnlockTree @ 0x1406CB8B0 (PpDevNodeUnlockTree.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x1407512E4 (PspAllocateAndQueryNotificationChannel.c)
+ *     NtMapCMFModule @ 0x140A005D0 (NtMapCMFModule.c)
+ *     CmpReplicateKeyToVirtual @ 0x140A17308 (CmpReplicateKeyToVirtual.c)
+ * Callees:
+ *     ExpConvertExclusiveToSharedLite @ 0x1402DCFAC (ExpConvertExclusiveToSharedLite.c)
+ *     ExpFastResourceLegacyConvertExclusiveToShared @ 0x1403C50F0 (ExpFastResourceLegacyConvertExclusiveToShared.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void __stdcall ExConvertExclusiveToSharedLite(PERESOURCE Resource)
 {
   USHORT Flag; // r8

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpDmaCheckAdapterToken @ 0x1404FF4E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpDmaFindDeviceObjectByToken @ 0x14038C8C4 (HalpDmaFindDeviceObjectByToken.c)
+ *     HalpDmaInsertDeviceObjectByToken @ 0x14038C9B0 (HalpDmaInsertDeviceObjectByToken.c)
+ */
+
 __int64 __fastcall HalpDmaCheckAdapterToken(__int64 a1)
 {
   unsigned int v2; // ebx

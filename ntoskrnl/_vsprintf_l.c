@@ -1,3 +1,13 @@
+/*
+ * XREFs of _vsprintf_l @ 0x1403D5C68
+ * Callers:
+ *     vsprintf @ 0x1403D5D00 (vsprintf.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     _flsbuf @ 0x1403D67F0 (_flsbuf.c)
+ *     _output_l @ 0x1403D7270 (_output_l.c)
+ */
+
 int __cdecl vsprintf_l(char *DstBuf, const char *Format, _locale_t a3, va_list ArgList)
 {
   int v4; // eax

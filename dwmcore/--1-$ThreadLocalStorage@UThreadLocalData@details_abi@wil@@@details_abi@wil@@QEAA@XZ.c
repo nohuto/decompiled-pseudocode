@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1?$ThreadLocalStorage@UThreadLocalData@details_abi@wil@@@details_abi@wil@@QEAA@XZ @ 0x18019474C
+ * Callers:
+ *     ??1?$ProcessLocalStorageData@UProcessLocalData@details_abi@wil@@@details_abi@wil@@QEAA@XZ @ 0x1801946B4 (--1-$ProcessLocalStorageData@UProcessLocalData@details_abi@wil@@@details_abi@wil@@QEAA@XZ.c)
+ * Callees:
+ *     ?Clear@ThreadLocalData@details_abi@wil@@QEAAXXZ @ 0x180194C34 (-Clear@ThreadLocalData@details_abi@wil@@QEAAXXZ.c)
+ */
+
 void __fastcall wil::details_abi::ThreadLocalStorage<wil::details_abi::ThreadLocalData>::~ThreadLocalStorage<wil::details_abi::ThreadLocalData>(
         __int64 *a1)
 {

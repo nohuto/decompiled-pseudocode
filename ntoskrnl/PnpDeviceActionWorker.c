@@ -1,3 +1,43 @@
+/*
+ * XREFs of PnpDeviceActionWorker @ 0x140203020
+ * Callers:
+ *     PnpRequestDeviceAction @ 0x1402F5074 (PnpRequestDeviceAction.c)
+ * Callees:
+ *     PnpLogActionQueueEvent @ 0x14020368C (PnpLogActionQueueEvent.c)
+ *     IoReportTargetDeviceChangeAsynchronous @ 0x140204780 (IoReportTargetDeviceChangeAsynchronous.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PopDirectedDripsClearDisengageReason @ 0x1402F2FE8 (PopDirectedDripsClearDisengageReason.c)
+ *     PnpDeleteDeviceActionRequest @ 0x1402FDD5C (PnpDeleteDeviceActionRequest.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     PnpCompleteSystemStartProcess @ 0x14039C088 (PnpCompleteSystemStartProcess.c)
+ *     PpProcessClearProblem @ 0x1403ABD90 (PpProcessClearProblem.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PiProcessDeviceResetAction @ 0x14055DCD8 (PiProcessDeviceResetAction.c)
+ *     PnpProcessRebalance @ 0x140562AF4 (PnpProcessRebalance.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpDevNodeUnlockTree @ 0x1406CB8B0 (PpDevNodeUnlockTree.c)
+ *     PpDevNodeLockTree @ 0x1406CB944 (PpDevNodeLockTree.c)
+ *     PipProcessDevNodeTree @ 0x1406CCD80 (PipProcessDevNodeTree.c)
+ *     PiProcessReenumeration @ 0x1407854F4 (PiProcessReenumeration.c)
+ *     PiProcessRequeryDeviceState @ 0x140851994 (PiProcessRequeryDeviceState.c)
+ *     PiProcessStartSystemDevices @ 0x140860040 (PiProcessStartSystemDevices.c)
+ *     PiRestartDevice @ 0x1408608D0 (PiRestartDevice.c)
+ *     PiQueryPowerRelations @ 0x14086CB24 (PiQueryPowerRelations.c)
+ *     PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent @ 0x14086CE8C (PiPnpRtlPdoRaiseNtPlugPlayPropertyChangeEvent.c)
+ *     PiConfigureDevice @ 0x140956344 (PiConfigureDevice.c)
+ *     PiProcessClearDeviceProblem @ 0x140956400 (PiProcessClearDeviceProblem.c)
+ *     PiProcessResourceRequirementsChanged @ 0x140956564 (PiProcessResourceRequirementsChanged.c)
+ *     PiProcessSetDeviceProblem @ 0x1409566C8 (PiProcessSetDeviceProblem.c)
+ *     PiDmaGuardProcessUpdateConsoleLockStateAction @ 0x140967F1C (PiDmaGuardProcessUpdateConsoleLockStateAction.c)
+ */
+
 __int64 PnpDeviceActionWorker()
 {
   char v0; // r14

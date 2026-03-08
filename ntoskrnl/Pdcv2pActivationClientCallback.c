@@ -1,3 +1,17 @@
+/*
+ * XREFs of Pdcv2pActivationClientCallback @ 0x1409C5AA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402992F0 (PdcCreateWatchdogAroundClientCall.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PdcResetEvent @ 0x1405B510C (PdcResetEvent.c)
+ *     PdcReleaseRwLockExclusive2 @ 0x140857710 (PdcReleaseRwLockExclusive2.c)
+ *     PdcAcquireRwLockExclusive2 @ 0x140857778 (PdcAcquireRwLockExclusive2.c)
+ *     PdcWaitForEvent @ 0x1409C5C1C (PdcWaitForEvent.c)
+ */
+
 __int64 __fastcall Pdcv2pActivationClientCallback(__int64 a1, __int64 a2)
 {
   unsigned int v4; // edi

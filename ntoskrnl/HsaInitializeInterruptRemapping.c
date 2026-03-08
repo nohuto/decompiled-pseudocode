@@ -1,3 +1,18 @@
+/*
+ * XREFs of HsaInitializeInterruptRemapping @ 0x140A96048
+ * Callers:
+ *     HsaInitializeIommu @ 0x140A961E0 (HsaInitializeIommu.c)
+ * Callees:
+ *     RtlInitializeBitMap @ 0x1402E2140 (RtlInitializeBitMap.c)
+ *     HalpGetIrtEntryCount @ 0x1403031BC (HalpGetIrtEntryCount.c)
+ *     HalMapIoSpace @ 0x14037AD90 (HalMapIoSpace.c)
+ *     ExtEnvAllocateMemory @ 0x14037C828 (ExtEnvAllocateMemory.c)
+ *     ExtEnvInitializeSpinLock @ 0x1403AF45C (ExtEnvInitializeSpinLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExtEnvClearBits @ 0x14051D050 (ExtEnvClearBits.c)
+ */
+
 __int64 __fastcall HsaInitializeInterruptRemapping(__int64 a1)
 {
   int v1; // ebx

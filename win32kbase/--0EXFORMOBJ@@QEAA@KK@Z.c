@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0EXFORMOBJ@@QEAA@KK@Z @ 0x1C017FB10
+ * Callers:
+ *     GreCreatePolyPolygonRgnInternal @ 0x1C0197C30 (GreCreatePolyPolygonRgnInternal.c)
+ * Callees:
+ *     <none>
+ */
+
 EXFORMOBJ *__fastcall EXFORMOBJ::EXFORMOBJ(EXFORMOBJ *this, __int64 a2, int a3)
 {
   __int64 v5; // rcx

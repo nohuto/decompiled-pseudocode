@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ndotprod@@YA_NHHHHPEAN@Z @ 0x1C023B168
+ * Callers:
+ *     ?AreTheseTwoContactsAPan@CPTPEngine@@AEAAHPEBUCContactState@@0@Z @ 0x1C0235178 (-AreTheseTwoContactsAPan@CPTPEngine@@AEAAHPEBUCContactState@@0@Z.c)
+ *     ?AreTheseTwoContactsAZoom@CPTPEngine@@AEAAHPEBUCContactState@@0@Z @ 0x1C0235248 (-AreTheseTwoContactsAZoom@CPTPEngine@@AEAAHPEBUCContactState@@0@Z.c)
+ * Callees:
+ *     sqrt_0 @ 0x1C00E189D (sqrt_0.c)
+ */
+
 char __fastcall ndotprod(int a1, int a2, int a3, int a4, double *a5)
 {
   double v9; // xmm6_8

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpIrpAllocateDeviceUsageNotification @ 0x1408513D0
+ * Callers:
+ *     PiPagePathSetState @ 0x1408512E8 (PiPagePathSetState.c)
+ *     PipSendGuestAssignedNotification @ 0x14096C094 (PipSendGuestAssignedNotification.c)
+ * Callees:
+ *     IoAllocateIrp @ 0x140208CF0 (IoAllocateIrp.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ */
+
 PIRP __fastcall PpIrpAllocateDeviceUsageNotification(__int64 a1)
 {
   struct _KEVENT *v1; // rdi

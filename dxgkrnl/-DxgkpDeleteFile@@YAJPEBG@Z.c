@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?DxgkpDeleteFile@@YAJPEBG@Z @ 0x1C0306C8C
+ * Callers:
+ *     ?CopyDriverStore@DXGADAPTER@@QEAAJXZ @ 0x1C0305F44 (-CopyDriverStore@DXGADAPTER@@QEAAJXZ.c)
+ *     ?DxgkpCopyFile@@YAJPEBG0@Z @ 0x1C0306750 (-DxgkpCopyFile@@YAJPEBG0@Z.c)
+ *     ?DxgkpPopulateFile@@YAJPEAG0W4DXGKP_HARDLINKOVERWRITETYPE@@@Z @ 0x1C0306E54 (-DxgkpPopulateFile@@YAJPEAG0W4DXGKP_HARDLINKOVERWRITETYPE@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall DxgkpDeleteFile(PCWSTR SourceString)
 {
   struct _UNICODE_STRING v2; // [rsp+20h] [rbp-48h] BYREF

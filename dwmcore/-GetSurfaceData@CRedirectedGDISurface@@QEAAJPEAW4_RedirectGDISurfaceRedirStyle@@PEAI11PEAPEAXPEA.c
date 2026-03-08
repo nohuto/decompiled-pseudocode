@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetSurfaceData@CRedirectedGDISurface@@QEAAJPEAW4_RedirectGDISurfaceRedirStyle@@PEAI11PEAPEAXPEAU_LUID@@2PEAW4DXGI_FORMAT@@@Z @ 0x1800A88EC
+ * Callers:
+ *     ?CreateBitmap@CGdiSpriteBitmap@@AEAAJW4DXGI_FORMAT@@@Z @ 0x1800A87C4 (-CreateBitmap@CGdiSpriteBitmap@@AEAAJW4DXGI_FORMAT@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CRedirectedGDISurface::GetSurfaceData(
         CRedirectedGDISurface *this,
         enum _RedirectGDISurfaceRedirStyle *a2,

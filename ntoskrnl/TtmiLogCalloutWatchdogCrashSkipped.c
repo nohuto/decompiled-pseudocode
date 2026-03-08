@@ -1,3 +1,14 @@
+/*
+ * XREFs of TtmiLogCalloutWatchdogCrashSkipped @ 0x1409A3F8C
+ * Callers:
+ *     TtmpCalloutWatchdogCallback @ 0x1409A03F0 (TtmpCalloutWatchdogCallback.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PsGetProcessSessionIdEx @ 0x1402BDFA0 (PsGetProcessSessionIdEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall TtmiLogCalloutWatchdogCrashSkipped(int a1, int a2, __int64 a3, __int64 a4, __int64 a5, __int64 a6)
 {
   _UNKNOWN **v6; // rax

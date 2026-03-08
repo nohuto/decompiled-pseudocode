@@ -1,3 +1,13 @@
+/*
+ * XREFs of EmpSearchCallbackDatabase @ 0x1403862C4
+ * Callers:
+ *     EmpProviderRegister @ 0x140810DB0 (EmpProviderRegister.c)
+ *     EmpParseCallbacks @ 0x140B4D34C (EmpParseCallbacks.c)
+ *     EmpParseRuleTerm @ 0x140B4D578 (EmpParseRuleTerm.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall EmpSearchCallbackDatabase(_QWORD *a1)
 {
   _QWORD *i; // rdx

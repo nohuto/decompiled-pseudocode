@@ -1,3 +1,23 @@
+/*
+ * XREFs of IommupDomainAttachPasidDevice @ 0x14050BD20
+ * Callers:
+ *     IommuDomainAttachDeviceEx @ 0x1405234A0 (IommuDomainAttachDeviceEx.c)
+ *     IommuDomainAttachPasidDevice @ 0x140932680 (IommuDomainAttachPasidDevice.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     HalpIommuGetDmarptRootAddress @ 0x14037C9D0 (HalpIommuGetDmarptRootAddress.c)
+ *     HalpIommuGetHardwareDomain @ 0x1403A414C (HalpIommuGetHardwareDomain.c)
+ *     HalpIommuDereferenceHardwareDomain @ 0x14051567C (HalpIommuDereferenceHardwareDomain.c)
+ *     IommuDisableDevicePasid @ 0x14051FC00 (IommuDisableDevicePasid.c)
+ *     IommuEnableDevicePasid @ 0x14051FFF0 (IommuEnableDevicePasid.c)
+ *     IommuSetAddressSpace @ 0x1405213A0 (IommuSetAddressSpace.c)
+ *     IommupHvAttachPasidDeviceDomain @ 0x1405220DC (IommupHvAttachPasidDeviceDomain.c)
+ *     IommupHvAttachPasidSubDeviceDomain @ 0x14052223C (IommupHvAttachPasidSubDeviceDomain.c)
+ *     IommupHvDetachPasidDeviceDomain @ 0x140522474 (IommupHvDetachPasidDeviceDomain.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IommupDomainAttachPasidDevice(__int64 a1, __int64 a2)
 {
   __int64 v2; // r14

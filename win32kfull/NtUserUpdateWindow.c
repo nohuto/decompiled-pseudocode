@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserUpdateWindow @ 0x1C00E55A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?xxxInternalUpdateWindow@@YAXPEAUtagWND@@K@Z @ 0x1C0101FD4 (-xxxInternalUpdateWindow@@YAXPEAUtagWND@@K@Z.c)
+ */
+
 __int64 __fastcall NtUserUpdateWindow(__int64 a1)
 {
   __int64 v2; // rax

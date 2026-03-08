@@ -1,3 +1,15 @@
+/*
+ * XREFs of TouchTargetingCreateContact @ 0x1C0250C6C
+ * Callers:
+ *     ?xxxPointerWindowHitTest@@YAPEAUHWND__@@PEAUtagTHREADINFO@@PEAUtagWND@@I_K_JUtagPOINT@@PEAHKPEBUtagPOINTEREVENTINT@@2PEAU4@@Z @ 0x1C01E5EF0 (-xxxPointerWindowHitTest@@YAPEAUHWND__@@PEAUtagTHREADINFO@@PEAUtagWND@@I_K_JUtagPOINT@@PEAHKPEBU.c)
+ *     EditionNeedsTouchTargeting @ 0x1C01E74E0 (EditionNeedsTouchTargeting.c)
+ *     xxxPerformTargetingWithinPwnd @ 0x1C01E7FFC (xxxPerformTargetingWithinPwnd.c)
+ * Callees:
+ *     PtInRect @ 0x1C00A34E8 (PtInRect.c)
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ *     ?_TTAdjustContactSide@@YAXJPEAJ0J@Z @ 0x1C02503A0 (-_TTAdjustContactSide@@YAXJPEAJ0J@Z.c)
+ */
+
 __int64 __fastcall TouchTargetingCreateContact(__int64 a1, int *a2, __int64 a3, _DWORD *a4)
 {
   int *v4; // rsi

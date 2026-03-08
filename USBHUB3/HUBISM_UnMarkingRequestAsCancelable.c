@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBISM_UnMarkingRequestAsCancelable @ 0x1C003F180
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBISM_UnMarkingRequestAsCancelable(__int64 a1)
 {
   __int64 result; // rax

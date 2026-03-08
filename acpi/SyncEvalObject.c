@@ -1,3 +1,20 @@
+/*
+ * XREFs of SyncEvalObject @ 0x1C0054E8C
+ * Callers:
+ *     AMLIEvalNameSpaceObject @ 0x1C0047B9C (AMLIEvalNameSpaceObject.c)
+ *     AMLIEvalPackageElement @ 0x1C0047D64 (AMLIEvalPackageElement.c)
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     GetObjectPath @ 0x1C004BB70 (GetObjectPath.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     LogSchedEvent @ 0x1C004E3AC (LogSchedEvent.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     RestartContext @ 0x1C00512E8 (RestartContext.c)
+ *     GetThreadCurrentContext @ 0x1C00537E0 (GetThreadCurrentContext.c)
+ *     AsyncEvalObject @ 0x1C00544D0 (AsyncEvalObject.c)
+ *     NestAsyncEvalObject @ 0x1C005496C (NestAsyncEvalObject.c)
+ */
+
 __int64 __fastcall SyncEvalObject(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
 {
   char v8; // r14

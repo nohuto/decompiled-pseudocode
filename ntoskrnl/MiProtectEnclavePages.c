@@ -1,3 +1,30 @@
+/*
+ * XREFs of MiProtectEnclavePages @ 0x140645C9C
+ * Callers:
+ *     MmProtectVirtualMemory @ 0x1407C77B0 (MmProtectVirtualMemory.c)
+ * Callees:
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeSystemAddressValid @ 0x140321770 (MiMakeSystemAddressValid.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MI_TIGHTER_PERMISSIONS @ 0x14032E62C (MI_TIGHTER_PERMISSIONS.c)
+ *     MiWorkingSetIsContended @ 0x1403478E0 (MiWorkingSetIsContended.c)
+ *     MiPageTableLockIsContended @ 0x140347920 (MiPageTableLockIsContended.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KeCanChangeEnclavePageProtection @ 0x14056DE10 (KeCanChangeEnclavePageProtection.c)
+ *     KeChangeEnclavePageProtection @ 0x14056DED0 (KeChangeEnclavePageProtection.c)
+ *     KeTrackEnclaveTbFlush @ 0x14056E10C (KeTrackEnclaveTbFlush.c)
+ *     MiFlushEnclaveTb @ 0x140645A50 (MiFlushEnclaveTb.c)
+ *     MiUpdateEnclavePfnProtection @ 0x14064652C (MiUpdateEnclavePfnProtection.c)
+ *     MiWriteEnclavePte @ 0x1406465DC (MiWriteEnclavePte.c)
+ *     VslDebugProtectSecureProcessMemory @ 0x14093EE68 (VslDebugProtectSecureProcessMemory.c)
+ */
+
 __int64 __fastcall MiProtectEnclavePages(
         int a1,
         int a2,

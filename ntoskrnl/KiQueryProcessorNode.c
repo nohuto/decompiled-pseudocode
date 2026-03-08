@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiQueryProcessorNode @ 0x140372500
+ * Callers:
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ * Callees:
+ *     KiFindFirstAvailableNode @ 0x1403725D0 (KiFindFirstAvailableNode.c)
+ *     KiIsNodeFull @ 0x1403742D8 (KiIsNodeFull.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HvlGetApicIdFromLpIndex @ 0x14053DB70 (HvlGetApicIdFromLpIndex.c)
+ *     HvlpGetLpcbByApicId @ 0x14053EB98 (HvlpGetLpcbByApicId.c)
+ */
+
 __int64 __fastcall KiQueryProcessorNode(unsigned int a1, _DWORD *a2, _WORD *a3)
 {
   __int64 v6; // r14

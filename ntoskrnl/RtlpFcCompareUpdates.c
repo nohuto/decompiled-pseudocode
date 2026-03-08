@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpFcCompareUpdates @ 0x1409C01B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpFcCompareUpdates(_DWORD *a1, _DWORD *a2)
 {
   int v2; // ecx

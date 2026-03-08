@@ -1,3 +1,16 @@
+/*
+ * XREFs of NVMeLogTelemetry @ 0x1C0008A04
+ * Callers:
+ *     NVMeLogTelemetryControllerInfo @ 0x1C0008CF4 (NVMeLogTelemetryControllerInfo.c)
+ *     IoSqToIoCqMapping @ 0x1C000B78C (IoSqToIoCqMapping.c)
+ *     NVMeLogNameSpaceIdentificationStatus @ 0x1C001FCC0 (NVMeLogNameSpaceIdentificationStatus.c)
+ *     NVMeLogTelemetryWaitForCmdComplete @ 0x1C001FED4 (NVMeLogTelemetryWaitForCmdComplete.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003260 (__security_check_cookie.c)
+ *     memmove @ 0x1C0004280 (memmove.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ */
+
 __int64 __fastcall NVMeLogTelemetry(
         __int64 a1,
         __int64 a2,

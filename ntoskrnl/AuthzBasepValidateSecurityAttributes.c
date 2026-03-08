@@ -1,3 +1,11 @@
+/*
+ * XREFs of AuthzBasepValidateSecurityAttributes @ 0x140297140
+ * Callers:
+ *     AuthzBasepSetSecurityAttributesToken @ 0x14029705C (AuthzBasepSetSecurityAttributesToken.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AuthzBasepValidateSecurityAttributes(__int64 a1, int *a2)
 {
   int v3; // r8d

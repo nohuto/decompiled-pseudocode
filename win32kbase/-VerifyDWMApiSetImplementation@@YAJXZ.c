@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VerifyDWMApiSetImplementation@@YAJXZ @ 0x1C00D14D8
+ * Callers:
+ *     Win32kBaseDriverEntry @ 0x1C0320F10 (Win32kBaseDriverEntry.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ */
+
 __int64 VerifyDWMApiSetImplementation(void)
 {
   char v0; // di

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UnReferenceOnThreadTermination@CRefUnRefPointerMsgId@@SAXPEAX@Z @ 0x1C0214A60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?UnreferenceMsgDataExternal@CTouchProcessor@@QEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z @ 0x1C0207790 (-UnreferenceMsgDataExternal@CTouchProcessor@@QEAAX_KW4tagPOINTERMSGDATA_REFTYPE@@PEAX@Z.c)
+ */
+
 void __fastcall CRefUnRefPointerMsgId::UnReferenceOnThreadTermination(
         unsigned __int64 a1,
         __int64 a2,

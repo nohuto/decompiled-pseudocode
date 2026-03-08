@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserAlterWindowStyle @ 0x1C00F2960
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtUserAlterWindowStyle(__int64 a1, int a2, int a3)
 {
   __int64 v6; // rax

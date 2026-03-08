@@ -1,3 +1,17 @@
+/*
+ * XREFs of KeInitializeTimerTable @ 0x14080B438
+ * Callers:
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ *     KeInitSystem @ 0x140B42FB8 (KeInitSystem.c)
+ * Callees:
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     KiInitializeTimer2Data @ 0x1403AC764 (KiInitializeTimer2Data.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiInitializeForceIdle @ 0x14080B574 (KiInitializeForceIdle.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall KeInitializeTimerTable(__int64 a1)
 {
   __int64 v2; // rax

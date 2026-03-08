@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIBuildProcessGenericList @ 0x1C0010D2C
+ * Callers:
+ *     ACPIBuildDeviceDpc @ 0x1C000BE30 (ACPIBuildDeviceDpc.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessGenericList(volatile signed __int32 **a1, __int64 a2, unsigned __int16 a3)
 {
   volatile signed __int32 *v3; // rdi

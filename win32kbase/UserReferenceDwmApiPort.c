@@ -1,3 +1,15 @@
+/*
+ * XREFs of UserReferenceDwmApiPort @ 0x1C00919E0
+ * Callers:
+ *     NtDCompositionRegisterThumbnailVisual @ 0x1C0009AC0 (NtDCompositionRegisterThumbnailVisual.c)
+ *     NtDCompositionRegisterVirtualDesktopVisual @ 0x1C000D4F0 (NtDCompositionRegisterVirtualDesktopVisual.c)
+ *     ?EmitSetBlurredWallpaperSurface@CConnection@DirectComposition@@AEAAJPEBUResourceObject@2@PEBUtagRECT@@@Z @ 0x1C0091508 (-EmitSetBlurredWallpaperSurface@CConnection@DirectComposition@@AEAAJPEBUResourceObject@2@PEBUtag.c)
+ *     NtDCompositionSetChildRootVisual @ 0x1C02488B0 (NtDCompositionSetChildRootVisual.c)
+ * Callees:
+ *     GreLockDwmState @ 0x1C0091A70 (GreLockDwmState.c)
+ *     GreUnlockDwmState @ 0x1C0091AF0 (GreUnlockDwmState.c)
+ */
+
 PVOID __fastcall UserReferenceDwmApiPort(__int64 a1)
 {
   int v1; // edi

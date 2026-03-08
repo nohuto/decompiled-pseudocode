@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiDqQueryAddObjectToResultSet @ 0x140791724
+ * Callers:
+ *     PiDqQueryApplyObjectEvent @ 0x1406896F4 (PiDqQueryApplyObjectEvent.c)
+ *     PiDqQueryEnumObject @ 0x1406CBF24 (PiDqQueryEnumObject.c)
+ * Callees:
+ *     RtlInsertElementGenericTableAvl @ 0x1402451A0 (RtlInsertElementGenericTableAvl.c)
+ */
+
 __int64 __fastcall PiDqQueryAddObjectToResultSet(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

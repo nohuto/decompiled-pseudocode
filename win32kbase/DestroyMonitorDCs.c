@@ -1,3 +1,15 @@
+/*
+ * XREFs of DestroyMonitorDCs @ 0x1C00D0790
+ * Callers:
+ *     xxxResetDisplayDevice @ 0x1C0016410 (xxxResetDisplayDevice.c)
+ * Callees:
+ *     HdevFromMonitor @ 0x1C00163A0 (HdevFromMonitor.c)
+ *     DestroyCacheDC @ 0x1C003DA20 (DestroyCacheDC.c)
+ *     GreLockVisRgn @ 0x1C00794E0 (GreLockVisRgn.c)
+ *     GreUnlockVisRgn @ 0x1C00795D0 (GreUnlockVisRgn.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 DestroyMonitorDCs()
 {
   char *v0; // rdi

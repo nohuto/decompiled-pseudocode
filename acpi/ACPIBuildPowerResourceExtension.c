@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIBuildPowerResourceExtension @ 0x1C000DFDC
+ * Callers:
+ *     OSNotifyCreatePowerResource @ 0x1C0032A14 (OSNotifyCreatePowerResource.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ */
+
 __int64 __fastcall ACPIBuildPowerResourceExtension(volatile signed __int32 *a1, __int64 *a2)
 {
   __int64 Pool2; // rax

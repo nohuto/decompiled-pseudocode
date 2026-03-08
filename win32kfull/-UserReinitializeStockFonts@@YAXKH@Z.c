@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?UserReinitializeStockFonts@@YAXKH@Z @ 0x1C00B7E08
+ * Callers:
+ *     UserOnGreTextReady @ 0x1C00B8554 (UserOnGreTextReady.c)
+ *     xxxUpdatePerUserSystemParameters @ 0x1C010AFDC (xxxUpdatePerUserSystemParameters.c)
+ * Callees:
+ *     UpdateDpiMetricsCacheDPISERVERINFO @ 0x1C00B7F80 (UpdateDpiMetricsCacheDPISERVERINFO.c)
+ *     GetCharDimensions @ 0x1C010F9F4 (GetCharDimensions.c)
+ *     GreSelectFontInternal @ 0x1C0116F84 (GreSelectFontInternal.c)
+ */
+
 void __fastcall UserReinitializeStockFonts()
 {
   __int64 v0; // rbx

@@ -1,3 +1,21 @@
+/*
+ * XREFs of HalpTimerSelectRoles @ 0x140376F4C
+ * Callers:
+ *     HalpInitializeTimers @ 0x1403A06E0 (HalpInitializeTimers.c)
+ * Callees:
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x140372460 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpTimerFindIdealWatchdog @ 0x140376AFC (HalpTimerFindIdealWatchdog.c)
+ *     HalpTimerMeasureFrequencies @ 0x140376B78 (HalpTimerMeasureFrequencies.c)
+ *     HalpTimerInitialize @ 0x140377220 (HalpTimerInitialize.c)
+ *     HalpTimerPropagateQpcBiasUpdate @ 0x1403773C0 (HalpTimerPropagateQpcBiasUpdate.c)
+ *     HalpTimerFindIdealClockSource @ 0x140377568 (HalpTimerFindIdealClockSource.c)
+ *     HalpTimerFindBestAlwaysOnTimer @ 0x140377A10 (HalpTimerFindBestAlwaysOnTimer.c)
+ *     HalpTimerFindIdealPerformanceCounterSource @ 0x140377AB0 (HalpTimerFindIdealPerformanceCounterSource.c)
+ *     HalpFindTimer @ 0x140377CA8 (HalpFindTimer.c)
+ *     HalpVpptTimerRegister @ 0x140507BF4 (HalpVpptTimerRegister.c)
+ *     HalpTimerStopProfileInterrupt @ 0x1405086E8 (HalpTimerStopProfileInterrupt.c)
+ */
+
 __int64 __fastcall HalpTimerSelectRoles(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

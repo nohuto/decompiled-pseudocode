@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMIDEProcessRemoveInjectionDevices @ 0x1C01A09F0
+ * Callers:
+ *     xxxDestroyThreadInfo @ 0x1C0072BF4 (xxxDestroyThreadInfo.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMIDERemoveInjectionDevice @ 0x1C01A64F8 (RIMIDERemoveInjectionDevice.c)
+ */
+
 _QWORD *__fastcall RIMIDEProcessRemoveInjectionDevices(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rax

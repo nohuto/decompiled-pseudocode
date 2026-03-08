@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIGetProcessorIDWide @ 0x1C002ABD0
+ * Callers:
+ *     ACPIGetConvertToDeviceIDWide @ 0x1C0029D20 (ACPIGetConvertToDeviceIDWide.c)
+ *     ACPIGetConvertToHardwareIDWide @ 0x1C002A12C (ACPIGetConvertToHardwareIDWide.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     RtlStringCchPrintfA @ 0x1C000B5D8 (RtlStringCchPrintfA.c)
+ *     RtlStringCchCopyNA @ 0x1C002BADC (RtlStringCchCopyNA.c)
+ *     RtlStringCchPrintfExA @ 0x1C002BB4C (RtlStringCchPrintfExA.c)
+ *     ACPIAnsiStringToWideHelper @ 0x1C00438EC (ACPIAnsiStringToWideHelper.c)
+ */
+
 __int64 __fastcall ACPIGetProcessorIDWide(__int64 a1, __int64 a2, __int64 a3, int a4, char **a5, _DWORD *a6)
 {
   size_t v6; // rbx

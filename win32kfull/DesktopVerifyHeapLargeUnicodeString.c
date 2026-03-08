@@ -1,3 +1,13 @@
+/*
+ * XREFs of DesktopVerifyHeapLargeUnicodeString @ 0x1C00D16C4
+ * Callers:
+ *     DefSetText @ 0x1C00A7330 (DefSetText.c)
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ *     NtUserInternalGetWindowText @ 0x1C00D1530 (NtUserInternalGetWindowText.c)
+ * Callees:
+ *     DesktopVerifyHeapPointer @ 0x1C00D1738 (DesktopVerifyHeapPointer.c)
+ */
+
 __int64 __fastcall DesktopVerifyHeapLargeUnicodeString(__int64 a1, ULONG_PTR a2)
 {
   int v3; // r9d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bFlatten@EPATHOBJ@@QEAAHXZ @ 0x1C0189E50
+ * Callers:
+ *     ?vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z @ 0x1C0184190 (-vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z.c)
+ * Callees:
+ *     ?pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z @ 0x1C018A9F0 (-pprFlattenRec@EPATHOBJ@@IEAAPEAU_PATHRECORD@@PEAU2@@Z.c)
+ */
+
 __int64 __fastcall EPATHOBJ::bFlatten(EPATHOBJ *this)
 {
   __int64 v1; // rdx

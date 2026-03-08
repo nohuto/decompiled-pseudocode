@@ -1,3 +1,17 @@
+/*
+ * XREFs of MmFreeNonCachedMemory @ 0x140A2AE10
+ * Callers:
+ *     DifMmFreeNonCachedMemoryWrapper @ 0x1405E4CC0 (DifMmFreeNonCachedMemoryWrapper.c)
+ * Callees:
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MmFreePagesFromMdl @ 0x1402C0DB0 (MmFreePagesFromMdl.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiMakeDemandZeroPte @ 0x14032E7D8 (MiMakeDemandZeroPte.c)
+ *     MiSetPfnOriginalPte @ 0x140409540 (MiSetPfnOriginalPte.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __stdcall MmFreeNonCachedMemory(PVOID BaseAddress, SIZE_T NumberOfBytes)
 {
   __int64 *PteAddress; // rdi

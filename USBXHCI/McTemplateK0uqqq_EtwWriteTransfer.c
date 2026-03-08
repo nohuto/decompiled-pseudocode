@@ -1,3 +1,14 @@
+/*
+ * XREFs of McTemplateK0uqqq_EtwWriteTransfer @ 0x1C0022696
+ * Callers:
+ *     Isoch_TransferData_Initialize @ 0x1C0004940 (Isoch_TransferData_Initialize.c)
+ *     Control_TransferData_Initialize @ 0x1C00070AC (Control_TransferData_Initialize.c)
+ *     Bulk_TransferData_Initialize @ 0x1C00128DC (Bulk_TransferData_Initialize.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0022498 (McGenEventWrite_EtwWriteTransfer.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0uqqq_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,

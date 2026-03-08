@@ -1,3 +1,22 @@
+/*
+ * XREFs of NtAlpcOpenSenderProcess @ 0x140714820
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     PsOpenProcess @ 0x1406ABCC0 (PsOpenProcess.c)
+ *     AlpcpProbeAndCaptureMessageHeader @ 0x140715E54 (AlpcpProbeAndCaptureMessageHeader.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     AlpcpLookupMessage @ 0x1407CA7C0 (AlpcpLookupMessage.c)
+ */
+
 __int64 __fastcall NtAlpcOpenSenderProcess(_QWORD *a1, void *a2, __int128 *a3, unsigned int a4, int a5, __int128 *a6)
 {
   struct _KTHREAD *CurrentThread; // rax

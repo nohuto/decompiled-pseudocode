@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopIsDescendantNode @ 0x140861DAC
+ * Callers:
+ *     PnpUnlinkDeviceRemovalRelations @ 0x140862FDC (PnpUnlinkDeviceRemovalRelations.c)
+ *     PnpQueuePendingSurpriseRemoval @ 0x14087E79C (PnpQueuePendingSurpriseRemoval.c)
+ * Callees:
+ *     PipIsDeviceInDeviceObjectList @ 0x14086210C (PipIsDeviceInDeviceObjectList.c)
+ */
+
 __int64 __fastcall IopIsDescendantNode(_QWORD *a1, __int64 a2)
 {
   __int64 v2; // r8

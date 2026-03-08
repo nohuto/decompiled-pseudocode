@@ -1,3 +1,12 @@
+/*
+ * XREFs of UserCreateHeap @ 0x1C002D660
+ * Callers:
+ *     InitCreateSharedSection @ 0x1C031E224 (InitCreateSharedSection.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 PVOID __fastcall UserCreateHeap(
         __int64 a1,
         __int64 a2,

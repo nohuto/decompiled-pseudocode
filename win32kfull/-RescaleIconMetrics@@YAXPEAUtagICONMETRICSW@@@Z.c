@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RescaleIconMetrics@@YAXPEAUtagICONMETRICSW@@@Z @ 0x1C01C8684
+ * Callers:
+ *     ?SPISetIconMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagICONMETRICSW@@H@Z @ 0x1C01C8AB0 (-SPISetIconMetrics@@YAHPEAU_UNICODE_STRING@@PEAUtagICONMETRICSW@@H@Z.c)
+ * Callees:
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ */
+
 void __fastcall RescaleIconMetrics(struct tagICONMETRICSW *a1)
 {
   INT DpiForSystem; // eax

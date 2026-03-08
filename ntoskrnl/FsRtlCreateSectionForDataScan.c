@@ -1,3 +1,21 @@
+/*
+ * XREFs of FsRtlCreateSectionForDataScan @ 0x140368300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     CcZeroEndOfLastPage @ 0x140343FA8 (CcZeroEndOfLastPage.c)
+ *     MmCreateSectionEx @ 0x140711E48 (MmCreateSectionEx.c)
+ *     FsRtlAcquireToCreateMappedSection @ 0x1407D17DC (FsRtlAcquireToCreateMappedSection.c)
+ *     FsRtlReleaseFile @ 0x1407D18E0 (FsRtlReleaseFile.c)
+ *     ObInsertObject @ 0x1407F0A20 (ObInsertObject.c)
+ *     MmGetFileObjectForSection @ 0x1407F15D8 (MmGetFileObjectForSection.c)
+ *     FsRtlGetFileSize @ 0x1407F4020 (FsRtlGetFileSize.c)
+ */
+
 NTSTATUS __stdcall FsRtlCreateSectionForDataScan(
         PHANDLE SectionHandle,
         PVOID *SectionObject,

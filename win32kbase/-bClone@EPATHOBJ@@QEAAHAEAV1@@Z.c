@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bClone@EPATHOBJ@@QEAAHAEAV1@@Z @ 0x1C0180D50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ *     ?newpathrec@EPATHOBJ@@IEAAHPEAPEAU_PATHRECORD@@PEAKK@Z @ 0x1C018A940 (-newpathrec@EPATHOBJ@@IEAAHPEAPEAU_PATHRECORD@@PEAKK@Z.c)
+ */
+
 __int64 __fastcall EPATHOBJ::bClone(EPATHOBJ *this, struct EPATHOBJ *a2)
 {
   _QWORD *v3; // r15

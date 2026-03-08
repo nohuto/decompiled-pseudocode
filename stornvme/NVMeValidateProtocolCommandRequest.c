@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeValidateProtocolCommandRequest @ 0x1C0017ED0
+ * Callers:
+ *     ProtocolCommandToNVMe @ 0x1C00187F4 (ProtocolCommandToNVMe.c)
+ * Callees:
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     NVMeIsAllowedWithinThrottleLimit @ 0x1C00168B4 (NVMeIsAllowedWithinThrottleLimit.c)
+ */
+
 __int64 __fastcall NVMeValidateProtocolCommandRequest(__int64 a1, __int64 a2)
 {
   unsigned int v4; // edi

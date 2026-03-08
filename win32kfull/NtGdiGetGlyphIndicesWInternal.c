@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtGdiGetGlyphIndicesWInternal @ 0x1C0121580
+ * Callers:
+ *     NtGdiGetGlyphIndicesW @ 0x1C0121550 (NtGdiGetGlyphIndicesW.c)
+ * Callees:
+ *     ??1EUDCCountRegion@@QEAA@XZ @ 0x1C0114AF8 (--1EUDCCountRegion@@QEAA@XZ.c)
+ *     ??0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z @ 0x1C0114B84 (--0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?GreGetGlyphIndicesW@@YAKPEAUHDC__@@PEBGKPEAGKHW4EntryPoint@RFONTOBJ@@@Z @ 0x1C0130590 (-GreGetGlyphIndicesW@@YAKPEAUHDC__@@PEBGKPEAGKHW4EntryPoint@RFONTOBJ@@@Z.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall NtGdiGetGlyphIndicesWInternal(__int64 a1, char *a2, int a3, char *a4, unsigned int a5, int a6)
 {
   __int64 v7; // r14

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PiPnpRtlGetFilteredDeviceList @ 0x140777284
+ * Callers:
+ *     PiPnpRtlCmActionCallback @ 0x1406CE2F0 (PiPnpRtlCmActionCallback.c)
+ * Callees:
+ *     RtlStringCchCopyExW @ 0x140244A08 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     wcschr @ 0x1403D5D90 (wcschr.c)
+ *     PiDmGetCmObjectConstraintListFromCache @ 0x14077761C (PiDmGetCmObjectConstraintListFromCache.c)
+ *     PiDmGetCmObjectListFromCache @ 0x1407777AC (PiDmGetCmObjectListFromCache.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiPnpRtlGetFilteredDeviceList(__int64 a1)
 {
   int v1; // eax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of DNG_StretchRow @ 0x1C0080318
+ * Callers:
+ *     DNG_DrawRow @ 0x1C0081850 (DNG_DrawRow.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DNG_StretchRow(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
 {
   __int64 v4; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?xxxProcessShowWindowEvent@@YAXPEAUtagWND@@W4QEVENT_SHOWINDOW_MESSAGE_ID@@_K_J@Z @ 0x1C0014C34
+ * Callers:
+ *     xxxProcessEventMessage @ 0x1C006B460 (xxxProcessEventMessage.c)
+ * Callees:
+ *     ?xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z @ 0x1C002AE4C (-xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z.c)
+ *     WPUpdateCheckPointSettings @ 0x1C01F3F38 (WPUpdateCheckPointSettings.c)
+ */
+
 __int64 __fastcall xxxProcessShowWindowEvent(__int64 a1, __int64 a2, unsigned int a3, int a4)
 {
   int v5; // ebp

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ScsiReportLunsCommand @ 0x1C001A6DC
+ * Callers:
+ *     ScsiToNVMe @ 0x1C00010C0 (ScsiToNVMe.c)
+ * Callees:
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     NVMeIsLunActive @ 0x1C001695C (NVMeIsLunActive.c)
+ */
+
 __int64 __fastcall ScsiReportLunsCommand(__int64 a1, __int64 a2)
 {
   int v2; // eax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpIsRangeAvailable @ 0x1408235A0
+ * Callers:
+ *     RtlIsRangeAvailable @ 0x140823250 (RtlIsRangeAvailable.c)
+ *     RtlFindRange @ 0x140823440 (RtlFindRange.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     RtlGetNextRange @ 0x140823670 (RtlGetNextRange.c)
+ */
+
 char __fastcall RtlpIsRangeAvailable(
         __int64 a1,
         unsigned __int64 a2,

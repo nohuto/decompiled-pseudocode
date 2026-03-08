@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DestroyClassBrush@@YAXAEBV?$SmartObjStackRef@UtagCLS@@@@@Z @ 0x1C0033A6C
+ * Callers:
+ *     DestroyClass @ 0x1C0033D18 (DestroyClass.c)
+ * Callees:
+ *     ??1?$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ @ 0x1C0031BF4 (--1-$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ.c)
+ *     ?DecrementCountAndTryFree@?$SmartObjStackRefBase@UtagCLS@@@@IEAAXXZ @ 0x1C003409C (-DecrementCountAndTryFree@-$SmartObjStackRefBase@UtagCLS@@@@IEAAXXZ.c)
+ */
+
 _QWORD *__fastcall DestroyClassBrush(__int64 a1)
 {
   __int64 CurrentProcessWin32Process; // rax

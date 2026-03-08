@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDiagTraceClearDeepSleepConstraint @ 0x1402BBB3C
+ * Callers:
+ *     PopDeepSleepClearDisengageReason @ 0x1402BBAAC (PopDeepSleepClearDisengageReason.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PopDiagTraceClearDeepSleepConstraint(int a1)
 {
   REGHANDLE v1; // rbx

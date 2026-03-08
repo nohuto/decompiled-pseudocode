@@ -1,3 +1,12 @@
+/*
+ * XREFs of ESM_ProcessingExpectedEventTRBsAfterEndpointHalt @ 0x1C00518B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     TR_ProcessExpectedEventTRBs @ 0x1C000FCB0 (TR_ProcessExpectedEventTRBs.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ESM_ProcessingExpectedEventTRBsAfterEndpointHalt(__int64 a1)
 {
   __int64 v1; // rbx

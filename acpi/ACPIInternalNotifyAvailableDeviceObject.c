@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIInternalNotifyAvailableDeviceObject @ 0x1C008310C
+ * Callers:
+ *     ACPIDispatchIrp @ 0x1C0001010 (ACPIDispatchIrp.c)
+ * Callees:
+ *     WPP_RECORDER_SF_sqL @ 0x1C0023338 (WPP_RECORDER_SF_sqL.c)
+ *     WPP_RECORDER_SF_sqSD @ 0x1C0024CE0 (WPP_RECORDER_SF_sqSD.c)
+ *     ACPIQueryDeviceBiosNameEx @ 0x1C0043BC4 (ACPIQueryDeviceBiosNameEx.c)
+ *     AMLIGetNSObjectNotifyFlag @ 0x1C0048394 (AMLIGetNSObjectNotifyFlag.c)
+ *     AcpiExternalAddBiosNameDeviceAssociation @ 0x1C0083C5C (AcpiExternalAddBiosNameDeviceAssociation.c)
+ */
+
 __int64 __fastcall ACPIInternalNotifyAvailableDeviceObject(__int64 a1)
 {
   __int64 v2; // rcx

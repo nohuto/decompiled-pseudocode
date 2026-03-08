@@ -1,3 +1,18 @@
+/*
+ * XREFs of PropertyEval @ 0x1407622B0
+ * Callers:
+ *     FilterEvalImpliedAnd @ 0x140761F24 (FilterEvalImpliedAnd.c)
+ *     FilterEvalStrict @ 0x140762048 (FilterEvalStrict.c)
+ * Callees:
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     ArrayContains @ 0x140671B04 (ArrayContains.c)
+ *     StringListContains @ 0x140765764 (StringListContains.c)
+ *     CompareFileTimeType @ 0x140A6B424 (CompareFileTimeType.c)
+ *     StringListElementSubstringMatch @ 0x140A6C1B4 (StringListElementSubstringMatch.c)
+ *     SubstringMatch @ 0x140A6C2AC (SubstringMatch.c)
+ */
+
 __int64 __fastcall PropertyEval(
         unsigned int a1,
         wchar_t *a2,

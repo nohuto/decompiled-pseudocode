@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiFillVirtualFaultInfo @ 0x140464314
+ * Callers:
+ *     MiAllocateWsle @ 0x14026D1B0 (MiAllocateWsle.c)
+ *     MiValidVirtualizationFault @ 0x1404643C2 (MiValidVirtualizationFault.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall MiFillVirtualFaultInfo(unsigned __int64 *a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 result; // rax

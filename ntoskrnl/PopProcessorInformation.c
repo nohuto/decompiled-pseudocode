@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopProcessorInformation @ 0x14078A138
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeQueryGroupAffinity @ 0x140296080 (KeQueryGroupAffinity.c)
+ *     PpmPerfGetCurrentState @ 0x1402F75F0 (PpmPerfGetCurrentState.c)
+ */
+
 __int64 __fastcall PopProcessorInformation(__int64 a1, __int64 a2, USHORT a3, _DWORD *a4)
 {
   unsigned int v4; // ebx

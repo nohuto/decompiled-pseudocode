@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwpFreeTraceBuffer @ 0x14028DAD0
+ * Callers:
+ *     EtwpAdjustSiloTraceBuffers @ 0x1402067AC (EtwpAdjustSiloTraceBuffers.c)
+ *     EtwpFreeTraceBufferPool @ 0x1406F2CFC (EtwpFreeTraceBufferPool.c)
+ *     EtwpCancelMemoryPreservation @ 0x1409EA4E0 (EtwpCancelMemoryPreservation.c)
+ *     EtwpPreserveLogger @ 0x1409EA82C (EtwpPreserveLogger.c)
+ * Callees:
+ *     MiFreePagesFromMdl @ 0x1402C0DD0 (MiFreePagesFromMdl.c)
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     EtwpFreePartitionMemory @ 0x1405FEFB0 (EtwpFreePartitionMemory.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EtwpFreeTraceBuffer(__int64 a1, char *a2)
 {
   char *v2; // rbx

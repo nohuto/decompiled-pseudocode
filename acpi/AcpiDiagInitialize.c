@@ -1,3 +1,15 @@
+/*
+ * XREFs of AcpiDiagInitialize @ 0x1C00A71E8
+ * Callers:
+ *     DriverEntry @ 0x1C00A7300 (DriverEntry.c)
+ * Callees:
+ *     AcpiDiagRequeueThermalPollingTimer @ 0x1C0007360 (AcpiDiagRequeueThermalPollingTimer.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C007A840 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     OSCloseHandle @ 0x1C008DB38 (OSCloseHandle.c)
+ *     OSOpenHandle @ 0x1C008DF10 (OSOpenHandle.c)
+ *     OSReadRegValue @ 0x1C008E6A0 (OSReadRegValue.c)
+ */
+
 __int64 AcpiDiagInitialize()
 {
   unsigned int v0; // ebx

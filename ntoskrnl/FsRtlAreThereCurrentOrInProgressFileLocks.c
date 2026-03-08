@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlAreThereCurrentOrInProgressFileLocks @ 0x14053AE20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __stdcall FsRtlAreThereCurrentOrInProgressFileLocks(PFILE_LOCK FileLock)
 {
   _QWORD *LockInformation; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?EndRenderOperation@CComputeScribbleSynchronizer@@QEAAXPEAVCD3DDevice@@_K@Z @ 0x180206FB0
+ * Callers:
+ *     ?AddComputeScribbleInvalidRects@CLegacySwapChain@@UEAAJAEBVCMILMatrix@@AEBV?$TMilRect@IUMilRectU@@UMil3DRectU@@UNotNeeded@RectUniqueness@@@@PEAVCDirtyRegion@@@Z @ 0x1800D6F70 (-AddComputeScribbleInvalidRects@CLegacySwapChain@@UEAAJAEBVCMILMatrix@@AEBV-$TMilRect@IUMilRectU.c)
+ *     ?PostRender@CComputeScribbleRenderer@@QEAAXXZ @ 0x18012D81E (-PostRender@CComputeScribbleRenderer@@QEAAXXZ.c)
+ *     wil::details::lambda_call__lambda_d9ff5d1dab05c47edfa257128eb5c2a0___::_lambda_call__lambda_d9ff5d1dab05c47edfa257128eb5c2a0___ @ 0x18029711C (wil--details--lambda_call__lambda_d9ff5d1dab05c47edfa257128eb5c2a0___--_lambda_call__lambda_d9ff.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B44D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     McTemplateU0qx_EventWriteTransfer @ 0x1801E4EBC (McTemplateU0qx_EventWriteTransfer.c)
+ */
+
 void __fastcall CComputeScribbleSynchronizer::EndRenderOperation(
         CComputeScribbleSynchronizer *this,
         struct CD3DDevice *a2,

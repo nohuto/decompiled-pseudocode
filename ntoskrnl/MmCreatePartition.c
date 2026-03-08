@@ -1,3 +1,23 @@
+/*
+ * XREFs of MmCreatePartition @ 0x1403A6A3C
+ * Callers:
+ *     DifGetAvailableSystemPages @ 0x1405F61D4 (DifGetAvailableSystemPages.c)
+ *     PspAllocatePartition @ 0x140855B00 (PspAllocatePartition.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiGetPartitionLargePageListCount @ 0x140370F84 (MiGetPartitionLargePageListCount.c)
+ *     MiPopulateFreeKernelShadowStackCacheEntries @ 0x14039C190 (MiPopulateFreeKernelShadowStackCacheEntries.c)
+ *     MiInitializeWorkingSetManagerParameters @ 0x1403A9C3C (MiInitializeWorkingSetManagerParameters.c)
+ *     MiDeletePartition @ 0x140626F80 (MiDeletePartition.c)
+ *     ExAllocateCacheAwareRundownProtection @ 0x1406F3D20 (ExAllocateCacheAwareRundownProtection.c)
+ *     MiInitializeMemoryEvents @ 0x1408096D8 (MiInitializeMemoryEvents.c)
+ *     MiCreatePfnBitMaps @ 0x140809BDC (MiCreatePfnBitMaps.c)
+ *     MiInitializePartition @ 0x140837D40 (MiInitializePartition.c)
+ *     MiAllocatePartitionId @ 0x140A2CBB0 (MiAllocatePartitionId.c)
+ *     MiInitializePartitionThreads @ 0x140A2CE10 (MiInitializePartitionThreads.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MmCreatePartition(union _SLIST_HEADER **a1, char a2)
 {
   __int64 result; // rax

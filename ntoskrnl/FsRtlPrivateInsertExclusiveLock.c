@@ -1,3 +1,12 @@
+/*
+ * XREFs of FsRtlPrivateInsertExclusiveLock @ 0x1402C1C84
+ * Callers:
+ *     FsRtlPrivateInsertLock @ 0x1402C247C (FsRtlPrivateInsertLock.c)
+ * Callees:
+ *     RtlRealSuccessor @ 0x1402C1970 (RtlRealSuccessor.c)
+ *     FsRtlFindFirstOverlappingExclusiveNode @ 0x1402C3018 (FsRtlFindFirstOverlappingExclusiveNode.c)
+ */
+
 PRTL_SPLAY_LINKS __fastcall FsRtlPrivateInsertExclusiveLock(__int64 a1, _RTL_SPLAY_LINKS *a2)
 {
   PRTL_SPLAY_LINKS result; // rax

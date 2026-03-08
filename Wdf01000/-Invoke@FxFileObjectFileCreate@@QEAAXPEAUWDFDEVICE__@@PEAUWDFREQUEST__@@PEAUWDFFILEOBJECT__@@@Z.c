@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Invoke@FxFileObjectFileCreate@@QEAAXPEAUWDFDEVICE__@@PEAUWDFREQUEST__@@PEAUWDFFILEOBJECT__@@@Z @ 0x1C008592C
+ * Callers:
+ *     ?OnCreate@FxPkgGeneral@@AEAAJPEAVFxIrp@@@Z @ 0x1C0085BCC (-OnCreate@FxPkgGeneral@@AEAAJPEAVFxIrp@@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall FxFileObjectFileCreate::Invoke(
         FxFileObjectFileCreate *this,
         WDFDEVICE__ *Device,

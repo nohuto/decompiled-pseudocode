@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiUnlockPartitionSystemThreads @ 0x1403B10A0
+ * Callers:
+ *     MiEnablePartitionMappedWrites @ 0x1406A6ABC (MiEnablePartitionMappedWrites.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ */
+
 char __fastcall MiUnlockPartitionSystemThreads(__int64 a1, __int64 a2)
 {
   ULONG_PTR v3; // rbx

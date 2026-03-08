@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiCleanUpGlobalState @ 0x1C03957C0
+ * Callers:
+ *     DxgkUnload @ 0x1C0305A60 (DxgkUnload.c)
+ * Callees:
+ *     DpiPdoPollingWorkItem @ 0x1C03A50C0 (DpiPdoPollingWorkItem.c)
+ */
+
 void DpiCleanUpGlobalState()
 {
   KeCancelTimer(&stru_1C013B698);

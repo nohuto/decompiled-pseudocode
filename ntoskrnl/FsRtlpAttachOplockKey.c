@@ -1,3 +1,19 @@
+/*
+ * XREFs of FsRtlpAttachOplockKey @ 0x14023FE88
+ * Callers:
+ *     FsRtlpOplockFsctrlInternal @ 0x1406B3240 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlOplockBreakH2 @ 0x1407932D0 (FsRtlOplockBreakH2.c)
+ * Callees:
+ *     IoGetOplockKeyContextEx @ 0x14023EB30 (IoGetOplockKeyContextEx.c)
+ *     IoSetOplockKeyContext @ 0x1403C9528 (IoSetOplockKeyContext.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     FsRtlAcknowledgeEcp @ 0x1406B1D40 (FsRtlAcknowledgeEcp.c)
+ *     IoGetIrpExtraCreateParameter @ 0x1406B1D50 (IoGetIrpExtraCreateParameter.c)
+ *     FsRtlFindExtraCreateParameter @ 0x1406B1D70 (FsRtlFindExtraCreateParameter.c)
+ *     FsRtlRemoveExtraCreateParameter @ 0x1406B1E00 (FsRtlRemoveExtraCreateParameter.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14070C300 (FsRtlFreeExtraCreateParameter.c)
+ */
+
 __int64 __fastcall FsRtlpAttachOplockKey(PIRP Irp)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rbp

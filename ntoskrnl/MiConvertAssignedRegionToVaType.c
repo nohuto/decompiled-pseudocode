@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiConvertAssignedRegionToVaType @ 0x140B6090C
+ * Callers:
+ *     MiSetSystemRegionTypes @ 0x140B6087C (MiSetSystemRegionTypes.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiConvertAssignedRegionToVaType(int a1)
 {
   int v1; // ecx

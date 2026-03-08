@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetProperty@?$CParticleGeneratorGeneratedT@VCParticleGenerator@@VCPropertyChangeResource@@@@MEAAJIPEAVCExpressionValue@@@Z @ 0x1801C1640
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CParticleGeneratorGeneratedT<CParticleGenerator,CPropertyChangeResource>::GetProperty(
         __int64 a1,
         unsigned int a2,

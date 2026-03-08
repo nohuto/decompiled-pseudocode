@@ -1,3 +1,13 @@
+/*
+ * XREFs of SymCryptFdefModElementSetValueUint32Generic @ 0x1403FE860
+ * Callers:
+ *     SymCryptModElementSetValueUint32 @ 0x1403F3C0C (SymCryptModElementSetValueUint32.c)
+ *     SymCryptFdefModInvGeneric @ 0x1403FE960 (SymCryptFdefModInvGeneric.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     SymCryptWipe @ 0x1403F0988 (SymCryptWipe.c)
+ */
+
 __int64 __fastcall SymCryptFdefModElementSetValueUint32Generic(unsigned int a1, _DWORD *a2, unsigned int *a3)
 {
   int v3; // edi

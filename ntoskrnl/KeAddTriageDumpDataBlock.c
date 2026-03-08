@@ -1,3 +1,15 @@
+/*
+ * XREFs of KeAddTriageDumpDataBlock @ 0x1403A29E0
+ * Callers:
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     IopInitializeTriageDumpData @ 0x14084C360 (IopInitializeTriageDumpData.c)
+ * Callees:
+ *     KiIsAddressRangeValid @ 0x1403849BC (KiIsAddressRangeValid.c)
+ *     KiAddTriageDumpDataBlock @ 0x1403A2B04 (KiAddTriageDumpDataBlock.c)
+ *     KiValidateTriageDumpDataArray @ 0x1403A2C14 (KiValidateTriageDumpDataArray.c)
+ *     Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsage @ 0x14040A2B8 (Feature_TriageDumpDataExtension__private_IsEnabledDeviceUsage.c)
+ */
+
 // local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall KeAddTriageDumpDataBlock(
         PKTRIAGE_DUMP_DATA_ARRAY KtriageDumpDataArray,

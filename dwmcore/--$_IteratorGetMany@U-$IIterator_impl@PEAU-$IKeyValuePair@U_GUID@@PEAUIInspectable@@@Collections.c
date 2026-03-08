@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??$_IteratorGetMany@U?$IIterator_impl@PEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@$00@Collections@Foundation@Windows@@PEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@234@@Detail@Collections@Foundation@Windows@@YAJPEAU?$IIterator_impl@PEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@$00@123@IPEAPEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@123@PEAI@Z @ 0x18028E12C
+ * Callers:
+ *     ?GetMany@?$IIterator_impl@PEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@Collections@Foundation@Windows@@$00@Collections@Foundation@Windows@@UEAAJIPEAPEAU?$IKeyValuePair@U_GUID@@PEAUIInspectable@@@234@PEAI@Z @ 0x180292400 (-GetMany@-$IIterator_impl@PEAU-$IKeyValuePair@U_GUID@@PEAUIInspectable@@@Collections@Foundation@.c)
+ * Callees:
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Windows::Foundation::Collections::Detail::_IteratorGetMany<Windows::Foundation::Collections::IIterator_impl<Windows::Foundation::Collections::IKeyValuePair<_GUID,IInspectable *> *,1>,Windows::Foundation::Collections::IKeyValuePair<_GUID,IInspectable *> *>(
         __int64 a1,
         unsigned int a2,

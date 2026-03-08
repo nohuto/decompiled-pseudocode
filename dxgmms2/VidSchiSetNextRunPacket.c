@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchiSetNextRunPacket @ 0x1C0010A40
+ * Callers:
+ *     VidSchiCompleteRewindPacket @ 0x1C00107E8 (VidSchiCompleteRewindPacket.c)
+ *     VidSchiReadCommandFromContextQueue @ 0x1C003B4EC (VidSchiReadCommandFromContextQueue.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VidSchiSetNextRunPacket(__int64 a1, __int64 a2)
 {
   int v2; // r10d

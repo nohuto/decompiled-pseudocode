@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiDdDDIDestroyDCFromMemory @ 0x1C000B140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002A694 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002A6E0 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall NtGdiDdDDIDestroyDCFromMemory(ULONG64 a1)
 {
   int v1; // ebx

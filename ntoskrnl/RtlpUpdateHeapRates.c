@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpUpdateHeapRates @ 0x1405AC014
+ * Callers:
+ *     RtlpDeCommitFreeBlock @ 0x1405AA41C (RtlpDeCommitFreeBlock.c)
+ *     RtlpFindAndCommitPages @ 0x1405AAC2C (RtlpFindAndCommitPages.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall RtlpUpdateHeapRates(_DWORD *a1, int a2)
 {
   int v2; // edx

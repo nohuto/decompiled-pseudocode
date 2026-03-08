@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtAccessCheck @ 0x1402DC230
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SeAccessCheckByType @ 0x14033BB40 (SeAccessCheckByType.c)
+ */
+
 __int64 __fastcall NtAccessCheck(
         __int64 a1,
         __int64 a2,

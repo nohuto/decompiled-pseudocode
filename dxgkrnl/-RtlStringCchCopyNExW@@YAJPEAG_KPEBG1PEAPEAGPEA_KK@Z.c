@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RtlStringCchCopyNExW@@YAJPEAG_KPEBG1PEAPEAGPEA_KK@Z @ 0x1C004A5F4
+ * Callers:
+ *     ?RegQueryControllerInstallKey@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEAGKPEAK@Z @ 0x1C0049EEC (-RegQueryControllerInstallKey@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEAGKPEAK@Z.c)
+ *     ?RegQuerySoCName@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEAGKPEAK@Z @ 0x1C004A47C (-RegQuerySoCName@DisjointExperienceConfig@DefaultMultiScreenConfig@@YAJPEAGKPEAK@Z.c)
+ * Callees:
+ *     RtlStringCopyWorkerW @ 0x1C00128B0 (RtlStringCopyWorkerW.c)
+ */
+
 NTSTATUS __fastcall RtlStringCchCopyNExW(
         unsigned __int16 *a1,
         size_t a2,

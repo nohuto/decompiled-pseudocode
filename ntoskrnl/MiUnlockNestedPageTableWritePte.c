@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiUnlockNestedPageTableWritePte @ 0x140346D60
+ * Callers:
+ *     MiClearPteAccessed @ 0x140326910 (MiClearPteAccessed.c)
+ *     MiWsleFlush @ 0x14032B4A0 (MiWsleFlush.c)
+ *     MiEvictPageTableLock @ 0x140346460 (MiEvictPageTableLock.c)
+ *     MiRewritePteWithLockBit @ 0x140371830 (MiRewritePteWithLockBit.c)
+ * Callees:
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiReplicatePteChange @ 0x1402A4528 (MiReplicatePteChange.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiWriteValidPteNewProtection @ 0x14032E660 (MiWriteValidPteNewProtection.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiShouldLockPteDirectly @ 0x140346F34 (MiShouldLockPteDirectly.c)
+ *     MI_INTERLOCKED_EXCHANGE_PTE @ 0x140346F70 (MI_INTERLOCKED_EXCHANGE_PTE.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiUnlockNestedPageTableWritePte(__int64 a1, __int64 *a2, __int64 a3, int a4)
 {
   __int64 *v6; // rdi

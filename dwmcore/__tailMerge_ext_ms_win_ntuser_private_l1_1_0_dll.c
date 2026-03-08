@@ -1,3 +1,11 @@
+/*
+ * XREFs of __tailMerge_ext_ms_win_ntuser_private_l1_1_0_dll @ 0x18010FD9D
+ * Callers:
+ *     __imp_load_UpdateWindowInputSinkHints @ 0x18010FD91 (__imp_load_UpdateWindowInputSinkHints.c)
+ * Callees:
+ *     __delayLoadHelper2 @ 0x180100EB0 (__delayLoadHelper2.c)
+ */
+
 __int64 __fastcall _tailMerge_ext_ms_win_ntuser_private_l1_1_0_dll(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rax

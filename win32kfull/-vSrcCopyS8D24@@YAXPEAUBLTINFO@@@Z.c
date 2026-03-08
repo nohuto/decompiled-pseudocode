@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vSrcCopyS8D24@@YAXPEAUBLTINFO@@@Z @ 0x1C02EF370
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vSrcCopyS8D24(struct BLTINFO *a1)
 {
   unsigned int v1; // r11d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of SleepstudyHelperDestroyBlockerData @ 0x14099EE80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SshpFreeDataEntry @ 0x14099E728 (SshpFreeDataEntry.c)
+ */
+
 __int64 __fastcall SleepstudyHelperDestroyBlockerData(_QWORD *a1)
 {
   __int64 result; // rax

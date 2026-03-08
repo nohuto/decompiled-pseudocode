@@ -1,3 +1,11 @@
+/*
+ * XREFs of VrpDereferenceDiffHiveEntryWithLock @ 0x140738258
+ * Callers:
+ *     VrpDereferenceDiffHiveEntry @ 0x140738160 (VrpDereferenceDiffHiveEntry.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall VrpDereferenceDiffHiveEntryWithLock(volatile signed __int64 *P)
 {
   __int64 v1; // rax

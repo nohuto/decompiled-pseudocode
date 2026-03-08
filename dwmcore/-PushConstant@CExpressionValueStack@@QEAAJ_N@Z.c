@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?PushConstant@CExpressionValueStack@@QEAAJ_N@Z @ 0x18025DA68
+ * Callers:
+ *     ?CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1800BD330 (-CalculateValueWorker@CExpression@@MEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?EnsureAvailablePushSpace@CExpressionValueStack@@AEAAJXZ @ 0x1800C058C (-EnsureAvailablePushSpace@CExpressionValueStack@@AEAAJXZ.c)
+ */
+
 __int64 __fastcall CExpressionValueStack::PushConstant(CExpressionValueStack *this, char a2)
 {
   int v4; // eax

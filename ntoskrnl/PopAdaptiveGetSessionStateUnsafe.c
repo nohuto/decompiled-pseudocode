@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopAdaptiveGetSessionStateUnsafe @ 0x14073CBB8
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ *     PopSessionConnected @ 0x14079A204 (PopSessionConnected.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopAdaptiveGetConsoleSessionState @ 0x14073C624 (PopAdaptiveGetConsoleSessionState.c)
+ *     PopAdaptiveGetRemoteSessionState @ 0x14085CC70 (PopAdaptiveGetRemoteSessionState.c)
+ */
+
 char __fastcall PopAdaptiveGetSessionStateUnsafe(unsigned int a1, __int64 *a2, __int64 a3)
 {
   __int64 v6; // rax

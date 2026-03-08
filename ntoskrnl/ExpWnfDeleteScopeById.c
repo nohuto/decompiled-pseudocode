@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExpWnfDeleteScopeById @ 0x140704810
+ * Callers:
+ *     MiDereferenceSessionFinal @ 0x14067E7A0 (MiDereferenceSessionFinal.c)
+ *     ExWnfExitProcess @ 0x140704A58 (ExWnfExitProcess.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     ExpWnfFindScopeInstance @ 0x14071B968 (ExpWnfFindScopeInstance.c)
+ *     ExpWnfFreeScopeInstance @ 0x14079450C (ExpWnfFreeScopeInstance.c)
+ */
+
 int __fastcall ExpWnfDeleteScopeById(__int64 a1, __int64 a2, unsigned int a3)
 {
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax

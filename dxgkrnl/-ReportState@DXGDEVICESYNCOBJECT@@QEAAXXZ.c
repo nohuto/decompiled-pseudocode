@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?ReportState@DXGDEVICESYNCOBJECT@@QEAAXXZ @ 0x1C034FDA8
+ * Callers:
+ *     ?ReportState@DXGCONTEXT@@QEAAXXZ @ 0x1C02DFB44 (-ReportState@DXGCONTEXT@@QEAAXXZ.c)
+ *     ?ReportDeviceSyncObjects@DXGDEVICE@@QEAAXXZ @ 0x1C02E822C (-ReportDeviceSyncObjects@DXGDEVICE@@QEAAXXZ.c)
+ *     ?ReportState@DXGHWQUEUE@@IEAAXXZ @ 0x1C0316654 (-ReportState@DXGHWQUEUE@@IEAAXXZ.c)
+ * Callees:
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0007840 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C00078B0 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     McTemplateK0ppp_EtwWriteTransfer @ 0x1C0051A38 (McTemplateK0ppp_EtwWriteTransfer.c)
+ *     ?GetVidSchSyncObject@DXGSYNCOBJECT@@QEAAPEAU_VIDSCH_SYNC_OBJECT@@PEAVADAPTER_RENDER@@@Z @ 0x1C0186BD8 (-GetVidSchSyncObject@DXGSYNCOBJECT@@QEAAPEAU_VIDSCH_SYNC_OBJECT@@PEAVADAPTER_RENDER@@@Z.c)
+ */
+
 void __fastcall DXGDEVICESYNCOBJECT::ReportState(DXGDEVICESYNCOBJECT *this)
 {
   __int64 v1; // rdi

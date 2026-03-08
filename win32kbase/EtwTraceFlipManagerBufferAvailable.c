@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceFlipManagerBufferAvailable @ 0x1C0162630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0qpt_EtwWriteTransfer @ 0x1C01664AC (McTemplateK0qpt_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall EtwTraceFlipManagerBufferAvailable(int a1, int a2, int a3)
 {
   __int64 result; // rax

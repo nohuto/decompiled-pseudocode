@@ -1,3 +1,15 @@
+/*
+ * XREFs of KsepSdbUnmapFromMemory @ 0x14079D1D4
+ * Callers:
+ *     KseShimDatabaseClose @ 0x14079E25C (KseShimDatabaseClose.c)
+ *     KseShimDatabaseOpen @ 0x14079EFB4 (KseShimDatabaseOpen.c)
+ * Callees:
+ *     MiRemoveFromSystemSpace @ 0x14020E5C8 (MiRemoveFromSystemSpace.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     SdbReleaseDatabase @ 0x14079C878 (SdbReleaseDatabase.c)
+ */
+
 void __fastcall KsepSdbUnmapFromMemory(__int64 a1)
 {
   _QWORD *v2; // rcx

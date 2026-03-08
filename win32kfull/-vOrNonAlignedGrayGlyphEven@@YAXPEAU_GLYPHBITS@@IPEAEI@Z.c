@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vOrNonAlignedGrayGlyphEven@@YAXPEAU_GLYPHBITS@@IPEAEI@Z @ 0x1C02741D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vOrNonAlignedGrayGlyphEven(struct _GLYPHBITS *a1, __int64 a2, unsigned __int8 *a3, unsigned int a4)
 {
   BYTE *aj; // r10

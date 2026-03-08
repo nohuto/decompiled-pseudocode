@@ -1,3 +1,19 @@
+/*
+ * XREFs of HvpViewMapCreateView @ 0x140730DF8
+ * Callers:
+ *     HvpViewMapCreateViewsForRegion @ 0x140730B54 (HvpViewMapCreateViewsForRegion.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x140779930 (HvpViewMapPromoteRangeToMapping.c)
+ * Callees:
+ *     CmSiReleaseProcessLockedPagesCharge @ 0x14020C564 (CmSiReleaseProcessLockedPagesCharge.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     CmSiAllocateMemory @ 0x1402447A4 (CmSiAllocateMemory.c)
+ *     CmSiMapViewOfSection @ 0x1402B2C30 (CmSiMapViewOfSection.c)
+ *     CmSiUnmapViewOfSection @ 0x1402C0A9C (CmSiUnmapViewOfSection.c)
+ *     HvcallpNoHypervisorPresent @ 0x1402C0AC0 (HvcallpNoHypervisorPresent.c)
+ *     CmSiProtectViewOfSection @ 0x14030D290 (CmSiProtectViewOfSection.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall HvpViewMapCreateView(__int64 a1, LARGE_INTEGER a2, __int64 a3, _QWORD *a4)
 {
   unsigned __int64 v6; // rdi

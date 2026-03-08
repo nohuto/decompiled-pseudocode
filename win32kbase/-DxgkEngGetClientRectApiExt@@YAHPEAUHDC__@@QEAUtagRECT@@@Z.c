@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DxgkEngGetClientRectApiExt@@YAHPEAUHDC__@@QEAUtagRECT@@@Z @ 0x1C0195A90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DxgkEngGetClientRectApiExt(HDC a1, struct tagRECT *const a2)
 {
   unsigned int v2; // ebx

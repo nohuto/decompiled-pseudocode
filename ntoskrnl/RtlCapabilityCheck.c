@@ -1,3 +1,29 @@
+/*
+ * XREFs of RtlCapabilityCheck @ 0x140741730
+ * Callers:
+ *     PopCapabilityCheck @ 0x140584CB8 (PopCapabilityCheck.c)
+ *     RtlCapabilityCheckForSingleSessionSku @ 0x1409B9140 (RtlCapabilityCheckForSingleSessionSku.c)
+ *     NtSetSystemTime @ 0x1409F54B0 (NtSetSystemTime.c)
+ *     ExpCapabilityCheck @ 0x1409F8C54 (ExpCapabilityCheck.c)
+ * Callees:
+ *     RtlDeriveCapabilitySidsFromName @ 0x140204A10 (RtlDeriveCapabilitySidsFromName.c)
+ *     RtlCheckTokenMembershipEx @ 0x140204B90 (RtlCheckTokenMembershipEx.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1402459D0 (PsIsCurrentThreadInServerSilo.c)
+ *     RtlCheckTokenMembership @ 0x1402BDFD0 (RtlCheckTokenMembership.c)
+ *     RtlSubAuthoritySid @ 0x1402BE740 (RtlSubAuthoritySid.c)
+ *     RtlCheckTokenCapability @ 0x1402BE920 (RtlCheckTokenCapability.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     RtlInitializeSid @ 0x14068E3A0 (RtlInitializeSid.c)
+ *     RtlpCapabilityCheckSystemCapability @ 0x1407445E8 (RtlpCapabilityCheckSystemCapability.c)
+ *     RtlIsMultiSessionSku @ 0x1407447E0 (RtlIsMultiSessionSku.c)
+ *     RtlpLogCapabilityCheckLatency @ 0x14074480C (RtlpLogCapabilityCheckLatency.c)
+ */
+
 __int64 __fastcall RtlCapabilityCheck(HANDLE ExistingTokenHandle, UNICODE_STRING *String2, char *a3)
 {
   char v4; // di

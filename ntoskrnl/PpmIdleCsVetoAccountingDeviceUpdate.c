@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmIdleCsVetoAccountingDeviceUpdate @ 0x140582980
+ * Callers:
+ *     PopFxPlatformStateAvailable @ 0x140588EBC (PopFxPlatformStateAvailable.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmIdleCsVetoAccountingUpdateBlock @ 0x140582B3C (PpmIdleCsVetoAccountingUpdateBlock.c)
+ */
+
 __int64 __fastcall PpmIdleCsVetoAccountingDeviceUpdate(unsigned int a1, char a2)
 {
   __int64 result; // rax

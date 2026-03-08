@@ -1,3 +1,23 @@
+/*
+ * XREFs of NtPssCaptureVaSpaceBulk @ 0x140A025D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoAllocateMdl @ 0x14020CAD0 (IoAllocateMdl.c)
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MmProbeAndLockPages @ 0x140267B90 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x14027C0C0 (MmUnlockPages.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwPssCaptureVaSpaceBulk @ 0x140414BB0 (ZwPssCaptureVaSpaceBulk.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     MmQueryVirtualMemory @ 0x1407C6390 (MmQueryVirtualMemory.c)
+ */
+
 __int64 __fastcall NtPssCaptureVaSpaceBulk(ULONG_PTR a1, unsigned __int64 a2, __int128 *a3, SIZE_T a4, __int64 *a5)
 {
   ULONG v5; // r10d

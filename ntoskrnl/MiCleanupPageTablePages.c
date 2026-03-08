@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiCleanupPageTablePages @ 0x14020FD04
+ * Callers:
+ *     MiMakeZeroedPageTablesEx @ 0x14020F130 (MiMakeZeroedPageTablesEx.c)
+ *     MmCreateShadowMapping @ 0x14080B624 (MmCreateShadowMapping.c)
+ * Callees:
+ *     MiFreeLargeZeroPages @ 0x14020FD6C (MiFreeLargeZeroPages.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiReturnSystemCharges @ 0x1402D8C88 (MiReturnSystemCharges.c)
+ */
+
 __int64 __fastcall MiCleanupPageTablePages(__int64 a1)
 {
   __int64 result; // rax

@@ -1,3 +1,21 @@
+/*
+ * XREFs of KeInitializeProcess @ 0x14070A0C8
+ * Callers:
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ *     KiInitializeIdleProcess @ 0x140B5F2B8 (KiInitializeIdleProcess.c)
+ * Callees:
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     ExSaAllocate @ 0x1402962FC (ExSaAllocate.c)
+ *     KiComputeGroupMask @ 0x1402967CC (KiComputeGroupMask.c)
+ *     KeSetGroupMaskProcess @ 0x140296808 (KeSetGroupMaskProcess.c)
+ *     KiSetIdealNodeProcessByGroup @ 0x140296818 (KiSetIdealNodeProcessByGroup.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1402A7240 (KeQueryMaximumProcessorCountEx.c)
+ *     MmGetNextNode @ 0x1402AB0A0 (MmGetNextNode.c)
+ *     KeSelectNodeForAffinity @ 0x1403B0188 (KeSelectNodeForAffinity.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     VslCreateSecureProcess @ 0x14093EBE0 (VslCreateSecureProcess.c)
+ */
+
 __int64 __fastcall KeInitializeProcess(
         __int64 a1,
         char a2,

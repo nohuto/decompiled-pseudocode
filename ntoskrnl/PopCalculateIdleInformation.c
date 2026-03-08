@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopCalculateIdleInformation @ 0x1403C2C3C
+ * Callers:
+ *     PopCaptureSleepStudyStatistics @ 0x1403C24C4 (PopCaptureSleepStudyStatistics.c)
+ *     PopCalculateCsSummary @ 0x14058EE94 (PopCalculateCsSummary.c)
+ *     PopSleepstudyStartNextSession @ 0x1408797E4 (PopSleepstudyStartNextSession.c)
+ *     PopSleepstudySnapModernStandbySessionData @ 0x140990418 (PopSleepstudySnapModernStandbySessionData.c)
+ *     PopDripsWatchdogCallbackWorker @ 0x1409991B0 (PopDripsWatchdogCallbackWorker.c)
+ *     PopDripsWatchdogDiagnosticWorker @ 0x140999490 (PopDripsWatchdogDiagnosticWorker.c)
+ *     PopDripsWatchdogStartWatchdog @ 0x140999738 (PopDripsWatchdogStartWatchdog.c)
+ * Callees:
+ *     PpmConvertTime @ 0x140235D70 (PpmConvertTime.c)
+ *     PpmQueryPlatformStateResidency @ 0x1403D1420 (PpmQueryPlatformStateResidency.c)
+ */
+
 unsigned __int64 __fastcall PopCalculateIdleInformation(__int64 a1)
 {
   __int64 v1; // rbx

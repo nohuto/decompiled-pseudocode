@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?ivHandleKeyboardInputPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C021E800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ?DeliverKeyboardInputToRim@@YAXPEAU_IVKeyboardInputPacket@@PEAURawInputManagerObject@@PEAURIMDEV@@@Z @ 0x1C021D05C (-DeliverKeyboardInputToRim@@YAXPEAU_IVKeyboardInputPacket@@PEAURawInputManagerObject@@PEAURIMDEV.c)
+ *     FindRimDevByName @ 0x1C0221134 (FindRimDevByName.c)
+ *     IsRimObjectUnregistered @ 0x1C0221F28 (IsRimObjectUnregistered.c)
+ */
+
 __int64 __fastcall CBaseInput::ivHandleKeyboardInputPacket(__int64 a1, UNICODE_STRING *a2, __int64 a3)
 {
   __int64 v3; // rbp

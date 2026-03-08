@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhReinitialize @ 0x1C002D73C
+ * Callers:
+ *     UsbhHubStart @ 0x1C0043560 (UsbhHubStart.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhConfigureUsbHub @ 0x1C0029DB0 (UsbhConfigureUsbHub.c)
+ *     UsbhInitializeTtHub @ 0x1C002D268 (UsbhInitializeTtHub.c)
+ *     UsbhLogStartFailure @ 0x1C002D464 (UsbhLogStartFailure.c)
+ */
+
 __int64 __fastcall UsbhReinitialize(__int64 a1, __int64 a2)
 {
   _DWORD *v4; // rbp

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PipAttemptDependentsStart @ 0x14068185C
+ * Callers:
+ *     IoResolveDependency @ 0x1403943F0 (IoResolveDependency.c)
+ *     PnpStartedDeviceNodeDependencyCheck @ 0x140681C08 (PnpStartedDeviceNodeDependencyCheck.c)
+ * Callees:
+ *     PiGetDependentList @ 0x1406819C8 (PiGetDependentList.c)
+ *     PiEnumerateDependentListEntry @ 0x140838DB4 (PiEnumerateDependentListEntry.c)
+ *     PipAttemptDependentStart @ 0x14085E134 (PipAttemptDependentStart.c)
+ */
+
 _QWORD **__fastcall PipAttemptDependentsStart(__int64 a1)
 {
   __int64 v1; // rcx

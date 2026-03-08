@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopEtDataSectionStart @ 0x140768310
+ * Callers:
+ *     PopEtEnergyTrackerQuery @ 0x140767578 (PopEtEnergyTrackerQuery.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopEtDataSectionStart(unsigned int *a1, __int64 a2)
 {
   __int64 result; // rax

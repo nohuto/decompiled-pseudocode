@@ -1,3 +1,21 @@
+/*
+ * XREFs of AlpcpReceiveLegacyMessage @ 0x1407168B0
+ * Callers:
+ *     NtReplyWaitReceivePortEx @ 0x140716750 (NtReplyWaitReceivePortEx.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectSafe @ 0x1402CBCB0 (ObReferenceObjectSafe.c)
+ *     AlpcpCancelMessage @ 0x1407141F0 (AlpcpCancelMessage.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     AlpcpReadMessageData @ 0x140716C08 (AlpcpReadMessageData.c)
+ *     AlpcpProbeForWriteMessageHeader @ 0x140716C88 (AlpcpProbeForWriteMessageHeader.c)
+ *     AlpcpReceiveMessagePort @ 0x1407CD3A0 (AlpcpReceiveMessagePort.c)
+ *     AlpcpGetDataFromUserVaSafe @ 0x140975F5C (AlpcpGetDataFromUserVaSafe.c)
+ */
+
 __int64 __fastcall AlpcpReceiveLegacyMessage(__int64 *a1, __int64 a2, unsigned __int64 a3, _QWORD *a4)
 {
   struct _KTHREAD *CurrentThread; // rdx

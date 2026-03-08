@@ -1,3 +1,22 @@
+/*
+ * XREFs of PopPepLockActivityLink @ 0x14030768C
+ * Callers:
+ *     PopPepUpdateConstraints @ 0x1402B9328 (PopPepUpdateConstraints.c)
+ *     PopPepComponentSetLatency @ 0x1402EE890 (PopPepComponentSetLatency.c)
+ *     PopPepTryPowerDownDevice @ 0x1403050D0 (PopPepTryPowerDownDevice.c)
+ *     PopPepProcessEvent @ 0x140307424 (PopPepProcessEvent.c)
+ *     PopPepComponentSetResidency @ 0x1403AE9C4 (PopPepComponentSetResidency.c)
+ *     PopPepCompleteComponentIdleState @ 0x14059C714 (PopPepCompleteComponentIdleState.c)
+ *     PopPepComponentSetWakeHint @ 0x14059C820 (PopPepComponentSetWakeHint.c)
+ *     PopPepSurprisePowerOn @ 0x14059D930 (PopPepSurprisePowerOn.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall PopPepLockActivityLink(__int64 a1, volatile LONG *a2, unsigned int a3, unsigned int a4, KIRQL *a5)
 {
   char v5; // bl

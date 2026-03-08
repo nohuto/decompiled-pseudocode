@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetFloatAnimatableProperty@CTableTransferEffectMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C024F450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z @ 0x1C024C0F0 (-GetFloatAnimatableProperty@CResourceMarshaler@DirectComposition@@UEAAJIPEAM@Z.c)
+ *     ?PropertyIdToColorChannelAndIndex@CTableTransferEffectMarshaler@DirectComposition@@IEBAJIPEAI0@Z @ 0x1C024F518 (-PropertyIdToColorChannelAndIndex@CTableTransferEffectMarshaler@DirectComposition@@IEBAJIPEAI0@Z.c)
+ */
+
 __int64 __fastcall DirectComposition::CTableTransferEffectMarshaler::GetFloatAnimatableProperty(
         DirectComposition::CTableTransferEffectMarshaler *this,
         unsigned int a2,

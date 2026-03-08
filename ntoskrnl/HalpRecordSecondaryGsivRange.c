@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpRecordSecondaryGsivRange @ 0x1408021D0
+ * Callers:
+ *     HalpInitializeSecondaryInterruptServices @ 0x140B35558 (HalpInitializeSecondaryInterruptServices.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ */
+
 __int64 HalpRecordSecondaryGsivRange()
 {
   NTSTATUS v0; // ebx

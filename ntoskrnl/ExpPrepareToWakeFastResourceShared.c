@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpPrepareToWakeFastResourceShared @ 0x1404109F0
+ * Callers:
+ *     ExpReleaseDisownedFastResourceShared2 @ 0x140410CE8 (ExpReleaseDisownedFastResourceShared2.c)
+ *     ExpReleaseFastResourceShared2 @ 0x14041109C (ExpReleaseFastResourceShared2.c)
+ * Callees:
+ *     KeCaptureWaitChainHeadEx @ 0x1402D3E54 (KeCaptureWaitChainHeadEx.c)
+ */
+
 __int64 __fastcall ExpPrepareToWakeFastResourceShared(signed __int64 *a1, __int64 *a2, _QWORD *a3, int *a4, _DWORD *a5)
 {
   signed __int64 v8; // r10

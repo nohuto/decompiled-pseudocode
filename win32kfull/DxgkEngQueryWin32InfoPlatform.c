@@ -1,3 +1,11 @@
+/*
+ * XREFs of DxgkEngQueryWin32InfoPlatform @ 0x1C00F5050
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DxgkEngQueryWin32InfoPlatform(__int64 a1)
 {
   __int64 v1; // rbx

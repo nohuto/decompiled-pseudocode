@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepAdtIncorporatePerUserPolicy @ 0x1409CA868
+ * Callers:
+ *     SepAdtAuditThisEventWithContext @ 0x140699810 (SepAdtAuditThisEventWithContext.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x14070F610 (SeAuditingWithTokenForSubcategory.c)
+ * Callees:
+ *     <none>
+ */
+
 _BYTE *__fastcall SepAdtIncorporatePerUserPolicy(unsigned int a1, char a2, char a3, __int64 a4, _BYTE *a5)
 {
   _BYTE *result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsNotifyInputSinkTransformChangedPresent @ 0x18010F9B4
+ * Callers:
+ *     ?PostSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x18006E820 (-PostSubgraph@CPreComputeContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ * Callees:
+ *     ApiSetQueryApiSetPresence_0 @ 0x1801103F0 (ApiSetQueryApiSetPresence_0.c)
+ */
+
 char IsNotifyInputSinkTransformChangedPresent()
 {
   char result; // al

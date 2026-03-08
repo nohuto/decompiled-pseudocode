@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@CAffineTransform2DEffectMarshaler@DirectComposition@@UEAAJXZ @ 0x1C0250F40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ @ 0x1C024D3E0 (-Initialize@CFilterEffectMarshaler@DirectComposition@@MEAAJXZ.c)
+ */
+
 __int64 __fastcall DirectComposition::CAffineTransform2DEffectMarshaler::Initialize(
         DirectComposition::CAffineTransform2DEffectMarshaler *this)
 {

@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhHubSSH_PnpStart @ 0x1C0058E20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhEnableTimerObject @ 0x1C0008770 (UsbhEnableTimerObject.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     UsbhSshBusBusy @ 0x1C003170C (UsbhSshBusBusy.c)
+ *     UsbhQuerySSstate @ 0x1C004C65C (UsbhQuerySSstate.c)
+ *     UsbhSshEnableDisable @ 0x1C005939C (UsbhSshEnableDisable.c)
+ */
+
 __int64 __fastcall UsbhHubSSH_PnpStart(__int64 a1, __int64 a2)
 {
   _DWORD *v4; // rsi

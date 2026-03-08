@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RaiseDevicePowerCompletion@FxPkgFdo@@SAJPEAU_DEVICE_OBJECT@@PEAU_IRP@@PEAX@Z @ 0x1C00831F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PowerProcessEvent@FxPkgPnp@@QEAAXW4FxPowerEvent@@E@Z @ 0x1C006F604 (-PowerProcessEvent@FxPkgPnp@@QEAAXW4FxPowerEvent@@E@Z.c)
+ *     ?SetPendingDevicePowerIrp@FxPkgPnp@@IEAAXPEAVFxIrp@@@Z @ 0x1C00808E8 (-SetPendingDevicePowerIrp@FxPkgPnp@@IEAAXPEAVFxIrp@@@Z.c)
+ */
+
 __int64 __fastcall FxPkgFdo::RaiseDevicePowerCompletion(
         _DEVICE_OBJECT *DeviceObject,
         _IRP *OriginalIrp,

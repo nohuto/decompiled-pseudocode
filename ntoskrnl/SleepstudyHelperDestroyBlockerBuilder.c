@@ -1,3 +1,20 @@
+/*
+ * XREFs of SleepstudyHelperDestroyBlockerBuilder @ 0x140726370
+ * Callers:
+ *     SleepstudyHelperCreateBlockerFromGuid @ 0x1402B36C0 (SleepstudyHelperCreateBlockerFromGuid.c)
+ *     SleepstudyHelperBuildBlocker @ 0x1407261A0 (SleepstudyHelperBuildBlocker.c)
+ *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x140726450 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
+ *     SleepstudyHelper_RegisterPdoWithParentPdo @ 0x140842C50 (SleepstudyHelper_RegisterPdoWithParentPdo.c)
+ *     SleepstudyHelperCreateBlockerFromDevice @ 0x140842D00 (SleepstudyHelperCreateBlockerFromDevice.c)
+ *     SleepstudyHelper_RegisterComponentEx @ 0x14084DE70 (SleepstudyHelper_RegisterComponentEx.c)
+ *     SleepstudyHelperCreateBlockerFromComponent @ 0x14099EFE0 (SleepstudyHelperCreateBlockerFromComponent.c)
+ *     SleepstudyHelper_RegisterPdoWithParentGuid @ 0x14099F2D0 (SleepstudyHelper_RegisterPdoWithParentGuid.c)
+ *     SleepstudyHelper_RegisterPdoWithParentHandle @ 0x14099F390 (SleepstudyHelper_RegisterPdoWithParentHandle.c)
+ * Callees:
+ *     CmpFreeTransientPoolWithTag @ 0x1402A4B0C (CmpFreeTransientPoolWithTag.c)
+ *     SshpDereferenceBlocker @ 0x1407263FC (SshpDereferenceBlocker.c)
+ */
+
 __int64 __fastcall SleepstudyHelperDestroyBlockerBuilder(_QWORD *a1)
 {
   unsigned int v1; // ebx

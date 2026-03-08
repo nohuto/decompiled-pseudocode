@@ -1,3 +1,20 @@
+/*
+ * XREFs of KeSynchronizeSecurityDomain @ 0x1402EAE28
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ *     PspCombineSecurityDomains @ 0x140778A04 (PspCombineSecurityDomains.c)
+ * Callees:
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KeCountSetBitsAffinityEx @ 0x140237550 (KeCountSetBitsAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140237640 (KeRemoveProcessorAffinityEx.c)
+ *     KiIpiStallOnPacketTargetsPrcb @ 0x140237680 (KiIpiStallOnPacketTargetsPrcb.c)
+ *     KiIpiSendPacket @ 0x1402376C0 (KiIpiSendPacket.c)
+ *     KiSynchronizeSecurityDomainTarget @ 0x140302CD0 (KiSynchronizeSecurityDomainTarget.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeSynchronizeSecurityDomain(_KPROCESS *a1)
 {
   unsigned __int8 CurrentIrql; // bl

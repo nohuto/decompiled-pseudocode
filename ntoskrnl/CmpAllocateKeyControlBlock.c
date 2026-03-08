@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpAllocateKeyControlBlock @ 0x140A14CE8
+ * Callers:
+ *     CmpCloneToUnbackedKcb @ 0x140A14164 (CmpCloneToUnbackedKcb.c)
+ * Callees:
+ *     ExAllocateFromLookasideListEx @ 0x14030DE20 (ExAllocateFromLookasideListEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 PVOID CmpAllocateKeyControlBlock()
 {
   PVOID v0; // rax

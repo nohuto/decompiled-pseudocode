@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?zzzSetSBCaretPos@@YAXPEAUtagSBWND@@@Z @ 0x1C022CA90
+ * Callers:
+ *     xxxSBWndProc @ 0x1C022D770 (xxxSBWndProc.c)
+ * Callees:
+ *     zzzSetCaretPos @ 0x1C0005ED8 (zzzSetCaretPos.c)
+ */
+
 void __fastcall zzzSetSBCaretPos(struct tagSBWND *a1)
 {
   int v1; // r8d

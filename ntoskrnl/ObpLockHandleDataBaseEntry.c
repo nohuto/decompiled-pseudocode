@@ -1,3 +1,11 @@
+/*
+ * XREFs of ObpLockHandleDataBaseEntry @ 0x1407D90B0
+ * Callers:
+ *     ObpIncrementHandleCountEx @ 0x1407C1090 (ObpIncrementHandleCountEx.c)
+ * Callees:
+ *     ObpInsertHandleCount @ 0x1407D9228 (ObpInsertHandleCount.c)
+ */
+
 __int64 __fastcall ObpLockHandleDataBaseEntry(__int64 a1, int *a2, unsigned int *a3)
 {
   int *v5; // rbx

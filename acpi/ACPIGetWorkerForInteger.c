@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIGetWorkerForInteger @ 0x1C002B5C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ACPIGetConvertToClassCode @ 0x1C00296FC (ACPIGetConvertToClassCode.c)
+ *     ACPIGetConvertToDevicePresence @ 0x1C0029F4C (ACPIGetConvertToDevicePresence.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ */
+
 void __fastcall ACPIGetWorkerForInteger(__int64 a1, unsigned int a2, __int64 a3, _DWORD *a4)
 {
   int v5; // ebx

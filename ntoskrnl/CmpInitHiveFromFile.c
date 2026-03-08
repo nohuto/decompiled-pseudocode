@@ -1,3 +1,29 @@
+/*
+ * XREFs of CmpInitHiveFromFile @ 0x1406C0BF0
+ * Callers:
+ *     CmpCmdHiveOpen @ 0x1406C0FC8 (CmpCmdHiveOpen.c)
+ *     CmpLoadHiveThread @ 0x140820360 (CmpLoadHiveThread.c)
+ * Callees:
+ *     SetFailureLocation @ 0x140243E5C (SetFailureLocation.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     CmSiAllocateMemory @ 0x1402447A4 (CmSiAllocateMemory.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x140412530 (ZwQueryInformationFile.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpFlushHive @ 0x1406BEA70 (CmpFlushHive.c)
+ *     CmpOpenHiveFiles @ 0x1406C02C8 (CmpOpenHiveFiles.c)
+ *     CmpCreateHive @ 0x14072C06C (CmpCreateHive.c)
+ *     CmpLogEvent @ 0x140A0CF74 (CmpLogEvent.c)
+ *     CmpReleaseHiveLoadUnloadRundown @ 0x140AF2034 (CmpReleaseHiveLoadUnloadRundown.c)
+ *     CmpAcquireHiveLoadUnloadRundown @ 0x140AF2058 (CmpAcquireHiveLoadUnloadRundown.c)
+ *     CmpIsHiveLoadUnloadRundownActive @ 0x140AF2444 (CmpIsHiveLoadUnloadRundownActive.c)
+ *     CmpAttachToRegistryProcess @ 0x140AF26E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140AF2710 (CmpDetachFromRegistryProcess.c)
+ */
+
 __int64 __fastcall CmpInitHiveFromFile(
         const UNICODE_STRING *a1,
         int a2,

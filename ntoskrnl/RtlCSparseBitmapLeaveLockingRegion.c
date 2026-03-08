@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlCSparseBitmapLeaveLockingRegion @ 0x140308370
+ * Callers:
+ *     RtlpCSparseBitmapPageDecommit @ 0x1403046C4 (RtlpCSparseBitmapPageDecommit.c)
+ *     RtlSparseArrayElementAllocate @ 0x140304B54 (RtlSparseArrayElementAllocate.c)
+ *     RtlCSparseBitmapBitmaskWrite @ 0x140305C10 (RtlCSparseBitmapBitmaskWrite.c)
+ *     RtlpCSparseBitmapPageCommit @ 0x140306EB8 (RtlpCSparseBitmapPageCommit.c)
+ * Callees:
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall RtlCSparseBitmapLeaveLockingRegion(unsigned __int8 *a1)
 {
   $C71981A45BEB2B45F82C232A7085991E *v1; // rax

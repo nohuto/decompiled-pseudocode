@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIRootDeviceNotifyPepDiscoverDevice @ 0x1C003CE7C
+ * Callers:
+ *     ACPIRootInitialize @ 0x1C0093768 (ACPIRootInitialize.c)
+ * Callees:
+ *     WPP_RECORDER_SF_sqqDqss @ 0x1C0015C08 (WPP_RECORDER_SF_sqqDqss.c)
+ *     AcpiNotifyPlExtDiscoverDeviceAsync @ 0x1C0037A5C (AcpiNotifyPlExtDiscoverDeviceAsync.c)
+ */
+
 __int64 ACPIRootDeviceNotifyPepDiscoverDevice()
 {
   ULONG_PTR v0; // rbx

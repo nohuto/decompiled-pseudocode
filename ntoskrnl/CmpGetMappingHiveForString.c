@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpGetMappingHiveForString @ 0x140A16EC8
+ * Callers:
+ *     CmpGetCmHiveFromVirtualPath @ 0x140A16E8C (CmpGetCmHiveFromVirtualPath.c)
+ *     CmpGetVirtualStoreRoot @ 0x140A16FE4 (CmpGetVirtualStoreRoot.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     CmpCompareUnicodeString @ 0x14077B3C0 (CmpCompareUnicodeString.c)
+ *     CmpHashUnicodeComponent @ 0x1407A480C (CmpHashUnicodeComponent.c)
+ */
+
 __int64 __fastcall CmpGetMappingHiveForString(__m128i *a1, _QWORD *a2)
 {
   unsigned int v4; // edi

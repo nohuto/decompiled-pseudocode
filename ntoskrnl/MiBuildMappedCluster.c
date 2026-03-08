@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiBuildMappedCluster @ 0x140213100
+ * Callers:
+ *     MiGatherMappedPages @ 0x140215150 (MiGatherMappedPages.c)
+ * Callees:
+ *     MiWriteCompletePfn @ 0x140212B10 (MiWriteCompletePfn.c)
+ *     MiReleaseWriteInProgressCharges @ 0x140212C98 (MiReleaseWriteInProgressCharges.c)
+ *     MiReferencePageForModifiedWrite @ 0x140213038 (MiReferencePageForModifiedWrite.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140214870 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140214A54 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiBuildMappedCluster(_QWORD *a1, __int64 a2, int a3)
 {
   __int64 v4; // r15

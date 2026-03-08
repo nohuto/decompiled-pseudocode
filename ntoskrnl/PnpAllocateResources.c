@@ -1,3 +1,24 @@
+/*
+ * XREFs of PnpAllocateResources @ 0x1406F5CE0
+ * Callers:
+ *     PnpAssignResourcesToDevices @ 0x140680DD8 (PnpAssignResourcesToDevices.c)
+ *     IopLegacyResourceAllocation @ 0x140801DA4 (IopLegacyResourceAllocation.c)
+ * Callees:
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     KeReleaseSemaphore @ 0x140292210 (KeReleaseSemaphore.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     PipSetDevNodeFlags @ 0x1406857DC (PipSetDevNodeFlags.c)
+ *     PipClearDevNodeFlags @ 0x14068816C (PipClearDevNodeFlags.c)
+ *     PnpGetResourceRequirementsForAssignTable @ 0x1406F6080 (PnpGetResourceRequirementsForAssignTable.c)
+ *     PnpFindBestConfiguration @ 0x140803704 (PnpFindBestConfiguration.c)
+ *     PnpBuildCmResourceLists @ 0x140803A38 (PnpBuildCmResourceLists.c)
+ *     PnpFreeResourceRequirementsForAssignTable @ 0x140803C30 (PnpFreeResourceRequirementsForAssignTable.c)
+ *     IopReleaseFilteredBootResources @ 0x140803C88 (IopReleaseFilteredBootResources.c)
+ *     IopCommitConfiguration @ 0x14084D8A8 (IopCommitConfiguration.c)
+ *     PnpRebalance @ 0x14096B948 (PnpRebalance.c)
+ */
+
 __int64 __fastcall PnpAllocateResources(unsigned int a1, _DWORD *a2, char a3, _BYTE *a4)
 {
   __int64 v4; // r14

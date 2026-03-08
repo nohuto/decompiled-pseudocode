@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ResultStringSize@details@wil@@YA_KPEBD@Z @ 0x14000A00C
+ * Callers:
+ *     ??$WriteResultString@PEBD@details@wil@@YAPEAEPEAE0PEBDPEAPEBD@Z @ 0x140008870 (--$WriteResultString@PEBD@details@wil@@YAPEAEPEAE0PEBDPEAPEBD@Z.c)
+ *     ?Set@ThreadLocalFailureInfo@details_abi@wil@@QEAAXAEBUFailureInfo@3@I@Z @ 0x14000A11C (-Set@ThreadLocalFailureInfo@details_abi@wil@@QEAAXAEBUFailureInfo@3@I@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall wil::details::ResultStringSize(wil::details *this, const char *a2)
 {
   __int64 v4; // rcx

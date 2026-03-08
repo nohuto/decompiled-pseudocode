@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserAttachThreadInput @ 0x1C0011210
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     zzzAttachThreadInput @ 0x1C00CCFE8 (zzzAttachThreadInput.c)
+ *     DisassociateShellFrameAppThreads2 @ 0x1C01B42DC (DisassociateShellFrameAppThreads2.c)
+ */
+
 __int64 __fastcall NtUserAttachThreadInput(unsigned int a1, unsigned int a2, int a3)
 {
   __int64 v6; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchiCancelIndependentFlips @ 0x1C003A50C
+ * Callers:
+ *     ?VidSchiCancelQueuedIndependentFlips@@YAXPEAU_VIDSCH_GLOBAL@@IPEAU_VIDSCH_DEVICE@@PEAUVIDSCH_FLIP_QUEUE@@_KAEAI444@Z @ 0x1C00352C8 (-VidSchiCancelQueuedIndependentFlips@@YAXPEAU_VIDSCH_GLOBAL@@IPEAU_VIDSCH_DEVICE@@PEAUVIDSCH_FLI.c)
+ *     VidSchExitIndependentFlipInternal @ 0x1C003FABC (VidSchExitIndependentFlipInternal.c)
+ * Callees:
+ *     VidSchiCompleteFlipEntry @ 0x1C000D060 (VidSchiCompleteFlipEntry.c)
+ */
+
 void __fastcall VidSchiCancelIndependentFlips(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPICMButtonWaitWakeComplete @ 0x1C0019520
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ */
+
 void __fastcall ACPICMButtonWaitWakeComplete(
         ULONG_PTR DeviceObject,
         UCHAR MinorFunction,

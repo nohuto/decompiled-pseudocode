@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vGradientFill24Bitfields@@YAXPEAVSURFACE@@PEAU_TRIANGLEDATA@@@Z @ 0x1C02FB560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vGradientFill24Bitfields(struct SURFACE *a1, struct _TRIANGLEDATA *a2)
 {
   struct _TRIANGLEDATA *v2; // r14

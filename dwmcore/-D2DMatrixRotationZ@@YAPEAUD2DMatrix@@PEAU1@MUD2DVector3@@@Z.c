@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?D2DMatrixRotationZ@@YAPEAUD2DMatrix@@PEAU1@MUD2DVector3@@@Z @ 0x18027AA0C
+ * Callers:
+ *     ?Matrix4x4FromRotationZ@CExpressionValueStack@@QEAAJI@Z @ 0x18025C200 (-Matrix4x4FromRotationZ@CExpressionValueStack@@QEAAJI@Z.c)
+ * Callees:
+ *     cosf_0 @ 0x1801176F8 (cosf_0.c)
+ *     sinf_0 @ 0x180117794 (sinf_0.c)
+ */
+
 __int64 __fastcall D2DMatrixRotationZ(__int64 a1, float a2, float *a3)
 {
   float v5; // xmm7_4

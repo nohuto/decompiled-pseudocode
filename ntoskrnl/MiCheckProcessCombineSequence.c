@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiCheckProcessCombineSequence @ 0x1402E0F04
+ * Callers:
+ *     MiSharePages @ 0x140228990 (MiSharePages.c)
+ *     MiCapturePfnVm @ 0x14022A10C (MiCapturePfnVm.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall MiCheckProcessCombineSequence(__int64 a1, signed __int32 a2)
 {
   unsigned int v2; // eax

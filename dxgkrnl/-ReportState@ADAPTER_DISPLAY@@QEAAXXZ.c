@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReportState@ADAPTER_DISPLAY@@QEAAXXZ @ 0x1C02BA640
+ * Callers:
+ *     ?ReportState@DXGADAPTER@@QEAAXXZ @ 0x1C02B4808 (-ReportState@DXGADAPTER@@QEAAXXZ.c)
+ * Callees:
+ *     ?GetDisplayModeInfo@ADAPTER_DISPLAY@@QEBAQEBU_DXGK_DISPLAYMODE_INFO@@I@Z @ 0x1C0009084 (-GetDisplayModeInfo@ADAPTER_DISPLAY@@QEBAQEBU_DXGK_DISPLAYMODE_INFO@@I@Z.c)
+ *     McTemplateK0pqqqqqqqqqqqq_EtwWriteTransfer @ 0x1C0015EDC (McTemplateK0pqqqqqqqqqqqq_EtwWriteTransfer.c)
+ */
+
 void __fastcall ADAPTER_DISPLAY::ReportState(ADAPTER_DISPLAY *this)
 {
   unsigned int i; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpTimerFindIdealClockSource @ 0x140377568
+ * Callers:
+ *     HalpTimerSelectRoles @ 0x140376F4C (HalpTimerSelectRoles.c)
+ * Callees:
+ *     HalpFindTimer @ 0x140377CA8 (HalpFindTimer.c)
+ */
+
 __int64 HalpTimerFindIdealClockSource()
 {
   char v0; // di

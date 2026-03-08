@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpKeyEnumStackAdvance @ 0x140A209E8
+ * Callers:
+ *     CmpEnumerateLayeredKey @ 0x140A13774 (CmpEnumerateLayeredKey.c)
+ *     CmpSubtreeEnumeratorAdvance @ 0x140A1D6E8 (CmpSubtreeEnumeratorAdvance.c)
+ *     CmpGetSubKeyCountForKeyNodeStack @ 0x140A20904 (CmpGetSubKeyCountForKeyNodeStack.c)
+ *     CmpPartialPromoteSubkeys @ 0x140A236F0 (CmpPartialPromoteSubkeys.c)
+ * Callees:
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140783798 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpGetEffectiveKeyNodeSemantics @ 0x140A1D040 (CmpGetEffectiveKeyNodeSemantics.c)
+ *     CmpKeyEnumStackAdvanceInternal @ 0x140A20A7C (CmpKeyEnumStackAdvanceInternal.c)
+ *     CmpKeyEnumStackGetEntryAtLayerHeight @ 0x140A213F8 (CmpKeyEnumStackGetEntryAtLayerHeight.c)
+ */
+
 __int64 __fastcall CmpKeyEnumStackAdvance(__int16 *a1)
 {
   __int64 result; // rax

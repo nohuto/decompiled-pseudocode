@@ -1,3 +1,12 @@
+/*
+ * XREFs of DrvSetGraphicsDevices @ 0x1C00D2EA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DrvUpdateGraphicsDeviceList @ 0x1C001FAC0 (DrvUpdateGraphicsDeviceList.c)
+ *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C005D400 (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ */
+
 __int64 __fastcall DrvSetGraphicsDevices(size_t *a1)
 {
   __int64 v2; // rdi

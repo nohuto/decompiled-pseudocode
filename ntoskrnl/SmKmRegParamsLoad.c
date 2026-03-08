@@ -1,3 +1,12 @@
+/*
+ * XREFs of SmKmRegParamsLoad @ 0x1409D662C
+ * Callers:
+ *     SmcStoreCreate @ 0x1409D8464 (SmcStoreCreate.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlpQueryRegistryValues @ 0x14069B3C0 (RtlpQueryRegistryValues.c)
+ */
+
 __int64 __fastcall SmKmRegParamsLoad(__int64 a1)
 {
   __int64 result; // rax

@@ -1,3 +1,18 @@
+/*
+ * XREFs of UsbhRawWait @ 0x1C0019670
+ * Callers:
+ *     UsbhReset1Complete @ 0x1C0002B20 (UsbhReset1Complete.c)
+ *     UsbhReset2Complete @ 0x1C0002D00 (UsbhReset2Complete.c)
+ *     Usbh_PCE_Suspend_Action @ 0x1C000F290 (Usbh_PCE_Suspend_Action.c)
+ *     UsbhFdoSetD0Cold @ 0x1C000FBD0 (UsbhFdoSetD0Cold.c)
+ *     UsbhSyncPowerOnPorts @ 0x1C0018A40 (UsbhSyncPowerOnPorts.c)
+ *     UsbhPortResumeComplete @ 0x1C001B070 (UsbhPortResumeComplete.c)
+ *     UsbhWait @ 0x1C002E204 (UsbhWait.c)
+ *     UsbhAddDevice @ 0x1C0041E10 (UsbhAddDevice.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall UsbhRawWait(int a1)
 {
   __int64 v1; // rdi

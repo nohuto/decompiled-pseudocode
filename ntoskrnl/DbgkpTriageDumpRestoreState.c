@@ -1,3 +1,11 @@
+/*
+ * XREFs of DbgkpTriageDumpRestoreState @ 0x1407F9030
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DbgkpTriageDumpRestoreState(_DWORD *a1)
 {
   __int64 v1; // rdx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PiDevCfgSplitDriverConfigurationId @ 0x14095F6CC
+ * Callers:
+ *     PiDevCfgCheckDeviceNeedsUpdate @ 0x140959960 (PiDevCfgCheckDeviceNeedsUpdate.c)
+ * Callees:
+ *     RtlTimeFieldsToTime @ 0x1402D1150 (RtlTimeFieldsToTime.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcschr @ 0x1403D5D90 (wcschr.c)
+ *     swscanf_s @ 0x1403DA110 (swscanf_s.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     __report_rangecheckfailure @ 0x1404FBCCC (__report_rangecheckfailure.c)
+ *     ExpAllocateStringRoutine @ 0x140777DB0 (ExpAllocateStringRoutine.c)
+ */
+
 __int64 __fastcall PiDevCfgSplitDriverConfigurationId(
         const wchar_t *Src,
         __int64 a2,

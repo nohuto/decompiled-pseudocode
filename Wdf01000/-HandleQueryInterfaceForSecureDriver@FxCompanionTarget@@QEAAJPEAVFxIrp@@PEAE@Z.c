@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HandleQueryInterfaceForSecureDriver@FxCompanionTarget@@QEAAJPEAVFxIrp@@PEAE@Z @ 0x1C002DEE0
+ * Callers:
+ *     ?HandleQueryInterface@FxPkgPnp@@IEAAJPEAVFxIrp@@PEAE@Z @ 0x1C0072CCC (-HandleQueryInterface@FxPkgPnp@@IEAAJPEAVFxIrp@@PEAE@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FxCompanionTarget::HandleQueryInterfaceForSecureDriver(
         FxCompanionTarget *this,
         FxIrp *Irp,

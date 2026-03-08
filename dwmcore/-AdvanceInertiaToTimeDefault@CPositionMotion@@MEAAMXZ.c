@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AdvanceInertiaToTimeDefault@CPositionMotion@@MEAAMXZ @ 0x18026C070
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?UnboundedInertiaPanningAtTime@CPositionMotion@@AEBAMM@Z @ 0x18026C358 (-UnboundedInertiaPanningAtTime@CPositionMotion@@AEBAMM@Z.c)
+ */
+
 float __fastcall CPositionMotion::AdvanceInertiaToTimeDefault(CPositionMotion *this)
 {
   float v2; // xmm0_4

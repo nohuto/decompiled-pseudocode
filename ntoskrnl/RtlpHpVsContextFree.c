@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlpHpVsContextFree @ 0x1402B6740
+ * Callers:
+ *     ExFreeHeapPool @ 0x1402B61C0 (ExFreeHeapPool.c)
+ *     RtlpFreeHeapInternal @ 0x1402E0AF4 (RtlpFreeHeapInternal.c)
+ *     RtlpHpSegFree @ 0x140308DBC (RtlpHpSegFree.c)
+ * Callees:
+ *     RtlpHpVsContextFreeList @ 0x140249050 (RtlpHpVsContextFreeList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ *     RtlpLogHeapFailure @ 0x1405B2884 (RtlpLogHeapFailure.c)
+ */
+
 __int64 __fastcall RtlpHpVsContextFree(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4, unsigned int *a5)
 {
   int v5; // r10d

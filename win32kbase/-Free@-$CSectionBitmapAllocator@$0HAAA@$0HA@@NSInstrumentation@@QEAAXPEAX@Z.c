@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Free@?$CSectionBitmapAllocator@$0HAAA@$0HA@@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C015400C
+ * Callers:
+ *     ?Free@?$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C0154224 (-Free@-$CTypeIsolation@$0HAAA@$0HA@@NSInstrumentation@@IEAAXPEAX@Z.c)
+ * Callees:
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 void __fastcall NSInstrumentation::CSectionBitmapAllocator<28672,112>::Free(__int64 *a1, void *a2)
 {
   __int64 v2; // rbx

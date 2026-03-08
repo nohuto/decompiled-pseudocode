@@ -1,3 +1,39 @@
+/*
+ * XREFs of MiAddPhysicalMemory @ 0x140A289D8
+ * Callers:
+ *     MiAddPhysicalMemoryChunks @ 0x140A2919C (MiAddPhysicalMemoryChunks.c)
+ *     MiCreateFileOnlyPfns @ 0x140A30F88 (MiCreateFileOnlyPfns.c)
+ * Callees:
+ *     MiLockDynamicMemoryShared @ 0x1402DAC90 (MiLockDynamicMemoryShared.c)
+ *     MiUnlockDynamicMemoryShared @ 0x1402DC340 (MiUnlockDynamicMemoryShared.c)
+ *     MiReferencePageRuns @ 0x1402EB520 (MiReferencePageRuns.c)
+ *     MiDereferencePageRuns @ 0x1402EBA0C (MiDereferencePageRuns.c)
+ *     MiUpdateLargePageBitMap @ 0x14034D79C (MiUpdateLargePageBitMap.c)
+ *     KePulseEvent @ 0x14035F580 (KePulseEvent.c)
+ *     MiDescribePageRun @ 0x14037082C (MiDescribePageRun.c)
+ *     MiComputeNodeMemory @ 0x1403A6D2C (MiComputeNodeMemory.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     KeConfigureDynamicMemory @ 0x14056C5A8 (KeConfigureDynamicMemory.c)
+ *     MiEnableNewPfns @ 0x140618520 (MiEnableNewPfns.c)
+ *     MiLockDynamicMemoryExclusive @ 0x140619164 (MiLockDynamicMemoryExclusive.c)
+ *     MiLogAddPhysicalMemory @ 0x1406194D0 (MiLogAddPhysicalMemory.c)
+ *     MiPerformMemoryChange @ 0x140619688 (MiPerformMemoryChange.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x140619B70 (MiUnlockDynamicMemoryExclusive.c)
+ *     MiHotRemoveHugeRange @ 0x14061DC8C (MiHotRemoveHugeRange.c)
+ *     MiIsAnyPartOfRangeInHugePfn @ 0x14061EE98 (MiIsAnyPartOfRangeInHugePfn.c)
+ *     MiDeleteExtentPfns @ 0x14063A660 (MiDeleteExtentPfns.c)
+ *     MiAddRangeToPartitionTree @ 0x14065654C (MiAddRangeToPartitionTree.c)
+ *     MiDeletePartitionPageNodes @ 0x140656E28 (MiDeletePartitionPageNodes.c)
+ *     MiInsertPartitionPages @ 0x140657EB8 (MiInsertPartitionPages.c)
+ *     MiSplitPfnBitMapsForPartitionHierarchy @ 0x140658FCC (MiSplitPfnBitMapsForPartitionHierarchy.c)
+ *     MiSplitPfnBitMaps @ 0x140809F08 (MiSplitPfnBitMaps.c)
+ *     MiConfigureMemoryInsertion @ 0x140A29718 (MiConfigureMemoryInsertion.c)
+ *     MiMapNewPfns @ 0x140A29C20 (MiMapNewPfns.c)
+ *     MiSplitMirrorBitMap @ 0x140A2C3B4 (MiSplitMirrorBitMap.c)
+ *     MiIsExtentDangling @ 0x140A31284 (MiIsExtentDangling.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiAddPhysicalMemory(unsigned __int16 *a1, __int64 *a2, __int64 *a3, __int64 a4, __int64 a5)
 {
   __int64 *v5; // r15

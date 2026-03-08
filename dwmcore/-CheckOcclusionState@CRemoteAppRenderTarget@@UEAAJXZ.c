@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CheckOcclusionState@CRemoteAppRenderTarget@@UEAAJXZ @ 0x1801E76E0
+ * Callers:
+ *     ?CheckOcclusionState@CRemoteAppRenderTarget@@$4PPPPPPPM@A@EAAJXZ @ 0x180119570 (-CheckOcclusionState@CRemoteAppRenderTarget@@$4PPPPPPPM@A@EAAJXZ.c)
+ * Callees:
+ *     ?EnsureSwapChain@CRemoteAppRenderTarget@@IEAAJXZ @ 0x1801E7768 (-EnsureSwapChain@CRemoteAppRenderTarget@@IEAAJXZ.c)
+ *     ?SendCompSurfHandle@CRemoteAppRenderTarget@@IEAAJXZ @ 0x1801E89F0 (-SendCompSurfHandle@CRemoteAppRenderTarget@@IEAAJXZ.c)
+ *     ?IsVailContainer@@YA_NXZ @ 0x180278ADC (-IsVailContainer@@YA_NXZ.c)
+ */
+
 __int64 __fastcall CRemoteAppRenderTarget::CheckOcclusionState(CRemoteAppRenderTarget *this)
 {
   CRemoteAppRenderTarget *v2; // rdi

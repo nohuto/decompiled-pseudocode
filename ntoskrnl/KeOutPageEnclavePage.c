@@ -1,3 +1,14 @@
+/*
+ * XREFs of KeOutPageEnclavePage @ 0x14056E00C
+ * Callers:
+ *     MiDecommitHardwareEnclavePages @ 0x140644F2C (MiDecommitHardwareEnclavePages.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiEncls @ 0x140417230 (KiEncls.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiEnclsStatus @ 0x14056E148 (KiEnclsStatus.c)
+ */
+
 __int64 __fastcall KeOutPageEnclavePage(__int64 a1, __int64 a2)
 {
   unsigned int v3; // eax

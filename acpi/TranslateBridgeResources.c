@@ -1,3 +1,11 @@
+/*
+ * XREFs of TranslateBridgeResources @ 0x1C0097910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CmMemIoResourceUpdateType @ 0x1C0043894 (CmMemIoResourceUpdateType.c)
+ */
+
 __int64 __fastcall TranslateBridgeResources(
         __int64 a1,
         struct _CM_PARTIAL_RESOURCE_DESCRIPTOR *a2,

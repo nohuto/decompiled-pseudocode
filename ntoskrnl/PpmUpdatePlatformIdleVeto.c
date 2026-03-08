@@ -1,3 +1,23 @@
+/*
+ * XREFs of PpmUpdatePlatformIdleVeto @ 0x1405841D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeCheckProcessorAffinityEx @ 0x140234B10 (KeCheckProcessorAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     PopExecuteOnTargetProcessors @ 0x140236D20 (PopExecuteOnTargetProcessors.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopDeepSleepClearDisengageReason @ 0x1402BBAAC (PopDeepSleepClearDisengageReason.c)
+ *     PopDeepSleepSetDisengageReason @ 0x1402BBB98 (PopDeepSleepSetDisengageReason.c)
+ *     KeFindFirstSetLeftAffinityEx @ 0x1402CCC00 (KeFindFirstSetLeftAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmUpdateIdleVeto @ 0x140583F90 (PpmUpdateIdleVeto.c)
+ *     PpmEventPlatformVetoRequest @ 0x140598BAC (PpmEventPlatformVetoRequest.c)
+ */
+
 __int64 __fastcall PpmUpdatePlatformIdleVeto(__int64 a1)
 {
   int updated; // esi

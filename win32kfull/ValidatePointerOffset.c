@@ -1,3 +1,11 @@
+/*
+ * XREFs of ValidatePointerOffset @ 0x1C01E7E80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ */
+
 __int64 __fastcall ValidatePointerOffset(__int64 a1, unsigned __int16 *a2, unsigned __int64 a3, unsigned int *a4)
 {
   int v4; // r15d

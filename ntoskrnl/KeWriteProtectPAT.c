@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeWriteProtectPAT @ 0x140A9CBB0
+ * Callers:
+ *     HaliAcpiSleep @ 0x140525AD0 (HaliAcpiSleep.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiSetUserTbFlushPending @ 0x140417710 (KiSetUserTbFlushPending.c)
+ */
+
 void __fastcall KeWriteProtectPAT(char a1)
 {
   __int64 v2; // rcx

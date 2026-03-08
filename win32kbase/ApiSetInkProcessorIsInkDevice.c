@@ -1,3 +1,15 @@
+/*
+ * XREFs of ApiSetInkProcessorIsInkDevice @ 0x1C0244F58
+ * Callers:
+ *     RIMCreateHidDesc @ 0x1C0035100 (RIMCreateHidDesc.c)
+ *     RIMAllocateHidDesc @ 0x1C01AC4D4 (RIMAllocateHidDesc.c)
+ *     RIMVirtAllocateHidDesc @ 0x1C01B0738 (RIMVirtAllocateHidDesc.c)
+ *     RIMVirtCreateHidDesc @ 0x1C01B10CC (RIMVirtCreateHidDesc.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ApiSetInkProcessorIsInkDevice(unsigned __int16 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rsi

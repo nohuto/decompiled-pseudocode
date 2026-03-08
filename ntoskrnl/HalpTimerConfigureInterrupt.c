@@ -1,3 +1,30 @@
+/*
+ * XREFs of HalpTimerConfigureInterrupt @ 0x140379C34
+ * Callers:
+ *     HalpTimerInitializeProfiling @ 0x140377960 (HalpTimerInitializeProfiling.c)
+ *     HalpTimerPrepareClockInterrupt @ 0x140379B9C (HalpTimerPrepareClockInterrupt.c)
+ *     HalpTimerInitializeClock @ 0x1403AC5D0 (HalpTimerInitializeClock.c)
+ *     HalpTimerTestHypervisorTimer @ 0x140508908 (HalpTimerTestHypervisorTimer.c)
+ * Callees:
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     HalpInterruptGsiToLine @ 0x14028EF10 (HalpInterruptGsiToLine.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402A9460 (KeFindFirstSetRightGroupAffinity.c)
+ *     HalpInterruptRemap @ 0x140378D78 (HalpInterruptRemap.c)
+ *     HalpInterruptSetLineState @ 0x1403793AC (HalpInterruptSetLineState.c)
+ *     HalpInterruptApplyOverrides @ 0x140379748 (HalpInterruptApplyOverrides.c)
+ *     HalpAcquireHighLevelLock @ 0x140379818 (HalpAcquireHighLevelLock.c)
+ *     HalpInterruptSetIdtEntry @ 0x140379F10 (HalpInterruptSetIdtEntry.c)
+ *     HalpInterruptIsMsiSupported @ 0x14037D4DC (HalpInterruptIsMsiSupported.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpInterruptLineToGsi @ 0x140503150 (HalpInterruptLineToGsi.c)
+ *     HalpTimerSetupMessageInterruptRouting @ 0x140507398 (HalpTimerSetupMessageInterruptRouting.c)
+ *     HalpTimerUnmapInterrupt @ 0x1405074D0 (HalpTimerUnmapInterrupt.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpTimerConfigureInterrupt(
         __int64 a1,
         unsigned int a2,

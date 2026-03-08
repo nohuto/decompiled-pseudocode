@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopPepShouldActivityWait @ 0x140307BA8
+ * Callers:
+ *     PopPepAttemptAcitivityPromotion @ 0x140307A08 (PopPepAttemptAcitivityPromotion.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PopPepShouldActivityWait(__int64 a1, int a2, int a3, int a4, char a5)
 {
   __int64 *v6; // r9

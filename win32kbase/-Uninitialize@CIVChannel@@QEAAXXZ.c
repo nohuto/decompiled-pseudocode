@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?Uninitialize@CIVChannel@@QEAAXXZ @ 0x1C022970C
+ * Callers:
+ *     ?PreUninitialize@CMouseSensor@@EEAAXXZ @ 0x1C0094A90 (-PreUninitialize@CMouseSensor@@EEAAXXZ.c)
+ *     ?PreUninitialize@CKeyboardSensor@@EEAAXXZ @ 0x1C0095520 (-PreUninitialize@CKeyboardSensor@@EEAAXXZ.c)
+ *     ?PreUninitialize@CHidInput@@EEAAXXZ @ 0x1C00C9650 (-PreUninitialize@CHidInput@@EEAAXXZ.c)
+ *     IVWorkerThread @ 0x1C022118C (IVWorkerThread.c)
+ * Callees:
+ *     isChildPartition @ 0x1C0078FF0 (isChildPartition.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_AND_TRACE_SF_sd @ 0x1C0217150 (WPP_RECORDER_AND_TRACE_SF_sd.c)
+ */
+
 void __fastcall CIVChannel::Uninitialize(CIVChannel *this)
 {
   bool v2; // di

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PsPicoWalkUserStack @ 0x1409B220C
+ * Callers:
+ *     EtwpTraceStackWalk @ 0x140460A6C (EtwpTraceStackWalk.c)
+ * Callees:
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsGetBaseTrapFrame @ 0x14045B2A0 (PsGetBaseTrapFrame.c)
+ */
+
 __int64 __fastcall PsPicoWalkUserStack(__int64 a1, unsigned int a2)
 {
   _OWORD *BaseTrapFrame; // rcx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MI_MAKE_PROTECT_WRITE_COPY @ 0x14029D8A0
+ * Callers:
+ *     MiCombineInitialInstance @ 0x14029CD58 (MiCombineInitialInstance.c)
+ *     MiBuildForkPte @ 0x14065FC20 (MiBuildForkPte.c)
+ *     MiHandleForkTransitionPte @ 0x140662368 (MiHandleForkTransitionPte.c)
+ * Callees:
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ */
+
 __int64 __fastcall MI_MAKE_PROTECT_WRITE_COPY(__int64 *a1)
 {
   __int64 result; // rax

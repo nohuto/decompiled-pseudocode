@@ -1,3 +1,24 @@
+/*
+ * XREFs of PnpLogVetoInformation @ 0x140961470
+ * Callers:
+ *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x14096ED2C (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     PsGetProcessImageFileName @ 0x1402E1550 (PsGetProcessImageFileName.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     PnpDiagnosticTraceAppVeto @ 0x140560644 (PnpDiagnosticTraceAppVeto.c)
+ *     IopAllocateUnicodeString @ 0x140683958 (IopAllocateUnicodeString.c)
+ *     PsLookupProcessByProcessId @ 0x1406AC100 (PsLookupProcessByProcessId.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ *     PsGetAllocatedFullProcessImageName @ 0x1407E764C (PsGetAllocatedFullProcessImageName.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     PnpGetProcessCommandLine @ 0x1409613D8 (PnpGetProcessCommandLine.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 _QWORD *__fastcall PnpLogVetoInformation(__int64 a1, _QWORD *a2)
 {
   _QWORD *result; // rax

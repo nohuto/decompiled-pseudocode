@@ -1,3 +1,43 @@
+/*
+ * XREFs of RtlpSetSecurityObject @ 0x1407BF100
+ * Callers:
+ *     SeDefaultObjectMethod @ 0x1406961E0 (SeDefaultObjectMethod.c)
+ *     CmpSetSecurityDescriptorInfo @ 0x1406B845C (CmpSetSecurityDescriptorInfo.c)
+ *     SeSetSecurityDescriptorInfo @ 0x1407510B0 (SeSetSecurityDescriptorInfo.c)
+ *     SeSetSecurityDescriptorInfoEx @ 0x140790F60 (SeSetSecurityDescriptorInfoEx.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     RtlFindAceBySid @ 0x140245DF0 (RtlFindAceBySid.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlpValidTrustSubjectContext @ 0x1402CAAC0 (RtlpValidTrustSubjectContext.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     SepLocateTokenTrustLevel @ 0x14030FE50 (SepLocateTokenTrustLevel.c)
+ *     SepCopyTokenIntegrity @ 0x14030FED0 (SepCopyTokenIntegrity.c)
+ *     RtlSidDominates @ 0x14030FF10 (RtlSidDominates.c)
+ *     RtlFindAceByType @ 0x1403100D0 (RtlFindAceByType.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ *     RtlpCreateServerAcl @ 0x1406839D0 (RtlpCreateServerAcl.c)
+ *     RtlInitializeSid @ 0x14068E3A0 (RtlInitializeSid.c)
+ *     SepValidOwnerSubjectContext @ 0x14069D3EC (SepValidOwnerSubjectContext.c)
+ *     SeSinglePrivilegeCheckEx @ 0x1406BA46C (SeSinglePrivilegeCheckEx.c)
+ *     RtlpNormalizeAcl @ 0x1407594B0 (RtlpNormalizeAcl.c)
+ *     RtlpCombineAcls @ 0x1407BC8E0 (RtlpCombineAcls.c)
+ *     RtlpComputeMergedAcl @ 0x1409B9944 (RtlpComputeMergedAcl.c)
+ *     SepGetDefaultsSubjectContext @ 0x1409CADF0 (SepGetDefaultsSubjectContext.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlpSetSecurityObject(
         __int64 a1,
         int a2,

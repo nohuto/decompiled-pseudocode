@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopFreeWakeSource @ 0x1409842D8
+ * Callers:
+ *     PopUnlinkWakeSources @ 0x140984A4C (PopUnlinkWakeSources.c)
+ *     PopProcessDeviceWakeSource @ 0x140A9E094 (PopProcessDeviceWakeSource.c)
+ *     PopProcessWakeSourceWork @ 0x140A9E248 (PopProcessWakeSourceWork.c)
+ * Callees:
+ *     ExDeleteWakeTimerInfo @ 0x1406091B4 (ExDeleteWakeTimerInfo.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PopFreeWakeSource(_DWORD *P)
 {
   int v2; // ecx

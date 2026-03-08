@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiFindRebuildCandidate @ 0x140466112
+ * Callers:
+ *     MiRebuildLargePage @ 0x140466288 (MiRebuildLargePage.c)
+ * Callees:
+ *     MiCollapseRunTopDown @ 0x1403B62B0 (MiCollapseRunTopDown.c)
+ *     MiPfnsWorthTrying @ 0x1403B6374 (MiPfnsWorthTrying.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiFindRebuildCandidate(__int64 a1, int a2, int a3, __int64 a4, __int64 a5, unsigned int *a6, int a7)
 {
   int v8; // esi

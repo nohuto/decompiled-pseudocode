@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExSizeOfRundownProtectionCacheAware @ 0x140871900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeGetRecommendedSharedDataAlignment @ 0x14028E210 (KeGetRecommendedSharedDataAlignment.c)
+ */
+
 SIZE_T ExSizeOfRundownProtectionCacheAware(void)
 {
   int v0; // ebx

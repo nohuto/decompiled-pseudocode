@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?DestroyResource@CD3DResourceManager@@AEAAXPEAVCD3DResource@@@Z @ 0x1800F0480
+ * Callers:
+ *     ?AdvanceFrame@CDeviceManager@@IEAAXXZ @ 0x1800762D4 (-AdvanceFrame@CDeviceManager@@IEAAXXZ.c)
+ *     ?DestroyDeviceResources@CD3DResourceManager@@QEAAXXZ @ 0x1800EE378 (-DestroyDeviceResources@CD3DResourceManager@@QEAAXXZ.c)
+ *     ?DestroyReleasedResources@CD3DResourceManager@@QEAAXXZ @ 0x1800EE404 (-DestroyReleasedResources@CD3DResourceManager@@QEAAXXZ.c)
+ *     ?MarkHardwareProtectedResourcesInvalid@CD3DResourceManager@@QEAA_NXZ @ 0x180299B68 (-MarkHardwareProtectedResourcesInvalid@CD3DResourceManager@@QEAA_NXZ.c)
+ *     ?UnusableNotification@CD3DResourceManager@@UEAAXPEAVCMILPoolResource@@@Z @ 0x180299C00 (-UnusableNotification@CD3DResourceManager@@UEAAXPEAVCMILPoolResource@@@Z.c)
+ * Callees:
+ *     ?Invalidate@CD3DResource@@IEAAXXZ @ 0x1800F0568 (-Invalidate@CD3DResource@@IEAAXXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?RemoveHwProtectedResource@CD2DContext@@IEAAXXZ @ 0x180284610 (-RemoveHwProtectedResource@CD2DContext@@IEAAXXZ.c)
+ */
+
 void __fastcall CD3DResourceManager::DestroyResource(CD3DResourceManager *this, struct CD3DResource *a2)
 {
   char *v4; // rcx

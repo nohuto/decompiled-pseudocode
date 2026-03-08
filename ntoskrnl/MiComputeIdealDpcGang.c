@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiComputeIdealDpcGang @ 0x1403867CC
+ * Callers:
+ *     MiInitializeDpcGang @ 0x140386740 (MiInitializeDpcGang.c)
+ * Callees:
+ *     MiObtainParkedCoreMasks @ 0x1402A7130 (MiObtainParkedCoreMasks.c)
+ *     MiInitializeDpcGroupAffinity @ 0x1402A9390 (MiInitializeDpcGroupAffinity.c)
+ *     KeQueryNodeActiveAffinity @ 0x1402AE860 (KeQueryNodeActiveAffinity.c)
+ *     KeQueryNodeActiveAffinity2 @ 0x140300670 (KeQueryNodeActiveAffinity2.c)
+ *     MiGetClosestNodeWithProcessors @ 0x1403028A8 (MiGetClosestNodeWithProcessors.c)
+ *     ExAllocatePoolMm @ 0x14034C1AC (ExAllocatePoolMm.c)
+ *     MiGetNextAffinityWalker @ 0x1403B9938 (MiGetNextAffinityWalker.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiComputeIdealDpcGang(__int64 a1, int a2, unsigned int a3)
 {
   char v3; // bl

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpPlProcessNotifications @ 0x1406065B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ */
+
 __int64 ExpPlProcessNotifications()
 {
   __int64 result; // rax

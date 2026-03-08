@@ -1,3 +1,26 @@
+/*
+ * XREFs of UsbhRefPdoDeviceHandle @ 0x1C0019C20
+ * Callers:
+ *     UsbhClearPdoIdleReady @ 0x1C000A20C (UsbhClearPdoIdleReady.c)
+ *     UsbhSetPdoIdleReady @ 0x1C000A364 (UsbhSetPdoIdleReady.c)
+ *     UsbhSyncResetDeviceInternal @ 0x1C0019820 (UsbhSyncResetDeviceInternal.c)
+ *     UsbhPdoAbortAllDevicePipes @ 0x1C001A1D0 (UsbhPdoAbortAllDevicePipes.c)
+ *     UsbhSyncSendCommandToDevice @ 0x1C001A250 (UsbhSyncSendCommandToDevice.c)
+ *     UsbhFdoReturnDeviceHandle @ 0x1C002A9F0 (UsbhFdoReturnDeviceHandle.c)
+ *     UsbhFdoHandleNotifyForwardProgress @ 0x1C0030664 (UsbhFdoHandleNotifyForwardProgress.c)
+ *     UsbhGetNodeConnectionInfoForPdo @ 0x1C003E100 (UsbhGetNodeConnectionInfoForPdo.c)
+ *     UsbhIoctlGetDescriptorForPDO @ 0x1C003E714 (UsbhIoctlGetDescriptorForPDO.c)
+ *     UsbhGetHubNodeInfo @ 0x1C00493A8 (UsbhGetHubNodeInfo.c)
+ *     UsbhPdoQueryWmiDataBlock @ 0x1C00497C0 (UsbhPdoQueryWmiDataBlock.c)
+ *     UsbhPdoPnp_QueryInterface @ 0x1C0055B70 (UsbhPdoPnp_QueryInterface.c)
+ *     UsbhPdoRemoveCleanup @ 0x1C0056C34 (UsbhPdoRemoveCleanup.c)
+ *     UsbhPdoSetDeviceData @ 0x1C0056D50 (UsbhPdoSetDeviceData.c)
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ */
+
 __int64 __fastcall UsbhRefPdoDeviceHandle(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   __int64 v4; // r15

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlValidateUnicodeString @ 0x1402D8DC0
+ * Callers:
+ *     RtlDuplicateUnicodeString @ 0x140761970 (RtlDuplicateUnicodeString.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlValidateUnicodeString(ULONG Flags, PCUNICODE_STRING String)
 {
   NTSTATUS result; // eax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpAllocateNumaConfigData @ 0x140B636D0
+ * Callers:
+ *     HalpNumaInitializeStaticConfiguration @ 0x140B63268 (HalpNumaInitializeStaticConfiguration.c)
+ *     HalpInitializeConfigurationFromMadt @ 0x140B633D4 (HalpInitializeConfigurationFromMadt.c)
+ * Callees:
+ *     HalpMmAllocateMemoryInternal @ 0x14037A7A8 (HalpMmAllocateMemoryInternal.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall HalpAllocateNumaConfigData(int a1, unsigned int a2, unsigned int a3, int a4)
 {
   __int64 v4; // r13

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmAllocatePerfCheck @ 0x140828AF4
+ * Callers:
+ *     PpmCheckInitProcessors @ 0x140827DA4 (PpmCheckInitProcessors.c)
+ *     PpmRegisterPerfStates @ 0x14082802C (PpmRegisterPerfStates.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PpmAllocatePerfCheck(__int64 a1)
 {
   _QWORD *Pool2; // rdi

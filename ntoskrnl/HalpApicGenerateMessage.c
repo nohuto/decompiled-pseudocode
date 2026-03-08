@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpApicGenerateMessage @ 0x1403A88C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpApicGenerateMessage(__int64 a1, _DWORD *a2, unsigned __int64 *a3, _QWORD *a4)
 {
   int v4; // ebx

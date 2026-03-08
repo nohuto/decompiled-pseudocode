@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?OpenKeyedMutexFromNtHandle@DXGGLOBAL@@QEAAJPEAXPEAPEAVDXGKEYEDMUTEX@@PEAI0I@Z @ 0x1C034C008
+ * Callers:
+ *     DxgkOpenKeyedMutexFromNtHandle @ 0x1C0323F00 (DxgkOpenKeyedMutexFromNtHandle.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ @ 0x1C0053394 (-ReleaseReference@DXGKEYEDMUTEX@@QEAAXXZ.c)
+ *     ?Open@DXGKEYEDMUTEX@@QEAAJPEAIPEAXI_N@Z @ 0x1C034BA24 (-Open@DXGKEYEDMUTEX@@QEAAJPEAIPEAXI_N@Z.c)
+ */
+
 __int64 __fastcall DXGGLOBAL::OpenKeyedMutexFromNtHandle(
         DXGGLOBAL *this,
         void *a2,

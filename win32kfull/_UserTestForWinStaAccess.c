@@ -1,3 +1,11 @@
+/*
+ * XREFs of _UserTestForWinStaAccess @ 0x1C00C00CC
+ * Callers:
+ *     xxxResolveDesktop @ 0x1C00BF660 (xxxResolveDesktop.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 int __fastcall UserTestForWinStaAccess(PCUNICODE_STRING String1, int a2)
 {
   ACCESS_MASK v4; // esi

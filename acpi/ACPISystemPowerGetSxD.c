@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPISystemPowerGetSxD @ 0x1C0094FC0
+ * Callers:
+ *     ACPISystemPowerDetermineSupportedDeviceStates @ 0x1C003DAE0 (ACPISystemPowerDetermineSupportedDeviceStates.c)
+ *     ACPISystemPowerUpdateDeviceCapabilities @ 0x1C003E114 (ACPISystemPowerUpdateDeviceCapabilities.c)
+ *     ACPISystemPowerProcessSxD @ 0x1C00951C8 (ACPISystemPowerProcessSxD.c)
+ * Callees:
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ */
+
 __int64 __fastcall ACPISystemPowerGetSxD(__int64 a1, int a2, int *a3)
 {
   int v3; // ebx

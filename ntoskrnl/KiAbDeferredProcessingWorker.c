@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiAbDeferredProcessingWorker @ 0x1402391E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiAbPropagateBoosts @ 0x1402395C0 (KiAbPropagateBoosts.c)
+ *     KiAbProcessThreadLocks @ 0x140239A40 (KiAbProcessThreadLocks.c)
+ *     KiDeferredReadySingleThread @ 0x140259FB0 (KiDeferredReadySingleThread.c)
+ *     KiFlushSoftwareInterruptBatch @ 0x1402B7960 (KiFlushSoftwareInterruptBatch.c)
+ */
+
 void __fastcall KiAbDeferredProcessingWorker(
         struct _KDPC *Dpc,
         PVOID DeferredContext,

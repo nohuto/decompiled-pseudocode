@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiCreateForkWsles @ 0x140661690
+ * Callers:
+ *     MiCloneProcessAddressSpace @ 0x140A45CF4 (MiCloneProcessAddressSpace.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     MiCreateForkWsle @ 0x140661588 (MiCreateForkWsle.c)
+ */
+
 void MiCreateForkWsles()
 {
   unsigned __int64 *v0; // rbp

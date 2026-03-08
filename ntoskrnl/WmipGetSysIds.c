@@ -1,3 +1,20 @@
+/*
+ * XREFs of WmipGetSysIds @ 0x1409DCDD8
+ * Callers:
+ *     WmipQueryWmiDataBlock @ 0x140725910 (WmipQueryWmiDataBlock.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     MmUnmapIoSpace @ 0x14029B230 (MmUnmapIoSpace.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     WmipFindSMBiosStructure @ 0x1409DC91C (WmipFindSMBiosStructure.c)
+ *     WmipFindSysIdTable @ 0x1409DCA60 (WmipFindSysIdTable.c)
+ *     WmipParseSysIdTable @ 0x1409DD0A0 (WmipParseSysIdTable.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall WmipGetSysIds(_QWORD *a1, _DWORD *a2, _QWORD *a3, _DWORD *a4)
 {
   _QWORD *v7; // rdi

@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpDmaGetTranslationEntries @ 0x14039860C
+ * Callers:
+ *     HalpDmaCommitContiguousMapBuffers @ 0x14039839C (HalpDmaCommitContiguousMapBuffers.c)
+ *     HalpDmaAllocateMapRegisters @ 0x14045399E (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaCommitScatterMapBuffers @ 0x14050E5D4 (HalpDmaCommitScatterMapBuffers.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpDmaAllocateNewTranslationBuffer @ 0x14050E378 (HalpDmaAllocateNewTranslationBuffer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpDmaGetTranslationEntries(__int64 a1, int a2, unsigned int a3)
 {
   __int64 result; // rax

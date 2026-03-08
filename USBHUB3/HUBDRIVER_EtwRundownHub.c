@@ -1,3 +1,17 @@
+/*
+ * XREFs of HUBDRIVER_EtwRundownHub @ 0x1C007685C
+ * Callers:
+ *     HUBDRIVER_EtwEnableCallback @ 0x1C0077368 (HUBDRIVER_EtwEnableCallback.c)
+ * Callees:
+ *     McTemplateK0pnq_EtwWriteTransfer @ 0x1C0001790 (McTemplateK0pnq_EtwWriteTransfer.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001CA0 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     McTemplateK0pqn_EtwWriteTransfer @ 0x1C0001D10 (McTemplateK0pqn_EtwWriteTransfer.c)
+ *     McTemplateK0pquuxqqqqqqqsss_EtwWriteTransfer @ 0x1C0001D8C (McTemplateK0pquuxqqqqqqqsss_EtwWriteTransfer.c)
+ *     McTemplateK0pqz_EtwWriteTransfer @ 0x1C0001F80 (McTemplateK0pqz_EtwWriteTransfer.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ */
+
 __int64 __fastcall HUBDRIVER_EtwRundownHub(const GUID *a1, __int64 a2)
 {
   int v4; // edx

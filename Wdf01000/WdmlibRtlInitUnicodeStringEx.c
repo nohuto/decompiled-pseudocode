@@ -1,3 +1,17 @@
+/*
+ * XREFs of WdmlibRtlInitUnicodeStringEx @ 0x1C0087408
+ * Callers:
+ *     PiRegStateReadStackCreationSettingsFromKey @ 0x1C00B141C (PiRegStateReadStackCreationSettingsFromKey.c)
+ *     PpRegStateReadCreateClassCreationSettings @ 0x1C00B1610 (PpRegStateReadCreateClassCreationSettings.c)
+ *     CmRegUtilCreateWstrKey @ 0x1C00B1A4C (CmRegUtilCreateWstrKey.c)
+ *     CmRegUtilOpenExistingWstrKey @ 0x1C00B1B24 (CmRegUtilOpenExistingWstrKey.c)
+ *     CmRegUtilWstrValueGetDword @ 0x1C00B1E74 (CmRegUtilWstrValueGetDword.c)
+ *     CmRegUtilWstrValueSetFullBuffer @ 0x1C00B1EAC (CmRegUtilWstrValueSetFullBuffer.c)
+ *     CmRegUtilWstrValueSetWstrString @ 0x1C00B1F08 (CmRegUtilWstrValueSetWstrString.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WdmlibRtlInitUnicodeStringEx(_UNICODE_STRING *DestinationString, wchar_t *SourceString)
 {
   unsigned __int16 v2; // r8

@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiInitializeNonPagedPoolThresholds @ 0x140394A40
+ * Callers:
+ *     MiPerformMemoryChange @ 0x140619688 (MiPerformMemoryChange.c)
+ *     MiInitializeNonPagedPool @ 0x140B5EDA4 (MiInitializeNonPagedPool.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiSignalNonPagedPoolWatchers @ 0x140394AB8 (MiSignalNonPagedPoolWatchers.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 MiInitializeNonPagedPoolThresholds()
 {
   __int64 v0; // rcx

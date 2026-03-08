@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPluginQueryCurrentComponentPerfState @ 0x14058A3DC
+ * Callers:
+ *     PopFxQueryCurrentComponentPerfState @ 0x1405890BC (PopFxQueryCurrentComponentPerfState.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ */
+
 __int64 __fastcall PopPluginQueryCurrentComponentPerfState(__int64 a1, int a2, __int64 a3)
 {
   __int64 v3; // rax

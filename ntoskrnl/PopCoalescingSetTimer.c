@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopCoalescingSetTimer @ 0x14058B4E0
+ * Callers:
+ *     PopCoalescingSetActiveState @ 0x14058B44C (PopCoalescingSetActiveState.c)
+ *     PopCoalescingNotify @ 0x140983FE0 (PopCoalescingNotify.c)
+ * Callees:
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ *     PopPrintEx @ 0x1402BDCD4 (PopPrintEx.c)
+ */
+
 __int64 PopCoalescingSetTimer()
 {
   __int64 result; // rax

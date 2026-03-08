@@ -1,3 +1,26 @@
+/*
+ * XREFs of IoGetEnvironmentVariableEx @ 0x14075D3B0
+ * Callers:
+ *     IopInitializeOfflineCrashDump @ 0x1403AB95C (IopInitializeOfflineCrashDump.c)
+ *     ExpGetFirmwareEnvironmentVariable @ 0x14075D2DC (ExpGetFirmwareEnvironmentVariable.c)
+ *     NtQueryBootEntryOrder @ 0x14083E080 (NtQueryBootEntryOrder.c)
+ *     NtQueryBootOptions @ 0x14083E280 (NtQueryBootOptions.c)
+ *     NtGetEnvironmentVariableEx @ 0x14085E820 (NtGetEnvironmentVariableEx.c)
+ *     ExpSetBootEntry @ 0x1409FA390 (ExpSetBootEntry.c)
+ *     ExpSetDriverEntry @ 0x1409FAB20 (ExpSetDriverEntry.c)
+ *     NtDeleteBootEntry @ 0x1409FBA50 (NtDeleteBootEntry.c)
+ *     NtDeleteDriverEntry @ 0x1409FBBE0 (NtDeleteDriverEntry.c)
+ *     IopCachePreviousBootData @ 0x140B90728 (IopCachePreviousBootData.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x140244050 (_tlgCreate1Sz_wchar_t.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IopOpenSystemVariableDevice @ 0x14075D4AC (IopOpenSystemVariableDevice.c)
+ */
+
 __int64 __fastcall IoGetEnvironmentVariableEx(const size_t *a1, __int64 a2, __int64 a3, int *a4, int *a5)
 {
   int v9; // edi

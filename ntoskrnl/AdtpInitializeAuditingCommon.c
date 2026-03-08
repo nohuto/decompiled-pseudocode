@@ -1,3 +1,13 @@
+/*
+ * XREFs of AdtpInitializeAuditingCommon @ 0x140841394
+ * Callers:
+ *     SepAdtInitializeAuditingOptions @ 0x140B615C0 (SepAdtInitializeAuditingOptions.c)
+ * Callees:
+ *     AdtpDbInitializePrivilegeObject @ 0x14039A930 (AdtpDbInitializePrivilegeObject.c)
+ *     AdtpInitializeDriveLetters @ 0x140841630 (AdtpInitializeDriveLetters.c)
+ *     AdtpObjsInitialize @ 0x140841808 (AdtpObjsInitialize.c)
+ */
+
 __int64 AdtpInitializeAuditingCommon()
 {
   __int64 result; // rax

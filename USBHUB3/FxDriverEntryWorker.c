@@ -1,3 +1,15 @@
+/*
+ * XREFs of FxDriverEntryWorker @ 0x1C0041064
+ * Callers:
+ *     FxDriverEntry @ 0x1C0041030 (FxDriverEntry.c)
+ * Callees:
+ *     ?FxStubDriverUnloadCommon@@YAXXZ @ 0x1C0040EF0 (-FxStubDriverUnloadCommon@@YAXXZ.c)
+ *     ?FxStubBindClasses@@YAJPEAU_WDF_BIND_INFO@@@Z @ 0x1C00411F8 (-FxStubBindClasses@@YAJPEAU_WDF_BIND_INFO@@@Z.c)
+ *     ?FxStubInitTypes@@YAJXZ @ 0x1C0041380 (-FxStubInitTypes@@YAJXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     DriverEntry @ 0x1C0093228 (DriverEntry.c)
+ */
+
 NTSTATUS __fastcall FxDriverEntryWorker(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING RegistryPath)
 {
   NTSTATUS result; // eax

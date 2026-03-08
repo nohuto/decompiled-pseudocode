@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vMergeSpans@@YAXPEAU_SPAN@@0000@Z @ 0x1C02D6194
+ * Callers:
+ *     ?bMergeScanline@RGNMEMOBJ@@QEAAHAEAVSTACKOBJ@@@Z @ 0x1C02D590C (-bMergeScanline@RGNMEMOBJ@@QEAAHAEAVSTACKOBJ@@@Z.c)
+ *     ?bPushMergeScrScan@STACKOBJ@@QEAAHXZ @ 0x1C02D5C70 (-bPushMergeScrScan@STACKOBJ@@QEAAHXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vMergeSpans(struct _SPAN *a1, struct _SPAN *a2, struct _SPAN *a3, struct _SPAN *a4, struct _SPAN *a5)
 {
   __int64 v6; // rax

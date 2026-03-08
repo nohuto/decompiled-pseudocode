@@ -1,3 +1,14 @@
+/*
+ * XREFs of CheckBMPNeedFixup @ 0x1C014B848
+ * Callers:
+ *     SetupAAHeader @ 0x1C025E588 (SetupAAHeader.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     ComputeByteOffset @ 0x1C0253DA4 (ComputeByteOffset.c)
+ *     IntersectRECTL @ 0x1C0254010 (IntersectRECTL.c)
+ */
+
 __int64 __fastcall CheckBMPNeedFixup(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4)
 {
   unsigned int v4; // ebx

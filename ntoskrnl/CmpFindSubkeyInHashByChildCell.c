@@ -1,3 +1,24 @@
+/*
+ * XREFs of CmpFindSubkeyInHashByChildCell @ 0x14074BC50
+ * Callers:
+ *     CmpFindSubKeyByNumberEx @ 0x1407ACFB0 (CmpFindSubKeyByNumberEx.c)
+ * Callees:
+ *     CmpHashCompressedComponent @ 0x14074BDE4 (CmpHashCompressedComponent.c)
+ *     CmpLockHashEntryShared @ 0x14074BE4C (CmpLockHashEntryShared.c)
+ *     CmpReferenceKeyControlBlock @ 0x14074BF00 (CmpReferenceKeyControlBlock.c)
+ *     CmpIsKcbLockAllowed @ 0x14074BF34 (CmpIsKcbLockAllowed.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpHashUnicodeComponent @ 0x1407A480C (CmpHashUnicodeComponent.c)
+ *     CmpUnlockHashEntry @ 0x1407AB010 (CmpUnlockHashEntry.c)
+ *     CmpLockTwoKcbsShared @ 0x1407ACF00 (CmpLockTwoKcbsShared.c)
+ *     CmpUnlockTwoKcbs @ 0x1407ACF58 (CmpUnlockTwoKcbs.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpLockKcbShared @ 0x140AF20D0 (CmpLockKcbShared.c)
+ *     CmpUnlockKcb @ 0x140AF2140 (CmpUnlockKcb.c)
+ */
+
 __int64 __fastcall CmpFindSubkeyInHashByChildCell(
         ULONG_PTR a1,
         ULONG_PTR a2,

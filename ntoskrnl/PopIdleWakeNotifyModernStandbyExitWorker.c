@@ -1,3 +1,22 @@
+/*
+ * XREFs of PopIdleWakeNotifyModernStandbyExitWorker @ 0x140997860
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     PpmConvertTimeTo @ 0x1403A1D04 (PpmConvertTimeTo.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopIdleWakeConvertIntervalBucketsTo @ 0x140997348 (PopIdleWakeConvertIntervalBucketsTo.c)
+ *     PopIdleWakeSourceAccountingToDiagnostic @ 0x140998254 (PopIdleWakeSourceAccountingToDiagnostic.c)
+ *     PopIdleWakeTraceWakeSourceDiagnostic @ 0x140998420 (PopIdleWakeTraceWakeSourceDiagnostic.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PopIdleWakeNotifyModernStandbyExitWorker(LARGE_INTEGER *P)
 {
   LARGE_INTEGER *v2; // rbx

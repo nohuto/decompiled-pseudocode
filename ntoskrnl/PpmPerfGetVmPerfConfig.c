@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmPerfGetVmPerfConfig @ 0x14058AC84
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ * Callees:
+ *     PpmReleaseLock @ 0x1402D1F40 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402D1F90 (PpmAcquireLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall PpmPerfGetVmPerfConfig(int a1, unsigned __int64 *a2)
 {
   unsigned int v4; // ebx

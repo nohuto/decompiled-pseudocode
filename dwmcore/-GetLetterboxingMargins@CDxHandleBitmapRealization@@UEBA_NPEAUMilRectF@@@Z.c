@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetLetterboxingMargins@CDxHandleBitmapRealization@@UEBA_NPEAUMilRectF@@@Z @ 0x18001A290
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CDxHandleBitmapRealization::GetLetterboxingMargins(
         CDxHandleBitmapRealization *this,
         struct MilRectF *a2)

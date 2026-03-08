@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiUEventQueuePendingEvent @ 0x140680430
+ * Callers:
+ *     PiUEventNotifyClient @ 0x14068032C (PiUEventNotifyClient.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PiUEventQueuePendingEvent(__int64 a1, _QWORD *a2)
 {
   __int64 result; // rax

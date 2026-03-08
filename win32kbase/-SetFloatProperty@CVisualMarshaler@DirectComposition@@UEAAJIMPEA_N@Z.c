@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetFloatProperty@CVisualMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C005AA30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C0006C90 (-SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z.c)
+ *     ?HasAnimations@CResourceMarshaler@DirectComposition@@QEAA_NI@Z @ 0x1C005AC44 (-HasAnimations@CResourceMarshaler@DirectComposition@@QEAA_NI@Z.c)
+ */
+
 __int64 __fastcall DirectComposition::CVisualMarshaler::SetFloatProperty(
         DirectComposition::CVisualMarshaler *this,
         unsigned int a2,

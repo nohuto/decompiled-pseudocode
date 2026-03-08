@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIWakeCompleteRequestQueue @ 0x1C0044B4C
+ * Callers:
+ *     OSNotifyDeviceWakeCallBack @ 0x1C0033670 (OSNotifyDeviceWakeCallBack.c)
+ *     ACPIWakeEmptyRequestQueue @ 0x1C00451C0 (ACPIWakeEmptyRequestQueue.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qLqss @ 0x1C0009C8C (WPP_RECORDER_SF_qLqss.c)
+ *     ACPIDeviceIrpWaitWakeRequestComplete @ 0x1C001E0B8 (ACPIDeviceIrpWaitWakeRequestComplete.c)
+ */
+
 void __fastcall ACPIWakeCompleteRequestQueue(_QWORD **a1, int a2)
 {
   _QWORD *v2; // rbx

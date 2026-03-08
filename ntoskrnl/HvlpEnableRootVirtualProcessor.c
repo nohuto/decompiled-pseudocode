@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvlpEnableRootVirtualProcessor @ 0x14093E468
+ * Callers:
+ *     HvlInitializeProcessor @ 0x14080AFA0 (HvlInitializeProcessor.c)
+ * Callees:
+ *     HvlpGetLpcbByApicId @ 0x14053EB98 (HvlpGetLpcbByApicId.c)
+ *     HvlpCreateRootVirtualProcessor @ 0x14093E334 (HvlpCreateRootVirtualProcessor.c)
+ */
+
 __int64 __fastcall HvlpEnableRootVirtualProcessor(__int64 a1, int a2)
 {
   int *LpcbByApicId; // rax

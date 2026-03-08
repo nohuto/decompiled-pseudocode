@@ -1,3 +1,18 @@
+/*
+ * XREFs of Isoch_MapTransfers @ 0x1C0001C9C
+ * Callers:
+ *     Isoch_EvtDmaCallback @ 0x1C0001010 (Isoch_EvtDmaCallback.c)
+ *     Isoch_EP_StartMapping @ 0x1C0001C10 (Isoch_EP_StartMapping.c)
+ *     Isoch_ProcessTransferEventWithED1 @ 0x1C0001EC0 (Isoch_ProcessTransferEventWithED1.c)
+ *     Isoch_WdfEvtIoQueueReadyNotification @ 0x1C0003140 (Isoch_WdfEvtIoQueueReadyNotification.c)
+ *     Isoch_CommonBufferCallback @ 0x1C0043B30 (Isoch_CommonBufferCallback.c)
+ *     Isoch_ProcessTransferRingEmptyEvent @ 0x1C004503C (Isoch_ProcessTransferRingEmptyEvent.c)
+ * Callees:
+ *     Isoch_MappingLoop @ 0x1C0001D18 (Isoch_MappingLoop.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C001E054 (WPP_RECORDER_SF_DDD.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Isoch_MapTransfers(__int64 a1)
 {
   char i; // di

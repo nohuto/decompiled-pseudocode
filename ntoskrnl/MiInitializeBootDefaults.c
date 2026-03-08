@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiInitializeBootDefaults @ 0x140B6EF9C
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     strstr @ 0x1403D3650 (strstr.c)
+ */
+
 __int64 __fastcall MiInitializeBootDefaults(__int64 a1)
 {
   int v1; // eax

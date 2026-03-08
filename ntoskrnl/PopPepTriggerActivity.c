@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopPepTriggerActivity @ 0x140307C1C
+ * Callers:
+ *     PopPepTryPowerUpComponent @ 0x140304C68 (PopPepTryPowerUpComponent.c)
+ *     PopPepUpdateIdleState @ 0x140304DB8 (PopPepUpdateIdleState.c)
+ *     PopPepTryPowerDownDevice @ 0x1403050D0 (PopPepTryPowerDownDevice.c)
+ *     PopPepProcessEvent @ 0x140307424 (PopPepProcessEvent.c)
+ *     PopPepSurprisePowerOn @ 0x14059D930 (PopPepSurprisePowerOn.c)
+ * Callees:
+ *     PopPepCancelActivities @ 0x140307390 (PopPepCancelActivities.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ */
+
 __int64 __fastcall PopPepTriggerActivity(__int64 a1, __int64 a2, int a3, unsigned int a4)
 {
   ULONG_PTR v4; // rbx

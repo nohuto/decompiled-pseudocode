@@ -1,3 +1,13 @@
+/*
+ * XREFs of WPP_RECORDER_AND_TRACE_SF_Dq @ 0x1C01AF928
+ * Callers:
+ *     _anonymous_namespace_::FAllowForegroundActivate @ 0x1C0022378 (_anonymous_namespace_--FAllowForegroundActivate.c)
+ *     UserJobCallout @ 0x1C003C000 (UserJobCallout.c)
+ *     ?xxxWindowSizeStartingHandler@CallShell@@YAXPEAUtagWND@@H@Z @ 0x1C0221E40 (-xxxWindowSizeStartingHandler@CallShell@@YAXPEAUtagWND@@H@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_AND_TRACE_SF_Dq(
         __int64 a1,
         char a2,

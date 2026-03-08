@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiFdoConnectInterrupt @ 0x1C01F0E70
+ * Callers:
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiFdoGetInterruptIrql @ 0x1C01F0F98 (DpiFdoGetInterruptIrql.c)
+ *     DpiLdaGetInterruptIrqlForChain @ 0x1C03A38A0 (DpiLdaGetInterruptIrqlForChain.c)
+ */
+
 __int64 __fastcall DpiFdoConnectInterrupt(_QWORD *a1)
 {
   __int64 v1; // rdi

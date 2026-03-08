@@ -1,3 +1,23 @@
+/*
+ * XREFs of KiAddThreadToReadyQueue @ 0x140257FD0
+ * Callers:
+ *     KiQueueReadyThread @ 0x140257C00 (KiQueueReadyThread.c)
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KiScheduleSoftParkElectionIfNecessary @ 0x140258400 (KiScheduleSoftParkElectionIfNecessary.c)
+ *     KiAddThreadToScbQueue @ 0x1402AE688 (KiAddThreadToScbQueue.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1403428F0 (KiGetThreadEffectiveRankNonZero.c)
+ *     KeQueryGroupAffinityEx @ 0x1403B16A0 (KeQueryGroupAffinityEx.c)
+ *     KiCheckVpBackingLongSpinWaitHypercall @ 0x1403C8140 (KiCheckVpBackingLongSpinWaitHypercall.c)
+ *     HvlNotifyLongSpinWait @ 0x1403C8170 (HvlNotifyLongSpinWait.c)
+ *     KiAcquireSoftParkElectionLock @ 0x14040A5D8 (KiAcquireSoftParkElectionLock.c)
+ *     KiReadGuestSchedulerAssistPriority @ 0x14040A618 (KiReadGuestSchedulerAssistPriority.c)
+ *     Feature_Servicing_SoftParkFixes__private_IsEnabledNoReporting @ 0x14040AF08 (Feature_Servicing_SoftParkFixes__private_IsEnabledNoReporting.c)
+ *     KiUpdateLocalReadyQueueStatisticsOnInsertion @ 0x14040AFD4 (KiUpdateLocalReadyQueueStatisticsOnInsertion.c)
+ */
+
 __int64 __fastcall KiAddThreadToReadyQueue(__int64 a1, __int64 a2, __int64 a3, char a4, unsigned int a5)
 {
   __int64 v5; // rsi

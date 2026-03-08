@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ProtectWindowBitmap@@YAHPEAUtagWND@@K@Z @ 0x1C022FA64
+ * Callers:
+ *     ?ChangeWindowTreeProtection@@YAHPEAUtagWND@@K@Z @ 0x1C022F838 (-ChangeWindowTreeProtection@@YAHPEAUtagWND@@K@Z.c)
+ * Callees:
+ *     ChangeWindowBitmapOwner @ 0x1C01BDDD4 (ChangeWindowBitmapOwner.c)
+ *     GreProtectSpriteContent @ 0x1C026A7F8 (GreProtectSpriteContent.c)
+ */
+
 __int64 __fastcall ProtectWindowBitmap(struct tagWND *a1, unsigned int a2)
 {
   int v4; // esi

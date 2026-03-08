@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlpFcUpdateFeatureConfiguration @ 0x1409C0408
+ * Callers:
+ *     CmFcManagerUpdateFeatureConfigurations @ 0x140A24640 (CmFcManagerUpdateFeatureConfigurations.c)
+ * Callees:
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpFcApplyUpdateAndAddFeature @ 0x1409BFDE4 (RtlpFcApplyUpdateAndAddFeature.c)
+ *     RtlpFcAreSortedFeatureUpdatesValid @ 0x1409BFE58 (RtlpFcAreSortedFeatureUpdatesValid.c)
+ *     RtlpFcCalculateRequiredSizeForNewFeatureTable @ 0x1409BFEF0 (RtlpFcCalculateRequiredSizeForNewFeatureTable.c)
+ *     RtlpFcCompareFeatureToUpdate @ 0x1409C0180 (RtlpFcCompareFeatureToUpdate.c)
+ *     RtlpFcCreateAndAddFeatureFromUpdate @ 0x1409C023C (RtlpFcCreateAndAddFeatureFromUpdate.c)
+ */
+
 NTSTATUS __fastcall RtlpFcUpdateFeatureConfiguration(
         _DWORD *a1,
         __int64 a2,

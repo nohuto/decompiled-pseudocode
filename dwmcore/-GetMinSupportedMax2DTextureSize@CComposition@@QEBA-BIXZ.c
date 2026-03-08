@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetMinSupportedMax2DTextureSize@CComposition@@QEBA?BIXZ @ 0x18004CC04
+ * Callers:
+ *     ?RequireClippedBounds@CBackdropVisualImage@@SA_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x18004C748 (-RequireClippedBounds@CBackdropVisualImage@@SA_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPoi.c)
+ *     ?ValidateRootAndSourceRectangle@CBackdropVisualImage@@QEAAJPEAVCVisual@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_NPEA_N@Z @ 0x18004C8B4 (-ValidateRootAndSourceRectangle@CBackdropVisualImage@@QEAAJPEAVCVisual@@AEBV-$TMilRect_@MUMilRec.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CComposition::GetMinSupportedMax2DTextureSize(CComposition *this)
 {
   int v1; // ecx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of _anonymous_namespace_::_SaveTopologySetCallback @ 0x1C03B7D70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SaveTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEBVCCD_TOPOLOGY@@_N@Z @ 0x1C03BE870 (-SaveTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEBVCCD_TOPOLOGY@@_N@Z.c)
+ */
+
 __int64 __fastcall anonymous_namespace_::_SaveTopologySetCallback(
         struct CCD_STORE::TOPOLOGY_SET_DESCRIPTOR *a1,
         const struct CCD_TOPOLOGY *a2,

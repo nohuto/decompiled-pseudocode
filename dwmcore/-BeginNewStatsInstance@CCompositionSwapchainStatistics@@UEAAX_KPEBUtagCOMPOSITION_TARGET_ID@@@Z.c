@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?BeginNewStatsInstance@CCompositionSwapchainStatistics@@UEAAX_KPEBUtagCOMPOSITION_TARGET_ID@@@Z @ 0x18026A0B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??$_Emplace_reallocate@AEBUCompositionFrameInstance@@@?$vector@UCompositionFrameInstance@@V?$allocator@UCompositionFrameInstance@@@std@@@std@@QEAAPEAUCompositionFrameInstance@@QEAU2@AEBU2@@Z @ 0x180269D58 (--$_Emplace_reallocate@AEBUCompositionFrameInstance@@@-$vector@UCompositionFrameInstance@@V-$all.c)
+ */
+
 void __fastcall CCompositionSwapchainStatistics::BeginNewStatsInstance(
         CCompositionSwapchainStatistics *this,
         __int64 a2,

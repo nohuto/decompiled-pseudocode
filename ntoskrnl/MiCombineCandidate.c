@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiCombineCandidate @ 0x14032C640
+ * Callers:
+ *     MiCrcStillIntact @ 0x140210E18 (MiCrcStillIntact.c)
+ *     MiSharePages @ 0x140228990 (MiSharePages.c)
+ *     MiCapturePfnVm @ 0x14022A10C (MiCapturePfnVm.c)
+ *     MiMapArbitraryPage @ 0x14029EE40 (MiMapArbitraryPage.c)
+ *     MiRecheckCombineVm @ 0x14029F408 (MiRecheckCombineVm.c)
+ *     MiComputeCombineHash @ 0x14032C2E0 (MiComputeCombineHash.c)
+ *     MiCombinePte @ 0x140650CA0 (MiCombinePte.c)
+ *     MiCombineAllPhysicalMemory @ 0x1407C7D50 (MiCombineAllPhysicalMemory.c)
+ * Callees:
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     MI_IS_SOFTWARE_PTE_SHADOW_STACK @ 0x1402E9820 (MI_IS_SOFTWARE_PTE_SHADOW_STACK.c)
+ *     MiGetPagePrivilege @ 0x14032D3F0 (MiGetPagePrivilege.c)
+ *     MI_IS_RESET_PTE @ 0x14032F190 (MI_IS_RESET_PTE.c)
+ */
+
 __int64 __fastcall MiCombineCandidate(_QWORD *a1, char a2, _OWORD *a3)
 {
   __int128 v3; // xmm1

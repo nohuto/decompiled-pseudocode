@@ -1,3 +1,17 @@
+/*
+ * XREFs of DwmAsyncOwnerChange @ 0x1C00280A4
+ * Callers:
+ *     ?xxxHandleOwnerSwitch@@YAXPEAUtagWND@@00@Z @ 0x1C000A7BC (-xxxHandleOwnerSwitch@@YAXPEAUtagWND@@00@Z.c)
+ *     ?zzzImeSetOwnerWindow@@YAXPEAUtagWND@@0@Z @ 0x1C0026E94 (-zzzImeSetOwnerWindow@@YAXPEAUtagWND@@0@Z.c)
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ *     ?DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z @ 0x1C007E294 (-DwmNotifyChildrenLinkUnlink@@YAHPEBUtagDESKTOP@@H@Z.c)
+ *     ?zzzImeSetFutureOwner@@YAXPEAUtagWND@@0@Z @ 0x1C009EC08 (-zzzImeSetFutureOwner@@YAXPEAUtagWND@@0@Z.c)
+ *     ?zzzImeCanDestroyDefIME@@YAHPEAUtagWND@@0@Z @ 0x1C00A0A28 (-zzzImeCanDestroyDefIME@@YAHPEAUtagWND@@0@Z.c)
+ *     xxxDW_DestroyOwnedWindows @ 0x1C00C7B00 (xxxDW_DestroyOwnedWindows.c)
+ * Callees:
+ *     ?IncrementDWMWindowUniqueness@@YA_JXZ @ 0x1C0028164 (-IncrementDWMWindowUniqueness@@YA_JXZ.c)
+ */
+
 __int64 __fastcall DwmAsyncOwnerChange(PVOID Object, __int64 a2, __int64 a3)
 {
   unsigned int v6; // ebx

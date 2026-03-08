@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiAsyncSlabReplenish @ 0x1402DF31C
+ * Callers:
+ *     MiMakeZeroedPageTablesEx @ 0x14020F130 (MiMakeZeroedPageTablesEx.c)
+ *     MiAllocateMdlPagesByLists @ 0x14025B5F0 (MiAllocateMdlPagesByLists.c)
+ *     MiGetSlabPage @ 0x14025BA50 (MiGetSlabPage.c)
+ *     MiAllocateSlabPageForMdl @ 0x140620D1C (MiAllocateSlabPageForMdl.c)
+ *     MiDeleteSlabAllocator @ 0x1406541A0 (MiDeleteSlabAllocator.c)
+ *     MiFastReplenishWithAsync @ 0x1406542D8 (MiFastReplenishWithAsync.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     ExQueueWorkItemToPartition @ 0x1403439E0 (ExQueueWorkItemToPartition.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiAsyncSlabReplenish(__int64 a1, LARGE_INTEGER *a2, char a3)
 {
   volatile LONG *v5; // r13

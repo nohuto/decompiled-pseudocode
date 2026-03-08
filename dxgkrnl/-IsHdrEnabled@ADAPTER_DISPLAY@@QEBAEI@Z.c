@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsHdrEnabled@ADAPTER_DISPLAY@@QEBAEI@Z @ 0x1C0053038
+ * Callers:
+ *     ?PrepareIndependentFlipToken@@YAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAUDXGK_PRESENT_PARAMS@@PEAUVIDSCH_SUBMIT_DATA_BASE@@PEAVDXGCONTEXT@@PEAU_PRESENT_REDIRECTED_PARAMS@@PEAVCRefCountedBuffer@@@Z @ 0x1C01CA148 (-PrepareIndependentFlipToken@@YAJPEAU_D3DKMT_PRESENTHISTORYTOKEN@@PEAUDXGK_PRESENT_PARAMS@@PEAUV.c)
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 unsigned __int8 __fastcall ADAPTER_DISPLAY::IsHdrEnabled(ADAPTER_DISPLAY *this, unsigned int a2)
 {
   __int64 v3; // rbx

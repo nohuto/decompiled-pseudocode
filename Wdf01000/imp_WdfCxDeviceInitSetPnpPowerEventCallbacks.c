@@ -1,3 +1,17 @@
+/*
+ * XREFs of imp_WdfCxDeviceInitSetPnpPowerEventCallbacks @ 0x1C00367B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x1C000AC00 (memset.c)
+ *     memmove @ 0x1C000B140 (memmove.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0017BA8 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_DDd @ 0x1C0017C28 (WPP_IFR_SF_DDd.c)
+ *     WPP_IFR_SF_ @ 0x1C001BC64 (WPP_IFR_SF_.c)
+ *     FxValiateCx @ 0x1C00360F4 (FxValiateCx.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C0045BD8 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ */
+
 void __fastcall imp_WdfCxDeviceInitSetPnpPowerEventCallbacks(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFCXDEVICE_INIT *CxDeviceInit,

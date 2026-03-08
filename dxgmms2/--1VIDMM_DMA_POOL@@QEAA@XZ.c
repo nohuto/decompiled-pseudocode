@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1VIDMM_DMA_POOL@@QEAA@XZ @ 0x1C00B0E88
+ * Callers:
+ *     ??_GVIDMM_DMA_POOL@@QEAAPEAXI@Z @ 0x1C0016EDC (--_GVIDMM_DMA_POOL@@QEAAPEAXI@Z.c)
+ * Callees:
+ *     ?RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z @ 0x1C00B0F30 (-RemoveDmaBufferFromPool@VIDMM_DMA_POOL@@IEAAXPEAU_VIDMM_DMA_BUFFER@@@Z.c)
+ *     ?LockAllPoolForAddRemove@VIDMM_DMA_POOL@@KAXE@Z @ 0x1C00B1F2C (-LockAllPoolForAddRemove@VIDMM_DMA_POOL@@KAXE@Z.c)
+ *     ?UpdateFairResourceUsage@VIDMM_DMA_POOL@@IEAAXXZ @ 0x1C00B209C (-UpdateFairResourceUsage@VIDMM_DMA_POOL@@IEAAXXZ.c)
+ */
+
 void __fastcall VIDMM_DMA_POOL::~VIDMM_DMA_POOL(VIDMM_DMA_POOL **this)
 {
   VIDMM_DMA_POOL *v2; // rdx

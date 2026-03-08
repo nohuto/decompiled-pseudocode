@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwTraceXSchedulerPriorityUpdate @ 0x1405FB458
+ * Callers:
+ *     KeYieldExecution @ 0x140256BE0 (KeYieldExecution.c)
+ *     KiDeferredReadySingleThread @ 0x140259FB0 (KiDeferredReadySingleThread.c)
+ *     KiUpdateVPBackingThreadPriority @ 0x1402E1338 (KiUpdateVPBackingThreadPriority.c)
+ *     KiDirectSwitchThread @ 0x1403414A0 (KiDirectSwitchThread.c)
+ *     KiUpdateVpBackingThreadPriorityFromTopLevel @ 0x14056C0C8 (KiUpdateVpBackingThreadPriorityFromTopLevel.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall EtwTraceXSchedulerPriorityUpdate(__int64 a1, char a2, char a3, char a4, char *a5)
 {
   int v5; // r10d

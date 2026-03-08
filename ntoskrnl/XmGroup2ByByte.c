@@ -1,3 +1,14 @@
+/*
+ * XREFs of XmGroup2ByByte @ 0x140394790
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmEvaluateAddressSpecifier @ 0x1403B3F0C (XmEvaluateAddressSpecifier.c)
+ *     XmGetCodeByte @ 0x1403B40F4 (XmGetCodeByte.c)
+ *     XmSetDataType @ 0x1403B41C8 (XmSetDataType.c)
+ *     XmSetDestinationValue @ 0x1403B4248 (XmSetDestinationValue.c)
+ */
+
 __int64 __fastcall XmGroup2ByByte(__int64 a1)
 {
   __int64 v2; // rbx

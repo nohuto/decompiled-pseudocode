@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Initialize@CKst@@EEAAJXZ @ 0x1800CB220
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Initialize@CKstBase@@MEAAJXZ @ 0x1800CB270 (-Initialize@CKstBase@@MEAAJXZ.c)
+ *     ?InitializeMmcssTask@CKst@@AEAAJXZ @ 0x1800CBDF4 (-InitializeMmcssTask@CKst@@AEAAJXZ.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
 __int64 __fastcall CKst::Initialize(CKst *this)
 {
   int v2; // ebx

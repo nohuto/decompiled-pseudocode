@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CHMRefHwndByHandle@@QEAA@XZ @ 0x1C00A2FD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HMUnlockObject @ 0x1C0072980 (HMUnlockObject.c)
+ *     HMUnlockObjectInternal @ 0x1C0072A40 (HMUnlockObjectInternal.c)
+ */
+
 void __fastcall CHMRefHwndByHandle::~CHMRefHwndByHandle(CHMRefHwndByHandle *this)
 {
   __int64 v2; // rcx

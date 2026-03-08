@@ -1,3 +1,13 @@
+/*
+ * XREFs of GreWindowBeginLayoutUpdate @ 0x1C00161C4
+ * Callers:
+ *     NtUserBeginLayoutUpdate @ 0x1C00EEB80 (NtUserBeginLayoutUpdate.c)
+ * Callees:
+ *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C00296D4 (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
+ *     IsDwmActive @ 0x1C002CF30 (IsDwmActive.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall GreWindowBeginLayoutUpdate(Gre::Base *a1, __int64 a2)
 {
   unsigned int v3; // ebx

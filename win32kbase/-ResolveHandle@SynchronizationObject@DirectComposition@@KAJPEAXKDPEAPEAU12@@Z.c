@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ResolveHandle@SynchronizationObject@DirectComposition@@KAJPEAXKDPEAPEAU12@@Z @ 0x1C0249BB4
+ * Callers:
+ *     NtDCompositionCommitChannel @ 0x1C005FC90 (NtDCompositionCommitChannel.c)
+ *     NtDCompositionSubmitDWMBatch @ 0x1C0060E20 (NtDCompositionSubmitDWMBatch.c)
+ *     DCompositionCreateSynchronizationObject @ 0x1C0247B90 (DCompositionCreateSynchronizationObject.c)
+ *     NtDCompositionCommitSynchronizationObject @ 0x1C0247F70 (NtDCompositionCommitSynchronizationObject.c)
+ * Callees:
+ *     ?ResolveHandle@CompositionObject@@SAJPEAXKDW4CompositionObjectType@@PEAPEAU1@@Z @ 0x1C00A7DF8 (-ResolveHandle@CompositionObject@@SAJPEAXKDW4CompositionObjectType@@PEAPEAU1@@Z.c)
+ */
+
 __int64 __fastcall DirectComposition::SynchronizationObject::ResolveHandle(
         void *a1,
         ACCESS_MASK a2,

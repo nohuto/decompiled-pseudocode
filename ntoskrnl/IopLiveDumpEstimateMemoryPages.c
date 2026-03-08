@@ -1,3 +1,23 @@
+/*
+ * XREFs of IopLiveDumpEstimateMemoryPages @ 0x140A9811C
+ * Callers:
+ *     IopLiveDumpAllocAndInitResources @ 0x1409495FC (IopLiveDumpAllocAndInitResources.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlClearAllBitsEx @ 0x1402D4520 (RtlClearAllBitsEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HvlCalculateLivedumpSize @ 0x140545350 (HvlCalculateLivedumpSize.c)
+ *     IopLiveDumpGetMillisecondCounter @ 0x14055793C (IopLiveDumpGetMillisecondCounter.c)
+ *     IopLiveDumpTraceBufferEstimation @ 0x140557E84 (IopLiveDumpTraceBufferEstimation.c)
+ *     IopLiveDumpTraceMmDuplicateMemoryFailure @ 0x140558EE0 (IopLiveDumpTraceMmDuplicateMemoryFailure.c)
+ *     IopLiveDumpTraceQueryHvlDumpSizeFailure @ 0x140559194 (IopLiveDumpTraceQueryHvlDumpSizeFailure.c)
+ *     RtlNumberOfSetBitsEx @ 0x1405A6770 (RtlNumberOfSetBitsEx.c)
+ *     IopLiveDumpCapture @ 0x14094AEEC (IopLiveDumpCapture.c)
+ *     IopLiveDumpCallRemovePagesCallbacks @ 0x140A97494 (IopLiveDumpCallRemovePagesCallbacks.c)
+ *     IopLiveDumpUncorralProcessors @ 0x140A99588 (IopLiveDumpUncorralProcessors.c)
+ */
+
 __int64 __fastcall IopLiveDumpEstimateMemoryPages(__int64 a1)
 {
   __int64 MillisecondCounter; // rax

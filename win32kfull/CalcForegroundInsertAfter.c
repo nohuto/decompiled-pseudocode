@@ -1,3 +1,16 @@
+/*
+ * XREFs of CalcForegroundInsertAfter @ 0x1C0041090
+ * Callers:
+ *     ?TrackBackground@@YAHPEAUtagWINDOWPOS@@PEAUtagWND@@1111@Z @ 0x1C0026330 (-TrackBackground@@YAHPEAUtagWINDOWPOS@@PEAUtagWND@@1111@Z.c)
+ *     ?CheckTopmost@@YAHPEAUtagWINDOWPOS@@@Z @ 0x1C0026674 (-CheckTopmost@@YAHPEAUtagWINDOWPOS@@@Z.c)
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C0036908 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ *     ?CheckOnTop@@YAHPEAUtagTHREADINFO@@PEAUtagWND@@I@Z @ 0x1C01B65B8 (-CheckOnTop@@YAHPEAUtagTHREADINFO@@PEAUtagWND@@I@Z.c)
+ * Callees:
+ *     GetLastTopMostWindow @ 0x1C0044610 (GetLastTopMostWindow.c)
+ *     ?GetLastNonBottomMostWindow@@YAPEAUtagWND@@PEAU1@H@Z @ 0x1C012A388 (-GetLastNonBottomMostWindow@@YAPEAUtagWND@@PEAU1@H@Z.c)
+ */
+
 struct tagWND *__fastcall CalcForegroundInsertAfter(struct tagWND *a1)
 {
   struct tagWND *LastNonBottomMostWindow; // rax

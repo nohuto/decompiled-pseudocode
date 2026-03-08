@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmObliterateRMTxArray @ 0x140A19310
+ * Callers:
+ *     CmpTryToRundownHive @ 0x1402BFA88 (CmpTryToRundownHive.c)
+ *     CmpPerformUnloadKey @ 0x14074A194 (CmpPerformUnloadKey.c)
+ * Callees:
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     CmpCleanupTransactionState @ 0x14073526C (CmpCleanupTransactionState.c)
+ */
+
 _QWORD ***__fastcall CmObliterateRMTxArray(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax

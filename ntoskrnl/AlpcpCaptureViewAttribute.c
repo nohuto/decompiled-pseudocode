@@ -1,3 +1,11 @@
+/*
+ * XREFs of AlpcpCaptureViewAttribute @ 0x140714E20
+ * Callers:
+ *     AlpcpCaptureAttributes @ 0x1407CAAD0 (AlpcpCaptureAttributes.c)
+ * Callees:
+ *     AlpcpCaptureViewAttributeInternal @ 0x140714E74 (AlpcpCaptureViewAttributeInternal.c)
+ */
+
 __int64 __fastcall AlpcpCaptureViewAttribute(__int64 a1, __int128 *a2, __int64 a3, __int64 a4)
 {
   __int128 v5; // [rsp+20h] [rbp-28h] BYREF

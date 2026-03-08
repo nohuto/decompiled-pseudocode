@@ -1,3 +1,13 @@
+/*
+ * XREFs of AslpImageRvaToVa @ 0x140A5680C
+ * Callers:
+ *     AslFileMappingGetImageTypeEx @ 0x140A51CE0 (AslFileMappingGetImageTypeEx.c)
+ *     AslpFileGetClrVersion @ 0x140A5533C (AslpFileGetClrVersion.c)
+ *     AslpFileQueryExportName @ 0x140A565BC (AslpFileQueryExportName.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall AslpImageRvaToVa(__int64 a1, __int64 a2, unsigned int a3)
 {
   unsigned int v5; // r11d

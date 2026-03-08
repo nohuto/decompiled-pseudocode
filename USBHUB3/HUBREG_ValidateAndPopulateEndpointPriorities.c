@@ -1,3 +1,16 @@
+/*
+ * XREFs of HUBREG_ValidateAndPopulateEndpointPriorities @ 0x1C0034C18
+ * Callers:
+ *     HUBREG_QueryValuesInDeviceHardwareKey @ 0x1C0086210 (HUBREG_QueryValuesInDeviceHardwareKey.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     RtlUnicodeStringInit @ 0x1C003444C (RtlUnicodeStringInit.c)
+ *     WPP_RECORDER_SF_S @ 0x1C00344CC (WPP_RECORDER_SF_S.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 char __fastcall HUBREG_ValidateAndPopulateEndpointPriorities(__int64 a1, __int64 a2)
 {
   unsigned int v3; // r13d

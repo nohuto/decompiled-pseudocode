@@ -1,3 +1,11 @@
+/*
+ * XREFs of EngLockDriverObj @ 0x1C0198060
+ * Callers:
+ *     ?GrepCloseCurrentProcess@@YAHXZ @ 0x1C006D158 (-GrepCloseCurrentProcess@@YAHXZ.c)
+ * Callees:
+ *     HmgLockEx @ 0x1C004AED0 (HmgLockEx.c)
+ */
+
 DRIVEROBJ *__stdcall EngLockDriverObj(HDRVOBJ hdo)
 {
   DRIVEROBJ *v1; // rbx

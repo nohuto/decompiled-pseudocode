@@ -1,3 +1,12 @@
+/*
+ * XREFs of ObpLookupDirectoryUsingHash @ 0x14076174C
+ * Callers:
+ *     ObpLookupObjectName @ 0x1406E86B0 (ObpLookupObjectName.c)
+ *     ObpLookupDirectoryEntry @ 0x14076161C (ObpLookupDirectoryEntry.c)
+ * Callees:
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ */
+
 __int64 __fastcall ObpLookupDirectoryUsingHash(__int64 a1, const UNICODE_STRING *a2, __int64 a3, char a4)
 {
   BOOLEAN v5; // bp

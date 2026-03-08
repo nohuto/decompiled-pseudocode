@@ -1,3 +1,11 @@
+/*
+ * XREFs of PipSmBiosFindStruct @ 0x140B56CD0
+ * Callers:
+ *     PipInitComputerIds @ 0x140B552F0 (PipInitComputerIds.c)
+ * Callees:
+ *     <none>
+ */
+
 _BYTE *__fastcall PipSmBiosFindStruct(char a1, char a2, _BYTE *a3, int a4)
 {
   unsigned __int64 v4; // r9

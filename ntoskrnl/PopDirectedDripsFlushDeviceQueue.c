@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopDirectedDripsFlushDeviceQueue @ 0x14099D044
+ * Callers:
+ *     PopDirectedDripsBuildBroadcastTreeFull @ 0x14099CB70 (PopDirectedDripsBuildBroadcastTreeFull.c)
+ *     PopDirectedDripsBuildPs4BroadcastTree @ 0x14099CEBC (PopDirectedDripsBuildPs4BroadcastTree.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall PopDirectedDripsFlushDeviceQueue(_QWORD **a1)
 {
   _QWORD *result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of _GetPriorityClipboardFormat @ 0x1C02006A8
+ * Callers:
+ *     NtUserGetPriorityClipboardFormat @ 0x1C01D4400 (NtUserGetPriorityClipboardFormat.c)
+ * Callees:
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00BD7B8 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ *     ?CheckClipboardAccessForIntegrityLevel@@YAHUtagUIPI_INFO@@0@Z @ 0x1C014972C (-CheckClipboardAccessForIntegrityLevel@@YAHUtagUIPI_INFO@@0@Z.c)
+ *     ?IsFmtBlocked@@YAHI@Z @ 0x1C01FEEA4 (-IsFmtBlocked@@YAHI@Z.c)
+ */
+
 __int64 __fastcall GetPriorityClipboardFormat(__int64 a1, int a2)
 {
   unsigned int *v3; // r14

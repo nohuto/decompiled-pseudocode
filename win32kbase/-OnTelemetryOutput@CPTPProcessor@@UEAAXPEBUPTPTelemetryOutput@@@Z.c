@@ -1,3 +1,25 @@
+/*
+ * XREFs of ?OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z @ 0x1C020E7E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     HMValidateHandleNoSecure @ 0x1C007A1CC (HMValidateHandleNoSecure.c)
+ *     ?HandlePTPTelemetry@Usage@PTPTelemetry@@SAXXZ @ 0x1C00D8CA0 (-HandlePTPTelemetry@Usage@PTPTelemetry@@SAXXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     EtwTraceTouchPadAAP @ 0x1C00EDEA0 (EtwTraceTouchPadAAP.c)
+ *     EtwTracePTPElasticDragModeStart @ 0x1C0163B10 (EtwTracePTPElasticDragModeStart.c)
+ *     EtwTracePTPElasticDragModeStop @ 0x1C0163B40 (EtwTracePTPElasticDragModeStop.c)
+ *     EtwTraceTouchPadCurtainState @ 0x1C01642D0 (EtwTraceTouchPadCurtainState.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$03@@U?$_tlgWrapperByVal@$01@@U2@U?$_tlgWrapBuffer@U_UNICODE_STRING@@@@U?$_tlgWrapperByVal@$07@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$03@@AEBU?$_tlgWrapperByVal@$01@@4AEBU?$_tlgWrapBuffer@U_UNICODE_STRING@@@@AEBU?$_tlgWrapperByVal@$07@@@Z @ 0x1C020C964 (--$Write@U-$_tlgWrapperByVal@$03@@U-$_tlgWrapperByVal@$01@@U2@U-$_tlgWrapBuffer@U_UNICODE_STRING.c)
+ *     ?IncrementTotalTime@Usage@PTPTelemetry@@SAXW4tagPTP_TELEM_TOTALTIME@@_K@Z @ 0x1C020DF10 (-IncrementTotalTime@Usage@PTPTelemetry@@SAXW4tagPTP_TELEM_TOTALTIME@@_K@Z.c)
+ *     ?OnEndSession@Usage@PTPTelemetry@@SAX_J@Z @ 0x1C020E014 (-OnEndSession@Usage@PTPTelemetry@@SAX_J@Z.c)
+ *     ?OnNewContact@Usage@PTPTelemetry@@SAX_J@Z @ 0x1C020E698 (-OnNewContact@Usage@PTPTelemetry@@SAX_J@Z.c)
+ *     ?OnNewSession@Usage@PTPTelemetry@@SAX_J@Z @ 0x1C020E6EC (-OnNewSession@Usage@PTPTelemetry@@SAX_J@Z.c)
+ *     ?SetLastAction@Usage@PTPTelemetry@@SAXW4tagPTP_ACTION@@@Z @ 0x1C020F1BC (-SetLastAction@Usage@PTPTelemetry@@SAXW4tagPTP_ACTION@@@Z.c)
+ *     ApiSetTraceLoggingPTPWarpBack @ 0x1C0246A78 (ApiSetTraceLoggingPTPWarpBack.c)
+ */
+
 void __fastcall CPTPProcessor::OnTelemetryOutput(
         CPTPProcessor *this,
         const struct PTPTelemetryOutput *a2,

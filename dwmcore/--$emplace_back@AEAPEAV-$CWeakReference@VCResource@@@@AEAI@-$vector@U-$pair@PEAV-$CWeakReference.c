@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$emplace_back@AEAPEAV?$CWeakReference@VCResource@@@@AEAI@?$vector@U?$pair@PEAV?$CWeakReference@VCResource@@@@I@std@@V?$allocator@U?$pair@PEAV?$CWeakReference@VCResource@@@@I@std@@@2@@std@@QEAA?A_TAEAPEAV?$CWeakReference@VCResource@@@@AEAI@Z @ 0x18023B8B0
+ * Callers:
+ *     ?RegisterIndirectTarget@CBaseExpression@@QEAAJPEAV?$CWeakReference@VCResource@@@@I@Z @ 0x18023C1BC (-RegisterIndirectTarget@CBaseExpression@@QEAAJPEAV-$CWeakReference@VCResource@@@@I@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char *__fastcall std::vector<std::pair<CWeakReference<CResource> *,unsigned int>>::emplace_back<CWeakReference<CResource> * &,unsigned int &>(
         __int64 a1,
         _QWORD *a2,

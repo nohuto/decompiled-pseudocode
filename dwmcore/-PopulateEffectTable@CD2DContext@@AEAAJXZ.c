@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?PopulateEffectTable@CD2DContext@@AEAAJXZ @ 0x1800D0AC8
+ * Callers:
+ *     ?InitializeD2D@CD2DContext@@IEAAJPEAUIDXGIDevice3@@@Z @ 0x1800D07C0 (-InitializeD2D@CD2DContext@@IEAAJPEAUIDXGIDevice3@@@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ReleaseEffectTable@CD2DContext@@AEAAXXZ @ 0x1800D0BF0 (-ReleaseEffectTable@CD2DContext@@AEAAXXZ.c)
+ *     ??$ReleaseInterface@UID2D1Effect@@@@YAXAEAPEAUID2D1Effect@@@Z @ 0x1800D0C2C (--$ReleaseInterface@UID2D1Effect@@@@YAXAEAPEAUID2D1Effect@@@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CD2DContext::PopulateEffectTable(CD2DContext *this)
 {
   int v1; // ebx

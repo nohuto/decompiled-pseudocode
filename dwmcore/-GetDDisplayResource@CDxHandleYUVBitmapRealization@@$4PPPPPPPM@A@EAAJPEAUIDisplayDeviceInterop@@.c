@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDDisplayResource@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EAAJPEAUIDisplayDeviceInterop@@PEAPEAUIDisplaySurface@Core@Display@Devices@Windows@@PEAI@Z @ 0x18011EDF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CDxHandleYUVBitmapRealization::GetDDisplayResource(
         __int64 a1,
         struct IDisplayDeviceInterop *a2,

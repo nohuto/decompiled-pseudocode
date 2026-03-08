@@ -1,3 +1,21 @@
+/*
+ * XREFs of RtlpHpLfhSubsegmentCreate @ 0x14030AFE0
+ * Callers:
+ *     RtlpHpLfhSlotAllocate @ 0x140310BA0 (RtlpHpLfhSlotAllocate.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpAcquireLockShared @ 0x140309A10 (RtlpHpAcquireLockShared.c)
+ *     RtlpHpLfhBucketComputeNewSubsegmentBlockCount @ 0x14030AF34 (RtlpHpLfhBucketComputeNewSubsegmentBlockCount.c)
+ *     RtlpCalculateSubsegmentSizeIndex @ 0x14030B25C (RtlpCalculateSubsegmentSizeIndex.c)
+ *     RtlpHpLfhBucketSubsegmentStatsUpdate @ 0x14030B28C (RtlpHpLfhBucketSubsegmentStatsUpdate.c)
+ *     RtlpHpLfhSubsegmentInitialize @ 0x14030B340 (RtlpHpLfhSubsegmentInitialize.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall RtlpHpLfhSubsegmentCreate(__int64 a1, __int64 a2, unsigned int a3)
 {
   int v6; // esi

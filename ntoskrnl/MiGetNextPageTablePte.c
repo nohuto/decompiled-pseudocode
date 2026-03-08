@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiGetNextPageTablePte @ 0x140224090
+ * Callers:
+ *     MiWalkPageTablesRecursively @ 0x140223160 (MiWalkPageTablesRecursively.c)
+ * Callees:
+ *     MmAccessFault @ 0x140267D40 (MmAccessFault.c)
+ *     MiLockPageTableInternal @ 0x14026A0D0 (MiLockPageTableInternal.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiReleaseWalkLocks @ 0x1402D45CC (MiReleaseWalkLocks.c)
+ *     MiIsPdeOrAboveAccessible @ 0x1402E21F4 (MiIsPdeOrAboveAccessible.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     MiFlushAllFilesystemPages @ 0x140626E68 (MiFlushAllFilesystemPages.c)
+ */
+
 __int64 __fastcall MiGetNextPageTablePte(int *a1, __int64 *a2, int a3)
 {
   __int64 v3; // rbp

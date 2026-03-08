@@ -1,3 +1,12 @@
+/*
+ * XREFs of AsiAddDataToSchema @ 0x140612CB0
+ * Callers:
+ *     ApiSetComposeSchema @ 0x1406125BC (ApiSetComposeSchema.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall AsiAddDataToSchema(__int64 a1, unsigned int *a2, const void *a3, unsigned int a4)
 {
   unsigned int v7; // ebx

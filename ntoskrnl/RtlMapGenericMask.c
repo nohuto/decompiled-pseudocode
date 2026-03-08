@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlMapGenericMask @ 0x140773950
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __stdcall RtlMapGenericMask(PACCESS_MASK AccessMask, PGENERIC_MAPPING GenericMapping)
 {
   ACCESS_MASK v2; // eax

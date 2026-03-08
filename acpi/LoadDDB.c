@@ -1,3 +1,19 @@
+/*
+ * XREFs of LoadDDB @ 0x1C004FA40
+ * Callers:
+ *     LoadFieldUnitDDB @ 0x1C004FB68 (LoadFieldUnitDDB.c)
+ *     LoadMemDDB @ 0x1C004FD4C (LoadMemDDB.c)
+ *     LoadTable @ 0x1C0056E80 (LoadTable.c)
+ *     AMLILoadDDB @ 0x1C00AB124 (AMLILoadDDB.c)
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     RtlStringCchCopyNA @ 0x1C002BADC (RtlStringCchCopyNA.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     FreeContext @ 0x1C0053624 (FreeContext.c)
+ *     PushFrame @ 0x1C0053C34 (PushFrame.c)
+ */
+
 __int64 __fastcall LoadDDB(_QWORD *Entry, const char *a2, __int64 a3, __int64 a4)
 {
   unsigned int v8; // esi

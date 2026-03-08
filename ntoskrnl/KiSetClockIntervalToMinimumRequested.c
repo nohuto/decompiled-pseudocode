@@ -1,3 +1,19 @@
+/*
+ * XREFs of KiSetClockIntervalToMinimumRequested @ 0x14056DA7C
+ * Callers:
+ *     KeClockInterruptNotify @ 0x14022CD80 (KeClockInterruptNotify.c)
+ *     KiResetClockIntervalOneShot @ 0x1402D935C (KiResetClockIntervalOneShot.c)
+ *     KiSetClockIntervalOneShot @ 0x1402D93BC (KiSetClockIntervalOneShot.c)
+ *     KiSetClockInterval @ 0x1403ACBC4 (KiSetClockInterval.c)
+ *     KiResetClockInterval @ 0x14056D814 (KiResetClockInterval.c)
+ * Callees:
+ *     KiSetClockTickRate @ 0x14022AF70 (KiSetClockTickRate.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     KiGetClockIntervalOneShot @ 0x1402D9434 (KiGetClockIntervalOneShot.c)
+ *     PoTraceSystemTimerResolutionKernel @ 0x1402D9468 (PoTraceSystemTimerResolutionKernel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 KiSetClockIntervalToMinimumRequested()
 {
   unsigned __int64 v0; // rax

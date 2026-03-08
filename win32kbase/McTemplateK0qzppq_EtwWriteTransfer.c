@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0qzppq_EtwWriteTransfer @ 0x1C0038028
+ * Callers:
+ *     EtwTraceAuditApiSetWindowsHookEx @ 0x1C0037F10 (EtwTraceAuditApiSetWindowsHookEx.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 __int64 McTemplateK0qzppq_EtwWriteTransfer(_DWORD a1, _DWORD a2, _DWORD a3, int a4, const wchar_t *a5, char a6, ...)
 {
   const wchar_t *v6; // rcx

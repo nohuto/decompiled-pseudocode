@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiPfnsWorthTrying @ 0x1403B6374
+ * Callers:
+ *     MiFindContiguousPagesEx @ 0x1403B5CF8 (MiFindContiguousPagesEx.c)
+ *     MiFindRebuildCandidate @ 0x140466112 (MiFindRebuildCandidate.c)
+ *     MmIdentifyPhysicalMemory @ 0x140A2C028 (MmIdentifyPhysicalMemory.c)
+ *     MmRelocatePfnList @ 0x140A39D10 (MmRelocatePfnList.c)
+ *     MiScrubNode @ 0x140A43A10 (MiScrubNode.c)
+ * Callees:
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     MiIsPageOnBadList @ 0x14034B1D0 (MiIsPageOnBadList.c)
+ *     MiGetPfnPageSizeIndexUnsynchronized @ 0x14035094C (MiGetPfnPageSizeIndexUnsynchronized.c)
+ *     MiGetLeafPfnBuddy @ 0x140386E8C (MiGetLeafPfnBuddy.c)
+ *     MiFindNextLowerLargePageCandidate @ 0x1403A0318 (MiFindNextLowerLargePageCandidate.c)
+ *     MiActivePageClaimCandidate @ 0x1403B68D8 (MiActivePageClaimCandidate.c)
+ *     MiPfnLargeBitSet @ 0x1403B6D48 (MiPfnLargeBitSet.c)
+ *     MiRequestIoPageMdlCacheRelease @ 0x1403D146C (MiRequestIoPageMdlCacheRelease.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiClusterVadFull @ 0x1404674C0 (MiClusterVadFull.c)
+ */
+
 __int64 __fastcall MiPfnsWorthTrying(__int64 a1, unsigned __int64 a2, __int64 a3, int a4, _DWORD *a5)
 {
   unsigned __int16 *v8; // rbp

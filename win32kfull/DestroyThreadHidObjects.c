@@ -1,3 +1,17 @@
+/*
+ * XREFs of DestroyThreadHidObjects @ 0x1C00D5730
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PtiMouseFromQ @ 0x1C0037050 (PtiMouseFromQ.c)
+ *     UpdateRawMouseMode @ 0x1C00CE364 (UpdateRawMouseMode.c)
+ *     FreeHidProcessRequest @ 0x1C00D58B8 (FreeHidProcessRequest.c)
+ *     ?SearchProcessHidRequest@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESSINFO@@GGPEAK@Z @ 0x1C00D5DF8 (-SearchProcessHidRequest@@YAPEAUtagPROCESS_HID_REQUEST@@PEAUtagPROCESSINFO@@GGPEAK@Z.c)
+ *     ??0?$ObjectLockRecursive@UtagObjLock@@@?$DomainExclusiveRecursive@$$V@?$DomainSharedRecursive@$$V@@QEAA@AEAUtagObjLock@@@Z @ 0x1C00D680C (--0-$ObjectLockRecursive@UtagObjLock@@@-$DomainExclusiveRecursive@$$V@-$DomainSharedRecursive@$$.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?HasRawKeyboardPerThreadRegistration@@YAHPEBUtagPROCESSINFO@@@Z @ 0x1C01AA8F0 (-HasRawKeyboardPerThreadRegistration@@YAHPEBUtagPROCESSINFO@@@Z.c)
+ */
+
 __int64 __fastcall DestroyThreadHidObjects(__int64 a1)
 {
   __int64 v2; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of AuthzBasepReplaceSecurityAttribute @ 0x140297E14
+ * Callers:
+ *     AuthzBasepSetSecurityAttributesToken @ 0x14029705C (AuthzBasepSetSecurityAttributesToken.c)
+ * Callees:
+ *     AuthzBasepAddSecurityAttribute @ 0x140296FB0 (AuthzBasepAddSecurityAttribute.c)
+ *     AuthzBasepDeleteSecurityAttribute @ 0x140297E80 (AuthzBasepDeleteSecurityAttribute.c)
+ */
+
 __int64 __fastcall AuthzBasepReplaceSecurityAttribute(__int64 a1, __int64 a2)
 {
   __int128 v4; // xmm1

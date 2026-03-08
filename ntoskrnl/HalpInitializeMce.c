@@ -1,3 +1,21 @@
+/*
+ * XREFs of HalpInitializeMce @ 0x140A87FF0
+ * Callers:
+ *     HalpInitializeErrSrc @ 0x140A87F30 (HalpInitializeErrSrc.c)
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402ABED0 (KeSetSystemGroupAffinityThread.c)
+ *     HalpInitializeGhesRecovery @ 0x1403A39F0 (HalpInitializeGhesRecovery.c)
+ *     HalpMceInitializeRecovery @ 0x1403B0B94 (HalpMceInitializeRecovery.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HalpMcaExtendedLogInitialize @ 0x14050110C (HalpMcaExtendedLogInitialize.c)
+ *     HalpMceInit @ 0x140A87B68 (HalpMceInit.c)
+ *     HalpMceInitProcessor @ 0x140A87C98 (HalpMceInitProcessor.c)
+ *     HalpMcaSetFeatureFlags @ 0x140A8E900 (HalpMcaSetFeatureFlags.c)
+ *     HalpHandlePreviousMcaErrors @ 0x140A91F70 (HalpHandlePreviousMcaErrors.c)
+ *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140A920B0 (HalpHandlePreviousMcaErrorsOnProcessor.c)
+ */
+
 __int64 __fastcall HalpInitializeMce(__int64 a1, _DWORD *a2, __int64 a3, __int64 a4)
 {
   __int64 v6; // rdx

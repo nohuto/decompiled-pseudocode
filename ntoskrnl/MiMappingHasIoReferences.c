@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiMappingHasIoReferences @ 0x14029B1A0
+ * Callers:
+ *     MiMapContiguousMemory @ 0x14029AF58 (MiMapContiguousMemory.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     MmProtectMdlSystemAddress @ 0x14061C990 (MmProtectMdlSystemAddress.c)
+ *     MmMapMdl @ 0x14062CC90 (MmMapMdl.c)
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14032E710 (MI_IS_PHYSICAL_ADDRESS.c)
+ */
+
 signed __int64 __fastcall MiMappingHasIoReferences(unsigned __int64 a1)
 {
   unsigned __int64 v1; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PcFlushChannel @ 0x140519A00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 __fastcall PcFlushChannel(__int64 *a1)
 {
   unsigned __int8 v1; // r8

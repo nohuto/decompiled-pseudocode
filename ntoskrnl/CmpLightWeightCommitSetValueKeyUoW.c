@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpLightWeightCommitSetValueKeyUoW @ 0x140A25BE0
+ * Callers:
+ *     CmpProcessLightWeightUOW @ 0x140A19C0C (CmpProcessLightWeightUOW.c)
+ * Callees:
+ *     CmpFreeTransientPoolWithTag @ 0x1402A4B0C (CmpFreeTransientPoolWithTag.c)
+ *     CmpFreeValue @ 0x1406BAA4C (CmpFreeValue.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpCleanUpKcbCachedSymlink @ 0x1407A751C (CmpCleanUpKcbCachedSymlink.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpLightWeightCleanupSetValueKeyUoW @ 0x140A252DC (CmpLightWeightCleanupSetValueKeyUoW.c)
+ */
+
 __int64 __fastcall CmpLightWeightCommitSetValueKeyUoW(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rbp

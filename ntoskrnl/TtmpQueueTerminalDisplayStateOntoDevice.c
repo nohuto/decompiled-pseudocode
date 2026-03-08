@@ -1,3 +1,12 @@
+/*
+ * XREFs of TtmpQueueTerminalDisplayStateOntoDevice @ 0x1409A0BB4
+ * Callers:
+ *     TtmpPushTerminalState @ 0x1409A0AE4 (TtmpPushTerminalState.c)
+ * Callees:
+ *     TtmiLogError @ 0x1409A536C (TtmiLogError.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void __fastcall TtmpQueueTerminalDisplayStateOntoDevice(__int64 a1, __int64 a2, int a3)
 {
   unsigned __int64 v3; // rsi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of BgpFoDestroy @ 0x140AEBCA8
+ * Callers:
+ *     BgpFwLibraryDisable @ 0x140AE91EC (BgpFwLibraryDisable.c)
+ *     BgpFwLibraryDestroy @ 0x140AEBA88 (BgpFwLibraryDestroy.c)
+ * Callees:
+ *     BgpFwFreeMemory @ 0x140382650 (BgpFwFreeMemory.c)
+ *     FopFreeFontData @ 0x140AE9314 (FopFreeFontData.c)
+ */
+
 void __fastcall BgpFoDestroy(__int64 a1)
 {
   __int64 *v2; // rbx

@@ -1,3 +1,27 @@
+/*
+ * XREFs of ACPIThermalLoopEx @ 0x1C00410F0
+ * Callers:
+ *     ACPIThermalDeviceControl @ 0x1C0040410 (ACPIThermalDeviceControl.c)
+ *     ACPIThermalEvent @ 0x1C0040A50 (ACPIThermalEvent.c)
+ *     ACPIThermalLoop @ 0x1C00410D8 (ACPIThermalLoop.c)
+ *     ACPIThermalReadTemperatureComplete @ 0x1C00419A0 (ACPIThermalReadTemperatureComplete.c)
+ *     ACPIThermalRereadTemperature @ 0x1C0041E34 (ACPIThermalRereadTemperature.c)
+ *     ACPIThermalStopZone @ 0x1C0041F54 (ACPIThermalStopZone.c)
+ *     ACPIThermalStopZoneWorker @ 0x1C0041F9C (ACPIThermalStopZoneWorker.c)
+ *     ACPIThermalStartDevice @ 0x1C0095DD0 (ACPIThermalStartDevice.c)
+ * Callees:
+ *     AcpiDiagTraceTemperatureChange @ 0x1C0008890 (AcpiDiagTraceTemperatureChange.c)
+ *     AcpiDiagTraceTemperatureTelemetry @ 0x1C00089D4 (AcpiDiagTraceTemperatureTelemetry.c)
+ *     AcpiDiagTraceThermalNotification @ 0x1C0008B38 (AcpiDiagTraceThermalNotification.c)
+ *     ACPIDeviceHasFirmwareDependencies @ 0x1C00144D4 (ACPIDeviceHasFirmwareDependencies.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     ACPIThermalCompletePendingIrps @ 0x1C00400B0 (ACPIThermalCompletePendingIrps.c)
+ *     ACPIThermalLoop @ 0x1C00410D8 (ACPIThermalLoop.c)
+ *     ACPIThermalTMPCallback @ 0x1C00421C0 (ACPIThermalTMPCallback.c)
+ *     ACPISetDeviceWorker @ 0x1C00474D4 (ACPISetDeviceWorker.c)
+ *     AMLIAsyncEvalObject @ 0x1C00478E8 (AMLIAsyncEvalObject.c)
+ */
+
 void __fastcall ACPIThermalLoopEx(__int64 a1, int a2, int a3)
 {
   __int64 v3; // rsi

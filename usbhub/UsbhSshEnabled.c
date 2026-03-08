@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhSshEnabled @ 0x1C00594D4
+ * Callers:
+ *     Usbh_FDO_WaitPnpRestart @ 0x1C0044500 (Usbh_FDO_WaitPnpRestart.c)
+ *     UsbhSshEnableDisable @ 0x1C005939C (UsbhSshEnableDisable.c)
+ * Callees:
+ *     UsbhDecHubBusy @ 0x1C0003DB0 (UsbhDecHubBusy.c)
+ *     UsbhEnableTimerObject @ 0x1C0008770 (UsbhEnableTimerObject.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 LONG __fastcall UsbhSshEnabled(__int64 a1, __int64 a2)
 {
   _DWORD *v4; // rdi

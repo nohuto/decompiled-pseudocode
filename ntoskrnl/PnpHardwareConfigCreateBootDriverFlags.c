@@ -1,3 +1,22 @@
+/*
+ * XREFs of PnpHardwareConfigCreateBootDriverFlags @ 0x14081B254
+ * Callers:
+ *     IopMarkBootPartition @ 0x140B54EB0 (IopMarkBootPartition.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwWaitForSingleObject @ 0x140412390 (ZwWaitForSingleObject.c)
+ *     ZwDeviceIoControlFile @ 0x1404123F0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateEvent @ 0x140412C10 (ZwCreateEvent.c)
+ *     ZwResetEvent @ 0x1404153B0 (ZwResetEvent.c)
+ *     _RegRtlQueryValue @ 0x1406D3E98 (_RegRtlQueryValue.c)
+ *     _SysCtxRegOpenKey @ 0x1406D4350 (_SysCtxRegOpenKey.c)
+ *     _RegRtlSetValue @ 0x140784FE4 (_RegRtlSetValue.c)
+ *     PipHardwareConfigOpenKey @ 0x14081B6E8 (PipHardwareConfigOpenKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpHardwareConfigCreateBootDriverFlags(__int64 a1, void *a2)
 {
   _DWORD *Pool2; // rdi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of FsRtlMdlReadEx @ 0x14079AA30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoSynchronousCallDriver @ 0x1402E9470 (IoSynchronousCallDriver.c)
+ *     IoFreeIrp @ 0x14030EC00 (IoFreeIrp.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     IoBuildAsynchronousFsdRequest @ 0x14036D3B0 (IoBuildAsynchronousFsdRequest.c)
+ *     FsRtlMdlRead @ 0x14079AAB0 (FsRtlMdlRead.c)
+ */
+
 __int64 __fastcall FsRtlMdlReadEx(
         PFILE_OBJECT FileObject,
         PLARGE_INTEGER StartingOffset,

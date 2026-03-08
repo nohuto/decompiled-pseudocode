@@ -1,3 +1,12 @@
+/*
+ * XREFs of DCompositionIsShellProcess @ 0x1C005D888
+ * Callers:
+ *     DrvpDisplayConfigGetDisplayDeviceInfo @ 0x1C006CAF8 (DrvpDisplayConfigGetDisplayDeviceInfo.c)
+ * Callees:
+ *     ?Release@CConnection@DirectComposition@@QEAAKXZ @ 0x1C005E51C (-Release@CConnection@DirectComposition@@QEAAKXZ.c)
+ *     ?GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ @ 0x1C006AA58 (-GetDefaultConnection@CConnection@DirectComposition@@SAPEAV12@XZ.c)
+ */
+
 bool DCompositionIsShellProcess()
 {
   bool v0; // bl

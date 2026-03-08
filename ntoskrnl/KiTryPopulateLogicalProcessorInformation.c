@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiTryPopulateLogicalProcessorInformation @ 0x1402A9990
+ * Callers:
+ *     KeQueryLogicalProcessorRelationship @ 0x1402AA2C0 (KeQueryLogicalProcessorRelationship.c)
+ * Callees:
+ *     KiOrAffinityEx @ 0x14022B190 (KiOrAffinityEx.c)
+ *     KiAndAffinityEx @ 0x140237720 (KiAndAffinityEx.c)
+ */
+
 __int64 __fastcall KiTryPopulateLogicalProcessorInformation(
         unsigned __int16 *a1,
         unsigned __int16 *a2,

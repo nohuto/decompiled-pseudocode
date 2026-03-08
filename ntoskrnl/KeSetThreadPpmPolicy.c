@@ -1,3 +1,16 @@
+/*
+ * XREFs of KeSetThreadPpmPolicy @ 0x1402ED02C
+ * Callers:
+ *     PspSetThreadPpmPolicy @ 0x14077DB40 (PspSetThreadPpmPolicy.c)
+ * Callees:
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140255D00 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiComputeHeteroThreadQos @ 0x1402569B0 (KiComputeHeteroThreadQos.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402ADF80 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiSetThreadQosLevelUnsafe @ 0x14045A058 (KiSetThreadQosLevelUnsafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeSetThreadPpmPolicy(__int64 a1, int a2)
 {
   unsigned __int8 CurrentIrql; // r15

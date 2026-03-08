@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchIsGpuAccessBlocked @ 0x1C00ACF70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 __fastcall VidSchIsGpuAccessBlocked(__int64 a1, __int64 a2)
 {
   int v2; // eax

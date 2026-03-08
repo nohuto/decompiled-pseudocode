@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_E?$LinearKeyframeAnimation@M@Particles@@UEAAPEAXI@Z @ 0x1801BF6A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ */
+
 _QWORD *__fastcall Particles::LinearKeyframeAnimation<float>::`vector deleting destructor'(_QWORD *a1, char a2)
 {
   void *v4; // rcx

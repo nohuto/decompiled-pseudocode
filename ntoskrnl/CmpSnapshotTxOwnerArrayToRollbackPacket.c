@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpSnapshotTxOwnerArrayToRollbackPacket @ 0x140A1BB24
+ * Callers:
+ *     CmpTryAcquireIXLockWithRollbackPacket @ 0x14074C1BC (CmpTryAcquireIXLockWithRollbackPacket.c)
+ * Callees:
+ *     CmpAddUoWToRollbackPacket @ 0x140A1B6D0 (CmpAddUoWToRollbackPacket.c)
+ *     CmpReserveRollbackPacketSpace @ 0x140A1B96C (CmpReserveRollbackPacketSpace.c)
+ */
+
 __int64 __fastcall CmpSnapshotTxOwnerArrayToRollbackPacket(unsigned int *a1, unsigned int *a2)
 {
   __int64 v2; // rbx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PspLookupProcessQuotaBlock @ 0x140745414
+ * Callers:
+ *     PspAssignProcessQuotaBlock @ 0x140745228 (PspAssignProcessQuotaBlock.c)
+ * Callees:
+ *     RtlEqualSid @ 0x140208A60 (RtlEqualSid.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     PspUnlockQuotaListShared @ 0x1402BECE8 (PspUnlockQuotaListShared.c)
+ *     PspUnlockQuotaListExclusive @ 0x1403B06EC (PspUnlockQuotaListExclusive.c)
+ *     PspHashKeyValue @ 0x140745510 (PspHashKeyValue.c)
+ *     PspSafeReferenceQuotaBlock @ 0x140747E00 (PspSafeReferenceQuotaBlock.c)
+ */
+
 __int64 __fastcall PspLookupProcessQuotaBlock(void *a1, __int64 a2, int a3, __int64 a4)
 {
   struct _KTHREAD *CurrentThread; // rbp

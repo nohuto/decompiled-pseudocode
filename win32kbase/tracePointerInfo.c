@@ -1,3 +1,12 @@
+/*
+ * XREFs of tracePointerInfo @ 0x1C00F03A6
+ * Callers:
+ *     traceFrame @ 0x1C01CCAA4 (traceFrame.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_DD @ 0x1C0035414 (WPP_RECORDER_AND_TRACE_SF_DD.c)
+ *     tracePointerFlags @ 0x1C01CCBEC (tracePointerFlags.c)
+ */
+
 __int64 __fastcall tracePointerInfo(unsigned int *a1, __int64 a2, __int64 a3)
 {
   LOBYTE(a2) = WPP_GLOBAL_Control != (PDEVICE_OBJECT)&WPP_GLOBAL_Control

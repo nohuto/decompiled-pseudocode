@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0?$ObjectLock@$$V@?$DomainExclusive@VDLT_HOOK@@@?$DomainShared@$$V@@QEAA@XZ @ 0x1C012DA70
+ * Callers:
+ *     zzzSetWindowsHookEx @ 0x1C009C8B4 (zzzSetWindowsHookEx.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DomainShared<>::DomainExclusive<DLT_HOOK>::ObjectLock<>::ObjectLock<>(__int64 a1)
 {
   unsigned int DLT; // eax

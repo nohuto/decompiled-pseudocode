@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtGdiPolyTextOutW @ 0x1C02C6840
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1EUDCCountRegion@@QEAA@XZ @ 0x1C0114AF8 (--1EUDCCountRegion@@QEAA@XZ.c)
+ *     ??0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z @ 0x1C0114B84 (--0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ?GrePolyTextOutW@@YAHPEAUHDC__@@PEAUtagPOLYTEXTW@@IKW4EntryPoint@RFONTOBJ@@@Z @ 0x1C02D9630 (-GrePolyTextOutW@@YAHPEAUHDC__@@PEAUtagPOLYTEXTW@@IKW4EntryPoint@RFONTOBJ@@@Z.c)
+ */
+
 __int64 __fastcall NtGdiPolyTextOutW(__int64 a1, char *a2, unsigned int a3, unsigned int a4)
 {
   unsigned int v6; // edi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?ReportEventWithDword@CDwmAppHost@@AEAAXGKK@Z @ 0x14000AF0C
+ * Callers:
+ *     ?Shutdown@CDwmAppHost@@QEAAXJ@Z @ 0x140003170 (-Shutdown@CDwmAppHost@@QEAAXJ@Z.c)
+ *     ?Initialize@CDwmAppHost@@QEAAJPEAUHINSTANCE__@@@Z @ 0x140003CD4 (-Initialize@CDwmAppHost@@QEAAJPEAUHINSTANCE__@@@Z.c)
+ *     ?OnReportEvent@CDwmAppHost@@AEAAX_K_J_N@Z @ 0x14000AC9C (-OnReportEvent@CDwmAppHost@@AEAAX_K_J_N@Z.c)
+ * Callees:
+ *     ?ReportEventW@CDwmAppHost@@AEAAXGKPEBG0@Z @ 0x140003FF8 (-ReportEventW@CDwmAppHost@@AEAAXGKPEBG0@Z.c)
+ *     ?StringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x14000476C (-StringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     __security_check_cookie @ 0x140005510 (__security_check_cookie.c)
+ */
+
 void __fastcall CDwmAppHost::ReportEventWithDword(CDwmAppHost *this, WORD a2, DWORD a3)
 {
   CDwmAppHost *v5; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EmitSetTileModeCommand@CImageLegacyMilBrushMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C025939C
+ * Callers:
+ *     ?EmitUpdateCommands@CImageLegacyMilBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C025A0F0 (-EmitUpdateCommands@CImageLegacyMilBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ * Callees:
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0064740 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ */
+
 char __fastcall DirectComposition::CImageLegacyMilBrushMarshaler::EmitSetTileModeCommand(
         DirectComposition::CImageLegacyMilBrushMarshaler *this,
         struct DirectComposition::CBatch ***a2)

@@ -1,3 +1,31 @@
+/*
+ * XREFs of ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C0070484
+ * Callers:
+ *     RIMOnAsyncPnpWorkNotification @ 0x1C0038B90 (RIMOnAsyncPnpWorkNotification.c)
+ *     UserGetDesktopDC @ 0x1C003D300 (UserGetDesktopDC.c)
+ *     GreCreateCompatibleDC @ 0x1C0052510 (GreCreateCompatibleDC.c)
+ *     UserDeleteW32Process @ 0x1C006F580 (UserDeleteW32Process.c)
+ *     UserDeleteW32Thread @ 0x1C00702A0 (UserDeleteW32Thread.c)
+ *     DeactivateKSTInputProcessingHelper @ 0x1C0095134 (DeactivateKSTInputProcessingHelper.c)
+ *     ?RegisterDispatcherObject@CBaseInput@@QEAAJPEAVIRegisterInputDispatcherObjects@@@Z @ 0x1C009A640 (-RegisterDispatcherObject@CBaseInput@@QEAAJPEAVIRegisterInputDispatcherObjects@@@Z.c)
+ *     ?UserSessionSwitchBlock_Start@@YAJXZ @ 0x1C00B809C (-UserSessionSwitchBlock_Start@@YAJXZ.c)
+ *     ?UserSessionSwitchBlock_End@@YAXXZ @ 0x1C00B817C (-UserSessionSwitchBlock_End@@YAXXZ.c)
+ *     W32kEtwEnableCallback @ 0x1C00BE69C (W32kEtwEnableCallback.c)
+ *     ResetAccessibilityCountersOnMouseInput @ 0x1C01E63B0 (ResetAccessibilityCountersOnMouseInput.c)
+ * Callees:
+ *     IsThreadCrossSessionAttached @ 0x1C004B600 (IsThreadCrossSessionAttached.c)
+ *     IsEtwUserCritEnabled @ 0x1C004DF60 (IsEtwUserCritEnabled.c)
+ *     ?UpdateUserCritInfo@UserCritTelemetry@@QEAAX_KW4BucketType@1@@Z @ 0x1C004E1A8 (-UpdateUserCritInfo@UserCritTelemetry@@QEAAX_KW4BucketType@1@@Z.c)
+ *     ?SendUserCritSummary@UserCritTelemetry@@QEAAXXZ @ 0x1C004E418 (-SendUserCritSummary@UserCritTelemetry@@QEAAXXZ.c)
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     ?IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ @ 0x1C004F968 (-IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ.c)
+ *     EtwTraceAcquiredExclusiveUserCrit @ 0x1C004F99C (EtwTraceAcquiredExclusiveUserCrit.c)
+ *     HMUnlockObject @ 0x1C0072980 (HMUnlockObject.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     McTemplateK0xqx_EtwWriteTransfer @ 0x1C0167CA4 (McTemplateK0xqx_EtwWriteTransfer.c)
+ */
+
 ReEnterLeaveCrit *__fastcall ReEnterLeaveCrit::ReEnterLeaveCrit(
         ReEnterLeaveCrit *this,
         __int64 a2,

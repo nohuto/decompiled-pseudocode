@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?GetPresentStatistics@CLegacySwapChain@@UEAAJPEAUDXGI_FRAME_STATISTICS@@@Z @ 0x1802979D0
+ * Callers:
+ *     ?GetPresentStatistics@CLegacySwapChain@@$4PPPPPPPM@BLA@EAAJPEAUDXGI_FRAME_STATISTICS@@@Z @ 0x18011B770 (-GetPresentStatistics@CLegacySwapChain@@$4PPPPPPPM@BLA@EAAJPEAUDXGI_FRAME_STATISTICS@@@Z.c)
+ *     ?GetPresentStatistics@CLegacySwapChain@@$4PPPPPPPM@BLI@EAAJPEAUDXGI_FRAME_STATISTICS@@@Z @ 0x18011C7F0 (-GetPresentStatistics@CLegacySwapChain@@$4PPPPPPPM@BLI@EAAJPEAUDXGI_FRAME_STATISTICS@@@Z.c)
+ *     ?GetPresentStatistics@CLegacySwapChain@@$4PPPPPPPM@DFI@EAAJPEAUDXGI_FRAME_STATISTICS@@@Z @ 0x18011CEB0 (-GetPresentStatistics@CLegacySwapChain@@$4PPPPPPPM@DFI@EAAJPEAUDXGI_FRAME_STATISTICS@@@Z.c)
+ * Callees:
+ *     ?TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z @ 0x1800733C4 (-TranslateDXGIorD3DErrorInContext@@YA_NJW4Enum@DXGIFunctionContext@@PEAJ@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CLegacySwapChain::GetPresentStatistics(CLegacySwapChain *this, struct DXGI_FRAME_STATISTICS *a2)
 {
   __int64 v2; // rcx

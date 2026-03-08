@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?LegacyPresentRequired@COverlayContext@@AEBA_NXZ @ 0x1800C92B0
+ * Callers:
+ *     ?Present@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV?$vector@UtagRECT@@V?$allocator@UtagRECT@@@std@@@std@@I_N@Z @ 0x1800C9168 (-Present@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@IAEBV-$vector@UtagRECT@@V-$allocator@UtagR.c)
+ *     ?SyncLock@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@I_N@Z @ 0x1801DB0B8 (-SyncLock@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@I_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall COverlayContext::LegacyPresentRequired(COverlayContext *this)
 {
   char v1; // dl

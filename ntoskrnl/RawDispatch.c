@@ -1,3 +1,24 @@
+/*
+ * XREFs of RawDispatch @ 0x1406F2E80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402ECFB0 (FsRtlIsNtstatusExpected.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     RawReadWriteDeviceControl @ 0x1406F30A4 (RawReadWriteDeviceControl.c)
+ *     RawCreate @ 0x1406F3164 (RawCreate.c)
+ *     RawClose @ 0x1406F32E8 (RawClose.c)
+ *     RawCleanup @ 0x1406F3368 (RawCleanup.c)
+ *     RawQueryVolumeInformation @ 0x1406F362C (RawQueryVolumeInformation.c)
+ *     RawFileSystemControl @ 0x1406F36F8 (RawFileSystemControl.c)
+ *     RawQueryInformation @ 0x1409B5754 (RawQueryInformation.c)
+ *     RawSetInformation @ 0x1409B57F8 (RawSetInformation.c)
+ */
+
 __int64 __fastcall RawDispatch(__int64 a1, IRP *a2)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rdi

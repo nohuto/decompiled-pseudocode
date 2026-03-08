@@ -1,3 +1,11 @@
+/*
+ * XREFs of _dynamic_initializer_for__CCompositionAmbientLight::sc_Color__ @ 0x180001BB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 dynamic_initializer_for__CCompositionAmbientLight::sc_Color__()
 {
   __int64 result; // rax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiGetFastLargePages @ 0x14034D588
+ * Callers:
+ *     MiAllocateLargeZeroPages @ 0x14034DCB0 (MiAllocateLargeZeroPages.c)
+ * Callees:
+ *     MiChangePageAttributeContiguous @ 0x140214270 (MiChangePageAttributeContiguous.c)
+ *     MiProtectionToCacheAttribute @ 0x14028A2D0 (MiProtectionToCacheAttribute.c)
+ *     MiGetPfnPageSizeIndex @ 0x14034D770 (MiGetPfnPageSizeIndex.c)
+ *     MiUpdateLargePageBitMap @ 0x14034D79C (MiUpdateLargePageBitMap.c)
+ *     MiGetLargePagesDemoteAsNeeded @ 0x14034DF94 (MiGetLargePagesDemoteAsNeeded.c)
+ *     MiInitializeLargePfnList @ 0x14035059C (MiInitializeLargePfnList.c)
+ *     MiTryUnlinkNodeLargePages @ 0x14039BDDC (MiTryUnlinkNodeLargePages.c)
+ */
+
 __int64 __fastcall MiGetFastLargePages(int *a1, __int64 a2)
 {
   unsigned int v3; // eax

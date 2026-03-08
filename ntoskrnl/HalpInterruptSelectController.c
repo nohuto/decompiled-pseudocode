@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpInterruptSelectController @ 0x1403AF008
+ * Callers:
+ *     HalpInitializeInterrupts @ 0x140B3D448 (HalpInitializeInterrupts.c)
+ * Callees:
+ *     HalpInterruptInitializeController @ 0x14037B24C (HalpInterruptInitializeController.c)
+ *     HalpFindInterruptController @ 0x1403AF08C (HalpFindInterruptController.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ */
+
 __int64 __fastcall HalpInterruptSelectController(ULONG_PTR *a1)
 {
   ULONG_PTR InterruptController; // rax

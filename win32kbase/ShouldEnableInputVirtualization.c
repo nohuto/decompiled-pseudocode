@@ -1,3 +1,17 @@
+/*
+ * XREFs of ShouldEnableInputVirtualization @ 0x1C00982F4
+ * Callers:
+ *     InputInitialize @ 0x1C0096C0C (InputInitialize.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     RIMIsRunningOnDesktop @ 0x1C007B004 (RIMIsRunningOnDesktop.c)
+ *     RIMRegQueryDWord @ 0x1C00DA0B8 (RIMRegQueryDWord.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     Feature_InputVirtualization__private_ReportDeviceUsage @ 0x1C00E01B0 (Feature_InputVirtualization__private_ReportDeviceUsage.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ccccc @ 0x1C0221F40 (WPP_RECORDER_AND_TRACE_SF_ccccc.c)
+ *     HviGetHypervisorFeatures @ 0x1C0274644 (HviGetHypervisorFeatures.c)
+ */
+
 char __fastcall ShouldEnableInputVirtualization(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdx

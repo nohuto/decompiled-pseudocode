@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_Sdqdqq @ 0x1C0048730
+ * Callers:
+ *     UsbhQueryGlobalDeviceValue @ 0x1C0045E00 (UsbhQueryGlobalDeviceValue.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_Sdqdqq(__int64 a1, _DWORD a2, _DWORD a3, _DWORD a4, __int64 a5, const wchar_t *a6, ...)
 {
   const wchar_t *v6; // rbx

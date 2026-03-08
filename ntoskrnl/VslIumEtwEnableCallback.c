@@ -1,3 +1,13 @@
+/*
+ * XREFs of VslIumEtwEnableCallback @ 0x14093F8A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void __fastcall VslIumEtwEnableCallback(
         __int128 *SourceId,
         ULONG ControlCode,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmPerfQueryPhysicalCoreCount @ 0x1403A8180
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ */
+
 __int64 __fastcall PpmPerfQueryPhysicalCoreCount(int a1)
 {
   unsigned int v1; // ebx

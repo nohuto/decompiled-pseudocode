@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?HmgpComputeHandleValue@@YAPEAUHOBJ__@@PEBVOBJECT@@IQEAVENTRYOBJ@@@Z @ 0x1C006F1F0
+ * Callers:
+ *     HmgNextOwned @ 0x1C006DD80 (HmgNextOwned.c)
+ *     HmgNextGarbageCollectible @ 0x1C0186160 (HmgNextGarbageCollectible.c)
+ * Callees:
+ *     <none>
+ */
+
 struct HOBJ__ *__fastcall HmgpComputeHandleValue(
         const struct OBJECT *a1,
         unsigned __int16 a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Release@?$CMILCOMBaseT@VIDDASwapChain@@@@UEAAKXZ @ 0x1802A0030
+ * Callers:
+ *     ?Release@?$CMILCOMBaseT@VIDDASwapChain@@@@$4PPPPPPPM@IA@EAAKXZ @ 0x18011D3B0 (-Release@-$CMILCOMBaseT@VIDDASwapChain@@@@$4PPPPPPPM@IA@EAAKXZ.c)
+ * Callees:
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CMILCOMBaseT<IDDASwapChain>::Release(__int64 a1)
 {
   __int64 *v1; // rsi

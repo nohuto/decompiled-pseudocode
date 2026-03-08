@@ -1,3 +1,13 @@
+/*
+ * XREFs of DxgkInvalidateHwContextCB @ 0x1C00482E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiGetDxgAdapter @ 0x1C000E550 (DpiGetDxgAdapter.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DxgkInvalidateHwContextCB(__int64 a1)
 {
   int v2; // edx

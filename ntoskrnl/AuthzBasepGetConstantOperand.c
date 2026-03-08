@@ -1,3 +1,13 @@
+/*
+ * XREFs of AuthzBasepGetConstantOperand @ 0x1402E9A60
+ * Callers:
+ *     AuthzBasepEvaluateAceCondition @ 0x140246980 (AuthzBasepEvaluateAceCondition.c)
+ *     AuthzBasepGetNextValue @ 0x1403656C8 (AuthzBasepGetNextValue.c)
+ *     AuthzBasepCompareFQBNOperands @ 0x14066CC80 (AuthzBasepCompareFQBNOperands.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AuthzBasepGetConstantOperand(unsigned __int8 *a1, int a2, __int64 a3, int *a4)
 {
   unsigned int v4; // r10d

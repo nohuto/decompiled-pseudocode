@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Dispose@FxPkgPnp@@MEAAEXZ @ 0x1C00723D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z @ 0x1C000134C (-AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C000AC00 (memset.c)
+ *     ??_GFxQueryInterface@@QEAAPEAXI@Z @ 0x1C002B674 (--_GFxQueryInterface@@QEAAPEAXI@Z.c)
+ */
+
 unsigned __int8 __fastcall FxPkgPnp::Dispose(FxPkgPnp *this, _FX_DRIVER_GLOBALS *a2)
 {
   FxWaitLockInternal *p_m_QueryInterfaceLock; // rbx

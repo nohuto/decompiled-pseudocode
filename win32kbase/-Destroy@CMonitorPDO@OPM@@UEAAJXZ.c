@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Destroy@CMonitorPDO@OPM@@UEAAJXZ @ 0x1C017EB20
+ * Callers:
+ *     ??0CMonitorPDO@OPM@@QEAA@AEAU_LUID@@KPEAJ@Z @ 0x1C017E770 (--0CMonitorPDO@OPM@@QEAA@AEAU_LUID@@KPEAJ@Z.c)
+ *     ??1CMonitorPDO@OPM@@UEAA@XZ @ 0x1C017EA10 (--1CMonitorPDO@OPM@@UEAA@XZ.c)
+ *     ?Destroy@COPMProtectedOutput@@UEAAJXZ @ 0x1C01882B0 (-Destroy@COPMProtectedOutput@@UEAAJXZ.c)
+ * Callees:
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00B0000 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall OPM::CMonitorPDO::Destroy(OPM::CMonitorPDO *this)
 {
   void **v1; // rbx

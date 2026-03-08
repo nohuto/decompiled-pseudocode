@@ -1,3 +1,24 @@
+/*
+ * XREFs of VrpDestroyNamespaceNode @ 0x140737134
+ * Callers:
+ *     VrpPreLoadKey @ 0x140735EB4 (VrpPreLoadKey.c)
+ *     VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x140736258 (VrpHandleIoctlUnloadDynamicallyLoadedHives.c)
+ *     VrpHandleIoctlCreateNamespaceNode @ 0x140736B44 (VrpHandleIoctlCreateNamespaceNode.c)
+ *     VrpCleanupNamespace @ 0x140737928 (VrpCleanupNamespace.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x140A6F45C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ *     VrpPostUnloadKey @ 0x140A6FF3C (VrpPostUnloadKey.c)
+ * Callees:
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140283390 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwDeleteKey @ 0x140413E50 (ZwDeleteKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     VrpFindExactNamespaceNode @ 0x140737324 (VrpFindExactNamespaceNode.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall VrpDestroyNamespaceNode(size_t *a1, __int64 a2)
 {
   unsigned int v2; // r15d

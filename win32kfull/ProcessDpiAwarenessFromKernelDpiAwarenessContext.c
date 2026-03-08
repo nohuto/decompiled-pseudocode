@@ -1,3 +1,12 @@
+/*
+ * XREFs of ProcessDpiAwarenessFromKernelDpiAwarenessContext @ 0x1C00F8B80
+ * Callers:
+ *     ?TraceLoggingProcessUsageOnTerminationEvent@@YAXQEAUtagPROCESSINFO@@@Z @ 0x1C0012C2C (-TraceLoggingProcessUsageOnTerminationEvent@@YAXQEAUtagPROCESSINFO@@@Z.c)
+ *     ?TraceLoggingShowWindowDPIAwarenessEvent@@YAXQEAUtagWND@@@Z @ 0x1C00F8A64 (-TraceLoggingShowWindowDPIAwarenessEvent@@YAXQEAUtagWND@@@Z.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall ProcessDpiAwarenessFromKernelDpiAwarenessContext(char a1)
 {
   unsigned int v1; // ebx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of KsepDsEventAddDevice @ 0x14057F0B8
+ * Callers:
+ *     KseDsCallbackHookAddDevice @ 0x14057E910 (KseDsCallbackHookAddDevice.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char KsepDsEventAddDevice(__int64 a1, int a2, ...)
 {
   _UNKNOWN **v2; // rax

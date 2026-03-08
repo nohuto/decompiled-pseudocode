@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserDoUninitMessagePumpHook @ 0x1C0014190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 NtUserDoUninitMessagePumpHook()
 {
   __int64 v0; // rbx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ProcessorpClearData @ 0x1C009B098
+ * Callers:
+ *     ProcessorCopyData @ 0x1C009A964 (ProcessorCopyData.c)
+ *     IrqArbBootAllocation @ 0x1C009CF90 (IrqArbBootAllocation.c)
+ *     IrqArbCommitAllocation @ 0x1C009D040 (IrqArbCommitAllocation.c)
+ *     IrqArbpPrepareForTestOrConflict @ 0x1C009E4D0 (IrqArbpPrepareForTestOrConflict.c)
+ *     IrqArbpQueryConflictIsa @ 0x1C009E540 (IrqArbpQueryConflictIsa.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ProcessorpClearData(int a1)
 {
   __int64 v1; // rbx

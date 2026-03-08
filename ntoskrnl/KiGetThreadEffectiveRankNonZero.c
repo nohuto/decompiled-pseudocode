@@ -1,3 +1,21 @@
+/*
+ * XREFs of KiGetThreadEffectiveRankNonZero @ 0x1403428F0
+ * Callers:
+ *     KiSearchForNewThreadsForRescheduleContext @ 0x140227C10 (KiSearchForNewThreadsForRescheduleContext.c)
+ *     KeAccumulateTicks @ 0x14022F310 (KeAccumulateTicks.c)
+ *     KiExecuteAllDpcs @ 0x140252F60 (KiExecuteAllDpcs.c)
+ *     KeYieldExecution @ 0x140256BE0 (KeYieldExecution.c)
+ *     KiAddThreadToReadyQueue @ 0x140257FD0 (KiAddThreadToReadyQueue.c)
+ *     KiDeferredReadySingleThread @ 0x140259FB0 (KiDeferredReadySingleThread.c)
+ *     KiSearchForNewThread @ 0x140260460 (KiSearchForNewThread.c)
+ *     KiMoveScbThreadsToNewReadylist @ 0x1402AB444 (KiMoveScbThreadsToNewReadylist.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x1402ADC48 (KiDeferGroupSchedulingPreemption.c)
+ *     KiDirectSwitchThread @ 0x1403414A0 (KiDirectSwitchThread.c)
+ *     KiEvaluateGroupSchedulingPreemption @ 0x1403426B0 (KiEvaluateGroupSchedulingPreemption.c)
+ * Callees:
+ *     KiCheckForMaxOverQuotaScb @ 0x140342A68 (KiCheckForMaxOverQuotaScb.c)
+ */
+
 __int64 __fastcall KiGetThreadEffectiveRankNonZero(__int64 a1, __int64 a2, char a3, bool *a4)
 {
   bool v5; // bl

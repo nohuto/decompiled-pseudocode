@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CD2DInk@@IEAA@PEAVCD2DResourceManager@@@Z @ 0x180299364
+ * Callers:
+ *     ?Create@CD2DInk@@SAJPEAVCD2DResourceManager@@PEAUID2D1Ink@@PEAUID2D1InkStyle@@PEAPEAV1@@Z @ 0x1802994EC (-Create@CD2DInk@@SAJPEAVCD2DResourceManager@@PEAUID2D1Ink@@PEAUID2D1InkStyle@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     ??0CD2DResource@@IEAA@PEAVCD2DResourceManager@@_N@Z @ 0x18003D1B0 (--0CD2DResource@@IEAA@PEAVCD2DResourceManager@@_N@Z.c)
+ */
+
 CD2DInk *__fastcall CD2DInk::CD2DInk(CD2DInk *this, struct CD2DResourceManager *a2)
 {
   __int64 v3; // rcx

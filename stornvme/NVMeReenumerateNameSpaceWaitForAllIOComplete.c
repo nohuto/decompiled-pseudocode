@@ -1,3 +1,11 @@
+/*
+ * XREFs of NVMeReenumerateNameSpaceWaitForAllIOComplete @ 0x1C00226C8
+ * Callers:
+ *     NVMeReenumerateNameSpaceIdentifyWorkItem @ 0x1C0021CA0 (NVMeReenumerateNameSpaceIdentifyWorkItem.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall NVMeReenumerateNameSpaceWaitForAllIOComplete(__int64 a1)
 {
   char v1; // bl

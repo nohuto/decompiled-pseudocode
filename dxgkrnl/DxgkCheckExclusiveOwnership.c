@@ -1,3 +1,15 @@
+/*
+ * XREFs of DxgkCheckExclusiveOwnership @ 0x1C0222190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ?PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ @ 0x1C0007FCC (-PopProfilerEntry@DXGETWPROFILER_BASE@@QEAAXXZ.c)
+ *     ?PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z @ 0x1C0008010 (-PushProfilerEntry@DXGETWPROFILER_BASE@@QEAAXW4_DXGKETW_PROFILER_TYPE@@@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C002463C (McTemplateK0q_EtwWriteTransfer.c)
+ *     ?CheckExclusiveOwnership@DXGGLOBAL@@QEAAEXZ @ 0x1C0221EB6 (-CheckExclusiveOwnership@DXGGLOBAL@@QEAAEXZ.c)
+ */
+
 char __fastcall DxgkCheckExclusiveOwnership(__int64 a1, __int64 a2, __int64 a3)
 {
   DXGGLOBAL *Global; // rax

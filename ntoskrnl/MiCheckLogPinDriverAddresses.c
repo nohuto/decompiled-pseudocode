@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiCheckLogPinDriverAddresses @ 0x140361244
+ * Callers:
+ *     MiWorkingSetManager @ 0x1403616C0 (MiWorkingSetManager.c)
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ */
+
 void MiCheckLogPinDriverAddresses()
 {
   bool v0; // al

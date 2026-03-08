@@ -1,3 +1,23 @@
+/*
+ * XREFs of Isoch_PrepareStage @ 0x1C0004AD0
+ * Callers:
+ *     Isoch_MappingLoop @ 0x1C0001D18 (Isoch_MappingLoop.c)
+ *     Isoch_ProcessTransferEventWithED1 @ 0x1C0001EC0 (Isoch_ProcessTransferEventWithED1.c)
+ *     Isoch_WdfEvtIoQueueReadyNotification @ 0x1C0003140 (Isoch_WdfEvtIoQueueReadyNotification.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DDqqD @ 0x1C0003050 (WPP_RECORDER_SF_DDqqD.c)
+ *     WPP_RECORDER_SF_DDqq @ 0x1C0006DF0 (WPP_RECORDER_SF_DDqq.c)
+ *     TR_EnsureSegments @ 0x1C000B240 (TR_EnsureSegments.c)
+ *     StageQueue_Release @ 0x1C0011840 (StageQueue_Release.c)
+ *     TR_ReleaseSegments @ 0x1C001187C (TR_ReleaseSegments.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     TR_EnsureInputBufferForTrbs @ 0x1C0041850 (TR_EnsureInputBufferForTrbs.c)
+ *     Isoch_GetPacketLength @ 0x1C00445B8 (Isoch_GetPacketLength.c)
+ *     Isoch_Transfer_CompleteCancelable @ 0x1C0045590 (Isoch_Transfer_CompleteCancelable.c)
+ *     WPP_RECORDER_SF_DDqDDD @ 0x1C00465AC (WPP_RECORDER_SF_DDqDDD.c)
+ *     WPP_RECORDER_SF_DDqqDD @ 0x1C0046704 (WPP_RECORDER_SF_DDqqDD.c)
+ */
+
 __int64 __fastcall Isoch_PrepareStage(__int64 a1)
 {
   __int64 *v1; // r15

@@ -1,3 +1,21 @@
+/*
+ * XREFs of DrvDbCreateDatabaseNode @ 0x14081DF10
+ * Callers:
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x1407FF984 (DrvDbOpenDriverDatabaseRegKey.c)
+ *     DrvDbRegisterDatabase @ 0x14081D5A8 (DrvDbRegisterDatabase.c)
+ *     DrvDbOpenContext @ 0x14081D690 (DrvDbOpenContext.c)
+ * Callees:
+ *     RtlStringCchPrintfExW @ 0x140245C80 (RtlStringCchPrintfExW.c)
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     RtlCreateUnicodeString @ 0x140747D00 (RtlCreateUnicodeString.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x1407FFABC (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     DrvDbOpenObjectRegKey @ 0x140865658 (DrvDbOpenObjectRegKey.c)
+ *     DrvDbDestroyDatabaseNode @ 0x140A6ACC0 (DrvDbDestroyDatabaseNode.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall DrvDbCreateDatabaseNode(
         __int64 a1,
         const wchar_t *a2,

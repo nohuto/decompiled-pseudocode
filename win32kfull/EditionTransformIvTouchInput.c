@@ -1,3 +1,13 @@
+/*
+ * XREFs of EditionTransformIvTouchInput @ 0x1C01CCAC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReduceRect@WindowMargins@@YA?AUtagRECT@@PEBUtagWND@@AEBU2@I@Z @ 0x1C00FF518 (-ReduceRect@WindowMargins@@YA-AUtagRECT@@PEBUtagWND@@AEBU2@I@Z.c)
+ *     TransformIvSpatialInputPoint @ 0x1C01CC9EC (TransformIvSpatialInputPoint.c)
+ *     TransformIvSpatialInputRect @ 0x1C01CCA44 (TransformIvSpatialInputRect.c)
+ */
+
 __int64 __fastcall EditionTransformIvTouchInput(__int64 a1, __int64 *a2)
 {
   __int64 result; // rax

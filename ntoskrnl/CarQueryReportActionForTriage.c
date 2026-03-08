@@ -1,3 +1,14 @@
+/*
+ * XREFs of CarQueryReportActionForTriage @ 0x1405D1B40
+ * Callers:
+ *     CarQueryReportAction @ 0x1405D1B10 (CarQueryReportAction.c)
+ *     CarReportRuleViolationForTriage @ 0x1405D1FA0 (CarReportRuleViolationForTriage.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ * Callees:
+ *     CarFindRuleOverrideEntryByGlobalRuleId @ 0x1405D189C (CarFindRuleOverrideEntryByGlobalRuleId.c)
+ *     CarOverrideReportAction @ 0x1405D1AF0 (CarOverrideReportAction.c)
+ */
+
 __int64 __fastcall CarQueryReportActionForTriage(int a1, unsigned int a2, _DWORD *a3)
 {
   unsigned int v4; // r9d

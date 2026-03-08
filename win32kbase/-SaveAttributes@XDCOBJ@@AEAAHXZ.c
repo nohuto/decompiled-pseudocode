@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SaveAttributes@XDCOBJ@@AEAAHXZ @ 0x1C0053730
+ * Callers:
+ *     ?bCleanDC@XDCOBJ@@QEAAHH@Z @ 0x1C0046C90 (-bCleanDC@XDCOBJ@@QEAAHH@Z.c)
+ * Callees:
+ *     ?GetUserAttr@XDCOBJ@@AEAAPEAU_DC_ATTR@@XZ @ 0x1C004AC60 (-GetUserAttr@XDCOBJ@@AEAAPEAU_DC_ATTR@@XZ.c)
+ *     ?SaveAttributes@DC@@QEAAHPEAU_DC_ATTR@@@Z @ 0x1C0052D10 (-SaveAttributes@DC@@QEAAHPEAU_DC_ATTR@@@Z.c)
+ */
+
 __int64 __fastcall XDCOBJ::SaveAttributes(XDCOBJ *this)
 {
   struct _DC_ATTR *UserAttr; // rax

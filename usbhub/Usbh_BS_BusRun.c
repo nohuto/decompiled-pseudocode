@@ -1,3 +1,17 @@
+/*
+ * XREFs of Usbh_BS_BusRun @ 0x1C001D160
+ * Callers:
+ *     UsbhDispatch_BusEvent @ 0x1C001CF30 (UsbhDispatch_BusEvent.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhBusPause_Action @ 0x1C0012DC0 (UsbhBusPause_Action.c)
+ *     UsbhReleaseBusStateLock @ 0x1C001D7C0 (UsbhReleaseBusStateLock.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhBusPnpStop_Action @ 0x1C00314EC (UsbhBusPnpStop_Action.c)
+ *     UsbhSshBusBusy @ 0x1C003170C (UsbhSshBusBusy.c)
+ */
+
 __int64 __fastcall Usbh_BS_BusRun(struct _DEVICE_OBJECT *a1, __int64 a2, int a3)
 {
   __int64 v3; // rsi

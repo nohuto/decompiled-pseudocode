@@ -1,3 +1,14 @@
+/*
+ * XREFs of BcpGetProgressMessages @ 0x1403811E0
+ * Callers:
+ *     BgpBcInitializeCriticalMode @ 0x140B991D4 (BgpBcInitializeCriticalMode.c)
+ * Callees:
+ *     BgpFwAllocateMemory @ 0x140383BDC (BgpFwAllocateMemory.c)
+ *     wcsstr @ 0x1403D6020 (wcsstr.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     BcpFindMessage @ 0x140B99148 (BcpFindMessage.c)
+ */
+
 __int64 __fastcall BcpGetProgressMessages(__int64 a1, _QWORD *a2, _QWORD *a3)
 {
   const wchar_t *Message; // rbp

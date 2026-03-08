@@ -1,3 +1,11 @@
+/*
+ * XREFs of SleepstudyHelper_RegisterComponentEx @ 0x1C00B217C
+ * Callers:
+ *     ?SleepStudyRegisterBlockingComponents@FxPkgPnp@@QEAAJXZ @ 0x1C0079560 (-SleepStudyRegisterBlockingComponents@FxPkgPnp@@QEAAJXZ.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 int __fastcall SleepstudyHelper_RegisterComponentEx(
         SS_LIBRARY__ *InitializeHandle,
         _GUID *ParentGuid,

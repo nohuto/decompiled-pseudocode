@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?WaitForSignal@FxWorkItem@@AEAAXXZ @ 0x1C0040BBC
+ * Callers:
+ *     ?Dispose@FxWorkItem@@UEAAEXZ @ 0x1C0040970 (-Dispose@FxWorkItem@@UEAAEXZ.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ */
+
 void __fastcall FxWorkItem::WaitForSignal(FxWorkItem *this)
 {
   NTSTATUS v2; // ebx

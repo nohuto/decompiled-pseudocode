@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpVerCompare @ 0x140380A44
+ * Callers:
+ *     RtlVerifyVersionInfo @ 0x140380780 (RtlVerifyVersionInfo.c)
+ * Callees:
+ *     RtlStringCbPrintfA @ 0x140380B18 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 bool __fastcall RtlpVerCompare(int a1, int a2, int a3, bool *a4, char a5)
 {
   int v8; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiFreeForkMaps @ 0x1406621B0
+ * Callers:
+ *     MiCloneVads @ 0x140660C98 (MiCloneVads.c)
+ * Callees:
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiFinishLastForkPageTable @ 0x140661F1C (MiFinishLastForkPageTable.c)
+ */
+
 unsigned __int64 __fastcall MiFreeForkMaps(__int64 a1)
 {
   unsigned __int64 v1; // rdx

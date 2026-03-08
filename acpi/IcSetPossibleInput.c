@@ -1,3 +1,12 @@
+/*
+ * XREFs of IcSetPossibleInput @ 0x1C009F6B4
+ * Callers:
+ *     AcpiIrqLibSetupSciInterrupt @ 0x1C0098DAC (AcpiIrqLibSetupSciInterrupt.c)
+ *     IrqArbAddAllocation @ 0x1C009C4B0 (IrqArbAddAllocation.c)
+ * Callees:
+ *     IrqArbGetDeviceIrql @ 0x1C009D304 (IrqArbGetDeviceIrql.c)
+ */
+
 __int64 __fastcall IcSetPossibleInput(unsigned int a1, __int64 a2, char a3, char a4)
 {
   __int64 i; // r10

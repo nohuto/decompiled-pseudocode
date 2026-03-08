@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CalcDpi@DpiInternal@@YAIII@Z @ 0x1C004BB78
+ * Callers:
+ *     ?CalcDpi@DpiInternal@@YA?AUtagSIZE@@AEBU2@0@Z @ 0x1C004BB34 (-CalcDpi@DpiInternal@@YA-AUtagSIZE@@AEBU2@0@Z.c)
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DpiInternal::CalcDpi(DpiInternal *this, int a2)
 {
   int v2; // edx

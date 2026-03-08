@@ -1,3 +1,30 @@
+/*
+ * XREFs of AnFwDisplayFade @ 0x140AE99E8
+ * Callers:
+ *     BgDisplayFade @ 0x140AEC4BC (BgDisplayFade.c)
+ * Callees:
+ *     KeInitializeTimerEx @ 0x140237DB0 (KeInitializeTimerEx.c)
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KeSetCoalescableTimer @ 0x140250440 (KeSetCoalescableTimer.c)
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     BgpGetBitsPerPixel @ 0x140381AB0 (BgpGetBitsPerPixel.c)
+ *     BgpGxConvertRectangleEx @ 0x14038204C (BgpGxConvertRectangleEx.c)
+ *     BgpFwFreeMemory @ 0x140382650 (BgpFwFreeMemory.c)
+ *     BgpGxRectangleSize @ 0x1403846EC (BgpGxRectangleSize.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     BgpClearScreen @ 0x14066F510 (BgpClearScreen.c)
+ *     BgpGxParseBitmap @ 0x140AE942C (BgpGxParseBitmap.c)
+ *     BgpGxReadRectangle @ 0x140AE94D8 (BgpGxReadRectangle.c)
+ *     BgpTxtGetRegionContext @ 0x140AE970C (BgpTxtGetRegionContext.c)
+ *     BgpGxFindSubRectangle @ 0x140AE97BC (BgpGxFindSubRectangle.c)
+ *     LogFwStat @ 0x140AEA85C (LogFwStat.c)
+ *     BgpGxRectangleDestroy @ 0x140AEAA70 (BgpGxRectangleDestroy.c)
+ *     BgpGxRectangleCreate @ 0x140AEAA94 (BgpGxRectangleCreate.c)
+ *     AnFwpDisableProgressTimer @ 0x140AEC610 (AnFwpDisableProgressTimer.c)
+ *     AnFwDisableBackgroundUpdateTimer @ 0x140AEC6DC (AnFwDisableBackgroundUpdateTimer.c)
+ */
+
 __int64 AnFwDisplayFade()
 {
   unsigned int *v0; // rdi

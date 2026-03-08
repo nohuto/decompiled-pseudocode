@@ -1,3 +1,12 @@
+/*
+ * XREFs of KseHookExAllocatePoolWithTag @ 0x14057E8C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void *__fastcall KseHookExAllocatePoolWithTag(__int64 a1, size_t a2)
 {
   void *v3; // rax

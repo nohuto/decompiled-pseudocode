@@ -1,3 +1,12 @@
+/*
+ * XREFs of ArbDeleteArbiterInstance @ 0x1C00A17E4
+ * Callers:
+ *     AcpiArblibFreeArbiterInstance @ 0x1C000B64C (AcpiArblibFreeArbiterInstance.c)
+ * Callees:
+ *     RtlFreeRangeList_0 @ 0x1C0001A1F (RtlFreeRangeList_0.c)
+ *     ArbFreeOrderingList @ 0x1C00A19C8 (ArbFreeOrderingList.c)
+ */
+
 __int64 __fastcall ArbDeleteArbiterInstance(__int64 a1)
 {
   void *v2; // rcx

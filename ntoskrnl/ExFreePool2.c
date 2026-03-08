@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExFreePool2 @ 0x140604AA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     VslSecurePoolFree @ 0x14054A314 (VslSecurePoolFree.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall ExFreePool2(ULONG_PTR BugCheckParameter2, unsigned int a2, _QWORD *a3, unsigned int a4)
 {
   ULONG_PTR BugCheckParameter4; // rdi

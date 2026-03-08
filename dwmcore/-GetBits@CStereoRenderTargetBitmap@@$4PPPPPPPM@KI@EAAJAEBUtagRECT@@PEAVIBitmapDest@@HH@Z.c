@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetBits@CStereoRenderTargetBitmap@@$4PPPPPPPM@KI@EAAJAEBUtagRECT@@PEAVIBitmapDest@@HH@Z @ 0x18011F750
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CStereoRenderTargetBitmap::GetBits(
         __int64 a1,
         const struct tagRECT *a2,

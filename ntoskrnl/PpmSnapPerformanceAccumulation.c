@@ -1,3 +1,21 @@
+/*
+ * XREFs of PpmSnapPerformanceAccumulation @ 0x140234F00
+ * Callers:
+ *     PpmPerfSnapDeliveredPerformance @ 0x140234BB0 (PpmPerfSnapDeliveredPerformance.c)
+ *     PpmResetPerfTimes @ 0x1403A1BA0 (PpmResetPerfTimes.c)
+ *     PpmGetThroughputInfoCallback @ 0x14045ABA0 (PpmGetThroughputInfoCallback.c)
+ *     PpmCapturePerformanceDistributionCallback @ 0x1405957C0 (PpmCapturePerformanceDistributionCallback.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     PpmUpdatePerformanceFeedback @ 0x14022E540 (PpmUpdatePerformanceFeedback.c)
+ *     PpmUpdateTimeAccumulation @ 0x140235C64 (PpmUpdateTimeAccumulation.c)
+ *     PpmGetIdleGenerationCounter @ 0x14023602C (PpmGetIdleGenerationCounter.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall PpmSnapPerformanceAccumulation(
         __int64 a1,
         unsigned __int8 a2,

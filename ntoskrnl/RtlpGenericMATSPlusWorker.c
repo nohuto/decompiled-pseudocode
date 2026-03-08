@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpGenericMATSPlusWorker @ 0x140678F44
+ * Callers:
+ *     RtlScrubMemory @ 0x1406789B8 (RtlScrubMemory.c)
+ * Callees:
+ *     RtlpTestAndFillMemoryUp @ 0x1406794BC (RtlpTestAndFillMemoryUp.c)
+ */
+
 char __fastcall RtlpGenericMATSPlusWorker(unsigned int a1, unsigned int a2, unsigned __int64 a3)
 {
   _DWORD *v5; // r11

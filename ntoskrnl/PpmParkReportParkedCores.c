@@ -1,3 +1,21 @@
+/*
+ * XREFs of PpmParkReportParkedCores @ 0x1402E3AE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PpmPerfQueueAction @ 0x1402363D4 (PpmPerfQueueAction.c)
+ *     KeCountSetBitsAffinityEx @ 0x140237550 (KeCountSetBitsAffinityEx.c)
+ *     KiAndAffinityEx @ 0x140237720 (KiAndAffinityEx.c)
+ *     KiSubtractAffinityEx @ 0x1402D4CBC (KiSubtractAffinityEx.c)
+ *     PpmEventSoftParkRankListChanged @ 0x14038EC74 (PpmEventSoftParkRankListChanged.c)
+ *     KeUpdateSoftParkRankList @ 0x14038ECCC (KeUpdateSoftParkRankList.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiXorAffinityEx @ 0x14045796C (KiXorAffinityEx.c)
+ */
+
 char PpmParkReportParkedCores()
 {
   int v1; // eax

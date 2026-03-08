@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?FireEvent@FxWmiInstance@@QEAAJPEAXK@Z @ 0x1C0028CB8
+ * Callers:
+ *     imp_WdfWmiInstanceFireEvent @ 0x1C0027D20 (imp_WdfWmiInstanceFireEvent.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qd @ 0x1C0007FCC (WPP_IFR_SF_qd.c)
+ *     memmove @ 0x1C000B140 (memmove.c)
+ *     ?GetInstanceIndex@FxWmiProvider@@QEAAKPEAVFxWmiInstance@@@Z @ 0x1C0028414 (-GetInstanceIndex@FxWmiProvider@@QEAAKPEAVFxWmiInstance@@@Z.c)
+ */
+
 __int64 __fastcall FxWmiInstance::FireEvent(FxWmiInstance *this, void *EventBuffer, unsigned int EventBufferSize)
 {
   unsigned int v5; // edi

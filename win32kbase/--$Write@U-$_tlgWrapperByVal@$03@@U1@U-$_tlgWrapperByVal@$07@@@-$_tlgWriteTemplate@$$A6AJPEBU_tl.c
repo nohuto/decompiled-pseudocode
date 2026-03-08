@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??$Write@U?$_tlgWrapperByVal@$03@@U1@U?$_tlgWrapperByVal@$07@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBX1IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteAgg@@YAJ011I2@ZPEBX@@SAJPEBU_tlgProvider_t@@PEBX1AEBU?$_tlgWrapperByVal@$03@@2AEBU?$_tlgWrapperByVal@$07@@@Z @ 0x1C003AB94
+ * Callers:
+ *     NtUserEnumDisplaySettings @ 0x1C003AA60 (NtUserEnumDisplaySettings.c)
+ *     NtUserEnumDisplayMonitors @ 0x1C003AD10 (NtUserEnumDisplayMonitors.c)
+ * Callees:
+ *     InsertEventEntryInLookUpTable @ 0x1C00BB8F4 (InsertEventEntryInLookUpTable.c)
+ *     ExtractAggregateFieldTypes @ 0x1C00C302C (ExtractAggregateFieldTypes.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall _tlgWriteTemplate<long (_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),&long _tlgWriteAgg(_tlgProvider_t const *,void const *,void const *,unsigned int,_EVENT_DATA_DESCRIPTOR *),void const *>::Write<_tlgWrapperByVal<4>,_tlgWrapperByVal<4>,_tlgWrapperByVal<8>>(
         __int64 a1,
         unsigned __int8 *a2,

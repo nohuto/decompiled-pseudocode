@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBDSM_CheckingIfSerialNumberShouldBeCompared @ 0x1C00236B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBDSM_CheckingIfSerialNumberShouldBeCompared(__int64 a1)
 {
   __int64 v1; // rdx

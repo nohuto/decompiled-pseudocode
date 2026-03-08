@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopLiveDumpCorralDpc @ 0x140A97DC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiSaveProcessorControlState @ 0x140416350 (KiSaveProcessorControlState.c)
+ *     RtlCaptureContext @ 0x140420580 (RtlCaptureContext.c)
+ *     IopLiveDumpProcessCorralStateChange @ 0x140A99280 (IopLiveDumpProcessCorralStateChange.c)
+ */
+
 void __fastcall IopLiveDumpCorralDpc(
         struct _KDPC *Dpc,
         PVOID DeferredContext,

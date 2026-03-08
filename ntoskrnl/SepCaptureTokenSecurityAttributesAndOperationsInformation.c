@@ -1,3 +1,16 @@
+/*
+ * XREFs of SepCaptureTokenSecurityAttributesAndOperationsInformation @ 0x140742BEC
+ * Callers:
+ *     NtSetInformationToken @ 0x140741E70 (NtSetInformationToken.c)
+ * Callees:
+ *     SepCaptureTokenSecurityOperations @ 0x1402BE564 (SepCaptureTokenSecurityOperations.c)
+ *     SepCaptureTokenSecurityAttributesInformation @ 0x140742D6C (SepCaptureTokenSecurityAttributesInformation.c)
+ *     SepFreeCapturedTokenSecurityAttributesInformation @ 0x14074339C (SepFreeCapturedTokenSecurityAttributesInformation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall SepCaptureTokenSecurityAttributesAndOperationsInformation(_QWORD *a1, char a2, _QWORD *a3)
 {
   _DWORD *v5; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of SleepstudyHelperSetBlockerVerboseDescription @ 0x14099F0E0
+ * Callers:
+ *     PopPowerRequestStatsCreateSleepstudyBlocker @ 0x140726450 (PopPowerRequestStatsCreateSleepstudyBlocker.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall SleepstudyHelperSetBlockerVerboseDescription(
         _QWORD *a1,
         __int16 a2,

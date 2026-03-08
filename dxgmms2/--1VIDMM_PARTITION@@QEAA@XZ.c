@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1VIDMM_PARTITION@@QEAA@XZ @ 0x1C0030FB0
+ * Callers:
+ *     ??_GVIDMM_PARTITION@@QEAAPEAXI@Z @ 0x1C003104C (--_GVIDMM_PARTITION@@QEAAPEAXI@Z.c)
+ * Callees:
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C0012530 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     ?DeInitializePartitionForAllAdapters@VIDMM_GLOBAL@@SAXPEAUVIDMM_PARTITION@@@Z @ 0x1C00E144C (-DeInitializePartitionForAllAdapters@VIDMM_GLOBAL@@SAXPEAUVIDMM_PARTITION@@@Z.c)
+ */
+
 void __fastcall VIDMM_PARTITION::~VIDMM_PARTITION(char **this)
 {
   char *v2; // rcx

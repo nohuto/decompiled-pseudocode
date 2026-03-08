@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ProcessSetViewData@CHolographicExclusiveView@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_HOLOGRAPHICEXCLUSIVEVIEW_SETVIEWDATA@@@Z @ 0x1802A5540
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F0A8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?ReleaseExclusivePresentData@CHolographicManager@@QEAAXI@Z @ 0x1802A25EC (-ReleaseExclusivePresentData@CHolographicManager@@QEAAXI@Z.c)
+ *     ?PublishPresentData@CHolographicExclusiveView@@QEAAXXZ @ 0x1802A5614 (-PublishPresentData@CHolographicExclusiveView@@QEAAXXZ.c)
+ *     ?Create@CHolographicExclusivePresentData@@SAJPEAX00IIPEAPEAUIHolographicExclusivePresentData@@@Z @ 0x1802ABBA8 (-Create@CHolographicExclusivePresentData@@SAJPEAX00IIPEAPEAUIHolographicExclusivePresentData@@@Z.c)
+ */
+
 __int64 __fastcall CHolographicExclusiveView::ProcessSetViewData(
         CHolographicExclusiveView *this,
         struct CResourceTable *a2,

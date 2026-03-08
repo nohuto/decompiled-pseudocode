@@ -1,3 +1,15 @@
+/*
+ * XREFs of PcisuppAcquirePciInterfaces @ 0x1C0099894
+ * Callers:
+ *     ACPIBusIrpStartDevice @ 0x1C00814F0 (ACPIBusIrpStartDevice.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIInternalSetFlags @ 0x1C002F068 (ACPIInternalSetFlags.c)
+ *     ACPIWakeInitializePmeRouting @ 0x1C0045E28 (ACPIWakeInitializePmeRouting.c)
+ *     PcisuppInitializePciRouting @ 0x1C0099E6C (PcisuppInitializePciRouting.c)
+ *     PcisuppReleasePciRouting @ 0x1C009A1B4 (PcisuppReleasePciRouting.c)
+ */
+
 __int64 __fastcall PcisuppAcquirePciInterfaces(PDEVICE_OBJECT DeviceObject)
 {
   __int64 DeviceExtension; // rsi

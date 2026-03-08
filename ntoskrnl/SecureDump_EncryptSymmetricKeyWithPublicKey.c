@@ -1,3 +1,20 @@
+/*
+ * XREFs of SecureDump_EncryptSymmetricKeyWithPublicKey @ 0x14055B7B4
+ * Callers:
+ *     SecureDump_Init @ 0x1403AB908 (SecureDump_Init.c)
+ *     SecureDump_ReInitialize @ 0x14055C0B8 (SecureDump_ReInitialize.c)
+ * Callees:
+ *     BCryptCloseAlgorithmProvider @ 0x1403892D4 (BCryptCloseAlgorithmProvider.c)
+ *     SecureDump_LogErrorEvent @ 0x14055C088 (SecureDump_LogErrorEvent.c)
+ *     BCryptDestroyKey @ 0x1405B52AC (BCryptDestroyKey.c)
+ *     BCryptEncrypt @ 0x1405B5304 (BCryptEncrypt.c)
+ *     BCryptGetProperty @ 0x140754608 (BCryptGetProperty.c)
+ *     BCryptOpenAlgorithmProvider @ 0x14081B624 (BCryptOpenAlgorithmProvider.c)
+ *     BCryptImportKeyPair @ 0x1409C6084 (BCryptImportKeyPair.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 SecureDump_EncryptSymmetricKeyWithPublicKey()
 {
   UCHAR *v0; // rsi

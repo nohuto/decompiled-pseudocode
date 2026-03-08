@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxMNButtonUp @ 0x1C02198AC
+ * Callers:
+ *     xxxHandleMenuMessages @ 0x1C0216988 (xxxHandleMenuMessages.c)
+ *     xxxMenuWindowProc @ 0x1C021D3D0 (xxxMenuWindowProc.c)
+ * Callees:
+ *     ?xxxMNDismissWithNotify@@YAXPEAUtagMENUSTATE@@AEBV?$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITEM@@I_J@Z @ 0x1C0218A2C (-xxxMNDismissWithNotify@@YAXPEAUtagMENUSTATE@@AEBV-$SmartObjStackRef@UtagPOPUPMENU@@@@PEAUtagITE.c)
+ *     xxxMNCancel @ 0x1C02199C4 (xxxMNCancel.c)
+ *     xxxMNOpenHierarchy @ 0x1C021B7B0 (xxxMNOpenHierarchy.c)
+ */
+
 __int64 __fastcall xxxMNButtonUp(__int64 *a1, __int64 a2, int a3)
 {
   __int64 result; // rax

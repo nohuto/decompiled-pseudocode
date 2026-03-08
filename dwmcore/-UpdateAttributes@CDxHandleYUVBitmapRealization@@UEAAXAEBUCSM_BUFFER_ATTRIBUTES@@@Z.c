@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?UpdateAttributes@CDxHandleYUVBitmapRealization@@UEAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z @ 0x1802B1068
+ * Callers:
+ *     ?UpdateAttributes@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z @ 0x18011F210 (-UpdateAttributes@CDxHandleYUVBitmapRealization@@$4PPPPPPPM@A@EAAXAEBUCSM_BUFFER_ATTRIBUTES@@@Z.c)
+ * Callees:
+ *     ?CalcDisplayRestriction@CBitmapRealization@@KA?AVDisplayId@@_NPEAUHMONITOR__@@@Z @ 0x18003B964 (-CalcDisplayRestriction@CBitmapRealization@@KA-AVDisplayId@@_NPEAUHMONITOR__@@@Z.c)
+ *     ?IsEquivalentTo@?$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEBA_NAEBV1@@Z @ 0x1800A7190 (-IsEquivalentTo@-$TMilRect@HUtagRECT@@UMilPointAndSizeL@@U_CMilRectL_@RectUniqueness@@@@QEBA_NAE.c)
+ *     ??8@YA_NAEBUtagRECT@@0@Z @ 0x1800E4910 (--8@YA_NAEBUtagRECT@@0@Z.c)
+ *     ?InvalidateDecodeBitmap@CBitmapRealization@@QEAAX_N@Z @ 0x1800E7148 (-InvalidateDecodeBitmap@CBitmapRealization@@QEAAX_N@Z.c)
+ */
+
 void __fastcall CDxHandleYUVBitmapRealization::UpdateAttributes(
         CDxHandleYUVBitmapRealization *this,
         const struct CSM_BUFFER_ATTRIBUTES *a2)

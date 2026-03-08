@@ -1,3 +1,27 @@
+/*
+ * XREFs of PspWow64SetContextThread @ 0x14077C1CC
+ * Callers:
+ *     NtSetInformationThread @ 0x1406D8E90 (NtSetInformationThread.c)
+ *     WbSetWowTrapFrame @ 0x140A4AFE0 (WbSetWowTrapFrame.c)
+ * Callees:
+ *     IoThreadToProcess @ 0x140248470 (IoThreadToProcess.c)
+ *     PsGetThreadTeb @ 0x1402ECAE0 (PsGetThreadTeb.c)
+ *     RtlInitializeExtendedContext @ 0x140364A10 (RtlInitializeExtendedContext.c)
+ *     RtlGetExtendedContextLength @ 0x140364A90 (RtlGetExtendedContextLength.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1404210C0 (_alloca_probe.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpWow64SanitizeContextFlags @ 0x14077C55C (RtlpWow64SanitizeContextFlags.c)
+ *     PspWow64ReadOrWriteThreadCpuArea @ 0x14077C5B8 (PspWow64ReadOrWriteThreadCpuArea.c)
+ *     RtlpWow64SetContextOnAmd64 @ 0x14077CE90 (RtlpWow64SetContextOnAmd64.c)
+ *     EtwTiLogSetContextThread @ 0x14077D1C4 (EtwTiLogSetContextThread.c)
+ *     RtlpReadExtendedContext @ 0x1407EDC30 (RtlpReadExtendedContext.c)
+ *     RtlCopyContext @ 0x1407EE220 (RtlCopyContext.c)
+ *     PspSetContextThreadInternal @ 0x1407EE340 (PspSetContextThreadInternal.c)
+ *     PspGetContextThreadInternal @ 0x1407EE524 (PspGetContextThreadInternal.c)
+ *     RtlGuardIsValidWow64StackPointer @ 0x1408813A0 (RtlGuardIsValidWow64StackPointer.c)
+ */
+
 __int64 __fastcall PspWow64SetContextThread(PETHREAD Thread, unsigned int *a2, int a3, char a4)
 {
   __int64 v8; // rdx

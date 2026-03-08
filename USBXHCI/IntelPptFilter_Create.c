@@ -1,3 +1,13 @@
+/*
+ * XREFs of IntelPptFilter_Create @ 0x1C007A544
+ * Callers:
+ *     Controller_WdfEvtDeviceAdd @ 0x1C006FA60 (Controller_WdfEvtDeviceAdd.c)
+ * Callees:
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall IntelPptFilter_Create(__int64 a1, __int64 a2, __int64 *a3)
 {
   int v5; // edx

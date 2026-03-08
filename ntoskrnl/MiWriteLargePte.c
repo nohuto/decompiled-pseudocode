@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiWriteLargePte @ 0x1402443C4
+ * Callers:
+ *     MiZeroLargePage @ 0x1402441E4 (MiZeroLargePage.c)
+ *     MiZeroPageWorkMapping @ 0x1402FD0C4 (MiZeroPageWorkMapping.c)
+ *     MiInitializeNewUltraHugeContext @ 0x1403BFBC8 (MiInitializeNewUltraHugeContext.c)
+ * Callees:
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ */
+
 unsigned __int64 __fastcall MiWriteLargePte(unsigned __int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
 {
   __int64 v4; // r14

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CommitPendingUpdates@CFlipResourceState@@UEAAXXZ @ 0x1C0084B90
+ * Callers:
+ *     ?CommitPendingUpdates@CContentResourceState@@UEAAXXZ @ 0x1C0085510 (-CommitPendingUpdates@CContentResourceState@@UEAAXXZ.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CFlipResourceState::CommitPendingUpdates(CFlipResourceState *this)
 {
   char v1; // al

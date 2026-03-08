@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0FxPkgPdo@@QEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@@Z @ 0x1C0068618
+ * Callers:
+ *     ?PdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C003CC64 (-PdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ * Callees:
+ *     ??0FxPkgPnp@@IEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@G@Z @ 0x1C0070A6C (--0FxPkgPnp@@IEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@G@Z.c)
+ */
+
 void __fastcall FxPkgPdo::FxPkgPdo(FxPkgPdo *this, _FX_DRIVER_GLOBALS *FxDriverGlobals, FxDevice *Device)
 {
   FxPkgPnp::FxPkgPnp(this, FxDriverGlobals, Device, 0x1102u);

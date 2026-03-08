@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0pqqqQR3XR3XR3XR3q_EtwWriteTransfer @ 0x1C004B318
+ * Callers:
+ *     ?VidSchiCancelQueuedFlips@@YAJPEAU_VIDSCH_GLOBAL@@II_KPEA_KI@Z @ 0x1C0048C34 (-VidSchiCancelQueuedFlips@@YAJPEAU_VIDSCH_GLOBAL@@II_KPEA_KI@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BDEC (McGenEventWrite_EtwWriteTransfer.c)
+ */
+
 NTSTATUS McTemplateK0pqqqQR3XR3XR3XR3q_EtwWriteTransfer(_DWORD a1, _DWORD a2, __int64 a3, __int64 a4, char a5, ...)
 {
   int v6; // [rsp+30h] [rbp-A9h] BYREF

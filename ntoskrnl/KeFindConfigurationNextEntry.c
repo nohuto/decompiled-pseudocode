@@ -1,3 +1,13 @@
+/*
+ * XREFs of KeFindConfigurationNextEntry @ 0x140B6C8C0
+ * Callers:
+ *     HalpAcpiFindRsdp @ 0x140B6C7C8 (HalpAcpiFindRsdp.c)
+ *     KeFindConfigurationNextEntry @ 0x140B6C8C0 (KeFindConfigurationNextEntry.c)
+ *     KeFindConfigurationEntry @ 0x140B92F50 (KeFindConfigurationEntry.c)
+ * Callees:
+ *     KeFindConfigurationNextEntry @ 0x140B6C8C0 (KeFindConfigurationNextEntry.c)
+ */
+
 __int64 __fastcall KeFindConfigurationNextEntry(__int64 a1, int a2, int a3, int *a4, __int64 *a5)
 {
   __int64 v8; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DxgkSignalEventCBPaged@@YAJPEBU_DXGKARGCB_SIGNALEVENT@@@Z @ 0x1C036ED50
+ * Callers:
+ *     DxgkSignalEventCB @ 0x1C005CF90 (DxgkSignalEventCB.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall DxgkSignalEventCBPaged(const struct _DXGKARGCB_SIGNALEVENT *a1)
 {
   __int64 v2; // rsi

@@ -1,3 +1,18 @@
+/*
+ * XREFs of PoShutdownBugCheck @ 0x1409865B0
+ * Callers:
+ *     PopInitializeHibernateGlobals @ 0x14082ABAC (PopInitializeHibernateGlobals.c)
+ *     ExpSystemErrorHandler2 @ 0x140AA7FE0 (ExpSystemErrorHandler2.c)
+ * Callees:
+ *     PsGetCurrentThreadProcessId @ 0x140204F00 (PsGetCurrentThreadProcessId.c)
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     PsGetCurrentThreadId @ 0x1402D2E80 (PsGetCurrentThreadId.c)
+ *     ZwInitiatePowerAction @ 0x140414410 (ZwInitiatePowerAction.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     IoConfigureCrashDump @ 0x14054D564 (IoConfigureCrashDump.c)
+ *     PopInternalAddToDumpFile @ 0x140580CC0 (PopInternalAddToDumpFile.c)
+ */
+
 void __fastcall __noreturn PoShutdownBugCheck(
         char a1,
         ULONG a2,

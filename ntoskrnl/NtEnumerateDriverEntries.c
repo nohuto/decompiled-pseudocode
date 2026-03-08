@@ -1,3 +1,24 @@
+/*
+ * XREFs of NtEnumerateDriverEntries @ 0x1409FBD70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     ExUnlockUserBuffer @ 0x1402CFFD4 (ExUnlockUserBuffer.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExLockUserBuffer @ 0x14075D5A4 (ExLockUserBuffer.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     ExpSafeWcslen @ 0x14083EB44 (ExpSafeWcslen.c)
+ *     IoEnumerateEnvironmentVariablesEx @ 0x14083F460 (IoEnumerateEnvironmentVariablesEx.c)
+ *     ExpTranslateDriverEntryNameToId @ 0x1409FB2B8 (ExpTranslateDriverEntryNameToId.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall NtEnumerateDriverEntries(unsigned __int64 Address, _DWORD *a2)
 {
   _DWORD *v2; // r14

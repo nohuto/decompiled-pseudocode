@@ -1,3 +1,15 @@
+/*
+ * XREFs of FreeWindowStation @ 0x1C00F1160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxCloseClipboard @ 0x1C0010580 (xxxCloseClipboard.c)
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C003C250 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     xxxEmptyClipboard @ 0x1C00F130C (xxxEmptyClipboard.c)
+ *     ?CloseClipboardToken@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C00F13DC (-CloseClipboardToken@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall FreeWindowStation(__int64 *a1)
 {

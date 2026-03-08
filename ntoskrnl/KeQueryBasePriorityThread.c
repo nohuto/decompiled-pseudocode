@@ -1,3 +1,14 @@
+/*
+ * XREFs of KeQueryBasePriorityThread @ 0x1402DD398
+ * Callers:
+ *     NtQueryInformationThread @ 0x1406A7BF0 (NtQueryInformationThread.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeQueryBasePriorityThread(__int64 a1)
 {
   __int64 v1; // rbx

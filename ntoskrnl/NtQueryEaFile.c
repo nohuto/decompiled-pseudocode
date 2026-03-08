@@ -1,3 +1,31 @@
+/*
+ * XREFs of NtQueryEaFile @ 0x14076D8E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoAllocateMdl @ 0x14020CAD0 (IoAllocateMdl.c)
+ *     IopReferenceFileObject @ 0x14023EBCC (IopReferenceFileObject.c)
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     IopAllocateIrpExReturn @ 0x140312290 (IopAllocateIrpExReturn.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IopProbeAndLockPages_1 @ 0x1405536D0 (IopProbeAndLockPages_1.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406B5654 (IopWaitAndAcquireFileObjectLock.c)
+ *     IopSynchronousApiServiceTail @ 0x14076E298 (IopSynchronousApiServiceTail.c)
+ *     IopSynchronousServiceTail @ 0x1407C33C0 (IopSynchronousServiceTail.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     IopAllocateIrpCleanup @ 0x1409411D4 (IopAllocateIrpCleanup.c)
+ *     IopExceptionCleanupEx @ 0x140941A08 (IopExceptionCleanupEx.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall NtQueryEaFile(
         void *a1,
         unsigned __int64 a2,

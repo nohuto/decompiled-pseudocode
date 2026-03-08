@@ -1,3 +1,12 @@
+/*
+ * XREFs of WmipUnlinkInstanceSetFromGuidEntry @ 0x14087DFC4
+ * Callers:
+ *     WmipUpdateDataSource @ 0x1407FB4E8 (WmipUpdateDataSource.c)
+ *     WmipDSCleanup @ 0x14087DEB0 (WmipDSCleanup.c)
+ * Callees:
+ *     WmipUnregisterEtwProvider @ 0x1409DED20 (WmipUnregisterEtwProvider.c)
+ */
+
 __int64 **__fastcall WmipUnlinkInstanceSetFromGuidEntry(__int64 *a1)
 {
   __int64 v2; // rcx

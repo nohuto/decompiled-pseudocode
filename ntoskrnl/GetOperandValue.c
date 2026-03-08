@@ -1,3 +1,27 @@
+/*
+ * XREFs of GetOperandValue @ 0x1409D07DC
+ * Callers:
+ *     GetOperandValue @ 0x1409D07DC (GetOperandValue.c)
+ *     LocalGetConditionForString @ 0x1409D1B24 (LocalGetConditionForString.c)
+ * Callees:
+ *     RtlLengthSid @ 0x140245EC0 (RtlLengthSid.c)
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ *     wcstoxq @ 0x1403D653C (wcstoxq.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SddlpAlloc @ 0x1407507C8 (SddlpAlloc.c)
+ *     LocalGetSidForString @ 0x140750A70 (LocalGetSidForString.c)
+ *     SddlpReAlloc @ 0x1409CFBF0 (SddlpReAlloc.c)
+ *     FreeOperandValue @ 0x1409D02C8 (FreeOperandValue.c)
+ *     GetAttributeName @ 0x1409D0304 (GetAttributeName.c)
+ *     GetBinaryOperandLen @ 0x1409D055C (GetBinaryOperandLen.c)
+ *     GetDigitFromChar @ 0x1409D0648 (GetDigitFromChar.c)
+ *     GetNextNoneWhiteSpace @ 0x1409D0760 (GetNextNoneWhiteSpace.c)
+ *     GetOperandValue @ 0x1409D07DC (GetOperandValue.c)
+ *     GetStringOperandValue @ 0x1409D1838 (GetStringOperandValue.c)
+ *     IsValueSizeFixed @ 0x1409D1AD4 (IsValueSizeFixed.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall GetOperandValue(
         wchar_t *a1,
         char a2,

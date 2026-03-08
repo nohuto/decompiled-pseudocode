@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceFlipManagerContentRebind @ 0x1C0162700
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0pxxttq_EtwWriteTransfer @ 0x1C0165FE0 (McTemplateK0pxxttq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall EtwTraceFlipManagerContentRebind(int a1, int a2, int a3, char a4, char a5, char a6)
 {
   __int64 result; // rax

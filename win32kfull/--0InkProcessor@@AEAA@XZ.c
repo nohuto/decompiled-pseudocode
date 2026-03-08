@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??0InkProcessor@@AEAA@XZ @ 0x1C00F8120
+ * Callers:
+ *     ?Initialize@InkProcessor@@SAJXZ @ 0x1C00F8078 (-Initialize@InkProcessor@@SAJXZ.c)
+ * Callees:
+ *     ?AddInkFeedbackProvider@InkFeedbackServer@@QEAAJPEAVInkFeedbackProviderBase@@@Z @ 0x1C00F81C0 (-AddInkFeedbackProvider@InkFeedbackServer@@QEAAJPEAVInkFeedbackProviderBase@@@Z.c)
+ *     Feature_InkProcessor__private_ReportDeviceUsage @ 0x1C012F574 (Feature_InkProcessor__private_ReportDeviceUsage.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C039C928 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ */
+
 InkProcessor *__fastcall InkProcessor::InkProcessor(InkProcessor *this)
 {
   InkFeedbackServer *v2; // rbx

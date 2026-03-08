@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiComputeNodeMemory @ 0x1403A6D2C
+ * Callers:
+ *     MiUpdatePartitionMemory @ 0x1406597F8 (MiUpdatePartitionMemory.c)
+ *     MiAddPhysicalMemory @ 0x140A289D8 (MiAddPhysicalMemory.c)
+ *     MiRemovePhysicalMemory @ 0x140A29F5C (MiRemovePhysicalMemory.c)
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiReferencePageRuns @ 0x1402EB520 (MiReferencePageRuns.c)
+ *     MiDereferencePageRunsEx @ 0x1402EBA28 (MiDereferencePageRunsEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiComputeNodeMemory(__int16 *a1, int a2)
 {
   unsigned int *v2; // r15
@@ -147,7 +163,7 @@ void __fastcall MiComputeNodeMemory(__int16 *a1, int a2)
         v15 = (unsigned int)MmNumberOfChannels;
         do
         {
-          *v14 -= *(_QWORD *)((char *)v14 + (_QWORD)&qword_140C67250 + 32LL * v9 - (_QWORD)v39);
+          *v14 -= *(_QWORD *)((char *)v14 + (_QWORD)&unk_140C67250 + 32LL * v9 - (_QWORD)v39);
           ++v14;
           --v15;
         }

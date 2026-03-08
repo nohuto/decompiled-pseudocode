@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIGlobalInitialize @ 0x1C00A8468
+ * Callers:
+ *     DriverEntry @ 0x1C00A7300 (DriverEntry.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_i @ 0x1C002293C (WPP_RECORDER_SF_i.c)
+ *     ACPIGetUsedDebuggingDevices @ 0x1C0097E8C (ACPIGetUsedDebuggingDevices.c)
+ *     ACPILoadFindRSDT @ 0x1C00A966C (ACPILoadFindRSDT.c)
+ */
+
 void *ACPIGlobalInitialize()
 {
   int v0; // edx

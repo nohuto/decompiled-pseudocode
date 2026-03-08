@@ -1,3 +1,15 @@
+/*
+ * XREFs of IcGetPossibleInput @ 0x1C009F314
+ * Callers:
+ *     IrqArbAddAllocation @ 0x1C009C4B0 (IrqArbAddAllocation.c)
+ *     IrqArbpAssignIrqFromLinkNode @ 0x1C009DB0C (IrqArbpAssignIrqFromLinkNode.c)
+ *     IrqArbpFindSuitableRangeIsa @ 0x1C009DDC0 (IrqArbpFindSuitableRangeIsa.c)
+ *     IrqArbpFindSuitableRangePci @ 0x1C009E1A4 (IrqArbpFindSuitableRangePci.c)
+ *     IrqArbpUnreferenceArbitrationList @ 0x1C009E890 (IrqArbpUnreferenceArbitrationList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IcGetPossibleInput(unsigned int a1, __int64 a2, _BYTE *a3)
 {
   __int64 v3; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpMuiRegResizeLanguageConfigList @ 0x140A7233C
+ * Callers:
+ *     RtlpMuiRegConfigListAddLanguage @ 0x140A7185C (RtlpMuiRegConfigListAddLanguage.c)
+ * Callees:
+ *     _SafeReallocBlob @ 0x140677D74 (_SafeReallocBlob.c)
+ */
+
 _QWORD *__fastcall RtlpMuiRegResizeLanguageConfigList(__int64 a1, int a2)
 {
   signed int v2; // ebx

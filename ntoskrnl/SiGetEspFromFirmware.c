@@ -1,3 +1,24 @@
+/*
+ * XREFs of SiGetEspFromFirmware @ 0x140A5D1A4
+ * Callers:
+ *     SiGetEfiSystemDevice @ 0x140A5CDB0 (SiGetEfiSystemDevice.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     ZwEnumerateBootEntries @ 0x140413FB0 (ZwEnumerateBootEntries.c)
+ *     ZwQueryBootEntryOrder @ 0x140414C10 (ZwQueryBootEntryOrder.c)
+ *     ZwQueryBootOptions @ 0x140414C30 (ZwQueryBootOptions.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     BiAcquirePrivilege @ 0x14082F784 (BiAcquirePrivilege.c)
+ *     BiReleasePrivilege @ 0x14082F810 (BiReleasePrivilege.c)
+ *     SiGetDeviceNumberInformation @ 0x140A5C84C (SiGetDeviceNumberInformation.c)
+ *     SiBootEntryGetNtFilePath @ 0x140A5CC24 (SiBootEntryGetNtFilePath.c)
+ *     SiGetEfiBootEntryById @ 0x140A5CD90 (SiGetEfiBootEntryById.c)
+ *     SiIsValidWindowsBootEntry @ 0x140A5D620 (SiIsValidWindowsBootEntry.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SiGetEspFromFirmware(int a1, void *a2, unsigned int a3)
 {
   unsigned int v3; // r14d

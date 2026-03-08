@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopWakeDeviceList @ 0x14058E81C
+ * Callers:
+ *     PoBroadcastSystemState @ 0x140AA38F8 (PoBroadcastSystemState.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopIsNotifyForDirectedPowerTransition @ 0x14058E354 (PopIsNotifyForDirectedPowerTransition.c)
+ *     PopIssueDirectedPowerTransition @ 0x140988CE0 (PopIssueDirectedPowerTransition.c)
+ *     PopNotifyDevice @ 0x140AA415C (PopNotifyDevice.c)
+ */
+
 int __fastcall PopWakeDeviceList(_QWORD *a1, __int64 a2)
 {
   __int64 **v2; // r15

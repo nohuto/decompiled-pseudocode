@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CMeshGeometry2DMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025E2F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall DirectComposition::CMeshGeometry2DMarshaler::SetRemarshalingFlags(
         DirectComposition::CMeshGeometry2DMarshaler *this)
 {

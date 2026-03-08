@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DxgkEngCheckRemoteSessionRemoteAdapterAccess@@YAJU_LUID@@@Z @ 0x1C0020F50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserIsCurrentProcessDwm @ 0x1C00191C0 (UserIsCurrentProcessDwm.c)
+ */
+
 __int64 __fastcall DxgkEngCheckRemoteSessionRemoteAdapterAccess(struct _LUID a1)
 {
   DWORD LowPart; // ebx

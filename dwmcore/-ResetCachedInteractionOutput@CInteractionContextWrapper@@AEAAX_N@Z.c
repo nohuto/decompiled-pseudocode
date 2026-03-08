@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ResetCachedInteractionOutput@CInteractionContextWrapper@@AEAAX_N@Z @ 0x180039CE0
+ * Callers:
+ *     ??0CInteractionContextWrapper@@QEAA@XZ @ 0x180039AB8 (--0CInteractionContextWrapper@@QEAA@XZ.c)
+ *     ?ProcessInput@CInteractionContextWrapper@@UEAAJAEBUtagPOINTER_INFO@@AEBVCMILMatrix@@I@Z @ 0x180281700 (-ProcessInput@CInteractionContextWrapper@@UEAAJAEBUtagPOINTER_INFO@@AEBVCMILMatrix@@I@Z.c)
+ *     ?ResetOutput@CInteractionContextWrapper@@UEAAXXZ @ 0x180281C50 (-ResetOutput@CInteractionContextWrapper@@UEAAXXZ.c)
+ * Callees:
+ *     _anonymous_namespace_::ResetInteractionOutput @ 0x180039D10 (_anonymous_namespace_--ResetInteractionOutput.c)
+ */
+
 void __fastcall CInteractionContextWrapper::ResetCachedInteractionOutput(CInteractionContextWrapper *this, __int64 a2)
 {
   __int64 v2; // r8

@@ -1,3 +1,14 @@
+/*
+ * XREFs of AuthzBasepAddSecurityAttributeValueToLists @ 0x140297C28
+ * Callers:
+ *     AuthzBasepAddSecurityAttributeValues @ 0x14029739C (AuthzBasepAddSecurityAttributeValues.c)
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x1402976E0 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     AuthzBasepDeleteAllSecurityAttributeValues @ 0x14066C504 (AuthzBasepDeleteAllSecurityAttributeValues.c)
+ *     AuthzBasepDeleteSecurityAttributeValues @ 0x14066C5AC (AuthzBasepDeleteSecurityAttributeValues.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall AuthzBasepAddSecurityAttributeValueToLists(__int64 a1, __int64 a2, char a3, char a4)
 {
   _QWORD *v4; // r9

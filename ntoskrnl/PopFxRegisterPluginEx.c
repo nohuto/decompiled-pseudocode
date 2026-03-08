@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopFxRegisterPluginEx @ 0x1403A37D8
+ * Callers:
+ *     PoFxRegisterPluginEx @ 0x1403A37C0 (PoFxRegisterPluginEx.c)
+ *     PoFxRegisterPlugin @ 0x140981890 (PoFxRegisterPlugin.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PopFxInitializeWorkPool @ 0x14084D2FC (PopFxInitializeWorkPool.c)
+ *     PopDiagTraceFxPluginRegistration @ 0x14084D450 (PopDiagTraceFxPluginRegistration.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopFxRegisterPluginEx(unsigned __int16 *a1, __int64 a2, unsigned __int16 *a3)
 {
   unsigned __int16 v4; // cx

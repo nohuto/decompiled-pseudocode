@@ -1,3 +1,13 @@
+/*
+ * XREFs of PipQueryBindingResolution @ 0x14083888C
+ * Callers:
+ *     IoResolveDependency @ 0x1403943F0 (IoResolveDependency.c)
+ *     PipSetDependency @ 0x1408387E4 (PipSetDependency.c)
+ *     IoDuplicateDependency @ 0x140951200 (IoDuplicateDependency.c)
+ * Callees:
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ */
+
 __int64 *__fastcall PipQueryBindingResolution(__int64 a1)
 {
   __int64 v1; // rbx

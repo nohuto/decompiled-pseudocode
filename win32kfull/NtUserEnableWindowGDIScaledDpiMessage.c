@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserEnableWindowGDIScaledDpiMessage @ 0x1C01D0600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?xxxEnableWindowGDIScaledDpiMessageX@@YA_NPEAUtagWND@@H@Z @ 0x1C02225FC (-xxxEnableWindowGDIScaledDpiMessageX@@YA_NPEAUtagWND@@H@Z.c)
+ */
+
 _BOOL8 __fastcall NtUserEnableWindowGDIScaledDpiMessage(__int64 a1, int a2)
 {
   __int64 v4; // rax

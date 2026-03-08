@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?FreeRegions@CInputSpace@@QEAAXXZ @ 0x1C00109C4
+ * Callers:
+ *     ?_FreeInputSpace@CInputConfig@@AEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C0010938 (-_FreeInputSpace@CInputConfig@@AEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     ?_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ @ 0x1C00130D0 (-_CreateLegacyInputSpace@CInputConfig@@AEAAJXZ.c)
+ *     NtConfigureInputSpace @ 0x1C0169520 (NtConfigureInputSpace.c)
+ * Callees:
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 void __fastcall CInputSpace::FreeRegions(CInputSpace *this)
 {
   _QWORD **v2; // rdi

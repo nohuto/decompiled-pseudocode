@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?HitTest@CPrimitiveGroup@@UEBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x180016F64
+ * Callers:
+ *     ?HitTest@CPrimitiveGroup@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x1801187F0 (-HitTest@CPrimitiveGroup@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z.c)
+ * Callees:
+ *     ?EnsureHitTestRegions@CPrimitiveGroup@@AEBAJXZ @ 0x180017050 (-EnsureHitTestRegions@CPrimitiveGroup@@AEBAJXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CPrimitiveGroup::HitTest(
         CPrimitiveGroup *this,
         const struct D2D_SIZE_F *a2,

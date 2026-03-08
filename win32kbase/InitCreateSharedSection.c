@@ -1,3 +1,17 @@
+/*
+ * XREFs of InitCreateSharedSection @ 0x1C031E224
+ * Callers:
+ *     Win32UserInitialize @ 0x1C031E444 (Win32UserInitialize.c)
+ * Callees:
+ *     Win32CreateSection @ 0x1C002D5F4 (Win32CreateSection.c)
+ *     UserCreateHeap @ 0x1C002D660 (UserCreateHeap.c)
+ *     WPP_RECORDER_AND_TRACE_SF_DD @ 0x1C0035414 (WPP_RECORDER_AND_TRACE_SF_DD.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqD @ 0x1C00D28A8 (WPP_RECORDER_AND_TRACE_SF_qqD.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall InitCreateSharedSection(__int64 a1, __int64 a2, __int64 a3)
 {
   char v3; // si

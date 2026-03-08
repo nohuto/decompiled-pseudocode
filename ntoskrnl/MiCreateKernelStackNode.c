@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiCreateKernelStackNode @ 0x14062A7B8
+ * Callers:
+ *     MiOutPageSingleKernelStack @ 0x1402DB980 (MiOutPageSingleKernelStack.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 _QWORD *__fastcall MiCreateKernelStackNode(_WORD *a1, _QWORD *a2)
 {
   _QWORD *result; // rax

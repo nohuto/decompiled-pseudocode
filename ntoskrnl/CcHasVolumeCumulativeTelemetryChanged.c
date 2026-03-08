@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcHasVolumeCumulativeTelemetryChanged @ 0x1405373D8
+ * Callers:
+ *     CcPostVolumeTelemetry @ 0x1403CB4D0 (CcPostVolumeTelemetry.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CcHasVolumeCumulativeTelemetryChanged(_QWORD *a1)
 {
   char result; // al

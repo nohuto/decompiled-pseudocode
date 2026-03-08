@@ -1,3 +1,23 @@
+/*
+ * XREFs of HalpIommuAllocateDmaDomain @ 0x1403A43AC
+ * Callers:
+ *     HalpIommuInitializeDmar @ 0x1403A409C (HalpIommuInitializeDmar.c)
+ *     IommuDomainCreateEx @ 0x14084E690 (IommuDomainCreateEx.c)
+ *     IommuDomainCreate @ 0x140932730 (IommuDomainCreate.c)
+ * Callees:
+ *     HalpIommuGetPageTableType @ 0x14037CA10 (HalpIommuGetPageTableType.c)
+ *     HalpIommuCreateDmarPageTable @ 0x14037CA68 (HalpIommuCreateDmarPageTable.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     Feature_Servicing_IommuApiPasid__private_IsEnabledDeviceUsage @ 0x140409C64 (Feature_Servicing_IommuApiPasid__private_IsEnabledDeviceUsage.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpIommuDomainMapLogicalRange @ 0x140515914 (HalpIommuDomainMapLogicalRange.c)
+ *     HalpIommuDomainUnmapLogicalRange @ 0x140515A38 (HalpIommuDomainUnmapLogicalRange.c)
+ *     HalpIommuFreeDmaDomain @ 0x140515CC0 (HalpIommuFreeDmaDomain.c)
+ *     HalpBuddyAllocatorCreateAllocator @ 0x14053000C (HalpBuddyAllocatorCreateAllocator.c)
+ */
+
 __int64 __fastcall HalpIommuAllocateDmaDomain(__int64 a1, __int64 a2, _DWORD *a3, __int64 *a4, _QWORD *a5)
 {
   int PageTableType; // edi

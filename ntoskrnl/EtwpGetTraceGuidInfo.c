@@ -1,3 +1,20 @@
+/*
+ * XREFs of EtwpGetTraceGuidInfo @ 0x140850058
+ * Callers:
+ *     NtTraceControl @ 0x140694040 (NtTraceControl.c)
+ * Callees:
+ *     EtwpGetMetaProviderContext @ 0x140204F94 (EtwpGetMetaProviderContext.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpMapMetaProviderKeywords @ 0x140462B5C (EtwpMapMetaProviderKeywords.c)
+ *     EtwpReleaseLoggerContext @ 0x14069349C (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140693AFC (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpFindGuidEntryByGuid @ 0x140694F60 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpUnreferenceGuidEntry @ 0x140695094 (EtwpUnreferenceGuidEntry.c)
+ */
+
 __int64 __fastcall EtwpGetTraceGuidInfo(__int64 a1, _QWORD *a2, int *a3, unsigned int *a4)
 {
   size_t v4; // r15

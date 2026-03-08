@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepIsLockedDown @ 0x1409C5D5C
+ * Callers:
+ *     SeQuerySigningPolicyWorker @ 0x14070BBF8 (SeQuerySigningPolicyWorker.c)
+ * Callees:
+ *     ZwQueryLicenseValue @ 0x140414ED0 (ZwQueryLicenseValue.c)
+ *     ExQueryFastCacheDevLicense @ 0x140792C50 (ExQueryFastCacheDevLicense.c)
+ *     KIsSideloadingEnabled @ 0x140A077B0 (KIsSideloadingEnabled.c)
+ */
+
 __int64 __fastcall SepIsLockedDown(unsigned __int8 a1, _BYTE *a2)
 {
   unsigned int v2; // ebx

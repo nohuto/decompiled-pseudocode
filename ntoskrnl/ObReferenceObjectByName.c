@@ -1,3 +1,28 @@
+/*
+ * XREFs of ObReferenceObjectByName @ 0x140698F90
+ * Callers:
+ *     IopGetDriverPathInformation @ 0x140553224 (IopGetDriverPathInformation.c)
+ *     IopGetLegacyVetoListDrivers @ 0x140698764 (IopGetLegacyVetoListDrivers.c)
+ *     CmLoadDifferencingKey @ 0x1406BC49C (CmLoadDifferencingKey.c)
+ *     AlpcpCreateClientPort @ 0x140713330 (AlpcpCreateClientPort.c)
+ *     ObShutdownSystem @ 0x140977E00 (ObShutdownSystem.c)
+ * Callees:
+ *     PsGetCurrentSilo @ 0x1402640A0 (PsGetCurrentSilo.c)
+ *     SeClearLearningModeObjectInformation @ 0x140265EF0 (SeClearLearningModeObjectInformation.c)
+ *     SepDeleteAccessState @ 0x140265F50 (SepDeleteAccessState.c)
+ *     PsDereferenceSiloContext @ 0x1402FEB00 (PsDereferenceSiloContext.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SeSetLearningModeObjectInformation @ 0x1405B5FAC (SeSetLearningModeObjectInformation.c)
+ *     SeCreateAccessState @ 0x1406991A0 (SeCreateAccessState.c)
+ *     ObpFreeObjectNameBuffer @ 0x140699240 (ObpFreeObjectNameBuffer.c)
+ *     ObpCheckObjectReference @ 0x1406992AC (ObpCheckObjectReference.c)
+ *     ObpUnlockDirectory @ 0x140699588 (ObpUnlockDirectory.c)
+ *     ObpLookupObjectName @ 0x1406E86B0 (ObpLookupObjectName.c)
+ *     ObpCaptureObjectName @ 0x1406EA0F0 (ObpCaptureObjectName.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ */
+
 __int64 __fastcall ObReferenceObjectByName(
         __int64 a1,
         int a2,

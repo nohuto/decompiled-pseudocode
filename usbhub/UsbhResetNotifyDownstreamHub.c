@@ -1,3 +1,18 @@
+/*
+ * XREFs of UsbhResetNotifyDownstreamHub @ 0x1C0044104
+ * Callers:
+ *     Usbh_HRS_WaitReady @ 0x1C001F060 (Usbh_HRS_WaitReady.c)
+ *     Usbh_HRS_Queued @ 0x1C003D9BC (Usbh_HRS_Queued.c)
+ *     UsbhResetNotificationIrpCompletion @ 0x1C0043F40 (UsbhResetNotificationIrpCompletion.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     WPP_RECORDER_SF_q @ 0x1C002EA5C (WPP_RECORDER_SF_q.c)
+ *     UsbhSetPdo_FailIo @ 0x1C00396D0 (UsbhSetPdo_FailIo.c)
+ */
+
 _DWORD *__fastcall UsbhResetNotifyDownstreamHub(__int64 a1)
 {
   unsigned int i; // edi

@@ -1,3 +1,21 @@
+/*
+ * XREFs of CcFlushCachePostProcessOneRange @ 0x14021B410
+ * Callers:
+ *     CcFlushCachePriv @ 0x140219F20 (CcFlushCachePriv.c)
+ *     CcWriteBehindAsync @ 0x140538060 (CcWriteBehindAsync.c)
+ *     CcAsyncLazywriteWorkerMulti @ 0x1405387F4 (CcAsyncLazywriteWorkerMulti.c)
+ *     CcWriteBehindAsyncFlushOneRange @ 0x140539380 (CcWriteBehindAsyncFlushOneRange.c)
+ * Callees:
+ *     CcIsFatalWriteError @ 0x1402EFE78 (CcIsFatalWriteError.c)
+ *     MmFlushSection @ 0x140333F20 (MmFlushSection.c)
+ *     CcReleaseByteRangeFromWrite @ 0x140337D3C (CcReleaseByteRangeFromWrite.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcPerfLogFlushSection @ 0x140390B04 (CcPerfLogFlushSection.c)
+ *     CcPostDeferredWrites @ 0x1403BBEB8 (CcPostDeferredWrites.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 bool __fastcall CcFlushCachePostProcessOneRange(__int64 *a1)
 {
   __int64 v1; // r13

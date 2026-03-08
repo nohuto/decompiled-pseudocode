@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiForceUFIMapping @ 0x1C02C4A90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreForceUFIMapping @ 0x1C027A4EC (GreForceUFIMapping.c)
+ */
+
 __int64 __fastcall NtGdiForceUFIMapping(HDC a1, __int64 *a2)
 {
   __int64 result; // rax

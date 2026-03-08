@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserInheritWindowMonitor @ 0x1C01D6050
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxInheritWindowMonitor @ 0x1C00ADDA0 (xxxInheritWindowMonitor.c)
+ */
+
 __int64 __fastcall NtUserInheritWindowMonitor(__int64 a1, __int64 a2)
 {
   int v4; // edi

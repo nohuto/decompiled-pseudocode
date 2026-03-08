@@ -1,3 +1,13 @@
+/*
+ * XREFs of DxgkDdiGetResourceForBar @ 0x1C03659D8
+ * Callers:
+ *     ?DpiDdiGetResourceForBar@@YAJPEAXGGPEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@@Z @ 0x1C0064AB0 (-DpiDdiGetResourceForBar@@YAJPEAXGGPEAU_CM_PARTIAL_RESOURCE_DESCRIPTOR@@@Z.c)
+ *     DpiIovGetBackingResource @ 0x1C039EC00 (DpiIovGetBackingResource.c)
+ * Callees:
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005A55C (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?GetResourceForBar@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETRESOURCEFORBAR@@@Z @ 0x1C0363C04 (-GetResourceForBar@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETRESOURCEFORBAR@@.c)
+ */
+
 __int64 __fastcall DxgkDdiGetResourceForBar(_QWORD *a1, int a2, unsigned __int16 a3, unsigned __int16 a4, __int64 a5)
 {
   int v5; // esi

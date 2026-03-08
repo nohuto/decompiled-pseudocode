@@ -1,3 +1,16 @@
+/*
+ * XREFs of PpmIdleTransitionStall @ 0x1405831B0
+ * Callers:
+ *     PpmIdleWaitForDependentTransitions @ 0x140235F24 (PpmIdleWaitForDependentTransitions.c)
+ *     PpmExitCoordinatedIdleState @ 0x14045A694 (PpmExitCoordinatedIdleState.c)
+ *     PoInitiateProcessorWake @ 0x140581880 (PoInitiateProcessorWake.c)
+ *     PpmIdleCheckCoordinatedDependency @ 0x1405821CC (PpmIdleCheckCoordinatedDependency.c)
+ *     PpmTestAndLockProcessor @ 0x140583A5C (PpmTestAndLockProcessor.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 LARGE_INTEGER __fastcall PpmIdleTransitionStall(__int64 a1)
 {
   LARGE_INTEGER result; // rax

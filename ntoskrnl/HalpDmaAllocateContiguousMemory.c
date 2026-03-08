@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpDmaAllocateContiguousMemory @ 0x14050DFA0
+ * Callers:
+ *     HalpDmaAllocateMapRegisters @ 0x14045399E (HalpDmaAllocateMapRegisters.c)
+ *     HalpDmaAllocateLocalContiguousPool @ 0x140930FF0 (HalpDmaAllocateLocalContiguousPool.c)
+ *     HalpDmaGrowContiguousMapBuffers @ 0x1409315C0 (HalpDmaGrowContiguousMapBuffers.c)
+ * Callees:
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     MmAllocateContiguousNodeMemory @ 0x1403B4900 (MmAllocateContiguousNodeMemory.c)
+ */
+
 __int64 __fastcall HalpDmaAllocateContiguousMemory(
         __int64 a1,
         unsigned int a2,

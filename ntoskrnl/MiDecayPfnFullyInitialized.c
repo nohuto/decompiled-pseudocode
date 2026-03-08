@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiDecayPfnFullyInitialized @ 0x1402D6FA4
+ * Callers:
+ *     MiFinishHardFault @ 0x140284200 (MiFinishHardFault.c)
+ *     MiWalkEntireImage @ 0x1402862C0 (MiWalkEntireImage.c)
+ *     MiDeleteVaTail @ 0x140323460 (MiDeleteVaTail.c)
+ * Callees:
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiAcquirePageListLock @ 0x140264E70 (MiAcquirePageListLock.c)
+ *     MiReleasePageListLock @ 0x140288360 (MiReleasePageListLock.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiDecayPfnFullyInitialized(ULONG_PTR BugCheckParameter2)
 {
   int v2; // esi

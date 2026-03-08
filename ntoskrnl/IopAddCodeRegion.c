@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopAddCodeRegion @ 0x14054F968
+ * Callers:
+ *     KeCapturePersistentThreadState @ 0x140551EC0 (KeCapturePersistentThreadState.c)
+ * Callees:
+ *     RtlULongLongSub @ 0x1403050A8 (RtlULongLongSub.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IopValidateSectionSize @ 0x140551A64 (IopValidateSectionSize.c)
+ */
+
 __int64 __fastcall IopAddCodeRegion(__int64 a1, unsigned int a2, _DWORD *a3)
 {
   unsigned int v3; // edi

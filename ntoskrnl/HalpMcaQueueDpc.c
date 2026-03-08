@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpMcaQueueDpc @ 0x1402FDD84
+ * Callers:
+ *     HalpTimerClockInterrupt @ 0x14022C760 (HalpTimerClockInterrupt.c)
+ *     HalpTimerAlwaysOnClockInterrupt @ 0x14051C3E0 (HalpTimerAlwaysOnClockInterrupt.c)
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 (__fastcall *__fastcall HalpMcaQueueDpc(char a1, char a2))(_QWORD, _QWORD)
 {
   __int64 (__fastcall *result)(_QWORD, _QWORD); // rax

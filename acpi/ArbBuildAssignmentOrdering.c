@@ -1,3 +1,20 @@
+/*
+ * XREFs of ArbBuildAssignmentOrdering @ 0x1C00A124C
+ * Callers:
+ *     ArbInitializeArbiterInstance @ 0x1C00A1B94 (ArbInitializeArbiterInstance.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     ZwClose_0 @ 0x1C0001A67 (ZwClose_0.c)
+ *     ZwCreateKey_0 @ 0x1C0001AC1 (ZwCreateKey_0.c)
+ *     ZwOpenKey_0 @ 0x1C0001AE5 (ZwOpenKey_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ArbAddOrdering @ 0x1C00A0BC4 (ArbAddOrdering.c)
+ *     ArbFreeOrderingList @ 0x1C00A19C8 (ArbFreeOrderingList.c)
+ *     ArbInitializeOrderingList @ 0x1C00A1F40 (ArbInitializeOrderingList.c)
+ *     ArbPruneOrdering @ 0x1C00A217C (ArbPruneOrdering.c)
+ *     ArbpGetRegistryValue @ 0x1C00A2FAC (ArbpGetRegistryValue.c)
+ */
+
 __int64 __fastcall ArbBuildAssignmentOrdering(__int64 a1)
 {
   NTSTATUS RegistryValue; // edi

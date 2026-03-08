@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopFxDeviceWork @ 0x140587AD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PopFxDeliverDevicePowerRequired @ 0x14030207C (PopFxDeliverDevicePowerRequired.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 LONG __fastcall PopFxDeviceWork(ULONG_PTR a1)
 {
   KSPIN_LOCK *v2; // rsi

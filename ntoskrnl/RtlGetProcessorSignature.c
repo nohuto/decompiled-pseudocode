@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlGetProcessorSignature @ 0x1403A25C8
+ * Callers:
+ *     RtlInitFunctionOverrideCapabilities @ 0x1403A2358 (RtlInitFunctionOverrideCapabilities.c)
+ * Callees:
+ *     RtlGetCpuVendor @ 0x1403A2664 (RtlGetCpuVendor.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall RtlGetProcessorSignature(_BYTE *a1, _BYTE *a2, _WORD *a3, _BYTE *a4, _BYTE *a5)
 {
   unsigned int v13; // esi

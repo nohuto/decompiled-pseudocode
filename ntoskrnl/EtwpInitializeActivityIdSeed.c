@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpInitializeActivityIdSeed @ 0x14080B3A0
+ * Callers:
+ *     EtwInitializeProcessorActivityId @ 0x14080B228 (EtwInitializeProcessorActivityId.c)
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ * Callees:
+ *     HeadlessDispatch @ 0x140372650 (HeadlessDispatch.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall EtwpInitializeActivityIdSeed(__int64 a1, __int16 a2)
 {
   int v3; // eax

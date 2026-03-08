@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ @ 0x1800D6308
+ * Callers:
+ *     _anonymous_namespace_::State::State @ 0x1800D606C (_anonymous_namespace_--State--State.c)
+ *     ??0CEnergyReporter@@AEAA@XZ @ 0x1800D618C (--0CEnergyReporter@@AEAA@XZ.c)
+ *     ??0CProcessAttributionReporter@@AEAA@XZ @ 0x1800D6228 (--0CProcessAttributionReporter@@AEAA@XZ.c)
+ *     ??0CProcessResourceAttributionReporter@@AEAA@XZ @ 0x1800D6290 (--0CProcessResourceAttributionReporter@@AEAA@XZ.c)
+ * Callees:
+ *     ??2@YAPEAX_K@Z @ 0x180034790 (--2@YAPEAX_K@Z.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038C50 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ??$_Emplace_reallocate@AEBQEAUProcessAttributionRecord@CProcessAttributionManager@@@?$vector@PEAUProcessAttributionRecord@CProcessAttributionManager@@V?$allocator@PEAUProcessAttributionRecord@CProcessAttributionManager@@@std@@@std@@QEAAPEAPEAUProcessAttributionRecord@CProcessAttributionManager@@QEAPEAU23@AEBQEAU23@@Z @ 0x1800F35B0 (--$_Emplace_reallocate@AEBQEAUProcessAttributionRecord@CProcessAttributionManager@@@-$vector@PEA.c)
+ *     ??$_Emplace_reallocate@AEBQEAUObserver@CProcessAttributionManager@@@?$vector@PEAUObserver@CProcessAttributionManager@@V?$allocator@PEAUObserver@CProcessAttributionManager@@@std@@@std@@QEAAPEAPEAUObserver@CProcessAttributionManager@@QEAPEAU23@AEBQEAU23@@Z @ 0x1800FD928 (--$_Emplace_reallocate@AEBQEAUObserver@CProcessAttributionManager@@@-$vector@PEAUObserver@CProce.c)
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ */
+
 struct CProcessAttributionObserver *__fastcall CProcessAttributionManager::CreateObserver(
         CProcessAttributionManager *this)
 {

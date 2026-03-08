@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1CMouseProcessor@@QEAA@XZ @ 0x1C0095570
+ * Callers:
+ *     ?PreUninitialize@CMouseSensor@@EEAAXXZ @ 0x1C0094A90 (-PreUninitialize@CMouseSensor@@EEAAXXZ.c)
+ * Callees:
+ *     ?SetEmpty@CInputDest@@QEAAXXZ @ 0x1C007D0A0 (-SetEmpty@CInputDest@@QEAAXXZ.c)
+ *     ??1MouseInterceptState@CMouseProcessor@@QEAA@XZ @ 0x1C009528C (--1MouseInterceptState@CMouseProcessor@@QEAA@XZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void __fastcall CMouseProcessor::~CMouseProcessor(CMouseProcessor *this)
 {
   *(_QWORD *)this = &CMouseProcessor::`vftable';

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ConvertVideoStandardType @ 0x1C001F61C
+ * Callers:
+ *     ?ConvertVideoSignalInfo@@YAJPEBU_VideoModeDescriptor@@PEAU_D3DKMDT_VIDEO_SIGNAL_INFO@@@Z @ 0x1C001F54C (-ConvertVideoSignalInfo@@YAJPEBU_VideoModeDescriptor@@PEAU_D3DKMDT_VIDEO_SIGNAL_INFO@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ConvertVideoStandardType(int a1, _DWORD *a2)
 {
   if ( a1 > 14 )

@@ -1,3 +1,20 @@
+/*
+ * XREFs of RIMFreePointerDevice @ 0x1C01B5B18
+ * Callers:
+ *     UserDeactivateMITInputProcessing @ 0x1C0093B20 (UserDeactivateMITInputProcessing.c)
+ *     RIMCreatePointerDeviceInfo @ 0x1C01B3FEC (RIMCreatePointerDeviceInfo.c)
+ *     RIMReleasePointerDeviceInfo @ 0x1C01B9064 (RIMReleasePointerDeviceInfo.c)
+ *     RIMVirtCreatePointerDeviceInfo @ 0x1C01BA8B0 (RIMVirtCreatePointerDeviceInfo.c)
+ *     RIMIDECreateHIDDesc @ 0x1C01C16CC (RIMIDECreateHIDDesc.c)
+ * Callees:
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMRemoveFromActiveDevices @ 0x1C01B9190 (RIMRemoveFromActiveDevices.c)
+ *     RIMCmFreePointerDeviceContacts @ 0x1C01DEA60 (RIMCmFreePointerDeviceContacts.c)
+ *     ApiSetFreePointerDeviceCalData @ 0x1C0244144 (ApiSetFreePointerDeviceCalData.c)
+ *     ApiSetFreePointerDeviceCalibrationInfo @ 0x1C0244294 (ApiSetFreePointerDeviceCalibrationInfo.c)
+ */
+
 void __fastcall RIMFreePointerDevice(__int64 a1, __int64 a2)
 {
   _QWORD *v4; // r8

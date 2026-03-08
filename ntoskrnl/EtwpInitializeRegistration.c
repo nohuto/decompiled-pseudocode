@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpInitializeRegistration @ 0x140B70A04
+ * Callers:
+ *     EtwpInitialize @ 0x140B3CA40 (EtwpInitialize.c)
+ * Callees:
+ *     KiInitializeMutant @ 0x1402D981C (KiInitializeMutant.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObCreateObjectType @ 0x14080CB00 (ObCreateObjectType.c)
+ */
+
 __int64 EtwpInitializeRegistration()
 {
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-39h] BYREF

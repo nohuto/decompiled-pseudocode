@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalAllocateCommonBufferDmaThinEx @ 0x14038CDF0
+ * Callers:
+ *     HalAllocateCommonBufferDmaThin @ 0x14038CDC0 (HalAllocateCommonBufferDmaThin.c)
+ * Callees:
+ *     HalpAllocateCommonBufferDmaThin @ 0x14038CE84 (HalpAllocateCommonBufferDmaThin.c)
+ */
+
 __int64 __fastcall HalAllocateCommonBufferDmaThinEx(__int64 a1, int a2, int a3, _QWORD *a4, char a5, int a6)
 {
   __int64 v6; // rbx

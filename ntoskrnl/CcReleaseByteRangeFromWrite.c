@@ -1,3 +1,15 @@
+/*
+ * XREFs of CcReleaseByteRangeFromWrite @ 0x140337D3C
+ * Callers:
+ *     CcFlushCachePostProcessOneRange @ 0x14021B410 (CcFlushCachePostProcessOneRange.c)
+ *     CcNotifyOfMappedWriteComplete @ 0x1402A42CC (CcNotifyOfMappedWriteComplete.c)
+ * Callees:
+ *     CcSetDirtyInMask @ 0x14021C370 (CcSetDirtyInMask.c)
+ *     CcSetDirtyPinnedData @ 0x140242420 (CcSetDirtyPinnedData.c)
+ *     CcUnpinFileDataEx @ 0x140337E50 (CcUnpinFileDataEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall CcReleaseByteRangeFromWrite(__int64 a1, __int64 *a2, unsigned int a3, _WORD *a4, char a5)
 {
   __int64 v5; // rbx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of FsRtlAllocateExtraCreateParameterFromLookasideList @ 0x1407CBC80
+ * Callers:
+ *     IopSymlinkAllocateAndAddECP @ 0x14077E41C (IopSymlinkAllocateAndAddECP.c)
+ *     IopParseDevice @ 0x1407B6A30 (IopParseDevice.c)
+ * Callees:
+ *     ExAllocateFromNPagedLookasideList @ 0x14023FE20 (ExAllocateFromNPagedLookasideList.c)
+ *     FsRtlAllocateExtraCreateParameter @ 0x1406A8D50 (FsRtlAllocateExtraCreateParameter.c)
+ */
+
 NTSTATUS __stdcall FsRtlAllocateExtraCreateParameterFromLookasideList(
         LPCGUID EcpType,
         ULONG SizeOfContext,

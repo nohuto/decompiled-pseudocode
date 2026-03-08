@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiCreatePfnDatabase @ 0x140B3A0B8
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     MiGetPartitionLargePageListCount @ 0x140370F84 (MiGetPartitionLargePageListCount.c)
+ *     MiPopulateFreeKernelShadowStackCacheEntries @ 0x14039C190 (MiPopulateFreeKernelShadowStackCacheEntries.c)
+ *     MiInitializePartition @ 0x140837D40 (MiInitializePartition.c)
+ *     MiCreateSparsePfnDatabase @ 0x140B37C80 (MiCreateSparsePfnDatabase.c)
+ *     MiInitializePartitions @ 0x140B3A308 (MiInitializePartitions.c)
+ *     MiInitializeColors @ 0x140B6BC48 (MiInitializeColors.c)
+ *     MiInitializeNumaGraph @ 0x140B71624 (MiInitializeNumaGraph.c)
+ */
+
 __int64 __fastcall MiCreatePfnDatabase(__int64 a1)
 {
   int v2; // edi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlpHpSegMgrAllocate @ 0x14030853C
+ * Callers:
+ *     RtlpHpSegSegmentAllocate @ 0x140305B38 (RtlpHpSegSegmentAllocate.c)
+ * Callees:
+ *     RtlpHpSegMgrCommit @ 0x140248BE0 (RtlpHpSegMgrCommit.c)
+ *     RtlpHpSegMgrReserve @ 0x1403085F4 (RtlpHpSegMgrReserve.c)
+ *     RtlpHpSegMgrRelease @ 0x140308F28 (RtlpHpSegMgrRelease.c)
+ *     RtlpHpSegMgrVaCtxInsert @ 0x14030C1E4 (RtlpHpSegMgrVaCtxInsert.c)
+ */
+
 unsigned __int64 __fastcall RtlpHpSegMgrAllocate(__int64 a1, int a2, int a3)
 {
   int v6; // r9d

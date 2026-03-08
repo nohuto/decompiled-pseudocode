@@ -1,3 +1,16 @@
+/*
+ * XREFs of BltIcon @ 0x1C011375C
+ * Callers:
+ *     _DrawIconEx @ 0x1C003B618 (_DrawIconEx.c)
+ *     ?BltMe4Times@@YAXIHHPEAUHDC__@@PEAUtagCURSOR@@I@Z @ 0x1C022E530 (-BltMe4Times@@YAXIHHPEAUHDC__@@PEAUtagCURSOR@@I@Z.c)
+ * Callees:
+ *     GreStretchBltInternal @ 0x1C0059930 (GreStretchBltInternal.c)
+ *     NtGdiAlphaBlend @ 0x1C0083DC0 (NtGdiAlphaBlend.c)
+ *     GreSetBkColor @ 0x1C0113964 (GreSetBkColor.c)
+ *     GreSetStretchBltMode @ 0x1C01139E4 (GreSetStretchBltMode.c)
+ *     GreSetTextColor @ 0x1C0113D94 (GreSetTextColor.c)
+ */
+
 __int64 __fastcall BltIcon(Gre::Base *a1, int a2, int a3, int a4, int a5, XLATEOBJ *a6, __int64 a7, int a8, int a9)
 {
   int v9; // esi

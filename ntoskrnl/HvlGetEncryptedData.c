@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvlGetEncryptedData @ 0x140545650
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HvlpGetEncryptedDataFromHypervisor @ 0x1405458B8 (HvlpGetEncryptedDataFromHypervisor.c)
+ *     HvlpGetEncryptedDataFromSecureKernel @ 0x140545AC0 (HvlpGetEncryptedDataFromSecureKernel.c)
+ */
+
 __int64 __fastcall HvlGetEncryptedData(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4, __int64 a5)
 {
   if ( !(_DWORD)a3 || (a3 & 0xFFF) != 0 )

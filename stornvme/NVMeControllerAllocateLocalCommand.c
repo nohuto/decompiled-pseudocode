@@ -1,3 +1,14 @@
+/*
+ * XREFs of NVMeControllerAllocateLocalCommand @ 0x1C00032F0
+ * Callers:
+ *     NVMeControllerCreateLocalCommandPool @ 0x1C0003408 (NVMeControllerCreateLocalCommandPool.c)
+ *     NVMeControllerGetLocalCommand @ 0x1C000352C (NVMeControllerGetLocalCommand.c)
+ * Callees:
+ *     memset @ 0x1C0004580 (memset.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C000C1C0 (NVMeAllocateDmaBuffer.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ */
+
 __int64 __fastcall NVMeControllerAllocateLocalCommand(__int64 a1)
 {
   int v2; // eax

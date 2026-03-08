@@ -1,3 +1,11 @@
+/*
+ * XREFs of WppIntToHex @ 0x1C0022EC0
+ * Callers:
+ *     WppGuidToStr @ 0x1C00229F8 (WppGuidToStr.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall WppIntToHex(wchar_t *Buf, unsigned int Value, int Digits)
 {
   int v3; // eax

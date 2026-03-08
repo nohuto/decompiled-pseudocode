@@ -1,3 +1,11 @@
+/*
+ * XREFs of SeAuditingFileEvents @ 0x1409CA6C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __stdcall SeAuditingFileEvents(BOOLEAN AccessGranted, PSECURITY_DESCRIPTOR SecurityDescriptor)
 {
   BOOLEAN result; // al

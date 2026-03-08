@@ -1,3 +1,18 @@
+/*
+ * XREFs of ParseIntObj @ 0x1C005B3A0
+ * Callers:
+ *     ParsePackage @ 0x1C0058160 (ParsePackage.c)
+ *     ParseArg @ 0x1C005A46C (ParseArg.c)
+ *     ParseFieldConnection @ 0x1C005AF60 (ParseFieldConnection.c)
+ *     ParseOpcode @ 0x1C005BD40 (ParseOpcode.c)
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     IsCompatableDSDTRevision @ 0x1C004BE28 (IsCompatableDSDTRevision.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ */
+
 __int64 __fastcall ParseIntObj(__int64 a1, const void **a2, __int64 a3, char a4)
 {
   unsigned int v4; // esi

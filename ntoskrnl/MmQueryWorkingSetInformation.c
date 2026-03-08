@@ -1,3 +1,16 @@
+/*
+ * XREFs of MmQueryWorkingSetInformation @ 0x140299640
+ * Callers:
+ *     CmSipQueryProcessWorkingSetLimits @ 0x140388B3C (CmSipQueryProcessWorkingSetLimits.c)
+ *     SmKmVirtualLockContextIncreaseWsMin @ 0x1405C9B48 (SmKmVirtualLockContextIncreaseWsMin.c)
+ *     SmKmVirtualLockCtxMemoryUnlocked @ 0x1405C9DA4 (SmKmVirtualLockCtxMemoryUnlocked.c)
+ *     PspQueryQuotaLimits @ 0x14071F77C (PspQueryQuotaLimits.c)
+ *     NtQueryInformationProcess @ 0x1407215F0 (NtQueryInformationProcess.c)
+ * Callees:
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ */
+
 __int64 __fastcall MmQueryWorkingSetInformation(_QWORD *a1, _QWORD *a2, _QWORD *a3, _QWORD *a4, _QWORD *a5, _DWORD *a6)
 {
   unsigned __int64 *v10; // rbp

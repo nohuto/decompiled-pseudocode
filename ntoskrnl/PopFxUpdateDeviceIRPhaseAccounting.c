@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopFxUpdateDeviceIRPhaseAccounting @ 0x140589E34
+ * Callers:
+ *     PopFxSetDripsBlockedByDeviceActivity @ 0x1405895A4 (PopFxSetDripsBlockedByDeviceActivity.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopFxAccumulateDeviceIRPhaseAccounting @ 0x140586560 (PopFxAccumulateDeviceIRPhaseAccounting.c)
+ */
+
 __int64 __fastcall PopFxUpdateDeviceIRPhaseAccounting(char a1)
 {
   unsigned __int64 v2; // rbx

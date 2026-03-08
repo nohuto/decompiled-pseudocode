@@ -1,3 +1,26 @@
+/*
+ * XREFs of PfSnSetAltPrefetchParam @ 0x14097C9F8
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     RtlRbInsertNodeEx @ 0x14024D3A0 (RtlRbInsertNodeEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     PfSnCalculateScenarioNameAndHash @ 0x1407E4DC0 (PfSnCalculateScenarioNameAndHash.c)
+ *     PfSnAltProfileFindByScenarioId @ 0x1407E50B0 (PfSnAltProfileFindByScenarioId.c)
+ *     PfCalculateProcessHash @ 0x1407E7450 (PfCalculateProcessHash.c)
+ *     PfSnAltProfileTreeCompareByProcess @ 0x14097C66C (PfSnAltProfileTreeCompareByProcess.c)
+ *     PfSnAltProfileTreeCompareByScenarioId @ 0x14097C698 (PfSnAltProfileTreeCompareByScenarioId.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfSnSetAltPrefetchParam(ULONG_PTR BugCheckParameter1, unsigned int *a2, int a3, char a4)
 {
   unsigned __int64 v8; // r14

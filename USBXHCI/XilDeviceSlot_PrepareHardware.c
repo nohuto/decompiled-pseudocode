@@ -1,3 +1,14 @@
+/*
+ * XREFs of XilDeviceSlot_PrepareHardware @ 0x1C001C9B0
+ * Callers:
+ *     Controller_WdfEvtDevicePrepareHardware @ 0x1C0072A30 (Controller_WdfEvtDevicePrepareHardware.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     XilCoreDeviceSlot_AllocateResources @ 0x1C001C9FC (XilCoreDeviceSlot_AllocateResources.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     XilDeviceSlot_AllocateSecureResources @ 0x1C0037DA4 (XilDeviceSlot_AllocateSecureResources.c)
+ */
+
 __int64 __fastcall XilDeviceSlot_PrepareHardware(__int64 a1)
 {
   __int64 v1; // rsi

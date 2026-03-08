@@ -1,3 +1,17 @@
+/*
+ * XREFs of PspSetupUserShadowStack @ 0x1409AEB6C
+ * Callers:
+ *     PspAllocateThread @ 0x1406B00F4 (PspAllocateThread.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlLocateExtendedFeature @ 0x14045BC10 (RtlLocateExtendedFeature.c)
+ *     MmFreeVirtualMemory @ 0x1406EC820 (MmFreeVirtualMemory.c)
+ *     RtlCalculateUserShadowStackSizes @ 0x1408A15B4 (RtlCalculateUserShadowStackSizes.c)
+ *     PspReserveAndCommitUserShadowStack @ 0x1409AE7B0 (PspReserveAndCommitUserShadowStack.c)
+ */
+
 NTSTATUS __fastcall PspSetupUserShadowStack(PRKPROCESS PROCESS, __int64 a2, __int64 a3, _BYTE *a4, unsigned int a5)
 {
   NTSTATUS result; // eax

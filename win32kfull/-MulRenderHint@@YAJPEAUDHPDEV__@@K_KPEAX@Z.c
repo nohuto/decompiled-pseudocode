@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MulRenderHint@@YAJPEAUDHPDEV__@@K_KPEAX@Z @ 0x1C02B2920
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall MulRenderHint(struct DHPDEV__ *a1, unsigned int a2, __int64 a3, __int64 **a4)
 {
   _QWORD *v4; // rbx

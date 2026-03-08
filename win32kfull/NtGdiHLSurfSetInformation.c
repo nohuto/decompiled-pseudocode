@@ -1,3 +1,17 @@
+/*
+ * XREFs of NtGdiHLSurfSetInformation @ 0x1C001E5D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreSfmOpenCompositorRef @ 0x1C001E854 (GreSfmOpenCompositorRef.c)
+ *     GreSetRedirectionSurfaceSignaling @ 0x1C001E978 (GreSetRedirectionSurfaceSignaling.c)
+ *     GreSfmCloseCompositorRef @ 0x1C001EC94 (GreSfmCloseCompositorRef.c)
+ *     GreSfmRegisterLogicalSurfaceForSignaling @ 0x1C001F308 (GreSfmRegisterLogicalSurfaceForSignaling.c)
+ *     GreHLsurfSetPresentFlags @ 0x1C026A4C8 (GreHLsurfSetPresentFlags.c)
+ *     GreHLsurfSetUpdateId @ 0x1C026A5FC (GreHLsurfSetUpdateId.c)
+ *     GreSfmGenerateMoveData @ 0x1C02B0804 (GreSfmGenerateMoveData.c)
+ */
+
 __int64 __fastcall NtGdiHLSurfSetInformation(HLSURF a1, int a2, _QWORD *a3, unsigned int a4)
 {
   NTSTATUS v5; // ebx

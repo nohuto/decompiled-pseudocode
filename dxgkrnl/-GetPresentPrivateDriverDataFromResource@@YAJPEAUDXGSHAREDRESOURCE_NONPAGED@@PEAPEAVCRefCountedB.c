@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPresentPrivateDriverDataFromResource@@YAJPEAUDXGSHAREDRESOURCE_NONPAGED@@PEAPEAVCRefCountedBuffer@@PEAU_D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA@@@Z @ 0x1C0046AC0
+ * Callers:
+ *     DxgkGetResourcePresentPrivateDriverData @ 0x1C02D5400 (DxgkGetResourcePresentPrivateDriverData.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetPresentPrivateDriverDataFromResource(
         KSPIN_LOCK *a1,
         KSPIN_LOCK *a2,

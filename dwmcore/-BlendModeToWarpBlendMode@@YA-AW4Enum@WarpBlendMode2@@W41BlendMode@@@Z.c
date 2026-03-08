@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?BlendModeToWarpBlendMode@@YA?AW4Enum@WarpBlendMode2@@W41BlendMode@@@Z @ 0x1801FCB54
+ * Callers:
+ *     ?EmitGeometry@CWARPDrawListEntry@@UEBAJPEAVCD3DBatchExecutionContext@@PEBVCRenderingBatchCommand@@@Z @ 0x1801FCC70 (-EmitGeometry@CWARPDrawListEntry@@UEBAJPEAVCD3DBatchExecutionContext@@PEBVCRenderingBatchCommand.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall BlendModeToWarpBlendMode(int a1)
 {
   int v1; // ecx

@@ -1,3 +1,21 @@
+/*
+ * XREFs of TlgRegisterAggregateProviderEx @ 0x14080F588
+ * Callers:
+ *     TlgRegisterAggregateProvider @ 0x14080F56C (TlgRegisterAggregateProvider.c)
+ *     CmpRegisterTraceLoggingProvider @ 0x14081AB58 (CmpRegisterTraceLoggingProvider.c)
+ *     EtwpInitialize @ 0x140B3CA40 (EtwpInitialize.c)
+ *     MmRegisterEtwProvider @ 0x140B4276C (MmRegisterEtwProvider.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14080F6BC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     CreateTlgAggregateSession @ 0x14080F758 (CreateTlgAggregateSession.c)
+ *     ComputeFlushPeriod @ 0x14080F88C (ComputeFlushPeriod.c)
+ *     DestroyAggregateSession @ 0x140A6C488 (DestroyAggregateSession.c)
+ */
+
 __int64 __fastcall TlgRegisterAggregateProviderEx(PVOID CallbackContext, __int64 a2, __int64 a3)
 {
   __int64 v3; // rbp

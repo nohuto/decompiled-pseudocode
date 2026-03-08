@@ -1,3 +1,17 @@
+/*
+ * XREFs of NVMeSetHostMemoryBuffer @ 0x1C00237E0
+ * Callers:
+ *     NVMeControllerPowerDown @ 0x1C000DF70 (NVMeControllerPowerDown.c)
+ *     NVMeFreeHostMemoryBuffer @ 0x1C000EE60 (NVMeFreeHostMemoryBuffer.c)
+ *     NVMeInitHostMemoryBuffer @ 0x1C000F3EC (NVMeInitHostMemoryBuffer.c)
+ * Callees:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     memmove @ 0x1C0004280 (memmove.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 __int64 __fastcall NVMeSetHostMemoryBuffer(
         __int64 a1,
         unsigned __int8 a2,

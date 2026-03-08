@@ -1,3 +1,17 @@
+/*
+ * XREFs of CcAsyncLazywriteWorkerThread @ 0x1405378E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcDereferencePartition @ 0x140219EF0 (CcDereferencePartition.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcNotifyWriteBehindVolume @ 0x1403BBE2C (CcNotifyWriteBehindVolume.c)
+ *     CcAsyncLazywriteWorker @ 0x14053741C (CcAsyncLazywriteWorker.c)
+ *     CcAsyncLazywriteWorkerMulti @ 0x1405387F4 (CcAsyncLazywriteWorkerMulti.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall CcAsyncLazywriteWorkerThread(__int64 a1, __int64 a2)
 {
   __int64 v2; // rsi

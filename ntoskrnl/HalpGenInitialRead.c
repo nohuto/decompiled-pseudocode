@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpGenInitialRead @ 0x140A88528
+ * Callers:
+ *     HalpInitializeGenericErrorSource @ 0x140A880EC (HalpInitializeGenericErrorSource.c)
+ * Callees:
+ *     HalpCheckAndReportGhes @ 0x14029AA2C (HalpCheckAndReportGhes.c)
+ *     HalpFindGhesEntry @ 0x14037D5E8 (HalpFindGhesEntry.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall HalpGenInitialRead(__int64 a1)
 {
   int v1; // ecx

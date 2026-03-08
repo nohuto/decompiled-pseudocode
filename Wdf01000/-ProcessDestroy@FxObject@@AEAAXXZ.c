@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?ProcessDestroy@FxObject@@AEAAXXZ @ 0x1C00053A0
+ * Callers:
+ *     ?Release@FxObject@@UEAAKPEAXJPEBD@Z @ 0x1C0006410 (-Release@FxObject@@UEAAKPEAXJPEBD@Z.c)
+ *     ?DeferredDisposeWorkItem@FxObject@@AEAAXXZ @ 0x1C0047694 (-DeferredDisposeWorkItem@FxObject@@AEAAXXZ.c)
+ * Callees:
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ??_GFxTagTracker@@QEAAPEAXI@Z @ 0x1C0045FBC (--_GFxTagTracker@@QEAAPEAXI@Z.c)
+ *     ?CheckForAbandondedTags@FxTagTracker@@QEAAXXZ @ 0x1C00478C4 (-CheckForAbandondedTags@FxTagTracker@@QEAAXXZ.c)
+ */
+
 void __fastcall FxObject::ProcessDestroy(FxObject *this)
 {
   unsigned __int16 m_ObjectFlags; // ax

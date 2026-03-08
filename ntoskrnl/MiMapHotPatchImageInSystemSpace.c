@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiMapHotPatchImageInSystemSpace @ 0x140A37488
+ * Callers:
+ *     MiPrepareToHotPatchImage @ 0x140A37C98 (MiPrepareToHotPatchImage.c)
+ * Callees:
+ *     IoAllocateMdl @ 0x14020CAD0 (IoAllocateMdl.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MiFillSystemPtes @ 0x140328C00 (MiFillSystemPtes.c)
+ */
+
 __int64 __fastcall MiMapHotPatchImageInSystemSpace(_QWORD *a1)
 {
   unsigned int v2; // ebx

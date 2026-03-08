@@ -1,3 +1,19 @@
+/*
+ * XREFs of Usbh_BusRemove_PdoEvent @ 0x1C003AD1C
+ * Callers:
+ *     Usbh_BS_BusPause @ 0x1C001D2E0 (Usbh_BS_BusPause.c)
+ *     Usbh_BS_BusStop @ 0x1C0031AE0 (Usbh_BS_BusStop.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     UsbhFdoUnblockAllPendedPdoD0Irps @ 0x1C00212F4 (UsbhFdoUnblockAllPendedPdoD0Irps.c)
+ *     UsbhAcquirePdoStateLock @ 0x1C0031CB0 (UsbhAcquirePdoStateLock.c)
+ *     UsbhSetPdo_FailIo @ 0x1C00396D0 (UsbhSetPdo_FailIo.c)
+ *     UsbhDeletePdo @ 0x1C005409C (UsbhDeletePdo.c)
+ */
+
 void __fastcall Usbh_BusRemove_PdoEvent(__int64 a1, __int64 a2)
 {
   _DWORD *v4; // r15

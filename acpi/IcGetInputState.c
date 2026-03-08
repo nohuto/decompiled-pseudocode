@@ -1,3 +1,11 @@
+/*
+ * XREFs of IcGetInputState @ 0x1C005EC04
+ * Callers:
+ *     IrqLibpGetVectorInput @ 0x1C005CD50 (IrqLibpGetVectorInput.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IcGetInputState(unsigned int a1, _OWORD *a2)
 {
   __int64 i; // r8

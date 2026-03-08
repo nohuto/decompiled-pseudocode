@@ -1,3 +1,14 @@
+/*
+ * XREFs of VidSchEscape @ 0x1C003F6B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0013414 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00134D8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     VidSchiForceTdr @ 0x1C00473F4 (VidSchiForceTdr.c)
+ */
+
 __int64 __fastcall VidSchEscape(__int64 a1, __int64 a2)
 {
   unsigned int v4; // edi

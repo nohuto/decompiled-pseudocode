@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBFDO_GetDeviceCapabilities @ 0x1C000D0E8
+ * Callers:
+ *     HUBFDO_EvtDeviceAdd @ 0x1C0077680 (HUBFDO_EvtDeviceAdd.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 __int64 __fastcall HUBFDO_GetDeviceCapabilities(__int64 a1, _DWORD *a2, __int64 a3)
 {
   __int64 v6; // r14

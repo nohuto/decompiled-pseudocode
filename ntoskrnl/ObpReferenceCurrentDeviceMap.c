@@ -1,3 +1,19 @@
+/*
+ * XREFs of ObpReferenceCurrentDeviceMap @ 0x140721450
+ * Callers:
+ *     ObpLookupObjectName @ 0x1406E86B0 (ObpLookupObjectName.c)
+ *     ObQueryDeviceMapInformation @ 0x140720E70 (ObQueryDeviceMapInformation.c)
+ * Callees:
+ *     PsGetThreadServerSilo @ 0x1402637A0 (PsGetThreadServerSilo.c)
+ *     PsGetProcessServerSilo @ 0x1402637E0 (PsGetProcessServerSilo.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     PsReferenceImpersonationTokenEx @ 0x1406D6630 (PsReferenceImpersonationTokenEx.c)
+ *     ObpSetCurrentProcessDeviceMap @ 0x14075D6E0 (ObpSetCurrentProcessDeviceMap.c)
+ *     SeGetTokenDeviceMap @ 0x14075D880 (SeGetTokenDeviceMap.c)
+ *     ObpSlowReferenceDeviceMap @ 0x14075DAD8 (ObpSlowReferenceDeviceMap.c)
+ */
+
 __int64 __fastcall ObpReferenceCurrentDeviceMap(__int16 a1, signed __int64 **a2)
 {
   __int64 v3; // r13

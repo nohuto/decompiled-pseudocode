@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiFindNextAlignedForwardRunClearEx @ 0x140634A3C
+ * Callers:
+ *     MiObtainDynamicVa @ 0x1402105DC (MiObtainDynamicVa.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiFindNextAlignedForwardRunClearEx(_QWORD *a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rsi

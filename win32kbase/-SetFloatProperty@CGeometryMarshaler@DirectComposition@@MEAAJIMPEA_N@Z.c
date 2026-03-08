@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetFloatProperty@CGeometryMarshaler@DirectComposition@@MEAAJIMPEA_N@Z @ 0x1C000DD20
+ * Callers:
+ *     ?SetFloatProperty@CRectangleClipMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C005A4F0 (-SetFloatProperty@CRectangleClipMarshaler@DirectComposition@@UEAAJIMPEA_N@Z.c)
+ * Callees:
+ *     ?SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z @ 0x1C0006C90 (-SetFloatProperty@CResourceMarshaler@DirectComposition@@UEAAJIMPEA_N@Z.c)
+ */
+
 __int64 __fastcall DirectComposition::CGeometryMarshaler::SetFloatProperty(
         DirectComposition::CGeometryMarshaler *this,
         unsigned int a2,

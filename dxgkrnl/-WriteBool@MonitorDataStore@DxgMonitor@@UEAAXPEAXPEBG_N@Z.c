@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?WriteBool@MonitorDataStore@DxgMonitor@@UEAAXPEAXPEBG_N@Z @ 0x1C03CA740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$WriteData@K@MonitorDataStore@DxgMonitor@@AEAAXPEAXPEBGK@Z @ 0x1C03CA404 (--$WriteData@K@MonitorDataStore@DxgMonitor@@AEAAXPEAXPEBGK@Z.c)
+ */
+
 void __fastcall DxgMonitor::MonitorDataStore::WriteBool(
         DxgMonitor::MonitorDataStore *this,
         void *a2,

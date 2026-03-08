@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpCovSampLookasideControlInitialize @ 0x1409EF7B0
+ * Callers:
+ *     EtwpCovSampCaptureContextStart @ 0x1409EDC1C (EtwpCovSampCaptureContextStart.c)
+ * Callees:
+ *     InitializeSListHead @ 0x1402A8B90 (InitializeSListHead.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall EtwpCovSampLookasideControlInitialize(__int64 a1, __int64 a2, __int64 a3, int a4, unsigned int a5)
 {
   __int64 v9; // rbx

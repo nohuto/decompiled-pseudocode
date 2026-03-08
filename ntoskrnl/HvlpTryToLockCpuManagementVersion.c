@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvlpTryToLockCpuManagementVersion @ 0x1405471D8
+ * Callers:
+ *     HvlpDetermineEnlightenments @ 0x140546B64 (HvlpDetermineEnlightenments.c)
+ * Callees:
+ *     HvlpGetRegister64 @ 0x1405468E0 (HvlpGetRegister64.c)
+ *     HvlpSetRegister64 @ 0x140546A30 (HvlpSetRegister64.c)
+ */
+
 char HvlpTryToLockCpuManagementVersion()
 {
   char v0; // bl

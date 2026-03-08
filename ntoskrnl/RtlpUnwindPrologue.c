@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlpUnwindPrologue @ 0x140281BF0
+ * Callers:
+ *     RtlpxVirtualUnwind @ 0x140281720 (RtlpxVirtualUnwind.c)
+ * Callees:
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     RtlpIsMachineFrameEntry @ 0x1402D8764 (RtlpIsMachineFrameEntry.c)
+ *     RtlpVirtualPopShadowStack @ 0x140302EB0 (RtlpVirtualPopShadowStack.c)
+ *     RtlLocateExtendedFeature2 @ 0x14045BC40 (RtlLocateExtendedFeature2.c)
+ *     RtlpUnwindOpSlots @ 0x14045C250 (RtlpUnwindOpSlots.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall RtlpUnwindPrologue(
         __int64 a1,
         unsigned __int64 a2,

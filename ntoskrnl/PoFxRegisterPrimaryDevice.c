@@ -1,3 +1,13 @@
+/*
+ * XREFs of PoFxRegisterPrimaryDevice @ 0x140836980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopFxConvertV1Components @ 0x140836BD8 (PopFxConvertV1Components.c)
+ *     PopFxRegisterDevice @ 0x140836FBC (PopFxRegisterDevice.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PoFxRegisterPrimaryDevice(PVOID Object, __int64 a2, __int64 a3)
 {
   void *v6; // rsi

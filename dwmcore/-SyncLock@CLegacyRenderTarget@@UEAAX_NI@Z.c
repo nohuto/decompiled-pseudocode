@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SyncLock@CLegacyRenderTarget@@UEAAX_NI@Z @ 0x1801E4BB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DoesIntersect@CDirtyRegion@@QEBA_NAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@@Z @ 0x1800E8724 (-DoesIntersect@CDirtyRegion@@QEBA_NAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@U.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?SyncLock@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@I_N@Z @ 0x1801DB0B8 (-SyncLock@COverlayContext@@QEAAJPEAVIOverlaySwapChain@@I_N@Z.c)
+ */
+
 void __fastcall CLegacyRenderTarget::SyncLock(CLegacyRenderTarget *this, char a2, unsigned int a3)
 {
   char v4; // al

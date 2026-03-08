@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiGetExceptionInfo @ 0x140624468
+ * Callers:
+ *     MiDecommitHardwareEnclavePages @ 0x140644F2C (MiDecommitHardwareEnclavePages.c)
+ *     MiCopyVirtualMemory @ 0x1407C5950 (MiCopyVirtualMemory.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiGetExceptionInfo(int **a1, _DWORD *a2, _QWORD *a3)
 {
   __int64 result; // rax

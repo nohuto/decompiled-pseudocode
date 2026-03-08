@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?InvalidateInertiaInfo@CInertiaManager@@QEAA_N_K0@Z @ 0x1C00D5EBC
+ * Callers:
+ *     NtUserReportInertia @ 0x1C0002CA0 (NtUserReportInertia.c)
+ *     ?CacheInertia@CPTPProcessor@@AEAAXXZ @ 0x1C020D290 (-CacheInertia@CPTPProcessor@@AEAAXXZ.c)
+ * Callees:
+ *     ?RemoveInertiaInfo@Inertia@InputTraceLogging@@SAXAEBUINERTIA_INFO_INTERNAL@@@Z @ 0x1C00E0F84 (-RemoveInertiaInfo@Inertia@InputTraceLogging@@SAXAEBUINERTIA_INFO_INTERNAL@@@Z.c)
+ *     Feature_Servicing_ListViewScrollingFix__private_IsEnabledDeviceUsage @ 0x1C00E1050 (Feature_Servicing_ListViewScrollingFix__private_IsEnabledDeviceUsage.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     ?RemoveInertiaInfo@Win32k@InputTraceLogging@@SAXAEBUINERTIA_INFO_INTERNAL@@@Z @ 0x1C0210CA0 (-RemoveInertiaInfo@Win32k@InputTraceLogging@@SAXAEBUINERTIA_INFO_INTERNAL@@@Z.c)
+ */
+
 char __fastcall CInertiaManager::InvalidateInertiaInfo(CInertiaManager *this, __int64 a2, __int64 a3)
 {
   char *v3; // rbx

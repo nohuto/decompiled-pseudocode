@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpCommitCR3Worker @ 0x140A8CA14
+ * Callers:
+ *     HalpCommitCR3Worker @ 0x140A8CA14 (HalpCommitCR3Worker.c)
+ *     HalpMmBuildTiledMemoryMap @ 0x140A8D8E8 (HalpMmBuildTiledMemoryMap.c)
+ * Callees:
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     HalpCommitCR3Worker @ 0x140A8CA14 (HalpCommitCR3Worker.c)
+ */
+
 void __fastcall HalpCommitCR3Worker(PVOID *a1, unsigned int a2)
 {
   __int64 v4; // rdi

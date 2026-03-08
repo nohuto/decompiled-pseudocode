@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidMmReserveGpuVirtualAddress @ 0x1C0011950
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?VidMmReserveGpuVirtualAddress@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@PEAVVIDMM_PAGING_QUEUE@@PEAUD3DDDI_RESERVEGPUVIRTUALADDRESS@@@Z @ 0x1C00A66D8 (-VidMmReserveGpuVirtualAddress@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_PROCESS@@PEAVVIDMM_PAGING_QUEUE@@PEA.c)
+ */
+
 __int64 __fastcall VidMmReserveGpuVirtualAddress(
         VIDMM_GLOBAL *a1,
         __int64 a2,

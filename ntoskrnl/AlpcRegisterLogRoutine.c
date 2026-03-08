@@ -1,3 +1,15 @@
+/*
+ * XREFs of AlpcRegisterLogRoutine @ 0x140977034
+ * Callers:
+ *     EtwpEnableKernelTrace @ 0x140786150 (EtwpEnableKernelTrace.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 AlpcRegisterLogRoutine()
 {
   __int64 Pool2; // rax

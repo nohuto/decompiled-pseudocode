@@ -1,3 +1,13 @@
+/*
+ * XREFs of GetCertificateLengthAndMonitorPDO @ 0x1C018873C
+ * Callers:
+ *     NtGdiGetCertificate @ 0x1C01893C0 (NtGdiGetCertificate.c)
+ *     NtGdiGetCertificateSize @ 0x1C0189670 (NtGdiGetCertificateSize.c)
+ * Callees:
+ *     CallMonitor @ 0x1C017EE60 (CallMonitor.c)
+ *     DrvPVPGetFirstActiveMonitor @ 0x1C0194628 (DrvPVPGetFirstActiveMonitor.c)
+ */
+
 __int64 __fastcall GetCertificateLengthAndMonitorPDO(__int64 a1, __int64 a2, void *a3, PVOID *a4)
 {
   __int64 result; // rax

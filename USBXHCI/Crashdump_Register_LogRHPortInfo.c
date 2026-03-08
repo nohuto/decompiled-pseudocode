@@ -1,3 +1,13 @@
+/*
+ * XREFs of Crashdump_Register_LogRHPortInfo @ 0x1C004D8C4
+ * Callers:
+ *     Crashdump_Initialize @ 0x1C004C350 (Crashdump_Initialize.c)
+ *     Crashdump_InitializeWithControllerReset @ 0x1C004C868 (Crashdump_InitializeWithControllerReset.c)
+ *     Crashdump_Register_ResetPort @ 0x1C004DB70 (Crashdump_Register_ResetPort.c)
+ * Callees:
+ *     <none>
+ */
+
 ULONG __fastcall Crashdump_Register_LogRHPortInfo(__int64 a1, int a2)
 {
   unsigned int v3; // ebx

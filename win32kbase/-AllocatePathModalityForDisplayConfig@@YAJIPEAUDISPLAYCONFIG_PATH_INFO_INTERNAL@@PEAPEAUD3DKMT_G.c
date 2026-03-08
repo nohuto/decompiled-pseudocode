@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AllocatePathModalityForDisplayConfig@@YAJIPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@PEAPEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C018C9B0
+ * Callers:
+ *     DrvSetDisplayConfig @ 0x1C0025C00 (DrvSetDisplayConfig.c)
+ *     DrvFunctionalizeDisplayConfig @ 0x1C0193FD4 (DrvFunctionalizeDisplayConfig.c)
+ * Callees:
+ *     ?AllocPathsModality@@YAPEAUD3DKMT_GETPATHSMODALITY@@G@Z @ 0x1C0027A4C (-AllocPathsModality@@YAPEAUD3DKMT_GETPATHSMODALITY@@G@Z.c)
+ */
+
 __int64 __fastcall AllocatePathModalityForDisplayConfig(
         unsigned int a1,
         struct DISPLAYCONFIG_PATH_INFO_INTERNAL *a2,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PspAttachProcessToSyscallProvider @ 0x1409B18EC
+ * Callers:
+ *     PspInheritSyscallProvider @ 0x14070E4C0 (PspInheritSyscallProvider.c)
+ *     PspSyscallProviderOptIn @ 0x1409B1F2C (PspSyscallProviderOptIn.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 char __fastcall PspAttachProcessToSyscallProvider(_QWORD *a1, __int64 a2, unsigned int a3)
 {
   volatile signed __int64 *v5; // rdi

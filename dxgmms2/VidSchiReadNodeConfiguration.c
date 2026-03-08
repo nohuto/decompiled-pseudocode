@@ -1,3 +1,13 @@
+/*
+ * XREFs of VidSchiReadNodeConfiguration @ 0x1C00B7D6C
+ * Callers:
+ *     VidSchiReadGlobalConfiguration @ 0x1C00B6ED0 (VidSchiReadGlobalConfiguration.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C0001A30 (--3@YAXPEAX@Z.c)
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C00023B8 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     DpiOpenPnpRegistryKey @ 0x1C00191F4 (DpiOpenPnpRegistryKey.c)
+ */
+
 __int64 __fastcall VidSchiReadNodeConfiguration(__int64 a1, __int64 a2)
 {
   __int64 v3; // rcx

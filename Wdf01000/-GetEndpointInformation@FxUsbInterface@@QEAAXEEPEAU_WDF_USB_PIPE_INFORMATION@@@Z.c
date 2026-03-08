@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetEndpointInformation@FxUsbInterface@@QEAAXEEPEAU_WDF_USB_PIPE_INFORMATION@@@Z @ 0x1C005EFD0
+ * Callers:
+ *     imp_WdfUsbInterfaceGetEndpointInformation @ 0x1C0057BD0 (imp_WdfUsbInterfaceGetEndpointInformation.c)
+ * Callees:
+ *     ?CopyEndpointFieldsFromDescriptor@FxUsbInterface@@QEAAXPEAU_WDF_USB_PIPE_INFORMATION@@PEAU_USB_ENDPOINT_DESCRIPTOR@@E@Z @ 0x1C005EAE8 (-CopyEndpointFieldsFromDescriptor@FxUsbInterface@@QEAAXPEAU_WDF_USB_PIPE_INFORMATION@@PEAU_USB_E.c)
+ *     ?GetSettingDescriptor@FxUsbInterface@@QEAAPEAU_USB_INTERFACE_DESCRIPTOR@@E@Z @ 0x1C005F048 (-GetSettingDescriptor@FxUsbInterface@@QEAAPEAU_USB_INTERFACE_DESCRIPTOR@@E@Z.c)
+ */
+
 void __fastcall FxUsbInterface::GetEndpointInformation(
         FxUsbInterface *this,
         unsigned __int8 SettingIndex,

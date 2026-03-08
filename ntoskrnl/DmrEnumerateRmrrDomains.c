@@ -1,3 +1,17 @@
+/*
+ * XREFs of DmrEnumerateRmrrDomains @ 0x14037BD30
+ * Callers:
+ *     HalpIvtProcessDrhdEntry @ 0x14037B514 (HalpIvtProcessDrhdEntry.c)
+ * Callees:
+ *     DmrFindDrhdForDeviceScope @ 0x14037BC80 (DmrFindDrhdForDeviceScope.c)
+ *     DmrGetNextRemappingStructure @ 0x14037BFAC (DmrGetNextRemappingStructure.c)
+ *     DmrGetNextDeviceScope @ 0x14037C0D0 (DmrGetNextDeviceScope.c)
+ *     DmrCheckPathMatch @ 0x14037C1AC (DmrCheckPathMatch.c)
+ *     DmrpRmrrTreeAddNewScope @ 0x14037C268 (DmrpRmrrTreeAddNewScope.c)
+ *     DmrpRmrrTreeAddRegionToDevice @ 0x14037C308 (DmrpRmrrTreeAddRegionToDevice.c)
+ *     DmrFreeRmrrTree @ 0x140532C5C (DmrFreeRmrrTree.c)
+ */
+
 __int64 __fastcall DmrEnumerateRmrrDomains(__int64 a1, _BYTE *a2, __int64 a3)
 {
   _QWORD **v3; // r14

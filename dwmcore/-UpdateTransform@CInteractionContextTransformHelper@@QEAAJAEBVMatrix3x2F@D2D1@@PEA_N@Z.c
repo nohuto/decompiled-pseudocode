@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?UpdateTransform@CInteractionContextTransformHelper@@QEAAJAEBVMatrix3x2F@D2D1@@PEA_N@Z @ 0x1802B7D7C
+ * Callers:
+ *     ?ProcessInput@CInteractionContextWrapper@@UEAAJAEBUtagPOINTER_INFO@@AEBVCMILMatrix@@I@Z @ 0x180281700 (-ProcessInput@CInteractionContextWrapper@@UEAAJAEBUtagPOINTER_INFO@@AEBVCMILMatrix@@I@Z.c)
+ * Callees:
+ *     GetIndividualScales @ 0x1802B70D4 (GetIndividualScales.c)
+ *     GetInverse @ 0x1802B71A8 (GetInverse.c)
+ *     IsEqualMatrix @ 0x1802B7344 (IsEqualMatrix.c)
+ */
+
 __int64 __fastcall CInteractionContextTransformHelper::UpdateTransform(
         CInteractionContextTransformHelper *this,
         const struct D2D1::Matrix3x2F *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetRenderTargetInfo@CRemoteRenderTarget@@UEBA?AVRenderTargetInfo@@XZ @ 0x180105374
+ * Callers:
+ *     ?GetRenderTargetInfo@CRemoteRenderTarget@@$4PPPPPPPM@A@EBA?AVRenderTargetInfo@@XZ @ 0x1801185D0 (-GetRenderTargetInfo@CRemoteRenderTarget@@$4PPPPPPPM@A@EBA-AVRenderTargetInfo@@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CRemoteRenderTarget::GetRenderTargetInfo(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

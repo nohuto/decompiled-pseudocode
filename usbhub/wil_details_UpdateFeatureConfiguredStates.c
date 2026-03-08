@@ -1,3 +1,13 @@
+/*
+ * XREFs of wil_details_UpdateFeatureConfiguredStates @ 0x1C007327C
+ * Callers:
+ *     wil_details_ReevaluateOnFeatureConfigurationChange @ 0x1C0073260 (wil_details_ReevaluateOnFeatureConfigurationChange.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x1C0022AE0 (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     wil_details_BuildFeatureStateCacheFromQueryResults @ 0x1C0073038 (wil_details_BuildFeatureStateCacheFromQueryResults.c)
+ */
+
 volatile signed __int32 **wil_details_UpdateFeatureConfiguredStates()
 {
   _QWORD *i; // rcx

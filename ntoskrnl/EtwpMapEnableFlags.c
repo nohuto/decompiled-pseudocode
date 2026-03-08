@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpMapEnableFlags @ 0x1407487E8
+ * Callers:
+ *     EtwpGetLoggerInfoFromContext @ 0x1407458FC (EtwpGetLoggerInfoFromContext.c)
+ *     EtwpUpdateGroupMasks @ 0x14080D8D8 (EtwpUpdateGroupMasks.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x14085C154 (EtwQueryPerformanceTraceInformation.c)
+ *     EtwpInitialize @ 0x140B3CA40 (EtwpInitialize.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall EtwpMapEnableFlags(__int64 a1, char a2)
 {
   __int64 *v2; // r9

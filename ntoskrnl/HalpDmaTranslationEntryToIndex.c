@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpDmaTranslationEntryToIndex @ 0x14039873C
+ * Callers:
+ *     HalpDmaCommitContiguousMapBuffers @ 0x14039839C (HalpDmaCommitContiguousMapBuffers.c)
+ *     HalpDmaReturnToContiguousPool @ 0x14045430C (HalpDmaReturnToContiguousPool.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpDmaTranslationEntryToIndex(__int64 a1, unsigned __int64 a2, _QWORD *a3)
 {
   __int64 *v3; // r9

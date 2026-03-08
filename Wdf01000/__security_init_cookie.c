@@ -1,3 +1,11 @@
+/*
+ * XREFs of __security_init_cookie @ 0x1C00BD044
+ * Callers:
+ *     GsDriverEntry @ 0x1C00BD010 (GsDriverEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 void __cdecl _security_init_cookie()
 {
   uintptr_t v0; // rax

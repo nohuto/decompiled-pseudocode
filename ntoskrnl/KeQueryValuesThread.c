@@ -1,3 +1,16 @@
+/*
+ * XREFs of KeQueryValuesThread @ 0x14022B320
+ * Callers:
+ *     NtQueryInformationThread @ 0x1406A7BF0 (NtQueryInformationThread.c)
+ *     PsQueryStatisticsProcess @ 0x1406A8F30 (PsQueryStatisticsProcess.c)
+ *     ExpGetProcessInformation @ 0x1406A9140 (ExpGetProcessInformation.c)
+ * Callees:
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140255D00 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402ADF80 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeQueryValuesThread(__int64 a1, __int64 a2)
 {
   char v3; // si

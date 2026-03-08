@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_IFR_SF_DDD @ 0x1C0046688
+ * Callers:
+ *     ?Vf_VerifyLeakDetectionConsiderObject@FxObject@@AEAAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C00BAD98 (-Vf_VerifyLeakDetectionConsiderObject@FxObject@@AEAAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_DDD(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 _a1,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SetSchedulingPriority@DXGCONTEXT@@QEAAXH_N@Z @ 0x1C01D2200
+ * Callers:
+ *     ?SetApiSchedulingPriority@DXGCONTEXT@@QEAAJH@Z @ 0x1C004895C (-SetApiSchedulingPriority@DXGCONTEXT@@QEAAJH@Z.c)
+ *     ?SetSchedulingPriorityAdjustment@DXGDEVICE@@QEAAXH@Z @ 0x1C01D213C (-SetSchedulingPriorityAdjustment@DXGDEVICE@@QEAAXH@Z.c)
+ *     ?UpdatePriorityClass@DXGDEVICE@@QEAAX_N@Z @ 0x1C01D21AC (-UpdatePriorityClass@DXGDEVICE@@QEAAX_N@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall DXGCONTEXT::SetSchedulingPriority(DXGCONTEXT *this, unsigned int a2, unsigned __int8 a3)
 {
   __int64 v5; // rdx

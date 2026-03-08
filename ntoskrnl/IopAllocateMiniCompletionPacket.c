@@ -1,3 +1,17 @@
+/*
+ * XREFs of IopAllocateMiniCompletionPacket @ 0x1407D0108
+ * Callers:
+ *     IoSetIoCompletionEx3 @ 0x1402928A0 (IoSetIoCompletionEx3.c)
+ *     AlpcpSignal @ 0x14033E410 (AlpcpSignal.c)
+ *     NtReleaseWorkerFactoryWorker @ 0x140340900 (NtReleaseWorkerFactoryWorker.c)
+ *     IoSetIoCompletionEx2 @ 0x140341170 (IoSetIoCompletionEx2.c)
+ *     IoAllocateMiniCompletionPacket @ 0x14068A5B0 (IoAllocateMiniCompletionPacket.c)
+ * Callees:
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     ExAllocatePool3 @ 0x140AAB320 (ExAllocatePool3.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 PSLIST_ENTRY __fastcall IopAllocateMiniCompletionPacket(char a1, char a2)
 {
   char v3; // bl

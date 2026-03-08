@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetSyncRefreshCountWaitTargetNonPaged@ADAPTER_DISPLAY@@QEAAXIIPEAE@Z @ 0x1C0007520
+ * Callers:
+ *     ?DxgkSetSyncRefreshCountWaitTargetInternal@@YAJIIII@Z @ 0x1C01911B0 (-DxgkSetSyncRefreshCountWaitTargetInternal@@YAJIIII@Z.c)
+ *     ?SetSyncRefreshCountWaitTarget@ADAPTER_DISPLAY@@QEAAJIIIPEAE@Z @ 0x1C02BB070 (-SetSyncRefreshCountWaitTarget@ADAPTER_DISPLAY@@QEAAJIIIPEAE@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ADAPTER_DISPLAY::SetSyncRefreshCountWaitTargetNonPaged(
         ADAPTER_DISPLAY *this,
         unsigned int a2,

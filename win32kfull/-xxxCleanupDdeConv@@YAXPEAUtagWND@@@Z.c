@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?xxxCleanupDdeConv@@YAXPEAUtagWND@@@Z @ 0x1C01FBC54
+ * Callers:
+ *     xxxDDETrackGetMessageHook @ 0x1C01FD7B8 (xxxDDETrackGetMessageHook.c)
+ * Callees:
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     ?xxxFreeListFree@@YAXPEAUtagFREELIST@@@Z @ 0x1C01FC75C (-xxxFreeListFree@@YAXPEAUtagFREELIST@@@Z.c)
+ *     xxxFreeDdeConv @ 0x1C01FE3AC (xxxFreeDdeConv.c)
+ */
+
 void __fastcall xxxCleanupDdeConv(struct tagWND *a1)
 {
   __int64 i; // rbx

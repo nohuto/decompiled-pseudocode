@@ -1,3 +1,14 @@
+/*
+ * XREFs of DxgkAcquireGdiViewIds @ 0x1C0218CEC
+ * Callers:
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z @ 0x1C01A9568 (-GetSessionDataForSpecifiedSession@DXGSESSIONMGR@@QEAAPEAVDXGSESSIONDATA@@K@Z.c)
+ *     ?AcquireSessionGdiViewId@DXGSESSIONDATA@@QEAAJPEAK@Z @ 0x1C035008C (-AcquireSessionGdiViewId@DXGSESSIONDATA@@QEAAJPEAK@Z.c)
+ */
+
 __int64 __fastcall DxgkAcquireGdiViewIds(char a1, unsigned int a2, _DWORD *a3, __int64 a4)
 {
   DXGSESSIONDATA *SessionDataForSpecifiedSession; // rsi

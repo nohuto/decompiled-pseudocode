@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIDeviceIrpCompleteRequest @ 0x1C001D680
+ * Callers:
+ *     ACPIBusIrpSetSystemPowerComplete @ 0x1C0009A00 (ACPIBusIrpSetSystemPowerComplete.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qLqss @ 0x1C0009C8C (WPP_RECORDER_SF_qLqss.c)
+ *     ACPIInternalDecrementIrpReferenceCount @ 0x1C002E528 (ACPIInternalDecrementIrpReferenceCount.c)
+ */
+
 __int64 __fastcall ACPIDeviceIrpCompleteRequest(_QWORD *a1, IRP *a2, int a3)
 {
   const char *v4; // rbp

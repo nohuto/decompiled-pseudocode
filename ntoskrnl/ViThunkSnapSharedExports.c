@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViThunkSnapSharedExports @ 0x140ABA0B4
+ * Callers:
+ *     ViThunkCreateSharedExportInformation @ 0x140AB9FE0 (ViThunkCreateSharedExportInformation.c)
+ * Callees:
+ *     RtlFindNextForwardRunClear @ 0x14035D2F0 (RtlFindNextForwardRunClear.c)
+ *     ViThunkSnapSharedExportByName @ 0x140ABA164 (ViThunkSnapSharedExportByName.c)
+ */
+
 __int64 __fastcall ViThunkSnapSharedExports(
         __int64 a1,
         __int64 a2,

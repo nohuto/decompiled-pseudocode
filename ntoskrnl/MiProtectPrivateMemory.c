@@ -1,3 +1,39 @@
+/*
+ * XREFs of MiProtectPrivateMemory @ 0x140344540
+ * Callers:
+ *     MmProtectVirtualMemory @ 0x1407C77B0 (MmProtectVirtualMemory.c)
+ * Callees:
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiIncreaseUsedPtesCount @ 0x14029F850 (MiIncreaseUsedPtesCount.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MiSetProtectionOnTransitionPte @ 0x1402EC490 (MiSetProtectionOnTransitionPte.c)
+ *     MiMakeVaRangeNoAccess @ 0x1402EF244 (MiMakeVaRangeNoAccess.c)
+ *     MiMakeProtoLeafValid @ 0x1402F70B0 (MiMakeProtoLeafValid.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetPageProtection @ 0x14031C310 (MiGetPageProtection.c)
+ *     MI_GET_GRAPHICS_PROTECTION_FROM_VAD @ 0x14031F770 (MI_GET_GRAPHICS_PROTECTION_FROM_VAD.c)
+ *     MiMakeSystemAddressValid @ 0x140321770 (MiMakeSystemAddressValid.c)
+ *     MiSanitizePfnProtection @ 0x140322D40 (MiSanitizePfnProtection.c)
+ *     MiRevertValidPte @ 0x140322DC0 (MiRevertValidPte.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiUpdatePfnProtection @ 0x140344B44 (MiUpdatePfnProtection.c)
+ *     MiComputePageCommitment @ 0x140345CE0 (MiComputePageCommitment.c)
+ *     MiGetUsedPtesHandle @ 0x140346CA0 (MiGetUsedPtesHandle.c)
+ *     MiWorkingSetIsContended @ 0x1403478E0 (MiWorkingSetIsContended.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiFlushGraphicsPtes @ 0x140623FF8 (MiFlushGraphicsPtes.c)
+ *     MiFaultInPagedPool @ 0x14062E748 (MiFaultInPagedPool.c)
+ *     MiRotatedToFrameBuffer @ 0x140630A34 (MiRotatedToFrameBuffer.c)
+ *     MiMakeProtoPrivate @ 0x14064AD28 (MiMakeProtoPrivate.c)
+ *     MiReturnFullProcessCommitment @ 0x1406B6FB4 (MiReturnFullProcessCommitment.c)
+ *     MiChargeFullProcessCommitment @ 0x1407C5840 (MiChargeFullProcessCommitment.c)
+ */
+
 __int64 __fastcall MiProtectPrivateMemory(
         ULONG_PTR a1,
         unsigned __int64 a2,

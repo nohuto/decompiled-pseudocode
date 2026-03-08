@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopCancelIrpsInCurrentThreadList @ 0x1402E4DC4
+ * Callers:
+ *     IopCancelIrpsInThreadList @ 0x1407701C8 (IopCancelIrpsInThreadList.c)
+ *     IopCancelIrpsInCurrentThreadListApcRoutine @ 0x140770310 (IopCancelIrpsInCurrentThreadListApcRoutine.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     IoCancelIrp @ 0x1402E4F50 (IoCancelIrp.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IopCancelIrpsInCurrentThreadList(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
   volatile signed __int64 *v4; // rdi

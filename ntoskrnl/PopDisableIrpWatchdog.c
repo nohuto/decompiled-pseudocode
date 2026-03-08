@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopDisableIrpWatchdog @ 0x140580BBC
+ * Callers:
+ *     PopDequeueQuerySetIrp @ 0x1402BB70C (PopDequeueQuerySetIrp.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeCancelTimer @ 0x140250B60 (KeCancelTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopIrpWatchdogBugcheck @ 0x140580EF4 (PopIrpWatchdogBugcheck.c)
+ */
+
 __int64 __fastcall PopDisableIrpWatchdog(__int64 a1)
 {
   bool v1; // di

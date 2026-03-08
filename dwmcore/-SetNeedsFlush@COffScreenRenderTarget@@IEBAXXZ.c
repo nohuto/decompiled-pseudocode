@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetNeedsFlush@COffScreenRenderTarget@@IEBAXXZ @ 0x1801E7294
+ * Callers:
+ *     ?Render@COffScreenRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x1801E6D30 (-Render@COffScreenRenderTarget@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall COffScreenRenderTarget::SetNeedsFlush(COffScreenRenderTarget *this)
 {
   __int64 i; // rbx

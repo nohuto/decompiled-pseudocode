@@ -1,3 +1,22 @@
+/*
+ * XREFs of Crashdump_InitializeWithControllerReset @ 0x1C004C868
+ * Callers:
+ *     Crashdump_Initialize @ 0x1C004C350 (Crashdump_Initialize.c)
+ * Callees:
+ *     Crashdump_Register_LogRHPortInfo @ 0x1C004D8C4 (Crashdump_Register_LogRHPortInfo.c)
+ *     Crashdump_Register_ResetController @ 0x1C004DAA0 (Crashdump_Register_ResetController.c)
+ *     Crashdump_Register_ResetPort @ 0x1C004DB70 (Crashdump_Register_ResetPort.c)
+ *     Crashdump_Register_StartController @ 0x1C004DF54 (Crashdump_Register_StartController.c)
+ *     Crashdump_Register_UpdateDeviceSlotInfo @ 0x1C004E0E8 (Crashdump_Register_UpdateDeviceSlotInfo.c)
+ *     Crashdump_EventRing_PrepareForDump @ 0x1C004E7F0 (Crashdump_EventRing_PrepareForDump.c)
+ *     Crashdump_Command_PrepareForDump @ 0x1C004EA78 (Crashdump_Command_PrepareForDump.c)
+ *     Crashdump_Command_TestCommandRingOperation @ 0x1C004EEF4 (Crashdump_Command_TestCommandRingOperation.c)
+ *     Crashdump_UsbDevice_GetPortType @ 0x1C0050584 (Crashdump_UsbDevice_GetPortType.c)
+ *     Crashdump_UsbDevice_ReConfigureOnControllerReset @ 0x1C00507EC (Crashdump_UsbDevice_ReConfigureOnControllerReset.c)
+ *     Crashdump_UsbDevice_ResetPort @ 0x1C0050A40 (Crashdump_UsbDevice_ResetPort.c)
+ *     Crashdump_UsbDevice_SetPortPower @ 0x1C0051068 (Crashdump_UsbDevice_SetPortPower.c)
+ */
+
 __int64 __fastcall Crashdump_InitializeWithControllerReset(__int64 a1)
 {
   int v2; // eax

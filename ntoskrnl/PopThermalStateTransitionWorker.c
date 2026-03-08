@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopThermalStateTransitionWorker @ 0x140860FF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopOkayToQueueNextWorkItem @ 0x140302D08 (PopOkayToQueueNextWorkItem.c)
+ *     PopThermalStandbyEndTracking @ 0x14058D6F8 (PopThermalStandbyEndTracking.c)
+ *     PopExecutePowerAction @ 0x1409867F4 (PopExecutePowerAction.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 void PopThermalStateTransitionWorker()
 {
   int v0; // ebx

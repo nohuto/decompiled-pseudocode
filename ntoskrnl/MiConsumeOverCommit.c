@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiConsumeOverCommit @ 0x140653DA4
+ * Callers:
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiConsumeOverCommit(KSPIN_LOCK *a1, __int64 a2, __int64 a3)
 {
   unsigned int v6; // edi

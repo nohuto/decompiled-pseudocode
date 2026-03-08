@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiCommitPoolMemory @ 0x14032FC90
+ * Callers:
+ *     MmAllocatePoolMemory @ 0x140330628 (MmAllocatePoolMemory.c)
+ *     MmAllocateSecurePoolMemory @ 0x14063F4FC (MmAllocateSecurePoolMemory.c)
+ * Callees:
+ *     MiClearNonPagedPtes @ 0x14020DF88 (MiClearNonPagedPtes.c)
+ *     MiMakeZeroedPageTablesEx @ 0x14020F130 (MiMakeZeroedPageTablesEx.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiFillPoolCommitPageTable @ 0x14032F1F0 (MiFillPoolCommitPageTable.c)
+ *     MiLockPoolCommitPageTable @ 0x14032FF9C (MiLockPoolCommitPageTable.c)
+ *     MiLinkPoolCommitChain @ 0x140330100 (MiLinkPoolCommitChain.c)
+ *     MiUnlockPoolCommitWs @ 0x1403303A0 (MiUnlockPoolCommitWs.c)
+ *     MiReturnExcessPoolCommit @ 0x1403303F8 (MiReturnExcessPoolCommit.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x14061B438 (MiLogPerfMemoryRangeEvent.c)
+ *     MiFreeExcessSegments @ 0x1406225DC (MiFreeExcessSegments.c)
+ */
+
 __int64 __fastcall MiCommitPoolMemory(_QWORD *a1)
 {
   unsigned __int64 v2; // rdi

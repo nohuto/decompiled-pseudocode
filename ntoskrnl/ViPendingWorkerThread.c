@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViPendingWorkerThread @ 0x140ACEF70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     ViPendingCompleteAfterWait @ 0x140ACEBEC (ViPendingCompleteAfterWait.c)
+ */
+
 void __fastcall __noreturn ViPendingWorkerThread(_QWORD *StartContext)
 {
   char *v2; // rcx

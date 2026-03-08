@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?pvFillOpaqTable@@YAPEAXKKKPEAVSURFACE@@@Z @ 0x1C0273934
+ * Callers:
+ *     ?vSrcOpaqCopyS4D16Unsafe@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z @ 0x1C0274520 (-vSrcOpaqCopyS4D16Unsafe@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z.c)
+ *     ?vSrcOpaqCopyS4D24Unsafe@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z @ 0x1C02747C0 (-vSrcOpaqCopyS4D24Unsafe@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z.c)
+ *     ?vSrcOpaqCopyS4D32Unsave@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z @ 0x1C0274CD0 (-vSrcOpaqCopyS4D32Unsave@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void *__fastcall pvFillOpaqTable(__int64 a1, unsigned int a2, int a3, struct SURFACE *a4)
 {
   unsigned int v6; // esi

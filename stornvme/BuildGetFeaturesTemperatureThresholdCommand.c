@@ -1,3 +1,13 @@
+/*
+ * XREFs of BuildGetFeaturesTemperatureThresholdCommand @ 0x1C0010DDC
+ * Callers:
+ *     QueryTemperatureInfoHealthLogCompletion @ 0x1C0019910 (QueryTemperatureInfoHealthLogCompletion.c)
+ *     QueryTemperatureThresholdCompletion @ 0x1C0019AE0 (QueryTemperatureThresholdCompletion.c)
+ *     NVMeGetTemperatureThreshold @ 0x1C001EE74 (NVMeGetTemperatureThreshold.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned int __fastcall BuildGetFeaturesTemperatureThresholdCommand(__int64 a1, unsigned __int8 a2, char a3)
 {
   int v3; // eax

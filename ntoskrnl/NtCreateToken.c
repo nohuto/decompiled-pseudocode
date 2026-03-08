@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtCreateToken @ 0x1409CC260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     NtCreateTokenEx @ 0x14070F880 (NtCreateTokenEx.c)
+ */
+
 __int64 __fastcall NtCreateToken(
         _QWORD *a1,
         unsigned int a2,

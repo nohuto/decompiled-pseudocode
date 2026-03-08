@@ -1,3 +1,14 @@
+/*
+ * XREFs of VmpProcessInvalidateSlat @ 0x1405F8654
+ * Callers:
+ *     VmpFlushTbVaRange @ 0x1405F6DF0 (VmpFlushTbVaRange.c)
+ *     VmpInvalidateSlatBatched @ 0x1405F73F8 (VmpInvalidateSlatBatched.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     VmpInvalidateSingleGpaRange @ 0x14045E678 (VmpInvalidateSingleGpaRange.c)
+ *     VmpLogTbFlushSlatInvalidate @ 0x1405F7AAC (VmpLogTbFlushSlatInvalidate.c)
+ */
+
 __int64 __fastcall VmpProcessInvalidateSlat(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
 {
   __int64 v7; // rcx

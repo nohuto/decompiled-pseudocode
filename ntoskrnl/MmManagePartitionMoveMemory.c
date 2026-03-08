@@ -1,3 +1,17 @@
+/*
+ * XREFs of MmManagePartitionMoveMemory @ 0x140A42B54
+ * Callers:
+ *     NtManagePartition @ 0x140705650 (NtManagePartition.c)
+ * Callees:
+ *     MiHugePagesSupported @ 0x1403C1984 (MiHugePagesSupported.c)
+ *     KeGetIdealNodeNumberThread @ 0x14056E190 (KeGetIdealNodeNumberThread.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140A416B8 (MiAllocatePartitionPhysicalPages.c)
+ *     MiAddSpecialPurposeMemoryCleanup @ 0x140A44064 (MiAddSpecialPurposeMemoryCleanup.c)
+ *     MiAddSpecialPurposeMemoryComplete @ 0x140A440DC (MiAddSpecialPurposeMemoryComplete.c)
+ *     MiAddSpecialPurposeMemoryPrepare @ 0x140A44160 (MiAddSpecialPurposeMemoryPrepare.c)
+ */
+
 __int64 __fastcall MmManagePartitionMoveMemory(__int64 *a1, __int64 *a2, __int64 a3, KPROCESSOR_MODE a4)
 {
   __int64 v4; // r15

@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheapAddToDefectListInPlugin @ 0x14060FE04
+ * Callers:
+ *     WheaAddrTranslateAndAddToDefectListInPlugin @ 0x140A04FEC (WheaAddrTranslateAndAddToDefectListInPlugin.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall WheapAddToDefectListInPlugin(__int128 *a1)
 {
   __int128 v1; // xmm1

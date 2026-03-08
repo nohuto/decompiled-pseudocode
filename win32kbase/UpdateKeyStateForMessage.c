@@ -1,3 +1,12 @@
+/*
+ * XREFs of UpdateKeyStateForMessage @ 0x1C00B8C10
+ * Callers:
+ *     HandleDeferredInput @ 0x1C0006160 (HandleDeferredInput.c)
+ * Callees:
+ *     ApiSetEditionGetKeyStateUpdateParamsForRawInput @ 0x1C0008DCC (ApiSetEditionGetKeyStateUpdateParamsForRawInput.c)
+ *     _anonymous_namespace_::UpdateKeyState @ 0x1C00B8CEC (_anonymous_namespace_--UpdateKeyState.c)
+ */
+
 unsigned __int64 __fastcall UpdateKeyStateForMessage(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
 {
   unsigned int v4; // eax

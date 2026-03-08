@@ -1,3 +1,11 @@
+/*
+ * XREFs of WbGetWowTrapFrame @ 0x140A4AD58
+ * Callers:
+ *     WbGetTrapFrame @ 0x1406AF738 (WbGetTrapFrame.c)
+ * Callees:
+ *     PspWow64GetContextThread @ 0x14077BF00 (PspWow64GetContextThread.c)
+ */
+
 __int64 __fastcall WbGetWowTrapFrame(unsigned int *a1, __int64 a2)
 {
   _KPROCESS *Process; // rcx

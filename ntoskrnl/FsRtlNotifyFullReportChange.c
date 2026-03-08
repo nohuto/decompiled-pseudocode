@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlNotifyFullReportChange @ 0x140848F10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FsRtlNotifyFilterReportChange @ 0x140848F70 (FsRtlNotifyFilterReportChange.c)
+ */
+
 void __stdcall FsRtlNotifyFullReportChange(
         PNOTIFY_SYNC NotifySync,
         PLIST_ENTRY NotifyList,

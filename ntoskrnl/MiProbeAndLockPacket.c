@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiProbeAndLockPacket @ 0x140268C30
+ * Callers:
+ *     MiProbeAndLockPages @ 0x140242114 (MiProbeAndLockPages.c)
+ *     MmProbeAndLockPages @ 0x140267B90 (MmProbeAndLockPages.c)
+ *     MmLockPhysicalPagesByVa @ 0x140A2AA04 (MmLockPhysicalPagesByVa.c)
+ * Callees:
+ *     MiProbeLockFrame @ 0x140268ED0 (MiProbeLockFrame.c)
+ *     MiLockPageLeafPageTable @ 0x140269310 (MiLockPageLeafPageTable.c)
+ *     MiProbeLeafPteAccess @ 0x140269620 (MiProbeLeafPteAccess.c)
+ *     MiSetProbePagesAhead @ 0x1402699A0 (MiSetProbePagesAhead.c)
+ *     MiFaultInProbeAddress @ 0x1402E021C (MiFaultInProbeAddress.c)
+ *     MiLockProbePacketWorkingSet @ 0x1402E0344 (MiLockProbePacketWorkingSet.c)
+ *     MiUnlockProbePacketWorkingSet @ 0x1402E038C (MiUnlockProbePacketWorkingSet.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiProbePacketContended @ 0x140347478 (MiProbePacketContended.c)
+ */
+
 __int64 __fastcall MiProbeAndLockPacket(__int64 a1)
 {
   int v1; // ebp

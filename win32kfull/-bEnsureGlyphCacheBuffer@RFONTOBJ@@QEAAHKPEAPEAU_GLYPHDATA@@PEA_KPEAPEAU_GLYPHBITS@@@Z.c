@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?bEnsureGlyphCacheBuffer@RFONTOBJ@@QEAAHKPEAPEAU_GLYPHDATA@@PEA_KPEAPEAU_GLYPHBITS@@@Z @ 0x1C011DE48
+ * Callers:
+ *     FONTOBJ_bEnsureGlyphCacheBuffer @ 0x1C0130428 (FONTOBJ_bEnsureGlyphCacheBuffer.c)
+ * Callees:
+ *     ?pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z @ 0x1C011DEFC (-pgbCheckGlyphCache@RFONTOBJ@@QEAAPEAX_K@Z.c)
+ *     ?bCheckMetricsCache@RFONTOBJ@@QEAAHXZ @ 0x1C011E1B0 (-bCheckMetricsCache@RFONTOBJ@@QEAAHXZ.c)
+ *     ?bEnsureAuxCacheBuffer@RFONTOBJ@@QEAAHK@Z @ 0x1C02FF5AC (-bEnsureAuxCacheBuffer@RFONTOBJ@@QEAAHK@Z.c)
+ *     ?vFlushCache@RFONTOBJ@@QEAAXXZ @ 0x1C02FFD48 (-vFlushCache@RFONTOBJ@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall RFONTOBJ::bEnsureGlyphCacheBuffer(
         RFONTOBJ *this,
         unsigned int a2,

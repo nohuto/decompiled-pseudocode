@@ -1,3 +1,12 @@
+/*
+ * XREFs of EmonAllocateCounter @ 0x14051A760
+ * Callers:
+ *     EmonEnableMonitoring @ 0x14051ADD0 (EmonEnableMonitoring.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     HalpAllocateHalCounters @ 0x1404FFC48 (HalpAllocateHalCounters.c)
+ */
+
 __int64 __fastcall EmonAllocateCounter(int a1, __int64 a2, int a3, int *a4)
 {
   __int64 v8; // rdx

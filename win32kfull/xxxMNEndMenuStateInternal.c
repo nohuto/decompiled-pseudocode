@@ -1,3 +1,20 @@
+/*
+ * XREFs of xxxMNEndMenuStateInternal @ 0x1C02026A0
+ * Callers:
+ *     xxxMNEndMenuState @ 0x1C0202580 (xxxMNEndMenuState.c)
+ * Callees:
+ *     ??1?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ @ 0x1C00A11DC (--1-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAA@XZ.c)
+ *     IsMiPEnabledForThread @ 0x1C00D7F08 (IsMiPEnabledForThread.c)
+ *     ?xxxActivateWindow@@YA_NPEAUtagWND@@@Z @ 0x1C00DBF58 (-xxxActivateWindow@@YA_NPEAUtagWND@@@Z.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z @ 0x1C00E67A8 (-Init@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z.c)
+ *     ??1MenuStateOwnerLockxxxUnlock@@QEAA@XZ @ 0x1C012D59E (--1MenuStateOwnerLockxxxUnlock@@QEAA@XZ.c)
+ *     Feature_439792958__private_IsEnabledDeviceUsage @ 0x1C012EE90 (Feature_439792958__private_IsEnabledDeviceUsage.c)
+ *     ??0MenuStateOwnerLockxxxUnlock@@QEAA@PEAUtagMENUSTATE@@@Z @ 0x1C01432F0 (--0MenuStateOwnerLockxxxUnlock@@QEAA@PEAUtagMENUSTATE@@@Z.c)
+ *     MNDestroyAnimationBitmap @ 0x1C0201EB0 (MNDestroyAnimationBitmap.c)
+ *     UnlockMFMWFPWindow @ 0x1C02195D4 (UnlockMFMWFPWindow.c)
+ *     xxxMNSetCapture @ 0x1C021CCC4 (xxxMNSetCapture.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall xxxMNEndMenuStateInternal(__int64 a1, __int64 a2)
 {

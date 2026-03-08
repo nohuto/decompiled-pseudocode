@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiUnlockMdlWritePages @ 0x140284DD0
+ * Callers:
+ *     MiUnlockFlushMdl @ 0x1402D6F00 (MiUnlockFlushMdl.c)
+ *     MiFlushComplete @ 0x140633A40 (MiFlushComplete.c)
+ * Callees:
+ *     MiReleaseWriteInProgressCharges @ 0x140212C98 (MiReleaseWriteInProgressCharges.c)
+ *     MiCanBatchHardFaultPages @ 0x140284A30 (MiCanBatchHardFaultPages.c)
+ *     MiEnqueuePageList @ 0x140285CB0 (MiEnqueuePageList.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiPfnReferenceCountIsZero @ 0x1402879C0 (MiPfnReferenceCountIsZero.c)
+ *     MiHardFaultPageRelease @ 0x140287C78 (MiHardFaultPageRelease.c)
+ *     MiInsertPagesInList @ 0x140287DB0 (MiInsertPagesInList.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MiDecrementShareCount @ 0x14032AE40 (MiDecrementShareCount.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiCanBatchSystemCacheUnmapPages @ 0x14062C6E4 (MiCanBatchSystemCacheUnmapPages.c)
+ */
+
 __int64 __fastcall MiUnlockMdlWritePages(_DWORD *a1, int *a2)
 {
   __int64 *v4; // r15

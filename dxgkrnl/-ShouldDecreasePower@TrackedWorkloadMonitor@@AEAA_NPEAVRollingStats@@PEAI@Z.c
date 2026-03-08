@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ShouldDecreasePower@TrackedWorkloadMonitor@@AEAA_NPEAVRollingStats@@PEAI@Z @ 0x1C00884E0
+ * Callers:
+ *     ?GetTargetPowerLevel@TrackedWorkloadMonitor@@QEAA_NPEAVRollingStats@@PEAI1@Z @ 0x1C0088258 (-GetTargetPowerLevel@TrackedWorkloadMonitor@@QEAA_NPEAVRollingStats@@PEAI1@Z.c)
+ * Callees:
+ *     ?GetPowerLevel@TrackedWorkloadMonitor@@AEAAINNPEBUTrackedWorkloadStateInfo@@@Z @ 0x1C0088140 (-GetPowerLevel@TrackedWorkloadMonitor@@AEAAINNPEBUTrackedWorkloadStateInfo@@@Z.c)
+ *     ?GetSafeStdDev@TrackedWorkloadMonitor@@AEAANPEAVRollingStats@@@Z @ 0x1C0088188 (-GetSafeStdDev@TrackedWorkloadMonitor@@AEAANPEAVRollingStats@@@Z.c)
+ *     ?Update@RollingStats@@QEAAXXZ @ 0x1C0088654 (-Update@RollingStats@@QEAAXXZ.c)
+ */
+
 char __fastcall TrackedWorkloadMonitor::ShouldDecreasePower(
         TrackedWorkloadMonitor *this,
         struct RollingStats *a2,

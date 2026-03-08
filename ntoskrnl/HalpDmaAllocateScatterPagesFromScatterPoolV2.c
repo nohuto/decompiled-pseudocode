@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpDmaAllocateScatterPagesFromScatterPoolV2 @ 0x1404557C0
+ * Callers:
+ *     HalpDmaAllocateScatterPagesFromScatterPool @ 0x140452DAE (HalpDmaAllocateScatterPagesFromScatterPool.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpDmaAllocateScatterPagesFromScatterPoolV2(
         __int64 a1,
         __int64 a2,

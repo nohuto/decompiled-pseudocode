@@ -1,3 +1,11 @@
+/*
+ * XREFs of DwmCheckForDeferredUpdateSpriteCommands @ 0x1C02708FC
+ * Callers:
+ *     ?CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z @ 0x1C026821C (-CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DwmCheckForDeferredUpdateSpriteCommands(__int64 a1)
 {
   __int64 v2; // rax

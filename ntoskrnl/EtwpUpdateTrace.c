@@ -1,3 +1,36 @@
+/*
+ * XREFs of EtwpUpdateTrace @ 0x140744D3C
+ * Callers:
+ *     NtTraceControl @ 0x140694040 (NtTraceControl.c)
+ *     EtwWmitraceWorker @ 0x1409E8BFC (EtwWmitraceWorker.c)
+ * Callees:
+ *     EtwpQueryUsedProcessorCount @ 0x140206540 (EtwpQueryUsedProcessorCount.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     EtwpCheckLoggerControlAccess @ 0x140692E00 (EtwpCheckLoggerControlAccess.c)
+ *     EtwpReleaseLoggerContext @ 0x14069349C (EtwpReleaseLoggerContext.c)
+ *     EtwpFreeSecurityDescriptor @ 0x140696014 (EtwpFreeSecurityDescriptor.c)
+ *     EtwpGetSecurityDescriptorByGuid @ 0x1406972D0 (EtwpGetSecurityDescriptorByGuid.c)
+ *     SeDeleteClientSecurity @ 0x1406D4FF0 (SeDeleteClientSecurity.c)
+ *     SeCreateClientSecurity @ 0x1406D61E0 (SeCreateClientSecurity.c)
+ *     EtwpValidateLoggerInfo @ 0x1407457C8 (EtwpValidateLoggerInfo.c)
+ *     EtwpAcquireLoggerContext @ 0x140745800 (EtwpAcquireLoggerContext.c)
+ *     EtwpGetLoggerInfoFromContext @ 0x1407458FC (EtwpGetLoggerInfoFromContext.c)
+ *     EtwpCaptureString @ 0x1407478D0 (EtwpCaptureString.c)
+ *     EtwpCheckForStackTracingExtension @ 0x140748504 (EtwpCheckForStackTracingExtension.c)
+ *     EtwpValidateFlagExtension @ 0x1407485B0 (EtwpValidateFlagExtension.c)
+ *     EtwpGetSystemMaximumBufferCount @ 0x140748750 (EtwpGetSystemMaximumBufferCount.c)
+ *     EtwpSynchronizeWithLogger @ 0x140749078 (EtwpSynchronizeWithLogger.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     EtwpUpdateLoggerGroupMasks @ 0x14080D834 (EtwpUpdateLoggerGroupMasks.c)
+ *     EtwpCheckForPoolTagFilterExtension @ 0x140858980 (EtwpCheckForPoolTagFilterExtension.c)
+ *     EtwpCheckSystemTraceAccess @ 0x1408606D8 (EtwpCheckSystemTraceAccess.c)
+ *     EtwpEventWriteTemplateSession @ 0x1409E0E14 (EtwpEventWriteTemplateSession.c)
+ *     EtwpUpdatePerProcessTracing @ 0x1409E4B6C (EtwpUpdatePerProcessTracing.c)
+ *     EtwpSendDbgId @ 0x1409E9094 (EtwpSendDbgId.c)
+ *     EtwpUpdateLoggerSecurityDescriptor @ 0x1409E9524 (EtwpUpdateLoggerSecurityDescriptor.c)
+ */
+
 __int64 __fastcall EtwpUpdateTrace(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 result; // rax

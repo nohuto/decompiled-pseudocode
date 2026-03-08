@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopFindNextSystemPowerState @ 0x14097D930
+ * Callers:
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PopFindNextSystemPowerState(int a1, char a2, _BYTE *a3)
 {
   char v3; // r9

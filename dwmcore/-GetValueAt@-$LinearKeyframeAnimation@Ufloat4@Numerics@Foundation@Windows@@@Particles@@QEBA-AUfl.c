@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetValueAt@?$LinearKeyframeAnimation@Ufloat4@Numerics@Foundation@Windows@@@Particles@@QEBA?AUfloat4@Numerics@Foundation@Windows@@MAEBV?$span@M$0?0@gsl@@AEAV78@@Z @ 0x18023D844
+ * Callers:
+ *     ?AnimateSingle@?$LinearKeyframeAnimation@Ufloat4@Numerics@Foundation@Windows@@@Particles@@UEBAXAEAV?$span@M$0?0@gsl@@00@Z @ 0x18023CE70 (-AnimateSingle@-$LinearKeyframeAnimation@Ufloat4@Numerics@Foundation@Windows@@@Particles@@UEBAXA.c)
+ * Callees:
+ *     ?FindFirstFrameIndex@?$LinearKeyframeAnimation@Ufloat4@Numerics@Foundation@Windows@@@Particles@@IEBAIM@Z @ 0x18023D48C (-FindFirstFrameIndex@-$LinearKeyframeAnimation@Ufloat4@Numerics@Foundation@Windows@@@Particles@@.c)
+ */
+
 // local variable allocation has failed, the output may be wrong!
 _OWORD *__fastcall Particles::LinearKeyframeAnimation<Windows::Foundation::Numerics::float4>::GetValueAt(
         __int64 a1,

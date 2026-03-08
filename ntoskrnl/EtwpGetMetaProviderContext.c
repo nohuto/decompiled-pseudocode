@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpGetMetaProviderContext @ 0x140204F94
+ * Callers:
+ *     EtwpEnableMetaProviderGuid @ 0x140204F18 (EtwpEnableMetaProviderGuid.c)
+ *     EtwpGetTraceGuidInfo @ 0x140850058 (EtwpGetTraceGuidInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 (**__fastcall EtwpGetMetaProviderContext(_QWORD *a1))[2]
 {
   int v1; // edx

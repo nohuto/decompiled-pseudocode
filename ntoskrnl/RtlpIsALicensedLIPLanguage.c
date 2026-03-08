@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpIsALicensedLIPLanguage @ 0x140A71638
+ * Callers:
+ *     RtlpMuiRegAddLanguageByName @ 0x1408437B0 (RtlpMuiRegAddLanguageByName.c)
+ * Callees:
+ *     RtlpLangNameInMultiSzString @ 0x140843B4C (RtlpLangNameInMultiSzString.c)
+ */
+
 __int64 __fastcall RtlpIsALicensedLIPLanguage(__int64 a1, wchar_t *a2)
 {
   __int64 result; // rax

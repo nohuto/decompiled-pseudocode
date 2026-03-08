@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?OnSettingChange@CDwmAppHost@@AEAAX_K_J@Z @ 0x140002894
+ * Callers:
+ *     ?NotifyWndProc@CDwmAppHost@@AEAA_JPEAUHWND__@@I_K_J@Z @ 0x1400027D4 (-NotifyWndProc@CDwmAppHost@@AEAA_JPEAUHWND__@@I_K_J@Z.c)
+ * Callees:
+ *     ?LpcNotifySettingsChange@CDwmAppHost@@AEAAJK@Z @ 0x1400025CC (-LpcNotifySettingsChange@CDwmAppHost@@AEAAJK@Z.c)
+ *     wcscmp_0 @ 0x1400071A4 (wcscmp_0.c)
+ */
+
 void __fastcall CDwmAppHost::OnSettingChange(CDwmAppHost *this, __int64 a2, void *a3)
 {
   unsigned int v3; // edx

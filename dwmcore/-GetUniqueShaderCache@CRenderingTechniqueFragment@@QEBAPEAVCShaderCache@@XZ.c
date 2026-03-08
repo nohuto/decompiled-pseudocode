@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetUniqueShaderCache@CRenderingTechniqueFragment@@QEBAPEAVCShaderCache@@XZ @ 0x18002987C
+ * Callers:
+ *     ?EnsureShaderCache@CBrushRenderingGraphBuilder@@IEAAJ_N@Z @ 0x1800298D4 (-EnsureShaderCache@CBrushRenderingGraphBuilder@@IEAAJ_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct CShaderCache *__fastcall CRenderingTechniqueFragment::GetUniqueShaderCache(CRenderingTechniqueFragment *this)
 {
   __int64 v1; // r9

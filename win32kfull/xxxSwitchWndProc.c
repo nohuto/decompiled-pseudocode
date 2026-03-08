@@ -1,3 +1,16 @@
+/*
+ * XREFs of xxxSwitchWndProc @ 0x1C01CC6D0
+ * Callers:
+ *     ?xxxWrapSwitchWndProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C01B9B60 (-xxxWrapSwitchWndProc@@YA_JPEAUtagWND@@I_K_J1@Z.c)
+ * Callees:
+ *     xxxSetWindowPos @ 0x1C0028F4C (xxxSetWindowPos.c)
+ *     ?zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C0042A88 (-zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z.c)
+ *     xxxDefWindowProc @ 0x1C00A66F0 (xxxDefWindowProc.c)
+ *     xxxValidateClassAndSize @ 0x1C00FA3E4 (xxxValidateClassAndSize.c)
+ *     xxxCancelCoolSwitch @ 0x1C0146A72 (xxxCancelCoolSwitch.c)
+ *     ?xxxPaintSwitchWindow@@YAXPEAUtagWND@@@Z @ 0x1C01CADAC (-xxxPaintSwitchWindow@@YAXPEAUtagWND@@@Z.c)
+ */
+
 __int64 __fastcall xxxSwitchWndProc(struct tagWND *a1, unsigned int a2, HWND a3, __int64 a4)
 {
   __int64 v9; // rdx

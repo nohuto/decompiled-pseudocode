@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopCreateRootEnumeratedDeviceObject @ 0x14081D1C8
+ * Callers:
+ *     IopLegacyResourceAllocation @ 0x140801DA4 (IopLegacyResourceAllocation.c)
+ *     IoReportDetectedDevice @ 0x140802A80 (IoReportDetectedDevice.c)
+ *     IopInitializeDeviceInstanceKey @ 0x14081CE14 (IopInitializeDeviceInstanceKey.c)
+ *     PiInitializeDevice @ 0x14096AB74 (PiInitializeDevice.c)
+ * Callees:
+ *     IoDeleteDevice @ 0x140368010 (IoDeleteDevice.c)
+ *     IoCreateDevice @ 0x1407F0460 (IoCreateDevice.c)
+ */
+
 __int64 __fastcall IopCreateRootEnumeratedDeviceObject(_QWORD *a1)
 {
   NTSTATUS v2; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheapLogIpmiSELEventHighIrql @ 0x140611030
+ * Callers:
+ *     WheapLogIpmiSELEvent @ 0x140610F90 (WheapLogIpmiSELEvent.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     WheapHighIrqlLogSelEventHandlerAcquireLock @ 0x140610F68 (WheapHighIrqlLogSelEventHandlerAcquireLock.c)
+ */
+
 void WheapLogIpmiSELEventHighIrql()
 {
   if ( WheapDispatchPtr.Queue.Wcb.NumberOfMapRegisters && WheapHighIrqlLogSelEventHandlerAcquireLock(0) )

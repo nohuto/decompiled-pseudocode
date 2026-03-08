@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?EstimateSizeIntersect@CRgnData@Internal@FastRegion@@SAHAEBV123@0@Z @ 0x180047DCC
+ * Callers:
+ *     ?Intersect@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x1800462A8 (-Intersect@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FastRegion::Internal::CRgnData::EstimateSizeIntersect(
         const struct FastRegion::Internal::CRgnData *a1,
         const struct FastRegion::Internal::CRgnData *a2)

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetModifiedRestingValue@CMotion@@QEBAMXZ @ 0x18026B564
+ * Callers:
+ *     ?CalculateInertiaCallbackValues@CInteractionTracker@@AEAA?AUInertiaCallbackValues@@XZ @ 0x18022DF28 (-CalculateInertiaCallbackValues@CInteractionTracker@@AEAA-AUInertiaCallbackValues@@XZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 float __fastcall CMotion::GetModifiedRestingValue(CMotion *this)
 {
   __int64 v2; // rcx

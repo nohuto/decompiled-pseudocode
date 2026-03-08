@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?DoesBackdropInputContributeToSubgraph@CBrushRenderingGraph@@IEBA_NIPEA_N@Z @ 0x18002DF64
+ * Callers:
+ *     ?DoesBackdropInputContributeToSubgraph@CBrushRenderingGraph@@IEBA_NIPEA_N@Z @ 0x18002DF64 (-DoesBackdropInputContributeToSubgraph@CBrushRenderingGraph@@IEBA_NIPEA_N@Z.c)
+ *     ?RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBrush@@IPEAVCDrawListCache@@@Z @ 0x180093070 (-RenderSubgraphs@CBrushRenderingGraph@@QEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEBVCDrawListBr.c)
+ * Callees:
+ *     ?DoesBackdropInputContributeToSubgraph@CBrushRenderingGraph@@IEBA_NIPEA_N@Z @ 0x18002DF64 (-DoesBackdropInputContributeToSubgraph@CBrushRenderingGraph@@IEBA_NIPEA_N@Z.c)
+ *     ?IsWindowBackdropInput@CBrushRenderingGraph@@IEBA_NI@Z @ 0x18002EC24 (-IsWindowBackdropInput@CBrushRenderingGraph@@IEBA_NI@Z.c)
+ *     ?IsBackdropInput@CBrushRenderingGraph@@IEBA_NI@Z @ 0x18002EC70 (-IsBackdropInput@CBrushRenderingGraph@@IEBA_NI@Z.c)
+ *     ?IsNoOp@CRenderingTechniqueFragment@@QEBA_NXZ @ 0x180030C4C (-IsNoOp@CRenderingTechniqueFragment@@QEBA_NXZ.c)
+ */
+
 char __fastcall CBrushRenderingGraph::DoesBackdropInputContributeToSubgraph(
         CBrushRenderingGraph *this,
         unsigned int a2,

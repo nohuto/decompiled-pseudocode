@@ -1,3 +1,12 @@
+/*
+ * XREFs of IrqPolicyQueryInterruptSteeringEnabled @ 0x1C009FDA4
+ * Callers:
+ *     IrqPolicyQuerySteeringEnabledForInterrupt @ 0x1C009FE48 (IrqPolicyQuerySteeringEnabledForInterrupt.c)
+ *     IrqPolicyUpdatePolicy @ 0x1C00AC5CC (IrqPolicyUpdatePolicy.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ */
+
 char __fastcall IrqPolicyQueryInterruptSteeringEnabled(__int128 *a1)
 {
   char v1; // bl

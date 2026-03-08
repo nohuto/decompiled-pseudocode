@@ -1,3 +1,12 @@
+/*
+ * XREFs of DifUpdatePluginState @ 0x1405D2FF0
+ * Callers:
+ *     VfNotifyVerifierOfEvent @ 0x140ABF120 (VfNotifyVerifierOfEvent.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MmManagePartitionMemoryInformation @ 0x1407059DC (MmManagePartitionMemoryInformation.c)
+ */
+
 unsigned __int64 DifUpdatePluginState()
 {
   unsigned __int64 result; // rax

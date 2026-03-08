@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl @ 0x1C00285D0
+ * Callers:
+ *     HUBDSM_DisablingEndpointsInControllerOHubStopOnDetach @ 0x1C001F750 (HUBDSM_DisablingEndpointsInControllerOHubStopOnDetach.c)
+ *     HUBDSM_DisablingEndpointsOnDetachWithSpecialFile @ 0x1C001F850 (HUBDSM_DisablingEndpointsOnDetachWithSpecialFile.c)
+ *     HUBDSM_DisablingEndpointsOnDetachWithSpecialFileAndResetPending @ 0x1C001F880 (HUBDSM_DisablingEndpointsOnDetachWithSpecialFileAndResetPending.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBUCX_EnableDisableEndpointsUsingUCXIoctl @ 0x1C00268D8 (HUBUCX_EnableDisableEndpointsUsingUCXIoctl.c)
+ */
+
 _UNKNOWN **__fastcall HUBUCX_DisableAllEndpointsForCurrentConfigurationUsingUCXIoctl(__int64 a1)
 {
   __int64 v1; // rax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of MmGetImageInformation @ 0x14077582C
+ * Callers:
+ *     RtlpLookupUserFunctionTable @ 0x14039DB7C (RtlpLookupUserFunctionTable.c)
+ *     RtlGetImageBaseAndLoadConfig @ 0x1405AF9E0 (RtlGetImageBaseAndLoadConfig.c)
+ *     EtwpLocateDbgIdForRegEntry @ 0x140775328 (EtwpLocateDbgIdForRegEntry.c)
+ *     KiCheckUserAddressCetCompat @ 0x14097262C (KiCheckUserAddressCetCompat.c)
+ *     EtwTimLogControlProtectionUserModeReturnMismatch @ 0x1409E6400 (EtwTimLogControlProtectionUserModeReturnMismatch.c)
+ * Callees:
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14031F590 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14031F600 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiCheckForConflictingVad @ 0x14034C30C (MiCheckForConflictingVad.c)
+ */
+
 __int64 __fastcall MmGetImageInformation(unsigned __int64 a1, _QWORD *a2, _QWORD *a3, int *a4)
 {
   struct _KTHREAD *CurrentThread; // rbx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlpHpVsSubsegmentCleanup @ 0x1402E55D8
+ * Callers:
+ *     RtlpHpVsChunkFree @ 0x140249D70 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsChunkSplit @ 0x14024AB60 (RtlpHpVsChunkSplit.c)
+ *     RtlpHpFreeHeap @ 0x140313CC0 (RtlpHpFreeHeap.c)
+ *     RtlpHpHeapDestroy @ 0x1405B4210 (RtlpHpHeapDestroy.c)
+ * Callees:
+ *     <none>
+ */
+
 signed __int64 __fastcall RtlpHpVsSubsegmentCleanup(__int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 v2; // r9

@@ -1,3 +1,12 @@
+/*
+ * XREFs of CaretBlinkProc @ 0x1C0006450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?UT_InvertCaret@@YAXXZ @ 0x1C0006508 (-UT_InvertCaret@@YAXXZ.c)
+ *     ?RemoveCaretTimer@@YAXPEAUtagWND@@PEAUtagQ@@@Z @ 0x1C00E8804 (-RemoveCaretTimer@@YAXPEAUtagWND@@PEAUtagQ@@@Z.c)
+ */
+
 void __fastcall CaretBlinkProc(struct tagWND *a1)
 {
   __int64 v1; // r8

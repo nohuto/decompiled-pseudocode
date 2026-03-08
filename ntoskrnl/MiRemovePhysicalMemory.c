@@ -1,3 +1,42 @@
+/*
+ * XREFs of MiRemovePhysicalMemory @ 0x140A29F5C
+ * Callers:
+ *     MiDeleteExtentPfns @ 0x14063A660 (MiDeleteExtentPfns.c)
+ *     MmRemovePhysicalMemory @ 0x140A2A520 (MmRemovePhysicalMemory.c)
+ *     MiRemoveMdlPages @ 0x140A2B84C (MiRemoveMdlPages.c)
+ *     MiCreateFileOnlyPfns @ 0x140A30F88 (MiCreateFileOnlyPfns.c)
+ *     MiHotRemovePartitionPageRun @ 0x140A423B8 (MiHotRemovePartitionPageRun.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiReferencePageRuns @ 0x1402EB520 (MiReferencePageRuns.c)
+ *     MiDereferencePageRuns @ 0x1402EBA0C (MiDereferencePageRuns.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     KePulseEvent @ 0x14035F580 (KePulseEvent.c)
+ *     MiPartitionIdToPointer @ 0x14036CC64 (MiPartitionIdToPointer.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14036D020 (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiDescribePageRun @ 0x14037082C (MiDescribePageRun.c)
+ *     MiComputeNodeMemory @ 0x1403A6D2C (MiComputeNodeMemory.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     IoUpdateDumpPhysicalRanges @ 0x14054EC60 (IoUpdateDumpPhysicalRanges.c)
+ *     KeConfigureDynamicMemory @ 0x14056C5A8 (KeConfigureDynamicMemory.c)
+ *     MiInitializeDynamicPfns @ 0x140618AB8 (MiInitializeDynamicPfns.c)
+ *     MiLockDynamicMemoryExclusive @ 0x140619164 (MiLockDynamicMemoryExclusive.c)
+ *     MiLockDynamicMemoryNestedExclusive @ 0x140619288 (MiLockDynamicMemoryNestedExclusive.c)
+ *     MiPerformMemoryChange @ 0x140619688 (MiPerformMemoryChange.c)
+ *     MiPhysicalMemoryEverRemoved @ 0x140619824 (MiPhysicalMemoryEverRemoved.c)
+ *     MiUnlockDynamicMemoryExclusive @ 0x140619B70 (MiUnlockDynamicMemoryExclusive.c)
+ *     MiUnlockDynamicMemoryNestedExclusive @ 0x140619BD4 (MiUnlockDynamicMemoryNestedExclusive.c)
+ *     MiGetDanglingExtent @ 0x14063B2F8 (MiGetDanglingExtent.c)
+ *     MiGetPfnRemovalRequested @ 0x14064B338 (MiGetPfnRemovalRequested.c)
+ *     MiReduceCommitLimits @ 0x140653F84 (MiReduceCommitLimits.c)
+ *     MiPartitionDeleteMemoryNode @ 0x140658BB8 (MiPartitionDeleteMemoryNode.c)
+ *     MiFlushCacheRange @ 0x14065E91C (MiFlushCacheRange.c)
+ *     MiConfigureMemoryRemoval @ 0x140A29A2C (MiConfigureMemoryRemoval.c)
+ *     MiHotAddHugeRange @ 0x140A2B158 (MiHotAddHugeRange.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiRemovePhysicalMemory(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, unsigned int a3)
 {
   struct _KTHREAD *CurrentThread; // r13

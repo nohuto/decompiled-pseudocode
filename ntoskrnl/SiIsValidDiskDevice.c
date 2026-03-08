@@ -1,3 +1,12 @@
+/*
+ * XREFs of SiIsValidDiskDevice @ 0x140A5D574
+ * Callers:
+ *     SiGetEfiSystemDevice @ 0x140A5CDB0 (SiGetEfiSystemDevice.c)
+ * Callees:
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ */
+
 bool __fastcall SiIsValidDiskDevice(wchar_t *Str1, wchar_t *a2)
 {
   wchar_t *v4; // rcx

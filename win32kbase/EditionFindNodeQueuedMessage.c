@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionFindNodeQueuedMessage @ 0x1C0271868
+ * Callers:
+ *     ApiSetEditionFindNodeQueuedMessage @ 0x1C023DF00 (ApiSetEditionFindNodeQueuedMessage.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (__fastcall *__fastcall EditionFindNodeQueuedMessage(_OWORD *a1, __int64 a2))(_QWORD, _QWORD, _QWORD)
 {
   __int64 (__fastcall *result)(_QWORD, _QWORD, _QWORD); // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiEndDpcGang @ 0x1403866F0
+ * Callers:
+ *     MiAllocateFastLargePagesForMdl @ 0x1403863B4 (MiAllocateFastLargePagesForMdl.c)
+ *     MiInitializeDynamicPfns @ 0x140618AB8 (MiInitializeDynamicPfns.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiEndDpcGang(__int64 a1)
 {
   PVOID *v1; // rdi

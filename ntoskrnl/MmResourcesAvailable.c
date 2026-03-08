@@ -1,3 +1,23 @@
+/*
+ * XREFs of MmResourcesAvailable @ 0x140311DB0
+ * Callers:
+ *     ExpAllocatePoolWithTagPriority @ 0x140AAB2A4 (ExpAllocatePoolWithTagPriority.c)
+ *     ExAllocatePool3 @ 0x140AAB320 (ExAllocatePool3.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KePulseEvent @ 0x14035F580 (KePulseEvent.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFreeExcessSegments @ 0x1406225DC (MiFreeExcessSegments.c)
+ *     MiIssuePageExtendRequest @ 0x14063890C (MiIssuePageExtendRequest.c)
+ */
+
 __int64 __fastcall MmResourcesAvailable(char a1, unsigned __int64 a2, int a3)
 {
   __int64 v3; // rdi

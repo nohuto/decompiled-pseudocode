@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiMergePageNodes @ 0x14065893C
+ * Callers:
+ *     MiDeletePartitionResources @ 0x140656EBC (MiDeletePartitionResources.c)
+ *     MiInsertPartitionPages @ 0x140657EB8 (MiInsertPartitionPages.c)
+ * Callees:
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     RtlMergeBitMapsEx @ 0x14039F630 (RtlMergeBitMapsEx.c)
+ */
+
 __int64 __fastcall MiMergePageNodes(__int64 a1, unsigned __int64 a2, unsigned __int64 *a3)
 {
   __int64 v3; // r13

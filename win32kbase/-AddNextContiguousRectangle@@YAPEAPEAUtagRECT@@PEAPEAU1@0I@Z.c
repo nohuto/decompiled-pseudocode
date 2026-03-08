@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AddNextContiguousRectangle@@YAPEAPEAUtagRECT@@PEAPEAU1@0I@Z @ 0x1C02471DC
+ * Callers:
+ *     ?RemoveGaps@@YAHPEAUtagRECT@@I@Z @ 0x1C02474D8 (-RemoveGaps@@YAHPEAUtagRECT@@I@Z.c)
+ * Callees:
+ *     IntersectRect @ 0x1C003B560 (IntersectRect.c)
+ */
+
 struct tagRECT **__fastcall AddNextContiguousRectangle(struct tagRECT **a1, struct tagRECT **a2, int a3)
 {
   int v3; // r12d

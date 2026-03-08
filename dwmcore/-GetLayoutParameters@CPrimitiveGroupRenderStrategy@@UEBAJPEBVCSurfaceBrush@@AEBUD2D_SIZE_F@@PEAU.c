@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetLayoutParameters@CPrimitiveGroupRenderStrategy@@UEBAJPEBVCSurfaceBrush@@AEBUD2D_SIZE_F@@PEAU3@PEAUD2D_RECT_F@@PEAUD2D_MATRIX_3X2_F@@@Z @ 0x180106C00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CPrimitiveGroupRenderStrategy::GetLayoutParameters(
         CPrimitiveGroupRenderStrategy *this,
         const struct CSurfaceBrush *a2,

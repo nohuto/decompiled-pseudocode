@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhPdoQueryWmiDataBlock @ 0x1C00497C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhRefPdoDeviceHandle @ 0x1C0019C20 (UsbhRefPdoDeviceHandle.c)
+ *     UsbhDerefPdoDeviceHandle @ 0x1C0019ED0 (UsbhDerefPdoDeviceHandle.c)
+ *     UsbhGetDeviceNodeInfo @ 0x1C004910C (UsbhGetDeviceNodeInfo.c)
+ *     UsbhGetPerformanceInfo @ 0x1C0049618 (UsbhGetPerformanceInfo.c)
+ */
+
 __int64 __fastcall UsbhPdoQueryWmiDataBlock(
         PDEVICE_OBJECT DeviceObject,
         PIRP Irp,

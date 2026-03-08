@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpMcaResumeProcessorConfig @ 0x140A9218C
+ * Callers:
+ *     HalpPostSleepMP @ 0x140A93F28 (HalpPostSleepMP.c)
+ *     HalpDpPostReplaceInitialization @ 0x140A94574 (HalpDpPostReplaceInitialization.c)
+ * Callees:
+ *     HalpCmciInitProcessor @ 0x14037CD68 (HalpCmciInitProcessor.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpMcaSetProcessorConfig @ 0x140A87E04 (HalpMcaSetProcessorConfig.c)
+ *     HalpIsCmciImplemented @ 0x140A8E988 (HalpIsCmciImplemented.c)
+ */
+
 char __fastcall HalpMcaResumeProcessorConfig(int a1)
 {
   KPCR *Pcr; // rax

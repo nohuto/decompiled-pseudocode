@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpIvtCreateReservedDevice @ 0x14037C6C0
+ * Callers:
+ *     IvtEnumerateRmrrDevices @ 0x14037C620 (IvtEnumerateRmrrDevices.c)
+ * Callees:
+ *     DmrConvertDeviceScope @ 0x14037C78C (DmrConvertDeviceScope.c)
+ *     ExtEnvAllocateMemory @ 0x14037C828 (ExtEnvAllocateMemory.c)
+ *     ExtEnvFreeMemory @ 0x14051D13C (ExtEnvFreeMemory.c)
+ */
+
 __int64 __fastcall HalpIvtCreateReservedDevice(__int64 a1, __int64 a2)
 {
   _QWORD **v2; // rsi

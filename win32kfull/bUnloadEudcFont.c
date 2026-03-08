@@ -1,3 +1,22 @@
+/*
+ * XREFs of bUnloadEudcFont @ 0x1C01162DC
+ * Callers:
+ *     ?CleanUpEUDC@@YAXXZ @ 0x1C00B76C0 (-CleanUpEUDC@@YAXXZ.c)
+ *     bDeleteAllFlEntry @ 0x1C0116094 (bDeleteAllFlEntry.c)
+ *     GreEudcLoadLinkW @ 0x1C02A10C8 (GreEudcLoadLinkW.c)
+ *     GreEudcUnloadLinkW @ 0x1C02A13F0 (GreEudcUnloadLinkW.c)
+ *     bDeleteFlEntry @ 0x1C02A1F2C (bDeleteFlEntry.c)
+ * Callees:
+ *     ??1?$AutoResource@$1?Win32FreePool@@YAXPEAX@Z@@QEAA@XZ @ 0x1C00B90C0 (--1-$AutoResource@$1-Win32FreePool@@YAXPEAX@Z@@QEAA@XZ.c)
+ *     ?vFreePql@PFEOBJ@@QEAAXXZ @ 0x1C01163D0 (-vFreePql@PFEOBJ@@QEAAXXZ.c)
+ *     ??0MALLOCOBJ@@QEAA@K@Z @ 0x1C0116400 (--0MALLOCOBJ@@QEAA@K@Z.c)
+ *     prfntDeactivateEudcRFONTs @ 0x1C0116450 (prfntDeactivateEudcRFONTs.c)
+ *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C01165A4 (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     ?bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z @ 0x1C01183E8 (-bUnloadEUDCFont@PFTOBJ@@QEAAHPEAG@Z.c)
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C011DDB0 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z @ 0x1C0123828 (-vDeleteRFONT@RFONTOBJ@@QEAAXPEAVPDEVOBJ@@PEAVPFFOBJ@@H@Z.c)
+ */
+
 __int64 __fastcall bUnloadEudcFont(__int64 *a1)
 {
   __int64 v2; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetBlurredWallpaperSurfaceRect@CVisual@@QEBA?AUtagRECT@@XZ @ 0x1800B3894
+ * Callers:
+ *     ?GetBlurredWallpaperEffectInput@CDrawingContext@@QEBAJAEBUD2D_SIZE_F@@PEAUEffectInput@@@Z @ 0x1800B3440 (-GetBlurredWallpaperEffectInput@CDrawingContext@@QEBAJAEBUD2D_SIZE_F@@PEAUEffectInput@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct tagRECT *__fastcall CVisual::GetBlurredWallpaperSurfaceRect(CVisual *this, struct tagRECT *__return_ptr retstr)
 {
   __int64 v2; // rcx

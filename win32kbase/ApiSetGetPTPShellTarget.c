@@ -1,3 +1,14 @@
+/*
+ * XREFs of ApiSetGetPTPShellTarget @ 0x1C0244748
+ * Callers:
+ *     ?GetHitTestState@CPTPProcessor@@QEAAPEBUCHitTestState@@PEBUCPointerInputFrame@@@Z @ 0x1C020DD78 (-GetHitTestState@CPTPProcessor@@QEAAPEBUCHitTestState@@PEBUCPointerInputFrame@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     GetPTPShellTarget @ 0x1C0271DBC (GetPTPShellTarget.c)
+ *     IsGetPTPShellTargetSupported @ 0x1C0271F1C (IsGetPTPShellTargetSupported.c)
+ */
+
 _OWORD *__fastcall ApiSetGetPTPShellTarget(_OWORD *a1)
 {
   int v2; // edx

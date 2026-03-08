@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpVpptTimerRegister @ 0x140507BF4
+ * Callers:
+ *     HalpTimerSelectRoles @ 0x140376F4C (HalpTimerSelectRoles.c)
+ * Callees:
+ *     HalSocRequestApi @ 0x1403737EC (HalSocRequestApi.c)
+ *     HalpTimerRegister @ 0x140373EB4 (HalpTimerRegister.c)
+ *     ExtEnvInitializeSpinLock @ 0x1403AF45C (ExtEnvInitializeSpinLock.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall HalpVpptTimerRegister(__int64 a1, char a2)
 {
   __int64 result; // rax

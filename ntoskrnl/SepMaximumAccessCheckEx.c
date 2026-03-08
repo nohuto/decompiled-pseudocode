@@ -1,3 +1,20 @@
+/*
+ * XREFs of SepMaximumAccessCheckEx @ 0x1403C8AF0
+ * Callers:
+ *     SepAccessCheckEx @ 0x140206B24 (SepAccessCheckEx.c)
+ * Callees:
+ *     AuthzBasepAddAccessTypeList @ 0x140206EC4 (AuthzBasepAddAccessTypeList.c)
+ *     AuthzBasepSetAccessReasons @ 0x140207750 (AuthzBasepSetAccessReasons.c)
+ *     SepIsPackageSid @ 0x140208A9C (SepIsPackageSid.c)
+ *     SepIsCapabilitySid @ 0x140208AF4 (SepIsCapabilitySid.c)
+ *     AuthzBasepEvaluateAceCondition @ 0x140246980 (AuthzBasepEvaluateAceCondition.c)
+ *     SepMatchPackage @ 0x14024717C (SepMatchPackage.c)
+ *     AuthzBasepInitializeResourceClaimsFromSacl @ 0x1402975A8 (AuthzBasepInitializeResourceClaimsFromSacl.c)
+ *     SepMatchCapability @ 0x1402E8F24 (SepMatchCapability.c)
+ *     SepSidInTokenSidHash @ 0x14033DEA0 (SepSidInTokenSidHash.c)
+ *     AuthzBasepObjectInTypeList @ 0x14066CAA0 (AuthzBasepObjectInTypeList.c)
+ */
+
 __int64 __fastcall SepMaximumAccessCheckEx(
         __int64 a1,
         __int64 a2,

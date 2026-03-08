@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiEmptyWorkingSetInitiate @ 0x140301814
+ * Callers:
+ *     MmAdjustWorkingSetSizeEx @ 0x14020C61C (MmAdjustWorkingSetSizeEx.c)
+ *     MiTrimOrAgeWorkingSet @ 0x1402245D0 (MiTrimOrAgeWorkingSet.c)
+ *     MiEmptyWorkingSet @ 0x140619C4C (MiEmptyWorkingSet.c)
+ *     MiEmptyWorkingSetPrivatePagesByVa @ 0x140619C68 (MiEmptyWorkingSetPrivatePagesByVa.c)
+ *     MiEmptyTargetedWorkingSet @ 0x1406322E8 (MiEmptyTargetedWorkingSet.c)
+ *     MiProcessRemoveFromWorkingSet @ 0x140A2E490 (MiProcessRemoveFromWorkingSet.c)
+ * Callees:
+ *     MiWalkPageTables @ 0x140222CF0 (MiWalkPageTables.c)
+ *     MiTbFlushType @ 0x140224BDC (MiTbFlushType.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiEmptyWorkingSetInitiate(__int64 a1, char a2, __int64 a3, __int64 a4)
 {
   int v8; // esi

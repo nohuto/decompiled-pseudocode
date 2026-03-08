@@ -1,3 +1,18 @@
+/*
+ * XREFs of PspRemoveProperty @ 0x1403BED38
+ * Callers:
+ *     PsSetThreadProperty @ 0x1403BEC70 (PsSetThreadProperty.c)
+ *     PsSetJobProperty @ 0x1405A1A00 (PsSetJobProperty.c)
+ *     PspEmptyPropertySet @ 0x1407D9CEC (PspEmptyPropertySet.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PspFindPropertySetEntry @ 0x1402C8774 (PspFindPropertySetEntry.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PspRemoveProperty(_QWORD *a1, __int64 a2, _QWORD *a3)
 {
   unsigned __int64 v6; // rsi

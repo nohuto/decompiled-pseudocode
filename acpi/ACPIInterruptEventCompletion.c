@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIInterruptEventCompletion @ 0x1C0003C50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ACPIInterruptEventCompletion(__int64 a1, int a2, __int64 a3, __int16 a4)
 {
   KIRQL v6; // si

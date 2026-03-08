@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiFdoGetAdapterUniqueGUID @ 0x1C0205134
+ * Callers:
+ *     DpiGdoSetupGdiParameters @ 0x1C0204950 (DpiGdoSetupGdiParameters.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiFdoGetAdapterUniqueGUID(__int64 a1)
 {
   __int64 v1; // rax

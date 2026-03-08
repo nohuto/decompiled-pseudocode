@@ -1,3 +1,13 @@
+/*
+ * XREFs of bDrvShadowConnect @ 0x1C02DF56C
+ * Callers:
+ *     RemoteShadowStart @ 0x1C0205FFC (RemoteShadowStart.c)
+ * Callees:
+ *     ??1SEMOBJEX@@QEAA@XZ @ 0x1C0129084 (--1SEMOBJEX@@QEAA@XZ.c)
+ *     ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C0129160 (--0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall bDrvShadowConnect(Gre::Base *a1, __int64 a2, unsigned int a3)
 {
   HSEMAPHORE *v5; // rax

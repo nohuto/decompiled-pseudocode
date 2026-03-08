@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CleanupDomainLocks@@YAXXZ @ 0x1C00CB204
+ * Callers:
+ *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C015C290 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
+ *     InitCreateUserCrit @ 0x1C031F55C (InitCreateUserCrit.c)
+ * Callees:
+ *     ?Uninitialize@CInpLockGuard@@QEAAXXZ @ 0x1C0094C10 (-Uninitialize@CInpLockGuard@@QEAAXXZ.c)
+ */
+
 void CleanupDomainLocks(void)
 {
   CInpLockGuard::Uninitialize(&gDomainProcessInfoLock);

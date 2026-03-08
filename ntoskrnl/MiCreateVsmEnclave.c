@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiCreateVsmEnclave @ 0x140A3AE48
+ * Callers:
+ *     MiCreateEnclave @ 0x140A3A9F4 (MiCreateEnclave.c)
+ * Callees:
+ *     MiGetProcessPartition @ 0x14031F9D4 (MiGetProcessPartition.c)
+ *     PsCreateVsmEnclave @ 0x1409B4008 (PsCreateVsmEnclave.c)
+ */
+
 __int64 __fastcall MiCreateVsmEnclave(__int64 a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
 {
   __int64 ProcessPartition; // rax

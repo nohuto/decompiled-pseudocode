@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtCreateThreadStateChange @ 0x1409AD370
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ */
+
 __int64 __fastcall NtCreateThreadStateChange(HANDLE *a1, unsigned int a2, __int64 a3, ULONG_PTR a4, int a5)
 {
   char PreviousMode; // r14

@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiRemoveUnusedSegments @ 0x1406236E4
+ * Callers:
+ *     MiDereferenceSegmentThread @ 0x1403A2790 (MiDereferenceSegmentThread.c)
+ *     MiProcessDereferenceList @ 0x140622C74 (MiProcessDereferenceList.c)
+ * Callees:
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     MiShouldTrimUnusedSegments @ 0x1404635C8 (MiShouldTrimUnusedSegments.c)
+ *     CcUnmapInactiveViews @ 0x140535E58 (CcUnmapInactiveViews.c)
+ *     MiDeleteCachedSegment @ 0x140621514 (MiDeleteCachedSegment.c)
+ *     MiDeleteCachedSubsection @ 0x140621708 (MiDeleteCachedSubsection.c)
+ *     MiProcessDereferenceList @ 0x140622C74 (MiProcessDereferenceList.c)
+ */
+
 __int64 __fastcall MiRemoveUnusedSegments(__int64 a1, unsigned __int64 a2)
 {
   unsigned int v2; // r12d

@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlStringCbPrintfW @ 0x1C0013FD0
+ * Callers:
+ *     HUBPDO_EvtDeviceWdmIrpQueryDeviceTextPreprocess @ 0x1C0018018 (HUBPDO_EvtDeviceWdmIrpQueryDeviceTextPreprocess.c)
+ *     HUBMISC_QueryKseDeviceFlags @ 0x1C0033144 (HUBMISC_QueryKseDeviceFlags.c)
+ *     HUBMISC_GenerateControllerSuffix @ 0x1C0034298 (HUBMISC_GenerateControllerSuffix.c)
+ *     HUBMISC_ReportPnPFailureProblem @ 0x1C00835A0 (HUBMISC_ReportPnPFailureProblem.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS RtlStringCbPrintfW(NTSTRSAFE_PWSTR pszDest, size_t cbDest, NTSTRSAFE_PCWSTR pszFormat, ...)
 {
   size_t v3; // rdx

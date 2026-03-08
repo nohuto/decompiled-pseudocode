@@ -1,3 +1,32 @@
+/*
+ * XREFs of VidSchFlushAdapter @ 0x1C0107550
+ * Callers:
+ *     VidSchiHandleControlEvent @ 0x1C01063DC (VidSchiHandleControlEvent.c)
+ *     VidSchTerminateAdapter @ 0x1C0108B80 (VidSchTerminateAdapter.c)
+ * Callees:
+ *     VidSchIsTDRPending @ 0x1C0007920 (VidSchIsTDRPending.c)
+ *     VidSchiInterlockedReadUlong @ 0x1C00126BC (VidSchiInterlockedReadUlong.c)
+ *     VidSchiClearFlipDevice @ 0x1C0012708 (VidSchiClearFlipDevice.c)
+ *     VidSchIsWorkerThread @ 0x1C0014FD0 (VidSchIsWorkerThread.c)
+ *     VidSchiGetSchedulerStatus @ 0x1C00189A8 (VidSchiGetSchedulerStatus.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     VidSchiUnlinkCrossAdapterSyncObjects @ 0x1C003CB14 (VidSchiUnlinkCrossAdapterSyncObjects.c)
+ *     VidSchiUnwaitAllContexts @ 0x1C003CBF4 (VidSchiUnwaitAllContexts.c)
+ *     ??$VidSchRundownUnorderedWaiter@U_VIDSCH_GLOBAL@@@@YAJPEAU_VIDSCH_GLOBAL@@0W4_VIDSCH_FLUSH_STAGE@@_NP6AXPEAVHwQueueStagingList@@0@Z@Z @ 0x1C003D23C (--$VidSchRundownUnorderedWaiter@U_VIDSCH_GLOBAL@@@@YAJPEAU_VIDSCH_GLOBAL@@0W4_VIDSCH_FLUSH_STAGE.c)
+ *     ?VidSchRundownUnorderedWaiterGlobal@@YAXPEAU_VIDSCH_GLOBAL@@@Z @ 0x1C003DB1C (-VidSchRundownUnorderedWaiterGlobal@@YAXPEAU_VIDSCH_GLOBAL@@@Z.c)
+ *     ?VidSchiProcessCrossAdapterSignaledSyncObjectsFromPassiveLevel@@YAXPEAU_VIDSCH_GLOBAL@@@Z @ 0x1C003DBE0 (-VidSchiProcessCrossAdapterSignaledSyncObjectsFromPassiveLevel@@YAXPEAU_VIDSCH_GLOBAL@@@Z.c)
+ *     VidSchiCleanupQueuedCommand @ 0x1C0046F08 (VidSchiCleanupQueuedCommand.c)
+ *     VidSchiCompleteAllPendingCommand @ 0x1C0046F70 (VidSchiCompleteAllPendingCommand.c)
+ *     VidSchResumeAdapter @ 0x1C00AD540 (VidSchResumeAdapter.c)
+ *     VidSchiWaitFlushCompletion @ 0x1C00ADCEC (VidSchiWaitFlushCompletion.c)
+ *     VidSchiRequestSchedulerStatus @ 0x1C00B7E60 (VidSchiRequestSchedulerStatus.c)
+ *     VidSchiCancelDelayTimerDevice @ 0x1C0106024 (VidSchiCancelDelayTimerDevice.c)
+ *     VidSchiHandleControlEvent @ 0x1C01063DC (VidSchiHandleControlEvent.c)
+ *     VidSchiWaitForEmptyHwQueue @ 0x1C0107370 (VidSchiWaitForEmptyHwQueue.c)
+ *     VidSchiBlockDriverCallback @ 0x1C010A3BC (VidSchiBlockDriverCallback.c)
+ */
+
 __int64 __fastcall VidSchFlushAdapter(struct _VIDSCH_GLOBAL *a1, int a2)
 {
   unsigned int v2; // edi

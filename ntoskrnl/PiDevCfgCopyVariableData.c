@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiDevCfgCopyVariableData @ 0x14095AA3C
+ * Callers:
+ *     PiDevCfgResolveVariableExpression @ 0x14095D1E0 (PiDevCfgResolveVariableExpression.c)
+ *     PiDevCfgResolveVariableSwitchCase @ 0x14095F4F0 (PiDevCfgResolveVariableSwitchCase.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     _SysCtxRegOpenKey @ 0x1406D4350 (_SysCtxRegOpenKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PiDevCfgCopyVariableData(__int64 a1, __int64 a2)
 {
   int v2; // esi

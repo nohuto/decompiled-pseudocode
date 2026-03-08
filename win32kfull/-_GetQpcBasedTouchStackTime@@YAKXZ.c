@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_GetQpcBasedTouchStackTime@@YAKXZ @ 0x1C01B0EB0
+ * Callers:
+ *     ?xxxSendLastFrameTouchUp@@YAXPEAUtagINJECTED_CONTACT@@PEAUDEVICEINFO@@IK@Z @ 0x1C01B102C (-xxxSendLastFrameTouchUp@@YAXPEAUtagINJECTED_CONTACT@@PEAUDEVICEINFO@@IK@Z.c)
+ *     xxxInjectTouchInput @ 0x1C01B19B4 (xxxInjectTouchInput.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 _GetQpcBasedTouchStackTime(void)
 {
   LARGE_INTEGER PerformanceCounter; // rax

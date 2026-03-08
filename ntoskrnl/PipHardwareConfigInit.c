@@ -1,3 +1,24 @@
+/*
+ * XREFs of PipHardwareConfigInit @ 0x140B694FC
+ * Callers:
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     KeQueryBootTimeValues @ 0x1402E3FEC (KeQueryBootTimeValues.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x140413EB0 (ZwDeleteValueKey.c)
+ *     IopGetRegistryValue @ 0x1406C18D4 (IopGetRegistryValue.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406D3680 (_PnpCtxGetCachedContextBaseKey.c)
+ *     RtlStringFromGUID @ 0x140733E70 (RtlStringFromGUID.c)
+ *     IopCreateRegistryKeyEx @ 0x14078BB90 (IopCreateRegistryKeyEx.c)
+ *     _PnpCtxRegQueryKeyPathName @ 0x1408563D8 (_PnpCtxRegQueryKeyPathName.c)
+ *     PipHardwareConfigClearStartOverrides @ 0x14094EECC (PipHardwareConfigClearStartOverrides.c)
+ *     PipHardwareConfigTriggerRespecialize @ 0x14094F070 (PipHardwareConfigTriggerRespecialize.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     PipHardwareConfigExists @ 0x140B91054 (PipHardwareConfigExists.c)
+ */
+
 __int64 __fastcall PipHardwareConfigInit(GUID *Guid)
 {
   HANDLE v2; // r15

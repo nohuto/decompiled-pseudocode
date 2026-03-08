@@ -1,3 +1,16 @@
+/*
+ * XREFs of ViFaultsAddTagNoDuplicates @ 0x140AD3600
+ * Callers:
+ *     ViFaultsAddAllTags @ 0x140AD3400 (ViFaultsAddAllTags.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     ViFaultsIsTagPresentInList @ 0x140AD3B50 (ViFaultsIsTagPresentInList.c)
+ */
+
 __int64 __fastcall ViFaultsAddTagNoDuplicates(__int64 a1, unsigned __int64 a2)
 {
   unsigned int v2; // edi

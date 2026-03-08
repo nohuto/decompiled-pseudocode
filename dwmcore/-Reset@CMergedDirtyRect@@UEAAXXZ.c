@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Reset@CMergedDirtyRect@@UEAAXXZ @ 0x1801064F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CMergedDirtyRect::Reset(CMergedDirtyRect *this)
 {
   *((_QWORD *)this + 11) = 0LL;

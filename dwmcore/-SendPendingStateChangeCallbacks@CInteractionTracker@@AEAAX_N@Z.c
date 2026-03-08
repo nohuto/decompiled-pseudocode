@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z @ 0x18012ECB2
+ * Callers:
+ *     ?SendPendingCallbacks@CInteractionTracker@@AEAAXXZ @ 0x18012EA46 (-SendPendingCallbacks@CInteractionTracker@@AEAAXXZ.c)
+ * Callees:
+ *     ?GetChannelCallbackId@CNotificationResource@@IEBAIXZ @ 0x1800EAB28 (-GetChannelCallbackId@CNotificationResource@@IEBAIXZ.c)
+ *     ?AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ @ 0x18012E802 (-AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?CalculateInertiaCallbackValues@CInteractionTracker@@AEAA?AUInertiaCallbackValues@@XZ @ 0x18022DF28 (-CalculateInertiaCallbackValues@CInteractionTracker@@AEAA-AUInertiaCallbackValues@@XZ.c)
+ *     ?HasDefaultAnimations@CInteractionTracker@@QEBA_NXZ @ 0x18022F804 (-HasDefaultAnimations@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?SendValuesChangedCallbackIfNecessary@CInteractionTracker@@AEAA_NUD2DVector3@@M_N@Z @ 0x1802312E8 (-SendValuesChangedCallbackIfNecessary@CInteractionTracker@@AEAA_NUD2DVector3@@M_N@Z.c)
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ */
+
 void __fastcall CInteractionTracker::SendPendingStateChangeCallbacks(CInteractionTracker *this, char a2)
 {
   __int64 v3; // r8

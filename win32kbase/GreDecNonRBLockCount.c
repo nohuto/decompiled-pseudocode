@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreDecNonRBLockCount @ 0x1C00B0E50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 GreDecNonRBLockCount()
 {
   __int64 result; // rax

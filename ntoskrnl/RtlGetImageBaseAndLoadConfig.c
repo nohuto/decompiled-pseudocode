@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlGetImageBaseAndLoadConfig @ 0x1405AF9E0
+ * Callers:
+ *     KiVerifyContextIpForUserCet @ 0x14056EA00 (KiVerifyContextIpForUserCet.c)
+ *     RtlVerifyUserUnwindTarget @ 0x1409BF8B0 (RtlVerifyUserUnwindTarget.c)
+ * Callees:
+ *     RtlpLookupUserFunctionTableInverted @ 0x14039DBC0 (RtlpLookupUserFunctionTableInverted.c)
+ *     MmGetImageInformation @ 0x14077582C (MmGetImageInformation.c)
+ *     LdrImageDirectoryEntryToLoadConfig @ 0x140784BDC (LdrImageDirectoryEntryToLoadConfig.c)
+ */
+
 __int64 __fastcall RtlGetImageBaseAndLoadConfig(unsigned __int64 a1, unsigned __int64 *a2, __int64 *a3)
 {
   __int64 Config; // rdi

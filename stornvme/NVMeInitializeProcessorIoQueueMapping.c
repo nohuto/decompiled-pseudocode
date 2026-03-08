@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeInitializeProcessorIoQueueMapping @ 0x1C000F870
+ * Callers:
+ *     NVMeHwAdapterControl @ 0x1C0003050 (NVMeHwAdapterControl.c)
+ * Callees:
+ *     ProcessorToDedicatedIoSqMapping @ 0x1C0010C00 (ProcessorToDedicatedIoSqMapping.c)
+ *     ProcessorToIoSqMappingBase @ 0x1C0010C84 (ProcessorToIoSqMappingBase.c)
+ */
+
 __int64 __fastcall NVMeInitializeProcessorIoQueueMapping(__int64 a1)
 {
   unsigned int i; // esi

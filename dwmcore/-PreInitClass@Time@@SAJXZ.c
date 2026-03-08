@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PreInitClass@Time@@SAJXZ @ 0x18002480C
+ * Callers:
+ *     ?Create@CExpressionManager@@SAJPEAPEAV1@@Z @ 0x180024894 (-Create@CExpressionManager@@SAJPEAPEAV1@@Z.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 Time::PreInitClass(void)
 {
   signed int v0; // ebx

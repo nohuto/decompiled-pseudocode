@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0EDIDCACHE@DxgMonitor@@QEAA@XZ @ 0x1C01FBDAC
+ * Callers:
+ *     ?InitializeGlobalCache@EDIDCACHE@DxgMonitor@@SAJXZ @ 0x1C01FBD64 (-InitializeGlobalCache@EDIDCACHE@DxgMonitor@@SAJXZ.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ?SetPhysicalDimensionOfInternalPanel@EDIDCACHE@DxgMonitor@@UEAAXJJE@Z @ 0x1C021A4A0 (-SetPhysicalDimensionOfInternalPanel@EDIDCACHE@DxgMonitor@@UEAAXJJE@Z.c)
+ */
+
 DxgMonitor::EDIDCACHE *__fastcall DxgMonitor::EDIDCACHE::EDIDCACHE(DxgMonitor::EDIDCACHE *this)
 {
   *(_QWORD *)this = &DxgMonitor::EDIDCACHE::`vftable';

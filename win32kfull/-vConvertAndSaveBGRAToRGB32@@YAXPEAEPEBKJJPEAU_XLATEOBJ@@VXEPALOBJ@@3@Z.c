@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vConvertAndSaveBGRAToRGB32@@YAXPEAEPEBKJJPEAU_XLATEOBJ@@VXEPALOBJ@@3@Z @ 0x1C02E69A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall vConvertAndSaveBGRAToRGB32(__int64 a1, __int64 a2, int a3, int a4)
 {
   unsigned int *v4; // r9

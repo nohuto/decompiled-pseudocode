@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserValidateHandleSecure @ 0x1C0127DA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtUserValidateHandleSecure(__int64 a1)
 {
   __int64 v2; // rcx

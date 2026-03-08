@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiAllocateEnclavePagesForMdl @ 0x140620C1C
+ * Callers:
+ *     MiFindPagesForMdl @ 0x1402B3FE8 (MiFindPagesForMdl.c)
+ * Callees:
+ *     MiSetPfnBlink @ 0x140289900 (MiSetPfnBlink.c)
+ *     MiAllocateEnclavePages @ 0x1406447E4 (MiAllocateEnclavePages.c)
+ */
+
 __int64 __fastcall MiAllocateEnclavePagesForMdl(__int64 a1, __int64 a2, char a3, __int64 a4, unsigned int a5)
 {
   unsigned int v6; // eax

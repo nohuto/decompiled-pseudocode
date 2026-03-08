@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopMcTryUnlockMdl @ 0x14055D00C
+ * Callers:
+ *     IoTryReleasePage @ 0x14055C684 (IoTryReleasePage.c)
+ *     IopMcDereferenceMdl @ 0x14055CB10 (IopMcDereferenceMdl.c)
+ *     IopMcWaitAndCleanupBufferEntry @ 0x14055D068 (IopMcWaitAndCleanupBufferEntry.c)
+ * Callees:
+ *     IopUnlockAndFreeMdl @ 0x1402F9CA8 (IopUnlockAndFreeMdl.c)
+ *     IopMcRemoveMdlPagesFromTable @ 0x14055CE20 (IopMcRemoveMdlPagesFromTable.c)
+ */
+
 char __fastcall IopMcTryUnlockMdl(__int64 a1, signed __int64 a2)
 {
   __int64 v3; // rax

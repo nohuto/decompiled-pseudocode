@@ -1,3 +1,19 @@
+/*
+ * XREFs of EtwpApplyPayloadFilterInternal @ 0x140602018
+ * Callers:
+ *     EtwpApplyEventIdPayloadFilter @ 0x140233900 (EtwpApplyEventIdPayloadFilter.c)
+ * Callees:
+ *     IoGetStackLimits @ 0x1403129C0 (IoGetStackLimits.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x1404210C0 (_alloca_probe.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     EtwpApplyPredicate @ 0x140602884 (EtwpApplyPredicate.c)
+ *     EtwpGetFieldValue @ 0x140602DF4 (EtwpGetFieldValue.c)
+ *     RtlLengthRequiredSid @ 0x140782B90 (RtlLengthRequiredSid.c)
+ *     ExSystemExceptionFilter @ 0x140861790 (ExSystemExceptionFilter.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall EtwpApplyPayloadFilterInternal(
         unsigned __int16 *a1,
         unsigned int a2,

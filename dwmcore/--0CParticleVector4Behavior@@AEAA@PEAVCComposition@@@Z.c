@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CParticleVector4Behavior@@AEAA@PEAVCComposition@@@Z @ 0x1801BDFD4
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     <none>
+ */
+
 CParticleVector4Behavior *__fastcall CParticleVector4Behavior::CParticleVector4Behavior(
         CParticleVector4Behavior *this,
         struct CComposition *a2)

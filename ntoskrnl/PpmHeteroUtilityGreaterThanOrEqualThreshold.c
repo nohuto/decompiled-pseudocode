@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmHeteroUtilityGreaterThanOrEqualThreshold @ 0x14059553C
+ * Callers:
+ *     PpmCheckComputeHeteroResponse @ 0x140593FE0 (PpmCheckComputeHeteroResponse.c)
+ *     PpmHeteroComputeUnparkCount @ 0x140594CD0 (PpmHeteroComputeUnparkCount.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PpmHeteroUtilityGreaterThanOrEqualThreshold(
         __int64 a1,
         __int64 a2,

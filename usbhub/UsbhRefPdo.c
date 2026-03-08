@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhRefPdo @ 0x1C00012A0
+ * Callers:
+ *     UsbhCompletePdoWakeIrps @ 0x1C0001010 (UsbhCompletePdoWakeIrps.c)
+ *     UsbhSshResumeDownstream @ 0x1C000E1B0 (UsbhSshResumeDownstream.c)
+ *     UsbhFdoSetPowerDx_Action @ 0x1C000EB10 (UsbhFdoSetPowerDx_Action.c)
+ *     UsbhFdoSetD0Cold @ 0x1C000FBD0 (UsbhFdoSetD0Cold.c)
+ *     UsbhBusResume_Action @ 0x1C0012650 (UsbhBusResume_Action.c)
+ *     Usbh_PCE_psPAUSED_Action @ 0x1C001C090 (Usbh_PCE_psPAUSED_Action.c)
+ *     UsbhSetPortData @ 0x1C0057810 (UsbhSetPortData.c)
+ * Callees:
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ */
+
 __int64 __fastcall UsbhRefPdo(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   _DWORD *v7; // rbx

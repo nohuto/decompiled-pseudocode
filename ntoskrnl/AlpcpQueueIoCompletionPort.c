@@ -1,3 +1,19 @@
+/*
+ * XREFs of AlpcpQueueIoCompletionPort @ 0x1402925F4
+ * Callers:
+ *     AlpcpAssociateIoCompletionPort @ 0x140689FD8 (AlpcpAssociateIoCompletionPort.c)
+ *     AlpcpSignalPortAndUnlock @ 0x1406F77CC (AlpcpSignalPortAndUnlock.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1407CBD90 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpAdjustCompletionListConcurrencyCount @ 0x1409765B4 (AlpcpAdjustCompletionListConcurrencyCount.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     AlpcpQueueIoCompletion @ 0x1402927FC (AlpcpQueueIoCompletion.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 signed __int32 __fastcall AlpcpQueueIoCompletionPort(_QWORD *a1, char a2, char a3, char a4, int a5)
 {
   __int64 v5; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpCleanupDiscardReplacePost @ 0x140A1CB60
+ * Callers:
+ *     CmpCleanupDiscardReplaceContext @ 0x1406B7DC0 (CmpCleanupDiscardReplaceContext.c)
+ * Callees:
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x1406B7100 (CmpDereferenceKeyControlBlockWithLock.c)
+ */
+
 _BOOL8 __fastcall CmpCleanupDiscardReplacePost(ULONG_PTR a1, __int64 a2, __int64 a3)
 {
   _QWORD *v3; // rdi

@@ -1,3 +1,25 @@
+/*
+ * XREFs of HUBDESC_ValidateConfigurationDescriptorSet @ 0x1C0038DB8
+ * Callers:
+ *     HUBHTX_ValidateAndCacheHubConfigDescriptor @ 0x1C0003694 (HUBHTX_ValidateAndCacheHubConfigDescriptor.c)
+ *     HUBPDO_ValidateConfigurationDescriptor @ 0x1C001676C (HUBPDO_ValidateConfigurationDescriptor.c)
+ *     HUBDTX_ValidateAndCacheConfigDescriptor @ 0x1C002B98C (HUBDTX_ValidateAndCacheConfigDescriptor.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     HUBDESC_InternalValidateCommonDescriptorHeader @ 0x1C0035BCC (HUBDESC_InternalValidateCommonDescriptorHeader.c)
+ *     HUBDESC_InternalValidateConfigDescriptor @ 0x1C0035E5C (HUBDESC_InternalValidateConfigDescriptor.c)
+ *     HUBDESC_InternalValidateLastInterface @ 0x1C0036338 (HUBDESC_InternalValidateLastInterface.c)
+ *     HUBDESC_InternalValidateEndpointDescriptor @ 0x1C0036484 (HUBDESC_InternalValidateEndpointDescriptor.c)
+ *     HUBDESC_InternalValidateSuperSpeedEndpointCompanionDescriptor @ 0x1C00375E4 (HUBDESC_InternalValidateSuperSpeedEndpointCompanionDescriptor.c)
+ *     HUBDESC_InternalValidateSuperSpeedPlusIsochEndpointCompanionDescriptor @ 0x1C003802C (HUBDESC_InternalValidateSuperSpeedPlusIsochEndpointCompanionDescriptor.c)
+ *     HUBDESC_InternalValidateInterfaceDescriptor @ 0x1C00383E0 (HUBDESC_InternalValidateInterfaceDescriptor.c)
+ *     HUBDESC_InternalValidateIADescriptor @ 0x1C0038974 (HUBDESC_InternalValidateIADescriptor.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 char __fastcall HUBDESC_ValidateConfigurationDescriptorSet(
         unsigned __int8 *a1,
         unsigned int a2,

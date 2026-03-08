@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsTopmostRealApp@@YAHPEAUtagWND@@@Z @ 0x1C02178E4
+ * Callers:
+ *     NtUserSelectPalette @ 0x1C00D0140 (NtUserSelectPalette.c)
+ *     _SelectPalette @ 0x1C0125A20 (_SelectPalette.c)
+ * Callees:
+ *     ?NextTopWindow@FindNextTopWindow@@YAPEAUtagWND@@PEBU2@0W4FindOption@1@@Z @ 0x1C00C8AFC (-NextTopWindow@FindNextTopWindow@@YAPEAUtagWND@@PEBU2@0W4FindOption@1@@Z.c)
+ */
+
 __int64 __fastcall IsTopmostRealApp(struct tagWND *a1)
 {
   unsigned int v1; // ebx

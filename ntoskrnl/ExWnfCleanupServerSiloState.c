@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExWnfCleanupServerSiloState @ 0x140A03430
+ * Callers:
+ *     PspDeleteServerSiloGlobals @ 0x1409A9EC0 (PspDeleteServerSiloGlobals.c)
+ * Callees:
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ExpWnfDeleteScopeInstances @ 0x140A047F8 (ExpWnfDeleteScopeInstances.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 int __fastcall ExWnfCleanupServerSiloState(PVOID *a1)
 {
   struct _KTHREAD *CurrentThread; // rax

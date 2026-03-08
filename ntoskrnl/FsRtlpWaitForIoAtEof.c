@@ -1,3 +1,19 @@
+/*
+ * XREFs of FsRtlpWaitForIoAtEof @ 0x140240CC0
+ * Callers:
+ *     FsRtlAcquireEofLock @ 0x140240AC0 (FsRtlAcquireEofLock.c)
+ *     FsRtlGetIoAtEof @ 0x1402CD7A0 (FsRtlGetIoAtEof.c)
+ * Callees:
+ *     KeQueryPriorityThread @ 0x140240EA0 (KeQueryPriorityThread.c)
+ *     FsRtlReleaseHeaderMutex @ 0x140240EF0 (FsRtlReleaseHeaderMutex.c)
+ *     FsRtlAcquireHeaderMutex @ 0x140240F70 (FsRtlAcquireHeaderMutex.c)
+ *     PsBoostThreadIoEx @ 0x1402634D0 (PsBoostThreadIoEx.c)
+ *     PsGetIoPriorityThread @ 0x1402832C0 (PsGetIoPriorityThread.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KeSetPriorityBoost @ 0x14035112C (KeSetPriorityBoost.c)
+ *     IoBoostThreadIoPriority @ 0x140356FD0 (IoBoostThreadIoPriority.c)
+ */
+
 char __fastcall FsRtlpWaitForIoAtEof(__int64 a1, __int64 a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // r15

@@ -1,3 +1,12 @@
+/*
+ * XREFs of SdbpGetCustomSdbFileName @ 0x140A4FEA8
+ * Callers:
+ *     SdbGetPathCustomSdb @ 0x140A4FA40 (SdbGetPathCustomSdb.c)
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslGuidToString @ 0x14084C0B4 (AslGuidToString.c)
+ */
+
 __int64 __fastcall SdbpGetCustomSdbFileName(wchar_t *a1, __int64 a2, unsigned int *a3)
 {
   signed int v4; // ebx

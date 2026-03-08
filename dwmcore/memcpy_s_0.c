@@ -1,3 +1,11 @@
+/*
+ * XREFs of memcpy_s_0 @ 0x1801FA368
+ * Callers:
+ *     ?GenerateIntermediateSurfaceBrush@CBrushDrawListGenerator@@QEAAJAEBUGenerateDrawListProperties@1@PEAPEAVCSurfaceDrawListBrush@@@Z @ 0x1801F9678 (-GenerateIntermediateSurfaceBrush@CBrushDrawListGenerator@@QEAAJAEBUGenerateDrawListProperties@1.c)
+ * Callees:
+ *     memcpy_0 @ 0x1801177E8 (memcpy_0.c)
+ */
+
 errno_t __cdecl memcpy_s_0(
         void *const Destination,
         const rsize_t DestinationSize,

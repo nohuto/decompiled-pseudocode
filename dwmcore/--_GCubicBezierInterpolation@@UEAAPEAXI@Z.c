@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??_GCubicBezierInterpolation@@UEAAPEAXI@Z @ 0x1800DF1F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801046B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ */
+
 CubicBezierInterpolation *__fastcall CubicBezierInterpolation::`scalar deleting destructor'(
         CubicBezierInterpolation *this,
         char a2)

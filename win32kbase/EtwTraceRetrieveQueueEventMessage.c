@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceRetrieveQueueEventMessage @ 0x1C00B14B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetCallbackCount@@YACXZ @ 0x1C00EDBA8 (-GetCallbackCount@@YACXZ.c)
+ *     McTemplateK0cppqp_EtwWriteTransfer @ 0x1C00EE320 (McTemplateK0cppqp_EtwWriteTransfer.c)
+ */
+
 void __fastcall EtwTraceRetrieveQueueEventMessage(__int64 a1)
 {
   char v1; // bp

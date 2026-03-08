@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiEngMarkBandingSurface @ 0x1C02CC9A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EngMarkBandingSurface @ 0x1C02911C0 (EngMarkBandingSurface.c)
+ */
+
 __int64 __fastcall NtGdiEngMarkBandingSurface(HSURF hsurf, __int64 a2)
 {
   __int64 v3; // rax

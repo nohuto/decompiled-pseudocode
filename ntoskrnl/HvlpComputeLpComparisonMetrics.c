@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvlpComputeLpComparisonMetrics @ 0x14053E614
+ * Callers:
+ *     HvlpSelectLpSet @ 0x14053F128 (HvlpSelectLpSet.c)
+ *     HvlpSelectVpSet @ 0x14053F57C (HvlpSelectVpSet.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HvlpComputeLpComparisonMetrics(unsigned int a1, __int64 a2, unsigned int a3)
 {
   __int64 v4; // r14

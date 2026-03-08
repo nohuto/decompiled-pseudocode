@@ -1,3 +1,12 @@
+/*
+ * XREFs of XilCoreCommonBuffer_AcquireBuffersWithSegmenter @ 0x1C000B5A4
+ * Callers:
+ *     XilCoreCommonBuffer_AcquireBuffers @ 0x1C000B490 (XilCoreCommonBuffer_AcquireBuffers.c)
+ * Callees:
+ *     XilCoreCommonBuffer_AcquireBufferWithSegmenter @ 0x1C000B6DC (XilCoreCommonBuffer_AcquireBufferWithSegmenter.c)
+ *     WPP_RECORDER_SF_qdd @ 0x1C001E4E0 (WPP_RECORDER_SF_qdd.c)
+ */
+
 __int64 __fastcall XilCoreCommonBuffer_AcquireBuffersWithSegmenter(
         __int64 a1,
         __int64 a2,

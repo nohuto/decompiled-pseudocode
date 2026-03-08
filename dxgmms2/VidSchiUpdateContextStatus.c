@@ -1,3 +1,28 @@
+/*
+ * XREFs of VidSchiUpdateContextStatus @ 0x1C0008230
+ * Callers:
+ *     VidSchiProcessDpcCompletedPacket @ 0x1C0004B90 (VidSchiProcessDpcCompletedPacket.c)
+ *     ?VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z @ 0x1C00055E0 (-VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z.c)
+ *     VidSchiScheduleCommandToRun @ 0x1C0006850 (VidSchiScheduleCommandToRun.c)
+ *     VidSchiSwitchContextWithCheck @ 0x1C0007A60 (VidSchiSwitchContextWithCheck.c)
+ *     VidSchiInsertCommandToSoftwareQueue @ 0x1C00088B0 (VidSchiInsertCommandToSoftwareQueue.c)
+ *     VidSchiSendToExecutionQueue @ 0x1C0008D50 (VidSchiSendToExecutionQueue.c)
+ *     VidSchSetNodePowerState @ 0x1C000BB50 (VidSchSetNodePowerState.c)
+ *     VidSchiSubmitMmIoFlipCommand @ 0x1C000EAF0 (VidSchiSubmitMmIoFlipCommand.c)
+ *     VidSchiProcessDpcSystemRequest @ 0x1C00100E4 (VidSchiProcessDpcSystemRequest.c)
+ *     VidSchiSubmitWaitCommand @ 0x1C00105F4 (VidSchiSubmitWaitCommand.c)
+ *     VidSchiCompleteRewindPacket @ 0x1C00107E8 (VidSchiCompleteRewindPacket.c)
+ *     VidSchiFinishMeasuringPreemptionTime @ 0x1C0010C38 (VidSchiFinishMeasuringPreemptionTime.c)
+ *     VidSchSuspendResumeDevice @ 0x1C0012E60 (VidSchSuspendResumeDevice.c)
+ *     VidSchiUnwaitContext @ 0x1C00136BC (VidSchiUnwaitContext.c)
+ *     ?VidschiUnselectContext@@YAXPEAU_VIDSCH_CONTEXT@@@Z @ 0x1C0016500 (-VidschiUnselectContext@@YAXPEAU_VIDSCH_CONTEXT@@@Z.c)
+ *     VidSchiReadCommandFromContextQueue @ 0x1C003B4EC (VidSchiReadCommandFromContextQueue.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C002EF9C (McTemplateK0pqq_EtwWriteTransfer.c)
+ *     McTemplateK0piixqq_EtwWriteTransfer @ 0x1C0037E04 (McTemplateK0piixqq_EtwWriteTransfer.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall VidSchiUpdateContextStatus(__int64 a1, __int64 a2, int a3)
 {

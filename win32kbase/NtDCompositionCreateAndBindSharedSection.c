@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtDCompositionCreateAndBindSharedSection @ 0x1C005C6F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CreateAndBindSharedSection@CApplicationChannel@DirectComposition@@QEAAJI_KPEAPEAX@Z @ 0x1C005C64C (-CreateAndBindSharedSection@CApplicationChannel@DirectComposition@@QEAAJI_KPEAPEAX@Z.c)
+ *     ?ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z @ 0x1C005F334 (-ReferenceHandleAndLock@CApplicationChannel@DirectComposition@@SAJIPEAPEAV12@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall NtDCompositionCreateAndBindSharedSection(unsigned int a1, int a2, __int64 a3, _QWORD *a4)
 {
   HANDLE v7; // rbx

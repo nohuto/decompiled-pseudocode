@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpHpLfhSubsegmentInitialize @ 0x14030B340
+ * Callers:
+ *     RtlpHpLfhSubsegmentCreate @ 0x14030AFE0 (RtlpHpLfhSubsegmentCreate.c)
+ * Callees:
+ *     RtlpHeapGenerateRandomValue64 @ 0x14030B578 (RtlpHeapGenerateRandomValue64.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall RtlpHpLfhSubsegmentInitialize(
         __int64 a1,
         unsigned int a2,

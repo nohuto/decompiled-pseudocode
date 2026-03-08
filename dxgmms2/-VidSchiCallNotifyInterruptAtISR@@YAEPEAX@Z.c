@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?VidSchiCallNotifyInterruptAtISR@@YAEPEAX@Z @ 0x1C0046CC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VidSchiLogInterrupt @ 0x1C000AEE0 (VidSchiLogInterrupt.c)
+ *     VidSchDdiNotifyInterruptWorker @ 0x1C000B040 (VidSchDdiNotifyInterruptWorker.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C001BE4A (McTemplateK0q_EtwWriteTransfer.c)
+ */
+
 unsigned __int8 __fastcall VidSchiCallNotifyInterruptAtISR(int **a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rcx

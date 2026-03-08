@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?InvokeCompanionCallback@FxPnpDeviceReleaseHardware@@MEAAJPEAVFxCompanionTarget@@@Z @ 0x1C0082040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_qid @ 0x1C00195EC (WPP_IFR_SF_qid.c)
+ */
+
 __int64 __fastcall FxPnpDeviceReleaseHardware::InvokeCompanionCallback(
         FxPnpDeviceReleaseHardware *this,
         FxCompanionTarget *CompanionTarget)

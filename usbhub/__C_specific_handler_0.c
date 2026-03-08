@@ -1,3 +1,11 @@
+/*
+ * XREFs of __C_specific_handler_0 @ 0x1C0022ACD
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // attributes: thunk
 EXCEPTION_DISPOSITION __cdecl _C_specific_handler_0(
         struct _EXCEPTION_RECORD *ExceptionRecord,

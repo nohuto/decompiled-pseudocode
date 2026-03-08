@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?xxxEnableWndSBArrows@@YAHPEAUtagWND@@II@Z @ 0x1C00D4D10
+ * Callers:
+ *     xxxSetScrollBar @ 0x1C00A60D8 (xxxSetScrollBar.c)
+ *     xxxEnableScrollBar @ 0x1C00D4CD0 (xxxEnableScrollBar.c)
+ * Callees:
+ *     xxxDrawScrollBar @ 0x1C0013C30 (xxxDrawScrollBar.c)
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ *     IsVisible @ 0x1C00A66A0 (IsVisible.c)
+ *     _InitPwSB @ 0x1C00DA0E8 (_InitPwSB.c)
+ */
+
 __int64 __fastcall xxxEnableWndSBArrows(struct tagWND *a1, int a2, int a3)
 {
   unsigned int *inited; // rbx

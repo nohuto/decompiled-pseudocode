@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBDSM_WaitingForD0EntryOnHwWake @ 0x1C00240A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_q @ 0x1C0015204 (WPP_RECORDER_SF_q.c)
+ *     HUBPDO_CompleteWaitWake @ 0x1C001C3F0 (HUBPDO_CompleteWaitWake.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBDSM_WaitingForD0EntryOnHwWake(__int64 a1)
 {
   __int64 v1; // rbx

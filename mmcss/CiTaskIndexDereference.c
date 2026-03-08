@@ -1,3 +1,18 @@
+/*
+ * XREFs of CiTaskIndexDereference @ 0x1C00021B0
+ * Callers:
+ *     CiDispatchCreateTaskIndexClient @ 0x1C000A240 (CiDispatchCreateTaskIndexClient.c)
+ *     CiDispatchClose @ 0x1C000A380 (CiDispatchClose.c)
+ *     CiThreadCleanup @ 0x1C000A4B0 (CiThreadCleanup.c)
+ *     CiThreadCreate @ 0x1C000AD80 (CiThreadCreate.c)
+ *     CiCreateTaskIndexClientFromThread @ 0x1C000B8B0 (CiCreateTaskIndexClientFromThread.c)
+ * Callees:
+ *     CiSchedulerRemoveTaskIndex @ 0x1C0002B60 (CiSchedulerRemoveTaskIndex.c)
+ *     CiTaskIndexRemove @ 0x1C000B5F0 (CiTaskIndexRemove.c)
+ *     CiReleaseTaskIndexListLock @ 0x1C000B630 (CiReleaseTaskIndexListLock.c)
+ *     CiAcquireTaskIndexListLock @ 0x1C000B660 (CiAcquireTaskIndexListLock.c)
+ */
+
 void __fastcall CiTaskIndexDereference(_QWORD *P)
 {
   signed __int64 v2; // rax

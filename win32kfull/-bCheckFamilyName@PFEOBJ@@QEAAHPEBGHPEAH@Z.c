@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bCheckFamilyName@PFEOBJ@@QEAAHPEBGHPEAH@Z @ 0x1C00E3648
+ * Callers:
+ *     vLinkEudcPFEsWorker @ 0x1C0114EE8 (vLinkEudcPFEsWorker.c)
+ *     ?bAddEntry@PFFMEMOBJ@@QEAAHKPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@1PEAU_UNIVERSAL_FONT_ID@@PEAU_EUDCLOAD@@@Z @ 0x1C01155D8 (-bAddEntry@PFFMEMOBJ@@QEAAHKPEAU_FD_GLYPHSET@@_KPEAU_IFIMETRICS@@1PEAU_UNIVERSAL_FONT_ID@@PEAU_E.c)
+ *     ?bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z @ 0x1C011B94C (-bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PFEOBJ::bCheckFamilyName(PFEOBJ *this, const unsigned __int16 *a2, int a3, unsigned int *a4)
 {
   const wchar_t *v8; // rbx

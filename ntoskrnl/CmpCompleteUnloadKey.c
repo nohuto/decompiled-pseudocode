@@ -1,3 +1,40 @@
+/*
+ * XREFs of CmpCompleteUnloadKey @ 0x14074A958
+ * Callers:
+ *     CmpPerformUnloadKey @ 0x14074A194 (CmpPerformUnloadKey.c)
+ *     CmpLateUnloadHiveWorker @ 0x14074A6B0 (CmpLateUnloadHiveWorker.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     CmpInitializeDelayDerefContext @ 0x140262F00 (CmpInitializeDelayDerefContext.c)
+ *     CmpDrainDelayDerefContext @ 0x140262F30 (CmpDrainDelayDerefContext.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     CmpRemoveHiveFromNamespace @ 0x1402BFC14 (CmpRemoveHiveFromNamespace.c)
+ *     CmpUnJoinClassOfTrust @ 0x1402BFCE8 (CmpUnJoinClassOfTrust.c)
+ *     CmpDecrementAppHiveUnloadCount @ 0x1402BFE38 (CmpDecrementAppHiveUnloadCount.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExfUnblockPushLock @ 0x14040CCE0 (ExfUnblockPushLock.c)
+ *     ZwDeleteValueKey @ 0x140413EB0 (ZwDeleteValueKey.c)
+ *     CmpRemoveLayerLinkForDiscardedKcb @ 0x14067D4A8 (CmpRemoveLayerLinkForDiscardedKcb.c)
+ *     CmpFlushHive @ 0x1406BEA70 (CmpFlushHive.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1406C0154 (UNLOCK_HIVE_LOAD.c)
+ *     CmpDoFileSetSizeEx @ 0x140731FA4 (CmpDoFileSetSizeEx.c)
+ *     CmpMarkKeyUnbacked @ 0x14074AD64 (CmpMarkKeyUnbacked.c)
+ *     CmpDestroySecurityCache @ 0x14074ADE4 (CmpDestroySecurityCache.c)
+ *     CmpVERemoveHiveFromSIDMappingTable @ 0x14074AE98 (CmpVERemoveHiveFromSIDMappingTable.c)
+ *     CmpFlushNotifiesOnKeyBodyList @ 0x14074AF50 (CmpFlushNotifiesOnKeyBodyList.c)
+ *     CmpDiscardKcb @ 0x14074B098 (CmpDiscardKcb.c)
+ *     CmpCmdHiveClose @ 0x14074B34C (CmpCmdHiveClose.c)
+ *     CmpVolumeContextDecrementRefCount @ 0x14074B4AC (CmpVolumeContextDecrementRefCount.c)
+ *     CmpCleanUpSubKeyInfo @ 0x1407A5570 (CmpCleanUpSubKeyInfo.c)
+ *     HvHiveCleanup @ 0x1407A56B8 (HvHiveCleanup.c)
+ *     HvMarkBaseBlockDirty @ 0x140871E3C (HvMarkBaseBlockDirty.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ */
+
 BOOLEAN __fastcall CmpCompleteUnloadKey(ULONG_PTR a1, __int64 a2, _DWORD *a3)
 {
   ULONG_PTR v3; // rdi

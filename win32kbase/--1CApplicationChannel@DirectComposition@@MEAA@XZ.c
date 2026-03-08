@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??1CApplicationChannel@DirectComposition@@MEAA@XZ @ 0x1C0098BC8
+ * Callers:
+ *     ??_ECSystemChannel@DirectComposition@@UEAAPEAXI@Z @ 0x1C0098700 (--_ECSystemChannel@DirectComposition@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?ProcessReturnedBatches@CApplicationChannel@DirectComposition@@IEAA_NXZ @ 0x1C00609AC (-ProcessReturnedBatches@CApplicationChannel@DirectComposition@@IEAA_NXZ.c)
+ *     ??_GCEvent@DirectComposition@@QEAAPEAXI@Z @ 0x1C0099740 (--_GCEvent@DirectComposition@@QEAAPEAXI@Z.c)
+ *     ?FreeAllPools@CBatchSharedMemoryPoolSet@DirectComposition@@QEAAXXZ @ 0x1C0099780 (-FreeAllPools@CBatchSharedMemoryPoolSet@DirectComposition@@QEAAXXZ.c)
+ *     ??1CChannel@DirectComposition@@MEAA@XZ @ 0x1C009986C (--1CChannel@DirectComposition@@MEAA@XZ.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 void __fastcall DirectComposition::CApplicationChannel::~CApplicationChannel(union _SLIST_HEADER *this)
 {
   bool v1; // zf

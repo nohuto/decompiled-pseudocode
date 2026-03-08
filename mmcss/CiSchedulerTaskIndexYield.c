@@ -1,3 +1,13 @@
+/*
+ * XREFs of CiSchedulerTaskIndexYield @ 0x1C0002300
+ * Callers:
+ *     CiDispatchFastIoDeviceControl @ 0x1C000A760 (CiDispatchFastIoDeviceControl.c)
+ * Callees:
+ *     CiSchedulerRefreshTaskIndexQosProperties @ 0x1C00030B0 (CiSchedulerRefreshTaskIndexQosProperties.c)
+ *     CiLogSchedulerEvent @ 0x1C0003EA0 (CiLogSchedulerEvent.c)
+ *     CiLogTaskIndexYield @ 0x1C0004254 (CiLogTaskIndexYield.c)
+ */
+
 void __fastcall CiSchedulerTaskIndexYield(__int64 a1, ULONG a2, ULONG a3)
 {
   ULONG ActiveThreadCount; // ebx

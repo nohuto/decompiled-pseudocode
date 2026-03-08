@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopLoadFileSystemDriver @ 0x140872E40
+ * Callers:
+ *     IopMountVolume @ 0x14072B180 (IopMountVolume.c)
+ * Callees:
+ *     IoBuildDeviceIoControlRequest @ 0x14024FE00 (IoBuildDeviceIoControlRequest.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IopDecrementDeviceObjectRef @ 0x14030F5C0 (IopDecrementDeviceObjectRef.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ */
+
 __int64 __fastcall IopLoadFileSystemDriver(struct _DEVICE_OBJECT *BugCheckParameter2)
 {
   struct _DEVICE_OBJECT *AttachedDevice; // rax

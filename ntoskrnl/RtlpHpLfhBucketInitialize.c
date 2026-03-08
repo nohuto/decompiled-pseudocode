@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpHpLfhBucketInitialize @ 0x1402F5EC0
+ * Callers:
+ *     RtlpHpLfhBucketActivate @ 0x1402F5F3C (RtlpHpLfhBucketActivate.c)
+ * Callees:
+ *     RtlpHpLfhOwnerInitialize @ 0x1402F6104 (RtlpHpLfhOwnerInitialize.c)
+ */
+
 int __fastcall RtlpHpLfhBucketInitialize(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rcx

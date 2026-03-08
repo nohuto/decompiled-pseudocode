@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiGenericCallDpcInitiatorDpc @ 0x1403C1750
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiInitiateGenericCallDpc @ 0x1402DC9E4 (KiInitiateGenericCallDpc.c)
+ *     KeSignalGate @ 0x1402F0524 (KeSignalGate.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall KiGenericCallDpcInitiatorDpc(__int64 a1, _QWORD *a2)
 {
   struct _KPRCB *CurrentPrcb; // rdi

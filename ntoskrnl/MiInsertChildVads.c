@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiInsertChildVads @ 0x140A4642C
+ * Callers:
+ *     MiAllocateChildVads @ 0x140A4571C (MiAllocateChildVads.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     MiInsertVad @ 0x1403312E0 (MiInsertVad.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiUpControlAreaRefs @ 0x140623ABC (MiUpControlAreaRefs.c)
+ *     MiCommitPageTableRangesForVad @ 0x1406413B4 (MiCommitPageTableRangesForVad.c)
+ *     MiInsertVadCharges @ 0x1407D6A70 (MiInsertVadCharges.c)
+ *     MiDeletePartialCloneVads @ 0x140A461CC (MiDeletePartialCloneVads.c)
+ */
+
 __int64 __fastcall MiInsertChildVads(_KPROCESS *a1, __int64 a2)
 {
   int inserted; // edi

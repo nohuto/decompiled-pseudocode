@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiFindSlabEntryForDemoteByPage @ 0x140654320
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiFindSlabEntryForDemoteByPage(__int64 a1, unsigned __int64 *a2, unsigned __int64 *a3)
 {
   unsigned __int64 v4; // rax

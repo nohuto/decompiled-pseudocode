@@ -1,3 +1,35 @@
+/*
+ * XREFs of BcdGetElementDataWithFlags @ 0x14082E398
+ * Callers:
+ *     BcdGetElementData @ 0x14082B504 (BcdGetElementData.c)
+ *     PopBcdEstablishResumeObject @ 0x14082B658 (PopBcdEstablishResumeObject.c)
+ *     PopBcdSetDefaultResumeObjectElements @ 0x14082BFD0 (PopBcdSetDefaultResumeObjectElements.c)
+ *     PopBcdReadElement @ 0x14082C610 (PopBcdReadElement.c)
+ *     BiUpdateBcdObject @ 0x14082DA80 (BiUpdateBcdObject.c)
+ *     BiBuildIdentifierList @ 0x14082DD44 (BiBuildIdentifierList.c)
+ *     PopAdaptiveGetSystemInitiatedRebootTargetBootEntry @ 0x1409987C0 (PopAdaptiveGetSystemInitiatedRebootTargetBootEntry.c)
+ *     SepSecureBootUpdateBcdDataForRule @ 0x1409CE004 (SepSecureBootUpdateBcdDataForRule.c)
+ *     BiGetDefaultBootEntryIdentifier @ 0x140A59AB0 (BiGetDefaultBootEntryIdentifier.c)
+ *     BiGetElement @ 0x140A59CEC (BiGetElement.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     BiIsOfflineHandle @ 0x1403903FC (BiIsOfflineHandle.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _ultow_s @ 0x1403D8C70 (_ultow_s.c)
+ *     RtlStringFromGUIDEx @ 0x140733E90 (RtlStringFromGUIDEx.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     BiOpenKey @ 0x14082E7AC (BiOpenKey.c)
+ *     BiCloseKey @ 0x14082E938 (BiCloseKey.c)
+ *     BiGetRegistryValue @ 0x14082EB20 (BiGetRegistryValue.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiAcquireBcdSyncMutant @ 0x14082ED10 (BiAcquireBcdSyncMutant.c)
+ *     BiReleaseBcdSyncMutant @ 0x14082EDB8 (BiReleaseBcdSyncMutant.c)
+ *     BiGetObjectIdentifier @ 0x14082EE3C (BiGetObjectIdentifier.c)
+ *     BiConvertElementFormatToValueType @ 0x14082EFD8 (BiConvertElementFormatToValueType.c)
+ *     BiConvertRegistryDataToElement @ 0x14082F010 (BiConvertRegistryDataToElement.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BcdGetElementDataWithFlags(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, _DWORD *a5)
 {
   __int64 v6; // rcx

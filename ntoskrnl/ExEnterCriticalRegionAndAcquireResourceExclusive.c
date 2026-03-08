@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExEnterCriticalRegionAndAcquireResourceExclusive @ 0x1402C9FA0
+ * Callers:
+ *     DifExEnterCriticalRegionAndAcquireResourceExclusiveWrapper @ 0x1405D6250 (DifExEnterCriticalRegionAndAcquireResourceExclusiveWrapper.c)
+ * Callees:
+ *     ExpAcquireResourceExclusiveLite @ 0x14025B1B0 (ExpAcquireResourceExclusiveLite.c)
+ *     ExpFastResourceLegacyAcquireExclusive @ 0x1403C4310 (ExpFastResourceLegacyAcquireExclusive.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 PVOID __stdcall ExEnterCriticalRegionAndAcquireResourceExclusive(PERESOURCE Resource)
 {
   struct _KTHREAD *CurrentThread; // rax

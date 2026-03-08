@@ -1,3 +1,13 @@
+/*
+ * XREFs of ClassLock @ 0x1C00128B8
+ * Callers:
+ *     ?xxxSetClassCursor@@YA_KPEAUtagWND@@PEAUtagCLS@@K_K@Z @ 0x1C0012624 (-xxxSetClassCursor@@YA_KPEAUtagWND@@PEAUtagCLS@@K_K@Z.c)
+ *     xxxSetClassData @ 0x1C00ED168 (xxxSetClassData.c)
+ *     xxxRecreateSmallIcons @ 0x1C0230A50 (xxxRecreateSmallIcons.c)
+ * Callees:
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ */
+
 __int64 __fastcall ClassLock(__int64 a1, __int64 a2)
 {
   int v2; // r8d

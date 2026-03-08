@@ -1,3 +1,15 @@
+/*
+ * XREFs of MicrosoftTelemetryAssertTriggeredNoArgs @ 0x180279264
+ * Callers:
+ *     ?StoreValueToCache@CExpression@@AEAAJIPEAVCExpressionValue@@@Z @ 0x1800BF3D0 (-StoreValueToCache@CExpression@@AEAAJIPEAVCExpressionValue@@@Z.c)
+ *     ?ReadValueFromCache@CExpression@@AEAAJIPEAVCExpressionValue@@PEA_N@Z @ 0x1800C0094 (-ReadValueFromCache@CExpression@@AEAAJIPEAVCExpressionValue@@PEA_N@Z.c)
+ *     ??1CInteraction@@MEAA@XZ @ 0x1800E4A54 (--1CInteraction@@MEAA@XZ.c)
+ *     ?NotifyMidManipulationUpdate@CVisual@@AEAAXW4MidManipulationUpdateType@@PEAV1@@Z @ 0x1800E7FD8 (-NotifyMidManipulationUpdate@CVisual@@AEAAXW4MidManipulationUpdateType@@PEAV1@@Z.c)
+ *     PubSebRegisterRpc @ 0x1800FCF58 (PubSebRegisterRpc.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 int MicrosoftTelemetryAssertTriggeredNoArgs()
 {
   FARPROC ProcAddress; // rax

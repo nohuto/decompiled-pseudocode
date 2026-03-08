@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBPSM30_CheckingIfLinkStateIsU0 @ 0x1C0012F10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBPSM30_CheckingIfLinkStateIsU0(__int64 a1)
 {
   __int64 v1; // rax

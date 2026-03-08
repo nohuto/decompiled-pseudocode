@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?KeepOrDeferBatches@CConnection@DirectComposition@@AEAAX_KPEAPEAVCBatch@2@@Z @ 0x1C0249998
+ * Callers:
+ *     ?GetReadyBatches@CConnection@DirectComposition@@QEAAJ_KPEAPEAVCBatch@2@@Z @ 0x1C02498F4 (-GetReadyBatches@CConnection@DirectComposition@@QEAAJ_KPEAPEAVCBatch@2@@Z.c)
+ * Callees:
+ *     McTemplateK0qpqxxq_EtwWriteTransfer @ 0x1C01663EC (McTemplateK0qpqxxq_EtwWriteTransfer.c)
+ *     ?ShouldDefer@CBatch@DirectComposition@@QEAA_N_J_NPEAVCEvent@2@PEAW4DeferReason@12@@Z @ 0x1C024BE60 (-ShouldDefer@CBatch@DirectComposition@@QEAA_N_J_NPEAVCEvent@2@PEAW4DeferReason@12@@Z.c)
+ */
+
 void __fastcall DirectComposition::CConnection::KeepOrDeferBatches(
         DirectComposition::CConnection *this,
         __int64 a2,

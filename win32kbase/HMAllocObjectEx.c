@@ -1,3 +1,27 @@
+/*
+ * XREFs of HMAllocObjectEx @ 0x1C00122BC
+ * Callers:
+ *     ?LoadKeyboardLayoutFile@@YAPEAUtagKBDFILE@@PEAXIIPEBGPEAGKK@Z @ 0x1C0011CCC (-LoadKeyboardLayoutFile@@YAPEAUtagKBDFILE@@PEAXIIPEBGPEAGKK@Z.c)
+ *     ?CreateMonitor@@YAPEAUtagMONITOR@@XZ @ 0x1C0012210 (-CreateMonitor@@YAPEAUtagMONITOR@@XZ.c)
+ *     HMAllocObject @ 0x1C00122A0 (HMAllocObject.c)
+ *     ?xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_INTERNAL@@PEBGII@Z @ 0x1C0085310 (-xxxLoadKeyboardLayoutEx@@YAPEAUHKL__@@PEAUtagWINDOWSTATION@@PEAXPEAU1@IIPEAUtagKBDTABLE_MULT_IN.c)
+ *     UserCreateBaseWindowHandle @ 0x1C017BF10 (UserCreateBaseWindowHandle.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     Win32AllocPoolWithQuotaZInit @ 0x1C0068600 (Win32AllocPoolWithQuotaZInit.c)
+ *     Win32FreePool @ 0x1C0070430 (Win32FreePool.c)
+ *     ?HMAllocateUserOrIsolatedType@@YAPEAX_KGE@Z @ 0x1C0077BD8 (-HMAllocateUserOrIsolatedType@@YAPEAX_KGE@Z.c)
+ *     Win32AllocPoolZInit @ 0x1C0077C80 (Win32AllocPoolZInit.c)
+ *     ?GetEtwUserHandleType@@YA?AW4EtwUserHandleType@@E@Z @ 0x1C00785AC (-GetEtwUserHandleType@@YA-AW4EtwUserHandleType@@E@Z.c)
+ *     ?LockRefactorStagingAssertOwned@@YAXAEBUtagDomLock@@@Z @ 0x1C0086944 (-LockRefactorStagingAssertOwned@@YAXAEBUtagDomLock@@@Z.c)
+ *     EtwTraceUserCreateHandle @ 0x1C0088F2C (EtwTraceUserCreateHandle.c)
+ *     LockObjectAssignment @ 0x1C00A7CA0 (LockObjectAssignment.c)
+ *     ?HMGrowHandleTable@@YAHXZ @ 0x1C00ADCB4 (-HMGrowHandleTable@@YAHXZ.c)
+ *     SharedAlloc @ 0x1C00CA5F0 (SharedAlloc.c)
+ *     ?HMFreeUserOrIsolatedType@@YAXGEPEAX@Z @ 0x1C00D3268 (-HMFreeUserOrIsolatedType@@YAXGEPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HMAllocObjectEx(__int64 a1, __int64 a2, unsigned __int8 a3, unsigned int a4, int a5)
 {
   unsigned __int64 v5; // rbx

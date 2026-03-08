@@ -1,3 +1,13 @@
+/*
+ * XREFs of VrpStripTrailingCharacters @ 0x1406C30B0
+ * Callers:
+ *     VrpTranslatePath @ 0x1406C1EF8 (VrpTranslatePath.c)
+ *     VrpPreLoadKey @ 0x140735EB4 (VrpPreLoadKey.c)
+ *     VrpCreateNamespaceNode @ 0x140737348 (VrpCreateNamespaceNode.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VrpStripTrailingCharacters(unsigned __int16 *a1)
 {
   unsigned __int16 v1; // dx

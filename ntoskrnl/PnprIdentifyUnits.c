@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnprIdentifyUnits @ 0x1409630EC
+ * Callers:
+ *     PnpReplacePartitionUnit @ 0x140961B80 (PnpReplacePartitionUnit.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PnpQueryInterface @ 0x1407F8C60 (PnpQueryInterface.c)
+ */
+
 __int64 __fastcall PnprIdentifyUnits(_QWORD *Object, _QWORD *a2, _QWORD *a3, __int64 a4)
 {
   int Interface; // ebx

@@ -1,3 +1,26 @@
+/*
+ * XREFs of MiReservePageFileSpaceForPage @ 0x14032ECD0
+ * Callers:
+ *     MiOutSwapWorkingSetPte @ 0x1402CC600 (MiOutSwapWorkingSetPte.c)
+ *     MiReservePageFileSpace @ 0x14032E800 (MiReservePageFileSpace.c)
+ * Callees:
+ *     MiReleasePageFileInfo @ 0x14020B300 (MiReleasePageFileInfo.c)
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiInvalidPteConforms @ 0x140287530 (MiInvalidPteConforms.c)
+ *     MiIncreaseUsedPtesCount @ 0x14029F850 (MiIncreaseUsedPtesCount.c)
+ *     MiPageStandbyLookasideStatus @ 0x1402C7560 (MiPageStandbyLookasideStatus.c)
+ *     MiLockTransitionLeafPageEx @ 0x1402DD4C8 (MiLockTransitionLeafPageEx.c)
+ *     MiCapturePageFileInfoInline @ 0x1402DE2D4 (MiCapturePageFileInfoInline.c)
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_IS_RESET_PTE @ 0x14032F190 (MI_IS_RESET_PTE.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiGetUsedPtesHandle @ 0x140346CA0 (MiGetUsedPtesHandle.c)
+ *     MiLockLeafPage @ 0x14034AF20 (MiLockLeafPage.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiDiscardTransitionPteEx @ 0x14064E040 (MiDiscardTransitionPteEx.c)
+ */
+
 __int64 __fastcall MiReservePageFileSpaceForPage(__int64 a1, unsigned __int64 *a2, char a3, unsigned __int64 *a4)
 {
   unsigned int v4; // r15d

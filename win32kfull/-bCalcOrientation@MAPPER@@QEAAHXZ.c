@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bCalcOrientation@MAPPER@@QEAAHXZ @ 0x1C011CFEC
+ * Callers:
+ *     ?bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z @ 0x1C011B94C (-bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z.c)
+ *     ?bGetFaceName@MAPPER@@AEAAHXZ @ 0x1C011CD5C (-bGetFaceName@MAPPER@@AEAAHXZ.c)
+ * Callees:
+ *     ?vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z @ 0x1C00CFF10 (-vQuickInit@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@K@Z.c)
+ */
+
 __int64 __fastcall MAPPER::bCalcOrientation(__int64 **this)
 {
   int v1; // r8d

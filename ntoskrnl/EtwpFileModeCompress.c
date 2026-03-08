@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpFileModeCompress @ 0x1403A127C
+ * Callers:
+ *     EtwpFlushBuffer @ 0x140692C18 (EtwpFlushBuffer.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlCompressBuffer @ 0x1402F8450 (RtlCompressBuffer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwpPrepareHeader @ 0x140692D04 (EtwpPrepareHeader.c)
+ */
+
 __int64 __fastcall EtwpFileModeCompress(__int64 a1, __int64 a2)
 {
   unsigned int v4; // edi

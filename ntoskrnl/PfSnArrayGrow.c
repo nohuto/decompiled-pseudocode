@@ -1,3 +1,13 @@
+/*
+ * XREFs of PfSnArrayGrow @ 0x14076C494
+ * Callers:
+ *     PfSnVolumeKeyQuery @ 0x14076C3D0 (PfSnVolumeKeyQuery.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfSnArrayGrow(unsigned int a1, __int64 a2, __int64 a3, unsigned int *a4, const void **a5)
 {
   unsigned int v6; // edi

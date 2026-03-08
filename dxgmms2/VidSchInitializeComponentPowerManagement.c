@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchInitializeComponentPowerManagement @ 0x1C00C32E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VidSchiDriverNodeEngineToSchedulerNode @ 0x1C001471C (VidSchiDriverNodeEngineToSchedulerNode.c)
+ */
+
 __int64 __fastcall VidSchInitializeComponentPowerManagement(
         __int64 a1,
         int a2,

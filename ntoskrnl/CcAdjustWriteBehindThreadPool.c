@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcAdjustWriteBehindThreadPool @ 0x1405337B8
+ * Callers:
+ *     CcAdjustWriteBehindThreadPoolIfNeeded @ 0x140533834 (CcAdjustWriteBehindThreadPoolIfNeeded.c)
+ * Callees:
+ *     CcGetCurrentNumaNode @ 0x14020D750 (CcGetCurrentNumaNode.c)
+ *     CcReEngageWorkerThreads @ 0x1403CEBD0 (CcReEngageWorkerThreads.c)
+ */
+
 void __fastcall CcAdjustWriteBehindThreadPool(__int64 a1)
 {
   __int64 CurrentNumaNode; // rax

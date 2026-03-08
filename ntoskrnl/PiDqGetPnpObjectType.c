@@ -1,3 +1,15 @@
+/*
+ * XREFs of PiDqGetPnpObjectType @ 0x1406CCB4C
+ * Callers:
+ *     PiDqPropertyCallback @ 0x1406CC9A0 (PiDqPropertyCallback.c)
+ *     PiDqActionDataCreate @ 0x140746614 (PiDqActionDataCreate.c)
+ *     PiDqQueryValidateQueryData @ 0x140746B18 (PiDqQueryValidateQueryData.c)
+ *     PiDqQueryAppendActionEntry @ 0x140747108 (PiDqQueryAppendActionEntry.c)
+ *     PiDqIrpPropertySet @ 0x1407FB7F4 (PiDqIrpPropertySet.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PiDqGetPnpObjectType(int a1)
 {
   unsigned int v1; // edx

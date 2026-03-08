@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPepDeviceWaitWake @ 0x1402B8FC8
+ * Callers:
+ *     PopRequestPowerIrp @ 0x1402BA570 (PopRequestPowerIrp.c)
+ *     PopRequestCompletion @ 0x1402BB410 (PopRequestCompletion.c)
+ * Callees:
+ *     PopPepUpdateConstraints @ 0x1402B9328 (PopPepUpdateConstraints.c)
+ */
+
 __int64 __fastcall PopPepDeviceWaitWake(__int64 a1, char a2, __int64 a3)
 {
   __int64 result; // rax

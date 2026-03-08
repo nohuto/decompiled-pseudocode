@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiSetAddressPolicy @ 0x14030E890
+ * Callers:
+ *     KiSynchronizeAddressPolicyTarget @ 0x1402F56B0 (KiSynchronizeAddressPolicyTarget.c)
+ *     KiAttachProcess @ 0x14030E080 (KiAttachProcess.c)
+ *     KiDetachProcess @ 0x14030E460 (KiDetachProcess.c)
+ *     KiSwapDirectoryTableBaseTarget @ 0x1403D1750 (KiSwapDirectoryTableBaseTarget.c)
+ *     KiEnableKvaShadowing @ 0x140A864CC (KiEnableKvaShadowing.c)
+ * Callees:
+ *     KxSetAddressPolicy @ 0x140417720 (KxSetAddressPolicy.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 KiSetAddressPolicy()
 {
   volatile signed __int32 *SchedulerAssist; // rdx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpInitCallbacks @ 0x140813390
+ * Callers:
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ * Callees:
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ */
+
 union _SLIST_HEADER *CmpInitCallbacks()
 {
   union _SLIST_HEADER *result; // rax

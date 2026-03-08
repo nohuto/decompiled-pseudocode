@@ -1,3 +1,13 @@
+/*
+ * XREFs of CleanupPowerRequestList @ 0x1C00B39B0
+ * Callers:
+ *     CleanupResources @ 0x1C00B38E0 (CleanupResources.c)
+ * Callees:
+ *     ?CleanupPowerWatchdog@@YAXPEAPEAX@Z @ 0x1C00B3A74 (-CleanupPowerWatchdog@@YAXPEAPEAX@Z.c)
+ *     ?UnqueuePowerRequest@@YAPEAUtagPOWERREQUEST@@XZ @ 0x1C00B3D50 (-UnqueuePowerRequest@@YAPEAUtagPOWERREQUEST@@XZ.c)
+ *     ?CancelPowerRequest@@YAXPEAUtagPOWERREQUEST@@@Z @ 0x1C0159CA0 (-CancelPowerRequest@@YAXPEAUtagPOWERREQUEST@@@Z.c)
+ */
+
 void __fastcall CleanupPowerRequestList(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdx

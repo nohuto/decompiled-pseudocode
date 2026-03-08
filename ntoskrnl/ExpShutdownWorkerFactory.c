@@ -1,3 +1,19 @@
+/*
+ * XREFs of ExpShutdownWorkerFactory @ 0x1402037D0
+ * Callers:
+ *     NtShutdownWorkerFactory @ 0x1402FC0D0 (NtShutdownWorkerFactory.c)
+ *     ExpCloseWorkerFactory @ 0x140688D70 (ExpCloseWorkerFactory.c)
+ * Callees:
+ *     KeCancelTimer2 @ 0x140204390 (KeCancelTimer2.c)
+ *     IoSetIoCompletionEx3 @ 0x1402928A0 (IoSetIoCompletionEx3.c)
+ *     KiDeregisterObjectWaitBlock @ 0x1402D33F0 (KiDeregisterObjectWaitBlock.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExpLeaveWorkerFactoryAwayMode @ 0x140367ED0 (ExpLeaveWorkerFactoryAwayMode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExpShutdownWorkerFactory(_QWORD *Object)
 {
   KSPIN_LOCK *v2; // rcx

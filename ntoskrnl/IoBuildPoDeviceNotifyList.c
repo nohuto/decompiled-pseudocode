@@ -1,3 +1,23 @@
+/*
+ * XREFs of IoBuildPoDeviceNotifyList @ 0x140A9B078
+ * Callers:
+ *     PopBuildDeviceNotifyList @ 0x140AA3FCC (PopBuildDeviceNotifyList.c)
+ * Callees:
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     IoGetLowerDeviceObjectWithTag @ 0x1402FAAFC (IoGetLowerDeviceObjectWithTag.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     IoGetAttachedDeviceReference @ 0x140337BB0 (IoGetAttachedDeviceReference.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     PnpLockDeviceActionQueue @ 0x1403BDF7C (PnpLockDeviceActionQueue.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PnpPowerStateTransitionWatchdogPopRecord @ 0x140954B24 (PnpPowerStateTransitionWatchdogPopRecord.c)
+ *     PnpPowerStateTransitionWatchdogPushRecord @ 0x140954B3C (PnpPowerStateTransitionWatchdogPushRecord.c)
+ *     IopCaptureObjectName @ 0x140A9B740 (IopCaptureObjectName.c)
+ *     IopCheckDeviceFlags @ 0x140A9B7F0 (IopCheckDeviceFlags.c)
+ *     IopFreePoDeviceNotifyListHead @ 0x140A9B874 (IopFreePoDeviceNotifyListHead.c)
+ *     IopIsNotifyInBroadcast @ 0x140A9B8F4 (IopIsNotifyInBroadcast.c)
+ */
+
 __int64 *__fastcall IoBuildPoDeviceNotifyList(char *a1, int a2)
 {
   int v4; // ebx

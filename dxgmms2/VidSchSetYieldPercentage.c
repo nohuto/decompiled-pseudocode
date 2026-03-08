@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchSetYieldPercentage @ 0x1C0040900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VidSchSetYieldPercentage(__int64 a1, char a2, int a3)
 {
   int v6; // edx

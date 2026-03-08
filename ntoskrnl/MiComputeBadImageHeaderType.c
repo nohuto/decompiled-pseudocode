@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiComputeBadImageHeaderType @ 0x140A2C608
+ * Callers:
+ *     MiVerifyImageHeader @ 0x1407F2374 (MiVerifyImageHeader.c)
+ * Callees:
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     MiCheckDosCalls @ 0x140A2C554 (MiCheckDosCalls.c)
+ */
+
 __int64 __fastcall MiComputeBadImageHeaderType(__int64 a1, __int64 a2, unsigned __int64 a3)
 {
   char v6; // al

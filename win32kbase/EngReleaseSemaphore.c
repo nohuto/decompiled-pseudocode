@@ -1,3 +1,11 @@
+/*
+ * XREFs of EngReleaseSemaphore @ 0x1C00AC080
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0pz_EtwWriteTransfer @ 0x1C0198A10 (McTemplateK0pz_EtwWriteTransfer.c)
+ */
+
 void __stdcall EngReleaseSemaphore(HSEMAPHORE hsem)
 {
   int v2; // ecx

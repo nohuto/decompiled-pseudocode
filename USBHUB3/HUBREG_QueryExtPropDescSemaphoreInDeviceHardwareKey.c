@@ -1,13 +1,22 @@
+/*
+ * XREFs of HUBREG_QueryExtPropDescSemaphoreInDeviceHardwareKey @ 0x1C0085F58
+ * Callers:
+ *     HUBDSM_CheckingIfMSOSExtendedPropertyDescriptorShouldBeQueried @ 0x1C0024850 (HUBDSM_CheckingIfMSOSExtendedPropertyDescriptorShouldBeQueried.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBREG_QueryExtPropDescSemaphoreInDeviceHardwareKey(__int64 a1)
 {
   __int64 v2; // rax
   __int64 result; // rax
-  int v4; // edx
-  int v5; // r9d
+  unsigned __int16 v4; // r9
+  int v5; // eax
   int v6; // eax
-  int v7; // edx
-  int v8; // eax
-  int v9; // edx
+  __int64 v7; // [rsp+28h] [rbp-18h]
+  __int64 v8; // [rsp+28h] [rbp-18h]
+  __int64 v9; // [rsp+28h] [rbp-18h]
   int v10; // [rsp+70h] [rbp+30h] BYREF
   int v11; // [rsp+78h] [rbp+38h] BYREF
   int v12; // [rsp+80h] [rbp+40h] BYREF
@@ -31,10 +40,10 @@ __int64 __fastcall HUBREG_QueryExtPropDescSemaphoreInDeviceHardwareKey(__int64 a
   {
     if ( WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       goto LABEL_23;
-    v5 = 81;
+    v4 = 81;
     goto LABEL_22;
   }
-  v6 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *, __int64, int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
+  v5 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *, __int64, int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
          WdfDriverGlobals,
          v13,
          &g_RevisionId,
@@ -42,20 +51,20 @@ __int64 __fastcall HUBREG_QueryExtPropDescSemaphoreInDeviceHardwareKey(__int64 a
          &v10,
          0LL,
          0LL);
-  if ( (int)(v6 + 0x80000000) >= 0
-    && v6 != -1073741772
+  if ( (int)(v5 + 0x80000000) >= 0
+    && v5 != -1073741772
     && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v7) = 2;
+    LODWORD(v8) = v5;
     WPP_RECORDER_SF_d(
       *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
-      v7,
-      5,
-      82,
+      2u,
+      5u,
+      0x52u,
       (__int64)&WPP_7a0afab5c79d3741c23ff4ee70090e0b_Traceguids,
-      v6);
+      v8);
   }
-  v8 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *, __int64, int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
+  v6 = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, void *, __int64, int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
          WdfDriverGlobals,
          v13,
          &g_VendorRevision,
@@ -63,26 +72,24 @@ __int64 __fastcall HUBREG_QueryExtPropDescSemaphoreInDeviceHardwareKey(__int64 a
          &v11,
          0LL,
          0LL);
-  if ( ((v8 + 0x80000000) & 0x80000000) == 0
-    && v8 != -1073741772
+  if ( ((v6 + 0x80000000) & 0x80000000) == 0
+    && v6 != -1073741772
     && WPP_RECORDER_INITIALIZED != (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
   {
-    LOBYTE(v9) = 2;
+    LODWORD(v9) = v6;
     WPP_RECORDER_SF_d(
       *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
-      v9,
-      5,
-      83,
+      2u,
+      5u,
+      0x53u,
       (__int64)&WPP_7a0afab5c79d3741c23ff4ee70090e0b_Traceguids,
-      v8);
+      v9);
   }
   _InterlockedAnd((volatile signed __int32 *)(a1 + 1632), 0xFFFFFDFF);
   result = (*(__int64 (__fastcall **)(PWDF_DRIVER_GLOBALS, __int64, const wchar_t *, __int64, int *, _QWORD, _QWORD))(WdfFunctions_01015 + 1880))(
              WdfDriverGlobals,
              v13,
-             L"(*",                             // .rdata:00000001C005E620                 text "UTF-16LE", '(*',0
-                                                // .rdata:00000001C005E626                 align 8
-                                                // .rdata:00000001C005E628                 dq offset aExtpropdescsem ; "ExtPropDescSemaphore"
+             L"(*",
              4LL,
              &v12,
              0LL,
@@ -91,16 +98,16 @@ __int64 __fastcall HUBREG_QueryExtPropDescSemaphoreInDeviceHardwareKey(__int64 a
   {
     if ( (_DWORD)result == -1073741772 || WPP_RECORDER_INITIALIZED == (_UNKNOWN *)&WPP_RECORDER_INITIALIZED )
       goto LABEL_23;
-    v5 = 84;
+    v4 = 84;
 LABEL_22:
-    LOBYTE(v4) = 2;
+    LODWORD(v7) = result;
     result = WPP_RECORDER_SF_d(
                *(_QWORD *)(*(_QWORD *)(a1 + 8) + 1432LL),
+               2u,
+               5u,
                v4,
-               5,
-               v5,
                (__int64)&WPP_7a0afab5c79d3741c23ff4ee70090e0b_Traceguids,
-               result);
+               v7);
     goto LABEL_23;
   }
   result = *(unsigned __int16 *)(a1 + 2000);

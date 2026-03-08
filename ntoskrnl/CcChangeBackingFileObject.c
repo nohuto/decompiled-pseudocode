@@ -1,3 +1,19 @@
+/*
+ * XREFs of CcChangeBackingFileObject @ 0x140532D48
+ * Callers:
+ *     FsRtlChangeBackingFileObject @ 0x1403D0BE0 (FsRtlChangeBackingFileObject.c)
+ * Callees:
+ *     ObFastReplaceObject @ 0x140217FC8 (ObFastReplaceObject.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140283390 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall CcChangeBackingFileObject(_QWORD *a1, _QWORD *a2)
 {
   unsigned int v4; // edi

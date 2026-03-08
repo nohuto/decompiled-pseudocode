@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBDSM_SettingExitLatencyAdjustmentOnNoPingResponseError @ 0x1C0020350
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBDSM_SettingExitLatencyAdjustmentOnNoPingResponseError(__int64 a1)
 {
   __int64 v1; // rax

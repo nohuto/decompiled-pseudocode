@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiPfIssueCoalescedSupport @ 0x14062F98C
+ * Callers:
+ *     MiPfIssueCoalesceCandidates @ 0x14062F8D4 (MiPfIssueCoalesceCandidates.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     IoPageReadEx @ 0x14027F4F0 (IoPageReadEx.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiInitializeInPageSupport @ 0x14028A110 (MiInitializeInPageSupport.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 char *__fastcall MiPfIssueCoalescedSupport(signed __int16 **a1, unsigned int a2)
 {
   __int64 v2; // rbx

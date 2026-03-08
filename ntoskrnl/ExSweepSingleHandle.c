@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExSweepSingleHandle @ 0x14035218C
+ * Callers:
+ *     ExDestroyHandle @ 0x1407D76E4 (ExDestroyHandle.c)
+ *     ObCloseHandleTableEntry @ 0x1407D8274 (ObCloseHandleTableEntry.c)
+ * Callees:
+ *     ExpUnblockPushLock @ 0x1402BFD34 (ExpUnblockPushLock.c)
+ */
+
 __int64 __fastcall ExSweepSingleHandle(__int64 a1, _QWORD *a2)
 {
   unsigned int v2; // ebx

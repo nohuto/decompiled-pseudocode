@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CreateUsermodeParameters@TrueTypeFreeGlyphsetRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C0308E90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C011EA58 (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
+ */
+
 __int64 __fastcall TrueTypeFreeGlyphsetRequest::CreateUsermodeParameters(
         TrueTypeFreeGlyphsetRequest *this,
         UmfdUMBuffer **a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpMuiRegValidateConfigNode @ 0x140677BB8
+ * Callers:
+ *     RtlpPopulateLanguageConfigList @ 0x14084413C (RtlpPopulateLanguageConfigList.c)
+ * Callees:
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x140A719B4 (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegGetInstalledLanguageIndex @ 0x140A71DC4 (RtlpMuiRegGetInstalledLanguageIndex.c)
+ */
+
 __int64 __fastcall RtlpMuiRegValidateConfigNode(__int64 a1, unsigned __int16 *a2)
 {
   unsigned int v3; // edx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserInteractiveControlQueryUsage @ 0x1C01D6AC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C007A05C (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     ?GetReportExtendedUsage@InteractiveControlManager@@QEAAJKKGGGPEAJ@Z @ 0x1C0243814 (-GetReportExtendedUsage@InteractiveControlManager@@QEAAJKKGGGPEAJ@Z.c)
+ */
+
 __int64 __fastcall NtUserInteractiveControlQueryUsage(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 a4, int *a5)
 {
   unsigned __int16 v6; // r15

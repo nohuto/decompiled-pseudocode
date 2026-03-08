@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpHpLfhBucketSubsegmentStatsUpdate @ 0x14030B28C
+ * Callers:
+ *     RtlpHpLfhSubsegmentCreate @ 0x14030AFE0 (RtlpHpLfhSubsegmentCreate.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 _BOOL8 __fastcall RtlpHpLfhBucketSubsegmentStatsUpdate(volatile signed __int64 *a1, int a2)
 {
   signed __int64 v2; // rax

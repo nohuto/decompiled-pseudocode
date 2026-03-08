@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlIsNameInUnUpcasedExpression @ 0x140365CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     RtlpUpcaseUnicodeStringPrivate @ 0x140365BA0 (RtlpUpcaseUnicodeStringPrivate.c)
+ *     RtlpIsNameInExpressionPrivate @ 0x140365D60 (RtlpIsNameInExpressionPrivate.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ */
+
 __int64 __fastcall RtlIsNameInUnUpcasedExpression(
         UNICODE_STRING *a1,
         UNICODE_STRING *p_UnicodeString,

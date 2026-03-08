@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CreateDesktopNotificationEvent@@YAJPEAX@Z @ 0x1C00C18D0
+ * Callers:
+ *     xxxCreateWindowStation @ 0x1C00BE56C (xxxCreateWindowStation.c)
+ * Callees:
+ *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00C1278 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall CreateDesktopNotificationEvent(void *a1)
 {
   unsigned int *v2; // rax

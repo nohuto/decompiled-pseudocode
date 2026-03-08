@@ -1,3 +1,19 @@
+/*
+ * XREFs of _RegRtlCreateKeyTransacted @ 0x14068804C
+ * Callers:
+ *     _RegRtlCreateTreeTransacted @ 0x140687B40 (_RegRtlCreateTreeTransacted.c)
+ *     _PnpCtxRegCreateKey @ 0x140687FD0 (_PnpCtxRegCreateKey.c)
+ *     _SysCtxOpenControlSet @ 0x140852308 (_SysCtxOpenControlSet.c)
+ *     _RegRtlCopyTreeInternal @ 0x140A67A08 (_RegRtlCopyTreeInternal.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     _RegRtlIsPredefinedKey @ 0x1406D44BC (_RegRtlIsPredefinedKey.c)
+ *     _RegRtlOpenPredefinedKey @ 0x140858A9C (_RegRtlOpenPredefinedKey.c)
+ *     NtCreateKeyTransacted_Stub @ 0x140A680DC (NtCreateKeyTransacted_Stub.c)
+ */
+
 __int64 __fastcall RegRtlCreateKeyTransacted(
         void *a1,
         const WCHAR *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of _lambda_4ad224167d91228276911ab76f1e9490_::operator() @ 0x1C02FA1AC
+ * Callers:
+ *     DxgkGetDisplayModeList @ 0x1C01A95D0 (DxgkGetDisplayModeList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall lambda_4ad224167d91228276911ab76f1e9490_::operator()(
         __int64 a1,
         unsigned __int64 a2,

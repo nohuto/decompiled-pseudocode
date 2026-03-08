@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CleanupFreedTLCInfo@@YAXXZ @ 0x1C00D6558
+ * Callers:
+ *     _RegisterRawInputDevices @ 0x1C00D5AC8 (_RegisterRawInputDevices.c)
+ * Callees:
+ *     FreeHidTLCInfo @ 0x1C00D54F4 (FreeHidTLCInfo.c)
+ *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C00D6340 (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
+ *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C00D63F0 (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
+ */
+
 void __fastcall CleanupFreedTLCInfo(__int64 a1)
 {
   __int64 v1; // rax

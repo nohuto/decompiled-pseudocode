@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiFdoDispatchCreate @ 0x1C01D0BA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiFdoDispatchCreate(__int64 a1, IRP *a2)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // rbp

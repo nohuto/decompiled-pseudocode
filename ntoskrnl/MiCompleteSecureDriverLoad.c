@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiCompleteSecureDriverLoad @ 0x140880F78
+ * Callers:
+ *     MiFinalizeDriverCfgState @ 0x140794094 (MiFinalizeDriverCfgState.c)
+ *     MiMarkKernelImageCfgBits @ 0x1407F72E0 (MiMarkKernelImageCfgBits.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiGetSessionVm @ 0x14036C17C (MiGetSessionVm.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiLockDriverPageRange @ 0x1406179F0 (MiLockDriverPageRange.c)
+ *     MiUnlockDriverPages @ 0x14087313C (MiUnlockDriverPages.c)
+ *     VslCompleteSecureDriverLoad @ 0x140881024 (VslCompleteSecureDriverLoad.c)
+ *     MiPrepareDriverPatchState @ 0x140A28934 (MiPrepareDriverPatchState.c)
+ */
+
 __int64 __fastcall MiCompleteSecureDriverLoad(__int64 a1)
 {
   unsigned int v2; // edx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of _DxgDbgTakeSnapshot_::_2_::_AUTO::__AUTO @ 0x1C035BB74
+ * Callers:
+ *     ?DxgDbgTakeSnapshot@@YAJPEAXKPEAK@Z @ 0x1C035BBB8 (-DxgDbgTakeSnapshot@@YAJPEAXKPEAK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DxgDbgTakeSnapshot_::_2_::_AUTO::__AUTO(__int64 a1)
 {
   void *v2; // rcx

@@ -1,3 +1,22 @@
+/*
+ * XREFs of StopFade @ 0x1C01BDEF0
+ * Callers:
+ *     xxxSwitchDesktop @ 0x1C00205D4 (xxxSwitchDesktop.c)
+ *     xxxDwmStopRedirection @ 0x1C007B850 (xxxDwmStopRedirection.c)
+ *     zzzDwmStartRedirection @ 0x1C007CEC8 (zzzDwmStartRedirection.c)
+ *     EditionHandleSonarKeyEvent @ 0x1C00E8310 (EditionHandleSonarKeyEvent.c)
+ *     xxxTooltipWndProc @ 0x1C00FA000 (xxxTooltipWndProc.c)
+ *     EditionStopSonar @ 0x1C0145650 (EditionStopSonar.c)
+ *     zzzAnimateFade @ 0x1C01BE518 (zzzAnimateFade.c)
+ *     zzzStartSonar @ 0x1C01BE79C (zzzStartSonar.c)
+ *     MNAnimate @ 0x1C0237090 (MNAnimate.c)
+ * Callees:
+ *     NtGdiBitBltInternal @ 0x1C005E110 (NtGdiBitBltInternal.c)
+ *     FindTimer @ 0x1C00DEEDC (FindTimer.c)
+ *     GreGetLayout @ 0x1C0111738 (GreGetLayout.c)
+ *     DeleteFadeSprite @ 0x1C01BDE40 (DeleteFadeSprite.c)
+ */
+
 __int64 StopFade()
 {
   __int64 v0; // rax

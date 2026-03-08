@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhParseConfigurationDescriptorEx @ 0x1C0031F38
+ * Callers:
+ *     UsbhConfigureUsbHub @ 0x1C0029DB0 (UsbhConfigureUsbHub.c)
+ *     UsbhGetDeviceInformation @ 0x1C00382CC (UsbhGetDeviceInformation.c)
+ * Callees:
+ *     UsbhParseDescriptors @ 0x1C0032074 (UsbhParseDescriptors.c)
+ */
+
 unsigned __int64 __fastcall UsbhParseConfigurationDescriptorEx(
         int a1,
         __int64 a2,

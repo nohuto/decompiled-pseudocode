@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwpGetCurrentSiloMaxLoggers @ 0x1403AEC3C
+ * Callers:
+ *     EtwpGetPmcSessions @ 0x1405F9D94 (EtwpGetPmcSessions.c)
+ *     EtwInitializeSiloState @ 0x1409DF038 (EtwInitializeSiloState.c)
+ *     EtwpInitialize @ 0x140B3CA40 (EtwpInitialize.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlQueryRegistryValuesEx @ 0x14069DF10 (RtlQueryRegistryValuesEx.c)
+ */
+
 __int64 EtwpGetCurrentSiloMaxLoggers()
 {
   UNICODE_STRING DestinationString; // [rsp+30h] [rbp-79h] BYREF

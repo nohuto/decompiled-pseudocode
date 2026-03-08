@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FillConstantBuffer@CProjectedShadowApproxBlurEffect@@UEBAXIIPEAX@Z @ 0x1802B6650
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CProjectedShadowApproxBlurEffect::FillConstantBuffer(
         CProjectedShadowApproxBlurEffect *this,
         __int64 a2,

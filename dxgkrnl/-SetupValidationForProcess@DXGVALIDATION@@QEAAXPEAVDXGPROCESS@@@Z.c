@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetupValidationForProcess@DXGVALIDATION@@QEAAXPEAVDXGPROCESS@@@Z @ 0x1C0008D30
+ * Callers:
+ *     ?Initialize@DXGPROCESS@@QEAAJPEAX@Z @ 0x1C01A7D50 (-Initialize@DXGPROCESS@@QEAAJPEAX@Z.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ */
+
 void __fastcall DXGVALIDATION::SetupValidationForProcess(DXGVALIDATION *this, struct DXGPROCESS *a2)
 {
   struct _UNICODE_STRING *v3; // rax

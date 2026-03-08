@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopIsNotifyForDirectedPowerTransition @ 0x14058E354
+ * Callers:
+ *     PopSleepDeviceList @ 0x14058E578 (PopSleepDeviceList.c)
+ *     PopWakeDeviceList @ 0x14058E81C (PopWakeDeviceList.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall PopIsNotifyForDirectedPowerTransition(__int64 a1)
 {
   char v1; // dl

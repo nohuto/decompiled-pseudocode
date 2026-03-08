@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBDTX_CancelControlTransfer @ 0x1C002A930
+ * Callers:
+ *     HUBDSM_CancellingControlTransferOnHubStopInRemainingDescriptors @ 0x1C00210A0 (HUBDSM_CancellingControlTransferOnHubStopInRemainingDescriptors.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 _UNKNOWN **__fastcall HUBDTX_CancelControlTransfer(__int64 a1)
 {
   _UNKNOWN **result; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?CreateDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAJAEBUDispatcherCreation@2@@Z @ 0x1C0032254
+ * Callers:
+ *     ?CreateHandles@CRIMBase@@IEAAJQEBW4DispatcherHandleName@1@_KP6AXPEAURIMDevChangeStruct@@@ZPEAX@Z @ 0x1C00320D4 (-CreateHandles@CRIMBase@@IEAAJQEBW4DispatcherHandleName@1@_KP6AXPEAURIMDevChangeStruct@@@ZPEAX@Z.c)
+ * Callees:
+ *     ?CloseDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAXXZ @ 0x1C003168C (-CloseDispatcherHandles@SensorDispatcherObject@CRIMBase@@QEAAXXZ.c)
+ *     CreateKernelEventObject @ 0x1C0032430 (CreateKernelEventObject.c)
+ *     ProtectHandle @ 0x1C00945DC (ProtectHandle.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall CRIMBase::SensorDispatcherObject::CreateDispatcherHandles(
         CRIMBase::SensorDispatcherObject *this,
         const struct CRIMBase::DispatcherCreation *a2)

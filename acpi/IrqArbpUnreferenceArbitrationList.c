@@ -1,3 +1,19 @@
+/*
+ * XREFs of IrqArbpUnreferenceArbitrationList @ 0x1C009E890
+ * Callers:
+ *     IrqArbpPrepareForTestOrConflict @ 0x1C009E4D0 (IrqArbpPrepareForTestOrConflict.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_i @ 0x1C002293C (WPP_RECORDER_SF_i.c)
+ *     ProcessorDeleteDeviceIdtAssignment @ 0x1C005DFF0 (ProcessorDeleteDeviceIdtAssignment.c)
+ *     WPP_RECORDER_SF_DDq @ 0x1C005E960 (WPP_RECORDER_SF_DDq.c)
+ *     LinkNodeGetPossibleGsiv @ 0x1C0099494 (LinkNodeGetPossibleGsiv.c)
+ *     ProcessorGetDeviceIdtAssignment @ 0x1C009ABF4 (ProcessorGetDeviceIdtAssignment.c)
+ *     IrqArbGsivFromIrq @ 0x1C009D69C (IrqArbGsivFromIrq.c)
+ *     IcGetPossibleInput @ 0x1C009F314 (IcGetPossibleInput.c)
+ *     IcRemovePossibleReference @ 0x1C009F660 (IcRemovePossibleReference.c)
+ */
+
 __int64 __fastcall IrqArbpUnreferenceArbitrationList(__int64 a1, _QWORD **a2)
 {
   struct _RTL_RANGE_LIST *v2; // rcx

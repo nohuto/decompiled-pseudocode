@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NlsHelpOrEndProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C021C2A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?NlsTestKeyStateToggle@@YAHE@Z @ 0x1C021C97C (-NlsTestKeyStateToggle@@YAHE@Z.c)
+ */
+
 __int64 __fastcall NlsHelpOrEndProc(struct tagKE *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int16 v4; // ax

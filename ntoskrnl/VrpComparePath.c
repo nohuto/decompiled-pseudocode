@@ -1,3 +1,12 @@
+/*
+ * XREFs of VrpComparePath @ 0x1406C2400
+ * Callers:
+ *     VrpFindNamespaceNode @ 0x1406C231C (VrpFindNamespaceNode.c)
+ * Callees:
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ *     VrpGetNextToken @ 0x1406C24E8 (VrpGetNextToken.c)
+ */
+
 __int64 __fastcall VrpComparePath(__int64 a1, __int64 a2, _QWORD *a3)
 {
   __int64 v3; // rbx

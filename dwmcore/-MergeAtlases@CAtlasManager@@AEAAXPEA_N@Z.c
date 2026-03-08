@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?MergeAtlases@CAtlasManager@@AEAAXPEA_N@Z @ 0x180018348
+ * Callers:
+ *     ?CompactAtlases@CAtlasManager@@QEAAXXZ @ 0x180077C44 (-CompactAtlases@CAtlasManager@@QEAAXXZ.c)
+ * Callees:
+ *     ?erase@?$vector@V?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@V?$allocator@V?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@@2@@std@@QEAA?AV?$_Vector_iterator@V?$_Vector_val@U?$_Simple_types@V?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@@std@@@std@@@2@V?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@V?$unique_ptr@VCAtlasTexture@@U?$default_delete@VCAtlasTexture@@@std@@@std@@@std@@@std@@@2@@Z @ 0x180018428 (-erase@-$vector@V-$unique_ptr@VCAtlasTexture@@U-$default_delete@VCAtlasTexture@@@std@@@std@@V-$a.c)
+ *     ??1CAtlasTexture@@QEAA@XZ @ 0x1800184C8 (--1CAtlasTexture@@QEAA@XZ.c)
+ *     ?PurgeAndNotify@CAtlasTexture@@QEAAXXZ @ 0x180018504 (-PurgeAndNotify@CAtlasTexture@@QEAAXXZ.c)
+ *     ?CopyFrom@CAtlasTexture@@QEAAXPEBV1@PEAI@Z @ 0x1800185F4 (-CopyFrom@CAtlasTexture@@QEAAXPEBV1@PEAI@Z.c)
+ */
+
 void __fastcall CAtlasManager::MergeAtlases(CAtlasManager *this, bool *a2)
 {
   __int64 v2; // r8

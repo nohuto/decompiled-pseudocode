@@ -1,3 +1,14 @@
+/*
+ * XREFs of TlgRegisterAggregateProviderEx @ 0x1C0210A1C
+ * Callers:
+ *     ?DxgkInitializeTelemetry@@YAXXZ @ 0x1C0021DF4 (-DxgkInitializeTelemetry@@YAXXZ.c)
+ * Callees:
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C0210B58 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     CreateTlgAggregateSession @ 0x1C0210C04 (CreateTlgAggregateSession.c)
+ *     ComputeFlushPeriod @ 0x1C0210D54 (ComputeFlushPeriod.c)
+ *     DestroyAggregateSession @ 0x1C03D3654 (DestroyAggregateSession.c)
+ */
+
 __int64 __fastcall TlgRegisterAggregateProviderEx(_QWORD *CallbackContext, __int64 a2, __int64 a3, __int16 a4)
 {
   unsigned int v4; // ebp

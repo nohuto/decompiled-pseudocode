@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ReleaseRenderingDoneEvent@BLTENTRY@@QEAAXXZ @ 0x1C03CEE84
+ * Callers:
+ *     ?ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z @ 0x1C01CB6F0 (-ProcessBltQueue@BLTQUEUE@@AEAAJW4_QUEUEEVENT@1@PEAU__BLTWAITINFO@1@@Z.c)
+ *     ?Cleanup@BLTENTRY@@QEAAXE@Z @ 0x1C03CC3E4 (-Cleanup@BLTENTRY@@QEAAXE@Z.c)
+ *     ?DiscardPendingPresent@BLTQUEUE@@AEAAXXZ @ 0x1C03CD0F0 (-DiscardPendingPresent@BLTQUEUE@@AEAAXXZ.c)
+ * Callees:
+ *     McTemplateK0pqq_EtwWriteTransfer @ 0x1C003FFEC (McTemplateK0pqq_EtwWriteTransfer.c)
+ */
+
 void __fastcall BLTENTRY::ReleaseRenderingDoneEvent(BLTENTRY *this, __int64 a2, __int64 a3)
 {
   __int64 v3; // r9

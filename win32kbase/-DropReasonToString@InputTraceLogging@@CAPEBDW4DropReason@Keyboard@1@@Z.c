@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DropReasonToString@InputTraceLogging@@CAPEBDW4DropReason@Keyboard@1@@Z @ 0x1C01E3E10
+ * Callers:
+ *     ?DropInput@Keyboard@InputTraceLogging@@SAXW4DropReason@12@@Z @ 0x1C01E3DAC (-DropInput@Keyboard@InputTraceLogging@@SAXW4DropReason@12@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 const char *__fastcall InputTraceLogging::DropReasonToString(int a1)
 {
   int v1; // ecx

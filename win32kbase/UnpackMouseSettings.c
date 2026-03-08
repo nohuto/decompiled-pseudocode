@@ -1,3 +1,17 @@
+/*
+ * XREFs of UnpackMouseSettings @ 0x1C02194BC
+ * Callers:
+ *     ?ivOnNonInputPacketReceived@@YA_NPEBXKKPEAX1@Z @ 0x1C0220200 (-ivOnNonInputPacketReceived@@YA_NPEBXKKPEAX1@Z.c)
+ * Callees:
+ *     ResetAccelerationCurves @ 0x1C00143D0 (ResetAccelerationCurves.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     UpdateMouseSensitivity @ 0x1C009D040 (UpdateMouseSensitivity.c)
+ *     ?GetMouseSensitivity@MOUSE_SENSITIVITY_INFO@CMouseAcceleration@@QEBAIXZ @ 0x1C00BDFCC (-GetMouseSensitivity@MOUSE_SENSITIVITY_INFO@CMouseAcceleration@@QEBAIXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_AND_TRACE_SF_s @ 0x1C00EF582 (WPP_RECORDER_AND_TRACE_SF_s.c)
+ *     SetSwapMouseButton @ 0x1C0167F80 (SetSwapMouseButton.c)
+ */
+
 void *__fastcall UnpackMouseSettings(int *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // ebx

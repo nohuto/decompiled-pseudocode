@@ -1,3 +1,13 @@
+/*
+ * XREFs of TlgRegisterAggregateProviderEx @ 0x1C039C844
+ * Callers:
+ *     EnableUserkTraceLogging @ 0x1C00EC650 (EnableUserkTraceLogging.c)
+ * Callees:
+ *     DestroyAggregateSession @ 0x1C039C5B4 (DestroyAggregateSession.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C039C928 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     CreateTlgAggregateSession @ 0x1C039C9D4 (CreateTlgAggregateSession.c)
+ */
+
 __int64 __fastcall TlgRegisterAggregateProviderEx(__int64 a1)
 {
   __int64 TlgAggregateSession; // rax

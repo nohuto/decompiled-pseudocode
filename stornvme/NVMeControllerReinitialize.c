@@ -1,3 +1,14 @@
+/*
+ * XREFs of NVMeControllerReinitialize @ 0x1C001C9A0
+ * Callers:
+ *     NVMeControllerPanicResetActionWorkItem @ 0x1C001C690 (NVMeControllerPanicResetActionWorkItem.c)
+ * Callees:
+ *     NVMeControllerInitPart1 @ 0x1C000D7A8 (NVMeControllerInitPart1.c)
+ *     NVMeControllerInitPart2 @ 0x1C000D9F0 (NVMeControllerInitPart2.c)
+ *     NVMeControllerInitPart3 @ 0x1C000DCDC (NVMeControllerInitPart3.c)
+ *     NVMeQueuesReInit @ 0x1C0010588 (NVMeQueuesReInit.c)
+ */
+
 char __fastcall NVMeControllerReinitialize(__int64 a1)
 {
   char v2; // bl

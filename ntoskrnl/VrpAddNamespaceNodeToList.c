@@ -1,3 +1,17 @@
+/*
+ * XREFs of VrpAddNamespaceNodeToList @ 0x140737050
+ * Callers:
+ *     VrpPreLoadKey @ 0x140735EB4 (VrpPreLoadKey.c)
+ *     VrpHandleIoctlCreateNamespaceNode @ 0x140736B44 (VrpHandleIoctlCreateNamespaceNode.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x140A6F45C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     VrpFindExactNamespaceNode @ 0x140737324 (VrpFindExactNamespaceNode.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall VrpAddNamespaceNodeToList(unsigned __int64 *a1, __int64 a2)
 {
   __int64 v2; // rbp

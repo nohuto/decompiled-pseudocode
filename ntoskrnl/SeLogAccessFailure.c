@@ -1,3 +1,22 @@
+/*
+ * XREFs of SeLogAccessFailure @ 0x1402EE66C
+ * Callers:
+ *     SepCommonAccessCheckEx @ 0x140206FC0 (SepCommonAccessCheckEx.c)
+ *     SeAccessCheckWithHint @ 0x1402653A0 (SeAccessCheckWithHint.c)
+ *     SeAccessCheckByType @ 0x14033BB40 (SeAccessCheckByType.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1406973E0 (SepAccessCheckAndAuditAlarm.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SepFlattenAcl @ 0x1405B61F4 (SepFlattenAcl.c)
+ *     SepGetLearningModeObjectInformation @ 0x1405B6378 (SepGetLearningModeObjectInformation.c)
+ *     PsReferenceEffectiveToken @ 0x1406D657C (PsReferenceEffectiveToken.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall SeLogAccessFailure(char *Object, __int64 a2, __int64 a3, ULONGLONG a4, __int64 a5, char a6, char a7)
 {
   char v7; // bl

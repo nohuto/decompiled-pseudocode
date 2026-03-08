@@ -1,3 +1,13 @@
+/*
+ * XREFs of GetPointerDeviceKey @ 0x1C01AB10C
+ * Callers:
+ *     RetrieveCalibrationData @ 0x1C01A69D0 (RetrieveCalibrationData.c)
+ *     _SetCalibrationData @ 0x1C01AB99C (_SetCalibrationData.c)
+ * Callees:
+ *     GetDeviceObjectPointer @ 0x1C01AAFD4 (GetDeviceObjectPointer.c)
+ *     GetPointerDevicePDO @ 0x1C01C4268 (GetPointerDevicePDO.c)
+ */
+
 _BOOL8 __fastcall GetPointerDeviceKey(struct _UNICODE_STRING *a1, void **a2, __int64 a3)
 {
   int DeviceObjectPointer; // ebx

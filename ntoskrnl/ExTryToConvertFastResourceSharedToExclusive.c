@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExTryToConvertFastResourceSharedToExclusive @ 0x140607EA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     ExTryToConvertFastResourceSharedToExclusive2 @ 0x14040F0B8 (ExTryToConvertFastResourceSharedToExclusive2.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpTryUpgradeResource @ 0x14060DC3C (ExpTryUpgradeResource.c)
+ */
+
 char __fastcall ExTryToConvertFastResourceSharedToExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR a2)
 {
   unsigned __int8 CurrentIrql; // al

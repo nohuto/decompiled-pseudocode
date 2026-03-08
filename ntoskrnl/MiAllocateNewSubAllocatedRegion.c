@@ -1,3 +1,27 @@
+/*
+ * XREFs of MiAllocateNewSubAllocatedRegion @ 0x140756084
+ * Callers:
+ *     MiAllocateFromSubAllocatedRegion @ 0x1406A3620 (MiAllocateFromSubAllocatedRegion.c)
+ * Callees:
+ *     MiLocateVadEvent @ 0x14020DC50 (MiLocateVadEvent.c)
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiInsertVad @ 0x1403312E0 (MiInsertVad.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x14034CCF4 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14034CD5C (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiUpdateVadStartVpn @ 0x14034CF40 (MiUpdateVadStartVpn.c)
+ *     MiLockVad @ 0x14034CF60 (MiLockVad.c)
+ *     MiUnlockVad @ 0x14034D51C (MiUnlockVad.c)
+ *     MiCreateVadEventBitmap @ 0x140756324 (MiCreateVadEventBitmap.c)
+ *     MiAddSecureEntry @ 0x1407D3424 (MiAddSecureEntry.c)
+ *     MiGetUserReservationHighestAddress @ 0x1407D51A4 (MiGetUserReservationHighestAddress.c)
+ *     MiInsertVadCharges @ 0x1407D6A70 (MiInsertVadCharges.c)
+ *     MiSelectUserAddress @ 0x1407D6D30 (MiSelectUserAddress.c)
+ *     MiAdvanceVadHint @ 0x1407D72F0 (MiAdvanceVadHint.c)
+ *     MiFreeVadEventBitmap @ 0x140A2F248 (MiFreeVadEventBitmap.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiAllocateNewSubAllocatedRegion(int a1, unsigned __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // r14

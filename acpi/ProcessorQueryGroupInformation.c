@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProcessorQueryGroupInformation @ 0x1C009AF48
+ * Callers:
+ *     IrqPolicyUpdatePolicy @ 0x1C00AC5CC (IrqPolicyUpdatePolicy.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ProcessorQueryGroupInformation(__int64 a1, _DWORD *a2, char *a3)
 {
   USHORT MaximumGroupCount; // ax

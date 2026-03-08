@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifPsSetCreateProcessNotifyRoutineWrapper @ 0x1405E8490
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     PsSetCreateProcessNotifyRoutine @ 0x1408194B0 (PsSetCreateProcessNotifyRoutine.c)
+ */
+
 NTSTATUS __fastcall DifPsSetCreateProcessNotifyRoutineWrapper(PCREATE_PROCESS_NOTIFY_ROUTINE NotifyRoutine, BOOLEAN a2)
 {
   __int64 *APIThunkContextById; // rax

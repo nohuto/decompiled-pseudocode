@@ -1,3 +1,12 @@
+/*
+ * XREFs of xxxClientCallDevCallbackSimple @ 0x1C0214078
+ * Callers:
+ *     EditionInputExtensibilityCallout @ 0x1C01C6930 (EditionInputExtensibilityCallout.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall xxxClientCallDevCallbackSimple(__int64 a1, __int128 *a2)
 {
   __int64 *v4; // rcx

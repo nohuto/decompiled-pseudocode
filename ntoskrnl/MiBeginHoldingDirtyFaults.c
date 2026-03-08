@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiBeginHoldingDirtyFaults @ 0x14063F804
+ * Callers:
+ *     MiPrepareToHotPatchVad @ 0x140A3827C (MiPrepareToHotPatchVad.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiMoveDirtyBitsToPfns @ 0x14032F870 (MiMoveDirtyBitsToPfns.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ */
+
 __int64 __fastcall MiBeginHoldingDirtyFaults(__int64 a1, _QWORD *a2)
 {
   struct _KTHREAD *CurrentThread; // rax

@@ -1,3 +1,18 @@
+/*
+ * XREFs of VfAvlDeleteAllTreeNodes @ 0x140AD9230
+ * Callers:
+ *     VfDeleteLookasideTree @ 0x140ADF214 (VfDeleteLookasideTree.c)
+ *     VfDeleteResourceTree @ 0x140AE15B8 (VfDeleteResourceTree.c)
+ * Callees:
+ *     RtlDeleteElementGenericTableAvl @ 0x140244F40 (RtlDeleteElementGenericTableAvl.c)
+ *     RtlEnumerateGenericTableAvl @ 0x1402EF150 (RtlEnumerateGenericTableAvl.c)
+ *     VfAvlCleanupLockContext @ 0x1403039F0 (VfAvlCleanupLockContext.c)
+ *     ViAvlReleaseTableLockFromDpcLevel @ 0x140303B00 (ViAvlReleaseTableLockFromDpcLevel.c)
+ *     ViAvlRaiseIrqlSafe @ 0x140303B34 (ViAvlRaiseIrqlSafe.c)
+ *     ViAvlAcquireTableLockAtDpcLevelSafe @ 0x140303B6C (ViAvlAcquireTableLockAtDpcLevelSafe.c)
+ *     VfAvlInitializeLockContext @ 0x14045DE58 (VfAvlInitializeLockContext.c)
+ */
+
 void __fastcall VfAvlDeleteAllTreeNodes(PRTL_AVL_TABLE Table)
 {
   PVOID v2; // rax

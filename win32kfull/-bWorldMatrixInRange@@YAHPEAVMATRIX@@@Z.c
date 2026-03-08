@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bWorldMatrixInRange@@YAHPEAVMATRIX@@@Z @ 0x1C0002E84
+ * Callers:
+ *     NtGdiModifyWorldTransform @ 0x1C0002990 (NtGdiModifyWorldTransform.c)
+ * Callees:
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0016964 (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ */
+
 __int64 __fastcall bWorldMatrixInRange(struct MATRIX *a1)
 {
   unsigned int v1; // r9d

@@ -1,3 +1,22 @@
+/*
+ * XREFs of RIMIDECreatePseudoHIDDevice @ 0x1C01C2E38
+ * Callers:
+ *     RIMIDE_CreateGenericHidDevice @ 0x1C01C6AB0 (RIMIDE_CreateGenericHidDevice.c)
+ *     RIMIDE_InitializeDeviceInjection @ 0x1C01C6BE0 (RIMIDE_InitializeDeviceInjection.c)
+ *     RIMIDE_InitializePointerDeviceInjection @ 0x1C01C6D10 (RIMIDE_InitializePointerDeviceInjection.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_qd @ 0x1C000431C (WPP_RECORDER_AND_TRACE_SF_qd.c)
+ *     rimInputTypeFromDeviceTypeAndUsages @ 0x1C0004A44 (rimInputTypeFromDeviceTypeAndUsages.c)
+ *     RIMIDECreateDeviceInstancePath @ 0x1C0004A6C (RIMIDECreateDeviceInstancePath.c)
+ *     rimFindReferencedRimObj @ 0x1C0004BC0 (rimFindReferencedRimObj.c)
+ *     RIMAddInjectionDeviceOfType @ 0x1C0004D20 (RIMAddInjectionDeviceOfType.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     RawInputManagerObjectCreateKernelHandle @ 0x1C00B6080 (RawInputManagerObjectCreateKernelHandle.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C00EDED8 (McTemplateK0_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall RIMIDECreatePseudoHIDDevice(
         __int16 a1,
         __int16 a2,

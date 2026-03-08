@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViCopyDeviceDescription @ 0x140AC57A0
+ * Callers:
+ *     ViHookDmaAdapter @ 0x140AC6520 (ViHookDmaAdapter.c)
+ * Callees:
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140AC62F4 (ViHalPreprocessOptions.c)
+ */
+
 __int64 __fastcall ViCopyDeviceDescription(__int64 a1, unsigned int *a2)
 {
   __int64 result; // rax

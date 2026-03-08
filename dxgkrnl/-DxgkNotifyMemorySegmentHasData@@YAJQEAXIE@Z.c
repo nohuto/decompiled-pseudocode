@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DxgkNotifyMemorySegmentHasData@@YAJQEAXIE@Z @ 0x1C0041A80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiGetDxgAdapter @ 0x1C000E550 (DpiGetDxgAdapter.c)
+ *     ?DdiSetPowerComponentFState@DXGADAPTER@@QEAAJKK@Z @ 0x1C0043F28 (-DdiSetPowerComponentFState@DXGADAPTER@@QEAAJKK@Z.c)
+ */
+
 __int64 __fastcall DxgkNotifyMemorySegmentHasData(__int64 a1, unsigned int a2, char a3)
 {
   __int64 v4; // rdi

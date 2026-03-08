@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlQueryActiveProcessors @ 0x14053DC00
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HvlQueryActiveProcessors(unsigned int *a1, int *a2)
 {
   __int64 result; // rax

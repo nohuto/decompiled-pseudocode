@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetHeatMapForCurrentNode@CDrawingContext@@AEAAXXZ @ 0x1801D3B90
+ * Callers:
+ *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180067850 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?SetHeatMapProperties@CVisual@@QEAAXUHeatMapProperty@1@@Z @ 0x1801D3CB4 (-SetHeatMapProperties@CVisual@@QEAAXUHeatMapProperty@1@@Z.c)
+ */
+
 void __fastcall CDrawingContext::SetHeatMapForCurrentNode(CDrawingContext *this)
 {
   __int64 v1; // rax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiMakeProtoTransition @ 0x1402C59B0
+ * Callers:
+ *     MiDeletePteList @ 0x140276AC0 (MiDeletePteList.c)
+ *     MiDeletePteRun @ 0x140279760 (MiDeletePteRun.c)
+ *     MiInsertPagesInList @ 0x140287DB0 (MiInsertPagesInList.c)
+ * Callees:
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140214A54 (MiUnmapPageInHyperSpaceWorker.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiGetUltraMapping @ 0x140276080 (MiGetUltraMapping.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall MiMakeProtoTransition(_QWORD *a1, unsigned __int64 a2)
 {
   unsigned __int64 UltraMapping; // r9

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPILateRestore @ 0x1C0036AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     READ_PM1_CONTROL @ 0x1C0038D00 (READ_PM1_CONTROL.c)
+ */
+
 LARGE_INTEGER ACPILateRestore()
 {
   LARGE_INTEGER result; // rax

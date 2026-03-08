@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIThermalReadTemperatureComplete @ 0x1C00419A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIThermalLoopEx @ 0x1C00410F0 (ACPIThermalLoopEx.c)
+ *     ACPIThermalUpdateTemperature @ 0x1C0042348 (ACPIThermalUpdateTemperature.c)
+ */
+
 __int64 __fastcall ACPIThermalReadTemperatureComplete(__int64 a1, __int64 a2, __int64 a3)
 {
   int v3; // eax

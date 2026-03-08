@@ -1,3 +1,14 @@
+/*
+ * XREFs of TtmiGetTerminalById @ 0x1409A8090
+ * Callers:
+ *     TtmNotifyDeviceInput @ 0x14099F940 (TtmNotifyDeviceInput.c)
+ *     TtmpPushTerminalState @ 0x1409A0AE4 (TtmpPushTerminalState.c)
+ *     TtmiSetDisplayPowerRequest @ 0x1409A1BBC (TtmiSetDisplayPowerRequest.c)
+ *     TtmpSetDisplayRequestEnded @ 0x1409A2B80 (TtmpSetDisplayRequestEnded.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall TtmiGetTerminalById(_QWORD *a1, __int64 a2, int a3)
 {
   __int64 *v3; // r9

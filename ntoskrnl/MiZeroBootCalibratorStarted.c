@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiZeroBootCalibratorStarted @ 0x1403AF9D4
+ * Callers:
+ *     MiStartZeroEngineThreads @ 0x14076C01C (MiStartZeroEngineThreads.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiZeroBootCalibratorStarted(__int64 a1)
 {
   KIRQL v2; // al

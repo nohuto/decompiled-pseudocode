@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CScratchRenderTargetBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180037880
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?HrFindInterface@CRenderTargetBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180034880 (-HrFindInterface@CRenderTargetBitmap@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ */
+
 __int64 __fastcall CScratchRenderTargetBitmap::HrFindInterface(
         CScratchRenderTargetBitmap *this,
         const struct _GUID *a2,

@@ -1,3 +1,21 @@
+/*
+ * XREFs of RIMAbArbitratePointerDeviceFrame @ 0x1C01AA284
+ * Callers:
+ *     RIMSuppressAllActiveContacts @ 0x1C01B9F94 (RIMSuppressAllActiveContacts.c)
+ *     rimEndAllActiveContactsWorker @ 0x1C01BC12C (rimEndAllActiveContactsWorker.c)
+ *     rimCreateAndProcessPointerDeviceButtonOnlyFrame @ 0x1C01D5FD0 (rimCreateAndProcessPointerDeviceButtonOnlyFrame.c)
+ *     rimDoProcessAnyPointerDeviceInput @ 0x1C01D6420 (rimDoProcessAnyPointerDeviceInput.c)
+ *     rimEndPointerDeviceStaleContacts @ 0x1C01D6A24 (rimEndPointerDeviceStaleContacts.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     rimAbRemoveGlobalPenDeadzoneIfExpired @ 0x1C00EF7FA (rimAbRemoveGlobalPenDeadzoneIfExpired.c)
+ *     RIMAbIsDeviceArbitrationEnabled @ 0x1C00EF900 (RIMAbIsDeviceArbitrationEnabled.c)
+ *     rimAbSuppressLowerRankActivityForFrame @ 0x1C01A93A0 (rimAbSuppressLowerRankActivityForFrame.c)
+ *     rimAbSuppressLowerRankActivityInFrame @ 0x1C01A98C0 (rimAbSuppressLowerRankActivityInFrame.c)
+ *     rimAbUpdateDeadzonesAndResurrectContacts @ 0x1C01A9D04 (rimAbUpdateDeadzonesAndResurrectContacts.c)
+ */
+
 __int64 __fastcall RIMAbArbitratePointerDeviceFrame(struct RawInputManagerObject *a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rbx

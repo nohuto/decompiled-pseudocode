@@ -1,3 +1,30 @@
+/*
+ * XREFs of EtwTraceAppStateChange @ 0x1407E8520
+ * Callers:
+ *     PsSetProcessTelemetryAppState @ 0x1407E7C28 (PsSetProcessTelemetryAppState.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ObFastDereferenceObject @ 0x140245F50 (ObFastDereferenceObject.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsQueryStatisticsProcess @ 0x1406A8F30 (PsQueryStatisticsProcess.c)
+ *     EtwpWriteAppStateChangeSummary @ 0x1406BF9CC (EtwpWriteAppStateChangeSummary.c)
+ *     ObGetProcessHandleCount @ 0x14071172C (ObGetProcessHandleCount.c)
+ *     EtwpQueryProcessCommandLine @ 0x14071DB40 (EtwpQueryProcessCommandLine.c)
+ *     EtwpQueryProcessOtherInfo @ 0x14071DD1C (EtwpQueryProcessOtherInfo.c)
+ *     EtwpQueryTokenPackageInfo @ 0x14071DD5C (EtwpQueryTokenPackageInfo.c)
+ *     EtwpWriteAppStateChangeWithStats @ 0x1407E69B4 (EtwpWriteAppStateChangeWithStats.c)
+ *     EtwpAppStateChangeSummaryShouldLogCommandLine @ 0x1407E885C (EtwpAppStateChangeSummaryShouldLogCommandLine.c)
+ *     EtwpInitStateChangeInfo @ 0x1407E88FC (EtwpInitStateChangeInfo.c)
+ *     EtwpWriteAppStateChange @ 0x1407E89B8 (EtwpWriteAppStateChange.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EtwTraceAppStateChange(PRKPROCESS PROCESS, __int64 a2)
 {
   unsigned __int64 v4; // rcx

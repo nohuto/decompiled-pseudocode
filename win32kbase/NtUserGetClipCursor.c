@@ -1,3 +1,19 @@
+/*
+ * XREFs of NtUserGetClipCursor @ 0x1C016F6E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GuessMonitorOverrideForCoordinateConversions @ 0x1C0009E00 (GuessMonitorOverrideForCoordinateConversions.c)
+ *     ApiSetCheckCursorClipAccess @ 0x1C003A798 (ApiSetCheckCursorClipAccess.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C0041AF0 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C005040C (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
+ *     PhysicalToLogicalDPIRect @ 0x1C00A8E10 (PhysicalToLogicalDPIRect.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     ?GetClip@CCursorClip@@QEBA?AUtagRECT@@XZ @ 0x1C020AE60 (-GetClip@CCursorClip@@QEBA-AUtagRECT@@XZ.c)
+ */
+
 __int64 __fastcall NtUserGetClipCursor(__m128i *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // r8

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiBoundFaultShadow @ 0x140AF33C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // positive sp value has been detected, the output may be wrong!
 __int64 __fastcall KiBoundFaultShadow()
 {

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspInsertExpansionEntry @ 0x1403A94F4
+ * Callers:
+ *     PspInitializeQuotaBlock @ 0x1408599CC (PspInitializeQuotaBlock.c)
+ * Callees:
+ *     PspLockQuotaExpansion @ 0x1402954EC (PspLockQuotaExpansion.c)
+ *     PspUnlockQuotaExpansion @ 0x140295534 (PspUnlockQuotaExpansion.c)
+ */
+
 int __fastcall PspInsertExpansionEntry(__int64 a1, __int64 a2)
 {
   _QWORD *v4; // rbx

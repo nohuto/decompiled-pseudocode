@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetGlobalDesktopPattern@@YAHPEAUHBITMAP__@@@Z @ 0x1C0203BC8
+ * Callers:
+ *     SetDesktopPattern @ 0x1C010AAFC (SetDesktopPattern.c)
+ * Callees:
+ *     <none>
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall SetGlobalDesktopPattern(HBITMAP a1)
 {

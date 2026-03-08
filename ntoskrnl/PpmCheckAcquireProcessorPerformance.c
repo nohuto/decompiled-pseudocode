@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmCheckAcquireProcessorPerformance @ 0x1402E3F50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PpmPerfControlExecuteAction @ 0x1402EA3CC (PpmPerfControlExecuteAction.c)
+ */
+
 char PpmCheckAcquireProcessorPerformance()
 {
   __int64 v0; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpCopyLegacyContextX86 @ 0x1402F81A4
+ * Callers:
+ *     RtlpCopyLegacyContext @ 0x14036519C (RtlpCopyLegacyContext.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall RtlpCopyLegacyContextX86(char a1, __int64 a2, int a3, __int64 a4)
 {
   __int64 v4; // rax

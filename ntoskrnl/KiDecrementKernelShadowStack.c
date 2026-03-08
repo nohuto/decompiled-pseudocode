@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiDecrementKernelShadowStack @ 0x140417790
+ * Callers:
+ *     KiFixupControlProtectionKernelModeReturnMismatch @ 0x140579720 (KiFixupControlProtectionKernelModeReturnMismatch.c)
+ * Callees:
+ *     sub_1404177A6 @ 0x1404177A6 (sub_1404177A6.c)
+ */
+
 __int64 KiDecrementKernelShadowStack()
 {
   __int64 v2; // rcx

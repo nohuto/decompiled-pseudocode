@@ -1,3 +1,15 @@
+/*
+ * XREFs of SeRegisterObjectTypeMandatoryPolicy @ 0x14037D9FC
+ * Callers:
+ *     PspInitPhase0 @ 0x140B3F968 (PspInitPhase0.c)
+ *     SepTokenInitialization @ 0x140B49514 (SepTokenInitialization.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 __int64 __fastcall SeRegisterObjectTypeMandatoryPolicy(__int64 a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // rax

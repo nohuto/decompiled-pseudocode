@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopAddBugcheckTriageIrp @ 0x140559BD0
+ * Callers:
+ *     IopAddBugcheckPowerTriageData @ 0x140559780 (IopAddBugcheckPowerTriageData.c)
+ *     IopAddBugcheckTriageDeviceNode @ 0x140559AE0 (IopAddBugcheckTriageDeviceNode.c)
+ *     IopAddBugcheckTriageThread @ 0x140559D4C (IopAddBugcheckTriageThread.c)
+ * Callees:
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KiIsAddressRangeValid @ 0x1403849BC (KiIsAddressRangeValid.c)
+ *     IopAddBugcheckTriageDeviceNode @ 0x140559AE0 (IopAddBugcheckTriageDeviceNode.c)
+ */
+
 __int64 __fastcall IopAddBugcheckTriageIrp(__int64 MaxDataSize, char a2)
 {
   unsigned int v4; // ebx

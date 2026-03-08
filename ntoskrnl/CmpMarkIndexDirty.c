@@ -1,3 +1,20 @@
+/*
+ * XREFs of CmpMarkIndexDirty @ 0x1406BA4F0
+ * Callers:
+ *     CmpMarkKeyDirty @ 0x1406BAB64 (CmpMarkKeyDirty.c)
+ *     CmpMarkKeyParentDirty @ 0x140A1F320 (CmpMarkKeyParentDirty.c)
+ * Callees:
+ *     CmpAllocatePool @ 0x140243878 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     CmpMarkIndexDirtyInStorageType @ 0x1406BA664 (CmpMarkIndexDirtyInStorageType.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpCopyCompressedName @ 0x1407A47DC (CmpCopyCompressedName.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall CmpMarkIndexDirty(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4, unsigned int a3)
 {
   unsigned int v5; // r15d

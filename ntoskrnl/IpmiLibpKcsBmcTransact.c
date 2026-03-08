@@ -1,3 +1,14 @@
+/*
+ * XREFs of IpmiLibpKcsBmcTransact @ 0x140675A94
+ * Callers:
+ *     IpmiLibpKcsRequestAndReceive @ 0x140675E00 (IpmiLibpKcsRequestAndReceive.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IpmiLibpKcsHandleError @ 0x140675B3C (IpmiLibpKcsHandleError.c)
+ *     IpmiLibpKcsReceiveResponseFromBmc @ 0x140675C88 (IpmiLibpKcsReceiveResponseFromBmc.c)
+ *     IpmiLibpKcsSendRequestToBMC @ 0x140675EF8 (IpmiLibpKcsSendRequestToBMC.c)
+ */
+
 __int64 __fastcall IpmiLibpKcsBmcTransact(__int64 a1, unsigned __int16 *a2, __int64 a3)
 {
   unsigned __int16 v3; // ax

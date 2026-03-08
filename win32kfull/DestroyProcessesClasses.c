@@ -1,3 +1,11 @@
+/*
+ * XREFs of DestroyProcessesClasses @ 0x1C0031B80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DestroyClass @ 0x1C0033D18 (DestroyClass.c)
+ */
+
 __int64 __fastcall DestroyProcessesClasses(struct tagPROCESSINFO *a1)
 {
   _QWORD *v2; // rdi

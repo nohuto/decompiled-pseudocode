@@ -1,3 +1,11 @@
+/*
+ * XREFs of GrayExpYDIB_ExpCX @ 0x1C0263D84
+ * Callers:
+ *     GrayExpandDIB_CY_ExpCX @ 0x1C0264850 (GrayExpandDIB_CY_ExpCX.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GrayExpYDIB_ExpCX(unsigned __int64 *a1, unsigned __int8 *a2, _BYTE *a3, _BYTE *a4)
 {
   unsigned __int64 v6; // rax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiCheckAndRearmForceIdle @ 0x1403026FC
+ * Callers:
+ *     KiTimer2Expiration @ 0x140250C10 (KiTimer2Expiration.c)
+ *     KiCallInterruptServiceRoutine @ 0x1402B7620 (KiCallInterruptServiceRoutine.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     KeRemoveQueueDpcEx @ 0x14028DB50 (KeRemoveQueueDpcEx.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetForceIdleState @ 0x14057AE14 (KiSetForceIdleState.c)
+ */
+
 void KiCheckAndRearmForceIdle()
 {
   struct _KPRCB *CurrentPrcb; // rcx

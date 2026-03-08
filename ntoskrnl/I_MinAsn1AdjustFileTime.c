@@ -1,3 +1,12 @@
+/*
+ * XREFs of I_MinAsn1AdjustFileTime @ 0x140A6E108
+ * Callers:
+ *     MinAsn1DecodeGeneralizedTime @ 0x140A6E30C (MinAsn1DecodeGeneralizedTime.c)
+ *     MinAsn1DecodeUtcTime @ 0x140A6E7D4 (MinAsn1DecodeUtcTime.c)
+ * Callees:
+ *     RtlTimeFieldsToTime @ 0x1402D1150 (RtlTimeFieldsToTime.c)
+ */
+
 BOOLEAN __fastcall I_MinAsn1AdjustFileTime(__int64 *a1, __int16 a2, char a3)
 {
   __int16 v5; // ax

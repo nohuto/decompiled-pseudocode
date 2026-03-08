@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetNextPath@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@QEBV2@@Z @ 0x1C0068920
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 struct DMMVIDPNPRESENTPATH *__fastcall DMMVIDPNTOPOLOGY::GetNextPath(
         DMMVIDPNTOPOLOGY *this,
         const struct DMMVIDPNPRESENTPATH *const a2)

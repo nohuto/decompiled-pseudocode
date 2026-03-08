@@ -1,3 +1,16 @@
+/*
+ * XREFs of ExpWnfFreeScopeInstance @ 0x14079450C
+ * Callers:
+ *     ExpWnfDeleteScopeById @ 0x140704810 (ExpWnfDeleteScopeById.c)
+ *     ExpWnfResolveScopeInstance @ 0x14071A508 (ExpWnfResolveScopeInstance.c)
+ *     ExpWnfDeleteScopeInstances @ 0x140A047F8 (ExpWnfDeleteScopeInstances.c)
+ * Callees:
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     ExpWnfDeleteNameInstanceCallback @ 0x140778FA4 (ExpWnfDeleteNameInstanceCallback.c)
+ *     ExpWnfDestroyPermanentDataStore @ 0x140A048DC (ExpWnfDestroyPermanentDataStore.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall ExpWnfFreeScopeInstance(struct _EX_RUNDOWN_REF *P, char a2)
 {
   _QWORD *Count; // rcx

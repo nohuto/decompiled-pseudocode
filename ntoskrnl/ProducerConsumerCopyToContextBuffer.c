@@ -1,3 +1,11 @@
+/*
+ * XREFs of ProducerConsumerCopyToContextBuffer @ 0x140AA2E90
+ * Callers:
+ *     PopCountDataAsProduced @ 0x140A9EFB4 (PopCountDataAsProduced.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 void *__fastcall ProducerConsumerCopyToContextBuffer(char *Src, size_t Size, __int64 a3, char *a4)
 {
   __int64 v6; // r8

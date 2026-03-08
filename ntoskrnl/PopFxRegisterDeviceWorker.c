@@ -1,3 +1,25 @@
+/*
+ * XREFs of PopFxRegisterDeviceWorker @ 0x14083714C
+ * Callers:
+ *     PoFxRegisterCoreDevice @ 0x140836AB0 (PoFxRegisterCoreDevice.c)
+ *     PopFxRegisterDevice @ 0x140836FBC (PopFxRegisterDevice.c)
+ * Callees:
+ *     IoAllocateIrp @ 0x140208CF0 (IoAllocateIrp.c)
+ *     PopFxActivateComponent @ 0x140305D50 (PopFxActivateComponent.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     PopPlRegisterComponent @ 0x140393310 (PopPlRegisterComponent.c)
+ *     PopFxFindAcpiDeviceByUniqueId @ 0x140393420 (PopFxFindAcpiDeviceByUniqueId.c)
+ *     PopFxCreateDeviceCommon @ 0x1403934D4 (PopFxCreateDeviceCommon.c)
+ *     PopPlRegisterDevice @ 0x1403937A4 (PopPlRegisterDevice.c)
+ *     PopFxRegisterDeviceWithPep @ 0x1403938B8 (PopFxRegisterDeviceWithPep.c)
+ *     IoInitializeRemoveLockEx @ 0x1403BF180 (IoInitializeRemoveLockEx.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ *     PopFxReleaseAcpiRefDevice @ 0x14058917C (PopFxReleaseAcpiRefDevice.c)
+ *     PopFxVerifyDependencies @ 0x140983190 (PopFxVerifyDependencies.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopFxRegisterDeviceWorker(
         ULONG_PTR a1,
         const UNICODE_STRING *a2,

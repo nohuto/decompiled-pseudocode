@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsPumpingInputMsgs@@YA_NPEBUtagWND@@@Z @ 0x1C009FF54
+ * Callers:
+ *     ?IsHungWindow@@YA_NPEBUtagWND@@@Z @ 0x1C009FF14 (-IsHungWindow@@YA_NPEBUtagWND@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall IsPumpingInputMsgs(const struct tagWND *a1)
 {
   __int64 v1; // rsi

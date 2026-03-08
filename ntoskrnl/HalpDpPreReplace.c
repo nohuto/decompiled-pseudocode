@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpDpPreReplace @ 0x140A94700
+ * Callers:
+ *     HalpDpReplaceControl @ 0x140A94820 (HalpDpReplaceControl.c)
+ * Callees:
+ *     HalpAcpiPmRegisterWrite @ 0x1402F76E0 (HalpAcpiPmRegisterWrite.c)
+ *     HalpAcpiPmRegisterAvailable @ 0x1402F9250 (HalpAcpiPmRegisterAvailable.c)
+ *     HalpAcpiPmRegisterRead @ 0x14039CF90 (HalpAcpiPmRegisterRead.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpSetClockBeforeSleep @ 0x140508B74 (HalpSetClockBeforeSleep.c)
+ */
+
 void __fastcall HalpDpPreReplace(__int64 a1)
 {
   __int64 v1; // rdx

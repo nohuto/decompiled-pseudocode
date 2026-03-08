@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiInitializeSystemVa @ 0x140B60308
+ * Callers:
+ *     MmInitSystem @ 0x140B393A4 (MmInitSystem.c)
+ * Callees:
+ *     MiAssignSoftwareWsleRegion @ 0x14039751C (MiAssignSoftwareWsleRegion.c)
+ *     MiRebaseDynamicRelocationRegions @ 0x140B38F54 (MiRebaseDynamicRelocationRegions.c)
+ *     MiInitializeTopLevelBitmap @ 0x140B603C4 (MiInitializeTopLevelBitmap.c)
+ *     MiAssignTopLevelRanges @ 0x140B604AC (MiAssignTopLevelRanges.c)
+ *     MiSetSystemRegionTypes @ 0x140B6087C (MiSetSystemRegionTypes.c)
+ */
+
 __int64 __fastcall MiInitializeSystemVa(__int64 a1)
 {
   unsigned int v2; // edi

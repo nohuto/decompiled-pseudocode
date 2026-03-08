@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiCanBatchHardFaultPages @ 0x140284A30
+ * Callers:
+ *     MiAddPageToInsertList @ 0x1402848D0 (MiAddPageToInsertList.c)
+ *     MiUnlockMdlWritePages @ 0x140284DD0 (MiUnlockMdlWritePages.c)
+ *     MmUnmapViewInSystemCache @ 0x140285250 (MmUnmapViewInSystemCache.c)
+ * Callees:
+ *     MiAreChargesNeededToLockPage @ 0x140284D60 (MiAreChargesNeededToLockPage.c)
+ *     MiIsPfnCommitNotCharged @ 0x140286190 (MiIsPfnCommitNotCharged.c)
+ *     MiRemoveLockedPageCharge @ 0x140286E00 (MiRemoveLockedPageCharge.c)
+ *     MiIsPageEligibleForProtectedStandby @ 0x140287110 (MiIsPageEligibleForProtectedStandby.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiSyncCommitSignals @ 0x1403929E0 (MiSyncCommitSignals.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiRestockOverCommit @ 0x140654060 (MiRestockOverCommit.c)
+ */
+
 __int64 __fastcall MiCanBatchHardFaultPages(_QWORD *a1, __int64 a2)
 {
   __int64 v2; // rsi

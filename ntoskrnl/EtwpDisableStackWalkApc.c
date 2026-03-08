@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpDisableStackWalkApc @ 0x140300D40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 EtwpDisableStackWalkApc()
 {
   struct _KTHREAD *CurrentThread; // r8

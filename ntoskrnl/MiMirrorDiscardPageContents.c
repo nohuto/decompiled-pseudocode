@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiMirrorDiscardPageContents @ 0x14064CE84
+ * Callers:
+ *     MiMirrorBlackPhase @ 0x1406247B4 (MiMirrorBlackPhase.c)
+ * Callees:
+ *     MiIterateOverPartitions @ 0x140626FE0 (MiIterateOverPartitions.c)
+ */
+
 __int64 MiMirrorDiscardPageContents()
 {
   _QWORD *v0; // rax

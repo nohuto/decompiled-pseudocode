@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?DelegateMoveSizeToShell@@YAXPEAUtagWND@@I@Z @ 0x1C020311C
+ * Callers:
+ *     xxxSysCommand @ 0x1C00DE67C (xxxSysCommand.c)
+ * Callees:
+ *     PostInputMessage @ 0x1C0037A48 (PostInputMessage.c)
+ *     AdjustPwndPtiPqForDelegation @ 0x1C009FA68 (AdjustPwndPtiPqForDelegation.c)
+ *     INPUTDEST_FROM_PWND @ 0x1C00E6A40 (INPUTDEST_FROM_PWND.c)
+ *     ?ExtendedBehaviorEnabled@ShellWindowManagement@@YA_NK@Z @ 0x1C00EFB10 (-ExtendedBehaviorEnabled@ShellWindowManagement@@YA_NK@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?TrackedWindowMoveSizeIntercept@NotifyShell@@YAXPEAUtagWND@@IK@Z @ 0x1C0220918 (-TrackedWindowMoveSizeIntercept@NotifyShell@@YAXPEAUtagWND@@IK@Z.c)
+ */
+
 void __fastcall DelegateMoveSizeToShell(struct tagWND *a1, unsigned int a2, __int64 a3, unsigned int a4)
 {
   __int64 v4; // rax

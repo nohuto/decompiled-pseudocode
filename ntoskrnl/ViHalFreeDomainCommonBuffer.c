@@ -1,3 +1,14 @@
+/*
+ * XREFs of ViHalFreeDomainCommonBuffer @ 0x140AC61E4
+ * Callers:
+ *     VfFreeCommonBuffer @ 0x140AC3280 (VfFreeCommonBuffer.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall ViHalFreeDomainCommonBuffer(_QWORD *a1)
 {
   char v2; // bl

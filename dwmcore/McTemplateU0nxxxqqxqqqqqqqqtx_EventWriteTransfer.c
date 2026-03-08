@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0nxxxqqxqqqqqqqqtx_EventWriteTransfer @ 0x180130468
+ * Callers:
+ *     ?ProcessSurfaceUpdate@CGlobalCompositionSurfaceInfo@@UEAAJAEBUCSM_SURFACE_UPDATE_@@@Z @ 0x180040960 (-ProcessSurfaceUpdate@CGlobalCompositionSurfaceInfo@@UEAAJAEBUCSM_SURFACE_UPDATE_@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 __int64 __fastcall McTemplateU0nxxxqqxqqqqqqqqtx_EventWriteTransfer(
         __int64 a1,
         __int64 a2,

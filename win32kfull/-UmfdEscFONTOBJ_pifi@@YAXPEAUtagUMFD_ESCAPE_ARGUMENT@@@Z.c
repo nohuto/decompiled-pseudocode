@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UmfdEscFONTOBJ_pifi@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C02A9DD8
+ * Callers:
+ *     UmfdDispatchEscape @ 0x1C00BB270 (UmfdDispatchEscape.c)
+ * Callees:
+ *     ?EnsureTls@UmfdTls@@SAPEAV1@XZ @ 0x1C00BBD4C (-EnsureTls@UmfdTls@@SAPEAV1@XZ.c)
+ *     FONTOBJ_pifi @ 0x1C029B080 (FONTOBJ_pifi.c)
+ */
+
 void __fastcall UmfdEscFONTOBJ_pifi(struct tagUMFD_ESCAPE_ARGUMENT *a1)
 {
   struct UmfdTls *v2; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpSetBlockedDriverEvent @ 0x1409616C0
+ * Callers:
+ *     PnpPrepareDriverLoading @ 0x14079DAE0 (PnpPrepareDriverLoading.c)
+ * Callees:
+ *     PnpCreateDeviceEventEntry @ 0x140688A98 (PnpCreateDeviceEventEntry.c)
+ *     PnpInsertEventInQueue @ 0x140688D90 (PnpInsertEventInQueue.c)
+ */
+
 __int64 __fastcall PnpSetBlockedDriverEvent(_OWORD *a1)
 {
   __int64 DeviceEventEntry; // rax

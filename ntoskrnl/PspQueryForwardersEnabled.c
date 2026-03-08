@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspQueryForwardersEnabled @ 0x140812AAC
+ * Callers:
+ *     PsBootPhaseComplete @ 0x140812760 (PsBootPhaseComplete.c)
+ *     PspSiloLoadApiSets @ 0x1409AAA20 (PspSiloLoadApiSets.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x14069B3C0 (RtlpQueryRegistryValues.c)
+ */
+
 char PspQueryForwardersEnabled()
 {
   char v0; // bl

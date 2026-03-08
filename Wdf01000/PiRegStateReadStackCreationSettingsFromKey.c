@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiRegStateReadStackCreationSettingsFromKey @ 0x1C00B141C
+ * Callers:
+ *     PpRegStateReadCreateClassCreationSettings @ 0x1C00B1610 (PpRegStateReadCreateClassCreationSettings.c)
+ * Callees:
+ *     WdmlibRtlInitUnicodeStringEx @ 0x1C0087408 (WdmlibRtlInitUnicodeStringEx.c)
+ *     SeUtilSecurityInfoFromSecurityDescriptor @ 0x1C00B18A8 (SeUtilSecurityInfoFromSecurityDescriptor.c)
+ *     CmRegUtilUcValueGetFullBuffer @ 0x1C00B1BE0 (CmRegUtilUcValueGetFullBuffer.c)
+ *     CmRegUtilWstrValueGetDword @ 0x1C00B1E74 (CmRegUtilWstrValueGetDword.c)
+ */
+
 __int64 __fastcall PiRegStateReadStackCreationSettingsFromKey(
         void *ClassOrDeviceKey,
         STACK_CREATION_SETTINGS *StackCreationSettings)

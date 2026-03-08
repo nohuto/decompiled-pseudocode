@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?xxxNotifyImeShowStatus@@YAXPEAUtagWND@@@Z @ 0x1C01B94A8
+ * Callers:
+ *     ?xxxSetIMEShowStatus@@YAHHHPEAH@Z @ 0x1C00F3FC4 (-xxxSetIMEShowStatus@@YAHHHPEAH@Z.c)
+ *     ?xxxBroadcastImeShowStatusChange@@YAHPEAUtagWND@@H@Z @ 0x1C01B8C94 (-xxxBroadcastImeShowStatusChange@@YAHPEAUtagWND@@H@Z.c)
+ * Callees:
+ *     unsafe_cast_fnid_or_class_to_PIMEWND @ 0x1C00A0B80 (unsafe_cast_fnid_or_class_to_PIMEWND.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     ?xxxCheckImeShowStatus@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@@Z @ 0x1C00C62B0 (-xxxCheckImeShowStatus@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@@Z.c)
+ *     ?xxxSendOpenStatusNotify@@YAXPEAUtagTHREADINFO@@PEAUtagIMEUI@@PEAUtagWND@@H@Z @ 0x1C01B9880 (-xxxSendOpenStatusNotify@@YAXPEAUtagTHREADINFO@@PEAUtagIMEUI@@PEAUtagWND@@H@Z.c)
+ */
+
 void __fastcall xxxNotifyImeShowStatus(struct tagWND *a1)
 {
   int v2; // r13d

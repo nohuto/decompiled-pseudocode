@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiCheckDosCalls @ 0x140A2C554
+ * Callers:
+ *     MiComputeBadImageHeaderType @ 0x140A2C608 (MiComputeBadImageHeaderType.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiCheckDosCalls(unsigned __int16 *a1, unsigned __int64 a2)
 {
   __int64 v2; // r9

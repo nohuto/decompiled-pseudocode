@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpPmTimerConfigure @ 0x1403AFFE8
+ * Callers:
+ *     HalpPmTimerDiscover @ 0x14037604C (HalpPmTimerDiscover.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpPmTimerConfigure(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // r9d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspFreeCurrentThreadUserShadowStack @ 0x1409B0BD0
+ * Callers:
+ *     PspExitThread @ 0x1407D9464 (PspExitThread.c)
+ * Callees:
+ *     ZwQueryVirtualMemory @ 0x140412770 (ZwQueryVirtualMemory.c)
+ *     MmFreeVirtualMemory @ 0x1406EC820 (MmFreeVirtualMemory.c)
+ */
+
 int PspFreeCurrentThreadUserShadowStack()
 {
   int result; // eax

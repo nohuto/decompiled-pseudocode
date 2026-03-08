@@ -1,3 +1,13 @@
+/*
+ * XREFs of IvtHandleInterrupt @ 0x14052A980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpIommuGetNextTranslatedDevice @ 0x140409CB8 (HalpIommuGetNextTranslatedDevice.c)
+ *     Feature_Servicing_IommuRTEFault__private_IsEnabledDeviceUsage @ 0x140409D08 (Feature_Servicing_IommuRTEFault__private_IsEnabledDeviceUsage.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 char __fastcall IvtHandleInterrupt(ULONG_PTR BugCheckParameter2)
 {
   __int64 v1; // r8

@@ -1,3 +1,11 @@
+/*
+ * XREFs of rimFindImageProcAddress @ 0x1C008BD70
+ * Callers:
+ *     rimInitAllHidParseDelayLoads @ 0x1C008BB04 (rimInitAllHidParseDelayLoads.c)
+ * Callees:
+ *     strncmp @ 0x1C00DADE0 (strncmp.c)
+ */
+
 __int64 __fastcall rimFindImageProcAddress(__int64 a1, const char *a2)
 {
   _DWORD *v2; // r8

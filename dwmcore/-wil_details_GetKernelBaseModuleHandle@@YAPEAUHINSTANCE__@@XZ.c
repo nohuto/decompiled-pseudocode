@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?wil_details_GetKernelBaseModuleHandle@@YAPEAUHINSTANCE__@@XZ @ 0x1801009D0
+ * Callers:
+ *     ?MicrosoftInternalNotifyFailure@details@wil@@YAXPEAUFailureInfo@2@@Z @ 0x1801008F0 (-MicrosoftInternalNotifyFailure@details@wil@@YAXPEAUFailureInfo@2@@Z.c)
+ *     wil_StagingConfig_LogStagedFeatureUsage @ 0x180110A70 (wil_StagingConfig_LogStagedFeatureUsage.c)
+ * Callees:
+ *     <none>
+ */
+
 HINSTANCE wil_details_GetKernelBaseModuleHandle(void)
 {
   HINSTANCE result; // rax

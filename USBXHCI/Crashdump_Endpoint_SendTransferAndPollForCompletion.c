@@ -1,3 +1,12 @@
+/*
+ * XREFs of Crashdump_Endpoint_SendTransferAndPollForCompletion @ 0x1C004F708
+ * Callers:
+ *     Crashdump_Endpoint_SendBulkTransfer @ 0x1C004F218 (Crashdump_Endpoint_SendBulkTransfer.c)
+ *     Crashdump_Endpoint_SendControlTransfer @ 0x1C004F524 (Crashdump_Endpoint_SendControlTransfer.c)
+ * Callees:
+ *     Crashdump_EventRing_Poll @ 0x1C004E500 (Crashdump_EventRing_Poll.c)
+ */
+
 __int64 __fastcall Crashdump_Endpoint_SendTransferAndPollForCompletion(__int64 a1)
 {
   int v2; // r10d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of DifpLwSPProcessPrePoolAlloc @ 0x140AE4BEC
+ * Callers:
+ *     DifpExAllocatePoolWithTagPriority_LwSP_Enter @ 0x140AE4B40 (DifpExAllocatePoolWithTagPriority_LwSP_Enter.c)
+ * Callees:
+ *     VfRandomGetNumber @ 0x140ABF358 (VfRandomGetNumber.c)
+ */
+
 int __fastcall DifpLwSPProcessPrePoolAlloc(int a1, unsigned __int64 a2)
 {
   __int128 *v2; // rax

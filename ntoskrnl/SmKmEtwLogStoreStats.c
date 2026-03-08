@@ -1,3 +1,15 @@
+/*
+ * XREFs of SmKmEtwLogStoreStats @ 0x1409D5A94
+ * Callers:
+ *     SmKmStoreDelete @ 0x1407DD27C (SmKmStoreDelete.c)
+ *     SmEtwEnableCallback @ 0x140840E90 (SmEtwEnableCallback.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ?SmStEtwFillStoreStatsEvent@?$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_SMKM_EVENT_DESCRIPTOR@@@Z @ 0x1405CABFC (-SmStEtwFillStoreStatsEvent@-$SMKM_STORE@USM_TRAITS@@@@SAKPEAU1@PEAU_SMKM_EVENT_DESCRIPTOR@@@Z.c)
+ */
+
 NTSTATUS __fastcall SmKmEtwLogStoreStats(REGHANDLE *a1, __int64 a2)
 {
   NTSTATUS result; // eax

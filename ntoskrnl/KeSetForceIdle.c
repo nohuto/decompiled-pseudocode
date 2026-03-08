@@ -1,3 +1,14 @@
+/*
+ * XREFs of KeSetForceIdle @ 0x14057A814
+ * Callers:
+ *     PopDeepSleepClearDisengageReason @ 0x1402BBAAC (PopDeepSleepClearDisengageReason.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetForceIdleState @ 0x14057AE14 (KiSetForceIdleState.c)
+ */
+
 void KeSetForceIdle()
 {
   int v0; // edi

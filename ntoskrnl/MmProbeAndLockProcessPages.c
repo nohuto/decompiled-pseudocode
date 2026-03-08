@@ -1,3 +1,14 @@
+/*
+ * XREFs of MmProbeAndLockProcessPages @ 0x1406A40F0
+ * Callers:
+ *     CcAsyncReadPrefetch @ 0x14020CCA4 (CcAsyncReadPrefetch.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MmProbeAndLockPages @ 0x140267B90 (MmProbeAndLockPages.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __stdcall MmProbeAndLockProcessPages(
         PMDL MemoryDescriptorList,
         PEPROCESS Process,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?IsPartOfCompositeApplication@CoreWindowProp@@SAHPEBUtagWND@@@Z @ 0x1C00999A8
+ * Callers:
+ *     ?xxxDeliverRestoreFocusMessage@@YAXPEAUtagWND@@@Z @ 0x1C0099940 (-xxxDeliverRestoreFocusMessage@@YAXPEAUtagWND@@@Z.c)
+ *     NtUserSetForegroundWindowForApplication @ 0x1C01DCC40 (NtUserSetForegroundWindowForApplication.c)
+ * Callees:
+ *     ?IsComponent@CoreWindowProp@@SAHPEBUtagWND@@@Z @ 0x1C00291D4 (-IsComponent@CoreWindowProp@@SAHPEBUtagWND@@@Z.c)
+ *     ?IsHost@CoreWindowProp@@SAHPEBUtagWND@@@Z @ 0x1C009BD04 (-IsHost@CoreWindowProp@@SAHPEBUtagWND@@@Z.c)
+ *     ?GetTopLevelHost@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z @ 0x1C0223014 (-GetTopLevelHost@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z.c)
+ */
+
 __int64 __fastcall CoreWindowProp::IsPartOfCompositeApplication(const struct tagWND *a1)
 {
   unsigned int v1; // ebx

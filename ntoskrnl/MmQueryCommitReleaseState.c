@@ -1,3 +1,21 @@
+/*
+ * XREFs of MmQueryCommitReleaseState @ 0x1402FB050
+ * Callers:
+ *     NtQueryInformationProcess @ 0x1407215F0 (NtQueryInformationProcess.c)
+ * Callees:
+ *     KeForceDetachProcess @ 0x14020CC48 (KeForceDetachProcess.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiAttachThreadDone @ 0x14029C9D4 (MiAttachThreadDone.c)
+ *     MiPrepareAttachThread @ 0x14029CA64 (MiPrepareAttachThread.c)
+ *     KeForceAttachProcess @ 0x1402E6610 (KeForceAttachProcess.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall MmQueryCommitReleaseState(ULONG_PTR a1, _DWORD *a2, _QWORD *a3, _QWORD *a4, _QWORD *a5)
 {
   __int64 v5; // rsi

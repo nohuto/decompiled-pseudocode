@@ -1,3 +1,13 @@
+/*
+ * XREFs of xxxCleanupAndFreeDdeConv @ 0x1C01FD710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C003E900 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     ?FreeListFree@@YAXPEAUtagFREELIST@@@Z @ 0x1C00E35A0 (-FreeListFree@@YAXPEAUtagFREELIST@@@Z.c)
+ *     xxxFreeDdeConv @ 0x1C01FE3AC (xxxFreeDdeConv.c)
+ */
+
 __int64 __fastcall xxxCleanupAndFreeDdeConv(struct tagDDECONV *a1)
 {
   char v2; // dl

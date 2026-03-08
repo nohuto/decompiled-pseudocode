@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopIdleWakeInsertTimeInterval @ 0x14059B3B0
+ * Callers:
+ *     PopIdleWakeNotifyIdleResiliencyState @ 0x14059B504 (PopIdleWakeNotifyIdleResiliencyState.c)
+ *     PopIdleWakeStopActiveIntervalAccounting @ 0x14059B80C (PopIdleWakeStopActiveIntervalAccounting.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopIdleWakeInsertTimeInterval(
         unsigned __int64 a1,
         unsigned int a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheapGetPolicyValue @ 0x140A06B4C
+ * Callers:
+ *     WheapWmiExecutePolicyManagementMethod @ 0x140611EEC (WheapWmiExecutePolicyManagementMethod.c)
+ *     WheapGetAllPolicyValues @ 0x140A06B08 (WheapGetAllPolicyValues.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WheapGetPolicyValue(unsigned int a1, int *a2)
 {
   int v3; // eax

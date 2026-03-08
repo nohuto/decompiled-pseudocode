@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpInitializePoolTrackerTable @ 0x14039FCEC
+ * Callers:
+ *     ExInitializePoolTracker @ 0x140B63C80 (ExInitializePoolTracker.c)
+ * Callees:
+ *     ExAllocateHeapPages @ 0x1403B489C (ExAllocateHeapPages.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MmGetNumberOfPhysicalPages @ 0x140768AB0 (MmGetNumberOfPhysicalPages.c)
+ */
+
 __int64 ExpInitializePoolTrackerTable()
 {
   unsigned __int64 v0; // rbx

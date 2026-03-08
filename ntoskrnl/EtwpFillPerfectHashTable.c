@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpFillPerfectHashTable @ 0x14077F618
+ * Callers:
+ *     EtwpCreatePerfectHashFunction @ 0x14077F3E8 (EtwpCreatePerfectHashFunction.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EtwpFillPerfectHashTable(
         _WORD *a1,
         unsigned __int16 a2,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of Usbh_PCE_wChange_Action @ 0x1C0014D00
+ * Callers:
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0014330 (UsbhDispatch_PortChangeQueueEventEx.c)
+ * Callees:
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002E98C (WPP_RECORDER_SF_dq.c)
+ *     UsbhRemoveQueuedSuspend @ 0x1C003518C (UsbhRemoveQueuedSuspend.c)
+ *     UsbhUnlockPcqWithTag @ 0x1C0035444 (UsbhUnlockPcqWithTag.c)
+ *     UsbhiSignalSuspendEvent @ 0x1C0036644 (UsbhiSignalSuspendEvent.c)
+ */
+
 _QWORD *__fastcall Usbh_PCE_wChange_Action(__int64 a1, __int64 a2, char a3)
 {
   _QWORD *v3; // rdi

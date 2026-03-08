@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBPDO_D3ColdSupportInterfaceGetLastTransitionStatus @ 0x1C001AD00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBPDO_D3ColdSupportInterfaceGetLastTransitionStatus(__int64 a1, _DWORD *a2)
 {
   __int64 (__fastcall *v3)(_QWORD); // rax

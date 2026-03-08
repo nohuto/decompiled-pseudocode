@@ -1,3 +1,15 @@
+/*
+ * XREFs of NVMeSetPowerState @ 0x1C002413C
+ * Callers:
+ *     NVMePowerSetFState @ 0x1C0010324 (NVMePowerSetFState.c)
+ *     NVMePowerSetPerfState @ 0x1C00103B0 (NVMePowerSetPerfState.c)
+ * Callees:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     NVMeGetPowerState @ 0x1C0007C94 (NVMeGetPowerState.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 __int64 __fastcall NVMeSetPowerState(__int64 a1, unsigned __int8 a2)
 {
   int v2; // ebx

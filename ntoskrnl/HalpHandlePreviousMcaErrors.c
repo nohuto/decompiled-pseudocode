@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpHandlePreviousMcaErrors @ 0x140A91F70
+ * Callers:
+ *     HalpInitializeMce @ 0x140A87FF0 (HalpInitializeMce.c)
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402AA110 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402ABED0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HalpMceInitializeErrorPacketContents @ 0x140A87D98 (HalpMceInitializeErrorPacketContents.c)
+ *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140A920B0 (HalpHandlePreviousMcaErrorsOnProcessor.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall HalpHandlePreviousMcaErrors(char a1)
 {
   GUID *Pool2; // rax

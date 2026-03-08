@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhIncPdoIoCount @ 0x1C0020E30
+ * Callers:
+ *     UsbhPdoDevicePowerState @ 0x1C000A4C0 (UsbhPdoDevicePowerState.c)
+ *     UsbhPdoPower_WaitWake @ 0x1C0020D30 (UsbhPdoPower_WaitWake.c)
+ *     UsbhPdoPower_Sequence @ 0x1C003CAC0 (UsbhPdoPower_Sequence.c)
+ *     UsbhCreatePdo @ 0x1C0053530 (UsbhCreatePdo.c)
+ *     UsbhPdoDeviceControl @ 0x1C0054C70 (UsbhPdoDeviceControl.c)
+ *     UsbhPdoSuccess @ 0x1C0056DF0 (UsbhPdoSuccess.c)
+ *     UsbhPdoSystemControl @ 0x1C0056E70 (UsbhPdoSystemControl.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ */
+
 __int64 __fastcall UsbhIncPdoIoCount(__int64 a1, __int64 a2, int a3, int a4)
 {
   KSPIN_LOCK *v7; // rbx

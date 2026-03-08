@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?bInitPrivatePFT@@YAHXZ @ 0x1C026D728
+ * Callers:
+ *     GreAddFontResourceWInternal @ 0x1C00D0B00 (GreAddFontResourceWInternal.c)
+ *     ?ppfeSynthesizeAMatch@MAPPER@@QEAAPEAVPFE@@PEAK0PEAU_POINTL@@@Z @ 0x1C011CCCC (-ppfeSynthesizeAMatch@MAPPER@@QEAAPEAVPFE@@PEAK0PEAU_POINTL@@@Z.c)
+ *     GreAddFontMemResourceEx @ 0x1C028E05C (GreAddFontMemResourceEx.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ??0FHMEMOBJ@@QEAA@PEAPEAU_FONTHASH@@W4_FONTHASHTYPE@@I@Z @ 0x1C00EC99C (--0FHMEMOBJ@@QEAA@PEAPEAU_FONTHASH@@W4_FONTHASHTYPE@@I@Z.c)
+ *     ?pAllocateAndInitializePFT@@YAPEAVPFT@@I@Z @ 0x1C00ECA6C (-pAllocateAndInitializePFT@@YAPEAVPFT@@I@Z.c)
+ */
+
 __int64 __fastcall bInitPrivatePFT(Gre::Base *a1)
 {
   struct Gre::Base::SESSION_GLOBALS *v1; // rdi

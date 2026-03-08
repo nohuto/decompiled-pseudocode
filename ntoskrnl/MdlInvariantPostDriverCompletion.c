@@ -1,3 +1,11 @@
+/*
+ * XREFs of MdlInvariantPostDriverCompletion @ 0x1405CCFE4
+ * Callers:
+ *     IovpCompleteRequest4 @ 0x140AC9E98 (IovpCompleteRequest4.c)
+ * Callees:
+ *     MdlInvariantFindMdlInfo @ 0x1405CCF0C (MdlInvariantFindMdlInfo.c)
+ */
+
 void __fastcall MdlInvariantPostDriverCompletion(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // rbx

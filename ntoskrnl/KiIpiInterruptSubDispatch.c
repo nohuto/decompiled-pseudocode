@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiIpiInterruptSubDispatch @ 0x14041F760
+ * Callers:
+ *     KiIpiInterrupt @ 0x14041EFD0 (KiIpiInterrupt.c)
+ * Callees:
+ *     KiEndThreadAccountingPeriod @ 0x1402566F0 (KiEndThreadAccountingPeriod.c)
+ *     KiIpiProcessRequests @ 0x1402CB4E0 (KiIpiProcessRequests.c)
+ *     KzSetIrqlUnsafe @ 0x140569C60 (KzSetIrqlUnsafe.c)
+ */
+
 char __fastcall KiIpiInterruptSubDispatch()
 {
   __int64 v0; // rbp

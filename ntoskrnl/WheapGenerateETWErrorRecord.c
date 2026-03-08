@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheapGenerateETWErrorRecord @ 0x140610D80
+ * Callers:
+ *     WheapGenerateETWEvents @ 0x140610F18 (WheapGenerateETWEvents.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall WheapGenerateETWErrorRecord(__int64 a1)
 {
   int v1; // eax

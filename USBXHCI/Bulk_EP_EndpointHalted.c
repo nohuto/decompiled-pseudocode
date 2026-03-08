@@ -1,3 +1,11 @@
+/*
+ * XREFs of Bulk_EP_EndpointHalted @ 0x1C0046BB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Bulk_ProcessStreamOnEndpointStopOrHalt @ 0x1C0046E58 (Bulk_ProcessStreamOnEndpointStopOrHalt.c)
+ */
+
 void __fastcall Bulk_EP_EndpointHalted(__int64 a1)
 {
   KSPIN_LOCK *v2; // rdi

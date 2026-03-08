@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIEcCompleteQueryMethod @ 0x1C00258E0
+ * Callers:
+ *     ACPIEcRunQueryMethod @ 0x1C0025AC4 (ACPIEcRunQueryMethod.c)
+ * Callees:
+ *     ACPIEcDispatchQueries @ 0x1C0025958 (ACPIEcDispatchQueries.c)
+ */
+
 void __fastcall ACPIEcCompleteQueryMethod(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v5; // di

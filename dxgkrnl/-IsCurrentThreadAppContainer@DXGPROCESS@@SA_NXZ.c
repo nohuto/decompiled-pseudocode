@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsCurrentThreadAppContainer@DXGPROCESS@@SA_NXZ @ 0x1C0340B60
+ * Callers:
+ *     ?AccessCheckTargetPolicy@DXGDISPLAYMANAGEROBJECT@@SAJW4_D3DKMT_DISPLAY_TARGET_USAGE@@_N@Z @ 0x1C02F8878 (-AccessCheckTargetPolicy@DXGDISPLAYMANAGEROBJECT@@SAJW4_D3DKMT_DISPLAY_TARGET_USAGE@@_N@Z.c)
+ * Callees:
+ *     ?OpenCurrentThreadToken@DXGPROCESS@@SAJPEAPEAX@Z @ 0x1C0340C64 (-OpenCurrentThreadToken@DXGPROCESS@@SAJPEAPEAX@Z.c)
+ */
+
 bool DXGPROCESS::IsCurrentThreadAppContainer(void)
 {
   NTSTATUS v0; // eax

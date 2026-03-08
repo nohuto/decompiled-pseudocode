@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ClearInputPanelRects@DelayZoneTelemetry@@QEAAXXZ @ 0x1C0094BE0
+ * Callers:
+ *     ?Uninitialize@DelayZonePalmRejection@@SAXXZ @ 0x1C0094B2C (-Uninitialize@DelayZonePalmRejection@@SAXXZ.c)
+ *     ?ClearSession@DelayZoneTelemetry@@QEAAXXZ @ 0x1C0232030 (-ClearSession@DelayZoneTelemetry@@QEAAXXZ.c)
+ * Callees:
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 void __fastcall DelayZoneTelemetry::ClearInputPanelRects(DelayZoneTelemetry *this)
 {
   char *v1; // rdi

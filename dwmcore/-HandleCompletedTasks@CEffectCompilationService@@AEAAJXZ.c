@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?HandleCompletedTasks@CEffectCompilationService@@AEAAJXZ @ 0x1800EA81C
+ * Callers:
+ *     _lambda_85e973520dc2ca0a0fec8750a81f8fb9_::_lambda_invoker_cdecl_ @ 0x180103220 (_lambda_85e973520dc2ca0a0fec8750a81f8fb9_--_lambda_invoker_cdecl_.c)
+ * Callees:
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034BB4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$0A@@@IEAAXI@Z @ 0x1800D4A28 (-ShrinkToSize@-$DynArrayImpl@$0A@@@IEAAXI@Z.c)
+ *     ?RemoveAt@?$DynArray@PEAVCScratchRenderTargetBitmap@@$0A@@@QEAAJI@Z @ 0x1800EA8C0 (-RemoveAt@-$DynArray@PEAVCScratchRenderTargetBitmap@@$0A@@@QEAAJI@Z.c)
+ *     ?OnCompilationCompleted@CCompiledEffectTemplate@@QEAAJXZ @ 0x1800EAA00 (-OnCompilationCompleted@CCompiledEffectTemplate@@QEAAJXZ.c)
+ */
+
 __int64 __fastcall CEffectCompilationService::HandleCompletedTasks(CEffectCompilationService *this)
 {
   __int64 v2; // rbp

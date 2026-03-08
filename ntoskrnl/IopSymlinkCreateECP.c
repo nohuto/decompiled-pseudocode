@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopSymlinkCreateECP @ 0x14077E314
+ * Callers:
+ *     IopParseDevice @ 0x1407B6A30 (IopParseDevice.c)
+ * Callees:
+ *     IopGetFileObjectExtension @ 0x14023EB8C (IopGetFileObjectExtension.c)
+ *     IopSymlinkAllocateAndAddECP @ 0x14077E41C (IopSymlinkAllocateAndAddECP.c)
+ *     IopSymlinkInitializeSymlinkInfo @ 0x14077E4E8 (IopSymlinkInitializeSymlinkInfo.c)
+ */
+
 __int64 __fastcall IopSymlinkCreateECP(PIRP Irp, __int64 a2, unsigned __int16 *a3, __int16 a4, _QWORD *a5)
 {
   unsigned int v5; // r11d

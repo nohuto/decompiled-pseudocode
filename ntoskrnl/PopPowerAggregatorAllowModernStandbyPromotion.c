@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopPowerAggregatorAllowModernStandbyPromotion @ 0x14099049C
+ * Callers:
+ *     PopPowerAggregatorHandleModernStandbyIntent @ 0x140990960 (PopPowerAggregatorHandleModernStandbyIntent.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PopPowerAggregatorAllowModernStandbyPromotion(__int64 a1, __int64 a2)
 {
   char result; // al

@@ -1,3 +1,12 @@
+/*
+ * XREFs of FindNodeOrParent_0 @ 0x1402F6D40
+ * Callers:
+ *     RtlEnumerateGenericTableLikeADirectory @ 0x1402456F0 (RtlEnumerateGenericTableLikeADirectory.c)
+ *     RtlLookupFirstMatchingElementGenericTableAvl @ 0x1403CF4E0 (RtlLookupFirstMatchingElementGenericTableAvl.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall FindNodeOrParent_0(__int64 a1, __int64 a2, _QWORD *a3)
 {
   __int64 v6; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?pppUserModeCallback@@YAJKPEAXK0K@Z @ 0x1C020800C
+ * Callers:
+ *     ClientPrinterThunk @ 0x1C02089FC (ClientPrinterThunk.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall pppUserModeCallback(__int64 a1, void *a2, __int64 a3, void *a4, unsigned int a5)
 {
   __int64 result; // rax

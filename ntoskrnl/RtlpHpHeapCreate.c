@@ -1,3 +1,20 @@
+/*
+ * XREFs of RtlpHpHeapCreate @ 0x140375288
+ * Callers:
+ *     RtlpHpMetadataHeapCreate @ 0x140374B90 (RtlpHpMetadataHeapCreate.c)
+ *     ExCreateHeap @ 0x14037523C (ExCreateHeap.c)
+ * Callees:
+ *     RtlpHpVsContextInitialize @ 0x1402F7B28 (RtlpHpVsContextInitialize.c)
+ *     RtlpHpSegContextInitialize @ 0x140375540 (RtlpHpSegContextInitialize.c)
+ *     RtlpHpHeapAllocate @ 0x140375668 (RtlpHpHeapAllocate.c)
+ *     HalQueryMaximumProcessorCount @ 0x140375910 (HalQueryMaximumProcessorCount.c)
+ *     RtlpHpSegContextReserve @ 0x14037596C (RtlpHpSegContextReserve.c)
+ *     RtlpHpRegisterEnvironment @ 0x1403759F0 (RtlpHpRegisterEnvironment.c)
+ *     RtlpHpLfhContextInitialize @ 0x140375CA8 (RtlpHpLfhContextInitialize.c)
+ *     RtlpHpHeapDestroy @ 0x1405B4210 (RtlpHpHeapDestroy.c)
+ *     CmSiRWLockInitialize @ 0x14080BCF0 (CmSiRWLockInitialize.c)
+ */
+
 __int64 __fastcall RtlpHpHeapCreate(unsigned int a1, __int64 a2, __int64 a3, __int128 *a4)
 {
   __int64 v6; // rdx

@@ -1,3 +1,29 @@
+/*
+ * XREFs of KiExpireTimer2 @ 0x14024FED0
+ * Callers:
+ *     KiTimer2Expiration @ 0x140250C10 (KiTimer2Expiration.c)
+ * Callees:
+ *     KiUpdateTimer2Flags @ 0x1402044C8 (KiUpdateTimer2Flags.c)
+ *     KiFinalizeTimer2Disablement @ 0x140204564 (KiFinalizeTimer2Disablement.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     PsTimerResolutionActive @ 0x140250500 (PsTimerResolutionActive.c)
+ *     EtwGetKernelTraceTimestampSilo @ 0x140250570 (EtwGetKernelTraceTimestampSilo.c)
+ *     KiProcessThreadWaitList @ 0x1402508F0 (KiProcessThreadWaitList.c)
+ *     KiTryUnwaitThread @ 0x140258880 (KiTryUnwaitThread.c)
+ *     KiWakeOtherQueueWaiters @ 0x140293BF4 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     EtwTraceTimedEvent @ 0x1402CD670 (EtwTraceTimedEvent.c)
+ *     KiInsertTimer2 @ 0x1402DFF54 (KiInsertTimer2.c)
+ *     KiWakeQueueWaiter @ 0x140340700 (KiWakeQueueWaiter.c)
+ *     KiUpdateTimer2Collections @ 0x1403C1A38 (KiUpdateTimer2Collections.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KeIsThreadRunning @ 0x14056C7FC (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405FA8FC (EtwTraceEnqueueWork.c)
+ */
+
 __int64 __fastcall KiExpireTimer2(unsigned __int64 a1, __int64 a2, unsigned __int64 a3, _DWORD *a4)
 {
   __int64 v4; // r15

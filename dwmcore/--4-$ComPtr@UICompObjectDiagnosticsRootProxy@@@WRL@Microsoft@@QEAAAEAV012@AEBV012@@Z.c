@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??4?$ComPtr@UICompObjectDiagnosticsRootProxy@@@WRL@Microsoft@@QEAAAEAV012@AEBV012@@Z @ 0x1801B5CC4
+ * Callers:
+ *     ?SetBootstrapProxy@DiagnosticCallbacksManager@@MEAAJPEAVBamoProxy@Bamo@Microsoft@@@Z @ 0x1801B8100 (-SetBootstrapProxy@DiagnosticCallbacksManager@@MEAAJPEAVBamoProxy@Bamo@Microsoft@@@Z.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C8D4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 *__fastcall Microsoft::WRL::ComPtr<ICompObjectDiagnosticsRootProxy>::operator=(__int64 *a1, __int64 *a2)
 {
   __int64 v2; // rbx

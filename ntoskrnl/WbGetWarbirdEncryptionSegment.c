@@ -1,3 +1,19 @@
+/*
+ * XREFs of WbGetWarbirdEncryptionSegment @ 0x140755824
+ * Callers:
+ *     WbGetInitializedEncryptionSegment @ 0x140755694 (WbGetInitializedEncryptionSegment.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     sub_1407554B8 @ 0x1407554B8 (sub_1407554B8.c)
+ *     WbAddWarbirdEncryptionSegment @ 0x14075554C (WbAddWarbirdEncryptionSegment.c)
+ *     sub_140755994 @ 0x140755994 (sub_140755994.c)
+ *     sub_1407559C8 @ 0x1407559C8 (sub_1407559C8.c)
+ */
+
 __int64 __fastcall WbGetWarbirdEncryptionSegment(__int64 a1, __int64 a2, __int64 *a3)
 {
   struct _KTHREAD *CurrentThread; // rax

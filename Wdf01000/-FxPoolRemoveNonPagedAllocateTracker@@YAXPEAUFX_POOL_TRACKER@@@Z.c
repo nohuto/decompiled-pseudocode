@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?FxPoolRemoveNonPagedAllocateTracker@@YAXPEAUFX_POOL_TRACKER@@@Z @ 0x1C003A954
+ * Callers:
+ *     ?SelfDestruct@FxRequestFromLookaside@@MEAAXXZ @ 0x1C00049A0 (-SelfDestruct@FxRequestFromLookaside@@MEAAXXZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ?_CleanupPointer@FxObject@@SAPEAUFX_POOL_HEADER@@PEAU_FX_DRIVER_GLOBALS@@PEAV1@@Z @ 0x1C000DB4A (-_CleanupPointer@FxObject@@SAPEAUFX_POOL_HEADER@@PEAU_FX_DRIVER_GLOBALS@@PEAV1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxPoolRemoveNonPagedAllocateTracker(FX_POOL_TRACKER *Tracker)
 {
   KIRQL v2; // al

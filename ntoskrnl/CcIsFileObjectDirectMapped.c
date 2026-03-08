@@ -1,3 +1,14 @@
+/*
+ * XREFs of CcIsFileObjectDirectMapped @ 0x140290BB8
+ * Callers:
+ *     CcCopyWriteWontFlush @ 0x140290880 (CcCopyWriteWontFlush.c)
+ *     CcCanIWriteStreamEx @ 0x140363460 (CcCanIWriteStreamEx.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 bool __fastcall CcIsFileObjectDirectMapped(__int64 a1, char a2)
 {
   bool v2; // bl

@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtQuerySystemInformation @ 0x1406AC1E0
+ * Callers:
+ *     HalpTimerConfigureQpcBypass @ 0x1403ADC54 (HalpTimerConfigureQpcBypass.c)
+ *     AlpcpInitSystem @ 0x140856E38 (AlpcpInitSystem.c)
+ * Callees:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ */
+
 __int64 __fastcall NtQuerySystemInformation(int a1, __int64 a2, int a3, __int64 a4)
 {
   __int16 *v6; // rdx

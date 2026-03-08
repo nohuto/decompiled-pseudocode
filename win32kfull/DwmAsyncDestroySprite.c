@@ -1,3 +1,12 @@
+/*
+ * XREFs of DwmAsyncDestroySprite @ 0x1C0022BB8
+ * Callers:
+ *     ?GreDeleteSpriteInternal@@YAJPEAUHDEV__@@PEAUHWND__@@PEAXH@Z @ 0x1C00243E4 (-GreDeleteSpriteInternal@@YAJPEAUHDEV__@@PEAUHWND__@@PEAXH@Z.c)
+ *     GreTransferDwmStateToSpriteState @ 0x1C007CDBC (GreTransferDwmStateToSpriteState.c)
+ * Callees:
+ *     ?IncrementDWMWindowUniqueness@@YA_JXZ @ 0x1C0028164 (-IncrementDWMWindowUniqueness@@YA_JXZ.c)
+ */
+
 __int64 __fastcall DwmAsyncDestroySprite(PVOID Object, __int64 a2)
 {
   unsigned int v4; // edi

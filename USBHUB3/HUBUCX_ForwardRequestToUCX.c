@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBUCX_ForwardRequestToUCX @ 0x1C00292DC
+ * Callers:
+ *     HUBDSM_FowardingStreamsRequestToUcxInConfiguredSuspendedWithSpecialFile @ 0x1C001F8F0 (HUBDSM_FowardingStreamsRequestToUcxInConfiguredSuspendedWithSpecialFile.c)
+ * Callees:
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBUCX_ForwardRequestToUCX(_QWORD *a1)
 {
   __int64 v2; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetIntegerProperty@CInteractionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C00A11C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetDefaultConfiguration@CInteractionMarshaler@DirectComposition@@QEAAJXZ @ 0x1C00A2014 (-SetDefaultConfiguration@CInteractionMarshaler@DirectComposition@@QEAAJXZ.c)
+ */
+
 __int64 __fastcall DirectComposition::CInteractionMarshaler::SetIntegerProperty(
         DirectComposition::CInteractionMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

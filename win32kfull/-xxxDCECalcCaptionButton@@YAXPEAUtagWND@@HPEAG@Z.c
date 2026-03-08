@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?xxxDCECalcCaptionButton@@YAXPEAUtagWND@@HPEAG@Z @ 0x1C01BA638
+ * Callers:
+ *     xxxDCETrackCaptionButton @ 0x1C01BBA1C (xxxDCETrackCaptionButton.c)
+ * Callees:
+ *     xxxMNCanClose @ 0x1C00A4C44 (xxxMNCanClose.c)
+ */
+
 void __fastcall xxxDCECalcCaptionButton(struct tagWND *a1, int a2, unsigned __int16 *a3)
 {
   __int64 v4; // rdx

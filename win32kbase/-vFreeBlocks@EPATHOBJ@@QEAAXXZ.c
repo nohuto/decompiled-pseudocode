@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?vFreeBlocks@EPATHOBJ@@QEAAXXZ @ 0x1C01816C0
+ * Callers:
+ *     ?bGarbageCollect@EPATHOBJGC@@QEAA_NXZ @ 0x1C00DE138 (-bGarbageCollect@EPATHOBJGC@@QEAA_NXZ.c)
+ *     ?reinit@EPATHOBJ@@IEAAXXZ @ 0x1C01815E8 (-reinit@EPATHOBJ@@IEAAXXZ.c)
+ *     ?vUnlock@EPATHOBJ@@QEAAXXZ @ 0x1C0181920 (-vUnlock@EPATHOBJ@@QEAAXXZ.c)
+ * Callees:
+ *     freepathalloc @ 0x1C0181AB0 (freepathalloc.c)
+ */
+
 void __fastcall EPATHOBJ::vFreeBlocks(EPATHOBJ *this)
 {
   _DWORD *v2; // rcx

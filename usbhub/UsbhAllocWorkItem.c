@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhAllocWorkItem @ 0x1C001E570
+ * Callers:
+ *     UsbhQueueWorkItemWithRetry @ 0x1C000B390 (UsbhQueueWorkItemWithRetry.c)
+ *     UsbhFdoD0PoComplete_Action @ 0x1C000C6B0 (UsbhFdoD0PoComplete_Action.c)
+ *     UsbhQueueWorkItemEx @ 0x1C001E320 (UsbhQueueWorkItemEx.c)
+ *     UsbhFdoScheduleDeferredPowerRequest @ 0x1C001E494 (UsbhFdoScheduleDeferredPowerRequest.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ */
+
 struct _LIST_ENTRY *__fastcall UsbhAllocWorkItem(
         _LIST_ENTRY *a1,
         _LIST_ENTRY *a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of AlpcHandleDataDestroyProcedure @ 0x14077E730
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObpDecrementHandleCount @ 0x1407D8404 (ObpDecrementHandleCount.c)
+ */
+
 __int64 __fastcall AlpcHandleDataDestroyProcedure(__int64 a1)
 {
   unsigned int v1; // edi

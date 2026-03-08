@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?DxgkpCopyFile@@YAJPEBG0@Z @ 0x1C0306750
+ * Callers:
+ *     ?DxgkpPopulateFile@@YAJPEAG0W4DXGKP_HARDLINKOVERWRITETYPE@@@Z @ 0x1C0306E54 (-DxgkpPopulateFile@@YAJPEAG0W4DXGKP_HARDLINKOVERWRITETYPE@@@Z.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?DxgkpCopyAttributes@@YAJPEAX0@Z @ 0x1C0306618 (-DxgkpCopyAttributes@@YAJPEAX0@Z.c)
+ *     ?DxgkpDeleteFile@@YAJPEBG@Z @ 0x1C0306C8C (-DxgkpDeleteFile@@YAJPEBG@Z.c)
+ */
+
 __int64 __fastcall DxgkpCopyFile(PCWSTR SourceString, PCWSTR a2)
 {
   NTSTATUS v3; // eax

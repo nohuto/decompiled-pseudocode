@@ -1,3 +1,15 @@
+/*
+ * XREFs of CarEtwCrashEvent @ 0x1405D03FC
+ * Callers:
+ *     CarReportUnusualShutdown @ 0x1405D2190 (CarReportUnusualShutdown.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x140244050 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x1403BE3FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char CarEtwCrashEvent()
 {
   char result; // al

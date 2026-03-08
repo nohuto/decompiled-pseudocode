@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CD2DEffect@@IEAA@PEAVCD2DResourceManager@@@Z @ 0x180016A38
+ * Callers:
+ *     ?Create@CD2DEffect@@SAJPEAVCD2DResourceManager@@PEAUID2D1Effect@@PEAPEAV1@@Z @ 0x180016988 (-Create@CD2DEffect@@SAJPEAVCD2DResourceManager@@PEAUID2D1Effect@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     ??0CD2DResource@@IEAA@PEAVCD2DResourceManager@@_N@Z @ 0x18003D1B0 (--0CD2DResource@@IEAA@PEAVCD2DResourceManager@@_N@Z.c)
+ */
+
 CD2DEffect *__fastcall CD2DEffect::CD2DEffect(CD2DEffect *this, struct CD2DResourceManager *a2)
 {
   __int64 v3; // rcx

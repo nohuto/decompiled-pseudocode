@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CheckAllocationStatus@?$CSectionBitmapAllocator@$0DGAAA@$0DGA@@NSInstrumentation@@QEAA?AW4AllocationStatus@2@PEBX@Z @ 0x1C00A5B8C
+ * Callers:
+ *     ?Free@?$CTypeIsolation@$0DGAAA@$0DGA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C00A5AC0 (-Free@-$CTypeIsolation@$0DGAAA@$0DGA@@NSInstrumentation@@IEAAXPEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NSInstrumentation::CSectionBitmapAllocator<221184,864>::CheckAllocationStatus(
         _QWORD *a1,
         unsigned __int64 a2)

@@ -1,3 +1,19 @@
+/*
+ * XREFs of HUBPDO_AssignPDOIds @ 0x1C007EB7C
+ * Callers:
+ *     HUBPDO_CreatePdoInternal @ 0x1C007EDF4 (HUBPDO_CreatePdoInternal.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBID_BuildUxdPnpId @ 0x1C001DC7C (HUBID_BuildUxdPnpId.c)
+ *     HUBID_BuildDeviceID @ 0x1C001DE14 (HUBID_BuildDeviceID.c)
+ *     HUBID_BuildHardwareID @ 0x1C001E034 (HUBID_BuildHardwareID.c)
+ *     HUBID_BuildCompatibleID @ 0x1C001E9A8 (HUBID_BuildCompatibleID.c)
+ *     HUBID_BuildContainerID @ 0x1C001EA90 (HUBID_BuildContainerID.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_UpdateUxdSettings @ 0x1C0087358 (HUBREG_UpdateUxdSettings.c)
+ */
+
 __int64 __fastcall HUBPDO_AssignPDOIds(__int64 a1, __int64 a2)
 {
   NTSTATUS v4; // ebx

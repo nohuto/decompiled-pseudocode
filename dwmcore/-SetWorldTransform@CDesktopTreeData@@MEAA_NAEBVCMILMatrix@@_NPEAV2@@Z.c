@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?SetWorldTransform@CDesktopTreeData@@MEAA_NAEBVCMILMatrix@@_NPEAV2@@Z @ 0x1800C2260
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetInputLuid@CVisual@@QEBA?AU_LUID@@XZ @ 0x180019878 (-GetInputLuid@CVisual@@QEBA-AU_LUID@@XZ.c)
+ *     ??2@YAPEAX_K@Z @ 0x180034790 (--2@YAPEAX_K@Z.c)
+ *     ?GetInputHandle@CVisual@@QEBAPEAXXZ @ 0x1800EF614 (-GetInputHandle@CVisual@@QEBAPEAXXZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ *     McTemplateU0pxffffffffffffffff_EventWriteTransfer @ 0x1801D44A4 (McTemplateU0pxffffffffffffffff_EventWriteTransfer.c)
+ */
+
 char __fastcall CDesktopTreeData::SetWorldTransform(
         CDesktopTreeData *this,
         const struct CMILMatrix *a2,

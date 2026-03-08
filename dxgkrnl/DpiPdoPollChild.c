@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiPdoPollChild @ 0x1C03A4F60
+ * Callers:
+ *     DpiPdoGetDeviceDescriptor @ 0x1C02014BC (DpiPdoGetDeviceDescriptor.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiPdoPollChild(__int64 a1, int a2, int a3, char a4, char a5)
 {
   struct _IO_REMOVE_LOCK *v5; // r15

@@ -1,3 +1,25 @@
+/*
+ * XREFs of ExpTranslateEfiPath @ 0x14083EF60
+ * Callers:
+ *     NtTranslateFilePath @ 0x14083EB70 (NtTranslateFilePath.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     wcscpy_s @ 0x1403DA210 (wcscpy_s.c)
+ *     wcsncat_s @ 0x1403DA2A0 (wcsncat_s.c)
+ *     RtlStringFromGUIDEx @ 0x140733E90 (RtlStringFromGUIDEx.c)
+ *     ExpParseEfiPath @ 0x14083F120 (ExpParseEfiPath.c)
+ *     ExpCreateOutputNT @ 0x14083F22C (ExpCreateOutputNT.c)
+ *     ExpTranslateSymbolicLink @ 0x14083F2E8 (ExpTranslateSymbolicLink.c)
+ *     ExpCreateOutputARC @ 0x1409F90C0 (ExpCreateOutputARC.c)
+ *     ExpCreateOutputSIGNATURE @ 0x1409F9388 (ExpCreateOutputSIGNATURE.c)
+ *     ExpFindDiskSignature @ 0x1409F983C (ExpFindDiskSignature.c)
+ *     ExpGetDriveGeometry @ 0x1409F9C60 (ExpGetDriveGeometry.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpTranslateEfiPath(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
   __int64 result; // rax

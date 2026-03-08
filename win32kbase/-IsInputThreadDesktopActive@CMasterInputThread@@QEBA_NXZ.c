@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?IsInputThreadDesktopActive@CMasterInputThread@@QEBA_NXZ @ 0x1C0232B24
+ * Callers:
+ *     ?IsUMSuppressed@CBaseProcessor@@QEBA_NXZ @ 0x1C00F446E (-IsUMSuppressed@CBaseProcessor@@QEBA_NXZ.c)
+ *     ?InformUMObservers@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@AEBUtagPOINT@@1@Z @ 0x1C022E28C (-InformUMObservers@CMouseProcessor@@AEAAXAEBVCMouseEvent@1@AEBUtagPOINT@@1@Z.c)
+ * Callees:
+ *     ?IsEmpty@InputThreadState@CInputThreadBase@@QEBA_NXZ @ 0x1C009AD00 (-IsEmpty@InputThreadState@CInputThreadBase@@QEBA_NXZ.c)
+ */
+
 bool __fastcall CMasterInputThread::IsInputThreadDesktopActive(CMasterInputThread *this)
 {
   PKDPC BufferChainingDpc; // rsi

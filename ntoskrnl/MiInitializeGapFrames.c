@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiInitializeGapFrames @ 0x140B36EE8
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MiAcquireNonPagedResources @ 0x140348D54 (MiAcquireNonPagedResources.c)
+ */
+
 __int64 __fastcall MiInitializeGapFrames(__int64 a1, __int64 *a2)
 {
   int v2; // ebp

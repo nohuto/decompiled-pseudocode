@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserKillTimer @ 0x1C00666F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DecTimerCount@@YAXPEAUtagTIMER@@@Z @ 0x1C00DDC4C (-DecTimerCount@@YAXPEAUtagTIMER@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall NtUserKillTimer(__int64 a1, __int64 a2)
 {

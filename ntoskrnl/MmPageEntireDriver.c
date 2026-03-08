@@ -1,3 +1,17 @@
+/*
+ * XREFs of MmPageEntireDriver @ 0x140729DE0
+ * Callers:
+ *     DifMmPageEntireDriverWrapper @ 0x1405E5380 (DifMmPageEntireDriverWrapper.c)
+ * Callees:
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     KeFlushQueuedDpcs @ 0x1402AF200 (KeFlushQueuedDpcs.c)
+ *     MiSetPagingOfDriver @ 0x1402AFF28 (MiSetPagingOfDriver.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14032E710 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiLookupDataTableEntry @ 0x14035ECF0 (MiLookupDataTableEntry.c)
+ *     MiCancelPhase0Locking @ 0x140729E84 (MiCancelPhase0Locking.c)
+ */
+
 PVOID __stdcall MmPageEntireDriver(PVOID AddressWithinSection)
 {
   _QWORD *v2; // rax

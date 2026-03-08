@@ -1,3 +1,12 @@
+/*
+ * XREFs of SleepstudyHelperInitializeOnce @ 0x1C00B1FE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwPowerInformation_0 @ 0x1C000A942 (ZwPowerInformation_0.c)
+ *     memset @ 0x1C000AC00 (memset.c)
+ */
+
 __int64 __fastcall SleepstudyHelperInitializeOnce(_RTL_RUN_ONCE *RunOnce, void *Parameter, void **Context)
 {
   _SLEEPSTUDY_HELPER_ROUTINE_BLOCK *v3; // rdi

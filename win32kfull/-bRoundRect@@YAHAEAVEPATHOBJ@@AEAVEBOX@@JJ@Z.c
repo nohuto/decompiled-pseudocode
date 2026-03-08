@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?bRoundRect@@YAHAEAVEPATHOBJ@@AEAVEBOX@@JJ@Z @ 0x1C02C85D4
+ * Callers:
+ *     NtGdiCreateRoundRectRgn @ 0x1C02AB3C0 (NtGdiCreateRoundRectRgn.c)
+ *     NtGdiRoundRect @ 0x1C02AFD00 (NtGdiRoundRect.c)
+ * Callees:
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0016964 (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z @ 0x1C014D8B8 (-bMoveTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@@Z.c)
+ *     ?bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z @ 0x1C014DA72 (-bPolyLineTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z.c)
+ *     ?bPolyBezierTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z @ 0x1C014DF96 (-bPolyBezierTo@EPATHOBJ@@QEAAHPEAVEXFORMOBJ@@PEAU_POINTL@@K@Z.c)
+ *     ?bToPOINTL@EPOINTFL@@QEAAHAEAU_POINTL@@@Z @ 0x1C01501C4 (-bToPOINTL@EPOINTFL@@QEAAHAEAU_POINTL@@@Z.c)
+ *     ?efHalfDiff@@YA?AVEFLOAT@@JJ@Z @ 0x1C02C8980 (-efHalfDiff@@YA-AVEFLOAT@@JJ@Z.c)
+ */
+
 int __fastcall bRoundRect(struct EPATHOBJ *this, struct _POINTL *a2, __int64 a3)
 {
   LONG v5; // eax

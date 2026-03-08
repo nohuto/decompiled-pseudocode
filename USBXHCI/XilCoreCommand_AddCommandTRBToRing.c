@@ -1,3 +1,11 @@
+/*
+ * XREFs of XilCoreCommand_AddCommandTRBToRing @ 0x1C000AC28
+ * Callers:
+ *     XilCommand_AddCommandCRBToRing @ 0x1C000AB9C (XilCommand_AddCommandCRBToRing.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ddd @ 0x1C0017FB0 (WPP_RECORDER_SF_ddd.c)
+ */
+
 char __fastcall XilCoreCommand_AddCommandTRBToRing(__int64 *a1, __int64 a2)
 {
   __int64 v3; // rdx

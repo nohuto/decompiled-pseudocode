@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?XLATEOBJ_RGB32ToPalSurf@@YAEPEAU_XLATEOBJ@@PEBEK@Z @ 0x1C02DE140
+ * Callers:
+ *     ?vSrcCopyS24D8@@YAXPEAUBLTINFO@@@Z @ 0x1C02ECED0 (-vSrcCopyS24D8@@YAXPEAUBLTINFO@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 __fastcall XLATEOBJ_RGB32ToPalSurf(struct _XLATEOBJ *a1, const unsigned __int8 *a2, unsigned int a3)
 {
   struct Gre::Base::SESSION_GLOBALS *v6; // rax

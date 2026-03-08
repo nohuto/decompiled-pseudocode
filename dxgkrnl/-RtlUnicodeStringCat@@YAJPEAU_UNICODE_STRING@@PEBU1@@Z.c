@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?RtlUnicodeStringCat@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C004DBB0
+ * Callers:
+ *     ?AppendSubKeys@DXG_REGISTRY_KEY_LIST@@QEAAJPEAXPEAU_KEY_FULL_INFORMATION@@PEAU_UNICODE_STRING@@@Z @ 0x1C0305D80 (-AppendSubKeys@DXG_REGISTRY_KEY_LIST@@QEAAJPEAXPEAU_KEY_FULL_INFORMATION@@PEAU_UNICODE_STRING@@@.c)
+ *     ?VmBusSendGetRegistryKeys@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAG@Z @ 0x1C03856B8 (-VmBusSendGetRegistryKeys@DXG_GUEST_VIRTUALGPU_VMBUS@@QEAAJPEAG@Z.c)
+ * Callees:
+ *     RtlUnicodeStringValidateDestWorker_0 @ 0x1C004DD28 (RtlUnicodeStringValidateDestWorker_0.c)
+ *     RtlUnicodeStringValidateWorker_0 @ 0x1C004DD98 (RtlUnicodeStringValidateWorker_0.c)
+ */
+
 __int64 __fastcall RtlUnicodeStringCat(struct _UNICODE_STRING *a1, const struct _UNICODE_STRING *a2)
 {
   size_t v4; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of DifGetPluginPerDriverData @ 0x1405D2630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VfTargetDriversGetVerifierData @ 0x140AC8528 (VfTargetDriversGetVerifierData.c)
+ */
+
 __int64 __fastcall DifGetPluginPerDriverData(int a1, __int64 a2)
 {
   _DWORD *v2; // rcx

@@ -1,3 +1,32 @@
+/*
+ * XREFs of UsbhFdoSetD0Cold @ 0x1C000FBD0
+ * Callers:
+ *     UsbhFdoD0Worker_Action @ 0x1C000CE60 (UsbhFdoD0Worker_Action.c)
+ *     UsbhHardReset_Action @ 0x1C003D0C8 (UsbhHardReset_Action.c)
+ *     UsbhHubStart @ 0x1C0043560 (UsbhHubStart.c)
+ * Callees:
+ *     UsbhRefPdo @ 0x1C00012A0 (UsbhRefPdo.c)
+ *     UsbhUnlatchPdo @ 0x1C0001380 (UsbhUnlatchPdo.c)
+ *     UsbhEtwLogHubIrpEvent @ 0x1C00098E0 (UsbhEtwLogHubIrpEvent.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhQueryPortState @ 0x1C0016540 (UsbhQueryPortState.c)
+ *     UsbhSyncPowerOnPorts @ 0x1C0018A40 (UsbhSyncPowerOnPorts.c)
+ *     UsbhLatchPdo @ 0x1C0019420 (UsbhLatchPdo.c)
+ *     UsbhRawWait @ 0x1C0019670 (UsbhRawWait.c)
+ *     UsbhSyncResetDeviceInternal @ 0x1C0019820 (UsbhSyncResetDeviceInternal.c)
+ *     UsbhDispatch_BusEvent @ 0x1C001CF30 (UsbhDispatch_BusEvent.c)
+ *     UsbhFdoColdStartPdo @ 0x1C00222BC (UsbhFdoColdStartPdo.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     UsbhQueueSoftConnectChange @ 0x1C0034FA8 (UsbhQueueSoftConnectChange.c)
+ *     UsbhResetHubUpstreamPort @ 0x1C003D440 (UsbhResetHubUpstreamPort.c)
+ *     UsbhResetNotifyCompletion @ 0x1C003D4F0 (UsbhResetNotifyCompletion.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 __int64 __fastcall UsbhFdoSetD0Cold(struct _DEVICE_OBJECT *a1, __int64 a2, char a3)
 {
   __int16 v6; // r9

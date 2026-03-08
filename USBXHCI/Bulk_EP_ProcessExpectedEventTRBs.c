@@ -1,3 +1,11 @@
+/*
+ * XREFs of Bulk_EP_ProcessExpectedEventTRBs @ 0x1C000F6C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ */
+
 void __fastcall Bulk_EP_ProcessExpectedEventTRBs(__int64 a1)
 {
   KIRQL v2; // al

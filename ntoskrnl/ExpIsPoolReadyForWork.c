@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpIsPoolReadyForWork @ 0x14033F350
+ * Callers:
+ *     ExpTryQueueWorkItem @ 0x140308AAC (ExpTryQueueWorkItem.c)
+ *     ExpQueueWorkItem @ 0x14033EE40 (ExpQueueWorkItem.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall ExpIsPoolReadyForWork(__int64 a1, unsigned __int16 *a2, int a3)
 {
   __int64 v3; // r9

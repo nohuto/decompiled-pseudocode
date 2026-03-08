@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcInsertVacbArray @ 0x1403BC918
+ * Callers:
+ *     CcGetVirtualAddress @ 0x14021FB80 (CcGetVirtualAddress.c)
+ *     CcInitializePartitionVacbs @ 0x14039BA70 (CcInitializePartitionVacbs.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 _QWORD *__fastcall CcInsertVacbArray(__int64 a1, _DWORD *a2)
 {
   _QWORD *v4; // rax

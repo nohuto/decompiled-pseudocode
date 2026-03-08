@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiAppendWsleCluster @ 0x14031D6E0
+ * Callers:
+ *     MiDeleteSystemPagableVm @ 0x1402B04B0 (MiDeleteSystemPagableVm.c)
+ *     MiRemoveMappedPtes @ 0x1403474D0 (MiRemoveMappedPtes.c)
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiTerminateWsleCluster @ 0x1403234E0 (MiTerminateWsleCluster.c)
+ */
+
 __int64 __fastcall MiAppendWsleCluster(__int64 a1, __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 v6; // rdi

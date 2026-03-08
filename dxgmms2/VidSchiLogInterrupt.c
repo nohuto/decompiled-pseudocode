@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchiLogInterrupt @ 0x1C000AEE0
+ * Callers:
+ *     VidSchDdiNotifyInterrupt @ 0x1C000ADD0 (VidSchDdiNotifyInterrupt.c)
+ *     ?VidSchiCallNotifyInterruptAtISR@@YAEPEAX@Z @ 0x1C0046CC0 (-VidSchiCallNotifyInterruptAtISR@@YAEPEAX@Z.c)
+ * Callees:
+ *     memset @ 0x1C001AC80 (memset.c)
+ */
+
 char __fastcall VidSchiLogInterrupt(__int64 a1, int *a2, char a3)
 {
   int v3; // eax

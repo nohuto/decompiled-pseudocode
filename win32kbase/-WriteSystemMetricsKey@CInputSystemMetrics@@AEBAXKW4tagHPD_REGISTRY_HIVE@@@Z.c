@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?WriteSystemMetricsKey@CInputSystemMetrics@@AEBAXKW4tagHPD_REGISTRY_HIVE@@@Z @ 0x1C0097DB4
+ * Callers:
+ *     InitializeInputComponents @ 0x1C009770C (InitializeInputComponents.c)
+ *     ForceUpdatePointerDeviceSystemMetrics @ 0x1C0097D70 (ForceUpdatePointerDeviceSystemMetrics.c)
+ *     ?UpdatePointerDeviceSystemMetrics@CInputSystemMetrics@@QEAAXPEBUDEVICEINFO@@_N@Z @ 0x1C0232C38 (-UpdatePointerDeviceSystemMetrics@CInputSystemMetrics@@QEAAXPEBUDEVICEINFO@@_N@Z.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 NTSTATUS __fastcall CInputSystemMetrics::WriteSystemMetricsKey(__int64 a1, int a2, int a3)
 {
   NTSTATUS result; // eax

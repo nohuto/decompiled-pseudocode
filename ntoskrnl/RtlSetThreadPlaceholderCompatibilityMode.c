@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlSetThreadPlaceholderCompatibilityMode @ 0x1408A16A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RtlSetThreadPlaceholderCompatibilityMode(unsigned __int8 a1)
 {
   struct _KTHREAD *CurrentThread; // rdx

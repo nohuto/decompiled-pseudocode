@@ -1,3 +1,26 @@
+/*
+ * XREFs of MiReplaceRotateWithDemandZeroNoCopy @ 0x140630618
+ * Callers:
+ *     MmRotatePhysicalView @ 0x140A2EF10 (MmRotatePhysicalView.c)
+ * Callees:
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiLockPageTableInternal @ 0x14026A0D0 (MiLockPageTableInternal.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiDereferenceIoPages @ 0x14029B654 (MiDereferenceIoPages.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiWorkingSetIsContended @ 0x1403478E0 (MiWorkingSetIsContended.c)
+ *     MiPageTableLockIsContended @ 0x140347920 (MiPageTableLockIsContended.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiIsProbeActive @ 0x14062BDE8 (MiIsProbeActive.c)
+ *     MiUnmapFrameBuffer @ 0x1406315E0 (MiUnmapFrameBuffer.c)
+ */
+
 __int64 __fastcall MiReplaceRotateWithDemandZeroNoCopy(unsigned __int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 v4; // rsi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?BeginFrame@CHolographicInteropTexture@@QEAAPEAVIRenderTargetBitmap@@II@Z @ 0x1802A71DC
+ * Callers:
+ *     ?RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTexture@@II@Z @ 0x1802A6564 (-RenderTexture@CHolographicInteropTarget@@AEAAJPEAVCDrawingContext@@PEAVCHolographicInteropTextu.c)
+ * Callees:
+ *     <none>
+ */
+
 struct IRenderTargetBitmap *__fastcall CHolographicInteropTexture::BeginFrame(
         RTL_SRWLOCK *this,
         __int64 a2,

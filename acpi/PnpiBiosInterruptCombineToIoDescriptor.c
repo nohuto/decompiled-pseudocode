@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpiBiosInterruptCombineToIoDescriptor @ 0x1C003C3D4
+ * Callers:
+ *     PnpBiosResourcesToNtResources @ 0x1C008EFDC (PnpBiosResourcesToNtResources.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     PnpiBiosGpioInterruptIoToNtIoDescriptor @ 0x1C0091918 (PnpiBiosGpioInterruptIoToNtIoDescriptor.c)
+ */
+
 __int64 __fastcall PnpiBiosInterruptCombineToIoDescriptor(
         int a1,
         __int64 a2,

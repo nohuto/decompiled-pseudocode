@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsPersistentPacket@DXGDIAGNOSTICS@@AEBAHPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C004FF08
+ * Callers:
+ *     ?WriteDiagnosticEntryInternal@DXGDIAGNOSTICS@@AEBAJPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C000A3BC (-WriteDiagnosticEntryInternal@DXGDIAGNOSTICS@@AEBAJPEAU_DXGK_DIAG_HEADER@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DXGDIAGNOSTICS::IsPersistentPacket(DXGDIAGNOSTICS *this, struct _DXGK_DIAG_HEADER *a2)
 {
   int v2; // eax

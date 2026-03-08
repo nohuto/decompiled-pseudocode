@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViIrpLogDatabaseFindPointer @ 0x140AD9F58
+ * Callers:
+ *     VfIrpLogDeleteDeviceLogs @ 0x140AD9750 (VfIrpLogDeleteDeviceLogs.c)
+ *     VfIrpLogRecordEvent @ 0x140AD98FC (VfIrpLogRecordEvent.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall ViIrpLogDatabaseFindPointer(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rax

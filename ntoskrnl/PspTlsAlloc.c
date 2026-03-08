@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspTlsAlloc @ 0x140849A64
+ * Callers:
+ *     PsTlsAlloc @ 0x140849A30 (PsTlsAlloc.c)
+ * Callees:
+ *     MmIsSessionAddress @ 0x140239ED0 (MmIsSessionAddress.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlpFlsAlloc @ 0x140849B60 (RtlpFlsAlloc.c)
+ *     PsTlsFree @ 0x1409B31F0 (PsTlsFree.c)
+ */
+
 __int64 __fastcall PspTlsAlloc(__int64 a1, unsigned int a2, int a3, unsigned int *a4)
 {
   int v6; // ebx

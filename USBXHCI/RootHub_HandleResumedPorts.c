@@ -1,3 +1,14 @@
+/*
+ * XREFs of RootHub_HandleResumedPorts @ 0x1C0010220
+ * Callers:
+ *     RootHub_D0Exit @ 0x1C0010338 (RootHub_D0Exit.c)
+ * Callees:
+ *     RootHub_WaitForResumeCompletion @ 0x1C00104E4 (RootHub_WaitForResumeCompletion.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     RootHub_ForceU3 @ 0x1C003F964 (RootHub_ForceU3.c)
+ */
+
 void __fastcall RootHub_HandleResumedPorts(__int64 a1)
 {
   unsigned int v1; // ebx

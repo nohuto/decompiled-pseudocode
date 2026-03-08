@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitRotationManager @ 0x1C00F5160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 InitRotationManager()
 {
   _QWORD *Pool2; // rcx

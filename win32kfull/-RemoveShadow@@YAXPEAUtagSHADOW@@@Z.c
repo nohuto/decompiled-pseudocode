@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RemoveShadow@@YAXPEAUtagSHADOW@@@Z @ 0x1C0224110
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall RemoveShadow(struct tagSHADOW *a1)
 {
   struct tagSHADOW *v1; // rbx

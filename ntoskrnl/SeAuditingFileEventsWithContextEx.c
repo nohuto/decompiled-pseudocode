@@ -1,3 +1,12 @@
+/*
+ * XREFs of SeAuditingFileEventsWithContextEx @ 0x1405B6960
+ * Callers:
+ *     SeAuditingFileEventsWithContext @ 0x1409CA700 (SeAuditingFileEventsWithContext.c)
+ * Callees:
+ *     SepAdtAuditThisEventWithContext @ 0x140699810 (SepAdtAuditThisEventWithContext.c)
+ *     SepAdtAuditThisEventByCategoryWithContext @ 0x140699890 (SepAdtAuditThisEventByCategoryWithContext.c)
+ */
+
 char __fastcall SeAuditingFileEventsWithContextEx(char a1, __int64 a2, __int64 a3, _BYTE *a4)
 {
   __int64 v5; // rbp

@@ -1,3 +1,22 @@
+/*
+ * XREFs of SdbpSearchDB @ 0x14079F878
+ * Callers:
+ *     SdbGetDatabaseMatch @ 0x14079E090 (SdbGetDatabaseMatch.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbFindFirstStringIndexedTag @ 0x14079F36C (SdbFindFirstStringIndexedTag.c)
+ *     SdbGetIndex @ 0x14079FE64 (SdbGetIndex.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x1407A1870 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x1407A1E68 (SdbpFindNextIndexedWildCardTag.c)
+ *     SdbGetStringTagPtr @ 0x1407A20E8 (SdbGetStringTagPtr.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ *     SdbFindNextStringIndexedTag @ 0x140848AD4 (SdbFindNextStringIndexedTag.c)
+ *     SdbpCheckExe @ 0x14085F610 (SdbpCheckExe.c)
+ *     SdbpFindFirstNamedTagHelper @ 0x140A4EEE0 (SdbpFindFirstNamedTagHelper.c)
+ *     SdbpFindNextNamedTagHelper @ 0x140A4EFC0 (SdbpFindNextNamedTagHelper.c)
+ */
+
 __int64 __fastcall SdbpSearchDB(__int64 a1, void *a2, __int16 a3, __int64 a4, unsigned int *a5, __int64 a6)
 {
   unsigned int *v6; // r13

@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserPrintWindow @ 0x1C01D98D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxPrintWindow @ 0x1C01BE184 (xxxPrintWindow.c)
+ */
+
 __int64 __fastcall NtUserPrintWindow(__int64 a1, HDC a2, int a3)
 {
   __int64 v6; // rax

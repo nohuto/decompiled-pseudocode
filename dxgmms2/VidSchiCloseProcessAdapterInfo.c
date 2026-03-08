@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiCloseProcessAdapterInfo @ 0x1C00AC8E4
+ * Callers:
+ *     VidSchTerminateDevice @ 0x1C00A8E60 (VidSchTerminateDevice.c)
+ * Callees:
+ *     ??_GVIDSCH_PROCESS_ADAPTER_INFO@@QEAAPEAXI@Z @ 0x1C0014854 (--_GVIDSCH_PROCESS_ADAPTER_INFO@@QEAAPEAXI@Z.c)
+ */
+
 __int64 __fastcall VidSchiCloseProcessAdapterInfo(__int64 a1, unsigned int *a2)
 {
   __int64 v2; // rbx

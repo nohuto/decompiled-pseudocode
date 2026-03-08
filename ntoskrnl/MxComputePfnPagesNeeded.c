@@ -1,3 +1,11 @@
+/*
+ * XREFs of MxComputePfnPagesNeeded @ 0x140B386D0
+ * Callers:
+ *     MxComputeFreeNodeDescriptorRequirements @ 0x140B38484 (MxComputeFreeNodeDescriptorRequirements.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MxComputePfnPagesNeeded(__int64 a1, __int64 a2)
 {
   __int64 v2; // r10

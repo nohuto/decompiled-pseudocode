@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?BeginUpdateCursors@CGlobalComposition@@UEAAXXZ @ 0x1800E8560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ProcessStateChanges@CCursorState@@QEAAX_K_N@Z @ 0x180276F18 (-ProcessStateChanges@CCursorState@@QEAAX_K_N@Z.c)
+ */
+
 void __fastcall CGlobalComposition::BeginUpdateCursors(CGlobalComposition *this)
 {
   __int64 v1; // rsi

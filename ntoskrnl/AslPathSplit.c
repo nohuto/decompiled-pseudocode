@@ -1,3 +1,15 @@
+/*
+ * XREFs of AslPathSplit @ 0x1407A1568
+ * Callers:
+ *     SdbpCreateSearchDBContext @ 0x1407A3094 (SdbpCreateSearchDBContext.c)
+ * Callees:
+ *     RtlStringCchCopyW @ 0x1402470F0 (RtlStringCchCopyW.c)
+ *     RtlStringCchCopyNW @ 0x140303EF8 (RtlStringCchCopyNW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcsrchr @ 0x1403D5F90 (wcsrchr.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ */
+
 __int64 __fastcall AslPathSplit(
         STRSAFE_PCNZWCH pszSrc,
         NTSTRSAFE_PWSTR pszDest,

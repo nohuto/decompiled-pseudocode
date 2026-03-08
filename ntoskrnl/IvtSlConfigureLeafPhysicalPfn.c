@@ -1,3 +1,11 @@
+/*
+ * XREFs of IvtSlConfigureLeafPhysicalPfn @ 0x14052F4E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IvtSlConfigureLeafPhysicalPfn(unsigned __int64 *a1, __int64 a2, char a3, unsigned int a4)
 {
   unsigned int v4; // r11d

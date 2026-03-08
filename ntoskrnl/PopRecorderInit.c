@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopRecorderInit @ 0x140B68B08
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     KeRegisterBugCheckReasonCallback @ 0x1402E8DA0 (KeRegisterBugCheckReasonCallback.c)
+ */
+
 BOOLEAN PopRecorderInit()
 {
   unsigned __int64 i; // rbx

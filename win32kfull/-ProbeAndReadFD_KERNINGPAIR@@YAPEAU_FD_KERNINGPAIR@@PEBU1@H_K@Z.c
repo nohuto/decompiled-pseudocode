@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ProbeAndReadFD_KERNINGPAIR@@YAPEAU_FD_KERNINGPAIR@@PEBU1@H_K@Z @ 0x1C02BA63C
+ * Callers:
+ *     ?UMPDDrvQueryFontTree@@YAPEAXPEAUDHPDEV__@@_KKKPEAK@Z @ 0x1C02BEED0 (-UMPDDrvQueryFontTree@@YAPEAXPEAUDHPDEV__@@_KKKPEAK@Z.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ??9@YA_NAEBU_FD_KERNINGPAIR@@0@Z @ 0x1C02BA028 (--9@YA_NAEBU_FD_KERNINGPAIR@@0@Z.c)
+ */
+
 struct _FD_KERNINGPAIR *__fastcall ProbeAndReadFD_KERNINGPAIR(
         const struct _FD_KERNINGPAIR *Src,
         int a2,

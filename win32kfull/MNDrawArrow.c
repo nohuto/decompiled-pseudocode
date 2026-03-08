@@ -1,3 +1,17 @@
+/*
+ * XREFs of MNDrawArrow @ 0x1C02372BC
+ * Callers:
+ *     xxxMNSetTop @ 0x1C021CD94 (xxxMNSetTop.c)
+ *     xxxMNDrawFullNC @ 0x1C0237FB4 (xxxMNDrawFullNC.c)
+ *     xxxMNInvertItem @ 0x1C02382C8 (xxxMNInvertItem.c)
+ * Callees:
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ *     BitBltSysBmp @ 0x1C00D04B0 (BitBltSysBmp.c)
+ *     GetOemBitmapInfoForDpi @ 0x1C00D05EC (GetOemBitmapInfoForDpi.c)
+ *     DrawFrameControl @ 0x1C0116938 (DrawFrameControl.c)
+ *     ?GetDPIMETRICS@@YAPEBUtagDPIMETRICS@@PEBUtagWND@@@Z @ 0x1C02363F0 (-GetDPIMETRICS@@YAPEBUtagDPIMETRICS@@PEBUtagWND@@@Z.c)
+ */
+
 __int64 __fastcall MNDrawArrow(HDC a1, __int64 **a2, int a3)
 {
   const struct tagWND *v6; // r13

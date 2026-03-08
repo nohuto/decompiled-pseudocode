@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiWaitForRotateToComplete @ 0x1406317E4
+ * Callers:
+ *     MiUserFault @ 0x140268260 (MiUserFault.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiUnlockFaultWorkingSet @ 0x1402F7444 (MiUnlockFaultWorkingSet.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14031F7B0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiLockVadShared @ 0x14031F870 (MiLockVadShared.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ */
+
 __int64 __fastcall MiWaitForRotateToComplete(unsigned __int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // r15

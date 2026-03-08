@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpDpReplaceTarget @ 0x140A949F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpDpOfflineProcessorForReplace @ 0x140A94318 (HalpDpOfflineProcessorForReplace.c)
+ */
+
 __int64 __fastcall HalpDpReplaceTarget(__int64 a1)
 {
   int v1; // esi

@@ -1,3 +1,21 @@
+/*
+ * XREFs of CmpLightWeightPrepareAddKeyUoW @ 0x140A26040
+ * Callers:
+ *     CmpProcessLightWeightUOW @ 0x140A19C0C (CmpProcessLightWeightUOW.c)
+ * Callees:
+ *     CmpFreeKeyByCell @ 0x1406BA854 (CmpFreeKeyByCell.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpCopyKeyPartial @ 0x14078ECB4 (CmpCopyKeyPartial.c)
+ *     CmpAddSubKeyToList @ 0x1407A4300 (CmpAddSubKeyToList.c)
+ *     HvAllocateCell @ 0x1407A63A8 (HvAllocateCell.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpMarkCellDirty @ 0x1407D2460 (HvpMarkCellDirty.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x140A25254 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmpLightWeightCreateModificationData @ 0x140A25D48 (CmpLightWeightCreateModificationData.c)
+ */
+
 __int64 __fastcall CmpLightWeightPrepareAddKeyUoW(__int64 a1)
 {
   unsigned int v2; // r14d

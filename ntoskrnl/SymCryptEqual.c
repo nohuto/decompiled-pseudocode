@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptEqual @ 0x1403FD4F4
+ * Callers:
+ *     SymCryptRsaPkcs1CheckSignaturePadding @ 0x1403F351C (SymCryptRsaPkcs1CheckSignaturePadding.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall SymCryptEqual(char *a1, char *a2, unsigned __int64 a3)
 {
   int v3; // r10d

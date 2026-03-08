@@ -1,3 +1,25 @@
+/*
+ * XREFs of _anonymous_namespace_::xxxSendFocusMessages @ 0x1C009A850
+ * Callers:
+ *     ?xxxSetFocus@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C009A3E0 (-xxxSetFocus@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     _anonymous_namespace_::xxxLocalActivateWindow @ 0x1C009E0E4 (_anonymous_namespace_--xxxLocalActivateWindow.c)
+ * Callees:
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     ?xxxFocusSetInputContext@@YAXPEAUtagWND@@HH@Z @ 0x1C009AC64 (-xxxFocusSetInputContext@@YAXPEAUtagWND@@HH@Z.c)
+ *     ?xxxApplyGlobalInputSettings@@YAXH@Z @ 0x1C009AD2C (-xxxApplyGlobalInputSettings@@YAXH@Z.c)
+ *     ?xxxSetForegroundThreadWithWindowHint@@YAXPEAUtagTHREADINFO@@PEAUtagWND@@@Z @ 0x1C009AEB4 (-xxxSetForegroundThreadWithWindowHint@@YAXPEAUtagTHREADINFO@@PEAUtagWND@@@Z.c)
+ *     zzzInputFocusReceivedWindowEvent @ 0x1C009B35C (zzzInputFocusReceivedWindowEvent.c)
+ *     zzzInputFocusLostWindowEvent @ 0x1C009BA70 (zzzInputFocusLostWindowEvent.c)
+ *     LockW32Thread @ 0x1C00A1BCC (LockW32Thread.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ *     xxxSendNotifyMessage @ 0x1C00D8320 (xxxSendNotifyMessage.c)
+ *     Feature_KIDV2__private_IsEnabledDeviceUsage @ 0x1C012C6EC (Feature_KIDV2__private_IsEnabledDeviceUsage.c)
+ *     zzzDelegateInputFocusLostWindowEvent @ 0x1C012E030 (zzzDelegateInputFocusLostWindowEvent.c)
+ *     zzzDelegateInputFocusReceivedWindowEvent @ 0x1C012E06C (zzzDelegateInputFocusReceivedWindowEvent.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall anonymous_namespace_::xxxSendFocusMessages(__int64 a1, __int64 a2)
 {
   __int64 v4; // rax

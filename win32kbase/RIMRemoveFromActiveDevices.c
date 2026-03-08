@@ -1,3 +1,22 @@
+/*
+ * XREFs of RIMRemoveFromActiveDevices @ 0x1C01B9190
+ * Callers:
+ *     RIMFreePointerDevice @ 0x1C01B5B18 (RIMFreePointerDevice.c)
+ *     RIMUpdatePointerDeviceStateAfterFrameCompleted @ 0x1C01D5678 (RIMUpdatePointerDeviceStateAfterFrameCompleted.c)
+ * Callees:
+ *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C0032C40 (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C0033950 (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C004E3E0 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     Feature_RIMUserCritOpt__private_ReportDeviceUsage @ 0x1C00DF02C (Feature_RIMUserCritOpt__private_ReportDeviceUsage.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMUpdatePrimaryDevice @ 0x1C01BA144 (RIMUpdatePrimaryDevice.c)
+ *     rimQueueApiSetPostPointerDeviceRangeMessageAsyncWorkItem @ 0x1C01BC4DC (rimQueueApiSetPostPointerDeviceRangeMessageAsyncWorkItem.c)
+ *     rimFindLastDeviceFrame @ 0x1C01D256C (rimFindLastDeviceFrame.c)
+ *     ApiSetPostPointerDeviceOutOfRangeMessage @ 0x1C0245DE4 (ApiSetPostPointerDeviceOutOfRangeMessage.c)
+ */
+
 __int64 __fastcall RIMRemoveFromActiveDevices(__int64 a1, __int64 a2)
 {
   int v4; // r8d

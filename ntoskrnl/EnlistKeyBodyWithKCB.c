@@ -1,3 +1,12 @@
+/*
+ * XREFs of EnlistKeyBodyWithKCB @ 0x14076EC30
+ * Callers:
+ *     CmpEnlistKeyBody @ 0x14076EBCC (CmpEnlistKeyBody.c)
+ *     CmpCreateRegistryRoot @ 0x140B5131C (CmpCreateRegistryRoot.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EnlistKeyBodyWithKCB(signed __int64 a1, char a2)
 {
   __int64 *v2; // r9

@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserDisableImmersiveOwner @ 0x1C01CF6A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?xxxEnableWindowWorker@@YAHPEAUtagWND@@H@Z @ 0x1C000AEB8 (-xxxEnableWindowWorker@@YAHPEAUtagWND@@H@Z.c)
+ *     IsImmersiveBandOrShellManaged @ 0x1C00216FC (IsImmersiveBandOrShellManaged.c)
+ *     IsWindowBeingDestroyed @ 0x1C0039B60 (IsWindowBeingDestroyed.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ */
+
 __int64 __fastcall NtUserDisableImmersiveOwner(__int64 a1)
 {
   __int64 v2; // rax

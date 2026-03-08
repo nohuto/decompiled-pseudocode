@@ -1,3 +1,16 @@
+/*
+ * XREFs of LogFwReport @ 0x140AE90F4
+ * Callers:
+ *     BgpFwLibraryDisable @ 0x140AE91EC (BgpFwLibraryDisable.c)
+ *     ResFwFreeContext @ 0x140AEEED4 (ResFwFreeContext.c)
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     BgpGetResolution @ 0x1403029E8 (BgpGetResolution.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     BgpFwQueryPerformanceCounter @ 0x140381520 (BgpFwQueryPerformanceCounter.c)
+ *     BgpGetBitsPerPixel @ 0x140381AB0 (BgpGetBitsPerPixel.c)
+ */
+
 void LogFwReport()
 {
   _DWORD *Resolution; // rax

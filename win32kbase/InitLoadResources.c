@@ -1,3 +1,16 @@
+/*
+ * XREFs of InitLoadResources @ 0x1C0015CF0
+ * Callers:
+ *     xxxRemoteConnect @ 0x1C000F480 (xxxRemoteConnect.c)
+ *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C0014608 (-zzzUpdateUserScreen@@YAJXZ.c)
+ *     ?UserInitialize@@YAJXZ @ 0x1C002D838 (-UserInitialize@@YAJXZ.c)
+ * Callees:
+ *     SetDpiDepSysMet @ 0x1C0015FD0 (SetDpiDepSysMet.c)
+ *     EngMulDiv @ 0x1C003BF30 (EngMulDiv.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ClearLogicalCursorPos @ 0x1C00D4180 (ClearLogicalCursorPos.c)
+ */
+
 void *__fastcall InitLoadResources(int a1, __int64 a2, __int64 a3)
 {
   bool v4; // dl

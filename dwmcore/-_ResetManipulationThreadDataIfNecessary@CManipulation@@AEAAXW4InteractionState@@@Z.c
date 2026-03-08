@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?_ResetManipulationThreadDataIfNecessary@CManipulation@@AEAAXW4InteractionState@@@Z @ 0x18020BDD4
+ * Callers:
+ *     ?UpdateOnManipulationThread@CManipulation@@UEAAJAEBUUpdateOnManipulationThreadArgs@@AEBUManipulationThreadTelemetryData@@PEAVIDCompositionInteractionStats@@@Z @ 0x18020B620 (-UpdateOnManipulationThread@CManipulation@@UEAAJAEBUUpdateOnManipulationThreadArgs@@AEBUManipula.c)
+ *     ?UpdateOnManipulationThreadWithoutDelta@CManipulation@@UEAAJAEBUUpdateOnManipulationThreadWithoutDeltaArgs@@@Z @ 0x18020BA30 (-UpdateOnManipulationThreadWithoutDelta@CManipulation@@UEAAJAEBUUpdateOnManipulationThreadWithou.c)
+ * Callees:
+ *     ?Reset@ManipulationData@@QEAAXXZ @ 0x18020AE68 (-Reset@ManipulationData@@QEAAXXZ.c)
+ *     ?_UpdateCaptureState@CManipulation@@AEAAX_N@Z @ 0x18020C3E4 (-_UpdateCaptureState@CManipulation@@AEAAX_N@Z.c)
+ */
+
 void __fastcall CManipulation::_ResetManipulationThreadDataIfNecessary(__int64 a1, int a2)
 {
   int v2; // eax

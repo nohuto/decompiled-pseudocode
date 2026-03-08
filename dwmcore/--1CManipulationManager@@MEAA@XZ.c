@@ -1,3 +1,17 @@
+/*
+ * XREFs of ??1CManipulationManager@@MEAA@XZ @ 0x18027FDEC
+ * Callers:
+ *     ??1CGlobalManipulationManager@@EEAA@XZ @ 0x18027FD98 (--1CGlobalManipulationManager@@EEAA@XZ.c)
+ *     ??_ECManipulationManager@@MEAAPEAXI@Z @ 0x180280040 (--_ECManipulationManager@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C8D4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ @ 0x1800F2FE0 (-InternalRelease@-$ComPtr@VCRenderingEffect@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ??1?$CQueue@PEAVCResource@@@@QEAA@XZ @ 0x18010DDF8 (--1-$CQueue@PEAVCResource@@@@QEAA@XZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1MCCollections@@QEAA@XZ @ 0x18027FF10 (--1MCCollections@@QEAA@XZ.c)
+ */
+
 void __fastcall CManipulationManager::~CManipulationManager(CManipulationManager *this)
 {
   _DWORD *v2; // rdi

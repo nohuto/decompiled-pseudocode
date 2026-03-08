@@ -1,3 +1,17 @@
+/*
+ * XREFs of IopfCallDriver @ 0x1402B903C
+ * Callers:
+ *     IofCallDriverSpecifyReturn @ 0x1402B91D0 (IofCallDriverSpecifyReturn.c)
+ *     IopPerfCallDriver @ 0x14045728A (IopPerfCallDriver.c)
+ *     IovCallDriver @ 0x140ABE1D0 (IovCallDriver.c)
+ *     IovpCallDriverNoIrpTracking @ 0x140ABE96C (IovpCallDriverNoIrpTracking.c)
+ *     IovpCallDriverWithStackBuffer @ 0x140ABE9B4 (IovpCallDriverWithStackBuffer.c)
+ * Callees:
+ *     IopPoHandleIrp @ 0x1402B981C (IopPoHandleIrp.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall IopfCallDriver(__int64 a1, ULONG_PTR a2)
 {
   unsigned __int8 *v2; // rax

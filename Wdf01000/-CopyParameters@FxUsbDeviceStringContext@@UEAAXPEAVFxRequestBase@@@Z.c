@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CopyParameters@FxUsbDeviceStringContext@@UEAAXPEAVFxRequestBase@@@Z @ 0x1C005C910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C000B140 (memmove.c)
+ */
+
 void __fastcall FxUsbDeviceStringContext::CopyParameters(FxUsbDeviceStringContext *this, FxRequestBase *Request)
 {
   unsigned __int8 bLength; // cl

@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpDmaIsAutomaticDomain @ 0x14038CD80
+ * Callers:
+ *     HalGetAdapterV3 @ 0x140821010 (HalGetAdapterV3.c)
+ *     HalGetAdapterV2 @ 0x1408215A0 (HalGetAdapterV2.c)
+ * Callees:
+ *     HalpDmaReferenceDomainObject @ 0x14038D02C (HalpDmaReferenceDomainObject.c)
+ *     HalpDmaDereferenceDomainObject @ 0x140510338 (HalpDmaDereferenceDomainObject.c)
+ */
+
 bool __fastcall HalpDmaIsAutomaticDomain(ULONG_PTR BugCheckParameter3)
 {
   char v2; // di

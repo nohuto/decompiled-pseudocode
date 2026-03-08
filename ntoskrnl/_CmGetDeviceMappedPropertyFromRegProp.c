@@ -1,3 +1,24 @@
+/*
+ * XREFs of _CmGetDeviceMappedPropertyFromRegProp @ 0x1406C9418
+ * Callers:
+ *     _CmGetDeviceMappedProperty @ 0x1406C9070 (_CmGetDeviceMappedProperty.c)
+ *     _CmGetDeviceCompoundFilters @ 0x140751AEC (_CmGetDeviceCompoundFilters.c)
+ *     _CmGetDeviceMappedPropertyKeys @ 0x1407FCE14 (_CmGetDeviceMappedPropertyKeys.c)
+ *     _CmGetDeviceCompoundFiltersWorker @ 0x140A6517C (_CmGetDeviceCompoundFiltersWorker.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _PnpMultiSzGetLen @ 0x1406C8258 (_PnpMultiSzGetLen.c)
+ *     _CmGetDeviceRegProp @ 0x1406C9884 (_CmGetDeviceRegProp.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ *     _CmOpenDeviceRegKey @ 0x1406D3B3C (_CmOpenDeviceRegKey.c)
+ *     _PnpParseIndirectResourceString @ 0x140751C48 (_PnpParseIndirectResourceString.c)
+ *     _PnpParseIndirectInfString @ 0x14077B4AC (_PnpParseIndirectInfString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmGetDeviceMappedPropertyFromRegProp(
         __int64 a1,
         __int64 a2,

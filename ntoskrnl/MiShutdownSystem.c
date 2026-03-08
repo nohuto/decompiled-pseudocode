@@ -1,3 +1,30 @@
+/*
+ * XREFs of MiShutdownSystem @ 0x140AA8A00
+ * Callers:
+ *     MmShutdownSystem @ 0x140AA8E60 (MmShutdownSystem.c)
+ * Callees:
+ *     MmUnlockPagableImageSection @ 0x140225D90 (MmUnlockPagableImageSection.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     CcNotifyWriteBehind @ 0x1405345B8 (CcNotifyWriteBehind.c)
+ *     MiFlushAllFilesystemPages @ 0x140626E68 (MiFlushAllFilesystemPages.c)
+ *     MiDeleteHardwareAccelerators @ 0x140652540 (MiDeleteHardwareAccelerators.c)
+ *     MmLockPagableSectionByHandle @ 0x1406A7BD0 (MmLockPagableSectionByHandle.c)
+ *     MmAcquireLoadLock @ 0x1407D2360 (MmAcquireLoadLock.c)
+ *     MmReleaseLoadLock @ 0x1407D2400 (MmReleaseLoadLock.c)
+ *     MiFreeLoadedImportList @ 0x1407F6CA0 (MiFreeLoadedImportList.c)
+ *     MiDeletePagingFiles @ 0x140A2FCE8 (MiDeletePagingFiles.c)
+ *     MiZeroAllPageFiles @ 0x140AA8C04 (MiZeroAllPageFiles.c)
+ *     MiDeleteAllHardwareEnclaves @ 0x140AAA0D0 (MiDeleteAllHardwareEnclaves.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char MiShutdownSystem()
 {
   struct _KTHREAD *CurrentThread; // rbx

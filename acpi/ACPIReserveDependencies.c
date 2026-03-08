@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIReserveDependencies @ 0x1C00145EC
+ * Callers:
+ *     ACPIAddInitializationDependencies @ 0x1C000BA98 (ACPIAddInitializationDependencies.c)
+ *     ACPIConvertDependenciesToPnpReservations @ 0x1C00143C8 (ACPIConvertDependenciesToPnpReservations.c)
+ * Callees:
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C000B2B0 (ACPIAmliBuildObjectPathnameUnicode.c)
+ *     WPP_RECORDER_SF_sL @ 0x1C0015638 (WPP_RECORDER_SF_sL.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ */
+
 __int64 __fastcall ACPIReserveDependencies(__int64 a1, __int64 a2)
 {
   int v4; // edi

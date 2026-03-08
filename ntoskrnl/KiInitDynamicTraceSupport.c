@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiInitDynamicTraceSupport @ 0x140B724AC
+ * Callers:
+ *     KeInitSystem @ 0x140B42FB8 (KeInitSystem.c)
+ * Callees:
+ *     RtlLookupFunctionEntry @ 0x140281130 (RtlLookupFunctionEntry.c)
+ */
+
 __int64 KiInitDynamicTraceSupport()
 {
   int v0; // ebx

@@ -1,3 +1,26 @@
+/*
+ * XREFs of MiEmptyPageAccessLog @ 0x14028C160
+ * Callers:
+ *     MmOutSwapProcess @ 0x1402C00EC (MmOutSwapProcess.c)
+ *     MiDrainSystemAccessLog @ 0x140330B34 (MiDrainSystemAccessLog.c)
+ *     MiDrainOldAccessBuffers @ 0x140330C2C (MiDrainOldAccessBuffers.c)
+ *     MiAllocateAccessLog @ 0x140364034 (MiAllocateAccessLog.c)
+ *     MmDeleteProcessAddressSpace @ 0x140726E8C (MmDeleteProcessAddressSpace.c)
+ * Callees:
+ *     ObReferenceObjectSafeWithTag @ 0x14022BD30 (ObReferenceObjectSafeWithTag.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ObDereferenceObjectDeferDeleteWithTag @ 0x140283390 (ObDereferenceObjectDeferDeleteWithTag.c)
+ *     MiStartingOffset @ 0x14028C530 (MiStartingOffset.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     ObpIncrPointerCountEx @ 0x140352120 (ObpIncrPointerCountEx.c)
+ *     MiQueuePageAccessLog @ 0x14035B540 (MiQueuePageAccessLog.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiEmptyPageAccessLog(unsigned __int64 *a1)
 {
   unsigned __int64 v1; // r9

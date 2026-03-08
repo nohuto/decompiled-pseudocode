@@ -1,3 +1,18 @@
+/*
+ * XREFs of PiDmObjectGetCachedObjectReference @ 0x14077D554
+ * Callers:
+ *     PiDmObjectGetCachedObjectProperty @ 0x1406D019C (PiDmObjectGetCachedObjectProperty.c)
+ *     PiDmGetReferencedObjectFromProperty @ 0x14077D414 (PiDmGetReferencedObjectFromProperty.c)
+ * Callees:
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     PiDmObjectRelease @ 0x1406D0328 (PiDmObjectRelease.c)
+ *     PiDmGetObject @ 0x1406D0370 (PiDmGetObject.c)
+ *     PiDmGetCacheKeys @ 0x1406D071C (PiDmGetCacheKeys.c)
+ *     PiDmGetCachedKeyIndex @ 0x1406D0770 (PiDmGetCachedKeyIndex.c)
+ */
+
 __int64 __fastcall PiDmObjectGetCachedObjectReference(
         unsigned int a1,
         __int64 a2,

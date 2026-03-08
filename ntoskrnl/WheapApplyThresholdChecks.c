@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheapApplyThresholdChecks @ 0x14060E808
+ * Callers:
+ *     WheaReportHwError @ 0x14060E280 (WheaReportHwError.c)
+ * Callees:
+ *     WheapGetErrorThresholdInformation @ 0x14060EB3C (WheapGetErrorThresholdInformation.c)
+ */
+
 char __fastcall WheapApplyThresholdChecks(__int64 a1, __int64 a2)
 {
   __int64 v3; // rcx

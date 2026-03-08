@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FxPoolRemovePagedAllocateTracker@@YAXPEAUFX_POOL_TRACKER@@@Z @ 0x1C00419E0
+ * Callers:
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ?ReclaimPool@FxPagedLookasideListFromPool@@MEAAXPEAX@Z @ 0x1C0041C30 (-ReclaimPool@FxPagedLookasideListFromPool@@MEAAXPEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxPoolRemovePagedAllocateTracker(FX_POOL_TRACKER *Tracker)
 {
   _LIST_ENTRY *Flink; // rcx

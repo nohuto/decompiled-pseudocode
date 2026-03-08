@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitializeInteractionStateInfo @ 0x1800E5210
+ * Callers:
+ *     ??0CInteractionProcessor@@QEAA@XZ @ 0x1800E4D9C (--0CInteractionProcessor@@QEAA@XZ.c)
+ * Callees:
+ *     ?SetToIdentity@CMILMatrix@@QEAAXXZ @ 0x18008DA10 (-SetToIdentity@CMILMatrix@@QEAAXXZ.c)
+ */
+
 void __fastcall InitializeInteractionStateInfo(__int64 a1)
 {
   _OWORD *v2; // rax

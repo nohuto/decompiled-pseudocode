@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserGetInteractiveControlDeviceInfo @ 0x1C01D2D30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C007A05C (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     ?GetDeviceInfo@InteractiveControlManager@@QEAAJKPEAUtagINTERACTIVECTRL_DEVICE_INFO@@@Z @ 0x1C0243420 (-GetDeviceInfo@InteractiveControlManager@@QEAAJKPEAUtagINTERACTIVECTRL_DEVICE_INFO@@@Z.c)
+ */
+
 __int64 __fastcall NtUserGetInteractiveControlDeviceInfo(__int64 a1, _OWORD *Address, __int64 a3)
 {
   _OWORD *v3; // rdi

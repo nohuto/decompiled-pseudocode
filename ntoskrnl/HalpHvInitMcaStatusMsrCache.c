@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpHvInitMcaStatusMsrCache @ 0x140509010
+ * Callers:
+ *     HalpMceInit @ 0x140A87B68 (HalpMceInit.c)
+ * Callees:
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x140372460 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpGetCpuVendor @ 0x14037D1B4 (HalpGetCpuVendor.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void HalpHvInitMcaStatusMsrCache()
 {
   unsigned __int64 v0; // rax

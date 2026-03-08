@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1CContainerVectorShape@@MEAA@XZ @ 0x1800B8624
+ * Callers:
+ *     ??_ECShapeTree@@UEAAPEAXI@Z @ 0x1800B7C60 (--_ECShapeTree@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?UnRegisterNNotifiersInternal@CResource@@AEAAXPEAPEAV1@_K@Z @ 0x180023404 (-UnRegisterNNotifiersInternal@CResource@@AEAAXPEAPEAV1@_K@Z.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800234BC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ */
+
 void __fastcall CContainerVectorShape::~CContainerVectorShape(CContainerVectorShape *this)
 {
   __int64 v2; // rcx

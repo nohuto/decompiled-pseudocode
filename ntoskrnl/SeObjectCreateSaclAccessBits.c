@@ -1,3 +1,13 @@
+/*
+ * XREFs of SeObjectCreateSaclAccessBits @ 0x140785CA4
+ * Callers:
+ *     ObOpenObjectByNameEx @ 0x1406E7F70 (ObOpenObjectByNameEx.c)
+ *     ObpAdjustAccessMask @ 0x140710DC4 (ObpAdjustAccessMask.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ * Callees:
+ *     <none>
+ */
+
 ULONG __stdcall SeObjectCreateSaclAccessBits(PSECURITY_DESCRIPTOR SecurityDescriptor)
 {
   __int16 v1; // ax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIWmiRegisterGuids @ 0x1C0047114
+ * Callers:
+ *     ACPIDispatchWmiLog @ 0x1C0046FE0 (ACPIDispatchWmiLog.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ */
+
 __int64 __fastcall ACPIWmiRegisterGuids(_DWORD *a1, unsigned int a2, _DWORD *a3)
 {
   char *v6; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiSetProcessorDpcLimits @ 0x14037FDD4
+ * Callers:
+ *     KiApplyProcessorDpcLimits @ 0x140A8BC98 (KiApplyProcessorDpcLimits.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KiSetProcessorDpcLimits(__int64 a1, int *a2, __int64 a3, _QWORD *a4)
 {
   unsigned __int8 CurrentIrql; // bl

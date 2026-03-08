@@ -1,3 +1,14 @@
+/*
+ * XREFs of KeInitializeClockOtherProcessors @ 0x140A8B0E4
+ * Callers:
+ *     KiInitializeKernel @ 0x140A89160 (KiInitializeKernel.c)
+ * Callees:
+ *     KiSetPendingTick @ 0x14022AF40 (KiSetPendingTick.c)
+ *     KiGetClockTimerState @ 0x140303184 (KiGetClockTimerState.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeInitializeClockOtherProcessors(__int64 a1)
 {
   __int64 ClockTimerState; // rsi

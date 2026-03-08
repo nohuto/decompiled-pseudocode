@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopHandleWakeSources @ 0x140A9DD6C
+ * Callers:
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PopAcquireWakeSourceSpinLock @ 0x14058BF2C (PopAcquireWakeSourceSpinLock.c)
+ *     PopReleaseWakeSourceSpinLock @ 0x14058C200 (PopReleaseWakeSourceSpinLock.c)
+ *     ExCopyWakeTimerInfo @ 0x140609150 (ExCopyWakeTimerInfo.c)
+ *     PopNewWakeSource @ 0x140984544 (PopNewWakeSource.c)
+ *     PopUnlinkWakeSources @ 0x140984A4C (PopUnlinkWakeSources.c)
+ *     PopCheckAttendedWake @ 0x140A9DCB0 (PopCheckAttendedWake.c)
+ *     PopCheckBatteryWake @ 0x140A9DD20 (PopCheckBatteryWake.c)
+ *     PopValidateRTCWake @ 0x140A9E3E4 (PopValidateRTCWake.c)
+ */
+
 LONG PopHandleWakeSources()
 {
   __int64 v0; // rdi

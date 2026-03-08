@@ -1,3 +1,14 @@
+/*
+ * XREFs of RawCompletionRoutine @ 0x14028DFF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     RawInitiateDeleteVolume @ 0x14028DD58 (RawInitiateDeleteVolume.c)
+ *     RawEndOperation @ 0x14028E08C (RawEndOperation.c)
+ */
+
 __int64 __fastcall RawCompletionRoutine(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rdi

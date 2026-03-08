@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpFreeSectionList @ 0x140B4ECD4
+ * Callers:
+ *     EmpParseInfDatabase @ 0x140B4CEE0 (EmpParseInfDatabase.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     CmpFreeLineList @ 0x140B4ED2C (CmpFreeLineList.c)
+ */
+
 void __fastcall CmpFreeSectionList(PVOID P)
 {
   PVOID v1; // rbx

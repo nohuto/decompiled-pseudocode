@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ResetInputThreadMmcss@CInputManager@@UEAAJXZ @ 0x1800C83B0
+ * Callers:
+ *     ?ResetInputThreadMmcss@CGlobalInputManager@@UEAAJXZ @ 0x1800C8360 (-ResetInputThreadMmcss@CGlobalInputManager@@UEAAJXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CInputManager::ResetInputThreadMmcss(CInputManager *this)
 {
   __int64 v1; // rcx

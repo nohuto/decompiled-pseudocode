@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiSelectIdealProcessorSetsForProcess @ 0x140296A4C
+ * Callers:
+ *     KiUpdateProcessConcurrencyCount @ 0x14022B7A0 (KiUpdateProcessConcurrencyCount.c)
+ *     KeStartIdealProcessorAssignmentBlock @ 0x1402969C4 (KeStartIdealProcessorAssignmentBlock.c)
+ *     KeSetAffinityProcess @ 0x1403A9688 (KeSetAffinityProcess.c)
+ * Callees:
+ *     KiConstrainIdealProcessorSetBreakpoints @ 0x140296B28 (KiConstrainIdealProcessorSetBreakpoints.c)
+ *     KiSelectIdealProcessorSetForProcessGroup @ 0x140296B48 (KiSelectIdealProcessorSetForProcessGroup.c)
+ */
+
 __int64 __fastcall KiSelectIdealProcessorSetsForProcess(int a1, _DWORD *a2, __int64 a3, _QWORD *a4)
 {
   unsigned int v4; // edi

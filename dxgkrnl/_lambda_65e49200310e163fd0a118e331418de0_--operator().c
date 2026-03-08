@@ -1,3 +1,14 @@
+/*
+ * XREFs of _lambda_65e49200310e163fd0a118e331418de0_::operator() @ 0x1C0056C60
+ * Callers:
+ *     ?REMOTEVSYNCMAPPING_TriggerRemoteVsync@@YAXU_LUID@@IJ_K@Z @ 0x1C000F860 (-REMOTEVSYNCMAPPING_TriggerRemoteVsync@@YAXU_LUID@@IJ_K@Z.c)
+ *     ?TriggerRemoteVsync@HOSTVMMONITORMAPPING@@QEAAXU_LUID@@IJ_K@Z @ 0x1C002A184 (-TriggerRemoteVsync@HOSTVMMONITORMAPPING@@QEAAXU_LUID@@IJ_K@Z.c)
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     McTemplateK0xqpp_EtwWriteTransfer @ 0x1C0057444 (McTemplateK0xqpp_EtwWriteTransfer.c)
+ *     ?VmBusSendSignalGuestEventSinglePacket@DXG_HOST_GLOBAL_VMBUS@@SAXPEAUDXG_SIGNAL_GUEST_CPU_EVENT@@PEAUDXGKVMB_SINGLEPACKETCONTEXT@@@Z @ 0x1C005CC28 (-VmBusSendSignalGuestEventSinglePacket@DXG_HOST_GLOBAL_VMBUS@@SAXPEAUDXG_SIGNAL_GUEST_CPU_EVENT@.c)
+ */
+
 char __fastcall lambda_65e49200310e163fd0a118e331418de0_::operator()(__int64 a1, __int64 a2)
 {
   _DWORD *v4; // rcx

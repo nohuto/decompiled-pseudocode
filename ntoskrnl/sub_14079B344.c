@@ -1,3 +1,12 @@
+/*
+ * XREFs of sub_14079B344 @ 0x14079B344
+ * Callers:
+ *     sub_1406AF488 @ 0x1406AF488 (sub_1406AF488.c)
+ * Callees:
+ *     sub_1406B0060 @ 0x1406B0060 (sub_1406B0060.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall sub_14079B344(__int64 a1, _QWORD *a2)
 {
   int v3; // edi

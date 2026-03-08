@@ -1,3 +1,12 @@
+/*
+ * XREFs of AdtpIsSDValidSelfRelative @ 0x14066EB8C
+ * Callers:
+ *     AdtpBuildAccessReasonAuditString @ 0x14066D780 (AdtpBuildAccessReasonAuditString.c)
+ * Callees:
+ *     RtlGetControlSecurityDescriptor @ 0x140750B60 (RtlGetControlSecurityDescriptor.c)
+ *     RtlValidSecurityDescriptor @ 0x14075F860 (RtlValidSecurityDescriptor.c)
+ */
+
 __int64 __fastcall AdtpIsSDValidSelfRelative(void *a1, bool *a2)
 {
   int ControlSecurityDescriptor; // ebx

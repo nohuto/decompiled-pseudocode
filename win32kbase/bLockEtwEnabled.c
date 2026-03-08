@@ -1,3 +1,11 @@
+/*
+ * XREFs of bLockEtwEnabled @ 0x1C00D15A8
+ * Callers:
+ *     InitializeGre @ 0x1C031D988 (InitializeGre.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 bLockEtwEnabled()
 {
   unsigned int v0; // ebx

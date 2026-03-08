@@ -1,3 +1,17 @@
+/*
+ * XREFs of PspJobClose @ 0x1406F8760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     PspHardDereferenceSiloWorker @ 0x14029432C (PspHardDereferenceSiloWorker.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     PspUnlockJob @ 0x1406FBF7C (PspUnlockJob.c)
+ *     PspLockJobExclusive @ 0x1406FC178 (PspLockJobExclusive.c)
+ *     PspUnlockJobMemoryLimitsExclusive @ 0x1406FEEF4 (PspUnlockJobMemoryLimitsExclusive.c)
+ *     PspTerminateAllProcessesInJobHierarchy @ 0x140791E78 (PspTerminateAllProcessesInJobHierarchy.c)
+ */
+
 LONG_PTR __fastcall PspJobClose(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
 {
   char v4; // di

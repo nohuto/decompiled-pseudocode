@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBitMask@@YAXPEAUtagWND@@IH@Z @ 0x1C00CB06C
+ * Callers:
+ *     ?_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z @ 0x1C00CB290 (-_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z.c)
+ * Callees:
+ *     ?GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z @ 0x1C00CB534 (-GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z.c)
+ */
+
 void __fastcall SetBitMask(struct tagWND *a1, unsigned int a2, int a3)
 {
   struct tagVWPLGESTUREDATA *GCData; // rax

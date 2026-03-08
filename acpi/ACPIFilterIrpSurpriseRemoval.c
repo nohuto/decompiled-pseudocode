@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIFilterIrpSurpriseRemoval @ 0x1C0086E40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_sDqss @ 0x1C0029130 (WPP_RECORDER_SF_sDqss.c)
+ *     ACPIInternalIsReportedMissing @ 0x1C002EB90 (ACPIInternalIsReportedMissing.c)
+ *     ACPIWakeDisconnectWakeInterrupts @ 0x1C00450BC (ACPIWakeDisconnectWakeInterrupts.c)
+ *     ACPIFilterIrpStopDevice @ 0x1C0086CA0 (ACPIFilterIrpStopDevice.c)
+ */
+
 __int64 __fastcall ACPIFilterIrpSurpriseRemoval(ULONG_PTR a1, IRP *a2)
 {
   __int64 DeviceExtension; // rax

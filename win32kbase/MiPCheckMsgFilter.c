@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiPCheckMsgFilter @ 0x1C00BA9F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CheckMsgRange@@YAHIIII@Z @ 0x1C0155740 (-CheckMsgRange@@YAHIIII@Z.c)
+ *     IsMiPActive @ 0x1C0155C14 (IsMiPActive.c)
+ */
+
 __int64 __fastcall MiPCheckMsgFilter(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of PoInitializeBroadcast @ 0x140988BE4
+ * Callers:
+ *     PopDirectedDripsInitializeBroadcast @ 0x1409806E8 (PopDirectedDripsInitializeBroadcast.c)
+ *     PnprQuiesceDevices @ 0x140A9A284 (PnprQuiesceDevices.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     PpmBeginHighPerfRequest @ 0x1402B8BBC (PpmBeginHighPerfRequest.c)
+ *     PopHaltDeviceIdle @ 0x140585020 (PopHaltDeviceIdle.c)
+ *     PopBuildDeviceNotifyList @ 0x140AA3FCC (PopBuildDeviceNotifyList.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 PoInitializeBroadcast()
 {
   unsigned int v0; // edi

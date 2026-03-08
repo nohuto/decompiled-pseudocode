@@ -1,3 +1,42 @@
+/*
+ * XREFs of RIMRegisterForInputWithCallbacks @ 0x1C00356F0
+ * Callers:
+ *     RIMRegisterForInputEx @ 0x1C0032510 (RIMRegisterForInputEx.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C000F0BC (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     rimCheckForRegistrationConflicts @ 0x1C0032578 (rimCheckForRegistrationConflicts.c)
+ *     RIMUnregisterForInput @ 0x1C00326C0 (RIMUnregisterForInput.c)
+ *     RIMIDEAdoptOrphanedRimDevs @ 0x1C00345C8 (RIMIDEAdoptOrphanedRimDevs.c)
+ *     RIMCheckPressureDefaultSetting @ 0x1C00346BC (RIMCheckPressureDefaultSetting.c)
+ *     ?RawInputManagerObjectUsed@RIM@InputTraceLogging@@SAXPEBURawInputManagerObject@@@Z @ 0x1C0034770 (-RawInputManagerObjectUsed@RIM@InputTraceLogging@@SAXPEBURawInputManagerObject@@@Z.c)
+ *     RawInputManagerObjectCreate @ 0x1C0034798 (RawInputManagerObjectCreate.c)
+ *     rimConvertUserToKernelSemaphoreHandle @ 0x1C00348B4 (rimConvertUserToKernelSemaphoreHandle.c)
+ *     rimConvertUserToKernelTimerHandle @ 0x1C003496C (rimConvertUserToKernelTimerHandle.c)
+ *     CreateKernelSemaphore @ 0x1C0035610 (CreateKernelSemaphore.c)
+ *     RIMDiscoverDevicesOfInputType @ 0x1C00374F8 (RIMDiscoverDevicesOfInputType.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     RawInputManagerObjectResolveHandle @ 0x1C0039E60 (RawInputManagerObjectResolveHandle.c)
+ *     rimConvertUserToKernelEventHandle @ 0x1C0039ED8 (rimConvertUserToKernelEventHandle.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     NSInstrumentation::CLeakTrackingAllocator::MakeUntrackedAllocation__lambda_992394a475252bc644037de3157b7526__unsigned___int64_&_ @ 0x1C0077CF4 (NSInstrumentation--CLeakTrackingAllocator--MakeUntrackedAllocation__lambda_992394a475252bc644037.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ??$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA?A_PPEAX@Z @ 0x1C00A07E0 (--$_lambda_invoker_cdecl_@PEAX@_lambda_fbf80a8de0504b0922e6810f5f982d9a_@@CA-A_PPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     WPP_RECORDER_AND_TRACE_SF_Dd @ 0x1C017A884 (WPP_RECORDER_AND_TRACE_SF_Dd.c)
+ *     ??$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C019AB48 (--$AssociateAllocationWithBacktrace@$00@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPE.c)
+ *     ??$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KPEAVCBackTrace@1@@Z @ 0x1C019ABFC (--$AssociateAllocationWithBacktrace@$0A@@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NPEAX_KP.c)
+ *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C019B14C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
+ *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C019B518 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
+ *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C019C49C (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
+ *     ??0CBackTrace@NSInstrumentation@@QEAA@XZ @ 0x1C019C93C (--0CBackTrace@NSInstrumentation@@QEAA@XZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qDd @ 0x1C01A80F0 (WPP_RECORDER_AND_TRACE_SF_qDd.c)
+ *     RIMDiscoverSpecificDevice @ 0x1C01D1704 (RIMDiscoverSpecificDevice.c)
+ */
+
 __int64 __fastcall RIMRegisterForInputWithCallbacks(
         unsigned int a1,
         __int64 a2,

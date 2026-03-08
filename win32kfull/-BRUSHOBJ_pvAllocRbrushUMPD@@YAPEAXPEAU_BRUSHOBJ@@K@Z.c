@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?BRUSHOBJ_pvAllocRbrushUMPD@@YAPEAXPEAU_BRUSHOBJ@@K@Z @ 0x1C0267A94
+ * Callers:
+ *     NtGdiBRUSHOBJ_pvAllocRbrush @ 0x1C02CA840 (NtGdiBRUSHOBJ_pvAllocRbrush.c)
+ * Callees:
+ *     <none>
+ */
+
 PVOID __fastcall BRUSHOBJ_pvAllocRbrushUMPD(struct _BRUSHOBJ *a1, unsigned int a2)
 {
   PVOID *p_pvRbrush; // rbx

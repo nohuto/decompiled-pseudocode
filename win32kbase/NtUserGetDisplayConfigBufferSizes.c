@@ -1,3 +1,17 @@
+/*
+ * XREFs of NtUserGetDisplayConfigBufferSizes @ 0x1C00217F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserRemoteConnectedSessionUsingXddm @ 0x1C0021420 (UserRemoteConnectedSessionUsingXddm.c)
+ *     GreIsDisconnectDeviceAttached @ 0x1C00218D0 (GreIsDisconnectDeviceAttached.c)
+ *     _QdcSdcTranslateStatusDefault @ 0x1C00221EC (_QdcSdcTranslateStatusDefault.c)
+ *     DrvGetDisplayConfigBufferSizes @ 0x1C0022450 (DrvGetDisplayConfigBufferSizes.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C005040C (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
+ */
+
 __int64 __fastcall NtUserGetDisplayConfigBufferSizes(__int64 a1, _DWORD *a2, __int64 a3, __int64 a4)
 {
   unsigned int v5; // esi

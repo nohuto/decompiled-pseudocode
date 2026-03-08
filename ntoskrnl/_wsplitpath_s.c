@@ -1,3 +1,12 @@
+/*
+ * XREFs of _wsplitpath_s @ 0x1403D97E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     wcsncpy_s @ 0x1403DA3B0 (wcsncpy_s.c)
+ */
+
 errno_t __cdecl wsplitpath_s(
         const wchar_t *FullPath,
         wchar_t *Drive,

@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiFreePhysicalPages @ 0x140647F94
+ * Callers:
+ *     NtFreeUserPhysicalPages @ 0x140A3F6B0 (NtFreeUserPhysicalPages.c)
+ * Callees:
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x14023A620 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     ExAcquireAutoExpandPushLockExclusive @ 0x14023A860 (ExAcquireAutoExpandPushLockExclusive.c)
+ *     ExAcquireAutoExpandPushLockShared @ 0x1402621D0 (ExAcquireAutoExpandPushLockShared.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiGetLeafPfnBuddy @ 0x140386E8C (MiGetLeafPfnBuddy.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiDecrementAweMapCount @ 0x14064709C (MiDecrementAweMapCount.c)
+ *     MiLockAweVadsShared @ 0x140648AC4 (MiLockAweVadsShared.c)
+ *     MiUnlockAweVadsShared @ 0x14064989C (MiUnlockAweVadsShared.c)
+ *     MiUnmapLegacyAwePage @ 0x14064992C (MiUnmapLegacyAwePage.c)
+ */
+
 __int64 __fastcall MiFreePhysicalPages(__int64 a1, unsigned int *a2, __int64 *a3)
 {
   unsigned int *v4; // r14

@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeKernelShadowStackRestoreContext @ 0x1405795E0
+ * Callers:
+ *     RtlRestoreContext @ 0x140420880 (RtlRestoreContext.c)
+ *     RcFrameConsolidation @ 0x140420BD0 (RcFrameConsolidation.c)
+ * Callees:
+ *     VslKernelShadowStackAssist @ 0x140549640 (VslKernelShadowStackAssist.c)
+ */
+
 __int64 __fastcall KeKernelShadowStackRestoreContext(__int64 a1, ULONG_PTR a2, _DWORD *a3)
 {
   ULONG_PTR v3; // r9

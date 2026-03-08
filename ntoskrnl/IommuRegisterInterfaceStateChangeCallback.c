@@ -1,3 +1,17 @@
+/*
+ * XREFs of IommuRegisterInterfaceStateChangeCallback @ 0x140523F30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpIommuDeviceGetDomainTypes @ 0x14050BA08 (HalpIommuDeviceGetDomainTypes.c)
+ */
+
 __int64 __fastcall IommuRegisterInterfaceStateChangeCallback(
         void (__fastcall *a1)(__int64, __int64),
         __int64 a2,

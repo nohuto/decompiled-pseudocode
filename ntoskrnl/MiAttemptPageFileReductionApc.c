@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiAttemptPageFileReductionApc @ 0x140635960
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiInvalidatePageFileBitmapsCache @ 0x14020A3E4 (MiInvalidatePageFileBitmapsCache.c)
+ *     RtlFindLastBackwardRunClear @ 0x14020AE50 (RtlFindLastBackwardRunClear.c)
+ *     MiCoalescePageFileBitmapsCache @ 0x14020B47C (MiCoalescePageFileBitmapsCache.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     RtlSetBits @ 0x14028BC50 (RtlSetBits.c)
+ *     MiOkToShrinkPageFiles @ 0x1402A5400 (MiOkToShrinkPageFiles.c)
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReduceCommitLimits @ 0x140653F84 (MiReduceCommitLimits.c)
+ */
+
 LONG __fastcall MiAttemptPageFileReductionApc(struct _KEVENT *a1)
 {
   unsigned int Flink; // r13d

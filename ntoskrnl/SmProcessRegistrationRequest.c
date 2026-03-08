@@ -1,3 +1,13 @@
+/*
+ * XREFs of SmProcessRegistrationRequest @ 0x1408409FC
+ * Callers:
+ *     SmQueryStoreInformation @ 0x140840788 (SmQueryStoreInformation.c)
+ * Callees:
+ *     SmpGetProcessPartition @ 0x14029622C (SmpGetProcessPartition.c)
+ *     SmGetRegistrationInfo @ 0x140840AC0 (SmGetRegistrationInfo.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall SmProcessRegistrationRequest(unsigned __int64 a1, int a2, _DWORD *a3, char a4)
 {
   __int64 v6; // rcx

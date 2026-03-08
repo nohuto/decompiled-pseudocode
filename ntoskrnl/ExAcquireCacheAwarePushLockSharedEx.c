@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExAcquireCacheAwarePushLockSharedEx @ 0x140262550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 signed __int64 *__fastcall ExAcquireCacheAwarePushLockSharedEx(
         ULONG_PTR BugCheckParameter2,
         ULONG_PTR BugCheckParameter1)

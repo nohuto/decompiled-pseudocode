@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpVolumeContextCreate @ 0x14084C438
+ * Callers:
+ *     CmpVolumeManagerGetContextForFile @ 0x14072B8A0 (CmpVolumeManagerGetContextForFile.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     CmSiAllocateMemory @ 0x1402447A4 (CmSiAllocateMemory.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpVolumeContextStart @ 0x14084C4D0 (CmpVolumeContextStart.c)
+ *     CmpVolumeContextCleanup @ 0x14085EE74 (CmpVolumeContextCleanup.c)
+ */
+
 __int64 __fastcall CmpVolumeContextCreate(__int64 a1, __int64 a2, struct _PRIVILEGE_SET **a3)
 {
   struct _PRIVILEGE_SET *Memory; // rax

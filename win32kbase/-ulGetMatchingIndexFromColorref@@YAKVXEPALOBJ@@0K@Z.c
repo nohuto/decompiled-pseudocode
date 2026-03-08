@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ulGetMatchingIndexFromColorref@@YAKVXEPALOBJ@@0K@Z @ 0x1C00281CC
+ * Callers:
+ *     ?vInitBrush@EBRUSHOBJ@@QEAAXPEAVDC@@PEAVBRUSH@@VXEPALOBJ@@2PEAVSURFACE@@H@Z @ 0x1C0027D30 (-vInitBrush@EBRUSHOBJ@@QEAAXPEAVDC@@PEAVBRUSH@@VXEPALOBJ@@2PEAVSURFACE@@H@Z.c)
+ * Callees:
+ *     ?bIsPalDefault@XEPALOBJ@@QEBAHXZ @ 0x1C000A328 (-bIsPalDefault@XEPALOBJ@@QEBAHXZ.c)
+ *     ?ulDispatchGFPEFunction@XEPALOBJ@@QEAAKW4GFPE_FUNCTION_ID@@K@Z @ 0x1C0028270 (-ulDispatchGFPEFunction@XEPALOBJ@@QEAAKW4GFPE_FUNCTION_ID@@K@Z.c)
+ */
+
 __int64 __fastcall ulGetMatchingIndexFromColorref(_DWORD *a1, __int64 a2, unsigned int a3)
 {
   __int64 v6; // rax

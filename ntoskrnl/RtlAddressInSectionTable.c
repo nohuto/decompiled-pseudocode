@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlAddressInSectionTable @ 0x14035D764
+ * Callers:
+ *     RtlpImageDirectoryEntryToData32 @ 0x14035D844 (RtlpImageDirectoryEntryToData32.c)
+ *     RtlpImageDirectoryEntryToData64 @ 0x14035E900 (RtlpImageDirectoryEntryToData64.c)
+ *     LdrpAccessResourceDataNoMultipleLanguage @ 0x1407EA480 (LdrpAccessResourceDataNoMultipleLanguage.c)
+ * Callees:
+ *     RtlSectionTableFromVirtualAddress @ 0x14035D7C0 (RtlSectionTableFromVirtualAddress.c)
+ */
+
 unsigned __int64 __fastcall RtlAddressInSectionTable(__int64 a1, unsigned __int64 a2, unsigned int a3)
 {
   __int64 v3; // rdi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIBuildWakeEventDeviceContext @ 0x1C00140F0
+ * Callers:
+ *     ACPIBuildProcessDevicePhasePrw @ 0x1C000FDA0 (ACPIBuildProcessDevicePhasePrw.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     WPP_RECORDER_SF_sLqss @ 0x1C00157B4 (WPP_RECORDER_SF_sLqss.c)
+ *     WPP_RECORDER_SF_sqss @ 0x1C0015EC4 (WPP_RECORDER_SF_sqss.c)
+ *     AMLIGetNameSpaceObject @ 0x1C00483B8 (AMLIGetNameSpaceObject.c)
+ */
+
 __int64 __fastcall ACPIBuildWakeEventDeviceContext(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
 {
   __int64 v2; // rsi

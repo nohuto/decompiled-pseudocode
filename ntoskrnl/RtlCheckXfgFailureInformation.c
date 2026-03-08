@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlCheckXfgFailureInformation @ 0x1405AF650
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     ZwQueryInformationProcess @ 0x140412630 (ZwQueryInformationProcess.c)
+ *     ZwQueryVirtualMemory @ 0x140412770 (ZwQueryVirtualMemory.c)
+ *     RtlQueryImageXfgFilter @ 0x1405A4CF4 (RtlQueryImageXfgFilter.c)
+ *     RtlDisableXfgOnTarget @ 0x1405AF938 (RtlDisableXfgOnTarget.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlCheckXfgFailureInformation(char *BaseAddress)
 {
   unsigned __int16 *v2; // rsi

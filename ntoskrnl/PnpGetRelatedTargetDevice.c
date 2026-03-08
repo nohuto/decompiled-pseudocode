@@ -1,3 +1,18 @@
+/*
+ * XREFs of PnpGetRelatedTargetDevice @ 0x140202D04
+ * Callers:
+ *     IoGetRelatedTargetDevice @ 0x1406F3B0C (IoGetRelatedTargetDevice.c)
+ *     IoRegisterPlugPlayNotification @ 0x1406F4F30 (IoRegisterPlugPlayNotification.c)
+ *     PiUEventGetDeviceInstanceIdFromUserHandle @ 0x140781084 (PiUEventGetDeviceInstanceIdFromUserHandle.c)
+ * Callees:
+ *     PnpSendIrp @ 0x140202E04 (PnpSendIrp.c)
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpGetRelatedTargetDevice(PFILE_OBJECT FileObject, _QWORD *a2)
 {
   KIRQL v4; // bl

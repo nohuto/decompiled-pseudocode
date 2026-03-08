@@ -1,3 +1,11 @@
+/*
+ * XREFs of CompareMemory @ 0x1C014C736
+ * Callers:
+ *     pDCIAdjClr @ 0x1C02583A8 (pDCIAdjClr.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CompareMemory(__int64 a1, char *a2, int a3)
 {
   __int64 v3; // rcx

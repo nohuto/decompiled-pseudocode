@@ -1,3 +1,20 @@
+/*
+ * XREFs of VfDriverEnableVerifierForAll @ 0x140AC7618
+ * Callers:
+ *     VfAddVerifierEntry @ 0x140ADA630 (VfAddVerifierEntry.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     MmIsSessionAddress @ 0x140239ED0 (MmIsSessionAddress.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     RtlImageNtHeaderEx @ 0x14035E850 (RtlImageNtHeaderEx.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     VfUtilIsProtectedDriver @ 0x140ABF7CC (VfUtilIsProtectedDriver.c)
+ *     VfDriverEnableVerifier @ 0x140AC7498 (VfDriverEnableVerifier.c)
+ *     VfDriverLock @ 0x140AC773C (VfDriverLock.c)
+ *     VfSuspectDriversAllocateEntry @ 0x140AD7394 (VfSuspectDriversAllocateEntry.c)
+ */
+
 __int64 VfDriverEnableVerifierForAll()
 {
   int v0; // edi

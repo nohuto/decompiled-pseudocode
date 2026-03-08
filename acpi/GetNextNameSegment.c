@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetNextNameSegment @ 0x1C004BA9C
+ * Callers:
+ *     CreateNativeNameSpaceObject @ 0x1C0049D38 (CreateNativeNameSpaceObject.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetNextNameSegment(__int64 a1, int *a2, unsigned __int64 *a3)
 {
   unsigned int v3; // r9d

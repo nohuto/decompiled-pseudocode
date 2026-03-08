@@ -1,3 +1,11 @@
+/*
+ * XREFs of KitpOpenRegKey @ 0x14085D780
+ * Callers:
+ *     KitpInitAitSampleRate @ 0x140B6EF0C (KitpInitAitSampleRate.c)
+ * Callees:
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ */
+
 NTSTATUS __fastcall KitpOpenRegKey(__int64 a1, __int64 a2, HANDLE *a3)
 {
   OBJECT_ATTRIBUTES v4; // [rsp+20h] [rbp-38h] BYREF

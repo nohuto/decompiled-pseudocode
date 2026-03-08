@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?xxxSoundSentryTimer@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01F7190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxFlashWindow @ 0x1C0005B74 (xxxFlashWindow.c)
+ *     xxxRedrawWindow @ 0x1C0050700 (xxxRedrawWindow.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     FindTimer @ 0x1C00DEEDC (FindTimer.c)
+ */
+
 void __fastcall xxxSoundSentryTimer(struct tagWND *a1)
 {
   __int64 v1; // rax

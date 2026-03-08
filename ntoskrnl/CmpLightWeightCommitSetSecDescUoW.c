@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpLightWeightCommitSetSecDescUoW @ 0x140A25A40
+ * Callers:
+ *     CmpProcessLightWeightUOW @ 0x140A19C0C (CmpProcessLightWeightUOW.c)
+ * Callees:
+ *     CmpDereferenceSecurityNode @ 0x140243994 (CmpDereferenceSecurityNode.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpAssignSecurityToKcb @ 0x1407A560C (CmpAssignSecurityToKcb.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpLightWeightCleanupSetSecDescUoW @ 0x140A252A8 (CmpLightWeightCleanupSetSecDescUoW.c)
+ */
+
 void __fastcall CmpLightWeightCommitSetSecDescUoW(__int64 a1, _QWORD *a2)
 {
   _QWORD *v2; // r14

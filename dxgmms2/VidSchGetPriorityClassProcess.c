@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchGetPriorityClassProcess @ 0x1C0107B00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall VidSchGetPriorityClassProcess(__int64 a1, _DWORD *a2)
 {
   __int64 v3; // rcx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?OnKeyEvent@CPTPProcessor@@SAXE_N@Z @ 0x1C020E594
+ * Callers:
+ *     xxxProcessKeyEvent @ 0x1C007EE00 (xxxProcessKeyEvent.c)
+ * Callees:
+ *     ?IsOurKey@CPTPProcessor@@CA_NE_N@Z @ 0x1C00F33A0 (-IsOurKey@CPTPProcessor@@CA_NE_N@Z.c)
+ *     ?OnKeyPress@CPTPProcessor@@CAX_N@Z @ 0x1C00F3574 (-OnKeyPress@CPTPProcessor@@CAX_N@Z.c)
+ */
+
 void __fastcall CPTPProcessor::OnKeyEvent(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned __int8 v4; // si

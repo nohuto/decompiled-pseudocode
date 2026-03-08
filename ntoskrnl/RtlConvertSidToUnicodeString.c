@@ -1,3 +1,28 @@
+/*
+ * XREFs of RtlConvertSidToUnicodeString @ 0x1407479E0
+ * Callers:
+ *     OpenGlobalizationUserSettingsKey_ForMua @ 0x14060D690 (OpenGlobalizationUserSettingsKey_ForMua.c)
+ *     SepValidateReferencedCachedHandles @ 0x1407448F8 (SepValidateReferencedCachedHandles.c)
+ *     PspReadUserQuotaLimits @ 0x140745544 (PspReadUserQuotaLimits.c)
+ *     PiDqOpenUserObjectRegKey @ 0x140747298 (PiDqOpenUserObjectRegKey.c)
+ *     RtlFormatCurrentUserKeyPath @ 0x140747770 (RtlFormatCurrentUserKeyPath.c)
+ *     ExpWnfGetPermanentPerUserDataStoreHandle @ 0x140793848 (ExpWnfGetPermanentPerUserDataStoreHandle.c)
+ *     LocalConvertSidToStringSidW @ 0x1408368E8 (LocalConvertSidToStringSidW.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x1409B9D5C (RtlpGetTokenNamedObjectPath.c)
+ *     CmpGetVirtualizationID @ 0x140A1709C (CmpGetVirtualizationID.c)
+ *     AdtpBuildSidListString @ 0x140A5852C (AdtpBuildSidListString.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x140A6772C (_SysCtxRegOpenCurrentUserKey.c)
+ * Callees:
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcscat_s @ 0x1403DA170 (wcscat_s.c)
+ *     wcscpy_s @ 0x1403DA210 (wcscpy_s.c)
+ *     RtlIntegerToUnicode @ 0x140747BC0 (RtlIntegerToUnicode.c)
+ *     RtlCreateUnicodeString @ 0x140747D00 (RtlCreateUnicodeString.c)
+ *     RtlValidSid @ 0x1407C92A0 (RtlValidSid.c)
+ *     RtlLargeIntegerToUnicode @ 0x1409BA5B8 (RtlLargeIntegerToUnicode.c)
+ */
+
 NTSTATUS __stdcall RtlConvertSidToUnicodeString(
         PUNICODE_STRING UnicodeString,
         PSID Sid,

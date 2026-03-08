@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReadBoolWithDefault@MonitorDataStore@DxgMonitor@@UEBA_NPEAXPEBG_N@Z @ 0x1C03CA630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$TryReadData@K@MonitorDataStore@DxgMonitor@@AEBA_NPEAXPEBGAEAK@Z @ 0x1C01D1D10 (--$TryReadData@K@MonitorDataStore@DxgMonitor@@AEBA_NPEAXPEBGAEAK@Z.c)
+ */
+
 bool __fastcall DxgMonitor::MonitorDataStore::ReadBoolWithDefault(
         DxgMonitor::MonitorDataStore *this,
         void *a2,

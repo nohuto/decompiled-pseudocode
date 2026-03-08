@@ -1,3 +1,12 @@
+/*
+ * XREFs of IrqArbUpdateInterruptProperties @ 0x1C009D9B4
+ * Callers:
+ *     AcpiUpdateInterruptProperties @ 0x1C0084160 (AcpiUpdateInterruptProperties.c)
+ * Callees:
+ *     IrqArbGsivFromIrq @ 0x1C009D69C (IrqArbGsivFromIrq.c)
+ *     IrqArbpSetDeviceProperties @ 0x1C009E5F4 (IrqArbpSetDeviceProperties.c)
+ */
+
 __int64 __fastcall IrqArbUpdateInterruptProperties(int a1, int a2, int a3)
 {
   PVOID v6; // rdi

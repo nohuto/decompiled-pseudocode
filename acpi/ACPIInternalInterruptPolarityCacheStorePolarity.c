@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIInternalInterruptPolarityCacheStorePolarity @ 0x1C002EAA0
+ * Callers:
+ *     ACPIInternalInterruptPolarityCacheStorePolaritiesFromList @ 0x1C002EA00 (ACPIInternalInterruptPolarityCacheStorePolaritiesFromList.c)
+ *     ACPIFilterIrpFilterResourceRequirements @ 0x1C0085A90 (ACPIFilterIrpFilterResourceRequirements.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPIInternalInterruptPolarityCacheStorePolarity(__int64 a1, int a2, int a3)
 {
   unsigned int v3; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of VerifierKeWaitForMultipleObjects @ 0x140AD2930
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ViKeInjectStatusAlerted @ 0x140ABD618 (ViKeInjectStatusAlerted.c)
+ */
+
 __int64 __fastcall VerifierKeWaitForMultipleObjects(
         unsigned int a1,
         __int64 a2,

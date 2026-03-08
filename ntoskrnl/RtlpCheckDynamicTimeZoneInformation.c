@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlpCheckDynamicTimeZoneInformation @ 0x140811C80
+ * Callers:
+ *     ExpRefreshTimeZoneInformation @ 0x140811500 (ExpRefreshTimeZoneInformation.c)
+ * Callees:
+ *     RtlpFindRegTziForCurrentYear @ 0x140388568 (RtlpFindRegTziForCurrentYear.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     RtlpGetDynamicTimeZoneInfoHandle @ 0x140811DC4 (RtlpGetDynamicTimeZoneInfoHandle.c)
+ *     RtlpRegTziFormatToTzi @ 0x140812584 (RtlpRegTziFormatToTzi.c)
+ */
+
 char __fastcall RtlpCheckDynamicTimeZoneInformation(char *Buf2, __int16 a2)
 {
   char v4; // di

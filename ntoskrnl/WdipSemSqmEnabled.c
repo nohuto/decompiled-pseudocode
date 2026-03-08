@@ -1,3 +1,12 @@
+/*
+ * XREFs of WdipSemSqmEnabled @ 0x1409DBBAC
+ * Callers:
+ *     WdipSemLogInflightLimitExceededInformation @ 0x1409DAEA4 (WdipSemLogInflightLimitExceededInformation.c)
+ *     WdipSemLogTimeoutInformation @ 0x1409DB47C (WdipSemLogTimeoutInformation.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ */
+
 bool WdipSemSqmEnabled()
 {
   REGHANDLE v0; // rdi

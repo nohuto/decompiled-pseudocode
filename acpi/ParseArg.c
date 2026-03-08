@@ -1,3 +1,21 @@
+/*
+ * XREFs of ParseArg @ 0x1C005A46C
+ * Callers:
+ *     ParseCall @ 0x1C005A6A0 (ParseCall.c)
+ *     ParseTerm @ 0x1C005C790 (ParseTerm.c)
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     PushTerm @ 0x1C0053E18 (PushTerm.c)
+ *     ParseIntObj @ 0x1C005B3A0 (ParseIntObj.c)
+ *     ParseInteger @ 0x1C005B588 (ParseInteger.c)
+ *     ParseObjName @ 0x1C005BC04 (ParseObjName.c)
+ *     ParseOpcode @ 0x1C005BD40 (ParseOpcode.c)
+ *     ParseString @ 0x1C005C440 (ParseString.c)
+ *     ParseSuperName @ 0x1C005C56C (ParseSuperName.c)
+ */
+
 __int64 __fastcall ParseArg(__int64 a1, char a2, __int64 a3, __int64 a4)
 {
   const void *v4; // r14

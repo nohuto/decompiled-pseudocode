@@ -1,3 +1,13 @@
+/*
+ * XREFs of ObpDeleteDirectoryObject @ 0x14078DDD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfAcquireReleasePushLockExclusive @ 0x140201D54 (ExfAcquireReleasePushLockExclusive.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1402637F0 (ObDereferenceObjectDeferDelete.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 void __fastcall ObpDeleteDirectoryObject(_QWORD *a1)
 {
   _QWORD *v2; // rcx

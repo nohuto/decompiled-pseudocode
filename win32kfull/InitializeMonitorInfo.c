@@ -1,3 +1,19 @@
+/*
+ * XREFs of InitializeMonitorInfo @ 0x1C002D4E8
+ * Callers:
+ *     UpdateWindowSpriteMonitor @ 0x1C002C598 (UpdateWindowSpriteMonitor.c)
+ *     UpdateWindowMonitor @ 0x1C00AE6B0 (UpdateWindowMonitor.c)
+ *     ?CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z @ 0x1C01BD154 (-CreateFadeInternal@@YAPEAUHDC__@@PEAUtagWND@@PEAUtagRECT@@KKK@Z.c)
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     ?IsChildWindowDpiBoundary@@YA_NPEBUtagWND@@@Z @ 0x1C00647C8 (-IsChildWindowDpiBoundary@@YA_NPEBUtagWND@@@Z.c)
+ *     ExpandMonitorSpaceVertex @ 0x1C00A3584 (ExpandMonitorSpaceVertex.c)
+ *     ScaleDPIRect @ 0x1C00A3890 (ScaleDPIRect.c)
+ *     ?_IsModernAppTopLevelWindow@@YAHQEAUtagWND@@@Z @ 0x1C01F3E24 (-_IsModernAppTopLevelWindow@@YAHQEAUtagWND@@@Z.c)
+ */
+
 __int64 __fastcall InitializeMonitorInfo(__int64 a1, unsigned int a2, _QWORD *a3, __int64 a4)
 {
   int v8; // r15d

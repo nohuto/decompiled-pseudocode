@@ -1,3 +1,13 @@
+/*
+ * XREFs of GreDrvReconnect @ 0x1C02DEC3C
+ * Callers:
+ *     xxxRemoteReconnect @ 0x1C01267DC (xxxRemoteReconnect.c)
+ * Callees:
+ *     ??1SEMOBJEX@@QEAA@XZ @ 0x1C0129084 (--1SEMOBJEX@@QEAA@XZ.c)
+ *     ??0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z @ 0x1C0129160 (--0SEMOBJEX@@QEAA@PEAUHSEMAPHORE__@@K0K0K0K0K0K0K0K@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall GreDrvReconnect(Gre::Base *a1)
 {
   int v1; // esi

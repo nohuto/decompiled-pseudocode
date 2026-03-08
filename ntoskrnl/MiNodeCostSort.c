@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiNodeCostSort @ 0x140B92690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiNodeCostSort(_QWORD *a1, _QWORD *a2)
 {
   unsigned __int64 v2; // r8

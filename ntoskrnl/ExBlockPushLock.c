@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExBlockPushLock @ 0x1402BF980
+ * Callers:
+ *     ExBlockOnAddressPushLock @ 0x1402BF8C0 (ExBlockOnAddressPushLock.c)
+ * Callees:
+ *     <none>
+ */
+
 signed __int64 __fastcall ExBlockPushLock(signed __int64 *a1, signed __int64 a2)
 {
   signed __int64 result; // rax

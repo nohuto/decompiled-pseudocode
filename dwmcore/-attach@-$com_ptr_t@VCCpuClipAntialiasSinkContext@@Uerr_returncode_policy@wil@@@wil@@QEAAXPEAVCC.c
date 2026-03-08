@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?attach@?$com_ptr_t@VCCpuClipAntialiasSinkContext@@Uerr_returncode_policy@wil@@@wil@@QEAAXPEAVCCpuClipAntialiasSinkContext@@@Z @ 0x1801D3FF0
+ * Callers:
+ *     ??4ClippingScopeState@CScopedClipStack@@QEAAAEAU01@$$QEAU01@@Z @ 0x1801CFCF8 (--4ClippingScopeState@CScopedClipStack@@QEAAAEAU01@$$QEAU01@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall wil::com_ptr_t<CCpuClipAntialiasSinkContext,wil::err_returncode_policy>::attach(
         __int64 *a1,
         __int64 a2)

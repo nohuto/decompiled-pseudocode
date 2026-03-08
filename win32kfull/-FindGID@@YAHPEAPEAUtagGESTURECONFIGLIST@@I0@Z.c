@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FindGID@@YAHPEAPEAUtagGESTURECONFIGLIST@@I0@Z @ 0x1C0206FD0
+ * Callers:
+ *     ?_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z @ 0x1C00CB290 (-_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z.c)
+ *     GetGestureConfigSettings @ 0x1C02071A8 (GetGestureConfigSettings.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FindGID(struct tagGESTURECONFIGLIST **a1, int a2, struct tagGESTURECONFIGLIST **a3)
 {
   unsigned int v3; // r10d

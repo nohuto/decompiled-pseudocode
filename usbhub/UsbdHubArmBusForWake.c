@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbdHubArmBusForWake @ 0x1C003BF64
+ * Callers:
+ *     UsbhFdoSetPowerDx_Action @ 0x1C000EB10 (UsbhFdoSetPowerDx_Action.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ */
+
 _DWORD *__fastcall UsbdHubArmBusForWake(__int64 a1)
 {
   _DWORD *result; // rax

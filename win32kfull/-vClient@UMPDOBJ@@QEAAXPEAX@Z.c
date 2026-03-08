@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vClient@UMPDOBJ@@QEAAXPEAX@Z @ 0x1C029C960
+ * Callers:
+ *     ?bCleanupWorker@UMPDOBJ@@QEAAHXZ @ 0x1C029BFDC (-bCleanupWorker@UMPDOBJ@@QEAAHXZ.c)
+ *     ?UMPDDrvEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z @ 0x1C02BC660 (-UMPDDrvEnableSurface@@YAPEAUHSURF__@@PEAUDHPDEV__@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall UMPDOBJ::vClient(UMPDOBJ *this, _QWORD *a2)
 {
   __int64 v3; // rdx

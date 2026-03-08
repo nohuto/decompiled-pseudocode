@@ -1,3 +1,18 @@
+/*
+ * XREFs of PfGetCompletedTrace @ 0x1407E76DC
+ * Callers:
+ *     PfQuerySuperfetchInformation @ 0x1406AE494 (PfQuerySuperfetchInformation.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     PfFbBufferListFlushStandby @ 0x14035B78C (PfFbBufferListFlushStandby.c)
+ *     PfTFreeTraceDump @ 0x14035BBA8 (PfTFreeTraceDump.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     PfTAccessTracingStart @ 0x140A858C4 (PfTAccessTracingStart.c)
+ */
+
 __int64 __fastcall PfGetCompletedTrace(_QWORD *a1, unsigned int a2, char a3, unsigned int *a4)
 {
   __int64 v4; // rbx

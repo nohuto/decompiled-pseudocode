@@ -1,3 +1,11 @@
+/*
+ * XREFs of SetDpiScalingSetting @ 0x1C0251CE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall SetDpiScalingSetting(int a1, int a2)
 {
   const WCHAR *v3; // rdx

@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiReplacePfnWithGapMapping @ 0x14038B4B8
+ * Callers:
+ *     MiPfnRangeIsZero @ 0x14038B144 (MiPfnRangeIsZero.c)
+ * Callees:
+ *     MiInsertLargeTbFlushEntry @ 0x140210194 (MiInsertLargeTbFlushEntry.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiReplicatePteChange @ 0x1402A4528 (MiReplicatePteChange.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiInsertRecursiveTbFlushEntries @ 0x1402FCB78 (MiInsertRecursiveTbFlushEntries.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiTransformValidPteInPlace @ 0x1403BD25C (MiTransformValidPteInPlace.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void __fastcall MiReplacePfnWithGapMapping(unsigned __int64 *a1, int a2)
 {
   unsigned __int64 ValidPte; // rbx

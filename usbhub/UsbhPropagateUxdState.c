@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhPropagateUxdState @ 0x1C005A7DC
+ * Callers:
+ *     UsbhQueryParentHubConfig @ 0x1C005A8D8 (UsbhQueryParentHubConfig.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     RtlStringCbPrintfW @ 0x1C0044C1C (RtlStringCbPrintfW.c)
+ *     UsbhOpenUxdPortHandle @ 0x1C005A6D0 (UsbhOpenUxdPortHandle.c)
+ */
+
 __int64 __fastcall UsbhPropagateUxdState(__int64 a1, void *a2)
 {
   __int64 result; // rax

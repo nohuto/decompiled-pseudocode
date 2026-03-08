@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtCancelIoFile @ 0x14076FE10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IopReferenceFileObject @ 0x14023EBCC (IopReferenceFileObject.c)
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IoCancelIrp @ 0x1402E4F50 (IoCancelIrp.c)
+ *     IopCancelIrpsInFileObjectList @ 0x14030F360 (IopCancelIrpsInFileObjectList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall NtCancelIoFile(void *a1, unsigned __int64 a2)
 {
   char v4; // r15

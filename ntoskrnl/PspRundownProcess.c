@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspRundownProcess @ 0x1409B0DEC
+ * Callers:
+ *     PspProcessClose @ 0x14076BF20 (PspProcessClose.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     ExAcquireRundownProtectionEx @ 0x14035AFC0 (ExAcquireRundownProtectionEx.c)
+ */
+
 void __fastcall PspRundownProcess(signed __int64 Object)
 {
   struct _WORK_QUEUE_ITEM *v2; // rcx

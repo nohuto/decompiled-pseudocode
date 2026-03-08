@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlUnicodeStringToCountedOemString @ 0x14079F7A0
+ * Callers:
+ *     DifRtlUnicodeStringToCountedOemStringWrapper @ 0x1405E99C0 (DifRtlUnicodeStringToCountedOemStringWrapper.c)
+ * Callees:
+ *     AllocateOrValidateCharStringBuffer @ 0x140303E1C (AllocateOrValidateCharStringBuffer.c)
+ *     RtlUnicodeToOemN @ 0x14079F690 (RtlUnicodeToOemN.c)
+ *     RtlpDidUnicodeToOemWork @ 0x14079FF20 (RtlpDidUnicodeToOemWork.c)
+ *     RtlxUnicodeStringToOemSize @ 0x1407A0310 (RtlxUnicodeStringToOemSize.c)
+ *     ExFreePool @ 0x140AAB270 (ExFreePool.c)
+ */
+
 NTSTATUS __stdcall RtlUnicodeStringToCountedOemString(
         POEM_STRING DestinationString,
         PCUNICODE_STRING SourceString,

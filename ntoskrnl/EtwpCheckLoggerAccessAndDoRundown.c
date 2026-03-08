@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwpCheckLoggerAccessAndDoRundown @ 0x1409EBB50
+ * Callers:
+ *     EtwpEnableDisableSpecialGuids @ 0x14068FF34 (EtwpEnableDisableSpecialGuids.c)
+ *     EtwpCheckGuidAccessAndDoRundown @ 0x1409EBA08 (EtwpCheckGuidAccessAndDoRundown.c)
+ * Callees:
+ *     EtwpStackRundown @ 0x140460D80 (EtwpStackRundown.c)
+ *     EtwpCheckLoggerControlAccess @ 0x140692E00 (EtwpCheckLoggerControlAccess.c)
+ *     EtwpReleaseLoggerContext @ 0x14069349C (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140693AFC (EtwpAcquireLoggerContextByLoggerId.c)
+ *     EtwpLogKernelTraceRundown @ 0x1409EBEA0 (EtwpLogKernelTraceRundown.c)
+ *     EtwpLogPmcCounterRundown @ 0x1409EBF78 (EtwpLogPmcCounterRundown.c)
+ */
+
 __int64 __fastcall EtwpCheckLoggerAccessAndDoRundown(__int64 a1, unsigned int a2, unsigned int a3, char a4)
 {
   unsigned int *v7; // rax

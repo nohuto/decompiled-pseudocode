@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiOutSwapKernelStacks @ 0x1402A7380
+ * Callers:
+ *     KeSwapProcessOrStack @ 0x140391CB0 (KeSwapProcessOrStack.c)
+ * Callees:
+ *     KiWaitForContextSwap @ 0x1402A77E8 (KiWaitForContextSwap.c)
+ *     KiDecrementProcessStackCount @ 0x1402A7824 (KiDecrementProcessStackCount.c)
+ *     MmOutPageKernelStack @ 0x1402A7980 (MmOutPageKernelStack.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 ULONG KiOutSwapKernelStacks()
 {
   __int64 v0; // rsi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpIommuInitializeDmaGuardPolicy @ 0x1403B00F4
+ * Callers:
+ *     HalpIommuInitSystem @ 0x140A86E10 (HalpIommuInitSystem.c)
+ * Callees:
+ *     strstr @ 0x1403D3650 (strstr.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpIommuInitializeDmaGuardPolicy(__int64 a1)
 {
   bool v2; // si

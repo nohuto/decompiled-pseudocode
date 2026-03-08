@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?WriteChunkMouseInputData@CButtonEvent@CMouseProcessor@@UEBAXPEAU_MOUSE_INPUT_DATA@@@Z @ 0x1C00D60B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CMouseProcessor::CButtonEvent::WriteChunkMouseInputData(
         CMouseProcessor::CButtonEvent *this,
         struct _MOUSE_INPUT_DATA *a2)

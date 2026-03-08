@@ -1,3 +1,13 @@
+/*
+ * XREFs of NormBuffer__RecheckStartCombinations @ 0x1405AE434
+ * Callers:
+ *     Normalization__NormalizeCharacter @ 0x1409BE3B8 (Normalization__NormalizeCharacter.c)
+ * Callees:
+ *     NormBuffer__GetCurrentOutputChar @ 0x1405AE16C (NormBuffer__GetCurrentOutputChar.c)
+ *     Normalization__CanCombinableCharactersCombine @ 0x1409BD590 (Normalization__CanCombinableCharactersCombine.c)
+ *     Normalization__GetCharacterInfo @ 0x1409BD7E0 (Normalization__GetCharacterInfo.c)
+ */
+
 unsigned __int64 __fastcall NormBuffer__RecheckStartCombinations(__int64 a1)
 {
   bool v1; // zf

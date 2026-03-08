@@ -1,3 +1,22 @@
+/*
+ * XREFs of KiUpdateProcessConcurrencyCount @ 0x14022B7A0
+ * Callers:
+ *     KiUpdateProcessConcurrencyCounts @ 0x14022BAA0 (KiUpdateProcessConcurrencyCounts.c)
+ * Callees:
+ *     MmAdjustWorkingSetSizeEx @ 0x14020C61C (MmAdjustWorkingSetSizeEx.c)
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     KiSelectIdealProcessorSetsForProcess @ 0x140296A4C (KiSelectIdealProcessorSetsForProcess.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAdaptThreadIdealProcessorForProcessIdealSetChange @ 0x140574290 (KiAdaptThreadIdealProcessorForProcessIdealSetChange.c)
+ */
+
 __int64 __fastcall KiUpdateProcessConcurrencyCount(ULONG_PTR BugCheckParameter1, unsigned int a2)
 {
   __int64 result; // rax

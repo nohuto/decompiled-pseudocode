@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??$ReportFailure_GetLastError@$01@details@wil@@YAKPEAXIPEBD110@Z @ 0x1801FEDBC
+ * Callers:
+ *     ?Log_GetLastError@in1diag3@details@wil@@YAKPEAXIPEBD@Z @ 0x1802005F4 (-Log_GetLastError@in1diag3@details@wil@@YAKPEAXIPEBD@Z.c)
+ * Callees:
+ *     ?HrToNtStatus@details@wil@@YAJJ@Z @ 0x1801026E0 (-HrToNtStatus@details@wil@@YAJJ@Z.c)
+ *     ??$ReportFailure_Base@$01$0A@@details@wil@@YAXPEAXIPEBD110AEBUResultStatus@01@PEBGW4ReportFailureOptions@01@@Z @ 0x180193DFC (--$ReportFailure_Base@$01$0A@@details@wil@@YAXPEAXIPEBD110AEBUResultStatus@01@PEBGW4ReportFailur.c)
+ *     ?GetLastErrorFail@details@wil@@YAKPEAXIPEBD110@Z @ 0x180195530 (-GetLastErrorFail@details@wil@@YAKPEAXIPEBD110@Z.c)
+ */
+
 __int64 __fastcall wil::details::ReportFailure_GetLastError<2>(
         wil::details *a1,
         __int64 a2,

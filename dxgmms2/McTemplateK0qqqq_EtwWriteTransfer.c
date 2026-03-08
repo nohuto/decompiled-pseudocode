@@ -1,3 +1,15 @@
+/*
+ * XREFs of McTemplateK0qqqq_EtwWriteTransfer @ 0x1C0039A94
+ * Callers:
+ *     VidSchiSubmitMmIoFlipCommand @ 0x1C000EAF0 (VidSchiSubmitMmIoFlipCommand.c)
+ *     VidSchSetMonitorPowerState @ 0x1C000FA60 (VidSchSetMonitorPowerState.c)
+ *     VidSchiVirtualizeFlipInterval @ 0x1C003D0BC (VidSchiVirtualizeFlipInterval.c)
+ *     VidSchPresentDurationPlane @ 0x1C00402C0 (VidSchPresentDurationPlane.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BDEC (McGenEventWrite_EtwWriteTransfer.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0qqqq_EtwWriteTransfer(
         __int64 a1,
         const EVENT_DESCRIPTOR *a2,

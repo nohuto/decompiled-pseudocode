@@ -1,3 +1,13 @@
+/*
+ * XREFs of SymCryptFdefMaskedCopyAsm @ 0x140400260
+ * Callers:
+ *     SymCryptFdefIntConditionalCopy @ 0x1403FFBC8 (SymCryptFdefIntConditionalCopy.c)
+ *     SymCryptFdefIntMaskedCopy @ 0x1403FFD74 (SymCryptFdefIntMaskedCopy.c)
+ *     SymCryptFdefMaskedCopy @ 0x1403FFE3C (SymCryptFdefMaskedCopy.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall SymCryptFdefMaskedCopyAsm(const __m128i *a1, __m128i *a2, int a3, unsigned int a4)
 {
   int v4; // r8d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchiIsQuantumLeft @ 0x1C0001054
+ * Callers:
+ *     ?VidSchiSelectContextFromThisPriority@@YAPEAU_VIDSCH_CONTEXT@@PEAU_VIDSCH_NODE@@K_N@Z @ 0x1C0008020 (-VidSchiSelectContextFromThisPriority@@YAPEAU_VIDSCH_CONTEXT@@PEAU_VIDSCH_NODE@@K_N@Z.c)
+ * Callees:
+ *     ?VidSchiSelectContextFromThisProcess@@YAXPEAU_VIDSCH_CONTEXT@@PEAPEAU1@@Z @ 0x1C00010C0 (-VidSchiSelectContextFromThisProcess@@YAXPEAU_VIDSCH_CONTEXT@@PEAPEAU1@@Z.c)
+ *     VidSchiSetTransferContextRunningTime @ 0x1C0010B90 (VidSchiSetTransferContextRunningTime.c)
+ */
+
 __int64 __fastcall VidSchiIsQuantumLeft(__int64 a1, struct _VIDSCH_CONTEXT **a2)
 {
   __int64 v3; // rsi

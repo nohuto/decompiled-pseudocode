@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxPaintRect @ 0x1C0007680
+ * Callers:
+ *     xxxFillWindow @ 0x1C00FC114 (xxxFillWindow.c)
+ * Callees:
+ *     GreSetBrushOrg @ 0x1C0007754 (GreSetBrushOrg.c)
+ *     xxxGetControlColor @ 0x1C0007848 (xxxGetControlColor.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     FillRect @ 0x1C00881F8 (FillRect.c)
+ */
+
 __int64 __fastcall xxxPaintRect(__int64 a1, __int64 a2, HDC a3, HBRUSH ControlColor, const RECT *a5)
 {
   __int64 v8; // rbx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PfFbLogEntryReserve @ 0x14028D1C0
+ * Callers:
+ *     PfFileInfoNotify @ 0x14028C770 (PfFileInfoNotify.c)
+ *     PfLogEvent @ 0x14028D0D0 (PfLogEvent.c)
+ *     PfLogDeleteHelper @ 0x1402F5B50 (PfLogDeleteHelper.c)
+ * Callees:
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall PfFbLogEntryReserve(PEX_RUNDOWN_REF RunRef, PSLIST_ENTRY *a2, _QWORD *a3, unsigned int a4)
 {
   __int64 v4; // rsi

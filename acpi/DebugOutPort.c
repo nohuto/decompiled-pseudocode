@@ -1,3 +1,16 @@
+/*
+ * XREFs of DebugOutPort @ 0x1C004DCE0
+ * Callers:
+ *     DebugO @ 0x1C004DC80 (DebugO.c)
+ *     DebugOD @ 0x1C004DCA0 (DebugOD.c)
+ *     DebugOW @ 0x1C004DCC0 (DebugOW.c)
+ * Callees:
+ *     _strtoui64_0 @ 0x1C0001A79 (_strtoui64_0.c)
+ *     WriteSystemIO @ 0x1C000624C (WriteSystemIO.c)
+ *     IsNumber @ 0x1C004E1D4 (IsNumber.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ */
+
 __int64 __fastcall DebugOutPort(const char *a1, unsigned int a2)
 {
   unsigned int v2; // ebx

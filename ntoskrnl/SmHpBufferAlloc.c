@@ -1,3 +1,14 @@
+/*
+ * XREFs of SmHpBufferAlloc @ 0x1405C7CF4
+ * Callers:
+ *     SmHpChunkAlloc @ 0x1405C811C (SmHpChunkAlloc.c)
+ * Callees:
+ *     SmBinaryArrayGrow @ 0x1405C7B8C (SmBinaryArrayGrow.c)
+ *     SmHpBufferUpdateFullness @ 0x1405C7FD0 (SmHpBufferUpdateFullness.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char *__fastcall SmHpBufferAlloc(_DWORD *a1)
 {
   _QWORD *Pool2; // rsi

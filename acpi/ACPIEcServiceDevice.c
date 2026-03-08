@@ -1,3 +1,17 @@
+/*
+ * XREFs of ACPIEcServiceDevice @ 0x1C0025C50
+ * Callers:
+ *     AcpiEcCommonDpcHandler @ 0x1C0002C4E (AcpiEcCommonDpcHandler.c)
+ *     ACPIEcQueueEcIrp @ 0x1C0024F24 (ACPIEcQueueEcIrp.c)
+ *     ACPIEcWatchdogDpc @ 0x1C0025D70 (ACPIEcWatchdogDpc.c)
+ * Callees:
+ *     ACPIEcMaskInterrupt @ 0x1C0002CB0 (ACPIEcMaskInterrupt.c)
+ *     ACPIEcUnmaskInterrupt @ 0x1C0002CF6 (ACPIEcUnmaskInterrupt.c)
+ *     ACPIEcLogAction @ 0x1C0002D3C (ACPIEcLogAction.c)
+ *     ACPIEcServiceIoLoop @ 0x1C0002EF0 (ACPIEcServiceIoLoop.c)
+ *     ACPIEcUnloadPending @ 0x1C0025B74 (ACPIEcUnloadPending.c)
+ */
+
 void __fastcall ACPIEcServiceDevice(__int64 a1)
 {
   KSPIN_LOCK *v2; // rdi

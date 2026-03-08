@@ -1,3 +1,17 @@
+/*
+ * XREFs of PspSecureThreadStartup @ 0x1409AE950
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PspTerminateThreadByPointer @ 0x1407DA8F0 (PspTerminateThreadByPointer.c)
+ *     PspNotifyThreadCreation @ 0x1407ED550 (PspNotifyThreadCreation.c)
+ *     PspDisablePrimaryTokenExchange @ 0x1407ED630 (PspDisablePrimaryTokenExchange.c)
+ */
+
 __int64 PspSecureThreadStartup()
 {
   unsigned __int8 CurrentIrql; // al

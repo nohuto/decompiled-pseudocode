@@ -1,3 +1,12 @@
+/*
+ * XREFs of ComputeHTCell @ 0x1C0019464
+ * Callers:
+ *     HT_CreateDeviceHalftoneInfo @ 0x1C00195AC (HT_CreateDeviceHalftoneInfo.c)
+ * Callees:
+ *     ComputeChecksum @ 0x1C0019A58 (ComputeChecksum.c)
+ *     GenerateWORDPat @ 0x1C0254ED4 (GenerateWORDPat.c)
+ */
+
 __int64 __fastcall ComputeHTCell(unsigned __int16 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rbx

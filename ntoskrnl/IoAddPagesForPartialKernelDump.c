@@ -1,3 +1,17 @@
+/*
+ * XREFs of IoAddPagesForPartialKernelDump @ 0x140559F94
+ * Callers:
+ *     IoWriteCrashDump @ 0x14054EF00 (IoWriteCrashDump.c)
+ * Callees:
+ *     MmIsAddressValidEx @ 0x1403471E0 (MmIsAddressValidEx.c)
+ *     IoSaveBugCheckProgress @ 0x14054E5E0 (IoSaveBugCheckProgress.c)
+ *     IopDumpCallRemovePagesCallbacks @ 0x1405502F0 (IopDumpCallRemovePagesCallbacks.c)
+ *     IopAddLiveDumpPagesToPartialKernelDump @ 0x14055A46C (IopAddLiveDumpPagesToPartialKernelDump.c)
+ *     IopAddMiniDumpPagesToPartialKernelDump @ 0x14055A768 (IopAddMiniDumpPagesToPartialKernelDump.c)
+ *     IopCompactRemovePagesArray @ 0x14055AA70 (IopCompactRemovePagesArray.c)
+ *     ExpHeapDumpEnumLargeAllocs @ 0x14060CF78 (ExpHeapDumpEnumLargeAllocs.c)
+ */
+
 __int64 __fastcall IoAddPagesForPartialKernelDump(int a1, int a2, int a3, int a4, __int64 a5, __int64 a6, __int64 a7)
 {
   unsigned int v11; // ebx

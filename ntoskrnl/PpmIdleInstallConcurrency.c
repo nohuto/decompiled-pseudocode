@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmIdleInstallConcurrency @ 0x1403AE090
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     PpmIdleUpdateConcurrency @ 0x1402D6DC0 (PpmIdleUpdateConcurrency.c)
+ */
+
 __int64 __fastcall PpmIdleInstallConcurrency(__int64 a1, KSPIN_LOCK *a2, KSPIN_LOCK *a3)
 {
   LARGE_INTEGER PerformanceCounter; // rbp

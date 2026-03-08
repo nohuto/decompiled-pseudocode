@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopEstimateChargeTime @ 0x140992B84
+ * Callers:
+ *     PopBatteryWorker @ 0x14086DD10 (PopBatteryWorker.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopBatteryEstimatesSpoiled @ 0x14086E98C (PopBatteryEstimatesSpoiled.c)
+ */
+
 unsigned __int64 PopEstimateChargeTime()
 {
   unsigned __int64 v0; // r15

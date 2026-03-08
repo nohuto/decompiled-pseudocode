@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExpRemoveHandleTable @ 0x1407DCE80
+ * Callers:
+ *     ObKillProcess @ 0x1406C0F5C (ObKillProcess.c)
+ *     ObInitProcess @ 0x140707D3C (ObInitProcess.c)
+ *     RtlDestroyAtomTable @ 0x1407DC4F0 (RtlDestroyAtomTable.c)
+ *     AlpcpAllocateMessageFromExtendedTables @ 0x140975E3C (AlpcpAllocateMessageFromExtendedTables.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 char __fastcall ExpRemoveHandleTable(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rsi

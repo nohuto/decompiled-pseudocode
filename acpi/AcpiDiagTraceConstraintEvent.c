@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiDiagTraceConstraintEvent @ 0x1C0007AE8
+ * Callers:
+ *     AcpiDiagTraceActiveCoolingConstraint @ 0x1C0007500 (AcpiDiagTraceActiveCoolingConstraint.c)
+ *     AcpiDiagTracePassiveCoolingConstraint @ 0x1C0008720 (AcpiDiagTracePassiveCoolingConstraint.c)
+ * Callees:
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C000B2B0 (ACPIAmliBuildObjectPathnameUnicode.c)
+ */
+
 void __fastcall AcpiDiagTraceConstraintEvent(
         __int64 a1,
         __int64 a2,

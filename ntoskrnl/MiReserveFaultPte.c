@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiReserveFaultPte @ 0x140631D64
+ * Callers:
+ *     MiValidateImagePfn @ 0x14069EF78 (MiValidateImagePfn.c)
+ * Callees:
+ *     RtlFindClearBitsAndSet @ 0x14030CEE0 (RtlFindClearBitsAndSet.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 MiReserveFaultPte()
 {
   __int64 ClearBitsAndSet; // rbx

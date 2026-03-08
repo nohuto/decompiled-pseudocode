@@ -1,3 +1,19 @@
+/*
+ * XREFs of NtAlpcSendWaitReceivePort @ 0x1407CCAC0
+ * Callers:
+ *     NtWaitForWorkViaWorkerFactory @ 0x140316BE0 (NtWaitForWorkViaWorkerFactory.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     AlpcpSignal @ 0x14033E410 (AlpcpSignal.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     AlpcpTrackPortReferences @ 0x1407C9E94 (AlpcpTrackPortReferences.c)
+ *     AlpcpSendMessage @ 0x1407CAFB0 (AlpcpSendMessage.c)
+ *     AlpcpReceiveMessage @ 0x1407CCD50 (AlpcpReceiveMessage.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1407CF500 (AlpcpProcessSynchronousRequest.c)
+ */
+
 __int64 __fastcall NtAlpcSendWaitReceivePort(
         HANDLE Handle,
         int a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of EngAllocUserMemEx @ 0x1C01969B8
+ * Callers:
+ *     ?bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z @ 0x1C0057B80 (-bCreateDIB@SURFMEM@@QEAAHPEAU_DEVBITMAPINFO@@PEAX1K1_KHHHH@Z.c)
+ *     EngAllocUserMem @ 0x1C0196990 (EngAllocUserMem.c)
+ * Callees:
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00A6424 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00A6464 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall EngAllocUserMemEx(ULONG_PTR a1, int a2, PVOID *a3)
 {
   NTSTATUS v5; // edi

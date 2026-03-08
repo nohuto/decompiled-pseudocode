@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpBlkPoPerformPpmOperationForMsr @ 0x140B12EE4
+ * Callers:
+ *     HalpBlkPoPerformPpmOperation @ 0x140B12DC4 (HalpBlkPoPerformPpmOperation.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall HalpBlkPoPerformPpmOperationForMsr(__int64 a1)
 {
   int v2; // ecx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?AllocateNewBlock@CDataStreamWriter@@IEAAJI@Z @ 0x180044814
+ * Callers:
+ *     ?EnsureItem@CDataStreamWriter@@QEAAJI@Z @ 0x180044590 (-EnsureItem@CDataStreamWriter@@QEAAJI@Z.c)
+ *     ?Create@CCommandBatch@@SAJIPEAPEAV1@@Z @ 0x180044740 (-Create@CCommandBatch@@SAJIPEAPEAV1@@Z.c)
+ *     ?EnsureSize@CDataStreamWriter@@IEAAJI@Z @ 0x1800BB78C (-EnsureSize@CDataStreamWriter@@IEAAJI@Z.c)
+ * Callees:
+ *     ?Alloc@DefaultHeap@@SAPEAX_K@Z @ 0x180044B4C (-Alloc@DefaultHeap@@SAPEAX_K@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall CDataStreamWriter::AllocateNewBlock(CDataStreamWriter *this, unsigned int a2)
 {
   unsigned int v2; // eax

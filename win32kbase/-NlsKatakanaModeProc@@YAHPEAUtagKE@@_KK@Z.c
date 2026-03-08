@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?NlsKatakanaModeProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C021C580
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxKeyEventEx @ 0x1C007F2E0 (xxxKeyEventEx.c)
+ *     ?NlsClearKeyStateToggle@@YAXE@Z @ 0x1C021C084 (-NlsClearKeyStateToggle@@YAXE@Z.c)
+ *     ?NlsGetCurrentInputMode@@YAEPEBE@Z @ 0x1C021C250 (-NlsGetCurrentInputMode@@YAEPEBE@Z.c)
+ *     ?NlsTestKeyStateToggle@@YAHE@Z @ 0x1C021C97C (-NlsTestKeyStateToggle@@YAHE@Z.c)
+ *     NlsKbdSendIMEProc @ 0x1C021C9E0 (NlsKbdSendIMEProc.c)
+ */
+
 __int64 __fastcall NlsKatakanaModeProc(struct tagKE *a1, __int64 a2)
 {
   __int16 v2; // ax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CProcessAttributionReporter@@AEAA@XZ @ 0x1800D6228
+ * Callers:
+ *     ?RunCompositionThread@CConnection@@AEAAJXZ @ 0x1800D5BCC (-RunCompositionThread@CConnection@@AEAAJXZ.c)
+ * Callees:
+ *     ?CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ @ 0x1800D6308 (-CreateObserver@CProcessAttributionManager@@QEAAPEAVCProcessAttributionObserver@@XZ.c)
+ */
+
 CProcessAttributionReporter *__fastcall CProcessAttributionReporter::CProcessAttributionReporter(
         CProcessAttributionReporter *this)
 {

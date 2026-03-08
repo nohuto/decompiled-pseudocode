@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?_AllowSetForegroundWindow@@YA?AW4AllowSetForegroundWindowResult@@KW4AllowSetForegroundWindowPolicy@@@Z @ 0x1C009B4EC
+ * Callers:
+ *     NtUserAllowSetForegroundWindow @ 0x1C0099BD0 (NtUserAllowSetForegroundWindow.c)
+ * Callees:
+ *     ?CanForceForeground@@YA_NPEBUtagPROCESSINFO@@@Z @ 0x1C003D388 (-CanForceForeground@@YA_NPEBUtagPROCESSINFO@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C003F908 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     ProcessInfoFromPID @ 0x1C00998DC (ProcessInfoFromPID.c)
+ *     WPP_RECORDER_AND_TRACE_SF_DD @ 0x1C009B8A4 (WPP_RECORDER_AND_TRACE_SF_DD.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall _AllowSetForegroundWindow(int a1, char a2)
 {

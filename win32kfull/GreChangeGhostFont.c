@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreChangeGhostFont @ 0x1C027A490
+ * Callers:
+ *     NtGdiChangeGhostFont @ 0x1C02C4780 (NtGdiChangeGhostFont.c)
+ * Callees:
+ *     ?ChangeGhostFont@PUBLIC_PFTOBJ@@QEAAHPEAXH@Z @ 0x1C026D16C (-ChangeGhostFont@PUBLIC_PFTOBJ@@QEAAHPEAXH@Z.c)
+ */
+
 __int64 __fastcall GreChangeGhostFont(Gre::Base *a1, int a2)
 {
   __int64 v4; // r8

@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpAcpiFindRsdp @ 0x140B6C7C8
+ * Callers:
+ *     HalpAcpiTableCacheInit @ 0x140B3DDE0 (HalpAcpiTableCacheInit.c)
+ * Callees:
+ *     DbgPrint @ 0x1402BDD20 (DbgPrint.c)
+ *     HalpAcpiAllocateMemory @ 0x14037AB24 (HalpAcpiAllocateMemory.c)
+ *     strcmp @ 0x1403D5570 (strcmp.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     KeFindConfigurationNextEntry @ 0x140B6C8C0 (KeFindConfigurationNextEntry.c)
+ */
+
 __int64 __fastcall HalpAcpiFindRsdp(__int64 a1, __int64 *a2)
 {
   __int64 v2; // rdi

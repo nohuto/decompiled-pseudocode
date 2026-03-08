@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiMarkSharedImageCfgBits @ 0x1407D20C4
+ * Callers:
+ *     MiCommitVadCfgBits @ 0x1407D2AEC (MiCommitVadCfgBits.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiVadDeleted @ 0x14031F750 (MiVadDeleted.c)
+ *     MiSetProtectionOnSection @ 0x140321FC0 (MiSetProtectionOnSection.c)
+ *     MiIsCfgBitMapPageShared @ 0x140346620 (MiIsCfgBitMapPageShared.c)
+ *     MiGetControlAreaLoadConfig @ 0x14034C364 (MiGetControlAreaLoadConfig.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiCopyToCfgBitMap @ 0x1406A5890 (MiCopyToCfgBitMap.c)
+ */
+
 __int64 __fastcall MiMarkSharedImageCfgBits(_QWORD *a1, __int64 a2, __int64 a3)
 {
   _QWORD *v3; // rbp

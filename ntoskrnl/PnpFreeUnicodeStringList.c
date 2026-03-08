@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpFreeUnicodeStringList @ 0x14039C134
+ * Callers:
+ *     PiInitReleaseCachedGroupInformation @ 0x1408429D8 (PiInitReleaseCachedGroupInformation.c)
+ *     PnpRegMultiSzToUnicodeStrings @ 0x140B549A4 (PnpRegMultiSzToUnicodeStrings.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PnpFreeUnicodeStringList(PVOID *P, unsigned int a2)
 {
   PVOID *v3; // rbx

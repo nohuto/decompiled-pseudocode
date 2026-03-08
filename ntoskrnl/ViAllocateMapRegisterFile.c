@@ -1,3 +1,23 @@
+/*
+ * XREFs of ViAllocateMapRegisterFile @ 0x140AC4C84
+ * Callers:
+ *     VfAllocateAdapterChannel @ 0x140AC1B90 (VfAllocateAdapterChannel.c)
+ *     VfBuildScatterGatherList @ 0x140AC2650 (VfBuildScatterGatherList.c)
+ *     VfGetScatterGatherList @ 0x140AC3800 (VfGetScatterGatherList.c)
+ *     VfHalAllocateMapRegisters @ 0x140AC3D60 (VfHalAllocateMapRegisters.c)
+ * Callees:
+ *     IoAllocateMdl @ 0x14020CAD0 (IoAllocateMdl.c)
+ *     ExInterlockedInsertHeadList @ 0x1402E5000 (ExInterlockedInsertHeadList.c)
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     ViAllocateFromContiguousMemory @ 0x140AC4B8C (ViAllocateFromContiguousMemory.c)
+ *     ViFreeToContiguousMemory @ 0x140AC5D34 (ViFreeToContiguousMemory.c)
+ *     ViInitializePadding @ 0x140AC66E4 (ViInitializePadding.c)
+ */
+
 char *__fastcall ViAllocateMapRegisterFile(__int64 a1, unsigned int a2)
 {
   unsigned int v3; // edi

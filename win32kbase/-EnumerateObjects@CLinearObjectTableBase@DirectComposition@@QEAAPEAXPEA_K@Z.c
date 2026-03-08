@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?EnumerateObjects@CLinearObjectTableBase@DirectComposition@@QEAAPEAXPEA_K@Z @ 0x1C00AA51C
+ * Callers:
+ *     ?ReleaseAllResources@CApplicationChannel@DirectComposition@@QEAAXPEA_N@Z @ 0x1C0065DD8 (-ReleaseAllResources@CApplicationChannel@DirectComposition@@QEAAXPEA_N@Z.c)
+ *     ?OnConnectionReconnected@CChannelGroup@DirectComposition@@QEAAXXZ @ 0x1C0091DA8 (-OnConnectionReconnected@CChannelGroup@DirectComposition@@QEAAXXZ.c)
+ *     ?OnConnectionDisconnected@CChannelGroup@DirectComposition@@QEAAXXZ @ 0x1C0091E48 (-OnConnectionDisconnected@CChannelGroup@DirectComposition@@QEAAXXZ.c)
+ *     ?CompleteReconnection@CApplicationChannel@DirectComposition@@MEAAXXZ @ 0x1C00D1020 (-CompleteReconnection@CApplicationChannel@DirectComposition@@MEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void *__fastcall DirectComposition::CLinearObjectTableBase::EnumerateObjects(
         DirectComposition::CLinearObjectTableBase *this,
         unsigned __int64 *a2)

@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiOutSwapProcesses @ 0x1402BFE74
+ * Callers:
+ *     KeSwapProcessOrStack @ 0x140391CB0 (KeSwapProcessOrStack.c)
+ * Callees:
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     MmOutSwapProcess @ 0x1402C00EC (MmOutSwapProcess.c)
+ *     KiReadyOutSwappedThreads @ 0x1402C02E8 (KiReadyOutSwappedThreads.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KiOutSwapProcesses(signed __int64 *a1)
 {
   signed __int64 *v2; // r12

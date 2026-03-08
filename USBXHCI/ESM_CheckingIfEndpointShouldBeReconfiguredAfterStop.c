@@ -1,3 +1,11 @@
+/*
+ * XREFs of ESM_CheckingIfEndpointShouldBeReconfiguredAfterStop @ 0x1C000FC10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ESM_CheckingIfEndpointShouldBeReconfiguredAfterStop(__int64 a1)
 {
   _BYTE *v1; // rax

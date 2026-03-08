@@ -1,3 +1,26 @@
+/*
+ * XREFs of HMFreeObject @ 0x1C0077F50
+ * Callers:
+ *     ?LoadKeyboardLayoutFile@@YAPEAUtagKBDFILE@@PEAXIIPEBGPEAGKK@Z @ 0x1C0011CCC (-LoadKeyboardLayoutFile@@YAPEAUtagKBDFILE@@PEAXIIPEBGPEAGKK@Z.c)
+ *     HMDestroyObject @ 0x1C0086830 (HMDestroyObject.c)
+ *     DestroyMonitor @ 0x1C00B5C00 (DestroyMonitor.c)
+ *     DestroyKL @ 0x1C00CF5A8 (DestroyKL.c)
+ *     DestroyKF @ 0x1C00CF66C (DestroyKF.c)
+ *     UserCreateBaseWindowHandle @ 0x1C017BF10 (UserCreateBaseWindowHandle.c)
+ * Callees:
+ *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C003A360 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C004E3E0 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     UnlockObjectAssignment @ 0x1C0070750 (UnlockObjectAssignment.c)
+ *     HMUnlockObject @ 0x1C0072980 (HMUnlockObject.c)
+ *     ?HMFreeIsolatedType@@YAXEPEAX@Z @ 0x1C0075514 (-HMFreeIsolatedType@@YAXEPEAX@Z.c)
+ *     ?GetEtwUserHandleType@@YA?AW4EtwUserHandleType@@E@Z @ 0x1C00785AC (-GetEtwUserHandleType@@YA-AW4EtwUserHandleType@@E@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?HMFreeUserOrIsolatedType@@YAXGEPEAX@Z @ 0x1C00D3268 (-HMFreeUserOrIsolatedType@@YAXGEPEAX@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C00EE72C (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     HMCleanupGrantedHandle @ 0x1C0153858 (HMCleanupGrantedHandle.c)
+ */
+
 __int64 __fastcall HMFreeObject(unsigned int *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v4; // r15

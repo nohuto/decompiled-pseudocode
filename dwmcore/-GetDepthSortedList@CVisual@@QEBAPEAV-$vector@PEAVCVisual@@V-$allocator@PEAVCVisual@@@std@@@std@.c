@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetDepthSortedList@CVisual@@QEBAPEAV?$vector@PEAVCVisual@@V?$allocator@PEAVCVisual@@@std@@@std@@XZ @ 0x18009A5FC
+ * Callers:
+ *     ??1CVisual@@MEAA@XZ @ 0x18009A61C (--1CVisual@@MEAA@XZ.c)
+ *     ?CreateDepthSortedList@CVisual@@AEAAPEAV?$vector@PEAVCVisual@@V?$allocator@PEAVCVisual@@@std@@@std@@XZ @ 0x18020D774 (-CreateDepthSortedList@CVisual@@AEAAPEAV-$vector@PEAVCVisual@@V-$allocator@PEAVCVisual@@@std@@@s.c)
+ *     ?DeleteDepthSortedList@CVisual@@AEAAXXZ @ 0x18020D7DC (-DeleteDepthSortedList@CVisual@@AEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CVisual::GetDepthSortedList(__int64 a1)
 {
   _DWORD *v1; // r8

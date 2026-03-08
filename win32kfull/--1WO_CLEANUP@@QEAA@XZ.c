@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1WO_CLEANUP@@QEAA@XZ @ 0x1C0289B14
+ * Callers:
+ *     EngCreateWnd @ 0x1C028A3A0 (EngCreateWnd.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall WO_CLEANUP::~WO_CLEANUP(WO_CLEANUP *this)
 {
   _DWORD *v2; // rax

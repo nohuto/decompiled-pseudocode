@@ -1,3 +1,17 @@
+/*
+ * XREFs of InvalidateGDIWindows @ 0x1C01BEE24
+ * Callers:
+ *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C00519F0 (zzzLockDisplayAreaAndInvalidateDCCache.c)
+ *     ?zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z @ 0x1C00669E0 (-zzzChangeStates@@YAJPEAUtagWND@@PEAUtagSMWP@@@Z.c)
+ *     zzzUpdateLayeredWindow @ 0x1C01BE8C0 (zzzUpdateLayeredWindow.c)
+ *     InvalidateGDIWindows @ 0x1C01BEE24 (InvalidateGDIWindows.c)
+ * Callees:
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     CalcVisRgn @ 0x1C00535C0 (CalcVisRgn.c)
+ *     InvalidateGDIWindows @ 0x1C01BEE24 (InvalidateGDIWindows.c)
+ *     GreSetClientRgn @ 0x1C028ABF0 (GreSetClientRgn.c)
+ */
+
 void __fastcall InvalidateGDIWindows(const struct tagWND *a1)
 {
   __int64 Prop; // rax

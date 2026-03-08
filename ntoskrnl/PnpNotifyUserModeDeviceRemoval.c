@@ -1,3 +1,15 @@
+/*
+ * XREFs of PnpNotifyUserModeDeviceRemoval @ 0x140862BC0
+ * Callers:
+ *     PnpProcessQueryRemoveAndEject @ 0x1408625F0 (PnpProcessQueryRemoveAndEject.c)
+ *     PiProcessQueryAndCancelRemoval @ 0x14096E8C4 (PiProcessQueryAndCancelRemoval.c)
+ * Callees:
+ *     RtlStringCchCopyW @ 0x1402470F0 (RtlStringCchCopyW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PiUEventNotifyUserMode @ 0x14068C2D0 (PiUEventNotifyUserMode.c)
+ */
+
 NTSTATUS __fastcall PnpNotifyUserModeDeviceRemoval(
         __int64 a1,
         _WORD *a2,

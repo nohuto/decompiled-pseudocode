@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vCheckForICM@XLATE@@QEAAXPEAXK@Z @ 0x1C02DE924
+ * Callers:
+ *     ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C012448C (-bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOB.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall XLATE::vCheckForICM(XLATE *this, void *a2, int a3)
 {
   void *v3; // r9

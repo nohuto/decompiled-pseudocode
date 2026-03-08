@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bNoMatch@MAPPER@@QEBAHPEAVPFE@@@Z @ 0x1C011D08C
+ * Callers:
+ *     ?bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z @ 0x1C011B94C (-bNearMatch@MAPPER@@QEAAHAEAVPFEOBJ@@PEAEH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MAPPER::bNoMatch(MAPPER *this, struct PFE *a2)
 {
   unsigned int v2; // eax

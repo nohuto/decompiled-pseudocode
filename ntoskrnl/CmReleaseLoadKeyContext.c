@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmReleaseLoadKeyContext @ 0x14079329C
+ * Callers:
+ *     CmLoadDifferencingKey @ 0x1406BC49C (CmLoadDifferencingKey.c)
+ * Callees:
+ *     CmpDereferenceKeyControlBlock @ 0x1406B6660 (CmpDereferenceKeyControlBlock.c)
+ *     LOCK_HIVE_LOAD @ 0x1406C00DC (LOCK_HIVE_LOAD.c)
+ *     UNLOCK_HIVE_LOAD @ 0x1406C0154 (UNLOCK_HIVE_LOAD.c)
+ *     CmpDoQueueLateUnloadWorker @ 0x1406C01CC (CmpDoQueueLateUnloadWorker.c)
+ *     CmpLockRegistry @ 0x140AF2270 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ */
+
 char __fastcall CmReleaseLoadKeyContext(ULONG_PTR BugCheckParameter2, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rdx

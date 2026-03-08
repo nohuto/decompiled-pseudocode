@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitializeWin32kFullTelemetryAsserts @ 0x1C00F00E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     InitializeTelemetryAssertsKMWorkerInternal @ 0x1C00F0134 (InitializeTelemetryAssertsKMWorkerInternal.c)
+ */
+
 __int64 InitializeWin32kFullTelemetryAsserts()
 {
   __int64 result; // rax

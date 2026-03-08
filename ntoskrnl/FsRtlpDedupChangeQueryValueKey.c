@@ -1,3 +1,15 @@
+/*
+ * XREFs of FsRtlpDedupChangeQueryValueKey @ 0x14093B864
+ * Callers:
+ *     FsRtlDedupChangeInit @ 0x14093B690 (FsRtlDedupChangeInit.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall FsRtlpDedupChangeQueryValueKey(
         UNICODE_STRING *a1,
         UNICODE_STRING *a2,

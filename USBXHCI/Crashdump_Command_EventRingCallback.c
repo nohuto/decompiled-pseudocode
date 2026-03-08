@@ -1,3 +1,11 @@
+/*
+ * XREFs of Crashdump_Command_EventRingCallback @ 0x1C004EA50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Crashdump_Command_EventRingCallback(__int64 a1, _OWORD *a2, _BYTE *a3)
 {
   if ( *(_QWORD *)a2 == *(_QWORD *)(a1 + 24) )

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SuspendWorkerThread@VIDMM_GLOBAL@@QEAAXW4_VIDMM_WORKER_THREAD_SUSPEND_REASON@@@Z @ 0x1C00B400C
+ * Callers:
+ *     VidMmSuspendWorkerThread @ 0x1C0017A40 (VidMmSuspendWorkerThread.c)
+ * Callees:
+ *     ?RequestWorkerThreadStatus@VIDMM_WORKER_THREAD@@QEAAXW4VIDMM_WORKER_THREAD_STATUS@@E@Z @ 0x1C00B4048 (-RequestWorkerThreadStatus@VIDMM_WORKER_THREAD@@QEAAXW4VIDMM_WORKER_THREAD_STATUS@@E@Z.c)
+ */
+
 __int64 __fastcall VIDMM_GLOBAL::SuspendWorkerThread(_QWORD *a1, int a2)
 {
   int v2; // edx

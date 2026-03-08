@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?xxxDeactivate@@YAXPEAUtagTHREADINFO@@KW4DeactivateOption@@@Z @ 0x1C009BD38
+ * Callers:
+ *     xxxProcessEventMessage @ 0x1C006B460 (xxxProcessEventMessage.c)
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C00A126C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ * Callees:
+ *     SetWakeBit @ 0x1C0038B60 (SetWakeBit.c)
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     ?xxxFocusSetInputContext@@YAXPEAUtagWND@@HH@Z @ 0x1C009AC64 (-xxxFocusSetInputContext@@YAXPEAUtagWND@@HH@Z.c)
+ *     zzzInputFocusLostWindowEvent @ 0x1C009BA70 (zzzInputFocusLostWindowEvent.c)
+ *     PostIAMShellHookMessage @ 0x1C009C174 (PostIAMShellHookMessage.c)
+ *     ?xxxSendActivateAppMessage@@YAXAEBUtagAAS@@@Z @ 0x1C009DAB4 (-xxxSendActivateAppMessage@@YAXAEBUtagAAS@@@Z.c)
+ *     _anonymous_namespace_::xxxSendNCActivateMessage @ 0x1C009E068 (_anonymous_namespace_--xxxSendNCActivateMessage.c)
+ *     LockW32Thread @ 0x1C00A1BCC (LockW32Thread.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ */
+
 struct tagWND *__fastcall xxxDeactivate(__int64 a1, int a2, char a3)
 {
   __int64 v4; // rcx

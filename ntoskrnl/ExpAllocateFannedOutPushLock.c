@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpAllocateFannedOutPushLock @ 0x1403CF30C
+ * Callers:
+ *     ExpTryExpandAutoExpandPushLock @ 0x1403CF2A8 (ExpTryExpandAutoExpandPushLock.c)
+ * Callees:
+ *     ExSaAllocate @ 0x1402962FC (ExSaAllocate.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1402A7240 (KeQueryMaximumProcessorCountEx.c)
+ */
+
 __int64 __fastcall ExpAllocateFannedOutPushLock(__int64 a1, char a2)
 {
   __int64 v3; // rbx

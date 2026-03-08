@@ -1,3 +1,13 @@
+/*
+ * XREFs of VidSchFlushPendingCommand @ 0x1C0107910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VidSchiSubmitCommandPacketToQueue @ 0x1C0003280 (VidSchiSubmitCommandPacketToQueue.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     VidSchiDiscardQueuePacket @ 0x1C01060F8 (VidSchiDiscardQueuePacket.c)
+ */
+
 __int64 __fastcall VidSchFlushPendingCommand(__int64 a1, __int64 a2, __int64 a3)
 {
   int v3; // ebp

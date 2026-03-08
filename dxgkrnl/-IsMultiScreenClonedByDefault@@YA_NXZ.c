@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsMultiScreenClonedByDefault@@YA_NXZ @ 0x1C0049D40
+ * Callers:
+ *     ?GetMultiScreenDefaultShellTopology@@YAJPEAW4MultiScreenDefaultShellTopology@@@Z @ 0x1C0049BEC (-GetMultiScreenDefaultShellTopology@@YAJPEAW4MultiScreenDefaultShellTopology@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 char IsMultiScreenClonedByDefault(void)
 {
   __int128 v0; // xmm1

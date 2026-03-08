@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserSetThreadInputBlocked @ 0x1C0005070
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall NtUserSetThreadInputBlocked(int a1, int a2)
 {
   __int64 v4; // rbx

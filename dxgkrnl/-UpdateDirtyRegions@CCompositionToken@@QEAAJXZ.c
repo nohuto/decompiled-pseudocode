@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?UpdateDirtyRegions@CCompositionToken@@QEAAJXZ @ 0x1C00015B4
+ * Callers:
+ *     ?Discard@CCompositionToken@@UEAAXXZ @ 0x1C0012A00 (-Discard@CCompositionToken@@UEAAXXZ.c)
+ * Callees:
+ *     ?UpdateBufferDirtyRegion@CCompositionSurface@@IEAAJ_KAEBUIRegion@@W4DXGI_ALPHA_MODE@@@Z @ 0x1C0001658 (-UpdateBufferDirtyRegion@CCompositionSurface@@IEAAJ_KAEBUIRegion@@W4DXGI_ALPHA_MODE@@@Z.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C000E098 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C000E344 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ */
+
 __int64 __fastcall CCompositionToken::UpdateDirtyRegions(CCompositionToken *this)
 {
   int v1; // ebx

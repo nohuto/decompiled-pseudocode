@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1CVirtualMonitorCaptureRenderTarget@@MEAA@XZ @ 0x1801EB0EC
+ * Callers:
+ *     ??_ECVirtualMonitorCaptureRenderTarget@@MEAAPEAXI@Z @ 0x1801C0B20 (--_ECVirtualMonitorCaptureRenderTarget@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1?$com_ptr_t@VClipPlaneInfoRef@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18000DA7C (--1-$com_ptr_t@VClipPlaneInfoRef@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?InternalRelease@CResource@@IEAAKXZ @ 0x180078858 (-InternalRelease@CResource@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CVirtualMonitorCaptureRenderTarget::~CVirtualMonitorCaptureRenderTarget(
         CVirtualMonitorCaptureRenderTarget *this)
 {

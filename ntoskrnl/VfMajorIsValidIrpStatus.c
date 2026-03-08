@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfMajorIsValidIrpStatus @ 0x140AD0058
+ * Callers:
+ *     ViGenericVerifyIrpStackDownward @ 0x140AC00C0 (ViGenericVerifyIrpStackDownward.c)
+ *     ViGenericVerifyIrpStackUpward @ 0x140AC02C0 (ViGenericVerifyIrpStackUpward.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall VfMajorIsValidIrpStatus(_BYTE *a1, unsigned int a2)
 {
   __int64 v4; // rax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpDmaFlushBufferWithEmergencyResources @ 0x14050E9D8
+ * Callers:
+ *     HalpDmaFlushBuffer @ 0x14050E7A0 (HalpDmaFlushBuffer.c)
+ * Callees:
+ *     KeFlushIoBuffers @ 0x1402DCDE0 (KeFlushIoBuffers.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     MmMapLockedPagesWithReservedMapping @ 0x1403A1EB0 (MmMapLockedPagesWithReservedMapping.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmUnmapReservedMapping @ 0x14061C4D0 (MmUnmapReservedMapping.c)
+ */
+
 __int64 __fastcall HalpDmaFlushBufferWithEmergencyResources(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetInformation@FxUsbPipe@@QEAAXPEAU_WDF_USB_PIPE_INFORMATION@@@Z @ 0x1C005A468
+ * Callers:
+ *     imp_WdfUsbTargetPipeGetInformation @ 0x1C0056D40 (imp_WdfUsbTargetPipeGetInformation.c)
+ *     ?GetConfiguredPipe@FxUsbInterface@@QEAAPEAUWDFUSBPIPE__@@EPEAU_WDF_USB_PIPE_INFORMATION@@@Z @ 0x1C005EF18 (-GetConfiguredPipe@FxUsbInterface@@QEAAPEAUWDFUSBPIPE__@@EPEAU_WDF_USB_PIPE_INFORMATION@@@Z.c)
+ * Callees:
+ *     ?GetMaxPacketSize@FxUsbPipe@@QEAAKXZ @ 0x1C000ED60 (-GetMaxPacketSize@FxUsbPipe@@QEAAKXZ.c)
+ *     ?GetConfiguredSettingIndex@FxUsbInterface@@QEAAEXZ @ 0x1C005EF70 (-GetConfiguredSettingIndex@FxUsbInterface@@QEAAEXZ.c)
+ */
+
 void __fastcall FxUsbPipe::GetInformation(FxUsbPipe *this, _WDF_USB_PIPE_INFORMATION *PipeInformation)
 {
   int MaxPacketSize; // eax

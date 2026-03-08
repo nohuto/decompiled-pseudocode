@@ -1,3 +1,12 @@
+/*
+ * XREFs of PfTAcquireLogEntry @ 0x1407E67C4
+ * Callers:
+ *     PfpCopyEvent @ 0x1407E5C10 (PfpCopyEvent.c)
+ *     PfpFlushBuffers @ 0x1407E5E50 (PfpFlushBuffers.c)
+ * Callees:
+ *     PfTReplaceCurrentBuffer @ 0x1407E6840 (PfTReplaceCurrentBuffer.c)
+ */
+
 __int64 __fastcall PfTAcquireLogEntry(__int64 a1, int *a2, int a3)
 {
   __int64 v3; // r10

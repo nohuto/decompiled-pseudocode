@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiReadEntirePageHashEntry @ 0x140664630
+ * Callers:
+ *     MiObtainPagefileHashes @ 0x140466CF4 (MiObtainPagefileHashes.c)
+ *     MiLateWritePageHash @ 0x140663AE8 (MiLateWritePageHash.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiReadEntirePageHashEntry(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CDDASwapChain@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18029FC50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CDDASwapChain::HrFindInterface(CDDASwapChain *this, const struct _GUID *a2, void **a3)
 {
   __int64 result; // rax

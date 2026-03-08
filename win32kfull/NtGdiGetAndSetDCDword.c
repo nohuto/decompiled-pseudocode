@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtGdiGetAndSetDCDword @ 0x1C02AC920
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C0050C40 (--1DCOBJ@@QEAA@XZ.c)
+ *     ?iSetMapMode@DC@@QEAAHH@Z @ 0x1C02D18C8 (-iSetMapMode@DC@@QEAAHH@Z.c)
+ */
+
 __int64 __fastcall NtGdiGetAndSetDCDword(HDC a1, int a2, int a3, _DWORD *a4)
 {
   int v7; // ebx

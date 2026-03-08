@@ -1,3 +1,13 @@
+/*
+ * XREFs of bInitFontTables @ 0x1C03B7A90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0FHMEMOBJ@@QEAA@PEAPEAU_FONTHASH@@W4_FONTHASHTYPE@@I@Z @ 0x1C00EC99C (--0FHMEMOBJ@@QEAA@PEAPEAU_FONTHASH@@W4_FONTHASHTYPE@@I@Z.c)
+ *     ?pAllocateAndInitializePFT@@YAPEAVPFT@@I@Z @ 0x1C00ECA6C (-pAllocateAndInitializePFT@@YAPEAVPFT@@I@Z.c)
+ *     vQueryRegistryForNumberOfBuckets @ 0x1C03B7BC4 (vQueryRegistryForNumberOfBuckets.c)
+ */
+
 __int64 __fastcall bInitFontTables(Gre::Base *a1)
 {
   unsigned int v1; // ebx

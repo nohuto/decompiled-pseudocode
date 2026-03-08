@@ -1,3 +1,16 @@
+/*
+ * XREFs of DrvDbGetDeviceIdDriverInfMatches @ 0x140866238
+ * Callers:
+ *     DrvDbGetDeviceIdMappedProperty @ 0x140865414 (DrvDbGetDeviceIdMappedProperty.c)
+ * Callees:
+ *     RtlStringCchCopyExW @ 0x140244A08 (RtlStringCchCopyExW.c)
+ *     _PnpCtxRegEnumValue @ 0x140866444 (_PnpCtxRegEnumValue.c)
+ *     DrvDbBuildDeviceIdDriverInfMatch @ 0x140866494 (DrvDbBuildDeviceIdDriverInfMatch.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1408665AC (_PnpCtxRegQueryInfoKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall DrvDbGetDeviceIdDriverInfMatches(
         __int64 a1,
         __int64 a2,

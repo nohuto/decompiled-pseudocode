@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhValidateMsOs20CcgpDevice @ 0x1C0052770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 char __fastcall UsbhValidateMsOs20CcgpDevice(__int64 a1, int *a2, _WORD *a3)
 {
   int v3; // eax

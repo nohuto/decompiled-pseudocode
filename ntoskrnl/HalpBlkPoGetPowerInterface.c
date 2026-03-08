@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpBlkPoGetPowerInterface @ 0x1403B1880
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpBlkPoGetPowerInterface(__int64 a1)
 {
   if ( !HalpInterruptBlockedProcessors )

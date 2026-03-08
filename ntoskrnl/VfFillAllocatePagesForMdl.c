@@ -1,3 +1,14 @@
+/*
+ * XREFs of VfFillAllocatePagesForMdl @ 0x140AE09B8
+ * Callers:
+ *     VerifierMmAllocateNodePagesForMdlEx @ 0x140ADF970 (VerifierMmAllocateNodePagesForMdlEx.c)
+ *     VerifierMmAllocatePagesForMdlEx @ 0x140ADFC00 (VerifierMmAllocatePagesForMdlEx.c)
+ * Callees:
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     VfFillAllocatedMemory @ 0x140AD700C (VfFillAllocatedMemory.c)
+ */
+
 void __fastcall VfFillAllocatePagesForMdl(PMDL MemoryDescriptorList, int a2, char a3)
 {
   ULONG ByteCount; // edi

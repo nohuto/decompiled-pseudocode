@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpBuddyAllocatorDeleteSubtree @ 0x1405301B8
+ * Callers:
+ *     HalpBuddyAllocatorAllocateLogicalAddress @ 0x14052F760 (HalpBuddyAllocatorAllocateLogicalAddress.c)
+ *     HalpBuddyAllocatorCleanUp @ 0x14052FFD0 (HalpBuddyAllocatorCleanUp.c)
+ * Callees:
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     HalpBuddyAllocatorBltAdd @ 0x14052FBC0 (HalpBuddyAllocatorBltAdd.c)
+ *     HalpBuddyAllocatorBltRemove @ 0x14052FEF4 (HalpBuddyAllocatorBltRemove.c)
+ */
+
 __int64 __fastcall HalpBuddyAllocatorDeleteSubtree(__int64 a1, __int64 a2)
 {
   __int64 i; // rbx

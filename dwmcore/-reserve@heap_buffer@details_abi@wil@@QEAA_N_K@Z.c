@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?reserve@heap_buffer@details_abi@wil@@QEAA_N_K@Z @ 0x1800F937C
+ * Callers:
+ *     ?ensure@heap_buffer@details_abi@wil@@QEAA_N_K@Z @ 0x1800F9578 (-ensure@heap_buffer@details_abi@wil@@QEAA_N_K@Z.c)
+ * Callees:
+ *     ?ProcessHeapAlloc@details@wil@@YAPEAXK_K@Z @ 0x1800F943C (-ProcessHeapAlloc@details@wil@@YAPEAXK_K@Z.c)
+ *     memcpy_s @ 0x1800F951C (memcpy_s.c)
+ *     ?FreeProcessHeap@details@wil@@YAXPEAX@Z @ 0x180103C70 (-FreeProcessHeap@details@wil@@YAXPEAX@Z.c)
+ *     ??0last_error_context@wil@@QEAA@XZ @ 0x180194688 (--0last_error_context@wil@@QEAA@XZ.c)
+ *     ??1last_error_context@wil@@QEAA@XZ @ 0x180194B28 (--1last_error_context@wil@@QEAA@XZ.c)
+ */
+
 char __fastcall wil::details_abi::heap_buffer::reserve(wil::details_abi::heap_buffer *this, unsigned __int64 a2)
 {
   unsigned __int64 v4; // rdi

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpAllocateOwnerEntryForLegacyShim @ 0x1403C4374
+ * Callers:
+ *     ExpFastResourceLegacyAcquireShared @ 0x1403C33D4 (ExpFastResourceLegacyAcquireShared.c)
+ *     ExpFastResourceLegacyAcquireExclusive @ 0x1403C4310 (ExpFastResourceLegacyAcquireExclusive.c)
+ *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x140608144 (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 _BYTE *ExpAllocateOwnerEntryForLegacyShim()
 {
   _BYTE *Pool2; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of _PnpCtxOpenContextBaseKey @ 0x1408772B4
+ * Callers:
+ *     PiCMOpenClassKey @ 0x14085C868 (PiCMOpenClassKey.c)
+ *     PiDevCfgEnumDeviceKeys @ 0x140876FB8 (PiDevCfgEnumDeviceKeys.c)
+ *     PiDevCfgResolveVariableKeyHandle @ 0x14095EB7C (PiDevCfgResolveVariableKeyHandle.c)
+ * Callees:
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406D3680 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _SysCtxRegOpenKey @ 0x1406D4350 (_SysCtxRegOpenKey.c)
+ */
+
 __int64 __fastcall PnpCtxOpenContextBaseKey(__int64 a1, int a2, __int64 a3, unsigned int a4, __int64 a5)
 {
   __int64 v5; // rdi

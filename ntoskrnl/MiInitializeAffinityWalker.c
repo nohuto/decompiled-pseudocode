@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiInitializeAffinityWalker @ 0x1402A7028
+ * Callers:
+ *     MiZeroInParallel @ 0x140242EB8 (MiZeroInParallel.c)
+ *     MiZeroHugeRangeCore @ 0x140A2B20C (MiZeroHugeRangeCore.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiObtainParkedCoreMasks @ 0x1402A7130 (MiObtainParkedCoreMasks.c)
+ *     MiInitializeDpcGroupAffinity @ 0x1402A9390 (MiInitializeDpcGroupAffinity.c)
+ */
+
 _DWORD *__fastcall MiInitializeAffinityWalker(unsigned int a1, unsigned int a2, int a3)
 {
   __int64 v6; // r14

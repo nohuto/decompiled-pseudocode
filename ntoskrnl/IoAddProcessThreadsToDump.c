@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoAddProcessThreadsToDump @ 0x14055A100
+ * Callers:
+ *     IopPartialDumpAddProcessesCallback @ 0x14055B470 (IopPartialDumpAddProcessesCallback.c)
+ *     IopLiveDumpAddProcessesCallback @ 0x140A97100 (IopLiveDumpAddProcessesCallback.c)
+ * Callees:
+ *     KeEnumerateKernelStackSegments @ 0x1402A76A0 (KeEnumerateKernelStackSegments.c)
+ *     MmAddRangeToCrashDump @ 0x14062DD30 (MmAddRangeToCrashDump.c)
+ */
+
 __int64 __fastcall IoAddProcessThreadsToDump(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // rdi

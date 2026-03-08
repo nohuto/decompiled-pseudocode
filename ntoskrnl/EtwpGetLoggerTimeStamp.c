@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwpGetLoggerTimeStamp @ 0x140205F68
+ * Callers:
+ *     EtwpPrepareDirtyBuffer @ 0x140205FA4 (EtwpPrepareDirtyBuffer.c)
+ *     EtwSendTraceBuffer @ 0x1405FCD90 (EtwSendTraceBuffer.c)
+ *     EtwpRelinquishCompressionTarget @ 0x140600688 (EtwpRelinquishCompressionTarget.c)
+ *     EtwpRotateCompressionTarget @ 0x1406006D8 (EtwpRotateCompressionTarget.c)
+ *     EtwpInitializeTimeStamp @ 0x14078CF30 (EtwpInitializeTimeStamp.c)
+ * Callees:
+ *     RtlGetSystemTimePrecise @ 0x140205310 (RtlGetSystemTimePrecise.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 LARGE_INTEGER __fastcall EtwpGetLoggerTimeStamp(__int64 a1)
 {
   unsigned __int64 v1; // rax

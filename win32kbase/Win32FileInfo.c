@@ -1,3 +1,11 @@
+/*
+ * XREFs of Win32FileInfo @ 0x1C00B32B0
+ * Callers:
+ *     ?IsWin32kRefreshed@@YA_NXZ @ 0x1C00D9DD8 (-IsWin32kRefreshed@@YA_NXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 _BOOL8 __fastcall Win32FileInfo(PCWSTR SourceString, _QWORD *a2, _QWORD *a3)
 {
   NTSTATUS v5; // ebx

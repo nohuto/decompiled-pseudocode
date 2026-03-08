@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwpFindOrCreateGuidEntry @ 0x140694E30
+ * Callers:
+ *     EtwpRegisterKMProvider @ 0x140690D64 (EtwpRegisterKMProvider.c)
+ *     EtwpAddRegEntryToGroup @ 0x140693640 (EtwpAddRegEntryToGroup.c)
+ *     EtwpRegisterUMProvider @ 0x140694950 (EtwpRegisterUMProvider.c)
+ * Callees:
+ *     SeAccessCheck @ 0x140265330 (SeAccessCheck.c)
+ *     EtwpAddGuidEntry @ 0x140690A30 (EtwpAddGuidEntry.c)
+ *     EtwpFindGuidEntryByGuid @ 0x140694F60 (EtwpFindGuidEntryByGuid.c)
+ *     EtwpUnreferenceGuidEntry @ 0x140695094 (EtwpUnreferenceGuidEntry.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ */
+
 __int64 __fastcall EtwpFindOrCreateGuidEntry(__int64 a1, _DWORD *a2, __int64 a3, char a4, _QWORD *a5)
 {
   int v6; // esi

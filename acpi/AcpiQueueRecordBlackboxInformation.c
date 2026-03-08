@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiQueueRecordBlackboxInformation @ 0x1C0046A90
+ * Callers:
+ *     AmliDisableWatchdog @ 0x1C0046D30 (AmliDisableWatchdog.c)
+ *     AmliWatchdogTimeoutAction @ 0x1C0046F84 (AmliWatchdogTimeoutAction.c)
+ * Callees:
+ *     <none>
+ */
+
 char AcpiQueueRecordBlackboxInformation()
 {
   char v0; // cl

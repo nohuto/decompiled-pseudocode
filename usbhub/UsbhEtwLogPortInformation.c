@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhEtwLogPortInformation @ 0x1C005BD4C
+ * Callers:
+ *     UsbhGetExtendedHubInformation @ 0x1C002BEBC (UsbhGetExtendedHubInformation.c)
+ *     UsbhEtwRundown @ 0x1C005BED0 (UsbhEtwRundown.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     UsbhEtwLogHubEventWithExtraData @ 0x1C005B848 (UsbhEtwLogHubEventWithExtraData.c)
+ */
+
 _DWORD *__fastcall UsbhEtwLogPortInformation(__int64 a1)
 {
   _DWORD *result; // rax

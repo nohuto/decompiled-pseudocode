@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ExitThread@FxSystemThread@@QEAAEXZ @ 0x1C008939C
+ * Callers:
+ *     ?CreatePowerThread@FxPkgPnp@@IEAAJXZ @ 0x1C0072040 (-CreatePowerThread@FxPkgPnp@@IEAAJXZ.c)
+ *     ?ReleasePowerThread@FxPkgPnp@@AEAAXXZ @ 0x1C0075650 (-ReleasePowerThread@FxPkgPnp@@AEAAXXZ.c)
+ * Callees:
+ *     ?Lock@FxNonPagedObject@@QEAAXPEAE@Z @ 0x1C0006060 (-Lock@FxNonPagedObject@@QEAAXPEAE@Z.c)
+ *     ?Unlock@FxNonPagedObject@@QEAAXE@Z @ 0x1C0006094 (-Unlock@FxNonPagedObject@@QEAAXE@Z.c)
+ */
+
 unsigned __int8 __fastcall FxSystemThread::ExitThread(FxSystemThread *this, __int64 a2, unsigned __int8 a3)
 {
   unsigned __int8 v4; // r8

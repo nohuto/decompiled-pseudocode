@@ -1,3 +1,19 @@
+/*
+ * XREFs of LdrUnloadAlternateResourceModuleEx @ 0x14036C9E0
+ * Callers:
+ *     LdrpGetFromMUIMemCache @ 0x14035D974 (LdrpGetFromMUIMemCache.c)
+ *     LdrUnloadAlternateResourceModule @ 0x14036C804 (LdrUnloadAlternateResourceModule.c)
+ * Callees:
+ *     KeReleaseMutant @ 0x14030E920 (KeReleaseMutant.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     MmUnmapViewInSystemSpace @ 0x140791780 (MmUnmapViewInSystemSpace.c)
+ *     RtlRunOnceExecuteOnce @ 0x1407A2BE0 (RtlRunOnceExecuteOnce.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall LdrUnloadAlternateResourceModuleEx(__int64 a1)
 {
   char v2; // bl

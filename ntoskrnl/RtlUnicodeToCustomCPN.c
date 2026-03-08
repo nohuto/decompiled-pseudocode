@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlUnicodeToCustomCPN @ 0x14079F6F0
+ * Callers:
+ *     RtlUnicodeToOemN @ 0x14079F690 (RtlUnicodeToOemN.c)
+ * Callees:
+ *     RtlUnicodeToUTF8N @ 0x1407A3750 (RtlUnicodeToUTF8N.c)
+ */
+
 NTSTATUS __stdcall RtlUnicodeToCustomCPN(
         PCPTABLEINFO CustomCP,
         PCH CustomCPString,

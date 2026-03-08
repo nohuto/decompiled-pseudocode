@@ -1,3 +1,13 @@
+/*
+ * XREFs of PfFbBufferListAllocate @ 0x14039C990
+ * Callers:
+ *     PfTStart @ 0x140844B00 (PfTStart.c)
+ * Callees:
+ *     PfFbBufferListInsertInFree @ 0x14035B6E4 (PfFbBufferListInsertInFree.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PfFbBufferListAllocate(_SLIST_ENTRY *RunRef, signed int a2, unsigned int a3)
 {
   __int64 v3; // rbx

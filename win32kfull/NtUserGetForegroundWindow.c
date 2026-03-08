@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserGetForegroundWindow @ 0x1C0035A50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetCompositeAppFrameWindowOrSelf@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z @ 0x1C0035AC4 (-GetCompositeAppFrameWindowOrSelf@CoreWindowProp@@SAPEAUtagWND@@PEBU2@@Z.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ */
+
 __int64 __fastcall NtUserGetForegroundWindow(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rbx

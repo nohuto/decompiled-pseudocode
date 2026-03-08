@@ -1,3 +1,14 @@
+/*
+ * XREFs of GreSetSolidBrushLight @ 0x1C017E620
+ * Callers:
+ *     GreDCSelectPen @ 0x1C0005440 (GreDCSelectPen.c)
+ *     GreDCSelectBrush @ 0x1C00457E0 (GreDCSelectBrush.c)
+ * Callees:
+ *     ?vFreeOrCacheRBrush@RBRUSH@@QEAAXW4RBTYPE@@@Z @ 0x1C0028810 (-vFreeOrCacheRBrush@RBRUSH@@QEAAXW4RBTYPE@@@Z.c)
+ *     ??0HANDLELOCK@@QEAA@PEAVOBJECT@@HHH@Z @ 0x1C0048AE0 (--0HANDLELOCK@@QEAA@PEAVOBJECT@@HHH@Z.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C004A440 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall GreSetSolidBrushLight(struct OBJECT *a1, int a2, int a3)
 {
   unsigned int v3; // ebp

@@ -1,3 +1,22 @@
+/*
+ * XREFs of PoEnergyContextUpdateComponentPower @ 0x1406FF3F8
+ * Callers:
+ *     PsUpdateComponentPower @ 0x140294B40 (PsUpdateComponentPower.c)
+ *     PopPowerRequestCallbackDisplayRequired @ 0x14073A470 (PopPowerRequestCallbackDisplayRequired.c)
+ *     NtSetThreadExecutionState @ 0x14073A9D0 (NtSetThreadExecutionState.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     KeQueryTimelineBitmapTime @ 0x1402384D0 (KeQueryTimelineBitmapTime.c)
+ *     RtlTimelineBitmapUpdate @ 0x140250EE0 (RtlTimelineBitmapUpdate.c)
+ *     RtlStateDurationUpdate @ 0x140294E3C (RtlStateDurationUpdate.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     RtlTimelineBitmapUpdateRange @ 0x1402EA814 (RtlTimelineBitmapUpdateRange.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopEtEnergyContextSetState @ 0x140700F30 (PopEtEnergyContextSetState.c)
+ *     PopEtEnergyContextProcessStateUpdate @ 0x140703944 (PopEtEnergyContextProcessStateUpdate.c)
+ */
+
 void __fastcall PoEnergyContextUpdateComponentPower(__int64 a1, int a2, __int64 a3)
 {
   __int64 v3; // rdi

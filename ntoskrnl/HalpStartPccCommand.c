@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpStartPccCommand @ 0x140932CDC
+ * Callers:
+ *     HalpSendPccCommand @ 0x140932C70 (HalpSendPccCommand.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpUpdateCoolingPacket @ 0x140525350 (HalpUpdateCoolingPacket.c)
+ *     HalpAcquirePccInterface @ 0x1409328F4 (HalpAcquirePccInterface.c)
+ */
+
 __int64 HalpStartPccCommand()
 {
   UNICODE_STRING DestinationString; // [rsp+20h] [rbp-98h] BYREF

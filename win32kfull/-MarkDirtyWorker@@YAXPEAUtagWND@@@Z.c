@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?MarkDirtyWorker@@YAXPEAUtagWND@@@Z @ 0x1C00AED30
+ * Callers:
+ *     LinkWindow @ 0x1C00639C0 (LinkWindow.c)
+ *     UnlinkWindow @ 0x1C00AB340 (UnlinkWindow.c)
+ *     DirtyVisRgnTrackers @ 0x1C00AEA8C (DirtyVisRgnTrackers.c)
+ *     ?MarkDirtyWorker@@YAXPEAUtagWND@@@Z @ 0x1C00AED30 (-MarkDirtyWorker@@YAXPEAUtagWND@@@Z.c)
+ * Callees:
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C0044080 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     ?MarkDirtyWorker@@YAXPEAUtagWND@@@Z @ 0x1C00AED30 (-MarkDirtyWorker@@YAXPEAUtagWND@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 void __fastcall MarkDirtyWorker(struct tagWND *a1)
 {
   __int64 v2; // rsi

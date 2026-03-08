@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIProcessPhysicalDeviceLocationPackage @ 0x1C00984B0
+ * Callers:
+ *     ACPIProcessPhysicalDeviceLocation @ 0x1C0098134 (ACPIProcessPhysicalDeviceLocation.c)
+ * Callees:
+ *     AMLIEvalPkgDataElement @ 0x1C0047F38 (AMLIEvalPkgDataElement.c)
+ *     AMLIFreeDataBuffs @ 0x1C00482C4 (AMLIFreeDataBuffs.c)
+ *     ACPIGetPhysicalDeviceLocationBuffer @ 0x1C0097E38 (ACPIGetPhysicalDeviceLocationBuffer.c)
+ */
+
 __int64 __fastcall ACPIProcessPhysicalDeviceLocationPackage(__int64 a1, _DWORD *a2, __int64 a3)
 {
   _DWORD *v3; // r12

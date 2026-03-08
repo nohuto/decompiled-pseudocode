@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$emplace_back@VCDepthSortedVisualCollection@@@?$vector@VCDepthSortedVisualCollection@@V?$allocator@VCDepthSortedVisualCollection@@@std@@@std@@QEAA?A_T$$QEAVCDepthSortedVisualCollection@@@Z @ 0x1801D63D4
+ * Callers:
+ *     ?PreComputePreSubgraph@CDepthSortingPreComputeHelper@@QEAAXPEAVCVisual@@@Z @ 0x1801D6528 (-PreComputePreSubgraph@CDepthSortingPreComputeHelper@@QEAAXPEAVCVisual@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall std::vector<CDepthSortedVisualCollection>::emplace_back<CDepthSortedVisualCollection>(
         __int64 *a1,
         __int64 a2)

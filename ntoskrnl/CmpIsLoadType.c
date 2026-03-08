@@ -1,3 +1,20 @@
+/*
+ * XREFs of CmpIsLoadType @ 0x140B3493C
+ * Callers:
+ *     CmpFindDrivers @ 0x140B34758 (CmpFindDrivers.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpFindValueByName @ 0x1407A74A0 (CmpFindValueByName.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpFindSubKeyByName @ 0x1407FE71C (CmpFindSubKeyByName.c)
+ *     CmpValueToData @ 0x1407FEFF8 (CmpValueToData.c)
+ *     CmpGetNodeName @ 0x140B34B00 (CmpGetNodeName.c)
+ */
+
 char __fastcall CmpIsLoadType(
         ULONG_PTR BugCheckParameter3,
         ULONG_PTR a2,

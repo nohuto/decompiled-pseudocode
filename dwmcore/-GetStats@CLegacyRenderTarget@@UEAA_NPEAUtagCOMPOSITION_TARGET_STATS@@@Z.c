@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetStats@CLegacyRenderTarget@@UEAA_NPEAUtagCOMPOSITION_TARGET_STATS@@@Z @ 0x1800D554C
+ * Callers:
+ *     ?GetStats@CLegacyRenderTarget@@$4PPPPPPPM@A@EAA_NPEAUtagCOMPOSITION_TARGET_STATS@@@Z @ 0x1801186F0 (-GetStats@CLegacyRenderTarget@@$4PPPPPPPM@A@EAA_NPEAUtagCOMPOSITION_TARGET_STATS@@@Z.c)
+ *     ?GetStats@CLegacyRenderTarget@@$4PPPPPPPM@BA@EAA_NPEAUtagCOMPOSITION_TARGET_STATS@@@Z @ 0x180118710 (-GetStats@CLegacyRenderTarget@@$4PPPPPPPM@BA@EAA_NPEAUtagCOMPOSITION_TARGET_STATS@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CLegacyRenderTarget::GetStats(CLegacyRenderTarget *this, struct tagCOMPOSITION_TARGET_STATS *a2)
 {
   __int64 v4; // rbx

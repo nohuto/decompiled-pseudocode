@@ -1,3 +1,32 @@
+/*
+ * XREFs of VfDeadlockReleaseResource @ 0x140AD4ECC
+ * Callers:
+ *     ViDeadlockExReleaseFastMutexUnsafe_Entry @ 0x140AD60D0 (ViDeadlockExReleaseFastMutexUnsafe_Entry.c)
+ *     ViDeadlockExReleaseFastMutex_Entry @ 0x140AD6100 (ViDeadlockExReleaseFastMutex_Entry.c)
+ *     ViDeadlockKeReleaseInStackQueuedSpinLockForDpc_Entry @ 0x140AD63C0 (ViDeadlockKeReleaseInStackQueuedSpinLockForDpc_Entry.c)
+ *     ViDeadlockKeReleaseMutant_Entry @ 0x140AD6400 (ViDeadlockKeReleaseMutant_Entry.c)
+ *     ViDeadlockKeReleaseMutex_Entry @ 0x140AD6430 (ViDeadlockKeReleaseMutex_Entry.c)
+ *     ViDeadlockKeReleaseSpinLockFromDpcLevel_Entry @ 0x140AD6460 (ViDeadlockKeReleaseSpinLockFromDpcLevel_Entry.c)
+ *     ViDeadlockKeReleaseSpinLock_Entry @ 0x140AD6490 (ViDeadlockKeReleaseSpinLock_Entry.c)
+ * Callees:
+ *     RtlCaptureStackBackTrace @ 0x140205C20 (RtlCaptureStackBackTrace.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     ViLowerIrql @ 0x1405CF698 (ViLowerIrql.c)
+ *     ViRaiseIrqlToDpcLevel @ 0x1405CF710 (ViRaiseIrqlToDpcLevel.c)
+ *     ViDeadlockCanProceed @ 0x140ABD79A (ViDeadlockCanProceed.c)
+ *     ViDeadlockDetectionLock @ 0x140AD5DD8 (ViDeadlockDetectionLock.c)
+ *     ViDeadlockDetectionUnlock @ 0x140AD5E10 (ViDeadlockDetectionUnlock.c)
+ *     ViDeadlockFree @ 0x140AD6280 (ViDeadlockFree.c)
+ *     ViDeadlockPreprocessOptions @ 0x140AD6830 (ViDeadlockPreprocessOptions.c)
+ *     ViDeadlockRemoveThread @ 0x140AD6C20 (ViDeadlockRemoveThread.c)
+ *     ViDeadlockSearchResource @ 0x140AD6D80 (ViDeadlockSearchResource.c)
+ *     ViDeadlockSearchThread @ 0x140AD6E28 (ViDeadlockSearchThread.c)
+ *     ViIsThreadInsidePagingCodePaths @ 0x140AD6FA0 (ViIsThreadInsidePagingCodePaths.c)
+ */
+
 PVOID __fastcall VfDeadlockReleaseResource(LONG *a1, int a2, __int64 a3, void *a4)
 {
   ULONG_PTR v4; // rdi

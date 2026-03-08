@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?MenuItemState@@YAKAEBV?$SmartObjStackRef@UtagMENU@@@@IKKPEAPEAUtagMENU@@@Z @ 0x1C0224A1C
+ * Callers:
+ *     _CheckMenuItem @ 0x1C0224C40 (_CheckMenuItem.c)
+ *     xxxEnableMenuItem @ 0x1C0224CA0 (xxxEnableMenuItem.c)
+ * Callees:
+ *     MNLookUpItem @ 0x1C00A75F0 (MNLookUpItem.c)
+ */
+
 __int64 __fastcall MenuItemState(__int64 a1, unsigned int a2, int a3, int a4, _QWORD *a5)
 {
   __int64 v7; // rcx

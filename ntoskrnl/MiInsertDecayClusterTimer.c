@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiInsertDecayClusterTimer @ 0x14021450C
+ * Callers:
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ * Callees:
+ *     MiRelinkDecayClusterTimer @ 0x14021456C (MiRelinkDecayClusterTimer.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ */
+
 void __fastcall MiInsertDecayClusterTimer(__int64 a1)
 {
   __int64 v2; // rbx

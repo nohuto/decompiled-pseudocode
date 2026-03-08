@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExpFreeOwnerEntry @ 0x14033B150
+ * Callers:
+ *     ExReleaseResourceForThreadLite @ 0x14033A350 (ExReleaseResourceForThreadLite.c)
+ *     ExpReleaseResourceForThreadLite @ 0x14033ABF0 (ExpReleaseResourceForThreadLite.c)
+ * Callees:
+ *     PsBoostThreadIoEx @ 0x1402634D0 (PsBoostThreadIoEx.c)
+ *     ObpDeferObjectDeletion @ 0x1402ECA68 (ObpDeferObjectDeletion.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ */
+
 __int64 __fastcall ExpFreeOwnerEntry(__int64 a1)
 {
   int v1; // eax

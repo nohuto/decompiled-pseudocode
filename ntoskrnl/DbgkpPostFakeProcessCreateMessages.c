@@ -1,3 +1,16 @@
+/*
+ * XREFs of DbgkpPostFakeProcessCreateMessages @ 0x140934758
+ * Callers:
+ *     NtDebugActiveProcess @ 0x140935750 (NtDebugActiveProcess.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     DbgkpPostFakeThreadMessages @ 0x140934820 (DbgkpPostFakeThreadMessages.c)
+ *     DbgkpPostModuleMessages @ 0x140934C44 (DbgkpPostModuleMessages.c)
+ */
+
 __int64 __fastcall DbgkpPostFakeProcessCreateMessages(_KPROCESS *BugCheckParameter1, __int64 a2, _QWORD *a3)
 {
   __int64 v4; // rbx

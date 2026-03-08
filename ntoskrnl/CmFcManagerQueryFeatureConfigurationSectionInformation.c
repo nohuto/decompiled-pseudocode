@@ -1,3 +1,21 @@
+/*
+ * XREFs of CmFcManagerQueryFeatureConfigurationSectionInformation @ 0x140777B1C
+ * Callers:
+ *     CmQueryFeatureConfigurationSections @ 0x1407779D8 (CmQueryFeatureConfigurationSections.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmFcpCopySectionState @ 0x140777D7C (CmFcpCopySectionState.c)
+ *     ObOpenObjectByPointer @ 0x1407C93D0 (ObOpenObjectByPointer.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ */
+
 __int64 __fastcall CmFcManagerQueryFeatureConfigurationSectionInformation(
         __int64 a1,
         _QWORD *a2,

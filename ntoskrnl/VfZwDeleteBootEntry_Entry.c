@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfZwDeleteBootEntry_Entry @ 0x140AD1620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ViZwCheckVirtualAddress @ 0x140AD200C (ViZwCheckVirtualAddress.c)
+ *     ViZwShouldCheck @ 0x140AD2048 (ViZwShouldCheck.c)
+ */
+
 __int64 __fastcall VfZwDeleteBootEntry_Entry(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

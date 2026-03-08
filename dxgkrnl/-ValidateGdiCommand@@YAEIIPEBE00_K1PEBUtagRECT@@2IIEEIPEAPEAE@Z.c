@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ValidateGdiCommand@@YAEIIPEBE00_K1PEBUtagRECT@@2IIEEIPEAPEAE@Z @ 0x1C0372E38
+ * Callers:
+ *     ?VmBusCddGdiCommand@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0373960 (-VmBusCddGdiCommand@DXG_HOST_VIRTUALGPU_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?ValidateRect@@YAEPEBUtagRECT@@@Z @ 0x1C0373114 (-ValidateRect@@YAEPEBUtagRECT@@@Z.c)
+ *     ?ValidateRectBounds@@YAEPEBUtagRECT@@I_K@Z @ 0x1C0373188 (-ValidateRectBounds@@YAEPEBUtagRECT@@I_K@Z.c)
+ *     ?ValidateSubRect@@YAEPEBUtagRECT@@0@Z @ 0x1C0373280 (-ValidateSubRect@@YAEPEBUtagRECT@@0@Z.c)
+ */
+
 unsigned __int8 __fastcall ValidateGdiCommand(
         unsigned int a1,
         unsigned int a2,

@@ -1,3 +1,16 @@
+/*
+ * XREFs of NtCreateTimer2 @ 0x14068A750
+ * Callers:
+ *     NtCreateIRTimer @ 0x14079C640 (NtCreateIRTimer.c)
+ * Callees:
+ *     ExpExTimerAttributesAreValid @ 0x140203D38 (ExpExTimerAttributesAreValid.c)
+ *     KeInitializeTimer2 @ 0x140203D80 (KeInitializeTimer2.c)
+ *     KeInitializeIRTimer @ 0x14036D61C (KeInitializeIRTimer.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ *     ExpCheckIRTimerAccess @ 0x1407F8E70 (ExpCheckIRTimerAccess.c)
+ */
+
 __int64 __fastcall NtCreateTimer2(__int64 *a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   __int64 v6; // rdx

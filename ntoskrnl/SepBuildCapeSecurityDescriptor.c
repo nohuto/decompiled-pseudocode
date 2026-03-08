@@ -1,3 +1,16 @@
+/*
+ * XREFs of SepBuildCapeSecurityDescriptor @ 0x1405B5678
+ * Callers:
+ *     SepCommonAccessCheckEx @ 0x140206FC0 (SepCommonAccessCheckEx.c)
+ *     SeAccessCheckWithHint @ 0x1402653A0 (SeAccessCheckWithHint.c)
+ *     SeAccessCheckByType @ 0x14033BB40 (SeAccessCheckByType.c)
+ *     SepAccessCheckAndAuditAlarm @ 0x1406973E0 (SepAccessCheckAndAuditAlarm.c)
+ * Callees:
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D26A0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406DB5A0 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x1406DB5D0 (RtlSetSaclSecurityDescriptor.c)
+ */
+
 NTSTATUS __fastcall SepBuildCapeSecurityDescriptor(
         PSECURITY_DESCRIPTOR SecurityDescriptor,
         unsigned __int8 *a2,

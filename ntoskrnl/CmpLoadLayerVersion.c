@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpLoadLayerVersion @ 0x140814A94
+ * Callers:
+ *     CmpLoadLayerVersions @ 0x1408148C4 (CmpLoadLayerVersions.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1407A34D0 (RtlUnicodeStringToAnsiString.c)
+ *     CmpQueryLayerVersionUlong @ 0x140814F44 (CmpQueryLayerVersionUlong.c)
+ *     CmpQueryLayerVersionString @ 0x14081502C (CmpQueryLayerVersionString.c)
+ */
+
 NTSTATUS __fastcall CmpLoadLayerVersion(_DWORD *a1, void *a2, UNICODE_STRING *a3, int a4)
 {
   int v4; // ebx

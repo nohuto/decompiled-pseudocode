@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiValidateMdlAllocationRequest @ 0x1402B3DE8
+ * Callers:
+ *     MiAllocatePagesForMdl @ 0x1402B3B18 (MiAllocatePagesForMdl.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiValidateMdlAllocationRequest(
         __int64 a1,
         __int64 a2,

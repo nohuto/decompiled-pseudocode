@@ -1,3 +1,22 @@
+/*
+ * XREFs of WmipQueryWmiDataBlock @ 0x140725910
+ * Callers:
+ *     IoWMISystemControl @ 0x1407939D4 (IoWMISystemControl.c)
+ * Callees:
+ *     IoGetDeviceInstanceName @ 0x1402020C0 (IoGetDeviceInstanceName.c)
+ *     WmipUnreferenceRegEntry @ 0x140208DE4 (WmipUnreferenceRegEntry.c)
+ *     WmipFindRegEntryByDevice @ 0x1403BC634 (WmipFindRegEntryByDevice.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x14069B3C0 (RtlpQueryRegistryValues.c)
+ *     IoWMICompleteRequest @ 0x140725A08 (IoWMICompleteRequest.c)
+ *     WmipGetSMBiosTableData @ 0x140725AEC (WmipGetSMBiosTableData.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     WmipGetSMBiosEventlog @ 0x1409DCB58 (WmipGetSMBiosEventlog.c)
+ *     WmipGetSysIds @ 0x1409DCDD8 (WmipGetSysIds.c)
+ */
+
 __int64 __fastcall WmipQueryWmiDataBlock(
         __int64 a1,
         void *a2,

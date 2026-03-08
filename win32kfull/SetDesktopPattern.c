@@ -1,3 +1,16 @@
+/*
+ * XREFs of SetDesktopPattern @ 0x1C010AAFC
+ * Callers:
+ *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C00FA1BC (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C01032D0 (xxxSystemParametersInfoWorker.c)
+ * Callees:
+ *     GreMarkDeletableBrush @ 0x1C00E8890 (GreMarkDeletableBrush.c)
+ *     RecolorDeskPattern @ 0x1C00F5B00 (RecolorDeskPattern.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?SetGlobalDesktopPattern@@YAHPEAUHBITMAP__@@@Z @ 0x1C0203BC8 (-SetGlobalDesktopPattern@@YAHPEAUHBITMAP__@@@Z.c)
+ */
+
 __int64 __fastcall SetDesktopPattern(__int64 a1, const wchar_t *a2)
 {
   unsigned int v4; // ebx

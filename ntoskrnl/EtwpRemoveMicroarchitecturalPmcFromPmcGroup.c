@@ -1,3 +1,22 @@
+/*
+ * XREFs of EtwpRemoveMicroarchitecturalPmcFromPmcGroup @ 0x1409E1C34
+ * Callers:
+ *     EtwpRemoveMicroarchitecturalPmcFromRegistry @ 0x1409E1EBC (EtwpRemoveMicroarchitecturalPmcFromRegistry.c)
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcsncmp @ 0x1403D5ED0 (wcsncmp.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryKey @ 0x1404125D0 (ZwQueryKey.c)
+ *     ZwEnumerateKey @ 0x140412950 (ZwEnumerateKey.c)
+ *     ZwDeleteKey @ 0x140413E50 (ZwDeleteKey.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpRemoveMicroarchitecturalPmcFromPmcGroup(PCWSTR SourceString, wchar_t *Str1, size_t MaxCount)
 {
   size_t v3; // r12

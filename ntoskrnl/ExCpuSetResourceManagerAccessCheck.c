@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExCpuSetResourceManagerAccessCheck @ 0x1403AB15C
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ *     NtSetSystemInformation @ 0x1407E1F30 (NtSetSystemInformation.c)
+ *     NtAcquireProcessActivityReference @ 0x1407FC5F0 (NtAcquireProcessActivityReference.c)
+ * Callees:
+ *     SeAccessCheckWithHint @ 0x1402653A0 (SeAccessCheckWithHint.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     SeCaptureSubjectContextEx @ 0x1407C9AF0 (SeCaptureSubjectContextEx.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ */
+
 __int64 __fastcall ExCpuSetResourceManagerAccessCheck(KPROCESSOR_MODE a1)
 {
   struct _KTHREAD *CurrentThread; // rcx

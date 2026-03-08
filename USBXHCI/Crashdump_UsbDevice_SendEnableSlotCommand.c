@@ -1,3 +1,11 @@
+/*
+ * XREFs of Crashdump_UsbDevice_SendEnableSlotCommand @ 0x1C0050EBC
+ * Callers:
+ *     Crashdump_UsbDevice_ReConfigureOnControllerReset @ 0x1C00507EC (Crashdump_UsbDevice_ReConfigureOnControllerReset.c)
+ * Callees:
+ *     Crashdump_Command_SendCommand @ 0x1C004EB8C (Crashdump_Command_SendCommand.c)
+ */
+
 __int64 __fastcall Crashdump_UsbDevice_SendEnableSlotCommand(__int64 a1)
 {
   __int64 v2; // rcx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpBuddyAllocatorReserveLogicalAddress @ 0x140530290
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpBuddyAllocatorBltAdd @ 0x14052FBC0 (HalpBuddyAllocatorBltAdd.c)
+ *     HalpBuddyAllocatorBltRemove @ 0x14052FEF4 (HalpBuddyAllocatorBltRemove.c)
+ *     HalpBuddyAllocatorSplitNode @ 0x1405304E8 (HalpBuddyAllocatorSplitNode.c)
+ */
+
 __int64 __fastcall HalpBuddyAllocatorReserveLogicalAddress(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   __int64 *v3; // rbx

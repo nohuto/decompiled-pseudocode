@@ -1,3 +1,24 @@
+/*
+ * XREFs of PiDevCfgResolveVariableExpression @ 0x14095D1E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     PnpMultiSzContainsString @ 0x1403C22EC (PnpMultiSzContainsString.c)
+ *     PnpValidateRegistryMultiSz @ 0x1403C23D0 (PnpValidateRegistryMultiSz.c)
+ *     PnpStringToDwordValue @ 0x1403C2438 (PnpStringToDwordValue.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlCompareUnicodeStrings @ 0x140684CA0 (RtlCompareUnicodeStrings.c)
+ *     IopGetRegistryValue @ 0x1406C18D4 (IopGetRegistryValue.c)
+ *     RtlCompareUnicodeString @ 0x1406EA3B0 (RtlCompareUnicodeString.c)
+ *     PiDevCfgResolveVariable @ 0x140878210 (PiDevCfgResolveVariable.c)
+ *     PiDevCfgCopyVariableData @ 0x14095AA3C (PiDevCfgCopyVariableData.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDevCfgResolveVariableExpression(__int64 a1, void *a2, __int64 a3)
 {
   unsigned int v3; // r14d

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpCmciResetStateAMD @ 0x1405039DC
+ * Callers:
+ *     HalpCmciHandler @ 0x14050376C (HalpCmciHandler.c)
+ * Callees:
+ *     HalpCmciSetProcessorConfigAMD @ 0x140503AC8 (HalpCmciSetProcessorConfigAMD.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpCmciResetStateAMD(__int64 a1, __int64 a2)
 {
   unsigned __int8 CurrentIrql; // bl

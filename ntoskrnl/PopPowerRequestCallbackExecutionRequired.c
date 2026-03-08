@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopPowerRequestCallbackExecutionRequired @ 0x14073B020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopCheckResiliencyScenarios @ 0x14073AF4C (PopCheckResiliencyScenarios.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopPowerRequestCallbackExecutionRequired(__int64 a1, int a2, char a3)
 {
   char *v4; // rsi

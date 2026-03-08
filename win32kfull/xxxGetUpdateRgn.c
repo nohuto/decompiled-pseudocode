@@ -1,3 +1,16 @@
+/*
+ * XREFs of xxxGetUpdateRgn @ 0x1C00FC22C
+ * Callers:
+ *     NtUserGetUpdateRgn @ 0x1C00FAAB0 (NtUserGetUpdateRgn.c)
+ * Callees:
+ *     MirrorRegion @ 0x1C002779C (MirrorRegion.c)
+ *     xxxSimpleDoSyncPaint @ 0x1C0038E64 (xxxSimpleDoSyncPaint.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     IntersectWithParents @ 0x1C00FEB48 (IntersectWithParents.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall xxxGetUpdateRgn(struct tagWND *a1, unsigned __int64 a2, int a3)
 {
   __int64 v5; // rax

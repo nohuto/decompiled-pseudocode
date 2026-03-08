@@ -1,3 +1,14 @@
+/*
+ * XREFs of RIMRegOpenDeviceInstanceKey @ 0x1C0030CF0
+ * Callers:
+ *     RIMPopulateExtendedMouseDeviceProperties @ 0x1C0030B48 (RIMPopulateExtendedMouseDeviceProperties.c)
+ *     RIMPopulateExtendedKeyboardDeviceProperties @ 0x1C00D2AB0 (RIMPopulateExtendedKeyboardDeviceProperties.c)
+ *     RIMPopulateExtendedPointerDeviceProperties @ 0x1C01C74DC (RIMPopulateExtendedPointerDeviceProperties.c)
+ * Callees:
+ *     RIMGetDeviceObjectPointer @ 0x1C0031148 (RIMGetDeviceObjectPointer.c)
+ *     RIMGetPointerDevicePDO @ 0x1C0031414 (RIMGetPointerDevicePDO.c)
+ */
+
 void *__fastcall RIMRegOpenDeviceInstanceKey(int a1, int a2, int a3)
 {
   NTSTATUS v3; // eax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?InitPagedAlloc@FxPagedLookasideListFromPool@@IEAAPEAXPEAX@Z @ 0x1C0041A54
+ * Callers:
+ *     ?Allocate@FxPagedLookasideListFromPool@@UEAAJPEAPEAVFxMemoryObject@@@Z @ 0x1C0041790 (-Allocate@FxPagedLookasideListFromPool@@UEAAJPEAPEAVFxMemoryObject@@@Z.c)
+ * Callees:
+ *     memset @ 0x1C000AC00 (memset.c)
+ *     ?FxPoolInsertPagedAllocateTracker@@YAXPEAUFX_POOL@@PEAUFX_POOL_TRACKER@@_KKPEAX@Z @ 0x1C0041910 (-FxPoolInsertPagedAllocateTracker@@YAXPEAUFX_POOL@@PEAUFX_POOL_TRACKER@@_KKPEAX@Z.c)
+ */
+
 FX_POOL **__fastcall FxPagedLookasideListFromPool::InitPagedAlloc(
         FxPagedLookasideListFromPool *this,
         FX_POOL_TRACKER *Alloc)

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?vSpWndobjChange@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@@Z @ 0x1C0285B74
+ * Callers:
+ *     ?vForceClientRgnUpdate@@YAXXZ @ 0x1C0289C70 (-vForceClientRgnUpdate@@YAXXZ.c)
+ *     GreClientRgnDone @ 0x1C028A874 (GreClientRgnDone.c)
+ *     GreDeleteWnd @ 0x1C028A9D0 (GreDeleteWnd.c)
+ * Callees:
+ *     ?vSpDeviceWndobjChange@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@@Z @ 0x1C02838A8 (-vSpDeviceWndobjChange@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@@Z.c)
+ */
+
 void __fastcall vSpWndobjChange(HDEV a1, struct EWNDOBJ *a2)
 {
   HDEV v4; // rsi

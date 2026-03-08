@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiInitializeSlowPte @ 0x140630258
+ * Callers:
+ *     MiSlowRotateCopy @ 0x140630B44 (MiSlowRotateCopy.c)
+ * Callees:
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14034A974 (MiMakeProtectionPfnCompatible.c)
+ */
+
 char __fastcall MiInitializeSlowPte(unsigned __int64 *a1, unsigned __int64 a2, int a3)
 {
   int ProtectionPfnCompatible; // r8d

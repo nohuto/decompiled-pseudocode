@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchQueryNodeStatistics @ 0x1C0107D80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VidSchiDriverNodeEngineToSchedulerNode @ 0x1C001471C (VidSchiDriverNodeEngineToSchedulerNode.c)
+ *     CopyNodeStatistics @ 0x1C00C4A78 (CopyNodeStatistics.c)
+ */
+
 __int64 __fastcall VidSchQueryNodeStatistics(__int64 a1, unsigned __int16 a2, int a3, __int64 a4)
 {
   unsigned int v5; // ebx

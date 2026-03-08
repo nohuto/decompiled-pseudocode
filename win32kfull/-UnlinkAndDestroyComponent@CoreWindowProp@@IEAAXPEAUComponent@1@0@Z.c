@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UnlinkAndDestroyComponent@CoreWindowProp@@IEAAXPEAUComponent@1@0@Z @ 0x1C02231E8
+ * Callers:
+ *     ?Delete@CoreWindowProp@@UEAAXXZ @ 0x1C0222EB0 (-Delete@CoreWindowProp@@UEAAXXZ.c)
+ *     ?RemoveComponentInternal@CoreWindowProp@@KAJPEAUtagWND@@0@Z @ 0x1C022315C (-RemoveComponentInternal@CoreWindowProp@@KAJPEAUtagWND@@0@Z.c)
+ * Callees:
+ *     ??$GetProp@VCoreWindowProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCoreWindowProp@@@Z @ 0x1C002D818 (--$GetProp@VCoreWindowProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCoreWindowProp@@@Z.c)
+ */
+
 void __fastcall CoreWindowProp::UnlinkAndDestroyComponent(
         CoreWindowProp *this,
         struct CoreWindowProp::Component *a2,

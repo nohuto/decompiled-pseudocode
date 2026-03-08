@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBDTX_SetDeviceNullConfigurationUsingControlTransfer @ 0x1C002B8C4
+ * Callers:
+ *     HUBDSM_DeConfiguringDeviceOnClientRequest @ 0x1C001F5F0 (HUBDSM_DeConfiguringDeviceOnClientRequest.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBMISC_ControlTransfer @ 0x1C0032664 (HUBMISC_ControlTransfer.c)
+ */
+
 __int64 __fastcall HUBDTX_SetDeviceNullConfigurationUsingControlTransfer(__int64 a1)
 {
   __int64 result; // rax

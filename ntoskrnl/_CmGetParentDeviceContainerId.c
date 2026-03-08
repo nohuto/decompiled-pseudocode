@@ -1,3 +1,15 @@
+/*
+ * XREFs of _CmGetParentDeviceContainerId @ 0x14085CA14
+ * Callers:
+ *     _CmUpdateDevicePanel @ 0x140683E30 (_CmUpdateDevicePanel.c)
+ *     _CmUpdateDevicePanelInterface @ 0x140881498 (_CmUpdateDevicePanelInterface.c)
+ * Callees:
+ *     _CmGetDeviceParent @ 0x1406C7D1C (_CmGetDeviceParent.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmGetParentDeviceContainerId(__int64 a1, const WCHAR *a2, __int64 a3)
 {
   wchar_t *Pool2; // rax

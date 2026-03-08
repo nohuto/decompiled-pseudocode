@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1CSceneSurfaceMaterialInput@@MEAA@XZ @ 0x18024DDF0
+ * Callers:
+ *     ??_ECSceneSurfaceMaterialInput@@MEAAPEAXI@Z @ 0x18024DE60 (--_ECSceneSurfaceMaterialInput@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180004700 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800234BC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?UnregisterSceneListener@CSceneResourceManager@@QEAAXPEAUISceneNotificationListener@@@Z @ 0x1801BA31C (-UnregisterSceneListener@CSceneResourceManager@@QEAAXPEAUISceneNotificationListener@@@Z.c)
+ */
+
 void __fastcall CSceneSurfaceMaterialInput::~CSceneSurfaceMaterialInput(CSceneSurfaceMaterialInput *this)
 {
   struct CResource *v1; // rdx

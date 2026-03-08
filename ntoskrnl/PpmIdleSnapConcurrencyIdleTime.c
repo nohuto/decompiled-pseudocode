@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmIdleSnapConcurrencyIdleTime @ 0x1405830BC
+ * Callers:
+ *     PpmParkSnapNodeIdleTime @ 0x14059AF68 (PpmParkSnapNodeIdleTime.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PpmIdleSnapConcurrencyIdleTime(PKSPIN_LOCK SpinLock, _QWORD *a2, _QWORD *a3)
 {
   LARGE_INTEGER PerformanceCounter; // rsi

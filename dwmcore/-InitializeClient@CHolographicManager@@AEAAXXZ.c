@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?InitializeClient@CHolographicManager@@AEAAXXZ @ 0x1802A22B8
+ * Callers:
+ *     ?AddHolographicComposition@CHolographicManager@@QEAA_NPEAVCHolographicComposition@@@Z @ 0x1802A1224 (-AddHolographicComposition@CHolographicManager@@QEAA_NPEAVCHolographicComposition@@@Z.c)
+ * Callees:
+ *     ?PublishPresentData@CHolographicExclusiveView@@QEAAXXZ @ 0x1802A5614 (-PublishPresentData@CHolographicExclusiveView@@QEAAXXZ.c)
+ *     ?PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z @ 0x1802A8D0C (-PostMessageW@CHolographicInteropTaskQueue@@QEAA_NIPEAUIUnknown@@PEAX111@Z.c)
+ */
+
 void __fastcall CHolographicManager::InitializeClient(RTL_SRWLOCK *this)
 {
   CHolographicInteropTaskQueue **v2; // r14

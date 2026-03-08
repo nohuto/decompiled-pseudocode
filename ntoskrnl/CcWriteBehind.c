@@ -1,3 +1,22 @@
+/*
+ * XREFs of CcWriteBehind @ 0x140219768
+ * Callers:
+ *     CcWorkerThread @ 0x140215D70 (CcWorkerThread.c)
+ *     CcCachemapUninitWorkerThread @ 0x140217120 (CcCachemapUninitWorkerThread.c)
+ *     CcWaitForUninitializeCacheMap @ 0x1402E1014 (CcWaitForUninitializeCacheMap.c)
+ * Callees:
+ *     CcGetCurrentNumaNode @ 0x14020D750 (CcGetCurrentNumaNode.c)
+ *     CcAllocateWorkQueueEntry @ 0x140219880 (CcAllocateWorkQueueEntry.c)
+ *     CcWriteBehindInternal @ 0x140219990 (CcWriteBehindInternal.c)
+ *     CcIsWriteBehindThreadpoolAtLowPriority @ 0x140219E24 (CcIsWriteBehindThreadpoolAtLowPriority.c)
+ *     CcFreeWorkQueueEntry @ 0x140219E50 (CcFreeWorkQueueEntry.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x140310130 (ExpAllocatePoolWithTagFromNode.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     ExQueueWorkItemToPartition @ 0x1403439E0 (ExQueueWorkItemToPartition.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall CcWriteBehind(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rsi

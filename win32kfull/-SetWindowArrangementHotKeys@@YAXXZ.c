@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetWindowArrangementHotKeys@@YAXXZ @ 0x1C0079514
+ * Callers:
+ *     RawInputThread @ 0x1C007A0C0 (RawInputThread.c)
+ * Callees:
+ *     ?_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z @ 0x1C003AB6C (-_RegisterHotKey@@YAHPEAUtagWND@@P6AX_K_J@ZHIIPEAUHWND__@@@Z.c)
+ */
+
 void SetWindowArrangementHotKeys(void)
 {
   _DWORD *v0; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KdpAllowDisable @ 0x140AB26EC
+ * Callers:
+ *     KdDisableDebuggerWithLock @ 0x140565128 (KdDisableDebuggerWithLock.c)
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ */
+
 __int64 KdpAllowDisable()
 {
   ULONG ActiveProcessorCount; // eax

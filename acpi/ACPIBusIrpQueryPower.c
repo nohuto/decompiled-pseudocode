@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIBusIrpQueryPower @ 0x1C0016B50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDispatchPowerIrpSuccess @ 0x1C0002B60 (ACPIDispatchPowerIrpSuccess.c)
+ *     ACPIDockIsDockDevice @ 0x1C0009A34 (ACPIDockIsDockDevice.c)
+ *     AMLIIsNamedChildPresent @ 0x1C00487BC (AMLIIsNamedChildPresent.c)
+ */
+
 __int64 __fastcall ACPIBusIrpQueryPower(ULONG_PTR a1, IRP *a2)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // rbx

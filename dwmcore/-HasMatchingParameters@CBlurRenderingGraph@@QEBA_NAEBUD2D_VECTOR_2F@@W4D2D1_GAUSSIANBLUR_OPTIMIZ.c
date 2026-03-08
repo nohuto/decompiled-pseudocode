@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HasMatchingParameters@CBlurRenderingGraph@@QEBA_NAEBUD2D_VECTOR_2F@@W4D2D1_GAUSSIANBLUR_OPTIMIZATION@@@Z @ 0x180038740
+ * Callers:
+ *     ?ExecuteBlur@CRenderingTechnique@@QEAAJPEAVCDrawingContext@@AEBUEffectInput@@AEBUD2D_VECTOR_2F@@PEAU3@@Z @ 0x180037E34 (-ExecuteBlur@CRenderingTechnique@@QEAAJPEAVCDrawingContext@@AEBUEffectInput@@AEBUD2D_VECTOR_2F@@.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CBlurRenderingGraph::HasMatchingParameters(
         CBlurRenderingGraph *this,
         const struct D2D_VECTOR_2F *a2,

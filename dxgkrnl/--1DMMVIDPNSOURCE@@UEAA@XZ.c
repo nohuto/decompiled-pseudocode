@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1DMMVIDPNSOURCE@@UEAA@XZ @ 0x1C0005D84
+ * Callers:
+ *     ??_GDMMVIDPNSOURCE@@UEAAPEAXI@Z @ 0x1C0005D40 (--_GDMMVIDPNSOURCE@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C0007E94 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall DMMVIDPNSOURCE::~DMMVIDPNSOURCE(DMMVIDPNSOURCE *this)
 {
   __int64 v2; // rax

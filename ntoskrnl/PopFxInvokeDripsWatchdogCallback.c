@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopFxInvokeDripsWatchdogCallback @ 0x140981FD0
+ * Callers:
+ *     PopDripsWatchdogInvokeDeviceCallbacks @ 0x14099E11C (PopDripsWatchdogInvokeDeviceCallbacks.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall PopFxInvokeDripsWatchdogCallback(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

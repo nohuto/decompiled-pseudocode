@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiFillSubmitCommandData @ 0x1C00181A8
+ * Callers:
+ *     VidSchiSendToExecutionQueue @ 0x1C0008D50 (VidSchiSendToExecutionQueue.c)
+ * Callees:
+ *     memset @ 0x1C001AC80 (memset.c)
+ */
+
 __int64 __fastcall VidSchiFillSubmitCommandData(__int64 a1, _QWORD *a2)
 {
   __int64 v2; // rsi

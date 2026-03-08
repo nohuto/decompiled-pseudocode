@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserGetWindowDisplayAffinity @ 0x1C0015A20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetDisplayAffinity @ 0x1C0015AC4 (GetDisplayAffinity.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ */
+
 __int64 __fastcall NtUserGetWindowDisplayAffinity(__int64 a1, _DWORD *a2)
 {
   int v4; // edi

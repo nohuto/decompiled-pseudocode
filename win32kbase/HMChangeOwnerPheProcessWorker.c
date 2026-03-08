@@ -1,3 +1,18 @@
+/*
+ * XREFs of HMChangeOwnerPheProcessWorker @ 0x1C00AEF58
+ * Callers:
+ *     ?DestroyProcessesObjects@@YAXPEAUtagPROCESSINFO@@@Z @ 0x1C00782A0 (-DestroyProcessesObjects@@YAXPEAUtagPROCESSINFO@@@Z.c)
+ *     HMChangeOwnerProcess @ 0x1C00AEF30 (HMChangeOwnerProcess.c)
+ *     HMChangeOwnerPheProcess @ 0x1C0153810 (HMChangeOwnerPheProcess.c)
+ *     HMChangeOwnerProcessWorker @ 0x1C0153830 (HMChangeOwnerProcessWorker.c)
+ * Callees:
+ *     GreReleaseHmgrSemaphore @ 0x1C0049700 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C0049780 (GreAcquireHmgrSemaphore.c)
+ *     ?HmgpIncProcessHandleCountEx@@YAXPEAU_W32PROCESS@@@Z @ 0x1C0050090 (-HmgpIncProcessHandleCountEx@@YAXPEAU_W32PROCESS@@@Z.c)
+ *     ?GetEtwUserHandleType@@YA?AW4EtwUserHandleType@@E@Z @ 0x1C00785AC (-GetEtwUserHandleType@@YA-AW4EtwUserHandleType@@E@Z.c)
+ *     EtwTraceUserUpdateHandleOwner @ 0x1C00AF0E8 (EtwTraceUserUpdateHandleOwner.c)
+ */
+
 __int64 __fastcall HMChangeOwnerPheProcessWorker(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // r12

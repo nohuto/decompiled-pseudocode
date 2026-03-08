@@ -1,3 +1,17 @@
+/*
+ * XREFs of bInitPALOBJ @ 0x1C031DE4C
+ * Callers:
+ *     InitializeGre @ 0x1C031D988 (InitializeGre.c)
+ * Callees:
+ *     ?bSetStockObject@@YAHPEAXHH@Z @ 0x1C001D100 (-bSetStockObject@@YAHPEAXHH@Z.c)
+ *     GreCreateSemaphoreInternal @ 0x1C002B04C (GreCreateSemaphoreInternal.c)
+ *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C002D3CC (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
+ *     ??1PALMEMOBJ@@QEAA@XZ @ 0x1C0042910 (--1PALMEMOBJ@@QEAA@XZ.c)
+ *     HmgDecrementShareReferenceCountEx @ 0x1C00483B0 (HmgDecrementShareReferenceCountEx.c)
+ *     ?bCreatePalette@PALMEMOBJ@@QEAAHKKPEBKKKKKH@Z @ 0x1C0050600 (-bCreatePalette@PALMEMOBJ@@QEAAHKKPEBKKKKKH@Z.c)
+ *     HmgSetOwner @ 0x1C00522C0 (HmgSetOwner.c)
+ */
+
 __int64 __fastcall bInitPALOBJ(__int64 a1)
 {
   __int64 v1; // rax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopFxDestroyDripsBlockingDeviceList @ 0x140981B94
+ * Callers:
+ *     PopFxBuildDripsBlockingDeviceList @ 0x140586854 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopDripsWatchdogCallbackHandler @ 0x140999010 (PopDripsWatchdogCallbackHandler.c)
+ *     PopDripsWatchdogTakeAction @ 0x14099E1CC (PopDripsWatchdogTakeAction.c)
+ * Callees:
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PopFxReleaseDevice @ 0x14045A79C (PopFxReleaseDevice.c)
+ *     IoLockUnlockPnpDeviceTree @ 0x140951CA0 (IoLockUnlockPnpDeviceTree.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PopFxDestroyDripsBlockingDeviceList(_QWORD *a1)
 {
   _QWORD *v2; // rbx

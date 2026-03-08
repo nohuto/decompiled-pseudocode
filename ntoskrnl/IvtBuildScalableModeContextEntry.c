@@ -1,3 +1,12 @@
+/*
+ * XREFs of IvtBuildScalableModeContextEntry @ 0x14052980C
+ * Callers:
+ *     IvtUpdateScalableModeContextEntry @ 0x14052B844 (IvtUpdateScalableModeContextEntry.c)
+ *     IvtInitializeIommu @ 0x140A87060 (IvtInitializeIommu.c)
+ * Callees:
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ */
+
 __int64 __fastcall IvtBuildScalableModeContextEntry(__int64 a1, __int64 a2, char a3, char a4, int a5, __int64 *a6)
 {
   __int64 result; // rax

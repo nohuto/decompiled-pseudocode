@@ -1,3 +1,24 @@
+/*
+ * XREFs of PspBuildCreateProcessContext @ 0x1407EEDE0
+ * Callers:
+ *     NtCreateUserProcess @ 0x14070C850 (NtCreateUserProcess.c)
+ *     NtCreateThreadEx @ 0x1407EEB00 (NtCreateThreadEx.c)
+ * Callees:
+ *     KeGetProcessorIndexFromNumber @ 0x140236BF0 (KeGetProcessorIndexFromNumber.c)
+ *     KeVerifyGroupAffinity @ 0x140290374 (KeVerifyGroupAffinity.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IsTrustletCreateAttributeWellFormed @ 0x1405A1B74 (IsTrustletCreateAttributeWellFormed.c)
+ *     PspValidateMitigationOptions @ 0x140776EEC (PspValidateMitigationOptions.c)
+ *     RtlValidProcessProtection @ 0x14079B0D0 (RtlValidProcessProtection.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspDeleteCreateProcessContext @ 0x1407F026C (PspDeleteCreateProcessContext.c)
+ *     PspValidateMitigationAuditOptions @ 0x140848974 (PspValidateMitigationAuditOptions.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PspBuildCreateProcessContext(unsigned __int64 *a1, char a2, int a3, __int64 a4)
 {
   int v5; // r11d

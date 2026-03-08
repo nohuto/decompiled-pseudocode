@@ -1,3 +1,16 @@
+/*
+ * XREFs of ObpAssignSecurity @ 0x14076AFF0
+ * Callers:
+ *     ObpInsertOrLocateNamedObject @ 0x140696BDC (ObpInsertOrLocateNamedObject.c)
+ *     ObAssignSecurity @ 0x14076AFD0 (ObAssignSecurity.c)
+ * Callees:
+ *     SeComputeAutoInheritByObjectTypeEx @ 0x14030FBF0 (SeComputeAutoInheritByObjectTypeEx.c)
+ *     SeAssignSecurityEx2 @ 0x14030FDC0 (SeAssignSecurityEx2.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     SeDeassignSecurity @ 0x14076D780 (SeDeassignSecurity.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ObpAssignSecurity(__int64 a1, __int64 a2, void *a3, POBJECT_TYPE a4, int a5, char a6)
 {
   int v9; // r12d

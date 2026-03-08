@@ -1,3 +1,17 @@
+/*
+ * XREFs of BcdGetSystemStorePath @ 0x14082C8E8
+ * Callers:
+ *     BiLoadSystemStore @ 0x14082B7EC (BiLoadSystemStore.c)
+ * Callees:
+ *     wcscat_s @ 0x1403DA170 (wcscat_s.c)
+ *     wcscpy_s @ 0x1403DA210 (wcscpy_s.c)
+ *     BiGetSystemPartition @ 0x14082B9D0 (BiGetSystemPartition.c)
+ *     BiGetFirmwareType @ 0x14082D7AC (BiGetFirmwareType.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BcdGetSystemStorePath(wchar_t **a1)
 {
   wchar_t *v2; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of TdrTimedOperationAllowToDebugTimeout @ 0x1C004F13C
+ * Callers:
+ *     TdrTimedOperationDelay @ 0x1C004F320 (TdrTimedOperationDelay.c)
+ *     TdrTimedOperationWaitForSingleObject @ 0x1C030B020 (TdrTimedOperationWaitForSingleObject.c)
+ * Callees:
+ *     ?TdrValidateDebugMode@@YAXXZ @ 0x1C004F094 (-TdrValidateDebugMode@@YAXXZ.c)
+ */
+
 __int64 __fastcall TdrTimedOperationAllowToDebugTimeout(struct _DXGK_TIMED_OPERATION *a1)
 {
   unsigned int v1; // ebx

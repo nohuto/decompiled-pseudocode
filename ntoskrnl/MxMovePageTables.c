@@ -1,3 +1,16 @@
+/*
+ * XREFs of MxMovePageTables @ 0x140B4F948
+ * Callers:
+ *     MxRelocatePageTables @ 0x140B4F790 (MxRelocatePageTables.c)
+ *     MxMovePageTables @ 0x140B4F948 (MxMovePageTables.c)
+ * Callees:
+ *     MiSetPfnPteFrame @ 0x14028A310 (MiSetPfnPteFrame.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MxMovePageTables @ 0x140B4F948 (MxMovePageTables.c)
+ *     MiIsRegularMemory @ 0x140B4FF44 (MiIsRegularMemory.c)
+ *     MxSwapPages @ 0x140B50198 (MxSwapPages.c)
+ */
+
 unsigned __int64 __fastcall MxMovePageTables(unsigned __int64 a1, unsigned __int64 a2, int a3, __int64 a4, __int64 a5)
 {
   unsigned __int64 v5; // rbx

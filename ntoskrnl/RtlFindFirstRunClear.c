@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlFindFirstRunClear @ 0x14039D4E0
+ * Callers:
+ *     PnprMirrorMarkedPages @ 0x140A9A0AC (PnprMirrorMarkedPages.c)
+ * Callees:
+ *     <none>
+ */
+
 ULONG __stdcall RtlFindFirstRunClear(PRTL_BITMAP BitMapHeader, PULONG StartingIndex)
 {
   unsigned int SizeOfBitMap; // r10d

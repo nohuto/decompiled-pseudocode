@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpTryAcquireKcbIXLocks @ 0x14074C150
+ * Callers:
+ *     CmpPrepareForSubtreeInvalidationWorker @ 0x14067F420 (CmpPrepareForSubtreeInvalidationWorker.c)
+ *     CmpPerformUnloadKey @ 0x14074A194 (CmpPerformUnloadKey.c)
+ *     CmpSaveBootControlSet @ 0x140A078D8 (CmpSaveBootControlSet.c)
+ *     CmRestoreKey @ 0x140A08004 (CmRestoreKey.c)
+ *     CmRenameKey @ 0x140A1170C (CmRenameKey.c)
+ *     CmSetKeyFlags @ 0x140A12D14 (CmSetKeyFlags.c)
+ *     CmSetLastWriteTimeKey @ 0x140A13248 (CmSetLastWriteTimeKey.c)
+ * Callees:
+ *     CmpTryAcquireIXLockWithRollbackPacket @ 0x14074C1BC (CmpTryAcquireIXLockWithRollbackPacket.c)
+ */
+
 __int64 __fastcall CmpTryAcquireKcbIXLocks(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v6; // eax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of AntiLog @ 0x1C025555C
+ * Callers:
+ *     RaisePower @ 0x1C014B26A (RaisePower.c)
+ * Callees:
+ *     FD6DivL @ 0x1C014AFC0 (FD6DivL.c)
+ *     MantissaToFraction @ 0x1C0255AB8 (MantissaToFraction.c)
+ */
+
 __int64 __fastcall AntiLog(int a1)
 {
   int v1; // r8d

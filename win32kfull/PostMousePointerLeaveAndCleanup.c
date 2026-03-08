@@ -1,3 +1,15 @@
+/*
+ * XREFs of PostMousePointerLeaveAndCleanup @ 0x1C01B7B10
+ * Callers:
+ *     xxxProcessEventMessage @ 0x1C006B460 (xxxProcessEventMessage.c)
+ * Callees:
+ *     _PostTransformableMessage @ 0x1C00CB714 (_PostTransformableMessage.c)
+ *     ?GetMiPWindowFlags@@YA_KPEAUtagWND@@@Z @ 0x1C01436FA (-GetMiPWindowFlags@@YA_KPEAUtagWND@@@Z.c)
+ *     ?SetMiPWindowFlags@@YAXPEAUtagWND@@_K@Z @ 0x1C0143CEA (-SetMiPWindowFlags@@YAXPEAUtagWND@@_K@Z.c)
+ *     IsMiPEnabledForWindow @ 0x1C014417A (IsMiPEnabledForWindow.c)
+ *     ?StopMiPIdleNotificationTimer@@YAXPEAUtagWND@@@Z @ 0x1C01B6DDC (-StopMiPIdleNotificationTimer@@YAXPEAUtagWND@@@Z.c)
+ */
+
 __int64 __fastcall PostMousePointerLeaveAndCleanup(__int64 a1, struct tagWND *a2)
 {
   __int64 *v2; // rdi

@@ -1,3 +1,21 @@
+/*
+ * XREFs of xxxQueryInformationThread @ 0x1C0093274
+ * Callers:
+ *     NtUserQueryInformationThread @ 0x1C00930B0 (NtUserQueryInformationThread.c)
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     GreIsProcessSystemCritical @ 0x1C009373C (GreIsProcessSystemCritical.c)
+ *     ?IsProcessUserService@@YAHQEAU_EPROCESS@@@Z @ 0x1C0093820 (-IsProcessUserService@@YAHQEAU_EPROCESS@@@Z.c)
+ *     xxxRestoreCsrssThreadDesktop @ 0x1C0093CF0 (xxxRestoreCsrssThreadDesktop.c)
+ *     xxxSetCsrssThreadDesktop @ 0x1C00948B0 (xxxSetCsrssThreadDesktop.c)
+ *     LockW32Thread @ 0x1C00A1BCC (LockW32Thread.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ *     ?IsThreadHungTimeCheck@@YA_NPEBUtagTHREADINFO@@K@Z @ 0x1C00E2134 (-IsThreadHungTimeCheck@@YA_NPEBUtagTHREADINFO@@K@Z.c)
+ *     Feature_YieldToHAM__private_IsEnabledDeviceUsage @ 0x1C012D3D4 (Feature_YieldToHAM__private_IsEnabledDeviceUsage.c)
+ *     ?AppModelPolicy_GetPolicy_Internal@@YAJPEAXW4AppModelPolicy_Type@@PEAW4AppModelPolicy_PolicyValue@@PEAU_PS_PKG_CLAIM@@PEA_K@Z @ 0x1C01B3FF8 (-AppModelPolicy_GetPolicy_Internal@@YAJPEAXW4AppModelPolicy_Type@@PEAW4AppModelPolicy_PolicyValu.c)
+ *     GetTaskName @ 0x1C01B43CC (GetTaskName.c)
+ */
+
 NTSTATUS __fastcall xxxQueryInformationThread(void *a1, int a2, unsigned int *a3, unsigned int a4)
 {
   unsigned int v4; // edi

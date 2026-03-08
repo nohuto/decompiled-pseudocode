@@ -1,3 +1,11 @@
+/*
+ * XREFs of EmonWriteCounter @ 0x14051C390
+ * Callers:
+ *     EmonRestartProfiling @ 0x140A94170 (EmonRestartProfiling.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall EmonWriteCounter(unsigned int a1, unsigned __int64 a2, unsigned int a3)
 {
   unsigned __int64 result; // rax

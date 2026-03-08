@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Add@RollingStats@@QEAAXN@Z @ 0x1C0087FFC
+ * Callers:
+ *     ?ProcessActiveInstancePairs@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@_KPEA_K@Z @ 0x1C03599A0 (-ProcessActiveInstancePairs@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@_KPEA_.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall RollingStats::Add(RollingStats *this, double a2)
 {
   __int64 v2; // rdx

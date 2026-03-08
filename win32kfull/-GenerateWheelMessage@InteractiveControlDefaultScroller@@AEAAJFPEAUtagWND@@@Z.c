@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?GenerateWheelMessage@InteractiveControlDefaultScroller@@AEAAJFPEAUtagWND@@@Z @ 0x1C024A564
+ * Callers:
+ *     ?GenerateMessages@InteractiveControlDefaultScroller@@QEAAJPEAUtagINTERACTIVECTRL_INFO@@W4tagINTERACTIVECTRL_PROMOTION_TYPE@@@Z @ 0x1C024A264 (-GenerateMessages@InteractiveControlDefaultScroller@@QEAAJPEAUtagINTERACTIVECTRL_INFO@@W4tagINTE.c)
+ * Callees:
+ *     ?IsCompositionInputWindow@@YAHPEBUtagWND@@@Z @ 0x1C0049E70 (-IsCompositionInputWindow@@YAHPEBUtagWND@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     Feature_Servicing_SpuriousWakesFixPartOne__private_IsEnabledDeviceUsage @ 0x1C012EC44 (Feature_Servicing_SpuriousWakesFixPartOne__private_IsEnabledDeviceUsage.c)
+ *     ?InjectInput@Mouse@InputTraceLogging@@SAXW4InjectionSource@12@_K@Z @ 0x1C01AC13C (-InjectInput@Mouse@InputTraceLogging@@SAXW4InjectionSource@12@_K@Z.c)
+ *     ?SendZoomHotkey@InteractiveControlDefaultScroller@@AEAAHF@Z @ 0x1C024A88C (-SendZoomHotkey@InteractiveControlDefaultScroller@@AEAAHF@Z.c)
+ *     ?SendZoomModifiers@InteractiveControlDefaultScroller@@CAXEH@Z @ 0x1C024A964 (-SendZoomModifiers@InteractiveControlDefaultScroller@@CAXEH@Z.c)
+ */
+
 __int64 __fastcall InteractiveControlDefaultScroller::GenerateWheelMessage(
         InteractiveControlDefaultScroller *this,
         __int16 a2,

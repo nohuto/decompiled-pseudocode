@@ -1,3 +1,11 @@
+/*
+ * XREFs of WmipSendDisableRequest @ 0x140786EB4
+ * Callers:
+ *     WmipDisableCollectOrEvent @ 0x140786E44 (WmipDisableCollectOrEvent.c)
+ * Callees:
+ *     WmipDoDisableRequest @ 0x140786F08 (WmipDoDisableRequest.c)
+ */
+
 __int64 __fastcall WmipSendDisableRequest(_DWORD *a1, char a2)
 {
   __int64 result; // rax

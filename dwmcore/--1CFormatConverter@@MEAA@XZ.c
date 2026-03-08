@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1CFormatConverter@@MEAA@XZ @ 0x1802B81F8
+ * Callers:
+ *     ??_GCFormatConverter@@MEAAPEAXI@Z @ 0x1802B8320 (--_GCFormatConverter@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1CScanPipeline@@UEAA@XZ @ 0x1802B8298 (--1CScanPipeline@@UEAA@XZ.c)
+ */
+
 void __fastcall CFormatConverter::~CFormatConverter(CFormatConverter *this)
 {
   __int64 v2; // rdx

@@ -1,3 +1,22 @@
+/*
+ * XREFs of HmgAlloc @ 0x1C0052E60
+ * Callers:
+ *     ??0DCMEMOBJ@@QEAA@AEAVDCOBJ@@@Z @ 0x1C00EEC00 (--0DCMEMOBJ@@QEAA@AEAVDCOBJ@@@Z.c)
+ *     ??0DCMEMOBJ@@QEAA@PEAUHDEV__@@KHH@Z @ 0x1C017F048 (--0DCMEMOBJ@@QEAA@PEAUHDEV__@@KHH@Z.c)
+ * Callees:
+ *     GreReleaseHmgrSemaphore @ 0x1C0049700 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C0049780 (GreAcquireHmgrSemaphore.c)
+ *     W32GetThreadWin32Thread @ 0x1C004E3B0 (W32GetThreadWin32Thread.c)
+ *     HmgDecProcessHandleCount @ 0x1C004FDA0 (HmgDecProcessHandleCount.c)
+ *     HmgIncProcessHandleCountEx @ 0x1C004FEB0 (HmgIncProcessHandleCountEx.c)
+ *     ?hSetup@ENTRYOBJ@@SAPEAUHOBJ__@@PEAVOBJECT@@EGI@Z @ 0x1C00510C0 (-hSetup@ENTRYOBJ@@SAPEAUHOBJ__@@PEAVOBJECT@@EGI@Z.c)
+ *     ?GetEtwGdiHandleType@@YA?AW4EtwGdiHandleType@@E@Z @ 0x1C005168C (-GetEtwGdiHandleType@@YA-AW4EtwGdiHandleType@@E@Z.c)
+ *     ?AcquireEntryIndex@GdiHandleManager@@QEAA_NPEAI@Z @ 0x1C0051F60 (-AcquireEntryIndex@GdiHandleManager@@QEAA_NPEAI@Z.c)
+ *     AllocateObject @ 0x1C0052FA0 (AllocateObject.c)
+ *     EtwTraceGdiCreateHandle @ 0x1C005365C (EtwTraceGdiCreateHandle.c)
+ *     FreeObject @ 0x1C00597F0 (FreeObject.c)
+ */
+
 struct HOBJ__ *__fastcall HmgAlloc(__int64 a1, unsigned __int8 a2, unsigned __int16 a3)
 {
   unsigned int v5; // ebx

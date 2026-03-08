@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vSolidFillRowWithCallback@@YAXPEAU_ROW@@KJPEAEKJK@Z @ 0x1C0305B50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall vSolidFillRowWithCallback(
         struct _ROW *a1,
         unsigned int a2,

@@ -1,3 +1,16 @@
+/*
+ * XREFs of IoRequestDeviceEjectEx @ 0x14055D9D0
+ * Callers:
+ *     IoRequestDeviceEject @ 0x14055D9B0 (IoRequestDeviceEject.c)
+ * Callees:
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 NTSTATUS __stdcall IoRequestDeviceEjectEx(
         PDEVICE_OBJECT PhysicalDeviceObject,
         PIO_DEVICE_EJECT_CALLBACK Callback,

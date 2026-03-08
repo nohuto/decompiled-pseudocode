@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvlQueryMinrootInfo @ 0x14053DCD0
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall HvlQueryMinrootInfo(_DWORD *a1, unsigned int a2, _DWORD *a3)
 {
   unsigned int v5; // esi

@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiCheckPrcbAffinityEx @ 0x1402ADF54
+ * Callers:
+ *     KiQueueReadyThread @ 0x140257C00 (KiQueueReadyThread.c)
+ *     KiDeferredReadySingleThread @ 0x140259FB0 (KiDeferredReadySingleThread.c)
+ *     KiSetSystemAffinityThread @ 0x1402AC3AC (KiSetSystemAffinityThread.c)
+ *     KiGroupSchedulingMoveThread @ 0x1402ADB10 (KiGroupSchedulingMoveThread.c)
+ *     KiDeferGroupSchedulingPreemption @ 0x1402ADC48 (KiDeferGroupSchedulingPreemption.c)
+ *     KiSetAffinityThread @ 0x1402AFA28 (KiSetAffinityThread.c)
+ *     KiSetIdealProcessorThread @ 0x1403C93BC (KiSetIdealProcessorThread.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall KiCheckPrcbAffinityEx(_WORD *a1, __int64 a2)
 {
   __int64 v2; // rax

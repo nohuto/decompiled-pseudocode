@@ -1,3 +1,21 @@
+/*
+ * XREFs of CmpAddValueKeyNew @ 0x1407A5F18
+ * Callers:
+ *     CmpSetValueKeyNew @ 0x1407A5CB0 (CmpSetValueKeyNew.c)
+ *     CmSetValueKey @ 0x1407A9870 (CmSetValueKey.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x140A26E00 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     CmpNameSize @ 0x1407612A0 (CmpNameSize.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpSetValueDataNew @ 0x1407A4E40 (CmpSetValueDataNew.c)
+ *     HvAllocateCell @ 0x1407A63A8 (HvAllocateCell.c)
+ *     CmpCopyName @ 0x1407A6A30 (CmpCopyName.c)
+ *     HvFreeCell @ 0x1407A6A90 (HvFreeCell.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ */
+
 __int64 __fastcall CmpAddValueKeyNew(
         ULONG_PTR BugCheckParameter2,
         unsigned __int16 *a2,

@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiPruneProcessLargePageCaches @ 0x1403614A0
+ * Callers:
+ *     MiDeleteProcessLargePageCache @ 0x1402A547C (MiDeleteProcessLargePageCache.c)
+ *     MiComputeSystemTrimCriteria @ 0x14035FE9C (MiComputeSystemTrimCriteria.c)
+ *     MiWorkingSetManager @ 0x1403616C0 (MiWorkingSetManager.c)
+ * Callees:
+ *     MiFreeLargeZeroPages @ 0x14020FD6C (MiFreeLargeZeroPages.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiInitializeLargePfnList @ 0x14035059C (MiInitializeLargePfnList.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiAppendTailList @ 0x14066509C (MiAppendTailList.c)
+ */
+
 __int64 __fastcall MiPruneProcessLargePageCaches(__int64 a1, int a2)
 {
   __int64 result; // rax

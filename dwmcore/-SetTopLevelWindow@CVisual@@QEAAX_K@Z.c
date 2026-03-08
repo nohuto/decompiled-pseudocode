@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetTopLevelWindow@CVisual@@QEAAX_K@Z @ 0x1800F9228
+ * Callers:
+ *     ?ProcessTopLevelNode@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_TOPLEVELNODE@@@Z @ 0x1800F91F4 (-ProcessTopLevelNode@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_TOPLEVELNODE@@@Z.c)
+ * Callees:
+ *     ?SetData@CSparseStorage@@QEAAXIIPEBX@Z @ 0x1800389DC (-SetData@CSparseStorage@@QEAAXIIPEBX@Z.c)
+ */
+
 void __fastcall CVisual::SetTopLevelWindow(CVisual *this, __int64 a2)
 {
   CSparseStorage *v2; // rcx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpTryEnterWorkerFactoryAwayMode @ 0x140367F28
+ * Callers:
+ *     NtSetInformationWorkerFactory @ 0x140366B30 (NtSetInformationWorkerFactory.c)
+ *     ExpWorkerFactoryManagerThread @ 0x14038AA00 (ExpWorkerFactoryManagerThread.c)
+ * Callees:
+ *     KeRegisterObjectNotification @ 0x14024F260 (KeRegisterObjectNotification.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ */
+
 char __fastcall ExpTryEnterWorkerFactoryAwayMode(_QWORD *Object)
 {
   __int64 v2; // rdi

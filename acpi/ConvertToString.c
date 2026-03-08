@@ -1,3 +1,18 @@
+/*
+ * XREFs of ConvertToString @ 0x1C0059B20
+ * Callers:
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ *     Concat @ 0x1C0055F60 (Concat.c)
+ *     ToString @ 0x1C0059450 (ToString.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     RtlStringCchPrintfA @ 0x1C000B5D8 (RtlStringCchPrintfA.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ *     IsCompatableDSDTRevision @ 0x1C004BE28 (IsCompatableDSDTRevision.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ */
+
 __int64 __fastcall ConvertToString(__int64 a1, unsigned int a2, __int64 a3)
 {
   size_t v3; // rbx

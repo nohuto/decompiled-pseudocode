@@ -1,3 +1,11 @@
+/*
+ * XREFs of UserDeleteAtom @ 0x1C00AD6E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ */
+
 __int64 __fastcall UserDeleteAtom(RTL_ATOM a1)
 {
   int v2; // ecx

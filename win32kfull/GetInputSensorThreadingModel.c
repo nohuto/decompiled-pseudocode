@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetInputSensorThreadingModel @ 0x1C00F56D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetInputSensorThreadingModel(int a1)
 {
   int v1; // eax

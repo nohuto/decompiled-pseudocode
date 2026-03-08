@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CRegionGeometry@@IEAA@PEAVCComposition@@@Z @ 0x1801113B4
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     <none>
+ */
+
 CRegionGeometry *__fastcall CRegionGeometry::CRegionGeometry(CRegionGeometry *this, struct CComposition *a2)
 {
   CRegionGeometry *result; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiRemoveUserPhysicalPagesView @ 0x140A3F408
+ * Callers:
+ *     MiDeleteVad @ 0x1407C82E0 (MiDeleteVad.c)
+ * Callees:
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     MiLocatePhysicalViewInTree @ 0x1406489F4 (MiLocatePhysicalViewInTree.c)
+ *     MiLockAweVadsExclusive @ 0x140648A8C (MiLockAweVadsExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x1406498DC (MiUnlockAweVadsExclusive.c)
+ */
+
 unsigned __int64 *__fastcall MiRemoveUserPhysicalPagesView(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rdi

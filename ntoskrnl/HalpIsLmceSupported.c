@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpIsLmceSupported @ 0x14037CF24
+ * Callers:
+ *     HalpMcaSetProcessorConfig @ 0x140A87E04 (HalpMcaSetProcessorConfig.c)
+ * Callees:
+ *     HalpGetCpuVendor @ 0x14037D1B4 (HalpGetCpuVendor.c)
+ */
+
 bool HalpIsLmceSupported()
 {
   unsigned __int64 v0; // rax

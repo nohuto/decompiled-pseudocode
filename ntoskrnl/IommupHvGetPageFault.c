@@ -1,3 +1,11 @@
+/*
+ * XREFs of IommupHvGetPageFault @ 0x140522980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall IommupHvGetPageFault(
         unsigned int *a1,
         _DWORD *a2,

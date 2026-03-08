@@ -1,3 +1,17 @@
+/*
+ * XREFs of KsepEngineReadFlags @ 0x140B34F48
+ * Callers:
+ *     KsepEngineInitialize @ 0x140B34E84 (KsepEngineInitialize.c)
+ * Callees:
+ *     KsepLogError @ 0x140303450 (KsepLogError.c)
+ *     KsepLogInfo @ 0x14036F8F4 (KsepLogInfo.c)
+ *     KsepDebugPrint @ 0x14057E834 (KsepDebugPrint.c)
+ *     RtlAssert @ 0x1405A7CA0 (RtlAssert.c)
+ *     KsepRegistryOpenKey @ 0x14079E858 (KsepRegistryOpenKey.c)
+ *     KsepRegistryQueryDWORD @ 0x1407FFF18 (KsepRegistryQueryDWORD.c)
+ *     KsepRegistryCloseKey @ 0x140800168 (KsepRegistryCloseKey.c)
+ */
+
 __int64 __fastcall KsepEngineReadFlags(int *a1)
 {
   int v1; // esi

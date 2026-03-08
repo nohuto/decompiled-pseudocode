@@ -1,3 +1,20 @@
+/*
+ * XREFs of Usbh_FDO_WaitPnpRestart @ 0x1C0044500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     UsbhReleaseFdoPnpLock @ 0x1C0031D14 (UsbhReleaseFdoPnpLock.c)
+ *     UsbhHubStart @ 0x1C0043560 (UsbhHubStart.c)
+ *     UsbhModuleDispatch @ 0x1C0043D00 (UsbhModuleDispatch.c)
+ *     UsbhSetFdoPnpState @ 0x1C0044248 (UsbhSetFdoPnpState.c)
+ *     Usbh_PnpRemove @ 0x1C0044B44 (Usbh_PnpRemove.c)
+ *     UsbhSshEnableDisable @ 0x1C005939C (UsbhSshEnableDisable.c)
+ *     UsbhSshEnabled @ 0x1C00594D4 (UsbhSshEnabled.c)
+ */
+
 __int64 __fastcall Usbh_FDO_WaitPnpRestart(ULONG_PTR a1, int a2)
 {
   __int64 v3; // rdi

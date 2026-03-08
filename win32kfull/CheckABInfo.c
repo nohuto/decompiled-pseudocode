@@ -1,3 +1,11 @@
+/*
+ * XREFs of CheckABInfo @ 0x1C02523FC
+ * Callers:
+ *     HT_HalftoneBitmap @ 0x1C025325C (HT_HalftoneBitmap.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CheckABInfo(__int64 a1, int a2, int a3, __int16 *a4, unsigned __int16 *a5)
 {
   char *v5; // r10

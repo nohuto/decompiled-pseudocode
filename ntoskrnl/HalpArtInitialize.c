@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpArtInitialize @ 0x140372B50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpArtAvailable @ 0x1403733F0 (HalpArtAvailable.c)
+ *     HalUpdateTimerCapabilities @ 0x140373620 (HalUpdateTimerCapabilities.c)
+ */
+
 __int64 __fastcall HalpArtInitialize(_DWORD *a1)
 {
   struct _KPRCB *CurrentPrcb; // rax

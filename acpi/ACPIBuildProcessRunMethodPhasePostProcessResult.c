@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIBuildProcessRunMethodPhasePostProcessResult @ 0x1C0011B70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIBuildCompleteMustSucceed @ 0x1C000BCB0 (ACPIBuildCompleteMustSucceed.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ *     PerformDLMObjectBindings @ 0x1C004C95C (PerformDLMObjectBindings.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessRunMethodPhasePostProcessResult(__int64 a1)
 {
   bool v1; // zf

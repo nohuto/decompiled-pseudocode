@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchSetHwQueueProgressFenceObject @ 0x1C01094D0
+ * Callers:
+ *     ?InitPagingProcessVaSpace@VIDMM_GLOBAL@@QEAAJIE@Z @ 0x1C00C26EC (-InitPagingProcessVaSpace@VIDMM_GLOBAL@@QEAAJIE@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VidSchSetHwQueueProgressFenceObject(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v3; // rax

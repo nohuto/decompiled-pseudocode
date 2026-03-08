@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?WdfWriteKmdfVersionToRegistry@@YAXPEAU_DRIVER_OBJECT@@PEAU_UNICODE_STRING@@@Z @ 0x1C0016F18
+ * Callers:
+ *     DriverEntry @ 0x1C00172E0 (DriverEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall WdfWriteKmdfVersionToRegistry(_DRIVER_OBJECT *DriverObject, _UNICODE_STRING *RegistryPath)
 {
   wchar_t *Pool2; // rax

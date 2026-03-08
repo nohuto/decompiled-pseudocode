@@ -1,3 +1,13 @@
+/*
+ * XREFs of CiTaskDump @ 0x1C000EF00
+ * Callers:
+ *     CiConfigInitializeFromRegistry @ 0x1C000E8D0 (CiConfigInitializeFromRegistry.c)
+ * Callees:
+ *     WPP_SF_d @ 0x1C0004884 (WPP_SF_d.c)
+ *     WPP_SF_P @ 0x1C00049B8 (WPP_SF_P.c)
+ *     WPP_SF_S @ 0x1C0004A08 (WPP_SF_S.c)
+ */
+
 __int64 __fastcall CiTaskDump(unsigned __int8 *a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

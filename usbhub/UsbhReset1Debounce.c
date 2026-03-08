@@ -1,3 +1,19 @@
+/*
+ * XREFs of UsbhReset1Debounce @ 0x1C004DC10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhCancelResetTimeout @ 0x1C00015A0 (UsbhCancelResetTimeout.c)
+ *     UsbhSignalSyncDeviceResetPdo @ 0x1C0001CD0 (UsbhSignalSyncDeviceResetPdo.c)
+ *     UsbhSignalDriverResetEvent @ 0x1C0001DA8 (UsbhSignalDriverResetEvent.c)
+ *     UsbhReleaseEnumBusLockEx @ 0x1C0003BCC (UsbhReleaseEnumBusLockEx.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhPCE_QueueChange @ 0x1C001922C (UsbhPCE_QueueChange.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhAssertBusLock @ 0x1C00367A4 (UsbhAssertBusLock.c)
+ *     UsbhPortDisconnect @ 0x1C004D690 (UsbhPortDisconnect.c)
+ */
+
 __int64 __fastcall UsbhReset1Debounce(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v7; // [rsp+28h] [rbp-30h]

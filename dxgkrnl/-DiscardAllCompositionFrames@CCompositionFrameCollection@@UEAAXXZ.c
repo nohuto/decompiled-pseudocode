@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DiscardAllCompositionFrames@CCompositionFrameCollection@@UEAAXXZ @ 0x1C0017610
+ * Callers:
+ *     ??_GCCompositionFrameCollection@@IEAAPEAXI@Z @ 0x1C001934C (--_GCCompositionFrameCollection@@IEAAPEAXI@Z.c)
+ * Callees:
+ *     ?Release@CPushLockCriticalSection@@QEAAXXZ @ 0x1C0018BE8 (-Release@CPushLockCriticalSection@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CCompositionFrameCollection::DiscardAllCompositionFrames(CCompositionFrameCollection *this)
 {
   CPushLockCriticalSection *v1; // rsi

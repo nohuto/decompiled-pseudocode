@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?UnreferenceDmaBuffer@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z @ 0x1C002E290
+ * Callers:
+ *     VidMmUnreferenceDmaBuffer @ 0x1C002D590 (VidMmUnreferenceDmaBuffer.c)
+ *     ?VidSchiCompleteHwQueuePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@_N@Z @ 0x1C0041854 (-VidSchiCompleteHwQueuePacket@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@_N@Z.c)
+ *     VidSchiDiscardQueuePacket @ 0x1C01060F8 (VidSchiDiscardQueuePacket.c)
+ *     VidSchUnreferenceDmaBuffer @ 0x1C010910C (VidSchUnreferenceDmaBuffer.c)
+ * Callees:
+ *     ?RemoveDMAReferences@VIDMM_GLOBAL@@SAXPEAUVIDMM_ALLOC@@J@Z @ 0x1C001BD7E (-RemoveDMAReferences@VIDMM_GLOBAL@@SAXPEAUVIDMM_ALLOC@@J@Z.c)
+ *     VidSchUnreferenceDmaBuffer @ 0x1C010910C (VidSchUnreferenceDmaBuffer.c)
+ */
+
 void __fastcall VIDMM_GLOBAL::UnreferenceDmaBuffer(VIDMM_GLOBAL *this, struct _VIDMM_DMA_BUFFER *a2, char a3)
 {
   __int64 v4; // rsi

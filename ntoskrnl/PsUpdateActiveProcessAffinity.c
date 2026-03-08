@@ -1,3 +1,17 @@
+/*
+ * XREFs of PsUpdateActiveProcessAffinity @ 0x1409AB80C
+ * Callers:
+ *     KeStartDynamicProcessor @ 0x140971790 (KeStartDynamicProcessor.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeIsSubsetAffinityEx @ 0x1402B13D0 (KeIsSubsetAffinityEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     PsGetNextProcess @ 0x1406AA530 (PsGetNextProcess.c)
+ *     PspUpdateSingleProcessAffinity @ 0x1409ACC60 (PspUpdateSingleProcessAffinity.c)
+ */
+
 char PsUpdateActiveProcessAffinity()
 {
   struct _KTHREAD *CurrentThread; // rsi

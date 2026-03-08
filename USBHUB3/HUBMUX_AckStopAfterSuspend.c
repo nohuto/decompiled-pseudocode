@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBMUX_AckStopAfterSuspend @ 0x1C00119E8
+ * Callers:
+ *     HUBDSM_AckingStopAfterSuspendOnDetach @ 0x1C001EFA0 (HUBDSM_AckingStopAfterSuspendOnDetach.c)
+ * Callees:
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ */
+
 void __fastcall HUBMUX_AckStopAfterSuspend(volatile signed __int32 *a1)
 {
   __int64 v1; // rsi

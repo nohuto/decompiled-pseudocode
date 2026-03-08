@@ -1,3 +1,16 @@
+/*
+ * XREFs of SeQuerySecurityDescriptorInfo @ 0x1407AD8A0
+ * Callers:
+ *     ObQuerySecurityDescriptorInfo @ 0x140696AE0 (ObQuerySecurityDescriptorInfo.c)
+ *     IopGetSetSecurityObject @ 0x14074EA70 (IopGetSetSecurityObject.c)
+ *     ObpAllocateAndQuerySecurityDescriptorInfo @ 0x14076A930 (ObpAllocateAndQuerySecurityDescriptorInfo.c)
+ *     CmpQueryKeySecurity @ 0x1407AC310 (CmpQueryKeySecurity.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x14085C154 (EtwQueryPerformanceTraceInformation.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlpFilterSacl @ 0x1407AA4DC (RtlpFilterSacl.c)
+ */
+
 NTSTATUS __stdcall SeQuerySecurityDescriptorInfo(
         PSECURITY_INFORMATION SecurityInformation,
         PSECURITY_DESCRIPTOR SecurityDescriptor,

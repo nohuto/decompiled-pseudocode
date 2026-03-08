@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBHTX_ClearTtBufferControlTransferComplete @ 0x1C0006A80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C000242C (McTemplateK0pqqq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall HUBHTX_ClearTtBufferControlTransferComplete(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // esi

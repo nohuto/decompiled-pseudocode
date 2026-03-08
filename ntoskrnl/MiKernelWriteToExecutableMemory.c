@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiKernelWriteToExecutableMemory @ 0x140643DB8
+ * Callers:
+ *     MiValidFault @ 0x1402C90E0 (MiValidFault.c)
+ * Callees:
+ *     MiRelockFaultState @ 0x14022853C (MiRelockFaultState.c)
+ *     MiReleaseFaultState @ 0x1402A2FD4 (MiReleaseFaultState.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MmIsAddressValidEx @ 0x1403471E0 (MmIsAddressValidEx.c)
+ *     NtWaitLowEventPair @ 0x1407F90A0 (NtWaitLowEventPair.c)
+ *     MiForceCrashForInvalidAccess @ 0x140A28438 (MiForceCrashForInvalidAccess.c)
+ */
+
 __int64 __fastcall MiKernelWriteToExecutableMemory(__int64 a1, __int64 a2, struct _KPROCESS *a3)
 {
   unsigned __int64 v6; // r15

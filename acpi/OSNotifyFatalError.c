@@ -1,3 +1,11 @@
+/*
+ * XREFs of OSNotifyFatalError @ 0x1C00336F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall OSNotifyFatalError(int a1, int a2, int a3, __int64 a4)
 {
   KIRQL v8; // al

@@ -1,3 +1,20 @@
+/*
+ * XREFs of ObGetObjectInformation @ 0x140978914
+ * Callers:
+ *     ExpGetObjectInformation @ 0x1409F3854 (ExpGetObjectInformation.c)
+ * Callees:
+ *     OBJECT_HEADER_TO_QUOTA_INFO @ 0x140206AE0 (OBJECT_HEADER_TO_QUOTA_INFO.c)
+ *     OBJECT_HEADER_TO_PROCESS_INFO @ 0x140300B7C (OBJECT_HEADER_TO_PROCESS_INFO.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ObQueryNameStringMode @ 0x14071EE84 (ObQueryNameStringMode.c)
+ *     ObpCreateTypeArray @ 0x140978F7C (ObpCreateTypeArray.c)
+ *     ObpDestroyTypeArray @ 0x140979084 (ObpDestroyTypeArray.c)
+ *     ObQueryTypeName @ 0x14097937C (ObQueryTypeName.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ObGetObjectInformation(__int64 a1, __int64 a2, unsigned int a3, unsigned int *a4)
 {
   __int64 v4; // r15

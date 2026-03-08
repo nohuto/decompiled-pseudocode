@@ -1,3 +1,16 @@
+/*
+ * XREFs of MdlInvariantPreProcessing1 @ 0x1405CD258
+ * Callers:
+ *     IovpCallDriver1 @ 0x140AC9170 (IovpCallDriver1.c)
+ * Callees:
+ *     MmMdlPageContentsState @ 0x1402D30C0 (MmMdlPageContentsState.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     RtlpComputeCrcInternal @ 0x1403B8710 (RtlpComputeCrcInternal.c)
+ *     MdlInvariantFindMdlInfo @ 0x1405CCF0C (MdlInvariantFindMdlInfo.c)
+ *     MdlInvariantInsertMdlInfo @ 0x1405CCF50 (MdlInvariantInsertMdlInfo.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ */
+
 unsigned __int64 __fastcall MdlInvariantPreProcessing1(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 result; // rax

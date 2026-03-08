@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxSendHelpMessage @ 0x1C023C5F8
+ * Callers:
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ *     xxxMNKeyDown @ 0x1C021ABF8 (xxxMNKeyDown.c)
+ *     xxxHelpLoop @ 0x1C023C17C (xxxHelpLoop.c)
+ * Callees:
+ *     xxxSendTransformableMessageTimeout @ 0x1C006E550 (xxxSendTransformableMessageTimeout.c)
+ *     _GetMessagePos @ 0x1C00E6844 (_GetMessagePos.c)
+ */
+
 __int64 __fastcall xxxSendHelpMessage(struct tagWND *a1, int a2, unsigned int a3, __int64 a4, unsigned int a5)
 {
   int MessagePos; // eax

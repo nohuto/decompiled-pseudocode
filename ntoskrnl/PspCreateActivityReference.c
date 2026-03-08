@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspCreateActivityReference @ 0x1407FC704
+ * Callers:
+ *     NtAcquireProcessActivityReference @ 0x1407FC5F0 (NtAcquireProcessActivityReference.c)
+ * Callees:
+ *     PsChargeProcessWakeCounter @ 0x140793DC0 (PsChargeProcessWakeCounter.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ */
+
 __int64 __fastcall PspCreateActivityReference(void *a1, _QWORD *a2)
 {
   char PreviousMode; // r9

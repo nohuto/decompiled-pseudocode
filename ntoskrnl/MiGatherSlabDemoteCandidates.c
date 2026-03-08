@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiGatherSlabDemoteCandidates @ 0x1403C8690
+ * Callers:
+ *     MiDemoteSlabEntriesDpc @ 0x1403C7F40 (MiDemoteSlabEntriesDpc.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall MiGatherSlabDemoteCandidates(__int64 a1, __int64 a2, unsigned __int64 a3)
 {
   unsigned int v3; // edi

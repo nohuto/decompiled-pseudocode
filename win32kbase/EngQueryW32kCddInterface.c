@@ -1,3 +1,13 @@
+/*
+ * XREFs of EngQueryW32kCddInterface @ 0x1C00BCF70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserIsWddmConnectedSession @ 0x1C0022420 (UserIsWddmConnectedSession.c)
+ *     ?GetGraphicsDeviceFromDevObjHandle@@YAPEAUtagGRAPHICS_DEVICE@@QEAX@Z @ 0x1C00BD170 (-GetGraphicsDeviceFromDevObjHandle@@YAPEAUtagGRAPHICS_DEVICE@@QEAX@Z.c)
+ *     ?IsCddCddRemoteSessionFilteringAllowed@@YAHXZ @ 0x1C00D3D44 (-IsCddCddRemoteSessionFilteringAllowed@@YAHXZ.c)
+ */
+
 __int64 __fastcall EngQueryW32kCddInterface(void *a1, _QWORD *a2, __int64 a3, _QWORD *a4, _DWORD *a5, _QWORD *a6)
 {
   unsigned int v9; // ebx

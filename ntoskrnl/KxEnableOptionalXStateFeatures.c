@@ -1,3 +1,14 @@
+/*
+ * XREFs of KxEnableOptionalXStateFeatures @ 0x140570874
+ * Callers:
+ *     KeEnableOptionalXStateFeaturesApc @ 0x14056FFF0 (KeEnableOptionalXStateFeaturesApc.c)
+ *     KiEnableOptionalXStateFeatures @ 0x14057033C (KiEnableOptionalXStateFeatures.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeCopyXfdMaskToTeb @ 0x14056FED0 (KeCopyXfdMaskToTeb.c)
+ */
+
 __int64 __fastcall KxEnableOptionalXStateFeatures(__int64 a1, __int64 a2, void *a3, char *a4)
 {
   unsigned __int8 CurrentIrql; // bl

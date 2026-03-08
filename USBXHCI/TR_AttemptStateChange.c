@@ -1,3 +1,17 @@
+/*
+ * XREFs of TR_AttemptStateChange @ 0x1C0008120
+ * Callers:
+ *     Isoch_EvtDmaCallback @ 0x1C0001010 (Isoch_EvtDmaCallback.c)
+ *     Isoch_MappingLoop @ 0x1C0001D18 (Isoch_MappingLoop.c)
+ *     Isoch_ProcessTransferEventWithED1 @ 0x1C0001EC0 (Isoch_ProcessTransferEventWithED1.c)
+ *     Isoch_WdfEvtIoQueueReadyNotification @ 0x1C0003140 (Isoch_WdfEvtIoQueueReadyNotification.c)
+ *     Bulk_MappingLoop @ 0x1C0011F10 (Bulk_MappingLoop.c)
+ *     Bulk_EvtDmaCallback @ 0x1C00227B0 (Bulk_EvtDmaCallback.c)
+ *     Isoch_EP_StopMapping @ 0x1C00442C0 (Isoch_EP_StopMapping.c)
+ * Callees:
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ */
+
 __int64 __fastcall TR_AttemptStateChange(__int64 a1, signed __int32 a2, __int32 a3)
 {
   unsigned __int32 v3; // ebx

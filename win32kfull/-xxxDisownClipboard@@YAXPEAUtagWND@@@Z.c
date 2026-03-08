@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?xxxDisownClipboard@@YAXPEAUtagWND@@@Z @ 0x1C01FF7D8
+ * Callers:
+ *     xxxDW_SendDestroyMessages @ 0x1C0027A4C (xxxDW_SendDestroyMessages.c)
+ *     xxxSetProcessWindowStation @ 0x1C00CEA20 (xxxSetProcessWindowStation.c)
+ * Callees:
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00BD7B8 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ *     ?MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C01FEEDC (-MungeClipData@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ *     ?xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z @ 0x1C01FF92C (-xxxDrawClipboard@@YAXPEAUtagWINDOWSTATION@@@Z.c)
+ *     ?xxxSendClipboardMessage@@YAXPEAUtagWINDOWSTATION@@I@Z @ 0x1C0200230 (-xxxSendClipboardMessage@@YAXPEAUtagWINDOWSTATION@@I@Z.c)
+ */
+
 void __fastcall xxxDisownClipboard(struct tagWND *a1)
 {
   struct tagWINDOWSTATION *v2; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopStartStopTtmSxTranstion @ 0x140987998
+ * Callers:
+ *     PoTtmInitiatePowerStateTransition @ 0x140994BF8 (PoTtmInitiatePowerStateTransition.c)
+ * Callees:
+ *     PopExecutePowerAction @ 0x1409867F4 (PopExecutePowerAction.c)
+ */
+
 __int64 __fastcall PopStartStopTtmSxTranstion(char a1)
 {
   unsigned int v1; // ebx

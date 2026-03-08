@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpInternEntryMatch @ 0x140703894
+ * Callers:
+ *     RtlpInternEntryFind @ 0x1407033D0 (RtlpInternEntryFind.c)
+ * Callees:
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ */
+
 char __fastcall RtlpInternEntryMatch(__int64 a1, _QWORD *a2, __int64 a3)
 {
   unsigned __int64 v3; // rax

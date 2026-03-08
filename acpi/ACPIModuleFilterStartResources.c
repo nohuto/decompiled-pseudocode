@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIModuleFilterStartResources @ 0x1C0017AD8
+ * Callers:
+ *     ACPIBusIrpStartDevice @ 0x1C00814F0 (ACPIBusIrpStartDevice.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPIModuleFilterStartResources(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int i; // r9d

@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiTpSetupCompletion @ 0x140973808
+ * Callers:
+ *     KeSetTracepoint @ 0x140972D40 (KeSetTracepoint.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     KiTpReadImageData @ 0x140973724 (KiTpReadImageData.c)
+ *     KiTpParseInstruction @ 0x140AF1450 (KiTpParseInstruction.c)
+ */
+
 __int64 __fastcall KiTpSetupCompletion(_KPROCESS *a1, char a2, const void *a3, void *a4, unsigned int Size, __int64 a6)
 {
   unsigned int v10; // esi

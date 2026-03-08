@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiFdoRemoveChildDescriptors @ 0x1C039868C
+ * Callers:
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ *     DpiFdoEnumChildDevices @ 0x1C02088D0 (DpiFdoEnumChildDevices.c)
+ *     DpiFdoHandleRemoveDevice @ 0x1C0396F80 (DpiFdoHandleRemoveDevice.c)
+ * Callees:
+ *     DpiFdoRemoveChildDescriptor @ 0x1C0398644 (DpiFdoRemoveChildDescriptor.c)
+ */
+
 void __fastcall DpiFdoRemoveChildDescriptors(__int64 a1)
 {
   __int64 v1; // rdi

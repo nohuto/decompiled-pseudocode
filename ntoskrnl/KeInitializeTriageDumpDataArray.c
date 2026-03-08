@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeInitializeTriageDumpDataArray @ 0x1403A2D10
+ * Callers:
+ *     IopInitializeTriageDumpData @ 0x14084C360 (IopInitializeTriageDumpData.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall KeInitializeTriageDumpDataArray(PKTRIAGE_DUMP_DATA_ARRAY KtriageDumpDataArray, ULONG Size)
 {
   NTSTATUS result; // eax

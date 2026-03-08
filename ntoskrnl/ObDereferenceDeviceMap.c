@@ -1,3 +1,26 @@
+/*
+ * XREFs of ObDereferenceDeviceMap @ 0x14071E5A4
+ * Callers:
+ *     ObClearProcessDeviceMap @ 0x140704918 (ObClearProcessDeviceMap.c)
+ *     ObpDereferenceCurrentDeviceMap @ 0x140720E28 (ObpDereferenceCurrentDeviceMap.c)
+ *     ObpSetCurrentProcessDeviceMap @ 0x14075D6E0 (ObpSetCurrentProcessDeviceMap.c)
+ *     SeGetTokenDeviceMap @ 0x14075D880 (SeGetTokenDeviceMap.c)
+ *     ObpSlowReferenceDeviceMap @ 0x14075DAD8 (ObpSlowReferenceDeviceMap.c)
+ *     ObpSetDeviceMap @ 0x14078990C (ObpSetDeviceMap.c)
+ *     ObpDeleteDeviceMap @ 0x140789BDC (ObpDeleteDeviceMap.c)
+ *     SepDeleteLogonSessionTrack @ 0x1407DAE44 (SepDeleteLogonSessionTrack.c)
+ *     SepDeReferenceLogonSession @ 0x1407DBBB8 (SepDeReferenceLogonSession.c)
+ *     ObCleanupSiloState @ 0x140977DD0 (ObCleanupSiloState.c)
+ *     ObpDirectoryTeardownCallback @ 0x140A71300 (ObpDirectoryTeardownCallback.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     ObpDeleteDeviceMap @ 0x140789BDC (ObpDeleteDeviceMap.c)
+ */
+
 char __fastcall ObDereferenceDeviceMap(volatile signed __int64 *P, unsigned int a2)
 {
   volatile signed __int64 *v3; // rdi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of bSetDevDragWidth @ 0x1C00E1CD0
+ * Callers:
+ *     ?SetNCMetrics@@YAXPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C00E14E8 (-SetNCMetrics@@YAXPEAUtagNONCLIENTMETRICSW@@@Z.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C01032D0 (xxxSystemParametersInfoWorker.c)
+ *     ?xxxMoveSize@@YAXPEAUtagWND@@IK@Z @ 0x1C01F0DC4 (-xxxMoveSize@@YAXPEAUtagWND@@IK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall bSetDevDragWidth(__int64 a1, int a2)
 {
   __int64 v4; // [rsp+30h] [rbp+8h] BYREF

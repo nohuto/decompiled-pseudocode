@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopEsStartTelemetry @ 0x14085F8B4
+ * Callers:
+ *     PopEsWorker @ 0x140870CA0 (PopEsWorker.c)
+ *     PopEsExitSleep @ 0x14099534C (PopEsExitSleep.c)
+ * Callees:
+ *     PopCurrentPowerState @ 0x14078F3D0 (PopCurrentPowerState.c)
+ */
+
 char PopEsStartTelemetry()
 {
   __int64 v0; // rbx

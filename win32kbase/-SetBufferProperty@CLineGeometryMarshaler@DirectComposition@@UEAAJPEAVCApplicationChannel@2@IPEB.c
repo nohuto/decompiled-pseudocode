@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CLineGeometryMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0254880
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CLineGeometryMarshaler::SetBufferProperty(
         DirectComposition::CLineGeometryMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

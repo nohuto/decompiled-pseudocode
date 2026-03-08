@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopSstDiagInitializeResumeTimer @ 0x140AA74F4
+ * Callers:
+ *     PopHandleNextState @ 0x140AA4FAC (PopHandleNextState.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     PpmConvertTime @ 0x140235D70 (PpmConvertTime.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HvlQueryHypervisorTscAdjustment @ 0x14053D65C (HvlQueryHypervisorTscAdjustment.c)
+ */
+
 unsigned __int64 PopSstDiagInitializeResumeTimer()
 {
   __int64 v0; // rbx

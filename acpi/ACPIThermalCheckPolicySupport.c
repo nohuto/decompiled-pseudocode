@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIThermalCheckPolicySupport @ 0x1C0095848
+ * Callers:
+ *     ACPIThermalWorker @ 0x1C00962E0 (ACPIThermalWorker.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall ACPIThermalCheckPolicySupport(__int64 a1)
 {
   __int64 v1; // rbx

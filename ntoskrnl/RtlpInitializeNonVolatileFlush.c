@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpInitializeNonVolatileFlush @ 0x1403B0730
+ * Callers:
+ *     Phase1InitializationIoReady @ 0x140B42D0C (Phase1InitializationIoReady.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1404129D0 (ZwQuerySystemInformation.c)
+ */
+
 __int64 RtlpInitializeNonVolatileFlush()
 {
   __int64 result; // rax

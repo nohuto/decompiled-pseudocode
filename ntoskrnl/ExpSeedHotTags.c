@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpSeedHotTags @ 0x140B63E9C
+ * Callers:
+ *     ExInitializePoolTracker @ 0x140B63C80 (ExInitializePoolTracker.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 ExpSeedHotTags()
 {
   __int64 v0; // r10

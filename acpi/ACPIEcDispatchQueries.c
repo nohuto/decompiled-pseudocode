@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIEcDispatchQueries @ 0x1C0025958
+ * Callers:
+ *     ACPIEcServiceIoLoop @ 0x1C0002EF0 (ACPIEcServiceIoLoop.c)
+ *     ACPIEcCompleteQueryMethod @ 0x1C00258E0 (ACPIEcCompleteQueryMethod.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ACPIEcRunQueryMethod @ 0x1C0025AC4 (ACPIEcRunQueryMethod.c)
+ *     ACPIEcUnloadPending @ 0x1C0025B74 (ACPIEcUnloadPending.c)
+ */
+
 void __fastcall ACPIEcDispatchQueries(__int64 a1)
 {
   KSPIN_LOCK *v2; // r14

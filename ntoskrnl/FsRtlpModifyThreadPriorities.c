@@ -1,3 +1,22 @@
+/*
+ * XREFs of FsRtlpModifyThreadPriorities @ 0x1402ECCB4
+ * Callers:
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x14023AB60 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlpOplockBreakByCacheFlags @ 0x14023BD20 (FsRtlpOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockCleanup @ 0x14023E404 (FsRtlpOplockCleanup.c)
+ *     FsRtlUninitializeOplock @ 0x1402E06C0 (FsRtlUninitializeOplock.c)
+ *     FsRtlpOplockBreakToII @ 0x1402F3B90 (FsRtlpOplockBreakToII.c)
+ *     FsRtlpCancelExclusiveIrp @ 0x1403ACFD0 (FsRtlpCancelExclusiveIrp.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403CD730 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpAcknowledgeOplockBreak @ 0x14053BB78 (FsRtlpAcknowledgeOplockBreak.c)
+ *     FsRtlpOplockBreakToNone @ 0x14053C500 (FsRtlpOplockBreakToNone.c)
+ *     FsRtlpOpBatchBreakClosePending @ 0x14093B3DC (FsRtlpOpBatchBreakClosePending.c)
+ *     FsRtlpOplockBreakNotify @ 0x14093B518 (FsRtlpOplockBreakNotify.c)
+ * Callees:
+ *     PsBoostThreadIoEx @ 0x1402634D0 (PsBoostThreadIoEx.c)
+ *     FsRtlpDoBoost @ 0x1402ECD68 (FsRtlpDoBoost.c)
+ */
+
 void __fastcall FsRtlpModifyThreadPriorities(__int64 a1, __int64 a2, char a3)
 {
   unsigned int CurrentThread; // ebp

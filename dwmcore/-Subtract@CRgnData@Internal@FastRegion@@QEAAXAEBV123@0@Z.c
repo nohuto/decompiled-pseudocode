@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Subtract@CRgnData@Internal@FastRegion@@QEAAXAEBV123@0@Z @ 0x180046BB8
+ * Callers:
+ *     ?Subtract@CRegion@FastRegion@@QEAAJAEBV12@@Z @ 0x180046720 (-Subtract@CRegion@FastRegion@@QEAAJAEBV12@@Z.c)
+ * Callees:
+ *     ?Subtract@CStripe@Internal@FastRegion@@QEAAXPEBV123@00@Z @ 0x180046F28 (-Subtract@CStripe@Internal@FastRegion@@QEAAXPEBV123@00@Z.c)
+ *     ?IsEqualToPrevious@CStripe@Internal@FastRegion@@QEBA_NXZ @ 0x180047564 (-IsEqualToPrevious@CStripe@Internal@FastRegion@@QEBA_NXZ.c)
+ *     ?Copy@CStripe@Internal@FastRegion@@QEAAXPEBV123@@Z @ 0x18004772C (-Copy@CStripe@Internal@FastRegion@@QEAAXPEBV123@@Z.c)
+ *     ?Copy@CStripe@Internal@FastRegion@@QEAAXPEBV123@0@Z @ 0x180047CF8 (-Copy@CStripe@Internal@FastRegion@@QEAAXPEBV123@0@Z.c)
+ */
+
 void __fastcall FastRegion::Internal::CRgnData::Subtract(
         FastRegion::Internal::CRgnData *this,
         const struct FastRegion::Internal::CRgnData *a2,

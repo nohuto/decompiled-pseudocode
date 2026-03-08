@@ -1,3 +1,26 @@
+/*
+ * XREFs of ACPIInitialize @ 0x1C00A8F78
+ * Callers:
+ *     ACPIInitStartACPI @ 0x1C00A8DE0 (ACPIInitStartACPI.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     ACPIInitializeKernelTableHandler @ 0x1C002E260 (ACPIInitializeKernelTableHandler.c)
+ *     ACPIInternalInterruptHonorBiosPolarities @ 0x1C002E828 (ACPIInternalInterruptHonorBiosPolarities.c)
+ *     ACPIGetTableVersion @ 0x1C0031D50 (ACPIGetTableVersion.c)
+ *     ACPIEnableInitializeACPI @ 0x1C00368F0 (ACPIEnableInitializeACPI.c)
+ *     ACPIKsrSupportInitialize @ 0x1C00369A8 (ACPIKsrSupportInitialize.c)
+ *     ACPIQueryPhysicalDeviceLocation @ 0x1C0081D08 (ACPIQueryPhysicalDeviceLocation.c)
+ *     ACPIInterruptInitialize @ 0x1C0087E68 (ACPIInterruptInitialize.c)
+ *     NotifyHalWithMachineStatesAndRetrieveInterruptModel @ 0x1C00A7BFC (NotifyHalWithMachineStatesAndRetrieveInterruptModel.c)
+ *     ACPIInitializeAMLI @ 0x1C00A92D4 (ACPIInitializeAMLI.c)
+ *     ACPIInitializeDDBs @ 0x1C00A94A0 (ACPIInitializeDDBs.c)
+ *     ACPILoadProcessRSDT @ 0x1C00A9AC4 (ACPILoadProcessRSDT.c)
+ *     AcpiIrqLibConfigureLibrary @ 0x1C00ABA48 (AcpiIrqLibConfigureLibrary.c)
+ *     AcpiIrqLibInitializeGlobalState @ 0x1C00ABB68 (AcpiIrqLibInitializeGlobalState.c)
+ */
+
 char __fastcall ACPIInitialize(ULONG_PTR BugCheckParameter3)
 {
   int v2; // eax

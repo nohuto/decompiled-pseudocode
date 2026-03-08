@@ -1,3 +1,18 @@
+/*
+ * XREFs of HandleDeferredInput @ 0x1C0006160
+ * Callers:
+ *     NtUserSetInputServiceState @ 0x1C00BD570 (NtUserSetInputServiceState.c)
+ * Callees:
+ *     ?UpdateISODState@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@@Z @ 0x1C000647C (-UpdateISODState@Delivery@InputTraceLogging@@SAXPEBUtagQMSG@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qiqdd @ 0x1C00064EC (WPP_RECORDER_AND_TRACE_SF_qiqdd.c)
+ *     ?EndKeyboardEventProcessingByInputService@KeyboardInputTelemetry@@SAXPEAUtagQMSG@@_N@Z @ 0x1C00065D8 (-EndKeyboardEventProcessingByInputService@KeyboardInputTelemetry@@SAXPEAUtagQMSG@@_N@Z.c)
+ *     ?GetKeyboardInputLatency@KeyboardInputTelemetry@@CAK_K@Z @ 0x1C0006668 (-GetKeyboardInputLatency@KeyboardInputTelemetry@@CAK_K@Z.c)
+ *     ApiSetEditionDelQEntry @ 0x1C0006730 (ApiSetEditionDelQEntry.c)
+ *     ApiSetEditionWakeSomeone @ 0x1C000699C (ApiSetEditionWakeSomeone.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003A4AC (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ *     UpdateKeyStateForMessage @ 0x1C00B8C10 (UpdateKeyStateForMessage.c)
+ */
+
 int __fastcall HandleDeferredInput(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rsi

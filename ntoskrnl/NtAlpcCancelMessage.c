@@ -1,3 +1,17 @@
+/*
+ * XREFs of NtAlpcCancelMessage @ 0x140793E30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     AlpcpCancelMessage @ 0x1407141F0 (AlpcpCancelMessage.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     AlpcpLookupMessage @ 0x1407CA7C0 (AlpcpLookupMessage.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall NtAlpcCancelMessage(void *a1, int a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rax

@@ -1,3 +1,19 @@
+/*
+ * XREFs of PoPushPowerStateTransitionRecordWithCallback @ 0x14058CC64
+ * Callers:
+ *     PnpPowerStateTransitionWatchdogPushRecord @ 0x140954B3C (PnpPowerStateTransitionWatchdogPushRecord.c)
+ *     ExSwapinWorkerThreads @ 0x1409FD778 (ExSwapinWorkerThreads.c)
+ *     PopPushPowerStateTransitionRecord @ 0x140AA309C (PopPushPowerStateTransitionRecord.c)
+ *     PopUnlockAfterSleepWorker @ 0x140AA37E0 (PopUnlockAfterSleepWorker.c)
+ *     PopAcquireTransitionLockAfterSleep @ 0x140AA5EF0 (PopAcquireTransitionLockAfterSleep.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     ObReferenceObjectByPointerWithTag @ 0x14033E060 (ObReferenceObjectByPointerWithTag.c)
+ */
+
 __int64 __fastcall PoPushPowerStateTransitionRecordWithCallback(PVOID Object, PVOID a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // edi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?UpdateRenderFailureCount@CComposition@@SAXJ@Z @ 0x180050788
+ * Callers:
+ *     ?ProcessComposition@CComposition@@IEAAXPEA_N@Z @ 0x18004EF0C (-ProcessComposition@CComposition@@IEAAXPEA_N@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ *     ?DriverUpdateInProgress@CDisplayManager@@IEAA_NXZ @ 0x180282A1C (-DriverUpdateInProgress@CDisplayManager@@IEAA_NXZ.c)
+ */
+
 void __fastcall CComposition::UpdateRenderFailureCount(CDisplayManager *a1)
 {
   DWORD v1; // ebx

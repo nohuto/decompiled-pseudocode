@@ -1,3 +1,12 @@
+/*
+ * XREFs of _CmContainerListGenericObjectCallback @ 0x14085C100
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     _CmValidateDeviceContainerName @ 0x1406C3EDC (_CmValidateDeviceContainerName.c)
+ */
+
 char __fastcall CmContainerListGenericObjectCallback(__int64 a1, const WCHAR *a2, __int64 a3, __int64 a4)
 {
   char result; // al

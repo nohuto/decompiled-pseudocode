@@ -1,3 +1,12 @@
+/*
+ * XREFs of ReferenceWindowStation @ 0x1C00BD810
+ * Callers:
+ *     ?CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ @ 0x1C00BD7B8 (-CheckClipboardAccess@@YAPEAUtagWINDOWSTATION@@XZ.c)
+ *     xxxSnapWindow @ 0x1C022AF08 (xxxSnapWindow.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 NTSTATUS __fastcall ReferenceWindowStation(struct _KTHREAD *a1, void *a2, ACCESS_MASK a3, _QWORD *a4, int a5)
 {
   PVOID v9; // rsi

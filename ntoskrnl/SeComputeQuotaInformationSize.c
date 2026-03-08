@@ -1,3 +1,15 @@
+/*
+ * XREFs of SeComputeQuotaInformationSize @ 0x1406968A0
+ * Callers:
+ *     ObpChargeQuotaForObject @ 0x140696054 (ObpChargeQuotaForObject.c)
+ *     SeDefaultObjectMethod @ 0x1406961E0 (SeDefaultObjectMethod.c)
+ *     ObpCaptureObjectCreateInformation @ 0x1406E9E60 (ObpCaptureObjectCreateInformation.c)
+ *     ObSetSecurityDescriptorInfo @ 0x140751100 (ObSetSecurityDescriptorInfo.c)
+ *     ObpIncrementHandleCountEx @ 0x1407C1090 (ObpIncrementHandleCountEx.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SeComputeQuotaInformationSize(__int64 a1, unsigned int *a2)
 {
   __int64 v2; // rax

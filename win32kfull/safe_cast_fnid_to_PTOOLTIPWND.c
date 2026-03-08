@@ -1,3 +1,15 @@
+/*
+ * XREFs of safe_cast_fnid_to_PTOOLTIPWND @ 0x1C00F9CD8
+ * Callers:
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ *     xxxProcessEventMessage @ 0x1C006B460 (xxxProcessEventMessage.c)
+ *     xxxTrackMouseMove @ 0x1C00BD950 (xxxTrackMouseMove.c)
+ *     xxxCancelMouseMoveTracking @ 0x1C00EF010 (xxxCancelMouseMoveTracking.c)
+ *     _SetDoubleClickTime @ 0x1C00F9C04 (_SetDoubleClickTime.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall safe_cast_fnid_to_PTOOLTIPWND(__int64 a1)
 {
   __int64 v2; // rax

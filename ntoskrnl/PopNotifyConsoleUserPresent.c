@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopNotifyConsoleUserPresent @ 0x14073A3BC
+ * Callers:
+ *     PopUserPresentSetWorker @ 0x14058BD10 (PopUserPresentSetWorker.c)
+ *     PopSessionWinlogonNotification @ 0x14067F97C (PopSessionWinlogonNotification.c)
+ *     NtSetThreadExecutionState @ 0x14073A9D0 (NtSetThreadExecutionState.c)
+ *     PopSetSystemAwayMode @ 0x140987890 (PopSetSystemAwayMode.c)
+ * Callees:
+ *     RtlGetActiveConsoleId @ 0x1402B8940 (RtlGetActiveConsoleId.c)
+ *     PopInvokeWin32Callout @ 0x14073A52C (PopInvokeWin32Callout.c)
+ *     TtmIsEnabled @ 0x14073C8BC (TtmIsEnabled.c)
+ *     TtmNotifyConsoleUserPresent @ 0x1409A1234 (TtmNotifyConsoleUserPresent.c)
+ */
+
 __int64 __fastcall PopNotifyConsoleUserPresent(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

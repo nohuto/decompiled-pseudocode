@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhCalculateInterfaceBandwidth @ 0x1C0029CB8
+ * Callers:
+ *     UsbhSelectConfigOrInterfaceComplete @ 0x1C002D820 (UsbhSelectConfigOrInterfaceComplete.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall UsbhCalculateInterfaceBandwidth(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v5; // edi

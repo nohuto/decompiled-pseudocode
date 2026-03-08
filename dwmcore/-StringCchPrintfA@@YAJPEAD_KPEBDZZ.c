@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?StringCchPrintfA@@YAJPEAD_KPEBDZZ @ 0x180207954
+ * Callers:
+ *     ?CreateLinkedShader@CShaderCache@@QEAAJIAEBUShaderLinkingConfig@@AEBUShaderLinkingBody@@V?$span@PEBUShaderLinkingBody@@$0?0@gsl@@PEAPEAVCLinkedShader@@@Z @ 0x180026C2C (-CreateLinkedShader@CShaderCache@@QEAAJIAEBUShaderLinkingConfig@@AEBUShaderLinkingBody@@V-$span@.c)
+ * Callees:
+ *     _vsnprintf @ 0x18010F680 (_vsnprintf.c)
+ */
+
 __int64 StringCchPrintfA(char *a1, __int64 a2, const char *a3, ...)
 {
   unsigned int v4; // ebx

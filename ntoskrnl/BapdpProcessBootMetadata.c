@@ -1,3 +1,13 @@
+/*
+ * XREFs of BapdpProcessBootMetadata @ 0x140B42C3C
+ * Callers:
+ *     BootApplicationPersistentDataProcess @ 0x140B44538 (BootApplicationPersistentDataProcess.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     BapdpQueryData @ 0x140B44D10 (BapdpQueryData.c)
+ */
+
 __int64 BapdpProcessBootMetadata()
 {
   __int64 v0; // rcx

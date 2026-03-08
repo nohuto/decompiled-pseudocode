@@ -1,3 +1,21 @@
+/*
+ * XREFs of IopWriteAllocatedResourcesToRegistry @ 0x140803B38
+ * Callers:
+ *     IopLegacyResourceAllocation @ 0x140801DA4 (IopLegacyResourceAllocation.c)
+ *     IoReportDetectedDevice @ 0x140802A80 (IoReportDetectedDevice.c)
+ *     PnpBuildCmResourceLists @ 0x140803A38 (PnpBuildCmResourceLists.c)
+ *     PnpReleaseResourcesInternal @ 0x140803D74 (PnpReleaseResourcesInternal.c)
+ *     PnpRestoreResourcesInternal @ 0x14096A7C4 (PnpRestoreResourcesInternal.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     ZwDeleteValueKey @ 0x140413EB0 (ZwDeleteValueKey.c)
+ *     _CmOpenDeviceRegKey @ 0x1406D3B3C (_CmOpenDeviceRegKey.c)
+ */
+
 __int64 __fastcall IopWriteAllocatedResourcesToRegistry(__int64 a1, void *a2, ULONG a3)
 {
   struct _KTHREAD *CurrentThread; // rax

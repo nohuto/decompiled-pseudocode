@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpFixBootSystemTime @ 0x140B942D0
+ * Callers:
+ *     EtwpInitialize @ 0x140B3CA40 (EtwpInitialize.c)
+ * Callees:
+ *     RtlGetSystemTimePrecise @ 0x140205310 (RtlGetSystemTimePrecise.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KeQueryBootTimeValues @ 0x1402E3FEC (KeQueryBootTimeValues.c)
+ *     RtlGetMultiTimePrecise @ 0x1402F9390 (RtlGetMultiTimePrecise.c)
+ */
+
 __int64 EtwpFixBootSystemTime()
 {
   int MultiTimePrecise; // edi

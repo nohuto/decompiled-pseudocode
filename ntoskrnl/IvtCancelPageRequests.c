@@ -1,3 +1,11 @@
+/*
+ * XREFs of IvtCancelPageRequests @ 0x140529AD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IvtCancelPageRequests(_QWORD *a1, __int64 a2, unsigned int a3)
 {
   unsigned __int64 v3; // r10

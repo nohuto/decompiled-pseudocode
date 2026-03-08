@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIPccSciReceived @ 0x1C0004576
+ * Callers:
+ *     ACPIInterruptServiceRoutine @ 0x1C0003D30 (ACPIInterruptServiceRoutine.c)
+ * Callees:
+ *     <none>
+ */
+
 bool ACPIPccSciReceived()
 {
   bool v0; // r8

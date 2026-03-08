@@ -1,3 +1,13 @@
+/*
+ * XREFs of xxxLoadUserApiHook @ 0x1C00DE45C
+ * Callers:
+ *     xxxDefWindowProc @ 0x1C00A66F0 (xxxDefWindowProc.c)
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ *     NtUserLoadUserApiHook @ 0x1C00DE420 (NtUserLoadUserApiHook.c)
+ * Callees:
+ *     xxxLoadHmodIndex @ 0x1C006CD10 (xxxLoadHmodIndex.c)
+ */
+
 __int64 __fastcall xxxLoadUserApiHook(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

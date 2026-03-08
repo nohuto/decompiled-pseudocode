@@ -1,3 +1,29 @@
+/*
+ * XREFs of MiAllocatePerSessionProtos @ 0x14075B9D4
+ * Callers:
+ *     MiCreatePerSessionProtos @ 0x14075B874 (MiCreatePerSessionProtos.c)
+ *     MiCreateSessionDriverProtos @ 0x140A4316C (MiCreateSessionDriverProtos.c)
+ * Callees:
+ *     MmProbeAndLockPages @ 0x140267B90 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x14027C0C0 (MmUnlockPages.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1402CF5DC (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MmSizeOfMdl @ 0x1402CFFB0 (MmSizeOfMdl.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiGetControlAreaPartition @ 0x14031F9F0 (MiGetControlAreaPartition.c)
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     MiChargeResident @ 0x140348DE8 (MiChargeResident.c)
+ *     MiMakeSubsectionPte @ 0x140368AAC (MiMakeSubsectionPte.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140368AE0 (MiUpdateSystemProtoPtesTree.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiFillPerSessionProtos @ 0x140A4734C (MiFillPerSessionProtos.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiAllocatePerSessionProtos(
         __int64 a1,
         unsigned __int64 a2,

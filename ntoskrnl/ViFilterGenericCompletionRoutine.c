@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViFilterGenericCompletionRoutine @ 0x140ADC9B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoReleaseRemoveLockEx @ 0x1402D9240 (IoReleaseRemoveLockEx.c)
+ */
+
 __int64 __fastcall ViFilterGenericCompletionRoutine(__int64 a1, __int64 a2)
 {
   if ( *(_BYTE *)(a2 + 65) )

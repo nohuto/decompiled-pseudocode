@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwpCovSampCaptureQueueRebalance @ 0x1406012C8
+ * Callers:
+ *     EtwpCovSampLookasidePop @ 0x140461CA8 (EtwpCovSampLookasidePop.c)
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ */
+
 __int64 __fastcall EtwpCovSampCaptureQueueRebalance(__int64 a1)
 {
   __int64 result; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiIsIsolationUnitIdleByHandle @ 0x14057C470
+ * Callers:
+ *     KiChooseTargetProcessor @ 0x140258FC0 (KiChooseTargetProcessor.c)
+ *     KiHeteroChooseTargetProcessor @ 0x140459316 (KiHeteroChooseTargetProcessor.c)
+ *     KiPopulateTrivialProcessorSelectionResult @ 0x140575224 (KiPopulateTrivialProcessorSelectionResult.c)
+ *     KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule @ 0x14057B6AC (KiAttemptToUnparkIdleSoftParkedProcessorOnSchedule.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiIsIsolationUnitIdleByHandle(_QWORD *a1)
 {
   unsigned __int64 v1; // r9

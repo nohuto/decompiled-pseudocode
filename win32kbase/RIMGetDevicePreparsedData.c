@@ -1,3 +1,15 @@
+/*
+ * XREFs of RIMGetDevicePreparsedData @ 0x1C01A4FD0
+ * Callers:
+ *     NtRIMGetDevicePreparsedData @ 0x1C01A1FC0 (NtRIMGetDevicePreparsedData.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     RawInputManagerObjectResolveHandle @ 0x1C0039E60 (RawInputManagerObjectResolveHandle.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     RIMGetDevicePreparsedDataLockfree @ 0x1C01A5220 (RIMGetDevicePreparsedDataLockfree.c)
+ */
+
 __int64 __fastcall RIMGetDevicePreparsedData(char *a1, __int64 a2, __int64 a3, __int64 a4, unsigned int a5)
 {
   __int64 v6; // r14

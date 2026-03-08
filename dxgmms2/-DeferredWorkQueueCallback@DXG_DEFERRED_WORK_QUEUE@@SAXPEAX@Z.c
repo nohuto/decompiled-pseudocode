@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DeferredWorkQueueCallback@DXG_DEFERRED_WORK_QUEUE@@SAXPEAX@Z @ 0x1C002DCF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall DXG_DEFERRED_WORK_QUEUE::DeferredWorkQueueCallback(struct _KEVENT *a1)
 {
   struct _KEVENT *v2; // rsi

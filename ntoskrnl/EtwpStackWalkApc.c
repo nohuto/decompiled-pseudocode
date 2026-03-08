@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwpStackWalkApc @ 0x140460860
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwpEventWriteFull @ 0x1402319C0 (EtwpEventWriteFull.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpFinalizePendingApc @ 0x140460334 (EtwpFinalizePendingApc.c)
+ *     EtwpTraceStackWalk @ 0x140460A6C (EtwpTraceStackWalk.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall EtwpStackWalkApc(__int64 a1, _QWORD *a2, __int64 *a3)
 {
   struct _KTHREAD *CurrentThread; // r14

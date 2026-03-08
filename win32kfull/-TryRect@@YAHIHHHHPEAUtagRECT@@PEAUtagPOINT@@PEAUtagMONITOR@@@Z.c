@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?TryRect@@YAHIHHHHPEAUtagRECT@@PEAUtagPOINT@@PEAUtagMONITOR@@@Z @ 0x1C0234DEC
+ * Callers:
+ *     FindBestPos @ 0x1C0234EF4 (FindBestPos.c)
+ * Callees:
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ *     GetMonitorWorkRect @ 0x1C0101744 (GetMonitorWorkRect.c)
+ */
+
 __int64 __fastcall TryRect(
         int a1,
         LONG right,

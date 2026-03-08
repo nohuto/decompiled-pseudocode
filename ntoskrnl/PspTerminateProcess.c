@@ -1,3 +1,21 @@
+/*
+ * XREFs of PspTerminateProcess @ 0x1407DC198
+ * Callers:
+ *     NtTerminateProcess @ 0x1407DC2F0 (NtTerminateProcess.c)
+ *     PsTerminateProcess @ 0x1407DC8A0 (PsTerminateProcess.c)
+ *     PspTerminatePicoProcess @ 0x1409B2C20 (PspTerminatePicoProcess.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeSetProcessSchedulingGroup @ 0x1403556A4 (KeSetProcessSchedulingGroup.c)
+ *     KeForceResumeProcess @ 0x140355998 (KeForceResumeProcess.c)
+ *     EtwTraceProcessTerminate @ 0x140355D5C (EtwTraceProcessTerminate.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PspRundownSingleProcess @ 0x1406F8160 (PspRundownSingleProcess.c)
+ *     PspTerminateAllThreads @ 0x1407DB73C (PspTerminateAllThreads.c)
+ */
+
 __int64 __fastcall PspTerminateProcess(PRKPROCESS PROCESS, __int64 a2, unsigned int a3, unsigned int a4)
 {
   signed __int32 v9; // esi

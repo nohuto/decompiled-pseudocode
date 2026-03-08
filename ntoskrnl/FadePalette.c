@@ -1,3 +1,11 @@
+/*
+ * XREFs of FadePalette @ 0x14054C32C
+ * Callers:
+ *     RotBarUpdate @ 0x14054C56C (RotBarUpdate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FadePalette(unsigned __int8 a1)
 {
   signed __int64 v1; // r9

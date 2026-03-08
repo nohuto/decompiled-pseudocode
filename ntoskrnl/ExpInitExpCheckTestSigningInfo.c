@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpInitExpCheckTestSigningInfo @ 0x140609E40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwQuerySystemInformation @ 0x1404129D0 (ZwQuerySystemInformation.c)
+ */
+
 __int64 __fastcall ExpInitExpCheckTestSigningInfo(PRTL_RUN_ONCE RunOnce, PVOID Parameter, PVOID *Context)
 {
   unsigned int v3; // ebx

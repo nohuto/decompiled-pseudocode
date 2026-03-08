@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionHandleSonarKeyEvent @ 0x1C008055C
+ * Callers:
+ *     xxxProcessKeyEvent @ 0x1C007EE00 (xxxProcessKeyEvent.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (__fastcall *__fastcall ApiSetEditionHandleSonarKeyEvent(__int64 a1, __int64 a2, __int64 a3))(_QWORD, _QWORD)
 {
   char v3; // di

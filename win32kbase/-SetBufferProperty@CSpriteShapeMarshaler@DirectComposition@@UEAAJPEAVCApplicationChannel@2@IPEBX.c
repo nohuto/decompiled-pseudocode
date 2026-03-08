@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SetBufferProperty@CSpriteShapeMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C02542E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0064C54 (-AllocateQuota@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     memcpy_s @ 0x1C00DC688 (memcpy_s.c)
+ */
+
 __int64 __fastcall DirectComposition::CSpriteShapeMarshaler::SetBufferProperty(
         char **this,
         struct DirectComposition::CApplicationChannel *a2,

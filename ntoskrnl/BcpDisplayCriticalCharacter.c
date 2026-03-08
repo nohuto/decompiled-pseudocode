@@ -1,3 +1,12 @@
+/*
+ * XREFs of BcpDisplayCriticalCharacter @ 0x14066FC60
+ * Callers:
+ *     BcpDisplayErrorInformation @ 0x140670094 (BcpDisplayErrorInformation.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140670AE4 (BgpFwDisplayBugCheckScreen.c)
+ * Callees:
+ *     BgpDisplayCharacterEx @ 0x14066F654 (BgpDisplayCharacterEx.c)
+ */
+
 __int64 __fastcall BcpDisplayCriticalCharacter(__int16 a1, int a2)
 {
   int v2; // esi

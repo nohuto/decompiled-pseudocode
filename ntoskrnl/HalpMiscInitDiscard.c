@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpMiscInitDiscard @ 0x140B67248
+ * Callers:
+ *     HalpMiscInitSystem @ 0x140A8E290 (HalpMiscInitSystem.c)
+ * Callees:
+ *     KeRegisterBugCheckReasonCallback @ 0x1402E8DA0 (KeRegisterBugCheckReasonCallback.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 HalpMiscInitDiscard()
 {
   ULONG_PTR MajorVersion; // rcx

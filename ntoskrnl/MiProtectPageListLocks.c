@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiProtectPageListLocks @ 0x140393F60
+ * Callers:
+ *     MiInitializePartition @ 0x140837D40 (MiInitializePartition.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall MiProtectPageListLocks(__int64 a1)
 {
   unsigned __int64 v2; // rdi

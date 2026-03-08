@@ -1,3 +1,13 @@
+/*
+ * XREFs of IvtSetScalableModePasidTableEntry @ 0x14052B4B0
+ * Callers:
+ *     IvtInitializeScalableModePasidTables @ 0x14052AE74 (IvtInitializeScalableModePasidTables.c)
+ *     IvtSetPasidAddressSpace @ 0x14052B2E0 (IvtSetPasidAddressSpace.c)
+ *     IvtUpdateScalableModePasidTablesForPasid @ 0x14052BA10 (IvtUpdateScalableModePasidTablesForPasid.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IvtSetScalableModePasidTableEntry(__int64 a1, __int64 a2, unsigned int a3, signed __int64 *a4)
 {
   signed __int64 v4; // rbx

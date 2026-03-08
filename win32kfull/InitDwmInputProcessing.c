@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitDwmInputProcessing @ 0x1C00F2B00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 InitDwmInputProcessing()
 {

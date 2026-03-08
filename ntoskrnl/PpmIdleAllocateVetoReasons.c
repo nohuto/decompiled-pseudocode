@@ -1,3 +1,17 @@
+/*
+ * XREFs of PpmIdleAllocateVetoReasons @ 0x14097EB64
+ * Callers:
+ *     PopFxRequestCommon @ 0x1405892E0 (PopFxRequestCommon.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PpmIdleInstallNewVetoList @ 0x140582BD8 (PpmIdleInstallNewVetoList.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PpmIdleAllocateVetoReasons(_DWORD *a1)
 {
   unsigned int v2; // ebx

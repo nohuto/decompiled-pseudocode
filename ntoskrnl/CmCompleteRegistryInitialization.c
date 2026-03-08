@@ -1,3 +1,33 @@
+/*
+ * XREFs of CmCompleteRegistryInitialization @ 0x1408174BC
+ * Callers:
+ *     NtInitializeRegistry @ 0x140799FB0 (NtInitializeRegistry.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     Feature_BamQosGrouping__private_ReportDeviceUsage @ 0x14040A310 (Feature_BamQosGrouping__private_ReportDeviceUsage.c)
+ *     Feature_SchedulerFavoredCoreRotation__private_ReportDeviceUsage @ 0x14040A3E0 (Feature_SchedulerFavoredCoreRotation__private_ReportDeviceUsage.c)
+ *     Feature_SchedulerQosPreemption__private_ReportDeviceUsage @ 0x14040A448 (Feature_SchedulerQosPreemption__private_ReportDeviceUsage.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     CmpLockRegistryExclusive @ 0x1406B6454 (CmpLockRegistryExclusive.c)
+ *     RtlLockBootStatusData @ 0x14073DD00 (RtlLockBootStatusData.c)
+ *     EtwInitialize @ 0x14080AAA4 (EtwInitialize.c)
+ *     PsBootPhaseComplete @ 0x140812760 (PsBootPhaseComplete.c)
+ *     ExpRefreshSystemTime @ 0x1408132EC (ExpRefreshSystemTime.c)
+ *     CmpInitializeSystemHivesLoad @ 0x140817810 (CmpInitializeSystemHivesLoad.c)
+ *     CmpCreateRegistryThread @ 0x140817904 (CmpCreateRegistryThread.c)
+ *     PoEnableCriticalShutdown @ 0x140818B24 (PoEnableCriticalShutdown.c)
+ *     ExNotifyPlatformBinaryExecuted @ 0x140818C3C (ExNotifyPlatformBinaryExecuted.c)
+ *     IopCopyBootLogRegistryToFile @ 0x140818E28 (IopCopyBootLogRegistryToFile.c)
+ *     CmpCmdInit @ 0x140819024 (CmpCmdInit.c)
+ *     PnpBootPhaseComplete @ 0x14081BD60 (PnpBootPhaseComplete.c)
+ *     PoInitHiberServices @ 0x14082B1B0 (PoInitHiberServices.c)
+ *     PoClearTransitionMarker @ 0x14085A768 (PoClearTransitionMarker.c)
+ *     ExEnableNlsSectionCache @ 0x1409F8758 (ExEnableNlsSectionCache.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ */
+
 __int64 __fastcall CmCompleteRegistryInitialization(__int16 a1)
 {
   unsigned int v1; // ebx

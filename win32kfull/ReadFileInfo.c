@@ -1,3 +1,11 @@
+/*
+ * XREFs of ReadFileInfo @ 0x1C00DF234
+ * Callers:
+ *     ?LookUpFNTCacheTable@@YAHKPEAGPEAK1PEAPEAVPDEV@@1HPEAH3PEAPEAU_FONTFILEVIEW@@KPEAUtagDESIGNVECTOR@@K@Z @ 0x1C0118A8C (-LookUpFNTCacheTable@@YAHKPEAGPEAK1PEAPEAVPDEV@@1HPEAH3PEAPEAU_FONTFILEVIEW@@KPEAUtagDESIGNVECTO.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ReadFileInfo(__int64 *a1, unsigned int a2)
 {
   unsigned int v2; // edi

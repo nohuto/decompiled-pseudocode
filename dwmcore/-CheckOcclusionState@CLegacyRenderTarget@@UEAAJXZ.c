@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?CheckOcclusionState@CLegacyRenderTarget@@UEAAJXZ @ 0x1800C8E58
+ * Callers:
+ *     ?CheckOcclusionState@CLegacyRenderTarget@@$4PPPPPPPM@A@EAAJXZ @ 0x180118030 (-CheckOcclusionState@CLegacyRenderTarget@@$4PPPPPPPM@A@EAAJXZ.c)
+ *     ?CheckOcclusionState@CLegacyRenderTarget@@$4PPPPPPPM@BA@EAAJXZ @ 0x180118050 (-CheckOcclusionState@CLegacyRenderTarget@@$4PPPPPPPM@BA@EAAJXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?ReleaseSwapChain@CLegacyRenderTarget@@IEAAXXZ @ 0x1800C6844 (-ReleaseSwapChain@CLegacyRenderTarget@@IEAAXXZ.c)
+ *     ?CheckForOcclusionChange@CLegacyRenderTarget@@AEAAJJ@Z @ 0x1800C9100 (-CheckForOcclusionChange@CLegacyRenderTarget@@AEAAJJ@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CLegacyRenderTarget::CheckOcclusionState(CLegacyRenderTarget *this)
 {
   CLegacyRenderTarget *v1; // rsi

@@ -1,3 +1,19 @@
+/*
+ * XREFs of vDynamicConvertNewSurfaceDCs @ 0x1C009DC40
+ * Callers:
+ *     bDynamicProcessAllDriverRealizations @ 0x1C009D990 (bDynamicProcessAllDriverRealizations.c)
+ *     pProcessDfbSurfacesInternal @ 0x1C01878E0 (pProcessDfbSurfacesInternal.c)
+ * Callees:
+ *     ?pSurface@DC@@QEAAXPEAVSURFACE@@@Z @ 0x1C001A878 (-pSurface@DC@@QEAAXPEAVSURFACE@@@Z.c)
+ *     HmgIncrementShareReferenceCount @ 0x1C0046970 (HmgIncrementShareReferenceCount.c)
+ *     HmgDecrementShareReferenceCountEx @ 0x1C00483B0 (HmgDecrementShareReferenceCountEx.c)
+ *     GreReleaseHmgrSemaphore @ 0x1C0049700 (GreReleaseHmgrSemaphore.c)
+ *     GreAcquireHmgrSemaphore @ 0x1C0049780 (GreAcquireHmgrSemaphore.c)
+ *     ?bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z @ 0x1C004B700 (-bDeleteSurface@SURFACE@@QEAAHW4_CLEANUPTYPE@@H@Z.c)
+ *     HmgSafeNextObjt @ 0x1C006EFB0 (HmgSafeNextObjt.c)
+ *     HmgQueryAltLock @ 0x1C01862A0 (HmgQueryAltLock.c)
+ */
+
 __int64 __fastcall vDynamicConvertNewSurfaceDCs(__int64 a1, int *a2)
 {
   unsigned int v3; // edi

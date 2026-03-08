@@ -1,3 +1,15 @@
+/*
+ * XREFs of SddlpUuidFromString @ 0x1409CFC78
+ * Callers:
+ *     LocalGetAclForString @ 0x14074F18C (LocalGetAclForString.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcsncat_s @ 0x1403DA2A0 (wcsncat_s.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ */
+
 __int64 __fastcall SddlpUuidFromString(wchar_t *SourceString, GUID *Guid)
 {
   unsigned int v2; // edi

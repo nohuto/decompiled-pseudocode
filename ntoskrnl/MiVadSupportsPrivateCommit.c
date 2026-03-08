@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiVadSupportsPrivateCommit @ 0x14031EE80
+ * Callers:
+ *     MiVadSupportsCombine @ 0x1402285E0 (MiVadSupportsCombine.c)
+ *     MmOutSwapWorkingSet @ 0x1402DAFF8 (MmOutSwapWorkingSet.c)
+ *     MiIsVadEligibleForCommitRelease @ 0x140615D8C (MiIsVadEligibleForCommitRelease.c)
+ *     MiEmptyWorkingSetPrivatePagesByVa @ 0x140619C68 (MiEmptyWorkingSetPrivatePagesByVa.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x1406A0D38 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MiProcessVaRangesInfoClass @ 0x14075C744 (MiProcessVaRangesInfoClass.c)
+ *     MiAllocateVirtualMemory @ 0x1407C5270 (MiAllocateVirtualMemory.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall MiVadSupportsPrivateCommit(__int64 a1)
 {
   int v1; // eax

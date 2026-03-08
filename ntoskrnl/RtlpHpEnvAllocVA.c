@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlpHpEnvAllocVA @ 0x140330480
+ * Callers:
+ *     RtlpHpVaMgrAllocAligned @ 0x140304644 (RtlpHpVaMgrAllocAligned.c)
+ *     RtlpCSparseBitmapPageCommit @ 0x140306EB8 (RtlpCSparseBitmapPageCommit.c)
+ *     RtlpHpAllocVA @ 0x140330920 (RtlpHpAllocVA.c)
+ *     RtlCSparseBitmapStart @ 0x1403A57A4 (RtlCSparseBitmapStart.c)
+ * Callees:
+ *     RtlpHpEnvFreeVA @ 0x14020DD14 (RtlpHpEnvFreeVA.c)
+ *     MmAllocatePoolMemory @ 0x140330628 (MmAllocatePoolMemory.c)
+ */
+
 __int64 __fastcall RtlpHpEnvAllocVA(
         unsigned __int64 *a1,
         __int64 *a2,

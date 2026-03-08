@@ -1,3 +1,11 @@
+/*
+ * XREFs of USBD_InstallExtPropDescSections @ 0x1C0032114
+ * Callers:
+ *     UsbhInstallMsOsExtendedProperties @ 0x1C003383C (UsbhInstallMsOsExtendedProperties.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall USBD_InstallExtPropDescSections(struct _DEVICE_OBJECT *a1, __int64 a2, unsigned int a3)
 {
   unsigned int v4; // ebp

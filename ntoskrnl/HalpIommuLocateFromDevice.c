@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpIommuLocateFromDevice @ 0x14082218C
+ * Callers:
+ *     IommuCreateAtsDevice @ 0x14051F820 (IommuCreateAtsDevice.c)
+ *     HalpQueryIommuReservedRegionInformation @ 0x1408220EC (HalpQueryIommuReservedRegionInformation.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpIommuLocateFromDevice(__int64 a1, ULONG_PTR *a2, __int64 a3)
 {
   ULONG_PTR v3; // rdi

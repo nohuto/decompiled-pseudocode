@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoSetHardErrorOrVerifyDevice @ 0x1404571B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __stdcall IoSetHardErrorOrVerifyDevice(PIRP Irp, PDEVICE_OBJECT DeviceObject)
 {
   PETHREAD Thread; // rax

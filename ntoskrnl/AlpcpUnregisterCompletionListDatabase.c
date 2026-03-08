@@ -1,3 +1,14 @@
+/*
+ * XREFs of AlpcpUnregisterCompletionListDatabase @ 0x140976FBC
+ * Callers:
+ *     AlpcpFreeCompletionList @ 0x1409766D0 (AlpcpFreeCompletionList.c)
+ *     AlpcpInitializeCompletionList @ 0x14097672C (AlpcpInitializeCompletionList.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ */
+
 signed __int32 __fastcall AlpcpUnregisterCompletionListDatabase(_QWORD *a1)
 {
   __int64 v2; // rdx

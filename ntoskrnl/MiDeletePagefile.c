@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiDeletePagefile @ 0x140A2FB40
+ * Callers:
+ *     MmStoreRegister @ 0x140834CA4 (MmStoreRegister.c)
+ *     MiCreatePagingFile @ 0x140834F7C (MiCreatePagingFile.c)
+ *     MiCreatePagefile @ 0x140835934 (MiCreatePagefile.c)
+ *     MiDeletePagingFiles @ 0x140A2FCE8 (MiDeletePagingFiles.c)
+ *     MiCreateSpecialPurposeMemoryPageFile @ 0x140A444FC (MiCreateSpecialPurposeMemoryPageFile.c)
+ * Callees:
+ *     MiFreeModWriterEntry @ 0x140212C5C (MiFreeModWriterEntry.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     MiFreePageFileHashPfns @ 0x1403619CC (MiFreePageFileHashPfns.c)
+ *     MiUpdatePageFileList @ 0x140392600 (MiUpdatePageFileList.c)
+ *     MiReleasePageHash @ 0x14066465C (MiReleasePageHash.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     PiPagePathSetState @ 0x1408512E8 (PiPagePathSetState.c)
+ *     MiDeletePageFileMemoryExtents @ 0x140A445B4 (MiDeletePageFileMemoryExtents.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiDeletePagefile(char *P, int a2)
 {
   __int64 i; // rsi

@@ -1,3 +1,20 @@
+/*
+ * XREFs of AslFileMappingEnsure @ 0x1407A12F0
+ * Callers:
+ *     AslpFileGetVersionBlock @ 0x1407A0528 (AslpFileGetVersionBlock.c)
+ *     AslFileAllocAndGetAttributes @ 0x1407A11E8 (AslFileAllocAndGetAttributes.c)
+ *     AslFileMappingGetFileKindDetail @ 0x140A51B1C (AslFileMappingGetFileKindDetail.c)
+ *     AslFileMappingGetImageTypeEx @ 0x140A51CE0 (AslFileMappingGetImageTypeEx.c)
+ *     AslpFileGetClrVersionAttribute @ 0x140A55514 (AslpFileGetClrVersionAttribute.c)
+ *     AslpFileGetHeaderAttributesNE @ 0x140A55A30 (AslpFileGetHeaderAttributesNE.c)
+ *     AslpFileGetHeaderAttributesPE @ 0x140A55BD4 (AslpFileGetHeaderAttributesPE.c)
+ *     AslpFileGetPeExportNameExeWrapper @ 0x140A5609C (AslpFileGetPeExportNameExeWrapper.c)
+ * Callees:
+ *     RtlFileMapMapView @ 0x1403ABF40 (RtlFileMapMapView.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslpFileMappingGetFileKind @ 0x1407A0340 (AslpFileMappingGetFileKind.c)
+ */
+
 __int64 __fastcall AslFileMappingEnsure(__int64 a1)
 {
   int FileKind; // edi

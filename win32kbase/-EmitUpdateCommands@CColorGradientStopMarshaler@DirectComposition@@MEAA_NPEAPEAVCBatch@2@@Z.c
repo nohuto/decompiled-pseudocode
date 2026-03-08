@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CColorGradientStopMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00B3470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_5325b4b8fb82b1fb4d99671ce196ed87___ @ 0x1C00B34E8 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_5325b4b8fb82b1fb4d99671ce196ed8.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_032f53578d79ff1941002cac7e37f904___ @ 0x1C00B356C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_032f53578d79ff1941002cac7e37f90.c)
+ */
+
 char __fastcall DirectComposition::CColorGradientStopMarshaler::EmitUpdateCommands(
         DirectComposition::CColorGradientStopMarshaler *this,
         struct DirectComposition::CBatch **a2)

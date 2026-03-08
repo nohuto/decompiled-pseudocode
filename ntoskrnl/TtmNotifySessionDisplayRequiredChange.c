@@ -1,3 +1,19 @@
+/*
+ * XREFs of TtmNotifySessionDisplayRequiredChange @ 0x1409A13E0
+ * Callers:
+ *     PopPowerRequestCallbackDisplayRequired @ 0x14073A470 (PopPowerRequestCallbackDisplayRequired.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     PoSessionEngagementUpdate @ 0x14059BB7C (PoSessionEngagementUpdate.c)
+ *     TtmpAcquireSessionById @ 0x1409A1F50 (TtmpAcquireSessionById.c)
+ *     TtmpUpdateDisplayRequiredPowerRequest @ 0x1409A2D6C (TtmpUpdateDisplayRequiredPowerRequest.c)
+ *     TtmiLogError @ 0x1409A536C (TtmiLogError.c)
+ *     TtmiLogSessionDisplayRequiredDereference @ 0x1409A645C (TtmiLogSessionDisplayRequiredDereference.c)
+ *     TtmiLogSessionDisplayRequiredReference @ 0x1409A65E8 (TtmiLogSessionDisplayRequiredReference.c)
+ */
+
 __int64 __fastcall TtmNotifySessionDisplayRequiredChange(unsigned int a1, unsigned int a2, char a3)
 {
   unsigned int v4; // r14d

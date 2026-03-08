@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopStateTransitionTimeoutDispatch @ 0x14058D1B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopQueryLastStateTransitionInfo @ 0x140AA30B4 (PopQueryLastStateTransitionInfo.c)
+ */
+
 void __noreturn PopStateTransitionTimeoutDispatch()
 {
   ULONG_PTR v0; // rbx

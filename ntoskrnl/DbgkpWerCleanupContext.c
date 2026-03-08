@@ -1,3 +1,16 @@
+/*
+ * XREFs of DbgkpWerCleanupContext @ 0x14087EEF4
+ * Callers:
+ *     DbgkWerCaptureLiveKernelDump2 @ 0x14087EC90 (DbgkWerCaptureLiveKernelDump2.c)
+ *     DbgkpWerDeferredWriteRoutine @ 0x140938A80 (DbgkpWerDeferredWriteRoutine.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     IoDiscardDeferredLiveDumpData @ 0x140949308 (IoDiscardDeferredLiveDumpData.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall DbgkpWerCleanupContext(__int64 a1)
 {
   void *v2; // rcx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of FsRtlGetDirectImageOriginalBase @ 0x14093A078
+ * Callers:
+ *     MiCreateNewSection @ 0x1406A6414 (MiCreateNewSection.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     IoAllocateIrpEx @ 0x140352E90 (IoAllocateIrpEx.c)
+ */
+
 NTSTATUS __fastcall FsRtlGetDirectImageOriginalBase(PFILE_OBJECT FileObject, __int64 a2)
 {
   PDEVICE_OBJECT RelatedDeviceObject; // rbx

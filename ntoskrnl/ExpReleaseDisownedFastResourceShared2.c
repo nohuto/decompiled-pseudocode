@@ -1,3 +1,21 @@
+/*
+ * XREFs of ExpReleaseDisownedFastResourceShared2 @ 0x140410CE8
+ * Callers:
+ *     ExReleaseDisownedFastResource2 @ 0x14040E8BC (ExReleaseDisownedFastResource2.c)
+ *     ExReleaseDisownedFastResourceShared2 @ 0x14040EAB4 (ExReleaseDisownedFastResourceShared2.c)
+ * Callees:
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeReleaseInStackQueuedSpinLockFromDpcLevel @ 0x1402916B0 (KeReleaseInStackQueuedSpinLockFromDpcLevel.c)
+ *     KeReleaseSpinLockFromDpcLevel @ 0x1402C5C00 (KeReleaseSpinLockFromDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KeAbCrossThreadRelease @ 0x1403C57F8 (KeAbCrossThreadRelease.c)
+ *     ExpCommitWakeFastResource @ 0x14040FE18 (ExpCommitWakeFastResource.c)
+ *     ExpPrepareToWakeFastResourceShared @ 0x1404109F0 (ExpPrepareToWakeFastResourceShared.c)
+ *     ExpRemoveEntryListAndClear2 @ 0x14041128C (ExpRemoveEntryListAndClear2.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 LONG_PTR __fastcall ExpReleaseDisownedFastResourceShared2(__int64 a1, __int64 a2)
 {
   __int64 v2; // rsi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PsRemoveSiloContext @ 0x1409A9700
+ * Callers:
+ *     VrpHandleIoctlInitializeJobForVreg @ 0x140735A88 (VrpHandleIoctlInitializeJobForVreg.c)
+ *     PspSiloInitializeSystemRootBuffer @ 0x1409AA748 (PspSiloInitializeSystemRootBuffer.c)
+ * Callees:
+ *     PspStorageRemoveObject @ 0x1409B4F94 (PspStorageRemoveObject.c)
+ */
+
 __int64 __fastcall PsRemoveSiloContext(__int64 a1, __int64 a2, _QWORD *a3)
 {
   __int64 v3; // rcx

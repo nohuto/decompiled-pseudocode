@@ -1,3 +1,11 @@
+/*
+ * XREFs of EnforceColorDependentSettings @ 0x1C0015960
+ * Callers:
+ *     ?zzzUpdateUserScreen@@YAJXZ @ 0x1C0014608 (-zzzUpdateUserScreen@@YAJXZ.c)
+ * Callees:
+ *     GreGetDeviceCaps @ 0x1C003EAF0 (GreGetDeviceCaps.c)
+ */
+
 _BOOL8 EnforceColorDependentSettings()
 {
   _BOOL8 result; // rax

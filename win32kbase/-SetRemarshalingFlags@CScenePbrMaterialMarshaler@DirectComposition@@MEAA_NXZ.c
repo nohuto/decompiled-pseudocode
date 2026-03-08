@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CScenePbrMaterialMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025EB1C
+ * Callers:
+ *     ?SetRemarshalingFlags@CSceneMetallicRoughnessMaterialMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025EA30 (-SetRemarshalingFlags@CSceneMetallicRoughnessMaterialMarshaler@DirectComposition@@MEAA_NXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CScenePbrMaterialMarshaler::SetRemarshalingFlags(
         DirectComposition::CScenePbrMaterialMarshaler *this)
 {

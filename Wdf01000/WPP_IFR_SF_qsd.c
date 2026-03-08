@@ -1,3 +1,14 @@
+/*
+ * XREFs of WPP_IFR_SF_qsd @ 0x1C0031AC8
+ * Callers:
+ *     imp_WdfDeviceSetDeviceState @ 0x1C0033370 (imp_WdfDeviceSetDeviceState.c)
+ *     imp_WdfDeviceSetPnpCapabilities @ 0x1C00335B0 (imp_WdfDeviceSetPnpCapabilities.c)
+ *     imp_WdfDeviceSetPowerCapabilities @ 0x1C00336D0 (imp_WdfDeviceSetPowerCapabilities.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_qsd(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 id,

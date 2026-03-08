@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiDiagTraceFanRundown @ 0x1C000842C
+ * Callers:
+ *     AcpiDiagTraceControlCallback @ 0x1C0007C80 (AcpiDiagTraceControlCallback.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     AcpiDiagTraceFanEvent @ 0x1C0008320 (AcpiDiagTraceFanEvent.c)
+ */
+
 void __fastcall AcpiDiagTraceFanRundown(__int64 a1)
 {
   bool v1; // zf

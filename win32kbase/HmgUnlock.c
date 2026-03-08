@@ -1,3 +1,13 @@
+/*
+ * XREFs of HmgUnlock @ 0x1C0009E98
+ * Callers:
+ *     GreUnlockRegion @ 0x1C0009E80 (GreUnlockRegion.c)
+ * Callees:
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C004A440 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ *     ?vLockHandle@HANDLELOCK@@AEAAXIHHH@Z @ 0x1C004A680 (-vLockHandle@HANDLELOCK@@AEAAXIHHH@Z.c)
+ *     ?pObj@HANDLELOCK@@QEAAPEAVOBJECT@@XZ @ 0x1C004B3B0 (-pObj@HANDLELOCK@@QEAAPEAVOBJECT@@XZ.c)
+ */
+
 __int64 __fastcall HmgUnlock(unsigned int a1)
 {
   __int16 v1; // ebx^2

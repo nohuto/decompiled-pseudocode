@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMArmWatchDog @ 0x1C000415C
+ * Callers:
+ *     rimSignalReadComplete @ 0x1C0003CE8 (rimSignalReadComplete.c)
+ *     RIMWatchDog @ 0x1C0039810 (RIMWatchDog.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RIMArmWatchDog(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rax

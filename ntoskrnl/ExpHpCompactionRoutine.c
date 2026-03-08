@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpHpCompactionRoutine @ 0x1402CC0B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlpHpHeapCompact @ 0x1402CC2D4 (RtlpHpHeapCompact.c)
+ *     ExGetHeapFromVA @ 0x140313BF0 (ExGetHeapFromVA.c)
+ *     RtlpHpFreeHeap @ 0x140313CC0 (RtlpHpFreeHeap.c)
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ */
+
 __int64 __fastcall ExpHpCompactionRoutine(int a1)
 {
   unsigned int v1; // r13d

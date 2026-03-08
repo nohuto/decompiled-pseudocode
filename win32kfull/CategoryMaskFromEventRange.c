@@ -1,3 +1,11 @@
+/*
+ * XREFs of CategoryMaskFromEventRange @ 0x1C00399F4
+ * Callers:
+ *     _SetWinEventHook @ 0x1C003952C (_SetWinEventHook.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CategoryMaskFromEventRange(unsigned int a1, unsigned int a2)
 {
   unsigned int v2; // r8d

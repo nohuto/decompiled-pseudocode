@@ -1,3 +1,18 @@
+/*
+ * XREFs of IopCheckDeviceAndDriver @ 0x14030E9F0
+ * Callers:
+ *     IopParseDevice @ 0x1407B6A30 (IopParseDevice.c)
+ * Callees:
+ *     KxWaitForLockChainValid @ 0x140291730 (KxWaitForLockChainValid.c)
+ *     KxWaitForLockOwnerShip @ 0x14033B510 (KxWaitForLockOwnerShip.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140457B8E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x14056EF78 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14057DAC8 (KiHaltOnAddressWakeEntireList.c)
+ */
+
 __int64 __fastcall IopCheckDeviceAndDriver(__int64 a1, ULONG_PTR a2)
 {
   unsigned __int8 CurrentIrql; // bp

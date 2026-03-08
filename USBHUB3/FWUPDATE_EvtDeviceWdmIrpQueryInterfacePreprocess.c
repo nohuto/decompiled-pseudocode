@@ -1,3 +1,11 @@
+/*
+ * XREFs of FWUPDATE_EvtDeviceWdmIrpQueryInterfacePreprocess @ 0x1C003FDC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 NTSTATUS __fastcall FWUPDATE_EvtDeviceWdmIrpQueryInterfacePreprocess(__int64 a1, IRP *a2)
 {
   __int64 v4; // rax

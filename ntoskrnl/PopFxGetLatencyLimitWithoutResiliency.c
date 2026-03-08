@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopFxGetLatencyLimitWithoutResiliency @ 0x1402D207C
+ * Callers:
+ *     PoFxSendSystemLatencyUpdate @ 0x1402D1FF0 (PoFxSendSystemLatencyUpdate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 PopFxGetLatencyLimitWithoutResiliency()
 {
   __int64 result; // rax

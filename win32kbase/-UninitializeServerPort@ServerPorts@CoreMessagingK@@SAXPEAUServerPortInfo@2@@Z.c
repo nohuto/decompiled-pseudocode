@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?UninitializeServerPort@ServerPorts@CoreMessagingK@@SAXPEAUServerPortInfo@2@@Z @ 0x1C00CE73C
+ * Callers:
+ *     ?OnDelete@ServerPortInfo@CoreMessagingK@@SAXPEAUObjectImpl@2@@Z @ 0x1C00CE710 (-OnDelete@ServerPortInfo@CoreMessagingK@@SAXPEAUObjectImpl@2@@Z.c)
+ * Callees:
+ *     ?Release@ClientPortInfo@CoreMessagingK@@QEAAXXZ @ 0x1C00CA5B8 (-Release@ClientPortInfo@CoreMessagingK@@QEAAXXZ.c)
+ *     ?UnregisterObject@RegistrarClient@CoreMessagingK@@SAJPEBG@Z @ 0x1C00CE7F4 (-UnregisterObject@RegistrarClient@CoreMessagingK@@SAJPEBG@Z.c)
+ *     ?UnregisterPort@RegistrarClient@CoreMessagingK@@SAJPEBU_GUID@@@Z @ 0x1C00CE8B4 (-UnregisterPort@RegistrarClient@CoreMessagingK@@SAJPEBU_GUID@@@Z.c)
+ */
+
 void __fastcall CoreMessagingK::ServerPorts::UninitializeServerPort(struct CoreMessagingK::ServerPortInfo *a1)
 {
   struct CoreMessagingK::ServerPortInfo *v1; // rax

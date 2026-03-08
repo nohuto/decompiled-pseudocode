@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserDrawMenuBar @ 0x1C01D0140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxSetWindowPos @ 0x1C0028F4C (xxxSetWindowPos.c)
+ */
+
 __int64 __fastcall NtUserDrawMenuBar(__int64 a1)
 {
   __int64 v2; // rax

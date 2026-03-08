@@ -1,3 +1,27 @@
+/*
+ * XREFs of ExpKdPullRemoteFileForUser @ 0x14084C910
+ * Callers:
+ *     NtSystemDebugControl @ 0x140791FE0 (NtSystemDebugControl.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     KeComputeSha256 @ 0x1403BEB10 (KeComputeSha256.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlDowncaseUnicodeString @ 0x14076C0F0 (RtlDowncaseUnicodeString.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     KdPullRemoteFile @ 0x140AADD28 (KdPullRemoteFile.c)
+ */
+
 __int64 __fastcall ExpKdPullRemoteFileForUser(_OWORD *a1)
 {
   char PreviousMode; // dl

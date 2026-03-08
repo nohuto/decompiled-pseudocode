@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtFlipObjectQueryLostEvent @ 0x1C0080870
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?QueryLostEvent@FlipManagerObject@@QEAAJPEAXPEAPEAX@Z @ 0x1C007F590 (-QueryLostEvent@FlipManagerObject@@QEAAJPEAXPEAPEAX@Z.c)
+ *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C00817F8 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ */
+
 __int64 __fastcall NtFlipObjectQueryLostEvent(void *a1, HANDLE *a2)
 {
   int v4; // ebx

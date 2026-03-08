@@ -1,3 +1,32 @@
+/*
+ * XREFs of IopRemoveDevice @ 0x140866E38
+ * Callers:
+ *     PnpRemoveLockedDeviceNode @ 0x1403B1D8C (PnpRemoveLockedDeviceNode.c)
+ *     PnpSurpriseRemoveLockedDeviceNode @ 0x14087E214 (PnpSurpriseRemoveLockedDeviceNode.c)
+ *     PnpDisableDevice @ 0x1409559A8 (PnpDisableDevice.c)
+ *     PnpCancelRemoveLockedDeviceNode @ 0x140955FCC (PnpCancelRemoveLockedDeviceNode.c)
+ *     PnpQueryRemoveLockedDeviceNode @ 0x1409561C8 (PnpQueryRemoveLockedDeviceNode.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PnpFindMountableDevice @ 0x1403B20FC (PnpFindMountableDevice.c)
+ *     PnpMarkDeviceForRemove @ 0x1403CF1B8 (PnpMarkDeviceForRemove.c)
+ *     PnpLockMountableDevice @ 0x1403CF5C0 (PnpLockMountableDevice.c)
+ *     PnpUnlockMountableDevice @ 0x1403CFA9C (PnpUnlockMountableDevice.c)
+ *     IopDecrementDeviceObjectHandleCount @ 0x1403D162C (IopDecrementDeviceObjectHandleCount.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PipClearDevNodeUserFlags @ 0x1406831A8 (PipClearDevNodeUserFlags.c)
+ *     PipClearDevNodeFlags @ 0x14068816C (PipClearDevNodeFlags.c)
+ *     IopSynchronousCall @ 0x14069DD78 (IopSynchronousCall.c)
+ *     PiPnpRtlEndOperation @ 0x1406CCB7C (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1406CDF98 (PiPnpRtlBeginOperation.c)
+ *     IopUncacheInterfaceInformation @ 0x1406F75C8 (IopUncacheInterfaceInformation.c)
+ *     PoFxAbandonDevice @ 0x140867048 (PoFxAbandonDevice.c)
+ *     PiSwStopDestroy @ 0x140867198 (PiSwStopDestroy.c)
+ *     PiSwProcessParentRemoveIrp @ 0x140867324 (PiSwProcessParentRemoveIrp.c)
+ *     IopInvalidateVolumesForDevice @ 0x14087D588 (IopInvalidateVolumesForDevice.c)
+ *     IopDecDisableableDepends @ 0x140969D60 (IopDecDisableableDepends.c)
+ */
+
 __int64 __fastcall IopRemoveDevice(PDEVICE_OBJECT DeviceObject, int a2)
 {
   int v2; // r15d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of DwmAsyncNotifyWallpaperChange @ 0x1C00D8148
+ * Callers:
+ *     xxxSetDeskWallpaper @ 0x1C00D7F38 (xxxSetDeskWallpaper.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DwmAsyncNotifyWallpaperChange(PVOID Object)
 {
   unsigned int v2; // edi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopFanUpdateStatistics @ 0x140994754
+ * Callers:
+ *     PopFanSxEntry @ 0x14059718C (PopFanSxEntry.c)
+ *     PopFanUpdateSpeed @ 0x140846AC0 (PopFanUpdateSpeed.c)
+ *     PopFanReadFanNoiseInfo @ 0x140856150 (PopFanReadFanNoiseInfo.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopFanFindBucketIndex @ 0x14099426C (PopFanFindBucketIndex.c)
+ */
+
 void __fastcall PopFanUpdateStatistics(__int64 a1)
 {
   __int64 v2; // rdi

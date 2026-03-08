@@ -1,3 +1,20 @@
+/*
+ * XREFs of HalpMcaReadError @ 0x1405014E0
+ * Callers:
+ *     HalpCmcPollProcessor @ 0x14037CF58 (HalpCmcPollProcessor.c)
+ *     HalpMceHandlerCore @ 0x140501B48 (HalpMceHandlerCore.c)
+ *     HalpHandlePreviousMcaErrorsOnProcessor @ 0x140A920B0 (HalpHandlePreviousMcaErrorsOnProcessor.c)
+ * Callees:
+ *     HalpWheaWriteMsrStatus @ 0x14037D018 (HalpWheaWriteMsrStatus.c)
+ *     HalpWheaReadMsrStatus @ 0x14037D160 (HalpWheaReadMsrStatus.c)
+ *     HalpGetCpuVendor @ 0x14037D1B4 (HalpGetCpuVendor.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HalpMcaPopulateErrorData @ 0x14050135C (HalpMcaPopulateErrorData.c)
+ *     HalpMcaStuckErrorCheck @ 0x1405018DC (HalpMcaStuckErrorCheck.c)
+ *     HalpMcaReadErrorCorrected @ 0x140503FDC (HalpMcaReadErrorCorrected.c)
+ *     HalpMcaReadErrorUncorrectedAMD @ 0x140504068 (HalpMcaReadErrorUncorrectedAMD.c)
+ */
+
 __int64 __fastcall HalpMcaReadError(int a1, __int64 a2, int *a3, __int64 a4, __int64 a5)
 {
   unsigned int v5; // r14d

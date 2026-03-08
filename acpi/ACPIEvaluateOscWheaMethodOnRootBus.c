@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIEvaluateOscWheaMethodOnRootBus @ 0x1C00935E8
+ * Callers:
+ *     ACPIRootInitialize @ 0x1C0093768 (ACPIRootInitialize.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     ACPIAmliEvaluateOsc @ 0x1C007C7D8 (ACPIAmliEvaluateOsc.c)
+ */
+
 __int64 __fastcall ACPIEvaluateOscWheaMethodOnRootBus(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int *a5)
 {
   _QWORD *v5; // rcx

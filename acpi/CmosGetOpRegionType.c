@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmosGetOpRegionType @ 0x1C0019D58
+ * Callers:
+ *     CmosConfigSpaceHandler @ 0x1C0019B90 (CmosConfigSpaceHandler.c)
+ * Callees:
+ *     CmosTranslatePNPIDToEnum @ 0x1C0019DF0 (CmosTranslatePNPIDToEnum.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     AMLIIsNamedChildPresent @ 0x1C00487BC (AMLIIsNamedChildPresent.c)
+ */
+
 __int64 __fastcall CmosGetOpRegionType(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

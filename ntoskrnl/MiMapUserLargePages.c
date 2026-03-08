@@ -1,3 +1,29 @@
+/*
+ * XREFs of MiMapUserLargePages @ 0x1406667E0
+ * Callers:
+ *     MiMapViewOfImageSection @ 0x1407D3750 (MiMapViewOfImageSection.c)
+ *     MiReserveUserMemory @ 0x1407D4340 (MiReserveUserMemory.c)
+ *     MiCopyLargeVad @ 0x140A466EC (MiCopyLargeVad.c)
+ * Callees:
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MiMakeSystemAddressValid @ 0x140321770 (MiMakeSystemAddressValid.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiWorkingSetIsContended @ 0x1403478E0 (MiWorkingSetIsContended.c)
+ *     MiInitializeLargePfnList @ 0x14035059C (MiInitializeLargePfnList.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiComputePreferredNode @ 0x140615350 (MiComputePreferredNode.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x14061B438 (MiLogPerfMemoryRangeEvent.c)
+ *     MiFlushGraphicsPtes @ 0x140623FF8 (MiFlushGraphicsPtes.c)
+ *     MiLockWorkingSetForLargeMapping @ 0x14064DB98 (MiLockWorkingSetForLargeMapping.c)
+ *     MiCreateLargePfnList @ 0x14066540C (MiCreateLargePfnList.c)
+ *     MiDemotePfnListChain @ 0x140665964 (MiDemotePfnListChain.c)
+ *     MiInsertLargeUserMapping @ 0x140666510 (MiInsertLargeUserMapping.c)
+ */
+
 __int64 __fastcall MiMapUserLargePages(__int64 a1, int a2, char a3, __int64 *a4)
 {
   unsigned __int64 v8; // r8

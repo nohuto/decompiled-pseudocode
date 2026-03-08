@@ -1,3 +1,29 @@
+/*
+ * XREFs of PspEstablishJobHierarchy @ 0x1407001E0
+ * Callers:
+ *     PspAssignProcessToJob @ 0x1406FFA20 (PspAssignProcessToJob.c)
+ *     PspImplicitAssignProcessToJob @ 0x140797010 (PspImplicitAssignProcessToJob.c)
+ * Callees:
+ *     IoSetDiskIoAttributionOnProcess @ 0x140295634 (IoSetDiskIoAttributionOnProcess.c)
+ *     PsGetProcessSessionId @ 0x140299380 (PsGetProcessSessionId.c)
+ *     KeRemoveSchedulingGroup @ 0x1402F1480 (KeRemoveSchedulingGroup.c)
+ *     KeInsertSchedulingGroup @ 0x1402F161C (KeInsertSchedulingGroup.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     Feature_Servicing_BypassGraphicsFreezeNotification__private_IsEnabledDeviceUsage @ 0x14040BA70 (Feature_Servicing_BypassGraphicsFreezeNotification__private_IsEnabledDeviceUsage.c)
+ *     PspUnlinkJobProcess @ 0x1406F811C (PspUnlinkJobProcess.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406FB7C8 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspBindProcessSessionToJob @ 0x140700678 (PspBindProcessSessionToJob.c)
+ *     MmLinkJobProcess @ 0x1407006C4 (MmLinkJobProcess.c)
+ *     PspAddSchedulingGroupToJobChain @ 0x1407833A8 (PspAddSchedulingGroupToJobChain.c)
+ *     PspUpdateJobEffectivePriorityLimits @ 0x140788AC4 (PspUpdateJobEffectivePriorityLimits.c)
+ *     PspSetEffectiveJobLimits @ 0x14078B504 (PspSetEffectiveJobLimits.c)
+ *     PspEstablishDfssHierarchy @ 0x1409AF340 (PspEstablishDfssHierarchy.c)
+ *     PspSetEffectiveRateControlJob @ 0x1409AFA38 (PspSetEffectiveRateControlJob.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PspEstablishJobHierarchy(char *Object, __int64 a2, __int64 a3, unsigned int a4)
 {
   int v8; // esi

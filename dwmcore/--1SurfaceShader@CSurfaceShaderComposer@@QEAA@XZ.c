@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1SurfaceShader@CSurfaceShaderComposer@@QEAA@XZ @ 0x180104200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CSurfaceShaderComposer::SurfaceShader::~SurfaceShader(CSurfaceShaderComposer::SurfaceShader *this)
 {
   __int64 v2; // rcx

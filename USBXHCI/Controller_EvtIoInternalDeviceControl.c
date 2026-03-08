@@ -1,3 +1,13 @@
+/*
+ * XREFs of Controller_EvtIoInternalDeviceControl @ 0x1C0033210
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     Controller_ReportFatalErrorEx @ 0x1C001EB8C (Controller_ReportFatalErrorEx.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Controller_EvtIoInternalDeviceControl(__int64 a1, IRP *a2)
 {
   unsigned int LowPart; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiIsXSaveFeatureAllowed @ 0x140A8D3E0
+ * Callers:
+ *     KiIntersectFeaturesWithPolicy @ 0x140A8D294 (KiIntersectFeaturesWithPolicy.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall KiIsXSaveFeatureAllowed(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
 {
   unsigned int v5; // r10d

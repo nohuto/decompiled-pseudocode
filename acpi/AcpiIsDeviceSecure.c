@@ -1,3 +1,14 @@
+/*
+ * XREFs of AcpiIsDeviceSecure @ 0x1C0094C68
+ * Callers:
+ *     AcpiCheckSecureDevice @ 0x1C0094C08 (AcpiCheckSecureDevice.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ACPIQueryDeviceBiosNameEx @ 0x1C0043BC4 (ACPIQueryDeviceBiosNameEx.c)
+ *     AcpiSearchSdevTable @ 0x1C0094DF8 (AcpiSearchSdevTable.c)
+ */
+
 char __fastcall AcpiIsDeviceSecure(__int64 a1)
 {
   char v1; // bl

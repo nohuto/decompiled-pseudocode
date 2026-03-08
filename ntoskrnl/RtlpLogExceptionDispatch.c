@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpLogExceptionDispatch @ 0x1405A4938
+ * Callers:
+ *     RtlDispatchException @ 0x14027FA60 (RtlDispatchException.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall RtlpLogExceptionDispatch(__int64 a1, _OWORD *a2)
 {
   unsigned int v4; // r11d

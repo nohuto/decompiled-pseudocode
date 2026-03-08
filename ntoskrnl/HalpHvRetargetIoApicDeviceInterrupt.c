@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpHvRetargetIoApicDeviceInterrupt @ 0x140509B68
+ * Callers:
+ *     HalpInterruptSetRemappedDestinationHv @ 0x1405025EC (HalpInterruptSetRemappedDestinationHv.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpHvRetargetIoApicDeviceInterrupt(char a1, __int64 a2, __int64 a3, _BYTE *a4)
 {
   __int128 *v4; // rdi

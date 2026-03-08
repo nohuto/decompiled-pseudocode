@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspConvertJobToMixed @ 0x1409AF1C4
+ * Callers:
+ *     PspBindProcessSessionToJob @ 0x140700678 (PspBindProcessSessionToJob.c)
+ *     PspSetJobMemoryPartition @ 0x1409AFC84 (PspSetJobMemoryPartition.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspConvertJobToMixed(__int64 a1, int a2)
 {
   int v3; // eax

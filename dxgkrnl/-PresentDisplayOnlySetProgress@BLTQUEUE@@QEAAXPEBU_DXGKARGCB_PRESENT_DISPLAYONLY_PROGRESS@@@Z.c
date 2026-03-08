@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PresentDisplayOnlySetProgress@BLTQUEUE@@QEAAXPEBU_DXGKARGCB_PRESENT_DISPLAYONLY_PROGRESS@@@Z @ 0x1C006D494
+ * Callers:
+ *     ?PresentDisplayOnlySetProgress@DXGDODPRESENT@@QEAAXPEBU_DXGKARGCB_PRESENT_DISPLAYONLY_PROGRESS@@@Z @ 0x1C006D50C (-PresentDisplayOnlySetProgress@DXGDODPRESENT@@QEAAXPEBU_DXGKARGCB_PRESENT_DISPLAYONLY_PROGRESS@@.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall BLTQUEUE::PresentDisplayOnlySetProgress(
         BLTQUEUE *this,
         const struct _DXGKARGCB_PRESENT_DISPLAYONLY_PROGRESS *a2)

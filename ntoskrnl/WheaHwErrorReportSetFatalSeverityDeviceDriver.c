@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheaHwErrorReportSetFatalSeverityDeviceDriver @ 0x14060EF40
+ * Callers:
+ *     WheaReportFatalHwErrorDeviceDriverEx @ 0x14060F150 (WheaReportFatalHwErrorDeviceDriverEx.c)
+ * Callees:
+ *     WheaHwErrorReportSetSeverityDeviceDriver @ 0x14060EFF0 (WheaHwErrorReportSetSeverityDeviceDriver.c)
+ *     WheapErrorHandleIsValid @ 0x14060F428 (WheapErrorHandleIsValid.c)
+ */
+
 __int64 __fastcall WheaHwErrorReportSetFatalSeverityDeviceDriver(__int64 a1, __int64 a2)
 {
   __int64 v4; // rcx

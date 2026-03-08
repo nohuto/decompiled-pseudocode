@@ -1,3 +1,14 @@
+/*
+ * XREFs of _GetAncestor @ 0x1C00EA498
+ * Callers:
+ *     ?ValidateAndAttachQueueToInputWindow@@YAJPEAUHWND__@@PEAVIInputQueue@@@Z @ 0x1C003B404 (-ValidateAndAttachQueueToInputWindow@@YAJPEAUHWND__@@PEAVIInputQueue@@@Z.c)
+ *     NtUserShutdownBlockReasonCreate @ 0x1C00EA2E0 (NtUserShutdownBlockReasonCreate.c)
+ *     HasMessageRootWindow @ 0x1C01F3EF8 (HasMessageRootWindow.c)
+ * Callees:
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     _GetParent @ 0x1C00C85CC (_GetParent.c)
+ */
+
 _QWORD *__fastcall GetAncestor(__int64 a1, int a2)
 {
   __int64 v2; // r10

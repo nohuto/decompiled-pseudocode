@@ -1,3 +1,17 @@
+/*
+ * XREFs of QueryProtocolInfoCompletion @ 0x1C0018B80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     memmove @ 0x1C0004280 (memmove.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ *     BuildGetLogPageCommand @ 0x1C0010E14 (BuildGetLogPageCommand.c)
+ *     ProcessNvmeHealthInfoLog @ 0x1C0024B64 (ProcessNvmeHealthInfoLog.c)
+ */
+
 __int16 __fastcall QueryProtocolInfoCompletion(__int64 a1, __int64 a2)
 {
   __int64 SrbExtension; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpHvNotifyDebugDeviceAvailable @ 0x140509AC4
+ * Callers:
+ *     HalpAcpiPostSleep @ 0x140A93580 (HalpAcpiPostSleep.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 HalpHvNotifyDebugDeviceAvailable()
 {
   __int64 result; // rax

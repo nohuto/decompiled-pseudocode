@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBID_AppendStringToIDString @ 0x1C001DAB4
+ * Callers:
+ *     HUBID_AssignIDString @ 0x1C001DBCC (HUBID_AssignIDString.c)
+ * Callees:
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ */
+
 __int64 __fastcall HUBID_AppendStringToIDString(const void **a1, __int64 a2)
 {
   unsigned int v2; // ebx

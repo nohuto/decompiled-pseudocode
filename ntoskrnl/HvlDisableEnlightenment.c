@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlDisableEnlightenment @ 0x14053D18C
+ * Callers:
+ *     PopSaveHiberContext @ 0x140AA1810 (PopSaveHiberContext.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HvlDisableEnlightenment(int a1)
 {
   __int64 result; // rax

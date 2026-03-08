@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifZwCreateEventWrapper @ 0x1405EC0A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwCreateEvent @ 0x140412C10 (ZwCreateEvent.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifZwCreateEventWrapper(
         PHANDLE EventHandle,
         ACCESS_MASK DesiredAccess,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of AlpcpAdjustCompletionListConcurrencyCount @ 0x1409765B4
+ * Callers:
+ *     NtAlpcSetInformation @ 0x140689DC0 (NtAlpcSetInformation.c)
+ * Callees:
+ *     AlpcpQueueIoCompletionPort @ 0x1402925F4 (AlpcpQueueIoCompletionPort.c)
+ */
+
 int __fastcall AlpcpAdjustCompletionListConcurrencyCount(_QWORD *a1, unsigned __int32 a2)
 {
   _UNKNOWN **v2; // rax

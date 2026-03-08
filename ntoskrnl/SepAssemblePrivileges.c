@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepAssemblePrivileges @ 0x14077B564
+ * Callers:
+ *     SepAccessCheckEx @ 0x140206B24 (SepAccessCheckEx.c)
+ *     SepAccessCheck @ 0x140266980 (SepAccessCheck.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void __fastcall SepAssemblePrivileges(int a1, char a2, char a3, char a4, LUID **a5)
 {
   LUID *Pool2; // rax

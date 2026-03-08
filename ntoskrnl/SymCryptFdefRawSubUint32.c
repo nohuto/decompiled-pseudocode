@@ -1,3 +1,13 @@
+/*
+ * XREFs of SymCryptFdefRawSubUint32 @ 0x1403FE1D4
+ * Callers:
+ *     SymCryptFdefIntSubMixedSize @ 0x1403FDAC8 (SymCryptFdefIntSubMixedSize.c)
+ *     SymCryptFdefIntSubUint32 @ 0x1403FDBD8 (SymCryptFdefIntSubUint32.c)
+ *     SymCryptFdefModSetRandomGeneric @ 0x1403FF2CC (SymCryptFdefModSetRandomGeneric.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdefRawSubUint32(__int64 a1, unsigned int a2, _DWORD *a3, int a4)
 {
   unsigned int v4; // r9d

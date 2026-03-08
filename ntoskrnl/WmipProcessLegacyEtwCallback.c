@@ -1,3 +1,14 @@
+/*
+ * XREFs of WmipProcessLegacyEtwCallback @ 0x1409DEC30
+ * Callers:
+ *     WmipLegacyEtwWorker @ 0x14084D950 (WmipLegacyEtwWorker.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WmipUnreferenceEntry @ 0x14069C9D0 (WmipUnreferenceEntry.c)
+ *     WmipSendWmiIrp @ 0x14069CD88 (WmipSendWmiIrp.c)
+ */
+
 char __fastcall WmipProcessLegacyEtwCallback(__int64 a1, __int64 a2)
 {
   char result; // al

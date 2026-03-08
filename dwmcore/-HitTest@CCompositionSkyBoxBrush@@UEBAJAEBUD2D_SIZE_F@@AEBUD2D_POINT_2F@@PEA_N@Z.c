@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HitTest@CCompositionSkyBoxBrush@@UEBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x1800F610C
+ * Callers:
+ *     ?HitTest@CColorBrush@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z @ 0x180117990 (-HitTest@CColorBrush@@$4PPPPPPPM@A@EBAJAEBUD2D_SIZE_F@@AEBUD2D_POINT_2F@@PEA_N@Z.c)
+ * Callees:
+ *     ?Contains@@YA_NAEBUD2D_RECT_F@@AEBUD2D_POINT_2F@@@Z @ 0x1800F6154 (-Contains@@YA_NAEBUD2D_RECT_F@@AEBUD2D_POINT_2F@@@Z.c)
+ */
+
 __int64 __fastcall CCompositionSkyBoxBrush::HitTest(
         CCompositionSkyBoxBrush *this,
         const struct D2D_SIZE_F *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RecordTransformAndColorSpace@CCompositionSwapchainStatistics@@UEAA_N_NAEBVCMILMatrix@@W4DXGI_COLOR_SPACE_TYPE@@@Z @ 0x18026A670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CCompositionSwapchainStatistics::RecordTransformAndColorSpace(
         CCompositionSwapchainStatistics *this,
         __int64 a2,

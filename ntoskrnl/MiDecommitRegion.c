@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiDecommitRegion @ 0x1406EBCC0
+ * Callers:
+ *     MiFreeToSubAllocatedRegion @ 0x1406A5278 (MiFreeToSubAllocatedRegion.c)
+ *     MmFreeVirtualMemory @ 0x1406EC820 (MmFreeVirtualMemory.c)
+ *     MiLoadDataIntoVsmEnclave @ 0x140A3B45C (MiLoadDataIntoVsmEnclave.c)
+ *     MiLoadSectionIntoVsmEnclave @ 0x140A3B820 (MiLoadSectionIntoVsmEnclave.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MiFillCommitReturnInfo @ 0x140289968 (MiFillCommitReturnInfo.c)
+ *     MiReturnFullProcessCharges @ 0x140289980 (MiReturnFullProcessCharges.c)
+ *     MiGetProcessPartition @ 0x14031F9D4 (MiGetProcessPartition.c)
+ *     MiDecommitPages @ 0x140329B10 (MiDecommitPages.c)
+ *     MiFreeLargePages @ 0x140665C70 (MiFreeLargePages.c)
+ */
+
 __int64 __fastcall MiDecommitRegion(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   __int64 v4; // r14

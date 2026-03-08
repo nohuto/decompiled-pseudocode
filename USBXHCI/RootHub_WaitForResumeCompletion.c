@@ -1,3 +1,15 @@
+/*
+ * XREFs of RootHub_WaitForResumeCompletion @ 0x1C00104E4
+ * Callers:
+ *     RootHub_HandleResumedPorts @ 0x1C0010220 (RootHub_HandleResumedPorts.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     WPP_RECORDER_SF_dD @ 0x1C0018184 (WPP_RECORDER_SF_dD.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     MicrosoftTelemetryAssertTriggeredMsgKM @ 0x1C00533B4 (MicrosoftTelemetryAssertTriggeredMsgKM.c)
+ */
+
 __int64 __fastcall RootHub_WaitForResumeCompletion(_QWORD *a1, int a2, int *a3)
 {
   char v3; // bp

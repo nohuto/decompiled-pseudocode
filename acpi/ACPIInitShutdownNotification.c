@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIInitShutdownNotification @ 0x1C00936A0
+ * Callers:
+ *     ACPIRootIrpStartDevice @ 0x1C00AA580 (ACPIRootIrpStartDevice.c)
+ * Callees:
+ *     OSReadRegValue @ 0x1C008E6A0 (OSReadRegValue.c)
+ */
+
 void *ACPIInitShutdownNotification()
 {
   void *result; // rax

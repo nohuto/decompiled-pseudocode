@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?GetDXGIResource@CDxHandleBitmapRealization@@UEAAJPEAPEAUIDXGIResource@@PEAI@Z @ 0x180131930
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetDXGIResource@CD2DBitmap@@QEAAJPEAPEAUIDXGIResource@@PEAI@Z @ 0x18029C13C (-GetDXGIResource@CD2DBitmap@@QEAAJPEAPEAUIDXGIResource@@PEAI@Z.c)
+ */
+
 __int64 __fastcall CDxHandleBitmapRealization::GetDXGIResource(
         CDxHandleBitmapRealization *this,
         struct IDXGIResource **a2,

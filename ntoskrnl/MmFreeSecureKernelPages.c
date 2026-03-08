@@ -1,3 +1,15 @@
+/*
+ * XREFs of MmFreeSecureKernelPages @ 0x1406558DC
+ * Callers:
+ *     PspIumAllocatePhysicalPages @ 0x1405A36E0 (PspIumAllocatePhysicalPages.c)
+ *     PspIumFreePhysicalPages @ 0x1405A3C30 (PspIumFreePhysicalPages.c)
+ * Callees:
+ *     MiFreePagesFromMdl @ 0x1402C0DD0 (MiFreePagesFromMdl.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiFreeSecureKernelPage @ 0x1406543B4 (MiFreeSecureKernelPage.c)
+ */
+
 __int64 __fastcall MmFreeSecureKernelPages(__int64 a1, int a2)
 {
   ULONG_PTR *v4; // rbx

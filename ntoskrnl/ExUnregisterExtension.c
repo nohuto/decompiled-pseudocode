@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExUnregisterExtension @ 0x1409FE880
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExpDereferenceHost @ 0x1409FE96C (ExpDereferenceHost.c)
+ */
+
 __int64 __fastcall ExUnregisterExtension(struct _EX_RUNDOWN_REF *a1)
 {
   struct _KTHREAD *CurrentThread; // rax

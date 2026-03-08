@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?OpenThreadToken@@YAJPEAPEAX@Z @ 0x1C0045F44
+ * Callers:
+ *     ?IsAllowedToCallMiracast@@YA_NXZ @ 0x1C0045B38 (-IsAllowedToCallMiracast@@YA_NXZ.c)
+ *     ?IsInLowBox@@YAHXZ @ 0x1C0327EF4 (-IsInLowBox@@YAHXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall OpenThreadToken(void **a1)
 {
   NTSTATUS v2; // eax

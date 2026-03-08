@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceBeginDelegateInputCallback @ 0x1C0161900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetCallbackCount@@YACXZ @ 0x1C00EDBA8 (-GetCallbackCount@@YACXZ.c)
+ *     McTemplateK0cpttttttpppqq_EtwWriteTransfer @ 0x1C0164F7C (McTemplateK0cpttttttpppqq_EtwWriteTransfer.c)
+ */
+
 void __fastcall EtwTraceBeginDelegateInputCallback(__int64 a1)
 {
   char v1; // r15

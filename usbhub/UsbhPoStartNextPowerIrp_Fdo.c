@@ -1,3 +1,19 @@
+/*
+ * XREFs of UsbhPoStartNextPowerIrp_Fdo @ 0x1C003C7C0
+ * Callers:
+ *     UsbhFdoDevicePowerState @ 0x1C000AE40 (UsbhFdoDevicePowerState.c)
+ *     UsbhFdoSxIoComplete_Action @ 0x1C000C140 (UsbhFdoSxIoComplete_Action.c)
+ *     UsbhFdoD0PoComplete_Action @ 0x1C000C6B0 (UsbhFdoD0PoComplete_Action.c)
+ *     UsbhFdoSystemPowerState @ 0x1C000D270 (UsbhFdoSystemPowerState.c)
+ *     UsbhFdoPower_SetPower @ 0x1C001F580 (UsbhFdoPower_SetPower.c)
+ *     UsbhFdoPower_QueryPower @ 0x1C0020470 (UsbhFdoPower_QueryPower.c)
+ *     UsbhFdoQuerySystemPowerState @ 0x1C0020640 (UsbhFdoQuerySystemPowerState.c)
+ *     UsbhFdoQuerySystemPowerSxIoCompletion @ 0x1C0022150 (UsbhFdoQuerySystemPowerSxIoCompletion.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 void __fastcall UsbhPoStartNextPowerIrp_Fdo(__int64 a1, IRP *a2, int a3)
 {
   _DWORD *v6; // rax

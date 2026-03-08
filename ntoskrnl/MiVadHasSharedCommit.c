@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiVadHasSharedCommit @ 0x140A41134
+ * Callers:
+ *     MiAllocateChildVads @ 0x140A4571C (MiAllocateChildVads.c)
+ *     MiDeletePartialCloneVads @ 0x140A461CC (MiDeletePartialCloneVads.c)
+ * Callees:
+ *     MiIncludeSharedCommit @ 0x14034C990 (MiIncludeSharedCommit.c)
+ */
+
 __int64 __fastcall MiVadHasSharedCommit(__int64 a1)
 {
   int v1; // edx

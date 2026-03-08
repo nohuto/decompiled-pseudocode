@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBHTX_CompleteGetPortStatusWithPortStatusResult @ 0x1C000641C
+ * Callers:
+ *     HUBHSM_CompletingPDORequestForGetPortStatusFromConfigWithIntTransfer @ 0x1C00087A0 (HUBHSM_CompletingPDORequestForGetPortStatusFromConfigWithIntTransfer.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBHTX_CompleteGetPortStatusWithPortStatusResult(__int64 *a1)
 {
   __int64 v1; // rdx

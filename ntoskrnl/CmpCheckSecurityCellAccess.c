@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpCheckSecurityCellAccess @ 0x14074C9BC
+ * Callers:
+ *     CmpValidateHiveSecurityDescriptors @ 0x14071C9C4 (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpCheckKeyAccess @ 0x140A18390 (CmpCheckKeyAccess.c)
+ * Callees:
+ *     CmpCheckKeySecurityDescriptorAccess @ 0x14074CA68 (CmpCheckKeySecurityDescriptorAccess.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall CmpCheckSecurityCellAccess(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4)
 {
   unsigned int v3; // edi

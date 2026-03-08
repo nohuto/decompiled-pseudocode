@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwpCovSampContextAddAddresses @ 0x1408A4096
+ * Callers:
+ *     EtwpCovSampCaptureBufferProcess @ 0x1408A3BF4 (EtwpCovSampCaptureBufferProcess.c)
+ *     EtwpCovSampSampleBufferProcess @ 0x1409EFD64 (EtwpCovSampSampleBufferProcess.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwpCovSampContextAddSamples @ 0x1408A4190 (EtwpCovSampContextAddSamples.c)
+ *     EtwpCovSampProcessMapAddresses @ 0x1408A5072 (EtwpCovSampProcessMapAddresses.c)
+ */
+
 __int64 __fastcall EtwpCovSampContextAddAddresses(
         ULONG_PTR BugCheckParameter2,
         __int64 a2,

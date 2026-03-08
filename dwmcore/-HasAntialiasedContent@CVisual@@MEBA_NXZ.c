@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HasAntialiasedContent@CVisual@@MEBA_NXZ @ 0x1800D7390
+ * Callers:
+ *     ?HasAntialiasedContent@CSpriteVisual@@UEBA_NXZ @ 0x1800D7350 (-HasAntialiasedContent@CSpriteVisual@@UEBA_NXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CVisual::HasAntialiasedContent(CVisual *this)
 {
   __int64 v1; // rcx

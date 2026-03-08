@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CreateDCompStats@CInteraction@@QEAAPEAVIDCompositionInteractionStats@@XZ @ 0x180270E24
+ * Callers:
+ *     ?OnInteractionTrackerTransitionToInContact@InteractionSourceManager@@QEAAXW4ScrollState@@@Z @ 0x180271664 (-OnInteractionTrackerTransitionToInContact@InteractionSourceManager@@QEAAXW4ScrollState@@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 struct IDCompositionInteractionStats *__fastcall CInteraction::CreateDCompStats(CInteraction *this)
 {
   char *v1; // rbx

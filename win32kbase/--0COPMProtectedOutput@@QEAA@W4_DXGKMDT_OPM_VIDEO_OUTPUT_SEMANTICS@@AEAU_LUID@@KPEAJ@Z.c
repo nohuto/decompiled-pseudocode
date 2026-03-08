@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??0COPMProtectedOutput@@QEAA@W4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAJ@Z @ 0x1C0187CB4
+ * Callers:
+ *     ?CreateProtectedOutput@COPM@@QEAAJW4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAPEAXPEAH@Z @ 0x1C0188190 (-CreateProtectedOutput@COPM@@QEAAJW4_DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS@@AEAU_LUID@@KPEAPEAXPEAH.c)
+ * Callees:
+ *     ?Lock@CMutex@OPM@@QEAAXXZ @ 0x1C00B0000 (-Lock@CMutex@OPM@@QEAAXXZ.c)
+ *     ??0CMonitorPDO@OPM@@QEAA@AEAU_LUID@@KPEAJ@Z @ 0x1C017E770 (--0CMonitorPDO@OPM@@QEAA@AEAU_LUID@@KPEAJ@Z.c)
+ *     ?IsDestroyed@CMonitorPDO@OPM@@UEAAEXZ @ 0x1C017EC50 (-IsDestroyed@CMonitorPDO@OPM@@UEAAEXZ.c)
+ *     CallMonitor @ 0x1C017EE60 (CallMonitor.c)
+ *     ?Destroy@COPMProtectedOutput@@UEAAJXZ @ 0x1C01882B0 (-Destroy@COPMProtectedOutput@@UEAAJXZ.c)
+ */
+
 COPMProtectedOutput *__fastcall COPMProtectedOutput::COPMProtectedOutput(
         COPMProtectedOutput *this,
         enum _DXGKMDT_OPM_VIDEO_OUTPUT_SEMANTICS a2,

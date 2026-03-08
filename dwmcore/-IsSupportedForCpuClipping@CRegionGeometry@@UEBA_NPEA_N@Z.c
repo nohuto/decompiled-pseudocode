@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsSupportedForCpuClipping@CRegionGeometry@@UEBA_NPEA_N@Z @ 0x1800E84E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CRegionGeometry::IsSupportedForCpuClipping(CRegionGeometry *this, bool *a2)
 {
   if ( a2 )

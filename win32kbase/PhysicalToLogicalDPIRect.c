@@ -1,3 +1,16 @@
+/*
+ * XREFs of PhysicalToLogicalDPIRect @ 0x1C00A8E10
+ * Callers:
+ *     TransformRectBetweenCoordinateSpacesPerMonitor @ 0x1C000C99C (TransformRectBetweenCoordinateSpacesPerMonitor.c)
+ *     NtUserGetClipCursor @ 0x1C016F6E0 (NtUserGetClipCursor.c)
+ * Callees:
+ *     ScaleDPIRect @ 0x1C00089CC (ScaleDPIRect.c)
+ *     Is_MonitorFromRectSupported @ 0x1C000A0C4 (Is_MonitorFromRectSupported.c)
+ *     GetMonitorRectForDpi @ 0x1C003BDD8 (GetMonitorRectForDpi.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C0041AF0 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall PhysicalToLogicalDPIRect(__m128i *a1, __m128i *a2, unsigned int a3, __int64 *a4)
 {
   unsigned int CurrentThreadDpiAwarenessContext; // edi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExpFindCurrentThread @ 0x14033A7F0
+ * Callers:
+ *     ExpAcquireSharedStarveExclusive @ 0x1402213C0 (ExpAcquireSharedStarveExclusive.c)
+ *     ExReleaseResourceForThreadLite @ 0x14033A350 (ExReleaseResourceForThreadLite.c)
+ *     ExpBoostIoAfterAcquire @ 0x140356B60 (ExpBoostIoAfterAcquire.c)
+ *     ExAcquireSharedWaitForExclusive @ 0x1403C3440 (ExAcquireSharedWaitForExclusive.c)
+ *     ExpTryConvertSharedToExclusiveLite @ 0x140608A2C (ExpTryConvertSharedToExclusiveLite.c)
+ * Callees:
+ *     ExpExpandResourceOwnerTable @ 0x1402D9FE0 (ExpExpandResourceOwnerTable.c)
+ */
+
 _QWORD *__fastcall ExpFindCurrentThread(
         __int64 a1,
         __int64 a2,

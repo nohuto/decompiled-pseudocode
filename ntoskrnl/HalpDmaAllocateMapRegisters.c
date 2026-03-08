@@ -1,3 +1,33 @@
+/*
+ * XREFs of HalpDmaAllocateMapRegisters @ 0x14045399E
+ * Callers:
+ *     HalDmaAllocateCrashDumpRegistersEx @ 0x1403A9AD0 (HalDmaAllocateCrashDumpRegistersEx.c)
+ *     HalAllocateAdapterChannelV2 @ 0x140454AE8 (HalAllocateAdapterChannelV2.c)
+ *     HalpDmaProcessMapRegisterQueueV2 @ 0x1404551EE (HalpDmaProcessMapRegisterQueueV2.c)
+ *     IoFreeAdapterChannelV2 @ 0x1404552D0 (IoFreeAdapterChannelV2.c)
+ *     HalpAllocateDmaResourcesInternal @ 0x140512A4C (HalpAllocateDmaResourcesInternal.c)
+ *     HalpAllocateMapRegisters @ 0x1409307C0 (HalpAllocateMapRegisters.c)
+ * Callees:
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     MiFreePagesFromMdl @ 0x1402C0DD0 (MiFreePagesFromMdl.c)
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpDmaCommitContiguousMapBuffers @ 0x14039839C (HalpDmaCommitContiguousMapBuffers.c)
+ *     HalpDmaGetTranslationEntries @ 0x14039860C (HalpDmaGetTranslationEntries.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     MmFreeContiguousMemory @ 0x1403BD6E0 (MmFreeContiguousMemory.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPool @ 0x140452D5A (HalpDmaAllocateContiguousPagesFromContiguousPool.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPool @ 0x140452DAE (HalpDmaAllocateScatterPagesFromScatterPool.c)
+ *     HalpDmaPrependTranslations @ 0x1404541B6 (HalpDmaPrependTranslations.c)
+ *     HalpDmaReturnPageToOwner @ 0x140454296 (HalpDmaReturnPageToOwner.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x1404FF03C (HalpDmaAllocateScatterPagesFromContiguousPool.c)
+ *     HalpDmaAllocateContiguousMemory @ 0x14050DFA0 (HalpDmaAllocateContiguousMemory.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall HalpDmaAllocateMapRegisters(__int64 a1, unsigned int a2)
 {
   __int64 v2; // r15

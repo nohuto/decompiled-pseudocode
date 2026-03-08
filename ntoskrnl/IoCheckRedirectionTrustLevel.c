@@ -1,3 +1,14 @@
+/*
+ * XREFs of IoCheckRedirectionTrustLevel @ 0x1403CB430
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SeTokenGetRedirectionTrustPolicy @ 0x1402FA04C (SeTokenGetRedirectionTrustPolicy.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     EtwTimLogRedirectionTrustPolicy @ 0x1409E7898 (EtwTimLogRedirectionTrustPolicy.c)
+ */
+
 __int64 __fastcall IoCheckRedirectionTrustLevel(
         int a1,
         char a2,

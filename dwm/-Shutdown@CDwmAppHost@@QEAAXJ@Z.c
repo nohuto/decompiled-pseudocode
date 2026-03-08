@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Shutdown@CDwmAppHost@@QEAAXJ@Z @ 0x140003170
+ * Callers:
+ *     ?ProcessLPCCommand@CDwmAppHost@@AEAAJPEAUIPortMessage@@PEBUPORT_CONTEXT@@PEAH2@Z @ 0x140002400 (-ProcessLPCCommand@CDwmAppHost@@AEAAJPEAUIPortMessage@@PEBUPORT_CONTEXT@@PEAH2@Z.c)
+ *     wWinMain @ 0x140003430 (wWinMain.c)
+ * Callees:
+ *     ?Cleanup@CSettingsManager@@QEAAXXZ @ 0x140004188 (-Cleanup@CSettingsManager@@QEAAXXZ.c)
+ *     ?ReportEventWithDword@CDwmAppHost@@AEAAXGKK@Z @ 0x14000AF0C (-ReportEventWithDword@CDwmAppHost@@AEAAXGKK@Z.c)
+ */
+
 void __fastcall CDwmAppHost::Shutdown(CDwmAppHost *this, UINT a2)
 {
   UINT v2; // eax

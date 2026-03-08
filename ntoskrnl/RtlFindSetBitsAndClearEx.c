@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlFindSetBitsAndClearEx @ 0x14020F8A0
+ * Callers:
+ *     MiGetUltraMapping @ 0x140276080 (MiGetUltraMapping.c)
+ *     MiHotRemoveHugeRange @ 0x14061DC8C (MiHotRemoveHugeRange.c)
+ * Callees:
+ *     RtlClearBitsEx @ 0x14020FC50 (RtlClearBitsEx.c)
+ */
+
 unsigned __int64 __fastcall RtlFindSetBitsAndClearEx(unsigned __int64 *a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // r15

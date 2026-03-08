@@ -1,3 +1,17 @@
+/*
+ * XREFs of MinAsn1DecodeGeneralizedTime @ 0x140A6E30C
+ * Callers:
+ *     MinAsn1DecodeTime @ 0x140A6E75C (MinAsn1DecodeTime.c)
+ * Callees:
+ *     RtlTimeFieldsToTime @ 0x1402D1150 (RtlTimeFieldsToTime.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     atoi @ 0x1403D36E0 (atoi.c)
+ *     isdigit @ 0x1403D44D0 (isdigit.c)
+ *     I_MinAsn1AdjustFileTime @ 0x140A6E108 (I_MinAsn1AdjustFileTime.c)
+ *     I_MinAsn1MultiplyAndDivide @ 0x140A6E230 (I_MinAsn1MultiplyAndDivide.c)
+ *     I_MinAsn1ScanFrac @ 0x140A6E28C (I_MinAsn1ScanFrac.c)
+ */
+
 bool __fastcall MinAsn1DecodeGeneralizedTime(__int64 a1, LARGE_INTEGER *a2)
 {
   unsigned int v2; // edi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of KsepCacheDeviceQueryData @ 0x140800E58
+ * Callers:
+ *     KsepDbCacheQueryDeviceData @ 0x140800DE4 (KsepDbCacheQueryDeviceData.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ */
+
 const UNICODE_STRING *__fastcall KsepCacheDeviceQueryData(__int64 a1, const WCHAR *a2)
 {
   const UNICODE_STRING *v2; // rsi

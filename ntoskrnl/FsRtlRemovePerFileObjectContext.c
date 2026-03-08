@@ -1,3 +1,14 @@
+/*
+ * XREFs of FsRtlRemovePerFileObjectContext @ 0x14023A530
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseAutoExpandPushLockExclusive @ 0x14023A620 (ExReleaseAutoExpandPushLockExclusive.c)
+ *     ExAcquireAutoExpandPushLockExclusive @ 0x14023A860 (ExAcquireAutoExpandPushLockExclusive.c)
+ *     IoGetFileObjectFilterContext @ 0x14023AAB0 (IoGetFileObjectFilterContext.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 PFSRTL_PER_FILEOBJECT_CONTEXT __stdcall FsRtlRemovePerFileObjectContext(
         PFILE_OBJECT FileObject,
         PVOID OwnerId,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhFdoQueryDevicePowerDxPoCompletion @ 0x1C0021E60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 void __fastcall UsbhFdoQueryDevicePowerDxPoCompletion(
         __int64 DeviceObject,
         UCHAR MinorFunction,

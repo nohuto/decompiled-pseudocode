@@ -1,3 +1,17 @@
+/*
+ * XREFs of WheaUnconfigureErrorSource @ 0x140AA8760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     WheapSetDefaultErrorConfigurationCalls @ 0x14061085C (WheapSetDefaultErrorConfigurationCalls.c)
+ */
+
 __int64 __fastcall WheaUnconfigureErrorSource(unsigned int a1)
 {
   unsigned __int64 *v1; // rbx

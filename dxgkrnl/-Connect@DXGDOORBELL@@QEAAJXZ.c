@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Connect@DXGDOORBELL@@QEAAJXZ @ 0x1C0311C50
+ * Callers:
+ *     ?DxgkConnectDoorbellInternal@@YAJPEAU_D3DKMT_CONNECT_DOORBELL@@_N@Z @ 0x1C0312C4C (-DxgkConnectDoorbellInternal@@YAJPEAU_D3DKMT_CONNECT_DOORBELL@@_N@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?DdiConnectDoorbell@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_CONNECTDOORBELL@@@Z @ 0x1C02BFC58 (-DdiConnectDoorbell@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_CONNECTDOORBELL@@@Z.c)
+ */
+
 __int64 __fastcall DXGDOORBELL::Connect(DXGDOORBELL *this, __int64 a2, __int64 a3)
 {
   bool v4; // zf

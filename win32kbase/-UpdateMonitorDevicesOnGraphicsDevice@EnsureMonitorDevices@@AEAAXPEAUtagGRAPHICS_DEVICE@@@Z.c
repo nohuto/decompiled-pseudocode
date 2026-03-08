@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?UpdateMonitorDevicesOnGraphicsDevice@EnsureMonitorDevices@@AEAAXPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C0021010
+ * Callers:
+ *     DrvUpdateDisplayDriverParameters @ 0x1C001F108 (DrvUpdateDisplayDriverParameters.c)
+ *     DrvEnumDisplayDevices @ 0x1C0071810 (DrvEnumDisplayDevices.c)
+ *     DrvSetMonitorBrightness @ 0x1C00AF20C (DrvSetMonitorBrightness.c)
+ *     DrvSetMonitorsDimState @ 0x1C00AF3F4 (DrvSetMonitorsDimState.c)
+ *     ?DrvGetPreferredMode@@YAJPEAU_devicemodeW@@PEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C00AF590 (-DrvGetPreferredMode@@YAJPEAU_devicemodeW@@PEAUtagGRAPHICS_DEVICE@@@Z.c)
+ *     DrvGetSuggestedPhysicalMonitorArraySize @ 0x1C00AF980 (DrvGetSuggestedPhysicalMonitorArraySize.c)
+ *     PruneModesByDisplayDeviceCaps @ 0x1C0190E0C (PruneModesByDisplayDeviceCaps.c)
+ *     DrvCreatePhysicalMonitorObjects @ 0x1C0192D10 (DrvCreatePhysicalMonitorObjects.c)
+ *     DrvPVPGetFirstActiveMonitor @ 0x1C0194628 (DrvPVPGetFirstActiveMonitor.c)
+ *     GetMonitorPhysicalDimensions @ 0x1C0195000 (GetMonitorPhysicalDimensions.c)
+ * Callees:
+ *     ?GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z @ 0x1C0021280 (-GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z.c)
+ */
+
 void __fastcall EnsureMonitorDevices::UpdateMonitorDevicesOnGraphicsDevice(
         EnsureMonitorDevices *this,
         struct tagGRAPHICS_DEVICE *a2)

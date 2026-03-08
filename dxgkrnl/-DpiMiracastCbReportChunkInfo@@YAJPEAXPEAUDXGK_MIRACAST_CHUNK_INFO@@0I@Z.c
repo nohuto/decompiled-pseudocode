@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DpiMiracastCbReportChunkInfo@@YAJPEAXPEAUDXGK_MIRACAST_CHUNK_INFO@@0I@Z @ 0x1C005EEE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0xqqqqqq_EtwWriteTransfer @ 0x1C0062A88 (McTemplateK0xqqqqqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DpiMiracastCbReportChunkInfo(_QWORD *a1, struct DXGK_MIRACAST_CHUNK_INFO *a2, void *a3, int a4)
 {
   if ( a2 )

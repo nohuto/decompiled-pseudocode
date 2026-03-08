@@ -1,3 +1,21 @@
+/*
+ * XREFs of ACPIProcessorStartDeviceWorker @ 0x1C003A1C0
+ * Callers:
+ *     ACPIProcessorStartDevice @ 0x1C003A140 (ACPIProcessorStartDevice.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     WPP_RECORDER_SF_ddqss @ 0x1C0014AC8 (WPP_RECORDER_SF_ddqss.c)
+ *     ACPIInternalEvaluateOST @ 0x1C002E560 (ACPIInternalEvaluateOST.c)
+ *     ACPIInternalSetDeviceInterface @ 0x1C002EF0C (ACPIInternalSetDeviceInterface.c)
+ *     ACPICheckModuleStarted @ 0x1C00324D8 (ACPICheckModuleStarted.c)
+ *     ACPIProcessorContainerLinkChildProcessor @ 0x1C003AAF0 (ACPIProcessorContainerLinkChildProcessor.c)
+ *     ACPIThermalAcquireCoolingInterfaces @ 0x1C003FAD8 (ACPIThermalAcquireCoolingInterfaces.c)
+ *     ACPIProcessorBuildBootApicIds @ 0x1C008C380 (ACPIProcessorBuildBootApicIds.c)
+ *     ACPIProcessorBuildHiddenApicIds @ 0x1C008C460 (ACPIProcessorBuildHiddenApicIds.c)
+ *     ACPIProcessorGetInitialApicId @ 0x1C008C748 (ACPIProcessorGetInitialApicId.c)
+ */
+
 void __fastcall ACPIProcessorStartDeviceWorker(__int64 a1)
 {
   struct _DEVICE_OBJECT *v1; // rsi

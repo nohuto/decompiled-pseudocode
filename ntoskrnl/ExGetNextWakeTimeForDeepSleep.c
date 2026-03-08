@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExGetNextWakeTimeForDeepSleep @ 0x1406091D0
+ * Callers:
+ *     KiGetNextTimerExpirationDueTime @ 0x140328330 (KiGetNextTimerExpirationDueTime.c)
+ * Callees:
+ *     KeQueryTimerDueTime @ 0x14056E7B0 (KeQueryTimerDueTime.c)
+ */
+
 unsigned __int64 ExGetNextWakeTimeForDeepSleep()
 {
   __int64 *v0; // rdi

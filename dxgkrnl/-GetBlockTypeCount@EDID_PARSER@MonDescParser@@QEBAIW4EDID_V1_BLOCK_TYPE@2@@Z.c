@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetBlockTypeCount@EDID_PARSER@MonDescParser@@QEBAIW4EDID_V1_BLOCK_TYPE@2@@Z @ 0x1C001F3BC
+ * Callers:
+ *     ?EDID_V1_ExtractDisplayIdBlob@@YAJKPEBEPEAUDisplayIDObj@@@Z @ 0x1C001F2CC (-EDID_V1_ExtractDisplayIdBlob@@YAJKPEBEPEAUDisplayIDObj@@@Z.c)
+ *     ?EDID_V1_GetExtractedDisplayIdBlobSize@@YAKKPEBE@Z @ 0x1C001F368 (-EDID_V1_GetExtractedDisplayIdBlobSize@@YAKKPEBE@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MonDescParser::EDID_PARSER::GetBlockTypeCount(__int64 a1)
 {
   unsigned int v1; // r9d

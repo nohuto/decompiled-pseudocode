@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiMonoBitmap @ 0x1C02D31F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?bIsMonochrome@XEPALOBJ@@QEBAHXZ @ 0x1C00E4E24 (-bIsMonochrome@XEPALOBJ@@QEBAHXZ.c)
+ *     ??1EPALOBJ@@QEAA@XZ @ 0x1C0124F2C (--1EPALOBJ@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall NtGdiMonoBitmap(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax

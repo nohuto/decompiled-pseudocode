@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpAcquireLoggerContextByLoggerName @ 0x140692AB4
+ * Callers:
+ *     EtwpAcquireLoggerContext @ 0x140745800 (EtwpAcquireLoggerContext.c)
+ *     EtwQueryTraceHandleByLoggerName @ 0x1407968F8 (EtwQueryTraceHandleByLoggerName.c)
+ *     EtwpEnableBootLoggerRegistryProviders @ 0x140B943A4 (EtwpEnableBootLoggerRegistryProviders.c)
+ * Callees:
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     EtwpReleaseLoggerContext @ 0x14069349C (EtwpReleaseLoggerContext.c)
+ *     EtwpAcquireLoggerContextByLoggerId @ 0x140693AFC (EtwpAcquireLoggerContextByLoggerId.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ */
+
 __int64 __fastcall EtwpAcquireLoggerContextByLoggerName(__int64 a1, const UNICODE_STRING *a2, char a3)
 {
   unsigned int v6; // edi

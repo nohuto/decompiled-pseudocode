@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmFcpManagerArmFeatureUsageRetryTimer @ 0x140614DD8
+ * Callers:
+ *     CmFcpManagerDrainUsageNotifications @ 0x140818490 (CmFcpManagerDrainUsageNotifications.c)
+ * Callees:
+ *     ExSetTimer @ 0x1402042A0 (ExSetTimer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall CmFcpManagerArmFeatureUsageRetryTimer(__int64 a1)
 {
   __int64 result; // rax

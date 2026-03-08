@@ -1,3 +1,13 @@
+/*
+ * XREFs of SdbpGetSystemSdbFilePath @ 0x140A50484
+ * Callers:
+ *     SdbGetPathCustomSdb @ 0x140A4FA40 (SdbGetPathCustomSdb.c)
+ *     SdbResolveDatabaseEx @ 0x140A4FB10 (SdbResolveDatabaseEx.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ */
+
 __int64 __fastcall SdbpGetSystemSdbFilePath(_WORD *a1, __int64 a2, int a3, __int64 a4, __int64 a5, __int64 a6)
 {
   unsigned __int64 v6; // rax

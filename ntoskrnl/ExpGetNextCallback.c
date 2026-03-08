@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExpGetNextCallback @ 0x14087C160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObReferenceObjectSafeWithTag @ 0x14022BD30 (ObReferenceObjectSafeWithTag.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ */
+
 unsigned __int64 __fastcall ExpGetNextCallback(_QWORD *Object)
 {
   struct _KTHREAD *CurrentThread; // rbp

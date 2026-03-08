@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiPageTablesNeeded @ 0x140372730
+ * Callers:
+ *     MmCreateShadowMapping @ 0x14080B624 (MmCreateShadowMapping.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiPageTablesNeeded(unsigned __int64 a1, unsigned __int64 a2)
 {
   __int64 v2; // r8

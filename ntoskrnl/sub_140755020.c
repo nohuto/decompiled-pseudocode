@@ -1,3 +1,14 @@
+/*
+ * XREFs of sub_140755020 @ 0x140755020
+ * Callers:
+ *     sub_140754FC0 @ 0x140754FC0 (sub_140754FC0.c)
+ * Callees:
+ *     RtlUIntAdd @ 0x14022A638 (RtlUIntAdd.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ?RtlULongMult@@YAJKKPEAK@Z @ 0x14066B6E8 (-RtlULongMult@@YAJKKPEAK@Z.c)
+ *     WbReAlloc @ 0x14075521C (WbReAlloc.c)
+ */
+
 __int64 __fastcall sub_140755020(unsigned int *a1, __int64 a2, UINT a3, unsigned int a4)
 {
   unsigned int v4; // r11d

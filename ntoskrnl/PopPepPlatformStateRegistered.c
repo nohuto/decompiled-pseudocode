@@ -1,3 +1,25 @@
+/*
+ * XREFs of PopPepPlatformStateRegistered @ 0x14059D504
+ * Callers:
+ *     PopFxEnablePlatformStates @ 0x140587D90 (PopFxEnablePlatformStates.c)
+ * Callees:
+ *     PopFxActivateDevice @ 0x140202154 (PopFxActivateDevice.c)
+ *     PoFxIdleDevice @ 0x14020259C (PoFxIdleDevice.c)
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     PopPepUpdateIdleStateRefCount @ 0x1402F295C (PopPepUpdateIdleStateRefCount.c)
+ *     IoAcquireRemoveLockEx @ 0x140305F80 (IoAcquireRemoveLockEx.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopPepInitializeDebuggerMasks @ 0x14059CD30 (PopPepInitializeDebuggerMasks.c)
+ *     PopPepInitializeVetoMasks @ 0x14059CE34 (PopPepInitializeVetoMasks.c)
+ */
+
 __int64 __fastcall PopPepPlatformStateRegistered(unsigned int a1)
 {
   __int64 result; // rax

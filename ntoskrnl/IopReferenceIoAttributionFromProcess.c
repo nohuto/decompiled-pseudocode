@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopReferenceIoAttributionFromProcess @ 0x140216ED8
+ * Callers:
+ *     IoReferenceIoAttributionFromThread @ 0x140216E60 (IoReferenceIoAttributionFromThread.c)
+ *     IopSetDiskIoAttributionFromProcess @ 0x1402B1DD4 (IopSetDiskIoAttributionFromProcess.c)
+ *     IopSetDiskIoAttributionExtension @ 0x1402B1E30 (IopSetDiskIoAttributionExtension.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IopReferenceIoAttributionFromProcess(__int64 a1, char a2, _QWORD *a3)
 {
   KIRQL v7; // al

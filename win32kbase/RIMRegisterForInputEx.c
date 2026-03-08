@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMRegisterForInputEx @ 0x1C0032510
+ * Callers:
+ *     ?CreateHandles@CRIMBase@@IEAAJQEBW4DispatcherHandleName@1@_KP6AXPEAURIMDevChangeStruct@@@ZPEAX@Z @ 0x1C00320D4 (-CreateHandles@CRIMBase@@IEAAJQEBW4DispatcherHandleName@1@_KP6AXPEAURIMDevChangeStruct@@@ZPEAX@Z.c)
+ * Callees:
+ *     RIMRegisterForInputWithCallbacks @ 0x1C00356F0 (RIMRegisterForInputWithCallbacks.c)
+ */
+
 __int64 __fastcall RIMRegisterForInputEx(
         __int64 a1,
         __int64 a2,

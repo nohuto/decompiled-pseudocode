@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?D3DXQuaternionMultiply@@YAPEAUD2DQuaternion@@PEAU1@PEBU1@1@Z @ 0x18027AE60
+ * Callers:
+ *     ?Multiply@CExpressionValueStack@@QEAAJXZ @ 0x1800BF728 (-Multiply@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?Divide@CExpressionValueStack@@QEAAJXZ @ 0x1800BFB1C (-Divide@CExpressionValueStack@@QEAAJXZ.c)
+ *     ?Concatenate@CExpressionValueStack@@QEAAJXZ @ 0x180259740 (-Concatenate@CExpressionValueStack@@QEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 struct D2DQuaternion *__fastcall D3DXQuaternionMultiply(
         struct D2DQuaternion *a1,
         const struct D2DQuaternion *a2,

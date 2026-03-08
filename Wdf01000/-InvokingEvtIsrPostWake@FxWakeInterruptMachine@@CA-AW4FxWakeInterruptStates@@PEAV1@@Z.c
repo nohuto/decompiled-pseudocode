@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InvokingEvtIsrPostWake@FxWakeInterruptMachine@@CA?AW4FxWakeInterruptStates@@PEAV1@@Z @ 0x1C00823A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?InvokeWakeInterruptEvtIsr@FxInterrupt@@QEAAXXZ @ 0x1C007F72C (-InvokeWakeInterruptEvtIsr@FxInterrupt@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall FxWakeInterruptMachine::InvokingEvtIsrPostWake(FxWakeInterruptMachine *This, _FX_DRIVER_GLOBALS *a2)
 {
   FxInterrupt::InvokeWakeInterruptEvtIsr(This->m_Interrupt, a2);

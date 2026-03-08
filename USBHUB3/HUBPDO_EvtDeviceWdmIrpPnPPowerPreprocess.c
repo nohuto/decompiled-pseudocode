@@ -1,3 +1,22 @@
+/*
+ * XREFs of HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess @ 0x1C0017920
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBPDO_QueryForD3ColdSupportInAcpi @ 0x1C00176B4 (HUBPDO_QueryForD3ColdSupportInAcpi.c)
+ *     HUBPDO_EvtDeviceWdmIrpQueryInterfacePreprocess @ 0x1C0017D80 (HUBPDO_EvtDeviceWdmIrpQueryInterfacePreprocess.c)
+ *     HUBPDO_EvtDeviceWdmIrpQueryDeviceTextPreprocess @ 0x1C0018018 (HUBPDO_EvtDeviceWdmIrpQueryDeviceTextPreprocess.c)
+ *     HUBPDO_EvtDeviceWdmIrpQueryIdPreprocess @ 0x1C0018388 (HUBPDO_EvtDeviceWdmIrpQueryIdPreprocess.c)
+ *     HUBPDO_DispatchWdmPnpPowerIrpSynchronously @ 0x1C001CDD4 (HUBPDO_DispatchWdmPnpPowerIrpSynchronously.c)
+ *     HUBIDLE_AddEvent @ 0x1C003EAB4 (HUBIDLE_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBPDO_PublishBillboardDetails @ 0x1C007E4EC (HUBPDO_PublishBillboardDetails.c)
+ *     HUBPDO_PublishDualRoleFeaturesProperty @ 0x1C007E7A8 (HUBPDO_PublishDualRoleFeaturesProperty.c)
+ *     HUBMISC_ReportPnPFailureProblem @ 0x1C00835A0 (HUBMISC_ReportPnPFailureProblem.c)
+ *     HUBREG_UpdateSqmEnumerationFailureCode @ 0x1C0088774 (HUBREG_UpdateSqmEnumerationFailureCode.c)
+ */
+
 __int64 __fastcall HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess(__int64 a1, IRP *a2)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // r14

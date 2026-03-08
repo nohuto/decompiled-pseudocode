@@ -1,3 +1,20 @@
+/*
+ * XREFs of _RegisterLogonProcess @ 0x1C008CF70
+ * Callers:
+ *     NtUserRegisterLogonProcess @ 0x1C008CD50 (NtUserRegisterLogonProcess.c)
+ * Callees:
+ *     CreateKernelEvent @ 0x1C002E010 (CreateKernelEvent.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     Win32FreePool @ 0x1C0070430 (Win32FreePool.c)
+ *     isInputVirtualizationEnabled @ 0x1C0079014 (isInputVirtualizationEnabled.c)
+ *     ImSessionStart @ 0x1C008BE98 (ImSessionStart.c)
+ *     IsPrivileged @ 0x1C008D1A0 (IsPrivileged.c)
+ *     Feature_WebThreatDefenseToggle__private_IsEnabledDeviceUsage @ 0x1C00DC8F8 (Feature_WebThreatDefenseToggle__private_IsEnabledDeviceUsage.c)
+ *     ?SendIVWorkerThreadRequest@@YAJPEAU_IVWORKER_INIT@@@Z @ 0x1C021DD3C (-SendIVWorkerThreadRequest@@YAJPEAU_IVWORKER_INIT@@@Z.c)
+ *     WmsgpConnect @ 0x1C0301300 (WmsgpConnect.c)
+ */
+
 _BOOL8 __fastcall RegisterLogonProcess(int a1, __int64 a2)
 {
   __int64 v3; // rsi

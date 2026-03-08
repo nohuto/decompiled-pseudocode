@@ -1,3 +1,11 @@
+/*
+ * XREFs of IrqArbUpdateInterruptLimit @ 0x1C00AC160
+ * Callers:
+ *     AcpiIrqLibConfigureLibrary @ 0x1C00ABA48 (AcpiIrqLibConfigureLibrary.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 IrqArbUpdateInterruptLimit()
 {
   __int64 result; // rax

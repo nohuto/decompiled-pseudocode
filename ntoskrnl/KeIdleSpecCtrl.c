@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeIdleSpecCtrl @ 0x140571510
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KeIdleSpecCtrl(__int64 a1, int a2, _WORD *a3, char a4)
 {
   __int16 v5; // ax

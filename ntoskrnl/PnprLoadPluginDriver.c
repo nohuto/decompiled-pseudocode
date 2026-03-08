@@ -1,3 +1,17 @@
+/*
+ * XREFs of PnprLoadPluginDriver @ 0x1409635F8
+ * Callers:
+ *     PnpReplacePartitionUnit @ 0x140961B80 (PnpReplacePartitionUnit.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MmLoadSystemImage @ 0x14072CDE0 (MmLoadSystemImage.c)
+ *     MmUnloadSystemImage @ 0x1407F5FA0 (MmUnloadSystemImage.c)
+ *     PnprGetPluginDriverImagePath @ 0x140962EC8 (PnprGetPluginDriverImagePath.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnprLoadPluginDriver(_QWORD *a1, __int64 a2)
 {
   int PluginDriverImagePath; // edi

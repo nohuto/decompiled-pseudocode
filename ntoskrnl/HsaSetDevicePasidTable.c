@@ -1,3 +1,12 @@
+/*
+ * XREFs of HsaSetDevicePasidTable @ 0x14052E770
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HsaUpdateDeviceTableEntry @ 0x14052E900 (HsaUpdateDeviceTableEntry.c)
+ */
+
 __int64 __fastcall HsaSetDevicePasidTable(__int64 a1, int a2, __int64 a3, char a4)
 {
   _DWORD *v7; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ClosePointerDeviceProcessEvents @ 0x1C0077BA8
+ * Callers:
+ *     InitializePointerDevicesPresenceState @ 0x1C0077D60 (InitializePointerDevicesPresenceState.c)
+ * Callees:
+ *     <none>
+ */
+
 int __fastcall ClosePointerDeviceProcessEvents(__int64 a1)
 {
   __int64 v1; // rcx

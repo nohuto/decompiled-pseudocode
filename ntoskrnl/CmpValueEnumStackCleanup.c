@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpValueEnumStackCleanup @ 0x140A22A28
+ * Callers:
+ *     CmpGetValueCountForKeyNodeStack @ 0x140614148 (CmpGetValueCountForKeyNodeStack.c)
+ *     CmEnumerateValueFromLayeredKey @ 0x140A10EC4 (CmEnumerateValueFromLayeredKey.c)
+ *     CmpFullPromoteSingleKeyFromKeyNodeStacks @ 0x140A23124 (CmpFullPromoteSingleKeyFromKeyNodeStacks.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     CmpValueEnumStackEntryCleanup @ 0x14061431C (CmpValueEnumStackEntryCleanup.c)
+ *     CmpValueEnumStackGetEntryAtLayerHeight @ 0x140A22670 (CmpValueEnumStackGetEntryAtLayerHeight.c)
+ */
+
 void __fastcall CmpValueEnumStackCleanup(__int64 a1)
 {
   __int16 i; // di

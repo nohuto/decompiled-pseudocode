@@ -1,3 +1,17 @@
+/*
+ * XREFs of DebugInPort @ 0x1C004DA10
+ * Callers:
+ *     DebugI @ 0x1C004D9B0 (DebugI.c)
+ *     DebugID @ 0x1C004D9D0 (DebugID.c)
+ *     DebugIW @ 0x1C004D9F0 (DebugIW.c)
+ * Callees:
+ *     _strtoui64_0 @ 0x1C0001A79 (_strtoui64_0.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     IsNumber @ 0x1C004E1D4 (IsNumber.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     ReadSystemIO @ 0x1C0052EDC (ReadSystemIO.c)
+ */
+
 __int64 __fastcall DebugInPort(const char *a1, unsigned int a2)
 {
   unsigned int v2; // ebx

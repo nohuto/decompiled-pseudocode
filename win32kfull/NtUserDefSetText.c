@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserDefSetText @ 0x1C01CF460
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     DefSetText @ 0x1C00A7330 (DefSetText.c)
+ */
+
 __int64 __fastcall NtUserDefSetText(__int64 a1, __m128i *a2)
 {
   __int64 v4; // rcx

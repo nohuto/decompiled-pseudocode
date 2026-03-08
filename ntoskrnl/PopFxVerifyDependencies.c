@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopFxVerifyDependencies @ 0x140983190
+ * Callers:
+ *     PopFxRegisterDeviceWorker @ 0x14083714C (PopFxRegisterDeviceWorker.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopFxVerifyDependencies(_DWORD *a1, __int64 a2, unsigned int a3)
 {
   unsigned int v6; // ebx

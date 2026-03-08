@@ -1,3 +1,17 @@
+/*
+ * XREFs of AuthzBasepQuerySecurityAttributeAndValues @ 0x1402472F0
+ * Callers:
+ *     AuthzBasepEvaluateAceCondition @ 0x140246980 (AuthzBasepEvaluateAceCondition.c)
+ *     SepCanTokenMatchAllPackageSid @ 0x140247208 (SepCanTokenMatchAllPackageSid.c)
+ *     SepGetProcUniqueLuidAndIndexFromAttributeInfo @ 0x1402EF4D0 (SepGetProcUniqueLuidAndIndexFromAttributeInfo.c)
+ *     AuthzBasepGetNextValue @ 0x1403656C8 (AuthzBasepGetNextValue.c)
+ *     AuthzBasepRestartOperandValueEnumeration @ 0x1403664A4 (AuthzBasepRestartOperandValueEnumeration.c)
+ * Callees:
+ *     AuthzBasepFindSecurityAttribute @ 0x1402478D0 (AuthzBasepFindSecurityAttribute.c)
+ *     AuthzBasepQueryTokenAttributeAndValues @ 0x14066C748 (AuthzBasepQueryTokenAttributeAndValues.c)
+ *     AuthzBasepQuerySystemSecurityAttributeAndValues @ 0x14070B7B8 (AuthzBasepQuerySystemSecurityAttributeAndValues.c)
+ */
+
 __int64 __fastcall AuthzBasepQuerySecurityAttributeAndValues(__int64 a1)
 {
   __int64 v2; // rcx

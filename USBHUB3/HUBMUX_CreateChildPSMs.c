@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBMUX_CreateChildPSMs @ 0x1C0010474
+ * Callers:
+ *     HUBHSM_CreatingChildPSMs @ 0x1C0008860 (HUBHSM_CreatingChildPSMs.c)
+ * Callees:
+ *     HUBMUX_CreatePSM @ 0x1C000FED8 (HUBMUX_CreatePSM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBMUX_CreateChildPSMs(__int64 a1)
 {
   bool v1; // cf

@@ -1,3 +1,40 @@
+/*
+ * XREFs of WPP_RECORDER_SF_qqss @ 0x1C000A374
+ * Callers:
+ *     ACPIDockIrpQueryPower @ 0x1C0009440 (ACPIDockIrpQueryPower.c)
+ *     ACPIBusAndFilterIrpQueryRemovalRelations @ 0x1C0016248 (ACPIBusAndFilterIrpQueryRemovalRelations.c)
+ *     ACPIDetectDuplicateHID @ 0x1C001A3CC (ACPIDetectDuplicateHID.c)
+ *     ACPIDeviceCancelWaitWakeIrp @ 0x1C001C150 (ACPIDeviceCancelWaitWakeIrp.c)
+ *     ACPIDevicePowerProcessPhase0DeviceSubPhase2 @ 0x1C001EF60 (ACPIDevicePowerProcessPhase0DeviceSubPhase2.c)
+ *     ACPIDevicePowerProcessPhase0SystemSubPhase1 @ 0x1C001F040 (ACPIDevicePowerProcessPhase0SystemSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase1DeviceSubPhase4 @ 0x1C001F510 (ACPIDevicePowerProcessPhase1DeviceSubPhase4.c)
+ *     ACPIDevicePowerProcessPhase5DeviceSubPhase3 @ 0x1C0020B10 (ACPIDevicePowerProcessPhase5DeviceSubPhase3.c)
+ *     ACPIDevicePowerProcessPhase5DeviceSubPhase5 @ 0x1C0020EC0 (ACPIDevicePowerProcessPhase5DeviceSubPhase5.c)
+ *     ACPIDevicePowerProcessPhase5DeviceSubPhase6 @ 0x1C0020FD0 (ACPIDevicePowerProcessPhase5DeviceSubPhase6.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase1 @ 0x1C00210F0 (ACPIDevicePowerProcessPhase5SystemSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase2 @ 0x1C00211F0 (ACPIDevicePowerProcessPhase5SystemSubPhase2.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase3 @ 0x1C00212B0 (ACPIDevicePowerProcessPhase5SystemSubPhase3.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase4 @ 0x1C0021450 (ACPIDevicePowerProcessPhase5SystemSubPhase4.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase5 @ 0x1C0021620 (ACPIDevicePowerProcessPhase5SystemSubPhase5.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase6 @ 0x1C0021720 (ACPIDevicePowerProcessPhase5SystemSubPhase6.c)
+ *     ACPIFanCancelRequest @ 0x1C00265C0 (ACPIFanCancelRequest.c)
+ *     ACPIFanDeviceControl @ 0x1C00269A0 (ACPIFanDeviceControl.c)
+ *     ACPIQueryGedDeviceInterface @ 0x1C002E2DC (ACPIQueryGedDeviceInterface.c)
+ *     ACPIMatchKernelPorts @ 0x1C0031DD0 (ACPIMatchKernelPorts.c)
+ *     ACPIWakeWaitIrp @ 0x1C00460A0 (ACPIWakeWaitIrp.c)
+ *     ACPIDockIrpEject @ 0x1C007AAC0 (ACPIDockIrpEject.c)
+ *     ACPIDockIrpQueryCapabilities @ 0x1C007AD60 (ACPIDockIrpQueryCapabilities.c)
+ *     ACPIDockIrpQueryEjectRelations @ 0x1C007B228 (ACPIDockIrpQueryEjectRelations.c)
+ *     ACPIDockIrpQueryID @ 0x1C007B410 (ACPIDockIrpQueryID.c)
+ *     ACPIDockIrpStartDevice @ 0x1C007BA10 (ACPIDockIrpStartDevice.c)
+ *     ACPIBusAndFilterIrpEject @ 0x1C007D4D0 (ACPIBusAndFilterIrpEject.c)
+ *     ACPIBusIrpQueryResources @ 0x1C0080E80 (ACPIBusIrpQueryResources.c)
+ *     ACPIThermalStartDevice @ 0x1C0095DD0 (ACPIThermalStartDevice.c)
+ *     ACPIRootIrpStartDevice @ 0x1C00AA580 (ACPIRootIrpStartDevice.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WPP_RECORDER_SF_qqss(
         __int64 a1,
         unsigned __int8 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CPrimitiveGroup@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180016D70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?HrFindInterface@CContent@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180035170 (-HrFindInterface@CContent@@MEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ */
+
 __int64 __fastcall CPrimitiveGroup::HrFindInterface(CPrimitiveGroup *this, const struct _GUID *a2, void **a3)
 {
   __int64 result; // rax

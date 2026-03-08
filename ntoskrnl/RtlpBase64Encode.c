@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpBase64Encode @ 0x1409BC0B4
+ * Callers:
+ *     RtlInitializeCorrelationVector @ 0x1409BBF40 (RtlInitializeCorrelationVector.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpBase64Encode(char *a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // r10

@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlStringCbLengthA @ 0x14051D3D0
+ * Callers:
+ *     KiValidateComponentName @ 0x140568864 (KiValidateComponentName.c)
+ *     IopLiveDumpCallRemovePagesCallbacks @ 0x140A97494 (IopLiveDumpCallRemovePagesCallbacks.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlStringCbLengthA(STRSAFE_PCNZCH psz, size_t cbMax, size_t *pcbLength)
 {
   size_t v3; // r9

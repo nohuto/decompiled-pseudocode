@@ -1,3 +1,11 @@
+/*
+ * XREFs of Bulk_GetConfiguration @ 0x1C00752B0
+ * Callers:
+ *     TR_Create @ 0x1C006DDF8 (TR_Create.c)
+ * Callees:
+ *     Controller_IsSecureDevice @ 0x1C000B0F8 (Controller_IsSecureDevice.c)
+ */
+
 __int64 __fastcall Bulk_GetConfiguration(__int64 a1, __int64 a2)
 {
   char IsSecureDevice; // al

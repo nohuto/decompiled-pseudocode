@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetTextureTransform@CMesh2DEffect@@QEBA?AUD2D_MATRIX_3X2_F@@XZ @ 0x180108720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 struct D2D_MATRIX_3X2_F *__fastcall CMesh2DEffect::GetTextureTransform(
         FLOAT *this,
         struct D2D_MATRIX_3X2_F *__return_ptr retstr)

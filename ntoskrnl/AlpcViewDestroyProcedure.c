@@ -1,3 +1,26 @@
+/*
+ * XREFs of AlpcViewDestroyProcedure @ 0x1406A2290
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MiRemoveFromSystemSpace @ 0x14020E5C8 (MiRemoveFromSystemSpace.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiUnmapViewOfSection @ 0x1406A2570 (MiUnmapViewOfSection.c)
+ *     AlpcpRemoveResourcePort @ 0x1406A293C (AlpcpRemoveResourcePort.c)
+ *     AlpcpRestoreWriteAccess @ 0x1406A29BC (AlpcpRestoreWriteAccess.c)
+ *     AlpcpDereferenceBlobEx @ 0x14071550C (AlpcpDereferenceBlobEx.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1407CBD44 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x1407CDB50 (AlpcpUnlockBlob.c)
+ *     MmUnsecureVirtualMemory @ 0x1407D48C0 (MmUnsecureVirtualMemory.c)
+ */
+
 __int64 __fastcall AlpcViewDestroyProcedure(__int64 a1)
 {
   ULONG_PTR v1; // rsi

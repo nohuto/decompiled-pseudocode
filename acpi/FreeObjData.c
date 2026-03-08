@@ -1,3 +1,23 @@
+/*
+ * XREFs of FreeObjData @ 0x1C004B544
+ * Callers:
+ *     Simulator_DuplicateObjData @ 0x1C0049150 (Simulator_DuplicateObjData.c)
+ *     Simulator_Free_Arguments @ 0x1C0049214 (Simulator_Free_Arguments.c)
+ *     AMLICreateNativeNamespaceObject @ 0x1C00499F8 (AMLICreateNativeNamespaceObject.c)
+ *     AMLIAddNextNamespaceOverrideObject @ 0x1C004A534 (AMLIAddNextNamespaceOverrideObject.c)
+ *     AMLICreateOverrideObjectDep @ 0x1C004A920 (AMLICreateOverrideObjectDep.c)
+ *     FreeData @ 0x1C004B498 (FreeData.c)
+ *     ProcessLoadTable @ 0x1C0058610 (ProcessLoadTable.c)
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     GetObjectTypeName @ 0x1C004BD50 (GetObjectTypeName.c)
+ *     PerformMutexDriverCallbacks @ 0x1C004C9F4 (PerformMutexDriverCallbacks.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ */
+
 __int64 __fastcall FreeObjData(__int64 a1)
 {
   unsigned int v1; // edx

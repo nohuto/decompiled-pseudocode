@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopFanReadFanNoiseInfo @ 0x140856150
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PopFanUpdateStatistics @ 0x140994754 (PopFanUpdateStatistics.c)
+ */
+
 __int64 __fastcall PopFanReadFanNoiseInfo(int a1, __int64 a2, int a3)
 {
   struct _KTHREAD *CurrentThread; // rax

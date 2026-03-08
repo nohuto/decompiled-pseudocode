@@ -1,3 +1,12 @@
+/*
+ * XREFs of Xp10BuildHuffmanEncodings @ 0x1409C23AC
+ * Callers:
+ *     Xp10BuildAndWriteHuffmanEncodings @ 0x1409C1308 (Xp10BuildAndWriteHuffmanEncodings.c)
+ *     Xp10BuildAndWriteHuffmanTables @ 0x1409C16E0 (Xp10BuildAndWriteHuffmanTables.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall Xp10BuildHuffmanEncodings(
         unsigned int *a1,
         __int64 a2,

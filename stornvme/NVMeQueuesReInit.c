@@ -1,3 +1,14 @@
+/*
+ * XREFs of NVMeQueuesReInit @ 0x1C0010588
+ * Callers:
+ *     NVMeControllerPowerUp @ 0x1C000E0F4 (NVMeControllerPowerUp.c)
+ *     NVMeControllerReset @ 0x1C000E4D8 (NVMeControllerReset.c)
+ *     NVMeControllerReinitialize @ 0x1C001C9A0 (NVMeControllerReinitialize.c)
+ * Callees:
+ *     CompletionQueueReInit @ 0x1C00094E4 (CompletionQueueReInit.c)
+ *     SubmissionQueueReInit @ 0x1C0010D50 (SubmissionQueueReInit.c)
+ */
+
 void *__fastcall NVMeQueuesReInit(__int64 a1)
 {
   _BYTE *v1; // rax

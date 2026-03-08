@@ -1,3 +1,18 @@
+/*
+ * XREFs of PnpBootPhaseComplete @ 0x14081BD60
+ * Callers:
+ *     CmCompleteRegistryInitialization @ 0x1408174BC (CmCompleteRegistryInitialization.c)
+ * Callees:
+ *     PnpRequestDeviceAction @ 0x1402F5074 (PnpRequestDeviceAction.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     PiDmaGuardInitialize @ 0x1403895B8 (PiDmaGuardInitialize.c)
+ *     ExSubscribeWnfStateChange @ 0x14078C4C0 (ExSubscribeWnfStateChange.c)
+ *     PpDevCfgProcessDevices @ 0x14081B964 (PpDevCfgProcessDevices.c)
+ *     PiPnpRtlInit @ 0x14081BE64 (PiPnpRtlInit.c)
+ *     Pdcv2ActivationClientRegister @ 0x140857554 (Pdcv2ActivationClientRegister.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 PnpBootPhaseComplete()
 {
   int v0; // ebx

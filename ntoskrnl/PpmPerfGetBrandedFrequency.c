@@ -1,3 +1,15 @@
+/*
+ * XREFs of PpmPerfGetBrandedFrequency @ 0x140983918
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140236BF0 (KeGetProcessorIndexFromNumber.c)
+ *     PpmReleaseLock @ 0x1402D1F40 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402D1F90 (PpmAcquireLock.c)
+ *     PpmPerfAccumulateBrandedFrequency @ 0x1409838D8 (PpmPerfAccumulateBrandedFrequency.c)
+ */
+
 __int64 __fastcall PpmPerfGetBrandedFrequency(PPROCESSOR_NUMBER ProcNumber, _DWORD *a2)
 {
   unsigned int v2; // ebx

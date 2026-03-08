@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Create@CBackTraceStorageUnit@NSInstrumentation@@SAPEAV12@_KQEBVCBackTrace@2@PEAV12@@Z @ 0x1C019CA5C
+ * Callers:
+ *     ?Insert@CBackTraceBucket@NSInstrumentation@@QEAAPEAVCBackTraceStorageUnit@2@_KQEBVCBackTrace@2@@Z @ 0x1C019CD5C (-Insert@CBackTraceBucket@NSInstrumentation@@QEAAPEAVCBackTraceStorageUnit@2@_KQEBVCBackTrace@2@@.c)
+ * Callees:
+ *     <none>
+ */
+
 struct NSInstrumentation::CBackTraceStorageUnit *__fastcall NSInstrumentation::CBackTraceStorageUnit::Create(
         __int64 a1,
         const struct NSInstrumentation::CBackTrace *const a2,

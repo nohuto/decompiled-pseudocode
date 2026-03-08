@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Release@?$CMILRefCountBaseT@UIMILRefCount@@@@UEAAKXZ @ 0x1800D42F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?IsKernelDebuggerPresent@@YAHXZ @ 0x180279008 (-IsKernelDebuggerPresent@@YAHXZ.c)
+ */
+
 __int64 __fastcall CMILRefCountBaseT<IMILRefCount>::Release(volatile signed __int32 *a1)
 {
   unsigned __int32 v2; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlAreBitsSetEx @ 0x14045B6E0
+ * Callers:
+ *     MiPatchDataPagesCallback @ 0x140A37AC0 (MiPatchDataPagesCallback.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 __fastcall RtlAreBitsSetEx(unsigned __int64 *a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 v5; // rcx

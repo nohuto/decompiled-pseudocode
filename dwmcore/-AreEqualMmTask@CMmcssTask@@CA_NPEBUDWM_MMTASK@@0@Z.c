@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AreEqualMmTask@CMmcssTask@@CA_NPEBUDWM_MMTASK@@0@Z @ 0x1800CE33C
+ * Callers:
+ *     ?Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z @ 0x1800CD9D0 (-Set@CMmcssTask@@QEAAJPEBUDWM_MMTASK@@_N@Z.c)
+ *     ?ProcessKernelTokens@CGlobalSurfaceManager@@AEAAJXZ @ 0x1800CDC70 (-ProcessKernelTokens@CGlobalSurfaceManager@@AEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CMmcssTask::AreEqualMmTask(LPCWCH lpString1, LPCWCH lpString2)
 {
   char v3; // cl

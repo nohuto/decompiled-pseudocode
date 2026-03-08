@@ -1,3 +1,14 @@
+/*
+ * XREFs of sub_1406AFFB4 @ 0x1406AFFB4
+ * Callers:
+ *     WbDispatchOperation @ 0x1406AECD0 (WbDispatchOperation.c)
+ * Callees:
+ *     WbGetWarbirdThread @ 0x1406AF248 (WbGetWarbirdThread.c)
+ *     sub_1406AF488 @ 0x1406AF488 (sub_1406AF488.c)
+ *     WbSetTrapFrame @ 0x1406AF9A4 (WbSetTrapFrame.c)
+ *     sub_1406B0060 @ 0x1406B0060 (sub_1406B0060.c)
+ */
+
 __int64 __fastcall sub_1406AFFB4(__int64 a1, __int64 a2)
 {
   int WarbirdThread; // eax

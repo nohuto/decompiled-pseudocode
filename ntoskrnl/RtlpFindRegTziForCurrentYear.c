@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlpFindRegTziForCurrentYear @ 0x140388568
+ * Callers:
+ *     RtlpCheckDynamicTimeZoneInformation @ 0x140811C80 (RtlpCheckDynamicTimeZoneInformation.c)
+ *     RtlpUpdateDynamicTimeZones @ 0x1408122E8 (RtlpUpdateDynamicTimeZones.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _itow_s @ 0x1403D8C20 (_itow_s.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlQueryRegistryValuesEx @ 0x14069DF10 (RtlQueryRegistryValuesEx.c)
+ */
+
 __int64 __fastcall RtlpFindRegTziForCurrentYear(__int64 a1, __int64 a2, __int16 a3)
 {
   int v3; // esi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of KxSwitchKernelStackCallout @ 0x14041AD00
+ * Callers:
+ *     KiSwitchKernelStackAndCallout @ 0x14041AC70 (KiSwitchKernelStackAndCallout.c)
+ * Callees:
+ *     MmGrowKernelStackEx @ 0x1402F61F0 (MmGrowKernelStackEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __fastcall KxSwitchKernelStackCallout(
         __int64 a1,
         void (*a2)(void),

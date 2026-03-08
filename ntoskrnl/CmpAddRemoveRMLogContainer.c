@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpAddRemoveRMLogContainer @ 0x140A1BBAC
+ * Callers:
+ *     CmpTransWriteLog @ 0x140734F84 (CmpTransWriteLog.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlStringFromGUIDEx @ 0x140733E90 (RtlStringFromGUIDEx.c)
+ *     CmpQueryNameString @ 0x140733F8C (CmpQueryNameString.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     CmpAddRemoveContainerToCLFSLog @ 0x140864428 (CmpAddRemoveContainerToCLFSLog.c)
+ */
+
 __int64 __fastcall CmpAddRemoveRMLogContainer(__int64 a1)
 {
   ULONG_PTR v2; // rax

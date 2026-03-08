@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiDecrementHugeContext @ 0x1403D0A68
+ * Callers:
+ *     MiGetHugePageToZero @ 0x1402E41D8 (MiGetHugePageToZero.c)
+ *     MiDereferenceAnyActiveHugeContext @ 0x1402F309C (MiDereferenceAnyActiveHugeContext.c)
+ *     MiGetUltraHugeAlreadyActive @ 0x1403BA8F4 (MiGetUltraHugeAlreadyActive.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiStopPageAccessor @ 0x1402FD06C (MiStopPageAccessor.c)
+ *     MiRemoveFaultNode @ 0x1403D0F48 (MiRemoveFaultNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockHugePfn @ 0x14061EFAC (MiLockHugePfn.c)
+ *     MiReleaseLargeZeroingVa @ 0x140652CD8 (MiReleaseLargeZeroingVa.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiDecrementHugeContext(char *P, __int64 a2)
 {
   bool v2; // zf

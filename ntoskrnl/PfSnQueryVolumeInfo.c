@@ -1,3 +1,15 @@
+/*
+ * XREFs of PfSnQueryVolumeInfo @ 0x14077AFF0
+ * Callers:
+ *     PfSnOpenVolumesForPrefetch @ 0x14077A964 (PfSnOpenVolumesForPrefetch.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PfpOpenHandleCreate @ 0x1406A5020 (PfpOpenHandleCreate.c)
+ *     PfpOpenHandleClose @ 0x1406A5824 (PfpOpenHandleClose.c)
+ *     NtQueryVolumeInformationFile @ 0x1406B2A90 (NtQueryVolumeInformationFile.c)
+ */
+
 __int64 __fastcall PfSnQueryVolumeInfo(__int64 a1, const WCHAR *a2, _OWORD *a3, _QWORD *a4, _DWORD *a5)
 {
   __int64 v6; // rdi

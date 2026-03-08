@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?HandleQueryCapabilities@FxPkgPdo@@AEAAXPEAU_DEVICE_CAPABILITIES@@0@Z @ 0x1C0068B40
+ * Callers:
+ *     ?PnpQueryCapabilities@FxPkgPdo@@AEAAJPEAVFxIrp@@@Z @ 0x1C00694A0 (-PnpQueryCapabilities@FxPkgPdo@@AEAAJPEAVFxIrp@@@Z.c)
+ *     ?_QueryCapsWorkItem@FxPkgPdo@@CAXPEAU_DEVICE_OBJECT@@PEAX@Z @ 0x1C0069DD0 (-_QueryCapsWorkItem@FxPkgPdo@@CAXPEAU_DEVICE_OBJECT@@PEAX@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxPkgPdo::HandleQueryCapabilities(
         FxPkgPdo *this,
         _DEVICE_CAPABILITIES *ReportedCaps,

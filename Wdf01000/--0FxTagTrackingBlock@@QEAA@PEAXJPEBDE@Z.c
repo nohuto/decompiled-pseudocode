@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0FxTagTrackingBlock@@QEAA@PEAXJPEBDE@Z @ 0x1C0045F3C
+ * Callers:
+ *     ?UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z @ 0x1C0047A7C (-UpdateTagHistory@FxTagTracker@@QEAAXPEAXJPEBDW4FxTagRefType@@K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxTagTrackingBlock::FxTagTrackingBlock(
         FxTagTrackingBlock *this,
         void *Tag,

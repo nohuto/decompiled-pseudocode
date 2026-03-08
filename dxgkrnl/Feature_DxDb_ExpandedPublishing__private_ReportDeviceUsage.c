@@ -1,3 +1,12 @@
+/*
+ * XREFs of Feature_DxDb_ExpandedPublishing__private_ReportDeviceUsage @ 0x1C0024478
+ * Callers:
+ *     ?AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C020B6D8 (-AdapterTelemetry@DXGADAPTER@@QEAAXW4_TELEMETRY_INVENTORY_TRIGGER@@PEAU_DXGK_DISPLAY_SCENARIO_CO.c)
+ * Callees:
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C0024B30 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0024DA8 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ */
+
 __int64 Feature_DxDb_ExpandedPublishing__private_ReportDeviceUsage()
 {
   __int64 result; // rax

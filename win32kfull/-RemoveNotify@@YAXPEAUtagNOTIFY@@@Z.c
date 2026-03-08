@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?RemoveNotify@@YAXPEAUtagNOTIFY@@@Z @ 0x1C000F7B0
+ * Callers:
+ *     xxxProcessNotifyWinEvent @ 0x1C0063218 (xxxProcessNotifyWinEvent.c)
+ *     FreeThreadsWinEvents @ 0x1C00C8670 (FreeThreadsWinEvents.c)
+ *     ?CleanEventMessage@@YAXPEAUtagQMSG@@@Z @ 0x1C00D34C0 (-CleanEventMessage@@YAXPEAUtagQMSG@@@Z.c)
+ *     ?CreateAndPostTSFNotify@@YAXKPEAUtagWND@@JJPEAUtagTHREADINFO@@1K@Z @ 0x1C01C0B80 (-CreateAndPostTSFNotify@@YAXKPEAUtagWND@@JJPEAUtagTHREADINFO@@1K@Z.c)
+ *     xxxProcessTSFEvent @ 0x1C01C1198 (xxxProcessTSFEvent.c)
+ * Callees:
+ *     ?IsLockedExclusive@tagDomLock@@QEBA_NXZ @ 0x1C00394B4 (-IsLockedExclusive@tagDomLock@@QEBA_NXZ.c)
+ */
+
 void __fastcall RemoveNotify(struct tagNOTIFY ***a1)
 {
   struct tagNOTIFY **v2; // rax

@@ -1,3 +1,21 @@
+/*
+ * XREFs of CcInitializeVolumeCacheMap @ 0x14036D0F0
+ * Callers:
+ *     CcInitializeCacheMapInternal @ 0x140338F10 (CcInitializeCacheMapInternal.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     McGenEventRegister_EtwRegister @ 0x1403895F8 (McGenEventRegister_EtwRegister.c)
+ *     CcQueueAsyncGetDeviceGuid @ 0x1403A89D4 (CcQueueAsyncGetDeviceGuid.c)
+ *     CcSetupWatchForRegistryChanges @ 0x1403ACDFC (CcSetupWatchForRegistryChanges.c)
+ *     McTemplateK0j_EtwWriteTransfer @ 0x1403BE348 (McTemplateK0j_EtwWriteTransfer.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     CcGetDeviceGuid @ 0x140870B48 (CcGetDeviceGuid.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CcInitializeVolumeCacheMap(_QWORD *Object, __int64 **a2)
 {
   __int64 v4; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiLogSurpriseRemoveEvent @ 0x14087FF28
+ * Callers:
+ *     PnpProcessQueryRemoveAndEject @ 0x1408625F0 (PnpProcessQueryRemoveAndEject.c)
+ * Callees:
+ *     McTemplateK0zq_EtwWriteTransfer @ 0x1403D07E8 (McTemplateK0zq_EtwWriteTransfer.c)
+ */
+
 int __fastcall PiLogSurpriseRemoveEvent(__int64 a1, int a2, int **a3)
 {
   __int64 v4; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ApiSetResolveToHost @ 0x1C00E27BC
+ * Callers:
+ *     ?ResolveApiSetHost@@YAJPEAU_Win32kApiSet@@PEAX@Z @ 0x1C00E2644 (-ResolveApiSetHost@@YAJPEAU_Win32kApiSet@@PEAX@Z.c)
+ * Callees:
+ *     ApiSetpSearchForApiSet @ 0x1C00E28A4 (ApiSetpSearchForApiSet.c)
+ */
+
 __int64 __fastcall ApiSetResolveToHost(__int64 a1, unsigned __int16 *a2, __int64 a3, char *a4, __int64 a5)
 {
   char v5; // bl

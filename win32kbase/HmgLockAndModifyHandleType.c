@@ -1,3 +1,13 @@
+/*
+ * XREFs of HmgLockAndModifyHandleType @ 0x1C001D290
+ * Callers:
+ *     GreMakeBitmapNonStock @ 0x1C001D190 (GreMakeBitmapNonStock.c)
+ * Callees:
+ *     HmgModifyHandleType @ 0x1C001D300 (HmgModifyHandleType.c)
+ *     ??0HANDLELOCK@@QEAA@PEAVOBJECT@@HHH@Z @ 0x1C0048AE0 (--0HANDLELOCK@@QEAA@PEAVOBJECT@@HHH@Z.c)
+ *     ?vUnlock@HANDLELOCK@@QEAAXXZ @ 0x1C004A440 (-vUnlock@HANDLELOCK@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall HmgLockAndModifyHandleType(struct OBJECT *a1, __int64 a2)
 {
   unsigned int v3; // ebx

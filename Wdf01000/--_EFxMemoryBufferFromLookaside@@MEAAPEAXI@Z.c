@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_EFxMemoryBufferFromLookaside@@MEAAPEAXI@Z @ 0x1C00416F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1FxObject@@UEAA@XZ @ 0x1C0004920 (--1FxObject@@UEAA@XZ.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ */
+
 FxMemoryBufferFromPoolLookaside *__fastcall FxMemoryBufferFromLookaside::`vector deleting destructor'(
         FxMemoryBufferFromPoolLookaside *this,
         unsigned int a2,

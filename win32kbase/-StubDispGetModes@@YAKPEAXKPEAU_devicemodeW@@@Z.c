@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?StubDispGetModes@@YAKPEAXKPEAU_devicemodeW@@@Z @ 0x1C009ED90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 __fastcall StubDispGetModes(void *a1, unsigned int a2, struct _devicemodeW *a3)
 {
   __int16 *v4; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiSystemDisplayWrite @ 0x1C005E2B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DpiSystemDisplayWrite(__int64 a1, int *a2, char a3)
 {
   int v5; // r9d

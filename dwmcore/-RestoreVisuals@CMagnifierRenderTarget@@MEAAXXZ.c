@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RestoreVisuals@CMagnifierRenderTarget@@MEAAXXZ @ 0x1801ED8C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?RestoreCursors@CComposition@@QEAAXXZ @ 0x180021EDC (-RestoreCursors@CComposition@@QEAAXXZ.c)
+ *     ?RestoreVisuals@CVisualGroup@@QEAAXXZ @ 0x180214CF4 (-RestoreVisuals@CVisualGroup@@QEAAXXZ.c)
+ */
+
 void __fastcall CMagnifierRenderTarget::RestoreVisuals(CComposition **this)
 {
   CVisualGroup *v2; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMDivideToCeilingOrNearestInt @ 0x1C00F1096
+ * Callers:
+ *     rimExtractScantime @ 0x1C01D7F80 (rimExtractScantime.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall RIMDivideToCeilingOrNearestInt(unsigned int a1, unsigned int a2, int a3, int *a4)
 {
   unsigned int v4; // ebx

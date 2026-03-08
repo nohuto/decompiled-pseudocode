@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RegGetDword@@YA_NQEAUHKEY__@@QEBGPEAK@Z @ 0x14000E5E0
+ * Callers:
+ *     ?RegGetHKLMDword@@YA_NQEBG0PEAK@Z @ 0x14000E654 (-RegGetHKLMDword@@YA_NQEBG0PEAK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall RegGetDword(HKEY a1, const unsigned __int16 *const a2, unsigned int *a3)
 {
   bool v3; // bl

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserValidateRgn @ 0x1C00124A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxRedrawWindow @ 0x1C0050700 (xxxRedrawWindow.c)
+ */
+
 __int64 __fastcall NtUserValidateRgn(__int64 a1)
 {
   __int64 v2; // rax

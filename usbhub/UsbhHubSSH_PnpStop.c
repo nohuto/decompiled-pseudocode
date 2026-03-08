@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhHubSSH_PnpStop @ 0x1C0058F40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhDisableTimerObject @ 0x1C00084D0 (UsbhDisableTimerObject.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     UsbhSshBusBusy @ 0x1C003170C (UsbhSshBusBusy.c)
+ *     UsbhSshBusIdle @ 0x1C00317B0 (UsbhSshBusIdle.c)
+ *     UsbhFreeBusyList @ 0x1C0058B48 (UsbhFreeBusyList.c)
+ */
+
 LONG __fastcall UsbhHubSSH_PnpStop(__int64 a1, __int64 a2)
 {
   __int16 v4; // r9

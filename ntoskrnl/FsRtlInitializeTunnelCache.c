@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlInitializeTunnelCache @ 0x14086FFC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ */
+
 void __stdcall FsRtlInitializeTunnelCache(TUNNEL *Cache)
 {
   Cache->Mutex.Count = 1;

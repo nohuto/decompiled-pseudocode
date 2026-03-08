@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepCheckForCriticalAceRemoval @ 0x1402438A8
+ * Callers:
+ *     SeCheckForCriticalAceRemoval @ 0x1406BA400 (SeCheckForCriticalAceRemoval.c)
+ * Callees:
+ *     SepSidInTokenSidHash @ 0x14033DEA0 (SepSidInTokenSidHash.c)
+ *     SeSinglePrivilegeCheckEx @ 0x1406BA46C (SeSinglePrivilegeCheckEx.c)
+ *     SepHasCriticalAcesRemoved @ 0x14074E8C0 (SepHasCriticalAcesRemoved.c)
+ */
+
 _UNKNOWN **__fastcall SepCheckForCriticalAceRemoval(__int64 a1, __int64 a2, __int64 *a3, _BYTE *a4, _BYTE *a5)
 {
   _UNKNOWN **result; // rax

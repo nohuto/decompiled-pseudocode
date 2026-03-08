@@ -1,3 +1,11 @@
+/*
+ * XREFs of ObpCheckDuplicateEntries @ 0x1407437B0
+ * Callers:
+ *     ObpCaptureBoundaryDescriptor @ 0x140743538 (ObpCaptureBoundaryDescriptor.c)
+ * Callees:
+ *     RtlEnumerateBoundaryDescriptorEntries @ 0x140743B80 (RtlEnumerateBoundaryDescriptorEntries.c)
+ */
+
 __int64 __fastcall ObpCheckDuplicateEntries(__int64 a1)
 {
   unsigned int v1; // ebx

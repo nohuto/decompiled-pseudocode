@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserGetAltTabInfo @ 0x1C01D0BC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _GetAltTabInfo @ 0x1C01CB224 (_GetAltTabInfo.c)
+ */
+
 __int64 __fastcall NtUserGetAltTabInfo(__int64 a1, __int64 a2, ULONG64 a3, volatile void *a4, ULONG a5, int a6)
 {
   int v8; // esi

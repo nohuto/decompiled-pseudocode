@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiInitializeHresetSupport @ 0x140A8AEEC
+ * Callers:
+ *     KiSetFeatureBits @ 0x140A8A714 (KiSetFeatureBits.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall KiInitializeHresetSupport(ULONG_PTR BugCheckParameter2)
 {
   ULONG_PTR v1; // r10

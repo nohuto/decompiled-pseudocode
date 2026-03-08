@@ -1,3 +1,11 @@
+/*
+ * XREFs of NVMeReenumerateMergeNamespaceChangeList @ 0x1C0021848
+ * Callers:
+ *     NVMeReenumerateReissueGetLogNamespaceChangeListCompletion @ 0x1C0022A80 (NVMeReenumerateReissueGetLogNamespaceChangeListCompletion.c)
+ * Callees:
+ *     <none>
+ */
+
 _UNKNOWN **__fastcall NVMeReenumerateMergeNamespaceChangeList(__int64 a1, _DWORD *a2)
 {
   _UNKNOWN **result; // rax

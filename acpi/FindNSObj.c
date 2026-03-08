@@ -1,3 +1,17 @@
+/*
+ * XREFs of FindNSObj @ 0x1C004B09C
+ * Callers:
+ *     FindNSObj @ 0x1C004B09C (FindNSObj.c)
+ *     FindNSObjMainNoLock @ 0x1C004B2F4 (FindNSObjMainNoLock.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     FindNSObj @ 0x1C004B09C (FindNSObj.c)
+ *     GetObjectPathNoLock @ 0x1C004BBC8 (GetObjectPathNoLock.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ */
+
 __int64 __fastcall FindNSObj(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int a6)
 {
   int v6; // eax

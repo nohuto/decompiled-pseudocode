@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpGetSystemMaximumBufferCount @ 0x140748750
+ * Callers:
+ *     EtwpUpdateTrace @ 0x140744D3C (EtwpUpdateTrace.c)
+ *     EtwpAllocateTraceBufferPool @ 0x14074867C (EtwpAllocateTraceBufferPool.c)
+ * Callees:
+ *     MmGetMaximumNonPagedPoolInBytes @ 0x1402BED94 (MmGetMaximumNonPagedPoolInBytes.c)
+ */
+
 unsigned __int64 __fastcall EtwpGetSystemMaximumBufferCount(unsigned int *a1)
 {
   unsigned int *v1; // r9

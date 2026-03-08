@@ -1,3 +1,15 @@
+/*
+ * XREFs of AcpiNotifyPlExtDeleteDeviceAsync @ 0x1C00377F0
+ * Callers:
+ *     AcpiNotifyPlExtDeleteDeviceSync @ 0x1C00379D8 (AcpiNotifyPlExtDeleteDeviceSync.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_qD @ 0x1C001B508 (WPP_RECORDER_SF_qD.c)
+ *     AcpiCreateDiscoveryDeleteParameters @ 0x1C0037348 (AcpiCreateDiscoveryDeleteParameters.c)
+ *     AcpiNotifyDiscoverDeleteMainCompletion @ 0x1C0037710 (AcpiNotifyDiscoverDeleteMainCompletion.c)
+ *     WPP_RECORDER_SF_qqD @ 0x1C0038720 (WPP_RECORDER_SF_qqD.c)
+ */
+
 __int64 __fastcall AcpiNotifyPlExtDeleteDeviceAsync(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v7; // ebx

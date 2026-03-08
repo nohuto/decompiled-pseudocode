@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?CreateUsermodeParameters@LoadFontFileRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C011D480
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EngFntCacheLookUp @ 0x1C011D690 (EngFntCacheLookUp.c)
+ *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C011EA58 (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall LoadFontFileRequest::CreateUsermodeParameters(
         LoadFontFileRequest *this,
         struct UmfdTls *a2,

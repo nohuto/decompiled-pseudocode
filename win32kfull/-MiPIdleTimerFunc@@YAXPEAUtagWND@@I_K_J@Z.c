@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?MiPIdleTimerFunc@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01B66A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _PostTransformableMessage @ 0x1C00CB714 (_PostTransformableMessage.c)
+ *     FindTimer @ 0x1C00DEEDC (FindTimer.c)
+ *     IsMiPEnabledForWindow @ 0x1C014417A (IsMiPEnabledForWindow.c)
+ */
+
 void __fastcall MiPIdleTimerFunc(struct tagWND *a1, __int64 a2, void *a3)
 {
   __int64 v3; // rbx

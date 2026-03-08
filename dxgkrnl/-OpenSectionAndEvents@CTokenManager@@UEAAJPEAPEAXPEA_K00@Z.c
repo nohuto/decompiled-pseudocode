@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OpenSectionAndEvents@CTokenManager@@UEAAJPEAPEAXPEA_K00@Z @ 0x1C0016720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?OpenEventForSynchonize@CTokenManager@@CAJPEAXPEAPEAX@Z @ 0x1C00167CC (-OpenEventForSynchonize@CTokenManager@@CAJPEAXPEAPEAX@Z.c)
+ */
+
 NTSTATUS __fastcall CTokenManager::OpenSectionAndEvents(
         PVOID *this,
         void **a2,

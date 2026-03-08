@@ -1,3 +1,13 @@
+/*
+ * XREFs of WmiGetClock @ 0x1405FD310
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlGetSystemTimePrecise @ 0x140205310 (RtlGetSystemTimePrecise.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ */
+
 LARGE_INTEGER WmiGetClock()
 {
   int v0; // edx

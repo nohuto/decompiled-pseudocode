@@ -1,3 +1,11 @@
+/*
+ * XREFs of TouchTargetingBigTargetWindow @ 0x1C0250AE8
+ * Callers:
+ *     ?_TTWindowPenalty@@YAIPEAUtagWND@@PEAUtagPNTRWINDOWHITTTESTARGS@@I@Z @ 0x1C0148932 (-_TTWindowPenalty@@YAIPEAUtagWND@@PEAUtagPNTRWINDOWHITTTESTARGS@@I@Z.c)
+ * Callees:
+ *     _TTPixelsToHm @ 0x1C014AE60 (_TTPixelsToHm.c)
+ */
+
 _BOOL8 __fastcall TouchTargetingBigTargetWindow(_DWORD *a1, __int64 a2)
 {
   __int64 v2; // r10

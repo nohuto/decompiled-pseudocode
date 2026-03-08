@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIBusIommuBusInterface @ 0x1C008736C
+ * Callers:
+ *     ACPIBusIrpQueryInterface @ 0x1C00165F0 (ACPIBusIrpQueryInterface.c)
+ *     ACPIFilterIrpQueryIommuInterface @ 0x1C00863F4 (ACPIFilterIrpQueryIommuInterface.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     ACPIAmliBuildObjectPathname @ 0x1C000B0E0 (ACPIAmliBuildObjectPathname.c)
+ */
+
 __int64 __fastcall ACPIBusIommuBusInterface(ULONG_PTR a1, __int64 a2)
 {
   __int64 v2; // rbx

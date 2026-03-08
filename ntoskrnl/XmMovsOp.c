@@ -1,3 +1,13 @@
+/*
+ * XREFs of XmMovsOp @ 0x140531CC0
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmGetStringAddress @ 0x14039559C (XmGetStringAddress.c)
+ *     XmSetSourceValue @ 0x1403B41A0 (XmSetSourceValue.c)
+ *     XmStoreResult @ 0x1403B42E8 (XmStoreResult.c)
+ */
+
 _WORD *__fastcall XmMovsOp(__int64 a1)
 {
   _WORD *result; // rax

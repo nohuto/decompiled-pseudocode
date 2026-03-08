@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?TdrRetrieveSecondaryBucketingKey@@YAXPEAU_TDR_RECOVERY_CONTEXT@@PEAK@Z @ 0x1C030A96C
+ * Callers:
+ *     ?TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z @ 0x1C030A4E0 (-TdrIsRecoveryRequired@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@@Z.c)
+ *     ?TdrUpdateDbgReport@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@_N@Z @ 0x1C030AA20 (-TdrUpdateDbgReport@@YA_NPEAU_TDR_RECOVERY_CONTEXT@@_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall TdrRetrieveSecondaryBucketingKey(struct _TDR_RECOVERY_CONTEXT *a1, unsigned int *a2)
 {
   unsigned int *v2; // rax

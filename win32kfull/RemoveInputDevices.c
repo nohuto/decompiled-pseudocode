@@ -1,3 +1,12 @@
+/*
+ * XREFs of RemoveInputDevices @ 0x1C00F6800
+ * Callers:
+ *     xxxRemoteDisconnect @ 0x1C00F7034 (xxxRemoteDisconnect.c)
+ *     xxxRemoteReconnect @ 0x1C01267DC (xxxRemoteReconnect.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RemoveInputDevices(__int64 a1)
 {
   int v1; // ebx

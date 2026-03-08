@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsRenderTime@COffScreenRenderTarget@@IEAA_NPEAI@Z @ 0x18012CD1A
+ * Callers:
+ *     ?ReadyForRender@COffScreenRenderTarget@@MEAA_NXZ @ 0x18012CD90 (-ReadyForRender@COffScreenRenderTarget@@MEAA_NXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall COffScreenRenderTarget::IsRenderTime(COffScreenRenderTarget *this, unsigned int *a2)
 {
   unsigned __int64 v4; // rax

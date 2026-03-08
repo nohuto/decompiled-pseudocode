@@ -1,3 +1,23 @@
+/*
+ * XREFs of HalpIommuInitializeAll @ 0x140A8DA7C
+ * Callers:
+ *     HalpIommuInitSystem @ 0x140A86E10 (HalpIommuInitSystem.c)
+ *     HalpInterruptReinitialize @ 0x140A923CC (HalpInterruptReinitialize.c)
+ * Callees:
+ *     HalpInterruptIsRemappingRequired @ 0x14028EDCC (HalpInterruptIsRemappingRequired.c)
+ *     RtlClearAllBits @ 0x1402B24A0 (RtlClearAllBits.c)
+ *     HalpGetIrtEntryCount @ 0x1403031BC (HalpGetIrtEntryCount.c)
+ *     HalpMmAllocateMemory @ 0x14037A380 (HalpMmAllocateMemory.c)
+ *     HalpIommuPopulateExceptionList @ 0x1403A489C (HalpIommuPopulateExceptionList.c)
+ *     HalpIommuConfigureInterrupt @ 0x1403A4968 (HalpIommuConfigureInterrupt.c)
+ *     HalpIommuUpdatePageWalkCapability @ 0x1403A4AA4 (HalpIommuUpdatePageWalkCapability.c)
+ *     HalpIommuUpdatePageTableLevel @ 0x1403A4AE8 (HalpIommuUpdatePageTableLevel.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HviGetHardwareFeatures @ 0x140612F60 (HviGetHardwareFeatures.c)
+ *     HalpIommuConstructReservedPageTables @ 0x140A8786C (HalpIommuConstructReservedPageTables.c)
+ */
+
 __int64 __fastcall HalpIommuInitializeAll(char a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v6; // esi

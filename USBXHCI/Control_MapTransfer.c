@@ -1,3 +1,18 @@
+/*
+ * XREFs of Control_MapTransfer @ 0x1C00071B4
+ * Callers:
+ *     Control_WdfEvtIoDefault @ 0x1C0005C60 (Control_WdfEvtIoDefault.c)
+ *     Control_EP_StartMapping @ 0x1C0013470 (Control_EP_StartMapping.c)
+ * Callees:
+ *     Control_Transfer_CompleteCancelable @ 0x1C0006FBC (Control_Transfer_CompleteCancelable.c)
+ *     Control_Transfer_ValidateBuffer @ 0x1C00072C0 (Control_Transfer_ValidateBuffer.c)
+ *     Control_Transfer_Map @ 0x1C0007318 (Control_Transfer_Map.c)
+ *     TR_AcquireDoubleBuffer @ 0x1C00073E0 (TR_AcquireDoubleBuffer.c)
+ *     TR_IsUrbUsingChainedMdl @ 0x1C0007484 (TR_IsUrbUsingChainedMdl.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0007C90 (WPP_RECORDER_SF_DD.c)
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ */
+
 void __fastcall Control_MapTransfer(__int64 a1)
 {
   __int64 v1; // rdi

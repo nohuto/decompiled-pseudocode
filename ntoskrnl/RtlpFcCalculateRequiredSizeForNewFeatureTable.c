@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlpFcCalculateRequiredSizeForNewFeatureTable @ 0x1409BFEF0
+ * Callers:
+ *     RtlpFcUpdateFeatureConfiguration @ 0x1409C0408 (RtlpFcUpdateFeatureConfiguration.c)
+ * Callees:
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlpFcCompareFeatureToUpdate @ 0x1409C0180 (RtlpFcCompareFeatureToUpdate.c)
+ *     RtlpFcDoesFeatureHaveUniqueState @ 0x1409C02A4 (RtlpFcDoesFeatureHaveUniqueState.c)
+ *     RtlpFcIsUpdateModifyingOrAddingFeature @ 0x1409C02DC (RtlpFcIsUpdateModifyingOrAddingFeature.c)
+ *     RtlpFcUpdateFeature @ 0x1409C037C (RtlpFcUpdateFeature.c)
+ */
+
 NTSTATUS __fastcall RtlpFcCalculateRequiredSizeForNewFeatureTable(
         _DWORD *a1,
         __int64 a2,

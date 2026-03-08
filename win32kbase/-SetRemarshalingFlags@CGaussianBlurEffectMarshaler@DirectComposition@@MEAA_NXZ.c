@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CGaussianBlurEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C024D350
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CGaussianBlurEffectMarshaler::SetRemarshalingFlags(
         DirectComposition::CGaussianBlurEffectMarshaler *this)
 {

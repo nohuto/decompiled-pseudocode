@@ -1,3 +1,28 @@
+/*
+ * XREFs of CmpGetValueData @ 0x1407AAC20
+ * Callers:
+ *     CmAddLogForAction @ 0x14073485C (CmAddLogForAction.c)
+ *     CmQueryMultipleValueKey @ 0x1407A6F60 (CmQueryMultipleValueKey.c)
+ *     CmpCompareNewValueDataAgainstKCBCache @ 0x1407A8E68 (CmpCompareNewValueDataAgainstKCBCache.c)
+ *     CmpQueryKeyValueData @ 0x1407AA6A0 (CmpQueryKeyValueData.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1407B0EF0 (CmpGetSymbolicLinkTarget.c)
+ *     CmpValueToData @ 0x1407FEFF8 (CmpValueToData.c)
+ *     CmpCopyValue @ 0x1408A6FF4 (CmpCopyValue.c)
+ *     CmQueryMultipleValueForLayeredKey @ 0x140A11200 (CmQueryMultipleValueForLayeredKey.c)
+ *     CmpPreserveSystemHiveData @ 0x140A1F84C (CmpPreserveSystemHiveData.c)
+ *     CmpGetValueForAudit @ 0x140A22178 (CmpGetValueForAudit.c)
+ *     CmpLightWeightPrepareSetValueKeyUoW @ 0x140A26E00 (CmpLightWeightPrepareSetValueKeyUoW.c)
+ *     CmpFindTagIndex @ 0x140B33EDC (CmpFindTagIndex.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 bool __fastcall CmpGetValueData(
         ULONG_PTR BugCheckParameter3,
         ULONG_PTR a2,

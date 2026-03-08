@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiApplyHotPatchToDriver @ 0x140A321B0
+ * Callers:
+ *     MiLoadHotPatch @ 0x140A352A0 (MiLoadHotPatch.c)
+ *     MiUnloadHotPatch @ 0x140A392C0 (MiUnloadHotPatch.c)
+ * Callees:
+ *     MiApplyHotPatchToLoadedDriver @ 0x140A323A8 (MiApplyHotPatchToLoadedDriver.c)
+ *     MiLogHotPatchOperationStatus @ 0x140A36298 (MiLogHotPatchOperationStatus.c)
+ *     MiUnapplyDriverHotPatch @ 0x140A390F8 (MiUnapplyDriverHotPatch.c)
+ */
+
 __int64 __fastcall MiApplyHotPatchToDriver(int a1, int a2, __int64 a3, __int64 a4)
 {
   PVOID *v4; // rdi

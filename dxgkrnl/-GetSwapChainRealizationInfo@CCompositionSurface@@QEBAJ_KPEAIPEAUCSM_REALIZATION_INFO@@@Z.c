@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetSwapChainRealizationInfo@CCompositionSurface@@QEBAJ_KPEAIPEAUCSM_REALIZATION_INFO@@@Z @ 0x1C000D5A8
+ * Callers:
+ *     NtOpenCompositionSurfaceRealizationInfo @ 0x1C000CE00 (NtOpenCompositionSurfaceRealizationInfo.c)
+ * Callees:
+ *     ?FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z @ 0x1C000D670 (-FindBuffer@CCompositionSurface@@IEBAJ_KPEAPEAVCCompositionBuffer@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CCompositionSurface::GetSwapChainRealizationInfo(
         CCompositionSurface *this,
         unsigned __int64 a2,

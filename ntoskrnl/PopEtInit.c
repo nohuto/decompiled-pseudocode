@@ -1,3 +1,21 @@
+/*
+ * XREFs of PopEtInit @ 0x140B678A0
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsGetNextProcess @ 0x1406AA530 (PsGetNextProcess.c)
+ *     PoEnergyContextStart @ 0x140701078 (PoEnergyContextStart.c)
+ *     PoEnergyContextInitialize @ 0x140706240 (PoEnergyContextInitialize.c)
+ *     RtlGetVersion @ 0x1407A1380 (RtlGetVersion.c)
+ *     ObCreateObjectType @ 0x14080CB00 (ObCreateObjectType.c)
+ *     PopEtInitializeBuiltinAppId @ 0x1408532EC (PopEtInitializeBuiltinAppId.c)
+ *     RtlInternTableInitialize @ 0x140853360 (RtlInternTableInitialize.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 PopEtInit()
 {
   unsigned int v0; // esi

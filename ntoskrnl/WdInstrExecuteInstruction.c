@@ -1,3 +1,12 @@
+/*
+ * XREFs of WdInstrExecuteInstruction @ 0x1405280DC
+ * Callers:
+ *     HalpWdatExecuteActionBeforeInitialize @ 0x14051C944 (HalpWdatExecuteActionBeforeInitialize.c)
+ *     WdInstrExecuteAction @ 0x14052805C (WdInstrExecuteAction.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall WdInstrExecuteInstruction(__int64 a1, int a2, unsigned int *a3)
 {
   char v5; // r8

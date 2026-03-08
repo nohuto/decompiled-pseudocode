@@ -1,3 +1,11 @@
+/*
+ * XREFs of TxtpGetCacheEntry @ 0x140381778
+ * Callers:
+ *     BgpTxtDisplayCharacter @ 0x140381538 (BgpTxtDisplayCharacter.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *__fastcall TxtpGetCacheEntry(__int64 **a1, __int16 a2, __int64 a3)
 {
   __int64 *v3; // r9

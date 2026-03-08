@@ -1,3 +1,14 @@
+/*
+ * XREFs of SmKmSendDeviceControl @ 0x1409D6744
+ * Callers:
+ *     SmKmVolumeQueryUniqueId @ 0x1409D79A8 (SmKmVolumeQueryUniqueId.c)
+ * Callees:
+ *     IoBuildDeviceIoControlRequest @ 0x14024FE00 (IoBuildDeviceIoControlRequest.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ */
+
 NTSTATUS __fastcall SmKmSendDeviceControl(
         __int64 a1,
         struct _DEVICE_OBJECT *a2,

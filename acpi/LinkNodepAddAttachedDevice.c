@@ -1,3 +1,11 @@
+/*
+ * XREFs of LinkNodepAddAttachedDevice @ 0x1C009967C
+ * Callers:
+ *     LinkNodeCrackPrt @ 0x1C005CE9C (LinkNodeCrackPrt.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall LinkNodepAddAttachedDevice(__int64 a1, __int64 **a2)
 {
   __int64 *v3; // rdx

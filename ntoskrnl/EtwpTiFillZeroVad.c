@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpTiFillZeroVad @ 0x1402F83D0
+ * Callers:
+ *     EtwpTiFillVadEventWrite @ 0x1402FC438 (EtwpTiFillVadEventWrite.c)
+ *     EtwTiLogReadWriteVm @ 0x1407F1248 (EtwTiLogReadWriteVm.c)
+ *     EtwTiLogProtectExecVm @ 0x1408A2C4A (EtwTiLogProtectExecVm.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EtwpTiFillZeroVad(_QWORD *a1)
 {
   __int64 result; // rax

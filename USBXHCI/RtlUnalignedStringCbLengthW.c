@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlUnalignedStringCbLengthW @ 0x1C001C68C
+ * Callers:
+ *     Controller_SetDeviceDescription @ 0x1C0073EEC (Controller_SetDeviceDescription.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlUnalignedStringCbLengthW(STRSAFE_PCUNZWCH psz, size_t cbMax, size_t *pcbLength)
 {
   size_t v3; // rdx

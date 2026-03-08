@@ -1,3 +1,17 @@
+/*
+ * XREFs of DbgkpPostModuleMessages @ 0x140934C44
+ * Callers:
+ *     DbgkCreateThread @ 0x1407ED96C (DbgkCreateThread.c)
+ *     DbgkpPostFakeProcessCreateMessages @ 0x140934758 (DbgkpPostFakeProcessCreateMessages.c)
+ * Callees:
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     DbgkPostEnclaveModuleMessages @ 0x140539580 (DbgkPostEnclaveModuleMessages.c)
+ *     DbgkPostModuleMessage @ 0x1405395FC (DbgkPostModuleMessage.c)
+ *     PsFreeEnclaveModuleInfo @ 0x1405A43B0 (PsFreeEnclaveModuleInfo.c)
+ *     PsGetProcessEnclaveModuleInfo @ 0x1405A440C (PsGetProcessEnclaveModuleInfo.c)
+ *     VslSendDebugAttachNotifications @ 0x140940008 (VslSendDebugAttachNotifications.c)
+ */
+
 void __fastcall DbgkpPostModuleMessages(__int64 a1, void *a2, struct _KEVENT *a3)
 {
   __int64 v6; // rax

@@ -1,3 +1,23 @@
+/*
+ * XREFs of CmpCreateRegistryRoot @ 0x140B5131C
+ * Callers:
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ObCreateObject @ 0x140709D30 (ObCreateObject.c)
+ *     EnlistKeyBodyWithKCB @ 0x14076EC30 (EnlistKeyBodyWithKCB.c)
+ *     CmpTryToLockKcbExclusive @ 0x140790CD8 (CmpTryToLockKcbExclusive.c)
+ *     CmpHashUnicodeComponent @ 0x1407A480C (CmpHashUnicodeComponent.c)
+ *     CmpCreateKeyControlBlock @ 0x1407AFAA0 (CmpCreateKeyControlBlock.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ObInsertObject @ 0x1407F0A20 (ObInsertObject.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     CmpHiveRootSecurityDescriptor @ 0x140816360 (CmpHiveRootSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     CmpUnlockKcb @ 0x140AF2140 (CmpUnlockKcb.c)
+ *     CmpCreateRootNode @ 0x140B52778 (CmpCreateRootNode.c)
+ */
+
 __int64 __fastcall CmpCreateRegistryRoot(__int64 a1, __int64 a2)
 {
   int inserted; // edi

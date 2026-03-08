@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CanCastTo@?$ImplementsHelper@U?$RuntimeClassFlags@$02@WRL@Microsoft@@$0A@U?$IReference@I@Foundation@Windows@@UIWeakReferenceSource@@VFtmBase@23@@Details@WRL@Microsoft@@IEAAJAEBU_GUID@@PEAPEAXPEA_N@Z @ 0x18028FC68
+ * Callers:
+ *     ?QueryInterface@?$ValueReference@I@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1802942C0 (-QueryInterface@-$ValueReference@I@@UEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ * Callees:
+ *     ?CanCastTo@FtmBase@WRL@Microsoft@@IEAAJAEBU_GUID@@PEAPEAX@Z @ 0x18028FCD4 (-CanCastTo@FtmBase@WRL@Microsoft@@IEAAJAEBU_GUID@@PEAPEAX@Z.c)
+ *     ?InlineIsEqualGUID@@YAHAEBU_GUID@@0@Z @ 0x1802935E8 (-InlineIsEqualGUID@@YAHAEBU_GUID@@0@Z.c)
+ */
+
 __int64 __fastcall Microsoft::WRL::Details::ImplementsHelper<Microsoft::WRL::RuntimeClassFlags<3>,0,Windows::Foundation::IReference<unsigned int>,IWeakReferenceSource,Microsoft::WRL::FtmBase>::CanCastTo(
         __int64 a1,
         const struct _GUID *a2)

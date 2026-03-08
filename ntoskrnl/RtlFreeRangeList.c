@@ -1,3 +1,20 @@
+/*
+ * XREFs of RtlFreeRangeList @ 0x140820250
+ * Callers:
+ *     ArbTestAllocation @ 0x14081F960 (ArbTestAllocation.c)
+ *     RtlCopyRangeList @ 0x14081FAD0 (RtlCopyRangeList.c)
+ *     ArbBootAllocation @ 0x14081FDE0 (ArbBootAllocation.c)
+ *     ArbCommitAllocation @ 0x140820040 (ArbCommitAllocation.c)
+ *     ArbInitializeRangeList @ 0x1409331D0 (ArbInitializeRangeList.c)
+ *     ArbQueryConflict @ 0x1409333C0 (ArbQueryConflict.c)
+ *     ArbRetestAllocation @ 0x140933760 (ArbRetestAllocation.c)
+ *     ArbRollbackAllocation @ 0x140933930 (ArbRollbackAllocation.c)
+ *     ArbStartArbiter @ 0x140933B70 (ArbStartArbiter.c)
+ *     RtlMergeRangeLists @ 0x1409B5CD0 (RtlMergeRangeLists.c)
+ * Callees:
+ *     RtlpDeleteRangeListEntry @ 0x1408202B8 (RtlpDeleteRangeListEntry.c)
+ */
+
 _QWORD *__fastcall RtlFreeRangeList(__int64 a1)
 {
   _QWORD *result; // rax

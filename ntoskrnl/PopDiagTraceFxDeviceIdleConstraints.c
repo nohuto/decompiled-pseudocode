@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDiagTraceFxDeviceIdleConstraints @ 0x140591214
+ * Callers:
+ *     PopPluginRequestDeviceIdleConstraints @ 0x14058A5C8 (PopPluginRequestDeviceIdleConstraints.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PopDiagTraceFxDeviceIdleConstraints(__int64 a1, __int64 a2, int a3)
 {
   REGHANDLE v5; // rdi

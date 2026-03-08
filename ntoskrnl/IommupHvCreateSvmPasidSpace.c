@@ -1,3 +1,14 @@
+/*
+ * XREFs of IommupHvCreateSvmPasidSpace @ 0x140522330
+ * Callers:
+ *     IommupGetSystemContext @ 0x1403AB428 (IommupGetSystemContext.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall IommupHvCreateSvmPasidSpace(int a1)
 {
   int v1; // ebx

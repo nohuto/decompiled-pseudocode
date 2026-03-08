@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiLogPinDriverAddress @ 0x1407EB808
+ * Callers:
+ *     MiLogPinDriverAddressesWorker @ 0x1407EB6F0 (MiLogPinDriverAddressesWorker.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MiLookupDataTableEntry @ 0x14035ECF0 (MiLookupDataTableEntry.c)
+ *     _tlgWriteAgg @ 0x14035EDD0 (_tlgWriteAgg.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall MiLogPinDriverAddress(__int64 *a1)
 {
   __int64 v1; // rbx

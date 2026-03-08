@@ -1,3 +1,11 @@
+/*
+ * XREFs of _lambda_484f3fc5f209b5786cb6c1066b9b753c_::_lambda_invoker_cdecl_ @ 0x1C00F0CD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _lambda_484f3fc5f209b5786cb6c1066b9b753c_::operator() @ 0x1C00F0CEC (_lambda_484f3fc5f209b5786cb6c1066b9b753c_--operator().c)
+ */
+
 __int64 __fastcall lambda_484f3fc5f209b5786cb6c1066b9b753c_::_lambda_invoker_cdecl_(__int64 a1, __int64 a2)
 {
   __int64 v2; // r8

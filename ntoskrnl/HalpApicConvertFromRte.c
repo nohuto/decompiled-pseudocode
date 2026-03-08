@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpApicConvertFromRte @ 0x14052546C
+ * Callers:
+ *     HalpApicInitializeIoUnit @ 0x14039F3E0 (HalpApicInitializeIoUnit.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpApicConvertFromRte(int a1, unsigned int a2, __int64 a3)
 {
   int v6; // eax

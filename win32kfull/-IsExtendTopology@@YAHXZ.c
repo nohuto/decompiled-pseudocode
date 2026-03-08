@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsExtendTopology@@YAHXZ @ 0x1C01A80A0
+ * Callers:
+ *     ?xxxSmoothRotateScreen@CLegacyRotationMgr@@AEAAJPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@HPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C01A8DC4 (-xxxSmoothRotateScreen@CLegacyRotationMgr@@AEAAJPEAUDISPLAYCONFIG_PATH_INFO_INTERNAL@@HPEAU_DXGK.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 IsExtendTopology(void)
 {
   unsigned int v0; // ebx

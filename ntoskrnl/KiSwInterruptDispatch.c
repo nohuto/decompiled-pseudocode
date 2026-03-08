@@ -1,3 +1,19 @@
+/*
+ * XREFs of KiSwInterruptDispatch @ 0x1403DEA50
+ * Callers:
+ *     KiSwInterrupt @ 0x14041E0D0 (KiSwInterrupt.c)
+ * Callees:
+ *     KeExitRetpoline @ 0x1402E3E6C (KeExitRetpoline.c)
+ *     KiGetTrapFrameMode @ 0x1403D0940 (KiGetTrapFrameMode.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     KiReadKernelDr7 @ 0x140569C1C (KiReadKernelDr7.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     $$ba @ 0x140B0E898 ($$ba.c)
+ *     SdbpCheckDll @ 0x140B104F0 (SdbpCheckDll.c)
+ *     KeGuardDispatchICall @ 0x140B107A0 (KeGuardDispatchICall.c)
+ *     KeGuardCheckICall @ 0x140B107B0 (KeGuardCheckICall.c)
+ */
+
 char __fastcall KiSwInterruptDispatch(__int64 a1)
 {
   _QWORD *v1; // rdi

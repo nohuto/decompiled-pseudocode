@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpIrtInitializeDeviceApertures @ 0x140931A84
+ * Callers:
+ *     HalpInitializeInterruptRemappingBspLate @ 0x14085A328 (HalpInitializeInterruptRemappingBspLate.c)
+ * Callees:
+ *     HalpIrtAllocateDeviceAperture @ 0x140931740 (HalpIrtAllocateDeviceAperture.c)
+ */
+
 __int64 HalpIrtInitializeDeviceApertures()
 {
   __int64 result; // rax

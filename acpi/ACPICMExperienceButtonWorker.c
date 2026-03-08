@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPICMExperienceButtonWorker @ 0x1C00821A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ACPICMExperienceButtonWorker(__int64 a1, unsigned int a2)
 {
   __int64 Pool2; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MulStartDxInterop@@YAHPEAU_SURFOBJ@@HPEAX@Z @ 0x1C02B2CB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall MulStartDxInterop(struct _SURFOBJ *a1, __int64 a2, void *a3)
 {
   unsigned int v3; // r9d

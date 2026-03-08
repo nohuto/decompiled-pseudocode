@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBDTX_ClearEndpointHaltUsingControlTransfer @ 0x1C002C7F8
+ * Callers:
+ *     HUBDSM_ClearingEndpointHaltOnClientResetPipe @ 0x1C001F2F0 (HUBDSM_ClearingEndpointHaltOnClientResetPipe.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBMISC_ControlTransfer @ 0x1C0032664 (HUBMISC_ControlTransfer.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBDTX_ClearEndpointHaltUsingControlTransfer(__int64 *a1)
 {
   __int64 v1; // rdx

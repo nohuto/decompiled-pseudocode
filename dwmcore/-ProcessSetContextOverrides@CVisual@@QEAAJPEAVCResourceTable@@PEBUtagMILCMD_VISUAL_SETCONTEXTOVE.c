@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?ProcessSetContextOverrides@CVisual@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_VISUAL_SETCONTEXTOVERRIDES@@@Z @ 0x1800FAF5C
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F0A8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     ?GetWorldRenderingScaleOverride@CVisual@@QEBAMXZ @ 0x1800394A0 (-GetWorldRenderingScaleOverride@CVisual@@QEBAMXZ.c)
+ *     ?PropagateFlags@CVisual@@IEAAXW4VisualDirty@@@Z @ 0x180098FD8 (-PropagateFlags@CVisual@@IEAAXW4VisualDirty@@@Z.c)
+ *     ?GetWorldUpVectorOverride@CVisual@@QEBA?AUD2D_VECTOR_3F@@XZ @ 0x1800FB008 (-GetWorldUpVectorOverride@CVisual@@QEBA-AUD2D_VECTOR_3F@@XZ.c)
+ *     ?SetWorldRenderingScaleOverride@CVisual@@QEAAXM@Z @ 0x1800FB030 (-SetWorldRenderingScaleOverride@CVisual@@QEAAXM@Z.c)
+ *     ?SetWorldUpVectorOverride@CVisual@@QEAAXUD2D_VECTOR_3F@@@Z @ 0x1800FB070 (-SetWorldUpVectorOverride@CVisual@@QEAAXUD2D_VECTOR_3F@@@Z.c)
+ */
+
 __int64 __fastcall CVisual::ProcessSetContextOverrides(
         CVisual *this,
         struct CResourceTable *a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?RtlStringCchPrintfA@@YAJPEAD_KPEBDZZ @ 0x1C01DF408
+ * Callers:
+ *     ?_Report@PalmTelemetry@@AEAAXK@Z @ 0x1C01DF7B8 (-_Report@PalmTelemetry@@AEAAXK@Z.c)
+ *     ?_UploadTelemetryData@DeadzonePalmTelemetry@@AEAAXH@Z @ 0x1C01DFB6C (-_UploadTelemetryData@DeadzonePalmTelemetry@@AEAAXH@Z.c)
+ *     ?UploadTelemetryData@DelayZoneTelemetry@@AEAAX_N@Z @ 0x1C0232450 (-UploadTelemetryData@DelayZoneTelemetry@@AEAAX_N@Z.c)
+ * Callees:
+ *     _vsnprintf @ 0x1C00DA954 (_vsnprintf.c)
+ */
+
 __int64 RtlStringCchPrintfA(char *a1, __int64 a2, const char *a3, ...)
 {
   unsigned int v4; // ebx

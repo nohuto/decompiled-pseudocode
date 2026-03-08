@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DetachWindowCompositionTarget@@YAJPEAUHWND__@@K@Z @ 0x1C007D1DC
+ * Callers:
+ *     NtUserDestroyDCompositionHwndTarget @ 0x1C007D170 (NtUserDestroyDCompositionHwndTarget.c)
+ * Callees:
+ *     ?_DetachWindowCompositionTarget@@YAHPEAUtagWND@@K@Z @ 0x1C007D2FC (-_DetachWindowCompositionTarget@@YAHPEAUtagWND@@K@Z.c)
+ */
+
 __int64 __fastcall DetachWindowCompositionTarget(HWND a1, unsigned int a2)
 {
   __int64 v4; // rax

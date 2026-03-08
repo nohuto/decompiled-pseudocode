@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SetReferenceProperty@CSpriteVisual@@UEAAJIPEAVCResource@@@Z @ 0x18024F020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?SetContent@CSpriteVisual@@MEAAJPEAVCContent@@@Z @ 0x18024EEE0 (-SetContent@CSpriteVisual@@MEAAJPEAVCContent@@@Z.c)
+ */
+
 __int64 __fastcall CSpriteVisual::SetReferenceProperty(struct CResource **this, int a2, struct CResource *a3)
 {
   __int64 v5; // rdx

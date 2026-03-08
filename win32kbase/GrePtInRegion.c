@@ -1,3 +1,14 @@
+/*
+ * XREFs of GrePtInRegion @ 0x1C0007000
+ * Callers:
+ *     NtGdiPtInRegion @ 0x1C0185900 (NtGdiPtInRegion.c)
+ * Callees:
+ *     ?bInside@RGNOBJ@@QEAAHPEAU_POINTL@@@Z @ 0x1C0007080 (-bInside@RGNOBJ@@QEAAHPEAU_POINTL@@@Z.c)
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C005173C (--1RGNOBJAPI@@QEAA@XZ.c)
+ *     EngSetLastError @ 0x1C00BAB10 (EngSetLastError.c)
+ *     ??0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z @ 0x1C00DE3A0 (--0RGNOBJAPI@@QEAA@PEAUHRGN__@@HH@Z.c)
+ */
+
 __int64 __fastcall GrePtInRegion(HRGN a1, LONG a2, LONG a3)
 {
   unsigned int v5; // ebx

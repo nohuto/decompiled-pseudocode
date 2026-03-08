@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?SetParent@CSceneNode@@AEAAXPEAV1@@Z @ 0x18024DCE4
+ * Callers:
+ *     ??1CSceneNode@@MEAA@XZ @ 0x18024D5FC (--1CSceneNode@@MEAA@XZ.c)
+ *     ?OnChildrenChanged@CSceneNode@@QEAAXXZ @ 0x18024DA84 (-OnChildrenChanged@CSceneNode@@QEAAXXZ.c)
+ *     ?SetChildren@CSceneNode@@QEAAJAEBV?$span@PEAVCSceneNode@@$0?0@gsl@@@Z @ 0x18024DB64 (-SetChildren@CSceneNode@@QEAAJAEBV-$span@PEAVCSceneNode@@$0-0@gsl@@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?DehydrateSpectreResources@CSceneNode@@QEAAXXZ @ 0x18024D7D8 (-DehydrateSpectreResources@CSceneNode@@QEAAXXZ.c)
+ *     ?HydrateSpectreResources@CSceneNode@@QEAAJPEAVCSceneWorld@@@Z @ 0x18024D8A0 (-HydrateSpectreResources@CSceneNode@@QEAAJPEAVCSceneWorld@@@Z.c)
+ */
+
 void __fastcall CSceneNode::SetParent(CSceneNode *this, struct CSceneNode *a2)
 {
   struct CSceneWorld **v4; // rsi

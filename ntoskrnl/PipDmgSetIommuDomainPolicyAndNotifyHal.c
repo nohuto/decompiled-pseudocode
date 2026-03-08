@@ -1,3 +1,15 @@
+/*
+ * XREFs of PipDmgSetIommuDomainPolicyAndNotifyHal @ 0x140968954
+ * Callers:
+ *     PiDmaGuardProcessUpdateConsoleLockStateAction @ 0x140967F1C (PiDmaGuardProcessUpdateConsoleLockStateAction.c)
+ *     PipDmgEnforceEnumerationPolicy @ 0x140968304 (PipDmgEnforceEnumerationPolicy.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PnpDeviceObjectToDeviceInstance @ 0x140685094 (PnpDeviceObjectToDeviceInstance.c)
+ *     _PnpSetObjectProperty @ 0x140686C8C (_PnpSetObjectProperty.c)
+ */
+
 __int64 __fastcall PipDmgSetIommuDomainPolicyAndNotifyHal(__int64 *a1, int a2, char a3)
 {
   int v4; // edi

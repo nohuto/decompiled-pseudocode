@@ -1,3 +1,13 @@
+/*
+ * XREFs of KsepEngineInitialize @ 0x140B34E84
+ * Callers:
+ *     KseInitialize @ 0x140B3E688 (KseInitialize.c)
+ * Callees:
+ *     RtlAssert @ 0x1405A7CA0 (RtlAssert.c)
+ *     KsepCacheInitialize @ 0x1407FFE64 (KsepCacheInitialize.c)
+ *     KsepEngineReadFlags @ 0x140B34F48 (KsepEngineReadFlags.c)
+ */
+
 __int64 __fastcall KsepEngineInitialize(_QWORD *a1)
 {
   _QWORD *v2; // rax

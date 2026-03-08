@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhFdoInternalDeviceControl @ 0x1C0004330
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhInternalIoctlPropagateResume @ 0x1C00043C4 (UsbhInternalIoctlPropagateResume.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhFdoChainIrp @ 0x1C002A33C (UsbhFdoChainIrp.c)
+ */
+
 __int64 __fastcall UsbhFdoInternalDeviceControl(__int64 a1, IRP *a2)
 {
   switch ( a2->Tail.Overlay.CurrentStackLocation->Parameters.Read.ByteOffset.LowPart )

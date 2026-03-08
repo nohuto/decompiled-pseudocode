@@ -1,3 +1,13 @@
+/*
+ * XREFs of AcpiDiagTraceControlCallback @ 0x1C0007C80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcpiDiagTraceDeviceCoolingRundown @ 0x1C0007ECC (AcpiDiagTraceDeviceCoolingRundown.c)
+ *     AcpiDiagTraceFanRundown @ 0x1C000842C (AcpiDiagTraceFanRundown.c)
+ *     AcpiDiagTraceThermalZoneRundown @ 0x1C0008DBC (AcpiDiagTraceThermalZoneRundown.c)
+ */
+
 void __fastcall AcpiDiagTraceControlCallback(
         LPCGUID SourceId,
         ULONG ControlCode,

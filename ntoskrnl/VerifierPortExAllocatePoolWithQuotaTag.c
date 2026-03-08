@@ -1,3 +1,13 @@
+/*
+ * XREFs of VerifierPortExAllocatePoolWithQuotaTag @ 0x140ADA380
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAllocatePoolWithQuotaTag @ 0x1402950E0 (ExAllocatePoolWithQuotaTag.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ */
+
 PVOID __fastcall VerifierPortExAllocatePoolWithQuotaTag(
         unsigned int PoolType,
         SIZE_T NumberOfBytes,

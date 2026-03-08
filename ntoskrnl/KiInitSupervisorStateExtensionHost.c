@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiInitSupervisorStateExtensionHost @ 0x140B42244
+ * Callers:
+ *     KeInitSystem @ 0x140B42FB8 (KeInitSystem.c)
+ * Callees:
+ *     ExRegisterHost @ 0x14080EEF0 (ExRegisterHost.c)
+ */
+
 void __fastcall KiInitSupervisorStateExtensionHost(__int64 a1, __int64 a2)
 {
   _DWORD v2[2]; // [rsp+20h] [rbp-38h] BYREF

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMIDEBuildRawButtonsFromMouseInputStruct @ 0x1C01C1554
+ * Callers:
+ *     RIMIDEInjectMouseFromMouseInputStruct @ 0x1C01C4968 (RIMIDEInjectMouseFromMouseInputStruct.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RIMIDEBuildRawButtonsFromMouseInputStruct(int a1, __int64 a2)
 {
   unsigned int v2; // r10d

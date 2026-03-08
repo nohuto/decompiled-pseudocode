@@ -1,3 +1,15 @@
+/*
+ * XREFs of zzzActiveCursorTracking @ 0x1C01B8530
+ * Callers:
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C00A126C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ *     ?xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z @ 0x1C00E6D24 (-xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z.c)
+ * Callees:
+ *     ?zzzInternalSetCursorPos@@YAXHHKW4_SetCursorPosReason@@@Z @ 0x1C001DD64 (-zzzInternalSetCursorPos@@YAXHHKW4_SetCursorPosReason@@@Z.c)
+ *     SetVisible @ 0x1C002DB8C (SetVisible.c)
+ *     PtInRect @ 0x1C00A34E8 (PtInRect.c)
+ *     GetActiveTrackPwnd @ 0x1C01B7A4C (GetActiveTrackPwnd.c)
+ */
+
 __int64 __fastcall zzzActiveCursorTracking(struct tagWND *a1)
 {
   __int64 result; // rax

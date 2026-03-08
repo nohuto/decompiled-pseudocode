@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiInsertNewZeroThread @ 0x1403A72CC
+ * Callers:
+ *     MiStartZeroEngineThreads @ 0x14076C01C (MiStartZeroEngineThreads.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiDeleteZeroThreadContext @ 0x140652704 (MiDeleteZeroThreadContext.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     PsCreateSystemThreadEx @ 0x1407DE330 (PsCreateSystemThreadEx.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ */
+
 __int64 __fastcall MiInsertNewZeroThread(__int64 a1, _QWORD *a2)
 {
   __int64 v3; // rax

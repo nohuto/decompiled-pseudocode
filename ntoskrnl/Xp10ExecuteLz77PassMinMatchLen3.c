@@ -1,3 +1,11 @@
+/*
+ * XREFs of Xp10ExecuteLz77PassMinMatchLen3 @ 0x1409C3990
+ * Callers:
+ *     Xp10CompressBuffer @ 0x1409C2808 (Xp10CompressBuffer.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Xp10ExecuteLz77PassMinMatchLen3(
         _DWORD *a1,
         unsigned __int8 *a2,

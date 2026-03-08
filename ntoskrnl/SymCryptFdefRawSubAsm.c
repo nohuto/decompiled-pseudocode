@@ -1,3 +1,13 @@
+/*
+ * XREFs of SymCryptFdefRawSubAsm @ 0x140400200
+ * Callers:
+ *     SymCryptFdefIntSubMixedSize @ 0x1403FDAC8 (SymCryptFdefIntSubMixedSize.c)
+ *     SymCryptFdefIntSubSameSize @ 0x1403FDBB0 (SymCryptFdefIntSubSameSize.c)
+ *     SymCryptFdefRawSub @ 0x1403FE1BC (SymCryptFdefRawSub.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall SymCryptFdefRawSubAsm(unsigned __int64 *a1, _QWORD *a2, _QWORD *a3, int a4)
 {
   int v4; // r9d

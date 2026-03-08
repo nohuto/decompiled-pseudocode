@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmInfoAdjustSetting @ 0x140825E18
+ * Callers:
+ *     PpmSetProfilePolicySetting @ 0x140825A60 (PpmSetProfilePolicySetting.c)
+ * Callees:
+ *     PpmPerfComputePerfReductionTolerance @ 0x14038E174 (PpmPerfComputePerfReductionTolerance.c)
+ *     PpmInfoWriteData @ 0x140825EDC (PpmInfoWriteData.c)
+ */
+
 char __fastcall PpmInfoAdjustSetting(
         __int64 a1,
         __int64 a2,

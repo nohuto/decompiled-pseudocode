@@ -1,3 +1,11 @@
+/*
+ * XREFs of DwmAsyncActivationChange @ 0x1C0024744
+ * Callers:
+ *     xxxDWP_DoNCActivate @ 0x1C00245B8 (xxxDWP_DoNCActivate.c)
+ * Callees:
+ *     ?IncrementDWMWindowUniqueness@@YA_JXZ @ 0x1C0028164 (-IncrementDWMWindowUniqueness@@YA_JXZ.c)
+ */
+
 __int64 __fastcall DwmAsyncActivationChange(PVOID Object, __int64 a2, int a3)
 {
   unsigned int v6; // ebx

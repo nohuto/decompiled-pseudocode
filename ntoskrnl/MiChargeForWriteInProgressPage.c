@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiChargeForWriteInProgressPage @ 0x1402E44C4
+ * Callers:
+ *     MiReferencePageForModifiedWrite @ 0x140213038 (MiReferencePageForModifiedWrite.c)
+ *     MiAllocateModWriterEntry @ 0x1402E4458 (MiAllocateModWriterEntry.c)
+ * Callees:
+ *     MiChargeCommit @ 0x140320800 (MiChargeCommit.c)
+ *     MiChargeResident @ 0x140348DE8 (MiChargeResident.c)
+ */
+
 __int64 __fastcall MiChargeForWriteInProgressPage(__int64 a1, char a2)
 {
   unsigned __int64 v3; // rbx

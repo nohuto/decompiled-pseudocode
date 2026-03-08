@@ -1,3 +1,19 @@
+/*
+ * XREFs of VfThunkApplyPristineToAllSession @ 0x140AD82CC
+ * Callers:
+ *     VfSuspectApplyDifVolatileVerification @ 0x140AD7288 (VfSuspectApplyDifVolatileVerification.c)
+ *     VfSuspectRemoveDifVolatileVerification @ 0x140AD7C74 (VfSuspectRemoveDifVolatileVerification.c)
+ * Callees:
+ *     MmIsSessionAddress @ 0x140239ED0 (MmIsSessionAddress.c)
+ *     MmDetachSession @ 0x1402EA460 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1402EA500 (MmAttachSession.c)
+ *     MmGetNextSession @ 0x14035C2F0 (MmGetNextSession.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MmIsDriverLoadedCurrentSession @ 0x1407F7298 (MmIsDriverLoadedCurrentSession.c)
+ *     MmQuitNextSession @ 0x14087FF10 (MmQuitNextSession.c)
+ *     ViThunkApplyPristineCurrentSession @ 0x140AD858C (ViThunkApplyPristineCurrentSession.c)
+ */
+
 __int64 __fastcall VfThunkApplyPristineToAllSession(__int64 a1)
 {
   int v2; // edi

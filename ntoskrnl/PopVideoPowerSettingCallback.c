@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopVideoPowerSettingCallback @ 0x14038FE70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopAdaptivePowerSettingCallback @ 0x140829230 (PopAdaptivePowerSettingCallback.c)
+ *     PopApplyPolicy @ 0x14082A06C (PopApplyPolicy.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopVideoPowerSettingCallback(_QWORD *a1, _DWORD *a2, int a3, __int64 a4)
 {
   unsigned int v7; // edi

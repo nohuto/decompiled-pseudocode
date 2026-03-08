@@ -1,3 +1,13 @@
+/*
+ * XREFs of PoTraceSystemTimerResolutionIgnore @ 0x14058EDC8
+ * Callers:
+ *     PspSetProcessTimerResolutionPolicy @ 0x140790FB0 (PspSetProcessTimerResolutionPolicy.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 BOOLEAN __fastcall PoTraceSystemTimerResolutionIgnore(__int64 a1)
 {
   REGHANDLE v1; // rbx

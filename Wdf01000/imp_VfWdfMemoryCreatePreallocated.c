@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_VfWdfMemoryCreatePreallocated @ 0x1C00B5F50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall imp_VfWdfMemoryCreatePreallocated(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         _WDF_OBJECT_ATTRIBUTES *Attributes,

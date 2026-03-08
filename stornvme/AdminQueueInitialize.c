@@ -1,3 +1,13 @@
+/*
+ * XREFs of AdminQueueInitialize @ 0x1C0009254
+ * Callers:
+ *     NVMeControllerInitPart1 @ 0x1C000D7A8 (NVMeControllerInitPart1.c)
+ * Callees:
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     NVMeCompletionQueueInit @ 0x1C000C768 (NVMeCompletionQueueInit.c)
+ *     NVMeSubmissionQueueInit @ 0x1C00108FC (NVMeSubmissionQueueInit.c)
+ */
+
 char __fastcall AdminQueueInitialize(__int64 a1)
 {
   __int64 v1; // rax

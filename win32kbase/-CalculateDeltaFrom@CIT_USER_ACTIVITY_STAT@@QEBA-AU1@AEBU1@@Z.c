@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CalculateDeltaFrom@CIT_USER_ACTIVITY_STAT@@QEBA?AU1@AEBU1@@Z @ 0x1C00B0A54
+ * Callers:
+ *     ?CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagSHELL_INPUT_USAGE_DATA_INFO@@@Z @ 0x1C00B0564 (-CitpSetForegroundProcess@@YAHPEAU_CIT_IMPACT_CONTEXT@@IPEAUtagPROCESSINFO@@PEAUtagWND@@PEAUtagS.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned int *__fastcall CIT_USER_ACTIVITY_STAT::CalculateDeltaFrom(
         unsigned int *a1,
         unsigned int *a2,

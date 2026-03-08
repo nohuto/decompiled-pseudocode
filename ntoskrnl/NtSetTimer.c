@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtSetTimer @ 0x1403AD470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PoCaptureReasonContext @ 0x1402BD2FC (PoCaptureReasonContext.c)
+ *     PoDestroyReasonContext @ 0x1402BDBE4 (PoDestroyReasonContext.c)
+ *     ExpSetTimer @ 0x1402CDD38 (ExpSetTimer.c)
+ */
+
 __int64 __fastcall NtSetTimer(
         void *a1,
         unsigned __int64 a2,

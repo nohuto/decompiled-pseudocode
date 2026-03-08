@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiQueueWorkingSetRequest @ 0x1402B8A34
+ * Callers:
+ *     MiCaptureAllWorkingSetAccessBits @ 0x1402B8A14 (MiCaptureAllWorkingSetAccessBits.c)
+ *     MiEmptyAllWorkingSets @ 0x1406322B8 (MiEmptyAllWorkingSets.c)
+ *     MiTrimNoStealPagesFromWorkingSets @ 0x140633040 (MiTrimNoStealPagesFromWorkingSets.c)
+ *     MmTrimFilePagesFromWorkingSets @ 0x14063327C (MmTrimFilePagesFromWorkingSets.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiQueueWorkingSetRequest(__int64 a1, int a2)
 {
   __int64 v3; // rbx

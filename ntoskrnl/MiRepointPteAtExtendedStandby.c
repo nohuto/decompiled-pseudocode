@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiRepointPteAtExtendedStandby @ 0x14064F5DC
+ * Callers:
+ *     MiRemoveLowestPriorityStandbyPage @ 0x14064F264 (MiRemoveLowestPriorityStandbyPage.c)
+ * Callees:
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiReleasePageListLock @ 0x140288360 (MiReleasePageListLock.c)
+ *     MiReplaceTransitionPage @ 0x1402C6784 (MiReplaceTransitionPage.c)
+ *     MiLockNestedPageAtDpcInline @ 0x1402DDE90 (MiLockNestedPageAtDpcInline.c)
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ *     MiRestoreTransitionPte @ 0x14036A9C4 (MiRestoreTransitionPte.c)
+ */
+
 __int64 __fastcall MiRepointPteAtExtendedStandby(
         ULONG_PTR BugCheckParameter2,
         __int16 a2,

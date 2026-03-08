@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vSetRendering@DC@@QEAAXXZ @ 0x1C00A3BF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DC::vSetRendering(DC *this)
 {
   __int64 v2; // rdx

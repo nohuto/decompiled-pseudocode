@@ -1,3 +1,23 @@
+/*
+ * XREFs of HvWriteExternal @ 0x140A1DE94
+ * Callers:
+ *     CmSaveKey @ 0x140A08D50 (CmSaveKey.c)
+ *     CmSaveMergedKeys @ 0x140A09144 (CmSaveMergedKeys.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     CmpFileFlush @ 0x140731EC0 (CmpFileFlush.c)
+ *     CmpDoFileSetSizeEx @ 0x140731FA4 (CmpDoFileSetSizeEx.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     HvpHeaderCheckSum @ 0x140AF2414 (HvpHeaderCheckSum.c)
+ *     HvpGetBinContextInitialize @ 0x140AF2644 (HvpGetBinContextInitialize.c)
+ *     HvpMapEntryGetBinAddress @ 0x140AF2654 (HvpMapEntryGetBinAddress.c)
+ *     HvpGetCellMap @ 0x140AF2670 (HvpGetCellMap.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x140AF26CC (HvpMapEntryReleaseBinAddress.c)
+ */
+
 __int64 __fastcall HvWriteExternal(ULONG_PTR BugCheckParameter2)
 {
   unsigned int v2; // edi

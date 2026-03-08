@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmosConfigSpaceHandlerWorker @ 0x1C0019CC4
+ * Callers:
+ *     CmosConfigSpaceHandler @ 0x1C0019B90 (CmosConfigSpaceHandler.c)
+ *     CmosTranslatePNPIDToEnum @ 0x1C0019DF0 (CmosTranslatePNPIDToEnum.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ */
+
 __int64 __fastcall CmosConfigSpaceHandlerWorker(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
   unsigned int v5; // edi

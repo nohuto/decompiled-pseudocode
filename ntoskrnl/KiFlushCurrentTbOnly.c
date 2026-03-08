@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiFlushCurrentTbOnly @ 0x1403B8390
+ * Callers:
+ *     KeFlushTb @ 0x140323CB0 (KeFlushTb.c)
+ *     KeFlushCurrentTbOnly @ 0x1403876F4 (KeFlushCurrentTbOnly.c)
+ * Callees:
+ *     KiSetUserTbFlushPending @ 0x140417710 (KiSetUserTbFlushPending.c)
+ */
+
 struct _KTHREAD *__fastcall KiFlushCurrentTbOnly(int a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 v3; // rax

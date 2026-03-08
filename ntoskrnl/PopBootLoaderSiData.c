@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopBootLoaderSiData @ 0x140A9E9C8
+ * Callers:
+ *     PoBroadcastSystemState @ 0x140AA38F8 (PoBroadcastSystemState.c)
+ * Callees:
+ *     BapdRegisterSiData @ 0x140A8E4CC (BapdRegisterSiData.c)
+ *     BapdRemoveWbclData @ 0x140AA7954 (BapdRemoveWbclData.c)
+ */
+
 void __fastcall PopBootLoaderSiData(__int64 a1)
 {
   _DWORD *v1; // rsi

@@ -1,3 +1,33 @@
+/*
+ * XREFs of SymCryptEcpointScalarMulFixedWindow @ 0x1403F8D30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SymCryptIntCopy @ 0x1403F3798 (SymCryptIntCopy.c)
+ *     SymCryptIntCreate @ 0x1403F37C8 (SymCryptIntCreate.c)
+ *     SymCryptIntFromModulus @ 0x1403F383C (SymCryptIntFromModulus.c)
+ *     SymCryptIntGetBit @ 0x1403F3854 (SymCryptIntGetBit.c)
+ *     SymCryptIntIsEqualUint32 @ 0x1403F389C (SymCryptIntIsEqualUint32.c)
+ *     SymCryptIntMaskedCopy @ 0x1403F38CC (SymCryptIntMaskedCopy.c)
+ *     SymCryptIntSubSameSize @ 0x1403F3994 (SymCryptIntSubSameSize.c)
+ *     SymCryptModElementCreate @ 0x1403F3AEC (SymCryptModElementCreate.c)
+ *     SymCryptSizeofIntFromDigits @ 0x1403F3EF0 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptPrecomputation @ 0x1403F93C0 (SymCryptPrecomputation.c)
+ *     SymCryptEcpointCopy @ 0x1403F9464 (SymCryptEcpointCopy.c)
+ *     SymCryptEcpointCreate @ 0x1403F94A0 (SymCryptEcpointCreate.c)
+ *     SymCryptEcpointMaskedCopy @ 0x1403F96A8 (SymCryptEcpointMaskedCopy.c)
+ *     SymCryptSizeofEcpointFromCurve @ 0x1403F9E14 (SymCryptSizeofEcpointFromCurve.c)
+ *     SymCryptEcpointAdd @ 0x1403FD098 (SymCryptEcpointAdd.c)
+ *     SymCryptEcpointAddDiffNonZero @ 0x1403FD0F0 (SymCryptEcpointAddDiffNonZero.c)
+ *     SymCryptEcpointDouble @ 0x1403FD134 (SymCryptEcpointDouble.c)
+ *     SymCryptEcpointIsZero @ 0x1403FD1BC (SymCryptEcpointIsZero.c)
+ *     SymCryptEcpointNegate @ 0x1403FD258 (SymCryptEcpointNegate.c)
+ *     SymCryptEcpointSetZero @ 0x1403FD318 (SymCryptEcpointSetZero.c)
+ *     SymCryptFixedWindowRecoding @ 0x140403EA8 (SymCryptFixedWindowRecoding.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall SymCryptEcpointScalarMulFixedWindow(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,21 @@
+/*
+ * XREFs of AMLIAddNamespaceOverride @ 0x1C004A2A8
+ * Callers:
+ *     AMLIInitialize @ 0x1C00AAAB0 (AMLIInitialize.c)
+ * Callees:
+ *     AMLIAddNextNamespaceOverride @ 0x1C004A3CC (AMLIAddNextNamespaceOverride.c)
+ *     FreeObjOwner @ 0x1C004B650 (FreeObjOwner.c)
+ *     FreeOwnedObjects @ 0x1C004B81C (FreeOwnedObjects.c)
+ *     InsertOwnerObjList @ 0x1C004BDF0 (InsertOwnerObjList.c)
+ *     NewObjOwner @ 0x1C004C324 (NewObjOwner.c)
+ *     CatError @ 0x1C004D728 (CatError.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ *     NewNameSpaceObject @ 0x1C004FDF0 (NewNameSpaceObject.c)
+ *     OSCloseHandle @ 0x1C008DB38 (OSCloseHandle.c)
+ *     OSOpenAMLINamespaceOverrideHandle @ 0x1C008DDB4 (OSOpenAMLINamespaceOverrideHandle.c)
+ */
+
 __int64 AMLIAddNamespaceOverride()
 {
   int NamespaceOverride; // ebx

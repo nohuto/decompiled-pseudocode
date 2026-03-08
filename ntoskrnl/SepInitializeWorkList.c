@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepInitializeWorkList @ 0x140B49464
+ * Callers:
+ *     SepInitializationPhase0 @ 0x140B48678 (SepInitializationPhase0.c)
+ * Callees:
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ */
+
 __int64 SepInitializeWorkList()
 {
   __int64 result; // rax

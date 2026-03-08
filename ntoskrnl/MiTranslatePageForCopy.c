@@ -1,3 +1,35 @@
+/*
+ * XREFs of MiTranslatePageForCopy @ 0x1402A1FD4
+ * Callers:
+ *     MmCopyMemory @ 0x1402A1CE0 (MmCopyMemory.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiSynchronizeSystemVa @ 0x1402228B0 (MiSynchronizeSystemVa.c)
+ *     MiCheckVirtualAddress @ 0x140225600 (MiCheckVirtualAddress.c)
+ *     MiLockLowestValidPageTable @ 0x140225DB0 (MiLockLowestValidPageTable.c)
+ *     MiLockProtoPoolPage @ 0x140283CA0 (MiLockProtoPoolPage.c)
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     MiGetPagingFileOffset @ 0x14029EA80 (MiGetPagingFileOffset.c)
+ *     MiUnlockSystemVa @ 0x1402A2820 (MiUnlockSystemVa.c)
+ *     MiWaitForCollidedFaultComplete @ 0x1402A2D3C (MiWaitForCollidedFaultComplete.c)
+ *     MiObtainProtoReference @ 0x1402A304C (MiObtainProtoReference.c)
+ *     MiInitializePageFaultPacket @ 0x1402A346C (MiInitializePageFaultPacket.c)
+ *     MiLockTransitionLeafPageEx @ 0x1402DD4C8 (MiLockTransitionLeafPageEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIsPrototypePteVadLookup @ 0x140327240 (MiIsPrototypePteVadLookup.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiUnlockVadTree @ 0x140330EC8 (MiUnlockVadTree.c)
+ *     MiLockLeafPage @ 0x14034AF20 (MiLockLeafPage.c)
+ *     MiStandbyPageContentsIntact @ 0x14034B200 (MiStandbyPageContentsIntact.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiVaIsUltra @ 0x14036448C (MiVaIsUltra.c)
+ *     MiGetSessionVm @ 0x14036C17C (MiGetSessionVm.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiTranslatePageForCopy(
         unsigned __int64 a1,
         __int64 a2,

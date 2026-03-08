@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SkipScanLine@@YAKPEAEKKKK@Z @ 0x1C029877C
+ * Callers:
+ *     ?vTransparentScan@@YAXPEAU_SURFOBJ@@0KKPEAU_XLATEOBJ@@PEAU_RECTL@@K@Z @ 0x1C029A048 (-vTransparentScan@@YAXPEAU_SURFOBJ@@0KKPEAU_XLATEOBJ@@PEAU_RECTL@@K@Z.c)
+ * Callees:
+ *     ?StartPixel@@YAPEAEPEAEKK@Z @ 0x1C029885C (-StartPixel@@YAPEAEPEAEKK@Z.c)
+ */
+
 __int64 __fastcall SkipScanLine(
         unsigned __int8 *a1,
         unsigned int a2,

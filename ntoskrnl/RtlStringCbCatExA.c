@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlStringCbCatExA @ 0x1404FB918
+ * Callers:
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     RtlStringCopyWorkerA @ 0x14035BD04 (RtlStringCopyWorkerA.c)
+ *     RtlStringLengthWorkerA @ 0x1404FBC54 (RtlStringLengthWorkerA.c)
+ */
+
 NTSTATUS __stdcall RtlStringCbCatExA(
         NTSTRSAFE_PSTR pszDest,
         size_t cbDest,

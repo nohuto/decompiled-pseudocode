@@ -1,3 +1,16 @@
+/*
+ * XREFs of KdpCommandString @ 0x140AB228C
+ * Callers:
+ *     KdpTrap @ 0x140AAD1CC (KdpTrap.c)
+ * Callees:
+ *     KiRestoreProcessorControlState @ 0x140416280 (KiRestoreProcessorControlState.c)
+ *     KiSaveProcessorControlState @ 0x140416350 (KiSaveProcessorControlState.c)
+ *     KdExitDebugger @ 0x140AAD2D0 (KdExitDebugger.c)
+ *     KdEnterDebugger @ 0x140AAD40C (KdEnterDebugger.c)
+ *     KdpCopyContext @ 0x140AAD658 (KdpCopyContext.c)
+ *     KdpReportCommandStringStateChange @ 0x140AB1398 (KdpReportCommandStringStateChange.c)
+ */
+
 void __fastcall KdpCommandString(char **a1, char **a2, char a3, __int64 a4, __int64 a5)
 {
   bool v8; // al

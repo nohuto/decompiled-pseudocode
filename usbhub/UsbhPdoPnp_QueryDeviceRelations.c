@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhPdoPnp_QueryDeviceRelations @ 0x1C0022670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ */
+
 __int64 __fastcall UsbhPdoPnp_QueryDeviceRelations(PVOID Object, PIRP Irp)
 {
   unsigned int Status; // ebx

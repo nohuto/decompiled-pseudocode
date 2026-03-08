@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Initialize@CBufferRealization@@IEAAJ_N@Z @ 0x1C000CB28
+ * Callers:
+ *     ?Create@CBufferRealization@@SAJAEBUCSM_REALIZATION_INFO@@_NPEAPEAV1@@Z @ 0x1C000CA44 (-Create@CBufferRealization@@SAJAEBUCSM_REALIZATION_INFO@@_NPEAPEAV1@@Z.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     DxgkGetSharedAllocationObjectType @ 0x1C01C7AB0 (DxgkGetSharedAllocationObjectType.c)
+ */
+
 __int64 __fastcall CBufferRealization::Initialize(PVOID *this, char a2)
 {
   struct DXGGLOBAL *Global; // rax

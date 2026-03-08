@@ -1,3 +1,16 @@
+/*
+ * XREFs of DpiGdoSetupGdiParameters @ 0x1C0204950
+ * Callers:
+ *     DpiGdoCreateGdiObjects @ 0x1C0202D20 (DpiGdoCreateGdiObjects.c)
+ * Callees:
+ *     ?RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C000AB7C (-RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     DpiAppendStringToString @ 0x1C0204E1C (DpiAppendStringToString.c)
+ *     DpiGdoCreateServiceEntry @ 0x1C0204FF4 (DpiGdoCreateServiceEntry.c)
+ *     DpiFdoGetAdapterUniqueGUID @ 0x1C0205134 (DpiFdoGetAdapterUniqueGUID.c)
+ *     DpiCopyUnicodeString @ 0x1C0205478 (DpiCopyUnicodeString.c)
+ */
+
 __int64 __fastcall DpiGdoSetupGdiParameters(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v3; // rsi

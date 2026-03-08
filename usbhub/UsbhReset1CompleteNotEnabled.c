@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhReset1CompleteNotEnabled @ 0x1C004DAD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ */
+
 __int64 __fastcall UsbhReset1CompleteNotEnabled(__int64 a1, __int64 a2)
 {
   int v5; // [rsp+28h] [rbp-10h]

@@ -1,3 +1,12 @@
+/*
+ * XREFs of _anonymous_namespace_::GetExpressionTypeString @ 0x180042980
+ * Callers:
+ *     _anonymous_namespace_::SynthesizeDescription @ 0x18004274C (_anonymous_namespace_--SynthesizeDescription.c)
+ *     ?LogDebugPropertyUpdate@CAnimationLoggingManager@@QEAAXPEAVCResource@@W4PropertyChangeSource@@_KW4MIL_RESOURCE_TYPE@@IIPEAVSubchannelMaskInfo@@PEBVCExpressionValue@@@Z @ 0x180212430 (-LogDebugPropertyUpdate@CAnimationLoggingManager@@QEAAXPEAVCResource@@W4PropertyChangeSource@@_K.c)
+ * Callees:
+ *     <none>
+ */
+
 const wchar_t *__fastcall anonymous_namespace_::GetExpressionTypeString(int a1)
 {
   int v1; // ecx

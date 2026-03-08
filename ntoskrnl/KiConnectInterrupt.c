@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiConnectInterrupt @ 0x14028FC8C
+ * Callers:
+ *     KeConnectInterrupt @ 0x14028FA54 (KeConnectInterrupt.c)
+ * Callees:
+ *     KiAcquireInterruptConnectLock @ 0x14028FEA0 (KiAcquireInterruptConnectLock.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402AA110 (KeRevertToUserGroupAffinityThread.c)
+ *     KiInsertInterruptObjectOrdered @ 0x1403A1A2C (KiInsertInterruptObjectOrdered.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KiConnectInterrupt(__int64 a1)
 {
   __int64 v1; // rdi

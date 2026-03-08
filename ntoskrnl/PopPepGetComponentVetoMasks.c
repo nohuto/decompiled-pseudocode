@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopPepGetComponentVetoMasks @ 0x14059C914
+ * Callers:
+ *     PopFxTraceDeviceRegistration @ 0x140837C28 (PopFxTraceDeviceRegistration.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall PopPepGetComponentVetoMasks(__int64 a1, unsigned int a2, __int64 a3)
 {
   volatile LONG *v3; // rbx

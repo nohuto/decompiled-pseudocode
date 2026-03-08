@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpTscCheckAdjustMsrCapability @ 0x1403ACA80
+ * Callers:
+ *     HalpTscReserveResources @ 0x1403AC968 (HalpTscReserveResources.c)
+ * Callees:
+ *     HalpGetCpuInfo @ 0x14037D1F0 (HalpGetCpuInfo.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 bool HalpTscCheckAdjustMsrCapability()
 {
   unsigned __int8 v11[24]; // [rsp+20h] [rbp-28h] BYREF

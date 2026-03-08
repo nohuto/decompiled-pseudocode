@@ -1,3 +1,25 @@
+/*
+ * XREFs of PsFreezeProcess @ 0x1407DD068
+ * Callers:
+ *     PspChangeProcessExecutionState @ 0x1406F8AC0 (PspChangeProcessExecutionState.c)
+ *     DbgkpSuspendProcess @ 0x1409365B4 (DbgkpSuspendProcess.c)
+ *     NtChangeProcessState @ 0x1409ACD20 (NtChangeProcessState.c)
+ *     MiForceCrashForInvalidAccess @ 0x140A28438 (MiForceCrashForInvalidAccess.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsGetProcessSessionIdEx @ 0x1402BDFA0 (PsGetProcessSessionIdEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     KeForceResumeProcess @ 0x140355998 (KeForceResumeProcess.c)
+ *     KeFreezeProcess @ 0x140355C58 (KeFreezeProcess.c)
+ *     PsInvokeWin32Callout @ 0x1407D2D10 (PsInvokeWin32Callout.c)
+ *     PsSetProcessTelemetryAppState @ 0x1407E7C28 (PsSetProcessTelemetryAppState.c)
+ *     EtwTraceFreezeThawProcess @ 0x1409E243C (EtwTraceFreezeThawProcess.c)
+ *     EtwTiLogSuspendResumeProcess @ 0x1409E5EB4 (EtwTiLogSuspendResumeProcess.c)
+ */
+
 char __fastcall PsFreezeProcess(__int64 a1, char a2)
 {
   int v4; // eax

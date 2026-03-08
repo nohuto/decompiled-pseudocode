@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmRegUtilOpenExistingUcKey @ 0x1C00B1AAC
+ * Callers:
+ *     CmRegUtilOpenExistingWstrKey @ 0x1C00B1B24 (CmRegUtilOpenExistingWstrKey.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall CmRegUtilOpenExistingUcKey(
         void *BaseHandle,
         _UNICODE_STRING *KeyName,

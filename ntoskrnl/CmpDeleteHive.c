@@ -1,3 +1,35 @@
+/*
+ * XREFs of CmpDeleteHive @ 0x14074C680
+ * Callers:
+ *     CmpUnlockHashEntryByKcb @ 0x1406B6550 (CmpUnlockHashEntryByKcb.c)
+ *     CmpDereferenceHive @ 0x1406B6634 (CmpDereferenceHive.c)
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x1406B7100 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmLoadAppKey @ 0x1406BDA5C (CmLoadAppKey.c)
+ *     CmpGetNextHive @ 0x1406BE36C (CmpGetNextHive.c)
+ *     CmpPerformCompleteKcbCacheLookup @ 0x1406E1630 (CmpPerformCompleteKcbCacheLookup.c)
+ *     CmpDoParseKey @ 0x1406E1D90 (CmpDoParseKey.c)
+ *     CmpDeleteKeyObject @ 0x1406E5C50 (CmpDeleteKeyObject.c)
+ *     CmpLateUnloadHiveWorker @ 0x14074A6B0 (CmpLateUnloadHiveWorker.c)
+ *     CmpUnlockDeletedHashEntryByKcb @ 0x14074B268 (CmpUnlockDeletedHashEntryByKcb.c)
+ *     CmpUnlockHashEntry @ 0x1407AB010 (CmpUnlockHashEntry.c)
+ *     CmpWalkOneLevel @ 0x1407B1C90 (CmpWalkOneLevel.c)
+ *     CmpBlockHiveWrites @ 0x140A10B04 (CmpBlockHiveWrites.c)
+ *     CmpBlockTwoHiveWrites @ 0x140A10BB8 (CmpBlockTwoHiveWrites.c)
+ *     CmpUnblockHiveWrites @ 0x140A10CD4 (CmpUnblockHiveWrites.c)
+ *     CmpUnblockTwoHiveWrites @ 0x140A10D8C (CmpUnblockTwoHiveWrites.c)
+ *     CmpDestroyHive @ 0x140A19FFC (CmpDestroyHive.c)
+ *     CmpUnlockHashEntryByIndex @ 0x140A1C8D8 (CmpUnlockHashEntryByIndex.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     CmpDeleteKcbCache @ 0x14074C7C4 (CmpDeleteKcbCache.c)
+ *     HvFreeDirtyData @ 0x14074C830 (HvFreeDirtyData.c)
+ *     CmpReleaseGlobalQuota @ 0x1407A5908 (CmpReleaseGlobalQuota.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall CmpDeleteHive(_QWORD *P)
 {
   _QWORD *v1; // rdi

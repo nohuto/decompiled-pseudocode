@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiSkipXboxNodeTimeout @ 0x1C003C6B0
+ * Callers:
+ *     VidSchiCheckNodeTimeout @ 0x1C00A5B80 (VidSchiCheckNodeTimeout.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall VidSchiSkipXboxNodeTimeout(__int64 a1)
 {
   unsigned __int64 v2; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PipMoveListEntries @ 0x14055D934
+ * Callers:
+ *     PipMergeDependencyEdgeList @ 0x1409517A8 (PipMergeDependencyEdgeList.c)
+ *     PipMergeDependencyNodes @ 0x14095192C (PipMergeDependencyNodes.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall PipMoveListEntries(_QWORD *a1, __int64 a2)
 {
   _QWORD *v2; // r8

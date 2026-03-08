@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiQueryBusSpecificResetInfo @ 0x1C0082F70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall AcpiQueryBusSpecificResetInfo(__int64 a1, _DWORD *a2, __int64 a3)
 {
   __int64 v5; // rcx

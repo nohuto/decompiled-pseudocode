@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpBlkInitializeProcessorState @ 0x140A9544C
+ * Callers:
+ *     HalpBlkStartBlockedProcessor @ 0x140A9564C (HalpBlkStartBlockedProcessor.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpBlkInitializeIdt @ 0x140A95370 (HalpBlkInitializeIdt.c)
+ */
+
 unsigned __int64 __fastcall HalpBlkInitializeProcessorState(
         unsigned __int64 *a1,
         char *a2,

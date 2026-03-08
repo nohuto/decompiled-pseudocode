@@ -1,3 +1,13 @@
+/*
+ * XREFs of GenerateWORDPat @ 0x1C0254ED4
+ * Callers:
+ *     ComputeHTCell @ 0x1C0019464 (ComputeHTCell.c)
+ *     Generate_HTSC_WORD @ 0x1C02550F0 (Generate_HTSC_WORD.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ExpandHTPatX @ 0x1C0254E34 (ExpandHTPatX.c)
+ */
+
 __int64 __fastcall GenerateWORDPat(
         __int64 a1,
         __int64 a2,

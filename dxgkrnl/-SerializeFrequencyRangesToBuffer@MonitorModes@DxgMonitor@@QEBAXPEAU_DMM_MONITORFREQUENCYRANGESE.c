@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SerializeFrequencyRangesToBuffer@MonitorModes@DxgMonitor@@QEBAXPEAU_DMM_MONITORFREQUENCYRANGESET_SERIALIZATION@@I@Z @ 0x1C03C8048
+ * Callers:
+ *     ?_SerializeMonitor@DXGMONITOR@@QEBAJPEA_KPEAU_DMM_MONITOR_SERIALIZATION@@@Z @ 0x1C03C520C (-_SerializeMonitor@DXGMONITOR@@QEBAJPEA_KPEAU_DMM_MONITOR_SERIALIZATION@@@Z.c)
+ * Callees:
+ *     ?GetFrequencyRangeSerializationSizeInBytes@MonitorModes@DxgMonitor@@QEBAIXZ @ 0x1C03C7F8C (-GetFrequencyRangeSerializationSizeInBytes@MonitorModes@DxgMonitor@@QEBAIXZ.c)
+ */
+
 void __fastcall DxgMonitor::MonitorModes::SerializeFrequencyRangesToBuffer(
         DxgMonitor::MonitorModes *this,
         struct _DMM_MONITORFREQUENCYRANGESET_SERIALIZATION *a2,

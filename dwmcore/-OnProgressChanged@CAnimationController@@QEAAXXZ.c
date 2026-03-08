@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?OnProgressChanged@CAnimationController@@QEAAXXZ @ 0x1800D5A3C
+ * Callers:
+ *     ?SetProgress@?$CAnimationControllerGeneratedT@VCAnimationController@@VCPropertyChangeResource@@@@QEAAJM@Z @ 0x1800D5A04 (-SetProgress@-$CAnimationControllerGeneratedT@VCAnimationController@@VCPropertyChangeResource@@@.c)
+ * Callees:
+ *     ?InvalidateAnimationSources@CResource@@IEAAXI@Z @ 0x180098D74 (-InvalidateAnimationSources@CResource@@IEAAXI@Z.c)
+ *     ?UpdateKeyframeAnimations@CAnimationController@@AEAAXXZ @ 0x1800D5A94 (-UpdateKeyframeAnimations@CAnimationController@@AEAAXXZ.c)
+ */
+
 void __fastcall CAnimationController::OnProgressChanged(CAnimationController *this)
 {
   char v2; // al

@@ -1,3 +1,12 @@
+/*
+ * XREFs of IsNVMeResetComplete @ 0x1C000C0A0
+ * Callers:
+ *     NVMeHardwareReset @ 0x1C000F26C (NVMeHardwareReset.c)
+ *     NvmSubsystemReset @ 0x1C0010BAC (NvmSubsystemReset.c)
+ * Callees:
+ *     CheckDpcWatchdogTimerExpireSoon @ 0x1C0025AB8 (CheckDpcWatchdogTimerExpireSoon.c)
+ */
+
 bool __fastcall IsNVMeResetComplete(__int64 a1)
 {
   __int64 v2; // rax

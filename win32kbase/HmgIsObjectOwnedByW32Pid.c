@@ -1,3 +1,12 @@
+/*
+ * XREFs of HmgIsObjectOwnedByW32Pid @ 0x1C00A726C
+ * Callers:
+ *     HmgCheckDCForPrivateReferences @ 0x1C0185D28 (HmgCheckDCForPrivateReferences.c)
+ * Callees:
+ *     ?GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z @ 0x1C004A2C0 (-GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z.c)
+ *     ?bOwnedBy@ENTRYOBJ@@QEBAHK@Z @ 0x1C00A72DC (-bOwnedBy@ENTRYOBJ@@QEBAHK@Z.c)
+ */
+
 __int64 __fastcall HmgIsObjectOwnedByW32Pid(struct OBJECT *a1, unsigned int a2)
 {
   unsigned int v4; // ebx

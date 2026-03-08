@@ -1,3 +1,13 @@
+/*
+ * XREFs of HsaGetPageFault @ 0x14052DC50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeStallExecutionProcessor @ 0x14022B710 (KeStallExecutionProcessor.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall HsaGetPageFault(_QWORD *a1, int *a2, _QWORD *a3, _WORD *a4, _QWORD *a5, __int64 *a6)
 {
   unsigned __int64 v6; // r12

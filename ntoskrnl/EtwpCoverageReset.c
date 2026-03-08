@@ -1,3 +1,21 @@
+/*
+ * XREFs of EtwpCoverageReset @ 0x1409E566C
+ * Callers:
+ *     EtwpCoverageFlushWorkItemCallback @ 0x140799AB0 (EtwpCoverageFlushWorkItemCallback.c)
+ *     EtwSetProcessTelemetryCoverage @ 0x140871478 (EtwSetProcessTelemetryCoverage.c)
+ *     EtwpCoverageResetWorkItemCallback @ 0x1409E5B20 (EtwpCoverageResetWorkItemCallback.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     EtwTelemetryCoverageReport @ 0x1402F9DD0 (EtwTelemetryCoverageReport.c)
+ *     TelemetryCoverageStringHashInternal @ 0x1402F9F5C (TelemetryCoverageStringHashInternal.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwpCoverageFlushPending @ 0x140799B84 (EtwpCoverageFlushPending.c)
+ *     EtwpCoverageFreeStringBuffers @ 0x1409E55C0 (EtwpCoverageFreeStringBuffers.c)
+ */
+
 char __fastcall EtwpCoverageReset(__int64 a1, char a2)
 {
   struct _KTHREAD *CurrentThread; // rax

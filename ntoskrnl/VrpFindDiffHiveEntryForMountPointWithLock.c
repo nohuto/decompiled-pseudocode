@@ -1,3 +1,13 @@
+/*
+ * XREFs of VrpFindDiffHiveEntryForMountPointWithLock @ 0x140737F24
+ * Callers:
+ *     VrpFindDiffHiveEntryForMountPoint @ 0x140737B9C (VrpFindDiffHiveEntryForMountPoint.c)
+ *     VrpFindOrCreateDiffHiveEntryForMountPoint @ 0x140737CA8 (VrpFindOrCreateDiffHiveEntryForMountPoint.c)
+ * Callees:
+ *     RtlUpcaseUnicodeChar @ 0x1406EA4F0 (RtlUpcaseUnicodeChar.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ */
+
 __int64 __fastcall VrpFindDiffHiveEntryForMountPointWithLock(PCUNICODE_STRING String1)
 {
   __int64 v1; // rdi

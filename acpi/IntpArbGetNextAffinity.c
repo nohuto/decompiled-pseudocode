@@ -1,3 +1,11 @@
+/*
+ * XREFs of IntpArbGetNextAffinity @ 0x1C00A323C
+ * Callers:
+ *     ProcessorpSelectProcessorSetFromPartitions @ 0x1C00A02C0 (ProcessorpSelectProcessorSetFromPartitions.c)
+ * Callees:
+ *     IntpGetNthSetBit @ 0x1C005F030 (IntpGetNthSetBit.c)
+ */
+
 __int64 __fastcall IntpArbGetNextAffinity(__int64 **a1, __int64 *a2)
 {
   __int64 v2; // r11

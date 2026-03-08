@@ -1,3 +1,12 @@
+/*
+ * XREFs of VhdiGetDiskParameters @ 0x140B977A4
+ * Callers:
+ *     IopGetBootDiskInformationLite @ 0x140B4CFA8 (IopGetBootDiskInformationLite.c)
+ *     VhdInitialize @ 0x140B56EA0 (VhdInitialize.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall VhdiGetDiskParameters(_DWORD *a1, _DWORD *a2, _QWORD *a3, char *a4, _QWORD *a5)
 {
   unsigned int v8; // r12d

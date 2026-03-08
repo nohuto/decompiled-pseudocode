@@ -1,3 +1,16 @@
+/*
+ * XREFs of BgkResumePrepare @ 0x140A969F4
+ * Callers:
+ *     PopAllocateHiberContext @ 0x140984D38 (PopAllocateHiberContext.c)
+ *     PopMarkComponentsBootPhase @ 0x140AA049C (PopMarkComponentsBootPhase.c)
+ * Callees:
+ *     PoSetHiberRange @ 0x14058C400 (PoSetHiberRange.c)
+ *     BgkpLockBgfxCodeSection @ 0x140AEBB60 (BgkpLockBgfxCodeSection.c)
+ *     BgkpUnlockBgfxCodeSection @ 0x140AEC590 (BgkpUnlockBgfxCodeSection.c)
+ *     BgGetContext @ 0x140AEE26C (BgGetContext.c)
+ *     BgMarkHiberPhase @ 0x140AEE344 (BgMarkHiberPhase.c)
+ */
+
 __int64 __fastcall BgkResumePrepare(PVOID MemoryMap)
 {
   unsigned int v1; // ebx

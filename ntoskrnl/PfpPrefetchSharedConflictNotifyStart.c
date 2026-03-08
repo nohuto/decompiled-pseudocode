@@ -1,3 +1,12 @@
+/*
+ * XREFs of PfpPrefetchSharedConflictNotifyStart @ 0x14067FBA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeAbPreWait @ 0x140241620 (KeAbPreWait.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ */
+
 __int64 __fastcall PfpPrefetchSharedConflictNotifyStart(ULONG_PTR *a1, __int64 a2, _QWORD *a3)
 {
   unsigned int v3; // ebx

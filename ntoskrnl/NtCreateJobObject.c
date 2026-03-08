@@ -1,3 +1,25 @@
+/*
+ * XREFs of NtCreateJobObject @ 0x1406F7BA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PoEnergyEstimationEnabled @ 0x1402384C0 (PoEnergyEstimationEnabled.c)
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExUuidCreate @ 0x1406F7EF0 (ExUuidCreate.c)
+ *     PspUnlockJobListExclusive @ 0x1406F8070 (PspUnlockJobListExclusive.c)
+ *     PspIoRateEntryInitialize @ 0x1406F80C8 (PspIoRateEntryInitialize.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ *     ExCreateHandleEx @ 0x1407D8ABC (ExCreateHandleEx.c)
+ *     EtwTraceJob @ 0x1409E2518 (EtwTraceJob.c)
+ */
+
 __int64 __fastcall NtCreateJobObject(__int64 *a1, __int64 a2, int a3)
 {
   struct _KTHREAD *CurrentThread; // r15

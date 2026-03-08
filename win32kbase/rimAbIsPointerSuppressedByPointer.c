@@ -1,3 +1,12 @@
+/*
+ * XREFs of rimAbIsPointerSuppressedByPointer @ 0x1C01A8E34
+ * Callers:
+ *     rimAbIsPointerSuppressedByOtherDeviceContacts @ 0x1C01A8B98 (rimAbIsPointerSuppressedByOtherDeviceContacts.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimAbIsPointInPenDeadzone @ 0x1C01A888C (rimAbIsPointInPenDeadzone.c)
+ */
+
 char __fastcall rimAbIsPointerSuppressedByPointer(__int64 a1, unsigned int *a2, __int64 a3, int *a4, char a5)
 {
   __int64 v9; // rcx

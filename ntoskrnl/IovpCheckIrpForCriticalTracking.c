@@ -1,3 +1,12 @@
+/*
+ * XREFs of IovpCheckIrpForCriticalTracking @ 0x140AC9954
+ * Callers:
+ *     VfIrpAllocateCallDriverData @ 0x140ACAA48 (VfIrpAllocateCallDriverData.c)
+ * Callees:
+ *     VfIrpDatabaseEntryFindAndLock @ 0x140ADE768 (VfIrpDatabaseEntryFindAndLock.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140ADE8EC (VfIrpDatabaseEntryReleaseLock.c)
+ */
+
 __int64 __fastcall IovpCheckIrpForCriticalTracking(__int64 a1)
 {
   unsigned int v1; // edi

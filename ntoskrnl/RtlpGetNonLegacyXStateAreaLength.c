@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpGetNonLegacyXStateAreaLength @ 0x1405A8DD4
+ * Callers:
+ *     KiInitializeUserApc @ 0x1403664E8 (KiInitializeUserApc.c)
+ * Callees:
+ *     RtlpGetEntireXStateAreaLength @ 0x1403D1A20 (RtlpGetEntireXStateAreaLength.c)
+ */
+
 __int64 __fastcall RtlpGetNonLegacyXStateAreaLength(__int64 a1)
 {
   if ( (MEMORY[0xFFFFF780000003EC] & 2) != 0 )

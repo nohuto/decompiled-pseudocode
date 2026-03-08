@@ -1,3 +1,19 @@
+/*
+ * XREFs of UsbDevice_UcxEvtReset @ 0x1C0018D30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     XilUsbDevice_GetDeviceContextBufferVA @ 0x1C0007FC0 (XilUsbDevice_GetDeviceContextBufferVA.c)
+ *     Command_SendCommand @ 0x1C000A820 (Command_SendCommand.c)
+ *     Controller_IsControllerAccessible @ 0x1C000A8E4 (Controller_IsControllerAccessible.c)
+ *     Endpoint_Disable @ 0x1C000B0AC (Endpoint_Disable.c)
+ *     WPP_RECORDER_SF_dqL @ 0x1C000CC70 (WPP_RECORDER_SF_dqL.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C0019330 (WPP_RECORDER_SF_dq.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     XilDeviceSlot_SendQuerySlotContextInfoRequest @ 0x1C0038834 (XilDeviceSlot_SendQuerySlotContextInfoRequest.c)
+ */
+
 char __fastcall UsbDevice_UcxEvtReset(__int64 a1, __int64 a2)
 {
   __int64 v3; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepFindMatchingLowBoxNumberEntry @ 0x140739B6C
+ * Callers:
+ *     SepGetLowBoxNumberEntry @ 0x140739A38 (SepGetLowBoxNumberEntry.c)
+ * Callees:
+ *     RtlEqualSid @ 0x140208A60 (RtlEqualSid.c)
+ *     RtlLookupEntryHashTable @ 0x1402B7DA0 (RtlLookupEntryHashTable.c)
+ *     RtlGetNextEntryHashTable @ 0x1402CC980 (RtlGetNextEntryHashTable.c)
+ */
+
 __int64 __fastcall SepFindMatchingLowBoxNumberEntry(PRTL_DYNAMIC_HASH_TABLE HashTable, unsigned int *Sid1, __int64 *a3)
 {
   char v4; // bl

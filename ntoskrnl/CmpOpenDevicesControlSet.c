@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpOpenDevicesControlSet @ 0x140814380
+ * Callers:
+ *     CmSetAcpiHwProfile @ 0x140813CE0 (CmSetAcpiHwProfile.c)
+ *     CmpMarkCurrentProfileDirty @ 0x140814218 (CmpMarkCurrentProfileDirty.c)
+ *     CmpMoveBiosAliasTable @ 0x140A0E038 (CmpMoveBiosAliasTable.c)
+ *     CmpCreateHardwareProfiles @ 0x140B50B04 (CmpCreateHardwareProfiles.c)
+ * Callees:
+ *     RtlUnicodeStringPrintf @ 0x1403BEBCC (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ */
+
 __int64 __fastcall CmpOpenDevicesControlSet(__int64 a1, HANDLE *a2, UNICODE_STRING *a3)
 {
   const UNICODE_STRING *v3; // rdi

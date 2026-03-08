@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserNotifyProcessCreate @ 0x1C003EDE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?xxxUserNotifyProcessCreate@@YAJKW4PROCESS_CREATE_HINT@@@Z @ 0x1C003ECC8 (-xxxUserNotifyProcessCreate@@YAJKW4PROCESS_CREATE_HINT@@@Z.c)
+ *     Feature_StrictParentBasedAllowForegroundActivate__private_ReportDeviceUsage @ 0x1C012E440 (Feature_StrictParentBasedAllowForegroundActivate__private_ReportDeviceUsage.c)
+ */
+
 __int64 __fastcall NtUserNotifyProcessCreate(int a1, __int64 a2, __int64 a3, int a4)
 {
   __int64 v6; // rdx

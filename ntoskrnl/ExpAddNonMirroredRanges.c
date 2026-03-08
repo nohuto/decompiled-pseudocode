@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpAddNonMirroredRanges @ 0x140B94B94
+ * Callers:
+ *     ExpInitializeMemoryMirroring @ 0x140B7267C (ExpInitializeMemoryMirroring.c)
+ * Callees:
+ *     ZwManagePartition @ 0x140414630 (ZwManagePartition.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpAddNonMirroredRanges(__int64 a1, unsigned int a2, __int64 *a3, char a4)
 {
   __int64 v6; // rsi

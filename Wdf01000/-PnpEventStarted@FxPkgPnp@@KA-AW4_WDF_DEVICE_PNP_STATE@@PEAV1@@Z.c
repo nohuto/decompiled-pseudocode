@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?PnpEventStarted@FxPkgPnp@@KA?AW4_WDF_DEVICE_PNP_STATE@@PEAV1@@Z @ 0x1C006B450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsPdo@FxDevice@@QEAAEXZ @ 0x1C0003260 (-IsPdo@FxDevice@@QEAAEXZ.c)
+ *     IsLoggingEnabledAndNeeded @ 0x1C004D728 (IsLoggingEnabledAndNeeded.c)
+ *     LogDriverInfoStream @ 0x1C004D7C4 (LogDriverInfoStream.c)
+ *     ?PnpFinishProcessingIrp@FxPkgPnp@@IEAAXE@Z @ 0x1C006B6BC (-PnpFinishProcessingIrp@FxPkgPnp@@IEAAXE@Z.c)
+ */
+
 __int64 __fastcall FxPkgPnp::PnpEventStarted(FxPkgPnp *This)
 {
   FxDevice *m_Device; // rdi

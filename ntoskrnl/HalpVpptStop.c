@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpVpptStop @ 0x140507AE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     HalpAcquireHighLevelLock @ 0x140379818 (HalpAcquireHighLevelLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpVpptUpdatePhysicalTimer @ 0x140507DB0 (HalpVpptUpdatePhysicalTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpVpptStop(__int64 a1)
 {
   _QWORD *v2; // rcx

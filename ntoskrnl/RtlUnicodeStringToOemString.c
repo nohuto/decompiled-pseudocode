@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlUnicodeStringToOemString @ 0x14085D450
+ * Callers:
+ *     DifRtlUnicodeStringToOemStringWrapper @ 0x1405E9AF0 (DifRtlUnicodeStringToOemStringWrapper.c)
+ *     ExpSystemErrorHandler2 @ 0x140AA7FE0 (ExpSystemErrorHandler2.c)
+ * Callees:
+ *     AllocateOrValidateCharStringBuffer @ 0x140303E1C (AllocateOrValidateCharStringBuffer.c)
+ *     RtlUnicodeToOemN @ 0x14079F690 (RtlUnicodeToOemN.c)
+ *     RtlxUnicodeStringToOemSize @ 0x1407A0310 (RtlxUnicodeStringToOemSize.c)
+ *     ExFreePool @ 0x140AAB270 (ExFreePool.c)
+ */
+
 NTSTATUS __stdcall RtlUnicodeStringToOemString(
         POEM_STRING DestinationString,
         PCUNICODE_STRING SourceString,

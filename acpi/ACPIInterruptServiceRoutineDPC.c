@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIInterruptServiceRoutineDPC @ 0x1C0003E70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInterruptDispatchEvents @ 0x1C0003AE8 (ACPIInterruptDispatchEvents.c)
+ *     ACPIAcquireHardwareGlobalLock @ 0x1C0004C30 (ACPIAcquireHardwareGlobalLock.c)
+ *     ACPIButtonEvent @ 0x1C00189F0 (ACPIButtonEvent.c)
+ *     ACPIPccProcessSci @ 0x1C0033B3C (ACPIPccProcessSci.c)
+ *     WRITE_PM1_ENABLE @ 0x1C0039094 (WRITE_PM1_ENABLE.c)
+ *     ACPIStartNextGlobalLockRequest @ 0x1C0039504 (ACPIStartNextGlobalLockRequest.c)
+ */
+
 void __fastcall ACPIInterruptServiceRoutineDPC(
         struct _KDPC *Dpc,
         _DWORD *DeferredContext,

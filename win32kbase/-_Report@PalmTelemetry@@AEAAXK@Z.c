@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?_Report@PalmTelemetry@@AEAAXK@Z @ 0x1C01DF7B8
+ * Callers:
+ *     ?Update@PalmTelemetry@@QEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@H@Z @ 0x1C00F1B46 (-Update@PalmTelemetry@@QEAAXPEAUtagHID_POINTER_DEVICE_INFO@@PEAUtagHPD_CONTACT@@H@Z.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1C004E7C0 (_tlgKeywordOn.c)
+ *     Feature_PenTapped_ReportUsage @ 0x1C00DF604 (Feature_PenTapped_ReportUsage.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     ??$Write@U?$_tlgWrapSz@D@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapSz@D@@@Z @ 0x1C0159B5C (--$Write@U-$_tlgWrapSz@D@@@-$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_E.c)
+ *     ?RtlStringCchLengthA@@YAJPEBD_KPEA_K@Z @ 0x1C01DF3A8 (-RtlStringCchLengthA@@YAJPEBD_KPEA_K@Z.c)
+ *     ?RtlStringCchPrintfA@@YAJPEAD_KPEBDZZ @ 0x1C01DF408 (-RtlStringCchPrintfA@@YAJPEAD_KPEBDZZ.c)
+ *     ApiSetGetUserHandedness @ 0x1C0244CA8 (ApiSetGetUserHandedness.c)
+ */
+
 void __fastcall PalmTelemetry::_Report(PalmTelemetry *this, int a2)
 {
   unsigned __int64 v2; // r13

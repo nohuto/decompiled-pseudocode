@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvpSwapDual @ 0x140A1B32C
+ * Callers:
+ *     HvSwapHiveStorage @ 0x140A1ACB4 (HvSwapHiveStorage.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 _QWORD *__fastcall HvpSwapDual(_QWORD *a1, _QWORD *a2)
 {
   __int64 v2; // rbx

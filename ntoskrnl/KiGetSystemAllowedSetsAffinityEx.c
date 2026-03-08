@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiGetSystemAllowedSetsAffinityEx @ 0x140237CA4
+ * Callers:
+ *     KiComputeCpuSetAffinity @ 0x140237838 (KiComputeCpuSetAffinity.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiGetSystemAllowedSetsAffinityEx(unsigned __int16 *a1, unsigned __int16 a2, int a3)
 {
   __int64 result; // rax

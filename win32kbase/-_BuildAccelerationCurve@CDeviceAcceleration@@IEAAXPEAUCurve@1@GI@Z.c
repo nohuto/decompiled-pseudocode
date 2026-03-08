@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_BuildAccelerationCurve@CDeviceAcceleration@@IEAAXPEAUCurve@1@GI@Z @ 0x1C00BE068
+ * Callers:
+ *     ?BuildAccelerationCurve@CMouseAcceleration@@UEAAXGPEAUBallistics@CDeviceAcceleration@@@Z @ 0x1C00BDF70 (-BuildAccelerationCurve@CMouseAcceleration@@UEAAXGPEAUBallistics@CDeviceAcceleration@@@Z.c)
+ *     ?BuildAccelerationCurve@CTouchpadAcceleration@@UEAAXGPEAUBallistics@CDeviceAcceleration@@@Z @ 0x1C00BE000 (-BuildAccelerationCurve@CTouchpadAcceleration@@UEAAXGPEAUBallistics@CDeviceAcceleration@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CDeviceAcceleration::_BuildAccelerationCurve(
         CDeviceAcceleration *this,
         struct CDeviceAcceleration::Curve *a2,

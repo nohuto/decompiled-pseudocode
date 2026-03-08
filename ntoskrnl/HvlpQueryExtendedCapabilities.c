@@ -1,3 +1,14 @@
+/*
+ * XREFs of HvlpQueryExtendedCapabilities @ 0x140547138
+ * Callers:
+ *     HvlpDetermineEnlightenments @ 0x140546B64 (HvlpDetermineEnlightenments.c)
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ */
+
 char __fastcall HvlpQueryExtendedCapabilities(LONGLONG *a1)
 {
   PHYSICAL_ADDRESS *v2; // rsi

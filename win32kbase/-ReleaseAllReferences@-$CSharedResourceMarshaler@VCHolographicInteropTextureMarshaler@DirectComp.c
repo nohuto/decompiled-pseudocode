@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReleaseAllReferences@?$CSharedResourceMarshaler@VCHolographicInteropTextureMarshaler@DirectComposition@@$01@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C024CBB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReleaseAllReferences@CHolographicInteropTextureMarshaler@DirectComposition@@MEAAXPEAVCApplicationChannel@2@@Z @ 0x1C0264E90 (-ReleaseAllReferences@CHolographicInteropTextureMarshaler@DirectComposition@@MEAAXPEAVCApplicati.c)
+ */
+
 void __fastcall DirectComposition::CSharedResourceMarshaler<DirectComposition::CHolographicInteropTextureMarshaler,2>::ReleaseAllReferences(
         DirectComposition::CHolographicInteropTextureMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2)

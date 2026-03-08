@@ -1,3 +1,23 @@
+/*
+ * XREFs of PnprInitiateReplaceOperation @ 0x140A99894
+ * Callers:
+ *     PnpReplacePartitionUnit @ 0x140961B80 (PnpReplacePartitionUnit.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PnprCompleteWake @ 0x140560794 (PnprCompleteWake.c)
+ *     PnprQuiesce @ 0x140560D88 (PnprQuiesce.c)
+ *     PnprSwap @ 0x1405610DC (PnprSwap.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PnprReplaceStart @ 0x140963EEC (PnprReplaceStart.c)
+ *     PnprWakeProcessors @ 0x140A9AF9C (PnprWakeProcessors.c)
+ *     MmDuplicateMemory @ 0x140AA96DC (MmDuplicateMemory.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 PnprInitiateReplaceOperation()
 {
   char v0; // r14

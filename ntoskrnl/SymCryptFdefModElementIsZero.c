@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefModElementIsZero @ 0x1403FE74C
+ * Callers:
+ *     SymCryptModElementIsZero @ 0x1403F3B50 (SymCryptModElementIsZero.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdefModElementIsZero(__int64 a1, _DWORD *a2)
 {
   __int64 v2; // rax

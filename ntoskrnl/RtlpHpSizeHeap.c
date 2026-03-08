@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpHpSizeHeap @ 0x1405B4398
+ * Callers:
+ *     ExFreeHeapPool @ 0x1402B61C0 (ExFreeHeapPool.c)
+ *     RtlpHpFreeHeap @ 0x140313CC0 (RtlpHpFreeHeap.c)
+ * Callees:
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     RtlpHpSizeHeapInternal @ 0x1405B4430 (RtlpHpSizeHeapInternal.c)
+ */
+
 __int64 __fastcall RtlpHpSizeHeap(__int64 a1, __int64 a2, int a3)
 {
   unsigned int v4; // edi

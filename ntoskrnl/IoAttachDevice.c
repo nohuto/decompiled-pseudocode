@@ -1,3 +1,16 @@
+/*
+ * XREFs of IoAttachDevice @ 0x140943C90
+ * Callers:
+ *     DifIoAttachDeviceWrapper @ 0x1405DB0B0 (DifIoAttachDeviceWrapper.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IoAttachDeviceToDeviceStackSafe @ 0x1402F3E20 (IoAttachDeviceToDeviceStackSafe.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 NTSTATUS __stdcall IoAttachDevice(
         PDEVICE_OBJECT SourceDevice,
         PUNICODE_STRING TargetDevice,

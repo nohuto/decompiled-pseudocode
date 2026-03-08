@@ -1,3 +1,17 @@
+/*
+ * XREFs of ACPITableLoadCallBack @ 0x1C003F3C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _ACPIInternalError @ 0x1C0001B74 (_ACPIInternalError.c)
+ *     ACPIWakeRemoveDevicesAndUpdate @ 0x1C000518C (ACPIWakeRemoveDevicesAndUpdate.c)
+ *     ACPIDeviceInternalSynchronizeRequest @ 0x1C001D594 (ACPIDeviceInternalSynchronizeRequest.c)
+ *     ACPIPowerScheduleDpc @ 0x1C0022714 (ACPIPowerScheduleDpc.c)
+ *     ACPIGpeBuildWakeMasks @ 0x1C002BFE0 (ACPIGpeBuildWakeMasks.c)
+ *     ACPIInternalMoveList @ 0x1C002EC04 (ACPIInternalMoveList.c)
+ *     Simulator_RefreshTree @ 0x1C0049870 (Simulator_RefreshTree.c)
+ */
+
 void __fastcall ACPITableLoadCallBack(_QWORD *a1, char a2)
 {
   if ( !*((_BYTE *)AcpiInformation + 133) )

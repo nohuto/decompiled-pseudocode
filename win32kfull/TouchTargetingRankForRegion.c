@@ -1,3 +1,11 @@
+/*
+ * XREFs of TouchTargetingRankForRegion @ 0x1C0251870
+ * Callers:
+ *     ?BasicTargetingHitTest@@YAHPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@UtagPOINT@@PEAGPEAU3@HPEAUtagRECT@@W4tagTARGETING_PROPERTY@@HKH@Z @ 0x1C01E4C7C (-BasicTargetingHitTest@@YAHPEAUtagWND@@PEAUtagTOUCHTARGETINGCONTACT@@UtagPOINT@@PEAGPEAU3@HPEAUt.c)
+ * Callees:
+ *     TouchTargetingRankForRect @ 0x1C0251150 (TouchTargetingRankForRect.c)
+ */
+
 __int64 __fastcall TouchTargetingRankForRegion(__int64 a1, struct tagRECT *a2, int *a3, _QWORD *a4, unsigned int a5)
 {
   unsigned __int16 v9; // bp

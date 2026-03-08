@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmSiProtectViewOfSection @ 0x14030D290
+ * Callers:
+ *     HvpViewMapCreateView @ 0x140730DF8 (HvpViewMapCreateView.c)
+ *     HvpViewMapMakeViewRangeValid @ 0x140730EE4 (HvpViewMapMakeViewRangeValid.c)
+ *     HvpViewMapMakeViewRangeCOWByCaller @ 0x1407326F8 (HvpViewMapMakeViewRangeCOWByCaller.c)
+ *     HvpMappedViewConvertRegionFromLockedToCOWByPolicy @ 0x140732864 (HvpMappedViewConvertRegionFromLockedToCOWByPolicy.c)
+ *     HvpViewMapMakeViewRangeUnCOWByCaller @ 0x1407611FC (HvpViewMapMakeViewRangeUnCOWByCaller.c)
+ *     HvpViewMapSealRange @ 0x1407A50A4 (HvpViewMapSealRange.c)
+ *     HvpViewMapMakeViewRangeUnCOWByPolicy @ 0x140823068 (HvpViewMapMakeViewRangeUnCOWByPolicy.c)
+ *     HvpViewMapMakeViewRangeInvalid @ 0x140880D20 (HvpViewMapMakeViewRangeInvalid.c)
+ * Callees:
+ *     ZwProtectVirtualMemory @ 0x140412D10 (ZwProtectVirtualMemory.c)
+ */
+
 __int64 __fastcall CmSiProtectViewOfSection(
         __int64 a1,
         __int64 *a2,

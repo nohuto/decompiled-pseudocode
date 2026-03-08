@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Initialize@CAdapter@@IEAAJAEBUCSM_TOKEN_ADAPTER_INFO@@@Z @ 0x1C001917C
+ * Callers:
+ *     ?Create@CAdapter@@SAJAEBUCSM_TOKEN_ADAPTER_INFO@@IPEAPEAV1@@Z @ 0x1C00190BC (-Create@CAdapter@@SAJAEBUCSM_TOKEN_ADAPTER_INFO@@IPEAPEAV1@@Z.c)
+ * Callees:
+ *     ?UpdateRenderFence@CAdapter@@QEAAJPEAX@Z @ 0x1C0018A08 (-UpdateRenderFence@CAdapter@@QEAAJPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     DxgkOpenAdapterFromLuidInternal @ 0x1C01DFA80 (DxgkOpenAdapterFromLuidInternal.c)
+ *     DxgkGetPresentHistoryReadyEvent @ 0x1C01DFAA0 (DxgkGetPresentHistoryReadyEvent.c)
+ */
+
 __int64 __fastcall CAdapter::Initialize(CAdapter *this, const struct CSM_TOKEN_ADAPTER_INFO *a2)
 {
   _QWORD *v4; // rcx

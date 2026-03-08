@@ -1,3 +1,25 @@
+/*
+ * XREFs of VrpUnloadDifferencingHive @ 0x1407379FC
+ * Callers:
+ *     VrpHandleIoctlLoadDifferencingHive @ 0x140736830 (VrpHandleIoctlLoadDifferencingHive.c)
+ *     VrpCleanupNamespace @ 0x140737928 (VrpCleanupNamespace.c)
+ *     VrpHandleIoctlUnloadDifferencingHiveForHost @ 0x140A6FD28 (VrpHandleIoctlUnloadDifferencingHiveForHost.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ZwUnloadKey @ 0x140415DF0 (ZwUnloadKey.c)
+ *     ZwUnloadKey2 @ 0x140415E10 (ZwUnloadKey2.c)
+ *     VrpFindDiffHiveEntryForMountPoint @ 0x140737B9C (VrpFindDiffHiveEntryForMountPoint.c)
+ *     VrpRelinquishDiffHiveEntryTransitionOwner @ 0x140738090 (VrpRelinquishDiffHiveEntryTransitionOwner.c)
+ *     VrpDecrementDiffHiveEntryHardRefCount @ 0x1407380D0 (VrpDecrementDiffHiveEntryHardRefCount.c)
+ *     VrpBecomeDiffHiveEntryTransitionOwner @ 0x140738110 (VrpBecomeDiffHiveEntryTransitionOwner.c)
+ *     VrpDereferenceDiffHiveEntry @ 0x140738160 (VrpDereferenceDiffHiveEntry.c)
+ *     VrpIncrementDiffHiveEntryHardRefCount @ 0x140738468 (VrpIncrementDiffHiveEntryHardRefCount.c)
+ */
+
 __int64 __fastcall VrpUnloadDifferencingHive(const UNICODE_STRING *a1)
 {
   __int64 DiffHiveEntryForMountPoint; // rdi

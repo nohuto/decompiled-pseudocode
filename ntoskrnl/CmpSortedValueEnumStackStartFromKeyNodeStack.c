@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpSortedValueEnumStackStartFromKeyNodeStack @ 0x140A226D8
+ * Callers:
+ *     CmpGetValueCountForKeyNodeStack @ 0x140614148 (CmpGetValueCountForKeyNodeStack.c)
+ * Callees:
+ *     CmpAllocatePool @ 0x140243878 (CmpAllocatePool.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140783798 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpGetEffectiveKeyNodeSemantics @ 0x140A1D040 (CmpGetEffectiveKeyNodeSemantics.c)
+ *     CmpSortedValueEnumStackEntryStart @ 0x140A224F4 (CmpSortedValueEnumStackEntryStart.c)
+ *     CmpValueEnumStackGetEntryAtLayerHeight @ 0x140A22670 (CmpValueEnumStackGetEntryAtLayerHeight.c)
+ */
+
 __int64 __fastcall CmpSortedValueEnumStackStartFromKeyNodeStack(__int64 a1, __int16 *a2)
 {
   __int16 v2; // bx

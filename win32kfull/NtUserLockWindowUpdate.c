@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserLockWindowUpdate @ 0x1C0012A90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     zzzLockWindowUpdate2 @ 0x1C00E51C8 (zzzLockWindowUpdate2.c)
+ */
+
 __int64 __fastcall NtUserLockWindowUpdate(__int64 a1)
 {
   int v2; // ebx

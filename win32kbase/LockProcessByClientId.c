@@ -1,3 +1,14 @@
+/*
+ * XREFs of LockProcessByClientId @ 0x1C0084110
+ * Callers:
+ *     NtUserSetProcessLaunchForegroundPolicy @ 0x1C0003010 (NtUserSetProcessLaunchForegroundPolicy.c)
+ *     ProcessInfoFromPID @ 0x1C00840AC (ProcessInfoFromPID.c)
+ *     ?GetSensorHostingProcessHandle@CBaseInput@@IEBAPEAXXZ @ 0x1C00CDDE8 (-GetSensorHostingProcessHandle@CBaseInput@@IEBAPEAXXZ.c)
+ *     PpiFromProcessId @ 0x1C01544D0 (PpiFromProcessId.c)
+ * Callees:
+ *     LockProcessByClientIdEx @ 0x1C0084164 (LockProcessByClientIdEx.c)
+ */
+
 __int64 __fastcall LockProcessByClientId(__int64 a1, PVOID *a2)
 {
   __int64 v3; // rdx

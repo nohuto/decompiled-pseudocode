@@ -1,3 +1,17 @@
+/*
+ * XREFs of ControllerReset @ 0x1C0009668
+ * Callers:
+ *     NVMeHwFindAdapter @ 0x1C0007CD0 (NVMeHwFindAdapter.c)
+ *     NVMeControllerPowerUp @ 0x1C000E0F4 (NVMeControllerPowerUp.c)
+ *     NVMeControllerReset @ 0x1C000E4D8 (NVMeControllerReset.c)
+ *     NVMeControllerPanicResetActionWorkItem @ 0x1C001C690 (NVMeControllerPanicResetActionWorkItem.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003260 (__security_check_cookie.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ *     FillControllerRuntimeLog @ 0x1C0007908 (FillControllerRuntimeLog.c)
+ *     CheckDpcWatchdogTimerExpireSoon @ 0x1C0025AB8 (CheckDpcWatchdogTimerExpireSoon.c)
+ */
+
 __int64 __fastcall ControllerReset(__int64 a1, char a2)
 {
   char v3; // bp

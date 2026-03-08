@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsAMDDriverEscapeAllowed@@YAHPEAX_K@Z @ 0x1C030CCF4
+ * Callers:
+ *     DxgkEscape @ 0x1C01A3EE0 (DxgkEscape.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall IsAMDDriverEscapeAllowed(_DWORD *a1, unsigned __int64 a2)
 {
   unsigned int v2; // ecx

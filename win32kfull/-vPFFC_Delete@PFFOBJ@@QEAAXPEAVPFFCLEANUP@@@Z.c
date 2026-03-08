@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?vPFFC_Delete@PFFOBJ@@QEAAXPEAVPFFCLEANUP@@@Z @ 0x1C00B7328
+ * Callers:
+ *     bKillPFFOBJ @ 0x1C00B72FC (bKillPFFOBJ.c)
+ *     ?vDeleteRFONTRef@PFFOBJ@@QEAAXXZ @ 0x1C0123C28 (-vDeleteRFONTRef@PFFOBJ@@QEAAXXZ.c)
+ *     ?vPFFC_DeleteAndCleanup@PFFOBJ@@QEAAXXZ @ 0x1C02D8794 (-vPFFC_DeleteAndCleanup@PFFOBJ@@QEAAXXZ.c)
+ * Callees:
+ *     ?vDelete@PFEOBJ@@QEAAXXZ @ 0x1C00B74A0 (-vDelete@PFEOBJ@@QEAAXXZ.c)
+ *     FreeFileView @ 0x1C00B7620 (FreeFileView.c)
+ */
+
 void __fastcall PFFOBJ::vPFFC_Delete(void **this, struct PFFCLEANUP *a2)
 {
   _QWORD *v2; // r8

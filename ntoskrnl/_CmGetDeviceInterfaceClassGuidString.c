@@ -1,3 +1,12 @@
+/*
+ * XREFs of _CmGetDeviceInterfaceClassGuidString @ 0x1406CB790
+ * Callers:
+ *     _CmGetDeviceInterfaceClassGuid @ 0x1406CB71C (_CmGetDeviceInterfaceClassGuid.c)
+ *     _CmCreateDeviceInterfaceWorker @ 0x14087B924 (_CmCreateDeviceInterfaceWorker.c)
+ * Callees:
+ *     _CmGetDeviceInterfaceSubkeyPath @ 0x1406D208C (_CmGetDeviceInterfaceSubkeyPath.c)
+ */
+
 __int64 __fastcall CmGetDeviceInterfaceClassGuidString(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rbx

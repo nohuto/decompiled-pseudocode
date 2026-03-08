@@ -1,3 +1,12 @@
+/*
+ * XREFs of zzzMoveShadow @ 0x1C022482C
+ * Callers:
+ *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C0068640 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
+ * Callees:
+ *     ?FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z @ 0x1C0029674 (-FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z.c)
+ *     zzzUpdateLayeredWindow @ 0x1C01BE8C0 (zzzUpdateLayeredWindow.c)
+ */
+
 struct tagSHADOW *__fastcall zzzMoveShadow(struct tagWND *a1)
 {
   struct tagSHADOW *result; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpDmaInsertDeviceObjectByToken @ 0x14038C9B0
+ * Callers:
+ *     HalpDmaCheckAdapterToken @ 0x1404FF4E0 (HalpDmaCheckAdapterToken.c)
+ *     HalpDmaLinkDeviceObjectByToken @ 0x140821390 (HalpDmaLinkDeviceObjectByToken.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall HalpDmaInsertDeviceObjectByToken(__int64 a1, __int64 a2, char a3)
 {
   unsigned int v4; // ebx

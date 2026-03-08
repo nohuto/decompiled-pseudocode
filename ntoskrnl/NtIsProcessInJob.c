@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtIsProcessInJob @ 0x140788DE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     PspIsProcessInJob @ 0x140788EDC (PspIsProcessInJob.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ */
+
 __int64 __fastcall NtIsProcessInJob(ULONG_PTR a1, void *a2)
 {
   struct _KTHREAD *CurrentThread; // rbx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ViAllocateMapRegistersFromFile @ 0x140AC4E8C
+ * Callers:
+ *     ViMapDoubleBuffer @ 0x140AC678C (ViMapDoubleBuffer.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140AC62F4 (ViHalPreprocessOptions.c)
+ *     ViTagBuffer @ 0x140AC71B4 (ViTagBuffer.c)
+ */
+
 __int64 __fastcall ViAllocateMapRegistersFromFile(__int64 a1, ULONG_PTR a2, unsigned int a3, char a4, _DWORD *a5)
 {
   ULONG_PTR *v5; // rbx

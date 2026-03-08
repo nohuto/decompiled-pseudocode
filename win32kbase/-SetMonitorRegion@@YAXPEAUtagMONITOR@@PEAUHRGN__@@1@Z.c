@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z @ 0x1C003B638
+ * Callers:
+ *     GetMonitorDC @ 0x1C003D41C (GetMonitorDC.c)
+ *     ?ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z @ 0x1C0048B20 (-ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z.c)
+ * Callees:
+ *     GetCurrentThreadCompositedDpi @ 0x1C003B5D4 (GetCurrentThreadCompositedDpi.c)
+ *     CreateMonitorRegionForDpi @ 0x1C003B6D0 (CreateMonitorRegionForDpi.c)
+ *     GetMonitorRect @ 0x1C003DBB4 (GetMonitorRect.c)
+ *     GreCombineRgn @ 0x1C0041BD0 (GreCombineRgn.c)
+ *     GreSetRectRgn @ 0x1C0041FD0 (GreSetRectRgn.c)
+ *     GreOffsetRgn @ 0x1C0042C20 (GreOffsetRgn.c)
+ *     GreDeleteObject @ 0x1C0043CD0 (GreDeleteObject.c)
+ */
+
 void __fastcall SetMonitorRegion(struct tagMONITOR *a1, HRGN a2, HRGN a3)
 {
   unsigned __int16 CurrentThreadCompositedDpi; // ax

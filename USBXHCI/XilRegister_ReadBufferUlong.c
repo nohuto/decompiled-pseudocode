@@ -1,3 +1,12 @@
+/*
+ * XREFs of XilRegister_ReadBufferUlong @ 0x1C001A920
+ * Callers:
+ *     Register_GetAllExtendedCapability @ 0x1C001A838 (Register_GetAllExtendedCapability.c)
+ *     RootHub_PrepareHardware @ 0x1C00706C0 (RootHub_PrepareHardware.c)
+ * Callees:
+ *     Register_ReadSecureMmio @ 0x1C003EE08 (Register_ReadSecureMmio.c)
+ */
+
 __int64 __fastcall XilRegister_ReadBufferUlong(__int64 a1, _DWORD *a2, void *a3, unsigned int a4)
 {
   __int64 result; // rax

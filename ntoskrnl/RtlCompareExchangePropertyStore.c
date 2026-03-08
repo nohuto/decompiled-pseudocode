@@ -1,3 +1,18 @@
+/*
+ * XREFs of RtlCompareExchangePropertyStore @ 0x1405A8090
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     bsearch @ 0x1403D4280 (bsearch.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     RtlpAcquirePropStoreLockExclusive @ 0x1405A8890 (RtlpAcquirePropStoreLockExclusive.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlCompareExchangePropertyStore(_OWORD *Key, __int64 a2, __int64 *a3, _QWORD *a4)
 {
   int v4; // ebp

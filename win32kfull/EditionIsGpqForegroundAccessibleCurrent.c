@@ -1,3 +1,13 @@
+/*
+ * XREFs of EditionIsGpqForegroundAccessibleCurrent @ 0x1C0044BD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     ?IsForegroundShellFrameQueueAccessible@@YAHPEBUtagTHREADINFO@@@Z @ 0x1C00DCFF0 (-IsForegroundShellFrameQueueAccessible@@YAHPEBUtagTHREADINFO@@@Z.c)
+ *     ?MSGLUA_GPQFOREGROUND@@YAXXZ @ 0x1C00F02AC (-MSGLUA_GPQFOREGROUND@@YAXXZ.c)
+ */
+
 __int64 __fastcall EditionIsGpqForegroundAccessibleCurrent(int a1)
 {
   struct tagTHREADINFO *v2; // rax

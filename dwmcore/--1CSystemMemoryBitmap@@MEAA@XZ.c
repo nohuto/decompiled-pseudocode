@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CSystemMemoryBitmap@@MEAA@XZ @ 0x1800A736C
+ * Callers:
+ *     ??1CClientMemoryBitmap@@MEAA@XZ @ 0x1800A743C (--1CClientMemoryBitmap@@MEAA@XZ.c)
+ *     ??_ECSystemMemoryBitmap@@MEAAPEAXI@Z @ 0x18027DC10 (--_ECSystemMemoryBitmap@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ */
+
 void __fastcall CSystemMemoryBitmap::~CSystemMemoryBitmap(CSystemMemoryBitmap *this)
 {
   __int64 v2; // rcx

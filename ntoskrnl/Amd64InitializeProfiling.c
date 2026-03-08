@@ -1,3 +1,18 @@
+/*
+ * XREFs of Amd64InitializeProfiling @ 0x140A95700
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x140372460 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpMmAllocateMemory @ 0x14037A380 (HalpMmAllocateMemory.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     Amd64FreeCounter @ 0x140526ED0 (Amd64FreeCounter.c)
+ *     Amd64GetGenericPerfEvent @ 0x1405270AC (Amd64GetGenericPerfEvent.c)
+ */
+
 __int64 Amd64InitializeProfiling()
 {
   unsigned int Number; // r13d

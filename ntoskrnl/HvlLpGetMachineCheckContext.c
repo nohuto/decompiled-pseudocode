@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlLpGetMachineCheckContext @ 0x140542380
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HvlpGetLogicalProcessorProperty @ 0x14053EAB4 (HvlpGetLogicalProcessorProperty.c)
+ */
+
 __int64 __fastcall HvlLpGetMachineCheckContext(ULONG a1, _DWORD *a2, _QWORD *a3, _DWORD *a4)
 {
   __int128 v8; // [rsp+20h] [rbp-28h] BYREF

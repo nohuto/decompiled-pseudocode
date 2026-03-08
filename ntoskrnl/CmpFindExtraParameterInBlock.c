@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpFindExtraParameterInBlock @ 0x1406C3180
+ * Callers:
+ *     VrpPreOpenOrCreate @ 0x1406C1A34 (VrpPreOpenOrCreate.c)
+ *     VrpPostOpenOrCreate @ 0x1406C2968 (VrpPostOpenOrCreate.c)
+ *     CmRetrieveExtraParameter @ 0x1406C313C (CmRetrieveExtraParameter.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmpFindExtraParameterInBlock(_QWORD *a1, _QWORD *a2, _QWORD *a3)
 {
   _QWORD *i; // r9

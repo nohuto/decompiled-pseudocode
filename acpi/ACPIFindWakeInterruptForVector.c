@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIFindWakeInterruptForVector @ 0x1C00449AC
+ * Callers:
+ *     ACPIAssociateWakeInterrupt @ 0x1C004431C (ACPIAssociateWakeInterrupt.c)
+ *     ACPIDelayedFreeWakeInterrupt @ 0x1C0044668 (ACPIDelayedFreeWakeInterrupt.c)
+ *     ACPIDisconnectWakeInterrupt @ 0x1C00448F8 (ACPIDisconnectWakeInterrupt.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPIFindWakeInterruptForVector(int a1, __int64 a2, __int64 *a3)
 {
   __int64 v3; // rax

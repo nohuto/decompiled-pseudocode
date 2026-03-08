@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetSmoothedDuration@CPartitionVerticalBlankScheduler@@UEBA_KXZ @ 0x18004A340
+ * Callers:
+ *     ?GetNextFrameStartTime@CPartitionVerticalBlankScheduler@@UEBA_KXZ @ 0x1800F6F10 (-GetNextFrameStartTime@CPartitionVerticalBlankScheduler@@UEBA_KXZ.c)
+ * Callees:
+ *     ?ReportUsage@?$FeatureImpl@U__WilFeatureTraits_Feature_Scheduler_VSync_Smoothing@@@details@wil@@QEAAX_NW4ReportingKind@3@_K@Z @ 0x1800AF148 (-ReportUsage@-$FeatureImpl@U__WilFeatureTraits_Feature_Scheduler_VSync_Smoothing@@@details@wil@@.c)
+ */
+
 unsigned __int64 __fastcall CPartitionVerticalBlankScheduler::GetSmoothedDuration(
         CPartitionVerticalBlankScheduler *this,
         __int64 a2)

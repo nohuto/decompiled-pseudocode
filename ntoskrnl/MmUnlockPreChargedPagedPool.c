@@ -1,3 +1,14 @@
+/*
+ * XREFs of MmUnlockPreChargedPagedPool @ 0x140A2DD70
+ * Callers:
+ *     HalpMcUpdateUnlock @ 0x140519854 (HalpMcUpdateUnlock.c)
+ *     MiDeleteSubsectionLargePages @ 0x14064C7F8 (MiDeleteSubsectionLargePages.c)
+ *     PopFreeHiberContext @ 0x1409855F0 (PopFreeHiberContext.c)
+ * Callees:
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MiUnlockCodePage @ 0x1402A441C (MiUnlockCodePage.c)
+ */
+
 __int64 __fastcall MmUnlockPreChargedPagedPool(unsigned __int64 a1)
 {
   unsigned __int64 PteAddress; // rax

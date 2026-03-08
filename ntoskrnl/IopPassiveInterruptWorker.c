@@ -1,3 +1,20 @@
+/*
+ * XREFs of IopPassiveInterruptWorker @ 0x14039E620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402AA110 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402ABED0 (KeSetSystemGroupAffinityThread.c)
+ *     KiInterruptDispatchCommon @ 0x14039E224 (KiInterruptDispatchCommon.c)
+ *     IopDereferencePassiveInterruptBlock @ 0x14039E56C (IopDereferencePassiveInterruptBlock.c)
+ *     IopAcquirePassiveInterruptBlockLock @ 0x14039E744 (IopAcquirePassiveInterruptBlockLock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     IopAcquireReleaseDispatcherLock @ 0x140847424 (IopAcquireReleaseDispatcherLock.c)
+ */
+
 void __fastcall IopPassiveInterruptWorker(char *P, __int64 a2)
 {
   volatile signed __int64 *v3; // rcx

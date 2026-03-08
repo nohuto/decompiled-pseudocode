@@ -1,3 +1,16 @@
+/*
+ * XREFs of DrvDbUnloadDatabaseNode @ 0x140865E78
+ * Callers:
+ *     DrvDbOpenDriverDatabaseRegKey @ 0x1407FF984 (DrvDbOpenDriverDatabaseRegKey.c)
+ *     DrvDbSetDriverDatabaseMappedProperty @ 0x1407FFABC (DrvDbSetDriverDatabaseMappedProperty.c)
+ *     DrvDbReleaseDatabaseNodeBaseKey @ 0x14086585C (DrvDbReleaseDatabaseNodeBaseKey.c)
+ *     DrvDbLoadDatabaseNode @ 0x140865BC0 (DrvDbLoadDatabaseNode.c)
+ *     DrvDbDestroyDatabaseNode @ 0x140A6ACC0 (DrvDbDestroyDatabaseNode.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall DrvDbUnloadDatabaseNode(__int64 a1, __int64 a2)
 {
   __int64 (__fastcall *v2)(__int64, _QWORD, __int64); // rbp

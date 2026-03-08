@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetWakeupTimeBeforeVBlank@CComputeScribbleScheduler@@AEAAXPEAVCComputeScribble@@PEAN1@Z @ 0x1801FFFDC
+ * Callers:
+ *     ?ScheduleScribbleFrame@CComputeScribbleScheduler@@QEAAJPEAVCComputeScribbleFramebuffer@@PEAVCComputeScribble@@_KI@Z @ 0x180200B14 (-ScheduleScribbleFrame@CComputeScribbleScheduler@@QEAAJPEAVCComputeScribbleFramebuffer@@PEAVCCom.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CComputeScribbleScheduler::GetWakeupTimeBeforeVBlank(
         CComputeScribbleScheduler *this,
         struct CComputeScribble *a2,

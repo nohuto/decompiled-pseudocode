@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiUnlockPage @ 0x1404647DA
+ * Callers:
+ *     MiScanPagefileSpace @ 0x140A2FF20 (MiScanPagefileSpace.c)
+ *     MmAreMdlPagesLocked @ 0x140AE5198 (MmAreMdlPagesLocked.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiUnlockPage(__int64 a1, unsigned __int8 a2)
 {
   unsigned __int64 v2; // rbx

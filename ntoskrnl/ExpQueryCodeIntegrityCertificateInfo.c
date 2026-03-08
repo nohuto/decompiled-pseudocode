@@ -1,3 +1,19 @@
+/*
+ * XREFs of ExpQueryCodeIntegrityCertificateInfo @ 0x1409F3A80
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x140412810 (ZwMapViewOfSection.c)
+ *     ZwUnmapViewOfSection @ 0x140412850 (ZwUnmapViewOfSection.c)
+ *     ZwCreateSection @ 0x140412C50 (ZwCreateSection.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     FsRtlGetFileSize @ 0x1407F4020 (FsRtlGetFileSize.c)
+ *     IoConvertFileHandleToKernelHandle @ 0x140944030 (IoConvertFileHandleToKernelHandle.c)
+ */
+
 __int64 __fastcall ExpQueryCodeIntegrityCertificateInfo(void *a1, int a2)
 {
   PVOID v2; // rsi

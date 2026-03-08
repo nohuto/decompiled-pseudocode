@@ -1,3 +1,12 @@
+/*
+ * XREFs of wcstombs @ 0x1403D6080
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlUnicodeToMultiByteSize @ 0x1407A35C0 (RtlUnicodeToMultiByteSize.c)
+ *     RtlUnicodeToMultiByteN @ 0x1407A3650 (RtlUnicodeToMultiByteN.c)
+ */
+
 size_t __cdecl wcstombs(char *Dest, const wchar_t *Source, size_t MaxCount)
 {
   __int64 v3; // rax

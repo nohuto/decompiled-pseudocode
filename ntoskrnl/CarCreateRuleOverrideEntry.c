@@ -1,3 +1,13 @@
+/*
+ * XREFs of CarCreateRuleOverrideEntry @ 0x1405D1544
+ * Callers:
+ *     CarRegisterRuleOverride @ 0x1405D1D50 (CarRegisterRuleOverride.c)
+ *     CarRegisterRuleOverrideAllContexts @ 0x1405D1E40 (CarRegisterRuleOverrideAllContexts.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall CarCreateRuleOverrideEntry(_QWORD *a1)
 {
   unsigned int v1; // ebx

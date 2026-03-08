@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiMirrorAddPagesToBrownList @ 0x1406246DC
+ * Callers:
+ *     MiMirrorGatherBrownPages @ 0x140624848 (MiMirrorGatherBrownPages.c)
+ *     MiMirrorNodeLargePages @ 0x14064CF54 (MiMirrorNodeLargePages.c)
+ * Callees:
+ *     RtlSetBitsEx @ 0x14034CE90 (RtlSetBitsEx.c)
+ */
+
 void __fastcall MiMirrorAddPagesToBrownList(unsigned __int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 v4; // r8

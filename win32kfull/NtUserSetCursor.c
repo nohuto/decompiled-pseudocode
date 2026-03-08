@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserSetCursor @ 0x1C003ED70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C0042A88 (-zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z.c)
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ */
+
 __int64 __fastcall NtUserSetCursor(__int64 a1)
 {
   __int64 v2; // rdx

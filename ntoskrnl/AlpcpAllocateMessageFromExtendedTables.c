@@ -1,3 +1,17 @@
+/*
+ * XREFs of AlpcpAllocateMessageFromExtendedTables @ 0x140975E3C
+ * Callers:
+ *     AlpcpAllocateMessageFunction @ 0x14077B710 (AlpcpAllocateMessageFunction.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExpFreeHandleTable @ 0x140704400 (ExpFreeHandleTable.c)
+ *     ExCreateHandleTable @ 0x140706274 (ExCreateHandleTable.c)
+ *     ExCreateHandleEx @ 0x1407D8ABC (ExCreateHandleEx.c)
+ *     ExpRemoveHandleTable @ 0x1407DCE80 (ExpRemoveHandleTable.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 unsigned __int64 __fastcall AlpcpAllocateMessageFromExtendedTables(__int64 a1)
 {
   __int64 Pool2; // rax

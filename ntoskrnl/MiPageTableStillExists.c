@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiPageTableStillExists @ 0x1403A3B20
+ * Callers:
+ *     MiSynchronizeSystemVa @ 0x1402228B0 (MiSynchronizeSystemVa.c)
+ *     MiSmallVaStillMapsFrame @ 0x1403A3A90 (MiSmallVaStillMapsFrame.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiPageTableStillExists(__int64 a1, int *a2)
 {
   int v2; // r8d

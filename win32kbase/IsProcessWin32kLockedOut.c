@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsProcessWin32kLockedOut @ 0x1C01598D0
+ * Callers:
+ *     UserGlobalAtomTableCallout @ 0x1C0072268 (UserGlobalAtomTableCallout.c)
+ * Callees:
+ *     GetProcessSyscallDisablePolicy @ 0x1C0159840 (GetProcessSyscallDisablePolicy.c)
+ */
+
 char __fastcall IsProcessWin32kLockedOut(void *a1)
 {
   char result; // al

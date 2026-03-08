@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiGetVadLargePageMinimumIndex @ 0x14065E5F4
+ * Callers:
+ *     MiCommitExistingVad @ 0x140320D70 (MiCommitExistingVad.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiGetVadLargePageMinimumIndex(__int64 a1)
 {
   unsigned int v1; // eax

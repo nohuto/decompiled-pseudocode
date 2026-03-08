@@ -1,3 +1,17 @@
+/*
+ * XREFs of TR_FreeSecureTransferSegments @ 0x1C00418F0
+ * Callers:
+ *     TR_Disable_Internal @ 0x1C0008044 (TR_Disable_Internal.c)
+ *     Endpoint_EndpointStaticStreamsDisableCompletion @ 0x1C0039EC0 (Endpoint_EndpointStaticStreamsDisableCompletion.c)
+ *     Endpoint_EndpointStaticStreamsEnableCompletion @ 0x1C003A180 (Endpoint_EndpointStaticStreamsEnableCompletion.c)
+ *     Endpoint_UcxEvtEndpointStaticStreamsEnable @ 0x1C003D100 (Endpoint_UcxEvtEndpointStaticStreamsEnable.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     SecureChannel_SendRequestSynchronously @ 0x1C0052470 (SecureChannel_SendRequestSynchronously.c)
+ */
+
 char __fastcall TR_FreeSecureTransferSegments(_QWORD *a1)
 {
   __int64 v1; // rax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpIommuUpdateRemappingTableEntry @ 0x1402FC29C
+ * Callers:
+ *     HalpInterruptSetRemappedDestination @ 0x14028EB08 (HalpInterruptSetRemappedDestination.c)
+ *     HalpInterruptEnableNmi @ 0x140378254 (HalpInterruptEnableNmi.c)
+ *     HalpInterruptRemap @ 0x140378D78 (HalpInterruptRemap.c)
+ *     HalpInterruptRemapFixedLines @ 0x1403A9F64 (HalpInterruptRemapFixedLines.c)
+ *     HalpSetIrtEntry @ 0x140518128 (HalpSetIrtEntry.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __fastcall HalpIommuUpdateRemappingTableEntry(char a1, __int64 a2, __int64 a3)
 {
   ULONG_PTR *v3; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmHeteroComputeUnparkCount @ 0x140594CD0
+ * Callers:
+ *     PpmCheckComputeMultiClassHeteroResponse @ 0x140594418 (PpmCheckComputeMultiClassHeteroResponse.c)
+ *     PpmHeteroComputeMultiClassUnparkCount @ 0x140594A00 (PpmHeteroComputeMultiClassUnparkCount.c)
+ * Callees:
+ *     PpmHeteroUtilityGreaterThanOrEqualThreshold @ 0x14059553C (PpmHeteroUtilityGreaterThanOrEqualThreshold.c)
+ */
+
 __int64 __fastcall PpmHeteroComputeUnparkCount(
         int a1,
         __int64 a2,

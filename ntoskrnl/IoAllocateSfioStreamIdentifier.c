@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoAllocateSfioStreamIdentifier @ 0x140554370
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IopGetSetStreamIdentifier @ 0x1405552DC (IopGetSetStreamIdentifier.c)
+ */
+
 NTSTATUS __stdcall IoAllocateSfioStreamIdentifier(
         PFILE_OBJECT FileObject,
         ULONG Length,

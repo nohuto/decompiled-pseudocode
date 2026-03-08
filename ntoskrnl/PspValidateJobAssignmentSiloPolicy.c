@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspValidateJobAssignmentSiloPolicy @ 0x140700C58
+ * Callers:
+ *     PspAssignProcessToJob @ 0x1406FFA20 (PspAssignProcessToJob.c)
+ * Callees:
+ *     PsGetProcessServerSilo @ 0x1402637E0 (PsGetProcessServerSilo.c)
+ *     PsGetEffectiveServerSilo @ 0x140294DF0 (PsGetEffectiveServerSilo.c)
+ *     PsIsServerSilo @ 0x140294E20 (PsIsServerSilo.c)
+ */
+
 char __fastcall PspValidateJobAssignmentSiloPolicy(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   __int64 EffectiveServerSilo; // rbx

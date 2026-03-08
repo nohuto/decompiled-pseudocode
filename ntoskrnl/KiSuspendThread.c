@@ -1,3 +1,19 @@
+/*
+ * XREFs of KiSuspendThread @ 0x140354348
+ * Callers:
+ *     KeSuspendThread @ 0x140354244 (KeSuspendThread.c)
+ *     KiFreezeSingleThread @ 0x140355BB4 (KiFreezeSingleThread.c)
+ *     KiAdjustThreadTimer @ 0x1405749E4 (KiAdjustThreadTimer.c)
+ * Callees:
+ *     KiCancelTimer @ 0x140251440 (KiCancelTimer.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiDecrementProcessStackCount @ 0x1402A7824 (KiDecrementProcessStackCount.c)
+ *     KiSignalThread @ 0x14033FD70 (KiSignalThread.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiSignalThreadForApc @ 0x140353F08 (KiSignalThreadForApc.c)
+ *     KiInsertQueueApc @ 0x140354598 (KiInsertQueueApc.c)
+ */
+
 char __fastcall KiSuspendThread(__int64 a1, __int64 a2, __int64 a3)
 {
   char v4; // si

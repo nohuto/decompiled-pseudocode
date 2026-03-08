@@ -1,3 +1,12 @@
+/*
+ * XREFs of PoFxIssueComponentPerfStateChangeMultiple @ 0x140585A60
+ * Callers:
+ *     PoFxIssueComponentPerfStateChange @ 0x140585A30 (PoFxIssueComponentPerfStateChange.c)
+ * Callees:
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ *     PopFxIssueComponentPerfStateChanges @ 0x140588718 (PopFxIssueComponentPerfStateChanges.c)
+ */
+
 __int64 __fastcall PoFxIssueComponentPerfStateChangeMultiple(
         ULONG_PTR BugCheckParameter2,
         char a2,

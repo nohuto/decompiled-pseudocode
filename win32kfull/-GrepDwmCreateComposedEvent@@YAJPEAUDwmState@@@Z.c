@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GrepDwmCreateComposedEvent@@YAJPEAUDwmState@@@Z @ 0x1C00C1E48
+ * Callers:
+ *     GreDwmStartup @ 0x1C00C2644 (GreDwmStartup.c)
+ * Callees:
+ *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00C1278 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     ?RtlStringCchPrintfExW@@YAJPEAG_KPEAPEAGPEA_KKPEBGZZ @ 0x1C00C24B8 (-RtlStringCchPrintfExW@@YAJPEAG_KPEAPEAGPEA_KKPEBGZZ.c)
+ */
+
 NTSTATUS __fastcall GrepDwmCreateComposedEvent(wchar_t *a1)
 {
   struct Gre::Base::SESSION_GLOBALS *v2; // rbx

@@ -1,3 +1,18 @@
+/*
+ * XREFs of SeAuditProcessExit @ 0x1409C7F74
+ * Callers:
+ *     PspExitThread @ 0x1407D9464 (PspExitThread.c)
+ * Callees:
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     SepAdtLogAuditRecord @ 0x140397890 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1407E7618 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepAuditFailed @ 0x1409CEE50 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall SeAuditProcessExit(__int64 a1, unsigned int a2)
 {
   __int64 v3; // rsi

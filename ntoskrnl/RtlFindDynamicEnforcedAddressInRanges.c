@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlFindDynamicEnforcedAddressInRanges @ 0x1409BF750
+ * Callers:
+ *     KiCheckUserAddressCetCompat @ 0x14097262C (KiCheckUserAddressCetCompat.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     RtlpDynamicEnforcedAddressRangesTreeCompare @ 0x1409BFAA8 (RtlpDynamicEnforcedAddressRangesTreeCompare.c)
+ */
+
 bool __fastcall RtlFindDynamicEnforcedAddressInRanges(_QWORD *a1, __int64 a2)
 {
   signed __int64 *v2; // rdi

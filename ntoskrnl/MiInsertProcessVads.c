@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiInsertProcessVads @ 0x140729774
+ * Callers:
+ *     MmInitializeProcessAddressSpace @ 0x1407291A8 (MmInitializeProcessAddressSpace.c)
+ *     MmInitializeHandBuiltProcess2 @ 0x14085D06C (MmInitializeHandBuiltProcess2.c)
+ * Callees:
+ *     MiInsertVad @ 0x1403312E0 (MiInsertVad.c)
+ *     UNLOCK_ADDRESS_SPACE_UNORDERED @ 0x14034C380 (UNLOCK_ADDRESS_SPACE_UNORDERED.c)
+ *     LOCK_ADDRESS_SPACE @ 0x14034CA58 (LOCK_ADDRESS_SPACE.c)
+ *     MiInsertVadCharges @ 0x1407D6A70 (MiInsertVadCharges.c)
+ */
+
 __int64 __fastcall MiInsertProcessVads(__int64 a1, _QWORD **a2)
 {
   struct _KTHREAD *CurrentThread; // rsi

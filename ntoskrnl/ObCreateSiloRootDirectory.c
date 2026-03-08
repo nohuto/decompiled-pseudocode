@@ -1,3 +1,29 @@
+/*
+ * XREFs of ObCreateSiloRootDirectory @ 0x140A70E70
+ * Callers:
+ *     NtSetInformationJobObject @ 0x1406FC3C0 (NtSetInformationJobObject.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402992F0 (PdcCreateWatchdogAroundClientCall.c)
+ *     PsAttachSiloToCurrentThread @ 0x1402993A0 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x1402993C0 (PsDetachSiloFromCurrentThread.c)
+ *     PsDereferenceSiloContext @ 0x1402FEB00 (PsDereferenceSiloContext.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x140412E10 (ZwOpenDirectoryObject.c)
+ *     ZwCreateDirectoryObjectEx @ 0x140413870 (ZwCreateDirectoryObjectEx.c)
+ *     PsGetParentSilo @ 0x14067FE00 (PsGetParentSilo.c)
+ *     PsInsertSiloContext @ 0x140738510 (PsInsertSiloContext.c)
+ *     PsInsertPermanentSiloContextEx @ 0x14073858C (PsInsertPermanentSiloContextEx.c)
+ *     PsCreateSiloContext @ 0x140738810 (PsCreateSiloContext.c)
+ *     RtlIntegerToUnicodeString @ 0x1407805C0 (RtlIntegerToUnicodeString.c)
+ *     PsIsJobParentImmutable @ 0x140799510 (PsIsJobParentImmutable.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ObpInitializeRootNamespace @ 0x1408093C4 (ObpInitializeRootNamespace.c)
+ *     ObpGetSilosRootDirectory @ 0x140A71340 (ObpGetSilosRootDirectory.c)
+ */
+
 __int64 __fastcall ObCreateSiloRootDirectory(__int64 a1, int a2)
 {
   void *v2; // rsi

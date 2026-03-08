@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspCompleteServerSiloShutdown @ 0x1409A9AC8
+ * Callers:
+ *     PspTerminateProcessesJobCallback @ 0x1406F8A00 (PspTerminateProcessesJobCallback.c)
+ * Callees:
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     PsGetServerSiloState @ 0x1403552EC (PsGetServerSiloState.c)
+ */
+
 void __fastcall PspCompleteServerSiloShutdown(__int64 a1)
 {
   void *v2; // rcx

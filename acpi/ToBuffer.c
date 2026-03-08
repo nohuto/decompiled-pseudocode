@@ -1,3 +1,14 @@
+/*
+ * XREFs of ToBuffer @ 0x1C0058C40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ *     ValidateTarget @ 0x1C004D4F0 (ValidateTarget.c)
+ *     WriteObject @ 0x1C00532A0 (WriteObject.c)
+ *     ConvertToBuffer @ 0x1C0059884 (ConvertToBuffer.c)
+ */
+
 __int64 __fastcall ToBuffer(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

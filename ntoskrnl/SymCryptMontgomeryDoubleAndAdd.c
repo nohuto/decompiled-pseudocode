@@ -1,3 +1,14 @@
+/*
+ * XREFs of SymCryptMontgomeryDoubleAndAdd @ 0x1403FAD2C
+ * Callers:
+ *     SymCryptMontgomeryPointScalarMul @ 0x1403FB2C0 (SymCryptMontgomeryPointScalarMul.c)
+ * Callees:
+ *     SymCryptModAdd @ 0x1403F3A54 (SymCryptModAdd.c)
+ *     SymCryptModMul @ 0x1403F3D74 (SymCryptModMul.c)
+ *     SymCryptModSquare @ 0x1403F3E50 (SymCryptModSquare.c)
+ *     SymCryptModSub @ 0x1403F3E84 (SymCryptModSub.c)
+ */
+
 __int64 __fastcall SymCryptMontgomeryDoubleAndAdd(
         _DWORD *a1,
         __int64 a2,

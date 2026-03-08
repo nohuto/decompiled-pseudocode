@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiProcessWsInSwapSupport @ 0x140200298
+ * Callers:
+ *     MmInSwapWorkingSet @ 0x1402000BC (MmInSwapWorkingSet.c)
+ *     MiInSwapSharedWorkingSetWorker @ 0x140A40560 (MiInSwapSharedWorkingSetWorker.c)
+ *     MmInSwapVirtualAddresses @ 0x140A407F0 (MmInSwapVirtualAddresses.c)
+ * Callees:
+ *     MiProcessWsInSwapRanges @ 0x140200438 (MiProcessWsInSwapRanges.c)
+ */
+
 __int64 __fastcall MiProcessWsInSwapSupport(__int64 a1, unsigned int a2)
 {
   _QWORD *v2; // rdi

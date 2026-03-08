@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CMatrixTransformMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C000B5E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetMatrixHelper@CMatrixTransformMarshaler@DirectComposition@@QEAAXPEAVCApplicationChannel@2@PEBUD2D_MATRIX_3X2_F@@PEA_N@Z @ 0x1C000B61C (-SetMatrixHelper@CMatrixTransformMarshaler@DirectComposition@@QEAAXPEAVCApplicationChannel@2@PEB.c)
+ */
+
 __int64 __fastcall DirectComposition::CMatrixTransformMarshaler::SetBufferProperty(
         DirectComposition::CMatrixTransformMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

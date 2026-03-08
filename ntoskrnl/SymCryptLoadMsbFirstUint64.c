@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptLoadMsbFirstUint64 @ 0x1403F0938
+ * Callers:
+ *     HashpVerifyPkcs1Signature @ 0x140A7467C (HashpVerifyPkcs1Signature.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptLoadMsbFirstUint64(_BYTE *a1, unsigned __int64 a2, __int64 *a3)
 {
   unsigned int v3; // r9d

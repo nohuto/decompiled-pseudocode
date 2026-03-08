@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpTrackRaiseLimitNotification @ 0x1406066A4
+ * Callers:
+ *     ExpLimitDpcInsertEntry @ 0x140605DF0 (ExpLimitDpcInsertEntry.c)
+ *     ExpTrackTableGetMoreLimit @ 0x140606710 (ExpTrackTableGetMoreLimit.c)
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ */
+
 void __fastcall ExpTrackRaiseLimitNotification(__int64 a1)
 {
   if ( !_InterlockedCompareExchange((volatile signed __int32 *)(a1 + 96), 1, 0) )

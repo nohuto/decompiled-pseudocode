@@ -1,3 +1,21 @@
+/*
+ * XREFs of sub_140B0A7A8 @ 0x140B0A7A8
+ * Callers:
+ *     FsRtlMdlReadCompleteDevEx @ 0x140AF7010 (FsRtlMdlReadCompleteDevEx.c)
+ *     sub_140B0A7A8 @ 0x140B0A7A8 (sub_140B0A7A8.c)
+ *     sub_140B16730 @ 0x140B16730 (sub_140B16730.c)
+ * Callees:
+ *     sub_1403EC00C @ 0x1403EC00C (sub_1403EC00C.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     sub_140B0A7A8 @ 0x140B0A7A8 (sub_140B0A7A8.c)
+ *     sub_140B0C838 @ 0x140B0C838 (sub_140B0C838.c)
+ *     sub_140B0E020 @ 0x140B0E020 (sub_140B0E020.c)
+ *     $$ba @ 0x140B0E898 ($$ba.c)
+ *     sub_140B0F0E0 @ 0x140B0F0E0 (sub_140B0F0E0.c)
+ *     KeGuardDispatchICall @ 0x140B107A0 (KeGuardDispatchICall.c)
+ *     sub_140B15070 @ 0x140B15070 (sub_140B15070.c)
+ */
+
 __int64 __fastcall sub_140B0A7A8(_QWORD *a1, ULONG_PTR a2, unsigned int a3)
 {
   ULONG_PTR v3; // r13

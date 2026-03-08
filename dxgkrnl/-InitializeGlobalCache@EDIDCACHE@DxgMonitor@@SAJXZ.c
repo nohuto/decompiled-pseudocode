@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?InitializeGlobalCache@EDIDCACHE@DxgMonitor@@SAJXZ @ 0x1C01FBD64
+ * Callers:
+ *     MonitorInitializeGlobal @ 0x1C01FAE24 (MonitorInitializeGlobal.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??0EDIDCACHE@DxgMonitor@@QEAA@XZ @ 0x1C01FBDAC (--0EDIDCACHE@DxgMonitor@@QEAA@XZ.c)
+ */
+
 __int64 DxgMonitor::EDIDCACHE::InitializeGlobalCache(void)
 {
   DxgMonitor::EDIDCACHE *v0; // rax

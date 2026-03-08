@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiGetVaAge @ 0x140349610
+ * Callers:
+ *     MiProcessWsInSwapFault @ 0x140200008 (MiProcessWsInSwapFault.c)
+ *     MiActOnPte @ 0x1402CF06C (MiActOnPte.c)
+ *     MiUpdateWsleAge @ 0x1402CF54C (MiUpdateWsleAge.c)
+ *     MiTrimPte @ 0x140349060 (MiTrimPte.c)
+ *     MiTrimThisWsle @ 0x1403493EC (MiTrimThisWsle.c)
+ *     MI_WSLE_LOG_ACCESS @ 0x140349598 (MI_WSLE_LOG_ACCESS.c)
+ *     MiResetAccessBitPteWorker @ 0x140463BAC (MiResetAccessBitPteWorker.c)
+ *     MiUpdateOldPte @ 0x140463D20 (MiUpdateOldPte.c)
+ *     MiSimpleAgePte @ 0x140632C70 (MiSimpleAgePte.c)
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ */
+
 char __fastcall MiGetVaAge(__int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 v2; // r8

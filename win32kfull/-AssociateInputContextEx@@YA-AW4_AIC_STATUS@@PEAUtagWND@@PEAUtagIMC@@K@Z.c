@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?AssociateInputContextEx@@YA?AW4_AIC_STATUS@@PEAUtagWND@@PEAUtagIMC@@K@Z @ 0x1C01B874C
+ * Callers:
+ *     NtUserAssociateInputContext @ 0x1C01CDCA0 (NtUserAssociateInputContext.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     BuildHwndList @ 0x1C0041A10 (BuildHwndList.c)
+ *     FreeHwndList @ 0x1C00680B0 (FreeHwndList.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     ?AssociateInputContext@@YAPEAUHIMC__@@PEAUtagWND@@PEAUtagIMC@@@Z @ 0x1C01B8724 (-AssociateInputContext@@YAPEAUHIMC__@@PEAUtagWND@@PEAUtagIMC@@@Z.c)
+ */
+
 __int64 __fastcall AssociateInputContextEx(struct tagWND *a1, struct tagIMC *a2, char a3)
 {
   __int64 v4; // rbx

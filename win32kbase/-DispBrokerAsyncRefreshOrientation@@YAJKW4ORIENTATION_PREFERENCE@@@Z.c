@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DispBrokerAsyncRefreshOrientation@@YAJKW4ORIENTATION_PREFERENCE@@@Z @ 0x1C0156DF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DispBroker::DispBrokerClient::AsyncMessageNoAlloc_6__lambda_12383f500c067e992563f3aceebe145e___ @ 0x1C01566C8 (DispBroker--DispBrokerClient--AsyncMessageNoAlloc_6__lambda_12383f500c067e992563f3aceebe145e___.c)
+ */
+
 __int64 __fastcall DispBrokerAsyncRefreshOrientation(__int64 a1, int a2)
 {
   int *v3[3]; // [rsp+20h] [rbp-18h] BYREF

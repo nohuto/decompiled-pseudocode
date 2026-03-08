@@ -1,3 +1,19 @@
+/*
+ * XREFs of HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectConfiguration @ 0x1C002EBC0
+ * Callers:
+ *     HUBDSM_PreparingEndpointAndInterfaceListsOnSelectConfiguration @ 0x1C001FA50 (HUBDSM_PreparingEndpointAndInterfaceListsOnSelectConfiguration.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     HUBPDO_GetUSBDErrorFromNTStatus @ 0x1C0015618 (HUBPDO_GetUSBDErrorFromNTStatus.c)
+ *     WPP_RECORDER_SF_Dq @ 0x1C002DE78 (WPP_RECORDER_SF_Dq.c)
+ *     HUBDESC_ParseConfigurationDescriptor @ 0x1C003599C (HUBDESC_ParseConfigurationDescriptor.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 __int64 __fastcall HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnSelectConfiguration(__int64 a1)
 {
   __int64 v1; // rdx

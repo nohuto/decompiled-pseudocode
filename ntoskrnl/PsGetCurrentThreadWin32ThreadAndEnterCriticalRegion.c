@@ -1,3 +1,11 @@
+/*
+ * XREFs of PsGetCurrentThreadWin32ThreadAndEnterCriticalRegion @ 0x1402CBAB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 PVOID __fastcall PsGetCurrentThreadWin32ThreadAndEnterCriticalRegion(volatile unsigned __int64 *a1)
 {
   struct _KTHREAD *CurrentThread; // rax

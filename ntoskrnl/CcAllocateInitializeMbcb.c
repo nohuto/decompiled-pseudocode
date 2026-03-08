@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcAllocateInitializeMbcb @ 0x1402EFEEC
+ * Callers:
+ *     CcSetDirtyInMask @ 0x14021C370 (CcSetDirtyInMask.c)
+ * Callees:
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ */
+
 _QWORD *CcAllocateInitializeMbcb()
 {
   _QWORD *result; // rax

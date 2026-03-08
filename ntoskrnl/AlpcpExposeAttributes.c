@@ -1,3 +1,23 @@
+/*
+ * XREFs of AlpcpExposeAttributes @ 0x1407CDCB0
+ * Callers:
+ *     AlpcpProcessConnectionRequest @ 0x140717E20 (AlpcpProcessConnectionRequest.c)
+ *     AlpcpCompleteDispatchMessage @ 0x1407CBD90 (AlpcpCompleteDispatchMessage.c)
+ *     AlpcpReceiveMessage @ 0x1407CCD50 (AlpcpReceiveMessage.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1407CF500 (AlpcpProcessSynchronousRequest.c)
+ * Callees:
+ *     AlpcpDereferenceBlobEx @ 0x14071550C (AlpcpDereferenceBlobEx.c)
+ *     AlpcpExposeContextAttribute32 @ 0x14077DDCC (AlpcpExposeContextAttribute32.c)
+ *     AlpcpExposeViewAttribute @ 0x14077E6DC (AlpcpExposeViewAttribute.c)
+ *     AlpcpExposeHandleAttribute32 @ 0x140782BAC (AlpcpExposeHandleAttribute32.c)
+ *     AlpcpReferenceBlob @ 0x1407CAA30 (AlpcpReferenceBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1407CBD44 (AlpcpLockForCachedReferenceBlob.c)
+ *     AlpcpUnlockBlob @ 0x1407CDB50 (AlpcpUnlockBlob.c)
+ *     AlpcpExposeTokenAttribute @ 0x1407CE140 (AlpcpExposeTokenAttribute.c)
+ *     AlpcpExposeWorkOnBehalfAttribute @ 0x1407CE2D0 (AlpcpExposeWorkOnBehalfAttribute.c)
+ *     AlpcpExposeHandleAttribute @ 0x1407CE344 (AlpcpExposeHandleAttribute.c)
+ */
+
 __int64 __fastcall AlpcpExposeAttributes(__int64 a1, int a2, __int64 a3, int a4, __int64 a5)
 {
   __int64 v5; // rbp

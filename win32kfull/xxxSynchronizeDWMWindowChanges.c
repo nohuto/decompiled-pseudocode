@@ -1,3 +1,11 @@
+/*
+ * XREFs of xxxSynchronizeDWMWindowChanges @ 0x1C01AE0C8
+ * Callers:
+ *     xxxSendInput @ 0x1C00171A4 (xxxSendInput.c)
+ * Callees:
+ *     DwmSyncFlushWindowChanges @ 0x1C0270A50 (DwmSyncFlushWindowChanges.c)
+ */
+
 __int64 __fastcall xxxSynchronizeDWMWindowChanges(__int64 a1)
 {
   __int64 result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtRIMSetExtendedDeviceProperty @ 0x1C01A2AA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RawInputManagerDeviceObjectResolveHandle @ 0x1C0037330 (RawInputManagerDeviceObjectResolveHandle.c)
+ *     RIMSetExtendedPointerDeviceProperty @ 0x1C01C7680 (RIMSetExtendedPointerDeviceProperty.c)
+ */
+
 __int64 __fastcall NtRIMSetExtendedDeviceProperty(char *a1, ULONG64 a2, int a3)
 {
   ULONG64 v3; // rdi

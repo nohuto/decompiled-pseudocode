@@ -1,3 +1,40 @@
+/*
+ * XREFs of KeSignalGate @ 0x1402F0524
+ * Callers:
+ *     MiWriteComplete @ 0x1402126E0 (MiWriteComplete.c)
+ *     MiReleaseControlAreaWaiters @ 0x140214DCC (MiReleaseControlAreaWaiters.c)
+ *     MiFinishVadDeletion @ 0x140248200 (MiFinishVadDeletion.c)
+ *     KiRetireDpcList @ 0x1402521E0 (KiRetireDpcList.c)
+ *     MiZeroInParallelWorker @ 0x140275970 (MiZeroInParallelWorker.c)
+ *     MiAttachThreadDone @ 0x14029C9D4 (MiAttachThreadDone.c)
+ *     MiUnlockControlAreaSectionExtend @ 0x1402A4E28 (MiUnlockControlAreaSectionExtend.c)
+ *     MiReturnWsToExpansionList @ 0x1402A5FD4 (MiReturnWsToExpansionList.c)
+ *     MmDetachSession @ 0x1402EA460 (MmDetachSession.c)
+ *     MiDereferencePageRunsEx @ 0x1402EBA28 (MiDereferencePageRunsEx.c)
+ *     MiComputeDataFlushRange @ 0x1403324D0 (MiComputeDataFlushRange.c)
+ *     MiCheckControlArea @ 0x140334D00 (MiCheckControlArea.c)
+ *     MiProcessWorkingSets @ 0x14035F6F0 (MiProcessWorkingSets.c)
+ *     KiGenericCallDpcInitiatorDpc @ 0x1403C1750 (KiGenericCallDpcInitiatorDpc.c)
+ *     PsWatchWorkingSet @ 0x14045B2C0 (PsWatchWorkingSet.c)
+ *     KiEpfComplete @ 0x140576A00 (KiEpfComplete.c)
+ *     MiZeroHugeRangeWorker @ 0x140620990 (MiZeroHugeRangeWorker.c)
+ *     MiSubsectionProtosCreated @ 0x14063D324 (MiSubsectionProtosCreated.c)
+ *     MiWakeExtentDeletionWaiters @ 0x14063DFA4 (MiWakeExtentDeletionWaiters.c)
+ *     MiWakeWaitersForAweCacheAttributeChange @ 0x140649E3C (MiWakeWaitersForAweCacheAttributeChange.c)
+ *     MiWakeLargePageWaiters @ 0x14064DA54 (MiWakeLargePageWaiters.c)
+ *     MiScrubMemoryWorker @ 0x140A439A0 (MiScrubMemoryWorker.c)
+ *     sub_140B16300 @ 0x140B16300 (sub_140B16300.c)
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KiTryUnwaitThread @ 0x140258880 (KiTryUnwaitThread.c)
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     KiWakeOtherQueueWaiters @ 0x140293BF4 (KiWakeOtherQueueWaiters.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiWakeQueueWaiter @ 0x140340700 (KiWakeQueueWaiter.c)
+ *     KeIsThreadRunning @ 0x14056C7FC (KeIsThreadRunning.c)
+ *     EtwTraceEnqueueWork @ 0x1405FA8FC (EtwTraceEnqueueWork.c)
+ */
+
 char __fastcall KeSignalGate(__int64 a1, unsigned int a2)
 {
   unsigned __int8 CurrentIrql; // r12

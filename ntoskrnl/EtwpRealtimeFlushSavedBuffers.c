@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwpRealtimeFlushSavedBuffers @ 0x1406917BC
+ * Callers:
+ *     EtwpLogger @ 0x1406926A0 (EtwpLogger.c)
+ * Callees:
+ *     EtwpRealtimeDeliverBuffer @ 0x1406A1F30 (EtwpRealtimeDeliverBuffer.c)
+ *     EtwpSendSessionNotification @ 0x1407489B8 (EtwpSendSessionNotification.c)
+ *     EtwpRealtimeResetReferenceTime @ 0x1407FCBFC (EtwpRealtimeResetReferenceTime.c)
+ *     EtwpRealtimeRestoreBuffer @ 0x14083F64C (EtwpRealtimeRestoreBuffer.c)
+ *     EtwpRealtimeZeroTruncateLogfile @ 0x1408540C0 (EtwpRealtimeZeroTruncateLogfile.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpRealtimeFlushSavedBuffers(__int64 a1)
 {
   __int64 Pool2; // rsi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PsReportProcessMemoryLimitViolation @ 0x1409AED9C
+ * Callers:
+ *     MiChargeProcessCommitment @ 0x14031FA10 (MiChargeProcessCommitment.c)
+ * Callees:
+ *     PspSendJobNotification @ 0x14030201C (PspSendJobNotification.c)
+ *     PspLockJobMemoryLimitsShared @ 0x1406FC318 (PspLockJobMemoryLimitsShared.c)
+ *     PspUnlockJobMemoryLimitsShared @ 0x1406FC344 (PspUnlockJobMemoryLimitsShared.c)
+ */
+
 char PsReportProcessMemoryLimitViolation()
 {
   struct _KTHREAD *CurrentThread; // rsi

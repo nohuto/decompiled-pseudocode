@@ -1,3 +1,15 @@
+/*
+ * XREFs of IvtProcessDeviceExceptions @ 0x140A95E14
+ * Callers:
+ *     IvtInitializeIommu @ 0x140A87060 (IvtInitializeIommu.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpIommuGetExceptionList @ 0x140513048 (HalpIommuGetExceptionList.c)
+ *     IvtAllocateTranslationStructures @ 0x1405292FC (IvtAllocateTranslationStructures.c)
+ *     IvtUpdateTranslationStructures @ 0x14052BCBC (IvtUpdateTranslationStructures.c)
+ *     HalpIvtpInitializeReservedDomain @ 0x140A968B8 (HalpIvtpInitializeReservedDomain.c)
+ */
+
 __int64 __fastcall IvtProcessDeviceExceptions(__int64 a1)
 {
   unsigned int *v2; // rcx

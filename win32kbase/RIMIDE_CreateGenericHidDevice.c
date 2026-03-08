@@ -1,3 +1,16 @@
+/*
+ * XREFs of RIMIDE_CreateGenericHidDevice @ 0x1C01C6AB0
+ * Callers:
+ *     NtUserInitializeGenericHidInjection @ 0x1C01718B0 (NtUserInitializeGenericHidInjection.c)
+ *     ?CreateRimDevice@VirtualTouchpadProcessor@@AEAAJPEAVVPTPTouchpad@@@Z @ 0x1C0224464 (-CreateRimDevice@VirtualTouchpadProcessor@@AEAAJPEAVVPTPTouchpad@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     rimHidP_GetUsageValue @ 0x1C00EF9AA (rimHidP_GetUsageValue.c)
+ *     rimHidP_GetCollectionDescription @ 0x1C01B1F8C (rimHidP_GetCollectionDescription.c)
+ *     RIMIDECreatePseudoHIDDevice @ 0x1C01C2E38 (RIMIDECreatePseudoHIDDevice.c)
+ */
+
 __int64 __fastcall RIMIDE_CreateGenericHidDevice(__int64 a1, _QWORD *a2)
 {
   __int64 v4; // rdx

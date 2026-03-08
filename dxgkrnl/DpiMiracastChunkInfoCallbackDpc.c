@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiMiracastChunkInfoCallbackDpc @ 0x1C005F250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpSynchronizeExecution @ 0x1C000EB40 (DpSynchronizeExecution.c)
+ */
+
 void __fastcall DpiMiracastChunkInfoCallbackDpc(
         struct _KDPC *Dpc,
         _QWORD *DeferredContext,

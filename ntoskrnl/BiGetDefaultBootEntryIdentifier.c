@@ -1,3 +1,14 @@
+/*
+ * XREFs of BiGetDefaultBootEntryIdentifier @ 0x140A59AB0
+ * Callers:
+ *     BcdOpenObject @ 0x14082E620 (BcdOpenObject.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     BcdGetElementDataWithFlags @ 0x14082E398 (BcdGetElementDataWithFlags.c)
+ *     BcdCloseObject @ 0x14082E5DC (BcdCloseObject.c)
+ *     BcdOpenObject @ 0x14082E620 (BcdOpenObject.c)
+ */
+
 __int64 __fastcall BiGetDefaultBootEntryIdentifier(__int64 a1, _OWORD *a2)
 {
   int ElementDataWithFlags; // ebx

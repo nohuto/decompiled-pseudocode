@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtUserGetInteractiveControlInfo @ 0x1C01D2EA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C007A05C (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?GetReportInfo@InteractiveControlManager@@QEAAJKKPEAUtagINTERACTIVECTRL_INFO@@@Z @ 0x1C02439F8 (-GetReportInfo@InteractiveControlManager@@QEAAJKKPEAUtagINTERACTIVECTRL_INFO@@@Z.c)
+ */
+
 __int64 __fastcall NtUserGetInteractiveControlInfo(__int64 a1, _OWORD *a2, __int64 a3)
 {
   _OWORD *v3; // rdi

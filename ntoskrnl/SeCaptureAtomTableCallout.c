@@ -1,3 +1,13 @@
+/*
+ * XREFs of SeCaptureAtomTableCallout @ 0x1402EA5D0
+ * Callers:
+ *     PsConvertToGuiThread @ 0x140776D40 (PsConvertToGuiThread.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     PsReferenceEffectiveToken @ 0x1406D657C (PsReferenceEffectiveToken.c)
+ *     PsInvokeWin32Callout @ 0x1407D2D10 (PsInvokeWin32Callout.c)
+ */
+
 LONG_PTR SeCaptureAtomTableCallout()
 {
   struct _KTHREAD *CurrentThread; // rdi

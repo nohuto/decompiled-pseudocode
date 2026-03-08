@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpKeySecurityIncrementReferenceCount @ 0x140411588
+ * Callers:
+ *     CmpReferenceSecurityNode @ 0x14067D3EC (CmpReferenceSecurityNode.c)
+ *     CmpCheckKey @ 0x1407B4B80 (CmpCheckKey.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall CmpKeySecurityIncrementReferenceCount(__int64 a1, ULONG_PTR a2, unsigned int a3)
 {
   unsigned int v3; // r9d

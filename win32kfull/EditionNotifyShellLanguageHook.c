@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionNotifyShellLanguageHook @ 0x1C00F1D90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?xxxCallHook@@YAHH_K_JH@Z @ 0x1C01098A8 (-xxxCallHook@@YAHH_K_JH@Z.c)
+ */
+
 _QWORD *__fastcall EditionNotifyShellLanguageHook(__int64 a1, __int64 a2, int a3)
 {
   _QWORD *result; // rax

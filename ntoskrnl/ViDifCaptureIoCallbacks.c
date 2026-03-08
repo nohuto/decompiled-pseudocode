@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViDifCaptureIoCallbacks @ 0x1405CCB9C
+ * Callers:
+ *     VfDifCaptureIoCallbacks @ 0x1403035C4 (VfDifCaptureIoCallbacks.c)
+ *     IovAttachDeviceToDeviceStack @ 0x140ABDFA4 (IovAttachDeviceToDeviceStack.c)
+ * Callees:
+ *     ViDifFindIoCallbackContext @ 0x1405CCD64 (ViDifFindIoCallbackContext.c)
+ */
+
 __int64 __fastcall ViDifCaptureIoCallbacks(_QWORD *a1)
 {
   __int64 v1; // r9

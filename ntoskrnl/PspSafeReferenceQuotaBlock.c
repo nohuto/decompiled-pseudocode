@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspSafeReferenceQuotaBlock @ 0x140747E00
+ * Callers:
+ *     PspAssignProcessQuotaBlock @ 0x140745228 (PspAssignProcessQuotaBlock.c)
+ *     PspLookupProcessQuotaBlock @ 0x140745414 (PspLookupProcessQuotaBlock.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspSafeReferenceQuotaBlock(__int64 a1)
 {
   signed __int32 v1; // edx

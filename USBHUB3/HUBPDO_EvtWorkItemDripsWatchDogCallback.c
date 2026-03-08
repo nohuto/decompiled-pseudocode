@@ -1,3 +1,19 @@
+/*
+ * XREFs of HUBPDO_EvtWorkItemDripsWatchDogCallback @ 0x1C00803E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C000C97C (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C000CD94 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ *     McTemplateK0pqhhh_EtwWriteTransfer @ 0x1C0014418 (McTemplateK0pqhhh_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_DDDLd @ 0x1C0014A78 (WPP_RECORDER_SF_DDDLd.c)
+ *     WPP_RECORDER_SF_II @ 0x1C0014C9C (WPP_RECORDER_SF_II.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_OpenQueryAttemptRecoveryFromUsbPowerDrainValue @ 0x1C00887B0 (HUBREG_OpenQueryAttemptRecoveryFromUsbPowerDrainValue.c)
+ */
+
 void __fastcall HUBPDO_EvtWorkItemDripsWatchDogCallback(__int64 a1)
 {
   unsigned __int8 v1; // r12

@@ -1,3 +1,21 @@
+/*
+ * XREFs of ExReturnPoolQuota @ 0x1403144E0
+ * Callers:
+ *     ExFreeHeapPool @ 0x1402B61C0 (ExFreeHeapPool.c)
+ *     IopFreeIrp @ 0x14030EC30 (IopFreeIrp.c)
+ *     IopCompleteRequest @ 0x140312C80 (IopCompleteRequest.c)
+ *     IopFreeMiniCompletionPacket @ 0x1407C40A0 (IopFreeMiniCompletionPacket.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ * Callees:
+ *     PspReturnResourceQuota @ 0x1402953A0 (PspReturnResourceQuota.c)
+ *     ObpDeferObjectDeletion @ 0x1402ECA68 (ObpDeferObjectDeletion.c)
+ *     ExpStampBigPoolEntry @ 0x140307098 (ExpStampBigPoolEntry.c)
+ *     ExGetHeapFromVA @ 0x140313BF0 (ExGetHeapFromVA.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExpHpIsSpecialPoolHeap @ 0x14046327A (ExpHpIsSpecialPoolHeap.c)
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ */
+
 void __fastcall ExReturnPoolQuota(ULONG_PTR BugCheckParameter2)
 {
   unsigned int v1; // ebp

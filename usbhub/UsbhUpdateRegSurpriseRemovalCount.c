@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhUpdateRegSurpriseRemovalCount @ 0x1C0047040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ */
+
 NTSTATUS __fastcall UsbhUpdateRegSurpriseRemovalCount(__int64 a1, __int64 a2, _BYTE *a3)
 {
   NTSTATUS result; // eax

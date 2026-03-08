@@ -1,3 +1,20 @@
+/*
+ * XREFs of IopInitCrashDumpDuringSysInit @ 0x140B6E3C0
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     SecureDump_Init @ 0x1403AB908 (SecureDump_Init.c)
+ *     IopInitializeOfflineCrashDump @ 0x1403AB95C (IopInitializeOfflineCrashDump.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     __report_rangecheckfailure @ 0x1404FBCCC (__report_rangecheckfailure.c)
+ *     IoConfigureCrashDump @ 0x14054D564 (IoConfigureCrashDump.c)
+ *     RtlQueryRegistryValuesEx @ 0x14069DF10 (RtlQueryRegistryValuesEx.c)
+ *     IoInitializeCrashDump @ 0x14083643C (IoInitializeCrashDump.c)
+ *     IopDumpTraceForceDumpDisabled @ 0x140940E2C (IopDumpTraceForceDumpDisabled.c)
+ *     MmInitializeMemoryLimits @ 0x140B3647C (MmInitializeMemoryLimits.c)
+ */
+
 __int64 __fastcall IopInitCrashDumpDuringSysInit(__int64 a1, char a2)
 {
   unsigned int v4; // ecx

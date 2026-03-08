@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiRemoveTimer2 @ 0x140248860
+ * Callers:
+ *     KeDisableTimer2 @ 0x140204028 (KeDisableTimer2.c)
+ *     KeCancelTimer2 @ 0x140204390 (KeCancelTimer2.c)
+ *     KiInsertTimer2WithCollectionLockHeld @ 0x14024E320 (KiInsertTimer2WithCollectionLockHeld.c)
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ *     KiTimer2Expiration @ 0x140250C10 (KiTimer2Expiration.c)
+ *     KiAdjustTimer2DueTimes @ 0x14039680C (KiAdjustTimer2DueTimes.c)
+ * Callees:
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ */
+
 __int64 __fastcall KiRemoveTimer2(__int64 a1)
 {
   char *v2; // rsi
@@ -79,7 +92,7 @@ LABEL_7:
   if ( v4 && KiNextTimer2DueTime == *(_QWORD *)(a1 + 72) )
   {
     v12 = -1LL;
-    v13 = (__int64 *)&qword_140C41F50;
+    v13 = (__int64 *)&unk_140C41F50;
     v14 = 5LL;
     do
     {

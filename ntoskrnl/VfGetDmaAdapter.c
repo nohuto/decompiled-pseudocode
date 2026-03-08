@@ -1,3 +1,18 @@
+/*
+ * XREFs of VfGetDmaAdapter @ 0x140AC3560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IoGetDevicePropertyData @ 0x1406F7380 (IoGetDevicePropertyData.c)
+ *     IoGetDmaAdapter @ 0x140821B20 (IoGetDmaAdapter.c)
+ *     VF_ASSERT_IRQL @ 0x140AC16AC (VF_ASSERT_IRQL.c)
+ *     VF_FIND_INACTIVE_ADAPTER_AND_REMOVE @ 0x140AC19DC (VF_FIND_INACTIVE_ADAPTER_AND_REMOVE.c)
+ *     VfIsPCIBus @ 0x140AC3E74 (VfIsPCIBus.c)
+ *     ViHookDmaAdapter @ 0x140AC6520 (ViHookDmaAdapter.c)
+ *     ViReleaseDmaAdapter @ 0x140AC6C1C (ViReleaseDmaAdapter.c)
+ */
+
 struct _DMA_ADAPTER *__fastcall VfGetDmaAdapter(
         PDEVICE_OBJECT PhysicalDeviceObject,
         struct _DEVICE_DESCRIPTION *DeviceDescription,

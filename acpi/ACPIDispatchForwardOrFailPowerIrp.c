@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIDispatchForwardOrFailPowerIrp @ 0x1C0002A4C
+ * Callers:
+ *     ACPIWakeWaitIrp @ 0x1C00460A0 (ACPIWakeWaitIrp.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ */
+
 __int64 __fastcall ACPIDispatchForwardOrFailPowerIrp(ULONG_PTR a1, IRP *a2)
 {
   __int64 DeviceExtension; // rax

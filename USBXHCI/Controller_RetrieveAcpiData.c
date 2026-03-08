@@ -1,3 +1,15 @@
+/*
+ * XREFs of Controller_RetrieveAcpiData @ 0x1C00785D8
+ * Callers:
+ *     Controller_Create @ 0x1C00712C4 (Controller_Create.c)
+ * Callees:
+ *     WPP_RECORDER_SF_D @ 0x1C00180C4 (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_PopulateAcpiDeviceInformation @ 0x1C00782EC (Controller_PopulateAcpiDeviceInformation.c)
+ */
+
 __int64 __fastcall Controller_RetrieveAcpiData(__int64 a1, int a2, char *a3)
 {
   __int64 v5; // r15

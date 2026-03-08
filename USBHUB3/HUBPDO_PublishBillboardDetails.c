@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBPDO_PublishBillboardDetails @ 0x1C007E4EC
+ * Callers:
+ *     HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess @ 0x1C0017920 (HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBFDO_CreateDeviceInterfaceForBillboard @ 0x1C000F5E0 (HUBFDO_CreateDeviceInterfaceForBillboard.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall HUBPDO_PublishBillboardDetails(__int64 a1)
 {
   __int64 v2; // rax

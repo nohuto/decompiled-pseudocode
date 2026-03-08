@@ -1,3 +1,13 @@
+/*
+ * XREFs of McTemplateK0pqqqqqqqqqqqq_EtwWriteTransfer @ 0x1C0015EDC
+ * Callers:
+ *     ?SetDisplayModeInfo@ADAPTER_DISPLAY@@QEAAXIQEBU_DXGK_DISPLAYMODE_INFO@@@Z @ 0x1C0015D5C (-SetDisplayModeInfo@ADAPTER_DISPLAY@@QEAAXIQEBU_DXGK_DISPLAYMODE_INFO@@@Z.c)
+ *     ?ReportState@ADAPTER_DISPLAY@@QEAAXXZ @ 0x1C02BA640 (-ReportState@ADAPTER_DISPLAY@@QEAAXXZ.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002BBC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 NTSTATUS McTemplateK0pqqqqqqqqqqqq_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-D0h] BYREF

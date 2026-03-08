@@ -1,3 +1,14 @@
+/*
+ * XREFs of AppendColorModifications @ 0x180027BE4
+ * Callers:
+ *     PerformSample @ 0x180028DE0 (PerformSample.c)
+ *     AppendCustomSamplerShaderBody @ 0x1800FE21C (AppendCustomSamplerShaderBody.c)
+ * Callees:
+ *     AppendColorConversion @ 0x180027CB8 (AppendColorConversion.c)
+ *     ?AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V?$span@$$CBW4ShaderLinkingArgument@@$0?0@gsl@@@Z @ 0x18002A318 (-AppendNode@CShaderLinkingGraphBuilder@@QEAAJW4ShaderLinkingArgument@@PEBDPEAUID3D11Module@@1V-$.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall AppendColorModifications(int a1, __int128 *a2, unsigned __int16 a3, int a4)
 {
   unsigned __int16 v5; // ax

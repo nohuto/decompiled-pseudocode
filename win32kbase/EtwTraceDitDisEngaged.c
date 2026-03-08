@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceDitDisEngaged @ 0x1C00D4A60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C00EDED8 (McTemplateK0_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall EtwTraceDitDisEngaged(__int64 a1)
 {
   __int64 result; // rax

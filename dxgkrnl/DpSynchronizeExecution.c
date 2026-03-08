@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpSynchronizeExecution @ 0x1C000EB40
+ * Callers:
+ *     DxgNotifyDpcCB @ 0x1C000E390 (DxgNotifyDpcCB.c)
+ *     DpiMiracastChunkInfoCallbackDpc @ 0x1C005F250 (DpiMiracastChunkInfoCallbackDpc.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DpSynchronizeExecution(__int64 a1, KSYNCHRONIZE_ROUTINE *a2, void *a3, unsigned int a4, BOOLEAN *a5)
 {
   __int64 v5; // r10

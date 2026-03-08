@@ -1,3 +1,12 @@
+/*
+ * XREFs of ObpLookupNamespaceEntry @ 0x140744190
+ * Callers:
+ *     NtOpenPrivateNamespace @ 0x140741560 (NtOpenPrivateNamespace.c)
+ *     ObpRegisterPrivateNamespace @ 0x1407440D0 (ObpRegisterPrivateNamespace.c)
+ * Callees:
+ *     RtlEnumerateBoundaryDescriptorEntries @ 0x140743B80 (RtlEnumerateBoundaryDescriptorEntries.c)
+ */
+
 __int64 *__fastcall ObpLookupNamespaceEntry(__int64 a1, __int64 a2)
 {
   __int64 **v3; // rdi

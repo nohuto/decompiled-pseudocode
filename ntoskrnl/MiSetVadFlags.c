@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiSetVadFlags @ 0x140330D00
+ * Callers:
+ *     MiSetVadDeleted @ 0x140332ED8 (MiSetVadDeleted.c)
+ *     MiRemoveSecureEntry @ 0x14034D404 (MiRemoveSecureEntry.c)
+ *     MiAddSecureEntry @ 0x1407D3424 (MiAddSecureEntry.c)
+ *     MiApplyImageHotPatchRequest @ 0x140A32920 (MiApplyImageHotPatchRequest.c)
+ *     MiGetVadForHotPatchInProgress @ 0x140A3464C (MiGetVadForHotPatchInProgress.c)
+ * Callees:
+ *     MiLockVadCore @ 0x140330E20 (MiLockVadCore.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiSetVadFlags(__int64 a1, __int64 a2, int a3)
 {
   char v4; // si

@@ -1,3 +1,15 @@
+/*
+ * XREFs of HvSnapshotHiveToOffsetArray @ 0x140AF2D84
+ * Callers:
+ *     CmDumpKeyToFile @ 0x140A07E64 (CmDumpKeyToFile.c)
+ *     CmpFlushBackupHive @ 0x140A17C48 (CmpFlushBackupHive.c)
+ *     CmpDumpKeyToBuffer @ 0x140AF28C4 (CmpDumpKeyToBuffer.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     HvpHeaderCheckSum @ 0x140AF2414 (HvpHeaderCheckSum.c)
+ *     HvpGetCellMap @ 0x140AF2670 (HvpGetCellMap.c)
+ */
+
 __int64 __fastcall HvSnapshotHiveToOffsetArray(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

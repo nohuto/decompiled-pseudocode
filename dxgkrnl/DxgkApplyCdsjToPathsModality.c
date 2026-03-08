@@ -1,3 +1,13 @@
+/*
+ * XREFs of DxgkApplyCdsjToPathsModality @ 0x1C02FD540
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Global@CCD_BTL@@SAAEAV1@XZ @ 0x1C01BAF14 (-Global@CCD_BTL@@SAAEAV1@XZ.c)
+ *     ??1CCD_TOPOLOGY@@QEAA@XZ @ 0x1C01BE894 (--1CCD_TOPOLOGY@@QEAA@XZ.c)
+ *     ?ApplyCdsjToPathModality@CDS_JOURNAL@@SAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_CDSJ@@@Z @ 0x1C03BA088 (-ApplyCdsjToPathModality@CDS_JOURNAL@@SAJPEAVCCD_TOPOLOGY@@PEAUD3DKMT_AUGMENT_CDSJ@@@Z.c)
+ */
+
 __int64 __fastcall DxgkApplyCdsjToPathsModality(__int64 *a1, struct D3DKMT_AUGMENT_CDSJ *a2)
 {
   __int64 v3; // rax

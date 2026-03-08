@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiIncrementVmFaultCount @ 0x140619DDC
+ * Callers:
+ *     MiAllocateWsle @ 0x14026D1B0 (MiAllocateWsle.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiIncrementVmFaultCount(__int64 a1, unsigned int a2)
 {
   __int64 result; // rax

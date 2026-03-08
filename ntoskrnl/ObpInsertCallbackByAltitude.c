@@ -1,3 +1,14 @@
+/*
+ * XREFs of ObpInsertCallbackByAltitude @ 0x1408548FC
+ * Callers:
+ *     ObRegisterCallbacks @ 0x140854730 (ObRegisterCallbacks.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlCompareAltitudes @ 0x1402E26A0 (RtlCompareAltitudes.c)
+ */
+
 __int64 __fastcall ObpInsertCallbackByAltitude(__int64 a1, _QWORD *a2)
 {
   struct _KTHREAD *CurrentThread; // rax

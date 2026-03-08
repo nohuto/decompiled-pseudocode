@@ -1,3 +1,20 @@
+/*
+ * XREFs of IovpLocalCompletionRoutine @ 0x140ABEB60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     VfIoCompletionCheckState @ 0x140AC832C (VfIoCompletionCheckState.c)
+ *     ViIoCallbackSnapState @ 0x140AC83D4 (ViIoCallbackSnapState.c)
+ *     IovpCompleteRequest2 @ 0x140AC9AFC (IovpCompleteRequest2.c)
+ *     IovpCompleteRequest3 @ 0x140AC9E10 (IovpCompleteRequest3.c)
+ *     IovpCompleteRequest4 @ 0x140AC9E98 (IovpCompleteRequest4.c)
+ *     VfPendingMoreProcessingRequired @ 0x140ACE970 (VfPendingMoreProcessingRequired.c)
+ *     IovpSessionDataDereference @ 0x140ADAFB4 (IovpSessionDataDereference.c)
+ *     VfIrpDatabaseEntryReleaseLock @ 0x140ADE8EC (VfIrpDatabaseEntryReleaseLock.c)
+ */
+
 __int64 __fastcall IovpLocalCompletionRoutine(__int64 a1, __int64 a2, __int64 *a3)
 {
   __int64 v4; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RemoveAt@?$CSimpleMap@PEAU_SEB_RPC_PUBLISH_DATA@@PEAXV?$CSimpleMapEqualHelper@PEAU_SEB_RPC_PUBLISH_DATA@@PEAX@ATL@@@ATL@@QEAAHH@Z @ 0x1800FD2E4
+ * Callers:
+ *     PubSebUnregisterRpc @ 0x1800FCE3C (PubSebUnregisterRpc.c)
+ * Callees:
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     ?AtlThrowImpl@ATL@@YAXJ@Z @ 0x1802790F4 (-AtlThrowImpl@ATL@@YAXJ@Z.c)
+ */
+
 __int64 __fastcall ATL::CSimpleMap<_SEB_RPC_PUBLISH_DATA *,void *,ATL::CSimpleMapEqualHelper<_SEB_RPC_PUBLISH_DATA *,void *>>::RemoveAt(
         __int64 a1,
         int a2)

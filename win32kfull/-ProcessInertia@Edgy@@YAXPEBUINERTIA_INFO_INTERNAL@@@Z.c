@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?ProcessInertia@Edgy@@YAXPEBUINERTIA_INFO_INTERNAL@@@Z @ 0x1C01E89DC
+ * Callers:
+ *     EditionEdgyProcessInertia @ 0x1C0149030 (EditionEdgyProcessInertia.c)
+ * Callees:
+ *     _GetPointerDeviceRects @ 0x1C00E4B94 (_GetPointerDeviceRects.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _GetPointerDeviceType @ 0x1C0146218 (_GetPointerDeviceType.c)
+ *     ?_InertiaRegionIntersectsTopEdge@Edgy@@YAHPEBUINERTIA_INFO_INTERNAL@@PEBUtagRECT@@@Z @ 0x1C01E95B8 (-_InertiaRegionIntersectsTopEdge@Edgy@@YAHPEBUINERTIA_INFO_INTERNAL@@PEBUtagRECT@@@Z.c)
+ *     ?_PostEdgyInertia@Edgy@@YAXPEAUHWND__@@W4tagEDGY_LOCATION@@K@Z @ 0x1C01E998C (-_PostEdgyInertia@Edgy@@YAXPEAUHWND__@@W4tagEDGY_LOCATION@@K@Z.c)
+ */
+
 void __fastcall Edgy::ProcessInertia(Edgy *this, const struct INERTIA_INFO_INTERNAL *a2)
 {
   __int64 v3; // rdi

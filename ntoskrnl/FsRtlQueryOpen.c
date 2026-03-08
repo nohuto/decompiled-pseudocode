@@ -1,3 +1,18 @@
+/*
+ * XREFs of FsRtlQueryOpen @ 0x140758084
+ * Callers:
+ *     IopQueryInformation @ 0x140757E40 (IopQueryInformation.c)
+ * Callees:
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     IoGetAttachedDevice @ 0x14030EE00 (IoGetAttachedDevice.c)
+ *     FsFilterCtrlInit @ 0x140343B50 (FsFilterCtrlInit.c)
+ *     FsFilterPerformCompletionCallbacks @ 0x140343BE0 (FsFilterPerformCompletionCallbacks.c)
+ *     FsFilterPerformCallbacks @ 0x140343C70 (FsFilterPerformCallbacks.c)
+ *     FsFilterCtrlFree @ 0x140343F88 (FsFilterCtrlFree.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall FsRtlQueryOpen(PDEVICE_OBJECT DeviceObject, __int64 a2, __int64 a3, __int64 a4, int a5)
 {
   PDEVICE_OBJECT AttachedDevice; // rax

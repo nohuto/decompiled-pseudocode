@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpCmcIsDpcTimeRunningLow @ 0x1405005FC
+ * Callers:
+ *     HalpCmcPollProcessor @ 0x14037CF58 (HalpCmcPollProcessor.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HalpCmcIsDpcTimeRunningLow(int *a1)
 {
   int v1; // eax

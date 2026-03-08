@@ -1,3 +1,20 @@
+/*
+ * XREFs of MNAnimate @ 0x1C0237090
+ * Callers:
+ *     MNGetPopupFromMenu @ 0x1C00A69F0 (MNGetPopupFromMenu.c)
+ *     xxxMNCloseHierarchy @ 0x1C021A0D0 (xxxMNCloseHierarchy.c)
+ *     xxxMNSelectItem @ 0x1C021C660 (xxxMNSelectItem.c)
+ *     xxxMenuWindowProc @ 0x1C021D3D0 (xxxMenuWindowProc.c)
+ *     xxxTrackPopupMenuEx @ 0x1C02353CC (xxxTrackPopupMenuEx.c)
+ * Callees:
+ *     NtGdiBitBltInternal @ 0x1C005E110 (NtGdiBitBltInternal.c)
+ *     GetDPIMetrics @ 0x1C009FD5C (GetDPIMetrics.c)
+ *     FindTimer @ 0x1C00DEEDC (FindTimer.c)
+ *     StopFade @ 0x1C01BDEF0 (StopFade.c)
+ *     MNDestroyAnimationBitmap @ 0x1C0201EB0 (MNDestroyAnimationBitmap.c)
+ *     ?IS_USERCRIT_CONTENDED@@YA_NXZ @ 0x1C02364B8 (-IS_USERCRIT_CONTENDED@@YA_NXZ.c)
+ */
+
 char __fastcall MNAnimate(__int64 a1, int a2)
 {
   int v2; // eax

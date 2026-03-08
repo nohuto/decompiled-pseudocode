@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiReadWriteVirtualMemory @ 0x14075AD90
+ * Callers:
+ *     NtReadVirtualMemoryEx @ 0x1402CD410 (NtReadVirtualMemoryEx.c)
+ *     NtWriteVirtualMemory @ 0x14075AD30 (NtWriteVirtualMemory.c)
+ *     NtReadVirtualMemory @ 0x14075AD60 (NtReadVirtualMemory.c)
+ * Callees:
+ *     PsIsProcessLoggingEnabled @ 0x1402CD440 (PsIsProcessLoggingEnabled.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     MiCopyVirtualMemory @ 0x1407C5950 (MiCopyVirtualMemory.c)
+ *     EtwTiLogReadWriteVm @ 0x1407F1248 (EtwTiLogReadWriteVm.c)
+ */
+
 __int64 __fastcall MiReadWriteVirtualMemory(
         ULONG_PTR BugCheckParameter1,
         unsigned __int64 a2,

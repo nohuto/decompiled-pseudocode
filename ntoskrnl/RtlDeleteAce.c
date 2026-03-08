@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlDeleteAce @ 0x1407444E0
+ * Callers:
+ *     SepRemoveAceFromTokenDefaultDacl @ 0x1402BECA4 (SepRemoveAceFromTokenDefaultDacl.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlFirstFreeAce @ 0x140740C70 (RtlFirstFreeAce.c)
+ *     RtlValidAcl @ 0x1407BB670 (RtlValidAcl.c)
+ */
+
 NTSTATUS __stdcall RtlDeleteAce(PACL Acl, ULONG AceIndex)
 {
   PACL v4; // rdx

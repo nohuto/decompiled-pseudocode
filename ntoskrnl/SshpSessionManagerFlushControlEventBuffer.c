@@ -1,3 +1,17 @@
+/*
+ * XREFs of SshpSessionManagerFlushControlEventBuffer @ 0x140857DB0
+ * Callers:
+ *     SshpSessionManagerControlSessionCallback @ 0x140857D80 (SshpSessionManagerControlSessionCallback.c)
+ *     SshpSessionManagerSendControlEvent @ 0x1408717B8 (SshpSessionManagerSendControlEvent.c)
+ * Callees:
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     SSHSupportReleasePushLockExclusive @ 0x1402A4AB8 (SSHSupportReleasePushLockExclusive.c)
+ *     SSHSupportEtwWrite @ 0x1403A7D38 (SSHSupportEtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 LONG __fastcall SshpSessionManagerFlushControlEventBuffer(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // edi

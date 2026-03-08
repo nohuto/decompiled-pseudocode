@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlAddToTunnelCache @ 0x14093AAA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FsRtlAddToTunnelCacheEx @ 0x1407524E0 (FsRtlAddToTunnelCacheEx.c)
+ */
+
 void __stdcall FsRtlAddToTunnelCache(
         TUNNEL *Cache,
         ULONGLONG DirectoryKey,

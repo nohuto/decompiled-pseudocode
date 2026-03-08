@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwTraceLifetimeAccum @ 0x1C00AAD00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0062994 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?GrepGetRegionPtrData@@YAKPEAVREGION@@KPEAU_RGNDATA@@@Z @ 0x1C00EF31A (-GrepGetRegionPtrData@@YAKPEAVREGION@@KPEAU_RGNDATA@@@Z.c)
+ *     McTemplateK0xqnqNR3_EtwWriteTransfer @ 0x1C00EF3C2 (McTemplateK0xqnqNR3_EtwWriteTransfer.c)
+ */
+
 void __fastcall EtwTraceLifetimeAccum(int a1, char a2, struct REGION *a3)
 {
   unsigned int RegionPtrData; // eax

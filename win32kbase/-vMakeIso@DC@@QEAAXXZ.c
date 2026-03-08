@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?vMakeIso@DC@@QEAAXXZ @ 0x1C018C3EC
+ * Callers:
+ *     GreGetDCPoint @ 0x1C0053880 (GreGetDCPoint.c)
+ *     ?vUpdateWtoDXform@DC@@QEAAXXZ @ 0x1C0059210 (-vUpdateWtoDXform@DC@@QEAAXXZ.c)
+ * Callees:
+ *     bFToL @ 0x1C0002B7C (bFToL.c)
+ *     EngMulDiv @ 0x1C003BF30 (EngMulDiv.c)
+ *     ?ulLogPixelsX@PDEVOBJ@@QEAAKXZ @ 0x1C018C364 (-ulLogPixelsX@PDEVOBJ@@QEAAKXZ.c)
+ *     ?ulLogPixelsY@PDEVOBJ@@QEAAKXZ @ 0x1C018C3A8 (-ulLogPixelsY@PDEVOBJ@@QEAAKXZ.c)
+ */
+
 void __fastcall DC::vMakeIso(DC *this)
 {
   _DWORD *v2; // rcx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?AssignForwardProgressPolicy@FxIoQueue@@QEAAJPEAU_WDF_IO_QUEUE_FORWARD_PROGRESS_POLICY@@@Z @ 0x1C0067300
+ * Callers:
+ *     imp_WdfIoQueueAssignForwardProgressPolicy @ 0x1C00615D0 (imp_WdfIoQueueAssignForwardProgressPolicy.c)
+ * Callees:
+ *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C0001F2C (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0002834 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     WPP_IFR_SF_D @ 0x1C0017F78 (WPP_IFR_SF_D.c)
+ *     ?AllocateReservedRequest@FxIoQueue@@QEAAJPEAPEAVFxRequest@@@Z @ 0x1C00634F0 (-AllocateReservedRequest@FxIoQueue@@QEAAJPEAPEAVFxRequest@@@Z.c)
+ *     ?FreeAllReservedRequests@FxIoQueue@@AEAAXE@Z @ 0x1C0067528 (-FreeAllReservedRequests@FxIoQueue@@AEAAXE@Z.c)
+ */
+
 __int64 __fastcall FxIoQueue::AssignForwardProgressPolicy(
         FxIoQueue *this,
         _WDF_IO_QUEUE_FORWARD_PROGRESS_POLICY *Policy)

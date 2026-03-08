@@ -1,3 +1,38 @@
+/*
+ * XREFs of KeStallExecutionProcessor @ 0x14022B710
+ * Callers:
+ *     KeFreezeExecution @ 0x14036ADA0 (KeFreezeExecution.c)
+ *     HalpInterruptWaitForProcessorStartUp @ 0x140371CE4 (HalpInterruptWaitForProcessorStartUp.c)
+ *     HalpTimerMeasureFrequencies @ 0x140376B78 (HalpTimerMeasureFrequencies.c)
+ *     IvtUpdateGlobalCommand @ 0x14037AD08 (IvtUpdateGlobalCommand.c)
+ *     HalpApicStartProcessor @ 0x1403AAAF0 (HalpApicStartProcessor.c)
+ *     HalpTimerWaitForPhase0Interrupt @ 0x1403AC710 (HalpTimerWaitForPhase0Interrupt.c)
+ *     HalpInterruptResetThisProcessor @ 0x140502E70 (HalpInterruptResetThisProcessor.c)
+ *     HalpPowerWriteResetCommand @ 0x140504AEC (HalpPowerWriteResetCommand.c)
+ *     HalpTimerTestHypervisorTimer @ 0x140508908 (HalpTimerTestHypervisorTimer.c)
+ *     HalpTimerMeasureProcessorsWorker @ 0x14050A680 (HalpTimerMeasureProcessorsWorker.c)
+ *     HalpNmiReboot @ 0x1405198E0 (HalpNmiReboot.c)
+ *     HalpUsbLegacyStopOhciInterrupt @ 0x14051EC00 (HalpUsbLegacyStopOhciInterrupt.c)
+ *     HalpUsbLegacyStopUhciInterrupt @ 0x14051ED2C (HalpUsbLegacyStopUhciInterrupt.c)
+ *     HsaGetPageFault @ 0x14052DC50 (HsaGetPageFault.c)
+ *     HvlPrepareForRootCrashdump @ 0x140542CB4 (HvlPrepareForRootCrashdump.c)
+ *     IoWriteCrashDump @ 0x14054EF00 (IoWriteCrashDump.c)
+ *     KeBugCheck2 @ 0x140565E90 (KeBugCheck2.c)
+ *     KiBugCheckRecoveryFreezeOtherProcessors @ 0x14057833C (KiBugCheckRecoveryFreezeOtherProcessors.c)
+ *     KiMcheckAlternateReturn @ 0x14057DEF0 (KiMcheckAlternateReturn.c)
+ *     ExpWaitForBootDevices @ 0x140607340 (ExpWaitForBootDevices.c)
+ *     BgpFwDisplayBugCheckProgressUpdate @ 0x140670928 (BgpFwDisplayBugCheckProgressUpdate.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140670AE4 (BgpFwDisplayBugCheckScreen.c)
+ *     IpmiLibpDelay @ 0x140675A4C (IpmiLibpDelay.c)
+ *     IvtInitializeIommu @ 0x140A87060 (IvtInitializeIommu.c)
+ *     HdlspBugCheckProcessing @ 0x140AE6D84 (HdlspBugCheckProcessing.c)
+ * Callees:
+ *     KiCheckStall @ 0x14022AD70 (KiCheckStall.c)
+ *     HalpTimerStallExecutionProcessor @ 0x14022CA90 (HalpTimerStallExecutionProcessor.c)
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __stdcall KeStallExecutionProcessor(ULONG MicroSeconds)
 {
   __int64 v1; // r8

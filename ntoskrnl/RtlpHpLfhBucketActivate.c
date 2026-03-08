@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlpHpLfhBucketActivate @ 0x1402F5F3C
+ * Callers:
+ *     RtlpHpLfhBucketUpdateStats @ 0x14030BFE0 (RtlpHpLfhBucketUpdateStats.c)
+ * Callees:
+ *     RtlpHpLfhBucketInitialize @ 0x1402F5EC0 (RtlpHpLfhBucketInitialize.c)
+ *     RtlpHpLfhOwnerInitialize @ 0x1402F6104 (RtlpHpLfhOwnerInitialize.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 char __fastcall RtlpHpLfhBucketActivate(__int64 a1, unsigned int a2)
 {
   __int64 v4; // r14

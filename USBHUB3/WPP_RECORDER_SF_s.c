@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_RECORDER_SF_S @ 0x1C00344CC
+ * Callers:
+ *     HUBREG_ValidateAndPopulateEndpointPriorities @ 0x1C0034C18 (HUBREG_ValidateAndPopulateEndpointPriorities.c)
+ *     TUNNEL_EvtInterfaceChange @ 0x1C008DCF0 (TUNNEL_EvtInterfaceChange.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WPP_RECORDER_SF_S(
         __int64 a1,
         __int64 a2,

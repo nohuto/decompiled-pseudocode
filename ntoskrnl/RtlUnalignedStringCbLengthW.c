@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlUnalignedStringCbLengthW @ 0x140202B38
+ * Callers:
+ *     _PnpValidatePropertyData @ 0x140686FC8 (_PnpValidatePropertyData.c)
+ *     _PnpRegQueryValueIndirect @ 0x140769420 (_PnpRegQueryValueIndirect.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlUnalignedStringCbLengthW(STRSAFE_PCUNZWCH psz, size_t cbMax, size_t *pcbLength)
 {
   size_t v3; // rdx

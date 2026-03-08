@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIGpeInstallRemoveIndexErrorWorker @ 0x1C002C610
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     ACPIWriteEventLogEntry @ 0x1C0025F5C (ACPIWriteEventLogEntry.c)
+ */
+
 void __fastcall ACPIGpeInstallRemoveIndexErrorWorker(_DWORD *P)
 {
   struct _UNICODE_STRING DestinationString; // [rsp+30h] [rbp-9h] BYREF

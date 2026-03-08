@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetgpniFontsDirectoryAndScratch @ 0x1C00F5F40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetgpniFontsDirectoryAndScratch(_QWORD *a1, _QWORD *a2, _QWORD *a3)
 {
   __int64 v6; // r9

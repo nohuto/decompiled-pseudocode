@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetTotalSegmentSize@VIDMM_GLOBAL@@QEAAXIPEA_K00000@Z @ 0x1C00AAA8C
+ * Callers:
+ *     VidMmGetTotalSegmentSize @ 0x1C0012140 (VidMmGetTotalSegmentSize.c)
+ * Callees:
+ *     ?GetCurrent@VIDMM_PARTITION@@SAPEAU1@XZ @ 0x1C0012184 (-GetCurrent@VIDMM_PARTITION@@SAPEAU1@XZ.c)
+ *     ?GetSegmentGroupState@VIDMM_GLOBAL@@QEAAPEAUVIDMM_SEGMENT_GROUP_STATE@@KW4_D3DKMT_MEMORY_SEGMENT_GROUP@@PEAUVIDMM_PARTITION@@@Z @ 0x1C00AAC58 (-GetSegmentGroupState@VIDMM_GLOBAL@@QEAAPEAUVIDMM_SEGMENT_GROUP_STATE@@KW4_D3DKMT_MEMORY_SEGMENT.c)
+ */
+
 void __fastcall VIDMM_GLOBAL::GetTotalSegmentSize(
         VIDMM_GLOBAL *this,
         unsigned int a2,

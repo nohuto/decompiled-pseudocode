@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiManageUltraSpacePageTable @ 0x14046673C
+ * Callers:
+ *     MiDeleteUltraMapContext @ 0x1403513B4 (MiDeleteUltraMapContext.c)
+ *     MiReuseUltraPageTable @ 0x140466B2C (MiReuseUltraPageTable.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     KeFlushTb @ 0x140323CB0 (KeFlushTb.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiReleaseFreshPage @ 0x14034E570 (MiReleaseFreshPage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 __fastcall MiManageUltraSpacePageTable(__int64 *a1, unsigned int a2, int a3)
 {
   int v5; // r14d

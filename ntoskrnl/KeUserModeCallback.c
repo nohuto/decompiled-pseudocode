@@ -1,3 +1,21 @@
+/*
+ * XREFs of KeUserModeCallback @ 0x1407DA1F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeExitRetpoline @ 0x1402E3E6C (KeExitRetpoline.c)
+ *     MmCreateKernelStack @ 0x140317B10 (MmCreateKernelStack.c)
+ *     MmDeleteKernelStackEx @ 0x140318070 (MmDeleteKernelStackEx.c)
+ *     KeGetProcessorNodeNumberByIndex @ 0x140353BBC (KeGetProcessorNodeNumberByIndex.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiCallUserMode @ 0x14041A7F0 (KiCallUserMode.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     MmCreateKernelShadowStack @ 0x140642B98 (MmCreateKernelShadowStack.c)
+ *     MmDeleteKernelShadowStack @ 0x140643030 (MmDeleteKernelShadowStack.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     PsInvokeWin32Callout @ 0x1407D2D10 (PsInvokeWin32Callout.c)
+ */
+
 __int64 __fastcall KeUserModeCallback(int a1, const void *a2, unsigned int a3, int a4, __int64 a5)
 {
   unsigned __int64 v5; // rsi

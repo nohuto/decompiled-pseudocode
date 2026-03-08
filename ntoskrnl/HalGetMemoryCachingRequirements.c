@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalGetMemoryCachingRequirements @ 0x1402F96F0
+ * Callers:
+ *     PopGetHwConfigurationSignature @ 0x140A9FA5C (PopGetHwConfigurationSignature.c)
+ *     HalpPowerInitFwPerformanceTableMappings @ 0x140B62144 (HalpPowerInitFwPerformanceTableMappings.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalGetMemoryCachingRequirements(unsigned __int64 a1, __int64 a2, _DWORD *a3)
 {
   unsigned int v3; // r9d

@@ -1,3 +1,40 @@
+/*
+ * XREFs of MiPfPrepareReadList @ 0x1407C42F0
+ * Callers:
+ *     MmPrefetchPagesEx @ 0x1406A387C (MmPrefetchPagesEx.c)
+ * Callees:
+ *     MiRemoveViewsFromSectionWithPfn @ 0x14020DBB4 (MiRemoveViewsFromSectionWithPfn.c)
+ *     MiReadPteShadow @ 0x140224390 (MiReadPteShadow.c)
+ *     MiPrefetchNormally @ 0x1402282A4 (MiPrefetchNormally.c)
+ *     MiGetSlabPage @ 0x14025BA50 (MiGetSlabPage.c)
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ *     MiGetPteAddress @ 0x140288864 (MiGetPteAddress.c)
+ *     MiUseSlabAllocator @ 0x140289310 (MiUseSlabAllocator.c)
+ *     MiSetPfnLink @ 0x1402898EC (MiSetPfnLink.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     MiStartingOffsetNeedLock @ 0x14028C0C0 (MiStartingOffsetNeedLock.c)
+ *     MiGetNextPageColor @ 0x1402A6DC8 (MiGetNextPageColor.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     IS_PTE_NOT_DEMAND_ZERO @ 0x1402CF5DC (IS_PTE_NOT_DEMAND_ZERO.c)
+ *     MiLockDynamicMemoryShared @ 0x1402DAC90 (MiLockDynamicMemoryShared.c)
+ *     MiUnlockDynamicMemoryShared @ 0x1402DC340 (MiUnlockDynamicMemoryShared.c)
+ *     MiReturnFaultCharges @ 0x1402F4480 (MiReturnFaultCharges.c)
+ *     MiUpdatePfnForPrefetchByPte @ 0x14031D5F0 (MiUpdatePfnForPrefetchByPte.c)
+ *     MiObtainFaultCharges @ 0x14031EEE0 (MiObtainFaultCharges.c)
+ *     MiGetControlAreaPartition @ 0x14031F9F0 (MiGetControlAreaPartition.c)
+ *     MiEndingOffsetWithLock @ 0x140324190 (MiEndingOffsetWithLock.c)
+ *     MiOffsetToProtos @ 0x140331B90 (MiOffsetToProtos.c)
+ *     MiAddViewsForSection @ 0x140331DC0 (MiAddViewsForSection.c)
+ *     MiLocateSubsectionNode @ 0x140332910 (MiLocateSubsectionNode.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     MiRefillPurgedExtents @ 0x14063CD7C (MiRefillPurgedExtents.c)
+ *     MiNotifyPageHeat @ 0x140652018 (MiNotifyPageHeat.c)
+ *     MiReleaseReadListResources @ 0x1406A4E80 (MiReleaseReadListResources.c)
+ *     MiPfAllocateMdls @ 0x14075A230 (MiPfAllocateMdls.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiPfPrepareReadList(__int64 *a1, __int64 *a2, _QWORD *a3, unsigned int *a4, __int64 a5)
 {
   __int64 *v5; // rbp

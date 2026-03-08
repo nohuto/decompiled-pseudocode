@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmHeteroAmdProcessorInit @ 0x140A84454
+ * Callers:
+ *     PoInitializePrcb @ 0x140A89C00 (PoInitializePrcb.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall PpmHeteroAmdProcessorInit(__int64 a1)
 {
   int v2; // r11d

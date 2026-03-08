@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiComputeDataFlushRange @ 0x1403324D0
+ * Callers:
+ *     MmPurgeSection @ 0x1402836F0 (MmPurgeSection.c)
+ *     MiComputeFlushRange @ 0x140331078 (MiComputeFlushRange.c)
+ * Callees:
+ *     MiFindLastSubsection @ 0x1402A5010 (MiFindLastSubsection.c)
+ *     KeSignalGate @ 0x1402F0524 (KeSignalGate.c)
+ *     MiReferenceSubsection @ 0x1403327C0 (MiReferenceSubsection.c)
+ *     MiLocateSubsectionNode @ 0x140332910 (MiLocateSubsectionNode.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiBuildWakeList @ 0x140332B34 (MiBuildWakeList.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiUnlinkUnusedControlArea @ 0x14034C6C4 (MiUnlinkUnusedControlArea.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiComputeDataFlushRange(__int64 a1, unsigned __int8 a2, _QWORD *a3, __int64 a4, int a5, __int64 a6)
 {
   unsigned __int64 v8; // r13

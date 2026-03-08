@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpTimerResetProfileAdjustment @ 0x1402C9D50
+ * Callers:
+ *     HalpTimerNotifyProcessorFreeze @ 0x1402C9D10 (HalpTimerNotifyProcessorFreeze.c)
+ *     HalProcessorIdle @ 0x140411C30 (HalProcessorIdle.c)
+ *     HalCalibratePerformanceCounter @ 0x1404FC150 (HalCalibratePerformanceCounter.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 HalpTimerResetProfileAdjustment()
 {
   __int64 result; // rax

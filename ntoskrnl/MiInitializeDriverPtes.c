@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiInitializeDriverPtes @ 0x140B5E7C8
+ * Callers:
+ *     MiInitializeDriverImages @ 0x140B3B090 (MiInitializeDriverImages.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14032E710 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     MiReserveBootDriverPtes @ 0x140B5EC04 (MiReserveBootDriverPtes.c)
+ */
+
 __int64 __fastcall MiInitializeDriverPtes(__int64 a1)
 {
   _QWORD *v1; // rdi

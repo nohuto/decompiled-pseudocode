@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiFdoInitializeDisplayDiagnostics @ 0x1C001D334
+ * Callers:
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ * Callees:
+ *     DpiFdoCleanupDisplayDiagnostics @ 0x1C002406C (DpiFdoCleanupDisplayDiagnostics.c)
+ *     DpiQueryMiniportInterface @ 0x1C01F65F4 (DpiQueryMiniportInterface.c)
+ */
+
 __int64 __fastcall DpiFdoInitializeDisplayDiagnostics(__int64 a1)
 {
   __int64 v1; // rdi

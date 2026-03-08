@@ -1,3 +1,13 @@
+/*
+ * XREFs of IrqPolicyUpdatePolicy @ 0x1C00AC5CC
+ * Callers:
+ *     AcpiIrqLibConfigureLibrary @ 0x1C00ABA48 (AcpiIrqLibConfigureLibrary.c)
+ * Callees:
+ *     ProcessorPreferredCpuSetActive @ 0x1C009AF38 (ProcessorPreferredCpuSetActive.c)
+ *     ProcessorQueryGroupInformation @ 0x1C009AF48 (ProcessorQueryGroupInformation.c)
+ *     IrqPolicyQueryInterruptSteeringEnabled @ 0x1C009FDA4 (IrqPolicyQueryInterruptSteeringEnabled.c)
+ */
+
 __int64 __fastcall IrqPolicyUpdatePolicy(__int64 a1)
 {
   char v2; // [rsp+30h] [rbp+8h] BYREF

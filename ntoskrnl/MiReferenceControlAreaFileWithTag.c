@@ -1,3 +1,31 @@
+/*
+ * XREFs of MiReferenceControlAreaFileWithTag @ 0x1403440B0
+ * Callers:
+ *     MiWriteComplete @ 0x1402126E0 (MiWriteComplete.c)
+ *     MiGatherMappedPages @ 0x140215150 (MiGatherMappedPages.c)
+ *     MiMakeSystemCacheRangeValid @ 0x140221870 (MiMakeSystemCacheRangeValid.c)
+ *     MiCompleteRestrictedImageFault @ 0x14028D690 (MiCompleteRestrictedImageFault.c)
+ *     MiMakeSystemCachePteValid @ 0x1402DA87C (MiMakeSystemCachePteValid.c)
+ *     MiFlushSectionInternal @ 0x14031FA90 (MiFlushSectionInternal.c)
+ *     MiLogPageAccess @ 0x140326EF0 (MiLogPageAccess.c)
+ *     MmFlushSection @ 0x140333F20 (MmFlushSection.c)
+ *     MiReferenceControlAreaFile @ 0x140344094 (MiReferenceControlAreaFile.c)
+ *     MiCreateSystemSection @ 0x14036BD9C (MiCreateSystemSection.c)
+ *     MiDeprioritizeVad @ 0x1403C0F1C (MiDeprioritizeVad.c)
+ *     MiSetPagesModified @ 0x1406264CC (MiSetPagesModified.c)
+ *     PspInitializeFullProcessImageName @ 0x140707B78 (PspInitializeFullProcessImageName.c)
+ *     PsReferenceProcessFilePointer @ 0x14074C940 (PsReferenceProcessFilePointer.c)
+ *     DbgkCreateThread @ 0x1407ED96C (DbgkCreateThread.c)
+ *     MmGetFileObjectForSection @ 0x1407F15D8 (MmGetFileObjectForSection.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     ObpFastReplenishReference @ 0x1403520A4 (ObpFastReplenishReference.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ */
+
 unsigned __int64 __fastcall MiReferenceControlAreaFileWithTag(__int64 a1, ULONG a2)
 {
   signed __int64 v4; // r8

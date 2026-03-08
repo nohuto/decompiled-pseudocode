@@ -1,3 +1,17 @@
+/*
+ * XREFs of IovCompleteRequest @ 0x140ABE48C
+ * Callers:
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ * Callees:
+ *     IopfCompleteRequest @ 0x14027B2C0 (IopfCompleteRequest.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopPerfCompleteRequest @ 0x14045735E (IopPerfCompleteRequest.c)
+ *     IovpLogStackTrace @ 0x140ABEE08 (IovpLogStackTrace.c)
+ *     IovpCompleteRequest1 @ 0x140AC99CC (IovpCompleteRequest1.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ */
+
 void __fastcall IovCompleteRequest(IRP *BugCheckParameter1, char a2)
 {
   __int64 v4; // rdx

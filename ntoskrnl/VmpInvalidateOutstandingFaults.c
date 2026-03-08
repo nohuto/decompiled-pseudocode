@@ -1,3 +1,13 @@
+/*
+ * XREFs of VmpInvalidateOutstandingFaults @ 0x1405F7288
+ * Callers:
+ *     VmpFlushTbVaRange @ 0x1405F6DF0 (VmpFlushTbVaRange.c)
+ *     VmpInvalidateSlatBatched @ 0x1405F73F8 (VmpInvalidateSlatBatched.c)
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ */
+
 __int64 __fastcall VmpInvalidateOutstandingFaults(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   volatile LONG *v3; // rbp

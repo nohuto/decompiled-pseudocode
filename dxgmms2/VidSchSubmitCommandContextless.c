@@ -1,3 +1,13 @@
+/*
+ * XREFs of VidSchSubmitCommandContextless @ 0x1C0040AC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?VidSchValidatePresentFlags@@YAJPEAUVIDSCH_SUBMIT_DATA2@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_SUBMIT_FLAGS@@@Z @ 0x1C0002C54 (-VidSchValidatePresentFlags@@YAJPEAUVIDSCH_SUBMIT_DATA2@@PEAU_VIDSCH_DEVICE@@PEAU_VIDSCH_SUBMIT_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     VidSchiRedirectedFlipWaitOnSyncObject @ 0x1C003B608 (VidSchiRedirectedFlipWaitOnSyncObject.c)
+ */
+
 __int64 __fastcall VidSchSubmitCommandContextless(char *Src, struct _VIDSCH_DEVICE *a2, __int64 a3)
 {
   struct _VIDSCH_GLOBAL *v5; // rsi

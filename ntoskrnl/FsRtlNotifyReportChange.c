@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlNotifyReportChange @ 0x14093D160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FsRtlNotifyFilterReportChange @ 0x140848F70 (FsRtlNotifyFilterReportChange.c)
+ */
+
 void __fastcall FsRtlNotifyReportChange(
         struct _REAL_NOTIFY_SYNC *a1,
         struct _LIST_ENTRY *a2,

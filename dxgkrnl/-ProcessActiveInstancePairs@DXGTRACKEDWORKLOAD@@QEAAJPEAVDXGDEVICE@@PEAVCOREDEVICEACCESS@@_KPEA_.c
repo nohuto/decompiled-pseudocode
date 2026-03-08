@@ -1,3 +1,25 @@
+/*
+ * XREFs of ?ProcessActiveInstancePairs@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@_KPEA_K@Z @ 0x1C03599A0
+ * Callers:
+ *     ?GetAvailableIndex@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@_KPEA_KPEAIPEAH@Z @ 0x1C03596D0 (-GetAvailableIndex@DXGTRACKEDWORKLOAD@@QEAAJPEAVDXGDEVICE@@PEAVCOREDEVICEACCESS@@_KPEA_KPEAIPEAH.c)
+ *     NtDxgkGetTrackedWorkloadStatistics @ 0x1C035B1D0 (NtDxgkGetTrackedWorkloadStatistics.c)
+ *     NtDxgkUpdateTrackedWorkload @ 0x1C035B6E0 (NtDxgkUpdateTrackedWorkload.c)
+ * Callees:
+ *     ?Release@DXGAUTOPUSHLOCK@@QEAAXXZ @ 0x1C0006F40 (-Release@DXGAUTOPUSHLOCK@@QEAAXXZ.c)
+ *     ?AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0007104 (-AcquireExclusive@DXGPUSHLOCK@@QEAAXXZ.c)
+ *     ??0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z @ 0x1C00095A8 (--0DXGAUTOPUSHLOCK@@QEAA@QEAVDXGPUSHLOCK@@_N@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?QPCFromGPUTimestamp@DXGTRACKEDWORKLOAD@@IEAA_N_K00PEA_K@Z @ 0x1C0058EE0 (-QPCFromGPUTimestamp@DXGTRACKEDWORKLOAD@@IEAA_N_K00PEA_K@Z.c)
+ *     McTemplateK0pxqqxxxdx_EtwWriteTransfer @ 0x1C0059730 (McTemplateK0pxqqxxxdx_EtwWriteTransfer.c)
+ *     ?Add@CumulativeStats@@QEAAXN@Z @ 0x1C0087FB8 (-Add@CumulativeStats@@QEAAXN@Z.c)
+ *     ?Add@RollingStats@@QEAAXN@Z @ 0x1C0087FFC (-Add@RollingStats@@QEAAXN@Z.c)
+ *     ?Boost@TrackedWorkloadMonitor@@QEAAXPEAVRollingStats@@@Z @ 0x1C0088024 (-Boost@TrackedWorkloadMonitor@@QEAAXPEAVRollingStats@@@Z.c)
+ *     ?GetCurrentEffectivePowerLevel@TrackedWorkloadMonitor@@QEAAIXZ @ 0x1C0088128 (-GetCurrentEffectivePowerLevel@TrackedWorkloadMonitor@@QEAAIXZ.c)
+ *     DxgkLock2Internal @ 0x1C019DDA0 (DxgkLock2Internal.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01A3640 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     DxgkUnlock2Internal @ 0x1C031DED8 (DxgkUnlock2Internal.c)
+ */
+
 __int64 __fastcall DXGTRACKEDWORKLOAD::ProcessActiveInstancePairs(
         DXGTRACKEDWORKLOAD *this,
         struct DXGDEVICE *a2,

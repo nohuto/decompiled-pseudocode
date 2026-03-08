@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FillConstantBuffer@CRadialGradientEffect@@UEBAXIIPEAX@Z @ 0x1802B60E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CRadialGradientEffect::FillConstantBuffer(
         CRadialGradientEffect *this,
         __int64 a2,

@@ -1,3 +1,20 @@
+/*
+ * XREFs of Controller_UcxEvtStopTrackingForTimeSync @ 0x1C0036230
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_qd @ 0x1C00141F4 (WPP_RECORDER_SF_qd.c)
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_D @ 0x1C00180C4 (WPP_RECORDER_SF_D.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C001A2FC (WPP_RECORDER_SF_qq.c)
+ *     WPP_RECORDER_SF_dqd @ 0x1C001E3F8 (WPP_RECORDER_SF_dqd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_IsHandlePresentInCollection @ 0x1C0034130 (Controller_IsHandlePresentInCollection.c)
+ *     Controller_StopTimeTrackingForHandle @ 0x1C0034904 (Controller_StopTimeTrackingForHandle.c)
+ *     WPP_RECORDER_SF_II @ 0x1C0037144 (WPP_RECORDER_SF_II.c)
+ */
+
 __int64 __fastcall Controller_UcxEvtStopTrackingForTimeSync(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
 {
   __int64 v7; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetNCMetrics@@YAXPEAUtagNONCLIENTMETRICSW@@@Z @ 0x1C00E14E8
+ * Callers:
+ *     xxxSetWindowNCMetrics @ 0x1C010CBC8 (xxxSetWindowNCMetrics.c)
+ * Callees:
+ *     bSetDevDragWidth @ 0x1C00E1CD0 (bSetDevDragWidth.c)
+ *     SortMonitorsInSpatialOrder @ 0x1C00E1D30 (SortMonitorsInSpatialOrder.c)
+ */
+
 void __fastcall SetNCMetrics(struct tagNONCLIENTMETRICSW *a1)
 {
   int v2; // ecx

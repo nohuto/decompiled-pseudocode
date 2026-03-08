@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DisconnectProxyAtShutdown@BaseBamoConnectionImpl@BamoImpl@Microsoft@@CAJPEAXIIPEBX@Z @ 0x1801B64E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$_Emplace_reallocate@AEBQEAVBamoProxyImpl@BamoImpl@Microsoft@@@?$vector@PEAVBamoProxyImpl@BamoImpl@Microsoft@@V?$allocator@PEAVBamoProxyImpl@BamoImpl@Microsoft@@@std@@@std@@QEAAPEAPEAVBamoProxyImpl@BamoImpl@Microsoft@@QEAPEAV234@AEBQEAV234@@Z @ 0x1801B54A8 (--$_Emplace_reallocate@AEBQEAVBamoProxyImpl@BamoImpl@Microsoft@@@-$vector@PEAVBamoProxyImpl@Bamo.c)
+ */
+
 __int64 __fastcall Microsoft::BamoImpl::BaseBamoConnectionImpl::DisconnectProxyAtShutdown(
         const void **a1,
         __int64 a2,

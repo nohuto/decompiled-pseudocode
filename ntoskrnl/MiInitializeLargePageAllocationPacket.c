@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiInitializeLargePageAllocationPacket @ 0x14034F2E0
+ * Callers:
+ *     MiUnlinkNodeLargePages @ 0x14034EB80 (MiUnlinkNodeLargePages.c)
+ *     MiGetLargePage @ 0x14034EF30 (MiGetLargePage.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiInitializeLargePageAllocationPacket(
         __int64 a1,
         __int64 a2,

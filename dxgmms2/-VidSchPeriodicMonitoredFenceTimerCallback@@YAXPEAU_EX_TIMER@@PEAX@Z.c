@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?VidSchPeriodicMonitoredFenceTimerCallback@@YAXPEAU_EX_TIMER@@PEAX@Z @ 0x1C003D700
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?VidSchiGetCurrentVSyncPeriodQpc@@YA_KPEAU_VIDSCH_GLOBAL@@I_N@Z @ 0x1C0017488 (-VidSchiGetCurrentVSyncPeriodQpc@@YA_KPEAU_VIDSCH_GLOBAL@@I_N@Z.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C001BE4A (McTemplateK0q_EtwWriteTransfer.c)
+ *     McTemplateK0pqqiix_EtwWriteTransfer @ 0x1C0038848 (McTemplateK0pqqiix_EtwWriteTransfer.c)
+ *     VidSchiCalculatePeriodicTargetFrameNumber @ 0x1C003A394 (VidSchiCalculatePeriodicTargetFrameNumber.c)
+ *     ?VidSchCalculatePeriodicMonitoredFenceTimerDueTime@@YA_J_J00H@Z @ 0x1C003D654 (-VidSchCalculatePeriodicMonitoredFenceTimerDueTime@@YA_J_J00H@Z.c)
+ *     VidSchSignalSyncObjectsFromCpu @ 0x1C0040990 (VidSchSignalSyncObjectsFromCpu.c)
+ */
+
 void __fastcall VidSchPeriodicMonitoredFenceTimerCallback(struct _EX_TIMER *a1, struct _VIDSCH_SYNC_OBJECT **a2)
 {
   struct _VIDSCH_SYNC_OBJECT *v2; // r8

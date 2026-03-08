@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiCommitVadMetadataBits @ 0x1407D2944
+ * Callers:
+ *     MiCommitInitialVadMetadataBits @ 0x1407285AC (MiCommitInitialVadMetadataBits.c)
+ *     MiAllocateVirtualMemory @ 0x1407C5270 (MiAllocateVirtualMemory.c)
+ *     MmProtectVirtualMemory @ 0x1407C77B0 (MmProtectVirtualMemory.c)
+ *     MiMapViewOfImageSection @ 0x1407D3750 (MiMapViewOfImageSection.c)
+ *     MiReserveUserMemory @ 0x1407D4340 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x1407D57C0 (MiMapViewOfDataSection.c)
+ *     MiMapViewOfPhysicalSection @ 0x140A2E020 (MiMapViewOfPhysicalSection.c)
+ * Callees:
+ *     MiCommitVadCfgBits @ 0x1407D2AEC (MiCommitVadCfgBits.c)
+ */
+
 __int64 __fastcall MiCommitVadMetadataBits(__int64 a1, __int64 *a2, char a3)
 {
   __int64 v3; // r10

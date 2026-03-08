@@ -1,3 +1,27 @@
+/*
+ * XREFs of PiSwGetChildPdo @ 0x140846F50
+ * Callers:
+ *     PipEnumerateCompleted @ 0x140685510 (PipEnumerateCompleted.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     IoInvalidateDeviceRelations @ 0x1402F4FC0 (IoInvalidateDeviceRelations.c)
+ *     IoDeleteDevice @ 0x140368010 (IoDeleteDevice.c)
+ *     McTemplateK0zzq_EtwWriteTransfer @ 0x14056158C (McTemplateK0zzq_EtwWriteTransfer.c)
+ *     McTemplateK0zztt_EtwWriteTransfer @ 0x140561768 (McTemplateK0zztt_EtwWriteTransfer.c)
+ *     McTemplateK0zzzd_EtwWriteTransfer @ 0x140561988 (McTemplateK0zzzd_EtwWriteTransfer.c)
+ *     PnpConcatPWSTR @ 0x14069EE54 (PnpConcatPWSTR.c)
+ *     PnpDeviceObjectFromDeviceInstanceWithTag @ 0x1406CDF08 (PnpDeviceObjectFromDeviceInstanceWithTag.c)
+ *     ObSetSecurityObjectByPointer @ 0x1406DB6C0 (ObSetSecurityObjectByPointer.c)
+ *     IoCreateDevice @ 0x1407F0460 (IoCreateDevice.c)
+ *     PiSwFindPdoAssociation @ 0x140847170 (PiSwFindPdoAssociation.c)
+ *     PiSwAddPdoAssociation @ 0x1408471B8 (PiSwAddPdoAssociation.c)
+ *     PiSwMakePdoInactive @ 0x14096467C (PiSwMakePdoInactive.c)
+ *     PiSwProcessRemove @ 0x140964760 (PiSwProcessRemove.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 PDEVICE_OBJECT __fastcall PiSwGetChildPdo(PDEVICE_OBJECT DeviceObject, __int64 a2, __int64 a3)
 {
   __int64 v3; // rdi

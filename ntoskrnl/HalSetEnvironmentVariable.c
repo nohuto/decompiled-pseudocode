@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalSetEnvironmentVariable @ 0x1405029B0
+ * Callers:
+ *     NtSetSystemEnvironmentValue @ 0x1409FD130 (NtSetSystemEnvironmentValue.c)
+ * Callees:
+ *     HalpAcquireCmosSpinLock @ 0x1402D1A0C (HalpAcquireCmosSpinLock.c)
+ *     _stricmp @ 0x1403D3BD0 (_stricmp.c)
+ */
+
 __int64 __fastcall HalSetEnvironmentVariable(const char *a1, const char *a2)
 {
   __int64 v4; // rdx

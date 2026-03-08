@@ -1,3 +1,11 @@
+/*
+ * XREFs of GrayShrinkDIB_CX @ 0x1C014C7C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall GrayShrinkDIB_CX(__int64 a1, unsigned __int8 *a2, _BYTE *a3, __int64 a4, int a5)
 {
   int v7; // r10d

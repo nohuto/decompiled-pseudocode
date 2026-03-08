@@ -1,3 +1,28 @@
+/*
+ * XREFs of GrePolyPatBlt @ 0x1C0088258
+ * Callers:
+ *     ?UT_InvertCaret@@YAXXZ @ 0x1C0006508 (-UT_InvertCaret@@YAXXZ.c)
+ *     xxxDrawCaptionBar @ 0x1C0021730 (xxxDrawCaptionBar.c)
+ *     _DrawIconEx @ 0x1C003B618 (_DrawIconEx.c)
+ *     FillRect @ 0x1C00881F8 (FillRect.c)
+ *     ?DrawGrip@@YAHPEAUHDC__@@PEAUtagRECT@@I@Z @ 0x1C00E77D8 (-DrawGrip@@YAHPEAUHDC__@@PEAUtagRECT@@I@Z.c)
+ *     ?DrawBox@@YAHPEAUHDC__@@PEAUtagRECT@@I@Z @ 0x1C0114038 (-DrawBox@@YAHPEAUHDC__@@PEAUtagRECT@@I@Z.c)
+ *     DrawFrameControl @ 0x1C0116938 (DrawFrameControl.c)
+ *     DrawSize @ 0x1C022CAE8 (DrawSize.c)
+ *     ?DrawOutline@@YAXPEAUHDC__@@HHHHHPEAUHBRUSH__@@@Z @ 0x1C0236338 (-DrawOutline@@YAXPEAUHDC__@@HHHHHPEAUHBRUSH__@@@Z.c)
+ *     ?MNDrawInsertionBar@@YAXPEAUHDC__@@PEAUtagITEM@@@Z @ 0x1C023656C (-MNDrawInsertionBar@@YAXPEAUHDC__@@PEAUtagITEM@@@Z.c)
+ *     xxxDrawMenuItem @ 0x1C0237914 (xxxDrawMenuItem.c)
+ *     xxxMenuBarDraw @ 0x1C0238AB0 (xxxMenuBarDraw.c)
+ *     xxxDrawState @ 0x1C02423C0 (xxxDrawState.c)
+ *     ?DrawDiagonalLine@@YAKPEAUHDC__@@PEAUtagRECT@@HHI@Z @ 0x1C024EE44 (-DrawDiagonalLine@@YAKPEAUHDC__@@PEAUtagRECT@@HHI@Z.c)
+ *     ClientFrame @ 0x1C024F1DC (ClientFrame.c)
+ *     DrawFrame @ 0x1C024F2F8 (DrawFrame.c)
+ * Callees:
+ *     ?vLockIgnoreAttributes@XDCOBJ@@QEAAXPEAUHDC__@@@Z @ 0x1C0051250 (-vLockIgnoreAttributes@XDCOBJ@@QEAAXPEAUHDC__@@@Z.c)
+ *     ?GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z @ 0x1C008B840 (-GrePolyPatBltInternal@@YAHAEAVXDCOBJ@@KPEAU_POLYPATBLT@@KKKKKK@Z.c)
+ *     ?vMarkTransformDirty@DC@@QEAAXXZ @ 0x1C0269660 (-vMarkTransformDirty@DC@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall GrePolyPatBlt(HDC a1, unsigned int a2, struct _POLYPATBLT *a3, unsigned int a4, int a5)
 {
   DC *v8; // rcx

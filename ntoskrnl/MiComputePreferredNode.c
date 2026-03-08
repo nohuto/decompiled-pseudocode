@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiComputePreferredNode @ 0x140615350
+ * Callers:
+ *     MiCommitExistingVad @ 0x140320D70 (MiCommitExistingVad.c)
+ *     MiAllocateLargeProcessPagesFromCache @ 0x140664B5C (MiAllocateLargeProcessPagesFromCache.c)
+ *     MiCreateLargePfnList @ 0x14066540C (MiCreateLargePfnList.c)
+ *     MiMapUserLargePages @ 0x1406667E0 (MiMapUserLargePages.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiComputePreferredNode(__int64 a1)
 {
   unsigned int v1; // edx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?PostPresent@CHolographicClient@@UEAAJXZ @ 0x1802A9A00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?UpdateFrameStatistics@CHolographicExclusiveView@@QEAAXPEBUDXGI_FRAME_STATISTICS@@@Z @ 0x1802A5730 (-UpdateFrameStatistics@CHolographicExclusiveView@@QEAAXPEBUDXGI_FRAME_STATISTICS@@@Z.c)
+ */
+
 __int64 __fastcall CHolographicClient::PostPresent(CHolographicClient *this)
 {
   __int64 v1; // rax

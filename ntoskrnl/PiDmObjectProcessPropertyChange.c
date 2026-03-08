@@ -1,3 +1,25 @@
+/*
+ * XREFs of PiDmObjectProcessPropertyChange @ 0x1406CC044
+ * Callers:
+ *     PiPnpRtlObjectEventWorker @ 0x1406CC6A0 (PiPnpRtlObjectEventWorker.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     PnpGetObjectProperty @ 0x1406CEE90 (PnpGetObjectProperty.c)
+ *     PiDmObjectRelease @ 0x1406D0328 (PiDmObjectRelease.c)
+ *     PiDmGetObject @ 0x1406D0370 (PiDmGetObject.c)
+ *     PiDmGetCacheKeys @ 0x1406D071C (PiDmGetCacheKeys.c)
+ *     PiDmGetCachedKeyIndex @ 0x1406D0770 (PiDmGetCachedKeyIndex.c)
+ *     PiDmCacheDataDecode @ 0x1406D0930 (PiDmCacheDataDecode.c)
+ *     PiDmGetReferencedObjectFromProperty @ 0x14077D414 (PiDmGetReferencedObjectFromProperty.c)
+ *     PiDmCacheDataEncode @ 0x14077DC74 (PiDmCacheDataEncode.c)
+ *     PiDmCacheDataFree @ 0x14078C870 (PiDmCacheDataFree.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PiDmObjectProcessPropertyChange(
         __int64 a1,
         __int64 a2,

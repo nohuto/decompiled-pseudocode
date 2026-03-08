@@ -1,3 +1,14 @@
+/*
+ * XREFs of PnpDeviceCompletionRequestCreate @ 0x140688CA4
+ * Callers:
+ *     PipEnumerateDevice @ 0x140688710 (PipEnumerateDevice.c)
+ *     PnpStartDeviceNode @ 0x1406F71A4 (PnpStartDeviceNode.c)
+ *     PiProcessNewDeviceNodeAsync @ 0x140793334 (PiProcessNewDeviceNodeAsync.c)
+ * Callees:
+ *     PnpEnableWatchdog @ 0x14068A5EC (PnpEnableWatchdog.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PnpDeviceCompletionRequestCreate(__int64 a1, int a2, __int64 a3)
 {
   __int64 Pool2; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhPdoQueryWmiRegInfo @ 0x1C0049A80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     memmove @ 0x1C0023580 (memmove.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 __int64 __fastcall UsbhPdoQueryWmiRegInfo(
         PDEVICE_OBJECT DeviceObject,
         _DWORD *a2,

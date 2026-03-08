@@ -1,3 +1,18 @@
+/*
+ * XREFs of UsbhGetNodeConnectionInfoForPdo @ 0x1C003E100
+ * Callers:
+ *     UsbhIoctlGetNodeConnectionInfoExApi @ 0x1C003FE6C (UsbhIoctlGetNodeConnectionInfoExApi.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhRefPdoDeviceHandle @ 0x1C0019C20 (UsbhRefPdoDeviceHandle.c)
+ *     UsbhDerefPdoDeviceHandle @ 0x1C0019ED0 (UsbhDerefPdoDeviceHandle.c)
+ *     memset @ 0x1C0023880 (memset.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhGetDeviceInformationEx @ 0x1C003DF90 (UsbhGetDeviceInformationEx.c)
+ */
+
 __int64 __fastcall UsbhGetNodeConnectionInfoForPdo(
         __int64 a1,
         __int64 a2,

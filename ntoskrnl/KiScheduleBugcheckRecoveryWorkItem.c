@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiScheduleBugcheckRecoveryWorkItem @ 0x1405790D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ */
+
 void KiScheduleBugcheckRecoveryWorkItem()
 {
   LOWORD(KiBugcheckBlockingEvent.Header.Lock) = 1;

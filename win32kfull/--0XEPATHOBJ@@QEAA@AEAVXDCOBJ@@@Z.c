@@ -1,3 +1,21 @@
+/*
+ * XREFs of ??0XEPATHOBJ@@QEAA@AEAVXDCOBJ@@@Z @ 0x1C028756C
+ * Callers:
+ *     ?GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXKAEBUTag@RFONTOBJ@@@Z @ 0x1C00AB7D0 (-GreExtTextOutWLocked@@YAHAEAVXDCOBJ@@HHIPEAUtagRECT@@PEAGHPEAHKPEAXKAEBUTag@RFONTOBJ@@@Z.c)
+ *     NtGdiCloseFigure @ 0x1C02C34E0 (NtGdiCloseFigure.c)
+ *     NtGdiFillPath @ 0x1C02C3630 (NtGdiFillPath.c)
+ *     NtGdiFlattenPath @ 0x1C02C37C0 (NtGdiFlattenPath.c)
+ *     NtGdiPathToRegion @ 0x1C02C3B60 (NtGdiPathToRegion.c)
+ *     NtGdiSelectClipPath @ 0x1C02C3CB0 (NtGdiSelectClipPath.c)
+ *     NtGdiStrokeAndFillPath @ 0x1C02C3E50 (NtGdiStrokeAndFillPath.c)
+ *     NtGdiStrokePath @ 0x1C02C4020 (NtGdiStrokePath.c)
+ *     NtGdiWidenPath @ 0x1C02C4190 (NtGdiWidenPath.c)
+ * Callees:
+ *     ?vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z @ 0x1C014CA9A (-vLock@EPATHOBJ@@QEAAXPEAUHPATH__@@@Z.c)
+ *     ??1XEPATHOBJ@@QEAA@XZ @ 0x1C014D87C (--1XEPATHOBJ@@QEAA@XZ.c)
+ *     ??0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z @ 0x1C02876B8 (--0XEPATHOBJ@@QEAA@PEAUHPATH__@@@Z.c)
+ */
+
 XEPATHOBJ *__fastcall XEPATHOBJ::XEPATHOBJ(XEPATHOBJ *this, DC **a2)
 {
   int v4; // eax

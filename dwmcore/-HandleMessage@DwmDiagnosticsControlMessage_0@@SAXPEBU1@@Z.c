@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HandleMessage@DwmDiagnosticsControlMessage_0@@SAXPEBU1@@Z @ 0x180270104
+ * Callers:
+ *     DispatchDwmDiagnosticsControlMessage @ 0x180270044 (DispatchDwmDiagnosticsControlMessage.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DwmDiagnosticsControlMessage_0::HandleMessage(const struct DwmDiagnosticsControlMessage_0 *a1)
 {
   __int64 v1; // r8

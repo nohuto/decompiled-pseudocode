@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0CKernelStackSwapAuto@@QEAA@XZ @ 0x1C012EC98
+ * Callers:
+ *     xxxInterSendMsgEx @ 0x1C004A280 (xxxInterSendMsgEx.c)
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 CKernelStackSwapAuto *__fastcall CKernelStackSwapAuto::CKernelStackSwapAuto(CKernelStackSwapAuto *this)
 {
   struct tagTHREADINFO *v2; // rax

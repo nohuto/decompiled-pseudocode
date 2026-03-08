@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?vRestartbRealizeFont@@YAXPEAVRFONT@@@Z @ 0x1C02B9C90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C011DDB0 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ??$FreeIsolatedType@V?$CTypeIsolation@$0DJAAA@$0DJA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C0123B9C (--$FreeIsolatedType@V-$CTypeIsolation@$0DJAAA@$0DJA@@NSInstrumentation@@@@YAXPEAX@Z.c)
+ *     ?vDeleteRFONTRef@PFFOBJ@@QEAAXXZ @ 0x1C0123C28 (-vDeleteRFONTRef@PFFOBJ@@QEAAXXZ.c)
+ *     ?vDestroyFont@RFONTOBJ@@QEAAXH@Z @ 0x1C02B9970 (-vDestroyFont@RFONTOBJ@@QEAAXH@Z.c)
+ */
+
 void __fastcall vRestartbRealizeFont(struct RFONT *a1)
 {
   __int64 v1; // rax

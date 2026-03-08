@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiGetPageForWriteCluster @ 0x1404641B6
+ * Callers:
+ *     MiBuildReservationCluster @ 0x140635ED4 (MiBuildReservationCluster.c)
+ * Callees:
+ *     MiReferencePageForModifiedWrite @ 0x140213038 (MiReferencePageForModifiedWrite.c)
+ *     MiCheckPteForWriteCluster @ 0x1404640B2 (MiCheckPteForWriteCluster.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 __fastcall MiGetPageForWriteCluster(
         __int64 a1,
         ULONG_PTR a2,

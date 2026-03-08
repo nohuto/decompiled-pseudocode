@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?xxxUpdateTray@@YAXPEAUtagWND@@@Z @ 0x1C009DE3C
+ * Callers:
+ *     _anonymous_namespace_::xxxLocalActivateWindow @ 0x1C009E0E4 (_anonymous_namespace_--xxxLocalActivateWindow.c)
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C00A126C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ *     ?xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z @ 0x1C00E6D24 (-xxxProcessActivationEvent@@YAXPEBUtagQMSG@@@Z.c)
+ * Callees:
+ *     ?IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z @ 0x1C002E354 (-IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ *     PostIAMShellHookMessage @ 0x1C009C174 (PostIAMShellHookMessage.c)
+ *     xxxSetTrayWindow @ 0x1C0109D38 (xxxSetTrayWindow.c)
+ *     ?Is31TrayWindow@@YAHPEAUtagWND@@@Z @ 0x1C0222B6C (-Is31TrayWindow@@YAHPEAUtagWND@@@Z.c)
+ */
+
 void __fastcall xxxUpdateTray(struct tagWND *a1)
 {
   __int64 v2; // rbx

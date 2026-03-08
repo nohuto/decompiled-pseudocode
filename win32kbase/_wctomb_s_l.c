@@ -1,3 +1,12 @@
+/*
+ * XREFs of _wctomb_s_l @ 0x1C00DC4C4
+ * Callers:
+ *     wctomb_s @ 0x1C00DC574 (wctomb_s.c)
+ * Callees:
+ *     ?MarkInvalid@CIgnoreInputQueue@@EEAAXXZ @ 0x1C006BF40 (-MarkInvalid@CIgnoreInputQueue@@EEAAXXZ.c)
+ *     RtlUnicodeToMultiByteN_0 @ 0x1C00DC674 (RtlUnicodeToMultiByteN_0.c)
+ */
+
 errno_t __cdecl wctomb_s_l(int *SizeConverted, char *MbCh, size_t SizeInBytes, wchar_t WCh, _locale_t Locale)
 {
   ULONG BytesInMultiByteString; // [rsp+48h] [rbp+10h] BYREF

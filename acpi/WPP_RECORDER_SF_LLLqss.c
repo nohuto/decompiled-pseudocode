@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_LLLqss @ 0x1C0046360
+ * Callers:
+ *     ACPIWakeDisableAsync @ 0x1C0044CC8 (ACPIWakeDisableAsync.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WPP_RECORDER_SF_LLLqss(
         __int64 a1,
         __int64 a2,

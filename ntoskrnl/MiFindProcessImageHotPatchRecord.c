@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiFindProcessImageHotPatchRecord @ 0x140A3404C
+ * Callers:
+ *     MiGetAllRegisteredPatches @ 0x140A342EC (MiGetAllRegisteredPatches.c)
+ *     MiQuerySingleLoadedPatch @ 0x140A38EEC (MiQuerySingleLoadedPatch.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SeQueryUserSidToken @ 0x1407187E4 (SeQueryUserSidToken.c)
+ *     MiFindHotPatchRecord @ 0x140A33EBC (MiFindHotPatchRecord.c)
+ *     MiFindUserSidHotPatchContext @ 0x140A3420C (MiFindUserSidHotPatchContext.c)
+ */
+
 __int64 __fastcall MiFindProcessImageHotPatchRecord(__int64 a1, int a2, int a3, int a4, UNICODE_STRING *StringOut)
 {
   struct _KTHREAD *CurrentThread; // rbx

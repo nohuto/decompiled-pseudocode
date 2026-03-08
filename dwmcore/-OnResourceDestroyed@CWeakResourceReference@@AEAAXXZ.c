@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?OnResourceDestroyed@CWeakResourceReference@@AEAAXXZ @ 0x1800E8EA4
+ * Callers:
+ *     ??1CResource@@MEAA@XZ @ 0x18009A0B0 (--1CResource@@MEAA@XZ.c)
+ * Callees:
+ *     ?erase@?$_Hash@V?$_Umap_traits@PEBVCResource@@PEAVCWeakResourceReference@@V?$_Uhash_compare@PEBVCResource@@U?$hash@PEBVCResource@@@std@@U?$equal_to@PEBVCResource@@@3@@std@@V?$allocator@U?$pair@QEBVCResource@@PEAVCWeakResourceReference@@@std@@@4@$0A@@std@@@std@@QEAA_KAEBQEBVCResource@@@Z @ 0x180025108 (-erase@-$_Hash@V-$_Umap_traits@PEBVCResource@@PEAVCWeakResourceReference@@V-$_Uhash_compare@PEBV.c)
+ *     ??$_Construct_n@AEBQEAPEAVCResource@@AEBQEAPEAV1@@?$vector@PEAVCResource@@V?$allocator@PEAVCResource@@@std@@@std@@AEAAX_KAEBQEAPEAVCResource@@1@Z @ 0x1800E8F74 (--$_Construct_n@AEBQEAPEAVCResource@@AEBQEAPEAV1@@-$vector@PEAVCResource@@V-$allocator@PEAVCReso.c)
+ *     ?_Tidy@?$vector@PEAVCResource@@V?$allocator@PEAVCResource@@@std@@@std@@AEAAXXZ @ 0x1800F6F38 (-_Tidy@-$vector@PEAVCResource@@V-$allocator@PEAVCResource@@@std@@@std@@AEAAXXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CWeakResourceReference::OnResourceDestroyed(CWeakResourceReference *this)
 {
   char *v1; // rbx

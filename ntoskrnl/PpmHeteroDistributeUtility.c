@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmHeteroDistributeUtility @ 0x140594ED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PpmParkDistributeUtility @ 0x140234820 (PpmParkDistributeUtility.c)
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PpmEventTraceHeteroDistributeUtility @ 0x140599360 (PpmEventTraceHeteroDistributeUtility.c)
+ */
+
 char PpmHeteroDistributeUtility()
 {
   bool v0; // zf

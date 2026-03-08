@@ -1,3 +1,27 @@
+/*
+ * XREFs of AlpcpCaptureAttributes @ 0x1407CAAD0
+ * Callers:
+ *     AlpcpFormatConnectionRequest @ 0x140712838 (AlpcpFormatConnectionRequest.c)
+ *     AlpcpAcceptConnectPort @ 0x140713844 (AlpcpAcceptConnectPort.c)
+ *     AlpcpSendMessage @ 0x1407CAFB0 (AlpcpSendMessage.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AlpcpCaptureSecurityAttribute @ 0x1406D34B4 (AlpcpCaptureSecurityAttribute.c)
+ *     AlpcpCaptureHandleAttribute @ 0x140710E7C (AlpcpCaptureHandleAttribute.c)
+ *     AlpcpCaptureViewAttribute @ 0x140714E20 (AlpcpCaptureViewAttribute.c)
+ *     AlpcpCaptureDirectAttribute @ 0x14076F550 (AlpcpCaptureDirectAttribute.c)
+ *     AlpcpCaptureSecurityAttribute32 @ 0x14077DE30 (AlpcpCaptureSecurityAttribute32.c)
+ *     AlpcpCaptureDirectAttribute32 @ 0x14077EB60 (AlpcpCaptureDirectAttribute32.c)
+ *     AlpcpCaptureContextAttribute32 @ 0x140782174 (AlpcpCaptureContextAttribute32.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     AlpcpCaptureWorkOnBehalfAttribute @ 0x1407C9E00 (AlpcpCaptureWorkOnBehalfAttribute.c)
+ *     AlpcpReleaseAttributes @ 0x1407CA744 (AlpcpReleaseAttributes.c)
+ *     AlpcpCaptureContextAttribute @ 0x1407CAA6C (AlpcpCaptureContextAttribute.c)
+ *     AlpcpCaptureViewAttribute32 @ 0x1409764A0 (AlpcpCaptureViewAttribute32.c)
+ *     AlpcpCaptureHandleAttribute32 @ 0x140977C14 (AlpcpCaptureHandleAttribute32.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall AlpcpCaptureAttributes(void *a1, int a2, unsigned __int64 a3, __int64 a4, _QWORD *a5)
 {
   __int64 v8; // rax

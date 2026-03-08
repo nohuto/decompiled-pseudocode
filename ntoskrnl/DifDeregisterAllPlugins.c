@@ -1,3 +1,12 @@
+/*
+ * XREFs of DifDeregisterAllPlugins @ 0x1405D27E8
+ * Callers:
+ *     VfVolatileClearDifRuleClass @ 0x140ADAA7C (VfVolatileClearDifRuleClass.c)
+ * Callees:
+ *     CarDeregisterRuleClassConfiguration @ 0x1405D1760 (CarDeregisterRuleClassConfiguration.c)
+ *     DifDeregisterPlugin @ 0x1405D2840 (DifDeregisterPlugin.c)
+ */
+
 void DifDeregisterAllPlugins()
 {
   unsigned int v0; // ebx

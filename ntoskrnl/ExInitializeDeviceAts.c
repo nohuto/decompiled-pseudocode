@@ -1,3 +1,21 @@
+/*
+ * XREFs of ExInitializeDeviceAts @ 0x140609E90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpPrepareNewAtsDevice @ 0x14060A384 (ExpPrepareNewAtsDevice.c)
+ *     IoQueryInterface @ 0x140822260 (IoQueryInterface.c)
+ */
+
 __int64 __fastcall ExInitializeDeviceAts(ULONG_PTR BugCheckParameter1, int a2)
 {
   char v4; // r15

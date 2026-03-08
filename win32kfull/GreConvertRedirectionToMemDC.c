@@ -1,3 +1,13 @@
+/*
+ * XREFs of GreConvertRedirectionToMemDC @ 0x1C02AFFC4
+ * Callers:
+ *     ?BltOldRedirectionBitsToNewBitmap@@YAHPEAUtagWND@@PEAUHBITMAP__@@1PEBUtagBITMAP@@2HH@Z @ 0x1C000FA18 (-BltOldRedirectionBitsToNewBitmap@@YAHPEAUtagWND@@PEAUHBITMAP__@@1PEBUtagBITMAP@@2HH@Z.c)
+ *     UpdateSpriteArea @ 0x1C00DC4C4 (UpdateSpriteArea.c)
+ * Callees:
+ *     ??0MDCOBJA@@QEAA@PEAUHDC__@@H@Z @ 0x1C0007358 (--0MDCOBJA@@QEAA@PEAUHDC__@@H@Z.c)
+ *     ?vAltUnlockFast@XDCOBJ@@QEAAXXZ @ 0x1C00DC828 (-vAltUnlockFast@XDCOBJ@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall GreConvertRedirectionToMemDC(HDC a1, int a2)
 {
   unsigned int v3; // ebx

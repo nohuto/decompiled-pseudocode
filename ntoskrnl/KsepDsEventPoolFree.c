@@ -1,3 +1,14 @@
+/*
+ * XREFs of KsepDsEventPoolFree @ 0x14057FC3C
+ * Callers:
+ *     KseDsHookExFreePool @ 0x14057EF00 (KseDsHookExFreePool.c)
+ *     KseDsHookExFreePoolWithTag @ 0x14057EF40 (KseDsHookExFreePoolWithTag.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall KsepDsEventPoolFree(__int64 a1, __int64 a2, int a3)
 {
   _UNKNOWN **v3; // rax

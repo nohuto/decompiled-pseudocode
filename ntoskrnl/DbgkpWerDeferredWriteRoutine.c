@@ -1,3 +1,16 @@
+/*
+ * XREFs of DbgkpWerDeferredWriteRoutine @ 0x140938A80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ *     KeCancelTimer @ 0x140250B60 (KeCancelTimer.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     DbgkpWerCleanupContext @ 0x14087EEF4 (DbgkpWerCleanupContext.c)
+ *     IoWriteDeferredLiveDumpData @ 0x140949354 (IoWriteDeferredLiveDumpData.c)
+ */
+
 char __fastcall DbgkpWerDeferredWriteRoutine(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax

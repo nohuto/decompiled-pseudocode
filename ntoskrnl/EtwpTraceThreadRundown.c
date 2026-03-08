@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpTraceThreadRundown @ 0x14036FE60
+ * Callers:
+ *     EtwpThreadRundownApc @ 0x1405FF6A0 (EtwpThreadRundownApc.c)
+ *     EtwpTraceThreadRundownWithStack @ 0x1405FF6DC (EtwpTraceThreadRundownWithStack.c)
+ *     EtwpThreadEnumCallback @ 0x140801B20 (EtwpThreadEnumCallback.c)
+ * Callees:
+ *     PsGetIoPriorityThread @ 0x1402832C0 (PsGetIoPriorityThread.c)
+ *     PsGetPagePriorityThread @ 0x14028A290 (PsGetPagePriorityThread.c)
+ *     EtwpLogSystemEventUnsafe @ 0x14036F9F8 (EtwpLogSystemEventUnsafe.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall EtwpTraceThreadRundown(__int64 a1, __int64 a2)
 {
   unsigned int v3; // edi

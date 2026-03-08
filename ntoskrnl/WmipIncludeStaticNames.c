@@ -1,3 +1,24 @@
+/*
+ * XREFs of WmipIncludeStaticNames @ 0x1409DDB94
+ * Callers:
+ *     WmipProcessEvent @ 0x1408686A8 (WmipProcessEvent.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     WmipAlign @ 0x1402092D8 (WmipAlign.c)
+ *     RtlStringCbCatW @ 0x1402092FC (RtlStringCbCatW.c)
+ *     RtlStringCbCopyW @ 0x140244EC0 (RtlStringCbCopyW.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     WmipFindGEByGuid @ 0x14069BDF4 (WmipFindGEByGuid.c)
+ *     WmipReferenceEntry @ 0x14069C27C (WmipReferenceEntry.c)
+ *     WmipUnreferenceEntry @ 0x14069C9D0 (WmipUnreferenceEntry.c)
+ *     WmipInsertStaticNames @ 0x14069E478 (WmipInsertStaticNames.c)
+ *     WmipStaticInstanceNameSize @ 0x14069E658 (WmipStaticInstanceNameSize.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 int *__fastcall WmipIncludeStaticNames(int *Src, unsigned int a2)
 {
   int *v3; // rbx

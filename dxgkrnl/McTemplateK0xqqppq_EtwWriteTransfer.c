@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0xqqppq_EtwWriteTransfer @ 0x1C00629D0
+ * Callers:
+ *     DpiMiracastCbSendUserModeMessage @ 0x1C039A080 (DpiMiracastCbSendUserModeMessage.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0002BBC (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 NTSTATUS McTemplateK0xqqppq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-51h] BYREF

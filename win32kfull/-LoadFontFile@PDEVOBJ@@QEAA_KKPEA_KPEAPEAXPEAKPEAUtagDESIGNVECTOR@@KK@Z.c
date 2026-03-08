@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?LoadFontFile@PDEVOBJ@@QEAA_KKPEA_KPEAPEAXPEAKPEAUtagDESIGNVECTOR@@KK@Z @ 0x1C02E30C0
+ * Callers:
+ *     GreMakeFontDir @ 0x1C02D77CC (GreMakeFontDir.c)
+ *     ?TryResurrectHff@UmfdHostLifeTimeManager@@CA_N_KPEAVPFF@@@Z @ 0x1C02E2AF8 (-TryResurrectHff@UmfdHostLifeTimeManager@@CA_N_KPEAVPFF@@@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall PDEVOBJ::LoadFontFile(
         PDEVOBJ *this,
         unsigned int a2,

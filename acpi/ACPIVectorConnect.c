@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPIVectorConnect @ 0x1C0043E40
+ * Callers:
+ *     ACPIVectorConnect2 @ 0x1C0043FE0 (ACPIVectorConnect2.c)
+ *     ACPIEcConnectGpeVector @ 0x1C00833B8 (ACPIEcConnectGpeVector.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     ACPIGpeEnableDisableEvents @ 0x1C002C29C (ACPIGpeEnableDisableEvents.c)
+ *     ACPIGpeInstallRemoveIndex @ 0x1C002C3F8 (ACPIGpeInstallRemoveIndex.c)
+ *     ACPIGpeValidIndex @ 0x1C002C6DC (ACPIGpeValidIndex.c)
+ *     ACPIVectorInstall @ 0x1C00442B8 (ACPIVectorInstall.c)
+ */
+
 __int64 __fastcall ACPIVectorConnect(__int64 a1, unsigned int a2, int a3, char a4, __int64 a5, __int64 a6, char **a7)
 {
   unsigned int v9; // esi

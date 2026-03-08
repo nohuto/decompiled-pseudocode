@@ -1,3 +1,18 @@
+/*
+ * XREFs of xxxSystemTimerProc @ 0x1C0005A50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     InvalidateWEFCOMPOSITEDDCEs @ 0x1C0005ACC (InvalidateWEFCOMPOSITEDDCEs.c)
+ *     xxxFlashWindow @ 0x1C0005B74 (xxxFlashWindow.c)
+ *     SetWakeBit @ 0x1C0038B60 (SetWakeBit.c)
+ *     PtInRect @ 0x1C00A34E8 (PtInRect.c)
+ *     _PostTransformableMessage @ 0x1C00CB714 (_PostTransformableMessage.c)
+ *     FindTimer @ 0x1C00DEEDC (FindTimer.c)
+ *     GetActiveTrackPwnd @ 0x1C01B7A4C (GetActiveTrackPwnd.c)
+ *     zzzAnimateFade @ 0x1C01BE518 (zzzAnimateFade.c)
+ */
+
 __int64 __fastcall xxxSystemTimerProc(struct tagWND *a1, __int64 a2, unsigned __int64 a3)
 {
   int v3; // esi

@@ -1,3 +1,19 @@
+/*
+ * XREFs of CmpFindDrivers @ 0x140B34758
+ * Callers:
+ *     CmGetSystemDriverList @ 0x140B59568 (CmGetSystemDriverList.c)
+ * Callees:
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpFindSubKeyByNumber @ 0x1407AD320 (CmpFindSubKeyByNumber.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     CmpLoadServicesNode @ 0x140B32FF0 (CmpLoadServicesNode.c)
+ *     CmpFindGroupOrderList @ 0x140B332CC (CmpFindGroupOrderList.c)
+ *     CmpAddDriverToList @ 0x140B340F4 (CmpAddDriverToList.c)
+ *     CmpIsLoadType @ 0x140B3493C (CmpIsLoadType.c)
+ *     CmpFindRedirectedDriverServiceStateNode @ 0x140B34BB0 (CmpFindRedirectedDriverServiceStateNode.c)
+ *     CmpLoadManufacturingProfileServicesNode @ 0x140B96004 (CmpLoadManufacturingProfileServicesNode.c)
+ */
+
 char __fastcall CmpFindDrivers(
         ULONG_PTR BugCheckParameter3,
         ULONG_PTR a2,

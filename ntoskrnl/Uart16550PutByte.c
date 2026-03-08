@@ -1,3 +1,11 @@
+/*
+ * XREFs of Uart16550PutByte @ 0x14067A8F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall Uart16550PutByte(__int64 a1, __int64 a2, char a3)
 {
   char v4; // di

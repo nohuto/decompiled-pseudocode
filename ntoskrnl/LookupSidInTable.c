@@ -1,3 +1,20 @@
+/*
+ * XREFs of LookupSidInTable @ 0x1406999A0
+ * Callers:
+ *     SeConvertStringSidToSid @ 0x1402C0AD0 (SeConvertStringSidToSid.c)
+ *     LocalGetStringForSid @ 0x14074FCB0 (LocalGetStringForSid.c)
+ *     LocalConvertAclToString @ 0x14074FD70 (LocalConvertAclToString.c)
+ *     LocalGetSidForString @ 0x140750A70 (LocalGetSidForString.c)
+ * Callees:
+ *     RtlEqualSid @ 0x140208A60 (RtlEqualSid.c)
+ *     RtlLengthSid @ 0x140245EC0 (RtlLengthSid.c)
+ *     RtlSubAuthorityCountSid @ 0x1402BE730 (RtlSubAuthorityCountSid.c)
+ *     RtlSubAuthoritySid @ 0x1402BE740 (RtlSubAuthoritySid.c)
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SddlpAlloc @ 0x1407507C8 (SddlpAlloc.c)
+ */
+
 __int64 __fastcall LookupSidInTable(
         wchar_t *Str1,
         PSID Sid1,

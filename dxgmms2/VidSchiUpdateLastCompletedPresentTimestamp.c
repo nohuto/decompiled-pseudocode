@@ -1,3 +1,18 @@
+/*
+ * XREFs of VidSchiUpdateLastCompletedPresentTimestamp @ 0x1C0002D40
+ * Callers:
+ *     VidSchUnwaitFlipQueue @ 0x1C0003B80 (VidSchUnwaitFlipQueue.c)
+ *     ?VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z @ 0x1C00055E0 (-VidSchiProcessCompletedQueuePacketInternal@@YAPEAU_VIDSCH_QUEUE_PACKET@@PEAU1@@Z.c)
+ *     VidSchiSubmitMmIoFlipCommand @ 0x1C000EAF0 (VidSchiSubmitMmIoFlipCommand.c)
+ *     VidSchiNeedToForcePreemptNode @ 0x1C0017AA4 (VidSchiNeedToForcePreemptNode.c)
+ *     VidSchiIsHardwareCompletedDependingCommandForFlip @ 0x1C003AB04 (VidSchiIsHardwareCompletedDependingCommandForFlip.c)
+ * Callees:
+ *     VidSchiStartNodeYield @ 0x1C0018F28 (VidSchiStartNodeYield.c)
+ *     VidSchiMonitorRefreshPeriodFromNode @ 0x1C0018FE4 (VidSchiMonitorRefreshPeriodFromNode.c)
+ *     McTemplateK0pqx_EtwWriteTransfer @ 0x1C002F1D8 (McTemplateK0pqx_EtwWriteTransfer.c)
+ *     McTemplateK0pqxxxx_EtwWriteTransfer @ 0x1C00396CC (McTemplateK0pqxxxx_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall VidSchiUpdateLastCompletedPresentTimestamp(__int64 a1, __int64 a2, char a3)
 {
   unsigned __int128 v3; // rax

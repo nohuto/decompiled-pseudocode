@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GreSelectPenInternal@@YAPEAUHPEN__@@AEAVXDCOBJ@@PEAU1@H@Z @ 0x1C017E210
+ * Callers:
+ *     GreSelectPen @ 0x1C017E5A0 (GreSelectPen.c)
+ * Callees:
+ *     GreDCSelectPen @ 0x1C0005440 (GreDCSelectPen.c)
+ *     ?GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z @ 0x1C004A2C0 (-GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z.c)
+ */
+
 __int64 __fastcall GreSelectPenInternal(DC **a1, __int64 a2, int a3)
 {
   __int64 v3; // rdi

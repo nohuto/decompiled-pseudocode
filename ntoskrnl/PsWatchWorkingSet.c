@@ -1,3 +1,12 @@
+/*
+ * XREFs of PsWatchWorkingSet @ 0x14045B2C0
+ * Callers:
+ *     KiPageFault @ 0x140426F00 (KiPageFault.c)
+ * Callees:
+ *     KeSignalGate @ 0x1402F0524 (KeSignalGate.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 char __fastcall PsWatchWorkingSet(int a1, __int64 a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rbx

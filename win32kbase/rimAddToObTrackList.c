@@ -1,3 +1,14 @@
+/*
+ * XREFs of rimAddToObTrackList @ 0x1C0038300
+ * Callers:
+ *     RawInputManagerObjectCreate @ 0x1C0034798 (RawInputManagerObjectCreate.c)
+ *     RawInputManagerDeviceObjectCreate @ 0x1C00373B8 (RawInputManagerDeviceObjectCreate.c)
+ *     RawInputManagerInputObserverObjectCreate @ 0x1C01BF834 (RawInputManagerInputObserverObjectCreate.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void __fastcall rimAddToObTrackList(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rax

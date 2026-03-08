@@ -1,3 +1,11 @@
+/*
+ * XREFs of XmInt1aWriteConfigRegister @ 0x140532B88
+ * Callers:
+ *     XmExecuteInt1a @ 0x140532794 (XmExecuteInt1a.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall XmInt1aWriteConfigRegister(__int64 a1)
 {
   int v1; // edx

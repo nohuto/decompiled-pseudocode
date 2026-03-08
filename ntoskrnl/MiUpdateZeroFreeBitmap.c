@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiUpdateZeroFreeBitmap @ 0x1402E6598
+ * Callers:
+ *     MiReplenishPageSlist @ 0x14034E120 (MiReplenishPageSlist.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiUpdateZeroFreeBitmap(__int64 a1, int a2, int a3, unsigned int a4, int a5)
 {
   unsigned __int64 v6; // r10

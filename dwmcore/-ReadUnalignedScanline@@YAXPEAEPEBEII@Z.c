@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReadUnalignedScanline@@YAXPEAEPEBEII@Z @ 0x18027F094
+ * Callers:
+ *     ?HrInit@CBitmapLockUnaligned@@QEAAJPEAVCBitmap@@IIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlags@@II@Z @ 0x18027EE4C (-HrInit@CBitmapLockUnaligned@@QEAAJPEAVCBitmap@@IIAEBUPixelFormatInfo@@IIPEAXW4WICBitmapLockFlag.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall ReadUnalignedScanline(unsigned __int8 *a1, const unsigned __int8 *a2, unsigned int a3, int a4)
 {
   unsigned int v4; // r10d

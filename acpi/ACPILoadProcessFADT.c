@@ -1,3 +1,16 @@
+/*
+ * XREFs of ACPILoadProcessFADT @ 0x1C00A999C
+ * Callers:
+ *     ACPILoadProcessRSDT @ 0x1C00A9AC4 (ACPILoadProcessRSDT.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     ACPIGpeClearRegisters @ 0x1C002C240 (ACPIGpeClearRegisters.c)
+ *     ACPIGpeEnableDisableEvents @ 0x1C002C29C (ACPIGpeEnableDisableEvents.c)
+ *     ACPIProcessHardwareInformation @ 0x1C00889B0 (ACPIProcessHardwareInformation.c)
+ *     ACPILoadProcessDSDT @ 0x1C00A9700 (ACPILoadProcessDSDT.c)
+ *     ACPILoadProcessFACS @ 0x1C00A9840 (ACPILoadProcessFACS.c)
+ */
+
 __int64 ACPILoadProcessFADT()
 {
   __int64 v0; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??$?0$0?0$0A@@?$span@PEAVCVisual@@$0?0@gsl@@QEAA@PEAPEAVCVisual@@_K@Z @ 0x1801BACC0
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F0A8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x1800254CC (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
+ *     ?terminate@details@gsl@@YAXXZ @ 0x1801AEDB0 (-terminate@details@gsl@@YAXXZ.c)
+ */
+
 gsl::details *__fastcall gsl::span<CVisual *,-1>::span<CVisual *,-1>(gsl::details *a1, __int64 a2, __int64 a3)
 {
   gsl::details *v5; // rcx

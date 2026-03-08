@@ -1,3 +1,13 @@
+/*
+ * XREFs of _GetKeyState @ 0x1C0078B50
+ * Callers:
+ *     NtUserGetKeyState @ 0x1C0078A00 (NtUserGetKeyState.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C004E3E0 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int16 __fastcall GetKeyState(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned __int8 v4; // di

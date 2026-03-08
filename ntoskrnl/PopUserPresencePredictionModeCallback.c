@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopUserPresencePredictionModeCallback @ 0x14085F4E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopUmpoSendPowerMessage @ 0x1402BD1D0 (PopUmpoSendPowerMessage.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopUserPresencePredictionModeCallback(_QWORD *a1, _DWORD *a2, int a3)
 {
   __int64 v4; // r9

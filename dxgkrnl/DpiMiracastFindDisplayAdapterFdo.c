@@ -1,3 +1,16 @@
+/*
+ * XREFs of DpiMiracastFindDisplayAdapterFdo @ 0x1C039A4FC
+ * Callers:
+ *     DxgkMiracastStartMiracastSession @ 0x1C00615C4 (DxgkMiracastStartMiracastSession.c)
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000B270 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     ?IsMiniportListMutexOwnedByCurrentThread@@YAEXZ @ 0x1C001D678 (-IsMiniportListMutexOwnedByCurrentThread@@YAEXZ.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ *     DxgkMiracastQueryMiracastSupportInternal @ 0x1C01F7DCC (DxgkMiracastQueryMiracastSupportInternal.c)
+ *     DpiMiracastFindDisplayAdapterFdoIhv @ 0x1C02196D4 (DpiMiracastFindDisplayAdapterFdoIhv.c)
+ */
+
 __int64 __fastcall DpiMiracastFindDisplayAdapterFdo(struct _DEVICE_OBJECT *Object, __int64 *a2, _BYTE *a3)
 {
   char v4; // bl

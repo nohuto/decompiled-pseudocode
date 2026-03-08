@@ -1,3 +1,19 @@
+/*
+ * XREFs of _CmGetMatchingDeviceListForSubkey @ 0x140823CD0
+ * Callers:
+ *     _CmGetMatchingDeviceList @ 0x140823774 (_CmGetMatchingDeviceList.c)
+ *     _CmGetMatchingFilteredDeviceListWorker @ 0x140A62368 (_CmGetMatchingFilteredDeviceListWorker.c)
+ * Callees:
+ *     RtlStringCchCopyExW @ 0x140244A08 (RtlStringCchCopyExW.c)
+ *     wcschr @ 0x1403D5D90 (wcschr.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406D3680 (_PnpCtxGetCachedContextBaseKey.c)
+ *     _SysCtxRegOpenKey @ 0x1406D4350 (_SysCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x140824EA0 (_PnpCtxRegEnumKeyWithCallback.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmGetMatchingDeviceListForSubkey(
         __int64 a1,
         const wchar_t *a2,

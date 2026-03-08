@@ -1,3 +1,37 @@
+/*
+ * XREFs of KiAbForceProcessLockEntry @ 0x1403C7578
+ * Callers:
+ *     KeAbMarkCrossThreadReleasable @ 0x1403C7520 (KeAbMarkCrossThreadReleasable.c)
+ * Callees:
+ *     KiReadyDeferredReadyList @ 0x140226FA0 (KiReadyDeferredReadyList.c)
+ *     KeAndGroupAffinityEx @ 0x140233690 (KeAndGroupAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     KeGetProcessorIndexFromNumber @ 0x140236BF0 (KeGetProcessorIndexFromNumber.c)
+ *     KeInitializeEnumerationContext @ 0x140236DE0 (KeInitializeEnumerationContext.c)
+ *     KeInitializeAffinityEx2 @ 0x140237600 (KeInitializeAffinityEx2.c)
+ *     KiAndAffinityEx @ 0x140237720 (KiAndAffinityEx.c)
+ *     KiAbPropagateBoosts @ 0x1402395C0 (KiAbPropagateBoosts.c)
+ *     KiAbProcessThreadLocks @ 0x140239A40 (KiAbProcessThreadLocks.c)
+ *     KiAbEntryGetLockedHeadEntry @ 0x14024CE30 (KiAbEntryGetLockedHeadEntry.c)
+ *     KiEndThreadAccountingPeriodEx @ 0x140256710 (KiEndThreadAccountingPeriodEx.c)
+ *     KiQueueReadyThread @ 0x140257C00 (KiQueueReadyThread.c)
+ *     KiAbTryIncrementIoWaiterCounts @ 0x140282B80 (KiAbTryIncrementIoWaiterCounts.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KiDeliverApc @ 0x140350B60 (KiDeliverApc.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiAbIoBoostOwners @ 0x140357CB0 (KiAbIoBoostOwners.c)
+ *     KiAbCpuBoostOwners @ 0x140357DB4 (KiAbCpuBoostOwners.c)
+ *     KiAbEntryUpdateWaiterTreePosition @ 0x140358150 (KiAbEntryUpdateWaiterTreePosition.c)
+ *     KiAbEntryGetCpuPriorityKey @ 0x14035822C (KiAbEntryGetCpuPriorityKey.c)
+ *     KiAbOwnerComputeCpuPriorityKey @ 0x140358338 (KiAbOwnerComputeCpuPriorityKey.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiSwapContext @ 0x14041F890 (KiSwapContext.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall KiAbForceProcessLockEntry(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // r14

@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpDmaLinkContiguousTranslations @ 0x140454118
+ * Callers:
+ *     HalpDmaAllocateContiguousPagesFromContiguousPoolV2 @ 0x1404555FE (HalpDmaAllocateContiguousPagesFromContiguousPoolV2.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV3 @ 0x1404FCF80 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV3.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPoolV3 @ 0x1404FD018 (HalpDmaAllocateContiguousPagesFromContiguousPoolV3.c)
+ *     HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV2 @ 0x140513708 (HalpDmaAllocateContiguousPagesFromContiguousPoolAtHighLevelV2.c)
+ * Callees:
+ *     HalpDmaIndexToTranslationEntry @ 0x1404540DE (HalpDmaIndexToTranslationEntry.c)
+ */
+
 __int64 __fastcall HalpDmaLinkContiguousTranslations(__int64 a1, unsigned int a2, unsigned int a3)
 {
   __int64 v4; // rax

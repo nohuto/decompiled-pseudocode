@@ -1,3 +1,32 @@
+/*
+ * XREFs of CmpLockRegistryFreezeAware @ 0x1406BF3D0
+ * Callers:
+ *     CmpLoadKeyCommon @ 0x1402B2DEC (CmpLoadKeyCommon.c)
+ *     CmpTryToRundownHive @ 0x1402BFA88 (CmpTryToRundownHive.c)
+ *     CmpDoFlushNextHive @ 0x1406BD800 (CmpDoFlushNextHive.c)
+ *     CmLoadAppKey @ 0x1406BDA5C (CmLoadAppKey.c)
+ *     CmpFlushHive @ 0x1406BEA70 (CmpFlushHive.c)
+ *     CmpStartRMLogs @ 0x14073565C (CmpStartRMLogs.c)
+ *     CmpPerformUnloadKey @ 0x14074A194 (CmpPerformUnloadKey.c)
+ *     CmpLateUnloadHiveWorker @ 0x14074A6B0 (CmpLateUnloadHiveWorker.c)
+ *     ExpWatchProductTypeWork @ 0x1407586E0 (ExpWatchProductTypeWork.c)
+ *     NtFlushKey @ 0x140758B70 (NtFlushKey.c)
+ *     CmpBecomeActiveFlusherAndReconciler @ 0x140820C84 (CmpBecomeActiveFlusherAndReconciler.c)
+ *     CmRestoreKey @ 0x140A08004 (CmRestoreKey.c)
+ *     CmpResolveHiveLoadConflict @ 0x140A13D78 (CmpResolveHiveLoadConflict.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     CmpLockRegistryExclusive @ 0x1406B6454 (CmpLockRegistryExclusive.c)
+ *     CmpLockRegistry @ 0x140AF2270 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ */
+
 __int64 __fastcall CmpLockRegistryFreezeAware(char a1)
 {
   __int64 v2; // rdx

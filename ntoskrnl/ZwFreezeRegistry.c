@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwFreezeRegistry @ 0x1404141B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwFreezeRegistry(__int64 a1, __int64 a2)
 {
   _disable();

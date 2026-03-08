@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPluginQuerySocSubsystemCount @ 0x140983554
+ * Callers:
+ *     PopFxInitializeSocSubsystemStaticInfo @ 0x140981C30 (PopFxInitializeSocSubsystemStaticInfo.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ */
+
 __int64 __fastcall PopPluginQuerySocSubsystemCount(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

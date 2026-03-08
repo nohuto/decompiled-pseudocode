@@ -1,3 +1,19 @@
+/*
+ * XREFs of VmpMergeMemoryRanges @ 0x1405F7BB4
+ * Callers:
+ *     VmMergeMemoryRanges @ 0x1409D99D0 (VmMergeMemoryRanges.c)
+ * Callees:
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     VmpProcessContextLockExclusive @ 0x14045E6CE (VmpProcessContextLockExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmpVaMemoryRangeGetNext @ 0x1405F9314 (VmpVaMemoryRangeGetNext.c)
+ *     VmpVaRangeNumberOfGpaRanges @ 0x1405F93B8 (VmpVaRangeNumberOfGpaRanges.c)
+ *     VmpFreeMemoryRanges @ 0x1409DA3BC (VmpFreeMemoryRanges.c)
+ *     VmpLockMemoryForPin @ 0x1409DA418 (VmpLockMemoryForPin.c)
+ *     VmpUnlockMemoryForPin @ 0x1409DA9F0 (VmpUnlockMemoryForPin.c)
+ */
+
 __int64 __fastcall VmpMergeMemoryRanges(PEX_SPIN_LOCK SpinLock, unsigned __int64 a2, __int64 a3)
 {
   unsigned __int64 Next; // rsi

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MirrorRegion @ 0x1C002779C
+ * Callers:
+ *     xxxSetWindowRgn @ 0x1C0028E44 (xxxSetWindowRgn.c)
+ *     xxxRedrawWindow @ 0x1C0050700 (xxxRedrawWindow.c)
+ *     xxxGetUpdateRgn @ 0x1C00FC22C (xxxGetUpdateRgn.c)
+ *     NtUserGetWindowRgnEx @ 0x1C01D57F0 (NtUserGetWindowRgnEx.c)
+ *     NtUserSetWindowRgnEx @ 0x1C01DE310 (NtUserSetWindowRgnEx.c)
+ *     xxxScrollWindowEx @ 0x1C0231B34 (xxxScrollWindowEx.c)
+ * Callees:
+ *     ?OrderRects@@YAXPEAUtagRECT@@H@Z @ 0x1C01BEC80 (-OrderRects@@YAXPEAUtagRECT@@H@Z.c)
+ */
+
 __int64 __fastcall MirrorRegion(__int64 a1, unsigned __int64 a2, int a3)
 {
   unsigned int v3; // edi

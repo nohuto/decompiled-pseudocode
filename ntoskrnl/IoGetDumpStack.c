@@ -1,3 +1,14 @@
+/*
+ * XREFs of IoGetDumpStack @ 0x140940ABC
+ * Callers:
+ *     PopAllocateHiberContext @ 0x140984D38 (PopAllocateHiberContext.c)
+ * Callees:
+ *     IopLoadCrashdumpDriver @ 0x140392A70 (IopLoadCrashdumpDriver.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IopDumpTraceLoadCrashDumpDriverFailure @ 0x140550A98 (IopDumpTraceLoadCrashDumpDriverFailure.c)
+ *     IopDumpTraceLoadDumpStackFailure @ 0x140550BA8 (IopDumpTraceLoadDumpStackFailure.c)
+ */
+
 __int64 __fastcall IoGetDumpStack(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   int CrashdumpDriver; // eax

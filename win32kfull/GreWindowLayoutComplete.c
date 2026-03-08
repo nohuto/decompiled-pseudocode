@@ -1,3 +1,14 @@
+/*
+ * XREFs of GreWindowLayoutComplete @ 0x1C0098D74
+ * Callers:
+ *     NtUserLayoutCompleted @ 0x1C0098EE0 (NtUserLayoutCompleted.c)
+ * Callees:
+ *     ??0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z @ 0x1C00296D4 (--0DWMSPRITEREF@@QEAA@PEAUHWND__@@@Z.c)
+ *     IsDwmActive @ 0x1C002CF30 (IsDwmActive.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z @ 0x1C026821C (-CheckAndProcessWindowResizeComplete@@YAXPEAVDWMSPRITE@@HPEAH@Z.c)
+ */
+
 __int64 __fastcall GreWindowLayoutComplete(Gre::Base *a1, struct DWMSPRITE *a2, __int64 a3, int *a4)
 {
   unsigned int v4; // edi

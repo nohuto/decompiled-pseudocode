@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ @ 0x1C001A4A0
+ * Callers:
+ *     ?bDisableHalftone@PDEVOBJ@@QEAAHXZ @ 0x1C001826C (-bDisableHalftone@PDEVOBJ@@QEAAHXZ.c)
+ *     ?EngRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z @ 0x1C001A0C0 (-EngRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z.c)
+ *     ?bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOBJ@@K@Z@Z @ 0x1C012448C (-bGetRealizedBrush@@YAHPEAVBRUSH@@PEAVEBRUSHOBJ@@P6AHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@33PEAU_XLATEOB.c)
+ *     ?bCreateHalftoneBrushes@PDEVOBJ@@QEAAHXZ @ 0x1C028E978 (-bCreateHalftoneBrushes@PDEVOBJ@@QEAAHXZ.c)
+ *     GreCreateHalftonePalette @ 0x1C02D32E0 (GreCreateHalftonePalette.c)
+ *     EngHTBlt @ 0x1C02E0A38 (EngHTBlt.c)
+ * Callees:
+ *     HT_DestroyDeviceHalftoneInfo @ 0x1C0018188 (HT_DestroyDeviceHalftoneInfo.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ */
+
 void *__fastcall PDEVOBJ::pDevHTInfo(PDEVOBJ *this)
 {
   struct Gre::Base::SESSION_GLOBALS *v2; // rsi

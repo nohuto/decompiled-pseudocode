@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserShellHandwritingDelegateInput @ 0x1C01DEA30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AreMultipleThreadsAttached@tagQ@@QEBA_NXZ @ 0x1C00390F4 (-AreMultipleThreadsAttached@tagQ@@QEBA_NXZ.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     Feature_AbydosInfra__private_IsEnabledDeviceUsage @ 0x1C012E8FC (Feature_AbydosInfra__private_IsEnabledDeviceUsage.c)
+ */
+
 __int64 __fastcall NtUserShellHandwritingDelegateInput(unsigned int a1, __int64 a2, __int64 a3)
 {
   __int64 v6; // rbx

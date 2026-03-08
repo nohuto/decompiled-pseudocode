@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bReset@DC@@QEAAHXZ @ 0x1C00095B0
+ * Callers:
+ *     GreBeginGdiRenderingToDxSurface @ 0x1C0009468 (GreBeginGdiRenderingToDxSurface.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DC::bReset(DC *this)
 {
   __int64 v1; // rax

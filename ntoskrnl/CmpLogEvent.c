@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpLogEvent @ 0x140A0CF74
+ * Callers:
+ *     CmpInitHiveFromFile @ 0x1406C0BF0 (CmpInitHiveFromFile.c)
+ *     HvpFinishPrimaryWrite @ 0x140732380 (HvpFinishPrimaryWrite.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall CmpLogEvent(PCEVENT_DESCRIPTOR EventDescriptor, int a2, unsigned __int16 *a3)
 {
   ULONG v4; // eax

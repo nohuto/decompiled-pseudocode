@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExpFreeAsid @ 0x14060B464
+ * Callers:
+ *     ExFreeSvmAsid @ 0x1402FB294 (ExFreeSvmAsid.c)
+ *     IommupPasidDeviceDelete @ 0x14050C384 (IommupPasidDeviceDelete.c)
+ *     ExFreeAsid @ 0x14060ACA8 (ExFreeAsid.c)
+ *     ExpAssignPasid @ 0x1409FEB10 (ExpAssignPasid.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 LONG_PTR __fastcall ExpFreeAsid(unsigned int a1, void *a2)
 {
   _QWORD *v4; // rcx

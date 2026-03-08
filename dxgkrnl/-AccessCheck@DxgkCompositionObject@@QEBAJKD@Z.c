@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AccessCheck@DxgkCompositionObject@@QEBAJKD@Z @ 0x1C006C994
+ * Callers:
+ *     NtDxgkRegisterVailProcess @ 0x1C035FB20 (NtDxgkRegisterVailProcess.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 __int64 __fastcall DxgkCompositionObject::AccessCheck(DxgkCompositionObject *this)
 {
   __int64 result; // rax

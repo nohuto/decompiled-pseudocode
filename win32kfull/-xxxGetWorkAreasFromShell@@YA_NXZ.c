@@ -1,3 +1,24 @@
+/*
+ * XREFs of ?xxxGetWorkAreasFromShell@@YA_NXZ @ 0x1C00F7B94
+ * Callers:
+ *     xxxDesktopsRecalcAndBroadcastDisplayChange @ 0x1C00F7660 (xxxDesktopsRecalcAndBroadcastDisplayChange.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C00200C4 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C003E900 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     ?UpdateCurrent@CTopologyManager@@SAXXZ @ 0x1C00E2C28 (-UpdateCurrent@CTopologyManager@@SAXXZ.c)
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00E42C8 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ddddddddddS @ 0x1C00F79F0 (WPP_RECORDER_AND_TRACE_SF_ddddddddddS.c)
+ *     ?xxxDisplayChangedHandler@CallShell@@YA_NPEAU_SYNC_DISPLAY_CHANGE_DATA@@@Z @ 0x1C00F7F74 (-xxxDisplayChangedHandler@CallShell@@YA_NPEAU_SYNC_DISPLAY_CHANGE_DATA@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qdd @ 0x1C00FAEF8 (WPP_RECORDER_AND_TRACE_SF_qdd.c)
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C010A9B4 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qdddddddd @ 0x1C01A777C (WPP_RECORDER_AND_TRACE_SF_qdddddddd.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qdddddddddddd @ 0x1C01F6D80 (WPP_RECORDER_AND_TRACE_SF_qdddddddddddd.c)
+ */
+
 char xxxGetWorkAreasFromShell(void)
 {
   unsigned int v0; // r14d

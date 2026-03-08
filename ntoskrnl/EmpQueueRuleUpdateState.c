@@ -1,3 +1,19 @@
+/*
+ * XREFs of EmpQueueRuleUpdateState @ 0x1403861E4
+ * Callers:
+ *     EmpProviderDeregisterEntry @ 0x14053A3B0 (EmpProviderDeregisterEntry.c)
+ *     EmpProviderRegister @ 0x140810DB0 (EmpProviderRegister.c)
+ *     EmpClientRuleRegisterNotification @ 0x1409394F4 (EmpClientRuleRegisterNotification.c)
+ *     EmProviderDeregister @ 0x140939740 (EmProviderDeregister.c)
+ *     EmProviderRegisterEntry @ 0x140939950 (EmProviderRegisterEntry.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 signed __int32 __fastcall EmpQueueRuleUpdateState(__int64 a1, __int64 a2)
 {
   _QWORD *i; // rax

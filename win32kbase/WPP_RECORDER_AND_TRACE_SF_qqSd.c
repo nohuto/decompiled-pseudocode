@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_AND_TRACE_SF_qqSd @ 0x1C01A81EC
+ * Callers:
+ *     RIMOnPnpNotification @ 0x1C00383E0 (RIMOnPnpNotification.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 _UNKNOWN **WPP_RECORDER_AND_TRACE_SF_qqSd(
         __int64 a1,
         char a2,

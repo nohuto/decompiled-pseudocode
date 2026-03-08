@@ -1,3 +1,27 @@
+/*
+ * XREFs of UsbhIoctlGetDescriptorFromNodeConnection @ 0x1C003EBD8
+ * Callers:
+ *     UsbhFdoDeviceControl @ 0x1C002A630 (UsbhFdoDeviceControl.c)
+ * Callees:
+ *     UsbhUnlatchPdo @ 0x1C0001380 (UsbhUnlatchPdo.c)
+ *     UsbhDecHubBusy @ 0x1C0003DB0 (UsbhDecHubBusy.c)
+ *     UsbhIncHubBusy @ 0x1C0007050 (UsbhIncHubBusy.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhLatchPdo @ 0x1C0019420 (UsbhLatchPdo.c)
+ *     UsbhAcquireFdoPwrLock @ 0x1C001AB8C (UsbhAcquireFdoPwrLock.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     UsbhReleaseFdoPwrLock @ 0x1C0031D74 (UsbhReleaseFdoPwrLock.c)
+ *     UsbhAcquireApiLock @ 0x1C003DE98 (UsbhAcquireApiLock.c)
+ *     UsbhIoctlGetDescriptorForPDO @ 0x1C003E714 (UsbhIoctlGetDescriptorForPDO.c)
+ *     UsbhIoctlTraceOutput @ 0x1C0040FD4 (UsbhIoctlTraceOutput.c)
+ *     UsbhIoctlValidateParameters @ 0x1C0041218 (UsbhIoctlValidateParameters.c)
+ *     UsbhReleaseApiLock @ 0x1C00415A8 (UsbhReleaseApiLock.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 __int64 __fastcall UsbhIoctlGetDescriptorFromNodeConnection(__int64 a1, IRP *a2, __int64 a3)
 {
   __int64 MasterIrp; // r14

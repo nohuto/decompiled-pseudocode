@@ -1,3 +1,18 @@
+/*
+ * XREFs of WheapProcessOfflineList @ 0x1406120C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     WheaLogInternalEvent @ 0x14037D610 (WheaLogInternalEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmGetPageBadStatus @ 0x140629080 (MmGetPageBadStatus.c)
+ *     WheapPushPendingOfflineWrapper @ 0x140A06F98 (WheapPushPendingOfflineWrapper.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 WheapProcessOfflineList()
 {
   KIRQL v0; // al

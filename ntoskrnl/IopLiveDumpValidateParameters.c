@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopLiveDumpValidateParameters @ 0x14094C310
+ * Callers:
+ *     IoCaptureLiveDump @ 0x140948A78 (IoCaptureLiveDump.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IopLiveDumpValidateCancelObject @ 0x14094C244 (IopLiveDumpValidateCancelObject.c)
+ *     IopLiveDumpValidateDumpFileHandle @ 0x14094C2AC (IopLiveDumpValidateDumpFileHandle.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 int __fastcall IopLiveDumpValidateParameters(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

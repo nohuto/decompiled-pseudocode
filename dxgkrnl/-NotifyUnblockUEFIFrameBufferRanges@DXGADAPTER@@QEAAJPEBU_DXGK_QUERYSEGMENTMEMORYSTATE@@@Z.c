@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NotifyUnblockUEFIFrameBufferRanges@DXGADAPTER@@QEAAJPEBU_DXGK_QUERYSEGMENTMEMORYSTATE@@@Z @ 0x1C003F1C4
+ * Callers:
+ *     DxgkUnblockUEFIFrameBufferRangesCB @ 0x1C0048740 (DxgkUnblockUEFIFrameBufferRangesCB.c)
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DXGADAPTER::NotifyUnblockUEFIFrameBufferRanges(
         DXGADAPTER *this,
         const struct _DXGK_QUERYSEGMENTMEMORYSTATE *a2)

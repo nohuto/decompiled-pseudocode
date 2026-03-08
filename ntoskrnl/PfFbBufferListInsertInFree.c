@@ -1,3 +1,20 @@
+/*
+ * XREFs of PfFbBufferListInsertInFree @ 0x14035B6E4
+ * Callers:
+ *     PfTFullEventListAdd @ 0x1402EE12C (PfTFullEventListAdd.c)
+ *     PfFbBufferListAllocateTemporary @ 0x14035B4C8 (PfFbBufferListAllocateTemporary.c)
+ *     PfFbBufferListFlushStandby @ 0x14035B78C (PfFbBufferListFlushStandby.c)
+ *     PfFbBufferListAllocate @ 0x14039C990 (PfFbBufferListAllocate.c)
+ *     PfpFlushEventBuffers @ 0x1407E5B18 (PfpFlushEventBuffers.c)
+ *     PfpRepurposeNameLoggingTrace @ 0x1407E6908 (PfpRepurposeNameLoggingTrace.c)
+ *     PfTCleanup @ 0x14097C168 (PfTCleanup.c)
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PfFbBufferListInsertInFree(_SLIST_ENTRY *RunRef, struct _SLIST_ENTRY *P, int a3, int a4, int a5)
 {
   _SLIST_ENTRY *v7; // r8

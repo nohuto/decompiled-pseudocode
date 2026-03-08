@@ -1,3 +1,16 @@
+/*
+ * XREFs of CoreMsgInitialize @ 0x1C00CD050
+ * Callers:
+ *     Win32kBaseDriverEntry @ 0x1C0320F10 (Win32kBaseDriverEntry.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0088924 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ?Initialize@EntryLock@CoreMessagingK@@SAJXZ @ 0x1C00CD0C8 (-Initialize@EntryLock@CoreMessagingK@@SAJXZ.c)
+ *     ?Initialize@RegistrarClient@CoreMessagingK@@SAXXZ @ 0x1C00CD124 (-Initialize@RegistrarClient@CoreMessagingK@@SAXXZ.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     ?BugCheck@Runtime@CoreMessagingK@@SAXW4BugCheckCodes@2@_K11@Z @ 0x1C0273D34 (-BugCheck@Runtime@CoreMessagingK@@SAXW4BugCheckCodes@2@_K11@Z.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C03017E0 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ */
+
 __int64 CoreMsgInitialize()
 {
   int v0; // ebx

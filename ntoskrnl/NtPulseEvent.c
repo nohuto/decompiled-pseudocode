@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtPulseEvent @ 0x1407ECF70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KePulseEvent @ 0x14035F580 (KePulseEvent.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExpPulseCrossVmEvent @ 0x140A03254 (ExpPulseCrossVmEvent.c)
+ */
+
 __int64 __fastcall NtPulseEvent(HANDLE Handle, LONG *a2)
 {
   KPROCESSOR_MODE PreviousMode; // r15

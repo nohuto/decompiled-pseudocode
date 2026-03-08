@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsInputProcessingActivated @ 0x1C00D36E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char IsInputProcessingActivated()
 {
   PKDPC BufferChainingDpc; // rdi

@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?FrameEnded@CTelemetryFrames@@SAX_N0_K@Z @ 0x180050C2C
+ * Callers:
+ *     ?ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ @ 0x18004DAF0 (-ScheduleAndProcessFrame@CPartitionVerticalBlankScheduler@@UEAAJXZ.c)
+ * Callees:
+ *     _anonymous_namespace_::SealCurrentFrameSequence @ 0x180035F64 (_anonymous_namespace_--SealCurrentFrameSequence.c)
+ *     _anonymous_namespace_::MeasureCyclesDelta @ 0x180050E70 (_anonymous_namespace_--MeasureCyclesDelta.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McTemplateU0qq_EventWriteTransfer @ 0x1801292C6 (McTemplateU0qq_EventWriteTransfer.c)
+ *     McTemplateU0qqq_EventWriteTransfer @ 0x180129D70 (McTemplateU0qqq_EventWriteTransfer.c)
+ *     McTemplateU0qqqqqqqqqqqqq_EventWriteTransfer @ 0x18012A4A6 (McTemplateU0qqqqqqqqqqqqq_EventWriteTransfer.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ *     _anonymous_namespace_::_unnamed_type__etwEndFrameSnapshot_::UpdateSnapshot @ 0x1801CAA04 (_anonymous_namespace_--_unnamed_type__etwEndFrameSnapshot_--UpdateSnapshot.c)
+ */
+
 void __fastcall CTelemetryFrames::FrameEnded(char a1, char a2, __int64 a3)
 {
   unsigned __int64 v4; // rbx

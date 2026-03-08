@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Free@?$CTypeIsolation@$0IAAA@$0IA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C0092D30
+ * Callers:
+ *     ?vDeleteRGNOBJ@RGNOBJ@@QEAAXXZ @ 0x1C0055800 (-vDeleteRGNOBJ@RGNOBJ@@QEAAXXZ.c)
+ * Callees:
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     ?PlatformAbort@NSInstrumentation@@YAXW4PLATFORMABORTREASON@1@PEAX11@Z @ 0x1C019A620 (-PlatformAbort@NSInstrumentation@@YAXW4PLATFORMABORTREASON@1@PEAX11@Z.c)
+ */
+
 void __fastcall NSInstrumentation::CTypeIsolation<32768,128>::Free(__int64 a1, unsigned __int64 a2)
 {
   __int64 v4; // rdi

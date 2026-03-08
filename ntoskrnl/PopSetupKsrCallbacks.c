@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopSetupKsrCallbacks @ 0x140B72630
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     ExRegisterCallback @ 0x1402FBE90 (ExRegisterCallback.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ExCreateCallback @ 0x14078D4A0 (ExCreateCallback.c)
+ */
+
 NTSTATUS PopSetupKsrCallbacks()
 {
   NTSTATUS result; // eax

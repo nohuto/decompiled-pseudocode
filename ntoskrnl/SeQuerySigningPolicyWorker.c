@@ -1,3 +1,14 @@
+/*
+ * XREFs of SeQuerySigningPolicyWorker @ 0x14070BBF8
+ * Callers:
+ *     SeQuerySigningPolicy @ 0x14070DD2C (SeQuerySigningPolicy.c)
+ * Callees:
+ *     AppModelPolicy_GetPolicy_Internal @ 0x140298B38 (AppModelPolicy_GetPolicy_Internal.c)
+ *     SepIsNgenImage @ 0x14078E8D4 (SepIsNgenImage.c)
+ *     SeQueryInformationToken @ 0x1407B9760 (SeQueryInformationToken.c)
+ *     SepIsLockedDown @ 0x1409C5D5C (SepIsLockedDown.c)
+ */
+
 __int64 __fastcall SeQuerySigningPolicyWorker(
         PACCESS_TOKEN Token,
         __int64 a2,

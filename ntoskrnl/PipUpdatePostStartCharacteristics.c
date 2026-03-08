@@ -1,3 +1,12 @@
+/*
+ * XREFs of PipUpdatePostStartCharacteristics @ 0x1402FC360
+ * Callers:
+ *     PnpDeviceCompletionProcessCompletedRequest @ 0x140685424 (PnpDeviceCompletionProcessCompletedRequest.c)
+ *     PnpStartDeviceNode @ 0x1406F71A4 (PnpStartDeviceNode.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PipUpdatePostStartCharacteristics(__int64 a1)
 {
   int v1; // edx

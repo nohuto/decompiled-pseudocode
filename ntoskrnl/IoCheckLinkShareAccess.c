@@ -1,3 +1,14 @@
+/*
+ * XREFs of IoCheckLinkShareAccess @ 0x1406B2FA0
+ * Callers:
+ *     RawCreate @ 0x1406F3164 (RawCreate.c)
+ *     IoCheckShareAccess @ 0x140792B20 (IoCheckShareAccess.c)
+ *     IoCheckShareAccessEx @ 0x140881340 (IoCheckShareAccessEx.c)
+ *     FsRtlpCheckSharingAgainstOplockOwner @ 0x14093B324 (FsRtlpCheckSharingAgainstOplockOwner.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IoCheckLinkShareAccess(int a1, char a2, __int64 a3, _DWORD *a4, _DWORD *a5, int a6)
 {
   bool v6; // r13

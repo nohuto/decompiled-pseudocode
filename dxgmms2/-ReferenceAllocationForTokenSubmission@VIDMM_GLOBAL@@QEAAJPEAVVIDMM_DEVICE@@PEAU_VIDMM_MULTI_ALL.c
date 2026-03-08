@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReferenceAllocationForTokenSubmission@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@PEAU_VIDMM_MULTI_ALLOC@@PEAPEAUVIDMM_ALLOC@@@Z @ 0x1C00E7004
+ * Callers:
+ *     VidMmReferenceAllocationForTokenSubmission @ 0x1C002D370 (VidMmReferenceAllocationForTokenSubmission.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall VIDMM_GLOBAL::ReferenceAllocationForTokenSubmission(
         VIDMM_GLOBAL *this,
         struct VIDMM_DEVICE *a2,

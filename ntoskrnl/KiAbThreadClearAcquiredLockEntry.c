@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiAbThreadClearAcquiredLockEntry @ 0x1402486D0
+ * Callers:
+ *     ExReleaseCacheAwarePushLockSharedEx @ 0x1402485C0 (ExReleaseCacheAwarePushLockSharedEx.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiAbThreadClearAcquiredLockEntry(__int64 a1, __int64 a2, int a3)
 {
   __int64 result; // rax

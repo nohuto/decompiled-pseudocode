@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIDeviceRecordDependencies @ 0x1C0021C48
+ * Callers:
+ *     ACPIDevicePowerDpc @ 0x1C001E5C0 (ACPIDevicePowerDpc.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     ACPIDeviceDiscoverDependencies @ 0x1C001CD04 (ACPIDeviceDiscoverDependencies.c)
+ *     ACPIPowerNodeDiscoverDependencies @ 0x1C0022428 (ACPIPowerNodeDiscoverDependencies.c)
+ */
+
 __int64 __fastcall ACPIDeviceRecordDependencies(_QWORD *a1)
 {
   _QWORD *v1; // rdi

@@ -1,3 +1,30 @@
+/*
+ * XREFs of MmExtendSection @ 0x1407267DC
+ * Callers:
+ *     CcSetFileSizesEx @ 0x14029F9B0 (CcSetFileSizesEx.c)
+ *     NtExtendSection @ 0x1407265B0 (NtExtendSection.c)
+ *     MiAllocateVirtualMemory @ 0x1407C5270 (MiAllocateVirtualMemory.c)
+ *     MiCreateSection @ 0x1407D05D0 (MiCreateSection.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiUpdateLastSubsectionSize @ 0x1402A4BE0 (MiUpdateLastSubsectionSize.c)
+ *     MiUnlockControlAreaSectionExtend @ 0x1402A4E28 (MiUnlockControlAreaSectionExtend.c)
+ *     MiLockControlAreaSectionExtend @ 0x1402A4EFC (MiLockControlAreaSectionExtend.c)
+ *     MiFindLastSubsection @ 0x1402A5010 (MiFindLastSubsection.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     MiReferenceControlAreaFile @ 0x140344094 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1403441A0 (MiDereferenceControlAreaFile.c)
+ *     MiSubsectionNeedsExtents @ 0x140633720 (MiSubsectionNeedsExtents.c)
+ *     MiUpdateActiveSubsection @ 0x1406337C0 (MiUpdateActiveSubsection.c)
+ *     MiExtendSection @ 0x140726AAC (MiExtendSection.c)
+ *     FsRtlSetFileSize @ 0x14079BDF4 (FsRtlSetFileSize.c)
+ *     FsRtlGetFileSize @ 0x1407F4020 (FsRtlGetFileSize.c)
+ */
+
 __int64 __fastcall MmExtendSection(__int64 a1, LARGE_INTEGER *a2, int a3)
 {
   ULONG_PTR v6; // rax

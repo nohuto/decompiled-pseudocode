@@ -1,3 +1,13 @@
+/*
+ * XREFs of W32pThreadCallout @ 0x1C00C7D90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     AllocateW32Thread @ 0x1C00C800C (AllocateW32Thread.c)
+ *     FreeW32Thread @ 0x1C00C80D4 (FreeW32Thread.c)
+ */
+
 __int64 __fastcall W32pThreadCallout(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rcx

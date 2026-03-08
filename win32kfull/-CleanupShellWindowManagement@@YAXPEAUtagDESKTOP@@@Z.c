@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CleanupShellWindowManagement@@YAXPEAUtagDESKTOP@@@Z @ 0x1C0092F7C
+ * Callers:
+ *     CleanupIAMAccess @ 0x1C0092F00 (CleanupIAMAccess.c)
+ * Callees:
+ *     ?SetWindow@ShellWindowManagement@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAU2@@Z @ 0x1C0096800 (-SetWindow@ShellWindowManagement@@YAPEAUtagWND@@PEAUtagDESKTOP@@PEAU2@@Z.c)
+ */
+
 void __fastcall CleanupShellWindowManagement(struct tagDESKTOP *this)
 {
   struct tagWND *v2; // r8

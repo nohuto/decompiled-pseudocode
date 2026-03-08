@@ -1,3 +1,14 @@
+/*
+ * XREFs of MmUpdateSectionIoAttribution @ 0x1402F4F04
+ * Callers:
+ *     CcMapAndCopyInToCache @ 0x14021CD00 (CcMapAndCopyInToCache.c)
+ * Callees:
+ *     IoDiskIoAttributionDereference @ 0x14030C4DC (IoDiskIoAttributionDereference.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiLockSectionControlArea @ 0x1403638A8 (MiLockSectionControlArea.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MmUpdateSectionIoAttribution(__int64 a1, unsigned __int64 a2)
 {
   __int64 v3; // rdi

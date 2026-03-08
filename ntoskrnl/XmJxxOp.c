@@ -1,3 +1,11 @@
+/*
+ * XREFs of XmJxxOp @ 0x1403BAA80
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall XmJxxOp(__int64 a1)
 {
   unsigned int v1; // edx

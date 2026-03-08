@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpHpSegSizeInternal @ 0x1405B47A8
+ * Callers:
+ *     RtlpHpSizeHeapInternal @ 0x1405B4430 (RtlpHpSizeHeapInternal.c)
+ * Callees:
+ *     RtlpHpLfhSubsegmentSizeBlock @ 0x1405B49D8 (RtlpHpLfhSubsegmentSizeBlock.c)
+ *     RtlpHpVsChunkSize @ 0x1405B4FE4 (RtlpHpVsChunkSize.c)
+ */
+
 unsigned __int64 __fastcall RtlpHpSegSizeInternal(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4, int *a5)
 {
   unsigned __int64 v6; // rdx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PdcReleaseRwLockExclusive2 @ 0x140857710
+ * Callers:
+ *     Pdcv2ActivationClientRegister @ 0x140857554 (Pdcv2ActivationClientRegister.c)
+ *     Pdcv2pActivationClientCallback @ 0x1409C5AA0 (Pdcv2pActivationClientCallback.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ */
+
 LONG __fastcall PdcReleaseRwLockExclusive2(__int64 a1, _BYTE *a2)
 {
   LONG result; // eax

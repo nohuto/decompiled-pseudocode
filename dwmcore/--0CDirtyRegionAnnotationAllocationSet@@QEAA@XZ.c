@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CDirtyRegionAnnotationAllocationSet@@QEAA@XZ @ 0x18003A304
+ * Callers:
+ *     ??0CDirtyRegion@@IEAA@PEAVCVisualTree@@@Z @ 0x18003A184 (--0CDirtyRegion@@IEAA@PEAVCVisualTree@@@Z.c)
+ * Callees:
+ *     ??0CDirtyRegionAnnotation@@QEAA@XZ @ 0x1801059D0 (--0CDirtyRegionAnnotation@@QEAA@XZ.c)
+ */
+
 CDirtyRegionAnnotationAllocationSet *__fastcall CDirtyRegionAnnotationAllocationSet::CDirtyRegionAnnotationAllocationSet(
         CDirtyRegionAnnotationAllocationSet *this)
 {

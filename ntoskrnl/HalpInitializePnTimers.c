@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpInitializePnTimers @ 0x140377DCC
+ * Callers:
+ *     HalpTimerInitSystem @ 0x1403776D0 (HalpTimerInitSystem.c)
+ * Callees:
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 HalpInitializePnTimers()
 {
   ULONG_PTR *v0; // rdi

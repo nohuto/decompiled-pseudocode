@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetInverse @ 0x1802B71A8
+ * Callers:
+ *     ?UpdateTransform@CInteractionContextTransformHelper@@QEAAJAEBVMatrix3x2F@D2D1@@PEA_N@Z @ 0x1802B7D7C (-UpdateTransform@CInteractionContextTransformHelper@@QEAAJAEBVMatrix3x2F@D2D1@@PEA_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetInverse(float *a1, float *a2)
 {
   float v2; // xmm4_4

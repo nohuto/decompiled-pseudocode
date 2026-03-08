@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlUninitializeSmallMcb @ 0x140B10540
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FsRtlMdlReadCompleteDevEx @ 0x140AF7010 (FsRtlMdlReadCompleteDevEx.c)
+ */
+
 __int64 __fastcall FsRtlUninitializeSmallMcb(__int64 a1)
 {
   __int64 CompleteDev; // rax

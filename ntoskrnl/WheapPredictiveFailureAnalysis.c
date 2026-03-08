@@ -1,3 +1,16 @@
+/*
+ * XREFs of WheapPredictiveFailureAnalysis @ 0x140A063BC
+ * Callers:
+ *     WheapProcessWorkQueueItem @ 0x14060EC70 (WheapProcessWorkQueueItem.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     WheaAttemptPhysicalPageOffline @ 0x140A05140 (WheaAttemptPhysicalPageOffline.c)
+ *     WheapPfaMemoryCheck @ 0x140A06078 (WheapPfaMemoryCheck.c)
+ */
+
 int __fastcall WheapPredictiveFailureAnalysis(__int64 a1)
 {
   __int64 v1; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeSetHardwareCounterConfiguration @ 0x1409720D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall KeSetHardwareCounterConfiguration(PHARDWARE_COUNTER CounterArray, ULONG Count)
 {
   unsigned int *v4; // rcx

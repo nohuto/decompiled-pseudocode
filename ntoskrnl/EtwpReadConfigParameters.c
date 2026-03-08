@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpReadConfigParameters @ 0x140B6F720
+ * Callers:
+ *     EtwpInitialize @ 0x140B3CA40 (EtwpInitialize.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlQueryRegistryValuesEx @ 0x14069DF10 (RtlQueryRegistryValuesEx.c)
+ */
+
 NTSTATUS EtwpReadConfigParameters()
 {
   NTSTATUS result; // eax

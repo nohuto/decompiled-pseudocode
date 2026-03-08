@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopDiagSleepStudyInitialize @ 0x140810194
+ * Callers:
+ *     PopDiagInitialize @ 0x140B442C4 (PopDiagInitialize.c)
+ * Callees:
+ *     EtwRegister @ 0x140690D20 (EtwRegister.c)
+ */
+
 NTSTATUS PopDiagSleepStudyInitialize()
 {
   NTSTATUS result; // eax

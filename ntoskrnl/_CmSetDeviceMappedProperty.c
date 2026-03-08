@@ -1,3 +1,18 @@
+/*
+ * XREFs of _CmSetDeviceMappedProperty @ 0x14076C5D4
+ * Callers:
+ *     _PnpDispatchDevice @ 0x1406C8E70 (_PnpDispatchDevice.c)
+ *     _CmDeleteDeviceWorker @ 0x140A5F74C (_CmDeleteDeviceWorker.c)
+ * Callees:
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x140687404 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _CmIsRootDevice @ 0x1406C7E80 (_CmIsRootDevice.c)
+ *     _CmSetDeviceMappedPropertyFromDriverKeyRegValue @ 0x140874D18 (_CmSetDeviceMappedPropertyFromDriverKeyRegValue.c)
+ *     _CmSetDeviceMappedPropertyFromRegProp @ 0x14087BF40 (_CmSetDeviceMappedPropertyFromRegProp.c)
+ *     _CmDeleteDeviceMappedPropertyFromDriverKeyRegValue @ 0x140A64810 (_CmDeleteDeviceMappedPropertyFromDriverKeyRegValue.c)
+ *     _CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140A64974 (_CmDeleteDeviceMappedPropertyFromInstanceKeyRegValue.c)
+ *     _CmSetDeviceMappedPropertyFromInstanceKeyRegValue @ 0x140A66AD8 (_CmSetDeviceMappedPropertyFromInstanceKeyRegValue.c)
+ */
+
 __int64 __fastcall CmSetDeviceMappedProperty(
         __int64 a1,
         const WCHAR *a2,

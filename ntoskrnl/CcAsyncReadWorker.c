@@ -1,3 +1,25 @@
+/*
+ * XREFs of CcAsyncReadWorker @ 0x1403B8B70
+ * Callers:
+ *     CcAsyncReadWorkerThread @ 0x1405386F0 (CcAsyncReadWorkerThread.c)
+ * Callees:
+ *     CcCompleteAsyncRead @ 0x14020A77C (CcCompleteAsyncRead.c)
+ *     CcAsyncReadPrefetch @ 0x14020CCA4 (CcAsyncReadPrefetch.c)
+ *     MmWaitMultipleForCacheManagerPrefetch @ 0x14020D7C0 (MmWaitMultipleForCacheManagerPrefetch.c)
+ *     CcPostWorkQueueAsyncRead @ 0x140216768 (CcPostWorkQueueAsyncRead.c)
+ *     CcShouldSpinAsyncReadWorkerThread @ 0x1402169EC (CcShouldSpinAsyncReadWorkerThread.c)
+ *     CcFindNextWorkQueueEntry @ 0x14021746C (CcFindNextWorkQueueEntry.c)
+ *     CcFreeWorkQueueEntry @ 0x140219E50 (CcFreeWorkQueueEntry.c)
+ *     CcDereferencePartition @ 0x140219EF0 (CcDereferencePartition.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     ExQueueWorkItemToPartition @ 0x1403439E0 (ExQueueWorkItemToPartition.c)
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall CcAsyncReadWorker(_DWORD *StartContext)
 {
   unsigned int v1; // eax

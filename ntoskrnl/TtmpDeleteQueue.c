@@ -1,3 +1,17 @@
+/*
+ * XREFs of TtmpDeleteQueue @ 0x1409A9490
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ExDeleteResourceLite @ 0x140336580 (ExDeleteResourceLite.c)
+ *     TtmpDereferenceSessionMaybeLast @ 0x1409A228C (TtmpDereferenceSessionMaybeLast.c)
+ *     TtmiLogQueueDestroyed @ 0x1409A5EBC (TtmiLogQueueDestroyed.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall TtmpDeleteQueue(__int64 *a1)
 {
   struct _KTHREAD *CurrentThread; // rax

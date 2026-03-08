@@ -1,3 +1,14 @@
+/*
+ * XREFs of IoWMIAllocateInstanceIds @ 0x1409DBCF0
+ * Callers:
+ *     DifIoWMIAllocateInstanceIdsWrapper @ 0x1405DF610 (DifIoWMIAllocateInstanceIdsWrapper.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 NTSTATUS __stdcall IoWMIAllocateInstanceIds(LPCGUID Guid, ULONG InstanceCount, ULONG *FirstInstanceId)
 {
   _QWORD *v3; // rdi

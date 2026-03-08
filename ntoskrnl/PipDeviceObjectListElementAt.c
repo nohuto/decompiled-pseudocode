@@ -1,3 +1,14 @@
+/*
+ * XREFs of PipDeviceObjectListElementAt @ 0x1408702B8
+ * Callers:
+ *     IopEnumerateRelations @ 0x140863508 (IopEnumerateRelations.c)
+ *     IopRemoveDeviceRelationsFromList @ 0x14087FF84 (IopRemoveDeviceRelationsFromList.c)
+ *     IopRemoveCurrentRelationFromList @ 0x140969BAC (IopRemoveCurrentRelationFromList.c)
+ *     PipGrowDeviceObjectList @ 0x140969C70 (PipGrowDeviceObjectList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PipDeviceObjectListElementAt(unsigned int *a1, unsigned int a2, _QWORD *a3, _DWORD *a4, int *a5)
 {
   unsigned int v5; // r10d

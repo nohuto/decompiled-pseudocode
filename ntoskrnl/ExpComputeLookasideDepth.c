@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpComputeLookasideDepth @ 0x1402C5EFC
+ * Callers:
+ *     ExpScanSystemLookasideList @ 0x1402C5D38 (ExpScanSystemLookasideList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ExpComputeLookasideDepth(__int64 a1, int a2, int a3)
 {
   int v3; // eax

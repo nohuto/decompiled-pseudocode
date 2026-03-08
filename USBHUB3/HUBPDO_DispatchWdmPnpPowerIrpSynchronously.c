@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBPDO_DispatchWdmPnpPowerIrpSynchronously @ 0x1C001CDD4
+ * Callers:
+ *     HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess @ 0x1C0017920 (HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 NTSTATUS __fastcall HUBPDO_DispatchWdmPnpPowerIrpSynchronously(__int64 a1, __int64 a2)
 {
   __int64 v4; // rax

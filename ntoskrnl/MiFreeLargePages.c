@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiFreeLargePages @ 0x140665C70
+ * Callers:
+ *     MiDeletePagablePteRange @ 0x1403244A0 (MiDeletePagablePteRange.c)
+ *     MiFreeContiguousLargePageRun @ 0x14064780C (MiFreeContiguousLargePageRun.c)
+ *     MiDeleteSubsectionLargePages @ 0x14064C7F8 (MiDeleteSubsectionLargePages.c)
+ *     MiDecommitRegion @ 0x1406EBCC0 (MiDecommitRegion.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiGetPfnPageSizeIndex @ 0x14034D770 (MiGetPfnPageSizeIndex.c)
+ *     MiFreeLargePageMemory @ 0x1403505C0 (MiFreeLargePageMemory.c)
+ *     MiGetLeafPfnBuddy @ 0x140386E8C (MiGetLeafPfnBuddy.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionCharges @ 0x140658D80 (MiReturnCrossPartitionCharges.c)
+ *     MiFreeLargeProcessPagesToCache @ 0x140666064 (MiFreeLargeProcessPagesToCache.c)
+ */
+
 __int64 __fastcall MiFreeLargePages(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *a4, char a5)
 {
   unsigned int v5; // r12d

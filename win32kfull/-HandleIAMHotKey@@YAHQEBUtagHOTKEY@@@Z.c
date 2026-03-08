@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?HandleIAMHotKey@@YAHQEBUtagHOTKEY@@@Z @ 0x1C01C1290
+ * Callers:
+ *     ?xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0097FCC (-xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
+ * Callees:
+ *     IsIAMThread @ 0x1C00967E0 (IsIAMThread.c)
+ *     Feature_ReportShellHotKey__private_IsEnabledDeviceUsage @ 0x1C012C740 (Feature_ReportShellHotKey__private_IsEnabledDeviceUsage.c)
+ *     ?RequestModernAppClose@@YAHXZ @ 0x1C01C1328 (-RequestModernAppClose@@YAHXZ.c)
+ */
+
 __int64 __fastcall HandleIAMHotKey(const struct tagHOTKEY *const a1)
 {
   __int64 v2; // rcx

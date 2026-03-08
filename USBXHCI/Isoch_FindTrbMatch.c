@@ -1,3 +1,15 @@
+/*
+ * XREFs of Isoch_FindTrbMatch @ 0x1C0044330
+ * Callers:
+ *     Isoch_ProcessTransferEventWithED0 @ 0x1C0044CF4 (Isoch_ProcessTransferEventWithED0.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DDqq @ 0x1C0006DF0 (WPP_RECORDER_SF_DDqq.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0007C90 (WPP_RECORDER_SF_DD.c)
+ *     TR_DoesSegmentContainDequeuePointer @ 0x1C000E350 (TR_DoesSegmentContainDequeuePointer.c)
+ *     StageQueue_ForwardScanGetNextStage @ 0x1C0012EEC (StageQueue_ForwardScanGetNextStage.c)
+ *     Isoch_CalculateBytesTransferred @ 0x1C0043A14 (Isoch_CalculateBytesTransferred.c)
+ */
+
 char __fastcall Isoch_FindTrbMatch(__int64 a1, signed __int64 *a2, __int64 *a3, _DWORD *a4, _DWORD *a5)
 {
   char v6; // bl

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ProxyDisposed@BamoPrincipalImpl@BamoImpl@Microsoft@@QEAA_NPEAVBaseBamoPeerImpl@23@@Z @ 0x1801B76A0
+ * Callers:
+ *     ?Thunk_ProxyDisposed_34@?$IBamoPeer_DiagnosticCallbacks_AutoBamos_Receive@VBamoPeerImpl@DiagnosticCallbacks_AutoBamos@BamoImpl@@@@SAJPEAXPEAPEAX@Z @ 0x1801B8910 (-Thunk_ProxyDisposed_34@-$IBamoPeer_DiagnosticCallbacks_AutoBamos_Receive@VBamoPeerImpl@Diagnost.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?TryDisposeAndNotifyRemoteProxies@BamoPrincipalImpl@BamoImpl@Microsoft@@AEAA_NXZ @ 0x1801B8B40 (-TryDisposeAndNotifyRemoteProxies@BamoPrincipalImpl@BamoImpl@Microsoft@@AEAA_NXZ.c)
+ */
+
 char __fastcall Microsoft::BamoImpl::BamoPrincipalImpl::ProxyDisposed(
         Microsoft::BamoImpl::BamoPrincipalImpl *this,
         struct Microsoft::BamoImpl::BaseBamoPeerImpl *a2)

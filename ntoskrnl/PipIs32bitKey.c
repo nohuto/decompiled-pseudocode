@@ -1,3 +1,13 @@
+/*
+ * XREFs of PipIs32bitKey @ 0x14055D2BC
+ * Callers:
+ *     PnpLoadBootFilterDriver @ 0x140B6936C (PnpLoadBootFilterDriver.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQueryKey @ 0x1404125D0 (ZwQueryKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ */
+
 __int64 __fastcall PipIs32bitKey(HANDLE KeyHandle)
 {
   unsigned int v2; // ebx

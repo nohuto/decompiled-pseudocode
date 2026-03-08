@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Release@BufferingMessageCallHost@BamoImpl@Microsoft@@UEAAKXZ @ 0x1801B7760
+ * Callers:
+ *     ?Release@BufferingMessageCallHost@BamoImpl@Microsoft@@WBA@EAAKXZ @ 0x180117AD0 (-Release@BufferingMessageCallHost@BamoImpl@Microsoft@@WBA@EAAKXZ.c)
+ *     ?Release@ConnectionIndirector@BamoImpl@Microsoft@@WBI@EAAKXZ @ 0x180117AF0 (-Release@ConnectionIndirector@BamoImpl@Microsoft@@WBI@EAAKXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 // attributes: thunk
 __int64 __fastcall Microsoft::BamoImpl::BufferingMessageCallHost::Release(
         Microsoft::BamoImpl::BamoImplObject *this,

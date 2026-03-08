@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetCommandBatch@CChannel@@UEAAXPEAPEAXPEA_N@Z @ 0x1801CC3C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FlushData@CDataStreamWriter@@QEAAPEAU_LIST_ENTRY@@XZ @ 0x1800BB644 (-FlushData@CDataStreamWriter@@QEAAPEAU_LIST_ENTRY@@XZ.c)
+ */
+
 void __fastcall CChannel::GetCommandBatch(CDataStreamWriter **this, void **a2, bool *a3)
 {
   CChannel *v3; // r9

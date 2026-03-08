@@ -1,3 +1,11 @@
+/*
+ * XREFs of HasInputTransform @ 0x1C0146DD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ */
+
 bool __fastcall HasInputTransform(int a1)
 {
   __int64 v1; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Remove@?$DynArray@PEAVCScratchRenderTargetBitmap@@$0A@@@QEAAHAEBQEAVCScratchRenderTargetBitmap@@@Z @ 0x180035600
+ * Callers:
+ *     ?FindMatchingBitmap@CRenderTargetBitmapCache@@AEAA_NAEBUD2D_SIZE_U@@W4DXGI_FORMAT@@_N2PEAPEAVCScratchRenderTargetBitmap@@@Z @ 0x1800351FC (-FindMatchingBitmap@CRenderTargetBitmapCache@@AEAA_NAEBUD2D_SIZE_U@@W4DXGI_FORMAT@@_N2PEAPEAVCSc.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DynArray<CScratchRenderTargetBitmap *,0>::Remove(__int64 *a1, _QWORD *a2)
 {
   unsigned int v2; // r8d

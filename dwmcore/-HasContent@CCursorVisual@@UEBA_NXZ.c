@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HasContent@CCursorVisual@@UEBA_NXZ @ 0x180225540
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CCursorVisual::HasContent(CCursorVisual *this)
 {
   char result; // al

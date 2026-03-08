@@ -1,3 +1,13 @@
+/*
+ * XREFs of XmIntOp @ 0x140531920
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmPushStack @ 0x1403B4270 (XmPushStack.c)
+ *     x86BiosTranslateAddress @ 0x1403B9030 (x86BiosTranslateAddress.c)
+ *     XmExecuteInt1a @ 0x140532794 (XmExecuteInt1a.c)
+ */
+
 __int64 __fastcall XmIntOp(__int64 a1)
 {
   __int64 result; // rax

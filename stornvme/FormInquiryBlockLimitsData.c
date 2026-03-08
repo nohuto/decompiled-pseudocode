@@ -1,3 +1,14 @@
+/*
+ * XREFs of FormInquiryBlockLimitsData @ 0x1C0011F6C
+ * Callers:
+ *     ScsiInquiryRequest @ 0x1C0019C74 (ScsiInquiryRequest.c)
+ * Callees:
+ *     GetControllerMaxTransferSize @ 0x1C0007A5C (GetControllerMaxTransferSize.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     IsDeallocateSupported @ 0x1C0014A90 (IsDeallocateSupported.c)
+ *     NVMeSetSenseData @ 0x1C0024238 (NVMeSetSenseData.c)
+ */
+
 __int64 __fastcall FormInquiryBlockLimitsData(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdx

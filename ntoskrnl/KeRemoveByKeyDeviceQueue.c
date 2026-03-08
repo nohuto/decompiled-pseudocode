@@ -1,3 +1,13 @@
+/*
+ * XREFs of KeRemoveByKeyDeviceQueue @ 0x140570D20
+ * Callers:
+ *     IopStartNextPacketByKey @ 0x140555718 (IopStartNextPacketByKey.c)
+ *     DifKeRemoveByKeyDeviceQueueWrapper @ 0x1405E2DD0 (DifKeRemoveByKeyDeviceQueueWrapper.c)
+ * Callees:
+ *     KeAcquireInStackQueuedSpinLockForDpc @ 0x14056F040 (KeAcquireInStackQueuedSpinLockForDpc.c)
+ *     KeReleaseInStackQueuedSpinLockForDpc @ 0x14056F0C0 (KeReleaseInStackQueuedSpinLockForDpc.c)
+ */
+
 PKDEVICE_QUEUE_ENTRY __stdcall KeRemoveByKeyDeviceQueue(PKDEVICE_QUEUE DeviceQueue, ULONG SortKey)
 {
   struct _KDEVICE_QUEUE_ENTRY *Flink; // rbx

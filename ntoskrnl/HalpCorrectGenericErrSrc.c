@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpCorrectGenericErrSrc @ 0x1403A9984
+ * Callers:
+ *     HalpCorrectErrSrc @ 0x140A8E860 (HalpCorrectErrSrc.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpCorrectGenericErrSrc(__int64 a1, _DWORD *a2)
 {
   __int64 result; // rax

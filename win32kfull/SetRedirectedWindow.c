@@ -1,3 +1,32 @@
+/*
+ * XREFs of SetRedirectedWindow @ 0x1C002BE1C
+ * Callers:
+ *     _SetLayeredWindowAttributes @ 0x1C002BBFC (_SetLayeredWindowAttributes.c)
+ *     xxxSetWindowStyle @ 0x1C002DD90 (xxxSetWindowStyle.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ *     xxxPrintWindow @ 0x1C01BE184 (xxxPrintWindow.c)
+ * Callees:
+ *     IncrementCompositedCount @ 0x1C00059EC (IncrementCompositedCount.c)
+ *     DeleteOrSetRedirectionBitmap @ 0x1C0021D34 (DeleteOrSetRedirectionBitmap.c)
+ *     RedirectDCEs @ 0x1C002B7EC (RedirectDCEs.c)
+ *     CreateOrGetRedirectionBitmap @ 0x1C002B8C8 (CreateOrGetRedirectionBitmap.c)
+ *     HintSpriteShape @ 0x1C002C1B0 (HintSpriteShape.c)
+ *     UpdateWindowSpriteMonitor @ 0x1C002C598 (UpdateWindowSpriteMonitor.c)
+ *     IsToplevelWindowDesktopComposed @ 0x1C002D900 (IsToplevelWindowDesktopComposed.c)
+ *     ?SetRedirectionBitmap@@YAHPEAUtagWND@@QEAUHBITMAP__@@H@Z @ 0x1C002D938 (-SetRedirectionBitmap@@YAHPEAUtagWND@@QEAUHBITMAP__@@H@Z.c)
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     ??1?$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ @ 0x1C0031BF4 (--1-$SmartObjStackRefBase@UtagCLS@@@@IEAA@XZ.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     GetRedirectionBitmap @ 0x1C0043F00 (GetRedirectionBitmap.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     xxxInternalInvalidate @ 0x1C0053270 (xxxInternalInvalidate.c)
+ *     FillRect @ 0x1C00881F8 (FillRect.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00E42C8 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ */
+
 __int64 __fastcall SetRedirectedWindow(struct tagWND *a1, int a2)
 {
   __int64 ThreadWin32Thread; // rax

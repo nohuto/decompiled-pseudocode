@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ShouldComposeWindow@@YAHQEAUtagWND@@QEAUtagDESKTOP@@@Z @ 0x1C007D680
+ * Callers:
+ *     zzzComposeDesktop @ 0x1C007D394 (zzzComposeDesktop.c)
+ * Callees:
+ *     IsDesktopWindow @ 0x1C002C460 (IsDesktopWindow.c)
+ *     IsWindowBeingDestroyed @ 0x1C0039B60 (IsWindowBeingDestroyed.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ */
+
 __int64 __fastcall ShouldComposeWindow(struct tagWND *const a1, struct tagDESKTOP *const a2)
 {
   struct tagDESKTOP *v2; // rax

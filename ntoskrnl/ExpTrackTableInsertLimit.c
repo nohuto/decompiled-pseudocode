@@ -1,3 +1,19 @@
+/*
+ * XREFs of ExpTrackTableInsertLimit @ 0x1406067BC
+ * Callers:
+ *     ExPoolSetLimit @ 0x140605324 (ExPoolSetLimit.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeGenericCallDpcEx @ 0x1403C07D0 (KeGenericCallDpcEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwCreateWnfStateName @ 0x140413D50 (ZwCreateWnfStateName.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpPlGrowTableIfNeeded @ 0x1406061B4 (ExpPlGrowTableIfNeeded.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpTrackTableInsertLimit(__int64 a1)
 {
   _QWORD *v1; // rbx

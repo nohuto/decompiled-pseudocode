@@ -1,3 +1,21 @@
+/*
+ * XREFs of ACPICMButtonStartWorker @ 0x1C0018F20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     RtlStringCchPrintfA @ 0x1C000B5D8 (RtlStringCchPrintfA.c)
+ *     WPP_RECORDER_SF_qss @ 0x1C0015444 (WPP_RECORDER_SF_qss.c)
+ *     ACPICMLidPowerStateCallBack @ 0x1C00196E0 (ACPICMLidPowerStateCallBack.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     ACPIInternalRegisterPowerCallBack @ 0x1C002ED94 (ACPIInternalRegisterPowerCallBack.c)
+ *     ACPIInternalSetDeviceInterface @ 0x1C002EF0C (ACPIInternalSetDeviceInterface.c)
+ *     ACPIRegisterForDeviceNotifications @ 0x1C00396E0 (ACPIRegisterForDeviceNotifications.c)
+ *     ACPISetDeviceWorker @ 0x1C00474D4 (ACPISetDeviceWorker.c)
+ */
+
 void __fastcall ACPICMButtonStartWorker(__int64 a1)
 {
   struct _DEVICE_OBJECT *v1; // r15

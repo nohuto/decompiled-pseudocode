@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheaInitializeProcessor @ 0x140AA8694
+ * Callers:
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ * Callees:
+ *     WheapCallErrorSourceInitialize @ 0x14037D864 (WheapCallErrorSourceInitialize.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall WheaInitializeProcessor(__int64 a1, unsigned int a2)
 {
   __int64 result; // rax

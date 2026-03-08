@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?_InterruptDpcThunk@FxInterrupt@@CAXPEAU_KDPC@@PEAX11@Z @ 0x1C0006CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DpcHandler@FxInterrupt@@QEAAXPEAX0@Z @ 0x1C0006CE4 (-DpcHandler@FxInterrupt@@QEAAXPEAX0@Z.c)
+ *     ?EnqueueWorker@FxSystemWorkItem@@AEAAEP6AXPEAX@Z0E@Z @ 0x1C0007508 (-EnqueueWorker@FxSystemWorkItem@@AEAAEP6AXPEAX@Z0E@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall FxInterrupt::_InterruptDpcThunk(
         _KDPC *Dpc,
         FxInterrupt *DeferredContext,

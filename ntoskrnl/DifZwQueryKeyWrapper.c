@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifZwQueryKeyWrapper @ 0x1405F2D00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwQueryKey @ 0x1404125D0 (ZwQueryKey.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifZwQueryKeyWrapper(
         HANDLE KeyHandle,
         KEY_INFORMATION_CLASS KeyInformationClass,

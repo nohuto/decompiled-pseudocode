@@ -1,3 +1,11 @@
+/*
+ * XREFs of OutputAAToVGA16 @ 0x1C025C040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall OutputAAToVGA16(
         int *a1,
         unsigned __int8 *a2,

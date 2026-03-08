@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtAllocateVirtualMemoryEx @ 0x140728100
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmAllocateVirtualMemory @ 0x140728160 (MmAllocateVirtualMemory.c)
+ */
+
 __int64 __fastcall NtAllocateVirtualMemoryEx(
         int a1,
         int a2,

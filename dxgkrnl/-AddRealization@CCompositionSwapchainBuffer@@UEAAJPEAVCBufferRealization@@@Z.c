@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AddRealization@CCompositionSwapchainBuffer@@UEAAJPEAVCBufferRealization@@@Z @ 0x1C0089400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AddRealization@CFlipExBuffer@@UEAAJPEAVCBufferRealization@@@Z @ 0x1C000CD80 (-AddRealization@CFlipExBuffer@@UEAAJPEAVCBufferRealization@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CCompositionSwapchainBuffer::AddRealization(
         CCompositionSwapchainBuffer *this,
         struct CBufferRealization *a2)

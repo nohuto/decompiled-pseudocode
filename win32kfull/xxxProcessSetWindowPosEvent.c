@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxProcessSetWindowPosEvent @ 0x1C00E5F4C
+ * Callers:
+ *     xxxProcessEventMessage @ 0x1C006B460 (xxxProcessEventMessage.c)
+ * Callees:
+ *     InternalBeginDeferWindowPos @ 0x1C0029148 (InternalBeginDeferWindowPos.c)
+ *     xxxEndDeferWindowPosEx @ 0x1C00698F0 (xxxEndDeferWindowPosEx.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 void __fastcall xxxProcessSetWindowPosEvent(__int64 a1)
 {
   void **v2; // rsi

@@ -1,3 +1,29 @@
+/*
+ * XREFs of IoGetDeviceObjectPointer @ 0x140720950
+ * Callers:
+ *     DifIoGetDeviceObjectPointerWrapper @ 0x1405DD320 (DifIoGetDeviceObjectPointerWrapper.c)
+ *     NtApphelpCacheControl @ 0x1406C31C0 (NtApphelpCacheControl.c)
+ *     IoVolumeDeviceToDosName @ 0x140720680 (IoVolumeDeviceToDosName.c)
+ *     IoVolumeDeviceNameToGuidPath @ 0x14072BD40 (IoVolumeDeviceNameToGuidPath.c)
+ *     IopOpenSystemVariableDevice @ 0x14075D4AC (IopOpenSystemVariableDevice.c)
+ *     HalpDynamicDeviceInterfaceNotification @ 0x140930940 (HalpDynamicDeviceInterfaceNotification.c)
+ *     PopRegisterCoolingExtensionProtection @ 0x140980294 (PopRegisterCoolingExtensionProtection.c)
+ *     PopPolicyDeviceHandleWakeAlarmNotification @ 0x1409915D4 (PopPolicyDeviceHandleWakeAlarmNotification.c)
+ *     VhdiMountVhdFile @ 0x140A7058C (VhdiMountVhdFile.c)
+ *     IopStoreBootDriveLetter @ 0x140B54800 (IopStoreBootDriveLetter.c)
+ *     IopCreateArcNamesDisk @ 0x140B54B24 (IopCreateArcNamesDisk.c)
+ *     IopCreateArcNamesCd @ 0x140B54C8C (IopCreateArcNamesCd.c)
+ *     IopGetBootDiskInformation @ 0x140B907EC (IopGetBootDiskInformation.c)
+ *     SbpAddTransportToInstance @ 0x140B9874C (SbpAddTransportToInstance.c)
+ *     SbpStartLanman @ 0x140B98940 (SbpStartLanman.c)
+ * Callees:
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 NTSTATUS __stdcall IoGetDeviceObjectPointer(
         PUNICODE_STRING ObjectName,
         ACCESS_MASK DesiredAccess,

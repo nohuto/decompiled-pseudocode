@@ -1,3 +1,23 @@
+/*
+ * XREFs of ?xxxTrackInitSize@@YAHPEAUtagWND@@I_K_JPEAUMOVESIZEDATA@@@Z @ 0x1C01F2BD0
+ * Callers:
+ *     ?xxxMoveSize@@YAXPEAUtagWND@@IK@Z @ 0x1C01F0DC4 (-xxxMoveSize@@YAXPEAUtagWND@@IK@Z.c)
+ * Callees:
+ *     xxxReleaseCapture @ 0x1C00108E8 (xxxReleaseCapture.c)
+ *     bSetDevDragRect @ 0x1C001DE80 (bSetDevDragRect.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C00200C4 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C003F908 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     ?zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C0042A88 (-zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z.c)
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C006E550 (xxxSendTransformableMessageTimeout.c)
+ *     PtInRect @ 0x1C00A34E8 (PtInRect.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dd @ 0x1C00E3308 (WPP_RECORDER_AND_TRACE_SF_dd.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?xxxDrawDragRect@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I@Z @ 0x1C01ED7A4 (-xxxDrawDragRect@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ddd @ 0x1C01F353C (WPP_RECORDER_AND_TRACE_SF_ddd.c)
+ *     _ClientToScreen @ 0x1C024E7D0 (_ClientToScreen.c)
+ */
+
 __int64 __fastcall xxxTrackInitSize(struct tagWND *a1, int a2, unsigned __int64 a3, int a4, struct MOVESIZEDATA *a5)
 {
   unsigned __int64 v6; // rbp

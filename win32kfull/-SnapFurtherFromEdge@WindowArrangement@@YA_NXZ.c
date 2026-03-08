@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SnapFurtherFromEdge@WindowArrangement@@YA_NXZ @ 0x1C0230C44
+ * Callers:
+ *     ?xxxMoveSize@@YAXPEAUtagWND@@IK@Z @ 0x1C01F0DC4 (-xxxMoveSize@@YAXPEAUtagWND@@IK@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 char __fastcall WindowArrangement::SnapFurtherFromEdge(WindowArrangement *this)
 {
   int *v1; // rdx

@@ -1,3 +1,22 @@
+/*
+ * XREFs of HUBFDO_EvtDeviceAdd @ 0x1C0077680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlStringCchPrintfA @ 0x1C00014E0 (RtlStringCchPrintfA.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C000174C (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001CA0 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddHsmEvent @ 0x1C000A6FC (HUBSM_AddHsmEvent.c)
+ *     HUBFDO_GetDeviceCapabilities @ 0x1C000D0E8 (HUBFDO_GetDeviceCapabilities.c)
+ *     HSMMUX_InitializeHSMMuxContext @ 0x1C000FE88 (HSMMUX_InitializeHSMMuxContext.c)
+ *     HUBMISC_WaitForSignal @ 0x1C0032DEC (HUBMISC_WaitForSignal.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ *     HUBMISC_InitializeHsm @ 0x1C0082D50 (HUBMISC_InitializeHsm.c)
+ */
+
 __int64 __fastcall HUBFDO_EvtDeviceAdd(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

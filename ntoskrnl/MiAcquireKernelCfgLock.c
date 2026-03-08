@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiAcquireKernelCfgLock @ 0x140A41184
+ * Callers:
+ *     MiMarkKernelImageCfgBits @ 0x1407F72E0 (MiMarkKernelImageCfgBits.c)
+ *     MiAllocateKernelCfgBitmapPageTables @ 0x140A411E8 (MiAllocateKernelCfgBitmapPageTables.c)
+ * Callees:
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ */
+
 __int64 MiAcquireKernelCfgLock()
 {
   struct _KTHREAD *CurrentThread; // rax

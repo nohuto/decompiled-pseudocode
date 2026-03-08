@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiCreateRetpolineBitmap @ 0x140B966F0
+ * Callers:
+ *     MiInitializeRetpoline @ 0x140B39F78 (MiInitializeRetpoline.c)
+ * Callees:
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MiInitializeDynamicBitmap @ 0x14080A0E4 (MiInitializeDynamicBitmap.c)
+ */
+
 __int64 __fastcall MiCreateRetpolineBitmap(__int64 *a1)
 {
   ULONG_PTR v2; // rdi

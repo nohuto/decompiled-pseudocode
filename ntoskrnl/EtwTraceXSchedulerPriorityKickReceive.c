@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceXSchedulerPriorityKickReceive @ 0x1405FB3E4
+ * Callers:
+ *     KeSetThreadSchedulerAssist @ 0x14056AE2C (KeSetThreadSchedulerAssist.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall EtwTraceXSchedulerPriorityKickReceive(__int64 a1, int a2)
 {
   int v2; // eax

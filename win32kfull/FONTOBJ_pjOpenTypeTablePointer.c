@@ -1,3 +1,12 @@
+/*
+ * XREFs of FONTOBJ_pjOpenTypeTablePointer @ 0x1C029B0C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C011DDB0 (--1RFONTOBJ@@QEAA@XZ.c)
+ *     ?pjTable@RFONTOBJ@@QEAAPEAEKPEAK@Z @ 0x1C02B96E0 (-pjTable@RFONTOBJ@@QEAAPEAEKPEAK@Z.c)
+ */
+
 PBYTE __stdcall FONTOBJ_pjOpenTypeTablePointer(FONTOBJ *pfo, ULONG ulTag, ULONG *pcjTable)
 {
   BYTE *v3; // rbx

@@ -1,3 +1,24 @@
+/*
+ * XREFs of ?Win32kNtUserCleanup@@YAHXZ @ 0x1C008D904
+ * Callers:
+ *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C015C290 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
+ * Callees:
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterCritInternal @ 0x1C004FB50 (PrivateAPI--_anonymous_namespace_--EnterCritInternal.c)
+ *     PrivateAPI::_anonymous_namespace_::IsValidGuiContext @ 0x1C004FD4C (PrivateAPI--_anonymous_namespace_--IsValidGuiContext.c)
+ *     HMUnlockObject @ 0x1C0072980 (HMUnlockObject.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ImSessionStop @ 0x1C008A7A8 (ImSessionStop.c)
+ *     ??9?$SGDCRITTYPEgpresUser@T_USERCRIT_TYPE@@@@QEBAH$$T@Z @ 0x1C008DAD4 (--9-$SGDCRITTYPEgpresUser@T_USERCRIT_TYPE@@@@QEBAH$$T@Z.c)
+ *     ApiSetEditionBaseDriverUnloadUninitialize @ 0x1C008DAFC (ApiSetEditionBaseDriverUnloadUninitialize.c)
+ *     ?Win32kNtUserCleanupInternal@@YAXXZ @ 0x1C008DC04 (-Win32kNtUserCleanupInternal@@YAXXZ.c)
+ *     ?CLEANUP_CRIT_RESOURCE@@YAXAEAT_USERCRIT_TYPE@@@Z @ 0x1C008E3E4 (-CLEANUP_CRIT_RESOURCE@@YAXAEAT_USERCRIT_TYPE@@@Z.c)
+ *     CleanupLogonProcess @ 0x1C008E950 (CleanupLogonProcess.c)
+ *     Feature_WebThreatDefenseToggle__private_IsEnabledDeviceUsage @ 0x1C00DC8F8 (Feature_WebThreatDefenseToggle__private_IsEnabledDeviceUsage.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall Win32kNtUserCleanup(__int64 a1, __int64 a2, __int64 a3)
 {
   PDEVICE_OBJECT v3; // rcx

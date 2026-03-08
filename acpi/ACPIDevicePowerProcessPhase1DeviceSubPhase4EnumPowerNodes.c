@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIDevicePowerProcessPhase1DeviceSubPhase4EnumPowerNodes @ 0x1C001F660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_dqs @ 0x1C00227C0 (WPP_RECORDER_SF_dqs.c)
+ */
+
 __int64 __fastcall ACPIDevicePowerProcessPhase1DeviceSubPhase4EnumPowerNodes(__int64 a1, int a2, __int64 a3, BOOL a4)
 {
   signed __int32 v7; // eax

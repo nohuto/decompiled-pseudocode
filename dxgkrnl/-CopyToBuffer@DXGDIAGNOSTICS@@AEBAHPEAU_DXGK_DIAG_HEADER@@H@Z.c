@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CopyToBuffer@DXGDIAGNOSTICS@@AEBAHPEAU_DXGK_DIAG_HEADER@@H@Z @ 0x1C004FCF0
+ * Callers:
+ *     ?WriteDiagnosticEntryInternal@DXGDIAGNOSTICS@@AEBAJPEAU_DXGK_DIAG_HEADER@@@Z @ 0x1C000A3BC (-WriteDiagnosticEntryInternal@DXGDIAGNOSTICS@@AEBAJPEAU_DXGK_DIAG_HEADER@@@Z.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ */
+
 __int64 __fastcall DXGDIAGNOSTICS::CopyToBuffer(DXGDIAGNOSTICS *this, struct _DXGK_DIAG_HEADER *a2, int a3)
 {
   unsigned int v3; // r14d

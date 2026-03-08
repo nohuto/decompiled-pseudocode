@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SendReportToE3Worker@CEnergyReporter@@AEAAXXZ @ 0x1800E9820
+ * Callers:
+ *     ?SendReportToE3Worker@CEnergyReporter@@CAXPEAU_TP_CALLBACK_INSTANCE@@PEAXPEAU_TP_WORK@@@Z @ 0x1800E9810 (-SendReportToE3Worker@CEnergyReporter@@CAXPEAU_TP_CALLBACK_INSTANCE@@PEAXPEAU_TP_WORK@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CEnergyReporter::SendReportToE3Worker(RTL_SRWLOCK *this)
 {
   RTL_SRWLOCK *v1; // rsi

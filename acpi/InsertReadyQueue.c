@@ -1,3 +1,18 @@
+/*
+ * XREFs of InsertReadyQueue @ 0x1C00057E4
+ * Callers:
+ *     RestartContext @ 0x1C00512E8 (RestartContext.c)
+ *     RestartCtxtPassive @ 0x1C0051490 (RestartCtxtPassive.c)
+ *     DequeueAndReadyContext @ 0x1C00548A4 (DequeueAndReadyContext.c)
+ * Callees:
+ *     OSQueueWorkItem @ 0x1C004774C (OSQueueWorkItem.c)
+ *     AMLIDebugger @ 0x1C004D630 (AMLIDebugger.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     LogSchedEvent @ 0x1C004E3AC (LogSchedEvent.c)
+ *     RunContext @ 0x1C0053F34 (RunContext.c)
+ *     AsyncCallBack @ 0x1C00543D8 (AsyncCallBack.c)
+ */
+
 __int64 __fastcall InsertReadyQueue(char *Entry, char a2)
 {
   unsigned int v2; // edi

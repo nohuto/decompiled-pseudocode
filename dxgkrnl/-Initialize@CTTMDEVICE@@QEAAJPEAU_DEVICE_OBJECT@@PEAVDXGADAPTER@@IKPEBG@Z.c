@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Initialize@CTTMDEVICE@@QEAAJPEAU_DEVICE_OBJECT@@PEAVDXGADAPTER@@IKPEBG@Z @ 0x1C0202474
+ * Callers:
+ *     ?CreateTtmDevice@DXGSESSIONMGR@@QEAAJW4TTM_DEVICE_TYPE@@PEAU_DEVICE_OBJECT@@PEAVDXGADAPTER@@IKPEBGPEAPEAX@Z @ 0x1C0201D68 (-CreateTtmDevice@DXGSESSIONMGR@@QEAAJW4TTM_DEVICE_TYPE@@PEAU_DEVICE_OBJECT@@PEAVDXGADAPTER@@IKPE.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?RtlStringCbLengthW@@YAJPEBG_KPEA_K@Z @ 0x1C001F920 (-RtlStringCbLengthW@@YAJPEBG_KPEA_K@Z.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 __int64 __fastcall CTTMDEVICE::Initialize(
         CTTMDEVICE *this,
         struct _DEVICE_OBJECT *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DrawTopLogicallyRightCorner@@YAXPEAXJJHJ@Z @ 0x1C0223A30
+ * Callers:
+ *     ?DrawRoundedRectangularShadow@@YAXPEAXJJHJ@Z @ 0x1C0223998 (-DrawRoundedRectangularShadow@@YAXPEAXJJHJ@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DrawTopLogicallyRightCorner(_DWORD *a1, int a2, int a3, int a4, int a5)
 {
   char *v7; // r9

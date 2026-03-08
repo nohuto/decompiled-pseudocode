@@ -1,3 +1,12 @@
+/*
+ * XREFs of IommupHvGetDeviceSvmCapabilities @ 0x1405228D8
+ * Callers:
+ *     IommupMapDeviceInternal @ 0x1405216F8 (IommupMapDeviceInternal.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall IommupHvGetDeviceSvmCapabilities(__int64 a1, _QWORD *a2, int *a3)
 {
   __int64 result; // rax

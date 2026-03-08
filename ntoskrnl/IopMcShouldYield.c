@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopMcShouldYield @ 0x14055CFD0
+ * Callers:
+ *     IopMcAddMdlPagesToTable @ 0x14055C730 (IopMcAddMdlPagesToTable.c)
+ *     IopMcRemoveMdlPagesFromTable @ 0x14055CE20 (IopMcRemoveMdlPagesFromTable.c)
+ * Callees:
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ */
+
 bool __fastcall IopMcShouldYield(int a1, unsigned __int8 a2)
 {
   if ( a1 && (a1 & 0xF) == 0 )

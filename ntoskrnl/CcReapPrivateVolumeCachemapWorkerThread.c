@@ -1,3 +1,15 @@
+/*
+ * XREFs of CcReapPrivateVolumeCachemapWorkerThread @ 0x1403BBC10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcDereferencePartition @ 0x140219EF0 (CcDereferencePartition.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcReapPrivateVolumeCachemap @ 0x1403BBD24 (CcReapPrivateVolumeCachemap.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall CcReapPrivateVolumeCachemapWorkerThread(_QWORD *a1)
 {
   __int64 v1; // rdi

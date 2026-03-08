@@ -1,3 +1,18 @@
+/*
+ * XREFs of PfpPrefetchFiles @ 0x14097AEE4
+ * Callers:
+ *     PfpPrefetchRequestPerform @ 0x1407662E0 (PfpPrefetchRequestPerform.c)
+ * Callees:
+ *     PfpCheckPrefetchAbort @ 0x14020C198 (PfpCheckPrefetchAbort.c)
+ *     PfpReadSupportInitialize @ 0x1402F7FE8 (PfpReadSupportInitialize.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MmPrefetchPagesEx @ 0x1406A387C (MmPrefetchPagesEx.c)
+ *     PfpFileBuildReadSupport @ 0x140767138 (PfpFileBuildReadSupport.c)
+ *     PfpReadSupportCleanup @ 0x140785204 (PfpReadSupportCleanup.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfpPrefetchFiles(__int64 *a1, char a2)
 {
   __int64 v2; // rdi

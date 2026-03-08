@@ -1,3 +1,18 @@
+/*
+ * XREFs of Usbh_BusPnpFreeResources_PdoEvent @ 0x1C003A9B8
+ * Callers:
+ *     UsbhAsyncStop @ 0x1C00424CC (UsbhAsyncStop.c)
+ *     Usbh_FDO_WaitPnpStop @ 0x1C0044890 (Usbh_FDO_WaitPnpStop.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     UsbhUnlinkPdoDeviceHandle @ 0x1C001BEDC (UsbhUnlinkPdoDeviceHandle.c)
+ *     UsbhAcquirePdoStateLock @ 0x1C0031CB0 (UsbhAcquirePdoStateLock.c)
+ *     UsbhDeletePdo @ 0x1C005409C (UsbhDeletePdo.c)
+ */
+
 void __fastcall Usbh_BusPnpFreeResources_PdoEvent(__int64 a1, __int64 a2)
 {
   int v4; // r9d

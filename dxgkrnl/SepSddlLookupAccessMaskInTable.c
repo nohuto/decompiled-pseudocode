@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepSddlLookupAccessMaskInTable @ 0x1C0392EC4
+ * Callers:
+ *     SepSddlGetAclForString @ 0x1C0392A80 (SepSddlGetAclForString.c)
+ * Callees:
+ *     _wcsnicmp_0 @ 0x1C00243F2 (_wcsnicmp_0.c)
+ */
+
 __int64 __fastcall SepSddlLookupAccessMaskInTable(wchar_t *Str1, _DWORD *a2, _QWORD *a3)
 {
   wchar_t **v4; // rdi

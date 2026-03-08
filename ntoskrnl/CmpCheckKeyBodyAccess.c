@@ -1,3 +1,21 @@
+/*
+ * XREFs of CmpCheckKeyBodyAccess @ 0x140A18448
+ * Callers:
+ *     CmpVEPerformOpenAccessCheck @ 0x140768B54 (CmpVEPerformOpenAccessCheck.c)
+ *     CmpDoAccessCheckOnKCB @ 0x140A1628C (CmpDoAccessCheckOnKCB.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     SeAccessCheck @ 0x140265330 (SeAccessCheck.c)
+ *     SeUnlockSubjectContext @ 0x140699470 (SeUnlockSubjectContext.c)
+ *     SeLockSubjectContext @ 0x1406994B0 (SeLockSubjectContext.c)
+ *     SeOpenObjectAuditAlarm @ 0x14069A6A0 (SeOpenObjectAuditAlarm.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x14069A700 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SeAppendPrivileges @ 0x140761800 (SeAppendPrivileges.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1407AF294 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpGetSecurityCacheEntryForKcbStack @ 0x1407AF4E0 (CmpGetSecurityCacheEntryForKcbStack.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140AF21E0 (CmpIsKeyDeletedForKeyBody.c)
+ */
+
 BOOLEAN __fastcall CmpCheckKeyBodyAccess(
         _QWORD *Object,
         __int64 a2,

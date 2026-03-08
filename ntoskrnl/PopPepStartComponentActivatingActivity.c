@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopPepStartComponentActivatingActivity @ 0x1402EBC40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PopPepStartComponentActivatingActivity(__int64 a1, __int64 a2, __int64 a3)
 {
   char result; // al

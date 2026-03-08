@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?ClearClip@CCursorClip@@QEAAXXZ @ 0x1C0015530
+ * Callers:
+ *     NtUserLockCursor @ 0x1C003A670 (NtUserLockCursor.c)
+ *     ??1ForegroundChangeTracker@CActivationObjectManager@@QEAA@XZ @ 0x1C005BD48 (--1ForegroundChangeTracker@CActivationObjectManager@@QEAA@XZ.c)
+ *     NtUserClipCursor @ 0x1C016D9B0 (NtUserClipCursor.c)
+ * Callees:
+ *     ?UpdateClipRect@CCursorClip@@AEAAXUtagRECT@@@Z @ 0x1C0015004 (-UpdateClipRect@CCursorClip@@AEAAXUtagRECT@@@Z.c)
+ *     ?ReleaseLock@CPushLock@@QEBAXXZ @ 0x1C006AE58 (-ReleaseLock@CPushLock@@QEBAXXZ.c)
+ *     ?AcquireLockExclusive@CPushLock@@QEAAJXZ @ 0x1C00AB5F0 (-AcquireLockExclusive@CPushLock@@QEAAJXZ.c)
+ */
+
 void __fastcall CCursorClip::ClearClip(CCursorClip *this)
 {
   __int64 v2; // rcx

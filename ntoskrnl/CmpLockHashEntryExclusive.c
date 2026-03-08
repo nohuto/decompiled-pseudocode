@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpLockHashEntryExclusive @ 0x1407AB0BC
+ * Callers:
+ *     CmpDelayCloseWorker @ 0x1407AB950 (CmpDelayCloseWorker.c)
+ * Callees:
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     CmpReferenceHive @ 0x1407AB230 (CmpReferenceHive.c)
+ */
+
 __int64 __fastcall CmpLockHashEntryExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter4)
 {
   ULONG_PTR v2; // rbx

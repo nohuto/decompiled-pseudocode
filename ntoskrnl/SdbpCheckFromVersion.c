@@ -1,3 +1,13 @@
+/*
+ * XREFs of SdbpCheckFromVersion @ 0x140A508BC
+ * Callers:
+ *     SdbpCheckApplicationTypeAttributes @ 0x14066B804 (SdbpCheckApplicationTypeAttributes.c)
+ *     SdbpCheckAttribute @ 0x1407A0F7C (SdbpCheckAttribute.c)
+ *     SdbpMatchOsVersion @ 0x1407A2004 (SdbpMatchOsVersion.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall SdbpCheckFromVersion(unsigned __int64 a1, unsigned __int64 a2)
 {
   _BOOL8 result; // rax

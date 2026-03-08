@@ -1,3 +1,14 @@
+/*
+ * XREFs of Interrupter_UpdateERDP @ 0x1C0014AA0
+ * Callers:
+ *     Interrupter_DeferredWorkProcessor @ 0x1C0008BE0 (Interrupter_DeferredWorkProcessor.c)
+ *     Interrupter_InterrupterRegisterIntialize @ 0x1C0014B54 (Interrupter_InterrupterRegisterIntialize.c)
+ *     Interrupter_InitializeForOffload @ 0x1C003E028 (Interrupter_InitializeForOffload.c)
+ * Callees:
+ *     XilRegister_WriteUlong64 @ 0x1C0014C68 (XilRegister_WriteUlong64.c)
+ *     WPP_RECORDER_SF_i @ 0x1C001C5CC (WPP_RECORDER_SF_i.c)
+ */
+
 __int64 __fastcall Interrupter_UpdateERDP(__int64 a1, char a2)
 {
   __int64 v3; // rcx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiApplyRequiredSessionDriverHotPatches @ 0x1407F6F6C
+ * Callers:
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ * Callees:
+ *     MiGetSessionVm @ 0x14036C17C (MiGetSessionVm.c)
+ *     MiSessionLookupImage @ 0x14036C7B8 (MiSessionLookupImage.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiEnumerateBasePatches @ 0x1407F7420 (MiEnumerateBasePatches.c)
+ */
+
 __int64 __fastcall MiApplyRequiredSessionDriverHotPatches(__int64 a1)
 {
   unsigned int v2; // edx

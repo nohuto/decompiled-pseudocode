@@ -1,3 +1,15 @@
+/*
+ * XREFs of SmStoreCompressionStart @ 0x1409D4A38
+ * Callers:
+ *     MmProcessWorkingSetControl @ 0x140A408A4 (MmProcessWorkingSetControl.c)
+ * Callees:
+ *     SmpGetProcessPartition @ 0x14029622C (SmpGetProcessPartition.c)
+ *     SmpKeyedStoreEntryGet @ 0x14035BDC0 (SmpKeyedStoreEntryGet.c)
+ *     MmQueryProcessWorkingSetSwapPages @ 0x140650B98 (MmQueryProcessWorkingSetSwapPages.c)
+ *     MmStoreFlushOutstandingEvictions @ 0x14065AA54 (MmStoreFlushOutstandingEvictions.c)
+ *     SmSwapStore @ 0x14067E484 (SmSwapStore.c)
+ */
+
 int SmStoreCompressionStart()
 {
   _KPROCESS *Process; // rdi

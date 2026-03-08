@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvlConfigureIdleStates @ 0x1405441F8
+ * Callers:
+ *     PpmIdleUpdateHvStates @ 0x14099AC10 (PpmIdleUpdateHvStates.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvlpSetPowerProperty @ 0x140544E50 (HvlpSetPowerProperty.c)
+ */
+
 __int64 __fastcall HvlConfigureIdleStates(int a1, _OWORD *a2)
 {
   __int64 v4; // rax

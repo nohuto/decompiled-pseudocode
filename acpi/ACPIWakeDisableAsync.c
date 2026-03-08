@@ -1,3 +1,20 @@
+/*
+ * XREFs of ACPIWakeDisableAsync @ 0x1C0044CC8
+ * Callers:
+ *     OSNotifyDeviceWake @ 0x1C0032FFC (OSNotifyDeviceWake.c)
+ *     OSNotifyDeviceWakeByGPEEvent @ 0x1C0033280 (OSNotifyDeviceWakeByGPEEvent.c)
+ *     OSNotifyDeviceWakeByInterrupt @ 0x1C003348C (OSNotifyDeviceWakeByInterrupt.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     OSNotifyDeviceWakeCallBack @ 0x1C0033670 (OSNotifyDeviceWakeCallBack.c)
+ *     ACPIWakeEnableDisableAsyncCallBack @ 0x1C0045850 (ACPIWakeEnableDisableAsyncCallBack.c)
+ *     ACPIWakeEnableDisablePciDevice @ 0x1C0045BB4 (ACPIWakeEnableDisablePciDevice.c)
+ *     WPP_RECORDER_SF_LLLqss @ 0x1C0046360 (WPP_RECORDER_SF_LLLqss.c)
+ *     AMLIAsyncEvalObject @ 0x1C00478E8 (AMLIAsyncEvalObject.c)
+ */
+
 __int64 __fastcall ACPIWakeDisableAsync(__int64 a1, _QWORD **a2, __int64 a3, _QWORD *a4)
 {
   unsigned int v4; // edi

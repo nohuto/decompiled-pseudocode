@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIMatchKernelPorts @ 0x1C0031DD0
+ * Callers:
+ *     ACPIBuildProcessDevicePhaseCrs @ 0x1C000F000 (ACPIBuildProcessDevicePhaseCrs.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qqss @ 0x1C000A374 (WPP_RECORDER_SF_qqss.c)
+ */
+
 char __fastcall ACPIMatchKernelPorts(__int64 a1, __int64 a2)
 {
   __int64 v2; // rsi

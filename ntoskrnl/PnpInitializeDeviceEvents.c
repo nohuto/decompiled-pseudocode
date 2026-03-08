@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpInitializeDeviceEvents @ 0x140B705C0
+ * Callers:
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     KiInitializeMutant @ 0x1402D981C (KiInitializeMutant.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 PnpInitializeDeviceEvents()
 {
   unsigned int v0; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SaveStateFromSystemPowerIrp@FxDevicePowerIrpTracker@@QEAAXPEAVFxIrp@@@Z @ 0x1C00820C0
+ * Callers:
+ *     ?DispatchSystemSetPower@FxPkgPdo@@AEAAJPEAVFxIrp@@@Z @ 0x1C00804B8 (-DispatchSystemSetPower@FxPkgPdo@@AEAAJPEAVFxIrp@@@Z.c)
+ *     ?DispatchSystemSetPower@FxPkgFdo@@AEAAJPEAVFxIrp@@@Z @ 0x1C0082F84 (-DispatchSystemSetPower@FxPkgFdo@@AEAAJPEAVFxIrp@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxDevicePowerIrpTracker::SaveStateFromSystemPowerIrp(FxDevicePowerIrpTracker *this, FxIrp *Irp)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // rdx

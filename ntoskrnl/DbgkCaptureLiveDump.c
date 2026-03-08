@@ -1,3 +1,30 @@
+/*
+ * XREFs of DbgkCaptureLiveDump @ 0x1409378F8
+ * Callers:
+ *     NtSystemDebugControl @ 0x140791FE0 (NtSystemDebugControl.c)
+ * Callees:
+ *     IoThreadToProcess @ 0x140248470 (IoThreadToProcess.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DbgkpLkmdSnapData @ 0x1405397D0 (DbgkpLkmdSnapData.c)
+ *     DbgkpLkmdSnapDataEx @ 0x140539804 (DbgkpLkmdSnapDataEx.c)
+ *     DbgkpLkmdSnapGlobals @ 0x14053983C (DbgkpLkmdSnapGlobals.c)
+ *     DbgkpLkmdSnapThread @ 0x140539BD4 (DbgkpLkmdSnapThread.c)
+ *     DbgkpLkmdSqmIncrementDword @ 0x140539C38 (DbgkpLkmdSqmIncrementDword.c)
+ *     EtwRegister @ 0x140690D20 (EtwRegister.c)
+ *     EtwUnregister @ 0x14076F9E0 (EtwUnregister.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     DbgkpLkmdFireCallbacks @ 0x140937DC4 (DbgkpLkmdFireCallbacks.c)
+ *     DbgkpLkmdSqmIsOptedIn @ 0x14093830C (DbgkpLkmdSqmIsOptedIn.c)
+ *     DbgkpLkmdSqmStatus @ 0x1409384AC (DbgkpLkmdSqmStatus.c)
+ *     DbgkpTriageDumpInitialize @ 0x14093921C (DbgkpTriageDumpInitialize.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall DbgkCaptureLiveDump(__int64 a1, void *a2, unsigned int a3, __int64 a4)
 {
   REGHANDLE v4; // r15

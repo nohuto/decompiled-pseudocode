@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIDispatchWmiLog @ 0x1C0046FE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIDispatchForwardIrp @ 0x1C0001770 (ACPIDispatchForwardIrp.c)
+ *     ACPIWmiEnableLog @ 0x1C00470A0 (ACPIWmiEnableLog.c)
+ *     ACPIWmiRegisterGuids @ 0x1C0047114 (ACPIWmiRegisterGuids.c)
+ */
+
 __int64 __fastcall ACPIDispatchWmiLog(ULONG_PTR BugCheckParameter3, PIRP Irp)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // r8

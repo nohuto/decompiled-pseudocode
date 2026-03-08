@@ -1,3 +1,48 @@
+/*
+ * XREFs of PspInsertThread @ 0x1406B0F50
+ * Callers:
+ *     PspCreateThread @ 0x1406B1908 (PspCreateThread.c)
+ *     NtCreateUserProcess @ 0x14070C850 (NtCreateUserProcess.c)
+ *     PspCreatePicoThread @ 0x1409B27F0 (PspCreatePicoThread.c)
+ * Callees:
+ *     KeQueryMaximumGroupCount @ 0x1402381F0 (KeQueryMaximumGroupCount.c)
+ *     KeStartThread @ 0x1402385C4 (KeStartThread.c)
+ *     KeReadyThread @ 0x140238CF8 (KeReadyThread.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     SepDeleteAccessState @ 0x140265F50 (SepDeleteAccessState.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeIsSubsetAffinityEx @ 0x1402B13D0 (KeIsSubsetAffinityEx.c)
+ *     ObReferenceObjectExWithTag @ 0x1402CBB20 (ObReferenceObjectExWithTag.c)
+ *     KeForceResumeThread @ 0x1403537DC (KeForceResumeThread.c)
+ *     KeSuspendThread @ 0x140354244 (KeSuspendThread.c)
+ *     KeRequestTerminationThread @ 0x140354D78 (KeRequestTerminationThread.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KeRaiseUserException @ 0x14056E8C0 (KeRaiseUserException.c)
+ *     SeCreateAccessStateEx @ 0x1406991E0 (SeCreateAccessStateEx.c)
+ *     MmDeleteTeb @ 0x1406A51C0 (MmDeleteTeb.c)
+ *     PspRecheckThreadOptionalXStateFeatures @ 0x1406B180C (PspRecheckThreadOptionalXStateFeatures.c)
+ *     PspCreateObjectHandle @ 0x1406B1864 (PspCreateObjectHandle.c)
+ *     PspChangeProcessExecutionState @ 0x1406F8AC0 (PspChangeProcessExecutionState.c)
+ *     PoEnergyContextStart @ 0x140701078 (PoEnergyContextStart.c)
+ *     PspDeleteUserStack @ 0x140799590 (PspDeleteUserStack.c)
+ *     KeUninitThread @ 0x14079B04C (KeUninitThread.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     PspCallProcessNotifyRoutines @ 0x1407D2E14 (PspCallProcessNotifyRoutines.c)
+ *     PspCallThreadNotifyRoutines @ 0x1407D3260 (PspCallThreadNotifyRoutines.c)
+ *     EtwTraceProcess @ 0x1407E93B4 (EtwTraceProcess.c)
+ *     EtwTraceThread @ 0x1407EBAB0 (EtwTraceThread.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     PspAssignProcessToJobList @ 0x1409ADF10 (PspAssignProcessToJobList.c)
+ *     PspCreateSecureThread @ 0x1409ADFC0 (PspCreateSecureThread.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PspInsertThread(
         ULONG_PTR BugCheckParameter2,
         __int64 a2,

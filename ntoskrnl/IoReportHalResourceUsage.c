@@ -1,3 +1,18 @@
+/*
+ * XREFs of IoReportHalResourceUsage @ 0x140B366A0
+ * Callers:
+ *     HalpReportResourceUsage @ 0x140B35B2C (HalpReportResourceUsage.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IopCreateRegistryKeyEx @ 0x14078BB90 (IopCreateRegistryKeyEx.c)
+ *     IopWriteResourceList @ 0x140806358 (IopWriteResourceList.c)
+ *     HeadlessTerminalAddResources @ 0x140808F68 (HeadlessTerminalAddResources.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IoReportHalResourceUsage(UNICODE_STRING *a1, void *a2, _DWORD *a3, unsigned int a4)
 {
   ULONG_PTR v4; // rsi

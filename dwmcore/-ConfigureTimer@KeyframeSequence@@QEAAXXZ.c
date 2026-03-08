@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?ConfigureTimer@KeyframeSequence@@QEAAXXZ @ 0x1800BCFD0
+ * Callers:
+ *     ?UpdateTime@CKeyframeAnimation@@AEAAXH@Z @ 0x180020014 (-UpdateTime@CKeyframeAnimation@@AEAAXH@Z.c)
+ *     ?CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1800561C0 (-CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x180056B00 (-ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
+ *     ?TimeSeek@CKeyframeAnimation@@AEAAJM@Z @ 0x1800BAE5C (-TimeSeek@CKeyframeAnimation@@AEAAJM@Z.c)
+ *     ?Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z @ 0x1800BCCD8 (-Reset@CKeyframeAnimation@@AEAAJ_NPEAVCExpressionValueStack@@@Z.c)
+ *     ?Play@KeyframeSequence@@QEAAXXZ @ 0x1800BCE40 (-Play@KeyframeSequence@@QEAAXXZ.c)
+ *     ?Repeat@KeyframeSequence@@QEAAXH@Z @ 0x1800F92A8 (-Repeat@KeyframeSequence@@QEAAXH@Z.c)
+ *     ?StartAsTriggeredAnimation@CKeyframeAnimation@@UEAAJXZ @ 0x180236D40 (-StartAsTriggeredAnimation@CKeyframeAnimation@@UEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall KeyframeSequence::ConfigureTimer(KeyframeSequence *this)
 {
   float v1; // xmm1_4

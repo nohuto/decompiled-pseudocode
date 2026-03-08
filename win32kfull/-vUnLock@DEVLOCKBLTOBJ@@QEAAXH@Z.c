@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?vUnLock@DEVLOCKBLTOBJ@@QEAAXH@Z @ 0x1C0272EF8
+ * Callers:
+ *     SimBitBlt @ 0x1C0273050 (SimBitBlt.c)
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     ?bDisposeTrgDco@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C00D2CA8 (-bDisposeTrgDco@DEVLOCKBLTOBJ@@QEAAHXZ.c)
+ *     ?bDisposeSrcDco@DEVLOCKBLTOBJ@@QEAAHXZ @ 0x1C00D32E4 (-bDisposeSrcDco@DEVLOCKBLTOBJ@@QEAAHXZ.c)
+ *     ?vFlushSpriteUpdates@DEVLOCKBLTOBJ@@QEAAXXZ @ 0x1C026E758 (-vFlushSpriteUpdates@DEVLOCKBLTOBJ@@QEAAXXZ.c)
+ *     ?vUnMap@DEVLOCKBLTOBJ@@QEAAXXZ @ 0x1C026E7B0 (-vUnMap@DEVLOCKBLTOBJ@@QEAAXXZ.c)
+ */
+
 void __fastcall DEVLOCKBLTOBJ::vUnLock(DEVLOCKBLTOBJ *this, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // eax

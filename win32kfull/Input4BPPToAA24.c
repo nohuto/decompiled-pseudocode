@@ -1,3 +1,11 @@
+/*
+ * XREFs of Input4BPPToAA24 @ 0x1C025FFA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _BYTE *__fastcall Input4BPPToAA24(char *a1, _BYTE *a2)
 {
   unsigned __int8 *v2; // r10

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?GreGetBitmapBitsInternal@@YAJPEAUHBITMAP__@@AEAV?$umptr_w@E@@PEAJ@Z @ 0x1C02B04AC
+ * Callers:
+ *     GreGetBitmapBits @ 0x1C02B07CC (GreGetBitmapBits.c)
+ *     NtGdiGetBitmapBits @ 0x1C02C4AF0 (NtGdiGetBitmapBits.c)
+ * Callees:
+ *     ?bDoGetSetBitmapBits@@YAHPEAU_SURFOBJ@@0H@Z @ 0x1C0029258 (-bDoGetSetBitmapBits@@YAHPEAU_SURFOBJ@@0H@Z.c)
+ *     ??1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002A694 (--1DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     ??0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ @ 0x1C002A6E0 (--0DYNAMICMODECHANGESHARELOCK@@QEAA@XZ.c)
+ *     EngCopyBits @ 0x1C008AE00 (EngCopyBits.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall GreGetBitmapBitsInternal(__int64 a1, __int64 a2, unsigned int *a3)
 {
   _DWORD *v4; // rdi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?PrepareForMasterInputThreadTakingOver@@YAXPEAVLegacyInputDispatcher@@@Z @ 0x1C0078E18
+ * Callers:
+ *     RawInputThread @ 0x1C007A0C0 (RawInputThread.c)
+ * Callees:
+ *     Feature_Servicing_PointerInputIncorrectlyWakingSystem__private_IsEnabledDeviceUsage @ 0x1C012D214 (Feature_Servicing_PointerInputIncorrectlyWakingSystem__private_IsEnabledDeviceUsage.c)
+ *     EndPointerDeviceContacts @ 0x1C012E2F8 (EndPointerDeviceContacts.c)
+ *     ResetPointerDevicesOld @ 0x1C012E3BC (ResetPointerDevicesOld.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall PrepareForMasterInputThreadTakingOver(struct LegacyInputDispatcher *a1)
 {

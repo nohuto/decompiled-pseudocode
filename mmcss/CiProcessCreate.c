@@ -1,3 +1,13 @@
+/*
+ * XREFs of CiProcessCreate @ 0x1C000B6A0
+ * Callers:
+ *     CiThreadCreate @ 0x1C000AD80 (CiThreadCreate.c)
+ *     CiDispatchCreateNotificationClient @ 0x1C000C320 (CiDispatchCreateNotificationClient.c)
+ * Callees:
+ *     memset @ 0x1C00037C0 (memset.c)
+ *     CiProcessComparer @ 0x1C000A210 (CiProcessComparer.c)
+ */
+
 __int64 __fastcall CiProcessCreate(volatile signed __int64 **a1)
 {
   volatile signed __int64 *Pool2; // rax

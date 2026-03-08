@@ -1,3 +1,19 @@
+/*
+ * XREFs of PfpPrefetchFilesTrickle @ 0x1406A2A70
+ * Callers:
+ *     PfpPrefetchRequestPerform @ 0x1407662E0 (PfpPrefetchRequestPerform.c)
+ * Callees:
+ *     PfpCheckPrefetchAbort @ 0x14020C198 (PfpCheckPrefetchAbort.c)
+ *     MmQueryMemoryListInformation @ 0x140236738 (MmQueryMemoryListInformation.c)
+ *     PfpReadSupportInitialize @ 0x1402F7FE8 (PfpReadSupportInitialize.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PfpUpdateRepurposedByPrefetch @ 0x1406A2DC0 (PfpUpdateRepurposedByPrefetch.c)
+ *     PfpGetPageListCount @ 0x1406A2EDC (PfpGetPageListCount.c)
+ *     MmPrefetchPagesEx @ 0x1406A387C (MmPrefetchPagesEx.c)
+ *     PfpFileBuildReadSupport @ 0x140767138 (PfpFileBuildReadSupport.c)
+ *     PfpReadSupportCleanup @ 0x140785204 (PfpReadSupportCleanup.c)
+ */
+
 __int64 __fastcall PfpPrefetchFilesTrickle(_QWORD *a1)
 {
   __int64 v1; // rsi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@CTokenManager@@AEAAJXZ @ 0x1C0017154
+ * Callers:
+ *     CreateTokenManagerSessionGlobal @ 0x1C0016FC4 (CreateTokenManagerSessionGlobal.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CTokenManager::Initialize(CTokenManager *this)
 {
   NTSTATUS v2; // ebx

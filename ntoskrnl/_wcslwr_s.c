@@ -1,3 +1,12 @@
+/*
+ * XREFs of _wcslwr_s @ 0x1403D3F90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     wcsnlen @ 0x1403D5F60 (wcsnlen.c)
+ */
+
 errno_t __cdecl wcslwr_s(wchar_t *Str, size_t SizeInWords)
 {
   wchar_t *v2; // rbx

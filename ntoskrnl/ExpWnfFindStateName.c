@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpWnfFindStateName @ 0x14071A3FC
+ * Callers:
+ *     ExpWnfCreateNameInstance @ 0x140718994 (ExpWnfCreateNameInstance.c)
+ *     ExpWnfLookupNameInstance @ 0x14071A330 (ExpWnfLookupNameInstance.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall ExpWnfFindStateName(__int64 a1, unsigned __int64 a2)
 {
   _QWORD *result; // rax

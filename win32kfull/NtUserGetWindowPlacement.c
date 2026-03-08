@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserGetWindowPlacement @ 0x1C0006790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _GetWindowPlacement @ 0x1C0006898 (_GetWindowPlacement.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall NtUserGetWindowPlacement(__int64 a1, ULONG64 a2)
 {
   struct tagWND *v4; // r9

@@ -1,3 +1,19 @@
+/*
+ * XREFs of KeQueryCurrentStackInformationEx @ 0x140312A40
+ * Callers:
+ *     KeCheckStackAndTargetAddress @ 0x1402DC470 (KeCheckStackAndTargetAddress.c)
+ *     KeQueryCurrentStackInformation @ 0x1402E1E00 (KeQueryCurrentStackInformation.c)
+ *     RtlpGetStackLimitsEx @ 0x1402E6750 (RtlpGetStackLimitsEx.c)
+ *     KasanWrapperRtlRestoreContext @ 0x1402EA9A0 (KasanWrapperRtlRestoreContext.c)
+ *     RtlpGetStackLimits @ 0x1403129F0 (RtlpGetStackLimits.c)
+ *     KiExpandKernelStackAndCalloutSwitchStack @ 0x140315700 (KiExpandKernelStackAndCalloutSwitchStack.c)
+ *     KiExpandKernelStackAndCalloutOnStackSegment @ 0x140317800 (KiExpandKernelStackAndCalloutOnStackSegment.c)
+ *     WheaIsAltContextAllocPossible @ 0x14060F930 (WheaIsAltContextAllocPossible.c)
+ * Callees:
+ *     KiRspInIstStack @ 0x1402EDCB0 (KiRspInIstStack.c)
+ *     KeAreInterruptsEnabled @ 0x140312C60 (KeAreInterruptsEnabled.c)
+ */
+
 bool __fastcall KeQueryCurrentStackInformationEx(
         unsigned __int64 a1,
         char *a2,

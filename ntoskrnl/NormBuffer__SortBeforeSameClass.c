@@ -1,3 +1,13 @@
+/*
+ * XREFs of NormBuffer__SortBeforeSameClass @ 0x1405AE6BC
+ * Callers:
+ *     NormBuffer__AppendAndSortDecomposed @ 0x1405AE09C (NormBuffer__AppendAndSortDecomposed.c)
+ * Callees:
+ *     NormBuffer__GetCurrentOutputChar @ 0x1405AE16C (NormBuffer__GetCurrentOutputChar.c)
+ *     Normalization__PageLookup @ 0x1409BEC04 (Normalization__PageLookup.c)
+ *     Normalization__TableLookup @ 0x1409BEC1C (Normalization__TableLookup.c)
+ */
+
 char __fastcall NormBuffer__SortBeforeSameClass(_QWORD *a1, unsigned __int8 a2)
 {
   __int64 v2; // rax

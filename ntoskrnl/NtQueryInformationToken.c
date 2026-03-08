@@ -1,3 +1,41 @@
+/*
+ * XREFs of NtQueryInformationToken @ 0x1406D6780
+ * Callers:
+ *     RtlGetAppContainerNamedObjectPath @ 0x1405A7A70 (RtlGetAppContainerNamedObjectPath.c)
+ *     RtlpGetTokenNamedObjectPath @ 0x1409B9D5C (RtlpGetTokenNamedObjectPath.c)
+ * Callees:
+ *     SepTokenPrivilegeCount @ 0x140247150 (SepTokenPrivilegeCount.c)
+ *     SepInternalQuerySecurityAttributesTokenEx @ 0x140247394 (SepInternalQuerySecurityAttributesTokenEx.c)
+ *     AuthzBasepQuerySecurityAttributesToken @ 0x1402475E0 (AuthzBasepQuerySecurityAttributesToken.c)
+ *     SepReferenceTokenByHandle @ 0x140247A20 (SepReferenceTokenByHandle.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     SepConvertTokenPrivileges @ 0x140298F88 (SepConvertTokenPrivileges.c)
+ *     SepConvertTokenPrivilegesToLuidAndAttributes @ 0x140298FAC (SepConvertTokenPrivilegesToLuidAndAttributes.c)
+ *     SepDeReferenceLogonSessionDirect @ 0x1402BE52C (SepDeReferenceLogonSessionDirect.c)
+ *     SeQueryMandatoryPolicyToken @ 0x1402E7580 (SeQueryMandatoryPolicyToken.c)
+ *     SepIsSandboxedToken @ 0x1402E9EFC (SepIsSandboxedToken.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     SepCopyTokenIntegrity @ 0x14030FED0 (SepCopyTokenIntegrity.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     SepSidInTokenSidHash @ 0x14033DEA0 (SepSidInTokenSidHash.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlCopySidAndAttributesArray @ 0x1406D47D0 (RtlCopySidAndAttributesArray.c)
+ *     RtlCopySid @ 0x1406D4890 (RtlCopySid.c)
+ *     RtlIsElevatedRid @ 0x140743CF0 (RtlIsElevatedRid.c)
+ *     SepCopyTokenAccessInformation @ 0x14077104C (SepCopyTokenAccessInformation.c)
+ *     SepGetTokenAccessInformationBufferSize @ 0x1407712D0 (SepGetTokenAccessInformationBufferSize.c)
+ *     SepReferenceLogonSessionSilo @ 0x140773DF8 (SepReferenceLogonSessionSilo.c)
+ *     AuthzBasepQueryClaimAttributesToken @ 0x14077BBD4 (AuthzBasepQueryClaimAttributesToken.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     SepDuplicateToken @ 0x1407BCF00 (SepDuplicateToken.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseAccessViolation @ 0x1408713F0 (ExRaiseAccessViolation.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 NTSTATUS __stdcall NtQueryInformationToken(
         HANDLE TokenHandle,
         TOKEN_INFORMATION_CLASS TokenInformationClass,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of GreDwmEnableSoftwareCursorRendering @ 0x1C007F458
+ * Callers:
+ *     zzzEnableDwmPointerSupport @ 0x1C007F1FC (zzzEnableDwmPointerSupport.c)
+ * Callees:
+ *     ??0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z @ 0x1C0028198 (--0DWMSPRITELOCK@@QEAA@AEAVPDEVOBJ@@HH@Z.c)
+ *     IsDwmActive @ 0x1C002CF30 (IsDwmActive.c)
+ *     ??1DWMSPRITELOCK@@QEAA@XZ @ 0x1C002D7C8 (--1DWMSPRITELOCK@@QEAA@XZ.c)
+ */
+
 void __fastcall GreDwmEnableSoftwareCursorRendering(Gre::Base *a1, int a2)
 {
   struct Gre::Base::SESSION_GLOBALS *v3; // rbx

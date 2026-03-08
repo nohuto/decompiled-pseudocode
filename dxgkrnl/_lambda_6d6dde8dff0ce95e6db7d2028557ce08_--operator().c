@@ -1,3 +1,13 @@
+/*
+ * XREFs of _lambda_6d6dde8dff0ce95e6db7d2028557ce08_::operator() @ 0x1C03CC22C
+ * Callers:
+ *     _lambda_6d6dde8dff0ce95e6db7d2028557ce08_::_lambda_invoker_cdecl_ @ 0x1C03CC1A0 (_lambda_6d6dde8dff0ce95e6db7d2028557ce08_--_lambda_invoker_cdecl_.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ?SwapChainReleaseInternal@@YAJPEAVDXGSWAPCHAIN@@PEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXDHH@Z @ 0x1C0355B14 (-SwapChainReleaseInternal@@YAJPEAVDXGSWAPCHAIN@@PEAU_D3DKMT_RELEASESWAPCHAIN@@PEAXDHH@Z.c)
+ */
+
 char __fastcall lambda_6d6dde8dff0ce95e6db7d2028557ce08_::operator()(__int64 a1, struct DXGSWAPCHAIN **a2)
 {
   struct DXGSWAPCHAIN *v3; // rcx

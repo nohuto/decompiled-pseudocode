@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfAllocateCommonBufferVector @ 0x140AC21F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ViGetRealDmaAdapter @ 0x140AC6158 (ViGetRealDmaAdapter.c)
+ */
+
 __int64 __fastcall VfAllocateCommonBufferVector(
         int a1,
         __int64 a2,

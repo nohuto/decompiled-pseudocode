@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0CD3DDevice@@AEAA@W4D3D_FEATURE_LEVEL@@W4_QAI_DRIVERVERSION@@T_LARGE_INTEGER@@@Z @ 0x1800CE610
+ * Callers:
+ *     ?Create@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAPEAV1@@Z @ 0x1800CE504 (-Create@CD3DDevice@@KAJPEAUIDXGIAdapter@@PEAPEAV1@@Z.c)
+ * Callees:
+ *     ??_H@YAXPEAX_K1P6APEAX0@Z@Z @ 0x18003A2A4 (--_H@YAXPEAX_K1P6APEAX0@Z@Z.c)
+ *     ??0CD2DContext@@IEAA@XZ @ 0x1800CE860 (--0CD2DContext@@IEAA@XZ.c)
+ */
+
 __int64 __fastcall CD3DDevice::CD3DDevice(__int64 a1)
 {
   _QWORD *v2; // rcx

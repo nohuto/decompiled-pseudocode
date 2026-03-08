@@ -1,3 +1,11 @@
+/*
+ * XREFs of ValidateKbdNLSTable @ 0x1C021CA2C
+ * Callers:
+ *     ?ReadLayoutFile@@YAPEAUtagKbdLayer@@PEAUtagKBDFILE@@PEAXII@Z @ 0x1C00115F8 (-ReadLayoutFile@@YAPEAUtagKbdLayer@@PEAUtagKBDFILE@@PEAXII@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall ValidateKbdNLSTable(__int64 a1)
 {
   __int64 v1; // r9

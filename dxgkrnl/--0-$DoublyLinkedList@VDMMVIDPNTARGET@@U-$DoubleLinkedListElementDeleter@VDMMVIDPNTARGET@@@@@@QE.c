@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??0?$DoublyLinkedList@VDMMVIDPNTARGET@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNTARGET@@@@@@QEAA@AEBV0@@Z @ 0x1C000854C
+ * Callers:
+ *     ??0DMMVIDPNTARGETSET@@QEAA@AEBV0@@Z @ 0x1C0004DB4 (--0DMMVIDPNTARGETSET@@QEAA@AEBV0@@Z.c)
+ * Callees:
+ *     ??0DMMVIDPNTARGET@@IEAA@AEBV0@@Z @ 0x1C0008090 (--0DMMVIDPNTARGET@@IEAA@AEBV0@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DoublyLinkedList<DMMVIDPNTARGET,DoubleLinkedListElementDeleter<DMMVIDPNTARGET>>::DoublyLinkedList<DMMVIDPNTARGET,DoubleLinkedListElementDeleter<DMMVIDPNTARGET>>(
         __int64 a1,
         __int64 a2)

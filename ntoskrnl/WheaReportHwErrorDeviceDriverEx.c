@@ -1,3 +1,18 @@
+/*
+ * XREFs of WheaReportHwErrorDeviceDriverEx @ 0x14060F270
+ * Callers:
+ *     WheaReportHwErrorDeviceDriver @ 0x140A04FA0 (WheaReportHwErrorDeviceDriver.c)
+ * Callees:
+ *     RtlStringCchCopyA @ 0x1403BD50C (RtlStringCchCopyA.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     WheaAddHwErrorReportSectionDeviceDriver @ 0x14060ED50 (WheaAddHwErrorReportSectionDeviceDriver.c)
+ *     WheaCreateHwErrorReportDeviceDriver @ 0x14060EE60 (WheaCreateHwErrorReportDeviceDriver.c)
+ *     WheaHwErrorReportAbandonDeviceDriver @ 0x14060EE90 (WheaHwErrorReportAbandonDeviceDriver.c)
+ *     WheaHwErrorReportGetLogDataBufferDeviceDriver @ 0x14060EEC0 (WheaHwErrorReportGetLogDataBufferDeviceDriver.c)
+ *     WheaHwErrorReportSetSeverityDeviceDriver @ 0x14060EFF0 (WheaHwErrorReportSetSeverityDeviceDriver.c)
+ *     WheaHwErrorReportSubmitDeviceDriver @ 0x14060F030 (WheaHwErrorReportSubmitDeviceDriver.c)
+ */
+
 __int64 __fastcall WheaReportHwErrorDeviceDriverEx(
         __int64 a1,
         __int64 a2,

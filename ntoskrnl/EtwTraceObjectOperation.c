@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwTraceObjectOperation @ 0x1405FAC04
+ * Callers:
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExCheckSingleFilter @ 0x140462BFE (ExCheckSingleFilter.c)
+ *     EtwpTraceKernelEventWithFilter @ 0x1405FC0F8 (EtwpTraceKernelEventWithFilter.c)
+ */
+
 __int64 __fastcall EtwTraceObjectOperation(unsigned __int16 a1, __int64 a2, int a3, int a4)
 {
   int v7; // edi

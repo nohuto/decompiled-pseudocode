@@ -1,3 +1,12 @@
+/*
+ * XREFs of DrvCleanupRemoteGraphicsDevices @ 0x1C0192C64
+ * Callers:
+ *     ?PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0159D70 (-PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ * Callees:
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C004E3E0 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DrvCleanupRemoteGraphicsDevices(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rcx

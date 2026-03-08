@@ -1,3 +1,32 @@
+/*
+ * XREFs of MmSetAddressRangeModifiedEx @ 0x140329510
+ * Callers:
+ *     CcFlushCacheOneRange @ 0x14021B070 (CcFlushCacheOneRange.c)
+ *     CcZeroDataInCache @ 0x140241DBC (CcZeroDataInCache.c)
+ *     CcPurgeAndClearCacheSection @ 0x14029FCE4 (CcPurgeAndClearCacheSection.c)
+ *     MmSetAddressRangeModified @ 0x1402F8530 (MmSetAddressRangeModified.c)
+ *     CcUnpinRepinnedBcb @ 0x140390990 (CcUnpinRepinnedBcb.c)
+ * Callees:
+ *     MiReleasePageFileInfo @ 0x14020B300 (MiReleasePageFileInfo.c)
+ *     MiGetSystemCacheReverseMap @ 0x140222030 (MiGetSystemCacheReverseMap.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiMakeProtectionMask @ 0x140320CC0 (MiMakeProtectionMask.c)
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14032D790 (MiCaptureDirtyBitToPfn.c)
+ *     MI_TIGHTER_PERMISSIONS @ 0x14032E62C (MI_TIGHTER_PERMISSIONS.c)
+ *     MiWriteValidPteNewProtection @ 0x14032E660 (MiWriteValidPteNewProtection.c)
+ *     MiLockWorkingSetOptimal @ 0x14032F7CC (MiLockWorkingSetOptimal.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MmSetAddressRangeModifiedEx(unsigned __int64 a1, __int64 a2)
 {
   __int64 v2; // rbp

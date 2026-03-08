@@ -1,107 +1,46 @@
+/*
+ * XREFs of ?DrawBitmapRealization@CDrawingContext@@QEAAJPEAVIBitmapRealization@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@1_NHM@Z @ 0x18000EF44
+ * Callers:
+ *     ?RenderEffect@CTreeEffectLayer@@AEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBUD2D_SIZE_F@@@Z @ 0x18000EC20 (-RenderEffect@CTreeEffectLayer@@AEAAJPEAVCDrawingContext@@AEBVCMILMatrix@@AEBV-$TMilRect_@MUMilR.c)
+ *     ?RenderMask@CTreeEffectLayer@@AEAAJAEBUD2D_SIZE_F@@PEAVCDrawingContext@@PEAVIRenderTargetBitmap@@@Z @ 0x18000EE54 (-RenderMask@CTreeEffectLayer@@AEAAJAEBUD2D_SIZE_F@@PEAVCDrawingContext@@PEAVIRenderTargetBitmap@.c)
+ *     ?DrawScene3D@CDrawingContext@@QEAAJPEAUISpectreWorld@@PEAVCCompositionEnvironmentLight@@AEBVCMILMatrix@@@Z @ 0x1801D1564 (-DrawScene3D@CDrawingContext@@QEAAJPEAUISpectreWorld@@PEAVCCompositionEnvironmentLight@@AEBVCMIL.c)
+ *     ?RenderNoOpLayer@CExternalLayer@@MEAAJPEAVCDrawingContext@@@Z @ 0x1801EFFD0 (-RenderNoOpLayer@CExternalLayer@@MEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?RenderLayer@CColorSpaceLayer@@EEAAJPEAVCDrawingContext@@@Z @ 0x1801F0360 (-RenderLayer@CColorSpaceLayer@@EEAAJPEAVCDrawingContext@@@Z.c)
+ *     ?RenderLayer@CLinearInterpolationLayer@@EEAAJPEAVCDrawingContext@@@Z @ 0x1801F1670 (-RenderLayer@CLinearInterpolationLayer@@EEAAJPEAVCDrawingContext@@@Z.c)
+ * Callees:
+ *     ?DrawBitmapRealization@CDrawingContext@@QEAAJPEAVIBitmapRealization@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@AEBVMILMatrix3x2@@_NHM@Z @ 0x18000EFB4 (-DrawBitmapRealization@CDrawingContext@@QEAAJPEAVIBitmapRealization@@AEBV-$TMilRect_ea_18000EFB4.c)
+ *     ?InferAffineMatrix@MILMatrix3x2@@QEAAXAEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@0@Z @ 0x1800B52D4 (-InferAffineMatrix@MILMatrix3x2@@QEAAXAEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF.c)
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
 __int64 __fastcall CDrawingContext::DrawBitmapRealization(
-        CDrawingContext *this,
-        struct IBitmapRealization *a2,
-        struct MilRectF *a3,
-        struct MILMatrix3x2 *a4,
-        bool a5,
+        __int64 a1,
+        __int64 a2,
+        __int64 a3,
+        __int64 a4,
+        char a5,
         int a6,
         int a7)
 {
-  int v11; // eax
-  float v12; // xmm0_4
-  bool v13; // r14
-  __int64 v14; // rdx
-  gsl::details *v15; // rcx
-  int v16; // eax
-  unsigned int v17; // ecx
-  unsigned int v18; // ebx
-  const struct CMILMatrix *TopByReference; // rax
-  int v21; // xmm1_4
-  unsigned int v22; // xmm0_4
-  int v23; // xmm1_4
-  int v24; // eax
-  unsigned int v25; // ecx
-  int v26; // eax
-  unsigned int v27; // ecx
-  __int64 v28; // [rsp+30h] [rbp-91h] BYREF
-  struct CShape *v29; // [rsp+38h] [rbp-89h] BYREF
-  int v30; // [rsp+40h] [rbp-81h]
-  int v31; // [rsp+44h] [rbp-7Dh]
-  float v32; // [rsp+48h] [rbp-79h] BYREF
-  struct CShape *v33; // [rsp+50h] [rbp-71h] BYREF
-  _BYTE v34[8]; // [rsp+58h] [rbp-69h] BYREF
-  _BYTE v35[16]; // [rsp+60h] [rbp-61h] BYREF
-  _BYTE v36[80]; // [rsp+70h] [rbp-51h] BYREF
+  struct MilRectF *v7; // rdx
+  struct IBitmapRealization *v8; // r10
+  CDrawingContext *v9; // r11
+  int v10; // eax
+  unsigned int v11; // ebx
+  int v13; // [rsp+20h] [rbp-48h]
+  _BYTE v14[40]; // [rsp+40h] [rbp-28h] BYREF
+  wil::details::in1diag3 *retaddr; // [rsp+68h] [rbp+0h]
 
-  CRectanglesShape::CRectanglesShape((CRectanglesShape *)v36, a3);
-  v11 = *((_DWORD *)this + 812);
-  if ( v11 )
-    v12 = *(float *)(*((_QWORD *)this + 408) + 4LL * (unsigned int)(v11 - 1));
-  else
-    v12 = *(float *)&FLOAT_1_0;
-  v32 = v12 * *(float *)&a7;
-  CWatermarkStack<float,64,2,10>::Push((char *)this + 3248, &v32);
-  v33 = 0LL;
-  v29 = 0LL;
-  v28 = (__int64)&v33;
-  LOBYTE(v30) = 1;
-  v13 = (int)CDrawingContext::GetUnOccludedWorldShape(this, (const struct CShape *)v36, a6, &v29) >= 0;
-  if ( (_BYTE)v30 )
-  {
-    v14 = *(_QWORD *)v28;
-    *(_QWORD *)v28 = v29;
-    if ( v14 )
-      std::default_delete<CShape>::operator()();
-  }
-  if ( v13 )
-  {
-    TopByReference = CMatrixStack::GetTopByReference((CDrawingContext *)((char *)this + 400));
-    v21 = *((_DWORD *)TopByReference + 1);
-    LODWORD(v28) = *(_DWORD *)TopByReference;
-    v22 = *((_DWORD *)TopByReference + 4);
-    HIDWORD(v28) = v21;
-    v29 = (struct CShape *)__PAIR64__(*((_DWORD *)TopByReference + 5), v22);
-    v23 = *((_DWORD *)TopByReference + 13);
-    v30 = *((_DWORD *)TopByReference + 12);
-    v31 = v23;
-    MILMatrix3x2::SetInverse((MILMatrix3x2 *)v34, (const struct MILMatrix3x2 *)&v28);
-    MILMatrix3x2::SetProduct((MILMatrix3x2 *)&v28, (const struct MILMatrix3x2 *)v34, a4);
-    v24 = CDrawingContext::PushTransformInternal(this, 0LL, (const struct CMILMatrix *)&CMILMatrix::Identity, 0, 1);
-    v18 = v24;
-    if ( v24 < 0 )
-    {
-      MilInstrumentationCheckHR_MaybeFailFast(v25, 0LL, 0, v24, 0x90Du, 0LL);
-    }
-    else
-    {
-      v26 = CDrawingContext::FillShapeWithBitmapRealization(this, a2, v33, (const struct MILMatrix3x2 *)&v28, a5);
-      v18 = v26;
-      if ( v26 < 0 )
-        MilInstrumentationCheckHR_MaybeFailFast(v27, 0LL, 0, v26, 0x916u, 0LL);
-      CDrawingContext::PopTransformInternal(this, 1);
-    }
-  }
-  else
-  {
-    CDrawListBitmap::CDrawListBitmap((CDrawListBitmap *)v34, a2);
-    v35[8] = a5;
-    v28 = 1LL;
-    v29 = a3;
-    if ( !a3 )
-    {
-      gsl::details::terminate(v15);
-      __debugbreak();
-    }
-    v16 = CDrawingContext::FillRectanglesWithDrawListBitmap(this);
-    v18 = v16;
-    if ( v16 < 0 )
-      MilInstrumentationCheckHR_MaybeFailFast(v17, 0LL, 0, v16, 0x91Fu, 0LL);
-    wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>(v35);
-    wil::com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>::~com_ptr_t<IRenderTargetBitmap,wil::err_returncode_policy>(v34);
-  }
-  if ( v33 )
-    std::default_delete<CShape>::operator()();
-  CDrawingContext::PopAlpha(this, 0);
-  CRectanglesShape::~CRectanglesShape((CRectanglesShape *)v36);
-  return v18;
+  MILMatrix3x2::InferAffineMatrix(v14, a4);
+  v10 = CDrawingContext::DrawBitmapRealization(v9, v8, v7, (struct MILMatrix3x2 *)v14, a5, a6, a7);
+  v11 = v10;
+  if ( v10 >= 0 )
+    return 0LL;
+  wil::details::in1diag3::Return_Hr(
+    retaddr,
+    (void *)0x8DF,
+    (unsigned int)"onecoreuap\\windows\\dwm\\dwmcore\\engine\\drawingcontext.cpp",
+    (const char *)(unsigned int)v10,
+    v13);
+  return v11;
 }

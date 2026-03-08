@@ -1,3 +1,15 @@
+/*
+ * XREFs of MmSnapTriageDumpInformation @ 0x14062E39C
+ * Callers:
+ *     IoWriteCrashDump @ 0x14054EF00 (IoWriteCrashDump.c)
+ *     IopCollectTriageDumpData @ 0x14054FEF0 (IopCollectTriageDumpData.c)
+ *     IopWriteCapsuleTriageDumpToFirmware @ 0x140551A98 (IopWriteCapsuleTriageDumpToFirmware.c)
+ * Callees:
+ *     HvlQueryVsmConnection @ 0x1402D8618 (HvlQueryVsmConnection.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     MiAddTriageDumpPtes @ 0x14062D454 (MiAddTriageDumpPtes.c)
+ */
+
 char __fastcall MmSnapTriageDumpInformation(__int64 a1, unsigned __int64 *a2)
 {
   __int64 v4; // rdi

@@ -1,3 +1,15 @@
+/*
+ * XREFs of HviGetHypervisorVendorAndMaxFunction @ 0x140612FD4
+ * Callers:
+ *     HvlpHvIdentityInfoCallback @ 0x14053DAA0 (HvlpHvIdentityInfoCallback.c)
+ *     HvlGetSystemPasidCapabilities @ 0x140542050 (HvlGetSystemPasidCapabilities.c)
+ *     HviGetHardwareFeatures @ 0x140612F60 (HviGetHardwareFeatures.c)
+ *     HviGetIptFeatures @ 0x1406130AC (HviGetIptFeatures.c)
+ *     HvlQueryDetailInfo @ 0x14093DEE8 (HvlQueryDetailInfo.c)
+ * Callees:
+ *     HviIsAnyHypervisorPresent @ 0x14037F1D0 (HviIsAnyHypervisorPresent.c)
+ */
+
 char __fastcall HviGetHypervisorVendorAndMaxFunction(_DWORD *a1)
 {
   LOBYTE(_RAX) = HviIsAnyHypervisorPresent();

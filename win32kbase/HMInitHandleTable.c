@@ -1,3 +1,11 @@
+/*
+ * XREFs of HMInitHandleTable @ 0x1C031F424
+ * Callers:
+ *     Win32UserInitialize @ 0x1C031E444 (Win32UserInitialize.c)
+ * Callees:
+ *     ?HMGrowHandleTable@@YAHXZ @ 0x1C00ADCB4 (-HMGrowHandleTable@@YAHXZ.c)
+ */
+
 __int64 HMInitHandleTable()
 {
   _WORD *v0; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkDdiGetVendorAndDevice @ 0x1C0365A70
+ * Callers:
+ *     ?DpiDdiGetVendorAndDevice@@YAXPEAXGPEAG1@Z @ 0x1C0064B60 (-DpiDdiGetVendorAndDevice@@YAXPEAXGPEAG1@Z.c)
+ * Callees:
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005A55C (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ?GetVendorAndDevice@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETVENDORANDDEVICE@@@Z @ 0x1C0363DE4 (-GetVendorAndDevice@ADAPTER_RENDER@@QEAAJW4DXG_VIRTUAL_GPU_TYPE@@PEAU_DXGKARG_GETVENDORANDDEVICE.c)
+ */
+
 void __fastcall DxgkDdiGetVendorAndDevice(_QWORD *a1, int a2, unsigned __int16 a3, _WORD *a4, _WORD *a5)
 {
   __int64 v6; // rcx

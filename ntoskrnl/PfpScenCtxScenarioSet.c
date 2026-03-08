@@ -1,3 +1,23 @@
+/*
+ * XREFs of PfpScenCtxScenarioSet @ 0x140A84910
+ * Callers:
+ *     PfpProcessScenarioPhase @ 0x14073A2C8 (PfpProcessScenarioPhase.c)
+ *     PfPowerActionNotify @ 0x140A9CD7C (PfPowerActionNotify.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObDereferenceObjectDeferDelete @ 0x1402637F0 (ObDereferenceObjectDeferDelete.c)
+ *     PfpScenCtxWaiterTimedOut @ 0x140580900 (PfpScenCtxWaiterTimedOut.c)
+ *     PfpServiceMainThreadBoost @ 0x140580930 (PfpServiceMainThreadBoost.c)
+ *     PfpServiceMainThreadBoostPrep @ 0x14097BCA8 (PfpServiceMainThreadBoostPrep.c)
+ *     PfpScenCtxPrefetchAbortSet @ 0x140A9D0A8 (PfpScenCtxPrefetchAbortSet.c)
+ *     PfpScenCtxPrefetchStateSet @ 0x140A9D178 (PfpScenCtxPrefetchStateSet.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PfpScenCtxScenarioSet(ULONG_PTR BugCheckParameter2, int a2, int a3, __int64 a4)
 {
   struct _KTHREAD *CurrentThread; // rax

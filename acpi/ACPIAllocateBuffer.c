@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIAllocateBuffer @ 0x1C0097C2C
+ * Callers:
+ *     ACPIBusIrpQueryCompatibleId @ 0x1C007EE84 (ACPIBusIrpQueryCompatibleId.c)
+ *     ACPIBusIrpQueryDeviceId @ 0x1C007F574 (ACPIBusIrpQueryDeviceId.c)
+ *     ACPIBusIrpQueryHardwareId @ 0x1C007FC3C (ACPIBusIrpQueryHardwareId.c)
+ *     ACPIBusIrpQueryInstanceId @ 0x1C008060C (ACPIBusIrpQueryInstanceId.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPIAllocateBuffer(_QWORD *a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // r11

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmTracePerfIdleRundown @ 0x1405959F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PpmEventIdleStateChange @ 0x1402E19C8 (PpmEventIdleStateChange.c)
+ *     PpmPerfGetCurrentState @ 0x1402F75F0 (PpmPerfGetCurrentState.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall PpmTracePerfIdleRundown(_QWORD *a1)
 {
   __int64 v2; // rax

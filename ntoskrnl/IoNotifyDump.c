@@ -1,3 +1,14 @@
+/*
+ * XREFs of IoNotifyDump @ 0x14054E4A0
+ * Callers:
+ *     KeBugCheck2 @ 0x140565E90 (KeBugCheck2.c)
+ *     IoShutdownSystem @ 0x140A96AB4 (IoShutdownSystem.c)
+ *     PopRestoreHiberContext @ 0x140AA139C (PopRestoreHiberContext.c)
+ *     PopSaveHiberContext @ 0x140AA1810 (PopSaveHiberContext.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall IoNotifyDump(int a1)
 {
   int v1; // ecx

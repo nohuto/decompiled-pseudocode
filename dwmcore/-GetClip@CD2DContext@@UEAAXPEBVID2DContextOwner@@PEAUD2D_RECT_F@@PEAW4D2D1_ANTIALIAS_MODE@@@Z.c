@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetClip@CD2DContext@@UEAAXPEBVID2DContextOwner@@PEAUD2D_RECT_F@@PEAW4D2D1_ANTIALIAS_MODE@@@Z @ 0x180283E50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CD2DContext::GetClip(
         CD2DContext *this,
         const struct ID2DContextOwner *a2,

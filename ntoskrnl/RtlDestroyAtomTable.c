@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlDestroyAtomTable @ 0x1407DC4F0
+ * Callers:
+ *     RtlDereferenceAtomTable @ 0x140302E7C (RtlDereferenceAtomTable.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ExpFreeHandleTable @ 0x140704400 (ExpFreeHandleTable.c)
+ *     RtlpLockAtomTable @ 0x1407DA790 (RtlpLockAtomTable.c)
+ *     RtlpFreeAtom @ 0x1407DC628 (RtlpFreeAtom.c)
+ *     ExpRemoveHandleTable @ 0x1407DCE80 (ExpRemoveHandleTable.c)
+ */
+
 __int64 __fastcall RtlDestroyAtomTable(__int64 a1)
 {
   unsigned int v2; // r12d

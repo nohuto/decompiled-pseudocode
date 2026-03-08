@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiSetDriverVersion @ 0x1C0395104
+ * Callers:
+ *     ?InitializeParavirtualizedAdapter@DXGADAPTER@@QEAAJPEAUDRIVER_WORKAROUNDS@@@Z @ 0x1C02B3024 (-InitializeParavirtualizedAdapter@DXGADAPTER@@QEAAJPEAUDRIVER_WORKAROUNDS@@@Z.c)
+ * Callees:
+ *     DpiGetDevicePropertyString @ 0x1C02163CC (DpiGetDevicePropertyString.c)
+ */
+
 void __fastcall DpiSetDriverVersion(__int64 a1, int a2, _WORD *Data, _WORD *a4)
 {
   __int64 v4; // rdi

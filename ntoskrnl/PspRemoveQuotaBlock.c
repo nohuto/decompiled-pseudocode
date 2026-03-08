@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspRemoveQuotaBlock @ 0x1409AB0BC
+ * Callers:
+ *     PspDereferenceQuotaBlock @ 0x140696A94 (PspDereferenceQuotaBlock.c)
+ *     ObpFreeObject @ 0x1407C3980 (ObpFreeObject.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     PspUnlockQuotaListExclusive @ 0x1403B06EC (PspUnlockQuotaListExclusive.c)
+ *     PspHashKeyValue @ 0x140745510 (PspHashKeyValue.c)
+ */
+
 char __fastcall PspRemoveQuotaBlock(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rbp

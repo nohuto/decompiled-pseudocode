@@ -1,3 +1,11 @@
+/*
+ * XREFs of Amd64ResumeProfiling @ 0x140527BA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 Amd64ResumeProfiling()
 {
   __int64 v0; // r8

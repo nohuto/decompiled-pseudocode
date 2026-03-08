@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?InitializeReferenceTracker@@YA_NXZ @ 0x1C00CF19C
+ * Callers:
+ *     HmgCreate @ 0x1C002CDD0 (HmgCreate.c)
+ * Callees:
+ *     ?Create@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@SAPEAV123@PEAU_LIST_ENTRY@@K@Z @ 0x1C019BA80 (-Create@CReferenceCountedType@CReferenceTracker@NSInstrumentation@@SAPEAV123@PEAU_LIST_ENTRY@@K@.c)
+ */
+
 char __fastcall InitializeReferenceTracker(__int64 a1)
 {
   __int64 v1; // rbx

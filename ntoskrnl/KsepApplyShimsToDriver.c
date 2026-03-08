@@ -1,3 +1,16 @@
+/*
+ * XREFs of KsepApplyShimsToDriver @ 0x140800924
+ * Callers:
+ *     KseDriverLoadImage @ 0x14079EAC4 (KseDriverLoadImage.c)
+ * Callees:
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     KsepLogError @ 0x140303450 (KsepLogError.c)
+ *     KsepLogInfo @ 0x14036F8F4 (KsepLogInfo.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KsepDebugPrint @ 0x14057E834 (KsepDebugPrint.c)
+ *     KsepPatchDriverImportsTable @ 0x140800258 (KsepPatchDriverImportsTable.c)
+ */
+
 __int64 __fastcall KsepApplyShimsToDriver(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   unsigned int v7; // r14d

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ProcessNvmeHealthInfoLog @ 0x1C0024B64
+ * Callers:
+ *     NVMeModeSenseGetLogPageHealthInfoCompletion @ 0x1C0016990 (NVMeModeSenseGetLogPageHealthInfoCompletion.c)
+ *     QueryProtocolInfoCompletion @ 0x1C0018B80 (QueryProtocolInfoCompletion.c)
+ *     NVMeGetLogPageCompletion @ 0x1C001E210 (NVMeGetLogPageCompletion.c)
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     GetLunExtension @ 0x1C001B754 (GetLunExtension.c)
+ */
+
 char __fastcall ProcessNvmeHealthInfoLog(__int64 a1, __int64 a2, char *a3, int a4)
 {
   __int64 SrbExtension; // rax

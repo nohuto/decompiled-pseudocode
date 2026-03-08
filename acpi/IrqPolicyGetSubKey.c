@@ -1,3 +1,14 @@
+/*
+ * XREFs of IrqPolicyGetSubKey @ 0x1C009FC24
+ * Callers:
+ *     PcisuppGetRoutingInfo @ 0x1C0099C6C (PcisuppGetRoutingInfo.c)
+ *     PcisuppSetRoutingInfo @ 0x1C009A1E8 (PcisuppSetRoutingInfo.c)
+ *     IrqPolicyGetDevicePolicy @ 0x1C009F8A4 (IrqPolicyGetDevicePolicy.c)
+ *     IrqPolicySetDeviceAffinity @ 0x1C009FED4 (IrqPolicySetDeviceAffinity.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall IrqPolicyGetSubKey(struct _DEVICE_OBJECT *a1, const WCHAR *a2, ULONG a3, void **a4)
 {
   NTSTATUS result; // eax

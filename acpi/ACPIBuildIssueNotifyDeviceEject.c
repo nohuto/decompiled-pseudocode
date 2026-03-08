@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIBuildIssueNotifyDeviceEject @ 0x1C000D5F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIDockIsDockDevice @ 0x1C0009A34 (ACPIDockIsDockDevice.c)
+ */
+
 void __fastcall ACPIBuildIssueNotifyDeviceEject(__int64 a1, __int64 a2)
 {
   _QWORD *v3; // rdx

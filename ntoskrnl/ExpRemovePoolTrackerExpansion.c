@@ -1,3 +1,19 @@
+/*
+ * XREFs of ExpRemovePoolTrackerExpansion @ 0x140462C3A
+ * Callers:
+ *     ExFreeHeapPool @ 0x1402B61C0 (ExFreeHeapPool.c)
+ *     ExInsertPoolTag @ 0x1403B51DC (ExInsertPoolTag.c)
+ *     ExRemovePoolTag @ 0x1403BD8EC (ExRemovePoolTag.c)
+ *     ExPoolCleanupExpansionTable @ 0x140604EC8 (ExPoolCleanupExpansionTable.c)
+ *     ExpFreeHeapSpecialPool @ 0x14060CCF8 (ExpFreeHeapSpecialPool.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ * Callees:
+ *     ExpPoolTrackerReturnLimit @ 0x140313B50 (ExpPoolTrackerReturnLimit.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 int __fastcall ExpRemovePoolTrackerExpansion(int a1, __int64 a2, char a3)
 {
   __int64 v6; // rdx

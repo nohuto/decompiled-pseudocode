@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiDiagTraceActiveCoolingDevicePower @ 0x1C0007584
+ * Callers:
+ *     ACPIThermalUpdateConstraints @ 0x1C004221C (ACPIThermalUpdateConstraints.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C000B2B0 (ACPIAmliBuildObjectPathnameUnicode.c)
+ */
+
 void __fastcall AcpiDiagTraceActiveCoolingDevicePower(__int64 a1, __int64 a2, int a3, int a4, char a5)
 {
   __int64 v7; // rcx

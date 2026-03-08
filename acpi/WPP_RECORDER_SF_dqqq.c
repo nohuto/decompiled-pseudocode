@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_dqqq @ 0x1C00477D0
+ * Callers:
+ *     ACPIWorkerThread @ 0x1C00475A0 (ACPIWorkerThread.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_dqqq(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
 {
   int v7; // [rsp+20h] [rbp-58h]

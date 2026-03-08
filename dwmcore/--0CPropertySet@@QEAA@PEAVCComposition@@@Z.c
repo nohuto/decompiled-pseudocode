@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CPropertySet@@QEAA@PEAVCComposition@@@Z @ 0x180111C08
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ * Callees:
+ *     <none>
+ */
+
 CPropertySet *__fastcall CPropertySet::CPropertySet(CPropertySet *this, struct CComposition *a2)
 {
   CPropertySet *result; // rax

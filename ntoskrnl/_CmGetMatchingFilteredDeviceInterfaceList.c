@@ -1,3 +1,21 @@
+/*
+ * XREFs of _CmGetMatchingFilteredDeviceInterfaceList @ 0x1406C42E4
+ * Callers:
+ *     _PnpDeviceRaisePropertyChangeEventWorker @ 0x1406874DC (_PnpDeviceRaisePropertyChangeEventWorker.c)
+ *     IopGetDeviceInterfaces @ 0x1406C4A94 (IopGetDeviceInterfaces.c)
+ *     _CmGetMatchingDeviceInterfaceList @ 0x14085C60C (_CmGetMatchingDeviceInterfaceList.c)
+ *     PiDevCfgConfigureDeviceInterfaces @ 0x140876D34 (PiDevCfgConfigureDeviceInterfaces.c)
+ *     PnpDisableDeviceInterfaces @ 0x14087E3BC (PnpDisableDeviceInterfaces.c)
+ *     PnpDeleteDeviceInterfaces @ 0x1409534E4 (PnpDeleteDeviceInterfaces.c)
+ *     _CmDeleteDeviceWorker @ 0x140A5F74C (_CmDeleteDeviceWorker.c)
+ *     _CmDeleteInterfaceClassWorker @ 0x140A60258 (_CmDeleteInterfaceClassWorker.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     _CmGetMatchingFilteredDeviceInterfaceListWorker @ 0x140823FCC (_CmGetMatchingFilteredDeviceInterfaceListWorker.c)
+ */
+
 __int64 __fastcall CmGetMatchingFilteredDeviceInterfaceList(
         __int64 a1,
         __int64 a2,

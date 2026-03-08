@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkEngAcquireStableVisRgn @ 0x1C014D250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ */
+
 void __fastcall DxgkEngAcquireStableVisRgn(HDC a1)
 {
   int v2; // esi

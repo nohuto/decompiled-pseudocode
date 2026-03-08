@@ -1,3 +1,13 @@
+/*
+ * XREFs of SymCryptMarvin32 @ 0x1403F0388
+ * Callers:
+ *     HvpGenerateLogEntryChecksums @ 0x14072E328 (HvpGenerateLogEntryChecksums.c)
+ *     HvpLogEntryCheckHeaderChecksum @ 0x1407F9C94 (HvpLogEntryCheckHeaderChecksum.c)
+ *     HvpLogEntryCheckDataChecksum @ 0x1407F9CFC (HvpLogEntryCheckDataChecksum.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptMarvin32(int *a1, unsigned __int16 *a2, unsigned __int64 a3, _DWORD *a4)
 {
   int v4; // r10d

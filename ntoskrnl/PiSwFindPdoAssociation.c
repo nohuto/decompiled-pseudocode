@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiSwFindPdoAssociation @ 0x140847170
+ * Callers:
+ *     PiSwIrpStartCreateWorker @ 0x140806A2C (PiSwIrpStartCreateWorker.c)
+ *     PiSwGetChildPdo @ 0x140846F50 (PiSwGetChildPdo.c)
+ *     PiSwStopDestroy @ 0x140867198 (PiSwStopDestroy.c)
+ *     PiSwRemovePdoAssociation @ 0x140964C14 (PiSwRemovePdoAssociation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PiSwFindPdoAssociation(__int64 a1, __int64 a2, char a3)
 {
   char v3; // r9

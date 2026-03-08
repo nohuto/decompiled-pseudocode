@@ -1,3 +1,15 @@
+/*
+ * XREFs of VmPinMemoryRange @ 0x1409D9AF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     VmpPinMemoryRange @ 0x1405F7F20 (VmpPinMemoryRange.c)
+ */
+
 __int64 __fastcall VmPinMemoryRange(unsigned __int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4, __int64 a5)
 {
   unsigned __int64 v9; // rbp

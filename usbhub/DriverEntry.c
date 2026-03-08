@@ -1,3 +1,18 @@
+/*
+ * XREFs of DriverEntry @ 0x1C0041964
+ * Callers:
+ *     GsDriverEntry @ 0x1C0075010 (GsDriverEntry.c)
+ * Callees:
+ *     USBHUB_InitBugCheck @ 0x1C0041BF4 (USBHUB_InitBugCheck.c)
+ *     UsbhInitGlobal @ 0x1C0043978 (UsbhInitGlobal.c)
+ *     UsbhModuleDispatch @ 0x1C0043D00 (UsbhModuleDispatch.c)
+ *     UsbhInitializeHighResTimer @ 0x1C005C184 (UsbhInitializeHighResTimer.c)
+ *     wil_UninitializeFeatureStaging @ 0x1C0073008 (wil_UninitializeFeatureStaging.c)
+ *     WppInitKm @ 0x1C00733E4 (WppInitKm.c)
+ *     WppLoadTracingSupport @ 0x1C00734C0 (WppLoadTracingSupport.c)
+ *     wil_InitializeFeatureStaging @ 0x1C0075078 (wil_InitializeFeatureStaging.c)
+ */
+
 NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING RegistryPath)
 {
   unsigned int v2; // ebx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBPDO_EvtDeviceProcessQueryInterfaceRequest @ 0x1C001AA30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_q @ 0x1C0015204 (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_qq @ 0x1C00154F0 (WPP_RECORDER_SF_qq.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBPDO_EvtDeviceProcessQueryInterfaceRequest(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rax

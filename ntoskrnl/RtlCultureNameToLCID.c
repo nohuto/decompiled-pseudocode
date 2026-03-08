@@ -1,3 +1,22 @@
+/*
+ * XREFs of RtlCultureNameToLCID @ 0x1407FE570
+ * Callers:
+ *     RtlpMuiRegLoadLicInformation @ 0x14036F370 (RtlpMuiRegLoadLicInformation.c)
+ *     RtlpLoadInstallLanguageFallback @ 0x140843474 (RtlpLoadInstallLanguageFallback.c)
+ *     _RtlpMuiRegInitAnyLanguage @ 0x140844394 (_RtlpMuiRegInitAnyLanguage.c)
+ *     RtlpLoadPolicyLanguageSpec @ 0x140A716A4 (RtlpLoadPolicyLanguageSpec.c)
+ *     RtlpMuiRegConfigMatchesInstalled @ 0x140A719B4 (RtlpMuiRegConfigMatchesInstalled.c)
+ *     RtlpMuiRegGetInstalledLanguageIndex @ 0x140A71DC4 (RtlpMuiRegGetInstalledLanguageIndex.c)
+ *     RtlpMuiRegGetLanguageSpec @ 0x140A72004 (RtlpMuiRegGetLanguageSpec.c)
+ *     RtlpMuiRegLangInfoMatchesSpec @ 0x140A72148 (RtlpMuiRegLangInfoMatchesSpec.c)
+ *     _RtlMuiRegAddLIPParent @ 0x140A724F4 (_RtlMuiRegAddLIPParent.c)
+ * Callees:
+ *     DownLevelLanguageNameToLangID @ 0x14036F74C (DownLevelLanguageNameToLangID.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     __report_rangecheckfailure @ 0x1404FBCCC (__report_rangecheckfailure.c)
+ */
+
 bool __fastcall RtlCultureNameToLCID(unsigned __int16 *a1, _DWORD *a2)
 {
   char v2; // di

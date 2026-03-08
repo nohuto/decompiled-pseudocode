@@ -1,3 +1,12 @@
+/*
+ * XREFs of AslUnicodeStringFree @ 0x140A513A0
+ * Callers:
+ *     SdbResolveDatabaseEx @ 0x140A4FB10 (SdbResolveDatabaseEx.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall AslUnicodeStringFree(__int64 a1)
 {
   void *v2; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsEqualTo@CRgnData@Internal@FastRegion@@QEBA_NAEBV123@@Z @ 0x1801DAA98
+ * Callers:
+ *     ?HaveOverlayCandidatesChanged@COverlayContext@@AEAA_NXZ @ 0x180052DC0 (-HaveOverlayCandidatesChanged@COverlayContext@@AEAA_NXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall FastRegion::Internal::CRgnData::IsEqualTo(
         FastRegion::Internal::CRgnData *this,
         const struct FastRegion::Internal::CRgnData *a2)

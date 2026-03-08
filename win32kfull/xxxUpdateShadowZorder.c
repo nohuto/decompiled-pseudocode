@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxUpdateShadowZorder @ 0x1C02246CC
+ * Callers:
+ *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C0068640 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
+ * Callees:
+ *     SetWindowGroupBand @ 0x1C0025CE4 (SetWindowGroupBand.c)
+ *     xxxSetWindowPos @ 0x1C0028F4C (xxxSetWindowPos.c)
+ *     ?FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z @ 0x1C0029674 (-FindShadow@@YAPEAUtagSHADOW@@PEAUtagWND@@@Z.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ */
+
 struct tagSHADOW *__fastcall xxxUpdateShadowZorder(struct tagWND *a1)
 {
   struct tagSHADOW *result; // rax

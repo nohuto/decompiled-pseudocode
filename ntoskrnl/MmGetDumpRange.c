@@ -1,3 +1,18 @@
+/*
+ * XREFs of MmGetDumpRange @ 0x14062DF70
+ * Callers:
+ *     IoWriteCrashDump @ 0x14054EF00 (IoWriteCrashDump.c)
+ *     IopAddKernelSpacePagesToPartialDump @ 0x14055A3F4 (IopAddKernelSpacePagesToPartialDump.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     MiRemovePendingBadPagesFromDump @ 0x1406285EC (MiRemovePendingBadPagesFromDump.c)
+ *     MiAddNonSecuredPagesToDump @ 0x14062CF18 (MiAddNonSecuredPagesToDump.c)
+ *     MiAddPhysicalPagesToCrashDump @ 0x14062D30C (MiAddPhysicalPagesToCrashDump.c)
+ *     MmAddRangeToCrashDump @ 0x14062DD30 (MmAddRangeToCrashDump.c)
+ *     MmRemoveSystemCacheFromDump @ 0x14062E2CC (MmRemoveSystemCacheFromDump.c)
+ *     MiRemoveEnclavePagesFromDump @ 0x140646304 (MiRemoveEnclavePagesFromDump.c)
+ */
+
 void __fastcall MmGetDumpRange(__int64 a1, int a2, char a3)
 {
   __int64 *v5; // rdi

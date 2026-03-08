@@ -1,3 +1,12 @@
+/*
+ * XREFs of GreSetRedirection @ 0x1C0021DE4
+ * Callers:
+ *     DeleteOrSetRedirectionBitmap @ 0x1C0021D34 (DeleteOrSetRedirectionBitmap.c)
+ *     CreateOrGetRedirectionBitmap @ 0x1C002B8C8 (CreateOrGetRedirectionBitmap.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GreSetRedirection(__int64 a1, __int64 a2)
 {
   int v2; // edi

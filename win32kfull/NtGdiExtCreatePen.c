@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiExtCreatePen @ 0x1C014FEC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreExtCreatePen @ 0x1C00E8994 (GreExtCreatePen.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall NtGdiExtCreatePen(
         int a1,
         __int64 a2,

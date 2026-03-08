@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RegistryNotificaionEnumerationEnd@@YAXPEAK@Z @ 0x1C00D0C74
+ * Callers:
+ *     GreAddFontResourceWInternal @ 0x1C00D0B00 (GreAddFontResourceWInternal.c)
+ * Callees:
+ *     ?bCleanupPFT@PUBLIC_PFTOBJ@@QEAAXW4eCleanupMode@1@PEAK@Z @ 0x1C00D0D34 (-bCleanupPFT@PUBLIC_PFTOBJ@@QEAAXW4eCleanupMode@1@PEAK@Z.c)
+ */
+
 void __fastcall RegistryNotificaionEnumerationEnd(Gre::Base *a1)
 {
   struct Gre::Base::SESSION_GLOBALS *v2; // rbx

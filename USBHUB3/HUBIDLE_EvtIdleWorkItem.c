@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBIDLE_EvtIdleWorkItem @ 0x1C003EF70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HUBIDLE_AddEvent @ 0x1C003EAB4 (HUBIDLE_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBIDLE_EvtIdleWorkItem(__int64 a1)
 {
   __int64 *v1; // rax

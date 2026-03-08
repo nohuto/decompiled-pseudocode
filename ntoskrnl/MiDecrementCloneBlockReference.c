@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiDecrementCloneBlockReference @ 0x14066176C
+ * Callers:
+ *     MiDeletePteList @ 0x140276AC0 (MiDeletePteList.c)
+ *     MiDeletePteRun @ 0x140279760 (MiDeletePteRun.c)
+ *     MiCopyOnWrite @ 0x140319F00 (MiCopyOnWrite.c)
+ *     MiDeleteVa @ 0x140324900 (MiDeleteVa.c)
+ *     MiDecommitPages @ 0x140329B10 (MiDecommitPages.c)
+ * Callees:
+ *     MiDecrementCloneBlock @ 0x14029DC04 (MiDecrementCloneBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiDeleteCloneDescriptor @ 0x140661860 (MiDeleteCloneDescriptor.c)
+ */
+
 __int64 __fastcall MiDecrementCloneBlockReference(
         ULONG_PTR BugCheckParameter2,
         ULONG_PTR BugCheckParameter3,

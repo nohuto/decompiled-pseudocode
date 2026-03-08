@@ -1,3 +1,13 @@
+/*
+ * XREFs of ObCleanupSecurityDescriptor @ 0x14085FE80
+ * Callers:
+ *     ObpInitializeRootNamespace @ 0x1408093C4 (ObpInitializeRootNamespace.c)
+ *     MiCreatePartitionNamespace @ 0x140809994 (MiCreatePartitionNamespace.c)
+ * Callees:
+ *     RtlGetDaclSecurityDescriptor @ 0x140299320 (RtlGetDaclSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall ObCleanupSecurityDescriptor(void *a1)
 {
   BOOLEAN v1; // [rsp+38h] [rbp+10h] BYREF

@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpAllocateSchematizedFilter @ 0x1409F1D14
+ * Callers:
+ *     EtwpAllocateFilter @ 0x14077F2A4 (EtwpAllocateFilter.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall EtwpAllocateSchematizedFilter(__int64 a1, _QWORD *a2)
 {
   unsigned int v4; // ecx

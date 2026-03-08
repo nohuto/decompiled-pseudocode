@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AcquireLock@FxSpinLockTransactionedList@@MEAAXPEAU_FX_DRIVER_GLOBALS@@PEAE@Z @ 0x1C004F7C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxSpinLockTransactionedList::AcquireLock(
         FxSpinLockTransactionedList *this,
         _FX_DRIVER_GLOBALS *FxDriverGlobals,

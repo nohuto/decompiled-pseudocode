@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1DMMVIDEOPRESENTSOURCE@@UEAA@XZ @ 0x1C006A528
+ * Callers:
+ *     ??_EDMMVIDEOPRESENTSOURCE@@UEAAPEAXI@Z @ 0x1C006A670 (--_EDMMVIDEOPRESENTSOURCE@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?Release@ReferenceCounted@@QEBA_KXZ @ 0x1C0007E94 (-Release@ReferenceCounted@@QEBA_KXZ.c)
+ *     ??1?$Set@VCONTEXT_DATA@ContextDataAssignee@@@@UEAA@XZ @ 0x1C006A4F8 (--1-$Set@VCONTEXT_DATA@ContextDataAssignee@@@@UEAA@XZ.c)
+ */
+
 void __fastcall DMMVIDEOPRESENTSOURCE::~DMMVIDEOPRESENTSOURCE(DMMVIDEOPRESENTSOURCE *this)
 {
   ReferenceCounted *v2; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of _anonymous_namespace_::_unnamed_type__etwEndFrameSnapshot_::UpdateSnapshot @ 0x1801CAA04
+ * Callers:
+ *     ?FrameEnded@CTelemetryFrames@@SAX_N0_K@Z @ 0x180050C2C (-FrameEnded@CTelemetryFrames@@SAX_N0_K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall anonymous_namespace_::_unnamed_type__etwEndFrameSnapshot_::UpdateSnapshot(_DWORD *a1)
 {
   __int64 result; // rax

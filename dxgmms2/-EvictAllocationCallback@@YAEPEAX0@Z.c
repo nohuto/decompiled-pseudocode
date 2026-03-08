@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EvictAllocationCallback@@YAEPEAX0@Z @ 0x1C00FD1D4
+ * Callers:
+ *     ?IterateAllocatedBlocksInRange@VIDMM_LINEAR_POOL@@QEAAX_K0PEAXP6AE11@Z@Z @ 0x1C0102450 (-IterateAllocatedBlocksInRange@VIDMM_LINEAR_POOL@@QEAAX_K0PEAXP6AE11@Z@Z.c)
+ * Callees:
+ *     ?Release@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002124 (-Release@DXGFASTMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGFASTMUTEX@@QEAAXXZ @ 0x1C0002B90 (-Acquire@DXGFASTMUTEX@@QEAAXXZ.c)
+ */
+
 char __fastcall EvictAllocationCallback(_BYTE *a1, _QWORD *a2)
 {
   char v2; // bl

@@ -1,3 +1,11 @@
+/*
+ * XREFs of IidCloneDeviceIdPci @ 0x140302E48
+ * Callers:
+ *     IidCloneDeviceId @ 0x140822DFC (IidCloneDeviceId.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall IidCloneDeviceIdPci(__int64 a1, __int64 a2)
 {
   *(_OWORD *)a2 = *(_OWORD *)a1;

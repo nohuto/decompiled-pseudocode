@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpiCmResourceSidebandConnection @ 0x1C0092EB4
+ * Callers:
+ *     PnpiCmResourceRemoveSidebandResources @ 0x1C0092CD4 (PnpiCmResourceRemoveSidebandResources.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PnpiCmResourceSidebandConnection(__int64 a1, __int64 a2, char *a3)
 {
   unsigned int v3; // ebx

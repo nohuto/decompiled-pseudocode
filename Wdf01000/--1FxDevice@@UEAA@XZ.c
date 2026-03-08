@@ -1,3 +1,21 @@
+/*
+ * XREFs of ??1FxDevice@@UEAA@XZ @ 0x1C003D530
+ * Callers:
+ *     ??_GFxDevice@@UEAAPEAXI@Z @ 0x1C003D7D0 (--_GFxDevice@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     WPP_IFR_SF_qq @ 0x1C001828C (WPP_IFR_SF_qq.c)
+ *     ??1FxDeviceBase@@MEAA@XZ @ 0x1C0038CC8 (--1FxDeviceBase@@MEAA@XZ.c)
+ *     ??_GFxIrpPreprocessInfo@@QEAAPEAXI@Z @ 0x1C003BB8C (--_GFxIrpPreprocessInfo@@QEAAPEAXI@Z.c)
+ *     ?DeleteSymbolicLink@FxDevice@@QEAAXXZ @ 0x1C003C5B4 (-DeleteSymbolicLink@FxDevice@@QEAAXXZ.c)
+ *     ??1FxCxDeviceInfo@@QEAA@XZ @ 0x1C003D4F4 (--1FxCxDeviceInfo@@QEAA@XZ.c)
+ *     ?IsDisposed@FxObject@@QEAAEXZ @ 0x1C003E6F8 (-IsDisposed@FxObject@@QEAAEXZ.c)
+ *     ?FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z @ 0x1C0045B6C (-FxVerifierBugCheckWorker@@YAXPEAU_FX_DRIVER_GLOBALS@@W4_WDF_BUGCHECK_CODES@@_K2@Z.c)
+ *     ??1FxTransactionedList@@QEAA@XZ @ 0x1C004F69C (--1FxTransactionedList@@QEAA@XZ.c)
+ */
+
 void __fastcall FxDevice::~FxDevice(FxDevice *this)
 {
   const void *_a2; // rax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PfSnPrefetchScenario @ 0x1407E1578
+ * Callers:
+ *     PfSnBeginScenario @ 0x1407E4764 (PfSnBeginScenario.c)
+ * Callees:
+ *     KeQueryPriorityThread @ 0x140240EA0 (KeQueryPriorityThread.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     PfSnAsyncContextInitialize @ 0x1407DFF7C (PfSnAsyncContextInitialize.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PfSnPrefetchScenario(PVOID P, unsigned int a2)
 {
   struct _WORK_QUEUE_ITEM *Pool2; // rax

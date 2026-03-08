@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvMoveLayoutStats @ 0x1406ED3D4
+ * Callers:
+ *     HvCheckBin @ 0x1406ED190 (HvCheckBin.c)
+ *     HvCheckHive @ 0x1407A6080 (HvCheckHive.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HvMoveLayoutStats(_DWORD *a1)
 {
   __int64 result; // rax

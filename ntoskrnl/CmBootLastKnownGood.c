@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmBootLastKnownGood @ 0x140A07880
+ * Callers:
+ *     IopLoadDriver @ 0x14072A9DC (IopLoadDriver.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall CmBootLastKnownGood(int a1, __int64 a2, __int64 a3, int a4)
 {
   __int64 result; // rax

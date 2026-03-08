@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?vDIBSolidBlt@@YAXPEAVSURFACE@@PEAU_RECTL@@PEAU_CLIPOBJ@@KH@Z @ 0x1C0088F60
+ * Callers:
+ *     EngTextOut @ 0x1C001A540 (EngTextOut.c)
+ *     EngBitBlt @ 0x1C0088BA0 (EngBitBlt.c)
+ *     EngEraseSurface @ 0x1C0127710 (EngEraseSurface.c)
+ *     ??1FRINGERECT@@QEAA@XZ @ 0x1C0296028 (--1FRINGERECT@@QEAA@XZ.c)
+ * Callees:
+ *     ?bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z @ 0x1C00032F8 (-bEnum@XCLIPOBJ@@QEAAHKPEAXPEAK@Z.c)
+ *     ?cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z @ 0x1C00B5E70 (-cEnumStart@XCLIPOBJ@@QEAAKHKKK@Z.c)
+ *     ?bUMPDSecurityGateEx@@YAHXZ @ 0x1C00D4254 (-bUMPDSecurityGateEx@@YAHXZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 void __fastcall vDIBSolidBlt(struct SURFACE *a1, struct _RECTL *a2, struct _CLIPOBJ *a3, int a4, int a5)
 {
   unsigned __int16 v5; // r14

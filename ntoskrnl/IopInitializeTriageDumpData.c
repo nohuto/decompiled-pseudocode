@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopInitializeTriageDumpData @ 0x14084C360
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     KeRegisterBugCheckReasonCallback @ 0x1402E8DA0 (KeRegisterBugCheckReasonCallback.c)
+ *     KeAddTriageDumpDataBlock @ 0x1403A29E0 (KeAddTriageDumpDataBlock.c)
+ *     KeInitializeTriageDumpDataArray @ 0x1403A2D10 (KeInitializeTriageDumpDataArray.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void IopInitializeTriageDumpData()
 {
   struct _KTRIAGE_DUMP_DATA_ARRAY *Pool2; // rax

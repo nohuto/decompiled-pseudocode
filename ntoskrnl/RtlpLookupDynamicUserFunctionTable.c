@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlpLookupDynamicUserFunctionTable @ 0x1405AFF68
+ * Callers:
+ *     RtlpLookupUserFunctionTable @ 0x14039DB7C (RtlpLookupUserFunctionTable.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 unsigned __int64 __fastcall RtlpLookupDynamicUserFunctionTable(unsigned __int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rbx

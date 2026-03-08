@@ -1,3 +1,15 @@
+/*
+ * XREFs of VidSchTimeoutSyncObject @ 0x1C0040B90
+ * Callers:
+ *     VidSchDestroySyncObject @ 0x1C00AA4A0 (VidSchDestroySyncObject.c)
+ * Callees:
+ *     ??1HwQueueStagingList@@QEAA@XZ @ 0x1C00067E0 (--1HwQueueStagingList@@QEAA@XZ.c)
+ *     ?Acquire@AcquireSpinLock@@QEAAXXZ @ 0x1C0013414 (-Acquire@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?Release@AcquireSpinLock@@QEAAXXZ @ 0x1C00134D8 (-Release@AcquireSpinLock@@QEAAXXZ.c)
+ *     ?SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z @ 0x1C0014D1C (-SetToAlwaysSignaled@_VIDSCH_SYNC_OBJECT@@QEAAXPEAVHwQueueStagingList@@_N@Z.c)
+ *     VidSchiUnblockUnorderedWaiter @ 0x1C003CA48 (VidSchiUnblockUnorderedWaiter.c)
+ */
+
 __int64 __fastcall VidSchTimeoutSyncObject(_VIDSCH_SYNC_OBJECT *this)
 {
   __int64 v1; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiGetVgaStatus @ 0x1C0218D80
+ * Callers:
+ *     DpiAddDevice @ 0x1C01F38A0 (DpiAddDevice.c)
+ * Callees:
+ *     DpiFdoDetectVgaDeviceInCapabilities @ 0x1C0218DC8 (DpiFdoDetectVgaDeviceInCapabilities.c)
+ */
+
 __int64 __fastcall DpiGetVgaStatus(__int64 a1)
 {
   __int64 v1; // rbx

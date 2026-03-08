@@ -1,3 +1,18 @@
+/*
+ * XREFs of RtlpHpAcquireQueuedLockExclusive @ 0x140350330
+ * Callers:
+ *     RtlpHpVsContextFreeList @ 0x140249050 (RtlpHpVsContextFreeList.c)
+ *     RtlpHpVsChunkFree @ 0x140249D70 (RtlpHpVsChunkFree.c)
+ *     RtlpHpVsContextAllocateInternal @ 0x14024A790 (RtlpHpVsContextAllocateInternal.c)
+ *     RtlpHpVsChunkSplit @ 0x14024AB60 (RtlpHpVsChunkSplit.c)
+ *     RtlpHpFreeHeap @ 0x140313CC0 (RtlpHpFreeHeap.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140350400 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140462ED8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ */
+
 void __fastcall RtlpHpAcquireQueuedLockExclusive(volatile signed __int32 *a1, int a2, _QWORD *a3)
 {
   unsigned __int8 CurrentIrql; // si

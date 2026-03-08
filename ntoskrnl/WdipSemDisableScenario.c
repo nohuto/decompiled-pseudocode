@@ -1,3 +1,24 @@
+/*
+ * XREFs of WdipSemDisableScenario @ 0x140831E48
+ * Callers:
+ *     WdipStartEndScenario @ 0x140796650 (WdipStartEndScenario.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     WdipSemGetLoggerIds @ 0x140796868 (WdipSemGetLoggerIds.c)
+ *     WdipSemDeleteTransitionalInstance @ 0x140831C10 (WdipSemDeleteTransitionalInstance.c)
+ *     WdipSemMarkInstanceForDeletion @ 0x140831F8C (WdipSemMarkInstanceForDeletion.c)
+ *     WdipSemDisableContextProviders @ 0x1408321DC (WdipSemDisableContextProviders.c)
+ *     WdipSemWriteSemActionsEvent @ 0x140832438 (WdipSemWriteSemActionsEvent.c)
+ *     WdipSemValidateEndEvent @ 0x140834640 (WdipSemValidateEndEvent.c)
+ *     WdipSemActivateInstance @ 0x14085ECB0 (WdipSemActivateInstance.c)
+ *     WdipSemShutdown @ 0x1409DAE00 (WdipSemShutdown.c)
+ *     WdipSemWriteSemFailureEvent @ 0x1409DB77C (WdipSemWriteSemFailureEvent.c)
+ */
+
 __int64 __fastcall WdipSemDisableScenario(__int64 a1, unsigned __int16 a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rax

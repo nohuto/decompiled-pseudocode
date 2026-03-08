@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhRegPnpStart @ 0x1C0046820
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     UsbhGetPdoRegistryParameter @ 0x1C0045000 (UsbhGetPdoRegistryParameter.c)
+ *     UsbhGetGlobalUxdSettings @ 0x1C0059EA0 (UsbhGetGlobalUxdSettings.c)
+ */
+
 __int64 __fastcall UsbhRegPnpStart(__int64 a1)
 {
   wchar_t **v2; // rbx

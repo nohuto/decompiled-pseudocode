@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidSchiConvertGpuTimeStampToSchedulerUnits@@YA_KPEAU_VIDSCH_NODE@@_K_J@Z @ 0x1C001CBA6
+ * Callers:
+ *     ?VidSchiUpdateHwSchRunningTime@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C001D8B2 (-VidSchiUpdateHwSchRunningTime@@YAXPEAU_VIDSCH_NODE@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall VidSchiConvertGpuTimeStampToSchedulerUnits(
         struct _VIDSCH_NODE *a1,
         __int64 a2,

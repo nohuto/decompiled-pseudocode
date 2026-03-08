@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpCmosRangeHandler @ 0x14051DA5C
+ * Callers:
+ *     HalpcGetCmosDataByType @ 0x14051DD80 (HalpcGetCmosDataByType.c)
+ *     HalpcSetCmosDataByType @ 0x14051DDB0 (HalpcSetCmosDataByType.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpReadRtcStdPCAT @ 0x14051DB40 (HalpReadRtcStdPCAT.c)
+ *     HalpWriteRtcStdPCAT @ 0x14051DC40 (HalpWriteRtcStdPCAT.c)
+ */
+
 __int64 __fastcall HalpCmosRangeHandler(int a1, int a2, unsigned int a3, __int64 a4, int a5)
 {
   unsigned int v8; // eax

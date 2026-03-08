@@ -1,3 +1,15 @@
+/*
+ * XREFs of _RegRtlEnumValue @ 0x14086C580
+ * Callers:
+ *     _PnpCtxRegEnumValue @ 0x140866444 (_PnpCtxRegEnumValue.c)
+ *     _RegRtlCopyTreeInternal @ 0x140A67A08 (_RegRtlCopyTreeInternal.c)
+ * Callees:
+ *     ZwEnumerateValueKey @ 0x140412570 (ZwEnumerateValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RegRtlEnumValue(
         HANDLE KeyHandle,
         ULONG Index,

@@ -1,3 +1,20 @@
+/*
+ * XREFs of KiCheckPreferredHeteroProcessor @ 0x14022FC90
+ * Callers:
+ *     KiUpdateRunTime @ 0x14022ECE0 (KiUpdateRunTime.c)
+ *     KiQuantumEnd @ 0x140254F30 (KiQuantumEnd.c)
+ *     KeUpdateThreadTag @ 0x1402FB2F0 (KeUpdateThreadTag.c)
+ *     KiSendHeteroRescheduleIntRequestHelper @ 0x140459C44 (KiSendHeteroRescheduleIntRequestHelper.c)
+ * Callees:
+ *     KiIsQosGroupingActive @ 0x1402ED844 (KiIsQosGroupingActive.c)
+ *     KiFindBiasedSetMember @ 0x14045780C (KiFindBiasedSetMember.c)
+ *     KiGenerateHeteroSets @ 0x1404590A0 (KiGenerateHeteroSets.c)
+ *     KiGetProcessorClassForPolicy @ 0x140459166 (KiGetProcessorClassForPolicy.c)
+ *     KiHeteroComputeThreadWorkloadProperties @ 0x14045969C (KiHeteroComputeThreadWorkloadProperties.c)
+ *     KiIsThreadEligibleForPreemptionSwap @ 0x140459946 (KiIsThreadEligibleForPreemptionSwap.c)
+ *     KiHeteroScanQueueForPreemptionSwapTarget @ 0x140574F74 (KiHeteroScanQueueForPreemptionSwapTarget.c)
+ */
+
 _BOOL8 __fastcall KiCheckPreferredHeteroProcessor(__int64 a1, __int64 a2, int a3)
 {
   __int64 v7; // rbp

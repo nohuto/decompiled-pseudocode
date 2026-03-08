@@ -1,3 +1,23 @@
+/*
+ * XREFs of PopPepIdleTimeoutRoutine @ 0x1402E9500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PopPepArmIdleTimer @ 0x1402E9704 (PopPepArmIdleTimer.c)
+ *     PopPepComponentGetResidencyIdleState @ 0x140304D38 (PopPepComponentGetResidencyIdleState.c)
+ *     PopPepUpdateIdleState @ 0x140304DB8 (PopPepUpdateIdleState.c)
+ *     PopPepCountReadyActivities @ 0x140307578 (PopPepCountReadyActivities.c)
+ *     PopPepRequestWork @ 0x1403075C4 (PopPepRequestWork.c)
+ *     PopPepPromoteActivities @ 0x140307780 (PopPepPromoteActivities.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 PopPepIdleTimeoutRoutine()
 {
   __int64 v0; // rbx

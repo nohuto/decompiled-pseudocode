@@ -1,3 +1,23 @@
+/*
+ * XREFs of PopTraceThermalRequestPassiveHistogram @ 0x14059356C
+ * Callers:
+ *     PopCoolingSxTransition @ 0x140584670 (PopCoolingSxTransition.c)
+ *     PopCoolingTelemetryWorker @ 0x140584788 (PopCoolingTelemetryWorker.c)
+ *     PopDeactiveThermalRequest @ 0x14097FEC8 (PopDeactiveThermalRequest.c)
+ *     PopOrphanCoolingExtension @ 0x140980178 (PopOrphanCoolingExtension.c)
+ * Callees:
+ *     IoGetDeviceAttachmentBaseRefWithTag @ 0x140240954 (IoGetDeviceAttachmentBaseRefWithTag.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x140244050 (_tlgCreate1Sz_wchar_t.c)
+ *     PoStoreDiagnosticContext @ 0x1402BDC20 (PoStoreDiagnosticContext.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopDiagSnapPassiveHistogram @ 0x14058F530 (PopDiagSnapPassiveHistogram.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PopTraceThermalRequestPassiveHistogram(__int64 a1)
 {
   unsigned __int64 *v2; // rbx

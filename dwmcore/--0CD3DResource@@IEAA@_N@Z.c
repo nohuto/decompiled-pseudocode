@@ -1,3 +1,15 @@
+/*
+ * XREFs of ??0CD3DResource@@IEAA@_N@Z @ 0x1800D0454
+ * Callers:
+ *     ??0CD3DPixelShader@@IEAA@XZ @ 0x1800D0114 (--0CD3DPixelShader@@IEAA@XZ.c)
+ *     ??0CD3DConstantBuffer@@IEAA@XZ @ 0x1800D0384 (--0CD3DConstantBuffer@@IEAA@XZ.c)
+ *     ??0CExternalD3DRenderer@@AEAA@XZ @ 0x1802846FC (--0CExternalD3DRenderer@@AEAA@XZ.c)
+ *     ??0CD3DSurface@@IEAA@PEAUID3D11Texture2D@@@Z @ 0x18029882C (--0CD3DSurface@@IEAA@PEAUID3D11Texture2D@@@Z.c)
+ *     ??0CD3DTexture@@IEAA@_N@Z @ 0x1802BBE6C (--0CD3DTexture@@IEAA@_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 CD3DResource *__fastcall CD3DResource::CD3DResource(CD3DResource *this, char a2)
 {
   __int64 v2; // rax

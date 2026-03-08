@@ -1,3 +1,13 @@
+/*
+ * XREFs of PfSnLogIdentifier @ 0x1407E3410
+ * Callers:
+ *     PfSnBeginScenario @ 0x1407E4764 (PfSnBeginScenario.c)
+ * Callees:
+ *     PfSnTraceGetLogEntry @ 0x14030841C (PfSnTraceGetLogEntry.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall PfSnLogIdentifier(__int64 a1, const void **a2)
 {
   int v2; // edi

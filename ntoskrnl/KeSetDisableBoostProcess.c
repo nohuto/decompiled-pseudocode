@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeSetDisableBoostProcess @ 0x14097145C
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KeSetDisableBoostProcess(__int64 a1, int a2)
 {
   if ( a2 )

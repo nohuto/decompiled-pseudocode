@@ -1,3 +1,14 @@
+/*
+ * XREFs of rimDestroyDeadzone @ 0x1C01B2AC8
+ * Callers:
+ *     RIMInitializeDeadzone @ 0x1C01B83A8 (RIMInitializeDeadzone.c)
+ *     RIMReleasePointerDeviceInfo @ 0x1C01B9064 (RIMReleasePointerDeviceInfo.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     ?Release@RIMDeadzone@@QEAAXXZ @ 0x1C01C9904 (-Release@RIMDeadzone@@QEAAXXZ.c)
+ */
+
 void __fastcall rimDestroyDeadzone(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rax

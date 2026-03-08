@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?InitializeDefaultQueue@FxPkgIo@@QEAAJPEAVFxDevice@@PEAVFxIoQueue@@@Z @ 0x1C006296C
+ * Callers:
+ *     imp_WdfIoQueueCreate @ 0x1C0061710 (imp_WdfIoQueueCreate.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qid @ 0x1C00195EC (WPP_IFR_SF_qid.c)
+ *     ?MarkNoDeleteDDI@FxObject@@QEAAXW4FxObjectLockState@@@Z @ 0x1C00251D0 (-MarkNoDeleteDDI@FxObject@@QEAAXW4FxObjectLockState@@@Z.c)
+ */
+
 __int64 __fastcall FxPkgIo::InitializeDefaultQueue(FxPkgIo *this, FxDevice *Device, FxIoQueue *Queue)
 {
   unsigned __int64 _a2; // rax

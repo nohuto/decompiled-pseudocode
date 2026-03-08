@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpTimerQueryWakeTime @ 0x1405072A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall HalpTimerQueryWakeTime(_QWORD *a1, _QWORD *a2)
 {
   __int64 v2; // r9

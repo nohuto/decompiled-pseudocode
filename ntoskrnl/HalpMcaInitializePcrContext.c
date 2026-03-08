@@ -1,3 +1,17 @@
+/*
+ * XREFs of HalpMcaInitializePcrContext @ 0x140A8CFF8
+ * Callers:
+ *     HalpWheaInitSystem @ 0x140A8CF90 (HalpWheaInitSystem.c)
+ * Callees:
+ *     KeGetCurrentProcessorNumberEx @ 0x1402C1200 (KeGetCurrentProcessorNumberEx.c)
+ *     KeSetTargetProcessorDpcEx @ 0x1403007C0 (KeSetTargetProcessorDpcEx.c)
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     HalpQueryMaximumRegisteredProcessorCount @ 0x140372460 (HalpQueryMaximumRegisteredProcessorCount.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 int HalpMcaInitializePcrContext()
 {
   KPCR *v0; // rax

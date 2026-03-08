@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserDwmGetRemoteSessionOcclusionEvent @ 0x1C01298E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastStatus @ 0x1C0012568 (UserSetLastStatus.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 void *NtUserDwmGetRemoteSessionOcclusionEvent()
 {
   int v0; // eax

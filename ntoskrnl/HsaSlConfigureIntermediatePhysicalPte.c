@@ -1,3 +1,11 @@
+/*
+ * XREFs of HsaSlConfigureIntermediatePhysicalPte @ 0x14052F580
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HsaSlConfigureIntermediatePhysicalPte(unsigned __int64 *a1, int a2, __int64 a3)
 {
   if ( *a1 || !a2 )

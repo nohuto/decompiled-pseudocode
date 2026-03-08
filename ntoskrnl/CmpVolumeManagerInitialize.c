@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpVolumeManagerInitialize @ 0x1408134FC
+ * Callers:
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *CmpVolumeManagerInitialize()
 {
   __int64 *result; // rax

@@ -1,3 +1,34 @@
+/*
+ * XREFs of SetWakeBit @ 0x1C0038B60
+ * Callers:
+ *     xxxSystemTimerProc @ 0x1C0005A50 (xxxSystemTimerProc.c)
+ *     NtUserReplyMessage @ 0x1C000B690 (NtUserReplyMessage.c)
+ *     ClearSendMessages @ 0x1C003421C (ClearSendMessages.c)
+ *     _PostThreadMessageEx @ 0x1C0037298 (_PostThreadMessageEx.c)
+ *     ?WakeSomeone@@YAXPEAUtagQ@@PEAUtagTHREADINFO@@IPEAUtagQMSG@@@Z @ 0x1C00388C0 (-WakeSomeone@@YAXPEAUtagQ@@PEAUtagTHREADINFO@@IPEAUtagQMSG@@@Z.c)
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0044D58 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     xxxBroadcastMessageEx @ 0x1C0045EF0 (xxxBroadcastMessageEx.c)
+ *     ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C0048220 (-_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@.c)
+ *     xxxProcessEventMessage @ 0x1C006B460 (xxxProcessEventMessage.c)
+ *     xxxRealInternalGetMessage @ 0x1C006F2F0 (xxxRealInternalGetMessage.c)
+ *     ?xxxScanSysQueue@@YA?AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAPEAUtagQMSG@@@Z @ 0x1C00725D0 (-xxxScanSysQueue@@YA-AW4_SCANSYSQUEUERESULT@@PEAUtagTHREADINFO@@PEAUtagMSG@@PEAUtagWND@@IIKKPEAP.c)
+ *     IPostQuitMessage @ 0x1C00786E8 (IPostQuitMessage.c)
+ *     xxxReceiverDied @ 0x1C00949E0 (xxxReceiverDied.c)
+ *     ?SenderDied@@YAXPEAUtagSMS@@@Z @ 0x1C0095A8C (-SenderDied@@YAXPEAUtagSMS@@@Z.c)
+ *     ?xxxDeactivate@@YAXPEAUtagTHREADINFO@@KW4DeactivateOption@@@Z @ 0x1C009BD38 (-xxxDeactivate@@YAXPEAUtagTHREADINFO@@KW4DeactivateOption@@@Z.c)
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C00A126C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ *     ?RedistributeInput@@YAXPEAUtagQMSG@@PEAUtagQ@@PEAUtagTHREADINFO@@@Z @ 0x1C00CDE04 (-RedistributeInput@@YAXPEAUtagQMSG@@PEAUtagQ@@PEAUtagTHREADINFO@@@Z.c)
+ *     ?xxxMoveEventAbsolute@@YA?AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHPEAU_MousePacketPerf@@@Z @ 0x1C0142474 (-xxxMoveEventAbsolute@@YA-AW4_CommitMousePosAndMoveResult@@JJ_KPEAXPEAU_MOUSE_INPUT_DATA@@00HHHP.c)
+ *     ?SetMiPWakeBit@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C0143CBE (-SetMiPWakeBit@@YAXPEAUtagTHREADINFO@@@Z.c)
+ *     ?xxxReadyTimer@@YAXPEAUtagTIMER@@K@Z @ 0x1C01C18D4 (-xxxReadyTimer@@YAXPEAUtagTIMER@@K@Z.c)
+ *     _DelegateCapturePointers @ 0x1C01C5C88 (_DelegateCapturePointers.c)
+ *     xxxCancelTrackingForThread @ 0x1C01F3CF0 (xxxCancelTrackingForThread.c)
+ *     IncPaintCount @ 0x1C0225AE0 (IncPaintCount.c)
+ * Callees:
+ *     PtiMouseFromQ @ 0x1C0037050 (PtiMouseFromQ.c)
+ *     HasHidTable @ 0x1C0038CB0 (HasHidTable.c)
+ */
+
 int __fastcall SetWakeBit(__int64 a1, unsigned int a2)
 {
   __int64 v2; // rax

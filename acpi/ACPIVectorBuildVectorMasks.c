@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIVectorBuildVectorMasks @ 0x1C0043D44
+ * Callers:
+ *     ACPIGpeBuildEventMasks @ 0x1C002BE44 (ACPIGpeBuildEventMasks.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     ACPIGpeInstallRemoveIndex @ 0x1C002C3F8 (ACPIGpeInstallRemoveIndex.c)
+ */
+
 void ACPIVectorBuildVectorMasks()
 {
   unsigned int i; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0VPTPContact@@QEAA@UVPTP_ID@@PEAU_LIST_ENTRY@@@Z @ 0x1C0223BAC
+ * Callers:
+ *     ?FindTouchpadAndContact@VirtualTouchpadProcessor@@AEAA_NQEAUtagHID_POINTER_DEVICE_INFO@@PEBUCPointerInfoNode@@PEAPEAVVPTPTouchpad@@PEAPEAVVPTPContact@@@Z @ 0x1C022463C (-FindTouchpadAndContact@VirtualTouchpadProcessor@@AEAA_NQEAUtagHID_POINTER_DEVICE_INFO@@PEBUCPoi.c)
+ * Callees:
+ *     SendMessageTo @ 0x1C0081230 (SendMessageTo.c)
+ */
+
 __int64 __fastcall VPTPContact::VPTPContact(__int64 a1, int a2, _QWORD *a3, __int64 a4)
 {
   __int64 *v5; // rax

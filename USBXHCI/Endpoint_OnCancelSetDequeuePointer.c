@@ -1,3 +1,17 @@
+/*
+ * XREFs of Endpoint_OnCancelSetDequeuePointer @ 0x1C0010A74
+ * Callers:
+ *     ESM_UpdatingTransferRingDequeuePointers @ 0x1C0011250 (ESM_UpdatingTransferRingDequeuePointers.c)
+ * Callees:
+ *     Command_SendCommand @ 0x1C000A820 (Command_SendCommand.c)
+ *     Endpoint_GetDequeuePointer @ 0x1C000CEDC (Endpoint_GetDequeuePointer.c)
+ *     WPP_RECORDER_SF_dddi @ 0x1C001081C (WPP_RECORDER_SF_dddi.c)
+ *     Endpoint_InitializeTransferRing @ 0x1C0013AB4 (Endpoint_InitializeTransferRing.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     Endpoint_IsTransferRingEmpty @ 0x1C003A75C (Endpoint_IsTransferRingEmpty.c)
+ *     Endpoint_StreamsOnCancelSetDequeuePointerComplete @ 0x1C003C41C (Endpoint_StreamsOnCancelSetDequeuePointerComplete.c)
+ */
+
 char __fastcall Endpoint_OnCancelSetDequeuePointer(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rbp

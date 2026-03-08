@@ -1,3 +1,23 @@
+/*
+ * XREFs of CMFFlushHitsFile @ 0x1409FF53C
+ * Callers:
+ *     NtMapCMFModule @ 0x140A005D0 (NtMapCMFModule.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwWaitForSingleObject @ 0x140412390 (ZwWaitForSingleObject.c)
+ *     ZwWriteFile @ 0x140412410 (ZwWriteFile.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     ZwCreateEvent @ 0x140412C10 (ZwCreateEvent.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     MmFlushVirtualMemory @ 0x14075ED38 (MmFlushVirtualMemory.c)
+ *     CMFGetFileSizeEx @ 0x1409FF850 (CMFGetFileSizeEx.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CMFFlushHitsFile(void *Src, unsigned __int64 Length)
 {
   void *Buffer; // rsi

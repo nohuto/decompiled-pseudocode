@@ -1,3 +1,18 @@
+/*
+ * XREFs of Usbh_BS_BusSuspend @ 0x1C001D470
+ * Callers:
+ *     UsbhDispatch_BusEvent @ 0x1C001CF30 (UsbhDispatch_BusEvent.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0014330 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     UsbhReleaseBusStateLock @ 0x1C001D7C0 (UsbhReleaseBusStateLock.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhBusDisconnect_Action @ 0x1C0031464 (UsbhBusDisconnect_Action.c)
+ *     UsbhBusPnpStop_Action @ 0x1C00314EC (UsbhBusPnpStop_Action.c)
+ */
+
 __int64 __fastcall Usbh_BS_BusSuspend(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // rsi

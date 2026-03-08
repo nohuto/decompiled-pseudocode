@@ -1,3 +1,14 @@
+/*
+ * XREFs of wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C001A274
+ * Callers:
+ *     Feature_DelayedForceEviction__private_ReportDeviceUsage @ 0x1C0019AE0 (Feature_DelayedForceEviction__private_ReportDeviceUsage.c)
+ *     Feature_Wddm30CpuVisible__private_ReportDeviceUsage @ 0x1C0019C40 (Feature_Wddm30CpuVisible__private_ReportDeviceUsage.c)
+ *     wil_details_IsEnabledFallback @ 0x1C001A424 (wil_details_IsEnabledFallback.c)
+ *     Feature_GpuVaPagingHistoryFre__private_ReportDeviceUsage @ 0x1C001A558 (Feature_GpuVaPagingHistoryFre__private_ReportDeviceUsage.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath(unsigned __int8 a1, int a2, __int64 a3)
 {
   volatile signed __int32 *v3; // r9

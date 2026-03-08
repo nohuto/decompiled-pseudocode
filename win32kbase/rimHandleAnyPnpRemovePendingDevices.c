@@ -1,3 +1,17 @@
+/*
+ * XREFs of rimHandleAnyPnpRemovePendingDevices @ 0x1C003A13C
+ * Callers:
+ *     RIMReadInput @ 0x1C0039160 (RIMReadInput.c)
+ *     rimDoHandleAnyPnpRemovePendingDevicesWorkItem @ 0x1C01C8300 (rimDoHandleAnyPnpRemovePendingDevicesWorkItem.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C004E3E0 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     rimDoRimDevChange @ 0x1C00BC1AC (rimDoRimDevChange.c)
+ *     RIMFreeDev @ 0x1C019DE20 (RIMFreeDev.c)
+ *     rimQueueHandleAnyPnpRemovePendingDevicesAsyncWorkItem @ 0x1C01C8B04 (rimQueueHandleAnyPnpRemovePendingDevicesAsyncWorkItem.c)
+ */
+
 void __fastcall rimHandleAnyPnpRemovePendingDevices(__int64 a1)
 {
   __int64 v2; // rbp

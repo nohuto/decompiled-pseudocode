@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiOp_PREFETCH3 @ 0x14036E100
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiOp_PREFETCH3(__int64 a1)
 {
   __int64 v1; // rax

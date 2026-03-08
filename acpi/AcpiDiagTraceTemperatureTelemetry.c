@@ -1,3 +1,14 @@
+/*
+ * XREFs of AcpiDiagTraceTemperatureTelemetry @ 0x1C00089D4
+ * Callers:
+ *     ACPIThermalLoopEx @ 0x1C00410F0 (ACPIThermalLoopEx.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     _tlgKeywordOn @ 0x1C0009240 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0009270 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ACPIAmliBuildObjectPathnameUnicode @ 0x1C000B2B0 (ACPIAmliBuildObjectPathnameUnicode.c)
+ */
+
 void __fastcall AcpiDiagTraceTemperatureTelemetry(__int64 a1)
 {
   __int64 v2; // rdi

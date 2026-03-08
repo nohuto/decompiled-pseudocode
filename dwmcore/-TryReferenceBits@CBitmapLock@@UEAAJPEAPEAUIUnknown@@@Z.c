@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TryReferenceBits@CBitmapLock@@UEAAJPEAPEAUIUnknown@@@Z @ 0x18027ECA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CBitmapLock::TryReferenceBits(CBitmapLock *this, struct IUnknown **a2)
 {
   __int64 v3; // rcx

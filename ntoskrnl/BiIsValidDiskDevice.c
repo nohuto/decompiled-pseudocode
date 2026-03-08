@@ -1,3 +1,12 @@
+/*
+ * XREFs of BiIsValidDiskDevice @ 0x140830D88
+ * Callers:
+ *     BiGetNtPartitionPath @ 0x140830938 (BiGetNtPartitionPath.c)
+ * Callees:
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ */
+
 bool __fastcall BiIsValidDiskDevice(wchar_t *Str1, wchar_t *a2)
 {
   wchar_t *v5; // rcx

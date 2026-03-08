@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ResolveKey@VertexShaderDesc@@QEBAIXZ @ 0x1800270D8
+ * Callers:
+ *     ?GenerateShaders@CD3DDevice@@AEAAJXZ @ 0x180026018 (-GenerateShaders@CD3DDevice@@AEAAJXZ.c)
+ *     ?CreateLinkedShader@CShaderCache@@QEAAJIAEBUShaderLinkingConfig@@AEBUShaderLinkingBody@@V?$span@PEBUShaderLinkingBody@@$0?0@gsl@@PEAPEAVCLinkedShader@@@Z @ 0x180026C2C (-CreateLinkedShader@CShaderCache@@QEAAJIAEBUShaderLinkingConfig@@AEBUShaderLinkingBody@@V-$span@.c)
+ *     InitializeShaderLinkingInput @ 0x180026E2C (InitializeShaderLinkingInput.c)
+ *     ?GetCommonOrCubeMapRenderingShader@CCommonRenderingShaderCache@@AEAAJPEAVCD3DDevice@@AEBUCommonRenderingShaderDesc@@_NPEAIPEAPEAUID3D11PixelShader@@@Z @ 0x18002C590 (-GetCommonOrCubeMapRenderingShader@CCommonRenderingShaderCache@@AEAAJPEAVCD3DDevice@@AEBUCommonR.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall VertexShaderDesc::ResolveKey(VertexShaderDesc *this)
 {
   int v2; // ecx

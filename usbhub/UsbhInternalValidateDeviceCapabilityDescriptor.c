@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhInternalValidateDeviceCapabilityDescriptor @ 0x1C0051EEC
+ * Callers:
+ *     UsbhValidateBOSDescriptorSet @ 0x1C00524CC (UsbhValidateBOSDescriptorSet.c)
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhInternalValidateBillboardCapabilityDescriptor @ 0x1C0051C48 (UsbhInternalValidateBillboardCapabilityDescriptor.c)
+ *     UsbhInternalValidateContainerIDCapabilityDescriptor @ 0x1C0051E4C (UsbhInternalValidateContainerIDCapabilityDescriptor.c)
+ *     UsbhInternalValidatePlatformCapabilityDescriptor @ 0x1C00520D8 (UsbhInternalValidatePlatformCapabilityDescriptor.c)
+ *     UsbhInternalValidateSuperSpeedDeviceCapabilityDescriptor @ 0x1C0052338 (UsbhInternalValidateSuperSpeedDeviceCapabilityDescriptor.c)
+ *     UsbhInternalValidateUSB20DeviceCapabilityDescriptor @ 0x1C0052470 (UsbhInternalValidateUSB20DeviceCapabilityDescriptor.c)
+ */
+
 char __fastcall UsbhInternalValidateDeviceCapabilityDescriptor(__int64 a1, unsigned __int8 *a2, __int64 a3)
 {
   char v6; // dl

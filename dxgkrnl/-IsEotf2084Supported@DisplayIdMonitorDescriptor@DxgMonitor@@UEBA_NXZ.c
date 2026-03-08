@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsEotf2084Supported@DisplayIdMonitorDescriptor@DxgMonitor@@UEBA_NXZ @ 0x1C03CC150
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DisplayID_GetColorimetryData@@YAJPEBUDisplayIDObj@@PEAUDISPLAYID_COLORIMETRY_DATA@@PEAUDISPLAY_COLOR_DEPTHS@@@Z @ 0x1C00727B0 (-DisplayID_GetColorimetryData@@YAJPEBUDisplayIDObj@@PEAUDISPLAYID_COLORIMETRY_DATA@@PEAUDISPLAY_.c)
+ */
+
 bool __fastcall DxgMonitor::DisplayIdMonitorDescriptor::IsEotf2084Supported(
         DxgMonitor::DisplayIdMonitorDescriptor *this)
 {

@@ -1,3 +1,11 @@
+/*
+ * XREFs of Do13 @ 0x1C02611D0
+ * Callers:
+ *     FastExpAA_CY @ 0x1C0263760 (FastExpAA_CY.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Do13(_BYTE *a1, unsigned __int8 *a2, unsigned __int8 *a3, int a4)
 {
   int v5; // ebx

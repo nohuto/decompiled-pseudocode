@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?RemoveVisualTree@CComposition@@QEAAXPEBVCVisualTree@@@Z @ 0x1800C7434
+ * Callers:
+ *     ??1CVisual@@MEAA@XZ @ 0x18009A61C (--1CVisual@@MEAA@XZ.c)
+ *     ?FinalRelease@CVisualTree@@MEAAXXZ @ 0x1800C7420 (-FinalRelease@CVisualTree@@MEAAXXZ.c)
+ * Callees:
+ *     ??1?$CGuard@VCCriticalSection@@@@QEAA@XZ @ 0x180034BB4 (--1-$CGuard@VCCriticalSection@@@@QEAA@XZ.c)
+ *     ?clear_region@?$vector_facade@PEAVCVisualTree@@V?$buffer_impl@PEAVCVisualTree@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1800C74A0 (-clear_region@-$vector_facade@PEAVCVisualTree@@V-$buffer_impl@PEAVCVisualTree@@$0BA@$00Vliberal_.c)
+ */
+
 void __fastcall CComposition::RemoveVisualTree(CComposition *this, const struct CVisualTree *a2)
 {
   const struct CVisualTree **i; // rdx

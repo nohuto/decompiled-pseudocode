@@ -1,3 +1,17 @@
+/*
+ * XREFs of ??1DCOBJ@@QEAA@XZ @ 0x1C0054DA0
+ * Callers:
+ *     GreRestoreDC @ 0x1C000D6C0 (GreRestoreDC.c)
+ *     ?DxgkEngOpenAdapterFromHdc@@YAJPEAU_D3DKMT_OPENADAPTERFROMHDC@@@Z @ 0x1C001F480 (-DxgkEngOpenAdapterFromHdc@@YAJPEAU_D3DKMT_OPENADAPTERFROMHDC@@@Z.c)
+ *     GrepDeleteDC @ 0x1C00549D0 (GrepDeleteDC.c)
+ *     ?vCleanupDCs@@YAXK@Z @ 0x1C006F338 (-vCleanupDCs@@YAXK@Z.c)
+ * Callees:
+ *     HmgDecrementExclusiveReferenceCountEx @ 0x1C00499E0 (HmgDecrementExclusiveReferenceCountEx.c)
+ *     ?GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z @ 0x1C004A2C0 (-GetEntryFromObject@GdiHandleManager@@QEAAPEAU_ENTRY@@PEAVOBJECT@@@Z.c)
+ *     ?RestoreAttributes@DC@@QEAAXPEAU_DC_ATTR@@@Z @ 0x1C0050300 (-RestoreAttributes@DC@@QEAAXPEAU_DC_ATTR@@@Z.c)
+ *     GrepDeleteDC @ 0x1C00549D0 (GrepDeleteDC.c)
+ */
+
 void __fastcall DCOBJ::~DCOBJ(DCOBJ *this)
 {
   __int64 v2; // rax

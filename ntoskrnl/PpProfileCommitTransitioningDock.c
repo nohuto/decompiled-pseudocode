@@ -1,3 +1,19 @@
+/*
+ * XREFs of PpProfileCommitTransitioningDock @ 0x140960C54
+ * Callers:
+ *     PnpRemoveLockedDeviceNode @ 0x1403B1D8C (PnpRemoveLockedDeviceNode.c)
+ *     PipProcessStartPhase2 @ 0x1406817A0 (PipProcessStartPhase2.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     KeReleaseSemaphore @ 0x140292210 (KeReleaseSemaphore.c)
+ *     PnpIrpQueryID @ 0x1406883A8 (PnpIrpQueryID.c)
+ *     PnpRequestHwProfileChangeNotification @ 0x140953AA8 (PnpRequestHwProfileChangeNotification.c)
+ *     PiProfileUpdateDeviceTree @ 0x140960784 (PiProfileUpdateDeviceTree.c)
+ *     PnpProfileUpdateHardwareProfile @ 0x1409608EC (PnpProfileUpdateHardwareProfile.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 LONG __fastcall PpProfileCommitTransitioningDock(__int64 a1, int a2)
 {
   __int64 v3; // rax

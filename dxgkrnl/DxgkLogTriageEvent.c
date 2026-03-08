@@ -1,3 +1,11 @@
+/*
+ * XREFs of DxgkLogTriageEvent @ 0x1C0014FE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 char __fastcall DxgkLogTriageEvent(
         __int64 a1,
         int a2,

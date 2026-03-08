@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?Present@CLegacyRemotingSwapChain@@UEAAJPEBVCRegion@@@Z @ 0x180109C00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?Flush@CD3DDevice@@QEAAXXZ @ 0x1801027C0 (-Flush@CD3DDevice@@QEAAXXZ.c)
+ *     ?CreateHRGN@CRegion@@QEBAJPEAPEAUHRGN__@@@Z @ 0x180109CE8 (-CreateHRGN@CRegion@@QEBAJPEAPEAUHRGN__@@@Z.c)
+ *     ?UpdateSectionBits@CLegacyRemotingSwapChain@@IEAAJXZ @ 0x180109DA0 (-UpdateSectionBits@CLegacyRemotingSwapChain@@IEAAJXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CLegacyRemotingSwapChain::Present(CD3DDevice **this, const struct CRegion *a2)
 {
   HGDIOBJ v2; // rsi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopFanFindBucketIndex @ 0x14099426C
+ * Callers:
+ *     PopFanUpdateSpeed @ 0x140846AC0 (PopFanUpdateSpeed.c)
+ *     PopFanUpdateStatistics @ 0x140994754 (PopFanUpdateStatistics.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopFanFindBucketIndex(__int64 a1, unsigned int a2, int *a3, int *a4)
 {
   int v4; // r11d

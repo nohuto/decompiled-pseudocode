@@ -1,3 +1,23 @@
+/*
+ * XREFs of xxxCheckFullScreen @ 0x1C0033340
+ * Callers:
+ *     ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C006A610 (-xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ * Callees:
+ *     xxxRemoveFullScreen @ 0x1C0033708 (xxxRemoveFullScreen.c)
+ *     ?GetWindowBordersWithDpiAwareness@@YAHPEBUtagWND@@_N1I@Z @ 0x1C003FCD8 (-GetWindowBordersWithDpiAwareness@@YAHPEBUtagWND@@_N1I@Z.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     GetWindowDpiLastNotify @ 0x1C00A3A34 (GetWindowDpiLastNotify.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ *     _MonitorFromRect @ 0x1C00AEE80 (_MonitorFromRect.c)
+ *     RECTFromSIZERECT @ 0x1C00D21BC (RECTFromSIZERECT.c)
+ *     xxxAddFullScreen @ 0x1C00E6AF8 (xxxAddFullScreen.c)
+ *     ?IsMaxedRect@@YAHPEAUtagRECT@@PEBUtagSIZERECT@@@Z @ 0x1C00EA298 (-IsMaxedRect@@YAHPEAUtagRECT@@PEBUtagSIZERECT@@@Z.c)
+ *     GetMonitorRectForWindow @ 0x1C00FF4DC (GetMonitorRectForWindow.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     GetScreenRectForWindow @ 0x1C014AD54 (GetScreenRectForWindow.c)
+ */
+
 __int64 __fastcall xxxCheckFullScreen(struct tagWND *a1, struct tagSIZERECT *a2)
 {
   unsigned int v4; // ebx

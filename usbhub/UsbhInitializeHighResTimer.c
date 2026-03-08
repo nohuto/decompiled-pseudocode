@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhInitializeHighResTimer @ 0x1C005C184
+ * Callers:
+ *     DriverEntry @ 0x1C0041964 (DriverEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 bool UsbhInitializeHighResTimer()
 {
   struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-18h] BYREF

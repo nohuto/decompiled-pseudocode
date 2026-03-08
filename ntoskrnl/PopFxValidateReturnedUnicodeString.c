@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopFxValidateReturnedUnicodeString @ 0x1409830B4
+ * Callers:
+ *     PopPluginInitializeSocSubsystemStaticInfo @ 0x140983348 (PopPluginInitializeSocSubsystemStaticInfo.c)
+ *     PopPluginQuerySocSubsystemMetadata @ 0x1409835B4 (PopPluginQuerySocSubsystemMetadata.c)
+ * Callees:
+ *     RtlStringCbLengthW @ 0x140246920 (RtlStringCbLengthW.c)
+ */
+
 char __fastcall PopFxValidateReturnedUnicodeString(unsigned __int16 *a1, __int64 a2, unsigned int a3)
 {
   char v3; // r14

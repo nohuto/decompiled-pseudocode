@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpHvEpReadMsr @ 0x140453390
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpHvLpReadMcaStatusMsr @ 0x1405091B4 (HalpHvLpReadMcaStatusMsr.c)
+ *     HalpHvLpReadMultipleMsr @ 0x140509280 (HalpHvLpReadMultipleMsr.c)
+ */
+
 unsigned __int64 __fastcall HalpHvEpReadMsr(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

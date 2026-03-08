@@ -1,3 +1,12 @@
+/*
+ * XREFs of UT_GetParentDCClipBox @ 0x1C00FC19C
+ * Callers:
+ *     xxxFillWindow @ 0x1C00FC114 (xxxFillWindow.c)
+ * Callees:
+ *     GetRect @ 0x1C0067778 (GetRect.c)
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ */
+
 __int64 __fastcall UT_GetParentDCClipBox(__int64 a1, __int64 a2, __int64 a3)
 {
   __int128 v6; // [rsp+20h] [rbp-18h] BYREF

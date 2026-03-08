@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptSha256AppendBlocks_shani @ 0x1403EDAB4
+ * Callers:
+ *     SymCryptSha256AppendBlocks @ 0x1403EDA50 (SymCryptSha256AppendBlocks.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptSha256AppendBlocks_shani(
         __m128i *a1,
         const __m128i *a2,

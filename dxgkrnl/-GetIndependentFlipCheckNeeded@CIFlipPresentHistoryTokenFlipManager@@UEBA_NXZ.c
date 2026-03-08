@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetIndependentFlipCheckNeeded@CIFlipPresentHistoryTokenFlipManager@@UEBA_NXZ @ 0x1C0019910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CIFlipPresentHistoryTokenFlipManager::GetIndependentFlipCheckNeeded(
         CIFlipPresentHistoryTokenFlipManager *this)
 {

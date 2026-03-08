@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpQueryDebuggerInformation @ 0x140AAEF8C
+ * Callers:
+ *     HaliQuerySystemInformation @ 0x140A85470 (HaliQuerySystemInformation.c)
+ * Callees:
+ *     wcscpy_s @ 0x1403DA210 (wcscpy_s.c)
+ */
+
 __int64 __fastcall HalpQueryDebuggerInformation(_DWORD *a1, unsigned int a2, unsigned int *a3)
 {
   __int64 *v3; // rbx

@@ -1,3 +1,42 @@
+/*
+ * XREFs of RtlpNewSecurityObject @ 0x1407BD790
+ * Callers:
+ *     SeAssignSecurityEx2 @ 0x14030FDC0 (SeAssignSecurityEx2.c)
+ *     SeAssignSecurity @ 0x1407A51B0 (SeAssignSecurity.c)
+ *     RtlpNewSecurityObject @ 0x1407BD790 (RtlpNewSecurityObject.c)
+ *     CmpCreateHiveRootCell @ 0x140871A9C (CmpCreateHiveRootCell.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     SeAccessCheck @ 0x140265330 (SeAccessCheck.c)
+ *     RtlSubAuthoritySid @ 0x1402BE740 (RtlSubAuthoritySid.c)
+ *     RtlpValidTrustSubjectContext @ 0x1402CAAC0 (RtlpValidTrustSubjectContext.c)
+ *     RtlpOwnerAcesPresent @ 0x1402CBBC0 (RtlpOwnerAcesPresent.c)
+ *     SepLocateTokenTrustLevel @ 0x14030FE50 (SepLocateTokenTrustLevel.c)
+ *     SepLocateTokenIntegrity @ 0x14030FEA8 (SepLocateTokenIntegrity.c)
+ *     RtlSidDominates @ 0x14030FF10 (RtlSidDominates.c)
+ *     RtlFindAceByType @ 0x1403100D0 (RtlFindAceByType.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpCreateServerAcl @ 0x1406839D0 (RtlpCreateServerAcl.c)
+ *     SeUnlockSubjectContext @ 0x140699470 (SeUnlockSubjectContext.c)
+ *     SePrivilegedServiceAuditAlarm @ 0x140699B5C (SePrivilegedServiceAuditAlarm.c)
+ *     SepValidOwnerSubjectContext @ 0x14069D3EC (SepValidOwnerSubjectContext.c)
+ *     RtlCreateAcl @ 0x1406DB640 (RtlCreateAcl.c)
+ *     RtlAddProcessTrustLabelAce @ 0x1406DB8A0 (RtlAddProcessTrustLabelAce.c)
+ *     RtlpNormalizeAcl @ 0x1407594B0 (RtlpNormalizeAcl.c)
+ *     SePrivilegeCheck @ 0x1407B9710 (SePrivilegeCheck.c)
+ *     RtlValidAcl @ 0x1407BB670 (RtlValidAcl.c)
+ *     RtlpInheritAcl2 @ 0x1407BC430 (RtlpInheritAcl2.c)
+ *     RtlpCombineAcls @ 0x1407BC8E0 (RtlpCombineAcls.c)
+ *     RtlpNewSecurityObject @ 0x1407BD790 (RtlpNewSecurityObject.c)
+ *     RtlpComputeMergedAcl @ 0x1409B9944 (RtlpComputeMergedAcl.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlpNewSecurityObject(
         __int64 a1,
         _OWORD *a2,

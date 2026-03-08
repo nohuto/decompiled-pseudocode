@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$?4VCLegacyStereoSwapChain@@Uerr_returncode_policy@wil@@X@?$com_ptr_t@VILegacySwapChain@@Uerr_returncode_policy@wil@@@wil@@QEAAAEAV01@AEBV?$com_ptr_t@VCLegacyStereoSwapChain@@Uerr_returncode_policy@wil@@@1@@Z @ 0x1801EDF64
+ * Callers:
+ *     ?EnsureSwapChain@CLegacyStereoRenderTarget@@MEAAJPEA_N@Z @ 0x1801EE000 (-EnsureSwapChain@CLegacyStereoRenderTarget@@MEAAJPEA_N@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 *__fastcall wil::com_ptr_t<ILegacySwapChain,wil::err_returncode_policy>::operator=<CLegacyStereoSwapChain,wil::err_returncode_policy,void>(
         __int64 *a1,
         __int64 a2)

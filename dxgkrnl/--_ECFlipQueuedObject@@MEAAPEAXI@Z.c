@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??_ECFlipQueuedObject@@MEAAPEAXI@Z @ 0x1C007EF90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall CFlipQueuedObject::`vector deleting destructor'(_QWORD *P, char a2)
 {
   _QWORD *v3; // rcx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserSetWindowLongPtr @ 0x1C002F510
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?xxxSetWindowLongPtr@@YA_KPEAUtagWND@@H_KHH@Z @ 0x1C002F618 (-xxxSetWindowLongPtr@@YA_KPEAUtagWND@@H_KHH@Z.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     DesktopVerifyHeapRange @ 0x1C01BFA78 (DesktopVerifyHeapRange.c)
+ */
+
 unsigned __int64 __fastcall NtUserSetWindowLongPtr(__int64 a1, int a2, unsigned __int64 a3, int a4)
 {
   __int64 v8; // rax

@@ -1,3 +1,30 @@
+/*
+ * XREFs of NtOpenThreadTokenEx @ 0x1406D2730
+ * Callers:
+ *     NtOpenThreadToken @ 0x1406D2710 (NtOpenThreadToken.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ObFastDereferenceObject @ 0x140245F50 (ObFastDereferenceObject.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     PsDisableImpersonation @ 0x1406D2C20 (PsDisableImpersonation.c)
+ *     PsRestoreImpersonation @ 0x1406D2D60 (PsRestoreImpersonation.c)
+ *     PsSwapImpersonationToken @ 0x1406D2EC4 (PsSwapImpersonationToken.c)
+ *     SepCreateImpersonationTokenDacl @ 0x1406D3000 (SepCreateImpersonationTokenDacl.c)
+ *     SepSetTokenTrust @ 0x1406D33D8 (SepSetTokenTrust.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     SepDuplicateToken @ 0x1407BCF00 (SepDuplicateToken.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ObOpenObjectByPointer @ 0x1407C93D0 (ObOpenObjectByPointer.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall NtOpenThreadTokenEx(
         HANDLE ThreadHandle,
         ACCESS_MASK DesiredAccess,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of CarCreateViolationHashString @ 0x1405D313C
+ * Callers:
+ *     CarInitializeTelemetryData @ 0x1405D1970 (CarInitializeTelemetryData.c)
+ * Callees:
+ *     AppendUlongAsHexadecimalW @ 0x1405D3078 (AppendUlongAsHexadecimalW.c)
+ *     CarEtwCopyDriverName @ 0x1405D31BC (CarEtwCopyDriverName.c)
+ */
+
 __int64 __fastcall CarCreateViolationHashString(__int64 a1, int a2, int a3)
 {
   __int64 v5; // rbx

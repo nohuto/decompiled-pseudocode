@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheapResetPolicyDefaults @ 0x140A06D70
+ * Callers:
+ *     WheapWmiExecutePolicyManagementMethod @ 0x140611EEC (WheapWmiExecutePolicyManagementMethod.c)
+ * Callees:
+ *     WheapCommitPolicy @ 0x140A06A08 (WheapCommitPolicy.c)
+ *     WheapSetPolicyValue @ 0x140A06DB8 (WheapSetPolicyValue.c)
+ */
+
 __int64 WheapResetPolicyDefaults()
 {
   unsigned int v0; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopReplaceSeperatorWithPound @ 0x140680B88
+ * Callers:
+ *     PipFindDeviceOverrideEntry @ 0x14068092C (PipFindDeviceOverrideEntry.c)
+ *     PiDevCfgConfigureDeviceLocation @ 0x140875E34 (PiDevCfgConfigureDeviceLocation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IopReplaceSeperatorWithPound(__int64 a1, __int64 a2)
 {
   __int16 v2; // ax

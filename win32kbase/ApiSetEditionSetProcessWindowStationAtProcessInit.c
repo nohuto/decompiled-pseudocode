@@ -1,3 +1,13 @@
+/*
+ * XREFs of ApiSetEditionSetProcessWindowStationAtProcessInit @ 0x1C0242EF4
+ * Callers:
+ *     xxxCreateThreadInfo @ 0x1C0076490 (xxxCreateThreadInfo.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     IsEditionSetProcessWindowStationAtProcessInitSupported @ 0x1C00C8310 (IsEditionSetProcessWindowStationAtProcessInitSupported.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ApiSetEditionSetProcessWindowStationAtProcessInit(__int64 a1, unsigned int a2)
 {
   unsigned int v2; // esi

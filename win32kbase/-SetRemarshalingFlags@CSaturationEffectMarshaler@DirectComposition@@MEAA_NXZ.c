@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CSaturationEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C024E6F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CSaturationEffectMarshaler::SetRemarshalingFlags(
         DirectComposition::CSaturationEffectMarshaler *this)
 {

@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiInitializeNumaRangesTemporary @ 0x140B7223C
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char *MiInitializeNumaRangesTemporary()
 {
   char *result; // rax

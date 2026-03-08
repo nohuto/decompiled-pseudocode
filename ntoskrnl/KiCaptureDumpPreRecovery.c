@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiCaptureDumpPreRecovery @ 0x14057886C
+ * Callers:
+ *     KiAttemptBugcheckRecovery @ 0x140577FAC (KiAttemptBugcheckRecovery.c)
+ * Callees:
+ *     IoCapturePristineTriageDump @ 0x14054D368 (IoCapturePristineTriageDump.c)
+ *     IoDemoteToTriageDump @ 0x14054D74C (IoDemoteToTriageDump.c)
+ *     KiInvokeBugCheckAddTriageDumpDataCallbacks @ 0x1405682D4 (KiInvokeBugCheckAddTriageDumpDataCallbacks.c)
+ */
+
 __int64 __fastcall KiCaptureDumpPreRecovery(__int64 a1, _BYTE *a2)
 {
   bool v2; // zf

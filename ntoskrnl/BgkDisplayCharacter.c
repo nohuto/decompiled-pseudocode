@@ -1,3 +1,14 @@
+/*
+ * XREFs of BgkDisplayCharacter @ 0x140AEDF70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     BgkpAcquireConsole @ 0x14054CB88 (BgkpAcquireConsole.c)
+ *     BgkpReleaseConsole @ 0x14054CBD4 (BgkpReleaseConsole.c)
+ *     BgDisplayFade @ 0x140AEC4BC (BgDisplayFade.c)
+ */
+
 __int64 __fastcall BgkDisplayCharacter(unsigned __int16 a1, unsigned int a2, unsigned int a3, unsigned int a4, int a5)
 {
   unsigned int v10; // ebx

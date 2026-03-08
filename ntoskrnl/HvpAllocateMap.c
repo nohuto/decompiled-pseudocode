@@ -1,3 +1,13 @@
+/*
+ * XREFs of HvpAllocateMap @ 0x1407977B4
+ * Callers:
+ *     HvpExpandMap @ 0x14073024C (HvpExpandMap.c)
+ *     HvpInitMap @ 0x1407309B8 (HvpInitMap.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 char __fastcall HvpAllocateMap(__int64 a1, __int64 a2, unsigned int a3, unsigned int a4)
 {
   void *v8; // rax

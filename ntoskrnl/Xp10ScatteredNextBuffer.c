@@ -1,3 +1,14 @@
+/*
+ * XREFs of Xp10ScatteredNextBuffer @ 0x1409C5514
+ * Callers:
+ *     Xp10ExecuteHuffmanDecode @ 0x1409C2EF0 (Xp10ExecuteHuffmanDecode.c)
+ *     Xp10ScatteredCopy @ 0x1409C5208 (Xp10ScatteredCopy.c)
+ *     Xp10ScatteredCopyBits @ 0x1409C52B8 (Xp10ScatteredCopyBits.c)
+ *     Xp10ScatteredReadBytes @ 0x1409C5568 (Xp10ScatteredReadBytes.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Xp10ScatteredNextBuffer(_QWORD *a1)
 {
   __int64 v2; // rax

@@ -1,3 +1,28 @@
+/*
+ * XREFs of MiAllocateContiguousMemory @ 0x1403B49B4
+ * Callers:
+ *     MmAllocateContiguousMemoryEx @ 0x14038D1E0 (MmAllocateContiguousMemoryEx.c)
+ *     MmAllocateContiguousNodeMemory @ 0x1403B4900 (MmAllocateContiguousNodeMemory.c)
+ *     MmAllocateContiguousMemory @ 0x14061BCB0 (MmAllocateContiguousMemory.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     MiProtectionToCacheAttribute @ 0x14028A2D0 (MiProtectionToCacheAttribute.c)
+ *     MiMapContiguousMemory @ 0x14029AF58 (MiMapContiguousMemory.c)
+ *     MmUnmapIoSpace @ 0x14029B230 (MmUnmapIoSpace.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     ExAllocateContiguousHeapPool @ 0x1403B4DF4 (ExAllocateContiguousHeapPool.c)
+ *     ExInsertPoolTag @ 0x1403B51DC (ExInsertPoolTag.c)
+ *     MiFindContiguousPagesEx @ 0x1403B5CF8 (MiFindContiguousPagesEx.c)
+ *     MiFreeContiguousPages @ 0x1403BDABC (MiFreeContiguousPages.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwpGetDurationSince @ 0x14045F42A (EtwpGetDurationSince.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLogPerfMemoryRangeEvent @ 0x14061B438 (MiLogPerfMemoryRangeEvent.c)
+ */
+
 unsigned __int64 __fastcall MiAllocateContiguousMemory(
         unsigned __int64 *a1,
         unsigned __int64 a2,

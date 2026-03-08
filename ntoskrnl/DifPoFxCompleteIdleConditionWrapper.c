@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifPoFxCompleteIdleConditionWrapper @ 0x1405E6F40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PoFxCompleteIdleCondition @ 0x1402EB270 (PoFxCompleteIdleCondition.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 _QWORD *__fastcall DifPoFxCompleteIdleConditionWrapper(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
 {
   unsigned int v3; // ebp

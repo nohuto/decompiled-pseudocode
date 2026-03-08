@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiGetValidAwePartitionId @ 0x140648440
+ * Callers:
+ *     MiGetPageProtection @ 0x14031C310 (MiGetPageProtection.c)
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ */
+
 __int64 __fastcall MiGetValidAwePartitionId(unsigned __int64 a1)
 {
   unsigned __int64 v1; // rax

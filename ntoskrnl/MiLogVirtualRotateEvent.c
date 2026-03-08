@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiLogVirtualRotateEvent @ 0x140A2E6F4
+ * Callers:
+ *     MiReplaceRotateWithDemandZero @ 0x140A2E748 (MiReplaceRotateWithDemandZero.c)
+ *     MmRotatePhysicalView @ 0x140A2EF10 (MmRotatePhysicalView.c)
+ * Callees:
+ *     MiLogPerfMemoryEvent @ 0x140463406 (MiLogPerfMemoryEvent.c)
+ */
+
 void __fastcall MiLogVirtualRotateEvent(__int64 a1, __int64 a2, char a3)
 {
   _QWORD v3[2]; // [rsp+30h] [rbp-28h] BYREF

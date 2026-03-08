@@ -1,3 +1,23 @@
+/*
+ * XREFs of CmpFileFlushAndPurge @ 0x140731D18
+ * Callers:
+ *     CmpFlushHive @ 0x1406BEA70 (CmpFlushHive.c)
+ *     HvValidateOrInvalidatePrimaryFileHeader @ 0x140731AB4 (HvValidateOrInvalidatePrimaryFileHeader.c)
+ *     HvWriteLogFile @ 0x140731BB0 (HvWriteLogFile.c)
+ *     HvWriteHivePrimaryFile @ 0x14073216C (HvWriteHivePrimaryFile.c)
+ *     HvExtendHivePrimaryFileValidDataLength @ 0x140A1DCD0 (HvExtendHivePrimaryFileValidDataLength.c)
+ * Callees:
+ *     IoAllocateIrp @ 0x140208CF0 (IoAllocateIrp.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IoFreeIrp @ 0x14030EC00 (IoFreeIrp.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     CmpFileFlush @ 0x140731EC0 (CmpFileFlush.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall CmpFileFlushAndPurge(__int64 a1, unsigned int a2)
 {
   __int64 v2; // rsi

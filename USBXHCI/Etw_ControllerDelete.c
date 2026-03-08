@@ -1,3 +1,11 @@
+/*
+ * XREFs of Etw_ControllerDelete @ 0x1C004A8F0
+ * Callers:
+ *     Controller_WdfEvtCleanupCallback @ 0x1C0036620 (Controller_WdfEvtCleanupCallback.c)
+ * Callees:
+ *     McTemplateK0pqqqqqqqsssxqqqt_EtwWriteTransfer @ 0x1C004B3B8 (McTemplateK0pqqqqqqqsssxqqqt_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall Etw_ControllerDelete(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

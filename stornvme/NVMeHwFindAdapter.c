@@ -1,3 +1,27 @@
+/*
+ * XREFs of NVMeHwFindAdapter @ 0x1C0007CD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003260 (__security_check_cookie.c)
+ *     NVMeControllerCreateLocalCommandPool @ 0x1C0003408 (NVMeControllerCreateLocalCommandPool.c)
+ *     NVMeControllerDeleteLocalCommandPool @ 0x1C0003484 (NVMeControllerDeleteLocalCommandPool.c)
+ *     Feature_Servicing_Huawei22H2BluescreenAfterSleep__private_IsEnabledDeviceUsage @ 0x1C000361C (Feature_Servicing_Huawei22H2BluescreenAfterSleep__private_IsEnabledDeviceUsage.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ *     ControllerAllocateUncachedExtension @ 0x1C00073D4 (ControllerAllocateUncachedExtension.c)
+ *     FillControllerRuntimeLog @ 0x1C0007908 (FillControllerRuntimeLog.c)
+ *     GetControllerMaxTransferSize @ 0x1C0007A5C (GetControllerMaxTransferSize.c)
+ *     IsDumpMode @ 0x1C0007B84 (IsDumpMode.c)
+ *     IsIntelChatham @ 0x1C0007B94 (IsIntelChatham.c)
+ *     NVMeControllerStartFailureEventLog @ 0x1C0007C08 (NVMeControllerStartFailureEventLog.c)
+ *     NVMeLogEtwControllerInfo @ 0x1C000880C (NVMeLogEtwControllerInfo.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     ControllerReset @ 0x1C0009668 (ControllerReset.c)
+ *     NVMeControllerInitPart1 @ 0x1C000D7A8 (NVMeControllerInitPart1.c)
+ *     GetNVMeRegisterAddress @ 0x1C0025DF4 (GetNVMeRegisterAddress.c)
+ *     GetRegistrySettings @ 0x1C0025E60 (GetRegistrySettings.c)
+ */
+
 __int64 __fastcall NVMeHwFindAdapter(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   char v6; // r13

@@ -1,3 +1,12 @@
+/*
+ * XREFs of FsRtlInitExtraCreateParameterLookasideList @ 0x140855610
+ * Callers:
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     ExInitializePagedLookasideListInternal @ 0x1402F6750 (ExInitializePagedLookasideListInternal.c)
+ *     ExInitializeNPagedLookasideList @ 0x1403BD370 (ExInitializeNPagedLookasideList.c)
+ */
+
 void __stdcall FsRtlInitExtraCreateParameterLookasideList(
         PVOID Lookaside,
         FSRTL_ECP_LOOKASIDE_FLAGS Flags,

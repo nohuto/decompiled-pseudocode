@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepAcquireOrderedReadLocks @ 0x1402E9D68
+ * Callers:
+ *     SeTokenCanImpersonate @ 0x1406DA880 (SeTokenCanImpersonate.c)
+ *     SepIsSiblingTokenByPointer @ 0x140776354 (SepIsSiblingTokenByPointer.c)
+ *     NtCompareTokens @ 0x140776460 (NtCompareTokens.c)
+ * Callees:
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ */
+
 BOOLEAN __fastcall SepAcquireOrderedReadLocks(unsigned __int64 a1, unsigned __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax

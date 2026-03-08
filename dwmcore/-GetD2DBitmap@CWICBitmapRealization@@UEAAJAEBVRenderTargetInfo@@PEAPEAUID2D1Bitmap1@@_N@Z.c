@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetD2DBitmap@CWICBitmapRealization@@UEAAJAEBVRenderTargetInfo@@PEAPEAUID2D1Bitmap1@@_N@Z @ 0x1801318F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CWICBitmapRealization::GetD2DBitmap(
         CWICBitmapRealization *this,
         const struct RenderTargetInfo *a2,

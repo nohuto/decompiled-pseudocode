@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?s_PostRecalcForWindow@CRecalcProp@@SAXPEAUtagWND@@@Z @ 0x1C02292BC
+ * Callers:
+ *     ?zzzSetWindowCompositionCloak@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@K@Z @ 0x1C002E920 (-zzzSetWindowCompositionCloak@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@K@Z.c)
+ *     ?SetStateAfterProcessing@CRecalcProp@@AEAAXPEAVCMonitorTopology@@@Z @ 0x1C0101F0C (-SetStateAfterProcessing@CRecalcProp@@AEAAXPEAVCMonitorTopology@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_dq @ 0x1C00FF0A0 (WPP_RECORDER_AND_TRACE_SF_dq.c)
+ *     ?PostEventMessageWindow@@YA_NPEAUtagWND@@K_K_J@Z @ 0x1C01B6860 (-PostEventMessageWindow@@YA_NPEAUtagWND@@K_K_J@Z.c)
+ */
+
 void __fastcall CRecalcProp::s_PostRecalcForWindow(PETHREAD **a1)
 {
   char v2; // di

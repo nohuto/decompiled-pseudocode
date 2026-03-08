@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?cTotalCurves@EPATHOBJ@@QEAAKXZ @ 0x1C0181110
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EPATHOBJ::cTotalCurves(EPATHOBJ *this)
 {
   unsigned int v1; // edx

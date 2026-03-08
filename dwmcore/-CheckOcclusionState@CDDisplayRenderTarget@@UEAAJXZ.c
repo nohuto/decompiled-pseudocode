@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?CheckOcclusionState@CDDisplayRenderTarget@@UEAAJXZ @ 0x1801E5044
+ * Callers:
+ *     ?CheckOcclusionState@CDDisplayRenderTarget@@$4PPPPPPPM@A@EAAJXZ @ 0x180118010 (-CheckOcclusionState@CDDisplayRenderTarget@@$4PPPPPPPM@A@EAAJXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x1800CE01C (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
+ *     ?CheckForOcclusionChange@CDDisplayRenderTarget@@IEAAJJ@Z @ 0x1801E5008 (-CheckForOcclusionChange@CDDisplayRenderTarget@@IEAAJJ@Z.c)
+ *     ?TryEnsureSwapChain@CDDisplayRenderTarget@@IEAAJXZ @ 0x1801E63B4 (-TryEnsureSwapChain@CDDisplayRenderTarget@@IEAAJXZ.c)
+ *     ?CheckOcclusionState@CDDisplaySwapChain@@QEAAJXZ @ 0x180285B68 (-CheckOcclusionState@CDDisplaySwapChain@@QEAAJXZ.c)
+ */
+
 __int64 __fastcall CDDisplayRenderTarget::CheckOcclusionState(CDDisplaySwapChain **this)
 {
   unsigned int v2; // ebx

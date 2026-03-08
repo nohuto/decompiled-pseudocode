@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlInt64ToUnicodeString @ 0x14071C710
+ * Callers:
+ *     ExpWnfComposeValueName @ 0x14071C674 (ExpWnfComposeValueName.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlLargeIntegerToChar @ 0x14071C7C0 (RtlLargeIntegerToChar.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ */
+
 NTSTATUS __stdcall RtlInt64ToUnicodeString(ULONGLONG Value, ULONG Base, PUNICODE_STRING String)
 {
   NTSTATUS result; // eax

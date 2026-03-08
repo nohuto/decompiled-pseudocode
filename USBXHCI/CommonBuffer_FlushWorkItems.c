@@ -1,3 +1,14 @@
+/*
+ * XREFs of CommonBuffer_FlushWorkItems @ 0x1C000ED94
+ * Callers:
+ *     Controller_WdfEvtDeviceD0Exit @ 0x1C000E9C0 (Controller_WdfEvtDeviceD0Exit.c)
+ *     Controller_InitiateRecovery @ 0x1C0033990 (Controller_InitiateRecovery.c)
+ *     Controller_InternalReset @ 0x1C0033D04 (Controller_InternalReset.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 NTSTATUS __fastcall CommonBuffer_FlushWorkItems(_QWORD *a1)
 {
   void *i; // rcx

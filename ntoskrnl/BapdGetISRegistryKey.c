@@ -1,3 +1,16 @@
+/*
+ * XREFs of BapdGetISRegistryKey @ 0x140A8C170
+ * Callers:
+ *     BapdRegisterSiData @ 0x140A8E4CC (BapdRegisterSiData.c)
+ *     BapdRemoveWbclData @ 0x140AA7954 (BapdRemoveWbclData.c)
+ *     BapdpProcessVsmKeyBlobs @ 0x140B44AFC (BapdpProcessVsmKeyBlobs.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ */
+
 __int64 __fastcall BapdGetISRegistryKey(PHANDLE KeyHandle)
 {
   NTSTATUS v2; // ebx

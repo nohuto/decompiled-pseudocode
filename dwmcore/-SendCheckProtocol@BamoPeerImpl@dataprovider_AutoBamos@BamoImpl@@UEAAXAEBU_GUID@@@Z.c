@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SendCheckProtocol@BamoPeerImpl@dataprovider_AutoBamos@BamoImpl@@UEAAXAEBU_GUID@@@Z @ 0x1800FE8D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B44D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
 void __fastcall BamoImpl::dataprovider_AutoBamos::BamoPeerImpl::SendCheckProtocol(
         BamoImpl::dataprovider_AutoBamos::BamoPeerImpl *this,
         const struct _GUID *a2)

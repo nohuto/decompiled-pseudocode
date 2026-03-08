@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReleaseAllReferences@CSynchronousSuperWetInkMarshaler@DirectComposition@@UEAAXPEAVCApplicationChannel@2@@Z @ 0x1C025BD10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z @ 0x1C0068750 (-ReleaseResource@CApplicationChannel@DirectComposition@@QEAA_KPEAVCResourceMarshaler@2@@Z.c)
+ */
+
 void __fastcall DirectComposition::CSynchronousSuperWetInkMarshaler::ReleaseAllReferences(
         DirectComposition::CSynchronousSuperWetInkMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2)

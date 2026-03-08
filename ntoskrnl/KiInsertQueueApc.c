@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiInsertQueueApc @ 0x140354598
+ * Callers:
+ *     KeInsertQueueApc @ 0x14027DBF0 (KeInsertQueueApc.c)
+ *     KiSchedulerApc @ 0x140353560 (KiSchedulerApc.c)
+ *     KiSuspendThread @ 0x140354348 (KiSuspendThread.c)
+ *     KeRequestTerminationThread @ 0x140354D78 (KeRequestTerminationThread.c)
+ *     KiInsertDeferredPreemptionApc @ 0x1403554AC (KiInsertDeferredPreemptionApc.c)
+ *     KeTryToInsertQueueApc @ 0x140570BD0 (KeTryToInsertQueueApc.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall KiInsertQueueApc(__int64 a1)
 {
   __int64 v1; // rdx

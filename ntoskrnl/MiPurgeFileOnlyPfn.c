@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiPurgeFileOnlyPfn @ 0x14063CAD0
+ * Callers:
+ *     MiPurgeBadFileOnlyPages @ 0x14063C678 (MiPurgeBadFileOnlyPages.c)
+ * Callees:
+ *     MiDeleteTransitionPte @ 0x1402833F0 (MiDeleteTransitionPte.c)
+ *     MiCheckProtoPtePageState @ 0x140283EB0 (MiCheckProtoPtePageState.c)
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiLockLeafPage @ 0x14034AF20 (MiLockLeafPage.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiChangingSubsectionProtos @ 0x1406399E8 (MiChangingSubsectionProtos.c)
+ *     MiPersistPage @ 0x14063C604 (MiPersistPage.c)
+ *     MiSubsectionProtosCreated @ 0x14063D324 (MiSubsectionProtosCreated.c)
+ */
+
 __int64 __fastcall MiPurgeFileOnlyPfn(__int64 a1)
 {
   __int64 v1; // rsi

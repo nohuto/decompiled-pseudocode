@@ -1,3 +1,18 @@
+/*
+ * XREFs of PipMigrateCleanServiceCallback @ 0x140B911A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _PnpCtxRegDeleteTree @ 0x14081B6AC (_PnpCtxRegDeleteTree.c)
+ *     _PnpCtxRegOpenKey @ 0x14081D410 (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxRegEnumKey @ 0x14081D44C (_PnpCtxRegEnumKey.c)
+ *     _PnpCtxRegCloseKey @ 0x1408653B4 (_PnpCtxRegCloseKey.c)
+ *     _PnpCtxRegQueryValue @ 0x14086617C (_PnpCtxRegQueryValue.c)
+ *     _PnpCtxRegQueryInfoKey @ 0x1408665AC (_PnpCtxRegQueryInfoKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PipMigrateCleanServiceCallback(__int64 a1, __int64 a2, __int64 a3)
 {
   void *Pool2; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpAdjustWakeSecondsDue @ 0x140A93A2C
+ * Callers:
+ *     HaliSetWakeAlarm @ 0x140A93480 (HaliSetWakeAlarm.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpAdjustWakeSecondsDue(unsigned __int64 a1, unsigned __int64 a2)
 {
   signed __int64 v3; // rdx

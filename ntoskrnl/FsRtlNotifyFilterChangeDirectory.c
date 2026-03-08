@@ -1,3 +1,21 @@
+/*
+ * XREFs of FsRtlNotifyFilterChangeDirectory @ 0x14084F730
+ * Callers:
+ *     FsRtlNotifyFullChangeDirectory @ 0x14084F6C0 (FsRtlNotifyFullChangeDirectory.c)
+ *     FsRtlNotifyChangeDirectory @ 0x14093CFD0 (FsRtlNotifyChangeDirectory.c)
+ * Callees:
+ *     ExReleaseFastMutexUnsafe @ 0x14023FBC0 (ExReleaseFastMutexUnsafe.c)
+ *     ExAcquireFastMutexUnsafe @ 0x14023FC30 (ExAcquireFastMutexUnsafe.c)
+ *     FsRtlNotifySetCancelRoutine @ 0x1402417BC (FsRtlNotifySetCancelRoutine.c)
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     FsRtlNotifyCompleteIrp @ 0x140704270 (FsRtlNotifyCompleteIrp.c)
+ *     FsRtlIsNotifyOnList @ 0x140775FB0 (FsRtlIsNotifyOnList.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     FsRtlCheckNotifyForDelete @ 0x14093CF20 (FsRtlCheckNotifyForDelete.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __stdcall FsRtlNotifyFilterChangeDirectory(
         PNOTIFY_SYNC NotifySync,
         PLIST_ENTRY NotifyList,

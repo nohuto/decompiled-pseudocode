@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?SysMmInitializeGlobal@@YAXXZ @ 0x1C020CF44
+ * Callers:
+ *     DriverEntry @ 0x1C03D9E6C (DriverEntry.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?SmmUseIommuV2Interface@@YA_NXZ @ 0x1C00205A8 (-SmmUseIommuV2Interface@@YA_NXZ.c)
+ *     ?SmmUseIommuV3Interface@@YA_NXZ @ 0x1C00205BC (-SmmUseIommuV3Interface@@YA_NXZ.c)
+ *     McGenEventRegister_EtwRegister @ 0x1C00205D0 (McGenEventRegister_EtwRegister.c)
+ *     Feature_DxgkGpuVaIoMmu__private_IsEnabledDeviceUsage @ 0x1C0024530 (Feature_DxgkGpuVaIoMmu__private_IsEnabledDeviceUsage.c)
+ *     Feature_IommuInterfaceV2_Smm__private_ReportDeviceUsage @ 0x1C0026D74 (Feature_IommuInterfaceV2_Smm__private_ReportDeviceUsage.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     SmmQueryRegistry @ 0x1C020D0E8 (SmmQueryRegistry.c)
+ */
+
 void __fastcall SysMmInitializeGlobal(__int64 a1, __int64 a2)
 {
   int v2; // eax

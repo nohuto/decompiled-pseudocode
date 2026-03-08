@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?vSqrt@EFLOAT@@QEAAXXZ @ 0x1C0309A08
+ * Callers:
+ *     ?vCharPos_G2@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJJJJPEAJ@Z @ 0x1C02DC4B0 (-vCharPos_G2@ESTROBJ@@QEAAXAEAVXDCOBJ@@AEAVRFONTOBJ@@JJJJJPEAJ@Z.c)
+ *     ?vGenWidths@@YAXPEAJ0AEAVEFLOAT@@1JJJJ@Z @ 0x1C02DD664 (-vGenWidths@@YAXPEAJ0AEAVEFLOAT@@1JJJJ@Z.c)
+ *     ?efWorldLength@STYLER@@IEAA?AVEFLOAT@@VEVECTORFX@@@Z @ 0x1C02F3F58 (-efWorldLength@STYLER@@IEAA-AVEFLOAT@@VEVECTORFX@@@Z.c)
+ *     ?lGetDefaultWorldHeight@@YAJPEAVDCOBJ@@@Z @ 0x1C03057FC (-lGetDefaultWorldHeight@@YAJPEAVDCOBJ@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall EFLOAT::vSqrt(EFLOAT *this)
 {
   unsigned int v1; // ebx

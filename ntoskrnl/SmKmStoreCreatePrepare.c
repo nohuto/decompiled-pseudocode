@@ -1,3 +1,12 @@
+/*
+ * XREFs of SmKmStoreCreatePrepare @ 0x1407DD9A8
+ * Callers:
+ *     SmProcessCreateRequest @ 0x1407DD648 (SmProcessCreateRequest.c)
+ * Callees:
+ *     SSHSupportAllocateNonPaged @ 0x1402A4AEC (SSHSupportAllocateNonPaged.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall SmKmStoreCreatePrepare(unsigned int *a1, char a2, _QWORD *a3, __int64 a4)
 {
   unsigned int v4; // eax

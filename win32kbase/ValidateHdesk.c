@@ -1,3 +1,11 @@
+/*
+ * XREFs of ValidateHdesk @ 0x1C00C4670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ */
+
 __int64 __fastcall ValidateHdesk(void *a1, KPROCESSOR_MODE a2, ACCESS_MASK a3, PVOID *a4)
 {
   int v5; // eax

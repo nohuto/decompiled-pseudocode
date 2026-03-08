@@ -1,3 +1,33 @@
+/*
+ * XREFs of KiRetireDpcList @ 0x1402521E0
+ * Callers:
+ *     KiExecuteDpcDelegate @ 0x14038D4D0 (KiExecuteDpcDelegate.c)
+ *     KiIdleLoop @ 0x14041AF70 (KiIdleLoop.c)
+ *     KxSwapStacksAndRetireDpcList @ 0x14041F870 (KxSwapStacksAndRetireDpcList.c)
+ * Callees:
+ *     KiStartThreadCycleAccumulation @ 0x140227310 (KiStartThreadCycleAccumulation.c)
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     RtlBackoff @ 0x140241660 (RtlBackoff.c)
+ *     KiTimer2Expiration @ 0x140250C10 (KiTimer2Expiration.c)
+ *     RtlTimelineBitmapUpdate @ 0x140250EE0 (RtlTimelineBitmapUpdate.c)
+ *     KiProcessExpiredTimerList @ 0x140251760 (KiProcessExpiredTimerList.c)
+ *     KiSelectActiveTimerTable @ 0x1402521A0 (KiSelectActiveTimerTable.c)
+ *     KiExecuteAllDpcs @ 0x140252F60 (KiExecuteAllDpcs.c)
+ *     PoGetFrequencyBucket @ 0x140254EC0 (PoGetFrequencyBucket.c)
+ *     KiNormalPriorityReadyScan @ 0x1402AC070 (KiNormalPriorityReadyScan.c)
+ *     KeSignalGate @ 0x1402F0524 (KeSignalGate.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     HalpTimerScaleCounter @ 0x1403BE604 (HalpTimerScaleCounter.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiBeginCounterAccumulation @ 0x140571C80 (KiBeginCounterAccumulation.c)
+ *     KiUpdateThreadHgsFeedback @ 0x140576260 (KiUpdateThreadHgsFeedback.c)
+ */
+
 signed __int16 __fastcall KiRetireDpcList(__int64 a1)
 {
   __int64 v1; // rsi

@@ -1,3 +1,19 @@
+/*
+ * XREFs of WheaRemoveErrorSource @ 0x140A04C80
+ * Callers:
+ *     WheaUnregisterErrorSourceOverride @ 0x140611410 (WheaUnregisterErrorSourceOverride.c)
+ *     WheaRemoveErrorSourceDeviceDriver @ 0x140A04E60 (WheaRemoveErrorSourceDeviceDriver.c)
+ * Callees:
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     WheaLogInternalEvent @ 0x14037D610 (WheaLogInternalEvent.c)
+ *     WheapIsNonHestErrorSource @ 0x14037D750 (WheapIsNonHestErrorSource.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     WheapGetErrorSource @ 0x14060EAE8 (WheapGetErrorSource.c)
+ *     WheapCallErrorSourceUninitialize @ 0x140610450 (WheapCallErrorSourceUninitialize.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 char __fastcall WheaRemoveErrorSource(unsigned int a1)
 {
   __int64 *ErrorSource; // rax

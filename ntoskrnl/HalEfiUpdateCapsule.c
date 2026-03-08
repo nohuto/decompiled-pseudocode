@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalEfiUpdateCapsule @ 0x14050B0AC
+ * Callers:
+ *     HalpUpdateCapsule @ 0x14051EF30 (HalpUpdateCapsule.c)
+ * Callees:
+ *     HalpEfiDecrementEfiCall @ 0x1402AF954 (HalpEfiDecrementEfiCall.c)
+ *     HalpConvertEfiToNtStatus @ 0x1402AF97C (HalpConvertEfiToNtStatus.c)
+ *     HalpEfiIncrementEfiCall @ 0x1402AF9B0 (HalpEfiIncrementEfiCall.c)
+ *     HalpEfiStartRuntimeCode @ 0x1402AF9D8 (HalpEfiStartRuntimeCode.c)
+ */
+
 __int64 HalEfiUpdateCapsule()
 {
   __int64 v0; // r9

@@ -1,3 +1,16 @@
+/*
+ * XREFs of VidSchiDecrementDeviceReference @ 0x1C0012D90
+ * Callers:
+ *     VidSchiSwitchContextWithCheck @ 0x1C0007A60 (VidSchiSwitchContextWithCheck.c)
+ *     VidSchiDecrementContextReference @ 0x1C0011CE0 (VidSchiDecrementContextReference.c)
+ *     VidSchiSuspendResumeDevicesForPowerTransition @ 0x1C0012994 (VidSchiSuspendResumeDevicesForPowerTransition.c)
+ *     ?VidSchFlushQueuePacketsInternal@@YAXPEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_PACKET_TYPE@@IE_N@Z @ 0x1C0012A7C (-VidSchFlushQueuePacketsInternal@@YAXPEAU_VIDSCH_GLOBAL@@W4_VIDSCH_FLUSH_PACKET_TYPE@@IE_N@Z.c)
+ *     ?VidSchiDecrementHwContextReference@@YAXPEAUVIDSCH_HW_CONTEXT@@H@Z @ 0x1C0042604 (-VidSchiDecrementHwContextReference@@YAXPEAUVIDSCH_HW_CONTEXT@@H@Z.c)
+ *     VidSchTerminateDevice @ 0x1C00A8E60 (VidSchTerminateDevice.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VidSchiDecrementDeviceReference(char *P, int a2)
 {
   char **v4; // rdx

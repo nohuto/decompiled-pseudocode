@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DxgkOpenHandleForCompositionObjectReference@@YAJKDPEAXPEAPEAX@Z @ 0x1C006CAE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall DxgkOpenHandleForCompositionObjectReference(
         ACCESS_MASK DesiredAccess,
         KPROCESSOR_MODE AccessMode,

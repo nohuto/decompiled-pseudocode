@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBMISC_NotifyDeviceRemovalIfDeviceSupportsReattach @ 0x1C00337E8
+ * Callers:
+ *     HUBPSM20_Disconnected @ 0x1C0011D20 (HUBPSM20_Disconnected.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBMISC_NotifyDeviceRemovalIfDeviceSupportsReattach(__int64 a1)
 {
   __int64 result; // rax

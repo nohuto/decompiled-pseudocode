@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiFreeToSubAllocatedRegion @ 0x1406A5278
+ * Callers:
+ *     MiAllocateFromSubAllocatedRegion @ 0x1406A3620 (MiAllocateFromSubAllocatedRegion.c)
+ *     MmDeleteTeb @ 0x1406A51C0 (MmDeleteTeb.c)
+ * Callees:
+ *     MiLocateVadEvent @ 0x14020DC50 (MiLocateVadEvent.c)
+ *     RtlClearBitsEx @ 0x14020FC50 (RtlClearBitsEx.c)
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     UNLOCK_PAGE_TABLE_COMMITMENT @ 0x14034CCF4 (UNLOCK_PAGE_TABLE_COMMITMENT.c)
+ *     LOCK_PAGE_TABLE_COMMITMENT @ 0x14034CD5C (LOCK_PAGE_TABLE_COMMITMENT.c)
+ *     MiDecommitRegion @ 0x1406EBCC0 (MiDecommitRegion.c)
+ *     MiDeleteVad @ 0x1407C82E0 (MiDeleteVad.c)
+ */
+
 void __fastcall MiFreeToSubAllocatedRegion(_QWORD *P, __int64 a2, unsigned __int64 a3, __int64 a4)
 {
   __int64 VadEvent; // rax

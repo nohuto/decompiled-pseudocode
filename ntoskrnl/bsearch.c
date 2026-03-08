@@ -1,3 +1,19 @@
+/*
+ * XREFs of bsearch @ 0x1403D4280
+ * Callers:
+ *     DownLevelLangIDToLanguageName @ 0x1402BEE08 (DownLevelLangIDToLanguageName.c)
+ *     DownLevelLanguageNameToLangID @ 0x14036F74C (DownLevelLanguageNameToLangID.c)
+ *     RtlCompareExchangePropertyStore @ 0x1405A8090 (RtlCompareExchangePropertyStore.c)
+ *     RtlQueryPropertyStore @ 0x1405A8510 (RtlQueryPropertyStore.c)
+ *     RtlRemovePropertyStore @ 0x1405A8760 (RtlRemovePropertyStore.c)
+ *     DownLevelGetParentLanguageName @ 0x140612240 (DownLevelGetParentLanguageName.c)
+ *     EtwpIsGuidAllowed @ 0x140695F94 (EtwpIsGuidAllowed.c)
+ *     sub_14081A50C @ 0x14081A50C (sub_14081A50C.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     _guard_check_icall @ 0x140421180 (_guard_check_icall.c)
+ */
+
 void *__cdecl bsearch(
         const void *Key,
         const void *Base,

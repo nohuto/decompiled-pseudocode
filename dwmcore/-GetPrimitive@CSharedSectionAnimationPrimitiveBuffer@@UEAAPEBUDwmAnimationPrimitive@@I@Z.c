@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPrimitive@CSharedSectionAnimationPrimitiveBuffer@@UEAAPEBUDwmAnimationPrimitive@@I@Z @ 0x1800D7600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 const struct DwmAnimationPrimitive *__fastcall CSharedSectionAnimationPrimitiveBuffer::GetPrimitive(
         CSharedSectionAnimationPrimitiveBuffer *this,
         unsigned int a2)

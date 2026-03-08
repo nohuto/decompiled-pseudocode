@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpInterruptPowerChange @ 0x140518364
+ * Callers:
+ *     HalpInterruptPowerComponentActiveCallback @ 0x140518400 (HalpInterruptPowerComponentActiveCallback.c)
+ *     HalpInterruptPowerComponentIdleCallback @ 0x140518420 (HalpInterruptPowerComponentIdleCallback.c)
+ *     HalpInterruptPowerCriticalTransitionCallback @ 0x140518460 (HalpInterruptPowerCriticalTransitionCallback.c)
+ * Callees:
+ *     HalpInterruptInitializeController @ 0x14037B24C (HalpInterruptInitializeController.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HalpInterruptRestoreController @ 0x140518478 (HalpInterruptRestoreController.c)
+ */
+
 __int64 __fastcall HalpInterruptPowerChange(ULONG_PTR BugCheckParameter3, char a2)
 {
   int v2; // eax

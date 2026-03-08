@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopPowerRequestStatsCreateSleepstudyBlocker @ 0x140726450
+ * Callers:
+ *     PopPowerRequestStatsCreate @ 0x14073C194 (PopPowerRequestStatsCreate.c)
+ *     PopPowerRequestStatsInitialize @ 0x140B62918 (PopPowerRequestStatsInitialize.c)
+ * Callees:
+ *     RtlRandomEx @ 0x1402A6210 (RtlRandomEx.c)
+ *     SleepstudyHelperCreateBlockerFromGuid @ 0x1402B36C0 (SleepstudyHelperCreateBlockerFromGuid.c)
+ *     SleepstudyHelperBuildBlocker @ 0x1407261A0 (SleepstudyHelperBuildBlocker.c)
+ *     SleepstudyHelperDestroyBlockerBuilder @ 0x140726370 (SleepstudyHelperDestroyBlockerBuilder.c)
+ *     SleepstudyHelperSetBlockerVerboseDescription @ 0x14099F0E0 (SleepstudyHelperSetBlockerVerboseDescription.c)
+ */
+
 __int64 __fastcall PopPowerRequestStatsCreateSleepstudyBlocker(__int64 a1, __int64 a2, _QWORD *a3)
 {
   __int128 v5; // xmm0

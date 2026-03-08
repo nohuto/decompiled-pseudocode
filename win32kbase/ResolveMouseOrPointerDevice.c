@@ -1,3 +1,12 @@
+/*
+ * XREFs of ResolveMouseOrPointerDevice @ 0x1C00CA750
+ * Callers:
+ *     NtUserGetPointerDeviceInputSpace @ 0x1C01704E0 (NtUserGetPointerDeviceInputSpace.c)
+ *     NtUserGetPointerDeviceOrientation @ 0x1C01705C0 (NtUserGetPointerDeviceOrientation.c)
+ * Callees:
+ *     HMValidateHandleNoSecure @ 0x1C007A1CC (HMValidateHandleNoSecure.c)
+ */
+
 __int64 __fastcall ResolveMouseOrPointerDevice(__int64 a1, _QWORD *a2, _DWORD *a3)
 {
   unsigned int v3; // ebx

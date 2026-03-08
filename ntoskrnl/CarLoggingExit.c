@@ -1,3 +1,13 @@
+/*
+ * XREFs of CarLoggingExit @ 0x1405D1050
+ * Callers:
+ *     CarCleanup @ 0x1405D1318 (CarCleanup.c)
+ * Callees:
+ *     McGenEventUnregister_EtwUnregister @ 0x1405D11EC (McGenEventUnregister_EtwUnregister.c)
+ *     EtwUnregister @ 0x14076F9E0 (EtwUnregister.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 CarLoggingExit()
 {
   __int64 result; // rax

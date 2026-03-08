@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetPhysicalDimensionOfInternalPanel@EDIDCACHE@DxgMonitor@@UEAAXJJE@Z @ 0x1C021A4A0
+ * Callers:
+ *     ??0EDIDCACHE@DxgMonitor@@QEAA@XZ @ 0x1C01FBDAC (--0EDIDCACHE@DxgMonitor@@QEAA@XZ.c)
+ *     ?AddEdid@EDIDCACHE@DxgMonitor@@UEAAXU_LUID@@IEPEBEW4_D3DKMDT_MONITOR_CAPABILITIES_ORIGIN@@@Z @ 0x1C0217AC0 (-AddEdid@EDIDCACHE@DxgMonitor@@UEAAXU_LUID@@IEPEBEW4_D3DKMDT_MONITOR_CAPABILITIES_ORIGIN@@@Z.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 void __fastcall DxgMonitor::EDIDCACHE::SetPhysicalDimensionOfInternalPanel(
         DxgMonitor::EDIDCACHE *this,
         int a2,

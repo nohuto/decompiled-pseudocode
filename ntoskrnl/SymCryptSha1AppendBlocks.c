@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptSha1AppendBlocks @ 0x1403F6330
+ * Callers:
+ *     SymCryptSha1Result @ 0x1403F7550 (SymCryptSha1Result.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptSha1AppendBlocks(int *a1, __int64 a2, unsigned __int64 a3, unsigned __int64 *a4)
 {
   int v4; // r11d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetPixelFormatInfo@CWICBitmapRealization@@UEBA?AUPixelFormatInfo@@XZ @ 0x1800E0700
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CWICBitmapRealization::GetPixelFormatInfo(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdx

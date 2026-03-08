@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiReadDeviceConfiguration @ 0x1C00ACF9C
+ * Callers:
+ *     VidSchiCreateDeviceInternal @ 0x1C00AC5B0 (VidSchiCreateDeviceInternal.c)
+ * Callees:
+ *     memset @ 0x1C001AC80 (memset.c)
+ */
+
 __int64 __fastcall VidSchiReadDeviceConfiguration(__int64 a1)
 {
   int v1; // ebx

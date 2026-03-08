@@ -1,3 +1,14 @@
+/*
+ * XREFs of OpenDesktopCompletion @ 0x1C00C119C
+ * Callers:
+ *     _OpenThreadDesktop @ 0x1C00BEF04 (_OpenThreadDesktop.c)
+ *     EditionOpenInputDesktopEntryPoint @ 0x1C00BF2E0 (EditionOpenInputDesktopEntryPoint.c)
+ *     _OpenDesktop @ 0x1C00BF4B0 (_OpenDesktop.c)
+ *     xxxCreateDesktopEx @ 0x1C00C03D4 (xxxCreateDesktopEx.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall OpenDesktopCompletion(__int64 a1, __int64 a2, char a3)
 {
   __int64 CurrentProcessWin32Process; // rax

@@ -1,3 +1,24 @@
+/*
+ * XREFs of _DrawIconEx @ 0x1C003B618
+ * Callers:
+ *     NtUserDrawIconEx @ 0x1C003B810 (NtUserDrawIconEx.c)
+ *     ?xxxPaintIconsInSwitchWindow@@YAXPEAUtagWND@@PEAUtagSwitchWndInfo@@PEAUHDC__@@HHHHHPEAUtagCURSOR@@@Z @ 0x1C01CA94C (-xxxPaintIconsInSwitchWindow@@YAXPEAUtagWND@@PEAUtagSwitchWndInfo@@PEAUHDC__@@HHHHHPEAUtagCURSOR.c)
+ *     ?DrawCaptionIcon@@YAXPEAUHDC__@@PEAUtagRECT@@PEAUtagCURSOR@@PEAUHBRUSH__@@I@Z @ 0x1C022E6C4 (-DrawCaptionIcon@@YAXPEAUHDC__@@PEAUtagRECT@@PEAUtagCURSOR@@PEAUHBRUSH__@@I@Z.c)
+ *     xxxRealDrawMenuItem @ 0x1C0239598 (xxxRealDrawMenuItem.c)
+ * Callees:
+ *     GreSetBrushOrg @ 0x1C0007754 (GreSetBrushOrg.c)
+ *     ?GetVirtualizedCursorSize@@YAXPEAUtagCURSOR@@PEAH1@Z @ 0x1C003BA40 (-GetVirtualizedCursorSize@@YAXPEAUtagCURSOR@@PEAH1@Z.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ *     NtGdiBitBltInternal @ 0x1C005E110 (NtGdiBitBltInternal.c)
+ *     GreCreateCompatibleBitmapInternal @ 0x1C007BB00 (GreCreateCompatibleBitmapInternal.c)
+ *     GrePolyPatBlt @ 0x1C0088258 (GrePolyPatBlt.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ *     ?GetAnimatedCursorFrame@@YAPEAUtagCURSOR@@QEAUtagACON@@H@Z @ 0x1C00EEAB0 (-GetAnimatedCursorFrame@@YAPEAUtagCURSOR@@QEAUtagACON@@H@Z.c)
+ *     BltIcon @ 0x1C011375C (BltIcon.c)
+ *     GreGetBrushOrg @ 0x1C02AA4C8 (GreGetBrushOrg.c)
+ */
+
 __int64 __fastcall DrawIconEx(
         HDC a1,
         unsigned int a2,

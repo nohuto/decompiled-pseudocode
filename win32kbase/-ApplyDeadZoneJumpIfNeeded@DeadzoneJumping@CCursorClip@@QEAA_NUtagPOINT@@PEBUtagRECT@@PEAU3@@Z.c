@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?ApplyDeadZoneJumpIfNeeded@DeadzoneJumping@CCursorClip@@QEAA_NUtagPOINT@@PEBUtagRECT@@PEAU3@@Z @ 0x1C020A744
+ * Callers:
+ *     ?BoundPointToRegions@CCursorClip@@AEAAXUtagPOINT@@_N11PEAU2@@Z @ 0x1C0015640 (-BoundPointToRegions@CCursorClip@@AEAAXUtagPOINT@@_N11PEAU2@@Z.c)
+ * Callees:
+ *     EngMulDiv @ 0x1C003BF30 (EngMulDiv.c)
+ *     Feature_DeadzoneLogicStaleRegionFix__private_IsEnabledDeviceUsage @ 0x1C00DFF30 (Feature_DeadzoneLogicStaleRegionFix__private_IsEnabledDeviceUsage.c)
+ *     ?ClipPointToRect@CCursorClip@@CAXUtagPOINT@@PEBUtagRECT@@PEAU2@@Z @ 0x1C00F3162 (-ClipPointToRect@CCursorClip@@CAXUtagPOINT@@PEBUtagRECT@@PEAU2@@Z.c)
+ *     ?DeadzoneJumpSuggestion@Cursor@InputTraceLogging@@SAXIAEBUtagPOINT@@0@Z @ 0x1C020AD1C (-DeadzoneJumpSuggestion@Cursor@InputTraceLogging@@SAXIAEBUtagPOINT@@0@Z.c)
+ *     ?Proximity@DeadzoneJumping@CCursorClip@@CAJJJJ@Z @ 0x1C020B004 (-Proximity@DeadzoneJumping@CCursorClip@@CAJJJJ@Z.c)
+ */
+
 char __fastcall CCursorClip::DeadzoneJumping::ApplyDeadZoneJumpIfNeeded(
         CCursorClip::DeadzoneJumping *this,
         struct tagPOINT a2,

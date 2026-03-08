@@ -1,3 +1,17 @@
+/*
+ * XREFs of MmSetAccessLogging @ 0x1402FF710
+ * Callers:
+ *     PfTAccessTracingCleanup @ 0x140A844E0 (PfTAccessTracingCleanup.c)
+ *     PfTAccessTracingStart @ 0x140A858C4 (PfTAccessTracingStart.c)
+ *     PfTSetTracingPriority @ 0x140A9D61C (PfTSetTracingPriority.c)
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MmSetAccessLogging(int a1, int a2)
 {
   __int64 result; // rax

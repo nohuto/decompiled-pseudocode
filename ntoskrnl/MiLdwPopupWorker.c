@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiLdwPopupWorker @ 0x140A2CB60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     CcMmLogLostDelayedWriteError @ 0x140535454 (CcMmLogLostDelayedWriteError.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 LONG_PTR __fastcall MiLdwPopupWorker(__int64 a1)
 {
   struct _FILE_OBJECT *v1; // rbx

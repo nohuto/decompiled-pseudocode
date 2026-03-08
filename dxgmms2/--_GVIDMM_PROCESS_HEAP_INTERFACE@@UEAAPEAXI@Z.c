@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??_GVIDMM_PROCESS_HEAP_INTERFACE@@UEAAPEAXI@Z @ 0x1C0032070
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 VIDMM_PROCESS_HEAP_INTERFACE *__fastcall VIDMM_PROCESS_HEAP_INTERFACE::`scalar deleting destructor'(
         VIDMM_PROCESS_HEAP_INTERFACE *this,
         char a2)

@@ -1,3 +1,20 @@
+/*
+ * XREFs of DbgkPostModuleMessage @ 0x1405395FC
+ * Callers:
+ *     DbgkPostEnclaveModuleMessages @ 0x140539580 (DbgkPostEnclaveModuleMessages.c)
+ *     PsDispatchIumService @ 0x1405A2A44 (PsDispatchIumService.c)
+ *     DbgkpPostModuleMessages @ 0x140934C44 (DbgkpPostModuleMessages.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     MmGetFileNameForAddress @ 0x1408A737E (MmGetFileNameForAddress.c)
+ *     DbgkpQueueMessage @ 0x140934EE8 (DbgkpQueueMessage.c)
+ *     DbgkpSendApiMessage @ 0x1409370E0 (DbgkpSendApiMessage.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall DbgkPostModuleMessage(
         PVOID Object,
         PVOID a2,

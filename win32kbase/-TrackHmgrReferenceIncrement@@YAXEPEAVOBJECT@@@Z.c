@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?TrackHmgrReferenceIncrement@@YAXEPEAVOBJECT@@@Z @ 0x1C0047B30
+ * Callers:
+ *     HmgShareLockIgnoreStockBit @ 0x1C00BC754 (HmgShareLockIgnoreStockBit.c)
+ * Callees:
+ *     ?TrackObjectReferenceIncrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z @ 0x1C0047CDC (-TrackObjectReferenceIncrement@@YAXW4ReferenceTrackerCountedType@@PEAX@Z.c)
+ */
+
 void __fastcall TrackHmgrReferenceIncrement(char a1, struct OBJECT *a2)
 {
   __int64 v2; // rdx

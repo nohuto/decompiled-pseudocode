@@ -1,3 +1,13 @@
+/*
+ * XREFs of MinCryptDecodeHashAlgorithmIdentifier @ 0x140A6C4E8
+ * Callers:
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6CBC8 (MinCryptVerifyCertificateWithPolicy2.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     MinAsn1ParseAlgorithmIdentifier @ 0x140A6D684 (MinAsn1ParseAlgorithmIdentifier.c)
+ */
+
 __int64 __fastcall MinCryptDecodeHashAlgorithmIdentifier(__int64 a1)
 {
   unsigned int v1; // esi

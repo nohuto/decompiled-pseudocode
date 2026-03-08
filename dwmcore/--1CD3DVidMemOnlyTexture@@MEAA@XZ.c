@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CD3DVidMemOnlyTexture@@MEAA@XZ @ 0x1802BC4DC
+ * Callers:
+ *     ??_ECD3DVidMemOnlyTexture@@MEAAPEAXI@Z @ 0x1802BC520 (--_ECD3DVidMemOnlyTexture@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CD3DVidMemOnlyTexture::~CD3DVidMemOnlyTexture(CD3DVidMemOnlyTexture *this)
 {
   __int64 v1; // rdx

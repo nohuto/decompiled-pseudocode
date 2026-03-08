@@ -1,3 +1,45 @@
+/*
+ * XREFs of MiChangePageAttribute @ 0x14036CE40
+ * Callers:
+ *     MiGetSlabPage @ 0x14025BA50 (MiGetSlabPage.c)
+ *     MiCompletePrivateZeroFault @ 0x14026C360 (MiCompletePrivateZeroFault.c)
+ *     MiGetPageChain @ 0x14026E0E0 (MiGetPageChain.c)
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ *     MiMakePageAvoidRead @ 0x140272670 (MiMakePageAvoidRead.c)
+ *     MiCoalesceFreePages @ 0x140278FE0 (MiCoalesceFreePages.c)
+ *     MiDeleteClusterPage @ 0x14027A890 (MiDeleteClusterPage.c)
+ *     MiInitializeReadInProgressPfn @ 0x140289390 (MiInitializeReadInProgressPfn.c)
+ *     MiInitializePfn @ 0x140289DB0 (MiInitializePfn.c)
+ *     MiFinalizePageAttribute @ 0x14028A354 (MiFinalizePageAttribute.c)
+ *     MiBuildMdlForMappedFileFault @ 0x14028B490 (MiBuildMdlForMappedFileFault.c)
+ *     MiCombineInitialInstance @ 0x14029CD58 (MiCombineInitialInstance.c)
+ *     MiCopySinglePage @ 0x1402A2358 (MiCopySinglePage.c)
+ *     MiInitializeMdlOneNodeBatchPages @ 0x1402B4650 (MiInitializeMdlOneNodeBatchPages.c)
+ *     MiPageAttributeBatchChangeNeeded @ 0x1402B49B4 (MiPageAttributeBatchChangeNeeded.c)
+ *     MiZeroPhysicalPage @ 0x1402CE78C (MiZeroPhysicalPage.c)
+ *     MiCopyOnWrite @ 0x140319F00 (MiCopyOnWrite.c)
+ *     MiAllocateKernelStackPages @ 0x14031D830 (MiAllocateKernelStackPages.c)
+ *     MiCopyPage @ 0x14032DC70 (MiCopyPage.c)
+ *     MiSetPfnOwnedAndActive @ 0x14034591C (MiSetPfnOwnedAndActive.c)
+ *     MiDeleteClusterSection @ 0x14034B3A4 (MiDeleteClusterSection.c)
+ *     MiAddExpansionNonPagedPool @ 0x140394B74 (MiAddExpansionNonPagedPool.c)
+ *     MiFreeSlabEntry @ 0x1403B33B0 (MiFreeSlabEntry.c)
+ *     MiIncrementAweMapCount @ 0x140648524 (MiIncrementAweMapCount.c)
+ *     MiBuildForkPageTable @ 0x14065F934 (MiBuildForkPageTable.c)
+ *     MiDuplicateCloneLeaf @ 0x140661AA8 (MiDuplicateCloneLeaf.c)
+ *     MiComputeCacheAttributeSpeeds @ 0x140811138 (MiComputeCacheAttributeSpeeds.c)
+ * Callees:
+ *     MiAbortCombineScan @ 0x14021467C (MiAbortCombineScan.c)
+ *     MiPageCombiningActive @ 0x14021472C (MiPageCombiningActive.c)
+ *     MiFlushCacheForAttributeChange @ 0x140214754 (MiFlushCacheForAttributeChange.c)
+ *     MiPageContentsRetainedAcrossAttributeChange @ 0x140214AFC (MiPageContentsRetainedAcrossAttributeChange.c)
+ *     MiTbFlushTimeStampMayNeedFlush @ 0x14029A144 (MiTbFlushTimeStampMayNeedFlush.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x14032F834 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14036D020 (MiFlushEntireTbDueToAttributeChange.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall MiChangePageAttribute(__int64 a1, int a2, unsigned __int8 a3)
 {
   unsigned __int8 v3; // bl

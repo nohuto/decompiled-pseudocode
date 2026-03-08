@@ -1,3 +1,12 @@
+/*
+ * XREFs of SeCaptureSecurityQos @ 0x1406DB070
+ * Callers:
+ *     NtDuplicateToken @ 0x1406DAB50 (NtDuplicateToken.c)
+ *     NtCreateTokenEx @ 0x14070F880 (NtCreateTokenEx.c)
+ * Callees:
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ */
+
 __int64 __fastcall SeCaptureSecurityQos(__int64 a1, char a2, _BYTE *a3, __int64 a4)
 {
   _DWORD *v4; // rax

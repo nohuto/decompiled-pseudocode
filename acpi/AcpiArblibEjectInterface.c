@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiArblibEjectInterface @ 0x1C007CFEC
+ * Callers:
+ *     ACPIBusIrpQueryInterface @ 0x1C00165F0 (ACPIBusIrpQueryInterface.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     AcpiArblibReferenceArbiter @ 0x1C0001950 (AcpiArblibReferenceArbiter.c)
+ */
+
 __int64 __fastcall AcpiArblibEjectInterface(ULONG_PTR a1, __int64 a2)
 {
   _QWORD *DeviceExtension; // rax

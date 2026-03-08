@@ -1,3 +1,19 @@
+/*
+ * XREFs of KsepDbGetDriverShimsInternal @ 0x14079EF10
+ * Callers:
+ *     KsepDbGetDriverShims @ 0x14079EDE8 (KsepDbGetDriverShims.c)
+ * Callees:
+ *     KsepPoolAllocatePaged @ 0x140303CA4 (KsepPoolAllocatePaged.c)
+ *     KsepDbFreeDriverShims @ 0x14079E360 (KsepDbFreeDriverShims.c)
+ *     SdbReadDWORDTag @ 0x14079FC18 (SdbReadDWORDTag.c)
+ *     SdbFindNextTag @ 0x1407A0218 (SdbFindNextTag.c)
+ *     SdbGetDatabaseMatchEx @ 0x1407A1A40 (SdbGetDatabaseMatchEx.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ *     KsepDbGetSdbString @ 0x140800688 (KsepDbGetSdbString.c)
+ *     SdbReadGUIDTag @ 0x1408006BC (SdbReadGUIDTag.c)
+ *     SdbTagRefToTagID @ 0x140800B74 (SdbTagRefToTagID.c)
+ */
+
 __int64 __fastcall KsepDbGetDriverShimsInternal(
         __int64 a1,
         __int64 a2,

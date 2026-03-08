@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiAllocateMdlPagesByLists @ 0x14025B5F0
+ * Callers:
+ *     MiFindPagesForMdl @ 0x1402B3FE8 (MiFindPagesForMdl.c)
+ * Callees:
+ *     MiGetSlabPage @ 0x14025BA50 (MiGetSlabPage.c)
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ *     MiInitializePageColorBase @ 0x14028B040 (MiInitializePageColorBase.c)
+ *     MiAsyncSlabReplenish @ 0x1402DF31C (MiAsyncSlabReplenish.c)
+ *     MiReplenishSlabAllocator @ 0x1403496D8 (MiReplenishSlabAllocator.c)
+ *     MiReleaseFreshPage @ 0x14034E570 (MiReleaseFreshPage.c)
+ *     MiPageToChannel @ 0x140370C10 (MiPageToChannel.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall MiAllocateMdlPagesByLists(
         __int64 a1,
         __int64 a2,

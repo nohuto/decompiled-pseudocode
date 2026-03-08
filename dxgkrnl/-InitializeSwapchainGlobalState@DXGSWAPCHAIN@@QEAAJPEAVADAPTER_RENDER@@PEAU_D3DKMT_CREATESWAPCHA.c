@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?InitializeSwapchainGlobalState@DXGSWAPCHAIN@@QEAAJPEAVADAPTER_RENDER@@PEAU_D3DKMT_CREATESWAPCHAIN@@@Z @ 0x1C0353BA8
+ * Callers:
+ *     DxgkCreateSwapChain @ 0x1C0356B70 (DxgkCreateSwapChain.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?Init@DXGFIXEDQUEUE@@QEAAJXZ @ 0x1C005858C (-Init@DXGFIXEDQUEUE@@QEAAJXZ.c)
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C01A3640 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ */
+
 __int64 __fastcall DXGSWAPCHAIN::InitializeSwapchainGlobalState(
         DXGSWAPCHAIN *this,
         struct ADAPTER_RENDER *a2,

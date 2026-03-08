@@ -1,3 +1,15 @@
+/*
+ * XREFs of PpInitGetGroupOrderIndex @ 0x140B591EC
+ * Callers:
+ *     PipCallDriverAddDeviceQueryRoutine @ 0x1406C3364 (PipCallDriverAddDeviceQueryRoutine.c)
+ *     IopInitializeBootDrivers @ 0x140B57F78 (IopInitializeBootDrivers.c)
+ * Callees:
+ *     IopGetRegistryValue @ 0x1406C18D4 (IopGetRegistryValue.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     PnpRegSzToString @ 0x1407707FC (PnpRegSzToString.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int16 __fastcall PpInitGetGroupOrderIndex(void *a1)
 {
   _WORD *v1; // rbx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of McTemplateK0qhhhqhhh_EtwWriteTransfer @ 0x1C00024BC
+ * Callers:
+ *     HUBHTX_Get20PortChangeEvent @ 0x1C0004C30 (HUBHTX_Get20PortChangeEvent.c)
+ *     HUBHTX_GetPortLostChangeEvent @ 0x1C00052EC (HUBHTX_GetPortLostChangeEvent.c)
+ *     HUBHTX_Get30PortChangeEvent @ 0x1C000569C (HUBHTX_Get30PortChangeEvent.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001680 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0qhhhqhhh_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,

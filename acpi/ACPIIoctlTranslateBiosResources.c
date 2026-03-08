@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIIoctlTranslateBiosResources @ 0x1C0088698
+ * Callers:
+ *     ACPIIrpDispatchDeviceControl @ 0x1C0001290 (ACPIIrpDispatchDeviceControl.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     PnpBiosResourcesToNtResources @ 0x1C008EFDC (PnpBiosResourcesToNtResources.c)
+ */
+
 __int64 __fastcall ACPIIoctlTranslateBiosResources(__int64 a1, IRP *a2, __int64 a3)
 {
   int v4; // edi

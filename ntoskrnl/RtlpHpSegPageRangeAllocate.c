@@ -1,3 +1,27 @@
+/*
+ * XREFs of RtlpHpSegPageRangeAllocate @ 0x1402493A0
+ * Callers:
+ *     RtlpHpSegAlloc @ 0x1402491F0 (RtlpHpSegAlloc.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ *     RtlpHpSegFreeRangeInsert @ 0x14024E6D0 (RtlpHpSegFreeRangeInsert.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpSegHeapAddSegment @ 0x1402E9EB0 (RtlpHpSegHeapAddSegment.c)
+ *     RtlpHpSegSegmentAllocate @ 0x140305B38 (RtlpHpSegSegmentAllocate.c)
+ *     RtlpHpSegSegmentInitialize @ 0x1403094C8 (RtlpHpSegSegmentInitialize.c)
+ *     RtlpHpSegLockAcquire @ 0x14030AB78 (RtlpHpSegLockAcquire.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140350400 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     RtlpHpSegLargeRangeAllocate @ 0x1403BEB28 (RtlpHpSegLargeRangeAllocate.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140462ED8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140608CDC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ */
+
 __int64 __fastcall RtlpHpSegPageRangeAllocate(__int64 a1, __int64 a2, unsigned int a3)
 {
   unsigned int v3; // esi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0FxPowerPolicyOwnerSettings@@QEAA@PEAVFxPkgPnp@@@Z @ 0x1C0079F54
+ * Callers:
+ *     ?Initialize@FxPkgPnp@@UEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C0073160 (-Initialize@FxPkgPnp@@UEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ * Callees:
+ *     memset @ 0x1C000AC00 (memset.c)
+ *     ??0FxCREvent@@QEAA@E@Z @ 0x1C0029A78 (--0FxCREvent@@QEAA@E@Z.c)
+ */
+
 void __fastcall FxPowerPolicyOwnerSettings::FxPowerPolicyOwnerSettings(
         FxPowerPolicyOwnerSettings *this,
         FxPkgPnp *PkgPnp)

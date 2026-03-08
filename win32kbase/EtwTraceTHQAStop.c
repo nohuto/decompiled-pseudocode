@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceTHQAStop @ 0x1C0164080
+ * Callers:
+ *     RIMApiSetValidateDeviceSignature @ 0x1C01E1A0C (RIMApiSetValidateDeviceSignature.c)
+ * Callees:
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C00EDED8 (McTemplateK0_EtwWriteTransfer.c)
+ */
+
 NTSTATUS __fastcall EtwTraceTHQAStop(__int64 a1)
 {
   NTSTATUS result; // eax

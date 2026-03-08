@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiReturnPageTablePageCommitment @ 0x1406B6AF0
+ * Callers:
+ *     MiDeleteEmptyPageTableCommit @ 0x1402D426C (MiDeleteEmptyPageTableCommit.c)
+ *     MiRemoveVad @ 0x140333090 (MiRemoveVad.c)
+ * Callees:
+ *     MmGetMinWsPagePriority @ 0x140242D60 (MmGetMinWsPagePriority.c)
+ *     MiBitmapRangeZeroEx @ 0x140242D70 (MiBitmapRangeZeroEx.c)
+ *     MiGetPreviousVad @ 0x140242E74 (MiGetPreviousVad.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402992F0 (PdcCreateWatchdogAroundClientCall.c)
+ *     RtlAreBitsClearEx @ 0x1402E4560 (RtlAreBitsClearEx.c)
+ *     MiVadDeleted @ 0x14031F750 (MiVadDeleted.c)
+ *     MiVadPureReserve @ 0x140321EB0 (MiVadPureReserve.c)
+ *     MiVadPageTableChargeLevel @ 0x140321F50 (MiVadPageTableChargeLevel.c)
+ *     MiGetNextVad @ 0x140350908 (MiGetNextVad.c)
+ *     MiUpdateChargedWsles @ 0x14065F8E4 (MiUpdateChargedWsles.c)
+ *     MiReturnFullProcessCommitment @ 0x1406B6FB4 (MiReturnFullProcessCommitment.c)
+ */
+
 __int64 __fastcall MiReturnPageTablePageCommitment(
         unsigned __int64 a1,
         __int64 a2,

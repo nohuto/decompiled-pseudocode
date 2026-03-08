@@ -1,3 +1,13 @@
+/*
+ * XREFs of PfpServiceMainThreadBoostPrep @ 0x14097BCA8
+ * Callers:
+ *     PfpScenCtxScenarioSet @ 0x140A84910 (PfpScenCtxScenarioSet.c)
+ * Callees:
+ *     ObDereferenceObjectDeferDelete @ 0x1402637F0 (ObDereferenceObjectDeferDelete.c)
+ *     PsLookupThreadByThreadId @ 0x1406DBE00 (PsLookupThreadByThreadId.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PfpServiceMainThreadBoostPrep(__int64 a1, PETHREAD *a2)
 {
   void *v3; // rcx

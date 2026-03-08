@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_GetSqrt@MonitorColorState@DxgMonitor@@CANN@Z @ 0x1C01FCEB4
+ * Callers:
+ *     ?_GetDeltaBetweenPoints@MonitorColorState@DxgMonitor@@CANNNNN@Z @ 0x1C01FCE68 (-_GetDeltaBetweenPoints@MonitorColorState@DxgMonitor@@CANNNNN@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 double __fastcall DxgMonitor::MonitorColorState::_GetSqrt(double a1)
 {
   double v1; // xmm2_8

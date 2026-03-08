@@ -1,3 +1,17 @@
+/*
+ * XREFs of EngFreeMem @ 0x1C002AE00
+ * Callers:
+ *     ?MultiUserGreCleanupEngResources@@YAXXZ @ 0x1C002AD20 (-MultiUserGreCleanupEngResources@@YAXXZ.c)
+ *     ?StubDispDisablePDEV@@YAXPEAUDHPDEV__@@@Z @ 0x1C002D520 (-StubDispDisablePDEV@@YAXPEAUDHPDEV__@@@Z.c)
+ *     ?StubDispEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C009E9B0 (-StubDispEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEAGKPEAPEAUHSURF__@@KPEAKKPEAUtagDEVINFO.c)
+ *     ?MulDisablePDEV@@YAXPEAUDHPDEV__@@@Z @ 0x1C018B170 (-MulDisablePDEV@@YAXPEAUDHPDEV__@@@Z.c)
+ *     ?MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDEVINFO@@PEAUHDEV__@@1PEAX@Z @ 0x1C018B320 (-MulEnablePDEV@@YAPEAUDHPDEV__@@PEAU_devicemodeW@@PEBGKPEAPEAUHSURF__@@KPEAU_GDIINFO@@KPEAUtagDE.c)
+ *     EngDeleteClip @ 0x1C0197C00 (EngDeleteClip.c)
+ * Callees:
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     McTemplateK0pz_EtwWriteTransfer @ 0x1C0198A10 (McTemplateK0pz_EtwWriteTransfer.c)
+ */
+
 void __stdcall EngFreeMem(PVOID pv)
 {
   _QWORD *v1; // rbx

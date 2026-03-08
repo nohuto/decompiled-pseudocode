@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?AddChunkListToTail@MIRACAST_CHUNK_LIST@@QEAAXPEAV1@@Z @ 0x1C005EDC8
+ * Callers:
+ *     ?MiracastProcessPendingDPCChunks@@YAEPEAX@Z @ 0x1C005EFF0 (-MiracastProcessPendingDPCChunks@@YAEPEAX@Z.c)
+ *     DpiMiracastMoveChunkList @ 0x1C005FF20 (DpiMiracastMoveChunkList.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall MIRACAST_CHUNK_LIST::AddChunkListToTail(MIRACAST_CHUNK_LIST *this, struct MIRACAST_CHUNK_LIST *a2)
 {
   struct MIRACAST_CHUNK_LIST **v2; // r8

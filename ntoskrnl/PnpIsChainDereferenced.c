@@ -1,3 +1,16 @@
+/*
+ * XREFs of PnpIsChainDereferenced @ 0x1403CE6E0
+ * Callers:
+ *     PnpProcessQueryRemoveAndEject @ 0x1408625F0 (PnpProcessQueryRemoveAndEject.c)
+ *     PipEventRemovalCheckOpenHandles @ 0x14096EB8C (PipEventRemovalCheckOpenHandles.c)
+ * Callees:
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ *     PnpIsAnyDeviceInUse @ 0x1403CE7F8 (PnpIsAnyDeviceInUse.c)
+ *     PnpUpdateExtensionFlags @ 0x1403CE844 (PnpUpdateExtensionFlags.c)
+ *     PnpChainDereferenceComplete @ 0x14087CAC8 (PnpChainDereferenceComplete.c)
+ */
+
 __int64 __fastcall PnpIsChainDereferenced(_QWORD *a1, int a2, int a3, unsigned int a4, _QWORD *a5)
 {
   _QWORD *v5; // rsi

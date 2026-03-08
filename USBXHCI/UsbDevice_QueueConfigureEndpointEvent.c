@@ -1,3 +1,36 @@
+/*
+ * XREFs of UsbDevice_QueueConfigureEndpointEvent @ 0x1C0008958
+ * Callers:
+ *     UsbDevice_UcxEvtEndpointsConfigure @ 0x1C00086D0 (UsbDevice_UcxEvtEndpointsConfigure.c)
+ *     UsbDevice_SendConfigureEndpointCommand @ 0x1C0008824 (UsbDevice_SendConfigureEndpointCommand.c)
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0008958 (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     UsbDevice_HandleAddAndDropEndpointsState @ 0x1C000AE18 (UsbDevice_HandleAddAndDropEndpointsState.c)
+ *     UsbDevice_EndpointsConfigureCompletion @ 0x1C000D070 (UsbDevice_EndpointsConfigureCompletion.c)
+ *     UsbDevice_SetDeviceDisabled @ 0x1C000FD4C (UsbDevice_SetDeviceDisabled.c)
+ *     UsbDevice_DropEndpointsCompletion @ 0x1C0048BA0 (UsbDevice_DropEndpointsCompletion.c)
+ *     UsbDevice_HandleAddEndpointsState @ 0x1C0049038 (UsbDevice_HandleAddEndpointsState.c)
+ *     UsbDevice_HandleDropEndpointsState @ 0x1C0049228 (UsbDevice_HandleDropEndpointsState.c)
+ *     UsbDevice_HandleSendStopEndpointToOffloadedEndpointsState @ 0x1C0049284 (UsbDevice_HandleSendStopEndpointToOffloadedEndpointsState.c)
+ *     UsbDevice_SetResourceAssignmentCompletion @ 0x1C0049B90 (UsbDevice_SetResourceAssignmentCompletion.c)
+ *     UsbDevice_StopEndpointToOffloadedEndpointCompletion @ 0x1C0049CF0 (UsbDevice_StopEndpointToOffloadedEndpointCompletion.c)
+ * Callees:
+ *     UsbDevice_CompleteConfigureEndpointRequest @ 0x1C00085AC (UsbDevice_CompleteConfigureEndpointRequest.c)
+ *     UsbDevice_SendConfigureEndpointCommand @ 0x1C0008824 (UsbDevice_SendConfigureEndpointCommand.c)
+ *     UsbDevice_QueueConfigureEndpointEvent @ 0x1C0008958 (UsbDevice_QueueConfigureEndpointEvent.c)
+ *     UsbDevice_ValidateEndpointConfigureRequest @ 0x1C0008B14 (UsbDevice_ValidateEndpointConfigureRequest.c)
+ *     UsbDevice_HandleAddAndDropEndpointsState @ 0x1C000AE18 (UsbDevice_HandleAddAndDropEndpointsState.c)
+ *     WPP_RECORDER_SF_ddd @ 0x1C0017FB0 (WPP_RECORDER_SF_ddd.c)
+ *     Controller_ReportFatalError @ 0x1C0034770 (Controller_ReportFatalError.c)
+ *     WPP_RECORDER_SF_sds @ 0x1C0037A20 (WPP_RECORDER_SF_sds.c)
+ *     UsbDevice_HandleAddEndpointsState @ 0x1C0049038 (UsbDevice_HandleAddEndpointsState.c)
+ *     UsbDevice_HandleAssignPinsForEndpointsToOffloadState @ 0x1C004908C (UsbDevice_HandleAssignPinsForEndpointsToOffloadState.c)
+ *     UsbDevice_HandleDropEndpointsState @ 0x1C0049228 (UsbDevice_HandleDropEndpointsState.c)
+ *     UsbDevice_HandleSendStopEndpointToOffloadedEndpointsState @ 0x1C0049284 (UsbDevice_HandleSendStopEndpointToOffloadedEndpointsState.c)
+ *     UsbDevice_HandleUnassignPinsForOffloadedEndpointsState @ 0x1C0049384 (UsbDevice_HandleUnassignPinsForOffloadedEndpointsState.c)
+ *     UsbDevice_HandleUnhandledEventReceivedState @ 0x1C00494D0 (UsbDevice_HandleUnhandledEventReceivedState.c)
+ *     UsbDevice_NumberOfOffloadedEndpointsInDropEndpointsList @ 0x1C0049558 (UsbDevice_NumberOfOffloadedEndpointsInDropEndpointsList.c)
+ */
+
 __int64 __fastcall UsbDevice_QueueConfigureEndpointEvent(__int64 a1, int a2)
 {
   int v2; // r9d

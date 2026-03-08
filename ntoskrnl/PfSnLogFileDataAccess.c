@@ -1,3 +1,14 @@
+/*
+ * XREFs of PfSnLogFileDataAccess @ 0x14028D408
+ * Callers:
+ *     PfFileInfoNotify @ 0x14028C770 (PfFileInfoNotify.c)
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     PfSnReferenceProcessTrace @ 0x14028D560 (PfSnReferenceProcessTrace.c)
+ *     PfSnCheckLoggingForThread @ 0x1402EA88C (PfSnCheckLoggingForThread.c)
+ *     PfSnLogPageFaultCommon @ 0x140306D88 (PfSnLogPageFaultCommon.c)
+ */
+
 void __fastcall PfSnLogFileDataAccess(int a1, int a2, __int64 a3, int a4, __int64 a5)
 {
   __int64 v9; // rax

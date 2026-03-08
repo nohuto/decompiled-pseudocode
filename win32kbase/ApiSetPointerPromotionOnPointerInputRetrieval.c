@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetPointerPromotionOnPointerInputRetrieval @ 0x1C0245B00
+ * Callers:
+ *     ?UpdatePointerInfoTarget@CTouchProcessor@@QEAAH_KUtagINPUTDEST@@HHPEAUtagPOINT@@2@Z @ 0x1C0208CD0 (-UpdatePointerInfoTarget@CTouchProcessor@@QEAAH_KUtagINPUTDEST@@HHPEAUtagPOINT@@2@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 PDEVICE_OBJECT *__fastcall ApiSetPointerPromotionOnPointerInputRetrieval(
         unsigned __int16 a1,
         __int64 a2,

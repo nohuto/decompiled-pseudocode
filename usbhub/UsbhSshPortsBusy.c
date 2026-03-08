@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhSshPortsBusy @ 0x1C0004EA4
+ * Callers:
+ *     UsbhSshSetPortsBusyState @ 0x1C000ABD0 (UsbhSshSetPortsBusyState.c)
+ * Callees:
+ *     UsbhDecHubBusy @ 0x1C0003DB0 (UsbhDecHubBusy.c)
+ *     UsbhIncHubBusy @ 0x1C0007050 (UsbhIncHubBusy.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 LONG __fastcall UsbhSshPortsBusy(__int64 a1, int a2, int a3)
 {
   __int64 v6; // rsi

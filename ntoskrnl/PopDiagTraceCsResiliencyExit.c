@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopDiagTraceCsResiliencyExit @ 0x14058FDB4
+ * Callers:
+ *     PopSleepstudyCaptureResiliencyStatistics @ 0x140990254 (PopSleepstudyCaptureResiliencyStatistics.c)
+ * Callees:
+ *     PpmConvertTime @ 0x140235D70 (PpmConvertTime.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopBatteryGetEnergyDrainFromDischage @ 0x140596770 (PopBatteryGetEnergyDrainFromDischage.c)
+ */
+
 __int64 __fastcall PopDiagTraceCsResiliencyExit(
         __int64 a1,
         __int64 a2,

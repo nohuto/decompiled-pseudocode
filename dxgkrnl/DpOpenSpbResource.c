@@ -1,3 +1,14 @@
+/*
+ * XREFs of DpOpenSpbResource @ 0x1C03A2E10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     RESOURCE_HUB_STRING_PRINTF @ 0x1C0065860 (RESOURCE_HUB_STRING_PRINTF.c)
+ *     RESOURCE_HUB_UNICODE_STRING_PRINTF @ 0x1C0065890 (RESOURCE_HUB_UNICODE_STRING_PRINTF.c)
+ *     DpiCreateSpbResourceRecord @ 0x1C03A35B0 (DpiCreateSpbResourceRecord.c)
+ */
+
 __int64 __fastcall DpOpenSpbResource(
         __int64 a1,
         __int64 a2,

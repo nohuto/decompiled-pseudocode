@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiSetClockTickRate @ 0x14022AF70
+ * Callers:
+ *     KiSetNextClockTickDueTime @ 0x14022FD10 (KiSetNextClockTickDueTime.c)
+ *     KiSetClockIntervalToMinimumRequested @ 0x14056DA7C (KiSetClockIntervalToMinimumRequested.c)
+ * Callees:
+ *     KiSetPendingTick @ 0x14022AF40 (KiSetPendingTick.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     KiEventClockStateChange @ 0x1402A9ADC (KiEventClockStateChange.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall KiSetClockTickRate(unsigned int a1, char a2)
 {
   struct _KPRCB *CurrentPrcb; // rbx

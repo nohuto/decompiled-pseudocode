@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?CopyPattern@@YAXPEAKJJJ@Z @ 0x1C0305E48
+ * Callers:
+ *     vFetchAndCopy @ 0x1C00180E8 (vFetchAndCopy.c)
+ *     vFetchNotAndCopy @ 0x1C0305EFC (vFetchNotAndCopy.c)
+ *     vFetchShiftAndCopy @ 0x1C0305F74 (vFetchShiftAndCopy.c)
+ *     vFetchShiftNotAndCopy @ 0x1C030606C (vFetchShiftNotAndCopy.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CopyPattern(unsigned int *a1, int a2, unsigned int a3, unsigned int a4)
 {
   unsigned int *v4; // r10

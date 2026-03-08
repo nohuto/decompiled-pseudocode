@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsOfType@?$CEffectGroupGeneratedT@VCEffectGroup@@VCEffect@@@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1800D6F40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CEffectGroupGeneratedT<CEffectGroup,CEffect>::IsOfType(__int64 a1, int a2)
 {
   unsigned __int64 v2; // rax

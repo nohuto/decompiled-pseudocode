@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ProcessSetExtendMode@CGradientBrush@@QEAAJPEAVCResourceTable@@PEBUtagMILCMD_GRADIENTBRUSH_SETEXTENDMODE@@@Z @ 0x18024A1CC
+ * Callers:
+ *     ?ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z @ 0x18009F0A8 (-ProcessMessage@CComposition@@AEAAJW4MILCMD@@PEBXIPEAVCChannelContext@@PEAVCResourceTable@@@Z.c)
+ * Callees:
+ *     ?InvalidateGradient@CGradientBrush@@AEAAXXZ @ 0x1800B9D38 (-InvalidateGradient@CGradientBrush@@AEAAXXZ.c)
+ */
+
 __int64 __fastcall CGradientBrush::ProcessSetExtendMode(
         CGradientBrush *this,
         struct CResourceTable *a2,

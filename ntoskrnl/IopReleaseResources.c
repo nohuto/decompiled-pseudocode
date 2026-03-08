@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopReleaseResources @ 0x140801F0C
+ * Callers:
+ *     IopLegacyResourceAllocation @ 0x140801DA4 (IopLegacyResourceAllocation.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     PipClearDevNodeFlags @ 0x14068816C (PipClearDevNodeFlags.c)
+ *     PnpReleaseResourcesInternal @ 0x140803D74 (PnpReleaseResourcesInternal.c)
+ *     IopAllocateBootResourcesInternal @ 0x1408046F8 (IopAllocateBootResourcesInternal.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall IopReleaseResources(__int64 a1)
 {
   void *v2; // rcx

@@ -1,3 +1,19 @@
+/*
+ * XREFs of IopCreateArcNamesDisk @ 0x140B54B24
+ * Callers:
+ *     IopCreateArcNames @ 0x140B550C4 (IopCreateArcNames.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IoGetDeviceObjectPointer @ 0x140720950 (IoGetDeviceObjectPointer.c)
+ *     IopCreateArcName @ 0x14086D7D8 (IopCreateArcName.c)
+ *     IoGetConfigurationInformation @ 0x140872E30 (IoGetConfigurationInformation.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     IopFetchConfigurationInformation @ 0x140B54DF4 (IopFetchConfigurationInformation.c)
+ */
+
 __int64 IopCreateArcNamesDisk()
 {
   ULONG DiskCount; // esi

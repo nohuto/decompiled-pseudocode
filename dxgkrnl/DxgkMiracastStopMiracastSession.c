@@ -1,3 +1,13 @@
+/*
+ * XREFs of DxgkMiracastStopMiracastSession @ 0x1C00624C4
+ * Callers:
+ *     DxgkNetDispStopMiracastDisplayDevice @ 0x1C02CEF20 (DxgkNetDispStopMiracastDisplayDevice.c)
+ * Callees:
+ *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C005FF40 (DpiMiracastReleaseMiracastDeviceContext.c)
+ *     DpiMiracastStopMiracastSessionSync @ 0x1C0060170 (DpiMiracastStopMiracastSessionSync.c)
+ *     DpiMiracastGetDeviceContextFromName @ 0x1C039A854 (DpiMiracastGetDeviceContextFromName.c)
+ */
+
 __int64 __fastcall DxgkMiracastStopMiracastSession(const WCHAR *a1, struct _KEVENT *a2)
 {
   char *DeviceContextFromName; // rax

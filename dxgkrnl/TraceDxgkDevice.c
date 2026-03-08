@@ -1,3 +1,11 @@
+/*
+ * XREFs of TraceDxgkDevice @ 0x1C0025C90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0ppqpttqpqp_EtwWriteTransfer @ 0x1C0048ABC (McTemplateK0ppqpttqpqp_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall TraceDxgkDevice(
         int a1,
         char a2,

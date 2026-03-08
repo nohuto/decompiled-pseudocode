@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiMirrorOmitPagesFromCopy @ 0x140624E58
+ * Callers:
+ *     MiMirrorReduceBlackWrites @ 0x140625C30 (MiMirrorReduceBlackWrites.c)
+ *     MiMirrorRemoveBlackChildPartitionPages @ 0x140625E30 (MiMirrorRemoveBlackChildPartitionPages.c)
+ *     MiMirrorRemoveInactivePages @ 0x140625E94 (MiMirrorRemoveInactivePages.c)
+ *     MiMirrorNodeLargePages @ 0x14064CF54 (MiMirrorNodeLargePages.c)
+ *     MiRemoveEnclavePagesFromMirror @ 0x140AAA4B8 (MiRemoveEnclavePagesFromMirror.c)
+ * Callees:
+ *     RtlClearBitsEx @ 0x14020FC50 (RtlClearBitsEx.c)
+ *     MiMapPageInHyperSpaceWorker @ 0x140214870 (MiMapPageInHyperSpaceWorker.c)
+ *     MiUnmapPageInHyperSpaceWorker @ 0x140214A54 (MiUnmapPageInHyperSpaceWorker.c)
+ */
+
 __int64 __fastcall MiMirrorOmitPagesFromCopy(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   unsigned __int64 v3; // rbx

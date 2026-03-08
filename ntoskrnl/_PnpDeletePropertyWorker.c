@@ -1,3 +1,18 @@
+/*
+ * XREFs of _PnpDeletePropertyWorker @ 0x14086D5EC
+ * Callers:
+ *     _PnpSetGenericStoreProperty @ 0x1406872D8 (_PnpSetGenericStoreProperty.c)
+ *     DrvDbDeleteObjectSubKey @ 0x140A6832C (DrvDbDeleteObjectSubKey.c)
+ * Callees:
+ *     RtlStringCchPrintfExW @ 0x140245C80 (RtlStringCchPrintfExW.c)
+ *     RtlUnalignedStringCchLengthW @ 0x140246434 (RtlUnalignedStringCchLengthW.c)
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwDeleteValueKey @ 0x140413EB0 (ZwDeleteValueKey.c)
+ *     _PnpOpenPropertiesKey @ 0x1406D1610 (_PnpOpenPropertiesKey.c)
+ */
+
 __int64 __fastcall PnpDeletePropertyWorker(
         __int64 a1,
         __int64 a2,

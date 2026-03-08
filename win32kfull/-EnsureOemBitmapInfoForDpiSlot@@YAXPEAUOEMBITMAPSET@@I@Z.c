@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?EnsureOemBitmapInfoForDpiSlot@@YAXPEAUOEMBITMAPSET@@I@Z @ 0x1C00D0688
+ * Callers:
+ *     GetOemBitmapInfoForDpi @ 0x1C00D05EC (GetOemBitmapInfoForDpi.c)
+ *     ?CreateDPIBitmapStrip@@YAHI@Z @ 0x1C01166A8 (-CreateDPIBitmapStrip@@YAHI@Z.c)
+ * Callees:
+ *     ?UpdateFrameControlMetricsSize@@YAFPEAUOEMBITMAPSET@@I@Z @ 0x1C00A41E4 (-UpdateFrameControlMetricsSize@@YAFPEAUOEMBITMAPSET@@I@Z.c)
+ *     ?ArrangeFrameControls@@YAFHHPEAUOEMBITMAPSET@@@Z @ 0x1C00D07C4 (-ArrangeFrameControls@@YAFHHPEAUOEMBITMAPSET@@@Z.c)
+ */
+
 void __fastcall EnsureOemBitmapInfoForDpiSlot(struct OEMBITMAPSET *a1, unsigned int a2)
 {
   int updated; // r10d

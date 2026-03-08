@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPICreatePhysicalDeviceLocationDescriptor @ 0x1C0097CD8
+ * Callers:
+ *     ACPIProcessPhysicalDeviceLocation @ 0x1C0098134 (ACPIProcessPhysicalDeviceLocation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPICreatePhysicalDeviceLocationDescriptor(__int64 a1, __int64 *a2)
 {
   __int64 Pool2; // rdx

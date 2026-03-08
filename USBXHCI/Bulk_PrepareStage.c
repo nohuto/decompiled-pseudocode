@@ -1,3 +1,20 @@
+/*
+ * XREFs of Bulk_PrepareStage @ 0x1C001239C
+ * Callers:
+ *     Bulk_MappingLoop @ 0x1C0011F10 (Bulk_MappingLoop.c)
+ * Callees:
+ *     StageQueue_Release @ 0x1C0011840 (StageQueue_Release.c)
+ *     TR_ReleaseSegments @ 0x1C001187C (TR_ReleaseSegments.c)
+ *     Bulk_Stage_EstimateRequiredTrbs @ 0x1C00125B8 (Bulk_Stage_EstimateRequiredTrbs.c)
+ *     Bulk_Stage_EstimateRequiredSegments @ 0x1C0012734 (Bulk_Stage_EstimateRequiredSegments.c)
+ *     Bulk_Transfer_CompleteCancelable @ 0x1C0012F30 (Bulk_Transfer_CompleteCancelable.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     TR_AcquireSegments @ 0x1C00225C8 (TR_AcquireSegments.c)
+ *     Bulk_Stage_AcquireMdl @ 0x1C002292E (Bulk_Stage_AcquireMdl.c)
+ *     TR_EnsureInputBufferForTrbs @ 0x1C0041850 (TR_EnsureInputBufferForTrbs.c)
+ *     WPP_RECORDER_SF_DDDqqD @ 0x1C0047DC8 (WPP_RECORDER_SF_DDDqqD.c)
+ */
+
 __int64 __fastcall Bulk_PrepareStage(__int64 a1)
 {
   __int64 *v1; // rbx

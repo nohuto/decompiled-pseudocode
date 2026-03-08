@@ -1,3 +1,14 @@
+/*
+ * XREFs of CarCopyRuleViolationDetails @ 0x1405D1370
+ * Callers:
+ *     CarReportRuleViolationForTriage @ 0x1405D1FA0 (CarReportRuleViolationForTriage.c)
+ * Callees:
+ *     RtlStringCchCopyW @ 0x1402470F0 (RtlStringCchCopyW.c)
+ *     RtlStringCchCopyA @ 0x1403BD50C (RtlStringCchCopyA.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CarCopyRuleViolationDetails(__int64 a1, __int64 a2)
 {
   NTSTATUS v4; // ebx

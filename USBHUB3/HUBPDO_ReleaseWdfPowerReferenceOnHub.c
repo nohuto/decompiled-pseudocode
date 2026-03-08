@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBPDO_ReleaseWdfPowerReferenceOnHub @ 0x1C001B4E0
+ * Callers:
+ *     HUBDSM_ReleasingPowerReferenceOnHubOnEnumerationFailure @ 0x1C001FD50 (HUBDSM_ReleasingPowerReferenceOnHubOnEnumerationFailure.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall HUBPDO_ReleaseWdfPowerReferenceOnHub(__int64 a1)
 {
   KIRQL v2; // bl

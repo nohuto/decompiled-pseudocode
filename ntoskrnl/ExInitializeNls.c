@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExInitializeNls @ 0x14080F164
+ * Callers:
+ *     ExpNlsInitSiloState @ 0x1409F877C (ExpNlsInitSiloState.c)
+ *     Phase1InitializationIoReady @ 0x140B42D0C (Phase1InitializationIoReady.c)
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateDirectoryObject @ 0x140413850 (ZwCreateDirectoryObject.c)
+ *     RtlpQueryNlsSystemCodePages @ 0x14080E878 (RtlpQueryNlsSystemCodePages.c)
+ *     RtlpInitCodePageTables @ 0x14080EA38 (RtlpInitCodePageTables.c)
+ *     RtlpInitUppercaseTables @ 0x14080F214 (RtlpInitUppercaseTables.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 NTSTATUS ExInitializeNls()
 {
   unsigned __int16 v0; // bx

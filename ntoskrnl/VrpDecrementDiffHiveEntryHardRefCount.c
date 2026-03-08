@@ -1,3 +1,12 @@
+/*
+ * XREFs of VrpDecrementDiffHiveEntryHardRefCount @ 0x1407380D0
+ * Callers:
+ *     VrpLoadDifferencingHive @ 0x1407375CC (VrpLoadDifferencingHive.c)
+ *     VrpUnloadDifferencingHive @ 0x1407379FC (VrpUnloadDifferencingHive.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall VrpDecrementDiffHiveEntryHardRefCount(__int64 a1)
 {
   char v1; // r8

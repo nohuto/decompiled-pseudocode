@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiUnlockFileExtentsExclusive @ 0x140A314E4
+ * Callers:
+ *     MiInsertCopyExtents @ 0x14063BA1C (MiInsertCopyExtents.c)
+ *     MiMergeCopyExtents @ 0x14063BFCC (MiMergeCopyExtents.c)
+ *     MiDeleteFileExtentList @ 0x140A31150 (MiDeleteFileExtentList.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ */
+
 char MiUnlockFileExtentsExclusive()
 {
   struct _KTHREAD *CurrentThread; // rbx

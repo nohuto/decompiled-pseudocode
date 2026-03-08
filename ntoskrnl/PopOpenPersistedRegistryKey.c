@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopOpenPersistedRegistryKey @ 0x14080FB6C
+ * Callers:
+ *     PopLidReliabilityInit @ 0x14038FDA0 (PopLidReliabilityInit.c)
+ *     PopSaveLidReliabilityState @ 0x140987B68 (PopSaveLidReliabilityState.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     RtlGetPersistedStateLocation @ 0x14069ADC0 (RtlGetPersistedStateLocation.c)
+ */
+
 __int64 __fastcall PopOpenPersistedRegistryKey(__int64 a1, HANDLE *a2)
 {
   int PersistedStateLocation; // ecx

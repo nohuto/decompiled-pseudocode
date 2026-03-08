@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?FindSlotForData@CSparseStorage@@AEAAAEAVDataInfo@1@II@Z @ 0x180038A5C
+ * Callers:
+ *     ?SetData@CSparseStorage@@QEAAXIIPEBX@Z @ 0x1800389DC (-SetData@CSparseStorage@@QEAAXIIPEBX@Z.c)
+ * Callees:
+ *     ?Realloc@DefaultHeap@@SAPEAXPEAX_K@Z @ 0x180027640 (-Realloc@DefaultHeap@@SAPEAXPEAX_K@Z.c)
+ *     ?AllocClear@DefaultHeap@@SAPEAX_K@Z @ 0x180038C50 (-AllocClear@DefaultHeap@@SAPEAX_K@Z.c)
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ */
+
 struct CSparseStorage::DataInfo *__fastcall CSparseStorage::FindSlotForData(
         CSparseStorage *this,
         int a2,

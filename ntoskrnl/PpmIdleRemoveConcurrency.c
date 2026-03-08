@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmIdleRemoveConcurrency @ 0x140582F10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     PpmIdleUpdateConcurrency @ 0x1402D6DC0 (PpmIdleUpdateConcurrency.c)
+ */
+
 __int64 __fastcall PpmIdleRemoveConcurrency(__int64 a1)
 {
   KSPIN_LOCK *v1; // rdi

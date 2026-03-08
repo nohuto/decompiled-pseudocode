@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPICMButtonSetPower @ 0x1C0018C10
+ * Callers:
+ *     ACPICMLidSetPowerCompletion @ 0x1C00198C0 (ACPICMLidSetPowerCompletion.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIBusIrpSetPower @ 0x1C00027A0 (ACPIBusIrpSetPower.c)
+ *     WPP_RECORDER_SF_qLqss @ 0x1C0009C8C (WPP_RECORDER_SF_qLqss.c)
+ *     OSNotifyDeviceWake @ 0x1C0032FFC (OSNotifyDeviceWake.c)
+ */
+
 __int64 __fastcall ACPICMButtonSetPower(PDEVICE_OBJECT DeviceObject, __int64 a2)
 {
   __int64 DeviceExtension; // rbx

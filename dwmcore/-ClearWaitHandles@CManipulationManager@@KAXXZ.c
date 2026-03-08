@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ClearWaitHandles@CManipulationManager@@KAXXZ @ 0x18019AAB8
+ * Callers:
+ *     ?Initialize@CManipulationManager@@IEAAJXZ @ 0x1800CAB14 (-Initialize@CManipulationManager@@IEAAJXZ.c)
+ *     ?ShutDownManipulationThread@CManipulationManager@@IEAAXXZ @ 0x18019E1EC (-ShutDownManipulationThread@CManipulationManager@@IEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void CManipulationManager::ClearWaitHandles(void)
 {
   HANDLE *v0; // rbx

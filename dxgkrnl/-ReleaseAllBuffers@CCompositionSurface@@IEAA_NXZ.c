@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ReleaseAllBuffers@CCompositionSurface@@IEAA_NXZ @ 0x1C00143AC
+ * Callers:
+ *     ?Bind@CCompositionSurface@@QEAAJAEBUCSM_BUFFER_INFO@@_N111PEA_K@Z @ 0x1C000C3B4 (-Bind@CCompositionSurface@@QEAAJAEBUCSM_BUFFER_INFO@@_N111PEA_K@Z.c)
+ *     ?UnBind@CCompositionSurface@@QEAAJ_N@Z @ 0x1C000DAA0 (-UnBind@CCompositionSurface@@QEAAJ_N@Z.c)
+ *     ?Delete@CCompositionSurface@@MEAAJPEAX@Z @ 0x1C0014380 (-Delete@CCompositionSurface@@MEAAJPEAX@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 char __fastcall CCompositionSurface::ReleaseAllBuffers(CCompositionSurface *this)
 {
   char v1; // si

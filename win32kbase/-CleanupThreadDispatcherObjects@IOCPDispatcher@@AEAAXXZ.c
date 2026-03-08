@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CleanupThreadDispatcherObjects@IOCPDispatcher@@AEAAXXZ @ 0x1C0094140
+ * Callers:
+ *     ?Close@IOCPDispatcher@@QEAAX_N@Z @ 0x1C0093DD0 (-Close@IOCPDispatcher@@QEAAX_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall IOCPDispatcher::CleanupThreadDispatcherObjects(IOCPDispatcher *this)
 {
   char *v1; // rbx

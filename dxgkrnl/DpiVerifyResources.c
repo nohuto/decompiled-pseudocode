@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiVerifyResources @ 0x1C0212368
+ * Callers:
+ *     DpMapMemory @ 0x1C02120E0 (DpMapMemory.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     DpiDecodeResourceDescriptorLength @ 0x1C01E7D58 (DpiDecodeResourceDescriptorLength.c)
+ */
+
 __int64 __fastcall DpiVerifyResources(__int64 a1, __int64 *a2, __int64 a3, char a4, char a5, _DWORD *a6, _QWORD *a7)
 {
   __int64 v7; // r14

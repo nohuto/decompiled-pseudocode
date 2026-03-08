@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiInvokeDeferredDpcWatchdogViolation @ 0x140578CA0
+ * Callers:
+ *     KxDeferredDpcWatchdogViolation @ 0x140417770 (KxDeferredDpcWatchdogViolation.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void __noreturn KiInvokeDeferredDpcWatchdogViolation()
 {
   KeBugCheckEx(

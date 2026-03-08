@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?RemoveReaderFromReadyList@DataProviderManager@@QEAAXPEAVCDataSourceReader@@@Z @ 0x1801B4B84
+ * Callers:
+ *     ??1CDataSourceReader@@UEAA@XZ @ 0x180225A8C (--1CDataSourceReader@@UEAA@XZ.c)
+ * Callees:
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     ?_Reallocate_exactly@?$vector@PEAVCDataSourceReader@@V?$allocator@PEAVCDataSourceReader@@@std@@@std@@AEAAX_K@Z @ 0x1801B4F9C (-_Reallocate_exactly@-$vector@PEAVCDataSourceReader@@V-$allocator@PEAVCDataSourceReader@@@std@@@.c)
+ *     ?_Tidy@?$vector@PEAVCDataSourceReader@@V?$allocator@PEAVCDataSourceReader@@@std@@@std@@AEAAXXZ @ 0x1801B5014 (-_Tidy@-$vector@PEAVCDataSourceReader@@V-$allocator@PEAVCDataSourceReader@@@std@@@std@@AEAAXXZ.c)
+ */
+
 void __fastcall DataProviderManager::RemoveReaderFromReadyList(DataProviderManager *this, struct CDataSourceReader *a2)
 {
   struct CDataSourceReader **v2; // r8

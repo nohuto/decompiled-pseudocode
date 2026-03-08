@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetNominalRefreshPeriod@CRateInfo@@QEAAX_K@Z @ 0x1800512D4
+ * Callers:
+ *     ?GetPresentStatisticsAndAdjustRates@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18004E430 (-GetPresentStatisticsAndAdjustRates@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ * Callees:
+ *     McTemplateU0qff_EventWriteTransfer @ 0x18012D1A8 (McTemplateU0qff_EventWriteTransfer.c)
+ */
+
 void __fastcall CRateInfo::SetNominalRefreshPeriod(CRateInfo *this, __int64 a2, __int64 a3, int a4)
 {
   CRateInfo *v5; // rdi

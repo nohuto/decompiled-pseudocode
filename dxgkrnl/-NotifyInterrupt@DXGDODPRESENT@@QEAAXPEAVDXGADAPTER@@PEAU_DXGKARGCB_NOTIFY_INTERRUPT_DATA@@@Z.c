@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NotifyInterrupt@DXGDODPRESENT@@QEAAXPEAVDXGADAPTER@@PEAU_DXGKARGCB_NOTIFY_INTERRUPT_DATA@@@Z @ 0x1C006D3C8
+ * Callers:
+ *     DxgNotifyInterruptCB @ 0x1C000F6F0 (DxgNotifyInterruptCB.c)
+ * Callees:
+ *     ?MapVidPnTargetToVidPnSource@ADAPTER_DISPLAY@@QEAAII@Z @ 0x1C000B0E4 (-MapVidPnTargetToVidPnSource@ADAPTER_DISPLAY@@QEAAII@Z.c)
+ */
+
 void __fastcall DXGDODPRESENT::NotifyInterrupt(
         DXGDODPRESENT *this,
         ADAPTER_DISPLAY **a2,

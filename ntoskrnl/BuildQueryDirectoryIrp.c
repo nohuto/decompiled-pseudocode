@@ -1,3 +1,29 @@
+/*
+ * XREFs of BuildQueryDirectoryIrp @ 0x1406B22C0
+ * Callers:
+ *     NtQueryDirectoryFileEx @ 0x1406B2200 (NtQueryDirectoryFileEx.c)
+ * Callees:
+ *     IoAllocateMdl @ 0x14020CAD0 (IoAllocateMdl.c)
+ *     IopReferenceFileObject @ 0x14023EBCC (IopReferenceFileObject.c)
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     IopMarkApcRoutineIfAsynchronousIo32 @ 0x14023EE94 (IopMarkApcRoutineIfAsynchronousIo32.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     IopAllocateIrpExReturn @ 0x140312290 (IopAllocateIrpExReturn.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     IopProbeAndLockPages_2 @ 0x1405578DC (IopProbeAndLockPages_2.c)
+ *     IopWaitAndAcquireFileObjectLock @ 0x1406B5654 (IopWaitAndAcquireFileObjectLock.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ *     IopAllocateIrpCleanup @ 0x1409411D4 (IopAllocateIrpCleanup.c)
+ *     IopExceptionCleanupEx @ 0x140941A08 (IopExceptionCleanupEx.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BuildQueryDirectoryIrp(
         void *a1,
         void *a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??$?0PEAUMilRectF@@$0A@@?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@QEAA@PEAUMilRectF@@0AEBV?$allocator@UMilRectF@@@1@@Z @ 0x18020CCF4
+ * Callers:
+ *     ?AppendDirtyRegionVisualizationRects@CVisual@@AEAAJPEAV?$DynArray@UMilRectF@@$0A@@@@Z @ 0x18020D3F0 (-AppendDirtyRegionVisualizationRects@CVisual@@AEAAJPEAV-$DynArray@UMilRectF@@$0A@@@@Z.c)
+ * Callees:
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     ?_Buy_nonzero@?$vector@UMilRectF@@V?$allocator@UMilRectF@@@std@@@std@@AEAAX_K@Z @ 0x1801D3F20 (-_Buy_nonzero@-$vector@UMilRectF@@V-$allocator@UMilRectF@@@std@@@std@@AEAAX_K@Z.c)
+ */
+
 __int64 *__fastcall std::vector<MilRectF>::vector<MilRectF>(__int64 *a1, const void *a2, __int64 a3)
 {
   size_t v3; // rbp

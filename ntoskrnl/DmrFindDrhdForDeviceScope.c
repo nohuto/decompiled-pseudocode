@@ -1,3 +1,13 @@
+/*
+ * XREFs of DmrFindDrhdForDeviceScope @ 0x14037BC80
+ * Callers:
+ *     DmrEnumerateRmrrDomains @ 0x14037BD30 (DmrEnumerateRmrrDomains.c)
+ * Callees:
+ *     DmrGetNextDrhdDeviceScope @ 0x14037BF80 (DmrGetNextDrhdDeviceScope.c)
+ *     DmrGetNextRemappingStructure @ 0x14037BFAC (DmrGetNextRemappingStructure.c)
+ *     DmrCheckPathMatch @ 0x14037C1AC (DmrCheckPathMatch.c)
+ */
+
 _BYTE *__fastcall DmrFindDrhdForDeviceScope(__int64 a1, __int16 a2, _BYTE *a3)
 {
   __int64 v3; // rbx

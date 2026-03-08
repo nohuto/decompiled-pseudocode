@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopPrepChildWake @ 0x14058E3F4
+ * Callers:
+ *     PopCompleteNotifyTransitionCommon @ 0x14058DFFC (PopCompleteNotifyTransitionCommon.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 **__fastcall PopPrepChildWake(__int64 *a1, __int64 a2, char a3)
 {
   __int64 **result; // rax

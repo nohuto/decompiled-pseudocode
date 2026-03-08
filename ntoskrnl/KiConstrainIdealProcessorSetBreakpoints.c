@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiConstrainIdealProcessorSetBreakpoints @ 0x140296B28
+ * Callers:
+ *     KiAdjustProcessIdealProcessorSetsForThreadCreation @ 0x140238A7C (KiAdjustProcessIdealProcessorSetsForThreadCreation.c)
+ *     KiSelectIdealProcessorSetsForProcess @ 0x140296A4C (KiSelectIdealProcessorSetsForProcess.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiConstrainIdealProcessorSetBreakpoints(_DWORD *a1, _DWORD *a2)
 {
   __int64 result; // rax

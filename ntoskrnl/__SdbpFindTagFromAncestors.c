@@ -1,3 +1,11 @@
+/*
+ * XREFs of __SdbpFindTagFromAncestors @ 0x140A4F0E8
+ * Callers:
+ *     SdbMergeIsEntryUpdated @ 0x140A50A7C (SdbMergeIsEntryUpdated.c)
+ * Callees:
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ */
+
 __int64 _SdbpFindTagFromAncestors(__int64 a1, ...)
 {
   __int64 v1; // rax

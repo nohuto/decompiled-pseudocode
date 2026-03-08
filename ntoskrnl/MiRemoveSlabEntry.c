@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiRemoveSlabEntry @ 0x1403BC4FC
+ * Callers:
+ *     MiFreeSlabEntries @ 0x140361050 (MiFreeSlabEntries.c)
+ *     MiDemoteSlabEntry @ 0x1403C826C (MiDemoteSlabEntry.c)
+ *     MmUpdateSlabRangeType @ 0x140B9732C (MmUpdateSlabRangeType.c)
+ * Callees:
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ */
+
 __int64 __fastcall MiRemoveSlabEntry(__int64 a1, unsigned __int64 *a2, unsigned __int64 a3)
 {
   unsigned __int64 v5; // rbp

@@ -1,3 +1,19 @@
+/*
+ * XREFs of PspReferenceCidTableEntry @ 0x1406DC0A0
+ * Callers:
+ *     PsLookupProcessByProcessId @ 0x1406AC100 (PsLookupProcessByProcessId.c)
+ *     PsLookupThreadByThreadId @ 0x1406DBE00 (PsLookupThreadByThreadId.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ExGetHandlePointer @ 0x1403120A0 (ExGetHandlePointer.c)
+ *     ExSlowReplenishHandleTableEntry @ 0x1403126C0 (ExSlowReplenishHandleTableEntry.c)
+ *     ExLockHandleTableEntry @ 0x140352148 (ExLockHandleTableEntry.c)
+ *     ExfUnblockPushLock @ 0x14040CCE0 (ExfUnblockPushLock.c)
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ *     ExpBlockOnLockedHandleEntry @ 0x140749B5C (ExpBlockOnLockedHandleEntry.c)
+ *     ExpLookupHandleTableEntry @ 0x1407C3370 (ExpLookupHandleTableEntry.c)
+ */
+
 unsigned __int64 __fastcall PspReferenceCidTableEntry(__int64 a1, char a2)
 {
   __int64 *v3; // rax

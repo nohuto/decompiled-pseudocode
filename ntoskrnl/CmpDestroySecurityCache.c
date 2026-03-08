@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpDestroySecurityCache @ 0x14074ADE4
+ * Callers:
+ *     CmpValidateHiveSecurityDescriptors @ 0x14071C9C4 (CmpValidateHiveSecurityDescriptors.c)
+ *     CmpCompleteUnloadKey @ 0x14074A958 (CmpCompleteUnloadKey.c)
+ *     CmpDestroyHive @ 0x140A19FFC (CmpDestroyHive.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall CmpDestroySecurityCache(__int64 a1)
 {
   __int64 result; // rax

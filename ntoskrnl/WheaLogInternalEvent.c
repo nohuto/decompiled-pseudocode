@@ -1,3 +1,43 @@
+/*
+ * XREFs of WheaLogInternalEvent @ 0x14037D610
+ * Callers:
+ *     HalpCmcLogPollingTimeoutEvent @ 0x140500654 (HalpCmcLogPollingTimeoutEvent.c)
+ *     HalpCmciHandler @ 0x14050376C (HalpCmciHandler.c)
+ *     IoSaveBugCheckProgress @ 0x14054E5E0 (IoSaveBugCheckProgress.c)
+ *     IoSaveBugCheckRecoveryStatus @ 0x14054E6BC (IoSaveBugCheckRecoveryStatus.c)
+ *     KiBugCheckProgressCpusFrozen @ 0x140567580 (KiBugCheckProgressCpusFrozen.c)
+ *     KiMcheckAlternateReturn @ 0x14057DEF0 (KiMcheckAlternateReturn.c)
+ *     WheaReportHwError @ 0x14060E280 (WheaReportHwError.c)
+ *     WheapInitErrorReportDeviceDriver @ 0x14060F578 (WheapInitErrorReportDeviceDriver.c)
+ *     WheaPersistBadPageToRegistry @ 0x14060FBA0 (WheaPersistBadPageToRegistry.c)
+ *     WheapCreateRecordFromGenericErrorData @ 0x1406104A8 (WheapCreateRecordFromGenericErrorData.c)
+ *     WheapProcessOfflineList @ 0x1406120C0 (WheapProcessOfflineList.c)
+ *     HalpCmcWorkerRoutine @ 0x14080C020 (HalpCmcWorkerRoutine.c)
+ *     WheaAddErrorSource @ 0x14080C450 (WheaAddErrorSource.c)
+ *     WheapLogInitEvent @ 0x14085337C (WheapLogInitEvent.c)
+ *     WheapProcessWaitingETWEvents @ 0x14085D1A0 (WheapProcessWaitingETWEvents.c)
+ *     WheaRemoveErrorSource @ 0x140A04C80 (WheaRemoveErrorSource.c)
+ *     WheaRemoveErrorSourceDeviceDriver @ 0x140A04E60 (WheaRemoveErrorSourceDeviceDriver.c)
+ *     WheapAttemptPhysicalPageOffline @ 0x140A0555C (WheapAttemptPhysicalPageOffline.c)
+ *     WheapClearPoison @ 0x140A05870 (WheapClearPoison.c)
+ *     WheapLogAddToDefectListFail @ 0x140A059F0 (WheapLogAddToDefectListFail.c)
+ *     WheapExecuteRowFailureCheck @ 0x140A05D80 (WheapExecuteRowFailureCheck.c)
+ *     WheapPfaLogPageMonitorRemoval @ 0x140A05FE0 (WheapPfaLogPageMonitorRemoval.c)
+ *     WheapLogPolicyTelemetry @ 0x140A06CB4 (WheapLogPolicyTelemetry.c)
+ *     WheapTrackPendingPage @ 0x140A06FC8 (WheapTrackPendingPage.c)
+ *     HalpInitGenericErrorSourceEntry @ 0x140A88304 (HalpInitGenericErrorSourceEntry.c)
+ *     HalpInitGenericErrorSourceEntryV2 @ 0x140A93104 (HalpInitGenericErrorSourceEntryV2.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     WheaIsCriticalState @ 0x14037D730 (WheaIsCriticalState.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     WheaSelLogEvent @ 0x14060DD48 (WheaSelLogEvent.c)
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ */
+
 LONG __fastcall WheaLogInternalEvent(_DWORD *Src)
 {
   LONG *v1; // rbx

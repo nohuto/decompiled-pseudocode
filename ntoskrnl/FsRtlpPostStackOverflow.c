@@ -1,3 +1,15 @@
+/*
+ * XREFs of FsRtlpPostStackOverflow @ 0x14053D044
+ * Callers:
+ *     FsRtlPostPagingFileStackOverflow @ 0x14053CF90 (FsRtlPostPagingFileStackOverflow.c)
+ *     FsRtlPostStackOverflow @ 0x14053CFB0 (FsRtlPostStackOverflow.c)
+ * Callees:
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     KeInsertQueue @ 0x1402F3300 (KeInsertQueue.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 LONG __fastcall FsRtlpPostStackOverflow(
         struct _LIST_ENTRY *a1,
         struct _LIST_ENTRY *a2,

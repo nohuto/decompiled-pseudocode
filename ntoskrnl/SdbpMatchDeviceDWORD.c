@@ -1,3 +1,14 @@
+/*
+ * XREFs of SdbpMatchDeviceDWORD @ 0x140A4E964
+ * Callers:
+ *     SdbpMatchOem @ 0x14085F35C (SdbpMatchOem.c)
+ *     SdbpMatchCpu @ 0x14085F3B0 (SdbpMatchCpu.c)
+ *     SdbpMatchBios @ 0x14085F404 (SdbpMatchBios.c)
+ *     SdbpMatchAcpi @ 0x14085F458 (SdbpMatchAcpi.c)
+ * Callees:
+ *     SdbpGetDeviceDWORD @ 0x140A4E1B8 (SdbpGetDeviceDWORD.c)
+ */
+
 __int64 __fastcall SdbpMatchDeviceDWORD(
         __int64 a1,
         unsigned int a2,

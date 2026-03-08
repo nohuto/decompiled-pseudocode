@@ -1,3 +1,11 @@
+/*
+ * XREFs of std::_Guess_median_unchecked_unsigned_int____lambda_0efddb4682a0a9979159d382dc3b8512___ @ 0x18023ECCC
+ * Callers:
+ *     std::_Partition_by_median_guess_unchecked_unsigned_int____lambda_0efddb4682a0a9979159d382dc3b8512___ @ 0x18023F09C (std--_Partition_by_median_guess_unchecked_unsigned_int____lambda_0efddb4682a0a9979159d382dc3b851.c)
+ * Callees:
+ *     std::_Med3_unchecked_unsigned_int____lambda_0efddb4682a0a9979159d382dc3b8512___ @ 0x18023EFBC (std--_Med3_unchecked_unsigned_int____lambda_0efddb4682a0a9979159d382dc3b8512___.c)
+ */
+
 __int64 __fastcall std::_Guess_median_unchecked_unsigned_int____lambda_0efddb4682a0a9979159d382dc3b8512___(
         __int64 a1,
         __int64 a2,

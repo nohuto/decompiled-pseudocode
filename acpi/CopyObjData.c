@@ -1,3 +1,13 @@
+/*
+ * XREFs of CopyObjData @ 0x1C004AEB4
+ * Callers:
+ *     ReadObject @ 0x1C0005BEE (ReadObject.c)
+ *     ParseArgObj @ 0x1C005A5E0 (ParseArgObj.c)
+ *     ParseLocalObj @ 0x1C005B7EC (ParseLocalObj.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CopyObjData(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

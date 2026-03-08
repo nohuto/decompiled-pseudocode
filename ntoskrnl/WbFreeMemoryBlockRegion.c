@@ -1,3 +1,16 @@
+/*
+ * XREFs of WbFreeMemoryBlockRegion @ 0x140773BBC
+ * Callers:
+ *     sub_140773AA8 @ 0x140773AA8 (sub_140773AA8.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall WbFreeMemoryBlockRegion(__int64 a1, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax

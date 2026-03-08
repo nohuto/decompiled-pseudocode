@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiFreeSlabEntries @ 0x140361050
+ * Callers:
+ *     MiDeleteSlabAllocator @ 0x1406541A0 (MiDeleteSlabAllocator.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiPurgeSlabEntries @ 0x140300024 (MiPurgeSlabEntries.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     MiSlabUpdateRecentFailure @ 0x140361224 (MiSlabUpdateRecentFailure.c)
+ *     MiFreeSlabEntry @ 0x1403B33B0 (MiFreeSlabEntry.c)
+ *     MiRemoveSlabEntry @ 0x1403BC4FC (MiRemoveSlabEntry.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiFreeSlabEntries(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // rax

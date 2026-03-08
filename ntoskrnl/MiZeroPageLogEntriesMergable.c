@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiZeroPageLogEntriesMergable @ 0x1402E4BE4
+ * Callers:
+ *     MiLogZeroPageDecision @ 0x1402E4AD4 (MiLogZeroPageDecision.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiZeroPageLogEntriesMergable(int *a1, int *a2)
 {
   unsigned __int8 v2; // al

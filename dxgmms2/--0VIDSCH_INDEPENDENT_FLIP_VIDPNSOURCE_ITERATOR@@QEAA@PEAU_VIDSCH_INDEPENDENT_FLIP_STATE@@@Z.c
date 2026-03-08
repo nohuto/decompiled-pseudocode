@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??0VIDSCH_INDEPENDENT_FLIP_VIDPNSOURCE_ITERATOR@@QEAA@PEAU_VIDSCH_INDEPENDENT_FLIP_STATE@@@Z @ 0x1C003D3F0
+ * Callers:
+ *     VidSchCancelPresentAtFlips @ 0x1C003E410 (VidSchCancelPresentAtFlips.c)
+ *     VidSchEnterIndependentFlip @ 0x1C003F270 (VidSchEnterIndependentFlip.c)
+ *     VidSchExitIndependentFlipInternal @ 0x1C003FABC (VidSchExitIndependentFlipInternal.c)
+ *     ?VidSchiReprogramVSyncSuppressionForPresent@@YAXPEAU_VIDSCH_DEVICE@@U_LUID@@_KU_D3DKMT_CANCEL_PRESENTS_FLAGS@@@Z @ 0x1C004A1C4 (-VidSchiReprogramVSyncSuppressionForPresent@@YAXPEAU_VIDSCH_DEVICE@@U_LUID@@_KU_D3DKMT_CANCEL_PR.c)
+ * Callees:
+ *     <none>
+ */
+
 VIDSCH_INDEPENDENT_FLIP_VIDPNSOURCE_ITERATOR *__fastcall VIDSCH_INDEPENDENT_FLIP_VIDPNSOURCE_ITERATOR::VIDSCH_INDEPENDENT_FLIP_VIDPNSOURCE_ITERATOR(
         VIDSCH_INDEPENDENT_FLIP_VIDPNSOURCE_ITERATOR *this,
         struct _VIDSCH_INDEPENDENT_FLIP_STATE *a2)

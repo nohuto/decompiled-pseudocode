@@ -1,3 +1,14 @@
+/*
+ * XREFs of DbgkWerAddSecondaryData @ 0x140938540
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall DbgkWerAddSecondaryData(__int64 a1, __int128 *a2, const void *a3, unsigned int a4)
 {
   size_t v4; // rsi

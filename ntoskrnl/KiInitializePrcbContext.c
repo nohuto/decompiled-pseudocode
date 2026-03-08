@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiInitializePrcbContext @ 0x140A86364
+ * Callers:
+ *     KiCompleteBootProcessorContextInitialization @ 0x14037226C (KiCompleteBootProcessorContextInitialization.c)
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MmAllocateIndependentPages @ 0x140869AC0 (MmAllocateIndependentPages.c)
+ */
+
 __int64 __fastcall KiInitializePrcbContext(__int64 a1, __int64 a2)
 {
   __int64 v3; // rcx

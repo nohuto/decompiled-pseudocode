@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?dumpLeaks@@YAHPEAU_LIST_ENTRY@@PEAD@Z @ 0x1C00D1B0C
+ * Callers:
+ *     RIMUnInitialize @ 0x1C00D19B0 (RIMUnInitialize.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     WPP_RECORDER_AND_TRACE_SF_s @ 0x1C00EF582 (WPP_RECORDER_AND_TRACE_SF_s.c)
+ */
+
 __int64 __fastcall dumpLeaks(struct _LIST_ENTRY *a1, char *a2)
 {
   struct _LIST_ENTRY *Flink; // rbx

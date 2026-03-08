@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CPrimitiveColorMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C0262170
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z @ 0x1C005B1EC (-UnbindAllAnimations@CApplicationChannel@DirectComposition@@QEAAXPEAVCResourceMarshaler@2@@Z.c)
+ */
+
 __int64 __fastcall DirectComposition::CPrimitiveColorMarshaler::SetBufferProperty(
         DirectComposition::CPrimitiveColorMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

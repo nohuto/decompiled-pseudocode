@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopDisableTimer @ 0x140552C34
+ * Callers:
+ *     IoStopTimer @ 0x1405550C0 (IoStopTimer.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeCancelTimer @ 0x140250B60 (KeCancelTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     EtwTraceIoTimerEvent @ 0x1405FAA80 (EtwTraceIoTimerEvent.c)
+ */
+
 char __fastcall IopDisableTimer(__int64 a1)
 {
   BOOL v2; // ebx

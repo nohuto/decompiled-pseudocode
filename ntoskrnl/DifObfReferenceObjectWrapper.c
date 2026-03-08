@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifObfReferenceObjectWrapper @ 0x1405E6AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 LONG_PTR __fastcall DifObfReferenceObjectWrapper(PVOID Object)
 {
   __int64 *APIThunkContextById; // rax

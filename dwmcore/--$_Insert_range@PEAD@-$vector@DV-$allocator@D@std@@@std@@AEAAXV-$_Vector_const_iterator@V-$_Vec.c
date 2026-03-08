@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??$_Insert_range@PEAD@?$vector@DV?$allocator@D@std@@@std@@AEAAXV?$_Vector_const_iterator@V?$_Vector_val@U?$_Simple_types@D@std@@@std@@@1@PEAD1Uforward_iterator_tag@1@@Z @ 0x18010AF14
+ * Callers:
+ *     _anonymous_namespace_::SendFramesReport @ 0x18010B170 (_anonymous_namespace_--SendFramesReport.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ?_Calculate_growth@?$vector@DV?$allocator@D@std@@@std@@AEBA_K_K@Z @ 0x18010CE64 (-_Calculate_growth@-$vector@DV-$allocator@D@std@@@std@@AEBA_K_K@Z.c)
+ *     ?_Change_array@?$vector@DV?$allocator@D@std@@@std@@AEAAXQEAD_K1@Z @ 0x18010CE9C (-_Change_array@-$vector@DV-$allocator@D@std@@@std@@AEAAXQEAD_K1@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ */
+
 void __fastcall std::vector<char>::_Insert_range<char *>(__int64 a1, char *a2, _BYTE *a3, _BYTE *a4)
 {
   _BYTE *v4; // rbp

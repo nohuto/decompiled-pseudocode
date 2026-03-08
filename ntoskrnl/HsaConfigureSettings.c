@@ -1,3 +1,11 @@
+/*
+ * XREFs of HsaConfigureSettings @ 0x140A95FC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HsaConfigureSettings(_DWORD *a1, _DWORD *a2)
 {
   int v3; // ecx

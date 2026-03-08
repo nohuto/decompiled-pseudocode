@@ -1,3 +1,14 @@
+/*
+ * XREFs of SepDereferenceSidValuesBlock @ 0x1409CC964
+ * Callers:
+ *     SepDeleteLogonSessionSidValues @ 0x1409CC8AC (SepDeleteLogonSessionSidValues.c)
+ *     SepDeleteTokenUserAndGroups @ 0x1409CC8DC (SepDeleteTokenUserAndGroups.c)
+ *     SepSetTokenUserAndGroups @ 0x1409CCB0C (SepSetTokenUserAndGroups.c)
+ * Callees:
+ *     SepLogTokenSidManagement @ 0x1409C6C70 (SepLogTokenSidManagement.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall SepDereferenceSidValuesBlock(volatile signed __int64 *P, __int64 a2)
 {
   signed __int64 v3; // rax

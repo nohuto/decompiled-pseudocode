@@ -1,3 +1,20 @@
+/*
+ * XREFs of IopSymlinkAllocateAndAddECP @ 0x14077E41C
+ * Callers:
+ *     IopSymlinkCreateECP @ 0x14077E314 (IopSymlinkCreateECP.c)
+ *     IopGraftName @ 0x14087A8D0 (IopGraftName.c)
+ *     IopSymlinkUpdateECP @ 0x14087BDFC (IopSymlinkUpdateECP.c)
+ * Callees:
+ *     IoClearIrpExtraCreateParameter @ 0x140554410 (IoClearIrpExtraCreateParameter.c)
+ *     IoGetIrpExtraCreateParameter @ 0x1406B1D50 (IoGetIrpExtraCreateParameter.c)
+ *     FsRtlFreeExtraCreateParameterList @ 0x14070C280 (FsRtlFreeExtraCreateParameterList.c)
+ *     FsRtlFreeExtraCreateParameter @ 0x14070C300 (FsRtlFreeExtraCreateParameter.c)
+ *     FsRtlInsertExtraCreateParameter @ 0x14070D9C0 (FsRtlInsertExtraCreateParameter.c)
+ *     IoSetIrpExtraCreateParameter @ 0x14075E920 (IoSetIrpExtraCreateParameter.c)
+ *     FsRtlAllocateExtraCreateParameterList @ 0x1407CBC20 (FsRtlAllocateExtraCreateParameterList.c)
+ *     FsRtlAllocateExtraCreateParameterFromLookasideList @ 0x1407CBC80 (FsRtlAllocateExtraCreateParameterFromLookasideList.c)
+ */
+
 __int64 __fastcall IopSymlinkAllocateAndAddECP(PIRP Irp, PVOID *EcpContext, unsigned __int16 a3)
 {
   int v4; // ebx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ESM_SmWorker @ 0x1C00513B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Controller_LowerAndTrackIrql @ 0x1C00074BC (Controller_LowerAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0007558 (Controller_RaiseAndTrackIrql.c)
+ *     ESM_RunStateMachine @ 0x1C000C510 (ESM_RunStateMachine.c)
+ *     ESM_ExecuteEntryFunctionsAndPushPopStateMachinesForCurrentState @ 0x1C000C99C (ESM_ExecuteEntryFunctionsAndPushPopStateMachinesForCurrentState.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall ESM_SmWorker(PDEVICE_OBJECT DeviceObject, _QWORD *Context)
 {
   char v2; // bp

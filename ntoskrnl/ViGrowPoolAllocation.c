@@ -1,3 +1,14 @@
+/*
+ * XREFs of ViGrowPoolAllocation @ 0x1405CD7B0
+ * Callers:
+ *     VfHandlePoolAlloc @ 0x140ACDFB0 (VfHandlePoolAlloc.c)
+ * Callees:
+ *     KeZeroSinglePage @ 0x14041BBB0 (KeZeroSinglePage.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 PSLIST_ENTRY __fastcall ViGrowPoolAllocation(union _SLIST_HEADER *a1)
 {
   struct _SLIST_ENTRY *Pool2; // rax

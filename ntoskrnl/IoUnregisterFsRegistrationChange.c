@@ -1,3 +1,15 @@
+/*
+ * XREFs of IoUnregisterFsRegistrationChange @ 0x140944670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __stdcall IoUnregisterFsRegistrationChange(
         PDRIVER_OBJECT DriverObject,
         PDRIVER_FS_NOTIFICATION DriverNotificationRoutine)

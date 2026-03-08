@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?PubSebiGetRpcBindingHandle@@YAJPEAPEAX@Z @ 0x1800FD0D0
+ * Callers:
+ *     PubSebUnregisterRpc @ 0x1800FCE3C (PubSebUnregisterRpc.c)
+ *     PubSebRegisterRpc @ 0x1800FCF58 (PubSebRegisterRpc.c)
+ *     ?PubSebiUpdateLevelEventRpc@@YAJPEAXE@Z @ 0x180279114 (-PubSebiUpdateLevelEventRpc@@YAJPEAXE@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PubSebiGetRpcBindingHandle(void **a1)
 {
   unsigned int v1; // ebx

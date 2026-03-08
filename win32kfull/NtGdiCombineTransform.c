@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiCombineTransform @ 0x1C02C4800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     GreCombineTransform @ 0x1C02D2210 (GreCombineTransform.c)
+ */
+
 __int64 __fastcall NtGdiCombineTransform(ULONG64 a1, struct _XFORML *a2, struct _XFORML *a3)
 {
   __int64 result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetForwardProgressIrpLocked@FxIoQueue@@AEAAPEAU_IRP@@PEAU_FILE_OBJECT@@@Z @ 0x1C00675B4
+ * Callers:
+ *     ?GetForwardProgressIrps@FxIoQueue@@AEAAXPEAU_LIST_ENTRY@@PEAU_FILE_OBJECT@@@Z @ 0x1C0067638 (-GetForwardProgressIrps@FxIoQueue@@AEAAXPEAU_LIST_ENTRY@@PEAU_FILE_OBJECT@@@Z.c)
+ *     ?ReturnReservedRequest@FxIoQueue@@QEAAXPEAVFxRequest@@@Z @ 0x1C0067A34 (-ReturnReservedRequest@FxIoQueue@@QEAAXPEAVFxRequest@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 _LIST_ENTRY **__fastcall FxIoQueue::GetForwardProgressIrpLocked(FxIoQueue *this, _FILE_OBJECT *FileObject)
 {
   _LIST_ENTRY **p_Blink; // r8

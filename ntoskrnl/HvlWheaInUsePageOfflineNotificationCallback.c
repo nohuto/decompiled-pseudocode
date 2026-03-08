@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlWheaInUsePageOfflineNotificationCallback @ 0x14053D9E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 bool __fastcall HvlWheaInUsePageOfflineNotificationCallback(
         PFN_NUMBER Page,
         __int64 PlatformDirected,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDefragSegment@VIDMM_GLOBAL@@QEAAPEAVVIDMM_SEGMENT@@GI@Z @ 0x1C00E3BF0
+ * Callers:
+ *     ?Run@VIDMM_WORKER_THREAD@@QEAAXXZ @ 0x1C00B7F80 (-Run@VIDMM_WORKER_THREAD@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 struct VIDMM_SEGMENT *__fastcall VIDMM_GLOBAL::GetDefragSegment(
         VIDMM_GLOBAL *this,
         unsigned __int16 a2,

@@ -1,3 +1,37 @@
+/*
+ * XREFs of HaliQuerySystemInformation @ 0x140A85470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpGetPlatformTimerInformation @ 0x1402FB1C8 (HalpGetPlatformTimerInformation.c)
+ *     HalpQueryNumaRangeTableInformation @ 0x1403AFF50 (HalpQueryNumaRangeTableInformation.c)
+ *     HalpGetDisplayBiosInformation @ 0x1403B0C58 (HalpGetDisplayBiosInformation.c)
+ *     xKdEnumerateDebuggingDevices @ 0x1403B1960 (xKdEnumerateDebuggingDevices.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpTimerQueryWatchdogType @ 0x1404FC830 (HalpTimerQueryWatchdogType.c)
+ *     HalpDpQueryMaxHotPlugMemoryAddress @ 0x140504938 (HalpDpQueryMaxHotPlugMemoryAddress.c)
+ *     HalpHvQueryHyperlaunchEntrypoint @ 0x140518EE8 (HalpHvQueryHyperlaunchEntrypoint.c)
+ *     HalpQueryHeterogeneousMemoryAttributesInterface @ 0x14079239C (HalpQueryHeterogeneousMemoryAttributesInterface.c)
+ *     HalpQueryPerDeviceMsiLimitInformation @ 0x1407923B0 (HalpQueryPerDeviceMsiLimitInformation.c)
+ *     xHalAllocatePmcCounterSet @ 0x1407F8FF0 (xHalAllocatePmcCounterSet.c)
+ *     HalpInterruptGetIrtInfo @ 0x14080BB74 (HalpInterruptGetIrtInfo.c)
+ *     HalpQueryIommuReservedRegionInformation @ 0x1408220EC (HalpQueryIommuReservedRegionInformation.c)
+ *     HalpGetProcessorBrandString @ 0x14084F5EC (HalpGetProcessorBrandString.c)
+ *     HalpQuerySecondaryInterruptInformation @ 0x14085EDA0 (HalpQuerySecondaryInterruptInformation.c)
+ *     HalpInterruptQueryControllerInfo @ 0x14085FB64 (HalpInterruptQueryControllerInfo.c)
+ *     HalpGetAcpiStaticNumaTopology @ 0x1408603E8 (HalpGetAcpiStaticNumaTopology.c)
+ *     HalpQueryProfileInformation @ 0x140861248 (HalpQueryProfileInformation.c)
+ *     HalpDmaGetRemappingInformation @ 0x1408613F8 (HalpDmaGetRemappingInformation.c)
+ *     HalpGetMcaLog @ 0x14093051C (HalpGetMcaLog.c)
+ *     HalpQueryAcpiWakeAlarmSystemPowerState @ 0x14093207C (HalpQueryAcpiWakeAlarmSystemPowerState.c)
+ *     HalpAuditQueryResults @ 0x1409323F4 (HalpAuditQueryResults.c)
+ *     HalpChannelPowerRequest @ 0x1409329FC (HalpChannelPowerRequest.c)
+ *     HalpQueryDebuggerInformation @ 0x140AAEF8C (HalpQueryDebuggerInformation.c)
+ *     HalpQueryChannelTopologyInformation @ 0x140B8F7C8 (HalpQueryChannelTopologyInformation.c)
+ */
+
 __int64 __fastcall HaliQuerySystemInformation(int a1, unsigned int a2, LARGE_INTEGER *a3, int *a4)
 {
   unsigned int PerDeviceMsiLimitInformation; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PfSnCheckScenario @ 0x1407E6F8C
+ * Callers:
+ *     PfSnBeginAppLaunch @ 0x1407E6D34 (PfSnBeginAppLaunch.c)
+ *     PfSnOperationProcess @ 0x14097C840 (PfSnOperationProcess.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PfSnCheckScenario(int a1, _DWORD *a2)
 {
   int v2; // r8d

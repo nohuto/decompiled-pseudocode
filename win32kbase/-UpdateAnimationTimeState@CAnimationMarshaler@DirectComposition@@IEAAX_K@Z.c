@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?UpdateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAX_K@Z @ 0x1C00BA5EC
+ * Callers:
+ *     ?Clear@CBatch@DirectComposition@@QEAAXXZ @ 0x1C0061350 (-Clear@CBatch@DirectComposition@@QEAAXXZ.c)
+ *     ?ClearAnimationTimeList@CApplicationChannel@DirectComposition@@IEAAXXZ @ 0x1C0098B84 (-ClearAnimationTimeList@CApplicationChannel@DirectComposition@@IEAAXXZ.c)
+ * Callees:
+ *     ?Release@CAnimationTimeList@DirectComposition@@QEAAKXZ @ 0x1C00B9A24 (-Release@CAnimationTimeList@DirectComposition@@QEAAKXZ.c)
+ *     ?CalculateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEAVCAnimationTimeList@2@_KPEA_KPEA_NPEA_J2@Z @ 0x1C00BA67C (-CalculateAnimationTimeState@CAnimationMarshaler@DirectComposition@@IEAAXPEAVCAnimationTimeList@.c)
+ */
+
 void __fastcall DirectComposition::CAnimationMarshaler::UpdateAnimationTimeState(
         DirectComposition::CAnimationMarshaler *this,
         unsigned __int64 a2)

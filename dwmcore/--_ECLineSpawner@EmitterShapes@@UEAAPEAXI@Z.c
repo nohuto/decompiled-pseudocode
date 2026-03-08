@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??_ECLineSpawner@EmitterShapes@@UEAAPEAXI@Z @ 0x1802407C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ */
+
 EmitterShapes::CLineSpawner *__fastcall EmitterShapes::CLineSpawner::`vector deleting destructor'(
         EmitterShapes::CLineSpawner *this,
         char a2)

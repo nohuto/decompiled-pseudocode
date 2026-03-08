@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopPowerAggregatorSnapDiagnosticContext @ 0x14087EDCC
+ * Callers:
+ *     PopIdlePhaseWatchdogCallback @ 0x1403CFC20 (PopIdlePhaseWatchdogCallback.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void __fastcall PopPowerAggregatorSnapDiagnosticContext(_QWORD *a1)
 {
   void *Pool2; // rax

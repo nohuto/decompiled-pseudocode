@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpInterruptMaskLevelTriggeredLines @ 0x14051E900
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpInterruptSetLineStateInternal @ 0x1403796D0 (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptRestoreAllControllerState @ 0x140A92630 (HalpInterruptRestoreAllControllerState.c)
+ */
+
 __int64 HalpInterruptMaskLevelTriggeredLines()
 {
   ULONG_PTR *v0; // rbx

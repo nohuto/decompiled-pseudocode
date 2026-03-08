@@ -1,3 +1,17 @@
+/*
+ * XREFs of PfSnDeactivateTrace @ 0x14035B244
+ * Callers:
+ *     PfSnEndTrace @ 0x1407E37B8 (PfSnEndTrace.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     ExWaitForRundownProtectionRelease @ 0x140352F40 (ExWaitForRundownProtectionRelease.c)
+ *     PfSnRemoveProcessTrace @ 0x14035B324 (PfSnRemoveProcessTrace.c)
+ *     PfSnCancelTraceTimer @ 0x14035B3D0 (PfSnCancelTraceTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PfSnDeactivateTrace(struct _EX_RUNDOWN_REF *a1)
 {
   unsigned __int64 v2; // rbx

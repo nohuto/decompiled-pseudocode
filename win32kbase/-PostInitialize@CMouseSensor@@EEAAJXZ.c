@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?PostInitialize@CMouseSensor@@EEAAJXZ @ 0x1C002E140
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetInputRateLimitingTime@CMouseSensor@@QEAAJK@Z @ 0x1C002D7C4 (-SetInputRateLimitingTime@CMouseSensor@@QEAAJK@Z.c)
+ *     ?GetDispatcherHandleByName@CRIMBase@@IEBAPEAXW4DispatcherHandleName@1@W4HandleAccessMode@1@@Z @ 0x1C0039100 (-GetDispatcherHandleByName@CRIMBase@@IEBAPEAXW4DispatcherHandleName@1@W4HandleAccessMode@1@@Z.c)
+ *     isInputVirtualizationEnabled @ 0x1C0079014 (isInputVirtualizationEnabled.c)
+ *     ?CreateInstance@CMouseProcessor@@SAJPEAPEAV1@@Z @ 0x1C0095CA4 (-CreateInstance@CMouseProcessor@@SAJPEAPEAV1@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?Initialize@CIVChannel@@QEAAXXZ @ 0x1C022858C (-Initialize@CIVChannel@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall CMouseSensor::PostInitialize(CMouseSensor *this)
 {
   struct CMouseProcessor **v1; // rdi

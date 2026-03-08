@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FxStubBindClasses@@YAJPEAU_WDF_BIND_INFO@@@Z @ 0x1C00411F8
+ * Callers:
+ *     FxDriverEntryWorker @ 0x1C0041064 (FxDriverEntryWorker.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall FxStubBindClasses(struct _WDF_BIND_INFO *a1)
 {
   unsigned int v1; // edi

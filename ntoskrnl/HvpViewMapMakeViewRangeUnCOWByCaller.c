@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvpViewMapMakeViewRangeUnCOWByCaller @ 0x1407611FC
+ * Callers:
+ *     HvpViewMapUnCOWAndSealRange @ 0x140761148 (HvpViewMapUnCOWAndSealRange.c)
+ * Callees:
+ *     CmSiProtectViewOfSection @ 0x14030D290 (CmSiProtectViewOfSection.c)
+ */
+
 void __fastcall HvpViewMapMakeViewRangeUnCOWByCaller(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rbx

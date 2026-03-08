@@ -1,3 +1,14 @@
+/*
+ * XREFs of DpiCleanup @ 0x1C03958A4
+ * Callers:
+ *     DpiDriverUnload @ 0x1C0395BE0 (DpiDriverUnload.c)
+ *     DpiUnInitialize @ 0x1C0395C00 (DpiUnInitialize.c)
+ * Callees:
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000B270 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C003FBD0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     DpiDxgkDdiUnload @ 0x1C0065A44 (DpiDxgkDdiUnload.c)
+ */
+
 void __fastcall DpiCleanup(struct _DRIVER_OBJECT *ClientIdentificationAddress, char a2, __int64 a3)
 {
   _DWORD *DriverObjectExtension; // rax

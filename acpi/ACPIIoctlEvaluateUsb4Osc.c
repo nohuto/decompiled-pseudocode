@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIIoctlEvaluateUsb4Osc @ 0x1C0030B4C
+ * Callers:
+ *     ACPIIrpDispatchDeviceControl @ 0x1C0001290 (ACPIIrpDispatchDeviceControl.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     ACPIAmliEvaluateOsc @ 0x1C007C7D8 (ACPIAmliEvaluateOsc.c)
+ */
+
 __int64 __fastcall ACPIIoctlEvaluateUsb4Osc(ULONG_PTR BugCheckParameter3, PIRP Irp, __int64 a3)
 {
   unsigned int v3; // ebx

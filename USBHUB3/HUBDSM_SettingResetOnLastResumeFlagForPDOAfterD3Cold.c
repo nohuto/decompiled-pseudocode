@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBDSM_SettingResetOnLastResumeFlagForPDOAfterD3Cold @ 0x1C0023FF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBDSM_SettingResetOnLastResumeFlagForPDOAfterD3Cold(__int64 a1)
 {
   __int64 v1; // rdx

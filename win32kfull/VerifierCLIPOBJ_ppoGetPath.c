@@ -1,3 +1,12 @@
+/*
+ * XREFs of VerifierCLIPOBJ_ppoGetPath @ 0x1C02A9320
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ppoGetPath@XCLIPOBJ@@QEAAPEAU_PATHOBJ@@XZ @ 0x1C0267E54 (-ppoGetPath@XCLIPOBJ@@QEAAPEAU_PATHOBJ@@XZ.c)
+ *     ?VerifierRandomFailure@@YAHK@Z @ 0x1C02A923C (-VerifierRandomFailure@@YAHK@Z.c)
+ */
+
 struct _PATHOBJ *__fastcall VerifierCLIPOBJ_ppoGetPath(XCLIPOBJ *this)
 {
   __int64 v2; // rdx

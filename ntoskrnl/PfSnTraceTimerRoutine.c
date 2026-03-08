@@ -1,3 +1,17 @@
+/*
+ * XREFs of PfSnTraceTimerRoutine @ 0x1402EEED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KiSetTimerEx @ 0x140250670 (KiSetTimerEx.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     PfSnTraceGetLogEntry @ 0x14030841C (PfSnTraceGetLogEntry.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ */
+
 void __fastcall PfSnTraceTimerRoutine(
         struct _KDPC *Dpc,
         char *DeferredContext,

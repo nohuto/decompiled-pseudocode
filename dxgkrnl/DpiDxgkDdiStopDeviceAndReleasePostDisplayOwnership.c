@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiDxgkDdiStopDeviceAndReleasePostDisplayOwnership @ 0x1C03A4B44
+ * Callers:
+ *     DpiFdoStopDeviceAndReleasePostDisplayOwnership @ 0x1C03990F8 (DpiFdoStopDeviceAndReleasePostDisplayOwnership.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqqqqqq_EtwWriteTransfer @ 0x1C0065CA8 (McTemplateK0pqqqqqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DpiDxgkDdiStopDeviceAndReleasePostDisplayOwnership(
         __int64 a1,
         __int64 a2,

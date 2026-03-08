@@ -1,3 +1,14 @@
+/*
+ * XREFs of IoWMIOpenBlock @ 0x14069C410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     WmipOpenBlock @ 0x14069AF1C (WmipOpenBlock.c)
+ */
+
 NTSTATUS __stdcall IoWMIOpenBlock(LPCGUID Guid, ULONG DesiredAccess, PVOID *DataBlockObject)
 {
   __int64 v6; // rdx

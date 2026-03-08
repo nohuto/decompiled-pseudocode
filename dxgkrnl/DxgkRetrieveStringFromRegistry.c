@@ -1,3 +1,13 @@
+/*
+ * XREFs of DxgkRetrieveStringFromRegistry @ 0x1C01EDDF0
+ * Callers:
+ *     DpiGetAdapterInfo @ 0x1C01ECB58 (DpiGetAdapterInfo.c)
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ *     ?FindBlockListStrings@@YAJPEAGIIPEBGW4_QAI_DRIVERVERSION@@PEAIPEAU_UNICODE_STRING@@@Z @ 0x1C020E1FC (-FindBlockListStrings@@YAJPEAGIIPEBGW4_QAI_DRIVERVERSION@@PEAIPEAU_UNICODE_STRING@@@Z.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ */
+
 NTSTATUS __fastcall DxgkRetrieveStringFromRegistry(HANDLE KeyHandle, PUNICODE_STRING ValueName, __int64 a3)
 {
   NTSTATUS result; // eax

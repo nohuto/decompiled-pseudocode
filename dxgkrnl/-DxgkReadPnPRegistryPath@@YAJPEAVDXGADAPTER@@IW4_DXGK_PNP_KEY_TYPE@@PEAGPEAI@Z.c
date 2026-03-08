@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DxgkReadPnPRegistryPath@@YAJPEAVDXGADAPTER@@IW4_DXGK_PNP_KEY_TYPE@@PEAGPEAI@Z @ 0x1C02CA564
+ * Callers:
+ *     ?DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z @ 0x1C018DC00 (-DxgkQueryAdapterInfoImpl@@YAJPEBU_D3DKMT_QUERYADAPTERINFO@@EPEAVDXGADAPTER@@@Z.c)
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     DpiGetPnpRegistryKeyName @ 0x1C01DC130 (DpiGetPnpRegistryKeyName.c)
+ */
+
 __int64 __fastcall DxgkReadPnPRegistryPath(__int64 a1, unsigned int a2, int a3, void *a4, ULONG64 a5)
 {
   __int64 v6; // r15

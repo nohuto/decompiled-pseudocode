@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiDemotePfnListChain @ 0x140665964
+ * Callers:
+ *     MiPopLargePfnList @ 0x140349C1C (MiPopLargePfnList.c)
+ *     MiInitializeLargeMdlLeafPfns @ 0x140386D90 (MiInitializeLargeMdlLeafPfns.c)
+ *     MiMakeLargePageTable @ 0x140634BEC (MiMakeLargePageTable.c)
+ *     MiFillUserPhysicalMdl @ 0x140647538 (MiFillUserPhysicalMdl.c)
+ *     MiMapUserLargePages @ 0x1406667E0 (MiMapUserLargePages.c)
+ * Callees:
+ *     MiUpdateLargePageBitMap @ 0x14034D79C (MiUpdateLargePageBitMap.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiDemotePfnListChain(__int64 a1, int a2)
 {
   int v2; // r14d

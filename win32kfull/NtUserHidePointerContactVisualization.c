@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserHidePointerContactVisualization @ 0x1C0147CC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserHidePointerContactVisualization(int a1)
 {
   __int64 v2; // rcx

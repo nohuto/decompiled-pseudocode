@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpTimerAdjust @ 0x140609980
+ * Callers:
+ *     PspSetProcessTimerDelayForKTimers @ 0x1405A2390 (PspSetProcessTimerDelayForKTimers.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KeSetCoalescableTimer @ 0x140250440 (KeSetCoalescableTimer.c)
+ *     KeCancelTimerInternal @ 0x1402FDCC4 (KeCancelTimerInternal.c)
+ */
+
 char __fastcall ExpTimerAdjust(PKTIMER Timer, unsigned int a2, __int64 a3, __int64 a4, __int64 a5)
 {
   ULONG v6; // esi

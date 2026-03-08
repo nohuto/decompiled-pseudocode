@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetInputDesktop @ 0x1C01D2C50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 NtUserGetInputDesktop()
 {
   __int64 v0; // rdi

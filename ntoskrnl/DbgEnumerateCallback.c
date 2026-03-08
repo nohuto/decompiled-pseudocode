@@ -1,3 +1,14 @@
+/*
+ * XREFs of DbgEnumerateCallback @ 0x1403D1390
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireSpinLockSharedAtDpcLevel @ 0x140225810 (ExAcquireSpinLockSharedAtDpcLevel.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ */
+
 __int64 __fastcall DbgEnumerateCallback(_UNKNOWN ****a1)
 {
   _UNKNOWN ***v2; // rdx

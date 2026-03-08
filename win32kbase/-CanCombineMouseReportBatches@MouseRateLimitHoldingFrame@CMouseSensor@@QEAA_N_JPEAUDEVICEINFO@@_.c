@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CanCombineMouseReportBatches@MouseRateLimitHoldingFrame@CMouseSensor@@QEAA_N_JPEAUDEVICEINFO@@_NK@Z @ 0x1C0214C0C
+ * Callers:
+ *     ?ProcessInputWithRateLimitingIfEnabled@CMouseSensor@@AEAAJPEAUDEVICEINFO@@PEAU_MOUSE_INPUT_DATA@@K_N@Z @ 0x1C00F3D88 (-ProcessInputWithRateLimitingIfEnabled@CMouseSensor@@AEAAJPEAUDEVICEINFO@@PEAU_MOUSE_INPUT_DATA@.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CMouseSensor::MouseRateLimitHoldingFrame::CanCombineMouseReportBatches(
         CMouseSensor::MouseRateLimitHoldingFrame *this,
         __int64 a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of AcpiConvertPackageArgumentToPackageObj @ 0x1C00370FC
+ * Callers:
+ *     AcpiConvertMethodArgumentsToObjData @ 0x1C0036CA4 (AcpiConvertMethodArgumentsToObjData.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DDD @ 0x1C0004A4C (WPP_RECORDER_SF_DDD.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C00149A0 (WPP_RECORDER_SF_DD.c)
+ *     AcpiConvertMethodArgumentsToObjData @ 0x1C0036CA4 (AcpiConvertMethodArgumentsToObjData.c)
+ *     WPP_RECORDER_SF_qDD @ 0x1C0038628 (WPP_RECORDER_SF_qDD.c)
+ */
+
 __int64 __fastcall AcpiConvertPackageArgumentToPackageObj(_WORD *a1, unsigned int *a2, PVOID *a3)
 {
   unsigned int *v4; // rdi

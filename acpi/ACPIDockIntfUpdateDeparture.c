@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIDockIntfUpdateDeparture @ 0x1C007AA00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ */
+
 __int64 __fastcall ACPIDockIntfUpdateDeparture(ULONG_PTR a1)
 {
   __int64 DeviceExtension; // rax

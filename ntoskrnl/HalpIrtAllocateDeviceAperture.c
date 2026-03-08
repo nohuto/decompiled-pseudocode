@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpIrtAllocateDeviceAperture @ 0x140931740
+ * Callers:
+ *     HalpIrtAllocateIndex @ 0x14080BD48 (HalpIrtAllocateIndex.c)
+ *     HalpIrtInitializeDeviceApertures @ 0x140931A84 (HalpIrtInitializeDeviceApertures.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     HalpIrtExtendApertureRange @ 0x140931890 (HalpIrtExtendApertureRange.c)
+ */
+
 __int64 __fastcall HalpIrtAllocateDeviceAperture(int a1, int a2, int a3, int a4, _DWORD *a5)
 {
   int v9; // ebp

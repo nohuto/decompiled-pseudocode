@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiPerformExplicitGroupAssignment @ 0x140B668F8
+ * Callers:
+ *     KiPerformGroupConfiguration @ 0x140B66804 (KiPerformGroupConfiguration.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char __fastcall KiPerformExplicitGroupAssignment(_DWORD *a1, int a2)
 {
   int v2; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CProxyGeometryClipMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C026DFE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetRemarshalingFlags@CGeometryMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0254640 (-SetRemarshalingFlags@CGeometryMarshaler@DirectComposition@@MEAA_NXZ.c)
+ */
+
 char __fastcall DirectComposition::CProxyGeometryClipMarshaler::SetRemarshalingFlags(
         DirectComposition::CProxyGeometryClipMarshaler *this)
 {

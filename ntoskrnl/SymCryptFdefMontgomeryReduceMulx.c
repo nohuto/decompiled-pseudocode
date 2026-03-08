@@ -1,3 +1,13 @@
+/*
+ * XREFs of SymCryptFdefMontgomeryReduceMulx @ 0x1404051F0
+ * Callers:
+ *     SymCryptFdefModMulMontgomeryMulx @ 0x1403FF020 (SymCryptFdefModMulMontgomeryMulx.c)
+ *     SymCryptFdefModSquareMontgomeryMulx @ 0x1403FF5A0 (SymCryptFdefModSquareMontgomeryMulx.c)
+ *     SymCryptFdefMontgomeryReduce @ 0x1403FF8C4 (SymCryptFdefMontgomeryReduce.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdefMontgomeryReduceMulx(__int64 a1, __m128i *a2, __m128i *a3)
 {
   __m128i *v3; // r10

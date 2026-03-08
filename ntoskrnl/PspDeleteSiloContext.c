@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspDeleteSiloContext @ 0x14079C410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 (*__fastcall PspDeleteSiloContext(__int64 a1))(void)
 {
   __int64 v1; // rax

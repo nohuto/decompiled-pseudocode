@@ -1,3 +1,26 @@
+/*
+ * XREFs of AlpcpInitializeCompletionList @ 0x14097672C
+ * Callers:
+ *     NtAlpcSetInformation @ 0x140689DC0 (NtAlpcSetInformation.c)
+ * Callees:
+ *     IoAllocateMdl @ 0x14020CAD0 (IoAllocateMdl.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MmProbeAndLockPages @ 0x140267B90 (MmProbeAndLockPages.c)
+ *     MmUnlockPages @ 0x14027C0C0 (MmUnlockPages.c)
+ *     AlpcpFreeCompletionPacketLookaside @ 0x1402917C0 (AlpcpFreeCompletionPacketLookaside.c)
+ *     AlpcGetHeaderSize @ 0x1402BC080 (AlpcGetHeaderSize.c)
+ *     IoFreeMdl @ 0x1403147E0 (IoFreeMdl.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AlpcpAllocateCompletionPacketLookaside @ 0x14068A4D8 (AlpcpAllocateCompletionPacketLookaside.c)
+ *     AlpcpRegisterCompletionListDatabase @ 0x140976F00 (AlpcpRegisterCompletionListDatabase.c)
+ *     AlpcpUnregisterCompletionListDatabase @ 0x140976FBC (AlpcpUnregisterCompletionListDatabase.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AlpcpInitializeCompletionList(__int64 a1, char *a2, unsigned int a3, int a4, int a5, int a6)
 {
   size_t v6; // rbx

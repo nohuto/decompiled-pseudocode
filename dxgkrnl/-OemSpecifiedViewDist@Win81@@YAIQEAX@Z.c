@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OemSpecifiedViewDist@Win81@@YAIQEAX@Z @ 0x1C031CB78
+ * Callers:
+ *     ?DetermineViewDistance@Win81@@YA_NQEAXAEBUtagSIZE@@H1HPEAI@Z @ 0x1C031C49C (-DetermineViewDistance@Win81@@YA_NQEAXAEBUtagSIZE@@H1HPEAI@Z.c)
+ * Callees:
+ *     DpiReadPnpRegistryValue @ 0x1C01F1618 (DpiReadPnpRegistryValue.c)
+ */
+
 __int64 __fastcall Win81::OemSpecifiedViewDist(Win81 *this, void *const a2)
 {
   __int64 v2; // rcx

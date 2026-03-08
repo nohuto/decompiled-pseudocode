@@ -1,3 +1,16 @@
+/*
+ * XREFs of SmKmEtwLogStoreChange @ 0x1409D5984
+ * Callers:
+ *     SmKmStoreDelete @ 0x1407DD27C (SmKmStoreDelete.c)
+ *     SmKmStoreAdd @ 0x1407DDA38 (SmKmStoreAdd.c)
+ *     SmEtwEnableCallback @ 0x140840E90 (SmEtwEnableCallback.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ?SmStEtwFillStoreEvent@?$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_EVENT_DESCRIPTOR@@@Z @ 0x1405CA828 (-SmStEtwFillStoreEvent@-$SMKM_STORE@USM_TRAITS@@@@SAXPEAU1@PEAU_SMKM_EVENT_DESCRIPTOR@@@Z.c)
+ */
+
 NTSTATUS __fastcall SmKmEtwLogStoreChange(REGHANDLE *a1, __int64 a2, __int64 *a3)
 {
   struct _EVENT_DATA_DESCRIPTOR *UserData; // r8

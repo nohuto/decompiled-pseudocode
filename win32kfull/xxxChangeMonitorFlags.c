@@ -1,3 +1,13 @@
+/*
+ * XREFs of xxxChangeMonitorFlags @ 0x1C00E49D0
+ * Callers:
+ *     xxxCsDdeInitialize @ 0x1C00E472C (xxxCsDdeInitialize.c)
+ *     xxxEventWndProc @ 0x1C0107F00 (xxxEventWndProc.c)
+ *     NtUserUpdateInstance @ 0x1C01E0670 (NtUserUpdateInstance.c)
+ * Callees:
+ *     xxxCsEvent @ 0x1C000DCC0 (xxxCsEvent.c)
+ */
+
 __int64 __fastcall xxxChangeMonitorFlags(__int64 a1, int a2)
 {
   unsigned int v2; // r11d

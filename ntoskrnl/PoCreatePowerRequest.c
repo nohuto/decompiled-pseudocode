@@ -1,3 +1,13 @@
+/*
+ * XREFs of PoCreatePowerRequest @ 0x1403C09C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopPowerRequestCreateCommon @ 0x1402BC348 (PopPowerRequestCreateCommon.c)
+ *     PoCaptureReasonContext @ 0x1402BD2FC (PoCaptureReasonContext.c)
+ *     PoDestroyReasonContext @ 0x1402BDBE4 (PoDestroyReasonContext.c)
+ */
+
 NTSTATUS __stdcall PoCreatePowerRequest(
         PVOID *PowerRequest,
         PDEVICE_OBJECT DeviceObject,

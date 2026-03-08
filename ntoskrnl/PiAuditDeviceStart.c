@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiAuditDeviceStart @ 0x14096CE1C
+ * Callers:
+ *     PipProcessStartPhase3 @ 0x14068203C (PipProcessStartPhase3.c)
+ * Callees:
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     PiAuditDeviceOperation @ 0x14096C7A8 (PiAuditDeviceOperation.c)
+ */
+
 __int64 __fastcall PiAuditDeviceStart(__int64 a1)
 {
   __int64 v1; // rdx

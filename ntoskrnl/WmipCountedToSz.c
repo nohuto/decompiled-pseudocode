@@ -1,3 +1,13 @@
+/*
+ * XREFs of WmipCountedToSz @ 0x14069C5C0
+ * Callers:
+ *     WmipPrepareWnodeSI @ 0x14069BED4 (WmipPrepareWnodeSI.c)
+ *     WmipAddDataSource @ 0x140867978 (WmipAddDataSource.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 _WORD *__fastcall WmipCountedToSz(unsigned __int16 *a1)
 {
   unsigned __int64 v1; // rdi

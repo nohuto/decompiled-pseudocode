@@ -1,3 +1,12 @@
+/*
+ * XREFs of _RegisterPointerInputTarget @ 0x1C01C8158
+ * Callers:
+ *     NtUserRegisterPointerInputTarget @ 0x1C01DA7A0 (NtUserRegisterPointerInputTarget.c)
+ * Callees:
+ *     UpdatePointerRedirIsAlive @ 0x1C0020078 (UpdatePointerRedirIsAlive.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall RegisterPointerInputTarget(__int64 a1, __int64 a2, int a3, int a4)
 {
   __int64 v4; // rax

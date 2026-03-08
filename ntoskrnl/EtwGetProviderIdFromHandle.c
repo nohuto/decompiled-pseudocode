@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwGetProviderIdFromHandle @ 0x1402FDB04
+ * Callers:
+ *     WdiDispatchControl @ 0x1407965E0 (WdiDispatchControl.c)
+ *     EtwWriteEndScenario @ 0x140842920 (EtwWriteEndScenario.c)
+ *     EtwWriteStartScenario @ 0x14085A170 (EtwWriteStartScenario.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     EtwpReferenceGuidEntry @ 0x140695054 (EtwpReferenceGuidEntry.c)
+ *     EtwpUnreferenceGuidEntry @ 0x140695094 (EtwpUnreferenceGuidEntry.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall EtwGetProviderIdFromHandle(ULONG_PTR *a1, char a2, _OWORD *a3)
 {
   NTSTATUS v3; // edi

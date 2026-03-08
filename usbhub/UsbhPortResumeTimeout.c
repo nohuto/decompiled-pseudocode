@@ -1,3 +1,22 @@
+/*
+ * XREFs of UsbhPortResumeTimeout @ 0x1C0038ED0
+ * Callers:
+ *     UsbhWaitForPortResume @ 0x1C003A71C (UsbhWaitForPortResume.c)
+ * Callees:
+ *     UsbhUnlatchPdo @ 0x1C0001380 (UsbhUnlatchPdo.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhQueryPortState @ 0x1C0016540 (UsbhQueryPortState.c)
+ *     UsbhLatchPdo @ 0x1C0019420 (UsbhLatchPdo.c)
+ *     UsbhSyncResetDeviceInternal @ 0x1C0019820 (UsbhSyncResetDeviceInternal.c)
+ *     UsbhSendSynchronousUsbIoctlRequest @ 0x1C0021D3C (UsbhSendSynchronousUsbIoctlRequest.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     UsbhQueueSoftConnectChange @ 0x1C0034FA8 (UsbhQueueSoftConnectChange.c)
+ *     UsbhGetPortStatusBits @ 0x1C00386E0 (UsbhGetPortStatusBits.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 __int64 __fastcall UsbhPortResumeTimeout(PDEVICE_OBJECT DeviceObject, __int64 a2, __int64 a3)
 {
   __int64 v3; // r15

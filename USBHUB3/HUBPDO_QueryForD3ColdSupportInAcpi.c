@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBPDO_QueryForD3ColdSupportInAcpi @ 0x1C00176B4
+ * Callers:
+ *     HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess @ 0x1C0017920 (HUBPDO_EvtDeviceWdmIrpPnPPowerPreprocess.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 __int64 __fastcall HUBPDO_QueryForD3ColdSupportInAcpi(__int64 a1)
 {
   __int64 v2; // rdi

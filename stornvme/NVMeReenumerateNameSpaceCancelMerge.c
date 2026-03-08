@@ -1,3 +1,11 @@
+/*
+ * XREFs of NVMeReenumerateNameSpaceCancelMerge @ 0x1C0021928
+ * Callers:
+ *     NVMeReenumerateNameSpaceIdentifyWorkItem @ 0x1C0021CA0 (NVMeReenumerateNameSpaceIdentifyWorkItem.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NVMeReenumerateNameSpaceCancelMerge(__int64 a1, unsigned int a2)
 {
   __int64 *v2; // rax

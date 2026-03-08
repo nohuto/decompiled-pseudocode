@@ -1,3 +1,15 @@
+/*
+ * XREFs of Controller_GetFrameNumber @ 0x1C0033490
+ * Callers:
+ *     Interrupter_WdfEvtInterruptIsr @ 0x1C0007760 (Interrupter_WdfEvtInterruptIsr.c)
+ *     Controller_DetectFrameMicroframeBoundary @ 0x1C0032EF4 (Controller_DetectFrameMicroframeBoundary.c)
+ *     Controller_TranslateFrameNumberToQpcValue @ 0x1C003539C (Controller_TranslateFrameNumberToQpcValue.c)
+ *     Isoch_ProcessTransferRingEmptyEvent @ 0x1C004503C (Isoch_ProcessTransferRingEmptyEvent.c)
+ *     Isoch_TransferUrb_MarkLatePackets @ 0x1C00453C4 (Isoch_TransferUrb_MarkLatePackets.c)
+ * Callees:
+ *     WPP_RECORDER_SF_D @ 0x1C00180C4 (WPP_RECORDER_SF_D.c)
+ */
+
 __int64 __fastcall Controller_GetFrameNumber(__int64 a1, int a2, unsigned int *a3, int *a4)
 {
   __int64 v7; // rdx

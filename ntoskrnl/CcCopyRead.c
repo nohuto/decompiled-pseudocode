@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcCopyRead @ 0x1407998C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcCopyReadEx @ 0x14021E070 (CcCopyReadEx.c)
+ */
+
 BOOLEAN __stdcall CcCopyRead(
         PFILE_OBJECT FileObject,
         PLARGE_INTEGER FileOffset,

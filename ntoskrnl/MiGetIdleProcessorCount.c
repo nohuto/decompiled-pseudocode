@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiGetIdleProcessorCount @ 0x1402A86CC
+ * Callers:
+ *     MiMoveZeroThreadsToOtherCores @ 0x1402A8404 (MiMoveZeroThreadsToOtherCores.c)
+ * Callees:
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402A9460 (KeFindFirstSetRightGroupAffinity.c)
+ */
+
 __int64 __fastcall MiGetIdleProcessorCount(__int64 a1, unsigned int a2)
 {
   unsigned int v2; // ebx

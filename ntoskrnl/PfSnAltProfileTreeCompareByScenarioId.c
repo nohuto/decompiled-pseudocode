@@ -1,3 +1,12 @@
+/*
+ * XREFs of PfSnAltProfileTreeCompareByScenarioId @ 0x14097C698
+ * Callers:
+ *     PfSnAltProfileFindByScenarioId @ 0x1407E50B0 (PfSnAltProfileFindByScenarioId.c)
+ *     PfSnSetAltPrefetchParam @ 0x14097C9F8 (PfSnSetAltPrefetchParam.c)
+ * Callees:
+ *     wcsncmp @ 0x1403D5ED0 (wcsncmp.c)
+ */
+
 int __fastcall PfSnAltProfileTreeCompareByScenarioId(wchar_t *Str2, __int64 a2)
 {
   unsigned int v2; // eax

@@ -1,3 +1,18 @@
+/*
+ * XREFs of Controller_PopulateDeviceFlags @ 0x1C00738B4
+ * Callers:
+ *     Controller_WdfEvtDeviceSelfManagedIoInit @ 0x1C001C340 (Controller_WdfEvtDeviceSelfManagedIoInit.c)
+ *     Controller_Create @ 0x1C00712C4 (Controller_Create.c)
+ * Callees:
+ *     Controller_IsSecureDevice @ 0x1C000B0F8 (Controller_IsSecureDevice.c)
+ *     Controller_PopulateDeviceFlagsFromKse @ 0x1C001AB68 (Controller_PopulateDeviceFlagsFromKse.c)
+ *     WPP_RECORDER_SF_di @ 0x1C001C448 (WPP_RECORDER_SF_di.c)
+ *     Controller_PopulateTestRegistrySettings @ 0x1C001C4E0 (Controller_PopulateTestRegistrySettings.c)
+ *     Controller_PopulateDeviceFlagsFromRegistry @ 0x1C00739B8 (Controller_PopulateDeviceFlagsFromRegistry.c)
+ *     Controller_PopulateRegistryOverrideForSetMultiTTBitFlag @ 0x1C0073B6C (Controller_PopulateRegistryOverrideForSetMultiTTBitFlag.c)
+ *     Controller_PopulateDeviceFlagsFromACPI @ 0x1C0073C40 (Controller_PopulateDeviceFlagsFromACPI.c)
+ */
+
 _UNKNOWN **__fastcall Controller_PopulateDeviceFlags(__int64 a1, __int64 a2, int a3)
 {
   int v4; // edx

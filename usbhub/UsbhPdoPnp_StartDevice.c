@@ -1,3 +1,28 @@
+/*
+ * XREFs of UsbhPdoPnp_StartDevice @ 0x1C0056570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhDecHubBusy @ 0x1C0003DB0 (UsbhDecHubBusy.c)
+ *     UsbhIncHubBusy @ 0x1C0007050 (UsbhIncHubBusy.c)
+ *     UsbhEtwLogDeviceIrpEvent @ 0x1C0007830 (UsbhEtwLogDeviceIrpEvent.c)
+ *     UsbhDisableTimerObject @ 0x1C00084D0 (UsbhDisableTimerObject.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_q @ 0x1C002EA5C (WPP_RECORDER_SF_q.c)
+ *     Usbh__TestPoint__Ulong @ 0x1C0030310 (Usbh__TestPoint__Ulong.c)
+ *     UsbhSetPdo_AllowIo @ 0x1C003D708 (UsbhSetPdo_AllowIo.c)
+ *     UsbhReadPdoRegistryKeys @ 0x1C0046364 (UsbhReadPdoRegistryKeys.c)
+ *     UsbhPdoRegisterWmi @ 0x1C0049BF4 (UsbhPdoRegisterWmi.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     SET_PDO_SWPNPSTATE @ 0x1C0053274 (SET_PDO_SWPNPSTATE.c)
+ *     UsbhPdoCreateSymbolicLink @ 0x1C0054A60 (UsbhPdoCreateSymbolicLink.c)
+ *     UsbhPdoPnp_EnablePdo @ 0x1C00551AC (UsbhPdoPnp_EnablePdo.c)
+ *     UsbhPdoSetDeviceData @ 0x1C0056D50 (UsbhPdoSetDeviceData.c)
+ *     UsbhEtwLogDeviceDescription @ 0x1C005B5DC (UsbhEtwLogDeviceDescription.c)
+ *     UsbhUpdateSqmFlags @ 0x1C007389C (UsbhUpdateSqmFlags.c)
+ */
+
 __int64 __fastcall UsbhPdoPnp_StartDevice(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 {
   int v2; // ebx

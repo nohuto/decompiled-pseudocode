@@ -1,3 +1,11 @@
+/*
+ * XREFs of EngFindImageProcAddress @ 0x1C026ECA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 PVOID __stdcall EngFindImageProcAddress(HANDLE hModule, LPSTR lpProcName)
 {
   __int64 v3; // rax

@@ -1,3 +1,18 @@
+/*
+ * XREFs of PspReadDfssConfigurationValues @ 0x1405A12D4
+ * Callers:
+ *     PspIsDfssEnabled @ 0x140812B34 (PspIsDfssEnabled.c)
+ *     PspDfssConfigurationChangeHandler @ 0x1409A95A0 (PspDfssConfigurationChangeHandler.c)
+ * Callees:
+ *     KeUpdateGroupSchedulingConstants @ 0x1403AA794 (KeUpdateGroupSchedulingConstants.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwNotifyChangeKey @ 0x140414730 (ZwNotifyChangeKey.c)
+ *     RtlQueryImageFileKeyOption @ 0x140709A50 (RtlQueryImageFileKeyOption.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void PspReadDfssConfigurationValues()
 {
   _DWORD *v0; // rbx

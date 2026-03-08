@@ -1,3 +1,14 @@
+/*
+ * XREFs of BmlDoesSourceModeObeyConstraint @ 0x1C0170C60
+ * Callers:
+ *     BmlGetNextBestSourceMode @ 0x1C01706B0 (BmlGetNextBestSourceMode.c)
+ *     BmlCompareSourceModesWithConstraint @ 0x1C03B88CC (BmlCompareSourceModesWithConstraint.c)
+ *     _BmlGetPathModeListForPath @ 0x1C03B98CC (_BmlGetPathModeListForPath.c)
+ * Callees:
+ *     ?BmlCompareModeExtents@@YA?AW4BML_COMPARISON_RESULT@@AEBU_D3DKMDT_2DREGION@@0@Z @ 0x1C01710A4 (-BmlCompareModeExtents@@YA-AW4BML_COMPARISON_RESULT@@AEBU_D3DKMDT_2DREGION@@0@Z.c)
+ *     ?BmlPixelFormatMatchHdrPixelFormat@@YA_NW4_D3DDDIFORMAT@@W4_DISPLAYCONFIG_HDR_PIXEL_FORMAT@@_N@Z @ 0x1C01710D8 (-BmlPixelFormatMatchHdrPixelFormat@@YA_NW4_D3DDDIFORMAT@@W4_DISPLAYCONFIG_HDR_PIXEL_FORMAT@@_N@Z.c)
+ */
+
 bool __fastcall BmlDoesSourceModeObeyConstraint(__int64 a1, unsigned __int16 a2, _DWORD *a3)
 {
   __int64 v4; // r14

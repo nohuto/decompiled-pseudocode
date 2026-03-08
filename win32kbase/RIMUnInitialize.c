@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMUnInitialize @ 0x1C00D19B0
+ * Callers:
+ *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C015C290 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
+ * Callees:
+ *     ?dumpLeaks@@YAHPEAU_LIST_ENTRY@@PEAD@Z @ 0x1C00D1B0C (-dumpLeaks@@YAHPEAU_LIST_ENTRY@@PEAD@Z.c)
+ *     ?dumpRimDevLeaksAndCleanup@@YAHPEAU_LIST_ENTRY@@PEAD@Z @ 0x1C00D1B5C (-dumpRimDevLeaksAndCleanup@@YAHPEAU_LIST_ENTRY@@PEAD@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall RIMUnInitialize(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdx

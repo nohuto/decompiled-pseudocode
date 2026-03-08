@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1FxMemoryBufferFromPool@@MEAA@XZ @ 0x1C00428A4
+ * Callers:
+ *     ??_EFxMemoryBufferFromPool@@MEAAPEAXI@Z @ 0x1C00428F0 (--_EFxMemoryBufferFromPool@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1FxObject@@UEAA@XZ @ 0x1C0004920 (--1FxObject@@UEAA@XZ.c)
+ */
+
 void __fastcall FxMemoryBufferFromPool::~FxMemoryBufferFromPool(
         FxMemoryBufferFromPool *this,
         unsigned int a2,

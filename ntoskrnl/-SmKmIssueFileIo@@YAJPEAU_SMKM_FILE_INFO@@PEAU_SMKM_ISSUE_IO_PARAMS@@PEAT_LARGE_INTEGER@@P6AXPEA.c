@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SmKmIssueFileIo@@YAJPEAU_SMKM_FILE_INFO@@PEAU_SMKM_ISSUE_IO_PARAMS@@PEAT_LARGE_INTEGER@@P6AXPEAXPEAU_IO_STATUS_BLOCK@@K@Z3@Z @ 0x1405C8984
+ * Callers:
+ *     SmKmIssueIo @ 0x1405C9144 (SmKmIssueIo.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     NtWriteFile @ 0x1406B3A60 (NtWriteFile.c)
+ *     NtReadFile @ 0x1407E0B30 (NtReadFile.c)
+ */
+
 __int64 __fastcall SmKmIssueFileIo(
         void **a1,
         struct _SMKM_ISSUE_IO_PARAMS *a2,

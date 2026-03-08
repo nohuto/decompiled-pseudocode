@@ -1,3 +1,12 @@
+/*
+ * XREFs of HmgIsProcessCleanupRequiredByW32Pid @ 0x1C00B1B60
+ * Callers:
+ *     ?vCleanupDCs@@YAXK@Z @ 0x1C006F338 (-vCleanupDCs@@YAXK@Z.c)
+ * Callees:
+ *     ?GetW32ProcessFromId@@YAPEAU_W32PROCESS@@KPEAPEAU_EPROCESS@@@Z @ 0x1C004FDF4 (-GetW32ProcessFromId@@YAPEAU_W32PROCESS@@KPEAPEAU_EPROCESS@@@Z.c)
+ *     HmgIsProcessCleanupRequired @ 0x1C00B1BB0 (HmgIsProcessCleanupRequired.c)
+ */
+
 __int64 __fastcall HmgIsProcessCleanupRequiredByW32Pid(int a1)
 {
   unsigned int IsProcessCleanupRequired; // ebx

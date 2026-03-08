@@ -1,3 +1,15 @@
+/*
+ * XREFs of SepParseElamCertResources @ 0x14081AB7C
+ * Callers:
+ *     SeRegisterElamCertResources @ 0x14081B8D0 (SeRegisterElamCertResources.c)
+ * Callees:
+ *     RtlStringCchLengthW @ 0x140247080 (RtlStringCchLengthW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcschr @ 0x1403D5D90 (wcschr.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     __report_rangecheckfailure @ 0x1404FBCCC (__report_rangecheckfailure.c)
+ */
+
 NTSTATUS __fastcall SepParseElamCertResources(_WORD *a1, __int64 a2)
 {
   int v2; // r8d

@@ -1,3 +1,15 @@
+/*
+ * XREFs of AcpiIrqLibInitializeGlobalState @ 0x1C00ABB68
+ * Callers:
+ *     ACPIInitialize @ 0x1C00A8F78 (ACPIInitialize.c)
+ * Callees:
+ *     LinkNodeInitGlobalState @ 0x1C00995B0 (LinkNodeInitGlobalState.c)
+ *     PcisuppInitGlobalState @ 0x1C0099E44 (PcisuppInitGlobalState.c)
+ *     IcInitGlobalState @ 0x1C009F3D0 (IcInitGlobalState.c)
+ *     ArbInitializeArbiterInstance @ 0x1C00A1B94 (ArbInitializeArbiterInstance.c)
+ *     ProcessorInitGlobalState @ 0x1C00ABF3C (ProcessorInitGlobalState.c)
+ */
+
 __int64 __fastcall AcpiIrqLibInitializeGlobalState(__int64 a1)
 {
   __int64 result; // rax

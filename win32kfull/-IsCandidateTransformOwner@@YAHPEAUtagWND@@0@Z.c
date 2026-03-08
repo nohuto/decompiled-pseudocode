@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?IsCandidateTransformOwner@@YAHPEAUtagWND@@0@Z @ 0x1C00FB120
+ * Callers:
+ *     GetInheritedMonitor @ 0x1C00ACC90 (GetInheritedMonitor.c)
+ * Callees:
+ *     UnionRect @ 0x1C00DD06C (UnionRect.c)
+ *     IsTitleWindow @ 0x1C00FB1B0 (IsTitleWindow.c)
+ *     IntersectRect @ 0x1C00FEBD4 (IntersectRect.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?IsAdjacentRect@@YAHPEBUtagRECT@@0@Z @ 0x1C01BA3F4 (-IsAdjacentRect@@YAHPEBUtagRECT@@0@Z.c)
+ */
+
 _BOOL8 __fastcall IsCandidateTransformOwner(struct tagWND *a1, struct tagWND *a2)
 {
   __int64 v2; // rsi

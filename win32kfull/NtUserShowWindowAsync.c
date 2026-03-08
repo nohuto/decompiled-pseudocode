@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserShowWindowAsync @ 0x1C0012110
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?_ShowWindowAsync@@YAHPEAUtagWND@@W4QEVENT_SHOWINDOW_MESSAGE_ID@@H_K@Z @ 0x1C00121FC (-_ShowWindowAsync@@YAHPEAUtagWND@@W4QEVENT_SHOWINDOW_MESSAGE_ID@@H_K@Z.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserShowWindowAsync(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rax

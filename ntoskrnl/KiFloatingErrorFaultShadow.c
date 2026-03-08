@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiFloatingErrorFaultShadow @ 0x140AF38C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // positive sp value has been detected, the output may be wrong!
 void __fastcall __noreturn KiFloatingErrorFaultShadow()
 {

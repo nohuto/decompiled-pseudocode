@@ -1,3 +1,38 @@
+/*
+ * XREFs of KiEndThreadAccountingPeriodEx @ 0x140256710
+ * Callers:
+ *     KiProcessDeferredReadyList @ 0x140226BD0 (KiProcessDeferredReadyList.c)
+ *     KiSetQuantumTargetThread @ 0x1402270C0 (KiSetQuantumTargetThread.c)
+ *     KiEndThreadCycleAccumulation @ 0x140227260 (KiEndThreadCycleAccumulation.c)
+ *     KiCheckForThreadDispatch @ 0x14023A168 (KiCheckForThreadDispatch.c)
+ *     KiDispatchInterrupt @ 0x140255DA0 (KiDispatchInterrupt.c)
+ *     KiEndThreadAccountingPeriod @ 0x1402566F0 (KiEndThreadAccountingPeriod.c)
+ *     KeYieldExecution @ 0x140256BE0 (KeYieldExecution.c)
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     KeSetUserAffinityThread @ 0x1402B0FA0 (KeSetUserAffinityThread.c)
+ *     KiReadyOutSwappedThreads @ 0x1402C02E8 (KiReadyOutSwappedThreads.c)
+ *     KiAbThreadUnboostCpuPriority @ 0x1402D9A60 (KiAbThreadUnboostCpuPriority.c)
+ *     KeSetSchedulingGroupRankBias @ 0x1402F2018 (KeSetSchedulingGroupRankBias.c)
+ *     KiSetLegacyAffinityThread @ 0x1402FDE2C (KiSetLegacyAffinityThread.c)
+ *     KeSetSystemMultipleGroupAffinityThread @ 0x140301184 (KeSetSystemMultipleGroupAffinityThread.c)
+ *     KeRevertToUserMultipleGroupAffinityThread @ 0x140301A54 (KeRevertToUserMultipleGroupAffinityThread.c)
+ *     KiDirectSwitchThread @ 0x1403414A0 (KiDirectSwitchThread.c)
+ *     KeRemovePriQueue @ 0x140352720 (KeRemovePriQueue.c)
+ *     KeBoostPriorityThread @ 0x140359A88 (KeBoostPriorityThread.c)
+ *     KeSetBasePriorityThread @ 0x140369500 (KeSetBasePriorityThread.c)
+ *     KeSetCpuSetsProcess @ 0x140398C34 (KeSetCpuSetsProcess.c)
+ *     KeUpdateThreadCpuSets @ 0x140399998 (KeUpdateThreadCpuSets.c)
+ *     KeSetUserGroupAffinityThread @ 0x1403A8A60 (KeSetUserGroupAffinityThread.c)
+ *     KiAbForceProcessLockEntry @ 0x1403C7578 (KiAbForceProcessLockEntry.c)
+ *     KeRecomputeCpuSetAffinityProcess @ 0x140572DE4 (KeRecomputeCpuSetAffinityProcess.c)
+ *     KeSetSelectedCpuSetsThread @ 0x140573640 (KeSetSelectedCpuSetsThread.c)
+ *     KiSetHeteroPolicyThread @ 0x1405755E4 (KiSetHeteroPolicyThread.c)
+ * Callees:
+ *     PoGetFrequencyBucket @ 0x140254EC0 (PoGetFrequencyBucket.c)
+ *     KiEndCounterAccumulation @ 0x140571E54 (KiEndCounterAccumulation.c)
+ *     KiUpdateThreadHgsFeedback @ 0x140576260 (KiUpdateThreadHgsFeedback.c)
+ */
+
 void __fastcall KiEndThreadAccountingPeriodEx(__int64 a1, __int64 a2, unsigned __int64 a3, __int64 a4)
 {
   char v5; // bl

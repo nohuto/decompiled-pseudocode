@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiLeaveSystemDisplay @ 0x1C005E1F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DxgkReleaseAdapterCoreSync @ 0x1C0180708 (DxgkReleaseAdapterCoreSync.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ */
+
 LONG DpiLeaveSystemDisplay()
 {
   LONG result; // eax

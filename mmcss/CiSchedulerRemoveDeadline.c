@@ -1,3 +1,13 @@
+/*
+ * XREFs of CiSchedulerRemoveDeadline @ 0x1C0002D50
+ * Callers:
+ *     CiSchedulerRemoveTaskIndex @ 0x1C0002B60 (CiSchedulerRemoveTaskIndex.c)
+ *     CiSchedulerCancelTaskIndexYield @ 0x1C0002C60 (CiSchedulerCancelTaskIndexYield.c)
+ *     CiSchedulerThreadFunction @ 0x1C0002E60 (CiSchedulerThreadFunction.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CiSchedulerRemoveDeadline(__int64 a1)
 {
   bool v2; // zf

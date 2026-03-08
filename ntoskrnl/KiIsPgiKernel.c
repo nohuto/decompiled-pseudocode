@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiIsPgiKernel @ 0x1403ACD5C
+ * Callers:
+ *     KiDetermineRetpolineEnablement @ 0x1403ACCB4 (KiDetermineRetpolineEnablement.c)
+ * Callees:
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ */
+
 char KiIsPgiKernel()
 {
   _DWORD *v0; // r8

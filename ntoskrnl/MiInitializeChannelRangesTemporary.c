@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiInitializeChannelRangesTemporary @ 0x140B7273C
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 MiInitializeChannelRangesTemporary()
 {
   __int64 result; // rax

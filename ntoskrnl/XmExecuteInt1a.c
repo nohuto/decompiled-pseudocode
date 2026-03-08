@@ -1,3 +1,14 @@
+/*
+ * XREFs of XmExecuteInt1a @ 0x140532794
+ * Callers:
+ *     XmIntOp @ 0x140531920 (XmIntOp.c)
+ * Callees:
+ *     XmInt1aFindPciClassCode @ 0x140532848 (XmInt1aFindPciClassCode.c)
+ *     XmInt1aFindPciDevice @ 0x14053296C (XmInt1aFindPciDevice.c)
+ *     XmInt1aReadConfigRegister @ 0x140532A98 (XmInt1aReadConfigRegister.c)
+ *     XmInt1aWriteConfigRegister @ 0x140532B88 (XmInt1aWriteConfigRegister.c)
+ */
+
 char __fastcall XmExecuteInt1a(__int64 a1)
 {
   unsigned int v1; // edx

@@ -1,3 +1,33 @@
+/*
+ * XREFs of _PnpOpenPropertiesKey @ 0x1406D1610
+ * Callers:
+ *     _PnpSetPropertyWorker @ 0x140687D54 (_PnpSetPropertyWorker.c)
+ *     _CmGetInterfaceClassMappedPropertyFromRegValue @ 0x1406C5750 (_CmGetInterfaceClassMappedPropertyFromRegValue.c)
+ *     _PnpGetGenericStoreProperty @ 0x1406D13D0 (_PnpGetGenericStoreProperty.c)
+ *     _CmGetInstallerClassRegPropWorker @ 0x14074E0A8 (_CmGetInstallerClassRegPropWorker.c)
+ *     _PnpGetGenericStorePropertyLocales @ 0x14083AA64 (_PnpGetGenericStorePropertyLocales.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x140864664 (_PnpGetGenericStorePropertyKeys.c)
+ *     _PnpDeletePropertyWorker @ 0x14086D5EC (_PnpDeletePropertyWorker.c)
+ *     _CmGetInstallerClassMappedPropertyFromRegValue @ 0x14087C86C (_CmGetInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmSetInstallerClassRegPropWorker @ 0x140A60700 (_CmSetInstallerClassRegPropWorker.c)
+ *     _CmDeleteInstallerClassMappedPropertyFromRegValue @ 0x140A64B18 (_CmDeleteInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmDeleteInterfaceClassMappedPropertyFromRegValue @ 0x140A64CE8 (_CmDeleteInterfaceClassMappedPropertyFromRegValue.c)
+ *     _CmSetInstallerClassMappedPropertyFromRegValue @ 0x140A67080 (_CmSetInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmSetInterfaceClassMappedPropertyFromRegValue @ 0x140A674EC (_CmSetInterfaceClassMappedPropertyFromRegValue.c)
+ * Callees:
+ *     RtlStringCchPrintfExW @ 0x140245C80 (RtlStringCchPrintfExW.c)
+ *     RtlUnalignedStringCchLengthW @ 0x140246434 (RtlUnalignedStringCchLengthW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _PnpCtxRegCreateTree @ 0x140687A74 (_PnpCtxRegCreateTree.c)
+ *     _PnpCtxRegCreateKey @ 0x140687FD0 (_PnpCtxRegCreateKey.c)
+ *     _SysCtxRegOpenKey @ 0x1406D4350 (_SysCtxRegOpenKey.c)
+ *     RtlValidSecurityDescriptor @ 0x14075F860 (RtlValidSecurityDescriptor.c)
+ *     _PnpGetPropertiesSecurityDescriptor @ 0x14087C494 (_PnpGetPropertiesSecurityDescriptor.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpOpenPropertiesKey(
         __int64 a1,
         __int64 a2,

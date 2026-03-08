@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RemoveMessageFromFilter@@YAHPEAPEAPEAXIPEAH@Z @ 0x1C00CBDD4
+ * Callers:
+ *     _ChangeWindowMessageFilter @ 0x1C00CB7AC (_ChangeWindowMessageFilter.c)
+ *     _ChangeWindowMessageFilterEx @ 0x1C00CB9E8 (_ChangeWindowMessageFilterEx.c)
+ * Callees:
+ *     ?IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z @ 0x1C00CBE58 (-IsMessageAllowedByFilterEx@@YAHPEBQEAXIPEAPEAPEAX1@Z.c)
+ */
+
 __int64 __fastcall RemoveMessageFromFilter(void *const **a1, unsigned int a2, int *a3)
 {
   void **v3; // rdi

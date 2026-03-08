@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlAreThereWaitingFileLocks @ 0x140456B60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall FsRtlAreThereWaitingFileLocks(__int64 a1)
 {
   bool result; // al

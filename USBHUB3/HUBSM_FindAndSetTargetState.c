@@ -1,3 +1,18 @@
+/*
+ * XREFs of HUBSM_FindAndSetTargetState @ 0x1C000A96C
+ * Callers:
+ *     HUBSM_RunStateMachine @ 0x1C000BDDC (HUBSM_RunStateMachine.c)
+ * Callees:
+ *     HUBHTX_CompleteGetPortStatusWithFailedStatus @ 0x1C0006630 (HUBHTX_CompleteGetPortStatusWithFailedStatus.c)
+ *     McTemplateK0ppqqqq_EtwWriteTransfer @ 0x1C000A448 (McTemplateK0ppqqqq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_qLLL @ 0x1C000A5F0 (WPP_RECORDER_SF_qLLL.c)
+ *     HUBSM_LogUnhandledEvent @ 0x1C000A75C (HUBSM_LogUnhandledEvent.c)
+ *     HUBFDO_CompleteGetDescriptorRequest @ 0x1C000EA68 (HUBFDO_CompleteGetDescriptorRequest.c)
+ *     HUBMISC_DbgBreak @ 0x1C0032F4C (HUBMISC_DbgBreak.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 char __fastcall HUBSM_FindAndSetTargetState(__int64 a1, unsigned int a2, _BYTE *a3)
 {
   unsigned int v3; // r12d

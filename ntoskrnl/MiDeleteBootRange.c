@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiDeleteBootRange @ 0x14038BEB8
+ * Callers:
+ *     MmFreeBootRegistry @ 0x140820DAC (MmFreeBootRegistry.c)
+ *     MmFreeLoaderBlock @ 0x140B5C404 (MmFreeLoaderBlock.c)
+ * Callees:
+ *     MiReturnSystemVa @ 0x14020E9A0 (MiReturnSystemVa.c)
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiDeleteSystemPagableVm @ 0x1402B04B0 (MiDeleteSystemPagableVm.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 __int64 __fastcall MiDeleteBootRange(unsigned __int64 a1, unsigned __int64 a2, int a3)
 {
   unsigned __int64 v3; // rbp

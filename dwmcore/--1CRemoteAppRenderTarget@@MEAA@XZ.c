@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CRemoteAppRenderTarget@@MEAA@XZ @ 0x1801E7574
+ * Callers:
+ *     ??_ECRemoteAppRenderTarget@@MEAAPEAXI@Z @ 0x1801E7650 (--_ECRemoteAppRenderTarget@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x1800342C8 (--1-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?ReleaseSwapChain@CRemoteAppRenderTarget@@IEAAXXZ @ 0x1801E82D8 (-ReleaseSwapChain@CRemoteAppRenderTarget@@IEAAXXZ.c)
+ */
+
 void __fastcall CRemoteAppRenderTarget::~CRemoteAppRenderTarget(CRemoteAppRenderTarget *this)
 {
   __int64 v2; // rcx

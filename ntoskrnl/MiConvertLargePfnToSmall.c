@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiConvertLargePfnToSmall @ 0x14038BB4C
+ * Callers:
+ *     MiInitializeMdlBatchPages @ 0x1402B4150 (MiInitializeMdlBatchPages.c)
+ *     MiDemoteValidLargePageOneLevel @ 0x14038B664 (MiDemoteValidLargePageOneLevel.c)
+ *     MiInitializeMdlSinglePage @ 0x14046350C (MiInitializeMdlSinglePage.c)
+ * Callees:
+ *     MiSetPfnTbFlushStamp @ 0x14028A3A0 (MiSetPfnTbFlushStamp.c)
+ */
+
 unsigned __int64 __fastcall MiConvertLargePfnToSmall(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   char v4; // al

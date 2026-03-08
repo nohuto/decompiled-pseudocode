@@ -1,3 +1,16 @@
+/*
+ * XREFs of PpmDisableHighPerfRequestDeferredExpiration @ 0x140595900
+ * Callers:
+ *     PdcPoPerfOverride @ 0x1409949A8 (PdcPoPerfOverride.c)
+ *     PopPdcIdleResiliencyCallback @ 0x14099507C (PopPdcIdleResiliencyCallback.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeCancelTimer @ 0x140250B60 (KeCancelTimer.c)
+ *     PopPowerRequestReferenceRelease @ 0x1402BA084 (PopPowerRequestReferenceRelease.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PpmDisableHighPerfRequestDeferredExpiration(char a1)
 {
   unsigned __int64 v2; // rbx

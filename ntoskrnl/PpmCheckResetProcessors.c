@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmCheckResetProcessors @ 0x14038F23C
+ * Callers:
+ *     PpmCheckArmPeriod @ 0x14038E300 (PpmCheckArmPeriod.c)
+ *     PpmRegisterPerfStates @ 0x14082802C (PpmRegisterPerfStates.c)
+ * Callees:
+ *     PopExecuteOnTargetProcessors @ 0x140236D20 (PopExecuteOnTargetProcessors.c)
+ *     PpmResetPerfTimes @ 0x1403A1BA0 (PpmResetPerfTimes.c)
+ */
+
 __int64 __fastcall PpmCheckResetProcessors(__int64 a1)
 {
   unsigned int v1; // ebx

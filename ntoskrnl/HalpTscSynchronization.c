@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpTscSynchronization @ 0x140396C20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     HviIsXboxNanovisorPresent @ 0x1402E4648 (HviIsXboxNanovisorPresent.c)
+ *     HalpFindTimer @ 0x140377CA8 (HalpFindTimer.c)
+ *     KeIpiGenericCall @ 0x140396D40 (KeIpiGenericCall.c)
+ *     HalpTscInitializeSynchronizationContext @ 0x140396E74 (HalpTscInitializeSynchronizationContext.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 int __fastcall HalpTscSynchronization(char a1, __int64 a2)
 {
   ULONG_PTR *Timer; // rax

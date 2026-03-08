@@ -1,3 +1,14 @@
+/*
+ * XREFs of SepExpandDynamic @ 0x140743D78
+ * Callers:
+ *     SepAppendAceToTokenDefaultDacl @ 0x1402BE754 (SepAppendAceToTokenDefaultDacl.c)
+ *     NtSetInformationToken @ 0x140741E70 (NtSetInformationToken.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepExpandDynamic(__int64 a1, unsigned int a2)
 {
   unsigned int v4; // ebp

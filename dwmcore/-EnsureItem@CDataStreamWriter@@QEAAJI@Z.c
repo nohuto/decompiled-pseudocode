@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?EnsureItem@CDataStreamWriter@@QEAAJI@Z @ 0x180044590
+ * Callers:
+ *     ?EnsureSize@CChannel@@AEAAJI@Z @ 0x180043C0C (-EnsureSize@CChannel@@AEAAJI@Z.c)
+ *     ?SendCommand@CChannel@@QEAAJPEAXI@Z @ 0x180044440 (-SendCommand@CChannel@@QEAAJPEAXI@Z.c)
+ * Callees:
+ *     ?AllocateNewBlock@CDataStreamWriter@@IEAAJI@Z @ 0x180044814 (-AllocateNewBlock@CDataStreamWriter@@IEAAJI@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall CDataStreamWriter::EnsureItem(CDataStreamWriter *this, unsigned int a2)
 {
   unsigned int v2; // eax

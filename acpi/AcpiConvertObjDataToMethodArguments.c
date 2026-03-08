@@ -1,3 +1,14 @@
+/*
+ * XREFs of AcpiConvertObjDataToMethodArguments @ 0x1C0036EF4
+ * Callers:
+ *     AcpiSetupNativeMethodContext @ 0x1C0037EA0 (AcpiSetupNativeMethodContext.c)
+ * Callees:
+ *     ACPIIoctlCalculateOutputBufferSizeV1 @ 0x1C002F780 (ACPIIoctlCalculateOutputBufferSizeV1.c)
+ *     ACPIIoctlCalculateOutputBufferV1 @ 0x1C002F884 (ACPIIoctlCalculateOutputBufferV1.c)
+ *     WPP_RECORDER_SF_DDDD @ 0x1C00380D0 (WPP_RECORDER_SF_DDDD.c)
+ *     WPP_RECORDER_SF_PD @ 0x1C0038434 (WPP_RECORDER_SF_PD.c)
+ */
+
 __int64 __fastcall AcpiConvertObjDataToMethodArguments(unsigned int a1, __int64 a2, _QWORD *a3, __int64 *a4)
 {
   unsigned int v4; // r14d

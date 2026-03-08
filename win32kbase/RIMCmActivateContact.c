@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMCmActivateContact @ 0x1C01DDE90
+ * Callers:
+ *     rimFindOrCreateActiveContact @ 0x1C01D8680 (rimFindOrCreateActiveContact.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     rimGetNextFreeCursor @ 0x1C01DEDAC (rimGetNextFreeCursor.c)
+ */
+
 __int64 *__fastcall RIMCmActivateContact(__int64 a1, unsigned int a2)
 {
   __int64 **v4; // rcx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?EnsureHolographicCompositor@CHolographicClient@@AEAAJXZ @ 0x1802A9590
+ * Callers:
+ *     ?Initialize@CHolographicClient@@AEAAJXZ @ 0x1802A98A4 (-Initialize@CHolographicClient@@AEAAJXZ.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C8D4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     IsCreateHolographicCompositorPresent @ 0x180110664 (IsCreateHolographicCompositorPresent.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B44D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
 __int64 __fastcall CHolographicClient::EnsureHolographicCompositor(CHolographicClient *this)
 {
   __int64 *v1; // rdi

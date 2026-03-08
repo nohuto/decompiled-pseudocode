@@ -1,3 +1,14 @@
+/*
+ * XREFs of UpdateTPCurrentActiveState @ 0x1C0031AA0
+ * Callers:
+ *     _GetPrecisionTouchPadConfiguration @ 0x1C009C550 (_GetPrecisionTouchPadConfiguration.c)
+ *     _SetPrecisionTouchPadConfiguration @ 0x1C015CC04 (_SetPrecisionTouchPadConfiguration.c)
+ * Callees:
+ *     UpdateMouseConnectionState @ 0x1C0031898 (UpdateMouseConnectionState.c)
+ *     ?EnvironmentChanged@CPTPProcessor@@SAXXZ @ 0x1C0031E80 (-EnvironmentChanged@CPTPProcessor@@SAXXZ.c)
+ *     UpdateInputSettingWnfState @ 0x1C017BAE0 (UpdateInputSettingWnfState.c)
+ */
+
 __int64 __fastcall UpdateTPCurrentActiveState(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdi

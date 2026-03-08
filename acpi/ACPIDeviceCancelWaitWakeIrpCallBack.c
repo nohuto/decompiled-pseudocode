@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIDeviceCancelWaitWakeIrpCallBack @ 0x1C001C450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIDereferenceWaitWakePowerRequest @ 0x1C00447C0 (ACPIDereferenceWaitWakePowerRequest.c)
+ */
+
 __int64 __fastcall ACPIDeviceCancelWaitWakeIrpCallBack(__int64 a1, char a2, __int64 a3, _QWORD *a4)
 {
   _QWORD *v4; // rax

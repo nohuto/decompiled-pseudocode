@@ -1,3 +1,15 @@
+/*
+ * XREFs of RIMIsWakeCapableDevice @ 0x1C00BBEF0
+ * Callers:
+ *     RIMIsInputSuppressed @ 0x1C0003F78 (RIMIsInputSuppressed.c)
+ *     RIMSetDeviceInputMode @ 0x1C00BC07C (RIMSetDeviceInputMode.c)
+ *     _lambda_1fab3903b5a8bfcd713af340c69f2789_::operator() @ 0x1C00DF4BC (_lambda_1fab3903b5a8bfcd713af340c69f2789_--operator().c)
+ *     RIMHandleTTMDeviceInput @ 0x1C01E2994 (RIMHandleTTMDeviceInput.c)
+ * Callees:
+ *     RimDeviceTypeToRimInputType @ 0x1C00BC2F4 (RimDeviceTypeToRimInputType.c)
+ *     ?GetWakeOnDeviceTypes@CInputGlobals@@QEBA?AW4InputType@@XZ @ 0x1C00BC680 (-GetWakeOnDeviceTypes@CInputGlobals@@QEBA-AW4InputType@@XZ.c)
+ */
+
 __int64 __fastcall RIMIsWakeCapableDevice(__int64 a1)
 {
   char v1; // al

@@ -1,3 +1,12 @@
+/*
+ * XREFs of Feature_SupportComputeOnlyAdapters__private_ReportDeviceUsage @ 0x1C00245D8
+ * Callers:
+ *     ?Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z @ 0x1C01EDF54 (-Initialize@DXGADAPTER@@QEAAJPEAU_DEVICE_OBJECT@@PEAU_DXGK_ADAPTER_CAPS@@@Z.c)
+ * Callees:
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x1C0024B30 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x1C0024DA8 (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ */
+
 __int64 Feature_SupportComputeOnlyAdapters__private_ReportDeviceUsage()
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vCloseAllFigures@EPATHOBJ@@QEAAXXZ @ 0x1C0181680
+ * Callers:
+ *     ?vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z @ 0x1C0184190 (-vCreate@RGNMEMOBJ@@QEAAXAEAVEPATHOBJ@@KPEAU_RECTL@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall EPATHOBJ::vCloseAllFigures(EPATHOBJ *this)
 {
   __int64 *i; // rdx

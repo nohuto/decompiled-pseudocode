@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bDeleteHandle@RGNOBJAPI@@QEAAHXZ @ 0x1C0045C0C
+ * Callers:
+ *     ?bDeleteRGNOBJAPI@RGNOBJAPI@@QEAAHXZ @ 0x1C0019970 (-bDeleteRGNOBJAPI@RGNOBJAPI@@QEAAHXZ.c)
+ *     ?GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z @ 0x1C004592C (-GreSelectVisRgnInternal@@YAHAEAVDCOBJA@@PEAUHRGN__@@W4_VIS_REGION_SELECT@@@Z.c)
+ *     bDeleteRegion @ 0x1C0053FA0 (bDeleteRegion.c)
+ * Callees:
+ *     ?HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z @ 0x1C0045E40 (-HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z.c)
+ */
+
 __int64 __fastcall RGNOBJAPI::bDeleteHandle(struct HOBJ__ **this)
 {
   __int64 v2; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopControlMonitor @ 0x140994D70
+ * Callers:
+ *     PopScreenOff @ 0x140995234 (PopScreenOff.c)
+ *     PopScreenOn @ 0x140995280 (PopScreenOn.c)
+ * Callees:
+ *     PopInvokeWin32Callout @ 0x14073A52C (PopInvokeWin32Callout.c)
+ *     TtmIsEnabled @ 0x14073C8BC (TtmIsEnabled.c)
+ *     TtmSessionMonitorControl @ 0x1409A18A0 (TtmSessionMonitorControl.c)
+ */
+
 __int64 __fastcall PopControlMonitor(unsigned int *a1, __int64 a2)
 {
   unsigned int v2; // edi

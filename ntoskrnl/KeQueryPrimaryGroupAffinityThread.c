@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeQueryPrimaryGroupAffinityThread @ 0x14056C854
+ * Callers:
+ *     NtQueryInformationThread @ 0x1406A7BF0 (NtQueryInformationThread.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeQueryPrimaryGroupAffinityThread(__int64 a1, __int64 a2)
 {
   unsigned __int8 CurrentIrql; // bl

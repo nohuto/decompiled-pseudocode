@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?OnClose@FxPkgGeneral@@AEAAJPEAVFxIrp@@@Z @ 0x1C00859BC
+ * Callers:
+ *     ?Dispatch@FxPkgGeneral@@UEAAJPEAU_IRP@@@Z @ 0x1C0085470 (-Dispatch@FxPkgGeneral@@UEAAJPEAU_IRP@@@Z.c)
+ * Callees:
+ *     ?_GetFileObjectFromWdm@FxFileObject@@SAJPEAVFxDevice@@W4_WDF_FILEOBJECT_CLASS@@PEAU_FILE_OBJECT@@PEAPEAV1@@Z @ 0x1C000309C (-_GetFileObjectFromWdm@FxFileObject@@SAJPEAVFxDevice@@W4_WDF_FILEOBJECT_CLASS@@PEAU_FILE_OBJECT@.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ?_DestroyFileObject@FxFileObject@@SAXPEAVFxDevice@@W4_WDF_FILEOBJECT_CLASS@@PEAU_FILE_OBJECT@@@Z @ 0x1C003F6DC (-_DestroyFileObject@FxFileObject@@SAXPEAVFxDevice@@W4_WDF_FILEOBJECT_CLASS@@PEAU_FILE_OBJECT@@@Z.c)
+ *     ?AcquireRemoveLockForClose@FxPkgGeneral@@AEAAEPEAVFxIrp@@@Z @ 0x1C0084E50 (-AcquireRemoveLockForClose@FxPkgGeneral@@AEAAEPEAVFxIrp@@@Z.c)
+ *     ?DecrementOpenHandleCount@FxPkgGeneral@@AEAAXXZ @ 0x1C008543C (-DecrementOpenHandleCount@FxPkgGeneral@@AEAAXXZ.c)
+ */
+
 __int64 __fastcall FxPkgGeneral::OnClose(FxPkgGeneral *this, FxIrp *FxIrp)
 {
   _IRP *m_Irp; // rdi

@@ -1,3 +1,22 @@
+/*
+ * XREFs of NtGdiExtEscape @ 0x1C00BB120
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UmfdDispatchEscape @ 0x1C00BB270 (UmfdDispatchEscape.c)
+ *     UmfdDispatchWinLogonEscape @ 0x1C00BD1C4 (UmfdDispatchWinLogonEscape.c)
+ *     ??1EUDCCountRegion@@QEAA@XZ @ 0x1C0114AF8 (--1EUDCCountRegion@@QEAA@XZ.c)
+ *     ??0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z @ 0x1C0114B84 (--0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z.c)
+ *     ?IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C011E354 (-IsCurrentProcessUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?GreExtEscape@@YAHPEAUHDC__@@HHPEADH1W4EntryPoint@RFONTOBJ@@@Z @ 0x1C02781E8 (-GreExtEscape@@YAHPEAUHDC__@@HHPEADH1W4EntryPoint@RFONTOBJ@@@Z.c)
+ *     GreScalingDispatchEscape @ 0x1C02AA894 (GreScalingDispatchEscape.c)
+ *     bUMPD @ 0x1C02ACB14 (bUMPD.c)
+ *     GreNamedEscape @ 0x1C02B5C58 (GreNamedEscape.c)
+ */
+
 __int64 __fastcall NtGdiExtEscape(HDC a1, char *a2, int a3, unsigned int a4, int a5, char *a6, int a7, char *a8)
 {
   __int64 v8; // r14

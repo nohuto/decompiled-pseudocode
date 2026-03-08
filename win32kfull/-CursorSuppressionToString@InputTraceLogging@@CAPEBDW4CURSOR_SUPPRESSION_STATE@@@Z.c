@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CursorSuppressionToString@InputTraceLogging@@CAPEBDW4CURSOR_SUPPRESSION_STATE@@@Z @ 0x1C01ABE14
+ * Callers:
+ *     TransitionCursorSuppressionState @ 0x1C007B640 (TransitionCursorSuppressionState.c)
+ *     ?SetCursorSuppression@Cursor@InputTraceLogging@@SAXW4CURSOR_SUPPRESSION_STATE@@@Z @ 0x1C01C2070 (-SetCursorSuppression@Cursor@InputTraceLogging@@SAXW4CURSOR_SUPPRESSION_STATE@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 const char *__fastcall InputTraceLogging::CursorSuppressionToString(int a1)
 {
   int v1; // ecx

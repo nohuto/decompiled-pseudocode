@@ -1,3 +1,14 @@
+/*
+ * XREFs of DriverEntry @ 0x1C0007584
+ * Callers:
+ *     GsDriverEntry @ 0x1C0037010 (GsDriverEntry.c)
+ * Callees:
+ *     StorNVMe_wil_deinit @ 0x1C00032C0 (StorNVMe_wil_deinit.c)
+ *     StorNVMeSetDriverUnload @ 0x1C00036B0 (StorNVMeSetDriverUnload.c)
+ *     StorNVMe_wil_init @ 0x1C00036D4 (StorNVMe_wil_init.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ */
+
 NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING RegistryPath)
 {
   NTSTATUS v4; // eax

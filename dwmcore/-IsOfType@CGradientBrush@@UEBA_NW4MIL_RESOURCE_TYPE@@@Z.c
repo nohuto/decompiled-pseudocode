@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsOfType@CGradientBrush@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801C23E4
+ * Callers:
+ *     ?IsOfType@CRadialGradientBrush@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z @ 0x1801C2560 (-IsOfType@CRadialGradientBrush@@UEBA_NW4MIL_RESOURCE_TYPE@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CGradientBrush::IsOfType(__int64 a1, int a2)
 {
   unsigned __int64 v2; // rdx

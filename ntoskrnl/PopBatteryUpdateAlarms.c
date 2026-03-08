@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopBatteryUpdateAlarms @ 0x140829D60
+ * Callers:
+ *     PopBatteryAlarmPowerSettingCallback @ 0x140829D30 (PopBatteryAlarmPowerSettingCallback.c)
+ *     PopBatteryApplyCompositeState @ 0x14086E430 (PopBatteryApplyCompositeState.c)
+ * Callees:
+ *     PopGetPowerSettingValue @ 0x1402BCC10 (PopGetPowerSettingValue.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopApplyPolicy @ 0x14082A06C (PopApplyPolicy.c)
+ */
+
 __int64 __fastcall PopBatteryUpdateAlarms(char a1, __int64 a2)
 {
   signed int v2; // r15d

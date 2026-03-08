@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpInitMemoryCachingRequirementsTable @ 0x140A8D6E8
+ * Callers:
+ *     HalpMmInitSystem @ 0x140A8D600 (HalpMmInitSystem.c)
+ * Callees:
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall HalpInitMemoryCachingRequirementsTable(__int64 a1)
 {
   __int64 v1; // rax

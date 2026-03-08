@@ -1,3 +1,17 @@
+/*
+ * XREFs of PnpDeleteLockedDeviceNodes @ 0x1408632A0
+ * Callers:
+ *     PnpProcessQueryRemoveAndEject @ 0x1408625F0 (PnpProcessQueryRemoveAndEject.c)
+ *     PipRemoveDevicesInRelationList @ 0x14087CF0C (PipRemoveDevicesInRelationList.c)
+ *     PipSendQueryRemoveIrpAndCheckOpenHandles @ 0x14096ED2C (PipSendQueryRemoveIrpAndCheckOpenHandles.c)
+ * Callees:
+ *     PoFxIdleDevice @ 0x14020259C (PoFxIdleDevice.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     PiUpdateGuestAssignedState @ 0x140682FF0 (PiUpdateGuestAssignedState.c)
+ *     IopEnumerateRelations @ 0x140863508 (IopEnumerateRelations.c)
+ *     PnpDeleteLockedDeviceNode @ 0x1408635A0 (PnpDeleteLockedDeviceNode.c)
+ */
+
 __int64 __fastcall PnpDeleteLockedDeviceNodes(
         __int64 a1,
         __int64 a2,

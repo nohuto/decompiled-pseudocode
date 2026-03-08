@@ -1,3 +1,20 @@
+/*
+ * XREFs of RtlPerformRetpolineRelocationsOnImageEx @ 0x14067804C
+ * Callers:
+ *     RtlPerformRetpolineRelocationsOnImage @ 0x14067800C (RtlPerformRetpolineRelocationsOnImage.c)
+ *     MiApplyRetpolineFixupsToKernelAndHal @ 0x140B3A7E0 (MiApplyRetpolineFixupsToKernelAndHal.c)
+ *     MiApplyBootLoadedDriversFixups @ 0x140B3ACB4 (MiApplyBootLoadedDriversFixups.c)
+ * Callees:
+ *     RtlpApplyGenericRetpolineFixup @ 0x1402098E0 (RtlpApplyGenericRetpolineFixup.c)
+ *     RtlpCaptureRetpolineBinaryInfoForImage @ 0x140371248 (RtlpCaptureRetpolineBinaryInfoForImage.c)
+ *     RtlpCaptureDynamicRelocationTableRva @ 0x140371360 (RtlpCaptureDynamicRelocationTableRva.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlApplyImportRelocationToImage @ 0x140677E00 (RtlApplyImportRelocationToImage.c)
+ *     RtlpConstructIndirectRelocationFixup @ 0x140678410 (RtlpConstructIndirectRelocationFixup.c)
+ *     RtlpConstructSwitchJumpRelocationFixup @ 0x1406785D4 (RtlpConstructSwitchJumpRelocationFixup.c)
+ *     RtlpIsAddressInIgnoreRegion @ 0x14067869C (RtlpIsAddressInIgnoreRegion.c)
+ */
+
 __int64 __fastcall RtlPerformRetpolineRelocationsOnImageEx(
         __int64 a1,
         __int64 a2,

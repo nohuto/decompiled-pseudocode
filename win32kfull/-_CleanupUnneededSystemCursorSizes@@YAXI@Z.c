@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_CleanupUnneededSystemCursorSizes@@YAXI@Z @ 0x1C0141A3E
+ * Callers:
+ *     ?zzzRefreshSizes@CCursorSizes@@QEAAXXZ @ 0x1C001D944 (-zzzRefreshSizes@CCursorSizes@@QEAAXXZ.c)
+ * Callees:
+ *     ?FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z @ 0x1C003AB4C (-FindDPICursor@@YAPEAUtagCURSOR@@PEAU1@I@Z.c)
+ *     ?_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z @ 0x1C0041464 (-_DestroyCursor@@YA_NPEAUtagCURSOR@@K@Z.c)
+ */
+
 void __fastcall _CleanupUnneededSystemCursorSizes(int a1)
 {
   __int64 v1; // rbx

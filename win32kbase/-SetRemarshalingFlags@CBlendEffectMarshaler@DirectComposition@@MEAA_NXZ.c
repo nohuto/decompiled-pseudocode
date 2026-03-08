@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CBlendEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C024F980
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CBlendEffectMarshaler::SetRemarshalingFlags(
         DirectComposition::CBlendEffectMarshaler *this)
 {

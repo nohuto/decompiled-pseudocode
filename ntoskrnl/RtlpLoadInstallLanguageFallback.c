@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlpLoadInstallLanguageFallback @ 0x140843474
+ * Callers:
+ *     _RtlpMuiRegLoadInstalled @ 0x140844000 (_RtlpMuiRegLoadInstalled.c)
+ *     _RtlpMuiRegPopulateBaseLanguages @ 0x140A72CB8 (_RtlpMuiRegPopulateBaseLanguages.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     _MuiRegAllocArray @ 0x14039C31C (_MuiRegAllocArray.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlCultureNameToLCID @ 0x1407FE570 (RtlCultureNameToLCID.c)
+ *     LdrpOpenKey @ 0x14084370C (LdrpOpenKey.c)
+ *     LdrpQueryValueKey @ 0x1408446D0 (LdrpQueryValueKey.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall RtlpLoadInstallLanguageFallback(__int64 a1, _WORD *a2, _WORD *a3)
 {
   WCHAR *v5; // rsi

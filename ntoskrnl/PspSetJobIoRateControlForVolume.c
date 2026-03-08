@@ -1,3 +1,18 @@
+/*
+ * XREFs of PspSetJobIoRateControlForVolume @ 0x1409AFB14
+ * Callers:
+ *     PspSetJobIoRateControl @ 0x140752E58 (PspSetJobIoRateControl.c)
+ * Callees:
+ *     PspIoRateControlInfoIsAnySet @ 0x1402C42A0 (PspIoRateControlInfoIsAnySet.c)
+ *     PspJobIoRateVolumeEntryInsert @ 0x1405A2018 (PspJobIoRateVolumeEntryInsert.c)
+ *     PspJobIoRateVolumeEntryRemove @ 0x1405A2268 (PspJobIoRateVolumeEntryRemove.c)
+ *     PspIoRateEntryInitialize @ 0x1406F80C8 (PspIoRateEntryInitialize.c)
+ *     PspIoRateEntryActivate @ 0x140753428 (PspIoRateEntryActivate.c)
+ *     PspIoRateEntryDeactivate @ 0x1407552BC (PspIoRateEntryDeactivate.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PspSetJobIoRateControlForVolume(
         unsigned __int64 a1,
         _QWORD *a2,

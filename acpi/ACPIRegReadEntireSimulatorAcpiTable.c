@@ -1,3 +1,15 @@
+/*
+ * XREFs of ACPIRegReadEntireSimulatorAcpiTable @ 0x1C008D920
+ * Callers:
+ *     ACPIRegGetTableFromSimulatorRegistryEntry @ 0x1C008D15C (ACPIRegGetTableFromSimulatorRegistryEntry.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     RtlStringCchPrintfA @ 0x1C000B5D8 (RtlStringCchPrintfA.c)
+ *     OSReadRegValue @ 0x1C008E6A0 (OSReadRegValue.c)
+ */
+
 __int64 ACPIRegReadEntireSimulatorAcpiTable()
 {
   void *Pool2; // rbx

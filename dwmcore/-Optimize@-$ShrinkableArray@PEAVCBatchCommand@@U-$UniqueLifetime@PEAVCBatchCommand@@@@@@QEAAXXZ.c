@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Optimize@?$ShrinkableArray@PEAVCBatchCommand@@U?$UniqueLifetime@PEAVCBatchCommand@@@@@@QEAAXXZ @ 0x18010033C
+ * Callers:
+ *     ?EndDraw@CD2DContext@@AEAAJXZ @ 0x1800906C4 (-EndDraw@CD2DContext@@AEAAJXZ.c)
+ * Callees:
+ *     ??1?$DynArrayImpl@$0A@@@IEAA@XZ @ 0x180097680 (--1-$DynArrayImpl@$0A@@@IEAA@XZ.c)
+ *     ?Grow@?$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z @ 0x1800C3EE0 (-Grow@-$DynArrayImpl@$0A@@@IEAAJIIHPEAPEBX@Z.c)
+ *     memcpy_0 @ 0x1801177E8 (memcpy_0.c)
+ *     ??_GCBatchCommand@@QEAAPEAXI@Z @ 0x1801FBED8 (--_GCBatchCommand@@QEAAPEAXI@Z.c)
+ */
+
 void __fastcall ShrinkableArray<CBatchCommand *,UniqueLifetime<CBatchCommand *>>::Optimize(__int64 a1)
 {
   unsigned int v1; // ebx

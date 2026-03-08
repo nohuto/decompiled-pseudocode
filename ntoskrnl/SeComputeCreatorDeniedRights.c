@@ -1,3 +1,16 @@
+/*
+ * XREFs of SeComputeCreatorDeniedRights @ 0x140311EB0
+ * Callers:
+ *     ObpAdjustCreatorAccessState @ 0x140698E40 (ObpAdjustCreatorAccessState.c)
+ *     ObpCreateHandle @ 0x1407C0130 (ObpCreateHandle.c)
+ * Callees:
+ *     SepTokenIsOwner @ 0x1402077E0 (SepTokenIsOwner.c)
+ *     SeAccessCheck @ 0x140265330 (SeAccessCheck.c)
+ *     RtlpOwnerAcesPresent @ 0x1402CBBC0 (RtlpOwnerAcesPresent.c)
+ *     SepGetScopedPolicySid @ 0x1405B57D4 (SepGetScopedPolicySid.c)
+ *     SepRmReferenceFindCap @ 0x1405B7498 (SepRmReferenceFindCap.c)
+ */
+
 __int64 __fastcall SeComputeCreatorDeniedRights(
         PSECURITY_SUBJECT_CONTEXT SubjectSecurityContext,
         __int64 a2,

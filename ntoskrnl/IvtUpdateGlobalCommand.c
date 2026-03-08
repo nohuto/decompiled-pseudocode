@@ -1,3 +1,12 @@
+/*
+ * XREFs of IvtUpdateGlobalCommand @ 0x14037AD08
+ * Callers:
+ *     IvtInitializeIommu @ 0x140A87060 (IvtInitializeIommu.c)
+ * Callees:
+ *     KeStallExecutionProcessor @ 0x14022B710 (KeStallExecutionProcessor.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall IvtUpdateGlobalCommand(__int64 a1, unsigned int a2, char a3)
 {
   int v3; // ebp

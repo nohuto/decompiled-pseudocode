@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExInitializeExternalBootSupport @ 0x140B44DE8
+ * Callers:
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 ExInitializeExternalBootSupport()
 {
   __int64 result; // rax

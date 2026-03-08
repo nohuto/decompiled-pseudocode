@@ -1,3 +1,13 @@
+/*
+ * XREFs of DxgkConvertDisplayConfigCScalingToDdiScaling @ 0x1C016B650
+ * Callers:
+ *     DxgkConvertDisplayConfigToDevMode @ 0x1C016B6B0 (DxgkConvertDisplayConfigToDevMode.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     DxgkGetAdapterDefaultScaling @ 0x1C016AED0 (DxgkGetAdapterDefaultScaling.c)
+ *     IsMiniportDriverCCDSupport @ 0x1C02F8608 (IsMiniportDriverCCDSupport.c)
+ */
+
 __int64 __fastcall DxgkConvertDisplayConfigCScalingToDdiScaling(
         int a1,
         struct _LUID *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepSecureBootGetQWordPolicyValue @ 0x1409CDF60
+ * Callers:
+ *     SepSecureBootValidateBcdDataAgainstBcdRule @ 0x1409CE184 (SepSecureBootValidateBcdDataAgainstBcdRule.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SepSecureBootGetQWordPolicyValue(__int64 a1, _QWORD *a2)
 {
   unsigned int v2; // r8d

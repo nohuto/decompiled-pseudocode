@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiCheckSecuredVad @ 0x1406A0F38
+ * Callers:
+ *     MiResetVirtualMemory @ 0x1402CEC2C (MiResetVirtualMemory.c)
+ *     MiFindPlaceholderVadToReplace @ 0x14065E720 (MiFindPlaceholderVadToReplace.c)
+ *     MmSecureVirtualMemoryAgainstWrites @ 0x1406A0D38 (MmSecureVirtualMemoryAgainstWrites.c)
+ *     MiUnmapViewOfSection @ 0x1406A2570 (MiUnmapViewOfSection.c)
+ *     MmFreeVirtualMemory @ 0x1406EC820 (MmFreeVirtualMemory.c)
+ *     MiUnmapLockedPagesInUserSpace @ 0x140797184 (MiUnmapLockedPagesInUserSpace.c)
+ *     MiAllocateVirtualMemory @ 0x1407C5270 (MiAllocateVirtualMemory.c)
+ *     MmProtectVirtualMemory @ 0x1407C77B0 (MmProtectVirtualMemory.c)
+ *     MiCoalescePlaceholderAllocations @ 0x140A2F378 (MiCoalescePlaceholderAllocations.c)
+ * Callees:
+ *     MiComparePteProtections @ 0x1402DE51C (MiComparePteProtections.c)
+ *     MiGetVadPageSize @ 0x14031F9B4 (MiGetVadPageSize.c)
+ */
+
 __int64 __fastcall MiCheckSecuredVad(__int64 a1, unsigned __int64 a2, __int64 a3, unsigned int a4, char a5)
 {
   __int64 v8; // r10

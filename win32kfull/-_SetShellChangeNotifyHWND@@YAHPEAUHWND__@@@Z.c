@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_SetShellChangeNotifyHWND@@YAHPEAUHWND__@@@Z @ 0x1C00F3DCC
+ * Callers:
+ *     NtUserSetShellChangeNotifyHWND @ 0x1C00F3D90 (NtUserSetShellChangeNotifyHWND.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ */
+
 __int64 __fastcall _SetShellChangeNotifyHWND(__int64 a1)
 {
   __int64 v2; // rcx

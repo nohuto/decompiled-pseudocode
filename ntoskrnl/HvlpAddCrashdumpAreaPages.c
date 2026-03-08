@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlpAddCrashdumpAreaPages @ 0x140545848
+ * Callers:
+ *     HvlAddSecurePagesCallbackRoutine @ 0x140545098 (HvlAddSecurePagesCallbackRoutine.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HvlpAddCrashdumpAreaPages(__int64 a1, char a2)
 {
   char v2; // r8

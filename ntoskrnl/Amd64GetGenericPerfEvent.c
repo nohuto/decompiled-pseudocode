@@ -1,3 +1,11 @@
+/*
+ * XREFs of Amd64GetGenericPerfEvent @ 0x1405270AC
+ * Callers:
+ *     Amd64InitializeProfiling @ 0x140A95700 (Amd64InitializeProfiling.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Amd64GetGenericPerfEvent(int a1)
 {
   int v2; // edx

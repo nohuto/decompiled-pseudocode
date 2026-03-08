@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?_DetachWindowCompositionTarget@@YAHPEAUtagWND@@K@Z @ 0x1C007D2FC
+ * Callers:
+ *     ?DetachWindowCompositionTarget@@YAJPEAUHWND__@@K@Z @ 0x1C007D1DC (-DetachWindowCompositionTarget@@YAJPEAUHWND__@@K@Z.c)
+ * Callees:
+ *     ?RemoveAndDeleteProp@CWindowProp@@QEAAXXZ @ 0x1C0024800 (-RemoveAndDeleteProp@CWindowProp@@QEAAXXZ.c)
+ *     RemoveVisRgnTracker @ 0x1C0025C7C (RemoveVisRgnTracker.c)
+ *     ??$GetProp@VCHwndTargetProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCHwndTargetProp@@@Z @ 0x1C007DC28 (--$GetProp@VCHwndTargetProp@@@CWindowProp@@SAHPEBUtagWND@@PEAPEAVCHwndTargetProp@@@Z.c)
+ */
+
 __int64 __fastcall _DetachWindowCompositionTarget(struct tagWND *a1, unsigned int a2)
 {
   unsigned int v3; // ebp

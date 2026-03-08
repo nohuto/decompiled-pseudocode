@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifZwFlushKeyWrapper @ 0x1405EE2A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwFlushKey @ 0x140414110 (ZwFlushKey.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifZwFlushKeyWrapper(HANDLE KeyHandle)
 {
   __int64 *APIThunkContextById; // rax

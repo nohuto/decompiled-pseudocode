@@ -1,3 +1,43 @@
+/*
+ * XREFs of IoGetDeviceProperty @ 0x1406C5B00
+ * Callers:
+ *     PoStoreRequester @ 0x1402BCF14 (PoStoreRequester.c)
+ *     HalpDmaGetReservedRegionsForHybridPassthroughDomain @ 0x140510488 (HalpDmaGetReservedRegionsForHybridPassthroughDomain.c)
+ *     PiRebalanceOptOut @ 0x140562990 (PiRebalanceOptOut.c)
+ *     KseDsCallbackHookAddDevice @ 0x14057E910 (KseDsCallbackHookAddDevice.c)
+ *     IopProcessSetInterfaceState @ 0x140683354 (IopProcessSetInterfaceState.c)
+ *     PiControlGetPropertyData @ 0x1406C44A0 (PiControlGetPropertyData.c)
+ *     IoGetDmaAdapter @ 0x140821B20 (IoGetDmaAdapter.c)
+ *     SshpGenerateDeviceFriendlyName @ 0x140842DE4 (SshpGenerateDeviceFriendlyName.c)
+ *     SshpGenerateDeviceVerboseDescription @ 0x140842FDC (SshpGenerateDeviceVerboseDescription.c)
+ *     PopGenerateDeviceFriendlyName @ 0x140847DF4 (PopGenerateDeviceFriendlyName.c)
+ *     ArbQueryConflict @ 0x1409333C0 (ArbQueryConflict.c)
+ *     ArbShareDriverExclusive @ 0x14093394C (ArbShareDriverExclusive.c)
+ *     IopIsPciRootBus @ 0x140956F30 (IopIsPciRootBus.c)
+ *     PopRegisterCoolingExtensionProtection @ 0x140980294 (PopRegisterCoolingExtensionProtection.c)
+ *     PopWakeSourceGetDeviceProperty @ 0x140984AA0 (PopWakeSourceGetDeviceProperty.c)
+ *     PopDiagQueryDevicePropertyString @ 0x140989088 (PopDiagQueryDevicePropertyString.c)
+ *     IoWMISuggestInstanceName @ 0x1409DC410 (IoWMISuggestInstanceName.c)
+ *     VfIsPCIBus @ 0x140AC3E74 (VfIsPCIBus.c)
+ * Callees:
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PpvUtilFailDriver @ 0x140562764 (PpvUtilFailDriver.c)
+ *     PpIrpQueryCapabilities @ 0x140682520 (PpIrpQueryCapabilities.c)
+ *     PpHotSwapGetDevnodeRemovalPolicy @ 0x1406C3DF4 (PpHotSwapGetDevnodeRemovalPolicy.c)
+ *     PiGetDeviceRegProperty @ 0x1406C6230 (PiGetDeviceRegProperty.c)
+ *     _CmGetDeviceRegProp @ 0x1406C9884 (_CmGetDeviceRegProp.c)
+ *     PnpDetermineResourceListSize @ 0x1406F69E8 (PnpDetermineResourceListSize.c)
+ *     ObQueryNameStringMode @ 0x14071EE84 (ObQueryNameStringMode.c)
+ *     PnpBusTypeGuidGet @ 0x14079AB44 (PnpBusTypeGuidGet.c)
+ *     PiGetDeviceRegistryProperty @ 0x140951DA8 (PiGetDeviceRegistryProperty.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall IoGetDeviceProperty(
         PDEVICE_OBJECT DeviceObject,
         DEVICE_REGISTRY_PROPERTY DeviceProperty,

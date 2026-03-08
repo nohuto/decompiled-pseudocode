@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpKeyFullNameLength @ 0x1407B0580
+ * Callers:
+ *     CmpCreateKeyControlBlock @ 0x1407AFAA0 (CmpCreateKeyControlBlock.c)
+ *     CmpConstructNameFromKeyNodes @ 0x1407B0C90 (CmpConstructNameFromKeyNodes.c)
+ *     CmpDoWritethroughReparse @ 0x1407B6860 (CmpDoWritethroughReparse.c)
+ *     CmpConstructNameFromKcbNameBlocks @ 0x140A142C8 (CmpConstructNameFromKcbNameBlocks.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmpKeyFullNameLength(__int64 a1)
 {
   unsigned int v1; // r8d

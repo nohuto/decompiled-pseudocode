@@ -1,3 +1,14 @@
+/*
+ * XREFs of ??_GCCpuClipAntialiasSinkContext@@EEAAPEAXI@Z @ 0x1800305B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCCpuClipAntialiasSinkContext@@@Z @ 0x18007BFA4 (-GetObjectCache@CThreadContext@@SAPEAVCObjectCache@@PEAVCCpuClipAntialiasSinkContext@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ *     ?clear_region@?$vector_facade@USinkEntry@CCpuClipAntialiasSinkContext@@V?$buffer_impl@USinkEntry@CCpuClipAntialiasSinkContext@@$01$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180090BE4 (-clear_region@-$vector_facade@USinkEntry@CCpuClipAntialiasSinkContext@@V-$buffer_impl@USinkEntry.c)
+ *     ?__global_delete@@YAXPEAX_K@Z @ 0x1801046B4 (-__global_delete@@YAXPEAX_K@Z.c)
+ */
+
 CCpuClipAntialiasSinkContext *__fastcall CCpuClipAntialiasSinkContext::`scalar deleting destructor'(
         CCpuClipAntialiasSinkContext *this,
         char a2)

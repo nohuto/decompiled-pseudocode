@@ -1,3 +1,18 @@
+/*
+ * XREFs of ACPIDockIrpQueryID @ 0x1C007B410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qqss @ 0x1C000A374 (WPP_RECORDER_SF_qqss.c)
+ *     WPP_RECORDER_SF_qsdLqss @ 0x1C000A590 (WPP_RECORDER_SF_qsdLqss.c)
+ *     WPP_RECORDER_SF_qsdqss @ 0x1C000A844 (WPP_RECORDER_SF_qsdqss.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     ACPIInitMultiString @ 0x1C0087990 (ACPIInitMultiString.c)
+ *     ACPIInitUnicodeString @ 0x1C0087DD4 (ACPIInitUnicodeString.c)
+ */
+
 __int64 __fastcall ACPIDockIrpQueryID(ULONG_PTR a1, IRP *a2)
 {
   __int64 DeviceExtension; // rax

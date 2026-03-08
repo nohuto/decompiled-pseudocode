@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiAttemptPageFileReduction @ 0x140635794
+ * Callers:
+ *     MiProcessDereferenceList @ 0x140622C74 (MiProcessDereferenceList.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiOkToShrinkPageFiles @ 0x1402A5400 (MiOkToShrinkPageFiles.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiQueueSyncModifiedWriterApc @ 0x140639018 (MiQueueSyncModifiedWriterApc.c)
+ *     IoSetInformation @ 0x14087E920 (IoSetInformation.c)
+ */
+
 char __fastcall MiAttemptPageFileReduction(__int64 a1)
 {
   __int64 v2; // rsi

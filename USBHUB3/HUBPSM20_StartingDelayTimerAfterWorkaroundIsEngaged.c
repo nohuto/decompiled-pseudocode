@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBPSM20_StartingDelayTimerAfterWorkaroundIsEngaged @ 0x1C0012630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBPSM20_StartingDelayTimerAfterWorkaroundIsEngaged(__int64 a1)
 {
   __int64 v1; // rcx

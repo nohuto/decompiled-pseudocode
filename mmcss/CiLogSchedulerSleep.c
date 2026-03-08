@@ -1,3 +1,13 @@
+/*
+ * XREFs of CiLogSchedulerSleep @ 0x1C0003F8C
+ * Callers:
+ *     CiSchedulerDeepSleep @ 0x1C00011C0 (CiSchedulerDeepSleep.c)
+ *     CiSchedulerSleep @ 0x1C00014A0 (CiSchedulerSleep.c)
+ *     CiSchedulerWait @ 0x1C0001680 (CiSchedulerWait.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003050 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall CiLogSchedulerSleep(int a1, int a2)
 {
   struct _EVENT_DATA_DESCRIPTOR v3; // [rsp+30h] [rbp-38h] BYREF

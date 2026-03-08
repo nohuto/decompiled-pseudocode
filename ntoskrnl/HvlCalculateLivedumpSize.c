@@ -1,3 +1,11 @@
+/*
+ * XREFs of HvlCalculateLivedumpSize @ 0x140545350
+ * Callers:
+ *     IopLiveDumpEstimateMemoryPages @ 0x140A9811C (IopLiveDumpEstimateMemoryPages.c)
+ * Callees:
+ *     VslLiveDumpQuerySecondaryDataSize @ 0x140549744 (VslLiveDumpQuerySecondaryDataSize.c)
+ */
+
 __int64 __fastcall HvlCalculateLivedumpSize(__int64 a1, _QWORD *a2, _QWORD *a3, _QWORD *a4)
 {
   unsigned int v6; // r10d

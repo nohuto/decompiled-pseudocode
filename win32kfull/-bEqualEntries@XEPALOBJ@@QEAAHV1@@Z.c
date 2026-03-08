@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?bEqualEntries@XEPALOBJ@@QEAAHV1@@Z @ 0x1C02DA538
+ * Callers:
+ *     ?bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z @ 0x1C0019BA8 (-bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z.c)
+ *     EngHTBlt @ 0x1C02E0A38 (EngHTBlt.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall XEPALOBJ::bEqualEntries(__int64 *a1, __int64 a2)
 {
   unsigned int v2; // r8d

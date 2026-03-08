@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetControlColor @ 0x1C01D1F80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxGetControlColor @ 0x1C0007848 (xxxGetControlColor.c)
+ */
+
 __int64 __fastcall NtUserGetControlColor(__int64 a1, __int64 a2, HWND a3, unsigned int a4)
 {
   __int64 v8; // rax

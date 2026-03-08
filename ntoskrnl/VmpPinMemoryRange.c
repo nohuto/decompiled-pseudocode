@@ -1,3 +1,17 @@
+/*
+ * XREFs of VmpPinMemoryRange @ 0x1405F7F20
+ * Callers:
+ *     VmPinMemoryRange @ 0x1409D9AF0 (VmPinMemoryRange.c)
+ * Callees:
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     VmpProcessContextLockExclusive @ 0x14045E6CE (VmpProcessContextLockExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     VmAccessFault @ 0x1409D9200 (VmAccessFault.c)
+ *     VmpLockMemoryForPin @ 0x1409DA418 (VmpLockMemoryForPin.c)
+ *     VmpUnlockMemoryForPin @ 0x1409DA9F0 (VmpUnlockMemoryForPin.c)
+ */
+
 __int64 __fastcall VmpPinMemoryRange(
         PEX_SPIN_LOCK SpinLock,
         unsigned __int64 a2,

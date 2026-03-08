@@ -1,3 +1,13 @@
+/*
+ * XREFs of CompareUnicodeStrings @ 0x140752340
+ * Callers:
+ *     RtlInsertUnicodePrefix @ 0x1407520F0 (RtlInsertUnicodePrefix.c)
+ *     RtlFindUnicodePrefix @ 0x140752230 (RtlFindUnicodePrefix.c)
+ * Callees:
+ *     NLS_UPCASE @ 0x140267AD0 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ */
+
 __int64 __fastcall CompareUnicodeStrings(__int64 a1, unsigned __int16 *a2)
 {
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax

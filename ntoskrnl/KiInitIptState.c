@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiInitIptState @ 0x14057052C
+ * Callers:
+ *     KiRestoreThreadIptState @ 0x140570700 (KiRestoreThreadIptState.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 KiInitIptState()
 {
   int v0; // r8d

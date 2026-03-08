@@ -1,3 +1,14 @@
+/*
+ * XREFs of SecureDmaEnabler_Create @ 0x1C007A8F4
+ * Callers:
+ *     Controller_WdfEvtDevicePrepareHardware @ 0x1C0072A30 (Controller_WdfEvtDevicePrepareHardware.c)
+ * Callees:
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     SecureDmaEnabler_CreateSecureObject @ 0x1C007AA70 (SecureDmaEnabler_CreateSecureObject.c)
+ */
+
 __int64 __fastcall SecureDmaEnabler_Create(__int64 a1, _QWORD *a2)
 {
   int v4; // eax

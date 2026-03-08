@@ -1,3 +1,12 @@
+/*
+ * XREFs of IcAddPossibleReference @ 0x1C009EB74
+ * Callers:
+ *     AcpiIrqLibSetupSciInterrupt @ 0x1C0098DAC (AcpiIrqLibSetupSciInterrupt.c)
+ *     IrqArbAddAllocation @ 0x1C009C4B0 (IrqArbAddAllocation.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall IcAddPossibleReference(unsigned int a1, char a2)
 {
   __int64 i; // r8

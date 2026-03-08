@@ -1,3 +1,19 @@
+/*
+ * XREFs of IopLiveDumpCallRemovePagesCallbacks @ 0x140A97494
+ * Callers:
+ *     IopLiveDumpEstimateMemoryPages @ 0x140A9811C (IopLiveDumpEstimateMemoryPages.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     MmIsAddressValid @ 0x1403A9A20 (MmIsAddressValid.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     RtlStringCbLengthA @ 0x14051D3D0 (RtlStringCbLengthA.c)
+ *     IoFreeDumpRange @ 0x14054E080 (IoFreeDumpRange.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x140557990 (IopLiveDumpIsTracingEnabled.c)
+ *     IopLiveDumpTraceRemovePagesCallbackFailure @ 0x140559218 (IopLiveDumpTraceRemovePagesCallbackFailure.c)
+ *     KeValidateBugCheckCallbackRecord @ 0x1405670E8 (KeValidateBugCheckCallbackRecord.c)
+ */
+
 char __fastcall IopLiveDumpCallRemovePagesCallbacks(_DWORD *a1)
 {
   _DWORD *v1; // r13

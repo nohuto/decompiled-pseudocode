@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpValidateInterface @ 0x14085AFC8
+ * Callers:
+ *     HalpRegisterSecondaryIcInterface @ 0x1403AA98C (HalpRegisterSecondaryIcInterface.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall HalpValidateInterface(__int64 a1)
 {
   char v1; // r8

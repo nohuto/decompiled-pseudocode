@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1VIDMM_PROCESS_HEAP@@UEAA@XZ @ 0x1C0103198
+ * Callers:
+ *     ??_GVIDMM_PROCESS_HEAP@@UEAAPEAXI@Z @ 0x1C0033BD0 (--_GVIDMM_PROCESS_HEAP@@UEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1DXGFASTMUTEX@@QEAA@XZ @ 0x1C0001DB8 (--1DXGFASTMUTEX@@QEAA@XZ.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall VIDMM_PROCESS_HEAP::~VIDMM_PROCESS_HEAP(VIDMM_PROCESS_HEAP *this)
 {

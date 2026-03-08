@@ -1,3 +1,13 @@
+/*
+ * XREFs of QueryExternalTranslatorInterface @ 0x1C0084494
+ * Callers:
+ *     AcpiCheckExternalConnection @ 0x1C0083BF4 (AcpiCheckExternalConnection.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     RegisterExternalTranslatorInterface @ 0x1C0084840 (RegisterExternalTranslatorInterface.c)
+ */
+
 __int64 QueryExternalTranslatorInterface()
 {
   struct _DEVICE_OBJECT *AttachedDeviceReference; // r14

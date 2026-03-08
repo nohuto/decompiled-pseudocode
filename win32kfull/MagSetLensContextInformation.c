@@ -1,3 +1,26 @@
+/*
+ * XREFs of MagSetLensContextInformation @ 0x1C01A4A80
+ * Callers:
+ *     NtUserMagSetContextInformation @ 0x1C01D7E20 (NtUserMagSetContextInformation.c)
+ * Callees:
+ *     MagpRevokeInputTransfrom @ 0x1C007F120 (MagpRevokeInputTransfrom.c)
+ *     memcmp @ 0x1C012BEF0 (memcmp.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     MagpFindThreadContext @ 0x1C0141978 (MagpFindThreadContext.c)
+ *     ?MagpFindLensContext@@YAPEAU_MAG_LENS_CONTEXT@@PEAU_MAG_THREAD_CONTEXT@@PEAUtagWND@@@Z @ 0x1C01A4024 (-MagpFindLensContext@@YAPEAU_MAG_LENS_CONTEXT@@PEAU_MAG_THREAD_CONTEXT@@PEAUtagWND@@@Z.c)
+ *     ?MagpUpdateInputTransfrom@@YAJPEAU_MAGN_INPUT_TRANSFORM@@@Z @ 0x1C01A4048 (-MagpUpdateInputTransfrom@@YAJPEAU_MAGN_INPUT_TRANSFORM@@@Z.c)
+ *     ChangeComposableCursor @ 0x1C01AA1C4 (ChangeComposableCursor.c)
+ *     DwmAsyncMagnCreate @ 0x1C026F2B4 (DwmAsyncMagnCreate.c)
+ *     DwmAsyncMagnDestroy @ 0x1C026F38C (DwmAsyncMagnDestroy.c)
+ *     DwmAsyncMagnSetDesktopColorTransform @ 0x1C026F43C (DwmAsyncMagnSetDesktopColorTransform.c)
+ *     DwmAsyncMagnSetDesktopSamplingMode @ 0x1C026F5E8 (DwmAsyncMagnSetDesktopSamplingMode.c)
+ *     DwmAsyncMagnSetDesktopTransform @ 0x1C026F6A8 (DwmAsyncMagnSetDesktopTransform.c)
+ *     DwmAsyncMagnSetSamplingMode @ 0x1C026F858 (DwmAsyncMagnSetSamplingMode.c)
+ *     DwmAsyncMagnSetWindowColorTransform @ 0x1C026F91C (DwmAsyncMagnSetWindowColorTransform.c)
+ *     DwmAsyncMagnSetWindowFilterList @ 0x1C026FA1C (DwmAsyncMagnSetWindowFilterList.c)
+ *     DwmAsyncMagnSetWindowSharedTextures @ 0x1C026FB30 (DwmAsyncMagnSetWindowSharedTextures.c)
+ */
+
 __int64 __fastcall MagSetLensContextInformation(_QWORD *a1, __int64 a2, struct tagWND *a3, __int64 a4, char *Buf1)
 {
   unsigned int v6; // edi

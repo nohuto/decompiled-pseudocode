@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBREG_QueryGlobalUsb20HardwareLpmSettings @ 0x1C0086CA0
+ * Callers:
+ *     DriverEntry @ 0x1C0093228 (DriverEntry.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBREG_QueryGlobalUsb20HardwareLpmSettings(__int64 a1)
 {
   __int64 result; // rax

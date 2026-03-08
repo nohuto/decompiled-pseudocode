@@ -1,3 +1,12 @@
+/*
+ * XREFs of UserRedrawDesktop @ 0x1C0225B78
+ * Callers:
+ *     ?DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z @ 0x1C0271484 (-DxLddmSharedPrimaryUnLockNotification@@YAJU_LUID@@I@Z.c)
+ * Callees:
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C003C250 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ *     xxxInternalInvalidate @ 0x1C0053270 (xxxInternalInvalidate.c)
+ */
+
 __int64 UserRedrawDesktop()
 {
   struct tagWND *v0; // rbx

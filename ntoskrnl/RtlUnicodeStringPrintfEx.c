@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlUnicodeStringPrintfEx @ 0x1403C1A7C
+ * Callers:
+ *     PiDevCfgBuildIndirectString @ 0x1408748EC (PiDevCfgBuildIndirectString.c)
+ *     PiDevCfgBuildDriverConfigurationId @ 0x140874BA8 (PiDevCfgBuildDriverConfigurationId.c)
+ *     PiDevCfgLogDeviceConfigured @ 0x140875198 (PiDevCfgLogDeviceConfigured.c)
+ *     PiOpenDriverRedirectedStateKey @ 0x140875B5C (PiOpenDriverRedirectedStateKey.c)
+ *     PiBuildAndOpenDeviceDirectoryPath @ 0x1409525F0 (PiBuildAndOpenDeviceDirectoryPath.c)
+ *     PiCreateServiceKeyUnderPath @ 0x140952CC8 (PiCreateServiceKeyUnderPath.c)
+ *     PiGetDriverMutableStateDirectory @ 0x1409530D4 (PiGetDriverMutableStateDirectory.c)
+ * Callees:
+ *     _vsnwprintf @ 0x1403D2E30 (_vsnwprintf.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlUnicodeStringExHandleOtherFlags @ 0x14055D498 (RtlUnicodeStringExHandleOtherFlags.c)
+ */
+
 NTSTATUS RtlUnicodeStringPrintfEx(
         PUNICODE_STRING DestinationString,
         PUNICODE_STRING RemainingString,

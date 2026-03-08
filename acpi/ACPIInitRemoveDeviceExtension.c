@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIInitRemoveDeviceExtension @ 0x1C002D5B4
+ * Callers:
+ *     ACPIBuildSurpriseRemovedExtension @ 0x1C0013960 (ACPIBuildSurpriseRemovedExtension.c)
+ * Callees:
+ *     ACPICleanDeviceDependenciesWithTreeLock @ 0x1C0014380 (ACPICleanDeviceDependenciesWithTreeLock.c)
+ *     ACPIInitDeleteDeviceExtension @ 0x1C002CD08 (ACPIInitDeleteDeviceExtension.c)
+ *     ACPIInternalMoveList @ 0x1C002EC04 (ACPIInternalMoveList.c)
+ */
+
 void __fastcall ACPIInitRemoveDeviceExtension(_QWORD *a1)
 {
   _QWORD *v1; // rax

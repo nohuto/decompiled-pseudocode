@@ -1,3 +1,13 @@
+/*
+ * XREFs of SdbpFreeAppAttributes @ 0x140A4E0CC
+ * Callers:
+ *     SdbpReleaseSearchDBContext @ 0x1407A1D98 (SdbpReleaseSearchDBContext.c)
+ * Callees:
+ *     Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage @ 0x1404117B8 (Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage.c)
+ *     AslFree @ 0x140A51598 (AslFree.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall SdbpFreeAppAttributes(__int64 a1)
 {
   unsigned __int64 v1; // rax

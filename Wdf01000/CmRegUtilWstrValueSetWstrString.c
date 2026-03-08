@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmRegUtilWstrValueSetWstrString @ 0x1C00B1F08
+ * Callers:
+ *     PpRegStateReadCreateClassCreationSettings @ 0x1C00B1610 (PpRegStateReadCreateClassCreationSettings.c)
+ * Callees:
+ *     WdmlibRtlInitUnicodeStringEx @ 0x1C0087408 (WdmlibRtlInitUnicodeStringEx.c)
+ *     CmRegUtilUcValueSetUcString @ 0x1C00B1D5C (CmRegUtilUcValueSetUcString.c)
+ */
+
 __int64 __fastcall CmRegUtilWstrValueSetWstrString(void *KeyHandle, wchar_t *ValueName, wchar_t *ValueData)
 {
   __int64 result; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiHandleMultipleBugchecksDuringRecovery @ 0x140578C10
+ * Callers:
+ *     KeBugCheck2 @ 0x140565E90 (KeBugCheck2.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalReturnToFirmware @ 0x140504990 (HalReturnToFirmware.c)
+ *     KiRecordRecoveryFailure @ 0x140578E50 (KiRecordRecoveryFailure.c)
+ *     KiSaveBugCheckRecoveryStatusMultipleBugChecks @ 0x140578E88 (KiSaveBugCheckRecoveryStatusMultipleBugChecks.c)
+ */
+
 __int64 __fastcall KiHandleMultipleBugchecksDuringRecovery(unsigned int a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

@@ -1,3 +1,26 @@
+/*
+ * XREFs of KiUpdateTime @ 0x14022BD80
+ * Callers:
+ *     KeClockInterruptNotify @ 0x14022CD80 (KeClockInterruptNotify.c)
+ * Callees:
+ *     KiOrAffinityEx @ 0x14022B190 (KiOrAffinityEx.c)
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     PoExecutePerfCheck @ 0x14022C5E0 (PoExecutePerfCheck.c)
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     KiUpdateRunTime @ 0x14022ECE0 (KiUpdateRunTime.c)
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     HalpTimerScaleCounter @ 0x1403BE604 (HalpTimerScaleCounter.c)
+ *     KiForwardTick @ 0x1403C61D0 (KiForwardTick.c)
+ *     PoExecuteIdleCheck @ 0x1403C65A0 (PoExecuteIdleCheck.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetForceIdleState @ 0x14057AE14 (KiSetForceIdleState.c)
+ */
+
 __int64 __fastcall KiUpdateTime(unsigned __int8 a1, unsigned __int8 a2, unsigned int a3)
 {
   unsigned int v3; // r15d

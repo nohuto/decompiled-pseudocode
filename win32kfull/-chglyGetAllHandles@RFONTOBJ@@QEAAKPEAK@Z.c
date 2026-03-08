@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?chglyGetAllHandles@RFONTOBJ@@QEAAKPEAK@Z @ 0x1C02EA0F4
+ * Callers:
+ *     FONTOBJ_cGetAllGlyphHandles @ 0x1C029AF50 (FONTOBJ_cGetAllGlyphHandles.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RFONTOBJ::chglyGetAllHandles(RFONTOBJ *this, unsigned int *a2)
 {
   __int64 v2; // r9

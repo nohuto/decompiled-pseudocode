@@ -1,3 +1,11 @@
+/*
+ * XREFs of ReorderAxisAlignedRectVertices @ 0x1800499F4
+ * Callers:
+ *     ?PrepareData@CMegaRect@@QEAAJAEAV?$vector@EV?$allocator@E@std@@@std@@@Z @ 0x18004A01C (-PrepareData@CMegaRect@@QEAAJAEAV-$vector@EV-$allocator@E@std@@@std@@@Z.c)
+ * Callees:
+ *     memcpy_0 @ 0x1801177E8 (memcpy_0.c)
+ */
+
 void *__fastcall ReorderAxisAlignedRectVertices(__int64 *a1, int a2, __int64 a3)
 {
   float v3; // xmm3_4

@@ -1,3 +1,12 @@
+/*
+ * XREFs of Controller_WdfEvtDeviceUsageNotification @ 0x1C00797C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_qLD @ 0x1C00374D0 (WPP_RECORDER_SF_qLD.c)
+ */
+
 PVOID __fastcall Controller_WdfEvtDeviceUsageNotification(__int64 a1, char a2, char a3)
 {
   int v5; // edx

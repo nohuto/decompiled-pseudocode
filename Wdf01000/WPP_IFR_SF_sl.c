@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_IFR_SF_sl @ 0x1C0034674
+ * Callers:
+ *     imp_WdfVerifierDbgBreakPoint @ 0x1C0034830 (imp_WdfVerifierDbgBreakPoint.c)
+ * Callees:
+ *     FxIFR @ 0x1C0007DD4 (FxIFR.c)
+ *     FxWmiTraceMessage @ 0x1C00229CC (FxWmiTraceMessage.c)
+ */
+
 void __fastcall WPP_IFR_SF_sl(
         _FX_DRIVER_GLOBALS *globals,
         unsigned __int8 _a1,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of _anonymous_namespace_::SetForegroundPriorityProcess @ 0x1C005BD80
+ * Callers:
+ *     ?SetForegroundPriority@ForegroundBoost@@YAXPEBUtagTHREADINFO@@W4ForegroundPriorityClass@1@@Z @ 0x1C005B770 (-SetForegroundPriority@ForegroundBoost@@YAXPEBUtagTHREADINFO@@W4ForegroundPriorityClass@1@@Z.c)
+ *     ?UpdateProcessPriorityForSpinning@ForegroundBoost@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C005B8C0 (-UpdateProcessPriorityForSpinning@ForegroundBoost@@YAXPEAUtagTHREADINFO@@@Z.c)
+ * Callees:
+ *     _anonymous_namespace_::SetProcessPriorityByClass @ 0x1C005BE24 (_anonymous_namespace_--SetProcessPriorityByClass.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall anonymous_namespace_::SetForegroundPriorityProcess(__int64 *a1, __int64 a2, int a3)
 {
   __int64 result; // rax

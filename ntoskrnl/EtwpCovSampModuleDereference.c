@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpCovSampModuleDereference @ 0x1408A4F50
+ * Callers:
+ *     EtwpCovSampImageNotify @ 0x1408A4E40 (EtwpCovSampImageNotify.c)
+ *     EtwpCovSampProcessRemoveModule @ 0x1408A528C (EtwpCovSampProcessRemoveModule.c)
+ *     EtwpCovSampProcessCleanup @ 0x1409EFCC8 (EtwpCovSampProcessCleanup.c)
+ * Callees:
+ *     <none>
+ */
+
 signed __int64 __fastcall EtwpCovSampModuleDereference(__int64 a1, __int64 a2)
 {
   signed __int64 v2; // rax

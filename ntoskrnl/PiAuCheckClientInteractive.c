@@ -1,3 +1,16 @@
+/*
+ * XREFs of PiAuCheckClientInteractive @ 0x1409586E0
+ * Callers:
+ *     PiCMQueryRemove @ 0x140967304 (PiCMQueryRemove.c)
+ * Callees:
+ *     RtlSubAuthoritySid @ 0x1402BE740 (RtlSubAuthoritySid.c)
+ *     RtlInitializeSid @ 0x14068E3A0 (RtlInitializeSid.c)
+ *     RtlValidSid @ 0x1407C92A0 (RtlValidSid.c)
+ *     PiAuCheckTokenMembership @ 0x1409587A0 (PiAuCheckTokenMembership.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiAuCheckClientInteractive(_BYTE *a1)
 {
   void *Pool2; // rax

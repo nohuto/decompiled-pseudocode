@@ -1,3 +1,24 @@
+/*
+ * XREFs of MiUpdateAvailableEvents @ 0x1403A9340
+ * Callers:
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiUnlinkFreeOrZeroedPage @ 0x140276500 (MiUnlinkFreeOrZeroedPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiIncreaseAvailablePages @ 0x140288238 (MiIncreaseAvailablePages.c)
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ *     MiInsertLargePageInNodeList @ 0x14031C970 (MiInsertLargePageInNodeList.c)
+ *     MiUnlinkNodeLargePageHelper @ 0x14034FE70 (MiUnlinkNodeLargePageHelper.c)
+ *     MiDecreaseAvailablePages @ 0x1403504C0 (MiDecreaseAvailablePages.c)
+ *     MiUpdatePageThresholdsDpc @ 0x1403A9280 (MiUpdatePageThresholdsDpc.c)
+ *     MiInitializeMemoryEvents @ 0x1408096D8 (MiInitializeMemoryEvents.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiUpdateAvailableEvents(_QWORD *a1)
 {
   unsigned __int64 v2; // rdi

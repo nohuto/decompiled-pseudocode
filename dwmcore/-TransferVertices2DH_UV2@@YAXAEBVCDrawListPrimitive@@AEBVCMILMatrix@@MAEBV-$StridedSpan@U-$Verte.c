@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?TransferVertices2DH_UV2@@YAXAEBVCDrawListPrimitive@@AEBVCMILMatrix@@MAEBV?$StridedSpan@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@@Z @ 0x180206584
+ * Callers:
+ *     ?EmitGeometry@CCubeMapRenderingEffect@@UEBAJPEAVCD3DBatchExecutionContext@@PEBVCRenderingBatchCommand@@@Z @ 0x1802B4F40 (-EmitGeometry@CCubeMapRenderingEffect@@UEBAJPEAVCD3DBatchExecutionContext@@PEBVCRenderingBatchCo.c)
+ * Callees:
+ *     ?BlendPremultipliedColorDW@@YAKKM@Z @ 0x180205378 (-BlendPremultipliedColorDW@@YAKKM@Z.c)
+ *     ?Transform@CMILMatrix@@QEBAXPEBUD2D_POINT_2F@@PEAUHomogeneousPoint2D@@I@Z @ 0x18026DC28 (-Transform@CMILMatrix@@QEBAXPEBUD2D_POINT_2F@@PEAUHomogeneousPoint2D@@I@Z.c)
+ */
+
 _QWORD *__fastcall TransferVertices2DH_UV2(__int64 a1, CMILMatrix *a2, float a3, __int64 a4)
 {
   __int64 v4; // r13

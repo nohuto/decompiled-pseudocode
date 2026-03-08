@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpBuildMachineHiveMountPoint @ 0x1408189C8
+ * Callers:
+ *     CmpMachineHiveListInitialize @ 0x1408187E8 (CmpMachineHiveListInitialize.c)
+ *     CmpFindMachineHiveByMountPoint @ 0x140818924 (CmpFindMachineHiveByMountPoint.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ */
+
 NTSTATUS __fastcall CmpBuildMachineHiveMountPoint(unsigned int a1, UNICODE_STRING *a2)
 {
   __int64 v3; // rbx

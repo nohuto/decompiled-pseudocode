@@ -1,3 +1,34 @@
+/*
+ * XREFs of NtUnlockVirtualMemory @ 0x1403479C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     MiLockLowestValidPageTable @ 0x140225DB0 (MiLockLowestValidPageTable.c)
+ *     MiLocateAddress @ 0x140228680 (MiLocateAddress.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiDemoteCombinedPte @ 0x14029DF88 (MiDemoteCombinedPte.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ *     MiFreeWsleList @ 0x14032B2B0 (MiFreeWsleList.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiWorkingSetIsContended @ 0x1403478E0 (MiWorkingSetIsContended.c)
+ *     MiPageTableLockIsContended @ 0x140347920 (MiPageTableLockIsContended.c)
+ *     MiVadPagesTradable @ 0x1403481F0 (MiVadPagesTradable.c)
+ *     MiUnlockVa @ 0x14034A190 (MiUnlockVa.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiRotatedToFrameBuffer @ 0x140630A34 (MiRotatedToFrameBuffer.c)
+ *     MiLockUnlockCommon @ 0x1407D27F8 (MiLockUnlockCommon.c)
+ *     MiUnlockVadRange @ 0x1407D73E8 (MiUnlockVadRange.c)
+ *     MiLockVadRange @ 0x1407D74B8 (MiLockVadRange.c)
+ */
+
 __int64 __fastcall NtUnlockVirtualMemory(ULONG_PTR BugCheckParameter1, unsigned __int64 *a2, _QWORD *a3)
 {
   __int64 result; // rax

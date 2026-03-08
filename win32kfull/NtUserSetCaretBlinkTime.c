@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetCaretBlinkTime @ 0x1C010C280
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _SetCaretBlinkTime @ 0x1C010C2C0 (_SetCaretBlinkTime.c)
+ */
+
 __int64 __fastcall NtUserSetCaretBlinkTime(unsigned int a1)
 {
   __int64 v2; // rbx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of Crashdump_UsbDevice_GetPortType @ 0x1C0050584
+ * Callers:
+ *     Crashdump_InitializeWithControllerReset @ 0x1C004C868 (Crashdump_InitializeWithControllerReset.c)
+ *     Crashdump_ResetDevice @ 0x1C004CD40 (Crashdump_ResetDevice.c)
+ *     Crashdump_UsbDevice_SuspendPort @ 0x1C00510F8 (Crashdump_UsbDevice_SuspendPort.c)
+ * Callees:
+ *     Crashdump_UsbDevice_GetPortStatus @ 0x1C00503E8 (Crashdump_UsbDevice_GetPortStatus.c)
+ */
+
 __int64 __fastcall Crashdump_UsbDevice_GetPortType(_QWORD *a1, int a2, _DWORD *a3)
 {
   int PortStatus; // eax

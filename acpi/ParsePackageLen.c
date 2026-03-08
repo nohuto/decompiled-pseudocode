@@ -1,3 +1,14 @@
+/*
+ * XREFs of ParsePackageLen @ 0x1C005BEFC
+ * Callers:
+ *     IfElse @ 0x1C0055570 (IfElse.c)
+ *     ParseField @ 0x1C005AB30 (ParseField.c)
+ *     ParseFieldConnection @ 0x1C005AF60 (ParseFieldConnection.c)
+ *     ParseTerm @ 0x1C005C790 (ParseTerm.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ParsePackageLen(_QWORD *a1, _QWORD *a2)
 {
   unsigned int v3; // r8d

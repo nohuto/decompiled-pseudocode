@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopSleepstudyCaptureSessionStatistics @ 0x140879704
+ * Callers:
+ *     PopSleepstudyStartNextSession @ 0x1408797E4 (PopSleepstudyStartNextSession.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopCaptureSleepStudyStatistics @ 0x1403C24C4 (PopCaptureSleepStudyStatistics.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SshSessionManagerTraceCsEnterReason @ 0x140879D58 (SshSessionManagerTraceCsEnterReason.c)
+ *     SshSessionManagerTraceCsExitReason @ 0x14099E7FC (SshSessionManagerTraceCsExitReason.c)
+ */
+
 struct _KTHREAD *__fastcall PopSleepstudyCaptureSessionStatistics(
         __int64 a1,
         _QWORD *a2,

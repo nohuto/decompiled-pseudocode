@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtQueryInformationPort @ 0x140975620
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ */
+
 __int64 __fastcall NtQueryInformationPort(HANDLE Handle, __int64 a2, volatile void *a3, unsigned int a4, _DWORD *a5)
 {
   KPROCESSOR_MODE PreviousMode; // di

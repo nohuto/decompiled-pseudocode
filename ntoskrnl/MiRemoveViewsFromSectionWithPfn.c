@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiRemoveViewsFromSectionWithPfn @ 0x14020DBB4
+ * Callers:
+ *     MiDereferenceDataSubsections @ 0x140668B28 (MiDereferenceDataSubsections.c)
+ *     MiReleaseReadListResources @ 0x1406A4E80 (MiReleaseReadListResources.c)
+ *     MiPfPrepareSequentialReadList @ 0x1406EBE40 (MiPfPrepareSequentialReadList.c)
+ *     MiPfPrepareReadList @ 0x1407C42F0 (MiPfPrepareReadList.c)
+ *     MiMapViewOfDataSection @ 0x1407D57C0 (MiMapViewOfDataSection.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MiRemoveViewsFromSection @ 0x140334A28 (MiRemoveViewsFromSection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x140668DD4 (MiReturnCrossPartitionSectionCharges.c)
+ */
+
 __int64 __fastcall MiRemoveViewsFromSectionWithPfn(__int64 *BugCheckParameter2)
 {
   __int64 v1; // r15

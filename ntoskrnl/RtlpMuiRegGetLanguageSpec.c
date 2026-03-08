@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlpMuiRegGetLanguageSpec @ 0x140A72004
+ * Callers:
+ *     RtlpPopulateLanguageConfigList @ 0x14084413C (RtlpPopulateLanguageConfigList.c)
+ *     _RtlpMuiRegAddBaseLanguage @ 0x140A726D0 (_RtlpMuiRegAddBaseLanguage.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlCultureNameToLCID @ 0x1407FE570 (RtlCultureNameToLCID.c)
+ *     RtlpMuiRegGetOrAddString @ 0x140844498 (RtlpMuiRegGetOrAddString.c)
+ */
+
 __int64 __fastcall RtlpMuiRegGetLanguageSpec(__int64 a1, WCHAR *a2, char *a3, __int64 a4, __int16 *a5)
 {
   __int16 v6; // bx

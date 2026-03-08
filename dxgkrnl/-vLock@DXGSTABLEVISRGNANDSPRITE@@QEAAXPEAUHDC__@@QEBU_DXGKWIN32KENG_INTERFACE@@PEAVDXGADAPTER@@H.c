@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vLock@DXGSTABLEVISRGNANDSPRITE@@QEAAXPEAUHDC__@@QEBU_DXGKWIN32KENG_INTERFACE@@PEAVDXGADAPTER@@HH@Z @ 0x1C005523C
+ * Callers:
+ *     ?Lock@CWin32kLocks@@QEAAJPEAUHWND__@@HHH@Z @ 0x1C0054F98 (-Lock@CWin32kLocks@@QEAAJPEAUHWND__@@HHH@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 void __fastcall DXGSTABLEVISRGNANDSPRITE::vLock(
         DXGSTABLEVISRGNANDSPRITE *this,
         HDC a2,

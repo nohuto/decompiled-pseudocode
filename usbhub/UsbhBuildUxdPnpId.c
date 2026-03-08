@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhBuildUxdPnpId @ 0x1C00598B4
+ * Callers:
+ *     UsbhBuildDeviceID @ 0x1C004F9EC (UsbhBuildDeviceID.c)
+ *     UsbhBuildHardwareID @ 0x1C004FCFC (UsbhBuildHardwareID.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     memmove @ 0x1C0023580 (memmove.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     UsbhGetPnpKey @ 0x1C005A134 (UsbhGetPnpKey.c)
+ */
+
 __int64 __fastcall UsbhBuildUxdPnpId(size_t a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rdx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?FindAnimationBindings@CResourceMarshaler@DirectComposition@@QEAAXIPEAPEAVCAnimationBinding@2@00@Z @ 0x1C005AC8C
+ * Callers:
+ *     ?UnbindAnimation@CApplicationChannel@DirectComposition@@QEAA_NPEAVCResourceMarshaler@2@I@Z @ 0x1C005A9B8 (-UnbindAnimation@CApplicationChannel@DirectComposition@@QEAA_NPEAVCResourceMarshaler@2@I@Z.c)
+ *     ?HasAnimations@CResourceMarshaler@DirectComposition@@QEAA_NI@Z @ 0x1C005AC44 (-HasAnimations@CResourceMarshaler@DirectComposition@@QEAA_NI@Z.c)
+ *     ?BindAnimation@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@IPEAVCBaseAnimation@2@@Z @ 0x1C005B08C (-BindAnimation@CApplicationChannel@DirectComposition@@IEAAJPEAVCResourceMarshaler@2@IPEAVCBaseAn.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DirectComposition::CResourceMarshaler::FindAnimationBindings(
         DirectComposition::CResourceMarshaler *this,
         int a2,

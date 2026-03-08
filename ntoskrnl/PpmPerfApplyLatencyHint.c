@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmPerfApplyLatencyHint @ 0x1402EDE2C
+ * Callers:
+ *     PpmPerfApplyLatencyHints @ 0x1402EDDB0 (PpmPerfApplyLatencyHints.c)
+ * Callees:
+ *     PpmGetPerfPolicyClass @ 0x140235B9C (PpmGetPerfPolicyClass.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall PpmPerfApplyLatencyHint(__int64 a1)
 {
   __int64 v1; // rbx

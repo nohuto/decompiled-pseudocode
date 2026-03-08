@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiCustomAccessHandler0 @ 0x140422CC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiCustomAccessHandler0(__int64 a1, __int64 a2, _QWORD *a3)
 {
   unsigned __int64 v3; // rax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopFxResidentTimeoutRoutine @ 0x1402E04F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PopFxArmResidentTimer @ 0x1402E0624 (PopFxArmResidentTimer.c)
+ *     PopFxIdleComponent @ 0x140306A50 (PopFxIdleComponent.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 __int64 PopFxResidentTimeoutRoutine()
 {
   struct _KTHREAD *CurrentThread; // rax

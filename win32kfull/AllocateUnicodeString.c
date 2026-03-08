@@ -1,3 +1,15 @@
+/*
+ * XREFs of AllocateUnicodeString @ 0x1C00E9BB0
+ * Callers:
+ *     InternalRegisterClassEx @ 0x1C0030830 (InternalRegisterClassEx.c)
+ *     ?_SetCursorIconDataEx@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@KI@Z @ 0x1C0064DB8 (-_SetCursorIconDataEx@@YA_NPEAUtagCURSOR@@PEAU_UNICODE_STRING@@1PEAUtagCURSORDATA@@KI@Z.c)
+ *     xxxSetClassData @ 0x1C00ED168 (xxxSetClassData.c)
+ *     ?Initialize@SimpleHapticsController@@QEAAJPEAU_UNICODE_STRING@@@Z @ 0x1C024B550 (-Initialize@SimpleHapticsController@@QEAAJPEAU_UNICODE_STRING@@@Z.c)
+ * Callees:
+ *     UShortAdd @ 0x1C00E9C78 (UShortAdd.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall AllocateUnicodeString(struct _UNICODE_STRING *a1, const void **a2)
 {
   USHORT v4; // si

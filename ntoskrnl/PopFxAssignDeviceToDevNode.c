@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopFxAssignDeviceToDevNode @ 0x140393BD4
+ * Callers:
+ *     PopFxRegisterDevice @ 0x140836FBC (PopFxRegisterDevice.c)
+ *     PopFxUnregisterDevice @ 0x140982DC4 (PopFxUnregisterDevice.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall PopFxAssignDeviceToDevNode(__int64 a1, __int64 a2)
 {
   unsigned __int64 v4; // rdi

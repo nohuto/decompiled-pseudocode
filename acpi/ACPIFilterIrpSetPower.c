@@ -1,3 +1,20 @@
+/*
+ * XREFs of ACPIFilterIrpSetPower @ 0x1C0028B10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDispatchForwardPowerIrp @ 0x1C0002AF0 (ACPIDispatchForwardPowerIrp.c)
+ *     ACPIBuildRegRequest @ 0x1C00133EC (ACPIBuildRegRequest.c)
+ *     ACPIDeviceIrpDeviceRequest @ 0x1C001DBF8 (ACPIDeviceIrpDeviceRequest.c)
+ *     ACPIDeviceIrpWarmEjectRequest @ 0x1C001E474 (ACPIDeviceIrpWarmEjectRequest.c)
+ *     ACPIInitDereferenceDeviceExtensionUnlocked @ 0x1C002D0C0 (ACPIInitDereferenceDeviceExtensionUnlocked.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C002D594 (ACPIInitReferenceDeviceExtension.c)
+ *     ACPIInternalCheckPowerReferences @ 0x1C002E494 (ACPIInternalCheckPowerReferences.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ */
+
 __int64 __fastcall ACPIFilterIrpSetPower(ULONG_PTR a1, IRP *a2)
 {
   __int64 DeviceExtension; // rax

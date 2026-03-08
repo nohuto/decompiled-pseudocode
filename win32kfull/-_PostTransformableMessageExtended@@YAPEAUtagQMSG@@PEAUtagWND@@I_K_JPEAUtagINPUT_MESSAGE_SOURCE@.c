@@ -1,3 +1,39 @@
+/*
+ * XREFs of ?_PostTransformableMessageExtended@@YAPEAUtagQMSG@@PEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@H@Z @ 0x1C0048220
+ * Callers:
+ *     ?xxxReportHotKey@@YAXPEBUtagHOTKEY@@_NPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C000E95C (-xxxReportHotKey@@YAXPEBUtagHOTKEY@@_NPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
+ *     PostIAMShellHookMessageEx @ 0x1C0044C60 (PostIAMShellHookMessageEx.c)
+ *     ?_PostShellHookMsgWorker@@YAXI_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0045194 (-_PostShellHookMsgWorker@@YAXI_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
+ *     ?xxxHandleCoreMessagingQueueCompletion@@YAXPEAUtagTHREADINFO@@QEAU_FILE_IO_COMPLETION_INFORMATION@@W4tagQUEUE_COMPLETION_DRAINER@@@Z @ 0x1C0047BD0 (-xxxHandleCoreMessagingQueueCompletion@@YAXPEAUtagTHREADINFO@@QEAU_FILE_IO_COMPLETION_INFORMATIO.c)
+ *     NtUserPostMessage @ 0x1C0047F50 (NtUserPostMessage.c)
+ *     ?xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0097FCC (-xxxDoHotKeyStuff@@YA_NE_NKPEAUtagINPUT_MESSAGE_SOURCE@@@Z.c)
+ *     _PostTransformableMessage @ 0x1C00CB714 (_PostTransformableMessage.c)
+ *     xxxTranslateMessage @ 0x1C00E4F1C (xxxTranslateMessage.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ *     ?GenerateCtrlInputMessages@InteractiveControlInput@@IEAAJPEAUtagWND@@I@Z @ 0x1C0249738 (-GenerateCtrlInputMessages@InteractiveControlInput@@IEAAJPEAUtagWND@@I@Z.c)
+ * Callees:
+ *     SetWakeBit @ 0x1C0038B60 (SetWakeBit.c)
+ *     DelQEntry @ 0x1C0038CDC (DelQEntry.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxBroadcastMessageEx @ 0x1C0045EF0 (xxxBroadcastMessageEx.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     ?StoreQMessage@@YAXPEAUtagQMSG@@PEAUtagWND@@I_K_JK2K2KPEAUtagINPUT_MESSAGE_SOURCE@@KPEAXPEAUtagUIPI_INFO@@@Z @ 0x1C0048A50 (-StoreQMessage@@YAXPEAUtagQMSG@@PEAUtagWND@@I_K_JK2K2KPEAUtagINPUT_MESSAGE_SOURCE@@KPEAXPEAUtagU.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqdd @ 0x1C0048DA0 (WPP_RECORDER_AND_TRACE_SF_qqdd.c)
+ *     TransformMessageBetweenCoordinateSpaces @ 0x1C0048E70 (TransformMessageBetweenCoordinateSpaces.c)
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ *     _PostThreadMessage @ 0x1C009575C (_PostThreadMessage.c)
+ *     vDLOrderDispositionCompare @ 0x1C00C5440 (vDLOrderDispositionCompare.c)
+ *     vOLOrderCompare @ 0x1C00C5E30 (vOLOrderCompare.c)
+ *     ??$ClearCObjLock@PEAUtagObjLock@@@@YAXAEAPEAUtagObjLock@@@Z @ 0x1C01259E8 (--$ClearCObjLock@PEAUtagObjLock@@@@YAXAEAPEAUtagObjLock@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ProcessSuspendedPostMessage @ 0x1C014322E (ProcessSuspendedPostMessage.c)
+ *     ?unlock@?$ObjectLockBase@UtagObjLock@@U1@U1@@?$DomainExclusiveBase@$$V@?$DomainSharedBase@VDLT_THREADINFO@@VDLT_QUEUE@@VDLT_POST@@@@AEAAXXZ @ 0x1C014401A (-unlock@-$ObjectLockBase@UtagObjLock@@U1@U1@@-$DomainExclusiveBase@$$V@-$DomainSharedBase@VDLT_T.c)
+ *     IsMiPEnabledForWindow @ 0x1C014417A (IsMiPEnabledForWindow.c)
+ *     xxxDDETrackPostHook @ 0x1C01FDCA4 (xxxDDETrackPostHook.c)
+ */
+
 unsigned __int64 __fastcall _PostTransformableMessageExtended(
         unsigned __int64 a1,
         unsigned int a2,

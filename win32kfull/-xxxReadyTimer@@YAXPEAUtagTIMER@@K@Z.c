@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?xxxReadyTimer@@YAXPEAUtagTIMER@@K@Z @ 0x1C01C18D4
+ * Callers:
+ *     xxxTimersProc @ 0x1C007AFD0 (xxxTimersProc.c)
+ * Callees:
+ *     SetWakeBit @ 0x1C0038B60 (SetWakeBit.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     ?ApplyTimerDelay@@YAXPEAUtagTIMER@@@Z @ 0x1C01C166C (-ApplyTimerDelay@@YAXPEAUtagTIMER@@@Z.c)
+ *     ?TimerStatistics@@YAXPEBUtagTIMER@@@Z @ 0x1C01C1744 (-TimerStatistics@@YAXPEBUtagTIMER@@@Z.c)
+ */
+
 void __fastcall xxxReadyTimer(struct tagTIMER *a1, int a2)
 {
   __int64 v4; // rcx

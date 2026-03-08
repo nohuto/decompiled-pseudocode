@@ -1,3 +1,38 @@
+/*
+ * XREFs of IopRegisterDeviceInterface @ 0x14086A664
+ * Callers:
+ *     PiSwIrpInterfaceRegister @ 0x1408086D4 (PiSwIrpInterfaceRegister.c)
+ *     IoRegisterDeviceInterface @ 0x14086A510 (IoRegisterDeviceInterface.c)
+ *     PiDevCfgConfigureDeviceInterfaces @ 0x140876D34 (PiDevCfgConfigureDeviceInterfaces.c)
+ *     PiCMRegisterDeviceInterface @ 0x140967714 (PiCMRegisterDeviceInterface.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     PiDmRemoveCacheReferenceForObject @ 0x140680BEC (PiDmRemoveCacheReferenceForObject.c)
+ *     _PnpSetObjectProperty @ 0x140686C8C (_PnpSetObjectProperty.c)
+ *     _PnpStringFromGuid @ 0x1406881E8 (_PnpStringFromGuid.c)
+ *     PnpIsNullGuid @ 0x140689294 (PnpIsNullGuid.c)
+ *     _CmSetDeviceInterfacePathFormat @ 0x1406C3E94 (_CmSetDeviceInterfacePathFormat.c)
+ *     _CmGetDeviceInterfaceName @ 0x1406C54F8 (_CmGetDeviceInterfaceName.c)
+ *     PiDmListAddObject @ 0x1406CBAD4 (PiDmListAddObject.c)
+ *     PiDmAddCacheReferenceForObject @ 0x1406CBBDC (PiDmAddCacheReferenceForObject.c)
+ *     PiPnpRtlEndOperation @ 0x1406CCB7C (PiPnpRtlEndOperation.c)
+ *     PiPnpRtlBeginOperation @ 0x1406CDF98 (PiPnpRtlBeginOperation.c)
+ *     PiDmObjectRelease @ 0x1406D0328 (PiDmObjectRelease.c)
+ *     PiDmGetObject @ 0x1406D0370 (PiDmGetObject.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     PipCheckForDenyExecute @ 0x14086AB0C (PipCheckForDenyExecute.c)
+ *     _CmCreateDeviceInterface @ 0x14087B7BC (_CmCreateDeviceInterface.c)
+ *     _CmDeleteDeviceInterface @ 0x140A5E93C (_CmDeleteDeviceInterface.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopRegisterDeviceInterface(
         const wchar_t *a1,
         int *a2,

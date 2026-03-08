@@ -1,3 +1,14 @@
+/*
+ * XREFs of IommupHvFlushDomainTbs @ 0x1405226D0
+ * Callers:
+ *     HalpIommuFlushDomainTbs @ 0x140515C24 (HalpIommuFlushDomainTbs.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IommupHvFlushDomainTbs(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   __int64 result; // rax

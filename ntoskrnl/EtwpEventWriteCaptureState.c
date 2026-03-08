@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpEventWriteCaptureState @ 0x1409E0594
+ * Callers:
+ *     EtwpEnableGuid @ 0x14068EEBC (EtwpEnableGuid.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall EtwpEventWriteCaptureState(__int64 a1, __int64 a2, ULONGLONG a3)
 {
   struct _EVENT_DATA_DESCRIPTOR UserData; // [rsp+30h] [rbp-19h] BYREF

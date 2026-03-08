@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Compute_b0_b1@?$LinearFitT@$0BAA@@@QEAAXXZ @ 0x18004D69C
+ * Callers:
+ *     ?Update@?$LinearFitT@$0BAA@@@QEAA_N_J0@Z @ 0x18004D8A4 (-Update@-$LinearFitT@$0BAA@@@QEAA_N_J0@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall LinearFitT<256>::Compute_b0_b1(__int64 a1)
 {
   unsigned int v1; // edx

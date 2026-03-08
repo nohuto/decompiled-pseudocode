@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiInitializeHugePfnDatabase @ 0x14061E908
+ * Callers:
+ *     MiInsertPartitionPages @ 0x140657EB8 (MiInsertPartitionPages.c)
+ *     MiHotAddHugeRange @ 0x140A2B158 (MiHotAddHugeRange.c)
+ *     MiCreateHugeIoRanges @ 0x140B61968 (MiCreateHugeIoRanges.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 MiInitializeHugePfnDatabase()
 {
   unsigned __int64 OldIrql; // rbx

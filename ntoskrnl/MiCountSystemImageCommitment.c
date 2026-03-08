@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiCountSystemImageCommitment @ 0x1402B0C2C
+ * Callers:
+ *     MiSessionUpdateImageCharges @ 0x14036C724 (MiSessionUpdateImageCharges.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiGetWsleContents @ 0x140229790 (MiGetWsleContents.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x1402B0EB0 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MiFreePrivateFixupEntryForSystemImage @ 0x1403005CC (MiFreePrivateFixupEntryForSystemImage.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MI_IS_PHYSICAL_ADDRESS @ 0x14032E710 (MI_IS_PHYSICAL_ADDRESS.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     MiGetSubsectionDriverProtos @ 0x1403443A4 (MiGetSubsectionDriverProtos.c)
+ *     MiGetSessionVm @ 0x14036C17C (MiGetSessionVm.c)
+ */
+
 unsigned __int64 __fastcall MiCountSystemImageCommitment(__int64 a1)
 {
   ULONG_PTR v2; // rbp

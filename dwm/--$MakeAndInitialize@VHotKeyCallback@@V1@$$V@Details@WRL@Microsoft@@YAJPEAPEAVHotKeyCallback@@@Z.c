@@ -1,3 +1,17 @@
+/*
+ * XREFs of ??$MakeAndInitialize@VHotKeyCallback@@V1@$$V@Details@WRL@Microsoft@@YAJPEAPEAVHotKeyCallback@@@Z @ 0x14000A694
+ * Callers:
+ *     ?Initialize@CDwmAppHost@@QEAAJPEAUHINSTANCE__@@@Z @ 0x140003CD4 (-Initialize@CDwmAppHost@@QEAAJPEAUHINSTANCE__@@@Z.c)
+ * Callees:
+ *     ??2@YAPEAX_KAEBUnothrow_t@std@@@Z @ 0x14000594C (--2@YAPEAX_KAEBUnothrow_t@std@@@Z.c)
+ *     ??0HotKeyCallback@@QEAA@XZ @ 0x14000A76C (--0HotKeyCallback@@QEAA@XZ.c)
+ *     ??1?$ComPtr@VHotKeyCallback@@@WRL@Microsoft@@QEAA@XZ @ 0x14000A85C (--1-$ComPtr@VHotKeyCallback@@@WRL@Microsoft@@QEAA@XZ.c)
+ *     ??1?$MakeAllocator@VHotKeyCallback@@@Details@WRL@Microsoft@@QEAA@XZ @ 0x14000A880 (--1-$MakeAllocator@VHotKeyCallback@@@Details@WRL@Microsoft@@QEAA@XZ.c)
+ *     ?Release@?$RuntimeClassImpl@U?$RuntimeClassFlags@$00@WRL@Microsoft@@$00$00$0A@UIHotKeyClientOwner@Text@Internal@UI@Windows@@@Details@WRL@Microsoft@@UEAAKXZ @ 0x14000AE00 (-Release@-$RuntimeClassImpl@U-$RuntimeClassFlags@$00@WRL@Microsoft@@$00$00$0A@UIHot_ea_14000AE00.c)
+ *     ?SafeUnknownIncrementReference@Details@WRL@Microsoft@@YAKAECJ@Z @ 0x14000B038 (-SafeUnknownIncrementReference@Details@WRL@Microsoft@@YAKAECJ@Z.c)
+ *     ?RuntimeClassInitialize@HotKeyCallback@@QEAAJXZ @ 0x14000C0EC (-RuntimeClassInitialize@HotKeyCallback@@QEAAJXZ.c)
+ */
+
 __int64 __fastcall Microsoft::WRL::Details::MakeAndInitialize<HotKeyCallback,HotKeyCallback,>(HotKeyCallback **a1)
 {
   HotKeyCallback *v2; // rax

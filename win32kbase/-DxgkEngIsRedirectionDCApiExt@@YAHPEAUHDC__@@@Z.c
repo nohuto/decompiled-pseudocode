@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DxgkEngIsRedirectionDCApiExt@@YAHPEAUHDC__@@@Z @ 0x1C0195B60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DxgkEngIsRedirectionDCApiExt(HDC a1)
 {
   unsigned int v1; // ebx

@@ -1,3 +1,18 @@
+/*
+ * XREFs of PipKsrNotifyDrivers @ 0x14096A3D0
+ * Callers:
+ *     PipKsrCallback @ 0x14096A300 (PipKsrCallback.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PnpNotifyDriverCallback @ 0x1406F55F4 (PnpNotifyDriverCallback.c)
+ *     PnpDereferenceNotify @ 0x1406F59C0 (PnpDereferenceNotify.c)
+ */
+
 __int64 __fastcall PipKsrNotifyDrivers(_QWORD *a1)
 {
   unsigned int v2; // esi

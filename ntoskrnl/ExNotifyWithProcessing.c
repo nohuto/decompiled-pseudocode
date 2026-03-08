@@ -1,3 +1,24 @@
+/*
+ * XREFs of ExNotifyWithProcessing @ 0x1402D2F20
+ * Callers:
+ *     IopSessionChangeWorker @ 0x1402D2EA0 (IopSessionChangeWorker.c)
+ *     ExNotifyCallback @ 0x1402D2F00 (ExNotifyCallback.c)
+ *     HvlPhase2Initialize @ 0x1403AF870 (HvlPhase2Initialize.c)
+ *     PoNotifySystemTimeSet @ 0x1403B11A8 (PoNotifySystemTimeSet.c)
+ *     KiDynamicProcessorAddNotification @ 0x14056F354 (KiDynamicProcessorAddNotification.c)
+ *     ExRebootSystemForRecovery @ 0x140604294 (ExRebootSystemForRecovery.c)
+ *     SepImageVerificationCallbackWorker @ 0x14075E440 (SepImageVerificationCallbackWorker.c)
+ *     PnpNotifyEarlyLaunchImageLoad @ 0x140B5916C (PnpNotifyEarlyLaunchImageLoad.c)
+ *     PnpNotifyEarlyLaunchStatusUpdate @ 0x140B594E8 (PnpNotifyEarlyLaunchStatusUpdate.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExpCallProcessing @ 0x1402D3068 (ExpCallProcessing.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall ExNotifyWithProcessing(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _QWORD *v5; // rbx

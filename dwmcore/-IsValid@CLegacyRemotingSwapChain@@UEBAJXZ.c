@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsValid@CLegacyRemotingSwapChain@@UEBAJXZ @ 0x18010A34C
+ * Callers:
+ *     ?IsValid@CLegacyRemotingSwapChain@@$4PPPPPPPM@A@EBAJXZ @ 0x18011D4B0 (-IsValid@CLegacyRemotingSwapChain@@$4PPPPPPPM@A@EBAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CLegacyRemotingSwapChain::IsValid(CLegacyRemotingSwapChain *this)
 {
   __int64 v1; // rdx

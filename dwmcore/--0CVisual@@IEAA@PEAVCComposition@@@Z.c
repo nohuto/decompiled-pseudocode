@@ -1,3 +1,25 @@
+/*
+ * XREFs of ??0CVisual@@IEAA@PEAVCComposition@@@Z @ 0x18009B504
+ * Callers:
+ *     ?Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAVCResource@@@Z @ 0x18009C5A4 (-Create@CResourceFactory@@SAJPEAVCComposition@@PEAVCChannelContext@@W4MIL_RESOURCE_TYPE@@PEAPEAV.c)
+ *     ??0CWindowNode@@IEAA@PEAVCComposition@@@Z @ 0x1800AAFE4 (--0CWindowNode@@IEAA@PEAVCComposition@@@Z.c)
+ *     ?Initialize@CDesktopTree@@MEAAJXZ @ 0x1800C6D90 (-Initialize@CDesktopTree@@MEAAJXZ.c)
+ *     ??0CRedirectVisual@@QEAA@PEAVCComposition@@@Z @ 0x18011138C (--0CRedirectVisual@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CShapeVisual@@QEAA@PEAVCComposition@@@Z @ 0x1801114F0 (--0CShapeVisual@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CSuperWetInkVisual@@QEAA@PEAVCComposition@@@Z @ 0x180111518 (--0CSuperWetInkVisual@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CSpriteVisual@@QEAA@PEAVCComposition@@@Z @ 0x180111D6C (--0CSpriteVisual@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CTextVisual@@QEAA@PEAVCComposition@@@Z @ 0x180111D94 (--0CTextVisual@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CSceneVisual@@QEAA@PEAVCComposition@@@Z @ 0x180216EA8 (--0CSceneVisual@@QEAA@PEAVCComposition@@@Z.c)
+ *     ??0CCursorVisual@@IEAA@PEAVCComposition@@@Z @ 0x18022534C (--0CCursorVisual@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0?$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@IEAA@PEAVCComposition@@@Z @ 0x18023FD88 (--0-$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@IEAA@PEAVCComposition.c)
+ * Callees:
+ *     ?clear_region@?$vector_facade@V?$unique_ptr@VCOcclusionInfo@@U?$default_delete@VCOcclusionInfo@@@std@@@std@@V?$buffer_impl@V?$unique_ptr@VCOcclusionInfo@@U?$default_delete@VCOcclusionInfo@@@std@@@std@@$00$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x180043738 (-clear_region@-$vector_facade@V-$unique_ptr@VCOcclusionInfo@@U-$default_delete@VCOcclusionInfo@@.c)
+ *     ??0CTreeData@@IEAA@XZ @ 0x18009B870 (--0CTreeData@@IEAA@XZ.c)
+ *     ?clear_region@?$vector_facade@V?$com_ptr_t@VCBackdropVisualImage@@Uerr_returncode_policy@wil@@@wil@@V?$buffer_impl@V?$com_ptr_t@VCBackdropVisualImage@@Uerr_returncode_policy@wil@@@wil@@$00$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAAX_K0@Z @ 0x1800ED5EC (-clear_region@-$vector_facade@V-$com_ptr_t@VCBackdropVisualImage@@Uerr_returncode_policy@wil@@@w.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 CVisual *__fastcall CVisual::CVisual(CVisual *this, struct CComposition *a2)
 {
   char *v2; // rbx

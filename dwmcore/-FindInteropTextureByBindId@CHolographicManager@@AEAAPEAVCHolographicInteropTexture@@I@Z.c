@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FindInteropTextureByBindId@CHolographicManager@@AEAAPEAVCHolographicInteropTexture@@I@Z @ 0x1802A1FA4
+ * Callers:
+ *     ?AddInteropTexture@CHolographicManager@@QEAA_NPEAVCHolographicInteropTexture@@@Z @ 0x1802A1580 (-AddInteropTexture@CHolographicManager@@QEAA_NPEAVCHolographicInteropTexture@@@Z.c)
+ *     ?GetInteropTextureVisualTree@CHolographicManager@@UEAAJIPEAPEAVCVisualTree@@@Z @ 0x1802A20B0 (-GetInteropTextureVisualTree@CHolographicManager@@UEAAJIPEAPEAVCVisualTree@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct CHolographicInteropTexture *__fastcall CHolographicManager::FindInteropTextureByBindId(
         CHolographicManager *this,
         int a2)

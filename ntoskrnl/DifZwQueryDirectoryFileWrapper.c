@@ -1,3 +1,15 @@
+/*
+ * XREFs of DifZwQueryDirectoryFileWrapper @ 0x1405F18A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ZwQueryDirectoryFile @ 0x1404129B0 (ZwQueryDirectoryFile.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 NTSTATUS __fastcall DifZwQueryDirectoryFileWrapper(
         HANDLE FileHandle,
         HANDLE Event,

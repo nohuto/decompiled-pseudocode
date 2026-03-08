@@ -1,3 +1,11 @@
+/*
+ * XREFs of strcat @ 0x1403D53A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char *__cdecl strcat(char *Dest, const char *Source)
 {
   unsigned __int64 v3; // rax

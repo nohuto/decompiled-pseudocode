@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?construct@?$manually_managed_shutdown_aware_object@VFeatureStateManager@details@wil@@@wil@@QEAAXXZ @ 0x1400033A0
+ * Callers:
+ *     wil::details::_dynamic_initializer_for__g_featureStateManager__ @ 0x140001160 (wil--details--_dynamic_initializer_for__g_featureStateManager__.c)
+ * Callees:
+ *     ??0SubscriptionList@details_abi@wil@@QEAA@XZ @ 0x140003364 (--0SubscriptionList@details_abi@wil@@QEAA@XZ.c)
+ */
+
 struct _RTL_CRITICAL_SECTION *wil::manually_managed_shutdown_aware_object<wil::details::FeatureStateManager>::construct()
 {
   struct _RTL_CRITICAL_SECTION *result; // rax

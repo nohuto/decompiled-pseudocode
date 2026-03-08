@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?DeleteAllCompositionTokens@CTokenManager@@IEAAXXZ @ 0x1C0018D9C
+ * Callers:
+ *     ??1CTokenManager@@AEAA@XZ @ 0x1C00172B0 (--1CTokenManager@@AEAA@XZ.c)
+ *     ?DeleteAllTokens@CTokenManager@@UEAAXXZ @ 0x1C0017590 (-DeleteAllTokens@CTokenManager@@UEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CTokenManager::DeleteAllCompositionTokens(CTokenManager *this)
 {
   char *v1; // rbx

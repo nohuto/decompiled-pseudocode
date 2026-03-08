@@ -1,3 +1,19 @@
+/*
+ * XREFs of SeInitServerSilo @ 0x1409C5E50
+ * Callers:
+ *     PspInitializeServerSiloDeferred @ 0x1409AA0D0 (PspInitializeServerSiloDeferred.c)
+ * Callees:
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     PsAttachSiloToCurrentThread @ 0x1402993A0 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x1402993C0 (PsDetachSiloFromCurrentThread.c)
+ *     PsIsHostSilo @ 0x14030F2E0 (PsIsHostSilo.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     SepCreateLogonSessionTrack @ 0x14076B35C (SepCreateLogonSessionTrack.c)
+ *     SepReferenceLogonSessionSilo @ 0x140773DF8 (SepReferenceLogonSessionSilo.c)
+ *     SepDeleteLogonSessionTrack @ 0x1407DAE44 (SepDeleteLogonSessionTrack.c)
+ *     SepInitializationPhase1 @ 0x140810320 (SepInitializationPhase1.c)
+ */
+
 __int64 __fastcall SeInitServerSilo(__int64 a1)
 {
   __int64 *ServerSiloGlobals; // rsi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1CFlipResourceState@@MEAA@XZ @ 0x1C008491C
+ * Callers:
+ *     ??_ECFlipResourceState@@MEAAPEAXI@Z @ 0x1C0084A40 (--_ECFlipResourceState@@MEAAPEAXI@Z.c)
+ *     ??_GCPoolBufferResourceState@@UEAAPEAXI@Z @ 0x1C0084AE0 (--_GCPoolBufferResourceState@@UEAAPEAXI@Z.c)
+ *     ??1CContentResourceState@@UEAA@XZ @ 0x1C00878E8 (--1CContentResourceState@@UEAA@XZ.c)
+ * Callees:
+ *     ?Release@CFlipResource@@QEAAKXZ @ 0x1C00815F8 (-Release@CFlipResource@@QEAAKXZ.c)
+ */
+
 void __fastcall CFlipResourceState::~CFlipResourceState(CFlipResource **this)
 {
   unsigned __int64 v1; // r8

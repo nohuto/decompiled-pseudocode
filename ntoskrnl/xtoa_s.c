@@ -1,3 +1,12 @@
+/*
+ * XREFs of xtoa_s @ 0x1403D8AAC
+ * Callers:
+ *     _itoa_s @ 0x1403D8900 (_itoa_s.c)
+ *     _ultoa_s @ 0x1403D8950 (_ultoa_s.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ */
+
 __int64 __fastcall xtoa_s(unsigned int a1, char *a2, unsigned __int64 a3, unsigned int a4, int a5)
 {
   unsigned int v8; // r11d

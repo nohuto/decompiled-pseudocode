@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtGdiGetCertificate @ 0x1C01893C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList @ 0x1C00CE990 (AcquireCriticalSectionCheckStateAndUpdateGraphicsDeviceList.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ *     CallMonitor @ 0x1C017EE60 (CallMonitor.c)
+ *     GetCertificateLengthAndMonitorPDO @ 0x1C018873C (GetCertificateLengthAndMonitorPDO.c)
+ */
+
 __int64 __fastcall NtGdiGetCertificate(__int64 a1, unsigned int a2, volatile void *a3, unsigned int a4)
 {
   __int64 result; // rax

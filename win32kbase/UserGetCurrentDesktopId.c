@@ -1,3 +1,11 @@
+/*
+ * XREFs of UserGetCurrentDesktopId @ 0x1C0157144
+ * Callers:
+ *     hdcOpenDCW @ 0x1C003C8E0 (hdcOpenDCW.c)
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C004FE50 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ */
+
 __int64 __fastcall UserGetCurrentDesktopId(_QWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned int v5; // ebx

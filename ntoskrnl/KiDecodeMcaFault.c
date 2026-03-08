@@ -1,3 +1,28 @@
+/*
+ * XREFs of KiDecodeMcaFault @ 0x1403DDB70
+ * Callers:
+ *     KiMachineCheckControl @ 0x140423080 (KiMachineCheckControl.c)
+ *     $$11 @ 0x140423090 ($$11.c)
+ *     $$12 @ 0x1404230A0 ($$12.c)
+ *     $$13 @ 0x1404230B0 ($$13.c)
+ *     $$14 @ 0x1404230C0 ($$14.c)
+ *     $$15 @ 0x1404230D0 ($$15.c)
+ *     $$16 @ 0x1404230E0 ($$16.c)
+ *     $$17 @ 0x1404230F0 ($$17.c)
+ *     $$18 @ 0x140423100 ($$18.c)
+ *     $$19 @ 0x140423110 ($$19.c)
+ *     $$1a @ 0x140423120 ($$1a.c)
+ *     $$1b @ 0x140423130 ($$1b.c)
+ *     $$1c @ 0x140423140 ($$1c.c)
+ *     $$1d @ 0x140423150 ($$1d.c)
+ *     $$1e @ 0x140423160 ($$1e.c)
+ *     $$1f @ 0x140423170 ($$1f.c)
+ * Callees:
+ *     KeTestSpinLock @ 0x1402053F0 (KeTestSpinLock.c)
+ *     FsRtlMdlReadCompleteDevEx @ 0x140AF7010 (FsRtlMdlReadCompleteDevEx.c)
+ *     KeGuardDispatchICall @ 0x140B107A0 (KeGuardDispatchICall.c)
+ */
+
 __int64 KiDecodeMcaFault()
 {
   _BYTE *CompleteDev; // rbx

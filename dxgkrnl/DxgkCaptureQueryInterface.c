@@ -1,3 +1,11 @@
+/*
+ * XREFs of DxgkCaptureQueryInterface @ 0x1C02D93FC
+ * Callers:
+ *     DxgkInternalDeviceIoctl @ 0x1C01D6220 (DxgkInternalDeviceIoctl.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 __fastcall DxgkCaptureQueryInterface(unsigned __int16 *a1, _DWORD *a2)
 {
   __int64 v3; // rcx

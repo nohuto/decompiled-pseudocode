@@ -1,3 +1,21 @@
+/*
+ * XREFs of PspChangeJobMemoryUsageByProcess @ 0x1406DBAB0
+ * Callers:
+ *     MiReturnFullProcessCharges @ 0x140289980 (MiReturnFullProcessCharges.c)
+ *     MmAssignProcessToJob @ 0x1407000C4 (MmAssignProcessToJob.c)
+ *     MmDeleteProcessAddressSpace @ 0x140726E8C (MmDeleteProcessAddressSpace.c)
+ *     MiChargeFullProcessCommitment @ 0x1407C5840 (MiChargeFullProcessCommitment.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     PspSendJobNotification @ 0x14030201C (PspSendJobNotification.c)
+ *     PspGetJobMemoryUsageNotificationViolations @ 0x1406FC2C4 (PspGetJobMemoryUsageNotificationViolations.c)
+ *     PspUnlockJobMemoryLimitsExclusive @ 0x1406FEEF4 (PspUnlockJobMemoryLimitsExclusive.c)
+ *     PspScheduleEnforcementWorker @ 0x140789F6C (PspScheduleEnforcementWorker.c)
+ */
+
 char __fastcall PspChangeJobMemoryUsageByProcess(char a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v6; // bp

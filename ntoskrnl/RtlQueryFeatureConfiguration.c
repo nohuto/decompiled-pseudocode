@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlQueryFeatureConfiguration @ 0x1402F02B0
+ * Callers:
+ *     wil_RtlStagingConfig_QueryFeatureState @ 0x14092FDE0 (wil_RtlStagingConfig_QueryFeatureState.c)
+ *     CmQuerySingleFeatureConfiguration @ 0x140A0EFE0 (CmQuerySingleFeatureConfiguration.c)
+ *     wil_details_UpdateFeatureConfiguredStates @ 0x140A0F6D8 (wil_details_UpdateFeatureConfiguredStates.c)
+ * Callees:
+ *     ObGetCurrentIrql @ 0x140205E10 (ObGetCurrentIrql.c)
+ *     RtlpFcBufferManagerDereferenceBuffers @ 0x1402F03BC (RtlpFcBufferManagerDereferenceBuffers.c)
+ *     RtlpFcBufferManagerReferenceBuffers @ 0x1402F0450 (RtlpFcBufferManagerReferenceBuffers.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlpFcConvertFeatureConfigurationsInternalToExternal @ 0x14040C1D4 (RtlpFcConvertFeatureConfigurationsInternalToExternal.c)
+ *     RtlpFcGetBufferManager @ 0x1407822AC (RtlpFcGetBufferManager.c)
+ *     RtlpFcQueryFeatureConfigurationFromBufferSet @ 0x1407822BC (RtlpFcQueryFeatureConfigurationFromBufferSet.c)
+ */
+
 __int64 __fastcall RtlQueryFeatureConfiguration(int a1, int a2, _QWORD *a3, __int64 a4)
 {
   __int64 BufferManager; // rsi

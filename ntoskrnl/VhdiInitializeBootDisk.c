@@ -1,3 +1,24 @@
+/*
+ * XREFs of VhdiInitializeBootDisk @ 0x140B97B20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlStringCbPrintfW @ 0x1402078E4 (RtlStringCbPrintfW.c)
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwDeviceIoControlFile @ 0x1404123F0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ *     RtlCreateUnicodeStringFromAsciiz @ 0x140817BE0 (RtlCreateUnicodeStringFromAsciiz.c)
+ *     IoGetConfigurationInformation @ 0x140872E30 (IoGetConfigurationInformation.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     VhdiGetPartitionNumber @ 0x140B97900 (VhdiGetPartitionNumber.c)
+ *     VhdiGetVolumeNumber @ 0x140B9799C (VhdiGetVolumeNumber.c)
+ *     VhdiQueryVolumeVhdFilePath @ 0x140B97E10 (VhdiQueryVolumeVhdFilePath.c)
+ */
+
 __int64 __fastcall VhdiInitializeBootDisk(__int64 a1, __int64 a2, UNICODE_STRING *a3)
 {
   _QWORD *v3; // r14

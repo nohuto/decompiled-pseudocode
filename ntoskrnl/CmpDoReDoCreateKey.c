@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpDoReDoCreateKey @ 0x140A27AE0
+ * Callers:
+ *     CmpDoReDoRecord @ 0x140A27C2C (CmpDoReDoRecord.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     CmpDoReOpenTransKey @ 0x140A27F24 (CmpDoReOpenTransKey.c)
+ *     CmpSplitParentKeyName @ 0x140AF2CC8 (CmpSplitParentKeyName.c)
+ */
+
 __int64 __fastcall CmpDoReDoCreateKey(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

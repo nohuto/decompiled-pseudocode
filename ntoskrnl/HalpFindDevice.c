@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpFindDevice @ 0x140AAF410
+ * Callers:
+ *     HalpKdSetupDebuggingDevice @ 0x140AAF250 (HalpKdSetupDebuggingDevice.c)
+ *     HalpRegisterDeviceInUse @ 0x140AAF2D0 (HalpRegisterDeviceInUse.c)
+ *     HalpKdReleaseDebuggingDevice @ 0x140AB0A00 (HalpKdReleaseDebuggingDevice.c)
+ * Callees:
+ *     wcsncmp @ 0x1403D5ED0 (wcsncmp.c)
+ */
+
 __int64 *__fastcall HalpFindDevice(__int64 a1)
 {
   __int64 *v1; // rsi

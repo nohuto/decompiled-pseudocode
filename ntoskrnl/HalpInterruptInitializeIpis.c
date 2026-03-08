@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpInterruptInitializeIpis @ 0x14037B310
+ * Callers:
+ *     HalpInitializeInterruptsPn @ 0x140379DFC (HalpInitializeInterruptsPn.c)
+ *     HalpInitializeInterrupts @ 0x140B3D448 (HalpInitializeInterrupts.c)
+ * Callees:
+ *     KeGetProcessorNumberFromIndex @ 0x1403644D0 (KeGetProcessorNumberFromIndex.c)
+ *     HalpMmAllocateMemoryInternal @ 0x14037A7A8 (HalpMmAllocateMemoryInternal.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 NTSTATUS HalpInterruptInitializeIpis()
 {
   ULONG v0; // edi

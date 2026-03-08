@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIDevicePowerProcessPhase1DeviceSubPhase2 @ 0x1C001F370
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIDeviceCompleteGenericPhase @ 0x1C001C540 (ACPIDeviceCompleteGenericPhase.c)
+ *     WPP_RECORDER_SF_qLdqss @ 0x1C0022C78 (WPP_RECORDER_SF_qLdqss.c)
+ *     AMLIAsyncEvalObject @ 0x1C00478E8 (AMLIAsyncEvalObject.c)
+ */
+
 __int64 __fastcall ACPIDevicePowerProcessPhase1DeviceSubPhase2(__int64 a1)
 {
   __int64 v1; // rbx

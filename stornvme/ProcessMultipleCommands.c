@@ -1,3 +1,15 @@
+/*
+ * XREFs of ProcessMultipleCommands @ 0x1C0024780
+ * Callers:
+ *     NVMeIoCompletionQueueCreate @ 0x1C001EF80 (NVMeIoCompletionQueueCreate.c)
+ *     NVMeIoSubmissionQueueCreate @ 0x1C001F6B0 (NVMeIoSubmissionQueueCreate.c)
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     NVMeRequestComplete @ 0x1C000318C (NVMeRequestComplete.c)
+ *     ProcessMultipleCommandsInSpecificQueue @ 0x1C0024840 (ProcessMultipleCommandsInSpecificQueue.c)
+ */
+
 char __fastcall ProcessMultipleCommands(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdi

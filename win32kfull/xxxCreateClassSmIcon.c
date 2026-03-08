@@ -1,3 +1,16 @@
+/*
+ * XREFs of xxxCreateClassSmIcon @ 0x1C0107B5C
+ * Callers:
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ *     xxxSetClassIcon @ 0x1C0223360 (xxxSetClassIcon.c)
+ *     xxxRecreateSmallIcons @ 0x1C0230A50 (xxxRecreateSmallIcons.c)
+ * Callees:
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ *     ?LockPointer@@YA?AU_LOCKASSIGNPAIR@@PEAV?$SharedUserObjPoolPointerFieldspicnSm@UtagCURSOR@@@tagCLS@@PEAX@Z @ 0x1C0107C3C (-LockPointer@@YA-AU_LOCKASSIGNPAIR@@PEAV-$SharedUserObjPoolPointerFieldspicnSm@UtagCURSOR@@@tagC.c)
+ *     xxxClientCopyImage @ 0x1C0107FC0 (xxxClientCopyImage.c)
+ */
+
 __int64 __fastcall xxxCreateClassSmIcon(__int64 a1)
 {
   int DpiForSystem; // eax

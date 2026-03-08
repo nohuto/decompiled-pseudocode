@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiAddTriageAdapterData @ 0x1C00653B8
+ * Callers:
+ *     DxgkpAddTriageAdapterData @ 0x1C0059878 (DxgkpAddTriageAdapterData.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DpiAddTriageAdapterData(__int64 a1, __int64 a2, struct _KTRIAGE_DUMP_DATA_ARRAY *a3)
 {
   __int64 v3; // rbx

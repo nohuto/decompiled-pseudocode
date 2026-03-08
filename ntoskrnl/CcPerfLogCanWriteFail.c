@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcPerfLogCanWriteFail @ 0x1405382E8
+ * Callers:
+ *     CcCanIWrite @ 0x140362960 (CcCanIWrite.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall CcPerfLogCanWriteFail(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
   _QWORD v4[2]; // [rsp+30h] [rbp-48h] BYREF

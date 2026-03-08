@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhUnregisterPowerCallback @ 0x1C00595B0
+ * Callers:
+ *     UsbhUninitialize @ 0x1C002E0C0 (UsbhUninitialize.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ */
+
 int __fastcall UsbhUnregisterPowerCallback(__int64 a1)
 {
   PVOID *v2; // rax

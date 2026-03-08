@@ -1,3 +1,24 @@
+/*
+ * XREFs of IopLiveDumpWriteDumpFile @ 0x14094C514
+ * Callers:
+ *     IoCaptureLiveDump @ 0x140948A78 (IoCaptureLiveDump.c)
+ *     IoWriteDeferredLiveDumpData @ 0x140949354 (IoWriteDeferredLiveDumpData.c)
+ * Callees:
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     MmFreePagesFromMdl @ 0x1402C0DB0 (MmFreePagesFromMdl.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SecureDump_Get_SecureDumpHeader @ 0x14055BBE0 (SecureDump_Get_SecureDumpHeader.c)
+ *     RtlNumberOfSetBitsEx @ 0x1405A6770 (RtlNumberOfSetBitsEx.c)
+ *     MmFreeIndependentPages @ 0x14087B250 (MmFreeIndependentPages.c)
+ *     IopLiveDumpCheckTermination @ 0x14094AF74 (IopLiveDumpCheckTermination.c)
+ *     IopLiveDumpFreeDumpBuffers @ 0x14094B0B8 (IopLiveDumpFreeDumpBuffers.c)
+ *     IopLiveDumpFreeIoSpaceRanges @ 0x14094B2F4 (IopLiveDumpFreeIoSpaceRanges.c)
+ *     IopLiveDumpWriteBuffer @ 0x14094C450 (IopLiveDumpWriteBuffer.c)
+ *     IopLiveDumpWriteSecondaryData @ 0x14094D248 (IopLiveDumpWriteSecondaryData.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopLiveDumpWriteDumpFile(__int64 a1)
 {
   __int64 v1; // r14

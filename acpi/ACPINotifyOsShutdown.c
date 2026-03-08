@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPINotifyOsShutdown @ 0x1C003CCA8
+ * Callers:
+ *     ACPIRootEvent @ 0x1C003D000 (ACPIRootEvent.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPINotifyOsShutdown(void *a1)
 {
   KIRQL v2; // al

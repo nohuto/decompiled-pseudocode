@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiInitializePteInfo @ 0x140B3B548
+ * Callers:
+ *     MiInitializeSystemPtes @ 0x140B391FC (MiInitializeSystemPtes.c)
+ *     MiInitializeSystemSpaceMap @ 0x140B3A390 (MiInitializeSystemSpaceMap.c)
+ *     MiInitializeKernelStacks @ 0x140B3B3A4 (MiInitializeKernelStacks.c)
+ * Callees:
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MiInitializeDynamicBitmap @ 0x14080A0E4 (MiInitializeDynamicBitmap.c)
+ */
+
 __int64 __fastcall MiInitializePteInfo(
         __int64 a1,
         int a2,

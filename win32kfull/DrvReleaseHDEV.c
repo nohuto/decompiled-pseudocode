@@ -1,3 +1,11 @@
+/*
+ * XREFs of DrvReleaseHDEV @ 0x1C026EBD8
+ * Callers:
+ *     xxxRemoteConsoleShadowStop @ 0x1C0206924 (xxxRemoteConsoleShadowStop.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 DrvReleaseHDEV()
 {
   __int64 v0; // rbx

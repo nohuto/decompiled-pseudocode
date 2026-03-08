@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?PutFNTCacheCheckSum@@YAXKK@Z @ 0x1C028C5B0
+ * Callers:
+ *     ??0PFFMEMOBJ@@QEAA@IPEBGKKPEAUtagDESIGNVECTOR@@K_KPEAUHDEV__@@PEAUDHPDEV__@@PEAVPFT@@KKPEAU_FNTCHECKSUM@@PEAPEAU_FONTFILEVIEW@@PEAU_UNIVERSAL_FONT_ID@@H@Z @ 0x1C011D1B0 (--0PFFMEMOBJ@@QEAA@IPEBGKKPEAUtagDESIGNVECTOR@@K_KPEAUHDEV__@@PEAUDHPDEV__@@PEAVPFT@@KKPEAU_FNTC.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     SearchFntCacheNewLink @ 0x1C028C790 (SearchFntCacheNewLink.c)
+ */
+
 void __fastcall PutFNTCacheCheckSum(Gre::Base *a1, int a2)
 {
   unsigned int v3; // edi

@@ -1,3 +1,23 @@
+/*
+ * XREFs of CmpSecurityMethod @ 0x1407AC040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwGetKernelTraceTimestamp @ 0x140250530 (EtwGetKernelTraceTimestamp.c)
+ *     CmpIsRegistryLockAcquired @ 0x1402630C0 (CmpIsRegistryLockAcquired.c)
+ *     CmCleanupThreadInfo @ 0x140263740 (CmCleanupThreadInfo.c)
+ *     CmpInitializeThreadInfo @ 0x140263760 (CmpInitializeThreadInfo.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     CmpSetKeySecurity @ 0x1406B7E3C (CmpSetKeySecurity.c)
+ *     CmPostCallbackNotificationEx @ 0x1406BD240 (CmPostCallbackNotificationEx.c)
+ *     CmpCallCallBacksEx @ 0x1406E0B20 (CmpCallCallBacksEx.c)
+ *     CmpQueryKeySecurity @ 0x1407AC310 (CmpQueryKeySecurity.c)
+ *     CmpAssignKeySecurity @ 0x140854E7C (CmpAssignKeySecurity.c)
+ */
+
 __int64 __fastcall CmpSecurityMethod(
         __int64 a1,
         int a2,

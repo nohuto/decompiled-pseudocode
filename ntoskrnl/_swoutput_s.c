@@ -1,3 +1,14 @@
+/*
+ * XREFs of _swoutput_s @ 0x1403DAFF8
+ * Callers:
+ *     vswprintf_s @ 0x1403D8870 (vswprintf_s.c)
+ *     _vsnwprintf_s @ 0x1403D91D0 (_vsnwprintf_s.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     _flsbuf @ 0x1403D67F0 (_flsbuf.c)
+ *     _woutput_s @ 0x1403DB12C (_woutput_s.c)
+ */
+
 __int64 __fastcall swoutput_s(char *a1, unsigned __int64 a2, __int64 a3, __int64 a4)
 {
   int v6; // eax

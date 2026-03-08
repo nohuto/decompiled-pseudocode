@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpCanGrowHive @ 0x14073039C
+ * Callers:
+ *     HvpAddBin @ 0x14072F9F0 (HvpAddBin.c)
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 char __fastcall CmpCanGrowHive(__int64 a1, unsigned int a2)
 {
   __int64 v3; // rax

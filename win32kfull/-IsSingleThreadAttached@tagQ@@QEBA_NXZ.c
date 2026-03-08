@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?IsSingleThreadAttached@tagQ@@QEBA_NXZ @ 0x1C00CE1A4
+ * Callers:
+ *     ?xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z @ 0x1C0068640 (-xxxSendChangedMsgs@@YAXPEAUtagSMWP@@@Z.c)
+ *     ?xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z @ 0x1C006A610 (-xxxCalcValidRects@@YAHPEAUtagSMWP@@PEAPEAUHWND__@@@Z.c)
+ *     zzzReattachThreads @ 0x1C00CD3A8 (zzzReattachThreads.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall tagQ::IsSingleThreadAttached(tagQ *this)
 {
   __int64 v1; // rax

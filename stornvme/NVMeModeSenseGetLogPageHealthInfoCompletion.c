@@ -1,3 +1,18 @@
+/*
+ * XREFs of NVMeModeSenseGetLogPageHealthInfoCompletion @ 0x1C0016990
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     GetSrbDataBuffer @ 0x1C0007AB8 (GetSrbDataBuffer.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ *     GetSrbScsiData @ 0x1C0012B7C (GetSrbScsiData.c)
+ *     ProcessNvmeHealthInfoLog @ 0x1C0024B64 (ProcessNvmeHealthInfoLog.c)
+ */
+
 __int64 __fastcall NVMeModeSenseGetLogPageHealthInfoCompletion(__int64 a1, __int64 a2)
 {
   __int64 SrbExtension; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeSetFStateIdleTimer @ 0x1C00106AC
+ * Callers:
+ *     NVMePowerActive @ 0x1C00030C0 (NVMePowerActive.c)
+ *     NVMePowerSetFState @ 0x1C0010324 (NVMePowerSetFState.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NVMeSetFStateIdleTimer(__int64 a1)
 {
   unsigned int v1; // edx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiPfExecuteReadList @ 0x1406A3F98
+ * Callers:
+ *     MmPrefetchPagesEx @ 0x1406A387C (MmPrefetchPagesEx.c)
+ *     MmPrefetchForCacheManager @ 0x1406A3DCC (MmPrefetchForCacheManager.c)
+ *     MiPrefetchControlArea @ 0x14078DBC4 (MiPrefetchControlArea.c)
+ * Callees:
+ *     MiPageRead @ 0x14020CED0 (MiPageRead.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     MiReferenceInPageFile @ 0x140343354 (MiReferenceInPageFile.c)
+ *     SmPageRead @ 0x1405C76E0 (SmPageRead.c)
+ *     MiReadFromMemoryPagefile @ 0x14065E368 (MiReadFromMemoryPagefile.c)
+ */
+
 int __fastcall MiPfExecuteReadList(__int64 a1, char a2, unsigned int a3, __int64 a4)
 {
   _UNKNOWN **v4; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfPendingStartLogging @ 0x140ACEB98
+ * Callers:
+ *     IovpCallDriver1 @ 0x140AC9170 (IovpCallDriver1.c)
+ *     IovpCompleteRequest1 @ 0x140AC99CC (IovpCompleteRequest1.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall VfPendingStartLogging(__int64 a1)
 {
   _QWORD *result; // rax

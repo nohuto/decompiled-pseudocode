@@ -1,3 +1,24 @@
+/*
+ * XREFs of PnprQuiesceProcessorDpc @ 0x140A9A400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeGetProcessorNumberFromIndex @ 0x1403644D0 (KeGetProcessorNumberFromIndex.c)
+ *     KeRestoreExtendedAndSupervisorState @ 0x14036A3E8 (KeRestoreExtendedAndSupervisorState.c)
+ *     KeSaveExtendedAndSupervisorState @ 0x14036A62C (KeSaveExtendedAndSupervisorState.c)
+ *     HalGetProcessorIdByNtNumber @ 0x1403810B0 (HalGetProcessorIdByNtNumber.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PnprGetStackLimits @ 0x140560BE4 (PnprGetStackLimits.c)
+ *     KeRestoreProcessorSpecificFeatures @ 0x140569B44 (KeRestoreProcessorSpecificFeatures.c)
+ *     KeSaveProcessorSpecificFeatures @ 0x140569BCC (KeSaveProcessorSpecificFeatures.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeResumeClockTimerSafe @ 0x14056D3B4 (KeResumeClockTimerSafe.c)
+ *     KeSuspendClockTimerSafe @ 0x14056D500 (KeSuspendClockTimerSafe.c)
+ *     KeRestoreIptStateAfterProcessorComesOnline @ 0x14057007C (KeRestoreIptStateAfterProcessorComesOnline.c)
+ *     KeSaveIptStateBeforeProcessorGoesOffline @ 0x1405700B8 (KeSaveIptStateBeforeProcessorGoesOffline.c)
+ *     PnprMirrorMarkedPages @ 0x140A9A0AC (PnprMirrorMarkedPages.c)
+ */
+
 void __fastcall PnprQuiesceProcessorDpc(
         struct _KDPC *Dpc,
         _BYTE *DeferredContext,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIIoctlQueryDeviceBiosNameEx @ 0x1C00311E0
+ * Callers:
+ *     ACPIIrpDispatchDeviceControl @ 0x1C0001290 (ACPIIrpDispatchDeviceControl.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     ACPIQueryDeviceBiosNameEx @ 0x1C0043BC4 (ACPIQueryDeviceBiosNameEx.c)
+ */
+
 __int64 __fastcall ACPIIoctlQueryDeviceBiosNameEx(__int64 a1, IRP *a2, __int64 a3)
 {
   bool v3; // cf

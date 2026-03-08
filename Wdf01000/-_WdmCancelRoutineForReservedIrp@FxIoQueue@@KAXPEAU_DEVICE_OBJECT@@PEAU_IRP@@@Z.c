@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_WdmCancelRoutineForReservedIrp@FxIoQueue@@KAXPEAU_DEVICE_OBJECT@@PEAU_IRP@@@Z @ 0x1C0067B30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FxIoQueue::_WdmCancelRoutineForReservedIrp(_DEVICE_OBJECT *DeviceObject, _IRP *Irp)
 {
   unsigned __int64 *v3; // rdi

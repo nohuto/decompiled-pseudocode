@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?vLookupScript@@YAXKPEAGK@Z @ 0x1C00BA7B4
+ * Callers:
+ *     cjCopyFontDataW @ 0x1C0004330 (cjCopyFontDataW.c)
+ *     vIFIMetricsToEnumLogFontExDvW @ 0x1C00BA744 (vIFIMetricsToEnumLogFontExDvW.c)
+ * Callees:
+ *     ?StringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C01165A4 (-StringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     InitializeScripts @ 0x1C03B68E8 (InitializeScripts.c)
+ */
+
 void __fastcall vLookupScript(int a1, unsigned __int16 *a2)
 {
   __int64 v4; // rcx

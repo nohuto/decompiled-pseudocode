@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserSetDesktopVisualInputSink @ 0x1C0176080
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     ?SetDesktopInputSink@CDesktopInputSink@@SA_NPEAXAEBU_LUID@@@Z @ 0x1C0094ED0 (-SetDesktopInputSink@CDesktopInputSink@@SA_NPEAXAEBU_LUID@@@Z.c)
+ *     CheckCapability @ 0x1C0217620 (CheckCapability.c)
+ */
+
 __int64 __fastcall NtUserSetDesktopVisualInputSink(void *a1, struct _LUID *a2)
 {
   int v4; // ebx

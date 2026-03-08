@@ -1,3 +1,16 @@
+/*
+ * XREFs of MmIsFileObjectAPagingFile @ 0x14063990C
+ * Callers:
+ *     IoSynchronousPageWriteEx @ 0x14024F830 (IoSynchronousPageWriteEx.c)
+ *     IoPageReadEx @ 0x14027F4F0 (IoPageReadEx.c)
+ *     IoAsynchronousPageWrite @ 0x1402FE3CC (IoAsynchronousPageWrite.c)
+ *     FsRtlIsSystemPagingFile @ 0x14053ABA0 (FsRtlIsSystemPagingFile.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MmIsFileObjectAPagingFile(unsigned __int64 a1)
 {
   unsigned int v2; // ebx

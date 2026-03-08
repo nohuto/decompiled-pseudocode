@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopFindPowerSettingConfiguration @ 0x14068D434
+ * Callers:
+ *     PopGetPowerSettingValue @ 0x1402BCC10 (PopGetPowerSettingValue.c)
+ *     PopInitilizeAcDcSettings @ 0x140380E04 (PopInitilizeAcDcSettings.c)
+ *     PopGetSettingNotificationName @ 0x14068CCC4 (PopGetSettingNotificationName.c)
+ *     PopSetPowerSettingValue @ 0x14068CFA0 (PopSetPowerSettingValue.c)
+ *     PoRegisterPowerSettingCallback @ 0x14073B960 (PoRegisterPowerSettingCallback.c)
+ *     PopGetSettingValue @ 0x14073CFC0 (PopGetSettingValue.c)
+ *     PopQueryPowerSettingUlong @ 0x140988ACC (PopQueryPowerSettingUlong.c)
+ * Callees:
+ *     PopGetListHead @ 0x14068D4BC (PopGetListHead.c)
+ *     PopStateIsSessionSpecific @ 0x14068D530 (PopStateIsSessionSpecific.c)
+ */
+
 __int64 *__fastcall PopFindPowerSettingConfiguration(_QWORD *a1, int a2)
 {
   __int64 **ListHead; // rdi

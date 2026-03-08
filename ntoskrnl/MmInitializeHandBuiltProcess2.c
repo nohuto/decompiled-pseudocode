@@ -1,3 +1,17 @@
+/*
+ * XREFs of MmInitializeHandBuiltProcess2 @ 0x14085D06C
+ * Callers:
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     MiGetWsAndMakePageTablesNx @ 0x1403AC164 (MiGetWsAndMakePageTablesNx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MiAllocateProcessVads @ 0x1407286B0 (MiAllocateProcessVads.c)
+ *     MiInsertProcessVads @ 0x140729774 (MiInsertProcessVads.c)
+ *     MiInitializeLockedPagesTracking @ 0x140A28654 (MiInitializeLockedPagesTracking.c)
+ */
+
 __int64 __fastcall MmInitializeHandBuiltProcess2(_KPROCESS *BugCheckParameter1)
 {
   int inserted; // ebx

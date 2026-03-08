@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiUnlinkHugeRange @ 0x140620680
+ * Callers:
+ *     MiGetHugeRangeFromNode @ 0x1403BF1C4 (MiGetHugeRangeFromNode.c)
+ *     MiGetHugeBadRangeFromNode @ 0x14061D7F8 (MiGetHugeBadRangeFromNode.c)
+ *     MiHugeRangeFreeToZero @ 0x14061E83C (MiHugeRangeFreeToZero.c)
+ *     MiMakeEntireHugePfnGood @ 0x14061F0CC (MiMakeEntireHugePfnGood.c)
+ *     MiMarkHugePfnBad @ 0x14061F1D0 (MiMarkHugePfnBad.c)
+ *     MiMarkHugePfnGood @ 0x14061F9B8 (MiMarkHugePfnGood.c)
+ *     MiMoveBadHugeRangeCrossPartition @ 0x14061FC7C (MiMoveBadHugeRangeCrossPartition.c)
+ * Callees:
+ *     MiPageListCollision @ 0x1402FD02C (MiPageListCollision.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MiPageToChannel @ 0x140370C10 (MiPageToChannel.c)
+ */
+
 unsigned __int64 __fastcall MiUnlinkHugeRange(__int64 a1, int a2)
 {
   __int64 v2; // r13

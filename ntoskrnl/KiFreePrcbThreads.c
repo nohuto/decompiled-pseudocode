@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiFreePrcbThreads @ 0x140569908
+ * Callers:
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ */
+
 LONG_PTR __fastcall KiFreePrcbThreads(__int64 a1)
 {
   void *v2; // rcx

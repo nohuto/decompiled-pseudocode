@@ -1,3 +1,20 @@
+/*
+ * XREFs of MmInitSystem @ 0x140B393A4
+ * Callers:
+ *     KiInitializeBootStructures @ 0x140A887E0 (KiInitializeBootStructures.c)
+ *     Phase1InitializationIoReady @ 0x140B42D0C (Phase1InitializationIoReady.c)
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     VslGetNestedPageProtectionFlags @ 0x1402D85B0 (VslGetNestedPageProtectionFlags.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ *     MiInitializeSystemVa @ 0x140B60308 (MiInitializeSystemVa.c)
+ *     KeSupportedPhysicalAddressBits @ 0x140B7256C (KeSupportedPhysicalAddressBits.c)
+ *     KeQueryNumaGraph @ 0x140B923AC (KeQueryNumaGraph.c)
+ */
+
 char __fastcall MmInitSystem(__int64 a1, ULONG_PTR a2, __int64 a3)
 {
   int v4; // r9d

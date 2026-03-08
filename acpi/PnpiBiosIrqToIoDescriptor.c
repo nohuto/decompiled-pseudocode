@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpiBiosIrqToIoDescriptor @ 0x1C009197C
+ * Callers:
+ *     PnpBiosResourcesToNtResources @ 0x1C008EFDC (PnpBiosResourcesToNtResources.c)
+ * Callees:
+ *     PnpiUpdateResourceList @ 0x1C0092328 (PnpiUpdateResourceList.c)
+ */
+
 __int64 __fastcall PnpiBiosIrqToIoDescriptor(_BYTE *a1, unsigned __int16 a2, __int64 a3, unsigned int a4, __int16 a5)
 {
   int v6; // edi

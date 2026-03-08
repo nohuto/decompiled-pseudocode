@@ -1,3 +1,14 @@
+/*
+ * XREFs of GreScaleRgnToDestLogPixel @ 0x1C02AA790
+ * Callers:
+ *     ?GetWindowRgn@@YAHPEAUtagWND@@PEAUHRGN__@@K@Z @ 0x1C0025400 (-GetWindowRgn@@YAHPEAUtagWND@@PEAUHRGN__@@K@Z.c)
+ *     ?GetLayeredRegion@@YA_NPEAUtagWND@@PEAUHRGN__@@PEA_N@Z @ 0x1C0044458 (-GetLayeredRegion@@YA_NPEAUtagWND@@PEAUHRGN__@@PEA_N@Z.c)
+ *     NtUserGetWindowRgnEx @ 0x1C01D57F0 (NtUserGetWindowRgnEx.c)
+ *     ?DrawWindowShadow@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAH@Z @ 0x1C0223AF4 (-DrawWindowShadow@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAH@Z.c)
+ * Callees:
+ *     ??1RGNOBJAPI@@QEAA@XZ @ 0x1C00508E4 (--1RGNOBJAPI@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall GreScaleRgnToDestLogPixel(__int64 a1, HRGN a2)
 {
   int ScaledLogPixels; // ebx

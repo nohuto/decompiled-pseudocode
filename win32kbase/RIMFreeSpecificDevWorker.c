@@ -1,3 +1,21 @@
+/*
+ * XREFs of RIMFreeSpecificDevWorker @ 0x1C0034C6C
+ * Callers:
+ *     RawInputManagerObjectDelete @ 0x1C00361E4 (RawInputManagerObjectDelete.c)
+ *     RIMCreateDev @ 0x1C0036CBC (RIMCreateDev.c)
+ *     ?dumpRimDevLeaksAndCleanup@@YAHPEAU_LIST_ENTRY@@PEAD@Z @ 0x1C00D1B5C (-dumpRimDevLeaksAndCleanup@@YAHPEAU_LIST_ENTRY@@PEAD@Z.c)
+ *     RIMVirtCreateDev @ 0x1C019DFF8 (RIMVirtCreateDev.c)
+ * Callees:
+ *     RIMIDEFreeInjectedInfo @ 0x1C0034D88 (RIMIDEFreeInjectedInfo.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMFreeHidDesc @ 0x1C01ADFC4 (RIMFreeHidDesc.c)
+ *     RIMReleasePointerDeviceInfo @ 0x1C01B9064 (RIMReleasePointerDeviceInfo.c)
+ *     RIMFreeHidTLCInfo @ 0x1C01BF540 (RIMFreeHidTLCInfo.c)
+ *     RIMHidTLCActive @ 0x1C01BF664 (RIMHidTLCActive.c)
+ *     ?Release@RIMDeadzone@@QEAAXXZ @ 0x1C01C9904 (-Release@RIMDeadzone@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall RIMFreeSpecificDevWorker(__int64 a1, __int64 a2)
 {
   void *v4; // rdx

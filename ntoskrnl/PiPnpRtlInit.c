@@ -1,3 +1,23 @@
+/*
+ * XREFs of PiPnpRtlInit @ 0x14081BE64
+ * Callers:
+ *     PnpBootPhaseComplete @ 0x14081BD60 (PnpBootPhaseComplete.c)
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     CmIsStateSeparationEnabled @ 0x1402FBD38 (CmIsStateSeparationEnabled.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     _PnpCtxSetNtPlugPlayRoutine @ 0x14081BFE4 (_PnpCtxSetNtPlugPlayRoutine.c)
+ *     PiDrvDbInit @ 0x14081C014 (PiDrvDbInit.c)
+ *     _PnpCtxRegOpenKey @ 0x14081D410 (_PnpCtxRegOpenKey.c)
+ *     _PnpCtxOpenMachine @ 0x140851D74 (_PnpCtxOpenMachine.c)
+ *     _PnpCtxCreateNode @ 0x140851F88 (_PnpCtxCreateNode.c)
+ *     _PnpCtxDestroyNode @ 0x140A5DBA8 (_PnpCtxDestroyNode.c)
+ */
+
 __int64 __fastcall PiPnpRtlInit(unsigned int a1)
 {
   int v2; // ebx

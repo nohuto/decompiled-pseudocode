@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpApplyAclToObject @ 0x14071C11C
+ * Callers:
+ *     ExpWnfSpecializeSecurityDescriptor @ 0x14071C08C (ExpWnfSpecializeSecurityDescriptor.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpApplyAclToObject(__int64 a1, _DWORD *a2)
 {
   unsigned __int8 *v3; // r8

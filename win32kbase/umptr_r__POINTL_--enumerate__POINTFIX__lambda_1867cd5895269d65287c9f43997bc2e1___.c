@@ -1,3 +1,12 @@
+/*
+ * XREFs of umptr_r__POINTL_::enumerate__POINTFIX__lambda_1867cd5895269d65287c9f43997bc2e1___ @ 0x1C017FA30
+ * Callers:
+ *     ?bXformRound@EXFORMOBJ@@QEAAHAEAV?$umptr_r@U_POINTL@@@@PEAU_POINTFIX@@_K@Z @ 0x1C017FF8C (-bXformRound@EXFORMOBJ@@QEAAHAEAV-$umptr_r@U_POINTL@@@@PEAU_POINTFIX@@_K@Z.c)
+ * Callees:
+ *     ?internal_get_bytecount@?$umptr@U_POINTL@@@@IEBA_KAEB_K0@Z @ 0x1C01800B4 (-internal_get_bytecount@-$umptr@U_POINTL@@@@IEBA_KAEB_K0@Z.c)
+ *     ?internal_get_offset@?$umptr@U_POINTL@@@@IEBA_KAEB_J@Z @ 0x1C01800FC (-internal_get_offset@-$umptr@U_POINTL@@@@IEBA_KAEB_J@Z.c)
+ */
+
 char __fastcall umptr_r__POINTL_::enumerate__POINTFIX__lambda_1867cd5895269d65287c9f43997bc2e1___(
         __int64 *a1,
         __int64 a2,

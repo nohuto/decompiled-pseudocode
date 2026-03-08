@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SetFilter@FxDevice@@QEAAJE@Z @ 0x1C003E878
+ * Callers:
+ *     ?FdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z @ 0x1C003C710 (-FdoInitialize@FxDevice@@QEAAJPEAUWDFDEVICE_INIT@@@Z.c)
+ * Callees:
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0017BA8 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_D @ 0x1C0017F78 (WPP_IFR_SF_D.c)
+ */
+
 __int64 __fastcall FxDevice::SetFilter(FxDevice *this, unsigned __int8 Value)
 {
   FxPkgIo *m_PkgIo; // rax

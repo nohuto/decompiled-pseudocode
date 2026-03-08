@@ -1,3 +1,13 @@
+/*
+ * XREFs of ApiSetEditionHandleRawInput @ 0x1C00B9DC8
+ * Callers:
+ *     xxxUpdateGlobalsAndSendKeyEvent @ 0x1C008097C (xxxUpdateGlobalsAndSendKeyEvent.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     EditionHandleRawInput @ 0x1C00B9F34 (EditionHandleRawInput.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ApiSetEditionHandleRawInput(
         int a1,
         __int64 a2,

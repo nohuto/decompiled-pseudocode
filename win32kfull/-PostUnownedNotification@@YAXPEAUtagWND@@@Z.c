@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PostUnownedNotification@@YAXPEAUtagWND@@@Z @ 0x1C00F5E48
+ * Callers:
+ *     xxxDestroyWindow @ 0x1C004B7F0 (xxxDestroyWindow.c)
+ * Callees:
+ *     PostIAMShellHookMessage @ 0x1C009C174 (PostIAMShellHookMessage.c)
+ */
+
 void __fastcall PostUnownedNotification(struct tagWND *a1)
 {
   __int64 v1; // rdx

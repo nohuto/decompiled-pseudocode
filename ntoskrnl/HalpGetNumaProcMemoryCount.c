@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpGetNumaProcMemoryCount @ 0x140B8DF8C
+ * Callers:
+ *     HalpNumaSwapP0NodeToFront @ 0x14039F678 (HalpNumaSwapP0NodeToFront.c)
+ *     HalpNumaInitializeStaticConfiguration @ 0x140B63268 (HalpNumaInitializeStaticConfiguration.c)
+ * Callees:
+ *     HalpParseChannelCount @ 0x14039F7AC (HalpParseChannelCount.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HalpUpdateConfigurationFromMsct @ 0x140B8E444 (HalpUpdateConfigurationFromMsct.c)
+ *     HalpVerifySratEntryLengthAndFlag @ 0x140B8E808 (HalpVerifySratEntryLengthAndFlag.c)
+ */
+
 char __fastcall HalpGetNumaProcMemoryCount(unsigned int *a1, unsigned __int64 i, _DWORD *a3, _DWORD *a4)
 {
   __int64 v4; // r15

@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpAddNotificationEvent @ 0x14068EE14
+ * Callers:
+ *     NtTraceControl @ 0x140694040 (NtTraceControl.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     EtwpAddDataSource @ 0x140690534 (EtwpAddDataSource.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 __int64 __fastcall EtwpAddNotificationEvent(void *a1, char a2)
 {
   NTSTATUS v3; // eax

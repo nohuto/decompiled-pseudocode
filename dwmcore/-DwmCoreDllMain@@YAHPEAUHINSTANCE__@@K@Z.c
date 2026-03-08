@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?DwmCoreDllMain@@YAHPEAUHINSTANCE__@@K@Z @ 0x1800AD788
+ * Callers:
+ *     DllMain @ 0x180110894 (DllMain.c)
+ * Callees:
+ *     ?FreeCurrent@CThreadContext@@SAXXZ @ 0x1800AD820 (-FreeCurrent@CThreadContext@@SAXXZ.c)
+ *     ?Startup@@YAJXZ @ 0x1800AD854 (-Startup@@YAJXZ.c)
+ *     ?RegisterDwmGuidWithEtw@@YAXXZ @ 0x1800ADCF0 (-RegisterDwmGuidWithEtw@@YAXXZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     memset_0 @ 0x18010F5A8 (memset_0.c)
+ *     ?WilFailFast@details@wil@@YAXAEBUFailureInfo@2@@Z @ 0x180197428 (-WilFailFast@details@wil@@YAXAEBUFailureInfo@2@@Z.c)
+ *     McGenEventUnregister_EventUnregister @ 0x18026C6E4 (McGenEventUnregister_EventUnregister.c)
+ */
+
 __int64 __fastcall DwmCoreDllMain(HINSTANCE a1, int a2)
 {
   unsigned int v2; // ebx

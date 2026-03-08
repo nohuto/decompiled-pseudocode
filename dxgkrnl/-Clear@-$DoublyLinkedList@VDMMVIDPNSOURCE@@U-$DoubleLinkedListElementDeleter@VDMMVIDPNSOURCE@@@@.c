@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Clear@?$DoublyLinkedList@VDMMVIDPNSOURCE@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNSOURCE@@@@@@QEAAXXZ @ 0x1C0013EB4
+ * Callers:
+ *     ??1?$Set@VDMMVIDPNSOURCE@@@@UEAA@XZ @ 0x1C000557C (--1-$Set@VDMMVIDPNSOURCE@@@@UEAA@XZ.c)
+ *     ??_G?$DoublyLinkedList@VDMMVIDPNSOURCE@@U?$DoubleLinkedListElementDeleter@VDMMVIDPNSOURCE@@@@@@UEAAPEAXI@Z @ 0x1C006A010 (--_G-$DoublyLinkedList@VDMMVIDPNSOURCE@@U-$DoubleLinkedListElementDeleter@VDMMVIDPNSOURCE@@@@@@U.c)
+ *     ?Clear@?$Set@VDMMVIDPNSOURCE@@@@UEAAXXZ @ 0x1C006A360 (-Clear@-$Set@VDMMVIDPNSOURCE@@@@UEAAXXZ.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 char __fastcall DoublyLinkedList<DMMVIDPNSOURCE,DoubleLinkedListElementDeleter<DMMVIDPNSOURCE>>::Clear(__int64 a1)
 {
   _QWORD *v2; // rbx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiAccessCheck @ 0x1402E4134
+ * Callers:
+ *     MiDispatchFault @ 0x14026A900 (MiDispatchFault.c)
+ * Callees:
+ *     MiAllowGuardFault @ 0x1402DA480 (MiAllowGuardFault.c)
+ *     MiLockTransitionLeafPageEx @ 0x1402DD4C8 (MiLockTransitionLeafPageEx.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ */
+
 __int64 __fastcall MiAccessCheck(
         unsigned __int64 *BugCheckParameter2,
         __int64 a2,

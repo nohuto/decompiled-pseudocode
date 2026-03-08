@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpInitializeDiscardReplaceContext @ 0x140A1D060
+ * Callers:
+ *     CmDeleteLayeredKey @ 0x1406144A0 (CmDeleteLayeredKey.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmpInitializeDiscardReplaceContext(__int64 a1)
 {
   __int64 result; // rax

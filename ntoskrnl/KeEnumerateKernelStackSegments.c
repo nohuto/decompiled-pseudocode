@@ -1,3 +1,19 @@
+/*
+ * XREFs of KeEnumerateKernelStackSegments @ 0x1402A76A0
+ * Callers:
+ *     PspReaper @ 0x1402A75B0 (PspReaper.c)
+ *     MmOutPageKernelStack @ 0x1402A7980 (MmOutPageKernelStack.c)
+ *     DbgkpLkmdSnapKernelStack @ 0x14053991C (DbgkpLkmdSnapKernelStack.c)
+ *     IoAddProcessThreadsToDump @ 0x14055A100 (IoAddProcessThreadsToDump.c)
+ *     PspThreadDelete @ 0x14075E4B0 (PspThreadDelete.c)
+ *     PsDereferenceKernelStack @ 0x14079B870 (PsDereferenceKernelStack.c)
+ * Callees:
+ *     KeGetNextKernelStackSegment @ 0x1402A775C (KeGetNextKernelStackSegment.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall KeEnumerateKernelStackSegments(
         __int64 a1,
         __int64 (__fastcall *a2)(__int64, _OWORD *, __int64),

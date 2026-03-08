@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?xxxMouseEventDirect@@YAHKKKK_K00H@Z @ 0x1C01AC80C
+ * Callers:
+ *     xxxSendInput @ 0x1C00171A4 (xxxSendInput.c)
+ * Callees:
+ *     ?IsGpqForegroundAccessibleCurrent@@YAHH@Z @ 0x1C00174F8 (-IsGpqForegroundAccessibleCurrent@@YAHH@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C003F908 (WPP_RECORDER_AND_TRACE_SF_D.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     CheckGrantedAccess @ 0x1C00D7810 (CheckGrantedAccess.c)
+ *     GetScreenRect @ 0x1C00E4C8C (GetScreenRect.c)
+ *     ?MSGLUA_GPQFOREGROUND@@YAXXZ @ 0x1C00F02AC (-MSGLUA_GPQFOREGROUND@@YAXXZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?InjectInput@Mouse@InputTraceLogging@@SAXW4InjectionSource@12@_K@Z @ 0x1C01AC13C (-InjectInput@Mouse@InputTraceLogging@@SAXW4InjectionSource@12@_K@Z.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall xxxMouseEventDirect(
         unsigned int a1,

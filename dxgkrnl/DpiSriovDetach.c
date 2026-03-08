@@ -1,3 +1,14 @@
+/*
+ * XREFs of DpiSriovDetach @ 0x1C0399AF0
+ * Callers:
+ *     DpiFdoDispatchIoctl @ 0x1C01D7C80 (DpiFdoDispatchIoctl.c)
+ * Callees:
+ *     ?VgpuTrace@@YAXEJPEAXPEBG1ZZ @ 0x1C005A55C (-VgpuTrace@@YAXEJPEAXPEBG1ZZ.c)
+ *     ??0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z @ 0x1C005D778 (--0CInterfaceCallContext@@QEAA@PEAXPEAU_IRP@@EE@Z.c)
+ *     ??1CInterfaceCallContext@@QEAA@XZ @ 0x1C005D8F0 (--1CInterfaceCallContext@@QEAA@XZ.c)
+ *     DpiKsrDoKsrSave @ 0x1C03A16E4 (DpiKsrDoKsrSave.c)
+ */
+
 __int64 __fastcall DpiSriovDetach(_QWORD *a1, int a2)
 {
   __int64 v2; // rbx

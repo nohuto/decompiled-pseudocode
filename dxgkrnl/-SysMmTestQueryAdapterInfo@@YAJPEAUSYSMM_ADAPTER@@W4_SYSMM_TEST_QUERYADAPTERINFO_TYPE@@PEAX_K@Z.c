@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SysMmTestQueryAdapterInfo@@YAJPEAUSYSMM_ADAPTER@@W4_SYSMM_TEST_QUERYADAPTERINFO_TYPE@@PEAX_K@Z @ 0x1C00719F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SysMmTestQueryAdapterInfo(_DWORD *a1, int a2, BOOL *a3, unsigned __int64 a4)
 {
   int v4; // r10d

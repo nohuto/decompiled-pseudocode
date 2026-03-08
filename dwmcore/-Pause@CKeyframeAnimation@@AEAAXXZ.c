@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Pause@CKeyframeAnimation@@AEAAXXZ @ 0x1800EDB4C
+ * Callers:
+ *     ?CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1800561C0 (-CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z @ 0x180056B00 (-ApplyPlaybackStateChanges@CKeyframeAnimation@@AEAAJPEAVCExpressionValueStack@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CKeyframeAnimation::Pause(CKeyframeAnimation *this)
 {
   char v1; // al

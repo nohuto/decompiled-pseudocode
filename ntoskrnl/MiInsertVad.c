@@ -1,3 +1,33 @@
+/*
+ * XREFs of MiInsertVad @ 0x1403312E0
+ * Callers:
+ *     MiMapLockedPagesInUserSpaceHelper @ 0x14029F4D8 (MiMapLockedPagesInUserSpaceHelper.c)
+ *     MiPerformVadSplitting @ 0x1402D581C (MiPerformVadSplitting.c)
+ *     MiRemoveVad @ 0x140333090 (MiRemoveVad.c)
+ *     MiInsertViewOfPhysicalSection @ 0x14062E820 (MiInsertViewOfPhysicalSection.c)
+ *     MiInsertProcessVads @ 0x140729774 (MiInsertProcessVads.c)
+ *     MiAllocateNewSubAllocatedRegion @ 0x140756084 (MiAllocateNewSubAllocatedRegion.c)
+ *     MiMapViewOfImageSection @ 0x1407D3750 (MiMapViewOfImageSection.c)
+ *     MiReserveUserMemory @ 0x1407D4340 (MiReserveUserMemory.c)
+ *     MiMapViewOfDataSection @ 0x1407D57C0 (MiMapViewOfDataSection.c)
+ *     MiAllocateEnclaveVad @ 0x140A3A010 (MiAllocateEnclaveVad.c)
+ *     MiInsertChildVads @ 0x140A4642C (MiInsertChildVads.c)
+ * Callees:
+ *     MiLocateLockedVadEvent @ 0x14020DC68 (MiLocateLockedVadEvent.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiIsVadLargePrivate @ 0x1403316C0 (MiIsVadLargePrivate.c)
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiAweViewInserter @ 0x140A3E64C (MiAweViewInserter.c)
+ */
+
 char __fastcall MiInsertVad(__int64 a1, __int64 a2, char a3)
 {
   __int64 v3; // r15

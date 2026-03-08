@@ -1,3 +1,16 @@
+/*
+ * XREFs of FsRtlFindFirstOverlappingExclusiveNode @ 0x1402C3018
+ * Callers:
+ *     FsRtlCheckNoExclusiveConflict @ 0x140200C64 (FsRtlCheckNoExclusiveConflict.c)
+ *     FsRtlPrivateInsertExclusiveLock @ 0x1402C1C84 (FsRtlPrivateInsertExclusiveLock.c)
+ *     FsRtlFastUnlockSingleExclusive @ 0x1402C1DF4 (FsRtlFastUnlockSingleExclusive.c)
+ *     FsRtlPrivateCheckForSharedLockAccess @ 0x1402C255C (FsRtlPrivateCheckForSharedLockAccess.c)
+ *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x1402C30F4 (FsRtlPrivateCheckForExclusiveLockAccess.c)
+ *     FsRtlGetNextFileLock @ 0x14053B030 (FsRtlGetNextFileLock.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall FsRtlFindFirstOverlappingExclusiveNode(
         _QWORD *a1,
         unsigned __int64 *a2,

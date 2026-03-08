@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HasProjectedShadowReceivers@CVisual@@QEBA_NXZ @ 0x1800E585C
+ * Callers:
+ *     ?HasSingleD2DBitmapOrPrimitiveGroup@CVisual@@QEBA_NXZ @ 0x1800E5814 (-HasSingleD2DBitmapOrPrimitiveGroup@CVisual@@QEBA_NXZ.c)
+ * Callees:
+ *     ?GetProjectedShadowReceivers@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowReceiver@@V?$allocator@PEAVCProjectedShadowReceiver@@@std@@@std@@XZ @ 0x180004DC0 (-GetProjectedShadowReceivers@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowReceiver@@V-$allocato.c)
+ */
+
 bool __fastcall CVisual::HasProjectedShadowReceivers(CVisual *this)
 {
   bool result; // al

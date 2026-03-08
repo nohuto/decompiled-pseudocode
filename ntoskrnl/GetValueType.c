@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetValueType @ 0x1409D18F8
+ * Callers:
+ *     LocalGetRelativeAttributeForString @ 0x1409D2214 (LocalGetRelativeAttributeForString.c)
+ * Callees:
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ */
+
 __int64 __fastcall GetValueType(wchar_t *Str1, _QWORD *a2, __int16 *a3)
 {
   unsigned int v3; // ebx

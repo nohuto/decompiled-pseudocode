@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbDevice_AddEndpointToDeviceEndpointList @ 0x1C000B7C0
+ * Callers:
+ *     Endpoint_Create @ 0x1C006D624 (Endpoint_Create.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall UsbDevice_AddEndpointToDeviceEndpointList(__int64 a1, __int64 a2, _QWORD *a3)
 {
   KIRQL v6; // al

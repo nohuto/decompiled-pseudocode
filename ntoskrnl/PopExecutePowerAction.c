@@ -1,3 +1,32 @@
+/*
+ * XREFs of PopExecutePowerAction @ 0x1409867F4
+ * Callers:
+ *     PopThermalStateTransitionWorker @ 0x140860FF0 (PopThermalStateTransitionWorker.c)
+ *     PopBatteryApplyCompositeState @ 0x14086E430 (PopBatteryApplyCompositeState.c)
+ *     PopPowerAggregatorScreenOffEnterStateHandler @ 0x140880F30 (PopPowerAggregatorScreenOffEnterStateHandler.c)
+ *     PopStartStopTtmSxTranstion @ 0x140987998 (PopStartStopTtmSxTranstion.c)
+ *     NtInitiatePowerAction @ 0x140988360 (NtInitiatePowerAction.c)
+ *     PdcPoSetPowerAction @ 0x140994B70 (PdcPoSetPowerAction.c)
+ *     PopIdleAoAcDozeToS4 @ 0x140998D70 (PopIdleAoAcDozeToS4.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     PopSetNotificationWork @ 0x1402BCB00 (PopSetNotificationWork.c)
+ *     PopGetPolicyWorker @ 0x1402BCB34 (PopGetPolicyWorker.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopSetPowerActionState @ 0x14058D024 (PopSetPowerActionState.c)
+ *     PopDiagTraceShutdownAction @ 0x1405925FC (PopDiagTraceShutdownAction.c)
+ *     TtmIsEnabled @ 0x14073C8BC (TtmIsEnabled.c)
+ *     PopVerifyPowerActionPolicy @ 0x14082A608 (PopVerifyPowerActionPolicy.c)
+ *     PopVerifySystemPowerState @ 0x14082A73C (PopVerifySystemPowerState.c)
+ *     PopResetActionDefaults @ 0x140860E68 (PopResetActionDefaults.c)
+ *     PopCompareActions @ 0x14098672C (PopCompareActions.c)
+ *     PopCompleteAction @ 0x140986760 (PopCompleteAction.c)
+ *     PopPromoteActionFlag @ 0x1409873DC (PopPromoteActionFlag.c)
+ *     PopDiagTraceExecutePowerAction @ 0x14098BC1C (PopDiagTraceExecutePowerAction.c)
+ */
+
 __int64 __fastcall PopExecutePowerAction(unsigned int *a1, unsigned int a2, _DWORD *a3, int a4, unsigned int a5)
 {
   unsigned int v5; // r14d

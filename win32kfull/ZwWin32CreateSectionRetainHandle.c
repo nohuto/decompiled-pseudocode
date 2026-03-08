@@ -1,3 +1,12 @@
+/*
+ * XREFs of ZwWin32CreateSectionRetainHandle @ 0x1C00BC448
+ * Callers:
+ *     ZwWin32CreateSection @ 0x1C00BC3EC (ZwWin32CreateSection.c)
+ *     ?ObtainSectionForNetworkedFontFile@@YAJPEAU_UNICODE_STRING@@PEAU_FILEVIEW@@PEAU_OBJECT_ATTRIBUTES@@PEAT_LARGE_INTEGER@@_N@Z @ 0x1C028D380 (-ObtainSectionForNetworkedFontFile@@YAJPEAU_UNICODE_STRING@@PEAU_FILEVIEW@@PEAU_OBJECT_ATTRIBUTE.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall ZwWin32CreateSectionRetainHandle(
         _QWORD *a1,
         __int64 a2,

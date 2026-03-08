@@ -1,3 +1,18 @@
+/*
+ * XREFs of RtlQueryPackageClaims @ 0x1402983B0
+ * Callers:
+ *     SepDesktopAppxSubProcessToken @ 0x1402980AC (SepDesktopAppxSubProcessToken.c)
+ *     RtlQueryPackageIdentityEx @ 0x140298350 (RtlQueryPackageIdentityEx.c)
+ *     AppModelPolicy_GetPolicy_Internal @ 0x140298B38 (AppModelPolicy_GetPolicy_Internal.c)
+ *     SepVerifyDesktopAppPolicyOverrideCaller @ 0x140302D18 (SepVerifyDesktopAppPolicyOverrideCaller.c)
+ * Callees:
+ *     RtlpQueryPackageIdentityAttributes @ 0x140298538 (RtlpQueryPackageIdentityAttributes.c)
+ *     RtlStringCbPrintfExW @ 0x1402986C0 (RtlStringCbPrintfExW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ */
+
 NTSTATUS __fastcall RtlQueryPackageClaims(
         int a1,
         wchar_t *a2,

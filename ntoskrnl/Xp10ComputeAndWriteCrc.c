@@ -1,3 +1,12 @@
+/*
+ * XREFs of Xp10ComputeAndWriteCrc @ 0x1409C2DAC
+ * Callers:
+ *     Xp10CompressBuffer @ 0x1409C2808 (Xp10CompressBuffer.c)
+ * Callees:
+ *     Xp10ComputeCrc32 @ 0x1409C2E48 (Xp10ComputeCrc32.c)
+ *     Xp10ComputeCrc64 @ 0x1409C2E94 (Xp10ComputeCrc64.c)
+ */
+
 __int64 __fastcall Xp10ComputeAndWriteCrc(unsigned __int16 *a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcDetermineReadPattern @ 0x14020D69C
+ * Callers:
+ *     CcScheduleReadAheadNuma @ 0x14020D0BC (CcScheduleReadAheadNuma.c)
+ * Callees:
+ *     CcAreOffsetsRoughlyEqual @ 0x14020D720 (CcAreOffsetsRoughlyEqual.c)
+ */
+
 __int64 __fastcall CcDetermineReadPattern(__int64 a1, _QWORD *a2)
 {
   int v4; // ecx

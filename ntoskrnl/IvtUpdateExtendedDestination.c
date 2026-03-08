@@ -1,3 +1,12 @@
+/*
+ * XREFs of IvtUpdateExtendedDestination @ 0x14052B6EC
+ * Callers:
+ *     IvtUpdateRemappingDestination @ 0x14052B780 (IvtUpdateRemappingDestination.c)
+ *     HsaUpdateRemappingDestination @ 0x14052EC90 (HsaUpdateRemappingDestination.c)
+ * Callees:
+ *     IvtUpdateSingleTargetExtendedDestination @ 0x14052BBEC (IvtUpdateSingleTargetExtendedDestination.c)
+ */
+
 __int64 __fastcall IvtUpdateExtendedDestination(int a1, char a2, int a3, int a4, int a5)
 {
   unsigned int v7; // ebp

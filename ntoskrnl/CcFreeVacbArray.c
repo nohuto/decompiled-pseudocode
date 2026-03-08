@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcFreeVacbArray @ 0x140933C04
+ * Callers:
+ *     CcDereferenceVacbArray @ 0x140535B1C (CcDereferenceVacbArray.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall CcFreeVacbArray(_DWORD *a1)
 {
   if ( a1[1] )

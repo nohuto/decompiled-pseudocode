@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiComputeAgeDistribution @ 0x1402CFD44
+ * Callers:
+ *     MiComputeSystemTrimCriteria @ 0x14035FE9C (MiComputeSystemTrimCriteria.c)
+ *     MiOrderTrimList @ 0x14046378E (MiOrderTrimList.c)
+ * Callees:
+ *     MiUpdateClaimDistribution @ 0x1402CFEB0 (MiUpdateClaimDistribution.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int16 __fastcall MiComputeAgeDistribution(__int64 a1, int a2)
 {
   _QWORD *v4; // rdi

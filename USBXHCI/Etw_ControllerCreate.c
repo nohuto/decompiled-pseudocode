@@ -1,3 +1,11 @@
+/*
+ * XREFs of Etw_ControllerCreate @ 0x1C001A430
+ * Callers:
+ *     Controller_WdfEvtDeviceAdd @ 0x1C006FA60 (Controller_WdfEvtDeviceAdd.c)
+ * Callees:
+ *     McTemplateK0pqqqqqqqsssxqqqtn_EtwWriteTransfer @ 0x1C004B5C8 (McTemplateK0pqqqqqqqsssxqqqtn_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall Etw_ControllerCreate(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmPerfCheckRequired @ 0x14038E388
+ * Callers:
+ *     PpmCheckReInit @ 0x1408265CC (PpmCheckReInit.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PpmPerfCheckRequired(__int64 a1)
 {
   char v1; // dl

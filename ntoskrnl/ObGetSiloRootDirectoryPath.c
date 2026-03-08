@@ -1,3 +1,19 @@
+/*
+ * XREFs of ObGetSiloRootDirectoryPath @ 0x140A711B4
+ * Callers:
+ *     NtQueryInformationJobObject @ 0x1406F9480 (NtQueryInformationJobObject.c)
+ *     PspConvertSiloToServerSilo @ 0x1409A9C14 (PspConvertSiloToServerSilo.c)
+ * Callees:
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     PsGetCurrentSilo @ 0x1402640A0 (PsGetCurrentSilo.c)
+ *     PsGetPermanentSiloContext @ 0x1402B6120 (PsGetPermanentSiloContext.c)
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PsGetParentSilo @ 0x14067FE00 (PsGetParentSilo.c)
+ *     RtlIntegerToUnicodeString @ 0x1407805C0 (RtlIntegerToUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 int __fastcall ObGetSiloRootDirectoryPath(__int64 a1, UNICODE_STRING *a2)
 {
   int result; // eax

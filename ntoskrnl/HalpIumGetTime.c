@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpIumGetTime @ 0x14051DF20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpIumGetTime(_OWORD *a1, __int64 a2)
 {
   __int64 result; // rax

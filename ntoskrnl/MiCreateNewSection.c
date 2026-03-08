@@ -1,3 +1,29 @@
+/*
+ * XREFs of MiCreateNewSection @ 0x1406A6414
+ * Callers:
+ *     MiCreateImageOrDataSection @ 0x1407D12B0 (MiCreateImageOrDataSection.c)
+ * Callees:
+ *     MiReleaseControlAreaWaiters @ 0x140214DCC (MiReleaseControlAreaWaiters.c)
+ *     MiFinalizeImageHeaderPage @ 0x1402C6548 (MiFinalizeImageHeaderPage.c)
+ *     MiMakeImageReadOnly @ 0x1402EFF50 (MiMakeImageReadOnly.c)
+ *     MiReleaseImageSection @ 0x1402F067C (MiReleaseImageSection.c)
+ *     MiSectionCreated @ 0x140331184 (MiSectionCreated.c)
+ *     IoSetTopLevelIrp @ 0x140343AF0 (IoSetTopLevelIrp.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiSetPagesModified @ 0x1406264CC (MiSetPagesModified.c)
+ *     MiValidateSectionSigningPolicy @ 0x1406A14E8 (MiValidateSectionSigningPolicy.c)
+ *     SeGetImageRequiredSigningLevel @ 0x1406A17A8 (SeGetImageRequiredSigningLevel.c)
+ *     MiEnablePartitionMappedWrites @ 0x1406A6ABC (MiEnablePartitionMappedWrites.c)
+ *     MiCreateDataFileMap @ 0x1406A6C30 (MiCreateDataFileMap.c)
+ *     MiDeleteImageCreationMdls @ 0x14077E610 (MiDeleteImageCreationMdls.c)
+ *     FsRtlReleaseFile @ 0x1407D18E0 (FsRtlReleaseFile.c)
+ *     MiCreateImageFileMap @ 0x1407F1C28 (MiCreateImageFileMap.c)
+ *     MiRelocateImage @ 0x1407F2760 (MiRelocateImage.c)
+ *     MiParseComAndCetHeaders @ 0x1407F4604 (MiParseComAndCetHeaders.c)
+ *     FsRtlGetDirectImageOriginalBase @ 0x14093A078 (FsRtlGetDirectImageOriginalBase.c)
+ */
+
 __int64 __fastcall MiCreateNewSection(int *a1, __int64 *a2)
 {
   unsigned __int16 **v3; // rdi

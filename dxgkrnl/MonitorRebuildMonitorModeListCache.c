@@ -1,3 +1,12 @@
+/*
+ * XREFs of MonitorRebuildMonitorModeListCache @ 0x1C03BFEEC
+ * Callers:
+ *     DxgkQueryConnectionChanges @ 0x1C001BFA0 (DxgkQueryConnectionChanges.c)
+ * Callees:
+ *     ?DmmGetNextVideoPresentTarget@@YAJQEAXIPEAI@Z @ 0x1C01CF5C0 (-DmmGetNextVideoPresentTarget@@YAJQEAXIPEAI@Z.c)
+ *     ?RebuildMonitorModeListCacheHelper@@YAJPEAVDXGADAPTER@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C03BEF88 (-RebuildMonitorModeListCacheHelper@@YAJPEAVDXGADAPTER@@IPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ */
+
 __int64 __fastcall MonitorRebuildMonitorModeListCache(
         struct DXGADAPTER *a1,
         __int64 a2,

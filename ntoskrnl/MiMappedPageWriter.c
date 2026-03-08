@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiMappedPageWriter @ 0x14038D570
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiFreeModWriterEntry @ 0x140212C5C (MiFreeModWriterEntry.c)
+ *     MiGatherMappedPages @ 0x140215150 (MiGatherMappedPages.c)
+ *     KeSetPriorityThread @ 0x1402261B0 (KeSetPriorityThread.c)
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     KeWaitForGate @ 0x1402931D8 (KeWaitForGate.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiAllocateModWriterEntry @ 0x1402E4458 (MiAllocateModWriterEntry.c)
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     KeSetActualBasePriorityThread @ 0x140357730 (KeSetActualBasePriorityThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiDeleteMappedMdls @ 0x140626E1C (MiDeleteMappedMdls.c)
+ */
+
 __int64 __fastcall MiMappedPageWriter(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // r13

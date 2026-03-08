@@ -1,3 +1,20 @@
+/*
+ * XREFs of KiTpEmulateGroup0Instruction @ 0x140AF043C
+ * Callers:
+ *     KiTpEmulateInstruction @ 0x140AF0944 (KiTpEmulateInstruction.c)
+ * Callees:
+ *     KiTpAccessMemory @ 0x140AF0008 (KiTpAccessMemory.c)
+ *     KiTpDecodeModRm @ 0x140AF01F4 (KiTpDecodeModRm.c)
+ *     KiTpDecodeModRmOperand @ 0x140AF02E0 (KiTpDecodeModRmOperand.c)
+ *     KiTpGetRegisterAddressByIndex @ 0x140AF13F8 (KiTpGetRegisterAddressByIndex.c)
+ *     KiTpReadOperandValue @ 0x140AF1594 (KiTpReadOperandValue.c)
+ *     KiTpSetFlagsAdd @ 0x140AF15F8 (KiTpSetFlagsAdd.c)
+ *     KiTpSetFlagsSub @ 0x140AF16E4 (KiTpSetFlagsSub.c)
+ *     KiTpSetFlagsZeroSignParity @ 0x140AF17E8 (KiTpSetFlagsZeroSignParity.c)
+ *     KiTpSignExtendOperandValue @ 0x140AF1888 (KiTpSignExtendOperandValue.c)
+ *     KiTpWriteRegisterValue @ 0x140AF18B4 (KiTpWriteRegisterValue.c)
+ */
+
 __int64 __fastcall KiTpEmulateGroup0Instruction(_BYTE *a1, __int64 a2, char a3, int *a4)
 {
   int OperandValue; // r14d

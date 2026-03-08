@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SendToTokenManager@CDisableScanoutToken@@SAJAEAPEAV1@@Z @ 0x1C0088FA4
+ * Callers:
+ *     NtFlipObjectRemoveContent @ 0x1C0080B70 (NtFlipObjectRemoveContent.c)
+ *     ??1CContentResource@@UEAA@XZ @ 0x1C00874BC (--1CContentResource@@UEAA@XZ.c)
+ * Callees:
+ *     DxgkGetSessionTokenManager @ 0x1C000DB30 (DxgkGetSessionTokenManager.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CDisableScanoutToken::SendToTokenManager(struct CDisableScanoutToken **a1)
 {
   int SessionTokenManager; // esi

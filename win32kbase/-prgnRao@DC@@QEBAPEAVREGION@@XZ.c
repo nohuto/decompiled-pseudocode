@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?prgnRao@DC@@QEBAPEAVREGION@@XZ @ 0x1C001ADA0
+ * Callers:
+ *     GreGetClipBox @ 0x1C001AB40 (GreGetClipBox.c)
+ *     HmgCheckDCForPrivateReferences @ 0x1C0185D28 (HmgCheckDCForPrivateReferences.c)
+ * Callees:
+ *     ?bDpiScaledSurface@DC@@QEBAHXZ @ 0x1C001A8E0 (-bDpiScaledSurface@DC@@QEBAHXZ.c)
+ */
+
 struct REGION *__fastcall DC::prgnRao(DC *this)
 {
   struct REGION *result; // rax

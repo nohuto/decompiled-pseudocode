@@ -1,3 +1,15 @@
+/*
+ * XREFs of IcClearPossibleData @ 0x1C009EFD0
+ * Callers:
+ *     AcpiIrqLibSetupSciInterrupt @ 0x1C0098DAC (AcpiIrqLibSetupSciInterrupt.c)
+ *     IrqArbBootAllocation @ 0x1C009CF90 (IrqArbBootAllocation.c)
+ *     IrqArbCommitAllocation @ 0x1C009D040 (IrqArbCommitAllocation.c)
+ *     IrqArbpPrepareForTestOrConflict @ 0x1C009E4D0 (IrqArbpPrepareForTestOrConflict.c)
+ *     IrqArbpQueryConflictIsa @ 0x1C009E540 (IrqArbpQueryConflictIsa.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ */
+
 void *IcClearPossibleData()
 {
   __int64 i; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HandleFullWindowDestruction @ 0x1C0079D20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HandleInputDestDestruction @ 0x1C0079C40 (HandleInputDestDestruction.c)
+ *     INPUTDEST_FROM_PWND @ 0x1C0079D90 (INPUTDEST_FROM_PWND.c)
+ */
+
 void __fastcall HandleFullWindowDestruction(__int64 a1)
 {
   _OWORD *v1; // rax

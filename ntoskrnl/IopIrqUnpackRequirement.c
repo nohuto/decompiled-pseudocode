@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopIrqUnpackRequirement @ 0x1407F9130
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IopIrqUnpackRequirement(__int64 a1, _QWORD *a2, _QWORD *a3, _QWORD *a4, _QWORD *a5)
 {
   *a2 = *(unsigned int *)(a1 + 8);

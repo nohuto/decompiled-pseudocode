@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiBuildMdlForMappedFileFault @ 0x14028B490
+ * Callers:
+ *     MiResolveMappedFileFault @ 0x14028A780 (MiResolveMappedFileFault.c)
+ * Callees:
+ *     MiReduceMappedFileReadAhead @ 0x140209EEC (MiReduceMappedFileReadAhead.c)
+ *     MiSetPfnBlink @ 0x140289900 (MiSetPfnBlink.c)
+ *     MiProtectionToCacheAttribute @ 0x14028A2D0 (MiProtectionToCacheAttribute.c)
+ *     RtlSetBits @ 0x14028BC50 (RtlSetBits.c)
+ *     RtlSetAllBits @ 0x14028BD00 (RtlSetAllBits.c)
+ *     MiGetHardFaultPages @ 0x14028CE24 (MiGetHardFaultPages.c)
+ *     MiReduceMappedFileReadBehind @ 0x1402E6370 (MiReduceMappedFileReadBehind.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiAdvanceFaultList @ 0x140363F9C (MiAdvanceFaultList.c)
+ *     MiChangePageAttribute @ 0x14036CE40 (MiChangePageAttribute.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall MiBuildMdlForMappedFileFault(
         __int64 a1,
         unsigned __int64 a2,

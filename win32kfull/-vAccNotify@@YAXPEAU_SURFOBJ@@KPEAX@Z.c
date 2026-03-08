@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?vAccNotify@@YAXPEAU_SURFOBJ@@KPEAX@Z @ 0x1C00271A0
+ * Callers:
+ *     GreAccNotifyWindow @ 0x1C0029704 (GreAccNotifyWindow.c)
+ *     GreDwmStartup @ 0x1C00C2644 (GreDwmStartup.c)
+ *     GreDwmShutdown @ 0x1C00C3164 (GreDwmShutdown.c)
+ *     vAccNotifyDeleteSurfaceWrap @ 0x1C00CCD30 (vAccNotifyDeleteSurfaceWrap.c)
+ * Callees:
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C0050DA0 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C011354C (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     ?vForceClientRgnUpdate@@YAXXZ @ 0x1C0289C70 (-vForceClientRgnUpdate@@YAXXZ.c)
+ *     ?GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z @ 0x1C02A55DC (-GetDevBitmap@@YAPEAU_SURFOBJ@@PEAU_DISPSURF@@PEAU1@@Z.c)
+ */
+
 void __fastcall vAccNotify(struct _SURFOBJ *a1, unsigned int a2, void *a3)
 {
   HDEV hdev; // rbx

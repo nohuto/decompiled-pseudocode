@@ -1,3 +1,13 @@
+/*
+ * XREFs of EditionxxxReportMouseBreakToAccessibility @ 0x1C01AD790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MSGLUA_GPQFOREGROUND@@YAXXZ @ 0x1C00F02AC (-MSGLUA_GPQFOREGROUND@@YAXXZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?IsGpqForegroundAccessibleOnInputThread@@YA_N_NAEBUtagUIPI_INFO_INT@@@Z @ 0x1C014242C (-IsGpqForegroundAccessibleOnInputThread@@YA_N_NAEBUtagUIPI_INFO_INT@@@Z.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall EditionxxxReportMouseBreakToAccessibility(__int16 a1, __int64 *a2, int a3)
 {

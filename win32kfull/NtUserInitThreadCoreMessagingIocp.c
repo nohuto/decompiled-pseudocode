@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserInitThreadCoreMessagingIocp @ 0x1C00E1FA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _InitThreadCoreMessagingIocp @ 0x1C00E2054 (_InitThreadCoreMessagingIocp.c)
+ */
+
 __int64 __fastcall NtUserInitThreadCoreMessagingIocp(__int64 a1)
 {
   __int64 v2; // rax

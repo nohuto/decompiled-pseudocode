@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBHSM_SendingInterruptTransferAfterResettingPipe @ 0x1C00090B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HUBHTX_SendInterruptTransfer @ 0x1C00039B0 (HUBHTX_SendInterruptTransfer.c)
+ *     HUBFDO_ReleaseWdfPowerReference @ 0x1C000DFE0 (HUBFDO_ReleaseWdfPowerReference.c)
+ */
+
 __int64 __fastcall HUBHSM_SendingInterruptTransferAfterResettingPipe(__int64 a1)
 {
   __int64 v1; // rbx

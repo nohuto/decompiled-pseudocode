@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwOpenTransactionManager @ 0x140414A50
+ * Callers:
+ *     DifZwOpenTransactionManagerWrapper @ 0x1405F08A0 (DifZwOpenTransactionManagerWrapper.c)
+ * Callees:
+ *     <none>
+ */
+
 // local variable allocation has failed, the output may be wrong!
 NTSTATUS __stdcall ZwOpenTransactionManager(
         PHANDLE TmHandle,

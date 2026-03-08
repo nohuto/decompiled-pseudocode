@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetProcessType@@YAXPEAUtagPROCESSINFO@@PEAXW4_PROCESS_IMMERSIVE_TYPE@@@Z @ 0x1C006F7F4
+ * Callers:
+ *     xxxInitProcessInfo @ 0x1C0070EFC (xxxInitProcessInfo.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall SetProcessType(__int64 a1, __int64 a2, int a3)
 {
   int v3; // edi

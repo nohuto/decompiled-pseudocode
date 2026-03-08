@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0Line3D@@QEAA@UMilPoint4F@@0@Z @ 0x180215470
+ * Callers:
+ *     ?CalcFrustumOutline@@YAXVCMILMatrix@@PEAULine3D@@111@Z @ 0x180215908 (-CalcFrustumOutline@@YAXVCMILMatrix@@PEAULine3D@@111@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Line3D::Line3D(__int64 a1, float *a2, float *a3)
 {
   __m128 v3; // xmm4

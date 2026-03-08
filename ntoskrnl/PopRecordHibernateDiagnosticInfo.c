@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopRecordHibernateDiagnosticInfo @ 0x140AA0920
+ * Callers:
+ *     PopRequestWrite @ 0x140AA0E40 (PopRequestWrite.c)
+ *     PopWriteHiberPages @ 0x140AA2874 (PopWriteHiberPages.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopRecordHibernateDiagnosticInfo(__int64 a1)
 {
   int v1; // edx

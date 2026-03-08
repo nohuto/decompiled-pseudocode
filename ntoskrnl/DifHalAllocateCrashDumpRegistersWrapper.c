@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifHalAllocateCrashDumpRegistersWrapper @ 0x1405D8440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     HalAllocateCrashDumpRegisters @ 0x1404FF170 (HalAllocateCrashDumpRegisters.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 PVOID __fastcall DifHalAllocateCrashDumpRegistersWrapper(PADAPTER_OBJECT AdapterObject, PULONG NumberOfMapRegisters)
 {
   __int64 *APIThunkContextById; // rax

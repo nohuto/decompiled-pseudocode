@@ -1,3 +1,16 @@
+/*
+ * XREFs of PiAuVerifyAccessToObject @ 0x1406CBD38
+ * Callers:
+ *     PiUEventApplyAdditionalFilters @ 0x140680230 (PiUEventApplyAdditionalFilters.c)
+ *     PiAuDoesClientHaveAccess @ 0x1406C4454 (PiAuDoesClientHaveAccess.c)
+ *     PiPnpRtlApplyMandatoryFilters @ 0x1406CDBDC (PiPnpRtlApplyMandatoryFilters.c)
+ *     PiPnpRtlIsDeviceEnumerableForUser @ 0x1406CDDF4 (PiPnpRtlIsDeviceEnumerableForUser.c)
+ * Callees:
+ *     SeAccessCheck @ 0x140265330 (SeAccessCheck.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ */
+
 __int64 __fastcall PiAuVerifyAccessToObject(
         ACCESS_MASK DesiredAccess,
         PSECURITY_DESCRIPTOR SecurityDescriptor,

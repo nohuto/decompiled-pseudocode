@@ -1,3 +1,22 @@
+/*
+ * XREFs of PpmEventTraceHeteroSets @ 0x140826F54
+ * Callers:
+ *     PopInitializeHeteroProcessors @ 0x140826970 (PopInitializeHeteroProcessors.c)
+ *     PpmEventTraceControlCallback @ 0x140860AA0 (PpmEventTraceControlCallback.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     KeEnumerateNextSchedulerSubNodeInNode @ 0x1402AB030 (KeEnumerateNextSchedulerSubNodeInNode.c)
+ *     KeIsMultiCoreClassesEnabled @ 0x14038E410 (KeIsMultiCoreClassesEnabled.c)
+ *     KeInitializeSchedulerSubNodeEnumerationContext @ 0x14038E430 (KeInitializeSchedulerSubNodeEnumerationContext.c)
+ *     KeGetHeteroPolicies @ 0x14038E448 (KeGetHeteroPolicies.c)
+ *     KeGetHeteroSetByPolicy @ 0x14038E4F8 (KeGetHeteroSetByPolicy.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeGetHeteroSetByQoS @ 0x140569FF8 (KeGetHeteroSetByQoS.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PpmEventTraceHeteroSets(__int64 a1)
 {
   const EVENT_DESCRIPTOR *v1; // rdx

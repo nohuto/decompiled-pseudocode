@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiUpdateCpuTargetByWeight @ 0x1402F1C6C
+ * Callers:
+ *     KiAssignSchedulingGroupWeights @ 0x1402F1A84 (KiAssignSchedulingGroupWeights.c)
+ *     KiUpdateChildrenCpuTarget @ 0x14057B080 (KiUpdateChildrenCpuTarget.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KiAcquirePrcbLocksForIsolationUnit @ 0x140255D00 (KiAcquirePrcbLocksForIsolationUnit.c)
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402ADF80 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     KiCheckForEffectivePriorityChange @ 0x1402F2428 (KiCheckForEffectivePriorityChange.c)
+ *     KiResetScb @ 0x1402F24DC (KiResetScb.c)
+ *     KiUpdateChildrenCpuTarget @ 0x14057B080 (KiUpdateChildrenCpuTarget.c)
+ */
+
 char __fastcall KiUpdateCpuTargetByWeight(LARGE_INTEGER *a1, char a2)
 {
   __int16 LowPart; // si

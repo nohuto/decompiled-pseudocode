@@ -1,3 +1,12 @@
+/*
+ * XREFs of VerifierExInitializeLookasideListEx @ 0x140ADEE90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     VfCheckPoolType @ 0x140AC08F0 (VfCheckPoolType.c)
+ */
+
 __int64 __fastcall VerifierExInitializeLookasideListEx(
         __int64 a1,
         __int64 a2,

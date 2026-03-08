@@ -1,3 +1,18 @@
+/*
+ * XREFs of xxxDWP_UpdateUIState @ 0x1C00A2360
+ * Callers:
+ *     xxxRealDefWindowProc @ 0x1C00A8800 (xxxRealDefWindowProc.c)
+ *     ?xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z @ 0x1C00FA1BC (-xxxDesktopWndProcWorker@@YA_JPEAUtagWND@@I_K_J@Z.c)
+ * Callees:
+ *     BuildHwndList @ 0x1C0041A10 (BuildHwndList.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     FreeHwndList @ 0x1C00680B0 (FreeHwndList.c)
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     HMValidateHandleNoSecure @ 0x1C00A5B80 (HMValidateHandleNoSecure.c)
+ *     xxxSendNotifyMessage @ 0x1C00D8320 (xxxSendNotifyMessage.c)
+ */
+
 __int64 __fastcall xxxDWP_UpdateUIState(__int64 *a1, unsigned __int64 a2, __int64 a3)
 {
   __int64 v3; // rdi

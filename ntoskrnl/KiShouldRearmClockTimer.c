@@ -1,3 +1,17 @@
+/*
+ * XREFs of KiShouldRearmClockTimer @ 0x1402D96B0
+ * Callers:
+ *     KiSetClockTimer @ 0x14022AC78 (KiSetClockTimer.c)
+ *     KePrepareNonClockOwnerForIdle @ 0x1402D4634 (KePrepareNonClockOwnerForIdle.c)
+ *     KiCancelClockTimer @ 0x1402D94E4 (KiCancelClockTimer.c)
+ *     KiRestoreClockTickRate @ 0x1402D9574 (KiRestoreClockTickRate.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KiGetClockTimerEarliestDeadline @ 0x1402D9790 (KiGetClockTimerEarliestDeadline.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall KiShouldRearmClockTimer(__int64 a1, char a2)
 {
   __int64 InterruptTimePrecise; // rax

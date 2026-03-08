@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?pvFileUMPD@RFONTOBJ@@QEAAPEAXPEAKPEAPEAX@Z @ 0x1C02B9814
+ * Callers:
+ *     ?FONTOBJ_pvTrueTypeFontFileUMPD@@YAPEAXPEAU_FONTOBJ@@PEAKPEAPEAX@Z @ 0x1C029AF08 (-FONTOBJ_pvTrueTypeFontFileUMPD@@YAPEAXPEAU_FONTOBJ@@PEAKPEAPEAX@Z.c)
+ * Callees:
+ *     ?pchTranslateUMPD@RFONTOBJ@@QEAAPEADPEBDPEAPEAX@Z @ 0x1C02B9588 (-pchTranslateUMPD@RFONTOBJ@@QEAAPEADPEBDPEAPEAX@Z.c)
+ *     ?GetTrueTypeFile@PFFOBJ@@QEAAPEAX_KPEAK@Z @ 0x1C02E3048 (-GetTrueTypeFile@PFFOBJ@@QEAAPEAX_KPEAK@Z.c)
+ */
+
 char *__fastcall RFONTOBJ::pvFileUMPD(RFONTOBJ *this, unsigned int *a2, void **a3)
 {
   __int64 v3; // rax

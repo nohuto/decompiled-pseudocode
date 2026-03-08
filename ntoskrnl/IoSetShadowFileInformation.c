@@ -1,3 +1,14 @@
+/*
+ * XREFs of IoSetShadowFileInformation @ 0x140554D70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IopSetTypeSpecificFoExtension @ 0x14023FE5C (IopSetTypeSpecificFoExtension.c)
+ *     IopAllocateFileObjectExtension @ 0x14024F600 (IopAllocateFileObjectExtension.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IoSetShadowFileInformation(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

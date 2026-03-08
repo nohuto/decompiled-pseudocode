@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiSystemServiceHandler @ 0x14042AF80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlUnwindEx @ 0x1402809E0 (RtlUnwindEx.c)
+ *     KiBugCheckDispatch @ 0x14042BEC0 (KiBugCheckDispatch.c)
+ */
+
 __int64 __fastcall KiSystemServiceHandler(unsigned int *a1, ULONG_PTR a2, unsigned int *a3, __int64 a4)
 {
   struct _KTHREAD *CurrentThread; // rax

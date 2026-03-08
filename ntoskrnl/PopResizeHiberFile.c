@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopResizeHiberFile @ 0x140985EE0
+ * Callers:
+ *     PopAdjustHiberFile @ 0x140984CE4 (PopAdjustHiberFile.c)
+ *     PopEnlargeHiberFile @ 0x140985550 (PopEnlargeHiberFile.c)
+ * Callees:
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     ZwSetInformationFile @ 0x1404127F0 (ZwSetInformationFile.c)
+ *     PopSetHiberFileMcb @ 0x1407FC4A4 (PopSetHiberFileMcb.c)
+ *     PopSanityCheckHiberFile @ 0x1407FC518 (PopSanityCheckHiberFile.c)
+ *     FsRtlIssueFileNotificationFsctl @ 0x140835E18 (FsRtlIssueFileNotificationFsctl.c)
+ *     PopValidateHiberFileSize @ 0x140986270 (PopValidateHiberFileSize.c)
+ */
+
 __int64 __fastcall PopResizeHiberFile(__int64 a1, _QWORD *a2)
 {
   __int64 v3; // rbx

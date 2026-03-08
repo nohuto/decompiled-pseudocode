@@ -1,3 +1,15 @@
+/*
+ * XREFs of VmUnpinMemoryRange @ 0x1409D9E30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     VmpUnpinMemoryRange @ 0x1405F9144 (VmpUnpinMemoryRange.c)
+ */
+
 __int64 __fastcall VmUnpinMemoryRange(unsigned __int64 a1, unsigned __int64 a2, unsigned __int64 a3, __int64 a4)
 {
   unsigned __int64 v8; // r14

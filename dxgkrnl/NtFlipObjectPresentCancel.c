@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtFlipObjectPresentCancel @ 0x1C0080550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PresentCancel@FlipManagerObject@@QEAAJ_K@Z @ 0x1C007F4C0 (-PresentCancel@FlipManagerObject@@QEAAJ_K@Z.c)
+ *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C00817F8 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ */
+
 __int64 __fastcall NtFlipObjectPresentCancel(void *a1, unsigned __int64 *a2)
 {
   unsigned __int64 v3; // rsi

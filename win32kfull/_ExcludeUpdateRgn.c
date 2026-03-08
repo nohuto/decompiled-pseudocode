@@ -1,3 +1,16 @@
+/*
+ * XREFs of _ExcludeUpdateRgn @ 0x1C000665C
+ * Callers:
+ *     ?UT_InvertCaret@@YAXXZ @ 0x1C0006508 (-UT_InvertCaret@@YAXXZ.c)
+ *     NtUserExcludeUpdateRgn @ 0x1C01D0800 (NtUserExcludeUpdateRgn.c)
+ * Callees:
+ *     GreExtSelectClipRgnInternal @ 0x1C004D240 (GreExtSelectClipRgnInternal.c)
+ *     GreGetRandomRgn @ 0x1C0125C40 (GreGetRandomRgn.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     GetDCOrgOnScreen @ 0x1C01BEDC4 (GetDCOrgOnScreen.c)
+ *     ?CalcVirtualScreenClipRegion@@YAXPEAUHRGN__@@PEAUtagWND@@@Z @ 0x1C0217AF4 (-CalcVirtualScreenClipRegion@@YAXPEAUHRGN__@@PEAUtagWND@@@Z.c)
+ */
+
 __int64 __fastcall ExcludeUpdateRgn(HDC a1, struct tagWND *a2)
 {
   __int64 v4; // rcx

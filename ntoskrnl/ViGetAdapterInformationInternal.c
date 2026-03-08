@@ -1,3 +1,43 @@
+/*
+ * XREFs of ViGetAdapterInformationInternal @ 0x140AC5E44
+ * Callers:
+ *     VfAllocateAdapterChannel @ 0x140AC1B90 (VfAllocateAdapterChannel.c)
+ *     VfAllocateAdapterChannelEx @ 0x140AC1DE0 (VfAllocateAdapterChannelEx.c)
+ *     VfAllocateCommonBuffer @ 0x140AC2050 (VfAllocateCommonBuffer.c)
+ *     VfAllocateCommonBufferEx @ 0x140AC2110 (VfAllocateCommonBufferEx.c)
+ *     VfAllocateCommonBufferWithBounds @ 0x140AC2280 (VfAllocateCommonBufferWithBounds.c)
+ *     VfAllocateCrashDumpRegisters @ 0x140AC2380 (VfAllocateCrashDumpRegisters.c)
+ *     VfBuildMdlFromScatterGatherList @ 0x140AC2460 (VfBuildMdlFromScatterGatherList.c)
+ *     VfBuildScatterGatherList @ 0x140AC2650 (VfBuildScatterGatherList.c)
+ *     VfBuildScatterGatherListEx @ 0x140AC29B0 (VfBuildScatterGatherListEx.c)
+ *     VfCancelAdapterChannel @ 0x140AC2BE0 (VfCancelAdapterChannel.c)
+ *     VfCreateCommonBufferFromMdl @ 0x140AC2D40 (VfCreateCommonBufferFromMdl.c)
+ *     VfFlushAdapterBuffers @ 0x140AC2DD0 (VfFlushAdapterBuffers.c)
+ *     VfFlushAdapterBuffersEx @ 0x140AC2F80 (VfFlushAdapterBuffersEx.c)
+ *     VfFreeAdapterChannel @ 0x140AC3030 (VfFreeAdapterChannel.c)
+ *     VfFreeAdapterObject @ 0x140AC30E0 (VfFreeAdapterObject.c)
+ *     VfFreeCommonBuffer @ 0x140AC3280 (VfFreeCommonBuffer.c)
+ *     VfFreeMapRegisters @ 0x140AC3400 (VfFreeMapRegisters.c)
+ *     VfGetDmaAlignment @ 0x140AC3740 (VfGetDmaAlignment.c)
+ *     VfGetScatterGatherList @ 0x140AC3800 (VfGetScatterGatherList.c)
+ *     VfGetScatterGatherListEx @ 0x140AC3BD0 (VfGetScatterGatherListEx.c)
+ *     VfHalAllocateMapRegisters @ 0x140AC3D60 (VfHalAllocateMapRegisters.c)
+ *     VfMapTransfer @ 0x140AC3F00 (VfMapTransfer.c)
+ *     VfMapTransferEx @ 0x140AC40B0 (VfMapTransferEx.c)
+ *     VfPutDmaAdapter @ 0x140AC4280 (VfPutDmaAdapter.c)
+ *     VfPutScatterGatherList @ 0x140AC45C0 (VfPutScatterGatherList.c)
+ *     VfReadDmaCounter @ 0x140AC4810 (VfReadDmaCounter.c)
+ *     ViGetAdapterInformation @ 0x140AC5E2C (ViGetAdapterInformation.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     VF_ASSERT_MAX_IRQL @ 0x140AC172C (VF_ASSERT_MAX_IRQL.c)
+ *     ViGetAdapterSignature @ 0x140AC6010 (ViGetAdapterSignature.c)
+ *     ViHalPreprocessOptions @ 0x140AC62F4 (ViHalPreprocessOptions.c)
+ */
+
 struct _LIST_ENTRY *__fastcall ViGetAdapterInformationInternal(ULONG_PTR a1, char a2)
 {
   KIRQL v4; // al

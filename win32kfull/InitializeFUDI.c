@@ -1,3 +1,12 @@
+/*
+ * XREFs of InitializeFUDI @ 0x1C025FE74
+ * Callers:
+ *     AAHalftoneBitmap @ 0x1C0253604 (AAHalftoneBitmap.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 void *__fastcall InitializeFUDI(__int64 a1)
 {
   int v2; // eax

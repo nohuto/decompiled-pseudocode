@@ -1,3 +1,16 @@
+/*
+ * XREFs of EmpMapPhysicalAddress @ 0x140B8FC4C
+ * Callers:
+ *     EmpCacheBiosDate @ 0x140B4EDC8 (EmpCacheBiosDate.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwMapViewOfSection @ 0x140412810 (ZwMapViewOfSection.c)
+ *     ZwOpenSection @ 0x1404129F0 (ZwOpenSection.c)
+ */
+
 char *__fastcall EmpMapPhysicalAddress(
         SIZE_T a1,
         __int64 a2,

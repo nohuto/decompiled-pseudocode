@@ -1,3 +1,11 @@
+/*
+ * XREFs of NVMeGetFeaturesSupportedCacheCapabilitiesCompletion @ 0x1C000F220
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ */
+
 __int64 __fastcall NVMeGetFeaturesSupportedCacheCapabilitiesCompletion(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlpAddRange @ 0x14081F654
+ * Callers:
+ *     RtlpDeleteFromMergedRange @ 0x14081F234 (RtlpDeleteFromMergedRange.c)
+ *     RtlAddRange @ 0x14081F540 (RtlAddRange.c)
+ *     RtlMergeRangeLists @ 0x1409B5CD0 (RtlMergeRangeLists.c)
+ * Callees:
+ *     RtlpAddIntersectingRanges @ 0x14081F70C (RtlpAddIntersectingRanges.c)
+ */
+
 __int64 __fastcall RtlpAddRange(_QWORD *a1, __int64 *a2, unsigned int a3)
 {
   unsigned __int64 v4; // rdi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of VidSchiInitializeNode @ 0x1C00B7C50
+ * Callers:
+ *     VidSchInitializeAdapter @ 0x1C00B5B90 (VidSchInitializeAdapter.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     ?DdiSetupPriorityBands@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_SETUPPRIORITYBANDS@@@Z @ 0x1C002C9B4 (-DdiSetupPriorityBands@ADAPTER_RENDER@@QEAAJPEBU_DXGKARG_SETUPPRIORITYBANDS@@@Z.c)
+ */
+
 __int64 __fastcall VidSchiInitializeNode(__int64 a1)
 {
   __int64 v1; // r14

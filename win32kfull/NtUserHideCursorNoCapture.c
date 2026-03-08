@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserHideCursorNoCapture @ 0x1C01D5B90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C0042A88 (-zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ */
+
 __int64 NtUserHideCursorNoCapture()
 {
   __int64 v0; // rcx

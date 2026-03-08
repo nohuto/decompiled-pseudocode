@@ -1,3 +1,15 @@
+/*
+ * XREFs of IntpAllocateProcessorContext @ 0x140B439C8
+ * Callers:
+ *     IntPartCreate @ 0x140B43808 (IntPartCreate.c)
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     IntPartGetProcessorEfficiencyClass @ 0x14037FFF4 (IntPartGetProcessorEfficiencyClass.c)
+ *     qsort @ 0x1403D48B0 (qsort.c)
+ *     IntPartCriticalFailure @ 0x140572584 (IntPartCriticalFailure.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void *__fastcall IntpAllocateProcessorContext(unsigned __int16 a1, _BYTE *a2)
 {
   ULONG ActiveProcessorCount; // eax

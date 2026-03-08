@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtGdiXLATEOBJ_hGetColorTransform @ 0x1C02D02C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     ?GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z @ 0x1C00D1B64 (-GetThreadCurrentObj@UMPDOBJ@@SAPEAV1@PEAU_W32THREAD@@@Z.c)
+ *     BRUSHOBJ_hGetColorTransform @ 0x1C0267CA0 (BRUSHOBJ_hGetColorTransform.c)
+ *     ??$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z @ 0x1C02C954C (--$GetDDIOBJ@U_XLATEOBJ@@@UMPDOBJ@@QEAAPEAU_XLATEOBJ@@PEAU1@@Z.c)
+ */
+
 struct UMPDOBJ *__fastcall NtGdiXLATEOBJ_hGetColorTransform(__int64 a1)
 {
   struct _W32THREAD *ThreadWin32Thread; // rax

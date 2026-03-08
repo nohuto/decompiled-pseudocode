@@ -1,3 +1,11 @@
+/*
+ * XREFs of PsBlockNonCetBinaries @ 0x1409AB194
+ * Callers:
+ *     MiAllowImageMap @ 0x1407D35A0 (MiAllowImageMap.c)
+ * Callees:
+ *     EtwTimLogBlockNonCetBinaries @ 0x1409E601C (EtwTimLogBlockNonCetBinaries.c)
+ */
+
 __int64 __fastcall PsBlockNonCetBinaries(__int64 a1, unsigned __int8 a2, unsigned __int8 a3, __int64 a4)
 {
   int v4; // eax

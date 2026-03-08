@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CInteractionTrackerMarshaler@DirectComposition@@QEAA@XZ @ 0x1C02669BC
+ * Callers:
+ *     ?CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2@@Z @ 0x1C00673F4 (-CreatePrivateMarshaler@CApplicationChannel@DirectComposition@@IEAAJIPEAPEAVCResourceMarshaler@2.c)
+ * Callees:
+ *     <none>
+ */
+
 DirectComposition::CInteractionTrackerMarshaler *__fastcall DirectComposition::CInteractionTrackerMarshaler::CInteractionTrackerMarshaler(
         DirectComposition::CInteractionTrackerMarshaler *this)
 {

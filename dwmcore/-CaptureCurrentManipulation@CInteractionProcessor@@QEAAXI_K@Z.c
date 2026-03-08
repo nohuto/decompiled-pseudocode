@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CaptureCurrentManipulation@CInteractionProcessor@@QEAAXI_K@Z @ 0x1801A9438
+ * Callers:
+ *     ?CaptureCurrentManipulation@CInteraction@@UEAAXI_K@Z @ 0x180208B60 (-CaptureCurrentManipulation@CInteraction@@UEAAXI_K@Z.c)
+ * Callees:
+ *     _tlgKeywordOn @ 0x1800BAD18 (_tlgKeywordOn.c)
+ *     _tlgWriteTransfer_EventWriteTransfer @ 0x1800BADC0 (_tlgWriteTransfer_EventWriteTransfer.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ */
+
 void __fastcall CInteractionProcessor::CaptureCurrentManipulation(CInteractionProcessor *this, int a2, __int64 a3)
 {
   __int64 v3; // rcx

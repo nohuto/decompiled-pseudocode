@@ -1,3 +1,12 @@
+/*
+ * XREFs of _SetWindowStationUser @ 0x1C00EE0CC
+ * Callers:
+ *     NtUserSetWindowStationUser @ 0x1C00EDFA0 (NtUserSetWindowStationUser.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall SetWindowStationUser(_QWORD *a1, _QWORD *a2, const void *a3, unsigned int a4)
 {
   size_t v4; // r14

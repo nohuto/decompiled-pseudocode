@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsValid@CD2DEffect@@UEBAJXZ @ 0x180299A84
+ * Callers:
+ *     ?IsValid@CD2DEffect@@$4PPPPPPPM@A@EBAJXZ @ 0x18011BD90 (-IsValid@CD2DEffect@@$4PPPPPPPM@A@EBAJXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CD2DEffect::IsValid(CD2DEffect *this)
 {
   char *v1; // rcx

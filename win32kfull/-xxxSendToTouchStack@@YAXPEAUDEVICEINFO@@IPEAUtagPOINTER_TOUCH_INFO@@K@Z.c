@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?xxxSendToTouchStack@@YAXPEAUDEVICEINFO@@IPEAUtagPOINTER_TOUCH_INFO@@K@Z @ 0x1C01B1194
+ * Callers:
+ *     ?xxxSendLastFrameTouchUp@@YAXPEAUtagINJECTED_CONTACT@@PEAUDEVICEINFO@@IK@Z @ 0x1C01B102C (-xxxSendLastFrameTouchUp@@YAXPEAUtagINJECTED_CONTACT@@PEAUDEVICEINFO@@IK@Z.c)
+ *     xxxInjectTouchInput @ 0x1C01B19B4 (xxxInjectTouchInput.c)
+ * Callees:
+ *     CreateTouchInputBuffer @ 0x1C01B368C (CreateTouchInputBuffer.c)
+ */
+
 void __fastcall xxxSendToTouchStack(struct DEVICEINFO *a1, unsigned int a2, struct tagPOINTER_TOUCH_INFO *a3, ULONG a4)
 {
   __int64 v4; // rax

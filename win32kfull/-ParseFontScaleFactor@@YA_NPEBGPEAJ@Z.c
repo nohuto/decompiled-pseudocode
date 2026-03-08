@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ParseFontScaleFactor@@YA_NPEBGPEAJ@Z @ 0x1C02A1B50
+ * Callers:
+ *     ?ParseFontLinkEntry@@YA_NPEAGPEAUFontLinkData@@@Z @ 0x1C02A1A0C (-ParseFontLinkEntry@@YA_NPEAGPEAUFontLinkData@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall ParseFontScaleFactor(wchar_t *Str, int *a2)
 {
   int v4; // eax

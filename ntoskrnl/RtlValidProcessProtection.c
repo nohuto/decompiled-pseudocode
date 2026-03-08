@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlValidProcessProtection @ 0x14079B0D0
+ * Callers:
+ *     PspBuildCreateProcessContext @ 0x1407EEDE0 (PspBuildCreateProcessContext.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall RtlValidProcessProtection(unsigned __int8 a1)
 {
   if ( a1 > 0x51u )

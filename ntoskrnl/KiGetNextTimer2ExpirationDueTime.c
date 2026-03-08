@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiGetNextTimer2ExpirationDueTime @ 0x1402DD25C
+ * Callers:
+ *     KiGetNextTimerExpirationDueTime @ 0x140328330 (KiGetNextTimerExpirationDueTime.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiGetNextTimer2ExpirationDueTime(char a1, unsigned __int64 *a2, unsigned __int64 *a3, _BYTE *a4)
 {
   unsigned __int64 v4; // r11

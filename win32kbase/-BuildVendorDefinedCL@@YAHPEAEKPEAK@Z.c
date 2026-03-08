@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?BuildVendorDefinedCL@@YAHPEAEKPEAK@Z @ 0x1C01C6808
+ * Callers:
+ *     ?SetCollectionLabel@@YAHPEAEKPEAK@Z @ 0x1C01C696C (-SetCollectionLabel@@YAHPEAEKPEAK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall BuildVendorDefinedCL(unsigned __int8 *a1, unsigned int a2, unsigned int *a3)
 {
   unsigned int v4; // r9d

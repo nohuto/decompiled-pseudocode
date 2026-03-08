@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetCompatibleTextureFormat@CD3DDevice@@QEBA?AW4DXGI_FORMAT@@W42@@Z @ 0x1800ECFF8
+ * Callers:
+ *     ?CreateSecondaryD2DBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo@@PEAPEAVCSecondaryD2DBitmap@@@Z @ 0x1800ECE5C (-CreateSecondaryD2DBitmap@CD3DDevice@@QEAAJAEBVCResourceTag@@AEBUD2D_SIZE_U@@AEBUPixelFormatInfo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CD3DDevice::GetCompatibleTextureFormat(CD3DDevice *this, enum DXGI_FORMAT a2)
 {
   int v2; // edx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of DifGetAvailableSystemPages @ 0x1405F61D4
+ * Callers:
+ *     VfLwSPEntry @ 0x1405F6278 (VfLwSPEntry.c)
+ * Callees:
+ *     MmCreatePartition @ 0x1403A6A3C (MmCreatePartition.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MmManagePartitionMemoryInformation @ 0x1407059DC (MmManagePartitionMemoryInformation.c)
+ */
+
 __int64 DifGetAvailableSystemPages()
 {
   __int64 result; // rax

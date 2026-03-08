@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpBlockTwoHiveWrites @ 0x140A10BB8
+ * Callers:
+ *     CmSaveMergedKeys @ 0x140A09144 (CmSaveMergedKeys.c)
+ *     CmpVirtualBranchIsReplicated @ 0x140A1798C (CmpVirtualBranchIsReplicated.c)
+ *     CmpVirtualPathPresent @ 0x140A17B40 (CmpVirtualPathPresent.c)
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     CmpGetNextActiveHive @ 0x1406BD940 (CmpGetNextActiveHive.c)
+ *     CmpDeleteHive @ 0x14074C680 (CmpDeleteHive.c)
+ *     CmpReferenceHive @ 0x1407AB230 (CmpReferenceHive.c)
+ *     HvLockHiveFlusherExclusive @ 0x140AF2098 (HvLockHiveFlusherExclusive.c)
+ *     HvUnlockHiveFlusherExclusive @ 0x140AF20B4 (HvUnlockHiveFlusherExclusive.c)
+ */
+
 __int64 __fastcall CmpBlockTwoHiveWrites(volatile signed __int32 *P, __int64 a2, char a3)
 {
   char v3; // r14

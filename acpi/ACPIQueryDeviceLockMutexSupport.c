@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIQueryDeviceLockMutexSupport @ 0x1C0031DA0
+ * Callers:
+ *     ACPITableLoad @ 0x1C003F170 (ACPITableLoad.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ACPIQueryDeviceLockMutexSupport(int *a1)
 {
   int v1; // edx

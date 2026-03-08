@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlGetNextBaseMcbEntry @ 0x1402D6970
+ * Callers:
+ *     FsRtlGetNextLargeMcbEntry @ 0x1403A1210 (FsRtlGetNextLargeMcbEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __stdcall FsRtlGetNextBaseMcbEntry(
         PBASE_MCB Mcb,
         ULONG RunIndex,

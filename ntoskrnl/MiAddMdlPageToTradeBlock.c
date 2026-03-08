@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiAddMdlPageToTradeBlock @ 0x1403B6DA8
+ * Callers:
+ *     MiTradePage @ 0x1403B5640 (MiTradePage.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall MiAddMdlPageToTradeBlock(__int64 a1, __int64 a2)
 {
   __int64 v2; // r8

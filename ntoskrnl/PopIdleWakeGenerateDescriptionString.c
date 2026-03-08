@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopIdleWakeGenerateDescriptionString @ 0x14099739C
+ * Callers:
+ *     PopIdleWakeSourceAccountingToDiagnostic @ 0x140998254 (PopIdleWakeSourceAccountingToDiagnostic.c)
+ * Callees:
+ *     RtlStringCbLengthW @ 0x140246920 (RtlStringCbLengthW.c)
+ *     RtlUnicodeStringPrintf @ 0x1403BEBCC (RtlUnicodeStringPrintf.c)
+ *     PopIdleWakeGenerateInterruptDescriptionString @ 0x1409975B8 (PopIdleWakeGenerateInterruptDescriptionString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 signed int __fastcall PopIdleWakeGenerateDescriptionString(const wchar_t *a1, __int64 a2)
 {
   int v2; // ebx

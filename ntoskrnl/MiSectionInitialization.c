@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiSectionInitialization @ 0x140B6D268
+ * Callers:
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObCreateObject @ 0x140709D30 (ObCreateObject.c)
+ *     ObInsertObject @ 0x1407F0A20 (ObInsertObject.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     ObCreateObjectType @ 0x14080CB00 (ObCreateObjectType.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 MiSectionInitialization()
 {
   _QWORD *Pool; // rbx

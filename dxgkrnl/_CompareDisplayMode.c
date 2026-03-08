@@ -1,3 +1,11 @@
+/*
+ * XREFs of _CompareDisplayMode @ 0x1C01E9980
+ * Callers:
+ *     ?SearchIndexdModeList@MODE_UNION_LIST@@AEAAPEAU_D3DKMT_DISPLAYMODE@@AEBU2@AEAI@Z @ 0x1C01E98A8 (-SearchIndexdModeList@MODE_UNION_LIST@@AEAAPEAU_D3DKMT_DISPLAYMODE@@AEBU2@AEAI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CompareDisplayMode(int *a1, int *a2)
 {
   int v2; // eax

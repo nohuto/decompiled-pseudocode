@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiFreePhysicalRange @ 0x140648248
+ * Callers:
+ *     MiFreeAwePagesFromMdl @ 0x140647764 (MiFreeAwePagesFromMdl.c)
+ *     MiFreeContiguousLargePageRun @ 0x14064780C (MiFreeContiguousLargePageRun.c)
+ *     MiFreePhysicalPageChain @ 0x140647BC4 (MiFreePhysicalPageChain.c)
+ * Callees:
+ *     MmFreeMemoryRanges @ 0x140A2B7D0 (MmFreeMemoryRanges.c)
+ */
+
 __int64 __fastcall MiFreePhysicalRange(__int64 a1, __int64 a2)
 {
   int v3; // [rsp+20h] [rbp-48h] BYREF

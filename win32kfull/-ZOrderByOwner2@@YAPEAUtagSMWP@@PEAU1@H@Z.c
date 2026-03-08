@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ZOrderByOwner2@@YAPEAUtagSMWP@@PEAU1@H@Z @ 0x1C0026458
+ * Callers:
+ *     ?ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z @ 0x1C0025E8C (-ZOrderByOwner@@YAPEAUtagSMWP@@PEAU1@@Z.c)
+ * Callees:
+ *     ?IsOwnee@@YAHPEAUtagWND@@0@Z @ 0x1C0026814 (-IsOwnee@@YAHPEAUtagWND@@0@Z.c)
+ *     ?AddSelfAndOwnees@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@11HI@Z @ 0x1C0026850 (-AddSelfAndOwnees@@YAPEAUtagSMWP@@PEAU1@PEAUtagWND@@11HI@Z.c)
+ *     ?GetRealOwner@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C0026A8C (-GetRealOwner@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     PWInsertAfter @ 0x1C00645A0 (PWInsertAfter.c)
+ */
+
 struct tagSMWP *__fastcall ZOrderByOwner2(struct tagSMWP *a1, int a2)
 {
   __int64 v2; // r15

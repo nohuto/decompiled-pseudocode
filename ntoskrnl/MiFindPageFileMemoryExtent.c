@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiFindPageFileMemoryExtent @ 0x14065DAE0
+ * Callers:
+ *     MiTransferMemoryPagefileData @ 0x14065E4C8 (MiTransferMemoryPagefileData.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiComparePageFileMemoryExtents @ 0x14065D52C (MiComparePageFileMemoryExtents.c)
+ */
+
 __int64 __fastcall MiFindPageFileMemoryExtent(__int64 a1, int a2)
 {
   volatile LONG *v2; // rbp

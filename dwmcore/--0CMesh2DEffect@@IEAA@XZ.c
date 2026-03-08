@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CMesh2DEffect@@IEAA@XZ @ 0x1802BB2EC
+ * Callers:
+ *     ?Create@CMesh2DEffect@@SAJPEAPEAUIUnknown@@@Z @ 0x1802BB4A0 (-Create@CMesh2DEffect@@SAJPEAPEAUIUnknown@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 CMesh2DEffect *__fastcall CMesh2DEffect::CMesh2DEffect(CMesh2DEffect *this)
 {
   CMesh2DEffect *result; // rax

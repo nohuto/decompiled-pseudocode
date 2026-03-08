@@ -1,3 +1,13 @@
+/*
+ * XREFs of vUnlinkEudcRFONTsAndPFEs @ 0x1C02A311C
+ * Callers:
+ *     bDeleteFlEntry @ 0x1C02A1F2C (bDeleteFlEntry.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ??0DEVICE_PFTOBJ@@QEAA@XZ @ 0x1C00DF170 (--0DEVICE_PFTOBJ@@QEAA@XZ.c)
+ *     vUnlinkEudcRFONTsAndPFEsWorker @ 0x1C02A3238 (vUnlinkEudcRFONTsAndPFEsWorker.c)
+ */
+
 void __fastcall vUnlinkEudcRFONTsAndPFEs(Gre::Base *a1, __int64 a2)
 {
   struct Gre::Base::SESSION_GLOBALS *v4; // r14

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ArbpBuildAlternative @ 0x1C00A2EEC
+ * Callers:
+ *     ArbBootAllocation @ 0x1C00A1080 (ArbBootAllocation.c)
+ *     ArbQueryConflict @ 0x1C00A2340 (ArbQueryConflict.c)
+ *     ArbRetestAllocation @ 0x1C00A2730 (ArbRetestAllocation.c)
+ *     ArbpBuildAllocationStack @ 0x1C00A2D80 (ArbpBuildAllocationStack.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ArbpBuildAlternative(__int64 a1, __int64 a2, __int64 *a3)
 {
   __int64 result; // rax

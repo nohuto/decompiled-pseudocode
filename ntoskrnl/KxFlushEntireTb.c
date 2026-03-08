@@ -1,3 +1,17 @@
+/*
+ * XREFs of KxFlushEntireTb @ 0x1403AD5FC
+ * Callers:
+ *     KeFlushTb @ 0x140323CB0 (KeFlushTb.c)
+ *     KeFlushEntireTb @ 0x1403AD590 (KeFlushEntireTb.c)
+ * Callees:
+ *     KiIpiSendRequestEx @ 0x14021238C (KiIpiSendRequestEx.c)
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KeRemoveProcessorAffinityEx @ 0x140237640 (KeRemoveProcessorAffinityEx.c)
+ *     KxSetTimeStampBusy @ 0x1402DC0CC (KxSetTimeStampBusy.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KxFlushEntireTb(int a1)
 {
   bool v1; // dl

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpRestoreHvEnlightenment @ 0x140509E30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpTimerUpdateApiConsumers @ 0x14051D4B4 (HalpTimerUpdateApiConsumers.c)
+ */
+
 __int64 HalpRestoreHvEnlightenment()
 {
   HalpEnlightenment = HalpEnlightenmentHbSaved;
@@ -22,8 +30,8 @@ __int64 HalpRestoreHvEnlightenment()
   *((_QWORD *)&HalpEnlightenment + 32) = qword_140C61F80;
   *((_QWORD *)&HalpEnlightenment + 29) = qword_140C61F68;
   *((_QWORD *)&HalpEnlightenment + 30) = qword_140C61F70;
-  *((_QWORD *)&HalpEnlightenment + 1) = xmmword_140C61E88;
-  *((_QWORD *)&HalpEnlightenment + 2) = MEMORY[0x140C61E90];
+  *((_QWORD *)&HalpEnlightenment + 1) = qword_140C61E88;
+  *((_QWORD *)&HalpEnlightenment + 2) = qword_140C61E90;
   *((_QWORD *)&HalpEnlightenment + 12) = qword_140C61EE0;
   *((_QWORD *)&HalpEnlightenment + 13) = qword_140C61EE8;
   *((_QWORD *)&HalpEnlightenment + 15) = qword_140C61EF8;

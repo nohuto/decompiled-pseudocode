@@ -1,3 +1,14 @@
+/*
+ * XREFs of PerformHandlerInvocation @ 0x1C001BDD0
+ * Callers:
+ *     AcquireDeviceFirmwareLock @ 0x1C001B710 (AcquireDeviceFirmwareLock.c)
+ *     DestroyDeviceFirmwareLock @ 0x1C001BB60 (DestroyDeviceFirmwareLock.c)
+ *     ReleaseDeviceFirmwareLock @ 0x1C001BF6C (ReleaseDeviceFirmwareLock.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ */
+
 __int64 __fastcall PerformHandlerInvocation(int a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5, int a6, int a7)
 {
   char v11; // bl

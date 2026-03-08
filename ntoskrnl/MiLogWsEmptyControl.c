@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiLogWsEmptyControl @ 0x140650470
+ * Callers:
+ *     MmProcessWorkingSetControl @ 0x140A408A4 (MmProcessWorkingSetControl.c)
+ * Callees:
+ *     MiFillLogProcessInfo @ 0x140224D68 (MiFillLogProcessInfo.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     _tlgCreate1Sz_char @ 0x1403BE3FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall MiLogWsEmptyControl(__int64 a1)
 {
   _DWORD *v1; // r10

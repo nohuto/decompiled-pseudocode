@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheapDefaultErrSrcCreateRecord @ 0x140610810
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WheapCreateRecordFromGenericErrorData @ 0x1406104A8 (WheapCreateRecordFromGenericErrorData.c)
+ */
+
 __int64 __fastcall WheapDefaultErrSrcCreateRecord(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   if ( *(_DWORD *)(a2 + 56) == 7 )

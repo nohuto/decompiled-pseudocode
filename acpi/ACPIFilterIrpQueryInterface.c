@@ -1,3 +1,17 @@
+/*
+ * XREFs of ACPIFilterIrpQueryInterface @ 0x1C0086160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     ACPIDispatchForwardIrp @ 0x1C0001770 (ACPIDispatchForwardIrp.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     ACPIIrpSetPagableCompletionRoutineAndForward @ 0x1C007BF98 (ACPIIrpSetPagableCompletionRoutineAndForward.c)
+ *     ACPIFilterIrpQueryIommuInterface @ 0x1C00863F4 (ACPIFilterIrpQueryIommuInterface.c)
+ *     ACPIFilterIrpQueryPnpLocationInterface @ 0x1C008653C (ACPIFilterIrpQueryPnpLocationInterface.c)
+ *     AcpiSdevIdentifierInterface @ 0x1C0094D70 (AcpiSdevIdentifierInterface.c)
+ */
+
 __int64 __fastcall ACPIFilterIrpQueryInterface(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 {
   __int64 DeviceExtension; // rax

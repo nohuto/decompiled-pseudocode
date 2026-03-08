@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBMISC_StripSymbolicNamePrefix @ 0x1C0033784
+ * Callers:
+ *     HUBPDO_GetHubName @ 0x1C00160D8 (HUBPDO_GetHubName.c)
+ *     HUBFDO_IoctlGetNodeConnectionName @ 0x1C007A52C (HUBFDO_IoctlGetNodeConnectionName.c)
+ *     HUBFDO_IoctlGetPortConnectorProperties @ 0x1C007B17C (HUBFDO_IoctlGetPortConnectorProperties.c)
+ *     WMI_AcquireHubName @ 0x1C008B7AC (WMI_AcquireHubName.c)
+ *     WMI_FireNotification @ 0x1C008C428 (WMI_FireNotification.c)
+ * Callees:
+ *     <none>
+ */
+
 __int16 *__fastcall HUBMISC_StripSymbolicNamePrefix(unsigned __int16 *a1, _QWORD *a2)
 {
   __int16 *result; // rax

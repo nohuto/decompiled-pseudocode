@@ -1,3 +1,26 @@
+/*
+ * XREFs of DriverEntry @ 0x1C0093228
+ * Callers:
+ *     FxDriverEntryWorker @ 0x1C0041064 (FxDriverEntryWorker.c)
+ * Callees:
+ *     RtlStringCchPrintfA @ 0x1C00014E0 (RtlStringCchPrintfA.c)
+ *     McGenEventRegister_EtwRegister @ 0x1C00016E4 (McGenEventRegister_EtwRegister.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBREG_QueryGlobalUsbLtmSettings @ 0x1C00354D0 (HUBREG_QueryGlobalUsbLtmSettings.c)
+ *     InitializeTelemetryAssertsKMByDriverObject @ 0x1C004151C (InitializeTelemetryAssertsKMByDriverObject.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ *     WppLoadTracingSupport @ 0x1C00762FC (WppLoadTracingSupport.c)
+ *     WppInitKm @ 0x1C00766CC (WppInitKm.c)
+ *     WppCleanupKm @ 0x1C00767A8 (WppCleanupKm.c)
+ *     HUBREG_QueryGlobalHubValues @ 0x1C0085608 (HUBREG_QueryGlobalHubValues.c)
+ *     HUBREG_QueryGlobalUsb20HardwareLpmSettings @ 0x1C0086CA0 (HUBREG_QueryGlobalUsb20HardwareLpmSettings.c)
+ *     SleepstudyHelper_Initialize @ 0x1C008F750 (SleepstudyHelper_Initialize.c)
+ *     TlgRegisterAggregateProvider @ 0x1C009051C (TlgRegisterAggregateProvider.c)
+ *     wil_InitializeFeatureStaging @ 0x1C0093008 (wil_InitializeFeatureStaging.c)
+ */
+
 NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING RegistryPath)
 {
   NTSTATUS v4; // edi

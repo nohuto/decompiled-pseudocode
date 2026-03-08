@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PoolLeakCaptureLiveDump@@YAX_KPEAK0@Z @ 0x1C017D548
+ * Callers:
+ *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C015C290 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall PoolLeakCaptureLiveDump(__int64 a1, unsigned int *a2, unsigned __int64 a3, __int64 a4)
 {
   int v4; // eax

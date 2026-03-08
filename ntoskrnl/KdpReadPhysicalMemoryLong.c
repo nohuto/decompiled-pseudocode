@@ -1,3 +1,11 @@
+/*
+ * XREFs of KdpReadPhysicalMemoryLong @ 0x140AB12D4
+ * Callers:
+ *     KdpSendWaitContinue @ 0x140AAD824 (KdpSendWaitContinue.c)
+ * Callees:
+ *     KdpReadPhysicalMemory @ 0x140AB1188 (KdpReadPhysicalMemory.c)
+ */
+
 unsigned __int64 __fastcall KdpReadPhysicalMemoryLong(__int64 a1, _WORD *a2, __int64 a3)
 {
   unsigned __int64 result; // rax

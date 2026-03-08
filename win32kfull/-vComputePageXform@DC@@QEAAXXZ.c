@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vComputePageXform@DC@@QEAAXXZ @ 0x1C02D2088
+ * Callers:
+ *     ?iSetMapMode@DC@@QEAAHH@Z @ 0x1C02D18C8 (-iSetMapMode@DC@@QEAAHH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DC::vComputePageXform(DC *this)
 {
   float v1; // xmm1_4

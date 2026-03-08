@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiSetDeviceUsageType @ 0x1C0396374
+ * Callers:
+ *     DpiAddDevice @ 0x1C01F38A0 (DpiAddDevice.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiSetDeviceUsageType(PDEVICE_OBJECT DeviceObject, ULONG a2)
 {
   PIRP v4; // rax

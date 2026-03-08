@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?WriteUnalignedScanline@@YAXPEAEPEBEII@Z @ 0x18027F1C8
+ * Callers:
+ *     ?UnlockUnaligned@CBitmapLockUnaligned@@IEAAXXZ @ 0x18027F134 (-UnlockUnaligned@CBitmapLockUnaligned@@IEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall WriteUnalignedScanline(
         unsigned __int8 *a1,
         const unsigned __int8 *a2,

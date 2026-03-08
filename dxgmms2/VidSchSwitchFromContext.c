@@ -1,3 +1,14 @@
+/*
+ * XREFs of VidSchSwitchFromContext @ 0x1C00AE3A0
+ * Callers:
+ *     ?NotifyContextAllocationEviction@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C0089FC4 (-NotifyContextAllocationEviction@VIDMM_GLOBAL@@QEAAXPEAU_VIDMM_GLOBAL_ALLOC@@@Z.c)
+ * Callees:
+ *     VidSchIsTDRPending @ 0x1C0007920 (VidSchIsTDRPending.c)
+ *     VidSchWaitForEvents @ 0x1C0014E64 (VidSchWaitForEvents.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     VidSchSubmitGlobalCommand @ 0x1C00ADFC8 (VidSchSubmitGlobalCommand.c)
+ */
+
 char __fastcall VidSchSwitchFromContext(__int64 a1)
 {
   __int64 v1; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiSendAsyncResumeAdapterRequest @ 0x1C001B270
+ * Callers:
+ *     DpiRequestDevicePowerState @ 0x1C001AC34 (DpiRequestDevicePowerState.c)
+ * Callees:
+ *     <none>
+ */
+
 LONG __fastcall DpiSendAsyncResumeAdapterRequest(__int64 a1)
 {
   _QWORD *v2; // rdx

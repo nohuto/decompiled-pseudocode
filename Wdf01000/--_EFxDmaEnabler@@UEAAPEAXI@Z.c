@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_EFxDmaEnabler@@UEAAPEAXI@Z @ 0x1C001AC30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxDmaEnabler@@UEAA@XZ @ 0x1C001AB5C (--1FxDmaEnabler@@UEAA@XZ.c)
+ */
+
 FxDmaEnabler *__fastcall FxDmaEnabler::`vector deleting destructor'(FxDmaEnabler *this, unsigned int a2)
 {
   char v2; // bl

@@ -1,3 +1,12 @@
+/*
+ * XREFs of memmove_s @ 0x1403D9B40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 errno_t __cdecl memmove_s(void *a1, rsize_t DstSize, const void *Src, rsize_t MaxCount)
 {
   errno_t v5; // ebx

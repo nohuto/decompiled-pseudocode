@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiFdoGetDeviceFileObject @ 0x1C0396E88
+ * Callers:
+ *     DpiIndirectCbSendMessage @ 0x1C03A00C0 (DpiIndirectCbSendMessage.c)
+ * Callees:
+ *     <none>
+ */
+
 void *__fastcall DpiFdoGetDeviceFileObject(__int64 a1)
 {
   __int64 v1; // rsi

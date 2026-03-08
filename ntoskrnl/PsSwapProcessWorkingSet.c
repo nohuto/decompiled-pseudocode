@@ -1,3 +1,21 @@
+/*
+ * XREFs of PsSwapProcessWorkingSet @ 0x1409AB6DC
+ * Callers:
+ *     MmProcessWorkingSetControl @ 0x140A408A4 (MmProcessWorkingSetControl.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     PspLockProcessShared @ 0x140302A10 (PspLockProcessShared.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     Feature_Servicing_BypassGraphicsFreezeNotification__private_IsEnabledDeviceUsage @ 0x14040BA70 (Feature_Servicing_BypassGraphicsFreezeNotification__private_IsEnabledDeviceUsage.c)
+ *     PspUnlockProcessSharedUnsafe @ 0x1405A1B3C (PspUnlockProcessSharedUnsafe.c)
+ *     PspComputeExecutionStateOld @ 0x14067CD7C (PspComputeExecutionStateOld.c)
+ *     PspRequestProcessExecutionStateOld @ 0x14067CE2C (PspRequestProcessExecutionStateOld.c)
+ *     PspChangeProcessExecutionState @ 0x1406F8AC0 (PspChangeProcessExecutionState.c)
+ *     PspRequestProcessExecutionState @ 0x1406FF388 (PspRequestProcessExecutionState.c)
+ *     PspComputeExecutionState @ 0x1406FF3AC (PspComputeExecutionState.c)
+ */
+
 __int64 __fastcall PsSwapProcessWorkingSet(PEPROCESS Process, char a2)
 {
   int IsEnabledDeviceUsage; // eax

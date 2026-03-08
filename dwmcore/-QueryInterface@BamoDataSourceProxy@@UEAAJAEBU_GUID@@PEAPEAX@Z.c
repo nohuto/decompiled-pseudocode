@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?QueryInterface@BamoDataSourceProxy@@UEAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801E0320
+ * Callers:
+ *     ?QueryInterface@BamoDataSourceProxy@@W7EAAJAEBU_GUID@@PEAPEAX@Z @ 0x1801193B0 (-QueryInterface@BamoDataSourceProxy@@W7EAAJAEBU_GUID@@PEAPEAX@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall BamoDataSourceProxy::QueryInterface(BamoDataSourceProxy *this, const struct _GUID *a2, void **a3)
 {
   __int64 v3; // rax

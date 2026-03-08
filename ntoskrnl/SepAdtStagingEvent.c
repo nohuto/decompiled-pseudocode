@@ -1,3 +1,24 @@
+/*
+ * XREFs of SepAdtStagingEvent @ 0x1409CA0F4
+ * Callers:
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x14069A700 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SeAuditHandleCreation @ 0x14078D9F8 (SeAuditHandleCreation.c)
+ *     ObpCreateHandle @ 0x1407C0130 (ObpCreateHandle.c)
+ * Callees:
+ *     PsGetCurrentThreadProcess @ 0x1402C0BB0 (PsGetCurrentThreadProcess.c)
+ *     ObpIsKernelHandle @ 0x1403521C8 (ObpIsKernelHandle.c)
+ *     SepAdtLogAuditRecord @ 0x140397890 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SepCheckAndCopySelfRelativeSD @ 0x1405B6898 (SepCheckAndCopySelfRelativeSD.c)
+ *     RtlCompareUnicodeString @ 0x1406EA3B0 (RtlCompareUnicodeString.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1407E7618 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepAuditFailed @ 0x1409CEE50 (SepAuditFailed.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 bool __fastcall SepAdtStagingEvent(
         __int16 a1,
         __int64 a2,

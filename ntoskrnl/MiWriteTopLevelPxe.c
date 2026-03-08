@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiWriteTopLevelPxe @ 0x140201C64
+ * Callers:
+ *     MiDecommitLargePoolVa @ 0x14020FF88 (MiDecommitLargePoolVa.c)
+ *     MiDeletePteRun @ 0x140279760 (MiDeletePteRun.c)
+ *     MiDeleteSystemPageTable @ 0x140299BA0 (MiDeleteSystemPageTable.c)
+ *     MiZeroAndFlushPtes @ 0x14029B3BC (MiZeroAndFlushPtes.c)
+ *     MiDeleteVa @ 0x140324900 (MiDeleteVa.c)
+ *     MiLinkPoolCommitChain @ 0x140330100 (MiLinkPoolCommitChain.c)
+ * Callees:
+ *     MiReplicatePteChange @ 0x1402A4528 (MiReplicatePteChange.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiWriteTopLevelPxe(_QWORD *a1, __int64 a2)
 {
   int v4; // eax

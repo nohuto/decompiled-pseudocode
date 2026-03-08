@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetScreenRectForDpi @ 0x1C003A9AC
+ * Callers:
+ *     xxxEnumDisplayMonitors @ 0x1C003AE40 (xxxEnumDisplayMonitors.c)
+ * Callees:
+ *     GetMonitorRectForDpi @ 0x1C003BDD8 (GetMonitorRectForDpi.c)
+ */
+
 __m128i *__fastcall GetScreenRectForDpi(__m128i *a1, unsigned __int16 a2)
 {
   __int64 v4; // rax

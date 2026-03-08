@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceEndCallback @ 0x1C00A1050
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 *EtwTraceEndCallback()
 {
   __int64 v0; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpSearchForTrans @ 0x1406B5904
+ * Callers:
+ *     CmpTransSearchAddTrans @ 0x1406B570C (CmpTransSearchAddTrans.c)
+ * Callees:
+ *     CmpTransUowIsEqual @ 0x140A19630 (CmpTransUowIsEqual.c)
+ *     CmListGetNextElement @ 0x140AF2008 (CmListGetNextElement.c)
+ */
+
 __int64 __fastcall CmpSearchForTrans(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rbp

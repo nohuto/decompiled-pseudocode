@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bFindPrintKView@@YAH_KKPEAPEAU_FONTFILE_PRINTKVIEW@@@Z @ 0x1C02B8EC4
+ * Callers:
+ *     ?pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z @ 0x1C02B9424 (-pchTranslate@RFONTOBJ@@QEAAPEADPEBD@Z.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall bFindPrintKView(__int64 a1, int a2, struct _FONTFILE_PRINTKVIEW **a3)
 {
   unsigned int v3; // edi

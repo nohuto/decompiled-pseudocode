@@ -1,3 +1,19 @@
+/*
+ * XREFs of MmUpdateMdlTrackerForMdlSwitch @ 0x14061AFA8
+ * Callers:
+ *     VmProbeAndLockPages @ 0x1405F67A0 (VmProbeAndLockPages.c)
+ *     VmUnlockPages @ 0x1405F6860 (VmUnlockPages.c)
+ * Callees:
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiValidateMdlTracker @ 0x14061ABD8 (MiValidateMdlTracker.c)
+ */
+
 __int64 __fastcall MmUpdateMdlTrackerForMdlSwitch(ULONG_PTR BugCheckParameter3, int a2)
 {
   __int64 result; // rax

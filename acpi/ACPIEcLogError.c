@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIEcLogError @ 0x1C0025B98
+ * Callers:
+ *     ACPIEcServiceIoLoop @ 0x1C0002EF0 (ACPIEcServiceIoLoop.c)
+ *     ACPIEcWatchdogDpc @ 0x1C0025D70 (ACPIEcWatchdogDpc.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ */
+
 void __fastcall ACPIEcLogError(__int64 a1, int a2)
 {
   _DWORD *ErrorLogEntry; // rax

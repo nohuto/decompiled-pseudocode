@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpTimerInitializeClock @ 0x1403AC5D0
+ * Callers:
+ *     HalpTimerInitSystem @ 0x1403776D0 (HalpTimerInitSystem.c)
+ *     HalpTimerInitializeClock @ 0x1403AC5D0 (HalpTimerInitializeClock.c)
+ * Callees:
+ *     HalpSetTimer @ 0x1402CBEE0 (HalpSetTimer.c)
+ *     HalpTimerConfigureInterrupt @ 0x140379C34 (HalpTimerConfigureInterrupt.c)
+ *     HalpInterruptSetIdtEntry @ 0x140379F10 (HalpInterruptSetIdtEntry.c)
+ *     HalpTimerInitializeClock @ 0x1403AC5D0 (HalpTimerInitializeClock.c)
+ *     HalpTimerWaitForPhase0Interrupt @ 0x1403AC710 (HalpTimerWaitForPhase0Interrupt.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HalpTimerUnmapInterrupt @ 0x1405074D0 (HalpTimerUnmapInterrupt.c)
+ */
+
 __int64 __fastcall HalpTimerInitializeClock(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   ULONG_PTR v4; // rbx

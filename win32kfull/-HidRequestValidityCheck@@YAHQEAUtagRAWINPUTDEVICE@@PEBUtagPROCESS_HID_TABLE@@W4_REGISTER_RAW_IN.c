@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?HidRequestValidityCheck@@YAHQEAUtagRAWINPUTDEVICE@@PEBUtagPROCESS_HID_TABLE@@W4_REGISTER_RAW_INPUT_INTERNAL@@@Z @ 0x1C00D5C58
+ * Callers:
+ *     _RegisterRawInputDevices @ 0x1C00D5AC8 (_RegisterRawInputDevices.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?IsLegacyDevice@@YAHGG@Z @ 0x1C00D6024 (-IsLegacyDevice@@YAHGG@Z.c)
+ */
+
 __int64 __fastcall HidRequestValidityCheck(__int64 a1, __int64 a2, int a3)
 {
   _DWORD *v3; // rdi

@@ -1,3 +1,12 @@
+/*
+ * XREFs of BuildTranslatorRanges @ 0x1C00974E0
+ * Callers:
+ *     TranslateEjectInterface @ 0x1C0097A38 (TranslateEjectInterface.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ */
+
 __int64 __fastcall BuildTranslatorRanges(__int64 a1, _DWORD *a2, _QWORD *a3)
 {
   __int64 v3; // r15

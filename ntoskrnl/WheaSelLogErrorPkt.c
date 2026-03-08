@@ -1,3 +1,12 @@
+/*
+ * XREFs of WheaSelLogErrorPkt @ 0x14060DC5C
+ * Callers:
+ *     WheaSelLogEvent @ 0x14060DD48 (WheaSelLogEvent.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     WheapLogIpmiSELEvent @ 0x140610F90 (WheapLogIpmiSELEvent.c)
+ */
+
 __int64 __fastcall WheaSelLogErrorPkt(__int64 a1)
 {
   _DWORD *v1; // r9

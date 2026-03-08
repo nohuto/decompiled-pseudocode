@@ -1,3 +1,11 @@
+/*
+ * XREFs of MarkQueuesForKeyStateUpdate @ 0x1C02180C0
+ * Callers:
+ *     ??1ForegroundChangeTracker@CActivationObjectManager@@QEAA@XZ @ 0x1C005BD48 (--1ForegroundChangeTracker@CActivationObjectManager@@QEAA@XZ.c)
+ * Callees:
+ *     ?ForEachActivatableQueue@CActivationObjectManager@@QEBAXA6AXPEAUtagQ@@PEAX@Z1@Z @ 0x1C0155E9C (-ForEachActivatableQueue@CActivationObjectManager@@QEBAXA6AXPEAUtagQ@@PEAX@Z1@Z.c)
+ */
+
 void __fastcall MarkQueuesForKeyStateUpdate(CActivationObjectManager *a1, void (*a2)(struct tagQ *, void *), char a3)
 {
   _DWORD v3[2]; // [rsp+20h] [rbp-28h] BYREF

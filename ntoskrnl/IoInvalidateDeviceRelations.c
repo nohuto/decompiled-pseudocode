@@ -1,3 +1,19 @@
+/*
+ * XREFs of IoInvalidateDeviceRelations @ 0x1402F4FC0
+ * Callers:
+ *     PiSwProcessParentStartIrp @ 0x140791F24 (PiSwProcessParentStartIrp.c)
+ *     IopPnPDispatch @ 0x1407F7890 (IopPnPDispatch.c)
+ *     PiSwIrpStartCreateWorker @ 0x140806A2C (PiSwIrpStartCreateWorker.c)
+ *     PiSwGetChildPdo @ 0x140846F50 (PiSwGetChildPdo.c)
+ *     PiProfileUpdateDeviceTreeCallback @ 0x1409607E0 (PiProfileUpdateDeviceTreeCallback.c)
+ *     PiSwCloseDevice @ 0x140964150 (PiSwCloseDevice.c)
+ *     PiSwProcessRemove @ 0x140964760 (PiSwProcessRemove.c)
+ * Callees:
+ *     PnpRequestDeviceAction @ 0x1402F5074 (PnpRequestDeviceAction.c)
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void __stdcall IoInvalidateDeviceRelations(PDEVICE_OBJECT DeviceObject, DEVICE_RELATION_TYPE Type)
 {
   _DWORD *DeviceNode; // rcx

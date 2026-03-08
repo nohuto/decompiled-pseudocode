@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiDevCfgPushDriverNodeEntry @ 0x14055FE54
+ * Callers:
+ *     PiDevCfgQueryIncludedDriverConfigurations @ 0x1408766D8 (PiDevCfgQueryIncludedDriverConfigurations.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PiDevCfgPushDriverNodeEntry(__int64 a1, __int64 a2)
 {
   unsigned int v4; // edi

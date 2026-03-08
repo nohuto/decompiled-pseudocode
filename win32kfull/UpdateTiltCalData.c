@@ -1,3 +1,11 @@
+/*
+ * XREFs of UpdateTiltCalData @ 0x1C01A6A40
+ * Callers:
+ *     _SetCalibrationData @ 0x1C01AB99C (_SetCalibrationData.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall UpdateTiltCalData(__int64 a1, int a2, __int64 a3, int a4, _DWORD *a5)
 {
   unsigned int v5; // ebx

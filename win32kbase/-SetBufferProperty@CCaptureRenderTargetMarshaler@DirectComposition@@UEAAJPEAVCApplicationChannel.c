@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C026CB10
+ * Callers:
+ *     ?SetBufferProperty@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C026D1D0 (-SetBufferProperty@CVirtualMonitorCaptureRenderTargetMarshaler@DirectComposition@@UEAAJPEAVCAppl.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CCaptureRenderTargetMarshaler::SetBufferProperty(
         DirectComposition::CCaptureRenderTargetMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

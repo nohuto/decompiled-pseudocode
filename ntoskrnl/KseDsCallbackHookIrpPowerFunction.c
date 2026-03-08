@@ -1,3 +1,13 @@
+/*
+ * XREFs of KseDsCallbackHookIrpPowerFunction @ 0x14057EC60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KsepDsEventDevicePowerIrp @ 0x14057F3C4 (KsepDsEventDevicePowerIrp.c)
+ *     KsepDsEventSystemPowerIrp @ 0x14057FE1C (KsepDsEventSystemPowerIrp.c)
+ */
+
 __int64 __fastcall KseDsCallbackHookIrpPowerFunction(__int64 a1, __int64 a2)
 {
   int v3; // edi

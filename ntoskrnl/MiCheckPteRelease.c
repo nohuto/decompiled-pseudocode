@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiCheckPteRelease @ 0x14065CD04
+ * Callers:
+ *     MiReleasePtes @ 0x14027CE90 (MiReleasePtes.c)
+ * Callees:
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 __int64 __fastcall MiCheckPteRelease(__int64 a1, ULONG_PTR a2)
 {
   ULONG_PTR v4; // rbx

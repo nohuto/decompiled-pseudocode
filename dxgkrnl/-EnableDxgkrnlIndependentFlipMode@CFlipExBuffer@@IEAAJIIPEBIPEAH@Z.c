@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?EnableDxgkrnlIndependentFlipMode@CFlipExBuffer@@IEAAJIIPEBIPEAH@Z @ 0x1C007D4F4
+ * Callers:
+ *     ?SetIndependentFlip@CFlipExBuffer@@UEAAJ_N0IIPEBIPEAH@Z @ 0x1C007DAF0 (-SetIndependentFlip@CFlipExBuffer@@UEAAJ_N0IIPEBIPEAH@Z.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ?OpenDxSurfaceHandle@CBufferRealization@@QEBAJ_N0PEAPEAX@Z @ 0x1C007E4A4 (-OpenDxSurfaceHandle@CBufferRealization@@QEBAJ_N0PEAPEAX@Z.c)
+ *     DxgkSetIndependentFlipMode @ 0x1C02D71BC (DxgkSetIndependentFlipMode.c)
+ */
+
 __int64 __fastcall CFlipExBuffer::EnableDxgkrnlIndependentFlipMode(
         CFlipExBuffer *this,
         int a2,

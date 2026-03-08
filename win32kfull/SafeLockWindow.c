@@ -1,3 +1,11 @@
+/*
+ * XREFs of SafeLockWindow @ 0x1C02030D8
+ * Callers:
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SafeLockWindow(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax

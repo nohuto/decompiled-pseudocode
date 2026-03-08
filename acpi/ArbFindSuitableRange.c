@@ -1,3 +1,15 @@
+/*
+ * XREFs of ArbFindSuitableRange @ 0x1C00A18C0
+ * Callers:
+ *     AcpiMemarbFindSuitableRange @ 0x1C0088FA0 (AcpiMemarbFindSuitableRange.c)
+ *     IrqArbFindSuitableRange @ 0x1C009D270 (IrqArbFindSuitableRange.c)
+ *     IrqArbpFindSuitableRangeMsi @ 0x1C009E028 (IrqArbpFindSuitableRangeMsi.c)
+ * Callees:
+ *     RtlFindRange_0 @ 0x1C0001AAF (RtlFindRange_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ArbShareDriverExclusive @ 0x1C00A293C (ArbShareDriverExclusive.c)
+ */
+
 char __fastcall ArbFindSuitableRange(__int64 a1, __int64 a2)
 {
   ULONGLONG v2; // r10

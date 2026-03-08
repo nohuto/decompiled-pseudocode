@@ -1,3 +1,12 @@
+/*
+ * XREFs of PdcAcquireRwLockExclusive @ 0x14067F16C
+ * Callers:
+ *     PdcTaskClientRequest @ 0x14067F048 (PdcTaskClientRequest.c)
+ * Callees:
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ */
+
 struct _KTHREAD *__fastcall PdcAcquireRwLockExclusive(unsigned __int64 *a1)
 {
   struct _KTHREAD *CurrentThread; // rax

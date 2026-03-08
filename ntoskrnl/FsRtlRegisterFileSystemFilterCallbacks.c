@@ -1,3 +1,12 @@
+/*
+ * XREFs of FsRtlRegisterFileSystemFilterCallbacks @ 0x1403C14D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 NTSTATUS __stdcall FsRtlRegisterFileSystemFilterCallbacks(
         struct _DRIVER_OBJECT *FilterDriverObject,
         PFS_FILTER_CALLBACKS Callbacks)

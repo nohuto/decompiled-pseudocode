@@ -1,3 +1,18 @@
+/*
+ * XREFs of DpiFdoHandleStartDevice @ 0x1C01F6860
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     WindowsQueryLicenseDWORD @ 0x1C001D44C (WindowsQueryLicenseDWORD.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ *     DpiReadPnpRegistryValue @ 0x1C01F1618 (DpiReadPnpRegistryValue.c)
+ *     DpiFilterOutVgaResources @ 0x1C02125C0 (DpiFilterOutVgaResources.c)
+ *     DpiDetermineResourceListSize @ 0x1C02127C8 (DpiDetermineResourceListSize.c)
+ *     ?DxgCreateLiveDumpWithWdLogs2@@YAJK_K000UDXGK_LIVEREPORT_FLAGS@@@Z @ 0x1C02C935C (-DxgCreateLiveDumpWithWdLogs2@@YAJK_K000UDXGK_LIVEREPORT_FLAGS@@@Z.c)
+ */
+
 __int64 __fastcall DpiFdoHandleStartDevice(struct _DEVICE_OBJECT *a1, IRP *a2)
 {
   __int64 DeviceExtension; // rsi

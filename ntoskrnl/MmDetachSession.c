@@ -1,3 +1,31 @@
+/*
+ * XREFs of MmDetachSession @ 0x1402EA460
+ * Callers:
+ *     MiEmptyAccessLogs @ 0x1402005B0 (MiEmptyAccessLogs.c)
+ *     MiTrimSharedPageFromViews @ 0x1402A031C (MiTrimSharedPageFromViews.c)
+ *     MiUnlockStealVm @ 0x1403B7AF8 (MiUnlockStealVm.c)
+ *     PopWatchdogWorker @ 0x1403D0490 (PopWatchdogWorker.c)
+ *     MmPrefetchVirtualMemory @ 0x14067E690 (MmPrefetchVirtualMemory.c)
+ *     EtwpEnableGuid @ 0x14068EEBC (EtwpEnableGuid.c)
+ *     EtwpSendDataBlock @ 0x1406901A8 (EtwpSendDataBlock.c)
+ *     PnpNotifyDriverCallback @ 0x1406F55F4 (PnpNotifyDriverCallback.c)
+ *     PspChangeProcessExecutionState @ 0x1406F8AC0 (PspChangeProcessExecutionState.c)
+ *     PspDetachSession @ 0x140776B14 (PspDetachSession.c)
+ *     ExCallSessionCallBack @ 0x140776B38 (ExCallSessionCallBack.c)
+ *     ObpProcessRemoveObjectQueue @ 0x1407DEA90 (ObpProcessRemoveObjectQueue.c)
+ *     MmEnumerateSystemImages @ 0x14080E4B0 (MmEnumerateSystemImages.c)
+ *     TtmpSessionWorker @ 0x1409A2950 (TtmpSessionWorker.c)
+ *     CmFcpChangeSubscriptionWrapper @ 0x140A24E40 (CmFcpChangeSubscriptionWrapper.c)
+ *     VfThunkApplyPristineToAllSession @ 0x140AD82CC (VfThunkApplyPristineToAllSession.c)
+ *     VfThunkApplyWdmThunkToAllSession @ 0x140AD844C (VfThunkApplyWdmThunkToAllSession.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KeSignalGate @ 0x1402F0524 (KeSignalGate.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MmDetachSession(__int64 a1, $115DCDF994C6370D29323EAB0E0C9502 *a2)
 {
   __int64 v2; // rbx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of SmStoreSetProcessVaRanges @ 0x1407658C4
+ * Callers:
+ *     MmInSwapWorkingSet @ 0x1402000BC (MmInSwapWorkingSet.c)
+ *     MmOutSwapWorkingSet @ 0x1402DAFF8 (MmOutSwapWorkingSet.c)
+ * Callees:
+ *     SmpGetProcessPartition @ 0x14029622C (SmpGetProcessPartition.c)
+ *     SSHSupportAllocateNonPaged @ 0x1402A4AEC (SSHSupportAllocateNonPaged.c)
+ *     SmpKeyedStoreSetVaRanges @ 0x1402DBF24 (SmpKeyedStoreSetVaRanges.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SmStoreSetProcessVaRanges(void *Src, __int64 a2)
 {
   void *v4; // rdi

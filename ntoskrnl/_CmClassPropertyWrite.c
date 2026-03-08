@@ -1,3 +1,12 @@
+/*
+ * XREFs of _CmClassPropertyWrite @ 0x140671848
+ * Callers:
+ *     PiPnpRtlCmActionCallback @ 0x1406CE2F0 (PiPnpRtlCmActionCallback.c)
+ *     _CmSetInstallerClassRegPropWorker @ 0x140A60700 (_CmSetInstallerClassRegPropWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CmClassPropertyWrite(int a1)
 {
   int v1; // ecx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of _lambda_dc07bf9eeab06415d9a9c521953e95b1_::_lambda_invoker_cdecl_ @ 0x1C00C8E60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SkipWindowOnMonitor @ 0x1C00C8DE0 (SkipWindowOnMonitor.c)
+ *     ?IsWindowActivateable@@YA_NPEBUtagWND@@@Z @ 0x1C00C8EF8 (-IsWindowActivateable@@YA_NPEBUtagWND@@@Z.c)
+ */
+
 bool __fastcall lambda_dc07bf9eeab06415d9a9c521953e95b1_::_lambda_invoker_cdecl_(__int64 a1, _OWORD *a2)
 {
   struct tagWND *v4; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefRawAddUint32 @ 0x1403FDCF4
+ * Callers:
+ *     SymCryptFdefModSetRandomGeneric @ 0x1403FF2CC (SymCryptFdefModSetRandomGeneric.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall SymCryptFdefRawAddUint32(__int64 a1, unsigned int a2, _DWORD *a3, int a4)
 {
   unsigned int v4; // r9d

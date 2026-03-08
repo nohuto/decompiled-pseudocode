@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiProcessVaContiguityInformation @ 0x14065B3D4
+ * Callers:
+ *     NtSetInformationVirtualMemory @ 0x14075BCB0 (NtSetInformationVirtualMemory.c)
+ * Callees:
+ *     MiConvertEntireLargePageToSmall @ 0x140277140 (MiConvertEntireLargePageToSmall.c)
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiObtainReferencedVadEx @ 0x14031EFE0 (MiObtainReferencedVadEx.c)
+ *     MiUnlockAndDereferenceVadShared @ 0x14031F7B0 (MiUnlockAndDereferenceVadShared.c)
+ *     MiVadPagesTradable @ 0x1403481F0 (MiVadPagesTradable.c)
+ *     MiAcquireNonPagedResources @ 0x140348D54 (MiAcquireNonPagedResources.c)
+ *     MiGetLargePage @ 0x14034EF30 (MiGetLargePage.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiQueryVaPhysicalContiguity @ 0x1406469A0 (MiQueryVaPhysicalContiguity.c)
+ *     MiMakeVaRangePhysicallyContiguous @ 0x14065B0E0 (MiMakeVaRangePhysicallyContiguous.c)
+ *     MiGetVadCacheAttribute @ 0x14065E5C4 (MiGetVadCacheAttribute.c)
+ *     MiVadSupportsPhysicalContiguityQuery @ 0x140A3D224 (MiVadSupportsPhysicalContiguityQuery.c)
+ */
+
 __int64 __fastcall MiProcessVaContiguityInformation(unsigned __int64 a1, __int64 a2)
 {
   __int64 v4; // r15

@@ -1,3 +1,23 @@
+/*
+ * XREFs of ObpProcessRemoveObjectQueue @ 0x1407DEA90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeInsertQueueDpc @ 0x140230290 (KeInsertQueueDpc.c)
+ *     MmDetachSession @ 0x1402EA460 (MmDetachSession.c)
+ *     MmAttachSession @ 0x1402EA500 (MmAttachSession.c)
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO @ 0x14035A830 (OBJECT_HEADER_TO_HANDLE_REVOCATION_INFO.c)
+ *     MmGetNextSession @ 0x14035C2F0 (MmGetNextSession.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExfUnblockPushLock @ 0x14040CCE0 (ExfUnblockPushLock.c)
+ *     ObpRemoveObjectRoutine @ 0x1407C38A0 (ObpRemoveObjectRoutine.c)
+ *     ObpHandleRevocationBlockRemoveObject @ 0x1407DEDE0 (ObpHandleRevocationBlockRemoveObject.c)
+ *     MmQuitNextSession @ 0x14087FF10 (MmQuitNextSession.c)
+ *     ObpDeregisterObject @ 0x140979950 (ObpDeregisterObject.c)
+ */
+
 void ObpProcessRemoveObjectQueue()
 {
   struct _KPROCESS *NextSession; // rax

@@ -1,3 +1,25 @@
+/*
+ * XREFs of UsbhFinishStart @ 0x1C00378F4
+ * Callers:
+ *     UsbhAsyncStartComplete @ 0x1C0042408 (UsbhAsyncStartComplete.c)
+ *     UsbhHubStart @ 0x1C0043560 (UsbhHubStart.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhQueryPortState @ 0x1C0016540 (UsbhQueryPortState.c)
+ *     UsbhSyncPowerOnPorts @ 0x1C0018A40 (UsbhSyncPowerOnPorts.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     UsbhDispatch_HardResetEvent @ 0x1C001EC80 (UsbhDispatch_HardResetEvent.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     UsbhLogStartFailure @ 0x1C002D464 (UsbhLogStartFailure.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhEnablePortIndicators @ 0x1C002F198 (UsbhEnablePortIndicators.c)
+ *     UsbhQueueSoftConnectChange @ 0x1C0034FA8 (UsbhQueueSoftConnectChange.c)
+ *     UsbhDisablePort @ 0x1C00377CC (UsbhDisablePort.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 __int64 __fastcall UsbhFinishStart(__int64 a1, __int64 a2)
 {
   int v4; // edi

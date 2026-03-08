@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserConfirmResizeCommit @ 0x1C01CEEF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     GreConfirmWindowResizeCommit @ 0x1C0269ED4 (GreConfirmWindowResizeCommit.c)
+ */
+
 __int64 __fastcall NtUserConfirmResizeCommit(__int64 a1, __int64 a2, __int64 a3)
 {
   int v4; // edi

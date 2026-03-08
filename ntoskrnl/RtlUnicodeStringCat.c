@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlUnicodeStringCat @ 0x1402BD900
+ * Callers:
+ *     PopPowerRequestStatsIdConcat @ 0x14079ABEC (PopPowerRequestStatsIdConcat.c)
+ *     CmpLogTransactionAbortedWithChildName @ 0x14079B2C8 (CmpLogTransactionAbortedWithChildName.c)
+ *     CmpGetSymbolicLinkTarget @ 0x1407B0EF0 (CmpGetSymbolicLinkTarget.c)
+ *     CmpDoWritethroughReparse @ 0x1407B6860 (CmpDoWritethroughReparse.c)
+ *     SshpGenerateDeviceFriendlyName @ 0x140842DE4 (SshpGenerateDeviceFriendlyName.c)
+ *     PopGenerateDeviceFriendlyName @ 0x140847DF4 (PopGenerateDeviceFriendlyName.c)
+ *     PopIdleWakeGenerateInterruptDescriptionString @ 0x1409975B8 (PopIdleWakeGenerateInterruptDescriptionString.c)
+ *     CmpVEExecuteVirtualStoreParseLogic @ 0x140A17764 (CmpVEExecuteVirtualStoreParseLogic.c)
+ * Callees:
+ *     RtlUnicodeStringValidateDestWorker @ 0x1402BD9D8 (RtlUnicodeStringValidateDestWorker.c)
+ *     RtlUnicodeStringValidateSrcWorker @ 0x1402BDA48 (RtlUnicodeStringValidateSrcWorker.c)
+ */
+
 NTSTATUS __stdcall RtlUnicodeStringCat(PUNICODE_STRING DestinationString, PCUNICODE_STRING SourceString)
 {
   int v4; // r8d

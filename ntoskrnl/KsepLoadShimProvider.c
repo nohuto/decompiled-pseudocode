@@ -1,3 +1,13 @@
+/*
+ * XREFs of KsepLoadShimProvider @ 0x14057E7A8
+ * Callers:
+ *     KsepResolveApplicableShimsForDriver @ 0x140800708 (KsepResolveApplicableShimsForDriver.c)
+ * Callees:
+ *     ZwLoadDriver @ 0x140414490 (ZwLoadDriver.c)
+ *     KsepStringConcatenate @ 0x14079E718 (KsepStringConcatenate.c)
+ *     KsepStringFree @ 0x14079EC60 (KsepStringFree.c)
+ */
+
 __int64 __fastcall KsepLoadShimProvider(__int64 a1)
 {
   __int64 v2; // r8

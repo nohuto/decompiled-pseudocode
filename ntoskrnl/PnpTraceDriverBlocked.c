@@ -1,3 +1,14 @@
+/*
+ * XREFs of PnpTraceDriverBlocked @ 0x140968DF4
+ * Callers:
+ *     PiIsDriverBlocked @ 0x14079DF64 (PiIsDriverBlocked.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgCreate1Sz_wchar_t @ 0x140244050 (_tlgCreate1Sz_wchar_t.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PnpTraceDriverBlocked(__int64 a1, __int64 a2)
 {
   const size_t *v3; // r9

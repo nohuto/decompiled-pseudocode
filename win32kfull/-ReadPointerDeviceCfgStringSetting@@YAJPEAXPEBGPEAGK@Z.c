@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ReadPointerDeviceCfgStringSetting@@YAJPEAXPEBGPEAGK@Z @ 0x1C010A340
+ * Callers:
+ *     ?GetFlickMap@@YAHPEAUtagFLICK_MAP@@@Z @ 0x1C01075C4 (-GetFlickMap@@YAHPEAUtagFLICK_MAP@@@Z.c)
+ *     ?GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C01F4520 (-GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
+ * Callees:
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C010A9B4 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ */
+
 __int64 __fastcall ReadPointerDeviceCfgStringSetting(
         HANDLE KeyHandle,
         PCWSTR SourceString,

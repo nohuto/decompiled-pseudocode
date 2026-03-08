@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlUnicodeToMultiByteN @ 0x1407A3650
+ * Callers:
+ *     wcstombs @ 0x1403D6080 (wcstombs.c)
+ *     _wctomb_s_l @ 0x1403D63A4 (_wctomb_s_l.c)
+ *     _safecrt_wctomb_s @ 0x1403DAE28 (_safecrt_wctomb_s.c)
+ *     RtlUnicodeStringToAnsiString @ 0x1407A34D0 (RtlUnicodeStringToAnsiString.c)
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpIsUtf8Process @ 0x1406EA7A0 (RtlpIsUtf8Process.c)
+ *     RtlUnicodeToUTF8N @ 0x1407A3750 (RtlUnicodeToUTF8N.c)
+ */
+
 NTSTATUS __stdcall RtlUnicodeToMultiByteN(
         PCHAR MultiByteString,
         ULONG MaxBytesInMultiByteString,

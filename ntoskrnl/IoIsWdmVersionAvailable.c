@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoIsWdmVersionAvailable @ 0x1408A0420
+ * Callers:
+ *     DifIoIsWdmVersionAvailableWrapper @ 0x1405DDD70 (DifIoIsWdmVersionAvailableWrapper.c)
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __stdcall IoIsWdmVersionAvailable(UCHAR MajorVersion, UCHAR MinorVersion)
 {
   BOOLEAN result; // al

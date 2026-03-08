@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpIsAnyDeviceInUse @ 0x1403CE7F8
+ * Callers:
+ *     IopCompleteUnloadOrDelete @ 0x1402F0CC4 (IopCompleteUnloadOrDelete.c)
+ *     PnpIsChainDereferenced @ 0x1403CE6E0 (PnpIsChainDereferenced.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall PnpIsAnyDeviceInUse(__int64 *a1, __int64 a2, _QWORD *a3)
 {
   __int64 i; // rdx

@@ -1,3 +1,18 @@
+/*
+ * XREFs of PspWow64InitThread @ 0x14077BCB4
+ * Callers:
+ *     PspAllocateThread @ 0x1406B00F4 (PspAllocateThread.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     RtlpGetLegacyContextLength @ 0x140365130 (RtlpGetLegacyContextLength.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PsWow64GetProcessNtdllType @ 0x140707820 (PsWow64GetProcessNtdllType.c)
+ *     RtlpArchContextFlagFromMachine @ 0x14077C9E4 (RtlpArchContextFlagFromMachine.c)
+ *     PspWow64InitThreadGuestx86 @ 0x14077D270 (PspWow64InitThreadGuestx86.c)
+ *     PspWow64InitThreadGuestArm @ 0x1409B3254 (PspWow64InitThreadGuestArm.c)
+ */
+
 __int64 __fastcall PspWow64InitThread(PRKPROCESS PROCESS, __int64 a2, _QWORD *a3, __int64 a4)
 {
   unsigned int v7; // ebx

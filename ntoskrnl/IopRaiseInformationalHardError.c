@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopRaiseInformationalHardError @ 0x140942650
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExRaiseHardError @ 0x1409FDD30 (ExRaiseHardError.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall IopRaiseInformationalHardError(char *P)
 {
   void *v2; // rcx

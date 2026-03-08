@@ -1,3 +1,25 @@
+/*
+ * XREFs of PspCreateThread @ 0x1406B1908
+ * Callers:
+ *     PsCreateSystemThreadEx @ 0x1407DE330 (PsCreateSystemThreadEx.c)
+ *     NtCreateThreadEx @ 0x1407EEB00 (NtCreateThreadEx.c)
+ *     NtCreateThread @ 0x1409AAD10 (NtCreateThread.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     PspIsProcessReadyForRemoteThread @ 0x1402F31D4 (PspIsProcessReadyForRemoteThread.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PspAllocateThread @ 0x1406B00F4 (PspAllocateThread.c)
+ *     PspInsertThread @ 0x1406B0F50 (PspInsertThread.c)
+ *     PspMapThreadCreationFlags @ 0x1406B1C88 (PspMapThreadCreationFlags.c)
+ *     ObReferenceObjectByHandleWithTag @ 0x1406D8E50 (ObReferenceObjectByHandleWithTag.c)
+ */
+
 __int64 __fastcall PspCreateThread(
         __int64 a1,
         int a2,

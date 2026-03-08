@@ -1,3 +1,11 @@
+/*
+ * XREFs of IommupHvMapDevice @ 0x140522C78
+ * Callers:
+ *     IommupMapDeviceInternal @ 0x1405216F8 (IommupMapDeviceInternal.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall IommupHvMapDevice(__int64 a1, __int64 a2, unsigned int *a3, _DWORD *a4)
 {
   int v6; // ebx

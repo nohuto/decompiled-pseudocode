@@ -1,3 +1,12 @@
+/*
+ * XREFs of DmrpRmrrTreeAddNewScope @ 0x14037C268
+ * Callers:
+ *     DmrEnumerateRmrrDomains @ 0x14037BD30 (DmrEnumerateRmrrDomains.c)
+ * Callees:
+ *     ExtEnvAllocateMemory @ 0x14037C828 (ExtEnvAllocateMemory.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall DmrpRmrrTreeAddNewScope(__int64 a1, __int16 a2, unsigned __int8 *a3)
 {
   __int64 v6; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of CommonBuffer_AcquireBuffers @ 0x1C000B404
+ * Callers:
+ *     TR_EnsureSegments @ 0x1C000B240 (TR_EnsureSegments.c)
+ * Callees:
+ *     CommonBuffer_QueueWorkItem @ 0x1C0008160 (CommonBuffer_QueueWorkItem.c)
+ *     XilCoreCommonBuffer_AcquireBuffers @ 0x1C000B490 (XilCoreCommonBuffer_AcquireBuffers.c)
+ */
+
 __int64 __fastcall CommonBuffer_AcquireBuffers(
         KSPIN_LOCK *Context,
         int a2,

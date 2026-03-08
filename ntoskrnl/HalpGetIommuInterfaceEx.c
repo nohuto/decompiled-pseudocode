@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpGetIommuInterfaceEx @ 0x140858BF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpGetIommuInterfaceEx(int a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

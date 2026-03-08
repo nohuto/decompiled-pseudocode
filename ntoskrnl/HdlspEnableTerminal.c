@@ -1,3 +1,14 @@
+/*
+ * XREFs of HdlspEnableTerminal @ 0x140AE75C4
+ * Callers:
+ *     HdlspDispatch @ 0x140AE6EB0 (HdlspDispatch.c)
+ *     HeadlessInit @ 0x140B484E0 (HeadlessInit.c)
+ * Callees:
+ *     InbvPortInitialize @ 0x14067701C (InbvPortInitialize.c)
+ *     InbvPortTerminate @ 0x140677218 (InbvPortTerminate.c)
+ *     HdlspSendStringAtBaud @ 0x140AE8474 (HdlspSendStringAtBaud.c)
+ */
+
 __int64 __fastcall HdlspEnableTerminal(char a1)
 {
   unsigned int v1; // edx

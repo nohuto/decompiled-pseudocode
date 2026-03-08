@@ -1,3 +1,11 @@
+/*
+ * XREFs of DifMarkHiberPhase @ 0x1405D2A64
+ * Callers:
+ *     PopMarkComponentsBootPhase @ 0x140AA049C (PopMarkComponentsBootPhase.c)
+ * Callees:
+ *     PoSetHiberRange @ 0x14058C400 (PoSetHiberRange.c)
+ */
+
 void DifMarkHiberPhase()
 {
   __int64 *i; // rbx

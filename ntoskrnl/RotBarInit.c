@@ -1,3 +1,11 @@
+/*
+ * XREFs of RotBarInit @ 0x14054C470
+ * Callers:
+ *     DisplayBootBitmap @ 0x1403A4B48 (DisplayBootBitmap.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 RotBarInit()
 {
   _DWORD *v0; // rax

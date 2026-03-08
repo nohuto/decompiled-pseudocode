@@ -1,3 +1,30 @@
+/*
+ * XREFs of FsRtlReleaseFile @ 0x1407D18E0
+ * Callers:
+ *     CcDeleteSharedCacheMap @ 0x140217A10 (CcDeleteSharedCacheMap.c)
+ *     CcWriteBehindPostProcess @ 0x140219248 (CcWriteBehindPostProcess.c)
+ *     MiReferenceControlArea @ 0x140331908 (MiReferenceControlArea.c)
+ *     CcZeroEndOfLastPage @ 0x140343FA8 (CcZeroEndOfLastPage.c)
+ *     FsRtlCreateSectionForDataScan @ 0x140368300 (FsRtlCreateSectionForDataScan.c)
+ *     MiCreateNewSection @ 0x1406A6414 (MiCreateNewSection.c)
+ *     MiCallCreateSectionFilters @ 0x1407D16B0 (MiCallCreateSectionFilters.c)
+ *     MiShareExistingControlArea @ 0x1407D1CAC (MiShareExistingControlArea.c)
+ * Callees:
+ *     IoGetDeviceAttachmentBaseRef @ 0x1402409C0 (IoGetDeviceAttachmentBaseRef.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     IoGetBaseFileSystemDeviceObject @ 0x140343B10 (IoGetBaseFileSystemDeviceObject.c)
+ *     FsFilterCtrlInit @ 0x140343B50 (FsFilterCtrlInit.c)
+ *     FsFilterPerformCompletionCallbacks @ 0x140343BE0 (FsFilterPerformCompletionCallbacks.c)
+ *     FsFilterPerformCallbacks @ 0x140343C70 (FsFilterPerformCallbacks.c)
+ *     FsFilterCtrlFree @ 0x140343F88 (FsFilterCtrlFree.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void __stdcall FsRtlReleaseFile(PFILE_OBJECT FileObject)
 {
   char v2; // si

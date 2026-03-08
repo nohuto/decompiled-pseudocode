@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_GetRectForLocation@Edgy@@YA?AUtagRECT@@AEBU2@W4tagEDGY_LOCATION@@K@Z @ 0x1C01E9348
+ * Callers:
+ *     ?_HitTestEdgyRegion@Edgy@@YA?AUtagHIT_TEST_RESULT@1@AEBUtagEDGY_DATA@@PEAXUtagPOINT@@W4tagPOINTER_DEVICE_TYPE@@H@Z @ 0x1C01E9458 (-_HitTestEdgyRegion@Edgy@@YA-AUtagHIT_TEST_RESULT@1@AEBUtagEDGY_DATA@@PEAXUtagPOINT@@W4tagPOINTE.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Edgy::_GetRectForLocation(__int64 a1, _OWORD *a2, int a3, int a4)
 {
   int v5; // r8d

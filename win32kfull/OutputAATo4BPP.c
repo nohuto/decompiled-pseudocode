@@ -1,3 +1,11 @@
+/*
+ * XREFs of OutputAATo4BPP @ 0x1C025B380
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall OutputAATo4BPP(
         _DWORD *a1,
         unsigned __int8 *a2,

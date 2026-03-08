@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ClearPreviewRect@MOVESIZEDATA@@QEAAXXZ @ 0x1C023CE60
+ * Callers:
+ *     ?xxxUpdateArrangeDataForMove@@YAXPEAUMOVESIZEDATA@@PEAUtagMONITOR@@W4THRESHOLD_MARGIN_DIRECTION@@2@Z @ 0x1C01F3238 (-xxxUpdateArrangeDataForMove@@YAXPEAUMOVESIZEDATA@@PEAUtagMONITOR@@W4THRESHOLD_MARGIN_DIRECTION@.c)
+ * Callees:
+ *     bSetDevDragRect @ 0x1C001DE80 (bSetDevDragRect.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ */
+
 void __fastcall MOVESIZEDATA::ClearPreviewRect(MOVESIZEDATA *this)
 {
   bool v2; // dl

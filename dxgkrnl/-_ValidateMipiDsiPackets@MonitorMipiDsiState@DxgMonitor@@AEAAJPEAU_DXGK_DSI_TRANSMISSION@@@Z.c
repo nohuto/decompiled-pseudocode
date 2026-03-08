@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_ValidateMipiDsiPackets@MonitorMipiDsiState@DxgMonitor@@AEAAJPEAU_DXGK_DSI_TRANSMISSION@@@Z @ 0x1C03CB360
+ * Callers:
+ *     ?_DsiTransmission@MonitorMipiDsiState@DxgMonitor@@AEAAJKPEAXK0PEA_K@Z @ 0x1C03CAF54 (-_DsiTransmission@MonitorMipiDsiState@DxgMonitor@@AEAAJKPEAXK0PEA_K@Z.c)
+ * Callees:
+ *     ?_IsValidPacket@MonitorMipiDsiState@DxgMonitor@@AEAA_NPEBU_DXGK_DSI_PACKET@@_NI@Z @ 0x1C03CB204 (-_IsValidPacket@MonitorMipiDsiState@DxgMonitor@@AEAA_NPEBU_DXGK_DSI_PACKET@@_NI@Z.c)
+ */
+
 __int64 __fastcall DxgMonitor::MonitorMipiDsiState::_ValidateMipiDsiPackets(
         DxgMonitor::MonitorMipiDsiState *this,
         struct _DXGK_DSI_TRANSMISSION *a2)

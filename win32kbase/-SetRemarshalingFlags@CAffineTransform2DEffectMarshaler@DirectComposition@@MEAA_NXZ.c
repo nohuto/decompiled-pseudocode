@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CAffineTransform2DEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0251160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall DirectComposition::CAffineTransform2DEffectMarshaler::SetRemarshalingFlags(
         DirectComposition::CAffineTransform2DEffectMarshaler *this)
 {

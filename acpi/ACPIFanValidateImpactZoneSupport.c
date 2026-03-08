@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIFanValidateImpactZoneSupport @ 0x1C0085554
+ * Callers:
+ *     ACPIFanPrepareImpactZoneSupport @ 0x1C0084960 (ACPIFanPrepareImpactZoneSupport.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     WPP_RECORDER_SF_dddqss @ 0x1C0027F8C (WPP_RECORDER_SF_dddqss.c)
+ */
+
 char __fastcall ACPIFanValidateImpactZoneSupport(__int64 a1, __int64 a2, const char *a3)
 {
   char v3; // di

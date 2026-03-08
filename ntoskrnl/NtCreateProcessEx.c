@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtCreateProcessEx @ 0x1409AAC70
+ * Callers:
+ *     NtCreateProcess @ 0x1409AABE0 (NtCreateProcess.c)
+ * Callees:
+ *     PspCreateProcess @ 0x140858F60 (PspCreateProcess.c)
+ */
+
 NTSTATUS __fastcall NtCreateProcessEx(
         _QWORD *a1,
         int a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiAssemblePfnList @ 0x140665108
+ * Callers:
+ *     MiAllocateLargeZeroPages @ 0x14034DCB0 (MiAllocateLargeZeroPages.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiAssemblePfnList(__int64 a1, _QWORD *a2, unsigned int a3)
 {
   __int64 result; // rax

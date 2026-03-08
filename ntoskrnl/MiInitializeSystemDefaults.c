@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiInitializeSystemDefaults @ 0x140B6F454
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     strstr @ 0x1403D3650 (strstr.c)
+ */
+
 int __fastcall MiInitializeSystemDefaults(__int64 a1)
 {
   int v1; // edx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CGenericMarshaler@DirectComposition@@UEAA_NXZ @ 0x1C026F720
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall DirectComposition::CGenericMarshaler::SetRemarshalingFlags(DirectComposition::CGenericMarshaler *this)
 {
   __int64 *v1; // rax

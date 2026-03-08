@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiPccAcquireSubspaceCore @ 0x1C0033C0C
+ * Callers:
+ *     AcpiPccAcquireSubspaceAsync @ 0x1C0004630 (AcpiPccAcquireSubspaceAsync.c)
+ *     AcpiPccAcquireSubspace @ 0x1C0089970 (AcpiPccAcquireSubspace.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall AcpiPccAcquireSubspaceCore(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
   unsigned int v8; // ebx

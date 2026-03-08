@@ -1,3 +1,11 @@
+/*
+ * XREFs of PciRootBusBiosMethodDispatcherOnResume @ 0x1C0034750
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcpiEvaluateOscMethodOnPciRootBus @ 0x1C0034694 (AcpiEvaluateOscMethodOnPciRootBus.c)
+ */
+
 void __fastcall PciRootBusBiosMethodDispatcherOnResume(char *StartContext)
 {
   NTSTATUS v2; // eax

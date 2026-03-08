@@ -1,3 +1,17 @@
+/*
+ * XREFs of _GetSubMenu @ 0x1C002165C
+ * Callers:
+ *     xxxGetSystemMenu @ 0x1C0021498 (xxxGetSystemMenu.c)
+ *     xxxMNKeyDown @ 0x1C021ABF8 (xxxMNKeyDown.c)
+ *     xxxGetSysMenu @ 0x1C0224EB0 (xxxGetSysMenu.c)
+ *     xxxSetSysMenu @ 0x1C0224F64 (xxxSetSysMenu.c)
+ *     ?xxxGetScrollMenu@@YAPEAUtagMENU@@PEAUtagWND@@H@Z @ 0x1C022C368 (-xxxGetScrollMenu@@YAPEAUtagMENU@@PEAUtagWND@@H@Z.c)
+ * Callees:
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C00A6450 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C00D3DA0 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00D5030 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ */
+
 __int64 __fastcall GetSubMenu(__int64 a1)
 {
   int v2; // ebx

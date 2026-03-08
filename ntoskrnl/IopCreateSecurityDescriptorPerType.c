@@ -1,3 +1,16 @@
+/*
+ * XREFs of IopCreateSecurityDescriptorPerType @ 0x1407F0A50
+ * Callers:
+ *     IopCreateDefaultDeviceSecurityDescriptor @ 0x1407F092C (IopCreateDefaultDeviceSecurityDescriptor.c)
+ * Callees:
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D26A0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406DB5A0 (RtlCreateSecurityDescriptor.c)
+ *     RtlSetSaclSecurityDescriptor @ 0x1406DB5D0 (RtlSetSaclSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406DB640 (RtlCreateAcl.c)
+ *     RtlAddMandatoryAce @ 0x140740AF0 (RtlAddMandatoryAce.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 NTSTATUS __fastcall IopCreateSecurityDescriptorPerType(
         PSECURITY_DESCRIPTOR SecurityDescriptor,
         int a2,

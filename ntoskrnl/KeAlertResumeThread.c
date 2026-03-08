@@ -1,3 +1,13 @@
+/*
+ * XREFs of KeAlertResumeThread @ 0x14056C6FC
+ * Callers:
+ *     NtAlertResumeThread @ 0x1409B2E40 (NtAlertResumeThread.c)
+ * Callees:
+ *     KeResumeThread @ 0x140354130 (KeResumeThread.c)
+ *     KeAlertThread @ 0x140354F40 (KeAlertThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeAlertResumeThread(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // bl

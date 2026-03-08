@@ -1,3 +1,11 @@
+/*
+ * XREFs of UserSetDelayedSwitchAction @ 0x1C017CD90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall UserSetDelayedSwitchAction(__int64 a1)
 {
   int v1; // ebx

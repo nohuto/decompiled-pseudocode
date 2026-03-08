@@ -1,3 +1,11 @@
+/*
+ * XREFs of ESM_NotifyingTransferRingsEndpointResetFromClient @ 0x1C00517B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     TR_EndpointResetFromClient @ 0x1C004182C (TR_EndpointResetFromClient.c)
+ */
+
 __int64 __fastcall ESM_NotifyingTransferRingsEndpointResetFromClient(__int64 a1)
 {
   __int64 v1; // rbx

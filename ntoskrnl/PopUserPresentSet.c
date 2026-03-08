@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopUserPresentSet @ 0x14058BAC4
+ * Callers:
+ *     PopSetSystemState @ 0x14058BA7C (PopSetSystemState.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     PopResetIdleTime @ 0x1403AF6E8 (PopResetIdleTime.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     DbgkWerCaptureLiveKernelDump @ 0x14087EC10 (DbgkWerCaptureLiveKernelDump.c)
+ */
+
 __int64 __fastcall PopUserPresentSet(__int32 a1)
 {
   __int64 result; // rax

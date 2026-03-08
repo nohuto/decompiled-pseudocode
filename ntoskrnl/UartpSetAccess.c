@@ -1,3 +1,11 @@
+/*
+ * XREFs of UartpSetAccess @ 0x14067B1AC
+ * Callers:
+ *     Uart16550InitializePortCommon @ 0x14067A794 (Uart16550InitializePortCommon.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall UartpSetAccess(__int64 a1, char a2, char a3, unsigned __int8 a4)
 {
   unsigned __int8 v4; // r11

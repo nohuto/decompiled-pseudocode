@@ -1,3 +1,15 @@
+/*
+ * XREFs of AsyncCallBack @ 0x1C00543D8
+ * Callers:
+ *     InsertReadyQueue @ 0x1C00057E4 (InsertReadyQueue.c)
+ *     RunContext @ 0x1C0053F34 (RunContext.c)
+ *     ParseNestedContext @ 0x1C005BB50 (ParseNestedContext.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     LogSchedEvent @ 0x1C004E3AC (LogSchedEvent.c)
+ *     RestartContext @ 0x1C00512E8 (RestartContext.c)
+ */
+
 int __fastcall AsyncCallBack(_QWORD *a1, unsigned int a2)
 {
   _QWORD *v2; // rax

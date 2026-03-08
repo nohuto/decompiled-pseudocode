@@ -1,3 +1,17 @@
+/*
+ * XREFs of ApiSetpLoadSchemaExtension @ 0x140A07380
+ * Callers:
+ *     ApiSetpLoadSchemaExtensions @ 0x140A0749C (ApiSetpLoadSchemaExtensions.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     ApiSetReleaseSchema @ 0x140612300 (ApiSetReleaseSchema.c)
+ *     ApiSetComposeSchema @ 0x1406125BC (ApiSetComposeSchema.c)
+ *     ApiSetLoadSchemaEx @ 0x140A070AC (ApiSetLoadSchemaEx.c)
+ *     ApiSetpConstructPathToExtension @ 0x140A07250 (ApiSetpConstructPathToExtension.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ApiSetpLoadSchemaExtension(void *a1, unsigned int **a2, unsigned int *a3)
 {
   _DWORD *v3; // rdi

@@ -1,3 +1,16 @@
+/*
+ * XREFs of _CmGetDeviceInterfaceMappedPropertyFromComposite @ 0x1406CB4C0
+ * Callers:
+ *     _CmGetDeviceInterfaceMappedProperty @ 0x1406C92BC (_CmGetDeviceInterfaceMappedProperty.c)
+ *     _CmGetDeviceInterfaceMappedPropertyKeys @ 0x140A65758 (_CmGetDeviceInterfaceMappedPropertyKeys.c)
+ * Callees:
+ *     _CmGetDeviceInterfaceClassGuid @ 0x1406CB71C (_CmGetDeviceInterfaceClassGuid.c)
+ *     _PnpGetObjectProperty @ 0x1406D0FB4 (_PnpGetObjectProperty.c)
+ *     _CmGetDeviceInterfaceReferenceString @ 0x14078E658 (_CmGetDeviceInterfaceReferenceString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmGetDeviceInterfaceMappedPropertyFromComposite(
         __int64 a1,
         __int64 a2,

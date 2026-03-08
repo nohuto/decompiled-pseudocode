@@ -1,3 +1,20 @@
+/*
+ * XREFs of EtwpTraceStackWalk @ 0x140460A6C
+ * Callers:
+ *     EtwpStackTraceDispatcher @ 0x140460750 (EtwpStackTraceDispatcher.c)
+ *     EtwpStackWalkApc @ 0x140460860 (EtwpStackWalkApc.c)
+ * Callees:
+ *     RtlWalkFrameChain @ 0x140205CA0 (RtlWalkFrameChain.c)
+ *     KeQueryCurrentStackInformation @ 0x1402E1E00 (KeQueryCurrentStackInformation.c)
+ *     EtwpLogKernelEvent @ 0x1403149F0 (EtwpLogKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeGetCurrentStackPointer @ 0x1404166E0 (KeGetCurrentStackPointer.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     EtwpGetStackLookasideListEntry @ 0x140460460 (EtwpGetStackLookasideListEntry.c)
+ *     EtwpTraceStackKey @ 0x140461010 (EtwpTraceStackKey.c)
+ *     PsPicoWalkUserStack @ 0x1409B220C (PsPicoWalkUserStack.c)
+ */
+
 void __fastcall EtwpTraceStackWalk(__int64 a1, unsigned int a2, __int64 a3, _QWORD *a4)
 {
   int v6; // ecx

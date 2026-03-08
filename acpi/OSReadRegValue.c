@@ -1,3 +1,25 @@
+/*
+ * XREFs of OSReadRegValue @ 0x1C008E6A0
+ * Callers:
+ *     AMLIAddNextNamespaceOverrideObject @ 0x1C004A534 (AMLIAddNextNamespaceOverrideObject.c)
+ *     ACPIInitGlobalHeapSize @ 0x1C00878B8 (ACPIInitGlobalHeapSize.c)
+ *     ACPIRegReadAMLRegistryEntry @ 0x1C008D3DC (ACPIRegReadAMLRegistryEntry.c)
+ *     ACPIRegReadEntireAcpiTable @ 0x1C008D69C (ACPIRegReadEntireAcpiTable.c)
+ *     ACPIRegReadEntireSimulatorAcpiTable @ 0x1C008D920 (ACPIRegReadEntireSimulatorAcpiTable.c)
+ *     ACPIInitShutdownNotification @ 0x1C00936A0 (ACPIInitShutdownNotification.c)
+ *     ACPIRootInitialize @ 0x1C0093768 (ACPIRootInitialize.c)
+ *     ACPIThermalGetParameter @ 0x1C00959A4 (ACPIThermalGetParameter.c)
+ *     AcpiDiagInitialize @ 0x1C00A71E8 (AcpiDiagInitialize.c)
+ *     ACPIInitReadRegistryKeys @ 0x1C00A8998 (ACPIInitReadRegistryKeys.c)
+ *     ACPIInitializeAMLI @ 0x1C00A92D4 (ACPIInitializeAMLI.c)
+ *     AMLIInitialize @ 0x1C00AAAB0 (AMLIInitialize.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C00149A0 (WPP_RECORDER_SF_DD.c)
+ *     OSOpenHandle @ 0x1C008DF10 (OSOpenHandle.c)
+ */
+
 __int64 __fastcall OSReadRegValue(PCSZ SourceString, void *a2, _BYTE *a3, unsigned int *a4)
 {
   int v8; // edx

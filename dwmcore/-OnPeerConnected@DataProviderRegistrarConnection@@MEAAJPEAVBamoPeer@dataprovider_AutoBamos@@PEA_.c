@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnPeerConnected@DataProviderRegistrarConnection@@MEAAJPEAVBamoPeer@dataprovider_AutoBamos@@PEA_NPEAPEAVBamoPrincipal@Bamo@Microsoft@@@Z @ 0x180103EC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DataProviderRegistrarConnection::OnPeerConnected(
         DataProviderRegistrarConnection *this,
         struct dataprovider_AutoBamos::BamoPeer *a2,

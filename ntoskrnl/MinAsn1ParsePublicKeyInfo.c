@@ -1,3 +1,13 @@
+/*
+ * XREFs of MinAsn1ParsePublicKeyInfo @ 0x140A6D938
+ * Callers:
+ *     SecureDump_ConvertToRsaBlob @ 0x14055B6F0 (SecureDump_ConvertToRsaBlob.c)
+ *     MinCryptIsKeyPresent @ 0x1406750BC (MinCryptIsKeyPresent.c)
+ *     MinCryptVerifySignedHash2 @ 0x140A6C6A0 (MinCryptVerifySignedHash2.c)
+ * Callees:
+ *     MinAsn1ExtractValues @ 0x140A6EB74 (MinAsn1ExtractValues.c)
+ */
+
 __int64 __fastcall MinAsn1ParsePublicKeyInfo(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

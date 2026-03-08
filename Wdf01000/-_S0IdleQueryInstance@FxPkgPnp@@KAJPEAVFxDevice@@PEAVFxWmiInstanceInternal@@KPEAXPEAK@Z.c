@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?_S0IdleQueryInstance@FxPkgPnp@@KAJPEAVFxDevice@@PEAVFxWmiInstanceInternal@@KPEAXPEAK@Z @ 0x1C0009800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FxPkgPnp::_S0IdleQueryInstance(
         FxDevice *Device,
         FxWmiInstanceInternal *__formal,

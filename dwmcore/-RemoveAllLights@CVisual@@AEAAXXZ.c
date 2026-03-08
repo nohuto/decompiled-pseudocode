@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RemoveAllLights@CVisual@@AEAAXXZ @ 0x18009A15C
+ * Callers:
+ *     ??1CVisual@@MEAA@XZ @ 0x18009A61C (--1CVisual@@MEAA@XZ.c)
+ * Callees:
+ *     ?Remove@CPtrArrayBase@@IEAA_N_K@Z @ 0x1800D5814 (-Remove@CPtrArrayBase@@IEAA_N_K@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CVisual::RemoveAllLights(CVisual *this)
 {
   char *v1; // rbp

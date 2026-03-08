@@ -1,3 +1,14 @@
+/*
+ * XREFs of EtwTraceThreadWorkItem @ 0x1405FB2E0
+ * Callers:
+ *     IopProcessWorkItem @ 0x140203980 (IopProcessWorkItem.c)
+ *     ExpWorkerThread @ 0x140352200 (ExpWorkerThread.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExIsSafeWorkItem @ 0x1403DDB50 (ExIsSafeWorkItem.c)
+ */
+
 void __fastcall EtwTraceThreadWorkItem(struct _KTHREAD *(__fastcall *a1)(__int64 a1), unsigned __int16 a2)
 {
   struct _KTHREAD *(__fastcall *v3)(__int64); // [rsp+30h] [rbp-28h] BYREF

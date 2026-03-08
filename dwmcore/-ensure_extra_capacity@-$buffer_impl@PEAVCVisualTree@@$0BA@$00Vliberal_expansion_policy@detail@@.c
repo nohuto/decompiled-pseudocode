@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?ensure_extra_capacity@?$buffer_impl@PEAVCVisualTree@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@QEAAX_K@Z @ 0x1800BA540
+ * Callers:
+ *     ??$insert_unchecked@AEBQEAVICompositionSurfaceInfoListener@@@?$vector_facade@PEAVICompositionSurfaceInfoListener@@V?$buffer_impl@PEAVICompositionSurfaceInfoListener@@$00$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAA?AV?$basic_iterator@PEAVICompositionSurfaceInfoListener@@@1@V?$basic_iterator@QEAVICompositionSurfaceInfoListener@@@1@AEBQEAVICompositionSurfaceInfoListener@@@Z @ 0x1800BA72C (--$insert_unchecked@AEBQEAVICompositionSurfaceInfoListener@@@-$vector_facade@PEAVICompositionSur.c)
+ *     ??$insert_unchecked@AEBQEAVCVisualTree@@@?$vector_facade@PEAVCVisualTree@@V?$buffer_impl@PEAVCVisualTree@@$0BA@$00Vliberal_expansion_policy@detail@@@detail@@@detail@@IEAA?AV?$basic_iterator@PEAVCVisualTree@@@1@V?$basic_iterator@QEAVCVisualTree@@@1@AEBQEAVCVisualTree@@@Z @ 0x1800C7628 (--$insert_unchecked@AEBQEAVCVisualTree@@@-$vector_facade@PEAVCVisualTree@@V-$buffer_impl@PEAVCVi.c)
+ * Callees:
+ *     ??$uninitialized_copy@V?$move_iterator@PEAPEAVIDeviceResource@@@std@@V?$checked_array_iterator@PEAPEAVIDeviceResource@@@stdext@@@std@@YA?AV?$checked_array_iterator@PEAPEAVIDeviceResource@@@stdext@@V?$move_iterator@PEAPEAVIDeviceResource@@@0@0V12@@Z @ 0x180012054 (--$uninitialized_copy@V-$move_iterator@PEAPEAVIDeviceResource@@@std@@V-$checked_array_iterator@P.c)
+ *     ??2@YAPEAX_K@Z @ 0x180034790 (--2@YAPEAX_K@Z.c)
+ *     ?expand@liberal_expansion_policy@detail@@QEAA_K_K0@Z @ 0x180044B80 (-expand@liberal_expansion_policy@detail@@QEAA_K_K0@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ */
+
 unsigned __int64 __fastcall detail::buffer_impl<CVisualTree *,16,1,detail::liberal_expansion_policy>::ensure_extra_capacity(
         const void **a1,
         unsigned __int64 a2)

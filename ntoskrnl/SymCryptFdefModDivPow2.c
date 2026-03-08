@@ -1,3 +1,12 @@
+/*
+ * XREFs of SymCryptFdefModDivPow2 @ 0x1403FE4B8
+ * Callers:
+ *     SymCryptModDivPow2 @ 0x1403F3A90 (SymCryptModDivPow2.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 void __fastcall SymCryptFdefModDivPow2(__int64 a1, unsigned int *a2, unsigned int a3, unsigned int *a4)
 {
   int v4; // ebx

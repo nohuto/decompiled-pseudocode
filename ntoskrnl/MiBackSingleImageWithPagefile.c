@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiBackSingleImageWithPagefile @ 0x14086FBD4
+ * Callers:
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ *     MiBackSystemImageWithPagefile @ 0x14086FAA8 (MiBackSystemImageWithPagefile.c)
+ * Callees:
+ *     MiMakeDriverPagesPrivate @ 0x1402A6440 (MiMakeDriverPagesPrivate.c)
+ *     MiSnapDriverRange @ 0x14072A118 (MiSnapDriverRange.c)
+ */
+
 __int64 __fastcall MiBackSingleImageWithPagefile(__int64 a1)
 {
   unsigned int v2; // edi

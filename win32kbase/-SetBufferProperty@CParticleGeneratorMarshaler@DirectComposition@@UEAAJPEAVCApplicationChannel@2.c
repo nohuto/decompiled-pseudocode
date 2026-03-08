@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CParticleGeneratorMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C025C400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CParticleGeneratorMarshaler::SetBufferProperty(
         DirectComposition::CParticleGeneratorMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

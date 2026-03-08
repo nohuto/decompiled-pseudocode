@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetAdjustedHandoffValue@CAnimationInterpolator@@IEAA_N_JMW4Enum@DwmAnimationHandoffType@@M_KPEAM@Z @ 0x18027D704
+ * Callers:
+ *     ?UpdateAnimateValues@CAnimation@@UEAA_NXZ @ 0x1800C51A0 (-UpdateAnimateValues@CAnimation@@UEAA_NXZ.c)
+ *     ?GetAnimationValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z @ 0x18027D80C (-GetAnimationValue@CAnimationInterpolator@@QEAA_N_JPEAMPEA_N@Z.c)
+ * Callees:
+ *     ?EnsureHandoffCachedData@CAnimationInterpolator@@IEAA_NM_K@Z @ 0x18027D594 (-EnsureHandoffCachedData@CAnimationInterpolator@@IEAA_NM_K@Z.c)
+ */
+
 bool __fastcall CAnimationInterpolator::GetAdjustedHandoffValue(
         __int64 a1,
         signed __int64 a2,

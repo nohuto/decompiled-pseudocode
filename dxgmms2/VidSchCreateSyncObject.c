@@ -1,3 +1,22 @@
+/*
+ * XREFs of VidSchCreateSyncObject @ 0x1C00AA640
+ * Callers:
+ *     ?CreateOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@K_K1KKKU_D3DDDI_SEGMENTPREFERENCE@@U_DXGK_ALLOCATIONINFOFLAGS@@U_DXGK_ALLOCATIONINFOFLAGS2@@PEAVDXGADAPTERALLOCATION@@PEAX6KE6PEAVVIDMM_PAGE_TABLE_BASE@@PEAPEAU_VIDMM_CROSSADAPTER_ALLOC@@PEAPEAU_VIDMM_GLOBAL_ALLOC@@@Z @ 0x1C009F370 (-CreateOneAllocation@VIDMM_GLOBAL@@QEAAJPEAVVIDMM_DEVICE@@K_K1KKKU_D3DDDI_SEGMENTPREFERENCE@@U_D.c)
+ *     ?Initialize@VIDMM_DEVICE_PAGING_QUEUE@@QEAAJPEAVVIDMM_DEVICE@@IW4VIDMM_PAGING_QUEUE_TYPE@@_N@Z @ 0x1C00AA3AC (-Initialize@VIDMM_DEVICE_PAGING_QUEUE@@QEAAJPEAVVIDMM_DEVICE@@IW4VIDMM_PAGING_QUEUE_TYPE@@_N@Z.c)
+ *     ?CreatePagingFenceObjects@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C00C2140 (-CreatePagingFenceObjects@VIDMM_GLOBAL@@QEAAJXZ.c)
+ * Callees:
+ *     ?GetCurrent@DXGPROCESS@@SAPEAV1@XZ @ 0x1C0002338 (-GetCurrent@DXGPROCESS@@SAPEAV1@XZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ *     DxgkAcquireGuestCpuEvent @ 0x1C002CF90 (DxgkAcquireGuestCpuEvent.c)
+ *     McTemplateK0ppqqpx_EtwWriteTransfer @ 0x1C002EC20 (McTemplateK0ppqqpx_EtwWriteTransfer.c)
+ *     McTemplateK0ppqqppqi_EtwWriteTransfer @ 0x1C002ECD8 (McTemplateK0ppqqppqi_EtwWriteTransfer.c)
+ *     McTemplateK0ppqqpqq_EtwWriteTransfer @ 0x1C002EDB0 (McTemplateK0ppqqpqq_EtwWriteTransfer.c)
+ *     McTemplateK0ppqqpt_EtwWriteTransfer @ 0x1C002EE6C (McTemplateK0ppqqpt_EtwWriteTransfer.c)
+ *     VidSchiAddSyncObjectToAdapterList @ 0x1C003A280 (VidSchiAddSyncObjectToAdapterList.c)
+ *     VidSchiAddSyncObjectToCrossAdapterInfo @ 0x1C003A308 (VidSchiAddSyncObjectToCrossAdapterInfo.c)
+ *     ?AllocateFenceStorageSlot@VIDMM_GLOBAL@@SAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N11_K1@Z @ 0x1C00AACC8 (-AllocateFenceStorageSlot@VIDMM_GLOBAL@@SAJPEAUVIDMM_MONITORED_FENCE_STORAGE@@_N11_K1@Z.c)
+ */
+
 __int64 __fastcall VidSchCreateSyncObject(
         __int64 a1,
         __int64 a2,

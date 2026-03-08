@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CalcAcceleration@CDirtyRegion@@AEAAMAEBUDirtyRegionCachedData@1@0@Z @ 0x1800E9090
+ * Callers:
+ *     ?Optimize@CDirtyRegion@@QEAAXXZ @ 0x180074E70 (-Optimize@CDirtyRegion@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 float __fastcall CDirtyRegion::CalcAcceleration(
         CDirtyRegion *this,
         const struct CDirtyRegion::DirtyRegionCachedData *a2,

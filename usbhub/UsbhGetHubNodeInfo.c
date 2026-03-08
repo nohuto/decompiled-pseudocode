@@ -1,3 +1,19 @@
+/*
+ * XREFs of UsbhGetHubNodeInfo @ 0x1C00493A8
+ * Callers:
+ *     UsbhQueryWmiDataBlock @ 0x1C0049CA0 (UsbhQueryWmiDataBlock.c)
+ * Callees:
+ *     UsbhUnlatchPdo @ 0x1C0001380 (UsbhUnlatchPdo.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhLatchPdo @ 0x1C0019420 (UsbhLatchPdo.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     UsbhRefPdoDeviceHandle @ 0x1C0019C20 (UsbhRefPdoDeviceHandle.c)
+ *     UsbhDerefPdoDeviceHandle @ 0x1C0019ED0 (UsbhDerefPdoDeviceHandle.c)
+ *     memset @ 0x1C0023880 (memset.c)
+ *     UsbhGetDeviceInformationEx @ 0x1C003DF90 (UsbhGetDeviceInformationEx.c)
+ */
+
 __int64 __fastcall UsbhGetHubNodeInfo(__int64 a1, _DWORD *a2, unsigned int a3, unsigned int *a4)
 {
   unsigned int *v4; // r12

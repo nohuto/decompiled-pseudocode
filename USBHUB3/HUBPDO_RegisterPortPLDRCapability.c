@@ -1,3 +1,20 @@
+/*
+ * XREFs of HUBPDO_RegisterPortPLDRCapability @ 0x1C0080B64
+ * Callers:
+ *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0018550 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0001008 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     WPP_RECORDER_SF_DDd @ 0x1C0014BAC (WPP_RECORDER_SF_DDd.c)
+ *     HUBPDO_GetPortPath @ 0x1C001A014 (HUBPDO_GetPortPath.c)
+ *     DereferenceDeviceResetInterface @ 0x1C0043E24 (DereferenceDeviceResetInterface.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ *     HUBREG_SetPortPLDRCapabilityValue @ 0x1C00894E4 (HUBREG_SetPortPLDRCapabilityValue.c)
+ *     QueryDeviceResetInterface @ 0x1C008F7E8 (QueryDeviceResetInterface.c)
+ */
+
 __int64 __fastcall HUBPDO_RegisterPortPLDRCapability(_QWORD *a1)
 {
   __int64 v2; // r14

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlStateDurationDelta @ 0x140294EDC
+ * Callers:
+ *     PopEtEnergyValuesDeltaCalculate @ 0x1407021E8 (PopEtEnergyValuesDeltaCalculate.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlStateDurationDelta(__int64 a1, int *a2, unsigned int *a3)
 {
   unsigned int v4; // ecx

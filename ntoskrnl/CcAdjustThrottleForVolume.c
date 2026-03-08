@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcAdjustThrottleForVolume @ 0x1402EAC74
+ * Callers:
+ *     CcLazyWriteScanVolume @ 0x140218810 (CcLazyWriteScanVolume.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall CcAdjustThrottleForVolume(__int64 a1)
 {
   char v1; // dl

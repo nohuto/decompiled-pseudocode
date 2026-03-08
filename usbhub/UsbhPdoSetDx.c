@@ -1,3 +1,21 @@
+/*
+ * XREFs of UsbhPdoSetDx @ 0x1C001ACC4
+ * Callers:
+ *     UsbhPdoDevicePowerState @ 0x1C000A4C0 (UsbhPdoDevicePowerState.c)
+ * Callees:
+ *     UsbhSetPdoPowerState @ 0x1C0003960 (UsbhSetPdoPowerState.c)
+ *     UsbhSyncSuspendPdoPort @ 0x1C0009B88 (UsbhSyncSuspendPdoPort.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     UsbhSetPdoIdleReady @ 0x1C000A364 (UsbhSetPdoIdleReady.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhPdoAbortAllDevicePipes @ 0x1C001A1D0 (UsbhPdoAbortAllDevicePipes.c)
+ *     UsbhCompletePdoWakeIrp @ 0x1C001BB3C (UsbhCompletePdoWakeIrp.c)
+ *     UsbhCompletePdoIdleIrp @ 0x1C001BD28 (UsbhCompletePdoIdleIrp.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhReleaseFdoPwrLock @ 0x1C0031D74 (UsbhReleaseFdoPwrLock.c)
+ */
+
 __int64 __fastcall UsbhPdoSetDx(__int64 a1, __int64 a2, __int64 a3)
 {
   _DWORD *v6; // rax

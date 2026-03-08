@@ -1,3 +1,33 @@
+/*
+ * XREFs of RtlNumberOfSetBits @ 0x14035C520
+ * Callers:
+ *     ?StDmCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x1402E6E88 (-StDmCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
+ *     HvpGenerateLogEntryDirtyData @ 0x14030C5F8 (HvpGenerateLogEntryDirtyData.c)
+ *     ?StStart@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z @ 0x14035A528 (-StStart@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@PEAU_ST_CREATE_PARAMS@@@Z.c)
+ *     RtlNumberOfClearBits @ 0x14035C4F0 (RtlNumberOfClearBits.c)
+ *     ?StGetStatsWorker@?$ST_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z @ 0x140397D20 (-StGetStatsWorker@-$ST_STORE@USM_TRAITS@@@@SAJPEAU1@W4_ST_STATS_LEVEL@@PEAU_ST_STATS@@PEAK@Z.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPoolV3 @ 0x1404FD2D4 (HalpDmaAllocateScatterPagesFromContiguousPoolV3.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPoolV2 @ 0x14051385C (HalpDmaAllocateScatterPagesFromContiguousPoolV2.c)
+ *     CmpFlushHive @ 0x1406BEA70 (CmpFlushHive.c)
+ *     SepAddLuidToIndexEntry @ 0x14070B8C0 (SepAddLuidToIndexEntry.c)
+ *     HvFreeHivePartial @ 0x14072DB74 (HvFreeHivePartial.c)
+ *     HvpGenerateLogEntry @ 0x14072DD08 (HvpGenerateLogEntry.c)
+ *     HvpAddBin @ 0x14072F9F0 (HvpAddBin.c)
+ *     HvWriteHivePrimaryFile @ 0x14073216C (HvWriteHivePrimaryFile.c)
+ *     SepGetLowBoxNumberEntry @ 0x140739A38 (SepGetLowBoxNumberEntry.c)
+ *     PopEvaluateGlobalUserStatus @ 0x14073CA7C (PopEvaluateGlobalUserStatus.c)
+ *     PspQueryRateControlHistory @ 0x1407E8B5C (PspQueryRateControlHistory.c)
+ *     MiReleaseDriverPtes @ 0x1407F74BC (MiReleaseDriverPtes.c)
+ *     HvpPerformLogFileRecovery @ 0x1407FBCAC (HvpPerformLogFileRecovery.c)
+ *     CmpMountPreloadedHives @ 0x140812EF4 (CmpMountPreloadedHives.c)
+ *     CmpLoadHiveThread @ 0x140820360 (CmpLoadHiveThread.c)
+ *     EtwQueryPerformanceTraceInformation @ 0x14085C154 (EtwQueryPerformanceTraceInformation.c)
+ *     HvFoldBackUnreconciledData @ 0x140A1DE3C (HvFoldBackUnreconciledData.c)
+ *     HvpApplyLegacyLogFile @ 0x140A2755C (HvpApplyLegacyLogFile.c)
+ * Callees:
+ *     <none>
+ */
+
 ULONG __stdcall RtlNumberOfSetBits(PRTL_BITMAP BitMapHeader)
 {
   ULONG v1; // r9d

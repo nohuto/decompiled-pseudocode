@@ -1,3 +1,17 @@
+/*
+ * XREFs of ApiSetEditionGetProcessWindowStation @ 0x1C0082880
+ * Callers:
+ *     xxxDestroyThreadInfo @ 0x1C0072BF4 (xxxDestroyThreadInfo.c)
+ *     NtUserActivateKeyboardLayout @ 0x1C00823E0 (NtUserActivateKeyboardLayout.c)
+ *     _GetKeyboardLayoutList @ 0x1C00826CC (_GetKeyboardLayoutList.c)
+ *     ?IsWinstaLessSession@@YA_NXZ @ 0x1C0082864 (-IsWinstaLessSession@@YA_NXZ.c)
+ *     NtUserLoadKeyboardLayoutEx @ 0x1C0084BB0 (NtUserLoadKeyboardLayoutEx.c)
+ *     NtUserUnloadKeyboardLayout @ 0x1C0179DB0 (NtUserUnloadKeyboardLayout.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 ApiSetEditionGetProcessWindowStation()
 {
   char v0; // bl

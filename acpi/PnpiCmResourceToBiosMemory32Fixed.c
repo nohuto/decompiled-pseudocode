@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpiCmResourceToBiosMemory32Fixed @ 0x1C0093518
+ * Callers:
+ *     PnpCmResourcesToBiosResources @ 0x1C0092820 (PnpCmResourcesToBiosResources.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PnpiCmResourceToBiosMemory32Fixed(__int64 a1, __int64 a2)
 {
   int v3; // eax

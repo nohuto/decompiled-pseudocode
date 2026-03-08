@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifExAcquireSharedStarveExclusiveWrapper @ 0x1405D4ED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExAcquireSharedStarveExclusive @ 0x1402DE340 (ExAcquireSharedStarveExclusive.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 BOOLEAN __fastcall DifExAcquireSharedStarveExclusiveWrapper(PERESOURCE Resource, BOOLEAN a2)
 {
   __int64 *APIThunkContextById; // rax

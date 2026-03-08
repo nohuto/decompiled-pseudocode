@@ -1,3 +1,20 @@
+/*
+ * XREFs of IopFreeBandwidthContract @ 0x14094E9BC
+ * Callers:
+ *     IopCloseFile @ 0x1407BACE0 (IopCloseFile.c)
+ * Callees:
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     IopAllocateIrpMustSucceed @ 0x14030F2F0 (IopAllocateIrpMustSucceed.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IoGetRelatedDeviceObject @ 0x1403121F0 (IoGetRelatedDeviceObject.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     IopQueueThreadIrp @ 0x140312720 (IopQueueThreadIrp.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall IopFreeBandwidthContract(struct _FILE_OBJECT *Object, _QWORD *a2)
 {
   __int64 result; // rax

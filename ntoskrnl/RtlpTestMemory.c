@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpTestMemory @ 0x1406794E4
+ * Callers:
+ *     RtlpGenericInverseCouplingWorker @ 0x140678C68 (RtlpGenericInverseCouplingWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RtlpTestMemory(int a1, _DWORD *a2)
 {
   _DWORD *v2; // rax

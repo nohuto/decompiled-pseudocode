@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?UpdateNumberOfReadersRemoteCache@BamoDataProviderProxyImpl@BamoImpl@@AEAAXXZ @ 0x1801E1F84
+ * Callers:
+ *     ?SetNumberOfReaders@BamoDataProviderProxy@@UEAAXI@Z @ 0x1801E1F30 (-SetNumberOfReaders@BamoDataProviderProxy@@UEAAXI@Z.c)
+ *     ?PushStateToPrincipal@BamoDataProviderProxyImpl@BamoImpl@@UEAAXXZ @ 0x1801F4A30 (-PushStateToPrincipal@BamoDataProviderProxyImpl@BamoImpl@@UEAAXXZ.c)
+ * Callees:
+ *     ?GetSendHost@BaseBamoPeerImpl@BamoImpl@Microsoft@@QEBAPEAUIMessageCallSendHost@@XZ @ 0x1800ACFF4 (-GetSendHost@BaseBamoPeerImpl@BamoImpl@Microsoft@@QEBAPEAUIMessageCallSendHost@@XZ.c)
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B44D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?IsDisconnected@BamoProxyImpl@BamoImpl@Microsoft@@QEBA_NXZ @ 0x1801DFDB0 (-IsDisconnected@BamoProxyImpl@BamoImpl@Microsoft@@QEBA_NXZ.c)
+ */
+
 void __fastcall BamoImpl::BamoDataProviderProxyImpl::UpdateNumberOfReadersRemoteCache(
         Microsoft::BamoImpl::BaseBamoPeerImpl **this)
 {

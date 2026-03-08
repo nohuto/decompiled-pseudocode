@@ -1,3 +1,14 @@
+/*
+ * XREFs of AslGuidToString_UStr @ 0x140A50FF8
+ * Callers:
+ *     SdbResolveDatabaseEx @ 0x140A4FB10 (SdbResolveDatabaseEx.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     AslAlloc @ 0x1407A32E8 (AslAlloc.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AslGuidToString_UStr(__int64 a1, unsigned int *a2)
 {
   wchar_t *v4; // r14

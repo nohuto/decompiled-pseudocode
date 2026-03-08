@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlStringCbCatW @ 0x1C0087454
+ * Callers:
+ *     USBDInternal_BuildServicePath @ 0x1C00876A8 (USBDInternal_BuildServicePath.c)
+ * Callees:
+ *     RtlStringCopyWorkerW @ 0x1C00874C8 (RtlStringCopyWorkerW.c)
+ */
+
 unsigned int __fastcall RtlStringCbCatW(wchar_t *pszDest, unsigned __int64 cbDest, const wchar_t *a3)
 {
   unsigned __int64 v3; // rdx

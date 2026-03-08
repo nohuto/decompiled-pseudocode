@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserShowWindow @ 0x1C002AD30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z @ 0x1C002AE4C (-xxxShowWindowEx@@YAHPEAUtagWND@@EW4MinMaxOptions@@@Z.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserShowWindow(__int64 a1, unsigned int a2)
 {
   __int64 v4; // rax

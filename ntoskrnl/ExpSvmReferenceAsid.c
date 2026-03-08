@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpSvmReferenceAsid @ 0x14060C4D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExpSvmReferenceAsid(ULONG_PTR BugCheckParameter1)
 {
   ULONG_PTR v1; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiCreateServerMetaFile @ 0x1C02D4AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall NtGdiCreateServerMetaFile(int a1, __int64 a2, char *a3, int a4, int a5, int a6)
 {
   size_t v8; // r14

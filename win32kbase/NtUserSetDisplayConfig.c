@@ -1,3 +1,25 @@
+/*
+ * XREFs of NtUserSetDisplayConfig @ 0x1C0176190
+ * Callers:
+ *     <none>
+ * Callees:
+ *     LogDiagSDC @ 0x1C001049C (LogDiagSDC.c)
+ *     xxxUserSetDisplayConfig @ 0x1C0011DE0 (xxxUserSetDisplayConfig.c)
+ *     CheckAccessEx @ 0x1C0016FB0 (CheckAccessEx.c)
+ *     _QdcSdcTranslateStatusDefault @ 0x1C00221EC (_QdcSdcTranslateStatusDefault.c)
+ *     UserIsWddmConnectedSession @ 0x1C0022420 (UserIsWddmConnectedSession.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterCritInternal @ 0x1C004FB50 (PrivateAPI--_anonymous_namespace_--EnterCritInternal.c)
+ *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0068568 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     HMUnlockObject @ 0x1C0072980 (HMUnlockObject.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     DrvIsDisplayStateCurrent @ 0x1C0194350 (DrvIsDisplayStateCurrent.c)
+ */
+
 __int64 __fastcall NtUserSetDisplayConfig(
         unsigned int a1,
         unsigned __int64 a2,

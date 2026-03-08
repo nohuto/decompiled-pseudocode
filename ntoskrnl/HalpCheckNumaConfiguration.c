@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpCheckNumaConfiguration @ 0x1405186E8
+ * Callers:
+ *     HalStartDynamicProcessor @ 0x140502C20 (HalStartDynamicProcessor.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall HalpCheckNumaConfiguration(int a1, unsigned __int16 a2)
 {
   char v2; // r8

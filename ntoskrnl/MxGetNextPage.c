@@ -1,3 +1,12 @@
+/*
+ * XREFs of MxGetNextPage @ 0x140B383A4
+ * Callers:
+ *     MxMapVa @ 0x140B3819C (MxMapVa.c)
+ * Callees:
+ *     MxBootDescriptorDepleted @ 0x140B386BC (MxBootDescriptorDepleted.c)
+ *     MxSwitchDescriptors @ 0x140B964BC (MxSwitchDescriptors.c)
+ */
+
 __int64 __fastcall MxGetNextPage(unsigned int a1, int a2)
 {
   __int64 v3; // rsi

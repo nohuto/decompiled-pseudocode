@@ -1,3 +1,15 @@
+/*
+ * XREFs of IoSetOplockPrivateFoExt @ 0x14023FA98
+ * Callers:
+ *     FsRtlpOplockEnqueueRH @ 0x14023FA34 (FsRtlpOplockEnqueueRH.c)
+ * Callees:
+ *     IopGetFileObjectExtension @ 0x14023EB8C (IopGetFileObjectExtension.c)
+ *     ExAllocateFromNPagedLookasideList @ 0x14023FE20 (ExAllocateFromNPagedLookasideList.c)
+ *     IopSetTypeSpecificFoExtension @ 0x14023FE5C (IopSetTypeSpecificFoExtension.c)
+ *     IopAllocateFileObjectExtension @ 0x14024F600 (IopAllocateFileObjectExtension.c)
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ */
+
 __int64 __fastcall IoSetOplockPrivateFoExt(__int64 a1, __int64 a2)
 {
   int v2; // ebx

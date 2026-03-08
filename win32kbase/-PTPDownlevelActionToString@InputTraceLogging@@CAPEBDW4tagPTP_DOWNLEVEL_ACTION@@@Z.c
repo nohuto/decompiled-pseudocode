@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PTPDownlevelActionToString@InputTraceLogging@@CAPEBDW4tagPTP_DOWNLEVEL_ACTION@@@Z @ 0x1C020EE1C
+ * Callers:
+ *     ?DownlevelInput@PTP@InputTraceLogging@@SAXPEBUCPointerInputFrame@@AEBUtagPTP_DOWNLEVELED_INPUT@@_K@Z @ 0x1C020D5E0 (-DownlevelInput@PTP@InputTraceLogging@@SAXPEBUCPointerInputFrame@@AEBUtagPTP_DOWNLEVELED_INPUT@@.c)
+ * Callees:
+ *     <none>
+ */
+
 const char *__fastcall InputTraceLogging::PTPDownlevelActionToString(int a1)
 {
   int v1; // ecx

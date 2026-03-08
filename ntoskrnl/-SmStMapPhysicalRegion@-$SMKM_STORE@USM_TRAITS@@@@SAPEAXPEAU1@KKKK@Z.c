@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SmStMapPhysicalRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEAXPEAU1@KKKK@Z @ 0x1405BEB1C
+ * Callers:
+ *     ?SmStMapRegion@?$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z @ 0x1405BEBB8 (-SmStMapRegion@-$SMKM_STORE@USM_TRAITS@@@@SAPEADPEAU1@KKKK@Z.c)
+ * Callees:
+ *     SmFpAllocate @ 0x14045D93E (SmFpAllocate.c)
+ */
+
 __int64 __fastcall SMKM_STORE<SM_TRAITS>::SmStMapPhysicalRegion(
         __int64 a1,
         unsigned int a2,

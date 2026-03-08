@@ -1,3 +1,31 @@
+/*
+ * XREFs of PpmCheckInitProcessors @ 0x140827DA4
+ * Callers:
+ *     PpmReapplyPerfPolicy @ 0x1408261A0 (PpmReapplyPerfPolicy.c)
+ *     PopNewProcessorCallback @ 0x14097D420 (PopNewProcessorCallback.c)
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     KiOrAffinityEx @ 0x14022B190 (KiOrAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PpmConvertTime @ 0x140235D70 (PpmConvertTime.c)
+ *     PopExecuteOnTargetProcessors @ 0x140236D20 (PopExecuteOnTargetProcessors.c)
+ *     KeIsEmptyAffinityEx @ 0x140237C30 (KeIsEmptyAffinityEx.c)
+ *     PpmReleaseLock @ 0x1402D1F40 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402D1F90 (PpmAcquireLock.c)
+ *     KiSubtractAffinityEx @ 0x1402D4CBC (KiSubtractAffinityEx.c)
+ *     PpmParkRegisterParking @ 0x14038D880 (PpmParkRegisterParking.c)
+ *     PpmCheckApplyParkConstraints @ 0x14038F03C (PpmCheckApplyParkConstraints.c)
+ *     KeQueryActiveProcessorAffinity2 @ 0x14038F750 (KeQueryActiveProcessorAffinity2.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvlIsRootPowerSchedulerQosPresent @ 0x14053D500 (HvlIsRootPowerSchedulerQosPresent.c)
+ *     PpmUpdateProcessorPolicy @ 0x140826290 (PpmUpdateProcessorPolicy.c)
+ *     PpmCheckReInit @ 0x1408265CC (PpmCheckReInit.c)
+ *     PpmAllocatePerfCheck @ 0x140828AF4 (PpmAllocatePerfCheck.c)
+ *     PpmReinitializeHeteroEngine @ 0x140828C88 (PpmReinitializeHeteroEngine.c)
+ */
+
 void __fastcall PpmCheckInitProcessors(int a1, int a2)
 {
   __int64 Prcb; // rax

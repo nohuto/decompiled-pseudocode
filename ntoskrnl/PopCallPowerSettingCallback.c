@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopCallPowerSettingCallback @ 0x14068D754
+ * Callers:
+ *     PopDispatchPowerSettingCallbacks @ 0x14068D630 (PopDispatchPowerSettingCallbacks.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PopCallPowerSettingCallback(_QWORD *a1, __int64 a2)
 {
   _DWORD *v3; // rdi

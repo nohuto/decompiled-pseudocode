@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBHSM_CheckIfThereIsAValidHubChange @ 0x1C00084D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBMISC_VerifierDbgBreak @ 0x1C0032FCC (HUBMISC_VerifierDbgBreak.c)
+ *     HUBREG_UpdateSqmHubOvercurrentDetected @ 0x1C0034B00 (HUBREG_UpdateSqmHubOvercurrentDetected.c)
+ */
+
 __int64 __fastcall HUBHSM_CheckIfThereIsAValidHubChange(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rdi

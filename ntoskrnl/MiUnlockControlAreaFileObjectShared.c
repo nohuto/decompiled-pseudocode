@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiUnlockControlAreaFileObjectShared @ 0x1402A0CE4
+ * Callers:
+ *     MiTrimSection @ 0x1402A0034 (MiTrimSection.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ */
+
 int __fastcall MiUnlockControlAreaFileObjectShared(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rdi

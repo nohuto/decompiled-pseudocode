@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AcquireVirtualGpuByLuid@DXGVIRTUALMACHINE@@QEAAPEAUDXGK_VIRTUAL_GPU_PARAV@@PEAU_LUID@@@Z @ 0x1C033E90C
+ * Callers:
+ *     ?VmBusProcessPacket@@YAXPEAX@Z @ 0x1C037EC00 (-VmBusProcessPacket@@YAXPEAX@Z.c)
+ * Callees:
+ *     ?AcquireShared@DXGPUSHLOCK@@QEAAXXZ @ 0x1C0006FA0 (-AcquireShared@DXGPUSHLOCK@@QEAAXXZ.c)
+ */
+
 struct DXGK_VIRTUAL_GPU_PARAV *__fastcall DXGVIRTUALMACHINE::AcquireVirtualGpuByLuid(
         DXGVIRTUALMACHINE *this,
         struct _LUID *a2)

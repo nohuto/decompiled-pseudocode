@@ -1,3 +1,36 @@
+/*
+ * XREFs of SymCryptEcurveAllocate @ 0x1403F252C
+ * Callers:
+ *     HashpVerifyEcdsaSignature @ 0x140A74544 (HashpVerifyEcdsaSignature.c)
+ * Callees:
+ *     SymCryptWipe @ 0x1403F0988 (SymCryptWipe.c)
+ *     SymCryptDigitsFromBits @ 0x1403F36C0 (SymCryptDigitsFromBits.c)
+ *     SymCryptIntBitsizeOfValue @ 0x1403F3750 (SymCryptIntBitsizeOfValue.c)
+ *     SymCryptIntCreate @ 0x1403F37C8 (SymCryptIntCreate.c)
+ *     SymCryptIntFromModulus @ 0x1403F383C (SymCryptIntFromModulus.c)
+ *     SymCryptIntGetValueLsbits32 @ 0x1403F3884 (SymCryptIntGetValueLsbits32.c)
+ *     SymCryptIntIsEqualUint32 @ 0x1403F389C (SymCryptIntIsEqualUint32.c)
+ *     SymCryptIntSetValue @ 0x1403F391C (SymCryptIntSetValue.c)
+ *     SymCryptIntToModulus @ 0x1403F3A10 (SymCryptIntToModulus.c)
+ *     SymCryptModAdd @ 0x1403F3A54 (SymCryptModAdd.c)
+ *     SymCryptModDivPow2 @ 0x1403F3A90 (SymCryptModDivPow2.c)
+ *     SymCryptModElementCreate @ 0x1403F3AEC (SymCryptModElementCreate.c)
+ *     SymCryptModElementSetValue @ 0x1403F3B80 (SymCryptModElementSetValue.c)
+ *     SymCryptModElementSetValueUint32 @ 0x1403F3C0C (SymCryptModElementSetValueUint32.c)
+ *     SymCryptModulusCreate @ 0x1403F3EC0 (SymCryptModulusCreate.c)
+ *     SymCryptSizeofIntFromDigits @ 0x1403F3EF0 (SymCryptSizeofIntFromDigits.c)
+ *     SymCryptSizeofModulusFromDigits @ 0x1403F3F20 (SymCryptSizeofModulusFromDigits.c)
+ *     SymCryptOfflinePrecomputation @ 0x1403F9350 (SymCryptOfflinePrecomputation.c)
+ *     SymCryptEcpointCreate @ 0x1403F94A0 (SymCryptEcpointCreate.c)
+ *     SymCryptEcpointSetValue @ 0x1403F96E0 (SymCryptEcpointSetValue.c)
+ *     SymCryptSizeofEcpointEx @ 0x1403F9DF8 (SymCryptSizeofEcpointEx.c)
+ *     SymCryptTwistedEdwardsFillScratchSpaces @ 0x1403FA5AC (SymCryptTwistedEdwardsFillScratchSpaces.c)
+ *     SymCryptMontgomeryFillScratchSpaces @ 0x1403FAFEC (SymCryptMontgomeryFillScratchSpaces.c)
+ *     SymCryptShortWeierstrassFillScratchSpaces @ 0x1403FC95C (SymCryptShortWeierstrassFillScratchSpaces.c)
+ *     SymCryptCallbackAlloc @ 0x14067B400 (SymCryptCallbackAlloc.c)
+ *     SymCryptCallbackFree @ 0x14067B438 (SymCryptCallbackFree.c)
+ */
+
 __int64 __fastcall SymCryptEcurveAllocate(_DWORD *a1)
 {
   unsigned int v2; // ecx

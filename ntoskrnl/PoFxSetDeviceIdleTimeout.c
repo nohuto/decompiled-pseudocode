@@ -1,3 +1,14 @@
+/*
+ * XREFs of PoFxSetDeviceIdleTimeout @ 0x1402FFB70
+ * Callers:
+ *     DifPoFxSetDeviceIdleTimeoutWrapper @ 0x1405E7AD0 (DifPoFxSetDeviceIdleTimeoutWrapper.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PopFxUpdateDeviceIdleTimer @ 0x1402FFBF4 (PopFxUpdateDeviceIdleTimer.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall PoFxSetDeviceIdleTimeout(__int64 a1, unsigned __int64 a2)
 {
   volatile signed __int64 *v2; // rdi

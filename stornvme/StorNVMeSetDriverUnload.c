@@ -1,3 +1,11 @@
+/*
+ * XREFs of StorNVMeSetDriverUnload @ 0x1C00036B0
+ * Callers:
+ *     DriverEntry @ 0x1C0007584 (DriverEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 (*__fastcall StorNVMeSetDriverUnload(__int64 a1))()
 {
   __int64 (*result)(); // rax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of BltColor @ 0x1C0242064
+ * Callers:
+ *     ?DrawMenuItemCheckMark@@YAHPEAUHDC__@@PEAUtagITEM@@H@Z @ 0x1C0236044 (-DrawMenuItemCheckMark@@YAHPEAUHDC__@@PEAUtagITEM@@H@Z.c)
+ *     xxxDrawMenuItem @ 0x1C0237914 (xxxDrawMenuItem.c)
+ *     xxxRealDrawMenuItem @ 0x1C0239598 (xxxRealDrawMenuItem.c)
+ *     xxxDrawState @ 0x1C02423C0 (xxxDrawState.c)
+ * Callees:
+ *     NtGdiBitBltInternal @ 0x1C005E110 (NtGdiBitBltInternal.c)
+ *     GreSetBkColor @ 0x1C0113964 (GreSetBkColor.c)
+ *     GreSetTextColor @ 0x1C0113D94 (GreSetTextColor.c)
+ */
+
 __int64 __fastcall BltColor(HDC a1, __int64 a2, __int64 a3, LONG a4, LONG a5, int a6, int a7, int a8, int a9, char a10)
 {
   __int64 v14; // rdi

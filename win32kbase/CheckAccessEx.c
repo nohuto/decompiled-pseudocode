@@ -1,3 +1,20 @@
+/*
+ * XREFs of CheckAccessEx @ 0x1C0016FB0
+ * Callers:
+ *     NtUserSetKeyboardState @ 0x1C0009040 (NtUserSetKeyboardState.c)
+ *     NtUserSetSysColors @ 0x1C0017020 (NtUserSetSysColors.c)
+ *     ?CanCallerAccessDestination@CInputDest@@QEBA_NXZ @ 0x1C00F1DF6 (-CanCallerAccessDestination@CInputDest@@QEBA_NXZ.c)
+ *     NtUserChangeDisplaySettings @ 0x1C016D440 (NtUserChangeDisplaySettings.c)
+ *     NtUserDisplayConfigSetDeviceInfo @ 0x1C016E700 (NtUserDisplayConfigSetDeviceInfo.c)
+ *     NtUserEnableTouchPad @ 0x1C016ECE0 (NtUserEnableTouchPad.c)
+ *     NtUserSetDisplayConfig @ 0x1C0176190 (NtUserSetDisplayConfig.c)
+ *     NtUserSetPrecisionTouchPadConfiguration @ 0x1C0177910 (NtUserSetPrecisionTouchPadConfiguration.c)
+ *     ?PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerInfoNode@@_KIKHH@Z @ 0x1C01FDB10 (-PostPointerMessage@CTouchProcessor@@AEAAHAEBVCInputDest@@PEBUCPointerInputFrame@@PEBUCPointerIn.c)
+ *     _anonymous_namespace_::ValidateUIPI @ 0x1C0231A3C (_anonymous_namespace_--ValidateUIPI.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CheckAccessEx(int *a1, unsigned int *a2, __int64 a3)
 {
   char v3; // r11

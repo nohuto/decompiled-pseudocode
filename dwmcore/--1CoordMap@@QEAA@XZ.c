@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CoordMap@@QEAA@XZ @ 0x180030984
+ * Callers:
+ *     ??1CNineGridDrawListBrush@@UEAA@XZ @ 0x180030840 (--1CNineGridDrawListBrush@@UEAA@XZ.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1800893D4 (--3@YAXPEAX@Z.c)
+ */
+
 void __fastcall CoordMap::~CoordMap(CoordMap *this)
 {
   __int64 v2; // rcx

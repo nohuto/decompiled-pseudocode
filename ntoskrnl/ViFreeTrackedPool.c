@@ -1,3 +1,13 @@
+/*
+ * XREFs of ViFreeTrackedPool @ 0x140ACE3FC
+ * Callers:
+ *     VerifierFreeTrackedPool @ 0x1405CD740 (VerifierFreeTrackedPool.c)
+ * Callees:
+ *     MmIsAddressValidEx @ 0x1403471E0 (MmIsAddressValidEx.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ */
+
 __int64 __fastcall ViFreeTrackedPool(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3, char a3, int a4)
 {
   ULONG_PTR v6; // rsi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of Xp10ScatteredByteSeekBack @ 0x1409C5170
+ * Callers:
+ *     Xp10ScatteredCopyFromPrevious @ 0x1409C54BC (Xp10ScatteredCopyFromPrevious.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Xp10ScatteredByteSeekBack(__int64 *a1, unsigned int a2)
 {
   __int64 v2; // r10

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DevmodeAutoRotateCompatible@@YA_NPEBU_devicemodeW@@0@Z @ 0x1C018D394
+ * Callers:
+ *     ?DrvUpdateDisplayModeInPdev@@YAHPEAUHDEV__@@PEAUD3DKMT_GETPATHSMODALITY@@@Z @ 0x1C018F15C (-DrvUpdateDisplayModeInPdev@@YAHPEAUHDEV__@@PEAUD3DKMT_GETPATHSMODALITY@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DevmodeAutoRotateCompatible(const struct _devicemodeW *a1, const struct _devicemodeW *a2)
 {
   unsigned int v2; // r9d

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiReleaseMemoryRuns @ 0x14061FEB0
+ * Callers:
+ *     MmAllocateMemoryRanges @ 0x140A2B5D0 (MmAllocateMemoryRanges.c)
+ *     MmFreeMemoryRanges @ 0x140A2B7D0 (MmFreeMemoryRanges.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiHugePfnPartition @ 0x14061E808 (MiHugePfnPartition.c)
+ *     MiInsertHugeRangeInList @ 0x14061EB84 (MiInsertHugeRangeInList.c)
+ *     MiLockHugePfn @ 0x14061EFAC (MiLockHugePfn.c)
+ */
+
 void __fastcall MiReleaseMemoryRuns(ULONG_PTR a1, __int64 *a2, int a3)
 {
   __int64 v3; // rsi

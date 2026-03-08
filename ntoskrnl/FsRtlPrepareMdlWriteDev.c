@@ -1,3 +1,21 @@
+/*
+ * XREFs of FsRtlPrepareMdlWriteDev @ 0x14093A640
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcZeroData @ 0x140243410 (CcZeroData.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     FsRtlIsNtstatusExpected @ 0x1402ECFB0 (FsRtlIsNtstatusExpected.c)
+ *     CcPrepareMdlWrite @ 0x1402FD600 (CcPrepareMdlWrite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     IoGetTopLevelIrp @ 0x140343AD0 (IoGetTopLevelIrp.c)
+ *     IoSetTopLevelIrp @ 0x140343AF0 (IoSetTopLevelIrp.c)
+ *     CcCanIWrite @ 0x140362960 (CcCanIWrite.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 BOOLEAN __stdcall FsRtlPrepareMdlWriteDev(
         PFILE_OBJECT FileObject,
         PLARGE_INTEGER FileOffset,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlNumberOfSetBitsUlongPtr @ 0x1403AABE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 ULONG __stdcall RtlNumberOfSetBitsUlongPtr(ULONG_PTR Target)
 {
   ULONG_PTR v1; // rdx

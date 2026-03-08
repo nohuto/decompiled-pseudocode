@@ -1,3 +1,11 @@
+/*
+ * XREFs of RunLengthEncode @ 0x1405656F8
+ * Callers:
+ *     KdpReadPhysicalMemory @ 0x140AB1188 (KdpReadPhysicalMemory.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall RunLengthEncode(int *a1, unsigned int a2)
 {
   int v2; // r9d

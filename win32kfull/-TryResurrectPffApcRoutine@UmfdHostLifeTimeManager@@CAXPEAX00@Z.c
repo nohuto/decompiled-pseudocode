@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?TryResurrectPffApcRoutine@UmfdHostLifeTimeManager@@CAXPEAX00@Z @ 0x1C02E2C90
+ * Callers:
+ *     ?OnHostReady@UmfdHostLifeTimeManager@@SAXXZ @ 0x1C00F49B8 (-OnHostReady@UmfdHostLifeTimeManager@@SAXXZ.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ @ 0x1C0118E20 (-EnsureUmfdHost@UmfdHostLifeTimeManager@@SA_NXZ.c)
+ *     ?HFFToPPFF@PFTOBJ@@QEAAPEAVPFF@@_K@Z @ 0x1C026D39C (-HFFToPPFF@PFTOBJ@@QEAAPEAVPFF@@_K@Z.c)
+ *     ?TryResurrectHff@UmfdHostLifeTimeManager@@CA_N_KPEAVPFF@@@Z @ 0x1C02E2AF8 (-TryResurrectHff@UmfdHostLifeTimeManager@@CA_N_KPEAVPFF@@@Z.c)
+ *     ?TryResurrectUmfdAllocations@UmfdHostLifeTimeManager@@CA_N_KPEAVPFF@@@Z @ 0x1C02E2DC8 (-TryResurrectUmfdAllocations@UmfdHostLifeTimeManager@@CA_N_KPEAVPFF@@@Z.c)
+ *     ?QueryFontFile@PDEVOBJ@@QEAAJ_KKKPEAK@Z @ 0x1C02E3154 (-QueryFontFile@PDEVOBJ@@QEAAJ_KKKPEAK@Z.c)
+ */
+
 void __fastcall UmfdHostLifeTimeManager::TryResurrectPffApcRoutine(Gre::Base *a1, _BYTE *a2, struct PFF *a3)
 {
   struct Gre::Base::SESSION_GLOBALS *v5; // rbp

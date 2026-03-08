@@ -1,3 +1,11 @@
+/*
+ * XREFs of PfSnIsSectionPrefetchedAfterPhase @ 0x1406A4C74
+ * Callers:
+ *     PfSnGetSectionObject @ 0x1406A48D0 (PfSnGetSectionObject.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall PfSnIsSectionPrefetchedAfterPhase(__int64 a1, int a2, unsigned int a3)
 {
   int v3; // r9d

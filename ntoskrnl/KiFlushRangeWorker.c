@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiFlushRangeWorker @ 0x140387BD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KiFlushRangeTb @ 0x140387C18 (KiFlushRangeTb.c)
+ */
+
 __int64 __fastcall KiFlushRangeWorker(__int64 a1, __int64 a2, __int64 a3)
 {
   _QWORD *v3; // rbx

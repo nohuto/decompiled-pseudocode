@@ -1,3 +1,11 @@
+/*
+ * XREFs of RIMSetDevicePDOSuppression @ 0x1C01BFB88
+ * Callers:
+ *     RIMUpdateDeviceForInputMode @ 0x1C00BC380 (RIMUpdateDeviceForInputMode.c)
+ * Callees:
+ *     ?SetDevicePDOSuppression@RIM@InputTraceLogging@@SAXPEBURIMDEV@@E@Z @ 0x1C01BFAA8 (-SetDevicePDOSuppression@RIM@InputTraceLogging@@SAXPEBURIMDEV@@E@Z.c)
+ */
+
 int __fastcall RIMSetDevicePDOSuppression(__int64 a1, char a2)
 {
   bool v2; // zf

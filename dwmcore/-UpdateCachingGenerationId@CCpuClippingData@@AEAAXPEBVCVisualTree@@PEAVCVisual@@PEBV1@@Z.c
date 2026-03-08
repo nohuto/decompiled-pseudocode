@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UpdateCachingGenerationId@CCpuClippingData@@AEAAXPEBVCVisualTree@@PEAVCVisual@@PEBV1@@Z @ 0x180016C44
+ * Callers:
+ *     ?UpdateOnlyCpuClipRealization@CCpuClippingData@@AEAAJPEBVCVisualTree@@PEAVCVisual@@AEBVCScopedClipStack@@PEBVCShape@@PEBVCMILMatrix@@W4D2D1_ANTIALIAS_MODE@@@Z @ 0x180016B50 (-UpdateOnlyCpuClipRealization@CCpuClippingData@@AEAAJPEBVCVisualTree@@PEAVCVisual@@AEBVCScopedCl.c)
+ * Callees:
+ *     ?Release@CShapePtr@@QEAAXXZ @ 0x1800DBA68 (-Release@CShapePtr@@QEAAXXZ.c)
+ *     ?reset@?$com_ptr_t@V?$CWeakReference@VCVisual@@@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800F33F8 (-reset@-$com_ptr_t@V-$CWeakReference@VCVisual@@@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ */
+
 void __fastcall CCpuClippingData::UpdateCachingGenerationId(
         CCpuClippingData *this,
         const struct CVisualTree *a2,

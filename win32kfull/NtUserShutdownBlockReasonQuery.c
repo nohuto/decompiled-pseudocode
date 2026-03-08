@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserShutdownBlockReasonQuery @ 0x1C00EE360
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C010A9B4 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ */
+
 __int64 __fastcall NtUserShutdownBlockReasonQuery(__int64 a1, volatile void *a2, unsigned int *a3)
 {
   __int64 v6; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of WheapWmiGetSingleInstance @ 0x140612060
+ * Callers:
+ *     WheaWmiDispatch @ 0x1403AA290 (WheaWmiDispatch.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WheapWmiGetSingleInstance(__int64 a1, unsigned int a2, __int64 a3, int *a4)
 {
   int v4; // ecx

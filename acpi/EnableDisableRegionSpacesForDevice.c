@@ -1,3 +1,16 @@
+/*
+ * XREFs of EnableDisableRegionSpacesForDevice @ 0x1C0039ADC
+ * Callers:
+ *     ACPIDispatchIrp @ 0x1C0001010 (ACPIDispatchIrp.c)
+ *     OSNotifyCreateOperationRegionWorker @ 0x1C00329C0 (OSNotifyCreateOperationRegionWorker.c)
+ *     ACPIBusIrpCancelRemoveOrStopDevice @ 0x1C007E350 (ACPIBusIrpCancelRemoveOrStopDevice.c)
+ *     ACPIBusIrpQueryRemoveOrStopDevice @ 0x1C0080820 (ACPIBusIrpQueryRemoveOrStopDevice.c)
+ *     ACPIBusIrpStopDevice @ 0x1C0081900 (ACPIBusIrpStopDevice.c)
+ * Callees:
+ *     EnableDisableDeviceRegionSpace @ 0x1C0039900 (EnableDisableDeviceRegionSpace.c)
+ *     WPP_RECORDER_SF_sdqD @ 0x1C0039F9C (WPP_RECORDER_SF_sdqD.c)
+ */
+
 __int64 __fastcall EnableDisableRegionSpacesForDevice(__int64 a1, char a2)
 {
   unsigned int v2; // ebp

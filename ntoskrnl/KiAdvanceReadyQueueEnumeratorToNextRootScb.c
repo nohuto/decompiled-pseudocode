@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiAdvanceReadyQueueEnumeratorToNextRootScb @ 0x1402EEB9C
+ * Callers:
+ *     KiAdvanceReadyQueueEnumeratorToNextScb @ 0x1402EEAE4 (KiAdvanceReadyQueueEnumeratorToNextScb.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiAdvanceReadyQueueEnumeratorToNextRootScb(__int64 a1)
 {
   unsigned int v1; // edx

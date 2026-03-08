@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiRelinkDeferredCrcEntries @ 0x140229494
+ * Callers:
+ *     MiSharePages @ 0x140228990 (MiSharePages.c)
+ * Callees:
+ *     MiCrcStillIntact @ 0x140210E18 (MiCrcStillIntact.c)
+ */
+
 _QWORD *__fastcall MiRelinkDeferredCrcEntries(__int64 a1, __int64 a2, __int64 a3, _QWORD *a4)
 {
   __int64 v4; // r15

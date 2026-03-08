@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlSidHashLookup @ 0x1402DFB10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ */
+
 const void **__fastcall RtlSidHashLookup(__int64 a1, unsigned __int8 *a2)
 {
   __int64 v4; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlStringLengthWorkerA @ 0x1404FBC54
+ * Callers:
+ *     RtlStringCbCatExA @ 0x1404FB918 (RtlStringCbCatExA.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlStringLengthWorkerA(STRSAFE_PCNZCH psz, size_t cchMax, size_t *pcchLength)
 {
   __int64 v3; // rdx

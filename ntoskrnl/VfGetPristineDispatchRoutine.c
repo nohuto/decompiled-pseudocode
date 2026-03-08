@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfGetPristineDispatchRoutine @ 0x140ACA1FC
+ * Callers:
+ *     IovpCallDriver1 @ 0x140AC9170 (IovpCallDriver1.c)
+ *     VfBeforeCallDriver @ 0x140ACA5AC (VfBeforeCallDriver.c)
+ * Callees:
+ *     MmIsDriverVerifying @ 0x140303C10 (MmIsDriverVerifying.c)
+ */
+
 PDRIVER_DISPATCH __fastcall VfGetPristineDispatchRoutine(struct _DRIVER_OBJECT *a1, unsigned int a2)
 {
   __int64 v2; // rbx

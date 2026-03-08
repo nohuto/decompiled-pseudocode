@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopEvaluateWeakChargerState @ 0x140992D90
+ * Callers:
+ *     PopBatteryWorker @ 0x14086DD10 (PopBatteryWorker.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ */
+
 void __fastcall PopEvaluateWeakChargerState(char a1)
 {
   char v2; // r8

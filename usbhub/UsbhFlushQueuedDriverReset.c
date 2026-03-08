@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhFlushQueuedDriverReset @ 0x1C0037BCC
+ * Callers:
+ *     Usbh_BusPause_PdoEvent @ 0x1C003A81C (Usbh_BusPause_PdoEvent.c)
+ * Callees:
+ *     UsbhFreePortChangeQueueObject @ 0x1C00039F8 (UsbhFreePortChangeQueueObject.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 void __fastcall UsbhFlushQueuedDriverReset(__int64 a1, __int64 a2)
 {
   KSPIN_LOCK *v2; // rdi

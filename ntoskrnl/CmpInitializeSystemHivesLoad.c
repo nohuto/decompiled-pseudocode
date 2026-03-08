@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpInitializeSystemHivesLoad @ 0x140817810
+ * Callers:
+ *     CmCompleteRegistryInitialization @ 0x1408174BC (CmCompleteRegistryInitialization.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     CmpCreateRegistryThread @ 0x140817904 (CmpCreateRegistryThread.c)
+ */
+
 NTSTATUS CmpInitializeSystemHivesLoad()
 {
   __int64 v0; // rdx

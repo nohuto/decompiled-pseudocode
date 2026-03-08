@@ -1,3 +1,12 @@
+/*
+ * XREFs of Etw_ControllerFirmareVersionUpdate @ 0x1C004A9F0
+ * Callers:
+ *     Command_D0EntryPostInterruptsEnabled @ 0x1C0014130 (Command_D0EntryPostInterruptsEnabled.c)
+ *     Register_ParseCapabilityRegister @ 0x1C0071B88 (Register_ParseCapabilityRegister.c)
+ * Callees:
+ *     McTemplateK0pqqqqqqqsssxqqqt_EtwWriteTransfer @ 0x1C004B3B8 (McTemplateK0pqqqqqqqsssxqqqt_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall Etw_ControllerFirmareVersionUpdate(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

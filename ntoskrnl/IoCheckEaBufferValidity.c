@@ -1,3 +1,12 @@
+/*
+ * XREFs of IoCheckEaBufferValidity @ 0x140780800
+ * Callers:
+ *     IopCreateFile @ 0x1407CE5A0 (IopCreateFile.c)
+ *     NtSetEaFile @ 0x140947CF0 (NtSetEaFile.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall IoCheckEaBufferValidity(PFILE_FULL_EA_INFORMATION EaBuffer, ULONG EaLength, PULONG ErrorOffset)
 {
   PFILE_FULL_EA_INFORMATION v3; // r9

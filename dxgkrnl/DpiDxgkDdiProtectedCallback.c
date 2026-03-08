@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiDxgkDdiProtectedCallback @ 0x1C03A482C
+ * Callers:
+ *     DpiFdoExcludeAdapterAccess @ 0x1C03969C0 (DpiFdoExcludeAdapterAccess.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0ppq_EtwWriteTransfer @ 0x1C005A62C (McTemplateK0ppq_EtwWriteTransfer.c)
+ */
+
 NTSTATUS __fastcall DpiDxgkDdiProtectedCallback(
         __int64 a1,
         __int64 (__fastcall *a2)(__int64, __int64, _QWORD),

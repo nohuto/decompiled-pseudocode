@@ -1,3 +1,11 @@
+/*
+ * XREFs of Amd64RestartProfiling @ 0x140A95C40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Amd64ConfigureCounter @ 0x140526AA0 (Amd64ConfigureCounter.c)
+ */
+
 __int64 (__fastcall **Amd64RestartProfiling())()
 {
   __int64 (__fastcall **result)(); // rax

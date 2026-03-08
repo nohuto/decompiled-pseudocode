@@ -1,3 +1,19 @@
+/*
+ * XREFs of PpmUpdateProcessorPolicy @ 0x140826290
+ * Callers:
+ *     PpmReapplyPerfPolicy @ 0x1408261A0 (PpmReapplyPerfPolicy.c)
+ *     PpmCheckInitProcessors @ 0x140827DA4 (PpmCheckInitProcessors.c)
+ *     PpmRegisterPerfStates @ 0x14082802C (PpmRegisterPerfStates.c)
+ *     PpmPerfReApplyStates @ 0x1409839D4 (PpmPerfReApplyStates.c)
+ * Callees:
+ *     KiOrAffinityEx @ 0x14022B190 (KiOrAffinityEx.c)
+ *     PopExecuteOnTargetProcessors @ 0x140236D20 (PopExecuteOnTargetProcessors.c)
+ *     PpmUpdateTargetProcessorPolicy @ 0x14038E1DC (PpmUpdateTargetProcessorPolicy.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int16 __fastcall PpmUpdateProcessorPolicy(_WORD *a1, __int64 a2)
 {
   struct _KPRCB *CurrentPrcb; // rax

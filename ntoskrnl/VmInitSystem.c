@@ -1,3 +1,14 @@
+/*
+ * XREFs of VmInitSystem @ 0x140B43DDC
+ * Callers:
+ *     Phase1InitializationIoReady @ 0x140B42D0C (Phase1InitializationIoReady.c)
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     ExInitializeLookasideListExInternal @ 0x1402A8000 (ExInitializeLookasideListExInternal.c)
+ *     ExRegisterHost @ 0x14080EEF0 (ExRegisterHost.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14080F6BC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ */
+
 __int64 __fastcall VmInitSystem(int a1, __int64 a2)
 {
   __int64 result; // rax

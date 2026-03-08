@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpInterruptMaskAcpi @ 0x140A92308
+ * Callers:
+ *     HalpDispatchSystemStateTransition @ 0x14050B1D4 (HalpDispatchSystemStateTransition.c)
+ * Callees:
+ *     HalpInterruptFindLines @ 0x14028EE80 (HalpInterruptFindLines.c)
+ *     HalpInterruptLookupController @ 0x14028EEE0 (HalpInterruptLookupController.c)
+ *     HalpInterruptPicLine @ 0x140376444 (HalpInterruptPicLine.c)
+ *     HalpInterruptSetLineStateInternal @ 0x1403796D0 (HalpInterruptSetLineStateInternal.c)
+ *     HalpInterruptApplyOverrides @ 0x140379748 (HalpInterruptApplyOverrides.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ */
+
 __int64 __fastcall HalpInterruptMaskAcpi(char a1)
 {
   _QWORD *Lines; // rax

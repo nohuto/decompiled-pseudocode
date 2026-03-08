@@ -1,3 +1,14 @@
+/*
+ * XREFs of ViDdiDriverEntry @ 0x140AC0E40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoDeleteDevice @ 0x140368010 (IoDeleteDevice.c)
+ *     IoCreateDevice @ 0x1407F0460 (IoCreateDevice.c)
+ *     IoWMIRegistrationControl @ 0x140869750 (IoWMIRegistrationControl.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall ViDdiDriverEntry(PDRIVER_OBJECT DriverObject)
 {
   int v3; // ebx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmSiSetProcessWorkingSetMaximum @ 0x1403889B4
+ * Callers:
+ *     CmpInitializeRegistryProcess @ 0x140817300 (CmpInitializeRegistryProcess.c)
+ * Callees:
+ *     MmAdjustWorkingSetSizeEx @ 0x14020C61C (MmAdjustWorkingSetSizeEx.c)
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     CmSiRWLockReleaseExclusive @ 0x1406A3848 (CmSiRWLockReleaseExclusive.c)
+ *     CmSiRWLockAcquireExclusive @ 0x1406A419C (CmSiRWLockAcquireExclusive.c)
+ */
+
 __int64 CmSiSetProcessWorkingSetMaximum()
 {
   int v0; // ebx

@@ -1,3 +1,28 @@
+/*
+ * XREFs of VidSchiRun_PriorityTable @ 0x1C00BA0C0
+ * Callers:
+ *     VidSchiWorkerThread @ 0x1C00B9FA0 (VidSchiWorkerThread.c)
+ * Callees:
+ *     VidSchiScheduleCommandToRun @ 0x1C0006850 (VidSchiScheduleCommandToRun.c)
+ *     VidSchIsTDRPending @ 0x1C0007920 (VidSchIsTDRPending.c)
+ *     VidSchiSubmitMmIoFlipCommand @ 0x1C000EAF0 (VidSchiSubmitMmIoFlipCommand.c)
+ *     VidSchiSubmitWaitCommand @ 0x1C00105F4 (VidSchiSubmitWaitCommand.c)
+ *     VidSchiRewindPacket @ 0x1C0010730 (VidSchiRewindPacket.c)
+ *     VidSchiSetTransferContextRunningTime @ 0x1C0010B90 (VidSchiSetTransferContextRunningTime.c)
+ *     VidSchiDecrementContextReference @ 0x1C0011CE0 (VidSchiDecrementContextReference.c)
+ *     VidSchiIncrementContextReference @ 0x1C00146D0 (VidSchiIncrementContextReference.c)
+ *     VidSchiAdjustWorkerThreadPriority @ 0x1C0016070 (VidSchiAdjustWorkerThreadPriority.c)
+ *     VidSchiSubmitSignalCommand @ 0x1C00163E0 (VidSchiSubmitSignalCommand.c)
+ *     ?VidschiUnselectContext@@YAXPEAU_VIDSCH_CONTEXT@@@Z @ 0x1C0016500 (-VidschiUnselectContext@@YAXPEAU_VIDSCH_CONTEXT@@@Z.c)
+ *     VidSchiSubmitSoftwareCommand @ 0x1C0017004 (VidSchiSubmitSoftwareCommand.c)
+ *     VidSchiProcessCompletedQueuePacket @ 0x1C001831C (VidSchiProcessCompletedQueuePacket.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     VidSchiSubmitRenderVirtualCommand @ 0x1C00A46E0 (VidSchiSubmitRenderVirtualCommand.c)
+ *     VidSchiSubmitPagingCommand @ 0x1C0106954 (VidSchiSubmitPagingCommand.c)
+ *     VidSchiSubmitRenderCommand @ 0x1C0106E0C (VidSchiSubmitRenderCommand.c)
+ *     VidSchiRecoverFromTDR @ 0x1C010A494 (VidSchiRecoverFromTDR.c)
+ */
+
 __int64 __fastcall VidSchiRun_PriorityTable(struct _VIDSCH_GLOBAL *a1)
 {
   __int64 v2; // rax

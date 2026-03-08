@@ -1,3 +1,19 @@
+/*
+ * XREFs of ExpFreeHandleTable @ 0x140704400
+ * Callers:
+ *     ObKillProcess @ 0x1406C0F5C (ObKillProcess.c)
+ *     ExDupHandleTable @ 0x140705D54 (ExDupHandleTable.c)
+ *     ObInitProcess @ 0x140707D3C (ObInitProcess.c)
+ *     RtlDestroyAtomTable @ 0x1407DC4F0 (RtlDestroyAtomTable.c)
+ *     AlpcpAllocateMessageFromExtendedTables @ 0x140975E3C (AlpcpAllocateMessageFromExtendedTables.c)
+ * Callees:
+ *     PsReturnProcessPagedPoolQuota @ 0x140295600 (PsReturnProcessPagedPoolQuota.c)
+ *     ExpFreeLowLevelTable @ 0x1407044D4 (ExpFreeLowLevelTable.c)
+ *     ExpFreeTablePagedPool @ 0x140704514 (ExpFreeTablePagedPool.c)
+ *     ExDereferenceHandleDebugInfo @ 0x1409F5EC0 (ExDereferenceHandleDebugInfo.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall ExpFreeHandleTable(_QWORD *P)
 {
   struct _KPROCESS *v2; // rdi

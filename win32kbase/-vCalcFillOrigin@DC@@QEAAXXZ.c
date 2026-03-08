@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?vCalcFillOrigin@DC@@QEAAXXZ @ 0x1C0045BC0
+ * Callers:
+ *     ?ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z @ 0x1C0048B20 (-ResetOrg@@YAXPEAUHRGN__@@PEAUtagDCE@@H@Z.c)
+ *     GreSetDCOrg @ 0x1C005ACD0 (GreSetDCOrg.c)
+ *     ?GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z @ 0x1C00A49CC (-GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DC::vCalcFillOrigin(DC *this)
 {
   int v2; // r8d

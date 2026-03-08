@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vGradientFill16_565@@YAXPEAVSURFACE@@PEAU_TRIANGLEDATA@@@Z @ 0x1C02FAF10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vGradientFill16_565(struct SURFACE *a1, struct _TRIANGLEDATA *a2)
 {
   struct _TRIANGLEDATA *v2; // r11

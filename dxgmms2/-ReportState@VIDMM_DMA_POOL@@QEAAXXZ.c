@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?ReportState@VIDMM_DMA_POOL@@QEAAXXZ @ 0x1C00EFF00
+ * Callers:
+ *     VidMmReportDmaPoolState @ 0x1C002D3C0 (VidMmReportDmaPoolState.c)
+ *     ?ReportVidMmStateWorker@VIDMM_GLOBAL@@QEAAXXZ @ 0x1C00E7460 (-ReportVidMmStateWorker@VIDMM_GLOBAL@@QEAAXXZ.c)
+ * Callees:
+ *     McTemplateK0ppppppppppppq_EtwWriteTransfer @ 0x1C002E560 (McTemplateK0ppppppppppppq_EtwWriteTransfer.c)
+ *     McTemplateK0pppqxqqqqqqqpppqqqqqqqqqqtpht_EtwWriteTransfer @ 0x1C002E6AC (McTemplateK0pppqxqqqqqqqpppqqqqqqqqqqtpht_EtwWriteTransfer.c)
+ *     McTemplateK0pqx_EtwWriteTransfer @ 0x1C002F1D8 (McTemplateK0pqx_EtwWriteTransfer.c)
+ *     McTemplateK0pppxxxp_EtwWriteTransfer @ 0x1C002FAB0 (McTemplateK0pppxxxp_EtwWriteTransfer.c)
+ */
+
 void __fastcall VIDMM_DMA_POOL::ReportState(VIDMM_DMA_POOL *this, __int64 a2, __int64 a3)
 {
   char *v3; // r15

@@ -1,3 +1,15 @@
+/*
+ * XREFs of AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo @ 0x14078C518
+ * Callers:
+ *     AlpcpDispatchCloseMessage @ 0x140718414 (AlpcpDispatchCloseMessage.c)
+ *     AlpcpDispatchNewMessage @ 0x1407CB7E0 (AlpcpDispatchNewMessage.c)
+ *     AlpcpReferenceAndLockTargetPortsAndCommunicationInfo @ 0x1407CBA00 (AlpcpReferenceAndLockTargetPortsAndCommunicationInfo.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ */
+
 LONG_PTR __fastcall AlpcpUnlockAndDereferenceTargetPortsAndCommunicationInfo(
         __int64 a1,
         signed __int64 *a2,

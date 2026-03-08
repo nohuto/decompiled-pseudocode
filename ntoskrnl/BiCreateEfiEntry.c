@@ -1,3 +1,21 @@
+/*
+ * XREFs of BiCreateEfiEntry @ 0x140A5B13C
+ * Callers:
+ *     BiBindEfiEntries @ 0x14082D024 (BiBindEfiEntries.c)
+ *     BiExportBcdObjects @ 0x140A5B800 (BiExportBcdObjects.c)
+ * Callees:
+ *     BiSetRegistryValue @ 0x14082D198 (BiSetRegistryValue.c)
+ *     BcdCloseObject @ 0x14082E5DC (BcdCloseObject.c)
+ *     BcdOpenObject @ 0x14082E620 (BcdOpenObject.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiGetSavedBootEntry @ 0x14082F250 (BiGetSavedBootEntry.c)
+ *     BiAddBootEntry @ 0x140A5AAD4 (BiAddBootEntry.c)
+ *     BiCreateBootEntry @ 0x140A5AD88 (BiCreateBootEntry.c)
+ *     BiUpdateEfiEntry @ 0x140A5C248 (BiUpdateEfiEntry.c)
+ *     BiUpdateObjectReferenceInEfiEntry @ 0x140A5C414 (BiUpdateObjectReferenceInEfiEntry.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiCreateEfiEntry(__int64 a1, __int64 a2)
 {
   ULONG *v3; // rsi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PsGetSiloIdentifier @ 0x140861800
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PsGetSiloIdentifier(__int64 a1)
 {
   __int64 result; // rax

@@ -1,3 +1,17 @@
+/*
+ * XREFs of FxRegistrySettingsInitialize @ 0x1C00443BC
+ * Callers:
+ *     FxInitialize @ 0x1C0043DE4 (FxInitialize.c)
+ * Callees:
+ *     ?_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z @ 0x1C00014A8 (-_QueryULong@FxRegKey@@SAJPEAXPEBU_UNICODE_STRING@@PEAK@Z.c)
+ *     ?IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z @ 0x1C0001F2C (-IsVersionGreaterThanOrEqualTo@_FX_DRIVER_GLOBALS@@QEAAEKK@Z.c)
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ *     memset @ 0x1C000AC00 (memset.c)
+ *     ?SetVerifierState@_FX_DRIVER_GLOBALS@@QEAAXE@Z @ 0x1C004384C (-SetVerifierState@_FX_DRIVER_GLOBALS@@QEAAXE@Z.c)
+ *     FxDriverGlobalsInitializeDebugExtension @ 0x1C0043BD8 (FxDriverGlobalsInitializeDebugExtension.c)
+ *     FxOverrideDefaultVerifierSettings @ 0x1C004435C (FxOverrideDefaultVerifierSettings.c)
+ */
+
 void __fastcall FxRegistrySettingsInitialize(
         _FX_DRIVER_GLOBALS *FxDriverGlobals,
         const _UNICODE_STRING *WindowsVerifierOn,

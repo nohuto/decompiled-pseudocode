@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBACPI_EvaluateDSD @ 0x1C008A5B8
+ * Callers:
+ *     HUBACPI_GetAcpiPortAttributes @ 0x1C008ADA8 (HUBACPI_GetAcpiPortAttributes.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     RtlUnicodeStringPrintf @ 0x1C000C4DC (RtlUnicodeStringPrintf.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBACPI_EvalAcpiMethodEx @ 0x1C008A174 (HUBACPI_EvalAcpiMethodEx.c)
+ */
+
 __int64 __fastcall HUBACPI_EvaluateDSD(
         __int64 a1,
         unsigned __int16 *a2,

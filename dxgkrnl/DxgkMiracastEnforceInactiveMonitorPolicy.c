@@ -1,3 +1,13 @@
+/*
+ * XREFs of DxgkMiracastEnforceInactiveMonitorPolicy @ 0x1C000B1E0
+ * Callers:
+ *     DxgkCompleteTopologyTransition @ 0x1C01C3FC0 (DxgkCompleteTopologyTransition.c)
+ * Callees:
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000B270 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     DpiMiracastReleaseMiracastDeviceContext @ 0x1C005FF40 (DpiMiracastReleaseMiracastDeviceContext.c)
+ *     DpiMiracastStopMiracastSessionSync @ 0x1C0060170 (DpiMiracastStopMiracastSessionSync.c)
+ */
+
 LONG __fastcall DxgkMiracastEnforceInactiveMonitorPolicy(_DWORD *a1)
 {
   void *v1; // rbp

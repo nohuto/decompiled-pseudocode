@@ -1,3 +1,14 @@
+/*
+ * XREFs of KdpLowWriteContent @ 0x140AB29EC
+ * Callers:
+ *     KdpDeleteBreakpoint @ 0x140AAEB50 (KdpDeleteBreakpoint.c)
+ *     KdpSuspendAllBreakpoints @ 0x140AB2D04 (KdpSuspendAllBreakpoints.c)
+ * Callees:
+ *     KdpIsBreakpoint @ 0x140565C58 (KdpIsBreakpoint.c)
+ *     KdpCopyCodeStream @ 0x140AB2660 (KdpCopyCodeStream.c)
+ *     KdpRemoveBreakpoint @ 0x140AB2ABC (KdpRemoveBreakpoint.c)
+ */
+
 bool __fastcall KdpLowWriteContent(unsigned int a1)
 {
   char *v1; // rbx

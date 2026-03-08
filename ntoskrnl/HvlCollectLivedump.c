@@ -1,3 +1,16 @@
+/*
+ * XREFs of HvlCollectLivedump @ 0x140545434
+ * Callers:
+ *     IopLiveDumpCollectPages @ 0x140A97A84 (IopLiveDumpCollectPages.c)
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ *     VslCollectLiveDumpInSk @ 0x14054884C (VslCollectLiveDumpInSk.c)
+ */
+
 __int64 __fastcall HvlCollectLivedump(LONGLONG a1, __int64 a2, LONGLONG *a3, __int64 a4)
 {
   __int64 result; // rax

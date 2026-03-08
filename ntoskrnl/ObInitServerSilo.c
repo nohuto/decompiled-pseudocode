@@ -1,3 +1,19 @@
+/*
+ * XREFs of ObInitServerSilo @ 0x14085264C
+ * Callers:
+ *     PspInitializeServerSiloDeferred @ 0x1409AA0D0 (PspInitializeServerSiloDeferred.c)
+ *     ObInitSystem @ 0x140B403CC (ObInitSystem.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     PsGetPermanentSiloContext @ 0x1402B6120 (PsGetPermanentSiloContext.c)
+ *     PsIsHostSilo @ 0x14030F2E0 (PsIsHostSilo.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ObReferenceObjectByNameEx @ 0x140710ADC (ObReferenceObjectByNameEx.c)
+ *     ObOpenObjectByPointer @ 0x1407C93D0 (ObOpenObjectByPointer.c)
+ */
+
 int __fastcall ObInitServerSilo(PVOID Object)
 {
   __int64 *ServerSiloGlobals; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of WPP_SF_Sd @ 0x1C0004664
+ * Callers:
+ *     CiLookupTask @ 0x1C000AC70 (CiLookupTask.c)
+ *     CiConfigInitializeFromRegistry @ 0x1C000E8D0 (CiConfigInitializeFromRegistry.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0003420 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_SF_Sd(__int64 a1, unsigned __int16 a2, __int64 a3, const wchar_t *a4, ...)
 {
   __int64 v5; // rax

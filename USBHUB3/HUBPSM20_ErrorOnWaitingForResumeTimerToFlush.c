@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBPSM20_ErrorOnWaitingForResumeTimerToFlush @ 0x1C0011E40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBPSM20_ErrorOnWaitingForResumeTimerToFlush(__int64 a1)
 {
   __int64 v1; // rdx

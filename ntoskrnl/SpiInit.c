@@ -1,3 +1,11 @@
+/*
+ * XREFs of SpiInit @ 0x14067AB28
+ * Callers:
+ *     SpiSend16 @ 0x14067AFCC (SpiSend16.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall SpiInit(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 a4)
 {
   unsigned int v4; // ebp

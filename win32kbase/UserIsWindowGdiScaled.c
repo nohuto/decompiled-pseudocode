@@ -1,3 +1,14 @@
+/*
+ * XREFs of UserIsWindowGdiScaled @ 0x1C003E220
+ * Callers:
+ *     DxgkEngGetWindowGdiDpiScalingFactor @ 0x1C00EF2D0 (DxgkEngGetWindowGdiDpiScalingFactor.c)
+ * Callees:
+ *     ValidateHwndEx @ 0x1C003E310 (ValidateHwndEx.c)
+ *     ?IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ @ 0x1C004E3E0 (-IS_USERCRIT_OWNED_AT_ALL@@YA_NXZ.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C004FE50 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall UserIsWindowGdiScaled(__int64 a1, _WORD *a2)
 {
   _QWORD *ThreadWin32Thread; // rax

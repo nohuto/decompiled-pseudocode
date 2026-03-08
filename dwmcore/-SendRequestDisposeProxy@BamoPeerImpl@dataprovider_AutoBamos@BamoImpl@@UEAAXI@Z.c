@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SendRequestDisposeProxy@BamoPeerImpl@dataprovider_AutoBamos@BamoImpl@@UEAAXI@Z @ 0x1801DD600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1801B44D0 (-FailFast_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ */
+
 void __fastcall BamoImpl::dataprovider_AutoBamos::BamoPeerImpl::SendRequestDisposeProxy(
         BamoImpl::dataprovider_AutoBamos::BamoPeerImpl *this,
         int a2)

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?OnBindingsChanged@CParticleVector3Behavior@@MEAAXXZ @ 0x18023E1E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AppendFrames@?$LinearKeyframeAnimation@Ufloat3@Numerics@Foundation@Windows@@@Particles@@QEAAJAEBV?$span@$$CBUParticleBindingData@@$0?0@gsl@@@Z @ 0x18023D200 (-AppendFrames@-$LinearKeyframeAnimation@Ufloat3@Numerics@Foundation@Windows@@@Particles@@QEAAJAE.c)
+ *     ??$?0$0?0V?$vector@UParticleBindingData@@V?$allocator@UParticleBindingData@@@std@@@std@@$0A@@?$span@$$CBUParticleBindingData@@$0?0@gsl@@QEAA@AEBV?$vector@UParticleBindingData@@V?$allocator@UParticleBindingData@@@std@@@std@@@Z @ 0x18023E178 (--$-0$0-0V-$vector@UParticleBindingData@@V-$allocator@UParticleBindingData@@@std@@@std@@$0A@@-$s.c)
+ */
+
 void __fastcall CParticleVector3Behavior::OnBindingsChanged(CParticleVector3Behavior *this)
 {
   _QWORD v2[3]; // [rsp+20h] [rbp-18h] BYREF

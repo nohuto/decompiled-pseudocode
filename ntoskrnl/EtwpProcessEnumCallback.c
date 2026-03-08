@@ -1,3 +1,27 @@
+/*
+ * XREFs of EtwpProcessEnumCallback @ 0x14080DD60
+ * Callers:
+ *     EtwpProcessThreadImageRundown @ 0x14080DC50 (EtwpProcessThreadImageRundown.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     PsGetProcessServerSilo @ 0x1402637E0 (PsGetProcessServerSilo.c)
+ *     ExAcquireRundownProtection_0 @ 0x14028D2A0 (ExAcquireRundownProtection_0.c)
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     EtwpEnumerateAddressSpace @ 0x1407EC24C (EtwpEnumerateAddressSpace.c)
+ *     EtwpThreadEnumCallback @ 0x140801B20 (EtwpThreadEnumCallback.c)
+ *     EtwpIsProcessZombie @ 0x14080E0B0 (EtwpIsProcessZombie.c)
+ *     EtwpTraceProcessRundown @ 0x14080E0E4 (EtwpTraceProcessRundown.c)
+ *     PsEnumProcessThreads @ 0x14080E25C (PsEnumProcessThreads.c)
+ *     EtwpSysModuleRunDown @ 0x14080E368 (EtwpSysModuleRunDown.c)
+ *     EtwpProcessPerfCtrsRundown @ 0x1408A3722 (EtwpProcessPerfCtrsRundown.c)
+ *     EtwpEnumerateWorkingSet @ 0x1409EBD00 (EtwpEnumerateWorkingSet.c)
+ *     EtwpObjectHandleRundown @ 0x1409EC598 (EtwpObjectHandleRundown.c)
+ */
+
 __int64 __fastcall EtwpProcessEnumCallback(PRKPROCESS PROCESS, __int64 a2)
 {
   __int64 v2; // r14

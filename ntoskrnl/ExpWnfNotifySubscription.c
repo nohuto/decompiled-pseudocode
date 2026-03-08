@@ -1,3 +1,17 @@
+/*
+ * XREFs of ExpWnfNotifySubscription @ 0x14071C224
+ * Callers:
+ *     ExpWnfSubscribeWnfStateChange @ 0x140719A64 (ExpWnfSubscribeWnfStateChange.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExpWnfInsertSubscriptionInPendingQueue @ 0x14071B750 (ExpWnfInsertSubscriptionInPendingQueue.c)
+ *     ExpWnfStartKernelDispatcher @ 0x14078D67C (ExpWnfStartKernelDispatcher.c)
+ */
+
 int __fastcall ExpWnfNotifySubscription(__int64 a1, __int64 a2, int a3, unsigned int a4)
 {
   signed __int64 *v4; // rbx

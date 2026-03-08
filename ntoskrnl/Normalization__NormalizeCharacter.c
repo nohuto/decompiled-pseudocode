@@ -1,3 +1,27 @@
+/*
+ * XREFs of Normalization__NormalizeCharacter @ 0x1409BE3B8
+ * Callers:
+ *     Normalization__AppendDecomposedChar @ 0x1409BD480 (Normalization__AppendDecomposedChar.c)
+ *     Normalization__Normalize @ 0x1409BE1FC (Normalization__Normalize.c)
+ * Callees:
+ *     ComposeHangulLV @ 0x1405ADF90 (ComposeHangulLV.c)
+ *     ComposeHangulLVT @ 0x1405ADFC0 (ComposeHangulLVT.c)
+ *     IsHangulLV @ 0x1405ADFF4 (IsHangulLV.c)
+ *     NormBuffer__Append @ 0x1405AE02C (NormBuffer__Append.c)
+ *     NormBuffer__AppendEx @ 0x1405AE10C (NormBuffer__AppendEx.c)
+ *     NormBuffer__GetLastChar @ 0x1405AE1C4 (NormBuffer__GetLastChar.c)
+ *     NormBuffer__Insert @ 0x1405AE250 (NormBuffer__Insert.c)
+ *     NormBuffer__IsBlocked @ 0x1405AE32C (NormBuffer__IsBlocked.c)
+ *     NormBuffer__LastStartBase @ 0x1405AE3B8 (NormBuffer__LastStartBase.c)
+ *     NormBuffer__LastStartBasePair @ 0x1405AE3E4 (NormBuffer__LastStartBasePair.c)
+ *     NormBuffer__RecheckStartCombinations @ 0x1405AE434 (NormBuffer__RecheckStartCombinations.c)
+ *     NormBuffer__ReplaceLastStartBase @ 0x1405AE580 (NormBuffer__ReplaceLastStartBase.c)
+ *     NormBuffer__ReplaceLastStartBasePair @ 0x1405AE600 (NormBuffer__ReplaceLastStartBasePair.c)
+ *     NormBuffer__RewindOutputCharacter @ 0x1405AE678 (NormBuffer__RewindOutputCharacter.c)
+ *     Normalization__AppendDecomposedChar @ 0x1409BD480 (Normalization__AppendDecomposedChar.c)
+ *     Normalization__CanCombinableCharactersCombine @ 0x1409BD590 (Normalization__CanCombinableCharactersCombine.c)
+ */
+
 __int64 __fastcall Normalization__NormalizeCharacter(__int64 a1, int a2, unsigned __int8 a3, __int64 a4)
 {
   unsigned __int8 v5; // r15

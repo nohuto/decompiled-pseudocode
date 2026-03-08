@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Matrix4x4SubchannelAtIndex@MatrixSubchannelMaskInfo@@QEBAPEBGI@Z @ 0x18027D108
+ * Callers:
+ *     ?WriteSubchannelString@MatrixSubchannelMaskInfo@@QEBAXW4DCOMPOSITION_EXPRESSION_TYPE@@_KPEAG@Z @ 0x18027D3B4 (-WriteSubchannelString@MatrixSubchannelMaskInfo@@QEBAXW4DCOMPOSITION_EXPRESSION_TYPE@@_KPEAG@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 const unsigned __int16 *__fastcall MatrixSubchannelMaskInfo::Matrix4x4SubchannelAtIndex(
         MatrixSubchannelMaskInfo *this,
         char a2)

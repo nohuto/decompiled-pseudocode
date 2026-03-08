@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopBootBatteryStatusWorker @ 0x1408604E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopCurrentPowerState @ 0x14078F3D0 (PopCurrentPowerState.c)
+ *     SshpSessionManagerSendControlEvent @ 0x1408717B8 (SshpSessionManagerSendControlEvent.c)
+ */
+
 __int64 PopBootBatteryStatusWorker()
 {
   int v1; // [rsp+20h] [rbp-40h] BYREF

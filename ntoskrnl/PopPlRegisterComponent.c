@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopPlRegisterComponent @ 0x140393310
+ * Callers:
+ *     PopPlRegisterDeviceIterator @ 0x14059F270 (PopPlRegisterDeviceIterator.c)
+ *     PopFxRegisterDeviceWorker @ 0x14083714C (PopFxRegisterDeviceWorker.c)
+ * Callees:
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopPlLookupComponentPowerProfile @ 0x14059EE60 (PopPlLookupComponentPowerProfile.c)
+ */
+
 void __fastcall PopPlRegisterComponent(__int64 a1)
 {
   __int64 v1; // rdx

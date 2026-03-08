@@ -1,3 +1,13 @@
+/*
+ * XREFs of VslVerifySessionSpace @ 0x1409405E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MmEnumerateSystemImages @ 0x14080E4B0 (MmEnumerateSystemImages.c)
+ */
+
 __int64 __fastcall VslVerifySessionSpace(int a1)
 {
   __int64 result; // rax

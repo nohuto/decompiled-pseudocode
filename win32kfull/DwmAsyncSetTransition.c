@@ -1,3 +1,12 @@
+/*
+ * XREFs of DwmAsyncSetTransition @ 0x1C00EC4B8
+ * Callers:
+ *     NtUserSetWindowCompositionTransition @ 0x1C00EC250 (NtUserSetWindowCompositionTransition.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall DwmAsyncSetTransition(
         PVOID Object,
         __int64 a2,

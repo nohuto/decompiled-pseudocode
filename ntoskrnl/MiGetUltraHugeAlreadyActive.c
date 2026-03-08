@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiGetUltraHugeAlreadyActive @ 0x1403BA8F4
+ * Callers:
+ *     MiGetHugePageToZero @ 0x1402E41D8 (MiGetHugePageToZero.c)
+ * Callees:
+ *     RtlFindClearBitsAndSet @ 0x14030CEE0 (RtlFindClearBitsAndSet.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiDecrementHugeContext @ 0x1403D0A68 (MiDecrementHugeContext.c)
+ *     MiLockHugePfnInternal @ 0x14061F020 (MiLockHugePfnInternal.c)
+ */
+
 RTL_BITMAP *__fastcall MiGetUltraHugeAlreadyActive(__int64 a1)
 {
   RTL_BITMAP *v1; // rbx

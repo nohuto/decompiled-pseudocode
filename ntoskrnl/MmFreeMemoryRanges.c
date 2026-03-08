@@ -1,3 +1,12 @@
+/*
+ * XREFs of MmFreeMemoryRanges @ 0x140A2B7D0
+ * Callers:
+ *     MiFreePhysicalRange @ 0x140648248 (MiFreePhysicalRange.c)
+ *     IopLiveDumpFreeIoSpaceRanges @ 0x14094B2F4 (IopLiveDumpFreeIoSpaceRanges.c)
+ * Callees:
+ *     MiReleaseMemoryRuns @ 0x14061FEB0 (MiReleaseMemoryRuns.c)
+ */
+
 __int64 __fastcall MmFreeMemoryRanges(ULONG_PTR a1)
 {
   unsigned int v1; // edx

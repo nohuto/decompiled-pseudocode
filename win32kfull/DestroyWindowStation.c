@@ -1,3 +1,11 @@
+/*
+ * XREFs of DestroyWindowStation @ 0x1C00DF1B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C003C250 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall DestroyWindowStation(__int64 a1)
 {
   __int64 v1; // rbx

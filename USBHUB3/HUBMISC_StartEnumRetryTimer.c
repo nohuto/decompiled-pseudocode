@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBMISC_StartEnumRetryTimer @ 0x1C002E7AC
+ * Callers:
+ *     HUBDSM_StartingTimerForEnumRetryOnRenum @ 0x1C0020A20 (HUBDSM_StartingTimerForEnumRetryOnRenum.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dq @ 0x1C001502C (WPP_RECORDER_SF_dq.c)
+ */
+
 __int64 __fastcall HUBMISC_StartEnumRetryTimer(__int64 a1, __int64 a2, __int64 a3)
 {
   int v5; // [rsp+28h] [rbp-20h]

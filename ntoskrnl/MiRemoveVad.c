@@ -1,3 +1,29 @@
+/*
+ * XREFs of MiRemoveVad @ 0x140333090
+ * Callers:
+ *     MiDeleteVad @ 0x1407C82E0 (MiDeleteVad.c)
+ *     MiCoalescePlaceholderAllocations @ 0x140A2F378 (MiCoalescePlaceholderAllocations.c)
+ *     MiPreparePlaceholderVadReplacement @ 0x140A451C8 (MiPreparePlaceholderVadReplacement.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiLockWorkingSetShared @ 0x14032DAF0 (MiLockWorkingSetShared.c)
+ *     MiUnlockVadTree @ 0x140330EC8 (MiUnlockVadTree.c)
+ *     MiInsertVad @ 0x1403312E0 (MiInsertVad.c)
+ *     MiIsVadLargePrivate @ 0x1403316C0 (MiIsVadLargePrivate.c)
+ *     MiLockVadTree @ 0x1403334B4 (MiLockVadTree.c)
+ *     MiClearVadBits @ 0x1403335A0 (MiClearVadBits.c)
+ *     MiCaptureDeleteHierarchy @ 0x140333890 (MiCaptureDeleteHierarchy.c)
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReturnPageTablePageCommitment @ 0x1406B6AF0 (MiReturnPageTablePageCommitment.c)
+ */
+
 _BOOL8 __fastcall MiRemoveVad(unsigned __int64 a1, int a2, __int64 a3)
 {
   __int64 v3; // rsi

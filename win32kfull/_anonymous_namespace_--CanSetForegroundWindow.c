@@ -1,3 +1,21 @@
+/*
+ * XREFs of _anonymous_namespace_::CanSetForegroundWindow @ 0x1C0023718
+ * Callers:
+ *     ?xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegroundBehaviors@@W4SetForegroundffects@@@Z @ 0x1C002498C (-xxxSetForegroundWindowWithOptions@@YA_NPEAUtagWND@@W4ForegroundChangeAllowPolicy@@W4SetForegrou.c)
+ * Callees:
+ *     _anonymous_namespace_::CheckImmersiveForegroundAccess @ 0x1C0022FA8 (_anonymous_namespace_--CheckImmersiveForegroundAccess.c)
+ *     _anonymous_namespace_::CheckCanonicalForegroundAccess @ 0x1C002340C (_anonymous_namespace_--CheckCanonicalForegroundAccess.c)
+ *     IsForegroundLocked @ 0x1C00236B0 (IsForegroundLocked.c)
+ *     IsDebuggerAttached @ 0x1C0024014 (IsDebuggerAttached.c)
+ *     WPP_RECORDER_AND_TRACE_SF_s @ 0x1C002574C (WPP_RECORDER_AND_TRACE_SF_s.c)
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     IsNonImmersiveBand @ 0x1C0039CB0 (IsNonImmersiveBand.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     IAMThreadAccessGranted @ 0x1C009A2DC (IAMThreadAccessGranted.c)
+ *     Feature_StrictIAMForegroundCheck__private_ReportDeviceUsage @ 0x1C012D160 (Feature_StrictIAMForegroundCheck__private_ReportDeviceUsage.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall anonymous_namespace_::CanSetForegroundWindow(__int64 a1, __int64 a2, __int64 a3, int a4)
 {

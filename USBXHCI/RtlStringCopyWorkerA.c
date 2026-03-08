@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlStringCopyWorkerA @ 0x1C001E1D4
+ * Callers:
+ *     Controller_Create @ 0x1C00712C4 (Controller_Create.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlStringCopyWorkerA(
         NTSTRSAFE_PSTR pszDest,
         size_t cchDest,

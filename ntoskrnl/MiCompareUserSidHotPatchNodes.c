@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiCompareUserSidHotPatchNodes @ 0x140A33974
+ * Callers:
+ *     MiFindUserSidHotPatchContext @ 0x140A3420C (MiFindUserSidHotPatchContext.c)
+ *     MiLoadHotPatchForUserSid @ 0x140A35638 (MiLoadHotPatchForUserSid.c)
+ * Callees:
+ *     RtlLengthSid @ 0x140245EC0 (RtlLengthSid.c)
+ *     RtlCompareMemory @ 0x140420DD0 (RtlCompareMemory.c)
+ */
+
 __int64 __fastcall MiCompareUserSidHotPatchNodes(_QWORD *a1, __int64 a2)
 {
   void *v3; // rbp

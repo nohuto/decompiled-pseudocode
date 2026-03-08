@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1STACKMEMOBJ@@QEAA@XZ @ 0x1C02D54B8
+ * Callers:
+ *     NtGdiExtFloodFill @ 0x1C02D6200 (NtGdiExtFloodFill.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall STACKMEMOBJ::~STACKMEMOBJ(STACKMEMOBJ *this)
 {
   void *v2; // rcx

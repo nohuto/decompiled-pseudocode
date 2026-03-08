@@ -1,3 +1,13 @@
+/*
+ * XREFs of PatchThreadWindows @ 0x1C00FA530
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     ?FindShellFrameAppThreadsAssociation@@YAPEAU_THREADSASSOCIATION@@PEAUtagTHREADINFO@@@Z @ 0x1C00FA684 (-FindShellFrameAppThreadsAssociation@@YAPEAU_THREADSASSOCIATION@@PEAUtagTHREADINFO@@@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 char __fastcall PatchThreadWindows(struct tagTHREADINFO *a1)
 {
   struct _THREADSASSOCIATION *ShellFrameAppThreadsAssociation; // rax

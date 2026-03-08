@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CComponentTransform3DMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00B8E40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 __int64 __fastcall DirectComposition::CComponentTransform3DMarshaler::SetBufferProperty(
         DirectComposition::CComponentTransform3DMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

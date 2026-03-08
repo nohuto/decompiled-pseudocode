@@ -1,3 +1,17 @@
+/*
+ * XREFs of CiDispatchFastIoDeviceControl @ 0x1C000A760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CiSchedulerTaskIndexYield @ 0x1C0002300 (CiSchedulerTaskIndexYield.c)
+ *     CiSchedulerCancelTaskIndexYield @ 0x1C0002C60 (CiSchedulerCancelTaskIndexYield.c)
+ *     CiSchedulerSetMultimediaMode @ 0x1C0003178 (CiSchedulerSetMultimediaMode.c)
+ *     memmove @ 0x1C00034C0 (memmove.c)
+ *     WPP_SF_dd @ 0x1C00048CC (WPP_SF_dd.c)
+ *     CiThreadSetRelativePriority @ 0x1C000AA20 (CiThreadSetRelativePriority.c)
+ *     CiCreateTaskIndexClientFromThread @ 0x1C000B8B0 (CiCreateTaskIndexClientFromThread.c)
+ */
+
 char __fastcall CiDispatchFastIoDeviceControl(
         __int64 a1,
         __int64 a2,

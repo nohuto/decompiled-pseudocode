@@ -1,3 +1,22 @@
+/*
+ * XREFs of ExAcquireFastResourceExclusive @ 0x1403C48B0
+ * Callers:
+ *     ExpFastResourceLegacyAcquireExclusive @ 0x1403C4310 (ExpFastResourceLegacyAcquireExclusive.c)
+ * Callees:
+ *     KeAbPreWait @ 0x140241620 (KeAbPreWait.c)
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     ExpWaitForResource @ 0x140342994 (ExpWaitForResource.c)
+ *     ExpTryAcquireResourceExclusive @ 0x1403C4DA0 (ExpTryAcquireResourceExclusive.c)
+ *     ExpAddFastOwnerEntryToThreadList @ 0x1403C4DC8 (ExpAddFastOwnerEntryToThreadList.c)
+ *     ExpFindFastOwnerEntryForThread @ 0x1403C53E4 (ExpFindFastOwnerEntryForThread.c)
+ *     ExAcquireFastResourceExclusive2 @ 0x14040D530 (ExAcquireFastResourceExclusive2.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall ExAcquireFastResourceExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR a2, char a3)
 {
   struct _KTHREAD *CurrentThread; // r10

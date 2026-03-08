@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiUnlockPageTableCharges @ 0x140345720
+ * Callers:
+ *     MiProbeUnlockPage @ 0x14027C720 (MiProbeUnlockPage.c)
+ *     MiDemoteCombinedPte @ 0x14029DF88 (MiDemoteCombinedPte.c)
+ *     MiCopyOnWrite @ 0x140319F00 (MiCopyOnWrite.c)
+ *     MiUnlockWsle @ 0x1403443C0 (MiUnlockWsle.c)
+ *     NtLockVirtualMemory @ 0x140344C50 (NtLockVirtualMemory.c)
+ *     MiUnlockPhysicalPageByVa @ 0x14061A990 (MiUnlockPhysicalPageByVa.c)
+ *     MiUnlockPageTableRange @ 0x14064AC34 (MiUnlockPageTableRange.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiPfnShareCountIsZero @ 0x14032BF50 (MiPfnShareCountIsZero.c)
+ *     MiIsLowestPageTablePage @ 0x140348E4C (MiIsLowestPageTablePage.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void __fastcall MiUnlockPageTableCharges(ULONG_PTR BugCheckParameter2, int a2)
 {
   __int64 v2; // rbp

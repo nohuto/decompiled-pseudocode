@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhLogStartFailure @ 0x1C002D464
+ * Callers:
+ *     UsbhInitialize @ 0x1C002CE20 (UsbhInitialize.c)
+ *     UsbhReinitialize @ 0x1C002D73C (UsbhReinitialize.c)
+ *     UsbhFinishStart @ 0x1C00378F4 (UsbhFinishStart.c)
+ * Callees:
+ *     UsbhSyncSendInternalIoctl @ 0x1C0004A70 (UsbhSyncSendInternalIoctl.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     memmove @ 0x1C0023580 (memmove.c)
+ *     WPP_RECORDER_SF_sdsd @ 0x1C002EDF0 (WPP_RECORDER_SF_sdsd.c)
+ */
+
 void __fastcall UsbhLogStartFailure(__int64 a1, unsigned int a2, unsigned int a3, __int64 a4, __int64 a5, _BYTE *Src)
 {
   int v9; // edx

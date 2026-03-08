@@ -1,3 +1,17 @@
+/*
+ * XREFs of ??0CRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1800C7B7C
+ * Callers:
+ *     ??0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1800C7868 (--0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CRemoteRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x180108800 (--0CRemoteRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CDDisplayRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1801BD55C (--0CDDisplayRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0COffScreenRenderTarget@@IEAA@PEAVCComposition@@AEBVCResourceTag@@@Z @ 0x1801E65DC (--0COffScreenRenderTarget@@IEAA@PEAVCComposition@@AEBVCResourceTag@@@Z.c)
+ *     ??0CRemoteAppRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1801E73B4 (--0CRemoteAppRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CDDARenderTarget@@IEAA@PEAUIDXGIOutputDWM@@AEBVRenderTargetInfo@@@Z @ 0x1801F600C (--0CDDARenderTarget@@IEAA@PEAUIDXGIOutputDWM@@AEBVRenderTargetInfo@@@Z.c)
+ *     ??0CHolographicInteropTarget@@IEAA@PEAVCComposition@@@Z @ 0x1802A5804 (--0CHolographicInteropTarget@@IEAA@PEAVCComposition@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 CRenderTarget *__fastcall CRenderTarget::CRenderTarget(CRenderTarget *this, struct CComposition *a2)
 {
   CRenderTarget *result; // rax

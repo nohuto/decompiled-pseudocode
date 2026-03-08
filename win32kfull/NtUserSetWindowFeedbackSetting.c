@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserSetWindowFeedbackSetting @ 0x1C0100C70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     FeedbackSetWindowSetting @ 0x1C0100DCC (FeedbackSetWindowSetting.c)
+ *     FeedbackClearWindowSetting @ 0x1C01AED8C (FeedbackClearWindowSetting.c)
+ */
+
 __int64 __fastcall NtUserSetWindowFeedbackSetting(__int64 a1, int a2, int a3, int a4, _DWORD *Address)
 {
   int v9; // edi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of BcpDisplayEarlyBugCheckScreen @ 0x140B9A59C
+ * Callers:
+ *     BgpFwDisplayBugCheckScreen @ 0x140670AE4 (BgpFwDisplayBugCheckScreen.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     BgConsoleGetInterface @ 0x140AEB5EC (BgConsoleGetInterface.c)
+ *     BgConsoleDestroyInterface @ 0x140AEC504 (BgConsoleDestroyInterface.c)
+ */
+
 __int64 __fastcall BcpDisplayEarlyBugCheckScreen(unsigned int a1, _QWORD *a2, __int64 a3)
 {
   __int64 (__fastcall **Interface)(); // rax

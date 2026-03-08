@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiFindLargestLoaderDescriptor @ 0x140B37A44
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MxInitializeFreeNodeDescriptors @ 0x140B37B68 (MxInitializeFreeNodeDescriptors.c)
+ *     MxComputeFreeNodeDescriptorRequirements @ 0x140B38484 (MxComputeFreeNodeDescriptorRequirements.c)
+ */
+
 __int64 __fastcall MiFindLargestLoaderDescriptor(__int64 a1)
 {
   __int64 v2; // rbx

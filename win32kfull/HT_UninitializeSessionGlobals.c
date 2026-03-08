@@ -1,3 +1,11 @@
+/*
+ * XREFs of HT_UninitializeSessionGlobals @ 0x1C02535C8
+ * Callers:
+ *     EnableHalftone @ 0x1C00EFD70 (EnableHalftone.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall HT_UninitializeSessionGlobals(__int64 a1)
 {
   __int64 v1; // rbx

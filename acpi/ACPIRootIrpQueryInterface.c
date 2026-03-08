@@ -1,3 +1,18 @@
+/*
+ * XREFs of ACPIRootIrpQueryInterface @ 0x1C00944D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIDebugGetIrpText @ 0x1C000153C (ACPIDebugGetIrpText.c)
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     WPP_RECORDER_SF_qsLqss @ 0x1C00015BC (WPP_RECORDER_SF_qsLqss.c)
+ *     ACPIDispatchForwardIrp @ 0x1C0001770 (ACPIDispatchForwardIrp.c)
+ *     AcpiPccEjectInterface @ 0x1C0033D34 (AcpiPccEjectInterface.c)
+ *     ACPIEjectPnpLocationInterface @ 0x1C0087570 (ACPIEjectPnpLocationInterface.c)
+ *     AcpiIrqLibEjectArbiterInterface @ 0x1C0098D24 (AcpiIrqLibEjectArbiterInterface.c)
+ *     IrqTranslatorEjectInterface @ 0x1C009A750 (IrqTranslatorEjectInterface.c)
+ */
+
 __int64 __fastcall ACPIRootIrpQueryInterface(ULONG_PTR BugCheckParameter3, PIRP Irp)
 {
   _IO_STACK_LOCATION *CurrentStackLocation; // rbx

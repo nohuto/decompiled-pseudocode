@@ -1,3 +1,13 @@
+/*
+ * XREFs of FsRtlUpperOplockFsctrl @ 0x14093B1B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IofCompleteRequest @ 0x14027B290 (IofCompleteRequest.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1406B3240 (FsRtlpOplockFsctrlInternal.c)
+ *     FsRtlpOplockUpperLowerCompatible @ 0x1406B36C8 (FsRtlpOplockUpperLowerCompatible.c)
+ */
+
 __int64 __fastcall FsRtlUpperOplockFsctrl(__int64 *Oplock, PIRP Irp, int a3, char a4, int a5)
 {
   unsigned int v5; // ebx

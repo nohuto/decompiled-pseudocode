@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1DXGDEADLOCK_TRACKER@@QEAA@XZ @ 0x1C017D26C
+ * Callers:
+ *     ?AcquireCoreResourceExclusiveWithTracking@DXGADAPTER@@AEAAXW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@_N@Z @ 0x1C017FC50 (-AcquireCoreResourceExclusiveWithTracking@DXGADAPTER@@AEAAXW4DXGADAPTER_EXCLUSIVEACCESS_REASON@@.c)
+ *     ?AcquireCoreResourceShared@DXGADAPTER@@AEAAXPEAD@Z @ 0x1C01957D0 (-AcquireCoreResourceShared@DXGADAPTER@@AEAAXPEAD@Z.c)
+ * Callees:
+ *     ?ReleaseReference@DXGADAPTER@@QEAAX_K@Z @ 0x1C0009930 (-ReleaseReference@DXGADAPTER@@QEAAX_K@Z.c)
+ *     ?Cancel@DXGDEADLOCK_TRACKER@@QEAAXXZ @ 0x1C017D324 (-Cancel@DXGDEADLOCK_TRACKER@@QEAAXXZ.c)
+ */
+
 void __fastcall DXGDEADLOCK_TRACKER::~DXGDEADLOCK_TRACKER(DXGDEADLOCK_TRACKER *this)
 {
   __int64 v1; // rbx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of VfIrpAllocateCallDriverData @ 0x140ACAA48
+ * Callers:
+ *     IovCallDriver @ 0x140ABE1D0 (IovCallDriver.c)
+ * Callees:
+ *     ExAllocateFromNPagedLookasideList @ 0x14023FE20 (ExAllocateFromNPagedLookasideList.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IovpCheckIrpForCriticalTracking @ 0x140AC9954 (IovpCheckIrpForCriticalTracking.c)
+ */
+
 __int64 __fastcall VfIrpAllocateCallDriverData(__int64 a1, _QWORD *a2)
 {
   PVOID v4; // rax

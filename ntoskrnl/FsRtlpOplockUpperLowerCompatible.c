@@ -1,3 +1,16 @@
+/*
+ * XREFs of FsRtlpOplockUpperLowerCompatible @ 0x1406B36C8
+ * Callers:
+ *     FsRtlpRequestShareableOplock @ 0x14023EEF0 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x1403B9C94 (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403CD730 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpAcknowledgeOplockBreak @ 0x14053BB78 (FsRtlpAcknowledgeOplockBreak.c)
+ *     FsRtlCheckUpperOplock @ 0x14093AC60 (FsRtlCheckUpperOplock.c)
+ *     FsRtlUpperOplockFsctrl @ 0x14093B1B0 (FsRtlUpperOplockFsctrl.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall FsRtlpOplockUpperLowerCompatible(int a1, int a2)
 {
   int v2; // ecx

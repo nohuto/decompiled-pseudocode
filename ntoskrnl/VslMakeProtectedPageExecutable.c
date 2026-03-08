@@ -1,3 +1,13 @@
+/*
+ * XREFs of VslMakeProtectedPageExecutable @ 0x1405497EC
+ * Callers:
+ *     KeSetPagePrivilege @ 0x1403CF124 (KeSetPagePrivilege.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall VslMakeProtectedPageExecutable(__int64 a1, __int128 *a2, int a3)
 {
   __int128 v6; // xmm0

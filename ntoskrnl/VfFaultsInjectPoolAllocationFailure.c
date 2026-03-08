@@ -1,3 +1,15 @@
+/*
+ * XREFs of VfFaultsInjectPoolAllocationFailure @ 0x140AD2EC8
+ * Callers:
+ *     VfHandlePoolAlloc @ 0x140ACDFB0 (VfHandlePoolAlloc.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     VfFaultsInjectResourceFailure @ 0x140AD2FAC (VfFaultsInjectResourceFailure.c)
+ *     ViFaultsIsTagTarget @ 0x140AD3B9C (ViFaultsIsTagTarget.c)
+ */
+
 __int64 __fastcall VfFaultsInjectPoolAllocationFailure(unsigned int a1)
 {
   unsigned __int64 v3; // rdi

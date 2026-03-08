@@ -1,3 +1,14 @@
+/*
+ * XREFs of Controller_DisableController @ 0x1C003314C
+ * Callers:
+ *     Controller_InitiateRecovery @ 0x1C0033990 (Controller_InitiateRecovery.c)
+ *     Controller_InternalReset @ 0x1C0033D04 (Controller_InternalReset.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Controller_SetControllerGone @ 0x1C00347AC (Controller_SetControllerGone.c)
+ */
+
 void __fastcall Controller_DisableController(__int64 a1)
 {
   int v2; // edx

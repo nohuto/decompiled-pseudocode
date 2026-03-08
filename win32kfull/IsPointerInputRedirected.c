@@ -1,3 +1,12 @@
+/*
+ * XREFs of IsPointerInputRedirected @ 0x1C014695A
+ * Callers:
+ *     EditionIsPointerInputRedirected @ 0x1C01468A0 (EditionIsPointerInputRedirected.c)
+ *     IsPointerInputTypeRedirected @ 0x1C01469F0 (IsPointerInputTypeRedirected.c)
+ * Callees:
+ *     UpdatePointerRedirIsAlive @ 0x1C0020078 (UpdatePointerRedirIsAlive.c)
+ */
+
 __int64 __fastcall IsPointerInputRedirected(__int64 a1, __int64 a2, int a3, _QWORD *a4)
 {
   unsigned int v5; // edi

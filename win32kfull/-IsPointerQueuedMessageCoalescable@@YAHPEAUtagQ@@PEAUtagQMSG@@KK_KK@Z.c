@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsPointerQueuedMessageCoalescable@@YAHPEAUtagQ@@PEAUtagQMSG@@KK_KK@Z @ 0x1C01E9C6C
+ * Callers:
+ *     EditionIsPointerQueuedMessageCoalescable @ 0x1C0149100 (EditionIsPointerQueuedMessageCoalescable.c)
+ * Callees:
+ *     IsPointerInputMessageWithState @ 0x1C003855C (IsPointerInputMessageWithState.c)
+ */
+
 __int64 __fastcall IsPointerQueuedMessageCoalescable(
         struct tagQ *a1,
         struct tagQMSG *a2,

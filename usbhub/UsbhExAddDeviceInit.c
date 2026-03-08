@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhExAddDeviceInit @ 0x1C004A840
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 void __fastcall UsbhExAddDeviceInit(__int64 a1)
 {
   _DWORD *v2; // rax

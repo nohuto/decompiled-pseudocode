@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetHeatMapProperties@CVisual@@QEBA?AUHeatMapProperty@1@XZ @ 0x1801D2BF4
+ * Callers:
+ *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180067850 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CVisual::GetHeatMapProperties(__int64 a1, __int64 a2)
 {
   __int64 v2; // rcx

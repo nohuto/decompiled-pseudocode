@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpInterruptRequestInterrupt @ 0x1405031A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     HalpInterruptLookupController @ 0x14028EEE0 (HalpInterruptLookupController.c)
+ *     HalpInterruptFindLinesForGsiRange @ 0x14028EF5C (HalpInterruptFindLinesForGsiRange.c)
+ *     HalpAcquireHighLevelLock @ 0x140379818 (HalpAcquireHighLevelLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpInterruptRequestSecondaryInterrupt @ 0x140517DEC (HalpInterruptRequestSecondaryInterrupt.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpInterruptRequestInterrupt(unsigned int a1)
 {
   _DWORD *LinesForGsiRange; // rax

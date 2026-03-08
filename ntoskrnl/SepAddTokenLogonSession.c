@@ -1,3 +1,17 @@
+/*
+ * XREFs of SepAddTokenLogonSession @ 0x1409CD020
+ * Callers:
+ *     SepCreateTokenEx @ 0x1402079F0 (SepCreateTokenEx.c)
+ *     SepFilterToken @ 0x14073FED0 (SepFilterToken.c)
+ *     SepDuplicateToken @ 0x1407BCF00 (SepDuplicateToken.c)
+ *     SepSetServerSiloToken @ 0x1409C6A80 (SepSetServerSiloToken.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void __fastcall SepAddTokenLogonSession(__int64 a1)
 {
   unsigned int v1; // edx

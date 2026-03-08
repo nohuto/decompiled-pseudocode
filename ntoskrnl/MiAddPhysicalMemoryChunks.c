@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiAddPhysicalMemoryChunks @ 0x140A2919C
+ * Callers:
+ *     MiActOnPartitionNodePages @ 0x140655AB0 (MiActOnPartitionNodePages.c)
+ *     MmAddPhysicalMemory @ 0x140A2A460 (MmAddPhysicalMemory.c)
+ *     MiHotAddBootDescriptor @ 0x140B962B0 (MiHotAddBootDescriptor.c)
+ * Callees:
+ *     MiGetLargestPageIndex @ 0x14027DE94 (MiGetLargestPageIndex.c)
+ *     MiGetAvailablePagesExcludeSlists @ 0x1402F2A0C (MiGetAvailablePagesExcludeSlists.c)
+ *     MiGetClosestImplicitNode @ 0x140346FCC (MiGetClosestImplicitNode.c)
+ *     MiRestrictRangeToNode @ 0x140370AB4 (MiRestrictRangeToNode.c)
+ *     MiNodeAvailablePages @ 0x140464746 (MiNodeAvailablePages.c)
+ *     IoUpdateDumpPhysicalRanges @ 0x14054EC60 (IoUpdateDumpPhysicalRanges.c)
+ *     MiPageToNode @ 0x1406153B0 (MiPageToNode.c)
+ *     MiNodeLargeFreeZeroPages2 @ 0x14064D5BC (MiNodeLargeFreeZeroPages2.c)
+ *     MiAddPhysicalMemory @ 0x140A289D8 (MiAddPhysicalMemory.c)
+ */
+
 __int64 __fastcall MiAddPhysicalMemoryChunks(
         unsigned __int16 *a1,
         unsigned __int64 *a2,

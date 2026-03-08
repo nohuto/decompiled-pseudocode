@@ -1,3 +1,15 @@
+/*
+ * XREFs of WdipSemLoadGroupPolicy @ 0x14083195C
+ * Callers:
+ *     WdipSemCleanStart @ 0x1408318F0 (WdipSemCleanStart.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     WdipSemQueryValueFromRegistry @ 0x140833488 (WdipSemQueryValueFromRegistry.c)
+ *     WdipSemOpenRegistryKey @ 0x140833598 (WdipSemOpenRegistryKey.c)
+ *     WdipSemCleanupGroupPolicy @ 0x140834798 (WdipSemCleanupGroupPolicy.c)
+ *     WdipSemLoadLocalGroupPolicy @ 0x1409DB298 (WdipSemLoadLocalGroupPolicy.c)
+ */
+
 __int64 WdipSemLoadGroupPolicy()
 {
   int LocalGroupPolicy; // ebx

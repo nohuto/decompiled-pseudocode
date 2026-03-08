@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwSetIoCompletionEx @ 0x140415930
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwSetIoCompletionEx(__int64 a1, __int64 a2)
 {
   _disable();

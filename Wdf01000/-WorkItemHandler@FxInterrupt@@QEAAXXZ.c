@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?WorkItemHandler@FxInterrupt@@QEAAXXZ @ 0x1C00802A4
+ * Callers:
+ *     ?_InterruptWorkItemCallback@FxInterrupt@@CAXPEAX@Z @ 0x1C0010120 (-_InterruptWorkItemCallback@FxInterrupt@@CAXPEAX@Z.c)
+ * Callees:
+ *     FX_TRACK_DRIVER @ 0x1C0006D3C (FX_TRACK_DRIVER.c)
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall FxInterrupt::WorkItemHandler(FxInterrupt *this)
 {
   FxCallbackLock *m_CallbackLock; // rcx

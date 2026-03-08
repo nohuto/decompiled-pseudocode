@@ -1,3 +1,16 @@
+/*
+ * XREFs of OSNotifyCreateOperationRegion @ 0x1C003285C
+ * Callers:
+ *     ACPIBuildMissingChildren @ 0x1C000D8BC (ACPIBuildMissingChildren.c)
+ *     OSNotifyCreate @ 0x1C00325E0 (OSNotifyCreate.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qD @ 0x1C001B508 (WPP_RECORDER_SF_qD.c)
+ *     ACPIInitReferenceDeviceExtension @ 0x1C002D594 (ACPIInitReferenceDeviceExtension.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetParent @ 0x1C0048724 (AMLIGetParent.c)
+ *     AMLIIterateParentNext @ 0x1C00488A4 (AMLIIterateParentNext.c)
+ */
+
 __int64 __fastcall OSNotifyCreateOperationRegion(__int64 a1)
 {
   __int64 v1; // rsi

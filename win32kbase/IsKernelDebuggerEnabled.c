@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsKernelDebuggerEnabled @ 0x1C015987C
+ * Callers:
+ *     ?WatchDogBugCheckMachine@@YAXPEAURawInputManagerObject@@_K111@Z @ 0x1C01A098C (-WatchDogBugCheckMachine@@YAXPEAURawInputManagerObject@@_K111@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 IsKernelDebuggerEnabled()
 {
   unsigned int v0; // ebx

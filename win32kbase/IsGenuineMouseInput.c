@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsGenuineMouseInput @ 0x1C00B38B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IsGenuineMouseInput(_DWORD *a1)
 {
   unsigned int v1; // ecx

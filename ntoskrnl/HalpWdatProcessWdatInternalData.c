@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpWdatProcessWdatInternalData @ 0x14051CCB8
+ * Callers:
+ *     HalpWdatDiscover @ 0x140375F28 (HalpWdatDiscover.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpWdatProcessWdatInternalData(__int64 a1, _DWORD *a2, _DWORD *a3, _BYTE *a4)
 {
   unsigned int v4; // edx

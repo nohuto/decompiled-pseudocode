@@ -1,3 +1,20 @@
+/*
+ * XREFs of UsbhSshResumeUpstream @ 0x1C0004F34
+ * Callers:
+ *     Usbh_SSH_HubSuspended @ 0x1C00050BC (Usbh_SSH_HubSuspended.c)
+ *     Usbh_SSH_HubPendingResumeAfterSuspend @ 0x1C00596BC (Usbh_SSH_HubPendingResumeAfterSuspend.c)
+ * Callees:
+ *     UsbhDecHubBusy @ 0x1C0003DB0 (UsbhDecHubBusy.c)
+ *     UsbhSyncSendInternalIoctl @ 0x1C0004A70 (UsbhSyncSendInternalIoctl.c)
+ *     UsbhIncHubBusy @ 0x1C0007050 (UsbhIncHubBusy.c)
+ *     Usbh_SSH_Event @ 0x1C0007220 (Usbh_SSH_Event.c)
+ *     UsbhEtwLogHubIrpEvent @ 0x1C00098E0 (UsbhEtwLogHubIrpEvent.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 __int64 __fastcall UsbhSshResumeUpstream(__int64 a1, __int64 a2)
 {
   __int64 v4; // r15

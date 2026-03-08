@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Retire@CCompositionFrame@@UEAAXAEBUDXGI_FRAME_STATISTICS@@0@Z @ 0x1C0012450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??_GCLegacyTokenBuffer@@AEAAPEAXI@Z @ 0x1C0017554 (--_GCLegacyTokenBuffer@@AEAAPEAXI@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall CCompositionFrame::Retire(
         CCompositionFrame *this,
         const struct DXGI_FRAME_STATISTICS *a2,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of VirtualizeFullKeyboardStates @ 0x1C0218E00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     isRootPartition @ 0x1C007B02C (isRootPartition.c)
+ *     Feature_KeyboardInputVirtualization__private_ReportDeviceUsage @ 0x1C00E1194 (Feature_KeyboardInputVirtualization__private_ReportDeviceUsage.c)
+ *     PpiFromProcessId @ 0x1C01544D0 (PpiFromProcessId.c)
+ *     ?SendFullKeyboardStates@Detail@Keyboard@IVRootDeliver@@YAJAEBUCONTAINER_ID@@@Z @ 0x1C02265A4 (-SendFullKeyboardStates@Detail@Keyboard@IVRootDeliver@@YAJAEBUCONTAINER_ID@@@Z.c)
+ *     ?ContainerConnected@CIVChannel@@SA_NK@Z @ 0x1C0228560 (-ContainerConnected@CIVChannel@@SA_NK@Z.c)
+ */
+
 char __fastcall VirtualizeFullKeyboardStates(int a1)
 {
   __int64 v2; // rdx

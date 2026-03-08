@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?UnlinkConv@@YAPEAUtagDDECONV@@PEAU1@@Z @ 0x1C01FB15C
+ * Callers:
+ *     xxxDDETrackWindowDying @ 0x1C01FE184 (xxxDDETrackWindowDying.c)
+ *     xxxFreeDdeConv @ 0x1C01FE3AC (xxxFreeDdeConv.c)
+ * Callees:
+ *     InternalRemoveProp @ 0x1C002484C (InternalRemoveProp.c)
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C003E900 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     InternalSetProp @ 0x1C01011E0 (InternalSetProp.c)
+ */
+
 struct tagDDECONV *__fastcall UnlinkConv(struct tagDDECONV *a1)
 {
   char v2; // dl

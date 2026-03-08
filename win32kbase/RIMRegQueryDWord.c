@@ -1,3 +1,14 @@
+/*
+ * XREFs of RIMRegQueryDWord @ 0x1C00DA0B8
+ * Callers:
+ *     ?ReadSettingsFromRegKey@DelayZonePalmRejection@@AEAAXXZ @ 0x1C00981F0 (-ReadSettingsFromRegKey@DelayZonePalmRejection@@AEAAXXZ.c)
+ *     ShouldEnableInputVirtualization @ 0x1C00982F4 (ShouldEnableInputVirtualization.c)
+ *     rimObsReadMaxQueueSize @ 0x1C01DD3E8 (rimObsReadMaxQueueSize.c)
+ * Callees:
+ *     RIMRegQueryDWordFromKey @ 0x1C002EE40 (RIMRegQueryDWordFromKey.c)
+ *     RIMRegOpenKey @ 0x1C0030AE8 (RIMRegOpenKey.c)
+ */
+
 __int64 __fastcall RIMRegQueryDWord(struct _UNICODE_STRING *a1, const WCHAR *a2, int a3, int *a4)
 {
   int v4; // ebx

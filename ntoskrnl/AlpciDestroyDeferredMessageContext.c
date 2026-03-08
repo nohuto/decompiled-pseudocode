@@ -1,3 +1,12 @@
+/*
+ * XREFs of AlpciDestroyDeferredMessageContext @ 0x14075E950
+ * Callers:
+ *     ExpWorkerFactoryFinishDeferredWork @ 0x140317790 (ExpWorkerFactoryFinishDeferredWork.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 char __fastcall AlpciDestroyDeferredMessageContext(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax

@@ -1,3 +1,26 @@
+/*
+ * XREFs of RtlRaiseException @ 0x140364BF0
+ * Callers:
+ *     RaiseException @ 0x1403D8350 (RaiseException.c)
+ *     RtlRaiseNoncontinuableException @ 0x140420D50 (RtlRaiseNoncontinuableException.c)
+ *     HvlpGetRegister128 @ 0x140546850 (HvlpGetRegister128.c)
+ *     HvlpGetRegister64 @ 0x1405468E0 (HvlpGetRegister64.c)
+ *     HvlpSetRegister64 @ 0x140546A30 (HvlpSetRegister64.c)
+ *     KiStallBugcheckThread @ 0x140579138 (KiStallBugcheckThread.c)
+ *     RtlpAllocateHeapRaiseException @ 0x1405A9730 (RtlpAllocateHeapRaiseException.c)
+ * Callees:
+ *     RtlDispatchException @ 0x14027FA60 (RtlDispatchException.c)
+ *     RtlLookupFunctionEntry @ 0x140281130 (RtlLookupFunctionEntry.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     RtlVirtualUnwind @ 0x140364D20 (RtlVirtualUnwind.c)
+ *     RtlGetExtendedContextLength2 @ 0x140364DF0 (RtlGetExtendedContextLength2.c)
+ *     RtlInitializeExtendedContext2 @ 0x140364EE0 (RtlInitializeExtendedContext2.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwRaiseException @ 0x140415150 (ZwRaiseException.c)
+ *     RtlpCaptureContext2 @ 0x1404206C0 (RtlpCaptureContext2.c)
+ *     _alloca_probe @ 0x1404210C0 (_alloca_probe.c)
+ */
+
 char __fastcall RtlRaiseException(
         ULONG_PTR a1,
         __int64 a2,

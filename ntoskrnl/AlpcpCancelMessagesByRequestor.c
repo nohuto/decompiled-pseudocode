@@ -1,3 +1,22 @@
+/*
+ * XREFs of AlpcpCancelMessagesByRequestor @ 0x1407172DC
+ * Callers:
+ *     AlpcpDisconnectPort @ 0x140716FA8 (AlpcpDisconnectPort.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeReleaseSemaphoreEx @ 0x14033E940 (KeReleaseSemaphoreEx.c)
+ *     PsReleaseProcessWakeCounter @ 0x140711BD0 (PsReleaseProcessWakeCounter.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     AlpcpClearOwnerPortMessage @ 0x140716D48 (AlpcpClearOwnerPortMessage.c)
+ *     AlpcpTransferQuotaMessage @ 0x140717BD0 (AlpcpTransferQuotaMessage.c)
+ *     AlpcpReleaseMessageAttributesOnCancel @ 0x140717C30 (AlpcpReleaseMessageAttributesOnCancel.c)
+ *     AlpcpTryLockForCachedReferenceBlob @ 0x1407926EC (AlpcpTryLockForCachedReferenceBlob.c)
+ *     AlpcpReferenceBlob @ 0x1407CAA30 (AlpcpReferenceBlob.c)
+ *     AlpcpLockForCachedReferenceBlob @ 0x1407CBD44 (AlpcpLockForCachedReferenceBlob.c)
+ */
+
 __int64 __fastcall AlpcpCancelMessagesByRequestor(
         __int64 a1,
         volatile signed __int64 *a2,

@@ -1,3 +1,19 @@
+/*
+ * XREFs of ACPIFilterRemoveNonPresentDevices @ 0x1C0028FE8
+ * Callers:
+ *     ACPIFilterIrpQueryDeviceRelations @ 0x1C007A330 (ACPIFilterIrpQueryDeviceRelations.c)
+ *     ACPIBusIrpQueryBusRelations @ 0x1C007EC78 (ACPIBusIrpQueryBusRelations.c)
+ * Callees:
+ *     ACPIBuildSurpriseRemovedExtension @ 0x1C0013960 (ACPIBuildSurpriseRemovedExtension.c)
+ *     ACPIExtListEnumNext @ 0x1C00263F4 (ACPIExtListEnumNext.c)
+ *     ACPIExtListStartEnum @ 0x1C00264F8 (ACPIExtListStartEnum.c)
+ *     ACPIExtListTestElement @ 0x1C0026554 (ACPIExtListTestElement.c)
+ *     ACPIThermalReleaseCoolingInterfaces @ 0x1C0041C30 (ACPIThermalReleaseCoolingInterfaces.c)
+ *     ACPIInitStopDevice @ 0x1C0087AE4 (ACPIInitStopDevice.c)
+ *     EnableDisableRegions @ 0x1C008A57C (EnableDisableRegions.c)
+ *     IsPciBus @ 0x1C008A744 (IsPciBus.c)
+ */
+
 char __fastcall ACPIFilterRemoveNonPresentDevices(__int64 a1, _DWORD *a2)
 {
   char *i; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CalculateTBNFrame @ 0x180006FFC
+ * Callers:
+ *     ?CalculateTBNFrameFrom3Vertices@@YA?AUD2DQuaternion@@PEAPEBUD2D_POINT_2F@@0AEBVCMILMatrix@@1@Z @ 0x180006AEC (-CalculateTBNFrameFrom3Vertices@@YA-AUD2DQuaternion@@PEAPEBUD2D_POINT_2F@@0AEBVCMILMatrix@@1@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CalculateTBNFrame(_QWORD *a1, _QWORD *a2, float *a3, float *a4, __int64 a5)
 {
   float *v5; // rax

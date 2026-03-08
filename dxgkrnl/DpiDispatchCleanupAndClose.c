@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiDispatchCleanupAndClose @ 0x1C01D1990
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pt_EtwWriteTransfer @ 0x1C003FF7C (McTemplateK0pt_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DpiDispatchCleanupAndClose(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // esi

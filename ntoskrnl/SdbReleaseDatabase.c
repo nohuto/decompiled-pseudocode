@@ -1,3 +1,17 @@
+/*
+ * XREFs of SdbReleaseDatabase @ 0x14079C878
+ * Callers:
+ *     PiReleaseDDB @ 0x14079C824 (PiReleaseDDB.c)
+ *     KsepSdbUnmapFromMemory @ 0x14079D1D4 (KsepSdbUnmapFromMemory.c)
+ *     PpReleaseBootDDB @ 0x140842884 (PpReleaseBootDDB.c)
+ *     KsepSdbBootRelease @ 0x140842AC4 (KsepSdbBootRelease.c)
+ * Callees:
+ *     SdbpCleanupLocalDatabaseSupport @ 0x14079C9C0 (SdbpCleanupLocalDatabaseSupport.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbCloseDatabaseRead @ 0x14079CA28 (SdbCloseDatabaseRead.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall SdbReleaseDatabase(_QWORD *P)
 {
   void *v2; // rcx

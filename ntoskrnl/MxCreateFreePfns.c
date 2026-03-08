@@ -1,3 +1,26 @@
+/*
+ * XREFs of MxCreateFreePfns @ 0x140B37690
+ * Callers:
+ *     MxReleaseFreeDescriptor @ 0x140B371A0 (MxReleaseFreeDescriptor.c)
+ *     MiCreateDescriptorPfns @ 0x140B373F4 (MiCreateDescriptorPfns.c)
+ *     MiCreateFreePfns @ 0x140B37598 (MiCreateFreePfns.c)
+ * Callees:
+ *     MiCreateInitialLargeLeafPfns @ 0x140213A50 (MiCreateInitialLargeLeafPfns.c)
+ *     MiInitializeAllResidentPageBasePfns @ 0x140213BC4 (MiInitializeAllResidentPageBasePfns.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiDetermineNewPfnHeatState @ 0x1402DD0B8 (MiDetermineNewPfnHeatState.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiInsertLargePageInNodeList @ 0x14031C970 (MiInsertLargePageInNodeList.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiCreatePfnTemplate @ 0x1403708F4 (MiCreatePfnTemplate.c)
+ *     MiRestrictRangeToNode @ 0x140370AB4 (MiRestrictRangeToNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFreeEmptyBootPageTable @ 0x140B961A8 (MiFreeEmptyBootPageTable.c)
+ */
+
 void __fastcall MxCreateFreePfns(__int64 a1)
 {
   ULONG_PTR v1; // rsi

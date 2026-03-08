@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfStartBranchTracing @ 0x140AD09E0
+ * Callers:
+ *     KiFreezeTargetExecution @ 0x140369240 (KiFreezeTargetExecution.c)
+ *     VfNotifyVerifierOfEvent @ 0x140ABF120 (VfNotifyVerifierOfEvent.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 VfStartBranchTracing()
 {
   unsigned int v0; // eax

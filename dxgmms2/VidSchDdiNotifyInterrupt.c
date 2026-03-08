@@ -1,3 +1,14 @@
+/*
+ * XREFs of VidSchDdiNotifyInterrupt @ 0x1C000ADD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VidSchiLogInterrupt @ 0x1C000AEE0 (VidSchiLogInterrupt.c)
+ *     VidSchDdiNotifyInterruptWorker @ 0x1C000B040 (VidSchDdiNotifyInterruptWorker.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0q_EtwWriteTransfer @ 0x1C001BE4A (McTemplateK0q_EtwWriteTransfer.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall VidSchDdiNotifyInterrupt(__int64 a1, unsigned int *a2)
 {

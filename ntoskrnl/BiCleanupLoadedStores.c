@@ -1,3 +1,23 @@
+/*
+ * XREFs of BiCleanupLoadedStores @ 0x1408311C8
+ * Callers:
+ *     BcdOpenStore @ 0x14082C814 (BcdOpenStore.c)
+ *     BiOpenSystemStore @ 0x14082CC40 (BiOpenSystemStore.c)
+ * Callees:
+ *     _wcsnicmp @ 0x1403D4010 (_wcsnicmp.c)
+ *     wcstoul @ 0x1403D6370 (wcstoul.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     BiIsSystemStore @ 0x14082C6CC (BiIsSystemStore.c)
+ *     BiIsWinPEBoot @ 0x14082C790 (BiIsWinPEBoot.c)
+ *     BiEnumerateSubKeys @ 0x14082D288 (BiEnumerateSubKeys.c)
+ *     BiOpenKey @ 0x14082E7AC (BiOpenKey.c)
+ *     BiCloseKey @ 0x14082E938 (BiCloseKey.c)
+ *     BiOpenKeyNonBcd @ 0x1408310F8 (BiOpenKeyNonBcd.c)
+ *     BcdForciblyUnloadStore @ 0x140A5964C (BcdForciblyUnloadStore.c)
+ *     BiUnloadHiveByHandle @ 0x140A5A09C (BiUnloadHiveByHandle.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall BiCleanupLoadedStores(char a1)
 {
   bool IsWinPEBoot; // r13

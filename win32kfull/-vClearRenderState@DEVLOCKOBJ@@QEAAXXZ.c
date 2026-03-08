@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?vClearRenderState@DEVLOCKOBJ@@QEAAXXZ @ 0x1C0055118
+ * Callers:
+ *     GreExtSelectClipRgnInternal @ 0x1C004D240 (GreExtSelectClipRgnInternal.c)
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C0050DA0 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?bDisposeTrgDco@DEVLOCKOBJ@@QEAAHXZ @ 0x1C0050FF4 (-bDisposeTrgDco@DEVLOCKOBJ@@QEAAHXZ.c)
+ *     DEVLOCKOBJ_bDisposeTrgDcoWrap @ 0x1C0051040 (DEVLOCKOBJ_bDisposeTrgDcoWrap.c)
+ *     DEVLOCKOBJ_bPrepareTrgDcoWrap @ 0x1C0051140 (DEVLOCKOBJ_bPrepareTrgDcoWrap.c)
+ *     GreCreateCompatibleBitmapInternal @ 0x1C007BB00 (GreCreateCompatibleBitmapInternal.c)
+ *     ?GreSetDIBitsToDeviceInternalImpl@@YAHPEAUHDC__@@HHKKHHKKAEAV?$umptr_r@E@@PEAUtagBITMAPINFO@@KIHPEAX@Z @ 0x1C008D940 (-GreSetDIBitsToDeviceInternalImpl@@YAHPEAUHDC__@@HHKKHHKKAEAV-$umptr_r@E@@PEAUtagBITMAPINFO@@KIH.c)
+ * Callees:
+ *     ?vClearRendering@DC@@QEAAXXZ @ 0x1C00589A0 (-vClearRendering@DC@@QEAAXXZ.c)
+ */
+
 void __fastcall DEVLOCKOBJ::vClearRenderState(DEVLOCKOBJ *this)
 {
   Gre::Base *v2; // rcx

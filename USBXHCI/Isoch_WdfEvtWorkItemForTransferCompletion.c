@@ -1,3 +1,14 @@
+/*
+ * XREFs of Isoch_WdfEvtWorkItemForTransferCompletion @ 0x1C0045F40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     Controller_LowerAndTrackIrql @ 0x1C00074BC (Controller_LowerAndTrackIrql.c)
+ *     Controller_RaiseAndTrackIrql @ 0x1C0007558 (Controller_RaiseAndTrackIrql.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Isoch_ProcessTransferCompletion @ 0x1C0044B2C (Isoch_ProcessTransferCompletion.c)
+ */
+
 void __fastcall Isoch_WdfEvtWorkItemForTransferCompletion(__int64 a1)
 {
   __int64 v1; // rsi

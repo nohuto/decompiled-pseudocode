@@ -1,3 +1,23 @@
+/*
+ * XREFs of ldevLoadDriver @ 0x1C0024CA0
+ * Callers:
+ *     ?hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKPEAPEAU1@@Z @ 0x1C0024834 (-hCreateHDEV@@YAPEAUHDEV__@@PEAUtagGRAPHICS_DEVICE@@PEAU_DRV_NAMES@@PEAU_devicemodeW@@PEAXKKHHKP.c)
+ *     ?ldevGetDriverModes@@YAKPEAUtagGRAPHICS_DEVICE@@PEBGPEAXPEAPEAU_devicemodeW@@@Z @ 0x1C0028890 (-ldevGetDriverModes@@YAKPEAUtagGRAPHICS_DEVICE@@PEBGPEAXPEAPEAU_devicemodeW@@@Z.c)
+ * Callees:
+ *     ?ldevBindDisplayStub@@YAPEAU_LDEV@@XZ @ 0x1C0024F5C (-ldevBindDisplayStub@@YAPEAU_LDEV@@XZ.c)
+ *     ?ldevFillTable@@YAHPEAU_LDEV@@PEAUtagDRVENABLEDATA@@W4_LDEVTYPE@@@Z @ 0x1C00272A0 (-ldevFillTable@@YAHPEAU_LDEV@@PEAUtagDRVENABLEDATA@@W4_LDEVTYPE@@@Z.c)
+ *     ldevUnloadImage @ 0x1C002B6B0 (ldevUnloadImage.c)
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0049800 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0049E20 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EngAcquireSemaphore @ 0x1C004B690 (EngAcquireSemaphore.c)
+ *     ldevLoadImage @ 0x1C00B1CC0 (ldevLoadImage.c)
+ *     MakeSystemRelativePath @ 0x1C00B1F80 (MakeSystemRelativePath.c)
+ *     ?IsCddCddRemoteSessionFilteringAllowed@@YAHXZ @ 0x1C00D3D44 (-IsCddCddRemoteSessionFilteringAllowed@@YAHXZ.c)
+ *     _wcsicmp @ 0x1C00DAB80 (_wcsicmp.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     FreeSystemRelativePath @ 0x1C0199F18 (FreeSystemRelativePath.c)
+ */
+
 struct _LDEV *__fastcall ldevLoadDriver(PCWSTR Source, unsigned int a2, int a3)
 {
   int v3; // ebx

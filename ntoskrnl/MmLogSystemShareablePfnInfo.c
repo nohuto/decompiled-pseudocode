@@ -1,3 +1,18 @@
+/*
+ * XREFs of MmLogSystemShareablePfnInfo @ 0x140A3D248
+ * Callers:
+ *     EtwpKernelTraceRundown @ 0x14080D9F8 (EtwpKernelTraceRundown.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiGetWorkingSetInfoEx @ 0x1402F7DFC (MiGetWorkingSetInfoEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiGetAggregateWorkingSetSize @ 0x14065EA58 (MiGetAggregateWorkingSetSize.c)
+ *     EtwLogPfnInfoRundown @ 0x1409EB914 (EtwLogPfnInfoRundown.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MmLogSystemShareablePfnInfo(__int64 a1, unsigned int a2)
 {
   __int64 v3; // r14

@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?VidSchiFreeQueuePacket@@YAXPEAUVIDSCH_HW_QUEUE@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C001CDBE
+ * Callers:
+ *     VidSchSignalSyncObjectsFromGpu @ 0x1C00040E0 (VidSchSignalSyncObjectsFromGpu.c)
+ *     ?VidSchiFreeCompletedHwQueuePacket@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C001CC2E (-VidSchiFreeCompletedHwQueuePacket@@YAXPEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     VidSchCreateHwQueue @ 0x1C0044060 (VidSchCreateHwQueue.c)
+ *     VidSchSubmitCommandToHwQueue @ 0x1C0044510 (VidSchSubmitCommandToHwQueue.c)
+ *     VidSchSubmitSignalToHwQueue @ 0x1C0044980 (VidSchSubmitSignalToHwQueue.c)
+ *     VidSchSubmitWaitToHwQueue @ 0x1C0044F60 (VidSchSubmitWaitToHwQueue.c)
+ *     VidSchEnqueueCpuEvent @ 0x1C0085F20 (VidSchEnqueueCpuEvent.c)
+ * Callees:
+ *     VidSchiInterlockedInsertTailList @ 0x1C00035E0 (VidSchiInterlockedInsertTailList.c)
+ *     VidSchiInterlockedRemoveEntryList @ 0x1C0014268 (VidSchiInterlockedRemoveEntryList.c)
+ *     VidSchiInterlockedRemoveHeadListIfExistAndMoreThanSpecified @ 0x1C00142EC (VidSchiInterlockedRemoveHeadListIfExistAndMoreThanSpecified.c)
+ */
+
 void __fastcall VidSchiFreeQueuePacket(struct VIDSCH_HW_QUEUE *a1, struct _VIDSCH_QUEUE_PACKET *a2)
 {
   __int64 v4; // rdi

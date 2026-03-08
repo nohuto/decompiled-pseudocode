@@ -1,3 +1,23 @@
+/*
+ * XREFs of KeSetAffinityProcess @ 0x1403A9688
+ * Callers:
+ *     PspSetProcessAffinitySafe @ 0x1409AC928 (PspSetProcessAffinitySafe.c)
+ *     KiInitializeDynamicProcessorDpc @ 0x140A9C260 (KiInitializeDynamicProcessorDpc.c)
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     KiProcessDeferredReadyList @ 0x140226BD0 (KiProcessDeferredReadyList.c)
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KiComputeGroupMask @ 0x1402967CC (KiComputeGroupMask.c)
+ *     KiSetIdealNodeProcessByGroup @ 0x140296818 (KiSetIdealNodeProcessByGroup.c)
+ *     KiSelectIdealProcessorSetsForProcess @ 0x140296A4C (KiSelectIdealProcessorSetsForProcess.c)
+ *     KiSetAffinityThread @ 0x1402AFA28 (KiSetAffinityThread.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeSetAffinityProcess(__int64 a1, char a2, unsigned __int16 *a3)
 {
   char v6; // r15

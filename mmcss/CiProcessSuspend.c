@@ -1,3 +1,18 @@
+/*
+ * XREFs of CiProcessSuspend @ 0x1C0004AE8
+ * Callers:
+ *     CiProcessNotification @ 0x1C00027C0 (CiProcessNotification.c)
+ * Callees:
+ *     CiSchedulerPoke @ 0x1C00027F0 (CiSchedulerPoke.c)
+ *     CiSchedulerSetPriority @ 0x1C00029B0 (CiSchedulerSetPriority.c)
+ *     WPP_SF_qqd @ 0x1C0004CA8 (WPP_SF_qqd.c)
+ *     CiSchedulerPostSuspend @ 0x1C0004D88 (CiSchedulerPostSuspend.c)
+ *     CiThreadDecrementScheduledCount @ 0x1C000A660 (CiThreadDecrementScheduledCount.c)
+ *     CiThreadIncrementScheduledCount @ 0x1C000B150 (CiThreadIncrementScheduledCount.c)
+ *     CiReleaseProcessLock @ 0x1C000BA80 (CiReleaseProcessLock.c)
+ *     CiAcquireProcessLock @ 0x1C000BAB0 (CiAcquireProcessLock.c)
+ */
+
 __int64 __fastcall CiProcessSuspend(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v4; // r14d

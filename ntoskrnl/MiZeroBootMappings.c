@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiZeroBootMappings @ 0x140B4F414
+ * Callers:
+ *     MiInitNucleus @ 0x140B36878 (MiInitNucleus.c)
+ * Callees:
+ *     KeFlushCurrentTbOnly @ 0x1403876F4 (KeFlushCurrentTbOnly.c)
+ *     MxZeroBootMappings @ 0x140B50568 (MxZeroBootMappings.c)
+ */
+
 __int64 MiZeroBootMappings()
 {
   unsigned __int64 v0; // rcx

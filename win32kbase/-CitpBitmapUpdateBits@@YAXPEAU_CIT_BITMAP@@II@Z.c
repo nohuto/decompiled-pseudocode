@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CitpBitmapUpdateBits@@YAXPEAU_CIT_BITMAP@@II@Z @ 0x1C00B0B2C
+ * Callers:
+ *     ?CitpBitmapUpdateForTimeRange@@YAXPEAU_CIT_BITMAP@@IIII@Z @ 0x1C00B0AD0 (-CitpBitmapUpdateForTimeRange@@YAXPEAU_CIT_BITMAP@@IIII@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CitpBitmapUpdateBits(struct _CIT_BITMAP *a1, unsigned int a2, int a3)
 {
   int v3; // r8d

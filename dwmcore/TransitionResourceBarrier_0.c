@@ -1,3 +1,11 @@
+/*
+ * XREFs of TransitionResourceBarrier_0 @ 0x18026FEA8
+ * Callers:
+ *     ?DebugInspectSurface@@YAJPEAUID3D12CommandQueue@@PEAUID3D12Resource@@W4D3D12_RESOURCE_STATES@@@Z @ 0x18026F1E8 (-DebugInspectSurface@@YAJPEAUID3D12CommandQueue@@PEAUID3D12Resource@@W4D3D12_RESOURCE_STATES@@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall TransitionResourceBarrier_0(__int64 *a1, __int64 a2, int a3, int a4)
 {
   __int64 v4; // rax

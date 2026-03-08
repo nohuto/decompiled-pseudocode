@@ -1,3 +1,15 @@
+/*
+ * XREFs of SmKmEtwAppendProductName @ 0x1405C8F6C
+ * Callers:
+ *     SmKmStoreTerminateWorker @ 0x1405C9740 (SmKmStoreTerminateWorker.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SmUniqueIdParseProductName @ 0x1405C83D8 (SmUniqueIdParseProductName.c)
+ *     SmKmStoreFileOpenVolume @ 0x1409D75D8 (SmKmStoreFileOpenVolume.c)
+ *     SmKmVolumeQueryUniqueId @ 0x1409D79A8 (SmKmVolumeQueryUniqueId.c)
+ */
+
 LONG_PTR __fastcall SmKmEtwAppendProductName(__int64 *a1, __int64 a2)
 {
   __int64 v3; // rcx

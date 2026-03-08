@@ -1,3 +1,26 @@
+/*
+ * XREFs of PopIrpWorker @ 0x1402B9440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     PoDeviceAcquireIrp @ 0x1402B9AA8 (PoDeviceAcquireIrp.c)
+ *     PopFxGetDeviceDStateReason @ 0x1402B9BF4 (PopFxGetDeviceDStateReason.c)
+ *     PopPepDeviceDState @ 0x1402B9C4C (PopPepDeviceDState.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeReleaseSemaphoreEx @ 0x14033E940 (KeReleaseSemaphoreEx.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PsTerminateSystemThread @ 0x1407DC870 (PsTerminateSystemThread.c)
+ */
+
 NTSTATUS __fastcall PopIrpWorker(__int64 *Entry, __int64 a2, __int64 a3, int a4)
 {
   unsigned __int8 v4; // r15

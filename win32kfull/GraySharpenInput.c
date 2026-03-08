@@ -1,3 +1,11 @@
+/*
+ * XREFs of GraySharpenInput @ 0x1C0265260
+ * Callers:
+ *     GrayExpandDIB_CY_ExpCX @ 0x1C0264850 (GrayExpandDIB_CY_ExpCX.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 *__fastcall GraySharpenInput(
         __int16 a1,
         unsigned __int8 *a2,

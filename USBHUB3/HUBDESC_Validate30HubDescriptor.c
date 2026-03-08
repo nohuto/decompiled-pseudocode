@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBDESC_Validate30HubDescriptor @ 0x1C003CE78
+ * Callers:
+ *     HUBHSM_ValidatingAndParsingHubDescriptor @ 0x1C0009A20 (HUBHSM_ValidatingAndParsingHubDescriptor.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     HUBDESC_ShouldEnforceWin8ValidationMutable @ 0x1C0035964 (HUBDESC_ShouldEnforceWin8ValidationMutable.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 char __fastcall HUBDESC_Validate30HubDescriptor(unsigned __int8 *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // edi

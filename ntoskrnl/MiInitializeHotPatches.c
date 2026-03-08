@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiInitializeHotPatches @ 0x140B39AE8
+ * Callers:
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     PsCreateMinimalProcess @ 0x140817C28 (PsCreateMinimalProcess.c)
+ */
+
 __int64 __fastcall MiInitializeHotPatches(__int64 a1, int a2)
 {
   unsigned int v2; // ebx

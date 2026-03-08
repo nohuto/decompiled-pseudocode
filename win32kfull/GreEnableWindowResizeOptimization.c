@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreEnableWindowResizeOptimization @ 0x1C00F43FC
+ * Callers:
+ *     NtUserEnableWindowResizeOptimization @ 0x1C00F43A0 (NtUserEnableWindowResizeOptimization.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall GreEnableWindowResizeOptimization(Gre::Base *a1, int a2, int a3)
 {
   int v5; // ebp

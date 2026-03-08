@@ -1,3 +1,13 @@
+/*
+ * XREFs of ZwQueryDirectoryFile @ 0x1404129B0
+ * Callers:
+ *     DifZwQueryDirectoryFileWrapper @ 0x1405F18A0 (DifZwQueryDirectoryFileWrapper.c)
+ *     IopFileUtilWalkDirectoryTreeHelper @ 0x14087FA04 (IopFileUtilWalkDirectoryTreeHelper.c)
+ *     AslPathWildcardFindNext @ 0x140A52E68 (AslPathWildcardFindNext.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall ZwQueryDirectoryFile(
         HANDLE FileHandle,
         HANDLE Event,

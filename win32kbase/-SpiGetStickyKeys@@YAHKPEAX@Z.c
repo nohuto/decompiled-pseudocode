@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SpiGetStickyKeys@@YAHKPEAX@Z @ 0x1C009CEBC
+ * Callers:
+ *     xxxSystemParametersInfo @ 0x1C009C980 (xxxSystemParametersInfo.c)
+ * Callees:
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 __int64 __fastcall SpiGetStickyKeys(int a1, _WORD *a2)
 {
   _DWORD *v3; // rbx

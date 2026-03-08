@@ -1,3 +1,26 @@
+/*
+ * XREFs of NVMeControllerInitPart1 @ 0x1C000D7A8
+ * Callers:
+ *     NVMeHwFindAdapter @ 0x1C0007CD0 (NVMeHwFindAdapter.c)
+ *     NVMeControllerPowerUp @ 0x1C000E0F4 (NVMeControllerPowerUp.c)
+ *     NVMeControllerReset @ 0x1C000E4D8 (NVMeControllerReset.c)
+ *     NVMeControllerReinitialize @ 0x1C001C9A0 (NVMeControllerReinitialize.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0003260 (__security_check_cookie.c)
+ *     memset @ 0x1C0004580 (memset.c)
+ *     FillControllerRuntimeLog @ 0x1C0007908 (FillControllerRuntimeLog.c)
+ *     AdminQueueInitialize @ 0x1C0009254 (AdminQueueInitialize.c)
+ *     ControllerConfigure @ 0x1C0009528 (ControllerConfigure.c)
+ *     ControllerEnable @ 0x1C000959C (ControllerEnable.c)
+ *     GetProcessorInformation @ 0x1C0009EC0 (GetProcessorInformation.c)
+ *     NVMeControllerIdentify @ 0x1C001C564 (NVMeControllerIdentify.c)
+ *     NVMeGetControllerIoCommandSetIdentify @ 0x1C001DF88 (NVMeGetControllerIoCommandSetIdentify.c)
+ *     NVMeGetNVMSetAttributeList @ 0x1C001E5F8 (NVMeGetNVMSetAttributeList.c)
+ *     NVMeGetNamespaceDescriptorListIdentify @ 0x1C001E7AC (NVMeGetNamespaceDescriptorListIdentify.c)
+ *     NVMeGetNamespaceIoCommandSetIdentify @ 0x1C001E908 (NVMeGetNamespaceIoCommandSetIdentify.c)
+ *     NVMeNameSpaceIdentify @ 0x1C002108C (NVMeNameSpaceIdentify.c)
+ */
+
 __int64 __fastcall NVMeControllerInitPart1(__int64 a1, char a2)
 {
   int *v4; // rsi

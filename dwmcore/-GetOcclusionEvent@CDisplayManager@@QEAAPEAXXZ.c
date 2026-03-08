@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetOcclusionEvent@CDisplayManager@@QEAAPEAXXZ @ 0x18005063C
+ * Callers:
+ *     ?WaitForWork@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18005035C (-WaitForWork@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ * Callees:
+ *     ?reset@?$unique_storage@U?$handle_null_resource_policy@P6AHPEAX@Z$1?CloseHandle@@YAH0@Z@details@wil@@@details@wil@@QEAAXPEAX@Z @ 0x1800CE01C (-reset@-$unique_storage@U-$handle_null_resource_policy@P6AHPEAX@Z$1-CloseHandle@@YAH0@Z@details@.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void *__fastcall CDisplayManager::GetOcclusionEvent(CDisplayManager *this)
 {
   void *result; // rax

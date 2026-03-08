@@ -1,3 +1,19 @@
+/*
+ * XREFs of PspUserThreadStartup @ 0x1407ED430
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PspTerminateThreadByPointer @ 0x1407DA8F0 (PspTerminateThreadByPointer.c)
+ *     MmGetSessionLocaleId @ 0x1407ED514 (MmGetSessionLocaleId.c)
+ *     PspNotifyThreadCreation @ 0x1407ED550 (PspNotifyThreadCreation.c)
+ *     PspDisablePrimaryTokenExchange @ 0x1407ED630 (PspDisablePrimaryTokenExchange.c)
+ *     PspWriteTebIdealProcessor @ 0x1407ED78C (PspWriteTebIdealProcessor.c)
+ *     PspInitializeThunkContext @ 0x1407EDF4C (PspInitializeThunkContext.c)
+ *     DbgkCreateMinimalThread @ 0x14093621C (DbgkCreateMinimalThread.c)
+ */
+
 NTSTATUS PspUserThreadStartup()
 {
   struct _KTHREAD *CurrentThread; // rbx

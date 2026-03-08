@@ -1,3 +1,11 @@
+/*
+ * XREFs of ObpUnlockHandleDatabaseEntry @ 0x1409786A0
+ * Callers:
+ *     ObpIncrementHandleCountEx @ 0x1407C1090 (ObpIncrementHandleCountEx.c)
+ * Callees:
+ *     OBJECT_HEADER_TO_HANDLE_INFO @ 0x140352F0C (OBJECT_HEADER_TO_HANDLE_INFO.c)
+ */
+
 char __fastcall ObpUnlockHandleDatabaseEntry(__int64 a1)
 {
   __int64 v1; // rax

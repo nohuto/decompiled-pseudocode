@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmInfoConfigComparer @ 0x140B62AB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PpmInfoConfigComparer(_BYTE *a1, _BYTE *a2)
 {
   unsigned __int8 v2; // r8

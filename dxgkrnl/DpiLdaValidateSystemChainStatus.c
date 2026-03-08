@@ -1,3 +1,14 @@
+/*
+ * XREFs of DpiLdaValidateSystemChainStatus @ 0x1C0217240
+ * Callers:
+ *     DpiSessionCreateCallback @ 0x1C01DDB08 (DpiSessionCreateCallback.c)
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000B270 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ *     DpiLdaValidateChainStatus @ 0x1C03A4550 (DpiLdaValidateChainStatus.c)
+ */
+
 LONG DpiLdaValidateSystemChainStatus()
 {
   __int64 v0; // rdi

@@ -1,3 +1,23 @@
+/*
+ * XREFs of CmpVEExecuteRealStoreParseLogic @ 0x140A17568
+ * Callers:
+ *     CmpDoParseKey @ 0x1406E1D90 (CmpDoParseKey.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     CmpIsKeyDeleted @ 0x14077B358 (CmpIsKeyDeleted.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpBlockHiveWrites @ 0x140A10B04 (CmpBlockHiveWrites.c)
+ *     CmpUnblockHiveWrites @ 0x140A10CD4 (CmpUnblockHiveWrites.c)
+ *     CmRealKCBToVirtualPath @ 0x140A15968 (CmRealKCBToVirtualPath.c)
+ *     CmpFindPathByName @ 0x140A16940 (CmpFindPathByName.c)
+ *     CmpVirtualBranchIsReplicated @ 0x140A1798C (CmpVirtualBranchIsReplicated.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmpVEExecuteRealStoreParseLogic(__int64 a1, __m128i *a2, _DWORD *a3, UNICODE_STRING *a4, __int64 a5)
 {
   volatile signed __int32 *v6; // r14

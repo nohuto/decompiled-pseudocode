@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopWakeSourceIsParent @ 0x140984BE4
+ * Callers:
+ *     PopProcessWakeSourceWork @ 0x140A9E248 (PopProcessWakeSourceWork.c)
+ * Callees:
+ *     wcsncmp @ 0x1403D5ED0 (wcsncmp.c)
+ */
+
 char __fastcall PopWakeSourceIsParent(unsigned __int16 *a1, __int64 a2)
 {
   unsigned __int16 *v2; // rax

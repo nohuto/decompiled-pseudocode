@@ -1,3 +1,11 @@
+/*
+ * XREFs of ConvertMethodNameToUnicode @ 0x1C0059798
+ * Callers:
+ *     AsyncEvalObject @ 0x1C00544D0 (AsyncEvalObject.c)
+ * Callees:
+ *     RtlStringCchLengthA @ 0x1C00091CC (RtlStringCchLengthA.c)
+ */
+
 __int64 __fastcall ConvertMethodNameToUnicode(const char *a1, __int64 a2)
 {
   unsigned int v2; // ebx

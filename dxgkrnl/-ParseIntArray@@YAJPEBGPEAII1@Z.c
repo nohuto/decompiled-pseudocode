@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ParseIntArray@@YAJPEBGPEAII1@Z @ 0x1C0395448
+ * Callers:
+ *     ?ParseAndCompareBlockListCondition@@YAJPEBGII0W4_QAI_DRIVERVERSION@@PEAE@Z @ 0x1C020E618 (-ParseAndCompareBlockListCondition@@YAJPEBGII0W4_QAI_DRIVERVERSION@@PEAE@Z.c)
+ *     ?ParseAndCompareIntArrays@@YAJPEBGPEBIIPEAEPEAI@Z @ 0x1C039524C (-ParseAndCompareIntArrays@@YAJPEBGPEBIIPEAEPEAI@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ParseIntArray(const unsigned __int16 *a1, unsigned int *a2, unsigned int a3, unsigned int *a4)
 {
   __int64 v4; // r10

@@ -1,3 +1,20 @@
+/*
+ * XREFs of BgpTxtDisplayString @ 0x140AEF7A0
+ * Callers:
+ *     BgDisplayString @ 0x140AEE1B8 (BgDisplayString.c)
+ * Callees:
+ *     BgpGxDrawRectangle @ 0x1403817FC (BgpGxDrawRectangle.c)
+ *     BgpRasPrintGlyph @ 0x140381CD4 (BgpRasPrintGlyph.c)
+ *     BgpFoGetTextMetrics @ 0x140382160 (BgpFoGetTextMetrics.c)
+ *     BgpGxFillRectangle @ 0x1403842E4 (BgpGxFillRectangle.c)
+ *     BgpFoGetAdvanceWidth @ 0x14066F990 (BgpFoGetAdvanceWidth.c)
+ *     BgpGxRectangleDestroy @ 0x140AEAA70 (BgpGxRectangleDestroy.c)
+ *     BgpGxRectangleCreate @ 0x140AEAA94 (BgpGxRectangleCreate.c)
+ *     BgpGxBlendRectangle @ 0x140AEF430 (BgpGxBlendRectangle.c)
+ *     BgpTxtClearRegion @ 0x140AEF770 (BgpTxtClearRegion.c)
+ *     TxtpJustifyRectangle @ 0x140AEF9E0 (TxtpJustifyRectangle.c)
+ */
+
 __int64 __fastcall BgpTxtDisplayString(__int64 a1, __int64 a2, __int64 a3, __int64 a4, __int64 a5)
 {
   __int16 *v6; // r14

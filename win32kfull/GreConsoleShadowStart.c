@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreConsoleShadowStart @ 0x1C02DEB38
+ * Callers:
+ *     xxxRemoteConsoleShadowStart @ 0x1C02063C0 (xxxRemoteConsoleShadowStart.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GreConsoleShadowStart(_QWORD *a1)
 {
   PVOID v1; // rbp

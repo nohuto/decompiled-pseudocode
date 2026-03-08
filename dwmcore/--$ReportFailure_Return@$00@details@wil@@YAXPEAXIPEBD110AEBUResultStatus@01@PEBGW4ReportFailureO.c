@@ -1,3 +1,17 @@
+/*
+ * XREFs of ??$ReportFailure_Return@$00@details@wil@@YAXPEAXIPEBD110AEBUResultStatus@01@PEBGW4ReportFailureOptions@01@@Z @ 0x1800FBC7C
+ * Callers:
+ *     ??$ReportFailure_Base@$00$0A@@details@wil@@YAXPEAXIPEBD110AEBUResultStatus@01@PEBGW4ReportFailureOptions@01@@Z @ 0x1800FBC70 (--$ReportFailure_Base@$00$0A@@details@wil@@YAXPEAXIPEBD110AEBUResultStatus@01@PEBGW4ReportFailur.c)
+ * Callees:
+ *     ?RecordReturn@details@wil@@YAHJ@Z @ 0x1800FC0EC (-RecordReturn@details@wil@@YAHJ@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x180117650 (_alloca_probe.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetFailureLogString@wil@@YAJPEAG_KAEBUFailureInfo@1@@Z @ 0x180195260 (-GetFailureLogString@wil@@YAJPEAG_KAEBUFailureInfo@1@@Z.c)
+ *     ?WilFailFast@details@wil@@YAXAEBUFailureInfo@2@@Z @ 0x180197428 (-WilFailFast@details@wil@@YAXAEBUFailureInfo@2@@Z.c)
+ *     ?_FailFastImmediate_Unexpected@in1diag3@details@wil@@YAXXZ @ 0x18019761C (-_FailFastImmediate_Unexpected@in1diag3@details@wil@@YAXXZ.c)
+ */
+
 void __fastcall wil::details::ReportFailure_Return<1>(
         __int64 a1,
         int a2,

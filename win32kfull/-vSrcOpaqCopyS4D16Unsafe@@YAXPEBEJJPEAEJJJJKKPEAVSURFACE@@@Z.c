@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vSrcOpaqCopyS4D16Unsafe@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z @ 0x1C0274520
+ * Callers:
+ *     ?vSrcOpaqCopyS4D16@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z @ 0x1C0274450 (-vSrcOpaqCopyS4D16@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z.c)
+ * Callees:
+ *     ?pvFillOpaqTable@@YAPEAXKKKPEAVSURFACE@@@Z @ 0x1C0273934 (-pvFillOpaqTable@@YAPEAXKKKPEAVSURFACE@@@Z.c)
+ */
+
 void __fastcall vSrcOpaqCopyS4D16Unsafe(
         const unsigned __int8 *a1,
         int a2,

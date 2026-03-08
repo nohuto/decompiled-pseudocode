@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?IsChildWindowDpiIsolationEnabled@@YA_NPEAUtagWND@@0@Z @ 0x1C00DE2B0
+ * Callers:
+ *     xxxSetLayeredWindow @ 0x1C0028C1C (xxxSetLayeredWindow.c)
+ *     ?xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z @ 0x1C0036908 (-xxxSetParentWorker@@YAPEAUtagWND@@PEAU1@00H@Z.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall IsChildWindowDpiIsolationEnabled(struct tagWND *a1, struct tagWND *a2)
 {
   char v4; // bl

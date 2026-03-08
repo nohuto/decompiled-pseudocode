@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_WdfIoTargetFormatRequestForInternalIoctl @ 0x1C0006A00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FxIoTargetFormatIoctl @ 0x1C0005C48 (FxIoTargetFormatIoctl.c)
+ */
+
 __int64 __fastcall imp_WdfIoTargetFormatRequestForInternalIoctl(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFIOTARGET__ *IoTarget,

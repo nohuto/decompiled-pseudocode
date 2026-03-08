@@ -1,3 +1,14 @@
+/*
+ * XREFs of SmIssueIo @ 0x1405CB0C8
+ * Callers:
+ *     ?StDeviceIoIssue@?$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_PF_QUEUE@@@Z @ 0x1405C1E04 (-StDeviceIoIssue@-$ST_STORE@USM_TRAITS@@@@SAJPEAU_ST_DATA_MGR@1@PEAU_PF_QUEUE@@@Z.c)
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     SmKmStoreReference @ 0x140356410 (SmKmStoreReference.c)
+ *     SmKmStoreRefFromStoreIndex @ 0x140356594 (SmKmStoreRefFromStoreIndex.c)
+ *     SmKmIssueIo @ 0x1405C9144 (SmKmIssueIo.c)
+ */
+
 __int64 __fastcall SmIssueIo(unsigned __int64 a1, int a2, int a3, int a4, __int64 a5, unsigned __int64 a6)
 {
   int v6; // esi

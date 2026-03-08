@@ -1,3 +1,13 @@
+/*
+ * XREFs of WmipEnumerateMofResources @ 0x140787950
+ * Callers:
+ *     WmipIoControl @ 0x140787290 (WmipIoControl.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     RtlStringCbCopyW @ 0x140244EC0 (RtlStringCbCopyW.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ */
+
 __int64 __fastcall WmipEnumerateMofResources(unsigned int *a1, unsigned int a2, _DWORD *a3)
 {
   unsigned __int64 v4; // rbx

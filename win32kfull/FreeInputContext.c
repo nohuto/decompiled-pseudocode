@@ -1,3 +1,12 @@
+/*
+ * XREFs of FreeInputContext @ 0x1C00D7430
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ??4?$SharedMixedObjectPointerFieldpImcNext@UtagIMC@@@tagIMC@@QEAAPEAU1@PEAU1@@Z @ 0x1C01B86FC (--4-$SharedMixedObjectPointerFieldpImcNext@UtagIMC@@@tagIMC@@QEAAPEAU1@PEAU1@@Z.c)
+ */
+
 __int64 __fastcall FreeInputContext(__int64 a1)
 {
   __int64 result; // rax

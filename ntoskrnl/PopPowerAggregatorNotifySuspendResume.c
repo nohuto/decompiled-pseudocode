@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopPowerAggregatorNotifySuspendResume @ 0x140990D0C
+ * Callers:
+ *     PopIssueActionRequest @ 0x140986CA4 (PopIssueActionRequest.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x140757290 (PopPowerAggregatorHandleIntentUnsafe.c)
+ *     PopPowerAggregatorDiagTraceEvent @ 0x1407577FC (PopPowerAggregatorDiagTraceEvent.c)
+ */
+
 void __fastcall PopPowerAggregatorNotifySuspendResume(unsigned __int8 a1)
 {
   int v1; // ebx

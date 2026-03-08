@@ -1,3 +1,14 @@
+/*
+ * XREFs of DxgkUpdateContextAllocationCB @ 0x1C02E1200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ @ 0x1C00074C0 (--0DXGVALIDATIONPROCESSREATTACH@@QEAA@XZ.c)
+ *     DpiGetDxgAdapter @ 0x1C000E550 (DpiGetDxgAdapter.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DxgkUpdateContextAllocationCB(__int64 a1, __int64 a2)
 {
   __int64 DxgAdapter; // rax

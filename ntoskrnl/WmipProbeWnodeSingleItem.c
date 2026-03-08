@@ -1,3 +1,11 @@
+/*
+ * XREFs of WmipProbeWnodeSingleItem @ 0x1409DE89C
+ * Callers:
+ *     WmipIoControl @ 0x140787290 (WmipIoControl.c)
+ * Callees:
+ *     WmipProbeWnodeWorker @ 0x140787B64 (WmipProbeWnodeWorker.c)
+ */
+
 __int64 __fastcall WmipProbeWnodeSingleItem(_DWORD *a1, unsigned int a2)
 {
   __int64 result; // rax

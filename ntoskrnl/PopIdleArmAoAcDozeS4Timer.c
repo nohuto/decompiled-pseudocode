@@ -1,3 +1,22 @@
+/*
+ * XREFs of PopIdleArmAoAcDozeS4Timer @ 0x14059BCE8
+ * Callers:
+ *     PopUmpoProcessPowerMessage @ 0x14073B5A4 (PopUmpoProcessPowerMessage.c)
+ *     PopUpdateSystemIdleContext @ 0x14082A808 (PopUpdateSystemIdleContext.c)
+ *     PopIdleCsStateChanged @ 0x140998E5C (PopIdleCsStateChanged.c)
+ *     PopUpdateSmartUserPresencePredictions @ 0x140998F8C (PopUpdateSmartUserPresencePredictions.c)
+ * Callees:
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopIdleChooseDozeS4Time @ 0x14059BE38 (PopIdleChooseDozeS4Time.c)
+ *     PopFilterCapabilities @ 0x140760774 (PopFilterCapabilities.c)
+ *     PopIsDozeSupported @ 0x14097DB04 (PopIsDozeSupported.c)
+ *     PopTraceSystemIdleS0LowPowerDozeTimerArmed @ 0x14098FCB8 (PopTraceSystemIdleS0LowPowerDozeTimerArmed.c)
+ */
+
 __int64 PopIdleArmAoAcDozeS4Timer()
 {
   __int64 result; // rax

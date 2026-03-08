@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpInterruptFindControllerAndLineState @ 0x14028EDE8
+ * Callers:
+ *     HalpInterruptGetRemappedLineState @ 0x14028EBCC (HalpInterruptGetRemappedLineState.c)
+ *     HalpInterruptSetRemappedDestinationHv @ 0x1405025EC (HalpInterruptSetRemappedDestinationHv.c)
+ * Callees:
+ *     HalpInterruptFindLines @ 0x14028EE80 (HalpInterruptFindLines.c)
+ *     HalpInterruptLookupController @ 0x14028EEE0 (HalpInterruptLookupController.c)
+ *     HalpInterruptGsiToLine @ 0x14028EF10 (HalpInterruptGsiToLine.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ */
+
 __int64 __fastcall HalpInterruptFindControllerAndLineState(__int64 a1, __int64 *a2, __int64 *a3)
 {
   __int64 v4; // rbx

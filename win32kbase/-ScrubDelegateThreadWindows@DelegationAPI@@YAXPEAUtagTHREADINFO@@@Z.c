@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ScrubDelegateThreadWindows@DelegationAPI@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C00A9160
+ * Callers:
+ *     xxxDestroyThreadInfo @ 0x1C0072BF4 (xxxDestroyThreadInfo.c)
+ * Callees:
+ *     _anonymous_namespace_::ScrubDelegatedWindow_tagWND___ @ 0x1C00A9270 (_anonymous_namespace_--ScrubDelegatedWindow_tagWND___.c)
+ *     _anonymous_namespace_::ScrubDelegatedWindow_tagBWND___ @ 0x1C015D4A0 (_anonymous_namespace_--ScrubDelegatedWindow_tagBWND___.c)
+ */
+
 void __fastcall DelegationAPI::ScrubDelegateThreadWindows(DelegationAPI *this, struct tagTHREADINFO *a2)
 {
   unsigned int v2; // ebx

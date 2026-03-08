@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtGdiGetDCDword @ 0x1C00C5BC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ??1DCOBJ@@QEAA@XZ @ 0x1C0050C40 (--1DCOBJ@@QEAA@XZ.c)
+ *     ?dwGetFontLanguageInfo@@YAKAEAVXDCOBJ@@@Z @ 0x1C0290B74 (-dwGetFontLanguageInfo@@YAKAEAVXDCOBJ@@@Z.c)
+ */
+
 __int64 __fastcall NtGdiGetDCDword(HDC a1, int a2, _DWORD *a3)
 {
   unsigned int v5; // edi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ShouldSnapToPixels@CMaskBrush@@UEBA_NXZ @ 0x1800E9690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 char __fastcall CMaskBrush::ShouldSnapToPixels(CMaskBrush *this)
 {
   char v2; // bl

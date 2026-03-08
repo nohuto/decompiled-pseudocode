@@ -1,3 +1,11 @@
+/*
+ * XREFs of WerStartSystemErrorHandler @ 0x1C0054698
+ * Callers:
+ *     WerKernelSubmitReport @ 0x1C00540E0 (WerKernelSubmitReport.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ */
+
 __int64 WerStartSystemErrorHandler()
 {
   unsigned int v0; // ebx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CGenericInkMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0250550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z @ 0x1C0064740 (-EnsureBatchBuffer@CBatch@DirectComposition@@SA_NPEAPEAV12@_KPEAPEAX@Z.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_04ae90407365c29ae4b2e1045aef8826___ @ 0x1C0250130 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_04ae90407365c29ae4b2e1045aef882.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_08fab9d56937b2df5c8c3c8f32b86a45___ @ 0x1C02501C4 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_08fab9d56937b2df5c8c3c8f32b86a4.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_e21701afca32d27cc571de8dc6065791___ @ 0x1C025023C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_e21701afca32d27cc571de8dc606579.c)
+ *     ?EmitSegmentUpdate@CGenericInkMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z @ 0x1C02503C8 (-EmitSegmentUpdate@CGenericInkMarshaler@DirectComposition@@AEAA_NPEAPEAVCBatch@2@@Z.c)
+ */
+
 char __fastcall DirectComposition::CGenericInkMarshaler::EmitUpdateCommands(
         DirectComposition::CGenericInkMarshaler *this,
         struct DirectComposition::CBatch ***a2)

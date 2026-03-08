@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiGetDevicePropertyDataBoolean @ 0x1C017A6F8
+ * Callers:
+ *     DpiIsDriverUpdateInProgress @ 0x1C017A688 (DpiIsDriverUpdateInProgress.c)
+ *     DpiFdoInitializeFdo @ 0x1C01F5A64 (DpiFdoInitializeFdo.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiGetDevicePropertyDataBoolean(struct _DEVICE_OBJECT *a1, const DEVPROPKEY *a2, char *a3)
 {
   char v4; // di

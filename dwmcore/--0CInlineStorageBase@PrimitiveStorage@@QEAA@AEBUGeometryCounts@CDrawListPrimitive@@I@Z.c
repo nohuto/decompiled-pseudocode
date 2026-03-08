@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CInlineStorageBase@PrimitiveStorage@@QEAA@AEBUGeometryCounts@CDrawListPrimitive@@I@Z @ 0x1800DE8C0
+ * Callers:
+ *     PrimitiveStorage::Alloc_16_ @ 0x18005BB80 (PrimitiveStorage--Alloc_16_.c)
+ * Callees:
+ *     <none>
+ */
+
 PrimitiveStorage::CInlineStorageBase *__fastcall PrimitiveStorage::CInlineStorageBase::CInlineStorageBase(
         PrimitiveStorage::CInlineStorageBase *this,
         const struct CDrawListPrimitive::GeometryCounts *a2)

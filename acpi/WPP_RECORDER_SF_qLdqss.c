@@ -1,3 +1,13 @@
+/*
+ * XREFs of WPP_RECORDER_SF_qLdqss @ 0x1C0022C78
+ * Callers:
+ *     ACPIDevicePowerProcessPhase1DeviceSubPhase3 @ 0x1C00028E0 (ACPIDevicePowerProcessPhase1DeviceSubPhase3.c)
+ *     ACPIDevicePowerProcessPhase1DeviceSubPhase1 @ 0x1C001F100 (ACPIDevicePowerProcessPhase1DeviceSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase1DeviceSubPhase2 @ 0x1C001F370 (ACPIDevicePowerProcessPhase1DeviceSubPhase2.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WPP_RECORDER_SF_qLdqss(
         __int64 a1,
         __int64 a2,

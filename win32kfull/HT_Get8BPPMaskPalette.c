@@ -1,3 +1,14 @@
+/*
+ * XREFs of HT_Get8BPPMaskPalette @ 0x1C0252E90
+ * Callers:
+ *     ?bCreateHTPalette@PALMEMOBJ@@QEAAHJPEAU_GDIINFO@@@Z @ 0x1C0019FAC (-bCreateHTPalette@PALMEMOBJ@@QEAAHJPEAU_GDIINFO@@@Z.c)
+ *     NtGdiHT_Get8BPPMaskPalette @ 0x1C02CF1B0 (NtGdiHT_Get8BPPMaskPalette.c)
+ * Callees:
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     DivFD6 @ 0x1C014AF0C (DivFD6.c)
+ *     HT_Get8BPPFormatPalette @ 0x1C0252D80 (HT_Get8BPPFormatPalette.c)
+ */
+
 LONG __stdcall HT_Get8BPPMaskPalette(
         LPPALETTEENTRY pPaletteEntry,
         BOOL Use8BPPMaskPal,

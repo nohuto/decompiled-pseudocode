@@ -1,3 +1,24 @@
+/*
+ * XREFs of DriverEntry @ 0x1C00A7300
+ * Callers:
+ *     GsDriverEntry @ 0x1C00A7010 (GsDriverEntry.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     WppInitKm @ 0x1C007C1A4 (WppInitKm.c)
+ *     WppLoadTracingSupport @ 0x1C007C280 (WppLoadTracingSupport.c)
+ *     AcpiInitializeExternalResourceTranslation @ 0x1C0084124 (AcpiInitializeExternalResourceTranslation.c)
+ *     wil_InitializeFeatureStaging @ 0x1C00A7078 (wil_InitializeFeatureStaging.c)
+ *     AcpiDiagInitialize @ 0x1C00A71E8 (AcpiDiagInitialize.c)
+ *     ACPIGlobalInitialize @ 0x1C00A8468 (ACPIGlobalInitialize.c)
+ *     ACPIInitGetEmOverride @ 0x1C00A8574 (ACPIInitGetEmOverride.c)
+ *     ACPIInitGetPlatformOverrides @ 0x1C00A87E8 (ACPIInitGetPlatformOverrides.c)
+ *     ACPIInitReadRegistryKeys @ 0x1C00A8998 (ACPIInitReadRegistryKeys.c)
+ *     ACPIInitRecordEmOverrides @ 0x1C00A8CBC (ACPIInitRecordEmOverrides.c)
+ *     ACPIInitializeWorker @ 0x1C00AA920 (ACPIInitializeWorker.c)
+ *     Simulator_InitializeInterface @ 0x1C00AB290 (Simulator_InitializeInterface.c)
+ */
+
 NTSTATUS __stdcall DriverEntry(_DRIVER_OBJECT *DriverObject, PUNICODE_STRING RegistryPath)
 {
   __int64 v4; // rax

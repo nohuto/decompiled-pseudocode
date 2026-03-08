@@ -1,3 +1,14 @@
+/*
+ * XREFs of CmpTryToLockHashEntryExclusive @ 0x14078EC04
+ * Callers:
+ *     CmpDoParseKey @ 0x1406E1D90 (CmpDoParseKey.c)
+ * Callees:
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     CmpReferenceHive @ 0x1407AB230 (CmpReferenceHive.c)
+ */
+
 char __fastcall CmpTryToLockHashEntryExclusive(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter4)
 {
   ULONG_PTR v2; // rbx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PoFxEnableDStateReporting @ 0x140981710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PoFxStartDevicePowerManagement @ 0x140393C70 (PoFxStartDevicePowerManagement.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopFxRegisterDevice @ 0x140836FBC (PopFxRegisterDevice.c)
+ */
+
 __int64 __fastcall PoFxEnableDStateReporting(_QWORD *Object, ULONG_PTR *a2)
 {
   int v4; // ebx

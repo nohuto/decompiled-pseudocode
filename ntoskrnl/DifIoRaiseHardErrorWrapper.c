@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifIoRaiseHardErrorWrapper @ 0x1405DE250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     IoRaiseHardError @ 0x140554680 (IoRaiseHardError.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 void __fastcall DifIoRaiseHardErrorWrapper(PIRP Irp, PVPB Vpb, PDEVICE_OBJECT RealDeviceObject)
 {
   __int64 *APIThunkContextById; // rax

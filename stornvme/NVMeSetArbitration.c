@@ -1,3 +1,13 @@
+/*
+ * XREFs of NVMeSetArbitration @ 0x1C002362C
+ * Callers:
+ *     NVMeControllerInitPart2 @ 0x1C000D9F0 (NVMeControllerInitPart2.c)
+ * Callees:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 void __fastcall NVMeSetArbitration(__int64 a1)
 {
   __int64 v2; // rcx

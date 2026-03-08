@@ -1,3 +1,11 @@
+/*
+ * XREFs of __security_init_cookie @ 0x140005970
+ * Callers:
+ *     wWinMainCRTStartup @ 0x1400054E0 (wWinMainCRTStartup.c)
+ * Callees:
+ *     <none>
+ */
+
 void __cdecl _security_init_cookie()
 {
   uintptr_t v0; // rax

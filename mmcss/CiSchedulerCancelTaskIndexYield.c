@@ -1,3 +1,14 @@
+/*
+ * XREFs of CiSchedulerCancelTaskIndexYield @ 0x1C0002C60
+ * Callers:
+ *     CiDispatchFastIoDeviceControl @ 0x1C000A760 (CiDispatchFastIoDeviceControl.c)
+ * Callees:
+ *     CiSchedulerUpdateTaskIndexPriorities @ 0x1C00020F0 (CiSchedulerUpdateTaskIndexPriorities.c)
+ *     CiSchedulerRemoveDeadline @ 0x1C0002D50 (CiSchedulerRemoveDeadline.c)
+ *     CiSchedulerRefreshTaskIndexQosProperties @ 0x1C00030B0 (CiSchedulerRefreshTaskIndexQosProperties.c)
+ *     CiLogTaskIndexCancelYield @ 0x1C0004104 (CiLogTaskIndexCancelYield.c)
+ */
+
 void __fastcall CiSchedulerCancelTaskIndexYield(__int64 a1)
 {
   char v1; // di

@@ -1,3 +1,12 @@
+/*
+ * XREFs of _lambda_a4faeffec317e94db02d9bdb76d95fff_::operator() @ 0x1C00BDBE4
+ * Callers:
+ *     ?HitTestPartUpdate@NotifyShell@@YAXAEBUtagDESKTOP@@PEAUtagWND@@H@Z @ 0x1C00BDB5C (-HitTestPartUpdate@NotifyShell@@YAXAEBUtagDESKTOP@@PEAUtagWND@@H@Z.c)
+ * Callees:
+ *     _GetTopLevelWindow @ 0x1C0035AF0 (_GetTopLevelWindow.c)
+ *     ?BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z @ 0x1C00FAA10 (-BehaviorEnabled@ShellWindowManagement@@YA_NPEBUtagDESKTOP@@K@Z.c)
+ */
+
 char __fastcall lambda_a4faeffec317e94db02d9bdb76d95fff_::operator()(__int64 a1, __int64 a2, int a3, char a4)
 {
   char v4; // di

@@ -1,3 +1,19 @@
+/*
+ * XREFs of UsbhHubResetIrqPipeWorker @ 0x1C0038B00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UsbhDecHubBusy @ 0x1C0003DB0 (UsbhDecHubBusy.c)
+ *     UsbhIncHubBusy @ 0x1C0007050 (UsbhIncHubBusy.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhPostInterrupt @ 0x1C001F320 (UsbhPostInterrupt.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhResetIrqPipe @ 0x1C00393AC (UsbhResetIrqPipe.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 int __fastcall UsbhHubResetIrqPipeWorker(PDEVICE_OBJECT DeviceObject, unsigned int a2, __int64 a3)
 {
   __int64 v4; // rsi

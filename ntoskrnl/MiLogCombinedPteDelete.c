@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiLogCombinedPteDelete @ 0x14065109C
+ * Callers:
+ *     MiDecrementCombinedPteEx @ 0x14029DAF4 (MiDecrementCombinedPteEx.c)
+ *     MiDemoteCombinedPte @ 0x14029DF88 (MiDemoteCombinedPte.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall MiLogCombinedPteDelete(__int64 a1)
 {
   _QWORD v1[2]; // [rsp+30h] [rbp-38h] BYREF

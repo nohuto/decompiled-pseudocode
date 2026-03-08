@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwDeleteProcessor @ 0x1409DEFB8
+ * Callers:
+ *     KiStartDynamicProcessor @ 0x140970898 (KiStartDynamicProcessor.c)
+ *     KeStartAllProcessors @ 0x140B3C580 (KeStartAllProcessors.c)
+ * Callees:
+ *     EtwpCCSwapDeleteProcessor @ 0x140601E2C (EtwpCCSwapDeleteProcessor.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EtwDeleteProcessor(__int64 a1)
 {
   _QWORD *v1; // rbx

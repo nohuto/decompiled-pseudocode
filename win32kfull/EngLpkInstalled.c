@@ -1,3 +1,11 @@
+/*
+ * XREFs of EngLpkInstalled @ 0x1C0290C80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 BOOL EngLpkInstalled(void)
 {
   Gre::Base *v0; // rcx

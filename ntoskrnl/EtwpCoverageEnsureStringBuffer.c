@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpCoverageEnsureStringBuffer @ 0x140853BB8
+ * Callers:
+ *     EtwpCoverageRecord @ 0x14078E9DC (EtwpCoverageRecord.c)
+ *     EtwpCoverageEnsureContext @ 0x1408537B4 (EtwpCoverageEnsureContext.c)
+ * Callees:
+ *     EtwpCoverageInitializeStringBuffer @ 0x140302FA4 (EtwpCoverageInitializeStringBuffer.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall EtwpCoverageEnsureStringBuffer(__int64 a1)
 {
   _QWORD *v1; // rdi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of SymCryptSha512AppendBlocks_ull @ 0x1403F4B50
+ * Callers:
+ *     SymCryptSha512Append @ 0x1403F4A74 (SymCryptSha512Append.c)
+ *     SymCryptSha512Result @ 0x1403F61C8 (SymCryptSha512Result.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SymCryptWipe @ 0x1403F0988 (SymCryptWipe.c)
+ */
+
 __int64 __fastcall SymCryptSha512AppendBlocks_ull(__int64 *a1, __int64 a2, unsigned __int64 a3, unsigned __int64 *a4)
 {
   __int64 v4; // r13

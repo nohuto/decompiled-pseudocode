@@ -1,3 +1,21 @@
+/*
+ * XREFs of CmpFreeKeyControlBlock @ 0x14074C060
+ * Callers:
+ *     CmpDereferenceKeyControlBlockWithLock @ 0x1406B7100 (CmpDereferenceKeyControlBlockWithLock.c)
+ *     CmpDoParseKey @ 0x1406E1D90 (CmpDoParseKey.c)
+ *     CmpDeleteKeyObject @ 0x1406E5C50 (CmpDeleteKeyObject.c)
+ *     CmpCleanUpKCBCacheTable @ 0x14074B9E4 (CmpCleanUpKCBCacheTable.c)
+ *     CmpDecommisssionKcb @ 0x14074C040 (CmpDecommisssionKcb.c)
+ *     CmpCreateKeyControlBlock @ 0x1407AFAA0 (CmpCreateKeyControlBlock.c)
+ *     CmpCloneToUnbackedKcb @ 0x140A14164 (CmpCloneToUnbackedKcb.c)
+ *     CmpSearchKeyControlBlockTreeEx @ 0x140A14AA4 (CmpSearchKeyControlBlockTreeEx.c)
+ * Callees:
+ *     CmpFreeTransientPoolWithTag @ 0x1402A4B0C (CmpFreeTransientPoolWithTag.c)
+ *     ExFreeToLookasideListEx @ 0x1402C0A60 (ExFreeToLookasideListEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall CmpFreeKeyControlBlock(ULONG_PTR BugCheckParameter2)
 {
   void *v2; // rcx

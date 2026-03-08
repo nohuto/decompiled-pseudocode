@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CSpriteVisualMarshaler@DirectComposition@@UEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00632D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_eef5f042a4ccb2ced9c50c4d99e46feb___ @ 0x1C0061C78 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_eef5f042a4ccb2ced9c50c4d99e46fe.c)
+ *     ?EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C0063B90 (-EmitUpdateCommands@CVisualMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_bb1bee000cc755cbd48ecf2c45cd0691___ @ 0x1C025321C (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_bb1bee000cc755cbd48ecf2c45cd069.c)
+ */
+
 char __fastcall DirectComposition::CSpriteVisualMarshaler::EmitUpdateCommands(
         DirectComposition::CSpriteVisualMarshaler *this,
         struct DirectComposition::CBatch **a2)

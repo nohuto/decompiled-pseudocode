@@ -1,3 +1,16 @@
+/*
+ * XREFs of UsbhGetDeviceNodeInfo @ 0x1C004910C
+ * Callers:
+ *     UsbhPdoQueryWmiDataBlock @ 0x1C00497C0 (UsbhPdoQueryWmiDataBlock.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     memmove @ 0x1C0023580 (memmove.c)
+ *     memset @ 0x1C0023880 (memset.c)
+ *     UsbhGetDeviceInformationEx @ 0x1C003DF90 (UsbhGetDeviceInformationEx.c)
+ *     UsbhBuildTopologyAddress @ 0x1C0048D58 (UsbhBuildTopologyAddress.c)
+ */
+
 __int64 __fastcall UsbhGetDeviceNodeInfo(__int64 a1, _DWORD *a2, unsigned int a3, unsigned int *a4, __int64 a5)
 {
   size_t v6; // r12

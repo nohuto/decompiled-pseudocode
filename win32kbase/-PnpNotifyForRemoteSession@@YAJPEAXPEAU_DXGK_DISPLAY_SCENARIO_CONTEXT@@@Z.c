@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?PnpNotifyForRemoteSession@@YAJPEAXPEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C0159D70
+ * Callers:
+ *     ?Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z @ 0x1C015B374 (-Win32kPnpNotify@@YAJPEAU_VIDEO_WIN32K_CALLBACKS_PARAMS@@PEAU_DXGK_DISPLAY_SCENARIO_CONTEXT@@@Z.c)
+ * Callees:
+ *     xxxUserSetDisplayConfig @ 0x1C0011DE0 (xxxUserSetDisplayConfig.c)
+ *     DrvUpdateGraphicsDeviceList @ 0x1C001FAC0 (DrvUpdateGraphicsDeviceList.c)
+ *     UserRemoteConnectedSessionUsingXddm @ 0x1C0021420 (UserRemoteConnectedSessionUsingXddm.c)
+ *     IsxxxSetCsrssThreadDesktopSupported @ 0x1C00DA44C (IsxxxSetCsrssThreadDesktopSupported.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     DrvCleanupRemoteGraphicsDevices @ 0x1C0192C64 (DrvCleanupRemoteGraphicsDevices.c)
+ *     DrvNeedToSwitchAdapterForRemoteSession @ 0x1C019456C (DrvNeedToSwitchAdapterForRemoteSession.c)
+ *     DrvUpdateRemoteGraphicsDeviceList @ 0x1C0194E80 (DrvUpdateRemoteGraphicsDeviceList.c)
+ *     IsxxxRestoreCsrssThreadDesktopSupported @ 0x1C0271FCC (IsxxxRestoreCsrssThreadDesktopSupported.c)
+ */
+
 __int64 __fastcall PnpNotifyForRemoteSession(void *a1, struct _DXGK_DISPLAY_SCENARIO_CONTEXT *a2)
 {
   __int64 result; // rax

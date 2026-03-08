@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?DeleteObject@FxObject@@UEAAXXZ @ 0x1C00032C0
+ * Callers:
+ *     ?DeleteObject@FxDevice@@UEAAXXZ @ 0x1C003DDA0 (-DeleteObject@FxDevice@@UEAAXXZ.c)
+ *     ?DeleteObject@FxDriver@@UEAAXXZ @ 0x1C0040020 (-DeleteObject@FxDriver@@UEAAXXZ.c)
+ *     ?DeleteObject@FxInterrupt@@UEAAXXZ @ 0x1C007ECA0 (-DeleteObject@FxInterrupt@@UEAAXXZ.c)
+ *     ?DecrementOpenHandleCount@FxPkgGeneral@@AEAAXXZ @ 0x1C008543C (-DecrementOpenHandleCount@FxPkgGeneral@@AEAAXXZ.c)
+ * Callees:
+ *     ?RemoveChildObjectInternal@FxObject@@AEAAJPEAV1@@Z @ 0x1C0003350 (-RemoveChildObjectInternal@FxObject@@AEAAJPEAV1@@Z.c)
+ *     ?DeleteWorkerAndUnlock@FxObject@@AEAAEEE@Z @ 0x1C0003460 (-DeleteWorkerAndUnlock@FxObject@@AEAAEEE@Z.c)
+ *     ?DeletedAndDisposedWorkerLocked@FxObject@@AEAAXEE@Z @ 0x1C00034D0 (-DeletedAndDisposedWorkerLocked@FxObject@@AEAAXEE@Z.c)
+ *     ?SetObjectStateLocked@FxObject@@AEAAXW4FxObjectState@@@Z @ 0x1C000536C (-SetObjectStateLocked@FxObject@@AEAAXW4FxObjectState@@@Z.c)
+ *     ?TraceDroppedEvent@FxObject@@QEAAXW4FxObjectDroppedEvent@@@Z @ 0x1C0046564 (-TraceDroppedEvent@FxObject@@QEAAXW4FxObjectDroppedEvent@@@Z.c)
+ */
+
 void __fastcall FxObject::DeleteObject(FxObject *this)
 {
   unsigned __int64 *p_m_Lock; // rsi

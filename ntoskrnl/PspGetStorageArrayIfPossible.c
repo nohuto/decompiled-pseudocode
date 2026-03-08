@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspGetStorageArrayIfPossible @ 0x1402995E4
+ * Callers:
+ *     PspGetStorageArray @ 0x140738754 (PspGetStorageArray.c)
+ *     PspStorageGetObject @ 0x14078AF38 (PspStorageGetObject.c)
+ *     PspStorageRemoveObject @ 0x1409B4F94 (PspStorageRemoveObject.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspGetStorageArrayIfPossible(__int64 a1, unsigned int a2, unsigned int *a3, _QWORD *a4)
 {
   __int64 v5; // rax

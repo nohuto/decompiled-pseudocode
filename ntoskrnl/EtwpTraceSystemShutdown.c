@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpTraceSystemShutdown @ 0x1409E40C4
+ * Callers:
+ *     EtwShutdown @ 0x1409DFD2C (EtwShutdown.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     KeQuerySystemTimePrecise @ 0x1402384E0 (KeQuerySystemTimePrecise.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char EtwpTraceSystemShutdown()
 {
   char result; // al

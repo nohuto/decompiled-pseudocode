@@ -1,3 +1,18 @@
+/*
+ * XREFs of UsbDualRoleFeaturesQueryLocalMachine @ 0x1C005CE14
+ * Callers:
+ *     UsbhSetupDevice @ 0x1C0039728 (UsbhSetupDevice.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     CheckUSBFnConfiguration @ 0x1C005C27C (CheckUSBFnConfiguration.c)
+ *     CheckUSBFnIncludeDefaultCfg @ 0x1C005C528 (CheckUSBFnIncludeDefaultCfg.c)
+ *     ReadManifestAssignedValue @ 0x1C005C878 (ReadManifestAssignedValue.c)
+ *     ReadTestOverrideValue @ 0x1C005C974 (ReadTestOverrideValue.c)
+ *     ReadUSBFnFeaturesFromCurrentConfiguration @ 0x1C005CACC (ReadUSBFnFeaturesFromCurrentConfiguration.c)
+ *     UpdateUcmIsPresentBit @ 0x1C005CC80 (UpdateUcmIsPresentBit.c)
+ */
+
 void __fastcall UsbDualRoleFeaturesQueryLocalMachine(int *a1)
 {
   __int64 v2; // rcx

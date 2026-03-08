@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlWideCharArrayCopyStringWorker @ 0x1C0103240
+ * Callers:
+ *     ?RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z @ 0x1C01031CC (-RtlUnicodeStringCopyString@@YAJPEAU_UNICODE_STRING@@PEBG@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlWideCharArrayCopyStringWorker(
         wchar_t *pszDest,
         size_t cchDest,

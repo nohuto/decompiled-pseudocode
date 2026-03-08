@@ -1,3 +1,13 @@
+/*
+ * XREFs of PoSetPowerState @ 0x1402FA100
+ * Callers:
+ *     IopPowerDispatch @ 0x1405604B0 (IopPowerDispatch.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 POWER_STATE __stdcall PoSetPowerState(PDEVICE_OBJECT DeviceObject, POWER_STATE_TYPE Type, POWER_STATE State)
 {
   struct _DEVOBJ_EXTENSION *DeviceObjectExtension; // r14

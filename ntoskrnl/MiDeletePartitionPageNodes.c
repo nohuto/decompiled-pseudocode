@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiDeletePartitionPageNodes @ 0x140656E28
+ * Callers:
+ *     MiClearPartitionPageBitMap @ 0x1406569F0 (MiClearPartitionPageBitMap.c)
+ *     MiDeletePartitionResources @ 0x140656EBC (MiDeletePartitionResources.c)
+ *     MiInsertPartitionPages @ 0x140657EB8 (MiInsertPartitionPages.c)
+ *     MiAddPhysicalMemory @ 0x140A289D8 (MiAddPhysicalMemory.c)
+ *     MmRemovePhysicalMemory @ 0x140A2A520 (MmRemovePhysicalMemory.c)
+ * Callees:
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     MiDeletePartitionPageNode @ 0x140656DFC (MiDeletePartitionPageNode.c)
+ */
+
 void __fastcall MiDeletePartitionPageNodes(unsigned __int64 *a1)
 {
   unsigned __int64 *v1; // rax

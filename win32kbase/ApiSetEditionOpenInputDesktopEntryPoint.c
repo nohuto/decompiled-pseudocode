@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionOpenInputDesktopEntryPoint @ 0x1C00C1FF8
+ * Callers:
+ *     NtUserOpenInputDesktop @ 0x1C00C1FE0 (NtUserOpenInputDesktop.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ApiSetEditionOpenInputDesktopEntryPoint(unsigned int a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // esi

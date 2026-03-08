@@ -1,3 +1,32 @@
+/*
+ * XREFs of ?OnPropertyChanged@CSynchronousSuperWetInk@@QEAAXXZ @ 0x1802507C8
+ * Callers:
+ *     ?SetInkLookupId@?$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCSuperWetSource@@@@QEAAJI@Z @ 0x1801C3ED4 (-SetInkLookupId@-$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCSuperWetSource@@.c)
+ *     ?SetIsVail@?$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCSuperWetSource@@@@QEAAJ_N@Z @ 0x1801C3F90 (-SetIsVail@-$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCSuperWetSource@@@@QEA.c)
+ *     ?SetLookupMode@?$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCSuperWetSource@@@@QEAAJI@Z @ 0x1801C4060 (-SetLookupMode@-$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCSuperWetSource@@@.c)
+ *     ?SetPerFrameDataAllocationOffset@?$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCSuperWetSource@@@@QEAAJI@Z @ 0x1801C54E8 (-SetPerFrameDataAllocationOffset@-$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@V.c)
+ *     ?SetPerFrameDataAllocationSize@?$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCSuperWetSource@@@@QEAAJI@Z @ 0x1801C5510 (-SetPerFrameDataAllocationSize@-$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCS.c)
+ *     ?SetPerFrameDataSharedSection@?$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCSuperWetSource@@@@QEAAJPEAVCSharedSectionBase@@@Z @ 0x1801C5538 (-SetPerFrameDataSharedSection@-$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCSu.c)
+ *     ?SetPerFrameDataSize@?$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCSuperWetSource@@@@QEAAJI@Z @ 0x1801C55B8 (-SetPerFrameDataSize@-$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCSuperWetSou.c)
+ *     ?SetReferenceSurface@?$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCSuperWetSource@@@@QEAAJPEAVCCompositionSurfaceBitmap@@@Z @ 0x1801C65C0 (-SetReferenceSurface@-$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCSuperWetSou.c)
+ *     ?SetTipPointSize@?$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCSuperWetSource@@@@QEAAJI@Z @ 0x1801C6E60 (-SetTipPointSize@-$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCSuperWetSource@.c)
+ *     ?SetTipPointsAllocationOffset@?$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCSuperWetSource@@@@QEAAJI@Z @ 0x1801C6E88 (-SetTipPointsAllocationOffset@-$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCSu.c)
+ *     ?SetTipPointsAllocationSize@?$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCSuperWetSource@@@@QEAAJI@Z @ 0x1801C6EB0 (-SetTipPointsAllocationSize@-$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCSupe.c)
+ *     ?SetTipPointsSharedSection@?$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCSuperWetSource@@@@QEAAJPEAVCSharedSectionBase@@@Z @ 0x1801C6ED8 (-SetTipPointsSharedSection@-$CSynchronousSuperWetInkGeneratedT@VCSynchronousSuperWetInk@@VCSuper.c)
+ * Callees:
+ *     ??0?$extent_type@$0?0@details@gsl@@QEAA@_K@Z @ 0x1800254CC (--0-$extent_type@$0-0@details@gsl@@QEAA@_K@Z.c)
+ *     ?ResolveAllocation@CSharedSectionBase@@QEAAPEAX_K0@Z @ 0x1800981C8 (-ResolveAllocation@CSharedSectionBase@@QEAAPEAX_K0@Z.c)
+ *     ?reserve@?$vector@EV?$allocator@E@std@@@std@@QEAAX_K@Z @ 0x1800AB7A8 (-reserve@-$vector@EV-$allocator@E@std@@@std@@QEAAX_K@Z.c)
+ *     ?NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1800BBC80 (-NotifyOnChanged@CResource@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ *     McTemplateU0pp_EventWriteTransfer @ 0x18019F3C8 (McTemplateU0pp_EventWriteTransfer.c)
+ *     ?terminate@details@gsl@@YAXXZ @ 0x1801AEDB0 (-terminate@details@gsl@@YAXXZ.c)
+ *     ?Create@CSharedCircularQueue@@SAJV?$span@E$0?0@gsl@@IPEAPEAV1@_N@Z @ 0x18022B0E0 (-Create@CSharedCircularQueue@@SAJV-$span@E$0-0@gsl@@IPEAPEAV1@_N@Z.c)
+ *     ??4?$ComPtr@VCSharedSectionBase@@@WRL@Microsoft@@QEAAAEAV012@PEAVCSharedSectionBase@@@Z @ 0x18024FDA0 (--4-$ComPtr@VCSharedSectionBase@@@WRL@Microsoft@@QEAAAEAV012@PEAVCSharedSectionBase@@@Z.c)
+ *     ?IsSuperWetCompatible@CSynchronousSuperWetInk@@AEBA_NXZ @ 0x180250444 (-IsSuperWetCompatible@CSynchronousSuperWetInk@@AEBA_NXZ.c)
+ *     ?Create@CGenericInkTipPointSource@@SAJPEAVCSharedSectionBase@@IIIPEAPEAV1@@Z @ 0x180260E60 (-Create@CGenericInkTipPointSource@@SAJPEAVCSharedSectionBase@@IIIPEAPEAV1@@Z.c)
+ */
+
 void __fastcall CSynchronousSuperWetInk::OnPropertyChanged(CSynchronousSuperWetInk *this)
 {
   struct CGenericInkTipPointSource **v1; // rax

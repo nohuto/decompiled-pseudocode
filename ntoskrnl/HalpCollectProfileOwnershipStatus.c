@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpCollectProfileOwnershipStatus @ 0x140505470
+ * Callers:
+ *     HalpQueryProfileInformation @ 0x140861248 (HalpQueryProfileInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpCollectProfileOwnershipStatus(_DWORD *a1, unsigned int a2, unsigned int *a3)
 {
   unsigned int v3; // r10d

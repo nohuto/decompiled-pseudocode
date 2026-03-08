@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExEnableRaiseUMExceptionOnInvalidHandleClose @ 0x140785D64
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ */
+
 char __fastcall ExEnableRaiseUMExceptionOnInvalidHandleClose(__int64 a1, int a2)
 {
   struct _KTHREAD *CurrentThread; // rbp

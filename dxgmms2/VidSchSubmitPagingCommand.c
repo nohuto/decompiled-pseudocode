@@ -1,3 +1,17 @@
+/*
+ * XREFs of VidSchSubmitPagingCommand @ 0x1C0108A08
+ * Callers:
+ *     ?FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z @ 0x1C008D8B0 (-FlushPagingBufferInternal@VIDMM_GLOBAL@@QEAAXKEP6AXPEAX@Z0EE@Z.c)
+ * Callees:
+ *     VidSchiSubmitCommandPacketToQueue @ 0x1C0003280 (VidSchiSubmitCommandPacketToQueue.c)
+ *     VidSchIsTDRPending @ 0x1C0007920 (VidSchIsTDRPending.c)
+ *     VidSchiSetPriorityContext @ 0x1C0014574 (VidSchiSetPriorityContext.c)
+ *     ?ReleaseBuffer@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z @ 0x1C001742C (-ReleaseBuffer@VIDMM_DMA_POOL@@QEAAXPEAU_VIDMM_DMA_BUFFER@@E@Z.c)
+ *     VidSchiSchedulerNodeToDriverEngine @ 0x1C00196B8 (VidSchiSchedulerNodeToDriverEngine.c)
+ *     VidSchiAllocateQueuePacket @ 0x1C00A5470 (VidSchiAllocateQueuePacket.c)
+ *     VidSchiSubmitHwPagingCommand @ 0x1C0109884 (VidSchiSubmitHwPagingCommand.c)
+ */
+
 void __fastcall VidSchSubmitPagingCommand(__int64 a1, __int64 a2)
 {
   __int64 v4; // rcx

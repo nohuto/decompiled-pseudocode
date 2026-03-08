@@ -1,3 +1,15 @@
+/*
+ * XREFs of _lambda_42ee479a8e982a1e9231e91789050ae8_::operator() @ 0x1C036D608
+ * Callers:
+ *     ?VmBusVsyncControl@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z @ 0x1C0390720 (-VmBusVsyncControl@DXG_HOST_GLOBAL_VMBUS@@SAEPEAUDXGADAPTER_VMBUS_PACKET@@@Z.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     Feature_VAIL_Vsync_Projection__private_ReportDeviceUsage @ 0x1C00266D8 (Feature_VAIL_Vsync_Projection__private_ReportDeviceUsage.c)
+ *     ?AddMapping@HOSTVMMONITORMAPPING@@QEAAJPEAUHOST_VMMONITOR_MAPPING@1@@Z @ 0x1C0056E0C (-AddMapping@HOSTVMMONITORMAPPING@@QEAAJPEAUHOST_VMMONITOR_MAPPING@1@@Z.c)
+ *     ?RemoveMapping@HOSTVMMONITORMAPPING@@QEAAJPEAXU_LUID@@I0_N@Z @ 0x1C00573B4 (-RemoveMapping@HOSTVMMONITORMAPPING@@QEAAJPEAXU_LUID@@I0_N@Z.c)
+ */
+
 __int64 __fastcall lambda_42ee479a8e982a1e9231e91789050ae8_::operator()(__int64 **a1)
 {
   __int64 v2; // rcx

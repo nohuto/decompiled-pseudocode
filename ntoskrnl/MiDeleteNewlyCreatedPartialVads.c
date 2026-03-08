@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiDeleteNewlyCreatedPartialVads @ 0x140A44E38
+ * Callers:
+ *     MiAllocateSplitVads @ 0x14076003C (MiAllocateSplitVads.c)
+ * Callees:
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     MiComputeVadCharges @ 0x14034CBC4 (MiComputeVadCharges.c)
+ *     MiUpControlAreaRefs @ 0x140623ABC (MiUpControlAreaRefs.c)
+ *     MiFreePlaceholderStorage @ 0x1406800F8 (MiFreePlaceholderStorage.c)
+ *     MiRemoveSharedCommitNode @ 0x1407D6770 (MiRemoveSharedCommitNode.c)
+ *     MiFreeRotateView @ 0x140A2E638 (MiFreeRotateView.c)
+ *     MiReturnVadCharges @ 0x140A39830 (MiReturnVadCharges.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall MiDeleteNewlyCreatedPartialVads(__int64 a1)
 {
   __int64 v1; // rdi

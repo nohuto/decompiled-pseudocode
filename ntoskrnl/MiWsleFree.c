@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiWsleFree @ 0x14032BA30
+ * Callers:
+ *     MiFreeWsleList @ 0x14032B2B0 (MiFreeWsleList.c)
+ * Callees:
+ *     MiReleasePageFileInfo @ 0x14020B300 (MiReleasePageFileInfo.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiGetUltraMapping @ 0x140276080 (MiGetUltraMapping.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiGetContainingPageTable @ 0x140289FE0 (MiGetContainingPageTable.c)
+ *     MiGetPfnPriority @ 0x14028A3F8 (MiGetPfnPriority.c)
+ *     MiRewriteTrimPteAsDemandZero @ 0x1402DC734 (MiRewriteTrimPteAsDemandZero.c)
+ *     MiCapturePageFileInfoInline @ 0x1402DE2D4 (MiCapturePageFileInfoInline.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiDecrementShareCount @ 0x14032AE40 (MiDecrementShareCount.c)
+ *     MiPageMightBeZero @ 0x14032BE90 (MiPageMightBeZero.c)
+ *     MiPfnShareCountIsZero @ 0x14032BF50 (MiPfnShareCountIsZero.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14032D790 (MiCaptureDirtyBitToPfn.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiBadShareCount @ 0x14064B0E0 (MiBadShareCount.c)
+ */
+
 __int64 MiWsleFree(__int64 a1, unsigned __int64 a2, char a3, ...)
 {
   unsigned __int64 v3; // rbx

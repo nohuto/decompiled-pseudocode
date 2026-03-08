@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopCheckAttendedWake @ 0x140A9DCB0
+ * Callers:
+ *     PopHandleWakeSources @ 0x140A9DD6C (PopHandleWakeSources.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PopCheckAttendedWake(__int64 a1)
 {
   char result; // al

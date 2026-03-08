@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitPlaySound @ 0x1C00F5680
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 InitPlaySound()
 {
   __int64 v0; // rcx

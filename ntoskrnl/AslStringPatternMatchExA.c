@@ -1,3 +1,14 @@
+/*
+ * XREFs of AslStringPatternMatchExA @ 0x14075B5F0
+ * Callers:
+ *     AslStringPatternMatchExA @ 0x14075B5F0 (AslStringPatternMatchExA.c)
+ *     SdbpFindFirstIndexedWildCardTag @ 0x1407A1870 (SdbpFindFirstIndexedWildCardTag.c)
+ *     SdbpFindNextIndexedWildCardTag @ 0x1407A1E68 (SdbpFindNextIndexedWildCardTag.c)
+ * Callees:
+ *     toupper @ 0x1403D5BB0 (toupper.c)
+ *     AslStringPatternMatchExA @ 0x14075B5F0 (AslStringPatternMatchExA.c)
+ */
+
 __int64 __fastcall AslStringPatternMatchExA(char *a1, _BYTE *a2)
 {
   int v2; // eax

@@ -1,3 +1,20 @@
+/*
+ * XREFs of NtUserMsgWaitForMultipleObjectsEx @ 0x1C00470E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxGetInputEvent @ 0x1C0047670 (xxxGetInputEvent.c)
+ *     xxxMsgWaitForMultipleObjectsEx @ 0x1C012D428 (xxxMsgWaitForMultipleObjectsEx.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     _CancelQueueEventCompletionPacket @ 0x1C01B4588 (_CancelQueueEventCompletionPacket.c)
+ *     _ReassociateQueueEventCompletionPacket @ 0x1C01B47C4 (_ReassociateQueueEventCompletionPacket.c)
+ *     _SetWaitForQueueAttach @ 0x1C01B4820 (_SetWaitForQueueAttach.c)
+ *     ?xxxHandleHealthyThread@@YAXPEAUtagTHREADINFO@@@Z @ 0x1C01F5AA4 (-xxxHandleHealthyThread@@YAXPEAUtagTHREADINFO@@@Z.c)
+ */
+
 __int64 __fastcall NtUserMsgWaitForMultipleObjectsEx(unsigned int a1, volatile void *a2, int a3, int a4, int a5)
 {
   unsigned __int16 v5; // r14

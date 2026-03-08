@@ -1,3 +1,15 @@
+/*
+ * XREFs of IoFreeMapRegistersV3 @ 0x14050DE60
+ * Callers:
+ *     IoFreeMapRegistersThunk @ 0x1404FF0F4 (IoFreeMapRegistersThunk.c)
+ *     HalPutScatterGatherListV3 @ 0x14050CE18 (HalPutScatterGatherListV3.c)
+ *     IoFreeAdapterChannelV3Internal @ 0x14050DDE4 (IoFreeAdapterChannelV3Internal.c)
+ * Callees:
+ *     HalpDmaFreeMapRegisters @ 0x140453EF6 (HalpDmaFreeMapRegisters.c)
+ *     HalpDmaProcessMapRegisterQueueV3 @ 0x14050DA08 (HalpDmaProcessMapRegisterQueueV3.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall IoFreeMapRegistersV3(__int64 a1, _QWORD *a2, unsigned int a3)
 {
   __int64 v3; // r14

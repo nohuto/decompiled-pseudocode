@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopCloneUnicodeString @ 0x14097D824
+ * Callers:
+ *     PopQueryMostRecentWakeSourceInfo @ 0x140984674 (PopQueryMostRecentWakeSourceInfo.c)
+ *     PopDirectedDripsDiagCreateDeviceDescription @ 0x14099AFC8 (PopDirectedDripsDiagCreateDeviceDescription.c)
+ * Callees:
+ *     RtlUnicodeStringCopy @ 0x1402B3164 (RtlUnicodeStringCopy.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopCloneUnicodeString(PCUNICODE_STRING SourceString, PUNICODE_STRING DestinationString)
 {
   unsigned int v2; // ebx

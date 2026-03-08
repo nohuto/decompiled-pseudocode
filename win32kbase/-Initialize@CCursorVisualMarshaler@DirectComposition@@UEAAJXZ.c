@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Initialize@CCursorVisualMarshaler@DirectComposition@@UEAAJXZ @ 0x1C025B440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Initialize@CVisualMarshaler@DirectComposition@@UEAAJXZ @ 0x1C00ABF10 (-Initialize@CVisualMarshaler@DirectComposition@@UEAAJXZ.c)
+ */
+
 __int64 __fastcall DirectComposition::CCursorVisualMarshaler::Initialize(
         DirectComposition::CCursorVisualMarshaler *this)
 {

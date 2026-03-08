@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspInheritQuota @ 0x140705D20
+ * Callers:
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ * Callees:
+ *     <none>
+ */
+
 volatile signed __int32 *__fastcall PspInheritQuota(__int64 a1, __int64 a2)
 {
   volatile signed __int32 *result; // rax

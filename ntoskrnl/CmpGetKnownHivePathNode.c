@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpGetKnownHivePathNode @ 0x140B95CEC
+ * Callers:
+ *     CmpFindRedirectedDriverServiceStateNode @ 0x140B34BB0 (CmpFindRedirectedDriverServiceStateNode.c)
+ * Callees:
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     CmpGetNextName @ 0x1407FEA44 (CmpGetNextName.c)
+ *     CmpFindHiveSubKey @ 0x140B32F34 (CmpFindHiveSubKey.c)
+ */
+
 bool __fastcall CmpGetKnownHivePathNode(
         ULONG_PTR BugCheckParameter3,
         ULONG_PTR BugCheckParameter4,

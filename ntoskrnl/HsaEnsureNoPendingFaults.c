@@ -1,3 +1,11 @@
+/*
+ * XREFs of HsaEnsureNoPendingFaults @ 0x14052D2C0
+ * Callers:
+ *     HsaSetPasidAddressSpace @ 0x14052E860 (HsaSetPasidAddressSpace.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HsaEnsureNoPendingFaults(__int64 *a1, int a2)
 {
   unsigned __int64 v2; // r11

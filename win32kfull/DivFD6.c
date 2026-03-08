@@ -1,3 +1,25 @@
+/*
+ * XREFs of DivFD6 @ 0x1C014AF0C
+ * Callers:
+ *     HT_CreateDeviceHalftoneInfo @ 0x1C00195AC (HT_CreateDeviceHalftoneInfo.c)
+ *     RaisePower @ 0x1C014B26A (RaisePower.c)
+ *     HT_ComputeRGBGammaTable @ 0x1C0252900 (HT_ComputeRGBGammaTable.c)
+ *     HT_Get8BPPFormatPalette @ 0x1C0252D80 (HT_Get8BPPFormatPalette.c)
+ *     HT_Get8BPPMaskPalette @ 0x1C0252E90 (HT_Get8BPPMaskPalette.c)
+ *     CreateStandardMonoPattern @ 0x1C0254780 (CreateStandardMonoPattern.c)
+ *     ComputeInverseMatrix3x3 @ 0x1C02556D8 (ComputeInverseMatrix3x3.c)
+ *     AdjustSrcDevGamma @ 0x1C0256104 (AdjustSrcDevGamma.c)
+ *     CacheRGBToXYZ @ 0x1C0256490 (CacheRGBToXYZ.c)
+ *     ComputeBGRMappingTable @ 0x1C0256580 (ComputeBGRMappingTable.c)
+ *     ComputeColorSpaceXForm @ 0x1C0257078 (ComputeColorSpaceXForm.c)
+ *     ComputeRGBLUTAA @ 0x1C0257424 (ComputeRGBLUTAA.c)
+ *     ScaleRGB @ 0x1C0258074 (ScaleRGB.c)
+ *     pDCIAdjClr @ 0x1C02583A8 (pDCIAdjClr.c)
+ *     BuildExpandAAInfo @ 0x1C025C820 (BuildExpandAAInfo.c)
+ * Callees:
+ *     U64DivU32RoundUp @ 0x1C0255DA0 (U64DivU32RoundUp.c)
+ */
+
 __int64 __fastcall DivFD6(int a1, int a2)
 {
   unsigned int v2; // r10d

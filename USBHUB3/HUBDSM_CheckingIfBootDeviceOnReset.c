@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBDSM_CheckingIfBootDeviceOnReset @ 0x1C001F220
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBDSM_CheckingIfBootDeviceOnReset(__int64 a1)
 {
   __int64 v1; // rax

@@ -1,3 +1,19 @@
+/*
+ * XREFs of ObSetSecurityDescriptorInfo @ 0x140751100
+ * Callers:
+ *     WmipSecurityMethod @ 0x14076BC30 (WmipSecurityMethod.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObLogSecurityDescriptor @ 0x1406965B0 (ObLogSecurityDescriptor.c)
+ *     SeComputeQuotaInformationSize @ 0x1406968A0 (SeComputeQuotaInformationSize.c)
+ *     ObDereferenceSecurityDescriptor @ 0x140696920 (ObDereferenceSecurityDescriptor.c)
+ *     SeSetSecurityDescriptorInfo @ 0x1407510B0 (SeSetSecurityDescriptorInfo.c)
+ *     ObAdjustSecurityQuota @ 0x140751258 (ObAdjustSecurityQuota.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ObSetSecurityDescriptorInfo(
         _QWORD *Object,
         PSECURITY_INFORMATION SecurityInformation,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlStringCchCopyA @ 0x1C000B07C
+ * Callers:
+ *     ACPIDispatchAddDevice @ 0x1C0023F30 (ACPIDispatchAddDevice.c)
+ *     GetObjectPathNoLock @ 0x1C004BBC8 (GetObjectPathNoLock.c)
+ *     Debugger @ 0x1C004E9A4 (Debugger.c)
+ *     ParseName @ 0x1C005B860 (ParseName.c)
+ *     ParseNameTail @ 0x1C005BA08 (ParseNameTail.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlStringCchCopyA(NTSTRSAFE_PSTR pszDest, size_t cchDest, NTSTRSAFE_PCSTR pszSrc)
 {
   size_t v3; // r9

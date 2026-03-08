@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeTryToAcquireQueuedSpinLockRaiseToSynch @ 0x14056EE70
+ * Callers:
+ *     DifKeTryToAcquireQueuedSpinLockRaiseToSynchWrapper @ 0x1405E3B50 (DifKeTryToAcquireQueuedSpinLockRaiseToSynchWrapper.c)
+ * Callees:
+ *     KxTryToAcquireQueuedSpinLock @ 0x1402DE86C (KxTryToAcquireQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeTryToAcquireQueuedSpinLockRaiseToSynch(__int64 a1, unsigned __int8 *a2)
 {
   unsigned __int8 CurrentIrql; // bl

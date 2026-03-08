@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vLoadAndConvertRGB16_555ToBGRA@@YAXPEAKPEAEJJPEAU_XLATEOBJ@@@Z @ 0x1C02E6E70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vLoadAndConvertRGB16_555ToBGRA(unsigned int *a1, unsigned __int8 *a2, int a3, int a4)
 {
   unsigned __int8 *v5; // r8

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PipHardwareConfigGetLastUseTime @ 0x14094EFE0
+ * Callers:
+ *     PnpGetStableSystemBootTime @ 0x140955AC4 (PnpGetStableSystemBootTime.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _RegRtlQueryValue @ 0x1406D3E98 (_RegRtlQueryValue.c)
+ *     PipHardwareConfigOpenKey @ 0x14081B6E8 (PipHardwareConfigOpenKey.c)
+ */
+
 __int64 __fastcall PipHardwareConfigGetLastUseTime(__int64 a1, void *a2)
 {
   int v3; // ebx

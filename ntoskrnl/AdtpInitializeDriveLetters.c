@@ -1,3 +1,18 @@
+/*
+ * XREFs of AdtpInitializeDriveLetters @ 0x140841630
+ * Callers:
+ *     AdtpInitializeAuditingCommon @ 0x140841394 (AdtpInitializeAuditingCommon.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     StringCopyWorkerW @ 0x14039A9CC (StringCopyWorkerW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     NtQuerySymbolicLinkObject @ 0x140755C30 (NtQuerySymbolicLinkObject.c)
+ *     NtOpenSymbolicLinkObject @ 0x1407563E0 (NtOpenSymbolicLinkObject.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall AdtpInitializeDriveLetters(__int64 a1, size_t a2, size_t *a3, const wchar_t *a4)
 {
   unsigned int v4; // edi

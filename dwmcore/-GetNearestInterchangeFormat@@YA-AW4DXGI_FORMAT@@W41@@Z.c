@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetNearestInterchangeFormat@@YA?AW4DXGI_FORMAT@@W41@@Z @ 0x1802B99EC
+ * Callers:
+ *     ?Append_Convert@ScanPipelineBuilder@@QEAAJAEBUPixelFormatInfo@@0W4Subpipe@1@@Z @ 0x1802B94C0 (-Append_Convert@ScanPipelineBuilder@@QEAAJAEBUPixelFormatInfo@@0W4Subpipe@1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetNearestInterchangeFormat(enum DXGI_FORMAT a1)
 {
   __int64 result; // rax

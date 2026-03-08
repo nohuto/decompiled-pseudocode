@@ -1,3 +1,19 @@
+/*
+ * XREFs of PnpWatchdogEtwWrite @ 0x14055E670
+ * Callers:
+ *     PnpWatchdogSecondChanceCallback @ 0x14055EAB0 (PnpWatchdogSecondChanceCallback.c)
+ *     PnpDisableWatchdog @ 0x140688BC4 (PnpDisableWatchdog.c)
+ *     PnpDisableAndFreeEventWatchdog @ 0x14068A900 (PnpDisableAndFreeEventWatchdog.c)
+ *     PnpCallDriverEntry @ 0x14072A87C (PnpCallDriverEntry.c)
+ *     PnpCallAddDevice @ 0x14078CA58 (PnpCallAddDevice.c)
+ *     PnpDelayedRemoveWorker @ 0x14087CDB0 (PnpDelayedRemoveWorker.c)
+ *     PnpWatchdogFirstChanceCallback @ 0x140954B70 (PnpWatchdogFirstChanceCallback.c)
+ * Callees:
+ *     McTemplateK0izzx_EtwWriteTransfer @ 0x14055E140 (McTemplateK0izzx_EtwWriteTransfer.c)
+ *     PnpWatchdogExtractTriageInformation @ 0x14055E99C (PnpWatchdogExtractTriageInformation.c)
+ *     PnpTraceWatchdogViolation @ 0x140562624 (PnpTraceWatchdogViolation.c)
+ */
+
 char __fastcall PnpWatchdogEtwWrite(__int64 a1, int a2)
 {
   unsigned __int64 v3; // rcx

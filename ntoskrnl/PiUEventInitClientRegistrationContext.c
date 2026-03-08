@@ -1,3 +1,23 @@
+/*
+ * XREFs of PiUEventInitClientRegistrationContext @ 0x14068E428
+ * Callers:
+ *     PiUEventHandleRegistration @ 0x14068E738 (PiUEventHandleRegistration.c)
+ * Callees:
+ *     KeInitializeGuardedMutex @ 0x140204750 (KeInitializeGuardedMutex.c)
+ *     RtlDeriveCapabilitySidsFromName @ 0x140204A10 (RtlDeriveCapabilitySidsFromName.c)
+ *     RtlLengthSid @ 0x140245EC0 (RtlLengthSid.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwCreateWnfStateName @ 0x140413D50 (ZwCreateWnfStateName.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlSetOwnerSecurityDescriptor @ 0x14068E3D0 (RtlSetOwnerSecurityDescriptor.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D26A0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlpAddKnownAce @ 0x1406D3290 (RtlpAddKnownAce.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406DB5A0 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406DB640 (RtlCreateAcl.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 _QWORD *PiUEventInitClientRegistrationContext()
 {
   ACL *v0; // rbx

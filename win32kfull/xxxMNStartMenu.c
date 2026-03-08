@@ -1,3 +1,27 @@
+/*
+ * XREFs of xxxMNStartMenu @ 0x1C0202834
+ * Callers:
+ *     xxxMNLoop @ 0x1C021726C (xxxMNLoop.c)
+ *     xxxTrackPopupMenuEx @ 0x1C02353CC (xxxTrackPopupMenuEx.c)
+ *     xxxMNKeyFilter @ 0x1C0241E88 (xxxMNKeyFilter.c)
+ * Callees:
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C00A4F34 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C00A6450 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C00D3DA0 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00D5030 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     ?xxxGetInitMenuParam@@YAPEAUtagMENU@@PEAUtagWND@@PEAH@Z @ 0x1C0201BA8 (-xxxGetInitMenuParam@@YAPEAUtagMENU@@PEAUtagWND@@PEAH@Z.c)
+ *     MNPositionSysMenu @ 0x1C0202174 (MNPositionSysMenu.c)
+ *     ThreadUnlockMenuNoModify @ 0x1C0202554 (ThreadUnlockMenuNoModify.c)
+ *     LockPopupMenu @ 0x1C0219378 (LockPopupMenu.c)
+ *     xxxMNReleaseCapture @ 0x1C021C5E0 (xxxMNReleaseCapture.c)
+ *     xxxMNSetCapture @ 0x1C021CCC4 (xxxMNSetCapture.c)
+ *     xxxGetSysMenu @ 0x1C0224EB0 (xxxGetSysMenu.c)
+ *     xxxClientLoadOLE @ 0x1C0234524 (xxxClientLoadOLE.c)
+ *     xxxMNRecomputeBarIfNeeded @ 0x1C023BD88 (xxxMNRecomputeBarIfNeeded.c)
+ */
+
 _BOOL8 __fastcall xxxMNStartMenu(__int64 *a1, __int64 a2, int a3)
 {
   _DWORD **v6; // rax

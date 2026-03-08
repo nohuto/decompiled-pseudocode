@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiActivePageCombineCandidate @ 0x1402296F4
+ * Callers:
+ *     MiCrcStillIntact @ 0x140210E18 (MiCrcStillIntact.c)
+ *     MiSharePages @ 0x140228990 (MiSharePages.c)
+ * Callees:
+ *     MiGetWsleContents @ 0x140229790 (MiGetWsleContents.c)
+ */
+
 __int64 __fastcall MiActivePageCombineCandidate(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rcx

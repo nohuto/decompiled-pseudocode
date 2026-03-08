@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfIsRuleClassEnabled @ 0x140ABA430
+ * Callers:
+ *     ViDifCheckCallbackInterception @ 0x140303BC8 (ViDifCheckCallbackInterception.c)
+ *     ViInitSystemPhase1 @ 0x140B483D4 (ViInitSystemPhase1.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int8 __fastcall VfIsRuleClassEnabled(unsigned int a1)
 {
   int v1; // eax

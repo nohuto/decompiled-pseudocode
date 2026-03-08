@@ -1,3 +1,23 @@
+/*
+ * XREFs of NtMapUserPhysicalPagesScatter @ 0x140A3FEC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiFreePhysicalPageChain @ 0x140647BC4 (MiFreePhysicalPageChain.c)
+ *     MiGetAweNode @ 0x1406482F8 (MiGetAweNode.c)
+ *     MiGetAwePageSize @ 0x14064836C (MiGetAwePageSize.c)
+ *     MiLockAwePagesShared @ 0x140648A68 (MiLockAwePagesShared.c)
+ *     MiLockAweVadsShared @ 0x140648AC4 (MiLockAweVadsShared.c)
+ *     MiUnlockAweVadsShared @ 0x14064989C (MiUnlockAweVadsShared.c)
+ *     MiWriteAwePtes @ 0x14064A010 (MiWriteAwePtes.c)
+ *     MiCaptureUlongPtrArray @ 0x140A3E714 (MiCaptureUlongPtrArray.c)
+ *     MiReferenceIncomingPhysicalPages @ 0x140A3F148 (MiReferenceIncomingPhysicalPages.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall NtMapUserPhysicalPagesScatter(unsigned int *a1, unsigned __int64 a2, unsigned int *a3)
 {
   unsigned __int64 *Pool; // rsi

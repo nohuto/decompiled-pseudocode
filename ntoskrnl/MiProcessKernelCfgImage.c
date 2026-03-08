@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiProcessKernelCfgImage @ 0x1402FCCC4
+ * Callers:
+ *     MiFinalizeDriverCfgState @ 0x140794094 (MiFinalizeDriverCfgState.c)
+ *     MiInitializeDriverImages @ 0x140B3B090 (MiInitializeDriverImages.c)
+ * Callees:
+ *     RtlImageNtHeaderEx @ 0x14035E850 (RtlImageNtHeaderEx.c)
+ *     MiMarkKernelImageCfgBits @ 0x1407F72E0 (MiMarkKernelImageCfgBits.c)
+ *     MiProcessKernelCfgAddressTakenImports @ 0x140A41408 (MiProcessKernelCfgAddressTakenImports.c)
+ */
+
 __int64 __fastcall MiProcessKernelCfgImage(__int64 a1, char a2, __int64 a3)
 {
   unsigned int v3; // ebx

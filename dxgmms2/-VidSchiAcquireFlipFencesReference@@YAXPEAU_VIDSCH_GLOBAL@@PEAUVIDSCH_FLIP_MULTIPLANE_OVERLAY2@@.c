@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?VidSchiAcquireFlipFencesReference@@YAXPEAU_VIDSCH_GLOBAL@@PEAUVIDSCH_FLIP_MULTIPLANE_OVERLAY2@@@Z @ 0x1C0003170
+ * Callers:
+ *     ?VidSchiSubmitHwQueueMmIoFlipCommand@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C00430EC (-VidSchiSubmitHwQueueMmIoFlipCommand@@YAXPEAVHwQueueStagingList@@PEAU_VIDSCH_QUEUE_PACKET@@@Z.c)
+ *     VidSchSubmitCommandToHwQueue @ 0x1C0044510 (VidSchSubmitCommandToHwQueue.c)
+ *     VidSchSubmitCommand @ 0x1C00A4B80 (VidSchSubmitCommand.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VidSchiAcquireFlipFencesReference(
         struct _VIDSCH_GLOBAL *a1,
         struct VIDSCH_FLIP_MULTIPLANE_OVERLAY2 *a2)

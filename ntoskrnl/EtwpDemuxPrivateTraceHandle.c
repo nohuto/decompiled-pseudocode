@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpDemuxPrivateTraceHandle @ 0x1409E96E0
+ * Callers:
+ *     EtwpNotifyGuid @ 0x14068EA84 (EtwpNotifyGuid.c)
+ *     EtwpEnableGuid @ 0x14068EEBC (EtwpEnableGuid.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     PidNodeCompare @ 0x1409E9FC0 (PidNodeCompare.c)
+ */
+
 __int64 __fastcall EtwpDemuxPrivateTraceHandle(int a1, unsigned __int16 a2, unsigned __int16 *a3)
 {
   struct _LIST_ENTRY *Flink; // rbx

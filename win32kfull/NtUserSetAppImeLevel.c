@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserSetAppImeLevel @ 0x1C01DB480
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     InternalSetProp @ 0x1C01011E0 (InternalSetProp.c)
+ */
+
 __int64 __fastcall NtUserSetAppImeLevel(__int64 a1, int a2)
 {
   __int64 v2; // rsi

@@ -1,3 +1,20 @@
+/*
+ * XREFs of VidSchiCheckNodeTimeout @ 0x1C00A5B80
+ * Callers:
+ *     VidSchiCheckHwProgress @ 0x1C00A5940 (VidSchiCheckHwProgress.c)
+ *     VidSchiCheckGPUTimeout @ 0x1C010605C (VidSchiCheckGPUTimeout.c)
+ * Callees:
+ *     VidSchiSchedulerNodeToDriverEngine @ 0x1C00196B8 (VidSchiSchedulerNodeToDriverEngine.c)
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     ?VidSchiCheckHwSchNodeProgress@@YAEPEAU_VIDSCH_NODE@@_N@Z @ 0x1C001C8D0 (-VidSchiCheckHwSchNodeProgress@@YAEPEAU_VIDSCH_NODE@@_N@Z.c)
+ *     ?VidSchiStartHwSchNodeProgressMonitoring@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C001D52C (-VidSchiStartHwSchNodeProgressMonitoring@@YAXPEAU_VIDSCH_NODE@@@Z.c)
+ *     ?DdiQueryEngineStatus@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_QUERYENGINESTATUS@@@Z @ 0x1C002C8DC (-DdiQueryEngineStatus@ADAPTER_RENDER@@QEAAJPEAU_DXGKARG_QUERYENGINESTATUS@@@Z.c)
+ *     ?VidSchiCaptureRunningProcess@@YAXPEAU_VIDSCH_NODE@@@Z @ 0x1C003553C (-VidSchiCaptureRunningProcess@@YAXPEAU_VIDSCH_NODE@@@Z.c)
+ *     VidSchiRunningDeviceAllowsLongRunningPackets @ 0x1C003C4FC (VidSchiRunningDeviceAllowsLongRunningPackets.c)
+ *     VidSchiSchedulerNodeToDriverNode @ 0x1C003C618 (VidSchiSchedulerNodeToDriverNode.c)
+ *     VidSchiSkipXboxNodeTimeout @ 0x1C003C6B0 (VidSchiSkipXboxNodeTimeout.c)
+ */
+
 __int64 __fastcall VidSchiCheckNodeTimeout(struct _VIDSCH_NODE *a1, _QWORD *a2)
 {
   __int32 v5; // eax

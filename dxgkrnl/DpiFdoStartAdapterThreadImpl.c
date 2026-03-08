@@ -1,3 +1,27 @@
+/*
+ * XREFs of DpiFdoStartAdapterThreadImpl @ 0x1C0209A10
+ * Callers:
+ *     DpiFdoStartAdapterThread @ 0x1C02099A0 (DpiFdoStartAdapterThread.c)
+ * Callees:
+ *     DpiCheckForOutstandingD3Requests @ 0x1C0004778 (DpiCheckForOutstandingD3Requests.c)
+ *     ?AcquireMiniportListMutex@@YAXXZ @ 0x1C000B270 (-AcquireMiniportListMutex@@YAXXZ.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     wcsncmp_0 @ 0x1C00243C5 (wcsncmp_0.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ?Free@?$AUTO_FREE_POOL@PEAUIDD_COMPLETION_CONTEXT@@@@QEAAXXZ @ 0x1C005E784 (-Free@-$AUTO_FREE_POOL@PEAUIDD_COMPLETION_CONTEXT@@@@QEAAXXZ.c)
+ *     DpiEnableD3Requests @ 0x1C0180A2C (DpiEnableD3Requests.c)
+ *     DpiAcquirePostDisplayInfoFromBgfx @ 0x1C01E7D80 (DpiAcquirePostDisplayInfoFromBgfx.c)
+ *     DpiPnpEnableVga @ 0x1C0209774 (DpiPnpEnableVga.c)
+ *     DpiPnpNotifyGdi @ 0x1C0209894 (DpiPnpNotifyGdi.c)
+ *     DpiFdoStartNonLdaAdapter @ 0x1C0209FAC (DpiFdoStartNonLdaAdapter.c)
+ *     DxgkStartPnPTransition @ 0x1C020ACBC (DxgkStartPnPTransition.c)
+ *     DxgkCompletePnPTransition @ 0x1C0214FC4 (DxgkCompletePnPTransition.c)
+ *     DpiDisableMsBddFallbackDriver @ 0x1C0395D30 (DpiDisableMsBddFallbackDriver.c)
+ *     DpiEnableMsBddFallbackDriver @ 0x1C0395EF8 (DpiEnableMsBddFallbackDriver.c)
+ *     DpiLdaStartAdapterInChain @ 0x1C03A4064 (DpiLdaStartAdapterInChain.c)
+ */
+
 __int64 __fastcall DpiFdoStartAdapterThreadImpl(int *a1, char a2, _BYTE *a3)
 {
   unsigned int v6; // r13d

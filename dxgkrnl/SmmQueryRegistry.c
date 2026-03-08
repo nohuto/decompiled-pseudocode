@@ -1,3 +1,11 @@
+/*
+ * XREFs of SmmQueryRegistry @ 0x1C020D0E8
+ * Callers:
+ *     ?SysMmInitializeGlobal@@YAXXZ @ 0x1C020CF44 (-SysMmInitializeGlobal@@YAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 __int64 SmmQueryRegistry()
 {
   char v0; // r9

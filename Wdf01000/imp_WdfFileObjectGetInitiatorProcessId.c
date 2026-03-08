@@ -1,3 +1,13 @@
+/*
+ * XREFs of imp_WdfFileObjectGetInitiatorProcessId @ 0x1C0033D10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0017BA8 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_ @ 0x1C001BC64 (WPP_IFR_SF_.c)
+ */
+
 HANDLE __fastcall imp_WdfFileObjectGetInitiatorProcessId(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFFILEOBJECT__ *FileObject)

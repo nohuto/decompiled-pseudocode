@@ -1,3 +1,13 @@
+/*
+ * XREFs of PspGetJobMemoryUsageNotificationViolations @ 0x1406FC2C4
+ * Callers:
+ *     PspChangeJobMemoryUsageByProcess @ 0x1406DBAB0 (PspChangeJobMemoryUsageByProcess.c)
+ *     PspEnforceLimitsJobPostCallback @ 0x1406FBA00 (PspEnforceLimitsJobPostCallback.c)
+ *     NtSetInformationJobObject @ 0x1406FC3C0 (NtSetInformationJobObject.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspGetJobMemoryUsageNotificationViolations(
         __int64 a1,
         unsigned __int64 a2,

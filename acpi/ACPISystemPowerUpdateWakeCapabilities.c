@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPISystemPowerUpdateWakeCapabilities @ 0x1C00955A4
+ * Callers:
+ *     ACPISystemPowerUpdateDeviceCapabilities @ 0x1C003E114 (ACPISystemPowerUpdateDeviceCapabilities.c)
+ * Callees:
+ *     ACPISystemPowerUpdateWakeCapabilitiesForFilters @ 0x1C003E7C8 (ACPISystemPowerUpdateWakeCapabilitiesForFilters.c)
+ *     ACPISystemPowerUpdateWakeCapabilitiesForPDOs @ 0x1C003EAE0 (ACPISystemPowerUpdateWakeCapabilitiesForPDOs.c)
+ */
+
 __int64 __fastcall ACPISystemPowerUpdateWakeCapabilities(
         __int64 a1,
         __int64 a2,

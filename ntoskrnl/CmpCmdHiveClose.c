@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpCmdHiveClose @ 0x14074B34C
+ * Callers:
+ *     CmShutdownSystem2 @ 0x1406139DC (CmShutdownSystem2.c)
+ *     CmpCompleteUnloadKey @ 0x14074A958 (CmpCompleteUnloadKey.c)
+ *     CmpDestroyHive @ 0x140A19FFC (CmpDestroyHive.c)
+ * Callees:
+ *     IoSetThreadHardErrorMode @ 0x140244770 (IoSetThreadHardErrorMode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryInformationFile @ 0x140412530 (ZwQueryInformationFile.c)
+ *     ZwSetInformationFile @ 0x1404127F0 (ZwSetInformationFile.c)
+ *     ZwSetInformationObject @ 0x140412E90 (ZwSetInformationObject.c)
+ */
+
 BOOLEAN __fastcall CmpCmdHiveClose(__int64 a1)
 {
   __int64 *v2; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KevSkipVerification @ 0x1406775CC
+ * Callers:
+ *     ExFreePoolSanityChecks @ 0x140AE4DFC (ExFreePoolSanityChecks.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 KevSkipVerification()
 {
   struct _KPRCB *CurrentPrcb; // rcx

@@ -1,3 +1,32 @@
+/*
+ * XREFs of ExAcquireSharedWaitForExclusive @ 0x1403C3440
+ * Callers:
+ *     FsRtlAcquireFileForModWriteEx @ 0x140212E3C (FsRtlAcquireFileForModWriteEx.c)
+ *     ExEnterCriticalRegionAndAcquireSharedWaitForExclusive @ 0x140462E00 (ExEnterCriticalRegionAndAcquireSharedWaitForExclusive.c)
+ *     DifExAcquireSharedWaitForExclusiveWrapper @ 0x1405D4FF0 (DifExAcquireSharedWaitForExclusiveWrapper.c)
+ * Callees:
+ *     ExpGetThreadResourceHint @ 0x140222C60 (ExpGetThreadResourceHint.c)
+ *     ExpApplyPrewaitBoost @ 0x14027F3C0 (ExpApplyPrewaitBoost.c)
+ *     KxWaitForLockChainValid @ 0x140291730 (KxWaitForLockChainValid.c)
+ *     ExpFindEmptyEntry @ 0x1402D9F84 (ExpFindEmptyEntry.c)
+ *     ExpExpandResourceOwnerTable @ 0x1402D9FE0 (ExpExpandResourceOwnerTable.c)
+ *     RtlInsertHeadCircularList @ 0x1402E22E4 (RtlInsertHeadCircularList.c)
+ *     ExpFindCurrentThread @ 0x14033A7F0 (ExpFindCurrentThread.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x14033B510 (KxWaitForLockOwnerShip.c)
+ *     ExpWaitForResource @ 0x140342994 (ExpWaitForResource.c)
+ *     ExpBoostIoAfterAcquire @ 0x140356B60 (ExpBoostIoAfterAcquire.c)
+ *     ExpTryAcquireResourceShared @ 0x1403C42DC (ExpTryAcquireResourceShared.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140457B8E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x14056EF78 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14057DAC8 (KiHaltOnAddressWakeEntireList.c)
+ *     PerfLogExecutiveResourceAcquire @ 0x1405FE2B8 (PerfLogExecutiveResourceAcquire.c)
+ *     PerfLogExecutiveResourceWait @ 0x1405FE790 (PerfLogExecutiveResourceWait.c)
+ */
+
 BOOLEAN __stdcall ExAcquireSharedWaitForExclusive(PERESOURCE Resource, BOOLEAN Wait)
 {
   __int16 v4; // ax

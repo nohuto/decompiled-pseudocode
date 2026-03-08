@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?DrawWindowShadow@@YAHPEAUtagWND@@PEAUHDC__@@HHPEAH@Z @ 0x1C0223AF4
+ * Callers:
+ *     ?GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z @ 0x1C0223DF4 (-GenerateWindowShadow@@YAPEAUHBITMAP__@@PEAUtagWND@@PEAUHDC__@@@Z.c)
+ * Callees:
+ *     ?GetExplicitClipRgn@tagWND@@QEBAPEAUHRGN__@@XZ @ 0x1C002772C (-GetExplicitClipRgn@tagWND@@QEBAPEAUHRGN__@@XZ.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     GreScaleRgnToDestLogPixel @ 0x1C02AA790 (GreScaleRgnToDestLogPixel.c)
+ *     NtGdiFillRgn @ 0x1C02AB5A0 (NtGdiFillRgn.c)
+ *     NtGdiFrameRgn @ 0x1C02ABB30 (NtGdiFrameRgn.c)
+ */
+
 __int64 __fastcall DrawWindowShadow(struct tagWND *this, HDC a2, int a3, int a4, int *a5)
 {
   unsigned int v7; // r14d

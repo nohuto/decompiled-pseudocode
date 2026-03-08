@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopDirectedDripsDiagSanitizeHardwareId @ 0x14099C034
+ * Callers:
+ *     PopDirectedDripsDiagRundownDevices @ 0x14099B8B8 (PopDirectedDripsDiagRundownDevices.c)
+ * Callees:
+ *     RtlPrefixUnicodeString @ 0x1406D5A70 (RtlPrefixUnicodeString.c)
+ */
+
 const UNICODE_STRING *__fastcall PopDirectedDripsDiagSanitizeHardwareId(unsigned __int16 *a1)
 {
   unsigned __int16 *v1; // rbx

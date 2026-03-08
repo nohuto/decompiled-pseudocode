@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpTimerInitializeEarlyStallSource @ 0x1403A05F0
+ * Callers:
+ *     HalpTimerInitSystem @ 0x1403776D0 (HalpTimerInitSystem.c)
+ * Callees:
+ *     HalpTimerInitialize @ 0x140377220 (HalpTimerInitialize.c)
+ *     HalpFindTimer @ 0x140377CA8 (HalpFindTimer.c)
+ *     HalpTimerRegisterBuiltinPluginsCommon @ 0x1403A08C4 (HalpTimerRegisterBuiltinPluginsCommon.c)
+ */
+
 __int64 __fastcall HalpTimerInitializeEarlyStallSource(__int64 a1)
 {
   int v2; // edx

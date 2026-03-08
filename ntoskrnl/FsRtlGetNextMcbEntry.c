@@ -1,3 +1,11 @@
+/*
+ * XREFs of FsRtlGetNextMcbEntry @ 0x14053A690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FsRtlGetNextLargeMcbEntry @ 0x1403A1210 (FsRtlGetNextLargeMcbEntry.c)
+ */
+
 BOOLEAN __stdcall FsRtlGetNextMcbEntry(PMCB Mcb, ULONG RunIndex, PVBN Vbn, PLBN Lbn, PULONG SectorCount)
 {
   BOOLEAN result; // al

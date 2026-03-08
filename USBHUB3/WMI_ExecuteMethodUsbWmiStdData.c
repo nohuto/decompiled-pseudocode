@@ -1,3 +1,14 @@
+/*
+ * XREFs of WMI_ExecuteMethodUsbWmiStdData @ 0x1C008BE50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     WMI_AcquireHubName @ 0x1C008B7AC (WMI_AcquireHubName.c)
+ *     WMI_AcquireBusInfo @ 0x1C008B890 (WMI_AcquireBusInfo.c)
+ *     WMI_AcquireControllerName @ 0x1C008B98C (WMI_AcquireControllerName.c)
+ */
+
 __int64 __fastcall WMI_ExecuteMethodUsbWmiStdData(
         __int64 a1,
         __int64 a2,

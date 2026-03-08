@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiInitializePriorityState @ 0x14037F530
+ * Callers:
+ *     KiStartIdleThread @ 0x14037F474 (KiStartIdleThread.c)
+ *     KiConfigureSchedulingInformation @ 0x140A8B1B4 (KiConfigureSchedulingInformation.c)
+ * Callees:
+ *     KiIsThreadRankNonZero @ 0x140228010 (KiIsThreadRankNonZero.c)
+ */
+
 __int64 __fastcall KiInitializePriorityState(_BYTE *a1, struct _KPRCB *a2, __int64 a3)
 {
   bool v5; // zf

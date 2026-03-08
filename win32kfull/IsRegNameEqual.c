@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsRegNameEqual @ 0x1C02A186C
+ * Callers:
+ *     bNotIsKeySymbolicLink @ 0x1C00B7A98 (bNotIsKeySymbolicLink.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IsRegNameEqual(HANDLE KeyHandle, HANDLE a2, _DWORD *a3)
 {
   int v3; // ebx

@@ -1,3 +1,39 @@
+/*
+ * XREFs of ?GrepRestoreDCOBJ@@YAHAEAVXDCOBJ@@H@Z @ 0x1C00A49CC
+ * Callers:
+ *     GreRestoreDC @ 0x1C000D6C0 (GreRestoreDC.c)
+ *     GreRestoreOwnedDC @ 0x1C00A46A0 (GreRestoreOwnedDC.c)
+ * Callees:
+ *     GreDCSelectPen @ 0x1C0005440 (GreDCSelectPen.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00219D4 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ??0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z @ 0x1C002D3CC (--0EPALOBJ@@QEAA@PEAUHPALETTE__@@@Z.c)
+ *     ?hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z @ 0x1C0044400 (-hbmSelectBitmapInternal@@YAPEAUHBITMAP__@@AEAVXDCOBJ@@PEAU1@HHH@Z.c)
+ *     GreDCSelectBrush @ 0x1C00457E0 (GreDCSelectBrush.c)
+ *     ?vCalcFillOrigin@DC@@QEAAXXZ @ 0x1C0045BC0 (-vCalcFillOrigin@DC@@QEAAXXZ.c)
+ *     ?vDec_cRef@SURFACE@@QEAAXXZ @ 0x1C0046684 (-vDec_cRef@SURFACE@@QEAAXXZ.c)
+ *     ?DEC_SHARE_REF_CNT_LAZY0@@YAXPEAVBRUSH@@@Z @ 0x1C00466C0 (-DEC_SHARE_REF_CNT_LAZY0@@YAXPEAVBRUSH@@@Z.c)
+ *     ?vReleaseRao@DC@@QEAAXXZ @ 0x1C0046AF0 (-vReleaseRao@DC@@QEAAXXZ.c)
+ *     ?vUpdate_VisRect@DC@@QEAAXPEAVREGION@@@Z @ 0x1C0048610 (-vUpdate_VisRect@DC@@QEAAXPEAVREGION@@@Z.c)
+ *     DEC_SHARE_REF_CNT @ 0x1C0049850 (DEC_SHARE_REF_CNT.c)
+ *     EngAcquireSemaphore @ 0x1C004B690 (EngAcquireSemaphore.c)
+ *     ?DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT@@YAXPEAVLFONT@@@Z @ 0x1C004E8F0 (-DEC_SHARE_REF_CNT_LAZY_DEL_LOGFONT@@YAXPEAVLFONT@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C00550A0 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ *     ?vDeleteCore@XDCOBJ@@QEAAXXZ @ 0x1C0059910 (-vDeleteCore@XDCOBJ@@QEAAXXZ.c)
+ *     ?vCopyTo@DC@@QEAAXAEAVXDCOBJ@@@Z @ 0x1C005A080 (-vCopyTo@DC@@QEAAXAEAVXDCOBJ@@@Z.c)
+ *     GreLockVisRgn @ 0x1C00794E0 (GreLockVisRgn.c)
+ *     GreUnlockVisRgn @ 0x1C00795D0 (GreUnlockVisRgn.c)
+ *     ?SelectPaletteWorker@@YAPEAUHPALETTE__@@PEAVXDCOBJ@@PEAU1@H@Z @ 0x1C0093290 (-SelectPaletteWorker@@YAPEAUHPALETTE__@@PEAVXDCOBJ@@PEAU1@H@Z.c)
+ *     HmgLockIgnoreOwner @ 0x1C00A93E0 (HmgLockIgnoreOwner.c)
+ *     vRestoreRegion @ 0x1C00B1BD0 (vRestoreRegion.c)
+ *     EngSetLastError @ 0x1C00BAB10 (EngSetLastError.c)
+ *     ??1EPALOBJ@@QEAA@XZ @ 0x1C00D4158 (--1EPALOBJ@@QEAA@XZ.c)
+ *     ?ReleaseLock@GreInnermostPushLockMSRC85333@@QEAAXXZ @ 0x1C00DE014 (-ReleaseLock@GreInnermostPushLockMSRC85333@@QEAAXXZ.c)
+ *     ?AcquireDcVisRgnShared@DC@@QEAA@XZ @ 0x1C00DE7E0 (-AcquireDcVisRgnShared@DC@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     ?bSetDefaultRegion@DC@@QEAAHXZ @ 0x1C00EED00 (-bSetDefaultRegion@DC@@QEAAHXZ.c)
+ *     ?bMakeInfoDC@DC@@QEAAHH@Z @ 0x1C017F7A0 (-bMakeInfoDC@DC@@QEAAHH@Z.c)
+ */
+
 __int64 __fastcall GrepRestoreDCOBJ(struct XDCOBJ *a1, int a2)
 {
   unsigned int v4; // r15d

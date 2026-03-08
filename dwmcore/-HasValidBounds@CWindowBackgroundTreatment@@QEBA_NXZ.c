@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HasValidBounds@CWindowBackgroundTreatment@@QEBA_NXZ @ 0x1800EBA98
+ * Callers:
+ *     ?PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z @ 0x180067850 (-PreSubgraph@CDrawingContext@@QEAAJPEBVCVisualTree@@PEA_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CWindowBackgroundTreatment::HasValidBounds(CWindowBackgroundTreatment *this)
 {
   float v1; // xmm0_4

@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkEngIsRedirectionDC @ 0x1C02727E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0MDCOBJA@@QEAA@PEAUHDC__@@H@Z @ 0x1C0007358 (--0MDCOBJA@@QEAA@PEAUHDC__@@H@Z.c)
+ *     ??1DCOBJA@@QEAA@XZ @ 0x1C012FB74 (--1DCOBJA@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall DxgkEngIsRedirectionDC(HDC a1)
 {
   int v1; // ebx

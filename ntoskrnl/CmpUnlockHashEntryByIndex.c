@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpUnlockHashEntryByIndex @ 0x140A1C8D8
+ * Callers:
+ *     CmpSearchKeyControlBlockTreeEx @ 0x140A14AA4 (CmpSearchKeyControlBlockTreeEx.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     CmpDeleteHive @ 0x14074C680 (CmpDeleteHive.c)
+ */
+
 void __fastcall CmpUnlockHashEntryByIndex(volatile signed __int32 *P, unsigned int a2)
 {
   signed __int64 *v3; // rbx

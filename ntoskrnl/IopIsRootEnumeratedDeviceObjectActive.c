@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopIsRootEnumeratedDeviceObjectActive @ 0x14081D14C
+ * Callers:
+ *     IopInitializeDeviceInstanceKey @ 0x14081CE14 (IopInitializeDeviceInstanceKey.c)
+ *     PiCMCreateDevice @ 0x1409654C0 (PiCMCreateDevice.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall IopIsRootEnumeratedDeviceObjectActive(__int64 a1)
 {
   _DWORD *v1; // rax

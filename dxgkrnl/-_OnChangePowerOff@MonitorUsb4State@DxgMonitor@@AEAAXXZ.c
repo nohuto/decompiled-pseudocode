@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?_OnChangePowerOff@MonitorUsb4State@DxgMonitor@@AEAAXXZ @ 0x1C03C6E00
+ * Callers:
+ *     ?_ChangePowerStatus@DXGMONITOR@@QEAAX_N@Z @ 0x1C01E4A68 (-_ChangePowerStatus@DXGMONITOR@@QEAAX_N@Z.c)
+ * Callees:
+ *     ?DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z @ 0x1C000A280 (-DxgkLogCodePointPacket@@YAXW4_DXGK_DIAG_CODE_POINT_TYPE@@IIIU_LUID@@@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?RemoveUsb4HRPowerRef@Usb4HostRouterPoFxRef@DxgMonitor@@QEAAJXZ @ 0x1C03C62D4 (-RemoveUsb4HRPowerRef@Usb4HostRouterPoFxRef@DxgMonitor@@QEAAJXZ.c)
+ */
+
 void __fastcall DxgMonitor::MonitorUsb4State::_OnChangePowerOff(DxgMonitor::MonitorUsb4State *this)
 {
   __int64 v2; // rcx

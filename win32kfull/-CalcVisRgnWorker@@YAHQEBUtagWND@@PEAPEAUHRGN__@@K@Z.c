@@ -1,3 +1,26 @@
+/*
+ * XREFs of ?CalcVisRgnWorker@@YAHQEBUtagWND@@PEAPEAUHRGN__@@K@Z @ 0x1C0053AA0
+ * Callers:
+ *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C00519F0 (zzzLockDisplayAreaAndInvalidateDCCache.c)
+ *     CalcVisRgn @ 0x1C00535C0 (CalcVisRgn.c)
+ * Callees:
+ *     ?IsDpiBoundaryBetweenWindows@@YA_NPEBUtagWND@@0@Z @ 0x1C005004C (-IsDpiBoundaryBetweenWindows@@YA_NPEBUtagWND@@0@Z.c)
+ *     PhysicalToLogicalInPlaceRgn @ 0x1C0052AEC (PhysicalToLogicalInPlaceRgn.c)
+ *     PhysicalToLogicalInPlaceRgnWorker @ 0x1C0052B04 (PhysicalToLogicalInPlaceRgnWorker.c)
+ *     PhysicalToLogicalInPlaceRect @ 0x1C005460C (PhysicalToLogicalInPlaceRect.c)
+ *     GetMonitorRectForDpi @ 0x1C00A2698 (GetMonitorRectForDpi.c)
+ *     PhysicalToLogicalInPlaceRectWithSubpixel @ 0x1C00A35E4 (PhysicalToLogicalInPlaceRectWithSubpixel.c)
+ *     LogicalToPhysicalInPlaceRectWithSubpixel @ 0x1C00A3628 (LogicalToPhysicalInPlaceRectWithSubpixel.c)
+ *     ?GetWindowCoordinateSpaceDpi@@YAGPEBUtagWND@@@Z @ 0x1C00A3840 (-GetWindowCoordinateSpaceDpi@@YAGPEBUtagWND@@@Z.c)
+ *     ?bSubtract@RGNOBJAPI@@QEAAHPEAU_RECTL@@0H@Z @ 0x1C00C972C (-bSubtract@RGNOBJAPI@@QEAAHPEAU_RECTL@@0H@Z.c)
+ *     LogicalToPhysicalInPlaceRgnWorker @ 0x1C00DB9C4 (LogicalToPhysicalInPlaceRgnWorker.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?ResizeVisExcludeMemory@@YAHPEAU_CalcVisRgnData@@@Z @ 0x1C01A9118 (-ResizeVisExcludeMemory@@YAHPEAU_CalcVisRgnData@@@Z.c)
+ *     DpiRectContainsRectWithSubpixel @ 0x1C01BAA00 (DpiRectContainsRectWithSubpixel.c)
+ *     DpiRectIntersectsRectWithSubpixel @ 0x1C01BAAFC (DpiRectIntersectsRectWithSubpixel.c)
+ */
+
 __int64 __fastcall CalcVisRgnWorker(struct tagWND *a1, HRGN *a2, int a3)
 {
   struct tagWND *v3; // r14

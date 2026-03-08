@@ -1,3 +1,11 @@
+/*
+ * XREFs of _HMPheFromObject @ 0x1C00A0D90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char *__fastcall HMPheFromObject(_DWORD *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rax

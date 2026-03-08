@@ -1,3 +1,17 @@
+/*
+ * XREFs of DECREMENT_ADAPTER_CHANNELS @ 0x140AC1290
+ * Callers:
+ *     VfAllocateAdapterChannel @ 0x140AC1B90 (VfAllocateAdapterChannel.c)
+ *     VfAllocateAdapterChannelEx @ 0x140AC1DE0 (VfAllocateAdapterChannelEx.c)
+ *     VfCancelAdapterChannel @ 0x140AC2BE0 (VfCancelAdapterChannel.c)
+ *     VfFreeAdapterChannel @ 0x140AC3030 (VfFreeAdapterChannel.c)
+ *     VfFreeAdapterObject @ 0x140AC30E0 (VfFreeAdapterObject.c)
+ *     ViAdapterCallback @ 0x140AC4860 (ViAdapterCallback.c)
+ * Callees:
+ *     VfReportIssueWithOptions @ 0x1405CD8E0 (VfReportIssueWithOptions.c)
+ *     ViHalPreprocessOptions @ 0x140AC62F4 (ViHalPreprocessOptions.c)
+ */
+
 void __fastcall DECREMENT_ADAPTER_CHANNELS(__int64 a1)
 {
   signed __int32 v2; // ebx

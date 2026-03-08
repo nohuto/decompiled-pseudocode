@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?OrientationToString@InputTraceLogging@@CAPEBDK@Z @ 0x1C02139C4
+ * Callers:
+ *     ?DisplayPath@InputConfig@InputTraceLogging@@SAXAEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@@Z @ 0x1C001046C (-DisplayPath@InputConfig@InputTraceLogging@@SAXAEBUDISPLAYCONFIG_PATH_INFO_INTERNAL@@@Z.c)
+ *     ?TraceCurrentConfig@InputConfig@@SAXXZ @ 0x1C00138F4 (-TraceCurrentConfig@InputConfig@@SAXXZ.c)
+ *     SetContentOrientation @ 0x1C0218748 (SetContentOrientation.c)
+ * Callees:
+ *     <none>
+ */
+
 const char *__fastcall InputTraceLogging::OrientationToString(int a1)
 {
   int v1; // ecx

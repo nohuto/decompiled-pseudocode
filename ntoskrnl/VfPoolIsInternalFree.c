@@ -1,3 +1,13 @@
+/*
+ * XREFs of VfPoolIsInternalFree @ 0x1405CF77C
+ * Callers:
+ *     VfRemLockDeleteMemoryRange @ 0x140ABD1C2 (VfRemLockDeleteMemoryRange.c)
+ *     VfCheckForLookaside @ 0x140ADF178 (VfCheckForLookaside.c)
+ *     VfCheckForResource @ 0x140AE138C (VfCheckForResource.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 VfPoolIsInternalFree()
 {
   struct _KTHREAD *CurrentThread; // rcx
@@ -8,7 +18,7 @@ __int64 VfPoolIsInternalFree()
   while ( CurrentThread != *v1 )
   {
     v1 += 8;
-    if ( (__int64)v1 >= (__int64)&byte_140CF7E28 )
+    if ( (__int64)v1 >= (__int64)&unk_140CF7E28 )
       return 0LL;
   }
   return 1LL;

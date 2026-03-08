@@ -1,3 +1,12 @@
+/*
+ * XREFs of vMirrorIncludeNotifyWrap @ 0x1C00C7250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?bStockSurface@SURFACE@@QEAAHXZ @ 0x1C02A5A2C (-bStockSurface@SURFACE@@QEAAHXZ.c)
+ *     ?vMirrorNotifyDrawing@@YAXAEAVPDEVOBJ@@PEAVSURFACE@@H@Z @ 0x1C02A5BCC (-vMirrorNotifyDrawing@@YAXAEAVPDEVOBJ@@PEAVSURFACE@@H@Z.c)
+ */
+
 void __fastcall vMirrorIncludeNotifyWrap(__int64 a1, struct SURFACE *a2, int a3)
 {
   __int64 v5; // rcx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserRegisterTasklist @ 0x1C01DAA30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall NtUserRegisterTasklist(__int64 a1)
 {

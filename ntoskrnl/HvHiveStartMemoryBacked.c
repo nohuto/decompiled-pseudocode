@@ -1,3 +1,19 @@
+/*
+ * XREFs of HvHiveStartMemoryBacked @ 0x1407FF060
+ * Callers:
+ *     CmpCreateHive @ 0x14072C06C (CmpCreateHive.c)
+ *     CmpGetSystemControlValues @ 0x140B33800 (CmpGetSystemControlValues.c)
+ * Callees:
+ *     SetFailureLocation @ 0x140243E5C (SetFailureLocation.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvpFillFileName @ 0x14072F4B8 (HvpFillFileName.c)
+ *     HvpAdjustHiveFreeDisplay @ 0x1407300D8 (HvpAdjustHiveFreeDisplay.c)
+ *     HvpBuildMapForMemoryBackedHive @ 0x1407FF548 (HvpBuildMapForMemoryBackedHive.c)
+ *     HvIsInPlaceBaseBlockValid @ 0x140A1E0E4 (HvIsInPlaceBaseBlockValid.c)
+ *     HvpHeaderCheckSum @ 0x140AF2414 (HvpHeaderCheckSum.c)
+ */
+
 __int64 __fastcall HvHiveStartMemoryBacked(
         ULONG_PTR BugCheckParameter2,
         __int64 a2,

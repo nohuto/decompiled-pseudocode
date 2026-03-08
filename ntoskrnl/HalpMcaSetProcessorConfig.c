@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpMcaSetProcessorConfig @ 0x140A87E04
+ * Callers:
+ *     HalpMceInitProcessor @ 0x140A87C98 (HalpMceInitProcessor.c)
+ *     HalpMcaResumeProcessorConfig @ 0x140A9218C (HalpMcaResumeProcessorConfig.c)
+ * Callees:
+ *     HalpIsLmceSupported @ 0x14037CF24 (HalpIsLmceSupported.c)
+ *     HalpWheaWriteMsrStatus @ 0x14037D018 (HalpWheaWriteMsrStatus.c)
+ *     HalpWheaWriteMsrControl @ 0x14037D060 (HalpWheaWriteMsrControl.c)
+ *     HalpMcaProcessorBankConfig @ 0x14037D0B4 (HalpMcaProcessorBankConfig.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char __fastcall HalpMcaSetProcessorConfig(__int64 a1, __int64 a2)
 {
   unsigned int v4; // esi

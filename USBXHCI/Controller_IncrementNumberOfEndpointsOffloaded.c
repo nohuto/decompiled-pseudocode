@@ -1,3 +1,15 @@
+/*
+ * XREFs of Controller_IncrementNumberOfEndpointsOffloaded @ 0x1C0033878
+ * Callers:
+ *     UsbDevice_GetEndpointOffloadInformation @ 0x1C0048D9C (UsbDevice_GetEndpointOffloadInformation.c)
+ *     UsbDevice_SetResourceAssignmentCompletion @ 0x1C0049B90 (UsbDevice_SetResourceAssignmentCompletion.c)
+ * Callees:
+ *     DynamicLock_Acquire @ 0x1C000A918 (DynamicLock_Acquire.c)
+ *     DynamicLock_Release @ 0x1C000A958 (DynamicLock_Release.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Interrupter_InitializeForOffload @ 0x1C003E028 (Interrupter_InitializeForOffload.c)
+ */
+
 __int64 __fastcall Controller_IncrementNumberOfEndpointsOffloaded(__int64 a1)
 {
   __int64 v2; // rdx

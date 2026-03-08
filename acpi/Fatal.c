@@ -1,3 +1,12 @@
+/*
+ * XREFs of Fatal @ 0x1C0055500
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     ValidateArgTypes @ 0x1C004CEEC (ValidateArgTypes.c)
+ */
+
 __int64 __fastcall Fatal(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

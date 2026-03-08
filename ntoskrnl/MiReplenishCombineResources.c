@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiReplenishCombineResources @ 0x1402295AC
+ * Callers:
+ *     MiSharePages @ 0x140228990 (MiSharePages.c)
+ * Callees:
+ *     MiGetSlabPage @ 0x14025BA50 (MiGetSlabPage.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiReplenishCombineResources(__int64 a1)
 {
   _QWORD *v1; // r14

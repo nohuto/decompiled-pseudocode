@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopMountInitializeVpb @ 0x1402B17F0
+ * Callers:
+ *     IopMountVolume @ 0x14072B180 (IopMountVolume.c)
+ * Callees:
+ *     IopIncrementVpbRefCount @ 0x14023FD50 (IopIncrementVpbRefCount.c)
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ */
+
 ULONG_PTR __fastcall IopMountInitializeVpb(__int64 a1, __int64 a2, int a3, char a4)
 {
   KIRQL v8; // al

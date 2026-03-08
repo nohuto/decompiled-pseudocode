@@ -1,3 +1,12 @@
+/*
+ * XREFs of DxgkOpenPhysicalMemoryObjectCB @ 0x1C0052470
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DpiGetSysMmAdapterFromDevice @ 0x1C0012F3C (DpiGetSysMmAdapterFromDevice.c)
+ *     ?SmmOpenPhysicalObject@@YAJPEAUSYSMM_PHYSICAL_OBJECT@@PEAUSYSMM_ADAPTER@@@Z @ 0x1C0013274 (-SmmOpenPhysicalObject@@YAJPEAUSYSMM_PHYSICAL_OBJECT@@PEAUSYSMM_ADAPTER@@@Z.c)
+ */
+
 __int64 __fastcall DxgkOpenPhysicalMemoryObjectCB(__int64 a1)
 {
   struct SYSMM_ADAPTER *SysMmAdapterFromDevice; // rax

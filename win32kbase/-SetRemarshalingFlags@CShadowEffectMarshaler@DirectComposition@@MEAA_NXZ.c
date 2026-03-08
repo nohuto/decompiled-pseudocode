@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CShadowEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C024E4A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall DirectComposition::CShadowEffectMarshaler::SetRemarshalingFlags(
         DirectComposition::CShadowEffectMarshaler *this)
 {

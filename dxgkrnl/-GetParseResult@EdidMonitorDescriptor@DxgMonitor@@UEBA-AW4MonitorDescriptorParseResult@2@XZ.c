@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetParseResult@EdidMonitorDescriptor@DxgMonitor@@UEBA?AW4MonitorDescriptorParseResult@2@XZ @ 0x1C03CB670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EDID_V1_GetPreferredMode@@YAJPEBEPEAUDISPLAY_PREFERRED_MODE_INFO@@@Z @ 0x1C00111AC (-EDID_V1_GetPreferredMode@@YAJPEBEPEAUDISPLAY_PREFERRED_MODE_INFO@@@Z.c)
+ *     ?_GetEdidBaseBlockPtr@EdidMonitorDescriptor@DxgMonitor@@AEBAPEBEXZ @ 0x1C01CFD80 (-_GetEdidBaseBlockPtr@EdidMonitorDescriptor@DxgMonitor@@AEBAPEBEXZ.c)
+ */
+
 __int64 __fastcall DxgMonitor::EdidMonitorDescriptor::GetParseResult(DxgMonitor::EdidMonitorDescriptor *a1)
 {
   unsigned __int8 *EdidBaseBlockPtr; // rax

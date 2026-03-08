@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpCreateCommonBufferFromMdlVerifyParams @ 0x14050D904
+ * Callers:
+ *     HalCreateCommonBufferFromMdl @ 0x14050FA20 (HalCreateCommonBufferFromMdl.c)
+ *     HalCreateCommonBufferFromMdlDmaThin @ 0x140510B70 (HalCreateCommonBufferFromMdlDmaThin.c)
+ *     HalCreateCommonBufferFromMdlDmarThin @ 0x140511380 (HalCreateCommonBufferFromMdlDmarThin.c)
+ * Callees:
+ *     HalpParseCommonBufferExtendedConfigurations @ 0x14050DA4C (HalpParseCommonBufferExtendedConfigurations.c)
+ */
+
 __int64 __fastcall HalpCreateCommonBufferFromMdlVerifyParams(__int64 **a1, __int64 a2, unsigned int a3, __int64 a4)
 {
   int v6; // edx

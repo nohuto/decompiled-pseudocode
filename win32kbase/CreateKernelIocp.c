@@ -1,3 +1,11 @@
+/*
+ * XREFs of CreateKernelIocp @ 0x1C0096630
+ * Callers:
+ *     ?CreateInstance@IOCPDispatcher@@SAJPEAPEAV1@@Z @ 0x1C0096578 (-CreateInstance@IOCPDispatcher@@SAJPEAPEAV1@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_D @ 0x1C000F0BC (WPP_RECORDER_AND_TRACE_SF_D.c)
+ */
+
 void *__fastcall CreateKernelIocp(ULONG NumberOfConcurrentThreads)
 {
   NTSTATUS v1; // eax

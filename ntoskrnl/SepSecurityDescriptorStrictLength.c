@@ -1,3 +1,15 @@
+/*
+ * XREFs of SepSecurityDescriptorStrictLength @ 0x1407A5314
+ * Callers:
+ *     RtlLengthSecurityDescriptorStrict @ 0x14030D2D0 (RtlLengthSecurityDescriptorStrict.c)
+ *     SepCheckAndCopySelfRelativeSD @ 0x1405B6898 (SepCheckAndCopySelfRelativeSD.c)
+ *     SeOperationAuditAlarm @ 0x1409C84FC (SeOperationAuditAlarm.c)
+ *     SepAdtOpenObjectAuditAlarm @ 0x1409C930C (SepAdtOpenObjectAuditAlarm.c)
+ *     SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1409C9E48 (SepAdtSecurityDescriptorChangedAuditAlarm.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SepSecurityDescriptorStrictLength(__int64 a1)
 {
   __int16 v1; // r10

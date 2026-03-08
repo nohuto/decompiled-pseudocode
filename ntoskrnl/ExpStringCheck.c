@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpStringCheck @ 0x140B4A084
+ * Callers:
+ *     ExInitSystem @ 0x140B49A20 (ExInitSystem.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExpSingleStringCheck @ 0x140B4A368 (ExpSingleStringCheck.c)
+ */
+
 __int64 __fastcall ExpStringCheck(
         const WCHAR *a1,
         const WCHAR *a2,

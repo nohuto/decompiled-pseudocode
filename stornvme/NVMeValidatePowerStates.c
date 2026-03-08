@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeValidatePowerStates @ 0x1C0010B08
+ * Callers:
+ *     NVMePowerInitialize @ 0x1C000FCC4 (NVMePowerInitialize.c)
+ * Callees:
+ *     NVMeGetPowerState @ 0x1C0007C94 (NVMeGetPowerState.c)
+ *     NVMePowerStateGetMaxPower @ 0x1C001055C (NVMePowerStateGetMaxPower.c)
+ */
+
 char __fastcall NVMeValidatePowerStates(__int64 a1)
 {
   __int64 PowerState; // r8

@@ -1,3 +1,12 @@
+/*
+ * XREFs of McGenEventWrite_EtwWriteTransfer @ 0x1C002E344
+ * Callers:
+ *     McTemplateK0upp_EtwWriteTransfer @ 0x1C002E3A8 (McTemplateK0upp_EtwWriteTransfer.c)
+ *     McTemplateK0pp_EtwWriteTransfer @ 0x1C002E7C4 (McTemplateK0pp_EtwWriteTransfer.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall McGenEventWrite_EtwWriteTransfer(
         _MCGEN_TRACE_CONTEXT *Descriptor,
         const _EVENT_DESCRIPTOR *ActivityId,

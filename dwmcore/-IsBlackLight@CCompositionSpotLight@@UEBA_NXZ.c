@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsBlackLight@CCompositionSpotLight@@UEBA_NXZ @ 0x1800E3DA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?IsBlackColor@CCompositionLight@@IEBA_NAEBU_D3DCOLORVALUE@@M@Z @ 0x1800E3DEC (-IsBlackColor@CCompositionLight@@IEBA_NAEBU_D3DCOLORVALUE@@M@Z.c)
+ */
+
 char __fastcall CCompositionSpotLight::IsBlackLight(CCompositionSpotLight *this)
 {
   bool IsBlackColor; // al

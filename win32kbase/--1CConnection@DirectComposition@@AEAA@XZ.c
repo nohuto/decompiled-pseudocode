@@ -1,3 +1,16 @@
+/*
+ * XREFs of ??1CConnection@DirectComposition@@AEAA@XZ @ 0x1C009846C
+ * Callers:
+ *     ??_GCConnection@DirectComposition@@AEAAPEAXI@Z @ 0x1C0099D20 (--_GCConnection@DirectComposition@@AEAAPEAXI@Z.c)
+ * Callees:
+ *     ??_I@YAXPEAX_K1P6AX0@Z@Z @ 0x1C0096938 (--_I@YAXPEAX_K1P6AX0@Z@Z.c)
+ *     ?Release@CChannel@DirectComposition@@QEAAKXZ @ 0x1C0098628 (-Release@CChannel@DirectComposition@@QEAAKXZ.c)
+ *     ??1CChannelGroup@DirectComposition@@QEAA@XZ @ 0x1C0098658 (--1CChannelGroup@DirectComposition@@QEAA@XZ.c)
+ *     ?DiscardAllCompositionFrames@CConnection@DirectComposition@@AEAAXXZ @ 0x1C00988FC (-DiscardAllCompositionFrames@CConnection@DirectComposition@@AEAAXXZ.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall DirectComposition::CConnection::~CConnection(DirectComposition::CConnection *this)
 {
   __int64 v2; // rcx

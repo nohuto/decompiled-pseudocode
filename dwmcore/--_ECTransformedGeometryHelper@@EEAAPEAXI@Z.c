@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_ECTransformedGeometryHelper@@EEAAPEAXI@Z @ 0x1801AFA40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ */
+
 CTransformedGeometryHelper *__fastcall CTransformedGeometryHelper::`vector deleting destructor'(
         CTransformedGeometryHelper *this,
         char a2)

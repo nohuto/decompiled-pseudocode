@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopLiveDumpValidateProtectedProcessExclusions @ 0x140A996C0
+ * Callers:
+ *     IopLiveDumpEndMirroringCallback @ 0x140A98070 (IopLiveDumpEndMirroringCallback.c)
+ * Callees:
+ *     IopLiveDumpLookupProcessFilter @ 0x140A988E4 (IopLiveDumpLookupProcessFilter.c)
+ */
+
 __int64 __fastcall IopLiveDumpValidateProtectedProcessExclusions(__int64 a1)
 {
   __int64 *v1; // r11

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ConnectInternal@FxInterrupt@@QEAAJXZ @ 0x1C007FF50
+ * Callers:
+ *     ?Connect@FxInterrupt@@QEAAJK@Z @ 0x1C007E91C (-Connect@FxInterrupt@@QEAAJK@Z.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C000AC00 (memset.c)
+ */
+
 __int64 __fastcall FxInterrupt::ConnectInternal(FxInterrupt *this)
 {
   FxDeviceBase *m_DeviceBase; // rbx

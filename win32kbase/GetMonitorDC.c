@@ -1,3 +1,36 @@
+/*
+ * XREFs of GetMonitorDC @ 0x1C003D41C
+ * Callers:
+ *     xxxEnumDisplayMonitors @ 0x1C003AE40 (xxxEnumDisplayMonitors.c)
+ *     UserGetMonitorDC @ 0x1C003BFDC (UserGetMonitorDC.c)
+ * Callees:
+ *     IsSpbCheckDceSupported @ 0x1C000DA48 (IsSpbCheckDceSupported.c)
+ *     IntersectRect @ 0x1C003B560 (IntersectRect.c)
+ *     GetCurrentThreadCompositedDpi @ 0x1C003B5D4 (GetCurrentThreadCompositedDpi.c)
+ *     ?SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z @ 0x1C003B638 (-SetMonitorRegion@@YAXPEAUtagMONITOR@@PEAUHRGN__@@1@Z.c)
+ *     CreateMonitorRegionForDpi @ 0x1C003B6D0 (CreateMonitorRegionForDpi.c)
+ *     IsGreSelectRedirectionBitmapSupported @ 0x1C003CECC (IsGreSelectRedirectionBitmapSupported.c)
+ *     GreCopyVisRgn @ 0x1C003CF00 (GreCopyVisRgn.c)
+ *     IsGetStyleWindowSupported @ 0x1C003CFD4 (IsGetStyleWindowSupported.c)
+ *     IsGreHintDCWndSupported @ 0x1C003D000 (IsGreHintDCWndSupported.c)
+ *     UpdateDCEInUseCount @ 0x1C003D02C (UpdateDCEInUseCount.c)
+ *     GetMonitorRect @ 0x1C003DBB4 (GetMonitorRect.c)
+ *     CreateCacheDC @ 0x1C003DC40 (CreateCacheDC.c)
+ *     GreIsRendering @ 0x1C003E610 (GreIsRendering.c)
+ *     GreSetDCOwnerEx @ 0x1C0041580 (GreSetDCOwnerEx.c)
+ *     GreCombineRgn @ 0x1C0041BD0 (GreCombineRgn.c)
+ *     GreSetRectRgn @ 0x1C0041FD0 (GreSetRectRgn.c)
+ *     GreOffsetRgn @ 0x1C0042C20 (GreOffsetRgn.c)
+ *     GreSelectVisRgn @ 0x1C0042CD0 (GreSelectVisRgn.c)
+ *     GreDeleteObject @ 0x1C0043CD0 (GreDeleteObject.c)
+ *     GreGetBounds @ 0x1C004D5B0 (GreGetBounds.c)
+ *     GreCreateRectRgnIndirect @ 0x1C0050B70 (GreCreateRectRgnIndirect.c)
+ *     GreSetDCOrg @ 0x1C005ACD0 (GreSetDCOrg.c)
+ *     GreGetDCOrgEx @ 0x1C00C2510 (GreGetDCOrgEx.c)
+ *     IsGetRedirectionBitmapSupported @ 0x1C00CC5A0 (IsGetRedirectionBitmapSupported.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall GetMonitorDC(__int64 a1, struct tagMONITOR *a2, int a3)
 {
   __int64 *i; // rbx

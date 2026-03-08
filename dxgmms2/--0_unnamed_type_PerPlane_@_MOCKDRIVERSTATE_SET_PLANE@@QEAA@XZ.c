@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0_unnamed_type_PerPlane_@_MOCKDRIVERSTATE_SET_PLANE@@QEAA@XZ @ 0x1C0018C20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _MOCKDRIVERSTATE_SET_PLANE::_unnamed_type_PerPlane_ *__fastcall _MOCKDRIVERSTATE_SET_PLANE::_unnamed_type_PerPlane_::_unnamed_type_PerPlane_(
         _MOCKDRIVERSTATE_SET_PLANE::_unnamed_type_PerPlane_ *this)
 {

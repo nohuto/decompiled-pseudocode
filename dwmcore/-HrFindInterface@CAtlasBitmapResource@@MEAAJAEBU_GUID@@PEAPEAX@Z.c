@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HrFindInterface@CAtlasBitmapResource@@MEAAJAEBU_GUID@@PEAPEAX@Z @ 0x180267A10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CAtlasBitmapResource::HrFindInterface(CAtlasBitmapResource *this, const struct _GUID *a2, void **a3)
 {
   __int64 result; // rax

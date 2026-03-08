@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?xxxAdjustPushStateForKL@@YAXPEAUtagTHREADINFO@@PEAEPEAUtagKL@@22@Z @ 0x1C0214388
+ * Callers:
+ *     ?xxxManageKeyboardModifiers@@YAXPEAUtagKL@@0@Z @ 0x1C0214488 (-xxxManageKeyboardModifiers@@YAXPEAUtagKL@@0@Z.c)
+ * Callees:
+ *     ?xxxAdjustPushState@@YAXPEAUtagTHREADINFO@@EEPEAUtagKL@@1@Z @ 0x1C021419C (-xxxAdjustPushState@@YAXPEAUtagTHREADINFO@@EEPEAUtagKL@@1@Z.c)
+ */
+
 void __fastcall xxxAdjustPushStateForKL(
         struct tagTHREADINFO *a1,
         unsigned __int8 *a2,

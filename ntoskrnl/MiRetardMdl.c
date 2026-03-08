@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiRetardMdl @ 0x14061A580
+ * Callers:
+ *     MiWriteComplete @ 0x1402126E0 (MiWriteComplete.c)
+ *     MmUnlockPages @ 0x14027C0C0 (MmUnlockPages.c)
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     MiFreePagesFromMdl @ 0x1402C0DD0 (MiFreePagesFromMdl.c)
+ *     MiUnlockFlushMdl @ 0x1402D6F00 (MiUnlockFlushMdl.c)
+ *     MiWaitForInPageComplete @ 0x140342A90 (MiWaitForInPageComplete.c)
+ *     MiZeroPageWrite @ 0x1403BB864 (MiZeroPageWrite.c)
+ *     MmUnmapReservedMapping @ 0x14061C4D0 (MmUnmapReservedMapping.c)
+ *     MiPfCompleteCoalescedIo @ 0x14062F780 (MiPfCompleteCoalescedIo.c)
+ *     MiFlushComplete @ 0x140633A40 (MiFlushComplete.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiRetardMdl(__int64 a1)
 {
   __int64 *v1; // r10

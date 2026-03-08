@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIEnumerateTables @ 0x1C00888DC
+ * Callers:
+ *     ACPIEnumMapTableHandler @ 0x1C0001850 (ACPIEnumMapTableHandler.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ */
+
 __int64 __fastcall ACPIEnumerateTables(_DWORD *a1, unsigned int *a2)
 {
   unsigned int v4; // ebx

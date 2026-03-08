@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?EnsureBitmap@CD2DBitmap@@IEAAJXZ @ 0x1800DE59C
+ * Callers:
+ *     ?GetBitmap@CD2DBitmap@@UEAAJPEAPEAUID2D1Bitmap1@@_N@Z @ 0x1800DE530 (-GetBitmap@CD2DBitmap@@UEAAJPEAPEAUID2D1Bitmap1@@_N@Z.c)
+ *     ?EnsureIgnoreAlphaBitmap@CD2DBitmap@@IEAAJXZ @ 0x18029BF5C (-EnsureIgnoreAlphaBitmap@CD2DBitmap@@IEAAJXZ.c)
+ *     ?GetDXGIResource@CD2DBitmap@@QEAAJPEAPEAUIDXGIResource@@PEAI@Z @ 0x18029C13C (-GetDXGIResource@CD2DBitmap@@QEAAJPEAPEAUIDXGIResource@@PEAI@Z.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180004700 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?CreateD2DBitmapFromDxgiSurface@CD2DContext@@QEAAJPEAUIDXGISurface@@AEBUD2D1_BITMAP_PROPERTIES1@@PEAPEAUID2D1Bitmap1@@@Z @ 0x1800DE714 (-CreateD2DBitmapFromDxgiSurface@CD2DContext@@QEAAJPEAUIDXGISurface@@AEBUD2D1_BITMAP_PROPERTIES1@.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CD2DBitmap::EnsureBitmap(CD2DBitmap *this)
 {
   struct ID2D1Bitmap1 **v1; // r14

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Reset@CDirectFlipInfo@@QEAAXXZ @ 0x1800CA284
+ * Callers:
+ *     ??1CDirectFlipInfo@@QEAA@XZ @ 0x1800C7E18 (--1CDirectFlipInfo@@QEAA@XZ.c)
+ *     ?Reset@COverlayContext@@QEAAXXZ @ 0x1800C9844 (-Reset@COverlayContext@@QEAAXXZ.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?reset@?$shared_ptr@VCRegion@@@std@@QEAAXXZ @ 0x18012D48A (-reset@-$shared_ptr@VCRegion@@@std@@QEAAXXZ.c)
+ *     ?Deactivate@CDirectFlipInfo@@IEAAJXZ @ 0x1801F3C84 (-Deactivate@CDirectFlipInfo@@IEAAJXZ.c)
+ */
+
 void __fastcall CDirectFlipInfo::Reset(CDirectFlipInfo *this)
 {
   int v2; // ecx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiCreatePartitionNamespace @ 0x140809994
+ * Callers:
+ *     MiInitializeMemoryEvents @ 0x1408096D8 (MiInitializeMemoryEvents.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwCreateDirectoryObjectEx @ 0x140413870 (ZwCreateDirectoryObjectEx.c)
+ *     ObCreateKernelObjectsSD @ 0x140809588 (ObCreateKernelObjectsSD.c)
+ *     ObCleanupSecurityDescriptor @ 0x14085FE80 (ObCleanupSecurityDescriptor.c)
+ */
+
 __int64 __fastcall MiCreatePartitionNamespace(__int64 a1)
 {
   int DirectoryObject; // ebx

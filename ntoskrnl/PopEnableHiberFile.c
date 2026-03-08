@@ -1,3 +1,35 @@
+/*
+ * XREFs of PopEnableHiberFile @ 0x14082ADA4
+ * Callers:
+ *     PopHibernateEvaluation @ 0x14082B35C (PopHibernateEvaluation.c)
+ *     PopNotifyPolicyDevice @ 0x14084A7A0 (PopNotifyPolicyDevice.c)
+ * Callees:
+ *     MmGetHighestPhysicalPage @ 0x140236718 (MmGetHighestPhysicalPage.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     PopOpenPowerKey @ 0x1403900C8 (PopOpenPowerKey.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PopRemoveReasonRecordByReasonCode @ 0x14076091C (PopRemoveReasonRecordByReasonCode.c)
+ *     PopCreateHiberFile @ 0x1407FBF00 (PopCreateHiberFile.c)
+ *     PopPreallocateHibernateMemory @ 0x1407FC7F4 (PopPreallocateHibernateMemory.c)
+ *     PopCalculateHiberFileSize @ 0x1407FC9FC (PopCalculateHiberFileSize.c)
+ *     MmAllocateDumpHibernateResources @ 0x1407FCCCC (MmAllocateDumpHibernateResources.c)
+ *     PopResetCurrentPolicies @ 0x140829F88 (PopResetCurrentPolicies.c)
+ *     PopCheckDisabledReason @ 0x14082B178 (PopCheckDisabledReason.c)
+ *     PopLogSleepDisabled @ 0x14087118C (PopLogSleepDisabled.c)
+ *     PopClearHiberFileSignature @ 0x14098544C (PopClearHiberFileSignature.c)
+ *     PopZeroHiberFile @ 0x140986490 (PopZeroHiberFile.c)
+ *     MmZeroPageFileAtShutdown @ 0x140A28834 (MmZeroPageFileAtShutdown.c)
+ *     MmReturnChargesToLockPagedPool @ 0x140A2DCE0 (MmReturnChargesToLockPagedPool.c)
+ *     MmReleaseDumpHibernateResources @ 0x140A2DDF8 (MmReleaseDumpHibernateResources.c)
+ *     EmClientQueryRuleState @ 0x140A85190 (EmClientQueryRuleState.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PopEnableHiberFile(char a1)
 {
   PVOID v2; // r14

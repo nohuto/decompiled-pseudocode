@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopSnapSystemIdleContext @ 0x14087F0F0
+ * Callers:
+ *     PopIdlePhaseWatchdogCallback @ 0x1403CFC20 (PopIdlePhaseWatchdogCallback.c)
+ *     PopArmIdlePhaseWatchdog @ 0x14087EFA4 (PopArmIdlePhaseWatchdog.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void __fastcall PopSnapSystemIdleContext(__int64 *a1, unsigned int *a2)
 {
   __int64 Pool2; // rax

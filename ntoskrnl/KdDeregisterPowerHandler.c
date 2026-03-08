@@ -1,3 +1,14 @@
+/*
+ * XREFs of KdDeregisterPowerHandler @ 0x140564DD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall KdDeregisterPowerHandler(__int64 a1)
 {
   unsigned __int8 CurrentIrql; // bl

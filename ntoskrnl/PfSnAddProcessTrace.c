@@ -1,3 +1,11 @@
+/*
+ * XREFs of PfSnAddProcessTrace @ 0x14035B0F8
+ * Callers:
+ *     PfSnActivateTrace @ 0x14035B038 (PfSnActivateTrace.c)
+ * Callees:
+ *     ExAcquireRundownProtectionEx @ 0x14035AFC0 (ExAcquireRundownProtectionEx.c)
+ */
+
 __int64 __fastcall PfSnAddProcessTrace(__int64 a1, struct _EX_RUNDOWN_REF *a2)
 {
   BOOLEAN v4; // al

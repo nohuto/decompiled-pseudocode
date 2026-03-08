@@ -1,3 +1,16 @@
+/*
+ * XREFs of rimObsCopyMessage @ 0x1C01DBA90
+ * Callers:
+ *     rimObsDeliverInputToObserver @ 0x1C01DBC24 (rimObsDeliverInputToObserver.c)
+ *     rimObsPopInputMessage @ 0x1C01DCA1C (rimObsPopInputMessage.c)
+ *     rimObsPushInputMessage @ 0x1C01DCE48 (rimObsPushInputMessage.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ *     rimObsCalculateObserverMessageSize @ 0x1C01DB69C (rimObsCalculateObserverMessageSize.c)
+ */
+
 __int64 __fastcall rimObsCopyMessage(int *a1, int a2, void **a3, unsigned int a4)
 {
   SIZE_T v4; // rbx

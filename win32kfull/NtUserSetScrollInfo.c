@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserSetScrollInfo @ 0x1C00A5F80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     xxxSetScrollBar @ 0x1C00A60D8 (xxxSetScrollBar.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall NtUserSetScrollInfo(__int64 a1, unsigned int a2, ULONG64 a3)
 {
   __int64 v6; // rax

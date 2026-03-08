@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?PeekFirst@?$CQueue@PEAVCBufferedInteractionOutput@@@@QEAAPEAXPEAXPEAPEAVCBufferedInteractionOutput@@@Z @ 0x180281684
+ * Callers:
+ *     ?BoundBufferedOutput@CInteractionContextWrapper@@AEAAX_K@Z @ 0x180280744 (-BoundBufferedOutput@CInteractionContextWrapper@@AEAAX_K@Z.c)
+ *     ?GetBufferedOutputRaw@CInteractionContextWrapper@@UEAAI_K0PEAUInteractionOutput@@@Z @ 0x180280E50 (-GetBufferedOutputRaw@CInteractionContextWrapper@@UEAAI_K0PEAUInteractionOutput@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *__fastcall CQueue<CBufferedInteractionOutput *>::PeekFirst(__int64 *a1, __int64 a2, _QWORD *a3)
 {
   __int64 *v5; // rdi

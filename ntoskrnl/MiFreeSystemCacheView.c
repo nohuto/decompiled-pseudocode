@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiFreeSystemCacheView @ 0x1402D6B3C
+ * Callers:
+ *     MiReleaseSystemCacheView @ 0x1403354D0 (MiReleaseSystemCacheView.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 **__fastcall MiFreeSystemCacheView(__int64 a1, int a2, __int64 *a3)
 {
   __int64 v3; // r9

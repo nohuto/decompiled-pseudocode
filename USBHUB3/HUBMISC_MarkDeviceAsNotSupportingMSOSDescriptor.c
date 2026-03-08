@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBMISC_MarkDeviceAsNotSupportingMSOSDescriptor @ 0x1C0083090
+ * Callers:
+ *     HUBDSM_MarkDeviceAsNotSupportingMSOSDescriptor @ 0x1C0021C80 (HUBDSM_MarkDeviceAsNotSupportingMSOSDescriptor.c)
+ * Callees:
+ *     HUBREG_AssignUsbflagsValueForDevice @ 0x1C00842FC (HUBREG_AssignUsbflagsValueForDevice.c)
+ */
+
 __int64 __fastcall HUBMISC_MarkDeviceAsNotSupportingMSOSDescriptor(__int64 a1)
 {
   __int16 v2; // [rsp+30h] [rbp+8h] BYREF

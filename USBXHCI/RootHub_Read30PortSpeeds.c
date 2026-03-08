@@ -1,3 +1,13 @@
+/*
+ * XREFs of RootHub_Read30PortSpeeds @ 0x1C001C170
+ * Callers:
+ *     RootHub_UcxEvtGet30PortInfo @ 0x1C001BF70 (RootHub_UcxEvtGet30PortInfo.c)
+ * Callees:
+ *     WPP_RECORDER_SF_DDDD @ 0x1C000E120 (WPP_RECORDER_SF_DDDD.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     WPP_RECORDER_SF_D @ 0x1C00180C4 (WPP_RECORDER_SF_D.c)
+ */
+
 __int64 __fastcall RootHub_Read30PortSpeeds(
         __int64 a1,
         __int64 a2,

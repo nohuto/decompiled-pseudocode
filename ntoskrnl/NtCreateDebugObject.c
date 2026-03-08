@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtCreateDebugObject @ 0x140935540
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ */
+
 __int64 __fastcall NtCreateDebugObject(__int64 *a1, unsigned int a2, __int64 a3, int a4)
 {
   char v4; // r14

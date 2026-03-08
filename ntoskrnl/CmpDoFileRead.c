@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpDoFileRead @ 0x1402F6880
+ * Callers:
+ *     CmpFileRead @ 0x140787ED0 (CmpFileRead.c)
+ * Callees:
+ *     SetFailureLocation @ 0x140243E5C (SetFailureLocation.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     ZwReadFile @ 0x1404123D0 (ZwReadFile.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     CmpCreateEvent @ 0x1406BC374 (CmpCreateEvent.c)
+ */
+
 __int64 __fastcall CmpDoFileRead(HANDLE FileHandle, __int64 a2, ULONG a3, char *a4, ULONG a5, int a6, __int64 a7)
 {
   ULONG v7; // edi

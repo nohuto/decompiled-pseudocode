@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpTiAllocVadQueryEventWriteWorkItemContext @ 0x1402F8BCC
+ * Callers:
+ *     EtwpTiAsyncVadQueryEventWrite @ 0x1402F8B5C (EtwpTiAsyncVadQueryEventWrite.c)
+ * Callees:
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall EtwpTiAllocVadQueryEventWriteWorkItemContext(
         __int64 a1,
         unsigned int a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of FONTOBJ_pifi @ 0x1C029B080
+ * Callers:
+ *     ?UmfdEscFONTOBJ_pifi@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z @ 0x1C02A9DD8 (-UmfdEscFONTOBJ_pifi@@YAXPEAUtagUMFD_ESCAPE_ARGUMENT@@@Z.c)
+ *     NtGdiFONTOBJ_pifi @ 0x1C02CECD0 (NtGdiFONTOBJ_pifi.c)
+ * Callees:
+ *     ??1RFONTOBJ@@QEAA@XZ @ 0x1C011DDB0 (--1RFONTOBJ@@QEAA@XZ.c)
+ */
+
 IFIMETRICS *__stdcall FONTOBJ_pifi(FONTOBJ *pfo)
 {
   PVOID pvProducer; // rax

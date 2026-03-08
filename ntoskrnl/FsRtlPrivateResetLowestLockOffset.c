@@ -1,3 +1,13 @@
+/*
+ * XREFs of FsRtlPrivateResetLowestLockOffset @ 0x1402C2FA0
+ * Callers:
+ *     FsRtlPrivateFastUnlockAll @ 0x1402C16B4 (FsRtlPrivateFastUnlockAll.c)
+ *     FsRtlFastUnlockSingleExclusive @ 0x1402C1DF4 (FsRtlFastUnlockSingleExclusive.c)
+ *     FsRtlFastUnlockSingleShared @ 0x1402C1F78 (FsRtlFastUnlockSingleShared.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FsRtlPrivateResetLowestLockOffset(__int64 *a1)
 {
   __int64 v2; // rcx

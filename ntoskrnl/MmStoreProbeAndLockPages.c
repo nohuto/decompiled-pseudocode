@@ -1,3 +1,19 @@
+/*
+ * XREFs of MmStoreProbeAndLockPages @ 0x14065ACBC
+ * Callers:
+ *     ?SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z @ 0x1405C8A1C (-SmKmProbeAndLockAddress@@YAJPEAX_KPEAU_MDL@@K@Z.c)
+ * Callees:
+ *     MiReferencePageForModifiedWrite @ 0x140213038 (MiReferencePageForModifiedWrite.c)
+ *     MiProbeAndLockPrepare @ 0x14026B160 (MiProbeAndLockPrepare.c)
+ *     MiUnlockProbePacketWorkingSet @ 0x1402E038C (MiUnlockProbePacketWorkingSet.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiProbeLeafFrame @ 0x1403CFA14 (MiProbeLeafFrame.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiStoreMarkLockedPagesModified @ 0x140465404 (MiStoreMarkLockedPagesModified.c)
+ *     MiUnlockStoreLockedPages @ 0x14065A830 (MiUnlockStoreLockedPages.c)
+ */
+
 __int64 __fastcall MmStoreProbeAndLockPages(ULONG_PTR BugCheckParameter4, int a2)
 {
   struct _KTHREAD *CurrentThread; // r14

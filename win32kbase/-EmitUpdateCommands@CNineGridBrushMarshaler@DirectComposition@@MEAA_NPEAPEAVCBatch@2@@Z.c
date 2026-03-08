@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?EmitUpdateCommands@CNineGridBrushMarshaler@DirectComposition@@MEAA_NPEAPEAVCBatch@2@@Z @ 0x1C00A8000
+ * Callers:
+ *     <none>
+ * Callees:
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_0d95967af630741c0c86b451245c298b___ @ 0x1C00A82B0 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_0d95967af630741c0c86b451245c298.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_fcd9eab81033f9ef5ab1bd2685319b70___ @ 0x1C00A8324 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_fcd9eab81033f9ef5ab1bd2685319b7.c)
+ *     DirectComposition::CResourceMarshaler::EmitUpdateCommand__lambda_f34c125a416918fcdef64c54903ef373___ @ 0x1C00A83A8 (DirectComposition--CResourceMarshaler--EmitUpdateCommand__lambda_f34c125a416918fcdef64c54903ef37.c)
+ */
+
 char __fastcall DirectComposition::CNineGridBrushMarshaler::EmitUpdateCommands(
         DirectComposition::CNineGridBrushMarshaler *this,
         struct DirectComposition::CBatch **a2)

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiCheckVerifierFunctionsCfgState @ 0x140A41294
+ * Callers:
+ *     MiReapplyImportOptimizationForDriverVerifier @ 0x14063E4F8 (MiReapplyImportOptimizationForDriverVerifier.c)
+ * Callees:
+ *     MiLookupDataTableEntry @ 0x14035ECF0 (MiLookupDataTableEntry.c)
+ *     CfgAddressToBitState @ 0x1406540A4 (CfgAddressToBitState.c)
+ */
+
 __int64 __fastcall MiCheckVerifierFunctionsCfgState(__int64 a1, unsigned int a2)
 {
   unsigned int v2; // ebx

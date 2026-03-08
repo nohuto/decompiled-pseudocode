@@ -1,3 +1,13 @@
+/*
+ * XREFs of IrqPolicyGetDistributionDisposition @ 0x1C00AC39C
+ * Callers:
+ *     AcpiIrqLibSetupSciInterrupt @ 0x1C0098DAC (AcpiIrqLibSetupSciInterrupt.c)
+ * Callees:
+ *     OSGetRegistryValue @ 0x1C008DCAC (OSGetRegistryValue.c)
+ *     OSOpenUnicodeHandle @ 0x1C008E3DC (OSOpenUnicodeHandle.c)
+ *     IrqArbIrqFromGsiv @ 0x1C009D6BC (IrqArbIrqFromGsiv.c)
+ */
+
 __int64 __fastcall IrqPolicyGetDistributionDisposition(__int64 a1, __int64 a2)
 {
   unsigned int v2; // ebx

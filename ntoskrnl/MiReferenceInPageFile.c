@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiReferenceInPageFile @ 0x140343354
+ * Callers:
+ *     MiIssueHardFault @ 0x140342F00 (MiIssueHardFault.c)
+ *     MiPfExecuteReadList @ 0x1406A3F98 (MiPfExecuteReadList.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     ObFastReferenceObject @ 0x1403434A0 (ObFastReferenceObject.c)
+ *     MiComputeImagePteIndex @ 0x140344304 (MiComputeImagePteIndex.c)
+ *     MiCanPageMove @ 0x1403B7F24 (MiCanPageMove.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 unsigned __int64 __fastcall MiReferenceInPageFile(__int64 a1, unsigned int a2)
 {
   __int64 *v2; // rdi

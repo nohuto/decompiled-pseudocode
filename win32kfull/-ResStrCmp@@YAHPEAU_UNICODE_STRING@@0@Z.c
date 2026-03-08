@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ResStrCmp@@YAHPEAU_UNICODE_STRING@@0@Z @ 0x1C00C5990
+ * Callers:
+ *     NtUserFindExistingCursorIcon @ 0x1C00C5470 (NtUserFindExistingCursorIcon.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ResStrCmp(struct _UNICODE_STRING *a1, struct _UNICODE_STRING *a2)
 {
   unsigned int v3; // ebx

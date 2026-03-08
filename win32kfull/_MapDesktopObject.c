@@ -1,3 +1,13 @@
+/*
+ * XREFs of _MapDesktopObject @ 0x1C0099770
+ * Callers:
+ *     NtUserMapDesktopObject @ 0x1C0099730 (NtUserMapDesktopObject.c)
+ * Callees:
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     HMValidateHandle @ 0x1C0064BF4 (HMValidateHandle.c)
+ *     GetDesktopView @ 0x1C0099840 (GetDesktopView.c)
+ */
+
 __int64 __fastcall MapDesktopObject(__int64 a1)
 {
   __int64 v2; // rdi

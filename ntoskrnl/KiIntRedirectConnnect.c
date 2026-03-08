@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiIntRedirectConnnect @ 0x14057E3D8
+ * Callers:
+ *     KiIntSteerChooseInitialTargetProcessors @ 0x14028F130 (KiIntSteerChooseInitialTargetProcessors.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall KiIntRedirectConnnect(__int64 *a1, unsigned int a2, __int64 a3)
 {
   __int64 v3; // rdi

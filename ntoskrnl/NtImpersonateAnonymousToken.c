@@ -1,3 +1,26 @@
+/*
+ * XREFs of NtImpersonateAnonymousToken @ 0x1407390D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SeTokenIsRestricted @ 0x140206B10 (SeTokenIsRestricted.c)
+ *     ObReferenceObjectByPointer @ 0x140208C70 (ObReferenceObjectByPointer.c)
+ *     PsIsCurrentThreadInServerSilo @ 0x1402459D0 (PsIsCurrentThreadInServerSilo.c)
+ *     ObFastDereferenceObject @ 0x140245F50 (ObFastDereferenceObject.c)
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     SepGetAnonymousToken @ 0x1402B7BE0 (SepGetAnonymousToken.c)
+ *     SeTokenIsWriteRestricted @ 0x1402B8710 (SeTokenIsWriteRestricted.c)
+ *     PsImpersonateClient @ 0x1406DA310 (PsImpersonateClient.c)
+ *     SepRegQueryDwordValue @ 0x1407393AC (SepRegQueryDwordValue.c)
+ *     SepDuplicateToken @ 0x1407BCF00 (SepDuplicateToken.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ *     SepCopyAnonymousTokenAndSetSilo @ 0x1409C63C0 (SepCopyAnonymousTokenAndSetSilo.c)
+ */
+
 NTSTATUS __stdcall NtImpersonateAnonymousToken(HANDLE ThreadHandle)
 {
   KPROCESSOR_MODE PreviousMode; // r9

@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?SleepStudyRegisterBlockingComponents@FxPkgPnp@@QEAAJXZ @ 0x1C0079560
+ * Callers:
+ *     ?SleepStudyEvaluateDripsConstraint@FxPkgPnp@@QEAAXE@Z @ 0x1C0079228 (-SleepStudyEvaluateDripsConstraint@FxPkgPnp@@QEAAXE@Z.c)
+ * Callees:
+ *     ?GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ @ 0x1C00072C0 (-GetObjectHandleUnchecked@FxObject@@IEAAPEAXXZ.c)
+ *     WPP_IFR_SF_qd @ 0x1C0007FCC (WPP_IFR_SF_qd.c)
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     RtlUnicodeStringPrintf @ 0x1C00178B4 (RtlUnicodeStringPrintf.c)
+ *     WPP_IFR_SF_q @ 0x1C0018194 (WPP_IFR_SF_q.c)
+ *     SleepstudyHelper_GenerateGuid @ 0x1C0088894 (SleepstudyHelper_GenerateGuid.c)
+ *     SleepstudyHelper_GetPdoFriendlyName @ 0x1C00B20BC (SleepstudyHelper_GetPdoFriendlyName.c)
+ *     SleepstudyHelper_RegisterComponentEx @ 0x1C00B217C (SleepstudyHelper_RegisterComponentEx.c)
+ */
+
 __int64 __fastcall FxPkgPnp::SleepStudyRegisterBlockingComponents(FxPkgPnp *this)
 {
   FxDeviceBase *m_DeviceBase; // rax

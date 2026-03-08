@@ -1,3 +1,12 @@
+/*
+ * XREFs of IovUtilRelateDeviceObjects @ 0x140ACFD4C
+ * Callers:
+ *     IovpExamineDevObjForwarding @ 0x140AC9F60 (IovpExamineDevObjForwarding.c)
+ * Callees:
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ */
+
 void __fastcall IovUtilRelateDeviceObjects(__int64 a1, __int64 a2, _DWORD *a3)
 {
   __int64 v5; // rbx

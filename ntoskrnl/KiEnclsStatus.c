@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiEnclsStatus @ 0x14056E148
+ * Callers:
+ *     KeBlockEnclavePage @ 0x14056DDC8 (KeBlockEnclavePage.c)
+ *     KeCanChangeEnclavePageProtection @ 0x14056DE10 (KeCanChangeEnclavePageProtection.c)
+ *     KeChangeEnclavePageProtection @ 0x14056DED0 (KeChangeEnclavePageProtection.c)
+ *     KeOutPageEnclavePage @ 0x14056E00C (KeOutPageEnclavePage.c)
+ *     KeRemoveEnclavePage @ 0x14056E0D0 (KeRemoveEnclavePage.c)
+ *     KeTrackEnclaveTbFlush @ 0x14056E10C (KeTrackEnclaveTbFlush.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiEnclsStatus(int a1)
 {
   int v1; // ecx

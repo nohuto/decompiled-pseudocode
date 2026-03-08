@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDiagTraceCsDripsWatchdog @ 0x14058F848
+ * Callers:
+ *     PopDripsWatchdogTakeAction @ 0x14099E1CC (PopDripsWatchdogTakeAction.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PopDiagTraceCsDripsWatchdog(
         int a1,
         int a2,

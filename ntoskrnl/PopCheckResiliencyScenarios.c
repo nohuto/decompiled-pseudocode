@@ -1,3 +1,25 @@
+/*
+ * XREFs of PopCheckResiliencyScenarios @ 0x14073AF4C
+ * Callers:
+ *     PopCoalescingSetActiveState @ 0x14058B44C (PopCoalescingSetActiveState.c)
+ *     PopPowerRequestCallbackExecutionRequired @ 0x14073B020 (PopPowerRequestCallbackExecutionRequired.c)
+ *     PopDeepSleepPowerSettingCallback @ 0x14085F780 (PopDeepSleepPowerSettingCallback.c)
+ *     PopCoalescingPowerSettingCallback @ 0x14085FBE0 (PopCoalescingPowerSettingCallback.c)
+ *     PopUpdateConsoleDisplayState @ 0x140870EA4 (PopUpdateConsoleDisplayState.c)
+ *     PdcPoResiliencyClient @ 0x140994AF0 (PdcPoResiliencyClient.c)
+ *     PopPdcIdleResiliencyCallback @ 0x14099507C (PopPdcIdleResiliencyCallback.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     PopDeepSleepEnabled @ 0x1402BBA98 (PopDeepSleepEnabled.c)
+ *     PopDeepSleepClearDisengageReason @ 0x1402BBAAC (PopDeepSleepClearDisengageReason.c)
+ *     PopDeepSleepSetDisengageReason @ 0x1402BBB98 (PopDeepSleepSetDisengageReason.c)
+ *     PpmReleaseLock @ 0x1402D1F40 (PpmReleaseLock.c)
+ *     PpmAcquireLock @ 0x1402D1F90 (PpmAcquireLock.c)
+ *     PoFxSendSystemLatencyUpdate @ 0x1402D1FF0 (PoFxSendSystemLatencyUpdate.c)
+ *     PpmGetDeepSleepPlatformStateIndex @ 0x140581D3C (PpmGetDeepSleepPlatformStateIndex.c)
+ *     PopEnsureCoalescingWorkerWillRun @ 0x14058B560 (PopEnsureCoalescingWorkerWillRun.c)
+ */
+
 void PopCheckResiliencyScenarios()
 {
   char v0; // si

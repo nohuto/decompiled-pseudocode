@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiDirtySystemCachePte @ 0x1402E46F8
+ * Callers:
+ *     MmCopyToCachedPage @ 0x14021DBE0 (MmCopyToCachedPage.c)
+ * Callees:
+ *     MiUnlockWorkingSetShared @ 0x14025C1E0 (MiUnlockWorkingSetShared.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiWriteValidPteNewProtection @ 0x14032E660 (MiWriteValidPteNewProtection.c)
+ *     MiLockWorkingSetOptimal @ 0x14032F7CC (MiLockWorkingSetOptimal.c)
+ */
+
 void __fastcall MiDirtySystemCachePte(__int64 a1, __int64 *a2, __int16 a3)
 {
   __int64 v5; // rax

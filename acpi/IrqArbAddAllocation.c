@@ -1,3 +1,33 @@
+/*
+ * XREFs of IrqArbAddAllocation @ 0x1C009C4B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     AcpiIrqTranslateSecondaryInterruptToNtResources @ 0x1C000AB60 (AcpiIrqTranslateSecondaryInterruptToNtResources.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     ACPIInternalInterruptPolarityCacheGetPolarity @ 0x1C002E8C4 (ACPIInternalInterruptPolarityCacheGetPolarity.c)
+ *     LinkNodeCrackPrt @ 0x1C005CE9C (LinkNodeCrackPrt.c)
+ *     ProcessorDeleteDeviceIdtAssignment @ 0x1C005DFF0 (ProcessorDeleteDeviceIdtAssignment.c)
+ *     WPP_RECORDER_SF_DDDssDssqq @ 0x1C005E5E4 (WPP_RECORDER_SF_DDDssDssqq.c)
+ *     WPP_RECORDER_SF_Dq @ 0x1C005EA58 (WPP_RECORDER_SF_Dq.c)
+ *     LinkNodeGetPossibleGsiv @ 0x1C0099494 (LinkNodeGetPossibleGsiv.c)
+ *     LinkNodeGetPossibleResources @ 0x1C00994B8 (LinkNodeGetPossibleResources.c)
+ *     PcisuppIsPciDevice @ 0x1C0099F68 (PcisuppIsPciDevice.c)
+ *     ProcessorGetDestinationMode @ 0x1C009ABB8 (ProcessorGetDestinationMode.c)
+ *     IrqArbGetDeviceIrql @ 0x1C009D304 (IrqArbGetDeviceIrql.c)
+ *     IrqArbGsivFromIrq @ 0x1C009D69C (IrqArbGsivFromIrq.c)
+ *     IrqArbpLookupIsaOverrideByGsiv @ 0x1C009E4A4 (IrqArbpLookupIsaOverrideByGsiv.c)
+ *     IcAddPossibleReference @ 0x1C009EB74 (IcAddPossibleReference.c)
+ *     IcGetPossibleInput @ 0x1C009F314 (IcGetPossibleInput.c)
+ *     IcIsInterruptTypeSecondary @ 0x1C009F45C (IcIsInterruptTypeSecondary.c)
+ *     IcRemovePossibleReference @ 0x1C009F660 (IcRemovePossibleReference.c)
+ *     IcSetPossibleInput @ 0x1C009F6B4 (IcSetPossibleInput.c)
+ *     MsiGetTargetInfo @ 0x1C00A0698 (MsiGetTargetInfo.c)
+ */
+
 void __fastcall IrqArbAddAllocation(__int64 a1, ULONGLONG *a2, int a3)
 {
   int v3; // edi

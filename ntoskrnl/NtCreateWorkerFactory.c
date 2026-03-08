@@ -1,3 +1,29 @@
+/*
+ * XREFs of NtCreateWorkerFactory @ 0x14068A160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeDisableQueueingPriorityIncrement @ 0x140203AE8 (KeDisableQueueingPriorityIncrement.c)
+ *     ExpInitializeThreadHistory @ 0x140203AF8 (ExpInitializeThreadHistory.c)
+ *     KeInitializeTimer2 @ 0x140203D80 (KeInitializeTimer2.c)
+ *     KeSetTimer2 @ 0x14024EB20 (KeSetTimer2.c)
+ *     KeRegisterObjectNotification @ 0x14024F260 (KeRegisterObjectNotification.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IoAllocateMiniCompletionPacket @ 0x14068A5B0 (IoAllocateMiniCompletionPacket.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     IopFreeMiniCompletionPacket @ 0x1407C40A0 (IopFreeMiniCompletionPacket.c)
+ *     ObOpenObjectByPointer @ 0x1407C93D0 (ObOpenObjectByPointer.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall NtCreateWorkerFactory(
         __int64 *a1,
         __int64 a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopDirectedDripsUmQueryCapabilities @ 0x14099CA30
+ * Callers:
+ *     PopDirectedDripsUmPowerInformationInternal @ 0x14099C9A0 (PopDirectedDripsUmPowerInformationInternal.c)
+ * Callees:
+ *     PopDirectedDripsQueryMitigationStatus @ 0x140880DE0 (PopDirectedDripsQueryMitigationStatus.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PopDirectedDripsUmQueryCapabilities(_DWORD *a1, _QWORD *a2)
 {
   unsigned int v2; // ebx

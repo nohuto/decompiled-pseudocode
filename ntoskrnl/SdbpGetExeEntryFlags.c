@@ -1,3 +1,16 @@
+/*
+ * XREFs of SdbpGetExeEntryFlags @ 0x14084BD1C
+ * Callers:
+ *     SdbpCheckForMatch @ 0x1407A1468 (SdbpCheckForMatch.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbReadBinaryTag @ 0x14079D160 (SdbReadBinaryTag.c)
+ *     SdbReadDWORDTag @ 0x14079FC18 (SdbReadDWORDTag.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ *     SdbGetEntryFlags @ 0x14084BDEC (SdbGetEntryFlags.c)
+ */
+
 __int64 __fastcall SdbpGetExeEntryFlags(__int64 a1, __int64 a2, int *a3)
 {
   unsigned int v4; // edi

@@ -1,3 +1,23 @@
+/*
+ * XREFs of SepSetTokenLowboxNumber @ 0x1407398DC
+ * Callers:
+ *     SepGetAnonymousToken @ 0x1402B7BE0 (SepGetAnonymousToken.c)
+ *     NtCreateLowBoxToken @ 0x14069D520 (NtCreateLowBoxToken.c)
+ *     SeSubProcessToken @ 0x14070B29C (SeSubProcessToken.c)
+ *     SeSetSessionIdToken @ 0x140743440 (SeSetSessionIdToken.c)
+ *     SeExchangePrimaryToken @ 0x14083FA34 (SeExchangePrimaryToken.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     SepGetTokenSessionMapEntry @ 0x14045C46E (SepGetTokenSessionMapEntry.c)
+ *     SepGetLowBoxNumberEntry @ 0x140739A38 (SepGetLowBoxNumberEntry.c)
+ *     SepInitializeLowBoxNumberTable @ 0x140739CF0 (SepInitializeLowBoxNumberTable.c)
+ */
+
 __int64 __fastcall SepSetTokenLowboxNumber(__int64 a1, __int64 a2)
 {
   __int64 v2; // rsi

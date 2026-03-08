@@ -1,3 +1,16 @@
+/*
+ * XREFs of PipCriticalDeviceWaitCallback @ 0x140B90F20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlInitAnsiString @ 0x140299410 (RtlInitAnsiString.c)
+ *     RtlStringCchPrintfA @ 0x140389204 (RtlStringCchPrintfA.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ */
+
 __int64 __fastcall PipCriticalDeviceWaitCallback(__int64 a1, const char *a2, UNICODE_STRING *a3)
 {
   NTSTATUS v4; // ebx

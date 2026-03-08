@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiCMConvertDeviceKeyType @ 0x14076C950
+ * Callers:
+ *     PiCMOpenDeviceKey @ 0x14076C7C4 (PiCMOpenDeviceKey.c)
+ *     PiCMDeleteDeviceKey @ 0x140966320 (PiCMDeleteDeviceKey.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PiCMConvertDeviceKeyType(__int16 a1, int *a2)
 {
   unsigned int v2; // r9d

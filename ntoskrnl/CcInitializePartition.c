@@ -1,3 +1,20 @@
+/*
+ * XREFs of CcInitializePartition @ 0x14039B5F0
+ * Callers:
+ *     CcCreatePartition @ 0x14039B540 (CcCreatePartition.c)
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     ExpAllocatePoolWithTagFromNode @ 0x140310130 (ExpAllocatePoolWithTagFromNode.c)
+ *     CcInitializePartitionVacbs @ 0x14039BA70 (CcInitializePartitionVacbs.c)
+ *     CcForEachNumaNode @ 0x1403BDC9C (CcForEachNumaNode.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CcInitializeNumaNode @ 0x140538418 (CcInitializeNumaNode.c)
+ *     PsCreateSystemThread @ 0x1407DE2E0 (PsCreateSystemThread.c)
+ *     MmGetNumberOfPhysicalPagesForPartitionObject @ 0x140868AE0 (MmGetNumberOfPhysicalPagesForPartitionObject.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ */
+
 char __fastcall CcInitializePartition(char *StartContext, __int64 a2, _QWORD *a3)
 {
   char v5; // si

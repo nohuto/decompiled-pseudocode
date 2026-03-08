@@ -1,3 +1,12 @@
+/*
+ * XREFs of IommuMapLogicalRange @ 0x140523C80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpIommuDomainMapLogical @ 0x1405158BC (HalpIommuDomainMapLogical.c)
+ *     IommupValidateMdl @ 0x140524838 (IommupValidateMdl.c)
+ */
+
 __int64 __fastcall IommuMapLogicalRange(__int64 a1, int a2, __int64 a3)
 {
   __int64 v5; // r8

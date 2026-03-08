@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlUTF8ToUnicodeN @ 0x14075A870
+ * Callers:
+ *     RtlAnsiCharToUnicodeChar @ 0x1406EA670 (RtlAnsiCharToUnicodeChar.c)
+ *     RtlMultiByteToUnicodeSize @ 0x1407A3AB0 (RtlMultiByteToUnicodeSize.c)
+ *     RtlCustomCPToUnicodeN @ 0x1407A3C10 (RtlCustomCPToUnicodeN.c)
+ *     RtlUTF8StringToUnicodeString @ 0x1409BF3B0 (RtlUTF8StringToUnicodeString.c)
+ *     EtwpApplyContainerFilter @ 0x1409F1F18 (EtwpApplyContainerFilter.c)
+ * Callees:
+ *     CountUTF8ToUnicode @ 0x140390FD0 (CountUTF8ToUnicode.c)
+ */
+
 NTSTATUS __stdcall RtlUTF8ToUnicodeN(
         PWSTR UnicodeStringDestination,
         ULONG UnicodeStringMaxByteCount,

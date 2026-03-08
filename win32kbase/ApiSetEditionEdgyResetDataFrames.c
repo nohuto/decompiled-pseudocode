@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionEdgyResetDataFrames @ 0x1C023DB08
+ * Callers:
+ *     ?UnreferenceFrameAndMessageData@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@@Z @ 0x1C020714C (-UnreferenceFrameAndMessageData@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 (*__fastcall ApiSetEditionEdgyResetDataFrames(__int64 a1))(void)
 {
   char v2; // bl

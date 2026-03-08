@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopRecordPowerWatchdogBlackboxInformation @ 0x1405A0478
+ * Callers:
+ *     PopRecordPoBlackboxInformation @ 0x14099E024 (PopRecordPoBlackboxInformation.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void PopRecordPowerWatchdogBlackboxInformation()
 {
   KIRQL v0; // al

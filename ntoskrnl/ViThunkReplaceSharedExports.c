@@ -1,3 +1,12 @@
+/*
+ * XREFs of ViThunkReplaceSharedExports @ 0x140AD9108
+ * Callers:
+ *     ViThunkReplaceAllSharedExports @ 0x140AD8E64 (ViThunkReplaceAllSharedExports.c)
+ * Callees:
+ *     VfIsVerifierEnabled @ 0x14036B1B0 (VfIsVerifierEnabled.c)
+ *     MmReplaceImportEntry @ 0x14062A6B8 (MmReplaceImportEntry.c)
+ */
+
 void __fastcall ViThunkReplaceSharedExports(ULONG_PTR *a1, unsigned int a2)
 {
   ULONG_PTR *v2; // rbx

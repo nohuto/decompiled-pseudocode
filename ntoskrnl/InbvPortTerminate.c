@@ -1,3 +1,11 @@
+/*
+ * XREFs of InbvPortTerminate @ 0x140677218
+ * Callers:
+ *     HdlspEnableTerminal @ 0x140AE75C4 (HdlspEnableTerminal.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall InbvPortTerminate(unsigned int a1)
 {
   __int64 v1; // rcx

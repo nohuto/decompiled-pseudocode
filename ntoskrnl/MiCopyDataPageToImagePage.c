@@ -1,3 +1,33 @@
+/*
+ * XREFs of MiCopyDataPageToImagePage @ 0x140334490
+ * Callers:
+ *     MiResolveMappedFileFault @ 0x14028A780 (MiResolveMappedFileFault.c)
+ * Callees:
+ *     MiInitializeTransitionPfn @ 0x140214B28 (MiInitializeTransitionPfn.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     MiFinalizePageAttribute @ 0x14028A354 (MiFinalizePageAttribute.c)
+ *     MiStartingOffset @ 0x14028C530 (MiStartingOffset.c)
+ *     MiTryLockProtoPoolPageAtDpc @ 0x1402A2850 (MiTryLockProtoPoolPageAtDpc.c)
+ *     MiTryLockLeafPage @ 0x1402A29B8 (MiTryLockLeafPage.c)
+ *     MiObtainProtoReference @ 0x1402A304C (MiObtainProtoReference.c)
+ *     MiUnlockDataCopyPages @ 0x1402E2D6C (MiUnlockDataCopyPages.c)
+ *     MiAllocateHyperSpace @ 0x1402EF1E0 (MiAllocateHyperSpace.c)
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140305AB0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiEndingOffset @ 0x140324248 (MiEndingOffset.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     MiGetSessionIdForVa @ 0x140343520 (MiGetSessionIdForVa.c)
+ *     MiMapSinglePage @ 0x14034A868 (MiMapSinglePage.c)
+ *     MiStandbyPageContentsIntact @ 0x14034B200 (MiStandbyPageContentsIntact.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiAdvanceFaultList @ 0x140363F9C (MiAdvanceFaultList.c)
+ *     KeCopyPage @ 0x14041BC90 (KeCopyPage.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall MiCopyDataPageToImagePage(
         __int64 a1,
         __int64 a2,

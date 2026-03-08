@@ -1,3 +1,15 @@
+/*
+ * XREFs of KeRaiseUserException @ 0x14056E8C0
+ * Callers:
+ *     ExHandleLogBadReference @ 0x140604648 (ExHandleLogBadReference.c)
+ *     PspInsertThread @ 0x1406B0F50 (PspInsertThread.c)
+ *     ObpCloseHandle @ 0x1407C2500 (ObpCloseHandle.c)
+ *     ObCloseHandleTableEntry @ 0x1407D8274 (ObCloseHandleTableEntry.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiSetupForInstrumentationReturn @ 0x14056E9C0 (KiSetupForInstrumentationReturn.c)
+ */
+
 __int64 __fastcall KeRaiseUserException(unsigned int a1)
 {
   struct _KTHREAD *CurrentThread; // rdx

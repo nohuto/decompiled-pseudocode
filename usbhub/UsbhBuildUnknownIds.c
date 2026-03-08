@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhBuildUnknownIds @ 0x1C0050144
+ * Callers:
+ *     UsbhSetEnumerationFailed @ 0x1C004E9B8 (UsbhSetEnumerationFailed.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhFreeID @ 0x1C00503BC (UsbhFreeID.c)
+ *     UsbhMakeId @ 0x1C0050D48 (UsbhMakeId.c)
+ */
+
 void __fastcall UsbhBuildUnknownIds(__int64 a1, __int64 a2)
 {
   __int64 v2; // r9

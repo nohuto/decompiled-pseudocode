@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?_GetUsb4TargetList@MONITOR_MGR@@QEAAJPEAK0@Z @ 0x1C03C32F0
+ * Callers:
+ *     MonitorEnableDisableMonitor @ 0x1C01E18AC (MonitorEnableDisableMonitor.c)
+ * Callees:
+ *     ??0?$RESOURCE_LOCK@VDXGMONITOR@@@@QEAA@PEAVDXGMONITOR@@_N@Z @ 0x1C0001F08 (--0-$RESOURCE_LOCK@VDXGMONITOR@@@@QEAA@PEAVDXGMONITOR@@_N@Z.c)
+ *     ??1MUTEX_LOCK@@QEAA@XZ @ 0x1C0004750 (--1MUTEX_LOCK@@QEAA@XZ.c)
+ *     ??0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z @ 0x1C00048E4 (--0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z.c)
+ */
+
 __int64 __fastcall MONITOR_MGR::_GetUsb4TargetList(MONITOR_MGR *this, unsigned int *a2, unsigned int *a3)
 {
   unsigned int v3; // r15d

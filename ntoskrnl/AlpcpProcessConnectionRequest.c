@@ -1,3 +1,25 @@
+/*
+ * XREFs of AlpcpProcessConnectionRequest @ 0x140717E20
+ * Callers:
+ *     AlpcpConnectPort @ 0x140712F5C (AlpcpConnectPort.c)
+ * Callees:
+ *     Feature_2203404602__private_IsEnabledDeviceUsage @ 0x14040B478 (Feature_2203404602__private_IsEnabledDeviceUsage.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     AlpcpFormatConnectionRequest @ 0x140712838 (AlpcpFormatConnectionRequest.c)
+ *     AlpcpProbeAndCaptureMessageHeader @ 0x140715E54 (AlpcpProbeAndCaptureMessageHeader.c)
+ *     AlpcpUnlockMessage @ 0x140716BD8 (AlpcpUnlockMessage.c)
+ *     AlpcpReadMessageData @ 0x140716C08 (AlpcpReadMessageData.c)
+ *     AlpcpProbeForWriteMessageHeader @ 0x140716C88 (AlpcpProbeForWriteMessageHeader.c)
+ *     AlpcpDispatchConnectionRequest @ 0x140717CC0 (AlpcpDispatchConnectionRequest.c)
+ *     AlpcpProbeMessageAttributes @ 0x140718308 (AlpcpProbeMessageAttributes.c)
+ *     AlpcpExposeAttributes @ 0x1407CDCB0 (AlpcpExposeAttributes.c)
+ *     AlpcpReceiveSynchronousReply @ 0x1407CFC50 (AlpcpReceiveSynchronousReply.c)
+ *     AlpcpGetDataFromUserVaSafe @ 0x140975F5C (AlpcpGetDataFromUserVaSafe.c)
+ *     AlpcpLogConnectFail @ 0x1409772EC (AlpcpLogConnectFail.c)
+ *     AlpcpLogConnectRequest @ 0x140977360 (AlpcpLogConnectRequest.c)
+ *     AlpcpLogConnectSuccess @ 0x1409773D0 (AlpcpLogConnectSuccess.c)
+ */
+
 __int64 __fastcall AlpcpProcessConnectionRequest(
         __int64 a1,
         unsigned int a2,

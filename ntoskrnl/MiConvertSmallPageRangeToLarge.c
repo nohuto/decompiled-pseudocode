@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiConvertSmallPageRangeToLarge @ 0x1403B3040
+ * Callers:
+ *     MiFreeMdlPageRun @ 0x14027AF50 (MiFreeMdlPageRun.c)
+ *     MiInitializeMdlBatchPages @ 0x1402B4150 (MiInitializeMdlBatchPages.c)
+ *     MiAllocateLargeZeroPages @ 0x14034DCB0 (MiAllocateLargeZeroPages.c)
+ *     MiFreeLargePageMemory @ 0x1403505C0 (MiFreeLargePageMemory.c)
+ *     MiRebuildLargePage @ 0x140466288 (MiRebuildLargePage.c)
+ *     MiDeleteSubsectionLargePages @ 0x14064C7F8 (MiDeleteSubsectionLargePages.c)
+ * Callees:
+ *     MiSetPfnTbFlushStamp @ 0x14028A3A0 (MiSetPfnTbFlushStamp.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MiSetPfnNodeBlinkLow @ 0x1402DF430 (MiSetPfnNodeBlinkLow.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiConvertSmallPageRangeToLarge(__int64 a1, int a2)
 {
   char v2; // r9

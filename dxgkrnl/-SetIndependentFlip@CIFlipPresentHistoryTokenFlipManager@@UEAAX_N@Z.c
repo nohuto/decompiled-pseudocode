@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetIndependentFlip@CIFlipPresentHistoryTokenFlipManager@@UEAAX_N@Z @ 0x1C0019B60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CIFlipPresentHistoryTokenFlipManager::SetIndependentFlip(
         CIFlipPresentHistoryTokenFlipManager *this,
         char a2)

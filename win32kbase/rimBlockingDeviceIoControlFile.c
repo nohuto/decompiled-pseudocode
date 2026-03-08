@@ -1,3 +1,11 @@
+/*
+ * XREFs of rimBlockingDeviceIoControlFile @ 0x1C00304DC
+ * Callers:
+ *     RIMLoadDeviceLegacyInfo @ 0x1C00305E4 (RIMLoadDeviceLegacyInfo.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ */
+
 __int64 __fastcall rimBlockingDeviceIoControlFile(
         HANDLE FileHandle,
         __int64 a2,

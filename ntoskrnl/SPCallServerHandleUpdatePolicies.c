@@ -1,3 +1,13 @@
+/*
+ * XREFs of SPCallServerHandleUpdatePolicies @ 0x1407978F8
+ * Callers:
+ *     sub_1406DC290 @ 0x1406DC290 (sub_1406DC290.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SPCallServerHandleUpdatePolicies(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
 {
   int v6; // ecx

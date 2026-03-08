@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?EngRealizeBrush@@YAHPEAU_BRUSHOBJ@@PEAU_SURFOBJ@@11PEAU_XLATEOBJ@@K@Z @ 0x1C001A0C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z @ 0x1C0019BA8 (-bEnableHalftone@PDEVOBJ@@QEAAHPEAUtagCOLORADJUSTMENT@@@Z.c)
+ *     ?pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ @ 0x1C001A4A0 (-pDevHTInfo@PDEVOBJ@@QEAAPEAXXZ.c)
+ *     ?vRelease@HTSEMOBJ@@QEAAXXZ @ 0x1C001B2C8 (-vRelease@HTSEMOBJ@@QEAAXXZ.c)
+ *     EngStretchBlt @ 0x1C004DC80 (EngStretchBlt.c)
+ *     ?vAltUnlock@EXLATEOBJ@@QEAAXXZ @ 0x1C007F50C (-vAltUnlock@EXLATEOBJ@@QEAAXXZ.c)
+ *     ?bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z @ 0x1C00834C0 (-bInitXlateObj@EXLATEOBJ@@QEAAHPEAXJVXEPALOBJ@@111KKKK@Z.c)
+ *     EngCopyBits @ 0x1C008AE00 (EngCopyBits.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     EngHTBlt @ 0x1C02E0A38 (EngHTBlt.c)
+ */
+
 __int64 __fastcall EngRealizeBrush(
         struct _BRUSHOBJ *a1,
         struct _SURFOBJ *a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiIpiEnlightenedGuestPriorityKick @ 0x140233850
+ * Callers:
+ *     KiIpiSendRequest @ 0x140233230 (KiIpiSendRequest.c)
+ * Callees:
+ *     KiHvEnlightenedGuestPriorityKick @ 0x140227EF4 (KiHvEnlightenedGuestPriorityKick.c)
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeIsEmptyAffinityEx @ 0x140237C30 (KeIsEmptyAffinityEx.c)
+ */
+
 _UNKNOWN **__fastcall KiIpiEnlightenedGuestPriorityKick(__int64 a1)
 {
   _UNKNOWN **result; // rax

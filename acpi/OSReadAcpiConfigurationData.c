@@ -1,3 +1,17 @@
+/*
+ * XREFs of OSReadAcpiConfigurationData @ 0x1C00AA2F4
+ * Callers:
+ *     ACPIInitializeAMLI @ 0x1C00A92D4 (ACPIInitializeAMLI.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_ @ 0x1C000ABD8 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_d @ 0x1C000ACAC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_SL @ 0x1C003BFAC (WPP_RECORDER_SF_SL.c)
+ *     OSCloseHandle @ 0x1C008DB38 (OSCloseHandle.c)
+ *     OSGetRegistryValue @ 0x1C008DCAC (OSGetRegistryValue.c)
+ *     OSOpenUnicodeHandle @ 0x1C008E3DC (OSOpenUnicodeHandle.c)
+ */
+
 __int64 __fastcall OSReadAcpiConfigurationData(PVOID *a1)
 {
   int v2; // eax

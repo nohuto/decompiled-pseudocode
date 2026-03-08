@@ -1,3 +1,12 @@
+/*
+ * XREFs of IommupCreateDeviceId @ 0x14038C584
+ * Callers:
+ *     IommuDeviceCreate @ 0x140820F90 (IommuDeviceCreate.c)
+ * Callees:
+ *     HalpIommuGetDeviceId @ 0x14038CC4C (HalpIommuGetDeviceId.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ */
+
 __int64 __fastcall IommupCreateDeviceId(__int64 a1, __int64 a2, _QWORD *a3, __int64 a4)
 {
   int DeviceId; // edi

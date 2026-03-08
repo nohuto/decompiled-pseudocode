@@ -1,3 +1,15 @@
+/*
+ * XREFs of PREALLOCMEM2 @ 0x1C00F02EC
+ * Callers:
+ *     ??$AllocAndCopyRegistryEntries@U_FONTSUB@@$0GCHDGGEH@@@YAJPEAKPEAPEAU_FONTSUB@@0PEBU0@@Z @ 0x1C010F4A0 (--$AllocAndCopyRegistryEntries@U_FONTSUB@@$0GCHDGGEH@@@YAJPEAKPEAPEAU_FONTSUB@@0PEBU0@@Z.c)
+ *     ??$AllocAndCopyRegistryEntries@U_FONTMAPPERFAMILYFALLBACK@@$0EGEGENEH@@@YAJPEAKPEAPEAU_FONTMAPPERFAMILYFALLBACK@@0PEBU0@@Z @ 0x1C02A9148 (--$AllocAndCopyRegistryEntries@U_FONTMAPPERFAMILYFALLBACK@@$0EGEGENEH@@@YAJPEAKPEAPEAU_FONTMAPPE.c)
+ *     vInitFontSubTable @ 0x1C03B7E00 (vInitFontSubTable.c)
+ *     vInitFontMapperFamilyFallbackTable @ 0x1C03B7FC0 (vInitFontMapperFamilyFallbackTable.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 char *__fastcall PREALLOCMEM2(void *Src, unsigned int a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // esi

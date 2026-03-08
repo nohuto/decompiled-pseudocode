@@ -1,3 +1,14 @@
+/*
+ * XREFs of ExpQuerySingleModuleInformation @ 0x1409F4608
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ExpConvertLdrEntryToModuleInfo @ 0x14079FD98 (ExpConvertLdrEntryToModuleInfo.c)
+ */
+
 __int64 __fastcall ExpQuerySingleModuleInformation(unsigned __int64 *a1, unsigned int a2, char a3, _DWORD *a4)
 {
   unsigned __int64 v7; // rbx

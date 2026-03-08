@@ -1,3 +1,20 @@
+/*
+ * XREFs of KeConnectInterrupt @ 0x14028FA54
+ * Callers:
+ *     IopConnectInterrupt @ 0x1406F43D8 (IopConnectInterrupt.c)
+ * Callees:
+ *     KeDisconnectInterrupt @ 0x14028E38C (KeDisconnectInterrupt.c)
+ *     HalEnableInterrupt @ 0x14028F730 (HalEnableInterrupt.c)
+ *     KiConnectInterrupt @ 0x14028FC8C (KiConnectInterrupt.c)
+ *     KiIntSteerConnect @ 0x14028FF2C (KiIntSteerConnect.c)
+ *     KiIsInterruptTypeSecondary @ 0x140290340 (KiIsInterruptTypeSecondary.c)
+ *     KiClearSystemPriority @ 0x1402DAA90 (KiClearSystemPriority.c)
+ *     KiSetSystemPriorityThread @ 0x1402E9F30 (KiSetSystemPriorityThread.c)
+ *     KiConnectSecondaryInterrupt @ 0x14039DF6C (KiConnectSecondaryInterrupt.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiUnmaskSecondaryInterruptInternal @ 0x14056F948 (KiUnmaskSecondaryInterruptInternal.c)
+ */
+
 __int64 __fastcall KeConnectInterrupt(__int64 *a1, unsigned __int8 a2, __int64 a3)
 {
   __int64 v4; // r15

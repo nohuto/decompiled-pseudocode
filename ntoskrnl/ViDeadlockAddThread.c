@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViDeadlockAddThread @ 0x140AD5624
+ * Callers:
+ *     VfDeadlockAcquireResource @ 0x140AD3DAC (VfDeadlockAcquireResource.c)
+ * Callees:
+ *     VfUtilAddressRangeAdd @ 0x140ABF394 (VfUtilAddressRangeAdd.c)
+ */
+
 __int64 __fastcall ViDeadlockAddThread(unsigned __int64 a1, __int64 a2)
 {
   __int64 result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of _UpgradeDispModeFlags @ 0x1C01E97E8
+ * Callers:
+ *     ??ROBTAIN_MODES_ON_SOURCE@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI01@Z @ 0x1C01E8700 (--ROBTAIN_MODES_ON_SOURCE@@QEBAJPEAPEAU_D3DKMT_DISPLAYMODE@@PEAI01@Z.c)
+ *     ?AddUniqueMode@MODE_UNION_LIST@@QEAAJAEBU_D3DKMT_DISPLAYMODE@@@Z @ 0x1C01E984C (-AddUniqueMode@MODE_UNION_LIST@@QEAAJAEBU_D3DKMT_DISPLAYMODE@@@Z.c)
+ *     _CombineModeList @ 0x1C02FC23C (_CombineModeList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall UpgradeDispModeFlags(__int64 a1, __int64 a2)
 {
   int v3; // ecx

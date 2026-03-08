@@ -1,3 +1,14 @@
+/*
+ * XREFs of sub_140B310C4 @ 0x140B310C4
+ * Callers:
+ *     sub_140B16730 @ 0x140B16730 (sub_140B16730.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     NtClose @ 0x1407C00E0 (NtClose.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     KeGuardDispatchICall @ 0x140B107A0 (KeGuardDispatchICall.c)
+ */
+
 __int64 __fastcall sub_140B310C4(__int64 a1)
 {
   unsigned __int64 v2; // rax

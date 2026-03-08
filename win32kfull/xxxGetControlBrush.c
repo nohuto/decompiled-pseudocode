@@ -1,3 +1,12 @@
+/*
+ * XREFs of xxxGetControlBrush @ 0x1C02269BC
+ * Callers:
+ *     ?xxxGetColorObjects@@YAPEAUHBRUSH__@@PEAUtagWND@@PEAUHDC__@@@Z @ 0x1C0013EE8 (-xxxGetColorObjects@@YAPEAUHBRUSH__@@PEAUtagWND@@PEAUHDC__@@@Z.c)
+ *     NtUserGetControlBrush @ 0x1C01D1E90 (NtUserGetControlBrush.c)
+ * Callees:
+ *     xxxGetControlColor @ 0x1C0007848 (xxxGetControlColor.c)
+ */
+
 __int64 __fastcall xxxGetControlBrush(__int64 *a1, HWND a2, unsigned int a3)
 {
   struct tagWND *v6; // rdi

@@ -1,3 +1,18 @@
+/*
+ * XREFs of UsbhGetDeviceInformation @ 0x1C00382CC
+ * Callers:
+ *     UsbhGetAlternateUsbDescriptors @ 0x1C0037CEC (UsbhGetAlternateUsbDescriptors.c)
+ *     UsbhSetupDevice @ 0x1C0039728 (UsbhSetupDevice.c)
+ * Callees:
+ *     UsbhEtwLogHubIrpEvent @ 0x1C00098E0 (UsbhEtwLogHubIrpEvent.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     UsbhParseConfigurationDescriptorEx @ 0x1C0031F38 (UsbhParseConfigurationDescriptorEx.c)
+ *     UsbhGetUsbDeviceFlags @ 0x1C00388EC (UsbhGetUsbDeviceFlags.c)
+ *     Usbh_HubGetUsbDescriptors @ 0x1C003B174 (Usbh_HubGetUsbDescriptors.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhValidateConfigurationDescriptor @ 0x1C00525F0 (UsbhValidateConfigurationDescriptor.c)
+ */
+
 __int64 __fastcall UsbhGetDeviceInformation(__int64 a1, __int64 a2)
 {
   int v3; // r15d

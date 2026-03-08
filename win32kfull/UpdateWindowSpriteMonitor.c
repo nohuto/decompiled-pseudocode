@@ -1,3 +1,17 @@
+/*
+ * XREFs of UpdateWindowSpriteMonitor @ 0x1C002C598
+ * Callers:
+ *     ?xxxEnableNonClientDpiScaling@@YA_NPEAUtagWND@@@Z @ 0x1C0015434 (-xxxEnableNonClientDpiScaling@@YA_NPEAUtagWND@@@Z.c)
+ *     ComposeWindow @ 0x1C002297C (ComposeWindow.c)
+ *     xxxSetLayeredWindow @ 0x1C0028C1C (xxxSetLayeredWindow.c)
+ *     SetRedirectedWindow @ 0x1C002BE1C (SetRedirectedWindow.c)
+ *     UpdateWindowMonitor @ 0x1C00AE6B0 (UpdateWindowMonitor.c)
+ * Callees:
+ *     GreDwmNotifySpriteMonitorChange @ 0x1C002C60C (GreDwmNotifySpriteMonitorChange.c)
+ *     InitializeMonitorInfo @ 0x1C002D4E8 (InitializeMonitorInfo.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall UpdateWindowSpriteMonitor(_QWORD *a1, __int64 a2)
 {
   __int64 v2; // rdi

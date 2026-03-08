@@ -1,3 +1,11 @@
+/*
+ * XREFs of sub_140752E20 @ 0x140752E20
+ * Callers:
+ *     WbFreeWarbirdProcess @ 0x140752CDC (WbFreeWarbirdProcess.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall sub_140752E20(__int64 a1)
 {
   void *v2; // rcx

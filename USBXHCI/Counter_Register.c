@@ -1,3 +1,11 @@
+/*
+ * XREFs of Counter_Register @ 0x1C0074878
+ * Callers:
+ *     DriverEntry @ 0x1C0074360 (DriverEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS Counter_Register()
 {
   NTSTATUS result; // eax

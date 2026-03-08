@@ -1,3 +1,14 @@
+/*
+ * XREFs of SetTimerCoalescingTolerance @ 0x1C0079290
+ * Callers:
+ *     xxxSwitchDesktop @ 0x1C00205D4 (xxxSwitchDesktop.c)
+ *     ?KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z @ 0x1C0079188 (-KeepMachineUp@@YAXW4POWER_MONITOR_REQUEST_REASON@@@Z.c)
+ *     InitTimerCoalescing @ 0x1C00F3720 (InitTimerCoalescing.c)
+ *     ?StartScreenSaver@@YAXH@Z @ 0x1C0203424 (-StartScreenSaver@@YAXH@Z.c)
+ * Callees:
+ *     ?ConfigureRITDelayableTimers@@YAXW4RitTimerRate@@@Z @ 0x1C007933C (-ConfigureRITDelayableTimers@@YAXW4RitTimerRate@@@Z.c)
+ */
+
 __int64 __fastcall SetTimerCoalescingTolerance(__int64 a1)
 {
   __int64 v1; // rbx

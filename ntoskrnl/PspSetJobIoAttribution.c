@@ -1,3 +1,19 @@
+/*
+ * XREFs of PspSetJobIoAttribution @ 0x1407530A0
+ * Callers:
+ *     NtSetInformationJobObject @ 0x1406FC3C0 (NtSetInformationJobObject.c)
+ *     PspSetJobIoRateControl @ 0x140752E58 (PspSetJobIoRateControl.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     IoStartDiskIoAttributionForContext @ 0x1402C4114 (IoStartDiskIoAttributionForContext.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PspEnumJobsAndProcessesInJobHierarchy @ 0x1406FB7C8 (PspEnumJobsAndProcessesInJobHierarchy.c)
+ *     PspIsSetJobIoAttribution @ 0x140753294 (PspIsSetJobIoAttribution.c)
+ *     IoDiskIoAttributionAllocate @ 0x1407532F4 (IoDiskIoAttributionAllocate.c)
+ *     PspRemoveIoAttribution @ 0x14075339C (PspRemoveIoAttribution.c)
+ */
+
 __int64 __fastcall PspSetJobIoAttribution(_DWORD *Object, char a2, char a3, unsigned int a4)
 {
   char v4; // r15

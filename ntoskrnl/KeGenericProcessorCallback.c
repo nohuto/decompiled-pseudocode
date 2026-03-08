@@ -1,3 +1,28 @@
+/*
+ * XREFs of KeGenericProcessorCallback @ 0x1402A9E48
+ * Callers:
+ *     KeDisableTimer2 @ 0x140204028 (KeDisableTimer2.c)
+ *     KeRemoveQueueDpcEx @ 0x14028DB50 (KeRemoveQueueDpcEx.c)
+ *     KeFlushQueuedDpcs @ 0x1402AF200 (KeFlushQueuedDpcs.c)
+ *     KeGenericCallDpc @ 0x1403008E0 (KeGenericCallDpc.c)
+ *     ExpUpdateTimerConfiguration @ 0x1403BCFE8 (ExpUpdateTimerConfiguration.c)
+ *     KeUpdateDpcWatchdogConfiguration @ 0x140568BB0 (KeUpdateDpcWatchdogConfiguration.c)
+ *     RtlUpdateSwapReference @ 0x140818560 (RtlUpdateSwapReference.c)
+ *     KeSetIntervalProfile @ 0x140972128 (KeSetIntervalProfile.c)
+ *     PspSetVmProcessorHostProcessWorkerRoutine @ 0x1409AEA50 (PspSetVmProcessorHostProcessWorkerRoutine.c)
+ * Callees:
+ *     KeSetPriorityThread @ 0x1402261B0 (KeSetPriorityThread.c)
+ *     KiRemoveBoostThread @ 0x140229890 (KiRemoveBoostThread.c)
+ *     KiCheckForThreadDispatch @ 0x14023A168 (KiCheckForThreadDispatch.c)
+ *     KiEnumerateNextProcessorNumber @ 0x1402AA0A0 (KiEnumerateNextProcessorNumber.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402AA110 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402ABED0 (KeSetSystemGroupAffinityThread.c)
+ *     KeSetPriorityBoost @ 0x14035112C (KeSetPriorityBoost.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 char __fastcall KeGenericProcessorCallback(
         _QWORD *a1,
         void (__fastcall *a2)(struct _KPRCB *, __int64),

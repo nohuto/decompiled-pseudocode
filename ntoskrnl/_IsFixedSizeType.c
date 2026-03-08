@@ -1,3 +1,11 @@
+/*
+ * XREFs of _IsFixedSizeType @ 0x140202B10
+ * Callers:
+ *     _PnpValidatePropertyData @ 0x140686FC8 (_PnpValidatePropertyData.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall IsFixedSizeType(__int16 a1)
 {
   int v1; // ecx

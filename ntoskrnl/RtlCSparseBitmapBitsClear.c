@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlCSparseBitmapBitsClear @ 0x140309068
+ * Callers:
+ *     RtlpHpVaMgrRangeCreate @ 0x140304A64 (RtlpHpVaMgrRangeCreate.c)
+ *     RtlCSparseBitmapBitmaskWrite @ 0x140305C10 (RtlCSparseBitmapBitmaskWrite.c)
+ *     RtlpHpSegSegmentFree @ 0x140308E54 (RtlpHpSegSegmentFree.c)
+ *     RtlpHpVaMgrRangeCleanup @ 0x14030BF1C (RtlpHpVaMgrRangeCleanup.c)
+ * Callees:
+ *     RtlpCSparseBitmapPageDecommit @ 0x1403046C4 (RtlpCSparseBitmapPageDecommit.c)
+ */
+
 __int64 __fastcall RtlCSparseBitmapBitsClear(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   __int64 result; // rax

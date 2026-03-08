@@ -1,3 +1,24 @@
+/*
+ * XREFs of BapdRecordFirmwareBootStats @ 0x140A8BD14
+ * Callers:
+ *     PopBootLoaderTraceProcess @ 0x1409853E0 (PopBootLoaderTraceProcess.c)
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     BapdRegisterEtwProvider @ 0x14038069C (BapdRegisterEtwProvider.c)
+ *     ExIsSoftBoot @ 0x140380700 (ExIsSoftBoot.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     EtwUnregister @ 0x14076F9E0 (EtwUnregister.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x14080F6BC (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ *     BapdpWriteEventDataToRegistry @ 0x140A8C034 (BapdpWriteEventDataToRegistry.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void BapdRecordFirmwareBootStats()
 {
   REGHANDLE v0; // rdi

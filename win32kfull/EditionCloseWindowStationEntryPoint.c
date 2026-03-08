@@ -1,3 +1,11 @@
+/*
+ * XREFs of EditionCloseWindowStationEntryPoint @ 0x1C00F5CC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EditionCloseWindowStationEntryPoint(__int64 a1)
 {
   __int64 v2; // rdx

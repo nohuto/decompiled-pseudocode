@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlpQueryTimeZoneInformationWorker @ 0x140773434
+ * Callers:
+ *     EtwpAddLogHeader @ 0x140772F04 (EtwpAddLogHeader.c)
+ *     ExInitializeUtcTimeZoneBias @ 0x14080F488 (ExInitializeUtcTimeZoneBias.c)
+ *     ExpRefreshTimeZoneInformation @ 0x140811500 (ExpRefreshTimeZoneInformation.c)
+ *     RtlQueryDynamicTimeZoneInformation @ 0x1409BA7D0 (RtlQueryDynamicTimeZoneInformation.c)
+ *     RtlQueryTimeZoneInformation @ 0x1409BA7F0 (RtlQueryTimeZoneInformation.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     RtlpQueryRegistryValues @ 0x14069B3C0 (RtlpQueryRegistryValues.c)
+ *     RtlpGetTimeZoneInfoHandle @ 0x1407736C4 (RtlpGetTimeZoneInfoHandle.c)
+ */
+
 __int64 __fastcall RtlpQueryTimeZoneInformationWorker(char *a1, size_t Size)
 {
   unsigned int v2; // esi

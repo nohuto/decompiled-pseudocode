@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopIsSystemIdle @ 0x14073BC88
+ * Callers:
+ *     PopSystemIdleWorker @ 0x14073B6A0 (PopSystemIdleWorker.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopAssessSystemIdleEvent @ 0x14073BD8C (PopAssessSystemIdleEvent.c)
+ */
+
 bool __fastcall PopIsSystemIdle(__int64 a1, unsigned int a2, unsigned __int64 *a3, __int64 a4)
 {
   int v4; // edi

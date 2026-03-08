@@ -1,3 +1,21 @@
+/*
+ * XREFs of IopCreateUmdfDirectory @ 0x140B69C28
+ * Callers:
+ *     IopCreateRootDirectories @ 0x140B69B38 (IopCreateRootDirectories.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlInitializeSid @ 0x14068E3A0 (RtlInitializeSid.c)
+ *     RtlSetDaclSecurityDescriptor @ 0x1406D26A0 (RtlSetDaclSecurityDescriptor.c)
+ *     RtlCreateSecurityDescriptor @ 0x1406DB5A0 (RtlCreateSecurityDescriptor.c)
+ *     RtlCreateAcl @ 0x1406DB640 (RtlCreateAcl.c)
+ *     NtCreateDirectoryObject @ 0x14073DEB0 (NtCreateDirectoryObject.c)
+ *     RtlAddAccessAllowedAce @ 0x140744250 (RtlAddAccessAllowedAce.c)
+ *     RtlLengthRequiredSid @ 0x140782B90 (RtlLengthRequiredSid.c)
+ *     ObCloseHandle @ 0x1407F0D20 (ObCloseHandle.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 IopCreateUmdfDirectory()
 {
   unsigned __int8 *SeLocalSystemSid; // r14

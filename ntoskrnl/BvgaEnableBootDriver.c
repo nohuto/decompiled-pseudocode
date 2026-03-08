@@ -1,3 +1,12 @@
+/*
+ * XREFs of BvgaEnableBootDriver @ 0x14054CEC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     BvgaAcquireLock @ 0x14054CD30 (BvgaAcquireLock.c)
+ *     BvgaReleaseLock @ 0x14054D030 (BvgaReleaseLock.c)
+ */
+
 __int64 __fastcall BvgaEnableBootDriver(char a1)
 {
   int v1; // ebx

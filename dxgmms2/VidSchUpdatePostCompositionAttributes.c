@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchUpdatePostCompositionAttributes @ 0x1C0040D50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VidSchUpdatePostCompositionAttributes(__int64 a1, unsigned int a2, int a3, __int128 *a4, __int128 *a5)
 {
   __int128 v6; // xmm6

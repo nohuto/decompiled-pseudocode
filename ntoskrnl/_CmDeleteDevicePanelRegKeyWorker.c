@@ -1,3 +1,21 @@
+/*
+ * XREFs of _CmDeleteDevicePanelRegKeyWorker @ 0x140A6333C
+ * Callers:
+ *     _CmDeleteDevicePanelRegKey @ 0x140A631FC (_CmDeleteDevicePanelRegKey.c)
+ * Callees:
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     wcsrchr @ 0x1403D5F90 (wcsrchr.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _PnpCtxGetCachedContextBaseKey @ 0x1406D3680 (_PnpCtxGetCachedContextBaseKey.c)
+ *     RtlPrefixUnicodeString @ 0x1406D5A70 (RtlPrefixUnicodeString.c)
+ *     _RegRtlDeleteKeyTransacted @ 0x14085F0A8 (_RegRtlDeleteKeyTransacted.c)
+ *     _RegRtlDeleteTreeInternal @ 0x140868B00 (_RegRtlDeleteTreeInternal.c)
+ *     _CmGetDevicePanelRegKeyPath @ 0x140A63A70 (_CmGetDevicePanelRegKeyPath.c)
+ *     _SysCtxRegOpenCurrentUserKey @ 0x140A6772C (_SysCtxRegOpenCurrentUserKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CmDeleteDevicePanelRegKeyWorker(__int64 a1, int a2, int a3, __int64 a4, char a5)
 {
   int v6; // ebx

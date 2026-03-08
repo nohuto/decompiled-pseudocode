@@ -1,3 +1,11 @@
+/*
+ * XREFs of SeSecurityModelQueryInformation @ 0x1409C6B7C
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     SepIsDeviceOwnerProtectionDowngradeAllowed @ 0x1405B67F4 (SepIsDeviceOwnerProtectionDowngradeAllowed.c)
+ */
+
 __int64 __fastcall SeSecurityModelQueryInformation(_DWORD *a1, int a2)
 {
   _DWORD *v3; // rcx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of VerifierMmAllocateContiguousMemorySpecifyCache @ 0x140ADF5C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ViTargetTrackContiguousMemory @ 0x140AC8D80 (ViTargetTrackContiguousMemory.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ *     VfFaultsInjectResourceFailure @ 0x140AD2FAC (VfFaultsInjectResourceFailure.c)
+ *     VfFillAllocatedMemory @ 0x140AD700C (VfFillAllocatedMemory.c)
+ */
+
 _SLIST_ENTRY *__fastcall VerifierMmAllocateContiguousMemorySpecifyCache(
         ULONG_PTR BugCheckParameter3,
         __int64 a2,

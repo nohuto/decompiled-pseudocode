@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiShuffleAssignedSubNodes @ 0x140B92B9C
+ * Callers:
+ *     KiPerformAutomaticGroupConfiguration @ 0x140B929BC (KiPerformAutomaticGroupConfiguration.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiShuffleAssignedSubNodes(__int64 *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   unsigned __int16 v4; // r11

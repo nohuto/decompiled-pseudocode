@@ -1,3 +1,15 @@
+/*
+ * XREFs of ImpRpcAsyncInit @ 0x1C008C754
+ * Callers:
+ *     ImpInitializeWork @ 0x1C0089C08 (ImpInitializeWork.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0088924 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ImpAllocate @ 0x1C0089EE4 (ImpAllocate.c)
+ *     MicrosoftTelemetryAssertTriggeredNoArgsKM @ 0x1C008D2C0 (MicrosoftTelemetryAssertTriggeredNoArgsKM.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     Feature_Servicing_ImpRpcAsyncInit__private_IsEnabledDeviceUsage @ 0x1C00E16C8 (Feature_Servicing_ImpRpcAsyncInit__private_IsEnabledDeviceUsage.c)
+ */
+
 __int64 ImpRpcAsyncInit()
 {
   __int64 v0; // rdx

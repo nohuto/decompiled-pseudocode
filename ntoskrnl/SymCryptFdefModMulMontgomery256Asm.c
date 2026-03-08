@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefModMulMontgomery256Asm @ 0x140400C70
+ * Callers:
+ *     SymCryptFdefModSetPostMontgomery256 @ 0x1403FF2A0 (SymCryptFdefModSetPostMontgomery256.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdefModMulMontgomery256Asm(
         __int64 a1,
         unsigned __int64 *a2,

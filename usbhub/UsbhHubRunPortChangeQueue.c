@@ -1,3 +1,23 @@
+/*
+ * XREFs of UsbhHubRunPortChangeQueue @ 0x1C0013CC0
+ * Callers:
+ *     Usbh_PCE_wRun_Action @ 0x1C0014530 (Usbh_PCE_wRun_Action.c)
+ * Callees:
+ *     UsbhUnlatchPdo @ 0x1C0001380 (UsbhUnlatchPdo.c)
+ *     UsbhDispatch_PortChangeQueueEventEx @ 0x1C0014330 (UsbhDispatch_PortChangeQueueEventEx.c)
+ *     UsbhDispatch_PortChangeQueueNullEventEx @ 0x1C0014CD0 (UsbhDispatch_PortChangeQueueNullEventEx.c)
+ *     UsbhQueryPortState @ 0x1C0016540 (UsbhQueryPortState.c)
+ *     UsbhHubDispatchPortEvent @ 0x1C0017430 (UsbhHubDispatchPortEvent.c)
+ *     UsbhPCE_psSUSPEND @ 0x1C0021F8C (UsbhPCE_psSUSPEND.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     UsbhTrapFatal_Dbg @ 0x1C002E078 (UsbhTrapFatal_Dbg.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_dq @ 0x1C002E98C (WPP_RECORDER_SF_dq.c)
+ *     UsbhHubProcessTimeoutObj @ 0x1C0033D48 (UsbhHubProcessTimeoutObj.c)
+ *     UsbhPCE_wChangeERROR @ 0x1C0034DAC (UsbhPCE_wChangeERROR.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 __int64 __fastcall UsbhHubRunPortChangeQueue(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // r12

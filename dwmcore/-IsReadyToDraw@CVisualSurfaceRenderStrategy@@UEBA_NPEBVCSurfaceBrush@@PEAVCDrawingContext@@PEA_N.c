@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsReadyToDraw@CVisualSurfaceRenderStrategy@@UEBA_NPEBVCSurfaceBrush@@PEAVCDrawingContext@@PEA_N@Z @ 0x1800DFEA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall CVisualSurfaceRenderStrategy::IsReadyToDraw(
         CVisualSurfaceRenderStrategy *this,
         const struct CSurfaceBrush *a2,

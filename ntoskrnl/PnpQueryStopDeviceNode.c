@@ -1,3 +1,17 @@
+/*
+ * XREFs of PnpQueryStopDeviceNode @ 0x14096B8B8
+ * Callers:
+ *     PnpQueryRebalanceWorker @ 0x14096B728 (PnpQueryRebalanceWorker.c)
+ * Callees:
+ *     PoFxActivateDevice @ 0x140202138 (PoFxActivateDevice.c)
+ *     PipSetDevNodeState @ 0x1402028D0 (PipSetDevNodeState.c)
+ *     PnpFindMountableDevice @ 0x1403B20FC (PnpFindMountableDevice.c)
+ *     PnpLockMountableDevice @ 0x1403CF5C0 (PnpLockMountableDevice.c)
+ *     PiRebalanceOptOut @ 0x140562990 (PiRebalanceOptOut.c)
+ *     PipSetDevNodeFlags @ 0x1406857DC (PipSetDevNodeFlags.c)
+ *     IopQueryReconfiguration @ 0x14096A0F4 (IopQueryReconfiguration.c)
+ */
+
 __int64 __fastcall PnpQueryStopDeviceNode(__int64 a1, char a2)
 {
   unsigned int Reconfiguration; // edi

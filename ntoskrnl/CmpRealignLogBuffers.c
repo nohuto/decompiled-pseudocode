@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpRealignLogBuffers @ 0x140A1BEB8
+ * Callers:
+ *     CmpRmReDoPhase @ 0x140A1C1E0 (CmpRmReDoPhase.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CmpRealignLogBuffers(__int64 a1)
 {
   unsigned int v2; // ecx

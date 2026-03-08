@@ -1,3 +1,12 @@
+/*
+ * XREFs of HvlPrepareLivedumpDescriptor @ 0x1405456B4
+ * Callers:
+ *     IopLiveDumpAllocateExtraBuffers @ 0x14094A230 (IopLiveDumpAllocateExtraBuffers.c)
+ * Callees:
+ *     HvlSetupLiveDumpBuffer @ 0x140548138 (HvlSetupLiveDumpBuffer.c)
+ *     VslSetupLiveDumpBufferInSk @ 0x14054A4B4 (VslSetupLiveDumpBufferInSk.c)
+ */
+
 __int64 __fastcall HvlPrepareLivedumpDescriptor(
         int a1,
         int a2,

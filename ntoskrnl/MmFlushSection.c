@@ -1,3 +1,29 @@
+/*
+ * XREFs of MmFlushSection @ 0x140333F20
+ * Callers:
+ *     CcFlushCacheOneRange @ 0x14021B070 (CcFlushCacheOneRange.c)
+ *     CcFlushCachePostProcessOneRange @ 0x14021B410 (CcFlushCachePostProcessOneRange.c)
+ *     CcSetFileSizesEx @ 0x14029F9B0 (CcSetFileSizesEx.c)
+ *     CcPurgeAndClearCacheSection @ 0x14029FCE4 (CcPurgeAndClearCacheSection.c)
+ *     CcMdlWriteComplete2 @ 0x1403002DC (CcMdlWriteComplete2.c)
+ *     CcFlushCachePreProcess @ 0x1403373A0 (CcFlushCachePreProcess.c)
+ *     MiFlushDataSection @ 0x140368CA0 (MiFlushDataSection.c)
+ *     CcUnpinRepinnedBcb @ 0x140390990 (CcUnpinRepinnedBcb.c)
+ * Callees:
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiFlushSectionInternal @ 0x14031FA90 (MiFlushSectionInternal.c)
+ *     MiComputeFlushRange @ 0x140331078 (MiComputeFlushRange.c)
+ *     MiFlushRelease @ 0x140334AC0 (MiFlushRelease.c)
+ *     MiReferenceControlAreaFileWithTag @ 0x1403440B0 (MiReferenceControlAreaFileWithTag.c)
+ *     ObFastDereferenceObjectDeferDelete @ 0x1403441C0 (ObFastDereferenceObjectDeferDelete.c)
+ *     MiFreeOverlappedFlushEntry @ 0x140633BC0 (MiFreeOverlappedFlushEntry.c)
+ *     FsRtlAcquireFileForCcFlushEx @ 0x14075EFA8 (FsRtlAcquireFileForCcFlushEx.c)
+ *     FsRtlReleaseFileForCcFlush @ 0x14075F248 (FsRtlReleaseFileForCcFlush.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MmFlushSection(
         __int64 *a1,
         __int64 *a2,

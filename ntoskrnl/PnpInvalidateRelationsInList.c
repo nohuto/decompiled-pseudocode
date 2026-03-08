@@ -1,3 +1,18 @@
+/*
+ * XREFs of PnpInvalidateRelationsInList @ 0x14087CBE8
+ * Callers:
+ *     PnpProcessQueryRemoveAndEject @ 0x1408625F0 (PnpProcessQueryRemoveAndEject.c)
+ *     PnpProcessCompletedEject @ 0x140956080 (PnpProcessCompletedEject.c)
+ * Callees:
+ *     PnpRequestDeviceAction @ 0x1402F5074 (PnpRequestDeviceAction.c)
+ *     PipClearDevNodeFlags @ 0x14068816C (PipClearDevNodeFlags.c)
+ *     IopAddRelationToList @ 0x14086207C (IopAddRelationToList.c)
+ *     IopEnumerateRelations @ 0x140863508 (IopEnumerateRelations.c)
+ *     IopFreeRelationList @ 0x140863634 (IopFreeRelationList.c)
+ *     IopAllocateRelationList @ 0x140863684 (IopAllocateRelationList.c)
+ *     IopSetRelationsTag @ 0x14087CD58 (IopSetRelationsTag.c)
+ */
+
 __int64 __fastcall PnpInvalidateRelationsInList(unsigned int **a1, unsigned int a2, char a3, char a4)
 {
   unsigned int **RelationList; // rsi

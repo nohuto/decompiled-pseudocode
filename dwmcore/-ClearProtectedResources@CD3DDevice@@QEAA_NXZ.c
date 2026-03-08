@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ClearProtectedResources@CD3DDevice@@QEAA_NXZ @ 0x1802893DC
+ * Callers:
+ *     ?ClearD2DCaches@CDeviceManager@@IEAA_NK@Z @ 0x180050154 (-ClearD2DCaches@CDeviceManager@@IEAA_NK@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?MarkHardwareProtectedResourcesInvalid@CD2DResourceManager@@QEAA_NXZ @ 0x18029923C (-MarkHardwareProtectedResourcesInvalid@CD2DResourceManager@@QEAA_NXZ.c)
+ *     ?MarkHardwareProtectedResourcesInvalid@CD3DResourceManager@@QEAA_NXZ @ 0x180299B68 (-MarkHardwareProtectedResourcesInvalid@CD3DResourceManager@@QEAA_NXZ.c)
+ */
+
 char __fastcall CD3DDevice::ClearProtectedResources(CD3DDevice *this)
 {
   bool v2; // bl

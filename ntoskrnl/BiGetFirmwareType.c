@@ -1,3 +1,15 @@
+/*
+ * XREFs of BiGetFirmwareType @ 0x14082D7AC
+ * Callers:
+ *     BcdGetSystemStorePath @ 0x14082C8E8 (BcdGetSystemStorePath.c)
+ *     BiOpenSystemStore @ 0x14082CC40 (BiOpenSystemStore.c)
+ *     BiIsLinkedToFirmwareVariable @ 0x14082D76C (BiIsLinkedToFirmwareVariable.c)
+ *     BiExportStoreAlterationsToFirmware @ 0x140A59FB0 (BiExportStoreAlterationsToFirmware.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1404129D0 (ZwQuerySystemInformation.c)
+ */
+
 __int64 BiGetFirmwareType()
 {
   __int64 result; // rax

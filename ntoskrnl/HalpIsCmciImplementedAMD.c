@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpIsCmciImplementedAMD @ 0x140A9275C
+ * Callers:
+ *     HalpCmciInitProcessor @ 0x14037CD68 (HalpCmciInitProcessor.c)
+ * Callees:
+ *     HalpWheaReadMsrMisc @ 0x140516598 (HalpWheaReadMsrMisc.c)
+ */
+
 char HalpIsCmciImplementedAMD()
 {
   __int64 i; // rdi

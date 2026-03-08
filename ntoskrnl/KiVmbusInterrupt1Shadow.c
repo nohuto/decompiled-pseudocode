@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiVmbusInterrupt1Shadow @ 0x140AF40C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // positive sp value has been detected, the output may be wrong!
 __int64 __fastcall KiVmbusInterrupt1Shadow()
 {

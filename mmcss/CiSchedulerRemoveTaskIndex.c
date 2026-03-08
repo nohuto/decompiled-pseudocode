@@ -1,3 +1,13 @@
+/*
+ * XREFs of CiSchedulerRemoveTaskIndex @ 0x1C0002B60
+ * Callers:
+ *     CiTaskIndexDereference @ 0x1C00021B0 (CiTaskIndexDereference.c)
+ * Callees:
+ *     CiSchedulerUpdateTimer @ 0x1C0002050 (CiSchedulerUpdateTimer.c)
+ *     CiSchedulerRemoveDeadline @ 0x1C0002D50 (CiSchedulerRemoveDeadline.c)
+ *     CiSchedulerRefreshTaskIndexQosProperties @ 0x1C00030B0 (CiSchedulerRefreshTaskIndexQosProperties.c)
+ */
+
 void __fastcall CiSchedulerRemoveTaskIndex(__int64 a1)
 {
   char v2; // di

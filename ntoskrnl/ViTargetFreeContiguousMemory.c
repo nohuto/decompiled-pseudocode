@@ -1,3 +1,18 @@
+/*
+ * XREFs of ViTargetFreeContiguousMemory @ 0x140AC8AC0
+ * Callers:
+ *     VerifierMmFreeContiguousMemory @ 0x140ADFE60 (VerifierMmFreeContiguousMemory.c)
+ *     VerifierMmFreeContiguousMemorySpecifyCache @ 0x140ADFEA0 (VerifierMmFreeContiguousMemorySpecifyCache.c)
+ *     VerifierMmFreeNonCachedMemory @ 0x140ADFF00 (VerifierMmFreeNonCachedMemory.c)
+ * Callees:
+ *     VfAvlLookupTreeNode @ 0x140303680 (VfAvlLookupTreeNode.c)
+ *     VfAvlCleanupLockContext @ 0x1403039F0 (VfAvlCleanupLockContext.c)
+ *     VfAvlInitializeLockContext @ 0x14045DE58 (VfAvlInitializeLockContext.c)
+ *     ViTargetFreeContiguousMemoryFromNode @ 0x140AC8B68 (ViTargetFreeContiguousMemoryFromNode.c)
+ *     ViTargetUpdateTreeAllowed @ 0x140AC8E94 (ViTargetUpdateTreeAllowed.c)
+ *     VfAvlEnumerateNodes @ 0x140AD92A4 (VfAvlEnumerateNodes.c)
+ */
+
 void __fastcall ViTargetFreeContiguousMemory(__int64 a1, __int64 a2)
 {
   int v3; // edx

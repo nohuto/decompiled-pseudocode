@@ -1,3 +1,12 @@
+/*
+ * XREFs of xxxClientGetDDEFlags @ 0x1C02153E4
+ * Callers:
+ *     ?xxxRequestAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z @ 0x1C01FCC90 (-xxxRequestAck@@YAKPEAKPEA_JPEAUtagDDECONV@@@Z.c)
+ * Callees:
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00344F8 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0034558 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall xxxClientGetDDEFlags(__int64 a1, int a2)
 {
   int v2; // ebx

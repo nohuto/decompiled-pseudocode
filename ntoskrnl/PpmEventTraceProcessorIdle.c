@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmEventTraceProcessorIdle @ 0x140996348
+ * Callers:
+ *     PpmEventTraceControlCallback @ 0x140860AA0 (PpmEventTraceControlCallback.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall PpmEventTraceProcessorIdle(__int64 a1)
 {
   __int64 v2; // rdi

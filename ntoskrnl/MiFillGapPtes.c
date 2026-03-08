@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiFillGapPtes @ 0x140B5F3B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ */
+
 _BOOL8 __fastcall MiFillGapPtes(__int64 a1, unsigned __int64 *a2, int a3)
 {
   __int64 v4; // rbp

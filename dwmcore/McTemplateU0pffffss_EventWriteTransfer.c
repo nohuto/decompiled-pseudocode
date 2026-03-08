@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0pffffss_EventWriteTransfer @ 0x18012DD30
+ * Callers:
+ *     ?RenderContent@CVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z @ 0x18007A380 (-RenderContent@CVisual@@UEAAJPEAVCDrawingContext@@PEA_N@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 __int64 __fastcall McTemplateU0pffffss_EventWriteTransfer(
         __int64 a1,
         __int64 a2,

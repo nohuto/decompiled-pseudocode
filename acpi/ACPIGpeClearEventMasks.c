@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIGpeClearEventMasks @ 0x1C002C0D8
+ * Callers:
+ *     ACPITableLoad @ 0x1C003F170 (ACPITableLoad.c)
+ *     ACPITableUnload @ 0x1C003F7F0 (ACPITableUnload.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     ACPIGpeClearRegisters @ 0x1C002C240 (ACPIGpeClearRegisters.c)
+ *     ACPIGpeEnableDisableEvents @ 0x1C002C29C (ACPIGpeEnableDisableEvents.c)
+ */
+
 void ACPIGpeClearEventMasks()
 {
   KIRQL v0; // bl

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetDispatchersName@CMouseSensor@@EEAAXPEAW4DispatcherHandleName@CRIMBase@@PEAI@Z @ 0x1C00D3E90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CMouseSensor::GetDispatchersName(
         CMouseSensor *this,
         enum CRIMBase::DispatcherHandleName *a2,

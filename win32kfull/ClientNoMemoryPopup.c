@@ -1,3 +1,11 @@
+/*
+ * XREFs of ClientNoMemoryPopup @ 0x1C0208910
+ * Callers:
+ *     xxxSnapWindow @ 0x1C022AF08 (xxxSnapWindow.c)
+ * Callees:
+ *     ?GetCount@AtomicExecutionCheck@@SAIXZ @ 0x1C00B8314 (-GetCount@AtomicExecutionCheck@@SAIXZ.c)
+ */
+
 __int64 __fastcall ClientNoMemoryPopup(__int64 a1)
 {
   unsigned int Count; // eax

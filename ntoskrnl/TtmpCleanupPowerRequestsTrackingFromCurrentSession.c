@@ -1,3 +1,11 @@
+/*
+ * XREFs of TtmpCleanupPowerRequestsTrackingFromCurrentSession @ 0x1409A20C0
+ * Callers:
+ *     TtmCleanupCurrentSession @ 0x1409A0EB0 (TtmCleanupCurrentSession.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall TtmpCleanupPowerRequestsTrackingFromCurrentSession(__int64 a1)
 {
   _QWORD **v1; // rdi

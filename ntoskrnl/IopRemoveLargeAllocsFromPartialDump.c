@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopRemoveLargeAllocsFromPartialDump @ 0x14055B490
+ * Callers:
+ *     ExpHeapDumpEnumLargeAllocs @ 0x14060CF78 (ExpHeapDumpEnumLargeAllocs.c)
+ * Callees:
+ *     IopRemovePageDumpRange @ 0x1405511AC (IopRemovePageDumpRange.c)
+ */
+
 unsigned __int64 __fastcall IopRemoveLargeAllocsFromPartialDump(__int64 a1, unsigned __int64 a2)
 {
   unsigned __int64 result; // rax

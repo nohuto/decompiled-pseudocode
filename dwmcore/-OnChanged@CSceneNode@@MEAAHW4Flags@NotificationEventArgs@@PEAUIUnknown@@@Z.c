@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?OnChanged@CSceneNode@@MEAAHW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x18024DA30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?ApplyTransformToSpectreResources@CSceneNode@@AEAAXXZ @ 0x18024D71C (-ApplyTransformToSpectreResources@CSceneNode@@AEAAXXZ.c)
+ */
+
 __int64 __fastcall CSceneNode::OnChanged(__int64 a1, int a2)
 {
   if ( !*(_QWORD *)(a1 + 136) )

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSwitchToThisWindow @ 0x1C0014CB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxSwitchToThisWindow @ 0x1C0014D74 (xxxSwitchToThisWindow.c)
+ */
+
 __int64 __fastcall NtUserSwitchToThisWindow(__int64 a1)
 {
   __int64 v2; // rax

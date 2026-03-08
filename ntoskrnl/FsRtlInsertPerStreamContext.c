@@ -1,3 +1,23 @@
+/*
+ * XREFs of FsRtlInsertPerStreamContext @ 0x1402C99C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     ExpReleaseFannedOutPushLockExclusive @ 0x1403CA0B0 (ExpReleaseFannedOutPushLockExclusive.c)
+ *     ExpAcquireFannedOutPushLockExclusive @ 0x1403CA3BC (ExpAcquireFannedOutPushLockExclusive.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 NTSTATUS __stdcall FsRtlInsertPerStreamContext(
         PFSRTL_ADVANCED_FCB_HEADER PerStreamContext,
         PFSRTL_PER_STREAM_CONTEXT Ptr)

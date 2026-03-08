@@ -1,3 +1,11 @@
+/*
+ * XREFs of PspInterlockedMaxQuota @ 0x140311E80
+ * Callers:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall PspInterlockedMaxQuota(unsigned __int64 *a1, unsigned __int64 a2)
 {
   unsigned __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?BmlIsSupportedPathScaling@@YA_NW4_D3DKMDT_VIDPN_PRESENT_PATH_SCALING@@U_D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT@@@Z @ 0x1C016D2E8
+ * Callers:
+ *     BmlInternalTryPinningScaling @ 0x1C016DF60 (BmlInternalTryPinningScaling.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall BmlIsSupportedPathScaling(
         enum _D3DKMDT_VIDPN_PRESENT_PATH_SCALING a1,
         struct _D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT a2)

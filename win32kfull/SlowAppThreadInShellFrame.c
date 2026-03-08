@@ -1,3 +1,14 @@
+/*
+ * XREFs of SlowAppThreadInShellFrame @ 0x1C01B7C3C
+ * Callers:
+ *     xxxRealInternalGetMessage @ 0x1C006F2F0 (xxxRealInternalGetMessage.c)
+ *     ?xxxMoveSize@@YAXPEAUtagWND@@IK@Z @ 0x1C01F0DC4 (-xxxMoveSize@@YAXPEAUtagWND@@IK@Z.c)
+ *     xxxMNLoop @ 0x1C021726C (xxxMNLoop.c)
+ * Callees:
+ *     IsDebuggerAttached @ 0x1C0024014 (IsDebuggerAttached.c)
+ *     ?OtherThreadsKeyboardInput@@YAPEAUtagTHREADINFO@@PEAUtagQ@@PEAUtagQMSG@@@Z @ 0x1C01B67F0 (-OtherThreadsKeyboardInput@@YAPEAUtagTHREADINFO@@PEAUtagQ@@PEAUtagQMSG@@@Z.c)
+ */
+
 struct tagTHREADINFO *__fastcall SlowAppThreadInShellFrame(
         struct tagTHREADINFO *a1,
         struct tagTHREADINFO *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MulEndDxInterop@@YAHPEAU_SURFOBJ@@HPEAHPEAX@Z @ 0x1C02B2040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall MulEndDxInterop(struct _SURFOBJ *a1, __int64 a2, int *a3, void *a4)
 {
   unsigned int v4; // r10d

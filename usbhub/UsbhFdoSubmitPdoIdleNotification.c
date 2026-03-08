@@ -1,3 +1,13 @@
+/*
+ * XREFs of UsbhFdoSubmitPdoIdleNotification @ 0x1C003136C
+ * Callers:
+ *     UsbhPdoInternalDeviceControl @ 0x1C0015370 (UsbhPdoInternalDeviceControl.c)
+ * Callees:
+ *     UsbhDecPdoIoCount @ 0x1C001BC4C (UsbhDecPdoIoCount.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhIdleIrp_Event @ 0x1C0057F68 (UsbhIdleIrp_Event.c)
+ */
+
 __int64 __fastcall UsbhFdoSubmitPdoIdleNotification(__int64 a1, ULONG_PTR BugCheckParameter3, IRP *BugCheckParameter4)
 {
   unsigned int v6; // edi

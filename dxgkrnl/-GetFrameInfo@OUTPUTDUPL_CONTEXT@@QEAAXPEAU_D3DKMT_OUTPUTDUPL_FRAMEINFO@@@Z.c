@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetFrameInfo@OUTPUTDUPL_CONTEXT@@QEAAXPEAU_D3DKMT_OUTPUTDUPL_FRAMEINFO@@@Z @ 0x1C032D498
+ * Callers:
+ *     ?GetFrameInfo@OUTPUTDUPL_MGR@@QEAAJPEAU_D3DKMT_OUTPUTDUPL_GET_FRAMEINFO@@@Z @ 0x1C032772C (-GetFrameInfo@OUTPUTDUPL_MGR@@QEAAJPEAU_D3DKMT_OUTPUTDUPL_GET_FRAMEINFO@@@Z.c)
+ * Callees:
+ *     McTemplateK0pqxxqttqq_EtwWriteTransfer @ 0x1C00540EC (McTemplateK0pqxxqttqq_EtwWriteTransfer.c)
+ */
+
 void __fastcall OUTPUTDUPL_CONTEXT::GetFrameInfo(OUTPUTDUPL_CONTEXT *this, struct _D3DKMT_OUTPUTDUPL_FRAMEINFO *a2)
 {
   LARGE_INTEGER *v2; // rax

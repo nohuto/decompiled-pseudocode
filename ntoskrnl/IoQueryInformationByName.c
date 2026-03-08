@@ -1,3 +1,20 @@
+/*
+ * XREFs of IoQueryInformationByName @ 0x14076D210
+ * Callers:
+ *     NtQueryInformationByName @ 0x14076D1E0 (NtQueryInformationByName.c)
+ * Callees:
+ *     PsGetCurrentSilo @ 0x1402640A0 (PsGetCurrentSilo.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObOpenObjectByNameEx @ 0x1406E7F70 (ObOpenObjectByNameEx.c)
+ *     IopValidateQueryInformationParameters @ 0x1406EB8A0 (IopValidateQueryInformationParameters.c)
+ *     FsRtlpPrepareExtraCreateParametersForCreate @ 0x14070DB70 (FsRtlpPrepareExtraCreateParametersForCreate.c)
+ *     IopCleanupExtraCreateParameters @ 0x14076D500 (IopCleanupExtraCreateParameters.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IoQueryInformationByName(
         __int64 a1,
         unsigned __int64 a2,

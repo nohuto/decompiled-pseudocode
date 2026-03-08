@@ -1,3 +1,14 @@
+/*
+ * XREFs of Bulk_Transfer_PrepareForCompletion @ 0x1C0011B14
+ * Callers:
+ *     Bulk_Transfer_Complete @ 0x1C000E8D8 (Bulk_Transfer_Complete.c)
+ *     Bulk_Transfer_CompleteCancelable @ 0x1C0012F30 (Bulk_Transfer_CompleteCancelable.c)
+ * Callees:
+ *     TR_GetUsbdStatusFromTrbCompletionCode @ 0x1C0005FE4 (TR_GetUsbdStatusFromTrbCompletionCode.c)
+ *     TR_ReleaseDoubleBuffer @ 0x1C0011C34 (TR_ReleaseDoubleBuffer.c)
+ *     WPP_RECORDER_SF_DDDqdD @ 0x1C0011D3C (WPP_RECORDER_SF_DDDqdD.c)
+ */
+
 void __fastcall Bulk_Transfer_PrepareForCompletion(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v3; // r11

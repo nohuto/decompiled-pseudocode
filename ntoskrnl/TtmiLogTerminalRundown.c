@@ -1,3 +1,13 @@
+/*
+ * XREFs of TtmiLogTerminalRundown @ 0x1409A78EC
+ * Callers:
+ *     TtmiTerminalsRundown @ 0x1409A8684 (TtmiTerminalsRundown.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void TtmiLogTerminalRundown()
 {
   int *v0; // r9

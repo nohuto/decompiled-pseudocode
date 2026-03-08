@@ -1,3 +1,14 @@
+/*
+ * XREFs of Usbh_HubRestoreDevice @ 0x1C001A81C
+ * Callers:
+ *     UsbhSyncResetDeviceInternal @ 0x1C0019820 (UsbhSyncResetDeviceInternal.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     Usbh_HubGetUsbDescriptors @ 0x1C003B174 (Usbh_HubGetUsbDescriptors.c)
+ */
+
 __int64 __fastcall Usbh_HubRestoreDevice(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 Pool2; // rax

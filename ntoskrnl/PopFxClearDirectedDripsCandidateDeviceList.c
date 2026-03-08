@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopFxClearDirectedDripsCandidateDeviceList @ 0x14058703C
+ * Callers:
+ *     PopDirectedDripsEngage @ 0x140584A94 (PopDirectedDripsEngage.c)
+ *     PopDirectedDripsResumeDevices @ 0x140980BC4 (PopDirectedDripsResumeDevices.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ */
+
 void PopFxClearDirectedDripsCandidateDeviceList()
 {
   struct _KTHREAD *CurrentThread; // rax

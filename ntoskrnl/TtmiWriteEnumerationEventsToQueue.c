@@ -1,3 +1,15 @@
+/*
+ * XREFs of TtmiWriteEnumerationEventsToQueue @ 0x1409A1E3C
+ * Callers:
+ *     TtmpDispatchCreateEventQueue @ 0x1409A3450 (TtmpDispatchCreateEventQueue.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     TtmiPublishDeviceEnumerationEvents @ 0x14099FC9C (TtmiPublishDeviceEnumerationEvents.c)
+ *     TtmpPublishDisplayRequiredPowerRequestEvents @ 0x1409A27EC (TtmpPublishDisplayRequiredPowerRequestEvents.c)
+ *     TtmiLogError @ 0x1409A536C (TtmiLogError.c)
+ *     TtmiWriteEventToSingleQueue @ 0x1409A92D8 (TtmiWriteEventToSingleQueue.c)
+ */
+
 __int64 __fastcall TtmiWriteEnumerationEventsToQueue(__int64 a1, __int64 a2)
 {
   int v4; // ebx

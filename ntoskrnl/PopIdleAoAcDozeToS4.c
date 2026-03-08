@@ -1,3 +1,15 @@
+/*
+ * XREFs of PopIdleAoAcDozeToS4 @ 0x140998D70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopDeepSleepClearDisengageReason @ 0x1402BBAAC (PopDeepSleepClearDisengageReason.c)
+ *     PopExecutePowerAction @ 0x1409867F4 (PopExecutePowerAction.c)
+ *     PopTraceSystemIdleS0LowPowerDoze @ 0x14098FC28 (PopTraceSystemIdleS0LowPowerDoze.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopIdleAoAcDozeToS4(int a1)
 {
   __int64 v1; // rdx

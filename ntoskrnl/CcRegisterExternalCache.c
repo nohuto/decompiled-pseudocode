@@ -1,3 +1,15 @@
+/*
+ * XREFs of CcRegisterExternalCache @ 0x1403D1220
+ * Callers:
+ *     <none>
+ * Callees:
+ *     CcAddExternalCacheToVolume @ 0x1403D12A4 (CcAddExternalCacheToVolume.c)
+ *     CcAddExternalCacheInternal @ 0x1403D1300 (CcAddExternalCacheInternal.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     ExAllocatePoolWithTag @ 0x140AAB230 (ExAllocatePoolWithTag.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall CcRegisterExternalCache(__int64 a1, _QWORD *a2)
 {
   _QWORD *PoolWithTag; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of KdpSysWriteBusData @ 0x140AB1D2C
+ * Callers:
+ *     KdSystemDebugControl @ 0x14096F180 (KdSystemDebugControl.c)
+ *     KdpSetBusData @ 0x140AB1B1C (KdpSetBusData.c)
+ * Callees:
+ *     HalSetBusDataByOffset @ 0x140370180 (HalSetBusDataByOffset.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall KdpSysWriteBusData(
         BUS_DATA_TYPE a1,
         ULONG a2,

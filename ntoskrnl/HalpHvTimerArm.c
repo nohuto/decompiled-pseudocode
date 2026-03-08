@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpHvTimerArm @ 0x1403C31B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpHvCounterQueryCounter @ 0x1403C3240 (HalpHvCounterQueryCounter.c)
+ */
+
 __int64 __fastcall HalpHvTimerArm(__int64 a1, int a2, unsigned __int64 a3)
 {
   __int64 Counter; // rax

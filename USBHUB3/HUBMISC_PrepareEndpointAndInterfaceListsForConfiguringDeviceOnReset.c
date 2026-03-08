@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnReset @ 0x1C0030FA0
+ * Callers:
+ *     HUBDSM_PreparingEndpointAndInterfaceListsOnClientReset @ 0x1C001FA30 (HUBDSM_PreparingEndpointAndInterfaceListsOnClientReset.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBMISC_PrepareEndpointAndInterfaceListsForConfiguringDeviceOnReset(__int64 a1)
 {
   __int64 v2; // r11

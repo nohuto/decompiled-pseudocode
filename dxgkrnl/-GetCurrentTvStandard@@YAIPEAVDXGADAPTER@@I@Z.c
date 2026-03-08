@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetCurrentTvStandard@@YAIPEAVDXGADAPTER@@I@Z @ 0x1C0391AC8
+ * Callers:
+ *     DxgkHandleVideoParameters @ 0x1C0391C6C (DxgkHandleVideoParameters.c)
+ * Callees:
+ *     ?DmmGetClientVidPnTargetModeInfo@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_SIGNAL_STANDARD@@PEAIPEAEPEAW4_D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING@@PEAU_D3DKMDT_2DREGION@@PEAU_D3DDDI_RATIONAL@@@Z @ 0x1C03A8554 (-DmmGetClientVidPnTargetModeInfo@@YAJQEAXIPEAW4_D3DKMDT_VIDEO_SIGNAL_STANDARD@@PEAIPEAEPEAW4_D3D.c)
+ */
+
 __int64 __fastcall GetCurrentTvStandard(struct DXGADAPTER *a1, unsigned int a2)
 {
   unsigned int v3; // eax

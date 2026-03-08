@@ -1,3 +1,14 @@
+/*
+ * XREFs of KIsUnlockSettingEnabled @ 0x140792C9C
+ * Callers:
+ *     ExQueryFastCacheDevLicense @ 0x140792C50 (ExQueryFastCacheDevLicense.c)
+ * Callees:
+ *     CmIsStateSeparationEnabled @ 0x1402FBD38 (CmIsStateSeparationEnabled.c)
+ *     AppModelFreeUnicodeString @ 0x1402FBD4C (AppModelFreeUnicodeString.c)
+ *     KGetUnlockSetting @ 0x140792DC4 (KGetUnlockSetting.c)
+ *     KGetAppModelStateSeparatedRegKeyPath @ 0x140797AB4 (KGetAppModelStateSeparatedRegKeyPath.c)
+ */
+
 __int64 __fastcall KIsUnlockSettingEnabled(__int64 a1, _DWORD *a2)
 {
   int v4; // ebx

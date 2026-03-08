@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpDmaReturnToScatterPool @ 0x140454408
+ * Callers:
+ *     HalpDmaReturnPageToOwner @ 0x140454296 (HalpDmaReturnPageToOwner.c)
+ *     HalpDmaReturnPageToSource @ 0x14050F064 (HalpDmaReturnPageToSource.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall HalpDmaReturnToScatterPool(__int64 a1, __int64 a2, char a3)
 {
   unsigned __int8 CurrentIrql; // di

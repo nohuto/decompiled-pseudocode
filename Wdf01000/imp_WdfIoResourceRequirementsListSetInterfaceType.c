@@ -1,3 +1,11 @@
+/*
+ * XREFs of imp_WdfIoResourceRequirementsListSetInterfaceType @ 0x1C0049A00
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ */
+
 void __fastcall imp_WdfIoResourceRequirementsListSetInterfaceType(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFIORESREQLIST__ *RequirementsList,

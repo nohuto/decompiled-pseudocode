@@ -1,3 +1,11 @@
+/*
+ * XREFs of NVMeSubmissionQueueAssignmentPolicyInit @ 0x1C0010804
+ * Callers:
+ *     IoQueuesInitialize @ 0x1C000B04C (IoQueuesInitialize.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NVMeSubmissionQueueAssignmentPolicyInit(_DWORD *a1)
 {
   int v1; // edx

@@ -1,3 +1,19 @@
+/*
+ * XREFs of PnpConcatPWSTR @ 0x14069EE54
+ * Callers:
+ *     PiDqOpenUserObjectRegKey @ 0x140747298 (PiDqOpenUserObjectRegKey.c)
+ *     PiSwInstanceInfoInit @ 0x140806E00 (PiSwInstanceInfoInit.c)
+ *     PiSwGetChildPdo @ 0x140846F50 (PiSwGetChildPdo.c)
+ *     PiSwStopDestroy @ 0x140867198 (PiSwStopDestroy.c)
+ *     PipCheckForDenyExecute @ 0x14086AB0C (PipCheckForDenyExecute.c)
+ * Callees:
+ *     RtlStringCbCatW @ 0x1402092FC (RtlStringCbCatW.c)
+ *     RtlStringCchLengthW @ 0x140247080 (RtlStringCchLengthW.c)
+ *     RtlULongLongMult @ 0x14024789C (RtlULongLongMult.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PnpConcatPWSTR(size_t cchMax, ULONG Tag, PVOID *a3, unsigned __int64 a4)
 {
   ULONGLONG v7; // r11

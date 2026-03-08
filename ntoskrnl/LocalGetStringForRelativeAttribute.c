@@ -1,3 +1,21 @@
+/*
+ * XREFs of LocalGetStringForRelativeAttribute @ 0x1409D2E2C
+ * Callers:
+ *     LocalGetAceCondition @ 0x140750740 (LocalGetAceCondition.c)
+ * Callees:
+ *     RtlStringCbLengthW @ 0x140246920 (RtlStringCbLengthW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _i64tow_s @ 0x1403D8BF0 (_i64tow_s.c)
+ *     _ui64tow_s @ 0x1403D8C50 (_ui64tow_s.c)
+ *     _ultow_s @ 0x1403D8C70 (_ultow_s.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     LocalGetStringForSid @ 0x14074FCB0 (LocalGetStringForSid.c)
+ *     SddlpAlloc @ 0x1407507C8 (SddlpAlloc.c)
+ *     EncodeAttributeName @ 0x1409D019C (EncodeAttributeName.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall LocalGetStringForRelativeAttribute(
         unsigned int *a1,
         unsigned int a2,

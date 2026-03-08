@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopIdleWakeNotifyModernStandbyExit @ 0x14059B664
+ * Callers:
+ *     PopCaptureSleepStudyStatistics @ 0x1403C24C4 (PopCaptureSleepStudyStatistics.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopIdleWakeStopActiveIntervalAccounting @ 0x14059B80C (PopIdleWakeStopActiveIntervalAccounting.c)
+ */
+
 void PopIdleWakeNotifyModernStandbyExit()
 {
   __int64 v0; // rsi

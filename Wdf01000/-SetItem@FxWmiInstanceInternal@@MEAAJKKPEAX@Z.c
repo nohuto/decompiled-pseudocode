@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetItem@FxWmiInstanceInternal@@MEAAJKKPEAX@Z @ 0x1C0029250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall FxWmiInstanceInternal::SetItem(
         FxWmiInstanceInternal *this,
         unsigned int DataItemId,

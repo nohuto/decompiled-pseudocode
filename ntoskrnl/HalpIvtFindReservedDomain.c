@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpIvtFindReservedDomain @ 0x140532738
+ * Callers:
+ *     IvtGetBlockedDomain @ 0x14052A538 (IvtGetBlockedDomain.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpIvtFindReservedDomain(__int64 a1, int a2)
 {
   _DWORD *v2; // r11

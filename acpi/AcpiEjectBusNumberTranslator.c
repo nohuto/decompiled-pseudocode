@@ -1,3 +1,13 @@
+/*
+ * XREFs of AcpiEjectBusNumberTranslator @ 0x1C00972E0
+ * Callers:
+ *     ACPIBusIrpQueryInterface @ 0x1C00165F0 (ACPIBusIrpQueryInterface.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ *     PciConfigPinToLine @ 0x1C0001990 (PciConfigPinToLine.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ */
+
 __int64 __fastcall AcpiEjectBusNumberTranslator(ULONG_PTR a1, __int64 a2)
 {
   __int64 DeviceExtension; // rax

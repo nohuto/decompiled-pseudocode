@@ -1,3 +1,12 @@
+/*
+ * XREFs of InitClipboardILDef @ 0x1C012BCF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ?GetClipILIndexFromName@@YAIPEAGI@Z @ 0x1C01FEC34 (-GetClipILIndexFromName@@YAIPEAGI@Z.c)
+ */
+
 void InitClipboardILDef()
 {
   _DWORD *v0; // rbx

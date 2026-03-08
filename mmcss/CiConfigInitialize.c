@@ -1,3 +1,14 @@
+/*
+ * XREFs of CiConfigInitialize @ 0x1C000E4E0
+ * Callers:
+ *     CsInitialize @ 0x1C000E0B0 (CsInitialize.c)
+ * Callees:
+ *     WPP_SF_ @ 0x1C0004634 (WPP_SF_.c)
+ *     WPP_SF_d @ 0x1C0004884 (WPP_SF_d.c)
+ *     CiConfigReadDWORD @ 0x1C000E830 (CiConfigReadDWORD.c)
+ *     CiConfigInitializeFromRegistry @ 0x1C000E8D0 (CiConfigInitializeFromRegistry.c)
+ */
+
 __int64 CiConfigInitialize()
 {
   NTSTATUS v0; // ebx

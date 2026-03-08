@@ -1,3 +1,14 @@
+/*
+ * XREFs of McTemplateK0ppqpttqpqp_EtwWriteTransfer @ 0x1C003DD88
+ * Callers:
+ *     VidSchTerminateDevice @ 0x1C00A8E60 (VidSchTerminateDevice.c)
+ *     VidSchiCreateDeviceInternal @ 0x1C00AC5B0 (VidSchiCreateDeviceInternal.c)
+ *     VidSchReportAdapter @ 0x1C0107F20 (VidSchReportAdapter.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BDEC (McGenEventWrite_EtwWriteTransfer.c)
+ */
+
 NTSTATUS McTemplateK0ppqpttqpqp_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, __int64 a3, ...)
 {
   int v4; // [rsp+30h] [rbp-D0h] BYREF

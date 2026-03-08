@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwTraceUIPISystemError @ 0x1C003A8B0
+ * Callers:
+ *     NtUserEnableTouchPad @ 0x1C016ECE0 (NtUserEnableTouchPad.c)
+ *     NtUserSetPrecisionTouchPadConfiguration @ 0x1C0177910 (NtUserSetPrecisionTouchPadConfiguration.c)
+ *     NtUserSystemParametersInfo @ 0x1C01788A0 (NtUserSystemParametersInfo.c)
+ * Callees:
+ *     ?EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@KPEAUtagTHREADINFO@@PEBUtagPROCESSINFO@@PEBU3@2@Z @ 0x1C003CD2C (-EtwpSetTraceHeader@@YAXPEAU_tagW32KUIPI_Msg_Template_UIPI_Trace_Header@_W32KUIPI_Msg_Template@@.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     McTemplateK0nq_EtwWriteTransfer @ 0x1C0165780 (McTemplateK0nq_EtwWriteTransfer.c)
+ */
+
 _UNKNOWN **__fastcall EtwTraceUIPISystemError(struct tagPROCESSINFO *a1, const struct tagPROCESSINFO *a2)
 {
   char v2; // di

@@ -1,3 +1,11 @@
+/*
+ * XREFs of HsaDisableInterrupt @ 0x140933170
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall HsaDisableInterrupt(unsigned __int64 *a1)
 {
   unsigned __int64 result; // rax

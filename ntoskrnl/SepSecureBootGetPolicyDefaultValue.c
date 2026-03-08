@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepSecureBootGetPolicyDefaultValue @ 0x1409CDE74
+ * Callers:
+ *     SepSecureBootUpdateBcdDataForRule @ 0x1409CE004 (SepSecureBootUpdateBcdDataForRule.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SepSecureBootGetPolicyDefaultValue(_WORD *a1, __int64 a2, _QWORD *a3, int *a4)
 {
   unsigned int v4; // edx

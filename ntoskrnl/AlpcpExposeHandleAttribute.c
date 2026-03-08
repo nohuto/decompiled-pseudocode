@@ -1,3 +1,15 @@
+/*
+ * XREFs of AlpcpExposeHandleAttribute @ 0x1407CE344
+ * Callers:
+ *     AlpcpExposeHandleAttribute32 @ 0x140782BAC (AlpcpExposeHandleAttribute32.c)
+ *     AlpcpExposeAttributes @ 0x1407CDCB0 (AlpcpExposeAttributes.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     AlpcpReferenceConnectedPort @ 0x1406D4F38 (AlpcpReferenceConnectedPort.c)
+ *     ObCompleteObjectDuplication @ 0x14071134C (ObCompleteObjectDuplication.c)
+ *     AlpcpDereferenceBlobEx @ 0x14071550C (AlpcpDereferenceBlobEx.c)
+ */
+
 __int64 __fastcall AlpcpExposeHandleAttribute(__int64 a1, __int64 a2, __int64 a3, _DWORD *a4)
 {
   _QWORD *v6; // r15

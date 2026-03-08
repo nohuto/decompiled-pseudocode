@@ -1,3 +1,37 @@
+/*
+ * XREFs of EtwpLogger @ 0x1406926A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwpResetFlushTimer @ 0x14020540C (EtwpResetFlushTimer.c)
+ *     EtwpRequestFlushTimer @ 0x140205EDC (EtwpRequestFlushTimer.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     PsAttachSiloToCurrentThread @ 0x1402993A0 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x1402993C0 (PsDetachSiloFromCurrentThread.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     KeWaitForMultipleObjects @ 0x1403516C0 (KeWaitForMultipleObjects.c)
+ *     KeSetActualBasePriorityThread @ 0x140357730 (KeSetActualBasePriorityThread.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     EtwpRealtimeSaveState @ 0x14067F474 (EtwpRealtimeSaveState.c)
+ *     EtwpRealtimeUpdateConsumers @ 0x1406913C8 (EtwpRealtimeUpdateConsumers.c)
+ *     EtwpRealtimeCreateLogfile @ 0x14069152C (EtwpRealtimeCreateLogfile.c)
+ *     EtwpRealtimeFlushSavedBuffers @ 0x1406917BC (EtwpRealtimeFlushSavedBuffers.c)
+ *     EtwpAdjustFreeBuffers @ 0x1406930A0 (EtwpAdjustFreeBuffers.c)
+ *     EtwpFlushActiveBuffers @ 0x14069310C (EtwpFlushActiveBuffers.c)
+ *     EtwpFreeLoggerContext @ 0x1406F29FC (EtwpFreeLoggerContext.c)
+ *     EtwpRealtimeDisconnectAllConsumers @ 0x1406F4184 (EtwpRealtimeDisconnectAllConsumers.c)
+ *     EtwpStopLoggerInstance @ 0x140748874 (EtwpStopLoggerInstance.c)
+ *     EtwpFinalizeHeader @ 0x140771D34 (EtwpFinalizeHeader.c)
+ *     EtwpCreateLogFile @ 0x140772270 (EtwpCreateLogFile.c)
+ *     EtwpRealtimeNotifyConsumers @ 0x140790D3C (EtwpRealtimeNotifyConsumers.c)
+ *     PsTerminateSystemThread @ 0x1407DC870 (PsTerminateSystemThread.c)
+ *     EtwpEventWriteTemplateAdmin @ 0x1409E0BD0 (EtwpEventWriteTemplateAdmin.c)
+ *     EtwpEventWriteTemplateSession @ 0x1409E0E14 (EtwpEventWriteTemplateSession.c)
+ *     EtwpEventWriteTemplateSessionEnd @ 0x1409E1010 (EtwpEventWriteTemplateSessionEnd.c)
+ */
+
 NTSTATUS __fastcall EtwpLogger(__int64 a1)
 {
   __int64 v1; // rbx

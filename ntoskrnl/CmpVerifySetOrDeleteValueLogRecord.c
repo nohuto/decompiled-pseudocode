@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpVerifySetOrDeleteValueLogRecord @ 0x140A1C70C
+ * Callers:
+ *     CmpVerifyLogRecord @ 0x140A1C5E0 (CmpVerifyLogRecord.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmpVerifySetOrDeleteValueLogRecord(__int64 a1)
 {
   unsigned int v1; // r9d

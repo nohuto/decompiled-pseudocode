@@ -1,3 +1,12 @@
+/*
+ * XREFs of _PnpCmMatchCallbackRoutine @ 0x140A67690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     _CmMapCmObjectTypeToPnpObjectType @ 0x1406CEAE4 (_CmMapCmObjectTypeToPnpObjectType.c)
+ */
+
 __int64 __fastcall PnpCmMatchCallbackRoutine(__int64 a1, __int64 a2, int a3)
 {
   __int64 result; // rax

@@ -1,3 +1,21 @@
+/*
+ * XREFs of SymCryptRsaCoreEnc @ 0x1403F4594
+ * Callers:
+ *     SymCryptRsaPkcs1Verify @ 0x1403F4830 (SymCryptRsaPkcs1Verify.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SymCryptIntBitsizeOfValue @ 0x1403F3750 (SymCryptIntBitsizeOfValue.c)
+ *     SymCryptIntCreate @ 0x1403F37C8 (SymCryptIntCreate.c)
+ *     SymCryptIntSetValueUint64 @ 0x1403F394C (SymCryptIntSetValueUint64.c)
+ *     SymCryptIntWipe @ 0x1403F3A3C (SymCryptIntWipe.c)
+ *     SymCryptModElementCreate @ 0x1403F3AEC (SymCryptModElementCreate.c)
+ *     SymCryptModElementGetValue @ 0x1403F3B04 (SymCryptModElementGetValue.c)
+ *     SymCryptModElementSetValue @ 0x1403F3B80 (SymCryptModElementSetValue.c)
+ *     SymCryptModExp @ 0x1403F3CF4 (SymCryptModExp.c)
+ *     SymCryptSizeofModElementFromModulus @ 0x1403F3F08 (SymCryptSizeofModElementFromModulus.c)
+ *     SymCryptRsaCoreVerifyInput @ 0x1403F476C (SymCryptRsaCoreVerifyInput.c)
+ */
+
 __int64 __fastcall SymCryptRsaCoreEnc(
         __int64 a1,
         int a2,

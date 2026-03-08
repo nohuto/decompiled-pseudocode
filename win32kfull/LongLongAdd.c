@@ -1,3 +1,11 @@
+/*
+ * XREFs of LongLongAdd @ 0x1C02AF930
+ * Callers:
+ *     ?ssizet_add_to_sizet@?$umptr@E@@SA_N_K_JPEA_K@Z @ 0x1C02ADE18 (-ssizet_add_to_sizet@-$umptr@E@@SA_N_K_JPEA_K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall LongLongAdd(unsigned __int64 a1, unsigned __int64 a2, unsigned __int64 *a3)
 {
   unsigned __int64 v3; // r9

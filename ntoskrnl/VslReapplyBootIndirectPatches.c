@@ -1,3 +1,14 @@
+/*
+ * XREFs of VslReapplyBootIndirectPatches @ 0x140B90324
+ * Callers:
+ *     MiInitializeDriverImages @ 0x140B3B090 (MiInitializeDriverImages.c)
+ *     MmReapplyBootPatchImports @ 0x140B70FB0 (MmReapplyBootPatchImports.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall VslReapplyBootIndirectPatches(__int64 a1)
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of IvtUpdateSingleTargetExtendedDestination @ 0x14052BBEC
+ * Callers:
+ *     IvtUpdateExtendedDestination @ 0x14052B6EC (IvtUpdateExtendedDestination.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IvtUpdateSingleTargetExtendedDestination(
         unsigned int a1,
         char a2,

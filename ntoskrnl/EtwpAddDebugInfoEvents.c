@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwpAddDebugInfoEvents @ 0x140772068
+ * Callers:
+ *     EtwpFinalizeHeader @ 0x140771D34 (EtwpFinalizeHeader.c)
+ *     EtwpAddLogHeader @ 0x140772F04 (EtwpAddLogHeader.c)
+ *     EtwpRealtimeNotifyConsumers @ 0x140790D3C (EtwpRealtimeNotifyConsumers.c)
+ *     EtwpSendDbgId @ 0x1409E9094 (EtwpSendDbgId.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     EtwpAddEventToBuffer @ 0x1407721F0 (EtwpAddEventToBuffer.c)
+ */
+
 void __fastcall EtwpAddDebugInfoEvents(__int64 a1, __int64 a2, int a3, __int64 *a4, int a5)
 {
   int v5; // edi

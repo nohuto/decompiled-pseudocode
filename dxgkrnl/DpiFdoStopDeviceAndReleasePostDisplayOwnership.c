@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiFdoStopDeviceAndReleasePostDisplayOwnership @ 0x1C03990F8
+ * Callers:
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ *     DpiFdoStopAdapter @ 0x1C0398994 (DpiFdoStopAdapter.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiDxgkDdiStopDeviceAndReleasePostDisplayOwnership @ 0x1C03A4B44 (DpiDxgkDdiStopDeviceAndReleasePostDisplayOwnership.c)
+ */
+
 __int64 __fastcall DpiFdoStopDeviceAndReleasePostDisplayOwnership(__int64 a1)
 {
   __int64 v1; // rbx

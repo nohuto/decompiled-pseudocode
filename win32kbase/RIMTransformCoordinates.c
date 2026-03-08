@@ -1,3 +1,13 @@
+/*
+ * XREFs of RIMTransformCoordinates @ 0x1C01BDE94
+ * Callers:
+ *     RIMApplyTransforms @ 0x1C01BD0C8 (RIMApplyTransforms.c)
+ *     RIMTransformCoordinatesFromDigitizer @ 0x1C01BE1E0 (RIMTransformCoordinatesFromDigitizer.c)
+ * Callees:
+ *     EngMulDiv @ 0x1C003BF30 (EngMulDiv.c)
+ *     ApiSetAdjustLinearity @ 0x1C023BCF8 (ApiSetAdjustLinearity.c)
+ */
+
 unsigned __int64 __fastcall RIMTransformCoordinates(__int64 a1, int a2, int *a3, _QWORD *a4, _DWORD *a5)
 {
   int v5; // eax

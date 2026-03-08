@@ -1,3 +1,14 @@
+/*
+ * XREFs of AcquireDeviceFirmwareLock @ 0x1C001B710
+ * Callers:
+ *     AcpiHandleDeviceFirmwareLock @ 0x1C001B660 (AcpiHandleDeviceFirmwareLock.c)
+ * Callees:
+ *     ACPIInternalGetDeviceFromNSOBJ @ 0x1C00035BC (ACPIInternalGetDeviceFromNSOBJ.c)
+ *     DereferenceDeviceFirmwareLockHandlerEntry @ 0x1C001B9EC (DereferenceDeviceFirmwareLockHandlerEntry.c)
+ *     FindDeviceFirmwareLockHandlerEntry @ 0x1C001BC30 (FindDeviceFirmwareLockHandlerEntry.c)
+ *     PerformHandlerInvocation @ 0x1C001BDD0 (PerformHandlerInvocation.c)
+ */
+
 __int64 __fastcall AcquireDeviceFirmwareLock(
         __int64 a1,
         __int64 a2,

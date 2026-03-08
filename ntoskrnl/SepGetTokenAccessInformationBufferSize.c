@@ -1,3 +1,13 @@
+/*
+ * XREFs of SepGetTokenAccessInformationBufferSize @ 0x1407712D0
+ * Callers:
+ *     NtQueryInformationToken @ 0x1406D6780 (NtQueryInformationToken.c)
+ *     SeQueryInformationToken @ 0x1407B9760 (SeQueryInformationToken.c)
+ * Callees:
+ *     SepTokenPrivilegeCount @ 0x140247150 (SepTokenPrivilegeCount.c)
+ *     AuthzBasepQueryInternalSecurityAttributesToken @ 0x1407714CC (AuthzBasepQueryInternalSecurityAttributesToken.c)
+ */
+
 __int64 __fastcall SepGetTokenAccessInformationBufferSize(
         __int64 a1,
         char a2,

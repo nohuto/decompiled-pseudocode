@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?NtUserEnumDisplaySettingsShared@@YAJPEAU_UNICODE_STRING@@KPEAU_devicemodeW@@K@Z @ 0x1C003AB18
+ * Callers:
+ *     NtUserEnumDisplaySettings @ 0x1C003AA60 (NtUserEnumDisplaySettings.c)
+ * Callees:
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C005040C (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
+ *     DrvEnumDisplaySettings @ 0x1C006C130 (DrvEnumDisplaySettings.c)
+ */
+
 __int64 __fastcall NtUserEnumDisplaySettingsShared(
         struct _UNICODE_STRING *a1,
         __int64 a2,

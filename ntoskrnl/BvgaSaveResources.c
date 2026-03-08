@@ -1,3 +1,13 @@
+/*
+ * XREFs of BvgaSaveResources @ 0x140B48554
+ * Callers:
+ *     BvgaDriverInitialize @ 0x140B476D0 (BvgaDriverInitialize.c)
+ * Callees:
+ *     KeBugCheck @ 0x140415FE0 (KeBugCheck.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void BvgaSaveResources()
 {
   const void **v0; // rbx

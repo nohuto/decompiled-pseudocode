@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiIpiGenericCallTarget @ 0x1403A0D70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall KiIpiGenericCallTarget(
         __int64 a1,
         __int64 (__fastcall *a2)(__int64),

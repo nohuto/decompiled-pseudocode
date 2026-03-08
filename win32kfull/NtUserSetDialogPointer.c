@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserSetDialogPointer @ 0x1C00F9DB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SetDialogPointer @ 0x1C00F9E74 (SetDialogPointer.c)
+ */
+
 __int64 __fastcall NtUserSetDialogPointer(__int64 a1, __int64 a2)
 {
   __int64 v4; // rax

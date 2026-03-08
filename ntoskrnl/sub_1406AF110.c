@@ -1,3 +1,12 @@
+/*
+ * XREFs of sub_1406AF110 @ 0x1406AF110
+ * Callers:
+ *     WbGetWarbirdProcess @ 0x1406AEEB8 (WbGetWarbirdProcess.c)
+ *     WbRemoveWarbirdProcess @ 0x14070546C (WbRemoveWarbirdProcess.c)
+ * Callees:
+ *     sub_1406AF180 @ 0x1406AF180 (sub_1406AF180.c)
+ */
+
 __int64 __fastcall sub_1406AF110(int a1, _QWORD *a2)
 {
   __int64 result; // rax

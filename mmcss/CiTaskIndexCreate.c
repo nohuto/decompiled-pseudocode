@@ -1,3 +1,16 @@
+/*
+ * XREFs of CiTaskIndexCreate @ 0x1C000B370
+ * Callers:
+ *     CiDispatchCreateTaskIndexClient @ 0x1C000A240 (CiDispatchCreateTaskIndexClient.c)
+ *     CiDispatchCreateMmThreadClient @ 0x1C000AB00 (CiDispatchCreateMmThreadClient.c)
+ * Callees:
+ *     CiAllocateMemory @ 0x1C0002B30 (CiAllocateMemory.c)
+ *     WPP_SF_ @ 0x1C0004634 (WPP_SF_.c)
+ *     WPP_SF_d @ 0x1C0004884 (WPP_SF_d.c)
+ *     CiFreeMemory @ 0x1C0004D68 (CiFreeMemory.c)
+ *     CiTaskIndexLocate @ 0x1C000B500 (CiTaskIndexLocate.c)
+ */
+
 __int64 __fastcall CiTaskIndexCreate(__int64 a1, __int64 *a2)
 {
   __int64 Memory; // rax

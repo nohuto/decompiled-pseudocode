@@ -1,3 +1,14 @@
+/*
+ * XREFs of _CmSetDeviceInterfaceMappedPropertyFromRegValue @ 0x14087C668
+ * Callers:
+ *     _CmSetDeviceInterfaceMappedProperty @ 0x14086B538 (_CmSetDeviceInterfaceMappedProperty.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _PnpCtxRegCreateKey @ 0x140687FD0 (_PnpCtxRegCreateKey.c)
+ *     _CmOpenDeviceInterfaceRegKey @ 0x1406C9E28 (_CmOpenDeviceInterfaceRegKey.c)
+ *     _RegRtlSetValue @ 0x140784FE4 (_RegRtlSetValue.c)
+ */
+
 __int64 __fastcall CmSetDeviceInterfaceMappedPropertyFromRegValue(
         __int64 a1,
         __int64 a2,

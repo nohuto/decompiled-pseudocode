@@ -1,3 +1,13 @@
+/*
+ * XREFs of CoreMsgUninitialize @ 0x1C00D0AC4
+ * Callers:
+ *     ?Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z @ 0x1C015C290 (-Win32KDriverUnload@@YAXPEAU_DRIVER_OBJECT@@@Z.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0088924 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ?Uninitialize@ServerPorts@CoreMessagingK@@SAXXZ @ 0x1C00D0BC0 (-Uninitialize@ServerPorts@CoreMessagingK@@SAXXZ.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 NTSTATUS CoreMsgUninitialize()
 {
   _QWORD *v0; // rcx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CreateExpressionKeyframeValue@KeyframeValue@@SAXW4DCOMPOSITION_EXPRESSION_TYPE@@PEAVCKeyframeAnimation@@IPEAPEAV1@@Z @ 0x1800387F8
+ * Callers:
+ *     ?AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace@@@Z @ 0x180055D38 (-AddKeyframeData@CKeyframeAnimation@@AEAAJHMPEAUKeyframeData@@W4KeyframeAnimationCoordinateSpace.c)
+ * Callees:
+ *     ??2KeyframeValue@@SAPEAX_K@Z @ 0x18003887C (--2KeyframeValue@@SAPEAX_K@Z.c)
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ */
+
 int __fastcall KeyframeValue::CreateExpressionKeyframeValue(unsigned __int64 a1, __int64 a2, int a3, _QWORD *a4)
 {
   int v7; // r14d

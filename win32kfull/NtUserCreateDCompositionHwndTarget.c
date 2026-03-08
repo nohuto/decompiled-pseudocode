@@ -1,3 +1,15 @@
+/*
+ * XREFs of NtUserCreateDCompositionHwndTarget @ 0x1C007D760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastStatus @ 0x1C0012568 (UserSetLastStatus.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     NtUserDestroyDCompositionHwndTarget @ 0x1C007D170 (NtUserDestroyDCompositionHwndTarget.c)
+ *     ?AttachWindowCompositionTarget@@YAJPEAUHWND__@@KPEAUCompositionObject@@@Z @ 0x1C007D8CC (-AttachWindowCompositionTarget@@YAJPEAUHWND__@@KPEAUCompositionObject@@@Z.c)
+ *     ?TestWindowForCompositionTarget@@YAJPEAUHWND__@@K@Z @ 0x1C007D9EC (-TestWindowForCompositionTarget@@YAJPEAUHWND__@@K@Z.c)
+ */
+
 __int64 __fastcall NtUserCreateDCompositionHwndTarget(HWND a1, unsigned int a2, _QWORD *a3)
 {
   __int64 v6; // rdi

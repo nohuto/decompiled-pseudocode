@@ -1,3 +1,12 @@
+/*
+ * XREFs of LookupDC @ 0x1C003C0C0
+ * Callers:
+ *     xxxEnumDisplayMonitors @ 0x1C003AE40 (xxxEnumDisplayMonitors.c)
+ *     UserGetMonitorDC @ 0x1C003BFDC (UserGetMonitorDC.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *__fastcall LookupDC(__int64 a1, int a2)
 {
   __int64 v2; // r9

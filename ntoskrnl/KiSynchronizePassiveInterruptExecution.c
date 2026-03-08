@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiSynchronizePassiveInterruptExecution @ 0x140577D20
+ * Callers:
+ *     KeSynchronizeExecution @ 0x1404177D0 (KeSynchronizeExecution.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char __fastcall KiSynchronizePassiveInterruptExecution(__int64 a1, __int64 (__fastcall *a2)(__int64), __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rax

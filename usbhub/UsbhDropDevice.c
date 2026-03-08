@@ -1,3 +1,21 @@
+/*
+ * XREFs of UsbhDropDevice @ 0x1C004CAEC
+ * Callers:
+ *     UsbhHubDispatchPortEvent @ 0x1C0017430 (UsbhHubDispatchPortEvent.c)
+ *     UsbhReset1DropDevice @ 0x1C004DE80 (UsbhReset1DropDevice.c)
+ *     UsbhReset1DropDeviceTimeout @ 0x1C004DF70 (UsbhReset1DropDeviceTimeout.c)
+ *     UsbhReset2DropDevice @ 0x1C004E470 (UsbhReset2DropDevice.c)
+ *     UsbhReset2DropDeviceTimeout @ 0x1C004E560 (UsbhReset2DropDeviceTimeout.c)
+ * Callees:
+ *     UsbhSignalDriverResetEvent @ 0x1C0001DA8 (UsbhSignalDriverResetEvent.c)
+ *     UsbhReleaseEnumBusLockEx @ 0x1C0003BCC (UsbhReleaseEnumBusLockEx.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ *     UsbhAssertBusLock @ 0x1C00367A4 (UsbhAssertBusLock.c)
+ *     Usbh_Disconnect_PdoEvent @ 0x1C003AFBC (Usbh_Disconnect_PdoEvent.c)
+ *     UsbhBusUnlatchPdo @ 0x1C004C9E8 (UsbhBusUnlatchPdo.c)
+ */
+
 void __fastcall UsbhDropDevice(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v6; // r9

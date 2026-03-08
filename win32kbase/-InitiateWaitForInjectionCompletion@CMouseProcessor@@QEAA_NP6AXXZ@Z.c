@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?InitiateWaitForInjectionCompletion@CMouseProcessor@@QEAA_NP6AXXZ@Z @ 0x1C022E49C
+ * Callers:
+ *     InitiateWaitForInjectionCompletion @ 0x1C0217E30 (InitiateWaitForInjectionCompletion.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ?GetItemForWrite@CMouseQueue@CMouseProcessor@@QEAAPEAURawMouseEvent@2@_N@Z @ 0x1C007B6A0 (-GetItemForWrite@CMouseQueue@CMouseProcessor@@QEAAPEAURawMouseEvent@2@_N@Z.c)
+ *     ApiSetEditionInitiateMouseEventProcessing @ 0x1C007B854 (ApiSetEditionInitiateMouseEventProcessing.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     IsEditionComputeInjectorUIPISupported @ 0x1C0271E94 (IsEditionComputeInjectorUIPISupported.c)
+ */
+
 char __fastcall CMouseProcessor::InitiateWaitForInjectionCompletion(CMouseProcessor *this, void (*a2)(void))
 {
   char *v2; // rbx

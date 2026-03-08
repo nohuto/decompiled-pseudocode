@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?_OpenDeviceKey@InteractiveControlSettings@@IEAAJKHPEAPEAX@Z @ 0x1C0079E10
+ * Callers:
+ *     ?ReadSettings@InteractiveControlSettings@@QEAAJXZ @ 0x1C0079CC4 (-ReadSettings@InteractiveControlSettings@@QEAAJXZ.c)
+ *     ?WriteSettings@InteractiveControlSettings@@QEAAJXZ @ 0x1C02478B0 (-WriteSettings@InteractiveControlSettings@@QEAAJXZ.c)
+ * Callees:
+ *     RtlUnicodeStringValidateDestWorker @ 0x1C0107828 (RtlUnicodeStringValidateDestWorker.c)
+ *     ?RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z @ 0x1C0107950 (-RtlUnicodeStringCopy@@YAJPEAU_UNICODE_STRING@@PEBU1@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall InteractiveControlSettings::_OpenDeviceKey(
         InteractiveControlSettings *this,
         ACCESS_MASK a2,

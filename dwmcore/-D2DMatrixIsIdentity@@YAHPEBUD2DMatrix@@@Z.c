@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?D2DMatrixIsIdentity@@YAHPEBUD2DMatrix@@@Z @ 0x18027A07C
+ * Callers:
+ *     ?ConvertGlobalMotionToLocalMotion@CInteractionProcessor@@AEAA?AUD2DVector3@@AEBUInteractionMotion@@AEBUD2DMatrix@@PEAU4@2@Z @ 0x1801AAAFC (-ConvertGlobalMotionToLocalMotion@CInteractionProcessor@@AEAA-AUD2DVector3@@AEBUInteractionMotio.c)
+ *     _anonymous_namespace_::TransformAndNormalize @ 0x1801AD514 (_anonymous_namespace_--TransformAndNormalize.c)
+ * Callees:
+ *     <none>
+ */
+
 _BOOL8 __fastcall D2DMatrixIsIdentity(const struct D2DMatrix *a1)
 {
   return *(float *)a1 == 1.0

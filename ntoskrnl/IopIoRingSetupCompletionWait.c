@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopIoRingSetupCompletionWait @ 0x140557278
+ * Callers:
+ *     NtSubmitIoRing @ 0x1405575D0 (NtSubmitIoRing.c)
+ *     IopProcessIoRingEntry @ 0x140947008 (IopProcessIoRingEntry.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IopIoRingSetupCompletionWait(__int64 a1, unsigned int a2, unsigned int a3, char a4, _BYTE *a5)
 {
   unsigned int v6; // ebx

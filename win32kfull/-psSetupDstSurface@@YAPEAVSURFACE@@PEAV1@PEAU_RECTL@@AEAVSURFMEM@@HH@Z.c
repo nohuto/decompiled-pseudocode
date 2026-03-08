@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?psSetupDstSurface@@YAPEAVSURFACE@@PEAV1@PEAU_RECTL@@AEAVSURFMEM@@HH@Z @ 0x1C0004D40
+ * Callers:
+ *     EngGradientFill @ 0x1C0004AA0 (EngGradientFill.c)
+ *     EngTransparentBlt @ 0x1C00F1E60 (EngTransparentBlt.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ */
+
 struct SURFACE *__fastcall psSetupDstSurface(__int64 **a1, struct _RECTL *a2, struct SURFMEM *a3, int a4, int a5)
 {
   int v6; // r15d

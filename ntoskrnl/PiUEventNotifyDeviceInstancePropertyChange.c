@@ -1,3 +1,16 @@
+/*
+ * XREFs of PiUEventNotifyDeviceInstancePropertyChange @ 0x140870310
+ * Callers:
+ *     PiUEventProcessEventWorker @ 0x14068D8E0 (PiUEventProcessEventWorker.c)
+ * Callees:
+ *     PiUEventHashStringIntoBucket @ 0x140201E5C (PiUEventHashStringIntoBucket.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     PiUEventApplyAdditionalFilters @ 0x140680230 (PiUEventApplyAdditionalFilters.c)
+ *     PiUEventNotifyClient @ 0x14068032C (PiUEventNotifyClient.c)
+ */
+
 __int64 __fastcall PiUEventNotifyDeviceInstancePropertyChange(__int64 a1)
 {
   unsigned int v1; // ebp

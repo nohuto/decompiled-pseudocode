@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopSetDevicesSystemState @ 0x140AA42D0
+ * Callers:
+ *     PopGracefulShutdown @ 0x140A9D970 (PopGracefulShutdown.c)
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PoBroadcastSystemState @ 0x140AA38F8 (PoBroadcastSystemState.c)
+ */
+
 __int64 __fastcall PopSetDevicesSystemState(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // eax

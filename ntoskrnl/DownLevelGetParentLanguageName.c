@@ -1,3 +1,12 @@
+/*
+ * XREFs of DownLevelGetParentLanguageName @ 0x140612240
+ * Callers:
+ *     LdrpGetParentLangId @ 0x1403C1878 (LdrpGetParentLangId.c)
+ * Callees:
+ *     ?StringCchCopyNW@@YAJPEAG_KPEBG1@Z @ 0x1402BEED8 (-StringCchCopyNW@@YAJPEAG_KPEBG1@Z.c)
+ *     bsearch @ 0x1403D4280 (bsearch.c)
+ */
+
 __int64 __fastcall DownLevelGetParentLanguageName(const void *a1, char *a2)
 {
   _BYTE *v3; // rax

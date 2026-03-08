@@ -1,3 +1,12 @@
+/*
+ * XREFs of wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState @ 0x1C0076220
+ * Callers:
+ *     wil_details_EvaluateFeatureDependencies @ 0x1C0076138 (wil_details_EvaluateFeatureDependencies.c)
+ *     wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState @ 0x1C0076220 (wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState.c)
+ * Callees:
+ *     wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState @ 0x1C0076220 (wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState.c)
+ */
+
 __int64 __fastcall wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState(
         volatile signed __int32 *a1,
         __int64 a2)

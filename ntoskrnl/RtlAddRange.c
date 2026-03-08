@@ -1,3 +1,19 @@
+/*
+ * XREFs of RtlAddRange @ 0x14081F540
+ * Callers:
+ *     ArbAddInaccessibleAllocationRange @ 0x14081E1A4 (ArbAddInaccessibleAllocationRange.c)
+ *     ArbAddMmConfigRangeAsBootReserved @ 0x14081EF14 (ArbAddMmConfigRangeAsBootReserved.c)
+ *     IopMemInitialize @ 0x14081F124 (IopMemInitialize.c)
+ *     IopPortAddAllocation @ 0x14081F360 (IopPortAddAllocation.c)
+ *     RtlInvertRangeListEx @ 0x14081F400 (RtlInvertRangeListEx.c)
+ *     ArbAddAllocation @ 0x14081F4F0 (ArbAddAllocation.c)
+ *     ArbInitializeRangeList @ 0x1409331D0 (ArbInitializeRangeList.c)
+ * Callees:
+ *     RtlpCreateRangeListEntry @ 0x14081F5E4 (RtlpCreateRangeListEntry.c)
+ *     RtlpAddRange @ 0x14081F654 (RtlpAddRange.c)
+ *     RtlpFreeRangeListEntry @ 0x140820318 (RtlpFreeRangeListEntry.c)
+ */
+
 __int64 __fastcall RtlAddRange(
         __int64 a1,
         unsigned __int64 a2,

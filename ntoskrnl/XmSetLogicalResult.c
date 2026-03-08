@@ -1,3 +1,13 @@
+/*
+ * XREFs of XmSetLogicalResult @ 0x1403B3AD0
+ * Callers:
+ *     XmXorOp @ 0x14039ED00 (XmXorOp.c)
+ *     XmOrOp @ 0x1403B3620 (XmOrOp.c)
+ *     XmTestOp @ 0x1403B3640 (XmTestOp.c)
+ * Callees:
+ *     XmStoreResult @ 0x1403B42E8 (XmStoreResult.c)
+ */
+
 __int64 __fastcall XmSetLogicalResult(__int64 a1, unsigned int a2)
 {
   __int64 v2; // r9

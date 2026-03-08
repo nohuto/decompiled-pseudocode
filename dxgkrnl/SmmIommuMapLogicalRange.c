@@ -1,3 +1,11 @@
+/*
+ * XREFs of SmmIommuMapLogicalRange @ 0x1C006E36C
+ * Callers:
+ *     SmmMapIommu @ 0x1C002A438 (SmmMapIommu.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 SmmIommuMapLogicalRange(__int64 a1, __int64 a2, __int64 a3, ...)
 {
   _QWORD v4[4]; // [rsp+40h] [rbp-20h] BYREF

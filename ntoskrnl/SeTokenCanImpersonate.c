@@ -1,3 +1,23 @@
+/*
+ * XREFs of SeTokenCanImpersonate @ 0x1406DA880
+ * Callers:
+ *     PsImpersonateClient @ 0x1406DA310 (PsImpersonateClient.c)
+ * Callees:
+ *     SeTokenIsRestricted @ 0x140206B10 (SeTokenIsRestricted.c)
+ *     RtlEqualSid @ 0x140208A60 (RtlEqualSid.c)
+ *     RtlSidDominatesForTrust @ 0x140247D00 (RtlSidDominatesForTrust.c)
+ *     SeTokenIsWriteRestricted @ 0x1402B8710 (SeTokenIsWriteRestricted.c)
+ *     SepReleaseOrderedReadLocks @ 0x1402E9D34 (SepReleaseOrderedReadLocks.c)
+ *     SepAcquireOrderedReadLocks @ 0x1402E9D68 (SepAcquireOrderedReadLocks.c)
+ *     SepCopyTokenIntegrity @ 0x14030FED0 (SepCopyTokenIntegrity.c)
+ *     RtlSidDominates @ 0x14030FF10 (RtlSidDominates.c)
+ *     SepLogUnmatchedSessionFlagImpersonationAttempt @ 0x1405B6E38 (SepLogUnmatchedSessionFlagImpersonationAttempt.c)
+ *     SepIsImpersonationAllowedDueToCapability @ 0x140744780 (SepIsImpersonationAllowedDueToCapability.c)
+ *     SeTokenIsElevated @ 0x140782960 (SeTokenIsElevated.c)
+ *     RtlQueryElevationFlags @ 0x140785410 (RtlQueryElevationFlags.c)
+ *     RtlIsParentOfChildAppContainer @ 0x1409B9428 (RtlIsParentOfChildAppContainer.c)
+ */
+
 __int64 __fastcall SeTokenCanImpersonate(__int64 Token, __int64 a2, int a3, _BYTE *a4)
 {
   __int64 result; // rax

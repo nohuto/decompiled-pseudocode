@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoEnumerateDeviceObjectList @ 0x1403C0BF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ */
+
 NTSTATUS __stdcall IoEnumerateDeviceObjectList(
         PDRIVER_OBJECT DriverObject,
         PDEVICE_OBJECT *DeviceObjectList,

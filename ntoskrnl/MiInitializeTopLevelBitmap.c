@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiInitializeTopLevelBitmap @ 0x140B603C4
+ * Callers:
+ *     MiInitializeSystemVa @ 0x140B60308 (MiInitializeSystemVa.c)
+ * Callees:
+ *     ExGenRandom @ 0x14027E2F0 (ExGenRandom.c)
+ *     RtlSetBits @ 0x14028BC50 (RtlSetBits.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ */
+
 __int64 MiInitializeTopLevelBitmap()
 {
   unsigned __int64 v0; // rbx

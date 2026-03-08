@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViDmaUninit @ 0x140ADA600
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 (__fastcall *ViDmaUninit())(_QWORD, _QWORD, _QWORD, _QWORD)
 {
   __int64 (__fastcall *result)(_QWORD, _QWORD, _QWORD, _QWORD); // rax

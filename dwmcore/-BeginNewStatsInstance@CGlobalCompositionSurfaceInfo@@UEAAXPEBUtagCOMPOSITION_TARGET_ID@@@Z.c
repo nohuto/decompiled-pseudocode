@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?BeginNewStatsInstance@CGlobalCompositionSurfaceInfo@@UEAAXPEBUtagCOMPOSITION_TARGET_ID@@@Z @ 0x1800E2920
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetCurrentFrameId@@YA_KXZ @ 0x180089410 (-GetCurrentFrameId@@YA_KXZ.c)
+ */
+
 void __fastcall CGlobalCompositionSurfaceInfo::BeginNewStatsInstance(
         CGlobalCompositionSurfaceInfo *this,
         const struct tagCOMPOSITION_TARGET_ID *a2)

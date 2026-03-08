@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0STACKMEMOBJ@@QEAA@KKJJJ@Z @ 0x1C02D539C
+ * Callers:
+ *     NtGdiExtFloodFill @ 0x1C02D6200 (NtGdiExtFloodFill.c)
+ * Callees:
+ *     <none>
+ */
+
 STACKMEMOBJ *__fastcall STACKMEMOBJ::STACKMEMOBJ(
         STACKMEMOBJ *this,
         unsigned int a2,

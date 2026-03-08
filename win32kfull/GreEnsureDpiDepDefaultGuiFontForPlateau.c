@@ -1,3 +1,13 @@
+/*
+ * XREFs of GreEnsureDpiDepDefaultGuiFontForPlateau @ 0x1C029B210
+ * Callers:
+ *     NtGdiEnsureDpiDepDefaultGuiFontForPlateau @ 0x1C02C4A70 (NtGdiEnsureDpiDepDefaultGuiFontForPlateau.c)
+ * Callees:
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C0029DD0 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C011CC38 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     hfontInitDefaultGuiFont @ 0x1C03B6C5C (hfontInitDefaultGuiFont.c)
+ */
+
 void __fastcall GreEnsureDpiDepDefaultGuiFontForPlateau(Gre::Base *a1)
 {
   unsigned int v1; // ebx

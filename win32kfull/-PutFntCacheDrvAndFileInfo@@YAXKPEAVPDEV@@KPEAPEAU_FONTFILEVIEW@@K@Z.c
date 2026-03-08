@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PutFntCacheDrvAndFileInfo@@YAXKPEAVPDEV@@KPEAPEAU_FONTFILEVIEW@@K@Z @ 0x1C028C660
+ * Callers:
+ *     UmfdLoadFontFileView @ 0x1C011859C (UmfdLoadFontFileView.c)
+ * Callees:
+ *     SearchFntCacheNewLink @ 0x1C028C790 (SearchFntCacheNewLink.c)
+ */
+
 void __fastcall PutFntCacheDrvAndFileInfo(
         Gre::Base *a1,
         struct PDEV *a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?VWPLRemoveBase@@YAHPEAPEAUtagVWPL@@_KPEAUtagWND@@HPEA_K@Z @ 0x1C003E2AC
+ * Callers:
+ *     _ChangeWindowMessageFilterEx @ 0x1C00CB9E8 (_ChangeWindowMessageFilterEx.c)
+ *     _DeregisterShellHookWindow @ 0x1C00EFC04 (_DeregisterShellHookWindow.c)
+ *     FreeWindowMessageFilter @ 0x1C012EDC4 (FreeWindowMessageFilter.c)
+ *     FreeWindowGCData @ 0x1C012EFE8 (FreeWindowGCData.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003E858 (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ */
+
 __int64 __fastcall VWPLRemoveBase(struct tagVWPL **a1, __int64 a2, struct tagWND *a3, __int64 a4, unsigned __int64 *a5)
 {
   unsigned int *v5; // rbx

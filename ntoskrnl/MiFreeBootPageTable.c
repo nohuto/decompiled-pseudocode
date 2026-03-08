@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiFreeBootPageTable @ 0x140B50684
+ * Callers:
+ *     MxZeroBootMappings @ 0x140B50568 (MxZeroBootMappings.c)
+ * Callees:
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiLockAndInsertPageInFreeList @ 0x140387CB4 (MiLockAndInsertPageInFreeList.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiFreeBootPageTable(ULONG_PTR BugCheckParameter2)
 {
   __int64 v1; // rbx

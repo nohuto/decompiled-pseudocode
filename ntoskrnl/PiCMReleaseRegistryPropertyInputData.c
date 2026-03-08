@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiCMReleaseRegistryPropertyInputData @ 0x1406C764C
+ * Callers:
+ *     PiCMGetRegistryProperty @ 0x1406C74A4 (PiCMGetRegistryProperty.c)
+ *     PiCMSetRegistryProperty @ 0x140967BA4 (PiCMSetRegistryProperty.c)
+ * Callees:
+ *     PiControlFreeUserModeCallersBuffer @ 0x1402459EC (PiControlFreeUserModeCallersBuffer.c)
+ */
+
 __int64 __fastcall PiCMReleaseRegistryPropertyInputData(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rax

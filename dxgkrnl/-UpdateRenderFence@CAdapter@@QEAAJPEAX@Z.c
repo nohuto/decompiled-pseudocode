@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?UpdateRenderFence@CAdapter@@QEAAJPEAX@Z @ 0x1C0018A08
+ * Callers:
+ *     ?UpdateCollection@CAdapterCollection@@QEAA_NPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z @ 0x1C00188A4 (-UpdateCollection@CAdapterCollection@@QEAA_NPEAUCSM_TOKEN_ADAPTER_INFO@@PEAPEAXI@Z.c)
+ *     ?Initialize@CAdapter@@IEAAJAEBUCSM_TOKEN_ADAPTER_INFO@@@Z @ 0x1C001917C (-Initialize@CAdapter@@IEAAJAEBUCSM_TOKEN_ADAPTER_INFO@@@Z.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ?DxgkCddDestroySynchronizationObject@@YAJPEBU_D3DKMT_DESTROYSYNCHRONIZATIONOBJECT@@@Z @ 0x1C01DD210 (-DxgkCddDestroySynchronizationObject@@YAJPEBU_D3DKMT_DESTROYSYNCHRONIZATIONOBJECT@@@Z.c)
+ *     DxgkGetSharedSyncObjectType @ 0x1C01DEFE0 (DxgkGetSharedSyncObjectType.c)
+ *     DxgkOpenSyncObjectFromNtHandle2Internal @ 0x1C01DEFF0 (DxgkOpenSyncObjectFromNtHandle2Internal.c)
+ *     DxgkCreateDeviceInternal @ 0x1C01DF010 (DxgkCreateDeviceInternal.c)
+ *     DxgkCreateContextVirtualInternal @ 0x1C01DF030 (DxgkCreateContextVirtualInternal.c)
+ *     DxgkDestroyDeviceInternal @ 0x1C01DFFD8 (DxgkDestroyDeviceInternal.c)
+ *     DxgkDestroyContextInternal @ 0x1C01DFFF0 (DxgkDestroyContextInternal.c)
+ */
+
 __int64 __fastcall CAdapter::UpdateRenderFence(CAdapter *this, void *a2)
 {
   int DeviceInternal; // edi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopFanUpdateRunningState @ 0x1409946B8
+ * Callers:
+ *     PopFanWorker @ 0x140846840 (PopFanWorker.c)
+ * Callees:
+ *     PopReleaseRwLock @ 0x140236C40 (PopReleaseRwLock.c)
+ *     PopAcquireRwLockExclusive @ 0x1402BC5B0 (PopAcquireRwLockExclusive.c)
+ *     PopFanEndCsFanPeriod @ 0x140994200 (PopFanEndCsFanPeriod.c)
+ */
+
 void __fastcall PopFanUpdateRunningState(char a1)
 {
   int v2; // eax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?BmlGetTargetModePreferenceOnMonitor@@YA?AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARGETMODE@@EPEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C016ED64
+ * Callers:
+ *     BmlCompareTargetModesWithMonitor @ 0x1C016E13C (BmlCompareTargetModesWithMonitor.c)
+ * Callees:
+ *     ?HaveEquivalentMonitorFrequencyRequirements@DMMVIDEOSIGNALMODE@@SAEAEBU_D3DKMDT_VIDEO_SIGNAL_INFO@@0E@Z @ 0x1C000283C (-HaveEquivalentMonitorFrequencyRequirements@DMMVIDEOSIGNALMODE@@SAEAEBU_D3DKMDT_VIDEO_SIGNAL_INF.c)
+ *     MonitorGetNextMonitorSourceMode @ 0x1C016EEF0 (MonitorGetNextMonitorSourceMode.c)
+ *     BmlGetMonitorModePreference @ 0x1C016F008 (BmlGetMonitorModePreference.c)
+ *     BmlIsEDIDCapableOutputTechonology @ 0x1C016F144 (BmlIsEDIDCapableOutputTechonology.c)
+ *     ?BmlCompareModeExtents@@YA?AW4BML_COMPARISON_RESULT@@AEBU_D3DKMDT_2DREGION@@0@Z @ 0x1C01710A4 (-BmlCompareModeExtents@@YA-AW4BML_COMPARISON_RESULT@@AEBU_D3DKMDT_2DREGION@@0@Z.c)
+ */
+
 __int64 __fastcall BmlGetTargetModePreferenceOnMonitor(__int64 a1, char a2, __int64 a3)
 {
   __int64 v3; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of FindEmailAt @ 0x1405AD764
+ * Callers:
+ *     RtlpNameprepAsciiRealWorker @ 0x1405ADAEC (RtlpNameprepAsciiRealWorker.c)
+ *     RtlpValidateAsciiStd3AndLength @ 0x1409BC598 (RtlpValidateAsciiStd3AndLength.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FindEmailAt(__int64 a1, int a2)
 {
   int v2; // r8d

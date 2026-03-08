@@ -1,3 +1,39 @@
+/*
+ * XREFs of MiReferenceIoPages @ 0x14029BA60
+ * Callers:
+ *     MiProbeLockFrame @ 0x140268ED0 (MiProbeLockFrame.c)
+ *     MiFillSystemPtes @ 0x140328C00 (MiFillSystemPtes.c)
+ *     MiMapContiguousMemoryLarge @ 0x14038A3C4 (MiMapContiguousMemoryLarge.c)
+ *     MiMapMdlCommon @ 0x1403A2070 (MiMapMdlCommon.c)
+ *     MiMapLockedPagesInUserSpace @ 0x140725C90 (MiMapLockedPagesInUserSpace.c)
+ *     MiMapViewOfPhysicalSection @ 0x140A2E020 (MiMapViewOfPhysicalSection.c)
+ *     MiRotateToFrameBuffer @ 0x140A2E9E0 (MiRotateToFrameBuffer.c)
+ *     MiRotateToFrameBufferNoCopy @ 0x140A2ECE4 (MiRotateToFrameBufferNoCopy.c)
+ *     MiAddLoaderHalIoPte @ 0x140B5BB80 (MiAddLoaderHalIoPte.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     MiDereferenceIoPages @ 0x14029B654 (MiDereferenceIoPages.c)
+ *     MiUnlockIoPfnTree @ 0x14029B9B4 (MiUnlockIoPfnTree.c)
+ *     MiIsPageInIoHugeRangeTransition @ 0x14029BA30 (MiIsPageInIoHugeRangeTransition.c)
+ *     MiLockIoPfnTree @ 0x14029C1B0 (MiLockIoPfnTree.c)
+ *     MiIoSpaceGetBounds @ 0x14029C250 (MiIoSpaceGetBounds.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     ExAllocatePoolMm @ 0x14034C1AC (ExAllocatePoolMm.c)
+ *     MiFlushEntireTbDueToAttributeChange @ 0x14036D020 (MiFlushEntireTbDueToAttributeChange.c)
+ *     MiConvertIoPfnTreeLockExclusiveToShared @ 0x14039B498 (MiConvertIoPfnTreeLockExclusiveToShared.c)
+ *     MiIoPfnTreeLockContended @ 0x1403BFB90 (MiIoPfnTreeLockContended.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFlushCachedIoPfnRange @ 0x14062BB3C (MiFlushCachedIoPfnRange.c)
+ *     MiFlushCacheMdl @ 0x14065E8C0 (MiFlushCacheMdl.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiReferenceIoPages(int a1, __int64 a2, unsigned __int64 a3, int a4, _DWORD *a5, __int64 *a6)
 {
   _DWORD *v6; // rbx

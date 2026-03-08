@@ -1,3 +1,13 @@
+/*
+ * XREFs of TUNNEL_ReleaseUsb4HostPowerReferenceForPort @ 0x1C008F2DC
+ * Callers:
+ *     HUBPDO_EvtDeviceReleaseHardware @ 0x1C007DFC0 (HUBPDO_EvtDeviceReleaseHardware.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     TUNNEL_GetUsb4Host @ 0x1C008D2F4 (TUNNEL_GetUsb4Host.c)
+ *     TUNNEL_ReleaseUsb4HostPowerReference @ 0x1C008F058 (TUNNEL_ReleaseUsb4HostPowerReference.c)
+ */
+
 void __fastcall TUNNEL_ReleaseUsb4HostPowerReferenceForPort(_QWORD **a1)
 {
   _QWORD *v2; // rdx

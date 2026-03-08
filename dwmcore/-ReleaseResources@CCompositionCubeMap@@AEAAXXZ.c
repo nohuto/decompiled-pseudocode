@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?ReleaseResources@CCompositionCubeMap@@AEAAXXZ @ 0x18021FF28
+ * Callers:
+ *     ??1CCompositionCubeMap@@UEAA@XZ @ 0x18021F4CC (--1CCompositionCubeMap@@UEAA@XZ.c)
+ * Callees:
+ *     ?InternalRelease@?$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ @ 0x18001C8D4 (-InternalRelease@-$ComPtr@UIUnknown@@@WRL@Microsoft@@IEAAKXZ.c)
+ *     ?UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z @ 0x1800234BC (-UnRegisterNotifierInternal@CResource@@AEAAXPEAV1@@Z.c)
+ *     ?ShrinkToSize@?$DynArrayImpl@$00@@IEAAXI@Z @ 0x1800E1CF4 (-ShrinkToSize@-$DynArrayImpl@$00@@IEAAXI@Z.c)
+ *     ?InternalRelease@?$ComPtr@VCCompositionSurfaceBitmap@@@WRL@Microsoft@@IEAAKXZ @ 0x18021FAF0 (-InternalRelease@-$ComPtr@VCCompositionSurfaceBitmap@@@WRL@Microsoft@@IEAAKXZ.c)
+ */
+
 void __fastcall CCompositionCubeMap::ReleaseResources(CCompositionCubeMap *this)
 {
   unsigned int v1; // esi

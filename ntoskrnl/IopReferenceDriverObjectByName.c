@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopReferenceDriverObjectByName @ 0x1406C3670
+ * Callers:
+ *     PipCallDriverAddDeviceQueryRoutine @ 0x1406C3364 (PipCallDriverAddDeviceQueryRoutine.c)
+ *     PiGetDefaultMessageString @ 0x140847760 (PiGetDefaultMessageString.c)
+ *     IopInitializeSystemDrivers @ 0x140B57B44 (IopInitializeSystemDrivers.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ObOpenObjectByName @ 0x1406C39E0 (ObOpenObjectByName.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ */
+
 PVOID __fastcall IopReferenceDriverObjectByName(_WORD *a1)
 {
   NTSTATUS v2; // ebx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of _RtlpMuiRegInitAnyLanguage @ 0x140844394
+ * Callers:
+ *     RtlpMuiRegAddLanguageByName @ 0x1408437B0 (RtlpMuiRegAddLanguageByName.c)
+ *     _RtlpMuiRegAddBaseLanguage @ 0x140A726D0 (_RtlpMuiRegAddBaseLanguage.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlCultureNameToLCID @ 0x1407FE570 (RtlCultureNameToLCID.c)
+ *     _RtlpMuiRegAddNeutralLanguage @ 0x140844470 (_RtlpMuiRegAddNeutralLanguage.c)
+ *     RtlpMuiRegGetOrAddString @ 0x140844498 (RtlpMuiRegGetOrAddString.c)
+ */
+
 __int64 __fastcall RtlpMuiRegInitAnyLanguage(__int64 a1, __int64 a2, const WCHAR *a3, __int16 a4)
 {
   __int64 v8; // r8

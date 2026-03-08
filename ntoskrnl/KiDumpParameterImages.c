@@ -1,3 +1,18 @@
+/*
+ * XREFs of KiDumpParameterImages @ 0x1405680C8
+ * Callers:
+ *     KeBugCheck2 @ 0x140565E90 (KeBugCheck2.c)
+ *     KiDisplayBlueScreen @ 0x140567D34 (KiDisplayBlueScreen.c)
+ * Callees:
+ *     MmIsAddressValidEx @ 0x1403471E0 (MmIsAddressValidEx.c)
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     RtlStringCbPrintfA @ 0x140380B18 (RtlStringCbPrintfA.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiBugCheckUnicodeToAnsi @ 0x1405676A8 (KiBugCheckUnicodeToAnsi.c)
+ *     KiPcToFileHeader @ 0x140568594 (KiPcToFileHeader.c)
+ *     MmLocateUnloadedDriver @ 0x14062A668 (MmLocateUnloadedDriver.c)
+ */
+
 void __fastcall KiDumpParameterImages(NTSTRSAFE_PSTR pszDest, const void **a2, unsigned int a3, char a4)
 {
   __int64 v7; // rbp

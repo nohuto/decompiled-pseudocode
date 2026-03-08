@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMeFirmwareActivateCompletionAfterReset @ 0x1C00152C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     NVMeRequestComplete @ 0x1C000318C (NVMeRequestComplete.c)
+ */
+
 _BYTE *__fastcall NVMeFirmwareActivateCompletionAfterReset(__int64 a1, __int64 a2, __int64 a3)
 {
   char v3; // dl

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIThermalAssocaiteConstraint @ 0x1C003FE24
+ * Callers:
+ *     ACPIThermalAcquireCoolingInterfaces @ 0x1C003FAD8 (ACPIThermalAcquireCoolingInterfaces.c)
+ *     ACPIThermalActivateConstraint @ 0x1C003FC80 (ACPIThermalActivateConstraint.c)
+ * Callees:
+ *     AcpiDiagTraceActiveCoolingConstraint @ 0x1C0007500 (AcpiDiagTraceActiveCoolingConstraint.c)
+ *     AcpiDiagTracePassiveCoolingConstraint @ 0x1C0008720 (AcpiDiagTracePassiveCoolingConstraint.c)
+ *     ACPIThermalReevaluateConstraints @ 0x1C0041A74 (ACPIThermalReevaluateConstraints.c)
+ */
+
 __int64 __fastcall ACPIThermalAssocaiteConstraint(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

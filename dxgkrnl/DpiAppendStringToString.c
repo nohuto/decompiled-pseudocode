@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiAppendStringToString @ 0x1C0204E1C
+ * Callers:
+ *     DpiPdoHandleQueryId @ 0x1C0202B30 (DpiPdoHandleQueryId.c)
+ *     DpiGdoSetupGdiParameters @ 0x1C0204950 (DpiGdoSetupGdiParameters.c)
+ * Callees:
+ *     ?RtlStringCbLengthW@@YAJPEBG_KPEA_K@Z @ 0x1C001F920 (-RtlStringCbLengthW@@YAJPEBG_KPEA_K@Z.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 __int64 __fastcall DpiAppendStringToString(PCWSTR Source, unsigned __int16 *a2, PUNICODE_STRING UnicodeString)
 {
   int v6; // eax

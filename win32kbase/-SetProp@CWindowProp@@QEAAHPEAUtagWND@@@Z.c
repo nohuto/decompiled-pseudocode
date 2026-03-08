@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?SetProp@CWindowProp@@QEAAHPEAUtagWND@@@Z @ 0x1C008EA50
+ * Callers:
+ *     ?SetGroupedFGBoost@GroupedFGBoostProp@@SAJPEAUtagWND@@KPEAPEAU_EPROCESS@@@Z @ 0x1C008EDE4 (-SetGroupedFGBoost@GroupedFGBoostProp@@SAJPEAUtagWND@@KPEAPEAU_EPROCESS@@@Z.c)
+ * Callees:
+ *     ?LockRefactorStagingAssertOwned@@YAXAEBUtagObjLock@@@Z @ 0x1C00724BC (-LockRefactorStagingAssertOwned@@YAXAEBUtagObjLock@@@Z.c)
+ *     RealInternalSetProp @ 0x1C00798E0 (RealInternalSetProp.c)
+ *     RealInternalRemoveProp @ 0x1C008EB00 (RealInternalRemoveProp.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CWindowProp::SetProp(CWindowProp *this, unsigned __int64 a2)
 {
   unsigned int v4; // ebx

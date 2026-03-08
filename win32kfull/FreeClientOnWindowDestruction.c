@@ -1,3 +1,11 @@
+/*
+ * XREFs of FreeClientOnWindowDestruction @ 0x1C012E310
+ * Callers:
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FreeClientOnWindowDestruction(__int64 a1)
 {
   _QWORD **v2; // rdi

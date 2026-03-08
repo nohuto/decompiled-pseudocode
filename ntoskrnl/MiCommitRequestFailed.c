@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiCommitRequestFailed @ 0x140A40C84
+ * Callers:
+ *     MiChargeFullProcessCommitment @ 0x1407C5840 (MiChargeFullProcessCommitment.c)
+ * Callees:
+ *     KeRequestTerminationProcess @ 0x140971344 (KeRequestTerminationProcess.c)
+ *     MiLogCommitRequestFailed @ 0x140A40CE4 (MiLogCommitRequestFailed.c)
+ */
+
 void __fastcall MiCommitRequestFailed(__int64 a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   struct _KTHREAD *CurrentThread; // rbx

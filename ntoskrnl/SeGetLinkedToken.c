@@ -1,3 +1,13 @@
+/*
+ * XREFs of SeGetLinkedToken @ 0x1409CC300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SepDeReferenceLogonSessionDirect @ 0x1402BE52C (SepDeReferenceLogonSessionDirect.c)
+ *     SepReferenceLogonSessionSilo @ 0x140773DF8 (SepReferenceLogonSessionSilo.c)
+ *     SepDuplicateToken @ 0x1407BCF00 (SepDuplicateToken.c)
+ */
+
 __int64 __fastcall SeGetLinkedToken(int a1, __int64 a2, __int64 *a3)
 {
   _QWORD *v3; // rbx

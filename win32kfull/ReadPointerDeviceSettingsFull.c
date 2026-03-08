@@ -1,3 +1,17 @@
+/*
+ * XREFs of ReadPointerDeviceSettingsFull @ 0x1C0106DA0
+ * Callers:
+ *     xxxSystemParametersInfoWorker @ 0x1C01032D0 (xxxSystemParametersInfoWorker.c)
+ * Callees:
+ *     ?CreatePredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z @ 0x1C00F2284 (-CreatePredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z.c)
+ *     ?LoadPointerDevicePenSettings@@YAHXZ @ 0x1C00F5D4C (-LoadPointerDevicePenSettings@@YAHXZ.c)
+ *     ?GetPredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z @ 0x1C01026A0 (-GetPredictionSettings@@YAJPEAUtagDEVICECONFIG_SETTING@@KPEAGK@Z.c)
+ *     RtlUnicodeStringValidateWorker @ 0x1C0107584 (RtlUnicodeStringValidateWorker.c)
+ *     ?GetFlickMap@@YAHPEAUtagFLICK_MAP@@@Z @ 0x1C01075C4 (-GetFlickMap@@YAHPEAUtagFLICK_MAP@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z @ 0x1C01F4520 (-GetCustomFlick@@YAHPEAUtagCUSTOM_FLICK@@@Z.c)
+ */
+
 __int64 __fastcall ReadPointerDeviceSettingsFull(int a1, size_t a2, unsigned __int16 *a3)
 {
   int v3; // edi

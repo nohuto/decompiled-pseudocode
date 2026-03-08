@@ -1,3 +1,17 @@
+/*
+ * XREFs of CitGetWindowInfo @ 0x1C0101B20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     _GetTopLevelWindow @ 0x1C0035AF0 (_GetTopLevelWindow.c)
+ *     _MonitorFromRect @ 0x1C00AEE80 (_MonitorFromRect.c)
+ *     ?IsVerticallyMaximized@@YA_NPEBUtagWND@@@Z @ 0x1C0101D14 (-IsVerticallyMaximized@@YA_NPEBUtagWND@@@Z.c)
+ *     ?IsLeftSemiMaximized@@YA_NPEBUtagWND@@@Z @ 0x1C0101D30 (-IsLeftSemiMaximized@@YA_NPEBUtagWND@@@Z.c)
+ *     ?IsRightSemiMaximized@@YA_NPEBUtagWND@@@Z @ 0x1C0101D4C (-IsRightSemiMaximized@@YA_NPEBUtagWND@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall CitGetWindowInfo(__int64 a1, _WORD *a2)
 {
   __int64 result; // rax

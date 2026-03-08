@@ -1,3 +1,29 @@
+/*
+ * XREFs of xxxHelpLoop @ 0x1C023C17C
+ * Callers:
+ *     xxxSysCommand @ 0x1C00DE67C (xxxSysCommand.c)
+ * Callees:
+ *     xxxReleaseCapture @ 0x1C00108E8 (xxxReleaseCapture.c)
+ *     xxxCapture @ 0x1C0010A5C (xxxCapture.c)
+ *     GetWindowBorders @ 0x1C0021910 (GetWindowBorders.c)
+ *     xxxDispatchMessage @ 0x1C0038064 (xxxDispatchMessage.c)
+ *     ?zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z @ 0x1C0042A88 (-zzzSetCursor@@YAPEAUtagCURSOR@@PEAU1@@Z.c)
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ *     xxxInternalGetMessage @ 0x1C00946B0 (xxxInternalGetMessage.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     PtInRect @ 0x1C00A34E8 (PtInRect.c)
+ *     _GetParent @ 0x1C00C85CC (_GetParent.c)
+ *     ?xxxWindowHitTest@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAHK@Z @ 0x1C00DEDBC (-xxxWindowHitTest@@YAPEAUHWND__@@PEAUtagWND@@UtagPOINT@@PEAHK@Z.c)
+ *     xxxTranslateMessage @ 0x1C00E4F1C (xxxTranslateMessage.c)
+ *     xxxRedrawTitle @ 0x1C01097D0 (xxxRedrawTitle.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     xxxInternalEnumWindow @ 0x1C01A9044 (xxxInternalEnumWindow.c)
+ *     xxxWaitMessageEx @ 0x1C01B84F0 (xxxWaitMessageEx.c)
+ *     xxxSendHelpMessage @ 0x1C023C5F8 (xxxSendHelpMessage.c)
+ *     ?IsHelpParent@@YAHPEAUtagWND@@@Z @ 0x1C0251AFC (-IsHelpParent@@YAHPEAUtagWND@@@Z.c)
+ *     GetContextHelpId @ 0x1C0251B58 (GetContextHelpId.c)
+ */
+
 void __fastcall xxxHelpLoop(struct tagWND *a1)
 {
   int WindowBorders; // eax

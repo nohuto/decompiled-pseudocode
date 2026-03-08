@@ -1,3 +1,17 @@
+/*
+ * XREFs of PopAdaptiveInitializeBootContext @ 0x140B5DFE8
+ * Callers:
+ *     PopInitializeAdpm @ 0x140B5DF58 (PopInitializeAdpm.c)
+ * Callees:
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     PopBcdOpen @ 0x14082B4E4 (PopBcdOpen.c)
+ *     BcdGetElementData @ 0x14082B504 (BcdGetElementData.c)
+ *     PopBcdClose @ 0x14082B524 (PopBcdClose.c)
+ *     BcdCloseObject @ 0x14082E5DC (BcdCloseObject.c)
+ *     BcdOpenObject @ 0x14082E620 (BcdOpenObject.c)
+ *     PopDiagTraceAdaptiveBootOverride @ 0x140B93184 (PopDiagTraceAdaptiveBootOverride.c)
+ */
+
 __int64 PopAdaptiveInitializeBootContext()
 {
   __int64 v0; // rdx

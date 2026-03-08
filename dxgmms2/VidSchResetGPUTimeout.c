@@ -1,3 +1,12 @@
+/*
+ * XREFs of VidSchResetGPUTimeout @ 0x1C0105E7C
+ * Callers:
+ *     VidSchiCheckHwProgress @ 0x1C00A5940 (VidSchiCheckHwProgress.c)
+ *     VidSchRestartAdapter @ 0x1C01086B0 (VidSchRestartAdapter.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VidSchResetGPUTimeout(__int64 a1)
 {
   unsigned int i; // r9d

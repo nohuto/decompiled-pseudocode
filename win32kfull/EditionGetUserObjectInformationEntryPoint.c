@@ -1,3 +1,13 @@
+/*
+ * XREFs of EditionGetUserObjectInformationEntryPoint @ 0x1C00C7550
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _GetUserObjectInformation @ 0x1C00C7720 (_GetUserObjectInformation.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall EditionGetUserObjectInformationEntryPoint(
         HANDLE Handle,
         int a2,

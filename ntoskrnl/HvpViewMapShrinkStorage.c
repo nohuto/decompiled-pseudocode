@@ -1,3 +1,17 @@
+/*
+ * XREFs of HvpViewMapShrinkStorage @ 0x140A1A654
+ * Callers:
+ *     HvFreeHivePartial @ 0x14072DB74 (HvFreeHivePartial.c)
+ *     HvpAddBin @ 0x14072F9F0 (HvpAddBin.c)
+ * Callees:
+ *     CmSiReleaseProcessLockedPagesCharge @ 0x14020C564 (CmSiReleaseProcessLockedPagesCharge.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     RtlRbRemoveNode @ 0x14024C010 (RtlRbRemoveNode.c)
+ *     CmSiUnmapViewOfSection @ 0x1402C0A9C (CmSiUnmapViewOfSection.c)
+ *     HvcallpNoHypervisorPresent @ 0x1402C0AC0 (HvcallpNoHypervisorPresent.c)
+ *     HvpViewMapMakeViewRangeInvalid @ 0x140880D20 (HvpViewMapMakeViewRangeInvalid.c)
+ */
+
 struct _PRIVILEGE_SET *__fastcall HvpViewMapShrinkStorage(__int64 a1, int a2)
 {
   __int64 v2; // r12

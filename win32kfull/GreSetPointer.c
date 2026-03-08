@@ -1,3 +1,15 @@
+/*
+ * XREFs of GreSetPointer @ 0x1C0062EF4
+ * Callers:
+ *     ?SetPointerShape@CursorApiRouter@@QEAAXPEAU_CURSINFO@@KKK@Z @ 0x1C0021C48 (-SetPointerShape@CursorApiRouter@@QEAAXPEAU_CURSINFO@@KKK@Z.c)
+ *     GreHidePointer @ 0x1C002A524 (GreHidePointer.c)
+ *     zzzUpdateCursorImage @ 0x1C0061E20 (zzzUpdateCursorImage.c)
+ *     _lambda_a958981e61cb814173376795bd306db4_::operator() @ 0x1C026E4A8 (_lambda_a958981e61cb814173376795bd306db4_--operator().c)
+ * Callees:
+ *     ?vUnlock@SPRITERANGELOCK@@QEAAXXZ @ 0x1C0018890 (-vUnlock@SPRITERANGELOCK@@QEAAXXZ.c)
+ *     ?vSetPointer@@YAXPEAUHDEV__@@PEAU_CURSINFO@@KKK@Z @ 0x1C01299C8 (-vSetPointer@@YAXPEAUHDEV__@@PEAU_CURSINFO@@KKK@Z.c)
+ */
+
 void __fastcall GreSetPointer(struct _CURSINFO *a1, unsigned int a2, unsigned int a3, unsigned int a4)
 {
   int v6; // r12d

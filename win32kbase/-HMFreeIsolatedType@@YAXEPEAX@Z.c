@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?HMFreeIsolatedType@@YAXEPEAX@Z @ 0x1C0075514
+ * Callers:
+ *     HMFreeObject @ 0x1C0077F50 (HMFreeObject.c)
+ *     ?HMFreeUserOrIsolatedType@@YAXGEPEAX@Z @ 0x1C00D3268 (-HMFreeUserOrIsolatedType@@YAXGEPEAX@Z.c)
+ * Callees:
+ *     ?HMTagToIsolatedType@@YA?AW4UserTypeIsolationCountedType@@E@Z @ 0x1C0078704 (-HMTagToIsolatedType@@YA-AW4UserTypeIsolationCountedType@@E@Z.c)
+ *     ?Free@?$CTypeIsolation@$0BFAAA@$0BFA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C00A7554 (-Free@-$CTypeIsolation@$0BFAAA@$0BFA@@NSInstrumentation@@IEAAXPEAX@Z.c)
+ *     ?Free@?$CTypeIsolation@$0BEAAA@$0KA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C00A881C (-Free@-$CTypeIsolation@$0BEAAA@$0KA@@NSInstrumentation@@IEAAXPEAX@Z.c)
+ *     ?Free@?$CTypeIsolation@$0KAAA@$0KA@@NSInstrumentation@@IEAAXPEAX@Z @ 0x1C00AEAB8 (-Free@-$CTypeIsolation@$0KAAA@$0KA@@NSInstrumentation@@IEAAXPEAX@Z.c)
+ */
+
 void __fastcall HMFreeIsolatedType(__int64 a1, void *a2)
 {
   int v3; // eax

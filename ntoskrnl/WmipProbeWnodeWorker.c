@@ -1,3 +1,13 @@
+/*
+ * XREFs of WmipProbeWnodeWorker @ 0x140787B64
+ * Callers:
+ *     WmipProbeWnodeSingleInstance @ 0x140787AE4 (WmipProbeWnodeSingleInstance.c)
+ *     WmipProbeWnodeMethodItem @ 0x1409DE82C (WmipProbeWnodeMethodItem.c)
+ *     WmipProbeWnodeSingleItem @ 0x1409DE89C (WmipProbeWnodeSingleItem.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WmipProbeWnodeWorker(
         __int64 a1,
         unsigned int a2,

@@ -1,3 +1,44 @@
+/*
+ * XREFs of MmProbeAndLockPages @ 0x140267B90
+ * Callers:
+ *     sub_1403EBCD0 @ 0x1403EBCD0 (sub_1403EBCD0.c)
+ *     CcMdlRead @ 0x1406A3B50 (CcMdlRead.c)
+ *     MmProbeAndLockProcessPages @ 0x1406A40F0 (MmProbeAndLockProcessPages.c)
+ *     MiAllocatePerSessionProtos @ 0x14075B9D4 (MiAllocatePerSessionProtos.c)
+ *     ExLockUserBuffer @ 0x14075D5A4 (ExLockUserBuffer.c)
+ *     IopXxxControlFile @ 0x1407C1720 (IopXxxControlFile.c)
+ *     MiCopyVirtualMemory @ 0x1407C5950 (MiCopyVirtualMemory.c)
+ *     FsRtlKernelFsControlFile @ 0x1407DB1B0 (FsRtlKernelFsControlFile.c)
+ *     IopReadFile @ 0x1407E0C40 (IopReadFile.c)
+ *     ExInitializeLeapSecondData @ 0x140850BB0 (ExInitializeLeapSecondData.c)
+ *     VslValidateDynamicCodePages @ 0x14087A498 (VslValidateDynamicCodePages.c)
+ *     VslCallEnclave @ 0x1408A00F8 (VslCallEnclave.c)
+ *     VslObtainHotPatchUndoTable @ 0x14093FB88 (VslObtainHotPatchUndoTable.c)
+ *     IopAllocateAndLockMdl @ 0x1409410EC (IopAllocateAndLockMdl.c)
+ *     IopSetFileObjectIosbRange @ 0x140942FC8 (IopSetFileObjectIosbRange.c)
+ *     AlpcpInitializeCompletionList @ 0x14097672C (AlpcpInitializeCompletionList.c)
+ *     PopReadPagesFromHiberFile @ 0x140985B2C (PopReadPagesFromHiberFile.c)
+ *     PspCreateSecureThread @ 0x1409ADFC0 (PspCreateSecureThread.c)
+ *     SmProcessStatsRequest @ 0x1409D4588 (SmProcessStatsRequest.c)
+ *     NtStartProfile @ 0x140A019E0 (NtStartProfile.c)
+ *     NtPssCaptureVaSpaceBulk @ 0x140A025D0 (NtPssCaptureVaSpaceBulk.c)
+ *     CmpLockKeyBodyIntoMemory @ 0x140A14838 (CmpLockKeyBodyIntoMemory.c)
+ *     MiRotateToFrameBuffer @ 0x140A2E9E0 (MiRotateToFrameBuffer.c)
+ *     MiApplyImageHotPatch @ 0x140A326C8 (MiApplyImageHotPatch.c)
+ *     MiCopyPagesIntoEnclave @ 0x140A3A34C (MiCopyPagesIntoEnclave.c)
+ *     MiLoadDataIntoVsmEnclave @ 0x140A3B45C (MiLoadDataIntoVsmEnclave.c)
+ *     MiQueryMemoryPhysicalContiguity @ 0x140A3CCE0 (MiQueryMemoryPhysicalContiguity.c)
+ *     sub_140A4AE60 @ 0x140A4AE60 (sub_140A4AE60.c)
+ * Callees:
+ *     MiProbeAndLockComplete @ 0x140267C70 (MiProbeAndLockComplete.c)
+ *     MiProbeAndLockPacket @ 0x140268C30 (MiProbeAndLockPacket.c)
+ *     MiProbeAndLockPrepare @ 0x14026B160 (MiProbeAndLockPrepare.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiReturnFullProcessCommitment @ 0x1406B6FB4 (MiReturnFullProcessCommitment.c)
+ */
+
 void __stdcall MmProbeAndLockPages(PMDL MemoryDescriptorList, KPROCESSOR_MODE AccessMode, LOCK_OPERATION Operation)
 {
   int v6; // eax

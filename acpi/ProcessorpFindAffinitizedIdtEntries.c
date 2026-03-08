@@ -1,3 +1,15 @@
+/*
+ * XREFs of ProcessorpFindAffinitizedIdtEntries @ 0x1C009B1A8
+ * Callers:
+ *     ProcessorpFindIdtEntriesApic @ 0x1C009B5F0 (ProcessorpFindIdtEntriesApic.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     WPP_RECORDER_SF_DDqDss @ 0x1C005E1C8 (WPP_RECORDER_SF_DDqDss.c)
+ *     WPP_RECORDER_SF_qDss @ 0x1C005E404 (WPP_RECORDER_SF_qDss.c)
+ *     IcCheckIrqConflict @ 0x1C009ECDC (IcCheckIrqConflict.c)
+ *     IcIsInterruptTypeSecondary @ 0x1C009F45C (IcIsInterruptTypeSecondary.c)
+ */
+
 NTSTATUS __fastcall ProcessorpFindAffinitizedIdtEntries(
         __int64 a1,
         __int64 *a2,

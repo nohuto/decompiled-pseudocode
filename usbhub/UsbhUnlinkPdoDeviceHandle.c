@@ -1,3 +1,25 @@
+/*
+ * XREFs of UsbhUnlinkPdoDeviceHandle @ 0x1C001BEDC
+ * Callers:
+ *     UsbhInitializeDevice @ 0x1C0002778 (UsbhInitializeDevice.c)
+ *     UsbhReset2Complete @ 0x1C0002D00 (UsbhReset2Complete.c)
+ *     UsbhSyncResetDeviceInternal @ 0x1C0019820 (UsbhSyncResetDeviceInternal.c)
+ *     UsbhDeregisterPdo @ 0x1C0037578 (UsbhDeregisterPdo.c)
+ *     Usbh_BusPnpFreeResources_PdoEvent @ 0x1C003A9B8 (Usbh_BusPnpFreeResources_PdoEvent.c)
+ *     Usbh_PdoSurpriseRemove_PdoEvent @ 0x1C003B488 (Usbh_PdoSurpriseRemove_PdoEvent.c)
+ *     UsbhPortDisconnect @ 0x1C004D690 (UsbhPortDisconnect.c)
+ *     UsbhReset2Timeout @ 0x1C004E6E0 (UsbhReset2Timeout.c)
+ *     UsbhDeletePdo @ 0x1C005409C (UsbhDeletePdo.c)
+ *     UsbhPdoPnp_StopDevice @ 0x1C00569B0 (UsbhPdoPnp_StopDevice.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ *     Usbh_HubRemoveUsbDevice @ 0x1C003B1EC (Usbh_HubRemoveUsbDevice.c)
+ *     UsbhBusIf_SetClearRootPortResumeTime @ 0x1C004C188 (UsbhBusIf_SetClearRootPortResumeTime.c)
+ */
+
 void __fastcall UsbhUnlinkPdoDeviceHandle(__int64 a1, __int64 a2, int a3, char a4)
 {
   __int64 v8; // rsi

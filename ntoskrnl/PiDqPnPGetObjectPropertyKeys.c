@@ -1,3 +1,15 @@
+/*
+ * XREFs of PiDqPnPGetObjectPropertyKeys @ 0x14083AEDC
+ * Callers:
+ *     PiDqActionDataGetAllPropertiesInAllLanguages @ 0x14083A4C8 (PiDqActionDataGetAllPropertiesInAllLanguages.c)
+ *     PiDqActionDataGetAllPropertiesInBestLanguage @ 0x140958F20 (PiDqActionDataGetAllPropertiesInBestLanguage.c)
+ * Callees:
+ *     _PnpGetObjectPropertyKeys @ 0x14083AFCC (_PnpGetObjectPropertyKeys.c)
+ *     _PnpGetGenericStorePropertyKeys @ 0x140864664 (_PnpGetGenericStorePropertyKeys.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDqPnPGetObjectPropertyKeys(int a1, int a2, __int64 a3, __int64 a4, PVOID *a5, _DWORD *a6)
 {
   unsigned __int64 v9; // rbx

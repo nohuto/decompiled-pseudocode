@@ -1,3 +1,23 @@
+/*
+ * XREFs of PiDmEnumObjectsWithCallback @ 0x1406CE130
+ * Callers:
+ *     PiDqObjectManagerEnumerateAndRegisterQuery @ 0x140746D28 (PiDqObjectManagerEnumerateAndRegisterQuery.c)
+ *     PiDmGetObjectList @ 0x140777800 (PiDmGetObjectList.c)
+ *     PiDmListInit @ 0x14083A120 (PiDmListInit.c)
+ *     PpDevCfgInit @ 0x140B5ACF8 (PpDevCfgInit.c)
+ * Callees:
+ *     RtlEnumerateGenericTableLikeADirectory @ 0x1402456F0 (RtlEnumerateGenericTableLikeADirectory.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PiDmObjectIsEnumerable @ 0x1406CE0E0 (PiDmObjectIsEnumerable.c)
+ *     PiDmObjectRelease @ 0x1406D0328 (PiDmObjectRelease.c)
+ *     PiDmGetObjectManagerForObjectType @ 0x1406D045C (PiDmGetObjectManagerForObjectType.c)
+ */
+
 __int64 __fastcall PiDmEnumObjectsWithCallback(
         unsigned int a1,
         __int64 (__fastcall *a2)(void *, __int64, _BYTE *),

@@ -1,3 +1,21 @@
+/*
+ * XREFs of WbGetWarbirdProcess @ 0x1406AEEB8
+ * Callers:
+ *     WbDispatchOperation @ 0x1406AECD0 (WbDispatchOperation.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     sub_1406AF0D8 @ 0x1406AF0D8 (sub_1406AF0D8.c)
+ *     sub_1406AF110 @ 0x1406AF110 (sub_1406AF110.c)
+ *     sub_140754FC0 @ 0x140754FC0 (sub_140754FC0.c)
+ *     WbCreateWarbirdProcess @ 0x1407987BC (WbCreateWarbirdProcess.c)
+ */
+
 __int64 __fastcall WbGetWarbirdProcess(__int64 a1, int a2, _QWORD *a3)
 {
   _QWORD *v6; // rbx

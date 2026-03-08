@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ConvertCoordinatesWithRoundingNoBounding@@YAHJJJJJPEAJ@Z @ 0x1C0223218
+ * Callers:
+ *     ConvertPointCoordinates @ 0x1C0223374 (ConvertPointCoordinates.c)
+ * Callees:
+ *     LongLongToLong @ 0x1C00A7CFC (LongLongToLong.c)
+ */
+
 __int64 __fastcall ConvertCoordinatesWithRoundingNoBounding(int a1, int a2, int a3, int a4, int a5, LONG *plResult)
 {
   int v6; // edx

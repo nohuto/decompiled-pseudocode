@@ -1,3 +1,41 @@
+/*
+ * XREFs of MiWriteValidPteNewProtection @ 0x14032E660
+ * Callers:
+ *     MiMakeCombineCandidateClean @ 0x140210FE0 (MiMakeCombineCandidateClean.c)
+ *     MiTradeActivePage @ 0x140211BC0 (MiTradeActivePage.c)
+ *     MiDemoteCombinedPte @ 0x14029DF88 (MiDemoteCombinedPte.c)
+ *     MiTrimSharedPageFromViews @ 0x1402A031C (MiTrimSharedPageFromViews.c)
+ *     MiValidFault @ 0x1402C90E0 (MiValidFault.c)
+ *     MiActOnPte @ 0x1402CF06C (MiActOnPte.c)
+ *     MiFlushDirtyBitsToPfn @ 0x1402D4830 (MiFlushDirtyBitsToPfn.c)
+ *     MiMarkPteDirty @ 0x1402DFE5C (MiMarkPteDirty.c)
+ *     MiDirtySystemCachePte @ 0x1402E46F8 (MiDirtySystemCachePte.c)
+ *     MiRevokeExecutePte @ 0x1402EC9B0 (MiRevokeExecutePte.c)
+ *     MmProtectPool @ 0x14030B7D8 (MmProtectPool.c)
+ *     MmSetAddressRangeModifiedEx @ 0x140329510 (MmSetAddressRangeModifiedEx.c)
+ *     MiSetSystemCodeProtection @ 0x14032E170 (MiSetSystemCodeProtection.c)
+ *     MiMakePteClean @ 0x14032F6D0 (MiMakePteClean.c)
+ *     MiUnlockNestedPageTableWritePte @ 0x140346D60 (MiUnlockNestedPageTableWritePte.c)
+ *     MiReplacePageTablePage @ 0x14039164C (MiReplacePageTablePage.c)
+ *     MiStealPage @ 0x1403B70BC (MiStealPage.c)
+ *     MmSetPageProtection @ 0x1403BCCE0 (MmSetPageProtection.c)
+ *     MiPerformSafePdeWrite @ 0x1403C0578 (MiPerformSafePdeWrite.c)
+ *     MmProtectMdlSystemAddress @ 0x14061C990 (MmProtectMdlSystemAddress.c)
+ *     MiDbgCopyMemoryTarget @ 0x140641640 (MiDbgCopyMemoryTarget.c)
+ *     MiLargePageFault @ 0x140643EB8 (MiLargePageFault.c)
+ *     MiDecommitHardwareEnclavePages @ 0x140644F2C (MiDecommitHardwareEnclavePages.c)
+ *     MiWriteEnclavePte @ 0x1406465DC (MiWriteEnclavePte.c)
+ *     MiProtectAweRegion @ 0x140648DF8 (MiProtectAweRegion.c)
+ *     MiBuildForkPte @ 0x14065FC20 (MiBuildForkPte.c)
+ *     MiMarkBootKernelStack @ 0x140B3AD3C (MiMarkBootKernelStack.c)
+ *     MxCreatePfnsForPtes @ 0x140B4FD40 (MxCreatePfnsForPtes.c)
+ *     MiProtectSharedUserPage @ 0x140B6C128 (MiProtectSharedUserPage.c)
+ * Callees:
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ */
+
 char __fastcall MiWriteValidPteNewProtection(unsigned __int64 a1, __int64 a2)
 {
   __int64 v2; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefRawSquare1024Asm @ 0x140401F00
+ * Callers:
+ *     SymCryptFdefModSquareMontgomery1024 @ 0x1403FF500 (SymCryptFdefModSquareMontgomery1024.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall SymCryptFdefRawSquare1024Asm(unsigned __int64 *a1, __int64 a2, unsigned __int64 *a3)
 {
   unsigned __int64 v3; // rsi

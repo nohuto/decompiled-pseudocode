@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtShutdownSystem @ 0x1406044C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExRebootSystemForRecovery @ 0x140604294 (ExRebootSystemForRecovery.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     NtSetSystemPowerState @ 0x140AA36E0 (NtSetSystemPowerState.c)
+ */
+
 __int64 __fastcall NtShutdownSystem(int a1)
 {
   int v1; // ecx

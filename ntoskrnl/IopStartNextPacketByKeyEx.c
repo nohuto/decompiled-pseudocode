@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopStartNextPacketByKeyEx @ 0x1405557DC
+ * Callers:
+ *     IoStartNextPacket @ 0x140554E40 (IoStartNextPacket.c)
+ *     IoStartNextPacketByKey @ 0x140554E90 (IoStartNextPacketByKey.c)
+ * Callees:
+ *     IopStartNextPacket @ 0x1404571CC (IopStartNextPacket.c)
+ *     IopStartNextPacketByKey @ 0x140555718 (IopStartNextPacketByKey.c)
+ */
+
 __int64 __fastcall IopStartNextPacketByKeyEx(__int64 a1, ULONG a2, int a3)
 {
   signed __int32 v6; // r8d

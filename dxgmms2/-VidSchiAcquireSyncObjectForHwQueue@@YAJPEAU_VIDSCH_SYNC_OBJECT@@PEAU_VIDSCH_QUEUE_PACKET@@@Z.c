@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?VidSchiAcquireSyncObjectForHwQueue@@YAJPEAU_VIDSCH_SYNC_OBJECT@@PEAU_VIDSCH_QUEUE_PACKET@@@Z @ 0x1C00414E8
+ * Callers:
+ *     VidSchSubmitWaitToHwQueue @ 0x1C0044F60 (VidSchSubmitWaitToHwQueue.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall VidSchiAcquireSyncObjectForHwQueue(struct _VIDSCH_SYNC_OBJECT *a1, struct _VIDSCH_QUEUE_PACKET *a2)
 {
   __int64 v2; // r11

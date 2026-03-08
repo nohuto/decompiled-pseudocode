@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0COverlayContext@@QEAA@PEAVIOverlayMonitorTarget@@@Z @ 0x1800C7CA8
+ * Callers:
+ *     ??0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1800C7868 (--0CLegacyRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ *     ??0CDDisplayRenderTarget@@IEAA@PEAVCComposition@@@Z @ 0x1801BD55C (--0CDDisplayRenderTarget@@IEAA@PEAVCComposition@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 COverlayContext *__fastcall COverlayContext::COverlayContext(COverlayContext *this, struct IOverlayMonitorTarget *a2)
 {
   COverlayContext *result; // rax

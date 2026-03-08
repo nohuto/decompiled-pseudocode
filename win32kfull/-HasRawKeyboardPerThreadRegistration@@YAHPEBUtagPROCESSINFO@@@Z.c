@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?HasRawKeyboardPerThreadRegistration@@YAHPEBUtagPROCESSINFO@@@Z @ 0x1C01AA8F0
+ * Callers:
+ *     DestroyThreadHidObjects @ 0x1C00D5730 (DestroyThreadHidObjects.c)
+ *     UnregisterModernAppThreadForRawKeyboard @ 0x1C01AB2A8 (UnregisterModernAppThreadForRawKeyboard.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HasRawKeyboardPerThreadRegistration(const struct tagPROCESSINFO *a1)
 {
   __int64 i; // rdx

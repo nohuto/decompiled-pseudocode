@@ -1,3 +1,24 @@
+/*
+ * XREFs of RtlpHpLfhSubsegmentDecommitPages @ 0x14030A210
+ * Callers:
+ *     RtlpHpLfhOwnerCompact @ 0x140309864 (RtlpHpLfhOwnerCompact.c)
+ *     RtlpHpLfhSubsegmentFreeBlock @ 0x140309BA0 (RtlpHpLfhSubsegmentFreeBlock.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlpHpAcquireLockShared @ 0x140309A10 (RtlpHpAcquireLockShared.c)
+ *     RtlpHpLfhSubsegmentFindEmptyUnits @ 0x14030A5A0 (RtlpHpLfhSubsegmentFindEmptyUnits.c)
+ *     RtlpHpScheduleCompaction @ 0x14030A7E4 (RtlpHpScheduleCompaction.c)
+ *     RtlpHpAcquireLockExclusive @ 0x14030ABA4 (RtlpHpAcquireLockExclusive.c)
+ *     RtlpHpLfhSubsegmentDecBlockCounts @ 0x14030B5B4 (RtlpHpLfhSubsegmentDecBlockCounts.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall RtlpHpLfhSubsegmentDecommitPages(unsigned __int64 a1, __int64 a2, int a3, __int64 a4, char a5)
 {
   unsigned int v5; // r13d

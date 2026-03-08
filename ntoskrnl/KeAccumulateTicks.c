@@ -1,3 +1,25 @@
+/*
+ * XREFs of KeAccumulateTicks @ 0x14022F310
+ * Callers:
+ *     PpmIdleExecuteTransition @ 0x14022D7D0 (PpmIdleExecuteTransition.c)
+ *     KiUpdateRunTime @ 0x14022ECE0 (KiUpdateRunTime.c)
+ * Callees:
+ *     KiCheckForTimerExpiration @ 0x14022F940 (KiCheckForTimerExpiration.c)
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KiCheckKeepAlive @ 0x1402372DC (KiCheckKeepAlive.c)
+ *     KiRequestSoftwareInterrupt @ 0x1402B7A24 (KiRequestSoftwareInterrupt.c)
+ *     KdCheckForDebugBreak @ 0x1402C7D64 (KdCheckForDebugBreak.c)
+ *     KiDpcWatchdogCounterReset @ 0x1402DAE78 (KiDpcWatchdogCounterReset.c)
+ *     KiGetThreadEffectiveRankNonZero @ 0x1403428F0 (KiGetThreadEffectiveRankNonZero.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HvlInvokeHypervisorDebugger @ 0x14053D440 (HvlInvokeHypervisorDebugger.c)
+ *     KiDpcWatchdogCaptureStack @ 0x140568E14 (KiDpcWatchdogCaptureStack.c)
+ *     KiResetGlobalDpcWatchdogProfiler @ 0x140568F90 (KiResetGlobalDpcWatchdogProfiler.c)
+ *     KiDeferDpcWatchdogViolation @ 0x140578914 (KiDeferDpcWatchdogViolation.c)
+ *     EtwTraceDpcProfilingStack @ 0x1405FA780 (EtwTraceDpcProfilingStack.c)
+ *     EtwTraceDpcProfilingStackBegin @ 0x1405FA810 (EtwTraceDpcProfilingStackBegin.c)
+ */
+
 __int64 __fastcall KeAccumulateTicks(__int64 a1, int a2, int a3, unsigned __int8 a4, char a5, unsigned int a6)
 {
   __int64 result; // rax

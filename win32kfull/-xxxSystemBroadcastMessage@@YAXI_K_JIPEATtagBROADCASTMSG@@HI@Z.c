@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?xxxSystemBroadcastMessage@@YAXI_K_JIPEATtagBROADCASTMSG@@HI@Z @ 0x1C009FB24
+ * Callers:
+ *     xxxBroadcastMessageEx @ 0x1C0045EF0 (xxxBroadcastMessageEx.c)
+ *     xxxSendNotifyMessage @ 0x1C00D8320 (xxxSendNotifyMessage.c)
+ * Callees:
+ *     xxxBroadcastMessageEx @ 0x1C0045EF0 (xxxBroadcastMessageEx.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ *     ExchangeW32ThreadLock @ 0x1C00A1ECC (ExchangeW32ThreadLock.c)
+ */
+
 void __fastcall xxxSystemBroadcastMessage(
         unsigned int a1,
         unsigned __int64 a2,

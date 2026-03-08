@@ -1,3 +1,16 @@
+/*
+ * XREFs of PiDevCfgEnforceDevicePolicy @ 0x140875F3C
+ * Callers:
+ *     PiDevCfgConfigureDevice @ 0x14087384C (PiDevCfgConfigureDevice.c)
+ * Callees:
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     PiDevCfgQueryPolicyEnabled @ 0x14095C708 (PiDevCfgQueryPolicyEnabled.c)
+ *     PiDevCfgQueryPolicyStringList @ 0x14095C778 (PiDevCfgQueryPolicyStringList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PiDevCfgEnforceDevicePolicy(__int64 a1, __int64 a2, const wchar_t *a3)
 {
   int v5; // esi

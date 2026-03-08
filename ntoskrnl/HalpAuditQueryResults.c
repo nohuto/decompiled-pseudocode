@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpAuditQueryResults @ 0x1409323F4
+ * Callers:
+ *     HaliQuerySystemInformation @ 0x140A85470 (HaliQuerySystemInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpAuditQueryResults(_QWORD *a1)
 {
   __int64 result; // rax

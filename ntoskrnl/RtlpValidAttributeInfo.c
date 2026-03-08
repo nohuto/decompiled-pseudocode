@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpValidAttributeInfo @ 0x1409B8D10
+ * Callers:
+ *     RtlAddResourceAttributeAce @ 0x1409B8350 (RtlAddResourceAttributeAce.c)
+ * Callees:
+ *     RtlpValidAttribute @ 0x1409B8BF4 (RtlpValidAttribute.c)
+ */
+
 char __fastcall RtlpValidAttributeInfo(__int64 a1)
 {
   __int64 v2; // rsi

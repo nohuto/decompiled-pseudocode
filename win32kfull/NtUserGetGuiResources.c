@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserGetGuiResources @ 0x1C00142A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserGetGuiResources(HANDLE Handle, unsigned int a2)
 {
   PVOID v4; // rbp

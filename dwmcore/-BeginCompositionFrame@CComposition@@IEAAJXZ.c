@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?BeginCompositionFrame@CComposition@@IEAAJXZ @ 0x18004FD5C
+ * Callers:
+ *     ?PreRender@CComposition@@IEAAJXZ @ 0x18004F100 (-PreRender@CComposition@@IEAAJXZ.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0x_EventWriteTransfer @ 0x180129DEE (McTemplateU0x_EventWriteTransfer.c)
+ *     McTemplateU0qxxqx_EventWriteTransfer @ 0x1801B2484 (McTemplateU0qxxqx_EventWriteTransfer.c)
+ */
+
 __int64 __fastcall CComposition::BeginCompositionFrame(CComposition *this)
 {
   LARGE_INTEGER **v1; // rdx

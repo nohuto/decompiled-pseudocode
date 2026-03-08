@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Uninitialize@DelayZonePalmRejection@@SAXXZ @ 0x1C0094B2C
+ * Callers:
+ *     ?UnInitialize@CTouchProcessor@@SAJXZ @ 0x1C0094E4C (-UnInitialize@CTouchProcessor@@SAJXZ.c)
+ * Callees:
+ *     HMAssignmentUnlockWorker @ 0x1C007294C (HMAssignmentUnlockWorker.c)
+ *     ?ClearInputPanelRects@DelayZoneTelemetry@@QEAAXXZ @ 0x1C0094BE0 (-ClearInputPanelRects@DelayZoneTelemetry@@QEAAXXZ.c)
+ *     ?Uninitialize@CInpLockGuard@@QEAAXXZ @ 0x1C0094C10 (-Uninitialize@CInpLockGuard@@QEAAXXZ.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 void __fastcall DelayZonePalmRejection::Uninitialize(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   void **v4; // rbx

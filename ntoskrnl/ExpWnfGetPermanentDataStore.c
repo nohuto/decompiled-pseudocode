@@ -1,3 +1,20 @@
+/*
+ * XREFs of ExpWnfGetPermanentDataStore @ 0x140794E80
+ * Callers:
+ *     ExpWnfCreateNameInstance @ 0x140718994 (ExpWnfCreateNameInstance.c)
+ *     ExpWnfDeletePermanentStateData @ 0x140A046AC (ExpWnfDeletePermanentStateData.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExpWnfGetPermanentDataStoreHandleByScopeId @ 0x140851C0C (ExpWnfGetPermanentDataStoreHandleByScopeId.c)
+ *     ExpWnfDestroyPermanentDataStore @ 0x140A048DC (ExpWnfDestroyPermanentDataStore.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpWnfGetPermanentDataStore(__int64 a1, unsigned int a2, __int64 a3, _QWORD *a4)
 {
   _BOOL8 v7; // rsi

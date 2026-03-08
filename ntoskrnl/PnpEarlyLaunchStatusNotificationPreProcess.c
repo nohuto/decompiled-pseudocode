@@ -1,3 +1,11 @@
+/*
+ * XREFs of PnpEarlyLaunchStatusNotificationPreProcess @ 0x140B32120
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 _DWORD *__fastcall PnpEarlyLaunchStatusNotificationPreProcess(
         __int64 a1,
         __int64 a2,

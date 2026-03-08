@@ -1,3 +1,15 @@
+/*
+ * XREFs of InitializeWin32KSyscallFilter @ 0x1C002E260
+ * Callers:
+ *     Win32kBaseDriverEntry @ 0x1C0320F10 (Win32kBaseDriverEntry.c)
+ * Callees:
+ *     ?CreateWin32KFilterBitmap@@YAJKQEAPEBDHKPEAE@Z @ 0x1C002E6D0 (-CreateWin32KFilterBitmap@@YAJKQEAPEBDHKPEAE@Z.c)
+ *     OpenCacheKeyEx @ 0x1C00760E0 (OpenCacheKeyEx.c)
+ *     ?FreeWin32KSyscallFilter@@YAXXZ @ 0x1C00D0FA0 (-FreeWin32KSyscallFilter@@YAXXZ.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 InitializeWin32KSyscallFilter()
 {
   int v0; // ebx

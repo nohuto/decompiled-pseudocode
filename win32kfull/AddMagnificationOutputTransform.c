@@ -1,3 +1,13 @@
+/*
+ * XREFs of AddMagnificationOutputTransform @ 0x1C00DBA40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PtInRect @ 0x1C00A34E8 (PtInRect.c)
+ *     MagInputTransform @ 0x1C01491D2 (MagInputTransform.c)
+ *     MagnificationInverseTransformPoint @ 0x1C01F7D98 (MagnificationInverseTransformPoint.c)
+ */
+
 __int64 __fastcall AddMagnificationOutputTransform(unsigned __int64 *a1)
 {
   struct _KTHREAD *CurrentThread; // rsi

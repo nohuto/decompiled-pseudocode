@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpQueryHiveRedirectionFileList @ 0x140733370
+ * Callers:
+ *     CmLoadKey @ 0x140732FF8 (CmLoadKey.c)
+ *     CmpMountPreloadedHives @ 0x140812EF4 (CmpMountPreloadedHives.c)
+ *     CmpMachineHiveListInitialize @ 0x1408187E8 (CmpMachineHiveListInitialize.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ */
+
 bool __fastcall CmpQueryHiveRedirectionFileList(PUNICODE_STRING ValueName, PUNICODE_STRING Destination)
 {
   bool result; // al

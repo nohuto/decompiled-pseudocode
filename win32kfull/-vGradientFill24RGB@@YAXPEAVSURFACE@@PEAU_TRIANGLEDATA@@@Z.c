@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vGradientFill24RGB@@YAXPEAVSURFACE@@PEAU_TRIANGLEDATA@@@Z @ 0x1C02FB760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vGradientFill24RGB(struct SURFACE *a1, struct _TRIANGLEDATA *a2)
 {
   int v3; // ebx

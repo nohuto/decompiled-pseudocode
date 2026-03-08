@@ -1,3 +1,15 @@
+/*
+ * XREFs of SepSddlGetAclForString @ 0x1C00B0AE0
+ * Callers:
+ *     SepSddlDaclFromSDDLString @ 0x1C00B09F4 (SepSddlDaclFromSDDLString.c)
+ * Callees:
+ *     memset @ 0x1C000AC00 (memset.c)
+ *     SepSddlAddAceToAcl @ 0x1C00B08F4 (SepSddlAddAceToAcl.c)
+ *     SepSddlGetSidForString @ 0x1C00B0E60 (SepSddlGetSidForString.c)
+ *     SepSddlLookupAccessMaskInTable @ 0x1C00B0F34 (SepSddlLookupAccessMaskInTable.c)
+ *     SepSddlParseWideStringUlong @ 0x1C00B0FD0 (SepSddlParseWideStringUlong.c)
+ */
+
 __int64 __fastcall SepSddlGetAclForString(wchar_t *AclString, _ACL **Acl, wchar_t **End)
 {
   wchar_t *v5; // rbx

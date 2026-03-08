@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?Destroy@VIDMM_PAGING_QUEUE@@QEAAXXZ @ 0x1C00AB650
+ * Callers:
+ *     ??1VIDMM_PAGING_QUEUE@@QEAA@XZ @ 0x1C00AB638 (--1VIDMM_PAGING_QUEUE@@QEAA@XZ.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C0001A30 (--3@YAXPEAX@Z.c)
+ *     ?RemovePagingQueueList@VIDMM_DEVICE@@QEAAXPEAU_LIST_ENTRY@@@Z @ 0x1C00125A8 (-RemovePagingQueueList@VIDMM_DEVICE@@QEAAXPEAU_LIST_ENTRY@@@Z.c)
+ *     ?Flush@VIDMM_PAGING_QUEUE@@QEAAXXZ @ 0x1C00AB790 (-Flush@VIDMM_PAGING_QUEUE@@QEAAXXZ.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 void __fastcall VIDMM_PAGING_QUEUE::Destroy(struct _LIST_ENTRY *this)
 {

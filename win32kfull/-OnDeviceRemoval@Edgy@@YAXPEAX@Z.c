@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnDeviceRemoval@Edgy@@YAXPEAX@Z @ 0x1C01E8948
+ * Callers:
+ *     PostDeviceNotification @ 0x1C00D6230 (PostDeviceNotification.c)
+ * Callees:
+ *     ?_RemoveListenerCore@Edgy@@YAXAEAUtagEDGY_DATA@@PEAUtagEDGY_LISTENER@@@Z @ 0x1C01E99E8 (-_RemoveListenerCore@Edgy@@YAXAEAUtagEDGY_DATA@@PEAUtagEDGY_LISTENER@@@Z.c)
+ */
+
 void __fastcall Edgy::OnDeviceRemoval(Edgy *this, void *a2, struct tagEDGY_LISTENER *a3)
 {
   __int64 i; // rbx

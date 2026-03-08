@@ -1,3 +1,15 @@
+/*
+ * XREFs of PiDmGetObjectCount @ 0x140957DA0
+ * Callers:
+ *     PiDqQueryAppendActionEntry @ 0x140747108 (PiDqQueryAppendActionEntry.c)
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     RtlNumberGenericTableElementsAvl @ 0x140303C70 (RtlNumberGenericTableElementsAvl.c)
+ *     PiDmGetObjectManagerForObjectType @ 0x1406D045C (PiDmGetObjectManagerForObjectType.c)
+ */
+
 __int64 __fastcall PiDmGetObjectCount(int a1)
 {
   struct _ERESOURCE *ObjectManagerForObjectType; // rax

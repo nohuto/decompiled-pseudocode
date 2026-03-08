@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ivHandlePnpOtherPacket@CBaseInput@@AEAA?AW4IVHandlerResult@@PEAXPEAURawInputManagerObject@@@Z @ 0x1C021F730
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     RIMVirtQueueRimDevChangeAsyncWorkItem @ 0x1C01D1044 (RIMVirtQueueRimDevChangeAsyncWorkItem.c)
+ */
+
 __int64 __fastcall CBaseInput::ivHandlePnpOtherPacket(__int64 a1, __int64 a2, void *a3)
 {
   void *v3; // rdi

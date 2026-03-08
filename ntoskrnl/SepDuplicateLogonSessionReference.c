@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepDuplicateLogonSessionReference @ 0x1402BE368
+ * Callers:
+ *     SepFilterToken @ 0x14073FED0 (SepFilterToken.c)
+ * Callees:
+ *     SepReferenceLogonSession @ 0x140773DC0 (SepReferenceLogonSession.c)
+ */
+
 __int64 __fastcall SepDuplicateLogonSessionReference(__int64 a1, __int64 a2)
 {
   _QWORD *v2; // rdi

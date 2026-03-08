@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?NlsKanaEventProc@@YAHPEAUtagKE@@_KK@Z @ 0x1C021C4C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?NlsTestKeyStateToggle@@YAHE@Z @ 0x1C021C97C (-NlsTestKeyStateToggle@@YAHE@Z.c)
+ *     NlsKbdSendIMEProc @ 0x1C021C9E0 (NlsKbdSendIMEProc.c)
+ */
+
 __int64 __fastcall NlsKanaEventProc(struct tagKE *a1, __int64 a2, unsigned __int8 a3)
 {
   __int16 v3; // dx

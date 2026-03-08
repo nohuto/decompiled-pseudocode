@@ -1,3 +1,12 @@
+/*
+ * XREFs of PnpiGrowResourceDescriptor @ 0x1C0091DB0
+ * Callers:
+ *     PnpiUpdateResourceList @ 0x1C0092328 (PnpiUpdateResourceList.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ddL @ 0x1C003C6E8 (WPP_RECORDER_SF_ddL.c)
+ *     ACPIInternalGrowBuffer @ 0x1C0087FDC (ACPIInternalGrowBuffer.c)
+ */
+
 __int64 __fastcall PnpiGrowResourceDescriptor(const void **a1, __int64 a2, int a3)
 {
   _WORD *Pool2; // rax

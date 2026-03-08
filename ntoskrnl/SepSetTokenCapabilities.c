@@ -1,3 +1,21 @@
+/*
+ * XREFs of SepSetTokenCapabilities @ 0x140710278
+ * Callers:
+ *     SepGetAnonymousToken @ 0x1402B7BE0 (SepGetAnonymousToken.c)
+ *     NtCreateLowBoxToken @ 0x14069D520 (NtCreateLowBoxToken.c)
+ *     SepFilterToken @ 0x14073FED0 (SepFilterToken.c)
+ *     SepDuplicateToken @ 0x1407BCF00 (SepDuplicateToken.c)
+ * Callees:
+ *     SepFreeTokenCapabilities @ 0x1402F35E0 (SepFreeTokenCapabilities.c)
+ *     RtlSidHashInitialize @ 0x140310020 (RtlSidHashInitialize.c)
+ *     SepLengthSidAndAttributesArray @ 0x1407103B8 (SepLengthSidAndAttributesArray.c)
+ *     SeCaptureSidAndAttributesArray @ 0x140710470 (SeCaptureSidAndAttributesArray.c)
+ *     RtlIsParentOfChildAppContainer @ 0x1409B9428 (RtlIsParentOfChildAppContainer.c)
+ *     SepInsertOrReferenceSharedSidEntries @ 0x1409CE9FC (SepInsertOrReferenceSharedSidEntries.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepSetTokenCapabilities(__int64 a1, void *a2, void *a3, unsigned int a4)
 {
   __int64 result; // rax

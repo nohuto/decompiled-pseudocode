@@ -1,3 +1,11 @@
+/*
+ * XREFs of KzRaiseIrql @ 0x14030E420
+ * Callers:
+ *     KiVirtualizationException @ 0x140429040 (KiVirtualizationException.c)
+ * Callees:
+ *     <none>
+ */
+
 KIRQL __stdcall KzRaiseIrql(KIRQL NewIrql)
 {
   KIRQL result; // al

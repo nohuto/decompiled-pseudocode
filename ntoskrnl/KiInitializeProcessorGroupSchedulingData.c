@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiInitializeProcessorGroupSchedulingData @ 0x14057B04C
+ * Callers:
+ *     KiAddProcessorToGroupSchedulingDatabase @ 0x140A9CCE4 (KiAddProcessorToGroupSchedulingDatabase.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiInitializeProcessorGroupSchedulingData(__int64 a1)
 {
   __int64 result; // rax

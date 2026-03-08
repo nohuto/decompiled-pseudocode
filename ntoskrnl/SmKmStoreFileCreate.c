@@ -1,3 +1,24 @@
+/*
+ * XREFs of SmKmStoreFileCreate @ 0x1409D68D4
+ * Callers:
+ *     SmcCacheStart @ 0x1409D812C (SmcCacheStart.c)
+ * Callees:
+ *     IoSetThreadHardErrorMode @ 0x140244770 (IoSetThreadHardErrorMode.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQueryInformationFile @ 0x140412530 (ZwQueryInformationFile.c)
+ *     ZwSetInformationFile @ 0x1404127F0 (ZwSetInformationFile.c)
+ *     ZwQueryVolumeInformationFile @ 0x140412C30 (ZwQueryVolumeInformationFile.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IoRegisterPlugPlayNotification @ 0x1406F4F30 (IoRegisterPlugPlayNotification.c)
+ *     SmKmFileInfoCleanup @ 0x1409D5B90 (SmKmFileInfoCleanup.c)
+ *     SmKmStoreFileCreateForIoType @ 0x1409D6D88 (SmKmStoreFileCreateForIoType.c)
+ *     SmKmStoreFileDelete @ 0x1409D7038 (SmKmStoreFileDelete.c)
+ *     SmKmStoreFileGetExtents @ 0x1409D70D4 (SmKmStoreFileGetExtents.c)
+ *     SmKmStoreFileOpenVolume @ 0x1409D75D8 (SmKmStoreFileOpenVolume.c)
+ *     SmKmStoreFileWriteHeader @ 0x1409D7778 (SmKmStoreFileWriteHeader.c)
+ */
+
 __int64 __fastcall SmKmStoreFileCreate(
         __int64 a1,
         __int64 a2,

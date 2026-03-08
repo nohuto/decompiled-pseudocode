@@ -1,3 +1,15 @@
+/*
+ * XREFs of PushThreadGuardedObject @ 0x1C0044340
+ * Callers:
+ *     ??0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@PEAUtagDEVINFO@@HKK@Z @ 0x1C0025090 (--0PDEVOBJ@@QEAA@PEAU_LDEV@@PEAU_devicemodeW@@PEAG22PEAXPEAUtagREMOTETYPEONENODE@@PEAU_GDIINFO@@.c)
+ *     ??0AUTO_TGO@@IEAA@XZ @ 0x1C0027230 (--0AUTO_TGO@@IEAA@XZ.c)
+ *     ?vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z @ 0x1C00292E0 (-vUnreferencePdevWorker@@YAXPEAUtagUNREFDATA@@@Z.c)
+ *     ??0PATHMEMOBJ@@QEAA@XZ @ 0x1C0180450 (--0PATHMEMOBJ@@QEAA@XZ.c)
+ *     GrePushThreadGuardedObject @ 0x1C0185D10 (GrePushThreadGuardedObject.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PushThreadGuardedObject(_QWORD *a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // edi

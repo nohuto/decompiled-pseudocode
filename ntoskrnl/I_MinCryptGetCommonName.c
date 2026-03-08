@@ -1,3 +1,11 @@
+/*
+ * XREFs of I_MinCryptGetCommonName @ 0x140A6CB7C
+ * Callers:
+ *     MinCryptVerifyCertificateWithPolicy2 @ 0x140A6CBC8 (MinCryptVerifyCertificateWithPolicy2.c)
+ * Callees:
+ *     MinAsn1ParseAndDecodeRDNComponent @ 0x140A6D6CC (MinAsn1ParseAndDecodeRDNComponent.c)
+ */
+
 __int64 __fastcall I_MinCryptGetCommonName(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhConnectPdoToHub @ 0x1C002A23C
+ * Callers:
+ *     UsbhCreatePdo @ 0x1C0053530 (UsbhCreatePdo.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ */
+
 __int64 __fastcall UsbhConnectPdoToHub(__int64 a1, __int64 a2)
 {
   _DWORD *v4; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of rimComputeHimetricGeometry @ 0x1C01D5D8C
+ * Callers:
+ *     rimTransformGeometry @ 0x1C00F1872 (rimTransformGeometry.c)
+ * Callees:
+ *     RIMTransformPointerDevicePointToPhysical @ 0x1C00EFE38 (RIMTransformPointerDevicePointToPhysical.c)
+ */
+
 __int64 __fastcall rimComputeHimetricGeometry(__int64 a1, _DWORD *a2, _DWORD *a3)
 {
   __int64 result; // rax

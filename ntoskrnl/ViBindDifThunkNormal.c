@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViBindDifThunkNormal @ 0x140AC78D8
+ * Callers:
+ *     VfBindDifDDIWrappers @ 0x140AC7220 (VfBindDifDDIWrappers.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall ViBindDifThunkNormal(__int64 a1, __int64 a2, int a3, __int64 a4, __int64 a5)
 {
   _QWORD *v5; // rax

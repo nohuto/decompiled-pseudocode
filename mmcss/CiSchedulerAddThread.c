@@ -1,3 +1,12 @@
+/*
+ * XREFs of CiSchedulerAddThread @ 0x1C0002840
+ * Callers:
+ *     CiThreadCreate @ 0x1C000AD80 (CiThreadCreate.c)
+ * Callees:
+ *     CiSystemUpdateThreadTag @ 0x1C0002970 (CiSystemUpdateThreadTag.c)
+ *     CiSchedulerSetPriority @ 0x1C00029B0 (CiSchedulerSetPriority.c)
+ */
+
 void __fastcall CiSchedulerAddThread(__int64 a1, __int64 a2)
 {
   _QWORD *v4; // r8

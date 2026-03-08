@@ -1,3 +1,20 @@
+/*
+ * XREFs of ExRegisterExtension @ 0x14080ECD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ExpFindHost @ 0x14080F04C (ExpFindHost.c)
+ *     ExpDereferenceHost @ 0x1409FE96C (ExpDereferenceHost.c)
+ */
+
 __int64 __fastcall ExRegisterExtension(__int64 *a1, int a2, unsigned __int16 *a3)
 {
   struct _KTHREAD *CurrentThread; // rax

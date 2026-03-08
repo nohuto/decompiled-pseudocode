@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiFdoHandleFilterResources @ 0x1C0217020
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiDisableInterruptResources @ 0x1C0395CD8 (DpiDisableInterruptResources.c)
+ */
+
 __int64 __fastcall DpiFdoHandleFilterResources(__int64 a1, IRP *a2)
 {
   __int64 v2; // rdi

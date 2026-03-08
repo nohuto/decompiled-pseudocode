@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwDebugContinue @ 0x140413DB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwDebugContinue(__int64 a1, __int64 a2)
 {
   _disable();

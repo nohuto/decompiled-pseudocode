@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0TemporaryConfiguration@@QEAA@XZ @ 0x180104820
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 TemporaryConfiguration *__fastcall TemporaryConfiguration::TemporaryConfiguration(TemporaryConfiguration *this)
 {
   TemporaryConfiguration *result; // rax

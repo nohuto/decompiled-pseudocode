@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiFindLoaderAppliedHotPatchEntry @ 0x140B968B8
+ * Callers:
+ *     MiHandleBootImage @ 0x140B3BA98 (MiHandleBootImage.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *__fastcall MiFindLoaderAppliedHotPatchEntry(__int64 a1, __int64 a2)
 {
   __int64 **v2; // r9

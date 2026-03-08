@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Copy@CRgnData@Internal@FastRegion@@QEAAXAEBV123@@Z @ 0x180045D2C
+ * Callers:
+ *     ?TryAddRectangles@CRegion@@QEAAJPEBUtagRECT@@I@Z @ 0x18004591C (-TryAddRectangles@CRegion@@QEAAJPEBUtagRECT@@I@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall FastRegion::Internal::CRgnData::Copy(
         FastRegion::Internal::CRgnData *this,
         const struct FastRegion::Internal::CRgnData *a2)

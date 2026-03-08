@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlInterlockedSetClearRunEx @ 0x1403293B0
+ * Callers:
+ *     MiReleaseSmallPteMappings @ 0x14027D4D0 (MiReleaseSmallPteMappings.c)
+ *     MiAttemptCoalesce @ 0x14027E1A0 (MiAttemptCoalesce.c)
+ *     MiReservePtes @ 0x1403274D0 (MiReservePtes.c)
+ *     MiAllocateSlabEntry @ 0x140349850 (MiAllocateSlabEntry.c)
+ *     MiInsertSlabEntry @ 0x140349C90 (MiInsertSlabEntry.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlInterlockedSetClearRunEx(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   __int64 v3; // r10

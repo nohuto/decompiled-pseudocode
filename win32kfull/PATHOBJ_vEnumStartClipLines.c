@@ -1,3 +1,11 @@
+/*
+ * XREFs of PATHOBJ_vEnumStartClipLines @ 0x1C02DB5A0
+ * Callers:
+ *     NtGdiPATHOBJ_vEnumStartClipLines @ 0x1C02CF650 (NtGdiPATHOBJ_vEnumStartClipLines.c)
+ * Callees:
+ *     ?vEnumPathStart@XCLIPOBJ@@QEAAXPEAU_PATHOBJ@@PEAVSURFACE@@PEAU_LINEATTRS@@@Z @ 0x1C02DB378 (-vEnumPathStart@XCLIPOBJ@@QEAAXPEAU_PATHOBJ@@PEAVSURFACE@@PEAU_LINEATTRS@@@Z.c)
+ */
+
 void __stdcall PATHOBJ_vEnumStartClipLines(PATHOBJ *ppo, CLIPOBJ *pco, SURFOBJ *pso, LINEATTRS *pla)
 {
   XCLIPOBJ::vEnumPathStart(

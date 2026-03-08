@@ -1,3 +1,12 @@
+/*
+ * XREFs of NextOwnedWindow @ 0x1C002B764
+ * Callers:
+ *     ?SetTopmost@@YAXPEAUtagWND@@HH@Z @ 0x1C0021340 (-SetTopmost@@YAXPEAUtagWND@@HH@Z.c)
+ *     ?zzzSetWindowCompositionCloak@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@K@Z @ 0x1C002E920 (-zzzSetWindowCompositionCloak@@YAJPEAUtagWND@@PEBUtagWINDOWCOMPOSITIONATTRIBDATA_UNION@@K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall NextOwnedWindow(_QWORD *a1, _QWORD *a2, __int64 a3)
 {
   _QWORD *v5; // rdx

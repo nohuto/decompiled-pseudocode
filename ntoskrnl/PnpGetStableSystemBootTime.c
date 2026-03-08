@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnpGetStableSystemBootTime @ 0x140955AC4
+ * Callers:
+ *     PipCallDriverAddDevice @ 0x1406C644C (PipCallDriverAddDevice.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1404129D0 (ZwQuerySystemInformation.c)
+ *     PipHardwareConfigGetLastUseTime @ 0x14094EFE0 (PipHardwareConfigGetLastUseTime.c)
+ */
+
 __int64 __fastcall PnpGetStableSystemBootTime(_QWORD *a1)
 {
   int LastUseTime; // edx

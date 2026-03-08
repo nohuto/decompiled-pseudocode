@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?PostRawMouseInputToBackgroundListener@@YAXPEAUtagPROCESS_HID_TABLE@@PEAXPEBUtagRAWMOUSE@@_KK@Z @ 0x1C01AC288
+ * Callers:
+ *     EditionPostRawMouseInputMessage @ 0x1C0142A40 (EditionPostRawMouseInputMessage.c)
+ *     ?FlushThrottledRawMouseInput@@YAXPEAUtagPROCESS_HID_TABLE@@K@Z @ 0x1C01AC08C (-FlushThrottledRawMouseInput@@YAXPEAUtagPROCESS_HID_TABLE@@K@Z.c)
+ * Callees:
+ *     AllocateHidData @ 0x1C0009078 (AllocateHidData.c)
+ *     FreeHidData @ 0x1C000DC20 (FreeHidData.c)
+ *     PostInputMessage @ 0x1C0037A48 (PostInputMessage.c)
+ *     ?DeliverRawInput@Mouse@InputTraceLogging@@SAX_K_N@Z @ 0x1C01423C6 (-DeliverRawInput@Mouse@InputTraceLogging@@SAX_K_N@Z.c)
+ */
+
 void __fastcall PostRawMouseInputToBackgroundListener(
         struct tagPROCESS_HID_TABLE *a1,
         __int64 a2,

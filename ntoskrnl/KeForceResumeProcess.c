@@ -1,3 +1,18 @@
+/*
+ * XREFs of KeForceResumeProcess @ 0x140355998
+ * Callers:
+ *     MiReAcquireCommitFailWorker @ 0x140616A90 (MiReAcquireCommitFailWorker.c)
+ *     PspExitThread @ 0x1407D9464 (PspExitThread.c)
+ *     PspTerminateProcess @ 0x1407DC198 (PspTerminateProcess.c)
+ *     PsFreezeProcess @ 0x1407DD068 (PsFreezeProcess.c)
+ * Callees:
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiThawSingleThread @ 0x140355DCC (KiThawSingleThread.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall KeForceResumeProcess(__int64 a1)
 {
   _QWORD **v2; // r14

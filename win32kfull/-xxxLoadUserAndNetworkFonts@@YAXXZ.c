@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?xxxLoadUserAndNetworkFonts@@YAXXZ @ 0x1C00B87A0
+ * Callers:
+ *     xxxLW_LoadFonts @ 0x1C00B8670 (xxxLW_LoadFonts.c)
+ * Callees:
+ *     ?xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z @ 0x1C00356C8 (-xxxbEnumerateRegistryFontsInternal@@YAHPEAXK@Z.c)
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0035F20 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     ?xxxbEnumerateRegistryFonts@@YAHKIPEBG0@Z @ 0x1C00B8A98 (-xxxbEnumerateRegistryFonts@@YAHKIPEBG0@Z.c)
+ *     ThreadLockExchange @ 0x1C010A0D0 (ThreadLockExchange.c)
+ */
+
 void __fastcall xxxLoadUserAndNetworkFonts(
         __int64 a1,
         __int64 a2,

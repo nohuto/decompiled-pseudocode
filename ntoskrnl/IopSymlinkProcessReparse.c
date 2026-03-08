@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopSymlinkProcessReparse @ 0x140790C0C
+ * Callers:
+ *     IopParseDevice @ 0x1407B6A30 (IopParseDevice.c)
+ * Callees:
+ *     IopSymlinkGetECP @ 0x14023ADA0 (IopSymlinkGetECP.c)
+ *     IopSymlinkRememberJunction @ 0x14087A7D0 (IopSymlinkRememberJunction.c)
+ *     IopGraftName @ 0x14087A8D0 (IopGraftName.c)
+ *     IopFindMatchingComponentsLengthR @ 0x140945054 (IopFindMatchingComponentsLengthR.c)
+ */
+
 int __fastcall IopSymlinkProcessReparse(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
   unsigned __int64 v4; // rax

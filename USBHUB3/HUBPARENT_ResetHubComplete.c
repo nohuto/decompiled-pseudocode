@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBPARENT_ResetHubComplete @ 0x1C0007C30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001CA0 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     HUBMUX_PropogateDeviceProgrammingLostFlagsToAllDSMs @ 0x1C00114C0 (HUBMUX_PropogateDeviceProgrammingLostFlagsToAllDSMs.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBPARENT_ResetHubComplete(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v5; // rax

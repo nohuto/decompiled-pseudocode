@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?InitGlobals@VIDMM_DMA_POOL@@SAJXZ @ 0x1C00BE568
+ * Callers:
+ *     ?InitGlobals@VIDMM_GLOBAL@@SAJXZ @ 0x1C00BDE54 (-InitGlobals@VIDMM_GLOBAL@@SAJXZ.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C0001A30 (--3@YAXPEAX@Z.c)
+ *     ??2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0002360 (--2@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ */
+
 __int64 VIDMM_DMA_POOL::InitGlobals(void)
 {
   unsigned __int64 v0; // rcx

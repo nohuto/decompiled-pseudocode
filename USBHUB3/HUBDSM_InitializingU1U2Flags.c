@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBDSM_InitializingU1U2Flags @ 0x1C0025540
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBDSM_InitializingU1U2Flags(__int64 a1)
 {
   __int64 v1; // rax

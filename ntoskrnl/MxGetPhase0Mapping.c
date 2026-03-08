@@ -1,3 +1,14 @@
+/*
+ * XREFs of MxGetPhase0Mapping @ 0x140B5049C
+ * Callers:
+ *     MiGetPageChain @ 0x14026E0E0 (MiGetPageChain.c)
+ *     MiFillPhysicalPages @ 0x1402CE820 (MiFillPhysicalPages.c)
+ *     MxSwapPages @ 0x140B50198 (MxSwapPages.c)
+ *     MxCopyPage @ 0x140B96330 (MxCopyPage.c)
+ * Callees:
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ */
+
 __int64 MxGetPhase0Mapping()
 {
   unsigned __int64 v1; // rdi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetButtonChange@CTouchProcessor@@AEAA?AW4tagPOINTER_BUTTON_CHANGE_TYPE@@KK@Z @ 0x1C00F2492
+ * Callers:
+ *     ?PopulatePointerInfoNode@CTouchProcessor@@QEAAHPEAUCPointerInputFrame@@PEAUCPointerInfoNode@@K@Z @ 0x1C01FCDE4 (-PopulatePointerInfoNode@CTouchProcessor@@QEAAHPEAUCPointerInputFrame@@PEAUCPointerInfoNode@@K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CTouchProcessor::GetButtonChange(__int64 a1, int a2, int a3)
 {
   unsigned int v3; // r9d

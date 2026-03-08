@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiLockStealSystemVm @ 0x140394CFC
+ * Callers:
+ *     MiStealPage @ 0x1403B70BC (MiStealPage.c)
+ * Callees:
+ *     MiGetAnyMultiplexedVm @ 0x14020F4D4 (MiGetAnyMultiplexedVm.c)
+ *     MiSynchronizeSystemVa @ 0x1402228B0 (MiSynchronizeSystemVa.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     MiReferenceOwningSession @ 0x1402DE780 (MiReferenceOwningSession.c)
+ *     MmAttachSession @ 0x1402EA500 (MmAttachSession.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiGetSessionVm @ 0x14036C17C (MiGetSessionVm.c)
+ *     MiSmallVaStillMapsFrame @ 0x1403A3A90 (MiSmallVaStillMapsFrame.c)
+ *     MiVaIsPageFileHash @ 0x1403B7060 (MiVaIsPageFileHash.c)
+ *     MiUnlockStealVm @ 0x1403B7AF8 (MiUnlockStealVm.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiLockStealSystemVm(ULONG_PTR a1, unsigned __int8 a2, unsigned __int64 a3, __int64 a4)
 {
   unsigned __int64 v6; // rbx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?SetHighContrastWorker@@YAHPEAUtagINTERNALSETHIGHCONTRAST@@HPEAH@Z @ 0x1C01C8DCC
+ * Callers:
+ *     xxxSystemParametersInfoWorker @ 0x1C01032D0 (xxxSystemParametersInfoWorker.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C00C1278 (-RtlStringCchPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     ?RtlStringCchCopyW@@YAJPEAG_KPEBG@Z @ 0x1C010A9B4 (-RtlStringCchCopyW@@YAJPEAG_KPEBG@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x1C012BEC0 (__report_rangecheckfailure.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ?DwmNotifyWindowsMarginsChangeByTheme@@YAXXZ @ 0x1C01BD8AC (-DwmNotifyWindowsMarginsChangeByTheme@@YAXXZ.c)
+ */
+
 __int64 __fastcall SetHighContrastWorker(struct tagINTERNALSETHIGHCONTRAST *a1, int a2, unsigned int *a3)
 {
   const void *v7; // rdx

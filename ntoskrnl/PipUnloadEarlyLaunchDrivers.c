@@ -1,3 +1,13 @@
+/*
+ * XREFs of PipUnloadEarlyLaunchDrivers @ 0x140B68368
+ * Callers:
+ *     IopInitializeBootDrivers @ 0x140B57F78 (IopInitializeBootDrivers.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwUnloadKey2 @ 0x140415E10 (ZwUnloadKey2.c)
+ *     IopUnloadDriver @ 0x1408549C8 (IopUnloadDriver.c)
+ */
+
 __int64 __fastcall PipUnloadEarlyLaunchDrivers(UNICODE_STRING *a1)
 {
   __int64 result; // rax

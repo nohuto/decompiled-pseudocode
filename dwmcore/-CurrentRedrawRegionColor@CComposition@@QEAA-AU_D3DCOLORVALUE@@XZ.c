@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CurrentRedrawRegionColor@CComposition@@QEAA?AU_D3DCOLORVALUE@@XZ @ 0x1801B18B8
+ * Callers:
+ *     ?DrawDirtyRegionVisualizationForCurrentNode@CDrawingContext@@AEAAJXZ @ 0x1801D08B0 (-DrawDirtyRegionVisualizationForCurrentNode@CDrawingContext@@AEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _D3DCOLORVALUE *__fastcall CComposition::CurrentRedrawRegionColor(
         CComposition *this,
         struct _D3DCOLORVALUE *__return_ptr retstr)

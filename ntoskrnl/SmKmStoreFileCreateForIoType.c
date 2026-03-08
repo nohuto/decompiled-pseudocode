@@ -1,3 +1,21 @@
+/*
+ * XREFs of SmKmStoreFileCreateForIoType @ 0x1409D6D88
+ * Callers:
+ *     SmKmStoreFileCreate @ 0x1409D68D4 (SmKmStoreFileCreate.c)
+ * Callees:
+ *     IoSetThreadHardErrorMode @ 0x140244770 (IoSetThreadHardErrorMode.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwSetSecurityObject @ 0x1404159D0 (ZwSetSecurityObject.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IoCreateFile @ 0x140781BC0 (IoCreateFile.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     SmKmFileInfoCleanup @ 0x1409D5B90 (SmKmFileInfoCleanup.c)
+ *     SmKmIsVolumeIoPossible @ 0x1409D5F0C (SmKmIsVolumeIoPossible.c)
+ *     SmKmStoreFileDelete @ 0x1409D7038 (SmKmStoreFileDelete.c)
+ *     SmKmStoreFileMakeSecurityDescriptor @ 0x1409D735C (SmKmStoreFileMakeSecurityDescriptor.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SmKmStoreFileCreateForIoType(_OWORD *a1, const WCHAR *a2, int *a3, __int64 a4, int a5)
 {
   BOOL v8; // edi

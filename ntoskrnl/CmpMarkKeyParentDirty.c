@@ -1,3 +1,16 @@
+/*
+ * XREFs of CmpMarkKeyParentDirty @ 0x140A1F320
+ * Callers:
+ *     CmpCopySyncTree2 @ 0x140A1E7F8 (CmpCopySyncTree2.c)
+ * Callees:
+ *     CmpMarkIndexDirty @ 0x1406BA4F0 (CmpMarkIndexDirty.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpMarkCellDirty @ 0x1407D2460 (HvpMarkCellDirty.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall CmpMarkKeyParentDirty(ULONG_PTR BugCheckParameter3, ULONG_PTR a2)
 {
   unsigned int v2; // edi

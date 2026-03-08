@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpGenericPolledWorkerRoutine @ 0x14029A9C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpCheckAndReportGhes @ 0x14029AA2C (HalpCheckAndReportGhes.c)
+ */
+
 __int64 __fastcall HalpGenericPolledWorkerRoutine(__int64 a1)
 {
   __int64 result; // rax

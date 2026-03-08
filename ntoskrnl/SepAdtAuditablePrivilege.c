@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepAdtAuditablePrivilege @ 0x1405B683C
+ * Callers:
+ *     SepAdtTokenRightAdjusted @ 0x14070F51C (SepAdtTokenRightAdjusted.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall SepAdtAuditablePrivilege(_DWORD *a1, unsigned int a2)
 {
   char v2; // r8

@@ -1,3 +1,26 @@
+/*
+ * XREFs of ExpWnfNotifyNameSubscribers @ 0x14071B5C8
+ * Callers:
+ *     ExpWnfDeleteProcessContext @ 0x140704AB8 (ExpWnfDeleteProcessContext.c)
+ *     ExpWnfDeliverThreadNotifications @ 0x140718E50 (ExpWnfDeliverThreadNotifications.c)
+ *     ExpWnfCompleteThreadSubscriptions @ 0x140719114 (ExpWnfCompleteThreadSubscriptions.c)
+ *     ExpNtUpdateWnfStateData @ 0x14071943C (ExpNtUpdateWnfStateData.c)
+ *     ExpWnfSubscribeNameInstance @ 0x14071AB90 (ExpWnfSubscribeNameInstance.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x14071B5C8 (ExpWnfNotifyNameSubscribers.c)
+ *     ExpWnfDeleteSubscription @ 0x14071D44C (ExpWnfDeleteSubscription.c)
+ *     NtDeleteWnfStateName @ 0x140778FE0 (NtDeleteWnfStateName.c)
+ *     ExpWnfDispatchKernelSubscription @ 0x14078D724 (ExpWnfDispatchKernelSubscription.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExpWnfNotifyNameSubscribers @ 0x14071B5C8 (ExpWnfNotifyNameSubscribers.c)
+ *     ExpWnfInsertSubscriptionInPendingQueue @ 0x14071B750 (ExpWnfInsertSubscriptionInPendingQueue.c)
+ *     ExpWnfStartKernelDispatcher @ 0x14078D67C (ExpWnfStartKernelDispatcher.c)
+ */
+
 signed __int32 __fastcall ExpWnfNotifyNameSubscribers(__int64 a1, unsigned int a2, int a3, unsigned int a4)
 {
   signed __int64 *v4; // rsi

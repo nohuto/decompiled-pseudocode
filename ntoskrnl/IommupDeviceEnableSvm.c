@@ -1,3 +1,22 @@
+/*
+ * XREFs of IommupDeviceEnableSvm @ 0x140930DD4
+ * Callers:
+ *     IommupDeviceEnablePasidTaggedDma @ 0x140822E44 (IommupDeviceEnablePasidTaggedDma.c)
+ * Callees:
+ *     HalpIommuGetDomainId @ 0x1403A4310 (HalpIommuGetDomainId.c)
+ *     IommuGetLeastMaximumSupportedAsidValue @ 0x1403AB514 (IommuGetLeastMaximumSupportedAsidValue.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IommupPasidDeviceCreate @ 0x14050C278 (IommupPasidDeviceCreate.c)
+ *     IommupPasidDeviceDelete @ 0x14050C384 (IommupPasidDeviceDelete.c)
+ *     HalpIommuFreeDomainId @ 0x140512F78 (HalpIommuFreeDomainId.c)
+ *     IommuDisableDevicePasid @ 0x14051FC00 (IommuDisableDevicePasid.c)
+ *     IommuEnableDevicePasid @ 0x14051FFF0 (IommuEnableDevicePasid.c)
+ *     IommupMapDeviceInternal @ 0x1405216F8 (IommupMapDeviceInternal.c)
+ *     IommupUnmapDeviceInternal @ 0x140521AB8 (IommupUnmapDeviceInternal.c)
+ *     IommupHvAttachPasidDevice @ 0x140521E7C (IommupHvAttachPasidDevice.c)
+ *     IommupHvDetachPasidDevice @ 0x140522410 (IommupHvDetachPasidDevice.c)
+ */
+
 __int64 __fastcall IommupDeviceEnableSvm(__int64 a1, char a2, __int64 a3)
 {
   __int64 v3; // rsi

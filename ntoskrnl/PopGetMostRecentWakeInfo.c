@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopGetMostRecentWakeInfo @ 0x14058C140
+ * Callers:
+ *     PopQueryMostRecentWakeSourceAttributes @ 0x140984574 (PopQueryMostRecentWakeSourceAttributes.c)
+ *     PopQueryMostRecentWakeSourceInfo @ 0x140984674 (PopQueryMostRecentWakeSourceInfo.c)
+ *     PopPowerAggregatorHandleSystemTransitionEndIntent @ 0x1409909E0 (PopPowerAggregatorHandleSystemTransitionEndIntent.c)
+ *     PopIsMostRecentWakeAttended @ 0x140A9DF8C (PopIsMostRecentWakeAttended.c)
+ * Callees:
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 PopGetMostRecentWakeInfo()
 {
   __int64 v0; // rbx

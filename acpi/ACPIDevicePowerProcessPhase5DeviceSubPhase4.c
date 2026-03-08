@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIDevicePowerProcessPhase5DeviceSubPhase4 @ 0x1C0020D80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qLqss @ 0x1C0009C8C (WPP_RECORDER_SF_qLqss.c)
+ *     ACPIDeviceCompleteGenericPhase @ 0x1C001C540 (ACPIDeviceCompleteGenericPhase.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ */
+
 __int64 __fastcall ACPIDevicePowerProcessPhase5DeviceSubPhase4(__int64 a1)
 {
   _QWORD *v1; // rbx

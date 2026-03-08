@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?LatencyToleranceTimerNotification@DXGADAPTER@@QEAAX_K@Z @ 0x1C0012AE0
+ * Callers:
+ *     ?DxgkLatencyToleranceTimerNotification@@YAXQEAX_K@Z @ 0x1C01D0F10 (-DxgkLatencyToleranceTimerNotification@@YAXQEAX_K@Z.c)
+ * Callees:
+ *     ?UpdateLatencyTolerances@DXGADAPTER@@QEAAXXZ @ 0x1C0009F40 (-UpdateLatencyTolerances@DXGADAPTER@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C003FB88 (McTemplateK0_EtwWriteTransfer.c)
+ *     McTemplateK0pqx_EtwWriteTransfer @ 0x1C00406D4 (McTemplateK0pqx_EtwWriteTransfer.c)
+ */
+
 void __fastcall DXGADAPTER::LatencyToleranceTimerNotification(KSPIN_LOCK *this, __int64 a2, __int64 a3, __int64 a4)
 {
   int v6; // r8d

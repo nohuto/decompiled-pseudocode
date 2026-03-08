@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?UmfdCallSessionInitialize@@YAJXZ @ 0x1C00E717C
+ * Callers:
+ *     UmfdSessionInitialize @ 0x1C00E6FB0 (UmfdSessionInitialize.c)
+ * Callees:
+ *     ?Create@CEventPool@@SAQEAV1@XZ @ 0x1C00E7280 (-Create@CEventPool@@SAQEAV1@XZ.c)
+ *     ?Create@CManualResetEvent@@SAQEAV1@XZ @ 0x1C00E72CC (-Create@CManualResetEvent@@SAQEAV1@XZ.c)
+ *     ?Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z @ 0x1C00EF3DC (-Destroy@CMultipleConsumerWorkQueue@@SAXQEAV1@@Z.c)
+ *     ??1?$CAutoDestroy@VCMultipleConsumerWorkQueue@@@@QEAA@XZ @ 0x1C0309188 (--1-$CAutoDestroy@VCMultipleConsumerWorkQueue@@@@QEAA@XZ.c)
+ *     ??1?$CAutoDestroy@VCWorkItemQueue@@@@QEAA@XZ @ 0x1C03091A8 (--1-$CAutoDestroy@VCWorkItemQueue@@@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall UmfdCallSessionInitialize(__int64 a1)
 {
   int v1; // edi

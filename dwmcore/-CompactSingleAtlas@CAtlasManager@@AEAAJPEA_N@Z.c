@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?CompactSingleAtlas@CAtlasManager@@AEAAJPEA_N@Z @ 0x1800FA91C
+ * Callers:
+ *     ?CompactAtlases@CAtlasManager@@QEAAXXZ @ 0x180077C44 (-CompactAtlases@CAtlasManager@@QEAAXXZ.c)
+ * Callees:
+ *     ??1CAtlasTexture@@QEAA@XZ @ 0x1800184C8 (--1CAtlasTexture@@QEAA@XZ.c)
+ *     ?PurgeAndNotify@CAtlasTexture@@QEAAXXZ @ 0x180018504 (-PurgeAndNotify@CAtlasTexture@@QEAAXXZ.c)
+ *     ?CopyFrom@CAtlasTexture@@QEAAXPEBV1@PEAI@Z @ 0x1800185F4 (-CopyFrom@CAtlasTexture@@QEAAXPEBV1@PEAI@Z.c)
+ *     ?Create@CAtlasTexture@@SAJPEAVCD3DDevice@@IPEAPEAV1@@Z @ 0x180024034 (-Create@CAtlasTexture@@SAJPEAVCD3DDevice@@IPEAPEAV1@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?DetermineIdealAtlasSize@CAtlasManager@@CAII@Z @ 0x1800FA984 (-DetermineIdealAtlasSize@CAtlasManager@@CAII@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ */
+
 __int64 __fastcall CAtlasManager::CompactSingleAtlas(const struct CAtlasTexture ***this, bool *a2)
 {
   const struct CAtlasTexture **v2; // rsi

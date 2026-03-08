@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpCoverageSamplerPageFault @ 0x140601A34
+ * Callers:
+ *     EtwTracePageFault @ 0x14045EC72 (EtwTracePageFault.c)
+ * Callees:
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     EtwpCovSampCaptureSample @ 0x140601340 (EtwpCovSampCaptureSample.c)
+ */
+
 void __fastcall EtwpCoverageSamplerPageFault(unsigned __int64 a1, unsigned __int64 a2, char a3)
 {
   __int64 v4; // rcx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmResetProfileSettings @ 0x14039FB08
+ * Callers:
+ *     PpmRegisterProfiles @ 0x140848708 (PpmRegisterProfiles.c)
+ *     PpmDisableProfile @ 0x14099A1A4 (PpmDisableProfile.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall PpmResetProfileSettings(__int64 a1)
 {
   __int64 v1; // r9

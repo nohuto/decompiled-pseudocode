@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiLockRetpolineStubs @ 0x140B967E0
+ * Callers:
+ *     MiInitializeRetpoline @ 0x140B39F78 (MiInitializeRetpoline.c)
+ * Callees:
+ *     MiProbeAndLockPages @ 0x140242114 (MiProbeAndLockPages.c)
+ *     MmCreateMdl @ 0x1402CCD20 (MmCreateMdl.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 MiLockRetpolineStubs()
 {
   PMDL Mdl; // rax

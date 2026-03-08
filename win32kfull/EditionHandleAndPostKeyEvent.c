@@ -1,3 +1,24 @@
+/*
+ * XREFs of EditionHandleAndPostKeyEvent @ 0x1C009F110
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0035F20 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PostInputMessage @ 0x1C0037A48 (PostInputMessage.c)
+ *     ?WakeSomeone@@YAXPEAUtagQ@@PEAUtagTHREADINFO@@IPEAUtagQMSG@@@Z @ 0x1C00388C0 (-WakeSomeone@@YAXPEAUtagQ@@PEAUtagTHREADINFO@@IPEAUtagQMSG@@@Z.c)
+ *     HasHidTable @ 0x1C0038CB0 (HasHidTable.c)
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0044D58 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     PtiKbdFromQ @ 0x1C009FA48 (PtiKbdFromQ.c)
+ *     AdjustPwndPtiPqForDelegation @ 0x1C009FA68 (AdjustPwndPtiPqForDelegation.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     IsProcessedByInputService @ 0x1C00CE17C (IsProcessedByInputService.c)
+ *     Feature_KIDV2__private_IsEnabledDeviceUsage @ 0x1C012C6EC (Feature_KIDV2__private_IsEnabledDeviceUsage.c)
+ *     PostShellHookMessages @ 0x1C012E4B0 (PostShellHookMessages.c)
+ *     xxxNextWindow @ 0x1C01CB604 (xxxNextWindow.c)
+ *     ?GetAppcommandQueue@@YAPEAUtagQ@@XZ @ 0x1C01E8700 (-GetAppcommandQueue@@YAPEAUtagQ@@XZ.c)
+ */
+
 __int64 __fastcall EditionHandleAndPostKeyEvent(
         __int64 a1,
         __int64 a2,

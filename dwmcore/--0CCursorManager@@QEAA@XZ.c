@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0CCursorManager@@QEAA@XZ @ 0x1800B00CC
+ * Callers:
+ *     _dynamic_initializer_for__g_CursorManager__ @ 0x180003CE0 (_dynamic_initializer_for__g_CursorManager__.c)
+ * Callees:
+ *     ??$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z @ 0x180085FF0 (--$_Allocate@$0BA@U_Default_allocate_traits@std@@$0A@@std@@YAPEAX_K@Z.c)
+ *     ??$_Get_size_of_n@$0DA@@std@@YA_K_K@Z @ 0x1800B1E44 (--$_Get_size_of_n@$0DA@@std@@YA_K_K@Z.c)
+ */
+
 CCursorManager *__fastcall CCursorManager::CCursorManager(CCursorManager *this)
 {
   SIZE_T size_of; // rax

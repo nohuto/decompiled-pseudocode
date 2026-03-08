@@ -1,3 +1,12 @@
+/*
+ * XREFs of PipSmBiosGetString @ 0x140B56BA4
+ * Callers:
+ *     PipInitComputerIds @ 0x140B552F0 (PipInitComputerIds.c)
+ * Callees:
+ *     strchr @ 0x1403D5520 (strchr.c)
+ *     RtlAnsiStringToUnicodeString @ 0x1407A39E0 (RtlAnsiStringToUnicodeString.c)
+ */
+
 NTSTATUS __fastcall PipSmBiosGetString(
         __int64 a1,
         unsigned __int8 a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of DifMmAllocateContiguousMemorySpecifyCacheWrapper @ 0x1405E4490
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ *     MmAllocateContiguousMemorySpecifyCacheNode @ 0x14061BD50 (MmAllocateContiguousMemorySpecifyCacheNode.c)
+ */
+
 PVOID __fastcall DifMmAllocateContiguousMemorySpecifyCacheWrapper(
         SIZE_T NumberOfBytes,
         PHYSICAL_ADDRESS LowestAcceptableAddress,

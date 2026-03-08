@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopPepCompleteActivity @ 0x140307B40
+ * Callers:
+ *     PopPepProcessEvent @ 0x140307424 (PopPepProcessEvent.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ */
+
 __int64 __fastcall PopPepCompleteActivity(__int64 a1, __int64 a2, signed int a3)
 {
   int *v3; // rax

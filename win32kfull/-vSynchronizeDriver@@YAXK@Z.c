@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vSynchronizeDriver@@YAXK@Z @ 0x1C002A75C
+ * Callers:
+ *     GreFlush @ 0x1C002A740 (GreFlush.c)
+ *     ?GreSynchronizeTimer@@YAXPEAXI_K_J@Z @ 0x1C02AA090 (-GreSynchronizeTimer@@YAXPEAXI_K_J@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vSynchronizeDriver(__int64 a1)
 {
   int v1; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of McGenEventWrite_EtwWriteTransfer @ 0x1C01C20D4
+ * Callers:
+ *     McTemplateK0qqzz_EtwWriteTransfer @ 0x1C01C2140 (McTemplateK0qqzz_EtwWriteTransfer.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall McGenEventWrite_EtwWriteTransfer(
         __int64 a1,
         __int64 a2,

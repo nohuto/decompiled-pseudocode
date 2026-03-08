@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiProcessSecondarySignalList @ 0x14056F7E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KiProcessDisconnectList @ 0x14039E548 (KiProcessDisconnectList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiAcquireSecondarySignalListLock @ 0x14056F3E8 (KiAcquireSecondarySignalListLock.c)
+ */
+
 void __fastcall KiProcessSecondarySignalList(
         struct _KDPC *Dpc,
         PVOID DeferredContext,

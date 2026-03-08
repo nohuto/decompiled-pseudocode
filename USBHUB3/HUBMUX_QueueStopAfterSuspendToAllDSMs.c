@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBMUX_QueueStopAfterSuspendToAllDSMs @ 0x1C00112B8
+ * Callers:
+ *     HUBHSM_NotifyingHubStopToDevicesOnSuspriseRemove @ 0x1C0008BE0 (HUBHSM_NotifyingHubStopToDevicesOnSuspriseRemove.c)
+ * Callees:
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 _QWORD *__fastcall HUBMUX_QueueStopAfterSuspendToAllDSMs(__int64 a1)
 {
   __int64 v2; // rbx

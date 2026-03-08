@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?HandleQueryInterfaceForReenumerate@FxPkgPdo@@QEAAJPEAVFxIrp@@PEAE@Z @ 0x1C0068E10
+ * Callers:
+ *     ?HandleQueryInterface@FxPkgPnp@@IEAAJPEAVFxIrp@@PEAE@Z @ 0x1C0072CCC (-HandleQueryInterface@FxPkgPnp@@IEAAJPEAVFxIrp@@PEAE@Z.c)
+ * Callees:
+ *     ?AddChildList@FxDeviceBase@@UEAAXPEAVFxChildList@@@Z @ 0x1C0009470 (-AddChildList@FxDeviceBase@@UEAAXPEAVFxChildList@@@Z.c)
+ */
+
 __int64 __fastcall FxPkgPdo::HandleQueryInterfaceForReenumerate(
         FxPkgPdo *this,
         FxIrp *Irp,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SessionInitialize@DesktopRecalc@@YAXXZ @ 0x1C00F1AA8
+ * Callers:
+ *     EditionUserInitialize @ 0x1C00F1A90 (EditionUserInitialize.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ds @ 0x1C00F1B6C (WPP_RECORDER_AND_TRACE_SF_ds.c)
+ */
+
 void __fastcall DesktopRecalc::SessionInitialize(DesktopRecalc *this)
 {
   char v1; // bl

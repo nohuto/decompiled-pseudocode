@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpGetResourceSortValue @ 0x140B360F0
+ * Callers:
+ *     HalpReportResourceUsage @ 0x140B35B2C (HalpReportResourceUsage.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall HalpGetResourceSortValue(__int64 a1, _DWORD *a2, _QWORD *a3)
 {
   __int64 v3; // rax

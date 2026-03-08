@@ -1,3 +1,12 @@
+/*
+ * XREFs of NVMePowerSetPerfState @ 0x1C00103B0
+ * Callers:
+ *     NVMeHwAdapterControl @ 0x1C0003050 (NVMeHwAdapterControl.c)
+ * Callees:
+ *     NVMePerfStateTransition @ 0x1C000314C (NVMePerfStateTransition.c)
+ *     NVMeSetPowerState @ 0x1C002413C (NVMeSetPowerState.c)
+ */
+
 char __fastcall NVMePowerSetPerfState(__int64 a1, __int64 a2)
 {
   unsigned __int8 v3; // di

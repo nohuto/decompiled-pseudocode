@@ -1,3 +1,15 @@
+/*
+ * XREFs of GreSfmDwmShutdown @ 0x1C0016EC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EtwTraceGreLockAcquireSemaphoreExclusive @ 0x1C0049800 (EtwTraceGreLockAcquireSemaphoreExclusive.c)
+ *     EtwTraceGreLockReleaseSemaphore @ 0x1C0049E20 (EtwTraceGreLockReleaseSemaphore.c)
+ *     EngAcquireSemaphore @ 0x1C004B690 (EngAcquireSemaphore.c)
+ *     ?DeInitialize@SfmTokenArray@@QEAAXXZ @ 0x1C00C4630 (-DeInitialize@SfmTokenArray@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 GreSfmDwmShutdown()
 {
   __int64 v0; // rbx

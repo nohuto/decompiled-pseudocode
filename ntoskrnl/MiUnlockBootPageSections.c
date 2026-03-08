@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiUnlockBootPageSections @ 0x140B5F47C
+ * Callers:
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MiLockPagableSections @ 0x140B5F628 (MiLockPagableSections.c)
+ */
+
 char MiUnlockBootPageSections()
 {
   struct _KTHREAD *CurrentThread; // rdi

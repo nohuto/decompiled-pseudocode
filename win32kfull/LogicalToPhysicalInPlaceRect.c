@@ -1,3 +1,14 @@
+/*
+ * XREFs of LogicalToPhysicalInPlaceRect @ 0x1C0016144
+ * Callers:
+ *     ?GetPhysicalFrameBounds@WindowMargins@@YA?AUtagRECT@@PEBUtagWND@@@Z @ 0x1C0015B58 (-GetPhysicalFrameBounds@WindowMargins@@YA-AUtagRECT@@PEBUtagWND@@@Z.c)
+ *     ?InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z @ 0x1C0052B80 (-InternalInvalidate2@@YAHPEAUtagWND@@PEAUHRGN__@@1PEAUtagRECT@@K@Z.c)
+ *     TransformIvSpatialInputPoint @ 0x1C01CC9EC (TransformIvSpatialInputPoint.c)
+ *     ?NotifyPosAndStateApplied@ShellWindowPos@@YAXPEBUtagWND@@W4TRACKED_WINDOW_STATE@@AEBUtagRECT@@K@Z @ 0x1C021FF88 (-NotifyPosAndStateApplied@ShellWindowPos@@YAXPEBUtagWND@@W4TRACKED_WINDOW_STATE@@AEBUtagRECT@@K@.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall LogicalToPhysicalInPlaceRect(__int64 a1, __int64 a2)
 {
   unsigned int v2; // edi

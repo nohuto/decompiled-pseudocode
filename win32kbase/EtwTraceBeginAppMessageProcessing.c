@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTraceBeginAppMessageProcessing @ 0x1C00A5760
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetCallbackCount@@YACXZ @ 0x1C00EDBA8 (-GetCallbackCount@@YACXZ.c)
+ *     McTemplateK0cdqq_EtwWriteTransfer @ 0x1C00EDF94 (McTemplateK0cdqq_EtwWriteTransfer.c)
+ */
+
 void __fastcall EtwTraceBeginAppMessageProcessing(char a1, char a2, __int64 a3)
 {
   int v5; // ebx

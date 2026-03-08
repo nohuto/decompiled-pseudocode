@@ -1,3 +1,14 @@
+/*
+ * XREFs of VidSchiSendToExecutionQueueWithWait @ 0x1C00ADC80
+ * Callers:
+ *     VidSchiSwitchNodeFromContext @ 0x1C00AD9A0 (VidSchiSwitchNodeFromContext.c)
+ *     VidSchiSubmitPreemptionCommand @ 0x1C00ADB04 (VidSchiSubmitPreemptionCommand.c)
+ *     VidSchiSubmitPagingCommand @ 0x1C0106954 (VidSchiSubmitPagingCommand.c)
+ *     VidSchiSubmitRenderCommand @ 0x1C0106E0C (VidSchiSubmitRenderCommand.c)
+ * Callees:
+ *     VidSchiSendToExecutionQueue @ 0x1C0008D50 (VidSchiSendToExecutionQueue.c)
+ */
+
 void __fastcall VidSchiSendToExecutionQueueWithWait(__int64 a1, char a2)
 {
   struct _KEVENT *v4; // rcx

@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiGetWsleProtection @ 0x140229ECC
+ * Callers:
+ *     MiSetReadOnlyOnSectionView @ 0x14020AAF0 (MiSetReadOnlyOnSectionView.c)
+ *     MiGetPfnProtection @ 0x140229E5C (MiGetPfnProtection.c)
+ *     MiCopyOnWrite @ 0x140319F00 (MiCopyOnWrite.c)
+ *     MiWsleFlush @ 0x14032B4A0 (MiWsleFlush.c)
+ *     MiBuildForkPte @ 0x14065FC20 (MiBuildForkPte.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiGetWsleProtection(unsigned __int64 a1, unsigned __int8 a2)
 {
   unsigned int v2; // r8d

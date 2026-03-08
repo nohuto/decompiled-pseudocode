@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpDmaInitializeControllers @ 0x140398798
+ * Callers:
+ *     HalpDmaInit @ 0x140B60E78 (HalpDmaInit.c)
+ * Callees:
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpDmaControllerInitializeController @ 0x140514330 (HalpDmaControllerInitializeController.c)
+ *     HalpDmaConfigureInterrupt @ 0x140525184 (HalpDmaConfigureInterrupt.c)
+ */
+
 __int64 HalpDmaInitializeControllers()
 {
   __int64 v0; // rbx

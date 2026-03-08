@@ -1,3 +1,15 @@
+/*
+ * XREFs of FreeOwnedObjects @ 0x1C004B81C
+ * Callers:
+ *     AMLIRemoveNativeObjectsFromNamespace @ 0x1C0049C4C (AMLIRemoveNativeObjectsFromNamespace.c)
+ *     AMLIAddNamespaceOverride @ 0x1C004A2A8 (AMLIAddNamespaceOverride.c)
+ *     ParseCall @ 0x1C005A6A0 (ParseCall.c)
+ *     ParseUnload @ 0x1C005CB20 (ParseUnload.c)
+ * Callees:
+ *     FreeNameSpaceObjects @ 0x1C0005600 (FreeNameSpaceObjects.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ */
+
 void __fastcall FreeOwnedObjects(_QWORD *a1)
 {
   __int64 v2; // rdx

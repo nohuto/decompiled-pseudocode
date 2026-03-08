@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?GetMonitorMenuRectForDpi@@YA?AUtagRECT@@PEBUtagMONITOR@@G@Z @ 0x1C024E86C
+ * Callers:
+ *     GetMonitorMenuRect @ 0x1C024E934 (GetMonitorMenuRect.c)
+ *     GetMonitorMenuRectForWindow @ 0x1C024E978 (GetMonitorMenuRectForWindow.c)
+ * Callees:
+ *     GetMonitorRectForDpi @ 0x1C00A2698 (GetMonitorRectForDpi.c)
+ *     ExpandMonitorSpaceVertex @ 0x1C00A3584 (ExpandMonitorSpaceVertex.c)
+ *     ScaleDPIRect @ 0x1C00A3890 (ScaleDPIRect.c)
+ *     ?IsRectEmptyInl@@YAHPEBUtagRECT@@@Z @ 0x1C00E42C8 (-IsRectEmptyInl@@YAHPEBUtagRECT@@@Z.c)
+ */
+
 struct tagRECT *__fastcall GetMonitorMenuRectForDpi(
         struct tagRECT *__return_ptr retstr,
         const struct tagMONITOR *a2,

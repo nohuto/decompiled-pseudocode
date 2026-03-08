@@ -1,3 +1,16 @@
+/*
+ * XREFs of KiUnparkCurrentProcessor @ 0x14057C38C
+ * Callers:
+ *     KeTransitionProcessorParkState @ 0x14057B3EC (KeTransitionProcessorParkState.c)
+ * Callees:
+ *     KiReleasePrcbLocksForIsolationUnit @ 0x1402ADF80 (KiReleasePrcbLocksForIsolationUnit.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiUpdateThreadPriority @ 0x1403437B0 (KiUpdateThreadPriority.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiSendHeteroRescheduleIntRequest @ 0x140459B66 (KiSendHeteroRescheduleIntRequest.c)
+ *     KiAdjustReadyQueueScanOwnerOnParkingChange @ 0x14057B53C (KiAdjustReadyQueueScanOwnerOnParkingChange.c)
+ */
+
 __int64 __fastcall KiUnparkCurrentProcessor(__int64 a1, __int64 a2, __int64 *a3)
 {
   unsigned __int64 v3; // rbp

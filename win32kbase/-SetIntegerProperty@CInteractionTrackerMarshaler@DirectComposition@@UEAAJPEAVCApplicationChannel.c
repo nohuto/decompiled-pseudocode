@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetIntegerProperty@CInteractionTrackerMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@I_JPEA_N@Z @ 0x1C0268640
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CInteractionTrackerMarshaler::SetIntegerProperty(
         DirectComposition::CInteractionTrackerMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

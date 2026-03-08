@@ -1,3 +1,14 @@
+/*
+ * XREFs of CarDeregisterRuleClassConfiguration @ 0x1405D1760
+ * Callers:
+ *     CarRegisterRuleClassConfiguration @ 0x1405D1C80 (CarRegisterRuleClassConfiguration.c)
+ *     DifDeregisterAllPlugins @ 0x1405D27E8 (DifDeregisterAllPlugins.c)
+ * Callees:
+ *     CarDeleteTelemetryData @ 0x1405D16C4 (CarDeleteTelemetryData.c)
+ *     CarFindRuleClassConfigurationEntryByRuleClassId @ 0x1405D186C (CarFindRuleClassConfigurationEntryByRuleClassId.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall CarDeregisterRuleClassConfiguration(__int64 a1)
 {
   __int64 RuleClassConfigurationEntryByRuleClassId; // rax

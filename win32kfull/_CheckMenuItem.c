@@ -1,3 +1,13 @@
+/*
+ * XREFs of _CheckMenuItem @ 0x1C0224C40
+ * Callers:
+ *     NtUserCheckMenuItem @ 0x1C01CE670 (NtUserCheckMenuItem.c)
+ * Callees:
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C00A6450 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00D5030 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     ?MenuItemState@@YAKAEBV?$SmartObjStackRef@UtagMENU@@@@IKKPEAPEAUtagMENU@@@Z @ 0x1C0224A1C (-MenuItemState@@YAKAEBV-$SmartObjStackRef@UtagMENU@@@@IKKPEAPEAUtagMENU@@@Z.c)
+ */
+
 __int64 __fastcall CheckMenuItem(__int64 a1, unsigned int a2, int a3)
 {
   unsigned int v5; // ebx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of PpmPerfApplyDomainState @ 0x1402E56F8
+ * Callers:
+ *     PpmPerfApplyDomainStates @ 0x1402E5690 (PpmPerfApplyDomainStates.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     PpmGetPerfPolicyClass @ 0x140235B9C (PpmGetPerfPolicyClass.c)
+ *     KeIsSubsetAffinityEx @ 0x1402B13D0 (KeIsSubsetAffinityEx.c)
+ *     PpmPerfApplyCapsAndFloors @ 0x1402E5DE0 (PpmPerfApplyCapsAndFloors.c)
+ *     PpmEventDomainPerfStateChange @ 0x1402E5E8C (PpmEventDomainPerfStateChange.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char __fastcall PpmPerfApplyDomainState(__int64 a1)
 {
   int v1; // r15d

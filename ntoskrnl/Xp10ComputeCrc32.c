@@ -1,3 +1,11 @@
+/*
+ * XREFs of Xp10ComputeCrc32 @ 0x1409C2E48
+ * Callers:
+ *     Xp10ComputeAndWriteCrc @ 0x1409C2DAC (Xp10ComputeAndWriteCrc.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall Xp10ComputeCrc32(unsigned __int8 **a1)
 {
   unsigned int v1; // eax

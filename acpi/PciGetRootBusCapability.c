@@ -1,3 +1,12 @@
+/*
+ * XREFs of PciGetRootBusCapability @ 0x1C008A1F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcpiEvaluateDsmMethodOnPciRootBus @ 0x1C0089CBC (AcpiEvaluateDsmMethodOnPciRootBus.c)
+ *     AcpiUpdatePciRootFromDsmEvaluation @ 0x1C0089FDC (AcpiUpdatePciRootFromDsmEvaluation.c)
+ */
+
 __int64 __fastcall PciGetRootBusCapability(__int64 a1, __int64 a2)
 {
   int v4; // eax

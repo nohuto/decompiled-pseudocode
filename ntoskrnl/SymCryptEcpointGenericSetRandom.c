@@ -1,3 +1,14 @@
+/*
+ * XREFs of SymCryptEcpointGenericSetRandom @ 0x1403F8750
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SymCryptModElementCreate @ 0x1403F3AEC (SymCryptModElementCreate.c)
+ *     SymCryptModElementToInt @ 0x1403F3C7C (SymCryptModElementToInt.c)
+ *     SymCryptModSetRandom @ 0x1403F3DE4 (SymCryptModSetRandom.c)
+ *     SymCryptEcpointScalarMul @ 0x1403FD2C0 (SymCryptEcpointScalarMul.c)
+ */
+
 void __fastcall __noreturn SymCryptEcpointGenericSetRandom(__int64 a1, __int64 a2, __int64 a3, int a4, __int64 a5)
 {
   int v7; // eax

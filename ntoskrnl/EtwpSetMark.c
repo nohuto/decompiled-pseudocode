@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwpSetMark @ 0x1409E3AC0
+ * Callers:
+ *     NtTraceEvent @ 0x140230D30 (NtTraceEvent.c)
+ *     EtwpLogRefSetAutoMark @ 0x1409EC290 (EtwpLogRefSetAutoMark.c)
+ * Callees:
+ *     EtwpLogSystemEventUnsafe @ 0x14036F9F8 (EtwpLogSystemEventUnsafe.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     MmEmptyAllWorkingSets @ 0x140633230 (MmEmptyAllWorkingSets.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     MmIdentifyPhysicalMemory @ 0x140A2C028 (MmIdentifyPhysicalMemory.c)
+ */
+
 __int64 __fastcall EtwpSetMark(unsigned int *a1, _DWORD *a2, unsigned int a3, char a4, KPROCESSOR_MODE PreviousMode)
 {
   unsigned int v8; // ebx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopClearHiberFileSignature @ 0x14098544C
+ * Callers:
+ *     PopEnableHiberFile @ 0x14082ADA4 (PopEnableHiberFile.c)
+ *     PopFreeHiberContext @ 0x1409855F0 (PopFreeHiberContext.c)
+ * Callees:
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwFsControlFile @ 0x140412A30 (ZwFsControlFile.c)
+ */
+
 void PopClearHiberFileSignature()
 {
   struct _IO_STATUS_BLOCK v0; // [rsp+50h] [rbp-38h] BYREF

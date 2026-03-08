@@ -1,3 +1,18 @@
+/*
+ * XREFs of MmSetGraphicsPtes @ 0x140A2BE10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     MiObtainReferencedVadEx @ 0x14031EFE0 (MiObtainReferencedVadEx.c)
+ *     MiGetVadPageSize @ 0x14031F9B4 (MiGetVadPageSize.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     MiSetGraphicsPtes @ 0x1406240B0 (MiSetGraphicsPtes.c)
+ *     MiGetAwePageSizeFromVa @ 0x140648378 (MiGetAwePageSizeFromVa.c)
+ *     MiLockAweVadsExclusive @ 0x140648A8C (MiLockAweVadsExclusive.c)
+ *     MiUnlockAweVadsExclusive @ 0x1406498DC (MiUnlockAweVadsExclusive.c)
+ */
+
 __int64 __fastcall MmSetGraphicsPtes(
         ULONG_PTR BugCheckParameter2,
         ULONG_PTR BugCheckParameter3,

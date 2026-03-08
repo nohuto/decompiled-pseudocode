@@ -1,3 +1,12 @@
+/*
+ * XREFs of AllocateProcessHidTable @ 0x1C00D5128
+ * Callers:
+ *     _RegisterRawInputDevices @ 0x1C00D5AC8 (_RegisterRawInputDevices.c)
+ * Callees:
+ *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C00D6340 (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
+ *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C00D63F0 (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
+ */
+
 __int64 AllocateProcessHidTable()
 {
   __int64 result; // rax

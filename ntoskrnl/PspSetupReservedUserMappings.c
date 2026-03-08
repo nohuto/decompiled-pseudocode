@@ -1,3 +1,14 @@
+/*
+ * XREFs of PspSetupReservedUserMappings @ 0x140707AE8
+ * Callers:
+ *     PspAllocateProcess @ 0x140707E10 (PspAllocateProcess.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     KiStackAttachProcess @ 0x14030DF30 (KiStackAttachProcess.c)
+ *     ZwAllocateVirtualMemory @ 0x140412610 (ZwAllocateVirtualMemory.c)
+ *     ZwAllocateVirtualMemoryEx @ 0x1404131D0 (ZwAllocateVirtualMemoryEx.c)
+ */
+
 __int64 __fastcall PspSetupReservedUserMappings(_KPROCESS *a1, $115DCDF994C6370D29323EAB0E0C9502 *a2, _QWORD *a3)
 {
   int v5; // ebx

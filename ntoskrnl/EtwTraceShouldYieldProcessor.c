@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwTraceShouldYieldProcessor @ 0x1405FB09C
+ * Callers:
+ *     MiWalkPageTablesRecursively @ 0x140223160 (MiWalkPageTablesRecursively.c)
+ *     MiGetPageChain @ 0x14026E0E0 (MiGetPageChain.c)
+ *     MiConvertEntireLargePageToSmall @ 0x140277140 (MiConvertEntireLargePageToSmall.c)
+ *     MiInitializeMdlBatchPages @ 0x1402B4150 (MiInitializeMdlBatchPages.c)
+ *     KeShouldYieldProcessor @ 0x1402C9870 (KeShouldYieldProcessor.c)
+ *     MiQueryAddressState @ 0x14031B4F0 (MiQueryAddressState.c)
+ *     MiDecommitPages @ 0x140329B10 (MiDecommitPages.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall EtwTraceShouldYieldProcessor(int a1, int a2, int a3)
 {
   _DWORD v3[4]; // [rsp+30h] [rbp-38h] BYREF

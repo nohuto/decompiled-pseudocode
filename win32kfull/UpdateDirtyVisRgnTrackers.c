@@ -1,3 +1,11 @@
+/*
+ * XREFs of UpdateDirtyVisRgnTrackers @ 0x1C00440C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Update@CVisRgnTrackerProp@@QEAAXXZ @ 0x1C004411C (-Update@CVisRgnTrackerProp@@QEAAXXZ.c)
+ */
+
 void UpdateDirtyVisRgnTrackers()
 {
   struct _LIST_ENTRY *i; // rbx

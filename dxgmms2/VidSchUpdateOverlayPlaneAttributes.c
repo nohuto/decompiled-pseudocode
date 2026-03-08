@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchUpdateOverlayPlaneAttributes @ 0x1C0040C40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VidSchUpdateOverlayPlaneAttributes(__int64 a1, unsigned int a2, __int128 *a3, unsigned int a4)
 {
   __m128i v4; // xmm1

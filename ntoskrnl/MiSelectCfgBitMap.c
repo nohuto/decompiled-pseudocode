@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiSelectCfgBitMap @ 0x1407D2C08
+ * Callers:
+ *     MiCfgMarkValidEntries @ 0x14075C3DC (MiCfgMarkValidEntries.c)
+ *     MiCommitVadCfgBits @ 0x1407D2AEC (MiCommitVadCfgBits.c)
+ *     MiProcessPatchImageCfg @ 0x140A383A8 (MiProcessPatchImageCfg.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiSelectCfgBitMap(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   __int16 v4; // ax

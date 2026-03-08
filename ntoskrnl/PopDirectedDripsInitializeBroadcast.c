@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopDirectedDripsInitializeBroadcast @ 0x1409806E8
+ * Callers:
+ *     PopDirectedDripsSuspendDevices @ 0x140980E14 (PopDirectedDripsSuspendDevices.c)
+ * Callees:
+ *     IoControlPnpDeviceActionQueue @ 0x1403BDF5C (IoControlPnpDeviceActionQueue.c)
+ *     PopFxBuildDirectedDripsCandidateDeviceList @ 0x140586764 (PopFxBuildDirectedDripsCandidateDeviceList.c)
+ *     PopFxDestroyDirectedDripsCandidateDeviceList @ 0x1405878B4 (PopFxDestroyDirectedDripsCandidateDeviceList.c)
+ *     PopPowerAggregatorHandleIntent @ 0x140757228 (PopPowerAggregatorHandleIntent.c)
+ *     PopDirectedDripsQueryMitigationStatus @ 0x140880DE0 (PopDirectedDripsQueryMitigationStatus.c)
+ *     PoInitializeBroadcast @ 0x140988BE4 (PoInitializeBroadcast.c)
+ *     PopDirectedDripsBuildBroadcastTreePartial @ 0x14099CDB8 (PopDirectedDripsBuildBroadcastTreePartial.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopDirectedDripsInitializeBroadcast(volatile signed __int32 *a1)
 {
   char v2; // r15

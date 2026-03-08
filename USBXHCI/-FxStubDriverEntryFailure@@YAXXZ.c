@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FxStubDriverEntryFailure@@YAXXZ @ 0x1C0020250
+ * Callers:
+ *     FxDriverEntryWorker @ 0x1C001CDB4 (FxDriverEntryWorker.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 void FxStubDriverEntryFailure(void)
 {
   GUID *v0; // [rsp+20h] [rbp-28h] BYREF

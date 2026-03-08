@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiShareExistingControlArea @ 0x1407D1CAC
+ * Callers:
+ *     MiCreateImageOrDataSection @ 0x1407D12B0 (MiCreateImageOrDataSection.c)
+ * Callees:
+ *     PsIsCurrentThreadPrefetching @ 0x1402DCE70 (PsIsCurrentThreadPrefetching.c)
+ *     MmChangeSectionBackingFile @ 0x1402F34E4 (MmChangeSectionBackingFile.c)
+ *     IoSetTopLevelIrp @ 0x140343AF0 (IoSetTopLevelIrp.c)
+ *     MiValidateControlAreaPartition @ 0x1403442B4 (MiValidateControlAreaPartition.c)
+ *     MiValidateExistingImage @ 0x1406A1230 (MiValidateExistingImage.c)
+ *     FsRtlReleaseFile @ 0x1407D18E0 (FsRtlReleaseFile.c)
+ *     FsRtlGetFileSize @ 0x1407F4020 (FsRtlGetFileSize.c)
+ */
+
 __int64 __fastcall MiShareExistingControlArea(__int64 a1)
 {
   __int64 v1; // r14

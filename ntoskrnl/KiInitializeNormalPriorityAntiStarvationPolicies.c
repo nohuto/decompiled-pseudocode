@@ -1,3 +1,14 @@
+/*
+ * XREFs of KiInitializeNormalPriorityAntiStarvationPolicies @ 0x1403AD9DC
+ * Callers:
+ *     KeInitSystem @ 0x140B42FB8 (KeInitSystem.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     RtlQueryImageFileKeyOption @ 0x140709A50 (RtlQueryImageFileKeyOption.c)
+ */
+
 int KiInitializeNormalPriorityAntiStarvationPolicies()
 {
   int result; // eax

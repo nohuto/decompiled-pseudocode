@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepGetSidValuesDump @ 0x1405B6728
+ * Callers:
+ *     SepLogTokenSidManagement @ 0x1409C6C70 (SepLogTokenSidManagement.c)
+ * Callees:
+ *     RtlCopySid @ 0x1406D4890 (RtlCopySid.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall SepGetSidValuesDump(_DWORD *a1, _DWORD *a2)
 {
   int v2; // edi

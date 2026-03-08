@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Reset@CExpressionPerformanceCounter@@QEAAXXZ @ 0x18025FC98
+ * Callers:
+ *     ?UpdateExpressions@CExpressionManager@@QEAAX_K0@Z @ 0x180051314 (-UpdateExpressions@CExpressionManager@@QEAAX_K0@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CExpressionPerformanceCounter::Reset(CExpressionPerformanceCounter *this)
 {
   __int64 v1; // rax

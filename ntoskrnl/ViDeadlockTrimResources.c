@@ -1,3 +1,11 @@
+/*
+ * XREFs of ViDeadlockTrimResources @ 0x140AD6F04
+ * Callers:
+ *     ViDeadlockSearchResource @ 0x140AD6D80 (ViDeadlockSearchResource.c)
+ * Callees:
+ *     ViDeadlockForgetResourceHistory @ 0x140AD616C (ViDeadlockForgetResourceHistory.c)
+ */
+
 PVOID __fastcall ViDeadlockTrimResources(_QWORD **a1, _QWORD *a2, __int64 a3)
 {
   unsigned int *v3; // rax

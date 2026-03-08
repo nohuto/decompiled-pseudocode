@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDiagTracePolicyChange @ 0x140829464
+ * Callers:
+ *     PopAdaptivePowerSettingCallback @ 0x140829230 (PopAdaptivePowerSettingCallback.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 BOOLEAN PopDiagTracePolicyChange()
 {
   BOOLEAN result; // al

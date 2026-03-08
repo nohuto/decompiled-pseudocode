@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetNextIoQueueLocked@FxPkgIo@@AEAAPEAVFxIoQueue@@PEAUFxIoQueueNode@@PEAX@Z @ 0x1C00628C4
+ * Callers:
+ *     ?FlushAllQueuesByFileObject@FxPkgIo@@QEAAJPEAU_FILE_OBJECT@@@Z @ 0x1C0062754 (-FlushAllQueuesByFileObject@FxPkgIo@@QEAAJPEAU_FILE_OBJECT@@@Z.c)
+ * Callees:
+ *     ?AddRef@FxObject@@QEAAKPEAXJPEBD@Z @ 0x1C0006470 (-AddRef@FxObject@@QEAAKPEAXJPEBD@Z.c)
+ */
+
 _LIST_ENTRY **__fastcall FxPkgIo::GetNextIoQueueLocked(FxPkgIo *this, FxIoQueueNode *QueueBookmark, void *a3)
 {
   _LIST_ENTRY *Flink; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CreatePointerDeviceProcessEvents @ 0x1C0079724
+ * Callers:
+ *     RawInputThread @ 0x1C007A0C0 (RawInputThread.c)
+ * Callees:
+ *     ?CreatePointerDeviceProcessEvent@@YAHKHEPEAGPEAPEAX@Z @ 0x1C0079794 (-CreatePointerDeviceProcessEvent@@YAHKHEPEAGPEAPEAX@Z.c)
+ */
+
 __int64 __fastcall CreatePointerDeviceProcessEvents(__int64 a1)
 {
   __int64 v1; // rax

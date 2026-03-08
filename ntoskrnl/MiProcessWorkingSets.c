@@ -1,3 +1,35 @@
+/*
+ * XREFs of MiProcessWorkingSets @ 0x14035F6F0
+ * Callers:
+ *     MiWorkingSetManager @ 0x1403616C0 (MiWorkingSetManager.c)
+ * Callees:
+ *     MiTrimOrAgeWorkingSet @ 0x1402245D0 (MiTrimOrAgeWorkingSet.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     KxWaitForLockChainValid @ 0x140291730 (KxWaitForLockChainValid.c)
+ *     MiReturnWsToExpansionList @ 0x1402A5FD4 (MiReturnWsToExpansionList.c)
+ *     KeSignalGate @ 0x1402F0524 (KeSignalGate.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KxWaitForLockOwnerShip @ 0x14033B510 (KxWaitForLockOwnerShip.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     MiComputeSystemTrimCriteria @ 0x14035FE9C (MiComputeSystemTrimCriteria.c)
+ *     MiLogProcessWorkingSetsStop @ 0x140360210 (MiLogProcessWorkingSetsStop.c)
+ *     MiComputeAgingPercent @ 0x140360274 (MiComputeAgingPercent.c)
+ *     MiInitializeWorkingSetManagerParameters @ 0x1403A9C3C (MiInitializeWorkingSetManagerParameters.c)
+ *     MiDrainZeroLookasides @ 0x1403B6E88 (MiDrainZeroLookasides.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140457B8E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     MiOrderTrimList @ 0x14046378E (MiOrderTrimList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeRetryOutswapProcess @ 0x14056CFF0 (KeRetryOutswapProcess.c)
+ *     KiReleaseQueuedSpinLockInstrumented @ 0x14056EF78 (KiReleaseQueuedSpinLockInstrumented.c)
+ *     KiHaltOnAddressWakeEntireList @ 0x14057DAC8 (KiHaltOnAddressWakeEntireList.c)
+ *     MiCheckSystemTrimEndCriteria @ 0x140631E4C (MiCheckSystemTrimEndCriteria.c)
+ */
+
 __int64 __fastcall MiProcessWorkingSets(__int64 a1, __int64 a2)
 {
   PRKEVENT v2; // rdi

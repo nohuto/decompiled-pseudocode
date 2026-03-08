@@ -1,3 +1,21 @@
+/*
+ * XREFs of HalSetRealTimeClock @ 0x1404FCC40
+ * Callers:
+ *     ExpRefreshSystemTime @ 0x1408132EC (ExpRefreshSystemTime.c)
+ *     NtSetSystemTime @ 0x1409F54B0 (NtSetSystemTime.c)
+ *     ExpSetSystemTime @ 0x140AA7AF4 (ExpSetSystemTime.c)
+ *     GetBootSystemTime @ 0x140B70018 (GetBootSystemTime.c)
+ * Callees:
+ *     ExLocalTimeToSystemTime @ 0x1402D10A0 (ExLocalTimeToSystemTime.c)
+ *     RtlpTimeFieldsToTimeNoLeapSeconds @ 0x1402D11E0 (RtlpTimeFieldsToTimeNoLeapSeconds.c)
+ *     HalpSetVirtualRtc @ 0x1402D13F0 (HalpSetVirtualRtc.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HalEfiSetTime @ 0x14050AE70 (HalEfiSetTime.c)
+ *     HalpWriteCmosTime @ 0x1405133BC (HalpWriteCmosTime.c)
+ *     HalpSetAcpiRealTimeClock @ 0x140930098 (HalpSetAcpiRealTimeClock.c)
+ *     HalpUtcTimeToAcpiRealTime @ 0x140930198 (HalpUtcTimeToAcpiRealTime.c)
+ */
+
 char __fastcall HalSetRealTimeClock(__int16 *a1)
 {
   char *v2; // rbx

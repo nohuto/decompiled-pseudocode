@@ -1,3 +1,11 @@
+/*
+ * XREFs of HsaEnumerateIvmdDevices @ 0x14052D390
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpHsaCreateReservedDevice @ 0x14052BD7C (HalpHsaCreateReservedDevice.c)
+ */
+
 __int64 __fastcall HsaEnumerateIvmdDevices(__int64 a1, _DWORD *a2, __int64 a3)
 {
   _DWORD *v3; // r14

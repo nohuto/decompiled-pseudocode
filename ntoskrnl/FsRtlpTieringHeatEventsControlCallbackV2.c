@@ -1,3 +1,13 @@
+/*
+ * XREFs of FsRtlpTieringHeatEventsControlCallbackV2 @ 0x14053CDA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     McTemplateK0jq_EtwWriteTransfer @ 0x14053CC04 (McTemplateK0jq_EtwWriteTransfer.c)
+ */
+
 void __fastcall FsRtlpTieringHeatEventsControlCallbackV2(
         LPCGUID SourceId,
         ULONG ControlCode,

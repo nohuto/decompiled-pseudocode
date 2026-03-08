@@ -1,3 +1,12 @@
+/*
+ * XREFs of sub_140B31828 @ 0x140B31828
+ * Callers:
+ *     KeCheckedKernelInitialize @ 0x140B14B50 (KeCheckedKernelInitialize.c)
+ *     sub_140B16730 @ 0x140B16730 (sub_140B16730.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 sub_140B31828()
 {
   __int64 v1; // [rsp+0h] [rbp-18h] BYREF

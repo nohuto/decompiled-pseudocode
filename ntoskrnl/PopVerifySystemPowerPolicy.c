@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopVerifySystemPowerPolicy @ 0x14082A334
+ * Callers:
+ *     NtPowerInformation @ 0x14068AB90 (NtPowerInformation.c)
+ *     PopApplyPolicy @ 0x14082A06C (PopApplyPolicy.c)
+ * Callees:
+ *     PopVerifyPowerActionPolicy @ 0x14082A608 (PopVerifyPowerActionPolicy.c)
+ *     PopVerifySystemPowerState @ 0x14082A73C (PopVerifySystemPowerState.c)
+ */
+
 __int64 __fastcall PopVerifySystemPowerPolicy(_OWORD *a1, __int64 a2)
 {
   __int128 v3; // xmm0

@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserSetThreadDesktop @ 0x1C00EE1E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxSetThreadDesktop @ 0x1C00361B8 (xxxSetThreadDesktop.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 _BOOL8 __fastcall NtUserSetThreadDesktop(_BOOL8 a1)
 {
   __int64 v2; // rdx

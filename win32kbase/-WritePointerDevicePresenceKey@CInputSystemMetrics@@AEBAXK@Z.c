@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?WritePointerDevicePresenceKey@CInputSystemMetrics@@AEBAXK@Z @ 0x1C0097F04
+ * Callers:
+ *     InitializeInputComponents @ 0x1C009770C (InitializeInputComponents.c)
+ *     ForceUpdatePointerDeviceSystemMetrics @ 0x1C0097D70 (ForceUpdatePointerDeviceSystemMetrics.c)
+ *     ?UpdatePointerDeviceSystemMetrics@CInputSystemMetrics@@QEAAXPEBUDEVICEINFO@@_N@Z @ 0x1C0232C38 (-UpdatePointerDeviceSystemMetrics@CInputSystemMetrics@@QEAAXPEBUDEVICEINFO@@_N@Z.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void __fastcall CInputSystemMetrics::WritePointerDevicePresenceKey(CInputSystemMetrics *this, int a2)
 {
   NTSTATUS v2; // ebx

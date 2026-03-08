@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnNewSession@Usage@PTPTelemetry@@SAX_J@Z @ 0x1C020E6EC
+ * Callers:
+ *     ?OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z @ 0x1C020E7E0 (-OnTelemetryOutput@CPTPProcessor@@UEAAXPEBUPTPTelemetryOutput@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall PTPTelemetry::Usage::OnNewSession(LARGE_INTEGER a1, __int64 a2, __int64 a3, __int64 a4)
 {
   LARGE_INTEGER *v5; // rax

@@ -1,3 +1,25 @@
+/*
+ * XREFs of EtwpFinalizeHeader @ 0x140771D34
+ * Callers:
+ *     EtwpLogger @ 0x1406926A0 (EtwpLogger.c)
+ *     EtwpCreateLogFile @ 0x140772270 (EtwpCreateLogFile.c)
+ *     EtwpBufferingModeFlush @ 0x1408A3088 (EtwpBufferingModeFlush.c)
+ * Callees:
+ *     EtwpQueryUsedProcessorCount @ 0x140206540 (EtwpQueryUsedProcessorCount.c)
+ *     KeQuerySystemTimePrecise @ 0x1402384E0 (KeQuerySystemTimePrecise.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwReadFile @ 0x1404123D0 (ZwReadFile.c)
+ *     ZwWriteFile @ 0x140412410 (ZwWriteFile.c)
+ *     ZwSetInformationFile @ 0x1404127F0 (ZwSetInformationFile.c)
+ *     ZwQueryVolumeInformationFile @ 0x140412C30 (ZwQueryVolumeInformationFile.c)
+ *     EtwpAddLastDroppedEvent @ 0x1405FEC24 (EtwpAddLastDroppedEvent.c)
+ *     EtwpAddDebugInfoEvents @ 0x140772068 (EtwpAddDebugInfoEvents.c)
+ *     EtwpIsWow64Logger @ 0x14077341C (EtwpIsWow64Logger.c)
+ *     EtwpAddBinaryInfoEvents @ 0x1409E933C (EtwpAddBinaryInfoEvents.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall EtwpFinalizeHeader(__int64 a1, char a2)
 {
   _QWORD *v2; // r13

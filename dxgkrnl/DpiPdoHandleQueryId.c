@@ -1,3 +1,15 @@
+/*
+ * XREFs of DpiPdoHandleQueryId @ 0x1C0202B30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ @ 0x1C000AB7C (-RtlStringCbPrintfW@@YAJPEAG_KPEBGZZ.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DpiAppendNumberToString @ 0x1C020301C (DpiAppendNumberToString.c)
+ *     DpiAppendStringToString @ 0x1C0204E1C (DpiAppendStringToString.c)
+ */
+
 __int64 __fastcall DpiPdoHandleQueryId(__int64 a1, __int64 a2)
 {
   __int64 v3; // rdx

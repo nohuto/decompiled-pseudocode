@@ -1,3 +1,15 @@
+/*
+ * XREFs of CmpCompleteLazyWrite @ 0x1402FADA4
+ * Callers:
+ *     CmpLazyWriteWorker @ 0x14039B3B0 (CmpLazyWriteWorker.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeSetCoalescableTimer @ 0x140250440 (KeSetCoalescableTimer.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall CmpCompleteLazyWrite(PKTIMER Timer, __int64 *a2)
 {
   volatile signed __int64 *p_DueTime; // r15

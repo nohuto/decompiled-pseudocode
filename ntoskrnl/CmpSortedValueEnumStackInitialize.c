@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpSortedValueEnumStackInitialize @ 0x140A226A0
+ * Callers:
+ *     CmpGetValueCountForKeyNodeStack @ 0x140614148 (CmpGetValueCountForKeyNodeStack.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 void *__fastcall CmpSortedValueEnumStackInitialize(__int64 a1)
 {
   *(_QWORD *)a1 = 0LL;

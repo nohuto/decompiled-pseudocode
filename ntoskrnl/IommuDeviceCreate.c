@@ -1,3 +1,14 @@
+/*
+ * XREFs of IommuDeviceCreate @ 0x140820F90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IommupCreateDeviceId @ 0x14038C584 (IommupCreateDeviceId.c)
+ *     HalpIommuFreeDeviceId @ 0x14038CD68 (HalpIommuFreeDeviceId.c)
+ *     HalpIommuCreateDevice @ 0x140822B28 (HalpIommuCreateDevice.c)
+ *     HalpIommuDeleteDevice @ 0x140930ACC (HalpIommuDeleteDevice.c)
+ */
+
 __int64 __fastcall IommuDeviceCreate(__int64 a1, __int64 a2, __int64 *a3, __int64 a4)
 {
   __int64 v5; // rdx

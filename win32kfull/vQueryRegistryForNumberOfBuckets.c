@@ -1,3 +1,11 @@
+/*
+ * XREFs of vQueryRegistryForNumberOfBuckets @ 0x1C03B7BC4
+ * Callers:
+ *     bInitFontTables @ 0x1C03B7A90 (bInitFontTables.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall vQueryRegistryForNumberOfBuckets(unsigned int *a1, _DWORD *a2)
 {
   NTSTATUS v4; // eax

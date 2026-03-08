@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CFilterEffectMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C024D630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall DirectComposition::CFilterEffectMarshaler::SetRemarshalingFlags(
         DirectComposition::CFilterEffectMarshaler *this)
 {

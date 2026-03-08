@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiEngDeleteSurface @ 0x1C02CBEE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1EPALOBJ@@QEAA@XZ @ 0x1C0124F2C (--1EPALOBJ@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall NtGdiEngDeleteSurface(HSURF hsurf, __int64 a2)
 {
   __int64 v3; // rax

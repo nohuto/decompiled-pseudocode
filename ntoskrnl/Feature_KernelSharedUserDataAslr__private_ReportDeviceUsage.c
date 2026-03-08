@@ -1,3 +1,12 @@
+/*
+ * XREFs of Feature_KernelSharedUserDataAslr__private_ReportDeviceUsage @ 0x1404115D8
+ * Callers:
+ *     MiProtectSharedUserPage @ 0x140B6C128 (MiProtectSharedUserPage.c)
+ * Callees:
+ *     wil_details_FeatureReporting_ReportUsageToService @ 0x140263110 (wil_details_FeatureReporting_ReportUsageToService.c)
+ *     wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath @ 0x140409A8C (wil_details_FeatureStateCache_TryEnableDeviceUsageFastPath.c)
+ */
+
 void Feature_KernelSharedUserDataAslr__private_ReportDeviceUsage()
 {
   __int64 v0; // [rsp+30h] [rbp+8h]

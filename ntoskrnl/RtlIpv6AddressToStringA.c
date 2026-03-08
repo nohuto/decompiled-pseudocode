@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlIpv6AddressToStringA @ 0x1405AC3F0
+ * Callers:
+ *     RtlIpv6AddressToStringExA @ 0x1405AC680 (RtlIpv6AddressToStringExA.c)
+ * Callees:
+ *     sprintf_s @ 0x1403D9BA0 (sprintf_s.c)
+ */
+
 PSTR __stdcall RtlIpv6AddressToStringA(const struct in6_addr *Addr, PSTR S)
 {
   unsigned int v2; // ebp

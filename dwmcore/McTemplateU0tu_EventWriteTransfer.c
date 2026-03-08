@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0tu_EventWriteTransfer @ 0x1801DBE84
+ * Callers:
+ *     ?EnsureIndependentFlipState@COverlayContext@@AEAAJPEAVOverlayPlaneInfo@1@_N@Z @ 0x1801D9EF8 (-EnsureIndependentFlipState@COverlayContext@@AEAAJPEAVOverlayPlaneInfo@1@_N@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 ULONG __fastcall McTemplateU0tu_EventWriteTransfer(__int64 a1, __int64 a2, __int64 a3, char a4)
 {
   struct _EVENT_DATA_DESCRIPTOR v5; // [rsp+30h] [rbp-48h] BYREF

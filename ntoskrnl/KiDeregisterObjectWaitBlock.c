@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiDeregisterObjectWaitBlock @ 0x1402D33F0
+ * Callers:
+ *     ExpShutdownWorkerFactory @ 0x1402037D0 (ExpShutdownWorkerFactory.c)
+ *     IopCancelWaitCompletionPacket @ 0x1402DEF38 (IopCancelWaitCompletionPacket.c)
+ *     ExpLeaveWorkerFactoryAwayMode @ 0x140367ED0 (ExpLeaveWorkerFactoryAwayMode.c)
+ *     ExCancelDpcEventWait @ 0x140609AE0 (ExCancelDpcEventWait.c)
+ * Callees:
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KiDeregisterObjectWaitBlock(volatile signed __int32 *a1, __int64 *a2)
 {
   unsigned __int8 v4; // si

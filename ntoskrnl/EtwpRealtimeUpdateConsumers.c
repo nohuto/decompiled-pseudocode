@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpRealtimeUpdateConsumers @ 0x1406913C8
+ * Callers:
+ *     EtwpLogger @ 0x1406926A0 (EtwpLogger.c)
+ * Callees:
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExReleasePushLockEx @ 0x140262AA0 (ExReleasePushLockEx.c)
+ */
+
 LONG __fastcall EtwpRealtimeUpdateConsumers(__int64 a1)
 {
   __int64 *v1; // rbp

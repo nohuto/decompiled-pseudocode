@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CKst@@QEAA@XZ @ 0x18028240C
+ * Callers:
+ *     ??_GCKst@@QEAAPEAXI@Z @ 0x18027FD6C (--_GCKst@@QEAAPEAXI@Z.c)
+ * Callees:
+ *     ??_GCMmcssTask@@QEAAPEAXI@Z @ 0x180282448 (--_GCMmcssTask@@QEAAPEAXI@Z.c)
+ */
+
 void __fastcall CKst::~CKst(CKst *this, unsigned int a2)
 {
   CMmcssTask *v3; // rcx

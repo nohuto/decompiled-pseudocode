@@ -1,3 +1,20 @@
+/*
+ * XREFs of ExpRaiseHardError @ 0x1409FE27C
+ * Callers:
+ *     ExRaiseHardError @ 0x1409FDD30 (ExRaiseHardError.c)
+ *     NtRaiseHardError @ 0x1409FE610 (NtRaiseHardError.c)
+ * Callees:
+ *     PsIsCurrentThreadInServerSilo @ 0x1402459D0 (PsIsCurrentThreadInServerSilo.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ExpSystemErrorHandler @ 0x140422390 (ExpSystemErrorHandler.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     LpcSendWaitReceivePort @ 0x140796F40 (LpcSendWaitReceivePort.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     PsCaptureExceptionPort @ 0x1407D9D10 (PsCaptureExceptionPort.c)
+ */
+
 __int64 __fastcall ExpRaiseHardError(
         unsigned int a1,
         unsigned int a2,

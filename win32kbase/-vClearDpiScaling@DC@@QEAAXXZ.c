@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vClearDpiScaling@DC@@QEAAXXZ @ 0x1C001A908
+ * Callers:
+ *     ?bCleanDC@XDCOBJ@@QEAAHH@Z @ 0x1C0046C90 (-bCleanDC@XDCOBJ@@QEAAHH@Z.c)
+ * Callees:
+ *     ?vUpdateCachedDPIScaleValue@DC@@QEAAXXZ @ 0x1C017F9D4 (-vUpdateCachedDPIScaleValue@DC@@QEAAXXZ.c)
+ */
+
 void __fastcall DC::vClearDpiScaling(DC *this)
 {
   int v1; // eax

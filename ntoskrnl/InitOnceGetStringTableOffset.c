@@ -1,3 +1,12 @@
+/*
+ * XREFs of InitOnceGetStringTableOffset @ 0x140798120
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbFindFirstTag @ 0x1407A2798 (SdbFindFirstTag.c)
+ */
+
 __int64 __fastcall InitOnceGetStringTableOffset(PRTL_RUN_ONCE RunOnce, char *Parameter, PVOID *Context)
 {
   unsigned int v3; // ebx

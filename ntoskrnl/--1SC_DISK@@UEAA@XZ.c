@@ -1,3 +1,22 @@
+/*
+ * XREFs of ??1SC_DISK@@UEAA@XZ @ 0x140672EB0
+ * Callers:
+ *     ??_GSC_DISK@@UEAAPEAXI@Z @ 0x140672FB0 (--_GSC_DISK@@UEAAPEAXI@Z.c)
+ *     ??_ENT_DISK@@UEAAPEAXI@Z @ 0x14093D350 (--_ENT_DISK@@UEAAPEAXI@Z.c)
+ *     IoCreateDisk @ 0x14093D650 (IoCreateDisk.c)
+ *     IoReadDiskSignature @ 0x14093D700 (IoReadDiskSignature.c)
+ *     IoReadPartitionTable @ 0x14093D800 (IoReadPartitionTable.c)
+ *     IoReadPartitionTableEx @ 0x14093D9D0 (IoReadPartitionTableEx.c)
+ *     IoSetPartitionInformation @ 0x14093DA80 (IoSetPartitionInformation.c)
+ *     IoSetPartitionInformationEx @ 0x14093DB60 (IoSetPartitionInformationEx.c)
+ *     IoVerifyPartitionTable @ 0x14093DC20 (IoVerifyPartitionTable.c)
+ *     IoWritePartitionTable @ 0x14093DCD0 (IoWritePartitionTable.c)
+ *     IoWritePartitionTableEx @ 0x14093DE40 (IoWritePartitionTableEx.c)
+ * Callees:
+ *     ??1SC_DEVICE@@UEAA@XZ @ 0x1406741F0 (--1SC_DEVICE@@UEAA@XZ.c)
+ *     ?Free@SC_ENV@@SAXPEAX@Z @ 0x14078FD20 (-Free@SC_ENV@@SAXPEAX@Z.c)
+ */
+
 void __fastcall SC_DISK::~SC_DISK(SC_DISK *this)
 {
   void *v2; // rcx

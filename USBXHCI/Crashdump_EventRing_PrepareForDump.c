@@ -1,3 +1,12 @@
+/*
+ * XREFs of Crashdump_EventRing_PrepareForDump @ 0x1C004E7F0
+ * Callers:
+ *     Crashdump_InitializeWithControllerReset @ 0x1C004C868 (Crashdump_InitializeWithControllerReset.c)
+ * Callees:
+ *     memset @ 0x1C0020700 (memset.c)
+ *     Crashdump_EventRing_UpdateDequeuePointer @ 0x1C004E9FC (Crashdump_EventRing_UpdateDequeuePointer.c)
+ */
+
 ULONG __fastcall Crashdump_EventRing_PrepareForDump(__int64 a1)
 {
   __int64 v1; // r8

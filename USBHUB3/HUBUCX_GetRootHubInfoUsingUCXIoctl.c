@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBUCX_GetRootHubInfoUsingUCXIoctl @ 0x1C0027964
+ * Callers:
+ *     HUBHSM_GettingRootHubInfo @ 0x1C0009CB0 (HUBHSM_GettingRootHubInfo.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     HUBSM_AddEvent @ 0x1C000B8CC (HUBSM_AddEvent.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 __int64 __fastcall HUBUCX_GetRootHubInfoUsingUCXIoctl(__int64 a1)
 {
   __int64 v2; // rax

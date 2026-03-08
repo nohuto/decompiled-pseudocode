@@ -1,3 +1,33 @@
+/*
+ * XREFs of ExCreateCallback @ 0x14078D4A0
+ * Callers:
+ *     HvlPhase2Initialize @ 0x1403AF870 (HvlPhase2Initialize.c)
+ *     DifExCreateCallbackWrapper @ 0x1405D5D00 (DifExCreateCallbackWrapper.c)
+ *     HaliInitPowerManagement @ 0x140801CA0 (HaliInitPowerManagement.c)
+ *     KeRegisterProcessorChangeCallback @ 0x14080FF70 (KeRegisterProcessorChangeCallback.c)
+ *     HalpMiscInitializeKsr @ 0x140851BC0 (HalpMiscInitializeKsr.c)
+ *     IoRegisterBootDriverCallback @ 0x14085F940 (IoRegisterBootDriverCallback.c)
+ *     ExInitLicenseCallback @ 0x14086174C (ExInitLicenseCallback.c)
+ *     KiFilterFiberContext @ 0x140B14C30 (KiFilterFiberContext.c)
+ *     EtwpInitialize @ 0x140B3CA40 (EtwpInitialize.c)
+ *     PiCslInitialize @ 0x140B56D48 (PiCslInitialize.c)
+ *     SshpAlpcInitialize @ 0x140B6437C (SshpAlpcInitialize.c)
+ *     ExpInitializeCallbacks @ 0x140B68930 (ExpInitializeCallbacks.c)
+ *     PopUmpoInitializeChannel @ 0x140B6CC1C (PopUmpoInitializeChannel.c)
+ *     PopUmpoInitializeMonitorChannel @ 0x140B6DF34 (PopUmpoInitializeMonitorChannel.c)
+ *     IopInitializeSessionNotifications @ 0x140B71BF8 (IopInitializeSessionNotifications.c)
+ *     PopSetupKsrCallbacks @ 0x140B72630 (PopSetupKsrCallbacks.c)
+ *     PiKsrNotifyInitialize @ 0x140B92170 (PiKsrNotifyInitialize.c)
+ * Callees:
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     ExpUnlockCallbackListExclusive @ 0x1402F9670 (ExpUnlockCallbackListExclusive.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ObOpenObjectByName @ 0x1406C39E0 (ObOpenObjectByName.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ */
+
 NTSTATUS __stdcall ExCreateCallback(
         PCALLBACK_OBJECT *CallbackObject,
         POBJECT_ATTRIBUTES ObjectAttributes,

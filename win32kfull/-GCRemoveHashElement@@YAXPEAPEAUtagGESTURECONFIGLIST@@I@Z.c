@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GCRemoveHashElement@@YAXPEAPEAUtagGESTURECONFIGLIST@@I@Z @ 0x1C0207008
+ * Callers:
+ *     ?_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z @ 0x1C00CB290 (-_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall GCRemoveHashElement(struct tagGESTURECONFIGLIST **a1, int a2)
 {
   struct tagGESTURECONFIGLIST **v2; // r9

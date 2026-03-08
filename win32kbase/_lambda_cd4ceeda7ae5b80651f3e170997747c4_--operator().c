@@ -1,3 +1,14 @@
+/*
+ * XREFs of _lambda_cd4ceeda7ae5b80651f3e170997747c4_::operator() @ 0x1C00DF1E8
+ * Callers:
+ *     _lambda_cd4ceeda7ae5b80651f3e170997747c4_::_lambda_invoker_cdecl_ @ 0x1C00DF1D0 (_lambda_cd4ceeda7ae5b80651f3e170997747c4_--_lambda_invoker_cdecl_.c)
+ * Callees:
+ *     ?UnLockExclusive@CInpPushLock@@QEAAXXZ @ 0x1C00397E0 (-UnLockExclusive@CInpPushLock@@QEAAXXZ.c)
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     RIMUnRegisterForInputDeviceTypeClassNotifications @ 0x1C0039A94 (RIMUnRegisterForInputDeviceTypeClassNotifications.c)
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ */
+
 void __fastcall lambda_cd4ceeda7ae5b80651f3e170997747c4_::operator()(__int64 a1, __int64 a2)
 {
   unsigned int i; // edi

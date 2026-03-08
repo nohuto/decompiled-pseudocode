@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsImmersiveApplicationBandId @ 0x1C0016E2C
+ * Callers:
+ *     _anonymous_namespace_::EligibleWindow @ 0x1C0097B28 (_anonymous_namespace_--EligibleWindow.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IsImmersiveApplicationBandId(int a1)
 {
   unsigned int v1; // edx

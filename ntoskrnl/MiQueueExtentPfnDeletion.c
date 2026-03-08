@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiQueueExtentPfnDeletion @ 0x14063CCC0
+ * Callers:
+ *     MiWorkingSetManager @ 0x1403616C0 (MiWorkingSetManager.c)
+ *     MiClearFileOnlyPfn @ 0x140639DF4 (MiClearFileOnlyPfn.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiWakeFileOnlyReaper @ 0x14063E05C (MiWakeFileOnlyReaper.c)
+ */
+
 void __fastcall MiQueueExtentPfnDeletion(_QWORD *a1)
 {
   unsigned __int64 v2; // rbx

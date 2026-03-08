@@ -1,3 +1,19 @@
+/*
+ * XREFs of CcDeleteBcbs @ 0x1403C0748
+ * Callers:
+ *     CcDeleteSharedCacheMap @ 0x140217A10 (CcDeleteSharedCacheMap.c)
+ *     CcSetFileSizesEx @ 0x14029F9B0 (CcSetFileSizesEx.c)
+ * Callees:
+ *     CcAdjustVacbLevelLockCount @ 0x14021BD70 (CcAdjustVacbLevelLockCount.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     CcDeallocateBcb @ 0x14029CCF0 (CcDeallocateBcb.c)
+ *     CcDeductDirtyPages @ 0x14029CD20 (CcDeductDirtyPages.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall CcDeleteBcbs(__int64 a1)
 {
   __int64 v1; // r15

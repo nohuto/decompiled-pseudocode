@@ -1,3 +1,18 @@
+/*
+ * XREFs of MulFD6 @ 0x1C014B146
+ * Callers:
+ *     HT_CreateDeviceHalftoneInfo @ 0x1C00195AC (HT_CreateDeviceHalftoneInfo.c)
+ *     RaisePower @ 0x1C014B26A (RaisePower.c)
+ *     ComputeInverseMatrix3x3 @ 0x1C02556D8 (ComputeInverseMatrix3x3.c)
+ *     AdjustSrcDevGamma @ 0x1C0256104 (AdjustSrcDevGamma.c)
+ *     CacheRGBToXYZ @ 0x1C0256490 (CacheRGBToXYZ.c)
+ *     ComputeBGRMappingTable @ 0x1C0256580 (ComputeBGRMappingTable.c)
+ *     ComputeColorSpaceXForm @ 0x1C0257078 (ComputeColorSpaceXForm.c)
+ *     ComputeRGBLUTAA @ 0x1C0257424 (ComputeRGBLUTAA.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MulFD6(int a1, int a2)
 {
   signed int v2; // r11d

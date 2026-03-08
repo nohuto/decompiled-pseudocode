@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfStopBranchTracing @ 0x140AD0A6C
+ * Callers:
+ *     KiFreezeTargetExecution @ 0x140369240 (KiFreezeTargetExecution.c)
+ *     VfNotifyVerifierOfEvent @ 0x140ABF120 (VfNotifyVerifierOfEvent.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 VfStopBranchTracing()
 {
   __int64 result; // rax

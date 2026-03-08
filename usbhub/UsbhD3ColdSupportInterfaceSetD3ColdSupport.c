@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhD3ColdSupportInterfaceSetD3ColdSupport @ 0x1C0053EA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 unsigned int __fastcall UsbhD3ColdSupportInterfaceSetD3ColdSupport(__int64 a1, char a2)
 {
   void (__fastcall *v2)(_QWORD); // rax

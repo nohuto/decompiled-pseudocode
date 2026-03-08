@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??8MonDescParser@@YA_NAEBU_VideoModeDescriptor@@0@Z @ 0x1C001E240
+ * Callers:
+ *     ??$IndexOf@PEAU_VideoModeDescriptor@@U1@@MonDescParser@@YA_KPEAU_VideoModeDescriptor@@0AEAU1@@Z @ 0x1C001E208 (--$IndexOf@PEAU_VideoModeDescriptor@@U1@@MonDescParser@@YA_KPEAU_VideoModeDescriptor@@0AEAU1@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall MonDescParser::operator==(__int64 a1, __int64 a2)
 {
   return *(_DWORD *)a1 == *(_DWORD *)a2

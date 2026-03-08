@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiResetAccessBitsTail @ 0x1402DDE40
+ * Callers:
+ *     MiResetAccessBitPte @ 0x140325D60 (MiResetAccessBitPte.c)
+ * Callees:
+ *     MiFlushTbList @ 0x140323BC0 (MiFlushTbList.c)
+ *     MiProcessVmAccessedInfo @ 0x140463A5E (MiProcessVmAccessedInfo.c)
+ *     MiQueryEPTAccessedState @ 0x140463B2C (MiQueryEPTAccessedState.c)
+ */
+
 __int64 __fastcall MiResetAccessBitsTail(__int64 a1)
 {
   __int64 i; // rbx

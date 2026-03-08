@@ -1,3 +1,14 @@
+/*
+ * XREFs of PopCountDataAsProduced @ 0x140A9EFB4
+ * Callers:
+ *     PopCompressHiberBlocks @ 0x140A9EE04 (PopCompressHiberBlocks.c)
+ *     PopWriteHiberImage @ 0x140AA272C (PopWriteHiberImage.c)
+ * Callees:
+ *     ProducerConsumerBufferComplete @ 0x140AA2D38 (ProducerConsumerBufferComplete.c)
+ *     ProducerConsumerCopyToContextBuffer @ 0x140AA2E90 (ProducerConsumerCopyToContextBuffer.c)
+ *     ProducerGetBuffer @ 0x140AA2F1C (ProducerGetBuffer.c)
+ */
+
 char __fastcall PopCountDataAsProduced(__int64 a1, void *a2, _DWORD *a3, void *a4, int a5, unsigned int a6)
 {
   char *v7; // rdi

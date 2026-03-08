@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpTscSynchronizationWorker @ 0x140387F60
+ * Callers:
+ *     HalpPostSleepMP @ 0x140A93F28 (HalpPostSleepMP.c)
+ * Callees:
+ *     HalpTscAdvSynchLeader @ 0x140387D38 (HalpTscAdvSynchLeader.c)
+ *     HalpTscAdvSynchTarget @ 0x140388384 (HalpTscAdvSynchTarget.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpTscCompatibilitySynchronization @ 0x140508124 (HalpTscCompatibilitySynchronization.c)
+ */
+
 char __fastcall HalpTscSynchronizationWorker(ULONG_PTR Argument)
 {
   _QWORD *v1; // rbp

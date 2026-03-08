@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?VidSchiSwitchNodeFromDevice@@YAXPEAX@Z @ 0x1C0014D90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     VidSchiDecrementContextReference @ 0x1C0011CE0 (VidSchiDecrementContextReference.c)
+ *     VidSchiIncrementContextReference @ 0x1C00146D0 (VidSchiIncrementContextReference.c)
+ *     VidSchiSwitchNodeFromContext @ 0x1C00AD9A0 (VidSchiSwitchNodeFromContext.c)
+ */
+
 void __fastcall VidSchiSwitchNodeFromDevice(_QWORD *a1)
 {
   __int64 v1; // rbp

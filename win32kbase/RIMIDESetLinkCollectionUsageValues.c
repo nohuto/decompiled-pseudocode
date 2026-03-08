@@ -1,3 +1,14 @@
+/*
+ * XREFs of RIMIDESetLinkCollectionUsageValues @ 0x1C01C5080
+ * Callers:
+ *     RIMIDEInjectDeviceInput @ 0x1C01C39C8 (RIMIDEInjectDeviceInput.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     rimHidP_SetUsageValue @ 0x1C01B2248 (rimHidP_SetUsageValue.c)
+ *     rimHidP_SetUsages @ 0x1C01B22FC (rimHidP_SetUsages.c)
+ */
+
 __int64 __fastcall RIMIDESetLinkCollectionUsageValues(
         __int64 a1,
         __int64 a2,

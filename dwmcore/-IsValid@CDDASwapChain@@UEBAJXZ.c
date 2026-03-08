@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsValid@CDDASwapChain@@UEBAJXZ @ 0x1801316B2
+ * Callers:
+ *     ?IsValid@CDDASwapChain@@$4PPPPPPPM@A@EBAJXZ @ 0x18011D370 (-IsValid@CDDASwapChain@@$4PPPPPPPM@A@EBAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CDDASwapChain::IsValid(CDDASwapChain *this)
 {
   __int64 v1; // rdx

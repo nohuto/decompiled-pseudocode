@@ -1,3 +1,20 @@
+/*
+ * XREFs of SepAdtDeleteObjectAuditAlarm @ 0x1409C8A64
+ * Callers:
+ *     NtDeleteObjectAuditAlarm @ 0x1409CB0D0 (NtDeleteObjectAuditAlarm.c)
+ *     SeDeleteObjectAuditAlarmWithTransaction @ 0x1409CB2A0 (SeDeleteObjectAuditAlarmWithTransaction.c)
+ * Callees:
+ *     PsGetCurrentThreadProcess @ 0x1402C0BB0 (PsGetCurrentThreadProcess.c)
+ *     ObpIsKernelHandle @ 0x1403521C8 (ObpIsKernelHandle.c)
+ *     SepAdtLogAuditRecord @ 0x140397890 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SepAdtAuditObjectAccessWithContext @ 0x1406995C8 (SepAdtAuditObjectAccessWithContext.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1407E7618 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepAuditFailed @ 0x1409CEE50 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall SepAdtDeleteObjectAuditAlarm(
         const UNICODE_STRING *a1,
         __int64 a2,

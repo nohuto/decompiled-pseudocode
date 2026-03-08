@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmHeteroNormalizedUtilityToUtility @ 0x140234B94
+ * Callers:
+ *     PpmParkDistributeUtility @ 0x140234820 (PpmParkDistributeUtility.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PpmHeteroNormalizedUtilityToUtility(__int64 a1, unsigned int a2)
 {
   unsigned int v2; // r8d

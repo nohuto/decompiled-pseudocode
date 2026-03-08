@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBPSM30_IssuingAttachDeviceWithResetToDsm @ 0x1C00132D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HUBMISC_AttachDevice @ 0x1C00310F4 (HUBMISC_AttachDevice.c)
+ */
+
 __int64 __fastcall HUBPSM30_IssuingAttachDeviceWithResetToDsm(__int64 a1)
 {
   __int64 v1; // rcx

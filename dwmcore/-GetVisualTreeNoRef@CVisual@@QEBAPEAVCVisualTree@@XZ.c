@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?GetVisualTreeNoRef@CVisual@@QEBAPEAVCVisualTree@@XZ @ 0x18003A594
+ * Callers:
+ *     ?GetDesktopTree@CVisual@@QEBAPEAVCDesktopTree@@XZ @ 0x18003A490 (-GetDesktopTree@CVisual@@QEBAPEAVCDesktopTree@@XZ.c)
+ *     ?GetVisualTree@CVisual@@QEAAJPEAPEAVCVisualTree@@_N@Z @ 0x18003A504 (-GetVisualTree@CVisual@@QEAAJPEAPEAVCVisualTree@@_N@Z.c)
+ *     ?CreateOrUpdateBVI@CVisual@@QEAAJAEBVCVisualTreePath@@AEBV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@_NPEA_N@Z @ 0x18004C79C (-CreateOrUpdateBVI@CVisual@@QEAAJAEBVCVisualTreePath@@AEBV-$TMilRect_@MUMilRectF@@UMil3DRectF@@U.c)
+ *     ?GetRootVisualTree@CVisualTree@@QEBAPEAV1@XZ @ 0x180210EB8 (-GetRootVisualTree@CVisualTree@@QEBAPEAV1@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 struct CVisualTree *__fastcall CVisual::GetVisualTreeNoRef(CVisual *this)
 {
   _DWORD *v1; // r8

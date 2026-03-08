@@ -1,3 +1,19 @@
+/*
+ * XREFs of VslStartSecureProcessor @ 0x14094009C
+ * Callers:
+ *     HvlHalStartVirtualProcessor @ 0x140542250 (HvlHalStartVirtualProcessor.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     KeIsKernelCetEnabled @ 0x140384804 (KeIsKernelCetEnabled.c)
+ *     VslpLockPagesForTransfer @ 0x1403C8E74 (VslpLockPagesForTransfer.c)
+ *     VslpUnlockPagesForTransfer @ 0x1403C90EC (VslpUnlockPagesForTransfer.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall VslStartSecureProcessor(int a1, __int64 a2)
 {
   _DWORD *Pool2; // rax

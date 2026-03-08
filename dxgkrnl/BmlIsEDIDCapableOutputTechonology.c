@@ -1,3 +1,13 @@
+/*
+ * XREFs of BmlIsEDIDCapableOutputTechonology @ 0x1C016F144
+ * Callers:
+ *     BmlFillPreferredMonitorMode @ 0x1C016EB6C (BmlFillPreferredMonitorMode.c)
+ *     ?BmlGetTargetModePreferenceOnMonitor@@YA?AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARGETMODE@@EPEAVDMMVIDEOPRESENTTARGET@@@Z @ 0x1C016ED64 (-BmlGetTargetModePreferenceOnMonitor@@YA-AW4BML_MONITOR_SOURCE_MODE_PREFERENCE@@PEBVDMMVIDPNTARG.c)
+ *     BmlGetMonitorModePreference @ 0x1C016F008 (BmlGetMonitorModePreference.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall BmlIsEDIDCapableOutputTechonology(__int64 a1)
 {
   int v1; // edx

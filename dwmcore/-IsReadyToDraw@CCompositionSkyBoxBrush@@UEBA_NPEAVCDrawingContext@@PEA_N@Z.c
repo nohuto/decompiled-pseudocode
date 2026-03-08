@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsReadyToDraw@CCompositionSkyBoxBrush@@UEBA_NPEAVCDrawingContext@@PEA_N@Z @ 0x1802229B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CCompositionSkyBoxBrush::IsReadyToDraw(
         CCompositionSkyBoxBrush *this,
         struct CDrawingContext *a2,

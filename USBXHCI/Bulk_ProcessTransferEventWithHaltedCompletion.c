@@ -1,3 +1,18 @@
+/*
+ * XREFs of Bulk_ProcessTransferEventWithHaltedCompletion @ 0x1C0046FFC
+ * Callers:
+ *     Bulk_ProcessTransferEventWithED0 @ 0x1C000DAC4 (Bulk_ProcessTransferEventWithED0.c)
+ *     Bulk_ProcessTransferEventWithED1 @ 0x1C0011324 (Bulk_ProcessTransferEventWithED1.c)
+ * Callees:
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ *     StageQueue_Release @ 0x1C0011840 (StageQueue_Release.c)
+ *     TR_ReleaseSegments @ 0x1C001187C (TR_ReleaseSegments.c)
+ *     Bulk_Stage_FreeScatterGatherList @ 0x1C00118C4 (Bulk_Stage_FreeScatterGatherList.c)
+ *     Bulk_Transfer_CompleteCancelable @ 0x1C0012F30 (Bulk_Transfer_CompleteCancelable.c)
+ *     memmove @ 0x1C0020400 (memmove.c)
+ *     Controller_HwVerifierBreakIfEnabled @ 0x1C0033774 (Controller_HwVerifierBreakIfEnabled.c)
+ */
+
 void __fastcall Bulk_ProcessTransferEventWithHaltedCompletion(__int64 a1, __int64 a2, int a3, unsigned int a4)
 {
   KSPIN_LOCK *v4; // r14

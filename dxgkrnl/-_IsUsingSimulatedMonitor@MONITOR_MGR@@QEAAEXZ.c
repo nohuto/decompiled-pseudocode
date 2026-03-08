@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_IsUsingSimulatedMonitor@MONITOR_MGR@@QEAAEXZ @ 0x1C016763C
+ * Callers:
+ *     MonitorIsUsingSimulatedMonitor @ 0x1C016AA40 (MonitorIsUsingSimulatedMonitor.c)
+ * Callees:
+ *     ??1MUTEX_LOCK@@QEAA@XZ @ 0x1C0004750 (--1MUTEX_LOCK@@QEAA@XZ.c)
+ *     ??0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z @ 0x1C00048E4 (--0MUTEX_LOCK@@QEAA@AEAVDXGFASTMUTEX@@@Z.c)
+ */
+
 char __fastcall MONITOR_MGR::_IsUsingSimulatedMonitor(MONITOR_MGR *this)
 {
   char *v2; // rdx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of EtwpGetDriverDataDosPath @ 0x1403D1CCC
+ * Callers:
+ *     EtwpExpandFileName @ 0x140772920 (EtwpExpandFileName.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenFile @ 0x140412970 (ZwOpenFile.c)
+ *     IoQueryFileDosDeviceName @ 0x14071FFB0 (IoQueryFileDosDeviceName.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpGetDriverDataDosPath(_QWORD *a1)
 {
   NTSTATUS v2; // ebx

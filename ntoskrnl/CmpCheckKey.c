@@ -1,3 +1,23 @@
+/*
+ * XREFs of CmpCheckKey @ 0x1407B4B80
+ * Callers:
+ *     CmpCheckRegistry2 @ 0x1407B3F40 (CmpCheckRegistry2.c)
+ * Callees:
+ *     RtlUIntAdd @ 0x14022A638 (RtlUIntAdd.c)
+ *     SetFailureLocation @ 0x140243E5C (SetFailureLocation.c)
+ *     CmpFindSecurityCellCacheIndex @ 0x14030DD50 (CmpFindSecurityCellCacheIndex.c)
+ *     CmpKeySecurityIncrementReferenceCount @ 0x140411588 (CmpKeySecurityIncrementReferenceCount.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpCheckLeaf @ 0x1407B0800 (CmpCheckLeaf.c)
+ *     HvIsCellAllocated @ 0x1407B0B10 (HvIsCellAllocated.c)
+ *     CmpCheckValueList @ 0x1407B2930 (CmpCheckValueList.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpGetIndexElementSize @ 0x14086F82C (CmpGetIndexElementSize.c)
+ *     HvMarkCellDirty @ 0x1408A7366 (HvMarkCellDirty.c)
+ */
+
 __int64 __fastcall CmpCheckKey(
         ULONG_PTR BugCheckParameter3,
         int a2,

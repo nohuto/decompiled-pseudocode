@@ -1,3 +1,18 @@
+/*
+ * XREFs of HUBPDO_ReturnDeviceConfigInfo @ 0x1C0016420
+ * Callers:
+ *     HUBPDO_EvtDeviceWdmIrpPreprocess @ 0x1C0018550 (HUBPDO_EvtDeviceWdmIrpPreprocess.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     HUBID_FreeID @ 0x1C001DB90 (HUBID_FreeID.c)
+ *     HUBID_BuildHardwareID @ 0x1C001E034 (HUBID_BuildHardwareID.c)
+ *     HUBID_BuildCompatibleID @ 0x1C001E9A8 (HUBID_BuildCompatibleID.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ *     memset @ 0x1C0044FC0 (memset.c)
+ */
+
 __int64 __fastcall HUBPDO_ReturnDeviceConfigInfo(__int64 a1, __int64 a2)
 {
   __int64 v3; // rbx

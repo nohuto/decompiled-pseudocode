@@ -1,3 +1,13 @@
+/*
+ * XREFs of ApiSetEditionParseDesktop @ 0x1C00AA310
+ * Callers:
+ *     ParseWindowStation @ 0x1C00AA220 (ParseWindowStation.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     EditionParseDesktop @ 0x1C00AA47C (EditionParseDesktop.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ApiSetEditionParseDesktop(
         int a1,
         __int64 a2,

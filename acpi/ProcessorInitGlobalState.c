@@ -1,3 +1,12 @@
+/*
+ * XREFs of ProcessorInitGlobalState @ 0x1C00ABF3C
+ * Callers:
+ *     AcpiIrqLibInitializeGlobalState @ 0x1C00ABB68 (AcpiIrqLibInitializeGlobalState.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     ProcessorpInitPreferredCpuSet @ 0x1C00AC014 (ProcessorpInitPreferredCpuSet.c)
+ */
+
 __int64 ProcessorInitGlobalState()
 {
   size_t v0; // rbx

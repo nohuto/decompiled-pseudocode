@@ -1,3 +1,16 @@
+/*
+ * XREFs of MdlInvariantPostProcessing1 @ 0x1405CD074
+ * Callers:
+ *     IovpCompleteRequest2 @ 0x140AC9AFC (IovpCompleteRequest2.c)
+ * Callees:
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     MmMdlPageContentsState @ 0x1402D30C0 (MmMdlPageContentsState.c)
+ *     MmMapLockedPagesSpecifyCache @ 0x1403272A0 (MmMapLockedPagesSpecifyCache.c)
+ *     RtlpComputeCrcInternal @ 0x1403B8710 (RtlpComputeCrcInternal.c)
+ *     MdlInvariantFindMdlInfo @ 0x1405CCF0C (MdlInvariantFindMdlInfo.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ */
+
 unsigned __int64 __fastcall MdlInvariantPostProcessing1(__int64 a1, ULONG_PTR a2, __int64 a3)
 {
   unsigned __int64 result; // rax

@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpCreateControlSet @ 0x140B5107C
+ * Callers:
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ *     CmpCreateExtendedControlSets @ 0x140B51D50 (CmpCreateExtendedControlSets.c)
+ * Callees:
+ *     RtlUnicodeStringPrintf @ 0x1403BEBCC (RtlUnicodeStringPrintf.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ */
+
 __int64 __fastcall CmpCreateControlSet(__int64 a1, char a2)
 {
   NTSTATUS ValueKey; // ebx

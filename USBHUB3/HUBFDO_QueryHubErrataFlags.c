@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBFDO_QueryHubErrataFlags @ 0x1C007C7B4
+ * Callers:
+ *     HUBHSM_QueryingForHubHackFlags @ 0x1C0008C70 (HUBHSM_QueryingForHubHackFlags.c)
+ * Callees:
+ *     RtlStringCchPrintfA @ 0x1C00014E0 (RtlStringCchPrintfA.c)
+ *     HUBMISC_ConvertUsbDeviceIdsToString @ 0x1C0033EEC (HUBMISC_ConvertUsbDeviceIdsToString.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     HUBREG_QueryUsbHardwareVerifierValue @ 0x1C0083D24 (HUBREG_QueryUsbHardwareVerifierValue.c)
+ *     HUBREG_QueryHubErrataFlags @ 0x1C0084F64 (HUBREG_QueryHubErrataFlags.c)
+ */
+
 __int64 __fastcall HUBFDO_QueryHubErrataFlags(__int64 a1)
 {
   int v2; // ecx

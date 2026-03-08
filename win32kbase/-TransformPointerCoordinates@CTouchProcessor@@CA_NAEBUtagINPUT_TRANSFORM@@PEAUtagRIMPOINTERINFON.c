@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?TransformPointerCoordinates@CTouchProcessor@@CA_NAEBUtagINPUT_TRANSFORM@@PEAUtagRIMPOINTERINFONODE@@@Z @ 0x1C0206B68
+ * Callers:
+ *     ?CheckandDeliverContainerInput@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@HH@Z @ 0x1C01EB57C (-CheckandDeliverContainerInput@CTouchProcessor@@AEAAXPEBUCPointerInputFrame@@HH@Z.c)
+ * Callees:
+ *     ?InverseTransformPoint@@YA?AUTransformedPoint@@AEBU1@AEBUtagINPUT_TRANSFORM@@@Z @ 0x1C0158220 (-InverseTransformPoint@@YA-AUTransformedPoint@@AEBU1@AEBUtagINPUT_TRANSFORM@@@Z.c)
+ *     ?InverseTransformRect@@YA?AUtagRECT@@AEBU1@AEBUtagINPUT_TRANSFORM@@@Z @ 0x1C015831C (-InverseTransformRect@@YA-AUtagRECT@@AEBU1@AEBUtagINPUT_TRANSFORM@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dddd @ 0x1C0209E10 (WPP_RECORDER_AND_TRACE_SF_dddd.c)
+ */
+
 char __fastcall CTouchProcessor::TransformPointerCoordinates(
         const struct tagINPUT_TRANSFORM *a1,
         struct tagRIMPOINTERINFONODE *a2)

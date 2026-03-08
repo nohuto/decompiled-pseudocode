@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?MakePointerMessage@@YAH_KIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01C6CC4
+ * Callers:
+ *     PrepareSentPointerMessageForClient @ 0x1C01C5368 (PrepareSentPointerMessageForClient.c)
+ *     TranslateSentPointerMessageForClient @ 0x1C01C55AC (TranslateSentPointerMessageForClient.c)
+ * Callees:
+ *     ?MakePointerMessageWorker@@YAHPEBUtagPOINTER_INFO@@UtagPOINT@@HHHIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAPEAUHWND__@@@Z @ 0x1C01C6DB8 (-MakePointerMessageWorker@@YAHPEBUtagPOINTER_INFO@@UtagPOINT@@HHHIPEAXPEA_KPEA_JPEAGPEAKPEAHPEAP.c)
+ */
+
 __int64 __fastcall MakePointerMessage(
         unsigned __int64 a1,
         unsigned int a2,

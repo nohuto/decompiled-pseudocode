@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiBadPageInserted @ 0x14062736C
+ * Callers:
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ * Callees:
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ */
+
 void __fastcall MiBadPageInserted(int a1)
 {
   unsigned __int16 *v1; // rbx

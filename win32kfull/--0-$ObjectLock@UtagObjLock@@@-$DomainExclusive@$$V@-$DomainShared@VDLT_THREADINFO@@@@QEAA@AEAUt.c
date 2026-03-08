@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0?$ObjectLock@UtagObjLock@@@?$DomainExclusive@$$V@?$DomainShared@VDLT_THREADINFO@@@@QEAA@AEAUtagObjLock@@@Z @ 0x1C01B3E6C
+ * Callers:
+ *     _GetQueueStatus @ 0x1C01B46D8 (_GetQueueStatus.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DomainShared<DLT_THREADINFO>::DomainExclusive<>::ObjectLock<tagObjLock>::ObjectLock<tagObjLock>(
         __int64 a1,
         tagObjLock *a2)

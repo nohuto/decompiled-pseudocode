@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtFlipObjectRemovePoolBuffer @ 0x1C0080C70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?RemovePoolBuffer@FlipManagerObject@@QEAAJ_K@Z @ 0x1C007F774 (-RemovePoolBuffer@FlipManagerObject@@QEAAJ_K@Z.c)
+ *     ?ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z @ 0x1C00817F8 (-ResolveHandle@FlipManagerObject@@KAJPEAXKDPEAPEAU1@@Z.c)
+ */
+
 __int64 __fastcall NtFlipObjectRemovePoolBuffer(void *a1, unsigned __int64 *a2)
 {
   unsigned __int64 v3; // r14

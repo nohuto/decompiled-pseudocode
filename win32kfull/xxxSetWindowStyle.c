@@ -1,3 +1,43 @@
+/*
+ * XREFs of xxxSetWindowStyle @ 0x1C002DD90
+ * Callers:
+ *     xxxSetModernAppWindow @ 0x1C000E204 (xxxSetModernAppWindow.c)
+ *     xxxSetWindowData @ 0x1C002F9C8 (xxxSetWindowData.c)
+ *     ?xxxEnumTurnOffCompositing@@YAHPEAUtagWND@@_J@Z @ 0x1C01BDC50 (-xxxEnumTurnOffCompositing@@YAHPEAUtagWND@@_J@Z.c)
+ *     ?xxxEstablishWebviewHostComponentRelationship@@YAXPEAUtagWND@@0@Z @ 0x1C01F3E58 (-xxxEstablishWebviewHostComponentRelationship@@YAXPEAUtagWND@@0@Z.c)
+ *     xxxSetBridgeWindowChild @ 0x1C01F4014 (xxxSetBridgeWindowChild.c)
+ * Callees:
+ *     UnsetRedirectedWindow @ 0x1C0022ADC (UnsetRedirectedWindow.c)
+ *     UnsetLayeredWindow @ 0x1C00240E0 (UnsetLayeredWindow.c)
+ *     xxxSetLayeredWindow @ 0x1C0028C1C (xxxSetLayeredWindow.c)
+ *     xxxSetWindowPos @ 0x1C0028F4C (xxxSetWindowPos.c)
+ *     DecVisWindows @ 0x1C002A17C (DecVisWindows.c)
+ *     _IsWindowVisible @ 0x1C002A980 (_IsWindowVisible.c)
+ *     SetRedirectedWindow @ 0x1C002BE1C (SetRedirectedWindow.c)
+ *     ComposeWindowIfNeeded @ 0x1C002D850 (ComposeWindowIfNeeded.c)
+ *     ?IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z @ 0x1C002E354 (-IsTrayWindow@@YA_NPEAUtagWND@@W4TrayCheckOption@@@Z.c)
+ *     ?VisWindow@@YAHPEAUtagWND@@K@Z @ 0x1C002E44C (-VisWindow@@YAHPEAUtagWND@@K@Z.c)
+ *     IncVisWindows @ 0x1C002E484 (IncVisWindows.c)
+ *     NeedsWindowEdge @ 0x1C002E60C (NeedsWindowEdge.c)
+ *     DwmAsyncChildStyleChange @ 0x1C002E648 (DwmAsyncChildStyleChange.c)
+ *     GetStyleWindow @ 0x1C0039020 (GetStyleWindow.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     _IsTopLevelWindow @ 0x1C004A140 (_IsTopLevelWindow.c)
+ *     xxxRedrawWindow @ 0x1C0050700 (xxxRedrawWindow.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     zzzLockDisplayAreaAndInvalidateDCCache @ 0x1C00519F0 (zzzLockDisplayAreaAndInvalidateDCCache.c)
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     PostIAMShellHookMessage @ 0x1C009C174 (PostIAMShellHookMessage.c)
+ *     ?CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z @ 0x1C00AD734 (-CheckForChanges@WindowMargins@@YAXPEAUtagWND@@W4ChangeReason@1@@Z.c)
+ *     DirtyVisRgnTrackers @ 0x1C00AEA8C (DirtyVisRgnTrackers.c)
+ *     IsTopLevelOrLayeredChildWindow @ 0x1C00EC5C8 (IsTopLevelOrLayeredChildWindow.c)
+ *     ?UnlockWndMenuWorker@@YAPEAXPEAUtagWND@@_N@Z @ 0x1C00EC914 (-UnlockWndMenuWorker@@YAPEAXPEAUtagWND@@_N@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     xxxTurnOffCompositing @ 0x1C01BE490 (xxxTurnOffCompositing.c)
+ */
+
 __int64 __fastcall xxxSetWindowStyle(struct tagWND *a1, int a2, int a3)
 {
   __int64 v3; // rax

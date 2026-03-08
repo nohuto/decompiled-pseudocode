@@ -1,3 +1,17 @@
+/*
+ * XREFs of _SetPrecisionTouchPadConfiguration @ 0x1C015CC04
+ * Callers:
+ *     xxxSystemParametersInfo @ 0x1C009C980 (xxxSystemParametersInfo.c)
+ *     NtUserSetPrecisionTouchPadConfiguration @ 0x1C0177910 (NtUserSetPrecisionTouchPadConfiguration.c)
+ *     UnpackTouchpadSettings @ 0x1C0219908 (UnpackTouchpadSettings.c)
+ * Callees:
+ *     ResetAccelerationCurves @ 0x1C00143D0 (ResetAccelerationCurves.c)
+ *     UpdateTPCurrentActiveState @ 0x1C0031AA0 (UpdateTPCurrentActiveState.c)
+ *     ?EnumDevices@CBaseInput@@QEBAXPEAXP6A_NQEAUDEVICEINFO@@0@Z@Z @ 0x1C0031F10 (-EnumDevices@CBaseInput@@QEBAXPEAXP6A_NQEAUDEVICEINFO@@0@Z@Z.c)
+ *     BroadcastSettingsUpdateToAllContainers @ 0x1C009D090 (BroadcastSettingsUpdateToAllContainers.c)
+ *     WriteSettingValues @ 0x1C01681F0 (WriteSettingValues.c)
+ */
+
 __int64 __fastcall SetPrecisionTouchPadConfiguration(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v5; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NotifyOnChanged@CCompositionGlyphRun@@UEAAXW4Flags@NotificationEventArgs@@PEAUIUnknown@@@Z @ 0x1802205B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?UpdateBrushTransform@CCompositionGlyphRun@@AEAAXXZ @ 0x1802205F0 (-UpdateBrushTransform@CCompositionGlyphRun@@AEAAXXZ.c)
+ */
+
 __int64 __fastcall CCompositionGlyphRun::NotifyOnChanged(CCompositionGlyphRun *a1, unsigned int a2, __int64 a3)
 {
   CCompositionGlyphRun::UpdateBrushTransform(a1);

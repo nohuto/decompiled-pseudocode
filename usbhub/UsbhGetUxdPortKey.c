@@ -1,3 +1,15 @@
+/*
+ * XREFs of UsbhGetUxdPortKey @ 0x1C005A540
+ * Callers:
+ *     UsbhUpdateUxdSettings @ 0x1C005ACF0 (UsbhUpdateUxdSettings.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0022A90 (__security_check_cookie.c)
+ *     RtlStringCbPrintfW @ 0x1C0044C1C (RtlStringCbPrintfW.c)
+ *     UsbhGetUxdLoadKeySettings @ 0x1C005A460 (UsbhGetUxdLoadKeySettings.c)
+ *     UsbhOpenUxdPortHandle @ 0x1C005A6D0 (UsbhOpenUxdPortHandle.c)
+ *     WPP_RECORDER_SF_SS @ 0x1C005B2B4 (WPP_RECORDER_SF_SS.c)
+ */
+
 __int64 __fastcall UsbhGetUxdPortKey(__int64 a1, unsigned int a2, void *a3)
 {
   PDEVICE_OBJECT v5; // rcx

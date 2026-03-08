@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vHorizontalLine@@YAXPEAU_TRIVERTEX@@0PEAU_TRIANGLEDATA@@PEAU_TRIDDA@@@Z @ 0x1C028FCF0
+ * Callers:
+ *     ?vCalculateLine@@YAXPEAU_TRIVERTEX@@0PEAU_TRIANGLEDATA@@@Z @ 0x1C028F930 (-vCalculateLine@@YAXPEAU_TRIVERTEX@@0PEAU_TRIANGLEDATA@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vHorizontalLine(
         struct _TRIVERTEX *a1,
         struct _TRIVERTEX *a2,

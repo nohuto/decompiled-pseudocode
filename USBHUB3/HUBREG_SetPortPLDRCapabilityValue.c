@@ -1,3 +1,14 @@
+/*
+ * XREFs of HUBREG_SetPortPLDRCapabilityValue @ 0x1C00894E4
+ * Callers:
+ *     HUBPDO_RegisterPortPLDRCapability @ 0x1C0080B64 (HUBPDO_RegisterPortPLDRCapability.c)
+ *     HUBPDO_UnregisterPortPLDRCapability @ 0x1C0081350 (HUBPDO_UnregisterPortPLDRCapability.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     HUBREG_OpenPortSubkey @ 0x1C00892DC (HUBREG_OpenPortSubkey.c)
+ */
+
 __int64 __fastcall HUBREG_SetPortPLDRCapabilityValue(__int64 a1, unsigned __int16 a2, int a3)
 {
   int v4; // ebx

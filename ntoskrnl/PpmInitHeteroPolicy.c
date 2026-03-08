@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpmInitHeteroPolicy @ 0x140B623E4
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 PpmInitHeteroPolicy()
 {
   char *v0; // rdx

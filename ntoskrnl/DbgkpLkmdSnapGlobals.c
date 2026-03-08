@@ -1,3 +1,14 @@
+/*
+ * XREFs of DbgkpLkmdSnapGlobals @ 0x14053983C
+ * Callers:
+ *     DbgkCaptureLiveDump @ 0x1409378F8 (DbgkCaptureLiveDump.c)
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KeEnumerateProcessorDpcs @ 0x14056FC8C (KeEnumerateProcessorDpcs.c)
+ */
+
 __int64 __fastcall DbgkpLkmdSnapGlobals(__int64 a1)
 {
   ULONG ActiveProcessorCount; // ebp

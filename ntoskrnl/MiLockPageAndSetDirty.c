@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiLockPageAndSetDirty @ 0x1402110B8
+ * Callers:
+ *     MiMakeCombineCandidateClean @ 0x140210FE0 (MiMakeCombineCandidateClean.c)
+ *     MiCopyToUserVa @ 0x140211730 (MiCopyToUserVa.c)
+ *     MiValidFault @ 0x1402C90E0 (MiValidFault.c)
+ *     MiIssueHardFault @ 0x140342F00 (MiIssueHardFault.c)
+ *     NtLockVirtualMemory @ 0x140344C50 (NtLockVirtualMemory.c)
+ *     MmSetPageProtection @ 0x1403BCCE0 (MmSetPageProtection.c)
+ * Callees:
+ *     MiReleasePageFileInfo @ 0x14020B300 (MiReleasePageFileInfo.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiCaptureDirtyBitToPfn @ 0x14032D790 (MiCaptureDirtyBitToPfn.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiLockPageAndSetDirty(__int64 a1, int a2)
 {
   __int64 v2; // rsi

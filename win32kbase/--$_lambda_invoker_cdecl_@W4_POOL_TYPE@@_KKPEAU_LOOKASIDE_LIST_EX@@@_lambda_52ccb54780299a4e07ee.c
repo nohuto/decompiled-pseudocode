@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??$_lambda_invoker_cdecl_@W4_POOL_TYPE@@_KKPEAU_LOOKASIDE_LIST_EX@@@_lambda_52ccb54780299a4e07ee11c360aca89b_@@CAPEAXW4_POOL_TYPE@@_KKPEAU_LOOKASIDE_LIST_EX@@@Z @ 0x1C00BA540
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Allocate@?$CTypeIsolation@$0DGAAA@$0DGA@@NSInstrumentation@@IEAAPEAXXZ @ 0x1C002A3B0 (-Allocate@-$CTypeIsolation@$0DGAAA@$0DGA@@NSInstrumentation@@IEAAPEAXXZ.c)
+ */
+
 PVOID __fastcall _lambda_52ccb54780299a4e07ee11c360aca89b_::_lambda_invoker_cdecl_<enum _POOL_TYPE,unsigned __int64,unsigned long,_LOOKASIDE_LIST_EX *>(
         POOL_TYPE PoolType,
         SIZE_T NumberOfBytes,

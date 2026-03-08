@@ -1,3 +1,12 @@
+/*
+ * XREFs of AddBGRMapCache @ 0x1C0255FE8
+ * Callers:
+ *     CreateDyesColorMappingTable @ 0x1C0257C98 (CreateDyesColorMappingTable.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     TrimBGRMapCache @ 0x1C02582A0 (TrimBGRMapCache.c)
+ */
+
 __int64 __fastcall AddBGRMapCache(__int64 a1, int a2)
 {
   unsigned int v4; // edi

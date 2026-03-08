@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBHSM_HasResetPipeCountReachedMaximum @ 0x1C0008930
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBHSM_HasResetPipeCountReachedMaximum(__int64 a1)
 {
   __int64 v1; // rax

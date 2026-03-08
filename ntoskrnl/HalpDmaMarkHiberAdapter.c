@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpDmaMarkHiberAdapter @ 0x1404FF5CC
+ * Callers:
+ *     HaliLocateHiberRanges @ 0x140A92C20 (HaliLocateHiberRanges.c)
+ * Callees:
+ *     HalpIommuDmarPageTableMarkHiberPhase @ 0x1405249C8 (HalpIommuDmarPageTableMarkHiberPhase.c)
+ *     PoSetHiberRange @ 0x14058C400 (PoSetHiberRange.c)
+ */
+
 void __fastcall HalpDmaMarkHiberAdapter(PVOID MemoryMap)
 {
   unsigned int v1; // r12d

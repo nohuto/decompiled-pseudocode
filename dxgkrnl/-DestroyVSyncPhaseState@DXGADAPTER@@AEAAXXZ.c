@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DestroyVSyncPhaseState@DXGADAPTER@@AEAAXXZ @ 0x1C02B1DAC
+ * Callers:
+ *     ??1DXGADAPTER@@QEAA@XZ @ 0x1C02B0AE4 (--1DXGADAPTER@@QEAA@XZ.c)
+ * Callees:
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ */
+
 void __fastcall DXGADAPTER::DestroyVSyncPhaseState(DXGADAPTER *this)
 {
   void *v2; // rcx

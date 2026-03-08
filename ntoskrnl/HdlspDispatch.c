@@ -1,3 +1,30 @@
+/*
+ * XREFs of HdlspDispatch @ 0x140AE6EB0
+ * Callers:
+ *     HeadlessDispatch @ 0x140372650 (HeadlessDispatch.c)
+ *     HdlspKernelAddLogEntry @ 0x140AE7A40 (HdlspKernelAddLogEntry.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     strcmp @ 0x1403D5570 (strcmp.c)
+ *     sprintf_s @ 0x1403D9BA0 (sprintf_s.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     InbvPortGetByte @ 0x140676FBC (InbvPortGetByte.c)
+ *     InbvPortPollOnly @ 0x140677170 (InbvPortPollOnly.c)
+ *     HdlspAddLogEntry @ 0x140AE6B20 (HdlspAddLogEntry.c)
+ *     HdlspBugCheckProcessing @ 0x140AE6D84 (HdlspBugCheckProcessing.c)
+ *     HdlspEnableTerminal @ 0x140AE75C4 (HdlspEnableTerminal.c)
+ *     HdlspGetLine @ 0x140AE7690 (HdlspGetLine.c)
+ *     HdlspProcessDumpCommand @ 0x140AE7CAC (HdlspProcessDumpCommand.c)
+ *     HdlspPutData @ 0x140AE8068 (HdlspPutData.c)
+ *     HdlspPutString @ 0x140AE8194 (HdlspPutString.c)
+ *     HdlspPutWideString @ 0x140AE830C (HdlspPutWideString.c)
+ *     HdlspSendBlueScreenInfo @ 0x140AE83D0 (HdlspSendBlueScreenInfo.c)
+ *     HdlspSendStringAtBaud @ 0x140AE8474 (HdlspSendStringAtBaud.c)
+ *     HdlspSetBlueScreenInformation @ 0x140AE84A8 (HdlspSetBlueScreenInformation.c)
+ */
+
 __int64 __fastcall HdlspDispatch(int a1, int *a2, __int64 a3, __int64 a4, _QWORD *a5)
 {
   unsigned int v5; // ebx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of InitializeWin32kCall @ 0x1C00B2080
+ * Callers:
+ *     Win32kBaseDriverEntry @ 0x1C0320F10 (Win32kBaseDriverEntry.c)
+ * Callees:
+ *     ?ResolveApiSetHost@@YAJPEAU_Win32kApiSet@@PEAX@Z @ 0x1C00B2130 (-ResolveApiSetHost@@YAJPEAU_Win32kApiSet@@PEAX@Z.c)
+ *     ?SetWin32kSilo@@YAPEAU_EJOB@@AEAPEAX@Z @ 0x1C00B264C (-SetWin32kSilo@@YAPEAU_EJOB@@AEAPEAX@Z.c)
+ */
+
 __int64 __fastcall InitializeWin32kCall(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // ebp

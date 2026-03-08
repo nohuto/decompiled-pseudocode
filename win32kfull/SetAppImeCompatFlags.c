@@ -1,3 +1,11 @@
+/*
+ * XREFs of SetAppImeCompatFlags @ 0x1C001FDB0
+ * Callers:
+ *     SetAppCompatFlags @ 0x1C001F6C0 (SetAppCompatFlags.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall SetAppImeCompatFlags(__int64 a1, const UNICODE_STRING *a2)
 {
   unsigned int v2; // esi

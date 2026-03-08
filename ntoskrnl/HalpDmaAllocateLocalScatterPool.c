@@ -1,3 +1,22 @@
+/*
+ * XREFs of HalpDmaAllocateLocalScatterPool @ 0x1409312D8
+ * Callers:
+ *     HalpDmaAllocateChildAdapterV2 @ 0x140821840 (HalpDmaAllocateChildAdapterV2.c)
+ *     HalpDmaAllocateChildAdapterV3 @ 0x140822570 (HalpDmaAllocateChildAdapterV3.c)
+ * Callees:
+ *     MmUnmapLockedPages @ 0x14027CCB0 (MmUnmapLockedPages.c)
+ *     MmFreePagesFromMdl @ 0x1402C0DB0 (MmFreePagesFromMdl.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HalpDmaAllocateScatterPagesFromScatterPool @ 0x140452DAE (HalpDmaAllocateScatterPagesFromScatterPool.c)
+ *     HalpDmaPrependTranslations @ 0x1404541B6 (HalpDmaPrependTranslations.c)
+ *     HalpDmaAllocateScatterPagesFromContiguousPool @ 0x1404FF03C (HalpDmaAllocateScatterPagesFromContiguousPool.c)
+ *     HalpDmaCommitScatterMapBuffers @ 0x14050E5D4 (HalpDmaCommitScatterMapBuffers.c)
+ *     HalpDmaAllocateScatterMemory @ 0x140931508 (HalpDmaAllocateScatterMemory.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall HalpDmaAllocateLocalScatterPool(__int64 a1, __int64 a2)
 {
   int v2; // r15d

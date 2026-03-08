@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlInvertRangeListEx @ 0x14081F400
+ * Callers:
+ *     RtlInvertRangeList @ 0x14081F210 (RtlInvertRangeList.c)
+ *     ArbInitializeRangeList @ 0x1409331D0 (ArbInitializeRangeList.c)
+ * Callees:
+ *     RtlAddRange @ 0x14081F540 (RtlAddRange.c)
+ */
+
 __int64 __fastcall RtlInvertRangeListEx(int a1, __int64 a2, char a3, __int64 a4, __int64 a5)
 {
   unsigned int v6; // ebx

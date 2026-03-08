@@ -1,3 +1,20 @@
+/*
+ * XREFs of ??1CComputeScribbleScheduler@@QEAA@XZ @ 0x1801FF518
+ * Callers:
+ *     ??1?$unique_ptr@VCComputeScribbleScheduler@@U?$default_delete@VCComputeScribbleScheduler@@@std@@@std@@QEAA@XZ @ 0x1801F84D8 (--1-$unique_ptr@VCComputeScribbleScheduler@@U-$default_delete@VCComputeScribbleScheduler@@@std@@.c)
+ *     ??1CComputeScribbleRenderer@@EEAA@XZ @ 0x1801F8508 (--1CComputeScribbleRenderer@@EEAA@XZ.c)
+ *     ?Initialize@CComputeScribbleRenderer@@AEAAJXZ @ 0x1801F8740 (-Initialize@CComputeScribbleRenderer@@AEAAJXZ.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180004700 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ??1?$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x18003CE64 (--1-$com_ptr_t@VCD2DBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?CloseHandle@details@wil@@YAXPEAX@Z @ 0x1800FF340 (-CloseHandle@details@wil@@YAXPEAX@Z.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??1CComputeScribbleStopwatch@@QEAA@XZ @ 0x1801FF65C (--1CComputeScribbleStopwatch@@QEAA@XZ.c)
+ *     ??1ThreadSharedData@CComputeScribbleScheduler@@QEAA@XZ @ 0x1801FF68C (--1ThreadSharedData@CComputeScribbleScheduler@@QEAA@XZ.c)
+ *     ?Log_GetLastError@in1diag3@details@wil@@YAKPEAXIPEBD@Z @ 0x1802005F4 (-Log_GetLastError@in1diag3@details@wil@@YAKPEAXIPEBD@Z.c)
+ */
+
 void __fastcall CComputeScribbleScheduler::~CComputeScribbleScheduler(CComputeScribbleScheduler *this)
 {
   void *v2; // rdx

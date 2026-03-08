@@ -1,3 +1,12 @@
+/*
+ * XREFs of ProcessorToDedicatedIoSqMapping @ 0x1C0010C00
+ * Callers:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     NVMeInitializeProcessorIoQueueMapping @ 0x1C000F870 (NVMeInitializeProcessorIoQueueMapping.c)
+ * Callees:
+ *     ProcessorToIoSqMappingBase @ 0x1C0010C84 (ProcessorToIoSqMappingBase.c)
+ */
+
 __int64 __fastcall ProcessorToDedicatedIoSqMapping(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v3; // rsi

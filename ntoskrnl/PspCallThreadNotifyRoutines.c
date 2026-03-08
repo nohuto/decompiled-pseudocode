@@ -1,3 +1,15 @@
+/*
+ * XREFs of PspCallThreadNotifyRoutines @ 0x1407D3260
+ * Callers:
+ *     PspInsertThread @ 0x1406B0F50 (PspInsertThread.c)
+ *     PspExitThread @ 0x1407D9464 (PspExitThread.c)
+ *     PspInitializeThunkContext @ 0x1407EDF4C (PspInitializeThunkContext.c)
+ * Callees:
+ *     ExReferenceCallBackBlock @ 0x14034C060 (ExReferenceCallBackBlock.c)
+ *     ExDereferenceCallBackBlock @ 0x14034C120 (ExDereferenceCallBackBlock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 void __fastcall PspCallThreadNotifyRoutines(_QWORD *a1, unsigned __int8 a2, char a3)
 {
   bool v5; // r14

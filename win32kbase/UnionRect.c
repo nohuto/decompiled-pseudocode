@@ -1,3 +1,11 @@
+/*
+ * XREFs of UnionRect @ 0x1C0247118
+ * Callers:
+ *     ?CenterRectangles@@YAXPEAUtagRECT@@I@Z @ 0x1C0247430 (-CenterRectangles@@YAXPEAUtagRECT@@I@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall UnionRect(__int64 a1, int *a2, _DWORD *a3)
 {
   int v3; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of VfMajorRegisterHandlers @ 0x140AD00D4
+ * Callers:
+ *     ViIovInitialization @ 0x140AD9358 (ViIovInitialization.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall VfMajorRegisterHandlers(
         unsigned __int8 a1,
         __int64 a2,

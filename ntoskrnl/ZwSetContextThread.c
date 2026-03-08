@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwSetContextThread @ 0x140415610
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwSetContextThread(__int64 a1, __int64 a2)
 {
   _disable();

@@ -1,3 +1,18 @@
+/*
+ * XREFs of NtCreateEvent @ 0x1407D0E20
+ * Callers:
+ *     PfSnPopulateReadList @ 0x1406A42B0 (PfSnPopulateReadList.c)
+ *     PfSnPrefetchMetadata @ 0x14071E150 (PfSnPrefetchMetadata.c)
+ *     PfSnOpenVolumesForPrefetch @ 0x14077A964 (PfSnOpenVolumesForPrefetch.c)
+ *     SepAdtOpenEtwReadyEvent @ 0x1408414C0 (SepAdtOpenEtwReadyEvent.c)
+ *     IoInitSystemPreDrivers @ 0x140B409E8 (IoInitSystemPreDrivers.c)
+ *     FsRtlInitializeSmssEvent @ 0x140B65D30 (FsRtlInitializeSmssEvent.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     ObInsertObjectEx @ 0x1407BB7C0 (ObInsertObjectEx.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ */
+
 __int64 __fastcall NtCreateEvent(unsigned __int64 a1, unsigned int a2, int a3, EVENT_TYPE a4, BOOLEAN a5)
 {
   _QWORD *v7; // rdi

@@ -1,3 +1,22 @@
+/*
+ * XREFs of SymCryptModExpWindowed @ 0x140403800
+ * Callers:
+ *     SymCryptModExpGeneric @ 0x140403668 (SymCryptModExpGeneric.c)
+ * Callees:
+ *     SymCryptIntBitsizeOfObject @ 0x1403F3738 (SymCryptIntBitsizeOfObject.c)
+ *     SymCryptIntGetBits @ 0x1403F386C (SymCryptIntGetBits.c)
+ *     SymCryptModElementCopy @ 0x1403F3AD4 (SymCryptModElementCopy.c)
+ *     SymCryptModElementCreate @ 0x1403F3AEC (SymCryptModElementCreate.c)
+ *     SymCryptModElementSetValueUint32 @ 0x1403F3C0C (SymCryptModElementSetValueUint32.c)
+ *     SymCryptModMul @ 0x1403F3D74 (SymCryptModMul.c)
+ *     SymCryptModSquare @ 0x1403F3E50 (SymCryptModSquare.c)
+ *     SymCryptSizeofModElementFromModulus @ 0x1403F3F08 (SymCryptSizeofModElementFromModulus.c)
+ *     SymCryptScsTableInit @ 0x1404090E0 (SymCryptScsTableInit.c)
+ *     SymCryptScsTableLoad @ 0x140409124 (SymCryptScsTableLoad.c)
+ *     MiSetPfnOriginalPte @ 0x140409540 (MiSetPfnOriginalPte.c)
+ *     SymCryptScsTableStore @ 0x14040954C (SymCryptScsTableStore.c)
+ */
+
 __int64 __fastcall SymCryptModExpWindowed(
         _DWORD *a1,
         __int64 a2,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwTraceSystemTimeChange @ 0x140AA7600
+ * Callers:
+ *     PoNotifySystemTimeSet @ 0x1403B11A8 (PoNotifySystemTimeSet.c)
+ * Callees:
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     PsGetProcessId @ 0x140236D10 (PsGetProcessId.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall EtwTraceSystemTimeChange(_QWORD *a1, _QWORD *a2, int a3, _QWORD *a4, int a5, int a6, int a7)
 {
   _KPROCESS *Process; // rbx

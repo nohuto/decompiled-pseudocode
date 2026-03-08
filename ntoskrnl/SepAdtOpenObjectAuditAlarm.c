@@ -1,3 +1,30 @@
+/*
+ * XREFs of SepAdtOpenObjectAuditAlarm @ 0x1409C930C
+ * Callers:
+ *     SepAccessCheckAndAuditAlarm @ 0x1406973E0 (SepAccessCheckAndAuditAlarm.c)
+ *     SeOpenObjectAuditAlarmWithTransaction @ 0x14069A700 (SeOpenObjectAuditAlarmWithTransaction.c)
+ *     SeAuditHandleCreation @ 0x14078D9F8 (SeAuditHandleCreation.c)
+ *     NtOpenObjectAuditAlarm @ 0x140790670 (NtOpenObjectAuditAlarm.c)
+ *     ObpCreateHandle @ 0x1407C0130 (ObpCreateHandle.c)
+ *     SeOpenObjectAuditAlarmForNonObObject @ 0x14085ED00 (SeOpenObjectAuditAlarmForNonObObject.c)
+ *     SeOpenObjectForDeleteAuditAlarmWithTransaction @ 0x1409CB370 (SeOpenObjectForDeleteAuditAlarmWithTransaction.c)
+ * Callees:
+ *     PsGetCurrentThreadProcess @ 0x1402C0BB0 (PsGetCurrentThreadProcess.c)
+ *     ObpIsKernelHandle @ 0x1403521C8 (ObpIsKernelHandle.c)
+ *     SepAdtLogAuditRecord @ 0x140397890 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SepCheckAndCopySelfRelativeSD @ 0x1405B6898 (SepCheckAndCopySelfRelativeSD.c)
+ *     SepAdtAuditThisEventWithContext @ 0x140699810 (SepAdtAuditThisEventWithContext.c)
+ *     SepSecurityDescriptorStrictLength @ 0x1407A5314 (SepSecurityDescriptorStrictLength.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1407E7618 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepSDContainsAttributeACE @ 0x1409CE498 (SepSDContainsAttributeACE.c)
+ *     SepAuditFailed @ 0x1409CEE50 (SepAuditFailed.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 bool __fastcall SepAdtOpenObjectAuditAlarm(
         __int16 a1,
         const int *a2,

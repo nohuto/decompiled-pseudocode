@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?RecordCompositionMode@CCompositionSwapchainStatistics@@UEAA_N_NW4BufferCompositionMode@@0@Z @ 0x18026A630
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CCompositionSwapchainStatistics::RecordCompositionMode(__int64 a1, __int64 a2, int a3)
 {
   __int64 v3; // rax

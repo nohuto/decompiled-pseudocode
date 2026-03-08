@@ -1,3 +1,13 @@
+/*
+ * XREFs of imp_WdfDmaEnablerGetFragmentLength @ 0x1C0018A50
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z @ 0x1C0006230 (-FxObjectHandleGetPtr@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAXGPEAPEAX@Z.c)
+ *     ?FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C0017BA8 (-FxVerifierDbgBreakPoint@@YAXPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ *     WPP_IFR_SF_dq @ 0x1C0018070 (WPP_IFR_SF_dq.c)
+ */
+
 __int64 __fastcall imp_WdfDmaEnablerGetFragmentLength(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFDMAENABLER__ *DmaEnabler,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of HvlpSlowFlushAddressSpaceTbEx @ 0x14054785C
+ * Callers:
+ *     HvlFlushAddressSpaceTb @ 0x1403C6A88 (HvlFlushAddressSpaceTb.c)
+ * Callees:
+ *     HvcallInitiateHypercall @ 0x1403C81E0 (HvcallInitiateHypercall.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     HvlpAcquireHypercallPage @ 0x14053E3C0 (HvlpAcquireHypercallPage.c)
+ *     HvlpReleaseHypercallPage @ 0x14053F010 (HvlpReleaseHypercallPage.c)
+ *     HvlpAffinityToHvProcessorSet @ 0x1405472B0 (HvlpAffinityToHvProcessorSet.c)
+ */
+
 char __fastcall HvlpSlowFlushAddressSpaceTbEx(LONGLONG a1, __int64 a2, char a3)
 {
   PHYSICAL_ADDRESS *v6; // r9

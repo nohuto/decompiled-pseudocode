@@ -1,3 +1,14 @@
+/*
+ * XREFs of CoreMsgObjectCallout @ 0x1C0081F88
+ * Callers:
+ *     W32CalloutDispatch @ 0x1C00ED390 (W32CalloutDispatch.c)
+ * Callees:
+ *     ?Acquire@EntryLock@CoreMessagingK@@QEAAXW4BugCheckCodes@2@@Z @ 0x1C0081820 (-Acquire@EntryLock@CoreMessagingK@@QEAAXW4BugCheckCodes@2@@Z.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x1C0088924 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CoreMsgObjectCallout(unsigned int a1, _QWORD *a2)
 {
   unsigned int v4; // ebx

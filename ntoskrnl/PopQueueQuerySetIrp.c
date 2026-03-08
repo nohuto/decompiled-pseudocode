@@ -1,3 +1,21 @@
+/*
+ * XREFs of PopQueueQuerySetIrp @ 0x1402BAFA4
+ * Callers:
+ *     PopRequestPowerIrp @ 0x1402BA570 (PopRequestPowerIrp.c)
+ *     PopFxActivateComponentDependents @ 0x14030819C (PopFxActivateComponentDependents.c)
+ *     PopNotifyDevice @ 0x140AA415C (PopNotifyDevice.c)
+ * Callees:
+ *     KeReleaseQueuedSpinLock @ 0x14023FDE0 (KeReleaseQueuedSpinLock.c)
+ *     PopDiagTraceIrpStart @ 0x1402BB178 (PopDiagTraceIrpStart.c)
+ *     PopEnableIrpWatchdog @ 0x1402BB290 (PopEnableIrpWatchdog.c)
+ *     PopDeepSleepSetDisengageReason @ 0x1402BBB98 (PopDeepSleepSetDisengageReason.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     KeAcquireQueuedSpinLock @ 0x140336900 (KeAcquireQueuedSpinLock.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 NTSTATUS __fastcall PopQueueQuerySetIrp(PIRP Irp)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r15

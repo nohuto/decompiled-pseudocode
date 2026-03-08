@@ -1,3 +1,13 @@
+/*
+ * XREFs of ChangeWindowBitmapOwner @ 0x1C01BDDD4
+ * Callers:
+ *     ?ProtectWindowBitmap@@YAHPEAUtagWND@@K@Z @ 0x1C022FA64 (-ProtectWindowBitmap@@YAHPEAUtagWND@@K@Z.c)
+ * Callees:
+ *     GetRedirectionBitmap @ 0x1C0043F00 (GetRedirectionBitmap.c)
+ *     GreSetBitmapContentOwner @ 0x1C00DFBB4 (GreSetBitmapContentOwner.c)
+ *     GreSetLWContentOwner @ 0x1C02D71EC (GreSetLWContentOwner.c)
+ */
+
 __int64 __fastcall ChangeWindowBitmapOwner(__int64 a1, int a2)
 {
   __int64 v2; // rax

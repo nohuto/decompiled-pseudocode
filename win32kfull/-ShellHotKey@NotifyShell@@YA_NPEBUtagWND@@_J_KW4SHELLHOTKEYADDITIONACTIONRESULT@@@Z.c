@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ShellHotKey@NotifyShell@@YA_NPEBUtagWND@@_J_KW4SHELLHOTKEYADDITIONACTIONRESULT@@@Z @ 0x1C000EF90
+ * Callers:
+ *     ?xxxReportHotKeyToShell@@YAXPEAUtagWND@@_J_KPEAUHWND__@@_N@Z @ 0x1C000EE5C (-xxxReportHotKeyToShell@@YAXPEAUtagWND@@_J_KPEAUHWND__@@_N@Z.c)
+ * Callees:
+ *     _anonymous_namespace_::NotifyIAMWindowManagementEvent @ 0x1C009B94C (_anonymous_namespace_--NotifyIAMWindowManagementEvent.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 bool __fastcall NotifyShell::ShellHotKey(__int64 *a1, __int64 a2, __int64 a3, unsigned int a4)
 {
   __int128 v8; // [rsp+20h] [rbp-49h]

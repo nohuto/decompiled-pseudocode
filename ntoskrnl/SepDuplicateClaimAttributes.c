@@ -1,3 +1,20 @@
+/*
+ * XREFs of SepDuplicateClaimAttributes @ 0x1409CE654
+ * Callers:
+ *     SepConvertToOwnTokenClaims @ 0x1402BE4F0 (SepConvertToOwnTokenClaims.c)
+ *     SepDuplicateTokenClaims @ 0x1408A1CFA (SepDuplicateTokenClaims.c)
+ * Callees:
+ *     AuthzBasepDuplicateSecurityAttributes @ 0x1402976E0 (AuthzBasepDuplicateSecurityAttributes.c)
+ *     AuthzBasepFreeSecurityAttributesList @ 0x1402B8730 (AuthzBasepFreeSecurityAttributesList.c)
+ *     AuthzBasepAllocateSecurityAttributesList @ 0x1402FF8B0 (AuthzBasepAllocateSecurityAttributesList.c)
+ *     RtlSidHashInitialize @ 0x140310020 (RtlSidHashInitialize.c)
+ *     SepLengthSidAndAttributesArray @ 0x1407103B8 (SepLengthSidAndAttributesArray.c)
+ *     SeCaptureSidAndAttributesArray @ 0x140710470 (SeCaptureSidAndAttributesArray.c)
+ *     AuthzBasepAllocateClaimCollectionNoLists @ 0x140A57120 (AuthzBasepAllocateClaimCollectionNoLists.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepDuplicateClaimAttributes(unsigned int *a1, _QWORD *a2)
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of AuthzBasepMergeAccessReasons @ 0x14066CA50
+ * Callers:
+ *     SepCommonAccessCheckEx @ 0x140206FC0 (SepCommonAccessCheckEx.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall AuthzBasepMergeAccessReasons(_DWORD *a1, __int64 a2, int a3)
 {
   _DWORD *v3; // r9

@@ -1,3 +1,29 @@
+/*
+ * XREFs of SepCleanupLUIDDeviceMapDirectory @ 0x1407DCB7C
+ * Callers:
+ *     SepDeleteLogonSessionTrack @ 0x1407DAE44 (SepDeleteLogonSessionTrack.c)
+ *     SepDeReferenceLogonSession @ 0x1407DBBB8 (SepDeReferenceLogonSession.c)
+ * Callees:
+ *     KiUnstackDetachProcess @ 0x14020D030 (KiUnstackDetachProcess.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14022BD30 (ObReferenceObjectSafeWithTag.c)
+ *     PsGetServerSiloServiceSessionId @ 0x1402456C0 (PsGetServerSiloServiceSessionId.c)
+ *     PsAttachSiloToCurrentThread @ 0x1402993A0 (PsAttachSiloToCurrentThread.c)
+ *     PsDetachSiloFromCurrentThread @ 0x1402993C0 (PsDetachSiloFromCurrentThread.c)
+ *     KeStackAttachProcess @ 0x14030DF10 (KeStackAttachProcess.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     wcscmp @ 0x1403D5DD0 (wcscmp.c)
+ *     swprintf_s @ 0x1403D8840 (swprintf_s.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenDirectoryObject @ 0x140412E10 (ZwOpenDirectoryObject.c)
+ *     ZwMakeTemporaryObject @ 0x1404145F0 (ZwMakeTemporaryObject.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1404149D0 (ZwOpenSymbolicLinkObject.c)
+ *     ZwQueryDirectoryObject @ 0x140414C90 (ZwQueryDirectoryObject.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepCleanupLUIDDeviceMapDirectory(_DWORD *a1, struct _LIST_ENTRY *a2)
 {
   UNICODE_STRING *v4; // rbx

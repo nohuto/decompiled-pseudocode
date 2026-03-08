@@ -1,3 +1,11 @@
+/*
+ * XREFs of CitModerncoreProcessForegroundChange @ 0x1C0273840
+ * Callers:
+ *     ??1ForegroundChangeTracker@CActivationObjectManager@@QEAA@XZ @ 0x1C005BD48 (--1ForegroundChangeTracker@CActivationObjectManager@@QEAA@XZ.c)
+ * Callees:
+ *     ?CitpProcessForegroundChange@@YAHPEAUtagPROCESSINFO@@PEAUtagWND@@0PEAUtagSHELL_INPUT_USAGE_DATA_INFO@@@Z @ 0x1C00B0458 (-CitpProcessForegroundChange@@YAHPEAUtagPROCESSINFO@@PEAUtagWND@@0PEAUtagSHELL_INPUT_USAGE_DATA_.c)
+ */
+
 __int64 __fastcall CitModerncoreProcessForegroundChange(int a1, int a2)
 {
   struct tagPROCESSINFO *v2; // rbx

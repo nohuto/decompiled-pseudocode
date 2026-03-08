@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_qsqd @ 0x1C002E37C
+ * Callers:
+ *     HUBMISC_WaitForSignal @ 0x1C0032DEC (HUBMISC_WaitForSignal.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_qsqd(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, ...)
 {
   __int64 v5; // rdi

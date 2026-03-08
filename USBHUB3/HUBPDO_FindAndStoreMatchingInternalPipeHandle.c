@@ -1,3 +1,13 @@
+/*
+ * XREFs of HUBPDO_FindAndStoreMatchingInternalPipeHandle @ 0x1C00172FC
+ * Callers:
+ *     HUBDSM_GettingMatchingPipeHandleOnClientResetPipe @ 0x1C001F920 (HUBDSM_GettingMatchingPipeHandleOnClientResetPipe.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qq @ 0x1C00154F0 (WPP_RECORDER_SF_qq.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBPDO_FindAndStoreMatchingInternalPipeHandle(__int64 a1)
 {
   __int64 v1; // rdx

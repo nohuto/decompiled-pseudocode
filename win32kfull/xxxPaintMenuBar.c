@@ -1,3 +1,21 @@
+/*
+ * XREFs of xxxPaintMenuBar @ 0x1C02392F4
+ * Callers:
+ *     NtUserPaintMenuBar @ 0x1C01D9050 (NtUserPaintMenuBar.c)
+ * Callees:
+ *     NtGdiPatBlt @ 0x1C008B370 (NtGdiPatBlt.c)
+ *     ??8?$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z @ 0x1C00A4F34 (--8-$SmartObjStackRef@UtagMENU@@@@QEBA_NH@Z.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C00A6450 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C00D3DA0 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00D5030 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     ThreadUnlockMenuNoModify @ 0x1C0202554 (ThreadUnlockMenuNoModify.c)
+ *     MNIsUAHMenu @ 0x1C02194D8 (MNIsUAHMenu.c)
+ *     xxxMenuDraw @ 0x1C0238E5C (xxxMenuDraw.c)
+ *     xxxSendUAHInitMenuMessage @ 0x1C023A454 (xxxSendUAHInitMenuMessage.c)
+ *     xxxSendUAHMenuMessage @ 0x1C023A4DC (xxxSendUAHMenuMessage.c)
+ *     xxxMenuBarCompute @ 0x1C023BEA8 (xxxMenuBarCompute.c)
+ */
+
 __int64 __fastcall xxxPaintMenuBar(__int64 a1, HDC a2, int a3, int a4, int a5, char a6)
 {
   __int64 v10; // rdx

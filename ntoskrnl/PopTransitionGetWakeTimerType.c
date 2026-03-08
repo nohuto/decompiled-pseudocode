@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopTransitionGetWakeTimerType @ 0x1409915A0
+ * Callers:
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopTransitionGetWakeTimerType(__int64 a1)
 {
   __int64 result; // rax

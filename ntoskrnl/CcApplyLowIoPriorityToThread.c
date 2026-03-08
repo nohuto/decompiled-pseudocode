@@ -1,3 +1,20 @@
+/*
+ * XREFs of CcApplyLowIoPriorityToThread @ 0x140219DB8
+ * Callers:
+ *     CcWriteBehindReleaseFile @ 0x140219638 (CcWriteBehindReleaseFile.c)
+ *     CcWriteBehindPreProcess @ 0x140219A70 (CcWriteBehindPreProcess.c)
+ * Callees:
+ *     CcIsWriteBehindThreadpoolAtLowPriority @ 0x140219E24 (CcIsWriteBehindThreadpoolAtLowPriority.c)
+ *     KeSetPriorityThread @ 0x1402261B0 (KeSetPriorityThread.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsBoostThreadIoEx @ 0x1402634D0 (PsBoostThreadIoEx.c)
+ *     CcUpdateSharedCacheMapFlag @ 0x1402E0460 (CcUpdateSharedCacheMapFlag.c)
+ *     PsSetIoPriorityThread @ 0x1403579A4 (PsSetIoPriorityThread.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void __fastcall CcApplyLowIoPriorityToThread(__int64 a1, char a2, _DWORD *a3)
 {
   struct _KTHREAD *CurrentThread; // rbp

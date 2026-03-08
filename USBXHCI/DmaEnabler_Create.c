@@ -1,3 +1,15 @@
+/*
+ * XREFs of DmaEnabler_Create @ 0x1C0073140
+ * Callers:
+ *     Controller_WdfEvtDevicePrepareHardware @ 0x1C0072A30 (Controller_WdfEvtDevicePrepareHardware.c)
+ * Callees:
+ *     WPP_RECORDER_SF_q @ 0x1C00142CC (WPP_RECORDER_SF_q.c)
+ *     XilRegister_ReadUlong @ 0x1C00180A0 (XilRegister_ReadUlong.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ */
+
 __int64 __fastcall DmaEnabler_Create(__int64 a1, __int64 a2, __int64 *a3)
 {
   __int64 v4; // rcx

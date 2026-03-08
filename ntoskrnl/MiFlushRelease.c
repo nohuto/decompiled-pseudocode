@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiFlushRelease @ 0x140334AC0
+ * Callers:
+ *     MmTrimSection @ 0x14029FF98 (MmTrimSection.c)
+ *     MmFlushSection @ 0x140333F20 (MmFlushSection.c)
+ *     MiFreeOverlappedFlushEntry @ 0x140633BC0 (MiFreeOverlappedFlushEntry.c)
+ *     MmFlushVirtualMemory @ 0x14075ED38 (MmFlushVirtualMemory.c)
+ *     MiAllocateVirtualMemory @ 0x1407C5270 (MiAllocateVirtualMemory.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiDecrementSubsections @ 0x140334B70 (MiDecrementSubsections.c)
+ *     MiCheckControlArea @ 0x140334D00 (MiCheckControlArea.c)
+ *     MiReturnCrossPartitionSectionCharges @ 0x140668DD4 (MiReturnCrossPartitionSectionCharges.c)
+ */
+
 __int64 __fastcall MiFlushRelease(__int64 a1, ULONG_PTR a2, ULONG_PTR a3)
 {
   __int64 v6; // rdi

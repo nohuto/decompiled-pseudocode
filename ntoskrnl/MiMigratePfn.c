@@ -1,3 +1,44 @@
+/*
+ * XREFs of MiMigratePfn @ 0x140272370
+ * Callers:
+ *     MiHandleTransitionFault @ 0x1402720E0 (MiHandleTransitionFault.c)
+ * Callees:
+ *     MiReleasePageFileInfo @ 0x14020B300 (MiReleasePageFileInfo.c)
+ *     MiCopyPfnEntryEx @ 0x140213930 (MiCopyPfnEntryEx.c)
+ *     MiLocateAddress @ 0x140228680 (MiLocateAddress.c)
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ *     MiInsertPageInFreeOrZeroedList @ 0x140277CE0 (MiInsertPageInFreeOrZeroedList.c)
+ *     MiLockProtoPoolPage @ 0x140283CA0 (MiLockProtoPoolPage.c)
+ *     MiIsPfnCommitNotCharged @ 0x140286190 (MiIsPfnCommitNotCharged.c)
+ *     MiUnlockProtoPoolPage @ 0x1402861D0 (MiUnlockProtoPoolPage.c)
+ *     MiRemoveLockedPageChargeAndDecRef @ 0x140286264 (MiRemoveLockedPageChargeAndDecRef.c)
+ *     MiRemoveLockedPageCharge @ 0x140286E00 (MiRemoveLockedPageCharge.c)
+ *     MiGetInPageSupportBlock @ 0x14028A054 (MiGetInPageSupportBlock.c)
+ *     MiFinalizePageAttribute @ 0x14028A354 (MiFinalizePageAttribute.c)
+ *     MiNodeFromFaultPacket @ 0x14028B000 (MiNodeFromFaultPacket.c)
+ *     MiAddLockedPageCharge @ 0x1402A309C (MiAddLockedPageCharge.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     MiUpdateTransitionPteFrame @ 0x1402C6CD0 (MiUpdateTransitionPteFrame.c)
+ *     MiLockNestedPageAtDpcInline @ 0x1402DDE90 (MiLockNestedPageAtDpcInline.c)
+ *     MiCapturePageFileInfoInline @ 0x1402DE2D4 (MiCapturePageFileInfoInline.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiReturnFaultCharges @ 0x1402F4480 (MiReturnFaultCharges.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiObtainFaultCharges @ 0x14031EEE0 (MiObtainFaultCharges.c)
+ *     MiCopyPage @ 0x14032DC70 (MiCopyPage.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     MiUnlockVadTree @ 0x140330EC8 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x1403334B4 (MiLockVadTree.c)
+ *     MiSetPfnIdentity @ 0x14034BE78 (MiSetPfnIdentity.c)
+ *     MiReturnFreeZeroPage @ 0x14034E5C4 (MiReturnFreeZeroPage.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiMigratePfn(__int64 a1, __int64 a2, __int64 a3, __int64 *a4)
 {
   unsigned __int8 v4; // cf

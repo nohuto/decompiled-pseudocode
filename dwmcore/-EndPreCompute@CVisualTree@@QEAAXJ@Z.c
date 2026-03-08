@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?EndPreCompute@CVisualTree@@QEAAXJ@Z @ 0x180210C84
+ * Callers:
+ *     ?EndWalk@SubTreeContext@CPreComputeContext@@QEAAXJ@Z @ 0x1801B30E4 (-EndWalk@SubTreeContext@CPreComputeContext@@QEAAXJ@Z.c)
+ * Callees:
+ *     ?Optimize@CDirtyRegion@@QEAAXXZ @ 0x180074E70 (-Optimize@CDirtyRegion@@QEAAXXZ.c)
+ *     ?SetFullDirty@CDirtyRegion@@QEAAXXZ @ 0x1800C4210 (-SetFullDirty@CDirtyRegion@@QEAAXXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?CollectInvalidClientRects@CVisualTree@@IEAAXXZ @ 0x180210C14 (-CollectInvalidClientRects@CVisualTree@@IEAAXXZ.c)
+ */
+
 void __fastcall CVisualTree::EndPreCompute(CVisualTree *this, int a2)
 {
   __int64 v4; // rax

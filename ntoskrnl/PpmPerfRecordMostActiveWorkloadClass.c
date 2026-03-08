@@ -1,3 +1,15 @@
+/*
+ * XREFs of PpmPerfRecordMostActiveWorkloadClass @ 0x1402D3B88
+ * Callers:
+ *     PpmParkRecordNodeStatistics @ 0x1402D3A10 (PpmParkRecordNodeStatistics.c)
+ * Callees:
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PpmEventHgsActiveWorkloadClass @ 0x140597D08 (PpmEventHgsActiveWorkloadClass.c)
+ */
+
 _UNKNOWN **__fastcall PpmPerfRecordMostActiveWorkloadClass(__int64 a1)
 {
   _UNKNOWN **result; // rax

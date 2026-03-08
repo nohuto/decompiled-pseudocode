@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?GetProperty@CInteractionTracker@@MEAAJIPEAVCExpressionValue@@@Z @ 0x18022F410
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x1800C01B0 (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ @ 0x18012E802 (-AreInteractionAnimationsAlive@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?GetCurrentVelocity@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z @ 0x18022F29C (-GetCurrentVelocity@CInteractionTracker@@QEBAMW4ScrollAxis@@@Z.c)
+ *     ?GetScaleAdjustedPositionIfNeeded@CInteractionTracker@@AEBA?AUD2DVector3@@AEBU2@@Z @ 0x18022F6D0 (-GetScaleAdjustedPositionIfNeeded@CInteractionTracker@@AEBA-AUD2DVector3@@AEBU2@@Z.c)
+ *     ?HasDefaultAnimations@CInteractionTracker@@QEBA_NXZ @ 0x18022F804 (-HasDefaultAnimations@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?HasImpulse@CInteractionTracker@@QEBA_NXZ @ 0x18022F824 (-HasImpulse@CInteractionTracker@@QEBA_NXZ.c)
+ *     ?GetNaturalEndpoint@CScrollAnimation@@QEBAMXZ @ 0x180261938 (-GetNaturalEndpoint@CScrollAnimation@@QEBAMXZ.c)
+ *     ?GetNaturalEndpoint@CScrollPositionKeyframeAnimation@@QEBA?AUD2DVector3@@XZ @ 0x180262B24 (-GetNaturalEndpoint@CScrollPositionKeyframeAnimation@@QEBA-AUD2DVector3@@XZ.c)
+ *     ?GetNaturalEndpoint@CScrollScaleKeyframeAnimation@@QEBAMXZ @ 0x18026304C (-GetNaturalEndpoint@CScrollScaleKeyframeAnimation@@QEBAMXZ.c)
+ */
+
 __int64 __fastcall CInteractionTracker::GetProperty(
         CInteractionTracker *this,
         unsigned int a2,

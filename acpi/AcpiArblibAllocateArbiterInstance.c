@@ -1,3 +1,17 @@
+/*
+ * XREFs of AcpiArblibAllocateArbiterInstance @ 0x1C007CB64
+ * Callers:
+ *     AcpiArblibInitializeArbiter @ 0x1C000B688 (AcpiArblibInitializeArbiter.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     RtlStringCchPrintfExW @ 0x1C000B730 (RtlStringCchPrintfExW.c)
+ *     RtlStringCchPrintfW @ 0x1C000B900 (RtlStringCchPrintfW.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNSObjectNameSegment @ 0x1C0048384 (AMLIGetNSObjectNameSegment.c)
+ *     AMLIGetParent @ 0x1C0048724 (AMLIGetParent.c)
+ *     AMLIReferenceHandleEx @ 0x1C0048A58 (AMLIReferenceHandleEx.c)
+ */
+
 wchar_t *__fastcall AcpiArblibAllocateArbiterInstance(__int64 a1, unsigned int a2)
 {
   int v4; // eax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIVectorGetEntry @ 0x1C004419C
+ * Callers:
+ *     ACPIVectorInstall @ 0x1C00442B8 (ACPIVectorInstall.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ */
+
 char __fastcall ACPIVectorGetEntry(_DWORD *a1)
 {
   unsigned int v1; // ebx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of CcUpdateLazyWriterPerf @ 0x1402E0CC4
+ * Callers:
+ *     CcFlushCachePostProcess @ 0x14021AF2C (CcFlushCachePostProcess.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CcUpdateLazyWriterPerf(__int64 a1, _QWORD *a2, _QWORD *a3, unsigned int a4)
 {
   __int64 v5; // rbp

@@ -1,3 +1,14 @@
+/*
+ * XREFs of NotifyObjectDestruction @ 0x1C004C42C
+ * Callers:
+ *     ParseUnload @ 0x1C005CB20 (ParseUnload.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ *     MarkNativeObjectsDefunct @ 0x1C004A094 (MarkNativeObjectsDefunct.c)
+ *     MigrateDefunctObjectsToNewOwner @ 0x1C004C0DC (MigrateDefunctObjectsToNewOwner.c)
+ *     NewObjOwner @ 0x1C004C324 (NewObjOwner.c)
+ */
+
 __int64 __fastcall NotifyObjectDestruction(__int64 a1)
 {
   __int64 result; // rax

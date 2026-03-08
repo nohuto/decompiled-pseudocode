@@ -1,3 +1,16 @@
+/*
+ * XREFs of FlushWEFCOMPOSITEDDCEBounds @ 0x1C0016990
+ * Callers:
+ *     InvalidateWEFCOMPOSITEDDCEs @ 0x1C0005ACC (InvalidateWEFCOMPOSITEDDCEs.c)
+ * Callees:
+ *     _GetProp @ 0x1C002ED8C (_GetProp.c)
+ *     ?IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ @ 0x1C004A174 (-IS_USERCRIT_OWNED_EXCLUSIVE@@YA_NXZ.c)
+ *     UnionRect @ 0x1C00DD06C (UnionRect.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?InvalidateWEFCOMPOSITEDWindow@@YAHPEAUtagWND@@PEBUtagRECT@@@Z @ 0x1C01BD944 (-InvalidateWEFCOMPOSITEDWindow@@YAHPEAUtagWND@@PEBUtagRECT@@@Z.c)
+ *     ?PostCOMPOSITEDInvalidateAPC@@YAHQEAUtagWND@@PEBUtagRECT@@@Z @ 0x1C01BDA84 (-PostCOMPOSITEDInvalidateAPC@@YAHQEAUtagWND@@PEBUtagRECT@@@Z.c)
+ */
+
 __int64 __fastcall FlushWEFCOMPOSITEDDCEBounds(__int64 a1)
 {
   __int64 v2; // rcx

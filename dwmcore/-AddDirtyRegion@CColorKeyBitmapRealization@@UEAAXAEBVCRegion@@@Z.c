@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AddDirtyRegion@CColorKeyBitmapRealization@@UEAAXAEBVCRegion@@@Z @ 0x180131740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CColorKeyBitmapRealization::AddDirtyRegion(
         CColorKeyBitmapRealization *this,
         const struct FastRegion::Internal::CRgnData **a2)

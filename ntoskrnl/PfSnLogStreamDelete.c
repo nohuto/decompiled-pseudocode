@@ -1,3 +1,13 @@
+/*
+ * XREFs of PfSnLogStreamDelete @ 0x140773D30
+ * Callers:
+ *     PfSnNameRemoveAll @ 0x140773CE0 (PfSnNameRemoveAll.c)
+ * Callees:
+ *     PfSnTraceGetLogEntry @ 0x14030841C (PfSnTraceGetLogEntry.c)
+ *     PfSnGetNLLogEntry @ 0x1407A3E08 (PfSnGetNLLogEntry.c)
+ *     PfSnFailProcessTrace @ 0x14097C804 (PfSnFailProcessTrace.c)
+ */
+
 __int64 __fastcall PfSnLogStreamDelete(__int64 a1, __int64 a2)
 {
   int LogEntry; // ebx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?xxxPaintSwitchWindow@@YAXPEAUtagWND@@@Z @ 0x1C01CADAC
+ * Callers:
+ *     xxxSwitchWndProc @ 0x1C01CC6D0 (xxxSwitchWndProc.c)
+ * Callees:
+ *     FillRect @ 0x1C00881F8 (FillRect.c)
+ *     DrawEdge @ 0x1C0088404 (DrawEdge.c)
+ *     _GetClientRect @ 0x1C01016A4 (_GetClientRect.c)
+ *     GetDPIServerInfo @ 0x1C010C460 (GetDPIServerInfo.c)
+ *     ?xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z @ 0x1C012E4C8 (-xxxDrawSwitchWndHilite@@YAXPEAUtagSwitchWndInfo@@PEAUHDC__@@HHH@Z.c)
+ *     ?Getpswi@@YAPEAUtagSwitchWndInfo@@PEAUtagWND@@@Z @ 0x1C01CA108 (-Getpswi@@YAPEAUtagSwitchWndInfo@@PEAUtagWND@@@Z.c)
+ *     ?xxxPaintIconsInSwitchWindow@@YAXPEAUtagWND@@PEAUtagSwitchWndInfo@@PEAUHDC__@@HHHHHPEAUtagCURSOR@@@Z @ 0x1C01CA94C (-xxxPaintIconsInSwitchWindow@@YAXPEAUtagWND@@PEAUtagSwitchWndInfo@@PEAUHDC__@@HHHHHPEAUtagCURSOR.c)
+ */
+
 void __fastcall xxxPaintSwitchWindow(struct tagWND *a1)
 {
   struct tagSwitchWndInfo *v2; // rbx

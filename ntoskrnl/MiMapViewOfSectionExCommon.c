@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiMapViewOfSectionExCommon @ 0x140727CDC
+ * Callers:
+ *     MmMapViewOfSectionEx @ 0x1402A5B98 (MmMapViewOfSectionEx.c)
+ *     PspMapView @ 0x1405A404C (PspMapView.c)
+ *     NtMapViewOfSectionEx @ 0x140726530 (NtMapViewOfSectionEx.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     EtwTiLogMapExecView @ 0x14067FA78 (EtwTiLogMapExecView.c)
+ *     MiMapExParametersInitialize @ 0x140727F8C (MiMapExParametersInitialize.c)
+ *     MiCaptureAllocateMapExtendedParameters @ 0x1407282D0 (MiCaptureAllocateMapExtendedParameters.c)
+ *     DbgkMapViewOfSection @ 0x1407D2C6C (DbgkMapViewOfSection.c)
+ *     MiMapViewOfSectionCommon @ 0x1407D4E50 (MiMapViewOfSectionCommon.c)
+ *     MiMapParametersInitialize @ 0x1407D5090 (MiMapParametersInitialize.c)
+ *     MiMapViewOfSection @ 0x1407D51F0 (MiMapViewOfSection.c)
+ */
+
 __int64 __fastcall MiMapViewOfSectionExCommon(
         __int64 a1,
         __int64 a2,

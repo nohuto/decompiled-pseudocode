@@ -1,3 +1,12 @@
+/*
+ * XREFs of KeAcquireInterruptSpinLock @ 0x14027F4A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 KIRQL __stdcall KeAcquireInterruptSpinLock(PKINTERRUPT Interrupt)
 {
   unsigned __int64 SynchronizeIrql; // r8

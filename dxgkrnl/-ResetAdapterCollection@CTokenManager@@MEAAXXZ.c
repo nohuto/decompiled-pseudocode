@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ResetAdapterCollection@CTokenManager@@MEAAXXZ @ 0x1C00173F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AcquireTokenManagerLock@CTokenManager@@AEAAXXZ @ 0x1C00129C0 (-AcquireTokenManagerLock@CTokenManager@@AEAAXXZ.c)
+ *     ?Release@CPushLockCriticalSection@@QEAAXXZ @ 0x1C0018BE8 (-Release@CPushLockCriticalSection@@QEAAXXZ.c)
+ *     ?InternalDiscard@CAdapterCollection@@AEAAXXZ @ 0x1C00192B0 (-InternalDiscard@CAdapterCollection@@AEAAXXZ.c)
+ */
+
 void __fastcall CTokenManager::ResetAdapterCollection(CTokenManager *this)
 {
   CTokenManager::AcquireTokenManagerLock(this);

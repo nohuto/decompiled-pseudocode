@@ -1,3 +1,26 @@
+/*
+ * XREFs of HvpMarkDirty @ 0x1407D25D0
+ * Callers:
+ *     HvMarkDirtyForFlush @ 0x1402FF80C (HvMarkDirtyForFlush.c)
+ *     CmpTransMgrPrepare @ 0x1406B5D04 (CmpTransMgrPrepare.c)
+ *     HvCheckAndUpdateHiveBackupTimeStamp @ 0x14072CD4C (HvCheckAndUpdateHiveBackupTimeStamp.c)
+ *     HvpAddBin @ 0x14072F9F0 (HvpAddBin.c)
+ *     CmpTransMgrSyncHive @ 0x140798AD0 (CmpTransMgrSyncHive.c)
+ *     HvpRemapAndEnlistHiveBins @ 0x1407A488C (HvpRemapAndEnlistHiveBins.c)
+ *     HvpEnlistFreeCells @ 0x1407A4A50 (HvpEnlistFreeCells.c)
+ *     HvpMarkCellDirty @ 0x1407D2460 (HvpMarkCellDirty.c)
+ * Callees:
+ *     RtlSetBits @ 0x14028BC50 (RtlSetBits.c)
+ *     CmpArmLazyWriter @ 0x140349EA4 (CmpArmLazyWriter.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     CmpLogDirtyVectorUse @ 0x1406918DC (CmpLogDirtyVectorUse.c)
+ *     CmpIssueNewDirtyCallback @ 0x14079508C (CmpIssueNewDirtyCallback.c)
+ *     HvpSetRangeProtection @ 0x1407A5934 (HvpSetRangeProtection.c)
+ *     CmpForceFlushForCoalescing @ 0x1408A6EA0 (CmpForceFlushForCoalescing.c)
+ */
+
 __int64 __fastcall HvpMarkDirty(ULONG_PTR BugCheckParameter2, int a2, int a3, int a4)
 {
   int v4; // eax

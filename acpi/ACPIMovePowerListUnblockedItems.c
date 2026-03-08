@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIMovePowerListUnblockedItems @ 0x1C002234C
+ * Callers:
+ *     ACPIDevicePowerDpc @ 0x1C001E5C0 (ACPIDevicePowerDpc.c)
+ * Callees:
+ *     ACPIIsPowerRequestBlocked @ 0x1C0022250 (ACPIIsPowerRequestBlocked.c)
+ *     ACPIInternalMovePowerList @ 0x1C002EC34 (ACPIInternalMovePowerList.c)
+ */
+
 __int64 *__fastcall ACPIMovePowerListUnblockedItems(__int64 **a1)
 {
   __int64 *v1; // rsi

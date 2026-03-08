@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlDescribeChunkLZNT1 @ 0x1409C0C10
+ * Callers:
+ *     RtlReserveChunkLZNT1 @ 0x1409C0CF0 (RtlReserveChunkLZNT1.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlDescribeChunkLZNT1(__int16 **a1, unsigned __int64 a2, __int64 a3, _DWORD *a4)
 {
   __int16 *v5; // rcx

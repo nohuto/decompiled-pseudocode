@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtGdiGetCharWidthInfo @ 0x1C000D690
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GreGetCharWidthInfo@@YAHPEAUHDC__@@PEAU_CHWIDTHINFO@@W4EntryPoint@RFONTOBJ@@@Z @ 0x1C000D728 (-GreGetCharWidthInfo@@YAHPEAUHDC__@@PEAU_CHWIDTHINFO@@W4EntryPoint@RFONTOBJ@@@Z.c)
+ *     ??1EUDCCountRegion@@QEAA@XZ @ 0x1C0114AF8 (--1EUDCCountRegion@@QEAA@XZ.c)
+ *     ??0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z @ 0x1C0114B84 (--0EUDCCountRegion@@QEAA@AEAUSESSION_GLOBALS@Full@Gre@@@Z.c)
+ */
+
 __int64 __fastcall NtGdiGetCharWidthInfo(__int64 a1, unsigned __int64 a2)
 {
   __int64 v4; // rax

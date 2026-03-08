@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpValueEnumStackEntryCleanup @ 0x14061431C
+ * Callers:
+ *     CmpValueEnumStackCleanup @ 0x140A22A28 (CmpValueEnumStackCleanup.c)
+ * Callees:
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ */
+
 __int64 __fastcall CmpValueEnumStackEntryCleanup(__int64 *a1)
 {
   _QWORD *v1; // rdx

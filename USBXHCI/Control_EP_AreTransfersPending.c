@@ -1,3 +1,11 @@
+/*
+ * XREFs of Control_EP_AreTransfersPending @ 0x1C0042280
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall Control_EP_AreTransfersPending(__int64 a1)
 {
   KSPIN_LOCK *v1; // rdi

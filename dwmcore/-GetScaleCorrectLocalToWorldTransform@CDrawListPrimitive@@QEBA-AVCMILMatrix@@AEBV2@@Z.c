@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetScaleCorrectLocalToWorldTransform@CDrawListPrimitive@@QEBA?AVCMILMatrix@@AEBV2@@Z @ 0x18007D340
+ * Callers:
+ *     ??$TransferVertices@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@YAXAEBVCDrawListPrimitive@@AEBVCMILMatrix@@_NMAEBV?$StridedSpan@U?$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@@Z @ 0x180049C3C (--$TransferVertices@U-$Vertex_UVxN@UVertexXYW_ColorDW@@@@@@YAXAEBVCDrawListPrimitive@@AEBVCMILMa.c)
+ *     ?EmitCpuClipAntialiasTemplateGeometry@@YAJPEAVCD3DBatchExecutionContext@@PEBVCCpuClipAntialiasBatchCommand@@_N@Z @ 0x18007D038 (-EmitCpuClipAntialiasTemplateGeometry@@YAJPEAVCD3DBatchExecutionContext@@PEBVCCpuClipAntialiasBa.c)
+ * Callees:
+ *     <none>
+ */
+
 __m128 *__fastcall CDrawListPrimitive::GetScaleCorrectLocalToWorldTransform(__int64 a1, __m128 *a2, __m128 *a3)
 {
   __m128 v3; // xmm3

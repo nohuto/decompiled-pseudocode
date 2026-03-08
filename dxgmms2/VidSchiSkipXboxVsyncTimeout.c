@@ -1,3 +1,11 @@
+/*
+ * XREFs of VidSchiSkipXboxVsyncTimeout @ 0x1C003C7CC
+ * Callers:
+ *     ?VidSchiCheckHeadTimeout@@YAHPEAU_VIDSCH_GLOBAL@@IPEAHPEA_KPEAT_ULARGE_INTEGER@@@Z @ 0x1C0008B70 (-VidSchiCheckHeadTimeout@@YAHPEAU_VIDSCH_GLOBAL@@IPEAHPEA_KPEAT_ULARGE_INTEGER@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall VidSchiSkipXboxVsyncTimeout(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned __int64 v5; // rdi

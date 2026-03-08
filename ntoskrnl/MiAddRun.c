@@ -1,3 +1,14 @@
+/*
+ * XREFs of MiAddRun @ 0x140A2AED0
+ * Callers:
+ *     MiAddRuns @ 0x140A2B004 (MiAddRuns.c)
+ *     MmAllocateMemoryRanges @ 0x140A2B5D0 (MmAllocateMemoryRanges.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiAddRun(__int64 a1, __int64 *a2, int a3)
 {
   __int64 v3; // r9

@@ -1,3 +1,20 @@
+/*
+ * XREFs of GreDeleteWnd @ 0x1C028A9D0
+ * Callers:
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ *     ?GreDoBanding@@YAHPEAUHDC__@@HPEAU_POINTL@@PEAUtagSIZE@@@Z @ 0x1C0277D50 (-GreDoBanding@@YAHPEAUHDC__@@HPEAU_POINTL@@PEAUtagSIZE@@@Z.c)
+ *     NtGdiEndPage @ 0x1C027AC90 (NtGdiEndPage.c)
+ *     EngDeleteWnd @ 0x1C028A830 (EngDeleteWnd.c)
+ * Callees:
+ *     ?vDestructor@DEVLOCKOBJ@@QEAAXXZ @ 0x1C0050DA0 (-vDestructor@DEVLOCKOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ *     ?vUnlock@DLODCOBJ@@QEAAXXZ @ 0x1C011354C (-vUnlock@DLODCOBJ@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     ?vSpWndobjChange@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@@Z @ 0x1C0285B74 (-vSpWndobjChange@@YAXPEAUHDEV__@@PEAVEWNDOBJ@@@Z.c)
+ *     ?bValid@EWNDOBJ@@QEBAHXZ @ 0x1C0289BE4 (-bValid@EWNDOBJ@@QEBAHXZ.c)
+ *     ?vDelete@EWNDOBJ@@QEAAXXZ @ 0x1C0289C10 (-vDelete@EWNDOBJ@@QEAAXXZ.c)
+ */
+
 void __fastcall GreDeleteWnd(EWNDOBJ *this)
 {
   Gre::Base *v2; // rcx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vFreeDriverInfo2@@YAXPEAU_DRIVER_INFO_2W@@@Z @ 0x1C0185820
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopThreadGuardedObject @ 0x1C00453C0 (PopThreadGuardedObject.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ */
+
 void __fastcall vFreeDriverInfo2(struct _DRIVER_INFO_2W *a1)
 {
   char *v1; // rbx

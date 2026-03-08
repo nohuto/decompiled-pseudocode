@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Dispose@FxDpc@@UEAAEXZ @ 0x1C00231C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 unsigned __int8 __fastcall FxDpc::Dispose(FxDpc *this)
 {
   FxObject *m_Object; // rcx

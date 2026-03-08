@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlUnicodeStringPrintf @ 0x1C00178B4
+ * Callers:
+ *     ?FxLibraryCreateDevice@@YAJPEAU_UNICODE_STRING@@@Z @ 0x1C0016C4C (-FxLibraryCreateDevice@@YAJPEAU_UNICODE_STRING@@@Z.c)
+ *     ?SleepStudyRegisterBlockingComponents@FxPkgPnp@@QEAAJXZ @ 0x1C0079560 (-SleepStudyRegisterBlockingComponents@FxPkgPnp@@QEAAJXZ.c)
+ * Callees:
+ *     RtlUnicodeStringValidateDestWorker @ 0x1C0017A08 (RtlUnicodeStringValidateDestWorker.c)
+ *     RtlWideCharArrayVPrintfWorker @ 0x1C0017B24 (RtlWideCharArrayVPrintfWorker.c)
+ */
+
 __int64 RtlUnicodeStringPrintf(_UNICODE_STRING *DestinationString, const wchar_t *pszFormat, ...)
 {
   int v3; // edx

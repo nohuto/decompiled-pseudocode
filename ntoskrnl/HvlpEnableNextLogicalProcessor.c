@@ -1,3 +1,14 @@
+/*
+ * XREFs of HvlpEnableNextLogicalProcessor @ 0x14053E9B4
+ * Callers:
+ *     HvlStartBootLogicalProcessors @ 0x1403714E0 (HvlStartBootLogicalProcessors.c)
+ * Callees:
+ *     MmMapIoSpaceEx @ 0x14029AF10 (MmMapIoSpaceEx.c)
+ *     HvlpGetVpIndexFromApicId @ 0x14053EBC8 (HvlpGetVpIndexFromApicId.c)
+ *     HvlpMapStatisticsPage @ 0x14053EE40 (HvlpMapStatisticsPage.c)
+ *     HvlpStartLogicalProcessor @ 0x14053FE30 (HvlpStartLogicalProcessor.c)
+ */
+
 __int64 __fastcall HvlpEnableNextLogicalProcessor(__int64 a1, unsigned __int16 a2)
 {
   int v2; // edi

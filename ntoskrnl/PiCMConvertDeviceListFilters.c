@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiCMConvertDeviceListFilters @ 0x1407783AC
+ * Callers:
+ *     PiCMGetDeviceIdList @ 0x14077813C (PiCMGetDeviceIdList.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PiCMConvertDeviceListFilters(int a1, int *a2)
 {
   unsigned int v2; // r9d

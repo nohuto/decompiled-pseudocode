@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopOpenKey @ 0x1403900E4
+ * Callers:
+ *     PpmInitIllegalThrottleLogging @ 0x14039001C (PpmInitIllegalThrottleLogging.c)
+ *     PopOpenPowerKey @ 0x1403900C8 (PopOpenPowerKey.c)
+ *     PopLoadResumeContext @ 0x14097DC78 (PopLoadResumeContext.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ */
+
 __int64 __fastcall PopOpenKey(HANDLE *a1, const WCHAR *a2)
 {
   NTSTATUS v4; // ebx

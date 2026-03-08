@@ -1,3 +1,12 @@
+/*
+ * XREFs of PpmIdleSetSynchronizationState @ 0x14058308C
+ * Callers:
+ *     PpmIdleExecuteTransition @ 0x14022D7D0 (PpmIdleExecuteTransition.c)
+ *     PpmIdleSelectStates @ 0x1403B2150 (PpmIdleSelectStates.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PpmIdleSetSynchronizationState(unsigned __int32 *a1, unsigned __int8 a2)
 {
   unsigned __int32 v2; // eax

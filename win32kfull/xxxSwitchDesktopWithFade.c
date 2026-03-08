@@ -1,3 +1,16 @@
+/*
+ * XREFs of xxxSwitchDesktopWithFade @ 0x1C00EA72C
+ * Callers:
+ *     NtUserSwitchDesktop @ 0x1C00EA5E0 (NtUserSwitchDesktop.c)
+ * Callees:
+ *     xxxSwitchDesktop @ 0x1C00205D4 (xxxSwitchDesktop.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     PrepareGammaRampData @ 0x1C00EA8B0 (PrepareGammaRampData.c)
+ *     RestoreGammaRamp @ 0x1C00EAA70 (RestoreGammaRamp.c)
+ *     FadeDesktop @ 0x1C01BFAF0 (FadeDesktop.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall xxxSwitchDesktopWithFade(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, int a5)
 {

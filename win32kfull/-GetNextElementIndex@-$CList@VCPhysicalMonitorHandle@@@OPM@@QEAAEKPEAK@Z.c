@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetNextElementIndex@?$CList@VCPhysicalMonitorHandle@@@OPM@@QEAAEKPEAK@Z @ 0x1C026C908
+ * Callers:
+ *     MonitorAPIProcessTerminating @ 0x1C00D6D20 (MonitorAPIProcessTerminating.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall OPM::CList<CPhysicalMonitorHandle>::GetNextElementIndex(__int64 *a1, unsigned int a2, _DWORD *a3)
 {
   __int64 v3; // r9

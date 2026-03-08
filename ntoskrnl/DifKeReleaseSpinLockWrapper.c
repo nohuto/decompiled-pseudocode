@@ -1,3 +1,15 @@
+/*
+ * XREFs of DifKeReleaseSpinLockWrapper @ 0x1405E2C60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     DifGetAPIThunkContextById @ 0x14045DE6E (DifGetAPIThunkContextById.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     DifGetReturnAddressForWrappers @ 0x1405F64A4 (DifGetReturnAddressForWrappers.c)
+ */
+
 __int64 __fastcall DifKeReleaseSpinLockWrapper(volatile signed __int64 *a1, unsigned __int8 a2)
 {
   unsigned __int64 v2; // rbp

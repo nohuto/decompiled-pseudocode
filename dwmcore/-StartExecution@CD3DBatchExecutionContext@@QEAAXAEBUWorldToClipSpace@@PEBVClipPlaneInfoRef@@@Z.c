@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?StartExecution@CD3DBatchExecutionContext@@QEAAXAEBUWorldToClipSpace@@PEBVClipPlaneInfoRef@@@Z @ 0x180090284
+ * Callers:
+ *     ?Render@CDrawListEntryBatch@@UEAAJXZ @ 0x18008F650 (-Render@CDrawListEntryBatch@@UEAAJXZ.c)
+ * Callees:
+ *     memcmp_0 @ 0x1801177DC (memcmp_0.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CD3DBatchExecutionContext::StartExecution(
         CD3DBatchExecutionContext *this,
         const struct WorldToClipSpace *a2,

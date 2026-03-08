@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Release@CCompSwapChain@@UEAAKXZ @ 0x18029B628
+ * Callers:
+ *     ?Release@CCompSwapChain@@$4PPPPPPPM@A@EAAKXZ @ 0x18011BEF0 (-Release@CCompSwapChain@@$4PPPPPPPM@A@EAAKXZ.c)
+ * Callees:
+ *     ?AddReference@CMILRefCountImpl@@IEAAKXZ @ 0x18007B984 (-AddReference@CMILRefCountImpl@@IEAAKXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CCompSwapChain::Release(CCompSwapChain *this)
 {
   char *v1; // rsi

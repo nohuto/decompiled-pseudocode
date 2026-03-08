@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiUpdatePrefetchPriority @ 0x1402C95DC
+ * Callers:
+ *     MiValidFault @ 0x1402C90E0 (MiValidFault.c)
+ *     MiPrefetchJumpVad @ 0x14062FBB8 (MiPrefetchJumpVad.c)
+ * Callees:
+ *     MiLocateAddress @ 0x140228680 (MiLocateAddress.c)
+ *     MiGetPfnPriority @ 0x14028A3F8 (MiGetPfnPriority.c)
+ *     MiUpdatePfnPriority @ 0x14028D35C (MiUpdatePfnPriority.c)
+ *     MiLockTransitionLeafPageEx @ 0x1402DD4C8 (MiLockTransitionLeafPageEx.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiUnlockVadTree @ 0x140330EC8 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x1403334B4 (MiLockVadTree.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 char __fastcall MiUpdatePrefetchPriority(__int64 a1, unsigned __int64 a2, __int64 a3)
 {
   int v5; // edi

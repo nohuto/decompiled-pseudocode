@@ -1,3 +1,20 @@
+/*
+ * XREFs of GreSetBkMode @ 0x1C0118028
+ * Callers:
+ *     FinalUserInit @ 0x1C00C1B24 (FinalUserInit.c)
+ *     DrawFrameControl @ 0x1C0116938 (DrawFrameControl.c)
+ *     ?PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z @ 0x1C02039A0 (-PaintWatermark@@YAXPEAUHDC__@@PEBUtagRECT@@@Z.c)
+ *     ?xxxTooltipRender@@YAXPEAUtagTOOLTIPWND@@PEAUHDC__@@@Z @ 0x1C0228B58 (-xxxTooltipRender@@YAXPEAUtagTOOLTIPWND@@PEAUHDC__@@@Z.c)
+ *     xxxDrawCaptionTemp @ 0x1C022EDB4 (xxxDrawCaptionTemp.c)
+ *     xxxDrawMenuItem @ 0x1C0237914 (xxxDrawMenuItem.c)
+ *     xxxMNInvertItem @ 0x1C02382C8 (xxxMNInvertItem.c)
+ *     xxxMenuDraw @ 0x1C0238E5C (xxxMenuDraw.c)
+ *     xxxDrawState @ 0x1C02423C0 (xxxDrawState.c)
+ * Callees:
+ *     ?vLockIgnoreAttributes@XDCOBJ@@QEAAXPEAUHDC__@@@Z @ 0x1C0051250 (-vLockIgnoreAttributes@XDCOBJ@@QEAAXPEAUHDC__@@@Z.c)
+ *     ?vMarkTransformDirty@DC@@QEAAXXZ @ 0x1C0269660 (-vMarkTransformDirty@DC@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall GreSetBkMode(HDC a1, int a2)
 {
   unsigned int v2; // edi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopPowerAggregatorHandleSystemTransitionIntent @ 0x140880210
+ * Callers:
+ *     PopPowerAggregatorHandleIntentUnsafe @ 0x140757290 (PopPowerAggregatorHandleIntentUnsafe.c)
+ * Callees:
+ *     PopPowerAggregatorDetermineTargetSystemPowerState @ 0x140880280 (PopPowerAggregatorDetermineTargetSystemPowerState.c)
+ */
+
 __int64 __fastcall PopPowerAggregatorHandleSystemTransitionIntent(__int64 a1, __int64 a2, int a3, unsigned int *a4)
 {
   __int64 v4; // rbx

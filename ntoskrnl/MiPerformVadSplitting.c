@@ -1,3 +1,30 @@
+/*
+ * XREFs of MiPerformVadSplitting @ 0x1402D581C
+ * Callers:
+ *     MiDeletePartialVad @ 0x1402D5768 (MiDeletePartialVad.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     PsReturnProcessPagedPoolQuota @ 0x140295600 (PsReturnProcessPagedPoolQuota.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MiPostInsertVad @ 0x1402D5DE4 (MiPostInsertVad.c)
+ *     MiAdvanceVadView @ 0x1402D5E10 (MiAdvanceVadView.c)
+ *     MiCountSharedPages @ 0x14031DE80 (MiCountSharedPages.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ *     MiUnlockVadTree @ 0x140330EC8 (MiUnlockVadTree.c)
+ *     MiInsertVad @ 0x1403312E0 (MiInsertVad.c)
+ *     MiLockVadTree @ 0x1403334B4 (MiLockVadTree.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     MiComputePageCommitment @ 0x140345CE0 (MiComputePageCommitment.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiLockNestedVad @ 0x140A44F48 (MiLockNestedVad.c)
+ *     MiUnlockNestedVad @ 0x140A44F98 (MiUnlockNestedVad.c)
+ */
+
 __int64 __fastcall MiPerformVadSplitting(__int64 **a1)
 {
   struct _KTHREAD *CurrentThread; // rbx

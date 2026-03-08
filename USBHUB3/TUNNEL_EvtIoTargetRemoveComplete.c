@@ -1,3 +1,13 @@
+/*
+ * XREFs of TUNNEL_EvtIoTargetRemoveComplete @ 0x1C008E4C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_q @ 0x1C0015204 (WPP_RECORDER_SF_q.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     TUNNEL_CloseRemoteTarget @ 0x1C008E5D0 (TUNNEL_CloseRemoteTarget.c)
+ */
+
 void __fastcall TUNNEL_EvtIoTargetRemoveComplete(__int64 a1)
 {
   __int64 v2; // rdi

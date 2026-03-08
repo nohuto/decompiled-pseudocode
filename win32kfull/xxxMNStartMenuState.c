@@ -1,3 +1,24 @@
+/*
+ * XREFs of xxxMNStartMenuState @ 0x1C0202C44
+ * Callers:
+ *     xxxSysCommand @ 0x1C00DE67C (xxxSysCommand.c)
+ * Callees:
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     _PostTransformableMessage @ 0x1C00CB714 (_PostTransformableMessage.c)
+ *     ??4?$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z @ 0x1C00E0FE0 (--4-$SmartObjStackRefBase@UtagPOPUPMENU@@@@IEAAAEAV0@QEAUtagPOPUPMENU@@@Z.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z @ 0x1C00E67A8 (-Init@-$SmartObjStackRefBase@UtagPOPUPMENU@@@@AEAAXPEAUtagPOPUPMENU@@@Z.c)
+ *     ??1?$SmartObjStackRef@UtagPOPUPMENU@@@@QEAA@XZ @ 0x1C012D878 (--1-$SmartObjStackRef@UtagPOPUPMENU@@@@QEAA@XZ.c)
+ *     safe_cast_fnid_to_PMENUWND @ 0x1C012D8B8 (safe_cast_fnid_to_PMENUWND.c)
+ *     xxxUnlockMenuState @ 0x1C012EEF0 (xxxUnlockMenuState.c)
+ *     ??0MenuStateOwnerLockxxxUnlock@@QEAA@PEAUtagMENUSTATE@@@Z @ 0x1C01432F0 (--0MenuStateOwnerLockxxxUnlock@@QEAA@PEAUtagMENUSTATE@@@Z.c)
+ *     ??$UserFreeIsolatedType@V?$CTypeIsolation@$0GAAA@$0GA@@NSInstrumentation@@@@YAXPEAX@Z @ 0x1C020124C (--$UserFreeIsolatedType@V-$CTypeIsolation@$0GAAA@$0GA@@NSInstrumentation@@@@YAXPEAX@Z.c)
+ *     NullifyLookasideRef @ 0x1C0201B70 (NullifyLookasideRef.c)
+ *     MNAllocMenuState @ 0x1C0201C50 (MNAllocMenuState.c)
+ *     MNAllocPopup @ 0x1C0201DA8 (MNAllocPopup.c)
+ *     MNFreePopup @ 0x1C0202004 (MNFreePopup.c)
+ *     MNMarkDelayedFreePopup @ 0x1C0202124 (MNMarkDelayedFreePopup.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 struct tagMENUSTATE *__fastcall xxxMNStartMenuState(_QWORD *a1, unsigned int a2, __int128 *a3)
 {

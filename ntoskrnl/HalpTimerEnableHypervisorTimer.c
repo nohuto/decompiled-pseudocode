@@ -1,3 +1,18 @@
+/*
+ * XREFs of HalpTimerEnableHypervisorTimer @ 0x140508738
+ * Callers:
+ *     HalpTimerInitializeHypervisorTimer @ 0x1403B13E0 (HalpTimerInitializeHypervisorTimer.c)
+ *     HalpAcpiPostSleep @ 0x140A93580 (HalpAcpiPostSleep.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     HalpInterruptGsiToLine @ 0x14028EF10 (HalpInterruptGsiToLine.c)
+ *     HalpInterruptSetLineState @ 0x1403793AC (HalpInterruptSetLineState.c)
+ *     HalpAcquireHighLevelLock @ 0x140379818 (HalpAcquireHighLevelLock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 HalpTimerEnableHypervisorTimer()
 {
   __int64 v0; // rbx

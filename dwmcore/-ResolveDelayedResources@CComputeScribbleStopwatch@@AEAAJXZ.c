@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ResolveDelayedResources@CComputeScribbleStopwatch@@AEAAJXZ @ 0x180206B18
+ * Callers:
+ *     ?GetElapsedTimeMs@CComputeScribbleStopwatch@@QEAAMXZ @ 0x180206840 (-GetElapsedTimeMs@CComputeScribbleStopwatch@@QEAAMXZ.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     ?Calibrate@CComputeScribbleStopwatch@@AEAAJXZ @ 0x1802066B4 (-Calibrate@CComputeScribbleStopwatch@@AEAAJXZ.c)
+ *     ?ResolveGpuTimestamp@CComputeScribbleStopwatch@@AEAAJXZ @ 0x180206B80 (-ResolveGpuTimestamp@CComputeScribbleStopwatch@@AEAAJXZ.c)
+ */
+
 __int64 __fastcall CComputeScribbleStopwatch::ResolveDelayedResources(CComputeScribbleStopwatch *this)
 {
   int v2; // edi

@@ -1,3 +1,17 @@
+/*
+ * XREFs of BvgaReleaseLock @ 0x14054D030
+ * Callers:
+ *     BvgaBitBlt @ 0x14054CDD0 (BvgaBitBlt.c)
+ *     BvgaDisplayString @ 0x14054CE50 (BvgaDisplayString.c)
+ *     BvgaEnableBootDriver @ 0x14054CEC0 (BvgaEnableBootDriver.c)
+ *     BvgaNotifyDisplayOwnershipLost @ 0x14054CFC0 (BvgaNotifyDisplayOwnershipLost.c)
+ *     BvgaSolidColorFill @ 0x14054D170 (BvgaSolidColorFill.c)
+ *     BvgaUpdateProgressBar @ 0x14054D230 (BvgaUpdateProgressBar.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char BvgaReleaseLock()
 {
   unsigned __int64 v0; // rbx

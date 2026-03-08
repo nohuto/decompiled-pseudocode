@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?ulGetMaxSize@UMPDOBJ@@QEBAKXZ @ 0x1C02C18EC
+ * Callers:
+ *     ?Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z @ 0x1C02BA998 (-Thunk@UMPDOBJ@@QEAAKPEAXK0K@Z.c)
+ *     ?bSendLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAH@Z @ 0x1C02C14CC (-bSendLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAH@Z.c)
+ *     ?bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z @ 0x1C02C1674 (-bThunkLargeBitmap@UMPDOBJ@@QEAAHPEAU_SURFOBJ@@PEAPEAX1PEAH2PEAK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall UMPDOBJ::ulGetMaxSize(UMPDOBJ *this)
 {
   __int64 v1; // rax

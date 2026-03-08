@@ -1,3 +1,18 @@
+/*
+ * XREFs of ??1WDFDEVICE_INIT@@QEAA@XZ @ 0x1C003BA20
+ * Callers:
+ *     ?CreateDevice@FxChildList@@IEAAEPEAUFxDeviceDescriptionEntry@@PEAE@Z @ 0x1C0023ED4 (-CreateDevice@FxChildList@@IEAAEPEAUFxDeviceDescriptionEntry@@PEAE@Z.c)
+ *     ??_GWDFDEVICE_INIT@@QEAAPEAXI@Z @ 0x1C002E9A8 (--_GWDFDEVICE_INIT@@QEAAPEAXI@Z.c)
+ *     ?AddDevice@FxDriver@@QEAAJPEAU_DEVICE_OBJECT@@@Z @ 0x1C00420D0 (-AddDevice@FxDriver@@QEAAJPEAU_DEVICE_OBJECT@@@Z.c)
+ * Callees:
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ??_GFxIrpPreprocessInfo@@QEAAPEAXI@Z @ 0x1C003BB8C (--_GFxIrpPreprocessInfo@@QEAAPEAXI@Z.c)
+ *     ?_CleanupList@FxDeviceText@@SAHPEAU_SINGLE_LIST_ENTRY@@@Z @ 0x1C003BF18 (-_CleanupList@FxDeviceText@@SAHPEAU_SINGLE_LIST_ENTRY@@@Z.c)
+ *     ??1WDFCXDEVICE_INIT@@QEAA@XZ @ 0x1C003FBFC (--1WDFCXDEVICE_INIT@@QEAA@XZ.c)
+ *     ?Clear@FxCollectionInternal@@QEAAXXZ @ 0x1C004F1A4 (-Clear@FxCollectionInternal@@QEAAXXZ.c)
+ */
+
 void __fastcall WDFDEVICE_INIT::~WDFDEVICE_INIT(WDFDEVICE_INIT *this)
 {
   FxPnpStateCallback *PnpStateCallbacks; // rcx

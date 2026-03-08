@@ -1,3 +1,13 @@
+/*
+ * XREFs of KePopulateContinuationContext @ 0x140365578
+ * Callers:
+ *     KiDispatchException @ 0x140362740 (KiDispatchException.c)
+ *     KiInitializeUserApc @ 0x1403664E8 (KiInitializeUserApc.c)
+ *     PspInitializeThunkContext @ 0x1407EDF4C (PspInitializeThunkContext.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _KTHREAD *__fastcall KePopulateContinuationContext(__int64 a1)
 {
   struct _KTHREAD *result; // rax

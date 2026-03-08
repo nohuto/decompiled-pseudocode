@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlpGetCodePageData @ 0x1407A3BA4
+ * Callers:
+ *     RtlUnicodeToOemN @ 0x14079F690 (RtlUnicodeToOemN.c)
+ *     RtlOemToUnicodeN @ 0x1407A3940 (RtlOemToUnicodeN.c)
+ *     RtlMultiByteToUnicodeN @ 0x1407A3B40 (RtlMultiByteToUnicodeN.c)
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpIsUtf8Process @ 0x1406EA7A0 (RtlpIsUtf8Process.c)
+ */
+
 __int128 *__fastcall RtlpGetCodePageData(unsigned int a1)
 {
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax

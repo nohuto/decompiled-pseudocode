@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpTraceThreadRundownWithStack @ 0x1405FF6DC
+ * Callers:
+ *     EtwpThreadEnumCallback @ 0x140801B20 (EtwpThreadEnumCallback.c)
+ * Callees:
+ *     KeInitializeApc @ 0x140237E20 (KeInitializeApc.c)
+ *     KeInsertQueueApc @ 0x14027DBF0 (KeInsertQueueApc.c)
+ *     KeRemoveQueueApc @ 0x1402F7360 (KeRemoveQueueApc.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     EtwpTraceThreadRundown @ 0x14036FE60 (EtwpTraceThreadRundown.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 NTSTATUS __fastcall EtwpTraceThreadRundownWithStack(struct _KTHREAD *a1, __int64 a2)
 {
   NTSTATUS result; // eax

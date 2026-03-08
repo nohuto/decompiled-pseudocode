@@ -1,3 +1,46 @@
+/*
+ * XREFs of xxxSBWndProc @ 0x1C022D770
+ * Callers:
+ *     ?xxxWrapSBWndProc@@YA_JPEAUtagWND@@I_K_J1@Z @ 0x1C01B9B00 (-xxxWrapSBWndProc@@YA_JPEAUtagWND@@I_K_J1@Z.c)
+ * Callees:
+ *     zzzDestroyCaret @ 0x1C0005EAC (zzzDestroyCaret.c)
+ *     zzzHideCaret @ 0x1C0006078 (zzzHideCaret.c)
+ *     zzzShowCaret @ 0x1C0006108 (zzzShowCaret.c)
+ *     xxxCreateCaret @ 0x1C000F3B4 (xxxCreateCaret.c)
+ *     ?xxxDrawSB2@@YAXPEAUtagWND@@PEAUtagSBCALC@@PEAUHDC__@@HI@Z @ 0x1C0013CD4 (-xxxDrawSB2@@YAXPEAUtagWND@@PEAUtagSBCALC@@PEAUHDC__@@HI@Z.c)
+ *     ?xxxGetColorObjects@@YAPEAUHBRUSH__@@PEAUtagWND@@PEAUHDC__@@@Z @ 0x1C0013EE8 (-xxxGetColorObjects@@YAPEAUHBRUSH__@@PEAUtagWND@@PEAUHDC__@@@Z.c)
+ *     DrawThumb2 @ 0x1C0013FB8 (DrawThumb2.c)
+ *     xxxMoveWindow @ 0x1C0025A90 (xxxMoveWindow.c)
+ *     _FChildVisible @ 0x1C002B72C (_FChildVisible.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     GetDpiForSystem @ 0x1C0045E5C (GetDpiForSystem.c)
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ *     xxxSendTransformableMessageTimeout @ 0x1C006E550 (xxxSendTransformableMessageTimeout.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     ?xxxSetFocus@@YAPEAUtagWND@@PEAU1@@Z @ 0x1C009A3E0 (-xxxSetFocus@@YAPEAUtagWND@@PEAU1@@Z.c)
+ *     GetDpiDependentMetric @ 0x1C00A45B4 (GetDpiDependentMetric.c)
+ *     ?SBSetParms@@YAHPEAUtagSBDATA@@PEAUtagSCROLLINFO@@PEAHPEAJ@Z @ 0x1C00A62D8 (-SBSetParms@@YAHPEAUtagSBDATA@@PEAUtagSCROLLINFO@@PEAHPEAJ@Z.c)
+ *     xxxDefWindowProc @ 0x1C00A66F0 (xxxDefWindowProc.c)
+ *     xxxEnableScrollBar @ 0x1C00D4CD0 (xxxEnableScrollBar.c)
+ *     xxxGetScrollBarInfo @ 0x1C00D9CEC (xxxGetScrollBarInfo.c)
+ *     _SBGetParms @ 0x1C00DB920 (_SBGetParms.c)
+ *     xxxValidateClassAndSize @ 0x1C00FA3E4 (xxxValidateClassAndSize.c)
+ *     xxxBeginPaint @ 0x1C00FD4C0 (xxxBeginPaint.c)
+ *     xxxEndPaint @ 0x1C00FE504 (xxxEndPaint.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ConstrainWindowSIZERECT @ 0x1C01A7538 (ConstrainWindowSIZERECT.c)
+ *     ?xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z @ 0x1C022C0E0 (-xxxDoScroll@@YAXPEAUtagWND@@0HHH@Z.c)
+ *     ?xxxEnableSBCtlArrows@@YAHPEAUtagWND@@I@Z @ 0x1C022C2A0 (-xxxEnableSBCtlArrows@@YAHPEAUtagWND@@I@Z.c)
+ *     ?zzzSetSBCaretPos@@YAXPEAUtagSBWND@@@Z @ 0x1C022CA90 (-zzzSetSBCaretPos@@YAXPEAUtagSBWND@@@Z.c)
+ *     DrawSize @ 0x1C022CAE8 (DrawSize.c)
+ *     SBCtlSetup @ 0x1C022CC24 (SBCtlSetup.c)
+ *     xxxDoScrollMenu @ 0x1C022CC6C (xxxDoScrollMenu.c)
+ *     xxxSBTrackInit @ 0x1C022D18C (xxxSBTrackInit.c)
+ *     _ClientToScreen @ 0x1C024E7D0 (_ClientToScreen.c)
+ */
+
 __int64 __fastcall xxxSBWndProc(struct tagWND *a1, unsigned int a2, HWND a3, struct tagSCROLLINFO *a4)
 {
   int v4; // esi

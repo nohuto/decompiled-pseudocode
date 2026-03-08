@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiDxgkDdiUnload @ 0x1C0065A44
+ * Callers:
+ *     DpiCleanup @ 0x1C03958A4 (DpiCleanup.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C003FB88 (McTemplateK0_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DpiDxgkDdiUnload(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 v4; // rdx

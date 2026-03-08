@@ -1,3 +1,19 @@
+/*
+ * XREFs of CcSetVacbLargeOffset @ 0x1402180C0
+ * Callers:
+ *     SetVacb @ 0x14021804C (SetVacb.c)
+ *     CcUnmapVacbArray @ 0x14021B910 (CcUnmapVacbArray.c)
+ *     CcAdjustVacbLevelLockCount @ 0x14021BD70 (CcAdjustVacbLevelLockCount.c)
+ * Callees:
+ *     VacbLevelReference @ 0x1402187E8 (VacbLevelReference.c)
+ *     CcGetBcbListHeadLargeOffset @ 0x14021BF30 (CcGetBcbListHeadLargeOffset.c)
+ *     CcDeallocateVacbLevel @ 0x140298C1C (CcDeallocateVacbLevel.c)
+ *     CcAllocateVacbLevel @ 0x14029C810 (CcAllocateVacbLevel.c)
+ *     CcAllocateVacbLevels @ 0x14029C894 (CcAllocateVacbLevels.c)
+ *     CcFreeUnusedVacbLevels @ 0x14029E2EC (CcFreeUnusedVacbLevels.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall CcSetVacbLargeOffset(__int64 a1, __int64 a2, unsigned __int64 a3, __int128 *a4)
 {
   __int64 v5; // rsi

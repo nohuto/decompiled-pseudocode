@@ -1,3 +1,20 @@
+/*
+ * XREFs of RIMIsParallelDevice @ 0x1C01B8C44
+ * Callers:
+ *     RIMAssignTouchType @ 0x1C01B3810 (RIMAssignTouchType.c)
+ *     RIMIDECreatePointerDeviceInfo @ 0x1C01C21B8 (RIMIDECreatePointerDeviceInfo.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ *     rimHidP_GetLinkCollectionNodes @ 0x1C01B2000 (rimHidP_GetLinkCollectionNodes.c)
+ *     rimHidP_GetSpecificValueCaps @ 0x1C01B2114 (rimHidP_GetSpecificValueCaps.c)
+ *     RIMRetrieveAllLinkIndexUsages @ 0x1C01B93B4 (RIMRetrieveAllLinkIndexUsages.c)
+ *     RIMValidateAllCollectionUsages @ 0x1C01BA1A0 (RIMValidateAllCollectionUsages.c)
+ */
+
 __int64 __fastcall RIMIsParallelDevice(__int64 a1, __int64 a2, _DWORD *a3)
 {
   unsigned int v3; // ebx

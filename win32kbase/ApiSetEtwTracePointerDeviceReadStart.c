@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEtwTracePointerDeviceReadStart @ 0x1C00F614A
+ * Callers:
+ *     rimProcessDeviceBufferAndStartRead @ 0x1C0003AE4 (rimProcessDeviceBufferAndStartRead.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     EtwTracePointerDeviceReadStart @ 0x1C00EDE00 (EtwTracePointerDeviceReadStart.c)
+ */
+
 __int64 ApiSetEtwTracePointerDeviceReadStart()
 {
   PDEVICE_OBJECT v0; // rcx

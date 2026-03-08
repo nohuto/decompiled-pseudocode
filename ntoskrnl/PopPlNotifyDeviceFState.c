@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopPlNotifyDeviceFState @ 0x1402EFC60
+ * Callers:
+ *     PopPepNotifyIdleState @ 0x1402EFAF0 (PopPepNotifyIdleState.c)
+ *     PopPepStartComponentIdleStateChangeActivity @ 0x1402EFB90 (PopPepStartComponentIdleStateChangeActivity.c)
+ *     PopPepCompleteComponentIdleState @ 0x14059C714 (PopPepCompleteComponentIdleState.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     _tlgWriteEx_EtwWriteEx @ 0x1402FC390 (_tlgWriteEx_EtwWriteEx.c)
+ *     _tlgCreate1Sz_char @ 0x1403BE3FC (_tlgCreate1Sz_char.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopPlCalculateDevicePowerDraw @ 0x14059ED14 (PopPlCalculateDevicePowerDraw.c)
+ *     PopPlPublishSystemPowerChange @ 0x14059F158 (PopPlPublishSystemPowerChange.c)
+ */
+
 __int64 __fastcall PopPlNotifyDeviceFState(__int64 a1, unsigned int a2, unsigned int a3, unsigned int a4, char a5)
 {
   __int64 result; // rax

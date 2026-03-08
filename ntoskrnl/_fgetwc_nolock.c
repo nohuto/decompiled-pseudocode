@@ -1,3 +1,14 @@
+/*
+ * XREFs of _fgetwc_nolock @ 0x1403DD6B8
+ * Callers:
+ *     ReadString_0 @ 0x1403DC78C (ReadString_0.c)
+ *     _whiteout @ 0x1403DCBFC (_whiteout.c)
+ *     _winput_s @ 0x1403DCC54 (_winput_s.c)
+ * Callees:
+ *     xHalTimerWatchdogStop @ 0x1403023F0 (xHalTimerWatchdogStop.c)
+ *     _filwbuf_s @ 0x1403DD7A8 (_filwbuf_s.c)
+ */
+
 wint_t __cdecl fgetwc_nolock(FILE *File)
 {
   wint_t result; // ax

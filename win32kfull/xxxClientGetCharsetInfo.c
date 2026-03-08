@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxClientGetCharsetInfo @ 0x1C00EDCF8
+ * Callers:
+ *     EditionInitSystemCharsetInfoForLayout @ 0x1C00EDC40 (EditionInitSystemCharsetInfoForLayout.c)
+ * Callees:
+ *     ??0LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C00344F8 (--0LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ??1LeaveEnterCritProperDisposition@@QEAA@XZ @ 0x1C0034558 (--1LeaveEnterCritProperDisposition@@QEAA@XZ.c)
+ *     ?PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ @ 0x1C0047B70 (-PtiCurrentShared@@YAPEAUtagTHREADINFO@@XZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall xxxClientGetCharsetInfo(int a1, _OWORD *a2)
 {
   int v3; // ebx

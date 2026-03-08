@@ -1,3 +1,11 @@
+/*
+ * XREFs of HsaGetRidAcpiMapCount @ 0x14052DF80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HsaGetRidAcpiMapCount(__int64 a1, __int64 a2)
 {
   unsigned int v2; // r8d

@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?xxxFW_DestroyAllChildren@@YAXPEAUtagWND@@@Z @ 0x1C00331B0
+ * Callers:
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ * Callees:
+ *     xxxSetModernAppWindow @ 0x1C000E204 (xxxSetModernAppWindow.c)
+ *     UnredirectDCEs @ 0x1C002C2E4 (UnredirectDCEs.c)
+ *     SetVisible @ 0x1C002DB8C (SetVisible.c)
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ *     GetStyleWindow @ 0x1C0039020 (GetStyleWindow.c)
+ *     ?PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOURCE@@@Z @ 0x1C0044D58 (-PostEventMessageEx@@YAHPEAUtagTHREADINFO@@PEAUtagQ@@KPEAUtagWND@@I_K_JPEAUtagINPUT_MESSAGE_SOUR.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     UnlinkWindow @ 0x1C00AB340 (UnlinkWindow.c)
+ */
+
 void __fastcall xxxFW_DestroyAllChildren(struct tagWND *a1)
 {
   __int64 v2; // rcx

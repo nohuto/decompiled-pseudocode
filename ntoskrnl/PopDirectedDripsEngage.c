@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDirectedDripsEngage @ 0x140584A94
+ * Callers:
+ *     PopDirectedDripsNotify @ 0x140872AF4 (PopDirectedDripsNotify.c)
+ * Callees:
+ *     PopFxClearDirectedDripsCandidateDeviceList @ 0x14058703C (PopFxClearDirectedDripsCandidateDeviceList.c)
+ *     PopDirectedDripsQueryEnabledMitigations @ 0x1408563FC (PopDirectedDripsQueryEnabledMitigations.c)
+ *     PopDirectedDripsNotifyAppsAndServices @ 0x1409809F4 (PopDirectedDripsNotifyAppsAndServices.c)
+ */
+
 __int64 __fastcall PopDirectedDripsEngage(__int64 a1, char a2, __int64 a3)
 {
   __int64 result; // rax

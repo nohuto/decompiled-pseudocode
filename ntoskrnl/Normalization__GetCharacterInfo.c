@@ -1,3 +1,12 @@
+/*
+ * XREFs of Normalization__GetCharacterInfo @ 0x1409BD7E0
+ * Callers:
+ *     NormBuffer__AppendAndSortDecomposed @ 0x1405AE09C (NormBuffer__AppendAndSortDecomposed.c)
+ *     NormBuffer__RecheckStartCombinations @ 0x1405AE434 (NormBuffer__RecheckStartCombinations.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall Normalization__GetCharacterInfo(__int64 a1, int a2, _BYTE *a3, _BYTE *a4)
 {
   char v4; // al

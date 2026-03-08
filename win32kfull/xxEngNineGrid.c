@@ -1,3 +1,13 @@
+/*
+ * XREFs of xxEngNineGrid @ 0x1C00804C8
+ * Callers:
+ *     EngNineGrid @ 0x1C0080400 (EngNineGrid.c)
+ * Callees:
+ *     RenderNineGrid @ 0x1C0080A1C (RenderNineGrid.c)
+ *     ??XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z @ 0x1C0083D50 (--XERECTL@@QEAAAEAV0@AEBU_RECTL@@@Z.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 __fastcall xxEngNineGrid(
         struct _SURFOBJ *a1,
         __int64 a2,

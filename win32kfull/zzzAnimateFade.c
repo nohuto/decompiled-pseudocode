@@ -1,3 +1,16 @@
+/*
+ * XREFs of zzzAnimateFade @ 0x1C01BE518
+ * Callers:
+ *     xxxSystemTimerProc @ 0x1C0005A50 (xxxSystemTimerProc.c)
+ *     zzzStartSonar @ 0x1C01BE79C (zzzStartSonar.c)
+ * Callees:
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     ?DrawSonar@@YAXPEAUHDC__@@@Z @ 0x1C01BD6A4 (-DrawSonar@@YAXPEAUHDC__@@@Z.c)
+ *     ?zzzUpdateFade@@YAXPEAUtagPOINT@@PEAUtagSIZE@@PEAUHDC__@@0PEAU_BLENDFUNCTION@@@Z @ 0x1C01BDC84 (-zzzUpdateFade@@YAXPEAUtagPOINT@@PEAUtagSIZE@@PEAUHDC__@@0PEAU_BLENDFUNCTION@@@Z.c)
+ *     StopFade @ 0x1C01BDEF0 (StopFade.c)
+ */
+
 __int64 zzzAnimateFade()
 {
   unsigned int v0; // r9d

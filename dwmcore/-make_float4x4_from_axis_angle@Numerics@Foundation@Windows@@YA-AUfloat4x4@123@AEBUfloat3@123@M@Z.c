@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?make_float4x4_from_axis_angle@Numerics@Foundation@Windows@@YA?AUfloat4x4@123@AEBUfloat3@123@M@Z @ 0x18026DF7C
+ * Callers:
+ *     ?SetRotation@CMILMatrix@@QEAAXAEBUfloat3@Numerics@Foundation@Windows@@M@Z @ 0x18026D270 (-SetRotation@CMILMatrix@@QEAAXAEBUfloat3@Numerics@Foundation@Windows@@M@Z.c)
+ * Callees:
+ *     cosf_0 @ 0x1801176F8 (cosf_0.c)
+ *     sinf_0 @ 0x180117794 (sinf_0.c)
+ */
+
 __int64 __fastcall Windows::Foundation::Numerics::make_float4x4_from_axis_angle(__int64 a1, float *a2, float a3)
 {
   float v5; // xmm12_4

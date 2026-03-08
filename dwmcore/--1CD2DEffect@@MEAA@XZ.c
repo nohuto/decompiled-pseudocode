@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CD2DEffect@@MEAA@XZ @ 0x180016AC4
+ * Callers:
+ *     ??_GCD2DEffect@@MEAAPEAXI@Z @ 0x180016870 (--_GCD2DEffect@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CD2DEffect::~CD2DEffect(CD2DEffect *this)
 {
   __int64 v2; // rcx

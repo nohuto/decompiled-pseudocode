@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopErratumUpdateCallback @ 0x14058B660
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PopSetPowerSettingValueAcDc @ 0x14073BE70 (PopSetPowerSettingValueAcDc.c)
+ *     ExQueryWnfStateData @ 0x140793060 (ExQueryWnfStateData.c)
+ */
+
 __int64 __fastcall PopErratumUpdateCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4, int a5, __int64 a6)
 {
   unsigned int v7; // [rsp+20h] [rbp-18h] BYREF

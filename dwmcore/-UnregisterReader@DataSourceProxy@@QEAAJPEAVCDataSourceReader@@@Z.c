@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?UnregisterReader@DataSourceProxy@@QEAAJPEAVCDataSourceReader@@@Z @ 0x1801E082C
+ * Callers:
+ *     ?UnregisterReaderForDataSource@DataProviderManager@@QEAAJ_K0PEAVCDataSourceReader@@@Z @ 0x1801B4CB8 (-UnregisterReaderForDataSource@DataProviderManager@@QEAAJ_K0PEAVCDataSourceReader@@@Z.c)
+ * Callees:
+ *     ?Create@?$CWeakReference@VCResource@@@@SAJPEAVCResource@@PEAPEAV1@@Z @ 0x18009990C (-Create@-$CWeakReference@VCResource@@@@SAJPEAVCResource@@PEAPEAV1@@Z.c)
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ??$GetUniqueId@VDataSourceProxy@@@DataProviderHelper@@YA_KPEAVDataSourceProxy@@@Z @ 0x1801DE4C8 (--$GetUniqueId@VDataSourceProxy@@@DataProviderHelper@@YA_KPEAVDataSourceProxy@@@Z.c)
+ *     ?ReaderUnregistered@DataProviderProxy@@QEAAX_K@Z @ 0x1801E1D38 (-ReaderUnregistered@DataProviderProxy@@QEAAX_K@Z.c)
+ */
+
 __int64 __fastcall DataSourceProxy::UnregisterReader(DataSourceProxy *this, struct CDataSourceReader *a2)
 {
   _QWORD *v3; // rax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiRemoveViewsFromSection @ 0x140334A28
+ * Callers:
+ *     MiRemoveViewsFromSectionWithPfn @ 0x14020DBB4 (MiRemoveViewsFromSectionWithPfn.c)
+ *     MmUnmapViewInSystemCache @ 0x140285250 (MmUnmapViewInSystemCache.c)
+ *     MiRemoveMappedPtes @ 0x1403474D0 (MiRemoveMappedPtes.c)
+ *     MiConvertStaticSubsections @ 0x14034C9D8 (MiConvertStaticSubsections.c)
+ *     MiRemoveSystemCacheReferences @ 0x14062CB5C (MiRemoveSystemCacheReferences.c)
+ * Callees:
+ *     MiInsertUnusedSubsection @ 0x1402D4DE8 (MiInsertUnusedSubsection.c)
+ *     MiDecrementSubsectionViewCount @ 0x140334C10 (MiDecrementSubsectionViewCount.c)
+ */
+
 __int64 __fastcall MiRemoveViewsFromSection(ULONG_PTR BugCheckParameter2, unsigned __int64 a2, int a3)
 {
   ULONG_PTR v5; // rbx

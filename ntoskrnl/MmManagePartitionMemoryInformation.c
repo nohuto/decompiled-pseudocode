@@ -1,3 +1,19 @@
+/*
+ * XREFs of MmManagePartitionMemoryInformation @ 0x1407059DC
+ * Callers:
+ *     DifUpdatePluginState @ 0x1405D2FF0 (DifUpdatePluginState.c)
+ *     DifGetAvailableSystemPages @ 0x1405F61D4 (DifGetAvailableSystemPages.c)
+ *     NtManagePartition @ 0x140705650 (NtManagePartition.c)
+ * Callees:
+ *     MiQueryMemoryListInformation @ 0x140236920 (MiQueryMemoryListInformation.c)
+ *     KeDelayExecutionThread @ 0x140256A00 (KeDelayExecutionThread.c)
+ *     MiGetChannelInformation @ 0x140295C20 (MiGetChannelInformation.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiGetNodeHugeRangeCounts @ 0x14061D9D0 (MiGetNodeHugeRangeCounts.c)
+ */
+
 __int64 __fastcall MmManagePartitionMemoryInformation(unsigned __int16 **a1, __int64 a2)
 {
   unsigned __int16 *v2; // r13

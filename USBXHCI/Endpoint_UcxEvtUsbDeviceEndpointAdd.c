@@ -1,3 +1,13 @@
+/*
+ * XREFs of Endpoint_UcxEvtUsbDeviceEndpointAdd @ 0x1C006D510
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_ddd @ 0x1C0017FB0 (WPP_RECORDER_SF_ddd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     Endpoint_Create @ 0x1C006D624 (Endpoint_Create.c)
+ */
+
 __int64 __fastcall Endpoint_UcxEvtUsbDeviceEndpointAdd(
         __int64 a1,
         __int64 a2,

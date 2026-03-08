@@ -1,3 +1,14 @@
+/*
+ * XREFs of FreeDesktop @ 0x1C00F2180
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C003C250 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ *     ?FreeView@@YAXPEAU_EPROCESS@@PEAUtagDESKTOP@@@Z @ 0x1C003CD80 (-FreeView@@YAXPEAU_EPROCESS@@PEAUtagDESKTOP@@@Z.c)
+ *     _SetMagnificationInputTransform @ 0x1C007F160 (_SetMagnificationInputTransform.c)
+ *     CleanupIAMAccess @ 0x1C0092F00 (CleanupIAMAccess.c)
+ */
+
 __int64 __fastcall FreeDesktop(__int64 *a1)
 {
   __int64 v1; // rbx

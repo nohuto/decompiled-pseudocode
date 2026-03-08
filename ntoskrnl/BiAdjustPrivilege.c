@@ -1,3 +1,16 @@
+/*
+ * XREFs of BiAdjustPrivilege @ 0x14082F868
+ * Callers:
+ *     BiAcquirePrivilege @ 0x14082F784 (BiAcquirePrivilege.c)
+ *     BiReleasePrivilege @ 0x14082F810 (BiReleasePrivilege.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenThreadTokenEx @ 0x1404128F0 (ZwOpenThreadTokenEx.c)
+ *     ZwOpenProcessTokenEx @ 0x140412910 (ZwOpenProcessTokenEx.c)
+ *     ZwAdjustPrivilegesToken @ 0x140412B30 (ZwAdjustPrivilegesToken.c)
+ */
+
 __int64 __fastcall BiAdjustPrivilege(unsigned int a1, char a2, bool *a3)
 {
   NTSTATUS v6; // ebx

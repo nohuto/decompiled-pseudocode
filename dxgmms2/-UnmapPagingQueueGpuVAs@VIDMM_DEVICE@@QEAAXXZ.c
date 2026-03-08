@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UnmapPagingQueueGpuVAs@VIDMM_DEVICE@@QEAAXXZ @ 0x1C00EC650
+ * Callers:
+ *     ?DestroyPagingProcess@VIDMM_PAGING_PROCESS@@QEAAXXZ @ 0x1C00F20F8 (-DestroyPagingProcess@VIDMM_PAGING_PROCESS@@QEAAXXZ.c)
+ * Callees:
+ *     ?UnmapGpuVA@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ @ 0x1C00AB608 (-UnmapGpuVA@VIDMM_DEVICE_PAGING_QUEUE@@QEAAXXZ.c)
+ */
+
 void __fastcall VIDMM_DEVICE::UnmapPagingQueueGpuVAs(VIDMM_DEVICE *this)
 {
   unsigned int i; // ebx

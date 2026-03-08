@@ -1,3 +1,11 @@
+/*
+ * XREFs of ObpHashBoundaryFunction @ 0x140780A30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ObpHashBoundaryFunction(__int64 a1, __int64 a2)
 {
   unsigned int v2; // r8d

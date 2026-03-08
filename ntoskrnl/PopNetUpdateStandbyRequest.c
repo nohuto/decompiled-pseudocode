@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopNetUpdateStandbyRequest @ 0x1409939AC
+ * Callers:
+ *     PopPowerInformationInternal @ 0x14073E108 (PopPowerInformationInternal.c)
+ * Callees:
+ *     RtlCheckTokenMembership @ 0x1402BDFD0 (RtlCheckTokenMembership.c)
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 __fastcall PopNetUpdateStandbyRequest(char a1)
 {
   int v2; // ebx

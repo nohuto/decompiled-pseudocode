@@ -1,3 +1,15 @@
+/*
+ * XREFs of RtlpInitCodePageTables @ 0x14080EA38
+ * Callers:
+ *     ExInitializeNls @ 0x14080F164 (ExInitializeNls.c)
+ * Callees:
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402992F0 (PdcCreateWatchdogAroundClientCall.c)
+ *     NtGetNlsSectionPtr @ 0x14069E7D0 (NtGetNlsSectionPtr.c)
+ *     RtlInitCodePageTable @ 0x14080EBB0 (RtlInitCodePageTable.c)
+ */
+
 __int64 __fastcall RtlpInitCodePageTables(unsigned __int16 a1, unsigned __int16 a2)
 {
   unsigned int v2; // ebp

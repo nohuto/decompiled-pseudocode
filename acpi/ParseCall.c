@@ -1,3 +1,27 @@
+/*
+ * XREFs of ParseCall @ 0x1C005A6A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     PerformNativeMethodCall @ 0x1C004A154 (PerformNativeMethodCall.c)
+ *     DupObjData @ 0x1C004AF04 (DupObjData.c)
+ *     FreeDataBuffs @ 0x1C004B50C (FreeDataBuffs.c)
+ *     FreeObjOwner @ 0x1C004B650 (FreeObjOwner.c)
+ *     FreeOwnedObjects @ 0x1C004B81C (FreeOwnedObjects.c)
+ *     MoveObjData @ 0x1C004C164 (MoveObjData.c)
+ *     NewObjOwner @ 0x1C004C324 (NewObjOwner.c)
+ *     ConPrintf @ 0x1C004D7B8 (ConPrintf.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ *     DereferenceObjectEx @ 0x1C004F6A8 (DereferenceObjectEx.c)
+ *     PushFrame @ 0x1C0053C34 (PushFrame.c)
+ *     PushScope @ 0x1C0053D40 (PushScope.c)
+ *     ReleaseASLMutex @ 0x1C0054DD0 (ReleaseASLMutex.c)
+ *     ParseArg @ 0x1C005A46C (ParseArg.c)
+ */
+
 __int64 __fastcall ParseCall(__int64 a1, __int64 a2, unsigned int a3)
 {
   int *v3; // r14

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?FindNodeQueuedMessageWorker@@YAPEAUtagQMSG@@PEAUtagQ@@_KHPEAPEAU2@@Z @ 0x1C014906C
+ * Callers:
+ *     EditionFindNodeQueuedMessage @ 0x1C01490D0 (EditionFindNodeQueuedMessage.c)
+ * Callees:
+ *     IsPointerInputMessage @ 0x1C0038580 (IsPointerInputMessage.c)
+ */
+
 struct tagQMSG *__fastcall FindNodeQueuedMessageWorker(struct tagQ *a1, __int64 a2, __int64 a3, struct tagQ **a4)
 {
   __int64 v5; // rdx

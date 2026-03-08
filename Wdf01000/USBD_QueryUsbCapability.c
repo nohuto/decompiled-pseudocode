@@ -1,3 +1,13 @@
+/*
+ * XREFs of USBD_QueryUsbCapability @ 0x1C00882BC
+ * Callers:
+ *     ?InitDevice@FxUsbDevice@@QEAAJK@Z @ 0x1C005FFC8 (-InitDevice@FxUsbDevice@@QEAAJK@Z.c)
+ *     ?QueryUsbCapability@FxUsbDevice@@QEAAJPEBU_GUID@@KPEAXPEAK@Z @ 0x1C0060628 (-QueryUsbCapability@FxUsbDevice@@QEAAJPEBU_GUID@@KPEAXPEAK@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ *     USBDInternal_BuildandSendIoctlSynchronously @ 0x1C008781C (USBDInternal_BuildandSendIoctlSynchronously.c)
+ */
+
 __int64 __fastcall USBD_QueryUsbCapability(
         USBD_HANDLE__ *USBDHandle,
         const _GUID *CapabilityType,

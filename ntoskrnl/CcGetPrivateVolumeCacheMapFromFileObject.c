@@ -1,3 +1,13 @@
+/*
+ * XREFs of CcGetPrivateVolumeCacheMapFromFileObject @ 0x140290B30
+ * Callers:
+ *     CcCopyWriteWontFlush @ 0x140290880 (CcCopyWriteWontFlush.c)
+ *     CcForceWriteThrough @ 0x1402FD990 (CcForceWriteThrough.c)
+ *     CcDeferWrite @ 0x140535060 (CcDeferWrite.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 *__fastcall CcGetPrivateVolumeCacheMapFromFileObject(_QWORD *a1, __int64 a2)
 {
   __int64 v2; // rax

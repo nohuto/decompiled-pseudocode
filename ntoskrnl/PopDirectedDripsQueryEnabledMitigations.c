@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDirectedDripsQueryEnabledMitigations @ 0x1408563FC
+ * Callers:
+ *     PopDirectedDripsEngage @ 0x140584A94 (PopDirectedDripsEngage.c)
+ *     PopDirectedDripsInitializePhase3 @ 0x140B698FC (PopDirectedDripsInitializePhase3.c)
+ * Callees:
+ *     PopDirectedDripsQueryPs4Support @ 0x140856490 (PopDirectedDripsQueryPs4Support.c)
+ *     PopDirectedDripsQueryRegistryValues @ 0x140856628 (PopDirectedDripsQueryRegistryValues.c)
+ */
+
 __int64 __fastcall PopDirectedDripsQueryEnabledMitigations(__int64 a1)
 {
   char v1; // si

@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiProcessKernelCfgImageLoadConfig @ 0x1407849F8
+ * Callers:
+ *     MiProcessLoadConfigForDriver @ 0x140784998 (MiProcessLoadConfigForDriver.c)
+ *     MiInitializeDriverImages @ 0x140B3B090 (MiInitializeDriverImages.c)
+ * Callees:
+ *     MiSetImageProtection @ 0x1402E3BB8 (MiSetImageProtection.c)
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     MiCheckForDiscardableLongJumpTable @ 0x140655A04 (MiCheckForDiscardableLongJumpTable.c)
+ *     MiLogStrongCodeDriverLoadFailure @ 0x140A2D7CC (MiLogStrongCodeDriverLoadFailure.c)
+ */
+
 __int64 __fastcall MiProcessKernelCfgImageLoadConfig(__int64 a1, __int64 a2)
 {
   __int64 v2; // rbp

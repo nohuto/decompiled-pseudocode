@@ -1,3 +1,12 @@
+/*
+ * XREFs of ClearKeyboardStates @ 0x1C0020194
+ * Callers:
+ *     xxxSwitchDesktop @ 0x1C00205D4 (xxxSwitchDesktop.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C01032D0 (xxxSystemParametersInfoWorker.c)
+ * Callees:
+ *     ?ClearCachedHotkeyModifiers@@YAXXZ @ 0x1C00201D8 (-ClearCachedHotkeyModifiers@@YAXXZ.c)
+ */
+
 void __fastcall ClearKeyboardStates(__int64 a1)
 {
   __int64 i; // rbx

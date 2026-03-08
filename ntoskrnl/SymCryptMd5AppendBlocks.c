@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptMd5AppendBlocks @ 0x1403F7670
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 *__fastcall SymCryptMd5AppendBlocks(int *a1, __int64 a2, unsigned __int64 a3, unsigned __int64 *a4)
 {
   int v4; // esi

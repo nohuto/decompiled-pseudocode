@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetFirstHardwareId @ 0x1C004D510
+ * Callers:
+ *     LogDriverInfoStream @ 0x1C004D7C4 (LogDriverInfoStream.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall GetFirstHardwareId(_UNICODE_STRING *HardwareIds)
 {
   wchar_t *Buffer; // rdx

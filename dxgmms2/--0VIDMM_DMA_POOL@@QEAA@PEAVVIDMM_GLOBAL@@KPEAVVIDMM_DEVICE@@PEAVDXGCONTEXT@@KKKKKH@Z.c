@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0VIDMM_DMA_POOL@@QEAA@PEAVVIDMM_GLOBAL@@KPEAVVIDMM_DEVICE@@PEAVDXGCONTEXT@@KKKKKH@Z @ 0x1C00B4840
+ * Callers:
+ *     VidMmCreateDmaPool @ 0x1C00184B0 (VidMmCreateDmaPool.c)
+ *     ?InitDmaPools@VIDMM_GLOBAL@@QEAAJXZ @ 0x1C00C2308 (-InitDmaPools@VIDMM_GLOBAL@@QEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 VIDMM_DMA_POOL *__fastcall VIDMM_DMA_POOL::VIDMM_DMA_POOL(
         VIDMM_DMA_POOL *this,
         struct VIDMM_GLOBAL *a2,

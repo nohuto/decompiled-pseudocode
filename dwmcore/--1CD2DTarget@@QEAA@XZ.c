@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??1CD2DTarget@@QEAA@XZ @ 0x1800E5B6C
+ * Callers:
+ *     ?PopRenderTargetInternal@CDrawingContext@@AEAAJ_N@Z @ 0x18008D178 (-PopRenderTargetInternal@CDrawingContext@@AEAAJ_N@Z.c)
+ *     ??_GCD2DTarget@@QEAAPEAXI@Z @ 0x1800E5B40 (--_GCD2DTarget@@QEAAPEAXI@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CD2DTarget::~CD2DTarget(CD2DTarget *this)
 {
   __int64 v2; // rcx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CitpContextInitialize@@YAXPEAU_CIT_IMPACT_CONTEXT@@@Z @ 0x1C00C5CA4
+ * Callers:
+ *     ?CitpStart@@YAJXZ @ 0x1C00C5898 (-CitpStart@@YAJXZ.c)
+ * Callees:
+ *     ?SetActive@CIT_USER_ACTIVITY_STAT@@QEAAXI@Z @ 0x1C00B8578 (-SetActive@CIT_USER_ACTIVITY_STAT@@QEAAXI@Z.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 void __fastcall CitpContextInitialize(struct _CIT_IMPACT_CONTEXT *a1)
 {
   unsigned __int64 v2; // r10

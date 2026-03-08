@@ -1,3 +1,36 @@
+/*
+ * XREFs of WPP_RECORDER_SF_qLqss @ 0x1C0009C8C
+ * Callers:
+ *     ACPIDeviceIrpForwardRequest @ 0x1C00027E0 (ACPIDeviceIrpForwardRequest.c)
+ *     ACPICMButtonSetPower @ 0x1C0018C10 (ACPICMButtonSetPower.c)
+ *     ACPIDeviceCompleteRequest @ 0x1C001C95C (ACPIDeviceCompleteRequest.c)
+ *     ACPIDeviceIrpCompleteRequest @ 0x1C001D680 (ACPIDeviceIrpCompleteRequest.c)
+ *     ACPIDeviceIrpDelayedDeviceOffRequest @ 0x1C001D800 (ACPIDeviceIrpDelayedDeviceOffRequest.c)
+ *     ACPIDeviceIrpDelayedDeviceOnRequest @ 0x1C001D940 (ACPIDeviceIrpDelayedDeviceOnRequest.c)
+ *     ACPIDeviceIrpWaitWakeRequestPending @ 0x1C001E2A0 (ACPIDeviceIrpWaitWakeRequestPending.c)
+ *     ACPIDevicePowerProcessPhase0DeviceSubPhase1 @ 0x1C001EE10 (ACPIDevicePowerProcessPhase0DeviceSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase4 @ 0x1C00203FC (ACPIDevicePowerProcessPhase4.c)
+ *     ACPIDevicePowerProcessPhase5DeviceSubPhase1 @ 0x1C0020650 (ACPIDevicePowerProcessPhase5DeviceSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase5DeviceSubPhase2 @ 0x1C0020880 (ACPIDevicePowerProcessPhase5DeviceSubPhase2.c)
+ *     ACPIDevicePowerProcessPhase5DeviceSubPhase3 @ 0x1C0020B10 (ACPIDevicePowerProcessPhase5DeviceSubPhase3.c)
+ *     ACPIDevicePowerProcessPhase5DeviceSubPhase4 @ 0x1C0020D80 (ACPIDevicePowerProcessPhase5DeviceSubPhase4.c)
+ *     ACPIDevicePowerProcessPhase5WarmEjectSubPhase1 @ 0x1C0021870 (ACPIDevicePowerProcessPhase5WarmEjectSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase5WarmEjectSubPhase2 @ 0x1C0021A10 (ACPIDevicePowerProcessPhase5WarmEjectSubPhase2.c)
+ *     ACPIFanCompletePendingIrps @ 0x1C00266E0 (ACPIFanCompletePendingIrps.c)
+ *     ACPIRootIrpQueryPower @ 0x1C003D0E0 (ACPIRootIrpQueryPower.c)
+ *     ACPIWakeCompleteRequestQueue @ 0x1C0044B4C (ACPIWakeCompleteRequestQueue.c)
+ *     ACPIDockIrpQueryEjectRelations @ 0x1C007B228 (ACPIDockIrpQueryEjectRelations.c)
+ *     ACPIDockIrpStartDevice @ 0x1C007BA10 (ACPIDockIrpStartDevice.c)
+ *     ACPIBusIrpQueryBusRelations @ 0x1C007EC78 (ACPIBusIrpQueryBusRelations.c)
+ *     ACPIBusIrpQueryResourceRequirements @ 0x1C0080980 (ACPIBusIrpQueryResourceRequirements.c)
+ *     ACPIBusIrpQueryResources @ 0x1C0080E80 (ACPIBusIrpQueryResources.c)
+ *     ACPIBusIrpQueryTargetRelation @ 0x1C00812EC (ACPIBusIrpQueryTargetRelation.c)
+ *     ACPIFilterIrpFilterResourceRequirements @ 0x1C0085A90 (ACPIFilterIrpFilterResourceRequirements.c)
+ *     ACPIFilterIrpQueryResourceRequirements @ 0x1C0086660 (ACPIFilterIrpQueryResourceRequirements.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WPP_RECORDER_SF_qLqss(
         __int64 a1,
         unsigned __int8 a2,

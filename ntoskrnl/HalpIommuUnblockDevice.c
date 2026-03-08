@@ -1,3 +1,23 @@
+/*
+ * XREFs of HalpIommuUnblockDevice @ 0x140516330
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     HalpIommuCheckDpptException @ 0x14038D4B4 (HalpIommuCheckDpptException.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     HalpIommuQueryAcpiDeviceMapping @ 0x1403AF2F4 (HalpIommuQueryAcpiDeviceMapping.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HalpIommuCheckExceptionList @ 0x14050B910 (HalpIommuCheckExceptionList.c)
+ *     HalpIommuCreateIncreaseAliasTrack @ 0x1405154C8 (HalpIommuCreateIncreaseAliasTrack.c)
+ *     HalpIommuGetAcpiDeviceMapCount @ 0x140515D7C (HalpIommuGetAcpiDeviceMapCount.c)
+ *     HalpIommuJoinDmaDomain @ 0x140515ED4 (HalpIommuJoinDmaDomain.c)
+ *     HalpIommuCreateDevice @ 0x140822B28 (HalpIommuCreateDevice.c)
+ *     HalpIommuDeleteDevice @ 0x140930ACC (HalpIommuDeleteDevice.c)
+ */
+
 __int64 __fastcall HalpIommuUnblockDevice(__int128 *Src, __int64 a2, __int64 *a3)
 {
   __int64 v3; // r14

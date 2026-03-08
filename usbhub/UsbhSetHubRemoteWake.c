@@ -1,3 +1,17 @@
+/*
+ * XREFs of UsbhSetHubRemoteWake @ 0x1C002D964
+ * Callers:
+ *     UsbhFdoSetPowerDx_Action @ 0x1C000EB10 (UsbhFdoSetPowerDx_Action.c)
+ *     UsbhArmHubWakeOnConnect @ 0x1C003BFEC (UsbhArmHubWakeOnConnect.c)
+ *     UsbhDisarmHubWakeOnConnect @ 0x1C003C040 (UsbhDisarmHubWakeOnConnect.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhSyncSendCommand @ 0x1C0016EE0 (UsbhSyncSendCommand.c)
+ *     Usb_Disconnected @ 0x1C0029920 (Usb_Disconnected.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ */
+
 __int64 __fastcall UsbhSetHubRemoteWake(__int64 a1, char a2)
 {
   _DWORD *v4; // rax

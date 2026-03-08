@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiPrepareAttachThread @ 0x14029CA64
+ * Callers:
+ *     MiSharePages @ 0x140228990 (MiSharePages.c)
+ *     MiTrimSharedPageFromViews @ 0x1402A031C (MiTrimSharedPageFromViews.c)
+ *     MmQueryCommitReleaseState @ 0x1402FB050 (MmQueryCommitReleaseState.c)
+ *     MiLockStealUserVm @ 0x1403B7F90 (MiLockStealUserVm.c)
+ *     MmReleaseCommitForMemResetPages @ 0x140617408 (MmReleaseCommitForMemResetPages.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiPrepareAttachThread(__int64 a1, __int64 a2)
 {
   int v2; // r8d

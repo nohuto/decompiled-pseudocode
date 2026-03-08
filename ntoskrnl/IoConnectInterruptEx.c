@@ -1,3 +1,19 @@
+/*
+ * XREFs of IoConnectInterruptEx @ 0x1406F4AE0
+ * Callers:
+ *     HalpInterruptConnect @ 0x1405021F0 (HalpInterruptConnect.c)
+ *     DifIoConnectInterruptExWrapper @ 0x1405DB7F0 (DifIoConnectInterruptExWrapper.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     IopConnectInterrupt @ 0x1406F43D8 (IopConnectInterrupt.c)
+ *     IopGetInterruptConnectionData @ 0x1406F5728 (IopGetInterruptConnectionData.c)
+ *     IopConnectMessageBasedInterrupt @ 0x1408502F8 (IopConnectMessageBasedInterrupt.c)
+ *     IopConnectLineBasedInterrupt @ 0x140853C50 (IopConnectLineBasedInterrupt.c)
+ *     IopConnectInterruptFullySpecified @ 0x140857BF0 (IopConnectInterruptFullySpecified.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __stdcall IoConnectInterruptEx(PIO_CONNECT_INTERRUPT_PARAMETERS Parameters)
 {
   __int64 Version; // rcx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of RIMChildInputTypeIsVirtualized @ 0x1C0034C48
+ * Callers:
+ *     RIMDiscoverDevicesOfInputType @ 0x1C00374F8 (RIMDiscoverDevicesOfInputType.c)
+ *     RIMDirectStartStopDeviceRead @ 0x1C00C7510 (RIMDirectStartStopDeviceRead.c)
+ * Callees:
+ *     isChildPartition @ 0x1C0078FF0 (isChildPartition.c)
+ */
+
 char __fastcall RIMChildInputTypeIsVirtualized(int a1)
 {
   __int64 v2; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KseHookMmMapIoSpace @ 0x14057FF80
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall KseHookMmMapIoSpace(__int64 a1)
 {
   unsigned __int64 v1; // rax

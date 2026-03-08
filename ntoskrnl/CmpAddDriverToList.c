@@ -1,3 +1,24 @@
+/*
+ * XREFs of CmpAddDriverToList @ 0x140B340F4
+ * Callers:
+ *     CmpFindDrivers @ 0x140B34758 (CmpFindDrivers.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpFindValueByName @ 0x1407A74A0 (CmpFindValueByName.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpValueToData @ 0x1407FEFF8 (CmpValueToData.c)
+ *     CmpFindTagIndex @ 0x140B33EDC (CmpFindTagIndex.c)
+ *     CmpGetNodeName @ 0x140B34B00 (CmpGetNodeName.c)
+ */
+
 char __fastcall CmpAddDriverToList(
         ULONG_PTR BugCheckParameter3,
         ULONG_PTR a2,

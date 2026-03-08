@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?SendSimpleAsyncRequest@CPortClient@@QEAAJK@Z @ 0x140003A18
+ * Callers:
+ *     ?StartKernelRedirection@CDwmAppHost@@AEAAJXZ @ 0x14000394C (-StartKernelRedirection@CDwmAppHost@@AEAAJXZ.c)
+ * Callees:
+ *     ?CheckStatus@CPortClient@@AEAAJJ@Z @ 0x140002778 (-CheckStatus@CPortClient@@AEAAJJ@Z.c)
+ *     ?LpcVerifyOutgoingPayloadSize@@YAXPEBU_PORT_MESSAGE@@@Z @ 0x140002CA0 (-LpcVerifyOutgoingPayloadSize@@YAXPEBU_PORT_MESSAGE@@@Z.c)
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x14000309C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ */
+
 __int64 __fastcall CPortClient::SendSimpleAsyncRequest(CPortClient *this, int a2)
 {
   unsigned int v3; // edi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?QueryFonts@PUBLIC_PFTOBJ@@QEAAHPEAU_UNIVERSAL_FONT_ID@@KPEAT_LARGE_INTEGER@@@Z @ 0x1C026D580
+ * Callers:
+ *     GreQueryFonts @ 0x1C027A760 (GreQueryFonts.c)
+ * Callees:
+ *     ?vUnlock@SEMOBJ@@QEAAXXZ @ 0x1C00D32A0 (-vUnlock@SEMOBJ@@QEAAXXZ.c)
+ */
+
 __int64 __fastcall PUBLIC_PFTOBJ::QueryFonts(
         PUBLIC_PFTOBJ *this,
         struct _UNIVERSAL_FONT_ID *a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?UpdatePTPRightClickZone@CPTPEngine@@AEAAXXZ @ 0x1C023AC90
+ * Callers:
+ *     ?ProcessEnvironment@CPTPEngine@@MEAAJXZ @ 0x1C02381A0 (-ProcessEnvironment@CPTPEngine@@MEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CPTPEngine::UpdatePTPRightClickZone(CPTPEngine *this)
 {
   int v1; // edx

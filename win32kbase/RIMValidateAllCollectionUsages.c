@@ -1,3 +1,15 @@
+/*
+ * XREFs of RIMValidateAllCollectionUsages @ 0x1C01BA1A0
+ * Callers:
+ *     RIMIsParallelDevice @ 0x1C01B8C44 (RIMIsParallelDevice.c)
+ * Callees:
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMIsButtonCapsEqual @ 0x1C01B8728 (RIMIsButtonCapsEqual.c)
+ *     RIMIsValueCapsEqual @ 0x1C01B8F44 (RIMIsValueCapsEqual.c)
+ *     RIMRetrieveAllLinkIndexUsages @ 0x1C01B93B4 (RIMRetrieveAllLinkIndexUsages.c)
+ */
+
 __int64 __fastcall RIMValidateAllCollectionUsages(
         __int64 a1,
         unsigned __int16 a2,

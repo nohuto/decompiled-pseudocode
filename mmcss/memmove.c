@@ -1,3 +1,14 @@
+/*
+ * XREFs of memmove @ 0x1C00034C0
+ * Callers:
+ *     CiDispatchFastIoDeviceControl @ 0x1C000A760 (CiDispatchFastIoDeviceControl.c)
+ *     WppTraceCallback @ 0x1C000C660 (WppTraceCallback.c)
+ *     CiConfigInitializeFromRegistry @ 0x1C000E8D0 (CiConfigInitializeFromRegistry.c)
+ *     CiConfigQueryValue @ 0x1C000ED40 (CiConfigQueryValue.c)
+ * Callees:
+ *     <none>
+ */
+
 void *__cdecl memmove(void *a1, const void *Src, size_t Size)
 {
   void *result; // rax

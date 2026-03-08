@@ -1,3 +1,22 @@
+/*
+ * XREFs of IoGetDevicePropertyData @ 0x1406F7380
+ * Callers:
+ *     PopFxQueryBiosDeviceName @ 0x140292070 (PopFxQueryBiosDeviceName.c)
+ *     HalpAreDriversDmarCompatible @ 0x14038CA98 (HalpAreDriversDmarCompatible.c)
+ *     HalpIommuDeviceGetDomainTypes @ 0x14050BA08 (HalpIommuDeviceGetDomainTypes.c)
+ *     PopFxBuildDripsBlockingDeviceList @ 0x140586854 (PopFxBuildDripsBlockingDeviceList.c)
+ *     PopFxIsDevicePotentialDripsConstraint @ 0x14058832C (PopFxIsDevicePotentialDripsConstraint.c)
+ *     IopGetInterruptConnectionData @ 0x1406F5728 (IopGetInterruptConnectionData.c)
+ *     IopGetSessionIdFromPDO @ 0x1406F72F8 (IopGetSessionIdFromPDO.c)
+ *     PnprIsMemoryDevice @ 0x1409633D0 (PnprIsMemoryDevice.c)
+ *     PnprIsProcessorDevice @ 0x140963488 (PnprIsProcessorDevice.c)
+ *     VfGetDmaAdapter @ 0x140AC3560 (VfGetDmaAdapter.c)
+ * Callees:
+ *     IoAddTriageDumpDataBlock @ 0x14038486C (IoAddTriageDumpDataBlock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     PnpGetDevicePropertyData @ 0x1406F7418 (PnpGetDevicePropertyData.c)
+ */
+
 NTSTATUS __stdcall IoGetDevicePropertyData(
         PDEVICE_OBJECT Pdo,
         const DEVPROPKEY *PropertyKey,

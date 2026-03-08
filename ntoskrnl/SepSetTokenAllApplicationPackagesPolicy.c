@@ -1,3 +1,12 @@
+/*
+ * XREFs of SepSetTokenAllApplicationPackagesPolicy @ 0x1405B6FD0
+ * Callers:
+ *     SeSubProcessToken @ 0x14070B29C (SeSubProcessToken.c)
+ * Callees:
+ *     AuthzBasepSetSecurityAttributesToken @ 0x14029705C (AuthzBasepSetSecurityAttributesToken.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ */
+
 __int64 __fastcall SepSetTokenAllApplicationPackagesPolicy(__int64 a1, unsigned int a2)
 {
   __int64 v3; // rcx

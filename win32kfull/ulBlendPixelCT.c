@@ -1,3 +1,12 @@
+/*
+ * XREFs of ulBlendPixelCT @ 0x1C0273E48
+ * Callers:
+ *     ?vSrcTranCopyS8D16NewUnsafe@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@P6AX011JPEAPEAG@Z1@Z @ 0x1C027719C (-vSrcTranCopyS8D16NewUnsafe@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@P6AX011JPEAPEAG@Z1@Z.c)
+ *     ?vSrcTranCopyS8D24Unsafe@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z @ 0x1C0277490 (-vSrcTranCopyS8D24Unsafe@@YAXPEBEJJPEAEJJJJKKPEAVSURFACE@@@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ulBlendPixelCT(int *a1, unsigned int a2, unsigned __int8 *a3)
 {
   unsigned int v3; // r11d

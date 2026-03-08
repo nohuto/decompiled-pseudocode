@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiMcheckAbortShadow @ 0x140AF39C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // positive sp value has been detected, the output may be wrong!
 void __fastcall KiMcheckAbortShadow(
         __int64 a1,

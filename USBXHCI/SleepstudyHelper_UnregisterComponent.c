@@ -1,3 +1,11 @@
+/*
+ * XREFs of SleepstudyHelper_UnregisterComponent @ 0x1C0054D74
+ * Callers:
+ *     Controller_WdfEvtDeviceReleaseHardware @ 0x1C0079480 (Controller_WdfEvtDeviceReleaseHardware.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 SleepstudyHelper_UnregisterComponent()
 {
   unsigned int v0; // ebx

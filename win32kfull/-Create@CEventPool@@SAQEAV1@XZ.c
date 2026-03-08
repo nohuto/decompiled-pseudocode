@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Create@CEventPool@@SAQEAV1@XZ @ 0x1C00E7280
+ * Callers:
+ *     ?UmfdCallSessionInitialize@@YAJXZ @ 0x1C00E717C (-UmfdCallSessionInitialize@@YAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 union _SLIST_HEADER *CEventPool::Create(void)
 {
   union _SLIST_HEADER *result; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiGetPerBandInfo @ 0x1C027B040
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?GreGetPerBandInfo@@YAKPEAUHDC__@@PEAU_PERBANDINFO@@@Z @ 0x1C0278984 (-GreGetPerBandInfo@@YAKPEAUHDC__@@PEAU_PERBANDINFO@@@Z.c)
+ */
+
 __int64 __fastcall NtGdiGetPerBandInfo(HDC a1, ULONG64 a2)
 {
   ULONG64 v3; // rbx

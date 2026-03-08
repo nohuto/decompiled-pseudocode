@@ -1,3 +1,19 @@
+/*
+ * XREFs of VfEvtDeviceD0Entry @ 0x1C00B85B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ *     ?_GetObjectFromHandle@FxObject@@SAPEAV1@PEAXPEAG@Z @ 0x1C0017C04 (-_GetObjectFromHandle@FxObject@@SAPEAV1@PEAXPEAG@Z.c)
+ *     ?PerfEvtDeviceD0EntryStart@@YAEPEAUWDFDEVICE__@@PEAU_GUID@@@Z @ 0x1C002E428 (-PerfEvtDeviceD0EntryStart@@YAEPEAUWDFDEVICE__@@PEAU_GUID@@@Z.c)
+ *     McTemplateK0pp_EtwWriteTransfer @ 0x1C002E7C4 (McTemplateK0pp_EtwWriteTransfer.c)
+ *     VerifyCriticalRegionEntry @ 0x1C002E830 (VerifyCriticalRegionEntry.c)
+ *     VerifyCriticalRegionExit @ 0x1C002E864 (VerifyCriticalRegionExit.c)
+ *     VerifyIrqlExit @ 0x1C002E8CC (VerifyIrqlExit.c)
+ *     VfWdfObjectGetTypedContext @ 0x1C00B84EC (VfWdfObjectGetTypedContext.c)
+ */
+
 __int64 __fastcall VfEvtDeviceD0Entry(WDFDEVICE__ *Device, unsigned int PreviousState)
 {
   unsigned int v3; // esi

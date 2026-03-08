@@ -1,3 +1,11 @@
+/*
+ * XREFs of UserSleep @ 0x1C017AE80
+ * Callers:
+ *     ?Reconnect@CIVChannel@@AEAAJXZ @ 0x1C022951C (-Reconnect@CIVChannel@@AEAAJXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall UserSleep(int a1)
 {
   union _LARGE_INTEGER Interval; // [rsp+38h] [rbp+10h] BYREF

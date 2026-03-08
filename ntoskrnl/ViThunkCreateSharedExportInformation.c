@@ -1,3 +1,15 @@
+/*
+ * XREFs of ViThunkCreateSharedExportInformation @ 0x140AB9FE0
+ * Callers:
+ *     VfThunkAddTargetNotify @ 0x140AB9F4C (VfThunkAddTargetNotify.c)
+ * Callees:
+ *     RtlNumberOfClearBits @ 0x14035C4F0 (RtlNumberOfClearBits.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ViThunkFreeSharedThunksArray @ 0x140AB9EAC (ViThunkFreeSharedThunksArray.c)
+ *     ViThunkSnapSharedExports @ 0x140ABA0B4 (ViThunkSnapSharedExports.c)
+ */
+
 __int64 __fastcall ViThunkCreateSharedExportInformation(__int64 a1, __int64 a2, __int64 a3, RTL_BITMAP *a4, void **a5)
 {
   unsigned int v8; // ebx

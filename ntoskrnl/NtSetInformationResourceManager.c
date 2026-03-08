@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtSetInformationResourceManager @ 0x1403D27F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 // attributes: thunk
 NTSTATUS __stdcall NtSetInformationResourceManager(
         HANDLE ResourceManagerHandle,

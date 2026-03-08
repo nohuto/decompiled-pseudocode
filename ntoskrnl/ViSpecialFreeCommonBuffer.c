@@ -1,3 +1,19 @@
+/*
+ * XREFs of ViSpecialFreeCommonBuffer @ 0x140AC6FA8
+ * Callers:
+ *     VfFreeCommonBuffer @ 0x140AC3280 (VfFreeCommonBuffer.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     DECREMENT_COMMON_BUFFERS @ 0x140AC132C (DECREMENT_COMMON_BUFFERS.c)
+ *     VF_FIND_BUFFER @ 0x140AC17A8 (VF_FIND_BUFFER.c)
+ *     ViCheckPadding @ 0x140AC5364 (ViCheckPadding.c)
+ */
+
 unsigned __int16 *__fastcall ViSpecialFreeCommonBuffer(
         void (__fastcall *a1)(_QWORD, _QWORD, _QWORD, _QWORD, char),
         __int64 a2,

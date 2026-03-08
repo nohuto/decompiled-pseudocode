@@ -1,3 +1,14 @@
+/*
+ * XREFs of PipUpdateSetupOobeCompleteWnfCallback @ 0x14094F200
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     Feature_VHDAutoAttachOnBoot__private_IsEnabledDeviceUsage @ 0x14040A260 (Feature_VHDAutoAttachOnBoot__private_IsEnabledDeviceUsage.c)
+ *     ExQueryWnfStateData @ 0x140793060 (ExQueryWnfStateData.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PipUpdateSetupOobeCompleteWnfCallback(__int64 a1)
 {
   struct _WORK_QUEUE_ITEM *Pool2; // rax

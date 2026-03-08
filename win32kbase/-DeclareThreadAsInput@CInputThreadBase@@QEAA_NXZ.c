@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?DeclareThreadAsInput@CInputThreadBase@@QEAA_NXZ @ 0x1C009AC60
+ * Callers:
+ *     UserKSTInitialize @ 0x1C009A090 (UserKSTInitialize.c)
+ *     UserSetMITInputCallbacks @ 0x1C00BFFC0 (UserSetMITInputCallbacks.c)
+ * Callees:
+ *     RIMLockExclusive @ 0x1C00399D0 (RIMLockExclusive.c)
+ *     ?IsEmpty@InputThreadState@CInputThreadBase@@QEBA_NXZ @ 0x1C009AD00 (-IsEmpty@InputThreadState@CInputThreadBase@@QEBA_NXZ.c)
+ *     ?Init@InputThreadState@CInputThreadBase@@QEAAXXZ @ 0x1C009AD58 (-Init@InputThreadState@CInputThreadBase@@QEAAXXZ.c)
+ *     SetThreadBasePriority @ 0x1C009ADB0 (SetThreadBasePriority.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 char __fastcall CInputThreadBase::DeclareThreadAsInput(CInputThreadBase *this)
 {
   char v2; // si

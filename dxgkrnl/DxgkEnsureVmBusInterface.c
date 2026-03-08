@@ -1,3 +1,13 @@
+/*
+ * XREFs of DxgkEnsureVmBusInterface @ 0x1C031108C
+ * Callers:
+ *     DpiFdoStartAdapterThread @ 0x1C02099A0 (DpiFdoStartAdapterThread.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ?EnsureVmBusInterface@DXGGLOBAL@@QEAAJXZ @ 0x1C030DD7C (-EnsureVmBusInterface@DXGGLOBAL@@QEAAJXZ.c)
+ */
+
 __int64 DxgkEnsureVmBusInterface()
 {
   DXGGLOBAL *Global; // rax

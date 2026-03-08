@@ -1,3 +1,34 @@
+/*
+ * XREFs of HUBFDO_EvtDevicePrepareHardware @ 0x1C0078890
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0pnq_EtwWriteTransfer @ 0x1C0001790 (McTemplateK0pnq_EtwWriteTransfer.c)
+ *     McTemplateK0pq_EtwWriteTransfer @ 0x1C0001CA0 (McTemplateK0pq_EtwWriteTransfer.c)
+ *     McTemplateK0pqn_EtwWriteTransfer @ 0x1C0001D10 (McTemplateK0pqn_EtwWriteTransfer.c)
+ *     McTemplateK0pquuxqqqqqqqsss_EtwWriteTransfer @ 0x1C0001D8C (McTemplateK0pquuxqqqqqqqsss_EtwWriteTransfer.c)
+ *     McTemplateK0pqz_EtwWriteTransfer @ 0x1C0001F80 (McTemplateK0pqz_EtwWriteTransfer.c)
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     McTemplateK0p_EtwWriteTransfer @ 0x1C00071D0 (McTemplateK0p_EtwWriteTransfer.c)
+ *     HUBPARENT_GetHubSymbolicLinkName @ 0x1C00077DC (HUBPARENT_GetHubSymbolicLinkName.c)
+ *     HUBSM_AddHsmEvent @ 0x1C000A6FC (HUBSM_AddHsmEvent.c)
+ *     Feature_USB4PowerImprovements__private_IsEnabledDeviceUsage @ 0x1C000CE04 (Feature_USB4PowerImprovements__private_IsEnabledDeviceUsage.c)
+ *     Feature_DropPowerReferenceOnLPE__private_IsEnabledDeviceUsage @ 0x1C000CE58 (Feature_DropPowerReferenceOnLPE__private_IsEnabledDeviceUsage.c)
+ *     HUBMISC_WaitForSignal @ 0x1C0032DEC (HUBMISC_WaitForSignal.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0044CC0 (memmove.c)
+ *     HUBFDO_SetFriendlyNameForBlockedHub @ 0x1C00775B0 (HUBFDO_SetFriendlyNameForBlockedHub.c)
+ *     HUBFDO_MapDvsecUsb4Hosts @ 0x1C00783A4 (HUBFDO_MapDvsecUsb4Hosts.c)
+ *     HUBFDO_RegisterSleepstudyBlockerReasons @ 0x1C007C974 (HUBFDO_RegisterSleepstudyBlockerReasons.c)
+ *     HUBCONNECTOR_MapHubPorts @ 0x1C0082A18 (HUBCONNECTOR_MapHubPorts.c)
+ *     HUBREG_QueryValuesInHubHardwareKey @ 0x1C0085AE8 (HUBREG_QueryValuesInHubHardwareKey.c)
+ *     HUBREG_ReadUsb4HostNameStringFromDeviceHardwareKey @ 0x1C008908C (HUBREG_ReadUsb4HostNameStringFromDeviceHardwareKey.c)
+ *     HUBACPI_GetAcpiPortAttributes @ 0x1C008ADA8 (HUBACPI_GetAcpiPortAttributes.c)
+ *     WMI_RegisterHub @ 0x1C008BFA4 (WMI_RegisterHub.c)
+ *     FWUPDATE_CreateFirmwareUpdateDevice @ 0x1C008CAD8 (FWUPDATE_CreateFirmwareUpdateDevice.c)
+ */
+
 __int64 __fastcall HUBFDO_EvtDevicePrepareHardware(__int64 a1)
 {
   __int64 v2; // rax

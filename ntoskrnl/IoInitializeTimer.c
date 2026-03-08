@@ -1,3 +1,12 @@
+/*
+ * XREFs of IoInitializeTimer @ 0x14085EA80
+ * Callers:
+ *     DifIoInitializeTimerWrapper @ 0x1405DDB20 (DifIoInitializeTimerWrapper.c)
+ * Callees:
+ *     ExInterlockedInsertTailList @ 0x1402B8DC0 (ExInterlockedInsertTailList.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 NTSTATUS __stdcall IoInitializeTimer(PDEVICE_OBJECT DeviceObject, PIO_TIMER_ROUTINE TimerRoutine, PVOID Context)
 {
   PIO_TIMER Timer; // rax

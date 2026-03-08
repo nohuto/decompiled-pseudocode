@@ -1,3 +1,11 @@
+/*
+ * XREFs of PsGetProcessCommonJob @ 0x1405A18A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PsGetProcessCommonJob(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiLockPageLeafPageTable @ 0x140269310
+ * Callers:
+ *     MiProbeAndLockPacket @ 0x140268C30 (MiProbeAndLockPacket.c)
+ *     MiProbeLeafFrame @ 0x1403CFA14 (MiProbeLeafFrame.c)
+ * Callees:
+ *     MiFastLockLeafPageTable @ 0x140269C50 (MiFastLockLeafPageTable.c)
+ *     MiLockPageTableInternal @ 0x14026A0D0 (MiLockPageTableInternal.c)
+ *     MiUnlockPageTableInternal @ 0x140290620 (MiUnlockPageTableInternal.c)
+ *     MiFaultInProbeAddress @ 0x1402E021C (MiFaultInProbeAddress.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ */
+
 __int64 __fastcall MiLockPageLeafPageTable(__int64 a1)
 {
   unsigned __int64 v1; // rbp

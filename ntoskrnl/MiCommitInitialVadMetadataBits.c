@@ -1,3 +1,19 @@
+/*
+ * XREFs of MiCommitInitialVadMetadataBits @ 0x1407285AC
+ * Callers:
+ *     MiMapProcessExecutable @ 0x14072787C (MiMapProcessExecutable.c)
+ * Callees:
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402992F0 (PdcCreateWatchdogAroundClientCall.c)
+ *     MiGetFirstVad @ 0x1402A5B0C (MiGetFirstVad.c)
+ *     MiUnlockAndDereferenceVad @ 0x14031EDC0 (MiUnlockAndDereferenceVad.c)
+ *     UNLOCK_ADDRESS_SPACE_SHARED @ 0x14031F590 (UNLOCK_ADDRESS_SPACE_SHARED.c)
+ *     LOCK_ADDRESS_SPACE_SHARED @ 0x14031F600 (LOCK_ADDRESS_SPACE_SHARED.c)
+ *     MiReferenceVad @ 0x14031F794 (MiReferenceVad.c)
+ *     MiLockVad @ 0x14034CF60 (MiLockVad.c)
+ *     MiGetNextVad @ 0x140350908 (MiGetNextVad.c)
+ *     MiCommitVadMetadataBits @ 0x1407D2944 (MiCommitVadMetadataBits.c)
+ */
+
 __int64 MiCommitInitialVadMetadataBits()
 {
   struct _KTHREAD *CurrentThread; // rsi

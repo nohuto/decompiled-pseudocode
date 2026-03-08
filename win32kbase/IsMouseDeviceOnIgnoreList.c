@@ -1,3 +1,13 @@
+/*
+ * XREFs of IsMouseDeviceOnIgnoreList @ 0x1C0031278
+ * Callers:
+ *     UpdateMouseConnectionState @ 0x1C0031898 (UpdateMouseConnectionState.c)
+ * Callees:
+ *     ?IsDeviceOnRegistryList@@YAHU_UNICODE_STRING@@0H@Z @ 0x1C0030DD8 (-IsDeviceOnRegistryList@@YAHU_UNICODE_STRING@@0H@Z.c)
+ *     RIMGetDeviceObjectPointer @ 0x1C0031148 (RIMGetDeviceObjectPointer.c)
+ *     RIMIsHIDMouse @ 0x1C0031360 (RIMIsHIDMouse.c)
+ */
+
 _BOOL8 __fastcall IsMouseDeviceOnIgnoreList(__int64 a1, __int64 a2, __int64 a3)
 {
   int v4; // edi

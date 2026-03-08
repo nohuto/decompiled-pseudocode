@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?Initialize@DXGPROCESS@@QEAAJPEAX@Z @ 0x1C01A7D50
+ * Callers:
+ *     ?CreateDxgProcess@DXGPROCESS@@SAJPEAPEAV1@PEAV1@1EPEAU_EPROCESS@@@Z @ 0x1C01A7864 (-CreateDxgProcess@DXGPROCESS@@SAJPEAPEAV1@PEAV1@1EPEAU_EPROCESS@@@Z.c)
+ * Callees:
+ *     ?GetGlobal@DXGGLOBAL@@SAPEAV1@XZ @ 0x1C0007700 (-GetGlobal@DXGGLOBAL@@SAPEAV1@XZ.c)
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ?SetupValidationForProcess@DXGVALIDATION@@QEAAXPEAVDXGPROCESS@@@Z @ 0x1C0008D30 (-SetupValidationForProcess@DXGVALIDATION@@QEAAXPEAVDXGPROCESS@@@Z.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ *     memset @ 0x1C0027640 (memset.c)
+ *     ?DeferredInitialize@DXGPROCESS@@QEAAJI@Z @ 0x1C01A8184 (-DeferredInitialize@DXGPROCESS@@QEAAJI@Z.c)
+ *     DxgkIsGraphicsPartitionApplication @ 0x1C033F1C0 (DxgkIsGraphicsPartitionApplication.c)
+ */
+
 __int64 __fastcall DXGPROCESS::Initialize(DXGPROCESS *this, void *a2)
 {
   int v4; // edx

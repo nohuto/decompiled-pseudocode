@@ -1,3 +1,11 @@
+/*
+ * XREFs of CleanupInjectedTouchProcess @ 0x1C01B12B0
+ * Callers:
+ *     _InitializeTouchInjectionWorker @ 0x1C01B1800 (_InitializeTouchInjectionWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CleanupInjectedTouchProcess(__int64 a1)
 {
   __int64 v1; // rbx

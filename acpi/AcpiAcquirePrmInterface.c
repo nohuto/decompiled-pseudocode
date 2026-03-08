@@ -1,3 +1,12 @@
+/*
+ * XREFs of AcpiAcquirePrmInterface @ 0x1C008CAB8
+ * Callers:
+ *     AcpiPrmNotifyInterfaceChange @ 0x1C008CC20 (AcpiPrmNotifyInterfaceChange.c)
+ *     AcpiPrmTargetDeviceChangeCallback @ 0x1C008CD10 (AcpiPrmTargetDeviceChangeCallback.c)
+ * Callees:
+ *     AcpiQueryPrmInterface @ 0x1C008CE38 (AcpiQueryPrmInterface.c)
+ */
+
 __int64 __fastcall AcpiAcquirePrmInterface(UNICODE_STRING *SourceString, char a2, void *a3)
 {
   NTSTATUS DeviceObjectPointer; // ebx

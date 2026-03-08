@@ -1,3 +1,17 @@
+/*
+ * XREFs of IopIrpStackProfilerDpcRoutine @ 0x1402E52E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     IopProcessIrpStackProfiler @ 0x1402E54D8 (IopProcessIrpStackProfiler.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _local_unwind @ 0x1403D3990 (_local_unwind.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiCustomAccessRoutine2 @ 0x1404228C0 (KiCustomAccessRoutine2.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall IopIrpStackProfilerDpcRoutine(__int64 a1, __int64 a2, __int64 a3, unsigned __int64 a4)
 {
   unsigned __int64 v8; // rdi

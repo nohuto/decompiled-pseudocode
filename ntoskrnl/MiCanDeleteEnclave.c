@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiCanDeleteEnclave @ 0x140644B94
+ * Callers:
+ *     MiFreeVadRange @ 0x1402D5634 (MiFreeVadRange.c)
+ * Callees:
+ *     MiLockVad @ 0x14034CF60 (MiLockVad.c)
+ *     MiUnlockVad @ 0x14034D51C (MiUnlockVad.c)
+ *     PsDereferenceVsmEnclave @ 0x1408A1324 (PsDereferenceVsmEnclave.c)
+ *     PsIsVsmEnclaveTerminated @ 0x1409B478C (PsIsVsmEnclaveTerminated.c)
+ *     PsReferenceVsmEnclave @ 0x1409B4820 (PsReferenceVsmEnclave.c)
+ *     PsRundownVsmEnclave @ 0x1409B4844 (PsRundownVsmEnclave.c)
+ *     MiFreeEnclaveModules @ 0x140A3B1B0 (MiFreeEnclaveModules.c)
+ */
+
 __int64 __fastcall MiCanDeleteEnclave(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rbp

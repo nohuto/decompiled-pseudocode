@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlRunOnceComplete @ 0x14079F240
+ * Callers:
+ *     RtlRunOnceExecuteOnce @ 0x1407A2BE0 (RtlRunOnceExecuteOnce.c)
+ * Callees:
+ *     KeAlertThreadByThreadId @ 0x1402D52B8 (KeAlertThreadByThreadId.c)
+ */
+
 NTSTATUS __stdcall RtlRunOnceComplete(PRTL_RUN_ONCE RunOnce, ULONG Flags, PVOID Context)
 {
   unsigned int v4; // edx

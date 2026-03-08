@@ -1,3 +1,23 @@
+/*
+ * XREFs of HvFreeHivePartial @ 0x14072DB74
+ * Callers:
+ *     HvpTruncateBins @ 0x14072DABC (HvpTruncateBins.c)
+ *     HvpPerformLogFileRecovery @ 0x1407FBCAC (HvpPerformLogFileRecovery.c)
+ * Callees:
+ *     RtlClearBits @ 0x14030DE60 (RtlClearBits.c)
+ *     RtlNumberOfSetBits @ 0x14035C520 (RtlNumberOfSetBits.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HvpAdjustHiveFreeDisplay @ 0x1407300D8 (HvpAdjustHiveFreeDisplay.c)
+ *     CmpUpdateSystemHiveHysteresis @ 0x140731F58 (CmpUpdateSystemHiveHysteresis.c)
+ *     HvpFreeMap @ 0x140791D78 (HvpFreeMap.c)
+ *     HvpFreeBin @ 0x14079AE68 (HvpFreeBin.c)
+ *     CmpReleaseGlobalQuota @ 0x1407A5908 (CmpReleaseGlobalQuota.c)
+ *     HvpMapEntryGetFreeBin @ 0x1407A6910 (HvpMapEntryGetFreeBin.c)
+ *     HvpViewMapShrinkStorage @ 0x140A1A654 (HvpViewMapShrinkStorage.c)
+ *     HvpGetCellMap @ 0x140AF2670 (HvpGetCellMap.c)
+ */
+
 __int64 __fastcall HvFreeHivePartial(ULONG_PTR BugCheckParameter2, unsigned int a2, unsigned int a3)
 {
   __int64 v5; // r15

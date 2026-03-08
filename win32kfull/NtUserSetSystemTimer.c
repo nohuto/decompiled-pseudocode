@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtUserSetSystemTimer @ 0x1C01DDCF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _SetSystemTimer @ 0x1C0006384 (_SetSystemTimer.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall NtUserSetSystemTimer(__int64 a1, int a2, int a3)
 {
   __int64 v6; // rax

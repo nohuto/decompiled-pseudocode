@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExpFastResourceLegacyConvertExclusiveToShared @ 0x1403C50F0
+ * Callers:
+ *     ExConvertExclusiveToSharedLite @ 0x1402DCE90 (ExConvertExclusiveToSharedLite.c)
+ * Callees:
+ *     ExpFindFastOwnerEntryForThread @ 0x1403C53E4 (ExpFindFastOwnerEntryForThread.c)
+ *     ExpConvertFastResourceExclusiveToShared @ 0x1403C5DA8 (ExpConvertFastResourceExclusiveToShared.c)
+ *     ExpFastResourceLegacyConvertExclusiveToShared2 @ 0x140410128 (ExpFastResourceLegacyConvertExclusiveToShared2.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall ExpFastResourceLegacyConvertExclusiveToShared(
         ULONG_PTR BugCheckParameter2,
         __int64 a2,

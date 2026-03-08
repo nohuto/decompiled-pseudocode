@@ -1,3 +1,14 @@
+/*
+ * XREFs of DbgkpLkmdSnapThreadInContext @ 0x1409381FC
+ * Callers:
+ *     DbgkpLkmdSnapThreadApc @ 0x140938180 (DbgkpLkmdSnapThreadApc.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlCaptureContext @ 0x140420580 (RtlCaptureContext.c)
+ *     DbgkpLkmdSnapDataEx @ 0x140539804 (DbgkpLkmdSnapDataEx.c)
+ *     DbgkpLkmdSnapKernelStack @ 0x14053991C (DbgkpLkmdSnapKernelStack.c)
+ */
+
 __int64 __fastcall DbgkpLkmdSnapThreadInContext(__int64 *a1, __int64 a2, _DWORD *a3)
 {
   __int64 result; // rax

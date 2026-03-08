@@ -1,3 +1,11 @@
+/*
+ * XREFs of PiCMReturnDepthResultData @ 0x140967910
+ * Callers:
+ *     PiCMGetDeviceDepth @ 0x140966FB0 (PiCMGetDeviceDepth.c)
+ * Callees:
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ */
+
 __int64 __fastcall PiCMReturnDepthResultData(int a1, int a2, int a3, _DWORD *a4, unsigned int Length, _DWORD *a6)
 {
   unsigned int v9; // ebx

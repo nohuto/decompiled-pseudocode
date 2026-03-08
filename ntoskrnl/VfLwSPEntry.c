@@ -1,3 +1,13 @@
+/*
+ * XREFs of VfLwSPEntry @ 0x1405F6278
+ * Callers:
+ *     DifRegisterKernelPlugin @ 0x1405D2B20 (DifRegisterKernelPlugin.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     DifRegisterPlugin @ 0x1405D2C50 (DifRegisterPlugin.c)
+ *     DifGetAvailableSystemPages @ 0x1405F61D4 (DifGetAvailableSystemPages.c)
+ */
+
 __int64 VfLwSPEntry()
 {
   __int64 result; // rax

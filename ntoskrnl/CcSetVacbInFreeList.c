@@ -1,3 +1,15 @@
+/*
+ * XREFs of CcSetVacbInFreeList @ 0x14021BC58
+ * Callers:
+ *     CcUnmapVacbArray @ 0x14021B910 (CcUnmapVacbArray.c)
+ *     CcGetVacbMiss @ 0x140335850 (CcGetVacbMiss.c)
+ *     CcInitializePartitionVacbs @ 0x14039BA70 (CcInitializePartitionVacbs.c)
+ *     CcUnmapInactiveViewsInternal @ 0x140535FC0 (CcUnmapInactiveViewsInternal.c)
+ *     CcUninitializePartitionVacbs @ 0x1405372DC (CcUninitializePartitionVacbs.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 unsigned __int64 __fastcall CcSetVacbInFreeList(__int64 a1, _QWORD *a2, char a3)
 {
   unsigned __int64 result; // rax

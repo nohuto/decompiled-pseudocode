@@ -1,3 +1,11 @@
+/*
+ * XREFs of SdbpBinarySearchUnique @ 0x14079E1DC
+ * Callers:
+ *     SdbpGetFirstIndexedRecord @ 0x14079F5A8 (SdbpGetFirstIndexedRecord.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SdbpBinarySearchUnique(__int64 a1, unsigned int a2, unsigned __int64 a3, int *a4)
 {
   int v4; // r11d

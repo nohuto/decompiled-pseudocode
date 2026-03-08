@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiLockHotPatchPages @ 0x140A358D8
+ * Callers:
+ *     MiPrepareDriverForHotPatch @ 0x140A37BA4 (MiPrepareDriverForHotPatch.c)
+ * Callees:
+ *     MiLockDriverPageRange @ 0x1406179F0 (MiLockDriverPageRange.c)
+ *     RtlDetermineHotPatchExtent @ 0x140A736B4 (RtlDetermineHotPatchExtent.c)
+ */
+
 __int64 __fastcall MiLockHotPatchPages(__int64 *a1, __int64 a2, int a3, unsigned int a4, int a5, unsigned int a6)
 {
   int v6; // ebx

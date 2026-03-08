@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpAddPointerToRollbackPacket @ 0x140A1B67C
+ * Callers:
+ *     CmpAddEnlistmentToRollbackPacket @ 0x140A1B628 (CmpAddEnlistmentToRollbackPacket.c)
+ *     CmpAddUoWToRollbackPacket @ 0x140A1B6D0 (CmpAddUoWToRollbackPacket.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CmpAddPointerToRollbackPacket(unsigned int *a1, __int64 a2)
 {
   __int64 v4; // rcx

@@ -1,3 +1,20 @@
+/*
+ * XREFs of EtwpTransitionToRealtime @ 0x1405FD178
+ * Callers:
+ *     NtTraceControl @ 0x140694040 (NtTraceControl.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     EtwpCheckLoggerControlAccess @ 0x140692E00 (EtwpCheckLoggerControlAccess.c)
+ *     EtwpReleaseLoggerContext @ 0x14069349C (EtwpReleaseLoggerContext.c)
+ *     EtwpValidateLoggerInfo @ 0x1407457C8 (EtwpValidateLoggerInfo.c)
+ *     EtwpAcquireLoggerContext @ 0x140745800 (EtwpAcquireLoggerContext.c)
+ *     EtwpGetLoggerInfoFromContext @ 0x1407458FC (EtwpGetLoggerInfoFromContext.c)
+ *     EtwpSynchronizeWithLogger @ 0x140749078 (EtwpSynchronizeWithLogger.c)
+ *     RtlFreeUnicodeString @ 0x1407F0430 (RtlFreeUnicodeString.c)
+ *     EtwpEventWriteTemplateSession @ 0x1409E0E14 (EtwpEventWriteTemplateSession.c)
+ */
+
 __int64 __fastcall EtwpTransitionToRealtime(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

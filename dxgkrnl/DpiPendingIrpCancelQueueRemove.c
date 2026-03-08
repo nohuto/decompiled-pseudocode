@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiPendingIrpCancelQueueRemove @ 0x1C005ECF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DpiPendingIrpCancelQueueRemove(PIO_CSQ Csq, PIRP Irp)
 {
   struct _IRP::$::$2AD798E65616C4F7304824DBFA27E419::$665C8370128C04AB892B069E6FB086E8 *p_ListEntry; // rdx

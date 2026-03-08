@@ -1,3 +1,14 @@
+/*
+ * XREFs of IoRegisterBootDriverReinitialization @ 0x14084D4C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     ObfReferenceObject @ 0x140267A70 (ObfReferenceObject.c)
+ *     IopInterlockedInsertTailList @ 0x1403A3A3C (IopInterlockedInsertTailList.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 void __stdcall IoRegisterBootDriverReinitialization(
         PDRIVER_OBJECT DriverObject,
         PDRIVER_REINITIALIZE DriverReinitializationRoutine,

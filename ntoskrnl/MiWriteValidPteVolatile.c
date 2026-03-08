@@ -1,3 +1,22 @@
+/*
+ * XREFs of MiWriteValidPteVolatile @ 0x140229800
+ * Callers:
+ *     MmCheckCachedPageStates @ 0x1402200B0 (MmCheckCachedPageStates.c)
+ *     MiWriteWsle @ 0x140228948 (MiWriteWsle.c)
+ *     MiSetWsleProtection @ 0x1402296A0 (MiSetWsleProtection.c)
+ *     MiResolveProtoPteFault @ 0x140270A50 (MiResolveProtoPteFault.c)
+ *     MiMakePageAvoidRead @ 0x140272670 (MiMakePageAvoidRead.c)
+ *     MiCheckProtoPtePageState @ 0x140283EB0 (MiCheckProtoPtePageState.c)
+ *     MiLockOwnedProtoPage @ 0x1402871A0 (MiLockOwnedProtoPage.c)
+ *     MiLockPagedAddress @ 0x1402A1684 (MiLockPagedAddress.c)
+ *     MiTryLockProtoPoolPageAtDpc @ 0x1402A2850 (MiTryLockProtoPoolPageAtDpc.c)
+ *     MiCopyOnWrite @ 0x140319F00 (MiCopyOnWrite.c)
+ *     MiRemoveWsle @ 0x140325790 (MiRemoveWsle.c)
+ *     MiLockCode @ 0x14032C9C0 (MiLockCode.c)
+ * Callees:
+ *     <none>
+ */
+
 signed __int64 __fastcall MiWriteValidPteVolatile(volatile signed __int64 *a1, int a2, unsigned __int8 a3)
 {
   signed __int64 v3; // r9

@@ -1,3 +1,13 @@
+/*
+ * XREFs of SshSessionManagerTracePostSleepNotification @ 0x14099EA1C
+ * Callers:
+ *     PopTransitionSystemPowerStateEx @ 0x140AA5F80 (PopTransitionSystemPowerStateEx.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     SshpSessionManagerSendControlEvent @ 0x1408717B8 (SshpSessionManagerSendControlEvent.c)
+ *     SshpSessionManagerInterruptTimeToSystemTime @ 0x14099ECA4 (SshpSessionManagerInterruptTimeToSystemTime.c)
+ */
+
 signed __int32 __fastcall SshSessionManagerTracePostSleepNotification(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AddThreadToDxgThreadList@DXGGLOBAL@@QEAAXPEAUDXGTHREADPROCESS@@@Z @ 0x1C0050C3C
+ * Callers:
+ *     ?AttachToProcess@CEnsureCurrentDxgProcess@@QEAAJPEAVDXGPROCESS@@E@Z @ 0x1C033ED08 (-AttachToProcess@CEnsureCurrentDxgProcess@@QEAAJPEAVDXGPROCESS@@E@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DXGGLOBAL::AddThreadToDxgThreadList(KSPIN_LOCK *this, struct DXGTHREADPROCESS *a2)
 {
   char *v4; // rbx

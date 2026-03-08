@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?Uninitialize@UmfdAllocation@@SAXXZ @ 0x1C0092938
+ * Callers:
+ *     UmfdSessionUninitialize @ 0x1C0092A20 (UmfdSessionUninitialize.c)
+ *     ?Initialize@UmfdAllocation@@SA_NXZ @ 0x1C00E7460 (-Initialize@UmfdAllocation@@SA_NXZ.c)
+ * Callees:
+ *     ?Destroy@CPointerHashTable@NSInstrumentation@@SAXPEAV12@@Z @ 0x1C0092984 (-Destroy@CPointerHashTable@NSInstrumentation@@SAXPEAV12@@Z.c)
+ */
+
 void __fastcall UmfdAllocation::Uninitialize(__int64 a1)
 {
   __int64 v1; // rbx

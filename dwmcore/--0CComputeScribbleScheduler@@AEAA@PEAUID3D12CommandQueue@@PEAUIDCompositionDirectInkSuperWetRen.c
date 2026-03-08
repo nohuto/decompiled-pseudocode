@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??0CComputeScribbleScheduler@@AEAA@PEAUID3D12CommandQueue@@PEAUIDCompositionDirectInkSuperWetRenderer@@PEAVCLegacySwapChain@@@Z @ 0x1801FF36C
+ * Callers:
+ *     ?Create@CComputeScribbleScheduler@@SAJPEAUIDXGIOutputDWM@@PEAUID3D12CommandQueue@@PEAUIDCompositionDirectInkSuperWetRenderer@@PEAUIDCompositionDirectInkCommunicationPartner@@PEAVCLegacySwapChain@@PEAPEAV1@@Z @ 0x1801FFA0C (-Create@CComputeScribbleScheduler@@SAJPEAUIDXGIOutputDWM@@PEAUID3D12CommandQueue@@PEAUIDComposit.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 CComputeScribbleScheduler *__fastcall CComputeScribbleScheduler::CComputeScribbleScheduler(
         CComputeScribbleScheduler *this,
         struct ID3D12CommandQueue *a2,

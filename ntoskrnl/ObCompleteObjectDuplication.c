@@ -1,3 +1,24 @@
+/*
+ * XREFs of ObCompleteObjectDuplication @ 0x14071134C
+ * Callers:
+ *     AlpcpQueryHandleInformationMessage @ 0x1407119D8 (AlpcpQueryHandleInformationMessage.c)
+ *     AlpcpExposeHandleAttribute @ 0x1407CE344 (AlpcpExposeHandleAttribute.c)
+ * Callees:
+ *     ExReleaseRundownProtection_0 @ 0x14028D330 (ExReleaseRundownProtection_0.c)
+ *     ObpFilterOperation @ 0x1402992C4 (ObpFilterOperation.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     SeAuditingWithTokenForSubcategory @ 0x14070F610 (SeAuditingWithTokenForSubcategory.c)
+ *     ObReferenceProcessHandleTable @ 0x140711794 (ObReferenceProcessHandleTable.c)
+ *     ObpPreInterceptHandleDuplicate @ 0x14077DBA0 (ObpPreInterceptHandleDuplicate.c)
+ *     ObpIncrementHandleCountEx @ 0x1407C1090 (ObpIncrementHandleCountEx.c)
+ *     ObpDecrementHandleCount @ 0x1407D8404 (ObpDecrementHandleCount.c)
+ *     ExCreateHandleEx @ 0x1407D8ABC (ExCreateHandleEx.c)
+ *     ObpPostInterceptHandleDuplicate @ 0x1408A0EBC (ObpPostInterceptHandleDuplicate.c)
+ *     SeAuditHandleDuplication @ 0x1409C77FC (SeAuditHandleDuplication.c)
+ *     EtwTraceDuplicateHandle @ 0x1409E22CC (EtwTraceDuplicateHandle.c)
+ */
+
 __int64 __fastcall ObCompleteObjectDuplication(__int64 *a1, __int64 a2, char a3, __int64 *a4, _DWORD *a5)
 {
   __int64 v9; // rax

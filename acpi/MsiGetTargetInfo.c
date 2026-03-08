@@ -1,3 +1,13 @@
+/*
+ * XREFs of MsiGetTargetInfo @ 0x1C00A0698
+ * Callers:
+ *     IrqArbAddAllocation @ 0x1C009C4B0 (IrqArbAddAllocation.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     ProcessorGetMsiConnectionData @ 0x1C009ACE4 (ProcessorGetMsiConnectionData.c)
+ */
+
 __int64 __fastcall MsiGetTargetInfo(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

@@ -1,3 +1,21 @@
+/*
+ * XREFs of DpiFdoCreateRelatedObjects @ 0x1C0202548
+ * Callers:
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ *     DxgkAcquireAdapterCoreSync @ 0x1C01801F4 (DxgkAcquireAdapterCoreSync.c)
+ *     DxgkReleaseAdapterCoreSync @ 0x1C0180708 (DxgkReleaseAdapterCoreSync.c)
+ *     DpiFdoInvalidateChildRelations @ 0x1C01E67E0 (DpiFdoInvalidateChildRelations.c)
+ *     ?DmmInitializeAdapter@@YAJQEAX@Z @ 0x1C02026C4 (-DmmInitializeAdapter@@YAJQEAX@Z.c)
+ *     DpiGdoCreateGdiObjects @ 0x1C0202D20 (DpiGdoCreateGdiObjects.c)
+ *     DpiFdoQueryAdapterInfoIntegratedDisplay @ 0x1C039806C (DpiFdoQueryAdapterInfoIntegratedDisplay.c)
+ *     DpiFdoQueryAdapterInfoIntegratedDisplay2 @ 0x1C039828C (DpiFdoQueryAdapterInfoIntegratedDisplay2.c)
+ *     DpiFdoValidateIntegratedDisplayDescriptor @ 0x1C0399218 (DpiFdoValidateIntegratedDisplayDescriptor.c)
+ *     DpiPdoRemovePdoObjects @ 0x1C03A5670 (DpiPdoRemovePdoObjects.c)
+ *     DpiGdoDestroyGdiObjects @ 0x1C03A5B8C (DpiGdoDestroyGdiObjects.c)
+ */
+
 __int64 __fastcall DpiFdoCreateRelatedObjects(__int64 a1, unsigned int a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdi

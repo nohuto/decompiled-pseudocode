@@ -1,3 +1,11 @@
+/*
+ * XREFs of MulFindDisplayDhsurfFromMetaSurf @ 0x1C018BCD8
+ * Callers:
+ *     bDfbSurfacesMigrated @ 0x1C0186C20 (bDfbSurfacesMigrated.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MulFindDisplayDhsurfFromMetaSurf(__int64 *a1)
 {
   __int64 v2; // rax

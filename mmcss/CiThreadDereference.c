@@ -1,3 +1,13 @@
+/*
+ * XREFs of CiThreadDereference @ 0x1C000A400
+ * Callers:
+ *     CiThreadNotification @ 0x1C0001040 (CiThreadNotification.c)
+ *     CiDispatchClose @ 0x1C000A380 (CiDispatchClose.c)
+ *     CiThreadCreate @ 0x1C000AD80 (CiThreadCreate.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall CiThreadDereference(volatile signed __int64 *a1)
 {
   signed __int64 v1; // rax

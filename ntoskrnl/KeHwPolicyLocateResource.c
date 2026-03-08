@@ -1,3 +1,13 @@
+/*
+ * XREFs of KeHwPolicyLocateResource @ 0x140B60C10
+ * Callers:
+ *     KiLoadPolicyFromImage @ 0x140A8D470 (KiLoadPolicyFromImage.c)
+ *     HalpWheaInitDiscard @ 0x140B60A80 (HalpWheaInitDiscard.c)
+ * Callees:
+ *     LdrResSearchResource @ 0x1407EACB0 (LdrResSearchResource.c)
+ *     KiHwPolicyFindDriverImage @ 0x140B60CB8 (KiHwPolicyFindDriverImage.c)
+ */
+
 __int64 __fastcall KeHwPolicyLocateResource(__int64 a1, __int64 a2, __int64 a3, unsigned int **a4, __int64 *a5)
 {
   ULONGLONG v7; // rcx

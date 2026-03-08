@@ -1,3 +1,13 @@
+/*
+ * XREFs of GetProcessDpiServerInfo @ 0x1C010C494
+ * Callers:
+ *     xxxSystemParametersInfoWorker @ 0x1C01032D0 (xxxSystemParametersInfoWorker.c)
+ *     GetDPIServerInfo @ 0x1C010C460 (GetDPIServerInfo.c)
+ *     ?xxxMoveSize@@YAXPEAUtagWND@@IK@Z @ 0x1C01F0DC4 (-xxxMoveSize@@YAXPEAUtagWND@@IK@Z.c)
+ * Callees:
+ *     GetDPIServerInfoForDpi @ 0x1C00A1E90 (GetDPIServerInfoForDpi.c)
+ */
+
 __int64 __fastcall GetProcessDpiServerInfo(__int64 a1)
 {
   __int64 CurrentProcessWin32Process; // rax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwpCovSampProcessUpperBoundModule @ 0x1408A532E
+ * Callers:
+ *     EtwpCovSampProcessMapAddresses @ 0x1408A5072 (EtwpCovSampProcessMapAddresses.c)
+ *     EtwpCovSampProcessRemoveModule @ 0x1408A528C (EtwpCovSampProcessRemoveModule.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EtwpCovSampProcessUpperBoundModule(__int64 a1, unsigned __int64 a2)
 {
   unsigned int v2; // r8d

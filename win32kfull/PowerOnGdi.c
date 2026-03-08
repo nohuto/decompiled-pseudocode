@@ -1,3 +1,13 @@
+/*
+ * XREFs of PowerOnGdi @ 0x1C0129280
+ * Callers:
+ *     xxxRemoteDisconnect @ 0x1C00F7034 (xxxRemoteDisconnect.c)
+ * Callees:
+ *     TransitionCursorSuppressionState @ 0x1C007B640 (TransitionCursorSuppressionState.c)
+ *     ProcessDelayedSdc @ 0x1C0129370 (ProcessDelayedSdc.c)
+ *     xxxUserResetDisplayDevice @ 0x1C01293C0 (xxxUserResetDisplayDevice.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall PowerOnGdi(__int64 a1, int a2, unsigned int a3)
 {

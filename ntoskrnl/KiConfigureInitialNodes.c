@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiConfigureInitialNodes @ 0x1403A3608
+ * Callers:
+ *     KiInitializeKernel @ 0x140A89160 (KiInitializeKernel.c)
+ * Callees:
+ *     KiAssignProcessorNumberToPrcb @ 0x140371A40 (KiAssignProcessorNumberToPrcb.c)
+ *     KiAllocateProcessorNumber @ 0x14037279C (KiAllocateProcessorNumber.c)
+ *     KiInitializeSchedulerSubNode @ 0x1403A3758 (KiInitializeSchedulerSubNode.c)
+ */
+
 __int64 __fastcall KiConfigureInitialNodes(__int64 a1)
 {
   _QWORD *v2; // rdx

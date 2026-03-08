@@ -1,3 +1,12 @@
+/*
+ * XREFs of CcPerfLogVolumeLogHandleInfo @ 0x1403977D0
+ * Callers:
+ *     CcPerfLogLoggedStreamsStats @ 0x140397704 (CcPerfLogLoggedStreamsStats.c)
+ * Callees:
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall CcPerfLogVolumeLogHandleInfo(__int64 a1, char a2, int a3, __int64 a4, __int64 a5, __int64 a6)
 {
   int v6; // eax

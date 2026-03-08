@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiDDCCIGetVCPFeature @ 0x1C026CCC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?DdcciGetVCPFeature@CMonitorAPI@@QEAAJPEAXKPEAW4_MC_VCP_CODE_TYPE@@PEAK2@Z @ 0x1C026C12C (-DdcciGetVCPFeature@CMonitorAPI@@QEAAJPEAXKPEAW4_MC_VCP_CODE_TYPE@@PEAK2@Z.c)
+ */
+
 __int64 __fastcall NtGdiDDCCIGetVCPFeature(
         void *a1,
         unsigned int a2,

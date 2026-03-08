@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_GFxSystemWorkItem@@UEAAPEAXI@Z @ 0x1C0042C60
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?FxPoolFree@@YAXPEAX@Z @ 0x1C0006E9C (-FxPoolFree@@YAXPEAX@Z.c)
+ *     ??1FxSystemWorkItem@@UEAA@XZ @ 0x1C0042BDC (--1FxSystemWorkItem@@UEAA@XZ.c)
+ */
+
 FxSystemWorkItem *__fastcall FxSystemWorkItem::`scalar deleting destructor'(FxSystemWorkItem *this, unsigned int a2)
 {
   char v2; // bl

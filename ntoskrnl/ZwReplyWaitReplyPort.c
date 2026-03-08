@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwReplyWaitReplyPort @ 0x140415370
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwReplyWaitReplyPort(__int64 a1, __int64 a2)
 {
   _disable();

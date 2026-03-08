@@ -1,3 +1,23 @@
+/*
+ * XREFs of IopGetSetSpecificExtension @ 0x14023EA58
+ * Callers:
+ *     IopSetLockOperationProcess @ 0x14023ED48 (IopSetLockOperationProcess.c)
+ *     IopCheckInitiatorHint @ 0x14035E260 (IopCheckInitiatorHint.c)
+ *     IopGetSetStreamIdentifier @ 0x1405552DC (IopGetSetStreamIdentifier.c)
+ *     IopAdjustFileObjectKeepAliveCount @ 0x14055606C (IopAdjustFileObjectKeepAliveCount.c)
+ *     IoCreateStreamFileObjectEx2 @ 0x1406B5020 (IoCreateStreamFileObjectEx2.c)
+ *     IopAllocateFoExtensionsOnCreate @ 0x140700A20 (IopAllocateFoExtensionsOnCreate.c)
+ *     IopRetrieveTransactionParameters @ 0x140756C40 (IopRetrieveTransactionParameters.c)
+ *     IopParseDevice @ 0x1407B6A30 (IopParseDevice.c)
+ *     IoCopyDeviceObjectHint @ 0x140944190 (IoCopyDeviceObjectHint.c)
+ * Callees:
+ *     IopGetFileObjectExtension @ 0x14023EB8C (IopGetFileObjectExtension.c)
+ *     IopSetTypeSpecificFoExtension @ 0x14023FE5C (IopSetTypeSpecificFoExtension.c)
+ *     IopAllocateFileObjectExtension @ 0x14024F600 (IopAllocateFileObjectExtension.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopGetSetSpecificExtension(
         __int64 a1,
         unsigned int a2,

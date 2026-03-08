@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopSetCopyInformationExtension @ 0x14035A9EC
+ * Callers:
+ *     IopAllocateAndPopulateWriteIrp @ 0x140240590 (IopAllocateAndPopulateWriteIrp.c)
+ *     IopReadFile @ 0x1407E0C40 (IopReadFile.c)
+ * Callees:
+ *     IopAllocateIrpExtension @ 0x1402B22EC (IopAllocateIrpExtension.c)
+ *     IopIrpHasValidCombinationOfExtensionTypes @ 0x14035AA40 (IopIrpHasValidCombinationOfExtensionTypes.c)
+ */
+
 __int64 __fastcall IopSetCopyInformationExtension(__int64 a1, _OWORD *a2)
 {
   __int64 v3; // r11

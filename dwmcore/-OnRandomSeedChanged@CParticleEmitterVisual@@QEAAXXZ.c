@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?OnRandomSeedChanged@CParticleEmitterVisual@@QEAAXXZ @ 0x1801C29C4
+ * Callers:
+ *     ?SetRandomSeed@?$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@QEAAJI@Z @ 0x1801C6588 (-SetRandomSeed@-$CParticleEmitterVisualGeneratedT@VCParticleEmitterVisual@@VCVisual@@@@QEAAJI@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _alloca_probe @ 0x180117650 (_alloca_probe.c)
+ *     memcpy_0 @ 0x1801177E8 (memcpy_0.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CParticleEmitterVisual::OnRandomSeedChanged(CParticleEmitterVisual *this)
 {
   unsigned int v2; // ecx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bDiagonalizePath@RTP_PATHMEMOBJ@@QEAAHPEAVEPATHOBJ@@@Z @ 0x1C02E1B1C
+ * Callers:
+ *     ?ppoGetPath@XCLIPOBJ@@QEAAPEAU_PATHOBJ@@XZ @ 0x1C0267E54 (-ppoGetPath@XCLIPOBJ@@QEAAPEAU_PATHOBJ@@XZ.c)
+ * Callees:
+ *     ?bDiagonalizeSubPath@RTP_PATHMEMOBJ@@AEAAHXZ @ 0x1C02E1BB8 (-bDiagonalizeSubPath@RTP_PATHMEMOBJ@@AEAAHXZ.c)
+ */
+
 __int64 __fastcall RTP_PATHMEMOBJ::bDiagonalizePath(struct _PATHDATA *this, POINTFIX *a2)
 {
   POINTFIX *pptfx; // rdx

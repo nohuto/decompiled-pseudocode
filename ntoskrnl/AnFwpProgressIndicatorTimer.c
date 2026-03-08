@@ -1,3 +1,15 @@
+/*
+ * XREFs of AnFwpProgressIndicatorTimer @ 0x140AEA710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     BgpFwQueryPerformanceCounter @ 0x140381520 (BgpFwQueryPerformanceCounter.c)
+ *     BgpTxtDisplayCharacter @ 0x140381538 (BgpTxtDisplayCharacter.c)
+ *     BgpFwReleaseLock @ 0x140381C10 (BgpFwReleaseLock.c)
+ *     BgpFwAcquireLock @ 0x140381C60 (BgpFwAcquireLock.c)
+ *     LogFwStat @ 0x140AEA85C (LogFwStat.c)
+ */
+
 void __fastcall AnFwpProgressIndicatorTimer(
         struct _KDPC *Dpc,
         PVOID DeferredContext,

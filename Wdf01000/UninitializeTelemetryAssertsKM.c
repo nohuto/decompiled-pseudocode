@@ -1,3 +1,11 @@
+/*
+ * XREFs of UninitializeTelemetryAssertsKM @ 0x1C008729C
+ * Callers:
+ *     FxLibraryCommonDecommission @ 0x1C002C154 (FxLibraryCommonDecommission.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS UninitializeTelemetryAssertsKM()
 {
   NTSTATUS result; // eax

@@ -1,3 +1,12 @@
+/*
+ * XREFs of SmmAttachDomainToAllDevices @ 0x1C03D0E00
+ * Callers:
+ *     SmmSwapDomains @ 0x1C03D1710 (SmmSwapDomains.c)
+ * Callees:
+ *     ?SysMmIommuAttach@@YAJPEAU_DEVICE_OBJECT@@PEAU_IOMMU_DMA_DOMAIN@@PEAU_IOMMU_DMA_DEVICE@@@Z @ 0x1C03D1C54 (-SysMmIommuAttach@@YAJPEAU_DEVICE_OBJECT@@PEAU_IOMMU_DMA_DOMAIN@@PEAU_IOMMU_DMA_DEVICE@@@Z.c)
+ *     ?SysMmIommuDetach@@YAXPEAU_DEVICE_OBJECT@@PEAU_IOMMU_DMA_DOMAIN@@PEAU_IOMMU_DMA_DEVICE@@@Z @ 0x1C03D1D18 (-SysMmIommuDetach@@YAXPEAU_DEVICE_OBJECT@@PEAU_IOMMU_DMA_DOMAIN@@PEAU_IOMMU_DMA_DEVICE@@@Z.c)
+ */
+
 __int64 __fastcall SmmAttachDomainToAllDevices(__int64 a1, struct _IOMMU_DMA_DOMAIN *a2)
 {
   __int64 v2; // rbx

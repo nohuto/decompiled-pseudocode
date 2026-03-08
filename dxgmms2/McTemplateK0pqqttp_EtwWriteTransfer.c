@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0pqqttp_EtwWriteTransfer @ 0x1C0038F48
+ * Callers:
+ *     VidSchiProfilePerformanceTick @ 0x1C0006E50 (VidSchiProfilePerformanceTick.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C001BDEC (McGenEventWrite_EtwWriteTransfer.c)
+ */
+
 NTSTATUS McTemplateK0pqqttp_EtwWriteTransfer(_DWORD a1, _DWORD a2, _DWORD a3, __int64 a4, char a5, char a6, ...)
 {
   int v7; // [rsp+30h] [rbp-61h] BYREF

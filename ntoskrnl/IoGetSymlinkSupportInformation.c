@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoGetSymlinkSupportInformation @ 0x1409455C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IoGetSymlinkSupportInformation(_BYTE *a1, unsigned int a2)
 {
   char v2; // r8

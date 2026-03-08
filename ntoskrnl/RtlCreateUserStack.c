@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlCreateUserStack @ 0x1406A3030
+ * Callers:
+ *     PspSetupUserStack @ 0x1406A2EF8 (PspSetupUserStack.c)
+ * Callees:
+ *     RtlImageNtHeader @ 0x14035E820 (RtlImageNtHeader.c)
+ *     ZwAllocateVirtualMemory @ 0x140412610 (ZwAllocateVirtualMemory.c)
+ *     ZwSetInformationProcess @ 0x140412690 (ZwSetInformationProcess.c)
+ *     ZwFreeVirtualMemory @ 0x1404126D0 (ZwFreeVirtualMemory.c)
+ */
+
 __int64 __fastcall RtlCreateUserStack(
         unsigned __int64 a1,
         unsigned __int64 a2,

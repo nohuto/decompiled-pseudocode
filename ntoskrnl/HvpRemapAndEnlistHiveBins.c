@@ -1,3 +1,27 @@
+/*
+ * XREFs of HvpRemapAndEnlistHiveBins @ 0x1407A488C
+ * Callers:
+ *     HvLoadHive @ 0x14072F5C0 (HvLoadHive.c)
+ * Callees:
+ *     SetFailureLocation @ 0x140243E5C (SetFailureLocation.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvpPointMapEntriesToBuffer @ 0x140730010 (HvpPointMapEntriesToBuffer.c)
+ *     HvpAllocateBin @ 0x140730410 (HvpAllocateBin.c)
+ *     HvpViewMapPromoteRangeToMapping @ 0x140779930 (HvpViewMapPromoteRangeToMapping.c)
+ *     HvpFreeBin @ 0x14079AE68 (HvpFreeBin.c)
+ *     HvpProtectBinPartial @ 0x1407A4030 (HvpProtectBinPartial.c)
+ *     HvpEnlistFreeCells @ 0x1407A4A50 (HvpEnlistFreeCells.c)
+ *     HvpValidateLoadedBin @ 0x1407A4B30 (HvpValidateLoadedBin.c)
+ *     CmpReleaseGlobalQuota @ 0x1407A5908 (CmpReleaseGlobalQuota.c)
+ *     HvpMarkDirty @ 0x1407D25D0 (HvpMarkDirty.c)
+ *     HvIsRangeDirty @ 0x140A22C54 (HvIsRangeDirty.c)
+ *     HvpGetBinContextInitialize @ 0x140AF2644 (HvpGetBinContextInitialize.c)
+ *     HvpMapEntryGetBinAddress @ 0x140AF2654 (HvpMapEntryGetBinAddress.c)
+ *     HvpGetCellMap @ 0x140AF2670 (HvpGetCellMap.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x140AF26CC (HvpMapEntryReleaseBinAddress.c)
+ */
+
 __int64 __fastcall HvpRemapAndEnlistHiveBins(ULONG_PTR BugCheckParameter2, int a2, __int64 a3)
 {
   __int64 v4; // r14

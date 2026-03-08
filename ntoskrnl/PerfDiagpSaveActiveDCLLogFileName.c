@@ -1,3 +1,17 @@
+/*
+ * XREFs of PerfDiagpSaveActiveDCLLogFileName @ 0x1409DABC0
+ * Callers:
+ *     PerfDiagpProxyWorker @ 0x14083C130 (PerfDiagpProxyWorker.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     NtTraceControl @ 0x140694040 (NtTraceControl.c)
+ *     RtlWriteRegistryValue @ 0x14069EDB0 (RtlWriteRegistryValue.c)
+ *     RtlDeleteRegistryValue @ 0x140871310 (RtlDeleteRegistryValue.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void PerfDiagpSaveActiveDCLLogFileName()
 {
   _WORD *Pool2; // rbx

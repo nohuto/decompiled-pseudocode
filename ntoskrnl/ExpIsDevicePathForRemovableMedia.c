@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExpIsDevicePathForRemovableMedia @ 0x140395FC0
+ * Callers:
+ *     NtEnumerateBootEntries @ 0x14083E4F0 (NtEnumerateBootEntries.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ExpIsDevicePathForRemovableMedia(_BYTE *a1)
 {
   char v1; // r9

@@ -1,3 +1,17 @@
+/*
+ * XREFs of _CmSetInstallerClassMappedProperty @ 0x140A66C94
+ * Callers:
+ *     _PnpDispatchInstallerClass @ 0x14074D6F0 (_PnpDispatchInstallerClass.c)
+ *     _CmDeleteInstallerClassWorker @ 0x140A5FE90 (_CmDeleteInstallerClassWorker.c)
+ * Callees:
+ *     _PnpObjectRaisePropertyChangeEvent @ 0x140687404 (_PnpObjectRaisePropertyChangeEvent.c)
+ *     _CmDeleteInstallerClassMappedPropertyFromCoInstallers @ 0x140A64A9C (_CmDeleteInstallerClassMappedPropertyFromCoInstallers.c)
+ *     _CmDeleteInstallerClassMappedPropertyFromRegValue @ 0x140A64B18 (_CmDeleteInstallerClassMappedPropertyFromRegValue.c)
+ *     _CmSetInstallerClassMappedPropertyFromCoInstallers @ 0x140A66EA4 (_CmSetInstallerClassMappedPropertyFromCoInstallers.c)
+ *     _CmSetInstallerClassMappedPropertyFromRegProp @ 0x140A66F20 (_CmSetInstallerClassMappedPropertyFromRegProp.c)
+ *     _CmSetInstallerClassMappedPropertyFromRegValue @ 0x140A67080 (_CmSetInstallerClassMappedPropertyFromRegValue.c)
+ */
+
 __int64 __fastcall CmSetInstallerClassMappedProperty(
         __int64 a1,
         const WCHAR *a2,

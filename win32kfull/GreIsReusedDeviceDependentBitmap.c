@@ -1,3 +1,11 @@
+/*
+ * XREFs of GreIsReusedDeviceDependentBitmap @ 0x1C00974AC
+ * Callers:
+ *     zzzUpdateWindowsAfterModeChange @ 0x1C0097D18 (zzzUpdateWindowsAfterModeChange.c)
+ * Callees:
+ *     ??1EPALOBJ@@QEAA@XZ @ 0x1C0124F2C (--1EPALOBJ@@QEAA@XZ.c)
+ */
+
 __int64 __fastcall GreIsReusedDeviceDependentBitmap(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax

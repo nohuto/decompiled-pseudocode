@@ -1,3 +1,16 @@
+/*
+ * XREFs of ObpDeleteDirectoryEntry @ 0x14076F100
+ * Callers:
+ *     ObpInsertOrLocateNamedObject @ 0x140696BDC (ObpInsertOrLocateNamedObject.c)
+ *     ObpCloseHandle @ 0x1407C2500 (ObpCloseHandle.c)
+ *     ObpDeleteNameCheck @ 0x1407D85E0 (ObpDeleteNameCheck.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObpUnlockDirectory @ 0x140699588 (ObpUnlockDirectory.c)
+ *     ObpDeleteDirectoryName @ 0x14076F180 (ObpDeleteDirectoryName.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 LONG_PTR __fastcall ObpDeleteDirectoryEntry(_QWORD *P, void **a2)
 {
   char *v2; // rsi

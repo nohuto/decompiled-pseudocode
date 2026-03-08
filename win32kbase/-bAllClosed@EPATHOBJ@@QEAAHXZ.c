@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bAllClosed@EPATHOBJ@@QEAAHXZ @ 0x1C0180BE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EPATHOBJ::bAllClosed(EPATHOBJ *this)
 {
   __int64 **i; // rcx

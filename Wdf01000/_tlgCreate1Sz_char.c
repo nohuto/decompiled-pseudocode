@@ -1,3 +1,11 @@
+/*
+ * XREFs of _tlgCreate1Sz_char @ 0x1C00873D4
+ * Callers:
+ *     MicrosoftTelemetryAssertTriggeredWorker @ 0x1C0086CD4 (MicrosoftTelemetryAssertTriggeredWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall tlgCreate1Sz_char(_EVENT_DATA_DESCRIPTOR *pDesc, const char *psz)
 {
   __int64 v2; // rax

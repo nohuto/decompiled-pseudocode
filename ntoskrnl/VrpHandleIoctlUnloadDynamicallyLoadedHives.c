@@ -1,3 +1,23 @@
+/*
+ * XREFs of VrpHandleIoctlUnloadDynamicallyLoadedHives @ 0x140736258
+ * Callers:
+ *     VrpIoctlDeviceDispatch @ 0x140736DF0 (VrpIoctlDeviceDispatch.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsGetJobSilo @ 0x1402B60C0 (PsGetJobSilo.c)
+ *     PsGetPermanentSiloContext @ 0x1402B6120 (PsGetPermanentSiloContext.c)
+ *     PsIsThreadInSilo @ 0x1402B6178 (PsIsThreadInSilo.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ZwUnloadKey2 @ 0x140415E10 (ZwUnloadKey2.c)
+ *     VrpDestroyNamespaceNode @ 0x140737134 (VrpDestroyNamespaceNode.c)
+ *     VrpCleanupNamespace @ 0x140737928 (VrpCleanupNamespace.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ */
+
 __int64 __fastcall VrpHandleIoctlUnloadDynamicallyLoadedHives(
         ULONG_PTR *a1,
         unsigned int a2,

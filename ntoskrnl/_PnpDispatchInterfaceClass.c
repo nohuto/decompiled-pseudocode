@@ -1,3 +1,20 @@
+/*
+ * XREFs of _PnpDispatchInterfaceClass @ 0x1406C59F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _PnpMapCmStatusToDispatchStatus @ 0x140244BE4 (_PnpMapCmStatusToDispatchStatus.c)
+ *     _CmValidateInstallerClassName @ 0x1406C4F20 (_CmValidateInstallerClassName.c)
+ *     _CmOpenInterfaceClassRegKey @ 0x1406C4F44 (_CmOpenInterfaceClassRegKey.c)
+ *     _CmGetInterfaceClassMappedProperty @ 0x1406C58F4 (_CmGetInterfaceClassMappedProperty.c)
+ *     _CmGetMatchingCommonClassList @ 0x1408241FC (_CmGetMatchingCommonClassList.c)
+ *     _CmCreateInterfaceClass @ 0x14087BA38 (_CmCreateInterfaceClass.c)
+ *     _CmDeleteInterfaceClass @ 0x140A6012C (_CmDeleteInterfaceClass.c)
+ *     _CmGetInterfaceClassMappedPropertyKeys @ 0x140A66558 (_CmGetInterfaceClassMappedPropertyKeys.c)
+ *     _CmGetInterfaceClassMappedPropertyLocales @ 0x140A6672C (_CmGetInterfaceClassMappedPropertyLocales.c)
+ *     _CmSetInterfaceClassMappedProperty @ 0x140A673A8 (_CmSetInterfaceClassMappedProperty.c)
+ */
+
 __int64 __fastcall PnpDispatchInterfaceClass(__int64 a1, const WCHAR *a2, __int64 a3, int a4, _DWORD *a5)
 {
   __int64 (__fastcall *v5)(); // r8

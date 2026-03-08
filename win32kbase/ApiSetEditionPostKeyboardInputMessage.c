@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionPostKeyboardInputMessage @ 0x1C02419A0
+ * Callers:
+ *     NtUserPostKeyboardInputMessage @ 0x1C0175720 (NtUserPostKeyboardInputMessage.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     EditionPostKeyboardInputMessage @ 0x1C0271CB0 (EditionPostKeyboardInputMessage.c)
+ */
+
 __int64 __fastcall ApiSetEditionPostKeyboardInputMessage(
         int a1,
         char a2,

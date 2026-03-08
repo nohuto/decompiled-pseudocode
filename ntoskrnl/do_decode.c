@@ -1,3 +1,11 @@
+/*
+ * XREFs of do_decode @ 0x1406777B0
+ * Callers:
+ *     XpressDecode @ 0x140677638 (XpressDecode.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall do_decode(__int64 a1)
 {
   unsigned __int64 v1; // rax

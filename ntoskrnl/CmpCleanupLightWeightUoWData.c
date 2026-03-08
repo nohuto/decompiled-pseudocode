@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpCleanupLightWeightUoWData @ 0x140A196A4
+ * Callers:
+ *     CmpCleanupLightWeightPrepare @ 0x140A19654 (CmpCleanupLightWeightPrepare.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     CmpFreeTransientPoolWithTag @ 0x1402A4B0C (CmpFreeTransientPoolWithTag.c)
+ *     CmpCleanupDiscardReplaceContext @ 0x1406B7DC0 (CmpCleanupDiscardReplaceContext.c)
+ *     CmpFreeKeyByCell @ 0x1406BA854 (CmpFreeKeyByCell.c)
+ *     CmpFreeValue @ 0x1406BAA4C (CmpFreeValue.c)
+ *     CmpLightWeightCleanupModifyKeyDataUoW @ 0x140A25254 (CmpLightWeightCleanupModifyKeyDataUoW.c)
+ *     CmpLightWeightCleanupSetSecDescUoW @ 0x140A252A8 (CmpLightWeightCleanupSetSecDescUoW.c)
+ *     CmpLightWeightCleanupSetValueKeyUoW @ 0x140A252DC (CmpLightWeightCleanupSetValueKeyUoW.c)
+ */
+
 void __fastcall CmpCleanupLightWeightUoWData(__int64 a1, __int64 a2, __int64 a3)
 {
   int v5; // edx

@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiLockControlAreaSectionExtend @ 0x1402A4EFC
+ * Callers:
+ *     MmExtendSection @ 0x1407267DC (MmExtendSection.c)
+ * Callees:
+ *     KeAbPreWait @ 0x140241620 (KeAbPreWait.c)
+ *     KeAbPostReleaseEx @ 0x140248520 (KeAbPostReleaseEx.c)
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeWaitForGate @ 0x1402931D8 (KeWaitForGate.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiLockControlAreaSectionExtend(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   struct _KTHREAD *CurrentThread; // rax

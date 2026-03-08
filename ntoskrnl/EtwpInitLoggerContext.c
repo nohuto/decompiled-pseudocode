@@ -1,3 +1,24 @@
+/*
+ * XREFs of EtwpInitLoggerContext @ 0x140761AA8
+ * Callers:
+ *     EtwpStartLogger @ 0x140691964 (EtwpStartLogger.c)
+ * Callees:
+ *     EtwpQueryUsedProcessorCount @ 0x140206540 (EtwpQueryUsedProcessorCount.c)
+ *     KeInitializeTimerEx @ 0x140237DB0 (KeInitializeTimerEx.c)
+ *     KeQuerySystemTimePrecise @ 0x1402384E0 (KeQuerySystemTimePrecise.c)
+ *     KeQueryMaximumProcessorCountEx @ 0x1402A7240 (KeQueryMaximumProcessorCountEx.c)
+ *     InitializeSListHead @ 0x1402A8B90 (InitializeSListHead.c)
+ *     KeInitializeMutex @ 0x1402D97E0 (KeInitializeMutex.c)
+ *     KeInitializeDpc @ 0x140305660 (KeInitializeDpc.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     HalQueryMaximumProcessorCount @ 0x140375910 (HalQueryMaximumProcessorCount.c)
+ *     EtwpInitializeCompression @ 0x1403AF1D8 (EtwpInitializeCompression.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall EtwpInitLoggerContext(const void **a1, int a2, int a3)
 {
   int v3; // ebx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?CheckAndDismissWindowResizeHighlight@CTouchProcessor@@AEAAXPEAUCPointerCaptureInfo@@@Z @ 0x1C01EB348
+ * Callers:
+ *     ?ReleasePointerCapture@CTouchProcessor@@AEAAH_KH@Z @ 0x1C02016F8 (-ReleasePointerCapture@CTouchProcessor@@AEAAH_KH@Z.c)
+ * Callees:
+ *     ?GetWindowHandle@CInputDest@@QEBAPEAUHWND__@@XZ @ 0x1C007CE44 (-GetWindowHandle@CInputDest@@QEBAPEAUHWND__@@XZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     IsTouchResizeActionSupported @ 0x1C0271F48 (IsTouchResizeActionSupported.c)
+ */
+
 void __fastcall CTouchProcessor::CheckAndDismissWindowResizeHighlight(
         struct _KTHREAD **this,
         struct CPointerCaptureInfo *a2)

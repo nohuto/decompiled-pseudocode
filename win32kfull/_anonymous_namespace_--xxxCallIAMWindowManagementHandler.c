@@ -1,3 +1,16 @@
+/*
+ * XREFs of _anonymous_namespace_::xxxCallIAMWindowManagementHandler @ 0x1C0220E14
+ * Callers:
+ *     ?xxxGetShellShowWindowCommand@@YA?AUShowCommandAndSource@@PEAUtagWND@@EAEBUtagUSERSTARTUPINFO@@@Z @ 0x1C002B660 (-xxxGetShellShowWindowCommand@@YA-AUShowCommandAndSource@@PEAUtagWND@@EAEBUtagUSERSTARTUPINFO@@@.c)
+ *     ?xxxArrangementInfoHandler@CallShell@@YA_NPEBUMOVESIZEDATA@@W4ShellNotificationWindowKind@@PEAU_SHELL_WINDOWMANAGEMENT_CALLOUT_INFO@@@Z @ 0x1C0220CBC (-xxxArrangementInfoHandler@CallShell@@YA_NPEBUMOVESIZEDATA@@W4ShellNotificationWindowKind@@PEAU_.c)
+ *     ?xxxMigrateWindowHandler@CallShell@@YA_NPEAUtagWND@@W4_SHELL_MIGRATE_WINDOW_REASON@@AEBUtagRECT@@2GU4@PEAUtagMONITOR@@PEAU4@PEAW4State@AdvancedWindowPos@@PEAK@Z @ 0x1C0220F00 (-xxxMigrateWindowHandler@CallShell@@YA_NPEAUtagWND@@W4_SHELL_MIGRATE_WINDOW_REASON@@AEBUtagRECT@.c)
+ *     ?xxxWindowSizeStartingHandler@CallShell@@YAXPEAUtagWND@@H@Z @ 0x1C0221E40 (-xxxWindowSizeStartingHandler@CallShell@@YAXPEAUtagWND@@H@Z.c)
+ * Callees:
+ *     xxxSendTransformableMessageTimeout @ 0x1C006E550 (xxxSendTransformableMessageTimeout.c)
+ *     _anonymous_namespace_::ResolveWindowManagementTargetWindow @ 0x1C009BA28 (_anonymous_namespace_--ResolveWindowManagementTargetWindow.c)
+ *     _anonymous_namespace_::SeverWindowManagementConnectionToShell @ 0x1C02206CC (_anonymous_namespace_--SeverWindowManagementConnectionToShell.c)
+ */
+
 struct tagWND *__fastcall anonymous_namespace_::xxxCallIAMWindowManagementHandler(__int128 *a1, int a2)
 {
   struct tagWND *result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtOpenTimer @ 0x1409F8880
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ObOpenObjectByName @ 0x1406C39E0 (ObOpenObjectByName.c)
+ */
+
 __int64 __fastcall NtOpenTimer(_QWORD *a1, int a2, __int64 a3)
 {
   char PreviousMode; // di

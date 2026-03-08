@@ -1,3 +1,13 @@
+/*
+ * XREFs of ExpStampPoolWithQuotaProcess @ 0x140295114
+ * Callers:
+ *     ExpAllocatePoolWithQuotaTag @ 0x140AAB128 (ExpAllocatePoolWithQuotaTag.c)
+ * Callees:
+ *     ExpStampPoolEntryWithQuotaProcess @ 0x1402951BC (ExpStampPoolEntryWithQuotaProcess.c)
+ *     ExpStampBigPoolEntry @ 0x140307098 (ExpStampBigPoolEntry.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 _BYTE *__fastcall ExpStampPoolWithQuotaProcess(
         ULONG_PTR BugCheckParameter2,
         __int64 a2,

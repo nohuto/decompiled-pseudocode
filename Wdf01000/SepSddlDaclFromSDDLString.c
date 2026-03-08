@@ -1,3 +1,11 @@
+/*
+ * XREFs of SepSddlDaclFromSDDLString @ 0x1C00B09F4
+ * Callers:
+ *     SepSddlSecurityDescriptorFromSDDLString @ 0x1C00B10DC (SepSddlSecurityDescriptorFromSDDLString.c)
+ * Callees:
+ *     SepSddlGetAclForString @ 0x1C00B0AE0 (SepSddlGetAclForString.c)
+ */
+
 __int64 __fastcall SepSddlDaclFromSDDLString(
         const wchar_t *SecurityDescriptorString,
         unsigned int SecurityDescriptorControlFlags,

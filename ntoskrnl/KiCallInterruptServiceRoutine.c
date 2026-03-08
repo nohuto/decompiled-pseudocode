@@ -1,3 +1,23 @@
+/*
+ * XREFs of KiCallInterruptServiceRoutine @ 0x1402B7620
+ * Callers:
+ *     KiInvokeInterruptServiceRoutine @ 0x14039E8DC (KiInvokeInterruptServiceRoutine.c)
+ *     KiScanInterruptObjectList @ 0x140417C90 (KiScanInterruptObjectList.c)
+ *     KiInterruptSubDispatch @ 0x140417E70 (KiInterruptSubDispatch.c)
+ *     KiInterruptSubDispatchNoLock @ 0x140417FC0 (KiInterruptSubDispatchNoLock.c)
+ *     KiInterruptSubDispatchNoLockNoEtw @ 0x140418110 (KiInterruptSubDispatchNoLockNoEtw.c)
+ * Callees:
+ *     KxWaitForSpinLockAndAcquire @ 0x14024F7D0 (KxWaitForSpinLockAndAcquire.c)
+ *     KeFindFirstSetRightGroupAffinity @ 0x1402A9460 (KeFindFirstSetRightGroupAffinity.c)
+ *     KiCheckAndRearmForceIdle @ 0x1403026FC (KiCheckAndRearmForceIdle.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     KiAcquireSpinLockInstrumented @ 0x140457E30 (KiAcquireSpinLockInstrumented.c)
+ *     KiReleaseSpinLockInstrumented @ 0x14056F278 (KiReleaseSpinLockInstrumented.c)
+ *     KiProcessDeferredDpcWatchdogViolation @ 0x140578D88 (KiProcessDeferredDpcWatchdogViolation.c)
+ *     KiResetForceIdle @ 0x14057ACCC (KiResetForceIdle.c)
+ *     KiIntRedirectQueueRequestOnProcessor @ 0x14057E460 (KiIntRedirectQueueRequestOnProcessor.c)
+ */
+
 char __fastcall KiCallInterruptServiceRoutine(__int64 a1, char a2)
 {
   unsigned int v2; // eax

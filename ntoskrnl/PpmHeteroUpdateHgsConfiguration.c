@@ -1,3 +1,21 @@
+/*
+ * XREFs of PpmHeteroUpdateHgsConfiguration @ 0x14038F314
+ * Callers:
+ *     PopInitializeHeteroProcessors @ 0x140826970 (PopInitializeHeteroProcessors.c)
+ * Callees:
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KeEnumerateNextProcessor @ 0x140234A60 (KeEnumerateNextProcessor.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     KeCheckProcessorAffinityEx @ 0x140234B10 (KeCheckProcessorAffinityEx.c)
+ *     KeAddProcessorAffinityEx @ 0x140234B50 (KeAddProcessorAffinityEx.c)
+ *     KiAndAffinityEx @ 0x140237720 (KiAndAffinityEx.c)
+ *     KeIsEmptyAffinityEx @ 0x140237C30 (KeIsEmptyAffinityEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PpmEventHgsHardwareTable @ 0x140597E5C (PpmEventHgsHardwareTable.c)
+ *     PPmHeteroHgsUpdateOrderValue @ 0x14059C04C (PPmHeteroHgsUpdateOrderValue.c)
+ */
+
 char PpmHeteroUpdateHgsConfiguration()
 {
   char v0; // bl

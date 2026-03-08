@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?vDuplicateAndScaleRegion@@YAXPEAVREGION@@PEAPEAV1@VPOINTFL@@@Z @ 0x1C0189D98
+ * Callers:
+ *     ?vUpdateScaledRegions@DC@@QEAAXXZ @ 0x1C001A820 (-vUpdateScaledRegions@DC@@QEAAXXZ.c)
+ * Callees:
+ *     ?bCopy@RGNOBJ@@QEAAHAEAV1@@Z @ 0x1C00436C0 (-bCopy@RGNOBJ@@QEAAHAEAV1@@Z.c)
+ *     ?vInitialize@RGNMEMOBJ@@QEAAXK@Z @ 0x1C0053220 (-vInitialize@RGNMEMOBJ@@QEAAXK@Z.c)
+ *     ?vDeleteREGION@REGION@@QEAAXXZ @ 0x1C00558E0 (-vDeleteREGION@REGION@@QEAAXXZ.c)
+ *     ?vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z @ 0x1C01846B0 (-vScale@RGNOBJ@@QEAAXVPOINTFL@@@Z.c)
+ */
+
 void __fastcall vDuplicateAndScaleRegion(__int64 a1, __int64 *a2, __int64 a3)
 {
   __int64 v3; // rbx

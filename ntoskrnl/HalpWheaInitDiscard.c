@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpWheaInitDiscard @ 0x140B60A80
+ * Callers:
+ *     HalpWheaInitSystem @ 0x140A8CF90 (HalpWheaInitSystem.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     WheaConfigureErrorSource @ 0x140A8D100 (WheaConfigureErrorSource.c)
+ *     HalpReserveHalPtes @ 0x140B3DD8C (HalpReserveHalPtes.c)
+ *     KeHwPolicyLocateResource @ 0x140B60C10 (KeHwPolicyLocateResource.c)
+ */
+
 __int64 __fastcall HalpWheaInitDiscard(int a1)
 {
   void *v1; // rax

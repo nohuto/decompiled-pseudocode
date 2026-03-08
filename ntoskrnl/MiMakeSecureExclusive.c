@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiMakeSecureExclusive @ 0x140631940
+ * Callers:
+ *     MmStoreAllocateVirtualMemory @ 0x140A42EFC (MmStoreAllocateVirtualMemory.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ */
+
 __int64 __fastcall MiMakeSecureExclusive(__int64 a1)
 {
   unsigned int v2; // esi

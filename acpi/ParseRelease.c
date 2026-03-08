@@ -1,3 +1,17 @@
+/*
+ * XREFs of ParseRelease @ 0x1C005BF70
+ * Callers:
+ *     ReleaseASLMutex @ 0x1C0054DD0 (ReleaseASLMutex.c)
+ * Callees:
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     PerformMutexDriverCallbacks @ 0x1C004C9F4 (PerformMutexDriverCallbacks.c)
+ *     ReleaseGL @ 0x1C004CEA8 (ReleaseGL.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapFree @ 0x1C004EE4C (HeapFree.c)
+ *     DequeueAndReadyContext @ 0x1C00548A4 (DequeueAndReadyContext.c)
+ */
+
 __int64 __fastcall ParseRelease(__int64 a1, __int64 a2, int a3)
 {
   int v3; // r9d

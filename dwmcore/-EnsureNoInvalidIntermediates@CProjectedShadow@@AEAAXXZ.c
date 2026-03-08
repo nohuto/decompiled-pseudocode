@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EnsureNoInvalidIntermediates@CProjectedShadow@@AEAAXXZ @ 0x180246068
+ * Callers:
+ *     ?UpdateShadowIntermediates@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z @ 0x180247EC4 (-UpdateShadowIntermediates@CProjectedShadow@@AEAAJPEAVCDrawingContext@@@Z.c)
+ * Callees:
+ *     ?reset@?$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ @ 0x1800E91E4 (-reset@-$com_ptr_t@VIRenderTargetBitmap@@Uerr_returncode_policy@wil@@@wil@@QEAAXXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 void __fastcall CProjectedShadow::EnsureNoInvalidIntermediates(CProjectedShadow *this)
 {
   int (__fastcall ***v2)(_QWORD); // rcx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopAddPagesToCompressedPageSet @ 0x140A9E7C4
+ * Callers:
+ *     PopCompressHiberBlocks @ 0x140A9EE04 (PopCompressHiberBlocks.c)
+ *     PopWriteHiberImage @ 0x140AA272C (PopWriteHiberImage.c)
+ * Callees:
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlCompressBufferProgress @ 0x1405B0208 (RtlCompressBufferProgress.c)
+ */
+
 const void *__fastcall PopAddPagesToCompressedPageSet(
         __int64 a1,
         __int64 a2,

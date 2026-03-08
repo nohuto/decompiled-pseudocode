@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CreateDeadzone@InteractiveControlDevice@@QEAAJXZ @ 0x1C0247C34
+ * Callers:
+ *     ?Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z @ 0x1C0248474 (-Initialize@InteractiveControlDevice@@QEAAJPEAURawInputManagerDeviceObject@@@Z.c)
+ *     ?PerformInputActions@InteractiveControlDevice@@QEAAXPEAVInteractiveControlInput@@I@Z @ 0x1C024897C (-PerformInputActions@InteractiveControlDevice@@QEAAXPEAVInteractiveControlInput@@I@Z.c)
+ * Callees:
+ *     ?Instance@InteractiveControlManager@@SAPEAV1@XZ @ 0x1C007A05C (-Instance@InteractiveControlManager@@SAPEAV1@XZ.c)
+ *     GetUserHandedness @ 0x1C01C4370 (GetUserHandedness.c)
+ */
+
 __int64 __fastcall InteractiveControlDevice::CreateDeadzone(
         InteractiveControlDevice *this,
         __int64 a2,

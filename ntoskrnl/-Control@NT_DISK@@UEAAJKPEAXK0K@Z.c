@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?Control@NT_DISK@@UEAAJKPEAXK0K@Z @ 0x14093D3C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     IoBuildDeviceIoControlRequest @ 0x14024FE00 (IoBuildDeviceIoControlRequest.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ */
+
 int __fastcall NT_DISK::Control(
         PDEVICE_OBJECT *this,
         ULONG a2,

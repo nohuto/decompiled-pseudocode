@@ -1,3 +1,12 @@
+/*
+ * XREFs of VfSuspectDriversInsert @ 0x140AD76D0
+ * Callers:
+ *     VfSuspectDriversParseRegistryString @ 0x140B93B7C (VfSuspectDriversParseRegistryString.c)
+ *     VfTriageAddDrivers @ 0x140B93E98 (VfTriageAddDrivers.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall VfSuspectDriversInsert(_QWORD *a1)
 {
   _QWORD *result; // rax

@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtDCompositionCreateDwmChannel @ 0x1C00C9F90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserIsCurrentProcessDwm @ 0x1C00191C0 (UserIsCurrentProcessDwm.c)
+ *     ?DestroyHandle@CChannel@DirectComposition@@SAJI@Z @ 0x1C0098528 (-DestroyHandle@CChannel@DirectComposition@@SAJI@Z.c)
+ *     ?Create@CDwmChannel@DirectComposition@@SAJPEAI@Z @ 0x1C00CA030 (-Create@CDwmChannel@DirectComposition@@SAJPEAI@Z.c)
+ */
+
 __int64 __fastcall NtDCompositionCreateDwmChannel(unsigned int *a1, __int64 a2, __int64 a3, __int64 a4)
 {
   signed int v5; // ebx

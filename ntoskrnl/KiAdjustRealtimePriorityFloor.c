@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiAdjustRealtimePriorityFloor @ 0x14033FCCC
+ * Callers:
+ *     ExpQueueWorkItem @ 0x14033EE40 (ExpQueueWorkItem.c)
+ *     KeRemovePriQueue @ 0x140352720 (KeRemovePriQueue.c)
+ *     KiTryUnwaitThreadWithPriority @ 0x14035538C (KiTryUnwaitThreadWithPriority.c)
+ *     KeSetActualBasePriorityThread @ 0x140357730 (KeSetActualBasePriorityThread.c)
+ *     KeSetBasePriorityThread @ 0x140369500 (KeSetBasePriorityThread.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ */
+
 void __fastcall KiAdjustRealtimePriorityFloor(ULONG_PTR BugCheckParameter1, int a2)
 {
   int v2; // r9d

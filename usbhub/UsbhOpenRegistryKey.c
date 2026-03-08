@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhOpenRegistryKey @ 0x1C005A648
+ * Callers:
+ *     UsbhUxdShutdown @ 0x1C005B1D0 (UsbhUxdShutdown.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall UsbhOpenRegistryKey(PHANDLE KeyHandle)
 {
   struct _UNICODE_STRING DestinationString; // [rsp+20h] [rbp-40h] BYREF

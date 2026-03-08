@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRemarshalingFlags@CParticleEmitterVisualMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C025E440
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?SetRemarshalingFlags@CVisualMarshaler@DirectComposition@@MEAA_NXZ @ 0x1C0252DA0 (-SetRemarshalingFlags@CVisualMarshaler@DirectComposition@@MEAA_NXZ.c)
+ */
+
 char __fastcall DirectComposition::CParticleEmitterVisualMarshaler::SetRemarshalingFlags(
         DirectComposition::CParticleEmitterVisualMarshaler *this)
 {

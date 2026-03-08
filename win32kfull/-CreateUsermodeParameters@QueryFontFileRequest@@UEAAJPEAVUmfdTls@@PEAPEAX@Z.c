@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CreateUsermodeParameters@QueryFontFileRequest@@UEAAJPEAVUmfdTls@@PEAPEAX@Z @ 0x1C011D740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z @ 0x1C011EA58 (-CommitUMBuffer@UmfdTls@@QEAAPEAXK_N@Z.c)
+ */
+
 __int64 __fastcall QueryFontFileRequest::CreateUsermodeParameters(
         QueryFontFileRequest *this,
         struct UmfdTls *a2,

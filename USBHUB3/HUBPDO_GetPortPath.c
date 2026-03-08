@@ -1,3 +1,16 @@
+/*
+ * XREFs of HUBPDO_GetPortPath @ 0x1C001A014
+ * Callers:
+ *     HUBPDO_HandlePLDRRecovery @ 0x1C001A06C (HUBPDO_HandlePLDRRecovery.c)
+ *     HUBPDO_ReportDeviceFailure @ 0x1C001B588 (HUBPDO_ReportDeviceFailure.c)
+ *     HUBPDO_EvtDevicePrepareHardware @ 0x1C007CF20 (HUBPDO_EvtDevicePrepareHardware.c)
+ *     HUBPDO_RegisterPortPLDRCapability @ 0x1C0080B64 (HUBPDO_RegisterPortPLDRCapability.c)
+ *     HUBPDO_UnregisterPortPLDRCapability @ 0x1C0081350 (HUBPDO_UnregisterPortPLDRCapability.c)
+ *     HUBPDO_InvokePortPLDRRecovery @ 0x1C0081794 (HUBPDO_InvokePortPLDRRecovery.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HUBPDO_GetPortPath(__int64 a1, _WORD *a2)
 {
   _WORD *v2; // r8

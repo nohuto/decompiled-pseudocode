@@ -1,3 +1,49 @@
+/*
+ * XREFs of NtQueryInformationJobObject @ 0x1406F9480
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsGetServerSiloServiceSessionId @ 0x1402456C0 (PsGetServerSiloServiceSessionId.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeIsSingleGroupAffinityEx @ 0x1402943B0 (KeIsSingleGroupAffinityEx.c)
+ *     PdcCreateWatchdogAroundClientCall @ 0x1402992F0 (PdcCreateWatchdogAroundClientCall.c)
+ *     PsGetServerSiloGlobals @ 0x1402992FC (PsGetServerSiloGlobals.c)
+ *     PspGetJobSilo @ 0x1402B60F4 (PspGetJobSilo.c)
+ *     MmQueryApiSetSchema @ 0x1402F3614 (MmQueryApiSetSchema.c)
+ *     PsGetJobServerSilo @ 0x140302E10 (PsGetJobServerSilo.c)
+ *     PsIsHostSilo @ 0x14030F2E0 (PsIsHostSilo.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     Feature_Servicing_BypassGraphicsFreezeNotification__private_IsEnabledDeviceUsage @ 0x14040BA70 (Feature_Servicing_BypassGraphicsFreezeNotification__private_IsEnabledDeviceUsage.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PspIsSiloInServerSilo @ 0x1405A14DC (PspIsSiloInServerSilo.c)
+ *     PsGetParentSilo @ 0x14067FE00 (PsGetParentSilo.c)
+ *     PspGetJobLimitInformationValidFlags @ 0x1406F8924 (PspGetJobLimitInformationValidFlags.c)
+ *     PspQueryJobIoAttribution @ 0x1406F894C (PspQueryJobIoAttribution.c)
+ *     PspLimitViolationRateControlToleranceLimitField @ 0x1406F90B8 (PspLimitViolationRateControlToleranceLimitField.c)
+ *     PspQueryJobHierarchyProcessIdList @ 0x1406F91EC (PspQueryJobHierarchyProcessIdList.c)
+ *     PspQueryJobHierarchyAccountingInformation @ 0x1406FAE20 (PspQueryJobHierarchyAccountingInformation.c)
+ *     PspUnlockJobListShared @ 0x1406FB768 (PspUnlockJobListShared.c)
+ *     PspUnlockJob @ 0x1406FBF7C (PspUnlockJob.c)
+ *     PspLockJobShared @ 0x1406FBFC0 (PspLockJobShared.c)
+ *     PspLockJobExclusive @ 0x1406FC178 (PspLockJobExclusive.c)
+ *     PspRateControlLimitFlag @ 0x1406FC1A0 (PspRateControlLimitFlag.c)
+ *     PspLockJobMemoryLimitsShared @ 0x1406FC318 (PspLockJobMemoryLimitsShared.c)
+ *     PspUnlockJobMemoryLimitsShared @ 0x1406FC344 (PspUnlockJobMemoryLimitsShared.c)
+ *     PspNotificationLimitRateControlToleranceIntervalField @ 0x1406FEF4C (PspNotificationLimitRateControlToleranceIntervalField.c)
+ *     PspNotificationLimitRateControlToleranceField @ 0x1406FEF74 (PspNotificationLimitRateControlToleranceField.c)
+ *     PspAllocateAndQueryNotificationChannel @ 0x1407512E4 (PspAllocateAndQueryNotificationChannel.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspQueryRateControlHistory @ 0x1407E8B5C (PspQueryRateControlHistory.c)
+ *     PspQueryJobHierarchyInterferenceCount @ 0x1409AF690 (PspQueryJobHierarchyInterferenceCount.c)
+ *     EtwTraceJobSetQuery @ 0x1409E28AC (EtwTraceJobSetQuery.c)
+ *     ExRaiseDatatypeMisalignment @ 0x1409FDD10 (ExRaiseDatatypeMisalignment.c)
+ *     ObGetSiloRootDirectoryPath @ 0x140A711B4 (ObGetSiloRootDirectoryPath.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall NtQueryInformationJobObject(
         ULONG_PTR a1,
         int a2,

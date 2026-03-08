@@ -1,3 +1,17 @@
+/*
+ * XREFs of ACPIIrpSetPagableCompletionRoutineAndForward @ 0x1C007BF98
+ * Callers:
+ *     ACPIBusIrpDeviceEnumerated @ 0x1C007E480 (ACPIBusIrpDeviceEnumerated.c)
+ *     ACPIFilterIrpEject @ 0x1C0085A60 (ACPIFilterIrpEject.c)
+ *     ACPIFilterIrpQueryCapabilities @ 0x1C0085ED0 (ACPIFilterIrpQueryCapabilities.c)
+ *     ACPIFilterIrpQueryId @ 0x1C0085F00 (ACPIFilterIrpQueryId.c)
+ *     ACPIFilterIrpQueryInterface @ 0x1C0086160 (ACPIFilterIrpQueryInterface.c)
+ *     ACPIFilterIrpQueryPnpDeviceState @ 0x1C0086510 (ACPIFilterIrpQueryPnpDeviceState.c)
+ *     ACPIFilterIrpSetLock @ 0x1C0086770 (ACPIFilterIrpSetLock.c)
+ * Callees:
+ *     ACPIInternalGetDeviceExtension @ 0x1C000155C (ACPIInternalGetDeviceExtension.c)
+ */
+
 __int64 __fastcall ACPIIrpSetPagableCompletionRoutineAndForward(
         PDEVICE_OBJECT DeviceObject,
         PIRP Irp,

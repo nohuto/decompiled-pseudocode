@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?DecideBufferToDispatch@CComputeScribbleScheduler@@AEAAJPEAPEAVCComputeScribbleFramebuffer@@0@Z @ 0x1801FFD9C
+ * Callers:
+ *     ?ProcessScribbleFrame@CComputeScribbleScheduler@@AEAAJXZ @ 0x180200614 (-ProcessScribbleFrame@CComputeScribbleScheduler@@AEAAJXZ.c)
+ * Callees:
+ *     ?Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z @ 0x1800FBBE4 (-Return_Hr@in1diag3@details@wil@@YAXPEAXIPEBDJ@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0qqqff_EventWriteTransfer @ 0x180201228 (McTemplateU0qqqff_EventWriteTransfer.c)
+ */
+
 __int64 __fastcall CComputeScribbleScheduler::DecideBufferToDispatch(
         CComputeScribbleScheduler *this,
         struct CComputeScribbleFramebuffer **a2,

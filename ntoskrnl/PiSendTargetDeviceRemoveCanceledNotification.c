@@ -1,3 +1,12 @@
+/*
+ * XREFs of PiSendTargetDeviceRemoveCanceledNotification @ 0x14096EB08
+ * Callers:
+ *     PipProcessQueryRemovalInKernelMode @ 0x14096EC0C (PipProcessQueryRemovalInKernelMode.c)
+ *     PipSendTargetDeviceQueryRemoveNotification @ 0x14096EEA8 (PipSendTargetDeviceQueryRemoveNotification.c)
+ * Callees:
+ *     PnpNotifyTargetDeviceChange @ 0x14068C820 (PnpNotifyTargetDeviceChange.c)
+ */
+
 __int64 __fastcall PiSendTargetDeviceRemoveCanceledNotification(__int64 a1, unsigned int a2)
 {
   unsigned int i; // ebx

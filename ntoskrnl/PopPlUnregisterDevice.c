@@ -1,3 +1,18 @@
+/*
+ * XREFs of PopPlUnregisterDevice @ 0x14059F9D0
+ * Callers:
+ *     PopFxUnregisterDevice @ 0x140982DC4 (PopFxUnregisterDevice.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PopPlCalculateDevicePowerDraw @ 0x14059ED14 (PopPlCalculateDevicePowerDraw.c)
+ *     PopPlPublishSystemPowerChange @ 0x14059F158 (PopPlPublishSystemPowerChange.c)
+ *     PopPlUnregisterComponent @ 0x14059F924 (PopPlUnregisterComponent.c)
+ */
+
 void __fastcall PopPlUnregisterDevice(__int64 a1)
 {
   __int64 v1; // rsi

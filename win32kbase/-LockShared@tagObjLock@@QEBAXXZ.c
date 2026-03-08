@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?LockShared@tagObjLock@@QEBAXXZ @ 0x1C01593F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall tagObjLock::LockShared(tagObjLock *this)
 {
   KeEnterCriticalRegion();

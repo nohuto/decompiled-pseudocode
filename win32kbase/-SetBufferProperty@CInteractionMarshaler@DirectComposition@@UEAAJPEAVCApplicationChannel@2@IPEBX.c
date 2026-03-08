@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CInteractionMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00A2250
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ProcessUpdateConfiguration@CInteractionConfigurationGroup@DirectComposition@@QEAAJPEBUDwmInteractionConfiguration@@W4Enum@InteractionProperty@@PEA_N@Z @ 0x1C00A22B4 (-ProcessUpdateConfiguration@CInteractionConfigurationGroup@DirectComposition@@QEAAJPEBUDwmIntera.c)
+ */
+
 __int64 __fastcall DirectComposition::CInteractionMarshaler::SetBufferProperty(
         DirectComposition::CInteractionMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

@@ -1,3 +1,13 @@
+/*
+ * XREFs of GetResizeBorderWidthForDpi @ 0x1C00D8FEC
+ * Callers:
+ *     xxxDrawCaptionBar @ 0x1C0021730 (xxxDrawCaptionBar.c)
+ *     GetWindowNCMetrics @ 0x1C00A40A8 (GetWindowNCMetrics.c)
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     ?GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z @ 0x1C00D902C (-GetResizeBorderWidthForDpiWithAppCompat2@@YAHIK@Z.c)
+ */
+
 __int64 __fastcall GetResizeBorderWidthForDpi(unsigned int a1)
 {
   __int64 ThreadWin32Thread; // rax

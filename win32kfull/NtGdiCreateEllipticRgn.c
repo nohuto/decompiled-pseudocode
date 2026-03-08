@@ -1,3 +1,14 @@
+/*
+ * XREFs of NtGdiCreateEllipticRgn @ 0x1C02AB1E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ @ 0x1C0029D50 (-hrgnAssociate@RGNOBJ@@QEAAPEAUHRGN__@@XZ.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ??0EBOX@@QEAA@AEAVERECTL@@H@Z @ 0x1C02C7D4C (--0EBOX@@QEAA@AEAVERECTL@@H@Z.c)
+ *     ?bEllipse@@YAHAEAVEPATHOBJ@@AEAVEBOX@@@Z @ 0x1C02C7F14 (-bEllipse@@YAHAEAVEPATHOBJ@@AEAVEBOX@@@Z.c)
+ */
+
 struct HOBJ__ *__fastcall NtGdiCreateEllipticRgn(unsigned int a1, unsigned int a2, int a3, int a4)
 {
   int v8; // r8d

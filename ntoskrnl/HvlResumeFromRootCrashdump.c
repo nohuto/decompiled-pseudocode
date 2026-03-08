@@ -1,3 +1,16 @@
+/*
+ * XREFs of HvlResumeFromRootCrashdump @ 0x1405430E4
+ * Callers:
+ *     KeBugCheck2 @ 0x140565E90 (KeBugCheck2.c)
+ *     KiBugCheckRecoveryCleanupFromCrashDump @ 0x140578228 (KiBugCheckRecoveryCleanupFromCrashDump.c)
+ * Callees:
+ *     VslpEnterIumSecureMode @ 0x1402D8270 (VslpEnterIumSecureMode.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvlNotifyRootCrashdump @ 0x140542C28 (HvlNotifyRootCrashdump.c)
+ */
+
 __int64 __fastcall HvlResumeFromRootCrashdump(char a1)
 {
   __int64 result; // rax

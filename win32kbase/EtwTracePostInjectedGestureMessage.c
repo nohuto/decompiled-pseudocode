@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTracePostInjectedGestureMessage @ 0x1C0163F10
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetCallbackCount@@YACXZ @ 0x1C00EDBA8 (-GetCallbackCount@@YACXZ.c)
+ *     McTemplateK0cpp_EtwWriteTransfer @ 0x1C0164D54 (McTemplateK0cpp_EtwWriteTransfer.c)
+ */
+
 void __fastcall EtwTracePostInjectedGestureMessage(__int64 *a1, char a2)
 {
   __int64 v3; // rbx

@@ -1,3 +1,13 @@
+/*
+ * XREFs of McTemplateK0ppuq_EtwWriteTransfer @ 0x1C0001C10
+ * Callers:
+ *     HUBDRIVER_EtwEnableCallback @ 0x1C0077368 (HUBDRIVER_EtwEnableCallback.c)
+ *     FWUPDATE_CreateFirmwareUpdateDevice @ 0x1C008CAD8 (FWUPDATE_CreateFirmwareUpdateDevice.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0001680 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C0044920 (__security_check_cookie.c)
+ */
+
 NTSTATUS McTemplateK0ppuq_EtwWriteTransfer(__int64 a1, const EVENT_DESCRIPTOR *a2, const GUID *a3, ...)
 {
   struct _EVENT_DATA_DESCRIPTOR v4; // [rsp+30h] [rbp-21h] BYREF

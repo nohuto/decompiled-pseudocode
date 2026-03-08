@@ -1,3 +1,11 @@
+/*
+ * XREFs of SleepstudyHelper_GenerateGuid @ 0x1403A5710
+ * Callers:
+ *     <none>
+ * Callees:
+ *     SleepstudyHelperGetBlockerGuid @ 0x140799D20 (SleepstudyHelperGetBlockerGuid.c)
+ */
+
 __int64 __fastcall SleepstudyHelper_GenerateGuid(int a1, __int64 a2, _OWORD *a3)
 {
   int BlockerGuid; // edx

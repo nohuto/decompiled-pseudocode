@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiReplicatePteChange @ 0x1402A4528
+ * Callers:
+ *     MiWriteTopLevelPxe @ 0x140201C64 (MiWriteTopLevelPxe.c)
+ *     MiUnlockNestedPageTableWritePte @ 0x140346D60 (MiUnlockNestedPageTableWritePte.c)
+ *     MiInitializeSystemPageTable @ 0x1403483AC (MiInitializeSystemPageTable.c)
+ *     MiReplacePfnWithGapMapping @ 0x14038B4B8 (MiReplacePfnWithGapMapping.c)
+ *     MiInitializeShadowPageTable @ 0x14080B974 (MiInitializeShadowPageTable.c)
+ * Callees:
+ *     MiReplicatePteChangeToProcess @ 0x1402A470C (MiReplicatePteChangeToProcess.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiGetSystemRegionType @ 0x14032E6D0 (MiGetSystemRegionType.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     MiGetLeafVa @ 0x140346C50 (MiGetLeafVa.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiReplicatePteChange(__int64 a1, __int64 a2, int a3)
 {
   _KPROCESS *Process; // r15

@@ -1,3 +1,13 @@
+/*
+ * XREFs of KiPrepareFlushCurrentAffinity @ 0x14056FB44
+ * Callers:
+ *     KeFlushMultipleRangeCurrentTb @ 0x140387610 (KeFlushMultipleRangeCurrentTb.c)
+ *     KeFlushCurrentTbOnly @ 0x1403876F4 (KeFlushCurrentTbOnly.c)
+ *     KeFlushSingleCurrentTb @ 0x140387AD4 (KeFlushSingleCurrentTb.c)
+ * Callees:
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 unsigned __int64 __fastcall KiPrepareFlushCurrentAffinity(__int64 a1)
 {
   struct _KPRCB *CurrentPrcb; // rbx

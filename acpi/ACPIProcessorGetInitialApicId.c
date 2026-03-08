@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIProcessorGetInitialApicId @ 0x1C008C748
+ * Callers:
+ *     ACPIProcessorStartDeviceWorker @ 0x1C003A1C0 (ACPIProcessorStartDeviceWorker.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIGet @ 0x1C0029384 (ACPIGet.c)
+ *     AMLIGetNSObjectType @ 0x1C00483A8 (AMLIGetNSObjectType.c)
+ */
+
 __int64 __fastcall ACPIProcessorGetInitialApicId(__int64 a1, _DWORD *a2)
 {
   unsigned int v2; // ebx

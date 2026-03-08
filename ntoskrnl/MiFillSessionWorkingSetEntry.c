@@ -1,3 +1,11 @@
+/*
+ * XREFs of MiFillSessionWorkingSetEntry @ 0x1402FBCF0
+ * Callers:
+ *     PfpPrivSourceEnum @ 0x1407E7DC0 (PfpPrivSourceEnum.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall MiFillSessionWorkingSetEntry(__int64 a1, __int64 a2)
 {
   unsigned __int64 v2; // r8

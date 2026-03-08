@@ -1,3 +1,11 @@
+/*
+ * XREFs of rimInitAllHidParseDelayLoads @ 0x1C008BB04
+ * Callers:
+ *     RIMInitialize @ 0x1C008B310 (RIMInitialize.c)
+ * Callees:
+ *     rimFindImageProcAddress @ 0x1C008BD70 (rimFindImageProcAddress.c)
+ */
+
 void __fastcall rimInitAllHidParseDelayLoads(__int64 a1)
 {
   __int64 ImageProcAddress; // rbx

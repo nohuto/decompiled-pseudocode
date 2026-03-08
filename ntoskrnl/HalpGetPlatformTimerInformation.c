@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpGetPlatformTimerInformation @ 0x1402FB1C8
+ * Callers:
+ *     HaliQuerySystemInformation @ 0x140A85470 (HaliQuerySystemInformation.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall HalpGetPlatformTimerInformation(_DWORD *a1)
 {
   int v2; // ecx

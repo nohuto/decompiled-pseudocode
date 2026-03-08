@@ -1,3 +1,11 @@
+/*
+ * XREFs of EtwTraceTokenManagerDisableScanoutToken @ 0x1C0164160
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0px_EtwWriteTransfer @ 0x1C0165E44 (McTemplateK0px_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall EtwTraceTokenManagerDisableScanoutToken(__int64 a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

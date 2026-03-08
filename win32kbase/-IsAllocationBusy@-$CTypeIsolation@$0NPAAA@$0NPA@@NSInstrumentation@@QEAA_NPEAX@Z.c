@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?IsAllocationBusy@?$CTypeIsolation@$0NPAAA@$0NPA@@NSInstrumentation@@QEAA_NPEAX@Z @ 0x1C00A44FC
+ * Callers:
+ *     GreCreateDisplayDC @ 0x1C0055340 (GreCreateDisplayDC.c)
+ * Callees:
+ *     ?CheckAllocationStatus@?$CSectionBitmapAllocator@$0NPAAA@$0NPA@@NSInstrumentation@@QEAA?AW4AllocationStatus@2@PEBX@Z @ 0x1C00A4588 (-CheckAllocationStatus@-$CSectionBitmapAllocator@$0NPAAA@$0NPA@@NSInstrumentation@@QEAA-AW4Alloc.c)
+ */
+
 char __fastcall NSInstrumentation::CTypeIsolation<913408,3568>::IsAllocationBusy(_QWORD *a1, __int64 a2)
 {
   char v2; // di

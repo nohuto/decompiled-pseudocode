@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetBufferProperty@CColorGradientStopMarshaler@DirectComposition@@UEAAJPEAVCApplicationChannel@2@IPEBX_KPEA_N@Z @ 0x1C00BE560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DirectComposition::CColorGradientStopMarshaler::SetBufferProperty(
         DirectComposition::CColorGradientStopMarshaler *this,
         struct DirectComposition::CApplicationChannel *a2,

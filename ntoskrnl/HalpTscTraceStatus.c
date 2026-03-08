@@ -1,3 +1,14 @@
+/*
+ * XREFs of HalpTscTraceStatus @ 0x1405083E0
+ * Callers:
+ *     HalpTscAdvSynchLeader @ 0x140387D38 (HalpTscAdvSynchLeader.c)
+ *     HalpTscFallbackToPlatformSource @ 0x1405082E4 (HalpTscFallbackToPlatformSource.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall HalpTscTraceStatus(PCEVENT_DESCRIPTOR EventDescriptor, int a2)
 {
   REGHANDLE v3; // rdi

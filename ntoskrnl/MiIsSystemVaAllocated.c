@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiIsSystemVaAllocated @ 0x140634AE4
+ * Callers:
+ *     MmAllocateSecurePoolMemory @ 0x14063F4FC (MmAllocateSecurePoolMemory.c)
+ *     MmFreeSecurePoolMemory @ 0x14063F668 (MmFreeSecurePoolMemory.c)
+ * Callees:
+ *     MiSystemVaToDynamicBitmap @ 0x14021055C (MiSystemVaToDynamicBitmap.c)
+ */
+
 __int64 MiIsSystemVaAllocated()
 {
   unsigned __int64 v0; // rdx

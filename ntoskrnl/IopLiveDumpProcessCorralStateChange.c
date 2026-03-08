@@ -1,3 +1,18 @@
+/*
+ * XREFs of IopLiveDumpProcessCorralStateChange @ 0x140A99280
+ * Callers:
+ *     IopLiveDumpCorralDpc @ 0x140A97DC0 (IopLiveDumpCorralDpc.c)
+ *     IopLiveDumpInitiateCorralStateChange @ 0x140A987A4 (IopLiveDumpInitiateCorralStateChange.c)
+ * Callees:
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeSaveSupervisorState @ 0x14036A078 (KeSaveSupervisorState.c)
+ *     KeRestoreSupervisorState @ 0x14036A0E0 (KeRestoreSupervisorState.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KeResumeClockTimerSafe @ 0x14056D3B4 (KeResumeClockTimerSafe.c)
+ *     KeSuspendClockTimerSafe @ 0x14056D500 (KeSuspendClockTimerSafe.c)
+ *     IopLiveDumpBufferDumpData @ 0x140A972E0 (IopLiveDumpBufferDumpData.c)
+ */
+
 __int64 __fastcall IopLiveDumpProcessCorralStateChange(__int64 a1, __int64 a2)
 {
   int v4; // eax

@@ -1,3 +1,15 @@
+/*
+ * XREFs of _wcsicmp @ 0x1C00DAB80
+ * Callers:
+ *     ?LoadKeyboardLayoutFile@@YAPEAUtagKBDFILE@@PEAXIIPEBGPEAGKK@Z @ 0x1C0011CCC (-LoadKeyboardLayoutFile@@YAPEAUtagKBDFILE@@PEAXIIPEBGPEAGKK@Z.c)
+ *     ?DrvGetDeviceConfigurationInformation@@YAXPEAUtagGRAPHICS_DEVICE@@PEAXH@Z @ 0x1C0020740 (-DrvGetDeviceConfigurationInformation@@YAXPEAUtagGRAPHICS_DEVICE@@PEAXH@Z.c)
+ *     ldevLoadDriver @ 0x1C0024CA0 (ldevLoadDriver.c)
+ *     ?vFilterDriverHooks@PDEVOBJ@@QEAAXXZ @ 0x1C0027B84 (-vFilterDriverHooks@PDEVOBJ@@QEAAXXZ.c)
+ *     ldevLoadImage @ 0x1C00B1CC0 (ldevLoadImage.c)
+ * Callees:
+ *     <none>
+ */
+
 int __cdecl wcsicmp(const wchar_t *Str1, const wchar_t *Str2)
 {
   const wchar_t *v2; // r10

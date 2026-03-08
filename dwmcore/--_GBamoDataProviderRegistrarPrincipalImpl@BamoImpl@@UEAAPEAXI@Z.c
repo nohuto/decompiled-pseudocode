@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??_GBamoDataProviderRegistrarPrincipalImpl@BamoImpl@@UEAAPEAXI@Z @ 0x1801DD780
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?Release@BamoImplObject@BamoImpl@Microsoft@@UEAAKXZ @ 0x1800AD490 (-Release@BamoImplObject@BamoImpl@Microsoft@@UEAAKXZ.c)
+ *     ??3@YAXPEAX_K@Z @ 0x18010E978 (--3@YAXPEAX_K@Z.c)
+ */
+
 BamoImpl::BamoDataProviderRegistrarPrincipalImpl *__fastcall BamoImpl::BamoDataProviderRegistrarPrincipalImpl::`scalar deleting destructor'(
         BamoImpl::BamoDataProviderRegistrarPrincipalImpl *this,
         __int64 a2,

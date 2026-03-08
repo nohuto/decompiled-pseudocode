@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlInitLargeAnsiString @ 0x1C00F4F04
+ * Callers:
+ *     NtUserfnINSTRINGNULL @ 0x1C00A0C10 (NtUserfnINSTRINGNULL.c)
+ *     NtUserfnINLPCREATESTRUCT @ 0x1C00A0D20 (NtUserfnINLPCREATESTRUCT.c)
+ *     xxxCreateWindowEx @ 0x1C00AF050 (xxxCreateWindowEx.c)
+ *     ?NtUserfnHkINLPCBTCREATESTRUCT@@YA_JI_KPEAUtagCBT_CREATEWNDW@@H@Z @ 0x1C01CD264 (-NtUserfnHkINLPCBTCREATESTRUCT@@YA_JI_KPEAUtagCBT_CREATEWNDW@@H@Z.c)
+ *     NtUserfnINLPMDICREATESTRUCT @ 0x1C01E26B0 (NtUserfnINLPMDICREATESTRUCT.c)
+ *     NtUserfnINSTRING @ 0x1C01E35A0 (NtUserfnINSTRING.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlInitLargeAnsiString(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

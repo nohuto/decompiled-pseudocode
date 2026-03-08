@@ -1,3 +1,11 @@
+/*
+ * XREFs of InitializeResetActionWorkItem @ 0x1C008FB6C
+ * Callers:
+ *     HUBPDO_EvtDevicePrepareHardware @ 0x1C007CF20 (HUBPDO_EvtDevicePrepareHardware.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall InitializeResetActionWorkItem(_QWORD *a1, __int64 a2, __int64 a3)
 {
   __int64 result; // rax

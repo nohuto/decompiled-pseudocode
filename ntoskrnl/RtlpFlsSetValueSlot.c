@@ -1,3 +1,14 @@
+/*
+ * XREFs of RtlpFlsSetValueSlot @ 0x14076B5F4
+ * Callers:
+ *     RtlpFlsSetValue @ 0x14076B564 (RtlpFlsSetValue.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ?SetValue@?$RTL_BINARY_ARRAY@URTLP_FLS_SLOT@@$03$03@@SAJPEAU1@KURTLP_FLS_SLOT@@K@Z @ 0x1402E0E10 (-SetValue@-$RTL_BINARY_ARRAY@URTLP_FLS_SLOT@@$03$03@@SAJPEAU1@KURTLP_FLS_SLOT@@K@Z.c)
+ */
+
 __int64 __fastcall RtlpFlsSetValueSlot(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
 {
   __int64 v4; // rdi

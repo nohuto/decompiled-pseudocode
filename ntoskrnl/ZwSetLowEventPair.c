@@ -1,3 +1,11 @@
+/*
+ * XREFs of ZwSetLowEventPair @ 0x140415970
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall ZwSetLowEventPair(__int64 a1, __int64 a2)
 {
   _disable();

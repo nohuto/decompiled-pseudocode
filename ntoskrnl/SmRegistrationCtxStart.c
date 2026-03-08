@@ -1,3 +1,14 @@
+/*
+ * XREFs of SmRegistrationCtxStart @ 0x14085DAC0
+ * Callers:
+ *     SmFirstTimeInit @ 0x1407DDCE0 (SmFirstTimeInit.c)
+ *     SmGetRegistrationInfo @ 0x140840AC0 (SmGetRegistrationInfo.c)
+ *     SmcCacheCreatePrepare @ 0x1409D4FE0 (SmcCacheCreatePrepare.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     SmCreateEvent @ 0x14085DB18 (SmCreateEvent.c)
+ */
+
 __int64 __fastcall SmRegistrationCtxStart(_QWORD *a1)
 {
   int v2; // ebx

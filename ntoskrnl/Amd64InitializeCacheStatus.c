@@ -1,3 +1,14 @@
+/*
+ * XREFs of Amd64InitializeCacheStatus @ 0x140527134
+ * Callers:
+ *     Amd64InitializeUncoreProfiling @ 0x140527450 (Amd64InitializeUncoreProfiling.c)
+ * Callees:
+ *     HalpInterruptGetIdentifiers @ 0x140379900 (HalpInterruptGetIdentifiers.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     Amd64FreeCounter @ 0x140526ED0 (Amd64FreeCounter.c)
+ *     Amd64InitializeUncoreStatus @ 0x140527558 (Amd64InitializeUncoreStatus.c)
+ */
+
 __int64 (__fastcall **Amd64InitializeCacheStatus())()
 {
   unsigned int Number; // edi

@@ -1,3 +1,18 @@
+/*
+ * XREFs of Method @ 0x1C0050AE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ *     memset @ 0x1C0002180 (memset.c)
+ *     AcpiDiagTraceAmlError @ 0x1C0007768 (AcpiDiagTraceAmlError.c)
+ *     AddObjSymbol @ 0x1C004D680 (AddObjSymbol.c)
+ *     LogError @ 0x1C004E224 (LogError.c)
+ *     PrintDebugMessage @ 0x1C004EB7C (PrintDebugMessage.c)
+ *     HeapAlloc @ 0x1C004EC38 (HeapAlloc.c)
+ *     CreateNameSpaceObject @ 0x1C004F10C (CreateNameSpaceObject.c)
+ */
+
 __int64 __fastcall Method(__int64 a1, _QWORD *a2)
 {
   __int64 *v2; // r15

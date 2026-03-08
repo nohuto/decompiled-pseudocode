@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AllocateElements@?$PagedPoolZeroedArray@E$03@@QEAAPEAEI@Z @ 0x1C01D37BC
+ * Callers:
+ *     NtDxgkSetProperties @ 0x1C01D32D0 (NtDxgkSetProperties.c)
+ * Callees:
+ *     memset @ 0x1C0027640 (memset.c)
+ */
+
 __int64 __fastcall PagedPoolZeroedArray<unsigned char,4>::AllocateElements(__int64 *a1, unsigned int a2)
 {
   __int64 result; // rax

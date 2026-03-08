@@ -1,3 +1,13 @@
+/*
+ * XREFs of DrvDbGetObjectSubKeyList @ 0x140A69BC0
+ * Callers:
+ *     DrvDbGetObjectList @ 0x140A696A0 (DrvDbGetObjectList.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     _PnpCtxRegEnumKeyWithCallback @ 0x140824EA0 (_PnpCtxRegEnumKeyWithCallback.c)
+ */
+
 __int64 __fastcall DrvDbGetObjectSubKeyList(
         __int64 a1,
         void *a2,

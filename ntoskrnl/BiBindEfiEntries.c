@@ -1,3 +1,26 @@
+/*
+ * XREFs of BiBindEfiEntries @ 0x14082D024
+ * Callers:
+ *     BiBindEfiNamespaceObjects @ 0x14082BF38 (BiBindEfiNamespaceObjects.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     RtlGUIDFromString @ 0x1406D1AA0 (RtlGUIDFromString.c)
+ *     BcdDeleteObject @ 0x14082C47C (BcdDeleteObject.c)
+ *     BiCreateObject @ 0x14082CA14 (BiCreateObject.c)
+ *     BiUpdateBcdObject @ 0x14082DA80 (BiUpdateBcdObject.c)
+ *     BcdCloseObject @ 0x14082E5DC (BcdCloseObject.c)
+ *     BcdOpenObject @ 0x14082E620 (BcdOpenObject.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiGetKeyName @ 0x14082EEA0 (BiGetKeyName.c)
+ *     BiIsPortableWorkspaceBoot @ 0x140A5A244 (BiIsPortableWorkspaceBoot.c)
+ *     BiAddBootEntryToNvramDisplayOrder @ 0x140A5AC9C (BiAddBootEntryToNvramDisplayOrder.c)
+ *     BiCreateEfiEntry @ 0x140A5B13C (BiCreateEfiEntry.c)
+ *     BiDeleteBootEntry @ 0x140A5B66C (BiDeleteBootEntry.c)
+ *     BiRemoveBootEntryFromNvramDisplayOrder @ 0x140A5BF94 (BiRemoveBootEntryFromNvramDisplayOrder.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall BiBindEfiEntries(__int64 a1, GUID **a2)
 {
   NTSTATUS KeyName; // edi

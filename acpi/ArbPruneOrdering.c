@@ -1,3 +1,11 @@
+/*
+ * XREFs of ArbPruneOrdering @ 0x1C00A217C
+ * Callers:
+ *     ArbBuildAssignmentOrdering @ 0x1C00A124C (ArbBuildAssignmentOrdering.c)
+ * Callees:
+ *     memmove @ 0x1C0001E80 (memmove.c)
+ */
+
 __int64 __fastcall ArbPruneOrdering(unsigned __int16 *a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   unsigned int v6; // ebx

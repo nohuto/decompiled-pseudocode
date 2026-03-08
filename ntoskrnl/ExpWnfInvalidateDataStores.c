@@ -1,3 +1,18 @@
+/*
+ * XREFs of ExpWnfInvalidateDataStores @ 0x14067F77C
+ * Callers:
+ *     ExWnfHiveUnloaded @ 0x14074B598 (ExWnfHiveUnloaded.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ */
+
 signed __int32 __fastcall ExpWnfInvalidateDataStores(const void *a1, unsigned int a2)
 {
   size_t v2; // rbp

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPISystemPowerUpdateWakeCapabilitiesForPDOs @ 0x1C003EAE0
+ * Callers:
+ *     ACPISystemPowerUpdateWakeCapabilities @ 0x1C00955A4 (ACPISystemPowerUpdateWakeCapabilities.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00019D0 (__security_check_cookie.c)
+ *     ACPISystemPowerDetermineSupportedDeviceWakeState @ 0x1C003DE10 (ACPISystemPowerDetermineSupportedDeviceWakeState.c)
+ *     AcpiGetIdleWakeInfo @ 0x1C0082BD0 (AcpiGetIdleWakeInfo.c)
+ *     ACPISystemPowerGetDeviceWake @ 0x1C0094F08 (ACPISystemPowerGetDeviceWake.c)
+ */
+
 __int64 __fastcall ACPISystemPowerUpdateWakeCapabilitiesForPDOs(
         __int64 a1,
         __int64 a2,

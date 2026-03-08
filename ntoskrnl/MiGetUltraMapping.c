@@ -1,3 +1,42 @@
+/*
+ * XREFs of MiGetUltraMapping @ 0x140276080
+ * Callers:
+ *     MiMapPageInHyperSpaceWorker @ 0x140214870 (MiMapPageInHyperSpaceWorker.c)
+ *     MiSharePages @ 0x140228990 (MiSharePages.c)
+ *     MiZeroLargePage @ 0x1402441E4 (MiZeroLargePage.c)
+ *     MiGetPageChain @ 0x14026E0E0 (MiGetPageChain.c)
+ *     MiMakePageAvoidRead @ 0x140272670 (MiMakePageAvoidRead.c)
+ *     MiZeroLocalPages @ 0x140273BB0 (MiZeroLocalPages.c)
+ *     MiZeroInParallelWorker @ 0x140275970 (MiZeroInParallelWorker.c)
+ *     MiMakeProtoTransition @ 0x1402C59B0 (MiMakeProtoTransition.c)
+ *     MiFillPhysicalPages @ 0x1402CE820 (MiFillPhysicalPages.c)
+ *     MiAllocateHyperSpace @ 0x1402EF1E0 (MiAllocateHyperSpace.c)
+ *     MiWsleFree @ 0x14032BA30 (MiWsleFree.c)
+ *     MiPfnShareCountIsZero @ 0x14032BF50 (MiPfnShareCountIsZero.c)
+ *     MiComputeCombineHash @ 0x14032C2E0 (MiComputeCombineHash.c)
+ *     MiGetPteMappingSet @ 0x14032E050 (MiGetPteMappingSet.c)
+ *     MiDeleteUltraMapContext @ 0x1403513B4 (MiDeleteUltraMapContext.c)
+ *     MiReplacePageTablePage @ 0x14039164C (MiReplacePageTablePage.c)
+ *     MiInitializeNewUltraHugeContext @ 0x1403BFBC8 (MiInitializeNewUltraHugeContext.c)
+ *     MiReplacePageOfProtoPool @ 0x14061B5A0 (MiReplacePageOfProtoPool.c)
+ *     MiHugePageOperation @ 0x14061E158 (MiHugePageOperation.c)
+ *     MmMapMdl @ 0x14062CC90 (MmMapMdl.c)
+ *     MiScrubLargePage @ 0x14065C38C (MiScrubLargePage.c)
+ *     MiScrubPage @ 0x14065CB10 (MiScrubPage.c)
+ * Callees:
+ *     RtlFindSetBitsAndClearEx @ 0x14020F8A0 (RtlFindSetBitsAndClearEx.c)
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     KeFlushTb @ 0x140323CB0 (KeFlushTb.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiReuseUltraPageTable @ 0x140466B2C (MiReuseUltraPageTable.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiGetUltraMapping(unsigned __int64 *a1, unsigned int a2, __int64 a3, char a4)
 {
   unsigned __int64 v4; // rdi

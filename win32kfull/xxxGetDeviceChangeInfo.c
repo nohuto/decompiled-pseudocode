@@ -1,3 +1,13 @@
+/*
+ * XREFs of xxxGetDeviceChangeInfo @ 0x1C01B3C0C
+ * Callers:
+ *     NtUserGetDeviceChangeInfo @ 0x1C01D20E0 (NtUserGetDeviceChangeInfo.c)
+ * Callees:
+ *     PopAndFreeAlwaysW32ThreadLock @ 0x1C0035F20 (PopAndFreeAlwaysW32ThreadLock.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ */
+
 __int64 __fastcall xxxGetDeviceChangeInfo(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // ebx

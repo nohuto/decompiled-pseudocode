@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpAcquireFannedOutPushLockShared @ 0x1403C8A74
+ * Callers:
+ *     FsRtlLookupPerStreamContextInternal @ 0x140241910 (FsRtlLookupPerStreamContextInternal.c)
+ *     FsRtlLookupPerFileObjectContext @ 0x1402C1360 (FsRtlLookupPerFileObjectContext.c)
+ * Callees:
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ */
+
 signed __int64 *__fastcall ExpAcquireFannedOutPushLockShared(unsigned int a1, char a2, __int64 a3, __int64 a4)
 {
   unsigned int v4; // eax

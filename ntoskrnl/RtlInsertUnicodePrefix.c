@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlInsertUnicodePrefix @ 0x1407520F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     RtlSplay @ 0x1402C2B50 (RtlSplay.c)
+ *     CompareUnicodeStrings @ 0x140752340 (CompareUnicodeStrings.c)
+ *     ComputeUnicodeNameLength @ 0x1407524A8 (ComputeUnicodeNameLength.c)
+ */
+
 BOOLEAN __stdcall RtlInsertUnicodePrefix(
         PUNICODE_PREFIX_TABLE PrefixTable,
         PUNICODE_STRING Prefix,

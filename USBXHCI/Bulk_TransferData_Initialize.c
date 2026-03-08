@@ -1,3 +1,15 @@
+/*
+ * XREFs of Bulk_TransferData_Initialize @ 0x1C00128DC
+ * Callers:
+ *     Bulk_RetrieveNextStage @ 0x1C0011FDC (Bulk_RetrieveNextStage.c)
+ *     Bulk_WdfEvtIoCanceledOnQueue @ 0x1C00473D0 (Bulk_WdfEvtIoCanceledOnQueue.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C0020700 (memset.c)
+ *     McTemplateK0uqqq_EtwWriteTransfer @ 0x1C0022696 (McTemplateK0uqqq_EtwWriteTransfer.c)
+ */
+
 NTSTATUS __fastcall Bulk_TransferData_Initialize(__int64 a1, _QWORD *a2, __int64 a3)
 {
   NTSTATUS result; // eax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?MapFlexibleKeys@@YAHPEAUtagKE@@EPEAUDEVICEINFO@@@Z @ 0x1C0219E4C
+ * Callers:
+ *     ?MapScancode@@YAHPEAUtagKE@@PEAEPEAUDEVICEINFO@@@Z @ 0x1C021A2F0 (-MapScancode@@YAHPEAUtagKE@@PEAEPEAUDEVICEINFO@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     ?IsKeyDownSpecified@@YAHEPEBE@Z @ 0x1C0219C58 (-IsKeyDownSpecified@@YAHEPEBE@Z.c)
+ *     ?SendKeyUpDown@@YAXEE@Z @ 0x1C021A6EC (-SendKeyUpDown@@YAXEE@Z.c)
+ *     ProcessKeyboardInputWorker @ 0x1C021A7E0 (ProcessKeyboardInputWorker.c)
+ */
+
 __int64 __fastcall MapFlexibleKeys(struct tagKE *a1, __int64 a2, struct DEVICEINFO *a3, __int64 a4)
 {
   unsigned int v4; // edi

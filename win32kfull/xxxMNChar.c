@@ -1,3 +1,26 @@
+/*
+ * XREFs of xxxMNChar @ 0x1C0219CB8
+ * Callers:
+ *     xxxHandleMenuMessages @ 0x1C0216988 (xxxHandleMenuMessages.c)
+ *     xxxMNChar @ 0x1C0219CB8 (xxxMNChar.c)
+ *     xxxMenuWindowProc @ 0x1C021D3D0 (xxxMenuWindowProc.c)
+ *     xxxMNKeyFilter @ 0x1C0241E88 (xxxMNKeyFilter.c)
+ * Callees:
+ *     xxxSendMessage @ 0x1C006E518 (xxxSendMessage.c)
+ *     MNGetpItemFromIndex @ 0x1C00A266C (MNGetpItemFromIndex.c)
+ *     ??1?$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ @ 0x1C00A6450 (--1-$SmartObjStackRefBase@UtagMENU@@@@IEAA@XZ.c)
+ *     ??4?$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z @ 0x1C00D3DA0 (--4-$SmartObjStackRefBase@UtagMENU@@@@IEAAAEAV0@QEAUtagMENU@@@Z.c)
+ *     ?Init@?$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z @ 0x1C00D5030 (-Init@-$SmartObjStackRefBase@UtagMENU@@@@AEAAXPEAUtagMENU@@@Z.c)
+ *     ThreadLockExchange @ 0x1C010A0D0 (ThreadLockExchange.c)
+ *     xxxMessageBeep @ 0x1C01F7F58 (xxxMessageBeep.c)
+ *     xxxMNCancel @ 0x1C02199C4 (xxxMNCancel.c)
+ *     xxxMNChar @ 0x1C0219CB8 (xxxMNChar.c)
+ *     xxxMNKeyDown @ 0x1C021ABF8 (xxxMNKeyDown.c)
+ *     xxxMNSelectItem @ 0x1C021C660 (xxxMNSelectItem.c)
+ *     xxxMNSwitchToAlternateMenu @ 0x1C021D0B4 (xxxMNSwitchToAlternateMenu.c)
+ *     xxxMNFindChar @ 0x1C0241D40 (xxxMNFindChar.c)
+ */
+
 _QWORD *__fastcall xxxMNChar(__int64 **a1, __int64 a2, unsigned int a3)
 {
   unsigned __int64 v6; // rsi

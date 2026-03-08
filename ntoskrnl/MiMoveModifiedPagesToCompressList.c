@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiMoveModifiedPagesToCompressList @ 0x140392EB4
+ * Callers:
+ *     MmStoreRegister @ 0x140834CA4 (MmStoreRegister.c)
+ * Callees:
+ *     MiUnlinkPageFromListEx @ 0x140264100 (MiUnlinkPageFromListEx.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiInsertPageInList @ 0x140318540 (MiInsertPageInList.c)
+ *     MiTransferSoftwarePte @ 0x14032F630 (MiTransferSoftwarePte.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiMoveModifiedPagesToCompressList(__int64 a1)
 {
   __int64 i; // rdi

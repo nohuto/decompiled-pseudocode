@@ -1,3 +1,13 @@
+/*
+ * XREFs of ListTableIteratorNext @ 0x1C00F1CCE
+ * Callers:
+ *     RIMCmActiveContactsNext @ 0x1C01DE0AC (RIMCmActiveContactsNext.c)
+ *     ListTableBegin @ 0x1C01E3144 (ListTableBegin.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ListTableEnd @ 0x1C00F1C32 (ListTableEnd.c)
+ */
+
 __int64 *__fastcall ListTableIteratorNext(__int64 *a1, __int64 a2)
 {
   __int64 v4; // rcx

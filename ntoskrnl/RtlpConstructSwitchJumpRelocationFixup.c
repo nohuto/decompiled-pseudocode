@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpConstructSwitchJumpRelocationFixup @ 0x1406785D4
+ * Callers:
+ *     RtlApplySwitchJumpRelocationToPage @ 0x140677F60 (RtlApplySwitchJumpRelocationToPage.c)
+ *     RtlPerformRetpolineRelocationsOnImageEx @ 0x14067804C (RtlPerformRetpolineRelocationsOnImageEx.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpConstructSwitchJumpRelocationFixup(
         int a1,
         _DWORD *a2,

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ObDisableEtwReferenceTrace @ 0x140979480
+ * Callers:
+ *     EtwpDisableKernelTrace @ 0x1407864C4 (EtwpDisableKernelTrace.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ */
+
 char ObDisableEtwReferenceTrace()
 {
   struct _KTHREAD *CurrentThread; // rax

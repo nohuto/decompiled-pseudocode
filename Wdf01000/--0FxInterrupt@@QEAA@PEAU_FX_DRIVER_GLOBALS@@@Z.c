@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0FxInterrupt@@QEAA@PEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C007E4AC
+ * Callers:
+ *     ?_CreateAndInit@FxInterrupt@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@PEAVFxObject@@PEAU_WDF_OBJECT_ATTRIBUTES@@PEAU_WDF_INTERRUPT_CONFIG@@PEAPEAV1@@Z @ 0x1C007F92C (-_CreateAndInit@FxInterrupt@@SAJPEAU_FX_DRIVER_GLOBALS@@PEAVFxDevice@@PEAVFxObject@@PEAU_WDF_OBJ.c)
+ * Callees:
+ *     memset @ 0x1C000AC00 (memset.c)
+ *     ??0FxNonPagedObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z @ 0x1C001AA5C (--0FxNonPagedObject@@QEAA@GGPEAU_FX_DRIVER_GLOBALS@@@Z.c)
+ */
+
 void __fastcall FxInterrupt::FxInterrupt(FxInterrupt *this, _FX_DRIVER_GLOBALS *Globals)
 {
   FxNonPagedObject::FxNonPagedObject(this, 0x1027u, 0x1C8u, Globals);

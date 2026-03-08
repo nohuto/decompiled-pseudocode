@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetMPORects@CDxHandleBitmapRealization@@UEBAXAEBVCMILMatrix@@PEAV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@11@Z @ 0x1801318A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CDxHandleBitmapRealization::GetMPORects(
         __int64 a1,
         CMILMatrix *a2,

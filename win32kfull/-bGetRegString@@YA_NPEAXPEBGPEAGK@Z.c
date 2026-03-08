@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bGetRegString@@YA_NPEAXPEBGPEAGK@Z @ 0x1C00BA3C4
+ * Callers:
+ *     ?FinishStockFontInitInternal@@YAXPEBGH@Z @ 0x1C00BA144 (-FinishStockFontInitInternal@@YAXPEBGH@Z.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 char __fastcall bGetRegString(HANDLE KeyHandle, const unsigned __int16 *a2, unsigned __int16 *a3)
 {
   unsigned __int64 v5; // rcx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBPDO_IdleResiliencyCallback @ 0x1C001D8C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF__guid_dd @ 0x1C0014D74 (WPP_RECORDER_SF__guid_dd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBPDO_IdleResiliencyCallback(
         __int64 SettingGuid,
         _BYTE *Value,

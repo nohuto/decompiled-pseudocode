@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlRbReplaceNode @ 0x1402DE230
+ * Callers:
+ *     KiAbEntryRemoveFromTree @ 0x14024BC30 (KiAbEntryRemoveFromTree.c)
+ * Callees:
+ *     <none>
+ */
+
 _QWORD *__fastcall RtlRbReplaceNode(unsigned __int64 a1, __int64 a2, unsigned __int64 a3)
 {
   __int64 *v4; // r9

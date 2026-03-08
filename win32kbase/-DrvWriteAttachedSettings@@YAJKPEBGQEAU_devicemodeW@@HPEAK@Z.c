@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DrvWriteAttachedSettings@@YAJKPEBGQEAU_devicemodeW@@HPEAK@Z @ 0x1C002462C
+ * Callers:
+ *     ?DrvWriteDisplayDriverParameters@@YAJPEAUtagGRAPHICS_DEVICE@@KPEBGQEAU_devicemodeW@@HH@Z @ 0x1C0024194 (-DrvWriteDisplayDriverParameters@@YAJPEAUtagGRAPHICS_DEVICE@@KPEBGQEAU_devicemodeW@@HH@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __fastcall DrvWriteAttachedSettings(
         int a1,
         const unsigned __int16 *a2,

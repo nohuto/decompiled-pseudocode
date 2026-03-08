@@ -1,3 +1,13 @@
+/*
+ * XREFs of WPP_RECORDER_SF_Sqd @ 0x1C0051200
+ * Callers:
+ *     UsbhBuildDeviceID @ 0x1C004F9EC (UsbhBuildDeviceID.c)
+ *     UsbhBuildHardwareID @ 0x1C004FCFC (UsbhBuildHardwareID.c)
+ *     UsbhUpdateUxdSettings @ 0x1C005ACF0 (UsbhUpdateUxdSettings.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_Sqd(
         __int64 a1,
         __int64 a2,

@@ -1,3 +1,26 @@
+/*
+ * XREFs of KeReleaseMutantEx @ 0x14040A86C
+ * Callers:
+ *     KeReleaseMutant @ 0x14030E920 (KeReleaseMutant.c)
+ *     NtSignalAndWaitForSingleObject @ 0x140580330 (NtSignalAndWaitForSingleObject.c)
+ *     NtReleaseMutant @ 0x14075CCF0 (NtReleaseMutant.c)
+ * Callees:
+ *     KeInsertQueueDpc @ 0x140230290 (KeInsertQueueDpc.c)
+ *     KeAbPreWakeupThread @ 0x1402398AC (KeAbPreWakeupThread.c)
+ *     KiTryUnwaitThread @ 0x140258880 (KiTryUnwaitThread.c)
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     KiAcquireReleaseObjectRundownLockExclusive @ 0x14029319C (KiAcquireReleaseObjectRundownLockExclusive.c)
+ *     KiInsertQueueInternal @ 0x140293C9C (KiInsertQueueInternal.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall KeReleaseMutantEx(ULONG_PTR BugCheckParameter2, unsigned int a2, int a3, int *a4)
 {
   struct _KTHREAD *CurrentThread; // r13

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HUBMISC_GenerateUserNotificationForPersistentOverCurrent @ 0x1C0083518
+ * Callers:
+ *     HUBPSM20_NotifyingUserAboutPersistentOverCurrent @ 0x1C00122A0 (HUBPSM20_NotifyingUserAboutPersistentOverCurrent.c)
+ * Callees:
+ *     WPP_RECORDER_SF_qqd @ 0x1C000FD34 (WPP_RECORDER_SF_qqd.c)
+ *     WMI_FireNotification @ 0x1C008C428 (WMI_FireNotification.c)
+ */
+
 __int64 __fastcall HUBMISC_GenerateUserNotificationForPersistentOverCurrent(_QWORD *a1)
 {
   unsigned __int16 *v2; // rdi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of UnpackAffectedThreadList @ 0x1C00CE1E4
+ * Callers:
+ *     ?DestroyDesktop@@YAHPEAUtagDESKTOP@@@Z @ 0x1C0094B64 (-DestroyDesktop@@YAHPEAUtagDESKTOP@@@Z.c)
+ *     zzzReattachThreads @ 0x1C00CD3A8 (zzzReattachThreads.c)
+ *     ?PackAffectedThreadList@@YAXPEBUtagTHREADINFO@@0@Z @ 0x1C00CE3D0 (-PackAffectedThreadList@@YAXPEBUtagTHREADINFO@@0@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall UnpackAffectedThreadList(__int64 a1)
 {
   __int64 v1; // rcx

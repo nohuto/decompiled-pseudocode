@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiBugCheckRecoveryCleanupFromCrashDump @ 0x140578228
+ * Callers:
+ *     KiCaptureDumpPostRecovery @ 0x140578810 (KiCaptureDumpPostRecovery.c)
+ * Callees:
+ *     KiSendThawExecution @ 0x14036B330 (KiSendThawExecution.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     HvlResumeFromRootCrashdump @ 0x1405430E4 (HvlResumeFromRootCrashdump.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiUpdateBugcheckRecoveryProgress @ 0x1405793F8 (KiUpdateBugcheckRecoveryProgress.c)
+ */
+
 __int64 __fastcall KiBugCheckRecoveryCleanupFromCrashDump(unsigned __int8 a1, char a2)
 {
   unsigned __int64 v3; // rbx

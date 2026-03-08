@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiTradeTransitionPage @ 0x1403B7C98
+ * Callers:
+ *     MiTradePage @ 0x1403B5640 (MiTradePage.c)
+ * Callees:
+ *     MiGetPage @ 0x14026ED40 (MiGetPage.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiCheckSlabPfnBitmap @ 0x1402B7400 (MiCheckSlabPfnBitmap.c)
+ *     MiReplaceTransitionPage @ 0x1402C6784 (MiReplaceTransitionPage.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     MiSetOriginalPtePfnFromFreeList @ 0x14032F834 (MiSetOriginalPtePfnFromFreeList.c)
+ *     MiGetPfnChannel @ 0x140334470 (MiGetPfnChannel.c)
+ *     MiReleaseFreshPage @ 0x14034E570 (MiReleaseFreshPage.c)
+ *     MiCanPageMove @ 0x1403B7F24 (MiCanPageMove.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall MiTradeTransitionPage(ULONG_PTR BugCheckParameter2, unsigned __int8 a2, int a3, int a4, __int64 *a5)
 {
   unsigned __int64 v5; // r14

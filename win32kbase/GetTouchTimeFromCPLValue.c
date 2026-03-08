@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetTouchTimeFromCPLValue @ 0x1C0167FF0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?LoadPointerDeviceTouchSettings@@YAHXZ @ 0x1C009D22C (-LoadPointerDeviceTouchSettings@@YAHXZ.c)
+ */
+
 __int64 __fastcall GetTouchTimeFromCPLValue(unsigned int a1, unsigned int a2, unsigned int a3, int a4)
 {
   __int64 v5; // rdi

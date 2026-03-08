@@ -1,3 +1,12 @@
+/*
+ * XREFs of CiDispatchCreate @ 0x1C000A010
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0003420 (_guard_dispatch_icall_nop.c)
+ *     WPP_SF_Z @ 0x1C00046F0 (WPP_SF_Z.c)
+ */
+
 __int64 __fastcall CiDispatchCreate(__int64 a1, IRP *a2)
 {
   struct _IO_STACK_LOCATION *CurrentStackLocation; // r14

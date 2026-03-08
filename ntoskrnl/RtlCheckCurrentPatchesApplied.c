@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlCheckCurrentPatchesApplied @ 0x140A73518
+ * Callers:
+ *     MiPrepareToHotPatchImage @ 0x140A37C98 (MiPrepareToHotPatchImage.c)
+ * Callees:
+ *     RtlpCheckFunctionPatchApplied @ 0x140AAAAF8 (RtlpCheckFunctionPatchApplied.c)
+ */
+
 __int64 __fastcall RtlCheckCurrentPatchesApplied(__int64 a1, __int64 a2, __int64 a3, unsigned int *a4, unsigned int a5)
 {
   unsigned int v5; // r10d

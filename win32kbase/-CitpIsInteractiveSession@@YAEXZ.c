@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?CitpIsInteractiveSession@@YAEXZ @ 0x1C00C5BA4
+ * Callers:
+ *     ?CitpStart@@YAJXZ @ 0x1C00C5898 (-CitpStart@@YAJXZ.c)
+ *     ?CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z @ 0x1C00C5978 (-CitpParametersLoad@@YAXPEAU_CIT_PARAMETERS@@PEBG@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall CitpIsInteractiveSession(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   int v4; // ebx

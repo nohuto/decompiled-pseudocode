@@ -1,3 +1,13 @@
+/*
+ * XREFs of CmpVEPerformOpenAccessCheck @ 0x140768B54
+ * Callers:
+ *     CmpDoParseKey @ 0x1406E1D90 (CmpDoParseKey.c)
+ * Callees:
+ *     CmpIsSystemEntity @ 0x140768CB8 (CmpIsSystemEntity.c)
+ *     CmpCheckAdminAccess @ 0x140A16150 (CmpCheckAdminAccess.c)
+ *     CmpCheckKeyBodyAccess @ 0x140A18448 (CmpCheckKeyBodyAccess.c)
+ */
+
 __int64 __fastcall CmpVEPerformOpenAccessCheck(
         _QWORD *Object,
         __int64 a2,

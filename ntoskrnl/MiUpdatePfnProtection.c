@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiUpdatePfnProtection @ 0x140344B44
+ * Callers:
+ *     MiSetReadOnlyOnSectionView @ 0x14020AAF0 (MiSetReadOnlyOnSectionView.c)
+ *     MiMakeVaRangeNoAccess @ 0x1402EF244 (MiMakeVaRangeNoAccess.c)
+ *     MiProtectPrivateMemory @ 0x140344540 (MiProtectPrivateMemory.c)
+ * Callees:
+ *     MiSanitizePfnProtection @ 0x140322D40 (MiSanitizePfnProtection.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ */
+
 __int64 __fastcall MiUpdatePfnProtection(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v6; // r9

@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpEfiInitializeOnResume @ 0x14050B390
+ * Callers:
+ *     HalInitializeOnResume @ 0x140504610 (HalInitializeOnResume.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HalpSetResumeTime @ 0x14051A258 (HalpSetResumeTime.c)
+ */
+
 __int64 __fastcall HalpEfiInitializeOnResume(__int64 a1, __int64 a2)
 {
   int v3; // edx

@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?VidSchiAddPendingCommandToSyncPointList@@YAJPEAU_VIDSCH_DEVICE@@PEAUVIDMM_ALLOC@@_JIIW4_VIDSCH_DEVICE_COMMAND_TYPE@@@Z @ 0x1C00159A0
+ * Callers:
+ *     VidSchSubmitDeviceCommand @ 0x1C0015360 (VidSchSubmitDeviceCommand.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     memset @ 0x1C001AC80 (memset.c)
+ *     ??_G_VIDSCH_SYNC_POINT@@QEAAPEAXI@Z @ 0x1C00345E4 (--_G_VIDSCH_SYNC_POINT@@QEAAPEAXI@Z.c)
+ *     McTemplateK0pxqPR2XR2_EtwWriteTransfer @ 0x1C003E084 (McTemplateK0pxqPR2XR2_EtwWriteTransfer.c)
+ */
+
 // write access to const memory has been detected, the output may be wrong!
 __int64 __fastcall VidSchiAddPendingCommandToSyncPointList(
         _QWORD *a1,

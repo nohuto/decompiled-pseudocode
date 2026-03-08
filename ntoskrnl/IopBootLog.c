@@ -1,3 +1,23 @@
+/*
+ * XREFs of IopBootLog @ 0x14072A928
+ * Callers:
+ *     PipCallDriverAddDevice @ 0x1406C644C (PipCallDriverAddDevice.c)
+ *     IopLoadDriver @ 0x14072A9DC (IopLoadDriver.c)
+ *     IopInitializeBootLogging @ 0x140941EE0 (IopInitializeBootLogging.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     RtlCopyUnicodeString @ 0x14030E970 (RtlCopyUnicodeString.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     IopOpenRegistryKey @ 0x1407803E0 (IopOpenRegistryKey.c)
+ *     IopBootLogToFile @ 0x140941244 (IopBootLogToFile.c)
+ */
+
 void __fastcall IopBootLog(PCUNICODE_STRING Source, char a2)
 {
   PUNICODE_STRING v4; // rdi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of IoRemoveLinkShareAccessEx @ 0x1406F3450
+ * Callers:
+ *     RawCleanup @ 0x1406F3368 (RawCleanup.c)
+ *     IoRemoveShareAccess @ 0x1406F3430 (IoRemoveShareAccess.c)
+ *     IoRemoveLinkShareAccess @ 0x1409444B0 (IoRemoveLinkShareAccess.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned int *__fastcall IoRemoveLinkShareAccessEx(__int64 a1, _DWORD *a2, _DWORD *a3, char a4)
 {
   unsigned int *result; // rax

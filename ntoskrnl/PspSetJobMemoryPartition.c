@@ -1,3 +1,20 @@
+/*
+ * XREFs of PspSetJobMemoryPartition @ 0x1409AFC84
+ * Callers:
+ *     NtSetInformationJobObject @ 0x1406FC3C0 (NtSetInformationJobObject.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     PsIsServerSilo @ 0x140294E20 (PsIsServerSilo.c)
+ *     PsDereferencePartition @ 0x140295BF8 (PsDereferencePartition.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     PsAssignProcessToJobObject @ 0x1406FF9A0 (PsAssignProcessToJobObject.c)
+ *     PsReferencePartitionByHandle @ 0x14070591C (PsReferencePartitionByHandle.c)
+ *     SmCreatePartition @ 0x140728884 (SmCreatePartition.c)
+ *     PspConvertJobToMixed @ 0x1409AF1C4 (PspConvertJobToMixed.c)
+ *     SmPartitionJobPaired @ 0x1409D3EB4 (SmPartitionJobPaired.c)
+ */
+
 __int64 __fastcall PspSetJobMemoryPartition(ULONG_PTR a1, KPROCESSOR_MODE a2, void *a3)
 {
   char v4; // r14

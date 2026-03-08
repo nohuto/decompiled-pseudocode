@@ -1,3 +1,11 @@
+/*
+ * XREFs of _GetSendMessageReceiver @ 0x1C01FE844
+ * Callers:
+ *     NtUserGetSendMessageReceiver @ 0x1C01D4E10 (NtUserGetSendMessageReceiver.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ */
+
 __int64 __fastcall GetSendMessageReceiver(__int64 a1)
 {
   __int64 v1; // rax

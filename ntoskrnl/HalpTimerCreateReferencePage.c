@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpTimerCreateReferencePage @ 0x1403A0A54
+ * Callers:
+ *     HalpInitializeTimers @ 0x1403A06E0 (HalpInitializeTimers.c)
+ * Callees:
+ *     HalpMmAllocateMemoryInternal @ 0x14037A7A8 (HalpMmAllocateMemoryInternal.c)
+ *     RtlUdiv128 @ 0x1403A0AE0 (RtlUdiv128.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 HalpTimerCreateReferencePage()
 {
   void *MemoryInternal; // rax

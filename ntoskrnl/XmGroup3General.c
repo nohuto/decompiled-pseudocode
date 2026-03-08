@@ -1,3 +1,15 @@
+/*
+ * XREFs of XmGroup3General @ 0x1403B3660
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     XmEvaluateAddressSpecifier @ 0x1403B3F0C (XmEvaluateAddressSpecifier.c)
+ *     XmSetSourceValue @ 0x1403B41A0 (XmSetSourceValue.c)
+ *     XmSetDataType @ 0x1403B41C8 (XmSetDataType.c)
+ *     XmGetImmediateSourceValue @ 0x1403B41F4 (XmGetImmediateSourceValue.c)
+ *     XmSetDestinationValue @ 0x1403B4248 (XmSetDestinationValue.c)
+ */
+
 __int64 __fastcall XmGroup3General(__int64 a1)
 {
   __int64 v2; // rdi

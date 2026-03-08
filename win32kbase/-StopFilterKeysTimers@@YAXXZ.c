@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?StopFilterKeysTimers@@YAXXZ @ 0x1C01E4680
+ * Callers:
+ *     ?SpiSetFilterKeys@@YAHKPEAXHHPEAH@Z @ 0x1C017B654 (-SpiSetFilterKeys@@YAHKPEAXHHPEAH@Z.c)
+ * Callees:
+ *     ApiSetEditionKillAccessibilityTimer @ 0x1C0240100 (ApiSetEditionKillAccessibilityTimer.c)
+ */
+
 void __fastcall StopFilterKeysTimers(__int64 a1)
 {
   if ( gtmridFKResponse )

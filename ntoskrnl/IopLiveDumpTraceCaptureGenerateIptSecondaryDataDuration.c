@@ -1,3 +1,15 @@
+/*
+ * XREFs of IopLiveDumpTraceCaptureGenerateIptSecondaryDataDuration @ 0x140558010
+ * Callers:
+ *     IopLiveDumpGenerateIptSecondaryData @ 0x140A984FC (IopLiveDumpGenerateIptSecondaryData.c)
+ * Callees:
+ *     EtwWriteEx @ 0x140231630 (EtwWriteEx.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     IopLiveDumpIsTracingEnabled @ 0x140557990 (IopLiveDumpIsTracingEnabled.c)
+ */
+
 char __fastcall IopLiveDumpTraceCaptureGenerateIptSecondaryDataDuration(__int64 a1, __int64 a2)
 {
   int v3; // eax

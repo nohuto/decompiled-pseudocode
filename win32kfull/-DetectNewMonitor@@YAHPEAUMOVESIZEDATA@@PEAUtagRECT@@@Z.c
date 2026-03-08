@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?DetectNewMonitor@@YAHPEAUMOVESIZEDATA@@PEAUtagRECT@@@Z @ 0x1C01B9BC8
+ * Callers:
+ *     ?xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z @ 0x1C01ED7C0 (-xxxDrawDragRectEx@@YAXPEAUMOVESIZEDATA@@PEAUtagRECT@@I1@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C003E064 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     GetInheritedMonitor @ 0x1C00ACC90 (GetInheritedMonitor.c)
+ *     _MonitorFromRect @ 0x1C00AEE80 (_MonitorFromRect.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dddddddd @ 0x1C00F3C7C (WPP_RECORDER_AND_TRACE_SF_dddddddd.c)
+ *     GetMonitorRectForWindow @ 0x1C00FF4DC (GetMonitorRectForWindow.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     WPP_RECORDER_AND_TRACE_SF_dddddd @ 0x1C01A7638 (WPP_RECORDER_AND_TRACE_SF_dddddd.c)
+ *     ?IsNewMonitorRectMostOccupied@@YAHPEBUtagRECT@@00@Z @ 0x1C01BA484 (-IsNewMonitorRectMostOccupied@@YAHPEBUtagRECT@@00@Z.c)
+ *     ?TransformRectAroundCursor@@YAXPEAUMOVESIZEDATA@@PEBUtagRECT@@GPEAU2@2G@Z @ 0x1C01BA574 (-TransformRectAroundCursor@@YAXPEAUMOVESIZEDATA@@PEBUtagRECT@@GPEAU2@2G@Z.c)
+ */
+
 __int64 __fastcall DetectNewMonitor(struct tagWND **a1, struct tagRECT *a2)
 {
   __int64 InheritedMonitor; // rax

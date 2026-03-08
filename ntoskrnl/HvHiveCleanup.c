@@ -1,3 +1,22 @@
+/*
+ * XREFs of HvHiveCleanup @ 0x1407A56B8
+ * Callers:
+ *     CmShutdownSystem2 @ 0x1406139DC (CmShutdownSystem2.c)
+ *     CmpCompleteUnloadKey @ 0x14074A958 (CmpCompleteUnloadKey.c)
+ *     CmpDestroyHive @ 0x140A19FFC (CmpDestroyHive.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     CmpFreeBootRegistry @ 0x140615338 (CmpFreeBootRegistry.c)
+ *     HvpFreeHiveFreeDisplay @ 0x14077D36C (HvpFreeHiveFreeDisplay.c)
+ *     HvpViewMapCleanup @ 0x14078C304 (HvpViewMapCleanup.c)
+ *     HvpFreeMap @ 0x140791D78 (HvpFreeMap.c)
+ *     HvpFreeBin @ 0x14079AE68 (HvpFreeBin.c)
+ *     CmpReleaseGlobalQuota @ 0x1407A5908 (CmpReleaseGlobalQuota.c)
+ *     HvpMapEntryGetFreeBin @ 0x1407A6910 (HvpMapEntryGetFreeBin.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     HvpGetCellMap @ 0x140AF2670 (HvpGetCellMap.c)
+ */
+
 _UNKNOWN **__fastcall HvHiveCleanup(__int64 a1)
 {
   unsigned int v1; // ebp

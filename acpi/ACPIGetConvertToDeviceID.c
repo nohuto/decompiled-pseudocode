@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIGetConvertToDeviceID @ 0x1C0029CB8
+ * Callers:
+ *     ACPIGetWorkerForString @ 0x1C002B860 (ACPIGetWorkerForString.c)
+ * Callees:
+ *     ACPIGetConvertToDeviceIDWide @ 0x1C0029D20 (ACPIGetConvertToDeviceIDWide.c)
+ *     ACPIWideStringToAnsiHelper @ 0x1C0043C58 (ACPIWideStringToAnsiHelper.c)
+ */
+
 __int64 __fastcall ACPIGetConvertToDeviceID(int a1, int a2, int a3, int a4, _QWORD *a5, unsigned int *a6)
 {
   int v6; // edi

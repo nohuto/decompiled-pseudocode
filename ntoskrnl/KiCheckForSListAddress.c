@@ -1,3 +1,22 @@
+/*
+ * XREFs of KiCheckForSListAddress @ 0x1403510B0
+ * Callers:
+ *     KiDeliverApc @ 0x140350B60 (KiDeliverApc.c)
+ *     KxIsrLinkage @ 0x140419FA0 (KxIsrLinkage.c)
+ *     KiHvInterrupt @ 0x14041C4B0 (KiHvInterrupt.c)
+ *     KiVmbusInterrupt0 @ 0x14041C810 (KiVmbusInterrupt0.c)
+ *     KiVmbusInterrupt1 @ 0x14041CB70 (KiVmbusInterrupt1.c)
+ *     KiVmbusInterrupt2 @ 0x14041CED0 (KiVmbusInterrupt2.c)
+ *     KiVmbusInterrupt3 @ 0x14041D230 (KiVmbusInterrupt3.c)
+ *     KiSwInterrupt @ 0x14041E0D0 (KiSwInterrupt.c)
+ *     KiIpiInterrupt @ 0x14041EFD0 (KiIpiInterrupt.c)
+ *     KiNmiInterruptStart @ 0x140423B80 (KiNmiInterruptStart.c)
+ *     KiPageFault @ 0x140426F00 (KiPageFault.c)
+ *     KiMcheckAbort @ 0x140427E80 (KiMcheckAbort.c)
+ * Callees:
+ *     VslKernelShadowStackAssist @ 0x140549640 (VslKernelShadowStackAssist.c)
+ */
+
 __int64 __fastcall KiCheckForSListAddress(__int64 a1)
 {
   __int64 result; // rax

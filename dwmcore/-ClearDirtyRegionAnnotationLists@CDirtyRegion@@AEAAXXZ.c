@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ClearDirtyRegionAnnotationLists@CDirtyRegion@@AEAAXXZ @ 0x1800DC298
+ * Callers:
+ *     ?CleanTrees@CComposition@@IEAAJXZ @ 0x1800664C0 (-CleanTrees@CComposition@@IEAAJXZ.c)
+ * Callees:
+ *     ?ReleaseDirtyRegionAnnotationBuffers@CDirtyRegionAnnotationAllocationSet@@AEAAXXZ @ 0x1800DC2F0 (-ReleaseDirtyRegionAnnotationBuffers@CDirtyRegionAnnotationAllocationSet@@AEAAXXZ.c)
+ */
+
 void __fastcall CDirtyRegion::ClearDirtyRegionAnnotationLists(CDirtyRegion *this)
 {
   _QWORD *v1; // rax

@@ -1,3 +1,16 @@
+/*
+ * XREFs of EtwpCovSampProcessMapAddresses @ 0x1408A5072
+ * Callers:
+ *     EtwpCovSampCaptureBufferMapAddressesAndQueue @ 0x1408A3ADC (EtwpCovSampCaptureBufferMapAddressesAndQueue.c)
+ *     EtwpCovSampContextAddAddresses @ 0x1408A4096 (EtwpCovSampContextAddAddresses.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     EtwpCovSampProcessUpperBoundModule @ 0x1408A532E (EtwpCovSampProcessUpperBoundModule.c)
+ */
+
 __int64 __fastcall EtwpCovSampProcessMapAddresses(
         __int64 a1,
         __int64 a2,

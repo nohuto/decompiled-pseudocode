@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpDeleteTree @ 0x140A22F10
+ * Callers:
+ *     CmRestoreKey @ 0x140A08004 (CmRestoreKey.c)
+ *     CmpSyncSubKeysAfterDelete @ 0x140A203EC (CmpSyncSubKeysAfterDelete.c)
+ * Callees:
+ *     CmpFreeKeyByCell @ 0x1406BA854 (CmpFreeKeyByCell.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpFindSubKeyByNumber @ 0x1407AD320 (CmpFindSubKeyByNumber.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 char __fastcall CmpDeleteTree(ULONG_PTR BugCheckParameter3, ULONG_PTR BugCheckParameter4)
 {
   int v2; // r15d

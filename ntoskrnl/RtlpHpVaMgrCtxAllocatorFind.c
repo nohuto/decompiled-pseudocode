@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlpHpVaMgrCtxAllocatorFind @ 0x140375BE8
+ * Callers:
+ *     RtlpHpVaMgrCtxAlloc @ 0x1403041DC (RtlpHpVaMgrCtxAlloc.c)
+ *     RtlpHpVaMgrCtxAllocatorReference @ 0x140375AC8 (RtlpHpVaMgrCtxAllocatorReference.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpHpVaMgrCtxAllocatorFind(__int64 a1, __int64 a2, int a3, _QWORD *a4)
 {
   __int64 v4; // rbx

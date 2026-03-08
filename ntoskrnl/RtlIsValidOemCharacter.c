@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlIsValidOemCharacter @ 0x1409BC230
+ * Callers:
+ *     GetNextWchar @ 0x140768840 (GetNextWchar.c)
+ * Callees:
+ *     NLS_UPCASE @ 0x140267AD0 (NLS_UPCASE.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     RtlpIsUtf8Process @ 0x1406EA7A0 (RtlpIsUtf8Process.c)
+ */
+
 BOOLEAN __stdcall RtlIsValidOemCharacter(PWCHAR Char)
 {
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax

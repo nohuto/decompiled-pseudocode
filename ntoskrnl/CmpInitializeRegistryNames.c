@@ -1,3 +1,11 @@
+/*
+ * XREFs of CmpInitializeRegistryNames @ 0x140B50758
+ * Callers:
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ */
+
 void CmpInitializeRegistryNames()
 {
   PCWSTR *v0; // rbx

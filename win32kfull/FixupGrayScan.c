@@ -1,3 +1,12 @@
+/*
+ * XREFs of FixupGrayScan @ 0x1C014BBB8
+ * Callers:
+ *     GetFixupScan @ 0x1C014BF50 (GetFixupScan.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 void *__fastcall FixupGrayScan(__int64 a1, void *a2)
 {
   __int64 v2; // r12

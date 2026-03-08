@@ -1,3 +1,12 @@
+/*
+ * XREFs of Xp10ScatteredCopyFromPrevious @ 0x1409C54BC
+ * Callers:
+ *     Xp10ExecuteHuffmanDecode @ 0x1409C2EF0 (Xp10ExecuteHuffmanDecode.c)
+ * Callees:
+ *     Xp10ScatteredByteSeekBack @ 0x1409C5170 (Xp10ScatteredByteSeekBack.c)
+ *     Xp10ScatteredCopy @ 0x1409C5208 (Xp10ScatteredCopy.c)
+ */
+
 __int64 __fastcall Xp10ScatteredCopyFromPrevious(_OWORD *a1, unsigned int a2, int a3)
 {
   __int128 v5; // xmm1

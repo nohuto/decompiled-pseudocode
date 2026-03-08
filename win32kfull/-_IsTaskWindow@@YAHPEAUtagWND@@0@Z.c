@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?_IsTaskWindow@@YAHPEAUtagWND@@0@Z @ 0x1C01CA56C
+ * Callers:
+ *     ?_RemoveNonTaskWindows@@YAHPEAUtagBWL@@PEAUtagWND@@PEAHPEAPEAPEAUHWND__@@@Z @ 0x1C01CA5F0 (-_RemoveNonTaskWindows@@YAHPEAUtagBWL@@PEAUtagWND@@PEAHPEAPEAPEAUHWND__@@@Z.c)
+ * Callees:
+ *     ?GetWindowCloakState@@YAKPEBUtagWND@@@Z @ 0x1C0048F7C (-GetWindowCloakState@@YAKPEBUtagWND@@@Z.c)
+ *     IsWindowUnderActiveLockScreen @ 0x1C00A2F70 (IsWindowUnderActiveLockScreen.c)
+ */
+
 __int64 __fastcall _IsTaskWindow(struct tagWND *a1, struct tagWND *a2)
 {
   unsigned int v3; // ebx

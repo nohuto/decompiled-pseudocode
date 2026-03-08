@@ -1,3 +1,19 @@
+/*
+ * XREFs of IopSetDeviceSecurityDescriptor @ 0x140750F44
+ * Callers:
+ *     IopGetSetSecurityObject @ 0x14074EA70 (IopGetSetSecurityObject.c)
+ *     IopSetDeviceSecurityDescriptors @ 0x140750EA4 (IopSetDeviceSecurityDescriptors.c)
+ * Callees:
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     ExReleaseResourceLite @ 0x14025D520 (ExReleaseResourceLite.c)
+ *     ExAcquireResourceSharedLite @ 0x14025D790 (ExAcquireResourceSharedLite.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObLogSecurityDescriptor @ 0x1406965B0 (ObLogSecurityDescriptor.c)
+ *     ObDereferenceSecurityDescriptor @ 0x140696920 (ObDereferenceSecurityDescriptor.c)
+ *     SeSetSecurityDescriptorInfo @ 0x1407510B0 (SeSetSecurityDescriptorInfo.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopSetDeviceSecurityDescriptor(__int64 a1, ULONG *a2, void *a3, POOL_TYPE a4, PGENERIC_MAPPING a5)
 {
   struct _KTHREAD *CurrentThread; // rdi

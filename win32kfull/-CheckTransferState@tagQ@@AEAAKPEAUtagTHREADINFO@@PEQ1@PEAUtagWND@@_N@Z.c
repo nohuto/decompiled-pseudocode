@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?CheckTransferState@tagQ@@AEAAKPEAUtagTHREADINFO@@PEQ1@PEAUtagWND@@_N@Z @ 0x1C00CDDA8
+ * Callers:
+ *     ?zzzAttachToQueue@tagQ@@QEAAXPEAUtagTHREADINFO@@PEAU1@_N@Z @ 0x1C00CD940 (-zzzAttachToQueue@tagQ@@QEAAXPEAUtagTHREADINFO@@PEAU1@_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall tagQ::CheckTransferState(__int64 a1, __int64 a2, int a3, char a4)
 {
   __int64 v4; // r10

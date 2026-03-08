@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?OnErrorReported@TraceLoggingProvider@wil@@MEAAX_NAEBUFailureInfo@2@@Z @ 0x18019B850
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ReportTraceLoggingFailure@TraceLoggingProvider@wil@@IEAAXAEBUFailureInfo@2@@Z @ 0x18019D894 (-ReportTraceLoggingFailure@TraceLoggingProvider@wil@@IEAAXAEBUFailureInfo@2@@Z.c)
+ */
+
 void __fastcall wil::TraceLoggingProvider::OnErrorReported(
         wil::TraceLoggingProvider *this,
         char a2,

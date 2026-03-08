@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpTranslateHexStringToGUID @ 0x1409FB3B4
+ * Callers:
+ *     ExpParseSignatureName @ 0x1409FA090 (ExpParseSignatureName.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     towlower @ 0x1403D5C20 (towlower.c)
+ */
+
 __int64 __fastcall ExpTranslateHexStringToGUID(wint_t *a1, _OWORD *a2)
 {
   __int64 v2; // rax

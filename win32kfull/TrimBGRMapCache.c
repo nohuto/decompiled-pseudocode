@@ -1,3 +1,12 @@
+/*
+ * XREFs of TrimBGRMapCache @ 0x1C02582A0
+ * Callers:
+ *     AddBGRMapCache @ 0x1C0255FE8 (AddBGRMapCache.c)
+ *     FindBGRMapCache @ 0x1C0257DE8 (FindBGRMapCache.c)
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ */
+
 __int64 __fastcall TrimBGRMapCache(__int64 a1)
 {
   unsigned int v1; // edi

@@ -1,3 +1,18 @@
+/*
+ * XREFs of ObpSlowReferenceDeviceMap @ 0x14075DAD8
+ * Callers:
+ *     ObpLookupObjectName @ 0x1406E86B0 (ObpLookupObjectName.c)
+ *     ObpReferenceCurrentDeviceMap @ 0x140721450 (ObpReferenceCurrentDeviceMap.c)
+ *     ObpReferenceDeviceMapFastRef @ 0x14075D834 (ObpReferenceDeviceMapFastRef.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     ObDereferenceDeviceMap @ 0x14071E5A4 (ObDereferenceDeviceMap.c)
+ */
+
 volatile signed __int64 *__fastcall ObpSlowReferenceDeviceMap(_QWORD *a1)
 {
   struct _LIST_ENTRY *CurrentServerSiloGlobals; // rax

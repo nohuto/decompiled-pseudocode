@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiCanFlushMakeProgress @ 0x14063678C
+ * Callers:
+ *     MiFlushAllPagesWorker @ 0x1406378D4 (MiFlushAllPagesWorker.c)
+ *     MiFlushAllStoreSwapPages @ 0x1406379DC (MiFlushAllStoreSwapPages.c)
+ *     MiWaitForFreePage @ 0x140651458 (MiWaitForFreePage.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiCanFlushMakeProgress(__int64 a1, int a2)
 {
   unsigned int v2; // edx

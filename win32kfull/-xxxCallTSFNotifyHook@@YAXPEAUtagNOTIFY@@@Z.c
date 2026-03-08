@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?xxxCallTSFNotifyHook@@YAXPEAUtagNOTIFY@@@Z @ 0x1C01C0EB4
+ * Callers:
+ *     ?xxxDoLocalTSFWork@@YAXKPEAUtagWND@@JJKKPEAUtagTHREADINFO@@K@Z @ 0x1C01C0FC8 (-xxxDoLocalTSFWork@@YAXKPEAUtagWND@@JJKKPEAUtagTHREADINFO@@K@Z.c)
+ *     xxxProcessTSFEvent @ 0x1C01C1198 (xxxProcessTSFEvent.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     fnHkINLPNOTIFYSTRUCT @ 0x1C0213A24 (fnHkINLPNOTIFYSTRUCT.c)
+ */
+
 void __fastcall xxxCallTSFNotifyHook(struct tagNOTIFY *a1)
 {
   unsigned int DLT; // eax

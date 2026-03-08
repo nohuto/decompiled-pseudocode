@@ -1,3 +1,15 @@
+/*
+ * XREFs of ApiSetGetPowerTransitionsState @ 0x1C00BC570
+ * Callers:
+ *     RIMGetCurrentPowerInputMode @ 0x1C00BC3E0 (RIMGetCurrentPowerInputMode.c)
+ *     rimDisplayOffPolicyUpdateStateAndApply @ 0x1C01D6304 (rimDisplayOffPolicyUpdateStateAndApply.c)
+ *     rimLidClosedPolicyUpdateStateAndApply @ 0x1C01D8B9C (rimLidClosedPolicyUpdateStateAndApply.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 (*__fastcall ApiSetGetPowerTransitionsState(void *a1))(void)
 {
   char v2; // bl

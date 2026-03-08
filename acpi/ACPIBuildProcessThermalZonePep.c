@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIBuildProcessThermalZonePep @ 0x1C0012CA0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIBuildCompleteMustSucceed @ 0x1C000BCB0 (ACPIBuildCompleteMustSucceed.c)
+ *     AcpiNotifyPlExtDiscoverDeviceAsync @ 0x1C0037A5C (AcpiNotifyPlExtDiscoverDeviceAsync.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessThermalZonePep(__int64 a1)
 {
   __int64 v1; // rbx

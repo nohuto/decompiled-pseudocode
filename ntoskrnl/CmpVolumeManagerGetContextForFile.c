@@ -1,3 +1,26 @@
+/*
+ * XREFs of CmpVolumeManagerGetContextForFile @ 0x14072B8A0
+ * Callers:
+ *     CmpCreateHive @ 0x14072C06C (CmpCreateHive.c)
+ *     CmpVolumeManagerGetContextForFilePath @ 0x140851780 (CmpVolumeManagerGetContextForFilePath.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IoGetAttachedDeviceReference @ 0x140337BB0 (IoGetAttachedDeviceReference.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     CmpVolumeManagerGetContextForGuidUnsafe @ 0x14072BADC (CmpVolumeManagerGetContextForGuidUnsafe.c)
+ *     IoVolumeDeviceToGuid @ 0x14072BB40 (IoVolumeDeviceToGuid.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     CmpVolumeContextCreate @ 0x14084C438 (CmpVolumeContextCreate.c)
+ *     CmpVolumeContextCleanup @ 0x14085EE74 (CmpVolumeContextCleanup.c)
+ */
+
 __int64 __fastcall CmpVolumeManagerGetContextForFile(__int64 a1, void *a2, __int64 a3, PPRIVILEGE_SET *a4)
 {
   struct _OBJECT_TYPE *v5; // r8

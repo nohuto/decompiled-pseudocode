@@ -1,3 +1,16 @@
+/*
+ * XREFs of Amd64InitializeUncoreProfiling @ 0x140527450
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeQueryActiveProcessorCountEx @ 0x1402A97C0 (KeQueryActiveProcessorCountEx.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402AA110 (KeRevertToUserGroupAffinityThread.c)
+ *     KeSetSystemGroupAffinityThread @ 0x1402ABED0 (KeSetSystemGroupAffinityThread.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     Amd64InitializeCacheStatus @ 0x140527134 (Amd64InitializeCacheStatus.c)
+ *     Amd64InitializeDataFabricStatus @ 0x140527308 (Amd64InitializeDataFabricStatus.c)
+ */
+
 void Amd64InitializeUncoreProfiling()
 {
   ULONG ActiveProcessorCount; // eax

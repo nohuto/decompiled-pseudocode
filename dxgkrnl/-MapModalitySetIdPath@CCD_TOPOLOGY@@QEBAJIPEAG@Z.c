@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?MapModalitySetIdPath@CCD_TOPOLOGY@@QEBAJIPEAG@Z @ 0x1C03B7CAC
+ * Callers:
+ *     ?SaveTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEBVCCD_TOPOLOGY@@_N@Z @ 0x1C03BE870 (-SaveTopology@TOPOLOGY_SET_DESCRIPTOR@CCD_STORE@@QEAAJPEBVCCD_TOPOLOGY@@_N@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CCD_TOPOLOGY::MapModalitySetIdPath(CCD_TOPOLOGY *this, unsigned int a2, unsigned __int16 *a3)
 {
   __int64 v4; // rax

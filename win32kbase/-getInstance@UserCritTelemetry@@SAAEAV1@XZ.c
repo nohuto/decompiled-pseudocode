@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?getInstance@UserCritTelemetry@@SAAEAV1@XZ @ 0x1C004FA98
+ * Callers:
+ *     EtwTraceAcquiredExclusiveUserCrit @ 0x1C004F99C (EtwTraceAcquiredExclusiveUserCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C005040C (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
+ * Callees:
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 struct UserCritTelemetry *UserCritTelemetry::getInstance(void)
 {
   if ( (dword_1C02D1900 & 1) == 0 )

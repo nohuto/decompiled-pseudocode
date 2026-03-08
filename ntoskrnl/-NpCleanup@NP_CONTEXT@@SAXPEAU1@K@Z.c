@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?NpCleanup@NP_CONTEXT@@SAXPEAU1@K@Z @ 0x1402E70D8
+ * Callers:
+ *     ?StDmCleanup@?$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z @ 0x1402E6E88 (-StDmCleanup@-$ST_STORE@USM_TRAITS@@@@SAXPEAU_ST_DATA_MGR@1@K@Z.c)
+ * Callees:
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall NP_CONTEXT::NpCleanup(struct NP_CONTEXT *a1, int a2)
 {
   char *v2; // rbx

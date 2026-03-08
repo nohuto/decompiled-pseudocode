@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RECTFromD2DRectF@@YA?AUtagRECT@@AEBUD2D_RECT_F@@@Z @ 0x180013A78
+ * Callers:
+ *     ?Initialize@CEmptyRegionDrawListBrush@@AEAAJPEAVCDrawingContext@@AEBUD2D_RECT_F@@@Z @ 0x180013830 (-Initialize@CEmptyRegionDrawListBrush@@AEAAJPEAVCDrawingContext@@AEBUD2D_RECT_F@@@Z.c)
+ *     ?GetContentRegion@CPrimitiveGroupDrawListGenerator@@QEAAPEBVCRegion@@XZ @ 0x1802B5EC8 (-GetContentRegion@CPrimitiveGroupDrawListGenerator@@QEAAPEBVCRegion@@XZ.c)
+ * Callees:
+ *     <none>
+ */
+
 struct tagRECT *__fastcall RECTFromD2DRectF(struct tagRECT *__return_ptr retstr, const struct D2D_RECT_F *a2)
 {
   float v2; // xmm0_4

@@ -1,3 +1,12 @@
+/*
+ * XREFs of InbvSetFunction @ 0x140384538
+ * Callers:
+ *     BgkNotifyDisplayOwnershipChange @ 0x1403A7F10 (BgkNotifyDisplayOwnershipChange.c)
+ *     InbvDriverInitialize @ 0x140B47614 (InbvDriverInitialize.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall InbvSetFunction(int a1)
 {
   __int64 result; // rax

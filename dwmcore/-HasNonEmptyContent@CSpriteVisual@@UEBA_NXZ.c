@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?HasNonEmptyContent@CSpriteVisual@@UEBA_NXZ @ 0x1800D76F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?GetProjectedShadowReceivers@CVisual@@QEBAPEAV?$vector@PEAVCProjectedShadowReceiver@@V?$allocator@PEAVCProjectedShadowReceiver@@@std@@@std@@XZ @ 0x180004DC0 (-GetProjectedShadowReceivers@CVisual@@QEBAPEAV-$vector@PEAVCProjectedShadowReceiver@@V-$allocato.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     ?GetDropShadow@CSpriteVisual@@IEBAPEAVCDropShadow@@XZ @ 0x18012F6FA (-GetDropShadow@CSpriteVisual@@IEBAPEAVCDropShadow@@XZ.c)
+ */
+
 char __fastcall CSpriteVisual::HasNonEmptyContent(CSpriteVisual *this)
 {
   char v2; // bl

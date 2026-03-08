@@ -1,3 +1,13 @@
+/*
+ * XREFs of WmipEnableCollectOrEvent @ 0x14069C2A8
+ * Callers:
+ *     WmipOpenBlock @ 0x14069AF1C (WmipOpenBlock.c)
+ * Callees:
+ *     KeReleaseMutex @ 0x1402046C0 (KeReleaseMutex.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     WmipSendEnableRequest @ 0x140786FAC (WmipSendEnableRequest.c)
+ */
+
 __int64 __fastcall WmipEnableCollectOrEvent(ULONG_PTR BugCheckParameter2, int a2, _BYTE *a3)
 {
   int v5; // edx

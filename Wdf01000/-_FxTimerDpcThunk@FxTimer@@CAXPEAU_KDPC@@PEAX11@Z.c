@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?_FxTimerDpcThunk@FxTimer@@CAXPEAU_KDPC@@PEAX11@Z @ 0x1C00093D0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?EnqueueWorker@FxSystemWorkItem@@AEAAEP6AXPEAX@Z0E@Z @ 0x1C0007508 (-EnqueueWorker@FxSystemWorkItem@@AEAAEP6AXPEAX@Z0E@Z.c)
+ *     ?TimerHandler@FxTimer@@QEAAXXZ @ 0x1C0008C04 (-TimerHandler@FxTimer@@QEAAXXZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C000AB80 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall FxTimer::_FxTimerDpcThunk(
         _KDPC *TimerDpc,
         FxTimer *DeferredContext,

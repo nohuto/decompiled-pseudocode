@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SendCaptureCompleted@CVisualCapture@@IEAAXXZ @ 0x180252C10
+ * Callers:
+ *     ?CheckForCaptureCompleted@CVisualCapture@@IEAAXXZ @ 0x1802524CC (-CheckForCaptureCompleted@CVisualCapture@@IEAAXXZ.c)
+ *     ?Render@CVisualCapture@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z @ 0x180252B20 (-Render@CVisualCapture@@UEAAJPEAVCDrawingContext@@_NPEA_N@Z.c)
+ * Callees:
+ *     ?RemoveRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z @ 0x1800C6254 (-RemoveRenderTarget@CRenderTargetManager@@QEAAXPEAVCRenderTarget@@@Z.c)
+ */
+
 void __fastcall CVisualCapture::SendCaptureCompleted(CVisualCapture *this)
 {
   __int64 v2; // r10

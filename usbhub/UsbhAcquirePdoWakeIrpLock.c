@@ -1,3 +1,11 @@
+/*
+ * XREFs of UsbhAcquirePdoWakeIrpLock @ 0x1C00210E0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall UsbhAcquirePdoWakeIrpLock(PIO_CSQ Csq, PKIRQL Irql)
 {
   _QWORD *ReservePointer; // rax

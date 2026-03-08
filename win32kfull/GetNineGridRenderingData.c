@@ -1,3 +1,11 @@
+/*
+ * XREFs of GetNineGridRenderingData @ 0x1C00F5540
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetNineGridRenderingData(_QWORD *a1, _QWORD *a2, _QWORD *a3, _QWORD *a4)
 {
   __int64 v8; // rcx

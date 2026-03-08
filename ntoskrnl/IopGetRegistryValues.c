@@ -1,3 +1,12 @@
+/*
+ * XREFs of IopGetRegistryValues @ 0x1407804F8
+ * Callers:
+ *     pIoQueryDeviceDescription @ 0x14077FA74 (pIoQueryDeviceDescription.c)
+ *     pIoQueryBusDescription @ 0x14077FF18 (pIoQueryBusDescription.c)
+ * Callees:
+ *     IopGetRegistryValue @ 0x1406C18D4 (IopGetRegistryValue.c)
+ */
+
 __int64 __fastcall IopGetRegistryValues(HANDLE KeyHandle, _QWORD *a2)
 {
   unsigned int v2; // ebx

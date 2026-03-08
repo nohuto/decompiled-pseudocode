@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlStringCchCatNW @ 0x1403A1A98
+ * Callers:
+ *     SepRmFetchGlobalSacl @ 0x14084B3BC (SepRmFetchGlobalSacl.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS __stdcall RtlStringCchCatNW(
         NTSTRSAFE_PWSTR pszDest,
         size_t cchDest,

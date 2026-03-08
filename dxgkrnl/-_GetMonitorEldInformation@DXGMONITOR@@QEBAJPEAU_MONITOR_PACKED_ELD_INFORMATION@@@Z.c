@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?_GetMonitorEldInformation@DXGMONITOR@@QEBAJPEAU_MONITOR_PACKED_ELD_INFORMATION@@@Z @ 0x1C0201290
+ * Callers:
+ *     DpiPdoGetDeviceContainerIdFromDescriptor @ 0x1C0200E78 (DpiPdoGetDeviceContainerIdFromDescriptor.c)
+ * Callees:
+ *     ??_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z @ 0x1C0007790 (--_U@YAPEAX_KIW4DXGK_POOL_FLAGS@@@Z.c)
+ *     ??3@YAXPEAX@Z @ 0x1C00077E0 (--3@YAXPEAX@Z.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     ?GetCCDMonitorID@DXGMONITOR@@UEBAJ_NKPEAG@Z @ 0x1C0171980 (-GetCCDMonitorID@DXGMONITOR@@UEBAJ_NKPEAG@Z.c)
+ */
+
 __int64 __fastcall DXGMONITOR::_GetMonitorEldInformation(DXGMONITOR *this, struct _MONITOR_PACKED_ELD_INFORMATION *a2)
 {
   unsigned int v4; // r15d

@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpTimerCalibratePerformanceCounter @ 0x1403772B8
+ * Callers:
+ *     HalpTimerInitialize @ 0x140377220 (HalpTimerInitialize.c)
+ *     HalCalibratePerformanceCounter @ 0x1404FC150 (HalCalibratePerformanceCounter.c)
+ *     HalpTimerRestorePerformanceCounter @ 0x1404FC86C (HalpTimerRestorePerformanceCounter.c)
+ *     HalpTimerPerformanceCounterPowerChange @ 0x140506BD0 (HalpTimerPerformanceCounterPowerChange.c)
+ * Callees:
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     HalpTimerPropagateQpcBiasUpdate @ 0x1403773C0 (HalpTimerPropagateQpcBiasUpdate.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall HalpTimerCalibratePerformanceCounter(__int64 a1, __int64 a2)
 {
   __int64 v4; // rsi

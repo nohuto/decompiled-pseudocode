@@ -1,3 +1,13 @@
+/*
+ * XREFs of ViScatterGatherCallback @ 0x140AC6D90
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ExInterlockedInsertHeadList @ 0x1402E5000 (ExInterlockedInsertHeadList.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     ADD_MAP_REGISTERS @ 0x140AC1180 (ADD_MAP_REGISTERS.c)
+ */
+
 __int64 __fastcall ViScatterGatherCallback(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rbx

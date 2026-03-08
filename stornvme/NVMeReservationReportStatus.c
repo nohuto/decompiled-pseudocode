@@ -1,3 +1,18 @@
+/*
+ * XREFs of NVMeReservationReportStatus @ 0x1C0017528
+ * Callers:
+ *     NVMeReservationReportStatusCompletion @ 0x1C00176E0 (NVMeReservationReportStatusCompletion.c)
+ *     ScsiPersistentReserveIn @ 0x1C001A12C (ScsiPersistentReserveIn.c)
+ * Callees:
+ *     SrbAssignQueueId @ 0x1C0001960 (SrbAssignQueueId.c)
+ *     GetSrbExtension @ 0x1C0001D98 (GetSrbExtension.c)
+ *     GetNamespaceId @ 0x1C0007A8C (GetNamespaceId.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     NVMeAllocateDmaBuffer @ 0x1C000C1C0 (NVMeAllocateDmaBuffer.c)
+ *     NVMeFreeDmaBuffer @ 0x1C000EE04 (NVMeFreeDmaBuffer.c)
+ *     SetPrpFromBuffer @ 0x1C001B45C (SetPrpFromBuffer.c)
+ */
+
 __int64 __fastcall NVMeReservationReportStatus(__int64 a1, __int64 a2, unsigned __int8 a3, __int16 a4, unsigned int a5)
 {
   unsigned int v5; // esi

@@ -1,3 +1,13 @@
+/*
+ * XREFs of UserReAllocPoolWithQuota @ 0x1C00C4890
+ * Callers:
+ *     FastGetProfileKeysW @ 0x1C015D0F0 (FastGetProfileKeysW.c)
+ * Callees:
+ *     ?AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0068568 (-AllocateQuotaZInit@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ */
+
 void *__fastcall UserReAllocPoolWithQuota(
         NSInstrumentation::CLeakTrackingAllocator *a1,
         size_t Size,

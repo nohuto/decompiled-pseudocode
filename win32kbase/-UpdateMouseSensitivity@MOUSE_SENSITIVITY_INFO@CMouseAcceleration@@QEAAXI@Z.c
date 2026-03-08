@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?UpdateMouseSensitivity@MOUSE_SENSITIVITY_INFO@CMouseAcceleration@@QEAAXI@Z @ 0x1C009D0B0
+ * Callers:
+ *     ??0CMouseAcceleration@@IEAA@I@Z @ 0x1C009C920 (--0CMouseAcceleration@@IEAA@I@Z.c)
+ *     UpdateMouseSensitivity @ 0x1C009D040 (UpdateMouseSensitivity.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 void __fastcall CMouseAcceleration::MOUSE_SENSITIVITY_INFO::UpdateMouseSensitivity(
         CMouseAcceleration::MOUSE_SENSITIVITY_INFO *this,
         unsigned int a2)

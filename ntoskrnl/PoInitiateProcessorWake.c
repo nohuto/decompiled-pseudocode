@@ -1,3 +1,20 @@
+/*
+ * XREFs of PoInitiateProcessorWake @ 0x140581880
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     KiCopyAffinityEx @ 0x1402337D0 (KiCopyAffinityEx.c)
+ *     KeGetPrcb @ 0x140234AE0 (KeGetPrcb.c)
+ *     KeIsEmptyAffinityEx @ 0x140237C30 (KeIsEmptyAffinityEx.c)
+ *     HalRequestIpi @ 0x1402EF7C0 (HalRequestIpi.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PpmIdleTransitionStall @ 0x1405831B0 (PpmIdleTransitionStall.c)
+ *     PpmIdleUpdateSynchronizationState @ 0x140583360 (PpmIdleUpdateSynchronizationState.c)
+ */
+
 char __fastcall PoInitiateProcessorWake(unsigned int a1)
 {
   __int64 v2; // rdx

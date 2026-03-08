@@ -1,3 +1,14 @@
+/*
+ * XREFs of xxxSetProcessWindowStation @ 0x1C00CEA20
+ * Callers:
+ *     EditionSetProcessWindowStationEntryPoint @ 0x1C00CE950 (EditionSetProcessWindowStationEntryPoint.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     PushW32ThreadLock @ 0x1C00A1C30 (PushW32ThreadLock.c)
+ *     ?xxxDisownClipboard@@YAXPEAUtagWND@@@Z @ 0x1C01FF7D8 (-xxxDisownClipboard@@YAXPEAUtagWND@@@Z.c)
+ */
+
 __int64 __fastcall xxxSetProcessWindowStation(HANDLE SourceHandle, __int64 a2, __int64 a3)
 {
   struct _KTHREAD *CurrentThread; // rbx

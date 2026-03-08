@@ -1,3 +1,27 @@
+/*
+ * XREFs of IopAllocRealFileObject @ 0x1407BA090
+ * Callers:
+ *     IopParseDevice @ 0x1407B6A30 (IopParseDevice.c)
+ * Callees:
+ *     IoGetSilo @ 0x140294DC0 (IoGetSilo.c)
+ *     PsIsHostSilo @ 0x14030F2E0 (PsIsHostSilo.c)
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     IopCheckInitiatorHint @ 0x14035E260 (IopCheckInitiatorHint.c)
+ *     RtlpInterlockedPopEntrySList @ 0x140420460 (RtlpInterlockedPopEntrySList.c)
+ *     RtlpInterlockedPushEntrySList @ 0x1404204A0 (RtlpInterlockedPushEntrySList.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObpPushStackInfo @ 0x140580738 (ObpPushStackInfo.c)
+ *     ObpFreeObjectNameBuffer @ 0x140699240 (ObpFreeObjectNameBuffer.c)
+ *     ObpCaptureObjectCreateInformation @ 0x1406E9E60 (ObpCaptureObjectCreateInformation.c)
+ *     IopAllocateFoExtensionsOnCreate @ 0x140700A20 (IopAllocateFoExtensionsOnCreate.c)
+ *     IopRetrieveTransactionParameters @ 0x140756C40 (IopRetrieveTransactionParameters.c)
+ *     ObpAllocateObject @ 0x1407BA8D0 (ObpAllocateObject.c)
+ *     SeReleaseSecurityDescriptor @ 0x1407C92D0 (SeReleaseSecurityDescriptor.c)
+ *     SeSinglePrivilegeCheck @ 0x1407C9A00 (SeSinglePrivilegeCheck.c)
+ *     ObpRegisterObject @ 0x14097A3B4 (ObpRegisterObject.c)
+ */
+
 __int64 __fastcall IopAllocRealFileObject(
         __int64 a1,
         __int64 a2,

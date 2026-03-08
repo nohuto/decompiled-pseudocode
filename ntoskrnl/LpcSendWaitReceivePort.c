@@ -1,3 +1,14 @@
+/*
+ * XREFs of LpcSendWaitReceivePort @ 0x140796F40
+ * Callers:
+ *     DbgkpSendApiMessageLpc @ 0x1409371D8 (DbgkpSendApiMessageLpc.c)
+ *     IopSendMessageToTrackService @ 0x140942874 (IopSendMessageToTrackService.c)
+ *     ExpRaiseHardError @ 0x1409FE27C (ExpRaiseHardError.c)
+ * Callees:
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     AlpcpProcessSynchronousRequest @ 0x1407CF500 (AlpcpProcessSynchronousRequest.c)
+ */
+
 __int64 __fastcall LpcSendWaitReceivePort(int a1, int a2, int a3, __int64 a4, __int64 a5, __int64 a6)
 {
   struct _KTHREAD *CurrentThread; // rax

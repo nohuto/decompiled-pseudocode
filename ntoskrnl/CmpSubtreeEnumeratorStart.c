@@ -1,3 +1,17 @@
+/*
+ * XREFs of CmpSubtreeEnumeratorStart @ 0x140A1DA80
+ * Callers:
+ *     CmpSubtreeEnumeratorStartForKcbStack @ 0x140A1DB88 (CmpSubtreeEnumeratorStartForKcbStack.c)
+ *     CmpSubtreeEnumeratorStartForKeyNodeStack @ 0x140A1DBC4 (CmpSubtreeEnumeratorStartForKeyNodeStack.c)
+ * Callees:
+ *     CmpAllocatePool @ 0x140243878 (CmpAllocatePool.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpStartKcbStack @ 0x1407AF450 (CmpStartKcbStack.c)
+ *     CmpStartKeyNodeStack @ 0x140A1D5E8 (CmpStartKeyNodeStack.c)
+ *     CmpKeyEnumStackInitialize @ 0x140A21424 (CmpKeyEnumStackInitialize.c)
+ *     CmpKeyEnumStackStart @ 0x140A2158C (CmpKeyEnumStackStart.c)
+ */
+
 __int64 __fastcall CmpSubtreeEnumeratorStart(__int64 a1, __int16 a2)
 {
   __int64 Pool; // rax

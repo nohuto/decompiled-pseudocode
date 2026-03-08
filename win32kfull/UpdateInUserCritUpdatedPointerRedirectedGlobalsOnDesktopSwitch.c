@@ -1,3 +1,11 @@
+/*
+ * XREFs of UpdateInUserCritUpdatedPointerRedirectedGlobalsOnDesktopSwitch @ 0x1C001FFC4
+ * Callers:
+ *     xxxSwitchDesktop @ 0x1C00205D4 (xxxSwitchDesktop.c)
+ * Callees:
+ *     UpdatePointerRedirIsAlive @ 0x1C0020078 (UpdatePointerRedirIsAlive.c)
+ */
+
 __int64 UpdateInUserCritUpdatedPointerRedirectedGlobalsOnDesktopSwitch()
 {
   unsigned int v0; // edi

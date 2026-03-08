@@ -1,3 +1,14 @@
+/*
+ * XREFs of ObpGetIntegrityLevel @ 0x140741374
+ * Callers:
+ *     ObpParseSymbolicLinkEx @ 0x14069CAB0 (ObpParseSymbolicLinkEx.c)
+ *     ObCreateSymbolicLink @ 0x140740FE8 (ObCreateSymbolicLink.c)
+ * Callees:
+ *     SeQueryInformationToken @ 0x1407B9760 (SeQueryInformationToken.c)
+ *     SeCaptureSubjectContext @ 0x1407C9AC0 (SeCaptureSubjectContext.c)
+ *     SeReleaseSubjectContext @ 0x1407C9D40 (SeReleaseSubjectContext.c)
+ */
+
 __int64 __fastcall ObpGetIntegrityLevel(PSECURITY_SUBJECT_CONTEXT SubjectContext, char a2, PVOID *a3)
 {
   NTSTATUS InformationToken; // esi

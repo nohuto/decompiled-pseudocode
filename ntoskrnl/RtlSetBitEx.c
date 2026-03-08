@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlSetBitEx @ 0x1402E7960
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 signed __int64 *__fastcall RtlSetBitEx(__int64 a1, unsigned __int64 a2)
 {
   signed __int64 *result; // rax

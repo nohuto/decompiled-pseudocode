@@ -1,3 +1,12 @@
+/*
+ * XREFs of ApiSetEditionLLMouseButtonHook @ 0x1C024025C
+ * Callers:
+ *     ?ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z @ 0x1C022F50C (-ProcessMouseButton@CMouseProcessor@@AEAAXAEBVCButtonEvent@1@@Z.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall ApiSetEditionLLMouseButtonHook(__int64 a1, __int64 a2, __int64 a3, __int64 *a4, int a5)
 {
   unsigned int v6; // ebp

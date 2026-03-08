@@ -1,3 +1,24 @@
+/*
+ * XREFs of KiTimer2Expiration @ 0x140250C10
+ * Callers:
+ *     KiRetireDpcList @ 0x1402521E0 (KiRetireDpcList.c)
+ *     KiTimerExpirationDpc @ 0x14057A560 (KiTimerExpirationDpc.c)
+ * Callees:
+ *     KiUpdateTimer2Flags @ 0x1402044C8 (KiUpdateTimer2Flags.c)
+ *     KiRemoveTimer2 @ 0x140248860 (KiRemoveTimer2.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KxAcquireSpinLock @ 0x14024FE60 (KxAcquireSpinLock.c)
+ *     KiShouldActivateHRTimerClock @ 0x14024FE90 (KiShouldActivateHRTimerClock.c)
+ *     KiExpireTimer2 @ 0x14024FED0 (KiExpireTimer2.c)
+ *     KiProcessThreadWaitList @ 0x1402508F0 (KiProcessThreadWaitList.c)
+ *     KiAcquireKobjectLockSafe @ 0x140293E00 (KiAcquireKobjectLockSafe.c)
+ *     KiInsertTimer2 @ 0x1402DFF54 (KiInsertTimer2.c)
+ *     KiSendClockInterruptToClockOwner @ 0x1402F984C (KiSendClockInterruptToClockOwner.c)
+ *     KiCheckAndRearmForceIdle @ 0x1403026FC (KiCheckAndRearmForceIdle.c)
+ *     EtwTraceKernelEvent @ 0x14035F4C0 (EtwTraceKernelEvent.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall KiTimer2Expiration(__int64 a1, unsigned __int64 a2, char a3, char a4, _DWORD *a5)
 {
   char result; // al

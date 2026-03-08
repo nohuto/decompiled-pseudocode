@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140463056
+ * Callers:
+ *     ExTryAcquireSpinLockExclusiveAtDpcLevel @ 0x140305AB0 (ExTryAcquireSpinLockExclusiveAtDpcLevel.c)
+ * Callees:
+ *     TRY_ACQUIRE_EXLOCK_EXCLUSIVE @ 0x140305AD8 (TRY_ACQUIRE_EXLOCK_EXCLUSIVE.c)
+ *     PerfLogSpinLockAcquire @ 0x1405FE910 (PerfLogSpinLockAcquire.c)
+ */
+
 __int64 __fastcall ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented(volatile signed __int32 *a1)
 {
   int v1; // ebx

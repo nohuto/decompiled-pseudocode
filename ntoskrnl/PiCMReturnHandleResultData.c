@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiCMReturnHandleResultData @ 0x14076C9D4
+ * Callers:
+ *     PiCMOpenDeviceInterfaceKey @ 0x14067E994 (PiCMOpenDeviceInterfaceKey.c)
+ *     PiCMOpenDeviceKey @ 0x14076C7C4 (PiCMOpenDeviceKey.c)
+ *     PiCMOpenClassKey @ 0x14085C868 (PiCMOpenClassKey.c)
+ *     PiCMOpenObjectKey @ 0x14086B97C (PiCMOpenObjectKey.c)
+ * Callees:
+ *     ProbeForWrite @ 0x1407C4030 (ProbeForWrite.c)
+ */
+
 __int64 __fastcall PiCMReturnHandleResultData(int a1, __int64 a2, int a3, _DWORD *a4, unsigned int Length, _DWORD *a6)
 {
   unsigned int v9; // ebx

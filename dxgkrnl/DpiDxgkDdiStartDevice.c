@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiDxgkDdiStartDevice @ 0x1C01F0FE8
+ * Callers:
+ *     DpiFdoStartAdapter @ 0x1C01F17F0 (DpiFdoStartAdapter.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00272A0 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0pqqq_EtwWriteTransfer @ 0x1C004006C (McTemplateK0pqqq_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DpiDxgkDdiStartDevice(__int64 a1, __int64 a2, unsigned int *a3, __int64 a4, _DWORD *a5, _DWORD *a6)
 {
   __int64 v10; // rdx

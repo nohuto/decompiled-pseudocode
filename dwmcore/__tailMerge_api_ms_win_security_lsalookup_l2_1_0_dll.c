@@ -1,3 +1,11 @@
+/*
+ * XREFs of __tailMerge_api_ms_win_security_lsalookup_l2_1_0_dll @ 0x180110408
+ * Callers:
+ *     __imp_load_LookupPrivilegeValueW @ 0x1801103FC (__imp_load_LookupPrivilegeValueW.c)
+ * Callees:
+ *     __delayLoadHelper2 @ 0x180100EB0 (__delayLoadHelper2.c)
+ */
+
 __int64 __fastcall _tailMerge_api_ms_win_security_lsalookup_l2_1_0_dll(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rax

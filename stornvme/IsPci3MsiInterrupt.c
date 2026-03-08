@@ -1,3 +1,11 @@
+/*
+ * XREFs of IsPci3MsiInterrupt @ 0x1C000C134
+ * Callers:
+ *     NVMeControllerFilterResourceRequirements @ 0x1C000CD5C (NVMeControllerFilterResourceRequirements.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall IsPci3MsiInterrupt(__int64 a1)
 {
   return *(_BYTE *)(a1 + 1) == 2

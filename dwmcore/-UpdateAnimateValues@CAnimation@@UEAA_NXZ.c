@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?UpdateAnimateValues@CAnimation@@UEAA_NXZ @ 0x1800C51A0
+ * Callers:
+ *     ??1CAnimation@@UEAA@XZ @ 0x1800C58A0 (--1CAnimation@@UEAA@XZ.c)
+ * Callees:
+ *     ?EndAnimation@CAnimation@@AEAAXXZ @ 0x1800C5A6C (-EndAnimation@CAnimation@@AEAAXXZ.c)
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ *     McTemplateU0xxxqf_EventWriteTransfer @ 0x18012E10E (McTemplateU0xxxqf_EventWriteTransfer.c)
+ *     ?GetAdjustedHandoffValue@CAnimationInterpolator@@IEAA_N_JMW4Enum@DwmAnimationHandoffType@@M_KPEAM@Z @ 0x18027D704 (-GetAdjustedHandoffValue@CAnimationInterpolator@@IEAA_N_JMW4Enum@DwmAnimationHandoffType@@M_KPEA.c)
+ *     ?InterpolateSinusoidal@CAnimationInterpolator@@IEAAMAEBUDwmAnimationPrimitive@@_J@Z @ 0x18027DB64 (-InterpolateSinusoidal@CAnimationInterpolator@@IEAAMAEBUDwmAnimationPrimitive@@_J@Z.c)
+ */
+
 char __fastcall CAnimation::UpdateAnimateValues(CAnimation *this)
 {
   unsigned __int64 v2; // rcx

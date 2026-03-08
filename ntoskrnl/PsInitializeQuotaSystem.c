@@ -1,3 +1,14 @@
+/*
+ * XREFs of PsInitializeQuotaSystem @ 0x140B4988C
+ * Callers:
+ *     MiInitSystem @ 0x140B39508 (MiInitSystem.c)
+ *     InitBootProcessor @ 0x140B47864 (InitBootProcessor.c)
+ * Callees:
+ *     PspRegisterResource @ 0x140384A94 (PspRegisterResource.c)
+ *     PspSanitizeResourceLimits @ 0x1408108A4 (PspSanitizeResourceLimits.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 char __fastcall PsInitializeQuotaSystem(int a1)
 {
   _QWORD *v1; // rdx

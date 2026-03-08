@@ -1,3 +1,41 @@
+/*
+ * XREFs of MiInsertLargePageInNodeList @ 0x14031C970
+ * Callers:
+ *     MiFreeLargeZeroPages @ 0x14020FD6C (MiFreeLargeZeroPages.c)
+ *     MiCoalesceFreePages @ 0x140278FE0 (MiCoalesceFreePages.c)
+ *     MiDeleteClusterPage @ 0x14027A890 (MiDeleteClusterPage.c)
+ *     MiInsertLargePageChain @ 0x1402CADB0 (MiInsertLargePageChain.c)
+ *     MiDeleteClusterSection @ 0x14034B3A4 (MiDeleteClusterSection.c)
+ *     MiLargePagePromote @ 0x14034EC80 (MiLargePagePromote.c)
+ *     MiFinishLargePageFree @ 0x1403506BC (MiFinishLargePageFree.c)
+ *     MiRebuildLargePage @ 0x140466288 (MiRebuildLargePage.c)
+ *     MiEnableNewPfns @ 0x140618520 (MiEnableNewPfns.c)
+ *     MiChangePageAttributeLargeFreeZeroPage @ 0x14064C4F4 (MiChangePageAttributeLargeFreeZeroPage.c)
+ *     MiFreeLargePageChain @ 0x14064CB6C (MiFreeLargePageChain.c)
+ *     MiMoveLargeFreePage @ 0x14064D244 (MiMoveLargeFreePage.c)
+ *     MxCreateFreePfns @ 0x140B37690 (MxCreateFreePfns.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     MiConvertEntireLargePageToSmall @ 0x140277140 (MiConvertEntireLargePageToSmall.c)
+ *     MiWakeZeroingThreads @ 0x1402A7E98 (MiWakeZeroingThreads.c)
+ *     MiSearchNumaNodeTable @ 0x140319DD0 (MiSearchNumaNodeTable.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     ExAcquireSpinLockExclusiveAtDpcLevel @ 0x140333520 (ExAcquireSpinLockExclusiveAtDpcLevel.c)
+ *     KeAcquireInStackQueuedSpinLockAtDpcLevel @ 0x140337B70 (KeAcquireInStackQueuedSpinLockAtDpcLevel.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     ExpWaitForSpinLockExclusiveAndAcquire @ 0x140350400 (ExpWaitForSpinLockExclusiveAndAcquire.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiUpdateAvailableEvents @ 0x1403A9340 (MiUpdateAvailableEvents.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140462ED8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented @ 0x140608CDC (ExpReleaseSpinLockExclusiveFromDpcLevelInstrumented.c)
+ *     MiSearchChannelTable @ 0x14064319C (MiSearchChannelTable.c)
+ *     MiArePageContentsZero @ 0x14064AE74 (MiArePageContentsZero.c)
+ *     MiAnyPagesRemovalPending @ 0x14064C4A4 (MiAnyPagesRemovalPending.c)
+ *     MiWakeLargePageWaiters @ 0x14064DA54 (MiWakeLargePageWaiters.c)
+ */
+
 unsigned __int64 __fastcall MiInsertLargePageInNodeList(__int64 a1)
 {
   int v1; // r8d

@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpiQuerySystemFirmwareTables @ 0x1C02153B0
+ * Callers:
+ *     DpiReadSystemFirmwareTable @ 0x1C0215340 (DpiReadSystemFirmwareTable.c)
+ *     DpiEnumSystemFirmwareTables @ 0x1C0396100 (DpiEnumSystemFirmwareTables.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     memmove @ 0x1C0027340 (memmove.c)
+ */
+
 __int64 __fastcall DpiQuerySystemFirmwareTables(int a1, int a2, int a3, unsigned int a4, void *a5, unsigned int *a6)
 {
   _DWORD *Pool2; // rdi

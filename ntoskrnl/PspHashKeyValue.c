@@ -1,3 +1,12 @@
+/*
+ * XREFs of PspHashKeyValue @ 0x140745510
+ * Callers:
+ *     PspLookupProcessQuotaBlock @ 0x140745414 (PspLookupProcessQuotaBlock.c)
+ *     PspRemoveQuotaBlock @ 0x1409AB0BC (PspRemoveQuotaBlock.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PspHashKeyValue(__int64 a1, unsigned __int64 a2)
 {
   __int64 result; // rax

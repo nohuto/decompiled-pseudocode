@@ -1,3 +1,20 @@
+/*
+ * XREFs of PopBcdSetDefaultResumeObjectElements @ 0x14082BFD0
+ * Callers:
+ *     PopBcdEstablishResumeObject @ 0x14082B658 (PopBcdEstablishResumeObject.c)
+ *     PopBcdRegenerateResumeObject @ 0x140999C24 (PopBcdRegenerateResumeObject.c)
+ * Callees:
+ *     CmIsStateSeparationEnabled @ 0x1402FBD38 (CmIsStateSeparationEnabled.c)
+ *     wcsrchr @ 0x1403D5F90 (wcsrchr.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     PopBcdSetupResumeObject @ 0x14082B3F0 (PopBcdSetupResumeObject.c)
+ *     PopBcdReadElement @ 0x14082C610 (PopBcdReadElement.c)
+ *     BcdSetElementDataWithFlags @ 0x14082D894 (BcdSetElementDataWithFlags.c)
+ *     BcdGetElementDataWithFlags @ 0x14082E398 (BcdGetElementDataWithFlags.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 PopBcdSetDefaultResumeObjectElements(__int64 a1, __int64 a2, ...)
 {
   wchar_t *v4; // rsi

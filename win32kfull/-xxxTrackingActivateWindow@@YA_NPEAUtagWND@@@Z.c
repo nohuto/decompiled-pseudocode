@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?xxxTrackingActivateWindow@@YA_NPEAUtagWND@@@Z @ 0x1C01AF5F8
+ * Callers:
+ *     xxxActiveWindowTracking @ 0x1C01B83D0 (xxxActiveWindowTracking.c)
+ * Callees:
+ *     _anonymous_namespace_::xxxLocalActivateWindow @ 0x1C009E0E4 (_anonymous_namespace_--xxxLocalActivateWindow.c)
+ *     ?xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z @ 0x1C00A126C (-xxxSetForegroundWindow2@@YAHPEAUtagWND@@PEAUtagTHREADINFO@@W4SetForegroundBehaviors@@@Z.c)
+ *     IsForegroundWindow @ 0x1C00C8988 (IsForegroundWindow.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 bool __fastcall xxxTrackingActivateWindow(struct tagWND *a1)
 {
   bool result; // al

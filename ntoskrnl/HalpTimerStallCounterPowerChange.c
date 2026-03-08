@@ -1,3 +1,13 @@
+/*
+ * XREFs of HalpTimerStallCounterPowerChange @ 0x140507408
+ * Callers:
+ *     HalpTimerPowerChange @ 0x1405071C0 (HalpTimerPowerChange.c)
+ * Callees:
+ *     HalpTimerGetInternalData @ 0x14022CC50 (HalpTimerGetInternalData.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 char __fastcall HalpTimerStallCounterPowerChange(ULONG_PTR BugCheckParameter3, char a2)
 {
   ULONG_PTR v2; // rbx

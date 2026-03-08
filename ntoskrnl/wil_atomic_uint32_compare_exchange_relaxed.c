@@ -1,3 +1,12 @@
+/*
+ * XREFs of wil_atomic_uint32_compare_exchange_relaxed @ 0x1404FBCFC
+ * Callers:
+ *     wil_details_FeatureReporting_ReportUsageToServiceDirect @ 0x140263260 (wil_details_FeatureReporting_ReportUsageToServiceDirect.c)
+ *     wil_details_EvaluateFeatureDependencies_ReevaluateCachedFeatureEnabledState @ 0x140818F4C (wil_details_EvaluateFeatureDependencies_ReevaluateCachedFeatureEnabledState.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall wil_atomic_uint32_compare_exchange_relaxed(
         volatile signed __int32 *a1,
         signed __int32 *a2,

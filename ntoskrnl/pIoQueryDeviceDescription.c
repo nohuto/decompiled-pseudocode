@@ -1,3 +1,20 @@
+/*
+ * XREFs of pIoQueryDeviceDescription @ 0x14077FA74
+ * Callers:
+ *     pIoQueryBusDescription @ 0x14077FF18 (pIoQueryBusDescription.c)
+ * Callees:
+ *     RtlAppendUnicodeToString @ 0x140208B50 (RtlAppendUnicodeToString.c)
+ *     RtlAppendUnicodeStringToString @ 0x1402447D0 (RtlAppendUnicodeStringToString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     IopGetRegistryKeyInformation @ 0x140780288 (IopGetRegistryKeyInformation.c)
+ *     IopOpenRegistryKey @ 0x1407803E0 (IopOpenRegistryKey.c)
+ *     IopGetRegistryValues @ 0x1407804F8 (IopGetRegistryValues.c)
+ *     RtlIntegerToUnicodeString @ 0x1407805C0 (RtlIntegerToUnicodeString.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall pIoQueryDeviceDescription(unsigned int **a1, _OWORD *a2, __int64 a3, unsigned int a4, __int64 a5)
 {
   __int64 v5; // rdi

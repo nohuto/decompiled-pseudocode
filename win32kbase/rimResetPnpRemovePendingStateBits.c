@@ -1,3 +1,12 @@
+/*
+ * XREFs of rimResetPnpRemovePendingStateBits @ 0x1C00D0020
+ * Callers:
+ *     RIMUnregisterForInput @ 0x1C00326C0 (RIMUnregisterForInput.c)
+ *     RIMRemoveDevOfInputType @ 0x1C00C986C (RIMRemoveDevOfInputType.c)
+ * Callees:
+ *     WPP_RECORDER_AND_TRACE_SF_q @ 0x1C007EBF0 (WPP_RECORDER_AND_TRACE_SF_q.c)
+ */
+
 _UNKNOWN **__fastcall rimResetPnpRemovePendingStateBits(__int64 a1)
 {
   bool v2; // dl

@@ -1,3 +1,22 @@
+/*
+ * XREFs of VidSchiReportHwHang @ 0x1C00475B8
+ * Callers:
+ *     VidSchiCheckHwProgress @ 0x1C00A5940 (VidSchiCheckHwProgress.c)
+ *     VidSchWaitForCompletionEvent @ 0x1C00ADD4C (VidSchWaitForCompletionEvent.c)
+ * Callees:
+ *     VidSchiCheckFlipQueueTimeout @ 0x1C0007940 (VidSchiCheckFlipQueueTimeout.c)
+ *     VidSchiDecrementContextReference @ 0x1C0011CE0 (VidSchiDecrementContextReference.c)
+ *     VidSchiClearFlipDevice @ 0x1C0012708 (VidSchiClearFlipDevice.c)
+ *     VidSchiIncrementContextReference @ 0x1C00146D0 (VidSchiIncrementContextReference.c)
+ *     __security_check_cookie @ 0x1C0019940 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C001A8E0 (_guard_dispatch_icall_nop.c)
+ *     VidSchiUnwaitAllContexts @ 0x1C003CBF4 (VidSchiUnwaitAllContexts.c)
+ *     VidSchiCompleteAllPendingCommand @ 0x1C0046F70 (VidSchiCompleteAllPendingCommand.c)
+ *     VidSchiCheckGPUTimeout @ 0x1C010605C (VidSchiCheckGPUTimeout.c)
+ *     VidSchiBlockDriverCallback @ 0x1C010A3BC (VidSchiBlockDriverCallback.c)
+ *     VidSchiMarkTdrFaultingDevice @ 0x1C010A464 (VidSchiMarkTdrFaultingDevice.c)
+ */
+
 __int64 __fastcall VidSchiReportHwHang(__int64 a1, __int64 a2, int a3, __int64 a4)
 {
   int v8; // r12d

@@ -1,3 +1,15 @@
+/*
+ * XREFs of KiXmmException @ 0x140428C40
+ * Callers:
+ *     KiXmmExceptionShadow @ 0x140AF3AC0 (KiXmmExceptionShadow.c)
+ * Callees:
+ *     KiSaveDebugRegisterState @ 0x140416550 (KiSaveDebugRegisterState.c)
+ *     KiXmmException @ 0x140428C40 (KiXmmException.c)
+ *     KiBugCheckDispatch @ 0x14042BEC0 (KiBugCheckDispatch.c)
+ *     KiExceptionDispatch @ 0x14042BF40 (KiExceptionDispatch.c)
+ *     KiFlushBhbDuringTrapEntryOrExit @ 0x14042C900 (KiFlushBhbDuringTrapEntryOrExit.c)
+ */
+
 void __noreturn KiXmmException()
 {
   struct _KTHREAD *CurrentThread; // r10

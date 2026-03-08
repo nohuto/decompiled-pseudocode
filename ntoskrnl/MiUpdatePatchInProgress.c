@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiUpdatePatchInProgress @ 0x140640B6C
+ * Callers:
+ *     MiLinkHotPatchToBase @ 0x1406402B8 (MiLinkHotPatchToBase.c)
+ *     MiApplyDriverHotPatch @ 0x140A31BB8 (MiApplyDriverHotPatch.c)
+ * Callees:
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiUpdatePatchInProgress(__int64 a1, __int64 a2, char a3)
 {
   unsigned __int8 CurrentIrql; // bl

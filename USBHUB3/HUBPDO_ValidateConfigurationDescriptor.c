@@ -1,3 +1,15 @@
+/*
+ * XREFs of HUBPDO_ValidateConfigurationDescriptor @ 0x1C001676C
+ * Callers:
+ *     HUBPDO_ValidateSelectConfigUrb @ 0x1C0016970 (HUBPDO_ValidateSelectConfigUrb.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     WPP_RECORDER_SF_c @ 0x1C0002790 (WPP_RECORDER_SF_c.c)
+ *     HUBDESC_ValidateConfigurationDescriptorSet @ 0x1C0038DB8 (HUBDESC_ValidateConfigurationDescriptorSet.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBPDO_ValidateConfigurationDescriptor(__int64 a1, unsigned __int8 *a2, int a3)
 {
   unsigned int v6; // edi

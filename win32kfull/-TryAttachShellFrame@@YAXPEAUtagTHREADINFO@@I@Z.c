@@ -1,3 +1,20 @@
+/*
+ * XREFs of ?TryAttachShellFrame@@YAXPEAUtagTHREADINFO@@I@Z @ 0x1C01B6E20
+ * Callers:
+ *     xxxRealInternalGetMessage @ 0x1C006F2F0 (xxxRealInternalGetMessage.c)
+ * Callees:
+ *     DelQEntry @ 0x1C0038CDC (DelQEntry.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qq @ 0x1C003E858 (WPP_RECORDER_AND_TRACE_SF_qq.c)
+ *     WPP_RECORDER_AND_TRACE_SF_qqq @ 0x1C0072510 (WPP_RECORDER_AND_TRACE_SF_qqq.c)
+ *     zzzInputFocusReceivedWindowEvent @ 0x1C009B35C (zzzInputFocusReceivedWindowEvent.c)
+ *     LockW32Thread @ 0x1C00A1BCC (LockW32Thread.c)
+ *     PopAndFreeW32ThreadLock @ 0x1C00A1CA0 (PopAndFreeW32ThreadLock.c)
+ *     zzzAttachThreadInput @ 0x1C00CCFE8 (zzzAttachThreadInput.c)
+ *     _PostMessage @ 0x1C00EF0A0 (_PostMessage.c)
+ *     DisassociateShellFrameAppThreads @ 0x1C01B4288 (DisassociateShellFrameAppThreads.c)
+ *     FindShellFrameThreadFromAssociation @ 0x1C01B43A4 (FindShellFrameThreadFromAssociation.c)
+ */
+
 void __fastcall TryAttachShellFrame(struct tagTHREADINFO *a1)
 {
   __int64 v1; // rdi

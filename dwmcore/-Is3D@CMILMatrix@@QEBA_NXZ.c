@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?Is3D@CMILMatrix@@QEBA_NXZ @ 0x1800DFF1C
+ * Callers:
+ *     ?IsScopePreservingTransform@CCpuClippingData@@CA_NAEBVCMILMatrix@@@Z @ 0x1800DFED0 (-IsScopePreservingTransform@CCpuClippingData@@CA_NAEBVCMILMatrix@@@Z.c)
+ * Callees:
+ *     ??$ProducesUniformZ@$00@CMILMatrix@@AEBA_NXZ @ 0x180059E30 (--$ProducesUniformZ@$00@CMILMatrix@@AEBA_NXZ.c)
+ */
+
 char __fastcall CMILMatrix::Is3D(CMILMatrix *this)
 {
   bool v1; // al

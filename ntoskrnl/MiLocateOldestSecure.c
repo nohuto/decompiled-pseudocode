@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiLocateOldestSecure @ 0x1402FE90C
+ * Callers:
+ *     MiUnmapLockedPagesInUserSpace @ 0x140797184 (MiUnmapLockedPagesInUserSpace.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     MiUnlockWorkingSetExclusive @ 0x140289BA0 (MiUnlockWorkingSetExclusive.c)
+ *     MiGetSharedVm @ 0x140330CD4 (MiGetSharedVm.c)
+ */
+
 _QWORD *__fastcall MiLocateOldestSecure(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   _QWORD *v5; // rsi

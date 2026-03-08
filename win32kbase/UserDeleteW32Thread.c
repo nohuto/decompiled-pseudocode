@@ -1,3 +1,19 @@
+/*
+ * XREFs of UserDeleteW32Thread @ 0x1C00702A0
+ * Callers:
+ *     DereferenceW32Thread @ 0x1C0070180 (DereferenceW32Thread.c)
+ * Callees:
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     ??0ReEnterLeaveCrit@@QEAA@XZ @ 0x1C0070484 (--0ReEnterLeaveCrit@@QEAA@XZ.c)
+ *     FreeQueue @ 0x1C00706A4 (FreeQueue.c)
+ *     ?IsAnyThreadAttached@tagQ@@QEBA_NXZ @ 0x1C00706D8 (-IsAnyThreadAttached@tagQ@@QEBA_NXZ.c)
+ *     IsFreeMessageListSupported @ 0x1C00706F8 (IsFreeMessageListSupported.c)
+ *     UnlockObjectAssignment @ 0x1C0070750 (UnlockObjectAssignment.c)
+ *     ?Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z @ 0x1C009B7C0 (-Free@CLeakTrackingAllocator@NSInstrumentation@@QEAAXPEAX@Z.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall UserDeleteW32Thread(__int64 *a1)
 {
   __int64 v1; // rsi

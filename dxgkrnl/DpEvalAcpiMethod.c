@@ -1,3 +1,13 @@
+/*
+ * XREFs of DpEvalAcpiMethod @ 0x1C01D38B0
+ * Callers:
+ *     DpiAddDevice @ 0x1C01F38A0 (DpiAddDevice.c)
+ * Callees:
+ *     DpiFdoGetChildDescriptor @ 0x1C0015614 (DpiFdoGetChildDescriptor.c)
+ *     DpiAcpiGetAcpiChildName @ 0x1C0208DD8 (DpiAcpiGetAcpiChildName.c)
+ *     DpiAcpiEvalAcpiMethodEx @ 0x1C02091CC (DpiAcpiEvalAcpiMethodEx.c)
+ */
+
 __int64 __fastcall DpEvalAcpiMethod(
         __int64 a1,
         unsigned int a2,

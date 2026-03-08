@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetTextureTransform@CMesh2DEffect@@QEAAJUD2D_MATRIX_3X2_F@@@Z @ 0x180108790
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CMesh2DEffect::SetTextureTransform(CMesh2DEffect *this, struct D2D_MATRIX_3X2_F *a2)
 {
   FLOAT m11; // eax

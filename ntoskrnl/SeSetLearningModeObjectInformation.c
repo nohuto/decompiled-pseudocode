@@ -1,3 +1,27 @@
+/*
+ * XREFs of SeSetLearningModeObjectInformation @ 0x1405B5FAC
+ * Callers:
+ *     RtlpAllowsLowBoxAccess @ 0x1403A70B0 (RtlpAllowsLowBoxAccess.c)
+ *     ObReferenceObjectByName @ 0x140698F90 (ObReferenceObjectByName.c)
+ *     ObOpenObjectByNameEx @ 0x1406E7F70 (ObOpenObjectByNameEx.c)
+ *     ObpLookupObjectName @ 0x1406E86B0 (ObpLookupObjectName.c)
+ *     ObReferenceObjectByNameEx @ 0x140710ADC (ObReferenceObjectByNameEx.c)
+ * Callees:
+ *     RtlStringCbCatW @ 0x1402092FC (RtlStringCbCatW.c)
+ *     RtlStringCbCopyW @ 0x140244EC0 (RtlStringCbCopyW.c)
+ *     ObFastDereferenceObject @ 0x140245F50 (ObFastDereferenceObject.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SepGetCurrentLogLevel @ 0x1405B634C (SepGetCurrentLogLevel.c)
+ *     PsReferenceEffectiveToken @ 0x1406D657C (PsReferenceEffectiveToken.c)
+ *     ObQueryNameString @ 0x14071EA00 (ObQueryNameString.c)
+ *     ObReferenceObjectByHandle @ 0x1407C2D00 (ObReferenceObjectByHandle.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall SeSetLearningModeObjectInformation(__int64 a1)
 {
   struct _KTHREAD *CurrentThread; // rsi

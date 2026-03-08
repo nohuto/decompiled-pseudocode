@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBHSM_WaitingForOvercurrentToClear @ 0x1C0009300
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_qd @ 0x1C00031FC (WPP_RECORDER_SF_qd.c)
+ */
+
 __int64 __fastcall HUBHSM_WaitingForOvercurrentToClear(__int64 a1)
 {
   __int64 v1; // rbx

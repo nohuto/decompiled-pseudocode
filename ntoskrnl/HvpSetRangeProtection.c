@@ -1,3 +1,23 @@
+/*
+ * XREFs of HvpSetRangeProtection @ 0x1407A5934
+ * Callers:
+ *     HvpAddBin @ 0x14072F9F0 (HvpAddBin.c)
+ *     HvpResetPageProtection @ 0x140765A30 (HvpResetPageProtection.c)
+ *     HvpMarkDirty @ 0x1407D25D0 (HvpMarkDirty.c)
+ *     HvpApplyLogEntryDataToFileBackedHive @ 0x1407F9FEC (HvpApplyLogEntryDataToFileBackedHive.c)
+ *     HvpPerformLogFileRecovery @ 0x1407FBCAC (HvpPerformLogFileRecovery.c)
+ * Callees:
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     HvpViewMapCOWAndUnsealRange @ 0x140732640 (HvpViewMapCOWAndUnsealRange.c)
+ *     HvpProtectBinPartial @ 0x1407A4030 (HvpProtectBinPartial.c)
+ *     HvpViewMapSealRange @ 0x1407A50A4 (HvpViewMapSealRange.c)
+ *     HvpMapEntryGetFreeBin @ 0x1407A6910 (HvpMapEntryGetFreeBin.c)
+ *     HvpGetBinContextInitialize @ 0x140AF2644 (HvpGetBinContextInitialize.c)
+ *     HvpMapEntryGetBinAddress @ 0x140AF2654 (HvpMapEntryGetBinAddress.c)
+ *     HvpGetCellMap @ 0x140AF2670 (HvpGetCellMap.c)
+ *     HvpMapEntryReleaseBinAddress @ 0x140AF26CC (HvpMapEntryReleaseBinAddress.c)
+ */
+
 char __fastcall HvpSetRangeProtection(
         ULONG_PTR BugCheckParameter2,
         ULONG_PTR BugCheckParameter3,

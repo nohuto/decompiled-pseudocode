@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiUpdatePerSessionProto @ 0x1402CF620
+ * Callers:
+ *     MiDereferenceSubsectionProtos @ 0x14075B80C (MiDereferenceSubsectionProtos.c)
+ *     MiCreatePerSessionProtos @ 0x14075B874 (MiCreatePerSessionProtos.c)
+ * Callees:
+ *     ExAcquireSpinLockExclusive @ 0x14024DA40 (ExAcquireSpinLockExclusive.c)
+ *     RtlAvlInsertNodeEx @ 0x140331710 (RtlAvlInsertNodeEx.c)
+ *     ExReleaseSpinLockExclusiveFromDpcLevel @ 0x140332B10 (ExReleaseSpinLockExclusiveFromDpcLevel.c)
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 void __fastcall MiUpdatePerSessionProto(__int64 a1, __int64 a2, __int64 a3, int a4)
 {
   volatile LONG *v4; // r14

@@ -1,3 +1,18 @@
+/*
+ * XREFs of EtwpFailLoggingOld @ 0x14040C914
+ * Callers:
+ *     EtwpEventWriteFull @ 0x1402319C0 (EtwpEventWriteFull.c)
+ *     EtwpWriteUserEvent @ 0x1406AA640 (EtwpWriteUserEvent.c)
+ * Callees:
+ *     EtwpReleaseTraceBuffer @ 0x140205BD8 (EtwpReleaseTraceBuffer.c)
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwpLevelKeywordEnabled @ 0x140231970 (EtwpLevelKeywordEnabled.c)
+ *     ExReleaseRundownProtectionCacheAwareEx @ 0x1402331B0 (ExReleaseRundownProtectionCacheAwareEx.c)
+ *     ExAcquireRundownProtectionCacheAwareEx @ 0x14028DD10 (ExAcquireRundownProtectionCacheAwareEx.c)
+ *     EtwpUpdateEventsLostCount @ 0x1402FAD84 (EtwpUpdateEventsLostCount.c)
+ *     EtwpTraceLostEventOld @ 0x14040C2E0 (EtwpTraceLostEventOld.c)
+ */
+
 void __fastcall EtwpFailLoggingOld(
         unsigned __int8 a1,
         __int64 a2,

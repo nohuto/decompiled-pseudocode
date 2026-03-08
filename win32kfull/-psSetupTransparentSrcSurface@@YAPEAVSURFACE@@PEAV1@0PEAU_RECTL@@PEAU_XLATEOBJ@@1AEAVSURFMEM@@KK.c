@@ -1,3 +1,19 @@
+/*
+ * XREFs of ?psSetupTransparentSrcSurface@@YAPEAVSURFACE@@PEAV1@0PEAU_RECTL@@PEAU_XLATEOBJ@@1AEAVSURFMEM@@KK@Z @ 0x1C00B50F8
+ * Callers:
+ *     EngAlphaBlend @ 0x1C00B4820 (EngAlphaBlend.c)
+ *     EngTransparentBlt @ 0x1C00F1E60 (EngTransparentBlt.c)
+ * Callees:
+ *     ?bIsSourceBGRA@@YAHPEAVSURFACE@@@Z @ 0x1C00066DC (-bIsSourceBGRA@@YAHPEAVSURFACE@@@Z.c)
+ *     ??1RGNMEMOBJTMP@@QEAA@XZ @ 0x1C00287BC (--1RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     EngStretchBlt @ 0x1C004DC80 (EngStretchBlt.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ??0ECLIPOBJ@@QEAA@XZ @ 0x1C012F6AC (--0ECLIPOBJ@@QEAA@XZ.c)
+ *     ??0RGNMEMOBJTMP@@QEAA@XZ @ 0x1C012F6D8 (--0RGNMEMOBJTMP@@QEAA@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 struct SURFACE *__fastcall psSetupTransparentSrcSurface(
         struct SURFACE *a1,
         struct SURFACE *a2,

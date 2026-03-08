@@ -1,3 +1,14 @@
+/*
+ * XREFs of EditionKeyboardInputDelegationChanged @ 0x1C012D0A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?xxxApplyGlobalInputSettings@@YAXH@Z @ 0x1C009AD2C (-xxxApplyGlobalInputSettings@@YAXH@Z.c)
+ *     zzzInputFocusReceivedWindowEvent @ 0x1C009B35C (zzzInputFocusReceivedWindowEvent.c)
+ *     zzzDelegateInputFocusLostWindowEvent @ 0x1C012E030 (zzzDelegateInputFocusLostWindowEvent.c)
+ *     zzzDelegateInputFocusReceivedWindowEvent @ 0x1C012E06C (zzzDelegateInputFocusReceivedWindowEvent.c)
+ */
+
 void __fastcall EditionKeyboardInputDelegationChanged(__int64 a1, int a2)
 {
   __int64 KeyboardDelegationTargetQ; // rax

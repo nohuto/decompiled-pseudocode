@@ -1,3 +1,20 @@
+/*
+ * XREFs of UsbhHandleOvercurrent @ 0x1C004CC94
+ * Callers:
+ *     UsbhHubDispatchPortEvent @ 0x1C0017430 (UsbhHubDispatchPortEvent.c)
+ *     UsbhWaitConnect @ 0x1C0018530 (UsbhWaitConnect.c)
+ *     UsbhEnumerate1 @ 0x1C001A4E8 (UsbhEnumerate1.c)
+ *     UsbhHandleSuspend @ 0x1C001A5BC (UsbhHandleSuspend.c)
+ *     UsbhEnumerate2 @ 0x1C004C770 (UsbhEnumerate2.c)
+ * Callees:
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhCancelEnumeration @ 0x1C0022424 (UsbhCancelEnumeration.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     Usbh_OvercurrentRefHubBusy @ 0x1C004EBC8 (Usbh_OvercurrentRefHubBusy.c)
+ */
+
 __int64 __fastcall UsbhHandleOvercurrent(__int64 a1, unsigned int a2, __int64 a3, __int64 a4, __int64 a5)
 {
   _DWORD *v8; // rax

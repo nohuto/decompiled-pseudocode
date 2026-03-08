@@ -1,3 +1,12 @@
+/*
+ * XREFs of CmpCreateExtendedControlSets @ 0x140B51D50
+ * Callers:
+ *     CmInitSystem1 @ 0x140B51500 (CmInitSystem1.c)
+ * Callees:
+ *     CmpCreateControlSet @ 0x140B5107C (CmpCreateControlSet.c)
+ *     CmpCreateControlSetOverride @ 0x140B94EB4 (CmpCreateControlSetOverride.c)
+ */
+
 __int64 __fastcall CmpCreateExtendedControlSets(__int64 a1)
 {
   __int64 v2; // rcx

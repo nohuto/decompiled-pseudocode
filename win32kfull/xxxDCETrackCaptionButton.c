@@ -1,3 +1,20 @@
+/*
+ * XREFs of xxxDCETrackCaptionButton @ 0x1C01BBA1C
+ * Callers:
+ *     ?xxxDWP_NCMouse@@YAXPEAUtagWND@@II_J@Z @ 0x1C02257E8 (-xxxDWP_NCMouse@@YAXPEAUtagWND@@II_J@Z.c)
+ * Callees:
+ *     xxxReleaseCapture @ 0x1C00108E8 (xxxReleaseCapture.c)
+ *     xxxSetCapture @ 0x1C00109E4 (xxxSetCapture.c)
+ *     xxxDispatchMessage @ 0x1C0038064 (xxxDispatchMessage.c)
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ *     xxxSleepThread2 @ 0x1C006D200 (xxxSleepThread2.c)
+ *     xxxInternalGetMessage @ 0x1C00946B0 (xxxInternalGetMessage.c)
+ *     SetOrClrWF @ 0x1C0097844 (SetOrClrWF.c)
+ *     ?xxxDCECalcCaptionButton@@YAXPEAUtagWND@@HPEAG@Z @ 0x1C01BA638 (-xxxDCECalcCaptionButton@@YAXPEAUtagWND@@HPEAG@Z.c)
+ *     xxxTrackCaptionButton @ 0x1C022F438 (xxxTrackCaptionButton.c)
+ *     DwmSyncHitTestQuery @ 0x1C0270AE0 (DwmSyncHitTestQuery.c)
+ */
+
 __int64 __fastcall xxxDCETrackCaptionButton(struct tagWND *a1, unsigned int a2)
 {
   unsigned __int16 v2; // si

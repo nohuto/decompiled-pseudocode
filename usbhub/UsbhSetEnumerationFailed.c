@@ -1,3 +1,27 @@
+/*
+ * XREFs of UsbhSetEnumerationFailed @ 0x1C004E9B8
+ * Callers:
+ *     UsbhReset1Complete @ 0x1C0002B20 (UsbhReset1Complete.c)
+ *     UsbhReset2Complete @ 0x1C0002D00 (UsbhReset2Complete.c)
+ *     UsbhReset1Timeout @ 0x1C004E0F0 (UsbhReset1Timeout.c)
+ *     UsbhReset2Timeout @ 0x1C004E6E0 (UsbhReset2Timeout.c)
+ * Callees:
+ *     UsbhBusConnectPdo @ 0x1C0001B70 (UsbhBusConnectPdo.c)
+ *     UsbhSignalSyncDeviceResetPdo @ 0x1C0001CD0 (UsbhSignalSyncDeviceResetPdo.c)
+ *     UsbhSignalDriverResetEvent @ 0x1C0001DA8 (UsbhSignalDriverResetEvent.c)
+ *     UsbhReleaseEnumBusLockEx @ 0x1C0003BCC (UsbhReleaseEnumBusLockEx.c)
+ *     UsbhIncHubBusy @ 0x1C0007050 (UsbhIncHubBusy.c)
+ *     PdoExt @ 0x1C000A1D0 (PdoExt.c)
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     Log @ 0x1C000F210 (Log.c)
+ *     UsbhAcquirePdoStateLock @ 0x1C0031CB0 (UsbhAcquirePdoStateLock.c)
+ *     UsbhDisablePort @ 0x1C00377CC (UsbhDisablePort.c)
+ *     UsbhException @ 0x1C004A988 (UsbhException.c)
+ *     UsbhBusUnlatchPdo @ 0x1C004C9E8 (UsbhBusUnlatchPdo.c)
+ *     UsbhBuildUnknownIds @ 0x1C0050144 (UsbhBuildUnknownIds.c)
+ *     UsbhFreeID @ 0x1C00503BC (UsbhFreeID.c)
+ */
+
 __int64 __fastcall UsbhSetEnumerationFailed(
         __int64 a1,
         __int64 a2,

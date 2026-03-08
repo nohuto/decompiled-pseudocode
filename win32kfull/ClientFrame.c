@@ -1,3 +1,13 @@
+/*
+ * XREFs of ClientFrame @ 0x1C024F1DC
+ * Callers:
+ *     ?DWP_DrawItem@@YAXPEAUtagDRAWITEMSTRUCT@@@Z @ 0x1C0225190 (-DWP_DrawItem@@YAXPEAUtagDRAWITEMSTRUCT@@@Z.c)
+ * Callees:
+ *     GrePolyPatBlt @ 0x1C0088258 (GrePolyPatBlt.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     ?GetSignFromMappingMode@@YAHPEAUHDC__@@PEAUtagPOINT@@@Z @ 0x1C024F148 (-GetSignFromMappingMode@@YAHPEAUHDC__@@PEAUtagPOINT@@@Z.c)
+ */
+
 __int64 __fastcall ClientFrame(HDC a1, int *a2, __int64 a3)
 {
   int v6; // r10d

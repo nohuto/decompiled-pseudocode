@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopDiagTraceSetThreadExecutionState @ 0x1408611C4
+ * Callers:
+ *     NtSetThreadExecutionState @ 0x14073A9D0 (NtSetThreadExecutionState.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 char __fastcall PopDiagTraceSetThreadExecutionState(__int64 a1, int a2)
 {
   _UNKNOWN **v2; // rax

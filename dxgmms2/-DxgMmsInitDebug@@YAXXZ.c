@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DxgMmsInitDebug@@YAXXZ @ 0x1C00BE748
+ * Callers:
+ *     DriverEntry @ 0x1C010D1E8 (DriverEntry.c)
+ * Callees:
+ *     DxgkLogInternalTriageEvent @ 0x1C00199EC (DxgkLogInternalTriageEvent.c)
+ */
+
 void DxgMmsInitDebug(void)
 {
   __int64 Pool2; // rax

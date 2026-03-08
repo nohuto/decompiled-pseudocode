@@ -1,3 +1,46 @@
+/*
+ * XREFs of PopSaveHiberContext @ 0x140AA1810
+ * Callers:
+ *     PopSaveHiberContextWrapper @ 0x140420200 (PopSaveHiberContextWrapper.c)
+ * Callees:
+ *     RtlSetAllBits @ 0x14028BD00 (RtlSetAllBits.c)
+ *     RtlCopyBitMap @ 0x1402B3480 (RtlCopyBitMap.c)
+ *     RtlNumberOfClearBits @ 0x14035C4F0 (RtlNumberOfClearBits.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     HvlConfigureMemoryZeroingOnReset @ 0x14053D15C (HvlConfigureMemoryZeroingOnReset.c)
+ *     HvlDisableEnlightenment @ 0x14053D18C (HvlDisableEnlightenment.c)
+ *     HvlDiscardPagesFromHibernation @ 0x1405442A0 (HvlDiscardPagesFromHibernation.c)
+ *     HvlDiscardSecurePagesFromHibernation @ 0x140544308 (HvlDiscardSecurePagesFromHibernation.c)
+ *     HvlPrepareForHibernate @ 0x140544744 (HvlPrepareForHibernate.c)
+ *     HvlPrepareForSecureHibernate @ 0x14054486C (HvlPrepareForSecureHibernate.c)
+ *     VslNotifyShutdown @ 0x140549918 (VslNotifyShutdown.c)
+ *     IoDumpStackResumeCapable @ 0x14054D798 (IoDumpStackResumeCapable.c)
+ *     IoGetDumpHiberRanges @ 0x14054E17C (IoGetDumpHiberRanges.c)
+ *     IoInitializeDumpStack @ 0x14054E39C (IoInitializeDumpStack.c)
+ *     IoNotifyDump @ 0x14054E4A0 (IoNotifyDump.c)
+ *     KdPowerTransition @ 0x1405655B0 (KdPowerTransition.c)
+ *     PopInternalAddToDumpFile @ 0x140580CC0 (PopInternalAddToDumpFile.c)
+ *     _PopInternalError @ 0x140581228 (_PopInternalError.c)
+ *     PopResetRangeEnum @ 0x14058CA64 (PopResetRangeEnum.c)
+ *     PopWriteSecurePages @ 0x14058CB30 (PopWriteSecurePages.c)
+ *     DbgUnLoadImageSymbols @ 0x1405A5410 (DbgUnLoadImageSymbols.c)
+ *     PopSetMemoryOverwriteRequestAction @ 0x140A9D8B4 (PopSetMemoryOverwriteRequestAction.c)
+ *     PopCompressHiberBlocks @ 0x140A9EE04 (PopCompressHiberBlocks.c)
+ *     PopCreateDumpMdl @ 0x140A9F0B4 (PopCreateDumpMdl.c)
+ *     PopIsMktmeEnabled @ 0x140AA040C (PopIsMktmeEnabled.c)
+ *     PopMarkComponentsBootPhase @ 0x140AA049C (PopMarkComponentsBootPhase.c)
+ *     PopWriteChecksumPages @ 0x140AA23E0 (PopWriteChecksumPages.c)
+ *     PopWriteHeaderPages @ 0x140AA2478 (PopWriteHeaderPages.c)
+ *     PopWriteHiberImage @ 0x140AA272C (PopWriteHiberImage.c)
+ *     PopWriteImageHeader @ 0x140AA2B28 (PopWriteImageHeader.c)
+ *     PopNotifyShutdownListener @ 0x140AA5D2C (PopNotifyShutdownListener.c)
+ *     PopCheckpointSystemSleep @ 0x140AA7378 (PopCheckpointSystemSleep.c)
+ */
+
 __int64 __fastcall PopSaveHiberContext(char *Address)
 {
   __int64 Number; // rbx

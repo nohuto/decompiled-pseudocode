@@ -1,3 +1,12 @@
+/*
+ * XREFs of RtlCustomCPToUnicodeN @ 0x1407A3C10
+ * Callers:
+ *     RtlOemToUnicodeN @ 0x1407A3940 (RtlOemToUnicodeN.c)
+ *     RtlMultiByteToUnicodeN @ 0x1407A3B40 (RtlMultiByteToUnicodeN.c)
+ * Callees:
+ *     RtlUTF8ToUnicodeN @ 0x14075A870 (RtlUTF8ToUnicodeN.c)
+ */
+
 NTSTATUS __stdcall RtlCustomCPToUnicodeN(
         PCPTABLEINFO CustomCP,
         PWCH UnicodeString,

@@ -1,3 +1,19 @@
+/*
+ * XREFs of NtUserGetDpiForMonitor @ 0x1C003DF40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     EngMulDiv @ 0x1C003BF30 (EngMulDiv.c)
+ *     DrvGetCurrentDpiInfoFromHDev @ 0x1C003CAE4 (DrvGetCurrentDpiInfoFromHDev.c)
+ *     HMValidateSharedHandle @ 0x1C003DE88 (HMValidateSharedHandle.c)
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     W32GetCurrentThreadDpiAwarenessContext @ 0x1C0041AF0 (W32GetCurrentThreadDpiAwarenessContext.c)
+ *     UserSessionSwitchLeaveCrit @ 0x1C004E000 (UserSessionSwitchLeaveCrit.c)
+ *     PrivateAPI::_anonymous_namespace_::EnterSharedCritInternal @ 0x1C005040C (PrivateAPI--_anonymous_namespace_--EnterSharedCritInternal.c)
+ *     UserSetLastStatus @ 0x1C00DA3A4 (UserSetLastStatus.c)
+ *     memset @ 0x1C00E1980 (memset.c)
+ */
+
 __int64 __fastcall NtUserGetDpiForMonitor(__int64 a1, __int64 a2, INT *a3, INT *a4)
 {
   int v4; // r13d

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?AddDeviceResourcesToCache@CBrushRenderingEffect@@UEBAXPEAVCDrawListCache@@@Z @ 0x1800A9640
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AddDeviceResourceToCache@CDrawListBitmap@@QEBAXPEAVCDrawListCache@@@Z @ 0x1800A9690 (-AddDeviceResourceToCache@CDrawListBitmap@@QEBAXPEAVCDrawListCache@@@Z.c)
+ */
+
 void __fastcall CBrushRenderingEffect::AddDeviceResourcesToCache(
         CBrushRenderingEffect *this,
         struct CDrawListCache *a2)

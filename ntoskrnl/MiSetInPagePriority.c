@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiSetInPagePriority @ 0x1402CCCBC
+ * Callers:
+ *     MiPfPutPagesInTransition @ 0x140288890 (MiPfPutPagesInTransition.c)
+ *     MiSetInPagePrefetchPriority @ 0x1402CCC8C (MiSetInPagePrefetchPriority.c)
+ *     MiPfAllocateMdls @ 0x14075A230 (MiPfAllocateMdls.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiSetInPagePriority(__int64 a1, unsigned int a2, unsigned int a3)
 {
   unsigned int v4; // edx

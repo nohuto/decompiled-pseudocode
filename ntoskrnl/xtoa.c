@@ -1,3 +1,11 @@
+/*
+ * XREFs of xtoa @ 0x1403D3800
+ * Callers:
+ *     _itoa @ 0x1403D37D0 (_itoa.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall xtoa(unsigned int a1, char *a2, unsigned int a3, int a4)
 {
   char *v5; // r10

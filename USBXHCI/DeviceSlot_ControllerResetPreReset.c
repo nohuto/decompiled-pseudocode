@@ -1,3 +1,11 @@
+/*
+ * XREFs of DeviceSlot_ControllerResetPreReset @ 0x1C0037C6C
+ * Callers:
+ *     Controller_InternalReset @ 0x1C0033D04 (Controller_InternalReset.c)
+ * Callees:
+ *     ESM_AddEvent @ 0x1C000C3E8 (ESM_AddEvent.c)
+ */
+
 void __fastcall DeviceSlot_ControllerResetPreReset(__int64 a1)
 {
   unsigned int i; // edi

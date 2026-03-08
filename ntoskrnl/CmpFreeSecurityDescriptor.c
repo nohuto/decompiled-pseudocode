@@ -1,3 +1,18 @@
+/*
+ * XREFs of CmpFreeSecurityDescriptor @ 0x1406BB6D4
+ * Callers:
+ *     CmpFreeKeyByCell @ 0x1406BA854 (CmpFreeKeyByCell.c)
+ *     CmpCreateChild @ 0x1407A7590 (CmpCreateChild.c)
+ *     CmpCopySaclToVirtualKey @ 0x140A186EC (CmpCopySaclToVirtualKey.c)
+ *     CmpSyncKeyValues @ 0x140A20124 (CmpSyncKeyValues.c)
+ * Callees:
+ *     CmpDereferenceSecurityNode @ 0x140243994 (CmpDereferenceSecurityNode.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ */
+
 __int64 __fastcall CmpFreeSecurityDescriptor(ULONG_PTR BugCheckParameter3, ULONG_PTR a2)
 {
   bool v2; // zf

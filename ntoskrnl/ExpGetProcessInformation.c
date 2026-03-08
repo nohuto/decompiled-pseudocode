@@ -1,3 +1,39 @@
+/*
+ * XREFs of ExpGetProcessInformation @ 0x1406A9140
+ * Callers:
+ *     ExpQuerySystemInformation @ 0x1406AC2A0 (ExpQuerySystemInformation.c)
+ * Callees:
+ *     KeQueryValuesThread @ 0x14022B320 (KeQueryValuesThread.c)
+ *     ObReferenceObjectSafeWithTag @ 0x14022BD30 (ObReferenceObjectSafeWithTag.c)
+ *     KeFlushProcessWriteBuffers @ 0x1402373CC (KeFlushProcessWriteBuffers.c)
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ObFastDereferenceObject @ 0x140245F50 (ObFastDereferenceObject.c)
+ *     PsGetCurrentServerSilo @ 0x140248480 (PsGetCurrentServerSilo.c)
+ *     PsIsProcessInSilo @ 0x1402484DC (PsIsProcessInSilo.c)
+ *     ExAcquirePushLockSharedEx @ 0x1402626A0 (ExAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     PsReferencePrimaryTokenWithTag @ 0x1402666A0 (PsReferencePrimaryTokenWithTag.c)
+ *     RtlQueryPackageIdentity @ 0x140298300 (RtlQueryPackageIdentity.c)
+ *     MmGetSessionId @ 0x140299600 (MmGetSessionId.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ExGetNextProcess @ 0x1406A8CF4 (ExGetNextProcess.c)
+ *     PsQueryProcessEnergyValues @ 0x1406B0B60 (PsQueryProcessEnergyValues.c)
+ *     PsQueryProcessAttributes @ 0x1406D3448 (PsQueryProcessAttributes.c)
+ *     ExpCopyProcessInfo @ 0x140711514 (ExpCopyProcessInfo.c)
+ *     SeQueryUserSidToken @ 0x1407187E4 (SeQueryUserSidToken.c)
+ *     ExpGetNextProcessThread @ 0x140773EF4 (ExpGetNextProcessThread.c)
+ *     KeSynchronizeWithDynamicProcessors @ 0x140773F48 (KeSynchronizeWithDynamicProcessors.c)
+ *     ExpSysInfoShouldSkipProcess @ 0x14077503C (ExpSysInfoShouldSkipProcess.c)
+ *     ExIsRestrictedCaller @ 0x14078A078 (ExIsRestrictedCaller.c)
+ *     ExCheckFullProcessInformationAccess @ 0x140791A18 (ExCheckFullProcessInformationAccess.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1407E7618 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall ExpGetProcessInformation(__int64 a1, unsigned int a2, unsigned int *a3, _DWORD *a4, int a5)
 {
   unsigned __int64 v6; // r13

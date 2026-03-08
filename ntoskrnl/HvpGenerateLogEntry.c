@@ -1,3 +1,21 @@
+/*
+ * XREFs of HvpGenerateLogEntry @ 0x14072DD08
+ * Callers:
+ *     HvStoreModifiedData @ 0x14072D6A8 (HvStoreModifiedData.c)
+ * Callees:
+ *     HvpAllocateLogBuffers @ 0x1402B23E0 (HvpAllocateLogBuffers.c)
+ *     HvpGenerateLogEntryMetadata @ 0x1402B24D4 (HvpGenerateLogEntryMetadata.c)
+ *     HvpGenerateLogEntryHeader @ 0x1402B2544 (HvpGenerateLogEntryHeader.c)
+ *     HvpGenerateLogEntryDirtyData @ 0x14030C5F8 (HvpGenerateLogEntryDirtyData.c)
+ *     RtlNumberOfSetBits @ 0x14035C520 (RtlNumberOfSetBits.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpLogDirtyVectorUse @ 0x1406918DC (CmpLogDirtyVectorUse.c)
+ *     HvpGenerateLogEntryChecksums @ 0x14072E328 (HvpGenerateLogEntryChecksums.c)
+ *     HvpGenerateLogMetadata @ 0x1407EA6F0 (HvpGenerateLogMetadata.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall HvpGenerateLogEntry(ULONG_PTR a1, __int64 *a2, _DWORD *a3, unsigned int *a4)
 {
   int v4; // edi

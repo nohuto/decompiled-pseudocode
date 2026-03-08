@@ -1,3 +1,20 @@
+/*
+ * XREFs of MiSharedVaToPartition @ 0x1402E21A4
+ * Callers:
+ *     MiCreateSharedZeroPages @ 0x14028A420 (MiCreateSharedZeroPages.c)
+ *     MiActOnPte @ 0x1402CF06C (MiActOnPte.c)
+ *     MiResolvePageFileFault @ 0x140668EDC (MiResolvePageFileFault.c)
+ * Callees:
+ *     MiLocateAddress @ 0x140228680 (MiLocateAddress.c)
+ *     MI_PROTO_FORMAT_COMBINED @ 0x1402B0EB0 (MI_PROTO_FORMAT_COMBINED.c)
+ *     MiLocateCloneAddress @ 0x1402CF530 (MiLocateCloneAddress.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIsPrototypePteVadLookup @ 0x140327240 (MiIsPrototypePteVadLookup.c)
+ *     MiUnlockVadTree @ 0x140330EC8 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x1403334B4 (MiLockVadTree.c)
+ *     MiSessionLookupImage @ 0x14036C7B8 (MiSessionLookupImage.c)
+ */
+
 void *__fastcall MiSharedVaToPartition(__int64 a1, unsigned __int64 a2, unsigned __int64 a3)
 {
   __int64 v7; // rbx

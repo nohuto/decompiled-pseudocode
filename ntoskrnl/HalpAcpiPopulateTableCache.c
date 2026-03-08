@@ -1,3 +1,12 @@
+/*
+ * XREFs of HalpAcpiPopulateTableCache @ 0x140B62B7C
+ * Callers:
+ *     HalpAcpiInitSystem @ 0x140A8D770 (HalpAcpiInitSystem.c)
+ * Callees:
+ *     ExQueueWorkItem @ 0x14033F3D0 (ExQueueWorkItem.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ */
+
 __int64 __fastcall HalpAcpiPopulateTableCache(__int64 a1)
 {
   unsigned int v1; // ebx

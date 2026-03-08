@@ -1,3 +1,25 @@
+/*
+ * XREFs of MiScrubLargePage @ 0x14065C38C
+ * Callers:
+ *     MiScrubLargePageRegions @ 0x140A437AC (MiScrubLargePageRegions.c)
+ * Callees:
+ *     MiMakeValidPte @ 0x140273920 (MiMakeValidPte.c)
+ *     MiGetUltraMapping @ 0x140276080 (MiGetUltraMapping.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MiPageListCollision @ 0x1402FD02C (MiPageListCollision.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiMakeProtectionPfnCompatible @ 0x14034A974 (MiMakeProtectionPfnCompatible.c)
+ *     MiTryUnlinkNodeLargePages @ 0x14039BDDC (MiTryUnlinkNodeLargePages.c)
+ *     MiRemoveFaultNode @ 0x1403D0F48 (MiRemoveFaultNode.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MmMarkPhysicalMemoryAsBad @ 0x1406291A0 (MmMarkPhysicalMemoryAsBad.c)
+ *     MiScrubInterrupted @ 0x14065BE30 (MiScrubInterrupted.c)
+ *     MiScrubPage @ 0x14065CB10 (MiScrubPage.c)
+ */
+
 __int64 __fastcall MiScrubLargePage(__int64 a1, ULONG_PTR a2, unsigned int a3)
 {
   __int64 v3; // r12

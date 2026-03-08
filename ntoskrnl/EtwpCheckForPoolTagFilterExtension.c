@@ -1,3 +1,13 @@
+/*
+ * XREFs of EtwpCheckForPoolTagFilterExtension @ 0x140858980
+ * Callers:
+ *     EtwpStartLogger @ 0x140691964 (EtwpStartLogger.c)
+ *     EtwpUpdateTrace @ 0x140744D3C (EtwpUpdateTrace.c)
+ * Callees:
+ *     EtwpGetFlagExtension @ 0x14074856C (EtwpGetFlagExtension.c)
+ *     EtwpUpdateTagFilter @ 0x1408589E8 (EtwpUpdateTagFilter.c)
+ */
+
 __int64 __fastcall EtwpCheckForPoolTagFilterExtension(__int64 a1, __int64 a2, char a3)
 {
   unsigned __int16 *FlagExtension; // rax

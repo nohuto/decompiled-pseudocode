@@ -1,3 +1,11 @@
+/*
+ * XREFs of DebugPrint @ 0x1404203F0
+ * Callers:
+ *     vDbgPrintExWithPrefixInternal @ 0x1402BDDE0 (vDbgPrintExWithPrefixInternal.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DebugPrint(__int64 a1, __int64 a2, unsigned int a3)
 {
   __int64 v3; // r9

@@ -1,3 +1,33 @@
+/*
+ * XREFs of MiAllocatePartitionPhysicalPages @ 0x140A416B8
+ * Callers:
+ *     MiReleasePartitionHugeIoSpace @ 0x140620094 (MiReleasePartitionHugeIoSpace.c)
+ *     MmManagePartitionMoveMemory @ 0x140A42B54 (MmManagePartitionMoveMemory.c)
+ * Callees:
+ *     MiZeroLargePage @ 0x1402441E4 (MiZeroLargePage.c)
+ *     MiFreeMdlPageRun @ 0x14027AF50 (MiFreeMdlPageRun.c)
+ *     MiAllocateAcceleratorDescriptor @ 0x1402A9850 (MiAllocateAcceleratorDescriptor.c)
+ *     MiAllocatePagesForMdl @ 0x1402B3B18 (MiAllocatePagesForMdl.c)
+ *     MiSelectEngine @ 0x1402B4AF8 (MiSelectEngine.c)
+ *     MiFreePagesFromMdl @ 0x1402C0DD0 (MiFreePagesFromMdl.c)
+ *     MiAcquireNonPagedResources @ 0x140348D54 (MiAcquireNonPagedResources.c)
+ *     MiGetHugeRangeFromNode @ 0x1403BF1C4 (MiGetHugeRangeFromNode.c)
+ *     MiFindLargeNodePage @ 0x14061B228 (MiFindLargeNodePage.c)
+ *     MiGetHugeBadRangeFromNode @ 0x14061D7F8 (MiGetHugeBadRangeFromNode.c)
+ *     MiHugeRangeIsZeroed @ 0x14061E8E4 (MiHugeRangeIsZeroed.c)
+ *     MiInsertHugeRangeInList @ 0x14061EB84 (MiInsertHugeRangeInList.c)
+ *     MiLockHugePfn @ 0x14061EFAC (MiLockHugePfn.c)
+ *     MiUnlockHugePfn @ 0x140620864 (MiUnlockHugePfn.c)
+ *     MiDeleteAcceleratorDescriptor @ 0x14065241C (MiDeleteAcceleratorDescriptor.c)
+ *     MiAddMdlToPartitionTree @ 0x140656460 (MiAddMdlToPartitionTree.c)
+ *     MiAddRangeToPartitionTree @ 0x14065654C (MiAddRangeToPartitionTree.c)
+ *     MiFreePartitionTree @ 0x1406578D0 (MiFreePartitionTree.c)
+ *     MiInsertPartitionPages @ 0x140657EB8 (MiInsertPartitionPages.c)
+ *     MiReleaseNonPagedResources @ 0x14065EA8C (MiReleaseNonPagedResources.c)
+ *     MiUpdatePartitionLargePfnBitMap @ 0x140A42624 (MiUpdatePartitionLargePfnBitMap.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiAllocatePartitionPhysicalPages(
         unsigned __int16 *a1,
         __int64 a2,

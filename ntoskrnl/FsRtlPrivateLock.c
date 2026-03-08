@@ -1,3 +1,25 @@
+/*
+ * XREFs of FsRtlPrivateLock @ 0x1402C21B0
+ * Callers:
+ *     FsRtlProcessFileLock @ 0x14053B5C0 (FsRtlProcessFileLock.c)
+ * Callees:
+ *     ExAllocateFromNPagedLookasideList @ 0x14023FE20 (ExAllocateFromNPagedLookasideList.c)
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KeReleaseSpinLock @ 0x14025E560 (KeReleaseSpinLock.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     FsRtlPrivateInsertLock @ 0x1402C247C (FsRtlPrivateInsertLock.c)
+ *     FsRtlPrivateCheckForSharedLockAccess @ 0x1402C255C (FsRtlPrivateCheckForSharedLockAccess.c)
+ *     FsRtlPrivateCheckForExclusiveLockAccess @ 0x1402C30F4 (FsRtlPrivateCheckForExclusiveLockAccess.c)
+ *     FsRtlPrivateInitializeFileLock @ 0x1402C32B0 (FsRtlPrivateInitializeFileLock.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     FsRtlCompleteLockIrpReal @ 0x140456B80 (FsRtlCompleteLockIrpReal.c)
+ *     FsRtlPrivateCancelFileLockIrp @ 0x14053B390 (FsRtlPrivateCancelFileLockIrp.c)
+ *     FsRtlPrivateRemoveLock @ 0x14053B568 (FsRtlPrivateRemoveLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 BOOLEAN __stdcall FsRtlPrivateLock(
         PFILE_LOCK FileLock,
         PFILE_OBJECT FileObject,

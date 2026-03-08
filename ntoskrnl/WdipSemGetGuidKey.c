@@ -1,3 +1,12 @@
+/*
+ * XREFs of WdipSemGetGuidKey @ 0x1409DB894
+ * Callers:
+ *     WdipSemSqmLogInflightLimitExceededDataPoints @ 0x14078C108 (WdipSemSqmLogInflightLimitExceededDataPoints.c)
+ *     WdipSemSqmLogTimeoutDataPoints @ 0x1409DBC9C (WdipSemSqmLogTimeoutDataPoints.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall WdipSemGetGuidKey(__int64 a1, unsigned int *a2)
 {
   unsigned int v2; // r9d

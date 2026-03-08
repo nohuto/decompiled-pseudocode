@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiReleasePartitionHugeIoSpace @ 0x140620094
+ * Callers:
+ *     MiReturnPartitionPagesToParent @ 0x140658E84 (MiReturnPartitionPagesToParent.c)
+ * Callees:
+ *     ExReleaseSpinLockSharedFromDpcLevel @ 0x14027F8D0 (ExReleaseSpinLockSharedFromDpcLevel.c)
+ *     ExAcquireSpinLockShared @ 0x140308060 (ExAcquireSpinLockShared.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiMoveBadHugeRangeCrossPartition @ 0x14061FC7C (MiMoveBadHugeRangeCrossPartition.c)
+ *     MiAllocatePartitionPhysicalPages @ 0x140A416B8 (MiAllocatePartitionPhysicalPages.c)
+ */
+
 __int64 __fastcall MiReleasePartitionHugeIoSpace(ULONG_PTR BugCheckParameter2)
 {
   __int64 v2; // rbp

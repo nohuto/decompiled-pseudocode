@@ -1,3 +1,19 @@
+/*
+ * XREFs of PerfLogSpinLockAcquire @ 0x1405FE910
+ * Callers:
+ *     KiAcquireQueuedSpinLockInstrumented @ 0x140457B8E (KiAcquireQueuedSpinLockInstrumented.c)
+ *     KiTryToAcquireQueuedSpinLockInstrumented @ 0x140457C4E (KiTryToAcquireQueuedSpinLockInstrumented.c)
+ *     KiAcquireSpinLockInstrumented @ 0x140457E30 (KiAcquireSpinLockInstrumented.c)
+ *     KiTryToAcquireSpinLockInstrumented @ 0x140457EEC (KiTryToAcquireSpinLockInstrumented.c)
+ *     ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140462ED8 (ExpAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140462F92 (ExpAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ *     ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented @ 0x140463056 (ExpTryAcquireSpinLockExclusiveAtDpcLevelInstrumented.c)
+ *     ExpTryConvertSharedSpinLockExclusiveInstrumented @ 0x1404630E8 (ExpTryConvertSharedSpinLockExclusiveInstrumented.c)
+ *     ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented @ 0x140608D40 (ExpTryAcquireSpinLockSharedAtDpcLevelInstrumented.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PerfLogSpinLockAcquire(__int64 a1, __int64 a2, int a3, int a4, int a5, char a6)
 {
   struct _KPRCB *CurrentPrcb; // rax

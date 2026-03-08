@@ -1,3 +1,40 @@
+/*
+ * XREFs of CcPinFileData @ 0x14021E620
+ * Callers:
+ *     CcZeroDataInCache @ 0x140241DBC (CcZeroDataInCache.c)
+ *     CcPinRead @ 0x1406A72B0 (CcPinRead.c)
+ *     CcPinMappedData @ 0x1406A7750 (CcPinMappedData.c)
+ *     CcMapData @ 0x1406A7910 (CcMapData.c)
+ *     CcPreparePinWrite @ 0x1406B6780 (CcPreparePinWrite.c)
+ *     CcMapDataCommon @ 0x1406B6954 (CcMapDataCommon.c)
+ * Callees:
+ *     CcAllocateInitializeBcb @ 0x14021BE20 (CcAllocateInitializeBcb.c)
+ *     CcGetBcbListHeadLargeOffset @ 0x14021BF30 (CcGetBcbListHeadLargeOffset.c)
+ *     CcGetVirtualAddress @ 0x14021FB80 (CcGetVirtualAddress.c)
+ *     CcMapAndRead @ 0x14021FF20 (CcMapAndRead.c)
+ *     MmCheckCachedPageStates @ 0x1402200B0 (MmCheckCachedPageStates.c)
+ *     ExpAcquireSharedStarveExclusive @ 0x1402213C0 (ExpAcquireSharedStarveExclusive.c)
+ *     ExpReleaseFastMutexContended @ 0x140239650 (ExpReleaseFastMutexContended.c)
+ *     ExpAcquireFastMutexContended @ 0x1402410FC (ExpAcquireFastMutexContended.c)
+ *     ExAcquireResourceExclusiveLite @ 0x140258DC0 (ExAcquireResourceExclusiveLite.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     ExReleaseFastMutex @ 0x140262170 (ExReleaseFastMutex.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     ExAcquireFastMutex @ 0x140262DC0 (ExAcquireFastMutex.c)
+ *     RtlRaiseStatus @ 0x140292590 (RtlRaiseStatus.c)
+ *     KeReleaseGuardedMutex @ 0x1402CBD00 (KeReleaseGuardedMutex.c)
+ *     KiAbThreadRemoveBoostsSlow @ 0x1402D99E0 (KiAbThreadRemoveBoostsSlow.c)
+ *     ExAcquireSharedStarveExclusive @ 0x1402DE340 (ExAcquireSharedStarveExclusive.c)
+ *     CcUnpinFileDataEx @ 0x140337E50 (CcUnpinFileDataEx.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     CcDereferenceFileOffset @ 0x140535AC4 (CcDereferenceFileOffset.c)
+ *     CcReferenceFileOffset @ 0x140535C90 (CcReferenceFileOffset.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpFastResourceLegacyAcquireSharedStarveExclusive @ 0x140608144 (ExpFastResourceLegacyAcquireSharedStarveExclusive.c)
+ */
+
 __int64 __fastcall CcPinFileData(
         __int64 a1,
         __int64 *a2,

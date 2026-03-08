@@ -1,3 +1,15 @@
+/*
+ * XREFs of PnprSwap @ 0x1405610DC
+ * Callers:
+ *     PnprEndMirroring @ 0x140A997C0 (PnprEndMirroring.c)
+ *     PnprInitiateReplaceOperation @ 0x140A99894 (PnprInitiateReplaceOperation.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ *     PnprSwapFinalize @ 0x140561300 (PnprSwapFinalize.c)
+ *     MmUnmapReservedMapping @ 0x14061C4D0 (MmUnmapReservedMapping.c)
+ *     PnprMirrorMarkedPages @ 0x140A9A0AC (PnprMirrorMarkedPages.c)
+ */
+
 __int64 PnprSwap()
 {
   __int64 v0; // rcx

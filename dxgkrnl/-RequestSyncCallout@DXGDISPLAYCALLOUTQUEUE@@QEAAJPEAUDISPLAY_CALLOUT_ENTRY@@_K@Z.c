@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?RequestSyncCallout@DXGDISPLAYCALLOUTQUEUE@@QEAAJPEAUDISPLAY_CALLOUT_ENTRY@@_K@Z @ 0x1C03103F4
+ * Callers:
+ *     DxgkRequestSyncDisplaySwitchCallout @ 0x1C0311408 (DxgkRequestSyncDisplaySwitchCallout.c)
+ * Callees:
+ *     ??0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z @ 0x1C0008CE0 (--0DXGAUTOMUTEX@@QEAA@QEAVDXGFASTMUTEX@@E@Z.c)
+ *     ?Release@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008F20 (-Release@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     ?Acquire@DXGAUTOMUTEX@@QEAAXXZ @ 0x1C0008FA8 (-Acquire@DXGAUTOMUTEX@@QEAAXXZ.c)
+ *     DxgkLogInternalTriageEvent @ 0x1C0014FB0 (DxgkLogInternalTriageEvent.c)
+ *     ??_GDISPLAY_CALLOUT_ENTRY@@QEAAPEAXI@Z @ 0x1C0049A68 (--_GDISPLAY_CALLOUT_ENTRY@@QEAAPEAXI@Z.c)
+ *     DpiGdiSyncDisplayCallout @ 0x1C021A310 (DpiGdiSyncDisplayCallout.c)
+ */
+
 __int64 __fastcall DXGDISPLAYCALLOUTQUEUE::RequestSyncCallout(DXGDISPLAYCALLOUTQUEUE *this, char *P, __int64 a3)
 {
   char **v6; // rax

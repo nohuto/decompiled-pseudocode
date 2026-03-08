@@ -1,3 +1,21 @@
+/*
+ * XREFs of XilCoreCommonBuffer_AllocateBuffers @ 0x1C0007A24
+ * Callers:
+ *     XilCoreCommonBuffer_PreAllocateBuffers @ 0x1C0007968 (XilCoreCommonBuffer_PreAllocateBuffers.c)
+ *     XilCoreCommonBuffer_AcquireBuffers @ 0x1C000B490 (XilCoreCommonBuffer_AcquireBuffers.c)
+ *     XilCoreCommonBuffer_AcquireBuffer @ 0x1C0013088 (XilCoreCommonBuffer_AcquireBuffer.c)
+ *     XilCoreCommonBuffer_Create @ 0x1C001BE7C (XilCoreCommonBuffer_Create.c)
+ * Callees:
+ *     WPP_RECORDER_SF_ @ 0x1C0005BBC (WPP_RECORDER_SF_.c)
+ *     DmaEnabler_AllocateCommonBufferPage @ 0x1C0008244 (DmaEnabler_AllocateCommonBufferPage.c)
+ *     WPP_RECORDER_SF_dd @ 0x1C00084D8 (WPP_RECORDER_SF_dd.c)
+ *     WPP_RECORDER_SF_qdd @ 0x1C001E4E0 (WPP_RECORDER_SF_qdd.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ *     SecureDmaEnabler_FreeCommonBufferPage @ 0x1C0051FD8 (SecureDmaEnabler_FreeCommonBufferPage.c)
+ *     WPP_RECORDER_SF_ddqDddd @ 0x1C0052B6C (WPP_RECORDER_SF_ddqDddd.c)
+ *     SecureDmaEnabler_AllocateCommonBufferPage @ 0x1C007A6EC (SecureDmaEnabler_AllocateCommonBufferPage.c)
+ */
+
 void __fastcall XilCoreCommonBuffer_AllocateBuffers(__int64 **a1, __int64 a2, int a3)
 {
   unsigned int v3; // r12d

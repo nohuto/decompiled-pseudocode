@@ -1,3 +1,17 @@
+/*
+ * XREFs of HUBDESC_InternalValidateInterfaceDescriptor @ 0x1C00383E0
+ * Callers:
+ *     HUBDESC_ValidateConfigurationDescriptorSet @ 0x1C0038DB8 (HUBDESC_ValidateConfigurationDescriptorSet.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     WPP_RECORDER_SF_ @ 0x1C0002594 (WPP_RECORDER_SF_.c)
+ *     WPP_RECORDER_SF_DD @ 0x1C0002668 (WPP_RECORDER_SF_DD.c)
+ *     WPP_RECORDER_SF_DDD @ 0x1C001497C (WPP_RECORDER_SF_DDD.c)
+ *     WPP_RECORDER_SF_DDDD @ 0x1C0029788 (WPP_RECORDER_SF_DDDD.c)
+ *     HUBDESC_InternalValidateLastInterface @ 0x1C0036338 (HUBDESC_InternalValidateLastInterface.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 char __fastcall HUBDESC_InternalValidateInterfaceDescriptor(
         unsigned __int8 *a1,
         __int64 a2,

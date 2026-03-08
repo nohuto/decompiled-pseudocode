@@ -1,3 +1,13 @@
+/*
+ * XREFs of PnprRecopyMappingReserve @ 0x140560E88
+ * Callers:
+ *     PnprRecopyMirrorPages @ 0x140560F5C (PnprRecopyMirrorPages.c)
+ * Callees:
+ *     MiGetContainingPageTable @ 0x140289FE0 (MiGetContainingPageTable.c)
+ *     PnprRecopyAddress @ 0x140560E30 (PnprRecopyAddress.c)
+ *     PnprMarkOrMirrorPages @ 0x140A99F48 (PnprMarkOrMirrorPages.c)
+ */
+
 __int64 __fastcall PnprRecopyMappingReserve(__int64 *a1)
 {
   unsigned __int64 v1; // rsi

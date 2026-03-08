@@ -1,3 +1,13 @@
+/*
+ * XREFs of LdrIsResItemExist @ 0x14035CD44
+ * Callers:
+ *     LdrpResSearchResourceMappedFile @ 0x14035DC3C (LdrpResSearchResourceMappedFile.c)
+ *     LdrpSearchResourceSection_U @ 0x1407E9958 (LdrpSearchResourceSection_U.c)
+ * Callees:
+ *     LdrRscIsTypeExist @ 0x14035CB28 (LdrRscIsTypeExist.c)
+ *     LdrpGetRcConfig @ 0x14035CDC4 (LdrpGetRcConfig.c)
+ */
+
 __int64 __fastcall LdrIsResItemExist(__int64 a1, unsigned __int64 *a2, __int64 a3)
 {
   unsigned int *RcConfig; // rax

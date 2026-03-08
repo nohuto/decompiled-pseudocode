@@ -1,3 +1,22 @@
+/*
+ * XREFs of CmpSubtreeEnumeratorAdvance @ 0x140A1D6E8
+ * Callers:
+ *     CmRenameKey @ 0x140A1170C (CmRenameKey.c)
+ *     CmpDoAccessCheckOnLayeredSubtree @ 0x140A18A38 (CmpDoAccessCheckOnLayeredSubtree.c)
+ *     CmpPromoteSubtree @ 0x140A23F00 (CmpPromoteSubtree.c)
+ * Callees:
+ *     CmpHashCompressedComponent @ 0x14074BDE4 (CmpHashCompressedComponent.c)
+ *     CmpFindKcbInHashEntryByName @ 0x140775070 (CmpFindKcbInHashEntryByName.c)
+ *     CmpKeyNodeStackGetEntryAtLayerHeight @ 0x140783798 (CmpKeyNodeStackGetEntryAtLayerHeight.c)
+ *     CmpHashUnicodeComponent @ 0x1407A480C (CmpHashUnicodeComponent.c)
+ *     CmpPopulateKcbStack @ 0x1407AF248 (CmpPopulateKcbStack.c)
+ *     CmpGetKcbAtLayerHeight @ 0x1407AF600 (CmpGetKcbAtLayerHeight.c)
+ *     CmpFindKcbInHashEntryByCompressedName @ 0x140A146E0 (CmpFindKcbInHashEntryByCompressedName.c)
+ *     CmpKeyEnumStackAdvance @ 0x140A209E8 (CmpKeyEnumStackAdvance.c)
+ *     CmpKeyEnumStackBeginEnumerationForKeyNodeStack @ 0x140A20C04 (CmpKeyEnumStackBeginEnumerationForKeyNodeStack.c)
+ *     CmpKeyEnumStackReset @ 0x140A2152C (CmpKeyEnumStackReset.c)
+ */
+
 __int64 __fastcall CmpSubtreeEnumeratorAdvance(__int64 a1)
 {
   unsigned int v2; // ebx

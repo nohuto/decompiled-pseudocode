@@ -1,3 +1,13 @@
+/*
+ * XREFs of TtmiUpdateActiveTerminalCount @ 0x1409A1DF0
+ * Callers:
+ *     TtmInitCurrentSession @ 0x1409A0FC0 (TtmInitCurrentSession.c)
+ *     TtmiCreateTerminal @ 0x1409A7DD8 (TtmiCreateTerminal.c)
+ *     TtmiSessionTerminalListWorker @ 0x1409A82BC (TtmiSessionTerminalListWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall TtmiUpdateActiveTerminalCount(_DWORD *a1, char a2, int a3)
 {
   int v3; // eax

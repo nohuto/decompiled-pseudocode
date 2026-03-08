@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtUserDragDetect @ 0x1C01CF8A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     xxxIsDragging @ 0x1C0232C4C (xxxIsDragging.c)
+ */
+
 __int64 __fastcall NtUserDragDetect(__int64 a1, __int64 a2)
 {
   __int64 v4; // rax

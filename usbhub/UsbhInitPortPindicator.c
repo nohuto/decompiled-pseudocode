@@ -1,3 +1,12 @@
+/*
+ * XREFs of UsbhInitPortPindicator @ 0x1C002F27C
+ * Callers:
+ *     UsbhBusPnpStart @ 0x1C00369F0 (UsbhBusPnpStart.c)
+ * Callees:
+ *     Log @ 0x1C000F210 (Log.c)
+ *     WPP_RECORDER_SF_d @ 0x1C002E5BC (WPP_RECORDER_SF_d.c)
+ */
+
 void __fastcall UsbhInitPortPindicator(__int64 a1, __int64 a2)
 {
   __int64 v4; // r9

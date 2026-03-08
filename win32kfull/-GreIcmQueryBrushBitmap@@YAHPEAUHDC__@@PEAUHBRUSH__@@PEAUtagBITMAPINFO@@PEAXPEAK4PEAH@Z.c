@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?GreIcmQueryBrushBitmap@@YAHPEAUHDC__@@PEAUHBRUSH__@@PEAUtagBITMAPINFO@@PEAXPEAK4PEAH@Z @ 0x1C02D0778
+ * Callers:
+ *     NtGdiIcmBrushInfo @ 0x1C02D1330 (NtGdiIcmBrushInfo.c)
+ * Callees:
+ *     ??0DCOBJ@@QEAA@PEAUHDC__@@@Z @ 0x1C004FFBC (--0DCOBJ@@QEAA@PEAUHDC__@@@Z.c)
+ *     ?vUnlockFast@XDCOBJ@@IEAAXXZ @ 0x1C0050C60 (-vUnlockFast@XDCOBJ@@IEAAXXZ.c)
+ *     GreGetBitmapBitsSize @ 0x1C0091230 (GreGetBitmapBitsSize.c)
+ *     ??0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z @ 0x1C00E8C20 (--0BRUSHSELOBJ@@QEAA@PEAUHBRUSH__@@@Z.c)
+ *     ??1BRUSHSELOBJ@@QEAA@XZ @ 0x1C00E8CA0 (--1BRUSHSELOBJ@@QEAA@XZ.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     GreGetDIBitsInternal @ 0x1C02E044C (GreGetDIBitsInternal.c)
+ */
+
 __int64 __fastcall GreIcmQueryBrushBitmap(
         HDC a1,
         HBRUSH a2,

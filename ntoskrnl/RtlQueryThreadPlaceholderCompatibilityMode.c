@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlQueryThreadPlaceholderCompatibilityMode @ 0x1409BD400
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char RtlQueryThreadPlaceholderCompatibilityMode()
 {
   struct _KTHREAD *CurrentThread; // rcx

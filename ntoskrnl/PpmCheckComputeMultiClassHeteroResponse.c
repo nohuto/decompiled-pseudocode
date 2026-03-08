@@ -1,3 +1,17 @@
+/*
+ * XREFs of PpmCheckComputeMultiClassHeteroResponse @ 0x140594418
+ * Callers:
+ *     PpmCheckComputeHeteroResponse @ 0x140593FE0 (PpmCheckComputeHeteroResponse.c)
+ * Callees:
+ *     PpmParkCalculateUnparkCount @ 0x1402EBC70 (PpmParkCalculateUnparkCount.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PpmHeteroComputeCoreParkingUtilities @ 0x140594838 (PpmHeteroComputeCoreParkingUtilities.c)
+ *     PpmHeteroComputeMultiClassUnparkCount @ 0x140594A00 (PpmHeteroComputeMultiClassUnparkCount.c)
+ *     PpmHeteroComputeUnparkCount @ 0x140594CD0 (PpmHeteroComputeUnparkCount.c)
+ *     PpmEventTraceHeteroResponse @ 0x14059945C (PpmEventTraceHeteroResponse.c)
+ *     PpmEventTraceMultiClassHeteroResponseUpdate @ 0x140599908 (PpmEventTraceMultiClassHeteroResponseUpdate.c)
+ */
+
 char PpmCheckComputeMultiClassHeteroResponse()
 {
   unsigned int v0; // ebx

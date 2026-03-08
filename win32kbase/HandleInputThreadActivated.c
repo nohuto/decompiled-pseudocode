@@ -1,3 +1,11 @@
+/*
+ * XREFs of HandleInputThreadActivated @ 0x1C002EFA0
+ * Callers:
+ *     UserActivateMITInputProcessing @ 0x1C00942B4 (UserActivateMITInputProcessing.c)
+ * Callees:
+ *     ?HandleInputThreadStateChange@CBaseInput@@QEAAXW4InputThreadState@@@Z @ 0x1C002EFEC (-HandleInputThreadStateChange@CBaseInput@@QEAAXW4InputThreadState@@@Z.c)
+ */
+
 __int64 __fastcall HandleInputThreadActivated(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 result; // rax

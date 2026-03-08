@@ -1,3 +1,11 @@
+/*
+ * XREFs of AcpiPccCallbackDpc @ 0x1C0004650
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall AcpiPccCallbackDpc(
         struct _KDPC *Dpc,
         KSPIN_LOCK *DeferredContext,

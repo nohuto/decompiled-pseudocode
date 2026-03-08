@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?GetMostImportantPathFromSource@DMMVIDPNTOPOLOGY@@QEBAPEAVDMMVIDPNPRESENTPATH@@I@Z @ 0x1C01B07A8
+ * Callers:
+ *     ?GetMostImportantVidPnPathTargetsFromSource@@YAJPEBVDMMVIDPNTOPOLOGY@@IQEAI@Z @ 0x1C01B076C (-GetMostImportantVidPnPathTargetsFromSource@@YAJPEBVDMMVIDPNTOPOLOGY@@IQEAI@Z.c)
+ *     ?DmmIsWaitingForPowerOn@@YAJPEAXIAEAE@Z @ 0x1C0224D4C (-DmmIsWaitingForPowerOn@@YAJPEAXIAEAE@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct DMMVIDPNPRESENTPATH *__fastcall DMMVIDPNTOPOLOGY::GetMostImportantPathFromSource(DMMVIDPNTOPOLOGY *this, int a2)
 {
   char *v2; // r11

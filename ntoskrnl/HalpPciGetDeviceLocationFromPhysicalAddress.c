@@ -1,3 +1,11 @@
+/*
+ * XREFs of HalpPciGetDeviceLocationFromPhysicalAddress @ 0x140519ED0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     HalpPciIsAddressWithinMcfg @ 0x14045624E (HalpPciIsAddressWithinMcfg.c)
+ */
+
 char __fastcall HalpPciGetDeviceLocationFromPhysicalAddress(
         unsigned __int64 a1,
         _WORD *a2,

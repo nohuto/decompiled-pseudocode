@@ -1,3 +1,13 @@
+/*
+ * XREFs of PpmEventTraceParkNodeRundown @ 0x140995F2C
+ * Callers:
+ *     PpmEventTraceControlCallback @ 0x140860AA0 (PpmEventTraceControlCallback.c)
+ * Callees:
+ *     EtwEventEnabled @ 0x140231870 (EtwEventEnabled.c)
+ *     EtwWrite @ 0x1402338C0 (EtwWrite.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void __fastcall PpmEventTraceParkNodeRundown(__int64 a1)
 {
   unsigned int v2; // edx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FxStubDriverUnloadCommon@@YAXXZ @ 0x1C0040EF0
+ * Callers:
+ *     FxStubDriverUnload @ 0x1C0040FF0 (FxStubDriverUnload.c)
+ *     FxDriverEntryWorker @ 0x1C0041064 (FxDriverEntryWorker.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 void FxStubDriverUnloadCommon(void)
 {
   char *v0; // rbx

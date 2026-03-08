@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiFreeMdlTracker @ 0x14061A3EC
+ * Callers:
+ *     MmUnlockPages @ 0x14027C0C0 (MmUnlockPages.c)
+ * Callees:
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     RtlAvlRemoveNode @ 0x140333B40 (RtlAvlRemoveNode.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiValidateMdlTracker @ 0x14061ABD8 (MiValidateMdlTracker.c)
+ */
+
 __int64 __fastcall MiFreeMdlTracker(ULONG_PTR BugCheckParameter2, __int64 a2)
 {
   PEPROCESS v2; // rdi

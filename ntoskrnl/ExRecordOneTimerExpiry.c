@@ -1,3 +1,11 @@
+/*
+ * XREFs of ExRecordOneTimerExpiry @ 0x140609608
+ * Callers:
+ *     KeResumeClockTimerFromIdle @ 0x14022E860 (KeResumeClockTimerFromIdle.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall ExRecordOneTimerExpiry(unsigned __int8 a1, char a2)
 {
   __int64 v2; // r8

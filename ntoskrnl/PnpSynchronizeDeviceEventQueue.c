@@ -1,3 +1,14 @@
+/*
+ * XREFs of PnpSynchronizeDeviceEventQueue @ 0x1408729DC
+ * Callers:
+ *     PipProcessDevNodeTree @ 0x1406CCD80 (PipProcessDevNodeTree.c)
+ *     PnpSurpriseFailUnsafeDmaDevices @ 0x140968A40 (PnpSurpriseFailUnsafeDmaDevices.c)
+ * Callees:
+ *     KeInitializeEvent @ 0x14030F330 (KeInitializeEvent.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ *     PnpInsertNoopEvent @ 0x140680D20 (PnpInsertNoopEvent.c)
+ */
+
 NTSTATUS PnpSynchronizeDeviceEventQueue()
 {
   NTSTATUS result; // eax

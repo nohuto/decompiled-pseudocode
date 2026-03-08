@@ -1,3 +1,48 @@
+/*
+ * XREFs of KiAndAffinityEx @ 0x140237720
+ * Callers:
+ *     KiProcessDeferredReadyList @ 0x140226BD0 (KiProcessDeferredReadyList.c)
+ *     HalpInterruptSendIpi @ 0x140230870 (HalpInterruptSendIpi.c)
+ *     PpmParkSteerInterrupts @ 0x1402341D0 (PpmParkSteerInterrupts.c)
+ *     KiComputeThreadAffinity @ 0x140236FD4 (KiComputeThreadAffinity.c)
+ *     KiComputeCpuSetAffinity @ 0x140237838 (KiComputeCpuSetAffinity.c)
+ *     KiCheckForThreadDispatch @ 0x14023A168 (KiCheckForThreadDispatch.c)
+ *     KiExitDispatcher @ 0x14025CA50 (KiExitDispatcher.c)
+ *     KiTryPopulateLogicalProcessorInformation @ 0x1402A9990 (KiTryPopulateLogicalProcessorInformation.c)
+ *     KeQueryLogicalProcessorRelationship @ 0x1402AA2C0 (KeQueryLogicalProcessorRelationship.c)
+ *     KiGetDeepIdleProcessors @ 0x1402AF0A0 (KiGetDeepIdleProcessors.c)
+ *     KeSetUserAffinityThread @ 0x1402B0FA0 (KeSetUserAffinityThread.c)
+ *     KeIsSubsetAffinityEx @ 0x1402B13D0 (KeIsSubsetAffinityEx.c)
+ *     KiReadyOutSwappedThreads @ 0x1402C02E8 (KiReadyOutSwappedThreads.c)
+ *     KiAbThreadUnboostCpuPriority @ 0x1402D9A60 (KiAbThreadUnboostCpuPriority.c)
+ *     PpmParkReportParkedCores @ 0x1402E3AE0 (PpmParkReportParkedCores.c)
+ *     KeSetSchedulingGroupRankBias @ 0x1402F2018 (KeSetSchedulingGroupRankBias.c)
+ *     KiSetLegacyAffinityThread @ 0x1402FDE2C (KiSetLegacyAffinityThread.c)
+ *     KeSetSystemMultipleGroupAffinityThread @ 0x140301184 (KeSetSystemMultipleGroupAffinityThread.c)
+ *     KeRevertToUserMultipleGroupAffinityThread @ 0x140301A54 (KeRevertToUserMultipleGroupAffinityThread.c)
+ *     KeBoostPriorityThread @ 0x140359A88 (KeBoostPriorityThread.c)
+ *     KeSetBasePriorityThread @ 0x140369500 (KeSetBasePriorityThread.c)
+ *     HalSendNMI @ 0x14036B5E0 (HalSendNMI.c)
+ *     PpmHeteroUpdateHgsConfiguration @ 0x14038F314 (PpmHeteroUpdateHgsConfiguration.c)
+ *     KeSetCpuSetsProcess @ 0x140398C34 (KeSetCpuSetsProcess.c)
+ *     KeCpuSetReportParkedProcessors @ 0x140399388 (KeCpuSetReportParkedProcessors.c)
+ *     KeUpdateThreadCpuSets @ 0x140399998 (KeUpdateThreadCpuSets.c)
+ *     KeSetUserGroupAffinityThread @ 0x1403A8A60 (KeSetUserGroupAffinityThread.c)
+ *     KiForwardTick @ 0x1403C61D0 (KiForwardTick.c)
+ *     KiAbForceProcessLockEntry @ 0x1403C7578 (KiAbForceProcessLockEntry.c)
+ *     KiUpdateVpBackingThreadPriorityDpcRoutine @ 0x14056BAF0 (KiUpdateVpBackingThreadPriorityDpcRoutine.c)
+ *     KeAndAffinityEx @ 0x14056CD60 (KeAndAffinityEx.c)
+ *     KeAndAffinityEx2 @ 0x14056CD80 (KeAndAffinityEx2.c)
+ *     KeRecomputeCpuSetAffinityProcess @ 0x140572DE4 (KeRecomputeCpuSetAffinityProcess.c)
+ *     KeSetSelectedCpuSetsThread @ 0x140573640 (KeSetSelectedCpuSetsThread.c)
+ *     KiSetHeteroPolicyThread @ 0x1405755E4 (KiSetHeteroPolicyThread.c)
+ *     PspSetEffectiveJobLimits @ 0x14078B504 (PspSetEffectiveJobLimits.c)
+ *     KeInitializeProfile @ 0x140971EAC (KeInitializeProfile.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall KiAndAffinityEx(unsigned __int16 *a1, unsigned __int16 *a2, _BYTE *a3, unsigned __int16 a4)
 {
   _BYTE *v8; // r9

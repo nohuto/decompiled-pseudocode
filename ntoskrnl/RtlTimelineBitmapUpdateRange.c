@@ -1,3 +1,13 @@
+/*
+ * XREFs of RtlTimelineBitmapUpdateRange @ 0x1402EA814
+ * Callers:
+ *     PsQueryProcessEnergyValues @ 0x1406B0B60 (PsQueryProcessEnergyValues.c)
+ *     PoEnergyContextUpdateComponentPower @ 0x1406FF3F8 (PoEnergyContextUpdateComponentPower.c)
+ *     PoEnergyContextCleanup @ 0x1407046AC (PoEnergyContextCleanup.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlTimelineBitmapUpdateRange(__int64 *a1, unsigned int a2, unsigned int a3)
 {
   __int64 result; // rax

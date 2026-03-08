@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?vComputeWtoDAccelFlags@EXFORMOBJ@@QEAAXXZ @ 0x1C02D20FC
+ * Callers:
+ *     ?vInitPageToDevice@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@PEAVMATRIX@@@Z @ 0x1C02D2170 (-vInitPageToDevice@EXFORMOBJ@@QEAAXAEAVXDCOBJ@@PEAVMATRIX@@@Z.c)
+ * Callees:
+ *     ?bIsZero@EFLOAT@@QEBAHXZ @ 0x1C0016964 (-bIsZero@EFLOAT@@QEBAHXZ.c)
+ *     ?bIs16@EFLOAT@@QEBAHXZ @ 0x1C02D1814 (-bIs16@EFLOAT@@QEBAHXZ.c)
+ */
+
 void __fastcall EXFORMOBJ::vComputeWtoDAccelFlags(EXFORMOBJ *this)
 {
   __int64 v1; // rax

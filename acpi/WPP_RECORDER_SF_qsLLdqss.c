@@ -1,3 +1,11 @@
+/*
+ * XREFs of WPP_RECORDER_SF_qsLLdqss @ 0x1C0023064
+ * Callers:
+ *     ACPIIsPowerRequestBlocked @ 0x1C0022250 (ACPIIsPowerRequestBlocked.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0001DE0 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall WPP_RECORDER_SF_qsLLdqss(
         __int64 a1,
         __int64 a2,

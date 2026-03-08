@@ -1,3 +1,12 @@
+/*
+ * XREFs of EtwTimeProfileReset @ 0x140860A78
+ * Callers:
+ *     Phase1InitializationDiscard @ 0x140B450A0 (Phase1InitializationDiscard.c)
+ * Callees:
+ *     KeStopProfile @ 0x140571BAC (KeStopProfile.c)
+ *     EtwpTimeProfileStart @ 0x1409E3D58 (EtwpTimeProfileStart.c)
+ */
+
 __int64 EtwTimeProfileReset()
 {
   __int64 result; // rax

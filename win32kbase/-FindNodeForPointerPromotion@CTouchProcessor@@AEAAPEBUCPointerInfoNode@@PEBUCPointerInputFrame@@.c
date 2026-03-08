@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?FindNodeForPointerPromotion@CTouchProcessor@@AEAAPEBUCPointerInfoNode@@PEBUCPointerInputFrame@@@Z @ 0x1C01F161C
+ * Callers:
+ *     ?GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z @ 0x1C01F3D8C (-GenerateMessagesCore@CTouchProcessor@@QEAAHHHHPEBUCPointerInputFrame@@@Z.c)
+ * Callees:
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     ?IsValid@CPointerInfoNode@@QEBAHXZ @ 0x1C00F2F0E (-IsValid@CPointerInfoNode@@QEBAHXZ.c)
+ *     ?IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z @ 0x1C01FB918 (-IsFrameReferenced@CTouchProcessor@@AEAAHPEBUCPointerInputFrame@@W4CPointerInputFramePhase@@@Z.c)
+ *     ?IsPrimary@CPointerInfoNode@@QEBAHXZ @ 0x1C01FBEE4 (-IsPrimary@CPointerInfoNode@@QEBAHXZ.c)
+ *     ApiSetPointerPromotionGetCurrentPointerId @ 0x1C02459A8 (ApiSetPointerPromotionGetCurrentPointerId.c)
+ */
+
 const struct CPointerInfoNode *__fastcall CTouchProcessor::FindNodeForPointerPromotion(
         CTouchProcessor *this,
         const struct CPointerInputFrame *a2)

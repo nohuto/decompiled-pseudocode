@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?bSwap@XEPALOBJ@@QEAAHPEAPEAVPALETTE@@KK@Z @ 0x1C02DA678
+ * Callers:
+ *     NtGdiResizePalette @ 0x1C02D4500 (NtGdiResizePalette.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall XEPALOBJ::bSwap(XEPALOBJ *this, struct PALETTE **a2)
 {
   _QWORD *v2; // rsi

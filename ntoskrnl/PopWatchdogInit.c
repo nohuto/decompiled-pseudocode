@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopWatchdogInit @ 0x140B70B70
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     PopReleasePolicyLock @ 0x140A84A94 (PopReleasePolicyLock.c)
+ *     PopAcquirePolicyLock @ 0x140A84AD4 (PopAcquirePolicyLock.c)
+ */
+
 __int64 PopWatchdogInit()
 {
   qword_140C39B28 = (__int64)&PopWatchdogList;

@@ -1,3 +1,11 @@
+/*
+ * XREFs of PopPepStartDevicePowerOffActivity @ 0x14036E210
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall PopPepStartDevicePowerOffActivity(__int64 a1, __int64 a2, __int64 a3)
 {
   char result; // al

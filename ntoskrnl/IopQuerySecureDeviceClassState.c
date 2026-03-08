@@ -1,3 +1,14 @@
+/*
+ * XREFs of IopQuerySecureDeviceClassState @ 0x14083B91C
+ * Callers:
+ *     IopCreateSecureDeviceClassSettings @ 0x14083B634 (IopCreateSecureDeviceClassSettings.c)
+ * Callees:
+ *     IopGetRegistryValue @ 0x1406C18D4 (IopGetRegistryValue.c)
+ *     SeCaptureSecurityDescriptor @ 0x1407C8A50 (SeCaptureSecurityDescriptor.c)
+ *     IopGetSecurityDescriptorInformation @ 0x14083BD24 (IopGetSecurityDescriptorInformation.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall IopQuerySecureDeviceClassState(HANDLE KeyHandle, __int64 a2)
 {
   PVOID v4; // r14

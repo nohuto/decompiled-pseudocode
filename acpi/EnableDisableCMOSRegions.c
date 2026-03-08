@@ -1,3 +1,19 @@
+/*
+ * XREFs of EnableDisableCMOSRegions @ 0x1C0019E94
+ * Callers:
+ *     EnableDisableCMOSRegions @ 0x1C0019E94 (EnableDisableCMOSRegions.c)
+ *     ACPITableLoad @ 0x1C003F170 (ACPITableLoad.c)
+ * Callees:
+ *     memset @ 0x1C0002180 (memset.c)
+ *     EnableDisableCMOSRegions @ 0x1C0019E94 (EnableDisableCMOSRegions.c)
+ *     AMLIAsyncEvalObject @ 0x1C00478E8 (AMLIAsyncEvalObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetFirstChild @ 0x1C00482EC (AMLIGetFirstChild.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ *     AMLIIsNamedChildPresent @ 0x1C00487BC (AMLIIsNamedChildPresent.c)
+ *     AMLIIterateSiblingsNext @ 0x1C00488D8 (AMLIIterateSiblingsNext.c)
+ */
+
 __int64 __fastcall EnableDisableCMOSRegions(__int64 a1)
 {
   unsigned int v2; // edi

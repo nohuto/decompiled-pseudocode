@@ -1,3 +1,13 @@
+/*
+ * XREFs of wil_InitializeFeatureStaging @ 0x1C031D078
+ * Callers:
+ *     Win32kBaseDriverEntry @ 0x1C0320F10 (Win32kBaseDriverEntry.c)
+ * Callees:
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x1C00DD800 (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     wil_details_EvaluateFeatureDependencies @ 0x1C0301070 (wil_details_EvaluateFeatureDependencies.c)
+ *     wil_details_PopulateInitialConfiguredFeatureStates @ 0x1C031D104 (wil_details_PopulateInitialConfiguredFeatureStates.c)
+ */
+
 __int64 wil_InitializeFeatureStaging()
 {
   unsigned int v0; // ebx

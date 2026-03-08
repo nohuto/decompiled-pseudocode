@@ -1,3 +1,19 @@
+/*
+ * XREFs of FsRtlpOplockDequeueRH @ 0x14023EA10
+ * Callers:
+ *     FsRtlpRemoveAndCompleteRHIrp @ 0x14023AB60 (FsRtlpRemoveAndCompleteRHIrp.c)
+ *     FsRtlCheckOplockEx2 @ 0x14023AE40 (FsRtlCheckOplockEx2.c)
+ *     FsRtlpOplockCleanup @ 0x14023E404 (FsRtlpOplockCleanup.c)
+ *     FsRtlpRequestShareableOplock @ 0x14023EEF0 (FsRtlpRequestShareableOplock.c)
+ *     FsRtlpOplockEnqueueRH @ 0x14023FA34 (FsRtlpOplockEnqueueRH.c)
+ *     FsRtlUninitializeOplock @ 0x1402E06C0 (FsRtlUninitializeOplock.c)
+ *     FsRtlpRequestExclusiveOplock @ 0x1403B9C94 (FsRtlpRequestExclusiveOplock.c)
+ *     FsRtlpAcknowledgeOplockBreakByCacheFlags @ 0x1403CD730 (FsRtlpAcknowledgeOplockBreakByCacheFlags.c)
+ *     FsRtlpOplockFsctrlInternal @ 0x1406B3240 (FsRtlpOplockFsctrlInternal.c)
+ * Callees:
+ *     IoGetOplockFullFoExt @ 0x14023EB64 (IoGetOplockFullFoExt.c)
+ */
+
 _QWORD *__fastcall FsRtlpOplockDequeueRH(__int64 a1)
 {
   __int64 OplockFullFoExt; // rax

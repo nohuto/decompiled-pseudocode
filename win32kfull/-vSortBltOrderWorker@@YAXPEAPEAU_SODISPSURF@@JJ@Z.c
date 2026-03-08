@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vSortBltOrderWorker@@YAXPEAPEAU_SODISPSURF@@JJ@Z @ 0x1C02B56CC
+ * Callers:
+ *     ??0MULTISORTBLTORDER@@QEAA@PEAU_VDEV@@JJ@Z @ 0x1C02B08A0 (--0MULTISORTBLTORDER@@QEAA@PEAU_VDEV@@JJ@Z.c)
+ * Callees:
+ *     ?isSorted@@YA_NPEAU_SODISPSURF@@0JJ@Z @ 0x1C02B52A0 (-isSorted@@YA_NPEAU_SODISPSURF@@0JJ@Z.c)
+ */
+
 void __fastcall vSortBltOrderWorker(struct _SODISPSURF **a1, int a2, int a3)
 {
   struct _SODISPSURF *v3; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiGetL2L3AssociativityAmd @ 0x140A9C814
+ * Callers:
+ *     KiSetCacheInformationAmd @ 0x140A9C858 (KiSetCacheInformationAmd.c)
+ * Callees:
+ *     <none>
+ */
+
 char __fastcall KiGetL2L3AssociativityAmd(char a1)
 {
   char result; // al

@@ -1,3 +1,22 @@
+/*
+ * XREFs of BgpGxDrawRectangle @ 0x1403817FC
+ * Callers:
+ *     BgpTxtDisplayCharacter @ 0x140381538 (BgpTxtDisplayCharacter.c)
+ *     BgpClearScreen @ 0x14066F510 (BgpClearScreen.c)
+ *     BgpFwDisplayBugCheckScreen @ 0x140670AE4 (BgpFwDisplayBugCheckScreen.c)
+ *     AnFwpFadeAnimationTimer @ 0x140AEA110 (AnFwpFadeAnimationTimer.c)
+ *     BgpGxDrawBitmapImage @ 0x140AEF720 (BgpGxDrawBitmapImage.c)
+ *     BgpTxtClearRegion @ 0x140AEF770 (BgpTxtClearRegion.c)
+ *     BgpTxtDisplayString @ 0x140AEF7A0 (BgpTxtDisplayString.c)
+ * Callees:
+ *     GxpWriteFrameBufferPixels @ 0x14038188C (GxpWriteFrameBufferPixels.c)
+ *     BgpGetBitsPerPixel @ 0x140381AB0 (BgpGetBitsPerPixel.c)
+ *     BgpGxConvertRectangleEx @ 0x14038204C (BgpGxConvertRectangleEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     BgpGxRectangleDestroy @ 0x140AEAA70 (BgpGxRectangleDestroy.c)
+ */
+
 __int64 __fastcall BgpGxDrawRectangle(_BYTE *a1, __int64 a2)
 {
   _BYTE *v4; // rbx

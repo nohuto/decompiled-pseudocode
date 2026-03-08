@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpCmciPollProcessor @ 0x14037CE58
+ * Callers:
+ *     HalpCmciInitProcessor @ 0x14037CD68 (HalpCmciInitProcessor.c)
+ *     HalpCmciDeferredRoutine @ 0x140503740 (HalpCmciDeferredRoutine.c)
+ * Callees:
+ *     HalpGetMcaPcrContext @ 0x14037CEF4 (HalpGetMcaPcrContext.c)
+ *     HalpCmcPollProcessor @ 0x14037CF58 (HalpCmcPollProcessor.c)
+ *     HalpGetCpuVendor @ 0x14037D1B4 (HalpGetCpuVendor.c)
+ *     HalpCmciSetProcessorConfigAMD @ 0x140503AC8 (HalpCmciSetProcessorConfigAMD.c)
+ */
+
 __int64 __fastcall HalpCmciPollProcessor(__int64 a1)
 {
   char CpuVendor; // di

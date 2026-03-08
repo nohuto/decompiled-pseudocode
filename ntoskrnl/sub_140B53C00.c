@@ -1,3 +1,12 @@
+/*
+ * XREFs of sub_140B53C00 @ 0x140B53C00
+ * Callers:
+ *     ExInitLicenseData @ 0x140819CE8 (ExInitLicenseData.c)
+ * Callees:
+ *     KiInitializeMutant @ 0x1402D981C (KiInitializeMutant.c)
+ *     KeQueryTimeIncrement @ 0x140351FF0 (KeQueryTimeIncrement.c)
+ */
+
 unsigned __int64 sub_140B53C00()
 {
   __int64 v0; // rbx

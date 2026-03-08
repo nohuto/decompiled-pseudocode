@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?FindCopyProtection@ADAPTER_DISPLAY@@QEAAPEAVDXGCOPYPROTECTION@@IIPEAVDXGPROCESS@@@Z @ 0x1C02B81E0
+ * Callers:
+ *     ?DestroyCopyProtection@ADAPTER_DISPLAY@@QEAAJII@Z @ 0x1C02B71FC (-DestroyCopyProtection@ADAPTER_DISPLAY@@QEAAJII@Z.c)
+ *     ?UpdateCopyProtection@ADAPTER_DISPLAY@@QEAAJIII@Z @ 0x1C02BB31C (-UpdateCopyProtection@ADAPTER_DISPLAY@@QEAAJIII@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 struct DXGCOPYPROTECTION *__fastcall ADAPTER_DISPLAY::FindCopyProtection(
         ADAPTER_DISPLAY *this,
         int a2,

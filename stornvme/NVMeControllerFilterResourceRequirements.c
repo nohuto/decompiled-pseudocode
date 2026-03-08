@@ -1,3 +1,15 @@
+/*
+ * XREFs of NVMeControllerFilterResourceRequirements @ 0x1C000CD5C
+ * Callers:
+ *     NVMeHwAdapterControl @ 0x1C0003050 (NVMeHwAdapterControl.c)
+ * Callees:
+ *     memmove @ 0x1C0004280 (memmove.c)
+ *     NVMeZeroMemory @ 0x1C0009218 (NVMeZeroMemory.c)
+ *     GetProcessorGroupInformation @ 0x1C0009D30 (GetProcessorGroupInformation.c)
+ *     GetProcessorInformation @ 0x1C0009EC0 (GetProcessorInformation.c)
+ *     IsPci3MsiInterrupt @ 0x1C000C134 (IsPci3MsiInterrupt.c)
+ */
+
 void *__fastcall NVMeControllerFilterResourceRequirements(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // r13

@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpHpSegPageRangeHandleCommit @ 0x140248A30
+ * Callers:
+ *     RtlpHpSegPageRangeCommit @ 0x1402499A0 (RtlpHpSegPageRangeCommit.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpHpSegPageRangeHandleCommit(__int64 a1, __int64 a2, int *a3, _DWORD *a4, int a5)
 {
   int v6; // edi

@@ -1,3 +1,11 @@
+/*
+ * XREFs of SPCallServerHandleAuthenticateCaller @ 0x1407989E8
+ * Callers:
+ *     sub_1406DC290 @ 0x1406DC290 (sub_1406DC290.c)
+ * Callees:
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall SPCallServerHandleAuthenticateCaller(__int64 a1, __int64 a2, unsigned int a3, __int64 a4)
 {
   int v5; // r9d

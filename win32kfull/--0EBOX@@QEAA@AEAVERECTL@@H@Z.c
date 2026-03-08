@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0EBOX@@QEAA@AEAVERECTL@@H@Z @ 0x1C02C7D4C
+ * Callers:
+ *     NtGdiCreateEllipticRgn @ 0x1C02AB1E0 (NtGdiCreateEllipticRgn.c)
+ *     NtGdiCreateRoundRectRgn @ 0x1C02AB3C0 (NtGdiCreateRoundRectRgn.c)
+ * Callees:
+ *     ?vOrder@ERECTL@@QEAAXXZ @ 0x1C0088198 (-vOrder@ERECTL@@QEAAXXZ.c)
+ */
+
 EBOX *__fastcall EBOX::EBOX(EBOX *this, struct ERECTL *a2)
 {
   __int128 *v2; // rcx

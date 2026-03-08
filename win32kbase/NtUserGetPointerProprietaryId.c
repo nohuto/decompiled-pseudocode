@@ -1,3 +1,13 @@
+/*
+ * XREFs of NtUserGetPointerProprietaryId @ 0x1C0170CC0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     UserSetLastError @ 0x1C003E180 (UserSetLastError.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     ?GetPointerProprietaryId@CTouchProcessor@@QEAA_NIPEAU_GUID@@@Z @ 0x1C01F9528 (-GetPointerProprietaryId@CTouchProcessor@@QEAA_NIPEAU_GUID@@@Z.c)
+ */
+
 __int64 __fastcall NtUserGetPointerProprietaryId(__int64 a1, struct _GUID *a2, __int64 a3, __int64 a4)
 {
   struct _GUID *v4; // rdi

@@ -1,3 +1,17 @@
+/*
+ * XREFs of DrvSetMonitorBrightness @ 0x1C00AF20C
+ * Callers:
+ *     PowerDimUndimResend @ 0x1C00108AC (PowerDimUndimResend.c)
+ *     PowerUnDimMonitor @ 0x1C0086A40 (PowerUnDimMonitor.c)
+ *     PowerDimMonitor @ 0x1C015B728 (PowerDimMonitor.c)
+ * Callees:
+ *     ?UpdateMonitorDevicesOnGraphicsDevice@EnsureMonitorDevices@@AEAAXPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C0021010 (-UpdateMonitorDevicesOnGraphicsDevice@EnsureMonitorDevices@@AEAAXPEAUtagGRAPHICS_DEVICE@@@Z.c)
+ *     ?GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z @ 0x1C0021280 (-GreDeviceIoControlImpl@@YAJPEAXK0K0KPEAKHH@Z.c)
+ *     ?GetMonitorDevice@EnsureMonitorDevices@@QEBAXKAEAUtagVIDEO_MONITOR_DEVICE@@@Z @ 0x1C00AFC64 (-GetMonitorDevice@EnsureMonitorDevices@@QEBAXKAEAUtagVIDEO_MONITOR_DEVICE@@@Z.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DrvSetMonitorBrightness(__int64 a1, int a2, __int64 a3, __int64 a4, _BYTE *a5, char a6)
 {
   int v8; // ebx

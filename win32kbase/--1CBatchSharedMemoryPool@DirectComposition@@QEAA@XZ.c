@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??1CBatchSharedMemoryPool@DirectComposition@@QEAA@XZ @ 0x1C0099810
+ * Callers:
+ *     ?FreeAllPools@CBatchSharedMemoryPoolSet@DirectComposition@@QEAAXXZ @ 0x1C0099780 (-FreeAllPools@CBatchSharedMemoryPoolSet@DirectComposition@@QEAAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DirectComposition::CBatchSharedMemoryPool::~CBatchSharedMemoryPool(
         DirectComposition::CBatchSharedMemoryPool *this)
 {

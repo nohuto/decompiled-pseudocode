@@ -1,3 +1,13 @@
+/*
+ * XREFs of WdiDispatchControl @ 0x1407965E0
+ * Callers:
+ *     NtTraceControl @ 0x140694040 (NtTraceControl.c)
+ * Callees:
+ *     EtwGetProviderIdFromHandle @ 0x1402FDB04 (EtwGetProviderIdFromHandle.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     WdipStartEndScenario @ 0x140796650 (WdipStartEndScenario.c)
+ */
+
 __int64 __fastcall WdiDispatchControl(unsigned int *a1)
 {
   __int64 result; // rax

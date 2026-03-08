@@ -1,3 +1,15 @@
+/*
+ * XREFs of HalpMapCR3Ex @ 0x140A8D980
+ * Callers:
+ *     HalpMmBuildTiledMemoryMap @ 0x140A8D8E8 (HalpMmBuildTiledMemoryMap.c)
+ * Callees:
+ *     MmGetPhysicalAddress @ 0x14030C850 (MmGetPhysicalAddress.c)
+ *     HalpMmAllocCtxAlloc @ 0x140396F30 (HalpMmAllocCtxAlloc.c)
+ *     HalpMmAllocCtxFree @ 0x14039F980 (HalpMmAllocCtxFree.c)
+ *     HalpStoreFreeCr3 @ 0x1403A3C2C (HalpStoreFreeCr3.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ */
+
 __int64 __fastcall HalpMapCR3Ex(__int64 BaseAddress, PHYSICAL_ADDRESS PhysicalAddress, PHYSICAL_ADDRESS *a3)
 {
   unsigned __int64 v5; // r14

@@ -1,3 +1,11 @@
+/*
+ * XREFs of DwmAsyncSendShrinkMoveSizeWindow @ 0x1C0270128
+ * Callers:
+ *     ?SendShrinkWidthToDwm@DWM_ARRANGEMENT_DATA@@QEAAXPEBUMOVESIZEDATA@@@Z @ 0x1C023DB80 (-SendShrinkWidthToDwm@DWM_ARRANGEMENT_DATA@@QEAAXPEBUMOVESIZEDATA@@@Z.c)
+ * Callees:
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ */
+
 __int64 __fastcall DwmAsyncSendShrinkMoveSizeWindow(PVOID Object, __int64 a2, int a3, __int64 a4)
 {
   unsigned int v8; // edi

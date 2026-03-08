@@ -1,3 +1,16 @@
+/*
+ * XREFs of PpRegStateReadCreateClassCreationSettings @ 0x1C00B1610
+ * Callers:
+ *     IoDevObjCreateDeviceSecure @ 0x1C00B05A0 (IoDevObjCreateDeviceSecure.c)
+ * Callees:
+ *     WdmlibRtlInitUnicodeStringEx @ 0x1C0087408 (WdmlibRtlInitUnicodeStringEx.c)
+ *     PiRegStateOpenClassKey @ 0x1C00B1280 (PiRegStateOpenClassKey.c)
+ *     PiRegStateReadStackCreationSettingsFromKey @ 0x1C00B141C (PiRegStateReadStackCreationSettingsFromKey.c)
+ *     CmRegUtilOpenExistingWstrKey @ 0x1C00B1B24 (CmRegUtilOpenExistingWstrKey.c)
+ *     CmRegUtilUcValueSetUcString @ 0x1C00B1D5C (CmRegUtilUcValueSetUcString.c)
+ *     CmRegUtilWstrValueSetWstrString @ 0x1C00B1F08 (CmRegUtilWstrValueSetWstrString.c)
+ */
+
 int __fastcall PpRegStateReadCreateClassCreationSettings(
         const _GUID *DeviceClassGuid,
         _DRIVER_OBJECT *DriverObject,

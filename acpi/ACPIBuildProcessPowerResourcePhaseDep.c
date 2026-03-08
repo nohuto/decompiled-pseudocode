@@ -1,3 +1,14 @@
+/*
+ * XREFs of ACPIBuildProcessPowerResourcePhaseDep @ 0x1C0010EE0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ACPIBuildCompleteMustSucceed @ 0x1C000BCB0 (ACPIBuildCompleteMustSucceed.c)
+ *     AMLIAsyncEvalObject @ 0x1C00478E8 (AMLIAsyncEvalObject.c)
+ *     AMLIDereferenceHandleEx @ 0x1C0047B40 (AMLIDereferenceHandleEx.c)
+ *     AMLIGetNamedChild @ 0x1C0048698 (AMLIGetNamedChild.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessPowerResourcePhaseDep(__int64 a1)
 {
   __int64 v2; // rcx

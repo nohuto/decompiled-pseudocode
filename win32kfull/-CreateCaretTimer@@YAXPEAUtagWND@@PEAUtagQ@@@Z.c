@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?CreateCaretTimer@@YAXPEAUtagWND@@PEAUtagQ@@@Z @ 0x1C0006294
+ * Callers:
+ *     zzzSetCaretPos @ 0x1C0005ED8 (zzzSetCaretPos.c)
+ *     zzzInternalShowCaret @ 0x1C00061E4 (zzzInternalShowCaret.c)
+ *     _SetCaretBlinkTime @ 0x1C010C2C0 (_SetCaretBlinkTime.c)
+ * Callees:
+ *     _SetSystemTimer @ 0x1C0006384 (_SetSystemTimer.c)
+ */
+
 void __fastcall CreateCaretTimer(struct tagWND *a1, struct tagQ *a2)
 {
   int v3; // edi

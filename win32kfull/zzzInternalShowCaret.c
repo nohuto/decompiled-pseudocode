@@ -1,3 +1,16 @@
+/*
+ * XREFs of zzzInternalShowCaret @ 0x1C00061E4
+ * Callers:
+ *     zzzShowCaret @ 0x1C0006108 (zzzShowCaret.c)
+ *     NtUserEndPaint @ 0x1C00CC490 (NtUserEndPaint.c)
+ *     xxxEndPaint @ 0x1C00FE504 (xxxEndPaint.c)
+ *     xxxScrollWindowEx @ 0x1C0231B34 (xxxScrollWindowEx.c)
+ * Callees:
+ *     ?CreateCaretTimer@@YAXPEAUtagWND@@PEAUtagQ@@@Z @ 0x1C0006294 (-CreateCaretTimer@@YAXPEAUtagWND@@PEAUtagQ@@@Z.c)
+ *     ?UT_InvertCaret@@YAXXZ @ 0x1C0006508 (-UT_InvertCaret@@YAXXZ.c)
+ *     xxxWindowEvent @ 0x1C0062470 (xxxWindowEvent.c)
+ */
+
 void zzzInternalShowCaret()
 {
   __int64 v0; // rbx

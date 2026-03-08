@@ -1,3 +1,11 @@
+/*
+ * XREFs of PfSnFindString @ 0x1407E4D64
+ * Callers:
+ *     PfSnParsePrefetchParam @ 0x1407E4C2C (PfSnParsePrefetchParam.c)
+ * Callees:
+ *     <none>
+ */
+
 _WORD *__fastcall PfSnFindString(unsigned __int16 *a1, unsigned __int16 *a2)
 {
   _WORD *v2; // r8

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiInitializePageAccessLogging @ 0x140364410
+ * Callers:
+ *     MiAllocateAccessLog @ 0x140364034 (MiAllocateAccessLog.c)
+ *     MiGetCcAccessLog @ 0x14077A724 (MiGetCcAccessLog.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiInitializePageAccessLogging(__int64 a1, __int64 a2, __int64 a3)
 {
   _QWORD *v3; // rax

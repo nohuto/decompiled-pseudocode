@@ -1,3 +1,25 @@
+/*
+ * XREFs of PopCheckShutdownMarker @ 0x140B6B05C
+ * Callers:
+ *     PoInitSystem @ 0x140B45CAC (PoInitSystem.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     PopReadRegKeyValue @ 0x140380F18 (PopReadRegKeyValue.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1404129D0 (ZwQuerySystemInformation.c)
+ *     ZwQuerySystemInformationEx @ 0x140415090 (ZwQuerySystemInformationEx.c)
+ *     ZwUpdateWnfStateData @ 0x140415ED0 (ZwUpdateWnfStateData.c)
+ *     ExGetFirmwareEnvironmentVariable @ 0x14075D1E0 (ExGetFirmwareEnvironmentVariable.c)
+ *     PopRecordSleepCheckpointSource @ 0x1407FCD94 (PopRecordSleepCheckpointSource.c)
+ *     RtlGetSystemBootStatusEx @ 0x140858A10 (RtlGetSystemBootStatusEx.c)
+ *     RtlCheckSystemBootStatusIntegrity @ 0x140858A40 (RtlCheckSystemBootStatusIntegrity.c)
+ *     PopRecordSleepCheckpoint @ 0x14097E410 (PopRecordSleepCheckpoint.c)
+ *     PopClearSystemSleepCheckpoint @ 0x140993D7C (PopClearSystemSleepCheckpoint.c)
+ *     PopDiagTraceDirtyTransition @ 0x140B32210 (PopDiagTraceDirtyTransition.c)
+ *     PopDiagTraceInvalidBootStat @ 0x140B9325C (PopDiagTraceInvalidBootStat.c)
+ */
+
 char __fastcall PopCheckShutdownMarker(__int64 a1)
 {
   __int64 v1; // rax

@@ -1,3 +1,20 @@
+/*
+ * XREFs of CcFlushCacheOneRange @ 0x14021B070
+ * Callers:
+ *     CcFlushCachePriv @ 0x140219F20 (CcFlushCachePriv.c)
+ *     CcWriteBehindAsync @ 0x140538060 (CcWriteBehindAsync.c)
+ *     CcWriteBehindAsyncFlushOneRange @ 0x140539380 (CcWriteBehindAsyncFlushOneRange.c)
+ * Callees:
+ *     CcGetVirtualAddressIfMapped @ 0x14021B360 (CcGetVirtualAddressIfMapped.c)
+ *     KeSetEvent @ 0x14025C2C0 (KeSetEvent.c)
+ *     MmSetAddressRangeModifiedEx @ 0x140329510 (MmSetAddressRangeModifiedEx.c)
+ *     MmFlushSection @ 0x140333F20 (MmFlushSection.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     CcPerfLogFlushSection @ 0x140390B04 (CcPerfLogFlushSection.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall CcFlushCacheOneRange(__int64 *a1)
 {
   __int64 v2; // r13

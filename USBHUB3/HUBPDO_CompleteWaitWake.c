@@ -1,3 +1,16 @@
+/*
+ * XREFs of HUBPDO_CompleteWaitWake @ 0x1C001C3F0
+ * Callers:
+ *     HUBPDO_WakeNotificationIoctlComplete @ 0x1C001C4C0 (HUBPDO_WakeNotificationIoctlComplete.c)
+ *     HUBDSM_AckingPortEventInD3Cold @ 0x1C0023DF0 (HUBDSM_AckingPortEventInD3Cold.c)
+ *     HUBDSM_DisarmingDeviceForWakeOnD0Entry @ 0x1C0023F70 (HUBDSM_DisarmingDeviceForWakeOnD0Entry.c)
+ *     HUBDSM_WaitingForD0EntryOnHwWake @ 0x1C00240A0 (HUBDSM_WaitingForD0EntryOnHwWake.c)
+ *     HUBDSM_CompletingWaitWakeOnDetachDuringSuspending @ 0x1C00243B0 (HUBDSM_CompletingWaitWakeOnDetachDuringSuspending.c)
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0002034 (WPP_RECORDER_SF_d.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 void __fastcall HUBPDO_CompleteWaitWake(__int64 a1)
 {
   KIRQL v2; // bl

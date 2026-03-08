@@ -1,3 +1,23 @@
+/*
+ * XREFs of ObpRegisterObject @ 0x14097A3B4
+ * Callers:
+ *     IopAllocRealFileObject @ 0x1407BA090 (IopAllocRealFileObject.c)
+ *     CmpCreateKeyBody @ 0x1407BA4F0 (CmpCreateKeyBody.c)
+ *     SepDuplicateToken @ 0x1407BCF00 (SepDuplicateToken.c)
+ *     ObCreateObjectEx @ 0x1407D1090 (ObCreateObjectEx.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     RtlStringCbCopyA @ 0x14035BCD8 (RtlStringCbCopyA.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     ObpGetObjectRefInfo @ 0x140979C84 (ObpGetObjectRefInfo.c)
+ *     ObpIsObjectPoolTagTraced @ 0x14097A0D4 (ObpIsObjectPoolTagTraced.c)
+ *     EtwTraceObject @ 0x1409E2DE8 (EtwTraceObject.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 char __fastcall ObpRegisterObject(__int64 a1)
 {
   struct _KTHREAD *v2; // rax

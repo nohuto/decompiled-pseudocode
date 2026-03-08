@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopIdleWakeAssignAccountingToSource @ 0x14059B0CC
+ * Callers:
+ *     PopIdleWakeFindOrAllocateWakeSource @ 0x14059B27C (PopIdleWakeFindOrAllocateWakeSource.c)
+ * Callees:
+ *     KiInsertQueueDpc @ 0x1402302B0 (KiInsertQueueDpc.c)
+ *     KeResetEvent @ 0x14023EC60 (KeResetEvent.c)
+ */
+
 __int64 __fastcall PopIdleWakeAssignAccountingToSource(__int64 a1, __int64 a2, int a3, __int64 a4)
 {
   __int64 result; // rax

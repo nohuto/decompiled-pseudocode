@@ -1,3 +1,20 @@
+/*
+ * XREFs of GetPrintableOperandValue @ 0x1409D117C
+ * Callers:
+ *     GetPrintableOperandValue @ 0x1409D117C (GetPrintableOperandValue.c)
+ *     LocalpGetStringForCondition @ 0x1409D3684 (LocalpGetStringForCondition.c)
+ * Callees:
+ *     RtlStringCchPrintfW @ 0x140208BFC (RtlStringCchPrintfW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     LocalGetStringForSid @ 0x14074FCB0 (LocalGetStringForSid.c)
+ *     SddlpAlloc @ 0x1407507C8 (SddlpAlloc.c)
+ *     SddlpReAlloc @ 0x1409CFBF0 (SddlpReAlloc.c)
+ *     GetPrintableOperandValue @ 0x1409D117C (GetPrintableOperandValue.c)
+ *     ULongAddStringSize @ 0x1409D3CA0 (ULongAddStringSize.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall GetPrintableOperandValue(
         unsigned __int8 *a1,
         int a2,

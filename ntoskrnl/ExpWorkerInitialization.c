@@ -1,3 +1,23 @@
+/*
+ * XREFs of ExpWorkerInitialization @ 0x140B6383C
+ * Callers:
+ *     ExpInitSystemPhase1 @ 0x140B3F0B8 (ExpInitSystemPhase1.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockExclusiveEx @ 0x1402411C0 (ExfAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiQueryUnbiasedInterruptTime @ 0x14034A074 (KiQueryUnbiasedInterruptTime.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     ExQueueDebuggerWorker @ 0x14036B1C0 (ExQueueDebuggerWorker.c)
+ *     ExpLegacyWorkerInitialization @ 0x14039F874 (ExpLegacyWorkerInitialization.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     ExpPartitionStart @ 0x140847FB8 (ExpPartitionStart.c)
+ *     ExpPartitionInitialize @ 0x1408481F8 (ExpPartitionInitialize.c)
+ *     ExpNodeInitialize @ 0x140848544 (ExpNodeInitialize.c)
+ */
+
 __int64 ExpWorkerInitialization()
 {
   int v0; // eax

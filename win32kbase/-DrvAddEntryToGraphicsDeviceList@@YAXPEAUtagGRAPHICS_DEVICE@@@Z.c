@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DrvAddEntryToGraphicsDeviceList@@YAXPEAUtagGRAPHICS_DEVICE@@@Z @ 0x1C018D694
+ * Callers:
+ *     DrvAddMirrorDriversToRemoteList @ 0x1C00D7164 (DrvAddMirrorDriversToRemoteList.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall DrvAddEntryToGraphicsDeviceList(struct tagGRAPHICS_DEVICE *a1)
 {
   __int64 v2; // rcx

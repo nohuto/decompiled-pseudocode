@@ -1,3 +1,13 @@
+/*
+ * XREFs of InitializeTelemetryAssertsKMWorkerInternal @ 0x1C008C5C4
+ * Callers:
+ *     InitializeTelemetryAssertsKMByName @ 0x1C008C56C (InitializeTelemetryAssertsKMByName.c)
+ * Callees:
+ *     UninitializeTelemetryAssertsLocks @ 0x1C008D720 (UninitializeTelemetryAssertsLocks.c)
+ *     memmove @ 0x1C00E1EC0 (memmove.c)
+ *     TraceLoggingRegisterEx_EtwRegister_EtwSetInformation @ 0x1C03017E0 (TraceLoggingRegisterEx_EtwRegister_EtwSetInformation.c)
+ */
+
 __int64 __fastcall InitializeTelemetryAssertsKMWorkerInternal(const void **a1)
 {
   struct _FAST_MUTEX *Pool2; // rax

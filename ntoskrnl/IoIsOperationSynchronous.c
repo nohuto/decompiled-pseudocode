@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoIsOperationSynchronous @ 0x14023FB50
+ * Callers:
+ *     FsRtlpOplockFsctrlInternal @ 0x1406B3240 (FsRtlpOplockFsctrlInternal.c)
+ * Callees:
+ *     <none>
+ */
+
 BOOLEAN __stdcall IoIsOperationSynchronous(PIRP Irp)
 {
   ULONG v1; // eax

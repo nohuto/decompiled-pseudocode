@@ -1,3 +1,15 @@
+/*
+ * XREFs of ExFreePoolSanityChecks @ 0x140AE4DFC
+ * Callers:
+ *     VerifierExFreePool @ 0x140ABD100 (VerifierExFreePool.c)
+ *     VerifierExFreePoolWithTag @ 0x140ABD170 (VerifierExFreePoolWithTag.c)
+ * Callees:
+ *     ExIsSpecialPoolAddress @ 0x14060CCD8 (ExIsSpecialPoolAddress.c)
+ *     MmDeterminePoolType @ 0x14063F644 (MmDeterminePoolType.c)
+ *     KevSkipVerification @ 0x1406775CC (KevSkipVerification.c)
+ *     VerifierBugCheckIfAppropriate @ 0x140ACA284 (VerifierBugCheckIfAppropriate.c)
+ */
+
 __int64 __fastcall ExFreePoolSanityChecks(ULONG_PTR a1)
 {
   __int64 result; // rax

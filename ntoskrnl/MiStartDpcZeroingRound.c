@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiStartDpcZeroingRound @ 0x140389F08
+ * Callers:
+ *     MiZeroPageCalibrateDpc @ 0x140389C70 (MiZeroPageCalibrateDpc.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     MiInitializeZeroEngineCurrentPassDpcAffinity @ 0x14038A0B8 (MiInitializeZeroEngineCurrentPassDpcAffinity.c)
+ */
+
 __int64 __fastcall MiStartDpcZeroingRound(LARGE_INTEGER *a1)
 {
   unsigned int v2; // ebx

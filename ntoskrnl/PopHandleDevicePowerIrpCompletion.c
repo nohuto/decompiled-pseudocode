@@ -1,3 +1,16 @@
+/*
+ * XREFs of PopHandleDevicePowerIrpCompletion @ 0x1402BB4F0
+ * Callers:
+ *     PopRequestCompletion @ 0x1402BB410 (PopRequestCompletion.c)
+ * Callees:
+ *     PopFxQueueWorkItem @ 0x1402B8D54 (PopFxQueueWorkItem.c)
+ *     PopPepDeviceDState @ 0x1402B9C4C (PopPepDeviceDState.c)
+ *     PopDiagTraceFxDevicePowerState @ 0x1402B9DB4 (PopDiagTraceFxDevicePowerState.c)
+ *     PopFxNotifyPostDIrpCompletion @ 0x1402BA4B8 (PopFxNotifyPostDIrpCompletion.c)
+ *     PopFreeIrp @ 0x1402BB5E8 (PopFreeIrp.c)
+ *     PopDequeueQuerySetIrp @ 0x1402BB70C (PopDequeueQuerySetIrp.c)
+ */
+
 __int64 __fastcall PopHandleDevicePowerIrpCompletion(__int64 a1, __int64 a2, __int64 a3)
 {
   IRP *v3; // rsi

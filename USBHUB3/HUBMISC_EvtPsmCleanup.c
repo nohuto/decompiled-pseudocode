@@ -1,3 +1,11 @@
+/*
+ * XREFs of HUBMISC_EvtPsmCleanup @ 0x1C00323F0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0044C50 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall HUBMISC_EvtPsmCleanup(__int64 a1)
 {
   __int64 result; // rax

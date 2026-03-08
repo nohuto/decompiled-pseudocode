@@ -1,3 +1,11 @@
+/*
+ * XREFs of NtGdiUMPDEngFreeUserMem @ 0x1C02CFE30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall NtGdiUMPDEngFreeUserMem(void **a1)
 {
   void *v2; // rcx

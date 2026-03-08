@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoAllocateAdapterChannel @ 0x1405542A0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 NTSTATUS __stdcall IoAllocateAdapterChannel(
         PDMA_ADAPTER DmaAdapter,
         PDEVICE_OBJECT DeviceObject,

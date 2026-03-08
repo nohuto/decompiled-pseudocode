@@ -1,3 +1,18 @@
+/*
+ * XREFs of WPP_RECORDER_SF_dDD @ 0x1C00484FC
+ * Callers:
+ *     UsbhWaitConnect @ 0x1C0018530 (UsbhWaitConnect.c)
+ *     UsbhHandleSuspend @ 0x1C001A5BC (UsbhHandleSuspend.c)
+ *     UsbhGetInitRegUsbDeviceFlags @ 0x1C0044E20 (UsbhGetInitRegUsbDeviceFlags.c)
+ *     UsbhGetRegUsbDeviceFlags @ 0x1C0045828 (UsbhGetRegUsbDeviceFlags.c)
+ *     UsbhGetRegUsbHubFlags @ 0x1C0045B18 (UsbhGetRegUsbHubFlags.c)
+ *     UsbhExceptionTrace @ 0x1C004AC64 (UsbhExceptionTrace.c)
+ *     UsbhBuildHardwareID @ 0x1C004FCFC (UsbhBuildHardwareID.c)
+ *     UsbhUpdateUxdSettings @ 0x1C005ACF0 (UsbhUpdateUxdSettings.c)
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C0023500 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 WPP_RECORDER_SF_dDD(__int64 a1, __int64 a2, __int64 a3, unsigned __int16 a4, __int64 a5, ...)
 {
   int v8; // [rsp+20h] [rbp-48h]

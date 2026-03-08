@@ -1,3 +1,14 @@
+/*
+ * XREFs of _NotifyOverlayWindow @ 0x1C01C9960
+ * Callers:
+ *     xxxFreeWindow @ 0x1C0031C50 (xxxFreeWindow.c)
+ *     NtUserNotifyOverlayWindow @ 0x1C01D8EC0 (NtUserNotifyOverlayWindow.c)
+ * Callees:
+ *     xxxSendNotifyMessage @ 0x1C00D8320 (xxxSendNotifyMessage.c)
+ *     ?FixupOverlayWindowAttributes@@YAHPEAUtagWND@@@Z @ 0x1C01C8548 (-FixupOverlayWindowAttributes@@YAHPEAUtagWND@@@Z.c)
+ *     DwmAsyncNotifyWindowShadowChange @ 0x1C026FE38 (DwmAsyncNotifyWindowShadowChange.c)
+ */
+
 __int64 __fastcall NotifyOverlayWindow(struct tagWND *a1, int a2)
 {
   unsigned int v2; // ebx

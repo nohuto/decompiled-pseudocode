@@ -1,3 +1,17 @@
+/*
+ * XREFs of _CmGetDeviceChildren @ 0x140839DE0
+ * Callers:
+ *     _CmGetDeviceMappedPropertyFromComposite @ 0x1406CA2A4 (_CmGetDeviceMappedPropertyFromComposite.c)
+ *     _CmGetDeviceSiblings @ 0x140839C1C (_CmGetDeviceSiblings.c)
+ * Callees:
+ *     RtlStringCchCopyExW @ 0x140244A08 (RtlStringCchCopyExW.c)
+ *     RtlInitUnicodeStringEx @ 0x140246490 (RtlInitUnicodeStringEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     __report_rangecheckfailure @ 0x1404FBCCC (__report_rangecheckfailure.c)
+ *     _NtPlugPlayGetDeviceRelatedDevice @ 0x1406C81CC (_NtPlugPlayGetDeviceRelatedDevice.c)
+ *     _PnpMultiSzAppend @ 0x140839FAC (_PnpMultiSzAppend.c)
+ */
+
 int __fastcall CmGetDeviceChildren(__int64 a1, const WCHAR *a2, wchar_t *a3, unsigned int *a4)
 {
   wchar_t *v5; // rdi

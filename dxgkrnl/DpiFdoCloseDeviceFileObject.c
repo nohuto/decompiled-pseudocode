@@ -1,3 +1,12 @@
+/*
+ * XREFs of DpiFdoCloseDeviceFileObject @ 0x1C03967C8
+ * Callers:
+ *     DpiFdoDispatchPnp @ 0x1C021AD40 (DpiFdoDispatchPnp.c)
+ *     DpiFdoHandleStopDevice @ 0x1C03973C0 (DpiFdoHandleStopDevice.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall DpiFdoCloseDeviceFileObject(__int64 a1)
 {
   __int64 v1; // rdi

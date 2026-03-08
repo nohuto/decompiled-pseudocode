@@ -1,3 +1,12 @@
+/*
+ * XREFs of GetEasTimeout @ 0x1C00EBBB4
+ * Callers:
+ *     ?CalcScreenSaverTimeout@@YAXPEAU_UNICODE_STRING@@K@Z @ 0x1C00EBB24 (-CalcScreenSaverTimeout@@YAXPEAU_UNICODE_STRING@@K@Z.c)
+ *     xxxSystemParametersInfoWorker @ 0x1C01032D0 (xxxSystemParametersInfoWorker.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ */
+
 __int64 GetEasTimeout()
 {
   int v0; // edi

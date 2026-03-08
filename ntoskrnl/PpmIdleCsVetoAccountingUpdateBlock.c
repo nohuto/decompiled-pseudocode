@@ -1,3 +1,14 @@
+/*
+ * XREFs of PpmIdleCsVetoAccountingUpdateBlock @ 0x140582B3C
+ * Callers:
+ *     PopCaptureSleepStudyStatistics @ 0x1403C24C4 (PopCaptureSleepStudyStatistics.c)
+ *     PpmIdleCaptureCsVetoAccounting @ 0x140581E30 (PpmIdleCaptureCsVetoAccounting.c)
+ *     PpmIdleCsVetoAccountingDeviceUpdate @ 0x140582980 (PpmIdleCsVetoAccountingDeviceUpdate.c)
+ *     PpmIdleCsVetoAccountingResiliencyUpdate @ 0x140582A50 (PpmIdleCsVetoAccountingResiliencyUpdate.c)
+ * Callees:
+ *     RtlGetInterruptTimePrecise @ 0x14022C9C0 (RtlGetInterruptTimePrecise.c)
+ */
+
 char __fastcall PpmIdleCsVetoAccountingUpdateBlock(__int64 a1, char a2, char a3)
 {
   __int64 InterruptTimePrecise; // rax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of FsRtlHeatInit @ 0x14093C910
+ * Callers:
+ *     <none>
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     FsRtlpHeatRegisterVolume @ 0x14093CBA8 (FsRtlpHeatRegisterVolume.c)
+ *     FsRtlpQueryValueKey @ 0x14093CDE4 (FsRtlpQueryValueKey.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall FsRtlHeatInit(__int64 a1, __int64 a2, __int64 a3)
 {
   PVOID v6; // rbx

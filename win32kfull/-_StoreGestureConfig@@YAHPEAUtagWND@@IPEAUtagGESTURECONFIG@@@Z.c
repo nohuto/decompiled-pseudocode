@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?_StoreGestureConfig@@YAHPEAUtagWND@@IPEAUtagGESTURECONFIG@@@Z @ 0x1C00CB290
+ * Callers:
+ *     SetGestureConfigSettings @ 0x1C00CB3F8 (SetGestureConfigSettings.c)
+ * Callees:
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     ?SetBitMask@@YAXPEAUtagWND@@IH@Z @ 0x1C00CB06C (-SetBitMask@@YAXPEAUtagWND@@IH@Z.c)
+ *     ?GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z @ 0x1C00CB534 (-GetGCData@@YAPEAUtagVWPLGESTUREDATA@@PEAUtagWND@@@Z.c)
+ *     ?GetWindowGCList@@YAPEAPEAXPEAUtagWND@@@Z @ 0x1C00CBF8C (-GetWindowGCList@@YAPEAPEAXPEAUtagWND@@@Z.c)
+ *     ?IsBitSet@@YAHPEAEI@Z @ 0x1C00CBFD8 (-IsBitSet@@YAHPEAEI@Z.c)
+ *     memset_0 @ 0x1C0130E80 (memset_0.c)
+ *     ?FindGID@@YAHPEAPEAUtagGESTURECONFIGLIST@@I0@Z @ 0x1C0206FD0 (-FindGID@@YAHPEAPEAUtagGESTURECONFIGLIST@@I0@Z.c)
+ *     ?GCRemoveHashElement@@YAXPEAPEAUtagGESTURECONFIGLIST@@I@Z @ 0x1C0207008 (-GCRemoveHashElement@@YAXPEAPEAUtagGESTURECONFIGLIST@@I@Z.c)
+ */
+
 __int64 __fastcall _StoreGestureConfig(struct tagWND *a1, unsigned int a2, struct tagGESTURECONFIG *a3)
 {
   struct tagGESTURECONFIGLIST **WindowGCList; // rdi

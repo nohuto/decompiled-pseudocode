@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?iColorGet@FLOODBM@@QEAAKJ@Z @ 0x1C02D5FE4
+ * Callers:
+ *     ?bSearchAllSpans@FLOODBM@@QEAAHJJAEAJ0PEAEAEAVSTACKOBJ@@PEAVSCANLINE@@@Z @ 0x1C02D5DB4 (-bSearchAllSpans@FLOODBM@@QEAAHJJAEAJ0PEAEAEAVSTACKOBJ@@PEAVSCANLINE@@@Z.c)
+ *     ?vFindExtent@FLOODBM@@QEAAXJAEAJ0@Z @ 0x1C02D60B0 (-vFindExtent@FLOODBM@@QEAAXJAEAJ0@Z.c)
+ *     NtGdiExtFloodFill @ 0x1C02D6200 (NtGdiExtFloodFill.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall FLOODBM::iColorGet(FLOODBM *this, int a2)
 {
   unsigned int v3; // eax

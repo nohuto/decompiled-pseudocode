@@ -1,3 +1,12 @@
+/*
+ * XREFs of KiUncommitGroupSubNodeAssignments @ 0x14056E4D0
+ * Callers:
+ *     KiAllocateProcessorNumber @ 0x14037279C (KiAllocateProcessorNumber.c)
+ *     KiFreeProcessorNumber @ 0x14056E36C (KiFreeProcessorNumber.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiUncommitGroupSubNodeAssignments(__int16 a1)
 {
   __int64 v1; // r8

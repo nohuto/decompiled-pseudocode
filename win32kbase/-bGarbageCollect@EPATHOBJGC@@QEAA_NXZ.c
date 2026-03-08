@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?bGarbageCollect@EPATHOBJGC@@QEAA_NXZ @ 0x1C00DE138
+ * Callers:
+ *     ??$vGarbageCollectObject@VEPATHOBJGC@@@@YAXPEAUHOBJ__@@@Z @ 0x1C00DED6C (--$vGarbageCollectObject@VEPATHOBJGC@@@@YAXPEAUHOBJ__@@@Z.c)
+ * Callees:
+ *     ?HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z @ 0x1C0045E40 (-HmgRemoveObjectImpl@@YAPEAXPEAUHOBJ__@@JJKEPEAK@Z.c)
+ *     FreeObject @ 0x1C00597F0 (FreeObject.c)
+ *     ?vFreeBlocks@EPATHOBJ@@QEAAXXZ @ 0x1C01816C0 (-vFreeBlocks@EPATHOBJ@@QEAAXXZ.c)
+ */
+
 char __fastcall EPATHOBJGC::bGarbageCollect(EPATHOBJGC *this)
 {
   __int64 v2; // rcx

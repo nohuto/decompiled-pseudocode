@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopIoRingGetAvailableCqSlots @ 0x1405571B8
+ * Callers:
+ *     NtSubmitIoRing @ 0x1405575D0 (NtSubmitIoRing.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 __int64 __fastcall IopIoRingGetAvailableCqSlots(__int64 a1)
 {
   volatile signed __int64 *v1; // rsi

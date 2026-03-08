@@ -1,3 +1,23 @@
+/*
+ * XREFs of MiCopyToCfgBitMap @ 0x1406A5890
+ * Callers:
+ *     MiPopulateCfgBitMap @ 0x14075C600 (MiPopulateCfgBitMap.c)
+ *     MiMarkSharedImageCfgBits @ 0x1407D20C4 (MiMarkSharedImageCfgBits.c)
+ * Callees:
+ *     RtlClearBitsEx @ 0x14020FC50 (RtlClearBitsEx.c)
+ *     MiSplitPrivatePage @ 0x14021114C (MiSplitPrivatePage.c)
+ *     MiCopyToUserVa @ 0x140211730 (MiCopyToUserVa.c)
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     RtlClearAllBitsEx @ 0x1402D4520 (RtlClearAllBitsEx.c)
+ *     RtlSetBitsEx @ 0x14034CE90 (RtlSetBitsEx.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     RtlEnumRvaListFirst @ 0x14076FC8C (RtlEnumRvaListFirst.c)
+ *     MiEliminateZeroPages @ 0x1407F6B10 (MiEliminateZeroPages.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiCopyToCfgBitMap(
         __int64 a1,
         unsigned __int64 a2,

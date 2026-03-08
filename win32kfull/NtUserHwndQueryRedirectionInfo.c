@@ -1,3 +1,18 @@
+/*
+ * XREFs of NtUserHwndQueryRedirectionInfo @ 0x1C0147D40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     GreGetDxSharedSurface @ 0x1C000A248 (GreGetDxSharedSurface.c)
+ *     UserSetLastStatus @ 0x1C0012568 (UserSetLastStatus.c)
+ *     GetStyleWindow @ 0x1C0039020 (GetStyleWindow.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     RecreateRedirectionBitmap @ 0x1C0096A48 (RecreateRedirectionBitmap.c)
+ *     __security_check_cookie @ 0x1C012BE80 (__security_check_cookie.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     GreGetHwndUpdateIds @ 0x1C026A324 (GreGetHwndUpdateIds.c)
+ */
+
 __int64 __fastcall NtUserHwndQueryRedirectionInfo(__int64 a1, __int64 a2, __int128 *a3, ULONG64 a4)
 {
   __int128 *v5; // r13

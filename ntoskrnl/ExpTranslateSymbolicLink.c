@@ -1,3 +1,20 @@
+/*
+ * XREFs of ExpTranslateSymbolicLink @ 0x14083F2E8
+ * Callers:
+ *     ExpTranslateEfiPath @ 0x14083EF60 (ExpTranslateEfiPath.c)
+ *     ExpConvertArcName @ 0x1409F8CB8 (ExpConvertArcName.c)
+ *     ExpConvertSignatureName @ 0x1409F8E7C (ExpConvertSignatureName.c)
+ *     ExpFindArcName @ 0x1409F9550 (ExpFindArcName.c)
+ *     ExpTranslateNtPath @ 0x1409FB67C (ExpTranslateNtPath.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenSymbolicLinkObject @ 0x1404149D0 (ZwOpenSymbolicLinkObject.c)
+ *     ZwQuerySymbolicLinkObject @ 0x140415030 (ZwQuerySymbolicLinkObject.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 NTSTATUS __fastcall ExpTranslateSymbolicLink(PCWSTR SourceString, UNICODE_STRING *a2)
 {
   unsigned __int16 v3; // si

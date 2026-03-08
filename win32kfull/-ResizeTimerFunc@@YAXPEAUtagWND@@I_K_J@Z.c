@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?ResizeTimerFunc@@YAXPEAUtagWND@@I_K_J@Z @ 0x1C01EB7C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FindTimer @ 0x1C00DEEDC (FindTimer.c)
+ *     GreCancelSynchronizedWindowResize @ 0x1C0269DDC (GreCancelSynchronizedWindowResize.c)
+ */
+
 void __fastcall ResizeTimerFunc(HWND *a1, __int64 a2, void *a3)
 {
   __int64 v4; // rdx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PowerEventTypeToString@InputTraceLogging@@CAPEBDW4_PSPOWEREVENTTYPE@@@Z @ 0x1C00DD2BC
+ * Callers:
+ *     ?PowerEvent@Power@InputTraceLogging@@SAXW4_PSPOWEREVENTTYPE@@_K@Z @ 0x1C00DD24C (-PowerEvent@Power@InputTraceLogging@@SAXW4_PSPOWEREVENTTYPE@@_K@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 const char *__fastcall InputTraceLogging::PowerEventTypeToString(int a1)
 {
   int v1; // ecx

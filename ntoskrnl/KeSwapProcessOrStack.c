@@ -1,3 +1,16 @@
+/*
+ * XREFs of KeSwapProcessOrStack @ 0x140391CB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KeSetPriorityThread @ 0x1402261B0 (KeSetPriorityThread.c)
+ *     KiInSwapKernelStacks @ 0x1402A72E0 (KiInSwapKernelStacks.c)
+ *     KiOutSwapKernelStacks @ 0x1402A7380 (KiOutSwapKernelStacks.c)
+ *     KiOutSwapProcesses @ 0x1402BFE74 (KiOutSwapProcesses.c)
+ *     KiInSwapProcesses @ 0x1402C0180 (KiInSwapProcesses.c)
+ *     KeWaitForSingleObject @ 0x14033FF20 (KeWaitForSingleObject.c)
+ */
+
 void __noreturn KeSwapProcessOrStack()
 {
   _QWORD *v0; // rdx

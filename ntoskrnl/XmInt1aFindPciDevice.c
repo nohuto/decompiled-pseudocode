@@ -1,3 +1,11 @@
+/*
+ * XREFs of XmInt1aFindPciDevice @ 0x14053296C
+ * Callers:
+ *     XmExecuteInt1a @ 0x140532794 (XmExecuteInt1a.c)
+ * Callees:
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 __fastcall XmInt1aFindPciDevice(__int64 a1)
 {
   unsigned int v1; // r15d

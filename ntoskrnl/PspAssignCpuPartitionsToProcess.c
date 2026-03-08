@@ -1,3 +1,15 @@
+/*
+ * XREFs of PspAssignCpuPartitionsToProcess @ 0x1409ADDC4
+ * Callers:
+ *     NtSetInformationProcess @ 0x1406EDFF0 (NtSetInformationProcess.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KeAssignCpuPartitionsToProcess @ 0x1405725AC (KeAssignCpuPartitionsToProcess.c)
+ *     PspReferenceCpuPartitionByHandle @ 0x1409AE694 (PspReferenceCpuPartitionByHandle.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall PspAssignCpuPartitionsToProcess(__int64 a1, __int64 a2, __int64 a3, unsigned int a4, char a5)
 {
   __int64 v6; // rdi

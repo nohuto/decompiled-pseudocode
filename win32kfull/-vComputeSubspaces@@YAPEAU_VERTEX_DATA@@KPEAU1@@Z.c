@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vComputeSubspaces@@YAPEAU_VERTEX_DATA@@KPEAU1@@Z @ 0x1C028B0DC
+ * Callers:
+ *     EngDitherColor @ 0x1C028B920 (EngDitherColor.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _VERTEX_DATA *__fastcall vComputeSubspaces(unsigned int a1, struct _VERTEX_DATA *a2)
 {
   unsigned int v2; // r8d

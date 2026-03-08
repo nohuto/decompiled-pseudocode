@@ -1,3 +1,16 @@
+/*
+ * XREFs of VrpFindDiffHiveEntryForMountPoint @ 0x140737B9C
+ * Callers:
+ *     VrpUnloadDifferencingHive @ 0x1407379FC (VrpUnloadDifferencingHive.c)
+ * Callees:
+ *     ExfReleasePushLock @ 0x140238E10 (ExfReleasePushLock.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPreAcquire @ 0x1402627F0 (KeAbPreAcquire.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegionThread @ 0x14030F120 (KeLeaveCriticalRegionThread.c)
+ *     VrpFindDiffHiveEntryForMountPointWithLock @ 0x140737F24 (VrpFindDiffHiveEntryForMountPointWithLock.c)
+ */
+
 __int64 __fastcall VrpFindDiffHiveEntryForMountPoint(PCUNICODE_STRING String1)
 {
   struct _KTHREAD *CurrentThread; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of KeReenterRetpolinedCode @ 0x14040ACB0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     KxReenterRetpolinedCode @ 0x140571938 (KxReenterRetpolinedCode.c)
+ */
+
 unsigned __int8 KeReenterRetpolinedCode()
 {
   unsigned __int8 result; // al

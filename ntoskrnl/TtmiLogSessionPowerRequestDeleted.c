@@ -1,3 +1,13 @@
+/*
+ * XREFs of TtmiLogSessionPowerRequestDeleted @ 0x1409A6B44
+ * Callers:
+ *     TtmNotifySessionPowerRequestDeleted @ 0x1409A1578 (TtmNotifySessionPowerRequestDeleted.c)
+ * Callees:
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ */
+
 void TtmiLogSessionPowerRequestDeleted()
 {
   __int64 v0; // rdx

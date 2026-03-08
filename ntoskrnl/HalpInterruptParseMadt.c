@@ -1,3 +1,16 @@
+/*
+ * XREFs of HalpInterruptParseMadt @ 0x140376468
+ * Callers:
+ *     HalpInterruptParseAcpiTables @ 0x140376A1C (HalpInterruptParseAcpiTables.c)
+ * Callees:
+ *     HalpInterruptGsiToLine @ 0x14028EF10 (HalpInterruptGsiToLine.c)
+ *     HalpInterruptSortProcessorTable @ 0x1403769D8 (HalpInterruptSortProcessorTable.c)
+ *     HalpMmAllocateMemoryInternal @ 0x14037A7A8 (HalpMmAllocateMemoryInternal.c)
+ *     HalpInterruptBlockSmtSiblings @ 0x140518160 (HalpInterruptBlockSmtSiblings.c)
+ *     HalpInterruptMapParkedPage @ 0x1405182F0 (HalpInterruptMapParkedPage.c)
+ *     HalpInterruptSetProblemEx @ 0x140518598 (HalpInterruptSetProblemEx.c)
+ */
+
 __int64 __fastcall HalpInterruptParseMadt(__int64 a1, int a2)
 {
   __int64 v2; // r12

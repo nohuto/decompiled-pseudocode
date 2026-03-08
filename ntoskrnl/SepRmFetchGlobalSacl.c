@@ -1,3 +1,17 @@
+/*
+ * XREFs of SepRmFetchGlobalSacl @ 0x14084B3BC
+ * Callers:
+ *     SepRmGlobalSaclSetWrkr @ 0x14084B320 (SepRmGlobalSaclSetWrkr.c)
+ * Callees:
+ *     RtlStringCchCatNW @ 0x1403A1A98 (RtlStringCchCatNW.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     SepRegOpenKey @ 0x140739428 (SepRegOpenKey.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall SepRmFetchGlobalSacl(STRSAFE_PCNZWCH *a1, ULONG *a2, _QWORD *a3)
 {
   unsigned __int64 v6; // rbx

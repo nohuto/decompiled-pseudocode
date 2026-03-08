@@ -1,3 +1,17 @@
+/*
+ * XREFs of xxxRestoreCsrssThreadDesktop @ 0x1C0093CF0
+ * Callers:
+ *     xxxQueryInformationThread @ 0x1C0093274 (xxxQueryInformationThread.c)
+ *     xxxSetInformationThread @ 0x1C0093B70 (xxxSetInformationThread.c)
+ *     xxxHardErrorControl @ 0x1C0226A64 (xxxHardErrorControl.c)
+ * Callees:
+ *     xxxSetThreadDesktop @ 0x1C00361B8 (xxxSetThreadDesktop.c)
+ *     xxxDispatchMessage @ 0x1C0038064 (xxxDispatchMessage.c)
+ *     xxxInternalGetMessage @ 0x1C00946B0 (xxxInternalGetMessage.c)
+ *     CloseProtectedHandle @ 0x1C0094854 (CloseProtectedHandle.c)
+ *     SendMsgCleanup @ 0x1C0094980 (SendMsgCleanup.c)
+ */
+
 __int64 __fastcall xxxRestoreCsrssThreadDesktop(__int64 *a1, char a2, __int64 a3)
 {
   __int64 v5; // rax

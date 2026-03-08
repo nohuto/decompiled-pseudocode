@@ -1,3 +1,13 @@
+/*
+ * XREFs of PopMapInternalActionToIrpAction @ 0x140584D54
+ * Callers:
+ *     PopRequestPowerIrp @ 0x1402BA570 (PopRequestPowerIrp.c)
+ *     PoBroadcastSystemState @ 0x140AA38F8 (PoBroadcastSystemState.c)
+ *     PopNotifyDevice @ 0x140AA415C (PopNotifyDevice.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall PopMapInternalActionToIrpAction(unsigned int a1, int a2, char a3)
 {
   __int64 result; // rax

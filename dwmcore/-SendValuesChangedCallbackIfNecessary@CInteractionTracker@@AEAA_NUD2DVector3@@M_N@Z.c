@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?SendValuesChangedCallbackIfNecessary@CInteractionTracker@@AEAA_NUD2DVector3@@M_N@Z @ 0x1802312E8
+ * Callers:
+ *     ?SendPendingCallbacks@CInteractionTracker@@AEAAXXZ @ 0x18012EA46 (-SendPendingCallbacks@CInteractionTracker@@AEAAXXZ.c)
+ *     ?SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z @ 0x18012ECB2 (-SendPendingStateChangeCallbacks@CInteractionTracker@@AEAAX_N@Z.c)
+ * Callees:
+ *     ?ShouldNotify@CInteractionTracker@@AEAA_NI@Z @ 0x18012F300 (-ShouldNotify@CInteractionTracker@@AEAA_NI@Z.c)
+ */
+
 char __fastcall CInteractionTracker::SendValuesChangedCallbackIfNecessary(__int64 a1, __int64 *a2, float a3)
 {
   char v4; // di

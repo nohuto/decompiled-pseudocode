@@ -1,3 +1,18 @@
+/*
+ * XREFs of SdbpCheckAttribute @ 0x1407A0F7C
+ * Callers:
+ *     SdbpCheckAllAttributes @ 0x1407A24E8 (SdbpCheckAllAttributes.c)
+ * Callees:
+ *     Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage @ 0x1404117B8 (Feature_Servicing_MercuryNewSdbTagsForBackup__private_IsEnabledDeviceUsage.c)
+ *     AslStringPatternMatchExW @ 0x14077790C (AslStringPatternMatchExW.c)
+ *     AslLogCallPrintf @ 0x14079CA00 (AslLogCallPrintf.c)
+ *     SdbpCheckUptoVersion @ 0x140860A14 (SdbpCheckUptoVersion.c)
+ *     SdbpCheckFromStringVersion @ 0x140A50788 (SdbpCheckFromStringVersion.c)
+ *     SdbpCheckFromVersion @ 0x140A508BC (SdbpCheckFromVersion.c)
+ *     SdbpCheckUptoStringVersion @ 0x140A50900 (SdbpCheckUptoStringVersion.c)
+ *     SdbpCheckVersion @ 0x140A50A40 (SdbpCheckVersion.c)
+ */
+
 __int64 __fastcall SdbpCheckAttribute(_DWORD *a1, unsigned __int16 a2, __int16 *a3, unsigned int a4, __int64 a5)
 {
   int v5; // ebx

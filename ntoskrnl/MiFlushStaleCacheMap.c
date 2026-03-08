@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiFlushStaleCacheMap @ 0x14062BB84
+ * Callers:
+ *     MiDeleteStaleCacheMaps @ 0x14062B5C0 (MiDeleteStaleCacheMaps.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     MiFlushCacheMdl @ 0x14065E8C0 (MiFlushCacheMdl.c)
+ */
+
 __int64 __fastcall MiFlushStaleCacheMap(__int64 a1)
 {
   __int64 v2; // rsi

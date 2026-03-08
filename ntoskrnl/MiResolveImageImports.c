@@ -1,3 +1,17 @@
+/*
+ * XREFs of MiResolveImageImports @ 0x14076F7A4
+ * Callers:
+ *     MmLoadSystemImageEx @ 0x14072E4EC (MmLoadSystemImageEx.c)
+ * Callees:
+ *     MiSetImageProtection @ 0x1402E3BB8 (MiSetImageProtection.c)
+ *     MiSectionControlArea @ 0x1403349C0 (MiSectionControlArea.c)
+ *     MmDecodeExportSection @ 0x14035D424 (MmDecodeExportSection.c)
+ *     MmEncodeExportSection @ 0x14035D5C0 (MmEncodeExportSection.c)
+ *     RtlImageDirectoryEntryToData @ 0x14035E710 (RtlImageDirectoryEntryToData.c)
+ *     MiResolveImageReferences @ 0x1407EC794 (MiResolveImageReferences.c)
+ *     MiLogStrongCodeDriverLoadFailure @ 0x140A2D7CC (MiLogStrongCodeDriverLoadFailure.c)
+ */
+
 __int64 __fastcall MiResolveImageImports(__int64 a1, __int64 a2, int a3, int a4, int a5, _BYTE *a6)
 {
   __int64 v6; // r12

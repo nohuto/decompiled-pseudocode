@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0pppffff_EventWriteTransfer @ 0x18012E414
+ * Callers:
+ *     ?Draw@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@Z @ 0x18000CC70 (-Draw@CCompositionSurfaceBitmap@@UEAAJPEAVCDrawingContext@@AEBUD2D_SIZE_F@@PEAVCDrawListCache@@@.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 __int64 McTemplateU0pppffff_EventWriteTransfer(__int64 a1, __int64 a2, ...)
 {
   _BYTE v3[16]; // [rsp+30h] [rbp-61h] BYREF

@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateK0qpt_EtwWriteTransfer @ 0x1C01664AC
+ * Callers:
+ *     EtwTraceFlipManagerBufferAvailable @ 0x1C0162630 (EtwTraceFlipManagerBufferAvailable.c)
+ * Callees:
+ *     McGenEventWrite_EtwWriteTransfer @ 0x1C0038218 (McGenEventWrite_EtwWriteTransfer.c)
+ *     __security_check_cookie @ 0x1C00DA480 (__security_check_cookie.c)
+ */
+
 NTSTATUS __fastcall McTemplateK0qpt_EtwWriteTransfer(__int64 a1, __int64 a2, __int64 a3, int a4, char a5, char a6)
 {
   struct _EVENT_DATA_DESCRIPTOR v7; // [rsp+30h] [rbp-50h] BYREF

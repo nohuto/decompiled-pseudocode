@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?ReportInertiaStop@CInteraction@@QEAAJXZ @ 0x180209688
+ * Callers:
+ *     ?OnInteractionTrackerTransitionToIdle@InteractionSourceManager@@QEAAXW4ScrollState@@@Z @ 0x180271598 (-OnInteractionTrackerTransitionToIdle@InteractionSourceManager@@QEAAXW4ScrollState@@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall CInteraction::ReportInertiaStop(CInteraction *this)
 {
   unsigned int v2; // ebx

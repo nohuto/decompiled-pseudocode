@@ -1,3 +1,12 @@
+/*
+ * XREFs of SiIsValidWindowsBootEntry @ 0x140A5D620
+ * Callers:
+ *     SiGetEspFromFirmware @ 0x140A5D1A4 (SiGetEspFromFirmware.c)
+ * Callees:
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     wcsnlen @ 0x1403D5F60 (wcsnlen.c)
+ */
+
 bool __fastcall SiIsValidWindowsBootEntry(_DWORD *a1, __int64 a2)
 {
   const wchar_t *v4; // rcx

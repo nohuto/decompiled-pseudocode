@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetBiosNumLockStatus@@YAXXZ @ 0x1C0079414
+ * Callers:
+ *     InitKeyboard @ 0x1C007B470 (InitKeyboard.c)
+ * Callees:
+ *     <none>
+ */
+
 void GetBiosNumLockStatus(void)
 {
   _INTERFACE_TYPE v0; // ebx

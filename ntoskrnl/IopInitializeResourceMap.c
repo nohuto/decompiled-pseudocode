@@ -1,3 +1,20 @@
+/*
+ * XREFs of IopInitializeResourceMap @ 0x140B36130
+ * Callers:
+ *     IopInitializePlugPlayServices @ 0x140B599CC (IopInitializePlugPlayServices.c)
+ * Callees:
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     RtlCmEncodeMemIoResource @ 0x140370750 (RtlCmEncodeMemIoResource.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     __report_rangecheckfailure @ 0x1404FBCCC (__report_rangecheckfailure.c)
+ *     IopCreateRegistryKeyEx @ 0x14078BB90 (IopCreateRegistryKeyEx.c)
+ *     IopWriteResourceList @ 0x140806358 (IopWriteResourceList.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     MmInitializeMemoryLimits @ 0x140B3647C (MmInitializeMemoryLimits.c)
+ */
+
 void __fastcall IopInitializeResourceMap(__int64 a1)
 {
   __int64 v1; // rbx

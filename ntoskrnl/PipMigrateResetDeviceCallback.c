@@ -1,3 +1,14 @@
+/*
+ * XREFs of PipMigrateResetDeviceCallback @ 0x140B91320
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _wcsicmp @ 0x1403D3ED0 (_wcsicmp.c)
+ *     _CmSetDeviceRegProp @ 0x140684F2C (_CmSetDeviceRegProp.c)
+ *     _PnpSetObjectProperty @ 0x140686C8C (_PnpSetObjectProperty.c)
+ *     _CmGetDeviceRegProp @ 0x1406C9884 (_CmGetDeviceRegProp.c)
+ */
+
 char __fastcall PipMigrateResetDeviceCallback(__int64 a1, const wchar_t *a2)
 {
   int v4; // eax

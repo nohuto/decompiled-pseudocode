@@ -1,3 +1,11 @@
+/*
+ * XREFs of IvtInitializeLargePagePte @ 0x14052ADD0
+ * Callers:
+ *     IvtInitializeIdentityMappings @ 0x14052ABF4 (IvtInitializeIdentityMappings.c)
+ * Callees:
+ *     <none>
+ */
+
 unsigned __int64 __fastcall IvtInitializeLargePagePte(unsigned __int64 *a1, __int64 a2, int a3)
 {
   __int64 v4; // r10

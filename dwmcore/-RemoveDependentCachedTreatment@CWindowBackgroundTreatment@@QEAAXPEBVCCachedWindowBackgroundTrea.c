@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?RemoveDependentCachedTreatment@CWindowBackgroundTreatment@@QEAAXPEBVCCachedWindowBackgroundTreatment@@@Z @ 0x18000BA6C
+ * Callers:
+ *     ??1CCachedWindowBackgroundTreatment@@EEAA@XZ @ 0x18000A45C (--1CCachedWindowBackgroundTreatment@@EEAA@XZ.c)
+ *     ?Update@CCachedWindowBackgroundTreatment@@QEAAJPEAVCWindowBackgroundTreatment@@PEAVIBitmapRealization@@AEBVCMILMatrix@@AEBV?$TMil3DRect@MV?$TMilRect_@MUMilRectF@@UMil3DRectF@@UMilPointAndSizeF@@UNotNeeded@RectUniqueness@@@@UMil3DRectF@@UNotNeeded@RectUniqueness@@@@AEBU_D3DCOLORVALUE@@@Z @ 0x18000B124 (-Update@CCachedWindowBackgroundTreatment@@QEAAJPEAVCWindowBackgroundTreatment@@PEAVIBitmapRealiz.c)
+ * Callees:
+ *     memmove_0 @ 0x1801177F4 (memmove_0.c)
+ */
+
 void __fastcall CWindowBackgroundTreatment::RemoveDependentCachedTreatment(
         CWindowBackgroundTreatment *this,
         const struct CCachedWindowBackgroundTreatment *a2)

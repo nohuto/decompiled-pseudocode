@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPIEmQueryFailDeviceResetOnOpenHandles @ 0x1C00439DC
+ * Callers:
+ *     ACPIBusIrpQueryId @ 0x1C0080330 (ACPIBusIrpQueryId.c)
+ *     ACPIFilterIrpQueryIdCompletion @ 0x1C0085F40 (ACPIFilterIrpQueryIdCompletion.c)
+ * Callees:
+ *     ACPIComputeDeviceIdMutiStringLength @ 0x1C0043918 (ACPIComputeDeviceIdMutiStringLength.c)
+ */
+
 __int64 __fastcall ACPIEmQueryFailDeviceResetOnOpenHandles(int a1, _WORD *a2)
 {
   __int64 v2; // r10

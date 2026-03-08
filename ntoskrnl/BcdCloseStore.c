@@ -1,3 +1,25 @@
+/*
+ * XREFs of BcdCloseStore @ 0x14082C570
+ * Callers:
+ *     WheaPersistBadPageToBcd @ 0x14060F9E0 (WheaPersistBadPageToBcd.c)
+ *     PoInitHiberServices @ 0x14082B1B0 (PoInitHiberServices.c)
+ *     PopBcdClose @ 0x14082B524 (PopBcdClose.c)
+ *     BiLoadSystemStore @ 0x14082B7EC (BiLoadSystemStore.c)
+ *     PopAllocateHiberContext @ 0x140984D38 (PopAllocateHiberContext.c)
+ *     PopFreeHiberContext @ 0x1409855F0 (PopFreeHiberContext.c)
+ *     SepSecureBootCorrectBcd @ 0x1409CDB74 (SepSecureBootCorrectBcd.c)
+ *     BapdpProcessBCDCache @ 0x140B44668 (BapdpProcessBCDCache.c)
+ * Callees:
+ *     BiIsSynchFirmwareEntries @ 0x14039026C (BiIsSynchFirmwareEntries.c)
+ *     BiIsOfflineHandle @ 0x1403903FC (BiIsOfflineHandle.c)
+ *     BiCloseStore @ 0x14082BD84 (BiCloseStore.c)
+ *     BiIsSystemStore @ 0x14082C6CC (BiIsSystemStore.c)
+ *     BiIsWinPEBoot @ 0x14082C790 (BiIsWinPEBoot.c)
+ *     BiLogMessage @ 0x14082ECFC (BiLogMessage.c)
+ *     BiAcquireBcdSyncMutant @ 0x14082ED10 (BiAcquireBcdSyncMutant.c)
+ *     BiReleaseBcdSyncMutant @ 0x14082EDB8 (BiReleaseBcdSyncMutant.c)
+ */
+
 __int64 __fastcall BcdCloseStore(__int64 a1)
 {
   __int64 v2; // rcx

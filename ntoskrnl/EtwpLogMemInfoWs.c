@@ -1,3 +1,22 @@
+/*
+ * XREFs of EtwpLogMemInfoWs @ 0x1408A21C4
+ * Callers:
+ *     EtwpPerfMemInfoWork @ 0x1408A27F0 (EtwpPerfMemInfoWork.c)
+ *     EtwpLogMemInfoRundown @ 0x1409EBF14 (EtwpLogMemInfoRundown.c)
+ * Callees:
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwQuerySystemInformation @ 0x1404129D0 (ZwQuerySystemInformation.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     PsGetNextProcess @ 0x1406AA530 (PsGetNextProcess.c)
+ *     SmProcessQueryStoreStats @ 0x1408A1FF4 (SmProcessQueryStoreStats.c)
+ *     EtwpLogSessionWorkingSetInfo @ 0x1408A25EC (EtwpLogSessionWorkingSetInfo.c)
+ *     EtwpLogMemInfoWsHelper @ 0x1409E3278 (EtwpLogMemInfoWsHelper.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall EtwpLogMemInfoWs(__int64 a1, unsigned __int64 a2)
 {
   unsigned int v4; // esi

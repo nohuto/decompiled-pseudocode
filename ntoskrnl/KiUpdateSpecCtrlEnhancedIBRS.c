@@ -1,3 +1,11 @@
+/*
+ * XREFs of KiUpdateSpecCtrlEnhancedIBRS @ 0x140458628
+ * Callers:
+ *     KiUpdateSpeculationControl @ 0x1402BEF60 (KiUpdateSpeculationControl.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall KiUpdateSpecCtrlEnhancedIBRS(__int64 a1, __int64 a2)
 {
   __int64 v2; // rax

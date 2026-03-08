@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?SetRotationAngle@CCursorState@@UEAAXM@Z @ 0x180277C40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?ScheduleCompositionPass@CCursorState@@AEAAXXZ @ 0x180277A58 (-ScheduleCompositionPass@CCursorState@@AEAAXXZ.c)
+ */
+
 void __fastcall CCursorState::SetRotationAngle(CCursorState *this, float a2)
 {
   EnterCriticalSection(&g_CursorManager);

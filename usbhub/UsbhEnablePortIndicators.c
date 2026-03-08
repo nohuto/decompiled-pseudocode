@@ -1,3 +1,14 @@
+/*
+ * XREFs of UsbhEnablePortIndicators @ 0x1C002F198
+ * Callers:
+ *     UsbhFinishStart @ 0x1C00378F4 (UsbhFinishStart.c)
+ * Callees:
+ *     FdoExt @ 0x1C000DEB0 (FdoExt.c)
+ *     UsbhGetPortData @ 0x1C0019550 (UsbhGetPortData.c)
+ *     WPP_RECORDER_SF_ @ 0x1C002E4E8 (WPP_RECORDER_SF_.c)
+ *     UsbhDispatch_PindicatorEvent @ 0x1C002F098 (UsbhDispatch_PindicatorEvent.c)
+ */
+
 _UNKNOWN **__fastcall UsbhEnablePortIndicators(__int64 a1)
 {
   _DWORD *v2; // rbx

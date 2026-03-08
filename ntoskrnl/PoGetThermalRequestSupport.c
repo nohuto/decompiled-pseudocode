@@ -1,3 +1,12 @@
+/*
+ * XREFs of PoGetThermalRequestSupport @ 0x14085D140
+ * Callers:
+ *     PoSetThermalActiveCooling @ 0x14097FC40 (PoSetThermalActiveCooling.c)
+ *     PoSetThermalPassiveCooling @ 0x14097FCF0 (PoSetThermalPassiveCooling.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall PoGetThermalRequestSupport(__int64 a1, int a2)
 {
   __int64 v2; // r8

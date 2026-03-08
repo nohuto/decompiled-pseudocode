@@ -1,3 +1,12 @@
+/*
+ * XREFs of PipDmgInitPhaseZero @ 0x140B5AA38
+ * Callers:
+ *     PiDmaGuardInitialize @ 0x1403895B8 (PiDmaGuardInitialize.c)
+ * Callees:
+ *     ExInitializeResourceLite @ 0x14030FAB0 (ExInitializeResourceLite.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 PipDmgInitPhaseZero()
 {
   char v1; // [rsp+40h] [rbp+8h] BYREF

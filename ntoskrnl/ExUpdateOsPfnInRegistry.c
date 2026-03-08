@@ -1,3 +1,12 @@
+/*
+ * XREFs of ExUpdateOsPfnInRegistry @ 0x1409F6A70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     PsGetCurrentServerSiloGlobals @ 0x140267B30 (PsGetCurrentServerSiloGlobals.c)
+ *     _guard_dispatch_icall @ 0x1404211D0 (_guard_dispatch_icall.c)
+ */
+
 __int64 ExUpdateOsPfnInRegistry()
 {
   __int64 v0; // rdx

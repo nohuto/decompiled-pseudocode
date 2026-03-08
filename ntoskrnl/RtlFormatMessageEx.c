@@ -1,3 +1,16 @@
+/*
+ * XREFs of RtlFormatMessageEx @ 0x1409B6C28
+ * Callers:
+ *     PiGetDeviceRegProperty @ 0x1406C6230 (PiGetDeviceRegProperty.c)
+ *     PiGetDeviceRegistryProperty @ 0x140951DA8 (PiGetDeviceRegistryProperty.c)
+ *     RtlFormatMessage @ 0x1409B6BD0 (RtlFormatMessage.c)
+ * Callees:
+ *     RtlStringCchPrintfExW @ 0x140245C80 (RtlStringCchPrintfExW.c)
+ *     RtlStringCbCopyExW @ 0x1402E1820 (RtlStringCbCopyExW.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ */
+
 __int64 __fastcall RtlFormatMessageEx(
         __int16 *a1,
         unsigned int a2,

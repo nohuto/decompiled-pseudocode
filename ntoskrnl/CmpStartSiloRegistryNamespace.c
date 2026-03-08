@@ -1,3 +1,22 @@
+/*
+ * XREFs of CmpStartSiloRegistryNamespace @ 0x140738F48
+ * Callers:
+ *     CmInitSiloNamespace @ 0x1407388F8 (CmInitSiloNamespace.c)
+ *     CmInitServerSiloState @ 0x140816884 (CmInitServerSiloState.c)
+ * Callees:
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpLockKcbStackExclusive @ 0x1406B7DF8 (CmpLockKcbStackExclusive.c)
+ *     CmpCleanupParseContext @ 0x1406BD6A8 (CmpCleanupParseContext.c)
+ *     CmpUnlockKcbStack @ 0x1407ABFF8 (CmpUnlockKcbStack.c)
+ *     CmpStartKcbStackForTopLayerKcb @ 0x1407AF294 (CmpStartKcbStackForTopLayerKcb.c)
+ *     CmpCreateKeyBody @ 0x1407BA4F0 (CmpCreateKeyBody.c)
+ *     CmpLockRegistry @ 0x140AF2270 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ */
+
 __int64 __fastcall CmpStartSiloRegistryNamespace(__int64 a1)
 {
   __int64 v2; // rdx

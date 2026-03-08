@@ -1,3 +1,13 @@
+/*
+ * XREFs of ?EtwpGetLastInputProcessTime@@YAXQEAUtagQ@@KPEAK1PEAIPEA_K@Z @ 0x1C0161690
+ * Callers:
+ *     xxxDestroyThreadInfo @ 0x1C0072BF4 (xxxDestroyThreadInfo.c)
+ *     EtwTraceMessageCheckDelay @ 0x1C0092210 (EtwTraceMessageCheckDelay.c)
+ *     ?EtwCaptureStateCallback@@YAXXZ @ 0x1C0160F44 (-EtwCaptureStateCallback@@YAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall EtwpGetLastInputProcessTime(
         struct tagQ *const a1,
         int a2,

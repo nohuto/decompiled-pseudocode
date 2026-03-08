@@ -1,3 +1,14 @@
+/*
+ * XREFs of ?UmfdEscPATHOBJ_bCommonTo@@YAHP6AHPEAU_PATHOBJ@@PEAU_POINTFIX@@K@Z01K@Z @ 0x1C02A9E20
+ * Callers:
+ *     UmfdDispatchEscape @ 0x1C00BB270 (UmfdDispatchEscape.c)
+ * Callees:
+ *     ?EnsureTls@UmfdTls@@SAPEAV1@XZ @ 0x1C00BBD4C (-EnsureTls@UmfdTls@@SAPEAV1@XZ.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0130B00 (_guard_dispatch_icall_nop.c)
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     ULongLongMult @ 0x1C014D830 (ULongLongMult.c)
+ */
+
 __int64 __fastcall UmfdEscPATHOBJ_bCommonTo(
         int (*a1)(struct _PATHOBJ *, struct _POINTFIX *, unsigned int),
         struct _PATHOBJ *a2,

@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiEmptyPte @ 0x1402DE8B0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MiEmptyWorkingSetHelper @ 0x1402DE91C (MiEmptyWorkingSetHelper.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ */
+
 __int64 __fastcall MiEmptyPte(__int64 a1, __int64 a2, int a3)
 {
   int *v3; // rsi

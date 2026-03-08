@@ -1,3 +1,14 @@
+/*
+ * XREFs of RootHub_UcxEvtGet30PortInfo @ 0x1C001BF70
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_d @ 0x1C0018458 (WPP_RECORDER_SF_d.c)
+ *     RootHub_Read30PortSpeeds @ 0x1C001C170 (RootHub_Read30PortSpeeds.c)
+ *     __security_check_cookie @ 0x1C001E820 (__security_check_cookie.c)
+ *     _guard_dispatch_icall_nop @ 0x1C0020390 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall RootHub_UcxEvtGet30PortInfo(__int64 a1, __int64 a2)
 {
   __int64 v3; // rbx

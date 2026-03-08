@@ -1,3 +1,11 @@
+/*
+ * XREFs of _RtlpMuiRegAddNeutralLanguage @ 0x140844470
+ * Callers:
+ *     _RtlpMuiRegInitAnyLanguage @ 0x140844394 (_RtlpMuiRegInitAnyLanguage.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall RtlpMuiRegAddNeutralLanguage(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

@@ -1,3 +1,11 @@
+/*
+ * XREFs of SymCryptFdefBitsizeOfUint32 @ 0x1403FF94C
+ * Callers:
+ *     SymCryptFdefIntBitsizeOfValue @ 0x1403FFB50 (SymCryptFdefIntBitsizeOfValue.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall SymCryptFdefBitsizeOfUint32(int a1)
 {
   int v1; // r10d

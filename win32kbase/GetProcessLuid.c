@@ -1,3 +1,14 @@
+/*
+ * XREFs of GetProcessLuid @ 0x1C00727F0
+ * Callers:
+ *     xxxUpdatePerUserAccessPackSettings @ 0x1C0017E70 (xxxUpdatePerUserAccessPackSettings.c)
+ *     xxxODI_ColorInit @ 0x1C0018A90 (xxxODI_ColorInit.c)
+ *     xxxInitProcessInfo @ 0x1C0070EFC (xxxInitProcessInfo.c)
+ *     ?InitPreviousUserString@@YAXXZ @ 0x1C007271C (-InitPreviousUserString@@YAXXZ.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall GetProcessLuid(PETHREAD Thread, PLUID AuthenticationId)
 {
   struct _KTHREAD *CurrentThread; // rbx

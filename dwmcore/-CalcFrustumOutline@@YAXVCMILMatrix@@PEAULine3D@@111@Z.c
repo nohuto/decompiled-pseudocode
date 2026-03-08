@@ -1,3 +1,17 @@
+/*
+ * XREFs of ?CalcFrustumOutline@@YAXVCMILMatrix@@PEAULine3D@@111@Z @ 0x180215908
+ * Callers:
+ *     ?CalcEyePointOrVector@CCompositionLight@@IEBA?AUfloat4@Numerics@Foundation@Windows@@PEAVCVisual@@@Z @ 0x18021554C (-CalcEyePointOrVector@CCompositionLight@@IEBA-AUfloat4@Numerics@Foundation@Windows@@PEAVCVisual@.c)
+ * Callees:
+ *     ?Transform@CMILMatrix@@QEBAXPEBUMilPoint4F@@PEAU2@I@Z @ 0x18000A0D4 (-Transform@CMILMatrix@@QEBAXPEBUMilPoint4F@@PEAU2@I@Z.c)
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     floorf_0 @ 0x180117728 (floorf_0.c)
+ *     log10f_0 @ 0x180117758 (log10f_0.c)
+ *     powf_0 @ 0x18011777C (powf_0.c)
+ *     sqrtf_0 @ 0x1801177AC (sqrtf_0.c)
+ *     ??0Line3D@@QEAA@UMilPoint4F@@0@Z @ 0x180215470 (--0Line3D@@QEAA@UMilPoint4F@@0@Z.c)
+ */
+
 __int64 __fastcall CalcFrustumOutline(CMILMatrix *a1, __int64 a2, __int64 a3, __int64 a4, _OWORD *a5)
 {
   float *v5; // rbx

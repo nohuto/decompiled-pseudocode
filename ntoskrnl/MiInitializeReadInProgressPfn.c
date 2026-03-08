@@ -1,3 +1,21 @@
+/*
+ * XREFs of MiInitializeReadInProgressPfn @ 0x140289390
+ * Callers:
+ *     MiPfPutPagesInTransition @ 0x140288890 (MiPfPutPagesInTransition.c)
+ *     MiPrivateFixup @ 0x1402A180C (MiPrivateFixup.c)
+ *     MiResolvePageFileFault @ 0x140668EDC (MiResolvePageFileFault.c)
+ * Callees:
+ *     MiLocateAddress @ 0x140228680 (MiLocateAddress.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiIsPrototypePteVadLookup @ 0x140327240 (MiIsPrototypePteVadLookup.c)
+ *     MiSwizzleInvalidPte @ 0x14032F600 (MiSwizzleInvalidPte.c)
+ *     MiUnlockVadTree @ 0x140330EC8 (MiUnlockVadTree.c)
+ *     MiLockVadTree @ 0x1403334B4 (MiLockVadTree.c)
+ *     KeYieldProcessorEx @ 0x1403512B0 (KeYieldProcessorEx.c)
+ *     MiChangePageAttribute @ 0x14036CE40 (MiChangePageAttribute.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 char __fastcall MiInitializeReadInProgressPfn(
         unsigned __int64 a1,
         _QWORD *a2,

@@ -1,3 +1,29 @@
+/*
+ * XREFs of RtlUnicodeStringToAnsiString @ 0x1407A34D0
+ * Callers:
+ *     DbgUnicodeStringToAnsiString @ 0x14036C640 (DbgUnicodeStringToAnsiString.c)
+ *     DifRtlUnicodeStringToAnsiStringWrapper @ 0x1405E9890 (DifRtlUnicodeStringToAnsiStringWrapper.c)
+ *     EtwpBuildProcessEvent @ 0x14071DE28 (EtwpBuildProcessEvent.c)
+ *     CmpQueryDowncastString @ 0x14078C9F4 (CmpQueryDowncastString.c)
+ *     ExpConvertLdrEntryToModuleInfo @ 0x14079FD98 (ExpConvertLdrEntryToModuleInfo.c)
+ *     ExpQueryModuleInformation @ 0x1407A3330 (ExpQueryModuleInformation.c)
+ *     MmGetSystemRoutineAddress @ 0x1407EA850 (MmGetSystemRoutineAddress.c)
+ *     ObCreateObjectTypeEx @ 0x14080CB20 (ObCreateObjectTypeEx.c)
+ *     CmpLoadLayerVersion @ 0x140814A94 (CmpLoadLayerVersion.c)
+ *     KsepGetModuleInfoByName @ 0x1409745B4 (KsepGetModuleInfoByName.c)
+ *     NtQuerySystemEnvironmentValue @ 0x1409FC7C0 (NtQuerySystemEnvironmentValue.c)
+ *     NtSetSystemEnvironmentValue @ 0x1409FD130 (NtSetSystemEnvironmentValue.c)
+ *     ExpSystemErrorHandler2 @ 0x140AA7FE0 (ExpSystemErrorHandler2.c)
+ *     ViThunkHookExportAddress @ 0x140AD8C48 (ViThunkHookExportAddress.c)
+ *     HdlspProcessDumpCommand @ 0x140AE7CAC (HdlspProcessDumpCommand.c)
+ *     IopReassignSystemRoot @ 0x140B6CE8C (IopReassignSystemRoot.c)
+ * Callees:
+ *     ExpAllocateStringRoutine @ 0x140777DB0 (ExpAllocateStringRoutine.c)
+ *     RtlxUnicodeStringToOemSize @ 0x1407A0310 (RtlxUnicodeStringToOemSize.c)
+ *     RtlUnicodeToMultiByteN @ 0x1407A3650 (RtlUnicodeToMultiByteN.c)
+ *     ExFreePool @ 0x140AAB270 (ExFreePool.c)
+ */
+
 NTSTATUS __stdcall RtlUnicodeStringToAnsiString(
         PANSI_STRING DestinationString,
         PCUNICODE_STRING SourceString,

@@ -1,3 +1,17 @@
+/*
+ * XREFs of ACPIBuildPdo @ 0x1C000DC84
+ * Callers:
+ *     ACPIDetectDockDevices @ 0x1C0019FD0 (ACPIDetectDockDevices.c)
+ *     ACPIDetectPdoDevices @ 0x1C001AE34 (ACPIDetectPdoDevices.c)
+ * Callees:
+ *     AcpiArblibFreeArbiterInstance @ 0x1C000B64C (AcpiArblibFreeArbiterInstance.c)
+ *     AcpiArblibInitializeArbiter @ 0x1C000B688 (AcpiArblibInitializeArbiter.c)
+ *     ACPIAddInitializationDependencies @ 0x1C000BA98 (ACPIAddInitializationDependencies.c)
+ *     AcpiEvaluateBiosMethodsOnPciRootBus @ 0x1C00345C4 (AcpiEvaluateBiosMethodsOnPciRootBus.c)
+ *     AMLIIsNamedChildPresent @ 0x1C00487BC (AMLIIsNamedChildPresent.c)
+ *     ACPIIsDebuggingDevice @ 0x1C0098070 (ACPIIsDebuggingDevice.c)
+ */
+
 NTSTATUS __fastcall ACPIBuildPdo(struct _DRIVER_OBJECT *a1, __int64 a2, struct _DEVICE_OBJECT *a3, char a4)
 {
   __int64 v4; // r14

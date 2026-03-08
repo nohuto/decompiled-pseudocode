@@ -1,3 +1,17 @@
+/*
+ * XREFs of RtlDeleteAtomFromAtomTable @ 0x1407DBF30
+ * Callers:
+ *     NtDeleteAtom @ 0x1407DCF30 (NtDeleteAtom.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KeLeaveCriticalRegion @ 0x140262D70 (KeLeaveCriticalRegion.c)
+ *     RtlpLookupLowBox @ 0x140354C6C (RtlpLookupLowBox.c)
+ *     RtlpDereferenceAtom @ 0x140355550 (RtlpDereferenceAtom.c)
+ *     RtlpAtomMapAtomToHandleEntry @ 0x1407D8D38 (RtlpAtomMapAtomToHandleEntry.c)
+ *     RtlpLockAtomTable @ 0x1407DA790 (RtlpLockAtomTable.c)
+ */
+
 __int64 __fastcall RtlDeleteAtomFromAtomTable(__int64 a1, unsigned __int16 a2)
 {
   unsigned int v4; // ebx

@@ -1,3 +1,16 @@
+/*
+ * XREFs of MiFreePageFileHashPfns @ 0x1403619CC
+ * Callers:
+ *     MiScanPagefiles @ 0x140361A24 (MiScanPagefiles.c)
+ *     MiDeletePagefile @ 0x140A2FB40 (MiDeletePagefile.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiLockPageInline @ 0x1402A33B0 (MiLockPageInline.c)
+ *     RtlpInterlockedFlushSList @ 0x1404204E0 (RtlpInterlockedFlushSList.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiFreePageFileHashPfn @ 0x1406638E8 (MiFreePageFileHashPfn.c)
+ */
+
 __int64 __fastcall MiFreePageFileHashPfns(union _SLIST_HEADER *a1)
 {
   __int64 Region; // rbp

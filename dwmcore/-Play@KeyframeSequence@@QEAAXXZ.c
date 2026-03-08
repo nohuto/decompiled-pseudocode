@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?Play@KeyframeSequence@@QEAAXXZ @ 0x1800BCE40
+ * Callers:
+ *     ?CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z @ 0x1800561C0 (-CalculateValueWorker@CKeyframeAnimation@@UEAAJPEAVCExpressionValueStack@@_KPEA_N@Z.c)
+ *     ?Play@CKeyframeAnimation@@AEAAXPEAVCExpressionValueStack@@@Z @ 0x1800BCD94 (-Play@CKeyframeAnimation@@AEAAXPEAVCExpressionValueStack@@@Z.c)
+ *     ?Repeat@KeyframeSequence@@QEAAXH@Z @ 0x1800F92A8 (-Repeat@KeyframeSequence@@QEAAXH@Z.c)
+ * Callees:
+ *     ?SortKeyFrames@KeyframeSequence@@AEAAXXZ @ 0x1800BCF6C (-SortKeyFrames@KeyframeSequence@@AEAAXXZ.c)
+ *     ?ConfigureTimer@KeyframeSequence@@QEAAXXZ @ 0x1800BCFD0 (-ConfigureTimer@KeyframeSequence@@QEAAXXZ.c)
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ */
+
 void __fastcall KeyframeSequence::Play(KeyframeSequence *this)
 {
   char v1; // al

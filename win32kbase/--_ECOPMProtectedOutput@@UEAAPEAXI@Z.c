@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??_ECOPMProtectedOutput@@UEAAPEAXI@Z @ 0x1C0187E40
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ??1COPMProtectedOutput@@UEAA@XZ @ 0x1C0187E04 (--1COPMProtectedOutput@@UEAA@XZ.c)
+ */
+
 COPMProtectedOutput *__fastcall COPMProtectedOutput::`vector deleting destructor'(
         COPMProtectedOutput *P,
         unsigned int a2)

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PnpDisableInterfaces@FxPkgPnp@@IEAAXXZ @ 0x1C006A260
+ * Callers:
+ *     ?PnpCleanupForRemove@FxPkgPnp@@AEAAXE@Z @ 0x1C006A1BC (-PnpCleanupForRemove@FxPkgPnp@@AEAAXE@Z.c)
+ * Callees:
+ *     ?AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z @ 0x1C000134C (-AcquireLock@FxWaitLockInternal@@QEAAJPEAU_FX_DRIVER_GLOBALS@@PEA_J@Z.c)
+ */
+
 void __fastcall FxPkgPnp::PnpDisableInterfaces(FxPkgPnp *this, _FX_DRIVER_GLOBALS *a2)
 {
   FxWaitLockInternal *p_m_DeviceInterfaceLock; // rdi

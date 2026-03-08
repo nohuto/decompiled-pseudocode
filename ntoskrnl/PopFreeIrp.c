@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopFreeIrp @ 0x1402BB5E8
+ * Callers:
+ *     PopRequestCompletion @ 0x1402BB410 (PopRequestCompletion.c)
+ *     PopHandleDevicePowerIrpCompletion @ 0x1402BB4F0 (PopHandleDevicePowerIrpCompletion.c)
+ *     PopSystemIrpCompletion @ 0x140AA4450 (PopSystemIrpCompletion.c)
+ * Callees:
+ *     ExFreeToNPagedLookasideList @ 0x140298E70 (ExFreeToNPagedLookasideList.c)
+ *     PopFxReleasePowerIrp @ 0x1402BA1B4 (PopFxReleasePowerIrp.c)
+ *     IoFreeIrp @ 0x14030EC00 (IoFreeIrp.c)
+ *     ObfDereferenceObjectWithTag @ 0x140312100 (ObfDereferenceObjectWithTag.c)
+ *     KxReleaseQueuedSpinLock @ 0x14033A950 (KxReleaseQueuedSpinLock.c)
+ *     KeAcquireInStackQueuedSpinLock @ 0x14033B450 (KeAcquireInStackQueuedSpinLock.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ */
+
 LONG_PTR __fastcall PopFreeIrp(PIRP Irp)
 {
   __int64 *v2; // rbx

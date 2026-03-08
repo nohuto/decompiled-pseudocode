@@ -1,3 +1,15 @@
+/*
+ * XREFs of SiGetDeviceNumberInformation @ 0x140A5C84C
+ * Callers:
+ *     SiDisambiguateSystemDevice @ 0x140A5CCE4 (SiDisambiguateSystemDevice.c)
+ *     SiGetEspFromFirmware @ 0x140A5D1A4 (SiGetEspFromFirmware.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwDeviceIoControlFile @ 0x1404123F0 (ZwDeviceIoControlFile.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     SiOpenDevice @ 0x14076EB34 (SiOpenDevice.c)
+ */
+
 __int64 __fastcall SiGetDeviceNumberInformation(const WCHAR *a1, _DWORD *a2, _DWORD *a3)
 {
   NTSTATUS v5; // ebx

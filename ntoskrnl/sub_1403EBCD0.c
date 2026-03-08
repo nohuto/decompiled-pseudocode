@@ -1,3 +1,11 @@
+/*
+ * XREFs of sub_1403EBCD0 @ 0x1403EBCD0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     MmProbeAndLockPages @ 0x140267B90 (MmProbeAndLockPages.c)
+ */
+
 __int64 __fastcall sub_1403EBCD0(struct _MDL *a1, __int64 a2)
 {
   a1->Next = 0LL;

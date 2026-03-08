@@ -1,3 +1,15 @@
+/*
+ * XREFs of MiDeletePhysmemPte @ 0x1402FCF34
+ * Callers:
+ *     MiDeleteVa @ 0x140324900 (MiDeleteVa.c)
+ * Callees:
+ *     MiWritePteShadow @ 0x1402EB2BC (MiWritePteShadow.c)
+ *     MiPteHasShadow @ 0x1402EB31C (MiPteHasShadow.c)
+ *     MI_READ_PTE_LOCK_FREE @ 0x14031B450 (MI_READ_PTE_LOCK_FREE.c)
+ *     MiPteInShadowRange @ 0x14031B4C0 (MiPteInShadowRange.c)
+ *     MiInsertTbFlushEntry @ 0x1403298B0 (MiInsertTbFlushEntry.c)
+ */
+
 __int64 __fastcall MiDeletePhysmemPte(__int64 a1, __int64 a2)
 {
   int v4; // esi

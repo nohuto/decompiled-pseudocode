@@ -1,3 +1,11 @@
+/*
+ * XREFs of RtlpValidCompoundAce @ 0x1409B8D94
+ * Callers:
+ *     RtlValidAcl @ 0x1407BB670 (RtlValidAcl.c)
+ * Callees:
+ *     <none>
+ */
+
 bool __fastcall RtlpValidCompoundAce(__int64 a1)
 {
   unsigned __int64 v1; // rdx

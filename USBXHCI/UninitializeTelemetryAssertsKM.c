@@ -1,3 +1,11 @@
+/*
+ * XREFs of UninitializeTelemetryAssertsKM @ 0x1C0053B08
+ * Callers:
+ *     DriverCleanup @ 0x1C0079890 (DriverCleanup.c)
+ * Callees:
+ *     <none>
+ */
+
 NTSTATUS UninitializeTelemetryAssertsKM()
 {
   NTSTATUS result; // eax

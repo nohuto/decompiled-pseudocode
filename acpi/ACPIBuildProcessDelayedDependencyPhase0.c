@@ -1,3 +1,13 @@
+/*
+ * XREFs of ACPIBuildProcessDelayedDependencyPhase0 @ 0x1C000E320
+ * Callers:
+ *     <none>
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIBuildCompleteCommon @ 0x1C000BC30 (ACPIBuildCompleteCommon.c)
+ *     ACPIBuildProcessDelayedDependencyShouldDelayRequest @ 0x1C000E5D0 (ACPIBuildProcessDelayedDependencyShouldDelayRequest.c)
+ */
+
 __int64 __fastcall ACPIBuildProcessDelayedDependencyPhase0(__int64 a1)
 {
   __int64 v1; // rbx

@@ -1,3 +1,12 @@
+/*
+ * XREFs of NtGdiCreateDIBBrush @ 0x1C02D30C0
+ * Callers:
+ *     <none>
+ * Callees:
+ *     memmove @ 0x1C0130B80 (memmove.c)
+ *     GreCreateDIBBrush @ 0x1C02D2D2C (GreCreateDIBBrush.c)
+ */
+
 __int64 __fastcall NtGdiCreateDIBBrush(char *Src, unsigned int a2, unsigned int a3, int a4, int a5, HBITMAP a6)
 {
   size_t v7; // rsi

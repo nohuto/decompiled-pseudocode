@@ -1,3 +1,11 @@
+/*
+ * XREFs of DpiMiracastGetForcedMode @ 0x1C01F6C9C
+ * Callers:
+ *     DxgkMiracastQueryMiracastSupportInternal @ 0x1C01F7DCC (DxgkMiracastQueryMiracastSupportInternal.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ */
+
 __int64 DpiMiracastGetForcedMode()
 {
   __int64 result; // rax

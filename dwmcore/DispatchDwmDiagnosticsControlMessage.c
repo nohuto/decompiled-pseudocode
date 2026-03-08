@@ -1,3 +1,12 @@
+/*
+ * XREFs of DispatchDwmDiagnosticsControlMessage @ 0x180270044
+ * Callers:
+ *     McGenControlCallbackV2 @ 0x18001A340 (McGenControlCallbackV2.c)
+ * Callees:
+ *     ModuleFailFastForHRESULT @ 0x18026C718 (ModuleFailFastForHRESULT.c)
+ *     ?HandleMessage@DwmDiagnosticsControlMessage_0@@SAXPEBU1@@Z @ 0x180270104 (-HandleMessage@DwmDiagnosticsControlMessage_0@@SAXPEBU1@@Z.c)
+ */
+
 void __fastcall DispatchDwmDiagnosticsControlMessage(struct DwmDiagnosticsControlMessage_0 *a1)
 {
   DWORD CurrentProcessId; // eax

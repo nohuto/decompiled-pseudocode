@@ -1,3 +1,11 @@
+/*
+ * XREFs of XmPrefixOpcode @ 0x1403BBB10
+ * Callers:
+ *     XmEmulateStream @ 0x1403B8550 (XmEmulateStream.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall XmPrefixOpcode(__int64 a1)
 {
   unsigned int v1; // eax

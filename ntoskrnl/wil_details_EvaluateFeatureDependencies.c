@@ -1,3 +1,12 @@
+/*
+ * XREFs of wil_details_EvaluateFeatureDependencies @ 0x140A0F624
+ * Callers:
+ *     wil_details_ReevaluateOnFeatureConfigurationChange @ 0x14067CE80 (wil_details_ReevaluateOnFeatureConfigurationChange.c)
+ * Callees:
+ *     wil_details_FeatureDescriptors_SkipPadding @ 0x140388E28 (wil_details_FeatureDescriptors_SkipPadding.c)
+ *     wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState @ 0x140818F14 (wil_details_EvaluateFeatureDependencies_GetCachedFeatureEnabledState.c)
+ */
+
 unsigned int **wil_details_EvaluateFeatureDependencies()
 {
   __int64 (__fastcall **v0)(); // rdx

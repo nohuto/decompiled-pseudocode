@@ -1,3 +1,12 @@
+/*
+ * XREFs of ??0MULTISPRITEDDIACCESS@@QEAA@AEAVPDEVOBJ@@@Z @ 0x1C00E5CA8
+ * Callers:
+ *     vSpDynamicModeChange @ 0x1C00E5A90 (vSpDynamicModeChange.c)
+ * Callees:
+ *     W32GetThreadWin32Thread @ 0x1C0050938 (W32GetThreadWin32Thread.c)
+ *     ?vSpDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z @ 0x1C00E5E20 (-vSpDirectDriverAccess@@YAXPEAU_SPRITESTATE@@H@Z.c)
+ */
+
 MULTISPRITEDDIACCESS *__fastcall MULTISPRITEDDIACCESS::MULTISPRITEDDIACCESS(
         MULTISPRITEDDIACCESS *this,
         struct PDEVOBJ *a2)

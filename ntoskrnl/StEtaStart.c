@@ -1,3 +1,12 @@
+/*
+ * XREFs of StEtaStart @ 0x14035A354
+ * Callers:
+ *     ?StartHelper@StEtaHelper@@SAJPEAU_ST_ETA_CONTEXT@@K@Z @ 0x14035A46C (-StartHelper@StEtaHelper@@SAJPEAU_ST_ETA_CONTEXT@@K@Z.c)
+ * Callees:
+ *     KeQueryPerformanceCounter @ 0x14022B950 (KeQueryPerformanceCounter.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall StEtaStart(__int64 a1, int **a2, _QWORD *a3)
 {
   unsigned int v4; // edi

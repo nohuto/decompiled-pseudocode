@@ -1,3 +1,12 @@
+/*
+ * XREFs of MiConvertCrossPartitionChargeTypeToAggregate @ 0x140656DDC
+ * Callers:
+ *     MiApplyCrossPartitionCharges @ 0x14065694C (MiApplyCrossPartitionCharges.c)
+ *     MiReturnCrossPartitionCharge @ 0x140658D04 (MiReturnCrossPartitionCharge.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall MiConvertCrossPartitionChargeTypeToAggregate(int a1)
 {
   __int64 result; // rax

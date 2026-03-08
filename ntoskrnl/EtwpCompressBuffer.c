@@ -1,3 +1,15 @@
+/*
+ * XREFs of EtwpCompressBuffer @ 0x1405FFD70
+ * Callers:
+ *     EtwpCompressPendingBuffers @ 0x1406000F4 (EtwpCompressPendingBuffers.c)
+ * Callees:
+ *     RtlCompressBuffer @ 0x1402F8450 (RtlCompressBuffer.c)
+ *     EtwpUpdateEventsLostCount @ 0x1402FAD84 (EtwpUpdateEventsLostCount.c)
+ *     EtwpGetNextEventOffsetType @ 0x14039D3D8 (EtwpGetNextEventOffsetType.c)
+ *     EtwpRotateCompressionTarget @ 0x1406006D8 (EtwpRotateCompressionTarget.c)
+ *     EtwpRotateCompressionTargetIfNeeded @ 0x140600744 (EtwpRotateCompressionTargetIfNeeded.c)
+ */
+
 __int64 __fastcall EtwpCompressBuffer(__int64 a1, __int64 a2)
 {
   unsigned int v4; // r14d

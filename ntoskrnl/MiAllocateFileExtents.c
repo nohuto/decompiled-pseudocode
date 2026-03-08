@@ -1,3 +1,36 @@
+/*
+ * XREFs of MiAllocateFileExtents @ 0x140A303A8
+ * Callers:
+ *     MiAddViewsForSection @ 0x140331DC0 (MiAddViewsForSection.c)
+ *     MiCreatePrototypePtes @ 0x14036862C (MiCreatePrototypePtes.c)
+ *     MiUpdateActiveSubsection @ 0x1406337C0 (MiUpdateActiveSubsection.c)
+ *     MiInitializeCachedExtentWalker @ 0x14063B7E8 (MiInitializeCachedExtentWalker.c)
+ *     MiRefillPurgedExtents @ 0x14063CD7C (MiRefillPurgedExtents.c)
+ *     MiFaultGetFileExtents @ 0x1406438D0 (MiFaultGetFileExtents.c)
+ *     MiInitializeImageExtents @ 0x140A311CC (MiInitializeImageExtents.c)
+ * Callees:
+ *     MiAllocatePool @ 0x140289CF0 (MiAllocatePool.c)
+ *     MiStartingOffset @ 0x14028C530 (MiStartingOffset.c)
+ *     MiSetSubsectionBase @ 0x1402A4B24 (MiSetSubsectionBase.c)
+ *     MiEndingOffset @ 0x140324248 (MiEndingOffset.c)
+ *     MiReferenceControlAreaFile @ 0x140344094 (MiReferenceControlAreaFile.c)
+ *     MiDereferenceControlAreaFile @ 0x1403441A0 (MiDereferenceControlAreaFile.c)
+ *     MiUpdateSystemProtoPtesTree @ 0x140368AE0 (MiUpdateSystemProtoPtesTree.c)
+ *     FsRtlGetFileExtents @ 0x14053A498 (FsRtlGetFileExtents.c)
+ *     MiChangingSubsectionProtos @ 0x1406399E8 (MiChangingSubsectionProtos.c)
+ *     MiEliminateStaleExtents @ 0x14063A788 (MiEliminateStaleExtents.c)
+ *     MiInsertCopyExtents @ 0x14063BA1C (MiInsertCopyExtents.c)
+ *     MiMergeCopyExtents @ 0x14063BFCC (MiMergeCopyExtents.c)
+ *     MiSubsectionProtosCreated @ 0x14063D324 (MiSubsectionProtosCreated.c)
+ *     MiUnlinkSubsectionWaitBlock @ 0x14063DD78 (MiUnlinkSubsectionWaitBlock.c)
+ *     MiReplaceSystemProtoPtesNode @ 0x140667768 (MiReplaceSystemProtoPtesNode.c)
+ *     MiNewPfnsSuitable @ 0x140A29EF0 (MiNewPfnsSuitable.c)
+ *     MiConvertRunsToPages @ 0x140A30B34 (MiConvertRunsToPages.c)
+ *     MiCreateFileOnlyPfns @ 0x140A30F88 (MiCreateFileOnlyPfns.c)
+ *     MiDeleteFileExtentList @ 0x140A31150 (MiDeleteFileExtentList.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 __int64 __fastcall MiAllocateFileExtents(
         ULONG_PTR BugCheckParameter2,
         unsigned int a2,

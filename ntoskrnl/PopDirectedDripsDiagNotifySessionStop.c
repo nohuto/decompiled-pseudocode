@@ -1,3 +1,19 @@
+/*
+ * XREFs of PopDirectedDripsDiagNotifySessionStop @ 0x14099B298
+ * Callers:
+ *     PopDirectedDripsSendSessionData @ 0x140980CA8 (PopDirectedDripsSendSessionData.c)
+ * Callees:
+ *     ExfTryToWakePushLock @ 0x140238F40 (ExfTryToWakePushLock.c)
+ *     _tlgWriteTransfer_EtwWriteTransfer @ 0x140243F90 (_tlgWriteTransfer_EtwWriteTransfer.c)
+ *     ExAcquirePushLockExclusiveEx @ 0x140262940 (ExAcquirePushLockExclusiveEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     _tlgKeywordOn @ 0x14035F490 (_tlgKeywordOn.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     PopDirectedDripsDiagQueryAndResetPnpAccounting @ 0x14059E120 (PopDirectedDripsDiagQueryAndResetPnpAccounting.c)
+ *     PopDirectedDripsDiagRundownBroadcastTrees @ 0x14099B4A4 (PopDirectedDripsDiagRundownBroadcastTrees.c)
+ *     PopDirectedDripsDiagRundownDevices @ 0x14099B8B8 (PopDirectedDripsDiagRundownDevices.c)
+ */
+
 ULONG __fastcall PopDirectedDripsDiagNotifySessionStop(__int64 a1, int a2, int a3)
 {
   int v5; // r14d

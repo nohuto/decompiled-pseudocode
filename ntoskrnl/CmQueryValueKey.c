@@ -1,3 +1,31 @@
+/*
+ * XREFs of CmQueryValueKey @ 0x1407B4730
+ * Callers:
+ *     NtQueryValueKey @ 0x1406E6C50 (NtQueryValueKey.c)
+ * Callees:
+ *     CmpAllocatePool @ 0x140243878 (CmpAllocatePool.c)
+ *     CmSiFreeMemory @ 0x140243890 (CmSiFreeMemory.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     CmpTransSearchAddTransFromKeyBody @ 0x1406B5A64 (CmpTransSearchAddTransFromKeyBody.c)
+ *     CmpSetKcbAtLayerHeight @ 0x140785EE8 (CmpSetKcbAtLayerHeight.c)
+ *     HvpReleaseCellFlat @ 0x14078B2A0 (HvpReleaseCellFlat.c)
+ *     CmpQueryKeyValueData @ 0x1407AA6A0 (CmpQueryKeyValueData.c)
+ *     CmpUnlockKcbStack @ 0x1407ABFF8 (CmpUnlockKcbStack.c)
+ *     CmpLockKcbStackShared @ 0x1407AF490 (CmpLockKcbStackShared.c)
+ *     CmpFindNameInListFromIndex @ 0x1407B42D0 (CmpFindNameInListFromIndex.c)
+ *     HvpGetCellPaged @ 0x1407B45C0 (HvpGetCellPaged.c)
+ *     HvpReleaseCellPaged @ 0x1407B46D0 (HvpReleaseCellPaged.c)
+ *     HvpGetCellContextReinitialize @ 0x1407B470C (HvpGetCellContextReinitialize.c)
+ *     HvpGetCellFlat @ 0x1407F9410 (HvpGetCellFlat.c)
+ *     CmpLockKcbShared @ 0x140AF20D0 (CmpLockKcbShared.c)
+ *     CmpUnlockKcb @ 0x140AF2140 (CmpUnlockKcb.c)
+ *     CmpIsKeyDeletedForKeyBody @ 0x140AF21E0 (CmpIsKeyDeletedForKeyBody.c)
+ *     CmpLockRegistry @ 0x140AF2270 (CmpLockRegistry.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ *     CmpAttachToRegistryProcess @ 0x140AF26E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140AF2710 (CmpDetachFromRegistryProcess.c)
+ */
+
 __int64 __fastcall CmQueryValueKey(__int64 a1, unsigned __int16 *a2, int a3, size_t a4, unsigned int a5, __int64 a6)
 {
   __int16 v7; // r15

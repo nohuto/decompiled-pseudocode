@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?ParseAndCompareBlockListCondition@@YAJPEBGII0W4_QAI_DRIVERVERSION@@PEAE@Z @ 0x1C020E618
+ * Callers:
+ *     ?FindBlockListStrings@@YAJPEAGIIPEBGW4_QAI_DRIVERVERSION@@PEAIPEAU_UNICODE_STRING@@@Z @ 0x1C020E1FC (-FindBlockListStrings@@YAJPEAGIIPEBGW4_QAI_DRIVERVERSION@@PEAIPEAU_UNICODE_STRING@@@Z.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0024330 (__security_check_cookie.c)
+ *     wcsncmp_0 @ 0x1C00243C5 (wcsncmp_0.c)
+ *     ?ParseAndCompareHexValue@@YAJPEBGIPEAEPEAI@Z @ 0x1C020E79C (-ParseAndCompareHexValue@@YAJPEBGIPEAEPEAI@Z.c)
+ *     ?ParseAndCompareIntArrays@@YAJPEBGPEBIIPEAEPEAI@Z @ 0x1C039524C (-ParseAndCompareIntArrays@@YAJPEBGPEBIIPEAEPEAI@Z.c)
+ *     ?ParseIntArray@@YAJPEBGPEAII1@Z @ 0x1C0395448 (-ParseIntArray@@YAJPEBGPEAII1@Z.c)
+ */
+
 __int64 __fastcall ParseAndCompareBlockListCondition(
         const unsigned __int16 *a1,
         unsigned int a2,

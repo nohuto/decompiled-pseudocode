@@ -1,3 +1,15 @@
+/*
+ * XREFs of PoFxCompleteIdleCondition @ 0x1402EB270
+ * Callers:
+ *     HalpTimerPowerComponentIdleCallback @ 0x1403B0F90 (HalpTimerPowerComponentIdleCallback.c)
+ *     HalpInterruptPowerComponentIdleCallback @ 0x140518420 (HalpInterruptPowerComponentIdleCallback.c)
+ *     DifPoFxCompleteIdleConditionWrapper @ 0x1405E6F40 (DifPoFxCompleteIdleConditionWrapper.c)
+ * Callees:
+ *     PopFxAddLogEntry @ 0x140306584 (PopFxAddLogEntry.c)
+ *     PopFxIdleWorkerTail @ 0x140306748 (PopFxIdleWorkerTail.c)
+ *     PopFxBugCheck @ 0x140586740 (PopFxBugCheck.c)
+ */
+
 __int64 __fastcall PoFxCompleteIdleCondition(ULONG_PTR BugCheckParameter2, ULONG_PTR BugCheckParameter3)
 {
   __int64 result; // rax

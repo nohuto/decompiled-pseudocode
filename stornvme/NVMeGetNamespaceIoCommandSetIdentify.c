@@ -1,3 +1,14 @@
+/*
+ * XREFs of NVMeGetNamespaceIoCommandSetIdentify @ 0x1C001E908
+ * Callers:
+ *     NVMeControllerInitPart1 @ 0x1C000D7A8 (NVMeControllerInitPart1.c)
+ *     NVMeReenumerateNameSpaceRescan @ 0x1C002237C (NVMeReenumerateNameSpaceRescan.c)
+ * Callees:
+ *     ProcessCommand @ 0x1C0001E60 (ProcessCommand.c)
+ *     LocalCommandReuse @ 0x1C000C15C (LocalCommandReuse.c)
+ *     WaitForCommandCompleteWithCustomTimeout @ 0x1C0025560 (WaitForCommandCompleteWithCustomTimeout.c)
+ */
+
 void __fastcall NVMeGetNamespaceIoCommandSetIdentify(__int64 a1)
 {
   __int64 v1; // r14

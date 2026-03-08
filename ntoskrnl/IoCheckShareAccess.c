@@ -1,3 +1,11 @@
+/*
+ * XREFs of IoCheckShareAccess @ 0x140792B20
+ * Callers:
+ *     DifIoCheckShareAccessWrapper @ 0x1405DB6A0 (DifIoCheckShareAccessWrapper.c)
+ * Callees:
+ *     IoCheckLinkShareAccess @ 0x1406B2FA0 (IoCheckLinkShareAccess.c)
+ */
+
 NTSTATUS __stdcall IoCheckShareAccess(
         ACCESS_MASK DesiredAccess,
         ULONG DesiredShareAccess,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?Run@CDwmAppHost@@QEAAJXZ @ 0x140003700
+ * Callers:
+ *     wWinMain @ 0x140003430 (wWinMain.c)
+ * Callees:
+ *     ?MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z @ 0x14000309C (-MilInstrumentationCheckHR_MaybeFailFast@@YAXKQEBJIJIPEAX@Z.c)
+ *     ?OnClose@CDwmAppHost@@AEAAXXZ @ 0x140003224 (-OnClose@CDwmAppHost@@AEAAXXZ.c)
+ *     ?LpcSyncFlush@CDwmAppHost@@AEAAJXZ @ 0x140003824 (-LpcSyncFlush@CDwmAppHost@@AEAAJXZ.c)
+ *     ?StartComposition@CDwmAppHost@@AEAAJXZ @ 0x1400038B0 (-StartComposition@CDwmAppHost@@AEAAJXZ.c)
+ *     ?Start@CLongPowerButtonHoldListener@BlackScreenDiagnostics@@QEAAXP6AXAEBU_GUID@@@ZH@Z @ 0x140003F80 (-Start@CLongPowerButtonHoldListener@BlackScreenDiagnostics@@QEAAXP6AXAEBU_GUID@@@ZH@Z.c)
+ */
+
 __int64 __fastcall CDwmAppHost::Run(CDwmAppHost *this)
 {
   CDwmAppHost *v1; // rcx

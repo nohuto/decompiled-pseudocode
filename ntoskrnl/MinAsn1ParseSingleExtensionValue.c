@@ -1,3 +1,15 @@
+/*
+ * XREFs of MinAsn1ParseSingleExtensionValue @ 0x140A6DAB8
+ * Callers:
+ *     MincryptValidateBasicConstraints @ 0x14067DECC (MincryptValidateBasicConstraints.c)
+ *     I_MinCryptGetCertificateEKUs @ 0x140A6CAE0 (I_MinCryptGetCertificateEKUs.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memcmp @ 0x1403D47D0 (memcmp.c)
+ *     MinAsn1ExtractContent @ 0x140A6EA28 (MinAsn1ExtractContent.c)
+ *     MinAsn1ExtractValues @ 0x140A6EB74 (MinAsn1ExtractValues.c)
+ */
+
 __int64 __fastcall MinAsn1ParseSingleExtensionValue(__int64 a1, unsigned int *a2, char *a3, _OWORD *a4)
 {
   __int64 v4; // rsi

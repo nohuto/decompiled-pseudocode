@@ -1,3 +1,14 @@
+/*
+ * XREFs of FxLibraryCommonCommission @ 0x1C002BFD8
+ * Callers:
+ *     LibraryCommission @ 0x1C0017660 (LibraryCommission.c)
+ * Callees:
+ *     ?FxTraceInitialize@@YAJXZ @ 0x1C002292C (-FxTraceInitialize@@YAJXZ.c)
+ *     ?GetTriageInfo@@YAXXZ @ 0x1C002BCEC (-GetTriageInfo@@YAXXZ.c)
+ *     FxLibraryGlobalsCommission @ 0x1C0043F0C (FxLibraryGlobalsCommission.c)
+ *     RegisterTelemetryProvider @ 0x1C004DB60 (RegisterTelemetryProvider.c)
+ */
+
 __int64 __fastcall FxLibraryCommonCommission()
 {
   int v0; // ebx

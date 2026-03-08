@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?cjSize@EPATHOBJ@@QEAAKXZ @ 0x1C0181180
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall EPATHOBJ::cjSize(EPATHOBJ *this)
 {
   __int64 result; // rax

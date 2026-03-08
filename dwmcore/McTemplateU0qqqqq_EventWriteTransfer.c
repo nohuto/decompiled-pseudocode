@@ -1,3 +1,12 @@
+/*
+ * XREFs of McTemplateU0qqqqq_EventWriteTransfer @ 0x18012A78C
+ * Callers:
+ *     ?WaitForWork@CPartitionVerticalBlankScheduler@@AEAAXXZ @ 0x18005035C (-WaitForWork@CPartitionVerticalBlankScheduler@@AEAAXXZ.c)
+ * Callees:
+ *     __security_check_cookie @ 0x18010E3E0 (__security_check_cookie.c)
+ *     McGenEventWrite_EventWriteTransfer @ 0x18019F304 (McGenEventWrite_EventWriteTransfer.c)
+ */
+
 __int64 __fastcall McTemplateU0qqqqq_EventWriteTransfer(
         __int64 a1,
         __int64 a2,

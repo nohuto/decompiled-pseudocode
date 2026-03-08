@@ -1,3 +1,22 @@
+/*
+ * XREFs of rimObsStartStopDeviceRead @ 0x1C01DD4D4
+ * Callers:
+ *     RawInputManagerObjectDelete @ 0x1C00361E4 (RawInputManagerObjectDelete.c)
+ *     rimObsAddInputObserver @ 0x1C01DADB0 (rimObsAddInputObserver.c)
+ * Callees:
+ *     ??1RIMLOCKExclusiveIfNeeded@@QEAA@XZ @ 0x1C0032C40 (--1RIMLOCKExclusiveIfNeeded@@QEAA@XZ.c)
+ *     ??0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z @ 0x1C0033950 (--0RIMLOCKExclusiveIfNeeded@@QEAA@PEAURIMLOCK@@@Z.c)
+ *     WPP_RECORDER_AND_TRACE_SF_DD @ 0x1C0035414 (WPP_RECORDER_AND_TRACE_SF_DD.c)
+ *     WPP_RECORDER_AND_TRACE_SF_d @ 0x1C0039A10 (WPP_RECORDER_AND_TRACE_SF_d.c)
+ *     WPP_RECORDER_AND_TRACE_SF_ @ 0x1C0075234 (WPP_RECORDER_AND_TRACE_SF_.c)
+ *     ?HandleDirectStartStopDeviceReadRequest@CHidInput@@QEAAXXZ @ 0x1C00B5D10 (-HandleDirectStartStopDeviceReadRequest@CHidInput@@QEAAXXZ.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     RIMAllocateAndLinkHidTLCInfo @ 0x1C01BF13C (RIMAllocateAndLinkHidTLCInfo.c)
+ *     RIMFreeHidTLCInfo @ 0x1C01BF540 (RIMFreeHidTLCInfo.c)
+ *     RIMHidTLCActive @ 0x1C01BF664 (RIMHidTLCActive.c)
+ *     RIMSearchHidTLCInfo @ 0x1C01BF788 (RIMSearchHidTLCInfo.c)
+ */
+
 __int64 __fastcall rimObsStartStopDeviceRead(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   char v4; // r13

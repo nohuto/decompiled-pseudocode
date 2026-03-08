@@ -1,3 +1,12 @@
+/*
+ * XREFs of ACPICheckModuleStarted @ 0x1C00324D8
+ * Callers:
+ *     ACPIBusIrpStartDeviceCompletion @ 0x1C0017220 (ACPIBusIrpStartDeviceCompletion.c)
+ *     ACPIProcessorStartDeviceWorker @ 0x1C003A1C0 (ACPIProcessorStartDeviceWorker.c)
+ * Callees:
+ *     ACPIInternalEvaluateOST @ 0x1C002E560 (ACPIInternalEvaluateOST.c)
+ */
+
 void __fastcall ACPICheckModuleStarted(__int64 a1, int a2)
 {
   KIRQL v4; // al

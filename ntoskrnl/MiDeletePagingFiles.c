@@ -1,3 +1,13 @@
+/*
+ * XREFs of MiDeletePagingFiles @ 0x140A2FCE8
+ * Callers:
+ *     MiDeletePartitionResources @ 0x140656EBC (MiDeletePartitionResources.c)
+ *     MiShutdownSystem @ 0x140AA8A00 (MiShutdownSystem.c)
+ * Callees:
+ *     MiReturnCommit @ 0x140287340 (MiReturnCommit.c)
+ *     MiDeletePagefile @ 0x140A2FB40 (MiDeletePagefile.c)
+ */
+
 __int64 __fastcall MiDeletePagingFiles(__int64 a1, __int64 a2, __int64 a3)
 {
   unsigned int v3; // eax

@@ -1,3 +1,14 @@
+/*
+ * XREFs of PiRegStateOpenClassKey @ 0x1C00B1280
+ * Callers:
+ *     PpRegStateReadCreateClassCreationSettings @ 0x1C00B1610 (PpRegStateReadCreateClassCreationSettings.c)
+ *     PpRegStateUpdateStackCreationSettings @ 0x1C00B1774 (PpRegStateUpdateStackCreationSettings.c)
+ * Callees:
+ *     __security_check_cookie @ 0x1C0009B10 (__security_check_cookie.c)
+ *     CmRegUtilCreateWstrKey @ 0x1C00B1A4C (CmRegUtilCreateWstrKey.c)
+ *     CmRegUtilOpenExistingWstrKey @ 0x1C00B1B24 (CmRegUtilOpenExistingWstrKey.c)
+ */
+
 int __fastcall PiRegStateOpenClassKey(
         const _GUID *DeviceClassGuid,
         unsigned int CreateIfNotPresent,

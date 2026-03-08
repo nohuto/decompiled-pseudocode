@@ -1,3 +1,15 @@
+/*
+ * XREFs of ?xxxSetWindowLongPtr@@YA_KPEAUtagWND@@H_KHH@Z @ 0x1C002F618
+ * Callers:
+ *     NtUserSetWindowLongPtr @ 0x1C002F510 (NtUserSetWindowLongPtr.c)
+ *     xxxCsDdeInitialize @ 0x1C00E472C (xxxCsDdeInitialize.c)
+ * Callees:
+ *     xxxSetWindowData @ 0x1C002F9C8 (xxxSetWindowData.c)
+ *     safe_cast_wf_to_PDIALOG @ 0x1C0031B08 (safe_cast_wf_to_PDIALOG.c)
+ *     UserSetLastError @ 0x1C004103C (UserSetLastError.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C0130974 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ */
+
 __int64 __fastcall xxxSetWindowLongPtr(struct tagWND *a1, int a2, __int64 a3, __int64 a4, int a5)
 {
   __int64 v6; // rsi

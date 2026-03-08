@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?LidStateReliabilityChangeCallback@DisplayDiagnostics@@CAJPEBU_GUID@@PEAXK1@Z @ 0x1C0023C30
+ * Callers:
+ *     <none>
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ */
+
 __int64 __fastcall DisplayDiagnostics::LidStateReliabilityChangeCallback(
         LPCGUID SettingGuid,
         _DWORD *Value,

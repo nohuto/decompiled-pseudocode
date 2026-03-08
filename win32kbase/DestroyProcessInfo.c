@@ -1,3 +1,40 @@
+/*
+ * XREFs of DestroyProcessInfo @ 0x1C00D51B0
+ * Callers:
+ *     xxxUserProcessCallout @ 0x1C0074450 (xxxUserProcessCallout.c)
+ * Callees:
+ *     RIMOnProcessDestroy @ 0x1C00394C0 (RIMOnProcessDestroy.c)
+ *     DelayedDestroyCacheDC @ 0x1C003D924 (DelayedDestroyCacheDC.c)
+ *     GreSetDCOwnerEx @ 0x1C0041580 (GreSetDCOwnerEx.c)
+ *     ?OnProcessTermination@InputObjectMap@@SAXXZ @ 0x1C005BA98 (-OnProcessTermination@InputObjectMap@@SAXXZ.c)
+ *     CitProcessCallout @ 0x1C006F63C (CitProcessCallout.c)
+ *     Win32FreePool @ 0x1C0070430 (Win32FreePool.c)
+ *     UnlockObjectAssignment @ 0x1C0070750 (UnlockObjectAssignment.c)
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C007795C (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     ??$Write@U?$_tlgWrapperByVal@$07@@U1@U?$_tlgWrapperByVal@$03@@@?$_tlgWriteTemplate@$$A6AJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2IPEAU_EVENT_DATA_DESCRIPTOR@@@Z$1?_tlgWriteTransfer_EtwWriteTransfer@@YAJ0122I3@ZPEBU2@PEBU2@@@SAJPEBU_tlgProvider_t@@PEBXPEBU_GUID@@2AEBU?$_tlgWrapperByVal@$07@@3AEBU?$_tlgWrapperByVal@$03@@@Z @ 0x1C0088890 (--$Write@U-$_tlgWrapperByVal@$07@@U1@U-$_tlgWrapperByVal@$03@@@-$_tlgWriteTemplate@$$A6AJPEBU_tl.c)
+ *     CleanupLogonProcess @ 0x1C008E950 (CleanupLogonProcess.c)
+ *     PostWinlogonMessage @ 0x1C0090D50 (PostWinlogonMessage.c)
+ *     CloseProtectedHandle @ 0x1C00A4E18 (CloseProtectedHandle.c)
+ *     ??0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z @ 0x1C00A6424 (--0PUSHLOCKEX@@QEAA@PEAU_EX_PUSH_LOCK@@@Z.c)
+ *     ??1PUSHLOCKEX@@QEAA@XZ @ 0x1C00A6464 (--1PUSHLOCKEX@@QEAA@XZ.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C00ABD88 (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     IszzzCalcStartCursorHideSupported @ 0x1C00BB514 (IszzzCalcStartCursorHideSupported.c)
+ *     IsShellProcess @ 0x1C00BD53C (IsShellProcess.c)
+ *     ??0CWinEventNoopDeferral@@QEAA@XZ @ 0x1C00BD94C (--0CWinEventNoopDeferral@@QEAA@XZ.c)
+ *     zzzCalcStartCursorHide @ 0x1C00C42D0 (zzzCalcStartCursorHide.c)
+ *     PostPlaySoundMessage @ 0x1C00C5D90 (PostPlaySoundMessage.c)
+ *     SynchronizeContext @ 0x1C00CCA10 (SynchronizeContext.c)
+ *     IsCleanupIAMAccessSupported @ 0x1C00D46B0 (IsCleanupIAMAccessSupported.c)
+ *     CleanupIAMAccess @ 0x1C00D4808 (CleanupIAMAccess.c)
+ *     Feature_439792958__private_IsEnabledDeviceUsage @ 0x1C00DC850 (Feature_439792958__private_IsEnabledDeviceUsage.c)
+ *     GreCleanDCAndSetOwnerEx @ 0x1C00DEED0 (GreCleanDCAndSetOwnerEx.c)
+ *     MicrosoftTelemetryAssertTriggeredArgsKM @ 0x1C00E1640 (MicrosoftTelemetryAssertTriggeredArgsKM.c)
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ *     McTemplateK0_EtwWriteTransfer @ 0x1C00EDED8 (McTemplateK0_EtwWriteTransfer.c)
+ *     EtwTraceScreenSaverProcessEvent @ 0x1C0163FBC (EtwTraceScreenSaverProcessEvent.c)
+ *     RIMRemoveMouseOrKeyboardInjectionDevice @ 0x1C01A7B1C (RIMRemoveMouseOrKeyboardInjectionDevice.c)
+ */
+
 __int64 __fastcall DestroyProcessInfo(__int64 a1)
 {
   unsigned int v1; // eax

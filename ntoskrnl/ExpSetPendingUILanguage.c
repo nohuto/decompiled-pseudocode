@@ -1,3 +1,27 @@
+/*
+ * XREFs of ExpSetPendingUILanguage @ 0x140749238
+ * Callers:
+ *     NtSetDefaultUILanguage @ 0x1407499E0 (NtSetDefaultUILanguage.c)
+ * Callees:
+ *     DbgPrint @ 0x1402BDD20 (DbgPrint.c)
+ *     DbgPrintEx @ 0x1402BDD70 (DbgPrintEx.c)
+ *     OpenGlobalizationUserSettingsKey @ 0x1402BEDA8 (OpenGlobalizationUserSettingsKey.c)
+ *     DownLevelLangIDToLanguageName @ 0x1402BEE08 (DownLevelLangIDToLanguageName.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwEnumerateValueKey @ 0x140412570 (ZwEnumerateValueKey.c)
+ *     ZwQueryValueKey @ 0x1404125F0 (ZwQueryValueKey.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ *     ZwSetValueKey @ 0x140412F10 (ZwSetValueKey.c)
+ *     ZwDeleteKey @ 0x140413E50 (ZwDeleteKey.c)
+ *     ZwDeleteValueKey @ 0x140413EB0 (ZwDeleteValueKey.c)
+ *     memmove @ 0x14042CCC0 (memmove.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     NtQueryInstallUILanguage @ 0x140749760 (NtQueryInstallUILanguage.c)
+ */
+
 __int64 ExpSetPendingUILanguage()
 {
   unsigned __int64 v0; // rbp

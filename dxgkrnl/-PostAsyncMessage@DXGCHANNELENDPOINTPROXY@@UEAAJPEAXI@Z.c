@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?PostAsyncMessage@DXGCHANNELENDPOINTPROXY@@UEAAJPEAXI@Z @ 0x1C0362290
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?AddMessageToChannel@DXGVMBUSCHANNEL@@IEAAJIPEAXI0PEAI_N@Z @ 0x1C0361178 (-AddMessageToChannel@DXGVMBUSCHANNEL@@IEAAJIPEAXI0PEAI_N@Z.c)
+ */
+
 __int64 __fastcall DXGCHANNELENDPOINTPROXY::PostAsyncMessage(
         DXGCHANNELENDPOINTPROXY *this,
         _DWORD *a2,

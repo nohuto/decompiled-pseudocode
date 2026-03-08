@@ -1,3 +1,11 @@
+/*
+ * XREFs of DxgkEngIsDwmComposing @ 0x1C00D0810
+ * Callers:
+ *     <none>
+ * Callees:
+ *     _guard_dispatch_icall_nop @ 0x1C00E1910 (_guard_dispatch_icall_nop.c)
+ */
+
 __int64 __fastcall DxgkEngIsDwmComposing(_DWORD *a1)
 {
   unsigned int v1; // ebx

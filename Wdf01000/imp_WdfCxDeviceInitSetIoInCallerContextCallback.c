@@ -1,3 +1,12 @@
+/*
+ * XREFs of imp_WdfCxDeviceInitSetIoInCallerContextCallback @ 0x1C0036740
+ * Callers:
+ *     <none>
+ * Callees:
+ *     FxValiateCx @ 0x1C00360F4 (FxValiateCx.c)
+ *     ?FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z @ 0x1C0045BD8 (-FxVerifierNullBugCheck@@YAXPEAU_FX_DRIVER_GLOBALS@@PEAX@Z.c)
+ */
+
 void __fastcall imp_WdfCxDeviceInitSetIoInCallerContextCallback(
         _WDF_DRIVER_GLOBALS *DriverGlobals,
         WDFCXDEVICE_INIT *CxDeviceInit,

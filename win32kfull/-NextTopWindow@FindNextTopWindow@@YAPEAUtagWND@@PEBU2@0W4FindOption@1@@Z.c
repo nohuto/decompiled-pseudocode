@@ -1,3 +1,21 @@
+/*
+ * XREFs of ?NextTopWindow@FindNextTopWindow@@YAPEAUtagWND@@PEBU2@0W4FindOption@1@@Z @ 0x1C00C8AFC
+ * Callers:
+ *     _lambda_9e1c073be7703093e3ca0af05debe537_::operator() @ 0x1C00C8A5C (_lambda_9e1c073be7703093e3ca0af05debe537_--operator().c)
+ *     ?IsTopmostRealApp@@YAHPEAUtagWND@@@Z @ 0x1C02178E4 (-IsTopmostRealApp@@YAHPEAUtagWND@@@Z.c)
+ *     xxxMenuWindowProc @ 0x1C021D3D0 (xxxMenuWindowProc.c)
+ * Callees:
+ *     ??0AtomicExecutionCheck@@QEAA@XZ @ 0x1C003C2A4 (--0AtomicExecutionCheck@@QEAA@XZ.c)
+ *     _GetDesktopWindow @ 0x1C0044670 (_GetDesktopWindow.c)
+ *     ?GetWindowCloakState@@YAKPEBUtagWND@@@Z @ 0x1C0048F7C (-GetWindowCloakState@@YAKPEBUtagWND@@@Z.c)
+ *     ?Disarm@AtomicExecutionCheck@@QEAAXXZ @ 0x1C009DC7C (-Disarm@AtomicExecutionCheck@@QEAAXXZ.c)
+ *     _anonymous_namespace_::NTW_GetNextTop @ 0x1C00C8C68 (_anonymous_namespace_--NTW_GetNextTop.c)
+ *     _anonymous_namespace_::CheckTopLevelOnly @ 0x1C00C8D18 (_anonymous_namespace_--CheckTopLevelOnly.c)
+ *     _anonymous_namespace_::GNT_NextTopScan @ 0x1C00C8D48 (_anonymous_namespace_--GNT_NextTopScan.c)
+ *     SkipWindowOnMonitor @ 0x1C00C8DE0 (SkipWindowOnMonitor.c)
+ *     _anonymous_namespace_::NTW_GetPrevTop @ 0x1C022667C (_anonymous_namespace_--NTW_GetPrevTop.c)
+ */
+
 __int64 __fastcall FindNextTopWindow::NextTopWindow(__int64 a1, __int64 a2, char a3)
 {
   __int64 v6; // rbx

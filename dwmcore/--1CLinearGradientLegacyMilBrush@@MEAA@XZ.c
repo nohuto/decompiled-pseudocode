@@ -1,3 +1,13 @@
+/*
+ * XREFs of ??1CLinearGradientLegacyMilBrush@@MEAA@XZ @ 0x18021AEF4
+ * Callers:
+ *     ??_GCLinearGradientLegacyMilBrush@@MEAAPEAXI@Z @ 0x1801C0010 (--_GCLinearGradientLegacyMilBrush@@MEAAPEAXI@Z.c)
+ * Callees:
+ *     ??1?$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ @ 0x180004700 (--1-$com_ptr_t@UID3D11Resource@@Uerr_returncode_policy@wil@@@wil@@QEAA@XZ.c)
+ *     ?Remove@CPtrArrayBase@@IEAA_N_K@Z @ 0x1800D5814 (-Remove@CPtrArrayBase@@IEAA_N_K@Z.c)
+ *     ??$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z @ 0x1800E18AC (--$_Deallocate@$0BA@$0A@@std@@YAXPEAX_K@Z.c)
+ */
+
 void __fastcall CLinearGradientLegacyMilBrush::~CLinearGradientLegacyMilBrush(CLinearGradientLegacyMilBrush *this)
 {
   __int64 v2; // rcx

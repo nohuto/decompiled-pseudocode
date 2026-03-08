@@ -1,3 +1,11 @@
+/*
+ * XREFs of IopUpdateWriteTransferCount @ 0x140554170
+ * Callers:
+ *     IopUpdateIrpTransferCount @ 0x1402F9C50 (IopUpdateIrpTransferCount.c)
+ * Callees:
+ *     <none>
+ */
+
 struct _KTHREAD *__fastcall IopUpdateWriteTransferCount(unsigned int a1, __int64 a2)
 {
   struct _KTHREAD *result; // rax

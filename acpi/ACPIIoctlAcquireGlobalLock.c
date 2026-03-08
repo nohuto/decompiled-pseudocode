@@ -1,3 +1,11 @@
+/*
+ * XREFs of ACPIIoctlAcquireGlobalLock @ 0x1C002F39C
+ * Callers:
+ *     ACPIIrpDispatchDeviceControl @ 0x1C0001290 (ACPIIrpDispatchDeviceControl.c)
+ * Callees:
+ *     ACPIAsyncAcquireGlobalLock @ 0x1C0039130 (ACPIAsyncAcquireGlobalLock.c)
+ */
+
 __int64 __fastcall ACPIIoctlAcquireGlobalLock(__int64 a1, IRP *a2, __int64 a3)
 {
   unsigned int v3; // eax

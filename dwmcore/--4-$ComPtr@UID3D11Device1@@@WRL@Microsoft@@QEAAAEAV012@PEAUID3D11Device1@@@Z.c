@@ -1,3 +1,11 @@
+/*
+ * XREFs of ??4?$ComPtr@UID3D11Device1@@@WRL@Microsoft@@QEAAAEAV012@PEAUID3D11Device1@@@Z @ 0x1802AB104
+ * Callers:
+ *     ?InitializeWithD3DDevice@CHolographicFrameProcessor@@UEAAJPEAUID3D11Device1@@@Z @ 0x1802AB6F0 (-InitializeWithD3DDevice@CHolographicFrameProcessor@@UEAAJPEAUID3D11Device1@@@Z.c)
+ * Callees:
+ *     _guard_xfg_dispatch_icall_nop @ 0x180117830 (_guard_xfg_dispatch_icall_nop.c)
+ */
+
 __int64 *__fastcall Microsoft::WRL::ComPtr<ID3D11Device1>::operator=(__int64 *a1, __int64 a2)
 {
   __int64 v4; // rcx

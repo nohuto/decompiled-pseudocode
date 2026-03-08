@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?vOrClearTypeGlyph@@YAXPEAU_GLYPHBITS@@IPEAEI@Z @ 0x1C02740A4
+ * Callers:
+ *     ?draw_clrt_f_ntb_o_to_temp_start@@YAXPEAU_GLYPHPOS@@KPEAEKKKK@Z @ 0x1C02736C0 (-draw_clrt_f_ntb_o_to_temp_start@@YAXPEAU_GLYPHPOS@@KPEAEKKKK@Z.c)
+ * Callees:
+ *     <none>
+ */
+
 void __fastcall vOrClearTypeGlyph(struct _GLYPHBITS *a1, unsigned int a2, unsigned __int8 *a3, unsigned int a4)
 {
   BYTE *aj; // rbp

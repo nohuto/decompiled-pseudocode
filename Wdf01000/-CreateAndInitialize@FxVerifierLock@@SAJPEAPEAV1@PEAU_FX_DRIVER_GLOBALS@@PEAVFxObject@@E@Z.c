@@ -1,3 +1,16 @@
+/*
+ * XREFs of ?CreateAndInitialize@FxVerifierLock@@SAJPEAPEAV1@PEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@E@Z @ 0x1C0039214
+ * Callers:
+ *     ?Initialize@FxCallbackMutexLock@@UEAAXPEAVFxObject@@@Z @ 0x1C0039350 (-Initialize@FxCallbackMutexLock@@UEAAXPEAVFxObject@@@Z.c)
+ *     ?Initialize@FxCallbackSpinLock@@UEAAXPEAVFxObject@@@Z @ 0x1C0039390 (-Initialize@FxCallbackSpinLock@@UEAAXPEAVFxObject@@@Z.c)
+ * Callees:
+ *     ?FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z @ 0x1C0002834 (-FxPoolAllocator@@YAPEAXPEAU_FX_DRIVER_GLOBALS@@PEAUFX_POOL@@UFxPoolTypeOrPoolFlags@@_KKPEAX@Z.c)
+ *     WPP_IFR_SF_D @ 0x1C0017F78 (WPP_IFR_SF_D.c)
+ *     ??_GFxVerifierLock@@QEAAPEAXI@Z @ 0x1C001ACB0 (--_GFxVerifierLock@@QEAAPEAXI@Z.c)
+ *     ?Initialize@FxVerifierLock@@AEAAJXZ @ 0x1C001B740 (-Initialize@FxVerifierLock@@AEAAJXZ.c)
+ *     ??0FxVerifierLock@@AEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@E@Z @ 0x1C0038B94 (--0FxVerifierLock@@AEAA@PEAU_FX_DRIVER_GLOBALS@@PEAVFxObject@@E@Z.c)
+ */
+
 __int64 __fastcall FxVerifierLock::CreateAndInitialize(
         FxVerifierLock **VerifierLock,
         _FX_DRIVER_GLOBALS *FxDriverGlobals,

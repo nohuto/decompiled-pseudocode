@@ -1,3 +1,20 @@
+/*
+ * XREFs of SepAdtSecurityDescriptorChangedAuditAlarm @ 0x1409C9E48
+ * Callers:
+ *     SeTokenDefaultDaclChangedAuditAlarm @ 0x140743F0C (SeTokenDefaultDaclChangedAuditAlarm.c)
+ *     SeSecurityDescriptorChangedAuditAlarm @ 0x14076AA40 (SeSecurityDescriptorChangedAuditAlarm.c)
+ * Callees:
+ *     PsGetCurrentThreadProcess @ 0x1402C0BB0 (PsGetCurrentThreadProcess.c)
+ *     ObpIsKernelHandle @ 0x1403521C8 (ObpIsKernelHandle.c)
+ *     SepAdtLogAuditRecord @ 0x140397890 (SepAdtLogAuditRecord.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     SepSecurityDescriptorStrictLength @ 0x1407A5314 (SepSecurityDescriptorStrictLength.c)
+ *     PsGetAllocatedFullProcessImageNameEx @ 0x1407E7618 (PsGetAllocatedFullProcessImageNameEx.c)
+ *     SepAuditFailed @ 0x1409CEE50 (SepAuditFailed.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ */
+
 void __fastcall SepAdtSecurityDescriptorChangedAuditAlarm(
         __int64 *a1,
         unsigned __int16 *a2,

@@ -1,3 +1,15 @@
+/*
+ * XREFs of PpmParkSnapNodeIdleTime @ 0x14059AF68
+ * Callers:
+ *     PopAccumulateNonActivatedCpuTime @ 0x1405973F0 (PopAccumulateNonActivatedCpuTime.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KeAcquireSpinLockRaiseToDpc @ 0x14024F730 (KeAcquireSpinLockRaiseToDpc.c)
+ *     PpmParkGetParkNode @ 0x14040B904 (PpmParkGetParkNode.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     PpmIdleSnapConcurrencyIdleTime @ 0x1405830BC (PpmIdleSnapConcurrencyIdleTime.c)
+ */
+
 __int64 __fastcall PpmParkSnapNodeIdleTime(__int64 a1, __int64 a2, _QWORD *a3, _QWORD *a4)
 {
   unsigned __int64 v6; // rbx

@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetSubgraphShaderLinkingBody@CProjectedShadowApproxBlurEffect@@UEBA?AUShaderLinkingBody@@I@Z @ 0x180108560
+ * Callers:
+ *     <none>
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall CProjectedShadowApproxBlurEffect::GetSubgraphShaderLinkingBody(__int64 a1, __int64 a2)
 {
   __int64 result; // rax

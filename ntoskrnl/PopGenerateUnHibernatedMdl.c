@@ -1,3 +1,12 @@
+/*
+ * XREFs of PopGenerateUnHibernatedMdl @ 0x140A9F9AC
+ * Callers:
+ *     PopAllocateHiberContext @ 0x140984D38 (PopAllocateHiberContext.c)
+ * Callees:
+ *     RtlSetBits @ 0x14028BC50 (RtlSetBits.c)
+ *     PopGenerateScratchMdl @ 0x14058C6D4 (PopGenerateScratchMdl.c)
+ */
+
 PMDL __fastcall PopGenerateUnHibernatedMdl(__int64 a1, __int64 a2)
 {
   unsigned __int64 v3; // r14

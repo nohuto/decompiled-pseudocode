@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?DetachFromChannel@CHolographicExclusiveMode@@UEAAXPEAVCChannelContext@@_N@Z @ 0x1802A4930
+ * Callers:
+ *     <none>
+ * Callees:
+ *     ?RemoveExclusiveModeProxy@CHolographicManager@@QEAAXPEAVCHolographicExclusiveMode@@@Z @ 0x1802A2748 (-RemoveExclusiveModeProxy@CHolographicManager@@QEAAXPEAVCHolographicExclusiveMode@@@Z.c)
+ */
+
 void __fastcall CHolographicExclusiveMode::DetachFromChannel(
         CHolographicExclusiveMode *this,
         CAnimationLoggingManager **a2)

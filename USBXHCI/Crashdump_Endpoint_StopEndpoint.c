@@ -1,3 +1,12 @@
+/*
+ * XREFs of Crashdump_Endpoint_StopEndpoint @ 0x1C004F914
+ * Callers:
+ *     Crashdump_Endpoint_PrepareForHibernate @ 0x1C004F150 (Crashdump_Endpoint_PrepareForHibernate.c)
+ *     Crashdump_UsbDevice_Cleanup @ 0x1C004FB20 (Crashdump_UsbDevice_Cleanup.c)
+ * Callees:
+ *     Crashdump_Command_SendCommand @ 0x1C004EB8C (Crashdump_Command_SendCommand.c)
+ */
+
 __int64 __fastcall Crashdump_Endpoint_StopEndpoint(__int64 a1)
 {
   __int64 v2; // r9

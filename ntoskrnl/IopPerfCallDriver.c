@@ -1,3 +1,21 @@
+/*
+ * XREFs of IopPerfCallDriver @ 0x14045728A
+ * Callers:
+ *     IofCallDriverSpecifyReturn @ 0x1402B91D0 (IofCallDriverSpecifyReturn.c)
+ *     IofCallDriver @ 0x140312640 (IofCallDriver.c)
+ *     IovCallDriver @ 0x140ABE1D0 (IovCallDriver.c)
+ *     IovpCallDriverNoIrpTracking @ 0x140ABE96C (IovpCallDriverNoIrpTracking.c)
+ *     IovpCallDriverWithStackBuffer @ 0x140ABE9B4 (IovpCallDriverWithStackBuffer.c)
+ * Callees:
+ *     ObfDereferenceObject @ 0x1402679B0 (ObfDereferenceObject.c)
+ *     IopAllocateIrpExtension @ 0x1402B22EC (IopAllocateIrpExtension.c)
+ *     IopfCallDriver @ 0x1402B903C (IopfCallDriver.c)
+ *     ObfReferenceObjectWithTag @ 0x14033E0E0 (ObfReferenceObjectWithTag.c)
+ *     IopIrpHasValidCombinationOfExtensionTypes @ 0x14035AA40 (IopIrpHasValidCombinationOfExtensionTypes.c)
+ *     IopPerfLogCallEvent @ 0x140556E18 (IopPerfLogCallEvent.c)
+ *     IopPerfLogCallReturnEvent @ 0x140556EEC (IopPerfLogCallReturnEvent.c)
+ */
+
 __int64 __fastcall IopPerfCallDriver(PVOID Object, ULONG_PTR a2)
 {
   _WORD *IrpExtension; // rcx

@@ -1,3 +1,35 @@
+/*
+ * XREFs of ACPIDeviceCompleteGenericPhase @ 0x1C001C540
+ * Callers:
+ *     ACPIDevicePowerProcessPhase1DeviceSubPhase3 @ 0x1C00028E0 (ACPIDevicePowerProcessPhase1DeviceSubPhase3.c)
+ *     ACPIDeviceCompleteInterpreterRequest @ 0x1C001C610 (ACPIDeviceCompleteInterpreterRequest.c)
+ *     ACPIDevicePowerProcessPhase0DeviceSubPhase1 @ 0x1C001EE10 (ACPIDevicePowerProcessPhase0DeviceSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase0DeviceSubPhase2 @ 0x1C001EF60 (ACPIDevicePowerProcessPhase0DeviceSubPhase2.c)
+ *     ACPIDevicePowerProcessPhase0SystemSubPhase1 @ 0x1C001F040 (ACPIDevicePowerProcessPhase0SystemSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase1DeviceSubPhase1 @ 0x1C001F100 (ACPIDevicePowerProcessPhase1DeviceSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase1DeviceSubPhase2 @ 0x1C001F370 (ACPIDevicePowerProcessPhase1DeviceSubPhase2.c)
+ *     ACPIDevicePowerProcessPhase2SystemSubPhase1 @ 0x1C001F780 (ACPIDevicePowerProcessPhase2SystemSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase2SystemSubPhase2 @ 0x1C001FAA0 (ACPIDevicePowerProcessPhase2SystemSubPhase2.c)
+ *     ACPIDevicePowerProcessPhase2SystemSubPhase3 @ 0x1C001FB40 (ACPIDevicePowerProcessPhase2SystemSubPhase3.c)
+ *     ACPIDevicePowerProcessPhase2SystemSubPhase4 @ 0x1C001FC60 (ACPIDevicePowerProcessPhase2SystemSubPhase4.c)
+ *     ACPIDevicePowerProcessPhase5DeviceSubPhase1 @ 0x1C0020650 (ACPIDevicePowerProcessPhase5DeviceSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase5DeviceSubPhase2 @ 0x1C0020880 (ACPIDevicePowerProcessPhase5DeviceSubPhase2.c)
+ *     ACPIDevicePowerProcessPhase5DeviceSubPhase3 @ 0x1C0020B10 (ACPIDevicePowerProcessPhase5DeviceSubPhase3.c)
+ *     ACPIDevicePowerProcessPhase5DeviceSubPhase4 @ 0x1C0020D80 (ACPIDevicePowerProcessPhase5DeviceSubPhase4.c)
+ *     ACPIDevicePowerProcessPhase5DeviceSubPhase5 @ 0x1C0020EC0 (ACPIDevicePowerProcessPhase5DeviceSubPhase5.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase1 @ 0x1C00210F0 (ACPIDevicePowerProcessPhase5SystemSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase2 @ 0x1C00211F0 (ACPIDevicePowerProcessPhase5SystemSubPhase2.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase3 @ 0x1C00212B0 (ACPIDevicePowerProcessPhase5SystemSubPhase3.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase4 @ 0x1C0021450 (ACPIDevicePowerProcessPhase5SystemSubPhase4.c)
+ *     ACPIDevicePowerProcessPhase5SystemSubPhase5 @ 0x1C0021620 (ACPIDevicePowerProcessPhase5SystemSubPhase5.c)
+ *     ACPIDevicePowerProcessPhase5WarmEjectSubPhase1 @ 0x1C0021870 (ACPIDevicePowerProcessPhase5WarmEjectSubPhase1.c)
+ *     ACPIDevicePowerProcessPhase5WarmEjectSubPhase2 @ 0x1C0021A10 (ACPIDevicePowerProcessPhase5WarmEjectSubPhase2.c)
+ *     ACPIWakeRestoreEnablesCompletion @ 0x1C0046070 (ACPIWakeRestoreEnablesCompletion.c)
+ * Callees:
+ *     WPP_RECORDER_SF_dqss @ 0x1C0009A6C (WPP_RECORDER_SF_dqss.c)
+ *     ACPIDeviceCompletePhase3Common @ 0x1C001C4F4 (ACPIDeviceCompletePhase3Common.c)
+ */
+
 void __fastcall ACPIDeviceCompleteGenericPhase(__int64 a1, int a2, __int64 a3, __int64 a4)
 {
   _QWORD *v4; // rax

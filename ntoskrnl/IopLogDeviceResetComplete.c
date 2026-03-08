@@ -1,3 +1,13 @@
+/*
+ * XREFs of IopLogDeviceResetComplete @ 0x140954464
+ * Callers:
+ *     PiProcessDeviceResetAction @ 0x14055DCD8 (PiProcessDeviceResetAction.c)
+ *     PnpFinalizeDeviceRemovalForReset @ 0x14095486C (PnpFinalizeDeviceRemovalForReset.c)
+ * Callees:
+ *     McTemplateK0hzr0qqhzr4_EtwWriteTransfer @ 0x14055DC08 (McTemplateK0hzr0qqhzr4_EtwWriteTransfer.c)
+ *     PnpTraceDeviceRemovalForResetComplete @ 0x140968B34 (PnpTraceDeviceRemovalForResetComplete.c)
+ */
+
 NTSTATUS __fastcall IopLogDeviceResetComplete(__int64 a1, char a2)
 {
   _QWORD *v2; // rdi

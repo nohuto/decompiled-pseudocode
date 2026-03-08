@@ -1,3 +1,18 @@
+/*
+ * XREFs of MiReferenceRemovePartition @ 0x140619970
+ * Callers:
+ *     MmRemovePhysicalMemory @ 0x140A2A520 (MmRemovePhysicalMemory.c)
+ * Callees:
+ *     ExfReleasePushLockShared @ 0x140238E40 (ExfReleasePushLockShared.c)
+ *     ExfAcquirePushLockSharedEx @ 0x1402413F0 (ExfAcquirePushLockSharedEx.c)
+ *     KeAbPostRelease @ 0x140262B70 (KeAbPostRelease.c)
+ *     KiCheckForKernelApcDelivery @ 0x1402B7850 (KiCheckForKernelApcDelivery.c)
+ *     MmGetSessionIdEx @ 0x140343570 (MmGetSessionIdEx.c)
+ *     KiAbTryReclaimOrphanedEntries @ 0x1403585E8 (KiAbTryReclaimOrphanedEntries.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     MiReferencePagePartition @ 0x1406271E4 (MiReferencePagePartition.c)
+ */
+
 __int64 __fastcall MiReferenceRemovePartition(unsigned __int64 a1, __int64 *a2)
 {
   struct _KTHREAD *CurrentThread; // rsi

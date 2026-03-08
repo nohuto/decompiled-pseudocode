@@ -1,3 +1,12 @@
+/*
+ * XREFs of ?EnableVmBusChannel@DXGVAILOBJECT@@QEAAJXZ @ 0x1C0059E28
+ * Callers:
+ *     NtDxgkVailConnect @ 0x1C035FEE0 (NtDxgkVailConnect.c)
+ * Callees:
+ *     McTemplateK0zqqzxxxxx_EtwWriteTransfer @ 0x1C0042014 (McTemplateK0zqqzxxxxx_EtwWriteTransfer.c)
+ *     ?EnableVmBusChannel@@YAJPEAVDXGVMBUSCHANNEL@@_N@Z @ 0x1C035D334 (-EnableVmBusChannel@@YAJPEAVDXGVMBUSCHANNEL@@_N@Z.c)
+ */
+
 __int64 __fastcall DXGVAILOBJECT::EnableVmBusChannel(struct _KTHREAD **this)
 {
   int v2; // edx

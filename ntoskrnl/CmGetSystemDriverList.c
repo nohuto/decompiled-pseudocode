@@ -1,3 +1,34 @@
+/*
+ * XREFs of CmGetSystemDriverList @ 0x140B59568
+ * Callers:
+ *     IopInitializeSystemDrivers @ 0x140B57B44 (IopInitializeSystemDrivers.c)
+ * Callees:
+ *     CmpInitializeThreadInfo @ 0x140263760 (CmpInitializeThreadInfo.c)
+ *     RtlInitUnicodeString @ 0x14030EBB0 (RtlInitUnicodeString.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwOpenKey @ 0x140412550 (ZwOpenKey.c)
+ *     ZwOpenDirectoryObject @ 0x140412E10 (ZwOpenDirectoryObject.c)
+ *     ZwQueryDirectoryObject @ 0x140414C90 (ZwQueryDirectoryObject.c)
+ *     KeBugCheckEx @ 0x140416000 (KeBugCheckEx.c)
+ *     memset @ 0x14042CFC0 (memset.c)
+ *     CmpLockRegistryExclusive @ 0x1406B6454 (CmpLockRegistryExclusive.c)
+ *     RtlEqualUnicodeString @ 0x1406EA560 (RtlEqualUnicodeString.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ *     ExFreePoolWithTag @ 0x140AABA50 (ExFreePoolWithTag.c)
+ *     CmpUnlockRegistry @ 0x140AF22C0 (CmpUnlockRegistry.c)
+ *     CmpAcquireShutdownRundown @ 0x140AF23A0 (CmpAcquireShutdownRundown.c)
+ *     CmpReleaseShutdownRundown @ 0x140AF23F0 (CmpReleaseShutdownRundown.c)
+ *     CmpAttachToRegistryProcess @ 0x140AF26E0 (CmpAttachToRegistryProcess.c)
+ *     CmpDetachFromRegistryProcess @ 0x140AF2710 (CmpDetachFromRegistryProcess.c)
+ *     CmpSortDriverList @ 0x140B330B4 (CmpSortDriverList.c)
+ *     CmpFindDrivers @ 0x140B34758 (CmpFindDrivers.c)
+ *     CmpAcquireSystemDriverHiveContext @ 0x140B5AAAC (CmpAcquireSystemDriverHiveContext.c)
+ *     CmpFreeDriverList @ 0x140B65798 (CmpFreeDriverList.c)
+ *     CmpOpenSystemDriverHiveContext @ 0x140B6E868 (CmpOpenSystemDriverHiveContext.c)
+ *     CmpCloseSystemDriverHiveContext @ 0x140B71FE8 (CmpCloseSystemDriverHiveContext.c)
+ */
+
 __int64 __fastcall CmGetSystemDriverList(__int64 a1)
 {
   __int64 v1; // rdi

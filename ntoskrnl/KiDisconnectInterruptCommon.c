@@ -1,3 +1,20 @@
+/*
+ * XREFs of KiDisconnectInterruptCommon @ 0x14028E714
+ * Callers:
+ *     KeDisconnectInterrupt @ 0x14028E38C (KeDisconnectInterrupt.c)
+ *     KiDisconnectSecondaryInterrupt @ 0x14056F468 (KiDisconnectSecondaryInterrupt.c)
+ * Callees:
+ *     KxReleaseSpinLock @ 0x14024EEB0 (KxReleaseSpinLock.c)
+ *     KiDisconnectInterruptInternal @ 0x14028E85C (KiDisconnectInterruptInternal.c)
+ *     KiAcquireInterruptConnectLock @ 0x14028FEA0 (KiAcquireInterruptConnectLock.c)
+ *     KeRevertToUserGroupAffinityThread @ 0x1402AA110 (KeRevertToUserGroupAffinityThread.c)
+ *     KiAcquireSecondaryInterruptConnectLock @ 0x14039E508 (KiAcquireSecondaryInterruptConnectLock.c)
+ *     __security_check_cookie @ 0x1403D2160 (__security_check_cookie.c)
+ *     KiRemoveSystemWorkPriorityKick @ 0x14056B960 (KiRemoveSystemWorkPriorityKick.c)
+ *     KiDisconnectSecondaryInterruptInternal @ 0x14056F5B0 (KiDisconnectSecondaryInterruptInternal.c)
+ *     KiSignalWaitDisconnectLock @ 0x140577CEC (KiSignalWaitDisconnectLock.c)
+ */
+
 __int64 __fastcall KiDisconnectInterruptCommon(int a1, __int64 a2, __int64 a3)
 {
   struct _KTHREAD *v4; // rcx

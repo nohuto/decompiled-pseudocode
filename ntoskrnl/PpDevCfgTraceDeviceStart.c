@@ -1,3 +1,11 @@
+/*
+ * XREFs of PpDevCfgTraceDeviceStart @ 0x140877368
+ * Callers:
+ *     PipSetDevNodeState @ 0x1402028D0 (PipSetDevNodeState.c)
+ * Callees:
+ *     PiDevCfgLogDeviceStarted @ 0x140874EF4 (PiDevCfgLogDeviceStarted.c)
+ */
+
 void __fastcall PpDevCfgTraceDeviceStart(_DWORD *a1)
 {
   bool v1; // zf

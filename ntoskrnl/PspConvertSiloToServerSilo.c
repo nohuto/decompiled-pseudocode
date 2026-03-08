@@ -1,3 +1,22 @@
+/*
+ * XREFs of PspConvertSiloToServerSilo @ 0x1409A9C14
+ * Callers:
+ *     NtSetInformationJobObject @ 0x1406FC3C0 (NtSetInformationJobObject.c)
+ * Callees:
+ *     PsIsCurrentThreadInServerSilo @ 0x1402459D0 (PsIsCurrentThreadInServerSilo.c)
+ *     PsIsServerSilo @ 0x140294E20 (PsIsServerSilo.c)
+ *     PsGetParentSilo @ 0x14067FE00 (PsGetParentSilo.c)
+ *     PspUnlockJob @ 0x1406FBF7C (PspUnlockJob.c)
+ *     PspLockJobExclusive @ 0x1406FC178 (PspLockJobExclusive.c)
+ *     PspJobHasChildren @ 0x140797584 (PspJobHasChildren.c)
+ *     ObpReferenceObjectByHandleWithTag @ 0x1407C2D40 (ObpReferenceObjectByHandleWithTag.c)
+ *     PspDeleteServerSiloGlobals @ 0x1409A9EC0 (PspDeleteServerSiloGlobals.c)
+ *     PspQueueDeferredWorkAndWait @ 0x1409AA20C (PspQueueDeferredWorkAndWait.c)
+ *     EtwTraceJobServerSiloStateChange @ 0x1409E27EC (EtwTraceJobServerSiloStateChange.c)
+ *     ObGetSiloRootDirectoryPath @ 0x140A711B4 (ObGetSiloRootDirectoryPath.c)
+ *     ExAllocatePool2 @ 0x140AAB5A0 (ExAllocatePool2.c)
+ */
+
 __int64 __fastcall PspConvertSiloToServerSilo(__int64 a1, __int64 a2, ULONG_PTR a3, char a4)
 {
   char v6; // r15

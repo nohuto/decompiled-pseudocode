@@ -1,3 +1,14 @@
+/*
+ * XREFs of VrpCreateNamespaceNodePlaceholderKey @ 0x140736FA0
+ * Callers:
+ *     VrpPreLoadKey @ 0x140735EB4 (VrpPreLoadKey.c)
+ *     VrpHandleIoctlCreateNamespaceNode @ 0x140736B44 (VrpHandleIoctlCreateNamespaceNode.c)
+ *     VrpHandleIoctlCreateMultipleNamespaceNodes @ 0x140A6F45C (VrpHandleIoctlCreateMultipleNamespaceNodes.c)
+ * Callees:
+ *     ZwClose @ 0x1404124F0 (ZwClose.c)
+ *     ZwCreateKey @ 0x1404126B0 (ZwCreateKey.c)
+ */
+
 __int64 __fastcall VrpCreateNamespaceNodePlaceholderKey(__int64 a1)
 {
   NTSTATUS v2; // edi

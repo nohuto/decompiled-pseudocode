@@ -1,3 +1,11 @@
+/*
+ * XREFs of ESM_ReclaimingTransfersAfterEndpointStop @ 0x1C000FA20
+ * Callers:
+ *     <none>
+ * Callees:
+ *     TR_ReclaimTransfers @ 0x1C000E940 (TR_ReclaimTransfers.c)
+ */
+
 __int64 __fastcall ESM_ReclaimingTransfersAfterEndpointStop(__int64 a1)
 {
   __int64 v1; // rbx

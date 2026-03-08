@@ -1,3 +1,12 @@
+/*
+ * XREFs of IsPTPInputEnabled @ 0x1C00EDB2C
+ * Callers:
+ *     RIMProcessAnyPointerDeviceInput @ 0x1C01D517C (RIMProcessAnyPointerDeviceInput.c)
+ *     RIMApplyPTPConfigRemedyWorker @ 0x1C01E1F68 (RIMApplyPTPConfigRemedyWorker.c)
+ * Callees:
+ *     <none>
+ */
+
 __int64 __fastcall IsPTPInputEnabled(__int64 a1, __int64 a2, __int64 a3, __int64 a4)
 {
   __int64 v4; // rdx

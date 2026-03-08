@@ -1,3 +1,18 @@
+/*
+ * XREFs of ?AllocatePagedLookasideList@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_KIII@Z @ 0x1C00C6824
+ * Callers:
+ *     ?HmgInitializeLookAsideList@@YAHKKKG@Z @ 0x1C002D210 (-HmgInitializeLookAsideList@@YAHKKKG@Z.c)
+ *     ?InitializeScanLookAsideList@RGNMEMOBJ@@SAHXZ @ 0x1C002D5A0 (-InitializeScanLookAsideList@RGNMEMOBJ@@SAHXZ.c)
+ *     Win32AllocPagedLookasideList @ 0x1C00D0440 (Win32AllocPagedLookasideList.c)
+ *     Win32UAFMAllocPagedLookasideList @ 0x1C017D0D0 (Win32UAFMAllocPagedLookasideList.c)
+ *     InitQEntryLookaside @ 0x1C031FF8C (InitQEntryLookaside.c)
+ * Callees:
+ *     ?Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z @ 0x1C0062994 (-Allocate@CLeakTrackingAllocator@NSInstrumentation@@QEAAPEAX_K0I@Z.c)
+ *     ?EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z @ 0x1C019B14C (-EnsurePoolTagIncrement@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NI@Z.c)
+ *     ?IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z @ 0x1C019B518 (-IsTagTracked@CLeakTrackingAllocator@NSInstrumentation@@AEAA_NIPEA_K@Z.c)
+ *     ?LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z @ 0x1C019C49C (-LookupInterlockedDecrement@CPointerHashTable@NSInstrumentation@@QEAA_NPEBX@Z.c)
+ */
+
 __int64 __fastcall NSInstrumentation::CLeakTrackingAllocator::AllocatePagedLookasideList(
         NSInstrumentation::CLeakTrackingAllocator *this,
         SIZE_T a2,

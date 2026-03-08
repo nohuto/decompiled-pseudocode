@@ -1,3 +1,11 @@
+/*
+ * XREFs of ?GetValueAt@?$LinearKeyframeAnimation@M@Particles@@QEBAMMAEBV?$span@M$0?0@gsl@@AEAV34@@Z @ 0x18023D4E4
+ * Callers:
+ *     ?AnimateSingle@?$LinearKeyframeAnimation@M@Particles@@UEBAXAEAV?$span@M$0?0@gsl@@00@Z @ 0x18023CD40 (-AnimateSingle@-$LinearKeyframeAnimation@M@Particles@@UEBAXAEAV-$span@M$0-0@gsl@@00@Z.c)
+ * Callees:
+ *     ?FindFirstFrameIndex@?$LinearKeyframeAnimation@M@Particles@@IEBAIM@Z @ 0x18023D38C (-FindFirstFrameIndex@-$LinearKeyframeAnimation@M@Particles@@IEBAIM@Z.c)
+ */
+
 float __fastcall Particles::LinearKeyframeAnimation<float>::GetValueAt(__int64 a1, float a2, __int64 a3, __int64 a4)
 {
   unsigned int FirstFrameIndex; // eax
